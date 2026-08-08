@@ -1160,7 +1160,13 @@ Layer 1, **emitter geometry: CITED-per-arena** — the Maps.arc decode makes per
 radii database facts, not free parameters. Layer 2, **arena selection: DECLARED** — which of the
 10 arenas a sitting ran is not DB-decidable (s2 favours `survivalworld_a`; lean) *(F-14/L-51: the
 selection domain is properly **16 (archive, map) pairs** over the 10 names; s1 selection of record
-`sm_mod/survivalworld_f`, archive-qualified)*. The sim carries
+`sm_mod/survivalworld_f`, archive-qualified)* *(L-53 — the loading-law probe RETURNED; the
+pre-registered CONFLICT branch FIRED: **sm1 supersedes sm_mod** for every duplicated resource path
+(behavioral citation, 3/3 cross-verified) → the live selection domain is the **10 LOADABLE pairs**
+(sm1 a–g, j + sm2 h, i); every duplicated sm_mod map copy is a SHADOW file. `sm_mod/survivalworld_f`
+is WITHDRAWN as selection of record; best LOADABLE fit `sm1/f` = 19.9°, OUTSIDE the ±15° instrument
+band → **s1 selection stays DECLARED, UNRESOLVED over the loadable enumeration** (legolas § 3.5
+ruling input adopted; R-L53-1))*. The sim carries
 the selected arena's cited geometry plus one player-spawn parameter; **`v_ref` is the sole free
 scalar** (L-46), ~~traversal-bounded 3.5–6.1 s (above)~~ *— R-L48-1: `v_ref` is bracketed per
 emitter class at § 10.9a D (K-1..K-3; the 3.5–6.1 s band is ambush-class only)*. This intersects R-KC2-7 cleanly: the sim
@@ -1203,7 +1209,9 @@ changes what the sim *reads*, so state the read precisely:
   reads: **the ARENA SELECTION is per-sitting; the positions inside a selected arena are cited.**
   Pooling remains a spec violation — but the thing that must not be pooled is now a choice among
   ten cited geometries rather than a free bearing set *(F-14/L-51: properly SIXTEEN cited
-  geometries — (archive, map) pairs over the 10 names; the choice carries `arena_archive`)*.
+  geometries — (archive, map) pairs over the 10 names; the choice carries `arena_archive`)*
+  *(L-53: of the sixteen, **TEN are LOADABLE** — the sm1-supersedes-sm_mod loading law (CITED)
+  marks the six duplicated sm_mod copies SHADOW; the choice set is the loadable ten)*.
 
 **MO-5 re-check rides this hook (F-12/C-4).** The § 12 MO-5 sim-side PASS was re-graded
 *provisional-on-geometry* at L-43 because it was earned on the uncited 30.0 m radius. The flag
@@ -1528,8 +1536,8 @@ which rule ran.
 | p05 ambush radius | **median 10.17 m** (n = 10, 1.70–17.15) | **LEVEL-CITED** | same |
 | patrol node set | 173 nodes, median **18.85 m** from their own centroid (max 30.07) | **LEVEL-CITED** | `kc2_crucible_patrolpoints.csv` (sha `106facba…`) |
 | reference frame | the `PatrolPoint_Attack` centroid — **not** `playerspawnpoint` | **LEVEL-CITED** | probe § 4.3 |
-| arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` — **F-14 (L-51): a MAP-NAME enumeration that UNDER-DETERMINES geometry**; the geometry keys on **16 (archive, map) pairs** (sm_mod 6 / sm1 8 / sm2 2; `survivalworld_f` p06 = 29.73 m in sm1 vs 40.35 m in sm_mod, 36 % apart) → `arena_archive` REQUIRED in `arena_ref` | **LEVEL-CITED** (names); archive-qualified at L-51 | probe § 4.2 · F-14 |
-| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation). **s1 selection of record (L-51): `sm_mod/survivalworld_f`** — L-46 bearing best-fit 11.8°, archive-qualified, the composite the sim already emits; map-file loading-law probe (legolas T2) in flight → upgrades DECLARED → CITED or flags conflict at the lap fold | § 10.6 layer 2 · F-14 |
+| arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` — **F-14 (L-51): a MAP-NAME enumeration that UNDER-DETERMINES geometry**; the geometry keys on **16 (archive, map) pairs** (sm_mod 6 / sm1 8 / sm2 2; `survivalworld_f` p06 = 29.73 m in sm1 vs 40.35 m in sm_mod, 36 % apart) → `arena_archive` REQUIRED in `arena_ref`. **L-53: loadability partition CITED — sm1 supersedes sm_mod; TEN pairs LOADABLE (sm1 a–g, j + sm2 h, i), the six sm_mod duplicates SHADOW; loadable c, d, e carry NO p05** | **LEVEL-CITED** (names); archive-qualified at L-51; loadability CITED at L-53 | probe § 4.2 · F-14 · L-53 micro-probe §§ 3–4 |
+| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation). ~~**s1 selection of record (L-51): `sm_mod/survivalworld_f`** — L-46 bearing best-fit 11.8°, archive-qualified, the composite the sim already emits~~; map-file loading-law probe (legolas T2) in flight → upgrades DECLARED → CITED or flags conflict at the lap fold **→ L-53: the probe flagged CONFLICT — `sm_mod/survivalworld_f` is a SHADOW file (sm1 supersedes; it never loads); selection-of-record WITHDRAWN. Best loadable fit `sm1/f` = 19.9°, OUTSIDE ±15° → s1 selection stays DECLARED, UNRESOLVED over the 10 loadable arenas. s2 survives loadably: w151 `sm1/a` 10.2° INSIDE (2 obs)** | § 10.6 layer 2 · F-14 · R-L53-1 |
 | scatter | `placementExtents = 8.0` m, all 925 proxies; **SIM-ROLLED** | **DB-CITED** | P-E6 § 2.3 / M-7 |
 | **length unit** | the **METRE** | **DB-CITED (Crate annotation)** | `travelSpeed` / `tailTravelSpeed` / `particleSpeed` / `textureSpeed` all declare *meters per second* |
 | `characterRunSpeed(a)` | per-record multiplier; band-A **n = 895, median 1.000**, mean 1.0358, range 0.60–2.00 (191 exactly 1.0; 311 below; 393 above) | **DB-CITED** | `kc2_s1_banda_record_inputs.csv` (sha `ac50ef77…`) |
@@ -1541,6 +1549,18 @@ which rule ran.
 | `disableMovement` | **ABSENT on 895/895** — nothing in band A is exempt from the movement manager | **DB-CITED** | probe § 2.5 |
 | collision / occlusion | `OPEN-PLANE — no blocking geometry modelled` | **DECLARED** (unchanged, M-10) | § 11.4 |
 | **`v_ref`** | **the SOLE free scalar of the whole locomotion surface** | **DECLARED**, bracketed in D | HALT-2 **CLOSED-BY-TYPE**; L-46 |
+
+*(L-53 — § 4.3 restatement, discharging hand-back P-4: the geometry surface is **sixteen decoded
+(archive, map) pairs, of which TEN are LOADABLE** — the sm1-supersedes-sm_mod loading law (CITED;
+behavioral citation + 3/3 cross-verification) marks the six duplicated sm_mod copies SHADOW.
+Loadable set: sm1 a–g, j + sm2 h, i (= `tagSurvivalArena_01…10`). Three loadable arenas — c, d,
+e — carry **NO p05 in either archive**: no ambush point exists there, so a run selecting them has
+no p05 lane at all. All decoded geometry is survivalmode1-era, **Edition-I pre-FoA**: sm3 declares
+tier-18/19/20 spawnpoints, so FoA re-ships arena maps that supersede these BY THE SAME LAW —
+NAMED-ABSENT in every pin (L-46 O-4 is now LOAD-BEARING; the survivalmode3 `Maps.arc` pull is a
+Matt action item, P-5 → `matt_to_do` at G-D close). One decoder defect on record:
+`sm1/survivalworld_j.map` tier-12 placement #340 dropped (1/7,473 = 0.013 %; tier 12 = waves
+111–120, arena j only — zero calibration impact).)*
 
 **`v_mob` enters DB-CITED ONLY.** There is no global monster speed. Each actor's speed is its own
 record's `characterRunSpeed` multiplier times **the same `v_ref`** the player's 135 % resolves
@@ -1675,7 +1695,9 @@ goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
    sim-kit-alone at waves 151–160 must clear **≤** fixture-with-defenses; faster ⇒ anomaly tripwire
    ⇒ finding — runs as a **second-geometry diagnostic**, not as a separate beat. Its value here is
    that s2 ran a **different arena** from s1 (§ 10.6 bearings; s2 leans `survivalworld_a`, s1's best
-   fit is `survivalworld_f`), so it exercises the movement rules against a **second cited
+   fit is `survivalworld_f`) *(L-53: on LOADABLE copies — s2 w151 `sm1/a` 10.2° inside band; s1's
+   `sm1/f` 19.9° outside; the two-arena premise survives the loading law)*, so it exercises the
+   movement rules against a **second cited
    geometry** — a generalisation test the s1 band cannot provide. It stays **INFORMATIVE**
    (R-KC2-2: s2 field outcomes inform, they do not bind) and it **cannot false-trip under a slow
    bias**, which is why it is safe to bundle. **N-exclusions apply here too** — w152 / w153 / w157
@@ -1748,7 +1770,17 @@ vs 40.35 m sm_mod — star-lord, measured). `arena_archive` is therefore REQUIRE
 The s1 selection of record is the archive-QUALIFIED bearing best-fit **`sm_mod/survivalworld_f`**
 (11.8°, L-46 — already the composite the sim seam emits); the MAP-FILE loading-law citation (does
 sm1's copy override sm_mod's under the last-wins stack?) is a legolas micro-probe in flight — its
-return upgrades selection DECLARED → CITED or flags a conflict at the lap fold.)*
+return upgrades selection DECLARED → CITED or flags a conflict at the lap fold.)* *(L-53 — the
+probe RETURNED: **CONFLICT.** sm1's copy DOES override sm_mod's — behaviorally cited (sm_mod
+`tier15waves.lua:99` ends the run at wave 150 via `eventFinished()`; sm1's copy deletes the call
+and `sm1/eventcontrol.lua:496` dispatches tier-16; the game demonstrably runs past 150; 3/3
+cross-verified: Lua tier ceiling · map spawn placements t01–17 · `.arz` tier16spawnpoint01
+declared only in sm1) — so `sm_mod/survivalworld_f` NEVER LOADS: **SHADOW file,
+selection-of-record WITHDRAWN.** Best loadable fit `sm1/f` = 19.9°, OUTSIDE the ±15° instrument
+band → no honest CITED upgrade exists; **s1 arena selection stays DECLARED over the 10 loadable
+pairs** (R-L53-1). Radii move materially under the law — 9 of 33 emitters shift > 10 % (f/p06
+40.35 → 29.73 m = −26.3 %; b/p01 −30.2 %) — so WHICH archive's radii the locomotion lap consumed
+is a named L-54 agenda item, adjudicated there.)*
 
 ### 10.10 Acceptance criteria
 
@@ -2242,7 +2274,9 @@ event_type ∈ { spawn, engage, damage_dealt, dot_tick, heal_tick, death,
     not landed here.)* *(L-51: LANDED — `arena_ref` + six radii + `path[]` at `28b578fe`; the
     enumeration corrected 10 map-names → **16 (archive, map) pairs** (F-14, 36 % divergence on
     `survivalworld_f`); s1 selection of record `sm_mod/survivalworld_f`, loading-law probe in
-    flight.)*
+    flight.)* *(L-53: the probe returned CONFLICT — the sm_mod copy is SHADOW (sm1 supersedes,
+    CITED 3/3); selection-of-record WITHDRAWN; s1 stays DECLARED over the 10 LOADABLE pairs,
+    best loadable `sm1/f` 19.9° outside ±15° (R-L53-1).)*
 12. **`config.encounter.bonus_spawn_p06` splits [M-1], and the fixture side is ~~MEASURED~~
     RULED-OFF.** `fixture_p06_state: false` records the L-37(b) ruling — MEASURED-NULL (hero band
     zero across 5,146 readouts, positive-controlled; F-10 OFF-operative). ~~`fixture_p06_state:
@@ -2496,7 +2530,7 @@ row-array events [S3, measured 18.06 → 7.84 MB, 2.3×].
 | **AC-11.7g** | `len(events.columns)` equals the length of **every** row in `events.rows` [S3 invariant]. |
 | **AC-11.8** | The MIGRATION entry exists, in the **current** `## [YYYY-MM-DD]` style, at the **top** of `export/MIGRATION.md`, carrying the explicit ADR-006 answer and the by-name list of dropped `fight_events` columns. |
 | **G-P06-GRADE** *(ADDED L-51)* | `fixture_p06_state_grade` ↔ `u9_bonus_spawn_state` ↔ p06-value cross-consistency — R-1's missing boundary guard, now two-sided: the revert `(True, "RESOLVED")` fires it. Enum `RULED-OFF \| MEASURED-OFF \| MEASURED-ON \| DEMOTED-OPEN \| UNKNOWN`, defaults RULED-OFF [L-37(b)]. |
-| **G-ARENA-REF** *(ADDED L-51)* | Two-layer `positions_provenance` object present · `arena_ref` present with `arena_archive` REQUIRED · enumeration intact against F-14's 16 (archive, map) pairs · F-12a radii invariant holds · geometry citation sha256-backed. |
+| **G-ARENA-REF** *(ADDED L-51)* | Two-layer `positions_provenance` object present · `arena_ref` present with `arena_archive` REQUIRED · enumeration intact against F-14's 16 (archive, map) pairs · F-12a radii invariant holds · geometry citation sha256-backed. *(L-53: the enumeration gains a loadability partition — 10 LOADABLE / 6 SHADOW (sm1 ⊃ sm_mod, CITED); the Phase-E emit MUST select a LOADABLE pair — a shadow `arena_archive` would pin geometry the game never loads. Guard extension rides the star-lord pre-Phase-E obligation.)* |
 | **G-LOCO-PATH** *(ADDED L-51)* | `path_model` named · `path[0]` ≡ spawn (REFUSED at build otherwise) · strictly ordered on `run_tick` · `t_s` derived, never a key [pin 4 / R-L51-1] · span reaches `engage_tick` · empty path FAILS. *(OBJ-1/R-L51-3: the post-engage window this span rule left to event rows is re-lawed to the UNION rule — validator extension is a named pre-Phase-E obligation, star-lord seam.)* |
 | **G-LOCO-ONE-TRAJECTORY** *(ADDED L-51)* | `path[]` + event-row positions are ONE trajectory, cross-checked — refuses to pass vacuously. *(OBJ-1 measured the as-landed cross-check skipping 339/385 monster-target rows outside the span, `baton_v1_validator.py:845`; the union re-law closes this under the same pre-Phase-E obligation.)* |
 
@@ -2676,7 +2710,9 @@ is improvised, estimated, or fetched externally.
 ~~emitter world positions (DECLARED free parameters, per-sitting sets, § 10.6)~~ **STRUCK at the
 L-46 fold — emitter geometry is CITED-per-arena (`Maps.arc` decode, § 10.6 layer 1); what remains
 declared is the ARENA SELECTION over a cited 10-member enumeration *(F-14/L-51: properly 16
-(archive, map) pairs over 10 names; the selection carries `arena_archive`)*, and the single
+(archive, map) pairs over 10 names; the selection carries `arena_archive`)* *(L-53: TEN of the 16
+LOADABLE — the six sm_mod duplicates are SHADOW under the CITED loading law; selection DECLARED
+over the loadable ten)*, and the single
 player-spawn parameter** · mutator identities
 (OUT-OF-MODEL, **six** glyphs confirmed, 25-pool prior, § 10.3) · `maxGroupSize` concurrency
 semantics (safe model, start anchor measured, § 10.6) · Shifting Sands host delegation (DUAL-BOUND,
@@ -3027,7 +3063,15 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   (Revenant summoner-candidates rostered at w153 p03; citation probe queued); 16,368
   NOT-HOSTILE, struck. Crabling: CLOSED-UNBINDABLE — plate saturated FULL on all 4 hover
   frames, ≥ 5 parsed bodies ≥ 0.988; the low band neither confirmed nor excluded. F-9's no-op
-  disposition UNCHANGED.)*
+  disposition UNCHANGED.)* *(L-53 — the citation probe RETURNED CLOSED-DB-CITED: w153 p03 slot 4
+  rosters **Death Revenant** (`skeleton_d01.dbr`, Champion, limit 2 per point), whose
+  `skillName7` generator spawns `skeleton_a02_summon.dbr` = **Skeletal Archer** at
+  **petLimit = 4** — the sm_mod overlay's declared cap ("max number of pets alive at any given
+  time", Crate template verbatim; burst 2, period 6.0 s, TTL 30 s → cap at t ≈ 6 s and held).
+  **Observed ×4 = the declared cap EXACTLY — w153's mechanism limb SOLVED, SUMMON-CITED.**
+  Summoned bodies stay OUT-OF-MODEL this run (baton `count_model` declares them); F-9's no-op
+  disposition still UNCHANGED — the excess is F-13's, and its w153 share now has a cited
+  mechanism.)*
 
 ### F-10 — AC-10.4's regular-count pins were computed by the roster-blind pin-era model — pins re-graded SUPERSEDED-PROVENANCE; the CITED + no-op model is the count model of record
 
@@ -3136,7 +3180,17 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   contrast gate caught 1 of 2 — plates must be eye-read) and bar_hue purity is a
   scene-brightness statistic erring BOTH directions (0.54 on a red body; 0.75–0.87 on the green
   entity). The mechanism-adjudication piece stays QUEUED — it folds with the summon-citation
-  return.)*
+  return.)* *(L-53 — the summon-citation RETURNED: chain CLOSED-DB-CITED (w153 p03 → Death
+  Revenant → archer generator → `skeleton_a02_summon` "Skeletal Archer"; **petLimit 4 = the
+  observed ×4 EXACTLY**; ceiling 8 under limit-2 Revenants). **w153's mechanism limb SOLVED.**
+  w152's limb stays OPEN — the probe's 7/429 BFS was ARCHER-specific; w152's archer-reaching
+  summoners sit in p06 hero pools (RULED OFF, L-37(b)); non-archer generators are un-enumerated.
+  w157: a rostered golem-summoner candidate at p04 (`skeletalgolem_b01`, petLimit 4; legolas
+  § 2.3) plausibly covers its +1/+2.62. Summons stay OUT-OF-MODEL this run — a second body
+  source orthogonal to rosters (per-summoner petLimit, not per-pool spawnMin/Max), declared in
+  baton `count_model`; modelling it is a next-lap pre-registration item. The mechanism
+  adjudication is COURSE work and fires AFTER the L-54 lap fold (the lap's p05-cadence finding
+  bears on mechanism (ii)).)*
 - **One census-count note for Gate-2:** § 10.5 fact 3 says 74/**632** pools; the sidecar registry
   counts 74/**635** (F-9's own text uses 635). The 632-vs-635 denominator delta is unresolved in
   this spec — a one-line verification item, not material to any count above.
@@ -3275,7 +3329,14 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   discriminator regains power through IDENTITY: the citation question is now concrete — do the
   Revenant records rostered at w153 p03 `skeletonrevenant_t3` carry a summon skill referencing
   `skeleton_a02_archer.dbr`? Corpus-wide un-rostered: Crabling (w152) · Aleksander's Shard
-  (w160, SUMMON) · Skeletal Archer (w153, ×4).)*
+  (w160, SUMMON) · Skeletal Archer (w153, ×4).)* *(L-53: ANSWERED YES, by one indirection — the
+  pool's slot-4 record Death Revenant carries `skillName7` = a Skill_MonsterGenerator whose
+  `spawnObjects` = `skeleton_a02_summon.dbr` ("Skeletal Archer"; `_summon` vs `_archer` differ 1
+  field/938, eHP-neutral). Skeletal Archer w153 re-grades un-rostered → **SUMMON-CITED**,
+  petLimit 4 = the ×4. The identity route restored the discriminator's power where
+  level-inheritance had none — the pet spawns AT wave level (two corroborations: the L104–105
+  band; L-33's w160 archer L109 eHP 41,237 EXACT), which is exactly why level could not
+  discriminate.)*
 - **Star-furniture ≠ champion count (§ 1.4 category-error correction):** regular rosters carry
   champion- and hero-ranked RECORDS on 4/5 waves — rank is a property of the monster record, not
   of the proxypool limb that drew it. AC-10.4's 63.00 counts `nameChampion{j}` DRAWS; star-pairs
@@ -3349,7 +3410,9 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   under-enumerated w153's trash pools — four, not two (+ `wendigo_t3` p01,
   `skeletonrevenant_t3` p03) — neither silent case occurred, and the Revenant pool is now the
   summoner-candidate. B3–B5 UNIDENTIFIED (degenerate / no-plate; the ×4 independently
-  reproduced by damage-state banding).)*
+  reproduced by damage-state banding).)* *(L-53: summoner-candidate CONFIRMED-CITED — the Death
+  Revenant chain closed at petLimit 4 = the ×4; SUMMON indicated → **SUMMON-CITED**. The F-13
+  note carries the § 10 marker; full mechanism adjudication is COURSE work post-L-54.)*
   (2) `Ugdenbog Crabling` fingerprint binding (a low-cluster binding makes w152's un-rostered
   population seven-bodies-from-one-point, killing CONJURE's 1-body prediction). *(L-50:
   CLOSED-UNBINDABLE — plate saturated FULL on all 4 hover frames, ≥ 5 parsed bodies ≥ 0.988;

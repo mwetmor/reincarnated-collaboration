@@ -595,3 +595,43 @@ Dispositions against this note's own claims:
 
 *Addendum by the conductor at the L-52 fold, 2026-08-08. Where § 5/§ 6/§ 8 claims are
 superseded, this addendum governs.*
+
+## 10. L-53 MARKER — the summon-citation returned (conductor, corrigenda-forward; §§ 0–9 above are unedited record)
+
+The § 9 line "it folds with the summon-citation return" discharges here. The legolas
+summon+maploader micro-probe (`legolas/notes/2026-08-08-kc2-summon-maploader-microprobe.md`)
+returned T1 **CLOSED-DB-CITED**:
+
+- **w153's mechanism limb is SOLVED — SUMMON-CITED.** Chain: w153 p03 `skeletonrevenant_t3`
+  slot 4 rosters **Death Revenant** (`skeleton_d01.dbr`, Champion, `limit4 = 2` per point);
+  its `skillName7` = Skill_MonsterGenerator; `spawnObjects` = `skeleton_a02_summon.dbr` =
+  **"Skeletal Archer"** (Common; `_summon` vs `_archer` differ 1 field/938, eHP-neutral).
+  **petLimit = 4** (sm_mod overlay 6 → 4; Crate template verbatim: "max number of pets alive
+  at any given time"; burst 2, period 6.0 s, TTL 30 s → cap reached t ≈ 6 s and held).
+  **Observed ×4 = the declared cap EXACTLY.** Ceiling 8 under two limit-2 Revenants. Pet
+  LEVEL is NAMED-ABSENT in the DB; two corroborations put archers AT wave level (L104–105
+  band; the w160 archer L109 eHP 41,237 EXACT, L-33) — which is why the level-inheritance
+  discriminator had no power on 151–158: identity, not level, closed it.
+- **w152's limb stays OPEN.** The probe's exhaustive BFS (7/429 monsters reach a Skeletal
+  Archer) was ARCHER-specific; non-archer generators are un-enumerated, and w152's
+  archer-reaching summoners sit in p06 hero pools — RULED OFF (L-37(b)). Candidates for the
+  +10: non-archer generators (a cheap legolas extension if the adjudication wants it) · p05
+  replenishment · trash multiplicity.
+- **w157 candidate named:** `skeletalgolem_b01` rostered at p04 carries a golem generator
+  (petLimit 4; probe § 2.3) — plausibly its +1/+2.62.
+- **Structural point (probe § 2.4):** `skeleton_a02_summon` is rostered in NO pool. Summons
+  are a **second body source orthogonal to rosters**, gated by per-summoner `petLimit`, not
+  per-pool `spawnMin/Max` — one Death Revenant licenses up to 12 un-rostered bodies (archer +
+  warrior + knight generators, petLimit 4 each). § 2.1's count-model taxonomy gains its
+  citation.
+- **Disposition this run:** summoned bodies stay **OUT-OF-MODEL**, DECLARED in baton
+  `count_model` provenance — adding a summon model mid-run is re-pinning (standing safety #1);
+  modelling is a next-lap pre-registration item.
+- **The § 9 champion-composition branch ruling** (slot-conserved vs additive-champion) and
+  mechanism (ii) p05-replenishment both ride the **mechanism adjudication, now COURSE work,
+  firing AFTER the L-54 locomotion-lap fold** (the lap's p05-cadence localisation bears on
+  (ii)).
+
+*Marker by the conductor at the L-53 fold, 2026-08-08. The adjudication itself is deferred,
+not this citation: where § 5 decider (1)'s "summon-or-conjure" branch read SUMMON *indicated*,
+it is now SUMMON **CITED**.*
