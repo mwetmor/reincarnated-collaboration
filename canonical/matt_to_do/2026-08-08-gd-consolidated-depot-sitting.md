@@ -52,3 +52,28 @@ On intake: legolas SHA-pins + inventories every file (standing pattern from the 
 
 **Not blocking the run's current beats:** the Gate-2 verdict fold, mechanism adjudication, G-D
 close, and Phase-E seeded-batch prep all proceed without it — only the EMIT blocks.
+
+---
+
+## ✓ DONE 2026-08-08 — struck by Matt under ruling R-T15-1 (the Edition-III cut)
+
+The pre-fetch gate found **PIN DRIFT** (client v1.3.0.5 vs corpus 1.3.0.0): the residual fetch
+this file scoped would have produced a **hybrid corpus** — v1.3.0.5 archives over 1.3.0.0 records.
+Matt cut **Edition-III whole** instead: `/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/`
+— 38 data files, 3.4 GB, buildid 24619876 (patched 2026-08-07T19:33Z); predicted manifest table
+(`depot.pins.predicted.txt`) registered pre-fetch, scored **8/8**; `templates.arc` PRESENT;
+Levels ×4 · Maps ×4 · Scripts ×8 · Creatures ×5 incl. gdx3. Closes T10-depot + T12 + T13 with
+this row.
+
+- **FINDING A** — manifest-pin premise validated bidirectionally (changed ⇒ differ 7/7;
+  unchanged ⇒ identical 1/1; T7's converse 11/11); public PICS mirror == authenticated read 8/8
+  ⇒ no-auth corpus-drift detection going forward → jack-ryan decisions-log candidate.
+- **FINDING B** — the corpus MOVED under the live run (`database.arz` + `SurvivalMode3.arz` +
+  Text_EN changed; only `SurvivalMode2.arz` identical) → **R-KC2-9 (Matt):** KC2 results are
+  Edition-II-scoped (correct for fixture explanation — both sittings predate the patch);
+  **G-STATS reads Edition-III; the baton emit stays PARKED until it does.**
+- Intake (SHA-pin + inventory, T7 pattern) + record-granularity II→III diff commissioned to
+  legolas at fold **L-59**. Edition-II tree verified untouched (16/16 SHA); Edition-I freeze
+  untouched.
+
+**Fold:** KC2 ledger L-59, `agentic_orchestration/gandalf/notes/2026-08-07-kc2-sim-run-ledger.md`.
