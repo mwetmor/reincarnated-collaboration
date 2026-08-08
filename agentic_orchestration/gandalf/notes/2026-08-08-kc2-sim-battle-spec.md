@@ -2156,15 +2156,34 @@ baton/v1
 │                  sim_module_version, seed, rng_algorithm,
 │                  tree_state_policy, tree_state_untracked_entries_outside_src }  [R-8, R-9, CD-2]
 │                # engine_tree_state ∈ {clean, dirty}; "unknown" sha is a HARD STOP
-│                # CD-2 fields (L-42): tree_state_policy — string enum, NULLABLE default null
-│                #   (pre-ruling batons load honestly as "policy not recorded"); five values,
-│                #   exhaustive by construction: "code-surface-v1" (ruled default: dirty ⟺ any
-│                #   tracked modification OR any untracked path under src/) | "any-change-v1" |
+│                # CD-2 fields (L-42; AMENDED L-71 per Matt R-KC2-11): tree_state_policy — string
+│                #   enum, NULLABLE default null (pre-ruling batons load honestly as "policy not
+│                #   recorded"); ~~five~~ SIX values, exhaustive by construction:
+│                #   "code-surface-v2" (RULED DEFAULT — Matt R-KC2-11 option (a+): dirty ⟺ any
+│                #   tracked modification OR any untracked path under src/ EXCLUDING the exclusion
+│                #   set src/**/output/ — any directory named `output` at ANY depth under src/,
+│                #   per the ruling's glob; NOT merely src/reincarnated/output/ — the bulk of
+│                #   exhaust lives at .../simulation/output/, the misread gamora's § 1.2 self-catch
+│                #   priced) | "code-surface-v1" (superseded default 2026-08-08; dirty ⟺ any
+│                #   tracked modification OR any untracked path under src/; still selectable for
+│                #   lineage reproduction of pre-ruling batons) | "any-change-v1" |
 │                #   "tracked-only-v1" | "declared-override" (fixture hook, log.warning, never
 │                #   selectable) | "unavailable" (git unreachable → forced dirty, never selectable).
-│                # tree_state_untracked_entries_outside_src — int ≥ 0, NULLABLE; set only under
-│                #   code-surface-v1. ENTRIES not files (porcelain -unormal collapses untracked
-│                #   dirs). See F-11 (§ 14): code-surface-v1 grades THIS repo dirty by construction.
+│                # tree_state_untracked_entries_outside_src — int ≥ 0, NULLABLE; set under
+│                #   code-surface-v1 AND -v2 (the name is the contract per #67: counts entries
+│                #   OUTSIDE src/, a policy-independent measurement — R-L71-1 kept it literal).
+│                #   ENTRIES not files (porcelain -unormal collapses untracked dirs). See F-11
+│                #   (§ 14, RULED).
+│                # tree_state_untracked_entries_excluded — int ≥ 0, NULLABLE; ADDED L-71
+│                #   (R-L71-1, ADDITIVE-NULLABLE — CD-2's own schema pattern): set only under
+│                #   code-surface-v2; counts untracked entries under the policy's exclusion set
+│                #   (src/**/output/), so the largest non-dirtying class leaves evidence on the
+│                #   baton instead of vanishing (the defect G-CD2-POLICY's v1 branch prevents,
+│                #   preserved under v2). No count pinned here — the exhaust moves as the sim
+│                #   runs (census invariance proof: [B]/[C] moved 2521→2530 mid-pytest while
+│                #   [D]/[F] held). Partition arithmetic IS the contract: total untracked =
+│                #   outside_src + excluded + in-surface; clean ⟺ in-surface == 0 AND zero
+│                #   tracked modifications.
 ├── config
 │   ├── fixture   { name: "EoRWarlGuts", build_of_record: "b28gD0KN",
 │   │               eor_rank_total: 26, identity_grade: "MEASURED",
@@ -3312,8 +3331,17 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
 
 ### F-11 — `code-surface-v1` grades this repo dirty by construction (tree-state policy; star-lord Phase-D, folded L-42)
 
-- **Status:** OPEN — policy fork to Matt at the Phase-E touch (R-KC2-5 agenda); `code-surface-v1`
-  STANDS until ruled.
+- **Status:** ✓ RULED 2026-08-08 (Matt, **R-KC2-11**, option **(a+)** — ruled ahead of the Phase-E
+  touch, off the agenda): `code-surface-v2` = `src/` minus `src/**/output/`, PLUS dispose the 10
+  residual entries; target `engine_tree_state: clean`, FULL-capable. Disposition lap EXECUTED
+  (gamora, folded L-71): census 10/10 zero-delta vs Matt's count, 2 .py adjudicated per the ruling's
+  own test (1 COMMITTED `d525fd05` — the repo's only falsifier of the live boss-scale guard;
+  1 RELOCATED to `scripts/` byte-identical — provably NOT the producer of production's 48.0),
+  WAL/shm + telemetry backup .gitignored (`396aa4ad`), 5 notes committed (`97fb8f65`). Tree grades
+  **clean** under v2 ([D]=0, [F]=0; mid-pytest invariance proven) and AC-11.4e FULL-capability
+  PASSES read-only. Plumbing owed: spec enum AMENDED (§ 11.4, L-71) → star-lord implements v2
+  across `baton_v1_{schema,emitter,validator}` (HB-2 commission) incl. the R-L71-1 evidence field.
+  Until that lands an honest emitter still reads v1 → dirty → non-FULL.
 - **Finding.** The ruled policy (dirty ⟺ any tracked modification OR any untracked path under
   `src/`) implemented literally grades THIS repo dirty in perpetuity: the engine's runtime artifact
   directory IS `src/reincarnated/output/`. Star-lord measured 2,403 untracked entries with 2,393
@@ -3327,7 +3355,7 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
 - **The 10 non-output entries** (conductor enumeration, evidence-by-reference to L-42): 1 export
   delta note, 2 generation notes, 2 simulation math notes, 2 simulation scripts, 1 telemetry
   backup, 2 telemetry-seed WAL/shm files. All notes/artifacts, zero code.
-- **Options (fork):** **(a)** `code-surface-v2` = `src/` minus `src/**/output/` — conductor lean:
+- **Options (fork — RESOLVED (a+) per R-KC2-11; retained as pricing lineage):** **(a)** `code-surface-v2` = `src/` minus `src/**/output/` — conductor lean:
   the artifact dir is the sim's own exhaust; excluding it makes the policy measure the code surface
   its name claims. **(b)** keep v1, emit non-FULL honestly. **(c)** demand a clean tree at emit —
   fragile: the sim dirties its own tree by running.
