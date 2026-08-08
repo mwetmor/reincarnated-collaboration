@@ -17,6 +17,9 @@
 | ARR instrument (READ-ONLY) | `…/simulation/scripts/gamora_kc2_arr_repass_ed3_2026_08_08.py` |
 | § 8.4 + F-L7 annotations (item 7) | `agentic_orchestration/gamora/notes/2026-08-08-kc2-locomotion-lap.md` (banner) |
 
+**Commits (NEITHER REPO PUSHED — conductor centralises under R-KC2-10):**
+engine `main` **`c17f0791`** · meta `main` **`2792291b`**
+
 **Smoke (Discipline #2):** `test_kc2_opposition_wave_engine` + `test_kc2_locomotion` + `test_kc2_s1_ramp`
 + `test_kc2_micro_oracles` + `test_baton_v1` → **225 passed / 0 failed, 32.62 s.**
 **No production code was touched.** No pin moved, no constant changed, no test edited. G-STATS PARKED.
