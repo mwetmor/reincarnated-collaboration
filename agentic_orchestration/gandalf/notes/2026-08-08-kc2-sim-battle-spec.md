@@ -1314,8 +1314,10 @@ waves go 0 → 8-of-10. **Inflection ≈ wave 150: a volume test before, a boss 
 
 **Wave 160 is the first wave in the Crucible to put three independent nemesis rolls + a superboss +
 a hero on the board simultaneously with zero trash.** It is also the wave that killed the fixture —
-**death at t = 864.75, 25.88 s into the wave** (L-23; the earlier 943.60 / "104.73 s" read was the
-post-death menu view, corrected on the hourglass + UI-clear evidence).
+**killing blow at t = 864.7500 (17,887 = 89.4 % of max health in ONE frame), HP-zero at t = 864.8167;
+wave-160 span 838.87 → 864.82 = 25.95 s** (L-23, refined frame-by-frame at L-77 / Rider-2 eye-read:
+the L-23-era "864.75 / 25.88 s" was the killing-blow anchor, now DISAMBIGUATED from the HP-zero anchor —
+use HP-zero for span arithmetic; the earlier 943.60 / "104.73 s" read was the post-death menu view).
 
 | point | pool | picks | `ignoreGameBalance` |
 |---|---|---|---|
