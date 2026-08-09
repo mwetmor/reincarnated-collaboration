@@ -239,6 +239,32 @@ zero here would silently mean *"dies on first coverage"* — a claim, not an abs
 
 ---
 
+> ## ⚑ CORRIGENDA-FORWARD BANNER — added 2026-08-08 after Gate-2 (verdict **L-70**, PASS-WITH-FINDINGS)
+>
+> **This note STANDS as the as-executed record of the fold. Three of its claims have been corrected
+> or completed since, and the corrections live at
+> `agentic_orchestration/gamora/notes/2026-08-08-kc2-gate2-repair-bundle.md`. Nothing below is
+> retro-edited.**
+>
+> 1. **§ 2 / § 9's `4.736 %` level bracket is RETIRED → `3.3056 %`** (Gate-2 **F-2**, #64 BASIS
+>    FORM). The figure was a pre-correction (per-POOL) snapshot; the board was re-emitted under the
+>    per-SLOT correction and the magnitudes derived from it were not re-stated. **Five further
+>    magnitudes in the same block moved** and are re-stated in the repair bundle § 2.2: median lo
+>    298,651 → 311,447; Σ lo 349,743,635 → 353,123,210; Σ hi 366,306,626 → 364,796,031; TTK DB
+>    72.99 s → 76.12 s; TTK SHEET 0.4080…0.5580 s → 0.4254…0.5819 s. The **×130.8…×178.9 ratio is
+>    INVARIANT** and stands. **The BOARD was never in question** — Gate-2 reproduced it
+>    independently (102/102 eHP cells, 1934/1934 comparisons). The errors were **conservative** in
+>    every limb.
+> 2. **§ 6.1's citation of `test_kc2_s1_ramp.py:322` is CORRECTED** (Gate-2 **F-5**). It pins
+>    `KILL_TIME_GRADE` (`calibration.py:318`, a module constant), **not** `run.py:524`'s composition
+>    token. **ONE pin protects that token — `test_kc2_locomotion.py:530` — and it is `.startswith`
+>    prefix-only.** The decision not to rename stands; the evidence for it was half wrong.
+> 3. **§ 6's *"UNRESOLVED rows: none. Every hit is dispositioned"* was TRUE OF THE TABLES AND FALSE
+>    OF THE SWEEPS** (Gate-2 **F-3**, #72 clauses 4+5). **Ten fold-time surfaces were un-rowed**,
+>    including production code in my own seam (`run.py:219,283`) and this note itself. All ten are
+>    rowed with reasons in the repair bundle § 3, along with a population statement and **one
+>    published row of § 6.2 that was wrong** (the `banner-annotated at the C-1 lap` claim).
+
 ## 6. ITEM 6 — the #72 sweeps. MECHANICAL, output pasted, sets declared
 
 **Declared set (both sweeps).** Roots: `reincarnated-engine/{src,tests,design}` +
