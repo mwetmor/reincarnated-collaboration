@@ -30,10 +30,21 @@ documentary — the same treatment L-79(e) got. The re-law is on the wire twice:
 countersign: *`actors[].path[]` is SIM-RECORDED, VERTEX-COMPLETE; linear interpolation between
 knots IS the sim's position function, not an approximation of it.*
 
-③ **`calibration_grade: FULL` at a clean committed tree.** The mechanism is built and it WORKS —
-`build_baton` refused `FULL` on my working tree with `AC-11.4e: engine_tree_state == 'dirty'`, which
-is the guard doing its job on me. FULL was never claimed, because it was never earned: the emit is
-refused upstream of the grade.
+③ **`calibration_grade: FULL` at a clean committed tree — DEMONSTRATED, then refused anyway.**
+Two measurements, in order. First, on my working tree, `build_baton` refused FULL with
+`AC-11.4e: engine_tree_state == 'dirty' (tree_state_policy='code-surface-v2')` — the guard doing
+its job on me. Then, at engine **`1ef5919a`** with the tree measuring
+`clean · code-surface-v2 · outside_src 134 · excluded 2619`, the real emit ran the whole pipeline
+at FULL and was **refused by the gate wall alone**:
+
+```
+EMIT REFUSED — the baton of record was NOT written.
+  62/66 green — VALIDATOR 31/32 · G-STATS 1/1 · G-E 30/33
+```
+
+That is the sharpest form of AC-11.4e I can report: **the grade was genuinely earnable and the
+artifact still did not ship**, because the grade is a statement about the tree and the gates are a
+statement about the artifact. Nothing was written; `src/reincarnated/output/` holds no baton.
 
 ④ **`spec_pin` — computed, and reported here rather than emitted.**
 
