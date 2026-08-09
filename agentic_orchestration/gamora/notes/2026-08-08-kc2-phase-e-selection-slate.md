@@ -107,8 +107,30 @@ Wall detector reproduced **verbatim** from the driver (`wall_detection`, math no
 | 10 | `E-s10-cp150` | 167 | 8 | 1.7059 | 91.379 | 29.0 | 17.0 | `arena_tier_exhausted` / INSTRUMENT | ADMISSIBLE-BY-DECLARATION (R-KC2-13) |
 
 **TOP-3:** `E-s09-cp150` · `E-s01-cp150` · `E-s03-cp150`
-**TOP-1:** **`E-s09-cp150`** (conductor-seed 9, `seed_first_wave` 601 008, arena `sm1/survivalworld_a`,
-waves 151–170, terminal `arena_tier_exhausted` @ 171).
+**TOP-1:** **`E-s09-cp150`** (conductor-seed 9, `seed_first_wave` ~~601 008~~ **751 008**
+[⚑ CORRIGENDUM, below], arena `sm1/survivalworld_a`, waves 151–170, terminal
+`arena_tier_exhausted` @ 171).
+
+> **⚑ CORRIGENDUM — added 2026-08-08 at the R-L80-2 knot commission. ANNOTATION, NOT A REWRITE.**
+> The `seed_first_wave` printed above as **601 008** is wrong for this row. The seed law is
+> `engine_seed(c, w) = 600_000 + w×1000 + (c−1)`, and this run's first wave fought is **151**
+> (checkpoint-150 start), so its first-wave seed is `600_000 + 151×1000 + 8` = **751 008** — which
+> is also what the committed artifact carries. **601 008 is `E-s09-w1`'s first-wave seed**: a
+> transcription carry from the wave-1 limb onto the cp150 row, in this note only.
+>
+> **Nothing downstream consumed the wrong value.** The driver computes the seed from its own law;
+> star-lord's adapter *imports* `engine_seed` rather than reading this note; and the seed is not an
+> input to any filter, rank key or tie-break, so no arithmetic on this page moves. Raised by
+> star-lord (`star-lord/notes/2026-08-08-kc2-f5-adapter.md` § 5), accepted by the conductor at
+> **L-80(d)**, which routed the annotation here — my note, my edit. The corrected value is now
+> pinned by `test_the_driver_names_the_corrected_seed_and_not_the_slate_notes_transcription`
+> (`tests/test_kc2_actor_path_knots.py`), which asserts **both** numbers so the confusion cannot
+> recur silently: `engine_seed(9, 151) == 751008` **and** `engine_seed(9, 1) == 601008`.
+>
+> The § 3 table above carries no seed column, so this is the only cell affected in this note.
+> The re-run fired for the knot commission reproduced this row's every emitted quantity EXACTLY
+> against the committed artifact (`gamora/notes/2026-08-08-kc2-sim-knots.md`), so the slate's
+> arithmetic is re-verified, not merely undisturbed.
 
 **Tiebreak-2 was never reached.** Every `|W*−159|` tie (the six-run W*=156 group; the three-run W*=167
 group) resolved on tiebreak-1 — no two runs share a ratio. Uptime is reported for completeness only.
