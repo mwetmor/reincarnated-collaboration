@@ -283,6 +283,11 @@ the object I was reporting about.
 Blast radius **enumerated** (Discipline #10): the 5 test files referencing `baton_v1` /
 `kc2_run_adapter` / `kc2_baton_emit` run **186/186**.
 
+**Full engine suite: `10,443 passed / 63 failed / 21 errors` (22 m 22 s).** The red tree is
+**EXACTLY the L-74(d) non-gating baseline — 63 F / 21 E, zero regression**; passed moves
+10,400 → 10,443 = the baseline + gamora's 29 knot tests (`e062d058`) + my 14. **Zero baton,
+adapter or emit failures** in the red tree (grepped, not assumed).
+
 Five of the new tests are **HALT PINS** — they assert a KNOWN-RED state (12 clipped legs of one
 class; 272/342 box-vs-disc; the six hit-test offenders at `path[0]`; the union's unreachability;
 the wall naming exactly four reds and 62 greens). **They are meant to break when the halt is
