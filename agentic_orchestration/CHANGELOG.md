@@ -4,6 +4,35 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-10 — F0 LAW HARVEST: the runs' minted rules codified into standing law (gandalf)
+
+Phase **F0** of the software-factory program discharged: `operating-procedures/run-minted-law.md`.
+The BR-1/BR-2, WR1–WR3 and KC2-SIM runs each ended with rulings that outlived them but lived only
+inside their own charters and ledgers — findable by whoever was in the run. F0 lifts the durable
+fraction out and gives it stable IDs, each row carrying its lineage back to the run-local rule and
+the file that minted it. **Four law-sets, because the runs minted four kinds of rule:**
+**`GL-1…19`** Godot implementation law (substrate→presentation; the ten KC2 baton-consumer semantics
+as binding law; composition/colour/camera) · **`FL-1…9` + `FG-1…19`** gate law and the gate catalogue
+(FG-7…19 are the run-minted extensions to the spine spec's inherited six — digest verification,
+subprocess `returncode == 0` before output may be read, ffprobe-before-promotion, determinism
+assertion with its covered-layer rider, noise-floor declaration, declarations-present, absences-named
+— **each with the falsification test FL-3 requires**) · **`CL-1…13`** conduct law (the split cell at
+13 tool calls vs 129–278; commit-after-every-item; the per-landing law carried verbatim) ·
+**`EL-1…5`** eye law — what the factory may **never** compile, headed by the owner's eye as
+instrument of record and *playtest-readiness is a milestone gate at Matt's hands, never an emit gate.*
+
+Three registers keep the harvest honest: **reversals** (do not resurrect R-BR-3 or the Addendum-7
+clip ruling), **deliberately-not-promoted** (scene-local content rulings, and Matt-signed constants
+which stay in the game tracker's locked grammar — pointed at, never copied, per the OP↔skill
+twin-drift precedent), and **NOT-HARVESTED** — rules not read in this pass, declared rather than
+silently omitted, since a law-set that quietly omits is indistinguishable from one that quietly
+invents. Generalizations are stamped `[gen]` so they can be contested. One correction filed against
+the strategy doc's own § 1 (it paraphrased the per-landing law and omitted its operational form).
+Recommended F1 v1 gate slice recorded veto-open; star-lord rules at build. jack-ryan ratification
+rides the same sitting as the strategy doc and the desirable-run-pattern amendments.
+
+---
+
 ## 2026-08-10 — Software Factory strategy ruled (D1–D5) · factory + minigame-editor canon authored · two build contracts cut (gandalf, Matt-ruled)
 
 Matt ruled the whole-workflow strategy fork: **compile in-house** — the factory this team already

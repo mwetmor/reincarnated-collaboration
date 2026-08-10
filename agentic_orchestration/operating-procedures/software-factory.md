@@ -125,7 +125,7 @@ readers: the KC2 baton discipline, generalized.
 
 | Phase | Content | Owner |
 |---|---|---|
-| **F0** | **Law harvest** — codify the BR/WR/KC2 minted rules (R-BR-51…57, per-landing law, split-cell economics) into *godot implementation law* + factory gate definitions. Separate artifact, gandalf-owed, next after this unit. | gandalf |
+| **F0** | ✓ **DONE 2026-08-10 — `operating-procedures/run-minted-law.md`.** Law harvest: the BR/WR/KC2 minted rules codified into four law-sets — **GL-1…19** (godot implementation law, incl. the ten baton-consumer semantics) · **FL-1…9 + FG-1…19** (gate law + gate catalogue; FG-7…19 are the run-minted extensions to Spec A § 4's six, each with the falsification test FL-3 requires) · **CL-1…13** (conduct law — the split cell, commit-per-item, the per-landing law verbatim) · **EL-1…5** (what never compiles). Carries a reversal register, a deliberately-NOT-promoted register, and a NOT-HARVESTED declaration. Recommended F1 v1 gate slice at its § 2.2 (veto-open; star-lord rules at build). | gandalf |
 | **F1** | **Spine + one ported workflow.** Build `factory/` per Spec A; port the baton-scene MECHANICAL cells (digest gate, ffprobe gate, headless test wall) to run under it. **Founding-run lean (veto-open): the KC2 baton scene build proceeds AS the factory's founding run** — charter per desirable-run-pattern § 3 fit test (bounded substrate: the baton @ `d7ecd866…`; decidable target-state; pre-drainable forks; authority-resident), Rider-1 boundary respected verbatim. | star-lord (spine) · run charter separately |
 | **F2** | **Codex pilot** — L1 baton consumer built by a Codex worker from the handoff note's ten semantics, judged **differentially against `export/baton_v1_stub_consumer.py`** (the executable reading). Strictly-codified implementation = the right first Codex use case *because the referee already exists*. Blocked on T16. | star-lord lane · gandalf judges |
 | **F3** | **Parallel lanes** — multiple phases in flight under one receipts DB; split-cell pattern as the default shape. | KR sequences |
@@ -169,7 +169,12 @@ compiled: elicitation, design dialogue, ruling-making, owner-eye judgment.
   strategy adopted (D1–D5): compile-in-house spine, two subscription-native labor lanes,
   UI tier ladder, minigame-editor contract linkage.*
 - **jack-ryan ratification** of this doc queued per § 6.7; desirable-run-pattern amendment
-  candidates from WR3/BR2 wind-downs ride the same ratification sitting.
+  candidates from WR3/BR2 wind-downs ride the same ratification sitting — **and so does
+  `operating-procedures/run-minted-law.md`** (F0, landed 2026-08-10; its § VI O4).
+- **One correction to § 1 of this doc, made by the F0 harvest:** the per-landing law's operational
+  form is *"verify artifacts → bank ruling → push → report"* (WR3 wind-down § 5.3); *"reproduce the
+  number from the artifact, not from the report"* is its § 6 distillation. Both now carried verbatim
+  at `run-minted-law.md` CL-3. § 1 above paraphrased the second and omitted the first.
 - **Matt queue:** T16 (Codex subscription + CLI + login) in `canonical/matt_to_do/`.
 - **Companion canon:** `canonical/reap-die-rise-game/minigame-editor-and-scenario-contracts.md`.
 
