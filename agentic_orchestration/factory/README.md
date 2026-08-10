@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           136 tests, all green
+  tests/           164 tests, all green
 ```
 
 ## Use
@@ -68,6 +68,31 @@ Mechanical cells do their work *inside* a gate command (`tests_pass` /
 post-execution snapshot. A single check would let a gate's own writes escape
 containment. The second pass aborts with `during="gate execution"` so the receipt
 says which side of the boundary the breach came from.
+
+## What "the tree was clean" is worth
+
+Containment is a git change-set diff, so it is only as good as what git will
+describe. Three rules keep the claim honest, all three added closing Gate-2 F1/F2:
+
+1. **Gitignored is not exempt.** `git status --porcelain` never reports ignored
+   paths, so the v1 build was blind to the engine's `seasons/` and `telemetry.db`
+   — inside a tree the workflow declares read-only. Status is now read with
+   `--ignored=traditional` and the collapsed entries are swept. The only exemption
+   is `FACTORY_RUNTIME_PATHS`: six named paths, root repo only, recorded on the
+   fingerprint whenever one is taken.
+2. **Unmeasurable is not clean.** A declared repo that is not a git worktree used
+   to produce an empty diff, and an empty diff reads like innocence. Such a repo
+   now fails at LOAD; a snapshot that fails mid-run raises `ContainmentError`.
+3. **Coarse is declared as coarse.** A region over 50,000 files (the godot tree's
+   `.godot/` + `Assets/Synty/` = 259k) falls back to directory mtimes: catches
+   creation, deletion, rename; **misses in-place content edits**. Every phase emits
+   a `containment_coarse` receipt naming the regions and the caveat. A test asserts
+   the blind spot exists, so the caveat can only be weakened on evidence.
+
+Gate commands run with `PYTHONDONTWRITEBYTECODE=1` and
+`PYTEST_ADDOPTS=-p no:cacheprovider`. Running pytest inside a read-only tree writes
+`__pycache__` there, which is a real breach; the fix is to stop the write, not to
+exempt the path.
 
 ## Session-local state (gitignored)
 

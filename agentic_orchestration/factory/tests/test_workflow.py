@@ -15,6 +15,10 @@ MINIMAL_PHASE = {"name": "p", "gates": ["artifacts_exist"], "artifacts": ["x.txt
 
 
 def _wf(tmp_path, **overrides):
+    """A workflow file on disk. `root` defaults to tmp_path, which is NOT a git tree —
+    fine for the refusal tests, which must fail before containment is ever reached. Any
+    test that expects a successful load passes `root=str(git_repo)`, because a workflow
+    that loads is a workflow whose containment claims are measurable (F2)."""
     doc = {"name": "t", "root": str(tmp_path), "phases": [dict(MINIMAL_PHASE)]}
     doc.update(overrides)
     path = tmp_path / "wf.json"
@@ -29,8 +33,8 @@ def _phase_wf(tmp_path, phase: dict):
 # ---------------------------------------------------------------------------
 # it loads
 # ---------------------------------------------------------------------------
-def test_a_minimal_workflow_loads(tmp_path):
-    wf = load_workflow(_wf(tmp_path))
+def test_a_minimal_workflow_loads(tmp_path, git_repo):
+    wf = load_workflow(_wf(tmp_path, root=str(git_repo)))
     assert wf.name == "t"
     assert len(wf.phases) == 1
     assert wf.phases[0].is_mechanical, "a phase with no agent is a mechanical cell"
@@ -135,17 +139,18 @@ def test_an_unsupported_extension_is_refused(tmp_path):
 # ---------------------------------------------------------------------------
 # gate argument shapes
 # ---------------------------------------------------------------------------
-def test_gates_accept_both_bare_names_and_name_plus_args(tmp_path):
-    path = _phase_wf(
+def test_gates_accept_both_bare_names_and_name_plus_args(tmp_path, git_repo):
+    path = _wf(
         tmp_path,
-        {
+        root=str(git_repo),
+        phases=[{
             "name": "p",
             "artifacts": ["x.txt"],
             "gates": [
                 "artifacts_exist",
                 {"gate": "sha256_matches", "args": {"path": "x.txt", "expected": "ab"}},
             ],
-        },
+        }],
     )
     wf = load_workflow(path)
     gates = wf.phases[0].gates
@@ -157,3 +162,63 @@ def test_a_malformed_gate_entry_is_refused(tmp_path):
     path = _phase_wf(tmp_path, {"name": "p", "gates": [{"name": "artifacts_exist"}]})
     with pytest.raises(WorkflowError, match="each gate is either"):
         load_workflow(path)
+
+
+# ---------------------------------------------------------------------------
+# containment is measurable — Gate-2 F2
+#
+# Containment is fingerprint-based, and a fingerprint is a git change-set. A tree
+# that git cannot describe produces an empty diff, and an empty diff reads exactly
+# like innocence. These are the refusals that keep an unmeasurable tree from being
+# mistaken for a clean one.
+# ---------------------------------------------------------------------------
+def test_a_non_git_repo_is_refused_at_load(tmp_path, git_repo):
+    plain = tmp_path / "not-a-repo"
+    plain.mkdir()
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo), str(plain)])
+    with pytest.raises(WorkflowError, match="not a git worktree"):
+        load_workflow(path)
+
+
+def test_a_missing_repo_is_refused_at_load(tmp_path, git_repo):
+    path = _wf(
+        tmp_path, root=str(git_repo), repos=[str(git_repo), str(tmp_path / "gone")]
+    )
+    with pytest.raises(WorkflowError, match="does not exist"):
+        load_workflow(path)
+
+
+def test_a_read_only_tree_no_repo_covers_is_refused(tmp_path, git_repo):
+    """Declaring a tree read-only does not fingerprint it. If no `repos` entry covers
+    it, nothing measures it and the read-only promise is decorative."""
+    other = tmp_path / "elsewhere"
+    other.mkdir()
+    path = _wf(
+        tmp_path, root=str(git_repo), repos=[str(git_repo)], read_only_trees=[str(other)]
+    )
+    with pytest.raises(WorkflowError, match="not covered by any `repos` entry"):
+        load_workflow(path)
+
+
+def test_a_read_only_tree_nested_inside_a_declared_repo_is_accepted(tmp_path, git_repo):
+    """Coverage is by containment, not by string equality — a subdirectory of a
+    fingerprinted repo is fingerprinted with it."""
+    nested = git_repo / "sub"
+    nested.mkdir()
+    wf = load_workflow(
+        _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)],
+            read_only_trees=[str(nested)])
+    )
+    assert wf.read_only_trees == [nested.resolve()]
+
+
+def test_the_shipped_kc2_workflow_declares_every_read_only_tree_as_a_repo():
+    """The real workflow, not a fixture: the engine and godot trees are the ones the
+    run promises not to write to, so they are the ones that must be measured."""
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parents[1] / "workflows" / "kc2-baton-mechanical.yaml"
+    wf = load_workflow(path)
+    assert wf.read_only_trees, "the shipped workflow makes no read-only claim to check"
+    for ro in wf.read_only_trees:
+        assert any(ro == r or r in ro.parents for r in wf.repos), f"{ro} is unmeasured"

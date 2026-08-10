@@ -9,6 +9,8 @@ accident: pre-existing dirt is never restored over, committed paths are never
 unwound, protected paths cannot be opted into by config.
 """
 
+import dataclasses
+import os
 import json
 import subprocess
 from pathlib import Path
@@ -208,25 +210,221 @@ def test_rollback_deletes_only_what_the_phase_created(tmp_path, git_repo):
 # ---------------------------------------------------------------------------
 # fingerprint mechanics
 # ---------------------------------------------------------------------------
-def test_fingerprint_sees_a_new_file_and_ignores_gitignored_ones(git_repo):
+def test_fingerprint_sees_a_new_file(git_repo):
     before = perm.fingerprint(git_repo)
     (git_repo / "visible.txt").write_text("x\n")
+    after = perm.fingerprint(git_repo)
+    assert "visible.txt" in {c.path for c in perm.diff_fingerprints(before, after)}
+
+
+# ---------------------------------------------------------------------------
+# gitignored writes — Gate-2 F1
+#
+# The v1 build exempted gitignored paths as a CATEGORY in order to stop the
+# factory's own sessions/ writes reading as self-breach. That exempted every
+# gitignored path in every tree, including the engine's seasons/ (3.3 GB) and
+# telemetry.db — inside the tree the workflow declares read-only. The exemption
+# is now by NAMED PATH. These tests hold that line from both sides.
+# ---------------------------------------------------------------------------
+def test_a_gitignored_write_is_a_tree_change(git_repo):
+    """The falsification partner of the exemption below. Ignored by git is not the
+    same as permitted by the factory — git's opinion about version control says
+    nothing about whether a phase was allowed to write there."""
+    before = perm.fingerprint(git_repo)
     (git_repo / "ignored").mkdir()
     (git_repo / "ignored" / "noise.txt").write_text("y\n")
     after = perm.fingerprint(git_repo)
 
     paths = {c.path for c in perm.diff_fingerprints(before, after)}
-    assert "visible.txt" in paths
-    assert not any(p.startswith("ignored") for p in paths), (
-        "gitignored writes must not read as tree changes — the factory's own "
-        "sessions/ and receipts.db depend on this"
+    assert any(p.startswith("ignored") for p in paths), (
+        "a gitignored write escaped the fingerprint — this is the F1 fail-open: "
+        "the engine's seasons/ and telemetry.db live behind exactly this rule"
     )
 
 
-def test_fingerprint_of_a_non_git_directory_is_inert(tmp_path):
+def _with_factory_skeleton(root: Path) -> Path:
+    """Mirror the meta-repo's real shape: a TRACKED `agentic_orchestration/factory/`
+    with a gitignored `sessions/` inside it.
+
+    The tracked parents matter. Git collapses a wholly-untracked directory to a
+    single porcelain line, so without a committed ancestor every one of these tests
+    would be measuring git's collapsing behaviour instead of the exemption.
+    """
+    factory = root / "agentic_orchestration" / "factory"
+    (factory / "sessions").mkdir(parents=True)
+    (factory / "gates.py").write_text("def real_gate(): ...\n")
+    (root / ".gitignore").write_text(
+        "ignored/\nagentic_orchestration/factory/sessions/\n"
+    )
+
+    def git(*args: str) -> None:
+        subprocess.run(["git", *args], cwd=str(root), check=True, capture_output=True)
+
+    git("add", ".gitignore", "agentic_orchestration/factory/gates.py")
+    git("commit", "-q", "-m", "factory skeleton")
+    return factory
+
+
+def test_only_the_factorys_own_runtime_paths_are_exempt(git_repo):
+    """The exemption exists so the factory's receipts do not read as self-breach. It
+    is scoped to named paths, so it cannot grow to cover anything else."""
+    factory = _with_factory_skeleton(git_repo)
+
+    before = perm.fingerprint(git_repo, is_root_repo=True)
+    (factory / "sessions" / "run-1.json").write_text("receipt\n")
+    (git_repo / "ignored").mkdir(exist_ok=True)
+    (git_repo / "ignored" / "noise.txt").write_text("y\n")
+    after = perm.fingerprint(git_repo, is_root_repo=True)
+
+    paths = {c.path for c in perm.diff_fingerprints(before, after)}
+    assert not any("factory/sessions" in p for p in paths), "the factory's own receipts"
+    assert any(p.startswith("ignored") for p in paths), (
+        "the exemption is by named path; every other ignored path stays measured"
+    )
+    assert any("factory/sessions" in e for e in after.exempted), (
+        "an exemption taken is an exemption recorded — it is never silent. "
+        "(`before` records none: git does not report an empty directory at all.)"
+    )
+
+
+def test_the_factory_exemption_does_not_apply_to_other_repos(git_repo):
+    """Only the root repo holds the factory. The same path in a declared read-only
+    tree is somebody else's directory and is measured like any other."""
+    factory = _with_factory_skeleton(git_repo)
+
+    before = perm.fingerprint(git_repo, is_root_repo=False)
+    (factory / "sessions" / "run-1.json").write_text("receipt\n")
+    after = perm.fingerprint(git_repo, is_root_repo=False)
+
+    paths = {c.path for c in perm.diff_fingerprints(before, after)}
+    assert any("factory/sessions" in p for p in paths)
+    assert before.exempted == [], "a non-root repo gets no exemptions at all"
+
+
+def test_factory_source_is_still_visible_under_the_exempt_directory(git_repo):
+    """The exemption covers the factory's runtime writes, not the factory. A phase
+    that rewrites the spine is still a breach."""
+    factory = _with_factory_skeleton(git_repo)
+
+    before = perm.fingerprint(git_repo, is_root_repo=True)
+    (factory / "gates.py").write_text("def always_pass(): return True\n")
+    after = perm.fingerprint(git_repo, is_root_repo=True)
+
+    paths = {c.path for c in perm.diff_fingerprints(before, after)}
+    assert any(p.endswith("factory/gates.py") for p in paths), "self-modification"
+
+
+# ---------------------------------------------------------------------------
+# the exact/coarse tier — what a containment claim is WORTH
+#
+# A region too large to stat file-by-file used to stop at the cap and report a
+# truncated signature, which made everything past the cap invisible to the diff.
+# It now falls back to directory mtimes. That catches less, and says so.
+# ---------------------------------------------------------------------------
+def _big_region(root: Path, files: int) -> Path:
+    region = root / "huge"
+    region.mkdir()
+    for i in range(files):
+        (region / f"f{i}.dat").write_text(str(i))
+    return region
+
+
+def test_a_region_within_the_cap_is_measured_exactly(git_repo):
+    _big_region(git_repo, 5)
+    sig, mode = perm._walk_signature(git_repo / "huge", cap=100)
+    assert mode == perm.EXACT
+    assert sig.startswith("dir:5:")
+
+
+def test_a_region_past_the_cap_falls_back_to_coarse_and_is_labelled(git_repo):
+    _big_region(git_repo, 20)
+    sig, mode = perm._walk_signature(git_repo / "huge", cap=5)
+    assert mode == perm.COARSE
+    assert sig.startswith("coarse:"), "the signature itself names the weaker method"
+
+
+def test_coarse_measurement_still_catches_a_file_created_past_the_cap(git_repo):
+    """The point of the fallback. The old truncating sweep saw nothing here."""
+    region = _big_region(git_repo, 20)
+    before, _ = perm._walk_signature(region, cap=5)
+    (region / "planted.txt").write_text("an agent wrote where it was told not to\n")
+    after, mode = perm._walk_signature(region, cap=5)
+    assert mode == perm.COARSE
+    assert before != after
+
+
+def test_coarse_measurement_catches_a_deletion_past_the_cap(git_repo):
+    region = _big_region(git_repo, 20)
+    before, _ = perm._walk_signature(region, cap=5)
+    (region / "f19.dat").unlink()
+    after, _ = perm._walk_signature(region, cap=5)
+    assert before != after
+
+
+def test_coarse_measurement_does_NOT_catch_an_in_place_content_edit(git_repo):
+    """The blind spot, pinned deliberately.
+
+    This is the cost of the fallback, and it is asserted rather than hoped about:
+    if a future change makes coarse measurement catch content edits, this test goes
+    red and the receipts' `containment_coarse` caveat can be weakened on evidence.
+    Until then the caveat is accurate, which is the only thing that matters.
+    """
+    region = _big_region(git_repo, 20)
+    target = region / "f3.dat"
+    edited = "x" * len(target.read_text())   # same length, same directory entry
+    before, _ = perm._walk_signature(region, cap=5)
+    target.write_text(edited)                # rewrites the inode, not the dir entry
+    after, _ = perm._walk_signature(region, cap=5)
+    assert before == after, (
+        "coarse measurement is blind to in-place edits — the `containment_coarse` "
+        "receipt says exactly this, and it must stay true"
+    )
+
+
+def test_an_oversized_region_is_reported_on_the_fingerprint_as_coarse(git_repo, monkeypatch):
+    monkeypatch.setattr(perm, "_IGNORED_SCAN_CAP", 3)
+    _big_region(git_repo, 10)
+    fp = perm.fingerprint(git_repo)
+    assert fp.coarse, "the fingerprint declares which regions got the weaker method"
+    assert fp.usable, "coarse is a weaker measurement, NOT a containment failure"
+
+
+def test_a_collapsed_untracked_directory_is_swept_not_skipped(git_repo):
+    """Git reports a wholly-untracked directory as ONE line. The exemption is a
+    prefix match on that line, so a collapsed ancestor never matches and the whole
+    region is swept — the containment fails CLOSED under collapsing, not open."""
+    buried = git_repo / "agentic_orchestration" / "factory" / "sessions"
+    buried.mkdir(parents=True)
+
+    before = perm.fingerprint(git_repo, is_root_repo=True)
+    (buried / "deep.json").write_text("written inside a collapsed dir\n")
+    after = perm.fingerprint(git_repo, is_root_repo=True)
+
+    changes = perm.diff_fingerprints(before, after)
+    assert [c.path for c in changes] == ["agentic_orchestration/"], (
+        "the write is reported at the collapsed ancestor, and it IS reported"
+    )
+
+
+def test_an_unmeasurable_tree_raises_rather_than_reading_as_clean(tmp_path):
+    """A non-git directory produces no change-set. The v1 build recorded that
+    honestly and then never read it, so the empty diff was indistinguishable from
+    innocence — Gate-2 F2. Now it stops the run."""
     fp = perm.fingerprint(tmp_path)
     assert fp.is_git is False
-    assert perm.diff_fingerprints(fp, fp) == []
+    assert fp.usable is False
+    with pytest.raises(perm.ContainmentError, match="not a git worktree"):
+        perm.diff_fingerprints(fp, fp)
+
+
+def test_a_tree_that_errored_mid_run_also_raises(git_repo):
+    """Not just non-git: any snapshot that failed to measure. A tree that vanished
+    or went unreadable between snapshots must abort, not diff to nothing."""
+    good = perm.fingerprint(git_repo)
+    broken = dataclasses.replace(good, error="fatal: unable to read index")
+    assert broken.usable is False
+    with pytest.raises(perm.ContainmentError):
+        perm.diff_fingerprints(good, broken)
 
 
 def test_fingerprint_detects_content_change_in_a_tracked_file(git_repo):

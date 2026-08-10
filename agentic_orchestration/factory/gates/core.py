@@ -249,6 +249,30 @@ def _failures_only(stdout: str, stderr: str, max_lines: int = 60) -> list[str]:
     return lines[:max_lines]
 
 
+def _gate_env() -> dict[str, str]:
+    """The environment a gate command runs under.
+
+    `PYTHONDONTWRITEBYTECODE` is containment, not tidiness. A gate that runs pytest
+    inside a tree the workflow declares READ-ONLY writes `__pycache__` there, and the
+    fingerprint — correctly — reports it as a write to a read-only tree. The v1 build
+    never saw this because gitignored paths were exempt as a category; closing that
+    hole (Gate-2 F1) made the interpreter's own side effect into a real breach.
+
+    The right fix is to stop the write, not to re-exempt the path: a read-only claim
+    that quietly tolerates one class of write is not a read-only claim. Suppressing
+    bytecode caching costs a few hundred milliseconds of re-compilation per gate.
+
+    `PYTEST_ADDOPTS=-p no:cacheprovider` closes the same hole for pytest's own
+    `.pytest_cache/`.
+    """
+    env = dict(os.environ)
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    addopts = env.get("PYTEST_ADDOPTS", "")
+    if "no:cacheprovider" not in addopts:
+        env["PYTEST_ADDOPTS"] = f"{addopts} -p no:cacheprovider".strip()
+    return env
+
+
 def _exec_verdict(
     gate_name: str,
     run: RunContext,
@@ -275,6 +299,7 @@ def _exec_verdict(
         proc = subprocess.run(
             argv,
             cwd=str(workdir),
+            env=_gate_env(),
             capture_output=True,
             text=True,
             timeout=timeout_s,

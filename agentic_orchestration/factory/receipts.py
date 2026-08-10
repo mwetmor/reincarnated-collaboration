@@ -410,6 +410,17 @@ class Receipts:
             "cache_write_tokens": row["cw"],
             "reasoning_tokens": row["r"],
             "dollars": row["d"],
+            # A summed figure carries the provenance of everything summed into it. If
+            # two lanes priced differently, BOTH labels travel -- the total is never
+            # allowed to describe itself with a label the runner hard-coded (D-4).
+            "dollars_sources": [
+                r["dollars_source"]
+                for r in self.conn.execute(
+                    "SELECT DISTINCT dollars_source FROM phases "
+                    "WHERE run_id=? AND dollars IS NOT NULL ORDER BY dollars_source",
+                    (run_id,),
+                ).fetchall()
+            ],
         }
         addends = [totals["input_tokens"], totals["output_tokens"],
                    totals["cache_read_tokens"], totals["cache_write_tokens"]]

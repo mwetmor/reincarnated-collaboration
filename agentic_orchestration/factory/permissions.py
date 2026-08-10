@@ -13,11 +13,27 @@ destroys work is worse than the breach it contains:
    reported as NOT_ROLLED_BACK with the reason.
 2. **Bytes are quarantined before they are removed.** Every breaching file is
    copied into `sessions/{run_id}/breach/` first. Nothing is deleted unquarantined.
+
+**Gitignored paths are fingerprinted too** (Gate-2 F1 / DRIFT-CRITIC D-1, both
+reviewers independently, 2026-08-10). The v1 build scoped the whole world-model to
+`git status --porcelain`, which never reports ignored paths -- so every gitignored
+region of every declared tree was silently unfenced, including the engine's 3.3 GB
+`seasons/` and its 450 MB untracked `telemetry.db`. The original reason was sound
+(the factory's own `sessions/` writes were reading as self-breaches on a PROTECTED
+path) but the remedy was a CATEGORY exemption for a NAMED-PATH problem. The
+exemption is now the named list `FACTORY_RUNTIME_PATHS`, and everything else that
+git ignores is measured like anything else.
+
+Where a region is too large to stat file-by-file within `_IGNORED_SCAN_CAP`, it
+falls back to a directory-mtime sweep, is recorded on the fingerprint as `coarse`,
+and is surfaced to receipts on every phase. A weaker measurement is declared as a
+weaker measurement; nothing is ever assumed clean.
 """
 
 from __future__ import annotations
 
 import hashlib
+import os
 import shutil
 import subprocess
 from dataclasses import dataclass, field
@@ -30,7 +46,42 @@ PROTECTED_ALWAYS: tuple[str, ...] = (
     ".claude/",
 )
 
+FACTORY_RUNTIME_PATHS: tuple[str, ...] = (
+    "agentic_orchestration/factory/sessions/",
+    "agentic_orchestration/factory/receipts.db",
+    "agentic_orchestration/factory/receipts.db-wal",
+    "agentic_orchestration/factory/receipts.db-shm",
+    "agentic_orchestration/factory/__pycache__/",
+    "agentic_orchestration/factory/.pytest_cache/",
+)
+"""The factory's OWN runtime writes, exempted BY NAME in the root repo only.
+
+This is the whole exemption. It is a list of six paths rather than the category
+"anything git ignores", because the category version is what let a write to the
+engine's telemetry DB pass as a green read-only proof. Factory *source* under the
+same directory stays visible AND protected -- self-modification is still a breach.
+"""
+
 _QUARANTINE_MAX_BYTES = 64 * 1024 * 1024
+_IGNORED_SCAN_CAP = 50_000
+
+EXACT = "exact"      # every file stat'd: catches creation, deletion, in-place edits
+COARSE = "coarse"    # directory mtimes + entry counts: catches structural change only
+"""How thoroughly a region was measured. The receipt records this per region.
+
+Measured on this host: the godot tree's `.godot/` + `Assets/Synty/` hold 259,000
+files and stat-sweep in ~12 s -- times nine fingerprints per run, that is longer
+than the run. The same regions have 905 directories and sweep in 0.12 s.
+
+So an oversized region falls back to COARSE rather than going unmeasured. A
+directory's mtime moves when an entry is added, removed, or renamed inside it, so
+COARSE catches a phase creating or deleting files anywhere in the region. It does
+NOT catch an in-place rewrite of an existing file's contents.
+
+That is a weaker claim, and it is recorded as a weaker claim. The failure this
+guards against is not "we measured imperfectly" -- it is "we measured nothing and
+reported clean."
+"""
 
 
 def _git(root: Path, *args: str, check: bool = False) -> subprocess.CompletedProcess:
@@ -44,9 +95,6 @@ def _git(root: Path, *args: str, check: bool = False) -> subprocess.CompletedPro
     )
 
 
-_DIR_SCAN_CAP = 500
-
-
 def _stat_sig(path: Path) -> str:
     try:
         st = path.stat()
@@ -55,34 +103,84 @@ def _stat_sig(path: Path) -> str:
         return f"unreadable:{exc.errno}"
 
 
-def _signature(root: Path, rel: str, untracked_files: list[str]) -> str:
-    """Cheap change signature for a dirty path: size + mtime (dirs: capped listing).
+def _coarse_signature(path: Path) -> tuple[str, int]:
+    """Directory mtimes + entry counts. Returns (signature, total files seen).
+
+    Cheap, and blind to in-place content edits. A directory's mtime moves when an
+    entry is added, removed, or renamed inside it -- which is what an agent writing
+    where it was told not to actually does. `os.walk` hands back the filename lists
+    without stat-ing them, so the file count comes free with the sweep, and that
+    count is what decides whether an exact sweep is affordable.
+    """
+    h = hashlib.sha256()
+    dirs = 0
+    files = 0
+    for dirpath, dirnames, filenames in os.walk(path, onerror=lambda _: None):
+        dirnames.sort()
+        here = Path(dirpath)
+        rel = "." if here == path else str(here.relative_to(path))
+        h.update(f"{rel}:{_stat_sig(here)}:{len(filenames)}:{len(dirnames)}".encode())
+        dirs += 1
+        files += len(filenames)
+    return f"coarse:{dirs}:{h.hexdigest()[:16]}", files
+
+
+def _exact_signature(path: Path) -> str:
+    """Stat every file in the tree. Catches in-place edits; costs one stat per file."""
+    h = hashlib.sha256()
+    count = 0
+    for dirpath, dirnames, filenames in os.walk(path, onerror=lambda _: None):
+        dirnames.sort()
+        for name in sorted(filenames):
+            member = Path(dirpath) / name
+            h.update(f"{member.relative_to(path)}:{_stat_sig(member)}".encode())
+            count += 1
+    return f"dir:{count}:{h.hexdigest()[:16]}"
+
+
+def _walk_signature(path: Path, cap: int) -> tuple[str, str]:
+    """Measure a directory region as exactly as it can afford. Returns (sig, mode).
+
+    Coarse first, ALWAYS -- it is the cheap pass and it yields the file count that
+    decides the rest. Under `cap`, the region is re-swept exactly; over it, the
+    coarse signature already in hand is the answer.
+
+    Measured on this host: the engine's largest ignored region (`cache/`, 14,224
+    files) sweeps exactly in 0.29 s -- affordable, so it is paid on every
+    fingerprint. The godot tree's `.godot/` + `Assets/Synty/` hold 259,000 files:
+    ~12 s exact against 0.12 s coarse, nine times per run.
+
+    The first version of this fallback ran the exact sweep until it hit the cap and
+    only THEN went coarse, which spent 50,000 stats per oversized region to learn
+    something the cheap pass answers for free. That cost 2m36s of a 2m50s run.
+    """
+    coarse_sig, files = _coarse_signature(path)
+    if files > cap:
+        return coarse_sig, COARSE
+    return _exact_signature(path), EXACT
+
+
+def _signature(root: Path, rel: str, untracked_files: list[str]) -> tuple[str, str]:
+    """Change signature for a dirty path: size + mtime. Returns (sig, EXACT | COARSE).
 
     Deliberately NOT a content hash. Content comparison for TRACKED files is
     git's job (`git status --porcelain` already compares content, so an
-    identical-content rewrite does not show up as a change). This signature only
-    has to catch movement in UNTRACKED paths, where git offers presence and
-    nothing else. The engine tree carries ~2.8k dirty paths; hashing them all per
-    phase would cost more than the phase.
+    identical-content rewrite does not show up as a change). This signature has
+    to catch movement in UNTRACKED and IGNORED paths, where git offers presence
+    and nothing else. The engine tree carries ~2.8k dirty paths; hashing their
+    contents per phase would cost more than the phase.
 
-    Directory entries (git collapses untracked dirs) are summarised from the
-    repo's `ls-files --others --exclude-standard` listing, so **gitignored files
-    inside them are invisible here** -- which is what keeps the factory's own
-    `sessions/` and `receipts.db` from reading as writes to a protected path.
+    Directory entries (git collapses both untracked and ignored dirs into one
+    line) are stat-swept recursively. The earlier version summarised them from
+    `ls-files --others --exclude-standard`, which excluded ignored members and
+    was therefore blind to exactly the writes this mechanism exists to catch.
     """
     path = root / rel
     if rel.endswith("/") or path.is_dir():
-        prefix = rel if rel.endswith("/") else rel + "/"
-        members = [f for f in untracked_files if f.startswith(prefix)]
-        h = hashlib.sha256()
-        for member in members[:_DIR_SCAN_CAP]:
-            h.update(f"{member}:{_stat_sig(root / member)}".encode())
-        if len(members) > _DIR_SCAN_CAP:
-            h.update(b"TRUNCATED")
-        return f"dir:{len(members)}:{h.hexdigest()[:16]}"
+        return _walk_signature(path, _IGNORED_SCAN_CAP)
     if not path.exists():
-        return ""
-    return _stat_sig(path)
+        return "", EXACT
+    return _stat_sig(path), EXACT
 
 
 @dataclass
@@ -93,6 +191,19 @@ class TreeFingerprint:
     content: dict[str, str] = field(default_factory=dict)         # path -> signature (dirty only)
     is_git: bool = True
     error: str | None = None
+    coarse: list[str] = field(default_factory=list)      # regions past the sweep cap
+    exempted: list[str] = field(default_factory=list)    # factory runtime paths, by name
+
+    @property
+    def usable(self) -> bool:
+        """False when this tree could not be measured at all.
+
+        A fingerprint that failed is a containment FAILURE, not an empty diff.
+        The v1 build recorded `is_git=False` honestly and then never read it, so
+        a typo'd `repos:` entry silently disarmed the fence for that tree
+        (Gate-2 F2). Callers must consult this before trusting a diff.
+        """
+        return self.is_git and self.error is None
 
 
 @dataclass
@@ -122,35 +233,89 @@ class RollbackAction:
     quarantined_to: str | None = None
 
 
-def fingerprint(root: Path) -> TreeFingerprint:
-    """Snapshot a working tree: HEAD, porcelain status, and hashes of dirty paths."""
+def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
+    """The six named exemptions — root repo only, prefix match, nothing wider."""
+    if not is_root_repo:
+        return False
+    return any(rel.startswith(p) or rel == p.rstrip("/") for p in FACTORY_RUNTIME_PATHS)
+
+
+def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
+    """Snapshot a working tree: HEAD, porcelain status (INCLUDING ignored), signatures.
+
+    `is_root_repo` gates the factory's own runtime exemptions: they apply to the
+    meta-repo only, so a sibling repo that happens to share the path shape gets
+    no free pass.
+    """
     root = Path(root)
     head_proc = _git(root, "rev-parse", "HEAD")
     if head_proc.returncode != 0:
         return TreeFingerprint(
             root=root, head="", is_git=False, error=head_proc.stderr.strip()[:300]
         )
-    status = _git(root, "status", "--porcelain")
+    # `--ignored=traditional` collapses ignored DIRECTORIES to one line each, so the
+    # listing stays small (118 entries on the engine) while the recursive stat sweep
+    # below is what actually sees inside them.
+    status = _git(root, "status", "--porcelain", "--ignored=traditional")
+    if status.returncode != 0:
+        return TreeFingerprint(
+            root=root,
+            head=head_proc.stdout.strip(),
+            error=f"git status failed: {status.stderr.strip()[:300]}",
+        )
     entries: dict[str, str] = {}
+    exempted: list[str] = []
     for line in status.stdout.splitlines():
         if not line.strip():
             continue
-        code, _, rest = line[:2], line[2], line[3:]
+        code, rest = line[:2], line[3:]
         path = rest.split(" -> ")[-1].strip().strip('"')
+        if _is_factory_runtime(path, is_root_repo):
+            exempted.append(path)
+            continue
         entries[path] = code
     untracked = _git(root, "ls-files", "--others", "--exclude-standard")
     untracked_files = [ln for ln in untracked.stdout.splitlines() if ln.strip()]
-    content = {p: _signature(root, p, untracked_files) for p in entries}
+
+    content: dict[str, str] = {}
+    coarse: list[str] = []
+    for p in entries:
+        sig, mode = _signature(root, p, untracked_files)
+        content[p] = sig
+        if mode == COARSE:
+            coarse.append(p)
     return TreeFingerprint(
-        root=root, head=head_proc.stdout.strip(), entries=entries, content=content
+        root=root,
+        head=head_proc.stdout.strip(),
+        entries=entries,
+        content=content,
+        coarse=coarse,
+        exempted=exempted,
     )
 
 
+class ContainmentError(RuntimeError):
+    """A tree could not be measured, so nothing about it can be claimed.
+
+    Raised rather than returning an empty diff. An empty diff means "nothing
+    moved"; an unmeasurable tree means "we do not know", and in a default-fail
+    architecture those must not share a return value (Gate-2 F2).
+    """
+
+
 def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[Change]:
-    """Everything that moved in the tree between the two snapshots."""
+    """Everything that moved in the tree between the two snapshots.
+
+    Raises ContainmentError if either snapshot is unusable.
+    """
     changes: list[Change] = []
-    if not before.is_git or not after.is_git:
-        return changes
+    for label, fp in (("before", before), ("after", after)):
+        if not fp.usable:
+            raise ContainmentError(
+                f"{label} fingerprint of {fp.root} is unusable "
+                f"({'not a git worktree' if not fp.is_git else fp.error}) — "
+                "containment cannot be proved for this tree, so the run stops"
+            )
 
     if before.head != after.head:
         names = _git(after.root, "diff", "--name-only", f"{before.head}..{after.head}")

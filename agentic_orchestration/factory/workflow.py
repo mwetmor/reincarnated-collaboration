@@ -20,14 +20,19 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from .gates import available_gates
+from .harness import get_harness
 
 MAX_RETRIES = 3
 FORBIDDEN_PHASE_KEYS = ("model",)
+
+# Adjudicates the reports that ran before it, so it is only meaningful last.
+LAST_GATE = "verdict_consistent"
 
 
 class WorkflowError(ValueError):
@@ -162,9 +167,37 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
                 f"phase {pname!r} declares no gates — an unadjudicated phase is a claim "
                 "nobody checked"
             )
+        # `verdict_consistent` reads the reports accumulated BEFORE it. Anywhere but
+        # last, it greens vacuously over gates it never saw (DRIFT-CRITIC D-3).
+        for position, gspec in enumerate(gates):
+            if gspec.gate == LAST_GATE and position != len(gates) - 1:
+                raise WorkflowError(
+                    f"phase {pname!r} runs `{LAST_GATE}` at position {position + 1} of "
+                    f"{len(gates)}. It adjudicates the gates that ran before it, so "
+                    "anywhere but last it passes over gates it never saw. Move it to the end."
+                )
 
         agent = raw.get("agent")
         prompt = raw.get("prompt")
+        harness = raw.get("harness", "claude_code")
+        if agent:
+            # The lane must be open BEFORE the phases ahead of it burn (D-6).
+            try:
+                adapter = get_harness(harness)
+            except KeyError as exc:
+                raise WorkflowError(
+                    f"phase {pname!r} names harness {harness!r}: {exc}"
+                ) from exc
+            available = getattr(adapter, "available", None)
+            if callable(available) and not available():
+                blocked = getattr(
+                    __import__(adapter.__module__, fromlist=["BLOCKED_ON"]), "BLOCKED_ON", ""
+                )
+                raise WorkflowError(
+                    f"phase {pname!r} runs on the {harness!r} lane, which is not open"
+                    + (f" — blocked on {blocked}" if blocked else "")
+                    + ". A closed lane fails at LOAD, not after the phases ahead of it burn."
+                )
         if agent and not prompt:
             raise WorkflowError(f"phase {pname!r} names an agent but carries no `prompt`")
         if not agent and prompt:
@@ -195,8 +228,9 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
         raise WorkflowError(f"on_fail must be 'stop' or 'continue', got {on_fail!r}")
 
     repos = [_expand(r) if str(r) != "." else wf_root for r in (data.get("repos") or ["."])]
-    repos = [r if r.is_absolute() else (wf_root / r) for r in repos]
+    repos = [(r if r.is_absolute() else (wf_root / r)).resolve() for r in repos]
     read_only = [_expand(r).resolve() for r in (data.get("read_only_trees") or [])]
+    _validate_containment(repos, read_only)
 
     return Workflow(
         name=name,
@@ -204,11 +238,56 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
         root=wf_root,
         phases=phases,
         description=data.get("description", ""),
-        repos=[r.resolve() for r in repos],
+        repos=repos,
         read_only_trees=read_only,
         on_fail=on_fail,
         sha256=hashlib.sha256(wf_path.read_bytes()).hexdigest(),
     )
+
+
+def _is_git_worktree(path: Path) -> bool:
+    """A tree the fingerprinter can actually measure. Not `.git` existence — a worktree
+    or submodule keeps a `.git` *file*, and a subdirectory of a repo has neither."""
+    proc = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        cwd=str(path),
+        capture_output=True,
+        text=True,
+        stdin=subprocess.DEVNULL,
+    )
+    return proc.returncode == 0
+
+
+def _validate_containment(repos: list[Path], read_only: list[Path]) -> None:
+    """Every containment claim the run will make must be *measurable* — at LOAD.
+
+    Containment is fingerprint-based (D5 deferred sandboxes). A fingerprint of a
+    non-git directory carries no change-set, so a run over one would report a clean
+    diff and call it proof. That is the F2 fail-open: an unmeasurable tree must stop
+    the run before it starts, not read as innocent afterwards.
+
+    A `read_only_trees` entry that no `repos` entry covers is the same hole wearing a
+    stricter label: nothing fingerprints it, so the read-only promise is never checked.
+    """
+    for r in repos:
+        if not r.exists():
+            raise WorkflowError(f"declared repo does not exist: {r}")
+        if not r.is_dir():
+            raise WorkflowError(f"declared repo is not a directory: {r}")
+        if not _is_git_worktree(r):
+            raise WorkflowError(
+                f"declared repo {r} is not a git worktree. Containment is measured by "
+                "diffing the git change-set, so an untracked tree cannot be fenced — it "
+                "would report clean no matter what the phase wrote to it."
+            )
+    for ro in read_only:
+        if not any(ro == r or r in ro.parents for r in repos):
+            raise WorkflowError(
+                f"read_only tree {ro} is not covered by any `repos` entry, so it is never "
+                "fingerprinted and its read-only status is never enforced. Declare it in "
+                "`repos` as well (read-only is a verdict about a measured tree, not a "
+                "substitute for measuring it)."
+            )
 
 
 def _default_root(wf_path: Path) -> Path:

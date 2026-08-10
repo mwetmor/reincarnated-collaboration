@@ -116,7 +116,7 @@ class Runner:
                 self._write_run_summary(result)
                 return result
             if outcome.envelope is not None:
-                carried_notes = outcome.envelope.notes_for_next_agent
+                carried_notes = self._label_notes(outcome)
             if outcome.status != PASS:
                 result.status = "FAIL"
                 if self.wf.on_fail == "stop":
@@ -127,6 +127,63 @@ class Runner:
         self._write_run_summary(result)
         self._say(f"run {self.run_id} -> {result.status}")
         return result
+
+    @staticmethod
+    def _label_notes(outcome: PhaseOutcome) -> str:
+        """Notes travel forward. Their VERDICT must travel with them (D-7).
+
+        `notes_for_next_agent` from a phase that went red reads identically to notes
+        from a phase that passed — same field, same prose, same confident tone. The
+        next agent would inherit a failed phase's conclusions as though they were
+        established. Only-failures-travel governs OUTPUT; this governs the handoff
+        prose, which travels either way.
+        """
+        notes = outcome.envelope.notes_for_next_agent if outcome.envelope else ""
+        if not notes.strip() or outcome.status == PASS:
+            return notes
+        return (
+            f"[carried from phase `{outcome.name}`, which ended {outcome.status} — "
+            "these notes were written by an agent whose own work did not pass its "
+            "gates. Treat them as a lead, not as an established result.]\n"
+            f"{notes}"
+        )
+
+    # -- fingerprinting ----------------------------------------------------
+    def _fingerprint_all(self) -> dict[str, perm.TreeFingerprint]:
+        """Snapshot every declared tree. The root repo alone gets the factory exemptions."""
+        root = self.wf.root.resolve()
+        return {
+            str(r): perm.fingerprint(r, is_root_repo=Path(r).resolve() == root)
+            for r in self.wf.repos
+        }
+
+    def _diff_all(
+        self, before: dict[str, perm.TreeFingerprint], after: dict[str, perm.TreeFingerprint]
+    ) -> list[perm.Change]:
+        """Diff every tree. An unmeasurable tree raises rather than reading as clean."""
+        changes: list[perm.Change] = []
+        for key, fp_before in before.items():
+            changes += perm.diff_fingerprints(fp_before, after[key])
+        return changes
+
+    def _note_coarse(
+        self, fingerprints: dict[str, perm.TreeFingerprint], phase_id: int | None, when: str
+    ) -> None:
+        """A region measured coarsely is DECLARED as coarse, never reported as exact.
+
+        Coarse means directory mtimes: creation, deletion and rename are caught; an
+        in-place rewrite of an existing file is not. The receipt says so on every
+        phase, so a later reading of "the read-only tree was clean" carries the
+        strength of the claim with it.
+        """
+        for key, fp in fingerprints.items():
+            if fp.coarse:
+                detail = (
+                    f"{when}: {Path(key).name} measured COARSELY (directory mtimes; "
+                    f"in-place content edits not detected) in region(s): {fp.coarse}"
+                )
+                self.receipts.event(self.run_id, "containment_coarse", detail, phase_id)
+                self._say(f"   containment: coarse — {detail}")
 
     # -- one phase ---------------------------------------------------------
     def _run_phase(
@@ -162,7 +219,12 @@ class Runner:
                     )
                     time.sleep(backoff)
 
-                before = {str(r): perm.fingerprint(r) for r in self.wf.repos}
+                try:
+                    before = self._fingerprint_all()
+                except perm.ContainmentError as exc:
+                    abort_reason = self._handle_containment_failure(phase, exc, "phase start")
+                    break
+                self._note_coarse(before, phase.phase_id, "phase start")
 
                 envelope, attempt_usage, exec_error = self._execute(
                     spec, phase, attempt, phase_dir, carried_notes, failures_context
@@ -172,10 +234,14 @@ class Runner:
                 )
                 phase.usage = total_usage
 
-                after = {str(r): perm.fingerprint(r) for r in self.wf.repos}
-                changes: list[perm.Change] = []
-                for key, fp_before in before.items():
-                    changes += perm.diff_fingerprints(fp_before, after[key])
+                try:
+                    after = self._fingerprint_all()
+                    changes = self._diff_all(before, after)
+                except perm.ContainmentError as exc:
+                    abort_reason = self._handle_containment_failure(
+                        phase, exc, "post-execution"
+                    )
+                    break
                 allowed, breaches = perm.classify(
                     changes,
                     spec.writes,
@@ -212,10 +278,18 @@ class Runner:
                 # gate command (tests_pass / command_succeeds), so a write made by
                 # the command itself lands after the post-execution snapshot. One
                 # check would let a gate's own writes escape containment.
-                post_gate = {str(r): perm.fingerprint(r) for r in self.wf.repos}
-                gate_changes: list[perm.Change] = []
-                for key, fp_before in before.items():
-                    gate_changes += perm.diff_fingerprints(fp_before, post_gate[key])
+                try:
+                    post_gate = self._fingerprint_all()
+                    gate_changes = self._diff_all(before, post_gate)
+                except perm.ContainmentError as exc:
+                    for report in reports:
+                        self.receipts.record_gate(self.run_id, phase.phase_id, report, attempt)
+                    outcome.gate_reports = reports
+                    outcome.envelope = envelope
+                    abort_reason = self._handle_containment_failure(
+                        phase, exc, "gate execution"
+                    )
+                    break
                 _, gate_breaches = perm.classify(
                     gate_changes,
                     spec.writes,
@@ -353,6 +427,18 @@ class Runner:
             ctx.prior_reports = list(reports)
             reports.append(run_gate(gspec.gate, envelope, ctx, **gspec.args))
         return reports
+
+    # -- containment failure -----------------------------------------------
+    def _handle_containment_failure(
+        self, phase: Phase, exc: perm.ContainmentError, during: str
+    ) -> str:
+        """A tree we cannot measure stops the run. Unknown is not clean (Gate-2 F2)."""
+        reason = f"containment failure during {during}: {exc}"
+        self._say(f"   CONTAINMENT FAILURE during {during} — {exc}")
+        self.receipts.event(self.run_id, "containment_failure", reason, phase.phase_id)
+        phase.error = reason
+        phase.status = FAILED
+        return reason
 
     # -- breach ------------------------------------------------------------
     def _handle_breach(

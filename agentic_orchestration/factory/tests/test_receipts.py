@@ -152,6 +152,44 @@ def test_usage_totals_exclude_reasoning_from_the_billable_sum(tmp_path):
     assert totals["billable_token_total"] == 200
     assert totals["reasoning_tokens"] == 30, "reasoning is still reported, just not summed in"
     assert totals["dollars"] == 1.0
+    assert totals["dollars_sources"] == [DOLLARS_HARNESS_IMPUTED], (
+        "a summed dollar figure carries the provenance of what was summed (D-4)"
+    )
+    r.close()
+
+
+def test_dollar_provenance_travels_with_the_total_from_every_lane(tmp_path):
+    """Two lanes, two pricing stories, one sum. The total must not be able to
+    describe itself with a single lane's caveat."""
+    r = _db(tmp_path)
+    r.start_session("run1", "wf", tmp_path, tmp_path)
+    for idx, source in enumerate([DOLLARS_HARNESS_IMPUTED, "metered_api_billed"]):
+        pid = r.start_phase("run1", idx, f"p{idx}", "rocket", "claude_code")
+        r.finish_phase(
+            pid, "PASS", 1,
+            UsageBreakdown(input_tokens=1, output_tokens=1, cache_read_tokens=0,
+                           cache_write_tokens=0, dollars=0.25, dollars_source=source),
+        )
+    totals = r.usage_totals("run1")
+    assert totals["dollars"] == 0.5
+    assert set(totals["dollars_sources"]) == {DOLLARS_HARNESS_IMPUTED, "metered_api_billed"}
+    r.close()
+
+
+def test_a_priced_phase_with_no_recorded_source_leaves_the_total_unlabelled(tmp_path):
+    """The falsification partner: provenance must be ABSENT when nothing recorded it,
+    so the renderer says so rather than inheriting a default caveat."""
+    r = _db(tmp_path)
+    r.start_session("run1", "wf", tmp_path, tmp_path)
+    pid = r.start_phase("run1", 0, "p", "rocket", "claude_code")
+    r.finish_phase(
+        pid, "PASS", 1,
+        UsageBreakdown(input_tokens=1, output_tokens=1, cache_read_tokens=0,
+                       cache_write_tokens=0, dollars=9.99, dollars_source=None),
+    )
+    totals = r.usage_totals("run1")
+    assert totals["dollars"] == 9.99
+    assert [s for s in totals["dollars_sources"] if s] == []
     r.close()
 
 

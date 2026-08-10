@@ -46,6 +46,40 @@ def _usage_line(row: Any) -> str:
     return line
 
 
+# How each recorded `dollars_source` reads to a human. A source with no gloss is
+# rendered raw rather than guessed at — an unlabelled number is the failure mode
+# this whole mechanism exists to prevent.
+_DOLLARS_GLOSS = {
+    "harness_reported_imputed": (
+        "harness-reported list-price imputation, NOT a billed amount on a "
+        "subscription lane"
+    ),
+}
+
+
+def _dollars_line(totals: dict[str, Any]) -> str:
+    """Render the summed dollars WITH the provenance recorded alongside it.
+
+    The v1 build hard-coded the subscription-lane caveat into this string. That is
+    the same defect as dropping the label: the number and its meaning were joined by
+    the renderer's assumption rather than by the receipt (DRIFT-CRITIC D-4). If a
+    future lane records a different source, this reads it out and the caveat changes
+    with the data. If a source is recorded that nothing here recognises, the raw
+    token is printed — never silently dressed as something familiar.
+    """
+    dollars = totals["dollars"]
+    if dollars is None:
+        return "NULL (no lane priced this run)"
+    sources = [s for s in totals.get("dollars_sources") or [] if s]
+    if not sources:
+        return (
+            f"${dollars:.4f} — **provenance unrecorded**; this figure cannot be read "
+            "as money spent"
+        )
+    label = " + ".join(_DOLLARS_GLOSS.get(s, f"source `{s}` (no gloss registered)") for s in sources)
+    return f"${dollars:.4f} — {label}"
+
+
 def render_run_report(receipts: Receipts, run_id: str) -> str:
     session = receipts.session(run_id)
     if session is None:
@@ -105,16 +139,7 @@ def render_run_report(receipts: Receipts, run_id: str) -> str:
     )
     out.append(f"- billable token total: **{_tok(totals['billable_token_total'])}** "
                "(reasoning excluded by law — it is a share of output)")
-    dollars = totals["dollars"]
-    out.append(
-        "- dollars: "
-        + (
-            f"${dollars:.4f} — harness-reported list-price imputation, NOT a billed amount on a "
-            "subscription lane"
-            if dollars is not None
-            else "NULL (no lane priced this run)"
-        )
-    )
+    out.append(f"- dollars: {_dollars_line(totals)}")
     out.append("")
 
     breaches = [e for e in receipts.events(run_id) if e["kind"] == "permissions_breach"]
