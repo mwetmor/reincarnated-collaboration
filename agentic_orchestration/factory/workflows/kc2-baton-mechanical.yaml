@@ -1,0 +1,105 @@
+# KC2 baton-scene MECHANICAL cells, ported to the spine (Spec A § 11 acceptance 1).
+#
+# Three cells that were conductor-attention work in the KC2/BR runs and are pure
+# mechanical verdict here:
+#   1. the digest pin   — verify d7ecd866… before anything loads the baton
+#   2. the ffprobe gate — R-BR-56: promote no render unverified
+#   3. the test wall    — headless suite; exit code is the verdict
+#
+# Every phase is MECHANICAL (agent: null). No model is invoked, so usage is
+# recorded as NULL-with-reason rather than zero-filled, and the run costs nothing
+# but wall time. The engine and godot trees are declared read-only AND
+# fingerprinted: the read-only claim is proved per phase, not asserted.
+#
+# Determinism: `factory determinism workflows/kc2-baton-mechanical.yaml` runs this
+# twice and compares gate verdicts (R-BR-51).
+
+name: kc2-baton-mechanical
+description: >
+  The KC2 baton scene's mechanical fraction under the factory spine: digest pin,
+  render verification, headless test wall. Founding-run lean, F1.
+
+root: ~/Games/reincarnated-collaboration
+
+repos:
+  - ~/Games/reincarnated-collaboration
+  - ~/Games/reincarnated-engine
+  - ~/Games/reincarnated-godot
+
+read_only_trees:
+  - ~/Games/reincarnated-engine
+  - ~/Games/reincarnated-godot
+
+on_fail: stop
+
+phases:
+  # -------------------------------------------------------------------------
+  - name: baton_digest_pin
+    agent: null
+    writes: []
+    claim: >
+      The baton of record for E-s09-cp150 is on disk at the pinned digest, is
+      1,065,632 bytes, and parses as JSON. Nothing downstream may load it until
+      this holds.
+    notes: >
+      The pin moves BY HAND or not at all. If this cell reds, the supply changed
+      underneath a consumer that did not consent to the change.
+    artifacts:
+      - src/reincarnated/output/kc2-baton-v1-E-s09-cp150-20260809_052836.json
+    gates:
+      - gate: artifacts_exist
+      - gate: files_non_empty
+      - gate: sha256_matches
+        args:
+          path: src/reincarnated/output/kc2-baton-v1-E-s09-cp150-20260809_052836.json
+          expected: d7ecd866ac45ec9647ca3d4f7850c41f6a7654e718451d9e5c38ccdb59b8d5aa
+          size_bytes: 1065632
+      - gate: json_parses
+      - gate: diff_matches_claims
+      - gate: verdict_consistent
+
+  # -------------------------------------------------------------------------
+  - name: render_ffprobe_verify
+    agent: null
+    writes: []
+    claim: >
+      The BR2 watch render is promotable: it carries a video and an audio stream,
+      runs at least 30 s, and is at least 1280x720.
+    notes: >
+      R-BR-56 — verification precedes promotion. This cell only VERIFIES; the
+      promotion write belongs to a separate phase so it passes through
+      permissions fingerprinting like any other write.
+    artifacts:
+      - ~/Games/reincarnated-godot/tmp/br2watch/BR2W_C9.mp4
+    gates:
+      - gate: artifacts_exist
+      - gate: files_non_empty
+      - gate: ffprobe_verifies
+        args:
+          path: ~/Games/reincarnated-godot/tmp/br2watch/BR2W_C9.mp4
+          min_duration_s: 30
+          expect_streams: [video, audio]
+          min_width: 1280
+          min_height: 720
+      - gate: diff_matches_claims
+      - gate: verdict_consistent
+
+  # -------------------------------------------------------------------------
+  - name: baton_test_wall
+    agent: null
+    writes: []
+    claim: >
+      The baton wire and the KC2 micro-oracles hold: the headless suite exits 0.
+    notes: >
+      `-p no:cacheprovider` keeps pytest from writing .pytest_cache into a tree
+      this run declares read-only. A read-only proof that writes is not a proof.
+    artifacts:
+      - src/reincarnated/output/kc2-baton-v1-E-s09-cp150-20260809_052836.json
+    gates:
+      - gate: tests_pass
+        args:
+          command: python3 -m pytest -p no:cacheprovider -q tests/test_baton_v1.py tests/test_kc2_micro_oracles.py
+          cwd: ~/Games/reincarnated-engine
+          timeout_s: 900
+      - gate: diff_matches_claims
+      - gate: verdict_consistent

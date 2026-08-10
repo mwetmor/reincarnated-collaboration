@@ -66,3 +66,12 @@ glance/app/tsconfig.tsbuildinfo
 glance/app/public/state.json
 .vercel
 matt_notes_handoff_docs/GD-tests/play-test-v1/
+
+# === Factory spine (star-lord) — working state, never committed ===
+# Spec A § 1: sessions/ and receipts.db are git-ignored working state; committed
+# artifacts are code, configs, and deliberately promoted run reports.
+agentic_orchestration/factory/sessions/
+agentic_orchestration/factory/receipts.db
+agentic_orchestration/factory/receipts.db-wal
+agentic_orchestration/factory/receipts.db-shm
+.pytest_cache/

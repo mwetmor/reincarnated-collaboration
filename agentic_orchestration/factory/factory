@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# factory — Tier-0 entry point. Runs the spine from anywhere.
+#
+#   agentic_orchestration/factory/factory status
+#   agentic_orchestration/factory/factory run workflows/kc2-baton-mechanical.yaml
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PARENT="$(dirname "$HERE")"
+export PYTHONPATH="$PARENT${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m factory "$@"
