@@ -4,6 +4,32 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-10 — Software Factory strategy ruled (D1–D5) · factory + minigame-editor canon authored · two build contracts cut (gandalf, Matt-ruled)
+
+Matt ruled the whole-workflow strategy fork: **compile in-house** — the factory this team already
+runs in prose (charters, pre-registered gates, ruling ledgers, batons) compiles into a thin
+Python+YAML+SQLite spine at `agentic_orchestration/factory/` (star-lord builds per D4), with labor
+routed through the **two subscription-native harnesses only**: Claude Code headless with named seam
+agents, plus Codex CLI (D2; Matt action T16). **No pi-for-Claude** — the legolas probe surfaced
+pi's own providers.md caveat (Claude subscription use via third-party harness "draws from extra
+usage and is billed per token, not against Claude plan limits"), which killed third-party-harness
+routing on the Claude lane and made compile-in-house the only both-lanes-covered path. Strategy of
+record: `operating-procedures/software-factory.md` (jack-ryan ratification queued per
+`canonical-doc-format.md` § 6.7) — imports SSSF's sound mechanisms (default-fail phases, typed
+envelopes + synced triad, post-hoc claim gates, permissions fingerprinting, SQLite WAL receipts,
+only-failures-travel), refuses their gaps against standing law (**no stub gates ever**; owner-eye
+never automated — BR-2's two gates-passed-while-failing are the named precedent; receipts→law→
+config recompile as the memory loop). UI tier ladder 0–3 under three disciplines (one data path ·
+read-mostly · no dashboard before receipts). Companion canon:
+`canonical/reap-die-rise-game/minigame-editor-and-scenario-contracts.md` — the factory New Run form
+and the eventual minigame editor are **two skins on one spine**; proto-editor now (Matt's iterative
+use = wave-arena grill evidence), product-grade deferred behind the graduation gate (grill + Matt
+ruling on F-V2-1). Build contracts: Spec A `gandalf/notes/2026-08-10-factory-spine-spec.md`
+(star-lord) · Spec B `gandalf/notes/2026-08-10-factory-ui-proto-editor-spec.md` (drax; Tier-2
+build-gated on receipts-schema stability across ≥2 workflows). Founding-run lean veto-open: the
+KC2 baton scene build proceeds AS the factory's founding run, chartered per
+`desirable-run-pattern.md` § 3 before anything fires.
+
 ## 2026-07-26 — TCP: L8 closes · provision-first ruled · L7/L6 bake-offs designed · next session = suite architecture (gandalf, Matt-ruled)
 
 **L8 UI closed** (TCP-53/54): full dark-fantasy HUD arrived, five arms all method H, candle VFX
