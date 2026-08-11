@@ -2651,6 +2651,22 @@ reason is the slash, not the prefix.
 > really do mint only inside the `not dot.is_dir()` branch. Two thirds of the enumeration
 > holds. `test_JR12_a_COLLAPSED_ANCESTOR_key_still_reaches_the_read_only_tree` now covers
 > the third rather than narrowing the claim to exclude it.
+>
+> **AND STILL NOT COMPLETE — corrected again in round twenty (JR-16 / JR-17).** The
+> withdrawal above names `:711` and stops. `:684` and `:697` mint the identical
+> `<dir>/\t<marker>` shape and move the answer the same way — **four** producers, not
+> two — so the paragraph that withdrew a narrowing narrowed again, one round later, by
+> adjudicating `:711` and letting `:684`/`:697` survive only inside the sentence being
+> withdrawn. Verified by reading `permissions.py:684` and `:697` before accepting the
+> finding. No coverage gap: the same `full in ro.parents` arm decides all three, so
+> `test_JR12_…` kills R17-g whichever producer you arrive through. And the DENOMINATOR
+> is wrong too — `_git_control_entries:826` is an eleventh marker-bearing pathway that
+> mints nothing itself, measured by me on a real linked worktree at 17 keys / 16
+> marker-bearing / all collapsing to `.git/`. Inert, because `:826` lives inside the
+> `not dot.is_dir()` branch and `_validate_containment` refuses a non-directory tree.
+> Both corrections now live in the row's own docstring; README **rule 49** generalises
+> the second one. Three consecutive versions of this paragraph have been wrong, each in
+> the shape the paragraph was written to close.
 
 What the row does **not** claim, stated because the temptation to claim it is real: the
 verdict does not flip. Every marker-bearing key in this module lives under `.git/`, which
@@ -3029,7 +3045,15 @@ BLOCK was about a measuring tool is not a coincidence I want smoothed over.
 
 ### 23.5 The mutation table — observed lines, not remembered names
 
-| id | mutation | observed |
+> **Caption corrected in round twenty (jack-ryan's optional item).** The COUNTS below,
+> not only the names, are net of `test_C2_every_assert_under_tests_is_proven_to_execute`.
+> Every raw pytest summary line is one higher than the figure shown. The convention was
+> stated under the table and the numbers were left un-annotated, so "2 failed" sat beside
+> an observed `3 failed, 599 passed` — honest but re-derivable only by a reader who
+> reached the sentence below first. jack-ryan's independent table at
+> `qa/pending/…-r19.md` prints the RAW lines and closes against these exactly.
+
+| id | mutation | observed (net of `test_C2`) |
 |---|---|---|
 | R19-1 | `"ToolSearch"` **deleted** from `UNFENCEABLE_TOOLS` | **KILLED**, 2 failed: `test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_KIND_of_entry_it_is`, `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
 | R19-2 | `"Agent"` **deleted** | **KILLED**, 2 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing`, `test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason` |

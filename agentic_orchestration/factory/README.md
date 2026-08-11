@@ -711,6 +711,18 @@ unknown version rather than guess at it.
    and reports it as the evaporation guard. Under deletion, SIX of nine refused names left
    the whole suite green. Fix (both halves, per rule 44): the parametrised row keeps the
    lists from drifting, and a hardcoded `REFUSED_ROSTER` literal fails on any removal.
+   *Round 20 addendum — WHICH collections need the literal, because the answer is not
+   "all of them" and a rule that said so would be noise.* The discriminator is whether a
+   member is **behaviour** or a **record**. `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and
+   `PROTECTED_EVERY_REPO` are all KILLED by deletion (measured by jack-ryan at 7 / 11 /
+   3 / 3 failures and re-run here — notes § 24.5 carries the observed lines):
+   removing a member stops a real key being minted and a scenario row notices, so they
+   need no pin. `REASONED_ADMISSIONS` is a record — deleting `Skill` from it changes no
+   behaviour at all, because `Skill` was never refused — and it SURVIVED at **603 passed,
+   the baseline count unmoved**, which is worse than the JR-13 case where the count at
+   least dropped to 602 and a reader comparing totals had one thread to pull. What
+   evaporates is the sentence that adjudicated the admission. Rule 47 was written about
+   one dict and applied to one dict; a rule's own scope is a claim like any other.
 
 48. **The measuring instrument gets the same reading you would give the code (rule 35,
    sharpened by two failures in one round).** Round 19's own mutation harness shipped two
@@ -722,3 +734,24 @@ unknown version rather than guess at it.
    no test had FAILED. Both are predicates answering an adjacent question with a
    safe-looking wrong answer, inside the tool built to find predicates that do that. A
    harness that cannot distinguish "no row failed" from "nothing ran" is not measuring.
+   *Round 20 addendum, from the reviewer's instrument rather than mine:* jack-ryan's
+   probes imported `factory.permissions` while their own harness had a mutation applied
+   to the working tree, read the mutated module, and produced a BLOCK-shaped finding
+   against a green suite — caught by `inspect.getsource` showing their own edit. Separately
+   they killed a harness by its shell PID, the Python child survived, two harnesses
+   mutated one tree, and the second restored the tree *to* the first's mutation. The
+   generalisation is a precondition, not a warning: **a measurement must assert the tree
+   was clean before it ran**, because "no test failed" is worth nothing if you cannot say
+   what the tree was. Both round-20 harnesses refuse to report without it, and both also
+   verify the intended change is observable in the LOADED object — a mutation that did
+   not land reads exactly like a mutation nothing caught.
+
+49. **Establish the denominator before reasoning over the set.** Three rounds argued about
+   "the ten marker producers" and the count was never checked. There is an eleventh
+   pathway (`_git_control_entries:826`), which mints nothing itself — it passes a
+   marker-bearing string as the *prefix* into `_gitdir_control_entries`, so 16 keys on a
+   real linked worktree are marker-bearing without any of the ten sites firing, and they
+   collapse to `.git/` rather than to the two-component paths the rounds were arguing
+   about. It is inert, and inert for a reason that holds, so nothing was unprotected. The
+   defect is the same one this series keeps finding, moved up a level: a set reasoned over
+   confidently whose membership was never established. An enumeration is a measurement.

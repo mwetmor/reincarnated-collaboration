@@ -2451,6 +2451,33 @@ def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fence
     really do mint only when `.git` is a FILE, which `_validate_containment` refuses as
     a read-only tree.
 
+    FOUR producers move the answer, not two (Gate-2 JR-16 — the third consecutive
+    version of this paragraph to narrow, and the second to do it by adjudicating some
+    producers and dropping the rest without saying so). The collapsed-ancestor shape is
+    minted by `:684` (`.git/hooks/\\t<unreadable: …>` -> `.git/hooks/`), `:697`
+    (`.git/modules/\\t<unreadable: …>` -> `.git/modules/`) AND `:711`; `:664` mints the
+    exact-key shape this row covers. In round 18 `:684` and `:697` appeared ONLY inside
+    the sentence now withdrawn, so a reader finished the paragraph believing every
+    producer had been accounted for. They are covered — one row covers the branch all
+    three reach, because the same `full in ro.parents` arm decides all three — but
+    "covered" and "adjudicated" are two claims (rule 29), and the second one is made
+    here rather than assumed. Deliberately NO extra rows: three rows would be three
+    spellings of one predicate, which is rule 28's error with more green in it.
+
+    An ELEVENTH marker-bearing pathway exists and no round had enumerated it (Gate-2
+    JR-17). `_git_control_entries:826` is not a mint site — it passes `".git/\\t<common>"`
+    as the PREFIX into `_gitdir_control_entries`, so every key beneath it is
+    marker-bearing without any of the ten sites firing. Measured on a real linked
+    worktree: 17 keys, 16 marker-bearing, every one collapsing to `.git/` — a far more
+    aggressive truncation than the two-component collapses argued about above, because
+    `marker_path` splits on the FIRST separator and this prefix puts one at the front.
+    Inert, for a reason that holds: `:826` sits inside the `not dot.is_dir()` branch at
+    `:807`, so those keys exist only when `.git` is a FILE, the only tree they could
+    collapse onto is `.git` itself, and `_validate_containment` refuses a non-directory
+    read-only tree. Recorded because the DENOMINATOR was load-bearing in three rounds of
+    prose and had never been checked — the series' own shape, applied to a set instead
+    of to a predicate.
+
     This row's shape is the EXACT-KEY one: the marked key whose real path IS the tree.
     `_gitdir_control_entries` files
     its depth-cap declaration under the gitdir's own key, and the loader accepts a

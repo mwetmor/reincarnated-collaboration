@@ -586,6 +586,71 @@ def test_JR13_no_refusal_can_be_DELETED_without_a_row_failing():
     )
 
 
+#: The admitted roster, HARDCODED. Gate-2 JR-15 (jack-ryan, round 20).
+#:
+#: Round 19 wrote rule 47 and applied it to `UNFENCEABLE_TOOLS` alone. The dict beside
+#: it has the identical shape and had no pin: all four assertions over
+#: `REASONED_ADMISSIONS` are derived in the SHRINKING direction (two set differences,
+#: one blank-reason scan, and one row that loads `sorted(REASONED_ADMISSIONS)` and so
+#: simply tests one fewer name). Measured twice, by jack-ryan and then independently by
+#: me: deleting `Skill` or `ExitWorktree` leaves **603 passed** — not 602. Nothing is
+#: parametrised over this dict, so the count does not even twitch. That is worse than
+#: the JR-13 case, where a careful reader comparing totals had one thread to pull.
+#:
+#: WHICH collections need a literal, since the answer is not "all of them" and a rule
+#: that says so would be noise. The distinction is jack-ryan's; the control measurements
+#: below are theirs, re-run by me before this comment claimed them (see notes § 24.5 for
+#: the observed lines — writing the sentence first and measuring afterwards is how the
+#: last three rounds each produced a false receipt):
+#:
+#:   - a collection whose members are BEHAVIOUR is protected by the scenario rows that
+#:     exercise the behaviour. `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and
+#:     `PROTECTED_EVERY_REPO` are all KILLED by deletion, because removing a member
+#:     stops a real key from being minted and a real row notices. They need no literal.
+#:   - a collection whose members are a RECORD needs the literal, because deleting the
+#:     record changes no behaviour and therefore no row can see it. `REASONED_ADMISSIONS`
+#:     is the only one of that kind here. `Skill` is admitted either way; what evaporates
+#:     is the sentence that adjudicated it — *"Distinct from `ToolSearch`, which changes
+#:     the callable set rather than the instructions"* — which is the entire reason one
+#:     of those two names is refused and the other is not. This dict's own docstring
+#:     says an admission with a reason can be argued with and an admission by silence
+#:     cannot; a silent deletion converts the first into the second.
+ADMITTED_ROSTER = frozenset({"Skill", "TaskOutput", "TaskStop", "ExitWorktree"})
+
+
+def test_JR15_no_reasoned_admission_can_be_DELETED_without_a_row_failing():
+    """`REFUSED_ROSTER`'s partner, for the dict whose members are a record.
+
+    The addition direction was already closed before this row existed: moving a name
+    from `UNFENCEABLE_TOOLS` into `REASONED_ADMISSIONS` fails
+    `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` as a missing refusal.
+    Only deletion-from-admissions was open, and it was open in its most complete form —
+    the suite's verdict was byte-identical before and after.
+
+    The second assertion is not decoration. A roster pin catches the KEY vanishing and
+    a blank-reason scan catches the reason being emptied, and between them sits the case
+    neither sees: the reason rewritten to something that no longer adjudicates anything.
+    `Skill`'s admission is not "it seems fine"; it is a stated contrast against the one
+    name in this module refused on reasoning rather than measurement. That contrast is
+    the load-bearing clause, so it is pinned rather than described.
+    """
+    assert set(REASONED_ADMISSIONS) == set(ADMITTED_ROSTER), (
+        "the admitted roster changed.\n"
+        f"  removed: {sorted(ADMITTED_ROSTER - set(REASONED_ADMISSIONS))}\n"
+        f"  added:   {sorted(set(REASONED_ADMISSIONS) - ADMITTED_ROSTER)}\n"
+        "A REMOVAL deletes the record that an admission was ADJUDICATED, and the name "
+        "goes on being admitted — by silence, which is the one thing this dict exists "
+        "to prevent. An ADDITION needs a reason in the dict and a line in this literal."
+    )
+    assert "ToolSearch" in REASONED_ADMISSIONS["Skill"], (
+        "`Skill`'s admission no longer names `ToolSearch`. The two are adjacent — both "
+        "reach past the phase's stated tools — and the whole adjudication is the "
+        "distinction between them: a skill injects INSTRUCTIONS and every tool it asks "
+        "for must still be in `--tools`, while `ToolSearch` changes the CALLABLE SET. "
+        "Without that contrast the entry reads as an admission by assertion."
+    )
+
+
 def test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_KIND_of_entry_it_is(
     tmp_path, git_repo
 ):
