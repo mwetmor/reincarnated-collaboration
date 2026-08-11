@@ -97,6 +97,47 @@ def _plant_nested_git_repo(where: Path) -> str:
     return "inner-repo"
 
 
+def _plant_quoted_path_with_rename_delimiter(where: Path) -> str:
+    """J1(b)+(c), live. Porcelain v1 C-quotes this name AND it contains v1's rename
+    separator, so the old parser produced `src` — a real path at the repo root that
+    the rollback then deleted. A filename may legally contain the delimiter; a
+    delimiter a filename can contain is not a delimiter."""
+    (where / "junk -> src").write_text("harmless\n", encoding="utf-8")
+    return "junk -> src"
+
+
+def _plant_path_with_a_newline(where: Path) -> str:
+    """The other half of J1(b): v1 quotes and escapes this, so any line-oriented
+    parse of the status output sees two records where there is one."""
+    (where / "two\nlines.txt").write_text("x\n", encoding="utf-8")
+    return "two\nlines.txt"
+
+
+def _plant_hard_link(where: Path) -> str:
+    """Content arrives without a write to this path's inode. Nothing in the fence
+    should care, but nothing in the suite established that it doesn't."""
+    os.link(where.parent / "tracked.txt", where / "hardlink.txt")
+    return "hardlink.txt"
+
+
+def _plant_mode_only_change(where: Path) -> str:
+    """No byte of content changes. git reports the mode; a content-hash-only view
+    would not."""
+    f = where / "movable.md"
+    os.chmod(f, 0o755)
+    return "movable.md"
+
+
+def _plant_dir_replacing_a_file(where: Path) -> str:
+    """A tracked FILE becomes a DIRECTORY. Every `is_dir()` branch in rollback and
+    quarantine flips meaning for this path between the two snapshots."""
+    f = where / "swappable.md"
+    f.unlink()
+    f.mkdir()
+    (f / "inner.txt").write_text("inner\n", encoding="utf-8")
+    return "swappable.md"
+
+
 def _plant_unreadable_subtree(where: Path) -> str:
     """A directory the sweep cannot descend into. The temptation is to skip what
     cannot be read; skipping it makes it read as clean (G6)."""
@@ -118,6 +159,12 @@ ARTIFACT_KINDS: dict[str, object] = {
     "gitignored_file": _plant_gitignored_file,
     "nested_git_repo": _plant_nested_git_repo,
     "unreadable_subtree": _plant_unreadable_subtree,
+    # added closing J1 (Gate-2 wall audit) — the kinds the first eight rows missed
+    "quoted_path_with_rename_delimiter": _plant_quoted_path_with_rename_delimiter,
+    "path_with_a_newline": _plant_path_with_a_newline,
+    "hard_link": _plant_hard_link,
+    "mode_only_change": _plant_mode_only_change,
+    "dir_replacing_a_file": _plant_dir_replacing_a_file,
 }
 
 
@@ -147,10 +194,14 @@ def fenced(git_repo: Path):
     beside it. This is the shipped shape: whole-worktree `repos:` entry, narrower
     `read_only_trees:` inside it."""
     protected = git_repo / "protected"
-    protected.mkdir()
-    (protected / ".keep").write_text("", encoding="utf-8")
     workspace = git_repo / "workspace"
-    workspace.mkdir()
+    for d in (protected, workspace):
+        d.mkdir()
+        # Tracked content in BOTH trees: the mode-only, type-change and rename kinds
+        # need something git already knows about, and the falsification partner needs
+        # the identical starting shape on the writable side.
+        (d / "movable.md").write_text("movable\n", encoding="utf-8")
+        (d / "swappable.md").write_text("swappable\n", encoding="utf-8")
     subprocess.run(["git", "add", "-A"], cwd=str(git_repo), check=True, capture_output=True)
     subprocess.run(
         ["git", "commit", "-q", "-m", "fence"], cwd=str(git_repo), check=True,
@@ -159,31 +210,64 @@ def fenced(git_repo: Path):
     return git_repo, protected, workspace
 
 
-def _changes(repo: Path, plant) -> list[perm.Change]:
+def _snapshot(repo: Path, plant) -> tuple[perm.TreeFingerprint, list[perm.Change]]:
     before = perm.fingerprint(repo)
     assert before.usable, f"baseline unusable: {before.error}"
     plant()
     after = perm.fingerprint(repo)
     assert after.usable, f"post-plant fingerprint unusable: {after.error}"
-    return perm.diff_fingerprints(before, after)
+    return before, perm.diff_fingerprints(before, after)
+
+
+def _changes(repo: Path, plant) -> list[perm.Change]:
+    return _snapshot(repo, plant)[1]
 
 
 # ---------------------------------------------------------------------------
 # the wall
 # ---------------------------------------------------------------------------
-@pytest.mark.parametrize("kind", sorted(ARTIFACT_KINDS))
-def test_the_wall_detects_every_artifact_kind(kind, fenced, tmp_path):
-    """Round one of the wall: the tree must not measure clean.
+def _names(changes: list[perm.Change], rel: str, prefix: str = "protected") -> bool:
+    """Is `prefix/rel` actually NAMED by the change-set?
 
-    This is the assertion every one of F1/G1/G2/H1 would have failed. Each of
-    those defects ended with an empty change-set over a tree that had just been
-    written to."""
+    Either exactly, or by an ancestor — git collapses a wholly-untracked directory
+    to one entry, so the ancestor is the only record that exists and it is a true
+    record of the artifact. Deliberately NOT the other direction: a change *below*
+    the artifact does not name it, and accepting that is how a fabricated path
+    satisfies the check (J1).
+    """
+    want = f"{prefix}/{rel}".rstrip("/")
+    for c in changes:
+        got = c.path.rstrip("/")
+        if got == want or want.startswith(got + "/"):
+            return True
+    return False
+
+
+@pytest.mark.parametrize("kind", sorted(ARTIFACT_KINDS))
+def test_the_wall_NAMES_every_artifact_kind(kind, fenced, tmp_path):
+    """Round one: the change-set must name the artifact — not merely be non-empty.
+
+    The first draft of this round asserted `assert changes`, and the Gate-2 wall
+    audit found the wall had the module's own disease in the one assertion meant to
+    cure it: a predicate answering a slightly different question than the one asked,
+    whose wrong answer is green. Both faces of J1 satisfy "non-empty" — a rename
+    produced a change-set holding only the DESTINATION while the source silently
+    left the fence, and a quoted path produced a change naming a fabricated path
+    that never existed. Non-emptiness is not detection.
+    """
     repo, protected, _ = fenced
-    changes = _changes(repo, lambda: _plant(kind, protected, tmp_path))
+    planted: list[str] = []
+    changes = _changes(repo, lambda: planted.append(_plant(kind, protected, tmp_path)))
     assert changes, (
         f"a {kind} was planted inside the tree and the fingerprint diff was EMPTY. "
-        "An empty diff is indistinguishable from innocence, so this reads as proof "
-        "that nothing happened."
+        "An empty diff is indistinguishable from innocence."
+    )
+    assert _names(changes, planted[0]), (
+        f"a {kind} was planted at protected/{planted[0]!r} and the change-set names "
+        f"{[c.path for c in changes]} — none of which is that path or an ancestor of "
+        "it. A change-set that is non-empty but names the wrong thing is worse than "
+        "an empty one: it looks like detection, and whatever it names is what the "
+        "rollback will act on."
     )
 
 
@@ -222,28 +306,75 @@ def test_the_wall_reports_the_undo_honestly_for_every_artifact_kind(kind, fenced
     False for a broken link that is very much still on disk (H3).
     """
     repo, protected, _ = fenced
-    planted: list[str] = []
-    changes = _changes(repo, lambda: planted.append(_plant(kind, protected, tmp_path)))
-    rel = planted[0]
+    changes = _changes(repo, lambda: _plant(kind, protected, tmp_path))
     _, breaches = perm.classify(
         changes, writes=["**"], root=repo, read_only_trees=[protected]
     )
     actions = perm.rollback(breaches, {}, tmp_path / "quarantine")
     assert actions, f"a {kind} breached and the rollback recorded nothing at all"
 
-    survived = _lexists(protected / rel)
-    deleted = [a for a in actions if a.action == "deleted"]
-    left = [a for a in actions if a.action == "NOT_ROLLED_BACK"]
-    if survived:
-        assert not deleted, (
-            f"a {kind} survived rollback while the receipt claimed {deleted} — the "
-            "receipt disagrees with the disk, so the abort report reads as if the "
-            "tree came back clean"
+    for a in actions:
+        target = repo / a.path
+        if a.action == "deleted":
+            assert not _lexists(target), (
+                f"the receipt claims `deleted` for {a.path!r} after a {kind}, and it "
+                "is still on disk. A receipt that disagrees with the disk is worse "
+                "than no rollback: the abort report reads as if the tree came back "
+                "clean."
+            )
+        elif a.action == "restored":
+            assert _lexists(target), (
+                f"the receipt claims `restored` for {a.path!r} after a {kind}, and "
+                "there is nothing there. A restore that removed the path is a "
+                "rollback that destroyed work."
+            )
+        else:
+            assert a.action == "NOT_ROLLED_BACK", f"unknown action {a.action!r}"
+            assert a.reason, (
+                f"{a.path!r} was left in place after a {kind} with no stated reason. "
+                "Evidence left deliberately is fine; evidence left silently is not."
+            )
+
+
+@pytest.mark.parametrize("kind", sorted(ARTIFACT_KINDS))
+def test_the_wall_accounts_for_every_residue_of_every_artifact_kind(kind, fenced, tmp_path):
+    """Round four — the second clause the Gate-2 wall audit required.
+
+    "The receipt and the disk agree" is the right floor and the wrong ceiling: it is
+    satisfiable by a *consistent falsehood*, because a rollback that silently misses
+    a path emits no action for it and therefore contradicts nothing. The stronger
+    promise is closure over the tree, not over the receipt —
+
+        after rollback, the fenced tree is back to its phase-start fingerprint,
+        or every path that is not is NAMED.
+
+    Anything still moved and unnamed is residue nobody decided to leave.
+    """
+    repo, protected, _ = fenced
+    before, changes = _snapshot(repo, lambda: _plant(kind, protected, tmp_path))
+    _, breaches = perm.classify(
+        changes, writes=["**"], root=repo, read_only_trees=[protected]
+    )
+    actions = perm.rollback(breaches, {}, tmp_path / "quarantine")
+
+    after = perm.fingerprint(repo)
+    assert after.usable, f"post-rollback fingerprint unusable: {after.error}"
+    residue = perm.diff_fingerprints(before, after)
+    named = {a.path.rstrip("/") for a in actions}
+    unaccounted = [
+        c.path for c in residue
+        if not any(
+            c.path.rstrip("/") == n or c.path.rstrip("/").startswith(n + "/")
+            or n.startswith(c.path.rstrip("/") + "/")
+            for n in named
         )
-        assert left and all(a.reason for a in left), (
-            f"a {kind} was left on disk with no stated reason: {actions}. Evidence "
-            "left deliberately is fine; evidence left silently is not."
-        )
+    ]
+    assert not unaccounted, (
+        f"after rolling back a {kind}, the tree has not returned to its phase-start "
+        f"fingerprint and these paths are named by no rollback action: {unaccounted}. "
+        f"Actions were {[(a.path, a.action) for a in actions]}. Residue nobody "
+        "decided to leave is the failure this round exists to catch."
+    )
 
 
 @pytest.mark.parametrize("kind", sorted(ARTIFACT_KINDS))
@@ -268,32 +399,159 @@ def test_the_wall_can_go_green(kind, fenced, tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# J1 — the rename escape and the induced deletion
+#
+# These do not fit the uniform planter signature (they need a destination OUTSIDE
+# the fence), so they get their own names — the regression a reviewer will grep for.
+# ---------------------------------------------------------------------------
+def test_J1a_a_git_mv_OUT_of_the_fence_names_the_SOURCE(fenced):
+    """The old parser kept `split(" -> ")[-1]`, the DESTINATION, and dropped the
+    source. So `git mv` out of a read-only tree into the phase's own allowlist
+    produced a change-set naming only a legal path — the fenced file was gone and
+    the run passed. Using the *more* disciplined command was the difference between
+    caught and clean."""
+    repo, _, _ = fenced
+
+    def do_move():
+        subprocess.run(
+            ["git", "mv", "protected/movable.md", "workspace/exfiltrated.md"],
+            cwd=str(repo), check=True, capture_output=True,
+        )
+
+    changes = _changes(repo, do_move)
+    assert _names(changes, "movable.md"), (
+        f"a git mv out of the fence produced {[c.path for c in changes]} — the source "
+        "protected/movable.md is not among them, so the fence never sees the file leave"
+    )
+    _, breaches = perm.classify(
+        changes, writes=["workspace/**", "protected/**"], root=repo,
+        read_only_trees=[repo / "protected"],
+    )
+    assert any("read-only tree" in b.reason for b in breaches), (
+        f"moving a file OUT of a read-only tree was not a breach: {breaches}"
+    )
+
+
+def test_J1a_partner_a_rename_entirely_inside_the_allowlist_is_allowed(fenced):
+    """Falsification partner: renames are not breaches, renames ACROSS the fence are."""
+    repo, _, _ = fenced
+
+    def do_move():
+        subprocess.run(
+            ["git", "mv", "workspace/movable.md", "workspace/renamed.md"],
+            cwd=str(repo), check=True, capture_output=True,
+        )
+
+    changes = _changes(repo, do_move)
+    allowed, breaches = perm.classify(
+        changes, writes=["workspace/**"], root=repo,
+        read_only_trees=[repo / "protected"],
+    )
+    assert allowed and not breaches, f"a legal rename was refused: {breaches}"
+
+
+def test_J1c_the_rollback_never_deletes_tracked_content(fenced, tmp_path):
+    """The third face, and the worst: the fabricated path the old parser produced was
+    a REAL path at the repo root, and the rollback acted on it — deleting the very
+    read-only tree it was fencing, from a file the phase was ALLOWED to write.
+
+    The parser fix removes the cause. This asserts the structural guard, which does
+    not depend on knowing which parse bug produced the bad path: a `created` path
+    cannot contain anything git already tracks, so if it does, our identification is
+    wrong and the deletion is refused. Containment must never destroy work."""
+    repo, protected, _ = fenced
+    misidentified = perm.Change(
+        root=repo, path="protected", kind="created", before_status=None, after_status="??"
+    )
+    actions = perm.rollback(
+        [perm.Breach(misidentified, "misidentified")], {}, tmp_path / "quarantine"
+    )
+    assert (protected / "movable.md").exists(), (
+        "the rollback DELETED a tree full of committed files because a change entry "
+        "claimed the phase had created it. This is the J1(c) live failure."
+    )
+    assert actions and actions[0].action == "NOT_ROLLED_BACK"
+    assert "tracks" in actions[0].reason, (
+        f"the refusal did not say why: {actions[0].reason!r}"
+    )
+
+
+def test_J1c_partner_the_guard_still_deletes_a_genuine_creation(fenced, tmp_path):
+    """Without this, a rollback that refused everything would pass the test above and
+    the containment would quietly stop rolling anything back."""
+    repo, protected, _ = fenced
+    (protected / "genuinely-new.txt").write_text("new\n", encoding="utf-8")
+    change = perm.Change(
+        root=repo, path="protected/genuinely-new.txt", kind="created",
+        before_status=None, after_status="??",
+    )
+    actions = perm.rollback([perm.Breach(change, "planted")], {}, tmp_path / "quarantine")
+    assert actions[0].action == "deleted", f"a real creation was not undone: {actions}"
+    assert not (protected / "genuinely-new.txt").exists()
+
+
+# ---------------------------------------------------------------------------
 # the declared blind spot
 # ---------------------------------------------------------------------------
-def test_a_WHOLLY_EMPTY_directory_tree_is_INVISIBLE_to_the_porcelain_channel(fenced, tmp_path):
-    """A pinned limitation, not a passing gate. Declared here rather than left to be
-    found, the same way the COARSE tier's in-place-edit blind spot is declared.
+def test_a_WHOLLY_EMPTY_directory_tree_is_STILL_invisible_to_git_itself(fenced):
+    """The premise, pinned. If git ever starts reporting these, the structure sweep
+    below becomes redundant and someone should know to delete it."""
+    repo, protected, _ = fenced
+    before = perm.fingerprint(repo)
+    (protected / "a" / "b" / "c").mkdir(parents=True)
+    after = perm.fingerprint(repo)
+    assert not perm.diff_fingerprints(before, after), (
+        "git now reports empty directory trees; the structure sweep is redundant"
+    )
 
-    git has no concept of an empty directory — it tracks content, so a directory
-    tree containing no files is reported by nothing, at any porcelain setting. The
-    stat sweep cannot rescue it either: the sweep only descends into paths git
-    already reported, which is the design that keeps the engine's 3.3 GB affordable.
 
-    Scope of the residual risk: bounded to directory structure. The moment any FILE
-    lands anywhere inside such a tree, git reports the collapsed entry and the fence
-    catches it — `test_the_wall_fences_every_artifact_kind[collapsed_untracked_member]`
-    is that case. So a phase can leave stray empty directories inside a read-only
-    tree and the run will still pass. No bytes cross the fence.
+def test_an_empty_directory_tree_in_a_READ_ONLY_tree_is_caught_by_the_structure_sweep(fenced):
+    """The blind spot, CLOSED rather than reworded.
 
-    This test asserts the limitation so that a future fix breaks it loudly and the
-    author knows to delete this test rather than wonder why the wall disagrees.
+    It was first declared as bounded — no bytes cross the fence — and the Gate-2 wall
+    audit refused the reassurance on two grounds. First, the affordability argument
+    conflated the *exact* sweep (one stat per file, genuinely expensive) with a
+    *structure-only* sweep (no stats at all), measured at 0.21 s for the engine and
+    1.69 s for godot. Second, "bounded to directory structure" is not inert on the two
+    trees actually fenced: a bare directory is a PEP-420 namespace package, so an
+    empty `src/reincarnated/<name>/` turns an ImportError into a successful import of
+    nothing; and a new directory under `res://` is picked up by Godot's import scan.
+    It was also invisible to the rollback, so it accumulated across runs.
+
+    "Bounded and low-harm" has been the wrong answer three times in this module. The
+    sweep is scoped to the read-only trees, which is where it is both cheap and
+    load-bearing.
     """
     repo, protected, _ = fenced
-    changes = _changes(repo, lambda: (protected / "a" / "b" / "c").mkdir(parents=True))
-    assert not changes, (
-        "empty directory trees became visible — the blind spot documented here is "
-        "closed. Delete this test and add `empty_dir_tree` as a row in ARTIFACT_KINDS."
+    before = perm.fingerprint(repo, structure_roots=[protected])
+    (protected / "a" / "b" / "c").mkdir(parents=True)
+    after = perm.fingerprint(repo, structure_roots=[protected])
+    changes = perm.diff_fingerprints(before, after)
+    assert changes, "an empty directory tree inside a read-only tree was not detected"
+    _, breaches = perm.classify(
+        changes, writes=["**"], root=repo, read_only_trees=[protected]
     )
+    assert any("read-only tree" in b.reason for b in breaches), (
+        f"detected but not fenced: {[(c.path, c.kind) for c in changes]}"
+    )
+
+
+def test_the_structure_sweep_does_not_fire_on_an_unchanged_tree(fenced):
+    """Falsification partner. A sweep that reported a delta every time would pass the
+    test above and abort every run — the M7 failure mode, one layer down."""
+    repo, protected, _ = fenced
+    before = perm.fingerprint(repo, structure_roots=[protected])
+    after = perm.fingerprint(repo, structure_roots=[protected])
+    assert not perm.diff_fingerprints(before, after), (
+        "the structure sweep is not stable across two reads of an untouched tree"
+    )
+
+
+def test_the_structure_sweep_is_scoped_to_the_trees_it_is_given(fenced):
+    """It is affordable BECAUSE it is scoped. A fingerprint taken without
+    `structure_roots` must not walk anything."""
+    repo, _, _ = fenced
+    assert perm.fingerprint(repo).structure == {}
 
 
 def _lexists(p: Path) -> bool:

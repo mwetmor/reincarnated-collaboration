@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           207 tests, all green
+  tests/           247 tests, all green
 ```
 
 ## Use
@@ -98,16 +98,45 @@ the one asked, whose wrong answer is always `clean`.
    into on **stderr**, with exit code 0 and nothing on stdout, so a `chmod 000`
    subtree measured as untouched. Warned paths are folded into the fingerprint:
    unreadable at both ends is unchanged, unreadable at one end is a change.
+6. **The status output is parsed with `-z`, and both ends of a rename are fenced.**
+   Porcelain v1 C-quotes special paths and uses ` -> ` as its rename separator — a
+   delimiter a filename can legally contain. Keeping only the last field dropped the
+   rename SOURCE, so `git mv` out of a fenced tree named only a legal destination and
+   passed; and a file named `junk -> src` parsed to `src`, a real path the rollback
+   then deleted. `-z` is NUL-separated, never quoted, and emits the rename origin as
+   its own record.
+7. **Rollback never deletes tracked content.** A `created` path cannot contain
+   anything git already tracks; if it does, the path identification is wrong and the
+   deletion is refused with a reason. This does not depend on knowing which parse bug
+   produced the bad path. Containment must never be the thing that destroys work.
+8. **Empty directories are swept on the read-only trees.** git tracks content, so a
+   wholly-empty directory tree is invisible at every porcelain setting. This was
+   declared as a bounded blind spot and then closed: it is not inert (a bare directory
+   is a PEP-420 namespace package; a new `res://` directory enters Godot's import
+   scan) and a structure-only walk — no stats — costs 0.21 s for the engine and
+   1.69 s for godot.
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
-repeated shape — eight artifact kinds (regular file, symlink out of the tree, broken
-symlink, nested dir, collapsed untracked member, gitignored file, nested git repo,
-unreadable subtree) each required to be detected, fenced under `writes: ["**"]`, and
-reported honestly by the rollback, with a falsification partner requiring the same
-artifact to be *allowed* where it is declared. It found rule 5 on its first run. A
-new containment question of this shape should be a new row, not a new reviewer
-finding. **Known blind spot, pinned:** git cannot see a wholly-empty directory tree
-at any porcelain setting — bounded to structure, since any file inside it is caught.
+repeated shape — thirteen artifact kinds (regular file, symlink out of the tree,
+broken symlink, nested dir, collapsed untracked member, gitignored file, nested git
+repo, unreadable subtree, a quoted path containing the rename delimiter, a path with
+a newline, a hard link, a mode-only change, a directory replacing a file) each run
+through four rounds: the change-set must **name** the artifact (not merely be
+non-empty — the first draft asserted only non-emptiness, which is the module's own
+disease in the one assertion meant to cure it), it must be **fenced** under
+`writes: ["**"]`, the rollback must **report the undo honestly** (a `deleted` action's
+path must be gone, a `restored` action's path must be present, a `NOT_ROLLED_BACK`
+must carry a reason), and every **residue** left on disk afterwards must be named by
+some action. Each round has a falsification partner requiring the same artifact to be
+*allowed* where it is declared. The wall found rule 5 on its first run. A new
+containment question of this shape should be a new row, not a new reviewer finding.
+
+**Why the mechanical lane is easier than it looks.** Every path a mechanical workflow
+touches is authored by a human in a YAML file under review, so the adversarial-filename
+class (rule 6) is unreachable there. That is a property of its *inputs*, not of its
+code — the moment a phase's paths come from a model's output the immunity is gone. It
+is written down here so no one mistakes the mechanical lane's clean record for
+evidence that the parser is safe.
 
 **What the rollback promises.** Not that the artifact is always removed — nothing is
 deleted unquarantined, so evidence that cannot be safely quarantined is deliberately

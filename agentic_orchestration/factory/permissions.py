@@ -212,6 +212,9 @@ class TreeFingerprint:
     error: str | None = None
     coarse: list[str] = field(default_factory=list)      # regions past the sweep cap
     exempted: list[str] = field(default_factory=list)    # factory runtime paths, by name
+    #: repo-relative tree -> directory-structure signature. Populated only for the
+    #: read-only trees, which is the only place the cost is worth paying.
+    structure: dict[str, str] = field(default_factory=dict)
 
     @property
     def usable(self) -> bool:
@@ -259,6 +262,59 @@ def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
     return any(rel.startswith(p) or rel == p.rstrip("/") for p in FACTORY_RUNTIME_PATHS)
 
 
+#: Synthetic code for the SOURCE half of a rename. git names both endpoints; the
+#: source has left the worktree, so it resolves to a `deleted` change.
+RENAME_SOURCE = "R<"
+
+
+def _parse_porcelain_z(out: str) -> list[tuple[str, str]]:
+    """`git status --porcelain -z` records as (code, path) pairs — BOTH ends of a rename.
+
+    Gate-2 J1, three consequences of one line. The previous parser was
+    `rest.split(" -> ")[-1].strip().strip('"')` against porcelain v1, and:
+
+    1. It kept only the LAST field of a rename, discarding the SOURCE. `git mv` out of
+       a fenced tree therefore produced a change-set that named only the destination,
+       and a destination inside the phase's allowlist read as entirely legal — the
+       fenced file was gone and the run passed. Using the *more* disciplined command
+       was the difference between caught and clean.
+    2. `strip('"')` is not unquoting. Porcelain v1 C-quotes any path with a special
+       character, so a filename could carry the rename delimiter itself: an entry for
+       `protected/'a -> b.txt'` parsed to `b.txt` at the repo root.
+    3. That fabricated path is a REAL path, and the rollback acts on it. A phase
+       writing one harmless file named `junk -> src` inside its own allowlist induced
+       the rollback to delete `src/` — the read-only tree it was fencing. Containment
+       became the destroyer, from a write the phase was permitted to make.
+
+    `-z` has none of this: NUL-separated, never quoted, rename origin as its own
+    record. The origin is emitted here as a separate (RENAME_SOURCE, path) pair so
+    that both ends of a rename are fenced independently.
+    """
+    out = out.rstrip("\0")
+    if not out:
+        return []
+    records = out.split("\0")
+    pairs: list[tuple[str, str]] = []
+    i = 0
+    while i < len(records):
+        rec = records[i]
+        i += 1
+        if not rec:
+            continue
+        code, path = rec[:2], rec[3:]
+        if not path:
+            continue
+        pairs.append((code, path))
+        # A rename/copy record is followed by exactly one record holding the origin.
+        if "R" in code or "C" in code:
+            if i < len(records):
+                origin = records[i]
+                i += 1
+                if origin:
+                    pairs.append((RENAME_SOURCE, origin))
+    return pairs
+
+
 _UNREADABLE_WARNING = "could not open directory '"
 
 
@@ -281,7 +337,42 @@ def _unreadable_paths(stderr: str) -> list[str]:
     return out
 
 
-def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
+def structure_signature(path: Path) -> str:
+    """Directory NAMES only — no stats, no file listing, no content.
+
+    git tracks content, so a wholly-empty directory tree is invisible to every
+    porcelain setting there is, and the stat sweep cannot rescue it because the sweep
+    only descends into paths git already reported. That was declared as a bounded
+    blind spot; the Gate-2 wall audit measured the cost of closing it (0.21 s for the
+    engine, 1.69 s for godot) and established that "bounded to directory structure"
+    does not mean inert on the two trees actually fenced:
+
+    * a bare directory is a PEP-420 namespace package, so an empty
+      `src/reincarnated/<name>/` turns an ImportError into a successful import of
+      nothing — and the engine is a read-only tree;
+    * a new directory under `res://` is picked up by Godot's import scan — and the
+      godot tree is the other one;
+    * being invisible to the fingerprint made it invisible to the rollback too, so it
+      accumulated across runs.
+
+    Cheap because it stats nothing: `os.walk` yields directory names from the same
+    `scandir` it already performs. Walk errors fold into the hash for the same reason
+    they do everywhere else — unreadable must not read as unchanged.
+    """
+    h = hashlib.sha256()
+    count = 0
+    for dirpath, dirnames, _ in os.walk(path, onerror=_record_walk_error(h)):
+        dirnames.sort()
+        here = Path(dirpath)
+        rel = "." if here == path else str(here.relative_to(path))
+        h.update(f"{rel}\n".encode())
+        count += 1
+    return f"dirs:{count}:{h.hexdigest()[:16]}"
+
+
+def fingerprint(
+    root: Path, is_root_repo: bool = True, structure_roots: list[Path] | None = None
+) -> TreeFingerprint:
     """Snapshot a working tree: HEAD, porcelain status (INCLUDING ignored), signatures.
 
     `is_root_repo` gates the factory's own runtime exemptions: they apply to the
@@ -312,7 +403,13 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
     # `--ignored=traditional` collapses ignored DIRECTORIES to one line each, so the
     # listing stays small (118 entries on the engine) while the recursive stat sweep
     # below is what actually sees inside them.
-    status = _git(root, "status", "--porcelain", "--ignored=traditional")
+    # `-z` is not a formatting preference, it is the only parseable form (Gate-2 J1).
+    # Porcelain v1 C-QUOTES any path with a special character and uses ` -> ` as its
+    # rename separator, so a filename may contain both. `-z` emits raw NUL-separated
+    # records: no quoting, and the rename origin arrives as its own record instead of
+    # being packed into a string that has to be split on a delimiter a filename can
+    # legally contain.
+    status = _git(root, "status", "--porcelain", "-z", "--ignored=traditional")
     if status.returncode != 0:
         return TreeFingerprint(
             root=root,
@@ -332,11 +429,7 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
     for path in _unreadable_paths(status.stderr):
         if not _is_factory_runtime(path, is_root_repo):
             entries[path] = "!?"
-    for line in status.stdout.splitlines():
-        if not line.strip():
-            continue
-        code, rest = line[:2], line[3:]
-        path = rest.split(" -> ")[-1].strip().strip('"')
+    for code, path in _parse_porcelain_z(status.stdout):
         if _is_factory_runtime(path, is_root_repo):
             exempted.append(path)
             continue
@@ -349,11 +442,19 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
         content[p] = sig
         if mode == COARSE:
             coarse.append(p)
+    structure: dict[str, str] = {}
+    for tree in structure_roots or []:
+        tree = Path(tree).resolve()
+        if tree == root or root in tree.parents:
+            rel = "." if tree == root else str(tree.relative_to(root))
+            structure[rel] = structure_signature(tree)
+
     return TreeFingerprint(
         root=root,
         head=head_proc.stdout.strip(),
         entries=entries,
         content=content,
+        structure=structure,
         coarse=coarse,
         exempted=exempted,
     )
@@ -393,14 +494,28 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
     for path, code in after.entries.items():
         before_code = before.entries.get(path)
         if before_code is None:
-            kind = "deleted" if code.strip() == "D" else "created"
-            changes.append(Change(after.root, path, kind, None, code))
+            # A rename SOURCE has left the worktree, so it is a deletion, not a
+            # creation (Gate-2 J1). The distinction is load-bearing: `created` is the
+            # one kind the rollback DELETES, and deleting a path that a rename emptied
+            # would be the rollback acting on the wrong end of the move.
+            gone = code.strip() == "D" or code == RENAME_SOURCE
+            changes.append(
+                Change(after.root, path, "deleted" if gone else "created", None, code)
+            )
         elif before.content.get(path) != after.content.get(path) or before_code != code:
             changes.append(Change(after.root, path, "modified", before_code, code))
 
     for path, code in before.entries.items():
         if path not in after.entries:
             changes.append(Change(after.root, path, "modified", code, None))
+
+    # Directory structure of the read-only trees. This is the only signal that exists
+    # for a wholly-empty directory tree, which git cannot see at any porcelain setting.
+    for rel, sig in after.structure.items():
+        if before.structure.get(rel) != sig:
+            changes.append(
+                Change(after.root, rel, "modified", before.structure.get(rel), sig)
+            )
 
     seen: set[tuple[str, str]] = set()
     unique: list[Change] = []
@@ -509,7 +624,14 @@ def rollback(
         root = Path(change.root)
         target = root / change.path
         before_fp = before.get(str(root))
-        was_dirty_before = bool(before_fp and change.path in before_fp.entries)
+        # Compare on the normalised form: git reports a collapsed directory with a
+        # trailing slash in some records and without in others, and an exact-string
+        # membership test misses on that alone — which would drop the pre-existing-dirt
+        # protection for exactly the entries most likely to be big (Gate-2 J1 WARN).
+        rel_norm = change.path.rstrip("/")
+        was_dirty_before = bool(
+            before_fp and any(e.rstrip("/") == rel_norm for e in before_fp.entries)
+        )
 
         quarantined: str | None = None
         # `exists()` follows symlinks, so a BROKEN link is invisible to it -- and an
@@ -583,6 +705,28 @@ def rollback(
             )
             continue
         if change.kind == "created":
+            # THE DESTROYER GUARD (Gate-2 J1, third face). A `created` path is by
+            # definition something the phase brought into being, so it cannot contain
+            # anything git already tracks. If it does, our *identification* of the path
+            # is wrong — and acting on a misidentified path is how the rollback was
+            # induced to delete the read-only tree it was fencing. This does not depend
+            # on knowing which parse bug produced the bad path; it refuses to delete
+            # tracked content whatever the reason, which is the property we actually
+            # want. Containment must never be the thing that destroys work.
+            tracked = _git(root, "ls-files", "--", change.path)
+            if tracked.returncode == 0 and tracked.stdout.strip():
+                n = len(tracked.stdout.strip().splitlines())
+                actions.append(
+                    RollbackAction(
+                        change.path,
+                        "NOT_ROLLED_BACK",
+                        f"REFUSED: reported as created by the phase, but git tracks "
+                        f"{n} file(s) under it — the path identification is wrong and "
+                        "deleting it would destroy committed work",
+                        quarantined,
+                    )
+                )
+                continue
             try:
                 if target.is_symlink():
                     # `is_dir()` is TRUE for a link to a directory and `rmtree` then

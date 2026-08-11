@@ -185,8 +185,16 @@ class Runner:
     def _fingerprint_all(self) -> dict[str, perm.TreeFingerprint]:
         """Snapshot every declared tree. The root repo alone gets the factory exemptions."""
         root = self.wf.root.resolve()
+        # The directory-structure sweep runs on the READ-ONLY trees only. It is the
+        # sole signal for a wholly-empty directory tree — git tracks content, so it
+        # cannot see one at any porcelain setting — and it is affordable exactly where
+        # it is scoped: 0.21 s for the engine, 1.69 s for godot, against an 83 s run.
         return {
-            str(r): perm.fingerprint(r, is_root_repo=Path(r).resolve() == root)
+            str(r): perm.fingerprint(
+                r,
+                is_root_repo=Path(r).resolve() == root,
+                structure_roots=self.wf.read_only_trees,
+            )
             for r in self.wf.repos
         }
 

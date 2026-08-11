@@ -342,4 +342,120 @@ is his to confirm, not mine to assume.
 
 ---
 
+## 10. Round four — the wall audit, and the worst defect of the six
+
+jack-ryan did not re-review the instances this round. He audited **the wall itself**,
+and found J1 in the one line the wall was built to make unnecessary:
+
+```python
+rest.split(" -> ")[-1].strip().strip('"')
+```
+
+Porcelain v1 C-quotes any path with a special character, and uses ` -> ` as its rename
+separator — a delimiter a filename can legally contain. Keeping only the last field
+gave the defect three faces, and the third is worse than anything in F/G/H:
+
+- **J1(a) — the rename SOURCE is dropped.** `git mv` a file *out of* a fenced tree and
+  the change-set named only the legal destination. Live, before the fix: `PASS`, with a
+  **zero-path change-set**, while `src/canon.md` was gone from a declared read-only
+  tree. Same shape as the other five — the wrong **parse**, whose wrong answer is
+  `clean`.
+- **J1(b) — a quoted path is judged unquoted.** The fence is matched on a string git
+  never meant literally.
+- **J1(c) — containment deletes real work.** A phase legally creating a file named
+  `junk -> src` parsed to `src` — a real, tracked path — which the rollback then
+  **deleted**. The safety machinery destroying committed content is a strictly worse
+  outcome than the breach it exists to prevent.
+
+### The wall had the module's own disease
+
+His finding, and it is the correct one: the wall's round one asserted `assert changes`
+— **non-emptiness only**. Both J1 escapes satisfy that. The one assertion built to cure
+"a predicate answering a slightly different question" was itself answering a slightly
+different question. Round one now asserts the change-set **names** the artifact
+(`_names()`, matching a path or any collapsed ancestor of it). He also required a
+fourth round I did not have: after rollback, **every residue on disk must be named by
+some action** — the receipt cannot be silent about what it left behind.
+
+### What changed
+
+1. **`git status --porcelain -z --ignored=traditional`.** NUL-separated, never quoted,
+   and the rename origin arrives as its own record. Parsed by `_parse_porcelain_z`,
+   which emits the origin under a distinct `R<` code.
+2. **A rename source is a deletion, not a creation.** Load-bearing: `created` is the one
+   change kind the rollback *deletes*. Mis-typing an origin as a creation would have the
+   rollback delete the file the rename moved away from.
+3. **The destroyer guard.** A `created` path cannot contain anything git already tracks.
+   If `git ls-files` reports content under it, the path identification is wrong; the
+   deletion is **refused with a reason** and the artifact is left standing. This does not
+   depend on knowing which parse bug produced the bad path — it is the standing answer
+   to the whole class. Containment must never be the thing that destroys work.
+4. **Five new artifact kinds** on the wall: a quoted path containing the rename
+   delimiter, a path with a newline, a hard link, a mode-only change, a directory
+   replacing a file. Thirteen kinds × four rounds, each with its allowed-where-declared
+   falsification partner.
+
+### The empty-directory blind spot — closed, not reworded
+
+He ruled it "amend the wording, non-gating," and corrected two things in my round-three
+reasoning: my affordability argument conflated the **exact** sweep with a
+**structure-only** sweep (he measured it: 0.21 s engine, 1.69 s godot), and "bounded to
+structure" is **not inert** — a bare directory is a PEP-420 namespace package, a new
+`res://` directory enters Godot's import scan, and the residue accumulates across runs.
+
+I closed it instead of rewording it. `structure_signature()` is a names-only walk — no
+stats — swept over the declared read-only trees and diffed like any other entry.
+Grounds: **"bounded and low-harm" has now been the wrong answer three times in this
+module.** The cost is declared, not hidden: the founding-run workflow went 1m23s →
+**1m42s**.
+
+### Evidence that the wall falsifies
+
+Mutation testing, each applied and reverted in isolation:
+
+| mutation | tests red |
+|---|---|
+| M8 — drop the rename origin record | 1 |
+| M9 — remove the destroyer guard | 1 |
+| M10 — revert `-z` to porcelain v1 (alone, not cumulative) | **21** |
+
+jack-ryan's own M1–M7 all red it too, including M7 (over-widen the fence → 8 fails, via
+the `can_go_green` partners — the partners are what make it a wall and not a ratchet).
+
+Live, after the fix: the J1(a) rename escape **aborts**, naming
+`src/canon.md (deleted)`, where it previously ran PASS on a zero-path change-set. The
+J1(c) induced-deletion probe **passes legally**, `src/` intact, the tricky path parsed
+correctly as `scratch/junk -> src`.
+
+### Status after round four
+
+| finding | status |
+|---|---|
+| J1(a) rename source dropped | CLOSED — `-z`, origin emitted as its own record, typed as a deletion |
+| J1(b) quoted path judged unquoted | CLOSED — `-z` output is never C-quoted |
+| J1(c) rollback deletes real work | CLOSED — refuses to delete any path git tracks content under |
+| the wall's round one | CLOSED — names the artifact; residue-accounting round added |
+| empty directory trees | **CLOSED** — structure-only sweep on the read-only trees (was: declared blind spot) |
+| G3 host co-tenancy | OPEN, for Matt — host-quiet operating precondition, knight-rider routes |
+| G5 misleading rollback reason on collapsed-directory breaches | OPEN — ruled non-blocking |
+| COARSE tier in-place-edit blindness | DECLARED, pinned by a failing-if-fixed test |
+
+Round-four evidence: **247 tests** green (was 207); run PASS in 1m42s;
+`DETERMINISM: EXACT — 14 gate verdicts identical across two laps`; engine and godot
+dirty-counts at baseline **2789 / 233** after every probe.
+
+**The lane, per his round-four verdict:** H1/H2/H3 discharged and the read-only-overlap
+exclusion discharged; **agentic lane BLOCKED on J1**; mechanical lane approved unchanged
+— *"every filename in it is human-authored, which is precisely why J1 is unreachable
+there, and that property now needs writing down."* So, written down here: **the
+mechanical lane's immunity to J1 is a property of its inputs, not of its code.** Every
+path a mechanical workflow touches is authored by a human in a YAML file under review.
+The moment a phase's paths come from a model's output, that immunity is gone — which is
+exactly the boundary the agentic lane crosses, and exactly why J1 had to be closed in
+the parser rather than assumed away by the lane.
+
+The J1 lift is his to confirm, not mine to assume.
+
+---
+
 **Signed:** star-lord — operational-pipeline seam (export · output · telemetry · LLM)
