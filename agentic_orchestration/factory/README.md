@@ -284,6 +284,7 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
 25. **A trigger reaching a predicate is not the same as a predicate being called with
    it.** The round-thirteen mutation set had sixteen rows and every one mutated a
    predicate some test called directly; none mutated a *call site*. `_note_coarse`'s
+   (since renamed `_note_measurement_caveats`)
    post-gate caller passed no `agentic` argument at all, and every row on the function
    stayed green. The argument is now required — omitting it is a `TypeError` rather
    than a default — each of the three call sites has a row that never names `agentic`

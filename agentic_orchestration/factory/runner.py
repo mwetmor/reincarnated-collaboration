@@ -373,7 +373,7 @@ class Runner:
 
                 try:
                     before = self._fingerprint_all()
-                    # Inside the try: `_note_coarse` is a GATE on the agentic lane
+                    # Inside the try: `_note_measurement_caveats` is a GATE on the agentic lane
                     # (Gate-2 F5), and a gate outside the handler that catches it
                     # would abort the RUN with a traceback instead of aborting the
                     # PHASE with a receipt.
