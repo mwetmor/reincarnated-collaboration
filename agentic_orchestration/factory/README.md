@@ -714,8 +714,13 @@ unknown version rather than guess at it.
    *Round 20 addendum — WHICH collections need the literal, because the answer is not
    "all of them" and a rule that said so would be noise.* The discriminator is whether a
    member is **behaviour** or a **record**. `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and
-   `PROTECTED_EVERY_REPO` are all KILLED by deletion (measured by jack-ryan at 7 / 11 /
-   3 / 3 failures and re-run here — notes § 24.5 carries the observed lines):
+   `PROTECTED_EVERY_REPO` are all KILLED by deletion — four member-deletions re-run here,
+   observed raw at `21 failed / 12 errors`, `11 failed`, `3 failed`, `3 failed` (notes
+   § 24.5 carries the lines). Three of the four close exactly against jack-ryan's
+   independent figures; the first does not — they report `7 failed` where I twice observe
+   `21 failed, 571 passed, 12 errors`. **The adjudication is KILLED on both instruments,
+   so this discriminator does not rest on the disagreement**, and the open question is
+   flagged for their re-review rather than resolved by me:
    removing a member stops a real key being minted and a scenario row notices, so they
    need no pin. `REASONED_ADMISSIONS` is a record — deleting `Skill` from it changes no
    behaviour at all, because `Skill` was never refused — and it SURVIVED at **603 passed,
@@ -745,12 +750,25 @@ unknown version rather than guess at it.
    what the tree was. Both round-20 harnesses refuse to report without it, and both also
    verify the intended change is observable in the LOADED object — a mutation that did
    not land reads exactly like a mutation nothing caught.
+   *Second round-20 addendum, mine, found by a figure that would not close:* those same
+   harnesses collected results by filtering pytest output for lines beginning `FAILED`.
+   One control mutation returned `21 failed, 571 passed, **12 errors**`, and the harness
+   printed nine names and no indication that three parametrised rows had **errored at
+   fixture level and never executed at all**. An ERROR is not a FAILURE: a failing row ran
+   and disagreed, an erroring row never ran and therefore certified nothing. A harness
+   that greps for one of them silently reports the other as absent — which is this rule's
+   own subject, "no test failed" versus "nothing ran", reappearing in the collector
+   instead of the mutator. **Collect `-rEf`, report both, and print the raw summary line
+   rather than a count derived from the lines you chose to match.**
 
 49. **Establish the denominator before reasoning over the set.** Three rounds argued about
    "the ten marker producers" and the count was never checked. There is an eleventh
    pathway (`_git_control_entries:826`), which mints nothing itself — it passes a
-   marker-bearing string as the *prefix* into `_gitdir_control_entries`, so 16 keys on a
-   real linked worktree are marker-bearing without any of the ten sites firing, and they
+   marker-bearing string as the *prefix* into `_gitdir_control_entries`, so on a real
+   linked worktree **17 keys sit under that prefix and 16 of them are marker-bearing**
+   without any of the ten sites firing (jack-ryan reported 16; the extra key is not
+   marker-bearing and does not move the argument, and the difference is recorded because
+   an uncounted number is how this finding came to exist). They
    collapse to `.git/` rather than to the two-component paths the rounds were arguing
    about. It is inert, and inert for a reason that holds, so nothing was unprotected. The
    defect is the same one this series keeps finding, moved up a level: a set reasoned over

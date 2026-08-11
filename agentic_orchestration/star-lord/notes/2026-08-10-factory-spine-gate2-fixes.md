@@ -3087,3 +3087,226 @@ Baseline: **603 passed in 162.42s**, clean tree, `-p no:randomly`. Was 595 at `5
   here". Not run: it is an agentic-lane measurement and that lane is blocked on the threat
   model. The empirical criterion for firing it is the agentic lane opening.
 - **The threat model**, **O4** (dollars) and **D-10** (no HALT status): unchanged, untouched.
+
+---
+
+## 24. Round twenty — the rule had a scope, and its scope was one dict
+
+jack-ryan's verdict on round 19 (`qa/pending/2026-08-11-star-lord-factory-spine-gate2-r19.md`):
+**PASS (mechanical lane), BLOCK lifted.** The agentic lane is unchanged and untouched —
+still clause 2, still the threat model, still not mine.
+
+The PASS is not the part worth recording first. **How** it was reached is. They re-ran
+§ 23.5 with their own harness rather than mine, got ten for ten, and then decomposed
+R19-10's eight failures as `test_JR9_…` × 4 (two markers × `read_only_git`, over both
+`fenced` params) + `test_JR5_…` × 2 + `test_JR12_…` × 2. That arithmetic is not obtainable
+by agreeing with me. It is the difference between a receipt that was checked and a receipt
+that was read.
+
+Three new findings came with the PASS, and all three are the same defect this series keeps
+producing, now aimed at the **rules** rather than the code: a claim whose scope was never
+measured. Rule 47 was written in a general first sentence and applied to one dict (JR-15).
+The enumeration paragraph was rewritten to be true and dropped two of the four producers
+that move the answer (JR-16). And the word "ten," load-bearing across three rounds of
+prose, was never the size of the set it named (JR-17).
+
+I verified all three before accepting any of them. That is the discipline the last four
+rounds have been about, and it is cheaper to apply to a reviewer who has just agreed with
+me than to one who has not.
+
+### 24.1 JR-15 — behaviour or record, and why the count did not move
+
+`REASONED_ADMISSIONS` is consumed by four assertions and **every one derives in the
+shrinking direction** — `set(REASONED_ADMISSIONS) & set(UNFENCEABLE_TOOLS)`,
+`set(REASONED_ADMISSIONS) - BUILTIN_TOOLS`, a blank-reason scan, and
+`tools = sorted(REASONED_ADMISSIONS)`. Delete an entry and all four test one fewer name
+and pass.
+
+I re-ran it rather than taking the finding:
+
+```
+"Skill"        deleted from REASONED_ADMISSIONS  ->  SURVIVED, 603 passed
+"ExitWorktree" deleted from REASONED_ADMISSIONS  ->  SURVIVED, 603 passed
+```
+
+**603 is the baseline.** This is strictly worse than JR-13, and the reason is worth stating
+precisely: in JR-13 the total moved 603 → 602, because a parametrised row lost a case, so a
+reader comparing totals had one thread to pull. Nothing is parametrised over this dict, so
+the suite's verdict is **byte-identical** before and after an adjudicated admission is
+deleted. There is no thread.
+
+Round 18's M18-d mutated this dict by **blanking** a reason, and that is caught. Blanking is
+to deletion what renaming was in JR-13: the weaker mutation, reporting the drift guard as
+the evaporation guard. I have now made this same substitution twice, with two different
+mutation styles, on two different dicts, in two consecutive rounds. The generalisation is
+in rule 44 and I keep failing to apply it to the new case rather than the cited one.
+
+**What actually evaporates.** No behaviour. `Skill` is admitted either way — it was never
+refused. What disappears is the sentence that adjudicated it, and specifically the clause
+that distinguishes it from the name next door: *"Distinct from `ToolSearch`, which changes
+the callable set rather than the instructions."* That clause is the entire reason one is
+refused and the other is not. The dict's own docstring says why it matters — *"An admission
+with a reason can be argued with. An admission by silence cannot"* — so a silent deletion
+converts the first into the second, which is the one thing the dict exists to prevent.
+
+Fix: `ADMITTED_ROSTER`, a frozenset literal in `test_workflow.py`, asserted set-equal both
+ways so a deletion fails as a missing name and an addition as an unknown one, plus a second
+assert pinning the `ToolSearch`-distinguishing clause inside `Skill`'s reason — because the
+roster pin alone would let the reason be rewritten to nothing in particular.
+
+**And the scope question, asked properly this time.** jack-ryan checked the other production
+collections rather than assuming, and so did I (§ 24.5). The discriminator that came out of
+it is now rule 47's round-20 addendum: a collection whose members are **behaviour** is
+protected by the scenario rows that exercise the behaviour and needs no literal; a
+collection whose members are a **record** needs one, because deleting the record changes
+nothing any row can see. `REASONED_ADMISSIONS` is the only *record* in this codebase's
+production collections. That is why it is the only one that needed the pin — and a rule
+that said "pin all of them" would have been noise.
+
+### 24.2 JR-16 — four producers, one branch, deliberately no new rows
+
+The **row** is closed: `test_JR12_…` mints its key from a real `_snapshot_repo`, asserts the
+truncation lands on the parent, and proves reachability by *calling* `_validate_containment`
+rather than asserting it in prose. R17-g dies on it.
+
+The **enumeration** narrowed for the third consecutive version. Four producers move
+`_read_only_hit`'s answer; the rewritten docstring accounted for `:664` and `:711`, restated
+`:580` and `:730`–`:760` as inert, and said nothing at all about `:684` and `:697` — which
+appeared only inside the sentence I had struck through. A reader finishes the paragraph
+believing the producers are accounted for. Two were dropped rather than adjudicated.
+
+I confirmed by reading `permissions.py`: `:684` mints `.git/hooks/\t<unreadable: …>` and
+`:697` mints `.git/modules/\t<unreadable: …>` — the identical `<dir>/\t<marker>` shape as
+`:711`, entering the same branch of the same predicate.
+
+**The fix is one sentence and no rows, and that is the finding's point.** There is no
+coverage gap: R17-g dies on `test_JR12_…` whichever of the three producers you reach the
+branch through. Adding rows per producer would grow the suite without adding a single
+distinguishable outcome — the thing rule 13 exists to stop. What was wrong was the *claim*,
+one more time, in the paragraph written to stop the claim being wrong.
+
+### 24.3 JR-17 — the denominator nobody established
+
+Ten *mint sites* have been reasoned over since round twelve. There is an eleventh
+*pathway* no round named: `_git_control_entries:826` passes `".git/\t<common>"` as the
+**prefix** into `_gitdir_control_entries`, so every key beneath it is marker-bearing without
+any of the ten sites firing.
+
+I built a real linked worktree (`git worktree add`, clean-tree precondition asserted first)
+and counted. **One correction to their figure, in the safe direction:** I measure **17 keys
+under that prefix, 16 of them marker-bearing** — jack-ryan reported 16. The extra key is
+non-marker-bearing and does not touch the argument; I record the difference because a
+number nobody re-counts is how this finding came to exist in the first place.
+
+Every marker-bearing one collapses under `marker_path` to `.git/` — a far more aggressive
+truncation than the two-component collapses the rounds have argued about, because
+`marker_path` splits on the *first* separator and this prefix puts one at the front.
+
+It is **inert**, and inert for a reason that holds: those keys exist only when `.git` is a
+FILE (the `not dot.is_dir()` branch at `:807`), the only tree they could collapse onto is
+`.git` itself, and `_validate_containment` refuses a read-only tree that is not a directory.
+On my worktree `.git` was a 54-byte file, as required. So this **strengthens** the fix
+rather than undermining it — which is exactly why it is worth writing down rather than
+quietly fixing: an inert pathway found by counting is evidence the counting works.
+
+This is rule 49's origin. A set reasoned over confidently whose membership was never
+established is the series' defect shape applied to prose instead of predicates. **An
+enumeration is a measurement**, and the word "ten" was never measured.
+
+### 24.5 The mutation table — raw summary lines, and one figure that does not close
+
+> **Convention change, adopting jack-ryan's.** Prior tables in this note printed counts
+> **net of `test_C2`** with the convention stated underneath. Their r19 table printed the
+> **raw** summary line and reconciled against mine by arithmetic, and that is the better
+> form: the raw line is what the instrument said, and the exclusion is then visible as a
+> subtraction a reader performs rather than one I performed for them. Raw below;
+> `test_C2_every_assert_under_tests_is_proven_to_execute` reddens on every kill and is
+> listed with the rest.
+
+**Part a — the JR-15 fix, three mutations against `harness/claude_code.py`.** Both
+mutations that SURVIVED in round 19 now die, and the reason-rewrite dies on the second
+assert rather than the roster assert, which is what makes the second assert load-bearing:
+
+| id | mutation | observed |
+|---|---|---|
+| R20-1 | `"Skill"` **deleted** from `REASONED_ADMISSIONS` | **KILLED**, raw `2 failed, 602 passed in 162.18s` — `test_JR15_no_reasoned_admission_can_be_DELETED_without_a_row_failing`, `test_C2_…` |
+| R20-2 | `"ExitWorktree"` **deleted** from `REASONED_ADMISSIONS` | **KILLED**, raw `2 failed, 602 passed in 157.59s` — same two rows |
+| R20-3 | the clause *"Distinct from `ToolSearch`, which changes the …"* **cut from `Skill`'s reason**, entry retained | **KILLED**, raw `2 failed, 602 passed in 157.72s` — same two rows, but via the second assert |
+
+R20-3 is the one that matters for the shape. A roster pin alone would have passed it: the
+key is still there, the count is still four. What fails is the assert that the *reason
+still says the thing the reason exists to say*. Rule 47's fix is a roster pin **plus** a
+pin on the load-bearing sentence, because a record can evaporate by rewrite as well as by
+deletion.
+
+**Part b — the four controls that back rule 47's discriminator.** These are the
+collections whose members are *behaviour*. All four are KILLED without any literal pin,
+which is the evidence that the rule's scope is one dict and not four:
+
+| id | mutation | observed (raw) | distinct nodeids |
+|---|---|---|---|
+| R20-4 | `"worktrees/"` from `GIT_NESTED_GITDIRS` | **KILLED**, `21 failed, 571 passed, 12 errors in 171.11s` | 9 FAILED + **3 ERROR** |
+| R20-5 | `"modules/"` from `GIT_NESTED_GITDIRS` | **KILLED**, `11 failed, 593 passed in 163.07s` | 6 FAILED |
+| R20-6 | `"config.worktree"` from `GIT_CONTROL_PATHS` | **KILLED**, `3 failed, 601 passed in 164.88s` | 2 FAILED |
+| R20-7 | `".claude/"` from `PROTECTED_EVERY_REPO` | **KILLED**, `3 failed, 601 passed in 164.39s` | 2 FAILED |
+
+R20-5 kills via `test_H4_PARTNER_…`, `test_H4_a_gitdir_nest_PAST_THE_DEPTH_CAP_…`,
+`test_H4_a_hook_in_an_EXISTING_submodule_gitdir_is_measured`, `test_JR12_…`, `test_JR5_…`
+and `test_C2_…`. R20-6 kills via `test_H4_a_config_in_an_EXISTING_worktree_gitdir_is_measured`.
+R20-7 kills via `test_C4_dot_claude_is_protected_in_EVERY_declared_repo_not_only_the_root`
+and `test_C4_the_root_only_entries_stay_root_only`.
+
+> **R20-4 does not close against jack-ryan's figure, and I am not reconciling it.**
+> Their r19 § 2 reports `"worktrees/" deleted -> KILLED, 7 failed (3 H4 rows)`. I observe
+> **21 failed, 571 passed, 12 errors**, twice, deterministically — the second run made
+> with a harness written specifically to report ERRORs, because the first filtered for
+> lines beginning `FAILED` and an ERROR is not a failure. R20-5, R20-6 and R20-7 close
+> against their 11 / 3 / 3 exactly, so this is not a systematic offset between our
+> instruments, and the one-row baseline difference (their 603, my 604 with
+> `test_JR15_…` added in `test_workflow.py`) cannot produce twelve fixture errors in
+> `test_containment_wall.py`.
+>
+> **The adjudication is identical either way — KILLED — so rule 47's discriminator is
+> unaffected and the fix does not move.** What moves is a cited number, and I have cited
+> theirs in the rule. I have replaced it with mine and marked the disagreement in the rule
+> itself rather than picking a winner. **For jack-ryan at round 21:** the twelve errors are
+> three parametrised `test_JR5_…` rows failing at *fixture* level —
+> `test_JR5_a_marker_key_names_a_path_UNDER_dot_git`,
+> `test_JR5_an_unreadable_pointer_is_PROTECTED_even_under_writes_everything`,
+> `test_JR5_the_rollback_REFUSES_a_marker_key_rather_than_acting`, first line verbatim
+> `…::test_JR5_a_marker_key_names_a_path_UNDER_dot_git[read_only_subtree-commondir points at a file]`.
+> Those rows **never executed**. That is the distinction rule 48 was written about —
+> "no test failed" versus "nothing ran" — and it is worth knowing which of our two
+> harnesses saw it, because one of them did not.
+
+Baseline: **604 passed in 161.53s**, clean tree, `-p no:randomly`. Was 603 at `4088b730`,
+595 at `5a75386d`. Every row above asserts a clean tree before it runs and verifies the
+mutation in the loaded object before it is willing to report (rule 48).
+
+### 24.6 What round twenty did not do
+
+- **No workflow fired.** D4 holds. The mechanical PASS is jack-ryan's and I am not
+  spending it — the next step is their round-21 re-review, not an execution.
+- **Clause 1's counter stands at 1 of 2, and the PASS is explicitly not a discharge.**
+  jack-ryan said so in the verdict and I am not going to argue myself past it. Round 20
+  produced three findings against round 19; a stopping rule that stopped here would have
+  stopped one round before `REASONED_ADMISSIONS` was pinned.
+- **Their proposed second limb** — *"and the round's mutation table has been independently
+  re-run"* — remains Matt's to ratify, and I still have an interest in it and still will
+  not argue it. The new evidence cuts both ways and both halves belong on the record:
+  round 19's receipt is the first in the series to survive a re-run **and** the re-run that
+  cleared it also produced JR-15, JR-16 and JR-17. An independent re-run is what closed
+  three rounds of receipt defects; it is also what found three more claims.
+- **No new rows for JR-16.** Deliberate, and jack-ryan asked for it that way: three
+  producers reach one branch, one row covers the branch, and rows-per-producer would add
+  suite mass with no distinguishable outcome (rule 13).
+- **`permissions.py` untouched, again** — round 19 and round 20 are both test-and-prose
+  rounds. Every finding in this round was a claim defect, not a behaviour defect, and no
+  mutation escaped in either round. That is worth saying plainly rather than letting a
+  reader infer it from a quiet diff.
+- **JR-7's INFO rider** — a benign `ToolSearch` control (`select:Read`, a name already
+  granted) to separate "the classifier refused the question" from "the tool does nothing
+  here". Still not run; still an agentic-lane measurement. Empirical criterion for firing
+  it is unchanged: the agentic lane opening.
+- **The threat model**, **O4** (dollars) and **D-10** (no HALT status): unchanged,
+  untouched, and all three are Matt's or gandalf's.
