@@ -507,6 +507,39 @@ def _unreadable_paths(stderr: str) -> list[str]:
 #: so including it converted routine, DISCIPLINED git use into a breach (Gate-2 K1).
 STRUCTURE_SKIP_DIRS = frozenset({".git"})
 
+#: The separator between a fingerprint key's PATH and the synthetic marker that says
+#: why the ordinary reading of that path failed — `\t<unreadable: …>`,
+#: `\t<gitdir pointer unparseable…>`, `\t<commondir unreadable…>`, and the rest.
+MARKER_SEP = "\t"
+
+
+def marker_path(key: str) -> str:
+    """The real path a fingerprint key names, with any synthetic marker removed.
+
+    Gate-2 JR-5. The markers exist so that "we could not read this" never renders as
+    "this did not change" — the absent-is-absent law, applied to the filesystem. But
+    they are glued onto the key, and every downstream predicate that reasons about the
+    key's PATH was reading the glue as part of the path.
+
+    The cost was exact and asymmetric. `_gitdir_control_entries(common, ".git/\\t<common>")`
+    puts the tab AFTER the slash, so those keys begin `.git/` and `PROTECTED_EVERY_REPO`
+    catches them. The five keys minted directly by `_resolve_gitdir_pointer` and
+    `_resolve_commondir` put the tab BEFORE it — `.git\\t<gitdir pointer unreadable: …>` —
+    and `.git` alone is neither `.git/`-prefixed nor equal to the bare `.git`, so they
+    were protected by nothing and refused by the rollback's `git_internal` guard for
+    nothing. The paths that mint them are precisely the paths where git's own control
+    plane has been made unreadable, which is the last place a blind spot belongs.
+
+    Comparable normalisation already existed at ONE site (`diff_fingerprints`, which
+    splits so an unreadable marker still names its directory). Living in one place and
+    being needed in four is the WIRING axis; this is that split, named and shared.
+
+    Splitting on the FIRST separator only. A marker's own text can contain anything —
+    `exc.strerror`, a path, a filename — and taking the last field would let the
+    message decide what the path is.
+    """
+    return key.split(MARKER_SEP, 1)[0]
+
 
 def structure_dirs(path: Path) -> set[str]:
     """Tree-relative directory PATHS — no stats, no file listing, no content.
@@ -1128,7 +1161,7 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
             ("deleted", dirs_before - dirs_after),
         ):
             for d in sorted(moved):
-                d = d.split("\t")[0]  # an unreadable marker still names its directory
+                d = marker_path(d)  # an unreadable marker still names its directory
                 path = f"{base}/{d}" if base else d
                 # git already named this one (a directory with a file in it is a
                 # collapsed porcelain entry). One breach, one row.
@@ -1148,7 +1181,11 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
 
 
 def _matches(path: str, pattern: str) -> bool:
-    path = path.rstrip("/")
+    # The marker comes off FIRST (JR-5). Every caller below is asking a question about
+    # the path, and `fnmatch` would happily let a trailing `\t<…>` decide the answer —
+    # in the permissive direction for the protected lists, which is the direction that
+    # does not announce itself.
+    path = marker_path(path).rstrip("/")
     pattern = pattern.strip()
     if not pattern:
         return False
@@ -1181,6 +1218,7 @@ def _read_only_hit(change_root: Path, rel: str, read_only: list[Path]) -> str | 
     because a read-only tree reached THROUGH a symlinked parent is equally a hit.
     Either form matching is a breach; that is the fail-closed direction.
     """
+    rel = marker_path(rel)  # JR-5: `<unreadable: …>` is not a path component
     if rel:
         lexical = Path(os.path.normpath(change_root / rel.rstrip("/")))
     else:
@@ -1476,7 +1514,11 @@ def rollback(
         # restore one, and the created-path branch would find nothing tracked underneath
         # — correctly, git tracks nothing in there — and authorise `rmtree` on
         # `.git/config`. The breach is detected, quarantined and named; a human decides.
-        if change.path == ".git" or change.path.startswith(".git/"):
+        # JR-5: on the marker-bearing keys (`.git\t<gitdir pointer unreadable: …>`)
+        # neither arm matched, so the ONE class of change where git's control plane is
+        # provably unreadable fell through to the ordinary rollback verbs below.
+        git_path = marker_path(change.path)
+        if git_path == ".git" or git_path.startswith(".git/"):
             actions.append(
                 RollbackAction(
                     change.path,

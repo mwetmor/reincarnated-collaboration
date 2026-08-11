@@ -316,8 +316,22 @@ class Receipts:
 
         `host` is the ONE layer of host permission configuration this factory reads;
         its `source` sentence travels with it and is the only thing that makes the
-        mode readable later. `measured_trees` is the set actually fingerprinted, and
-        `measurement_limit` is the sentence bounding the containment claim.
+        mode readable later. `measurement_limit` is the sentence bounding the
+        containment claim.
+
+        `measured_trees` is the DECLARED set — the workflow's `repos`, recorded here at
+        session open, BEFORE a single fingerprint has been taken. The v3 wording said
+        "the set actually fingerprinted", which is H6's own defect committed inside
+        H6's fix: a name and a docstring answering a question about the MEASUREMENT
+        while the value answers a question about the DECLARATION (Gate-2 JR-1). The two
+        coincide on every run that reaches its first phase and diverge on any run that
+        aborts before one — where "fingerprinted" would be a false claim on a receipt.
+
+        Recorded from the declaration deliberately, rather than fixed by writing later.
+        A run that aborts at load must still leave behind WHAT IT WAS GOING TO MEASURE;
+        the alternative is a session row with no trees, which reads as "nothing was in
+        scope" — absent standing in for unmeasured, which is the law this column exists
+        to serve.
 
         All three are optional so that v1/v2 call sites keep working, and all three
         land as NULL when omitted. NULL means UNRECORDED. It does not mean the host

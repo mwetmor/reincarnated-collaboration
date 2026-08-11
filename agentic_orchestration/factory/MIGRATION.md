@@ -133,7 +133,7 @@ Four columns added to `sessions`, all nullable, no defaults:
 |---|---|---|
 | `host_permission_mode` | TEXT | `permissions.defaultMode` as `~/.claude/settings.json` states it |
 | `host_permission_source` | TEXT | the sentence naming *which file* that came from and *which layers were not resolved* |
-| `measured_trees` | TEXT | JSON array of the trees actually fingerprinted (`wf.repos`) |
+| `measured_trees` | TEXT | JSON array of the trees the run **declared** it would fingerprint (`wf.repos`), written at session open |
 | `measurement_limit` | TEXT | the sentence bounding what a green containment verdict means |
 
 New module `factory/host.py` — `read_host_permission_mode()` and
@@ -172,8 +172,17 @@ narrower answer wearing the wide answer's clothes.
   `test_H6_an_UNSTATED_host_default_is_NULL_not_the_fallback`.
 - A consumer that writes `COALESCE(host_permission_mode, 'default')` has converted "we
   did not measure" into "the host was ordinary."
-- `measured_trees = '[]'` — the run fingerprinted **nothing**. `IS NULL` — the run did
-  not record what it fingerprinted. These are different facts.
+- `measured_trees = '[]'` — the run declared **no** tree, so there is no containment
+  evidence on it at all. `IS NULL` — the run did not record its scope. Different facts.
+- `measured_trees` is the **declared** scope, not a post-hoc list of what got
+  fingerprinted. It is written at session open, before the first phase runs. On any run
+  that reaches a phase the two coincide; on a run that aborts earlier they diverge, and
+  the column still tells you what was *in scope* — which is the question a reader of an
+  aborted receipt is actually asking. The v3 shipping note called this "the trees
+  actually fingerprinted", which was H6's own defect committed inside H6's fix: a name
+  answering a question about the measurement while the value answers a question about
+  the declaration. Corrected in round seventeen (Gate-2 JR-1); **the stored values did
+  not change and no migration is required** — only the claim made about them.
 
 Rows migrated from v1/v2 carry NULL in all four columns and are **not backfilled**. The
 host default for a run that predates this measurement was never measured and must read

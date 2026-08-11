@@ -624,3 +624,67 @@ unknown version rather than guess at it.
    `"default"` would be right on every host that never changed it and unfalsifiable on
    every host that did. That is `usage.py`'s zero-filled token, moved from cost to
    containment. NULL, with a source sentence saying which kind of nothing it was.
+
+39. **A vocabulary is closed against names it does not know; it is not closed against
+   names whose GRANT IS NOT THEIR REACH.** `BUILTIN_TOOLS` was probed off a live init
+   frame, so it answers "does this CLI have that tool?" correctly — and that is a
+   membership question, not a containment question. A phase declaring `tools: ["Task"]`
+   passed the fence, was granted exactly what it declared, and spawned a child holding
+   `Bash`, `Edit` and `Write` (measured 2026-08-11, no denial, no error). The fence was
+   satisfied and bypassed in one call. So `UNFENCEABLE_TOOLS` refuses those names at
+   load and records WHY next to each — refused, not deleted, because deleting them
+   would make the loader say "this CLI does not have that", which is false.
+
+40. **Assert on the SECTION, not the document.** H6's certifying row checked three
+   substrings against the whole report, and the repo path it looked for was also
+   printed by the unrelated `**Root:**` line — so the entire trees block could be
+   deleted with the suite green. Rule 28 with a longer fuse: the proxy was not a
+   different measurement, it was the same string arriving from somewhere else. Slice
+   the block the claim lives in, then assert inside it.
+
+41. **A fixture with one element cannot tell a list from its first element.** Every H6
+   row declared exactly one repo, so `measured_trees=wf.repos[:1]` survived the whole
+   mutation pass. A run under-reporting its own scope is the worst kind of receipt: the
+   second tree is fingerprinted, enforced, and invisible — measured but not admitted,
+   which leaves the reader no cue to ask. Any row about a COLLECTION gets at least two.
+
+42. **A caveat must say which WAY the unmeasured thing can move.** Naming the five
+   permission layers this factory does not resolve was necessary and not sufficient: a
+   reader still assumes the recorded mode is roughly the answer, and it is wrong in the
+   direction that matters. An unresolved layer can be MORE permissive, so a
+   restrictive-looking mode is not evidence of a restricted run. Direction, or it reads
+   as a footnote instead of a limit.
+
+43. **A synthetic marker is not part of the path.** When git's own pointer chain cannot
+   be read, the fingerprint mints `.git\t<gitdir pointer unreadable: …>` so that
+   unreadable never renders as unchanged. Five such keys put the tab BEFORE the slash,
+   so they began `.git` and not `.git/` — and `PROTECTED_EVERY_REPO`, `_read_only_hit`
+   and the rollback's `git_internal` guard all read the marker as path. The sibling key
+   `.git/\t<common>` put the tab after and was fine, so the class was half-covered by
+   an accident of string order. One normalisation (`marker_path`), shared by every
+   predicate that reasons about the key.
+
+44. **A row parametrised over the thing it guards cannot notice a deletion from it.**
+   Every J7 row derived its names from `UNFENCEABLE_TOOLS`, so removing `Task` — the one
+   name that was actually MEASURED — loses a parametrised case rather than failing one,
+   and the suite stays green while the finding walks back out. Anything established by
+   measurement gets one row that hardcodes it and cites the frames. Derivation keeps the
+   lists from drifting; a literal keeps the finding from evaporating. Both, not either.
+
+45. **A mutation that survives because the fix made it INERT is a receipt, not a gap —
+   say which, in the table.** jack-ryan's JR-5 mutation moved a tab across a slash and
+   survived pre-fix (nothing could tell protected keying from unprotected). Re-run
+   post-fix it survives again, and that is the fix working: after one shared
+   normalisation the two spellings name the same path, so no answer changes. Five
+   one-character edits at five producers would have gone green while leaving the sixth
+   producer free to mint the defect again. A survivor in a mutation table is normally a
+   hole; a survivor whose inertness IS the claim has to be labelled, or the next reader
+   counts it as one.
+
+46. **Do not assert the producer's string order when the fix exists to stop it
+   mattering.** The premise row for rule 43 checked `marker_path(key) == ".git"`, which
+   fails on `.git/` — so it would have reported a provably equivalent rewrite as a
+   regression, and pinned in place the coupling the normalisation removes. Three of the
+   four defects the wall opens with were held there by a passing test asserting the
+   reduced behaviour was the requirement. Compare on the claim (`.rstrip("/")`), not on
+   the spelling.

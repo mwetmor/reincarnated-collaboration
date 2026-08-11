@@ -2418,3 +2418,265 @@ What v3 does **not** close, stated rather than implied:
   five are named in every stored `source` value and in the migration note.
 - Nothing here restricts anything. It is measurement of the measurement. The v1
   containment posture (base-names-only, pre-hoc) is unchanged and remains Matt's call.
+
+## 21. Round seventeen — jack-ryan's Gate-2 verdict on round sixteen, worked
+
+Round sixteen came back **BLOCK (agentic lane) / PASS-WITH-CONDITIONS (mechanical
+lane)**. J3, J4, J5, J5b and H7 closed. H6 closed in kind, with three WARNs *inside the
+fix itself* — which is the part worth recording, because H6 is the round whose whole
+subject is over-claiming, and it over-claimed.
+
+I verified two of jack-ryan's four survivors myself before accepting them (§ 21.6).
+Neither needed argument; both reproduced in one command.
+
+### 21.1 J7 — a name the vocabulary knew, whose grant was not its reach
+
+The only BLOCK, and the one finding this round that changes what the factory *refuses*
+rather than what it *says*.
+
+`BUILTIN_TOOLS` was probed off a live `init` frame rather than copied from
+documentation, and it is correct. It answers **"does this CLI have that tool?"** That is
+a membership question. Nothing in the module had ever asked the containment question:
+**"does the grant equal the reach?"**
+
+I ran the probe with argv identical to what `build_argv` emits — `--tools Task
+--allowedTools Task --permission-mode default --strict-mcp-config`:
+
+* the parent's own `init` frame reported `tools: ['Task']`. **The fence held for the
+  parent.** That is what makes the finding sharp instead of sloppy;
+* the parent invoked `Task`; the child reported holding `Bash, Glob, Grep, Read, Edit,
+  Write, NotebookEdit, WebFetch, WebSearch, TodoWrite, BashOutput, KillShell,
+  ExitPlanMode, Task, SlashCommand, Skill, AskUserQuestion, …`;
+* `is_error: False`, `permission_denials: []`.
+
+So a phase declaring `tools: ["Task"]` passes `validate_tools`, passes `check_grant`
+with the granted set *exactly* equal to the declared set, and runs `Bash`. The fence is
+satisfied and bypassed in the same call — J1's shape, arriving inside the mechanism that
+was built to replace J1. The child's set is not even a subset of `BUILTIN_TOOLS`
+(`BashOutput`, `KillShell`, `SlashCommand` are names this vocabulary has never heard
+of), so the child is not fenced by this module at all.
+
+`UNFENCEABLE_TOOLS` now refuses seven names at load, each with its reason stored beside
+it. `Task` is the measured one. The other six — `EnterWorktree`, `CronCreate`,
+`CronDelete`, `ScheduleWakeup`, `RemoteTrigger`, `PushNotification` — are refused on the
+**time axis**, which no amount of hashing closes: the wall is `fingerprint(before) →
+execute → fingerprint(after)`, and anything scheduled, triggered or delegated to fire
+later fires *after* the after-fingerprint, in a window the run has already declared
+clean. F3's shape with time as the axis instead of path.
+
+Refused, not deleted from `BUILTIN_TOOLS`. Deleting them would make the loader say "this
+CLI does not have that tool", which is false, and would throw away the measurement that
+put them there (rule 13). The vocabulary stays honest; the fence gets smaller.
+
+**And the first version of this fix was the defect it was fixing.** I wrote the dict,
+recorded the probe next to it, and shipped nothing that read it — `validate_tools` still
+checked only `BUILTIN_TOOLS`. A declared refusal that no code path reaches is the WIRING
+axis, which is the single most common shape in this entire review series. It is now
+refused *before* the membership check, deliberately: these names **are** members, so the
+membership message would have said the one thing that is not true about them.
+
+**Consequence worth naming rather than burying:** no agentic phase can delegate. If a
+compiled workflow ever wants sub-agent fan-out or worktree isolation, that is a threat-
+model decision, not a loader tweak — and the threat model is Matt's and gandalf's, not
+mine. Today it costs nothing: nothing in the spine uses either.
+
+### 21.2 JR-1 — the column said "measured", the value said "declared"
+
+`measured_trees` is written in `Runner.run()` at session open, from `self.wf.repos`,
+**before a single fingerprint has been taken**. The docstring called it "the set
+actually fingerprinted". On every run that reaches its first phase the two coincide; on
+a run that aborts earlier they diverge, and the receipt would carry an outright false
+claim in the place where it has the least other evidence on it.
+
+I fixed the claim, not the timing. A run that aborts at load still has to leave behind
+**what it was going to measure** — the alternative is a session row with no trees, which
+reads as "nothing was in scope", and absent standing in for unmeasured is precisely the
+law this column exists to serve.
+
+The second half is worse and simpler: `measured_trees=self.wf.repos[:1]` survived the
+whole H6 mutation pass, because every fixture in it declared exactly one repo. **A
+fixture with one element cannot tell a list from its first element** (rule 41). A run
+under-reporting its own scope is the worst receipt of the set: the second tree would be
+fingerprinted, enforced, and invisible — measured but not admitted, which leaves the
+reader no cue to ask. One row with two declared repos closes it.
+
+### 21.3 JR-3 / JR-4 — H6's own certifying row was aimed at a proxy
+
+The green-path row asserted three substrings **against the whole report document**. Each
+was independently satisfiable:
+
+* `str(git_repo) in text` — also printed by `report.py`'s `**Root:**` line, for an
+  entirely unrelated reason. So the trees block could be **deleted** with the suite
+  green;
+* the mode and its source were asserted separately, so the join could be dropped and
+  `bypassPermissions` would print alone — a bare mode reads as a resolved fact, and the
+  source sentence is the only thing saying it is one layer of six.
+
+Rule 28, arriving on the row that certifies the fix for the round about over-claiming.
+And the proxy here was not even a different measurement — it was *the same string
+arriving from somewhere else*, which is harder to see and just as fatal.
+
+The rows now slice the `## What was measured` section and assert inside it, on the
+**line** carrying each claim, with the mode and its source asserted as a join.
+
+### 21.4 JR-5 — the marker was being read as part of the path
+
+When git's pointer chain cannot be read, the fingerprint mints a key that says so:
+`.git\t<gitdir pointer unreadable: …>`. Absent-is-absent, applied to the filesystem.
+
+Five of those keys put the tab **before** the slash. `PROTECTED_EVERY_REPO` matches on a
+literal `.git/` prefix, so `.git\t<…>` was neither prefix-matched nor equal to the bare
+`.git` — **protected by nothing**, and refused by the rollback's `git_internal` guard for
+nothing. The sibling key `.git/\t<common>` puts the tab *after* the slash and was fine.
+The class was half-covered by an accident of string order.
+
+The normalisation already existed, at exactly one site (`diff_fingerprints`, splitting so
+that an unreadable marker still names its directory). Living in one place and being
+needed in four is the wiring axis again; `marker_path()` is that split, named and shared
+by `_matches`, `_read_only_hit` and the rollback guard.
+
+jack-ryan graded it WARN because all five shapes make the repo unmeasurable and the run
+aborts on `ContainmentError` first. I accept the grade and not the reasoning as a reason
+to leave it: an abort is a **policy**, and the classifier is where the claim is spent. So
+the rows mint the five keys through the real code path — no literals to drift — and hand
+them to `classify` and `rollback` directly. That is the honest shape: the predicate
+tested at the boundary it defends, rather than through a route that currently never
+arrives. Per rule 29, the assertion is on `classify` under `writes=["**"]`; detecting and
+refusing are two claims, and only the first one had ever had one.
+
+The falsification partner matters here more than usual: a tab is a legal character in a
+POSIX filename, and this suite already plants paths containing newlines and quotes.
+`marker_path` splits on the **first** separator only — a marker's text contains
+`strerror` and arbitrary paths, and taking the last field would let the message decide
+what the path is.
+
+### 21.5 The H6 direction clause
+
+`_LAYERS_NOT_RESOLVED` named which five permission layers go unread and stopped there. A
+reader who knows five layers were skipped still does not know what the recorded mode is
+worth, and the natural reading — "roughly the effective mode" — is wrong in the direction
+that matters. An unresolved layer can be **more permissive**, so a restrictive-looking
+mode is not evidence of a restricted run. The caveat now says so, on all four source
+shapes: a caveat present on the read path and absent on the three failure paths would be
+missing from exactly the receipts carrying the least other evidence.
+
+### 21.6 The mutation table
+
+Thirteen mutations, full suite each, first killers recorded by name.
+
+**Read the instrument out of this table first.**
+`test_C2_every_assert_under_tests_is_proven_to_execute` appeared as a "killer" on all
+twelve of the first batch. It is not a killer of anything. It is the reach audit: it goes
+red whenever any assert in the suite stops executing, so it reports on every mutation
+regardless of what the mutation touched. Listing it as attribution would inflate every
+row in this table by one and make a mutation with one real killer look like it had two.
+Rule 35 again — the instrument gets audited too, and here the audit needed reading, not
+fixing. It is omitted below.
+
+| id | mutation | killed by |
+|---|---|---|
+| R17-a | `validate_tools` never reads `UNFENCEABLE_TOOLS` (the WIRING axis) | `test_J7_every_unfenceable_name_is_refused_at_LOAD`, `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd` |
+| R17-b | it refuses, but for the MEMBERSHIP reason (the CLAIM axis) | `test_J7_every_unfenceable_name_is_refused_at_LOAD`, `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd` |
+| R17-c | the fence is smaller than the measurement (`Task` quietly admitted) | `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd`, `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` |
+| R17-d | `_matches` reads the marker as part of the path again | `test_JR5_an_unreadable_pointer_is_PROTECTED_even_under_writes_everything`, `test_JR5_the_rollback_REFUSES_a_marker_key_rather_than_acting` |
+| R17-e | the rollback's `git_internal` guard reads the raw key again | `test_JR5_the_rollback_REFUSES_a_marker_key_rather_than_acting` |
+| R17-f | `marker_path` splits the wrong way (keeps the marker, drops the path) | `test_J4_a_worktree_hook_is_a_BREACH_even_when_the_phase_may_write_everything`, `test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name`, `test_JR5_a_marker_key_names_a_path_UNDER_dot_git`, +2 |
+| R17-g | `_read_only_hit` reads the marker as a path component again | **survived the first pass**; now `test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree` |
+| R17-h | the run records only its FIRST declared tree | `test_JR1_a_run_with_TWO_declared_trees_records_BOTH` |
+| R17-i | the limit sentence bounds the claim to the first tree only | `test_JR1_a_run_with_TWO_declared_trees_records_BOTH` |
+| R17-j | the mode prints WITHOUT the sentence that bounds it | `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` |
+| R17-k | the trees block is deleted (the `Root:` line prints the path anyway) | `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` |
+| R17-l | the caveat names the unread layers but not their DIRECTION | `test_JR_the_caveat_states_which_WAY_the_unread_layers_can_move` |
+| R17-m | `Task` removed from `UNFENCEABLE_TOOLS` (the MEASURED name walks back in) | `test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation`, `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd` |
+
+R17-m exists because every other J7 row derives its names from the dict under test.
+Delete `Task` and the parametrisation loses a case rather than failing — the suite stays
+green while the one name that was actually measured is re-admitted. The literal row
+hardcodes it and cites the preserved frames.
+
+#### The survivor, and what it took to kill it
+
+R17-g survived the first pass, and the reason is structural rather than an oversight in
+the row-writing. `_read_only_hit` matches by ancestry in **either** direction, and a
+marker is appended to a key's **last** component. For every key whose real path is a
+strict descendant of the read-only tree, the marked form is one component deeper still
+and the tree remains an ancestor either way. Normalisation cannot move that answer.
+
+It moves exactly one: the key whose real path **is** the tree. `<tree>\t<…>` is a sibling
+of `<tree>`, so the unnormalised predicate returns `None` and the read-only rule never
+fires. I looked for a reachable instance rather than asserting one, and there is one:
+`_gitdir_control_entries` files its depth-cap declaration under the gitdir's own key, and
+`_validate_containment` accepts a read-only tree at a nested gitdir. The row builds the
+nest, takes a real before/after fingerprint, and asserts through `classify`. The loader's
+acceptance is asserted in the row rather than argued in the docstring — "the loader would
+accept this" is exactly the premise that quietly stops being true, and rule 28 says a row
+aimed at an unreachable configuration certifies nothing.
+
+What the row does **not** claim, stated because the temptation to claim it is real: the
+verdict does not flip. Every marker-bearing key in this module lives under `.git/`, which
+`PROTECTED_EVERY_REPO` holds independently through `_matches` — whose own normalisation
+is certified by R17-d. Under the mutation the write is still refused. It is refused for
+the **wrong reason**, and the receipt then tells its reader that a git-internals rule
+caught something the read-only promise was there to catch. That is the CLAIM axis, and
+Discipline #9: a receipt that misattributes which promise was broken is a wrong answer
+wearing a green verdict.
+
+### 21.7 jack-ryan's own JR-5 mutation, re-run — a deliberate survivor
+
+jack-ryan's finding came with its cheapest refuting test attached: change
+`permissions.py` so the gitdir-pointer key reads `.git/\t<…>` instead of `.git\t<…>` — a
+mutation *toward* correctness — and see whether anything notices. Pre-fix it **survived**
+at 538 green, which was the evidence for the finding.
+
+Re-run post-fix against the full suite: **survived again, 585 green.** That is the
+intended result and it is worth being explicit about why, because a survivor is normally
+a gap.
+
+After `marker_path`, the two spellings name the same path and classify identically. The
+mutation is *inert*, and its inertness is the fix working: five one-character edits at
+five producers would have made the suite pass while leaving the next producer free to
+mint a sixth key with the tab on the wrong side. Normalising once at the three consuming
+predicates is what makes string order stop mattering, and a mutation that survives
+because it no longer changes any answer is the receipt for that.
+
+One row had to be relaxed to make this true rather than merely claimed.
+`test_JR5_a_marker_key_names_a_path_UNDER_dot_git` asserted `marker_path(key) == ".git"`,
+which fails on `.git/` and would therefore have reported jack-ryan's mutation as a
+regression. It now compares with `.rstrip("/")`. The claim the row owes is "the key names
+git's control surface"; the trailing slash is the producer's string order, and asserting
+it would pin in place the very coupling the fix removes. (Three of the four defects this
+file opens with were held in place by a passing test asserting the reduced behaviour was
+the requirement. That is the same move, caught early.)
+
+### 21.8 What round seventeen did not do
+
+- **J6 and J8** are INFO. Not worked. No row, no code.
+- The **v1 containment posture** — base-names-only, pre-hoc, because J1 measured that
+  `--allowedTools` does not restrict in headless `default` mode — is unchanged. It is
+  Matt's call, and nothing this round narrows or widens it. J7 removes seven names from
+  what may be declared; it does not change what a declared name is worth.
+- The **stopping rule** and the mechanical/agentic lane split are jack-ryan's proposal to
+  Matt. I have not adopted, amended or argued against them here.
+- The **threat model** — now the agentic lane's critical path per the verdict — is
+  gandalf's boundary, not mine.
+- **O4** (the dollars figure) and **D-10** (no HALT status) remain open, untouched.
+- No workflow has been fired. Ruling D4 puts jack-ryan's Gate-2 before the first compiled
+  run, and the founding-run readiness check in § 18 was static: digest, size, file
+  presence, `agent: null` on every phase. It stays static until the gate clears.
+
+The probe frames behind J1 and J7 were moved out of `/tmp` and into
+`star-lord/notes/evidence/2026-08-11-tool-fence-probes/`, with a README naming what each
+frame shows and what it does not. Both findings are measurements; a measurement whose
+artifact has been garbage-collected is a claim, and this series exists because claims
+outrun their measurements (rule 13).
+
+The **mutation harnesses** (`j5mut.py`, `h6mut.py`, `r17mut.py`) were not preserved, and
+the distinction from the frames is deliberate rather than convenient. The frames measure
+an **external** system — a CLI at a version that will move under us, on a host we do not
+control — and nothing in this repo can re-derive them. A mutation harness measures **this
+repo**, is reproducible from any commit, and its findings have already been transferred
+into permanent rows: every mutation in § 21.6 now has a row whose job is to fail on it.
+Keeping a harness would preserve an instrument whose anchors go stale on the next edit,
+and a harness that prints ANCHOR NOT FOUND is worse than no harness. jack-ryan's
+`jrmut.py` is left where jack-ryan left it — untracked and theirs.
+

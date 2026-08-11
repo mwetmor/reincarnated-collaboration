@@ -97,6 +97,41 @@ def test_H6_a_NON_STRING_mode_is_refused_rather_than_stringified(tmp_path):
     assert host.read_host_permission_mode(path).mode is None
 
 
+def test_JR_the_caveat_states_which_WAY_the_unread_layers_can_move(tmp_path):
+    """Gate-2 JR (round 16): naming the unread layers is not naming the limit.
+
+    The v3 sentence said which five layers went unread and stopped. A reader who knows
+    that still does not know what the recorded mode is worth, and the natural reading —
+    "roughly the effective mode" — is wrong in the one direction that matters. A run
+    recording `default` on a host whose project-level settings say otherwise has a
+    receipt that looks restrictive and a process that was not.
+
+    Parametrised across ALL FOUR source shapes on purpose. A caveat present on the
+    read path and absent on the three failure paths would be missing from exactly the
+    receipts with the least other evidence on them.
+    """
+    def _in(name: str, payload: object) -> Path:
+        d = tmp_path / name
+        d.mkdir()
+        return _settings(d, payload)
+
+    sources = {
+        "stated": host.read_host_permission_mode(
+            _in("stated", {"permissions": {"defaultMode": "default"}})),
+        "unstated": host.read_host_permission_mode(_in("unstated", {"permissions": {}})),
+        "unparseable": host.read_host_permission_mode(_in("unparseable", "{{{")),
+        "unread": host.read_host_permission_mode(tmp_path / "nope.json"),
+    }
+    assert sources["stated"].mode == "default", "premise: the stated arm must read a mode"
+    assert all(r.mode is None for k, r in sources.items() if k != "stated")
+    for label, result in sources.items():
+        assert "MORE PERMISSIVE" in result.source, (
+            f"the {label} source names the unread layers without saying they can be "
+            f"more permissive than what is recorded: {result.source!r}"
+        )
+        assert "not evidence of a restricted run" in result.source, label
+
+
 # ---------------------------------------------------------------------------
 # the ROUTE — the production default, not just the injectable one
 # ---------------------------------------------------------------------------
@@ -141,11 +176,28 @@ def test_H6_measuring_NO_tree_says_nothing_was_looked_at():
 # ---------------------------------------------------------------------------
 # the WIRING — a run puts both on the receipt
 # ---------------------------------------------------------------------------
-def _run_a_mechanical_workflow(tmp_path, repo: Path) -> Runner:
+def _measured_block(text: str) -> str:
+    """The `## What was measured` section ONLY — not the whole document.
+
+    Gate-2 JR-3/JR-4. The green-path row used to assert three substrings against the
+    full report, and every one of them was satisfiable by another mechanism: the repo
+    path is also printed by the `**Root:**` line, so deleting the trees block left the
+    row green. A row aimed at a proxy that moves for reasons unrelated to the claim
+    certifies nothing (rule 28) — and this one was H6's own certifying row.
+
+    Slicing to the section makes the assertions land where the claim lives.
+    """
+    marker = "## What was measured"
+    assert marker in text, f"the measurement section is absent entirely:\n{text}"
+    body = text.split(marker, 1)[1]
+    return body.split("\n## ", 1)[0]
+
+
+def _run_a_mechanical_workflow(tmp_path, repo: Path, repos: list[Path] | None = None) -> Runner:
     doc = {
         "name": "h6",
         "root": str(repo),
-        "repos": [str(repo)],
+        "repos": [str(r) for r in (repos if repos is not None else [repo])],
         # A mechanical cell whose command touches nothing. The run has to be REAL —
         # the wiring under test is `Runner.run()`'s call to `start_session` — and it
         # has to be free, so the cheapest true-returning command is the whole phase.
@@ -181,7 +233,13 @@ def test_H6_a_RUN_records_the_host_default_it_ran_under(tmp_path, git_repo, monk
         runner.close()
 
 
-def test_H6_a_RUN_records_the_trees_it_actually_fingerprinted(tmp_path, git_repo):
+def test_H6_a_RUN_records_the_trees_it_DECLARED(tmp_path, git_repo):
+    """Named for what the value IS (Gate-2 JR-1).
+
+    The v3 name said "actually fingerprinted". These are the workflow's `repos`,
+    written at session open, before any fingerprint — the same over-claim H6 exists to
+    prevent, one layer inside H6.
+    """
     runner = _run_a_mechanical_workflow(tmp_path, git_repo)
     try:
         row = runner.receipts.session(runner.run_id)
@@ -190,6 +248,36 @@ def test_H6_a_RUN_records_the_trees_it_actually_fingerprinted(tmp_path, git_repo
         assert "not 'no unauthorised writes'" in row["measurement_limit"]
     finally:
         runner.close()
+
+
+def test_JR1_a_run_with_TWO_declared_trees_records_BOTH(tmp_path, git_repo,
+                                                        git_repo_factory):
+    """One repo cannot tell a list from its first element (Gate-2 JR-1).
+
+    `measured_trees=self.wf.repos[:1]` survived the whole H6 mutation pass, because
+    every fixture in it declared exactly one repo. A run under-reporting its own scope
+    is the H6 defect in its purest form: the receipt would name one tree, the caveat
+    would bound the claim to that tree, and the second tree would be fingerprinted,
+    enforced, and INVISIBLE on the report — measured but not admitted, which is worse
+    than unmeasured because the reader has no cue to ask.
+    """
+    second = git_repo_factory(tmp_path / "second_repo")
+    runner = _run_a_mechanical_workflow(tmp_path, git_repo, repos=[git_repo, second])
+    try:
+        row = runner.receipts.session(runner.run_id)
+        assert json.loads(row["measured_trees"]) == [str(git_repo), str(second)], (
+            "the recorded scope is not the declared scope"
+        )
+        for tree in (git_repo, second):
+            assert str(tree) in row["measurement_limit"], (
+                f"{tree} is fenced by this run and the sentence bounding the "
+                "containment claim does not name it"
+            )
+        block = _measured_block(render_run_report(runner.receipts, runner.run_id))
+    finally:
+        runner.close()
+    for tree in (git_repo, second):
+        assert str(tree) in block, f"{tree} is missing from the rendered caveat"
 
 
 # ---------------------------------------------------------------------------
@@ -222,9 +310,27 @@ def test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches(tmp_path, git_repo,
         runner.close()
 
     assert "Permissions breaches" not in text, "premise: no breach section to hide behind"
-    assert "bypassPermissions" in text
-    assert str(git_repo) in text
-    assert "not 'no unauthorised writes'" in text
+    block = _measured_block(text)
+
+    # The MODE and its SOURCE, joined on ONE line. Asserted as a join because they are
+    # only worth anything together: `bypassPermissions` alone reads as a resolved fact,
+    # and the source sentence is what says it is one layer of six (Gate-2 JR-3).
+    mode_line = [ln for ln in block.splitlines() if "Host permission default" in ln]
+    assert len(mode_line) == 1, f"expected one host-default line, got {mode_line}"
+    assert "bypassPermissions" in mode_line[0]
+    assert "settings.json" in mode_line[0] and "NOT resolved here" in mode_line[0], (
+        "the mode was printed WITHOUT the sentence that bounds it. A bare mode is a "
+        f"claim about the host that this factory never made: {mode_line[0]!r}"
+    )
+
+    # The trees, asserted INSIDE the block. Against the whole document this passed on
+    # the strength of the `**Root:**` line, which prints the same path for an unrelated
+    # reason — so the trees block could be deleted with the suite green (JR-4).
+    trees_line = [ln for ln in block.splitlines() if "Trees fingerprinted" in ln]
+    assert len(trees_line) == 1, f"expected one trees line, got {trees_line}"
+    assert str(git_repo) in trees_line[0]
+
+    assert "not 'no unauthorised writes'" in block
 
 
 def test_H6_an_UNRECORDED_measurement_reads_as_unrecorded_not_as_clean(tmp_path):

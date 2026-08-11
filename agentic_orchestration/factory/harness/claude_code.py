@@ -103,6 +103,68 @@ BUILTIN_TOOLS = frozenset({
     "WebFetch", "WebSearch", "Write",
 })
 
+#: Names in `BUILTIN_TOOLS` whose GRANT IS NOT THEIR REACH. Gate-2 J7 (jack-ryan,
+#: round 16), MEASURED by star-lord probe 2026-08-11.
+#:
+#: `BUILTIN_TOOLS` answers "what does this CLI have?" — probed off a live init frame,
+#: which is why it is trustworthy. It never answered "what does each one reach?", and
+#: those are two questions. J1 established that after `--allowedTools` proved inert,
+#: the base-name vocabulary is the agentic lane's ONLY pre-hoc fence. A fence whose
+#: vocabulary contains a name that reaches past the fence is not a fence.
+#:
+#: The `Task` entry is not reasoned. Measured, argv identical to what `build_argv`
+#: emits (`--tools Task --allowedTools Task --permission-mode default
+#: --strict-mcp-config`):
+#:
+#:   * the parent's own init frame reported `tools: ['Task']` — the fence HELD for the
+#:     parent, which is what makes this finding sharp rather than sloppy;
+#:   * the parent invoked `Task`; the child reported having `Bash, Glob, Grep, Read,
+#:     Edit, Write, NotebookEdit, WebFetch, WebSearch, TodoWrite, BashOutput,
+#:     KillShell, ExitPlanMode, Task, SlashCommand, Skill, AskUserQuestion, …`;
+#:   * `is_error: False`, `permission_denials: []`.
+#:
+#: So a phase declaring `tools: ["Task"]` passes `validate_tools`, passes
+#: `check_grant` (granted set == declared set, exactly), and runs `Bash`. The fence is
+#: SATISFIED while being BYPASSED — J1's shape, arriving inside the mechanism that
+#: replaced J1. The child's set is not even a subset of `BUILTIN_TOOLS` (`BashOutput`,
+#: `KillShell`, `SlashCommand` are not names this vocabulary knows), so the child is
+#: not fenced by this module at all.
+#:
+#: The rest are refused on the TIME axis, which no amount of hashing closes. The wall
+#: is `fingerprint(before) -> execute -> fingerprint(after)`. Anything scheduled,
+#: triggered or delegated to fire later fires after the after-fingerprint, in a window
+#: the run has already reported on. F3's shape — a channel that structurally cannot
+#: carry the counterexample — with time as the axis instead of path.
+#:
+#: These are REFUSED, not deleted from `BUILTIN_TOOLS`. Deleting them would make the
+#: loader say "not a tool on this CLI", which is false, and would lose the measurement
+#: that put them there (rule 13). The vocabulary stays honest; the fence gets smaller.
+UNFENCEABLE_TOOLS: dict[str, str] = {
+    "Task": (
+        "delegates to a sub-agent whose grant is NOT this phase's grant. Measured "
+        "2026-08-11: a run granted only `Task` produced a child holding Bash, Edit and "
+        "Write, with no denial and no error. Declaring it satisfies the fence and "
+        "bypasses it in the same call"
+    ),
+    "EnterWorktree": (
+        "creates a git worktree, which can land OUTSIDE every declared tree — and a "
+        "write the fingerprint never covers is not a write this factory can report on"
+    ),
+    "CronCreate": (
+        "schedules work that fires AFTER the after-fingerprint, in a window the run has "
+        "already declared clean"
+    ),
+    "CronDelete": (
+        "mutates host-level scheduled state that no fingerprint covers and no rollback "
+        "can restore"
+    ),
+    "ScheduleWakeup": (
+        "schedules a future turn, which is reach past the run's own time boundary"
+    ),
+    "RemoteTrigger": "reaches OFF this host entirely; nothing here can measure or undo it",
+    "PushNotification": "reaches off-host; the effect outlives the run and is not recallable",
+}
+
 
 def validate_tools(tools: object, where: str) -> list[str]:
     """Refuse an allowlist that does not restrict. Returns the validated list.
@@ -119,6 +181,12 @@ def validate_tools(tools: object, where: str) -> list[str]:
     exist, which the CLI would accept and which restricts by accident), and a name
     nobody enumerated is refused rather than passed through. A default that admits
     every string is how this class recurs.
+
+    Gate-2 J7 adds the second question. `BUILTIN_TOOLS` answers "does this CLI have
+    that tool?"; it never answered "does the grant equal the reach?". `UNFENCEABLE_TOOLS`
+    holds the measured and reasoned NOs, and they are refused BEFORE the membership
+    check — because they ARE members, and the membership message would say the one
+    thing that is not true about them.
 
     Scoped forms are kept and the BASE name is what must be in the vocabulary. This
     used to read "`Bash(git *)` … is strictly narrower than `Bash`", which measured
@@ -164,6 +232,15 @@ def validate_tools(tools: object, where: str) -> list[str]:
                 f"{where}: `tools` names the MCP tool {name!r}. MCP availability depends "
                 "on local config, so this fence would mean different things on different "
                 "machines. Not admitted to the vocabulary."
+            )
+        if base in UNFENCEABLE_TOOLS:
+            raise ValueError(
+                f"{where}: `tools` names {name!r}, which this CLI HAS but which this "
+                f"fence cannot hold: it {UNFENCEABLE_TOOLS[base]}. Declaring it would "
+                "produce a run whose granted set equals its declared set and whose "
+                "reach exceeds both — the fence satisfied and bypassed in one call. "
+                "Refused at load, where the refusal is cheap, rather than adjudicated "
+                "after the fact, where there is nothing left to adjudicate."
             )
         if base not in BUILTIN_TOOLS:
             raise ValueError(

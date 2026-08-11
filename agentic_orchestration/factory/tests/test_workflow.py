@@ -10,6 +10,7 @@ import re
 
 import pytest
 
+from factory.harness.claude_code import BUILTIN_TOOLS, UNFENCEABLE_TOOLS
 from factory.workflow import MAX_RETRIES, WorkflowError, load_workflow
 
 MINIMAL_PHASE = {"name": "p", "gates": ["artifacts_exist"], "artifacts": ["x.txt"]}
@@ -521,6 +522,106 @@ def test_F4_a_harness_that_publishes_no_vocabulary_cannot_be_given_an_allowlist(
             load_workflow(path)
     finally:
         _HARNESSES.pop("mute", None)
+
+
+# --- Gate-2 J7: a name the CLI HAS, whose grant is not its reach --------------------
+#
+# F4 closed the vocabulary against names the CLI does not have. That is a membership
+# question, and it is not the containment question. `Task` is a member in good standing:
+# it passes F4, it passes `check_grant` with the granted set EXACTLY equal to the
+# declared set, and the child it spawns holds Bash, Edit and Write (measured
+# 2026-08-11). The fence is satisfied and bypassed in one call — J1's shape, arriving
+# inside the mechanism that replaced J1.
+#
+# These rows exist because the refusal has to be REACHED, not merely declared. The J7
+# fix originally landed as a dict that nothing read: the WIRING axis, which is the
+# defect this whole series keeps finding.
+
+
+@pytest.mark.parametrize("name", sorted(UNFENCEABLE_TOOLS))
+def test_J7_every_unfenceable_name_is_refused_at_LOAD(tmp_path, git_repo, name):
+    """Parametrized over the dict itself, so a name added without a reason still fails.
+
+    Hand-listing the names here would let the two lists drift, and the drift would
+    show up as a tool that is documented as refused and is not.
+    """
+    phase = dict(AGENTIC_PHASE, tools=[name])
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError) as exc:
+        load_workflow(path)
+    message = str(exc.value)
+    assert UNFENCEABLE_TOOLS[name] in message, "refused without saying what it reaches"
+    assert "not in the built-in set" not in message, (
+        "refused for the WRONG reason: this CLI does have this tool, and a message "
+        "saying otherwise sends the reader to re-probe a vocabulary that is correct"
+    )
+
+
+def test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd(tmp_path, git_repo):
+    """`Task(...)` and a Task buried among honest names.
+
+    The vocabulary adjudicates the BASE name, and J1 established that the scope buys
+    nothing — so a scoped `Task` is a bare `Task` wearing a fence's clothes. The crowd
+    case is F4's `["Read", "default"]` lesson: the reviewer's eye stops at the first
+    recognisable name.
+    """
+    for tools in (["Task(sub)"], ["Read", "Task"], ["Bash(git log:*)", "CronCreate"]):
+        phase = dict(AGENTIC_PHASE, tools=tools)
+        path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+        with pytest.raises(WorkflowError, match="this fence cannot hold"):
+            load_workflow(path)
+
+
+def test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS(tmp_path, git_repo):
+    """The two lists cannot drift apart, in either direction.
+
+    A name in `UNFENCEABLE_TOOLS` and not in `BUILTIN_TOOLS` would be a refusal for a
+    tool that does not exist — dead law that reads as diligence, and the reason text
+    would never be seen. It also matters for the CLAIM: the whole force of J7 is that
+    these are tools the CLI HAS. Refusing something absent proves nothing.
+    """
+    orphans = sorted(set(UNFENCEABLE_TOOLS) - BUILTIN_TOOLS)
+    assert not orphans, f"refused but not probed off this CLI's init frame: {orphans}"
+    unreasoned = sorted(n for n, why in UNFENCEABLE_TOOLS.items() if not str(why).strip())
+    assert not unreasoned, f"refused with no reason recorded: {unreasoned}"
+
+
+def test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation(tmp_path, git_repo):
+    """`Task` in this row's own text, because every other J7 row derives its names.
+
+    The parametrized rows above iterate `UNFENCEABLE_TOOLS`. Delete `Task` from that
+    dict and they do not fail — the parametrisation quietly loses a case and the suite
+    stays green while the one name that was actually MEASURED walks back in. A row that
+    derives its expectation from the code under test asserts that the code equals
+    itself; here that would erase a finding, not just weaken a check.
+
+    So this row hardcodes what the probe found. The frames are preserved at
+    `star-lord/notes/evidence/2026-08-11-tool-fence-probes/j7-task-reach-probe.jsonl`:
+    a parent granted `--tools Task` reported `tools: ['Task']` at `init` and spawned a
+    child holding `Bash`, `Edit` and `Write`, `is_error: false`,
+    `permission_denials: []`. If this row ever has to change, the frames are what it
+    must be changed against.
+    """
+    phase = dict(AGENTIC_PHASE, tools=["Task"])
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError) as exc:
+        load_workflow(path)
+    assert "this fence cannot hold" in str(exc.value), (
+        "the MEASURED unfenceable name loaded, or was refused on some other rule: "
+        f"{exc.value}"
+    )
+
+
+def test_J7_the_fence_still_admits_the_tools_a_real_phase_needs(tmp_path, git_repo):
+    """The refusal is worth nothing if it also refuses the working set.
+
+    Named explicitly rather than derived, because a row that computes its own expected
+    value from the code under test asserts that the code equals itself.
+    """
+    tools = ["Read", "Glob", "Grep", "Bash(git status:*)", "Write", "Edit", "TodoWrite"]
+    phase = dict(AGENTIC_PHASE, tools=tools)
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    assert load_workflow(path).phases[0].tools == tools
 
 
 def test_F6_two_repos_with_the_SAME_BASENAME_do_not_share_an_acknowledgement(

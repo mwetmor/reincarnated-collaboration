@@ -41,9 +41,19 @@ from dataclasses import dataclass
 from pathlib import Path
 
 #: Named once so the layering caveat cannot drift apart from the value it qualifies.
+#:
+#: Gate-2 JR (jack-ryan, round 16) added the second half. Naming WHICH layers went
+#: unread is necessary and is not sufficient: a reader who knows five layers were
+#: skipped still does not know which way they can move the answer, and the natural
+#: assumption — that a recorded mode is roughly the answer — is wrong in the one
+#: direction that matters. An unresolved layer can be MORE permissive than what is
+#: recorded here, so a restrictive-looking mode is not evidence of a restricted run.
+#: The caveat has to state the DIRECTION or it reads as a footnote instead of a limit.
 _LAYERS_NOT_RESOLVED = (
     "enterprise policy, CLI flags, environment, and project-level "
-    ".claude/settings{,.local}.json are NOT resolved here"
+    ".claude/settings{,.local}.json are NOT resolved here, and an unresolved layer can "
+    "move the effective mode in EITHER direction — including MORE PERMISSIVE than what "
+    "is recorded, so a restrictive-looking mode here is not evidence of a restricted run"
 )
 
 

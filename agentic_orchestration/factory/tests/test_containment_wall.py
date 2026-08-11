@@ -2152,3 +2152,293 @@ def test_H7_PARTNER_reading_a_control_surface_does_not_move_its_signature(fenced
     assert not moved, (
         f"fingerprinting twice with no write between moved a control surface: {moved}"
     )
+
+
+# --- Gate-2 JR-5: the marker is not part of the path -------------------------------
+#
+# When git's own pointer files cannot be read, `_git_control_entries` mints a key that
+# says so: `.git\t<gitdir pointer unreadable: …>`. Five such keys exist, and on all
+# five the tab lands BEFORE the slash, so the key begins `.git` and not `.git/`. Every
+# predicate downstream was reading the marker as part of the path — so
+# `PROTECTED_EVERY_REPO` did not catch them and the rollback's `git_internal` guard did
+# not refuse them. The sibling key `.git/\t<common>` puts the tab AFTER the slash and
+# was fine, which is why nothing noticed: the class was half-covered by an accident of
+# string order.
+#
+# jack-ryan graded this WARN rather than BLOCK because all five shapes make the repo
+# unmeasurable and the run aborts on `ContainmentError` first. That reachability
+# argument is exactly the thing that can stop being true — an abort is a POLICY, and
+# the classifier is where the claim is spent. So the rows below mint the keys through
+# the real code path (no literals to drift) and then hand them to `classify` and
+# `rollback` directly, which is the honest shape: the predicate is tested at the
+# boundary it defends, not through a route that currently never arrives.
+
+
+def _break_pointer_unreadable(repo: Path, spare: Path) -> None:
+    os.chmod(repo / ".git", 0o000)
+
+
+def _break_pointer_unparseable(repo: Path, spare: Path) -> None:
+    (repo / ".git").write_text("this is not a gitdir pointer\n", encoding="utf-8")
+
+
+def _break_pointer_to_a_file(repo: Path, spare: Path) -> None:
+    (repo / ".git").write_text(f"gitdir: {spare}\n", encoding="utf-8")
+
+
+def _break_commondir_unreadable(repo: Path, spare: Path) -> None:
+    commondir = _detached_gitdir(repo) / "commondir"
+    commondir.write_text("../\n", encoding="utf-8")
+    os.chmod(commondir, 0o000)
+
+
+def _break_commondir_to_a_file(repo: Path, spare: Path) -> None:
+    (_detached_gitdir(repo) / "commondir").write_text(f"{spare}\n", encoding="utf-8")
+
+
+#: name -> a way to make git's own pointer chain unreadable. Every one of the five
+#: mints a DIFFERENT marker key, and the parametrisation is over the dict so a sixth
+#: minting site added without a row here is a row that does not exist rather than a row
+#: that silently passes.
+GIT_POINTER_BREAKS = {
+    "gitdir pointer unreadable": _break_pointer_unreadable,
+    "gitdir pointer unparseable": _break_pointer_unparseable,
+    "gitdir points at a file": _break_pointer_to_a_file,
+    "commondir unreadable": _break_commondir_unreadable,
+    "commondir points at a file": _break_commondir_to_a_file,
+}
+
+
+def _detached_gitdir(repo: Path) -> Path:
+    """Where `_worktree_shape` moved this repo's real gitdir."""
+    return repo.parent / f"{repo.name}.gitdir"
+
+
+def _worktree_shape(repo: Path) -> Path:
+    """Turn an ordinary repo into the linked-worktree shape: `.git` as a FILE.
+
+    Three of the five markers are only reachable when `.git` is a pointer file, and
+    that is not an exotic configuration — it is what `git worktree add` and
+    `git submodule add` both leave behind. The spare path returned is a regular FILE,
+    which is what the two "points at a non-directory" markers need.
+    """
+    detached = _detached_gitdir(repo)
+    shutil.move(str(repo / ".git"), str(detached))
+    (repo / ".git").write_text(f"gitdir: {detached}\n", encoding="utf-8")
+    spare = repo.parent / f"{repo.name}.notadir"
+    spare.write_text("a regular file, not a gitdir\n", encoding="utf-8")
+    return spare
+
+
+def _marker_keys(repo: Path) -> list[str]:
+    return sorted(k for k in perm._git_control_entries(repo) if perm.MARKER_SEP in k)
+
+
+@pytest.fixture
+def broken_pointer(request, fenced):
+    """A repo whose git pointer chain is broken in one of five ways, plus the key.
+
+    Yields `(repo, key)`. The key is READ OFF the real minting code rather than
+    written down here — a literal in the test would keep passing after the producer
+    changed its wording, and would then be certifying a string this module no longer
+    emits.
+    """
+    repo = fenced.free_repo
+    spare = _worktree_shape(repo)
+    GIT_POINTER_BREAKS[request.param](repo, spare)
+    keys = _marker_keys(repo)
+    assert len(keys) == 1, (
+        f"premise failed: breaking the pointer as {request.param!r} minted {keys}, and "
+        "these rows are about the ONE synthetic key that names the broken pointer"
+    )
+    try:
+        yield repo, keys[0]
+    finally:
+        for p in (repo / ".git", _detached_gitdir(repo) / "commondir"):
+            try:
+                os.chmod(p, 0o644)
+            except OSError:
+                pass
+
+
+@pytest.mark.parametrize("broken_pointer", sorted(GIT_POINTER_BREAKS), indirect=True)
+def test_JR5_a_marker_key_names_a_path_UNDER_dot_git(broken_pointer):
+    """The premise, stated separately so the rows below cannot pass vacuously.
+
+    If the key ever stops naming `.git`, the two rows that follow would still be green
+    — they would just be adjudicating something else. This is where that is caught.
+    """
+    _, key = broken_pointer
+    assert key.startswith(".git"), key
+    assert perm.MARKER_SEP in key, "no marker: this row is not testing what it says"
+    # `.rstrip("/")` deliberately. `.git\\t<…>` and `.git/\\t<…>` name the same path,
+    # and after JR-5 they classify identically — which is the whole point of
+    # normalising once instead of editing five producers. jack-ryan's JR-5 mutation
+    # moved the tab across the slash; a row that failed on that would be certifying
+    # the producer's string order rather than the path the key names, and would make
+    # a provably equivalent rewrite look like a regression.
+    assert perm.marker_path(key).rstrip("/") == ".git", (
+        f"the key {key!r} names {perm.marker_path(key)!r}, not git's own control "
+        "surface — the protection these rows assert is for `.git`"
+    )
+
+
+@pytest.mark.parametrize("broken_pointer", sorted(GIT_POINTER_BREAKS), indirect=True)
+def test_JR5_an_unreadable_pointer_is_PROTECTED_even_under_writes_everything(
+    broken_pointer,
+):
+    """`writes: ["**"]`, in the WRITABLE repo — F3's second round, on the marker keys.
+
+    This is the assertion the class was missing. Every existing row about these keys
+    compared fingerprint CONTENT, which moves whether or not the key is protected
+    (rule 28); detecting a change and refusing it are two claims, and only the first
+    one had an assertion (rule 29).
+    """
+    repo, key = broken_pointer
+    change = perm.Change(repo, key, "modified", None, perm.GIT_CONTROL)
+    allowed, breaches = perm.classify(
+        [change], writes=["**"], root=repo, read_only_trees=[]
+    )
+    assert not allowed, (
+        f"{key!r} was ALLOWED. git's pointer chain has been made unreadable — the one "
+        "state in which the control surfaces underneath cannot be measured at all — "
+        "and a permissive allowlist authorised it."
+    )
+    assert len(breaches) == 1 and "ANY declared repo" in breaches[0].reason, (
+        f"{key!r} breached for the wrong reason: "
+        f"{[(b.change.path, b.reason) for b in breaches]}. The always-protected rule "
+        "must be what caught it, or it is passing on a rule that does not hold in a "
+        "sibling repo."
+    )
+
+
+@pytest.mark.parametrize("broken_pointer", sorted(GIT_POINTER_BREAKS), indirect=True)
+def test_JR5_the_rollback_REFUSES_a_marker_key_rather_than_acting(
+    broken_pointer, tmp_path
+):
+    """F3's third round, on the same keys. Detection must not be wired to a verb.
+
+    `.git\\t<commondir unreadable: …>` is not a path on disk, so `git checkout --`
+    would be handed a pathspec matching nothing and the destroyer branch would find
+    nothing tracked underneath and authorise `rmtree` — on a name whose real referent
+    is the repository's own gitdir.
+    """
+    repo, key = broken_pointer
+    change = perm.Change(repo, key, "modified", None, perm.GIT_CONTROL)
+    before = perm.fingerprint(repo)
+    _, breaches = perm.classify([change], writes=["**"], root=repo, read_only_trees=[])
+    actions = perm.rollback(
+        breaches, {str(repo): before}, tmp_path / "quarantine",
+        declared_trees=[repo],
+    )
+    assert len(actions) == 1, f"expected one action for {key!r}, got {actions}"
+    a = actions[0]
+    assert a.action == "NOT_ROLLED_BACK", (
+        f"the rollback ACTED on {a.path!r} ({a.action}) — a key that names no file"
+    )
+    assert a.guard == "git_internal", f"refused under the wrong guard: {a.guard!r}"
+    assert a.guard in perm.REFUSAL_GUARDS, "guard is outside the closed vocabulary"
+
+
+def test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name(fenced):
+    """The falsification partner. Normalising must not eat real paths.
+
+    `marker_path` splits on a tab, and a tab is a legal character in a POSIX filename
+    — the suite already plants paths with newlines and quotes in them for this reason.
+    A path that merely CONTAINS a tab is not a marker-bearing key, and truncating it
+    would move a breach's reported location to an ancestor, which is K1's damage shape
+    (act on what you cannot name precisely).
+    """
+    assert perm.marker_path("src/output/a.json") == "src/output/a.json"
+    assert perm.marker_path("") == ""
+    assert perm.marker_path(".git/\t<common>/hooks/pre-commit") == ".git/"
+    repo = fenced.free_repo
+    weird = "odd\tname.txt"
+    (repo / weird).write_text("x\n", encoding="utf-8")
+    _, changes = _snapshot_repo(repo, lambda: (repo / weird).write_text("y\n", encoding="utf-8"))
+    named = {c.path for c in changes}
+    assert any(weird in p for p in named), (
+        f"a real file whose NAME contains a tab was not reported under its own name: "
+        f"{sorted(named)}"
+    )
+
+
+def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fenced):
+    """The third of JR-5's three sites, and the only one whose mutation SURVIVED.
+
+    Round 17's mutation pass killed the `marker_path` normalisation in `_matches` and
+    in the rollback's `git_internal` guard, and could not kill it in `_read_only_hit`.
+    The reason is structural rather than accidental, and it is worth writing down:
+    `_read_only_hit` matches by ancestry in EITHER direction, and a marker is appended
+    to a key's LAST component. For every key whose real path is a strict DESCENDANT of
+    the read-only tree, the marked form is one component deeper still and the tree is
+    an ancestor of it either way — the normalisation cannot change that answer.
+
+    It changes exactly one answer: the key whose real path IS the read-only tree.
+    `<tree>\\t<…>` is a SIBLING of `<tree>`, not the tree and not under it, so the
+    unnormalised predicate returns None and the read-only rule never fires.
+
+    That shape is reachable rather than theoretical. `_gitdir_control_entries` files
+    its depth-cap declaration under the gitdir's own key, and the loader accepts a
+    read-only tree at a nested gitdir — asserted below rather than asserted in prose,
+    because "the loader would accept this" is the kind of premise that quietly stops
+    being true (rule 28: a row aimed at an unreachable configuration certifies
+    nothing).
+
+    What this row does NOT claim: that the VERDICT flips. It does not. Every
+    marker-bearing key in this module lives under `.git/`, which
+    `PROTECTED_EVERY_REPO` holds independently — and holds it via `_matches`, whose
+    own normalisation is certified two rows up. Under the mutation the write is still
+    refused; it is refused for the WRONG REASON, and the receipt then tells its reader
+    that a git-internals rule caught something the read-only promise was supposed to
+    catch. That is the CLAIM axis (rule 39's neighbour, Discipline #9), and a receipt
+    that misattributes which promise was broken is the wrong answer wearing a green
+    verdict — the shape this whole file exists to refuse.
+    """
+    from factory.workflow import _validate_containment
+
+    repo = fenced.free_repo
+    deep = repo / ".git"
+    for name in ("a", "b", "c", "d"):
+        deep = deep / "modules" / name
+
+    before, changes = _snapshot_repo(repo, lambda: deep.mkdir(parents=True))
+    rel = str(deep.relative_to(repo))
+    exact = [c for c in changes if perm.marker_path(c.path).rstrip("/") == rel]
+    assert len(exact) == 1, (
+        f"premise failed: expected exactly one change whose real path IS {rel!r}, got "
+        f"{[c.path for c in changes]}. Without it this row adjudicates a descendant, "
+        "which the normalisation provably cannot affect."
+    )
+    key = exact[0].path
+    assert perm.MARKER_SEP in key, (
+        f"premise failed: {key!r} carries no marker, so this row is not testing "
+        "marker normalisation at all"
+    )
+
+    # Reachability, not prose: the loader must actually accept this tree.
+    _validate_containment([repo.resolve()], [deep.resolve()])
+
+    allowed, breaches = perm.classify(
+        changes, writes=["**"], root=repo, read_only_trees=[deep]
+    )
+    assert not allowed, (
+        f"a phase with `writes: ['**']` was authorised to write {[c.path for c in allowed]} "
+        "inside a declared read-only tree"
+    )
+    mine = [b for b in breaches if b.change.path == key]
+    assert len(mine) == 1, (
+        f"{key!r} produced {len(mine)} breaches: "
+        f"{[(b.change.path, b.reason) for b in breaches]}"
+    )
+    reason = mine[0].reason
+    assert "read-only tree" in reason and str(deep.resolve()) in reason, (
+        f"{key!r} breached as {reason!r}. The declared read-only tree is its own real "
+        "path, so the read-only rule is the rule that must name it — anything else is "
+        "the right verdict recorded against the wrong promise."
+    )
+    assert "reached via" not in reason, (
+        f"{key!r} was reported as a COLLAPSED ANCESTOR of the read-only tree "
+        f"({reason!r}). It is not an ancestor; it IS the tree, and the hedged wording "
+        "would tell a reader the wall could not tell which members moved."
+    )
