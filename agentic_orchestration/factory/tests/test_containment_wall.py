@@ -24,6 +24,7 @@ containment question of this shape should be answerable by a row rather than by
 a fourth reviewer finding it live.
 """
 
+import inspect
 import os
 import re
 import shutil
@@ -2428,6 +2429,56 @@ def test_JR18_a_TAB_NAMED_SIBLING_does_not_enter_the_writes_allowlist(fenced):
         f"an ORDINARY write inside the declared directory stopped being allowed, so the "
         f"row above proves nothing: allowed={[c.path for c in allowed]} "
         f"breaches={[(b.change.path, b.reason) for b in breaches]}"
+    )
+
+
+def test_JR18_the_DIRECTION_of_a_match_cannot_be_CHOSEN_BY_OMISSION():
+    """Gate-2 R21-O. `_matches` truncates or it does not, and the CALLER decides.
+
+    The JR-18 fix rests on a design choice that no scenario row can see:
+    `normalise_marker` is keyword-only with NO DEFAULT, so a call site which does not
+    state its direction is a `TypeError` rather than a silently-chosen one. Measured
+    (R21-O): giving it `= True` SURVIVES the whole suite at **610 passed**. Nothing is
+    broken by that edit today — all three call sites state their direction explicitly —
+    and no row could have been written to notice, because the row would have to
+    exercise a call site nobody has written yet.
+
+    That is JR-20's **exemption direction** (`tests/test_vocabularies.py`) pointed at a
+    function signature instead of at a collection: the fail-open mutation is an
+    ADDITION, and additions are the direction no scenario row catches. JR-20's answer
+    applies unchanged — it needs a LITERAL, not an argument. This row is that literal,
+    and it arrived because the rule was applied to the round's own BLOCK fix.
+
+    There is no correct default to have. The deny arms need `True` and the writes arm
+    needs `False`, and the SAFE value differs between them: truncating a path can only
+    make it hit a protected prefix more readily (fail-closed on a deny list) and can
+    only make it hit the allowlist more readily (fail-open on the writes arm). A
+    default would pick one of two opposite safe answers for a caller that has not said
+    which question it is asking.
+
+    Two asserts, and they are separated on purpose because each has its own mutation
+    (R21-O, R21-P). What is deliberately NOT here is a third leg auditing every
+    `_matches` call site for the keyword: while the no-default pin holds, a
+    keyword-less call site is a `TypeError`, so that assert has no outcome
+    distinguishable from this one. Two assertions over one behaviour is the mass rule
+    13 exists to refuse, and the rejection is worth more written down than asserted.
+    """
+    param = inspect.signature(perm._matches).parameters["normalise_marker"]
+
+    assert param.default is inspect.Parameter.empty, (
+        f"`_matches` grew a default for `normalise_marker` ({param.default!r}). A "
+        f"future call site that does not state its direction now gets one chosen for "
+        f"it, in silence, and the deny arms and the writes arm need OPPOSITE values — "
+        f"so whichever value the default takes is fail-OPEN for half the callers. "
+        f"Measured: this edit alone leaves the suite green at 610 (R21-O). Nothing "
+        f"else in the suite can see it."
+    )
+    assert param.kind is inspect.Parameter.KEYWORD_ONLY, (
+        f"`normalise_marker` stopped being keyword-only (kind={param.kind}). It can "
+        f"now be passed positionally, where `_matches(p, pattern, True)` reads as a "
+        f"flag about the PATTERN rather than a choice of which path is being asked "
+        f"about — and the whole JR-18 fix is that the caller must say, legibly, which "
+        f"question it is asking."
     )
 
 
