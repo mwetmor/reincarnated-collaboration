@@ -300,6 +300,23 @@ def _validate_containment(repos: list[Path], read_only: list[Path]) -> None:
                 f"Declare `{top}` and scope the phase with `writes:` instead."
             )
     for ro in read_only:
+        # F2's own sentence, applied to the half that never got the existence check
+        # (Gate-2 verdict H2). A read-only tree that is not there protects nothing —
+        # it is a promise about no bytes, and it loads CLEAN, which is the shape of
+        # every defect this function exists to refuse. The likely cause is a typo,
+        # and a typo'd read-only claim is the most dangerous kind: the author walks
+        # away believing the tree they meant is fenced.
+        if not ro.exists():
+            raise WorkflowError(
+                f"read_only tree {ro} does not exist, so declaring it protects nothing. "
+                "Check the path — a misspelled read-only tree loads clean and fences "
+                "nothing, while the tree you meant stays writable."
+            )
+        if not ro.is_dir():
+            raise WorkflowError(
+                f"read_only tree {ro} is not a directory. Read-only is a claim about a "
+                "tree; scope a single file with `writes:` instead."
+            )
         if not any(ro == r or r in ro.parents for r in repos):
             enclosing = git_toplevel(ro) if ro.is_dir() else None
             hint = (

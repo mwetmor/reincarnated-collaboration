@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           164 tests, all green
+  tests/           207 tests, all green
 ```
 
 ## Use
@@ -72,7 +72,9 @@ says which side of the boundary the breach came from.
 ## What "the tree was clean" is worth
 
 Containment is a git change-set diff, so it is only as good as what git will
-describe. Three rules keep the claim honest, all three added closing Gate-2 F1/F2:
+describe. Five rules keep the claim honest, each one added closing a Gate-2 finding
+that had the *same shape*: a predicate answering a slightly different question than
+the one asked, whose wrong answer is always `clean`.
 
 1. **Gitignored is not exempt.** `git status --porcelain` never reports ignored
    paths, so the v1 build was blind to the engine's `seasons/` and `telemetry.db`
@@ -88,6 +90,29 @@ describe. Three rules keep the claim honest, all three added closing Gate-2 F1/F
    creation, deletion, rename; **misses in-place content edits**. Every phase emits
    a `containment_coarse` receipt naming the regions and the caveat. A test asserts
    the blind spot exists, so the caveat can only be weakened on evidence.
+4. **A fence is judged where the artifact IS.** `read_only_trees` is matched on the
+   path's lexical *and* resolved form, breaching on either. `.resolve()` alone
+   follows symlinks, so a link planted inside a fenced tree was judged by where it
+   *pointed* — a link to `/tmp` walked straight out of the fence (H1).
+5. **Unreadable is not clean.** `git status` reports a directory it cannot descend
+   into on **stderr**, with exit code 0 and nothing on stdout, so a `chmod 000`
+   subtree measured as untouched. Warned paths are folded into the fingerprint:
+   unreadable at both ends is unchanged, unreadable at one end is a change.
+
+**The wall.** `tests/test_containment_wall.py` is the standing answer to that
+repeated shape — eight artifact kinds (regular file, symlink out of the tree, broken
+symlink, nested dir, collapsed untracked member, gitignored file, nested git repo,
+unreadable subtree) each required to be detected, fenced under `writes: ["**"]`, and
+reported honestly by the rollback, with a falsification partner requiring the same
+artifact to be *allowed* where it is declared. It found rule 5 on its first run. A
+new containment question of this shape should be a new row, not a new reviewer
+finding. **Known blind spot, pinned:** git cannot see a wholly-empty directory tree
+at any porcelain setting — bounded to structure, since any file inside it is caught.
+
+**What the rollback promises.** Not that the artifact is always removed — nothing is
+deleted unquarantined, so evidence that cannot be safely quarantined is deliberately
+left in place and named. The promise is that the receipt and the disk agree: an
+artifact never survives while the receipt says `deleted`.
 
 Gate commands run with `PYTHONDONTWRITEBYTECODE=1` and
 `PYTEST_ADDOPTS=-p no:cacheprovider`. Running pytest inside a read-only tree writes

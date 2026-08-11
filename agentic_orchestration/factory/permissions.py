@@ -259,6 +259,28 @@ def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
     return any(rel.startswith(p) or rel == p.rstrip("/") for p in FACTORY_RUNTIME_PATHS)
 
 
+_UNREADABLE_WARNING = "could not open directory '"
+
+
+def _unreadable_paths(stderr: str) -> list[str]:
+    """Repo-relative paths `git status` warned it could not descend into.
+
+    git reports these on stderr and still exits 0 with a clean stdout, so a caller
+    that reads only stdout concludes the tree is untouched. The warning is the only
+    evidence that part of the tree was never looked at.
+    """
+    out: list[str] = []
+    for line in stderr.splitlines():
+        idx = line.find(_UNREADABLE_WARNING)
+        if idx == -1:
+            continue
+        rest = line[idx + len(_UNREADABLE_WARNING):]
+        end = rest.rfind("'")
+        if end > 0:
+            out.append(rest[:end].rstrip("/"))
+    return out
+
+
 def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
     """Snapshot a working tree: HEAD, porcelain status (INCLUDING ignored), signatures.
 
@@ -299,6 +321,17 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
         )
     entries: dict[str, str] = {}
     exempted: list[str] = []
+    # The truth about an unreadable directory arrives on STDERR, with returncode 0 and
+    # nothing on stdout (containment wall, 2026-08-10 — found by the wall, not by a
+    # reviewer). A phase that creates a directory and chmods it 000 is therefore
+    # invisible to the change-set: git warns, exits clean, prints nothing, and the tree
+    # measures as untouched. Same defect shape as the previous four, on a new axis --
+    # the wrong CHANNEL. Fold the warned paths in as entries so the diff can see them:
+    # unreadable at BOTH ends is unchanged (no false breach from a pre-existing
+    # condition), unreadable at only one end is a change, which is the truth.
+    for path in _unreadable_paths(status.stderr):
+        if not _is_factory_runtime(path, is_root_repo):
+            entries[path] = "!?"
     for line in status.stdout.splitlines():
         if not line.strip():
             continue
@@ -403,14 +436,35 @@ def _read_only_hit(change_root: Path, rel: str, read_only: list[Path]) -> str | 
     entry alone which members moved, so an overlap in either direction is a breach.
     Fail closed: the alternative is letting a collapsed ancestor smuggle writes into
     a protected subtree.
+
+    Matching also runs on BOTH the lexical and the resolved path (Gate-2 verdict H1).
+    `.resolve()` follows symlinks, so for a link planted inside a read-only tree it
+    answers a question about where the link POINTS instead of where the link IS --
+    and a link to /tmp resolved out of the protected tree entirely and came back
+    clean. The file that appeared in the read-only tree was the link itself, so the
+    link's own location is the location that matters. We keep the resolved form too,
+    because a read-only tree reached THROUGH a symlinked parent is equally a hit.
+    Either form matching is a breach; that is the fail-closed direction.
     """
-    full = (change_root / rel.rstrip("/")).resolve() if rel else change_root
-    for ro in read_only:
-        if full == ro or ro in full.parents:
-            return str(ro)
-        if full in ro.parents:
-            return f"{ro} — reached via the collapsed entry {rel!r}"
+    if rel:
+        lexical = Path(os.path.normpath(change_root / rel.rstrip("/")))
+    else:
+        lexical = change_root
+    for full in _dedupe_paths(lexical, lexical.resolve()):
+        for ro in read_only:
+            if full == ro or ro in full.parents:
+                return str(ro)
+            if full in ro.parents:
+                return f"{ro} — reached via the collapsed entry {rel!r}"
     return None
+
+
+def _dedupe_paths(*paths: Path) -> list[Path]:
+    out: list[Path] = []
+    for p in paths:
+        if p not in out:
+            out.append(p)
+    return out
 
 
 def classify(
@@ -458,7 +512,23 @@ def rollback(
         was_dirty_before = bool(before_fp and change.path in before_fp.entries)
 
         quarantined: str | None = None
-        if target.exists():
+        # `exists()` follows symlinks, so a BROKEN link is invisible to it -- and an
+        # invisible artifact would be skipped here and then reported `deleted` below
+        # while still sitting on disk (Gate-2 verdict H3). `is_symlink()` asks about
+        # the link itself, which is the thing that was planted.
+        if target.is_symlink():
+            dest = quarantine_dir / root.name / f"{change.path}.symlink.txt"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            # Never copytree through a link: the bytes on the far side are not what
+            # the phase wrote, and following one into a read-only tree would copy the
+            # very tree we are protecting. The evidence IS the link and its target.
+            dest.write_text(
+                f"{target} was a symlink -> {os.readlink(target)}\n"
+                "(the link itself was the artifact; its target was not copied)\n",
+                encoding="utf-8",
+            )
+            quarantined = str(dest)
+        elif target.exists():
             dest = quarantine_dir / root.name / change.path
             dest.parent.mkdir(parents=True, exist_ok=True)
             try:
@@ -514,10 +584,29 @@ def rollback(
             continue
         if change.kind == "created":
             try:
-                if target.is_dir():
+                if target.is_symlink():
+                    # `is_dir()` is TRUE for a link to a directory and `rmtree` then
+                    # refuses it outright; `exists()` is FALSE for a broken link and
+                    # the unlink never fired. Either way the receipt said `deleted`
+                    # over a surviving artifact (Gate-2 verdict H3). Unlink the link.
+                    target.unlink()
+                elif target.is_dir():
                     shutil.rmtree(target)
                 elif target.exists():
                     target.unlink()
+                elif not quarantined:
+                    # Nothing on disk and nothing quarantined: we cannot claim a
+                    # deletion we did not perform.
+                    actions.append(
+                        RollbackAction(
+                            change.path,
+                            "NOT_ROLLED_BACK",
+                            "nothing at this path by rollback time; another process may "
+                            "have removed it, so the deletion is not ours to claim",
+                            quarantined,
+                        )
+                    )
+                    continue
                 actions.append(
                     RollbackAction(change.path, "deleted", "created by the phase", quarantined)
                 )

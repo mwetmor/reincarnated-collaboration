@@ -246,4 +246,100 @@ restate, not mine to assume.
 
 ---
 
+## 9. Round three — jack-ryan stopped reviewing instances and named the pattern
+
+He restated the verdict and, in the same pass, found H1: **BLOCK-class, inside the fix
+I had just shipped for G2.** `_read_only_hit` called `.resolve()`, which follows
+symlinks — so for a link planted *inside* a read-only tree the predicate answered a
+question about where the link **pointed** instead of where the link **was**. Live,
+against the real engine tree with `read_only_trees: [engine]`, a link to `/tmp`
+resolved cleanly out of the fence and the phase came back PASS. His control with
+`touch` instead of `ln -sfn` breached correctly, which isolated the cause to
+`.resolve()` and nothing else. There were zero symlink tests in the suite.
+
+Two companions: **H2** — a *nonexistent* `read_only_trees` entry loaded clean and
+fenced nothing (F2's own sentence applied to the half that never got the existence
+check). **H3** — rollback could not unlink a symlink: `is_dir()` is true for a link to
+a directory and `rmtree` refuses it outright, `exists()` is false for a broken link so
+the unlink never fired, and the receipt printed `deleted` over a surviving artifact.
+
+### The finding that matters more than the four defects
+
+> F1 measured the wrong **category**. G1 the wrong **base**. G2 the wrong
+> **granularity**. H1 the wrong **target**. Four containment predicates that answer a
+> slightly different question than the one asked — and every one of their wrong
+> answers is `clean`. Three of the four were pinned in place by a **passing test
+> asserting the reduced behaviour was the requirement.**
+
+He has now found one per round for three consecutive rounds in the same file, and his
+conclusion is the one I should have reached myself: **instance-by-instance review is
+not converging, and a fifth patch is not the answer.** His prescription was one
+parametrised falsification wall over the artifact kinds a phase can actually produce.
+
+I built it: `tests/test_containment_wall.py`. Eight artifact kinds (regular file,
+symlink pointing out of the tree, broken symlink, nested dir, collapsed untracked
+member, gitignored file, nested git repo, unreadable subtree) × four rounds — the
+change must be **detected**, **fenced** under `writes: ["**"]`, and **honestly
+reported** by the rollback; and the falsification partner requires the identical
+artifact in an allowlisted directory to come back **allowed**, so a `classify` that
+breached unconditionally cannot pass the wall. Adding an artifact kind is adding a
+row. That is the point: the next containment question of this shape should be
+answerable by a row rather than by a fourth reviewer finding it live.
+
+**The wall found a fifth defect on its first run, before a reviewer did.** An
+unreadable subtree is invisible to the change-set: `git status` writes
+`warning: could not open directory 'x/': Permission denied` **to stderr**, exits **0**,
+and prints **nothing to stdout**. A phase that creates a directory and chmods it 000
+therefore measured as untouched. Same shape as the other four, on a new axis — the
+wrong **channel**. The warned paths are now folded into the fingerprint as entries, so
+unreadable-at-both-ends is unchanged (no false breach from a pre-existing host
+condition) and unreadable-at-one-end is a change, which is the truth.
+
+### The rollback contract, corrected
+
+My first draft of the wall's third round asserted the artifact is always removed. That
+is not the contract and should not be: the module's standing safety rule is that
+nothing is deleted unquarantined, so an artifact that cannot be safely quarantined is
+deliberately **left as evidence**. The run aborts either way. What must never happen is
+the third state — the artifact survives *and* the receipt says `deleted`, so the abort
+report reads as if the tree came back clean. The wall now asserts that the receipt and
+the disk agree, which is the honest contract.
+
+### One blind spot declared rather than found
+
+Discovered by accident when a malformed probe of my own scattered empty directories:
+**git cannot see a wholly-empty directory tree at any porcelain setting**, because it
+tracks content, not structure. The stat sweep cannot rescue it either — the sweep only
+descends into paths git already reported, which is the design that keeps the engine's
+3.3 GB affordable. Residual risk is bounded to directory *structure*: the moment any
+file lands anywhere inside such a tree, git reports the collapsed entry and the fence
+catches it. Pinned as a failing-if-fixed test alongside the COARSE tier's in-place-edit
+blind spot, so it is declared rather than discovered.
+
+### Status after round three
+
+| finding | status |
+|---|---|
+| H1 symlink target vs location | CLOSED — matched on lexical **and** resolved form, breach on either |
+| H2 nonexistent read-only tree | CLOSED — refused at load, with the typo named as the likely cause |
+| H3 rollback cannot unlink a link | CLOSED — `is_symlink()` first; quarantine records the link and its target without following it |
+| (new) unreadable subtree on stderr | CLOSED — warned paths folded into the fingerprint |
+| G3 host co-tenancy | **OPEN, for Matt.** jack-ryan ruled diagnose-don't-exempt correct and non-blocking (it fails *closed*), and routed it to knight-rider as a **host-quiet operating precondition** for the founding run, not a patch |
+| G5 misleading rollback reason | OPEN — ruled non-blocking; detection and abort are the load-bearing half |
+| empty directory trees | DECLARED blind spot, pinned |
+
+Round-three evidence: **207 tests** green (was 170); run PASS in 1m23s;
+`DETERMINISM: EXACT — 14 gate verdicts identical across two laps`; engine and godot
+dirty-counts unchanged at 2789 / 233. jack-ryan's H1 probe reproduced live: the symlink
+breaches, the rollback unlinks it, the engine returns to baseline. The
+unreadable-subtree probe reproduced live: detected, fenced, and left on disk with a
+stated reason rather than a false `deleted`.
+
+**The lane, per his verdict:** mechanical approved unchanged; agentic authorized for
+whole-repository workflows, **excluding any phase whose `writes` pattern covers a
+declared read-only tree** — the exclusion lifting on H1, which is now closed. That lift
+is his to confirm, not mine to assume.
+
+---
+
 **Signed:** star-lord — operational-pipeline seam (export · output · telemetry · LLM)

@@ -224,6 +224,35 @@ def test_the_subdirectory_refusal_names_the_worktree_root_to_declare_instead(
         load_workflow(_wf(tmp_path, root=str(git_repo), repos=[str(sub)]))
 
 
+def test_a_read_only_tree_that_does_not_exist_is_refused(tmp_path, git_repo):
+    """Gate-2 verdict H2. F2's own sentence, applied to the half that never got the
+    existence check: a read-only tree that is not there protects nothing, and it
+    loads CLEAN — the shape of every defect this validation exists to refuse. The
+    likely cause is a typo, which is the dangerous case: the author walks away
+    believing the tree they meant is fenced."""
+    path = _wf(
+        tmp_path,
+        root=str(git_repo),
+        repos=[str(git_repo)],
+        read_only_trees=[str(git_repo / "seasnos")],  # sic
+    )
+    with pytest.raises(WorkflowError, match="does not exist"):
+        load_workflow(path)
+
+
+def test_a_read_only_tree_that_is_a_file_is_refused(tmp_path, git_repo):
+    """Read-only is a claim about a TREE. A file declared as one would be fenced by
+    the ancestor rule alone, which reads as protection but covers only that path."""
+    path = _wf(
+        tmp_path,
+        root=str(git_repo),
+        repos=[str(git_repo)],
+        read_only_trees=[str(git_repo / "tracked.txt")],
+    )
+    with pytest.raises(WorkflowError, match="not a directory"):
+        load_workflow(path)
+
+
 def test_a_read_only_tree_nested_inside_a_declared_repo_is_accepted(tmp_path, git_repo):
     """Coverage is by containment, not by string equality — a subdirectory of a
     fingerprinted repo is fingerprinted with it.
