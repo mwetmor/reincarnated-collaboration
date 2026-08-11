@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           247 tests, all green
+  tests/           262 tests, all green
 ```
 
 ## Use
@@ -72,9 +72,9 @@ says which side of the boundary the breach came from.
 ## What "the tree was clean" is worth
 
 Containment is a git change-set diff, so it is only as good as what git will
-describe. Five rules keep the claim honest, each one added closing a Gate-2 finding
-that had the *same shape*: a predicate answering a slightly different question than
-the one asked, whose wrong answer is always `clean`.
+describe. **Eleven rules** keep the claim honest, each one added closing a Gate-2
+finding that had the *same shape*: a predicate answering a slightly different question
+than the one asked, whose wrong answer is always `clean` — or, once, `restored`.
 
 1. **Gitignored is not exempt.** `git status --porcelain` never reports ignored
    paths, so the v1 build was blind to the engine's `seasons/` and `telemetry.db`
@@ -105,43 +105,88 @@ the one asked, whose wrong answer is always `clean`.
    passed; and a file named `junk -> src` parsed to `src`, a real path the rollback
    then deleted. `-z` is NUL-separated, never quoted, and emits the rename origin as
    its own record.
-7. **Rollback never deletes tracked content.** A `created` path cannot contain
-   anything git already tracks; if it does, the path identification is wrong and the
-   deletion is refused with a reason. This does not depend on knowing which parse bug
-   produced the bad path. Containment must never be the thing that destroys work.
+7. **Rollback never deletes content git knows about — asking BOTH questions.** A
+   `created` path cannot contain anything git already has; if it does, the path
+   identification is wrong and the deletion is refused with a reason. `git ls-files`
+   alone is the index, and the index can be silenced while the content is still
+   committed and still on disk (`git rm --cached`, `assume-unchanged`), so the guard
+   unions it with `git ls-tree -r HEAD`. Either question alone is answerable `no`
+   while work is present; both together are not. This does not depend on knowing
+   which bug produced the bad path. Containment must never be the thing that destroys
+   work.
 8. **Empty directories are swept on the read-only trees.** git tracks content, so a
    wholly-empty directory tree is invisible at every porcelain setting. This was
    declared as a bounded blind spot and then closed: it is not inert (a bare directory
    is a PEP-420 namespace package; a new `res://` directory enters Godot's import
    scan) and a structure-only walk — no stats — costs 0.21 s for the engine and
-   1.69 s for godot.
+   1.69 s for godot. `.git` is excluded: 281 of the engine's 968 directories live
+   under it and its object fanout gains one on a plain `git add`, so including it
+   made *disciplined* git use inside a fenced tree read as a structural write.
+9. **A measurement that cannot NAME what moved is not wired to a verb that acts.**
+   The sweep first returned `dirs:<n>:<hash>`. A hash can only say that something
+   moved, so the diff reported the change at the read-only TREE — which the rollback
+   handed to `git checkout --` as a pathspec, reverting every uncommitted change in
+   the repository over one empty directory, while the directory itself survived. The
+   receipt word was `restored`. The sweep now returns the directory set and the diff
+   names the directory (K1).
+10. **The rollback refuses a whole-tree pathspec.** `.`, the empty string, and any
+   declared repo or read-only tree root come back `NOT_ROLLED_BACK` with the reason
+   stated. A rollback that cannot name an artifact has identified a *tree*, and
+   undoing a tree is a human decision. This is rule 7's principle applied to the
+   other destructive verb, and it does not depend on knowing which measurement
+   produced the coarse path.
+11. **Absent from the baseline means clean, not new.** A tracked file nobody has
+   touched is not in `git status` output, so reading absence as newness typed the
+   most likely agentic breach there is — an agent edits a committed source file — as
+   `created`. It hit rule 7's guard, came back refused with a reason that asserted a
+   misidentification which had not occurred, and the edit survived inside the fence.
+   The kind is now read from git's own status code (K2).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
-repeated shape — thirteen artifact kinds (regular file, symlink out of the tree,
+repeated shape — fourteen artifact kinds (regular file, symlink out of the tree,
 broken symlink, nested dir, collapsed untracked member, gitignored file, nested git
 repo, unreadable subtree, a quoted path containing the rename delimiter, a path with
-a newline, a hard link, a mode-only change, a directory replacing a file) each run
-through four rounds: the change-set must **name** the artifact (not merely be
-non-empty — the first draft asserted only non-emptiness, which is the module's own
-disease in the one assertion meant to cure it), it must be **fenced** under
-`writes: ["**"]`, the rollback must **report the undo honestly** (a `deleted` action's
-path must be gone, a `restored` action's path must be present, a `NOT_ROLLED_BACK`
-must carry a reason), and every **residue** left on disk afterwards must be named by
-some action. Each round has a falsification partner requiring the same artifact to be
-*allowed* where it is declared. The wall found rule 5 on its first run. A new
-containment question of this shape should be a new row, not a new reviewer finding.
+a newline, a hard link, a mode-only change, a directory replacing a file, an empty
+directory tree) each run through four rounds:
 
-**Why the mechanical lane is easier than it looks.** Every path a mechanical workflow
-touches is authored by a human in a YAML file under review, so the adversarial-filename
-class (rule 6) is unreachable there. That is a property of its *inputs*, not of its
-code — the moment a phase's paths come from a model's output the immunity is gone. It
-is written down here so no one mistakes the mechanical lane's clean record for
-evidence that the parser is safe.
+1. the change-set must **name** the artifact — not merely be non-empty. The first
+   draft asserted only non-emptiness, which was the module's own disease in the one
+   assertion meant to cure it;
+2. it must be **fenced** under `writes: ["**"]`;
+3. the rollback must **report the undo honestly** — a `deleted` path must be gone, a
+   `restored` path must be back at its *phase-start fingerprint* (mere existence is
+   what `git checkout -- .` scored while reverting a repository), a `NOT_ROLLED_BACK`
+   must carry a reason;
+4. every **residue** left on disk must be named by an action **at or above it**.
+   Reading that relation both ways let a receipt naming something enormous account
+   for everything inside it.
+
+Each round has a falsification partner requiring the same artifact to be *allowed*
+where it is declared. The wall found rule 5 on its first run. A new containment
+question of this shape should be a new row, not a new reviewer finding — and **a new
+measurement surface gets its row before it ships**: the structure sweep was added with
+detection tests only, never reached rounds three and four, and that is exactly where
+its defect lived (K1).
+
+**Why the mechanical lane is easier than it looks — and where that stops.** Every path
+a mechanical workflow touches is authored by a human in a YAML file under review, so
+the adversarial-filename class (rule 6) is unreachable there. That is a property of its
+*inputs*, not of its code — the moment a phase's paths come from a model's output the
+immunity is gone. The limit of the argument is worth stating too: it covers only
+defects that need a filename. **K1 needed none** — an ordinary `mkdir` or `git add`
+inside a fenced tree was enough — so no lane is exempt from the containment rules by
+virtue of who chose its strings.
 
 **What the rollback promises.** Not that the artifact is always removed — nothing is
 deleted unquarantined, so evidence that cannot be safely quarantined is deliberately
-left in place and named. The promise is that the receipt and the disk agree: an
-artifact never survives while the receipt says `deleted`.
+left in place and named. Three promises, in order of how much they cost to keep:
+
+* the receipt and the disk **agree** — an artifact never survives while the receipt
+  says `deleted`, and a `restored` path is back at its phase-start contents;
+* the rollback **never destroys work** — it will not delete what git has (rule 7) and
+  will not act on a tree (rule 10). Where it cannot act safely it says so;
+* what it leaves behind is **named**. Evidence left deliberately is fine; evidence
+  left silently is not.
 
 Gate commands run with `PYTHONDONTWRITEBYTECODE=1` and
 `PYTEST_ADDOPTS=-p no:cacheprovider`. Running pytest inside a read-only tree writes

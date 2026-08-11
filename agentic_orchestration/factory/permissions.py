@@ -212,9 +212,12 @@ class TreeFingerprint:
     error: str | None = None
     coarse: list[str] = field(default_factory=list)      # regions past the sweep cap
     exempted: list[str] = field(default_factory=list)    # factory runtime paths, by name
-    #: repo-relative tree -> directory-structure signature. Populated only for the
-    #: read-only trees, which is the only place the cost is worth paying.
-    structure: dict[str, str] = field(default_factory=dict)
+    #: repo-relative tree -> the set of directory paths inside it, tree-relative.
+    #: Populated only for the read-only trees, which is the only place the cost is
+    #: worth paying. Stored as the SET, not as a hash of it: a hash can only say
+    #: "something moved", and a change the rollback cannot NAME is a change it must
+    #: not act on (Gate-2 K1).
+    structure: dict[str, set[str]] = field(default_factory=dict)
 
     @property
     def usable(self) -> bool:
@@ -337,8 +340,17 @@ def _unreadable_paths(stderr: str) -> list[str]:
     return out
 
 
-def structure_signature(path: Path) -> str:
-    """Directory NAMES only — no stats, no file listing, no content.
+#: Directories the structure sweep never descends into, by name, at any depth.
+#: `.git` is git's own storage: 281 of the engine's 968 directories and 276 of
+#: godot's 5,240 live under it, and its object fanout gains a directory on an
+#: ordinary `git add`. Nothing the sweep exists to catch lives there — a PEP-420
+#: namespace package and a Godot `res://` import target are both worktree facts —
+#: so including it converted routine, DISCIPLINED git use into a breach (Gate-2 K1).
+STRUCTURE_SKIP_DIRS = frozenset({".git"})
+
+
+def structure_dirs(path: Path) -> set[str]:
+    """Tree-relative directory PATHS — no stats, no file listing, no content.
 
     git tracks content, so a wholly-empty directory tree is invisible to every
     porcelain setting there is, and the stat sweep cannot rescue it because the sweep
@@ -355,19 +367,32 @@ def structure_signature(path: Path) -> str:
     * being invisible to the fingerprint made it invisible to the rollback too, so it
       accumulated across runs.
 
+    Returns the SET rather than a hash of it. The first version returned
+    `dirs:<n>:<hash>` and the diff, having nothing else to name, reported the change
+    at the TREE ROOT — which the rollback then handed to `git checkout --` as a
+    pathspec, reverting an entire repository over one empty directory (Gate-2 K1). A
+    measurement that can only say "something moved" must not be wired to a verb that
+    acts on what it names.
+
     Cheap because it stats nothing: `os.walk` yields directory names from the same
-    `scandir` it already performs. Walk errors fold into the hash for the same reason
-    they do everywhere else — unreadable must not read as unchanged.
+    `scandir` it already performs. Walk errors are recorded as members, for the same
+    reason they are everywhere else — unreadable must not read as unchanged.
     """
-    h = hashlib.sha256()
-    count = 0
-    for dirpath, dirnames, _ in os.walk(path, onerror=_record_walk_error(h)):
-        dirnames.sort()
+    found: set[str] = set()
+
+    def onerror(exc: OSError) -> None:
+        try:
+            rel = str(Path(str(exc.filename)).relative_to(path))
+        except ValueError:
+            rel = str(exc.filename)
+        found.add(f"{rel}\t<unreadable: {exc.strerror}>")
+
+    for dirpath, dirnames, _ in os.walk(path, onerror=onerror):
+        dirnames[:] = [d for d in sorted(dirnames) if d not in STRUCTURE_SKIP_DIRS]
         here = Path(dirpath)
-        rel = "." if here == path else str(here.relative_to(path))
-        h.update(f"{rel}\n".encode())
-        count += 1
-    return f"dirs:{count}:{h.hexdigest()[:16]}"
+        if here != path:
+            found.add(str(here.relative_to(path)))
+    return found
 
 
 def fingerprint(
@@ -442,12 +467,12 @@ def fingerprint(
         content[p] = sig
         if mode == COARSE:
             coarse.append(p)
-    structure: dict[str, str] = {}
+    structure: dict[str, set[str]] = {}
     for tree in structure_roots or []:
         tree = Path(tree).resolve()
         if tree == root or root in tree.parents:
             rel = "." if tree == root else str(tree.relative_to(root))
-            structure[rel] = structure_signature(tree)
+            structure[rel] = structure_dirs(tree)
 
     return TreeFingerprint(
         root=root,
@@ -467,6 +492,33 @@ class ContainmentError(RuntimeError):
     moved"; an unmeasurable tree means "we do not know", and in a default-fail
     architecture those must not share a return value (Gate-2 F2).
     """
+
+
+def _kind_of_new_entry(code: str) -> str:
+    """Classify a porcelain entry that was ABSENT from the baseline.
+
+    Absent from the baseline means only "clean at phase start" — a tracked file that
+    nobody had touched yet is not in `git status` output. The first version read
+    absence as newness and typed every such path `created`, so a phase editing a
+    committed source file — the single most likely agentic breach there is — got the
+    `created` branch, hit the destroyer guard, and came back NOT_ROLLED_BACK with a
+    reason that asserted a misidentification which had not occurred. The edit survived
+    inside a read-only tree (Gate-2 K2).
+
+    git's own status code answers the question that was actually being asked. Only
+    `??` (untracked) and `!!` (ignored) mean the worktree had nothing here; `A` means
+    the phase created it AND staged it, which is still a creation. Everything else is
+    a path git knew about before the phase ran, so it is `modified` and the rollback's
+    `git checkout --` branch restores it.
+    """
+    if code == RENAME_SOURCE or code.strip() == "D" or code.startswith("D"):
+        # The far end of a rename, or a deletion. NOT a creation: `created` is the one
+        # kind the rollback DELETES, and deleting the path a rename emptied would be
+        # the rollback acting on the wrong end of the move (Gate-2 J1).
+        return "deleted"
+    if code in ("??", "!!", "!?") or "A" in code:
+        return "created"
+    return "modified"
 
 
 def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[Change]:
@@ -494,14 +546,7 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
     for path, code in after.entries.items():
         before_code = before.entries.get(path)
         if before_code is None:
-            # A rename SOURCE has left the worktree, so it is a deletion, not a
-            # creation (Gate-2 J1). The distinction is load-bearing: `created` is the
-            # one kind the rollback DELETES, and deleting a path that a rename emptied
-            # would be the rollback acting on the wrong end of the move.
-            gone = code.strip() == "D" or code == RENAME_SOURCE
-            changes.append(
-                Change(after.root, path, "deleted" if gone else "created", None, code)
-            )
+            changes.append(Change(after.root, path, _kind_of_new_entry(code), None, code))
         elif before.content.get(path) != after.content.get(path) or before_code != code:
             changes.append(Change(after.root, path, "modified", before_code, code))
 
@@ -511,11 +556,30 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
 
     # Directory structure of the read-only trees. This is the only signal that exists
     # for a wholly-empty directory tree, which git cannot see at any porcelain setting.
-    for rel, sig in after.structure.items():
-        if before.structure.get(rel) != sig:
-            changes.append(
-                Change(after.root, rel, "modified", before.structure.get(rel), sig)
-            )
+    #
+    # Every structure change is reported at the path of the DIRECTORY that moved, never
+    # at the tree it moved inside. Reporting the tree was Gate-2 K1: the rollback took
+    # the tree's path as a `git checkout --` pathspec and reverted the whole repository
+    # over one empty directory, while leaving the directory standing.
+    already = {c.path.rstrip("/") for c in changes}
+    for rel_tree, dirs_after in after.structure.items():
+        dirs_before = before.structure.get(rel_tree)
+        if dirs_before is None or dirs_before == dirs_after:
+            continue
+        base = "" if rel_tree == "." else rel_tree.rstrip("/")
+        for kind, moved in (
+            ("created", dirs_after - dirs_before),
+            ("deleted", dirs_before - dirs_after),
+        ):
+            for d in sorted(moved):
+                d = d.split("\t")[0]  # an unreadable marker still names its directory
+                path = f"{base}/{d}" if base else d
+                # git already named this one (a directory with a file in it is a
+                # collapsed porcelain entry). One breach, one row.
+                if any(path == a or path.startswith(a + "/") for a in already):
+                    continue
+                already.add(path)
+                changes.append(Change(after.root, path, kind, None, "structure"))
 
     seen: set[tuple[str, str]] = set()
     unique: list[Change] = []
@@ -613,11 +677,67 @@ def classify(
     return allowed, breaches
 
 
+def _covers(ancestor: str, path: str) -> bool:
+    """True when `ancestor` is `path` or contains it. Purely lexical, on normal form."""
+    a, p = ancestor.rstrip("/"), path.rstrip("/")
+    return a == p or (a != "" and p.startswith(a + "/"))
+
+
+def _tracks_content(root: Path, rel: str) -> int:
+    """How many files git knows under `rel` — asking BOTH questions, not one.
+
+    `git ls-files` reads the INDEX, and the index can be silenced while the content
+    is still committed and still on disk: `git rm --cached` and `assume-unchanged`
+    both do it. A guard that asks only the index answers "no tracked content" for a
+    path whose deletion destroys committed work — the exact outcome the guard exists
+    to refuse (Gate-2 K3). `ls-tree HEAD` is the second question; either one alone is
+    answerable `no` while work is present, both together are not.
+    """
+    seen: set[str] = set()
+    for args in (("ls-files", "--", rel), ("ls-tree", "-r", "--name-only", "HEAD", "--", rel)):
+        proc = _git(root, *args)
+        if proc.returncode == 0:
+            seen.update(line for line in proc.stdout.splitlines() if line.strip())
+    return len(seen)
+
+
+def _is_whole_tree_pathspec(rel: str, root: Path, fenced: list[Path]) -> str | None:
+    """Reason this pathspec names a TREE rather than an artifact, or None.
+
+    A rollback that cannot name a file has not identified an artifact; it has
+    identified a tree, and acting on a tree is a human decision. `git checkout -- .`
+    restores every tracked file in the repository from the index — it destroyed a
+    fenced repo's uncommitted work over a single empty directory, and recorded the
+    word `restored` (Gate-2 K1). This is the destroyer guard's principle applied to
+    the other destructive verb: the refusal does not depend on knowing which
+    measurement produced the coarse path.
+    """
+    norm = rel.strip().rstrip("/")
+    if norm in ("", ".", "*", "**", "./"):
+        return f"the pathspec {rel!r} names the whole of {root}"
+    if norm.startswith("..") or Path(norm).is_absolute():
+        return f"the pathspec {rel!r} does not resolve inside {root}"
+    target = Path(os.path.normpath(root / norm))
+    for tree in [root, *fenced]:
+        if target == Path(tree).resolve():
+            return f"the pathspec {rel!r} names the declared tree {tree} itself"
+    return None
+
+
 def rollback(
-    breaches: list[Breach], before: dict[str, TreeFingerprint], quarantine_dir: Path
+    breaches: list[Breach],
+    before: dict[str, TreeFingerprint],
+    quarantine_dir: Path,
+    declared_trees: list[Path] | None = None,
 ) -> list[RollbackAction]:
-    """Quarantine then undo the excess. Never restores over pre-existing dirt."""
+    """Quarantine then undo the excess. Never restores over pre-existing dirt.
+
+    `declared_trees` are the workflow's repos and read-only trees. They are the one
+    thing the rollback must never act on wholesale, so it is given their names rather
+    than left to infer them.
+    """
     actions: list[RollbackAction] = []
+    fenced = [Path(t).resolve() for t in (declared_trees or [])]
     quarantine_dir.mkdir(parents=True, exist_ok=True)
     for breach in breaches:
         change = breach.change
@@ -628,10 +748,35 @@ def rollback(
         # trailing slash in some records and without in others, and an exact-string
         # membership test misses on that alone — which would drop the pre-existing-dirt
         # protection for exactly the entries most likely to be big (Gate-2 J1 WARN).
+        # ...and on the ANCESTOR relation, not on equality. A change reported at `X`
+        # covers everything under `X`, so restoring it destroys uncommitted work at
+        # `X/a/b` that the exact-string test could not see — which is precisely the
+        # shape most in need of the protection (Gate-2 K1).
         rel_norm = change.path.rstrip("/")
         was_dirty_before = bool(
-            before_fp and any(e.rstrip("/") == rel_norm for e in before_fp.entries)
+            before_fp
+            and any(
+                _covers(rel_norm, e.rstrip("/")) or _covers(e.rstrip("/"), rel_norm)
+                for e in before_fp.entries
+            )
         )
+
+        # Asked BEFORE the quarantine copy: for a change reported at a tree root the
+        # copy is a multi-gigabyte walk of the very tree we have already decided not
+        # to touch.
+        whole_tree = _is_whole_tree_pathspec(change.path, root, fenced)
+        if whole_tree:
+            actions.append(
+                RollbackAction(
+                    change.path,
+                    "NOT_ROLLED_BACK",
+                    f"REFUSED: {whole_tree}. A rollback that cannot name an artifact "
+                    "has identified a tree, and undoing a tree is a human decision — "
+                    "the breach is detected, fenced and reported instead",
+                    None,
+                )
+            )
+            continue
 
         quarantined: str | None = None
         # `exists()` follows symlinks, so a BROKEN link is invisible to it -- and an
@@ -713,9 +858,8 @@ def rollback(
             # on knowing which parse bug produced the bad path; it refuses to delete
             # tracked content whatever the reason, which is the property we actually
             # want. Containment must never be the thing that destroys work.
-            tracked = _git(root, "ls-files", "--", change.path)
-            if tracked.returncode == 0 and tracked.stdout.strip():
-                n = len(tracked.stdout.strip().splitlines())
+            n = _tracks_content(root, change.path)
+            if n:
                 actions.append(
                     RollbackAction(
                         change.path,

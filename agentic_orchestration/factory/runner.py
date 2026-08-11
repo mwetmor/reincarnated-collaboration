@@ -511,7 +511,12 @@ class Runner:
         self.receipts.event(
             self.run_id, "permissions_breach", json.dumps(listing), phase.phase_id
         )
-        actions = perm.rollback(breaches, before, quarantine)
+        actions = perm.rollback(
+            breaches,
+            before,
+            quarantine,
+            declared_trees=[*self.wf.repos, *self.wf.read_only_trees],
+        )
         for action in actions:
             self.receipts.event(
                 self.run_id,

@@ -417,7 +417,7 @@ Mutation testing, each applied and reverted in isolation:
 |---|---|
 | M8 — drop the rename origin record | 1 |
 | M9 — remove the destroyer guard | 1 |
-| M10 — revert `-z` to porcelain v1 (alone, not cumulative) | **21** |
+| M10 — revert `-z` to porcelain v1 (alone, not cumulative) | ~~21~~ **29** (corrected round five, K7) |
 
 jack-ryan's own M1–M7 all red it too, including M7 (over-widen the fence → 8 fails, via
 the `can_go_green` partners — the partners are what make it a wall and not a ratchet).
@@ -455,6 +455,121 @@ exactly the boundary the agentic lane crosses, and exactly why J1 had to be clos
 the parser rather than assumed away by the lane.
 
 The J1 lift is his to confirm, not mine to assume.
+
+---
+
+## 11. Round five — J1 lifted, and the seventh defect was in the sixth's fix
+
+He lifted J1 on all three faces, verified live through the shipped CLI rather than
+accepted from my table. He also audited the *other* thing round four added, and found
+**K1 — the worst-consequence defect of the seven.**
+
+> The structure sweep returned `dirs:<n>:<hash>`. A hash can say that something moved
+> and nothing about what, so the diff reported the change at the **tree root** — and
+> `rollback` handed that string to `git checkout --` as a **pathspec**. One empty
+> directory inside a fenced tree therefore induced a repo-wide `git checkout -- .`,
+> destroying every uncommitted modification to every tracked file in that repo, while
+> the directory that caused the breach was **left standing**. The receipt word was
+> `restored`.
+
+Same family, seventh instance, one mutation: **the wrong answer is no longer `clean`,
+it is `restored`.** The same disease presenting as a cure. And it did not need a
+filename, so round four's "the mechanical lane's inputs are human-authored" reasoning
+did not reach it — he narrowed that approval accordingly, and he was right to.
+
+Neither existing guard fired. The destroyer guard is scoped to `created` and a
+structure change is `modified`; `was_dirty_before` was an exact-string membership
+test, so a change at an *ancestor* of the dirty paths bypassed the one protection that
+exists for exactly this case. And the trigger is ordinary: the sweep walked `.git`
+(281 of the engine's 968 directories), so a plain `git add` moved the signature.
+**The more disciplined git command was again the one that broke containment.**
+
+### What changed
+
+| K | fix |
+|---|---|
+| **K1** | the sweep returns the directory SET, so the diff names the directory that moved; the rollback REFUSES any pathspec naming a whole tree (`.`, empty, any declared repo or read-only root); `was_dirty_before` is ancestor-aware in both directions; `.git` is excluded from the walk |
+| **K2** | the kind of a path absent from the baseline is read from git's own status code, not from absence. `??`/`!!`/`A` are creations; everything else git already knew about, so a modified tracked file is `modified` and gets **restored** |
+| **K3** | the destroyer guard unions `git ls-files` with `git ls-tree -r HEAD`. The index can be silenced (`git rm --cached`) while the content is still committed and on disk — README rule 7 was false as stated |
+| **K4** | round four's own trailing-slash fix had zero coverage; it now has a row that asserts the survival happens **for the dirt guard's reason**, not by accident |
+| **K5** | round four accounts only for residue at or **below** the path an action names; the predicate now has ONE definition shared by the round and its falsifier |
+| **K6** | `empty_directory_tree` is an `ARTIFACT_KIND` — all four rounds, with its allowed-where-declared partner |
+| **K7/K8/K9** | M10 corrected to 29; README preamble corrected; the filesystem's refusal of non-UTF-8 names pinned as a HOST property |
+
+### The rule that was already written down and not followed
+
+Round three's own prescription: *a new containment question of this shape should be a
+new row.* The structure sweep was a **new measurement surface** added with detection
+tests only. It never reached rounds three or four — which is precisely where its defect
+lived. That is now stated in the README as a standing rule, not as a lesson.
+
+### Evidence
+
+Seven mutations, each applied and reverted in isolation, **all red**:
+
+| mutation | reverts | red |
+|---|---|---|
+| M13 | the sweep names the tree again | 1 |
+| M14 | the whole-tree pathspec guard | 1 |
+| M15 | absence-from-baseline means `created` again | 1 |
+| M16 | destroyer guard asks only the index | 1 |
+| M17 | dirt guard back to exact-string | 1 |
+| M18 | `.git` back in the structure walk | 1 |
+| M19 | round four's accounting reads both directions | 1 |
+
+Two of those seven (M18, M19) were **green on the first attempt** — my rows were
+measuring the wrong thing. M18's row swept a *subdirectory*, which never contains
+`.git`, so it could not have caught the trigger it was named for; the shipped read-only
+trees are worktree roots, and the row now sweeps the root. M19's row had its own copy
+of round four's predicate, so mutating the round left the falsifier untouched — two
+copies of a predicate is one copy that can drift out from under its own test. Both are
+the wall's disease again, caught by mutation instead of by a reviewer. That is the
+mechanism working.
+
+Live, through the shipped CLI, on jack-ryan's own reproduction shape: the empty
+directory is **named** (`newdir (created)`), fenced, and **deleted**, and the fenced
+repo's two uncommitted files **survive** — the exact inversion of his § 2 transcript.
+K2 live: `src/canon.md (modified) → restored`, tree clean, the agent's edit gone. K3
+live: with the index silenced, `ls-files` reports nothing, `ls-tree HEAD` reports two,
+the guard refuses and both committed files survive.
+
+### An unplanned live G3 event
+
+The first founding-run lap this round **aborted** on
+`agentic_orchestration/gandalf/notes/…-charter.md (committed)` — because gandalf
+committed to the meta-repo at 22:25:35 while the run was in phase 3. Nobody staged
+this. The containment detected another agent's concurrent write, **refused to unwind
+history** ("unwinding history is a human decision"), and aborted the run. It failed
+closed, which is the correct behaviour and the first live confirmation that G3 is a
+real operating condition rather than a theoretical one. It is also the sharpest
+argument yet for the host-quiet window knight-rider owns: the run cost 90 s and died
+for a reason that had nothing to do with the work.
+
+One honest defect in that receipt, worth logging: the reason read *"the phase committed
+this path"*, and the phase did not — gandalf did. Same family as G5 (a reason derived
+from the branch taken rather than from the failure that occurred). Non-gating, and now
+it has a real instance rather than a hypothetical one.
+
+### Status after round five
+
+| finding | status |
+|---|---|
+| J1(a)(b)(c) | **DISCHARGED by jack-ryan**, verified live through the CLI |
+| K1 structure sweep → repo-wide revert | CLOSED — names the directory; whole-tree pathspec refused; dirt guard ancestor-aware; `.git` excluded |
+| K2 clean tracked file typed `created` | CLOSED — kind read from the status code; restored |
+| K3 `ls-files` is only the index | CLOSED — unioned with `ls-tree -r HEAD`; README rule 7 corrected |
+| K4 dirt-guard fix had no falsifier | CLOSED — row asserts the refusal's REASON |
+| K5 round four's accounting predicate | CLOSED — at-or-below only, one shared definition |
+| K6 sweep was not an artifact kind | CLOSED — `empty_directory_tree`, four rounds, partner |
+| K7 / K8 / K9 | CLOSED — M10 = 29; README preamble; non-UTF-8 pinned as a host property |
+| G3 host co-tenancy | OPEN, knight-rider routes — **and now observed live** |
+| G5 rollback reason derived from the branch, not the failure | OPEN, non-blocking — new instance logged above |
+| COARSE tier in-place-edit blindness | DECLARED, pinned |
+
+Round-five evidence: **262 tests** green (was 247); founding run PASS in 1m43s;
+`DETERMINISM: EXACT — 14 gate verdicts identical across two laps`; engine **2789** /
+godot **233** at baseline before and after every probe; all destructive probes confined
+to `/tmp/sl5`.
 
 ---
 
