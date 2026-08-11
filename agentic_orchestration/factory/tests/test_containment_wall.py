@@ -1549,11 +1549,33 @@ def test_F3_partner_ordinary_git_use_does_NOT_move_the_control_surfaces(fenced):
     So the measured set is three named surfaces that change only when somebody decides
     to change them — NOT refs, NOT the index, NOT the object store. If staging and
     committing moved this signature, F3 would have re-landed K1 on a new axis.
+
+    Gate-2 J2: this row could not detect that, and said in its own docstring that it
+    could. It compared `_git_control_entries` — names mapped to the constant
+    `GIT_CONTROL` — while the K1 false-breach lives one function downstream in
+    `fingerprint`, at `content[p] = _signature(root, p)`. jack-ryan demonstrated it
+    rather than argued it: adding `("index", "refs/")` to `GIT_CONTROL_PATHS` is K1
+    verbatim at the TOP-LEVEL gitdir, the exact surface F3 created, and this row
+    stayed green while the round-14 nested-gitdir partner went red on
+    `.git/index` and `.git/refs/heads`. The row that caught it was written for a
+    different axis; the row whose whole job it is could not.
+
+    Same defect as `test_H4_PARTNER_…` (README rule 28: a control row must be RUN
+    against the regression it controls for, not aimed at it). Fixed the same way —
+    compare `fingerprint().content` across the control keys, which is the value that
+    carries the failure. The key-set assertion stays: not wrong, only insufficient,
+    and it is what refutes a surface silently disappearing.
     """
     f = fenced
     repo = f.free_repo
     before = perm._git_control_entries(repo)
     assert before, "premise failed: no control surfaces measured at all"
+    fp_before = perm.fingerprint(repo)
+    unsigned = sorted(set(before) - set(fp_before.content))
+    assert not unsigned, (
+        "premise failed: control surfaces are not being SIGNED, so the signature "
+        f"comparison below would compare nothing. Unsigned: {unsigned}"
+    )
     (f.free_dir / "ordinary.txt").write_text("work\n", encoding="utf-8")
     for cmd in (
         ["git", "add", "-A"],
@@ -1562,10 +1584,19 @@ def test_F3_partner_ordinary_git_use_does_NOT_move_the_control_surfaces(fenced):
         ["git", "gc", "-q", "--prune=now"],
     ):
         subprocess.run(cmd, cwd=str(repo), check=True, capture_output=True)
-    assert perm._git_control_entries(repo) == before, (
-        "ordinary, disciplined git use moved the .git/ control signature. That is K1 "
+    fp_after = perm.fingerprint(repo)
+    moved = {
+        k: (fp_before.content[k], fp_after.content.get(k))
+        for k in before
+        if fp_after.content.get(k) != fp_before.content[k]
+    }
+    assert not moved, (
+        "ordinary, disciplined git use moved the .git/ control SIGNATURE. That is K1 "
         "exactly: a measurement that fires on correct behaviour trains the operator "
-        "to ignore it."
+        f"to ignore it. Moved: {moved}"
+    )
+    assert perm._git_control_entries(repo) == before, (
+        "the SET of measured control surfaces changed under ordinary git use."
     )
 
 

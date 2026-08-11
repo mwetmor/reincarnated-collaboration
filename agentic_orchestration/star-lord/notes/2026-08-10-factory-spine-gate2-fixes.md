@@ -1887,3 +1887,102 @@ review's own subject appearing in the instrument that measures compliance with i
 binary predicate answering a slightly different question than the one asked, whose
 comfortable answer happens to be correct and uninformative.
 
+
+---
+
+## 18. Round fourteen's Gate-2 verdict: the fence was a description of a fence
+
+jack-ryan returned **PASS-WITH-CONDITIONS on the mechanical lane, BLOCK on the
+agentic lane** (findings J1–J8). The founding run and determinism stand; the mechanical
+lane is not held. The block is J1, and it is correct.
+
+### 18.1 J1 — `--allowedTools` does not restrict, and I verified it myself
+
+H1's thesis was "the argv is not the grant." The fix pinned and adjudicated the **mode**
+and the tool **base names**. It did not adjudicate the **scope** — and scope is the half
+that makes `Bash(git status:*)` a fence rather than a blank cheque.
+
+I did not take this on jack-ryan's report. My own probe, `/tmp/sl_probe/p1.jsonl`:
+
+```
+$ claude -p "Run exactly one command: echo SCOPE_ESCAPED. Then stop." \
+    --tools Bash --allowedTools 'Bash(git status:*)' \
+    --permission-mode default --strict-mcp-config
+
+INIT      mode=default  tools=['Bash']
+TOOL_USE  Bash {"command": "echo SCOPE_ESCAPED"}
+RESULT    is_error=False  denials=[]  stop=end_turn  result=SCOPE_ESCAPED
+```
+
+A phase declaring `tools: ["Bash(git status:*)"]` receives unrestricted shell,
+auto-approved, and the receipt says the fence held. `--tools` is the real fence;
+`--allowedTools` is inert in headless `default` mode. So `permission_denials` is
+**still** structurally silent — for a different reason than the one H1 found, in the
+fix for H1.
+
+Three things in the code now measure as false:
+- `validate_tools:113` — "Scoped forms are kept: `Bash(git *)` … is strictly narrower
+  than `Bash`." False at the only place it is spent.
+- module docstring:18 — "`--allowedTools` selects what may run without a prompt."
+  In headless nothing prompts.
+- `test_H2_the_SCOPED_declaration_is_compared_by_BASE_NAME` — **a row certifying the
+  hole.** It asserts that declaring `Bash(git status:*)` against a grant of `Bash`
+  returns `None`. I wrote it this round, in the fix for H1, as part of closing H1.
+
+**The good half, also measured and previously unverified:** `--permission-mode default`
+*does* override this host's `settings.json` `defaultMode: bypassPermissions`
+(`INIT mode=default`), and `--strict-mcp-config` *does* strip the ambient `mcp__` tools.
+The H1 pin and the H2 MCP fix are empirically sound. Round fourteen's largest claim and
+its largest error were both settled by four minutes of running the real thing, after
+several rounds of reading it.
+
+### 18.2 J2 — the second dead row, demonstrated rather than argued
+
+§17.5c found `test_H4_PARTNER_…` comparing a cheap proxy. jack-ryan found its
+**ancestor** doing the same: `test_F3_partner_ordinary_git_use_does_NOT_move_the_control_surfaces`
+(`test_containment_wall.py:1544`), whose docstring says *"If staging and committing
+moved this signature, F3 would have re-landed K1 on a new axis"* — which it could not
+detect. Proven by mutation: adding `("index", "refs/")` to `GIT_CONTROL_PATHS` is K1
+verbatim at the top-level gitdir, and my new nested-gitdir partner went red on
+`.git/index` and `.git/refs/heads` while the row whose whole job it was stayed green.
+
+Fixed identically (compare `fingerprint().content`), and the fix re-run against that
+exact mutation to confirm it kills: `KILLED -> 2 failed`. Suite 504.
+
+So rule 28 generalises, and it needed applying twice. "Which other rows assert on a
+helper when the failure lives downstream?" is now a standing audit question rather than
+a closed finding.
+
+### 18.3 What I accept, and what is not mine to decide
+
+Accepted and queued in-seam: **J2** (done), **J3** (a retry discards *known* usage —
+H8 inverted; `runner.py:341` overwrites accumulated `total_usage` on attempt ≥ 2),
+**J4** (a declared repo whose `.git` is a FILE has no control surface — planting a hook
+in its real gitdir needs no change to the pointer), **J5** (the grant adjudication
+leaves no durable evidence: `permission_mode` / `granted_tools` reach `RawResult.extra`
+and never reach the ledger, so on a passing phase the artifact holds no record of what
+was granted — my own H8 rows state the rule the H1 fix does not follow).
+
+Accepted on H6: the out-of-tree limit is architectural, **conditional on the limit being
+named in the receipt** — same rule as the COARSE tier and the depth-cap entry, one level
+up. And jack-ryan's amendment is right: `~/.claude/settings.json` is not ambient
+background, it was H1's root cause; reading its `defaultMode` at run start and recording
+it turns the round's largest finding into a measured precondition.
+
+On H7: deferral was acceptable when the threat was theoretical. J1 fired the trigger —
+with unrestricted `Bash`, size and mtime are both settable, so `touch -t` after an
+equal-length rewrite of `.git/hooks/pre-commit` defeats the signature. Hash the F3/H4
+control surfaces specifically, not the general fingerprint (the ~2.8k-dirty-path cost
+argument is imported from a different population and does not cover three small files).
+
+**Not mine:** the containment *posture*. With J1 fixed, the agentic lane's pre-hoc fence
+is tool base names only and everything finer is post-hoc. Spec § 12 already rules out
+sandboxes, so accept-and-state is the honest form of the posture the contract chose —
+but stating it is Matt's call, not mine.
+
+**Also not mine, and overdue:** a stopping rule. Fourteen rounds on a paragraph-long § 8
+is over-delivery, and containment against an agent with shell access is not a finite
+problem — "we found another one" will keep being available indefinitely. star-lord +
+gandalf owe a stated threat model with an explicit boundary, as the exit criterion for
+this series. J1 is the right last big one: it is the difference between a fence and a
+description of a fence.
