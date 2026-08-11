@@ -2482,6 +2482,232 @@ def test_JR18_the_DIRECTION_of_a_match_cannot_be_CHOSEN_BY_OMISSION():
     )
 
 
+def test_JR23_a_PHASE_CHOSEN_tab_name_cannot_make_the_rollback_act_on_a_NEIGHBOUR(fenced):
+    """Gate-2 JR-23. The finish of the `marker_path` call-site audit, and a BLOCK.
+
+    jack-ryan graded this WARN on the reasoning that the damage stops at a misnamed
+    receipt: "a phase creating `ro/data\\tmarker/` inside a read-only tree produces a
+    change at `ro/data`, a `destroyer` refusal, a quarantine of the innocent directory,
+    and **no mention of the artifact's real name anywhere in the receipt**." Every
+    clause of that is what I measured too. The grade rests on the `destroyer` refusal,
+    and `destroyer` fires on a condition the phase can simply remove.
+
+    `destroyer` asks git whether HEAD holds anything under the path. Make the innocent
+    neighbour UNTRACKED — an ignored build directory, a scratch dir, a Godot `.godot/`
+    import cache — and HEAD holds nothing, the guard does not fire, and the rollback
+    reaches its ordinary created-path verb holding the name of a directory the phase
+    never touched. Measured, before the fix, in BOTH shapes:
+
+        the phase runs `mkdir "data\\tmarker"` .................. its only action
+        receipt: path='data', action='deleted', reason='created by the phase'
+        data/precious.txt ..................................... GONE
+        data\\tmarker/ ......................................... still standing
+
+    Containment deleted work, named the wrong artifact, and left the real one behind.
+    That is the K1/L1 damage class, and it landed where `_assert_canary_survived` could
+    never see it: the canary is TRACKED, so the canary is exactly the content
+    `destroyer` already protects. The wall's own safety net covered the case that was
+    already safe.
+
+    Reachable in the shipped configuration. Both `read_only_trees` are worktree roots
+    with ignored build output in them, the structure sweep skips only `.git`, and the
+    filename is the phase's to choose.
+
+    The fix is at the RECORDER, not at the rollback: `diff_fingerprints` no longer runs
+    `marker_path` on structure entries. Truncation is a matcher's question — the three
+    call sites that ask it are matchers and each states its direction — and a recorder
+    that answers it is guessing on behalf of callers it cannot see. `marker_path` cannot
+    distinguish a marker minted by `structure_dirs.onerror` from a directory a phase
+    named with a tab in it, and where it cannot distinguish, it must not decide.
+
+    This row plants the UNTRACKED shape, because the tracked shape is the one that was
+    already guarded and reporting it as the reproduction is how the grade came out WARN.
+    """
+    f = fenced
+    innocent = f.fenced_dir / "data"
+    innocent.mkdir(parents=True, exist_ok=True)
+    precious = innocent / "precious.txt"
+    precious.write_text("PRECIOUS — no artifact touched this\n", encoding="utf-8")
+    ignore = f.repo / ".gitignore"
+    rel_ignored = f"{f.prefix}/data/" if f.prefix else "data/"
+    ignore.write_text(rel_ignored + "\n", encoding="utf-8")
+    _commit_all(f.repo, "an ignored neighbour the phase never touches")
+    f.canary.write_text(CANARY_TEXT, encoding="utf-8")
+
+    artifact_rel = f"{f.prefix}/data\tmarker" if f.prefix else "data\tmarker"
+    before, changes = _snapshot(f, lambda: (f.fenced_dir / "data\tmarker").mkdir())
+
+    assert changes, (
+        "premise failed: the tab-named directory produced no change at all, so nothing "
+        "below is being asked of the classifier or the rollback."
+    )
+    _, breaches = perm.classify(
+        changes, writes=["**"], root=f.repo, read_only_trees=f.read_only_trees
+    )
+    assert breaches, (
+        f"a directory created inside a read-only tree was not a breach: "
+        f"{[(c.path, c.kind) for c in changes]}"
+    )
+    actions = perm.rollback(
+        breaches, {str(f.repo): before}, f.repo.parent / "q-jr23",
+        declared_trees=f.declared_trees,
+    )
+    _assert_canary_survived(f, "a phase-chosen tab name", actions)
+
+    # The damage leg. This is the assertion the WARN grade turned on.
+    assert precious.exists() and "PRECIOUS" in precious.read_text(encoding="utf-8"), (
+        f"containment DESTROYED {precious} — an ignored, untracked file inside the "
+        f"read-only tree that no artifact touched. The phase's only action was to "
+        f"create {artifact_rel!r}; the neighbour died because a truncated name was "
+        f"handed to a verb that acts on what it names. Actions were "
+        f"{[(a.path, a.action, a.guard) for a in actions]}"
+    )
+
+    # The naming leg. Discipline #9: the receipt must name what actually moved.
+    named = {a.path for a in actions}
+    assert any(perm.MARKER_SEP in p for p in named), (
+        f"no rollback action names the artifact the phase actually created. The "
+        f"receipt says {sorted(named)!r} and the phase created {artifact_rel!r}. An "
+        f"operator reading this abort report is told about a path they did not touch "
+        f"and told nothing about the one they did."
+    )
+
+    # ...and having named it, the rollback must REFUSE it rather than guess.
+    mine = [a for a in actions if perm.MARKER_SEP in a.path]
+    assert all(a.action == "NOT_ROLLED_BACK" for a in mine), (
+        f"the rollback ACTED on a marker-bearing key: {[(a.path, a.action) for a in mine]}. "
+        f"A marker means the path could not be read at fingerprint time, so what stands "
+        f"there now is unknown and acting on it is guessing twice."
+    )
+    assert all(a.guard == "unreadable_marker" for a in mine), (
+        f"a marker-bearing key was refused under {[a.guard for a in mine]} rather than "
+        f"`unreadable_marker`. The refusal must say which check stopped it, and 'the "
+        f"path could not be read' is a different fact from every other guard's."
+    )
+
+
+def test_JR23_the_STRUCTURE_WALK_records_the_name_it_was_given(fenced):
+    """The direction at `diff_fingerprints`, asserted at the unit rather than the scene.
+
+    Gate-2 JR-23 completes an audit jack-ryan opened: the JR-18 principle is that the
+    direction of a marker match is a property of the CALLER, and `marker_path` has four
+    of them. Their reading was that the principle "was applied to one" and that
+    `_read_only_hit` "looks genuinely fail-closed and that is currently a reasoned claim
+    with no assertion, which is the state JR-19 was about."
+
+    Taken by measurement instead of by reading — kill each site, see what stays green:
+
+        site                         mutation   result
+        `_matches`                   R24-D      KILLED, 25 failed
+        rollback `git_internal`      R24-C      KILLED, 11 failed
+        `_read_only_hit`             R24-B      KILLED,  9 failed
+        `diff_fingerprints`          R24-A      SURVIVED, 617 passed
+
+    So three of the four were asserted, including the one predicted to be unasserted —
+    `_read_only_hit` is held by JR-5, JR-9 and JR-12, nine rows across both shapes. The
+    ONE unasserted site was the fourth, and it was unasserted because it was WRONG: the
+    row above is what it cost. The generalisable form is worth more than the count. A
+    call site is unasserted for one of two reasons — nobody wrote the row, or the site
+    is doing something no row could want — and the mutation does not distinguish them.
+    Finding the survivor is the beginning of the question, not the end of it.
+
+    This row holds the direction at the unit, so a future edit that reinstates the
+    truncation reds here with the reason rather than reds in a scene three layers away.
+    """
+    src = inspect.getsource(perm.diff_fingerprints)
+    body = src.split("Directory structure of the read-only trees", 1)
+    assert len(body) == 2, (
+        "the structure-walk section of `diff_fingerprints` could not be located by its "
+        "own comment, so this row is reading the wrong code."
+    )
+    walk = body[1]
+    calls = [
+        line for line in walk.splitlines()
+        if "marker_path(" in line and not line.lstrip().startswith("#")
+    ]
+    assert not calls, (
+        f"the structure walk calls `marker_path` again: {calls!r}. It is a RECORDER — "
+        f"it names what moved — and truncation answers a MATCHER's question. "
+        f"`marker_path` cannot tell a marker minted by `structure_dirs.onerror` from a "
+        f"directory a phase named with a tab in it, so reinstating this hands the "
+        f"rollback a name the phase chose for a neighbour it wants deleted. Measured "
+        f"cost of the previous version: an ignored untracked directory removed under "
+        f"the reason 'created by the phase'. Measured cost of REMOVING it: nothing — "
+        f"R24-A left all 617 rows green, which is why four rounds never saw this."
+    )
+
+
+def test_JR23_truncation_is_FAIL_CLOSED_at_the_two_sites_that_keep_it():
+    """Why the other three call sites may truncate, as a property rather than an anecdote.
+
+    Gate-2 JR-23, the stated-reason half of jack-ryan's "explicit direction ... or a
+    stated reason plus a row per site". The reason is one sentence and it is checkable:
+    **`marker_path` returns a PREFIX of its input.** Everything else follows.
+
+    `_read_only_hit` matches in BOTH directions (`full == ro or ro in full.parents`, and
+    `full in ro.parents`). A prefix moves a path toward the tree root, so a key that was
+    UNDER a read-only tree either stays under it or becomes the tree itself or becomes
+    an ANCESTOR of it — and all three of those are hits. Truncation cannot lose a hit;
+    it can only add one. Fail-closed. The rollback's `git_internal` guard is the same
+    argument on a fixed prefix: a `.git`-prefixed key stays `.git`-prefixed under
+    truncation, so the refusal survives. `_matches` is the site that cannot rely on this
+    at all, which is why it is the site that took a keyword (JR-18) — on the WRITES arm
+    a more-readily-matched path is fail-OPEN, the exact opposite.
+
+    Asserted as a property over the marker vocabulary rather than as one example,
+    because the claim is about all keys and an example is about one. This is the row
+    JR-19 asked for: the fail-closed reasoning existed in three comments and in no
+    assertion, and reasoning that nothing checks is a comment.
+    """
+    samples = [
+        ".git",
+        ".git/hooks/pre-commit",
+        ".git/modules/a",
+        "protected/data",
+        "protected/data/deep/file.txt",
+        "workspace/ok.txt",
+        "",
+    ]
+    markers = [
+        "<unreadable: Permission denied>",
+        "<gitdir pointer unreadable: x>",
+        "<common>",
+        "<gitdir: a>",
+        "a\tb",           # a marker whose own text contains the separator
+    ]
+    for base in samples:
+        for m in markers:
+            key = f"{base}{perm.MARKER_SEP}{m}"
+            got = perm.marker_path(key)
+            assert key.startswith(got), (
+                f"`marker_path({key!r})` returned {got!r}, which is NOT a prefix of its "
+                f"input. The whole fail-closed argument at `_read_only_hit` and at the "
+                f"rollback's `git_internal` guard is that truncation can only generalise "
+                f"TOWARD the tree root. A non-prefix result can move a path out of a "
+                f"read-only tree, or off a `.git` prefix, and both are fail-OPEN."
+            )
+            assert got == base, (
+                f"`marker_path({key!r})` returned {got!r}, not {base!r}. It must split "
+                f"on the FIRST separator: a marker's text can contain anything, and "
+                f"taking the last field lets the MESSAGE decide what the path is."
+            )
+    # The `.git` prefix is preserved, which is the rollback guard's whole reliance.
+    for base in (".git", ".git/hooks/pre-commit", ".git/modules/a"):
+        got = perm.marker_path(f"{base}{perm.MARKER_SEP}<gitdir pointer unreadable: x>")
+        assert got == ".git" or got.startswith(".git/"), (
+            f"a `.git`-prefixed key truncated to {got!r}, which the rollback's "
+            f"`git_internal` guard would no longer recognise. R24-C measures 11 rows "
+            f"dying when that call is removed; this asserts WHY it is safe to keep."
+        )
+    # An ordinary path is untouched — without this the two asserts above are satisfied
+    # by a `marker_path` that returns "" for everything.
+    for base in samples:
+        assert perm.marker_path(base) == base, (
+            f"`marker_path` altered {base!r}, a key with no marker in it. Every call "
+            f"site passes unmarked keys far more often than marked ones."
+        )
+
+
 @pytest.mark.parametrize("read_only", [False, True], ids=["no_read_only", "read_only_git"])
 @pytest.mark.parametrize("marker", ["<gitdir pointer unreadable: x>", "<common>"])
 def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(

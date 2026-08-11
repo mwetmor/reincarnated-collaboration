@@ -427,6 +427,13 @@ REFUSAL_GUARDS = frozenset({
     "whole_tree", "quarantine_failed", "committed", "dirty_before", "destroyer",
     "delete_failed", "nothing_at_path", "unknown_status", "staging", "checkout_failed",
     "git_internal",
+    #: Gate-2 JR-23. The key carries a `MARKER_SEP` note, so the path could not be read
+    #: at fingerprint time and the name on the receipt is not a name the rollback may
+    #: act on. Added with the fix that stopped `diff_fingerprints` truncating markers
+    #: off structure entries — before it, these keys reached the ordinary verbs under a
+    #: GUESSED path and, when that guess landed on a pre-existing ignored directory,
+    #: deleted it under the reason "created by the phase".
+    "unreadable_marker",
 })
 
 #: The two that make COUNTED claims about what git holds. These owe the operator
@@ -1219,7 +1226,42 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
             ("deleted", dirs_before - dirs_after),
         ):
             for d in sorted(moved):
-                d = marker_path(d)  # an unreadable marker still names its directory
+                # NO `marker_path` here, and the absence is the fix (Gate-2 JR-23).
+                #
+                # This line used to read `d = marker_path(d)`, on the reasoning that an
+                # unreadable marker still names its directory. It does — but this is a
+                # RECORDER, and truncation is a MATCHER's question. `marker_path` cannot
+                # tell a marker minted by `structure_dirs.onerror` from a directory the
+                # phase named with a tab in it, so a phase that runs `mkdir "build\tx"`
+                # got its artifact recorded as `build`. Measured, in a read-only tree:
+                #
+                #   * `build/` pre-existing and IGNORED -> the rollback deleted `build/`
+                #     under the reason "created by the phase", and `build\tx` SURVIVED.
+                #     Untracked content the phase never touched, destroyed by the
+                #     containment, on a name the phase chose. That is the K1/L1 damage
+                #     class the canary exists for, landing where the canary cannot see
+                #     it — the canary is TRACKED, and tracked content is what the
+                #     `destroyer` guard already protects.
+                #   * `build/` pre-existing and TRACKED -> `destroyer` refuses, and the
+                #     innocent directory is copied to quarantine while `build\tx` again
+                #     survives. No destruction, still the wrong name on the receipt.
+                #   * no `build/` at all -> `nothing_at_path`, whose reason ("another
+                #     process may have removed it") is simply false, and `build\tx`
+                #     survives a third time.
+                #
+                # In all three the VERDICT was right — every one is a breach of the
+                # read-only tree — which is why four rounds of review and 617 rows never
+                # saw it. `marker_path` returns a PREFIX, so truncation moves a path
+                # toward the tree root and can only make the deny arms match MORE
+                # readily. Fail-closed on the verdict, fail-open on the NAME, and the
+                # name is what the rollback acts on.
+                #
+                # The three call sites that DO truncate are matchers and each states its
+                # direction: `_matches` by keyword (JR-18), `_read_only_hit` and the
+                # rollback's `git_internal` guard by comment plus rows that die when the
+                # call is removed (R24-B 9 failed, R24-C 11 failed, R24-D 25 failed).
+                # This site was the fourth, and it was the only one whose removal left
+                # the suite green (R24-A, 617 passed) — unasserted because it was wrong.
                 path = f"{base}/{d}" if base else d
                 # git already named this one (a directory with a file in it is a
                 # collapsed porcelain entry). One breach, one row.
@@ -1629,6 +1671,37 @@ def rollback(
                     "it is a human decision",
                     quarantined,
                     guard="git_internal",
+                )
+            )
+            continue
+
+        # Gate-2 JR-23, the second half. AFTER `git_internal` on purpose: a marker-bearing
+        # key under `.git` gets the more specific reason, and the R24-C ledger row that
+        # kills `marker_path` at the guard above still kills it.
+        #
+        # A marker says the ordinary reading of this path FAILED. Dropping the truncation
+        # in `diff_fingerprints` (above) means those keys now reach the rollback with
+        # their markers intact, which is correct — the recorder records — but it also
+        # means the ordinary verbs would be handed a path that does not exist on disk,
+        # and answer with `nothing_at_path`: "another process may have removed it, so the
+        # deletion is not ours to claim". Nothing removed it. It was never there. That
+        # sentence is the L3 shape — a refusal with a perfectly good reason that is false
+        # — and adding a reachable instance of it while fixing the name would be trading
+        # the NAME axis for the CLAIM axis (Discipline #9).
+        #
+        # So: refuse, and say the true thing. Absent-is-absent, applied to the rollback.
+        if MARKER_SEP in change.path:
+            actions.append(
+                RollbackAction(
+                    change.path,
+                    "NOT_ROLLED_BACK",
+                    "REFUSED: this key carries a measurement marker — the path could not "
+                    "be read when the tree was fingerprinted, so what stands at it now is "
+                    f"unknown, and the text after the {MARKER_SEP!r} is the measurement's "
+                    "own note rather than part of the name. Undoing an unknown is a human "
+                    "decision; quarantined where possible and reported",
+                    quarantined,
+                    guard="unreadable_marker",
                 )
             )
             continue

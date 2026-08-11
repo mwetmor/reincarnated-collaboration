@@ -164,6 +164,16 @@ VOCABULARY_PINS: dict[str, object] = {
         "whole_tree", "quarantine_failed", "committed", "dirty_before", "destroyer",
         "delete_failed", "nothing_at_path", "unknown_status", "staging",
         "checkout_failed", "git_internal",
+        #: ADDED at Gate-2 JR-23, and this line IS the adjudication. `unreadable_marker`
+        #: refuses any change whose key carries a `MARKER_SEP` note: the path could not
+        #: be read when the tree was fingerprinted, so the string is a measurement's own
+        #: note and not a name the rollback may act on. This is an ADDITION to an accept
+        #: vocabulary — the direction this pin exists to catch — so it is spelled out
+        #: rather than absorbed. What it admits is a REFUSAL and never an action, and it
+        #: replaced a path on which the rollback ACTED on a guessed name: measured, an
+        #: ignored untracked `build/` was deleted under the reason "created by the
+        #: phase" because the phase had created `build\tx` beside it.
+        "unreadable_marker",
     }),
     #: The grant vocabulary, read off ONE live init frame. Adding a name by hand
     #: admits a tool nobody probed while the module's own comment still says the
