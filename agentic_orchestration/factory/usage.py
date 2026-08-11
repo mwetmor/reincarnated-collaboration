@@ -136,4 +136,13 @@ class UsageBreakdown:
             parts.append(f"(reasoning={self.reasoning_tokens}, share of out)")
         if self.dollars is not None:
             parts.append(f"${self.dollars:.4f} [{self.dollars_source}]")
-        return "usage: " + " ".join(parts)
+        line = "usage: " + " ".join(parts)
+        # Gate-2 J3. A breakdown can be PARTLY known — real tokens from a completed
+        # attempt plus an attempt whose cost the harness never reported. This method
+        # used to drop `absent_reason` the moment any number was present, so the
+        # partial case printed as if it were the whole, which is the under-reporting
+        # this module's opening law exists to forbid. Numbers alone are not a claim
+        # of completeness unless nothing is missing.
+        if self.absent_reason:
+            line += f"  [INCOMPLETE: {self.absent_reason}]"
+        return line

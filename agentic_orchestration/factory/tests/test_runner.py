@@ -162,6 +162,7 @@ from pathlib import Path as _Path
 from factory import permissions as _perm
 from factory.harness.base import RawResult as _RawResult, _HARNESSES
 from factory.runner import Runner as _Runner
+from factory.usage import UsageBreakdown
 from factory.workflow import load_workflow as _load_workflow
 
 
@@ -412,6 +413,101 @@ def test_H8_CONTROL_a_MECHANICAL_phase_still_says_no_model_invoked(tmp_path, git
     )
 
 
+class _RetryHarness(_FreeHarness):
+    """Attempt 1 spends real tokens and returns; attempt 2 dies with the model up.
+
+    The shape J3 is about. A first attempt can cost real money and still fail the
+    gates — a refused grant, a policy refusal, a malformed envelope all carry usage.
+    """
+
+    name = "retry"
+    calls = 0
+
+    def run(self, prompt, cwd, config):
+        type(self).calls += 1
+        if type(self).calls == 1:
+            return _RawResult(
+                ok=True,
+                text=_json.dumps({"status": "PASS", "summary": "spent money, failed",
+                                  "artifacts": [], "notes_for_next_agent": ""}),
+                usage=UsageBreakdown(input_tokens=1000, output_tokens=500),
+                harness=self.name,
+            )
+        raise RuntimeError("the harness died on attempt 2 with the model in flight")
+
+
+def _ledger_tokens(tmp_path, phase_name="a"):
+    """`input_tokens` / `output_tokens` as WRITTEN, for the named phase."""
+    import sqlite3
+
+    conn = sqlite3.connect(str(tmp_path / "fh" / "receipts.db"))
+    try:
+        return conn.execute(
+            "SELECT input_tokens, output_tokens FROM phases WHERE name = ?", (phase_name,)
+        ).fetchone()
+    finally:
+        conn.close()
+
+
+def test_J3_a_retry_does_not_DISCARD_what_the_first_attempt_provably_spent(tmp_path, git_repo):
+    """H8 inverted: KNOWN cost recorded as absent.
+
+    H8 made the runner stop claiming zero where cost is unknown. The same statement
+    then did the opposite at the top of every attempt — it ASSIGNED the in-flight
+    absent-reason to `phase.usage`, discarding the running total. Attempt 1 here
+    returns 1500 real tokens and fails its gate; attempt 2 raises. Before the fix the
+    durable ledger read NULL for a phase that provably spent 1500 tokens, which
+    breaks `usage.py`'s opening law from the other side: tokens are never invented,
+    and they are not to be un-invented either.
+
+    None of the five H8 rows used `retries > 0`, so the whole retry path was outside
+    what they measured — the SCOPE axis. `merge` already existed and was unused.
+    """
+    _HARNESSES.setdefault("retry", _RetryHarness())
+    _RetryHarness.calls = 0
+    phase = dict(AGENTIC)
+    phase["harness"] = "retry"
+    phase["retries"] = 1
+    phase["gates"] = [{"gate": "command_succeeds", "args": {"command": "false"}}]
+    _h3_run(tmp_path, git_repo, phase, patch_cap_to=50_000)
+
+    tokens = _ledger_tokens(tmp_path)
+    assert tokens == (1000, 500), (
+        "the ledger discarded what attempt 1 provably spent when attempt 2 crashed. "
+        f"A phase that cost 1500 tokens is recorded as {tokens}. Unknown is not "
+        "zero (H8) and known is not unknown (J3)."
+    )
+    reason = _ledger_absent_reason(tmp_path)
+    assert "UNKNOWN" in reason and "attempt 2" in reason, (
+        "the ledger kept the numbers but stopped saying that attempt 2's cost is "
+        f"missing, so the total reads as complete when it is not. Says: {reason!r}"
+    )
+    assert "NOT the phase total" in reason, (
+        "the reason does not warn that the recorded tokens are a PARTIAL sum. A "
+        f"reader would take 1500 as what the phase cost. Says: {reason!r}"
+    )
+
+
+def test_J3_a_PARTLY_known_usage_does_not_print_as_if_it_were_complete():
+    """`one_line` dropped the caveat the moment any number was present.
+
+    Found while fixing J3 rather than reported: the ledger can hold tokens AND an
+    absent-reason, but the human-readable line could not express that pair. It
+    printed the numbers and discarded the reason, so a partial sum rendered
+    identically to a complete one on the operator's screen — the same
+    under-reporting the column beneath it had just been fixed to avoid.
+    """
+    partial = UsageBreakdown.absent("attempt 2 in flight — ITS cost is UNKNOWN").merge(
+        UsageBreakdown(input_tokens=1000, output_tokens=500)
+    )
+    line = partial.one_line()
+    assert "1000" in line, f"the known tokens vanished from the line: {line!r}"
+    assert "INCOMPLETE" in line and "UNKNOWN" in line, (
+        "a partly-known usage printed as though it were the whole phase's cost. "
+        f"Line was: {line!r}"
+    )
+
+
 def test_H8_a_crashed_MECHANICAL_phase_is_not_billed_as_UNKNOWN(tmp_path, git_repo, monkeypatch):
     """The mirror of H8, and the third survivor of the round-fourteen set.
 
@@ -491,3 +587,62 @@ def test_H8_the_Phase_DEFAULT_claims_nothing_about_model_invocation(tmp_path):
         f"world that a dataclass default cannot know. Default says: {reason!r}"
     )
     assert reason, "a default that records no reason at all fails `usage.py`'s own law"
+
+
+class _GrantingHarness(_FreeHarness):
+    """A lane that reports a grant, the way `claude_code` does from its init frame."""
+
+    name = "granting"
+
+    def run(self, prompt, cwd, config):
+        return _RawResult(
+            ok=True,
+            text=_json.dumps({"status": "PASS", "summary": "ran fenced",
+                              "artifacts": [], "notes_for_next_agent": ""}),
+            harness=self.name,
+            extra={
+                "permission_mode": "bypassPermissions",
+                "granted_tools": ["Read", "Bash"],
+                "permission_denials": [],
+                "num_turns": 2,
+                "stop_reason": "end_turn",
+            },
+        )
+
+
+def test_J5_the_runner_CARRIES_the_grant_to_the_ledger(tmp_path, git_repo):
+    """Mutation J5-a SURVIVED the first pass, and this row is why it now does not.
+
+    J5 is a finding about WIRING: the grant was adjudicated and then dropped on the way
+    to the receipt. The first three rows written for it exercised
+    `Receipts.record_agent_session` directly — proving the column accepts a value nobody
+    was passing it. Deleting `result.extra` from the runner's call site left all of them
+    green, so the fix for a wiring defect was itself unwired and the suite said nothing.
+
+    Fifth axis, on the finding named after it. The receipts rows test the STORE; this
+    one tests that a phase which actually ran puts something in it.
+    """
+    _HARNESSES.setdefault("granting", _GrantingHarness())
+    phase = dict(AGENTIC)
+    phase["harness"] = "granting"
+    result = _h3_run(tmp_path, git_repo, phase, patch_cap_to=50_000)
+    assert result.status == "PASS", f"premise failed: the phase did not pass ({result.status})"
+    import sqlite3
+    conn = sqlite3.connect(str(tmp_path / "fh" / "receipts.db"))
+    try:
+        row = conn.execute(
+            "SELECT permission_mode, granted_tools, denial_count, num_turns "
+            "FROM agent_sessions"
+        ).fetchone()
+    finally:
+        conn.close()
+    assert row is not None, "the phase ran an agent and no agent_session was recorded at all"
+    assert row[0] == "bypassPermissions", (
+        "a phase PASSED and the receipt cannot say what permission mode it ran under. "
+        f"Got {row[0]!r}. That is the sentence J1 makes load-bearing: the argv is not "
+        "evidence of the grant, so if the init frame does not reach the ledger nothing does."
+    )
+    assert _json.loads(row[1]) == ["Read", "Bash"], (
+        f"the granted tool set did not survive the trip from harness to ledger: {row[1]!r}"
+    )
+    assert row[2] == 0 and row[3] == 2

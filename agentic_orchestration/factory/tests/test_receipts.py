@@ -6,11 +6,14 @@ The tests that matter most are the two that keep a later dashboard honest:
 assertion is built on.
 """
 
+import json
 import sqlite3
+
+import pytest
 
 from factory.envelope import EnvelopeBase
 from factory.gates.base import GateReport
-from factory.receipts import SCHEMA_VERSION, Receipts
+from factory.receipts import SCHEMA_VERSION, Receipts, SchemaVersionError
 from factory.usage import DOLLARS_HARNESS_IMPUTED, UsageBreakdown
 
 EXPECTED_TABLES = {
@@ -239,3 +242,171 @@ def test_sessions_lists_most_recent_first(tmp_path):
     r.start_session("newer", "wf", tmp_path, tmp_path)
     assert [s["run_id"] for s in r.sessions()][0] == "newer"
     r.close()
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 J5 / J5b — the grant is evidence, and the version stamp has to be able
+# to disagree or it is decoration
+# ---------------------------------------------------------------------------
+def test_J5_a_PASSING_agent_session_records_what_it_was_GRANTED(tmp_path):
+    """A receipt that says a phase succeeded, and cannot say what it was allowed to do.
+
+    `check_grant` adjudicates `permission_mode` and `granted_tools` out of the harness's
+    init frame and then they were dropped on the floor. On a FAILING phase the verdict
+    survives in `phases.error`. On a PASSING phase — the overwhelming majority, and the
+    ones a later reader trusts — nothing durable recorded the fence at all.
+
+    Load-bearing because of J1: `--allowedTools` does not restrict in headless `default`
+    mode (measured twice), so the argv is not evidence of the grant. The init frame is
+    the only place the real answer appears, and this row is what keeps it.
+    """
+    r = _db(tmp_path)
+    r.start_session("run1", "wf", tmp_path, tmp_path)
+    pid = r.start_phase("run1", 0, "p", "star-lord", "claude_code")
+    r.record_agent_session(
+        "run1", pid, "star-lord", "claude_code", 1, "sess-abc", "claude-fable-5",
+        "/p.txt", "/raw.jsonl", "2026-08-10T00:00:00Z",
+        extra={
+            "permission_mode": "bypassPermissions",
+            "granted_tools": ["Read", "Bash"],
+            "permission_denials": [],
+            "num_turns": 3,
+            "stop_reason": "end_turn",
+        },
+    )
+    sess = r.conn.execute("SELECT * FROM agent_sessions").fetchone()
+    assert sess["permission_mode"] == "bypassPermissions", (
+        "the phase ran in bypassPermissions and the receipt does not say so. That is "
+        "the single fact H1 turned on, and it is the one a later reader most needs."
+    )
+    assert json.loads(sess["granted_tools"]) == ["Read", "Bash"], (
+        f"the granted tool set did not reach the ledger: {sess['granted_tools']!r}"
+    )
+    assert sess["denial_count"] == 0 and sess["num_turns"] == 3
+    r.close()
+
+
+def test_J5_a_MISSING_grant_is_stored_as_NULL_not_as_an_empty_list(tmp_path):
+    """Absent is absent — `usage.py`'s law, applied to containment evidence.
+
+    A harness that reported no `tools` key and a harness that reported `tools: []` mean
+    opposite things: the first is "we do not know what it could do", the second is "it
+    could do nothing". `check_grant` turns on exactly that distinction. Joining the list
+    into a string would render both as "" and destroy it, which is why the column holds
+    JSON.
+    """
+    r = _db(tmp_path)
+    r.start_session("run1", "wf", tmp_path, tmp_path)
+    pid = r.start_phase("run1", 0, "p", "star-lord", "claude_code")
+    r.record_agent_session(
+        "run1", pid, "star-lord", "claude_code", 1, None, None, None, None,
+        "2026-08-10T00:00:00Z", extra={"permission_mode": "default"},
+    )
+    pid2 = r.start_phase("run1", 1, "q", "star-lord", "claude_code")
+    r.record_agent_session(
+        "run1", pid2, "star-lord", "claude_code", 1, None, None, None, None,
+        "2026-08-10T00:00:00Z", extra={"granted_tools": [], "permission_denials": []},
+    )
+    rows = r.conn.execute("SELECT * FROM agent_sessions ORDER BY id").fetchall()
+    assert rows[0]["granted_tools"] is None, (
+        "a harness that reported NO tool set was recorded as though it had reported "
+        f"one: {rows[0]['granted_tools']!r}. Unknown is not empty."
+    )
+    assert rows[0]["denial_count"] is None, (
+        "no denials were REPORTED and the ledger says zero denials OCCURRED. Same "
+        "error as zero-filling tokens, on the column that describes the fence."
+    )
+    assert json.loads(rows[1]["granted_tools"]) == [] and rows[1]["denial_count"] == 0, (
+        "a harness that reported an EMPTY tool set must be distinguishable from one "
+        f"that reported none: {rows[1]['granted_tools']!r}"
+    )
+    r.close()
+
+
+def _v1_database(path):
+    """A receipts DB in the v1 shape: agent_sessions without the J5 columns."""
+    conn = sqlite3.connect(str(path))
+    conn.executescript(
+        "CREATE TABLE schema_meta (key TEXT PRIMARY KEY, value TEXT);"
+        "INSERT INTO schema_meta VALUES('schema_version','1');"
+        "CREATE TABLE sessions (run_id TEXT PRIMARY KEY, workflow TEXT, root TEXT,"
+        " session_dir TEXT, workflow_path TEXT, started_at TEXT, ended_at TEXT,"
+        " status TEXT, git_head TEXT, notes TEXT);"
+        "CREATE TABLE agent_sessions (id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        " run_id TEXT NOT NULL, phase_id INTEGER, attempt INTEGER NOT NULL DEFAULT 1,"
+        " agent TEXT NOT NULL, harness TEXT NOT NULL, harness_session_id TEXT,"
+        " model TEXT, prompt_path TEXT, raw_output_path TEXT, started_at TEXT NOT NULL,"
+        " ended_at TEXT);"
+        "INSERT INTO agent_sessions(run_id, agent, harness, started_at)"
+        " VALUES('old','star-lord','claude_code','2026-01-01T00:00:00Z');"
+    )
+    conn.commit()
+    conn.close()
+
+
+def test_J5b_an_OLD_database_is_MIGRATED_not_merely_RESTAMPED(tmp_path):
+    """The stamp was written from the code's constant and never checked against the DB.
+
+    `CREATE TABLE IF NOT EXISTS` cannot add a column, so opening a v1 database with v2
+    code left the v1 table shape untouched — and then relabelled it "2". The module
+    docstring says the stamp exists "so a Tier-2 consumer can refuse an unknown version
+    rather than guess at it"; a stamp its own writer overwrites on every open can never
+    disagree, so it could never refuse. A probe confirmed it before this row existed:
+    stamp 2, column absent.
+
+    That is Discipline #8 — validation at the boundary — failing inside the artifact
+    whose entire job is to still be trustworthy months later.
+
+    The pre-existing row must SURVIVE. Migration of evidence is additive or it is not
+    something this module does unattended.
+    """
+    path = tmp_path / "old.db"
+    _v1_database(path)
+    r = Receipts(path)
+    cols = {c[1] for c in r.conn.execute("PRAGMA table_info(agent_sessions)")}
+    assert {"permission_mode", "granted_tools", "denial_count"} <= cols, (
+        f"a v1 DB was opened by v{SCHEMA_VERSION} code and kept its v1 shape. Columns: "
+        f"{sorted(cols)}"
+    )
+    assert int(r.conn.execute(
+        "SELECT value FROM schema_meta WHERE key='schema_version'").fetchone()[0]
+    ) == SCHEMA_VERSION
+    surviving = r.conn.execute("SELECT * FROM agent_sessions").fetchall()
+    assert len(surviving) == 1 and surviving[0]["run_id"] == "old", (
+        "the migration destroyed the row it was migrating. A receipts DB is evidence; "
+        "a migration that loses evidence is worse than no migration."
+    )
+    assert surviving[0]["permission_mode"] is None, (
+        "the pre-existing row was BACKFILLED with a value nobody measured. The grant "
+        "for that session is unknown and must read as unknown."
+    )
+    r.close()
+
+
+def test_J5b_a_NEWER_database_is_REFUSED_rather_than_guessed_at(tmp_path):
+    """The direction the stamp exists for, and the one that was structurally impossible.
+
+    A DB written by a newer factory has columns this code does not know and may have
+    changed the meaning of ones it does. Opening it read-only-and-hopeful yields
+    confident wrong answers off an evidence store, which is strictly worse than an
+    error. Before J5b the unconditional restamp silently relabelled it DOWNWARD.
+    """
+    path = tmp_path / "future.db"
+    Receipts(path).close()
+    conn = sqlite3.connect(str(path))
+    conn.execute("UPDATE schema_meta SET value='99' WHERE key='schema_version'")
+    conn.commit()
+    conn.close()
+    with pytest.raises(SchemaVersionError) as excinfo:
+        Receipts(path)
+    assert "99" in str(excinfo.value), (
+        f"the refusal does not name the version it refused: {excinfo.value}"
+    )
+    conn = sqlite3.connect(str(path))
+    still = conn.execute(
+        "SELECT value FROM schema_meta WHERE key='schema_version'").fetchone()[0]
+    conn.close()
+    assert still == "99", (
+        f"refusing to open the DB still RESTAMPED it to {still}. The refusal destroyed "
+        "the evidence that caused it, so the second attempt would succeed and be wrong."
+    )

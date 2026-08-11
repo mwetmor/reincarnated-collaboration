@@ -546,3 +546,62 @@ Receipts schema custody is star-lord's (strategy § 8). A schema change gets a
 MIGRATION note before it ships, because gate consumers and any future Tier-2 surface
 read these tables. `schema_meta.schema_version` exists so a consumer can refuse an
 unknown version rather than guess at it.
+
+29. **Detecting a write and refusing it are two different claims.** A row that asserts
+   on `fingerprint().content` has tested the first one only. J4 added control surfaces
+   for a worktree's real gitdir and keyed them `.git\t<common>/…`; `_matches` protects
+   by literal `.git/` prefix, so they were protected in no repo at all — while the
+   docstring said they classified "as the protected surface it is." Both rows checking
+   them compared fingerprint content, which moves whether or not the key is protected,
+   so both stayed green. Found by reading `_matches` to check the sentence, by no test.
+   Every "…and therefore it is protected / blocked / refused" claim owes an assertion
+   on `classify`, under a permissive `writes` — because a protection that only holds
+   when the allowlist would have refused anyway is not doing the work it claims.
+
+30. **A row that goes red for the wrong reason has told you nothing.** Both J3 rows came
+   up red on first run — for a missing import in the test module, which made the harness
+   raise on attempt 1 so the retry path under test never executed. Green needs a
+   mutation to mean anything; red needs to be read, because "the row failed" and "the
+   row failed for its own reason" are the same colour on the terminal.
+
+31. **A version stamp its own writer overwrites can never disagree, so it can never
+   refuse.** `receipts.py` stamped `schema_version` from the code's constant,
+   unconditionally, after `CREATE TABLE IF NOT EXISTS` — which cannot add a column. So
+   opening a v1 DB with v2 code kept the v1 table shape and relabelled it "2", while
+   the module docstring said the stamp existed "so a Tier-2 consumer can refuse an
+   unknown version rather than guess at it." The refusal it promised was structurally
+   unreachable. Generalises past schemas: any field whose purpose is to let a later
+   reader detect a mismatch must be READ before it is written, or it is decoration.
+   Same shape as `--allowedTools` (J1) — a fence whose falsifying condition cannot
+   arise — but on the mechanism whose whole job was detecting drift.
+
+32. **Migrating evidence is additive or it is not unattended.** `ADD COLUMN` cannot
+   destroy a row. Anything that rewrites or drops is a Matt-authorized operation
+   (ADR-006), not something a constructor does on open. And a refusal must not restamp:
+   relabelling the DB on the way out of an error destroys the fact that caused the
+   error, so the retry succeeds and is wrong. Pre-existing rows are never backfilled —
+   a value nobody measured must read as unmeasured.
+
+33. **A signature whose inputs the subject controls is not a signature.** `size+mtime`
+   is the right cost for thousands of dirty paths and the wrong measurement for the
+   handful of surfaces an adversary aims at, because matching a size is choosing the
+   payload's length and restoring an mtime is `touch -t` — both free to any phase with
+   `Bash`, which J1 measured the agentic lane as granting unrestricted. Control
+   surfaces are content-hashed (H7). Where a hash is unaffordable, say so in the value
+   rather than degrading quietly: `oversize:{n}:…` is a measurement, a bare stat sig
+   presented as a hash is not.
+
+34. **Hash what makes it DANGEROUS, not just what makes it DIFFERENT.** `chmod +x` on
+   an inert `pre-commit` writes zero bytes and arms the hook. Content, size and mtime
+   are all unchanged; only the mode moved, and git runs the hooks that are executable.
+   H7-b — dropping mode from the signature — survived a full-suite mutation run. The
+   mode was in the code; nothing would have noticed its removal, which is the same
+   thing as it not being there. Ask what the file's *effect* depends on, then measure
+   that.
+
+35. **The instrument gets audited too.** Three rounds running, the defect was in the
+   measuring apparatus rather than the subject: a mutation harness with a red baseline
+   (round 14), a flat glob that made the suite's subject "whatever pytest reached"
+   (F7/F2), and a killer-name parser that printed every name as the literal string
+   `FAILED` — counts usable, attribution destroyed, which is the whole point of
+   recording a first killer. Evidence that cannot name itself is not evidence.

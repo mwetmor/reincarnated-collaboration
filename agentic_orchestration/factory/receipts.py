@@ -7,6 +7,16 @@ processes / agent_sessions. One data path: the gates WRITE here and every surfac
 Schema custody: star-lord (strategy § 8). Schema version is stamped in
 `schema_meta` so a Tier-2 consumer can refuse an unknown version rather than
 guess at it.
+
+Gate-2 J5b: that sentence was FALSE for the whole of v1, and it is worth leaving the
+correction next to the claim rather than quietly editing the claim. `__init__` ran
+`CREATE TABLE IF NOT EXISTS` and then stamped the code's own constant unconditionally.
+`IF NOT EXISTS` cannot add a column, so opening an old DB with new code left the old
+table SHAPE in place and relabelled it with the new version — a stamp its own writer
+overwrites on every open can never disagree, and what cannot disagree cannot refuse.
+Order is now read -> migrate-or-refuse -> stamp. Migrations are additive only
+(`_MIGRATIONS`), a NEWER DB raises `SchemaVersionError` and is deliberately NOT
+restamped, and pre-existing rows are never backfilled. See `factory/MIGRATION.md`.
 """
 
 from __future__ import annotations
@@ -19,7 +29,32 @@ from typing import Any, Iterable
 
 from .usage import UsageBreakdown
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
+
+#: Ordered, additive migrations from version N to N+1. Index 0 takes v1 -> v2.
+#:
+#: Gate-2 J5b. `CREATE TABLE IF NOT EXISTS` cannot add a column, so before this existed
+#: opening an old DB with new code left the old table shape in place — and then stamped
+#: it with the new version anyway (see `_stamp_version`). Additive only, deliberately:
+#: `ADD COLUMN` cannot destroy a row, and a receipts DB is evidence. Anything that would
+#: rewrite or drop is not a migration this module performs unattended.
+_MIGRATIONS: tuple[tuple[str, ...], ...] = (
+    (
+        "ALTER TABLE agent_sessions ADD COLUMN permission_mode TEXT",
+        "ALTER TABLE agent_sessions ADD COLUMN granted_tools TEXT",
+        "ALTER TABLE agent_sessions ADD COLUMN denial_count INTEGER",
+        "ALTER TABLE agent_sessions ADD COLUMN num_turns INTEGER",
+        "ALTER TABLE agent_sessions ADD COLUMN stop_reason TEXT",
+    ),
+)
+
+
+class SchemaVersionError(RuntimeError):
+    """This DB was written by a schema version this code cannot read.
+
+    Raised rather than guessed at. A receipts DB is evidence; reading it with the wrong
+    column expectations produces confident wrong answers, which is worse than no answer.
+    """
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS schema_meta (
@@ -124,7 +159,22 @@ CREATE TABLE IF NOT EXISTS agent_sessions (
     prompt_path       TEXT,
     raw_output_path   TEXT,
     started_at        TEXT NOT NULL,
-    ended_at          TEXT
+    ended_at          TEXT,
+    -- Gate-2 J5. What the process was actually GRANTED, as the harness reported it in
+    -- its init frame. `check_grant` adjudicates these and then they were dropped: on a
+    -- FAILING phase the verdict survives in `phases.error`, but on a PASSING phase
+    -- nothing durable recorded what the fence had been. The receipt could say the
+    -- phase succeeded and could not say what it was allowed to do while succeeding.
+    --
+    -- Load-bearing because of J1: `--allowedTools` does not restrict in headless
+    -- `default` mode (measured twice), so the argv is not evidence of the grant. The
+    -- init frame is the only place the real answer appears, and this is the only place
+    -- it is kept.
+    permission_mode   TEXT,
+    granted_tools     TEXT,   -- JSON array, as reported by the harness
+    denial_count      INTEGER,
+    num_turns         INTEGER,
+    stop_reason       TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_phases_run ON phases(run_id);
@@ -147,13 +197,73 @@ class Receipts:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA journal_mode=WAL")
         self.conn.execute("PRAGMA foreign_keys=ON")
-        self.conn.executescript(_SCHEMA)
+        # Gate-2 J5b. Order matters and it was wrong. The stamp used to be written
+        # AFTER `executescript` and UNCONDITIONALLY, from the code's own constant — so
+        # opening a v1 database with v2 code left the v1 table shape untouched (`CREATE
+        # TABLE IF NOT EXISTS` cannot add a column) and then relabelled it "2". The
+        # module docstring says the stamp exists "so a Tier-2 consumer can refuse an
+        # unknown version rather than guess at it"; a stamp the writer overwrites on
+        # every open can never disagree, so it could never refuse. Measured, not
+        # reasoned: a probe opened a v1 DB with SCHEMA_VERSION=2 and a new column, and
+        # got stamp=2 with the column absent.
+        #
+        # That is this module's own failure of Discipline #8 — validation at the
+        # boundary — in the one artifact whose whole job is to be trustworthy later.
+        # So: READ first, migrate or refuse, stamp last.
+        found = self._read_version()
+        self.conn.executescript(_SCHEMA)      # creates anything missing entirely
+        if found is not None and found != SCHEMA_VERSION:
+            self._migrate(found)
+        self._stamp_version()
+        self.conn.commit()
+
+    def _read_version(self) -> int | None:
+        """The version this DB claims, or None if it is brand new."""
+        try:
+            row = self.conn.execute(
+                "SELECT value FROM schema_meta WHERE key='schema_version'"
+            ).fetchone()
+        except sqlite3.OperationalError:
+            return None          # no schema_meta table yet: a fresh file
+        if row is None:
+            return None
+        try:
+            return int(row[0])
+        except (TypeError, ValueError):
+            raise SchemaVersionError(
+                f"receipts DB at {self.path} carries an unparseable schema_version "
+                f"{row[0]!r}. Refusing to guess at its shape."
+            ) from None
+
+    def _migrate(self, found: int) -> None:
+        if found > SCHEMA_VERSION:
+            raise SchemaVersionError(
+                f"receipts DB at {self.path} is schema version {found}; this code "
+                f"knows version {SCHEMA_VERSION}. It was written by a NEWER factory. "
+                "Refusing to open it — reading evidence with the wrong column "
+                "expectations yields confident wrong answers."
+            )
+        for step in range(found, SCHEMA_VERSION):
+            for stmt in _MIGRATIONS[step - 1]:
+                try:
+                    self.conn.execute(stmt)
+                except sqlite3.OperationalError as exc:
+                    # A column already present is the one benign case: a DB created
+                    # fresh by `_SCHEMA` at the new shape but stamped at an old
+                    # version. Anything else is a migration that did not apply, and a
+                    # migration that did not apply must not be stamped as though it had.
+                    if "duplicate column name" not in str(exc):
+                        raise SchemaVersionError(
+                            f"migration {found} -> {SCHEMA_VERSION} failed on "
+                            f"{stmt!r}: {exc}. The DB is NOT restamped."
+                        ) from exc
+
+    def _stamp_version(self) -> None:
         self.conn.execute(
             "INSERT INTO schema_meta(key, value) VALUES('schema_version', ?) "
             "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
             (str(SCHEMA_VERSION),),
         )
-        self.conn.commit()
 
     def close(self) -> None:
         self.conn.commit()
@@ -336,11 +446,24 @@ class Receipts:
         prompt_path: str | None,
         raw_output_path: str | None,
         started_at: str,
+        extra: dict[str, Any] | None = None,
     ) -> None:
+        """Gate-2 J5. `extra` is the harness's init/result evidence, and it is now KEPT.
+
+        `granted_tools` is stored as JSON rather than a joined string because the
+        distinction between "no tools key was reported" and "an empty tool list was
+        reported" is exactly the distinction `check_grant` turns on, and a joined
+        string renders both as "". Absent is absent (`usage.py`'s law), applied to
+        containment evidence instead of to tokens.
+        """
+        extra = extra or {}
+        granted = extra.get("granted_tools")
+        denials = extra.get("permission_denials")
         self.conn.execute(
             "INSERT INTO agent_sessions(run_id, phase_id, attempt, agent, harness, "
-            "harness_session_id, model, prompt_path, raw_output_path, started_at, ended_at) "
-            "VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+            "harness_session_id, model, prompt_path, raw_output_path, started_at, ended_at, "
+            "permission_mode, granted_tools, denial_count, num_turns, stop_reason) "
+            "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (
                 run_id,
                 phase_id,
@@ -353,6 +476,11 @@ class Receipts:
                 raw_output_path,
                 started_at,
                 utcnow(),
+                extra.get("permission_mode"),
+                None if granted is None else json.dumps(granted),
+                None if denials is None else len(denials),
+                extra.get("num_turns"),
+                extra.get("stop_reason"),
             ),
         )
         self.conn.commit()

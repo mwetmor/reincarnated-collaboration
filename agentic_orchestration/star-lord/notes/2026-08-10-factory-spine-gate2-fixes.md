@@ -1986,3 +1986,307 @@ problem — "we found another one" will keep being available indefinitely. star-
 gandalf owe a stated threat model with an explicit boundary, as the exit criterion for
 this series. J1 is the right last big one: it is the difference between a fence and a
 description of a fence.
+
+---
+
+## 19. Round fifteen — J3, J4, J5/J5b, H7
+
+Four Gate-2 findings and one migration. The through-line, stated once so the sections
+below do not each restate it: **three of the four fixes carried the reported defect's own
+shape one layer down.** J4's fix keyed the common-dir surfaces so they were protected in
+no repo, while its docstring said they were protected. H7's fix hashed the bytes of a
+file whose danger is its mode. J5's fix stored a grant nothing passed it. Each was found
+by asking what the new code CLAIMS and then looking for the assertion that would notice
+if the claim were false — not by any test that already existed.
+
+### 19.1 J3 — a retry discarded what the previous attempt provably spent
+
+`runner.py` set `phase.usage = UsageBreakdown.absent(in_flight)` at the top of every
+agentic attempt. On attempt 1 that is exactly right and it is what H8 was for. On
+attempt ≥ 2 it is H8 pointing backwards: attempt 1 can return real tokens and still
+fail — a refused grant, a policy refusal, a malformed envelope all carry usage — and if
+attempt 2 then raised, the ledger read NULL for a phase that provably spent.
+
+`usage.py`'s opening law is one sentence with two halves: *tokens are never invented,
+never zero-filled*. H8 closed the zero-fill half. J3 was the other half, and the module
+had shipped `merge()` for precisely this and never called it.
+
+Why the whole retry path was unreached: **none of the five H8 rows set `retries > 0`**.
+Five rows on usage accounting, none of them on a second attempt. The SCOPE axis.
+
+Fix: `UsageBreakdown.absent(in_flight).merge(total_usage)`. Order is load-bearing —
+`merge` resolves `self.absent_reason or other.absent_reason`, so the in-flight reason
+wins only as the receiver. The reason string also now distinguishes the two cases: on
+attempt ≥ 2 it says the recorded tokens are attempts 1–(n−1) and **are NOT the phase
+total**, because a partial sum an operator reads as a total is the same under-reporting
+by a different route.
+
+**A sub-finding I hit while fixing it, not reported by jack-ryan.** `one_line()` dropped
+`absent_reason` the moment any number was present. So the newly-correct partial ledger
+row printed on the operator's screen *identically to a complete one* — the fix would
+have been true in the database and false on the display. `[INCOMPLETE: …]` suffix added.
+Numbers alone are not a claim of completeness unless nothing is missing.
+
+Mutations, full suite each, first-killer recorded:
+
+| id | mutation | first killer |
+|---|---|---|
+| J3-a | `.merge(total_usage)` → bare `absent(in_flight)` | `test_J3_a_retry_does_not_DISCARD_…` (only row) |
+| J3-b | drop the `[INCOMPLETE: …]` suffix | `test_J3_a_PARTLY_known_usage_…` (only row) |
+
+Each killed by exactly the row written for it, nothing else. (`test_C2` also reds under
+both — it is the reach-audit meta-row observing that the traced child suite is not
+green, which is what it is for.)
+
+**One process note, because it cost a diagnosis.** Both J3 rows first came up red for a
+missing `UsageBreakdown` import in the *test* module — so the harness raised on attempt
+1 and attempt 2 never ran. The rows were red for a reason with nothing to do with the
+defect they target. Red is not evidence either; a row has to fail *for its own reason*.
+The ledger row from that accident was itself reassuring: the crash-on-attempt-1 path
+recorded the correct in-flight reason, which is H8 working.
+
+### 19.2 J4 — `.git` as a FILE had no control surface, and the docstring argued it was fine
+
+The `.git`-is-a-file branch filed the pointer as the single entry and justified stopping
+there: *"its content is what would have to change to redirect anything."* True, and
+beside the point. Redirecting the gitdir is one route to a hook. Planting one in the
+gitdir the pointer **already names** is the other, and it writes not one byte of the
+pointer file. Every linked worktree and every submodule — shapes this repo's workflows
+create on purpose, and which `EnterWorktree` reaches without invoking git at all (H5) —
+could take a `pre-commit` and report a clean tree.
+
+Nineteenth instance of the shape, and the clearest so far *because the wrong question is
+written down in the docstring*. The predicate answers "could this be redirected?" The
+question is "could a control surface change?"
+
+Three things the fix needed, and only the first is obvious:
+
+1. **Follow the pointer.** Parse `gitdir: <path>`, resolve, enumerate. Every failure to
+   resolve files an entry saying so — unreadable, unparseable, non-directory — because
+   "we could not look" must not be stored as "there was nothing there", the same rule
+   `_MAX_GITDIR_DEPTH` already follows.
+2. **`commondir`, which is not optional.** A linked worktree's own gitdir does **not**
+   hold the hooks git runs in it; `hooks/`, `config` and `info/exclude` resolve through
+   the common dir. Enumerating only what the pointer names would have measured
+   `config.worktree` and missed `pre-commit` — the file the mechanism is named after.
+   A fix that covers the shape and misses the payload.
+3. **A real-path map, or the fix is half of one.** Keys must stay under `.git/` (that is
+   what `PROTECTED_EVERY_REPO` matches) while the *stat* follows outside the worktree.
+   Without `_signature(…, real_path)` every such key resolves to nothing and signs as
+   `""` forever: a hook **appearing** is still caught, because the key set moves, and a
+   hook **edited in place** is caught by nothing. That half-fix passes the obvious test.
+
+`test_J4_a_EDITING_…` exists for (3) specifically, and mutation J4-b confirms the
+discrimination: under the half-fix the planting row stays **green** and only the editing
+row goes red.
+
+**And then I made the same mistake one layer down, in this fix, while writing it up.**
+The common-dir surfaces were first keyed `.git\t<common>/…`. `_matches` protects by
+literal `.git/` prefix — `path.startswith(bare + "/")` — and `.git\t…` does not start
+with `.git/`. So they were not protected in any repo, while the docstring I had just
+written claimed they "classify as the protected surface it is." Both J4 rows compared
+`fingerprint().content`, which moves whether or not the key is protected, so both stayed
+green. Found by reading `_matches` to check my own sentence — by no test.
+
+The fix is one character (the tab moves after the slash). The real repair is
+`test_J4_a_worktree_hook_is_a_BREACH_even_when_the_phase_may_write_everything`, which
+asserts on `classify(…, writes=["**"])` rather than on the fingerprint. `writes=["**"]`
+is the point: `PROTECTED_EVERY_REPO` means "never a legitimate phase write, whatever the
+phase declared," so a permissive allowlist is the only condition under which the
+protection does any work.
+
+| id | mutation | killed by |
+|---|---|---|
+| J4-a | restore pointer-only (`out[".git"]`, return) | planting + editing + classification rows (PARTNER correctly green) |
+| J4-b | `_content_sig` keyed off the fingerprint KEY, not the real path (the half-fix) | **editing row only** |
+| J4-c | tab before the slash (key unprotected) | **classification row only** |
+
+Three mutations; two of them die to exactly one row each, and to *different* rows. Each
+J4 row is load-bearing for a distinct failure and none substitutes for another. (Re-run
+in its post-H7 form after `_signature`'s `real_path` parameter was removed, so what is
+certified is the code that exists rather than the code that used to.)
+
+**Rule 29, for the README.** *Detecting a write and refusing it are two claims. A row
+that asserts on the fingerprint has tested the first one only.* Rule 28 said a control
+row must be RUN against its regression; 29 says an assertion has to reach the layer the
+claim is about. Every "…and therefore it is protected/blocked/refused" sentence in this
+module now owes a `classify` assertion, not a `content` one. That audit is not done — it
+is the next thing I would look at, and it is a queue, not a finding.
+
+### 19.3 J5 — the grant was adjudicated and then thrown away
+
+`check_grant` reads `permissionMode` and `tools` out of the harness's init frame,
+adjudicates them, and `record_agent_session` persisted none of it. On a FAILING phase
+the verdict survives in `phases.error`. On a PASSING phase — the majority, and the ones
+a later reader trusts — **nothing durable recorded what the fence had been**. The receipt
+could say the phase succeeded and could not say what it was allowed to do while
+succeeding.
+
+This is J1's consequence, not a tidy-up. `--allowedTools` does not restrict in headless
+`default` mode, so the argv is not evidence of the grant; the init frame is the only
+place the real answer appears. Dropping it means the receipt cannot support the one
+sentence the whole containment apparatus exists to let it say.
+
+Five columns on `agent_sessions`, all nullable, no defaults. The NULL semantics are the
+substance and are written into `factory/MIGRATION.md`:
+
+- `granted_tools IS NULL` — no tool set was **reported**. Unknown.
+- `granted_tools = '[]'` — an **empty** tool set was reported. Known, and known empty.
+- `denial_count IS NULL` — no denials **reported**; it does **not** mean zero occurred.
+
+`check_grant` turns on exactly the first distinction, so storing the list as a joined
+string — which renders both as `""` — would have destroyed it. Absent-is-absent, moved
+off tokens and onto containment evidence. A consumer writing `COALESCE(denial_count, 0)`
+has converted "we do not know" into "it was clean", and rows J5-b and J5-c exist to make
+that a test failure rather than a code review opinion.
+
+Mutations (§ 19.7 covers J5-a, which survived pass one):
+
+| id | mutation | killed by |
+|---|---|---|
+| J5-a | drop `result.extra` from the runner's call site | `test_J5_the_runner_CARRIES_the_grant_to_the_ledger` — **only** |
+| J5-b | `granted_tools` zero-filled: absent stored as `'[]'` | `test_J5_a_MISSING_grant_is_stored_as_NULL_…` |
+| J5-c | `denial_count` zero-filled: "none reported" stored as `0` | `test_J5_a_MISSING_grant_is_stored_as_NULL_…` |
+| J5-d | restamp unconditionally (the original) | `test_J5b_an_OLD_database_is_MIGRATED_not_merely_RESTAMPED` |
+| J5-e | migrate forward but do not refuse a NEWER db | `test_J5b_a_NEWER_database_is_REFUSED_rather_than_guessed_at` |
+
+### 19.4 J5b — the schema version stamp could not disagree, so it could not refuse
+
+Found while implementing J5, by asking what happens to the receipts DB that already
+exists on this host (109 sessions).
+
+`Receipts.__init__` ran `executescript(_SCHEMA)` and then UPSERTed the stamp from the
+code's own constant, unconditionally. `CREATE TABLE IF NOT EXISTS` cannot add a column.
+So opening a v1 database with v2 code leaves the v1 table shape untouched — and then
+relabels it `2`.
+
+The module docstring: the stamp exists *"so a Tier-2 consumer can refuse an unknown
+version rather than guess at it."* A stamp its own writer overwrites on every open can
+never disagree, so it could never refuse.
+
+**Measured before it was claimed** — a probe opened a v1 DB with `SCHEMA_VERSION = 2`
+and a new column:
+
+```
+stamp at v1: 1
+stamp after v2 open: 2
+permission_mode actually in the table? False
+=> the stamp SAYS 2 and the table shape IS v1
+```
+
+Same shape as J1, and worse in one respect: J1 was a fence that did not restrain, this
+was **the mechanism that was supposed to make schema drift detectable**. It is my own
+seam's first discipline — validation at the boundary, #8 — failing inside the one
+artifact whose entire job is to still be trustworthy months later. Nineteen rounds of
+finding this in other people's reasoning did not stop me from shipping it in mine.
+
+Order is now **read → migrate-or-refuse → stamp**. Additive `ALTER TABLE` only, because
+a receipts DB is evidence and a migration that loses evidence is worse than no
+migration. A NEWER DB raises rather than opening, **and is not restamped** — restamping
+on refusal would destroy the fact that caused the refusal, so the retry would succeed
+and be wrong.
+
+Pre-existing rows are **not backfilled**. The grant for those sessions was never
+measured and must read as unmeasured.
+
+`factory/MIGRATION.md` authored (ADR-004) — first one this spine has needed, since v1
+was the schema's birth.
+
+**Note on the queue this opens.** v2 is the first migration, so `_MIGRATIONS` has one
+entry and the refuse-a-newer-DB path has never run outside a test. That is honest
+coverage, not proven operation; the first real v2→v3 is where the mechanism gets its
+actual exercise.
+
+### 19.5 H7 — a signature the phase can restore is not a signature
+
+F3 and J4 settled *whether* `.git/`'s control surfaces are measured. H7 is about what
+"measured" means for them.
+
+Every entry in the fingerprint signed as `file:{size}:{mtime_ns}`. That is the right
+trade for the ~2.8k dirty paths in the engine tree — hashing them per phase would cost
+more than the phase — and it is the wrong trade here, because **both fields are settable
+by the phase whose writes they exist to catch**. Matching a size is choosing the
+payload's length. Restoring an mtime is `touch -t`. Neither needs anything beyond the
+`Bash` the agentic lane already grants unrestricted, which J1 measured rather than
+assumed. The adversary was inside the signature's own inputs.
+
+Fix: the control surfaces — and only those, a closed handful rather than thousands — go
+through `_content_sig`: sha256 of the bytes, plus the size, plus the permission bits,
+with a 1 MiB read cap whose exceedance is **recorded in the signature string** rather
+than silently truncating. Oversize falls back to stat and says so in the value.
+
+**A side-effect worth naming.** Routing these entries away from `_signature` left its
+`real_path` parameter — added by J4 one round earlier — with no call site. I removed it
+rather than keeping it "in case": an argument nothing passes is a branch no test can
+reach, which is the ROUTE axis this series keeps finding. That in turn meant rewriting
+the J4 mutations into their post-H7 form, so the mechanism J4 certified stays certified
+against the code that now exists rather than against the code that used to.
+
+**H7-b survived the first pass, and that is the finding.** Dropping `st_mode` from the
+content signature left the entire suite green. In plain terms: `chmod +x` on an inert
+hook moved nothing. A non-executable `pre-commit` is harmless — that is exactly why
+every fresh repo ships `pre-commit.sample` — and `chmod` writes not one byte, so size,
+mtime and content hash are all unchanged. The measurement covered the file's CONTENT
+while the question is whether the file EXECUTES. Different questions, and the wrong
+answer is the safe-looking one. Nineteen-plus instances in, the shape recurred inside
+the fix for the previous instance of the shape.
+
+The mode was already in the code. What did not exist was any row that would notice its
+absence, which is the same thing as it not being there.
+
+Mutations, full suite each, killers recorded by name:
+
+| id | mutation | killed by |
+|---|---|---|
+| H7-a | control surfaces fall back to `_signature` (size+mtime) | `test_H7_a_…`, `test_H7_b_…`, `test_J4_a_EDITING_…` |
+| H7-b | drop `st_mode` from the content signature | `test_H7_b_a_hook_made_EXECUTABLE_without_editing_it_…` — **only** |
+
+H7-b dies to its own row and nothing else in 525. H7-a is broader on purpose: dropping
+back to `_signature` also un-does J4's real-path routing, so the worktree rows go with
+it. Its own row is among the killers, which is what the claim needs.
+
+Both rows are deliberately kept apart. A single row asserting "the hook moved" passes on
+either mechanism and therefore certifies neither — the H4-d lesson (rule 30) applied
+before the fact instead of after it. Each carries premise assertions that fail loudly
+rather than passing vacuously: H7-a asserts the two bodies are the same LENGTH and that
+the mtime actually restored (the first draft was two bytes off and said so); H7-b asserts
+that `chmod` moved neither size nor mtime on this filesystem.
+
+A K1 PARTNER control rides with them: fingerprinting twice with no write between must
+not move a control surface. Hashing reads, and reading moves atime; had atime entered
+the signature, every second snapshot would report a breach and the operator would learn
+to click through the one alert that matters.
+
+### 19.6 A defect in the instrument, again: the killer names were all `FAILED`
+
+Pass two's harness printed `killers (2): ['FAILED', 'FAILED']`. The parser split on
+whitespace *before* stripping the `FAILED ` prefix, so every name collapsed to the word
+`FAILED`. Counts were usable; attribution was not — and attribution is the entire point
+of recording a first killer (rule 30). A mutation harness that reports "something went
+red" has told me what a bare exit code already told me.
+
+Fixed and re-run. This is the third round in which the measuring instrument, not the
+subject, carried the defect: a red baseline (17.5), a flat glob for the suite's own
+subject (F7/F2), and now a report that could not name its own evidence.
+
+### 19.7 The J5 survivor: a finding about wiring, undone by wiring
+
+Pass one ran five J5 mutations. Four died. The one that lived was **J5-a — delete
+`result.extra,` from the runner's call site.**
+
+Four rows certified that `record_agent_session` correctly stores a grant it is handed:
+the JSON round-trips, a missing grant lands as NULL rather than `'[]'`, an old DB
+migrates, a newer one is refused. Not one of them certified that anything ever hands it
+one. Cut the argument and the column silently takes its default; every row still passes;
+the receipt is empty in exactly the case J5 was reported for.
+
+This is the WIRING axis — the fifth of the five ways a defect stays unreached — arriving
+on a finding whose entire subject was a value being adjudicated and then dropped. The
+fix and the defect have the same shape one layer apart, which is now the third time this
+round (J4's common-dir keys, H7's mode, this).
+
+`test_J5_the_runner_CARRIES_the_grant_to_the_ledger` closes it, and it is deliberately
+end-to-end: a stub harness returns an init frame, a real `_h3_run` executes, and the
+assertion reads `permission_mode` and `granted_tools` back **out of the database**. A row
+that asserted on the call arguments would have been another statement about the same
+code, not about whether the wire exists.

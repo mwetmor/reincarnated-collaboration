@@ -157,6 +157,51 @@ def _stat_sig(path: Path) -> str:
         return f"unreadable:{exc.errno}"
 
 
+#: Gate-2 H7. Bytes read per control surface before falling back to stat. A hook is a
+#: script and a config is an ini file; anything past this is not one of those, and the
+#: cap is what keeps "hash it" from becoming an unbounded read of an attacker-chosen
+#: file. Exceeding it is RECORDED in the signature, never silently truncated.
+_CONTROL_HASH_MAX_BYTES = 1 << 20      # 1 MiB
+
+
+def _content_sig(path: Path) -> str:
+    """Content hash, for the handful of paths where stat is not good enough.
+
+    Gate-2 H7. `_stat_sig` is size + mtime. Both are SETTABLE by the phase being
+    measured: an equal-length rewrite of `.git/hooks/pre-commit` followed by
+    `touch -t` restores the pair exactly, and the fingerprint reads unchanged. That was
+    an acceptable deferral while the threat was theoretical. J1 fired the trigger —
+    `--allowedTools` does not restrict in headless `default` mode, so a phase declaring
+    `Bash(git status:*)` has unrestricted `Bash`, and `touch` is in it.
+
+    Applied ONLY to the F3/H4 control surfaces, which is the whole reason it is
+    affordable. The general fingerprint's cost argument — the engine tree carries ~2.8k
+    dirty paths, hashing them per phase would cost more than the phase — is imported
+    from a different population and does not cover three small files that change only
+    when somebody decides to change them.
+
+    A directory is NOT hashed here: the only directory-valued control keys are the
+    synthetic nested-gitdir markers, which name nothing on disk by design (K1).
+    """
+    try:
+        if path.is_dir():
+            return _stat_sig(path)
+        st = path.stat()
+        if st.st_size > _CONTROL_HASH_MAX_BYTES:
+            # Say so rather than hash a prefix: a prefix hash reads exactly like a
+            # whole-file hash and would be defeated by appending. Falling back to stat
+            # is weaker, so the signature carries the word.
+            return f"oversize:{st.st_size}:{_stat_sig(path)}"
+        h = hashlib.sha256()
+        with path.open("rb") as fh:
+            h.update(fh.read(_CONTROL_HASH_MAX_BYTES))
+        # Mode is part of the surface: a hook that becomes executable has changed what
+        # git does with it without changing one byte of its content.
+        return f"content:{st.st_size}:{st.st_mode & 0o7777:o}:{h.hexdigest()[:32]}"
+    except OSError as exc:
+        return f"unreadable:{exc.errno}"
+
+
 def _record_walk_error(h: "hashlib._Hash"):
     """os.walk error handler that folds the failure INTO the signature.
 
@@ -248,6 +293,14 @@ def _signature(root: Path, rel: str) -> tuple[str, str]:
     `ls-files --others --exclude-standard`, which excluded ignored members and
     was therefore blind to exactly the writes this mechanism exists to catch.
     """
+    # Gate-2 J4/H7. This function no longer sees the git control surfaces at all —
+    # `fingerprint` routes them to `_content_sig` with the REAL path, because for a
+    # worktree or submodule the key (`.git/…`, so it classifies as protected) and the
+    # file (outside the worktree entirely) are different paths. J4 first solved that
+    # with a `real_path` parameter here; H7 then made those entries content-hashed
+    # rather than stat-signed, which left the parameter unreachable. It is removed
+    # rather than kept "in case": an argument no call site passes is a branch no test
+    # can reach, which is the ROUTE axis this review series keeps finding.
     path = root / rel
     if rel.endswith("/") or path.is_dir():
         return _walk_signature(path, _IGNORED_SCAN_CAP)
@@ -555,8 +608,25 @@ GIT_NESTED_GITDIRS: tuple[str, ...] = ("worktrees/", "modules/")
 _MAX_GITDIR_DEPTH = 4
 
 
-def _gitdir_control_entries(dot: Path, prefix: str, depth: int, out: dict[str, str]) -> None:
-    """The closed control list for ONE gitdir, then recurse into the gitdirs it holds."""
+def _gitdir_control_entries(
+    dot: Path,
+    prefix: str,
+    depth: int,
+    out: dict[str, str],
+    real: dict[str, Path] | None = None,
+) -> None:
+    """The closed control list for ONE gitdir, then recurse into the gitdirs it holds.
+
+    `dot` is the DIRECTORY ON DISK; `prefix` is the KEY the entry is filed under. They
+    are already separate because nested gitdirs key relative to the outer repo. Gate-2
+    J4 makes the separation load-bearing: for a worktree or submodule the real gitdir
+    lives outside the worktree entirely, so the key must stay under `.git/` (that is
+    what `PROTECTED_EVERY_REPO` matches) while the stat must follow the real path.
+
+    `real` collects key -> the actual filesystem path the entry was read from, so
+    `_signature` can sign the file that exists rather than the one the key names. When
+    the two coincide — the ordinary in-repo case — the map is redundant and harmless.
+    """
     if depth > _MAX_GITDIR_DEPTH:
         out[f"{prefix}\t<nested deeper than {_MAX_GITDIR_DEPTH} gitdirs: not measured>"] = (
             GIT_CONTROL
@@ -571,13 +641,18 @@ def _gitdir_control_entries(dot: Path, prefix: str, depth: int, out: dict[str, s
                 # Sorted so the entry set is deterministic; direct children only,
                 # because that is the exact set git executes.
                 for child in sorted(target.iterdir()):
-                    out[f"{prefix}/{rel}{child.name}"] = GIT_CONTROL
+                    key = f"{prefix}/{rel}{child.name}"
+                    out[key] = GIT_CONTROL
+                    if real is not None:
+                        real[key] = child
             except OSError as exc:
                 # Unreadable must never read as unchanged — same rule as everywhere
                 # else in this module.
                 out[f"{prefix}/{rel}\t<unreadable: {exc.strerror}>"] = GIT_CONTROL
         elif target.exists():
             out[f"{prefix}/{rel}"] = GIT_CONTROL
+            if real is not None:
+                real[f"{prefix}/{rel}"] = target
 
     for nested in GIT_NESTED_GITDIRS:
         container = dot / nested.rstrip("/")
@@ -603,11 +678,58 @@ def _gitdir_control_entries(dot: Path, prefix: str, depth: int, out: dict[str, s
             out[f"{prefix}/{nested}\t<gitdir: {child.name}>"] = GIT_CONTROL
             if child.is_dir():
                 _gitdir_control_entries(
-                    child, f"{prefix}/{nested}{child.name}", depth + 1, out
+                    child, f"{prefix}/{nested}{child.name}", depth + 1, out, real
                 )
 
 
-def _git_control_entries(root: Path) -> dict[str, str]:
+def _resolve_gitdir_pointer(
+    root: Path, dot: Path, out: dict[str, str], real: dict[str, Path] | None
+) -> Path | None:
+    """Read `gitdir: <path>` out of a `.git` FILE. Unreadable is RECORDED, never skipped.
+
+    Gate-2 J4. Every failure to resolve files an entry saying so, because the whole
+    point of this pass is that "we could not look" must not be stored as "there was
+    nothing there" — the same rule `_MAX_GITDIR_DEPTH` follows one function up.
+    """
+    try:
+        text = dot.read_text(encoding="utf-8", errors="replace").strip()
+    except OSError as exc:
+        out[".git\t<gitdir pointer unreadable: %s>" % exc.strerror] = GIT_CONTROL
+        return None
+    if not text.startswith("gitdir:"):
+        out[".git\t<gitdir pointer unparseable: no 'gitdir:' prefix>"] = GIT_CONTROL
+        return None
+    target = Path(text[len("gitdir:"):].strip())
+    if not target.is_absolute():
+        target = (root / target).resolve()
+    if not target.is_dir():
+        out[f".git\t<gitdir points at a non-directory: {target}>"] = GIT_CONTROL
+        return None
+    return target
+
+
+def _resolve_commondir(
+    gitdir: Path, out: dict[str, str], real: dict[str, Path] | None
+) -> Path | None:
+    """The shared gitdir a linked worktree runs its hooks out of. Absent = it IS the one."""
+    marker = gitdir / "commondir"
+    if not marker.is_file():
+        return gitdir
+    try:
+        text = marker.read_text(encoding="utf-8", errors="replace").strip()
+    except OSError as exc:
+        out[f".git\t<commondir unreadable: {exc.strerror}>"] = GIT_CONTROL
+        return None
+    common = Path(text)
+    if not common.is_absolute():
+        common = (gitdir / common).resolve()
+    if not common.is_dir():
+        out[f".git\t<commondir points at a non-directory: {common}>"] = GIT_CONTROL
+        return None
+    return common
+
+
+def _git_control_entries(root: Path, real: dict[str, Path] | None = None) -> dict[str, str]:
     """Measure `.git/`'s control surfaces, because `git status` never will.
 
     Gate-2 F3. Every other path in this module arrives from `git status`; these cannot,
@@ -623,18 +745,54 @@ def _git_control_entries(root: Path) -> dict[str, str]:
     parallel comparison path. `.git/` is in PROTECTED_EVERY_REPO, so any of them
     changing is a breach in every declared repo regardless of `writes`.
 
-    A worktree/submodule `.git` is a FILE pointing elsewhere. Then there is nothing
-    here to enumerate and the pointer file itself is the entry — its content is what
-    would have to change to redirect anything.
+    A worktree/submodule `.git` is a FILE pointing elsewhere.
+
+    Gate-2 J4. The first version stopped there, filed the pointer file as the single
+    entry, and justified it: "its content is what would have to change to redirect
+    anything." That reasoning answers a question nobody asked. REDIRECTING the gitdir
+    is one route to a hook; PLANTING one in the gitdir the pointer already names is the
+    other, and it moves no byte of the pointer file. So in every worktree and every
+    submodule — the two places this repo's own workflows create on purpose — the exact
+    write F3 exists to catch was reported as a clean tree. The recurring shape: a
+    containment predicate that answers a slightly different question than the one
+    asked, whose wrong answer is the safe-looking one.
+
+    Both routes are now measured. The pointer file stays an entry (redirection), and
+    the gitdir it names is enumerated (planting), keyed under `.git/` so it classifies
+    as the protected surface it is while `real` carries where to actually stat.
+
+    `commondir` matters and is not optional. A linked worktree's gitdir does NOT hold
+    the hooks git runs in it — `hooks/`, `config` and `info/exclude` resolve through the
+    COMMON dir, the main repo's `.git`. Enumerating only the per-worktree gitdir would
+    have measured `config.worktree` and missed `pre-commit`, which is to say it would
+    have missed the one file the whole mechanism is named after.
     """
     dot = root / ".git"
     out: dict[str, str] = {}
     if not dot.exists():
         return out
     if not dot.is_dir():
+        # The pointer itself: content signature, because redirection is a real route.
         out[".git"] = GIT_CONTROL
+        if real is not None:
+            real[".git"] = dot
+        gitdir = _resolve_gitdir_pointer(root, dot, out, real)
+        if gitdir is None:
+            return out
+        _gitdir_control_entries(gitdir, ".git", 1, out, real)
+        common = _resolve_commondir(gitdir, out, real)
+        if common is not None and common != gitdir:
+            # The tab goes AFTER the slash, and that is load-bearing rather than
+            # cosmetic. `PROTECTED_EVERY_REPO` matches by literal `.git/` prefix
+            # (`_matches` -> `path.startswith(bare + "/")`), so the first version of
+            # this key — `.git\t<common>` — was NOT protected in any repo. The
+            # docstring claimed it classified "as the protected surface it is" while
+            # the only rows checking it compared fingerprint CONTENT, which moves
+            # whether or not the key is protected. A claim no assertion reaches, one
+            # layer beneath a fix for a claim no assertion reached.
+            _gitdir_control_entries(common, ".git/\t<common>", 1, out, real)
         return out
-    _gitdir_control_entries(dot, ".git", 1, out)
+    _gitdir_control_entries(dot, ".git", 1, out, real)
     return out
 
 
@@ -705,11 +863,22 @@ def fingerprint(
     # Gate-2 F3. The only entries in this function that do NOT come from git, because
     # for these git has no answer to give. Folded in here rather than compared
     # separately so they inherit the diff, the classifier and the receipt unchanged.
-    entries.update(_git_control_entries(root))
+    git_real: dict[str, Path] = {}
+    git_entries = _git_control_entries(root, git_real)
+    entries.update(git_entries)
 
     content: dict[str, str] = {}
     coarse: list[str] = []
     for p in entries:
+        if p in git_entries:
+            # Gate-2 H7. The control surfaces get a CONTENT hash, not size+mtime.
+            # Both halves of the stat signature are settable by the phase being
+            # measured (`touch -t` after an equal-length rewrite), and J1 established
+            # that a phase declaring `Bash(git status:*)` in fact holds unrestricted
+            # `Bash`. Affordable only because this set is tiny and closed — which is
+            # also why the general fingerprint's cost objection does not reach it.
+            content[p] = _content_sig(git_real[p]) if p in git_real else ""
+            continue
         sig, mode = _signature(root, p)
         content[p] = sig
         if mode == COARSE:

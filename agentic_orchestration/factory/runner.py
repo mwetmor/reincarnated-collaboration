@@ -338,10 +338,29 @@ class Runner:
                     # that rounds unknown down to zero under-reports exactly where
                     # spend is least controlled. Overwritten on the normal path
                     # two statements below.
-                    phase.usage = UsageBreakdown.absent(
+                    #
+                    # Gate-2 J3. The first version ASSIGNED the absent reason, which
+                    # discarded whatever prior attempts had already spent — H8's own
+                    # thesis pointed the other way, recording KNOWN cost as absent.
+                    # Attempt 1 can return real tokens and still fail (a refused
+                    # grant, a policy refusal, a malformed envelope all carry usage),
+                    # and if attempt 2 then raised, the ledger read NULL for a phase
+                    # that provably spent. So the in-flight reason is MERGED over the
+                    # running total rather than replacing it. Order matters: `merge`
+                    # resolves `self.absent_reason or other.absent_reason`, and the
+                    # in-flight reason has to win over the constructor's
+                    # "no attempt recorded" — which it does only as the receiver.
+                    in_flight = (
                         f"attempt {attempt} was in flight when the phase ended — the "
-                        "harness returned no usage, so cost is UNKNOWN (not zero)"
+                        "harness returned no usage for it, so ITS cost is UNKNOWN "
+                        "(not zero)"
                     )
+                    if attempt > 1:
+                        in_flight += (
+                            f"; any tokens recorded are the completed attempt(s) "
+                            f"1–{attempt - 1} and are NOT the phase total"
+                        )
+                    phase.usage = UsageBreakdown.absent(in_flight).merge(total_usage)
                 envelope, attempt_usage, exec_error = self._execute(
                     spec, phase, attempt, phase_dir, carried_notes, failures_context
                 )
@@ -507,6 +526,11 @@ class Runner:
             str(prompt_path),
             result.raw_output_path,
             started,
+            # Gate-2 J5. The grant the harness reported, carried to the ledger instead
+            # of being adjudicated and dropped. On a FAILING phase `check_grant`'s
+            # verdict survives in `phases.error`; on a PASSING phase this was the only
+            # thing that could have said what the fence actually was, and it was lost.
+            result.extra,
         )
         if not result.ok:
             return None, result.usage, result.error or "harness reported failure"
