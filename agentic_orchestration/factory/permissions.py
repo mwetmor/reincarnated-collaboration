@@ -21,8 +21,9 @@ region of every declared tree was silently unfenced, including the engine's 3.3 
 `seasons/` and its 450 MB untracked `telemetry.db`. The original reason was sound
 (the factory's own `sessions/` writes were reading as self-breaches on a PROTECTED
 path) but the remedy was a CATEGORY exemption for a NAMED-PATH problem. The
-exemption is now the named list `FACTORY_RUNTIME_PATHS`, and everything else that
-git ignores is measured like anything else.
+exemption is now the named pair `FACTORY_RUNTIME_FILES` (exact) and
+`FACTORY_RUNTIME_DIRS` (prefix), and everything else that git ignores is measured
+like anything else.
 
 Where a region is too large to stat file-by-file within `_IGNORED_SCAN_CAP`, it
 falls back to a directory-mtime sweep, is recorded on the fingerprint as `coarse`,
@@ -71,20 +72,53 @@ so widening them would protect nothing and would collide with rocket's engine-si
 `canonical/`, which is a legitimately declarable write target for its own seam.
 """
 
-FACTORY_RUNTIME_PATHS: tuple[str, ...] = (
-    "agentic_orchestration/factory/sessions/",
+FACTORY_RUNTIME_FILES: tuple[str, ...] = (
     "agentic_orchestration/factory/receipts.db",
     "agentic_orchestration/factory/receipts.db-wal",
     "agentic_orchestration/factory/receipts.db-shm",
+)
+"""Runtime FILES: forgiven when the path is EXACTLY this, and never as a prefix.
+
+Split from the directories at Gate-2 JR-22. One collection spent as
+`rel.startswith(p)` forgave `receipts.dbEVIL` and — because git collapses an
+untracked directory to a single porcelain line — the whole of
+`receipts.db_exfiltrated/` on one entry. Neither reached the change-set, so the
+run reported a clean tree, and the only record of either was a field no consumer
+read. An exemption's fail-open direction is ADDITION (JR-20); this was addition
+by *suffix*, available to the phase rather than to the author.
+
+The kind is STATED by which collection a path is in, not inferred from whether
+its author remembered a trailing slash. That is JR-18's principle — the caller
+decides the direction, the string does not carry it — applied one layer up.
+Choosing `_DIRS` for a file is a visible category error in the diff; omitting
+punctuation is invisible. Both collections are pinned in test_vocabularies.py,
+so an addition to either cannot land without editing a literal that names the
+direction it takes.
+"""
+
+FACTORY_RUNTIME_DIRS: tuple[str, ...] = (
+    "agentic_orchestration/factory/sessions/",
     "agentic_orchestration/factory/__pycache__/",
     "agentic_orchestration/factory/.pytest_cache/",
 )
-"""The factory's OWN runtime writes, exempted BY NAME in the root repo only.
+"""Runtime DIRECTORIES: forgiven as a prefix, and as the bare directory itself.
 
-This is the whole exemption. It is a list of six paths rather than the category
-"anything git ignores", because the category version is what let a write to the
-engine's telemetry DB pass as a green read-only proof. Factory *source* under the
-same directory stays visible AND protected -- self-modification is still a breach.
+Prefix matching is the point here — the factory writes a tree under `sessions/`
+and cannot name its members in advance. `rstrip("/")` covers the form git uses
+when it reports the directory rather than its contents. `sessionsEVIL.txt` does
+not match, and never did: the trailing slash was already doing this job for the
+three directories, which is why JR-22 is confined to the files.
+
+Together with the files these are the whole exemption: six paths, in the root
+repo only. Six rather than the category "anything git ignores", because the
+category version is what let a write to the engine's telemetry DB pass as a
+green read-only proof. Factory *source* under the same directory stays visible
+AND protected -- self-modification is still a breach.
+
+There is deliberately NO `FACTORY_RUNTIME_PATHS = FILES + DIRS` convenience
+alias. `_module_vocabularies` counts container LITERALS, so a name bound to a
+`BinOp` would be a public vocabulary that is invisible to its own denominator —
+the JR-24 shape, introduced by the fix for JR-22.
 """
 
 _QUARANTINE_MAX_BYTES = 64 * 1024 * 1024
@@ -318,7 +352,11 @@ class TreeFingerprint:
     is_git: bool = True
     error: str | None = None
     coarse: list[str] = field(default_factory=list)      # regions past the sweep cap
-    exempted: list[str] = field(default_factory=list)    # factory runtime paths, by name
+    #: forgiven path -> the FACTORY_RUNTIME_* member that forgave it. A dict, not a
+    #: list, so the receipt can say which exemption was spent (Gate-2 JR-22): the
+    #: v1 list recorded the fact of forgiveness and no production consumer read it,
+    #: which is a record that could not have caught the predicate that wrote it.
+    exempted: dict[str, str] = field(default_factory=dict)
     #: repo-relative tree -> the set of directory paths inside it, tree-relative.
     #: Populated only for the read-only trees, which is the only place the cost is
     #: worth paying. Stored as the SET, not as a hash of it: a hash can only say
@@ -411,11 +449,30 @@ def render_containment_facts(facts: tuple[tuple[str, int], ...]) -> str:
     return "; ".join(f"{name}={value}" for name, value in facts)
 
 
-def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
-    """The six named exemptions — root repo only, prefix match, nothing wider."""
+def _factory_runtime_match(rel: str, is_root_repo: bool) -> str | None:
+    """WHICH of the six exemptions forgives `rel`, or None. Root repo only.
+
+    Returns the member rather than a bool (Gate-2 JR-22). Two reasons, and the
+    second is the load-bearing one:
+
+    1. Files match EXACTLY and directories match as a PREFIX. Before the split
+       both matched as a prefix, so `receipts.dbEVIL` and the whole collapsed
+       subtree `receipts.db_exfiltrated/` were forgiven by the name `receipts.db`.
+    2. The receipt records the member alongside the path it forgave. A wrong
+       predicate is then still LEGIBLE downstream: "receipts.dbEVIL forgiven by
+       receipts.db" is a sentence an operator can refute, where a bare list of
+       forgiven paths is not. The instrument that catches the next version of
+       this defect has to name what it is about (rule 45).
+    """
     if not is_root_repo:
-        return False
-    return any(rel.startswith(p) or rel == p.rstrip("/") for p in FACTORY_RUNTIME_PATHS)
+        return None
+    for p in FACTORY_RUNTIME_FILES:
+        if rel == p:
+            return p
+    for p in FACTORY_RUNTIME_DIRS:
+        if rel.startswith(p) or rel == p.rstrip("/"):
+            return p
+    return None
 
 
 #: Synthetic code for the SOURCE half of a rename. git names both endpoints; the
@@ -876,7 +933,7 @@ def fingerprint(
             error=f"git status failed: {status.stderr.strip()[:300]}",
         )
     entries: dict[str, str] = {}
-    exempted: list[str] = []
+    exempted: dict[str, str] = {}
     # The truth about an unreadable directory arrives on STDERR, with returncode 0 and
     # nothing on stdout (containment wall, 2026-08-10 — found by the wall, not by a
     # reviewer). A phase that creates a directory and chmods it 000 is therefore
@@ -886,11 +943,12 @@ def fingerprint(
     # unreadable at BOTH ends is unchanged (no false breach from a pre-existing
     # condition), unreadable at only one end is a change, which is the truth.
     for path in _unreadable_paths(status.stderr):
-        if not _is_factory_runtime(path, is_root_repo):
+        if _factory_runtime_match(path, is_root_repo) is None:
             entries[path] = "!?"
     for code, path in _parse_porcelain_z(status.stdout):
-        if _is_factory_runtime(path, is_root_repo):
-            exempted.append(path)
+        member = _factory_runtime_match(path, is_root_repo)
+        if member is not None:
+            exempted[path] = member
             continue
         entries[path] = code
     # Gate-2 F3. The only entries in this function that do NOT come from git, because

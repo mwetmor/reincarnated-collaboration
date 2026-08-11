@@ -110,8 +110,10 @@ class Runner:
         self.verbose = verbose
         self.receipts = Receipts(self.db_path)
         # phase_id -> caveats already emitted, so the same region is not re-declared
-        # at every snapshot within one phase
-        self._coarse_said: dict[int | None, set[str]] = {}
+        # at every snapshot within one phase. ONE store for both caveat kinds
+        # (coarse and exempted): the detail strings are distinct, and a second
+        # parallel dict is a second thing to remember to reset.
+        self._caveat_said: dict[int | None, set[str]] = {}
 
     # -- logging -----------------------------------------------------------
     def _say(self, line: str) -> None:
@@ -218,14 +220,52 @@ class Runner:
             changes += perm.diff_fingerprints(fp_before, after[key])
         return changes
 
-    def _note_coarse(
+    def _note_caveat(
+        self,
+        kind: str,
+        detail: str,
+        phase_id: int | None,
+        when: str,
+    ) -> None:
+        """Emit a measurement caveat once per phase, to the receipt and the console.
+
+        Shared by both caveat kinds so the dedupe rule, the event spelling and the
+        console line cannot drift apart between them.
+        """
+        if detail in self._caveat_said.get(phase_id, set()):
+            return
+        self._caveat_said.setdefault(phase_id, set()).add(detail)
+        self.receipts.event(self.run_id, f"containment_{kind}", f"{when}: {detail}", phase_id)
+        self._say(f"   containment: {kind} — {detail}")
+
+    def _note_measurement_caveats(
         self,
         fingerprints: dict[str, perm.TreeFingerprint],
         phase_id: int | None,
         when: str,
         agentic: bool,
     ) -> None:
-        """A region measured coarsely is DECLARED as coarse, never reported as exact.
+        """Every reason "the tree was clean" is weaker than it sounds, on the receipt.
+
+        TWO caveat kinds, in ONE method with THREE call sites, deliberately. Gate-2
+        H3 was an argument that defaulted, so one of three snapshots skipped a gate
+        while the README claimed all three. Two sibling methods each needing three
+        call sites is that same hazard by construction: the next snapshot added
+        gets one of them. Folded, "a snapshot was taken" and "its caveats were
+        declared" are the same statement.
+
+        --- caveat 1: EXEMPTED (Gate-2 JR-22) -------------------------------------
+        A path forgiven by `FACTORY_RUNTIME_*` is absent from the change-set, so a
+        clean diff is really "clean, apart from these, under this exemption". The
+        fingerprint recorded them from the start and NO production consumer read
+        the field, which is why a predicate that forgave `receipts.dbEVIL` by the
+        name `receipts.db` produced an empty diff and left no trace anywhere. The
+        line names the member that did the forgiving, not just the path: that is
+        the form an operator can refute, and it is legible even if the predicate
+        writing it is wrong again in some new way.
+
+        --- caveat 2: COARSE ------------------------------------------------------
+        A region measured coarsely is DECLARED as coarse, never reported as exact.
 
         Coarse means directory mtimes: creation, deletion and rename are caught; an
         in-place rewrite of an existing file is not. The receipt says so on every
@@ -254,6 +294,16 @@ class Runner:
         re-asserted against every snapshot. Costs nothing: the fingerprint is already
         computed, and `fp.coarse` is already being read on this line.
         """
+        for key, fp in fingerprints.items():
+            for path, member in sorted(fp.exempted.items()):
+                self._note_caveat(
+                    "exempted",
+                    f"{Path(key).name}: {path} not measured — forgiven by the "
+                    f"factory-runtime exemption {member!r}",
+                    phase_id,
+                    when,
+                )
+
         acknowledged = set(getattr(self.wf, "coarse_acknowledged", []) or [])
         for key, fp in fingerprints.items():
             if not fp.coarse:
@@ -262,12 +312,7 @@ class Runner:
                 f"{Path(key).name} measured COARSELY (directory mtimes; in-place "
                 f"content edits not detected) in region(s): {fp.coarse}"
             )
-            if detail not in self._coarse_said.get(phase_id, set()):
-                self._coarse_said.setdefault(phase_id, set()).add(detail)
-                self.receipts.event(
-                    self.run_id, "containment_coarse", f"{when}: {detail}", phase_id
-                )
-                self._say(f"   containment: coarse — {detail}")
+            self._note_caveat("coarse", detail, phase_id, when)
             if not agentic:
                 continue
             new = sorted(
@@ -332,7 +377,7 @@ class Runner:
                     # (Gate-2 F5), and a gate outside the handler that catches it
                     # would abort the RUN with a traceback instead of aborting the
                     # PHASE with a receipt.
-                    self._note_coarse(
+                    self._note_measurement_caveats(
                         before, phase.phase_id, "phase start", agentic=not spec.is_mechanical
                     )
                 except perm.ContainmentError as exc:
@@ -382,7 +427,7 @@ class Runner:
 
                 try:
                     after = self._fingerprint_all()
-                    self._note_coarse(
+                    self._note_measurement_caveats(
                         after, phase.phase_id, "post-execution",
                         agentic=not spec.is_mechanical,
                     )
@@ -430,7 +475,7 @@ class Runner:
                 # check would let a gate's own writes escape containment.
                 try:
                     post_gate = self._fingerprint_all()
-                    self._note_coarse(
+                    self._note_measurement_caveats(
                         post_gate, phase.phase_id, "post-gate",
                         agentic=not spec.is_mechanical,
                     )

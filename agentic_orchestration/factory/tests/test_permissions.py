@@ -346,7 +346,7 @@ def test_the_factory_exemption_does_not_apply_to_other_repos(git_repo):
 
     paths = {c.path for c in perm.diff_fingerprints(before, after)}
     assert any("factory/sessions" in p for p in paths)
-    assert before.exempted == [], "a non-root repo gets no exemptions at all"
+    assert before.exempted == {}, "a non-root repo gets no exemptions at all"
 
 
 def test_factory_source_is_still_visible_under_the_exempt_directory(git_repo):
@@ -360,6 +360,99 @@ def test_factory_source_is_still_visible_under_the_exempt_directory(git_repo):
 
     paths = {c.path for c in perm.diff_fingerprints(before, after)}
     assert any(p.endswith("factory/gates.py") for p in paths), "self-modification"
+
+
+def test_JR22_an_exempt_FILE_is_forgiven_by_its_NAME_and_not_by_its_PREFIX(git_repo):
+    """Gate-2 JR-22, measured end to end with names a PHASE would choose.
+
+    The v1 predicate spent every member as `rel.startswith(p)`, and three of the six
+    are files. So `receipts.dbEVIL` — one suffix away from a real exemption — was
+    forgiven, and the whole diff came back `[]`: not allowed, not breached, not
+    counted. `receipts.db_exfiltrated/` was worse, because git collapses an untracked
+    directory to a single porcelain line, so ONE forgiven entry took a whole subtree.
+
+    An exemption's fail-open direction is ADDITION (JR-20) and this was addition by
+    SUFFIX — a widening available to the phase being measured rather than to the
+    author of the list. That is why it is measured here with filenames the phase
+    picks, adjacent to a live exemption, against a repo, rather than by calling the
+    predicate with a string: the predicate is also asserted (row below), but the
+    predicate was not the only thing that had to hold. Git's collapsing had to be
+    survived too, and only a real `git status` produces it.
+
+    `gates_EVIL.py` is the visible control. Without it a fingerprint that reported
+    nothing at all would pass every assert here.
+    """
+    factory = _with_factory_skeleton(git_repo)
+    (factory / "receipts.db").write_text("live receipts\n")   # a REAL exempt entry
+
+    before = perm.fingerprint(git_repo, is_root_repo=True)
+    (factory / "receipts.dbEVIL").write_text("one suffix from forgiven\n")
+    (factory / "receipts.db_exfiltrated").mkdir()
+    (factory / "receipts.db_exfiltrated" / "secrets.txt").write_text("stolen\n")
+    (factory / "sessionsEVIL.txt").write_text("adjacent to a DIRECTORY entry\n")
+    (factory / "gates_EVIL.py").write_text("the control\n")
+    after = perm.fingerprint(git_repo, is_root_repo=True)
+
+    paths = {c.path for c in perm.diff_fingerprints(before, after)}
+    assert any(p.endswith("factory/gates_EVIL.py") for p in paths), (
+        "the control is missing, so this fingerprint saw NOTHING and the asserts "
+        "below would pass over a measurement that never happened"
+    )
+    for name in ("receipts.dbEVIL", "receipts.db_exfiltrated", "sessionsEVIL.txt"):
+        # `covers`, not equality: git reports the untracked directory rather than the
+        # file inside it, and being caught at the collapsed parent IS being caught.
+        assert any(f"factory/{name}" in p for p in paths), (
+            f"{name} escaped the change-set. It is not on any exemption list; it "
+            "merely shares a prefix with one, which is a similarity the phase chose"
+        )
+    assert after.exempted == {
+        "agentic_orchestration/factory/receipts.db":
+            "agentic_orchestration/factory/receipts.db",
+    }, (
+        "the real entry is still forgiven, exactly once, and the receipt names the "
+        "member that forgave it. Equality rather than membership: a list that has "
+        "GROWN an entry is the failure this row exists to catch"
+    )
+
+
+def test_JR22_every_exemption_MEMBER_states_its_own_matching_direction():
+    """The predicate half, derived FROM the collections so a new member is covered.
+
+    The row above measures three names against the six members that exist as it is
+    written. This one asks the question once per member, whatever the members become:
+    a file matches exactly and nothing longer, a directory matches its contents and
+    its own bare name and nothing that merely starts with its letters.
+
+    Deliberately NOT a check that files lack a trailing slash and directories have
+    one. That would re-derive the kind from the punctuation, which is the thing the
+    split removed: the kind is stated by WHICH TUPLE the path is in (JR-18 — the
+    caller decides the direction, the string does not carry it). Asserting the
+    punctuation would make the spelling load-bearing again by the back door.
+    """
+    assert perm.FACTORY_RUNTIME_FILES and perm.FACTORY_RUNTIME_DIRS, (
+        "an empty collection makes every loop below vacuous — rule 44's shape, where "
+        "deleting the cases deletes the coverage and the suite gets greener"
+    )
+    for f in perm.FACTORY_RUNTIME_FILES:
+        assert perm._factory_runtime_match(f, True) == f, f"{f} forgives itself"
+        assert perm._factory_runtime_match(f + "EVIL", True) is None, (
+            f"{f}EVIL was forgiven by {f} — JR-22, addition by suffix"
+        )
+        assert perm._factory_runtime_match(f + "/child", True) is None, (
+            f"{f} forgave a subtree; it is a FILE and cannot have one"
+        )
+        assert perm._factory_runtime_match(f, False) is None, "root repo only"
+    for d in perm.FACTORY_RUNTIME_DIRS:
+        assert perm._factory_runtime_match(d + "child.txt", True) == d, (
+            f"{d} must forgive its contents — the factory cannot name them in advance"
+        )
+        assert perm._factory_runtime_match(d.rstrip("/"), True) == d, (
+            f"{d} must forgive the form git uses when it reports the directory itself"
+        )
+        assert perm._factory_runtime_match(d.rstrip("/") + "EVIL", True) is None, (
+            f"{d.rstrip('/')}EVIL was forgiven by {d}"
+        )
+        assert perm._factory_runtime_match(d + "child.txt", False) is None, "root only"
 
 
 # ---------------------------------------------------------------------------

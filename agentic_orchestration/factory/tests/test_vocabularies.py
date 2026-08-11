@@ -4,7 +4,10 @@ ALL of them rather than over the four that happened to be under discussion.
 Rule 47 asked ONE question — is a member *behaviour* or a *record*? — and got the
 right answer for the dict it was written about. jack-ryan measured three survivors
 it does not explain: deleting a member of `FACTORY_RUNTIME_PATHS` survives, and
-ADDING to `FACTORY_RUNTIME_PATHS` or to `STRUCTURE_SKIP_DIRS` survives. All three
+ADDING to `FACTORY_RUNTIME_PATHS` or to `STRUCTURE_SKIP_DIRS` survives. (That
+collection was split into `FACTORY_RUNTIME_FILES` and `FACTORY_RUNTIME_DIRS` at
+JR-22; the finding above is about both halves and is left in its original words.)
+All three
 are behaviour collections, which rule 47 says need no pin.
 
 The missing question is WHICH DIRECTION IS FAIL-OPEN.
@@ -88,15 +91,25 @@ ADJUDICATED_MODULES: dict[str, object] = {
 #: direction is not stated is the state rule 47 was in.
 VOCABULARY_PINS: dict[str, object] = {
     # --- exemption: ADDITION is the fail-open direction --------------------
-    #: Forgiven in the root repo. The consumer is `rel.startswith(p)`, so adding
-    #: `"agentic_orchestration/"` forgives nine agents' trees and adding `""`
-    #: forgives everything. Measured by jack-ryan at round 21: member deletion
-    #: SURVIVES (no covering row at all) and addition SURVIVES.
-    "FACTORY_RUNTIME_PATHS": (
-        "agentic_orchestration/factory/sessions/",
+    #: Forgiven in the root repo, EXACT match only. Split from the directories at
+    #: JR-22, where one collection spent as `rel.startswith(p)` forgave
+    #: `receipts.dbEVIL` and a whole collapsed subtree. Adding
+    #: `"agentic_orchestration"` here forgives one path; adding it to the DIRS
+    #: tuple below forgives nine agents' trees, and `""` there forgives
+    #: everything — which is why the two are pinned separately rather than as one
+    #: list whose members mean different things. Measured by jack-ryan at round 21:
+    #: member deletion SURVIVES (no covering row at all) and addition SURVIVES.
+    #: `test_JR22_every_exemption_MEMBER_states_its_own_matching_direction` now
+    #: covers the DIRECTION of every member; this pin covers WHICH members exist,
+    #: which that row cannot — it passes just as happily over a wider list.
+    "FACTORY_RUNTIME_FILES": (
         "agentic_orchestration/factory/receipts.db",
         "agentic_orchestration/factory/receipts.db-wal",
         "agentic_orchestration/factory/receipts.db-shm",
+    ),
+    #: Forgiven as a PREFIX, which is the fail-open half. See above.
+    "FACTORY_RUNTIME_DIRS": (
+        "agentic_orchestration/factory/sessions/",
         "agentic_orchestration/factory/__pycache__/",
         "agentic_orchestration/factory/.pytest_cache/",
     ),

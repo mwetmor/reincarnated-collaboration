@@ -56,11 +56,11 @@ def test_empty_notes_from_a_failed_phase_stay_empty():
 #
 # C5 put the check at LOAD, which is where it belongs and is not the only place it
 # belongs. The load measurement is a snapshot, and G4's own observation — written into
-# `_note_coarse`'s docstring — is that a region can cross the scan cap DURING a phase,
+# `_note_measurement_caveats`'s docstring — is that a region can cross the scan cap DURING a phase,
 # including because the phase wrote enough files to push it over. That is precisely the
 # case where the acknowledgement matters most, and it was the one case nobody re-asked.
 #
-# `_note_coarse` is called with a stub rather than through a whole agentic run: the
+# `_note_measurement_caveats` is called with a stub rather than through a whole agentic run: the
 # agentic lane costs tokens, and the product function is the thing under test. The stub
 # carries exactly the attributes the method reads, so it cannot pass by supplying
 # something the real Runner does not.
@@ -74,23 +74,85 @@ from factory import permissions as perm
 
 def _coarse_stub(acknowledged):
     said: dict = {}
-    return types.SimpleNamespace(
+    stub = types.SimpleNamespace(
         wf=types.SimpleNamespace(coarse_acknowledged=list(acknowledged)),
-        _coarse_said=said,
+        _caveat_said=said,
         run_id=1,
         receipts=types.SimpleNamespace(event=lambda *a, **k: None),
         _say=lambda *a, **k: None,
     )
+    # The REAL emitter, bound to the stub — not a lambda. Faking it would let these
+    # rows pass over an emitter that no longer emits, which is the defect shape this
+    # file exists to catch.
+    stub._note_caveat = types.MethodType(Runner._note_caveat, stub)
+    stub.events = []
+    stub.receipts = types.SimpleNamespace(
+        event=lambda run_id, kind, detail, phase_id: stub.events.append((kind, detail))
+    )
+    return stub
 
 
 def _coarse_fp(root, region="ignored/"):
     return {str(root): perm.TreeFingerprint(root=root, head="abc", coarse=[region])}
 
 
+# ---------------------------------------------------------------------------
+# Gate-2 JR-22 — the exemption reaches the RECEIPT
+#
+# `TreeFingerprint.exempted` was populated from the first commit and read by no
+# production consumer. That is what made the prefix-matching defect total: a path
+# forgiven by the wrong member left the change-set silently AND left no trace, so
+# there was no artifact anywhere in which the mistake could have been noticed. The
+# field is now emitted, and this row is what stops it going quiet again — a record
+# nothing asserts on is the same as a record nothing reads.
+# ---------------------------------------------------------------------------
+def test_JR22_a_forgiven_path_is_DECLARED_on_the_receipt_with_the_member(tmp_path):
+    stub = _coarse_stub([])
+    fp = {str(tmp_path): perm.TreeFingerprint(
+        root=tmp_path, head="abc",
+        exempted={"agentic_orchestration/factory/sessions/run-1.json":
+                  "agentic_orchestration/factory/sessions/"},
+    )}
+    Runner._note_measurement_caveats(
+        stub, fp, phase_id=1, when="post-execution", agentic=True
+    )
+
+    exempt_events = [d for kind, d in stub.events if kind == "containment_exempted"]
+    assert len(exempt_events) == 1, (
+        f"expected exactly one exemption caveat, got {stub.events}. A clean diff over "
+        "a tree with forgiven paths is a qualified claim, and the qualification has "
+        "to survive to the receipt where a later reader will find it"
+    )
+    assert "sessions/run-1.json" in exempt_events[0], "the path that was forgiven"
+    assert "'agentic_orchestration/factory/sessions/'" in exempt_events[0], (
+        "the MEMBER that forgave it. A bare list of forgiven paths is not refutable: "
+        "JR-22's `receipts.dbEVIL` looks plausible until you are told it was forgiven "
+        "by `receipts.db`, and then it is obviously wrong"
+    )
+
+
+def test_JR22_the_exemption_caveat_is_not_gated_on_the_LANE(tmp_path):
+    """The coarse caveat has an agentic-only GATE beside it (F5). This one has none,
+    and that is deliberate rather than unfinished: the founding run is entirely
+    mechanical, the factory writes its own receipts.db throughout it, and a caveat
+    that only appeared on the agentic lane would be absent from every receipt the
+    factory has actually produced so far."""
+    stub = _coarse_stub([])
+    fp = {str(tmp_path): perm.TreeFingerprint(
+        root=tmp_path, head="abc",
+        exempted={"agentic_orchestration/factory/receipts.db":
+                  "agentic_orchestration/factory/receipts.db"},
+    )}
+    Runner._note_measurement_caveats(
+        stub, fp, phase_id=1, when="phase start", agentic=False
+    )
+    assert [k for k, _ in stub.events] == ["containment_exempted"]
+
+
 def test_F5_an_UNACKNOWLEDGED_coarse_region_stops_an_agentic_phase_mid_run(tmp_path):
     stub = _coarse_stub([])
     with pytest.raises(perm.ContainmentError, match="does not acknowledge"):
-        Runner._note_coarse(
+        Runner._note_measurement_caveats(
             stub, _coarse_fp(tmp_path), phase_id=1, when="post-execution", agentic=True
         )
 
@@ -98,7 +160,7 @@ def test_F5_an_UNACKNOWLEDGED_coarse_region_stops_an_agentic_phase_mid_run(tmp_p
 def test_F5_the_refusal_names_the_key_the_author_must_write(tmp_path):
     stub = _coarse_stub([])
     with pytest.raises(perm.ContainmentError) as exc:
-        Runner._note_coarse(
+        Runner._note_measurement_caveats(
             stub, _coarse_fp(tmp_path), phase_id=1, when="post-execution", agentic=True
         )
     assert perm.coarse_key(tmp_path, "ignored/") in str(exc.value), (
@@ -110,7 +172,7 @@ def test_F5_the_refusal_names_the_key_the_author_must_write(tmp_path):
 def test_F5_an_ACKNOWLEDGED_region_passes_through(tmp_path):
     """The escape hatch is the same one C5 established, honoured at the same key."""
     stub = _coarse_stub([perm.coarse_key(tmp_path, "ignored/")])
-    Runner._note_coarse(
+    Runner._note_measurement_caveats(
         stub, _coarse_fp(tmp_path), phase_id=1, when="post-execution", agentic=True
     )
 
@@ -123,7 +185,7 @@ def test_F5_the_MECHANICAL_lane_is_untouched(tmp_path):
     mechanical over a godot tree with two coarse regions, would stop dead.
     """
     stub = _coarse_stub([])
-    Runner._note_coarse(
+    Runner._note_measurement_caveats(
         stub, _coarse_fp(tmp_path), phase_id=1, when="phase start", agentic=False
     )
 
@@ -132,7 +194,7 @@ def test_F5_a_BASENAME_acknowledgement_does_not_satisfy_the_runtime_check(tmp_pa
     """F6's key, enforced on F5's path too — one spelling, both callers."""
     stub = _coarse_stub([f"{tmp_path.name}:ignored/"])
     with pytest.raises(perm.ContainmentError):
-        Runner._note_coarse(
+        Runner._note_measurement_caveats(
             stub, _coarse_fp(tmp_path), phase_id=1, when="post-execution", agentic=True
         )
 
@@ -140,7 +202,7 @@ def test_F5_a_BASENAME_acknowledgement_does_not_satisfy_the_runtime_check(tmp_pa
 # ---------------------------------------------------------------------------
 # Gate-2 H3 — the CALL SITES pass the trigger
 #
-# Every F5 row above calls `Runner._note_coarse(..., agentic=True|False)` directly:
+# Every F5 row above calls `Runner._note_measurement_caveats(..., agentic=True|False)` directly:
 # the TEST supplies the trigger, so the rows certify the function and say nothing
 # about the wiring. jack-ryan disarmed the whole gate by rewriting
 # `agentic=not spec.is_mechanical` to `agentic=False` at both call sites and the
@@ -324,7 +386,7 @@ def test_H3_the_TRIGGER_cannot_be_OMITTED_by_a_future_call_site():
     Round fourteen's mutation set gave the parameter a default of `True` and all 500
     rows stayed green — correctly, since all three call sites pass it explicitly, so
     the default is unreachable today. That is what makes the survivor worth a row
-    rather than a shrug. `_note_coarse`'s own docstring states the rule it would have
+    rather than a shrug. `_note_measurement_caveats`'s own docstring states the rule it would have
     lost ("A required argument turns that omission into a TypeError at the call site
     rather than a gate that quietly does not apply"), and the rule was enforced by
     nothing except the fact that nobody had yet written a fourth call site. That call
@@ -336,7 +398,7 @@ def test_H3_the_TRIGGER_cannot_be_OMITTED_by_a_future_call_site():
     only thing under test is the signature.
     """
     with pytest.raises(TypeError) as excinfo:
-        _Runner._note_coarse(object(), {}, None, "post-gate")   # no `agentic`
+        _Runner._note_measurement_caveats(object(), {}, None, "post-gate")   # no `agentic`
     assert "agentic" in str(excinfo.value), (
         "omitting the coarse-tier trigger raised TypeError for some OTHER reason than "
         "the missing argument, so this row would keep passing if `agentic` regained a "
