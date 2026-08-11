@@ -108,9 +108,122 @@ left the suite green. Four rows certified that `record_agent_session` stores a g
 handed to it, and none certified that anything ever hands it one. That is the WIRING
 axis, landing on a finding about wiring.
 
-### Known gap, stated rather than closed
+### Known gap, stated rather than closed — CLOSED in v3
 
 `permission_mode` records what the **harness reported**. It does not record the host's
 `~/.claude/settings.json` `defaultMode`, which on this host is `bypassPermissions` and
 was H1's root cause. Reading that at run start and recording it on `sessions` is queued
 (jack-ryan's H6 amendment) and is **not** in v2.
+
+*Closed by v2 → v3 below. The paragraph stays because a gap that was open for a version
+is part of what a v2 row means, and a reader querying v2 rows needs to know it.*
+
+---
+
+## v2 → v3 — the limits of the measurement become part of the measurement (Gate-2 H6)
+
+**Shipped:** round sixteen, 2026-08-11. **Author:** star-lord.
+**Blast radius:** additive. Every v1/v2 query returns identical results against a v3 DB.
+
+### What changed
+
+Four columns added to `sessions`, all nullable, no defaults:
+
+| column | type | meaning |
+|---|---|---|
+| `host_permission_mode` | TEXT | `permissions.defaultMode` as `~/.claude/settings.json` states it |
+| `host_permission_source` | TEXT | the sentence naming *which file* that came from and *which layers were not resolved* |
+| `measured_trees` | TEXT | JSON array of the trees actually fingerprinted (`wf.repos`) |
+| `measurement_limit` | TEXT | the sentence bounding what a green containment verdict means |
+
+New module `factory/host.py` — `read_host_permission_mode()` and
+`describe_measurement_limit()`. `Receipts.start_session` gains three optional
+parameters (`host`, `measured_trees`, `measurement_limit`); existing call sites that
+omit them write NULLs and are unaffected.
+
+### Why — the receipt recorded the fence and omitted the ground
+
+Two facts are true of every run and neither one is visible from inside a phase:
+
+1. **The wall stands on ground the factory does not set.** H1's root cause was
+   `~/.claude/settings.json` setting `permissions.defaultMode` to `bypassPermissions`
+   — outside the tree, outside the workflow. J1 then measured that `--allowedTools`
+   does **not** restrict in headless `default` mode, so the argv is not evidence of the
+   grant either. v2 recorded what the harness reported about itself. Nothing recorded
+   what the host had already decided before the harness started.
+2. **The wall only ever looked at `wf.repos`.** A phase with unrestricted `Bash`
+   reaches the whole filesystem. "0 breaches" is a claim about a bounded region, and
+   before v3 the boundary appeared nowhere on the receipt.
+
+Neither is a defect in the wall. Both are defects in what the receipt *claims* the wall
+established — the recurring shape of this whole review series, arriving one level up: a
+narrower answer wearing the wide answer's clothes.
+
+### NULL semantics — read this before writing a query
+
+- `host_permission_mode IS NULL` — the mode was **not stated or not readable**. The
+  `host_permission_source` sentence distinguishes the four cases (`UNREAD`,
+  `UNPARSEABLE`, `UNSTATED`, and — on a pre-v3 row — both columns NULL, meaning the run
+  never looked).
+- `host_permission_mode` is **never** filled with Claude Code's own fallback,
+  `"default"`. That value would be correct on every host that has not changed the
+  setting and unfalsifiable on the ones that have. It is `usage.py`'s zero-filled-token
+  defect moved from cost to containment, and it is refused by
+  `test_H6_an_UNSTATED_host_default_is_NULL_not_the_fallback`.
+- A consumer that writes `COALESCE(host_permission_mode, 'default')` has converted "we
+  did not measure" into "the host was ordinary."
+- `measured_trees = '[]'` — the run fingerprinted **nothing**. `IS NULL` — the run did
+  not record what it fingerprinted. These are different facts.
+
+Rows migrated from v1/v2 carry NULL in all four columns and are **not backfilled**. The
+host default for a run that predates this measurement was never measured and must read
+as unmeasured forever.
+
+### What this column set does NOT resolve
+
+`host_permission_mode` is **one layer**. Claude Code resolves enterprise policy, CLI
+flags, environment, project `.claude/settings.json`, `.claude/settings.local.json`, and
+the user file. This reads the last of those. That limit is written into every
+`host_permission_source` value rather than into this document alone, so a query that
+returns the mode cannot separate it from its caveat.
+
+(Measured on this host: `~/.claude/settings.json` states `bypassPermissions`; the
+meta-repo's `.claude/settings.local.json` has an `allow` list and no `defaultMode`; the
+meta-repo has no `.claude/settings.json`. So the layers do stack here, and reading one
+of them is a partial measurement — named, not papered over.)
+
+### The surface renders it on the GREEN path
+
+`report.render_run_report` emits a `## What was measured — and what was not` section on
+**every** run, not inside `if breaches:`. Green is where the over-claim happens: "0
+breaches" invites the reading "nothing was written". A caveat that only prints when
+something went wrong is a caveat no reader of a green report ever sees. Asserted by
+`test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches`, whose premise assertion
+requires the breach section to be absent so the row cannot pass on the other mechanism.
+
+### How the migration runs
+
+Automatically, on `Receipts.__init__`, via `_MIGRATIONS[1]`. Additive `ALTER TABLE`
+only. A pre-existing v2 row survives with NULLs — asserted by
+`test_H6_a_v2_database_is_MIGRATED_to_v3_and_its_rows_survive` against a hand-built v2
+fixture (built by hand rather than by dropping columns from the current schema: a
+fixture assembled by mutating today's code cannot represent a DB written months ago).
+
+**Nothing is needed from any consumer.** No coordination window; v1 and v2 queries keep
+working.
+
+### Verification
+
+Thirteen rows in `tests/test_host.py`, each run against its own mutation with the first
+killer recorded. The four load-bearing ones:
+
+- `test_H6_an_UNSTATED_host_default_is_NULL_not_the_fallback` — kills the zero-fill.
+- `test_H6_the_PRODUCTION_default_path_resolves_through_the_users_home` — the ROUTE
+  row. Every other host row passes an explicit path, so all of them would stay green if
+  the no-argument default pointed somewhere that does not exist. This one moves
+  `Path.home()` and watches the real default follow, which is only possible because
+  `default_settings_path()` resolves at call time rather than at import.
+- `test_H6_a_RUN_records_the_host_default_it_ran_under` — the WIRING row, written
+  because J5's first mutation pass found the column-writing correct and the call site
+  absent.
+- `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` — the green path.

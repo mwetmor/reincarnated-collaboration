@@ -80,6 +80,57 @@ def _dollars_line(totals: dict[str, Any]) -> str:
     return f"${dollars:.4f} — {label}"
 
 
+def _measurement_lines(session: Any) -> list[str]:
+    """The H6 caveat block — rendered on EVERY run, green ones included.
+
+    This is deliberately not inside `if breaches:`. The breaches section only exists
+    when something went wrong, and a caveat that only appears on the bad path is a
+    caveat nobody with a green run ever reads. Green is precisely where the
+    over-claim happens: "0 breaches" invites the reading "nothing was written",
+    when what was measured is "nothing was written IN THE DECLARED TREES, on a host
+    whose own permission default this factory did not set."
+
+    NULLs are rendered as UNRECORDED and never smoothed. A run from before v3 did
+    not measure these things; saying so is the whole contract (`MIGRATION.md`).
+    """
+    lines: list[str] = []
+
+    mode = session["host_permission_mode"]
+    source = session["host_permission_source"]
+    if mode is None and source is None:
+        lines.append(
+            "- **Host permission default:** UNRECORDED — this run did not measure it. "
+            "That is not evidence the host was restricted."
+        )
+    else:
+        shown = f"`{mode}`" if mode else "**UNKNOWN**"
+        lines.append(f"- **Host permission default:** {shown} — {source}")
+
+    raw_trees = session["measured_trees"]
+    if raw_trees is None:
+        lines.append("- **Trees fingerprinted:** UNRECORDED for this run.")
+    else:
+        try:
+            trees = json.loads(raw_trees)
+        except json.JSONDecodeError:
+            trees = None
+        if trees:
+            lines.append(
+                "- **Trees fingerprinted:** "
+                + ", ".join(f"`{t}`" for t in trees)
+            )
+        else:
+            lines.append("- **Trees fingerprinted:** NONE — nothing was looked at.")
+
+    limit = session["measurement_limit"]
+    lines.append(
+        f"- **Limit of the containment claim:** {limit}"
+        if limit
+        else "- **Limit of the containment claim:** UNRECORDED for this run."
+    )
+    return lines
+
+
 def render_run_report(receipts: Receipts, run_id: str) -> str:
     session = receipts.session(run_id)
     if session is None:
@@ -140,6 +191,10 @@ def render_run_report(receipts: Receipts, run_id: str) -> str:
     out.append(f"- billable token total: **{_tok(totals['billable_token_total'])}** "
                "(reasoning excluded by law — it is a share of output)")
     out.append(f"- dollars: {_dollars_line(totals)}")
+    out.append("")
+
+    out.append("## What was measured — and what was not\n")
+    out.extend(_measurement_lines(session))
     out.append("")
 
     breaches = [e for e in receipts.events(run_id) if e["kind"] == "permissions_breach"]

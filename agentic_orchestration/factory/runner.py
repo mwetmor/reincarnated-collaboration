@@ -25,6 +25,7 @@ from . import permissions as perm
 from .envelope import EnvelopeBase, EnvelopeError, envelope_prompt_block, extract_envelope
 from .gates import GateReport, RunContext, run_gate
 from .harness import get_harness
+from .host import describe_measurement_limit, read_host_permission_mode
 from .phase import FAILED, PASS, Phase
 from .receipts import Receipts
 from .usage import UsageBreakdown
@@ -122,6 +123,13 @@ class Runner:
         self.session_dir.mkdir(parents=True, exist_ok=True)
         for sub in ("context_handoff", "prompts"):
             (self.session_dir / sub).mkdir(exist_ok=True)
+        # H6. Read the host's permission default and bound the containment claim
+        # BEFORE any phase runs, and store both on the session row. Two things are
+        # true of this run that no phase-level record can carry: the wall stands on
+        # ground this factory does not control, and it only ever looked at
+        # `wf.repos`. Recording them here means they are on the receipt whether the
+        # run goes green or red — and green is where they matter, because green is
+        # where a reader stops asking.
         self.receipts.start_session(
             self.run_id,
             self.wf.name,
@@ -129,6 +137,9 @@ class Runner:
             self.session_dir,
             workflow_path=str(self.wf.path),
             workflow_sha256=self.wf.sha256,
+            host=read_host_permission_mode(),
+            measured_trees=self.wf.repos,
+            measurement_limit=describe_measurement_limit(self.wf.repos),
         )
         (self.session_dir / "workflow.snapshot").write_text(
             self.wf.path.read_text(encoding="utf-8"), encoding="utf-8"

@@ -605,3 +605,22 @@ unknown version rather than guess at it.
    (F7/F2), and a killer-name parser that printed every name as the literal string
    `FAILED` — counts usable, attribution destroyed, which is the whole point of
    recording a first killer. Evidence that cannot name itself is not evidence.
+
+36. **Record what you could NOT measure, next to what you could.** A receipt that
+   reports the fence and omits the ground it stands on has recorded the less
+   important half. Every containment verdict this factory issues was issued
+   underneath a host `permissions.defaultMode` the factory does not set (H1's root
+   cause, `bypassPermissions` on this host) and inside a bounded set of fingerprinted
+   trees. Both facts now live on the session row (H6, schema v3). Neither is a defect
+   in the wall; both are limits on what the wall's silence proves.
+
+37. **A caveat that only prints on the red path is a caveat nobody reads.** Green is
+   where the over-claim happens — "0 breaches" invites "nothing was written" — so the
+   measurement-limit block renders on EVERY run report, not inside `if breaches:`. The
+   reader who most needs the boundary is the one who has stopped asking for it.
+
+38. **Never fill an unstated setting with the system's own default.** Claude Code
+   falls back to `default` when `permissions.defaultMode` is unstated, so recording
+   `"default"` would be right on every host that never changed it and unfalsifiable on
+   every host that did. That is `usage.py`'s zero-filled token, moved from cost to
+   containment. NULL, with a source sentence saying which kind of nothing it was.

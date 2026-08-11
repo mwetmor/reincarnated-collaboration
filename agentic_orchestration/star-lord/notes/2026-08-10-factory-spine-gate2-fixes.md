@@ -2290,3 +2290,131 @@ end-to-end: a stub harness returns an init frame, a real `_h3_run` executes, and
 assertion reads `permission_mode` and `granted_tools` back **out of the database**. A row
 that asserted on the call arguments would have been another statement about the same
 code, not about whether the wire exists.
+
+---
+
+## 20. Round sixteen — H6: what the receipt could not see
+
+One finding, and it is not about the wall. Every round from twelve to fifteen asked
+whether the wall catches a particular write. H6 asks the question one level up: **when
+the wall reports that it caught nothing, what has actually been established?**
+
+Two facts bound the answer, and neither is visible from inside a phase.
+
+### 20.1 The ground the wall stands on
+
+H1's root cause was never in this tree. `~/.claude/settings.json` on this host sets
+`permissions.defaultMode` to `bypassPermissions` — outside the workflow, outside the
+repo, and outside anything the factory configures. J1 then measured (twice, once by
+jack-ryan and once independently by me) that `--allowedTools` does **not** restrict in
+headless `default` mode, which is why v2 moved the grant record from the argv to the
+harness's own init frame.
+
+But v2 records what the harness reported *about itself*. Nothing recorded what the host
+had already decided before the harness started. The receipt described the fence in
+detail and said nothing about the ground it was standing on.
+
+`factory/host.py` now reads that one setting at run start and stores it on the session
+row with a `source` sentence. The sentence is load-bearing and is stored, not just
+documented: Claude Code layers enterprise policy, CLI flags, environment, project
+`.claude/settings.json`, `.claude/settings.local.json`, and the user file, and this
+reads exactly one of them. Measured here: the user file says `bypassPermissions`; the
+meta-repo's `.claude/settings.local.json` carries an `allow` list and no `defaultMode`;
+there is no project `.claude/settings.json`. So the layers really do stack on this host,
+and reporting one of them as *the* answer would be this series' own recurring defect —
+a narrower answer wearing the wide one's clothes — committed in the fix for it.
+
+Storing the caveat in the column rather than only in `MIGRATION.md` means a query that
+returns the mode cannot separate it from what the mode is worth.
+
+### 20.2 The trees the wall looked at
+
+`fingerprint` measures `wf.repos`. A phase with unrestricted `Bash` reaches the whole
+filesystem. Both are true at once and only the first appeared on the receipt, so "0
+breaches" was a claim about a bounded region with the boundary printed nowhere.
+
+`measured_trees` (JSON) and `measurement_limit` (a sentence) now sit on the session row.
+The sentence ends *"A green verdict means 'no unauthorised writes HERE', not 'no
+unauthorised writes'"* — and the falsification partner is the empty case: measuring zero
+trees must not read the same as measuring two. A limit sentence that says the same thing
+either way is decoration.
+
+### 20.3 The zero-fill I refused
+
+The tempting implementation records `"default"` when the settings file does not state a
+mode, because that is Claude Code's own fallback and it would be right on this host.
+
+It is `usage.py`'s opening law, arriving in containment evidence. Tokens are never
+invented and never zero-filled; a mode nobody set is not a mode. Recorded as `"default"`
+it would be correct on every host that never changed the setting and **unfalsifiable on
+every host that did** — which is precisely the population the column exists to
+distinguish. NULL, with a source sentence naming which kind of nothing it was: `UNREAD`,
+`UNPARSEABLE`, `UNSTATED`, or (on a pre-v3 row) both columns NULL, meaning the run never
+looked. Four different nothings, four different sentences.
+
+The corresponding trap for a consumer is written into `MIGRATION.md`:
+`COALESCE(host_permission_mode, 'default')` converts "we did not measure" into "the host
+was ordinary."
+
+### 20.4 The green path is the only path that matters here
+
+The obvious place to render this is next to the breach list. That placement is worthless
+and it is worth saying why: the breach section only exists when something went wrong, so
+a caveat living inside it is a caveat no reader of a green report ever sees. Green is
+exactly where the over-claim happens. `render_run_report` emits
+`## What was measured — and what was not` on **every** run.
+
+The row that holds it there asserts its own premise — `"Permissions breaches" not in
+text` — so it cannot pass by finding the caveat inside a breach section that happens to
+be present.
+
+### 20.5 The ROUTE row, written before the mutation instead of after
+
+Five host-reading rows pass an explicit path. All five would stay green if
+`read_host_permission_mode()`'s no-argument default pointed at a file that does not
+exist — the production route unreached, which is the axis this series keeps landing on.
+
+So `default_settings_path()` resolves `Path.home()` at **call** time rather than at
+import, and one row moves `Path.home()` and watches the real default follow it. A
+module-level constant would have been marginally tidier and structurally untestable.
+
+H6-e is the mutation for it (make the path import-time again), and it dies to that row
+and to nothing else in 538. This is the first round where the ROUTE row was written
+because the axis was anticipated rather than because a mutation survived.
+
+### 20.6 The mutation table
+
+Five mutations, full suite each (538 rows, reach-audit excluded as always), first
+killers recorded by name.
+
+| id | mutation | killed by |
+|---|---|---|
+| H6-a | the run never reads the host default | `test_H6_a_RUN_records_the_host_default_it_ran_under`, `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` |
+| H6-b | an UNSTATED mode is filled with `"default"` | `test_H6_an_UNSTATED_host_default_is_NULL_not_the_fallback`, `test_H6_a_NON_STRING_mode_is_refused_rather_than_stringified` |
+| H6-c | the run records trees but drops the limit sentence | `test_H6_a_RUN_records_the_trees_it_actually_fingerprinted`, `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` |
+| H6-d | the caveat renders only where breaches already render | `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches`, `test_H6_an_UNRECORDED_measurement_reads_as_unrecorded_not_as_clean` |
+| H6-e | the production default resolves at IMPORT | `test_H6_the_PRODUCTION_default_path_resolves_through_the_users_home` — **only** |
+
+Every mutation dies, each to the row written for it, and H6-e dies to exactly one row —
+no other row substitutes for the ROUTE claim. H6-a and H6-c each take the green-path
+render down with them, which is correct: a caveat rendered from a column nothing fills
+is a caveat that reads UNRECORDED, and the row asserting the value is present notices.
+
+No survivors this round. That is the first round since eleven with none, and I do not
+read it as the suite having gotten strong — I read it as H6 being a smaller finding than
+J4 or H7. It adds columns and a sentence; it does not change a predicate.
+
+### 20.7 Schema v3, and what it does not close
+
+`MIGRATION.md` carries the v2 → v3 section (ADR-004). Additive: four nullable columns on
+`sessions`, automatic on `Receipts.__init__`, every v1/v2 query unchanged, pre-existing
+rows NULL and never backfilled. The v2 section's "Known gap, stated rather than closed"
+paragraph — which named H6 — is marked closed rather than deleted, because a gap that
+was open for a version is part of what a v2 row means.
+
+What v3 does **not** close, stated rather than implied:
+
+- The **effective** permission mode is still not resolved. One layer is read. The other
+  five are named in every stored `source` value and in the migration note.
+- Nothing here restricts anything. It is measurement of the measurement. The v1
+  containment posture (base-names-only, pre-hoc) is unchanged and remains Matt's call.

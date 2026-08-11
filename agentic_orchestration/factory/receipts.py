@@ -17,6 +17,13 @@ overwrites on every open can never disagree, and what cannot disagree cannot ref
 Order is now read -> migrate-or-refuse -> stamp. Migrations are additive only
 (`_MIGRATIONS`), a NEWER DB raises `SchemaVersionError` and is deliberately NOT
 restamped, and pre-existing rows are never backfilled. See `factory/MIGRATION.md`.
+
+Gate-2 H6 (v3): `sessions` now also carries what the run could NOT see — the host's
+own `permissions.defaultMode`, the trees actually fingerprinted, and the sentence
+bounding what a green containment verdict means. Those live here rather than in a
+log because a receipt read months later is the only place they can still be found,
+and because a caveat that is not in the evidence store is not evidence. See
+`factory/host.py` for what those values do and do not establish.
 """
 
 from __future__ import annotations
@@ -27,9 +34,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
+from .host import HostPermissions
 from .usage import UsageBreakdown
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 #: Ordered, additive migrations from version N to N+1. Index 0 takes v1 -> v2.
 #:
@@ -45,6 +53,13 @@ _MIGRATIONS: tuple[tuple[str, ...], ...] = (
         "ALTER TABLE agent_sessions ADD COLUMN denial_count INTEGER",
         "ALTER TABLE agent_sessions ADD COLUMN num_turns INTEGER",
         "ALTER TABLE agent_sessions ADD COLUMN stop_reason TEXT",
+    ),
+    # v2 -> v3. Gate-2 H6: the limits of the measurement, stored with the measurement.
+    (
+        "ALTER TABLE sessions ADD COLUMN host_permission_mode TEXT",
+        "ALTER TABLE sessions ADD COLUMN host_permission_source TEXT",
+        "ALTER TABLE sessions ADD COLUMN measured_trees TEXT",
+        "ALTER TABLE sessions ADD COLUMN measurement_limit TEXT",
     ),
 )
 
@@ -72,7 +87,16 @@ CREATE TABLE IF NOT EXISTS sessions (
     status        TEXT NOT NULL,          -- RUNNING | PASS | FAIL | ABORTED
     started_at    TEXT NOT NULL,
     ended_at      TEXT,
-    abort_reason  TEXT
+    abort_reason  TEXT,
+    -- v3 (Gate-2 H6). What the factory could NOT measure, recorded next to what it
+    -- could. `host_permission_mode` is NULL whenever the host did not state one —
+    -- never filled with Claude Code's fallback, which would be a guess wearing a
+    -- measurement's clothes. `measurement_limit` is the sentence that stops a green
+    -- containment verdict from reading as "no writes anywhere".
+    host_permission_mode   TEXT,
+    host_permission_source TEXT,
+    measured_trees         TEXT,          -- JSON array of the trees fingerprinted
+    measurement_limit      TEXT
 );
 
 CREATE TABLE IF NOT EXISTS phases (
@@ -284,10 +308,27 @@ class Receipts:
         session_dir: Path,
         workflow_path: str | None = None,
         workflow_sha256: str | None = None,
+        host: "HostPermissions | None" = None,
+        measured_trees: Iterable[Path | str] | None = None,
+        measurement_limit: str | None = None,
     ) -> None:
+        """Open the session row — including what this run could NOT see (H6).
+
+        `host` is the ONE layer of host permission configuration this factory reads;
+        its `source` sentence travels with it and is the only thing that makes the
+        mode readable later. `measured_trees` is the set actually fingerprinted, and
+        `measurement_limit` is the sentence bounding the containment claim.
+
+        All three are optional so that v1/v2 call sites keep working, and all three
+        land as NULL when omitted. NULL means UNRECORDED. It does not mean the host
+        was unrestricted, and it does not mean nothing was measured — see
+        `factory/MIGRATION.md`, which is the contract a query must read first.
+        """
+        trees = None if measured_trees is None else json.dumps([str(t) for t in measured_trees])
         self.conn.execute(
             "INSERT INTO sessions(run_id, workflow, workflow_path, workflow_sha256, root, "
-            "session_dir, status, started_at) VALUES(?,?,?,?,?,?,'RUNNING',?)",
+            "session_dir, status, started_at, host_permission_mode, host_permission_source, "
+            "measured_trees, measurement_limit) VALUES(?,?,?,?,?,?,'RUNNING',?,?,?,?,?)",
             (
                 run_id,
                 workflow,
@@ -296,6 +337,10 @@ class Receipts:
                 str(root),
                 str(session_dir),
                 utcnow(),
+                host.mode if host else None,
+                host.source if host else None,
+                trees,
+                measurement_limit,
             ),
         )
         self.conn.commit()
