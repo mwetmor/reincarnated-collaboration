@@ -2371,8 +2371,24 @@ def test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name(fenced):
     assert perm.marker_path("odd\tname.txt") == "odd"
     assert perm.marker_path("src/odd\tname.txt") == "src/odd"
     # That is the HAZARD, stated as the fact it is rather than the fact we would like.
-    # It is contained by direction-awareness at the callers, not by this splitter —
-    # see `test_JR18_…` below, which is where the containment is asserted.
+    # It is contained by direction-awareness at the CALLERS, not by this splitter.
+    #
+    # Round 18 wrote "at the callers" and pointed at `test_JR18_…` alone, and jack-ryan's
+    # JR-23 read the plural correctly: the claim was about four call sites and lived at
+    # one. The audit is finished, and the pointer now names all four, because a pointer
+    # that undercounts its own coverage is how a reader stops looking:
+    #
+    #   `_matches`                  -> `test_JR18_a_TAB_NAMED_SIBLING_…` (below) and
+    #                                  `test_JR18_the_DIRECTION_…` (the no-default pin)
+    #   `_read_only_hit`            -> `test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_…`,
+    #                                  `test_JR9_BOTH_SPELLINGS_…`, `test_JR12_…`
+    #   rollback `git_internal`     -> `test_JR5_the_rollback_REFUSES_a_marker_key_…`
+    #   `diff_fingerprints`         -> `test_JR23_the_STRUCTURE_WALK_records_the_name_…`
+    #                                  — and this one is contained by NOT truncating,
+    #                                  because a recorder has no direction to state.
+    #
+    # The property all three truncating sites lean on is asserted once, in
+    # `test_JR23_truncation_is_FAIL_CLOSED_at_the_two_sites_that_keep_it`.
 
 
 def test_JR18_a_TAB_NAMED_SIBLING_does_not_enter_the_writes_allowlist(fenced):

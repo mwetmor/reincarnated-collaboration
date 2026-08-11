@@ -3921,3 +3921,215 @@ The direction row also deliberately does **not** assert that files lack a traili
 slash and directories have one. That would re-derive the kind from the punctuation and
 make the spelling load-bearing again through the back door — undoing § 26.2 in the
 test file while the product code looked fixed.
+
+---
+
+## 27. Round 24 — JR-23: the audit found the survivor, and the survivor was a BLOCK
+
+jack-ryan graded JR-23 **WARN**. The reproduction they gave is exactly right and I
+reproduced every clause of it. The grade is wrong, and the reason it is wrong is worth
+more than the fix.
+
+### 27.1 The WARN rests on a guard the phase can switch off
+
+Their scenario: a phase creates `ro/data\tmarker/` inside a read-only tree.
+`diff_fingerprints` truncated the name to `ro/data`, so the change was reported at a
+directory the phase never touched. What happened next, in their measurement and in
+mine, is a `destroyer` refusal — HEAD holds files under `ro/data`, the rollback
+declines to delete it, the innocent directory is copied to quarantine, and the
+artifact's real name appears nowhere. Bad receipt, no destruction. WARN is a defensible
+grade **for that scenario**.
+
+`destroyer` fires on one condition: *does git's HEAD hold anything under this path?*
+That is a condition about the NEIGHBOUR, and the phase chooses which neighbour to name.
+
+Make the neighbour untracked. Measured, both shapes, before the fix:
+
+```
+the phase's only action:   mkdir "data\tmarker"
+receipt:                   path='data'  action='deleted'  reason='created by the phase'
+data/precious.txt          GONE
+data\tmarker/              still standing
+```
+
+An ignored, untracked directory — a build output dir, a scratch dir, godot's `.godot/`
+import cache — deleted by the containment, under a reason that is false, on a name the
+phase chose, while the phase's actual artifact survived. That is the K1/L1 damage class
+the whole module exists to refuse: *containment must never be the thing that destroys
+work.*
+
+Reachable in the shipped configuration. Both `read_only_trees` are worktree roots with
+ignored build output in them; the structure sweep skips only `.git`; the filename is
+the phase's.
+
+### 27.2 Why the wall's own safety net could not see it
+
+`_assert_canary_survived` is the assertion the module calls "the one assertion that
+catches the whole K1/L1 damage class". It watches a **tracked** file. Tracked content is
+precisely what `destroyer` already protects. The net was strung across the half of the
+space that was already safe, and the defect lived in the other half — the half that F1
+("gitignored regions were not measured at all") had already been a defect about once.
+
+Worth carrying forward as its own shape: **a safety net keyed on the same fact as the
+guard it is auditing tests the guard against itself.** The canary should be dirty
+*and* the canary should have an untracked sibling.
+
+### 27.3 The audit, taken by measurement instead of by reading
+
+jack-ryan's ask was "explicit direction at `:1164`, `:1258`, `:1561`, or a stated
+reason plus a row per site", with the prediction that `:1258` (`_read_only_hit`)
+"looks genuinely fail-closed and that is currently a reasoned claim with no assertion,
+which is the state JR-19 was about."
+
+The question "which call site is unasserted" has one honest instrument. Kill each site;
+whatever stays green is unasserted.
+
+| id | site | mutation | result |
+|---|---|---|---|
+| R24-D | `_matches:1283` | loses `marker_path` | KILLED — 25 failed |
+| R24-C | rollback `git_internal:1619` | loses `marker_path` | KILLED — 11 failed |
+| R24-B | `_read_only_hit:1316` | loses `marker_path` | KILLED — 9 failed |
+| R24-A | `diff_fingerprints:1222` | loses `marker_path` | **SURVIVED — 617 passed** |
+
+Three of the four were asserted, **including the one predicted to be unasserted**.
+`_read_only_hit` is held by JR-5, JR-9 and JR-12 — nine rows across both shapes. The
+correction to jack-ryan's JR-23 is that specific: the reasoned-but-unasserted diagnosis
+was right about the *class* and wrong about the *member*.
+
+The survivor was the fourth site, and it was unasserted **because it was wrong**. No row
+could have been written to want it.
+
+That is the generalisable form, and it is the thing I would have missed by reading:
+
+> A call site can survive its mutation for two opposite reasons — nobody wrote the row,
+> or the site is doing something no row could want. The mutation does not distinguish
+> them. Finding the survivor is the *beginning* of the question.
+
+R24-A's survival was, on its face, JR-19's shape (an unasserted claim) and the obvious
+next move was to write the row that pins it. Writing that row would have pinned the
+defect. Rule 28's error, arriving through the mutation ledger.
+
+### 27.4 The fix is at the recorder
+
+`marker_path` is called at four sites. Three are **matchers** — they ask "is this path
+inside X?" — and truncation is a matcher's question, which is why JR-18 made `_matches`
+take the direction as a keyword with no default.
+
+`diff_fingerprints` is a **recorder**. It names what moved. It has no question to ask,
+so it has no direction to state, and the truncation there was a recorder guessing on
+behalf of callers it cannot see. `marker_path` cannot tell a marker minted by
+`structure_dirs.onerror` from a directory a phase named with a tab in it — and where it
+cannot distinguish, it must not decide.
+
+So the fix is a deletion: the structure walk records the name it was given. The three
+matchers each truncate for themselves, with their own stated direction, as they already
+did.
+
+Note the asymmetry that hid this for four rounds: `diff_fingerprints` has two arms, and
+the **entries** arm never truncated. One function, two arms, two different answers to
+"does a change path carry its marker?" — and the inconsistency was invisible because
+both arms produce the right *verdict*.
+
+### 27.5 The second half: the fix would have traded axes
+
+With markers now reaching the rollback intact, a marker-bearing key hits the ordinary
+verbs, finds nothing at the marked path, and answers `nothing_at_path`:
+
+> "nothing at this path by rollback time; another process may have removed it, so the
+> deletion is not ours to claim"
+
+Nothing removed it. It was never there. That is the **L3 shape** — a refusal with a
+perfectly good reason that is false — and shipping it would have traded the NAME axis
+for the CLAIM axis (Discipline #9). Fixing one axis by breaking another is not a fix.
+
+So the fix has a second half: a new `unreadable_marker` guard that refuses
+marker-bearing keys and says the true thing. Absent-is-absent, applied to the rollback.
+Placed **after** `git_internal` on purpose — a marker key under `.git` keeps the more
+specific reason, and jack-ryan's R24-C ledger row still kills.
+
+Two vocabularies caught the addition on the way in, which is the machinery from rounds
+20-22 working unprompted:
+
+* the wall red on `guard 'unreadable_marker' ... is not one of the 11 declared refusals`
+* the JR-20 pin red on `Extra items in the left set: 'unreadable_marker'`
+
+Both edits are adjudications and both carry the comment saying so, including the
+direction (an ADDITION to an accept vocabulary).
+
+### 27.6 The three rows, and what each is for
+
+| row | holds |
+|---|---|
+| `test_JR23_a_PHASE_CHOSEN_tab_name_cannot_make_the_rollback_act_on_a_NEIGHBOUR` | the scene: untracked neighbour survives, the artifact is NAMED, and it is REFUSED rather than acted on |
+| `test_JR23_the_STRUCTURE_WALK_records_the_name_it_was_given` | the direction at the unit — reinstating the truncation reds here, with the reason, instead of three layers away |
+| `test_JR23_truncation_is_FAIL_CLOSED_at_the_two_sites_that_keep_it` | the *property* the other sites rely on: `marker_path` returns a PREFIX |
+
+The third is the row JR-19 actually asked for. The fail-closed argument existed in three
+comments and in zero assertions, and it is a property over all keys rather than a fact
+about one — so it is asserted as a property (prefix-ness, first-separator splitting,
+`.git`-prefix preservation) with an ordinary-path leg so that
+`marker_path = lambda k: ""` cannot satisfy it vacuously.
+
+The scene row plants the **untracked** shape deliberately. Planting the tracked shape
+is what produced a WARN.
+
+### 27.7 JR-26 — the three precision items
+
+**(a) Rule 50's corollary, adopted.** Rule 50 as written says: re-run the reviewer's
+own mutation against your fix. jack-ryan's corollary is that this is only half of it —
+*then re-run it with your own new pin neutralised*, because only the second run
+separates "my new row caught it" from "something already had." Adopted into the README
+rule and applied this round in both directions:
+
+* R25-E re-runs jack-ryan's R24-C (`rollback git_internal` loses `marker_path`) against
+  the new `unreadable_marker` guard, because a guard placed near theirs could have
+  decoupled their ledger row from the thing that used to kill it.
+* R24-A is the neutralised run for my own new rows, and I have it for free because I
+  took it *before* writing them: the mutation SURVIVED at 617. So every kill R25-A
+  records is attributable to the JR-23 rows and to nothing that was already there.
+
+The ordering generalises, and it is cheaper than the corollary implies: **take the
+neutralised run first.** Measuring the site before writing the row makes attribution a
+by-product instead of a second full suite pass.
+
+**(b) The JR-19 name-check leg — R22-H / R22-I, recorded.** jack-ryan ran the two
+isolating mutations my round-21 receipt did not have, and found the leg sound. Recorded
+here so the leg stops being carried as a claim: the name-check in
+`test_JR19_every_admission_names_a_refusal_that_STILL_EXISTS` is held by
+**jack-ryan's R22-H and R22-I**, not by any mutation of mine. Attribution matters
+because rule 50's whole subject is receipts that credit the wrong mutation — and
+because of the ledger-namespace collision in § 26 (their R21-H is `PROTECTED_ALWAYS`;
+mine is `GUARDS_OWING_FACTS`), a foreign R22-x must be labelled as foreign wherever it
+is cited.
+
+**(c) `5 failed, 602 passed` = 607 against 608 collected.** jack-ryan reads the missing
+row as rule 44's signature — an assert that did not execute. It is not; it is one layer
+earlier, and the true answer is worse in an interesting way.
+
+`test_workflow.py:795` is `@pytest.mark.parametrize("name", sorted(UNFENCEABLE_TOOLS))`.
+The deletion mutation removes the `"Task"` entry from `UNFENCEABLE_TOOLS`, so the
+parametrisation **loses a case at collection time**. 608 collected becomes 607, and the
+row that would have been parametrised on `"Task"` does not fail — it does not exist.
+
+That is the JR-24 shape (a denominator controlled by the thing being measured) arriving
+inside the mutation ledger: **a deletion mutation partially disarms its own
+measurement.** The rename mutation fires 6 rows and the deletion fires 5, and the
+1-row difference is not the mutations' relative strength — it is one case having been
+deleted rather than failed. Rule 47 says a rename is the weaker mutation and the one
+that lies; here the deletion has its own way of lying, and the two lies point in
+opposite directions.
+
+Already anticipated in the product, which is the reassuring half:
+`test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation` hardcodes `"Task"`
+for exactly this reason, and its docstring says so — "delete `Task` from that dict and
+they do not fail; the parametrisation quietly loses a case and the suite stays green
+while the one name that was actually MEASURED walks back in." So the deletion is caught,
+by the one row written not to derive its expectation. The finding is about **reading the
+ledger**, not about a hole: a total that does not reconcile against the collected count
+means *check whether the mutation changed the denominator* before concluding a row
+went unexecuted.
+
+Carried forward as a ledger-reading rule: **reconcile `failed + passed` against
+`collected`, every time.** They differ for two very different reasons — an unexecuted
+assert (rule 44) or a deleted parametrisation (this) — and only the arithmetic tells
+you to look.

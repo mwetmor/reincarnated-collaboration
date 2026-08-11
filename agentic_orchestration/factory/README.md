@@ -844,3 +844,28 @@ unknown version rather than guess at it.
    back in line. Corollary: *a reviewer's number is a claim about their mutation, not about
    the collection.* "SURVIVED, 604" was correct and remains correct; it was simply never a
    claim about a mutation nobody had run.
+
+   **50a. Re-running their mutation is half of it. Then re-run it with your own new row
+   neutralised** (jack-ryan, JR-26(a)) — only the second run separates *"my new row caught
+   it"* from *"something already had."* A kill against a fixed tree with your rows in place
+   is consistent with your rows doing nothing. In practice, take the neutralised run
+   **first**: measure the site before you write the row, and attribution falls out as a
+   by-product instead of costing a second full pass. Worked example at JR-23 — R24-A killed
+   `diff_fingerprints`' `marker_path` call *before* any JR-23 row existed and SURVIVED at
+   617, so every kill R25-A later recorded is attributable to the new rows and to nothing
+   already standing. And the corollary is not academic: the JR-23 fix added a refusal guard
+   two lines from jack-ryan's R24-C target, which is exactly the shape that decouples a
+   reviewer's ledger row from the thing that used to kill it.
+
+   **50b. Reconcile `failed + passed` against `collected`, every time.** They come apart for
+   two unrelated reasons and only the arithmetic tells you to look: an assert that did not
+   execute (rule 44), or **a mutation that deleted a parametrised case**. jack-ryan flagged
+   round 21's `5 failed, 602 passed` = 607 against 608 collected as rule 44's signature
+   (JR-26(c)); it is the second kind. `test_workflow.py` parametrises over
+   `sorted(UNFENCEABLE_TOOLS)`, and the deletion mutation removed the `"Task"` entry, so the
+   row did not fail — it was never collected. That is a **deletion mutation partially
+   disarming its own measurement**: rule 47 says the rename is the weaker mutation and the
+   one that lies, and here the deletion has its own opposite way of lying. It is caught, by
+   the one row written not to derive its expectation from the code under test
+   (`test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation`) — which is the
+   general defence, not a special case.
