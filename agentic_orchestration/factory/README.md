@@ -711,23 +711,40 @@ unknown version rather than guess at it.
    and reports it as the evaporation guard. Under deletion, SIX of nine refused names left
    the whole suite green. Fix (both halves, per rule 44): the parametrised row keeps the
    lists from drifting, and a hardcoded `REFUSED_ROSTER` literal fails on any removal.
-   *Round 20 addendum — WHICH collections need the literal, because the answer is not
-   "all of them" and a rule that said so would be noise.* The discriminator is whether a
-   member is **behaviour** or a **record**. `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and
-   `PROTECTED_EVERY_REPO` are all KILLED by deletion — four member-deletions re-run here,
-   observed raw at `21 failed / 12 errors`, `11 failed`, `3 failed`, `3 failed` (notes
-   § 24.5 carries the lines). Three of the four close exactly against jack-ryan's
-   independent figures; the first does not — they report `7 failed` where I twice observe
-   `21 failed, 571 passed, 12 errors`. **The adjudication is KILLED on both instruments,
-   so this discriminator does not rest on the disagreement**, and the open question is
-   flagged for their re-review rather than resolved by me:
-   removing a member stops a real key being minted and a scenario row notices, so they
-   need no pin. `REASONED_ADMISSIONS` is a record — deleting `Skill` from it changes no
-   behaviour at all, because `Skill` was never refused — and it SURVIVED at **603 passed,
-   the baseline count unmoved**, which is worse than the JR-13 case where the count at
-   least dropped to 602 and a reader comparing totals had one thread to pull. What
-   evaporates is the sentence that adjudicated the admission. Rule 47 was written about
-   one dict and applied to one dict; a rule's own scope is a claim like any other.
+   *Round 20 addendum, corrected and widened at round 21 — WHICH collections need the
+   literal, because the answer is not "all of them" and a rule that said so would be
+   noise.* The FIRST axis is whether a member is **behaviour** or a **record**.
+   `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and `PROTECTED_EVERY_REPO` are all KILLED by
+   member-deletion (`7 failed`, `11 failed`, `3 failed`): removing a member stops a real
+   key being minted and a scenario row notices, so they need no pin. `REASONED_ADMISSIONS`
+   is a record — deleting `Skill` from it changes no behaviour at all, because `Skill` was
+   never refused — and it SURVIVED at **603 passed, the baseline count unmoved**, which is
+   worse than the JR-13 case where the count at least dropped to 602 and a reader
+   comparing totals had one thread to pull. What evaporates is the sentence that
+   adjudicated the admission. *(The `21 failed / 12 errors` figure this addendum first
+   published for `GIT_NESTED_GITDIRS` was not a measurement of that deletion at all — see
+   rule 48.)*
+   The SECOND axis is **which direction is fail-open**, and round 20 did not have it
+   because every mutation it ran went the same way. A **protection** list fails open when
+   a member is DELETED. An **exemption** list fails open when a member is ADDED — and no
+   scenario row can catch that, because the row would have to exercise a path nobody has
+   exempted yet, so it could not have been written in advance. Deletion from an exemption
+   is fail-CLOSED: the run gets noisier, not blinder. So rule 44's "delete it" measures
+   the SAFE direction on half the table and the reading reads as reassurance. Measured
+   (jack-ryan, round 21): `FACTORY_RUNTIME_PATHS` member-deletion SURVIVES, and additions
+   to `FACTORY_RUNTIME_PATHS` and to `STRUCTURE_SKIP_DIRS` both SURVIVE. Crossed, exactly
+   one cell of four is covered by rows — and the direction is a property of the CALL SITE,
+   not of the collection: `REFUSAL_GUARDS` and `GUARDS_OWING_FACTS` are two frozensets of
+   guard names declared eight lines apart in one file, failing open in OPPOSITE
+   directions, because one is spent as `assert guard in …` and the other as
+   `if guard in …:`. A THIRD kind needs no pin at all — **labelling** lists like
+   `_CO_TENANCY_SUFFIXES` and `_FAILURE_MARKERS`, whose membership changes the DIAGNOSIS
+   and not the VERDICT — and naming it is what stops this collapsing into "pin
+   everything". The derivation over all **fifteen** public vocabularies, the seven pins
+   and the eight cover-claims each naming its row, live in `tests/test_vocabularies.py`,
+   which recomputes the denominator from source rather than trusting the number (rule 49).
+   Rule 47 was written about one dict and applied to one dict; a rule's own scope is a
+   claim like any other.
 
 48. **The measuring instrument gets the same reading you would give the code (rule 35,
    sharpened by two failures in one round).** Round 19's own mutation harness shipped two
@@ -750,16 +767,30 @@ unknown version rather than guess at it.
    what the tree was. Both round-20 harnesses refuse to report without it, and both also
    verify the intended change is observable in the LOADED object — a mutation that did
    not land reads exactly like a mutation nothing caught.
-   *Second round-20 addendum, mine, found by a figure that would not close:* those same
-   harnesses collected results by filtering pytest output for lines beginning `FAILED`.
-   One control mutation returned `21 failed, 571 passed, **12 errors**`, and the harness
-   printed nine names and no indication that three parametrised rows had **errored at
-   fixture level and never executed at all**. An ERROR is not a FAILURE: a failing row ran
-   and disagreed, an erroring row never ran and therefore certified nothing. A harness
-   that greps for one of them silently reports the other as absent — which is this rule's
-   own subject, "no test failed" versus "nothing ran", reappearing in the collector
-   instead of the mutator. **Collect `-rEf`, report both, and print the raw summary line
-   rather than a count derived from the lines you chose to match.**
+   *Second round-20 addendum, mine — RIGHT ABOUT THE FIX, WRONG ABOUT THE DEFECT, and the
+   correction is the more valuable half (jack-ryan, round 21).* Those same harnesses
+   collected results by filtering pytest output for lines beginning `FAILED`. One control
+   mutation returned `21 failed, 571 passed, **12 errors**`, and the harness printed nine
+   names and no indication that three parametrised rows had **errored at fixture level and
+   never executed at all**. An ERROR is not a FAILURE: a failing row ran and disagreed, an
+   erroring row never ran and therefore certified nothing. A harness that greps for one of
+   them silently reports the other as absent — which is this rule's own subject, "no test
+   failed" versus "nothing ran", reappearing in the collector instead of the mutator.
+   **Collect `-rEf`, report both, and print the raw summary line rather than a count
+   derived from the lines you chose to match.** That fix stands. The DIAGNOSIS attached to
+   it did not. I published that reading as a measurement of `"worktrees/"` deleted from
+   `GIT_NESTED_GITDIRS`, could not close it against jack-ryan's `7 failed`, and named the
+   collector as the suspect. The real cause is one line up: `GIT_NESTED_GITDIRS =
+   ("worktrees/", "modules/")` is a single-line 2-tuple, and deleting its first element
+   TEXTUALLY leaves `("modules/")` — not a 1-tuple, the bare string `"modules/"`. The run
+   measured a container that had changed TYPE, and twelve fixture-level errors is exactly
+   what that produces. Worse, the harness's own "did the mutation land?" guard asked
+   `member not in container`, and `in` on a `str` is a **substring** test, so it certified
+   the landing of a mutation nobody had performed — the series' defect shape inside the
+   guard written to prevent it, one rule after the rule about that. **Verify a mutation by
+   TYPE and LENGTH, or on the SOURCE text; never by membership.** Membership cannot tell a
+   shorter tuple from a string, which is also why the pins in `tests/test_vocabularies.py`
+   are equalities and carry an explicit `type(observed) is type(expected)` leg.
 
 49. **Establish the denominator before reasoning over the set.** Three rounds argued about
    "the ten marker producers" and the count was never checked. There is an eleventh

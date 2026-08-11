@@ -3310,3 +3310,97 @@ mutation in the loaded object before it is willing to report (rule 48).
   it is unchanged: the agentic lane opening.
 - **The threat model**, **O4** (dollars) and **D-10** (no HALT status): unchanged,
   untouched, and all three are Matt's or gandalf's.
+
+---
+
+## 25. Round twenty-one — the mechanical BLOCK re-opened, and my mutator was the liar
+
+jack-ryan's verdict on round 20
+(`qa/pending/2026-08-11-star-lord-factory-spine-gate2-r20.md`): **BLOCK, mechanical lane
+re-opened.** Round 20 was a test-and-prose round that touched no behaviour and escaped no
+mutation, and the round that reviewed it found a live fail-open in the fence.
+
+Four findings. I verified every one before accepting any, which is the only part of this
+process that has never let me down — and this round it mattered twice, because one finding
+was against my code and one was against my instrument, and I would have argued with the
+second if I had not been able to reproduce it.
+
+### 25.1 JR-18 — the same predicate, two callers, opposite directions
+
+`_matches` normalised a path through `marker_path()` before comparing it to a pattern.
+`marker_path` truncates at `MARKER_SEP`, so `workspace\tevil.txt` became `workspace`.
+Serving a DENY list, that is **fail-CLOSED** — a shorter path hits a protected prefix more
+readily. Serving an ALLOW list, the identical operation is **fail-OPEN** — a shorter path
+hits the allowlist more readily. One function, two arms, and the docstring reasoned about
+one of them.
+
+Measured before I touched anything, with a phase-chosen filename rather than a synthetic
+key, exactly as the verdict asked: `writes=["workspace/**","workspace"]` admits
+`workspace\tevil.txt` at the repo root, `breaches` comes back `[]`, and the control
+(`../evil.txt`) breaches correctly. The fence had a hole with a real name in it.
+
+jack-ryan offered two fixes — detect the marker's shape, or refuse an unminted separator
+under its own guard. **I rejected both**, and the reason is the load-bearing part:
+provenance cannot be recovered from the string, because the string is what the attacker
+picks. A phase can name a file `workspace\t<gitdir: a>` and match the synthetic marker
+shape exactly. Shape detection asks the string a question the string is free to lie about.
+
+What *can* be reasoned about is the direction each CALLER fails in. So `_matches` takes
+`normalise_marker` as a keyword-only argument **with no default**: the deny arms pass
+`True`, the writes arm passes `False`, and a call site that does not state its direction is
+a `TypeError` rather than a silently-chosen one. A default here would be the same class of
+bug one layer up — rule 13 applied to a boolean.
+
+### 25.2 The residual I am surfacing rather than fixing
+
+`.git\tevil` at a repo root still gets the `git_internal` rollback guard and survives as
+NOT_ROLLED_BACK. It is fail-CLOSED on *detection* — it does breach, and the run aborts —
+so it is strictly lesser harm than the writes escape. But the phase chooses which guard
+fires by choosing the filename, and that sentence is uncomfortable enough to belong in a
+verdict rather than in a quiet fix. It is on the record for jack-ryan's re-review.
+
+### 25.3 JR-21 — my mutator degenerated a tuple into a string, and my guard said it landed
+
+This is the finding I would most like to have made myself.
+
+Round 20's harness verified a mutation had landed by testing `member not in container`.
+`GIT_NESTED_GITDIRS = ("worktrees/", "modules/")` is a **single-line 2-tuple**, and
+deleting its first element textually leaves `("modules/")` — which is not a 1-tuple. It is
+the bare string `"modules/"`. And `"worktrees/" not in "modules/"` is a **substring** test
+that returns `True`, so the guard certified the landing of a mutation nobody had performed.
+
+I re-derived it offline before accepting it: first element deleted gives `type=str len=8`;
+last element deleted gives `type=tuple len=1`. That also explains the asymmetry I had
+called impossible and published as an open disagreement — `21 failed, 571 passed,
+12 errors` was a container that had changed TYPE, not a member that had been removed. The
+true deletion is jack-ryan's `7 failed, 597 passed`.
+
+So the round-20 addendum I wrote to rule 48 diagnosed the wrong thing. The `-rEf` fix in it
+is right and stands — an ERROR is not a FAILURE and a harness that greps for one reports
+the other as absent — but the defect it named was the collector, and the defect was the
+mutator. Rule 48 now carries the correction, because a rule that records the wrong cause
+teaches the wrong lesson twice: once to whoever reads it, and once to whoever trusts the
+figure it cites.
+
+**Verify a mutation by TYPE and LENGTH, or on the SOURCE text. Never by membership.**
+Membership cannot tell a shorter tuple from a string. Round 21's harness checks the source:
+the needle must occur exactly once before and be absent after.
+
+### 25.4 The same defect, three times, in my own wait loops
+
+Worth recording because it is the series' shape in miniature and I did not learn it the
+first time. Waiting for a background harness with
+
+```
+while pgrep -f "mut21c.py"; do sleep 20; done
+```
+
+never exits — the waiting shell's **own command line contains that literal string**, so the
+pattern matches the waiter. It is a predicate answering an adjacent question ("is any
+process mentioning this name running?" instead of "is the harness running?"), and its wrong
+answer is the safe-looking one: it waits forever rather than proceeding early, so it reads
+as patience.
+
+I made it three times this round. jack-ryan made the identical mistake with `mut21.py` and
+recorded it in their § 5. Fixes that work: wait on the captured **PID** via `kill -0`, or
+break the literal so the pattern cannot match its own command line (`mut21[c].py`).
