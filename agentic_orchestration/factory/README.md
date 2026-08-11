@@ -43,7 +43,9 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           428 tests, all green (~110 s: the reach audit runs the suite twice)
+  pytest.ini       states the suite's subject; keeps the walk out of sessions/ (rule 23)
+  sessions/        per-run session dirs, incl. the durable breach QUARANTINE
+  tests/           471 tests, all green (~110 s: the reach audit runs the suite twice)
                    _reach_tracer.py  sys.settrace line collector, loaded in the child
 ```
 
@@ -222,6 +224,49 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    `PROTECTED_EVERY_REPO` is matched in **any** declared repo and is not
    config-overridable; the root-only entries stay root-only, and a row asserts that too,
    so the fix cannot quietly become a blanket fence (C4).
+20. **An allowlist must RESTRICT, not merely be present.** C3 made an absent `tools`
+   a refusal at both entry points and stopped there — a test of *declaration*. The
+   state it exists to prevent, the full built-in tool set chosen by nobody, was still
+   reachable by writing one word, `default`, and it read as diligence. `tools` is now
+   checked against a **closed vocabulary** (`BUILTIN_TOOLS`, read off the `init` frame
+   of a live run, not copied from documentation): `default` refused by name, a non-list
+   refused (YAML `tools: Read` is a string, and `list("Read")` is four tools that do not
+   exist — an allowlist that restricts by *accident*), an unenumerated name refused, an
+   MCP name refused because its availability is per-machine. The vocabulary lives on the
+   **harness**, and the loader refuses any harness that does not publish one, so a second
+   lane cannot become the route around it (F4).
+21. **Git's own control surfaces are measured, and refused rather than rolled back.**
+   `.claude/` was protected in every repo (rule 19) while `.git/hooks/pre-commit` — the
+   same hijack aimed at the next thing a *human* does in that repo — was not merely
+   unprotected but **unmeasurable**: `git status` does not report paths under `.git/` at
+   any porcelain setting, so the write produced an empty change-set and containment
+   reported a clean tree. Every other path in `permissions.py` arrives through git; these
+   three (`hooks/`, `config`, `info/exclude` — the surfaces that change only when
+   somebody decides to change them, never on ordinary `git add`/`commit`/`gc`, which is
+   K1's lesson) are measured directly, are in `PROTECTED_EVERY_REPO`, and hit a dedicated
+   `git_internal` refusal: git tracks nothing there, so the destroyer guard would find
+   nothing and authorise `rmtree` on `.git/config`, and `git checkout --` cannot restore
+   a path git has never heard of. Both verbs are wrong, so the guard quarantines, names
+   it, and stops (F3).
+22. **A containment waiver is re-asserted while the run is happening, and keyed on
+   something unique.** C5's `coarse_acknowledged` check ran at LOAD, which is right and
+   is not sufficient: a region can cross the scan cap *during* a phase — including
+   because the phase wrote enough files to push it over, the case where the waiver
+   matters most — and nobody re-asked. It is now re-asserted at every snapshot on the
+   agentic lane, off the fingerprint that was already computed (F5). And the key was
+   `repo.name`, so two declared repos at `~/a/engine` and `~/b/engine` shared it and one
+   waiver silently cleared a region in a tree nobody looked at; `coarse_key()` is the one
+   spelling, on the resolved path, called by both the loader and the runner (F6).
+23. **The suite states its own subject; the quarantine is not part of it.** What
+   `rollback` refuses to undo it quarantines, durably, *inside this tree* at
+   `sessions/<run>/breach/…` — and the wall's fenced trees contain test files, so the
+   quarantine holds copies of `test_*.py`. Containment was working; the walk was not:
+   `pytest` typed at this directory collected the quarantine and reported 33 errors on
+   artifacts that are inert by intention. `pytest.ini` pins `testpaths` and excludes
+   `sessions`, and a row plants an unparseable file where quarantine puts things and
+   requires a root-cwd collection to stay clean — over both the bare invocation and the
+   explicit `.`, which is how the ablation showed `norecursedirs` doing the work and
+   `testpaths` merely saying so out loud (F7).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
 repeated shape — twenty artifact kinds (regular file, symlink out of the tree,
@@ -405,10 +450,22 @@ A fifth flag was never on the § 13 list and shipped on this lane anyway: **`--t
 ... Use "" to disable all tools, "default" to use all tools`*. So **omitting the flag is
 not a neutral default** — it is the full built-in set, chosen by nobody. Every sibling
 allowlist in this spine fails closed (an empty `writes` breaches everything, an empty
-`gates` is a load error); this one failed open, and was proven only to RESTRICT when
-declared, never to REFUSE when absent (C3). An agentic phase with no `tools` allowlist is
-now refused at **both** entry points — the loader and the adapter — because a guard
-present in only one of two entry points is a guard with a route around it. Both flags are
+`gates` is a load error); this one failed open. An agentic phase with no `tools` allowlist
+is refused at **both** entry points — the loader and the adapter — because a guard present
+in only one of two entry points is a guard with a route around it (C3).
+
+That fix was then **the class it was fixing**: it proved the guard REFUSES when the
+allowlist is ABSENT and stopped, which is a test of declaration rather than of
+restriction. `tools: [default]` is the exact state it exists to prevent, reached by
+writing one word, and it reads as diligence. So `tools` is now adjudicated against a
+**closed vocabulary** — `BUILTIN_TOOLS`, enumerated off the `init` frame of a live
+stream-json run rather than copied from documentation, since the CLI is the only
+authority on what tools it has. `default`, a non-list, an unenumerated name and an
+`mcp__` name are each refused **by name** with a row apiece, scoped forms like
+`Bash(git *)` are kept because they are strictly narrower, and the vocabulary lives on
+the harness so the loader has no second opinion about what a tool name is — a workflow
+naming a harness that publishes no `validate_tools` is refused rather than passed
+through (F4). Both flags are
 passed: `--tools` selects what exists, `--allowedTools` selects what may run without a
 prompt, and a headless run has nobody to prompt. `permission_denials` in the result frame
 now **fails the phase**: a phase reaching outside its declared tools is the pre-hoc

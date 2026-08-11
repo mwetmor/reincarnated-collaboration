@@ -208,7 +208,11 @@ class Runner:
         return changes
 
     def _note_coarse(
-        self, fingerprints: dict[str, perm.TreeFingerprint], phase_id: int | None, when: str
+        self,
+        fingerprints: dict[str, perm.TreeFingerprint],
+        phase_id: int | None,
+        when: str,
+        agentic: bool = False,
     ) -> None:
         """A region measured coarsely is DECLARED as coarse, never reported as exact.
 
@@ -222,7 +226,16 @@ class Runner:
         well it can be measured — and emitting only from `before` would have described
         a diff by half its inputs (Gate-2 re-review G4). Identical caveats within a
         phase are emitted once; a NEW region appearing later is its own line.
+
+        And on the AGENTIC lane it is a GATE, not only a caveat (Gate-2 F5). C5 put the
+        acknowledgement check at LOAD, which is the right place for it and is not the
+        only place it belongs: the load measurement is a snapshot, and G4's own
+        observation is that a region can cross the cap DURING a run — including because
+        a phase wrote enough files to push it over. So the load-time acknowledgement is
+        re-asserted against every snapshot. Costs nothing: the fingerprint is already
+        computed, and `fp.coarse` is already being read on this line.
         """
+        acknowledged = set(getattr(self.wf, "coarse_acknowledged", []) or [])
         for key, fp in fingerprints.items():
             if not fp.coarse:
                 continue
@@ -230,11 +243,28 @@ class Runner:
                 f"{Path(key).name} measured COARSELY (directory mtimes; in-place "
                 f"content edits not detected) in region(s): {fp.coarse}"
             )
-            if detail in self._coarse_said.get(phase_id, set()):
+            if detail not in self._coarse_said.get(phase_id, set()):
+                self._coarse_said.setdefault(phase_id, set()).add(detail)
+                self.receipts.event(
+                    self.run_id, "containment_coarse", f"{when}: {detail}", phase_id
+                )
+                self._say(f"   containment: coarse — {detail}")
+            if not agentic:
                 continue
-            self._coarse_said.setdefault(phase_id, set()).add(detail)
-            self.receipts.event(self.run_id, "containment_coarse", f"{when}: {detail}", phase_id)
-            self._say(f"   containment: coarse — {detail}")
+            new = sorted(
+                r for r in fp.coarse if perm.coarse_key(key, r) not in acknowledged
+            )
+            if new:
+                raise perm.ContainmentError(
+                    f"{when}: {Path(key).name} measures COARSE in region(s) {new}, which "
+                    "this workflow does not acknowledge. The load-time check passed, so "
+                    "the region crossed the scan cap DURING the run — the case where a "
+                    "phase wrote enough to change how well it can be measured. On the "
+                    "agentic lane an unacknowledged coarse region means an in-place "
+                    "rewrite there would be neither detected nor recoverable, so the "
+                    "run stops rather than reporting a clean tree it cannot vouch for. "
+                    f"Acknowledge as: {[perm.coarse_key(key, r) for r in new]}"
+                )
 
     # -- one phase ---------------------------------------------------------
     def _run_phase(
@@ -272,10 +302,16 @@ class Runner:
 
                 try:
                     before = self._fingerprint_all()
+                    # Inside the try: `_note_coarse` is a GATE on the agentic lane
+                    # (Gate-2 F5), and a gate outside the handler that catches it
+                    # would abort the RUN with a traceback instead of aborting the
+                    # PHASE with a receipt.
+                    self._note_coarse(
+                        before, phase.phase_id, "phase start", agentic=not spec.is_mechanical
+                    )
                 except perm.ContainmentError as exc:
                     abort_reason = self._handle_containment_failure(phase, exc, "phase start")
                     break
-                self._note_coarse(before, phase.phase_id, "phase start")
 
                 envelope, attempt_usage, exec_error = self._execute(
                     spec, phase, attempt, phase_dir, carried_notes, failures_context
@@ -287,7 +323,10 @@ class Runner:
 
                 try:
                     after = self._fingerprint_all()
-                    self._note_coarse(after, phase.phase_id, "post-execution")
+                    self._note_coarse(
+                        after, phase.phase_id, "post-execution",
+                        agentic=not spec.is_mechanical,
+                    )
                     changes = self._diff_all(before, after)
                 except perm.ContainmentError as exc:
                     abort_reason = self._handle_containment_failure(

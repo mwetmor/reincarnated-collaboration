@@ -612,6 +612,10 @@ def _assert_refusal_claims_are_true(f: Fence, action, kind: str) -> None:
             "reads off an abort report and acts on."
         )
         rendered = perm.render_containment_facts(tuple(expected.items()))
+        assert rendered, (
+            "the renderer produced an empty clause; an empty string is `in` every "
+            "reason ever written, so this row would certify nothing (F1)"
+        )
         assert rendered in reason, (
             f"the refusal for a {kind} does not state the facts it rests on. Expected "
             f"{rendered!r} to appear in the reason, which was: {reason}"
@@ -1399,3 +1403,194 @@ def test_H1_partner_a_symlink_reached_THROUGH_a_link_still_hits(tmp_path):
     )
     assert not allowed, "the read-only tree was declared by its real path and missed"
     assert "read-only tree" in breaches[0].reason
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 F3 — git's own control surfaces
+# ---------------------------------------------------------------------------
+#
+# C4 closed the next-CLAUDE-session hijack by protecting `.claude/` in every declared
+# repo. `.git/hooks/pre-commit` is the same hijack aimed at the next thing a HUMAN
+# does in that repo, and it was reachable because `git status` does not report paths
+# under `.git/` at ANY porcelain setting — so the write produced an EMPTY change-set
+# and containment reported a clean tree. Every other measurement in the module arrives
+# through git; this is the one channel that structurally could not carry its own
+# counterexample.
+#
+# These rows are deliberately planted in the tree the phase is ALLOWED to write in,
+# with a maximally permissive allowlist. A rule that only holds inside the fence is
+# not the rule being claimed.
+
+def _snapshot_repo(repo, plant):
+    """`_snapshot` measures `f.repo`; these rows plant in `f.free_repo`, which is a
+    DIFFERENT repository in the worktree-root shape. Measuring the wrong one produced
+    an empty diff and three green rows on the first run of this block — the wall's own
+    disease, in the wall. Structure roots are omitted deliberately: `.git/` is skipped
+    by the structure sweep (K1) and these entries arrive from `_git_control_entries`.
+    """
+    before = perm.fingerprint(repo)
+    assert before.usable, f"baseline unusable: {before.error}"
+    plant()
+    after = perm.fingerprint(repo)
+    assert after.usable, f"post-plant fingerprint unusable: {after.error}"
+    return before, perm.diff_fingerprints(before, after)
+
+
+GIT_CONTROL_PLANTS = {
+    "pre_commit_hook": lambda r: (
+        (r / ".git" / "hooks" / "pre-commit").write_text("#!/bin/sh\necho pwned\n"),
+        (r / ".git" / "hooks" / "pre-commit").chmod(0o755),
+        ".git/hooks/pre-commit",
+    )[-1],
+    "hooks_path_redirect": lambda r: (
+        (r / ".git" / "config").write_text(
+            (r / ".git" / "config").read_text() + "[core]\n\thooksPath = .githooks\n"
+        ),
+        ".git/config",
+    )[-1],
+    "exclude_list": lambda r: (
+        (r / ".git" / "info").mkdir(exist_ok=True),
+        (r / ".git" / "info" / "exclude").write_text("*.py\n"),
+        ".git/info/exclude",
+    )[-1],
+}
+
+
+@pytest.mark.parametrize("plant", sorted(GIT_CONTROL_PLANTS))
+def test_F3_a_write_to_gits_own_control_surface_is_MEASURED(plant, fenced):
+    """Round one for `.git/`: the change-set must NAME it.
+
+    Before F3 this assertion could not be made at all — the diff was empty, which is
+    the strongest form of the recurring defect: not a predicate answering the wrong
+    question, but a channel that could not carry the answer.
+    """
+    f = fenced
+    planted: list[str] = []
+    _, changes = _snapshot_repo(f.free_repo,
+                               lambda: planted.append(GIT_CONTROL_PLANTS[plant](f.free_repo)))
+    named = {c.path for c in changes}
+    assert planted[0] in named, (
+        f"{planted[0]} was written and the change-set names {sorted(named)}. git never "
+        "reports paths under .git/, so if the fingerprint does not measure them "
+        "directly, the single most direct defeat of containment is invisible to it."
+    )
+
+
+@pytest.mark.parametrize("plant", sorted(GIT_CONTROL_PLANTS))
+def test_F3_it_is_a_breach_even_where_the_phase_may_write(plant, fenced):
+    """Round two. `writes: ["**"]` and the repo is the WRITABLE one.
+
+    This is C4's lesson applied: a protection scoped to the root repo, or overridable
+    by a permissive allowlist, is a protection exactly where it was never needed.
+    """
+    f = fenced
+    planted: list[str] = []
+    _, changes = _snapshot_repo(f.free_repo,
+                               lambda: planted.append(GIT_CONTROL_PLANTS[plant](f.free_repo)))
+    allowed, breaches = perm.classify(
+        changes, writes=["**"], root=f.free_repo, read_only_trees=[]
+    )
+    hit = [b for b in breaches if b.change.path == planted[0]]
+    assert hit, (
+        f"{planted[0]} was written with writes=['**'] and was not a breach. "
+        f"Breaches: {[(b.change.path, b.reason) for b in breaches]}"
+    )
+    assert "ANY declared repo" in hit[0].reason, (
+        f"{planted[0]} breached for another reason ({hit[0].reason!r}); the "
+        "always-protected rule must be what caught it, or it is passing on the "
+        "strength of a rule that does not hold in a sibling repo"
+    )
+    assert not any(c.path == planted[0] for c in allowed)
+
+
+@pytest.mark.parametrize("plant", sorted(GIT_CONTROL_PLANTS))
+def test_F3_the_rollback_REFUSES_rather_than_acting(plant, fenced, tmp_path):
+    """Round three. Detection here must NOT be wired to a verb.
+
+    git tracks nothing under `.git/`, so the destroyer guard — which asks exactly that
+    — would find nothing and authorise `rmtree` on `.git/config`. `git checkout --`
+    cannot restore a path git has never heard of either. Both available verbs are
+    wrong, so the guard refuses BY NAME and quarantines the evidence. Containment must
+    never be the thing that breaks the repository.
+    """
+    f = fenced
+    planted: list[str] = []
+    before, changes = _snapshot_repo(
+        f.free_repo, lambda: planted.append(GIT_CONTROL_PLANTS[plant](f.free_repo))
+    )
+    _, breaches = perm.classify(changes, writes=["**"], root=f.free_repo, read_only_trees=[])
+    hit = [b for b in breaches if b.change.path == planted[0]]
+    actions = perm.rollback(
+        hit, {str(f.free_repo): before}, tmp_path / "quarantine",
+        declared_trees=f.declared_trees,
+    )
+    assert len(actions) == 1, f"expected one action for {planted[0]}, got {actions}"
+    a = actions[0]
+    assert a.action == "NOT_ROLLED_BACK", (
+        f"the rollback ACTED on {a.path!r} ({a.action}). Every verb available to it "
+        "either no-ops or destroys the repository."
+    )
+    assert a.guard == "git_internal", f"refused under the wrong guard: {a.guard!r}"
+    assert a.guard in perm.REFUSAL_GUARDS, "guard is outside the closed vocabulary"
+    assert a.quarantined_to, "the evidence was not preserved"
+    assert (f.free_repo / ".git" / "config").exists(), (
+        "containment deleted .git/config"
+    )
+    assert perm.fingerprint(f.free_repo).usable, (
+        "the repository is no longer measurable after the rollback touched it"
+    )
+
+
+def test_F3_partner_ordinary_git_use_does_NOT_move_the_control_surfaces(fenced):
+    """The falsification partner, and the K1 lesson restated.
+
+    K1 put `.git` in the structure sweep, and the object fanout moving on a plain
+    `git add` made the most disciplined thing an agent can do into a repo-wide revert.
+    So the measured set is three named surfaces that change only when somebody decides
+    to change them — NOT refs, NOT the index, NOT the object store. If staging and
+    committing moved this signature, F3 would have re-landed K1 on a new axis.
+    """
+    f = fenced
+    repo = f.free_repo
+    before = perm._git_control_entries(repo)
+    assert before, "premise failed: no control surfaces measured at all"
+    (f.free_dir / "ordinary.txt").write_text("work\n", encoding="utf-8")
+    for cmd in (
+        ["git", "add", "-A"],
+        ["git", "commit", "-q", "-m", "ordinary"],
+        ["git", "checkout", "-q", "-b", "sidebranch"],
+        ["git", "gc", "-q", "--prune=now"],
+    ):
+        subprocess.run(cmd, cwd=str(repo), check=True, capture_output=True)
+    assert perm._git_control_entries(repo) == before, (
+        "ordinary, disciplined git use moved the .git/ control signature. That is K1 "
+        "exactly: a measurement that fires on correct behaviour trains the operator "
+        "to ignore it."
+    )
+
+
+def test_F3_a_deleted_hook_is_also_caught(fenced, tmp_path):
+    """Removal is a change too.
+
+    `.git/hooks/` ships with sample hooks; deleting one is not itself dangerous, but
+    the guard must be keyed on the PATH rather than on the change KIND — a kind is a
+    measurement, and C1's fourth clause is that a check must not be switchable off by
+    anything it certifies. Planting arrives as `git_internal`, deleting arrives as
+    `modified`, and both must refuse.
+    """
+    f = fenced
+    repo = f.free_repo
+    sample = next(iter(sorted((repo / ".git" / "hooks").glob("*.sample"))), None)
+    assert sample is not None, "premise failed: no sample hook to remove"
+    rel = f".git/hooks/{sample.name}"
+    before, changes = _snapshot_repo(repo, sample.unlink)
+    assert any(c.path == rel for c in changes), f"removing {rel} was not measured"
+    _, breaches = perm.classify(changes, writes=["**"], root=repo, read_only_trees=[])
+    hit = [b for b in breaches if b.change.path == rel]
+    assert hit, f"removing {rel} was not a breach"
+    actions = perm.rollback(
+        hit, {str(repo): before}, tmp_path / "quarantine", declared_trees=f.declared_trees
+    )
+    assert [a.guard for a in actions] == ["git_internal"], (
+        f"a DELETED control surface took a different branch: {[(a.action, a.guard) for a in actions]}"
+    )

@@ -48,13 +48,23 @@ PROTECTED_ALWAYS: tuple[str, ...] = (
 
 PROTECTED_EVERY_REPO: tuple[str, ...] = (
     ".claude/",
+    ".git/",
 )
-"""Protected in EVERY declared repo, not only the root one (Gate-2 C4).
+"""Protected in EVERY declared repo, not only the root one (Gate-2 C4, F3).
 
 `.claude/settings.json` executes hooks. A phase that can write it in
 `reincarnated-demo` or `reincarnated-loadout` can arrange for code to run in the
 next session there — so scoping the check to the meta-repo made the receipt's
 "never config-overridable" true only where it was already hardest to reach.
+
+`.git/` is the same surface with a shorter fuse (Gate-2 F3). C4 closed the
+next-CLAUDE-session hijack; `.git/hooks/pre-commit` arranges for code to run on the
+next git operation any HUMAN performs in that repo, and `.git/config` reaches the
+same place by moving `core.hooksPath`. Nothing under `.git/` is ever a legitimate
+phase write, and — the reason this is not merely belt-and-braces — `git status`
+NEVER reports these paths, at any porcelain setting. Before F3 the fingerprint could
+not see the write at all, so containment measured a clean tree and said so. See
+`_git_control_entries`.
 
 The other `PROTECTED_ALWAYS` entries name paths that exist only in the meta-repo,
 so widening them would protect nothing and would collide with rocket's engine-side
@@ -97,6 +107,20 @@ That is a weaker claim, and it is recorded as a weaker claim. The failure this
 guards against is not "we measured imperfectly" -- it is "we measured nothing and
 reported clean."
 """
+
+
+def coarse_key(repo: "Path | str", region: str) -> str:
+    """The ONE spelling of a coarse-region acknowledgement. Loader and runner both
+    call it, so they cannot disagree about what a workflow acknowledged.
+
+    Keyed on the RESOLVED path, not the basename (Gate-2 F6). `repo.name` collides:
+    two declared repos at `~/a/engine` and `~/b/engine` share the key `engine:X`, so
+    one acknowledgement silently waived a region in a tree nobody looked at — a
+    predicate answering a slightly different question, whose wrong answer is the
+    quiet one. Absolute and host-specific is the honest form anyway: a coarse
+    acknowledgement is a waiver about how well THIS machine can measure THIS tree.
+    """
+    return f"{Path(repo).resolve()}:{region}"
 
 
 #: Every pathspec this module hands to git is built from a filesystem PATH — a name
@@ -311,6 +335,7 @@ class RollbackAction:
 REFUSAL_GUARDS = frozenset({
     "whole_tree", "quarantine_failed", "committed", "dirty_before", "destroyer",
     "delete_failed", "nothing_at_path", "unknown_status", "staging", "checkout_failed",
+    "git_internal",
 })
 
 #: The two that make COUNTED claims about what git holds. These owe the operator
@@ -476,6 +501,75 @@ def structure_dirs(path: Path) -> set[str]:
     return found
 
 
+#: Synthetic status code for a path under `.git/`. Not a porcelain code — git has
+#: none for these, which is the whole finding. Maps to `git_internal` in `_ENTRY_KIND`,
+#: which the rollback refuses by name rather than acting on.
+GIT_CONTROL = "G!"
+
+#: The control surfaces under `.git/`, as a CLOSED list (rule 13 again). Each either
+#: executes code or decides what git reports:
+#:
+#:   hooks/         every hook git runs — `pre-commit`, `post-checkout`, `pre-push`…
+#:                  Enumerated as its direct children so a planted hook is NAMED, not
+#:                  summarised. git only ever executes direct children, so a flat
+#:                  listing is the exact set, not a sample of it.
+#:   config         reaches hooks/ from the side via `core.hooksPath`, and reaches the
+#:                  network via `url.*.insteadOf` and `remote.*.url`.
+#:   info/exclude   an untracked ignore list — a phase that appends to it makes its own
+#:                  later writes invisible to every OTHER measurement in this module.
+#:
+#: NOT the object store, refs, or the index: those move on ordinary disciplined git
+#: use, which is exactly the mistake K1 made with STRUCTURE_SKIP_DIRS. This list is
+#: the paths that change ONLY when somebody decides to change them.
+GIT_CONTROL_PATHS: tuple[str, ...] = ("hooks/", "config", "info/exclude")
+
+
+def _git_control_entries(root: Path) -> dict[str, str]:
+    """Measure `.git/`'s control surfaces, because `git status` never will.
+
+    Gate-2 F3. Every other path in this module arrives from `git status`; these cannot,
+    at any porcelain setting, because git does not consider its own directory part of
+    the worktree. So the one write that most directly defeats containment — planting
+    `.git/hooks/pre-commit` — was invisible to the fingerprint, produced an empty
+    change-set, and the run reported a clean tree. That is the B1 class at its worst:
+    the claim ("no writes outside the allowlist") was measured against a channel that
+    structurally could not carry the counterexample.
+
+    Returned as ordinary entries keyed on repo-relative paths (`.git/config`), so they
+    flow through `diff_fingerprints` and `classify` with everything else and need no
+    parallel comparison path. `.git/` is in PROTECTED_EVERY_REPO, so any of them
+    changing is a breach in every declared repo regardless of `writes`.
+
+    A worktree/submodule `.git` is a FILE pointing elsewhere. Then there is nothing
+    here to enumerate and the pointer file itself is the entry — its content is what
+    would have to change to redirect anything.
+    """
+    dot = root / ".git"
+    out: dict[str, str] = {}
+    if not dot.exists():
+        return out
+    if not dot.is_dir():
+        out[".git"] = GIT_CONTROL
+        return out
+    for rel in GIT_CONTROL_PATHS:
+        target = dot / rel.rstrip("/")
+        if rel.endswith("/"):
+            if not target.is_dir():
+                continue
+            try:
+                # Sorted so the entry set is deterministic; direct children only,
+                # because that is the exact set git executes.
+                for child in sorted(target.iterdir()):
+                    out[f".git/{rel}{child.name}"] = GIT_CONTROL
+            except OSError as exc:
+                # Unreadable must never read as unchanged — same rule as everywhere
+                # else in this module.
+                out[f".git/{rel}\t<unreadable: {exc.strerror}>"] = GIT_CONTROL
+        elif target.exists():
+            out[f".git/{rel}"] = GIT_CONTROL
+    return out
+
+
 def fingerprint(
     root: Path, is_root_repo: bool = True, structure_roots: list[Path] | None = None
 ) -> TreeFingerprint:
@@ -540,6 +634,10 @@ def fingerprint(
             exempted.append(path)
             continue
         entries[path] = code
+    # Gate-2 F3. The only entries in this function that do NOT come from git, because
+    # for these git has no answer to give. Folded in here rather than compared
+    # separately so they inherit the diff, the classifier and the receipt unchanged.
+    entries.update(_git_control_entries(root))
 
     content: dict[str, str] = {}
     coarse: list[str] = []
@@ -621,6 +719,13 @@ def _kind_of_new_entry(code: str) -> str:
 #: flow, and each time the control flow admitted codes its author had not thought
 #: about. A dict cannot silently widen.
 _ENTRY_KIND: dict[str, str] = {
+    # A control surface under `.git/` (Gate-2 F3). Its own kind, because none of the
+    # three verbs is right for it: `git checkout --` cannot restore a path git has
+    # never tracked, and `created` would send `.git/config` to the destroyer guard,
+    # which — finding nothing tracked underneath, correctly, since git tracks nothing
+    # in there — would authorise deleting it. Containment must not be the thing that
+    # breaks the repository.
+    GIT_CONTROL: "git_internal",
     # nothing was here before the phase ran
     "??": "created",
     "!!": "created",
@@ -1126,6 +1231,29 @@ def rollback(
                 )
                 continue
 
+        # Gate-2 F3. Keyed on the PATH, not on `change.kind`: the kind is a measurement,
+        # and C1's fourth clause is that a check must not be switchable off by anything
+        # it certifies. `.git/config` being modified, a hook being planted, and a hook
+        # being deleted arrive as three different kinds, and all three must refuse.
+        # Refuse, do not act: git never reports these paths, so `git checkout --` cannot
+        # restore one, and the created-path branch would find nothing tracked underneath
+        # — correctly, git tracks nothing in there — and authorise `rmtree` on
+        # `.git/config`. The breach is detected, quarantined and named; a human decides.
+        if change.path == ".git" or change.path.startswith(".git/"):
+            actions.append(
+                RollbackAction(
+                    change.path,
+                    "NOT_ROLLED_BACK",
+                    "REFUSED: this is git's own control surface — a hook, its config, or "
+                    "its exclude list. Nothing here is ever a phase write, and git "
+                    "tracks none of it, so every rollback verb available would either "
+                    "no-op or destroy the repository. Quarantined and reported; undoing "
+                    "it is a human decision",
+                    quarantined,
+                    guard="git_internal",
+                )
+            )
+            continue
         if change.kind == "committed":
             actions.append(
                 RollbackAction(

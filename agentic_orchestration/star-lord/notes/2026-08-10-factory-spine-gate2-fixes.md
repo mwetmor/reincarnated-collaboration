@@ -1310,3 +1310,253 @@ exactly one match, so a mutation that silently applied nowhere cannot read as a 
 * **G3** (host co-tenancy) and **G5** (rollback reason derived from branch, not from a
   second measurement) carried forward.
 * gandalf DRIFT-CRITIC review of the amended reachability discipline text.
+
+---
+
+## 16. Round twelve — the channel that could not carry its own counterexample
+
+jack-ryan's round-eleven review returned a **scoped verdict**: LIFT for the mechanical
+founding run, HOLD for the agentic lane. He confirmed C1 was fixed at the class (both of
+his attacks died), that the guard partition is right, that C5's trigger is falsifiable,
+and that C3 has no third code path — *"the route around is not a code path, it is a
+value."* Six findings, F1–F6, three of them blocking.
+
+The through-line of this round is the fourth axis pointing at itself. C3, C4 and C5 were
+all fixes I wrote and then certified; F4, F5 and F6 are each **the certification stopping
+one question short of the claim**. F3 is different and worse: not a predicate answering a
+slightly different question, but a **channel that structurally could not carry the
+counterexample**.
+
+A seventh, **F7**, was not on his list and surfaced from typing the command a reviewer
+types (§16.7). It is the same shape at its mildest: the suite's own subject was undeclared.
+
+### 16.1 F3 — `git status` will never tell you about `.git/`
+
+C4 protected `.claude/` in every declared repo because it is a hook-execution surface and
+a phase writing it arranges for code to run in the next Claude session there. The same
+sentence, one directory over: `.git/hooks/pre-commit` arranges for code to run on the
+next git operation any **human** performs in that repo. `.git/config` reaches the same
+place from the side via `core.hooksPath`.
+
+It was not merely unprotected. Every path in `permissions.py` arrives from
+`git status --porcelain -z --ignored=traditional`, and git does not consider its own
+directory part of the worktree at any porcelain setting. So the write produced an **empty
+change-set**, and an empty change-set is the module's word for innocence. jack-ryan's
+probe measured it: *"a `.git/` write is INVISIBLE to containment."*
+
+Three named surfaces are now measured directly and folded into `entries` as ordinary rows
+(synthetic code `G!`), so they inherit the diff, the classifier and the receipt unchanged:
+
+| Surface | Why it, and not the rest of `.git/` |
+|---|---|
+| `hooks/` (direct children) | git executes exactly the direct children — a flat listing is the exact set, not a sample |
+| `config` | `core.hooksPath` reaches `hooks/` sideways; `url.*.insteadOf` reaches the network |
+| `info/exclude` | an untracked ignore list — appending to it makes the phase's *later* writes invisible to every other measurement in the module |
+
+**Not** refs, the index, or the object store. That restraint is K1's lesson paid forward:
+K1 put `.git` in the structure sweep, the object fanout moved on a plain `git add`, and
+the most disciplined thing an agent can do inside a read-only tree became the breach that
+triggered a repo-wide revert. A partner row runs `add`, `commit`, `checkout -b` and `gc
+--prune=now` and requires the control signature **unmoved**; the mutation that adds
+`objects/` to the list turns it red, which is what makes it a row rather than a hope.
+
+The second half of F3 is that detection here must **not** be wired to a verb. Both verbs
+available are actively wrong:
+
+* `created` sends the path to the destroyer guard, which asks what git tracks underneath.
+  git tracks nothing under `.git/` — correctly — so the guard would find zero and
+  authorise `rmtree` on `.git/config`. **Containment would break the repository.**
+* `git checkout --` cannot restore a path git has never heard of.
+
+So `git_internal` joins `REFUSAL_GUARDS` (eleven names now): quarantine the evidence,
+name it, stop. Keyed on the **path**, not on `change.kind` — a kind is a measurement, and
+C1's fourth clause forbids a trigger that anything it certifies can switch off. Planting a
+hook arrives as `git_internal`, deleting one arrives as `modified`, and a dedicated row
+proves both refuse under the same guard.
+
+### 16.2 F4 — I proved the allowlist REFUSES when absent, not that it RESTRICTS when present
+
+C3's own finding was that `tools` was the one allowlist in this spine that failed open. I
+fixed it at both entry points, wrote rows for both, and the rows asked whether an
+**absent** allowlist is refused. That is a test of declaration. `tools: [default]` — one
+word, `claude --help`'s own spelling of *"use all tools"* — reaches the exact state the
+guard exists to prevent, and it reads on the page as diligence.
+
+Rule 13 applied to the allowlist: a **closed vocabulary**. `BUILTIN_TOOLS` was read off
+the `init` frame of a live stream-json run on this host, not copied from documentation and
+not guessed — the CLI enumerates its own tools, so the CLI is the source. Host MCP tools
+appeared in the same frame and were deliberately excluded: their availability is
+per-machine, so a workflow naming one declares a fence whose contents vary by host.
+
+Five refusals, each with its own row: `default` by name; a non-list (YAML `tools: Read` is
+a *string*, and `list("Read")` is `['R','e','a','d']` — four tools that do not exist, an
+allowlist that restricts by **accident**); an empty list; an unenumerated name; an `mcp__`
+name. Scoped forms (`Bash(git *)`) are kept and have their own row, because a set of
+refusals that also refuses the correct input proves nothing.
+
+The vocabulary lives on the **harness**, and the loader calls it rather than holding a
+second opinion — with a row that spies on the call and reds if the loader ever stops. A
+harness publishing no `validate_tools` is refused outright: a second lane is the obvious
+route around a validator that lives on the first, which is L8 with a delay on it.
+
+### 16.3 F5 / F6 — a waiver re-asked, and a key that was not one
+
+C5's `coarse_acknowledged` check runs at LOAD. That is right, and it is a snapshot.
+`_note_coarse`'s own docstring, written for G4, says a region can cross the scan cap
+**during** a phase — including because the phase wrote enough files to push it over, which
+is the case where the waiver matters most. Nobody re-asked. It is now re-asserted at every
+snapshot on the agentic lane, off the fingerprint already computed, and raises
+`ContainmentError` so the existing handler aborts the **phase** with a receipt rather than
+the run with a traceback. The mechanical lane is untouched, and a control mutation that
+makes it fire everywhere reds — the founding run is entirely mechanical over a godot tree
+with two coarse regions, and would otherwise stop dead.
+
+F6: the key was `repo.name`. Two declared repos at `~/a/engine` and `~/b/engine` share it,
+so one waiver silently cleared a region in a tree nobody had looked at. `coarse_key()` is
+now the one spelling, on the resolved path, called by loader and runner both. The C5 tests
+had `"repo:ignored/"` as a **literal** — a second, independent spelling of a format the
+product owns, which agreed only until the product changed, and which encoded the very
+basename keying F6 fixes. They now build the key the way the product does.
+
+### 16.4 F1 / F2 — the two the wall found in the wall
+
+F1: `assert rendered in reason` is vacuously true when `rendered` is the empty string, so
+the B1 fix's own check could pass on a refusal carrying no facts at all. `assert rendered`
+first, with a pinned-wording row behind it.
+
+F2: the C2 reach audit enumerated its subject with a flat `glob` while pytest collects
+**recursively** — so an assert in `tests/sub/` was collected, never executed, and never
+asked about. The subject is now reported by the collector itself
+(`pytest_collection_modifyitems`), which cannot disagree with the collector. Verified
+against jack-ryan's own probe: *"an assert that never executes is reported RED — the audit
+sees it."*
+
+### 16.5 The mutation table
+
+Sixteen one-line edits, each breaking exactly one property, each adjudicated by the
+cheapest suite that can see it (fast tier 6s, wall 53s, reach 60s). Harness at
+`/tmp/sl12_f16.py`; every anchor was required to match exactly once, and the target was
+restored and the restore asserted.
+
+| # | Mutation | Property it breaks | Suite | Result |
+|---|---|---|---|---|
+| V1 | `render_containment_facts` returns `""` | F1 — `assert rendered in reason` is vacuous when `rendered` is `''` | wall | RED (10) |
+| V2 | reach audit enumerates with a FLAT `glob` | F2 — an assert in `tests/sub/` is collected, never runs, never asked about | reach | RED (2) |
+| V3 | `.git/` is not measured at all | F3 — nothing else can see the write | wall | RED (20) |
+| V4 | `.git/` dropped from `PROTECTED_EVERY_REPO` | F3 — measured but not protected is detection without enforcement | wall | RED (14) |
+| V5 | rollback stops refusing a `.git/` path | F3 — every verb available no-ops or destroys `.git/config` | wall | RED (8) |
+| V6 | only `hooks/` measured, not `config` / `info/exclude` | F3 — `core.hooksPath` reaches the same place from config | wall | RED (12) |
+| V7 | **CONTROL** — `objects/` joins the measured surfaces | K1's lesson: a measurement that fires on `git add` is worse than none | wall | RED (8) |
+| V8 | the LOADER stops validating the allowlist | F4 — a workflow reaches the lane with `tools: [default]` | fast | RED (9) |
+| V9 | `default` stops being refused | F4 — one word reaches the state the allowlist exists to prevent | fast | RED (2) |
+| V10 | a non-list stops being refused | F4 — YAML `tools: Read` becomes `['R','e','a','d']` | fast | RED (1) |
+| V11 | an unknown tool name passes through | F4 — a vocabulary that admits any string is not closed | fast | RED (2) |
+| V12 | a harness with no vocabulary may still be given an allowlist | F4 — a second lane is the route around a validator on the first | fast | RED (1) |
+| V13 | **CONTROL** — `BUILTIN_TOOLS` emptied | the accept path is tested too; refusing everything is not a fix | fast | **see below** |
+| V14 | the runtime re-assertion never fires | F5 — a region crossing the cap mid-run most needs the check | fast | RED (3) |
+| V15 | **CONTROL** — the runtime check fires on the mechanical lane too | the trigger is the lane, falsifiable in both directions | fast | RED (1) |
+| V16 | the acknowledgement is keyed on the BASENAME again | F6 — `~/a/engine` and `~/b/engine` share a key | fast | RED (2) |
+
+**V13 survived, and the survival was the instrument's fault, not the suite's.** The
+anchor was the final line of the `frozenset` literal, so the edit removed
+`WebFetch, WebSearch, Write` and left `Read`, `Bash`, `Glob` and twenty others in place —
+while the accept-path rows use exactly `Read` and `Bash`. The label said *emptied*; the
+edit trimmed three names nothing tests. Re-run as the control it meant to be
+(`BUILTIN_TOOLS = frozenset()`, whole literal, `/tmp/sl12_v13.py`): **RED, 20 failed / 99
+passed**, reds including all three F4 rows, the C3 argv rows, and every C5/F6 row that
+loads an agentic phase. The accept path has teeth.
+
+This is worth naming rather than quietly fixing: a mutation whose *label* and whose
+*edit* disagree reports a coverage gap that does not exist, and — the direction that
+actually costs something — could equally report coverage that does not exist. An anchor
+matching exactly once proves the edit is unambiguous. It does not prove the edit is the
+one the row claims. Fifteen of sixteen anchors here were whole predicates or whole
+constants; V13's was a fragment of a multi-line literal, and that is the only one that
+lied.
+
+**Final: 16 mutations, 16 red, zero survivors.** Baselines and post-mutation tiers
+identical (fast 119, wall 284, reach 4); `unanchored: none`.
+
+### 16.6 A hazard in the instrument — the lost-update race
+
+I edited `permissions.py` while `/tmp/sl12_f16.py` was mid-run. The harness reads the
+target once, writes the mutated text, and restores **from its in-memory snapshot** — so
+my edit landed inside that window and was overwritten by the restore, which also left
+mutation V1 (`render_containment_facts` returning `""`) applied to the working tree.
+
+What caught it: the fast tier, inside a minute, with two C1 rows red on the
+`assert rendered` guard **F1 had just added**. The fix found the accident that the fix's
+own harness caused, which is the most direct evidence available that F1 is not decorative.
+
+Recovery was: kill the harness, verify every mutation target against intent rather than
+against memory (`if False:` count zero in all four product files; `GIT_CONTROL_PATHS`,
+`PROTECTED_EVERY_REPO`, `rglob`, the resolved-path `coarse_key`, the full
+`BUILTIN_TOOLS`, `entries.update(_git_control_entries(root))`, the `.git/` rollback guard,
+and `git_internal` at all three of its registration sites), restore the one line, confirm
+119 green, restart.
+
+The discipline this earns: **a mutation run owns its targets for its duration.** The
+harness holds a snapshot; the working tree is not the source of truth while it runs. If
+this becomes routine the harness should take a lock or refuse to start on a dirty tree —
+recorded here as the cheaper option of writing it down first.
+
+### 16.7 F7 — the suite's subject was whatever pytest's walk reached
+
+Found while gathering this round's evidence, by typing the command a reviewer types.
+
+`rollback` refuses to undo some artifacts and **quarantines them instead, durably, inside
+this tree** at `factory/sessions/<run>/breach/…`. The wall's own fenced trees contain
+test files, so the quarantine holds copies of `test_*.py`; one earlier symlink-out-of-tree
+breach put engine modules there too. That is containment working exactly as designed —
+nothing escaped.
+
+But `pytest` at the factory root walked into the quarantine and reported **33 collection
+errors** on artifacts that are supposed to be inert. The suite's SUBJECT had never been
+stated; it was whatever the default walk happened to reach. Same family as the rest of
+this round, in the mildest possible key: a channel carrying something into a place nobody
+asked it to go.
+
+`pytest.ini` now pins `testpaths = tests` and adds `sessions` to `norecursedirs`, and
+`test_the_QUARANTINE_is_not_part_of_the_suites_SUBJECT` plants an unparseable `.py` where
+quarantine puts things and requires a root-cwd collection to stay clean, over two
+invocations (bare and explicit `.`).
+
+Two things worth recording about how that row was written, both of which are the round's
+own lesson landing on me:
+
+1. **The first predicate was `"error" not in stdout.lower()`.** `--collect-only -q` prints
+   every test NAME, and this suite contains `…_a_tree_that_errored_mid_run_…`. The row
+   was red for a reason that had nothing to do with quarantine — a predicate answering a
+   different question than the one asked, written *inside the row built to catch that
+   shape*. It now asks for the exit code and the counted summary line, both by name.
+2. **The first docstring claimed the two config mechanisms cover one invocation each.**
+   The ablation says otherwise: with `pytest.ini` absent both arms go red; with only
+   `testpaths` removed both stay **green**, so `norecursedirs` is the load-bearing
+   exclusion and is alone sufficient; with only `norecursedirs` removed the explicit `.`
+   goes red and the bare call is caught by `testpaths`. `testpaths` is redundant for this
+   row and kept anyway, because stating the subject out loud is the entire point. The
+   ablation shipped; the claim did not.
+
+Scoped to `tests/` the count was **469**, matching the README before this row; with the
+two new arms it is **471**, and the bare root command now reports the same 471 rather
+than 471-plus-33-errors.
+
+### 16.8 Run evidence, this round
+
+| Check | Result |
+|---|---|
+| Full suite, scoped `tests/` | **471 passed** |
+| Full suite, bare at factory root | **471 passed, 0 errors** (was 471 + 33 collection errors) |
+| Mutation set (16, incl. 3 controls) | **16 red, 0 survivors** — V13 re-run as a true emptying |
+| F7 ablation | pytest.ini absent → both arms RED; per-mechanism results in §16.7 |
+| Founding run | **PASS 3/3** (`kc2-baton-mechanical-20260811T091949Z-da2b96`), every gate green |
+| Determinism | **EXACT — 14 gate verdicts identical across two laps** |
+
+### 16.9 What is still open
+
+* **O4** (dollars figure: gandalf DROP vs jack-ryan KEEP) and **D-10** (no HALT status)
+  remain Matt's calls, unchanged. jack-ryan notes D-10 becomes material on the agentic
+  lane, which is the lane this round exists to open.
+* **G3** (host co-tenancy) and **G5** (rollback reason derived from branch rather than
+  from a second measurement — adjacent to F1) carried forward.
+* gandalf DRIFT-CRITIC review of the amended reachability discipline text.

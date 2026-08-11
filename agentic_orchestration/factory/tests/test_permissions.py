@@ -838,7 +838,12 @@ def _assert_counted_claim_is_certified(action, repo, expect_guard: str) -> None:
     assert dict(action.facts) == expected, (
         f"the {expect_guard} refusal carries {dict(action.facts)}; git says {expected}."
     )
-    assert perm.render_containment_facts(tuple(expected.items())) in (action.reason or ""), (
+    rendered = perm.render_containment_facts(tuple(expected.items()))
+    assert rendered, (
+        "the renderer produced an empty clause, and an empty string is `in` every "
+        "reason ever written. F1: the delivery check has to have something to find."
+    )
+    assert rendered in (action.reason or ""), (
         f"the {expect_guard} refusal does not state the facts it rests on. "
         f"Reason was: {action.reason}"
     )

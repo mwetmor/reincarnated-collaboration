@@ -202,7 +202,7 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
                     + (f" — blocked on {blocked}" if blocked else "")
                     + ". A closed lane fails at LOAD, not after the phases ahead of it burn."
                 )
-        if agent and not (raw.get("tools") or []):
+        if agent:
             # Gate-2 C3. `tools` was the ONE allowlist in this spine that failed
             # OPEN: omit it and no `--tools` / `--allowedTools` flag is emitted, so
             # the phase runs against whatever the ambient .claude/settings.json
@@ -210,16 +210,27 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
             # built-in set. Every sibling allowlist here fails closed (an empty
             # `writes` breaches everything; an empty `gates` is a load error), and
             # this is the only PRE-hoc containment the agentic lane has —
-            # permissions.py is entirely post-hoc detect-and-abort. It went unnoticed
-            # because every founding-run phase is mechanical, so the branch has never
-            # run against a model. Declare `tools: []`… you cannot: an empty list is
-            # refused here too, because "no tools" is spelled by not naming an agent.
-            raise WorkflowError(
-                f"phase {pname!r} names agent {agent!r} but declares no `tools` "
-                "allowlist. An agentic phase with no tool allowlist runs with the "
-                "CLI's full default tool set, which is the one allowlist in this "
-                "spine that would fail OPEN. Name the tools the phase needs."
-            )
+            # permissions.py is entirely post-hoc detect-and-abort.
+            #
+            # Gate-2 F4: C3 proved the guard REFUSES WHEN ABSENT and stopped there,
+            # which is a test of declaration, not of restriction. `tools: [default]`
+            # is exactly the state C3 exists to prevent, reached by writing one word,
+            # and it reads as diligence. So the refusal is now the HARNESS's closed
+            # vocabulary, called from both entry points against the same list — the
+            # loader is not allowed to have its own opinion of what a tool name is.
+            validator = getattr(adapter, "validate_tools", None)
+            if not callable(validator):
+                raise WorkflowError(
+                    f"phase {pname!r} runs on the {harness!r} lane, which publishes no "
+                    "`validate_tools`. A harness that cannot say which tool names it "
+                    "accepts cannot be given an allowlist — the allowlist would pass "
+                    "through unchecked, which is the fail-open this refusal exists to "
+                    "prevent."
+                )
+            try:
+                validator(raw.get("tools"), f"phase {pname!r}")
+            except ValueError as exc:
+                raise WorkflowError(str(exc)) from exc
         if agent and not prompt:
             raise WorkflowError(f"phase {pname!r} names an agent but carries no `prompt`")
         if not agent and prompt:
@@ -388,7 +399,7 @@ def validate_coarse_regions_are_acknowledged(wf) -> None:
     """
     if not any(p.agent for p in wf.phases):
         return
-    from .permissions import fingerprint
+    from .permissions import coarse_key, fingerprint
 
     acknowledged = set(getattr(wf, "coarse_acknowledged", []) or [])
     measured: set[str] = set()
@@ -397,7 +408,7 @@ def validate_coarse_regions_are_acknowledged(wf) -> None:
         # would make `sessions/` measurable, and a bogus acknowledgement is exactly
         # what the stale branch below exists to refuse.
         fp = fingerprint(repo, is_root_repo=repo.resolve() == wf.root.resolve())
-        measured.update(f"{repo.name}:{region}" for region in fp.coarse)
+        measured.update(coarse_key(repo, region) for region in fp.coarse)
 
     unacknowledged = measured - acknowledged
     if unacknowledged:

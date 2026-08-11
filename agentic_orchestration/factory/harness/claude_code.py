@@ -38,9 +38,95 @@ from .base import RawResult, register_harness
 
 DEFAULT_TIMEOUT_S = 3600
 
+#: The built-in tool set, read off the `init` frame of a live stream-json run on this
+#: host (claude 2.1.119, star-lord probe 2026-08-11, Gate-2 F4). Not copied from
+#: documentation and not guessed: the CLI enumerates its own tools, so that is the
+#: source. Host-specific MCP tools appeared in the same frame and are deliberately
+#: NOT here — their availability depends on local config, so a workflow naming one
+#: would be declaring a fence whose contents vary by machine.
+BUILTIN_TOOLS = frozenset({
+    "Task", "AskUserQuestion", "Bash", "CronCreate", "CronDelete", "CronList", "Edit",
+    "EnterPlanMode", "EnterWorktree", "ExitPlanMode", "ExitWorktree", "Glob", "Grep",
+    "Monitor", "NotebookEdit", "PushNotification", "Read", "RemoteTrigger",
+    "ScheduleWakeup", "Skill", "TaskOutput", "TaskStop", "TodoWrite", "ToolSearch",
+    "WebFetch", "WebSearch", "Write",
+})
+
+
+def validate_tools(tools: object, where: str) -> list[str]:
+    """Refuse an allowlist that does not restrict. Returns the validated list.
+
+    Gate-2 C3 made an absent `tools` a refusal at both entry points. Gate-2 F4 showed
+    that closed only the EMPTY case: the guard tested declaration, not restriction, so
+    the exact state C3 exists to prevent — the full built-in set, chosen by nobody —
+    was reachable by writing one word, `default`, and it read as diligence. A test for
+    emptiness is not a test for restriction.
+
+    So this is rule 13 applied to the allowlist: a CLOSED VOCABULARY. `default` is
+    refused by name, a non-list is refused (YAML `tools: Read` is a string, and
+    `list("Read")` is `['R','e','a','d']` — an allowlist of four tools that do not
+    exist, which the CLI would accept and which restricts by accident), and a name
+    nobody enumerated is refused rather than passed through. A default that admits
+    every string is how this class recurs.
+
+    Scoped forms are kept: `Bash(git *)` is the vendor's own example and is strictly
+    narrower than `Bash`. The BASE name is what must be in the vocabulary.
+    """
+    if tools is None:
+        raise ValueError(
+            f"{where}: declares no `tools` allowlist. An agentic phase with no tool "
+            "allowlist runs with the CLI's full default tool set, which is the one "
+            "allowlist in this spine that would fail OPEN. Name the tools the phase "
+            "needs."
+        )
+    if isinstance(tools, str) or not isinstance(tools, (list, tuple)):
+        raise ValueError(
+            f"{where}: `tools` must be a LIST of tool names, got {type(tools).__name__} "
+            f"{tools!r}. A YAML scalar (`tools: Read`) becomes the characters of the "
+            "word, which is an allowlist of four tools that do not exist — it restricts "
+            "by accident and reads as a declaration."
+        )
+    names = [str(t) for t in tools]
+    if not names:
+        raise ValueError(
+            f"{where}: `tools` is empty. With no --tools/--allowedTools the CLI runs "
+            "its full default tool set, and this is the agentic lane's only pre-hoc "
+            "containment."
+        )
+    for name in names:
+        base = name.split("(", 1)[0].strip()
+        if base == "default":
+            raise ValueError(
+                f"{where}: `tools` names 'default', which `claude --help` defines as "
+                "\"use all tools\". That is the exact state this allowlist exists to "
+                "prevent, reached by declaring it — a fence naming everything. Name the "
+                "tools the phase needs."
+            )
+        if base.startswith("mcp__"):
+            raise ValueError(
+                f"{where}: `tools` names the MCP tool {name!r}. MCP availability depends "
+                "on local config, so this fence would mean different things on different "
+                "machines. Not admitted to the vocabulary."
+            )
+        if base not in BUILTIN_TOOLS:
+            raise ValueError(
+                f"{where}: `tools` names {name!r}, which is not in the built-in set "
+                f"probed from this CLI. Known: {', '.join(sorted(BUILTIN_TOOLS))}. If the "
+                "CLI has gained a tool, re-probe the init frame and extend BUILTIN_TOOLS "
+                "deliberately — an allowlist that passes through unknown strings is not "
+                "closed."
+            )
+    return names
+
 
 class ClaudeCodeHarness:
     name = "claude_code"
+
+    #: Published on the ADAPTER so the loader can validate a phase's allowlist without
+    #: owning an opinion about what a tool name is (Gate-2 F4). The loader refuses any
+    #: harness that does not publish it — otherwise a second lane would be a way around
+    #: the vocabulary, which is how this class recurs.
+    validate_tools = staticmethod(validate_tools)
 
     def __init__(self, executable: str = "claude"):
         self.executable = executable
@@ -65,17 +151,11 @@ class ClaudeCodeHarness:
             "stream-json",
             "--verbose",
         ]
-        tools = config.get("tools")
-        if not tools:
-            # Gate-2 C3, second half. The loader refuses this at LOAD, but the
-            # adapter is callable directly and a guard that exists in only one of
-            # two entry points is a guard with a route around it — which is L8's
-            # finding, at the harness layer. Fail closed at both.
-            raise ValueError(
-                "claude_code harness requires a non-empty `tools` allowlist: with no "
-                "--tools/--allowedTools the CLI runs its full default tool set, and "
-                "this is the agentic lane's only pre-hoc containment"
-            )
+        # Gate-2 C3, second half. The loader refuses this at LOAD, but the adapter is
+        # callable directly and a guard that exists in only one of two entry points is
+        # a guard with a route around it — which is L8's finding, at the harness layer.
+        # Fail closed at both, and against the same vocabulary (F4).
+        tools = validate_tools(config.get("tools"), "claude_code harness")
         argv += ["--tools", ",".join(tools)]
         argv += ["--allowedTools", ",".join(tools)]
         for extra_dir in config.get("add_dirs", []) or []:

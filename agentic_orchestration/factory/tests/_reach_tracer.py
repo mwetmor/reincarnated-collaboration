@@ -31,6 +31,11 @@ TRACED_DIRS = tuple(
     ).split(os.pathsep) if d
 )
 _reached: set[tuple[str, int]] = set()
+#: Every file pytest actually COLLECTED. Gate-2 F2: the audit enumerated its subject
+#: with a flat `glob`, while the child collects RECURSIVELY — so an assert in
+#: `tests/sub/` was collected, never executed, and never asked about. The subject is
+#: now reported by the collector itself, which cannot disagree with the collector.
+_collected: set[str] = set()
 
 
 def _line_hook(frame, event, arg):
@@ -49,11 +54,20 @@ def pytest_configure(config):
     sys.settrace(_global_hook)
 
 
+def pytest_collection_modifyitems(session, config, items):
+    for item in items:
+        _collected.add(str(Path(str(item.path)).resolve()))
+
+
 def pytest_unconfigure(config):
     sys.settrace(None)
     out = os.environ.get("FACTORY_REACH_OUT")
     if not out:
         return
     Path(out).write_text(
-        json.dumps(sorted([f"{f}:{n}" for f, n in _reached])), encoding="utf-8"
+        json.dumps({
+            "reached": sorted(f"{f}:{n}" for f, n in _reached),
+            "collected": sorted(_collected),
+        }),
+        encoding="utf-8",
     )

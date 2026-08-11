@@ -6,6 +6,7 @@ run not yet started.
 """
 
 import json
+import re
 
 import pytest
 
@@ -297,6 +298,19 @@ AGENTIC_PHASE = {
 }
 
 
+def _ack(repo, region: str) -> str:
+    """The acknowledgement key, built the way the product builds it (Gate-2 F6).
+
+    These were literals — `"repo:ignored/"` — which is a second, independent spelling
+    of a format the product owns, and the two agree only until one changes. Worse,
+    the literal encoded the BASENAME keying that F6 is the fix for, so the tests
+    would have gone red on the fix rather than on a defect.
+    """
+    from factory import permissions as perm
+
+    return perm.coarse_key(repo, region)
+
+
 @pytest.fixture
 def coarse_repo(git_repo, monkeypatch):
     """A repo with one region that measures COARSE.
@@ -336,7 +350,7 @@ def test_C5_the_refusal_names_the_region_so_the_author_can_act_on_it(
 ):
     path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
                phases=[dict(AGENTIC_PHASE)])
-    with pytest.raises(WorkflowError, match=r"repo:ignored/"):
+    with pytest.raises(WorkflowError, match=re.escape(_ack(coarse_repo, "ignored/"))):
         load_workflow(path)
 
 
@@ -346,9 +360,9 @@ def test_C5_a_named_acknowledgement_lets_the_agentic_workflow_load(
     """The escape hatch is real, and it is per-region and by name — not a boolean."""
     path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
                phases=[dict(AGENTIC_PHASE)],
-               coarse_acknowledged=["repo:ignored/"])
+               coarse_acknowledged=[_ack(coarse_repo, "ignored/")])
     wf = load_workflow(path)
-    assert wf.coarse_acknowledged == ["repo:ignored/"]
+    assert wf.coarse_acknowledged == [_ack(coarse_repo, "ignored/")]
 
 
 def test_C5_an_acknowledgement_that_does_not_match_the_tree_is_refused(
@@ -359,7 +373,8 @@ def test_C5_an_acknowledgement_that_does_not_match_the_tree_is_refused(
     diligence and certifies nothing — the class this spine keeps finding."""
     path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
                phases=[dict(AGENTIC_PHASE)],
-               coarse_acknowledged=["repo:ignored/", "repo:Assets/Synty/"])
+               coarse_acknowledged=[_ack(coarse_repo, "ignored/"),
+                                    _ack(coarse_repo, "Assets/Synty/")])
     with pytest.raises(WorkflowError, match="do not measure COARSE"):
         load_workflow(path)
 
@@ -392,8 +407,8 @@ def test_C5_acknowledging_ONE_region_does_not_clear_a_second_one(tmp_path, coars
     (second / "b").write_text("2\n")
     path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
                phases=[dict(AGENTIC_PHASE)],
-               coarse_acknowledged=["repo:ignored/"])
-    with pytest.raises(WorkflowError, match=r"repo:extra/"):
+               coarse_acknowledged=[_ack(coarse_repo, "ignored/")])
+    with pytest.raises(WorkflowError, match=re.escape(_ack(coarse_repo, "extra/"))):
         load_workflow(path)
 
 
@@ -408,4 +423,127 @@ def test_C3_the_loader_refuses_an_agentic_phase_that_declares_no_tools(tmp_path,
     phase = {k: v for k, v in AGENTIC_PHASE.items() if k != "tools"}
     path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
     with pytest.raises(WorkflowError, match="fail OPEN"):
+        load_workflow(path)
+
+
+# --- Gate-2 F4: the allowlist must RESTRICT, not merely be present ------------------
+#
+# C3 proved the guard refuses when `tools` is ABSENT and stopped there. That is a test
+# of declaration. The state C3 exists to prevent — the full built-in set, chosen by
+# nobody — was still reachable, by writing one word, and it read as diligence. Each
+# arm of the closed vocabulary gets a row here, because a vocabulary with an untested
+# arm is a vocabulary with a hole, and the hole is always the one that looks fine.
+
+
+@pytest.mark.parametrize(
+    "tools, expect",
+    [
+        (["default"], "use all tools"),
+        (["Read", "default"], "use all tools"),          # buried among real names
+        ("Read", "must be a LIST"),                       # YAML scalar -> ['R','e','a','d']
+        ([], "is empty"),
+        (["Reed"], "not in the built-in set"),            # a typo is not an allowlist
+        (["Bash(git *)", "Nope"], "not in the built-in set"),
+        (["mcp__plugin_vercel_vercel__authenticate"], "MCP"),
+    ],
+)
+def test_F4_the_loader_refuses_an_allowlist_that_does_not_restrict(
+    tmp_path, git_repo, tools, expect
+):
+    phase = dict(AGENTIC_PHASE, tools=tools)
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError, match=expect):
+        load_workflow(path)
+
+
+@pytest.mark.parametrize("tools", [["Read"], ["Bash(git *)"], ["Read", "Bash(git log:*)"]])
+def test_F4_a_genuinely_narrow_allowlist_still_loads(tmp_path, git_repo, tools):
+    """The refusals above are worth nothing if they also refuse the correct input.
+
+    Scoped forms are the vendor's own idiom and are strictly narrower than the bare
+    tool, so the BASE name is what the vocabulary adjudicates.
+    """
+    phase = dict(AGENTIC_PHASE, tools=tools)
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    assert load_workflow(path).phases[0].tools == tools
+
+
+def test_F4_the_loader_and_the_harness_share_ONE_vocabulary(tmp_path, git_repo):
+    """Not two lists that agree today.
+
+    L8's finding was a guard with a route around it. Two vocabularies is that shape
+    with a delay on it: they agree until one is extended, and the disagreement shows
+    up as a phase that loads and then dies in argv — or worse, the reverse. So the
+    loader calls the ADAPTER's validator, and this row fails if it ever stops.
+    """
+    from factory.harness import get_harness
+
+    adapter = get_harness("claude_code")
+    calls: list[object] = []
+    original = type(adapter).validate_tools
+
+    def spy(tools, where):
+        calls.append(tools)
+        return original(tools, where)
+
+    type(adapter).validate_tools = staticmethod(spy)
+    try:
+        path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)],
+                   phases=[dict(AGENTIC_PHASE)])
+        load_workflow(path)
+    finally:
+        type(adapter).validate_tools = staticmethod(original)
+    assert calls == [["Read"]], "the loader validated the allowlist somewhere else"
+
+
+def test_F4_a_harness_that_publishes_no_vocabulary_cannot_be_given_an_allowlist(
+    tmp_path, git_repo
+):
+    """The fail-closed default for a lane the vocabulary has never met.
+
+    A second harness is the obvious route around a validator that lives on the first
+    one. If it cannot say which tool names it accepts, it does not get to receive an
+    allowlist — silently passing the list through is precisely the fail-open.
+    """
+    from factory.harness.base import _HARNESSES
+
+    class Mute:
+        name = "mute"
+
+        def run(self, prompt, cwd, config):  # pragma: no cover - never reached
+            raise AssertionError("load should have refused")
+
+    _HARNESSES["mute"] = Mute()
+    try:
+        phase = dict(AGENTIC_PHASE, harness="mute")
+        path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+        with pytest.raises(WorkflowError, match="publishes no `validate_tools`"):
+            load_workflow(path)
+    finally:
+        _HARNESSES.pop("mute", None)
+
+
+def test_F6_two_repos_with_the_SAME_BASENAME_do_not_share_an_acknowledgement(
+    tmp_path, coarse_repo, git_repo_factory
+):
+    """Gate-2 F6. The key was `repo.name`, so `~/a/engine` and `~/b/engine` collided.
+
+    One acknowledgement then cleared a coarse region in a tree nobody had looked at,
+    and the receipt read as though both had been considered. A key that is not unique
+    over its domain is not a key — and this is the recurring shape again: a predicate
+    answering a slightly different question ("is a repo with this NAME acknowledged?"),
+    whose wrong answer is the quiet one.
+    """
+    twin = git_repo_factory(tmp_path / "elsewhere" / coarse_repo.name)
+    region = twin / "ignored"
+    region.mkdir()
+    (region / "a").write_text("1\n")
+    (region / "b").write_text("2\n")
+    assert twin.name == coarse_repo.name, "premise failed: the basenames must collide"
+
+    path = _wf(tmp_path, root=str(coarse_repo),
+               repos=[str(coarse_repo), str(twin)],
+               phases=[dict(AGENTIC_PHASE)],
+               coarse_acknowledged=[_ack(coarse_repo, "ignored/")])
+    with pytest.raises(WorkflowError, match=re.escape(_ack(twin, "ignored/"))):
         load_workflow(path)
