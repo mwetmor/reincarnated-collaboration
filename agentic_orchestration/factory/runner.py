@@ -525,6 +525,26 @@ class Runner:
                 phase.phase_id,
             )
             self._say(f"     rollback: {action.path} -> {action.action}")
+        # Refusal is the right posture — leaving an artifact costs one un-undone file,
+        # while destroying work that was never the phase's is unrecoverable — but a
+        # refusal nobody can see is coverage loss that reads as containment. Rule 3
+        # already emits `containment_coarse` naming regions measured weakly; this is
+        # the symmetric receipt for regions NOT UNDONE, and it is the number to watch:
+        # the engine's baseline puts 52% of its directories under a collapsed dirty
+        # entry, so a large silent region is expected and must be visible (Gate-2 L6).
+        not_undone = [a for a in actions if a.action == "NOT_ROLLED_BACK"]
+        if not_undone:
+            self.receipts.event(
+                self.run_id,
+                "containment_not_undone",
+                json.dumps([{"path": a.path, "reason": a.reason} for a in not_undone]),
+                phase.phase_id,
+            )
+            self._say(
+                f"     containment: {len(not_undone)} of {len(actions)} breaching "
+                "path(s) were NOT undone — deliberately, each with a stated reason "
+                "above. Those artifacts are quarantined and still in place."
+            )
         co_tenancy = _co_tenancy_suspects(breaches)
         if co_tenancy:
             self.receipts.event(

@@ -84,6 +84,20 @@ reported clean."
 """
 
 
+#: Every pathspec this module hands to git is built from a filesystem PATH — a name
+#: read off the fingerprint, never a pattern a human wrote. A path is not a pathspec.
+#: Pathspecs are a language: a leading `:` is magic, so `:(top)` and `:/` mean THE
+#: WHOLE REPOSITORY, and `*`, `?`, `[` glob. A file legally named `:(top)` at a tree
+#: root therefore turned `git checkout -- <that file>` into a repo-wide revert, and
+#: turned `ls-files -- <that dir>` into "git knows nothing here" — rc=0, empty output,
+#: silently wrong, and zero is the answer that authorises rmtree (Gate-2 L1).
+#:
+#: This makes git read what we mean. No call site in this module wants globbing or
+#: magic — every one of them names one concrete path — so turning the language off is
+#: not a restriction, it is the removal of an interpretation nobody asked for.
+_GIT_ENV = {**os.environ, "GIT_LITERAL_PATHSPECS": "1"}
+
+
 def _git(root: Path, *args: str, check: bool = False) -> subprocess.CompletedProcess:
     return subprocess.run(
         ["git", *args],
@@ -92,6 +106,7 @@ def _git(root: Path, *args: str, check: bool = False) -> subprocess.CompletedPro
         text=True,
         check=check,
         stdin=subprocess.DEVNULL,
+        env=_GIT_ENV,
     )
 
 
@@ -235,7 +250,7 @@ class TreeFingerprint:
 class Change:
     root: Path
     path: str            # repo-relative
-    kind: str            # created | modified | deleted | committed
+    kind: str            # created | modified | deleted | committed | unknown
     before_status: str | None
     after_status: str | None
 
@@ -268,6 +283,12 @@ def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
 #: Synthetic code for the SOURCE half of a rename. git names both endpoints; the
 #: source has left the worktree, so it resolves to a `deleted` change.
 RENAME_SOURCE = "R<"
+
+#: The porcelain v1 conflict codes. A path in one of these states exists in SEVERAL
+#: index stages at once, so none of this module's three verbs (delete, checkout,
+#: refuse-with-a-reason) can act on it without arbitrarily picking a stage. They
+#: classify to `unknown`, which the rollback refuses by name (Gate-2 L2).
+UNMERGED_CODES = frozenset({"DD", "AU", "UD", "UA", "DU", "AA", "UU"})
 
 
 def _parse_porcelain_z(out: str) -> list[tuple[str, str]]:
@@ -505,20 +526,109 @@ def _kind_of_new_entry(code: str) -> str:
     reason that asserted a misidentification which had not occurred. The edit survived
     inside a read-only tree (Gate-2 K2).
 
-    git's own status code answers the question that was actually being asked. Only
-    `??` (untracked) and `!!` (ignored) mean the worktree had nothing here; `A` means
-    the phase created it AND staged it, which is still a creation. Everything else is
-    a path git knew about before the phase ran, so it is `modified` and the rollback's
-    `git checkout --` branch restores it.
+    git's own status code answers the question that was actually being asked. But the
+    first version of THIS fix enumerated part of the code space and defaulted the rest
+    to `modified` — so a rename DESTINATION (`R `, no `A` in it) was typed `modified`,
+    the rollback ran `git checkout --` on it, and git restored it FROM THE INDEX THE
+    PHASE HAD JUST STAGED. The file was left exactly as the phase wrote it and the
+    receipt said `restored`. Pre-fix the same artifact came back with an honest
+    refusal, so the fix converted a refusal into a false restore (Gate-2 L2).
+
+    The code space is therefore enumerated CLOSED, and an unrecognised code returns
+    `unknown` — which the rollback refuses. A default that catches every code nobody
+    listed is how this class recurs; the whole architecture is default-fail, and that
+    has to include the classifier, not just the callers.
+
+    And the SECOND version of the fix — the closed enumeration — was written as
+    character-class tests (`x in "ARC"`, `x == "D" or y == "D"`) under a docstring
+    claiming closure. Those are prefix tests, not an enumeration: they hand a
+    confident answer to 29 codes nobody listed, and they order `A` ahead of `D` so
+    `AD` — staged, then removed from disk — came back `created`. A table that only
+    LOOKS closed is the same defect with better documentation, so the enumeration
+    is now a literal mapping and closure is a property of the data structure.
+
+    `unknown` is not a failure state. It is the answer that routes a path to a
+    refusal naming it, which is what containment owes a case it cannot reason about.
     """
-    if code == RENAME_SOURCE or code.strip() == "D" or code.startswith("D"):
-        # The far end of a rename, or a deletion. NOT a creation: `created` is the one
-        # kind the rollback DELETES, and deleting the path a rename emptied would be
-        # the rollback acting on the wrong end of the move (Gate-2 J1).
-        return "deleted"
-    if code in ("??", "!!", "!?") or "A" in code:
-        return "created"
-    return "modified"
+    return _ENTRY_KIND.get(code, "unknown")
+
+
+#: The CLOSED table. Keys are the porcelain-v1 XY codes reachable for a path that
+#: was ABSENT from the baseline (i.e. clean at phase start), plus this module's
+#: synthetic rename-source marker. Anything not a key here is `unknown`.
+#:
+#: Written as data because the three previous versions were written as control
+#: flow, and each time the control flow admitted codes its author had not thought
+#: about. A dict cannot silently widen.
+_ENTRY_KIND: dict[str, str] = {
+    # nothing was here before the phase ran
+    "??": "created",
+    "!!": "created",
+    "!?": "created",
+    # ...nor here: staged creations, and the DESTINATION of a staged rename/copy.
+    # `created` sends these to the destroyer guard, which refuses them because the
+    # phase's own index holds them — the honest answer, and the one L2 restored.
+    "A ": "created",
+    "AM": "created",
+    "AT": "created",
+    "R ": "created",
+    "RM": "created",
+    "RT": "created",
+    "C ": "created",
+    "CM": "created",
+    "CT": "created",
+    # git knew this path before the phase ran, and it is still on disk
+    " M": "modified",
+    " T": "modified",
+    "M ": "modified",
+    "MM": "modified",
+    "MT": "modified",
+    "T ": "modified",
+    "TM": "modified",
+    "TT": "modified",
+    # the path has left the worktree
+    " D": "deleted",
+    "D ": "deleted",
+    "MD": "deleted",
+    "TD": "deleted",
+    RENAME_SOURCE: "deleted",   # the far end of a rename (Gate-2 J1)
+    #
+    # DELIBERATELY ABSENT, so they resolve to `unknown` and are refused by name:
+    #   AD RD CD — the phase staged a creation and then removed it from disk. There
+    #     is nothing on disk to undo and the index is dirty; no verb this module
+    #     owns is right, and picking one would be a guess.
+    #   DD AU UD UA DU AA UU — unmerged; the path is in several index stages at
+    #     once and every verb would arbitrarily pick one.
+}
+
+
+def _was_staged_by_phase(code: str | None) -> bool:
+    """Did the phase put this change in the INDEX?
+
+    This is the predicate that makes `git checkout -- <path>` safe to use at all.
+    That command restores from the index — so if the phase staged its own work, the
+    index IS the phase's work, and `checkout` rewrites the file with exactly the
+    content containment is supposed to be removing, then reports `restored`.
+
+    Gate-2 L2 found this on a rename destination and was closed by re-typing `R `.
+    That closed one cell of a column: the property has nothing to do with renames.
+    It holds for every code whose X column is non-space — including `M `, a staged
+    modification of a tracked file, which is the most ordinary thing a disciplined
+    agent does. Verified live: a phase that runs `git add` after its edit gets
+    `restored` on the receipt and its own bytes on disk.
+
+    Third round running in which the more disciplined git command is handled worst,
+    and the reason is structural: staging moves work into a place containment reads
+    as the baseline. So containment does not restore staged work — it refuses and
+    names the index, exactly as it already does for staged creations (the destroyer
+    guard) and staged deletions. Editing the index of a fenced tree is a human
+    decision in all three cases, and now in the fourth.
+    """
+    if not code:
+        return False
+    if code == RENAME_SOURCE:
+        return True     # `git mv` stages both ends
+    return len(code) == 2 and code[0] not in " ?!"
 
 
 def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[Change]:
@@ -683,22 +793,70 @@ def _covers(ancestor: str, path: str) -> bool:
     return a == p or (a != "" and p.startswith(a + "/"))
 
 
-def _tracks_content(root: Path, rel: str) -> int:
-    """How many files git knows under `rel` — asking BOTH questions, not one.
+@dataclass(frozen=True)
+class TrackedUnder:
+    """What git knows under a path, kept as TWO answers rather than one total.
+
+    The previous version unioned the index and HEAD and returned `len(seen)`. The
+    union is right; collapsing it to an integer is not, because the caller then
+    cannot tell WHICH question said yes — and the two say different things:
+
+      HEAD knows it   -> deleting destroys COMMITTED work. Refuse, always.
+      only the index  -> this is the phase's OWN staged write (`git add`, `git mv`).
+                         Nothing committed is at risk, and the identification was
+                         never wrong. Refuse, but say THAT.
+
+    Shipped, the single count produced a refusal whose BOTH clauses were false —
+    "the path identification is wrong and deleting it would destroy committed work"
+    over a file the phase had just `git add`-ed, which HEAD had never heard of. K4
+    fixed one instance of the false-reason class; this fixes the class in this guard
+    (Gate-2 L3). A refusal that asserts a misidentification which did not occur sends
+    the reader hunting a parse bug that isn't there.
+    """
+
+    in_head: tuple[str, ...]
+    in_index: tuple[str, ...]
+    unanswered: tuple[str, ...]
+
+    def __bool__(self) -> bool:
+        """True when there is any reason not to delete — including not knowing."""
+        return bool(self.in_head or self.in_index or self.unanswered)
+
+    @property
+    def count(self) -> int:
+        return len(set(self.in_head) | set(self.in_index))
+
+
+def _tracked_under(root: Path, rel: str) -> TrackedUnder:
+    """Ask BOTH questions git can answer about a path, and keep them apart.
 
     `git ls-files` reads the INDEX, and the index can be silenced while the content
     is still committed and still on disk: `git rm --cached` and `assume-unchanged`
     both do it. A guard that asks only the index answers "no tracked content" for a
     path whose deletion destroys committed work — the exact outcome the guard exists
-    to refuse (Gate-2 K3). `ls-tree HEAD` is the second question; either one alone is
-    answerable `no` while work is present, both together are not.
+    to refuse (Gate-2 K3). `ls-tree HEAD` is the second question.
+
+    Both questions are asked in git's pathspec language, which is why `_GIT_ENV` is
+    load-bearing here: under default pathspecs a directory named `:magic` made BOTH
+    halves return rc=0 with empty output, and zero is the answer that authorises
+    `rmtree` (Gate-2 L1b).
+
+    A question git REFUSES to answer is recorded as unanswered, not as `no`. An
+    unborn HEAD is not a refusal — it is the real answer "nothing is committed yet".
     """
-    seen: set[str] = set()
-    for args in (("ls-files", "--", rel), ("ls-tree", "-r", "--name-only", "HEAD", "--", rel)):
-        proc = _git(root, *args)
-        if proc.returncode == 0:
-            seen.update(line for line in proc.stdout.splitlines() if line.strip())
-    return len(seen)
+    index_proc = _git(root, "ls-files", "--", rel)
+    in_index = tuple(l for l in index_proc.stdout.splitlines() if l.strip())
+    unanswered: list[str] = []
+    if index_proc.returncode != 0:
+        unanswered.append(f"git ls-files failed: {index_proc.stderr.strip()[:120]}")
+
+    in_head: tuple[str, ...] = ()
+    if _git(root, "rev-parse", "--quiet", "--verify", "HEAD").returncode == 0:
+        head_proc = _git(root, "ls-tree", "-r", "--name-only", "HEAD", "--", rel)
+        in_head = tuple(l for l in head_proc.stdout.splitlines() if l.strip())
+        if head_proc.returncode != 0:
+            unanswered.append(f"git ls-tree HEAD failed: {head_proc.stderr.strip()[:120]}")
+    return TrackedUnder(in_head, in_index, tuple(unanswered))
 
 
 def _is_whole_tree_pathspec(rel: str, root: Path, fenced: list[Path]) -> str | None:
@@ -711,10 +869,28 @@ def _is_whole_tree_pathspec(rel: str, root: Path, fenced: list[Path]) -> str | N
     word `restored` (Gate-2 K1). This is the destroyer guard's principle applied to
     the other destructive verb: the refusal does not depend on knowing which
     measurement produced the coarse path.
+
+    COMPLETENESS, and what it rests on. Under `GIT_LITERAL_PATHSPECS=1` (set for
+    every call in this module, see `_GIT_ENV`) the whole-tree forms are exactly
+    three: the empty pathspec, `.`, and a path that resolves to a declared tree's
+    own root. That is an enumeration of a closed set, and it is why the environment
+    variable is load-bearing rather than defensive. Without it this function is a
+    partial enumeration of an OPEN set — the magic prefixes — and a partial
+    enumeration whose miss returns "proceed" is the family defect (Gate-2 L1a).
+
+    `*` and `**` are kept in the refusal list even though literal pathspecs strip
+    them of meaning. They are then merely unusual filenames, so refusing them costs
+    one un-undone artifact and buys independence from the environment variable
+    staying set. Refusal is the safe direction; that is the whole reason it is
+    permitted to be over-broad here.
     """
     norm = rel.strip().rstrip("/")
     if norm in ("", ".", "*", "**", "./"):
         return f"the pathspec {rel!r} names the whole of {root}"
+    # `..`-prefixed: this also refuses a legal filename that merely BEGINS with two
+    # dots. Deliberate, and not to be "fixed" — an escape from the root and a file
+    # named `..config` are indistinguishable by prefix, and only one of them is
+    # survivable. The cost is an artifact left standing inside the fence (L7).
     if norm.startswith("..") or Path(norm).is_absolute():
         return f"the pathspec {rel!r} does not resolve inside {root}"
     target = Path(os.path.normpath(root / norm))
@@ -858,17 +1034,34 @@ def rollback(
             # on knowing which parse bug produced the bad path; it refuses to delete
             # tracked content whatever the reason, which is the property we actually
             # want. Containment must never be the thing that destroys work.
-            n = _tracks_content(root, change.path)
-            if n:
-                actions.append(
-                    RollbackAction(
-                        change.path,
-                        "NOT_ROLLED_BACK",
-                        f"REFUSED: reported as created by the phase, but git tracks "
-                        f"{n} file(s) under it — the path identification is wrong and "
-                        "deleting it would destroy committed work",
-                        quarantined,
+            tracked = _tracked_under(root, change.path)
+            if tracked:
+                # Say which question answered yes. The three cases are genuinely
+                # different and the reader acts on them differently (Gate-2 L3).
+                if tracked.unanswered:
+                    why = (
+                        "git could not say whether it tracks content here "
+                        f"({'; '.join(tracked.unanswered)}) — an unanswered question "
+                        "is not a `no`, and deleting on `we do not know` is the one "
+                        "thing containment must never do"
                     )
+                elif tracked.in_head:
+                    why = (
+                        f"reported as created by the phase, but HEAD holds "
+                        f"{len(tracked.in_head)} file(s) under it — the path "
+                        "identification is wrong and deleting it would destroy "
+                        "committed work"
+                    )
+                else:
+                    why = (
+                        f"the phase staged this itself — git's index holds "
+                        f"{len(tracked.in_index)} file(s) under it and HEAD holds "
+                        "none. Nothing committed is at risk, and the identification "
+                        "is right; but undoing a staged write means editing the "
+                        "index of a fenced tree, which is a human decision"
+                    )
+                actions.append(
+                    RollbackAction(change.path, "NOT_ROLLED_BACK", f"REFUSED: {why}", quarantined)
                 )
                 continue
             try:
@@ -902,6 +1095,61 @@ def rollback(
                 actions.append(
                     RollbackAction(change.path, "NOT_ROLLED_BACK", f"delete failed: {exc}", quarantined)
                 )
+            continue
+
+        if change.kind == "unknown":
+            # The classifier could not name what happened here. Every remaining verb
+            # acts — `git checkout --` writes the worktree from the index — and a verb
+            # chosen on an unclassified change is a verb chosen at random. Default-fail
+            # has to reach the classifier too, not just its callers (Gate-2 L2).
+            actions.append(
+                RollbackAction(
+                    change.path,
+                    "NOT_ROLLED_BACK",
+                    f"REFUSED: git reported status {change.after_status!r}, which this "
+                    "classifier does not recognise. An unrecognised state is not a "
+                    "modification, and undoing it would be a guess",
+                    quarantined,
+                )
+            )
+            continue
+
+        # THE STAGING GUARD. `git checkout -- <path>` restores from the INDEX, so it
+        # is only a restore while the index still holds the baseline. The moment the
+        # phase runs `git add`, the index holds the PHASE's content and the same
+        # command rewrites the file with the very bytes containment exists to remove
+        # — then reports `restored`. Gate-2 L2 found this on a rename destination;
+        # the property is the whole X≠' ' column, `M ` included (Gate-2 L2, general).
+        #
+        # So: containment does not restore staged work. It refuses and names the
+        # index — the same answer the destroyer guard already gives staged creations,
+        # for the same reason. Nothing here edits the index of a fenced tree; that is
+        # a human decision, and the recovery command is printed so it is a cheap one.
+        if _was_staged_by_phase(change.after_status):
+            held = _tracked_under(root, change.path)
+            if change.kind == "deleted":
+                what = (
+                    "the phase staged this removal — HEAD still holds "
+                    f"{len(held.in_head)} file(s) here and the index no longer does, "
+                    "so nothing is lost, but restoring means overriding the index"
+                )
+            else:
+                what = (
+                    "the phase staged this write, so git's index holds the phase's "
+                    "own content — `git checkout --` reads the index and would "
+                    "rewrite the file with exactly what containment is removing, "
+                    "under a receipt saying `restored`"
+                )
+            actions.append(
+                RollbackAction(
+                    change.path,
+                    "NOT_ROLLED_BACK",
+                    f"REFUSED: {what}, which is a human decision for a fenced tree "
+                    f"(status {change.after_status!r}; recover with: "
+                    f"git checkout HEAD -- {change.path!r})",
+                    quarantined,
+                )
+            )
             continue
 
         proc = _git(root, "checkout", "--", change.path)

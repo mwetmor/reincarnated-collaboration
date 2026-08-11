@@ -509,3 +509,173 @@ def test_fingerprint_detects_a_commit_made_during_the_window(git_repo):
     after = perm.fingerprint(git_repo)
     changes = perm.diff_fingerprints(before, after)
     assert any(c.kind == "committed" and c.path == "sneaky.txt" for c in changes)
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 L2 — the status-code classifier, over its WHOLE domain
+#
+# These are unit tests rather than wall rows, and the reason is a real limit on
+# what the wall can do. The wall plants artifacts and asks what containment makes
+# of them, so it can only ever reach status codes git actually emits. L2's defect
+# lived in the classifier's DEFAULT — the branch taken by codes nobody enumerated
+# — and a mutation restoring that default (`return "modified"` as the catch-all)
+# changes the answer for 41 two-character codes while leaving all 362 wall rows
+# green, because no planted artifact can produce any of them.
+#
+# A default-fail is a claim about inputs that have not happened yet. It cannot be
+# tested by an artifact; it has to be tested by the alphabet.
+# ---------------------------------------------------------------------------
+
+#: Every code git's `status --porcelain` can put in front of a NEW entry, and what
+#: containment must make of it. Written out rather than computed, so the table is
+#: readable as a specification and cannot agree with the code by construction.
+_KIND_BY_CODE = {
+    "??": "created",   # untracked
+    "!!": "created",   # ignored
+    "!?": "created",
+    "A ": "created",   # staged addition — the disciplined agent (L3)
+    "AM": "created",
+    "AT": "created",
+    "R ": "created",   # rename DESTINATION — the file did not exist before (L2)
+    "RM": "created",
+    "RT": "created",
+    "C ": "created",   # copy destination — likewise
+    "CM": "created",
+    "CT": "created",
+    " M": "modified",
+    "M ": "modified",
+    "MM": "modified",
+    " T": "modified",  # type change
+    "T ": "modified",
+    "TT": "modified",
+    "MT": "modified",
+    "TM": "modified",
+    " D": "deleted",
+    "D ": "deleted",   # staged deletion
+    "MD": "deleted",
+    "TD": "deleted",
+}
+
+#: Staged, then removed from disk. Nothing on disk to undo AND a dirty index: no
+#: verb this module owns is right, so these must come back `unknown` rather than
+#: send a guess to a destructive verb.
+_STAGED_THEN_DELETED = ("AD", "RD", "CD")
+
+
+def test_L2_every_status_code_git_emits_is_classified_as_the_thing_it_IS():
+    """The rename destination is the row this table exists for.
+
+    `R ` contains no `A` and does not begin with `D`, so the first enumeration fell
+    through to a `modified` default — and `modified` is restored with
+    `git checkout --`, which restored the file FROM THE INDEX THE PHASE HAD JUST
+    STAGED and wrote `restored` on the receipt. The artifact survived, unchanged,
+    under a receipt saying it had been undone.
+    """
+    wrong = {
+        code: (perm._kind_of_new_entry(code), expected)
+        for code, expected in _KIND_BY_CODE.items()
+        if perm._kind_of_new_entry(code) != expected
+    }
+    assert not wrong, (
+        "status codes classified as something other than what they are — "
+        + "; ".join(f"{c!r}: got {got!r}, want {want!r}" for c, (got, want) in wrong.items())
+    )
+
+
+def test_L2_the_classifier_is_a_CLOSED_enumeration_over_the_whole_alphabet():
+    """Everything NOT in the table above must come back `unknown`, which the
+    rollback refuses by name. This is the assertion the wall structurally cannot
+    make: it fixes the behaviour of inputs no artifact can currently produce, which
+    is exactly the population the next git version adds to.
+    """
+    alphabet = " MTADRCU?!"
+    for code in _STAGED_THEN_DELETED:
+        assert perm._kind_of_new_entry(code) == "unknown", (
+            f"{code!r} means the phase staged a creation and then removed it from "
+            "disk. There is nothing on disk to undo and the index is dirty; a "
+            "confident kind here sends a guess to a destructive verb"
+        )
+    leaked = {
+        x + y: perm._kind_of_new_entry(x + y)
+        for x in alphabet
+        for y in alphabet
+        if (x + y) not in _KIND_BY_CODE and perm._kind_of_new_entry(x + y) != "unknown"
+    }
+    assert not leaked, (
+        f"{len(leaked)} unenumerated status code(s) were given a confident kind "
+        f"instead of `unknown`: {leaked}. A code nobody enumerated is a code nobody "
+        "has reasoned about, and the safe answer is to refuse it by name — not to "
+        "guess `modified` and hand it to `git checkout --`."
+    )
+
+
+def test_L2_unmerged_codes_are_unknown_rather_than_guessed():
+    """A conflicted path is mid-merge. There is no single `before` to restore to,
+    so containment must refuse rather than pick one."""
+    for code in sorted(perm.UNMERGED_CODES):
+        assert perm._kind_of_new_entry(code) == "unknown", (
+            f"unmerged code {code!r} was classified confidently; a conflicted path "
+            "has no unambiguous prior state to be restored to"
+        )
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 L6 — a refusal the operator never sees is a refusal that did not happen
+# ---------------------------------------------------------------------------
+def test_L6_paths_the_rollback_REFUSED_to_undo_are_named_in_the_receipts(tmp_path, git_repo):
+    """Containment deliberately leaves some artifacts in place — a staged write it
+    will not unstage, tracked content it will not delete. Each refusal carries a
+    reason, and for five rounds those reasons went into a list that was returned and
+    dropped. The abort report said the run was contained; nothing said the tree was
+    not clean.
+
+    An artifact left on disk with a stated reason is fine. An artifact left on disk
+    with a stated reason NOBODY READS is a fail-open with paperwork.
+    """
+    result = _run(
+        tmp_path,
+        git_repo,
+        {
+            "name": "disciplined-breacher",
+            "writes": ["allowed/**"],
+            "retries": 1,
+            # The phase STAGES its undeclared write. Containment refuses to unstage
+            # it — correctly — so this run aborts with the artifact still present.
+            "gates": [_sh("echo gotcha > not_declared.txt && git add -- not_declared.txt")],
+        },
+    )
+    assert result.status == "ABORTED", f"expected ABORTED, got {result.status}"
+
+    events = _containment_events(tmp_path, result.run_id)
+    kinds = {k for k, _ in events}
+    assert "containment_not_undone" in kinds, (
+        "the rollback refused to undo a breaching path and the receipts do not say "
+        f"so. Event kinds recorded were: {sorted(kinds)}"
+    )
+    detail = next(d for k, d in events if k == "containment_not_undone")
+    assert "not_declared.txt" in detail, (
+        "the receipts record that something was not undone without naming WHICH "
+        f"path: {detail}"
+    )
+    assert (git_repo / "not_declared.txt").exists(), (
+        "the premise failed — containment DID undo the staged write, so this test is "
+        "no longer exercising the not-undone path"
+    )
+
+
+def _containment_events(tmp_path: Path, run_id: str) -> list[tuple[str, str]]:
+    """Straight out of the one data path the report is a view of."""
+    import sqlite3
+
+    db = tmp_path / "factory_home" / "receipts.db"
+    assert db.exists(), f"no receipts db at {db}"
+    con = sqlite3.connect(db)
+    try:
+        return [
+            (k, d)
+            for k, d in con.execute(
+                "SELECT kind, detail FROM events WHERE run_id = ?", (run_id,)
+            )
+        ]
+    finally:
+        con.close()

@@ -574,3 +574,142 @@ to `/tmp/sl5`.
 ---
 
 **Signed:** star-lord — operational-pipeline seam (export · output · telemetry · LLM)
+
+---
+
+## 12. Round six — the fixes were green, and the mutation table said they were comments
+
+Round six's verdict (`2026-08-10-factory-spine-gate-2-round-six.md`) landed seven
+findings, L1–L7. I implemented all of them, the suite went from 262 to 362 green, and
+jack-ryan's two named discharge criteria both passed live. Under the process as
+written, that is the point at which I return for the block lift.
+
+I ran the mutation harness first — revert each fix in the shipped module, run the
+suite, restore — because round five had taught me that two of seven wall rows were
+measuring the wrong thing. **All seven mutations came back GREEN.** Every fix I had
+just shipped could be deleted without a single test noticing.
+
+That table, not the verdict, is what round six actually produced.
+
+### 12.1 What the seven survivors were hiding
+
+**M20 — L1's own wall row was blind.** The row plants a file named `:(top)`, which is
+the name jack-ryan's reproduction uses. But an *untracked* `:(top)` is classified
+`created`, and a created path is rolled back with `unlink` — the name never reaches
+git at all. The magic only bites through `git checkout --`, which requires the file to
+be **tracked and dirty**. Right name, wrong state. Proven by running jack-ryan's
+`test_jr6_shape.py` and my ten `pathspec_magic` rows against the same mutant: his RED,
+mine all green. `:(top)` is now seeded into the baseline commit and the planter
+modifies it; M20 now REDs, and only in the `read_only_worktree_root` shape, which is
+exactly the positional-magic claim the row's docstring makes.
+
+**M21/M22 — "the closed enumeration" was not one.** My L2 fix was character-class
+control flow (`x in "ARC"`, `x == "D" or y == "D"`) under a docstring asserting
+closure. A hand-written table of what each porcelain code *means*, written against the
+spec rather than against the code, found the gap immediately: 29 unlisted codes were
+being given confident answers, and `AD`/`RD`/`CD` — staged, then removed from disk —
+came back `created` because `A` was tested before `D`. It is now a literal dict, so
+closure is a property of the data structure rather than of my care in ordering `if`s.
+
+**M23b/M23c — L2 is not a rename bug. It is the whole `X≠' '` column.** This is the
+round's real finding and it came out of asking why M21 didn't red. `git checkout --`
+restores from the *index*. L2 was closed by re-typing the one status code jack-ryan's
+`git mv` happened to produce — but the property has nothing to do with renames. It
+holds for every code whose X column is non-space, **including `M `: an ordinary edit
+of a tracked file that the phase then staged.** Verified live before writing any fix:
+
+| the phase does | receipt | on disk after rollback |
+|---|---|---|
+| edit a tracked file, `git add` | `restored` | **the phase's content** |
+| edit a tracked file, no `git add` | `restored` | the baseline |
+
+Staging moves the phase's work into the place containment reads as the baseline. So
+the rule is now stated once and covers all four staging shapes: **containment does not
+restore staged work — it refuses, names the index, and prints the recovery command.**
+Editing the index of a fenced tree is a human decision. That was already the answer
+for staged creations (the destroyer guard) and staged deletions; it is now the answer
+for staged modifications and renames too, which makes `git checkout --` provably
+correct in the only case it is still used. The unstaged row is in the wall as the
+discrimination partner, so a future fix cannot satisfy this by refusing everything.
+
+This is the fourth round running in which the more disciplined git command is handled
+worst, and the reason is now structural rather than coincidental.
+
+**M23 — a refusal's reason was never checked for truth.** Round three asserted a
+`NOT_ROLLED_BACK` carries *a* reason. L3 was a refusal carrying a perfectly good
+non-empty reason whose every clause was false, so "has a reason" is the weaker
+question. Refusal claims are now re-derived from git and compared. My first version
+checked the arithmetic — and M23 survived it, because collapsing the three-way branch
+produces "HEAD holds **0** file(s) under it — the path identification is wrong", which
+is numerically true and completely false. A count is not a claim: a refusal that
+justifies itself by what HEAD holds must have HEAD holding something, and an
+index-only case must say `index`.
+
+**M26/M27 — L5 and L6 shipped with no test at all.** Not a subtle row; no row.
+
+### 12.2 The limit of the wall, stated
+
+M22's mutation changes the answer for 41 status codes and leaves every wall row green.
+That is not a gap in the rows — it is structural. **The wall plants artifacts, so it
+can only reach codes git actually emits, and a default-fail branch is by definition
+the branch taken by codes nobody has seen yet.** A default-fail is a claim about
+inputs that have not happened; it is tested by the alphabet, not by an artifact. Those
+tests now live in `test_permissions.py` and iterate the whole two-character space.
+
+Knowing which predicates the wall cannot reach is now part of the wall's own
+documentation, because the alternative is a growing table that reads as if it covers
+everything.
+
+### 12.3 The process item, owed a third time — and why compliance was cosmetic
+
+jack-ryan's round-six action list named one process change: *"a new predicate gets its
+wall row, in the shipped shape, before it ships."* I complied with it literally. I
+added rows for every new predicate, in the shipped shape, before shipping. Seven of
+them were inert.
+
+So the rule as written is not sufficient, and I would amend it:
+
+> **A new predicate's row must be shown to RED with the fix reverted, before it
+> ships.** A row that has never been observed to fail is a claim about the code that
+> nobody has tested — which is the exact object this review has been finding for six
+> rounds, relocated into the test file.
+
+Mutation is cheap here: the harness is 60 lines and a full pass is ten minutes. I am
+treating it as a gate on my own work from this point rather than as an audit I run
+when I happen to be suspicious, and I would rather it were a standing requirement than
+a habit of mine.
+
+### 12.4 Round-six evidence
+
+- **398 tests green**, from 262 at the start of the round.
+- **19 artifact kinds × 2 fixture shapes × 4 rounds**, plus an uncommitted-work canary
+  asserted on every one.
+- **8 code mutations, all RED; 2 controls behaving as controls.** First pass: 7 of 7
+  green. Final pass: 0 survivors.
+- Every finding reproduced RED against the shipped module before being fixed, and the
+  general L2 case verified live against real git repositories in four scenarios.
+
+| item | state |
+|---|---|
+| L1 pathspec magic (three faces) | CLOSED — `GIT_LITERAL_PATHSPECS=1`; row reseated as a tracked modification; M20 REDs |
+| L2 rename destination | CLOSED — literal dict; `R `/`C ` typed `created` |
+| L2 **general** (mine, from the table) | CLOSED — the staging guard; whole `X≠' '` column; live-verified |
+| L3 three-way refusal reason | CLOSED — claims re-derived from git and checked for truth, not arithmetic |
+| L4 wall (four items) | CLOSED — two shapes, canary, real `before`, staged kinds |
+| L5 shell metacharacters | CLOSED — `not_runnable`; 8 rejection rows + 4 quoted-form partners |
+| L6 refusals unsurfaced | CLOSED — `containment_not_undone` receipt, asserted from the receipts DB |
+| L7 README | CLOSED — 15 rules; rules 7/10 now cite rule 12; counts corrected |
+| G3 host co-tenancy | OPEN, knight-rider routes |
+| G5 rollback reason derived from the branch | OPEN, non-blocking |
+| COARSE tier in-place-edit blindness | DECLARED, pinned |
+
+**For Matt, unchanged from round five:** O4 (the dollars figure — gandalf DROP vs
+jack-ryan KEEP) and D-10 (no HALT status) are still open decisions.
+
+**For Matt, new:** jack-ryan observed that for the fifth round running the defect was
+not in the code under review but in the fix that closed the previous round's finding,
+and framed it as evidence the review is descending a real gradient rather than as
+evidence the fixes are bad. Round six is the sixth, and I think the framing holds —
+K1 fired on `git add`; L1 needs a file named `:(top)` at a tree root; the general L2
+case needs the agent to be *well-behaved*. But the gradient is in the findings, not in
+my process, and § 12.3 is the process change I am proposing as a result.

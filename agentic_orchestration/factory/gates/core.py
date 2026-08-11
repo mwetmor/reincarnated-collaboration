@@ -273,6 +273,50 @@ def _gate_env() -> dict[str, str]:
     return env
 
 
+#: Characters that mean something to a shell and nothing to `execve`. A gate holding
+#: one of these was written expecting a shell it does not get.
+_SHELL_METACHARACTERS = ("&&", "||", ";", "|", ">", "<", "$(", "`")
+
+
+def _shell_metacharacters(command: str) -> set[str]:
+    """Which shell operators appear OUTSIDE quotes in this command.
+
+    Gates run as argv with no shell, which is the right design — no quoting bugs, no
+    injection surface. The silent degradation is not: `cd X && git mv …` resolves to
+    `/usr/bin/cd`, which accepts the remaining words as arguments, exits 0, and the
+    gate reports PASS for a command that did nothing. A green that measures nothing
+    is the exact shape the falsification wall exists to end (Gate-2 L5).
+
+    Quoted occurrences are EXCLUDED: `grep -c ';' file` is a legitimate argv gate and
+    refusing it would make this a nuisance rather than a guard.
+
+    The question is therefore "does an operator appear OUTSIDE quotes", and it is
+    asked directly, by deleting the quoted spans and looking at what is left. Two
+    tidier-looking routes were tried and both answer a different question: the posix
+    `shlex.split` strips quotes, so `';'` and `;` both arrive as the token `;` (false
+    positive on the grep above); the non-posix split keeps them but will not break
+    `a;b` into tokens at all (false negative). Asking the convenient question instead
+    of the intended one is the entire subject of this review, and it does not get to
+    happen in the fix for L5.
+
+    A backslash-escaped quote inside a gate command would be mis-tracked here and the
+    result is a spurious `not_runnable` — the refusing direction, which is the one
+    this may be wrong in.
+    """
+    unquoted, quote = [], None
+    for ch in command:
+        if quote is not None:
+            if ch == quote:
+                quote = None
+            continue
+        if ch in "\"'":
+            quote = ch
+            continue
+        unquoted.append(ch)
+    bare = "".join(unquoted)
+    return {op for op in _SHELL_METACHARACTERS if op in bare}
+
+
 def _exec_verdict(
     gate_name: str,
     run: RunContext,
@@ -295,6 +339,19 @@ def _exec_verdict(
             gate_name, f"cwd {workdir} does not exist", cwd=str(workdir)
         )
     argv = shlex.split(command)
+    bad = _shell_metacharacters(command)
+    if bad:
+        return GateReport.not_runnable(
+            gate_name,
+            f"the command holds shell metacharacters {sorted(bad)} but gates run as "
+            "ARGV with no shell, so they would be passed to "
+            f"{argv[0]!r} as literal arguments rather than interpreted. "
+            "`cd X && pytest` becomes `/usr/bin/cd` with three extra arguments, exits "
+            "0, and the gate reports PASS for a command that did nothing. Use the "
+            "gate's `cwd:` argument, or a script, instead",
+            command=command,
+            cwd=str(workdir),
+        )
     try:
         proc = subprocess.run(
             argv,

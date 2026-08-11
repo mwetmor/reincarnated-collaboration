@@ -212,6 +212,69 @@ def test_missing_command_is_not_runnable(tmp_path: Path):
 
 
 # ---------------------------------------------------------------------------
+# Gate-2 L5 — argv is not a shell, and a gate that forgets it reports PASS
+#
+# Gates run as ARGV with no shell. `cd X && pytest` therefore execs /usr/bin/cd
+# with three extra arguments; `cd` ignores them, exits 0, and the gate reports
+# PASS for a command that ran no tests at all. The failure is silent, green, and
+# indistinguishable from success in the receipt — the same shape as the
+# containment findings, in the gate layer.
+#
+# The mutation that removes this branch left all 362 tests green, which is how
+# these rows came to be written: the fix shipped without one.
+# ---------------------------------------------------------------------------
+@pytest.mark.parametrize(
+    "command",
+    [
+        "cd /tmp && pytest -q",
+        "pytest -q || true",
+        "pytest -q; echo done",
+        "pytest -q | tee out.txt",
+        "pytest -q > out.txt",
+        "pytest -q < in.txt",
+        "echo $(whoami)",
+        "echo `whoami`",
+    ],
+)
+def test_L5_a_command_holding_shell_METACHARACTERS_is_not_runnable(tmp_path: Path, command):
+    report = run_gate("tests_pass", _env(), _ctx(tmp_path), command=command, cwd=str(tmp_path))
+    assert report.status == "NOT_RUNNABLE", (
+        f"{command!r} was accepted. Run as argv it does not do what it says, and the "
+        f"gate reported {report.status} — a gate that greens on a command that never "
+        "ran is worse than no gate."
+    )
+    assert not report.is_green
+
+
+@pytest.mark.parametrize(
+    "command",
+    [
+        'python3 -c "import sys; print(1); sys.exit(0)"',
+        "grep -c ';' /etc/hosts",
+        'python3 -c "print(\'a|b\')"',
+        "true",
+    ],
+)
+def test_L5_partner_a_metacharacter_INSIDE_QUOTES_is_not_a_shell_operator(
+    tmp_path: Path, command
+):
+    """The falsification partner, and the harder half.
+
+    The first implementation of this check searched the raw string and rejected
+    `grep -c ";" file` — a command that is completely fine, because the semicolon is
+    an argument. Rejecting good commands is the refusing direction, but it is still a
+    predicate answering a different question than the one asked, and the docstring
+    claimed quoted forms were excluded while the code did not. A guard whose
+    documentation is false about its own behaviour is the defect class under review.
+    """
+    report = run_gate("tests_pass", _env(), _ctx(tmp_path), command=command, cwd=str(tmp_path))
+    assert report.status != "NOT_RUNNABLE" or "metacharacter" not in (report.detail or ""), (
+        f"{command!r} was refused as holding shell metacharacters, but every operator "
+        f"in it is inside quotes and is an ARGUMENT: {report.detail}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # sha256_matches
 # ---------------------------------------------------------------------------
 def test_sha256_matches(tmp_path: Path):

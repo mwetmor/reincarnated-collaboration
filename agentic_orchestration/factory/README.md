@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           262 tests, all green
+  tests/           398 tests, all green
 ```
 
 ## Use
@@ -72,7 +72,7 @@ says which side of the boundary the breach came from.
 ## What "the tree was clean" is worth
 
 Containment is a git change-set diff, so it is only as good as what git will
-describe. **Eleven rules** keep the claim honest, each one added closing a Gate-2
+describe. **Fifteen rules** keep the claim honest, each one added closing a Gate-2
 finding that had the *same shape*: a predicate answering a slightly different question
 than the one asked, whose wrong answer is always `clean` — or, once, `restored`.
 
@@ -140,14 +140,49 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    most likely agentic breach there is — an agent edits a committed source file — as
    `created`. It hit rule 7's guard, came back refused with a reason that asserted a
    misidentification which had not occurred, and the edit survived inside the fence.
-   The kind is now read from git's own status code (K2).
+   The kind is now read from git's own status code — but see rules 13 and 14, which
+   are the two halves of that fix that the first version got wrong (K2, L2).
+12. **A path is not a pathspec.** Every path this module hands to git is read off a
+   fingerprint, but git reads pathspecs as a *language*: a leading `:` is magic, so
+   `:(top)` and `:/` mean the whole repository, and `*` `?` `[` glob. A file legally
+   named `:(top)` at a tree root therefore turned `git checkout -- <that path>` into a
+   repo-wide revert reported as `restored`, and turned `ls-files -- <that dir>` into
+   rc=0 with empty output — and empty is what authorises `rmtree`. Every git call now
+   runs under `GIT_LITERAL_PATHSPECS=1`. No call site wants globbing, so this removes
+   an interpretation nobody asked for. **Rules 7 and 10 hold only because of this
+   one**: both enumerate paths, and an enumeration is worthless if git re-reads the
+   entries as patterns (L1).
+13. **The status-code classifier is a closed table, and `unknown` is refused by
+   name.** The first fix enumerated part of the code space and defaulted the rest to
+   `modified`; the second wrote character-class tests under a docstring claiming
+   closure, which handed a confident answer to 29 codes nobody had listed. Closure is
+   now a property of a dict. A default that catches every code nobody thought about is
+   how this class recurs — default-fail has to reach the classifier, not just its
+   callers (L2).
+14. **Containment does not restore staged work — it refuses and names the index.**
+   `git checkout -- <path>` restores from the *index*, so it is a restore only while
+   the index still holds the baseline. The moment a phase runs `git add`, the index
+   holds the phase's content and the same command rewrites the file with exactly the
+   bytes being removed, then reports `restored`. Found on a rename destination and
+   first closed by re-typing that one code; the property is the whole `X≠' '` column,
+   including `M ` — a staged edit of a tracked file, the most ordinary thing a
+   disciplined agent does. Staged creations, modifications, renames and deletions all
+   now come back refused, naming the index and printing the recovery command. Editing
+   the index of a fenced tree is a human decision (L2, general).
+15. **A refusal the operator never sees did not happen.** The paths the rollback
+   deliberately declines to undo were returned in a list and dropped, so an abort
+   report could say the run was contained while the tree was not clean. Each one now
+   emits a `containment_not_undone` receipt naming the path and the reason (L6).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
-repeated shape — fourteen artifact kinds (regular file, symlink out of the tree,
+repeated shape — nineteen artifact kinds (regular file, symlink out of the tree,
 broken symlink, nested dir, collapsed untracked member, gitignored file, nested git
 repo, unreadable subtree, a quoted path containing the rename delimiter, a path with
 a newline, a hard link, a mode-only change, a directory replacing a file, an empty
-directory tree) each run through four rounds:
+directory tree, a file whose name is pathspec magic, and the four staging shapes: a
+staged creation, a staged modification, a staged rename, and the unstaged
+modification that keeps the staging guard honest) each run through four rounds, **in
+both fixture shapes**:
 
 1. the change-set must **name** the artifact — not merely be non-empty. The first
    draft asserted only non-emptiness, which was the module's own disease in the one
@@ -155,11 +190,25 @@ directory tree) each run through four rounds:
 2. it must be **fenced** under `writes: ["**"]`;
 3. the rollback must **report the undo honestly** — a `deleted` path must be gone, a
    `restored` path must be back at its *phase-start fingerprint* (mere existence is
-   what `git checkout -- .` scored while reverting a repository), a `NOT_ROLLED_BACK`
-   must carry a reason;
+   what `git checkout -- .` scored while reverting a repository), and a
+   `NOT_ROLLED_BACK` must carry a reason **whose factual claims are re-derived from
+   git and checked**. "Has a reason" was the weaker question: L3 was a refusal with a
+   perfectly good non-empty reason whose every clause was false;
 4. every **residue** left on disk must be named by an action **at or above it**.
    Reading that relation both ways let a receipt naming something enormous account
    for everything inside it.
+
+Every round also asserts an **uncommitted-work canary** survives: one tracked file,
+dirty before the phase runs, that no artifact touches. For four rounds every fixture
+committed everything, so "a rollback destroys uncommitted work" — the K1 damage class
+— was unobservable, and L1 shipped green under 262 tests.
+
+**Two shapes, not one.** The wall ran for four rounds against a read-only
+*subdirectory* under a docstring calling it the shipped shape. It is not: both shipped
+read-only trees are worktree roots that are also `repos:` entries, so their change
+paths carry no directory prefix. Pathspec magic is positional, so that missing prefix
+is the whole of rule 12's reachability — an identical row is green in the subtree
+shape and red in the shipped one. Every round now runs in both.
 
 Each round has a falsification partner requiring the same artifact to be *allowed*
 where it is declared. The wall found rule 5 on its first run. A new containment
@@ -167,6 +216,22 @@ question of this shape should be a new row, not a new reviewer finding — and *
 measurement surface gets its row before it ships**: the structure sweep was added with
 detection tests only, never reached rounds three and four, and that is exactly where
 its defect lived (K1).
+
+**Where the wall structurally cannot reach.** It plants artifacts, so it only reaches
+status codes git actually emits — and rule 13's defect lives in the branch taken by
+codes nobody enumerated. A mutation restoring that default changes the answer for 41
+codes while leaving every wall row green, because no artifact can produce any of them.
+A default-fail is a claim about inputs that have not happened yet; it is tested by the
+alphabet (`test_permissions.py`), not by an artifact. The wall is the right tool for
+artifacts and the wrong one for total functions, and knowing which is which is the
+point.
+
+**The wall is checked by mutation, not by its own greenness.** Each fix is reverted in
+the shipped module, the suite is run, and the fix is restored; a fix whose reversion
+leaves the suite green is a comment, not a safety measure. The first pass over round
+six's fixes found **all seven survived** — including rule 12's, whose row planted the
+right filename in the wrong state (a *created* `:(top)` is rolled back with `unlink`
+and never reaches git at all). That table is what produced rules 13, 14 and 15.
 
 **Why the mechanical lane is easier than it looks — and where that stops.** Every path
 a mechanical workflow touches is authored by a human in a YAML file under review, so
@@ -183,8 +248,10 @@ left in place and named. Three promises, in order of how much they cost to keep:
 
 * the receipt and the disk **agree** — an artifact never survives while the receipt
   says `deleted`, and a `restored` path is back at its phase-start contents;
-* the rollback **never destroys work** — it will not delete what git has (rule 7) and
-  will not act on a tree (rule 10). Where it cannot act safely it says so;
+* the rollback **never destroys work** — it will not delete what git has (rule 7),
+  will not act on a tree (rule 10), will not let git re-read a path as a pattern
+  (rule 12), and will not restore over the phase's own index (rule 14). Where it
+  cannot act safely it says so;
 * what it leaves behind is **named**. Evidence left deliberately is fine; evidence
   left silently is not.
 
@@ -192,6 +259,16 @@ Gate commands run with `PYTHONDONTWRITEBYTECODE=1` and
 `PYTEST_ADDOPTS=-p no:cacheprovider`. Running pytest inside a read-only tree writes
 `__pycache__` there, which is a real breach; the fix is to stop the write, not to
 exempt the path.
+
+**A gate command is argv, not a shell.** Gates exec directly with no shell, so
+`cd tests && pytest` execs `/usr/bin/cd` with three extra arguments — which `cd`
+ignores, exiting 0. The gate reports **PASS for a command that ran nothing**: the
+containment defect shape, in the gate layer, where the wrong answer is green. A
+command holding an unquoted `&& || ; | > < $( \`` is now `NOT_RUNNABLE` with the
+`cwd:` argument named as the fix. The check strips quoted spans first, because the
+version that did not rejected `grep -c ";" file` — a command that is completely
+fine — while its docstring claimed quoted forms were excluded. A guard whose
+documentation is false about its own behaviour is the class under review.
 
 ## Session-local state (gitignored)
 
