@@ -683,6 +683,13 @@ unknown version rather than guess at it.
    both spellings minted, same verdict AND same reason (`test_JR9_…`) — and only with that
    row present does "inert" mean anything. A survivor whose inertness IS the claim must be
    labelled in the table AND backed by a row that fails if the inertness stops holding.
+   *Round 19 addendum:* the row this rule first cited did not satisfy it. `classify`
+   short-circuits at `_read_only_hit`, so with `read_only_trees=[]` the row only ever
+   compared reasons from the arm that already normalised before JR-5 — the arm JR-5 had
+   to FIX was never entered, and the row stayed green under the very mutation it was
+   cited against. Check that the cited row enters the predicate the claim is about;
+   "it asserts the right sentence" and "it reaches the right code" are two claims
+   (rule 29, one level up).
 
 46. **Do not assert the producer's string order when the fix exists to stop it
    mattering.** The premise row for rule 43 checked `marker_path(key) == ".git"`, which
@@ -691,3 +698,27 @@ unknown version rather than guess at it.
    four defects the wall opens with were held there by a passing test asserting the
    reduced behaviour was the requirement. Compare on the claim (`.rstrip("/")`), not on
    the spelling.
+
+47. **To test whether a finding is protected, DELETE it — do not rename it. A rename is
+   a strictly weaker mutation, and it is the one that lies.** Round 18 "verified" that
+   removing `ToolSearch` from `UNFENCEABLE_TOOLS` was caught, by renaming the key to
+   `ToolSearch_DISABLED`. A row computing `set(UNFENCEABLE_TOOLS) - known` fires on the
+   orphan the rename leaves behind, so the table recorded KILLED. jack-ryan ran the
+   DELETION: 594 passed, no failures, and `validate_tools(["ToolSearch"])` returns
+   `['ToolSearch']`. The named killer could not possibly have fired — removing an element
+   can only SHRINK a set difference — so the attribution was not merely unverified, it was
+   unverifiable. Deletion is the mutation rule 44 is about; a rename tests the drift guard
+   and reports it as the evaporation guard. Under deletion, SIX of nine refused names left
+   the whole suite green. Fix (both halves, per rule 44): the parametrised row keeps the
+   lists from drifting, and a hardcoded `REFUSED_ROSTER` literal fails on any removal.
+
+48. **The measuring instrument gets the same reading you would give the code (rule 35,
+   sharpened by two failures in one round).** Round 19's own mutation harness shipped two
+   defects of the shape it was hunting. Its "delete this dict entry" helper searched for
+   the key name **unscoped**, and `Agent` lives in two dicts — so it silently mutated the
+   wrong one and reported SURVIVED. Its "find where this entry ends" search was
+   **unbounded**, so for the LAST entry in a dict it ran past the closing brace into the
+   next dict and produced a syntax error, which the harness classified as SURVIVED because
+   no test had FAILED. Both are predicates answering an adjacent question with a
+   safe-looking wrong answer, inside the tool built to find predicates that do that. A
+   harness that cannot distinguish "no row failed" from "nothing ran" is not measuring.

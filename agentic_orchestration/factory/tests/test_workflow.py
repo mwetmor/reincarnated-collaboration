@@ -543,12 +543,91 @@ def test_F4_a_harness_that_publishes_no_vocabulary_cannot_be_given_an_allowlist(
 # defect this whole series keeps finding.
 
 
+#: The refused roster, HARDCODED. Gate-2 JR-13 (jack-ryan, round 19).
+#:
+#: Every row that adjudicates a refusal is parametrised over `UNFENCEABLE_TOOLS`, so a
+#: DELETION from that dict loses a case rather than failing one and the suite stays
+#: green — README rule 44, which round 17 wrote and round 18 then walked into inside its
+#: own new entry. Measured, at `5a75386d`: deleting `ToolSearch`, `EnterWorktree`,
+#: `RemoteTrigger`, `PushNotification`, `CronDelete` or `ScheduleWakeup` left the whole
+#: suite green. SIX of nine findings were one dict-entry deletion from evaporating.
+#:
+#: This literal is the second half of rule 44's "both, not either": the parametrisation
+#: keeps the lists from drifting, and this keeps the findings from evaporating. Adding a
+#: name here is meant to be a deliberate act, not a convenience — if you are editing
+#: this list to make a test pass, that is the review the rule exists to force.
+REFUSED_ROSTER = frozenset({
+    "Task", "Agent", "ToolSearch", "EnterWorktree", "CronCreate", "CronDelete",
+    "ScheduleWakeup", "RemoteTrigger", "PushNotification",
+})
+
+
+def test_JR13_no_refusal_can_be_DELETED_without_a_row_failing():
+    """The roster, pinned literally, because deletion is invisible to derivation.
+
+    This is the only row in the file that fails on a REMOVAL from `UNFENCEABLE_TOOLS`.
+    Everything else is derived from that dict and therefore cannot see one: the J7
+    existence row computes `set(UNFENCEABLE_TOOLS) - known`, and removing an element
+    can only SHRINK that difference, so it is structurally incapable of failing on a
+    deletion from the dict it guards. Round 18's mutation table named it as the killer
+    for exactly that mutation. It was not an unverified attribution; it was an
+    impossible one, and the reason it looked verified is in `mutation`-shape rather
+    than in the code — round 18 mutated by RENAMING the entry, which leaves an orphan
+    the derived row does trip over. A rename is a strictly weaker mutation than a
+    deletion here, and the fix under test is one that only deletion can reach.
+    """
+    assert set(UNFENCEABLE_TOOLS) == set(REFUSED_ROSTER), (
+        "the refused roster changed.\n"
+        f"  removed: {sorted(REFUSED_ROSTER - set(UNFENCEABLE_TOOLS))}\n"
+        f"  added:   {sorted(set(UNFENCEABLE_TOOLS) - REFUSED_ROSTER)}\n"
+        "A REMOVAL is a Gate-2 finding being withdrawn, and it needs the evidence that "
+        "put the name there to be withdrawn with it. An ADDITION needs a reason in the "
+        "dict and a line in this literal. Neither is a test-fixing edit."
+    )
+
+
+def test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_KIND_of_entry_it_is(
+    tmp_path, git_repo
+):
+    """`ToolSearch` hardcoded, and its PROVENANCE LABEL hardcoded with it.
+
+    `Task` has a literal row because it is measured. `Agent` got one in round 18. The
+    round's headline addition — four live probe calls, five preserved frame files — had
+    neither, and the mutation table said it did.
+
+    The second assertion is the one that earns its place. `ToolSearch` is the single
+    entry in `UNFENCEABLE_TOOLS` that is REASONED rather than MEASURED: the probe was
+    run four times and refused four times by the model's own safety classifier, while a
+    control with identical argv returned cleanly (`jr7-toolsearch-control.jsonl`). That
+    asymmetry is the whole disclosure, and it lives in a string. Pinning the label into
+    the message a phase author reads means the entry cannot be quietly re-graded from
+    reasoned to measured without frames to back it — rule 13, applied to the one entry
+    in this module that does not have them.
+    """
+    phase = dict(AGENTIC_PHASE, tools=["ToolSearch"])
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError) as exc:
+        load_workflow(path)
+    message = str(exc.value)
+    assert "this fence cannot hold" in message, (
+        f"`ToolSearch` was not refused as unfenceable: {message}"
+    )
+    assert "REASONED, NOT MEASURED" in message, (
+        "the refusal no longer tells its reader that this entry is reasoned rather "
+        "than measured. That label is the JR-7 disclosure; without it the entry reads "
+        "with the same authority as `Task`, which has frames."
+    )
+
+
 @pytest.mark.parametrize("name", sorted(UNFENCEABLE_TOOLS))
 def test_J7_every_unfenceable_name_is_refused_at_LOAD(tmp_path, git_repo, name):
     """Parametrized over the dict itself, so a name added without a reason still fails.
 
     Hand-listing the names here would let the two lists drift, and the drift would
     show up as a tool that is documented as refused and is not.
+
+    It cannot see a DELETION — rule 44, measured under JR-13. `REFUSED_ROSTER` above is
+    the other half; this row and that literal are a pair and neither is sufficient.
     """
     phase = dict(AGENTIC_PHASE, tools=[name])
     path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])

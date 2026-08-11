@@ -2629,6 +2629,29 @@ producer that appends the tab directly to a prefix that can itself be a declared
 existing, directory-shaped read-only tree. jack-ryan filed the narrowing; the sharper
 reason is the slash, not the prefix.
 
+> **WITHDRAWN in round nineteen (JR-12).** The paragraph above is wrong, and wrong in
+> this series' own shape. Every clause of it is true and the conclusion does not follow.
+> `_read_only_hit` matches in **BOTH** directions — `ro in full.parents` (the key is under
+> the tree) and `full in ro.parents` (the key is a **collapsed ancestor** of it). Truncation
+> preserves the first and **creates** the second. So "the marked key stays a strict
+> descendant" answers the descendant question and only that question, about a predicate
+> whose own docstring says it matches both ways on purpose. Measured on a real repo:
+> `:711`'s key `.git/modules/\t<gitdir: a>` collapses to `.git/modules/`, the **parent** of
+> a read-only tree declared at `.git/modules/a`, and under the R17-g mutation the breach
+> degrades from *"write inside a read-only tree (… — reached via the collapsed entry
+> '.git/modules/')"* to *"write inside an always-protected path in ANY declared repo"* —
+> the right verdict against the wrong promise, which is the exact degradation R17-g's row
+> exists to refuse. `:711` also mints **unconditionally for every submodule**: no depth
+> cap, no unreadable directory, no error condition, and `.git/modules/a` is a far more
+> plausible declaration than the four-deep nest. It is the *less* contrived instance, not
+> an unreachable one. jack-ryan's round-17 § 1.4 reasoned descendant-only first and round
+> 18 re-derived the same conclusion by a different route, inheriting the blind spot; the
+> attribution for the original step is theirs and for the re-derivation mine. What
+> survives: `:580` really is stripped by `diff_fingerprints:1164`, and `:730`–`:760`
+> really do mint only inside the `not dot.is_dir()` branch. Two thirds of the enumeration
+> holds. `test_JR12_a_COLLAPSED_ANCESTOR_key_still_reaches_the_read_only_tree` now covers
+> the third rather than narrowing the claim to exclude it.
+
 What the row does **not** claim, stated because the temptation to claim it is real: the
 verdict does not flip. Every marker-bearing key in this module lives under `.git/`, which
 `PROTECTED_EVERY_REPO` holds independently through `_matches` — whose own normalisation
@@ -2822,12 +2845,30 @@ verified that exclusion is honest, round 18 § 1).
 |---|---|---|
 | M18-a | `marker_path` normalises only the `…/\t` spelling — the half-coverage JR-5 fixed | **KILLED**, 36 failed; `test_JR9_BOTH_SPELLINGS…`, `test_JR5_a_marker_key_names_a_path_UNDER_dot_git`, `test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key…`, `test_JR5_an_unreadable_pointer_is_PROTECTED…`, `test_JR5_the_rollback_REFUSES_a_marker_key…` |
 | M18-a2 | `_matches` stops calling `marker_path` at all | **KILLED**, 24 failed; `test_JR9_BOTH_SPELLINGS…`, `test_JR5_an_unreadable_pointer_is_PROTECTED…`, `test_JR5_the_rollback_REFUSES_a_marker_key…` |
-| M18-b | `Agent` removed from `UNFENCEABLE_TOOLS` (JR-6 wiring) | **KILLED**; `test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason`, `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` |
+| M18-b | `Agent` **renamed** in `UNFENCEABLE_TOOLS` (JR-6 wiring) | **KILLED**; `test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason`. ~~`test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS`~~ — **over-claim, JR-14**: that row cannot fire on a removal |
 | M18-c | `Agent` added to `BUILTIN_TOOLS` — the split declared fiction (JR-6 claim) | **KILLED**; `test_JR6_the_INVOCATION_names_are_not_grant_names_or_the_split_is_fiction` |
 | M18-d | `REASONED_ADMISSIONS["Skill"]` blanked to whitespace | **KILLED**; `test_JR7_every_QUESTIONED_name_is_either_refused_or_admitted_WITH_A_REASON` |
-| M18-e | `ToolSearch` removed from `UNFENCEABLE_TOOLS` — admitted by silence | **KILLED**; `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` |
+| M18-e | `ToolSearch` **renamed** in `UNFENCEABLE_TOOLS` — "admitted by silence" | ~~**KILLED**~~ → **the mutation that matters SURVIVED. JR-13, BLOCK.** See the correction below |
 
-**No survivors, and one honest narrowing.** JR-9's row is not the *unique* killer of M18-a
+> **CORRECTED in round nineteen (JR-13 / JR-14).** M18-b and M18-e were **renames**, not
+> deletions — `"ToolSearch"` → `"ToolSearch_DISABLED"`. A rename leaves an orphan behind,
+> and `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` computes
+> `sorted(set(UNFENCEABLE_TOOLS) - known)`, so it fires on the orphan. It cannot fire on a
+> **deletion**: removing an element can only SHRINK a set difference. The named killer was
+> not merely unverified — it was structurally incapable of firing on the mutation the row
+> was credited with catching, and one minute in the source would have shown it. jack-ryan
+> ran the deletion: **594 passed, zero failures**, and `validate_tools(["ToolSearch"])`
+> returns `['ToolSearch']`. The JR-7 finding — four live probe calls, five preserved frame
+> files — was one dict-entry deletion from a green suite. I then ran the deletion across
+> the whole roster: **six of nine refused names evaporated silently** (`ToolSearch`,
+> `EnterWorktree`, `RemoteTrigger`, `PushNotification`, `CronDelete`, `ScheduleWakeup`).
+> Only `Task`, `CronCreate` and `Agent` were pinned, by rows that happened to hardcode
+> them. That is README rule 44 — which round 17 wrote — arriving inside round 18's own new
+> entry, and it is now rule 47: **delete, do not rename; a rename tests the drift guard and
+> reports it as the evaporation guard.** Fixed by `REFUSED_ROSTER` + `test_JR13_…`; § 23.1.
+
+**~~No survivors~~ — one survivor, mis-reported as a kill (see the box above), and one
+honest narrowing.** JR-9's row is not the *unique* killer of M18-a
 or M18-a2 — the JR-5 rows fire too. It is the only row that asserts the two spellings agree
 **with each other**; the others assert each spelling separately, which is exactly the gap
 jack-ryan named. A round-17-style report would have been entitled to say "killed"; it would
@@ -2851,3 +2892,174 @@ series' own defect shape arriving in the measuring instrument.
 - The round-18 mutation harness was not preserved, for the § 21.8 reason: it measures this
   repo, is re-derivable from any commit, and every finding it produced is now a row.
 
+
+---
+
+## 23. Round nineteen — the BLOCK I earned by not reading my own mutation
+
+jack-ryan's verdict on round 18 (`qa/pending/2026-08-11-star-lord-factory-spine-gate2-r18.md`):
+**BLOCK, mechanical lane, re-opened.** Clause 1's counter resets. The agentic lane is
+unchanged and untouched — still clause 2, still the threat model, still not mine.
+
+Three of the four items are the same fact from three angles: **round 18's receipts were
+audited by round 18, and round 18 was the thing that needed auditing.** I brought
+jack-ryan two instances of receipts claiming more than they measured and asked to be
+attacked on exactly that. They found a third that I had introduced while fixing the
+first two.
+
+### 23.1 JR-13 — a mutation table entry asserting the opposite of what the instrument does
+
+M18-e was reported **KILLED** by `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS`.
+That row computes:
+
+```python
+orphans = sorted(set(UNFENCEABLE_TOOLS) - known)
+```
+
+Removing an element from `UNFENCEABLE_TOOLS` can only **shrink** that difference. The row
+is structurally incapable of failing on a deletion from the dict it guards. Not an
+unverified attribution — an **impossible** one.
+
+The reason it looked verified is in the shape of my mutation, not in the code. **I mutated
+by RENAMING** (`"ToolSearch"` → `"ToolSearch_DISABLED"`), and a rename leaves an orphan
+that the derived row does trip over. A rename tests the **drift** guard and reports the
+result as the **evaporation** guard. Those are two different claims about two different
+failure modes, and rule 44 — which I wrote in round 17 — is about the second one.
+
+jack-ryan ran the deletion: **594 passed, zero failures**, and
+`validate_tools(["ToolSearch"])` returns `['ToolSearch']`. I then ran deletion across the
+whole roster rather than just the entry under review, because if the mutation *style* was
+wrong then every conclusion drawn with it was suspect:
+
+```
+=== ToolSearch      DELETED : SURVIVED :: 64 passed
+=== EnterWorktree   DELETED : SURVIVED :: 64 passed
+=== RemoteTrigger   DELETED : SURVIVED :: 64 passed
+=== PushNotification DELETED: SURVIVED :: 64 passed
+=== CronDelete      DELETED : SURVIVED :: 64 passed
+=== ScheduleWakeup  DELETED : SURVIVED :: 64 passed
+=== Task            DELETED : KILLED   :: 2 failed
+=== CronCreate      DELETED : KILLED   :: 1 failed
+=== Agent           DELETED : KILLED   :: 1 failed
+```
+
+**Six of nine Gate-2 findings were one dict-entry deletion from evaporating with a green
+suite.** The three that held were pinned by rows that happened to hardcode them, which is
+luck wearing coverage's clothes.
+
+The fix is rule 44's own prescription, which round 18 quoted and did not apply: **both, not
+either.** `REFUSED_ROSTER` is a hardcoded `frozenset` of all nine names with an equality
+assertion; the parametrised row keeps the lists from drifting, the literal keeps the
+findings from evaporating. Plus `test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_
+KIND_of_entry_it_is`, which pins the `REASONED, NOT MEASURED` label **into the message a
+phase author reads** — so the one entry in this module without frames behind it cannot be
+silently re-graded to the authority of one that has them.
+
+After the fix, all nine deletions are killed (§ 23.5).
+
+### 23.2 JR-12 — the JR-10 enumeration was wrong, in this series' own shape
+
+I asked jack-ryan to check the slash-vs-prefix reasoning specifically because I had
+re-derived their conclusion by a different route and wanted the route audited. It was
+wrong. Every clause true, conclusion false:
+
+`_read_only_hit` matches in **both** directions — `ro in full.parents` (the key is under
+the tree) and `full in ro.parents` (the key is a **collapsed ancestor** of it). Truncation
+preserves the first and **creates** the second. "The marked key stays a strict descendant"
+answers the descendant question, about a predicate whose docstring says it matches both
+ways on purpose. **Descendant-direction reasoning about a two-direction predicate, in the
+sentence written to close this series' defect shape.**
+
+Measured on a real repo, `:711`'s key with a read-only tree at `.git/modules/a`:
+
+```
+clean  -> write inside a read-only tree (…/.git/modules/a — reached via the collapsed entry '.git/modules/')
+R17-g  -> write inside an always-protected path in ANY declared repo
+```
+
+That is R17-g's own degradation — right verdict, wrong promise — on a producer round 18
+certified inert. And `:711` mints **unconditionally for every submodule**: no depth cap, no
+unreadable directory, no error condition. It is the *less* contrived instance.
+`test_JR12_a_COLLAPSED_ANCESTOR_key_still_reaches_the_read_only_tree` covers it through a
+real before/after fingerprint, asserts the loader accepts the tree, and asserts `reached
+via` is **present** — the mirror of the row above it, which asserts it is absent. The
+enumeration is made true by covering the case, not by narrowing the claim to exclude it.
+
+Attribution, since this file cares about it: jack-ryan's round-17 § 1.4 took the
+descendant-only step first and says so plainly in their own verdict. Round 18 inherited it
+by arriving at the same answer down a different path, which is the least reliable kind of
+corroboration there is.
+
+### 23.3 JR-11 — the row rule 45 cited did not satisfy rule 45
+
+`classify` reaches `_read_only_hit` first and short-circuits. `test_JR9_…` passed
+`read_only_trees=[]`, so every reason it compared came from the `PROTECTED_EVERY_REPO` arm
+— which normalises inside `_matches`, at a site that **pre-dated JR-5**. The arm JR-5 had
+to *add* normalisation to was never entered. Under R17-g the row stayed green on all four
+cases while the two spellings genuinely diverged.
+
+So round 18 re-wrote rule 45 to demand "a row that fails if the inertness stops holding",
+and cited a row that did not fail. Round 17's finding, recurring inside the fix for round
+17's finding, one layer down. One extra parameter (`read_only` ∈ {`[]`, `[repo/".git"]`})
+turns it into an R17-g killer, and the rule now carries the addendum: **check that the
+cited row enters the predicate the claim is about.** Asserting the right sentence and
+reaching the right code are two claims.
+
+### 23.4 JR-14 — and the same shape twice more, in the instrument
+
+M18-b named two killers; the second could not fire, for the identical structural reason as
+M18-e. Two of six rows in a six-row table carried a killer name that was **reasoned rather
+than observed**, in a table whose method line says "each verified to kill its own row".
+Fix, and it is free: the tables below paste the harness's observed `FAILED` lines.
+
+Rule 35 turned on the round-19 harness itself, which shipped two defects of the class it
+was built to hunt:
+
+- its "delete this dict entry" helper searched for the key name **unscoped**. `Agent`
+  lives in two dicts, so it mutated `INVOCATION_ONLY_TOOLS` and reported `Agent` as
+  unprotected. It is protected.
+- its "where does this entry end" search was **unbounded**, so on the LAST entry of a dict
+  it ran past the closing brace into the next dict, producing a syntax error — which the
+  harness scored **SURVIVED**, because no test had `FAILED`. A harness that cannot tell
+  "no row failed" from "nothing ran" is not measuring anything.
+
+Both are predicates answering an adjacent question whose wrong answer looks safe. That is
+rule 48 now, and the fact that this class reached the measuring tool on the round whose
+BLOCK was about a measuring tool is not a coincidence I want smoothed over.
+
+### 23.5 The mutation table — observed lines, not remembered names
+
+| id | mutation | observed |
+|---|---|---|
+| R19-1 | `"ToolSearch"` **deleted** from `UNFENCEABLE_TOOLS` | **KILLED**, 2 failed: `test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_KIND_of_entry_it_is`, `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-2 | `"Agent"` **deleted** | **KILLED**, 2 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing`, `test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason` |
+| R19-3 | `"EnterWorktree"` **deleted** | **KILLED**, 1 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-4 | `"RemoteTrigger"` **deleted** | **KILLED**, 1 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-5 | `"PushNotification"` **deleted** | **KILLED**, 1 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-6 | `"CronDelete"` **deleted** | **KILLED**, 1 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-7 | `"ScheduleWakeup"` **deleted** | **KILLED**, 1 failed: `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-8 | `"Task"` **deleted** | **KILLED**, 3 failed: `test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation`, `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd`, `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-9 | `"CronCreate"` **deleted** | **KILLED**, 2 failed: `test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd`, `test_JR13_no_refusal_can_be_DELETED_without_a_row_failing` |
+| R19-10 | R17-g verbatim — `_read_only_hit` drops `marker_path` | **KILLED**, 8 failed: `test_JR12_a_COLLAPSED_ANCESTOR_key_still_reaches_the_read_only_tree`, `test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree`, `test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically` |
+
+Every refused name now has a killer, and R17-g is killed by three rows instead of two —
+including, for the first time, `test_JR9_…`, which is what makes rule 45's citation true.
+`test_C2_every_assert_under_tests_is_proven_to_execute` reddens on any mutation and is
+excluded from all of the above, as in every prior round.
+
+Baseline: **603 passed in 162.42s**, clean tree, `-p no:randomly`. Was 595 at `5a75386d`.
+
+### 23.6 What round nineteen did not do
+
+- **No workflow fired.** D4 holds. The mechanical PASS is jack-ryan's to re-issue, and
+  clause 1's counter is theirs to restart — I am not claiming a round toward it.
+- **Their proposed second limb for clause 1** — *"and the round's mutation table has been
+  independently re-run"* — I have an interest in it and have therefore not argued it. It
+  is Matt's to ratify. What I will say as evidence rather than as advocacy: rounds 17, 18
+  and 19 each produced a receipt-level defect that the round's own author did not catch and
+  the reviewer's re-run did, three for three.
+- **JR-7's INFO rider** — a benign `ToolSearch` control (`select:Read`, a name already
+  granted) to separate "the classifier refused the question" from "the tool does nothing
+  here". Not run: it is an agentic-lane measurement and that lane is blocked on the threat
+  model. The empirical criterion for firing it is the agentic lane opening.
+- **The threat model**, **O4** (dollars) and **D-10** (no HALT status): unchanged, untouched.

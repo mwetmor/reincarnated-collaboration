@@ -2363,8 +2363,11 @@ def test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name(fenced):
     )
 
 
+@pytest.mark.parametrize("read_only", [False, True], ids=["no_read_only", "read_only_git"])
 @pytest.mark.parametrize("marker", ["<gitdir pointer unreadable: x>", "<common>"])
-def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(fenced, marker):
+def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(
+    fenced, marker, read_only
+):
     """The JR-5 equivalence claim, asserted instead of assumed. Gate-2 JR-9.
 
     Round 17 reported jack-ryan's JR-5 mutation — moving the tab from before the slash
@@ -2379,6 +2382,18 @@ def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(fenced, marker)
     This is that assertion. Same verdict AND same reason, because a normalisation that
     produced the right verdict under a different rule would be the CLAIM-axis defect two
     rows down, and identical verdicts alone would not notice it.
+
+    The `read_only` parameter is Gate-2 JR-11, and it is why this row is now a killer
+    rather than a witness. Rule 43 names THREE predicates that were reading the marker
+    as path. `classify` reaches `_read_only_hit` FIRST and short-circuits, so with
+    `read_only_trees=[]` — the row's only configuration until round 19 — the reason
+    compared always came from the `PROTECTED_EVERY_REPO` arm, which normalises inside
+    `_matches`, at a site that PRE-DATED JR-5. The arm JR-5 had to ADD normalisation to
+    is the one this row never entered. Under the R17-g mutation the row stayed green on
+    all four cases while the two spellings genuinely diverged. Rule 45, as round 18
+    re-wrote it, demands "a row that fails if the inertness stops holding" — and cited
+    this one, which did not. Round 17's finding, recurring inside the fix for round 17's
+    finding, one layer down. Two extra cases close it.
     """
     repo = fenced.free_repo
     before_slash = f".git{perm.MARKER_SEP}{marker}"
@@ -2387,11 +2402,12 @@ def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(fenced, marker)
         after_slash
     ).rstrip("/") == ".git", "premise failed: the two spellings do not name .git"
 
+    trees = [repo / ".git"] if read_only else []
     verdicts = {}
     for key in (before_slash, after_slash):
         change = perm.Change(repo, key, "modified", None, perm.GIT_CONTROL)
         allowed, breaches = perm.classify(
-            [change], writes=["**"], root=repo, read_only_trees=[]
+            [change], writes=["**"], root=repo, read_only_trees=trees
         )
         assert not allowed, f"{key!r} was ALLOWED under `writes: ['**']`"
         assert len(breaches) == 1, f"{key!r} produced {len(breaches)} breaches"
@@ -2401,6 +2417,7 @@ def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(fenced, marker)
         "the two spellings of the same key classify DIFFERENTLY:\n"
         f"  {before_slash!r} -> {verdicts[before_slash]!r}\n"
         f"  {after_slash!r}  -> {verdicts[after_slash]!r}\n"
+        f"  (read_only_trees={'[<repo>/.git]' if read_only else '[]'})\n"
         "The whole point of normalising once, rather than editing five producers, is "
         "that a producer's choice of where to put the tab stops deciding anything."
     )
@@ -2421,17 +2438,20 @@ def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fence
     `<tree>\\t<…>` is a SIBLING of `<tree>`, not the tree and not under it, so the
     unnormalised predicate returns None and the read-only rule never fires.
 
-    That shape is reachable rather than theoretical, and (JR-10) it is the SOLE
-    reachable instance — not one chosen from several, which is why the fixture has to
-    build a four-deep nest nobody would declare by hand. Of the ten marker producers
-    in `permissions.py`, `:580`'s marker is stripped by `diff_fingerprints` before it
-    becomes a `Change`; `:684`, `:697` and `:711` put the tab AFTER a slash, so the
-    marker is a new path COMPONENT and the marked key stays a strict descendant;
-    `:730`-`:760` put the tab straight onto a fixed `.git`, but mint only when `.git`
-    is a FILE, which `_validate_containment` refuses as a read-only tree. `:664` is
-    the one producer appending a tab directly to a prefix that can itself be a
-    declared, existing, directory-shaped read-only tree.
+    Round 18 claimed here, under JR-10, that `:664` was the SOLE reachable instance,
+    because `:684`/`:697`/`:711` put the tab after a slash and their marked keys stay
+    strict DESCENDANTS. **That was wrong and is withdrawn (Gate-2 JR-12).** The premise
+    holds; the conclusion does not, because `_read_only_hit` matches in both directions
+    and truncation CREATES ancestors. `.git/modules/\\t<gitdir: a>` collapses to
+    `.git/modules/`, the PARENT of a declarable tree at `.git/modules/a`, and the
+    mutation moves that answer too. The second shape has its own row directly below
+    (`test_JR12_…`), which is where the enumeration is now made true by COVERING it
+    rather than by narrowing it. What survives of JR-10: `:580`'s marker really is
+    stripped by `diff_fingerprints:1164` before it becomes a `Change`, and `:730`-`:760`
+    really do mint only when `.git` is a FILE, which `_validate_containment` refuses as
+    a read-only tree.
 
+    This row's shape is the EXACT-KEY one: the marked key whose real path IS the tree.
     `_gitdir_control_entries` files
     its depth-cap declaration under the gitdir's own key, and the loader accepts a
     read-only tree at a nested gitdir — asserted below rather than asserted in prose,
@@ -2495,4 +2515,82 @@ def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fence
         f"{key!r} was reported as a COLLAPSED ANCESTOR of the read-only tree "
         f"({reason!r}). It is not an ancestor; it IS the tree, and the hedged wording "
         "would tell a reader the wall could not tell which members moved."
+    )
+
+
+def test_JR12_a_COLLAPSED_ANCESTOR_key_still_reaches_the_read_only_tree(fenced):
+    """The second reachable shape, and the one that needs no contrivance. Gate-2 JR-12.
+
+    Round 18's docstring on the row above said `:664` was the SOLE producer whose
+    marker normalisation can move `_read_only_hit`'s answer, on the reasoning that
+    `:684`/`:697`/`:711` append the tab AFTER a slash, so the marker becomes a new path
+    COMPONENT and the marked key stays a strict DESCENDANT of any tree above it.
+
+    Every clause of that is true and the conclusion does not follow, because
+    `_read_only_hit` matches in BOTH directions on purpose:
+
+        if full == ro or ro in full.parents:   -> the key is UNDER the tree
+        if full in ro.parents:                 -> the key is a COLLAPSED ANCESTOR of it
+
+    Truncation preserves the first and CREATES the second. Stripping `\\t<gitdir: a>`
+    off `.git/modules/\\t<gitdir: a>` yields `.git/modules/`, which is not a descendant
+    of anything — it is the PARENT of the declared tree `.git/modules/a`, and that is
+    the second branch's whole reason for existing. Descendant-direction reasoning about
+    a two-direction predicate: this series' defect shape, in the sentence written to
+    close this series' defect shape. jack-ryan's round-17 § 1.4 made the same step
+    first; round 18 re-derived the conclusion by a different route and inherited it.
+
+    This shape is also LESS contrived than the row above. `:711` mints unconditionally
+    for every submodule — no depth cap, no unreadable directory, no error condition —
+    and `.git/modules/a` is a more plausible read-only declaration than a four-deep
+    nest. Under the R17-g mutation this breach degrades from the read-only rule to the
+    always-protected rule: the right verdict against the wrong promise, which is
+    precisely what the row above exists to refuse, on a producer round 18 certified
+    inert.
+    """
+    from factory.workflow import _validate_containment
+
+    repo = fenced.free_repo
+    sub = repo / ".git" / "modules" / "a"
+
+    before, changes = _snapshot_repo(repo, lambda: sub.mkdir(parents=True))
+    key = f".git/modules/{perm.MARKER_SEP}<gitdir: a>"
+    minted = [c for c in changes if c.path == key]
+    assert len(minted) == 1, (
+        f"premise failed: the producer did not mint {key!r}. Got "
+        f"{[c.path for c in changes]}. If `_gitdir_control_entries` has stopped keying "
+        "a nested gitdir this way, this row is adjudicating a key nothing produces."
+    )
+    assert perm.marker_path(key).rstrip("/") == ".git/modules", (
+        "premise failed: the truncated key is not the PARENT of the declared tree, so "
+        "this row is not exercising the collapsed-ancestor branch"
+    )
+
+    # Reachability, not prose: a submodule gitdir must be a declarable read-only tree.
+    _validate_containment([repo.resolve()], [sub.resolve()])
+
+    allowed, breaches = perm.classify(
+        changes, writes=["**"], root=repo, read_only_trees=[sub]
+    )
+    assert not allowed, (
+        f"a phase with `writes: ['**']` was authorised to write "
+        f"{[c.path for c in allowed]} with a read-only tree declared at {sub}"
+    )
+    mine = [b for b in breaches if b.change.path == key]
+    assert len(mine) == 1, (
+        f"{key!r} produced {len(mine)} breaches: "
+        f"{[(b.change.path, b.reason) for b in breaches]}"
+    )
+    reason = mine[0].reason
+    assert "read-only tree" in reason and str(sub.resolve()) in reason, (
+        f"{key!r} breached as {reason!r}. The declared read-only tree is what this key "
+        "collapses onto, so the read-only rule is the rule that must name it. Falling "
+        "through to the always-protected rule is the right verdict recorded against "
+        "the wrong promise — the CLAIM axis, Discipline #9."
+    )
+    assert "reached via" in reason, (
+        f"{key!r} was reported as though it were the tree itself ({reason!r}). It is "
+        "an ancestor reached by collapsing a marker, and the receipt has to say so — "
+        "the wall cannot tell WHICH members under that entry moved, and a reader who "
+        "is not told will assume it could."
     )
