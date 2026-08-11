@@ -74,6 +74,10 @@ class Workflow:
     description: str = ""
     repos: list[Path] = field(default_factory=list)
     read_only_trees: list[Path] = field(default_factory=list)
+    #: Regions the author has acknowledged measure COARSE, as `repo:region` strings.
+    #: Required on the agentic lane, validated against what the tree measures, and
+    #: refused when it names a region that is not coarse (Gate-2 C5).
+    coarse_acknowledged: list[str] = field(default_factory=list)
     on_fail: str = "stop"
     sha256: str = ""
 
@@ -198,6 +202,24 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
                     + (f" — blocked on {blocked}" if blocked else "")
                     + ". A closed lane fails at LOAD, not after the phases ahead of it burn."
                 )
+        if agent and not (raw.get("tools") or []):
+            # Gate-2 C3. `tools` was the ONE allowlist in this spine that failed
+            # OPEN: omit it and no `--tools` / `--allowedTools` flag is emitted, so
+            # the phase runs against whatever the ambient .claude/settings.json
+            # permits — `claude --help` is explicit that the default is the full
+            # built-in set. Every sibling allowlist here fails closed (an empty
+            # `writes` breaches everything; an empty `gates` is a load error), and
+            # this is the only PRE-hoc containment the agentic lane has —
+            # permissions.py is entirely post-hoc detect-and-abort. It went unnoticed
+            # because every founding-run phase is mechanical, so the branch has never
+            # run against a model. Declare `tools: []`… you cannot: an empty list is
+            # refused here too, because "no tools" is spelled by not naming an agent.
+            raise WorkflowError(
+                f"phase {pname!r} names agent {agent!r} but declares no `tools` "
+                "allowlist. An agentic phase with no tool allowlist runs with the "
+                "CLI's full default tool set, which is the one allowlist in this "
+                "spine that would fail OPEN. Name the tools the phase needs."
+            )
         if agent and not prompt:
             raise WorkflowError(f"phase {pname!r} names an agent but carries no `prompt`")
         if not agent and prompt:
@@ -232,7 +254,7 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
     read_only = [_expand(r).resolve() for r in (data.get("read_only_trees") or [])]
     _validate_containment(repos, read_only)
 
-    return Workflow(
+    wf = Workflow(
         name=name,
         path=wf_path,
         root=wf_root,
@@ -240,9 +262,15 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
         description=data.get("description", ""),
         repos=repos,
         read_only_trees=read_only,
+        coarse_acknowledged=list(data.get("coarse_acknowledged") or []),
         on_fail=on_fail,
         sha256=hashlib.sha256(wf_path.read_bytes()).hexdigest(),
     )
+    # Gate-2 C5. Measures the trees, so it needs the constructed workflow rather than
+    # the raw dict -- but it is a LOAD refusal like the ones above it, not a runtime
+    # one. A lane condition enforced after the run starts is a report, not a gate.
+    validate_coarse_regions_are_acknowledged(wf)
+    return wf
 
 
 def git_toplevel(path: Path) -> Path | None:
@@ -331,6 +359,65 @@ def _validate_containment(repos: list[Path], read_only: list[Path]) -> None:
                 "a verdict about a measured tree, not a substitute for measuring it.)"
                 + hint
             )
+
+
+def validate_coarse_regions_are_acknowledged(wf) -> None:
+    """An AGENTIC phase may not silently inherit a COARSE read-only tree (Gate-2 C5).
+
+    The COARSE tier catches creation, deletion and rename, and misses an in-place
+    rewrite of an existing file. Measured on this host: the engine tree has ZERO
+    coarse regions; godot has exactly `.godot/` and `Assets/Synty/`. Both are also
+    gitignored, so an in-place edit there is undetected AND unrecoverable from git —
+    the two weaknesses compound, which README rule 3 does not say.
+
+    For the mechanical lane this is bounded: every path is authored by a human in a
+    reviewed YAML file. The agentic lane is DEFINED by a model choosing paths, and
+    rule 3 discharges the gap with a receipt caveat. A caveat is a claim to a reader,
+    not a gate — so on the agentic lane the workflow must acknowledge the region by
+    name, and the acknowledgement is validated against what the tree actually
+    measures. Naming a region that is not coarse is also refused: an acknowledgement
+    that has drifted from the tree is worse than none, because it reads as diligence.
+
+    SCOPE. The finding was written about read-only trees; this checks every declared
+    repo, which is a superset (the loader already refuses a read-only tree no repo
+    covers). The narrower reading would have been the same class of defect one more
+    time: an undetected in-place write is undetected wherever it lands, and in a
+    WRITABLE repo it is a change `classify` never gets to see at all. Costs nothing
+    today — measured on this host, the meta-repo and the engine have zero coarse
+    regions and godot has exactly two.
+    """
+    if not any(p.agent for p in wf.phases):
+        return
+    from .permissions import fingerprint
+
+    acknowledged = set(getattr(wf, "coarse_acknowledged", []) or [])
+    measured: set[str] = set()
+    for repo in wf.repos:
+        # `is_root_repo` gates the factory's own runtime exemptions. Passing it wrong
+        # would make `sessions/` measurable, and a bogus acknowledgement is exactly
+        # what the stale branch below exists to refuse.
+        fp = fingerprint(repo, is_root_repo=repo.resolve() == wf.root.resolve())
+        measured.update(f"{repo.name}:{region}" for region in fp.coarse)
+
+    unacknowledged = measured - acknowledged
+    if unacknowledged:
+        raise WorkflowError(
+            "this workflow has an agentic phase and these read-only regions measure "
+            f"COARSE: {sorted(unacknowledged)}. COARSE catches creation, deletion and "
+            "rename but NOT an in-place rewrite of an existing file, and these regions "
+            "are gitignored, so such an edit is neither detected nor recoverable from "
+            "git. A model choosing its own paths is exactly the case the caveat does "
+            "not cover. Either declare a narrower read-only tree, raise the scan cap "
+            "for this run, or acknowledge each region by name under "
+            "`coarse_acknowledged:`."
+        )
+    stale = acknowledged - measured
+    if stale:
+        raise WorkflowError(
+            f"`coarse_acknowledged` names {sorted(stale)}, which do not measure COARSE. "
+            "An acknowledgement that has drifted from the tree reads as diligence and "
+            "certifies nothing — the class this spine keeps finding. Remove them."
+        )
 
 
 def _default_root(wf_path: Path) -> Path:

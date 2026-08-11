@@ -46,6 +46,21 @@ PROTECTED_ALWAYS: tuple[str, ...] = (
     ".claude/",
 )
 
+PROTECTED_EVERY_REPO: tuple[str, ...] = (
+    ".claude/",
+)
+"""Protected in EVERY declared repo, not only the root one (Gate-2 C4).
+
+`.claude/settings.json` executes hooks. A phase that can write it in
+`reincarnated-demo` or `reincarnated-loadout` can arrange for code to run in the
+next session there — so scoping the check to the meta-repo made the receipt's
+"never config-overridable" true only where it was already hardest to reach.
+
+The other `PROTECTED_ALWAYS` entries name paths that exist only in the meta-repo,
+so widening them would protect nothing and would collide with rocket's engine-side
+`canonical/`, which is a legitimately declarable write target for its own seam.
+"""
+
 FACTORY_RUNTIME_PATHS: tuple[str, ...] = (
     "agentic_orchestration/factory/sessions/",
     "agentic_orchestration/factory/receipts.db",
@@ -279,6 +294,28 @@ class RollbackAction:
     #: travel; the sentence is RENDERED from them, so there is exactly one place the
     #: figures come from and no wording can disagree with the tree.
     facts: tuple[tuple[str, int], ...] = ()
+    #: WHICH refusal fired, as a closed vocabulary. Gate-2 C1: round eight made the
+    #: measurements travel and then triggered the wall's check on
+    #: `if expected["staged_paths"]:` — one of the three values the check certifies.
+    #: A refusal where nothing was staged (the destroyer guard's ordinary case, and
+    #: the branch where git REFUSED the question) therefore certified nothing, and a
+    #: receipt reading "HEAD holds 6 file(s) ... Measured here: head_files=0" passed
+    #: 412 tests. A trigger that can be switched off by anything it is measuring is a
+    #: comment. Identity is not a measurement, so it is the one thing safe to key on.
+    guard: str | None = None
+
+
+#: Closed, because a default that catches every case nobody enumerated is how this
+#: class recurs (rule 13, applied to the refusal vocabulary rather than to git's
+#: status codes). Every NOT_ROLLED_BACK names one of these or the wall reds.
+REFUSAL_GUARDS = frozenset({
+    "whole_tree", "quarantine_failed", "committed", "dirty_before", "destroyer",
+    "delete_failed", "nothing_at_path", "unknown_status", "staging", "checkout_failed",
+})
+
+#: The two that make COUNTED claims about what git holds. These owe the operator
+#: numbers unconditionally — not when something happens to be staged.
+GUARDS_OWING_FACTS = frozenset({"destroyer", "staging"})
 
 
 def render_containment_facts(facts: tuple[tuple[str, int], ...]) -> str:
@@ -840,11 +877,27 @@ def classify(
         if hit is not None:
             breaches.append(Breach(change, f"write inside a read-only tree ({hit})"))
             continue
+        # Gate-2 C4. This check was gated on the ROOT repo while its receipt said
+        # "never config-overridable" — true in the meta-repo, false in every other
+        # declared repo, where a permissive `writes` reaches it. The claim was
+        # broader than the measurement, which is the B1 class at the classifier.
+        # `.claude/` is a HOOK-EXECUTION surface: a phase in reincarnated-demo or
+        # reincarnated-loadout could plant a hook that fires on the next session
+        # there. It is protected in every declared repo. The other two entries name
+        # paths that exist only in the meta-repo, so they stay root-scoped and the
+        # receipt now says which rule it is.
+        if any(_matches(change.path, p) for p in PROTECTED_EVERY_REPO):
+            breaches.append(
+                Breach(change, "write inside an always-protected path in ANY declared "
+                               "repo (never config-overridable)")
+            )
+            continue
         if change_root == Path(root).resolve() and any(
             _matches(change.path, p) for p in protected
         ):
             breaches.append(
-                Breach(change, "write inside an always-protected path (never config-overridable)")
+                Breach(change, "write inside an always-protected path in the root repo "
+                               "(never config-overridable)")
             )
             continue
         if any(_matches(change.path, w) for w in writes):
@@ -1017,6 +1070,7 @@ def rollback(
                     "has identified a tree, and undoing a tree is a human decision — "
                     "the breach is detected, fenced and reported instead",
                     None,
+                    guard="whole_tree",
                 )
             )
             continue
@@ -1067,6 +1121,7 @@ def rollback(
                         change.path,
                         "NOT_ROLLED_BACK",
                         f"could not quarantine ({exc}); left untouched as evidence",
+                        guard="quarantine_failed",
                     )
                 )
                 continue
@@ -1078,6 +1133,7 @@ def rollback(
                     "NOT_ROLLED_BACK",
                     "the phase committed this path; unwinding history is a human decision",
                     quarantined,
+                    guard="committed",
                 )
             )
             continue
@@ -1089,6 +1145,7 @@ def rollback(
                     "path was already dirty at phase start; restoring would destroy "
                     "pre-existing uncommitted work",
                     quarantined,
+                    guard="dirty_before",
                 )
             )
             continue
@@ -1146,6 +1203,7 @@ def rollback(
                         f"{render_containment_facts(measured)}",
                         quarantined,
                         measured,
+                        guard="destroyer",
                     )
                 )
                 continue
@@ -1170,6 +1228,7 @@ def rollback(
                             "nothing at this path by rollback time; another process may "
                             "have removed it, so the deletion is not ours to claim",
                             quarantined,
+                            guard="nothing_at_path",
                         )
                     )
                     continue
@@ -1178,7 +1237,10 @@ def rollback(
                 )
             except OSError as exc:
                 actions.append(
-                    RollbackAction(change.path, "NOT_ROLLED_BACK", f"delete failed: {exc}", quarantined)
+                    RollbackAction(
+                        change.path, "NOT_ROLLED_BACK", f"delete failed: {exc}",
+                        quarantined, guard="delete_failed",
+                    )
                 )
             continue
 
@@ -1195,6 +1257,7 @@ def rollback(
                     "classifier does not recognise. An unrecognised state is not a "
                     "modification, and undoing it would be a guess",
                     quarantined,
+                    guard="unknown_status",
                 )
             )
             continue
@@ -1247,6 +1310,7 @@ def rollback(
                     f"git checkout HEAD -- {change.path!r})",
                     quarantined,
                     measured,
+                    guard="staging",
                 )
             )
             continue
@@ -1263,6 +1327,7 @@ def rollback(
                     "NOT_ROLLED_BACK",
                     f"git checkout failed: {proc.stderr.strip()[:200]}",
                     quarantined,
+                    guard="checkout_failed",
                 )
             )
     return actions

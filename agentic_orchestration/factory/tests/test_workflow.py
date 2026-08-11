@@ -89,7 +89,9 @@ def test_the_retry_bound_itself_is_three():
 
 
 def test_an_agent_without_a_prompt_is_refused(tmp_path):
-    path = _phase_wf(tmp_path, {**MINIMAL_PHASE, "agent": "rocket"})
+    path = _phase_wf(
+        tmp_path, {**MINIMAL_PHASE, "agent": "rocket", "tools": ["Read"]}
+    )
     with pytest.raises(WorkflowError, match="no `prompt`"):
         load_workflow(path)
 
@@ -280,3 +282,130 @@ def test_the_shipped_kc2_workflow_declares_every_read_only_tree_as_a_repo():
     assert wf.read_only_trees, "the shipped workflow makes no read-only claim to check"
     for ro in wf.read_only_trees:
         assert any(ro == r or r in ro.parents for r in wf.repos), f"{ro} is unmeasured"
+
+
+# ---------------------------------------------------------------------------
+# C5 — the COARSE tier is a lane condition, enforced at LOAD
+# ---------------------------------------------------------------------------
+AGENTIC_PHASE = {
+    "name": "p",
+    "agent": "star-lord",
+    "prompt": "do the thing",
+    "tools": ["Read"],
+    "gates": ["artifacts_exist"],
+    "artifacts": ["x.txt"],
+}
+
+
+@pytest.fixture
+def coarse_repo(git_repo, monkeypatch):
+    """A repo with one region that measures COARSE.
+
+    The cap is lowered rather than 50,000 files being written: the branch under test
+    is `files > cap`, and which side of it a region falls on is the only thing that
+    differs between this fixture and the godot tree. `ignored/` is in the fixture's
+    .gitignore, so it reproduces the compounding case — coarse AND unrecoverable
+    from git.
+    """
+    from factory import permissions as perm
+
+    monkeypatch.setattr(perm, "_IGNORED_SCAN_CAP", 1)
+    region = git_repo / "ignored"
+    region.mkdir()
+    (region / "a").write_text("1\n")
+    (region / "b").write_text("2\n")
+    return git_repo
+
+
+def test_C5_an_agentic_phase_over_an_unacknowledged_COARSE_region_is_refused(
+    tmp_path, coarse_repo
+):
+    """Gate-2 C5. README rule 3 discharged this with a caveat printed on the receipt.
+    A caveat is a claim to a reader, not a gate — and the agentic lane is defined by a
+    model choosing its own paths, which is precisely the case the caveat does not
+    cover. An in-place rewrite inside a coarse gitignored region is neither detected
+    nor recoverable."""
+    path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
+               phases=[dict(AGENTIC_PHASE)])
+    with pytest.raises(WorkflowError, match="measure COARSE"):
+        load_workflow(path)
+
+
+def test_C5_the_refusal_names_the_region_so_the_author_can_act_on_it(
+    tmp_path, coarse_repo
+):
+    path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
+               phases=[dict(AGENTIC_PHASE)])
+    with pytest.raises(WorkflowError, match=r"repo:ignored/"):
+        load_workflow(path)
+
+
+def test_C5_a_named_acknowledgement_lets_the_agentic_workflow_load(
+    tmp_path, coarse_repo
+):
+    """The escape hatch is real, and it is per-region and by name — not a boolean."""
+    path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
+               phases=[dict(AGENTIC_PHASE)],
+               coarse_acknowledged=["repo:ignored/"])
+    wf = load_workflow(path)
+    assert wf.coarse_acknowledged == ["repo:ignored/"]
+
+
+def test_C5_an_acknowledgement_that_does_not_match_the_tree_is_refused(
+    tmp_path, coarse_repo
+):
+    """Naming the wrong region is refused even though it is strictly MORE cautious
+    than naming none. An acknowledgement that has drifted from the tree reads as
+    diligence and certifies nothing — the class this spine keeps finding."""
+    path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
+               phases=[dict(AGENTIC_PHASE)],
+               coarse_acknowledged=["repo:ignored/", "repo:Assets/Synty/"])
+    with pytest.raises(WorkflowError, match="do not measure COARSE"):
+        load_workflow(path)
+
+
+def test_C5_a_MECHANICAL_workflow_over_the_same_region_still_loads(
+    tmp_path, coarse_repo
+):
+    """The trigger is the lane, and it is falsifiable: same tree, same region, no
+    agent — and the loader says yes. Without this row the C5 refusal could be a blanket
+    ban on coarse regions wearing a lane condition's error message."""
+    wf = load_workflow(
+        _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)])
+    )
+    assert wf.phases[0].is_mechanical
+    assert wf.coarse_acknowledged == []
+
+
+def test_C5_acknowledging_ONE_region_does_not_clear_a_second_one(tmp_path, coarse_repo):
+    """The acknowledgement is per-region, and only a SECOND region can prove it.
+
+    Round-ten mutation R6 (`unacknowledged = set() if acknowledged else measured`)
+    survived the first C5 set: with one coarse region in the fixture, a per-region
+    check and a boolean flag are observationally identical. The escape hatch has to
+    cost one line per region or it is a checkbox — which is this spine's recurring
+    defect wearing an allowlist's clothes.
+    """
+    second = coarse_repo / "extra"
+    second.mkdir()
+    (second / "a").write_text("1\n")
+    (second / "b").write_text("2\n")
+    path = _wf(tmp_path, root=str(coarse_repo), repos=[str(coarse_repo)],
+               phases=[dict(AGENTIC_PHASE)],
+               coarse_acknowledged=["repo:ignored/"])
+    with pytest.raises(WorkflowError, match=r"repo:extra/"):
+        load_workflow(path)
+
+
+def test_C3_the_loader_refuses_an_agentic_phase_that_declares_no_tools(tmp_path, git_repo):
+    """The same refusal as the harness's, at the earlier boundary (Gate-2 C3).
+
+    The harness guard alone would let a workflow author walk a run to the point of
+    spending tokens before learning its containment was never declared. And a guard
+    present in only one of two entry points is a guard with a route around it —
+    which is L8's finding. Both fail closed; this is the LOAD half.
+    """
+    phase = {k: v for k, v in AGENTIC_PHASE.items() if k != "tools"}
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError, match="fail OPEN"):
+        load_workflow(path)

@@ -581,17 +581,29 @@ def _assert_refusal_claims_are_true(f: Fence, action, kind: str) -> None:
     #: refusal OWES the operator numbers is a question about the TREE, so it is asked
     #: of git. If the index differs from HEAD here, the refusal that stopped the run
     #: carries the measurements or this row is red.
+    #: ...and THAT fix moved the trigger from the action onto `expected["staged_paths"]`
+    #: — one of the three values it certifies. With nothing staged (the destroyer
+    #: guard's ordinary case, and the branch where git REFUSED the question) the check
+    #: switched itself off, and a receipt reading "HEAD holds 6 file(s) under it ...
+    #: Measured here: head_files=0" passed 412 tests (Gate-2 C1). Fourth instance of
+    #: one axis: B2's dead phrase, N6's `if action.facts:`, and this. The trigger is
+    #: now the refusal's IDENTITY, which is the one thing the check does not certify.
     expected = {
         "head_files": len(truth.in_head),
         "index_files": len(truth.in_index),
         "staged_paths": len(perm._staged_against_head(f.repo, action.path).paths),
     }
-    if expected["staged_paths"]:
+    assert action.guard in perm.REFUSAL_GUARDS, (
+        f"a {kind} came back NOT_ROLLED_BACK naming guard {action.guard!r}, which is "
+        f"not one of the {len(perm.REFUSAL_GUARDS)} declared refusals. A refusal that "
+        "cannot say which check stopped it cannot be audited, and an unnamed guard is "
+        f"how a check gets switched off silently. Reason was: {reason}"
+    )
+    if action.guard in perm.GUARDS_OWING_FACTS:
         assert action.facts, (
-            f"git says {expected['staged_paths']} path(s) under {action.path!r} have "
-            f"an index differing from HEAD, and containment refused to undo a {kind} "
-            "there — but the refusal carries no measurements at all, so the operator "
-            f"is being asked to act on prose. Reason was: {reason}"
+            f"the {action.guard} guard refused a {kind} at {action.path!r} while making "
+            "a COUNTED claim about what git holds, and carried no measurements at all — "
+            f"so the operator is being asked to act on prose. Reason was: {reason}"
         )
     if action.facts:
         assert dict(action.facts) == expected, (

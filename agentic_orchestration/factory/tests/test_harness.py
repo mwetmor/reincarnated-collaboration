@@ -29,7 +29,7 @@ def h() -> ClaudeCodeHarness:
 # argv — the O1 flag surface, pinned
 # ---------------------------------------------------------------------------
 def test_argv_carries_the_probed_flag_surface(h):
-    argv = h.build_argv("do the thing", {"agent": "star-lord"})
+    argv = h.build_argv("do the thing", {"agent": "star-lord", "tools": ["Read"]})
     assert argv[0] == "claude"
     assert argv[1:3] == ["--agent", "star-lord"]
     assert "-p" in argv and argv[argv.index("-p") + 1] == "do the thing"
@@ -38,7 +38,7 @@ def test_argv_carries_the_probed_flag_surface(h):
 
 def test_verbose_is_always_present(h):
     """Without it the CLI exits 1 before any API call (probed 2026-08-10)."""
-    for config in ({"agent": "a"}, {"agent": "a", "tools": ["Read"]}):
+    for config in ({"agent": "a", "tools": ["Bash"]}, {"agent": "a", "tools": ["Read"]}):
         assert "--verbose" in h.build_argv("x", config)
 
 
@@ -71,13 +71,13 @@ def test_the_tool_allowlist_reaches_both_flags(h):
 
 
 def test_extra_directories_are_passed_one_flag_each(h):
-    argv = h.build_argv("x", {"agent": "a", "add_dirs": ["/one", "/two"]})
+    argv = h.build_argv("x", {"agent": "a", "tools": ["Read"], "add_dirs": ["/one", "/two"]})
     assert argv.count("--add-dir") == 2
 
 
 def test_an_absent_binary_is_a_failed_result_not_an_exception(tmp_path):
     result = ClaudeCodeHarness(executable="claude-that-does-not-exist").run(
-        "x", tmp_path, {"agent": "a"}
+        "x", tmp_path, {"agent": "a", "tools": ["Read"]}
     )
     assert result.ok is False
     assert "not found on PATH" in result.error
@@ -133,3 +133,62 @@ def test_the_codex_lane_declares_itself_closed():
 def test_the_codex_lane_raises_rather_than_returning_a_result(tmp_path):
     with pytest.raises(NotImplementedError, match="T16"):
         CodexHarness().run("x", tmp_path, {"agent": "a"})
+
+
+def test_C3_an_agentic_phase_without_a_tools_allowlist_is_REFUSED():
+    """The one allowlist in this spine that failed OPEN.
+
+    `claude --help`: `--tools ... Use "" to disable all tools, "default" to use all
+    tools`. So omitting the flag is not a neutral default — it is the full built-in
+    set, chosen by no one. Every sibling allowlist here fails closed: an empty
+    `writes` breaches everything, an empty `gates` is a load error. This one was
+    proven to RESTRICT when declared and never proven to REFUSE when absent, which
+    is Gate-2 B3's shape at the harness layer (Gate-2 C3).
+    """
+    h = ClaudeCodeHarness()
+    for config in ({"agent": "a"}, {"agent": "a", "tools": []}):
+        with pytest.raises(ValueError, match="tools"):
+            h.build_argv("x", config)
+
+
+def test_C3_a_denied_tool_call_is_not_a_passing_phase():
+    """`permission_denials` was recorded and adjudicated by nothing.
+
+    A phase that spent its turns being refused tools returned ok=True with a
+    cheerful result string. A denial is the pre-hoc analogue of a breach — the phase
+    reached outside its declared tools — and this spine does not treat a breach as
+    noise. Weakened only on live evidence, the way the COARSE caveat is.
+    """
+    frame = {
+        "type": "result", "subtype": "success", "is_error": False,
+        "result": "all done!", "session_id": "s1", "num_turns": 3,
+        "permission_denials": [{"tool_name": "Bash", "tool_input": {"command": "rm -rf /"}}],
+        "usage": {"input_tokens": 1, "output_tokens": 1},
+    }
+    ok_frame = {**frame, "permission_denials": []}
+    assert ClaudeCodeHarness().adjudicate(ok_frame, None, 0, 1).ok, "a clean phase must still pass"
+    denied = ClaudeCodeHarness().adjudicate(frame, None, 0, 1)
+    assert not denied.ok, (
+        "a phase whose tool calls were denied by its own allowlist came back ok=True. "
+        "The denial is the only signal that the phase tried to leave its fence."
+    )
+    assert "denied" in (denied.error or ""), (
+        f"the failure must say what happened; error was {denied.error!r}"
+    )
+
+
+def test_C3_both_tool_flags_are_emitted_because_neither_substitutes_for_the_other():
+    """`--tools` selects what EXISTS; `--allowedTools` selects what may run unprompted.
+
+    Passing only the second leaves the full built-in set present and merely
+    prompting — and a headless run has nobody to prompt, so the phase stalls or the
+    tool is denied. Passing only the first leaves declared tools asking permission
+    nobody can grant. The refusal test above proves the flags are demanded; this
+    proves they are DELIVERED, which is the other half of B3's shape.
+    """
+    argv = ClaudeCodeHarness().build_argv("x", {"agent": "star-lord", "tools": ["Read", "Grep"]})
+    assert "--tools" in argv, "the phase would run with the CLI's full built-in set"
+    assert "--allowedTools" in argv, "declared tools would still stop to ask permission"
+    assert argv[argv.index("--tools") + 1] == "Read,Grep"
+    assert argv[argv.index("--allowedTools") + 1] == "Read,Grep"
+    assert "--dangerously-skip-permissions" not in argv, "never, on any lane"

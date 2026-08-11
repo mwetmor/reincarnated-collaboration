@@ -43,7 +43,8 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           412 tests, all green
+  tests/           428 tests, all green (~110 s: the reach audit runs the suite twice)
+                   _reach_tracer.py  sys.settrace line collector, loaded in the child
 ```
 
 ## Use
@@ -89,7 +90,15 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    `.godot/` + `Assets/Synty/` = 259k) falls back to directory mtimes: catches
    creation, deletion, rename; **misses in-place content edits**. Every phase emits
    a `containment_coarse` receipt naming the regions and the caveat. A test asserts
-   the blind spot exists, so the caveat can only be weakened on evidence.
+   the blind spot exists, so the caveat can only be weakened on evidence. **On the
+   agentic lane the caveat is not enough** (C5): a caveat is a claim to a reader, and
+   the agentic lane is defined by a model choosing its own paths — the case the caveat
+   does not cover, made worse because these regions are gitignored, so an in-place edit
+   there is neither detected *nor* recoverable. A workflow with an agentic phase is
+   refused at LOAD unless it names each coarse region under `coarse_acknowledged:`.
+   Naming a region that is *not* coarse is refused too: an acknowledgement drifted from
+   the tree reads as diligence and certifies nothing. Measured here: the meta-repo and
+   the engine have zero coarse regions; godot has exactly two.
 4. **A fence is judged where the artifact IS.** `read_only_trees` is matched on the
    path's lexical *and* resolved form, breaching on either. `.resolve()` alone
    follows symlinks, so a link planted inside a fenced tree was judged by where it
@@ -199,6 +208,20 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    asserts the rendering appears in the reason. An operator reads numbers off an abort
    report and acts on them; a claim checked only as prose is a claim nobody checked
    (L9, B1).
+18. **A refusal says WHICH guard fired, from a closed vocabulary.** Rule 17's own fix
+   then had to decide *when* a refusal owes numbers, and asked a number it was
+   certifying (`if expected["staged_paths"]:`) — so a guard could switch off its own
+   certification by reporting zero. Every refusal now carries `guard=`, one of ten
+   names in `REFUSAL_GUARDS`; the two that make counted claims are listed in
+   `GUARDS_OWING_FACTS`, and the wall refuses a name outside the set. Whether a claim
+   must be checked is decided by *which* claim was made, never by *what it said* (C1).
+19. **Some paths are protected in every declared repo, not just the root.** The
+   always-protected list was matched only against the root repo, so a phase declaring
+   a sibling repo as a write target could write `.claude/` there — the next-session
+   hijack the protection exists to prevent, at a path the workflow itself named.
+   `PROTECTED_EVERY_REPO` is matched in **any** declared repo and is not
+   config-overridable; the root-only entries stay root-only, and a row asserts that too,
+   so the fix cannot quietly become a blanket fence (C4).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
 repeated shape — twenty artifact kinds (regular file, symlink out of the tree,
@@ -266,12 +289,20 @@ certifies it — same shape, one layer up: *a check that answers a slightly diff
 question than the one asked, whose wrong answer is green*. Three instances, all live:
 
 * an assertion **gated on a literal phrase the module no longer emits** never runs, and
-  reports as a pass. Three of them were sitting in the wall. `test_permissions.py` now
-  carries a standing gate that scans the wall for `if "<phrase>" in reason` and requires
-  every phrase to be present in `permissions.py`. The scanner **proves it can find
-  something** before its silence is allowed to mean anything — the first version of that
-  gate collected zero phrases and passed trivially, which is the defect it was written
-  to catch, committed one turn later by the person writing it (B2);
+  reports as a pass. Three of them were sitting in the wall. The first fix was a regex
+  that scanned the wall for `if "<phrase>" in reason` and required every phrase to still
+  exist in `permissions.py` (B2). It shipped with a sentinel proving the regex could
+  recognise a phrase-gate — the right instinct, aimed at the wrong thing: the sentinel
+  never showed the scanner could see the *suite*. Round ten replaced it with measurement
+  (C2), and the measurement's first act was to report that **the scanner's own assertion
+  had never executed, in any run** — it collected zero phrases from the wall. The check
+  written to catch dead assertions was one. `tests/test_reach_audit.py` now runs the
+  whole suite in a child process under `sys.settrace` and requires **every `assert`
+  statement under `tests/` to have executed at least once**, which subsumes the regex
+  and covers the shapes it could not see: another file, single quotes, an aliased
+  subject. Three power checks stand behind it, because it can go quiet three ways — a
+  sentinel (tracer can tell reached from unreached), an enumerator floor (it still finds
+  the suite), and a comparison test (it is still looking);
 * a check written against **prose** rather than the values the prose describes — see
   rule 17. Its own first fix then read `if action.facts:`, which the product switches
   off by sending nothing; whether a refusal *owes* the operator numbers is a property
@@ -293,6 +324,19 @@ it must answer NO and the verb must ACT — and **its scope arguments and every 
 clause it justifies must each be independently falsifiable**: reverting any one of them
 turns a row red. Three axes, because a predicate can be unreached by its arrival route,
 by its arguments, or by the claim its output is used to justify.
+
+Round nine added the fourth, by finding the shape in the *fix* for the certification:
+**the condition that decides whether a check runs must be independent of every value
+that check certifies, and must itself be falsifiable — inverting the trigger has to
+turn a row red. A check that can be switched off by anything it is measuring is a
+comment.** The wall's first fix triggered on `if action.facts:`, which the product
+switches off by sending nothing; the second triggered on `if expected["staged_paths"]:`
+— one of the three numbers the check exists to certify. The third sources the trigger
+from a **closed vocabulary of guard identities** (`REFUSAL_GUARDS`), so a refusal that
+owes numbers is decided by which guard fired, not by what the numbers say. The same
+clause is why C5's lane condition ships with a mechanical row proving the loader still
+says yes to the same tree, and why the C2 audit carries a comparison test: without them
+"nothing to report" and "stopped looking" are the same green.
 
 **Why the mechanical lane is easier than it looks — and where that stops.** Every path
 a mechanical workflow touches is authored by a human in a YAML file under review, so
@@ -355,6 +399,23 @@ written (claude 2.1.119, Python 3.12.0, this host, 2026-08-10):
   harness-computed **list-price imputation**, not money billed — the Max subscription
   is flat. The schema therefore records the figure *and* `dollars_source`, so no
   downstream surface can report it as spend. Flagged to gandalf as DRIFT-CRITIC input.
+
+A fifth flag was never on the § 13 list and shipped on this lane anyway: **`--tools` and
+`--allowedTools` exist** (probed 2026-08-11, claude 2.1.119). `claude --help`: *`--tools
+... Use "" to disable all tools, "default" to use all tools`*. So **omitting the flag is
+not a neutral default** — it is the full built-in set, chosen by nobody. Every sibling
+allowlist in this spine fails closed (an empty `writes` breaches everything, an empty
+`gates` is a load error); this one failed open, and was proven only to RESTRICT when
+declared, never to REFUSE when absent (C3). An agentic phase with no `tools` allowlist is
+now refused at **both** entry points — the loader and the adapter — because a guard
+present in only one of two entry points is a guard with a route around it. Both flags are
+passed: `--tools` selects what exists, `--allowedTools` selects what may run without a
+prompt, and a headless run has nobody to prompt. `permission_denials` in the result frame
+now **fails the phase**: a phase reaching outside its declared tools is the pre-hoc
+analogue of a breach, and this spine does not treat a breach as noise. That adjudication
+was lifted out of `run()` into `ClaudeCodeHarness.adjudicate()` so it can be exercised
+without spending money — a verdict that can only be checked by invoking a model is a
+verdict nobody checks.
 
 ## What is deliberately not here (Spec A § 12)
 

@@ -1121,3 +1121,192 @@ stop, and a clean re-run is the whole cost.
 | Determinism | `DETERMINISM: EXACT — 14 gate verdicts identical across two laps` |
 | Fenced-tree baselines | engine **2907** / godot **3288**, `usable=True`, unchanged across run + both laps |
 | Unplanned abort | one, on a real concurrent write; rollback correctly refused (§ 14.8) |
+
+---
+
+## 15. Round ten — the trigger, the fourth axis, and a gate that measured instead of matching
+
+jack-ryan returned round nine as **HOLD**, with three BLOCKs and two WARNs, every one
+reproduced live against the shipped module with the suite green. Round eight had moved
+the defect shape out of `permissions.py` and into the thing that certifies it. Round
+nine found it in **the fix for the certification** — which is the more useful finding,
+because it says the shape is not a property of the product at all.
+
+### 15.1 C1 — the fix for rule 17 was switchable by the thing it certified
+
+Round eight made a refusal's counted claims travel as `facts` and had the wall compare
+them to git. The wall then decided *whether to check* on `if action.facts:` — a trigger
+the product switches off by sending nothing. I fixed that by sourcing the trigger from
+git: `if expected["staged_paths"]:`.
+
+That is the same defect with a better disguise. `staged_paths` is **one of the three
+values the check certifies**. A guard that reported zero staged paths — wrongly or
+rightly — switched off the assertion that would have caught it.
+
+The fix is a **closed vocabulary of guard identities**. Every one of the ten refusal
+sites now carries `guard="<name>"` from `REFUSAL_GUARDS`; `GUARDS_OWING_FACTS` names the
+two that make counted claims; the wall asserts the guard is in the vocabulary, demands
+facts from the two that owe them, and compares those facts to git. Whether a claim must
+be checked is now decided by **which** claim was made, never by **what it said**.
+
+The first attempt at this was correct code and closed nothing: the assertion was
+**unreachable**. Every destroyer row in the wall has staged content, and the unit tier
+checked no facts at all. Two coverage rows were added — a destroyer refusal with
+`staged_paths=0`, and a staging refusal where `git diff --cached` is made to *fail*, so
+the branch where git refused the question is exercised. Seven mutations (jack-ryan's P1,
+P2 and P6 verbatim, plus the four escapes the fix itself creates — dropping either guard
+label, naming a guard outside the vocabulary, and a control): **all red, zero
+survivors**, 414 tests at that point.
+
+### 15.2 C2 — the never-executed-assert audit had a never-executed assert
+
+Round eight closed B2 with a regex scanning the wall for `if "<phrase>" in reason:`
+gates, requiring each phrase to still exist in `permissions.py`. It shipped with a
+sentinel — right instinct, wrong target: the sentinel proved the *regex* could recognise
+a phrase-gate, not that the regex could see the *suite*. jack-ryan planted three escapes
+it could not see (another file, single quotes, an aliased subject) and said plainly: the
+regex as it stands is not a gate.
+
+It is now **execution measurement**. `tests/_reach_tracer.py` is a pytest plugin that
+installs `sys.settrace` and records every line executed under `tests/`;
+`tests/test_reach_audit.py` spawns one child run of the whole suite under it and requires
+every `ast.Assert` node in the tree to have executed at least once.
+
+**Its first act was to convict its predecessor.** Of 390 assert statements, exactly one
+had never executed in any run: the assertion inside the phrase scanner's own loop,
+because the scanner collected **zero** phrases from the wall. The check written to catch
+dead assertions was one. It is deleted, not moved — the audit subsumes it strictly, and
+covers the shapes a pattern could not.
+
+Three things were learned building it, each from a red:
+
+* **the sentinel earned its place immediately.** The tracer filtered frames to `tests/`,
+  and the sentinel probe is written into a `tmp_path` — so the first run reported that
+  the tracer could not see an assert that definitely executed. A tracer whose reach is
+  hardcoded to its own suite cannot be shown to have power over anything;
+  `FACTORY_REACH_DIRS` now names the traced trees.
+* **the audit reported itself, correctly.** The child-run checks sat in an `else:` the
+  child never enters, so in the child they were three assertions that never ran.
+  Exempting its own file would have been the self-certification this spine refuses;
+  fabricating a fixture to satisfy them would have been worse. The branch is gone — the
+  checks are **data** returned by `audit_problems`, adjudicated by one assertion that
+  executes in both modes.
+* **a check whose failing arm nothing reaches is the finding one level up.** Mutation S7
+  (ignore the child's exit code) survived the first pass, because on a green suite that
+  branch is dead. `problems_from()` was extracted as a pure function so both failing arms
+  have rows that reach them without spending a run.
+
+Three power checks now stand behind the claim, because it can go quiet three ways: the
+**sentinel** (the tracer can tell reached from unreached), the **enumerator floor**
+(`> 300` asserts found), and the **comparison test** (it is still looking). Mutations:
+jack-ryan's P3/P4/P5 planted as real unreachable assertions — **all three named by file
+and line** — plus five ways the audit itself could go quiet, plus a control. **Zero
+survivors.**
+
+Cost, measured: 53 s untraced, 55 s traced; the suite is run twice, so ~110 s total. The
+tracer returns `None` for frames outside `tests/`, which switches off line events for the
+product entirely — that is the whole difference between affordable and unusable.
+
+### 15.3 C3 — the one allowlist in this spine that failed OPEN
+
+`claude --help`, verbatim: *`--tools <tools...>  Specify the list of available tools from
+the built-in set. Use "" to disable all tools, "default" to use all tools`*. So omitting
+the flag is **not a neutral default** — it is the full built-in set, chosen by nobody.
+Every sibling allowlist here fails closed: an empty `writes` breaches everything, an empty
+`gates` is a load error. This one was proven only to RESTRICT when declared and never to
+REFUSE when absent — B3's shape, at the harness layer, on the agentic lane.
+
+Closed at **both** entry points: the loader refuses an agentic phase with no `tools`, and
+`build_argv` refuses it too, because a guard present in only one of two entry points is a
+guard with a route around it (that is L8's finding). Both flags are emitted — `--tools`
+selects what exists, `--allowedTools` selects what may run unprompted, and a headless run
+has nobody to prompt. `permission_denials` now **fails the phase**: a phase reaching
+outside its declared tools is the pre-hoc analogue of a breach, and this spine does not
+treat a breach as noise or as a retry. If live data later shows benign probing is common,
+that is weakened **on evidence**, the way the COARSE caveat is.
+
+The adjudication was lifted out of `run()` into `ClaudeCodeHarness.adjudicate()`. It had
+lived behind a live subprocess, so the only way to exercise it was to invoke a model —
+which meant nothing exercised it, on the lane under review. **A verdict that can only be
+checked by spending money is a verdict nobody checks.**
+
+Five pre-existing tests went red on the LOAD refusal, all fixtures building agentic
+phases with no `tools`. They were fixed, not exempted.
+
+### 15.4 C4 — always-protected, in the root repo only
+
+The always-protected list was matched against the root repo alone, so a phase declaring a
+sibling repo as a write target could write `.claude/` **there** — the next-session hijack
+the protection exists to prevent, at a path the workflow itself named.
+`PROTECTED_EVERY_REPO` is now matched in any declared repo and is not
+config-overridable. The root-only entries stay root-only, and a row asserts *that* too:
+without it the fix could quietly become a blanket fence that breaks a sibling repo's
+legitimate write targets, and nothing would say so.
+
+### 15.5 C5 — a caveat is a claim to a reader, not a gate
+
+README rule 3 discharged the COARSE blind spot with a receipt caveat. For the mechanical
+lane that is bounded: every path is authored by a human in a reviewed YAML file. The
+agentic lane is **defined** by a model choosing paths — exactly the case the caveat does
+not cover — and the coarse regions are gitignored, so an in-place edit there is neither
+detected nor recoverable from git. The two weaknesses compound, which rule 3 did not say.
+
+A workflow with an agentic phase is now refused at LOAD unless it names each coarse
+region under `coarse_acknowledged:`. Naming a region that is **not** coarse is refused
+too: an acknowledgement drifted from the tree reads as diligence and certifies nothing.
+
+Two things the mutation table forced. The validator originally called `fingerprint()`
+with a keyword that function does not accept — it would have raised `TypeError` on first
+contact, and nothing called it, so nothing knew. And R6 (make the acknowledgement a
+boolean) **survived** the first pass: with one coarse region in the fixture, per-region
+and blanket are observationally identical. A second region was added, and the escape
+hatch now costs one line per region or it is a checkbox.
+
+The scope was widened past the finding on purpose. jack-ryan wrote C5 about read-only
+trees; this checks every declared repo. The narrower reading would have been the same
+class one more time — an undetected in-place write is undetected wherever it lands, and
+in a *writable* repo it is a change `classify` never sees at all.
+
+### 15.6 The reachability clause, amended a third time — the fourth axis
+
+Adopted verbatim from jack-ryan's round-nine verdict:
+
+> **The condition that decides whether a check runs must be independent of every value
+> that check certifies, and must itself be falsifiable: inverting the trigger must turn a
+> row red. A check that can be switched off by anything it is measuring is a comment.**
+
+Three axes became four: a predicate can be unreached by its **arrival route** (L8), by
+its **arguments** (B3), by the **claim its output justifies** (B1) — and now by its
+**trigger** (C1). Every round-ten fix ships with the trigger's own falsification: C1's
+guard-label mutations, C5's mechanical control row, C2's comparison test.
+
+### 15.7 The mutation tables
+
+| Set | Mutations | Survivors | Note |
+|---|---|---|---|
+| C1 (jack-ryan's P1/P2/P6 + 3 escapes + control) | 7 | **0** | first pass: the fix was correct and unreachable; two coverage rows added |
+| C2 (P3/P4/P5 planted live + 5 self-quieting + control) | 8 | **0** | first pass: S7 survived (exit code ignored on a green suite); `problems_from` extracted |
+| C3 + C4 (both entry points, both flags, denials, every-repo, control) | 8 | **0** | two rows added first: the LOAD refusal and the argv delivery had none |
+| C5 (call site, trigger both ways, set arithmetic, stale, boolean, control) | 7 | **0** | first pass: R6 survived on a one-region fixture; control was toothless and was replaced |
+
+Every table restores the target and asserts the restore; the anchor check requires
+exactly one match, so a mutation that silently applied nowhere cannot read as a pass.
+
+### 15.8 Run evidence, this round
+
+| Item | Result |
+|---|---|
+| Suite | **428 passed** (~110 s; the reach audit runs the suite twice) |
+| Asserts proven to execute | **390 of 390**, measured under `sys.settrace` |
+| Founding run | **PASS 3/3** (`kc2-baton-mechanical-20260811T080017Z-7be701`) |
+| Determinism | `DETERMINISM: EXACT — 14 gate verdicts identical across two laps` |
+| Fenced-tree baselines | engine **2907** / godot **3288**, `usable=True`, unchanged across run + both laps |
+| Mutation survivors, all four sets | **0 of 30** |
+
+### 15.9 What is still open
+
+* **O4** (the dollars figure: gandalf DROP vs jack-ryan KEEP) and **D-10** (no HALT
+  status) remain Matt's calls, unchanged.
+* **G3** (host co-tenancy) and **G5** (rollback reason derived from branch, not from a
+  second measurement) carried forward.
+* gandalf DRIFT-CRITIC review of the amended reachability discipline text.

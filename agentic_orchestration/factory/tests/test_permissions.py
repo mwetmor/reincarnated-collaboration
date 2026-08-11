@@ -12,7 +12,6 @@ unwound, protected paths cannot be opted into by config.
 import dataclasses
 import os
 import json
-import re
 import subprocess
 from pathlib import Path
 
@@ -735,60 +734,18 @@ def test_L8_with_NO_COMMITS_the_index_still_holds_the_phases_own_work(tmp_path):
 # ---------------------------------------------------------------------------
 # Gate-2 B2 — an assertion that cannot fire is not coverage
 # ---------------------------------------------------------------------------
-def _reason_gate_phrases(src: str) -> list[str]:
-    """Every string literal the wall uses to DECIDE whether to check something."""
-    found = re.findall(r'if\s+"([^"]{6,})"\s+in\s+reason', src)
-    for chunk in re.findall(r'for\s+phrase\s+in\s+\(([^)]*)\)', src):
-        found.extend(re.findall(r'"([^"]{6,})"', chunk))
-    return found
-
-
-def test_B2_no_wall_assertion_is_gated_on_a_phrase_the_product_no_longer_emits():
-    """The cheap standing form of jack-ryan's never-executed-assert audit.
-
-    Round seven gated two wall assertions on literal phrases — `HEAD still holds`,
-    `index no longer` — and deleted both from `permissions.py` IN THE SAME COMMIT.
-    The diff read as a tightening. The assertions read as coverage. Neither could
-    fire, and one of them was the fix reported as closing L9. Two of 365 assertions
-    in the suite never executed, and they were the two round seven had just added.
-
-    A full line-trace audit is the thorough version and is worth running at Gate 2.
-    This is the invariant that makes the specific failure impossible to reintroduce
-    without going red: any phrase the wall uses to DECIDE whether to check something
-    must still be a phrase the product can emit. A gate on a string the product
-    cannot produce is a gate on nothing.
-    """
-    #: THE SCANNER PROVES IT HAS POWER FIRST. When the last phrase-gate was deleted
-    #: this check collected zero phrases and passed trivially — a test with no power,
-    #: which is the exact defect it was written to prevent, reintroduced one commit
-    #: after writing it. A scanner that finds nothing must first demonstrate it can
-    #: find something, or "nothing to check" and "the check is broken" are the same
-    #: green.
-    sample = 'if "SENTINEL GATE PHRASE" in reason:\n    assert x'
-    assert _reason_gate_phrases(sample) == ["SENTINEL GATE PHRASE"], (
-        "the phrase scanner no longer recognises a phrase-gate, so its silence about "
-        "the real wall means nothing. Fix the scanner before trusting this test."
-    )
-
-    #: Comments are stripped before scanning. The first run failed on a phrase quoted
-    #: inside the comment explaining why that gate had been deleted — a scanner that
-    #: reads prose as code reports a gate that is not there, the false-positive twin
-    #: of the defect it exists to catch.
-    wall_src = "\n".join(
-        line for line in
-        (Path(__file__).parent / "test_containment_wall.py").read_text().splitlines()
-        if not line.lstrip().startswith("#")
-    )
-    product_src = (Path(__file__).parents[1] / "permissions.py").read_text()
-
-    for phrase in _reason_gate_phrases(wall_src):
-        assert phrase in product_src, (
-            f"the wall decides whether to check something based on the phrase "
-            f"{phrase!r} appearing in a refusal, and no code path in permissions.py "
-            "can produce that phrase any more. The assertion behind that gate has "
-            "never run. Either restore the wording in the product or delete the gate "
-            "— do not leave it reading as coverage."
-        )
+# The phrase scanner that stood here is DELETED, not moved. It regex-matched the
+# wall for `if "<phrase>" in reason:` gates and checked the phrase still existed in
+# permissions.py. Gate-2 C2 read it as a gate with no power, and the mechanism that
+# replaced it settled the question by measurement: the assertion inside that
+# scanner's loop had never executed, in any run, because the scanner collected zero
+# phrases from the wall. The check written to catch dead assertions was one.
+#
+# Its invariant is not lost — it is subsumed and widened. An assertion gated on a
+# phrase the product can no longer emit is unreachable, so no row reaches it, so
+# `tests/test_reach_audit.py` reports it by file and line. That covers the single
+# quotes, the aliased variable, the other four test files and the shapes nobody
+# thought to write a pattern for, none of which the regex could see.
 
 
 # ---------------------------------------------------------------------------
@@ -851,3 +808,168 @@ def _containment_events(tmp_path: Path, run_id: str) -> list[tuple[str, str]]:
         ]
     finally:
         con.close()
+
+
+def _assert_counted_claim_is_certified(action, repo, expect_guard: str) -> None:
+    """A guard that makes a COUNTED claim carries the counts — always.
+
+    Gate-2 C1. Round nine's P1/P2/P6 dropped or falsified the measurements only when
+    `staged_paths == 0`, and 412 tests stayed green. The wall's rows all happen to
+    have staged content, so the two states where nothing is staged — an ordinary
+    destroyer refusal, and the branch where git REFUSED the question — were reached
+    by no assertion at all. The trigger was fixed in round ten (guard identity, not a
+    certified value) and these are the rows that make it reachable.
+    """
+    assert action.guard == expect_guard, (
+        f"expected the {expect_guard} guard to refuse {action.path!r}; got "
+        f"{action.guard!r}. Reason was: {action.reason}"
+    )
+    assert action.facts, (
+        f"the {expect_guard} guard refused {action.path!r} while telling the operator "
+        "how many files git holds, and carried no measurements. Nothing is staged "
+        "here, which is exactly the state round nine's mutations exploited."
+    )
+    held = perm._tracked_under(repo, action.path)
+    expected = {
+        "head_files": len(held.in_head),
+        "index_files": len(held.in_index),
+        "staged_paths": len(perm._staged_against_head(repo, action.path).paths),
+    }
+    assert dict(action.facts) == expected, (
+        f"the {expect_guard} refusal carries {dict(action.facts)}; git says {expected}."
+    )
+    assert perm.render_containment_facts(tuple(expected.items())) in (action.reason or ""), (
+        f"the {expect_guard} refusal does not state the facts it rests on. "
+        f"Reason was: {action.reason}"
+    )
+
+
+def test_C1_the_DESTROYER_guard_carries_its_counts_when_NOTHING_is_staged(tmp_path, git_repo):
+    """The ordinary destroyer case: committed content, clean index, `created` claimed.
+
+    `staged_paths` is 0 here, so any check triggered on it certifies nothing — and
+    this is the refusal that tells an operator "deleting it would destroy committed
+    work". That sentence is the whole reason the guard exists.
+    """
+    (git_repo / "pkg").mkdir()
+    (git_repo / "pkg" / "mod.py").write_text("committed work\n")
+    subprocess.run(["git", "add", "pkg"], cwd=str(git_repo), check=True, capture_output=True)
+    subprocess.run(["git", "commit", "-q", "-m", "pkg"], cwd=str(git_repo), check=True,
+                   capture_output=True)
+    before = {str(git_repo): perm.fingerprint(git_repo)}
+
+    breach = perm.Breach(
+        perm.Change(root=git_repo, path="pkg", kind="created",
+                    before_status=None, after_status="??"),
+        "outside the allowlist",
+    )
+    actions = perm.rollback([breach], before, tmp_path / "q")
+
+    assert actions[0].action == "NOT_ROLLED_BACK", (
+        "a path reported as `created` holds content git has committed — the "
+        f"identification is wrong and deleting it destroys work. Action: {actions[0]!r}"
+    )
+    assert (git_repo / "pkg" / "mod.py").exists(), "committed work was deleted"
+    _assert_counted_claim_is_certified(actions[0], git_repo, "destroyer")
+    assert dict(actions[0].facts)["staged_paths"] == 0, (
+        "this row exists to cover the staged_paths==0 state; if staging appears here "
+        "the row has stopped testing what it was written for"
+    )
+
+
+def test_C1_the_STAGING_guard_carries_its_counts_when_git_REFUSES_the_question(
+    tmp_path, git_repo, monkeypatch
+):
+    """The unanswered branch — `staged_paths` is 0 because git would not answer.
+
+    This is the most consequential refusal the module makes (`git checkout --` ACTS,
+    so not-knowing cannot be filed as `no`), and until round ten its measurements
+    were checked by nothing.
+    """
+    before = {str(git_repo): perm.fingerprint(git_repo)}
+    (git_repo / "tracked.txt").write_text("the phase rewrote this\n")
+    real_git = perm._git
+
+    def failing_diff(root, *args, **kwargs):
+        if args[:2] == ("diff", "--cached"):
+            return subprocess.CompletedProcess(
+                args=list(args), returncode=128, stdout="",
+                stderr="fatal: this operation must be run in a work tree",
+            )
+        return real_git(root, *args, **kwargs)
+
+    monkeypatch.setattr(perm, "_git", failing_diff)
+    breach = perm.Breach(
+        perm.Change(root=git_repo, path="tracked.txt", kind="modified",
+                    before_status=None, after_status=" M"),
+        "outside the allowlist",
+    )
+    actions = perm.rollback([breach], before, tmp_path / "q")
+
+    assert actions[0].action == "NOT_ROLLED_BACK"
+    _assert_counted_claim_is_certified(actions[0], git_repo, "staging")
+    assert dict(actions[0].facts)["staged_paths"] == 0, (
+        "git refused the question, so no staged path can be known; a non-zero count "
+        "here means the guard answered from something other than the failed call"
+    )
+
+
+def test_C4_dot_claude_is_protected_in_EVERY_declared_repo_not_only_the_root(tmp_path):
+    """The receipt said "never config-overridable"; the check was root-repo-only.
+
+    `.claude/settings.json` executes hooks, so a phase in a sibling repo with a
+    permissive `writes` could arrange for code to run in the next session there.
+    Reachability needs a broad glob — a human decision in a workflow file — which is
+    why this was a WARN and not a BLOCK; but the CLAIM was broader than the
+    MEASUREMENT, which is the class this review has been chasing (Gate-2 C4).
+    """
+    root = tmp_path / "meta"
+    sibling = tmp_path / "sibling"
+    for d in (root, sibling):
+        (d / ".claude").mkdir(parents=True)
+
+    changes = [
+        perm.Change(root=root, path=".claude/settings.json", kind="modified",
+                    before_status=None, after_status=" M"),
+        perm.Change(root=sibling, path=".claude/settings.json", kind="modified",
+                    before_status=None, after_status=" M"),
+    ]
+    allowed, breaches = perm.classify(
+        changes, root=root, writes=["**"], protected=perm.PROTECTED_ALWAYS,
+    )
+    assert not allowed, (
+        "a permissive `writes: ['**']` reached a hook-execution surface. Allowed: "
+        f"{[c.root.name + '/' + c.path for c in allowed]}"
+    )
+    assert len(breaches) == 2
+    assert all("always-protected" in b.reason for b in breaches), (
+        f"reasons were {[b.reason for b in breaches]}"
+    )
+
+
+def test_C4_the_root_only_entries_stay_root_only(tmp_path):
+    """The widening is `.claude/` and nothing else, deliberately.
+
+    `canonical/` exists in the meta-repo AND in reincarnated-engine, where it is
+    rocket's own library and a legitimately declarable write target for its seam.
+    Protecting it everywhere would fence another agent out of its own files, which
+    is a different failure from the one C4 named.
+    """
+    root = tmp_path / "meta"
+    sibling = tmp_path / "engine"
+    for d in (root, sibling):
+        (d / "canonical").mkdir(parents=True)
+
+    changes = [
+        perm.Change(root=sibling, path="canonical/00-index.md", kind="modified",
+                    before_status=None, after_status=" M"),
+    ]
+    allowed, breaches = perm.classify(
+        changes, root=root, writes=["canonical/**"], protected=perm.PROTECTED_ALWAYS,
+    )
+    assert allowed and not breaches, (
+        "a declared write to a SIBLING repo's canonical/ must remain possible; "
+        f"breaches were {[b.reason for b in breaches]}"
+    )
+    assert ".claude/" in perm.PROTECTED_EVERY_REPO
+    assert "canonical/" not in perm.PROTECTED_EVERY_REPO
