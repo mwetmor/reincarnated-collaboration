@@ -1180,12 +1180,49 @@ def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[C
     return unique
 
 
-def _matches(path: str, pattern: str) -> bool:
-    # The marker comes off FIRST (JR-5). Every caller below is asking a question about
-    # the path, and `fnmatch` would happily let a trailing `\t<…>` decide the answer —
-    # in the permissive direction for the protected lists, which is the direction that
-    # does not announce itself.
-    path = marker_path(path).rstrip("/")
+def _matches(path: str, pattern: str, *, normalise_marker: bool) -> bool:
+    """Does `path` fall under `pattern`? `normalise_marker` picks WHICH path is asked about.
+
+    Gate-2 JR-18. This function serves two arms whose safe directions are OPPOSITE, and
+    it used to truncate for both. Its own comment reasoned about one of them:
+
+        "the marker comes off FIRST … `fnmatch` would happily let a trailing `\\t<…>`
+        decide the answer — in the permissive direction for the PROTECTED lists"
+
+    That is true, and for a DENY list truncating is the fail-CLOSED direction: shortening
+    a path can only make it hit a protected prefix more readily, never less. Applied to
+    the writes ALLOW list the identical operation runs the other way — shortening a path
+    can only make it hit the allowlist more readily — and there the permissive direction
+    is the one that ships a green receipt.
+
+    Measured before the fix, on a real repo, with the standard shape of every writes
+    declaration in the compiled workflow:
+
+        writes = ["workspace/**"]
+        phase creates, at the repo ROOT:  workspace\\tevil.txt   (a SIBLING of workspace/)
+        classify -> ALLOWED: ["workspace\\tevil.txt"]   BREACHES: []
+
+    A tab is a legal POSIX filename character, so the phase chooses this. The wall's
+    central claim — *the phase wrote only where it declared* — was falsifiable by
+    picking a filename.
+
+    **Why the fix is direction-awareness and not marker-shape detection.** The obvious
+    repair is to truncate only keys whose marker looks like one the ten mint sites emit
+    (`\\t<…>`). That does not close it: a phase can name a file
+    `workspace\\t<gitdir: a>` and match the synthetic shape exactly. Provenance cannot
+    be recovered from the string, because the string is the thing the attacker picks.
+    What CAN be reasoned about is the direction each caller fails in, and that is a
+    property of the caller, not of the key. So each call site now states which path it
+    is asking about, and the answer is fail-closed at both:
+
+      - deny lists (`PROTECTED_ALWAYS`, `PROTECTED_EVERY_REPO`) — `normalise_marker=True`.
+        A marker-bearing key still reaches the protected prefix it names. JR-5's fix,
+        unchanged, and truncation here can only catch MORE.
+      - the writes allowlist — `normalise_marker=False`. A path is admitted only under
+        its WHOLE name. A minted control-plane key never matches a writes pattern and
+        breaches, which is correct: no phase write is ever legitimately one of those.
+    """
+    path = (marker_path(path) if normalise_marker else path).rstrip("/")
     pattern = pattern.strip()
     if not pattern:
         return False
@@ -1266,21 +1303,25 @@ def classify(
         # there. It is protected in every declared repo. The other two entries name
         # paths that exist only in the meta-repo, so they stay root-scoped and the
         # receipt now says which rule it is.
-        if any(_matches(change.path, p) for p in PROTECTED_EVERY_REPO):
+        if any(_matches(change.path, p, normalise_marker=True) for p in PROTECTED_EVERY_REPO):
             breaches.append(
                 Breach(change, "write inside an always-protected path in ANY declared "
                                "repo (never config-overridable)")
             )
             continue
         if change_root == Path(root).resolve() and any(
-            _matches(change.path, p) for p in protected
+            _matches(change.path, p, normalise_marker=True) for p in protected
         ):
             breaches.append(
                 Breach(change, "write inside an always-protected path in the root repo "
                                "(never config-overridable)")
             )
             continue
-        if any(_matches(change.path, w) for w in writes):
+        # JR-18. The allowlist is asked about the change's WHOLE path. Truncating here
+        # admits `<declared>\t<anything>` — a SIBLING of the declared directory, at the
+        # repo root — as an authorised write, with an empty breach list. The deny lists
+        # above truncate, and must; this one must not. Same function, opposite direction.
+        if any(_matches(change.path, w, normalise_marker=False) for w in writes):
             allowed.append(change)
         else:
             breaches.append(Breach(change, "path is outside the phase's writes allowlist"))

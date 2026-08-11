@@ -2361,6 +2361,74 @@ def test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name(fenced):
         f"a real file whose NAME contains a tab was not reported under its own name: "
         f"{sorted(named)}"
     )
+    # JR-18b. Everything above this line asserts paths with NO TAB IN THEM, or a
+    # genuine marker key, or the change-set's NAMING of the file — which is measured
+    # before `marker_path` is ever applied. The one case this row's docstring names —
+    # "a path that merely CONTAINS a tab" — was absent for twenty rounds, and the code
+    # fails it. `marker_path` cannot tell a marker it minted from one git handed it,
+    # because a tab is a legal POSIX filename character and the phase picks the name:
+    assert perm.marker_path("odd\tname.txt") == "odd"
+    assert perm.marker_path("src/odd\tname.txt") == "src/odd"
+    # That is the HAZARD, stated as the fact it is rather than the fact we would like.
+    # It is contained by direction-awareness at the callers, not by this splitter —
+    # see `test_JR18_…` below, which is where the containment is asserted.
+
+
+def test_JR18_a_TAB_NAMED_SIBLING_does_not_enter_the_writes_allowlist(fenced):
+    """Gate-2 JR-18. The allowlist is asked about the change's WHOLE path.
+
+    `_matches` truncated at the marker for BOTH of its arms while its comment reasoned
+    about one. For a DENY list truncating is fail-closed — a shorter path can only hit
+    a protected prefix more readily. For the writes ALLOW list the same operation runs
+    the other way, and a phase that creates `<declared>\\t<anything>` at the repo ROOT —
+    a SIBLING of the declared directory, not a child — was classified ALLOWED with an
+    EMPTY breach list. The wall's central claim, *the phase wrote only where it
+    declared*, was falsifiable by choosing a filename.
+
+    Measured with a phase-chosen filename on a real repo, not a synthetic key, because
+    the point of the finding is that git hands this path to the module exactly as a
+    phase wrote it.
+
+    The falsification partner is the `workspace/ok.txt` leg: if this row went green by
+    breaking the allowlist outright, the fence would be "correct" and useless, and the
+    receipt would not say which.
+    """
+    repo = fenced.free_repo
+    (repo / "workspace").mkdir(exist_ok=True)
+    (repo / "workspace" / "ok.txt").write_text("legitimate\n", encoding="utf-8")
+    evil = "workspace\tevil.txt"
+
+    _, changes = _snapshot_repo(repo, lambda: (repo / evil).write_text("x\n", encoding="utf-8"))
+    named = {c.path for c in changes}
+    assert any(evil in p for p in named), (
+        f"the tab-named sibling was never reported as a change, so this row would pass "
+        f"without the classifier ever being asked: {sorted(named)}"
+    )
+
+    for writes in (["workspace/**"], ["workspace"], ["workspace/**", "workspace"]):
+        allowed, breaches = perm.classify(changes, writes=writes, root=repo)
+        assert not any(evil in c.path for c in allowed), (
+            f"with writes={writes!r} a phase-chosen filename escaped its declared write "
+            f"scope: {evil!r} was ALLOWED. It is a SIBLING of workspace/, at the repo "
+            f"root. allowed={[c.path for c in allowed]}"
+        )
+        assert any(evil in b.change.path for b in breaches), (
+            f"with writes={writes!r} the escape was neither allowed nor breached — it "
+            f"vanished from the receipt entirely, which is worse: "
+            f"breaches={[(b.change.path, b.reason) for b in breaches]}"
+        )
+
+    # The partner leg. A declared write must still be a declared write; a fence that
+    # refuses everything passes the assertions above and protects nothing.
+    _, ok_changes = _snapshot_repo(
+        repo, lambda: (repo / "workspace" / "ok.txt").write_text("y\n", encoding="utf-8")
+    )
+    allowed, breaches = perm.classify(ok_changes, writes=["workspace/**"], root=repo)
+    assert any("workspace/ok.txt" in c.path for c in allowed), (
+        f"an ORDINARY write inside the declared directory stopped being allowed, so the "
+        f"row above proves nothing: allowed={[c.path for c in allowed]} "
+        f"breaches={[(b.change.path, b.reason) for b in breaches]}"
+    )
 
 
 @pytest.mark.parametrize("read_only", [False, True], ids=["no_read_only", "read_only_git"])
