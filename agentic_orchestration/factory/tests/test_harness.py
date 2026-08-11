@@ -328,8 +328,30 @@ def test_H2_the_SCOPED_declaration_is_compared_by_BASE_NAME():
 
     This is the row that stops the adjudicator from being disabled the next time it
     fires on a correct workflow — a check that refuses everything gets removed.
+
+    Gate-2 J1 called this "a row certifying the hole", and the charge is half right —
+    which is the half worth writing down. The COMPARISON is correct and must stay:
+    the init frame reports base names, so a raw-string comparison would refuse every
+    scoped declaration and the adjudicator would be deleted within a week. What was
+    wrong is what a reader could take from the green. Passing here means "the
+    adjudicator did not false-positive." It does NOT mean the declared scope was
+    honoured — measured 2026-08-11, `--allowedTools` does not restrict in headless
+    `default` mode, so this declaration buys the full reach of `Bash`.
+
+    So the row now asserts the second fact too, and can no longer be read as the
+    stronger claim: the grant is accepted, AND `Bash` is what was actually granted.
     """
-    assert check_grant({**_GOOD_INIT, "tools": ["Read", "Bash"]}, ["Read", "Bash(git status:*)"]) is None
+    declared = ["Read", "Bash(git status:*)"]
+    assert check_grant({**_GOOD_INIT, "tools": ["Read", "Bash"]}, declared) is None
+    # The scope bought nothing. If a future CLI starts enforcing `--allowedTools`,
+    # THIS is the line that should be revisited — the declaration would then be
+    # narrower than the grant, and `check_grant` treating them as equal would be
+    # under-reporting rather than the accurate reading it is today.
+    assert check_grant({**_GOOD_INIT, "tools": ["Read"]}, declared) is not None, (
+        "a declaration of Bash(git status:*) against a grant WITHOUT Bash was "
+        "accepted. The scope is not a fence, but the base name still is, and it is "
+        "the only pre-hoc containment this lane has."
+    )
 
 
 def test_H3_the_WIRING_of_declared_tools_fails_CLOSED():

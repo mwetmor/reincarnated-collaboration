@@ -15,8 +15,18 @@ Spec A § 13 item O1):
     from the built-in set. Use "" to disable all tools, "default" to use all tools`.
     So OMITTING the flag is not a neutral default — it is the full built-in set,
     which is why an undeclared allowlist is now a LOAD error rather than a silent
-    widening. Both flags are passed; `--tools` selects what exists, `--allowedTools`
-    selects what may run without a prompt, and neither substitutes for the other.
+    widening.
+  * `--allowedTools` DOES NOT RESTRICT in headless `default` mode (Gate-2 J1;
+    measured star-lord 2026-08-11, `/tmp/sl_probe/p1.jsonl`). Given
+    `--tools Bash --allowedTools 'Bash(git status:*)'`, the model ran
+    `echo SCOPE_ESCAPED` and the run returned `is_error=False`,
+    `stop_reason=end_turn`, `permission_denials=[]`. In headless nothing prompts, so
+    "may run without a prompt" is a distinction with no consequence here. `--tools`
+    is the fence; the scope inside `--allowedTools` is decorative. It is still sent —
+    it costs nothing and a future CLI may honour it — but NOTHING in this module may
+    treat it as narrowing, and an empty `permission_denials` is therefore not
+    evidence of anything. Pre-hoc containment on this lane is TOOL BASE NAMES ONLY;
+    everything finer is post-hoc, through the fingerprint wall.
   * The `result` frame carries `usage` and `total_cost_usd` (O2, see usage.py).
   * SessionStart hooks DO fire in headless mode (hook_started/hook_response frames
     appear in the stream); they are recorded, not suppressed.
@@ -110,8 +120,14 @@ def validate_tools(tools: object, where: str) -> list[str]:
     nobody enumerated is refused rather than passed through. A default that admits
     every string is how this class recurs.
 
-    Scoped forms are kept: `Bash(git *)` is the vendor's own example and is strictly
-    narrower than `Bash`. The BASE name is what must be in the vocabulary.
+    Scoped forms are kept and the BASE name is what must be in the vocabulary. This
+    used to read "`Bash(git *)` … is strictly narrower than `Bash`", which measured
+    FALSE at the only place it is spent (Gate-2 J1): `--allowedTools` does not
+    restrict in headless `default` mode, so a declaration of `Bash(git status:*)`
+    buys exactly the reach of `Bash` and nothing less. The scope is retained as
+    author INTENT — it says what the phase means to do, it reads well in a receipt,
+    and a future CLI may enforce it — but it is not a fence and no caller may treat
+    it as one.
     """
     if tools is None:
         raise ValueError(
