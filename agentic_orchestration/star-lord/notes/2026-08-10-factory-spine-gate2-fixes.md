@@ -3384,7 +3384,12 @@ figure it cites.
 
 **Verify a mutation by TYPE and LENGTH, or on the SOURCE text. Never by membership.**
 Membership cannot tell a shorter tuple from a string. Round 21's harness checks the source:
-the needle must occur exactly once before and be absent after.
+the needle must occur exactly once before, and the text after must be the text intended.
+
+*(That last clause is the corrected form. My first round-21 harness said "and be absent
+after", which is a membership test wearing different clothes and broke on three insertions
+two sections below — see § 25.6.1. The correction is the same one the pins make: compare
+the whole thing for equality, do not ask whether a piece of it is present.)*
 
 ### 25.4 The same defect, three times, in my own wait loops
 
@@ -3404,3 +3409,367 @@ as patience.
 I made it three times this round. jack-ryan made the identical mistake with `mut21.py` and
 recorded it in their § 5. Fixes that work: wait on the captured **PID** via `kill -0`, or
 break the literal so the pattern cannot match its own command line (`mut21[c].py`).
+
+### 25.5 JR-19 — where I did not do what the verdict asked, and why
+
+jack-ryan asked for **one** row requiring each admission's reason to NAME the refusal it
+depends on, and said it "closes R21-A, R21-B and R21-C together."
+
+It does not close R21-A. R21-A is their own mutation and its whole design is that the
+token SURVIVES:
+
+```
+Skill's reason -> "is fine; ToolSearch is a different name"     SURVIVED, 604 unmoved
+```
+
+A name-check is a substring test. So is the round-18 assert it was written to replace. So
+is the guard that had just certified a mutation nobody performed (§ 25.3). Adding a second
+substring test of the same shape and calling R21-A closed would have been the round-18
+error committed knowingly.
+
+Two mechanisms instead, each closing what the other cannot:
+
+| mechanism | closes |
+|---|---|
+| `ADMISSION_DEPENDS_ON` — every admission declares the refusal it leans on, and that refusal must still be in `UNFENCEABLE_TOOLS` | R21-B, R21-C, additions (set-equality with `REASONED_ADMISSIONS`), and the **regrade** case a clause pin cannot see at all |
+| `ADMISSION_REASON_DIGESTS` — a literal digest per reason | R21-A: any rewrite fails, token kept or not |
+
+The regrade case is the one worth naming separately. The admissions are CONDITIONAL —
+`TaskOutput` is admitted *because* `Task` is refused — and moving a name out of the
+refusals is a legal edit that leaves the reasoning behind, silently, in a different file.
+`REFUSED_ROSTER` pinned the refusals in one literal and `REASONED_ADMISSIONS` stated the
+premises in another; the coupling was real and written down nowhere.
+
+`TaskStop`'s reason also gained a clause: stopping a task is the fail-closed direction.
+It asserted that by omission before.
+
+#### 25.5.1 Receipt — every row killed its own mutation
+
+Five mutations, five KILLED. Raw summary lines, harness `/tmp/mut21b.py` + `/tmp/mut21c.py`:
+
+```
+R21-A  Skill reason gutted, ToolSearch token KEPT      KILLED  2 failed, 606 passed
+R21-B  ExitWorktree reason -> "admitted"               KILLED  3 failed, 605 passed
+R21-C  TaskOutput reason -> "admitted"                 KILLED  3 failed, 605 passed
+REGRADE (rename)  "Task" -> "TaskXX"                   KILLED  6 failed, 602 passed
+REGRADE (deletion) whole "Task" entry removed          KILLED  5 failed, 602 passed
+```
+
+Three notes on reading that table honestly:
+
+- **`test_C2_every_assert_under_tests_is_proven_to_execute` co-fires on every row.** It is
+  a CONSEQUENCE of a kill, not an independent killer: a failing assert leaves the asserts
+  after it in that row unexecuted, and C2 is the row that notices. The named killers are
+  the `test_JR19_…` rows, and the per-row FAILED lists confirm which one fired where.
+- **The regrade was run twice, and the second run is the one that counts.** Rule 47 says a
+  rename is a strictly weaker mutation than a deletion and is the one that lies — so I ran
+  the rename first (it is what a regrade looks like), then ran the true deletion, because
+  taking credit for a kill under the weaker mutation is exactly what rule 47 is about. Both
+  KILLED, and `test_JR19_every_admission_names_a_refusal_that_STILL_EXISTS` is in both
+  failure lists.
+- **The rename fires more rows than the deletion** (6 vs 5) because it leaves an orphan
+  key behind for the drift guards to find. That asymmetry is rule 47's subject, visible in
+  the receipt rather than argued in prose.
+
+### 25.6 JR-20 — the axis rule 47 was missing was not "how important", it was "which way"
+
+jack-ryan's three survivors are the whole argument, and none of them is exotic:
+
+```
+FACTORY_RUNTIME_PATHS  member DELETED   SURVIVED, 604
+FACTORY_RUNTIME_PATHS  member ADDED     SURVIVED, 604
+STRUCTURE_SKIP_DIRS    member ADDED     SURVIVED, 604
+```
+
+All three are *behaviour* collections. Rule 47, as I wrote it at round 20, says behaviour
+collections need no literal because the rows exercise them. Rule 47 is wrong, and it is
+wrong in the way the whole series is about: it answers a slightly different question than
+the one that matters, and its wrong answer is the one that reads as reassurance.
+
+The question it does not ask is **which direction is fail-open**.
+
+- A **protection** list fails open on **deletion**. Take a member out and something stops
+  being refused — and a scenario row that exercises that member notices, because its
+  expected verdict flips. This is the cell rule 47 was derived from.
+- An **exemption** list fails open on **addition**. Add a member and something stops being
+  *looked at*. No row notices, and no row *can*: the row that would catch it must exercise
+  a path nobody has exempted yet, so it could not have been written in advance. Deletion
+  from an exemption is fail-**closed** — the run gets noisier, not blinder.
+
+That last sentence is why my round-20 measurement read clean. Rule 44 says "delete a member
+and see what fails." On an exemption list, deletion is the *safe* direction. I measured the
+harmless half of the table on half the collections and read the greens as coverage.
+
+Crossed with rule 47's own axis, one cell of four is covered by rows:
+
+|            | protection (delete = fail-open) | exemption (add = fail-open) |
+|---|---|---|
+| behaviour  | rows suffice                    | LITERAL REQUIRED |
+| record     | LITERAL REQUIRED                | LITERAL REQUIRED |
+
+**The direction is a property of the call site, not of the collection.** This is JR-18's
+lesson arriving again one layer up, and the sharpest instance is inside a single file:
+`REFUSAL_GUARDS` and `GUARDS_OWING_FACTS` are two frozensets of guard names declared eight
+lines apart in `permissions.py`, and they fail open in *opposite* directions.
+`REFUSAL_GUARDS` is spent as `assert action.guard in REFUSAL_GUARDS` — an accept-vocabulary,
+so an **addition** admits a guard nobody adjudicated. `GUARDS_OWING_FACTS` is spent as
+`if action.guard in GUARDS_OWING_FACTS:` — a gate on an extra assertion, so a **deletion**
+skips that assertion in silence. Nothing about their spelling, type, or neighbourhood
+distinguishes them. Only the sentence they are spent in does.
+
+**The third category is what stops the rule collapsing into "pin everything."** A
+LABELLING list changes the *diagnosis* and not the *verdict*: `_CO_TENANCY_SUFFIXES` labels
+breaches that still breach and still abort; `_FAILURE_MARKERS` selects which lines of a
+failing gate's output travel into the next prompt, while the verdict is the exit code.
+Getting their membership wrong costs an operator clarity, not containment. They are
+deliberately unpinned, and the docstring says so in as many words — an unpinned collection
+with no recorded reason is indistinguishable from one nobody thought about.
+
+**The pin is an equality, not a membership assert, and the instrument choice IS the fix.**
+`==` fails on addition, on deletion, on a reorder that changes a tuple, and on the type
+degeneration that broke my round-20 mutator (§ 25.3). A membership test cannot tell a
+shorter tuple from a bare string. Rule 48's round-21 correction, expressed as code instead
+of prose.
+
+**The denominator is computed, not asserted.** jack-ryan said "re-derive from all fifteen
+rather than from four." I could have written `15` into a comment. Instead
+`_module_vocabularies()` reads the public UPPERCASE module-level assignments off the
+**source, by AST** — not `dir()`, which would count names merely *imported* into a module
+as ones the module declares. Four modules, 15 names (permissions 9, workflow 1, envelope 1,
+claude_code 4), 7 pinned + 8 covered, 0 unclassified. Their "fifteen" reproduced
+independently rather than copied. R21-L below is the row that proves the denominator is
+load-bearing: a new vocabulary nobody has classified must red the suite by existing.
+
+Two claims are kept apart on purpose. `VOCABULARY_PINS` and `VOCABULARY_COVERED` must not
+intersect, and a row asserts it: being pinned and being covered are different claims, and a
+collection resting on both ends up with one of them unmaintained.
+
+One entry in `VOCABULARY_COVERED` is marked **"REASONED, NOT MEASURED"** — `PROTECTED_ALWAYS`,
+where I argue the deny-arm rows would flip verdict but did not run the mutation. Rule 45
+says a claim names the thing it is about; an unmeasured claim that does not say so is the
+same defect one level of abstraction up.
+
+#### 25.6.1 The harness found the same defect in itself, and this time it failed CLOSED
+
+`/tmp/mut21d.py` reported **INSTRUMENT FAILED :: substitution did not land** on three of
+the nine mutations. The substitutions had landed perfectly. Its landing guard read:
+
+```python
+if needle in after or (repl and repl not in after):
+```
+
+`needle not in after` is the right question for a **replacement** and the wrong question for
+an **insertion**, because R21-E, R21-K and R21-L all append to the needle rather than
+replacing it, so the needle is *supposed* to survive. The guard asked a slightly different
+question than the one that mattered.
+
+That is the series' own defect shape, in the instrument, for the second round running. What
+is different — and it is the whole point of rule 48 — is **which direction it failed in.**
+Round 20's guard failed **open**: it certified a mutation nobody had performed, and the
+reading was a number I then published. This one failed **closed**: it refused to measure
+and said so on the line. A harness that stops is recoverable; a harness that reassures is
+not. The round-20 correction bought exactly that, and it is worth writing down that the fix
+worked before writing down that the guard was wrong again.
+
+`/tmp/mut21e.py` re-runs the three with a guard that uses no membership test in either
+direction:
+
+```python
+expected = backup.replace(needle, repl, 1)
+if expected == backup: ...        # a no-op replacement is an instrument failure too
+src.write_text(expected)
+if src.read_text() != expected: ...
+```
+
+The whole file text is what was intended, so the check is exact for insertion, deletion,
+replacement and reorder alike, and it cannot be fooled by a container that changed type.
+Same instrument choice as the pins themselves (§ 25.6): **equality, not membership**, and
+for the same reason.
+
+#### 25.7 Receipt — nine JR-20 mutations, nine KILLED
+
+Raw summary lines. Harnesses `/tmp/mut21d.py` (D, F, H, I, J) and `/tmp/mut21e.py`
+(E, G, K, L — the four `mut21d` refused to measure).
+
+```
+R21-D  FACTORY_RUNTIME_PATHS  member DELETED         KILLED  2 failed, 608 passed
+R21-E  FACTORY_RUNTIME_PATHS  member ADDED           KILLED  4 failed, 606 passed   [not jack-ryan's]
+R21-F  STRUCTURE_SKIP_DIRS    member ADDED           KILLED  2 failed, 608 passed   [not jack-ryan's]
+R21-G  REFUSAL_GUARDS         member ADDED           KILLED  2 failed, 608 passed
+R21-H  GUARDS_OWING_FACTS     member DELETED         KILLED  2 failed, 608 passed
+R21-I  UNMERGED_CODES         member DELETED         KILLED  2 failed, 608 passed
+R21-J  BUILTIN_TOOLS          member ADDED           KILLED  2 failed, 608 passed
+R21-K  INVOCATION_ONLY_TOOLS  key ADDED              KILLED  2 failed, 608 passed
+R21-L  a NEW unclassified vocabulary appears        KILLED  2 failed, 608 passed
+```
+
+Eight of the nine are killed by
+`test_JR20_no_pinned_vocabulary_can_be_ADDED_TO_or_DELETED_FROM_silently` plus `test_C2`.
+**R21-L is killed by the other row** —
+`test_JR20_every_vocabulary_is_either_PINNED_or_NAMES_the_row_that_covers_it` — which is
+the structural claim landing. A vocabulary nobody has classified reds the suite by
+*existing*. That is the half that survives the next collection nobody has written yet, and
+it is the only row here whose kill could not have been predicted from the pins.
+
+Jack-ryan's three measured survivors — R21-D, R21-E, R21-F — are all dead. **But see
+§ 25.7.1 before reading that sentence as settled.**
+
+##### 25.7.1 Two of my mutations were not their mutations, and the receipt was the flattering one
+
+R21-E came back `4 failed` where every other row came back `2 failed`. The two extra were
+`test_a_collapsed_untracked_directory_is_swept_not_skipped` and
+`test_factory_source_is_still_visible_under_the_exempt_directory` — both introduced in
+`942372ef`, long before round 20, so both were present when jack-ryan measured this
+mutation as SURVIVING at 604. Two rows cannot fire on a mutation and also not fire on it.
+
+They didn't. **We ran different mutations.** Their r20 table says it in as many words:
+
+```
+R21-E  FACTORY_RUNTIME_PATHS  -- "reincarnated-engine/" ADDED   SURVIVED, 604 passed
+R21-F  STRUCTURE_SKIP_DIRS    -- "canonical" ADDED              SURVIVED, 604 passed
+```
+
+I added `"agentic_orchestration/"` and `"src"`. Mine shadows the factory's *own source
+tree*, which is why two unrelated rows fire; theirs shadows a sibling repo, which nothing
+in the suite looks at. Their mutation is the one that matters — it re-creates the exact
+false green their docstring describes — and it is not touched by those two rows.
+
+So the receipt above, read as "your survivors are dead", answers a slightly different
+question than the one asked, and its wrong answer is the flattering one. **That is this
+series' defect shape moved out of the code and out of the instrument and into the
+receipt.** Nothing in `mut21d` was wrong; every guard held, the tree was clean before and
+after, the substitution landed. The measurement was sound and the *claim* it would have
+supported was not.
+
+The tell was a number that did not match its neighbours. Four where everything else was
+two. If the extra rows had happened to be quiet, I would have published it.
+
+`/tmp/mut21g.py` re-ran their exact two. The equality pin should not care WHICH member is
+added — that is the entire argument for equality over membership — but "should not care" is
+a prediction, and this whole round is about the difference between a prediction and a
+measurement. Measured:
+
+```
+R21-E'  "reincarnated-engine/" ADDED to FACTORY_RUNTIME_PATHS   KILLED  2 failed, 608 passed
+R21-F'  "canonical" ADDED to STRUCTURE_SKIP_DIRS                KILLED  2 failed, 608 passed
+```
+
+Both by the pin alone, and the figure now matches its neighbours. **Their survivors are
+dead on their mutations**, which is the sentence I was not entitled to write an hour ago.
+The prediction held; running it was still the right call, because the version of this round
+where it did not hold is indistinguishable from the version where it did until someone
+looks.
+
+One nuance worth handing back rather than keeping. Their finding says `FACTORY_RUNTIME_PATHS`
+is "named nowhere in the 604-row suite, by literal or by derivation." Exactly right on the
+literal; one notch strong on the derivation. `test_factory_source_is_still_visible_under_the_exempt_directory`
+does fire on an addition that shadows the **factory's own spine** — that is what my accidental
+variant hit. It fires on nothing else. So the pre-existing coverage was precisely the
+self-protective case an author would naturally think of, and blind to every other tree. That
+sharpens the finding rather than softening it: the one exemption anybody guarded was the one
+pointed at us.
+
+### 25.8 JR-18's mutations, which the commit promised and the round nearly skipped
+
+Commit `9f4a5302` shipped the BLOCK fix with the sentence *"no row here is claimed verified
+until it has killed its own mutation"*, and then the round went straight to JR-19 and JR-20
+without running them. Matt's standing method is a mutation per fix. I caught this while
+writing the receipt, not while doing the work, which is worth recording as its own small
+lesson: the promise was in the commit message, where nothing checks it.
+
+```
+R21-M  writes arm truncates at the marker again (the defect restored)   KILLED  3 failed, 607
+    test_JR18_a_TAB_NAMED_SIBLING_does_not_enter_the_writes_allowlist[read_only_subtree]
+    test_JR18_a_TAB_NAMED_SIBLING_does_not_enter_the_writes_allowlist[read_only_worktree_root]
+    test_C2_every_assert_under_tests_is_proven_to_execute
+R21-N  marker_path truncates only when the tail LOOKS synthetic         KILLED  3 failed, 607
+    test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name[read_only_subtree]
+    test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name[read_only_worktree_root]
+    test_C2_every_assert_under_tests_is_proven_to_execute
+R21-O  normalise_marker gains a default                              SURVIVED  610 passed
+```
+
+Those row lists cost a re-run, and the reason is worth a paragraph. `mut21f` printed
+`3 failed` above **two** names. Its reporter keyed on
+`line.split(" - ")[0].split("[")[0]` and collected into a `set`, which collapses a
+parametrised row's two ids into one entry — so the count and the list disagreed, and the
+list was the shorter. That is round 20's defect (*a collector that reports less than
+happened*) relocated from the mutator into the **reporter**, and I was one edit away from
+handing a reviewer a receipt whose own number contradicted its own list. `mut21h` re-ran
+both with raw undeduped lines. The counts were right all along; the resolution was not.
+Three instrument defects in one round — the landing guard, the wait loops, the reporter —
+all fail-closed or self-evident, none of them fail-open. That is the only reason this round
+is recoverable.
+
+**R21-N is the one worth pausing on.** It installs jack-ryan's *offered* fix — detect the
+marker by shape — and it is killed by `test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name`,
+which is the row JR-18b asked me to repair. The leg they asked for is what refutes the fix
+they suggested. I had argued against shape detection in prose (a phase can name a file
+`workspace\t<gitdir: a>` and match the synthetic shape exactly); this is the same argument
+as a measurement.
+
+**R21-O survived, and that is a real gap in my own fix.** Giving `normalise_marker` a
+default changes nothing today, because all three call sites state their direction
+explicitly. No scenario row can catch it, and none could have been written — the row would
+have to exercise a call site nobody has written yet. That is **JR-20's exemption direction
+pointed at a function signature**, arriving one hour after I wrote the rule, aimed at my own
+BLOCK fix. The rule's own answer applies without amendment: it needs a **literal**, not an
+argument. A signature pin follows, and R21-O is re-run against it.
+
+I considered a second leg — a static audit asserting every `_matches` call site names the
+keyword — and rejected it under rule 13. While the no-default pin holds, a keyword-less
+call site is a `TypeError`, so the second leg is only reachable in a world where the first
+has already been removed. Two assertions, one distinguishable outcome; that is the mass
+rule 13 exists to refuse, and recording the rejection is worth more than the assert.
+
+The pin's own receipt — two asserts, two mutations, because a leg that has not killed
+something of its own is a claim, not a check:
+
+```
+R21-O  a default appears              KILLED  2 failed, 609 passed
+R21-P  the `*` disappears             KILLED  2 failed, 609 passed
+```
+
+Both name the same row, so the summary alone cannot say which assert fired — and "it must
+have been the other one" is the reasoning this whole series refuses. Isolated with a
+targeted single-row run at 0.05 s each:
+
+```
+R21-O -> AssertionError: `_matches` grew a default for `normalise_marker` (True)
+R21-P -> AssertionError: `normalise_marker` stopped being keyword-only
+                         (kind=POSITIONAL_OR_KEYWORD)
+```
+
+R21-P leaves the default empty, so the first assert passes and only the second fires. Each
+leg killed its own mutation and no leg took credit for its neighbour's kill.
+
+### 25.9 Rule 50 — the defect shape has now appeared in the receipt, and no rule covered that
+
+Rules 44 through 49 are all measurement discipline, and this round added a third location
+for the same defect:
+
+```
+round 18-21   in the CODE        a predicate answering an adjacent question
+round 20-21   in the INSTRUMENT  a guard answering an adjacent question (rules 44, 48)
+round 21      in the RECEIPT     a MUTATION answering an adjacent question
+```
+
+The third has no rule. `mut21d` was flawless — precondition clean, needle unique,
+substitution verified, tree restored, postcondition clean — and it measured
+`"agentic_orchestration/"` where jack-ryan had measured `"reincarnated-engine/"`. Every
+guard in the harness holds under that substitution, because none of them is *about* which
+member you chose. The claim it would have supported — *your survivor is dead* — was false,
+and it was false in the flattering direction.
+
+Proposed as **rule 50**: *when re-running a reviewer's mutation, run THEIR mutation.* A
+mutation of the same kind is not the same mutation, and the difference is invisible to
+every guard a harness can carry, because the harness verifies that the edit landed and
+never that it was the right edit. The tell available in practice is a **count that does not
+match its siblings** — eight rows at `2 failed` and one at `4` — which is only a tell if the
+receipt prints raw per-row lines, which is rule 48's `-rEf` correction paying for itself a
+second time.
+
+Corollary worth stating with it: *the reviewer's number is a claim about their mutation, not
+about the collection.* jack-ryan's "SURVIVED, 604" was correct. Nothing about it was wrong.
+It was simply not a claim about the mutation I ran, and the receipt was one edit away from
+treating it as one.

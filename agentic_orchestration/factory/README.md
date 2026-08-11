@@ -804,3 +804,23 @@ unknown version rather than guess at it.
    about. It is inert, and inert for a reason that holds, so nothing was unprotected. The
    defect is the same one this series keeps finding, moved up a level: a set reasoned over
    confidently whose membership was never established. An enumeration is a measurement.
+
+50. **When you re-run a reviewer's mutation, run THEIR mutation. A mutation of the same
+   KIND is not the same mutation, and no guard a harness can carry will tell you.** Round
+   21's JR-20 receipt reported jack-ryan's measured survivor as killed. They had added
+   `"reincarnated-engine/"` to `FACTORY_RUNTIME_PATHS`; the re-run added
+   `"agentic_orchestration/"`, which shadows the factory's own source tree and so trips two
+   rows in `test_permissions.py` that have nothing to do with the pin under test. The
+   harness was clean by every check it had — precondition tree clean, needle unique,
+   substitution verified against the whole source text, tree restored, postcondition clean
+   — because **not one of those guards is about which member you chose.** A harness
+   verifies that the edit landed; it cannot verify that it was the right edit. The claim
+   the receipt would have carried was false, and false in the flattering direction. This is
+   the series' defect shape in its third location: the CODE (rounds 18–21), the INSTRUMENT
+   (rules 44, 48), and now the RECEIPT. The only tell available in practice was a **count
+   that did not match its siblings** — eight mutations at `2 failed` and one at `4` — which
+   is a tell only because rule 48's `-rEf` correction makes the receipt print raw per-row
+   lines. Re-run with the reviewer's exact members: `KILLED, 2 failed, 608 passed`, figures
+   back in line. Corollary: *a reviewer's number is a claim about their mutation, not about
+   the collection.* "SURVIVED, 604" was correct and remains correct; it was simply never a
+   claim about a mutation nobody had run.
