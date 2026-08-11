@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           410 tests, all green
+  tests/           412 tests, all green
 ```
 
 ## Use
@@ -187,11 +187,18 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    hand-placed exemption any more; git reports it. Note the destroyer guard was never
    fooled, because it had always asked git — only the guard that trusted a string was
    fooled by a string (L8).
-17. **A negative claim is a claim.** The refusal for a staged removal told the operator
-   "the index no longer holds it" without ever reading the index, one line above a
-   command that reads the index — and for `MD` the index was holding the phase's
-   content. Every clause in every refusal is now derived from a measurement, and the
-   wall checks the negative claims as well as the positive ones (L9).
+17. **A negative claim is a claim, and it travels as a number.** The refusal for a
+   staged removal told the operator "the index no longer holds it" without ever reading
+   the index, one line above a command that reads the index — and for `MD` the index was
+   holding the phase's content. Every clause in every refusal is now derived from a
+   measurement. The first version of that fix wrote the measurements into English and
+   the wall checked the English, so a refusal whose numbers were all flatly wrong passed
+   410 tests as long as the sentence still read the way it used to. The measurements now
+   travel on the action as `facts` — `(name, value)` pairs — the prose is *rendered* from
+   them by `render_containment_facts()`, and the wall compares the pairs to git and then
+   asserts the rendering appears in the reason. An operator reads numbers off an abort
+   report and acts on them; a claim checked only as prose is a claim nobody checked
+   (L9, B1).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
 repeated shape — twenty artifact kinds (regular file, symlink out of the tree,
@@ -252,6 +259,40 @@ leaves the suite green is a comment, not a safety measure. The first pass over r
 six's fixes found **all seven survived** — including rule 12's, whose row planted the
 right filename in the wrong state (a *created* `:(top)` is rolled back with `unlink`
 and never reaches git at all). That table is what produced rules 13, 14 and 15.
+
+**The wall is a product, and it has the same disease.** After eight rounds the defect
+shape stopped appearing in `permissions.py` and started appearing in the thing that
+certifies it — same shape, one layer up: *a check that answers a slightly different
+question than the one asked, whose wrong answer is green*. Three instances, all live:
+
+* an assertion **gated on a literal phrase the module no longer emits** never runs, and
+  reports as a pass. Three of them were sitting in the wall. `test_permissions.py` now
+  carries a standing gate that scans the wall for `if "<phrase>" in reason` and requires
+  every phrase to be present in `permissions.py`. The scanner **proves it can find
+  something** before its silence is allowed to mean anything — the first version of that
+  gate collected zero phrases and passed trivially, which is the defect it was written
+  to catch, committed one turn later by the person writing it (B2);
+* a check written against **prose** rather than the values the prose describes — see
+  rule 17. Its own first fix then read `if action.facts:`, which the product switches
+  off by sending nothing; whether a refusal *owes* the operator numbers is a property
+  of the tree, so git decides it. Sourcing the expectation from git instead of from the
+  object under test failed four rows within one run and exposed a **second refusal
+  site** — the destroyer guard — still writing its counts into English. Both sites now
+  carry structured facts. A fix applied where the reviewer pointed is not a fix applied
+  to the class (B1);
+* a predicate proven to REFUSE where it must, with **no partner proving it ACTS where it
+  must not refuse**. `_staged_against_head` was reached only by rows where staging was
+  present at the artifact path, so dropping its `-- <path>` pathspec — making "is
+  anything staged *anywhere*" the question — left every row green while turning any
+  unrelated `git add` in the repository into a blanket refusal to contain. The partner
+  now stages a *different* file and requires the rollback to act (B3).
+
+So the reachability clause is amended: **a new predicate ships with both branches
+exercised** — a row where it must answer YES and the verb must REFUSE, and a row where
+it must answer NO and the verb must ACT — and **its scope arguments and every factual
+clause it justifies must each be independently falsifiable**: reverting any one of them
+turns a row red. Three axes, because a predicate can be unreached by its arrival route,
+by its arguments, or by the claim its output is used to justify.
 
 **Why the mechanical lane is easier than it looks — and where that stops.** Every path
 a mechanical workflow touches is authored by a human in a YAML file under review, so

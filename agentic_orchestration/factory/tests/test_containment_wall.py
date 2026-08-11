@@ -562,32 +562,47 @@ def _assert_refusal_claims_are_true(f: Fence, action, kind: str) -> None:
     #: the identification was right, and the real reason (the phase staged it) went
     #: unsaid. Checking the arithmetic passed that mutation; checking that the
     #: sentence is the one the facts support does not.
-    if re.search(r"HEAD still holds (\d+) file\(s\)", reason):
-        assert truth.in_head, (
-            f"the refusal for a {kind} justifies itself by what HEAD holds under "
-            f"{action.path!r}, and HEAD holds nothing there. Reason was: {reason}"
+    #: Gate-2 B1/B2. The two assertions that stood here were gated on literal phrases
+    #: — "HEAD still holds", "index no longer" — and round seven deleted BOTH from the
+    #: product in the same commit that made the wall require them. They read as
+    #: coverage and could not fire: 2 of 365 assertions in the suite never executed,
+    #: and one of them was the fix reported as closing L9. A test keyed on a phrase is
+    #: keyed on a label, which is the exact disease this review has been chasing
+    #: through the product code, transplanted into the thing that certifies it.
+    #:
+    #: So the measurements TRAVEL on the action, the sentence is RENDERED from them by
+    #: the product, and the wall derives the same numbers from git independently and
+    #: asserts the rendered clause is present. There is nowhere left for a wording to
+    #: disagree with the tree, and no literal for a later commit to orphan.
+    #: ...and the first version of THAT fix was `if action.facts:` — a check the
+    #: product switches off simply by sending nothing. Mutation N6 dropped the
+    #: measurements at the constructor and the suite stayed green: the third instance
+    #: of this round's own defect, living inside the fix for the first one. Whether a
+    #: refusal OWES the operator numbers is a question about the TREE, so it is asked
+    #: of git. If the index differs from HEAD here, the refusal that stopped the run
+    #: carries the measurements or this row is red.
+    expected = {
+        "head_files": len(truth.in_head),
+        "index_files": len(truth.in_index),
+        "staged_paths": len(perm._staged_against_head(f.repo, action.path).paths),
+    }
+    if expected["staged_paths"]:
+        assert action.facts, (
+            f"git says {expected['staged_paths']} path(s) under {action.path!r} have "
+            f"an index differing from HEAD, and containment refused to undo a {kind} "
+            "there — but the refusal carries no measurements at all, so the operator "
+            f"is being asked to act on prose. Reason was: {reason}"
         )
-    #: Gate-2 L9, the symmetric hole. The check above catches a refusal leaning on a
-    #: HEAD that holds nothing; there was no counterpart for a refusal ASSERTING the
-    #: index is empty. The shipped deleted-branch said "the index no longer does"
-    #: without ever reading `in_index`, and for `MD` the index was holding the
-    #: phase's content — so the operator was told the index was empty on the line
-    #: above a command that reads the index. A negative claim is a claim.
-    for phrase in ("index no longer", "index does not", "index holds none"):
-        if phrase in reason:
-            assert not truth.in_index, (
-                f"the refusal for a {kind} tells the operator the index no longer "
-                f"holds {action.path!r}, and the index holds {len(truth.in_index)} "
-                f"file(s) there. Reason was: {reason}"
-            )
-    #: The staged-content claim is re-derived the same way the guard derives it, so a
-    #: guard that stops asking git cannot keep printing the sentence (Gate-2 L8).
-    for claimed in re.findall(r"index differs from HEAD at (\d+) path\(s\)", reason):
-        actual = len(perm._staged_against_head(f.repo, action.path).paths)
-        assert int(claimed) == actual, (
-            f"the refusal for a {kind} claims git's index differs from HEAD at "
-            f"{claimed} path(s) under {action.path!r}; it differs at {actual}. "
-            f"Reason was: {reason}"
+    if action.facts:
+        assert dict(action.facts) == expected, (
+            f"the refusal for a {kind} carries measurements {dict(action.facts)} for "
+            f"{action.path!r}; git says {expected}. These are the numbers an operator "
+            "reads off an abort report and acts on."
+        )
+        rendered = perm.render_containment_facts(tuple(expected.items()))
+        assert rendered in reason, (
+            f"the refusal for a {kind} does not state the facts it rests on. Expected "
+            f"{rendered!r} to appear in the reason, which was: {reason}"
         )
     if truth.in_index and not truth.in_head:
         assert "index" in reason, (
@@ -596,12 +611,11 @@ def _assert_refusal_claims_are_true(f: Fence, action, kind: str) -> None:
             "right. A refusal that does not say `index` here is telling the operator "
             f"the wrong story about why their run stopped. Reason was: {reason}"
         )
-    if "HEAD holds none" in reason:
-        assert not truth.in_head, (
-            f"the refusal for a {kind} says HEAD holds nothing under "
-            f"{action.path!r}, and HEAD holds {list(truth.in_head)}. That sentence is "
-            "what tells an operator committed work is not at risk."
-        )
+    #: A THIRD dead gate lived here — `if "HEAD holds none" in reason:` — which the
+    #: B2 standing check found on its first run, one more than the Gate-2 line-trace
+    #: audit reported. Same cause: the phrase had been reworded in the product and
+    #: the gate was left behind holding nothing. The structured-facts assertion above
+    #: covers what it was for, and covers it by number rather than by wording.
 
 
 def _snapshot(f: Fence, plant) -> tuple[perm.TreeFingerprint, list[perm.Change]]:

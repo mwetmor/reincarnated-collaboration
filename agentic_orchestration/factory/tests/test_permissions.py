@@ -12,6 +12,7 @@ unwound, protected paths cannot be opted into by config.
 import dataclasses
 import os
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -667,6 +668,42 @@ def test_L8_a_question_git_REFUSES_to_answer_is_not_a_no(tmp_path, git_repo, mon
     )
 
 
+def test_B3_staging_ELSEWHERE_does_not_stop_the_rollback_acting_HERE(tmp_path, git_repo):
+    """The staging guard's falsification partner — the branch where it must say NO.
+
+    Every staged-* row proves the guard REFUSES. None proved it PROCEEDS when the
+    staging is somewhere else, so nothing in 410 tests distinguished "the index
+    differs from HEAD **under this path**" from "**anywhere in the repo**". Dropping
+    the `-- <rel>` pathspec left the suite green while turning the guard repo-wide:
+    one staged file anywhere and every rollback refuses, every breach stands, and
+    containment reports itself contained (Gate-2 B3).
+
+    A predicate ships with both branches held: one row where it answers yes and the
+    verb refuses, one where it answers no and the verb acts.
+    """
+    before = {str(git_repo): perm.fingerprint(git_repo)}
+    (git_repo / "tracked.txt").write_text("the phase rewrote this\n")   # the breach
+    (git_repo / ".gitignore").write_text("ignored/\nphase-added-line\n")
+    subprocess.run(["git", "add", ".gitignore"], cwd=str(git_repo), check=True,
+                   capture_output=True)                                  # staged ELSEWHERE
+
+    breach = perm.Breach(
+        perm.Change(root=git_repo, path="tracked.txt", kind="modified",
+                    before_status=None, after_status=" M"),
+        "outside the allowlist",
+    )
+    actions = perm.rollback([breach], before, tmp_path / "q")
+    assert actions[0].action == "restored", (
+        "a file staged ELSEWHERE in the repo made the staging guard refuse to roll "
+        "back an unstaged breach HERE. The guard's pathspec is what keeps it a "
+        f"question about this path; without it every breach stands. Action was "
+        f"{actions[0]!r}"
+    )
+    assert (git_repo / "tracked.txt").read_text() == "baseline\n", (
+        "the rollback reported `restored` without restoring the baseline content"
+    )
+
+
 def test_L8_with_NO_COMMITS_the_index_still_holds_the_phases_own_work(tmp_path):
     """Unborn HEAD is a real answer, not a refusal — and the answer is not `no`.
 
@@ -693,6 +730,65 @@ def test_L8_with_NO_COMMITS_the_index_still_holds_the_phases_own_work(tmp_path):
         "an unborn HEAD is the real answer 'nothing is committed yet', not a git "
         f"refusal. Recorded as unanswered: {staged.unanswered!r}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 B2 — an assertion that cannot fire is not coverage
+# ---------------------------------------------------------------------------
+def _reason_gate_phrases(src: str) -> list[str]:
+    """Every string literal the wall uses to DECIDE whether to check something."""
+    found = re.findall(r'if\s+"([^"]{6,})"\s+in\s+reason', src)
+    for chunk in re.findall(r'for\s+phrase\s+in\s+\(([^)]*)\)', src):
+        found.extend(re.findall(r'"([^"]{6,})"', chunk))
+    return found
+
+
+def test_B2_no_wall_assertion_is_gated_on_a_phrase_the_product_no_longer_emits():
+    """The cheap standing form of jack-ryan's never-executed-assert audit.
+
+    Round seven gated two wall assertions on literal phrases — `HEAD still holds`,
+    `index no longer` — and deleted both from `permissions.py` IN THE SAME COMMIT.
+    The diff read as a tightening. The assertions read as coverage. Neither could
+    fire, and one of them was the fix reported as closing L9. Two of 365 assertions
+    in the suite never executed, and they were the two round seven had just added.
+
+    A full line-trace audit is the thorough version and is worth running at Gate 2.
+    This is the invariant that makes the specific failure impossible to reintroduce
+    without going red: any phrase the wall uses to DECIDE whether to check something
+    must still be a phrase the product can emit. A gate on a string the product
+    cannot produce is a gate on nothing.
+    """
+    #: THE SCANNER PROVES IT HAS POWER FIRST. When the last phrase-gate was deleted
+    #: this check collected zero phrases and passed trivially — a test with no power,
+    #: which is the exact defect it was written to prevent, reintroduced one commit
+    #: after writing it. A scanner that finds nothing must first demonstrate it can
+    #: find something, or "nothing to check" and "the check is broken" are the same
+    #: green.
+    sample = 'if "SENTINEL GATE PHRASE" in reason:\n    assert x'
+    assert _reason_gate_phrases(sample) == ["SENTINEL GATE PHRASE"], (
+        "the phrase scanner no longer recognises a phrase-gate, so its silence about "
+        "the real wall means nothing. Fix the scanner before trusting this test."
+    )
+
+    #: Comments are stripped before scanning. The first run failed on a phrase quoted
+    #: inside the comment explaining why that gate had been deleted — a scanner that
+    #: reads prose as code reports a gate that is not there, the false-positive twin
+    #: of the defect it exists to catch.
+    wall_src = "\n".join(
+        line for line in
+        (Path(__file__).parent / "test_containment_wall.py").read_text().splitlines()
+        if not line.lstrip().startswith("#")
+    )
+    product_src = (Path(__file__).parents[1] / "permissions.py").read_text()
+
+    for phrase in _reason_gate_phrases(wall_src):
+        assert phrase in product_src, (
+            f"the wall decides whether to check something based on the phrase "
+            f"{phrase!r} appearing in a refusal, and no code path in permissions.py "
+            "can produce that phrase any more. The assertion behind that gate has "
+            "never run. Either restore the wording in the product or delete the gate "
+            "— do not leave it reading as coverage."
+        )
 
 
 # ---------------------------------------------------------------------------

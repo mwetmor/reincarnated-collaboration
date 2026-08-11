@@ -271,6 +271,29 @@ class RollbackAction:
     action: str          # deleted | restored | NOT_ROLLED_BACK
     reason: str = ""
     quarantined_to: str | None = None
+    #: The MEASUREMENTS a refusal rests on, carried as numbers rather than living
+    #: only inside the sentence. Gate-2 B1: the wall checked the PROSE, and prose is
+    #: a label — replacing the whole clause with "HEAD holds nothing here; the index
+    #: is empty here" left all 410 tests green while the receipt told the operator a
+    #: double falsehood about a file git held in both HEAD and the index. Numbers
+    #: travel; the sentence is RENDERED from them, so there is exactly one place the
+    #: figures come from and no wording can disagree with the tree.
+    facts: tuple[tuple[str, int], ...] = ()
+
+
+def render_containment_facts(facts: tuple[tuple[str, int], ...]) -> str:
+    """The ONE place a refusal's measured clause is worded.
+
+    Product and wall both call this. The wall passes numbers it derived from git
+    itself and asserts the result appears in the reason, so the assertion is anchored
+    to the tree and to a single wording — not to a literal phrase copied into the
+    test. Gate-2 B2 found two such copies had gone dead: the wall was gated on
+    "HEAD still holds", a string round seven deleted from the product in the very
+    commit that narrowed the regex to require it, and on three "index no longer"
+    variants that no longer existed either. Both assertions read as coverage and
+    could not fire.
+    """
+    return "; ".join(f"{name}={value}" for name, value in facts)
 
 
 def _is_factory_runtime(rel: str, is_root_repo: bool) -> bool:
@@ -1104,8 +1127,26 @@ def rollback(
                         "is right; but undoing a staged write means editing the "
                         "index of a fenced tree, which is a human decision"
                     )
+                # The destroyer guard's numbers were written into English here while
+                # the staging guard's travelled as data — so the wall could check one
+                # and only read the other. The tightened wall check found this site
+                # the moment it stopped asking the ACTION whether measurements were
+                # owed and started asking git (Gate-2 B1, second call site). One
+                # extra git call, on a path that has already decided to refuse.
+                measured = (
+                    ("head_files", len(tracked.in_head)),
+                    ("index_files", len(tracked.in_index)),
+                    ("staged_paths", len(_staged_against_head(root, change.path).paths)),
+                )
                 actions.append(
-                    RollbackAction(change.path, "NOT_ROLLED_BACK", f"REFUSED: {why}", quarantined)
+                    RollbackAction(
+                        change.path,
+                        "NOT_ROLLED_BACK",
+                        f"REFUSED: {why}. Measured here: "
+                        f"{render_containment_facts(measured)}",
+                        quarantined,
+                        measured,
+                    )
                 )
                 continue
             try:
@@ -1185,22 +1226,27 @@ def rollback(
                     "reads the INDEX, not HEAD, so it would write back exactly what "
                     "containment is removing, under a receipt saying `restored`"
                 )
-            # Every clause below is MEASURED. The shipped version asserted "the index
-            # no longer does" in the deleted branch without ever reading `in_index`,
-            # and it was false for `MD` — the reader was told the index was empty on
-            # the line above the command that reads the index (Gate-2 L9).
-            facts = (
-                f"HEAD holds {len(held.in_head)} file(s) here; "
-                f"the index holds {len(held.in_index)}"
+            # Every clause below is MEASURED, and the measurements TRAVEL. Round
+            # seven made the numbers true and left them inside a sentence; the wall
+            # could then only check the sentence, so rewriting the sentence as a flat
+            # falsehood passed (Gate-2 B1). The numbers now ride on the action and the
+            # sentence is rendered from them.
+            measured = (
+                ("head_files", len(held.in_head)),
+                ("index_files", len(held.in_index)),
+                ("staged_paths", len(staged.paths)),
             )
             actions.append(
                 RollbackAction(
                     change.path,
                     "NOT_ROLLED_BACK",
-                    f"REFUSED: {what}. {facts}. Editing the index of a fenced tree is "
-                    f"a human decision (status {change.after_status!r}; recover from "
-                    f"the commit with: git checkout HEAD -- {change.path!r})",
+                    f"REFUSED: {what}. Measured here: "
+                    f"{render_containment_facts(measured)}. Editing the index of a "
+                    f"fenced tree is a human decision (status {change.after_status!r}; "
+                    f"recover from the commit with: "
+                    f"git checkout HEAD -- {change.path!r})",
                     quarantined,
+                    measured,
                 )
             )
             continue

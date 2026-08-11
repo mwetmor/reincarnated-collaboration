@@ -808,7 +808,7 @@ jack-ryan is drafting this as Discipline 37 with both clauses; that document is 
 | L8 reachability | new row RED at `fb954d4a`, both shapes; 406 others unmoved |
 | L8 over-refusal check | empty for unstaged edit / unstaged rmtree; non-empty only for staged |
 | Round-seven mutations | see § 13.6 — four survivors on the first pass, zero on the second |
-| Fenced-tree baselines | engine 2789 / godot 233, unchanged |
+| Fenced-tree baselines | engine 2907 / godot 3288, unchanged (**corrected** — see § 14.4) |
 
 ### 13.6 The mutation table, both passes
 
@@ -859,3 +859,265 @@ ARTIFACT TOUCHED.
 ```
 
 Second pass: **SURVIVORS: none. unanchored: none.**
+
+---
+
+## 14. Round eight — the defect shape left the product and moved into the certification
+
+jack-ryan's round-eight Gate-2 verdict was **HOLD** on three findings. None of them is
+in `permissions.py`. All three are in the thing that certifies `permissions.py`, and
+all three are the same shape the previous seven rounds were: *a check that answers a
+slightly different question than the one asked, whose wrong answer is the safe-looking
+one.* One layer up, the safe-looking answer is **green**.
+
+This is the first round where I have to say plainly: the reviewer was reviewing my
+tests because my tests had stopped being able to review my code, and I did not notice
+because they were passing.
+
+### 14.1 B1 — the L9 fix was checked as prose, so a flat falsehood passed 410 tests
+
+Round seven's rule 17 said every clause in every refusal is derived from a
+measurement. It was — and then the measurement was interpolated into an English
+sentence, and the wall asserted things about the sentence.
+
+jack-ryan's J3 mutation replaced the measured tuple with literal zeros. The refusal
+then told the operator `head_files=0; index_files=0; staged_paths=0` for a tree where
+git says otherwise, and the suite stayed **green**, because the sentence still had the
+shape the wall was looking for.
+
+Numbers on an abort report are the thing an operator acts on. "HEAD holds nothing
+here" is the difference between *recover from the commit* and *this is unrecoverable*.
+A claim checked only for its wording is a claim nobody checked.
+
+Fixed by making the facts **structured and load-bearing in both directions**:
+
+```python
+@dataclass
+class RollbackAction:
+    ...
+    facts: tuple[tuple[str, int], ...] = ()
+
+def render_containment_facts(facts: tuple[tuple[str, int], ...]) -> str:
+    """The ONE place a refusal's measured clause is worded."""
+    return "; ".join(f"{name}={value}" for name, value in facts)
+```
+
+The measurements travel on the action; the prose is *rendered* from them. The wall
+re-derives all three from git, compares the pairs, and then asserts the rendering
+appears verbatim in the reason. So the numbers cannot drift from the tree (they are
+compared to it) and the sentence cannot drift from the numbers (it is generated from
+them). Three mutations hold that: falsify the numbers, falsify the sentence, or stop
+the facts travelling — see the table.
+
+### 14.2 B2 — three assertions that could not fire, and the audit that was itself vacuous
+
+Round seven deleted product prose and left behind wall assertions gated on it:
+
+```python
+if "the phrase permissions.py no longer emits" in reason:
+    assert <something that would have mattered>
+```
+
+The guard is never true, so the assert never runs, and the test reports a pass. Three
+of these were live. jack-ryan's line trace found two; the scanner I wrote to close the
+finding found a third he had not seen.
+
+The remedy is a standing gate in `test_permissions.py`, not three deletions: it reads
+`test_containment_wall.py`, extracts every string literal used to *decide* whether to
+check something, and requires each to be present in `permissions.py`.
+
+Then the interesting part. That gate **passed while collecting zero phrases** — the
+extraction was inline and silently matched nothing, so the loop body never ran. That
+is precisely the defect the gate exists to prevent, written by me one turn after
+writing the gate. It is also round seven's M24 (`assert True or X`) recurring within a
+single round: *a check with no power reports the same as a check that passed.*
+
+So the scanner proves it can find something before its silence is allowed to mean
+anything:
+
+```python
+def _reason_gate_phrases(src: str) -> list[str]: ...
+
+def test_B2_no_wall_assertion_is_gated_on_a_phrase_the_product_no_longer_emits():
+    sample = 'if "SENTINEL GATE PHRASE" in reason:\n    assert x'
+    assert _reason_gate_phrases(sample) == ["SENTINEL GATE PHRASE"], (
+        "the phrase scanner no longer recognises a phrase-gate, so its silence about "
+        "the real wall means nothing. Fix the scanner before trusting this test."
+    )
+    ...
+```
+
+Two mutations hold it: blind the scanner, and plant a dead phrase-gate in the wall.
+
+One implementation note that is itself the pattern: the first working version failed
+on my own *comment* quoting a retired literal. Stripping comment lines before scanning
+is correct — a comment decides nothing — but it is worth recording that the scanner's
+first true finding was in the file documenting the scanner.
+
+### 14.3 B3 — a predicate proven to refuse, never proven to act
+
+`_staged_against_head(root, rel)` was reached only by rows where staging existed at the
+artifact path. Drop its `-- rel` pathspec — jack-ryan's J6 — and the question silently
+becomes *is anything staged **anywhere** in this repository*. Every wall row stayed
+green, because in every fixture the only staged thing was the artifact.
+
+The live consequence is not subtle: one unrelated `git add` anywhere in a declared repo
+turns containment into a blanket `NOT_ROLLED_BACK` for every breach in it. Refusing
+everything looks conservative and is the failure mode where the breach survives.
+
+The partner stages a *different* file (`.gitignore`) and requires the rollback to
+**act** on the breached one, restoring it to baseline bytes. YES-branch and NO-branch,
+both pinned.
+
+### 14.4 The reachability clause, amended a second time — and a retraction
+
+§ 13.4 already amended § 12.3 once: a predicate must be reached by every route, not
+only the route git labels. Round eight shows two more ways a predicate can be
+uncertified while its row is red on reversion. Stated in full:
+
+> A new predicate ships with **both branches exercised**: a row where it must answer
+> YES and the verb must REFUSE, and a row where it must answer NO and the verb must
+> ACT. Its **scope arguments** and **every factual clause its output justifies** must
+> each be independently falsifiable — reverting any one of them must turn a row red.
+
+Three axes of unreachedness, which is jack-ryan's framing and the right one: **arrival
+route** (L8), **scope/arguments** (B3), **output and the claim it justifies** (B1).
+This is his document to write as discipline text; I am recording the operational form
+I built against.
+
+**Retraction.** Rounds one through seven of this note repeated "fenced-tree baselines:
+engine 2789 / godot 233". Those figures are wrong and I did not re-derive them after
+the structure sweep and the ignored-path sweep changed what a fingerprint counts. The
+module's own `fingerprint().entries` reports **engine 2907 / godot 3288**, independently
+confirmed by jack-ryan. § 13.5 is corrected in place. The property those numbers were
+cited to support — identical before and after the run, and across both determinism laps
+— still holds and is re-measured this round. The lesson is the round's own: a number
+carried forward in prose is not a measurement.
+
+### 14.5 The B1 fix survived its own mutation table, and the second pass found the site I had missed
+
+The first mutation pass over round eight returned **one survivor: N6**. It drops the
+`measured` argument at the `RollbackAction` constructor. `facts` then defaults to `()`,
+and the wall's check was:
+
+```python
+if action.facts:
+    ...assert the numbers against git...
+```
+
+So the product could switch the certification off by sending nothing, and 412 tests
+stayed green. That is the third instance of this round's own defect **inside the fix
+for the first instance** — a check gated on a condition the thing under test controls,
+whose false branch is silent. It is B2's phrase-gate with a different condition, and it
+is round seven's `assert True or X` with a different disguise. I wrote all three.
+
+The fix is the one this round has been repeating: **do not ask the action, ask git.**
+
+```python
+expected = {"head_files": ..., "index_files": ..., "staged_paths": ...}   # from git
+if expected["staged_paths"]:
+    assert action.facts, "...the operator is being asked to act on prose..."
+if action.facts:
+    assert dict(action.facts) == expected
+    assert perm.render_containment_facts(tuple(expected.items())) in reason
+```
+
+Whether a refusal *owes* the operator numbers is a property of the tree, not of the
+object under test, so the tree is what decides it.
+
+**That tightening immediately failed four rows I had believed were passing** — and the
+failure was real. There are **two** refusal sites, and I had only fixed one. The
+destroyer guard (`created` + `_tracked_under`) still interpolated its counts into
+English:
+
+```
+REFUSED: the phase staged this itself — git's index holds 1 file(s) under it and
+HEAD holds none...
+```
+
+True numbers, checked only by the older prose-parsing assertion, with nothing
+structured travelling. It is the identical B1 defect at a call site jack-ryan's J3
+mutation did not reach, and it surfaced within one suite run of the wall being told to
+source its expectations from git rather than from the action. Both sites now build
+`measured` and render from it; two new mutations (N8, N9) hold the second one.
+
+The general lesson, which is the fourth time this review has produced it: **a fix
+applied at the site the reviewer named is not the same as a fix applied to the class.**
+I closed B1 where J3 pointed and reported it. The class was in two places.
+
+### 14.6 The mutation table, both passes
+
+| Mutation | Property | Pass 1 | Pass 2 |
+|---|---|---|---|
+| N1 = jack-ryan **J3** — staging-guard facts become zeros | B1 | RED (6) | RED (6) |
+| N2 rendered sentence stops matching the measurements | B1 | RED (6) | RED (6) |
+| N3 = jack-ryan **J6** — the guard's `-- <path>` pathspec dropped | B3 | RED (1) | RED (1) |
+| N4 the phrase scanner stops recognising a phrase-gate | B2 | RED (1) | RED (1) |
+| N5 a dead phrase-gate is reintroduced into the wall | B2 | RED (1) | RED (1) |
+| **N6 staging-guard facts stop travelling** | B1 | **GREEN** | **RED (6)** |
+| N8 destroyer-guard facts stop travelling | B1 | *(site did not exist)* | RED (4) |
+| N9 destroyer-guard facts become zeros | B1 | *(site did not exist)* | RED (4) |
+| N7 CONTROL — `git checkout -- .` | control | RED (16) | RED (16) |
+
+**Pass 2: SURVIVORS none, unanchored/ambiguous none.** Both of jack-ryan's own
+survivors (J3, J6) red against the fixed module, which is the only evidence that the
+fixes are not comments.
+
+One harness change worth naming: the anchor check was `if old not in src` and is now
+`if src.count(old) != 1`. An anchor matching **twice** would have silently mutated
+whichever site came first and reported a confident result about the other — and this
+round created exactly that hazard by introducing a second `quarantined,\n measured,`
+block. A harness that cannot tell which line it edited is measuring nothing, which is
+the round's subject.
+
+### 14.7 Evidence
+
+| Item | Result |
+|---|---|
+| Suite | 412 passed (410 at round start) |
+| Round-eight mutations | 9 run, **zero survivors**, zero unanchored (§ 14.6) |
+| jack-ryan's survivors J3 / J6 | both RED against the fixed module |
+| Dead assertions removed | 3 (two named by the Gate-2 line trace, one found by the new scanner) |
+| New standing gate | phrase-gate audit, with a sentinel proving the scanner has power |
+| Refusal sites carrying structured facts | 2 of 2 (staging guard, destroyer guard) |
+
+### 14.8 An unplanned live proof: the spine aborted on my own write, and refused to undo it
+
+The first founding-run attempt this round **ABORTED**, and it was right to. I edited
+`agentic_orchestration/factory/README.md` while phase 2 was executing:
+
+```
+PERMISSIONS BREACH during phase execution — aborting the run
+  agentic_orchestration/factory/README.md (modified) — write inside an always-protected
+  path (never config-overridable)
+  rollback: agentic_orchestration/factory/README.md -> NOT_ROLLED_BACK
+  containment: 1 of 1 breaching path(s) were NOT undone — deliberately, with a stated
+  reason. Those artifacts are quarantined and still in place.
+ABORTED
+```
+
+Three things fired correctly and none of them were rehearsed:
+
+1. the **second fingerprint** caught it — the write landed during gate execution, and
+   `during="gate execution"` is exactly the window § "Why the runner fingerprints twice"
+   exists for;
+2. `was_dirty_before` **refused the rollback**, because the README was already modified
+   at phase start. Had it "restored" the file it would have destroyed round eight's
+   uncommitted documentation. This is the K1 damage class, avoided on a real edit rather
+   than a planted one;
+3. the refusal was **surfaced** in the abort report rather than returned in a list and
+   dropped — rule 15 (L6), which was a paper receipt until now.
+
+Recorded because it is the only unplanned evidence in this note. Everything else here
+is an artifact I planted in order to be caught. Operator note for the next session:
+**do not edit the factory tree while a run is in flight** — the spine is not wrong to
+stop, and a clean re-run is the whole cost.
+
+### 14.9 Run evidence, this round
+
+| Item | Result |
+|---|---|
+| Founding run | **PASS 3/3** (`kc2-baton-mechanical-20260811T061535Z-1b951a`) |
+| Determinism | `DETERMINISM: EXACT — 14 gate verdicts identical across two laps` |
+| Fenced-tree baselines | engine **2907** / godot **3288**, `usable=True`, unchanged across run + both laps |
+| Unplanned abort | one, on a real concurrent write; rollback correctly refused (§ 14.8) |
