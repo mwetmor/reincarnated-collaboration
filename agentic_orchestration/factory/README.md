@@ -714,9 +714,29 @@ unknown version rather than guess at it.
    *Round 20 addendum, corrected and widened at round 21 — WHICH collections need the
    literal, because the answer is not "all of them" and a rule that said so would be
    noise.* The FIRST axis is whether a member is **behaviour** or a **record**.
-   `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS` and `PROTECTED_EVERY_REPO` are all KILLED by
-   member-deletion (`7 failed`, `11 failed`, `3 failed`): removing a member stops a real
-   key being minted and a scenario row notices, so they need no pin. `REASONED_ADMISSIONS`
+   `GIT_NESTED_GITDIRS`, `GIT_CONTROL_PATHS`, `PROTECTED_EVERY_REPO` and
+   `PROTECTED_ALWAYS` are all KILLED by member-deletion: removing a member stops a real
+   key being minted and a scenario row notices, so they need no pin. *Corrected at round
+   23 (JR-25).* The figures this addendum first published were `7 / 11 / 3` against three
+   collections with **no member named beside any of them**, and the `11` did not belong to
+   the collection it was printed under — it is `GIT_NESTED_GITDIRS`' `"modules/"`, and
+   `GIT_CONTROL_PATHS` had never been measured at all. A figure is a claim about ONE
+   member (rule 50), so each is now stated as one:
+
+   | collection | member deleted | result |
+   |---|---|---|
+   | `GIT_NESTED_GITDIRS` | `"worktrees/"` | `7 failed` |
+   | `GIT_NESTED_GITDIRS` | `"modules/"` | `11 failed` |
+   | `GIT_CONTROL_PATHS` | `"config.worktree"` | `3 failed` |
+   | `GIT_CONTROL_PATHS` | `"hooks/"` | `21 failed` |
+   | `PROTECTED_EVERY_REPO` | `".claude/"` | `3 failed` |
+   | `PROTECTED_ALWAYS` | `"canonical/"` | `2 failed` |
+   | `PROTECTED_ALWAYS` | `"agentic_orchestration/factory/"` | `2 failed` |
+
+   The spread within one collection is the point: `GIT_CONTROL_PATHS` gives `3` or `21`
+   depending on the member, so "`GIT_CONTROL_PATHS` is killed at `11 failed`" was not a
+   number that was slightly wrong, it was a number that could not have been right.
+   `REASONED_ADMISSIONS`
    is a record — deleting `Skill` from it changes no behaviour at all, because `Skill` was
    never refused — and it SURVIVED at **603 passed, the baseline count unmoved**, which is
    worse than the JR-13 case where the count at least dropped to 602 and a reader

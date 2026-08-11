@@ -3773,3 +3773,151 @@ Corollary worth stating with it: *the reviewer's number is a claim about their m
 about the collection.* jack-ryan's "SURVIVED, 604" was correct. Nothing about it was wrong.
 It was simply not a claim about the mutation I ran, and the receipt was one edit away from
 treating it as one.
+
+---
+
+## 26. Round 22-23 — JR-22: an exempt FILE forgiven by its PREFIX
+
+jack-ryan's round-22 verdict is a **BLOCK on the mechanical lane**, and it is not a
+BLOCK on round 21's work: all five round-21 items came back CLOSED, rule 50 was
+independently confirmed (R22-A `2/609`, R22-B `4/607`), and they falsified their own
+round-20 clincher in the process — the regrade claim "the suite stays at 604" measures
+`3 failed, 600 passed`. The BLOCK is a new finding against code I wrote.
+
+### 26.1 Reproduced before accepted
+
+Standing discipline every round: reproduce a finding before repairing it. Real repo,
+`is_root_repo=True`, a tracked `agentic_orchestration/factory/` with a live
+`receipts.db` inside it, and filenames a PHASE would choose — each one adjacent to a
+real exemption member rather than synthetic:
+
+```
+changes seen  : ['…/factory/gates_EVIL.py', '…/factory/sessionsEVIL.txt']
+exempted      : ['…/factory/receipts.db', '…/factory/receipts.dbEVIL',
+                 '…/factory/receipts.db_exfiltrated/']
+
+BLIND  exempted=True   …/factory/receipts.dbEVIL
+BLIND  exempted=False  …/factory/receipts.db_exfiltrated/secrets.txt
+SEEN   exempted=False  …/factory/sessionsEVIL.txt
+SEEN   exempted=False  …/factory/gates_EVIL.py
+```
+
+Confirmed, and it sharpens on two axes jack-ryan's write-up did not separate:
+
+1. **The `/`-terminated members were never affected.** `sessionsEVIL.txt` is SEEN,
+   because `"…/sessionsEVIL.txt".startswith("…/sessions/")` is False. The trailing
+   slash was already doing the discriminating work for three of six members. The
+   defect is confined to the three files, and that boundary is worth stating because
+   it is what makes the repair small.
+2. **The subtree case is worse than a wide match.** `receipts.db_exfiltrated/`
+   appears in `exempted` as the DIRECTORY, and `secrets.txt` appears nowhere at all —
+   git collapses a wholly-untracked directory to one porcelain line, so ONE forgiven
+   entry took a whole subtree and the file's real name was in no artifact anywhere.
+
+Third axis, the one that makes it total: `TreeFingerprint.exempted` was populated from
+the first commit and **read by no production consumer**. So the wrong answer produced
+an empty diff AND left no trace. There was no artifact in which this could have been
+noticed — not a weak signal, an absent one.
+
+### 26.2 The repair states the direction instead of inferring it
+
+jack-ryan's proposed fix — `rel == p` for non-`/` entries, `rel.startswith(p)` for
+`/`-terminated ones — is correct and would pass every row. I went one step further,
+and the reason is JR-18 arriving one layer up.
+
+Reading the kind off the trailing slash is a **string-shape test**. JR-18's whole
+finding was that `_matches` must not infer direction from the shape of a path, because
+the caller knows and the string does not. The difference here is real — *this* string
+is authored by us, not by the phase, so shape-inference on our own literal is not the
+same category error. But the failure it permits is: omitting a slash from a directory
+entry is fail-CLOSED (its contents stay visible, the run gets noisier), while adding
+one to a file entry is fail-OPEN, and **punctuation is the only thing standing between
+those two outcomes**.
+
+So: `FACTORY_RUNTIME_FILES` (exact) and `FACTORY_RUNTIME_DIRS` (prefix), separately
+pinned. This does not eliminate the fail-open — a file placed in `_DIRS` still matches
+as a prefix — it **relocates it from punctuation to collection choice**, which is the
+point:
+
+* choosing `_DIRS` for a file is a visible category error at the edit site;
+* forgetting a slash is invisible;
+* both collections are pinned, so an addition to either must edit a literal *that
+  names the direction it takes*, and the reviewer reads "a new prefix exemption"
+  instead of "a new string".
+
+Same move as `normalise_marker` having no default: make the author state the thing
+rather than encode it in a character.
+
+**No `FACTORY_RUNTIME_PATHS = FILES + DIRS` convenience alias.** I wrote one, then
+removed it. `_module_vocabularies` counts container LITERALS by AST, so a public name
+bound to a `BinOp` is a vocabulary invisible to its own denominator — which is JR-24's
+finding, introduced by the fix for JR-22, in the same commit. Caught by asking what
+the denominator row would see, not by running it.
+
+### 26.3 `_is_factory_runtime` -> `_factory_runtime_match`
+
+Returns WHICH member forgave the path. Two reasons, and the second is load-bearing:
+
+1. Files match exactly, directories as a prefix — the fix.
+2. **The receipt names the member alongside the path.** "`receipts.dbEVIL` forgiven by
+   `receipts.db`" is a sentence an operator can refute; a bare list of forgiven paths
+   is not. `receipts.dbEVIL` looks plausible in a list. It looks obviously wrong the
+   moment you are told what forgave it. That is rule 45 (a claim names the thing it is
+   about) spent on the artifact that would have caught this defect had it existed.
+
+`TreeFingerprint.exempted` becomes `path -> member`, and `_note_coarse` becomes
+`_note_measurement_caveats` carrying both caveat kinds. That last one is Gate-2 H3
+applied structurally rather than remembered: two sibling methods each needing the same
+three call sites is the H3 hazard by construction — the next snapshot added gets one
+of them. Folded, "a snapshot was taken" and "its caveats were declared" are one
+statement. The stub in `test_runner.py` binds the REAL `_note_caveat` onto itself
+rather than a lambda, so these rows cannot pass over an emitter that stopped emitting.
+
+The exemption caveat is deliberately **not** lane-gated, unlike the coarse one (F5).
+The founding run is entirely mechanical and the factory writes its own `receipts.db`
+throughout it; a caveat that only appeared on the agentic lane would be absent from
+every receipt this factory has actually produced.
+
+### 26.4 Mutation receipt — five for five, each isolated
+
+Suite 611 -> 615. Clean-tree pre/postcondition, unique-needle check, whole-file
+equality landing guard, raw undeduped `-rEf` lines (rules 48, 50).
+
+| id | mutation | result |
+|---|---|---|
+| R23-A | the defect restored: `FACTORY_RUNTIME_FILES` matched as a prefix | KILLED `3 failed, 612 passed` |
+| R23-B | `FACTORY_RUNTIME_DIRS` lose their prefix match (opposite direction) | KILLED `2 failed, 613 passed` |
+| R23-C | the exemption caveat stops reaching the receipt | KILLED `3 failed, 612 passed` |
+| R23-D | the caveat keeps the path but stops naming the MEMBER | KILLED `2 failed, 613 passed` |
+| R23-E | `FACTORY_RUNTIME_DIRS` drops out of `VOCABULARY_PINS` | KILLED `3 failed, 612 passed` |
+
+Killers, undeduped:
+
+* **R23-A** — `test_JR22_an_exempt_FILE_is_forgiven_by_its_NAME_and_not_by_its_PREFIX`
+  AND `test_JR22_every_exemption_MEMBER_states_its_own_matching_direction`. Both, which
+  is right: the end-to-end row and the per-member row are two claims about one defect.
+* **R23-B** — the per-member row ONLY. The end-to-end row does not test the
+  directory-contents direction, and does not pretend to.
+* **R23-C** — both receipt rows.
+* **R23-D** — the member-naming row ONLY. The lane row asserts the caveat FIRES;
+  this one asserts what it SAYS. Separated, and the isolation proves the separation.
+* **R23-E** — the denominator row AND the pin-resolution row. This is the 15 -> 16
+  transition landing: I edited the pins and the collections in the same pass, so I
+  never saw the denominator row fire naturally. R23-E is that firing, on demand.
+
+`test_C2_every_assert_under_tests_is_proven_to_execute` co-fires on all five, as a
+CONSEQUENCE of a red row rather than an independent killer — the established reading.
+
+### 26.5 What the receipt does NOT claim
+
+The per-member direction row is derived FROM the collections, so a new member is
+covered without anyone remembering to write a row. It covers the DIRECTION of every
+member and says nothing about WHICH members exist — it passes just as happily over
+`FACTORY_RUNTIME_DIRS = ("",)`. That is what the pin is for, and the pin comment says
+so, because a covering row and a pin answering different questions is exactly the
+confusion rule 47 was in.
+
+The direction row also deliberately does **not** assert that files lack a trailing
+slash and directories have one. That would re-derive the kind from the punctuation and
+make the spelling load-bearing again through the back door — undoing § 26.2 in the
+test file while the product code looked fixed.

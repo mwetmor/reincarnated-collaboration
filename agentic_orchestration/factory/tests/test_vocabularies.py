@@ -63,23 +63,62 @@ the round-21 correction to rule 48, expressed as an instrument choice.
 """
 
 import ast
+import importlib
 from pathlib import Path
 
-from factory import envelope as envelope_mod
 from factory import permissions as perm
-from factory import workflow as workflow_mod
-from factory.harness import claude_code as cc
 
 FACTORY_DIR = Path(__file__).resolve().parents[1]
+_PACKAGE_PREFIX = "agentic_orchestration/factory/"
 
-#: The modules whose vocabularies this file adjudicates. Named rather than walked,
-#: because a walk over every module would sweep in infrastructure dicts and the
-#: resulting table would be long enough that nobody reads it.
-ADJUDICATED_MODULES: dict[str, object] = {
-    "permissions.py": perm,
-    "workflow.py": workflow_mod,
-    "envelope.py": envelope_mod,
-    "harness/claude_code.py": cc,
+#: Runtime subtrees, taken FROM THE PRODUCT rather than restated here (JR-24).
+#:
+#: This is not tidiness. `sessions/` holds QUARANTINED PHASE ARTIFACTS — real `.py`
+#: files whose contents a phase chose — so a naive `rglob` puts this file's
+#: denominator under the control of the thing it is measuring. Measured in the live
+#: worktree, the naive walk returns 18 names, two of them
+#: (`ARTIFACT_KINDS`, `MIGRATIONS`) written by earlier runs into `sessions/`. That is
+#: also why jack-ryan measured "the walk returns the same fifteen" and I do not: they
+#: worked in `git archive HEAD` copies, where `sessions/` is gitignored and therefore
+#: ABSENT. The hazard is invisible in an archived copy and live in the tree that ships.
+_RUNTIME_SUBTREES: tuple[str, ...] = tuple(
+    p[len(_PACKAGE_PREFIX):] for p in perm.FACTORY_RUNTIME_DIRS
+)
+
+
+def _adjudicated_modules() -> tuple[str, ...]:
+    """Every SOURCE module in the package. Walked, not named (JR-24).
+
+    The named-four version could not see a new vocabulary in `runner.py`, `gates.py`,
+    `receipts.py`, `phase.py`, `host.py`, `usage.py`, `report.py` or `cli.py` — eight
+    modules outside a denominator whose whole purpose is to be complete. Its comment
+    said a walk "would sweep in infrastructure dicts and the resulting table would be
+    long enough that nobody reads it"; measured, the walk returns exactly the same
+    names, because the classifier below already ignores private and non-container
+    assignments. The objection was reasoned and the reasoning was wrong.
+    """
+    out = []
+    for path in sorted(FACTORY_DIR.rglob("*.py")):
+        rel = path.relative_to(FACTORY_DIR).as_posix()
+        if rel.startswith("tests/"):
+            continue
+        if any(rel.startswith(sub) for sub in _RUNTIME_SUBTREES):
+            continue
+        out.append(rel)
+    return tuple(out)
+
+
+ADJUDICATED_MODULES: tuple[str, ...] = _adjudicated_modules()
+
+#: Public UPPERCASE module-level names that are NOT vocabularies, each with its
+#: reason. The classifier does not get to silently DROP what it cannot understand:
+#: anything that is neither a container nor a scalar must be named here or it reds
+#: the row by existing. That is the JR-20 direction question turned on the classifier
+#: itself — an unrecognised spelling used to be an exemption nobody had to ask for.
+NOT_A_VOCABULARY: dict[str, str] = {
+    "cli.py:FACTORY_DIR": "a Path expression, not a collection",
+    "harness/claude_code.py:HARNESS": "the object returned by `register_harness(...)`",
+    "harness/codex.py:HARNESS": "the object returned by `register_harness(...)`",
 }
 
 
@@ -165,16 +204,25 @@ _KEYS_ONLY: frozenset[str] = frozenset({"INVOCATION_ONLY_TOOLS"})
 #: each with the reason named. A claim that something is covered is a claim like
 #: any other, and rule 45 says it has to name the thing it is about.
 VOCABULARY_COVERED: dict[str, str] = {
+    # Every figure below names the MEMBER it is about (rule 50). JR-25: the
+    # `11 failed` that stood against GIT_CONTROL_PATHS was a measurement of a
+    # DIFFERENT collection, and nothing in the sentence could have said so.
     "PROTECTED_ALWAYS":
         "deny arm; deleting a member stops a path being refused and the wall's "
-        "protected-path rows flip verdict. REASONED, NOT MEASURED",
+        "protected-path rows flip verdict. MEASURED round 23: `canonical/` deleted, "
+        "KILLED, 2 failed (R23-I); `agentic_orchestration/factory/` deleted, KILLED, "
+        "2 failed (R23-J)",
     "PROTECTED_EVERY_REPO":
-        "measured round 20: member deletion KILLED, 3 failed",
+        "measured round 23: `.claude/` deleted, KILLED, 3 failed (R23-K)",
     "GIT_CONTROL_PATHS":
-        "measured round 20: member deletion KILLED, 11 failed",
+        "measured round 23: `config.worktree` deleted, KILLED, 3 failed (R23-F); "
+        "`hooks/` deleted, KILLED, 21 failed (R23-G). The `11 failed` printed here "
+        "until round 23 belonged to `GIT_NESTED_GITDIRS`' `modules/`; no member of "
+        "THIS collection gives 11, and until R23-F it had never been measured",
     "GIT_NESTED_GITDIRS":
-        "measured round 21 by jack-ryan: `worktrees/` deleted, KILLED, 7 failed. My "
-        "own round-20 figure for this row was an artifact — see rule 48",
+        "measured round 21 by jack-ryan: `worktrees/` deleted, KILLED, 7 failed; "
+        "measured round 23: `modules/` deleted, KILLED, 11 failed (R23-H). My own "
+        "round-20 figure for this row was an artifact — see rule 48",
     "UNFENCEABLE_TOOLS":
         "pinned by the `REFUSED_ROSTER` literal in test_workflow.py (rule 47)",
     "REASONED_ADMISSIONS":
@@ -197,8 +245,35 @@ def _module_vocabularies(relpath: str) -> set[str]:
     things this file is responsible for, not the set of things visible from it
     (rule 49: establish the denominator before reasoning over the set).
     """
+    return _classify_module(relpath)[0]
+
+
+#: Container CONSTRUCTORS, not only container LITERALS (JR-24). The v1 filter
+#: recognised `frozenset(...)` and `set(...)` and nothing else, so a vocabulary
+#: spelled `tuple([...])` left the denominator without anyone choosing that — an
+#: exemption granted by SPELLING, in the addition direction, which is the direction
+#: this whole file exists to close.
+_CONTAINER_CALLS = frozenset({"frozenset", "set", "tuple", "list", "dict"})
+_CONTAINER_LITERALS = (ast.Tuple, ast.List, ast.Set, ast.Dict)
+
+
+def _classify_module(relpath: str) -> tuple[set[str], set[str]]:
+    """(vocabularies, UNCLASSIFIABLE) for one module's public UPPERCASE names.
+
+    By AST rather than by `dir()`, so a name imported into the module is not
+    counted as one the module declares — the denominator has to be the set of
+    things this file is responsible for, not the set of things visible from it
+    (rule 49: establish the denominator before reasoning over the set).
+
+    THREE outcomes, not two. A name whose value is a container is a vocabulary; a
+    name whose value is a scalar constant is not; and a name that is NEITHER is
+    returned as unclassifiable rather than dropped. Dropping was the v1 behaviour
+    and it is an exemption the classifier granted itself, silently, in the direction
+    where nothing can notice.
+    """
     tree = ast.parse((FACTORY_DIR / relpath).read_text())
     found: set[str] = set()
+    unknown: set[str] = set()
     for node in tree.body:
         if not isinstance(node, (ast.Assign, ast.AnnAssign)):
             continue
@@ -209,24 +284,94 @@ def _module_vocabularies(relpath: str) -> set[str]:
             if target.id.startswith("_") or not target.id.isupper():
                 continue
             value = node.value
-            is_container = isinstance(value, (ast.Tuple, ast.List, ast.Set, ast.Dict))
-            is_setcall = (isinstance(value, ast.Call)
-                          and getattr(value.func, "id", "") in ("frozenset", "set"))
-            if is_container or is_setcall:
+            if isinstance(value, _CONTAINER_LITERALS):
                 found.add(target.id)
-    return found
+            elif (isinstance(value, ast.Call)
+                    and getattr(value.func, "id", "") in _CONTAINER_CALLS):
+                found.add(target.id)
+            elif isinstance(value, ast.Constant):
+                continue                      # a scalar; not a vocabulary
+            else:
+                unknown.add(target.id)
+    return found, unknown
+
+
+def test_JR24_the_classifier_ADJUDICATES_what_it_cannot_CLASSIFY():
+    """An unrecognised spelling is a question, not an answer.
+
+    The v1 classifier had two exits: "container" and "everything else, dropped". The
+    second is an exemption in the ADDITION direction — write a vocabulary in a shape
+    the filter does not know and it leaves the denominator, with no row anywhere able
+    to see that it did, because the row that would catch it has to name a spelling
+    nobody has used yet. That is JR-20's own finding, standing inside the file that
+    made it.
+
+    So the third exit reds this row, and clearing it means writing the name into
+    `NOT_A_VOCABULARY` with a reason — which is the adjudication, performed by a
+    human, exactly once.
+    """
+    unclassifiable: dict[str, str] = {}
+    for relpath in ADJUDICATED_MODULES:
+        for name in _classify_module(relpath)[1]:
+            unclassifiable[f"{relpath}:{name}"] = relpath
+
+    unadjudicated = sorted(set(unclassifiable) - set(NOT_A_VOCABULARY))
+    assert not unadjudicated, (
+        f"public UPPERCASE names the classifier cannot place: {unadjudicated}. Each "
+        "is either a vocabulary spelled in a shape `_classify_module` does not know "
+        "— add the shape — or it is not a vocabulary, in which case name it in "
+        "`NOT_A_VOCABULARY` with the reason. What must not happen is the v1 "
+        "behaviour: dropped, silently, by a filter that had no opinion."
+    )
+    stale = sorted(set(NOT_A_VOCABULARY) - set(unclassifiable))
+    assert not stale, (
+        f"adjudicated as 'not a vocabulary' but no longer unclassifiable: {stale}. "
+        "Either the name is gone or it now classifies cleanly; an exemption for a "
+        "condition that has passed is an exemption nobody is maintaining."
+    )
+
+
+def test_JR24_the_denominator_covers_the_PACKAGE_and_excludes_only_RUNTIME():
+    """What the walk includes, asserted rather than left to the walk.
+
+    Two claims, and the second is the one with teeth. The named-four version could
+    not see a vocabulary in `runner.py`; the walk can. And the walk must NOT see
+    `sessions/`, because `sessions/` holds quarantined phase artifacts — `.py` files
+    a phase wrote — so an unfiltered walk hands the denominator of the containment
+    tests to the thing being contained.
+    """
+    assert _RUNTIME_SUBTREES, "the exclusion list is empty; the filter does nothing"
+    for member in perm.FACTORY_RUNTIME_DIRS:
+        assert member.startswith(_PACKAGE_PREFIX), (
+            f"{member!r} is not under {_PACKAGE_PREFIX!r}, so the slice that derives "
+            "the exclusion prefixes silently produced a wrong string"
+        )
+    for expected in ("runner.py", "gates/base.py", "receipts.py", "cli.py"):
+        assert expected in ADJUDICATED_MODULES, (
+            f"{expected} is outside the denominator — the named-four state JR-24 found"
+        )
+    assert not [m for m in ADJUDICATED_MODULES if m.startswith("sessions/")], (
+        "a quarantined phase artifact entered the denominator. A phase could then "
+        "add or remove names from the set this file adjudicates, which inverts what "
+        "the file is for"
+    )
 
 
 def test_JR20_every_vocabulary_is_either_PINNED_or_NAMES_the_row_that_covers_it():
     """The denominator, established rather than assumed.
 
     jack-ryan's verdict said "re-derive from all fifteen rather than from four".
-    Fifteen is reproducible: it is the count of public UPPERCASE module-level
-    containers across the four adjudicated modules, and this row recomputes it
+    The count is reproducible: it is the number of public UPPERCASE module-level
+    containers across the package's SOURCE modules, and this row recomputes it
     from source every time rather than trusting the number. A new vocabulary
-    added to any of these modules fails here until somebody has said which of the
+    added to any of them fails here until somebody has said which of the
     two boxes it goes in — which is the structural half of the fix, and the half
     that survives the next collection nobody has written yet.
+
+    *Round 23 (JR-24): the denominator is now the WALK, not four named modules.*
+    Fifteen became sixteen at JR-22 (`FACTORY_RUNTIME_PATHS` split in two), and no
+    number is written down here, because a hardcoded total is a claim that goes
+    stale in exactly the direction — growth — that this row exists to catch.
     """
     declared = set()
     per_module = {}
@@ -264,7 +409,12 @@ def test_JR20_no_pinned_vocabulary_can_be_ADDED_TO_or_DELETED_FROM_silently():
     "is this collection what was adjudicated?", which is the question.
     """
     resolved = {}
-    for module in ADJUDICATED_MODULES.values():
+    for relpath in ADJUDICATED_MODULES:
+        # Imported from the same relpath the AST walk read, so the two halves of this
+        # file cannot disagree about which module they are talking about.
+        module = importlib.import_module(
+            "factory." + relpath[: -len(".py")].replace("/", ".")
+        )
         for name in VOCABULARY_PINS:
             if hasattr(module, name):
                 resolved[name] = getattr(module, name)
