@@ -651,6 +651,114 @@ def test_JR15_no_reasoned_admission_can_be_DELETED_without_a_row_failing():
     )
 
 
+#: Gate-2 JR-19. WHAT EACH ADMISSION STANDS ON. Every entry in `REASONED_ADMISSIONS`
+#: is admitted because some OTHER name is refused — that is the actual argument, and
+#: until this mapping existed it was load-bearing prose held together by nothing.
+#:
+#: jack-ryan's measurement: replacing `ExitWorktree`'s or `TaskOutput`'s whole reason
+#: with the word `"admitted"` SURVIVED at an unmoved 604. And the failure mode with
+#: real reach is not a rewrite at all — it is a legal two-line REGRADE. Move `Task` out
+#: of `UNFENCEABLE_TOOLS` and out of `REFUSED_ROSTER`, both of which are ordinary edits
+#: a future round might make on good evidence, and three admissions are left standing
+#: on a refusal that no longer exists. Nothing in the suite moves, because the coupling
+#: lived in two literals that never referred to each other.
+ADMISSION_DEPENDS_ON: dict[str, str] = {
+    "Skill": "ToolSearch",
+    "TaskOutput": "Task",
+    "TaskStop": "Task",
+    "ExitWorktree": "EnterWorktree",
+}
+
+#: The reason TEXT, pinned by digest. This is the one that closes jack-ryan's R21-A,
+#: and it is here because their proposed fix does not — I checked before adopting it.
+#:
+#: Their suggestion was a row requiring each reason to NAME the refusal it depends on.
+#: That closes R21-B and R21-C (reason replaced by `"admitted"`) and it closes the
+#: regrade case, which is why `ADMISSION_DEPENDS_ON` above exists. It does NOT close
+#: R21-A, whose whole point was that the token survives:
+#:
+#:     Skill's reason -> "is fine; ToolSearch is a different name"     SURVIVED, 604
+#:
+#: A name-check is a substring test, and R21-A keeps the substring. So is the
+#: `"ToolSearch" in …` assert above — which is the finding, and adding a second
+#: substring test of the same shape would have been the round-18 error again
+#: (a weaker mutation reported as the stronger guard).
+#:
+#: A digest has no adjacent question to answer. Any rewrite fails it, which is the
+#: point: these four sentences are an ADJUDICATION RECORD, and re-writing one is an
+#: act that should have to be performed deliberately. Updating a digest is cheap and
+#: the failure message prints the new one; what it cannot be is silent.
+ADMISSION_REASON_DIGESTS: dict[str, str] = {
+    "Skill": "e6571ed111d3f378",
+    "TaskOutput": "321600055d095f5e",
+    "TaskStop": "3de5b0142c2781ad",
+    "ExitWorktree": "e56d9224e97f8aa7",
+}
+
+
+def test_JR19_every_admission_names_a_refusal_that_STILL_EXISTS():
+    """The admissions are conditional, and until now nothing asserted the condition.
+
+    `TaskOutput` is admitted because *"`Task` is refused above, and without a creator
+    this is inert"*. `ExitWorktree` because *"`EnterWorktree` is refused above"*. Those
+    are not decoration; they are the premises. `REFUSED_ROSTER` pinned the refusals in a
+    DIFFERENT literal, so the coupling was real and stated nowhere — held by accident.
+
+    This row asserts the link, so a regrade breaks loudly at the admission that depended
+    on it rather than quietly at the fence.
+    """
+    assert set(ADMISSION_DEPENDS_ON) == set(REASONED_ADMISSIONS), (
+        "the dependency map and the admissions have drifted apart.\n"
+        f"  admissions without a stated dependency: "
+        f"{sorted(set(REASONED_ADMISSIONS) - set(ADMISSION_DEPENDS_ON))}\n"
+        f"  dependencies for names not admitted:    "
+        f"{sorted(set(ADMISSION_DEPENDS_ON) - set(REASONED_ADMISSIONS))}\n"
+        "A new admission must say what it stands on. That is the whole argument for "
+        "admitting it."
+    )
+    for name, needed in sorted(ADMISSION_DEPENDS_ON.items()):
+        assert needed in UNFENCEABLE_TOOLS, (
+            f"`{name}` is admitted on the argument that `{needed}` is refused, and "
+            f"`{needed}` is no longer in UNFENCEABLE_TOOLS. The admission is now "
+            f"standing on a refusal that does not exist. This is the REGRADE case: "
+            f"moving a name out of the refusals is a legal edit, and without this row "
+            f"it leaves the reasoning behind, silently, in a different file."
+        )
+        assert needed in REASONED_ADMISSIONS[name], (
+            f"`{name}`'s reason no longer names `{needed}`, which is what it depends "
+            f"on. A reader cannot check an argument whose premise has been deleted.\n"
+            f"  reason: {REASONED_ADMISSIONS[name]!r}"
+        )
+
+
+def test_JR19_no_admission_REASON_can_be_REWRITTEN_without_a_row_failing():
+    """The case no substring assert reaches: the reason rewritten, the token kept.
+
+    See `ADMISSION_REASON_DIGESTS` for why this is a digest and not a third name-check.
+    """
+    import hashlib
+
+    observed = {
+        name: hashlib.sha256(reason.encode()).hexdigest()[:16]
+        for name, reason in REASONED_ADMISSIONS.items()
+    }
+    drifted = {n: (ADMISSION_REASON_DIGESTS.get(n), d) for n, d in observed.items()
+               if ADMISSION_REASON_DIGESTS.get(n) != d}
+    assert not drifted, (
+        "an adjudication record was rewritten without the record of the adjudication "
+        "being re-stated.\n"
+        + "".join(
+            f"  {n}: pinned {was!r} -> observed {now!r}\n     now reads: "
+            f"{REASONED_ADMISSIONS[n]!r}\n"
+            for n, (was, now) in sorted(drifted.items())
+        )
+        + "If the rewrite is intended, update the digest in this file — that edit IS "
+        "the act of re-adjudicating, and it is the thing that must not happen by "
+        "accident. If it is not intended, the reason has been changed underneath the "
+        "argument that admitted the tool."
+    )
+
+
 def test_JR13_ToolSearch_is_refused_by_LITERAL_and_says_WHICH_KIND_of_entry_it_is(
     tmp_path, git_repo
 ):

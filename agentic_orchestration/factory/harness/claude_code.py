@@ -236,8 +236,9 @@ REASONED_ADMISSIONS: dict[str, str] = {
         "one — `Task` is refused above, and without a creator this is inert"
     ),
     "TaskStop": (
-        "stops a background task that already exists. Inert for the same reason, and "
-        "stopping is the fail-closed direction anyway"
+        "stops a background task that already exists. Inert because `Task` is refused "
+        "above and there is nothing to stop, and stopping is the fail-closed direction "
+        "anyway"
     ),
     "ExitWorktree": (
         "leaves a worktree; it cannot create one. `EnterWorktree` is refused above, so "
