@@ -1560,3 +1560,330 @@ than 471-plus-33-errors.
 * **G3** (host co-tenancy) and **G5** (rollback reason derived from branch rather than
   from a second measurement — adjacent to F1) carried forward.
 * gandalf DRIFT-CRITIC review of the amended reachability discipline text.
+
+---
+
+## 17. Round fourteen — the argv is not the grant, and the ledger's cheapest lie
+
+jack-ryan's round-thirteen review returned **HOLD** with seven findings. Every empirical
+claim in it was independently reproduced before I acted on it; two of the seven were
+findings about my *certification* rather than my product, which is now the shape this
+review has taken four rounds running.
+
+The round's own summary, in one line: **three of the seven findings are the same defect
+on three surfaces I had already "fixed" once** — the permission fence (fixed at the argv,
+never at the grant), the coarse-region gate (fixed in the predicate, never at the call
+site), and `.git/` control surfaces (fixed for one gitdir, and a repo has many).
+
+### 17.1 H1 / H2 — the flags are not what the process receives
+
+Every permissions row on the agentic lane asserted on `build_argv`'s output. The lane had
+never actually run, so nothing had ever checked what the CLI *did* with those flags.
+
+The measured facts, from a four-variant live probe:
+
+* `~/.claude/settings.json` on this host carries `"defaultMode": "bypassPermissions"`, and
+  with no `--permission-mode` flag it wins. Every phase this spine would have launched
+  would have run with permissions bypassed.
+* In `bypassPermissions` the `result` frame's `permission_denials` list **cannot be
+  non-empty** — there is nothing to deny. So `test_C3_a_denied_tool_call_is_not_a_passing_phase`,
+  the row that adjudicates denials, was reading a list whose silence was structural. A
+  green row certifying a fence that was not there.
+* Two `mcp__…` tools were granted under an explicit `--allowedTools`. MCP availability is
+  per-machine, so the fence's contents varied by host.
+* `--tools` silently drops a scoped form: `Bash(git status:*)` sent to it yields no `Bash`
+  at all. Both flags had been receiving the same string, so one of them was always wrong.
+
+The fix is `check_grant(init_frame, declared_tools)`, adjudicating the `init` frame — the
+CLI's own report of what it did — against the declaration. It fails closed four ways: no
+declaration reached it (a *wiring* failure, named as one), no init frame at all, a mode
+other than the pin, any `mcp__` tool, or any disagreement between granted and declared in
+either direction. The narrow direction matters too: a phase holding *less* than it
+declared fails in a way that reads as the agent's fault.
+
+The row `test_no_permission_skipping_flag_appears_anywhere` was **amended, and the
+amendment is the finding**. It asserted the flag was ABSENT, on the reading that any
+mention of permission modes was a step toward skipping them. Absent is not safe. The safe
+state is PINNED.
+
+> **This is a standing host-configuration fact, and it is outside my seam.** `~/.claude/settings.json`
+> carrying `defaultMode: bypassPermissions` affects every Claude Code session on this Mac,
+> not only the factory's. Surfaced to Matt; I have changed nothing outside the meta-repo.
+
+### 17.2 H3 — sixteen mutations, and not one of them touched a call site
+
+jack-ryan, verbatim: *"all sixteen rows mutate a predicate that some test calls directly,
+and none mutate a call site."* The mutation set was measuring the predicates and calling
+it coverage of the mechanism.
+
+He was right, and the specific instance was live: `_note_coarse`'s **post-gate** call site
+passed no `agentic` argument at all. It defaulted, the default happened to be right, and
+every row on the function stayed green because the rows passed the trigger themselves.
+
+Fixes: the argument is required (omission is a `TypeError`, not a default); three rows,
+one per call site, none of which names `agentic`; a fourth control on the mechanical lane
+so `agentic=True` hardcoded fails too.
+
+Two things went wrong writing those rows, and both are the review's own subject:
+
+* The post-gate row **passed for the wrong reason.** `status == "ABORTED"` is satisfied by
+  the breach classifier independently — an ignored directory appearing is a path outside
+  `writes` — so the row was green with the gate under test disarmed. Rows now assert the
+  abort reason contains the specific `when` label.
+* The post-execution row failed, and the failure was a `NameError` in my own fake harness.
+  Chasing it produced H8 below. **The row was sensitive enough to catch a defect it was
+  not written to look for**, which is the argument for these rows existing.
+
+Wiring is now a mutation **category** (`WIRING`), per jack-ryan's explicit instruction.
+
+### 17.3 H8 — the ledger's cheapest lie, found while debugging H3
+
+The runner reported `usage: NULL (mechanical phase — no model invoked)` on a line whose
+next word was `[star-lord]`.
+
+`Phase.usage` defaulted to `UsageBreakdown.absent("mechanical phase — no model invoked")`.
+The runner computed a lane-aware reason and never handed it to the Phase, so the default
+stood — and **the only path that ever read it was the path where an agentic phase's
+harness raised mid-flight.** `Phase.__exit__` records; `finish_phase` writes it to the
+durable `phases.usage_absent_reason` column. The ledger asserted that no model ran, for a
+phase that named an agent and launched a harness, at exactly the moment spend was least
+accounted for.
+
+`usage.py`'s own module docstring states the law: *"Absent is absent … Tokens are never
+invented, never zero-filled."* Inventing the **reason** breaks it as surely as inventing a
+count, and worse, because the invented reason is the reassuring one. This is the recurring
+shape landing in the one place I am the seam owner for.
+
+Three states, three reasons, each refutable on its own path:
+
+| State | Reason | The path that reads it |
+|---|---|---|
+| aborted before the attempt | `no attempt recorded` | phase-start containment abort |
+| harness in flight when the phase ended | `attempt N was in flight … cost is UNKNOWN (not zero)` | the raise |
+| no agent | `mechanical phase — no model invoked` | `_execute`'s mechanical branch |
+
+The third is kept, not deleted — it is structurally true on the one lane that has no
+agent, and a control row requires it, because "fix it by removing the claim everywhere"
+would pass the other rows.
+
+### 17.4 H4 — a repo has as many gitdirs as it has submodules and worktrees
+
+F3 closed `.git/hooks/pre-commit` and measured **one** gitdir. `.git/modules/<sub>/` is a
+submodule's complete gitdir with its own `hooks/`; `.git/worktrees/<wt>/` is a linked
+worktree's, carrying `config.worktree`, which reaches `core.hooksPath` exactly as `config`
+does. The write F3 exists to catch was still invisible one directory deeper.
+
+Measured on both axes, because either alone leaves a live path: **entry names** (a gitdir
+appearing is itself the change) and **the closed control list inside each** (planting a
+hook in an existing gitdir moves no entry name).
+
+The partner control earned its place immediately. My first version keyed the entry on the
+real directory path — and `_signature` stat-sweeps any key that resolves to a directory,
+so it would have swept the gitdir's `index`, `HEAD`, `refs/` and object store and breached
+on **every ordinary commit inside a submodule**. That is K1 verbatim, on the axis added to
+fix H4. The entry is now a synthetic key, which resolves to nothing and carries its signal
+by existing.
+
+### 17.5 A defect in the instrument: a mutation harness with a red baseline
+
+The first H8 mutation harness reported `4 RED, 0 survivors`. It was reading
+`returncode != 0` as caught — against a baseline that was **already red** (five rows
+stale from the H1/H2 edits). One mutation, `H8-d`, produced results *identical to the
+baseline* and was reported as killed.
+
+The predicate answered a slightly different question than the one asked, and its wrong
+answer was the reassuring one. In the harness built to detect exactly that. The harness
+now measures its baseline first, **refuses to run if it is not green**, and counts a
+mutation as caught only when the set of failing test NAMES grows.
+
+I am recording this because a mutation harness is a certification instrument, and this is
+the second round in a row where the instrument had the disease (§16.6 was the lost-update
+race). The instrument gets audited like the product now.
+
+**And a second one in the same round.** The rebuilt harness validated each mutation's
+anchor immediately before applying it. Mutation 12 of 24 — `H3-w3`, whose anchor I had
+written against a one-line signature that is actually five lines — matched zero, and the
+assertion aborted the set **25 minutes in**, leaving 13 mutations unmeasured. The check
+was correct and its TIMING was not: an anchor is verifiable in milliseconds without
+running anything, and validating it late converts a typo into a lost certification run.
+All 24 anchors are now validated up front, before the baseline is measured.
+
+Both instrument defects are the same shape as the product defects this review keeps
+finding. A late check and an absent check differ only in how long you believe the wrong
+thing.
+
+### 17.5a A survivor, and what it was hiding
+
+`--strict-mcp-config` was dropped from the argv and **nothing went red**. `check_grant`
+refuses MCP tools when they *arrive*, so detection was covered and prevention was not —
+the same argv-versus-grant split H1 is about, appearing inside H1's own fix.
+
+Detection alone is not equivalent here. Without the flag, every agentic phase on a host
+with MCP servers configured would fail at adjudication rather than run correctly, and a
+check that fires on every correct run is a check that gets removed. Row added. The
+survivor is recorded rather than quietly closed: a mutation set's value is entirely in
+the ones that live.
+
+### 17.5b A second survivor, in the WIRING category itself
+
+`H3-w3` gave `_note_coarse`'s `agentic` parameter a default of `True`. All 500 rows
+stayed green.
+
+They stayed green *correctly*: all three call sites pass the argument explicitly, so
+the default is unreachable and the mutation is a behavioural no-op **today**. But that
+is exactly the reading that makes it worth recording. The signature currently encodes a
+rule — *a caller that forgets the trigger gets a `TypeError`, not a silent `True`* — and
+nothing tested that rule, so nothing would have noticed it being deleted. The next call
+site added to `_note_coarse` would inherit "coarse-tier scans are agentic unless someone
+remembers to say otherwise," which is the H3 finding's own shape re-entering through the
+door H3 was about.
+
+This is the WIRING axis pointed at a function's own signature. The mutation is not
+refuted by any existing call site; it is refuted only by a call that omits the argument.
+Row added: `test_H3_the_TRIGGER_cannot_be_OMITTED_by_a_future_call_site`, which calls
+`_note_coarse` without `agentic` and requires `TypeError`. It asserts on the parameter's
+*absence of a default*, which is the thing the mutation removed.
+
+### 17.5c The mutation set caught a defect in a row written to catch that defect
+
+`H4-d` re-introduces the K1 regression: key the nested-gitdir entry on the REAL path
+instead of the synthetic tab-bearing one. Three rows went red — and
+`test_H4_PARTNER_ordinary_git_use_does_not_move_the_NESTED_signature`, **the row whose
+entire purpose is that regression, was not among them.** Its own docstring claims it
+"caught a real defect."
+
+Why it cannot fail, exactly:
+
+```python
+before = perm._git_control_entries(repo)     # path -> "G!"  (a KEY SET, and a constant)
+...ordinary git churn inside .git/modules/sub...
+assert perm._git_control_entries(repo) == before
+```
+
+`_git_control_entries` returns names mapped to the constant `GIT_CONTROL`. The K1
+false-breach does not live there. It lives one function downstream, at
+`permissions.py:711`, where `fingerprint` does `content[p] = _signature(root, p)` for
+every entry key it was handed. With the synthetic key `.git/modules/\t<gitdir: sub>`,
+`root / rel` names nothing on disk and `_signature` returns `("", EXACT)` forever. With
+the real key `.git/modules/sub`, `_signature` sees a directory and stat-sweeps the whole
+gitdir — `index`, `ORIG_HEAD`, `refs/`, the object store — so one `git commit` inside a
+submodule moves it and the run reports a breach on correct behaviour.
+
+Both keyings produce the **same key set**. The row compares the key set. It answers "did
+the set of control-surface NAMES change?" when the question asked is "did the
+control-surface SIGNATURE move?" — the recurring defect shape verbatim, in the row I
+wrote to guard against the recurring defect shape, in the round whose subject is that
+shape. I did not find this by reading it; I have read it several times. The mutation
+found it.
+
+Fixed by comparing what actually carries the failure: `perm.fingerprint(repo)` before and
+after, asserting `before.content[k] == after.content[k]` for every git-control key. The
+old key-set assertion stays — it is not wrong, only insufficient, and it is what refutes
+a *different* mutation (an entry silently disappearing).
+
+The general lesson, and it is the one worth carrying out of this round: **a control row
+must be run against the regression it controls for, not merely aimed at it.** Three of
+the four instrument defects found this round (§17.5, §17.5a, this one) were invisible to
+review and visible to mutation on the first pass.
+
+### 17.5d A third survivor: the depth cap stops measuring and says nothing
+
+`H4-f` deletes the line that records
+`.git/…\t<nested deeper than 4 gitdirs: not measured>` and returns silently instead.
+All 500 rows stayed green.
+
+The cap itself is fine — recursion into gitdirs has to be bounded, and four is generous
+for a real repo. What the cap must never do is stop measuring *quietly*. The entry is
+the whole reason a bounded sweep is honest: it converts "we did not look past here" into
+a fact carried in the receipt, exactly as the COARSE tier does for regions past
+`_IGNORED_SCAN_CAP`. Delete it and the receipt's silence about a region reads
+identically to the silence it emits about a region it measured and found clean — which
+is the absent-is-absent law (`usage.py`: "never invented, never zero-filled") applied to
+coverage rather than to tokens.
+
+Nothing tested it because the depth cap has no natural fixture: no repo in the suite
+nests gitdirs four deep, so the branch was reachable only by construction. "No test
+happened to build the shape" is how an unreachable branch stays unreached — the ROUTE
+axis, again. Row added: `test_H4_a_gitdir_nest_PAST_THE_DEPTH_CAP_declares_itself_unmeasured`,
+which builds five levels of `modules/` by hand and requires the declaration to appear
+and to carry `GIT_CONTROL` so it flows through the diff like every other entry.
+
+### 17.5e A fourth survivor: the ledger's lie, pointed the other way
+
+`H8-d` makes the in-flight reason fire on the MECHANICAL lane too — `if True:` in place
+of `if not spec.is_mechanical:`. All 500 rows stayed green.
+
+H8 was the ledger claiming **zero where cost is unknown**. This is the same falsehood
+inverted: claiming **UNKNOWN where zero is provable**. A mechanical phase has
+`agent: null`; `_execute` returns at `runner.py:471` before `harness.run` is reached and
+no harness is ever constructed. "No model invoked" is not a hopeful default on that lane
+— it is the one absent-reason in the file that is *structurally* true. The mutation puts
+phantom unaccounted spend into the cost ledger on the only lane that cannot spend, which
+is how a cost ledger stops being read.
+
+It survived because on the happy path the in-flight string is overwritten two statements
+later by `phase.usage = total_usage`. The mutation is observable **only if a mechanical
+phase's execution crashes**, and nothing in the suite crashes one. Same shape as `H4-f`:
+the branch was reachable only by construction, and no fixture happened to build it. The
+new row monkeypatches `_execute` to raise from exactly where a real crash would.
+
+Four survivors in twenty-four, and all four are one species: **a rule the code states —
+in a signature, a docstring, a declaration line, a lane guard — that no row asserts.**
+None of them changed behaviour today. Each removes a guardrail the *next* change walks
+into. That is the yield of a mutation set that is allowed to have survivors; a set with
+none is usually a set that was scored generously.
+
+### 17.6 The mutation table
+
+Twenty-four mutations across five categories, run against a measured-green baseline
+(500 passed). A mutation counts as caught only when the set of failing test NAMES grows.
+The **first killer** column is the row that would actually have reported the defect —
+recorded because "something went red" and "the row built for this went red" are
+different claims, and this review is about exactly that distinction.
+
+| # | Mutation | Verdict | First killer |
+|---|---|---|---|
+| H1-a | argv stops pinning the mode (ambient settings decide) | RED | `test_no_permission_skipping_flag_appears_anywhere` |
+| H1-b | the pin is moved to the mode that disarms denials | RED | `test_H1_a_mode_the_workflow_did_not_pin_is_refused` |
+| H1-c | `check_grant` stops adjudicating the mode | RED | `test_H1_a_mode_the_workflow_did_not_pin_is_refused` |
+| H1-d | a missing init frame is assumed clean | RED | `test_H1_a_MISSING_init_frame_is_refused_not_assumed_clean` |
+| H2-a | MCP tools nobody declared are tolerated | RED | `test_H2_MCP_tools_nobody_declared_are_refused` |
+| H2-b | granted-vs-declared is not compared at all | RED | `test_H2_a_grant_NARROWER_than_the_declaration_is_refused` |
+| H2-c | the grant is compared against ITSELF (tightest-looking no-op) | RED | `test_H2_a_grant_NARROWER_than_the_declaration_is_refused` |
+| H2-d | the scoped form is sent raw to `--tools` | RED | `test_H2_the_SCOPED_form_survives_on_allowedTools_and_is_stripped_for_tools` |
+| H2-e | `--strict-mcp-config` is dropped | **SURVIVED → RED** | `test_H2_the_ambient_MCP_servers_are_refused_on_the_ARGV_too` (§17.5a) |
+| H3-w1 | `run()` stops passing `declared_tools` to adjudicate | RED | `test_H1_the_MODE_is_adjudicated_through_run_not_merely_sent` |
+| H3-w2 | an unwired declaration compares against the empty set | RED | `test_H3_the_WIRING_of_declared_tools_fails_CLOSED` |
+| H3-w3 | `_note_coarse` defaults its trigger to `True` | **SURVIVED → RED** | `test_H3_the_TRIGGER_cannot_be_OMITTED_by_a_future_call_site` (§17.5b) |
+| H3-w4 | every `_note_coarse` call site passes `agentic=False` | RED | `test_C2_every_assert_under_tests_is_proven_to_execute` |
+| H3-w5 | the post-gate call site omits the trigger | RED | `test_L6_paths_the_rollback_REFUSED_to_undo_are_named_in_the_receipts` |
+| H4-a | nested gitdirs are not measured at all | RED | `test_H4_PARTNER_ordinary_git_use_does_not_move_the_NESTED_signature` |
+| H4-b | only `worktrees/`, not `modules/` (the submodule hook stays live) | RED | `test_H4_PARTNER_ordinary_git_use_does_not_move_the_NESTED_signature` |
+| H4-c | entry names only — no recursion into the child gitdir | RED | `test_H4_a_config_in_an_EXISTING_worktree_gitdir_is_measured` |
+| H4-d | the entry is keyed on the REAL path (the K1 regression) | RED — **but not by the anti-K1 row** | `test_H4_a_NEW_gitdir_APPEARING_is_itself_the_change` (§17.5c) |
+| H4-e | `config.worktree` drops off the closed list | RED | `test_H4_a_config_in_an_EXISTING_worktree_gitdir_is_measured` |
+| H4-f | depth overflow is skipped silently instead of recorded | **SURVIVED → RED** | `test_H4_a_gitdir_nest_PAST_THE_DEPTH_CAP_declares_itself_unmeasured` (§17.5d) |
+| H8-a | the `Phase` default reverts to the reassuring claim | RED | `test_C2_every_assert_under_tests_is_proven_to_execute` |
+| H8-b | the construction argument is dropped | RED | `test_C2_every_assert_under_tests_is_proven_to_execute` |
+| H8-c | the in-flight assignment is dropped | RED | `test_C2_every_assert_under_tests_is_proven_to_execute` |
+| H8-d | the in-flight reason fires on the mechanical lane too | **SURVIVED → RED** | `test_H8_a_crashed_MECHANICAL_phase_is_not_billed_as_UNKNOWN` (§17.5e) |
+
+**Final: 24/24 caught. Four survivors on the first pass** — `H2-e`, `H3-w3`, `H4-f`,
+`H8-d` — each closed by a new row, and each new row re-run against its own mutation to
+confirm it kills rather than assumed to (`/tmp/sl14_verify.py`). Plus `H4-d`, caught but
+by the wrong row, now caught by the right one. Suite 500 → **504**.
+
+Two rows in the H4 block (`H4-a`, `H4-b`) are killed FIRST by the partner control rather
+than by the row built for the case. That is not a weakness in those two: the partner
+opens with an explicit premise assertion (`nested gitdirs are not measured at all`)
+precisely so it cannot pass vacuously when the surface it controls for has been removed.
+A control that would go green if the thing it controls stopped existing is not a control.
+
+**The first-killer column earned its place on `H4-d`.** A verdict column alone reports
+`RED` there — caught, move on. The killer column reports that the row which caught it
+was about gitdirs *appearing*, and that the row written for the K1 regression itself
+stayed green (§17.5c). Both facts are true; only one of them is useful. That is the
+review's own subject appearing in the instrument that measures compliance with it: a
+binary predicate answering a slightly different question than the one asked, whose
+comfortable answer happens to be correct and uninformative.
+

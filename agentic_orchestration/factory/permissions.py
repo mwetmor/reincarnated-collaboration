@@ -521,7 +521,90 @@ GIT_CONTROL = "G!"
 #: NOT the object store, refs, or the index: those move on ordinary disciplined git
 #: use, which is exactly the mistake K1 made with STRUCTURE_SKIP_DIRS. This list is
 #: the paths that change ONLY when somebody decides to change them.
-GIT_CONTROL_PATHS: tuple[str, ...] = ("hooks/", "config", "info/exclude")
+#:   config.worktree  the per-worktree config, live whenever `extensions.worktreeConfig`
+#:                  is set. It reaches `core.hooksPath` exactly like `config` does, and
+#:                  it is the file `git config --worktree` writes.
+GIT_CONTROL_PATHS: tuple[str, ...] = ("hooks/", "config", "config.worktree", "info/exclude")
+
+#: Gate-2 H4. The two directories under a gitdir that contain FURTHER GITDIRS.
+#:
+#: `.git/modules/<sub>` is a submodule's complete gitdir — its own `hooks/`, its own
+#: `config`. `.git/worktrees/<wt>` is a linked worktree's gitdir, which carries
+#: `config.worktree`. Both were entirely outside F3's closed list, so the one write
+#: F3 exists to catch — planting `pre-commit` — was still invisible if it landed one
+#: directory deeper. F3 named the surface and then measured a single instance of it;
+#: a repo has as many gitdirs as it has submodules and worktrees, and every one of
+#: them runs hooks on the next git operation a human performs.
+#:
+#: Measured on BOTH axes, because either alone leaves a live path:
+#:   - the ENTRY NAMES of these directories, so a gitdir that did not exist before
+#:     appearing is itself the change (the `git worktree add` / `submodule add` route,
+#:     which H5 notes the `EnterWorktree` builtin reaches without invoking git at all);
+#:   - the closed control list INSIDE each one, because planting a hook in a gitdir
+#:     that already exists moves no entry name.
+#:
+#: Ordinary disciplined git use does not move either — `add`, `commit`, `gc` never
+#: write here — which is the K1 test this list has to pass and `refs/`, `index` and
+#: the object store do not.
+GIT_NESTED_GITDIRS: tuple[str, ...] = ("worktrees/", "modules/")
+
+#: Submodules nest, so gitdirs nest. Bounded rather than unbounded because this walk
+#: runs on every fingerprint, and because a cycle here (a symlink pointing upward)
+#: would otherwise not terminate. Exceeding it is RECORDED, not skipped silently:
+#: "we stopped looking" must never be stored as "there was nothing there".
+_MAX_GITDIR_DEPTH = 4
+
+
+def _gitdir_control_entries(dot: Path, prefix: str, depth: int, out: dict[str, str]) -> None:
+    """The closed control list for ONE gitdir, then recurse into the gitdirs it holds."""
+    if depth > _MAX_GITDIR_DEPTH:
+        out[f"{prefix}\t<nested deeper than {_MAX_GITDIR_DEPTH} gitdirs: not measured>"] = (
+            GIT_CONTROL
+        )
+        return
+    for rel in GIT_CONTROL_PATHS:
+        target = dot / rel.rstrip("/")
+        if rel.endswith("/"):
+            if not target.is_dir():
+                continue
+            try:
+                # Sorted so the entry set is deterministic; direct children only,
+                # because that is the exact set git executes.
+                for child in sorted(target.iterdir()):
+                    out[f"{prefix}/{rel}{child.name}"] = GIT_CONTROL
+            except OSError as exc:
+                # Unreadable must never read as unchanged — same rule as everywhere
+                # else in this module.
+                out[f"{prefix}/{rel}\t<unreadable: {exc.strerror}>"] = GIT_CONTROL
+        elif target.exists():
+            out[f"{prefix}/{rel}"] = GIT_CONTROL
+
+    for nested in GIT_NESTED_GITDIRS:
+        container = dot / nested.rstrip("/")
+        if not container.is_dir():
+            continue
+        try:
+            children = sorted(container.iterdir())
+        except OSError as exc:
+            out[f"{prefix}/{nested}\t<unreadable: {exc.strerror}>"] = GIT_CONTROL
+            continue
+        for child in children:
+            # The name itself is an entry: a gitdir appearing is the change, before
+            # anything inside it has been written.
+            #
+            # SYNTHETIC key, not the real path, and the tab is what makes it one.
+            # `_signature` stat-sweeps any key that resolves to a directory, and a
+            # gitdir's contents are `index`, `HEAD`, `ORIG_HEAD`, `refs/`, `logs/`
+            # and the object store — every one of which moves on an ordinary
+            # `commit`. Keying on the real path would therefore report a breach
+            # every time a submodule was used correctly, which is precisely the K1
+            # mistake this module has already made once. A synthetic key resolves
+            # to nothing, signs as "", and carries its signal by EXISTING.
+            out[f"{prefix}/{nested}\t<gitdir: {child.name}>"] = GIT_CONTROL
+            if child.is_dir():
+                _gitdir_control_entries(
+                    child, f"{prefix}/{nested}{child.name}", depth + 1, out
+                )
 
 
 def _git_control_entries(root: Path) -> dict[str, str]:
@@ -551,22 +634,7 @@ def _git_control_entries(root: Path) -> dict[str, str]:
     if not dot.is_dir():
         out[".git"] = GIT_CONTROL
         return out
-    for rel in GIT_CONTROL_PATHS:
-        target = dot / rel.rstrip("/")
-        if rel.endswith("/"):
-            if not target.is_dir():
-                continue
-            try:
-                # Sorted so the entry set is deterministic; direct children only,
-                # because that is the exact set git executes.
-                for child in sorted(target.iterdir()):
-                    out[f".git/{rel}{child.name}"] = GIT_CONTROL
-            except OSError as exc:
-                # Unreadable must never read as unchanged — same rule as everywhere
-                # else in this module.
-                out[f".git/{rel}\t<unreadable: {exc.strerror}>"] = GIT_CONTROL
-        elif target.exists():
-            out[f".git/{rel}"] = GIT_CONTROL
+    _gitdir_control_entries(dot, ".git", 1, out)
     return out
 
 

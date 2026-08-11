@@ -1594,3 +1594,218 @@ def test_F3_a_deleted_hook_is_also_caught(fenced, tmp_path):
     assert [a.guard for a in actions] == ["git_internal"], (
         f"a DELETED control surface took a different branch: {[(a.action, a.guard) for a in actions]}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Gate-2 H4 — the OTHER gitdirs
+# ---------------------------------------------------------------------------
+#
+# F3 named the surface and then measured a single instance of it. A repo has as many
+# gitdirs as it has submodules and linked worktrees, and every one of them has its
+# own `hooks/` that git runs on the next operation a human performs there. So the
+# exact write F3 exists to catch was still invisible one directory deeper —
+# `.git/modules/<sub>/hooks/pre-commit` — and the fix that closed the vector left
+# the vector open.
+#
+# Two axes, because either alone leaves a live path: a gitdir APPEARING (measured by
+# entry name) and a hook planted in a gitdir that ALREADY EXISTS (measured by the
+# closed control list inside it, which moves no entry name).
+
+def _make_submodule_gitdir(repo: Path) -> Path:
+    """A submodule's gitdir, in the shape `git submodule add` leaves behind.
+
+    Built directly rather than via a real `submodule add`: the fingerprint reads the
+    filesystem, so what matters is the SHAPE — a nested gitdir with its own `hooks/`.
+    A real submodule would also drag in a second source repo, a `.gitmodules` file and
+    a checkout, none of which this measurement consults.
+    """
+    gitdir = repo / ".git" / "modules" / "sub"
+    (gitdir / "hooks").mkdir(parents=True, exist_ok=True)
+    (gitdir / "config").write_text("[core]\n\tbare = false\n", encoding="utf-8")
+    return gitdir
+
+
+def test_H4_a_hook_in_an_EXISTING_submodule_gitdir_is_measured(fenced):
+    """The vector F3 left open. The gitdir is in the BEFORE snapshot.
+
+    Entry-name measurement alone cannot catch this — `.git/modules/` holds exactly
+    the same one name at both ends — which is why the closed control list has to be
+    applied inside each nested gitdir and not only at the top.
+    """
+    f = fenced
+    repo = f.free_repo
+    gitdir = _make_submodule_gitdir(repo)
+    rel = ".git/modules/sub/hooks/pre-commit"
+    _, changes = _snapshot_repo(
+        repo, lambda: (gitdir / "hooks" / "pre-commit").write_text("#!/bin/sh\necho pwned\n")
+    )
+    assert any(c.path == rel for c in changes), (
+        f"a hook planted in a submodule's own gitdir was not measured. Changes: "
+        f"{sorted(c.path for c in changes)}"
+    )
+    _, breaches = perm.classify(changes, writes=["**"], root=repo, read_only_trees=[])
+    assert [b.change.path for b in breaches if b.change.path == rel], (
+        "the planted submodule hook was measured but not a breach"
+    )
+
+
+def test_H4_a_config_in_an_EXISTING_worktree_gitdir_is_measured(fenced):
+    """`config.worktree` reaches `core.hooksPath` exactly as `config` does.
+
+    It is also the file `git config --worktree` writes, so it is reachable without
+    the agent ever naming a path under `.git/`.
+    """
+    f = fenced
+    repo = f.free_repo
+    gitdir = repo / ".git" / "worktrees" / "wt"
+    gitdir.mkdir(parents=True, exist_ok=True)
+    rel = ".git/worktrees/wt/config.worktree"
+    _, changes = _snapshot_repo(
+        repo, lambda: (gitdir / "config.worktree").write_text(
+            "[core]\n\thooksPath = /tmp/pwned\n", encoding="utf-8"
+        )
+    )
+    assert any(c.path == rel for c in changes), (
+        f"a worktree config was written and the change-set names "
+        f"{sorted(c.path for c in changes)}"
+    )
+
+
+def test_H4_a_NEW_gitdir_APPEARING_is_itself_the_change(fenced):
+    """The second axis, on a real `git worktree add`.
+
+    H5's note is that `EnterWorktree` is in the builtin tool set, so a phase can
+    reach this without invoking git — but the surface is the same either way: a new
+    gitdir, with a new `hooks/`, that no allowlist named. The entry is SYNTHETIC
+    (see `_gitdir_control_entries`), because keying on the real directory path would
+    stat-sweep git's index and refs and fire on every ordinary commit.
+    """
+    f = fenced
+    repo = f.free_repo
+    before = perm._git_control_entries(repo)
+    assert not any("worktrees/" in k for k in before), "premise failed: a worktree exists"
+    subprocess.run(
+        ["git", "worktree", "add", "-q", str(f.free_repo.parent / "linked"), "-b", "wtbranch"],
+        cwd=str(repo), check=True, capture_output=True,
+    )
+    after = perm._git_control_entries(repo)
+    appeared = set(after) - set(before)
+    assert any("<gitdir: linked>" in k for k in appeared), (
+        f"a linked worktree's gitdir appeared and the control signature did not "
+        f"change. New entries: {sorted(appeared)}"
+    )
+
+
+def test_H4_a_gitdir_nest_PAST_THE_DEPTH_CAP_declares_itself_unmeasured(fenced):
+    """A bounded sweep is honest only if it says where it stopped.
+
+    Recursion into nested gitdirs has to be bounded and four is generous for a real
+    repo. What the bound must never do is stop measuring QUIETLY. The overflow entry
+    is the whole reason a bounded sweep can be trusted: it turns "we did not look
+    past here" into a fact carried in the receipt, exactly as the COARSE tier does
+    for regions past `_IGNORED_SCAN_CAP`. Delete it and the fingerprint's silence
+    about an unmeasured region reads identically to its silence about a region it
+    measured and found clean — `usage.py`'s absent-is-absent law ("never invented,
+    never zero-filled") applied to coverage instead of to tokens.
+
+    Mutation `H4-f` replaced the record-then-return with a bare return and all 500
+    rows stayed green, because no repo in the suite nests gitdirs four deep and the
+    branch was therefore reachable only by construction. "No test happened to build
+    the shape" is how a branch stays unreached — the ROUTE axis.
+
+    The entry must also carry `GIT_CONTROL`, so the declaration flows through
+    `diff_fingerprints` and `classify` like every other entry rather than being a
+    string only a human reading the dict would ever see.
+    """
+    repo = fenced.free_repo
+    deep = repo / ".git"
+    for name in ("a", "b", "c", "d", "e"):
+        deep = deep / "modules" / name
+        (deep / "hooks").mkdir(parents=True)
+    entries = perm._git_control_entries(repo)
+    overflow = [k for k in entries if "not measured" in k]
+    assert overflow, (
+        "a gitdir nest deeper than the recursion cap was skipped without saying so. "
+        "The receipt cannot distinguish 'measured and clean' from 'never looked', "
+        f"which is the one thing the cap owes its reader. Keys: {sorted(entries)}"
+    )
+    assert all(entries[k] == perm.GIT_CONTROL for k in overflow), (
+        "the overflow declaration is not marked GIT_CONTROL, so it never reaches the "
+        f"diff or the classifier and no run would ever surface it. Got: "
+        f"{ {k: entries[k] for k in overflow} }"
+    )
+    assert all(str(perm._MAX_GITDIR_DEPTH) in k for k in overflow), (
+        "the declaration does not name the depth at which measurement stopped, so a "
+        f"reader cannot tell how much was skipped. Says: {overflow}"
+    )
+
+
+def test_H4_PARTNER_ordinary_git_use_does_not_move_the_NESTED_signature(fenced):
+    """The K1 control, extended to the new surfaces — and it did not work at first.
+
+    The first version keyed the entry on the real directory path. `_signature`
+    stat-sweeps any key that resolves to a directory, and a gitdir contains `index`,
+    `HEAD`, `refs/` and the object store — so a single `git commit` inside a
+    submodule would have breached. That is K1 verbatim, on the axis added to fix H4.
+
+    This row caught that BY HAND during authoring, and was then narrowed to a
+    comparison that could not catch it again. `_git_control_entries` returns names
+    mapped to the constant `GIT_CONTROL`. The false-breach lives one function
+    downstream, in `fingerprint`, at `content[p] = _signature(root, p)`: the synthetic
+    key `\\t<gitdir: sub>` names nothing on disk and signs as `("", EXACT)` forever,
+    while the real key `.git/modules/sub` names a directory and gets swept. Both
+    keyings produce the SAME KEY SET. So the old assertion answered "did the set of
+    control-surface NAMES change?" when the question asked is "did the
+    control-surface SIGNATURE move?"
+
+    Mutation `H4-d` re-introduced the real-path keying and this row stayed green
+    while three others went red. Review had read it several times. It now compares
+    `fingerprint().content` across the git-control keys, which is the value that
+    actually carries the failure. The key-set assertion is kept — not wrong, only
+    insufficient, and it is what refutes a DIFFERENT mutation: an entry silently
+    disappearing.
+    """
+    f = fenced
+    repo = f.free_repo
+    _make_submodule_gitdir(repo)
+    subprocess.run(
+        ["git", "worktree", "add", "-q", str(f.free_repo.parent / "linked2"), "-b", "wtbranch2"],
+        cwd=str(repo), check=True, capture_output=True,
+    )
+    before = perm._git_control_entries(repo)
+    assert any("modules/" in k for k in before) and any("worktrees/" in k for k in before), (
+        f"premise failed: nested gitdirs are not measured at all. Keys: {sorted(before)}"
+    )
+    fp_before = perm.fingerprint(repo)
+    missing = sorted(set(before) - set(fp_before.content))
+    assert not missing, (
+        "premise failed: control-surface keys are not being SIGNED, so the signature "
+        f"comparison below would compare nothing. Unsigned keys: {missing}"
+    )
+    # Ordinary use of the NESTED gitdir, not just the top one: this is where the
+    # false-breach would have come from.
+    (repo / ".git" / "modules" / "sub" / "index").write_text("churn\n", encoding="utf-8")
+    (repo / ".git" / "modules" / "sub" / "ORIG_HEAD").write_text("deadbeef\n", encoding="utf-8")
+    (f.free_dir / "ordinary2.txt").write_text("work\n", encoding="utf-8")
+    for cmd in (
+        ["git", "add", "-A"],
+        ["git", "commit", "-q", "-m", "ordinary"],
+        ["git", "gc", "-q", "--prune=now"],
+    ):
+        subprocess.run(cmd, cwd=str(repo), check=True, capture_output=True)
+    fp_after = perm.fingerprint(repo)
+    moved = {
+        k: (fp_before.content[k], fp_after.content.get(k))
+        for k in before
+        if fp_after.content.get(k) != fp_before.content[k]
+    }
+    assert not moved, (
+        "git's own churn inside a nested gitdir moved the control-surface SIGNATURE. "
+        "Keying the entry on the real gitdir path makes `_signature` stat-sweep that "
+        "gitdir's index, refs and object store, so every ordinary commit in a "
+        f"submodule reports a breach — K1 verbatim. Moved: {moved}"
+    )
+    assert perm._git_control_entries(repo) == before, (
+        "the SET of control surfaces changed under ordinary git use. A measurement "
+        "that fires on correct behaviour trains the operator to ignore it."
+    )

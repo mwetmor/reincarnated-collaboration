@@ -267,6 +267,66 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    requires a root-cwd collection to stay clean — over both the bare invocation and the
    explicit `.`, which is how the ablation showed `norecursedirs` doing the work and
    `testpaths` merely saying so out loud (F7).
+24. **The argv is not the grant.** Every permissions row on the agentic lane certified
+   what the harness *sends*. The `claude` CLI takes its permission mode from
+   `~/.claude/settings.json` when no flag pins it, and on this host that file carries
+   `defaultMode: bypassPermissions` — under which `permission_denials` cannot fire at
+   all. So the row named "no permission-skipping flag appears anywhere" was passing on
+   a lane that skipped every permission, and the denial adjudicator was reading a list
+   structurally incapable of being non-empty. The mode is now pinned on the argv *and*
+   adjudicated against the `init` frame, which is the CLI reporting what it actually
+   did; a disagreement fails the phase, and so does an absent init frame — no evidence
+   about the grant must not read as no problem (H1). The same frame showed two MCP
+   tools granted under an explicit allowlist and a scoped form dropped silently by
+   `--tools`, so the grant is compared to the declaration by base name,
+   `--strict-mcp-config` is passed, and the two tool flags now receive different
+   strings because they accept different ones (H2).
+25. **A trigger reaching a predicate is not the same as a predicate being called with
+   it.** The round-thirteen mutation set had sixteen rows and every one mutated a
+   predicate some test called directly; none mutated a *call site*. `_note_coarse`'s
+   post-gate caller passed no `agentic` argument at all, and every row on the function
+   stayed green. The argument is now required — omitting it is a `TypeError` rather
+   than a default — each of the three call sites has a row that never names `agentic`
+   itself, and the rows assert on the `when` label so one site's abort cannot be
+   mistaken for another's. Wiring is a mutation *category* here now (H3). The first
+   draft of the post-gate row asserted `status == "ABORTED"`, which the breach
+   classifier satisfies independently: it passed with the gate under test disarmed.
+   *And a signature is a rule that needs its own row.* Giving `agentic` a default of
+   `True` survived the round-fourteen set — correctly, since all three call sites pass
+   it explicitly — but the survivor showed that nothing tested the requirement itself,
+   so the next call site could inherit a silent default. A parameter deliberately left
+   without one is refuted only by a call that omits it.
+26. **Unknown cost is not zero cost.** `Phase.usage` defaulted to
+   `"mechanical phase — no model invoked"`, and the only path that ever read that
+   default was the one where an agentic phase's harness died mid-flight — so the
+   durable `phases.usage_absent_reason` column asserted that no model ran, for a phase
+   that named an agent and launched a harness, at exactly the moment spend was least
+   accounted for. `usage.py`'s own law is that absent is absent and never invented;
+   inventing the *reason* breaks it as surely as inventing a token count, and worse,
+   because the invented reason is the reassuring one. Three states, three reasons, each
+   refutable on its own path: no attempt, attempt in flight (cost UNKNOWN), no model
+   invoked — the last reserved for the one lane where it is structurally true (H8).
+27. **A repo has as many gitdirs as it has submodules and worktrees.** F3 closed the
+   `.git/hooks/pre-commit` vector and measured a single gitdir, so the same write one
+   directory deeper — `.git/modules/<sub>/hooks/pre-commit` — stayed invisible. The
+   closed control list now recurses into `.git/modules/` and `.git/worktrees/`, and the
+   entry names of those directories are measured so a gitdir *appearing* is itself the
+   change. The entry is a synthetic key: keying it on the real directory path made
+   `_signature` stat-sweep the gitdir's index, refs and object store, which would have
+   breached on every ordinary commit — K1 verbatim, on the axis added to fix it. The
+   partner control (`add`/`commit`/`gc`, plus churn written inside the nested gitdir)
+   is what caught that during authoring (H4).
+28. **A control row must be RUN against the regression it controls for, not aimed at
+   it.** That partner control, as first written, compared `_git_control_entries()`
+   before and after — a map of names to a constant. The K1 false-breach lives one
+   function downstream, where `fingerprint` computes `content[p] = _signature(root, p)`
+   for each of those keys: the synthetic key resolves to nothing, the real key resolves
+   to a directory and gets stat-swept. Both keyings yield the *same key set*. So the
+   mutation that re-introduces K1 left the anti-K1 row green, and the row's docstring
+   claimed it had caught the defect. It had — once, by hand, before it was narrowed to
+   the cheaper comparison. The row now compares `perm.fingerprint(...).content` across
+   the git-control keys, which is the thing that actually carries the failure. Review
+   read this row several times and saw nothing; the mutation found it on the first pass.
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
 repeated shape — twenty artifact kinds (regular file, symlink out of the tree,

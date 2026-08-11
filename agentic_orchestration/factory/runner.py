@@ -212,7 +212,7 @@ class Runner:
         fingerprints: dict[str, perm.TreeFingerprint],
         phase_id: int | None,
         when: str,
-        agentic: bool = False,
+        agentic: bool,
     ) -> None:
         """A region measured coarsely is DECLARED as coarse, never reported as exact.
 
@@ -226,6 +226,14 @@ class Runner:
         well it can be measured — and emitting only from `before` would have described
         a diff by half its inputs (Gate-2 re-review G4). Identical caveats within a
         phase are emitted once; a NEW region appearing later is its own line.
+
+        `agentic` has NO DEFAULT, and that is Gate-2 H3. It defaulted to False, and the
+        post-gate call site — the one justified by the comment directly above it (gates
+        write, so it is the last measurement of the phase, and of the run for the final
+        phase) — simply never passed it. README rule 22 claimed "every snapshot on the
+        agentic lane"; it was two of three, and the missing one was the last. A required
+        argument turns that omission into a TypeError at the call site rather than a gate
+        that quietly does not apply.
 
         And on the AGENTIC lane it is a GATE, not only a caveat (Gate-2 F5). C5 put the
         acknowledgement check at LOAD, which is the right place for it and is not the
@@ -289,6 +297,13 @@ class Runner:
             receipts=self.receipts,
             run_id=self.run_id,
             idx=idx,
+            # H8. `total_usage` is computed above with the lane in hand; handing it
+            # to the Phase is what makes it REACH the ledger. Without this the
+            # Phase carried its own default, and the only path that ever read that
+            # default was the path where the assignment below never ran — so the
+            # honest string was computed, and then thrown away in precisely the
+            # case it existed for.
+            usage=total_usage,
         ) as phase:
             for attempt in range(1, spec.retries + 2):
                 phase.attempts = attempt
@@ -313,6 +328,20 @@ class Runner:
                     abort_reason = self._handle_containment_failure(phase, exc, "phase start")
                     break
 
+                if not spec.is_mechanical:
+                    # H8. Say the true thing BEFORE the risky call, because the
+                    # crash path inherits whatever `phase.usage` holds at the
+                    # moment the exception leaves this block — `Phase.__exit__`
+                    # records it, and `finish_phase` makes it durable. The harness
+                    # is about to be in flight; if it raises, the cost of what it
+                    # already did is UNKNOWN. Unknown is not zero, and a ledger
+                    # that rounds unknown down to zero under-reports exactly where
+                    # spend is least controlled. Overwritten on the normal path
+                    # two statements below.
+                    phase.usage = UsageBreakdown.absent(
+                        f"attempt {attempt} was in flight when the phase ended — the "
+                        "harness returned no usage, so cost is UNKNOWN (not zero)"
+                    )
                 envelope, attempt_usage, exec_error = self._execute(
                     spec, phase, attempt, phase_dir, carried_notes, failures_context
                 )
@@ -371,7 +400,10 @@ class Runner:
                 # check would let a gate's own writes escape containment.
                 try:
                     post_gate = self._fingerprint_all()
-                    self._note_coarse(post_gate, phase.phase_id, "post-gate")
+                    self._note_coarse(
+                        post_gate, phase.phase_id, "post-gate",
+                        agentic=not spec.is_mechanical,
+                    )
                     gate_changes = self._diff_all(before, post_gate)
                 except perm.ContainmentError as exc:
                     for report in reports:

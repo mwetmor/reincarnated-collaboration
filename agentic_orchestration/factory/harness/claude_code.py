@@ -23,6 +23,41 @@ Spec A § 13 item O1):
 
 No `--model` is ever passed: model policy belongs to the launcher session, not to
 a workflow file (Spec A § 9). No `--dangerously-skip-permissions`, ever.
+
+Gate-2 H1/H2 — the flags are not the grant
+------------------------------------------
+"No `--dangerously-skip-permissions`, ever" is a claim about a FLAG, and the flag was
+never the thing that mattered. Measured on this host with the exact argv above:
+
+    INIT permissionMode: bypassPermissions
+    INIT tools: ['Bash', 'Read', 'mcp__…authenticate', 'mcp__…complete_authentication']
+
+`~/.claude/settings.json` carries `permissions.defaultMode: "bypassPermissions"`, so the
+ambient config decided the mode and the argv never spoke. Two consequences, both of them
+the shape this review keeps finding — the wrong answer is the safe-looking one:
+
+  * `--allowedTools` (the "may run without a prompt" half) was decorative, because a
+    mode that approves everything already approves everything;
+  * `permission_denials` — the guard that turns a phase reaching outside its fence into
+    EVIDENCE — could not fire at all. Its silence was structural, not a measurement.
+
+And the two MCP tools were GRANTED under an explicit two-name allowlist: F4 excluded
+`mcp__` names from the vocabulary for the right reason and drew the wrong conclusion,
+because refusing to NAME them does not REMOVE them.
+
+So the mode is pinned on the argv AND re-read off the `init` frame and asserted equal
+(`PINNED_PERMISSION_MODE`); `--strict-mcp-config` removes the ambient MCP servers; and
+the granted tool set is adjudicated against the declared one, because the init frame is
+the only truth about what the process actually got.
+
+One more measured fact, which is why the two flags no longer receive the same string:
+
+    --tools 'Bash(git *),Read'   ->  INIT tools: ['Read']
+
+`--tools` takes BASE names and silently discards what it does not recognise. That fails
+closed, but a workflow declaring scoped Bash would have believed it had scoped Bash and
+had NO Bash. Base names go to `--tools`; the full scoped forms go to `--allowedTools`,
+which is the flag whose grammar accepts them.
 """
 
 from __future__ import annotations
@@ -37,6 +72,12 @@ from ..usage import UsageBreakdown
 from .base import RawResult, register_harness
 
 DEFAULT_TIMEOUT_S = 3600
+
+#: The permission mode every agentic phase runs in, pinned on the argv and then
+#: RE-READ off the `init` frame and asserted equal (Gate-2 H1). `default` is the mode
+#: in which a tool outside the allowlist produces a denial rather than an approval —
+#: which is what makes `permission_denials` a measurement instead of a silence.
+PINNED_PERMISSION_MODE = "default"
 
 #: The built-in tool set, read off the `init` frame of a live stream-json run on this
 #: host (claude 2.1.119, star-lord probe 2026-08-11, Gate-2 F4). Not copied from
@@ -156,8 +197,17 @@ class ClaudeCodeHarness:
         # a guard with a route around it — which is L8's finding, at the harness layer.
         # Fail closed at both, and against the same vocabulary (F4).
         tools = validate_tools(config.get("tools"), "claude_code harness")
-        argv += ["--tools", ",".join(tools)]
+        # H2: different grammars. `--tools` takes BASE names and silently DROPS what it
+        # does not recognise (measured: `--tools 'Bash(git *),Read'` grants only Read),
+        # so sending it a scoped form is how a phase ends up with less than it declared
+        # and no error. `--allowedTools` is the flag that accepts the scoped form, and
+        # the scoped form is strictly narrower, so it belongs there.
+        argv += ["--tools", ",".join(sorted({t.split("(", 1)[0].strip() for t in tools}))]
         argv += ["--allowedTools", ",".join(tools)]
+        # H1: the mode is a GRANT, and until it is pinned the ambient config decides it.
+        argv += ["--permission-mode", PINNED_PERMISSION_MODE]
+        # H2: the ambient MCP servers are granted even under an explicit allowlist.
+        argv += ["--strict-mcp-config"]
         for extra_dir in config.get("add_dirs", []) or []:
             argv += ["--add-dir", str(extra_dir)]
         return argv
@@ -222,7 +272,8 @@ class ClaudeCodeHarness:
             )
 
         return self.adjudicate(
-            result_frame, init_frame, proc.returncode, elapsed_ms, raw_path, len(frames)
+            result_frame, init_frame, proc.returncode, elapsed_ms, raw_path, len(frames),
+            declared_tools=validate_tools(config.get("tools"), "claude_code harness"),
         )
 
     # -- adjudication -------------------------------------------------------
@@ -234,6 +285,7 @@ class ClaudeCodeHarness:
         elapsed_ms: int,
         raw_path: str | None = None,
         frame_count: int = 0,
+        declared_tools: list[str] | None = None,
     ) -> RawResult:
         """Turn a result frame into a verdict. Separated from `run` so it is TESTABLE.
 
@@ -252,6 +304,13 @@ class ClaudeCodeHarness:
         # the phase and says how many. If live data later shows benign probing is
         # common this is weakened ON EVIDENCE, the way the COARSE caveat is; it is
         # not weakened because it is inconvenient.
+        # H1/H2: adjudicated BEFORE the denial check, because the denial check's
+        # meaning depends on it — in `bypassPermissions` an empty `permission_denials`
+        # is not a clean phase, it is a fence that was never enforced. A guard whose
+        # silence is produced by the condition above it has to be ordered under it.
+        grant_error = check_grant(init_frame, declared_tools)
+        if grant_error:
+            is_error = True
         denials = result_frame.get("permission_denials") or []
         denial_error = None
         if denials:
@@ -273,7 +332,8 @@ class ClaudeCodeHarness:
             raw_output_path=raw_path,
             error=(
                 None if not is_error
-                else denial_error
+                else grant_error
+                or denial_error
                 or str(result_frame.get("api_error_status") or "is_error")
             ),
             extra={
@@ -281,9 +341,74 @@ class ClaudeCodeHarness:
                 "num_turns": result_frame.get("num_turns"),
                 "stop_reason": result_frame.get("stop_reason"),
                 "permission_denials": result_frame.get("permission_denials"),
+                "permission_mode": (init_frame or {}).get("permissionMode"),
+                "granted_tools": (init_frame or {}).get("tools"),
                 "frame_count": frame_count,
             },
         )
+
+
+def check_grant(
+    init_frame: dict[str, Any] | None, declared_tools: list[str] | None
+) -> str | None:
+    """Adjudicate what the process was GRANTED against what the workflow DECLARED.
+
+    Gate-2 H1/H2. Everything else on this lane certifies the argv — the flags we send.
+    The `init` frame is the CLI reporting what it actually did with them, and on this
+    host those two disagreed in three ways at once: the mode came from
+    `~/.claude/settings.json` rather than from us, two MCP tools arrived that no
+    allowlist named, and a scoped form sent to `--tools` was dropped on the floor.
+
+    Returns an error string, or None. Fails CLOSED on a missing frame: with no init
+    frame there is no evidence about the grant, and "no evidence" must not read as
+    "no problem" — that is the exact substitution this review exists to refuse.
+    """
+    if declared_tools is None:
+        return (
+            "no declared tool set reached the adjudicator, so the grant cannot be "
+            "compared to anything. This is the WIRING failing rather than the check: "
+            "H3's finding was a gate disarmed at its call site with every row still "
+            "green, so this argument fails closed rather than defaulting to a "
+            "comparison against the empty set."
+        )
+    if init_frame is None:
+        return (
+            "the stream carried no `init` frame, so what this process was GRANTED — its "
+            "permission mode and its tool set — cannot be established. The phase may "
+            "have run wide open. Absence of evidence is not a pass."
+        )
+    mode = init_frame.get("permissionMode")
+    if mode != PINNED_PERMISSION_MODE:
+        return (
+            f"the phase ran in permission mode {mode!r}, not the pinned "
+            f"{PINNED_PERMISSION_MODE!r}. The argv pins it, so a disagreement means "
+            "something outside this workflow — ambient settings, a hook, a newer CLI "
+            "honouring the flag differently — decided how this process was allowed to "
+            "act. In `bypassPermissions` in particular, `permission_denials` cannot "
+            "fire, so the phase's fence would be reporting silence rather than safety."
+        )
+    granted = set(init_frame.get("tools") or [])
+    mcp = sorted(t for t in granted if t.startswith("mcp__"))
+    if mcp:
+        return (
+            f"the phase was granted {len(mcp)} MCP tool(s) that no allowlist named: "
+            f"{', '.join(mcp)}. MCP availability is per-machine, so this fence's "
+            "contents would vary by host. `--strict-mcp-config` is passed to prevent "
+            "exactly this; its presence on the argv is evidently not sufficient here."
+        )
+    expected = {t.split("(", 1)[0].strip() for t in declared_tools}
+    extra = sorted(granted - expected)
+    missing = sorted(expected - granted)
+    if extra or missing:
+        return (
+            "the granted tool set is not the declared one"
+            + (f"; granted but NOT declared: {', '.join(extra)}" if extra else "")
+            + (f"; declared but NOT granted: {', '.join(missing)}" if missing else "")
+            + ". The declared set is the fence; a process holding more than it has "
+            "reaches further than the workflow says it can, and one holding less will "
+            "fail in a way that looks like the agent's fault."
+        )
+    return None
 
 
 def parse_frames(stdout: str) -> list[dict[str, Any]]:

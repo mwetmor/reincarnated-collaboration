@@ -45,8 +45,21 @@ class Phase:
     envelope: EnvelopeBase | None = None
     error: str | None = None
     attempts: int = 0
+    #: H8. This default used to read `"mechanical phase — no model invoked"`, which
+    #: is a positive claim about the world — that nothing was spent — asserted by a
+    #: dataclass default that cannot know it. `usage.py`'s own law is "absent is
+    #: absent … never invented": inventing the REASON breaks it exactly as surely as
+    #: inventing a token count, and worse, because the invented reason is the
+    #: reassuring one. An agentic phase whose harness raised never reaches the
+    #: assignment in `runner._run_phase`, so this default is what `finish_phase`
+    #: writes to the durable `usage_absent_reason` column — the ledger would say no
+    #: model was invoked for a phase that named an agent and called a harness. The
+    #: default now claims nothing beyond its own ignorance; the runner passes the
+    #: lane-aware reason at construction.
     usage: UsageBreakdown = field(
-        default_factory=lambda: UsageBreakdown.absent("mechanical phase — no model invoked")
+        default_factory=lambda: UsageBreakdown.absent(
+            "no usage recorded — the phase never reached the accounting point"
+        )
     )
     phase_id: int | None = None
     _finished: bool = False
