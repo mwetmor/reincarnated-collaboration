@@ -671,15 +671,18 @@ unknown version rather than guess at it.
    measurement gets one row that hardcodes it and cites the frames. Derivation keeps the
    lists from drifting; a literal keeps the finding from evaporating. Both, not either.
 
-45. **A mutation that survives because the fix made it INERT is a receipt, not a gap —
-   say which, in the table.** jack-ryan's JR-5 mutation moved a tab across a slash and
-   survived pre-fix (nothing could tell protected keying from unprotected). Re-run
-   post-fix it survives again, and that is the fix working: after one shared
-   normalisation the two spellings name the same path, so no answer changes. Five
-   one-character edits at five producers would have gone green while leaving the sixth
-   producer free to mint the defect again. A survivor in a mutation table is normally a
-   hole; a survivor whose inertness IS the claim has to be labelled, or the next reader
-   counts it as one.
+45. **"Inert" is a claim like any other — it needs its own assertion, or the table is
+   reading a silence as a receipt.** jack-ryan's JR-5 mutation moved a tab across a slash
+   and survived pre-fix, because nothing in the suite could tell protected keying from
+   unprotected. Re-run post-fix it survived again, and round 17's table called that the
+   fix working: after one shared normalisation the two spellings name the same path, so
+   no answer changes. But the one row that could have disagreed had been widened to
+   `.rstrip("/")` in the same commit (rule 46), so post-fix survival was a consequence of
+   the relaxation, not evidence for the equivalence. Same word, `SURVIVED`, two different
+   facts, and the receipt claimed the second. The equivalence is now asserted directly —
+   both spellings minted, same verdict AND same reason (`test_JR9_…`) — and only with that
+   row present does "inert" mean anything. A survivor whose inertness IS the claim must be
+   labelled in the table AND backed by a row that fails if the inertness stops holding.
 
 46. **Do not assert the producer's string order when the fix exists to stop it
    mattering.** The premise row for rule 43 checked `marker_path(key) == ".git"`, which

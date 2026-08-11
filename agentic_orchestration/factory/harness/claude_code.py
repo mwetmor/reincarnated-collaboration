@@ -103,8 +103,39 @@ BUILTIN_TOOLS = frozenset({
     "WebFetch", "WebSearch", "Write",
 })
 
-#: Names in `BUILTIN_TOOLS` whose GRANT IS NOT THEIR REACH. Gate-2 J7 (jack-ryan,
-#: round 16), MEASURED by star-lord probe 2026-08-11.
+#: Names this CLI speaks in `tool_use` frames that its GRANT channel does not speak.
+#: Gate-2 JR-6 (jack-ryan, round 17), read off the preserved frames rather than off a
+#: summary of them — which is how it was found, and how the error it corrects was made.
+#:
+#: `j7-task-reach-probe.jsonl` advertises `tools: ['Task']` in its init frame and
+#: carries exactly one `tool_use`, whose name is `Agent`. Delegation therefore has TWO
+#: names on claude 2.1.119: `Task` on the GRANT channel (`--tools`, the init frame,
+#: `check_grant`) and `Agent` on the INVOCATION channel. The split is measured, not
+#: assumed general — `j1-allowedtools-does-not-restrict.jsonl` grants `Bash` and
+#: invokes `Bash`, so the two channels agree for that name, and this dict has exactly
+#: one entry until a frame says otherwise.
+#:
+#: Two consequences, both live:
+#:
+#:   * `BUILTIN_TOOLS` is what ONE init frame enumerated, which is the grant vocabulary
+#:     and nothing wider. Reading membership in it as "this CLI has that tool" is a
+#:     one-way implication read backwards, and `Agent` is the counterexample — it was
+#:     sitting in the evidence folder while the loader told its reader that this CLI
+#:     does not have it. That is the false sentence rule 39 exists to forbid, produced
+#:     by the fix for rule 39, one layer down.
+#:   * nothing in this module reads `tool_use` names today — `check_grant` compares
+#:     init-frame names to declared names, both grant-channel. If anything ever does,
+#:     the two namespaces must be translated between and not compared.
+INVOCATION_ONLY_TOOLS: dict[str, str] = {
+    "Agent": (
+        "is what `tool_use` frames call delegation on this CLI, while `--tools` and the "
+        "init frame call the same thing `Task`. It is a real name this CLI speaks and "
+        "it is not a name the grant channel accepts, so declaring it fences nothing"
+    ),
+}
+
+#: Names whose GRANT IS NOT THEIR REACH. Gate-2 J7 (jack-ryan, round 16), MEASURED by
+#: star-lord probe 2026-08-11; extended by JR-6 (round 17) to delegation's second name.
 #:
 #: `BUILTIN_TOOLS` answers "what does this CLI have?" — probed off a live init frame,
 #: which is why it is trustworthy. It never answered "what does each one reach?", and
@@ -118,7 +149,9 @@ BUILTIN_TOOLS = frozenset({
 #:
 #:   * the parent's own init frame reported `tools: ['Task']` — the fence HELD for the
 #:     parent, which is what makes this finding sharp rather than sloppy;
-#:   * the parent invoked `Task`; the child reported having `Bash, Glob, Grep, Read,
+#:   * the parent delegated — the one `tool_use` frame in the run is named `Agent`, not
+#:     `Task` (JR-6; this line used to say `Task`, and the frame beside it said
+#:     otherwise); the child reported having `Bash, Glob, Grep, Read,
 #:     Edit, Write, NotebookEdit, WebFetch, WebSearch, TodoWrite, BashOutput,
 #:     KillShell, ExitPlanMode, Task, SlashCommand, Skill, AskUserQuestion, …`;
 #:   * `is_error: False`, `permission_denials: []`.
@@ -146,6 +179,21 @@ UNFENCEABLE_TOOLS: dict[str, str] = {
         "Write, with no denial and no error. Declaring it satisfies the fence and "
         "bypasses it in the same call"
     ),
+    "Agent": INVOCATION_ONLY_TOOLS["Agent"] + (
+        ", and what it names is `Task`, which is refused above. Refused rather than "
+        "left to the membership branch, whose message would say this CLI does not "
+        "have it — the false sentence, about the one name the frames prove exists"
+    ),
+    "ToolSearch": (
+        "exists to fetch schemas for DEFERRED tools and make them callable, which is "
+        "the one documented mechanism whose whole purpose is to change the answer to "
+        "'what can this phase call?' after the grant is fixed. REASONED, NOT MEASURED "
+        "— and the failure to measure is itself recorded (JR-7): four probe framings "
+        "were refused by the model's own safety classifier, while a control run with "
+        "the same argv and an innocuous prompt returned cleanly, so the configuration "
+        "is fine and the QUESTION is what could not be asked. Refused in the "
+        "fail-closed direction, and this entry says which kind of entry it is"
+    ),
     "EnterWorktree": (
         "creates a git worktree, which can land OUTSIDE every declared tree — and a "
         "write the fingerprint never covers is not a write this factory can report on"
@@ -163,6 +211,38 @@ UNFENCEABLE_TOOLS: dict[str, str] = {
     ),
     "RemoteTrigger": "reaches OFF this host entirely; nothing here can measure or undo it",
     "PushNotification": "reaches off-host; the effect outlives the run and is not recallable",
+}
+
+#: Names a reviewer has ASKED ABOUT and this fence nevertheless admits, each with the
+#: reason it is admitted. Gate-2 JR-7 (jack-ryan, round 17).
+#:
+#: `UNFENCEABLE_TOOLS` answers "are these unfenceable?"; `validate_tools` spends the
+#: answer as "the rest are fenceable". That is the series' own predicate shape sitting
+#: on top of the J7 fix, and the honest response is not a bigger refusal list — it is a
+#: record of which admissions were ADJUDICATED and which were merely never raised.
+#: An admission with a reason can be argued with. An admission by silence cannot.
+#:
+#: This does not close the enumeration and does not claim to. It closes the QUESTIONS
+#: ASKED SO FAR, which is a smaller and true claim.
+REASONED_ADMISSIONS: dict[str, str] = {
+    "Skill": (
+        "injects a skill file's instructions into the conversation; it does not grant "
+        "a tool. Its reach is the phase's own reach, and every tool a skill asks for "
+        "still has to be in `--tools`. Distinct from `ToolSearch`, which changes the "
+        "callable set rather than the instructions"
+    ),
+    "TaskOutput": (
+        "reads the output of a background task that already exists. It cannot start "
+        "one — `Task` is refused above, and without a creator this is inert"
+    ),
+    "TaskStop": (
+        "stops a background task that already exists. Inert for the same reason, and "
+        "stopping is the fail-closed direction anyway"
+    ),
+    "ExitWorktree": (
+        "leaves a worktree; it cannot create one. `EnterWorktree` is refused above, so "
+        "a phase that cannot enter has nothing to exit"
+    ),
 }
 
 
@@ -185,8 +265,17 @@ def validate_tools(tools: object, where: str) -> list[str]:
     Gate-2 J7 adds the second question. `BUILTIN_TOOLS` answers "does this CLI have
     that tool?"; it never answered "does the grant equal the reach?". `UNFENCEABLE_TOOLS`
     holds the measured and reasoned NOs, and they are refused BEFORE the membership
-    check — because they ARE members, and the membership message would say the one
-    thing that is not true about them.
+    check — because the membership message would say the one thing that is not true
+    about them.
+
+    That ordering was recorded as load-bearing in round 17 and was INERT (Gate-2 JR-8):
+    every refused name was also a `BUILTIN_TOOLS` member, so the membership branch
+    could not fire for one at any position, and jack-ryan's mutation moving the block
+    below it survived a full green suite. The mechanism named was not the mechanism
+    working — the subset invariant was. JR-6 makes it real: `Agent` is refused and is
+    NOT a `BUILTIN_TOOLS` member, because `BUILTIN_TOOLS` is the grant vocabulary and
+    `Agent` is an invocation name. Put the block second and `Agent` gets told this CLI
+    does not have it, with the frames that disprove that sitting in the repo.
 
     Scoped forms are kept and the BASE name is what must be in the vocabulary. This
     used to read "`Bash(git *)` … is strictly narrower than `Bash`", which measured

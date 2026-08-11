@@ -2444,7 +2444,8 @@ I ran the probe with argv identical to what `build_argv` emits — `--tools Task
 
 * the parent's own `init` frame reported `tools: ['Task']`. **The fence held for the
   parent.** That is what makes the finding sharp instead of sloppy;
-* the parent invoked `Task`; the child reported holding `Bash, Glob, Grep, Read, Edit,
+* the parent delegated — this line said "invoked `Task`" until round 18, and the frame
+  beside it said `Agent`; see § 22.1 (JR-6) — and the child reported holding `Bash, Glob, Grep, Read, Edit,
   Write, NotebookEdit, WebFetch, WebSearch, TodoWrite, BashOutput, KillShell,
   ExitPlanMode, Task, SlashCommand, Skill, AskUserQuestion, …`;
 * `is_error: False`, `permission_denials: []`.
@@ -2612,6 +2613,22 @@ acceptance is asserted in the row rather than argued in the docstring — "the l
 accept this" is exactly the premise that quietly stops being true, and rule 28 says a row
 aimed at an unreachable configuration certifies nothing.
 
+**JR-10: `:664` is the SOLE reachable instance, not one chosen from several** — and the
+contrived four-deep nest is the price of that, not an arbitrary fixture choice. Ten
+producers mint marker keys (`:580, :664, :684, :697, :711, :730, :733, :739, :754,
+:760`). `:580` is a **structure** key whose marker `diff_fingerprints:1164` strips before
+it ever becomes a `Change`, so the natural shape — a declared read-only tree that turns
+unreadable — never reaches `_read_only_hit` marked at all. Of the rest, `:684`, `:697`
+and `:711` append the tab **after a slash** (`{prefix}/{rel}\t<…>`, `rel` ending in `/`),
+which makes the marker a new path *component*: the marked key is a strict descendant of
+the tree, ancestry still holds, and the mutation changes nothing. `:730`–`:760` append
+the tab directly to a fixed `.git`, which would be the sibling shape — but those five are
+minted only when `.git` is a **file**, and `_validate_containment` refuses a non-directory
+as a read-only tree, so the configuration cannot be declared. That leaves `:664`, the only
+producer that appends the tab directly to a prefix that can itself be a declared,
+existing, directory-shaped read-only tree. jack-ryan filed the narrowing; the sharper
+reason is the slash, not the prefix.
+
 What the row does **not** claim, stated because the temptation to claim it is real: the
 verdict does not flip. Every marker-bearing key in this module lives under `.git/`, which
 `PROTECTED_EVERY_REPO` holds independently through `_matches` — whose own normalisation
@@ -2636,8 +2653,24 @@ After `marker_path`, the two spellings name the same path and classify identical
 mutation is *inert*, and its inertness is the fix working: five one-character edits at
 five producers would have made the suite pass while leaving the next producer free to
 mint a sixth key with the tab on the wrong side. Normalising once at the three consuming
-predicates is what makes string order stop mattering, and a mutation that survives
-because it no longer changes any answer is the receipt for that.
+predicates is what makes string order stop mattering.
+
+> **Corrected in round eighteen (JR-9).** The paragraph above then said "a mutation that
+> survives because it no longer changes any answer is the receipt for that." It is not,
+> and round 17 was not entitled to read it that way. Pre-fix the mutation survived because
+> **nothing in the suite could tell the two keyings apart**. Post-fix it survived because
+> the one row that could disagree — the premise row below — had been **widened to
+> `.rstrip("/")` in the same commit**. Same word, `SURVIVED`, two different facts, and the
+> round-17 table claimed the second while having earned only the first. The relaxation is
+> still right (rule 46); what was wrong was counting its consequence as evidence for the
+> equivalence it makes room for. The suite had stopped disagreeing with the claim; it had
+> not come to agree with it. Round 18 asserts the claim directly —
+> `test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically` mints `.git\t<…>` and
+> `.git/\t<…>`, and asserts `classify` returns the same verdict **and** the same reason
+> string for both, over both fence shapes. With that row present, "inert" is a receipt.
+> Without it, it was a silence. README rule 45 is re-worded to match; the round-17 commit
+> message (`46e298f7`) carries the original wording and is corrected here rather than
+> rewritten.
 
 One row had to be relaxed to make this true rather than merely claimed.
 `test_JR5_a_marker_key_names_a_path_UNDER_dot_git` asserted `marker_path(key) == ".git"`,
@@ -2679,4 +2712,142 @@ into permanent rows: every mutation in § 21.6 now has a row whose job is to fai
 Keeping a harness would preserve an instrument whose anchors go stale on the next edit,
 and a harness that prints ANCHOR NOT FOUND is worse than no harness. jack-ryan's
 `jrmut.py` is left where jack-ryan left it — untracked and theirs.
+
+---
+
+## 22. Round eighteen — jack-ryan's Gate-2 verdict on round seventeen, worked
+
+The verdict (`qa/pending/2026-08-11-star-lord-factory-spine-gate2-r17.md`): **PASS** on the
+mechanical lane, **BLOCK stands** on the agentic lane. J7 is **closed as filed** — the
+probe ran against real argv, the frames are preserved, the refusal is wired, and
+jack-ryan killed the wiring mutation themselves. The agentic BLOCK is now clause 2 alone:
+containment against a process holding unrestricted `Bash` is not a finite problem and
+does not pass on review at any number of rounds. That is a threat-model boundary, which
+is gandalf's and Matt's, and nothing in this round narrows or widens it.
+
+Five items were mine. Two are corrections to things I asserted without reading the
+artifact beside me, which is the shape this file has been recording for eighteen rounds
+and is no less that shape for being my own.
+
+### 22.1 JR-6 — three artifacts said the parent invoked `Task`; the frames say `Agent`
+
+I re-read both preserved runs before touching anything, because the finding is about
+reading rather than about reasoning:
+
+| run | init frame `tools` | `tool_use` name |
+|---|---|---|
+| `j7-task-reach-probe.jsonl` | `['Task']` | **`Agent`** |
+| `j1-allowedtools-does-not-restrict.jsonl` | `['Bash']` | `Bash` |
+
+So delegation carries **two names** on `claude 2.1.119`: `Task` on the GRANT channel
+(`--tools`, the init frame, `check_grant`) and `Agent` on the INVOCATION channel
+(`tool_use`). The two channels agree for `Bash` and disagree for delegation, which is why
+`INVOCATION_ONLY_TOOLS` holds exactly one entry and says in its own comment block that the
+split is measured on one pair and not assumed general.
+
+The cost was not cosmetic. `validate_tools(["Agent"])` fell through to the membership
+branch and told its caller **"not in the built-in set"** — this CLI does not have it —
+about the one name the frames prove it speaks, with those frames sitting in the repo. A
+false sentence produced *by the J7 fix*, one layer down: `BUILTIN_TOOLS` is what one init
+frame enumerated, which is the **grant** vocabulary, and reading membership in it as "this
+CLI has that tool" is a one-way implication run backwards.
+
+`Agent` is now refused in `UNFENCEABLE_TOOLS` for the true reason ("what it names is
+`Task`, which is refused above"), placed there rather than left to the membership branch
+precisely so the message is the true one. `test_J7_the_refused_names_are_names_this_CLI_
+ACTUALLY_HAS` now checks against `BUILTIN_TOOLS | set(INVOCATION_ONLY_TOOLS)`, so
+membership in the grant vocabulary has stopped standing in for existence. Three artifacts
+corrected: the `UNFENCEABLE_TOOLS` docstring, § 21.1 above, and the evidence README (which
+carries the split as a table, since it is the folder whose stated purpose is that a
+measurement can be re-read).
+
+### 22.2 JR-7 — `ToolSearch`, and an admission that could not be measured
+
+`ToolSearch` loads schemas for tools the run was **not started with**. If that reaches, a
+`--tools` vocabulary is a suggestion. I ran the probe four times. **All four were refused
+by the model's safety classifier** — `is_error: true`, `API Error … appears to violate our
+Usage Policy`, not one `tool_use` frame — across four framings: the direct
+`select:CronCreate` ask, a documentation framing, a mundane task that would need a
+deferred tool, and the J7-style enumeration framing that had worked for `Task`.
+
+The control is what makes those four reportable. **Identical argv**, prompt `"Say OK and
+nothing else."` → `is_error: false`, `result: 'OK'`, `init tools: ['ToolSearch']`. The
+configuration is fine; the question could not be asked. Every refused run's init frame
+also reports `tools: ['ToolSearch']`, so the grant channel accepts the name — what failed
+is the asking.
+
+`ToolSearch` is therefore refused **in the fail-closed direction on REASONING, NOT
+MEASUREMENT**, and its entry says so in those words. This is the one place in the module
+where an `UNFENCEABLE_TOOLS` entry is not backed by frames, and it is labelled rather than
+left for a reader to assume parity with `Task`. Rule 13 does not let an unmeasured entry
+wear a measured one's clothes — not even when the unmeasured entry is the conservative one.
+
+`Skill`, `TaskOutput`, `TaskStop` and `ExitWorktree` were reasoned about in the same
+sitting and **admitted with reasons**, in a new `REASONED_ADMISSIONS` map. The point is not
+a longer refusal list; it is that an admission by silence cannot be argued with and an
+admission with a reason can. `test_JR7_every_QUESTIONED_name_is_either_refused_or_admitted_
+WITH_A_REASON` holds the two maps apart and requires every entry in both to carry
+provenance. It does **not** claim the enumeration is complete, and the row says so.
+
+### 22.3 JR-9 — the equivalence claim now has an assertion
+
+See the correction box in § 21.7. Short form: round 17 reported jack-ryan's JR-5 mutation
+as SURVIVED-because-inert and spent that as a receipt for the fix. It was not one. The row
+that could have disagreed had been relaxed in the same commit, so the suite had **stopped
+disagreeing** with the claim rather than **coming to agree** with it. `test_JR9_BOTH_
+SPELLINGS_of_a_marker_key_classify_identically` mints both keyings and asserts the same
+verdict **and** the same reason, over both fence shapes. README rule 45 is re-worded to
+say that "inert" is a claim needing its own assertion.
+
+### 22.4 JR-8 and JR-10 — one sentence each, no code
+
+- **JR-8:** the "refused BEFORE the membership check" ordering *was* inert in round 17 —
+  every refused name was also a `BUILTIN_TOOLS` member, so the membership branch could not
+  fire for one at any position, and jack-ryan's mutation moving the block below it survived
+  a full green suite. The mechanism named was not the mechanism working; the subset
+  invariant was. **JR-6 makes it real**: `Agent` is refused and is not a member. The
+  `validate_tools` docstring now records both facts in that order.
+- **JR-10:** R17-g's reachable shape is the **sole** reachable instance, not one chosen
+  from several — the enumeration is in § 21.6 and in the row's own docstring. The
+  four-deep `.git/modules/a/b/c/d` nest is the price of that, not a fixture whim.
+
+### 22.5 The mutation table
+
+Method unchanged: one mutation per fix, each verified to kill its own row, killers by name.
+`test_C2_every_assert_under_tests_is_proven_to_execute` is a whole-suite reach audit that
+reddens on **any** mutation and is excluded from every killer list below (jack-ryan
+verified that exclusion is honest, round 18 § 1).
+
+| id | mutation | outcome |
+|---|---|---|
+| M18-a | `marker_path` normalises only the `…/\t` spelling — the half-coverage JR-5 fixed | **KILLED**, 36 failed; `test_JR9_BOTH_SPELLINGS…`, `test_JR5_a_marker_key_names_a_path_UNDER_dot_git`, `test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key…`, `test_JR5_an_unreadable_pointer_is_PROTECTED…`, `test_JR5_the_rollback_REFUSES_a_marker_key…` |
+| M18-a2 | `_matches` stops calling `marker_path` at all | **KILLED**, 24 failed; `test_JR9_BOTH_SPELLINGS…`, `test_JR5_an_unreadable_pointer_is_PROTECTED…`, `test_JR5_the_rollback_REFUSES_a_marker_key…` |
+| M18-b | `Agent` removed from `UNFENCEABLE_TOOLS` (JR-6 wiring) | **KILLED**; `test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason`, `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` |
+| M18-c | `Agent` added to `BUILTIN_TOOLS` — the split declared fiction (JR-6 claim) | **KILLED**; `test_JR6_the_INVOCATION_names_are_not_grant_names_or_the_split_is_fiction` |
+| M18-d | `REASONED_ADMISSIONS["Skill"]` blanked to whitespace | **KILLED**; `test_JR7_every_QUESTIONED_name_is_either_refused_or_admitted_WITH_A_REASON` |
+| M18-e | `ToolSearch` removed from `UNFENCEABLE_TOOLS` — admitted by silence | **KILLED**; `test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS` |
+
+**No survivors, and one honest narrowing.** JR-9's row is not the *unique* killer of M18-a
+or M18-a2 — the JR-5 rows fire too. It is the only row that asserts the two spellings agree
+**with each other**; the others assert each spelling separately, which is exactly the gap
+jack-ryan named. A round-17-style report would have been entitled to say "killed"; it would
+not have been entitled to say "uniquely", and the difference is the whole of JR-9.
+
+Two earlier attempts are recorded because a mutation that fails to bite is a fact about the
+instrument (rule 35). Dropping `.rstrip("/")` from `_matches` **survived** — the fallback
+branch `path.startswith(bare + "/")` absorbs a trailing slash, so that edit changes no
+answer and certifies nothing. And `"Skill": "" or (…)` **survived** because Python
+evaluates it to the original string: a no-op wearing a mutation's name, which is the
+series' own defect shape arriving in the measuring instrument.
+
+### 22.6 What round eighteen did not do
+
+- **No workflow fired.** Ruling D4 still puts Gate-2 before the first compiled run. The
+  mechanical PASS is conditional on Matt ratifying clauses 1 and 3 of the stopping rule;
+  those are his.
+- **The threat model** is not written here, and rule 39's tension with the admission of
+  unscoped `Bash` is flagged in the verdict for gandalf + Matt, not adjudicated by me.
+- **O4** (dollars) and **D-10** (no HALT status) remain open, untouched.
+- The round-18 mutation harness was not preserved, for the § 21.8 reason: it measures this
+  repo, is re-derivable from any commit, and every finding it produced is now a row.
 

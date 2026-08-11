@@ -10,7 +10,12 @@ import re
 
 import pytest
 
-from factory.harness.claude_code import BUILTIN_TOOLS, UNFENCEABLE_TOOLS
+from factory.harness.claude_code import (
+    BUILTIN_TOOLS,
+    INVOCATION_ONLY_TOOLS,
+    REASONED_ADMISSIONS,
+    UNFENCEABLE_TOOLS,
+)
 from factory.workflow import MAX_RETRIES, WorkflowError, load_workflow
 
 MINIMAL_PHASE = {"name": "p", "gates": ["artifacts_exist"], "artifacts": ["x.txt"]}
@@ -573,17 +578,113 @@ def test_J7_the_refusal_survives_a_SCOPED_form_and_a_crowd(tmp_path, git_repo):
 
 
 def test_J7_the_refused_names_are_names_this_CLI_ACTUALLY_HAS(tmp_path, git_repo):
-    """The two lists cannot drift apart, in either direction.
+    """The lists cannot drift apart — but "this CLI has it" has TWO channels.
 
-    A name in `UNFENCEABLE_TOOLS` and not in `BUILTIN_TOOLS` would be a refusal for a
-    tool that does not exist — dead law that reads as diligence, and the reason text
-    would never be seen. It also matters for the CLAIM: the whole force of J7 is that
-    these are tools the CLI HAS. Refusing something absent proves nothing.
+    A name refused here and existing nowhere would be dead law that reads as diligence:
+    the reason text would never be seen, and the force of J7 is that these are tools the
+    CLI HAS. Refusing something absent proves nothing.
+
+    Gate-2 JR-6 corrected the predicate rather than the list. This row asserted
+    `UNFENCEABLE ⊆ BUILTIN`, on the reasoning that a name outside `BUILTIN_TOOLS` "does
+    not exist". `BUILTIN_TOOLS` is what one init frame enumerated, which is the GRANT
+    vocabulary; the invocation channel speaks other names, and `Agent` is one — proven
+    by a frame in this repo. So the row that existed to keep two lists honest was
+    forbidding the fence from refusing a name it had measured to exist. The one-way
+    implication, read backwards, inside the check written to stop exactly that.
     """
-    orphans = sorted(set(UNFENCEABLE_TOOLS) - BUILTIN_TOOLS)
-    assert not orphans, f"refused but not probed off this CLI's init frame: {orphans}"
+    known = BUILTIN_TOOLS | set(INVOCATION_ONLY_TOOLS)
+    orphans = sorted(set(UNFENCEABLE_TOOLS) - known)
+    assert not orphans, (
+        f"refused, but named by neither channel this CLI was measured on: {orphans}. "
+        "A refusal for a name nothing has observed is dead law."
+    )
     unreasoned = sorted(n for n, why in UNFENCEABLE_TOOLS.items() if not str(why).strip())
     assert not unreasoned, f"refused with no reason recorded: {unreasoned}"
+
+
+def test_JR6_the_INVOCATION_names_are_not_grant_names_or_the_split_is_fiction(
+    tmp_path, git_repo
+):
+    """`INVOCATION_ONLY_TOOLS` earns its name only if its members are not grantable.
+
+    If a name drifts into both, the dict stops recording a two-channel split and starts
+    being a second spelling of `BUILTIN_TOOLS` — at which point the JR-6 correction
+    above silently widens back into the invariant it replaced, and nothing says so.
+    """
+    both = sorted(set(INVOCATION_ONLY_TOOLS) & BUILTIN_TOOLS)
+    assert not both, (
+        f"{both} are in BOTH the grant vocabulary and the invocation-only map. One of "
+        "the two is wrong, and while they disagree the subset check above is meaningless."
+    )
+    unreasoned = sorted(
+        n for n, why in INVOCATION_ONLY_TOOLS.items() if not str(why).strip()
+    )
+    assert not unreasoned, f"invocation-only with no provenance recorded: {unreasoned}"
+
+
+def test_JR6_an_INVOCATION_name_is_refused_for_the_TRUE_reason(tmp_path, git_repo):
+    """`Agent` — the name the frames show, refused without the false sentence.
+
+    This is the row that makes the "refused BEFORE the membership check" ordering
+    load-bearing (JR-8). While every refused name was also a `BUILTIN_TOOLS` member the
+    ordering was inert by construction: jack-ryan moved the block below the membership
+    check and a full 585-row suite stayed green. `Agent` is refused and is not a member,
+    so position now decides which message a phase author reads — the true one, or the
+    one that sends them to re-probe a vocabulary that is correct.
+    """
+    phase = dict(AGENTIC_PHASE, tools=["Agent"])
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    with pytest.raises(WorkflowError) as exc:
+        load_workflow(path)
+    message = str(exc.value)
+    assert "this fence cannot hold" in message, (
+        f"`Agent` was not refused as unfenceable: {message}"
+    )
+    assert "not in the built-in set" not in message, (
+        "the loader told its reader this CLI does not have `Agent`. The frames in "
+        "star-lord/notes/evidence/2026-08-11-tool-fence-probes/ show this CLI invoking "
+        "it. That is the false sentence README rule 39 exists to forbid."
+    )
+
+
+def test_JR7_every_QUESTIONED_name_is_either_refused_or_admitted_WITH_A_REASON(
+    tmp_path, git_repo
+):
+    """An admission by silence cannot be argued with; an admission with a reason can.
+
+    `UNFENCEABLE_TOOLS` answers "are these unfenceable?" and `validate_tools` spends it
+    as "the rest are fenceable" — the series' own predicate shape, on top of the J7 fix.
+    The answer is not a bigger refusal list; it is a record of which admissions were
+    adjudicated. This row holds the two maps apart and requires both to be reasoned. It
+    does NOT claim the enumeration is complete, and no assertion here should ever be
+    read as claiming it.
+    """
+    overlap = sorted(set(REASONED_ADMISSIONS) & set(UNFENCEABLE_TOOLS))
+    assert not overlap, (
+        f"{overlap} are recorded as BOTH refused and admitted. The fence cannot hold "
+        "two answers to one question, and whichever one loses does so silently."
+    )
+    unknown = sorted(set(REASONED_ADMISSIONS) - BUILTIN_TOOLS)
+    assert not unknown, (
+        f"admitted with a reason, but not names this CLI's grant channel enumerated: "
+        f"{unknown}. A reasoned admission of a name nothing can declare is noise."
+    )
+    unreasoned = sorted(
+        n for n, why in REASONED_ADMISSIONS.items() if not str(why).strip()
+    )
+    assert not unreasoned, f"admitted with an EMPTY reason: {unreasoned}"
+
+
+def test_JR7_the_reasoned_admissions_actually_LOAD(tmp_path, git_repo):
+    """The falsification partner: a name recorded as admitted must really be admitted.
+
+    Without this the two maps could agree perfectly with each other and disagree with
+    `validate_tools` — the WIRING axis, which is where the J7 fix first landed wrong.
+    """
+    tools = sorted(REASONED_ADMISSIONS)
+    phase = dict(AGENTIC_PHASE, tools=tools)
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(git_repo)], phases=[phase])
+    assert load_workflow(path).phases[0].tools == tools
 
 
 def test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation(tmp_path, git_repo):

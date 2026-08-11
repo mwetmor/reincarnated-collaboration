@@ -2363,6 +2363,49 @@ def test_JR5_PARTNER_an_ordinary_path_keeps_its_whole_name(fenced):
     )
 
 
+@pytest.mark.parametrize("marker", ["<gitdir pointer unreadable: x>", "<common>"])
+def test_JR9_BOTH_SPELLINGS_of_a_marker_key_classify_identically(fenced, marker):
+    """The JR-5 equivalence claim, asserted instead of assumed. Gate-2 JR-9.
+
+    Round 17 reported jack-ryan's JR-5 mutation — moving the tab from before the slash
+    to after it — as surviving post-fix, and read the survival as a receipt for the
+    normalisation. jack-ryan measured what actually happened: the ONE row that could
+    tell the two spellings apart was widened in the same commit, and the relaxation is
+    solely what turned that kill into a survival. The relaxation is right (the row owed
+    the path, not the producer's string order), but the suite did not come to AGREE that
+    the spellings are equivalent — it stopped being able to disagree. Rule 29, one level
+    up: the claim had no assertion anywhere.
+
+    This is that assertion. Same verdict AND same reason, because a normalisation that
+    produced the right verdict under a different rule would be the CLAIM-axis defect two
+    rows down, and identical verdicts alone would not notice it.
+    """
+    repo = fenced.free_repo
+    before_slash = f".git{perm.MARKER_SEP}{marker}"
+    after_slash = f".git/{perm.MARKER_SEP}{marker}"
+    assert perm.marker_path(before_slash).rstrip("/") == perm.marker_path(
+        after_slash
+    ).rstrip("/") == ".git", "premise failed: the two spellings do not name .git"
+
+    verdicts = {}
+    for key in (before_slash, after_slash):
+        change = perm.Change(repo, key, "modified", None, perm.GIT_CONTROL)
+        allowed, breaches = perm.classify(
+            [change], writes=["**"], root=repo, read_only_trees=[]
+        )
+        assert not allowed, f"{key!r} was ALLOWED under `writes: ['**']`"
+        assert len(breaches) == 1, f"{key!r} produced {len(breaches)} breaches"
+        verdicts[key] = breaches[0].reason
+
+    assert verdicts[before_slash] == verdicts[after_slash], (
+        "the two spellings of the same key classify DIFFERENTLY:\n"
+        f"  {before_slash!r} -> {verdicts[before_slash]!r}\n"
+        f"  {after_slash!r}  -> {verdicts[after_slash]!r}\n"
+        "The whole point of normalising once, rather than editing five producers, is "
+        "that a producer's choice of where to put the tab stops deciding anything."
+    )
+
+
 def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fenced):
     """The third of JR-5's three sites, and the only one whose mutation SURVIVED.
 
@@ -2378,7 +2421,18 @@ def test_JR5_a_marker_on_the_READ_ONLY_TREES_OWN_key_still_names_that_tree(fence
     `<tree>\\t<…>` is a SIBLING of `<tree>`, not the tree and not under it, so the
     unnormalised predicate returns None and the read-only rule never fires.
 
-    That shape is reachable rather than theoretical. `_gitdir_control_entries` files
+    That shape is reachable rather than theoretical, and (JR-10) it is the SOLE
+    reachable instance — not one chosen from several, which is why the fixture has to
+    build a four-deep nest nobody would declare by hand. Of the ten marker producers
+    in `permissions.py`, `:580`'s marker is stripped by `diff_fingerprints` before it
+    becomes a `Change`; `:684`, `:697` and `:711` put the tab AFTER a slash, so the
+    marker is a new path COMPONENT and the marked key stays a strict descendant;
+    `:730`-`:760` put the tab straight onto a fixed `.git`, but mint only when `.git`
+    is a FILE, which `_validate_containment` refuses as a read-only tree. `:664` is
+    the one producer appending a tab directly to a prefix that can itself be a
+    declared, existing, directory-shaped read-only tree.
+
+    `_gitdir_control_entries` files
     its depth-cap declaration under the gitdir's own key, and the loader accepts a
     read-only tree at a nested gitdir — asserted below rather than asserted in prose,
     because "the loader would accept this" is the kind of premise that quietly stops
