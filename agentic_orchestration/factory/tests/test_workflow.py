@@ -200,9 +200,38 @@ def test_a_read_only_tree_no_repo_covers_is_refused(tmp_path, git_repo):
         load_workflow(path)
 
 
+def test_a_subdirectory_declared_as_a_repo_is_refused_at_load(tmp_path, git_repo):
+    """Gate-2 re-review G1. `git rev-parse` SUCCEEDS from any depth inside a
+    worktree, so a returncode check accepts a subdirectory — and `git status` then
+    reports worktree-root-relative paths that get joined against the wrong base,
+    so every signature comes back empty and the tree measures as permanently clean.
+    A guard that passes while measuring nothing is worse than no guard."""
+    sub = git_repo / "sub"
+    sub.mkdir()
+    path = _wf(tmp_path, root=str(git_repo), repos=[str(sub)])
+    with pytest.raises(WorkflowError, match="SUBDIRECTORY of the git worktree"):
+        load_workflow(path)
+
+
+def test_the_subdirectory_refusal_names_the_worktree_root_to_declare_instead(
+    tmp_path, git_repo
+):
+    """The error an author acts on. The previous version of the read-only rule said
+    'declare it in `repos` as well', which walked the author straight into G1."""
+    sub = git_repo / "sub"
+    sub.mkdir()
+    with pytest.raises(WorkflowError, match=str(git_repo.resolve())):
+        load_workflow(_wf(tmp_path, root=str(git_repo), repos=[str(sub)]))
+
+
 def test_a_read_only_tree_nested_inside_a_declared_repo_is_accepted(tmp_path, git_repo):
     """Coverage is by containment, not by string equality — a subdirectory of a
-    fingerprinted repo is fingerprinted with it."""
+    fingerprinted repo is fingerprinted with it.
+
+    Acceptance alone proves nothing (that was the G2 defect: this test asserted the
+    loader said yes, while `classify` enforced nothing). The enforcement half is
+    `test_write_inside_a_NESTED_read_only_tree_is_a_breach` in test_permissions.py.
+    """
     nested = git_repo / "sub"
     nested.mkdir()
     wf = load_workflow(

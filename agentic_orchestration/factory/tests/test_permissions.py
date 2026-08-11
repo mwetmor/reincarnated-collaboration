@@ -143,6 +143,54 @@ def test_protected_paths_breach_even_when_the_allowlist_names_them(tmp_path, pat
     assert "always-protected" in breaches[0].reason
 
 
+def test_write_inside_a_NESTED_read_only_tree_is_a_breach(tmp_path):
+    """Gate-2 re-review G2. Read-only was matched on `change.root`, which is ALWAYS a
+    whole repo root — so a read-only tree declared as a subdirectory matched nothing
+    and was enforced nowhere, while the loader accepted it without complaint."""
+    root = tmp_path / "engine"
+    (root / "seasons").mkdir(parents=True)
+    allowed, breaches = perm.classify(
+        [_change(root, "seasons/001.json")],
+        writes=["**"],
+        root=root,
+        read_only_trees=[root / "seasons"],
+    )
+    assert not allowed
+    assert "read-only tree" in breaches[0].reason
+
+
+def test_a_write_beside_a_nested_read_only_tree_is_still_allowed(tmp_path):
+    """The falsification partner: nesting narrows the fence, it does not close the
+    whole repo. Without this, 'everything breaches' would pass the test above."""
+    root = tmp_path / "engine"
+    (root / "seasons").mkdir(parents=True)
+    (root / "src").mkdir()
+    allowed, breaches = perm.classify(
+        [_change(root, "src/whatever.py")],
+        writes=["src/**"],
+        root=root,
+        read_only_trees=[root / "seasons"],
+    )
+    assert len(allowed) == 1 and not breaches
+
+
+def test_a_collapsed_entry_ABOVE_a_read_only_tree_breaches(tmp_path):
+    """Git reports a wholly-untracked directory as one line, so a change entry can be
+    an ANCESTOR of the read-only tree. Which members moved is unknowable from the
+    entry, so it fails closed — otherwise a collapsed ancestor smuggles writes into
+    a protected subtree."""
+    root = tmp_path / "engine"
+    (root / "data" / "protected").mkdir(parents=True)
+    allowed, breaches = perm.classify(
+        [_change(root, "data/")],
+        writes=["**"],
+        root=root,
+        read_only_trees=[root / "data" / "protected"],
+    )
+    assert not allowed
+    assert "collapsed entry" in breaches[0].reason
+
+
 def test_write_inside_a_read_only_tree_is_a_breach(tmp_path):
     root = tmp_path / "meta"
     engine = tmp_path / "engine"
@@ -404,6 +452,22 @@ def test_a_collapsed_untracked_directory_is_swept_not_skipped(git_repo):
     assert [c.path for c in changes] == ["agentic_orchestration/"], (
         "the write is reported at the collapsed ancestor, and it IS reported"
     )
+
+
+def test_fingerprinting_a_SUBDIRECTORY_is_a_containment_failure(git_repo):
+    """Gate-2 re-review G1, defence in depth. The loader refuses this, but the
+    loader is not the only caller. `git status` emits worktree-root-relative paths,
+    so a subdirectory fingerprint joins every one against the wrong base and stats
+    nothing — it would have come back `usable=True` with every signature empty."""
+    sub = git_repo / "sub"
+    sub.mkdir()
+    (sub / "planted.txt").write_text("a write that must not vanish\n")
+
+    fp = perm.fingerprint(sub)
+    assert fp.usable is False, "a subdirectory fingerprint measures nothing"
+    assert "not a git worktree root" in (fp.error or "")
+    with pytest.raises(perm.ContainmentError):
+        perm.diff_fingerprints(fp, fp)
 
 
 def test_an_unmeasurable_tree_raises_rather_than_reading_as_clean(tmp_path):

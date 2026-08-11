@@ -58,6 +58,36 @@ class RunResult:
         return self.status == PASS
 
 
+CO_TENANCY_NOTE = (
+    "These paths are side effects other processes on this host produce merely by "
+    "READING. A SQLite reader creates -wal/-shm sidecars that outlive it; an editor "
+    "or language server writes caches. The factory measures the TREE, not its own "
+    "actions, so another agent's read of an engine DB is indistinguishable from this "
+    "phase writing there — and it aborts the run either way. That is fail-closed and "
+    "correct, but the diagnosis matters: check whether anything else on this host "
+    "touched the read-only tree during the run before treating this as a phase defect."
+)
+
+_CO_TENANCY_SUFFIXES = ("-wal", "-shm", "-journal", ".lock", "~")
+_CO_TENANCY_NAMES = (".DS_Store",)
+
+
+def _co_tenancy_suspects(breaches: list) -> list[str]:
+    """Breaching paths that another process's mere READ could have created.
+
+    Not an exemption — every one of these still breaches and still aborts. This
+    only labels them, because the failure mode found in Gate-2 re-review (G3) is an
+    abort that reads as a containment defect when it is a co-tenancy problem, and a
+    misdiagnosis on a 10-agent host costs more than the abort does.
+    """
+    suspects = []
+    for breach in breaches:
+        name = Path(breach.change.path).name
+        if name in _CO_TENANCY_NAMES or any(name.endswith(s) for s in _CO_TENANCY_SUFFIXES):
+            suspects.append(f"{breach.change.root.name}:{breach.change.path}")
+    return suspects
+
+
 def new_run_id(workflow_name: str) -> str:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     return f"{workflow_name}-{stamp}-{uuid.uuid4().hex[:6]}"
@@ -78,6 +108,9 @@ class Runner:
         self.db_path = self.factory_dir / DEFAULT_DB
         self.verbose = verbose
         self.receipts = Receipts(self.db_path)
+        # phase_id -> caveats already emitted, so the same region is not re-declared
+        # at every snapshot within one phase
+        self._coarse_said: dict[int | None, set[str]] = {}
 
     # -- logging -----------------------------------------------------------
     def _say(self, line: str) -> None:
@@ -175,15 +208,25 @@ class Runner:
         in-place rewrite of an existing file is not. The receipt says so on every
         phase, so a later reading of "the read-only tree was clean" carries the
         strength of the claim with it.
+
+        Called on EVERY snapshot, not just the phase-start one. A region can cross the
+        cap during the phase — the very case where a phase wrote enough to change how
+        well it can be measured — and emitting only from `before` would have described
+        a diff by half its inputs (Gate-2 re-review G4). Identical caveats within a
+        phase are emitted once; a NEW region appearing later is its own line.
         """
         for key, fp in fingerprints.items():
-            if fp.coarse:
-                detail = (
-                    f"{when}: {Path(key).name} measured COARSELY (directory mtimes; "
-                    f"in-place content edits not detected) in region(s): {fp.coarse}"
-                )
-                self.receipts.event(self.run_id, "containment_coarse", detail, phase_id)
-                self._say(f"   containment: coarse — {detail}")
+            if not fp.coarse:
+                continue
+            detail = (
+                f"{Path(key).name} measured COARSELY (directory mtimes; in-place "
+                f"content edits not detected) in region(s): {fp.coarse}"
+            )
+            if detail in self._coarse_said.get(phase_id, set()):
+                continue
+            self._coarse_said.setdefault(phase_id, set()).add(detail)
+            self.receipts.event(self.run_id, "containment_coarse", f"{when}: {detail}", phase_id)
+            self._say(f"   containment: coarse — {detail}")
 
     # -- one phase ---------------------------------------------------------
     def _run_phase(
@@ -236,6 +279,7 @@ class Runner:
 
                 try:
                     after = self._fingerprint_all()
+                    self._note_coarse(after, phase.phase_id, "post-execution")
                     changes = self._diff_all(before, after)
                 except perm.ContainmentError as exc:
                     abort_reason = self._handle_containment_failure(
@@ -280,6 +324,7 @@ class Runner:
                 # check would let a gate's own writes escape containment.
                 try:
                     post_gate = self._fingerprint_all()
+                    self._note_coarse(post_gate, phase.phase_id, "post-gate")
                     gate_changes = self._diff_all(before, post_gate)
                 except perm.ContainmentError as exc:
                     for report in reports:
@@ -467,6 +512,13 @@ class Runner:
                 phase.phase_id,
             )
             self._say(f"     rollback: {action.path} -> {action.action}")
+        co_tenancy = _co_tenancy_suspects(breaches)
+        if co_tenancy:
+            self.receipts.event(
+                self.run_id, "co_tenancy_suspected", json.dumps(co_tenancy), phase.phase_id
+            )
+            self._say(f"     NOTE: {len(co_tenancy)} breaching path(s) look like another "
+                      "process on this host, not this phase — see BREACH.json")
         (quarantine / "BREACH.json").parent.mkdir(parents=True, exist_ok=True)
         (quarantine / "BREACH.json").write_text(
             json.dumps(
@@ -476,6 +528,8 @@ class Runner:
                     "writes_allowlist": spec.writes,
                     "breaches": listing,
                     "rollback": [a.__dict__ for a in actions],
+                    "co_tenancy_suspects": co_tenancy,
+                    "co_tenancy_note": CO_TENANCY_NOTE if co_tenancy else None,
                 },
                 indent=2,
             ),
@@ -484,6 +538,8 @@ class Runner:
         phase.error = (
             f"permissions breach during {during}: "
             f"{len(breaches)} path(s) outside the allowlist"
+            + (f" — {len(co_tenancy)} of them look like host co-tenancy, not this phase"
+               if co_tenancy else "")
         )
         phase.status = FAILED
         return phase.error

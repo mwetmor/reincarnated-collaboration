@@ -173,4 +173,77 @@ never written (verified post-run).
 
 ---
 
+## 8. Round two — the re-review findings (added after `d68a4072`)
+
+jack-ryan re-reviewed and returned **BLOCK LIFTED, conditionally**: F1 and F2 closed
+(he re-ran his original probe and three harder variants; the engine tree fingerprints
+with **zero coarse regions**, so `seasons/` and `telemetry.db` — the assets that
+earned the BLOCK — are EXACT-measured). D-3/D-4/D-6/D-7 verified behaviourally, not
+taken on my word.
+
+He then found three more, one BLOCK-class **inside my own F2 fix**:
+
+- **G1 (BLOCK-class) — CLOSED.** `_is_git_worktree` checked only the return code of
+  `git rev-parse --show-toplevel`, which succeeds from *any* depth inside a worktree.
+  So a subdirectory declared as a repo passed the new guard, fingerprinted
+  `usable=True`, and joined 2,907 worktree-root-relative paths against the wrong base
+  — every signature empty, the tree permanently clean. He proved it live; the planted
+  file survived and he had to delete it by hand. Worse, the F2 error text I wrote
+  ("Declare it in `repos` as well") walked an author straight into it.
+
+  Now the toplevel is *compared* to the declared path, at both layers: the loader
+  refuses with an error naming the worktree root to declare instead, and
+  `fingerprint()` itself returns an unusable snapshot if it is not at a worktree root
+  — because the loader is not the only caller. Re-ran his probe: **refused at load,
+  the phase never executed, nothing planted.**
+
+- **G2 (WARN) — CLOSED.** `classify()` matched read-only trees against
+  `change.root`, which is always a whole repo root — so a read-only tree declared as
+  a *subdirectory* was accepted at LOAD and enforced nowhere. And my own
+  `test_a_read_only_tree_nested_inside_a_declared_repo_is_accepted` pinned that:
+  it asserted the loader said yes without checking the yes meant anything. **Second
+  instance of the Discipline #12 pattern in this module, and the second time my test
+  suite defended a hole.** Matching is now by full path, both directions (a collapsed
+  ancestor entry overlapping a read-only subtree fails closed). Live-proven: a write
+  into a nested read-only tree breaches and rolls back even under `writes: ["**"]`.
+
+- **G3 (WARN) — DIAGNOSED, not fixed.** A **read-only** SQLite open on the engine's
+  `telemetry.db` creates `-wal`/`-shm` sidecars that outlive the process. During his
+  review, an out-of-band query from his own session aborted *both* determinism laps
+  and flipped EXACT → DIFFERS. This is fail-closed and, strictly, correct: the
+  factory measures the TREE, not its own actions, so another agent's read is
+  indistinguishable from this phase writing there.
+
+  I did not exempt the sidecars — that is § 3's defect again. Breaches matching
+  co-tenancy signatures (`-wal`, `-shm`, `-journal`, `.lock`, `~`, `.DS_Store`) are
+  now **labelled** in the abort reason, in a `co_tenancy_suspected` receipt, and in
+  `BREACH.json` with a note explaining the mechanism. The run still aborts. The point
+  is that the diagnosis is in the receipt, because on a 10-agent host this will look
+  like a containment defect when it is a co-tenancy problem.
+
+  **This one is not closed and Matt should know it exists**: the founding run can die
+  from another agent merely reading an engine DB. The real fix is host discipline
+  during a run, not code.
+
+Also closed from his INFO findings: **G4** (the coarse caveat was emitted from the
+`before` snapshot only — now every snapshot, deduped per phase, so a region that
+crosses the cap *during* a phase is declared); **G6** (`onerror=lambda _: None`
+silently skipped unreadable subtrees, so a directory that became unreadable between
+snapshots read as unchanged — the failure is now folded into the signature, so
+readability itself is measured); **G7** (a dead `untracked_files` parameter costing
+27 `git ls-files` subprocesses per run — removed).
+
+**G5 remains open** (misleading rollback reason on collapsed-directory breaches).
+
+Round-two evidence: **170 tests** green; run PASS in 1m15s; `DETERMINISM: EXACT —
+14 gate verdicts identical across two laps`; engine and godot dirty-counts unchanged
+at 2789 / 233.
+
+**His condition:** the agentic lane is authorized for workflows declaring **whole git
+repositories**. G1's fix now enforces that mechanically at load, which was his stated
+requirement for lifting the subdirectory restriction — but the verdict is his to
+restate, not mine to assume.
+
+---
+
 **Signed:** star-lord — operational-pipeline seam (export · output · telemetry · LLM)

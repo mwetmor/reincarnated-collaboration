@@ -245,9 +245,17 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
     )
 
 
-def _is_git_worktree(path: Path) -> bool:
-    """A tree the fingerprinter can actually measure. Not `.git` existence — a worktree
-    or submodule keeps a `.git` *file*, and a subdirectory of a repo has neither."""
+def git_toplevel(path: Path) -> Path | None:
+    """The worktree ROOT enclosing `path`, or None if there is no worktree at all.
+
+    The return CODE is not the answer. `git rev-parse` succeeds from any depth
+    inside a worktree, so a returncode check accepts a subdirectory — and a
+    subdirectory is precisely what the fingerprinter cannot measure: `git status`
+    reports paths relative to the worktree root, so every one of them would be
+    joined against the wrong base and stat to nothing. The tree would fingerprint
+    as `usable=True` with every signature empty, which is the F2 fail-open wearing
+    a passing guard (Gate-2 re-review G1).
+    """
     proc = subprocess.run(
         ["git", "rev-parse", "--show-toplevel"],
         cwd=str(path),
@@ -255,7 +263,9 @@ def _is_git_worktree(path: Path) -> bool:
         text=True,
         stdin=subprocess.DEVNULL,
     )
-    return proc.returncode == 0
+    if proc.returncode != 0 or not proc.stdout.strip():
+        return None
+    return Path(proc.stdout.strip()).resolve()
 
 
 def _validate_containment(repos: list[Path], read_only: list[Path]) -> None:
@@ -274,19 +284,35 @@ def _validate_containment(repos: list[Path], read_only: list[Path]) -> None:
             raise WorkflowError(f"declared repo does not exist: {r}")
         if not r.is_dir():
             raise WorkflowError(f"declared repo is not a directory: {r}")
-        if not _is_git_worktree(r):
+        top = git_toplevel(r)
+        if top is None:
             raise WorkflowError(
                 f"declared repo {r} is not a git worktree. Containment is measured by "
                 "diffing the git change-set, so an untracked tree cannot be fenced — it "
                 "would report clean no matter what the phase wrote to it."
             )
+        if top != r:
+            raise WorkflowError(
+                f"declared repo {r} is a SUBDIRECTORY of the git worktree at {top}. "
+                "`git status` reports paths relative to the worktree root, so every "
+                "signature would be computed against the wrong base and come back "
+                "empty — the tree would measure as clean whatever a phase wrote to it. "
+                f"Declare `{top}` and scope the phase with `writes:` instead."
+            )
     for ro in read_only:
         if not any(ro == r or r in ro.parents for r in repos):
+            enclosing = git_toplevel(ro) if ro.is_dir() else None
+            hint = (
+                f" Declare `{enclosing}` in `repos` — it is the worktree root that "
+                f"contains {ro}, and a repo entry must BE a worktree root."
+                if enclosing
+                else " It must sit inside a declared worktree root."
+            )
             raise WorkflowError(
                 f"read_only tree {ro} is not covered by any `repos` entry, so it is never "
-                "fingerprinted and its read-only status is never enforced. Declare it in "
-                "`repos` as well (read-only is a verdict about a measured tree, not a "
-                "substitute for measuring it)."
+                "fingerprinted and its read-only status is never enforced. (Read-only is "
+                "a verdict about a measured tree, not a substitute for measuring it.)"
+                + hint
             )
 
 

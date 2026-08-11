@@ -103,6 +103,25 @@ def _stat_sig(path: Path) -> str:
         return f"unreadable:{exc.errno}"
 
 
+def _record_walk_error(h: "hashlib._Hash"):
+    """os.walk error handler that folds the failure INTO the signature.
+
+    The earlier handler was `lambda _: None` — an unreadable subtree was skipped in
+    silence, so a directory that became unreadable between two snapshots produced
+    identical signatures and the region read as unchanged (Gate-2 re-review G6).
+    Permission is not the same as absence.
+
+    Folding the error in means readability itself is part of what is measured: if a
+    subtree stops being walkable mid-run, the signature moves and the change is
+    caught. Fail closed.
+    """
+
+    def handler(exc: OSError) -> None:
+        h.update(f"UNREADABLE:{exc.filename}:{exc.errno}".encode())
+
+    return handler
+
+
 def _coarse_signature(path: Path) -> tuple[str, int]:
     """Directory mtimes + entry counts. Returns (signature, total files seen).
 
@@ -115,7 +134,7 @@ def _coarse_signature(path: Path) -> tuple[str, int]:
     h = hashlib.sha256()
     dirs = 0
     files = 0
-    for dirpath, dirnames, filenames in os.walk(path, onerror=lambda _: None):
+    for dirpath, dirnames, filenames in os.walk(path, onerror=_record_walk_error(h)):
         dirnames.sort()
         here = Path(dirpath)
         rel = "." if here == path else str(here.relative_to(path))
@@ -129,7 +148,7 @@ def _exact_signature(path: Path) -> str:
     """Stat every file in the tree. Catches in-place edits; costs one stat per file."""
     h = hashlib.sha256()
     count = 0
-    for dirpath, dirnames, filenames in os.walk(path, onerror=lambda _: None):
+    for dirpath, dirnames, filenames in os.walk(path, onerror=_record_walk_error(h)):
         dirnames.sort()
         for name in sorted(filenames):
             member = Path(dirpath) / name
@@ -160,7 +179,7 @@ def _walk_signature(path: Path, cap: int) -> tuple[str, str]:
     return _exact_signature(path), EXACT
 
 
-def _signature(root: Path, rel: str, untracked_files: list[str]) -> tuple[str, str]:
+def _signature(root: Path, rel: str) -> tuple[str, str]:
     """Change signature for a dirty path: size + mtime. Returns (sig, EXACT | COARSE).
 
     Deliberately NOT a content hash. Content comparison for TRACKED files is
@@ -247,11 +266,26 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
     meta-repo only, so a sibling repo that happens to share the path shape gets
     no free pass.
     """
-    root = Path(root)
+    root = Path(root).resolve()
     head_proc = _git(root, "rev-parse", "HEAD")
     if head_proc.returncode != 0:
         return TreeFingerprint(
             root=root, head="", is_git=False, error=head_proc.stderr.strip()[:300]
+        )
+    # `git status` emits WORKTREE-ROOT-relative paths. Fingerprinting a subdirectory
+    # would join every one of them against the wrong base, stat nothing, and report a
+    # clean tree (Gate-2 re-review G1). The loader refuses this, but the loader is not
+    # the only caller -- a fingerprint that cannot be trusted must say so at the source.
+    top_proc = _git(root, "rev-parse", "--show-toplevel")
+    top = Path(top_proc.stdout.strip()).resolve() if top_proc.stdout.strip() else None
+    if top != root:
+        return TreeFingerprint(
+            root=root,
+            head=head_proc.stdout.strip(),
+            error=(
+                f"{root} is not a git worktree root (the worktree is {top}); every "
+                "signature would be computed against the wrong base"
+            ),
         )
     # `--ignored=traditional` collapses ignored DIRECTORIES to one line each, so the
     # listing stays small (118 entries on the engine) while the recursive stat sweep
@@ -274,13 +308,11 @@ def fingerprint(root: Path, is_root_repo: bool = True) -> TreeFingerprint:
             exempted.append(path)
             continue
         entries[path] = code
-    untracked = _git(root, "ls-files", "--others", "--exclude-standard")
-    untracked_files = [ln for ln in untracked.stdout.splitlines() if ln.strip()]
 
     content: dict[str, str] = {}
     coarse: list[str] = []
     for p in entries:
-        sig, mode = _signature(root, p, untracked_files)
+        sig, mode = _signature(root, p)
         content[p] = sig
         if mode == COARSE:
             coarse.append(p)
@@ -358,6 +390,29 @@ def _matches(path: str, pattern: str) -> bool:
     return path == bare or path.startswith(bare + "/")
 
 
+def _read_only_hit(change_root: Path, rel: str, read_only: list[Path]) -> str | None:
+    """Which read-only tree this change lands in, by PATH — or None.
+
+    The earlier version compared only `change.root`, which is always a whole repo
+    root. A read-only tree declared as a subdirectory therefore matched nothing and
+    was enforced nowhere, while the loader happily accepted it (Gate-2 re-review G2).
+
+    Matching runs both ways on purpose. A change reported at a COLLAPSED directory
+    entry (git reports one line for a wholly-untracked directory) may be an ancestor
+    of the read-only tree rather than a descendant of it. We cannot tell from the
+    entry alone which members moved, so an overlap in either direction is a breach.
+    Fail closed: the alternative is letting a collapsed ancestor smuggle writes into
+    a protected subtree.
+    """
+    full = (change_root / rel.rstrip("/")).resolve() if rel else change_root
+    for ro in read_only:
+        if full == ro or ro in full.parents:
+            return str(ro)
+        if full in ro.parents:
+            return f"{ro} — reached via the collapsed entry {rel!r}"
+    return None
+
+
 def classify(
     changes: list[Change],
     writes: list[str],
@@ -371,10 +426,9 @@ def classify(
     read_only = [Path(p).resolve() for p in (read_only_trees or [])]
     for change in changes:
         change_root = Path(change.root).resolve()
-        if any(change_root == ro or str(change_root).startswith(str(ro) + "/") for ro in read_only):
-            breaches.append(
-                Breach(change, f"write inside a read-only tree ({change_root.name})")
-            )
+        hit = _read_only_hit(change_root, change.path, read_only)
+        if hit is not None:
+            breaches.append(Breach(change, f"write inside a read-only tree ({hit})"))
             continue
         if change_root == Path(root).resolve() and any(
             _matches(change.path, p) for p in protected
