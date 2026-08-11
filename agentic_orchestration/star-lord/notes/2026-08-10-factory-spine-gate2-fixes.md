@@ -713,3 +713,149 @@ evidence the fixes are bad. Round six is the sixth, and I think the framing hold
 K1 fired on `git add`; L1 needs a file named `:(top)` at a tree root; the general L2
 case needs the agent to be *well-behaved*. But the gradient is in the findings, not in
 my process, and § 12.3 is the process change I am proposing as a result.
+
+---
+
+## 13. Round seven — the guard asked git, and the one change git never named walked past it
+
+Round six closed L2 by reading the porcelain status code. jack-ryan's round-seven
+Gate-2 verdict was **HOLD**, on a finding that is the same shape one level down.
+
+### 13.1 L8 — a synthetic status routes around the staging guard
+
+`diff_fingerprints` emits structure-sweep rows with `after_status="structure"`. That
+label is not git's; this module wrote it. Round six's guard was
+
+```python
+return len(code) == 2 and code[0] not in " ?!"
+```
+
+and `len("structure")` is 9, so the answer was "not staged" — the safe-looking one.
+Control fell through to `git checkout -- <path>` with a **directory** pathspec whose
+index content was the phase's own bytes.
+
+Reproduced against the shipped module at `fb954d4a`:
+
+```
+git status: 'MD src/f.txt'
+  ACTION: 'src/f.txt' -> NOT_ROLLED_BACK  REFUSED: the phase staged this removal...
+  ACTION: 'src'       -> restored         git checkout -- <path>
+CONTENT ON DISK: 'PHASE CONTENT -- THIS MUST NOT SURVIVE\n'
+```
+
+Two rows, one breach, opposite answers — and the wrong one was the one that acted.
+Recipe: `git add` a fenced file, then `rm -rf` its directory. It fires on the real
+fences: `runner.py` passes `structure_roots=self.wf.read_only_trees`.
+
+**Why the destroyer guard was immune and this one was not.** The `created` side asks
+*git* (`_tracked_under`), so a made-up status cannot fool it. The `deleted`/`modified`
+side asked *the string*. Only the guard that trusted a label was fooled by a label —
+and the label it trusted was one this module had written itself.
+
+Fixed by asking the repository instead: `git diff --cached --name-only HEAD -- <path>`
+under `GIT_LITERAL_PATHSPECS=1`. That is a property of the tree, so it is immune to a
+status being synthetic, `None`, or added later, and it retires the hand-placed
+`RENAME_SOURCE` exemption — `git mv` stages both ends, so git reports both. Verified
+no over-refusal: empty for an unstaged edit, an unstaged rmtree, and a clean path.
+
+### 13.2 L9 — a negative claim nobody was checking
+
+The staged-removal refusal said "HEAD still holds N file(s) here **and the index no
+longer does**". `held.in_index` was never read. For `MD` it is false — the index holds
+the phase's content. The operator was told the index was empty one line above the
+command that reads the index, which is L8's damage made invisible.
+
+My round-six claim-verifier could not catch it: it checked that a positive HEAD claim
+was backed by a non-empty HEAD, and had no counterpart for a claim that something is
+EMPTY. Every clause in every refusal is now derived from a measurement, and the wall
+checks negative claims symmetrically.
+
+### 13.3 The third category the wall could not reach
+
+Round six documented two: codes git emits (wall rows) and codes git *might* emit
+(alphabet tests). jack-ryan named the third — **status values this module emits about
+itself**. `"structure"` and `RENAME_SOURCE` are outside both: the wall plants artifacts
+and git never writes `"structure"`; the alphabet iterates `" MTADRCU?!"` squared.
+`RENAME_SOURCE` had survived only by a hand-placed exemption naming it, which is how
+you can tell the category was never enumerated. The remedy is not a third test family
+— it is that no guard keys on the label any more.
+
+### 13.4 The process amendment needs its own amendment
+
+§ 12.3 said: *a new predicate's row must be shown to RED with the fix reverted, before
+it ships.* **L8 would have passed that gate cleanly.** `_was_staged_by_phase` was
+load-bearing on every row that reached it; revert it and rows went red. The defect was
+that one route into the guard never reached it at all.
+
+So the rule as written proves a predicate is load-bearing *where it is reached*, and
+says nothing about whether it is reached everywhere it must be. Stated in full:
+
+> A new predicate's row must be shown to RED with the fix reverted, before it ships —
+> and the row must arrive by **every route a change can take to that predicate**, not
+> only the route git labels. A mutation that binds to nothing is a loud failure, never
+> a silent pass.
+
+The new wall row `staged_dir_removal` is the reachability half: it goes RED against
+`fb954d4a` in both fixture shapes, and nothing else moves (2 failed, 406 passed).
+jack-ryan is drafting this as Discipline 37 with both clauses; that document is his.
+
+### 13.5 Evidence
+
+| Item | Result |
+|---|---|
+| Suite | 410 passed (398 at round start) |
+| Artifact kinds | 20 × 2 fixture shapes × 4 rounds + canary |
+| L8 reachability | new row RED at `fb954d4a`, both shapes; 406 others unmoved |
+| L8 over-refusal check | empty for unstaged edit / unstaged rmtree; non-empty only for staged |
+| Round-seven mutations | see § 13.6 — four survivors on the first pass, zero on the second |
+| Fenced-tree baselines | engine 2789 / godot 233, unchanged |
+
+### 13.6 The mutation table, both passes
+
+The first pass returned **four survivors**, and they are the reason round seven is
+not one commit shorter.
+
+| Mutation | Property | First pass | Second pass |
+|---|---|---|---|
+| M23b staging guard never reached | L2 general | RED | — |
+| M23c the predicate answers `not staged` | L2 general | RED | — |
+| **M28 the guard reads the LABEL again** | **L8 verbatim** | **RED (2 failed)** | — |
+| M30 refusal asserts the index is empty | L9 | RED | — |
+| M20 git reads pathspec magic | L1 | RED | — |
+| M26 shell metacharacters PASS | L5 | RED | — |
+| M29 unanswered counts as `no` | L8 | **GREEN** | RED |
+| M31 unborn HEAD answers `no` | L8 | **GREEN** | RED |
+| M27 refusals unsurfaced | L6 | **ANCHOR NOT FOUND** | RED |
+| M24 control | control | **GREEN** | RED (16 failed) |
+
+M23b and M23c are round six's, re-anchored: round seven deleted the text they bound
+to, so run unchanged they would have printed ANCHOR NOT FOUND and the set would have
+reported as verified.
+
+**M29 and M31 were real gaps of the same shape one tier down.** The guard was correct
+in both cases and nothing was holding it there. The wall cannot plant either — a
+healthy repo never refuses a question, and every fixture has commits — so they are
+alphabet-tier tests. Writing the first one caught an error in my own fixture: I
+dirtied the file before taking the baseline, so `was_dirty_before` dropped the change
+and the guard was never reached. That is the same masking that hid L8 for six rounds,
+reproduced by accident inside the test written to close it.
+
+**M27's anchor was invented rather than read off the file**, so L6 was reported as
+verified while nothing ran. It surfaced only because unmatched anchors are counted as
+loud survivors — a safeguard added in round six on its second outing.
+
+**M24 was not a control.** It was `assert True or <canary check>`. Removing an
+assertion from a green suite cannot turn it red, so the mutation had no power to
+detect anything and its result carried no information in either direction — yet it
+had been reported as a passing control. A control-shaped comment is the same defect
+as a guard-shaped comment. It is replaced by a mutation to PRODUCT code
+(`git checkout -- <path>` -> `git checkout -- .`), and the canary assertion is now
+confirmed to be the thing that fires, by name:
+
+```
+test_containment_wall.py:525: AssertionError: rolling back a mode_only_change in the
+read_only_subtree shape destroyed uncommitted work on canary.md, a tracked file NO
+ARTIFACT TOUCHED.
+```
+
+Second pass: **SURVIVORS: none. unanchored: none.**

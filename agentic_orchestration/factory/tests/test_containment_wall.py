@@ -198,6 +198,38 @@ def _plant_unstaged_modification(where: Path) -> str:
     return "staged_edit.md"
 
 
+def _plant_staged_dir_removal(where: Path, repo: Path) -> str:
+    """Gate-2 L8. The row that proves a guard keyed on a LABEL is keyed on nothing.
+
+    The phase edits a tracked file, stages it, then removes the whole directory. git
+    names the file (`MD`), and the structure sweep separately names the DIRECTORY —
+    with `after_status="structure"`, a label this module invents. The code-based
+    staging guard measured that string, found it was not two characters, answered
+    "not staged", and handed `protected/pkg` to `git checkout --`, which restored the
+    directory FROM THE INDEX. The phase's own bytes landed back inside the fenced
+    tree under a receipt reading `restored`, on the row beside an honest refusal for
+    the same file.
+
+    Two rows, same breach, opposite answers — and the wrong one was the one that
+    acted. Reproduced against the shipped module before this row existed.
+
+    The directory must be CLEAN at phase start. Dirt under it sets `was_dirty_before`
+    and the change is dropped long before any verb is chosen, which is precisely why
+    six rounds of wall rows never touched this path.
+    """
+    subprocess.run(
+        ["git", "add", "--", str(where / "pkg" / "mod.py")],
+        cwd=str(repo), check=True, capture_output=True,
+    )
+    (where / "pkg" / "mod.py").write_text("THE PHASE STAGED THIS\n", encoding="utf-8")
+    subprocess.run(
+        ["git", "add", "--", str(where / "pkg" / "mod.py")],
+        cwd=str(repo), check=True, capture_output=True,
+    )
+    shutil.rmtree(where / "pkg")
+    return "pkg"
+
+
 def _plant_staged_rename(where: Path, repo: Path) -> str:
     """Gate-2 L2. `git mv` — the command round four's J1 was about.
 
@@ -281,13 +313,21 @@ ARTIFACT_KINDS: dict[str, object] = {
     "staged_modification": _plant_staged_modification,
     "staged_rename": _plant_staged_rename,
     "unstaged_modification": _plant_unstaged_modification,
+    # added closing L8 (Gate-2 round seven) — round six's staging guard read a status
+    # STRING, so the one change carrying a string this module wrote itself walked
+    # straight past it. The rule grows again: a new predicate gets a row that reaches
+    # it by EVERY route a change can arrive on, not just the route git labels.
+    "staged_dir_removal": _plant_staged_dir_removal,
 }
 
 #: Planters needing the repo root as well as the plant directory. In the
 #: `read_only_worktree_root` shape these are the same path, which is exactly the
 #: coincidence the old `where.parent` idiom was silently relying on.
 _NEEDS_REPO = frozenset(
-    {"hard_link", "staged_artifact", "staged_modification", "staged_rename"}
+    {
+        "hard_link", "staged_artifact", "staged_modification", "staged_rename",
+        "staged_dir_removal",
+    }
 )
 
 
@@ -376,6 +416,11 @@ def _seed_tree(d: Path) -> None:
     (d / "swappable.md").write_text("swappable\n", encoding="utf-8")
     (d / ":(top)").write_text("a legally-named file\n", encoding="utf-8")
     (d / "staged_edit.md").write_text(BASELINE_EDIT_TEXT, encoding="utf-8")
+    # Gate-2 L8 needs a CLEAN tracked subdirectory to delete. It has to be clean:
+    # any dirt under it at phase start sets `was_dirty_before` and the change never
+    # reaches the rollback verb at all, which is how the case stayed invisible.
+    (d / "pkg").mkdir(exist_ok=True)
+    (d / "pkg" / "mod.py").write_text(BASELINE_EDIT_TEXT, encoding="utf-8")
 
 
 def _git_init(root: Path) -> None:
@@ -517,10 +562,32 @@ def _assert_refusal_claims_are_true(f: Fence, action, kind: str) -> None:
     #: the identification was right, and the real reason (the phase staged it) went
     #: unsaid. Checking the arithmetic passed that mutation; checking that the
     #: sentence is the one the facts support does not.
-    if re.search(r"HEAD (?:still )?holds (\d+) file\(s\)", reason):
+    if re.search(r"HEAD still holds (\d+) file\(s\)", reason):
         assert truth.in_head, (
             f"the refusal for a {kind} justifies itself by what HEAD holds under "
             f"{action.path!r}, and HEAD holds nothing there. Reason was: {reason}"
+        )
+    #: Gate-2 L9, the symmetric hole. The check above catches a refusal leaning on a
+    #: HEAD that holds nothing; there was no counterpart for a refusal ASSERTING the
+    #: index is empty. The shipped deleted-branch said "the index no longer does"
+    #: without ever reading `in_index`, and for `MD` the index was holding the
+    #: phase's content — so the operator was told the index was empty on the line
+    #: above a command that reads the index. A negative claim is a claim.
+    for phrase in ("index no longer", "index does not", "index holds none"):
+        if phrase in reason:
+            assert not truth.in_index, (
+                f"the refusal for a {kind} tells the operator the index no longer "
+                f"holds {action.path!r}, and the index holds {len(truth.in_index)} "
+                f"file(s) there. Reason was: {reason}"
+            )
+    #: The staged-content claim is re-derived the same way the guard derives it, so a
+    #: guard that stops asking git cannot keep printing the sentence (Gate-2 L8).
+    for claimed in re.findall(r"index differs from HEAD at (\d+) path\(s\)", reason):
+        actual = len(perm._staged_against_head(f.repo, action.path).paths)
+        assert int(claimed) == actual, (
+            f"the refusal for a {kind} claims git's index differs from HEAD at "
+            f"{claimed} path(s) under {action.path!r}; it differs at {actual}. "
+            f"Reason was: {reason}"
         )
     if truth.in_index and not truth.in_head:
         assert "index" in reason, (
@@ -1082,6 +1149,7 @@ def test_K3_the_destroyer_guard_asks_HEAD_as_well_as_the_index(fenced_subtree, t
         "protected/:(top)",
         "protected/canary.md",
         "protected/movable.md",
+        "protected/pkg/mod.py",
         "protected/staged_edit.md",
         "protected/swappable.md",
     }

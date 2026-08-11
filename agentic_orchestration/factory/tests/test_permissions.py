@@ -620,6 +620,82 @@ def test_L2_unmerged_codes_are_unknown_rather_than_guessed():
 
 
 # ---------------------------------------------------------------------------
+# Gate-2 L8 — the two states the WALL cannot plant
+#
+# The wall plants artifacts in a healthy repo, so it can only reach conditions a
+# healthy repo produces. Neither of these is one: a repo where git REFUSES the
+# question, and a repo with no commits at all. Round seven's mutation table caught
+# both as survivors — the guard was correct in each case and nothing was holding it
+# there, which is the same "absence reads as a pass" shape one tier down.
+# ---------------------------------------------------------------------------
+def test_L8_a_question_git_REFUSES_to_answer_is_not_a_no(tmp_path, git_repo, monkeypatch):
+    """`git checkout --` ACTS. So an unanswered question cannot be filed as `no`.
+
+    Every other default-fail branch in this module already works this way; the
+    staging guard is the newest one, and the newest guard is the one whose
+    not-knowing case has never been exercised.
+    """
+    # The baseline is taken FIRST. Dirtying the file before the snapshot makes it
+    # dirty-at-phase-start, and such a path is dropped long before any verb is
+    # chosen — the same masking that hid L8 for six rounds.
+    before = {str(git_repo): perm.fingerprint(git_repo)}
+    (git_repo / "tracked.txt").write_text("the phase rewrote this\n")
+    real_git = perm._git
+
+    def failing_diff(root, *args, **kwargs):
+        if args[:2] == ("diff", "--cached"):
+            return subprocess.CompletedProcess(
+                args=list(args), returncode=128, stdout="",
+                stderr="fatal: this operation must be run in a work tree",
+            )
+        return real_git(root, *args, **kwargs)
+
+    monkeypatch.setattr(perm, "_git", failing_diff)
+    breach = perm.Breach(
+        perm.Change(root=git_repo, path="tracked.txt", kind="modified",
+                    before_status=None, after_status=" M"),
+        "outside the allowlist",
+    )
+    actions = perm.rollback([breach], before, tmp_path / "q")
+    assert actions[0].action == "NOT_ROLLED_BACK", (
+        "git refused to say whether its index differs from HEAD, and containment "
+        "ran `git checkout --` anyway. Not-knowing is not a `no` for a verb that "
+        f"writes the worktree from the index. Action was {actions[0]!r}"
+    )
+    assert "could not say" in (actions[0].reason or ""), (
+        f"the refusal must name the unanswered question. Reason: {actions[0].reason}"
+    )
+
+
+def test_L8_with_NO_COMMITS_the_index_still_holds_the_phases_own_work(tmp_path):
+    """Unborn HEAD is a real answer, not a refusal — and the answer is not `no`.
+
+    With nothing committed, everything the index holds differs from HEAD, so
+    `git checkout -- <path>` restores the phase's own staged bytes and calls it
+    `restored`. The `rev-parse HEAD` probe returning non-zero is the branch that
+    decides this, and it is the branch a repo with commits never reaches.
+    """
+    root = tmp_path / "unborn"
+    root.mkdir()
+    for args in (("init", "-q"), ("config", "user.email", "t@example.invalid"),
+                 ("config", "user.name", "t")):
+        subprocess.run(["git", *args], cwd=str(root), check=True, capture_output=True)
+    (root / "staged.txt").write_text("THE PHASE STAGED THIS\n")
+    subprocess.run(["git", "add", "staged.txt"], cwd=str(root), check=True,
+                   capture_output=True)
+
+    staged = perm._staged_against_head(root, "staged.txt")
+    assert staged, (
+        "with an unborn HEAD the index holds content HEAD does not, so the staging "
+        f"guard must answer yes. It answered {staged!r}"
+    )
+    assert not staged.unanswered, (
+        "an unborn HEAD is the real answer 'nothing is committed yet', not a git "
+        f"refusal. Recorded as unanswered: {staged.unanswered!r}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # Gate-2 L6 — a refusal the operator never sees is a refusal that did not happen
 # ---------------------------------------------------------------------------
 def test_L6_paths_the_rollback_REFUSED_to_undo_are_named_in_the_receipts(tmp_path, git_repo):

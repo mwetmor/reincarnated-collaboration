@@ -602,33 +602,77 @@ _ENTRY_KIND: dict[str, str] = {
 }
 
 
-def _was_staged_by_phase(code: str | None) -> bool:
-    """Did the phase put this change in the INDEX?
+@dataclass(frozen=True)
+class StagedAgainstHead:
+    """Paths under a pathspec where the INDEX differs from HEAD, or why unknown."""
+
+    paths: tuple[str, ...]
+    unanswered: tuple[str, ...]
+
+    def __bool__(self) -> bool:
+        """True when `git checkout --` might write the phase's own bytes back.
+
+        Not-knowing counts as true. `checkout` ACTS; an unanswered question is not
+        a `no`, and the safe-looking answer here is the one that lets it run.
+        """
+        return bool(self.paths or self.unanswered)
+
+
+def _staged_against_head(root: Path, rel: str) -> StagedAgainstHead:
+    """Does git's index hold something other than HEAD under this path?
 
     This is the predicate that makes `git checkout -- <path>` safe to use at all.
-    That command restores from the index — so if the phase staged its own work, the
+    That command restores from the INDEX — so if the phase staged its own work, the
     index IS the phase's work, and `checkout` rewrites the file with exactly the
     content containment is supposed to be removing, then reports `restored`.
 
     Gate-2 L2 found this on a rename destination and was closed by re-typing `R `.
-    That closed one cell of a column: the property has nothing to do with renames.
-    It holds for every code whose X column is non-space — including `M `, a staged
-    modification of a tracked file, which is the most ordinary thing a disciplined
-    agent does. Verified live: a phase that runs `git add` after its edit gets
-    `restored` on the receipt and its own bytes on disk.
+    That closed one cell of a column. Gate-2 L2-general found the column is every
+    code whose X is non-space — `M `, a staged modification, being the most ordinary
+    thing a disciplined agent does — and closed it by reading the porcelain code.
 
-    Third round running in which the more disciplined git command is handled worst,
-    and the reason is structural: staging moves work into a place containment reads
-    as the baseline. So containment does not restore staged work — it refuses and
-    names the index, exactly as it already does for staged creations (the destroyer
-    guard) and staged deletions. Editing the index of a fenced tree is a human
-    decision in all three cases, and now in the fourth.
+    Gate-2 L8 found that reading the CODE is still the wrong question, because not
+    every change carries one git wrote. `diff_fingerprints` emits structure-sweep
+    rows with `after_status="structure"`, a label THIS MODULE invents; the code-based
+    predicate measured `len("structure") == 2`, answered "not staged", and handed a
+    DIRECTORY pathspec to `git checkout --`. Reproduced: `git add` a fenced file,
+    `rm -rf` its directory, and the phase's own bytes come back under a `restored`
+    receipt — on the row beside an honest refusal for the same file.
+
+    So the question is asked of GIT, about the TREE, and never of a label:
+
+        git diff --cached --name-only HEAD -- <rel>
+
+    which is a property of the repository rather than of a string, and is therefore
+    immune to `after_status` being synthetic, `None`, or something added later. It
+    is also why the rename pair needs no hand-placed exemption any more — `git mv`
+    stages both ends, so git itself reports both.
+
+    Fourth round running in which the more disciplined git command is handled worst,
+    and the reason is structural: staging moves work into the place containment reads
+    as its baseline. So containment does not restore staged work — it refuses and
+    names the index, exactly as the destroyer guard already does for staged
+    creations. Editing the index of a fenced tree is a human decision.
     """
-    if not code:
-        return False
-    if code == RENAME_SOURCE:
-        return True     # `git mv` stages both ends
-    return len(code) == 2 and code[0] not in " ?!"
+    if _git(root, "rev-parse", "--quiet", "--verify", "HEAD").returncode != 0:
+        # Unborn HEAD is a real answer, not a refusal: HEAD holds nothing, so
+        # everything the index holds here differs from it.
+        proc = _git(root, "ls-files", "--", rel)
+        unborn = () if proc.returncode == 0 else (
+            f"git ls-files failed: {proc.stderr.strip()[:120]}",
+        )
+        return StagedAgainstHead(
+            tuple(l for l in proc.stdout.splitlines() if l.strip()), unborn
+        )
+
+    proc = _git(root, "diff", "--cached", "--name-only", "HEAD", "--", rel)
+    if proc.returncode != 0:
+        return StagedAgainstHead(
+            (), (f"git diff --cached failed: {proc.stderr.strip()[:120]}",)
+        )
+    return StagedAgainstHead(
+        tuple(l for l in proc.stdout.splitlines() if l.strip()), ()
+    )
 
 
 def diff_fingerprints(before: TreeFingerprint, after: TreeFingerprint) -> list[Change]:
@@ -1125,28 +1169,37 @@ def rollback(
         # index — the same answer the destroyer guard already gives staged creations,
         # for the same reason. Nothing here edits the index of a fenced tree; that is
         # a human decision, and the recovery command is printed so it is a cheap one.
-        if _was_staged_by_phase(change.after_status):
+        staged = _staged_against_head(root, change.path)
+        if staged:
             held = _tracked_under(root, change.path)
-            if change.kind == "deleted":
+            if staged.unanswered:
                 what = (
-                    "the phase staged this removal — HEAD still holds "
-                    f"{len(held.in_head)} file(s) here and the index no longer does, "
-                    "so nothing is lost, but restoring means overriding the index"
+                    "git could not say whether its index here differs from HEAD "
+                    f"({'; '.join(staged.unanswered)}). `git checkout --` writes the "
+                    "worktree FROM the index, so an unanswered question is not a `no`"
                 )
             else:
                 what = (
-                    "the phase staged this write, so git's index holds the phase's "
-                    "own content — `git checkout --` reads the index and would "
-                    "rewrite the file with exactly what containment is removing, "
-                    "under a receipt saying `restored`"
+                    f"git's index differs from HEAD at {len(staged.paths)} path(s) "
+                    "here, which is the phase's own staged content — `git checkout --` "
+                    "reads the INDEX, not HEAD, so it would write back exactly what "
+                    "containment is removing, under a receipt saying `restored`"
                 )
+            # Every clause below is MEASURED. The shipped version asserted "the index
+            # no longer does" in the deleted branch without ever reading `in_index`,
+            # and it was false for `MD` — the reader was told the index was empty on
+            # the line above the command that reads the index (Gate-2 L9).
+            facts = (
+                f"HEAD holds {len(held.in_head)} file(s) here; "
+                f"the index holds {len(held.in_index)}"
+            )
             actions.append(
                 RollbackAction(
                     change.path,
                     "NOT_ROLLED_BACK",
-                    f"REFUSED: {what}, which is a human decision for a fenced tree "
-                    f"(status {change.after_status!r}; recover with: "
-                    f"git checkout HEAD -- {change.path!r})",
+                    f"REFUSED: {what}. {facts}. Editing the index of a fenced tree is "
+                    f"a human decision (status {change.after_status!r}; recover from "
+                    f"the commit with: git checkout HEAD -- {change.path!r})",
                     quarantined,
                 )
             )

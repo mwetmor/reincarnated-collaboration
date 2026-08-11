@@ -43,7 +43,7 @@ factory/
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
-  tests/           398 tests, all green
+  tests/           410 tests, all green
 ```
 
 ## Use
@@ -72,7 +72,7 @@ says which side of the boundary the breach came from.
 ## What "the tree was clean" is worth
 
 Containment is a git change-set diff, so it is only as good as what git will
-describe. **Fifteen rules** keep the claim honest, each one added closing a Gate-2
+describe. **Seventeen rules** keep the claim honest, each one added closing a Gate-2
 finding that had the *same shape*: a predicate answering a slightly different question
 than the one asked, whose wrong answer is always `clean` — or, once, `restored`.
 
@@ -173,16 +173,36 @@ than the one asked, whose wrong answer is always `clean` — or, once, `restored
    deliberately declines to undo were returned in a list and dropped, so an abort
    report could say the run was contained while the tree was not clean. Each one now
    emits a `containment_not_undone` receipt naming the path and the reason (L6).
+16. **Ask git about the tree, never a label this module wrote.** Rule 14's guard read
+   the porcelain status *string* — so it was correct for every change git named, and
+   blind to the one kind of change git does not. The structure sweep emits its rows
+   with `after_status="structure"`, a label invented here; the guard measured it, found
+   it was not two characters, answered "not staged", and handed a **directory** to
+   `git checkout --`, which restored it from the index. Staging a fenced file and then
+   removing its directory put the phase's own bytes back inside the tree under a
+   receipt reading `restored` — on the row beside an honest refusal for the same file.
+   The question is now asked of the repository (`git diff --cached HEAD -- <path>`),
+   which is a property of the tree rather than of a string, and is therefore immune to
+   a status being synthetic, absent, or added later. The rename pair needs no
+   hand-placed exemption any more; git reports it. Note the destroyer guard was never
+   fooled, because it had always asked git — only the guard that trusted a string was
+   fooled by a string (L8).
+17. **A negative claim is a claim.** The refusal for a staged removal told the operator
+   "the index no longer holds it" without ever reading the index, one line above a
+   command that reads the index — and for `MD` the index was holding the phase's
+   content. Every clause in every refusal is now derived from a measurement, and the
+   wall checks the negative claims as well as the positive ones (L9).
 
 **The wall.** `tests/test_containment_wall.py` is the standing answer to that
-repeated shape — nineteen artifact kinds (regular file, symlink out of the tree,
+repeated shape — twenty artifact kinds (regular file, symlink out of the tree,
 broken symlink, nested dir, collapsed untracked member, gitignored file, nested git
 repo, unreadable subtree, a quoted path containing the rename delimiter, a path with
 a newline, a hard link, a mode-only change, a directory replacing a file, an empty
-directory tree, a file whose name is pathspec magic, and the four staging shapes: a
-staged creation, a staged modification, a staged rename, and the unstaged
-modification that keeps the staging guard honest) each run through four rounds, **in
-both fixture shapes**:
+directory tree, a file whose name is pathspec magic, and the five staging shapes: a
+staged creation, a staged modification, a staged rename, a staged edit whose whole
+directory is then removed — the one that arrives carrying a status git did not write
+— and the unstaged modification that keeps the staging guard honest) each run through
+four rounds, **in both fixture shapes**:
 
 1. the change-set must **name** the artifact — not merely be non-empty. The first
    draft asserted only non-emptiness, which was the module's own disease in the one
