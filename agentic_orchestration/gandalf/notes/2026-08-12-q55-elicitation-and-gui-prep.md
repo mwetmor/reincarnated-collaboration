@@ -1,6 +1,6 @@
 # Q55 elicitation sheet + GUI (editor) preparation plan — 2026-08-12
 
-> **Role:** gandalf, `ELICITOR`. **Status:** PRESENTED to Matt this session; rulings pending — this file banks the decision content against session loss. Q55 queue row: `canonical/matt_decision_needed/README.md` (parked `72ffc385`). Companion beats this session: retention LAW adopted (`7e503a8b`); SB-1 shape presented, launch word pending.
+> **Role:** gandalf, `ELICITOR`. **Status:** ✓ RULED 2026-08-12 — Matt verbatim: *"(a) as leaned, S-pins as leaned, REG, GUI, conduct."* Five of six desk rows dispositioned (§ 3); Q56 remains open. Q55 queue row: `canonical/matt_decision_needed/README.md` (parked `72ffc385`). Companion beats this session: retention LAW adopted (`7e503a8b`); SB-1 shape presented, launch word pending.
 
 ---
 
@@ -74,4 +74,19 @@
 
 ---
 
-*Banked by gandalf (`ELICITOR`), 2026-08-12. Rulings land in this file + the SB-1 ledger/queue when Matt speaks.*
+## 3 · RULED — 2026-08-12, Matt verbatim: *"(a) as leaned, S-pins as leaned, REG, GUI, conduct."*
+
+| id | word | disposition |
+|---|---|---|
+| **Q55** | "(a) as leaned, S-pins as leaned" | **Fork (a) GOVERNS** — OS boundary for agentic cells; fingerprinting demoted to audit layer; D5 amended. S-1..S-4 adopted as leaned. Build post-SB-1 (star-lord seam). Queue row struck same-commit. Unblocks F2 sequencing + agentic HOLD clause 2 + JR-7 INFO rider; LANDING § 5 stopping-rule residue resolves via S-3. |
+| **REG-1..3** | "REG" | Adopted — registry-first · strata-open · staggered chain. elrond Stage-0 schema cell fired same-turn (design-only). |
+| **GUI-1** | "GUI" | Six laws L1–L6 + staged plan 0–5 adopted; gandalf authors the editor charter doc (`SPEC-AUTHOR`) on the next beat. |
+| **GUI-2** | "GUI" | Godot registry dock v0 commissioned (drax, post-SB-1 — Stage 2; no factory/Q55/Tier-2 dependency). |
+| **SB-1** | "conduct" | **LAUNCHED** — Act 0 fired (drax Cell 0 countersign); rulings + pins in the run ledger (PL-6, L-0). |
+| **Q56** | — | Not spoken; remains on the queue (steward tie, Matt's re-rank). |
+
+**Two rider questions from the launch turn, answered in the launch reply (banked for lineage):**
+- **godot-synty-tools scope:** import-time tooling for RAW vendor sources (bone maps, import generators, post-import scripts) — NOT the serving layer for assembled assets. Our assembled characters/rooms/VFX are native Godot artifacts (`.tscn`/`.tres`) served by the REGISTRY + dock, source-agnostically. Unity-vendor VFX cannot import as VFX; they decompose to parts and REBUILD as Godot GPUParticles at the assemblies stratum.
+- **Codex routing doctrine:** *name the work, not the worker.* Cells get IDs, not seam names (seam names carry governance identity workers don't have and S-2 denies them). Codification per cell in workflow YAML (governing surface: task, scope, model pin, sandbox mode, acceptance, receipt fields) + a harness-GENERATED `AGENTS.md` dropped into the throwaway worktree (Codex-native config surface, templated from the cell spec, never hand-maintained). Model pinned per cell → `-c model=` → recorded in receipt. Routing table v1 is written FROM the S-4 pilot's receipts, not speculated in advance.
+
+*Banked by gandalf (`ELICITOR` → `RUN-CONDUCTOR` at the launch word), 2026-08-12.*

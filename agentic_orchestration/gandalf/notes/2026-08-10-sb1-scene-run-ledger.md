@@ -47,6 +47,32 @@ R4 (conductor lean, veto-open) and R5 remain on Matt's desk; neither gates launc
 
 **On adoption:** law text lands as charter § 5 rider + galadriel lane law; FG-12 extension + graduation to run-minted-law at SB-1 close.
 
+## PL-6 — Launch-turn rulings (Matt, 2026-08-12): *"(a) as leaned, S-pins as leaned, REG, GUI, conduct."*
+
+| word | ruling | effect |
+|---|---|---|
+| **"(a) as leaned, S-pins as leaned"** | **Q55 RULED — fork (a):** OS boundary for agentic cells; fingerprinting = audit layer; D5 amended. S-1..S-4 adopted as leaned (elicitation sheet § 1). | F2 sequencing + agentic HOLD clause 2 + JR-7 INFO rider unblock; build post-SB-1 (star-lord). Queue row struck same-commit. LANDING § 5 stopping-rule residue resolves via S-3. |
+| **"REG"** | REG-1..3 adopted — registry-first (data source of truth; HTML = generated view) · strata open enum (parts → assemblies → completed) · staggered chain (elrond schema now → drax ingest post-CP-A → galadriel thumbnails last). | elrond Stage-0 schema cell FIRED this turn (design-only, no ingest). |
+| **"GUI"** | GUI-1 adopted (six laws L1–L6 + staged plan 0–5; gandalf authors the editor charter next beat) · GUI-2 adopted (Godot registry dock v0). | Surface A (dock) lands Stage 2 post-SB-1, drax — no factory/Q55/Tier-2 dependency. Surface B backend v1 = conducted-session bridge; v2 = agentic lane post-F2. |
+| **"conduct"** | **SB-1 LAUNCH WORD** — charter § 11 condition (2) closes by affirmative word (stronger than the silence-past-engagement clause). | Act 0 FIRED (drax Cell 0 countersign); L-0 pinned below. |
+
+Open, non-gating: **R4 · R5** (conductor leans stand, veto-open) · **Q56** (steward tie; Matt's re-rank).
+
+## L-0 — Launch pins (fired at launch per charter § 9; 2026-08-12)
+
+| pin | value |
+|---|---|
+| **Launch word** | Matt "conduct", 2026-08-12 (PL-6) |
+| **§ 11 state at launch** | (1) CLOSED `fe1aee41` · (2) CLOSED (PL-6) · (3) IN FLIGHT — Cell 0 fired this turn; Act 1 gates on a clean countersign; any OBJECT → HALT to Matt |
+| **Baton** | `kc2-baton-v1-E-s09-cp150-20260809_052836.json` @ sha256 `d7ecd866ac45…`, 1,065,632 B (spine phase 1 re-pins every run) |
+| **Charter** | `9b3e7e2b` + retention rider `7e503a8b` |
+| **Factory spine** | code head `b8c0311c`; suite 622 green; mechanical lane LIFT (agentic lane ruled at PL-6, built post-SB-1) |
+| **Godot repo** | HEAD `978a423b206c3b0881dd3d788a2523b64b51f5d5`; porcelain 233 lines (capture dirs + `.godot/` churn, recorded honestly; charter § 7 keeps godot cells OUT of the spine — D-14 law) |
+| **Meta repo** | pre-launch HEAD `5a227609`; this bank commit is its child |
+| **K-forks** | K-1..K-5 stand per PL-1; K-4 prohibition-half LIVE, render-half DORMANT (PL-4 — empty domain this baton) |
+| **Retention law** | BINDING (PL-5; charter § 5 rider) — galadriel lane, 10 G captures ceiling, floor-check HALT before render cells |
+| **Codex adapter law** | EMPTY MCP config at harness launch (T16) |
+
 ---
 
-*Ledger opened by gandalf (`RUN-CONDUCTOR`), 2026-08-11. L-0 pins fire at launch.*
+*Ledger opened by gandalf (`RUN-CONDUCTOR`), 2026-08-11. L-0 pins fired at launch 2026-08-12.*
