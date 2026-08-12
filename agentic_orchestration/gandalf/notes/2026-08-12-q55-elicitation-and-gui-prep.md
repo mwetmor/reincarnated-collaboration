@@ -90,3 +90,13 @@
 - **Codex routing doctrine:** *name the work, not the worker.* Cells get IDs, not seam names (seam names carry governance identity workers don't have and S-2 denies them). Codification per cell in workflow YAML (governing surface: task, scope, model pin, sandbox mode, acceptance, receipt fields) + a harness-GENERATED `AGENTS.md` dropped into the throwaway worktree (Codex-native config surface, templated from the cell spec, never hand-maintained). Model pinned per cell → `-c model=` → recorded in receipt. Routing table v1 is written FROM the S-4 pilot's receipts, not speculated in advance.
 
 *Banked by gandalf (`ELICITOR` → `RUN-CONDUCTOR` at the launch word), 2026-08-12.*
+
+---
+
+## 4 · Post-launch elicitations (Matt requested same-session): Q56 + Q-R4
+
+**Q56 — receipts `dollars` column, KEEP/DROP.** Premise change since the steward tie: the tie formed under D5 (agentic lane indefinitely dark → the column might NEVER carry truth; gandalf DROP was correct under that premise). Matt's fork-(a) ruling killed the premise: lanes open post-SB-1, the S-4 pilot's receipts carry model pins + token counts within weeks, and subscription lanes have a REAL answer ("$0 marginal, tokens recorded"). jack-ryan's forward-compat KEEP now has a concrete consumer. Residual hazard is unchanged though: a NULL dollars cell read as "cheap." **gandalf updated lean: KEEP + null-carrier rider** — `dollars: null` is only legal when `dollars_source` names WHY (`unpriced-lane` / `subscription-zero-marginal` / `metered-pending`), and render surfaces print the source word, never a blank or $0.00. The misreading dies at the render layer; forward-compat preserved; star-lord implements one enum + one render rule. One-word shapes: **"KEEP as leaned"** (with rider) / "KEEP" (bare) / "DROP".
+
+**Q-R4 — who owns `registry/`** (physically in drax's repo; logically a data layer). Forks: **(a) ADR-004 pattern** — drax owns the FILES (his repo, his ingest writes them), elrond owns the SCHEMA (shape changes are elrond-authored specs), cross-seam changes ride MIGRATION entries; the deposit validator is schema-side authored, drax-repo hosted — giving L5/S-2's propose/dispose asymmetry a mechanical enforcement point. Exact precedent: the star-lord/elrond telemetry boundary. **(b)** elrond owns files too (registry moves out of the godot repo) — breaks locality; the dock and harness read `res://` paths beside the data. **(c)** drax owns schema too — invites the convenience-edit rot REG-1 legislates against, on a contract three surfaces depend on. **gandalf lean: (a).** One-word shape: **"ADR-004 pattern"**.
+
+*Rulings land here + the run ledger when Matt speaks.*
