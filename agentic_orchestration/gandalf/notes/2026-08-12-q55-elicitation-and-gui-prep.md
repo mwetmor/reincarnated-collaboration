@@ -99,4 +99,11 @@
 
 **Q-R4 — who owns `registry/`** (physically in drax's repo; logically a data layer). Forks: **(a) ADR-004 pattern** — drax owns the FILES (his repo, his ingest writes them), elrond owns the SCHEMA (shape changes are elrond-authored specs), cross-seam changes ride MIGRATION entries; the deposit validator is schema-side authored, drax-repo hosted — giving L5/S-2's propose/dispose asymmetry a mechanical enforcement point. Exact precedent: the star-lord/elrond telemetry boundary. **(b)** elrond owns files too (registry moves out of the godot repo) — breaks locality; the dock and harness read `res://` paths beside the data. **(c)** drax owns schema too — invites the convenience-edit rot REG-1 legislates against, on a contract three surfaces depend on. **gandalf lean: (a).** One-word shape: **"ADR-004 pattern"**.
 
-*Rulings land here + the run ledger when Matt speaks.*
+**RULED 2026-08-12 — Matt verbatim: *"KEEP as leaned, ADR-004 pattern"***
+
+| id | word | disposition |
+|---|---|---|
+| **Q56** | "KEEP as leaned" | **KEEP + null-carrier rider GOVERNS** — `dollars` stays in the receipts schema; `dollars: null` legal ONLY with `dollars_source ∈ {unpriced-lane / subscription-zero-marginal / metered-pending}`; render surfaces print the source word, never blank/$0.00. Steward tie RESOLVED — the fork-(a) premise change re-ranked gandalf DROP → KEEP-with-rider. star-lord implements (one enum + one render rule) when the S-4/factory receipts lane builds post-SB-1. Queue row struck same-commit. |
+| **Q-R4** | "ADR-004 pattern" | **Fork (a) GOVERNS** — drax owns registry FILES (godot repo; his ingest writes them); elrond owns SCHEMA (shape changes are elrond-authored specs); cross-seam changes ride MIGRATION entries; deposit validator **schema-side authored, drax-repo hosted** (mechanical enforcement point for the L5/S-2 propose/dispose asymmetry). Precedent: star-lord/elrond telemetry boundary. Binds elrond registry v2 (Q-R4 row), the Stage-2 dock, and the post-CP-A ingest cell. |
+
+*Banked by gandalf (`ELICITOR`), 2026-08-12. Registry residue: Q-R1/R2/R5 dispositions ride veto-open (both / narrow / ship-the-9); Q-R3 routes to the drax ingest cell post-CP-A — its ownership frame is now this Q-R4 ruling.*
