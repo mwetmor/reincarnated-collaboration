@@ -870,3 +870,17 @@ unknown version rather than guess at it.
    the one row written not to derive its expectation from the code under test
    (`test_J7_the_MEASURED_name_is_refused_by_LITERAL_not_by_derivation`) — which is the
    general defence, not a special case.
+
+   **50c. A fix that ships with its own row must be killed BY THAT ROW.** Name the
+   expected killer before the mutation runs, and reconcile the FAILED list against it. A
+   kill by some *other* row is not credit — it is a mutation that missed its target and
+   landed somewhere already defended, and the receipt cannot tell you, because `KILLED ::
+   2 failed` is exactly what success looks like. Round 25: R25-F was written for
+   `_classify_module`'s third exit, spelled the sneak `tuple([...])`, and `tuple` is in
+   `_CONTAINER_CALLS` — so the name classified cleanly and died on JR-20's *unpinned*
+   arm, the arm R25-F's neighbour already tested. Two mutations, two intended mechanisms,
+   one arm, and the row written for the fix never fired. What exposed it was noticing the
+   shared killer, not the verdict. This is rule 50's survivor problem with the sign
+   flipped: a SURVIVAL whose obvious reading ("nobody wrote the row") can be wrong, and a
+   KILL whose obvious reading ("the row works") can be wrong the same way. In both the
+   verdict column is right and the attribution is not.

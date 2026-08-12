@@ -77,10 +77,19 @@ _PACKAGE_PREFIX = "agentic_orchestration/factory/"
 #: files whose contents a phase chose — so a naive `rglob` puts this file's
 #: denominator under the control of the thing it is measuring. Measured in the live
 #: worktree, the naive walk returns 18 names, two of them
-#: (`ARTIFACT_KINDS`, `MIGRATIONS`) written by earlier runs into `sessions/`. That is
-#: also why jack-ryan measured "the walk returns the same fifteen" and I do not: they
-#: worked in `git archive HEAD` copies, where `sessions/` is gitignored and therefore
-#: ABSENT. The hazard is invisible in an archived copy and live in the tree that ships.
+#: (`ARTIFACT_KINDS`, `MIGRATIONS`) written by earlier runs into `sessions/`; the
+#: filtered walk below returns 16. The hazard is invisible in a `git archive HEAD`
+#: copy, where `sessions/` is gitignored and therefore ABSENT, and live in the tree
+#: that ships — a review environment can be CLEANER than the runtime one.
+#:
+#: CORRECTED (round 25). This comment used to continue "that is also why jack-ryan
+#: measured 'the walk returns the same fifteen' and I do not". Wrong, and wrong at
+#: their expense. Their fifteen is CORRECT at their target `7bbba6fb` — reproduced
+#: from `git archive`: 21 modules, 15 names. The 15→16 delta is JR-22 splitting
+#: `FACTORY_RUNTIME_PATHS`; the 16→18 delta is `sessions/`. Two causes, and the
+#: sentence charged both to the second. Comparing counts taken over different
+#: denominators and reading the difference as someone's error is this series' own
+#: defect shape (rule 49), committed inside the note explaining the fix.
 _RUNTIME_SUBTREES: tuple[str, ...] = tuple(
     p[len(_PACKAGE_PREFIX):] for p in perm.FACTORY_RUNTIME_DIRS
 )

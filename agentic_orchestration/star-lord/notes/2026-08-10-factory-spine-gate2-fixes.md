@@ -4133,3 +4133,162 @@ Carried forward as a ledger-reading rule: **reconcile `failed + passed` against
 `collected`, every time.** They differ for two very different reasons — an unexecuted
 assert (rule 44) or a deleted parametrisation (this) — and only the arithmetic tells
 you to look.
+
+### 27.8 The instrument again — a precondition is not an invariant
+
+The round-25 battery had to be thrown away and re-run, and the reason belongs in the
+notes rather than in a quiet re-run.
+
+I started the seven-mutation battery, and then — while it was measuring — edited
+`factory/README.md` and `factory/tests/test_containment_wall.py` in the same working
+tree. The harness's postcondition caught it, as a *restore failure*, three mutations in,
+and only because I happened to touch files it compared. The first mutation's figure had
+already been printed.
+
+`run()` had two guards and both passed:
+
+```
+PRECONDITION   factory tree clean            -> passed, and was true
+POSTCONDITION  source text restored           -> failed, eventually
+```
+
+The precondition asks **"was the tree clean when I started?"**. The question it needed
+to ask is **"was the tree STABLE while I measured?"** Those come apart the moment
+anything else writes to the tree, and the wrong answer — a plausible-looking figure — is
+the one that looks fine.
+
+That is this series' defect shape, in the instrument, for the **third** time:
+
+| where | rule | the question it asked instead |
+|---|---|---|
+| the receipt printed only a summary line | 48 | "did anything fail?" not "which rows failed?" |
+| an assert that never executed | 44 | "is there an assertion?" not "did it run?" |
+| **the tree was clean once** | **50c** | **"was it clean at the start?" not "was it stable throughout?"** |
+
+The fix is a content digest of everything under `factory/` that the suite can read,
+taken immediately before pytest and immediately after, with the mutation in place for
+both. Any drift prints `INSTRUMENT FAILED :: the factory tree CHANGED while pytest was
+running` and refuses to publish a figure. Harness now at `/tmp/mutlib.py`, shared by the
+batteries instead of `exec`'d out of `mut23a.py`.
+
+The same pass added rule 50b's arithmetic to the harness output — every row now prints
+`[failed+passed=N]` so the reconciliation jack-ryan had to do by hand in JR-26(c) is on
+the receipt.
+
+Two things worth keeping:
+
+* **Concurrency was mine, not the machine's.** Nothing raced; I edited a tree I had told
+  a subprocess to measure. The lesson is not "add a lock" — it is that a long-running
+  measurement makes the working tree a shared resource, and I had no rule saying so.
+  Standing rule now: **while a battery runs, `factory/` is read-only to me.** Notes and
+  QA files are outside it and remain fair game, which is what made this tempting.
+* **The postcondition did its job and that is not a defence.** It caught the violation
+  late and by side effect. A guard that detects the right thing for the wrong reason,
+  after the damage, is the `destroyer` guard of § 27.1 wearing different clothes: it
+  fired on a condition correlated with the fault rather than on the fault.
+
+### 27.9 The round-25 ledger — first battery
+
+Re-run end-to-end on a clean, untouched tree with `/tmp/mutlib.py`; every row printed a
+digest-verified `[failed+passed=622]` and no row printed `INSTRUMENT FAILED` or
+`POSTCONDITION FAILED`. Counts are **net of `test_C2_every_assert_under_tests_is_proven_
+to_execute`** per the § 23.5 convention; the raw pytest line is in brackets so
+jack-ryan's independent table can close against it without re-deriving anything.
+
+| id | mutation | observed |
+|---|---|---|
+| R25-A | the DEFECT restored — `diff_fingerprints` truncates structure entries | **KILLED, 4** — `test_JR23_a_PHASE_CHOSEN_tab_name…` and `test_JR23_the_STRUCTURE_WALK_records_the_name_it_was_given`, both in both fenced shapes [raw `5 failed, 617 passed`] |
+| R25-B | the `unreadable_marker` guard removed | **KILLED, 2** — `test_JR23_a_PHASE_CHOSEN_tab_name…` ×2 shapes [raw `3 failed, 619 passed`] |
+| R25-C | `marker_path` splits on the LAST separator | **KILLED, 1** — `test_JR23_truncation_is_FAIL_CLOSED_at_the_two_sites_that_keep_it` [raw `2 failed, 620 passed`] |
+| R25-D | `marker_path` returns `""` for everything | **KILLED, 109** — across `test_the_wall_can_go_green`, F3, H4, J4, JR-5, JR-9, JR-12, `test_permissions.py` [raw `110 failed, 512 passed`] |
+| R25-E | rule 50a: rollback `git_internal` loses `marker_path` (**jack-ryan's R24-C, re-run after my fix**) | **KILLED, 10** — every one `test_JR5_the_rollback_REFUSES_a_marker_key_rather_than_acting` [raw `11 failed, 611 passed`] |
+| R25-F | a vocabulary the classifier "cannot classify" enters an adjudicated module | **KILLED, 1** — `test_JR20_every_vocabulary_is_either_PINNED_or_NAMES_the_row_that_covers_it` [raw `2 failed, 620 passed`] — **but it missed its target; § 27.10** |
+| R25-G | a new public vocabulary enters `runner.py` | **KILLED, 1** — same row [raw `2 failed, 620 passed`] |
+
+Four readings.
+
+**The three JR-23 rows are not redundant.** A, B and C kill three *disjoint* row-sets.
+The scene row dies to the behaviour (A, B); the source row dies only to the truncation
+returning (A); the property row dies only to `marker_path` itself changing shape (C, D).
+Had any two been the same row twice I would have written a row and a copy.
+
+**R25-C is the narrowest kill in the series and its strength is entirely in its data.**
+`rsplit` and `split` differ on exactly one input class: a key whose *marker text* itself
+contains the separator. The property row catches it because one of its five samples is
+`"a\tb"` — a marker chosen to contain the thing being split on. Delete that sample and
+this mutation survives. Worth saying plainly: this row is not strong because of its
+assertions, it is strong because of one adversarial input, and a later editor tidying
+the sample list would silently disarm it.
+
+**R25-D is the vacuity check and it answers.** `lambda k: ""` satisfies the prefix
+property trivially, so if the property row were the only thing holding `marker_path` the
+degenerate function would pass. 109 rows say otherwise. The prefix claim is pinned by
+the suite at large, not by the row that states it.
+
+**R25-E is the one I most wanted.** jack-ryan's raw `11` reproduces *exactly*, after a
+fix that put a new refusal guard two lines above their mutation target. That is rule
+50a's entire purpose, and the thing that preserved it was **guard order**: placing
+`unreadable_marker` AFTER `git_internal` means a marker-bearing key under `.git` still
+takes the more specific reason, so their row still dies for the reason they wrote it for.
+Had I placed the new guard first, all eleven would still have failed — and the receipt
+would have looked identical while measuring something else.
+
+### 27.10 R25-F missed its target, and the kill hid it
+
+R25-F was written to exercise `_classify_module`'s **third exit** — JR-24's fix, the one
+that returns a name the classifier cannot place instead of dropping it. It did not reach
+it. The mutation spelled the sneak `SNEAKY_VOCABULARY = tuple([".git/", ".claude/"])`,
+and `tuple` is in `_CONTAINER_CALLS` (`test_vocabularies.py:266`) — so the name
+classified **cleanly**, went into `found` rather than `unknown`, and died on JR-20's
+*unpinned* arm. Which is the arm R25-G already tested. Two mutations, one arm, and
+`test_JR24_the_classifier_ADJUDICATES_what_it_cannot_CLASSIFY` — the row written for the
+fix — never fired at all.
+
+The kill was real. The **credit** was wrong. And nothing in the receipt said so: `KILLED
+:: 2 failed` is exactly what a successful measurement looks like. What exposed it was
+noticing that two mutations aimed at two mechanisms died on the same row.
+
+That is R24-A's shape (§ 27.3) with the sign flipped. There, a mutation SURVIVED and the
+obvious reading — "nobody wrote the row" — was wrong. Here a mutation KILLED and the
+obvious reading — "the row works" — was also wrong. Both times the receipt's verdict
+column was right and its attribution was not.
+
+> **Rule 50c.** A fix that ships with its own row must be killed **by that row**. A kill
+> by some other row is not credit — it is a mutation that missed its target and landed
+> somewhere already defended. Name the row you expect before running, and reconcile.
+
+Applied honestly, this also means R25-F and R25-G are **one measurement, not two**: both
+tested JR-20's unpinned arm, R25-G legitimately (it was written for it) and R25-F by
+accident. The third exit was unmeasured until the second battery.
+
+### 27.11 The round-25 ledger — second battery, the four rows R25-F did not reach
+
+Same harness, clean tree, all four digest-verified at `[failed+passed=622]`. Counts net
+of `test_C2` with the raw line in brackets, as above.
+
+| id | mutation | observed | predicted killer |
+|---|---|---|---|
+| R25-H | a genuinely UNCLASSIFIABLE name (`("a",) + ("b",)`, a `BinOp`) enters an adjudicated module | **KILLED, 1** — `test_JR24_the_classifier_ADJUDICATES_what_it_cannot_CLASSIFY` [raw `2 failed, 620 passed`] | correct, and **JR-20 did not fire** — an unclassifiable name is in `unknown`, never `found`, exactly as the split predicts |
+| R25-I | the third exit REMOVED (`else: unknown.add(...)` → `else: continue`) | **KILLED, 1** — the same row, on its **other** arm [raw `2 failed, 620 passed`] | correct |
+| R25-J | the named-four denominator restored | **KILLED, 2** — `test_JR24_the_denominator_covers_the_PACKAGE…` **and** the classifier row [raw `3 failed, 619 passed`] | partially — see below |
+| R25-K | the `sessions/` exclusion removed (quarantine re-enters the denominator) | **KILLED, 2** — the denominator row **and** JR-20 [raw `3 failed, 619 passed`] | **refuted — my own prediction was wrong** |
+
+**R25-H and R25-I are the pair that matters.** They kill the same row through its two
+different arms — `unadjudicated` (a name the classifier cannot place and nobody has
+ruled on) and `stale` (an adjudication whose subject stopped being unclassifiable). The
+second is only possible because `NOT_A_VOCABULARY` has three live entries
+(`cli.py:FACTORY_DIR`, both `harness/*.py:HARNESS`), so the third exit is **load-bearing
+today** rather than a tripwire waiting for a subject. That was worth measuring: a
+prospective-only guard and a live one look identical in a green suite.
+
+**R25-J's second kill is explainable, not spurious.** The named-four denominator drops
+`cli.py` and `harness/`, so those three adjudicated entries leave the walk and the
+`stale` arm fires. Coupled, but for a reason the row states.
+
+**R25-K refuted my prediction, in the good direction.** I predicted the denominator row
+asserts the exclusion list's *shape* and not its *effect*, so JR-20 would have to catch
+the quarantine re-entering. Wrong: the row's fourth assertion is
+`not [m for m in ADJUDICATED_MODULES if m.startswith("sessions/")]` — the effect,
+asserted directly. It fired, and JR-20 fired too (via `ARTIFACT_KINDS`/`MIGRATIONS`
+arriving unpinned). The row is stronger than I described it, which is the one direction
+a wrong prediction is cheap.
