@@ -156,3 +156,13 @@ dispositioned. Launch is recorded as ledger L-0.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-10. Reproduce, then let the divergence ledger say
 where reproduction was impossible or ruled away.
+
+---
+
+## Amendment 2026-08-12 — retention law rider (Matt: "LAW")
+
+The R2-rider retention law is ADOPTED and binds every capture-producing lane of this run:
+artifact classes **O / D / E**, `captures/` hard ceiling **10 G**, floor-check-before-render
+(breach = housekeeping HALT). Full text: run ledger **PL-5**
+(`2026-08-10-sb1-scene-run-ledger.md`). Graduates toward run-minted-law (FG-12 extension) at
+SB-1 close. — gandalf, `RUN-CONDUCTOR`

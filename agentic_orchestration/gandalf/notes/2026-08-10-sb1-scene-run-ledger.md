@@ -25,7 +25,9 @@ R4 (conductor lean, veto-open) and R5 remain on Matt's desk; neither gates launc
 - **Summon-CAPABLE rostered actors in-window** (kits that summon in the source game; their summons were never simulated here): **Karroz, Sigil of Ch'thon ×2 (w167, cultist summoner)** · **Tempest Spawn ×2 (w169, totem-family giants)** · The Steward ×2 (w160, animated statue) · Stone Basilisk ×2 (w156, witch-ritual family). All fully pathed; all fight per their event rows; none raises adds — **faithful to the sim, not a rendering hole.**
 - **K-4 for SB-1 therefore reduces to its prohibition half** (GL-12: fabricate no bodies, no motion). Its render-at-spawn / declared-undefined-motion half is **DORMANT — empty domain this run**; it activates only when a future baton lands actual summon bodies (next-lap prereg per R-L53-2).
 
-## PL-5 — Retention law proposal (the R2 rider) — status: PROPOSED, awaiting Matt's word
+## PL-5 — Retention law (the R2 rider) — status: **ADOPTED — Matt's word "LAW", 2026-08-12**
+
+> On adoption: binds galadriel's lane for all SB-1 capture work (classes O/D/E below, 10 G ceiling, floor-check HALT); charter § 5 rider appended same-commit; FG-12 extension + run-minted-law graduation at SB-1 close. Backlog-reclaim manifest = separate galadriel micro-dispatch via KR, non-gating.
 
 **Measured ground truth (2026-08-11):** disk `/System/Volumes/Data` = **406 Gi used / 32 Gi free of 460 Gi (93%)**. `galadriel/captures/` = **6.7 G, 17,810 files** (top: shadow-cal 2.7 G · eor-followup 1.1 G · wr1-gal3 876 M · eor-sittings 712 M · kc2-third-extraction 450 M). All capture dirs are git-untracked — pruning never touches history. **A 50–100 GB clip pile is not a risk; it is an impossibility on this host.**
 
