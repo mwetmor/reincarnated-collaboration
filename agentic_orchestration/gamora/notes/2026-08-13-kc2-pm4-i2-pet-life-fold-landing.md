@@ -249,6 +249,30 @@ touched it.
 
 ---
 
+### 6.1 — ⚑ THE OBSERVABILITY LIMB, DEMONSTRATED: the L-2 CL-10 ambiguity is now a JOIN, not a dispute
+
+At L-2 the conductor had to resolve by hand whether the killer was `w160_pet0011` (my driver) or
+`w160_a001` (the wire), and ruled it a **NOTE-9 basis split on one row** — `source_id` was the
+owner wendigo, `damage_source_tag` was its summoned wraith, both true. **That resolution cost a
+conductor a manual read of two surfaces because the wire could not express the relation.** It now
+can. Straight off the I-2 baton bytes, no driver involved:
+
+```json
+{"actor_id": "w160_pet0017", "record_path": "records/creatures/enemies/wraith_c01_summon.dbr",
+ "owner_id": "w160_a001", "spawn_wave": 160, "spawn_tick": 2221, "spawn_t_s": 181.3061,
+ "spawn_skill_id": ".../nemesis/wendigo_summonwraiths.dbr",
+ "hp_max": 395757.0, "hp_max_basis": "MEASURED-PET-BAND-B-LO@w160",
+ "death_tick": null, "death_cause": null, "alive_at_wave_end": true}
+```
+
+**`owner_id` is the join.** The pet and its summoner are one row apart, the basis names the limb and
+the wave, and `death_tick: null` says out loud that this body outlived the player. Every L-2 pet
+claim — **620 bodies, 584 killed, 6 TTL, 30 alive at death, Σ `hp_max` 135,375,626** — re-derives
+from the baton alone. `run_summary.actors_killed` still counts **183 roster bodies only**, which is
+correct and now *checkable* rather than confusing.
+
+---
+
 ## 7 — THE DEFENCE ISOLATION, and the banner flips sign
 
 | | I-1 DEF-OFF | I-1 DEF-ON | **I-2 DEF-OFF** | **I-2 DEF-ON** |
