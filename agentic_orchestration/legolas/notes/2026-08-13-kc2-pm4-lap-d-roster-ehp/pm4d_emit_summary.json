@@ -1,0 +1,432 @@
+{
+  "populations": {
+    "P-ROLLED-20": {
+      "actors": 344,
+      "records": 169,
+      "basis": "kc2-baton-v1-E-s09-cp150-20260809_052836.json actors[] wave in [151,170]"
+    },
+    "P-ROLLED-10": {
+      "actors": 188,
+      "records": 91,
+      "basis": "kc2-baton-v1-E-s09-cp150-20260809_052836.json actors[] wave in [151,160]"
+    },
+    "P-POOL": {
+      "records": 663,
+      "pools": 174,
+      "basis": "pe6_crucible_wave_pools_v2.csv roster_records U champ_records, global_wave in [151,170]"
+    },
+    "P-CLOSED": {
+      "records": 791,
+      "summon_only": 128,
+      "summon_layers": [
+        123,
+        5
+      ],
+      "basis": "P-POOL + EXTENDED summon closure to FIXPOINT (IS-B2 nested skill refs + skill-record carriers; IS-B3 admission by Class not path; poolToSpawnOnDeath EXCLUDED per L-33(h))",
+      "band_a_closure_on_same_seed": 748,
+      "band_a_layers": [
+        83,
+        2
+      ],
+      "records_the_extension_adds": 43,
+      "class_census_of_added": {
+        "Monster": 43
+      }
+    },
+    "rolled_not_in_pool": [],
+    "P-PM3": {
+      "records": 55,
+      "subset_of_P_ROLLED_20": true,
+      "batons": [
+        "kc2-baton-v1-E-s09-cp150-pm3-camp-defoff-20260813_034620.json",
+        "kc2-baton-v1-E-s09-cp150-pm3-camp-defon-20260813_034622.json",
+        "kc2-baton-v1-E-s09-cp150-pm3-cluster-defoff-20260813_034624.json",
+        "kc2-baton-v1-E-s09-cp150-pm3-cluster-defon-20260813_034626.json",
+        "kc2-baton-v1-E-s09-cp150-pm3-leech-off-20260813_034628.json"
+      ]
+    }
+  },
+  "constants": {
+    "ultimate_life_modifier_pct": 580.0,
+    "survival_array_len": 200,
+    "G_band_b": {
+      "151": 306.0,
+      "152": 308.0,
+      "153": 310.0,
+      "154": 312.0,
+      "155": 314.0,
+      "156": 316.0,
+      "157": 318.0,
+      "158": 320.0,
+      "159": 322.0,
+      "160": 324.0,
+      "161": 326.0,
+      "162": 328.0,
+      "163": 330.0,
+      "164": 332.0,
+      "165": 334.0,
+      "166": 336.0,
+      "167": 338.0,
+      "168": 340.0,
+      "169": 342.0,
+      "170": 344.0
+    },
+    "G_150": 304.0,
+    "G_171": 420.0,
+    "halt9_csv_cells_identical_to_decode": 200,
+    "halt9_csv_cells_total": 200,
+    "array_lookup_law": "S 10.7 / L-33 -- fighting wave w reads index w-1 (the cell LABELED w). TOTAL on [1,200], no clamp."
+  },
+  "levels": {
+    "population": "P-POOL for slot-derived sets; P-CLOSED\\P-POOL for inheritance",
+    "records_with_slot_level_set": 663,
+    "floor_widths": {
+      "1": 19,
+      "2": 503,
+      "3": 136,
+      "4": 5
+    },
+    "charlevel_min": 102,
+    "charlevel_max": 109,
+    "lv_proxies_used": [
+      "records/proxies/lv2_normal.dbr",
+      "records/proxies/lv3_strong+.dbr",
+      "records/proxies/lv3_strong.dbr",
+      "records/proxies/lv4_champion+.dbr",
+      "records/proxies/lv4_champion.dbr",
+      "records/proxies/lv5_elitechampion.dbr",
+      "records/proxies/lv6_hero.dbr",
+      "records/proxies/lv7_uber hero.dbr",
+      "records/proxies/lv8_boss+.dbr"
+    ],
+    "apl_equivalence_rechecked_on_band_b": {
+      "identical": 9,
+      "differ": 0,
+      "detail": []
+    },
+    "summon_inheritance": {
+      "inherited": 128,
+      "of": 128
+    },
+    "baton_level_agreement": {
+      "population": "P-ROLLED-20 records",
+      "n": 169,
+      "inside_derived_set": 76,
+      "outside": 93,
+      "no_derived_set": 0,
+      "examples": [
+        {
+          "record": "records/creatures/enemies/hero/wendigo_h01.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/hero/wendigo_h04.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/hero/swampgolem_h01.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/hero/swampgolem_h02.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/hero/swampgolem_h05.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/livingplant_a01.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            103,
+            104
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/swampgolem_a01.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            103,
+            104,
+            105,
+            106
+          ]
+        },
+        {
+          "record": "records/creatures/enemies/hero/springscrab_h02.dbr",
+          "baton_levels": [
+            109
+          ],
+          "derived_set": [
+            107,
+            108
+          ]
+        }
+      ]
+    }
+  },
+  "life_chain": {
+    "population": "P-CLOSED",
+    "n": 791,
+    "grades": {
+      "MEASURED": 790,
+      "ABSENT:NO-characterAttributeEquations": 1
+    },
+    "named_gap_records": [
+      "records/skills/nonplayerskillsgdx1/bossskills/pets/krieg_aethertrap.dbr"
+    ]
+  },
+  "emissions": {
+    "pm4d_band_b_monster_life.csv": {
+      "rows": 791,
+      "sha256": "8fa5279a82e4de68bdde8f9f02c42d36a200ee32cfc460ddde78487ded7191cf"
+    },
+    "pm4d_band_b_ehp_by_wave.csv": {
+      "rows": 15801,
+      "sha256": "3e82e72b5f35f98f9b30ac46c0aa062c42b804a38ac08791e25d74320ded5024"
+    },
+    "pm4d_band_b_life_by_level.csv": {
+      "rows": 1812,
+      "sha256": "adfec9801a6c44a47edbda6d2e7a9ce46ba02f91255b55223af402395211e6ef"
+    },
+    "pm4d_band_b_wave_life_modifier.csv": {
+      "rows": 20,
+      "sha256": "9d276ddb273e0ce0bdf46ae6cdc5e752a8ce0db56063108a85aef29144b6906d"
+    }
+  },
+  "reader_delta_IS_B1": {
+    "population": "records passed in",
+    "n": 169,
+    "identical": 0,
+    "differ": 169,
+    "absent": 0,
+    "examples": [
+      {
+        "record": "records/creatures/enemies/aetherialbloater_b01.dbr",
+        "n_winner_fields": 975,
+        "n_merged_fields": 985,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4",
+          "lootMisc3Item1",
+          "lootMisc3Item2"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialbloater_c01.dbr",
+        "n_winner_fields": 966,
+        "n_merged_fields": 975,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc3Item1",
+          "lootMisc3Item2"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcolossus_a01.dbr",
+        "n_winner_fields": 973,
+        "n_merged_fields": 983,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc3Item1",
+          "lootMisc3Item2",
+          "lootMisc3Item3"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcolossus_c02.dbr",
+        "n_winner_fields": 986,
+        "n_merged_fields": 996,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc3Item1",
+          "lootMisc3Item2",
+          "lootMisc3Item3"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcorruption_a01.dbr",
+        "n_winner_fields": 950,
+        "n_merged_fields": 959,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc1Item5",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcorruption_b01.dbr",
+        "n_winner_fields": 958,
+        "n_merged_fields": 967,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc1Item5",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcorruption_b02.dbr",
+        "n_winner_fields": 962,
+        "n_merged_fields": 971,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc1Item5",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/aetherialcorruption_c01.dbr",
+        "n_winner_fields": 959,
+        "n_merged_fields": 967,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc1Item4",
+          "lootMisc1Item5",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/avian_a01.dbr",
+        "n_winner_fields": 989,
+        "n_merged_fields": 998,
+        "fields_merge_resurrects": [
+          "goldGenerator",
+          "goldGeneratorChance",
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/avian_b01.dbr",
+        "n_winner_fields": 1005,
+        "n_merged_fields": 1014,
+        "fields_merge_resurrects": [
+          "goldGenerator",
+          "goldGeneratorChance",
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3",
+          "lootMisc2Item4"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/avian_c01.dbr",
+        "n_winner_fields": 1006,
+        "n_merged_fields": 1014,
+        "fields_merge_resurrects": [
+          "goldGenerator",
+          "goldGeneratorChance",
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc2Item1",
+          "lootMisc2Item2",
+          "lootMisc2Item3"
+        ]
+      },
+      {
+        "record": "records/creatures/enemies/basilisk_a01.dbr",
+        "n_winner_fields": 943,
+        "n_merged_fields": 950,
+        "fields_merge_resurrects": [
+          "lootMisc1Item1",
+          "lootMisc1Item2",
+          "lootMisc1Item3",
+          "lootMisc3Item1",
+          "lootMisc3Item2",
+          "lootMisc3Item3",
+          "lootMisc3Item4"
+        ]
+      }
+    ]
+  }
+}

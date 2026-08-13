@@ -1,0 +1,385 @@
+{
+  "coverage": {
+    "P-ROLLED-10 (PM-3 S 5)": {
+      "records_measured": 91,
+      "records_total": 91,
+      "actors_measured": 188,
+      "actors_total": 188
+    },
+    "P-ROLLED-20": {
+      "records_measured": 169,
+      "records_total": 169,
+      "actors_measured": 344,
+      "actors_total": 344
+    },
+    "P-POOL": {
+      "records_measured": 663,
+      "records_total": 663,
+      "actors_measured": null,
+      "actors_total": null
+    },
+    "P-CLOSED": {
+      "records_measured": 790,
+      "records_total": 791,
+      "actors_measured": null,
+      "actors_total": null
+    },
+    "pm3_before_after": {
+      "population": "P-ROLLED-10 actors",
+      "n": 188,
+      "before": 6,
+      "after": 188,
+      "pm3_published_covered": 6,
+      "pm3_published_rolled": 188,
+      "rolled_agrees": true,
+      "covered_agrees": true
+    }
+  },
+  "agreement": {
+    "population": "the 6 covered actors of P-ROLLED-10",
+    "n": 6,
+    "reproduced": 6,
+    "disagree": 0,
+    "detail": [
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr",
+        "wave": 154,
+        "sim_hp_max": 2955796.0,
+        "lap_d_ehp_lo_at_wave": 2924379.0,
+        "lap_d_ehp_hi_at_wave": 2924379.0,
+        "lap_d_ehp_lo_w160": 2955796.0,
+        "lap_d_ehp_hi_w160": 2955796.0,
+        "match": "EXACT@w160-lo"
+      },
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+        "wave": 160,
+        "sim_hp_max": 3722896.0,
+        "lap_d_ehp_lo_at_wave": 3722896.0,
+        "lap_d_ehp_hi_at_wave": 3722896.0,
+        "lap_d_ehp_lo_w160": 3722896.0,
+        "lap_d_ehp_hi_w160": 3722896.0,
+        "match": "EXACT@lo"
+      },
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+        "wave": 160,
+        "sim_hp_max": 3722896.0,
+        "lap_d_ehp_lo_at_wave": 3722896.0,
+        "lap_d_ehp_hi_at_wave": 3722896.0,
+        "lap_d_ehp_lo_w160": 3722896.0,
+        "lap_d_ehp_hi_w160": 3722896.0,
+        "match": "EXACT@lo"
+      },
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+        "wave": 160,
+        "sim_hp_max": 3722896.0,
+        "lap_d_ehp_lo_at_wave": 3722896.0,
+        "lap_d_ehp_hi_at_wave": 3722896.0,
+        "lap_d_ehp_lo_w160": 3722896.0,
+        "lap_d_ehp_hi_w160": 3722896.0,
+        "match": "EXACT@lo"
+      },
+      {
+        "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "wave": 160,
+        "sim_hp_max": 2399266.0,
+        "lap_d_ehp_lo_at_wave": 2295755.0,
+        "lap_d_ehp_hi_at_wave": 2399266.0,
+        "lap_d_ehp_lo_w160": 2295755.0,
+        "lap_d_ehp_hi_w160": 2399266.0,
+        "match": "EXACT@hi"
+      },
+      {
+        "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "wave": 160,
+        "sim_hp_max": 2399266.0,
+        "lap_d_ehp_lo_at_wave": 2295755.0,
+        "lap_d_ehp_hi_at_wave": 2399266.0,
+        "lap_d_ehp_lo_w160": 2295755.0,
+        "lap_d_ehp_hi_w160": 2399266.0,
+        "match": "EXACT@hi"
+      }
+    ],
+    "off_wave_finding": [
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr",
+        "wave": 154,
+        "sim_hp_max": 2955796.0,
+        "lap_d_ehp_lo_at_wave": 2924379.0,
+        "lap_d_ehp_hi_at_wave": 2924379.0,
+        "lap_d_ehp_lo_w160": 2955796.0,
+        "lap_d_ehp_hi_w160": 2955796.0,
+        "match": "EXACT@w160-lo"
+      }
+    ],
+    "limb_collision_finding": {
+      "records_with_duplicate_rows_on_r2_board": {
+        "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr": 2,
+        "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr": 3,
+        "records/creatures/enemies/hero/wendigocannibal_h01.dbr": 2,
+        "records/creatures/enemies/hero/wendigocannibal_h02.dbr": 2,
+        "records/creatures/enemies/hero/wendigocannibal_h03.dbr": 2,
+        "records/creatures/enemies/hero/wendigocannibal_h04.dbr": 2,
+        "records/creatures/enemies/hero/wendigocannibal_h05.dbr": 2
+      },
+      "note": "baton declares DECLARED-LEVEL-LO-LIMB (F5-A -> LO) for band-A-sourced bodies; band-B board bodies get whichever CSV row is last."
+    }
+  },
+  "wave160": {
+    "population": "P-ROLLED-10 actors on wave 160",
+    "actors": 5,
+    "sim_bodies": 5,
+    "sim_sum": 15967220.0,
+    "pm3_published_sum": 15967220,
+    "pm3_published_bodies": 5,
+    "agrees_with_pm3": true,
+    "lapd_bodies": 5,
+    "lapd_sum_lo": 15760198.0,
+    "lapd_sum_hi": 15967220.0,
+    "overlap_sim": 15967220.0,
+    "overlap_lapd_lo": 15760198.0,
+    "overlap_lapd_hi": 15967220.0,
+    "overlap_reproduces_hi": true,
+    "overlap_reproduces_lo": false
+  },
+  "magnitude": {
+    "population": "P-ROLLED-20 actors",
+    "per_wave": [
+      {
+        "wave": 151,
+        "G": 306.0,
+        "actors": 28,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 7346927.0,
+        "lapd_sum_hi": 7542838.0
+      },
+      {
+        "wave": 152,
+        "G": 308.0,
+        "actors": 18,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 10682643.0,
+        "lapd_sum_hi": 11042012.0
+      },
+      {
+        "wave": 153,
+        "G": 310.0,
+        "actors": 24,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 9514571.0,
+        "lapd_sum_hi": 9827431.0
+      },
+      {
+        "wave": 154,
+        "G": 312.0,
+        "actors": 13,
+        "sim_bodies": 1,
+        "sim_sum": 2955796.0,
+        "lapd_sum_lo": 12743291.0,
+        "lapd_sum_hi": 13169327.0
+      },
+      {
+        "wave": 155,
+        "G": 314.0,
+        "actors": 18,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 12778568.0,
+        "lapd_sum_hi": 13207742.0
+      },
+      {
+        "wave": 156,
+        "G": 316.0,
+        "actors": 19,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 14224630.0,
+        "lapd_sum_hi": 14796916.0
+      },
+      {
+        "wave": 157,
+        "G": 318.0,
+        "actors": 21,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 11045967.0,
+        "lapd_sum_hi": 11404179.0
+      },
+      {
+        "wave": 158,
+        "G": 320.0,
+        "actors": 33,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 7527326.0,
+        "lapd_sum_hi": 7722749.0
+      },
+      {
+        "wave": 159,
+        "G": 322.0,
+        "actors": 9,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 15579687.0,
+        "lapd_sum_hi": 16282784.0
+      },
+      {
+        "wave": 160,
+        "G": 324.0,
+        "actors": 5,
+        "sim_bodies": 5,
+        "sim_sum": 15967220.0,
+        "lapd_sum_lo": 15760198.0,
+        "lapd_sum_hi": 15967220.0
+      },
+      {
+        "wave": 161,
+        "G": 326.0,
+        "actors": 20,
+        "sim_bodies": 1,
+        "sim_sum": 3722896.0,
+        "lapd_sum_lo": 11780362.0,
+        "lapd_sum_hi": 12014685.0
+      },
+      {
+        "wave": 162,
+        "G": 328.0,
+        "actors": 15,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 18747108.0,
+        "lapd_sum_hi": 19463983.0
+      },
+      {
+        "wave": 163,
+        "G": 330.0,
+        "actors": 18,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 20138286.0,
+        "lapd_sum_hi": 20915664.0
+      },
+      {
+        "wave": 164,
+        "G": 332.0,
+        "actors": 15,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 9730661.0,
+        "lapd_sum_hi": 10106906.0
+      },
+      {
+        "wave": 165,
+        "G": 334.0,
+        "actors": 6,
+        "sim_bodies": 2,
+        "sim_sum": 7445792.0,
+        "lapd_sum_lo": 16162018.0,
+        "lapd_sum_hi": 16550702.0
+      },
+      {
+        "wave": 166,
+        "G": 336.0,
+        "actors": 19,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 16682732.0,
+        "lapd_sum_hi": 17368049.0
+      },
+      {
+        "wave": 167,
+        "G": 338.0,
+        "actors": 24,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 8092340.0,
+        "lapd_sum_hi": 8341588.0
+      },
+      {
+        "wave": 168,
+        "G": 340.0,
+        "actors": 26,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 9832478.0,
+        "lapd_sum_hi": 10114170.0
+      },
+      {
+        "wave": 169,
+        "G": 342.0,
+        "actors": 9,
+        "sim_bodies": 0,
+        "sim_sum": 0.0,
+        "lapd_sum_lo": 20360987.0,
+        "lapd_sum_hi": 21196828.0
+      },
+      {
+        "wave": 170,
+        "G": 344.0,
+        "actors": 4,
+        "sim_bodies": 3,
+        "sim_sum": 11168688.0,
+        "lapd_sum_lo": 15155384.0,
+        "lapd_sum_hi": 15155384.0
+      }
+    ],
+    "total_sim": 41260392.0,
+    "total_lapd_lo": 263886164.0,
+    "total_lapd_hi": 272191157.0,
+    "band_151_160": {
+      "sim": 18923016.0,
+      "lapd_lo": 117203808.0,
+      "ratio": 6.193717111479481
+    }
+  },
+  "pets": {
+    "lapb_pet_rows": 149,
+    "lapb_pet_bodies": 70,
+    "reached_by_P_CLOSED": 70,
+    "not_reached": [],
+    "policy": "CROSS-REFERENCED, NOT DUPLICATED (charter instruction)",
+    "CLIFF_C_D1": {
+      "what": "Lap-B pet life folds granted passives ONLY; the roster chain folds Ultimate (+580) + Crucible G + passives. Same board, two folds.",
+      "n_compared": 149,
+      "ratio_lapd_over_lapb_at_w160": {
+        "min": 3.3816504957884637,
+        "median": 4.224392018921705,
+        "max": 10.040438768827768
+      },
+      "disposition": "FILED for the conductor. legolas does NOT rule it: no measured evidence was found either way on whether the Crucible applies its wave scaling to summoned bodies."
+    }
+  },
+  "structure": {
+    "population": "790 MEASURED records x 20 waves",
+    "monotone_violations": 0,
+    "negative_violations": 0,
+    "limb_order_violations": 0,
+    "floor_spotcheck": "200/200"
+  },
+  "arithmetic": {
+    "ticks_per_s": 12.25,
+    "limbs": {
+      "SHEET_MEASURED": {
+        "per_tick": 51726.0,
+        "dps": 633643.5,
+        "contact_s_sim": 29.86382090244751,
+        "contact_s_lapd": 184.96805853764775
+      },
+      "DB_COMPONENT": {
+        "per_tick": 334.0,
+        "dps": 4091.5,
+        "contact_s_sim": 4624.958083832335,
+        "contact_s_lapd": 28645.682023707686
+      }
+    },
+    "run_of_record_limb": "SHEET_MEASURED",
+    "reference_measured_s": 186.0,
+    "ratio_run_of_record": 0.994451927621762,
+    "caveat": "DIVISION ONLY -- no travel, arrival, overkill, pets, leech or death term. Not a prediction."
+  }
+}

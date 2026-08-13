@@ -1,0 +1,81 @@
+==================================================================================================
+S1  POPULATION BASES (NOTE-9 -- no count in this lap is unlabelled)
+==================================================================================================
+    P-ROLLED-20  frozen baton waves 151-170 :   344 actors   169 distinct records
+    P-ROLLED-10  frozen baton waves 151-160 :   188 actors    91 distinct records   <- PM-3 S 5's population
+    P-POOL       band-B pool records        :   663 over 174 pools
+    P-CLOSED     P-POOL + summon fixpoint   :   791 (+128 summon bodies; layers [123, 5])
+    ⚑ IS-B2/IS-B3 -- band A's own closure on the same seed reaches only 748 (layers [83, 2]); the extension adds 43 bodies, all Class=Monster ({'Monster': 43}).
+    CONTAINMENT  P-ROLLED-20 \ P-POOL       : 0
+    P-PM3        union of 5 PM-3 fight batons:   55 records  subset of P-ROLLED-20: True
+
+==================================================================================================
+S2  THE DECODED CONSTANTS -- read from the .arz records, not from any CSV (GL-12)
+==================================================================================================
+    balancingadjustment_survivalmode_enemies03.characterLifeModifier : 200 cells
+    balancingadjustment_mp+difficulty_enemies01.characterLifeModifier[8] : 580.0
+    G over band B (array-lookup law, cell LABELED w):
+        151:306  152:308  153:310  154:312  155:314  156:316  157:318  158:320  159:322  160:324
+        161:326  162:328  163:330  164:332  165:334  166:336  167:338  168:340  169:342  170:344
+    G(150) = 304.0   G(170) = 344.0   <- the playtest-directions '+304 -> 344%' citation, CORROBORATED from the record
+    ⚑ G(171) = 420.0 -- a +76 pt DISCONTINUITY at the tier-17/18 boundary. Band B stops at 170; extrapolating past it is a different board.
+    halt9_survival_wave_scaling_full.csv (gladiator) vs the decode : 200/200 cells identical
+
+==================================================================================================
+S3  LEVEL FLOOR-SETS -- `L` is a SET, never a midpoint (the C-1 prescription)
+==================================================================================================
+    band-B pool records carrying a slot-derived level set : 663 / 663
+    floor-set widths : {1: 19, 2: 503, 3: 136, 4: 5}
+    ⚑ band-B charLevel RANGE : 102 … 109
+    lv proxies reached by band-B slots : 9
+    R-L65-1 floor-equivalence (a) apl=100+3 vs (b') apl=103.4, RE-CHECKED on band B : identical 9, differ 0
+    summon bodies inheriting the summoner's level set : 128 / 128 [DERIVED-INHERITED -- a summon body is not pooled and carries no levelVarianceEquation]
+
+    ⚑ BATON LEVELS vs DERIVED SETS, over P-ROLLED-20 (169 records):
+        baton level INSIDE the derived set : 76
+        baton level OUTSIDE                : 93
+        no derived set                     : 0
+        (the baton declares DIV-LEVEL-COVERAGE: 176/344 actors have NO cited level source and ride `_BAND_B_MODAL_LEVEL = 109`, a FALLBACK. This lap supplies the missing source.)
+          wendigo_h01.dbr                              baton [109] vs derived [107, 108]
+          wendigo_h04.dbr                              baton [109] vs derived [107, 108]
+          swampgolem_h01.dbr                           baton [109] vs derived [107, 108]
+          swampgolem_h02.dbr                           baton [109] vs derived [107, 108]
+          swampgolem_h05.dbr                           baton [109] vs derived [107, 108]
+          livingplant_a01.dbr                          baton [109] vs derived [103, 104]
+          swampgolem_a01.dbr                           baton [109] vs derived [103, 104, 105, 106]
+          springscrab_h02.dbr                          baton [109] vs derived [107, 108]
+
+==================================================================================================
+S4  THE LIFE CHAIN over P-CLOSED (band A's chain, imported, at band-B waves)
+==================================================================================================
+    records folded : 791  (population P-CLOSED)
+          790  MEASURED
+            1  ABSENT:NO-characterAttributeEquations
+        NAMED GAP: records/skills/nonplayerskillsgdx1/bossskills/pets/krieg_aethertrap.dbr  [ABSENT:NO-characterAttributeEquations]
+
+==================================================================================================
+S5  EMIT
+==================================================================================================
+    wrote pm4d_band_b_monster_life.csv: 791 rows x 33 cols
+    wrote pm4d_band_b_ehp_by_wave.csv: 15801 rows x 8 cols
+    wrote pm4d_band_b_life_by_level.csv: 1812 rows x 8 cols
+    wrote pm4d_band_b_wave_life_modifier.csv: 20 rows x 4 cols
+        sha256 pm4d_band_b_monster_life.csv = 8fa5279a82e4de68bdde8f9f02c42d36a200ee32cfc460ddde78487ded7191cf
+        sha256 pm4d_band_b_ehp_by_wave.csv = 3e82e72b5f35f98f9b30ac46c0aa062c42b804a38ac08791e25d74320ded5024
+        sha256 pm4d_band_b_life_by_level.csv = adfec9801a6c44a47edbda6d2e7a9ce46ba02f91255b55223af402395211e6ef
+        sha256 pm4d_band_b_wave_life_modifier.csv = 9d276ddb273e0ce0bdf46ae6cdc5e752a8ce0db56063108a85aef29144b6906d
+
+==================================================================================================
+S6  READER DELTA (IS-B1) -- whole-record replacement vs the Lap-B field merge
+==================================================================================================
+    population: P-ROLLED-20 records (169)
+        identical field sets : 0
+        merge resurrects fields the winner does not carry : 169
+          aetherialbloater_b01.dbr                     winner 975 fields, merge 985  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+          aetherialbloater_c01.dbr                     winner 966 fields, merge 975  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+          aetherialcolossus_a01.dbr                    winner 973 fields, merge 983  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+          aetherialcolossus_c02.dbr                    winner 986 fields, merge 996  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+          aetherialcorruption_a01.dbr                  winner 950 fields, merge 959  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+          aetherialcorruption_b01.dbr                  winner 958 fields, merge 967  ['lootMisc1Item1', 'lootMisc1Item2', 'lootMisc1Item3', 'lootMisc1Item4']
+
+    wrote /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-d-roster-ehp/pm4d_emit_summary.json

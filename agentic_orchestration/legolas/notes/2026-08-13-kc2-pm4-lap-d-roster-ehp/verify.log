@@ -1,0 +1,126 @@
+==================================================================================================
+V-a  COVERAGE -- every ratio names its population (NOTE-9)
+==================================================================================================
+    P-ROLLED-10  waves 151-160         records   91/  91 = 100.00 %   actors  188/ 188 = 100.00 %
+    P-ROLLED-20  waves 151-170         records  169/ 169 = 100.00 %   actors  344/ 344 = 100.00 %
+    P-POOL       pool records          records  663/ 663 = 100.00 %
+    P-CLOSED     + summon fixpoint     records  790/ 791 =  99.87 %
+
+    ⚑ PM-3 S 5's population, before -> after : 6/188 (3.2 %) -> 188/188 (100.0 %) actors with a body
+       bodies that entered with hp_max = 0 and now do not : 182
+
+==================================================================================================
+V-b  AGREEMENT on the already-covered bodies -- disagreement is a FINDING
+==================================================================================================
+    w154  nemesis_beast_01_p1.dbr              sim    2,955,796   lap-D@w154 lo    2,924,379 hi    2,924,379   [EXACT@w160-lo]
+    w160  nemesis_kymon_01.dbr                 sim    3,722,896   lap-D@w160 lo    3,722,896 hi    3,722,896   [EXACT@lo]
+    w160  nemesis_wendigo_01.dbr               sim    3,722,896   lap-D@w160 lo    3,722,896 hi    3,722,896   [EXACT@lo]
+    w160  nemesis_aetherialvanguard_01.dbr     sim    3,722,896   lap-D@w160 lo    3,722,896 hi    3,722,896   [EXACT@lo]
+    w160  statue_korvaaktombguardian.dbr       sim    2,399,266   lap-D@w160 lo    2,295,755 hi    2,399,266   [EXACT@hi]
+    w160  statue_korvaaktombguardian.dbr       sim    2,399,266   lap-D@w160 lo    2,295,755 hi    2,399,266   [EXACT@hi]
+
+    reproduced 6/6 · disagreements 0
+
+    ⚑ FINDING -- 1 covered actor(s) reproduce ONLY at wave 160's G, not at their own wave's:
+        nemesis_beast_01_p1.dbr rolled on wave 154 (G=312) but entered at 2,955,796 = the wave-160 value (G=324).
+        Its wave-154 eHP is 2,924,379 -- the sim OVERSTATED this body by +1.07 %.
+        Mechanism: the driver builds ONE `board160` dict and hands it to every wave in 151-160 (gamora_kc2_pm3_fight_v2 :: line ~169/184). The wave-160 board is a wave-160 object.
+
+    ⚑ FINDING -- 2 covered actor(s) reproduce on the HI limb:
+        statue_korvaaktombguardian.dbr entered at 2,399,266 = lap-D HI (2,399,266); LO is 2,295,755 (+4.51 %).
+        statue_korvaaktombguardian.dbr entered at 2,399,266 = lap-D HI (2,399,266); LO is 2,295,755 (+4.51 %).
+        Mechanism: `{e.record: e.ehp for e in load_wave160_board()}` is a dict over a CSV that carries duplicate records; last row wins.
+        The r2 board carries 7 record(s) on more than one row (15 rows collapse to 7); the surviving limb is CSV-ORDER-DETERMINED, not ruled.
+
+==================================================================================================
+V-c  WAVE-160 SIGMA eHP -- against PM-3 S 5's 15,967,220 across 5 bodies
+==================================================================================================
+    wave-160 actors rolled                     : 5
+    bodies the sim had                         : 5   SIGMA     15,967,220
+    PM-3 S 5 published                         : 5   SIGMA     15,967,220   AGREES
+    bodies Lap D supplies                      : 5   SIGMA lo     15,760,198   SIGMA hi     15,967,220
+    ⚑ ON THE OVERLAP (5 bodies)            : sim     15,967,220   lap-D lo     15,760,198   lap-D hi     15,967,220
+       overlap reproduces on the HI limb: True   on the LO limb: False
+    board growth (hi limb)                     : x1.00
+
+==================================================================================================
+V-d  MAGNITUDE -- per-wave SIGMA eHP the board gains (P-ROLLED-20 actors)
+==================================================================================================
+     wave     G  actors  sim bodies       SIGMA sim   SIGMA lap-D lo   SIGMA lap-D hi    x lo
+      151   306      28           0               0        7,346,927        7,542,838      inf
+      152   308      18           0               0       10,682,643       11,042,012      inf
+      153   310      24           0               0        9,514,571        9,827,431      inf
+      154   312      13           1       2,955,796       12,743,291       13,169,327     4.3
+      155   314      18           0               0       12,778,568       13,207,742      inf
+      156   316      19           0               0       14,224,630       14,796,916      inf
+      157   318      21           0               0       11,045,967       11,404,179      inf
+      158   320      33           0               0        7,527,326        7,722,749      inf
+      159   322       9           0               0       15,579,687       16,282,784      inf
+      160   324       5           5      15,967,220       15,760,198       15,967,220     1.0
+      161   326      20           1       3,722,896       11,780,362       12,014,685     3.2
+      162   328      15           0               0       18,747,108       19,463,983      inf
+      163   330      18           0               0       20,138,286       20,915,664      inf
+      164   332      15           0               0        9,730,661       10,106,906      inf
+      165   334       6           2       7,445,792       16,162,018       16,550,702     2.2
+      166   336      19           0               0       16,682,732       17,368,049      inf
+      167   338      24           0               0        8,092,340        8,341,588      inf
+      168   340      26           0               0        9,832,478       10,114,170      inf
+      169   342       9           0               0       20,360,987       21,196,828      inf
+      170   344       4           3      11,168,688       15,155,384       15,155,384     1.4
+    TOTAL           344          12      41,260,392      263,886,164      272,191,157     6.4
+
+    ⚑ waves 151-160 (PM-3's band): SIGMA sim 18,923,016 -> lap-D lo 117,203,808  = x6.2
+
+==================================================================================================
+V-e  PET CROSS-REFERENCE -- Lap B measured pet life 149/149; NOT duplicated here
+==================================================================================================
+    Lap B pet chain rows with a pet_record : 149  (life_grade MEASURED on 149)
+    distinct pet bodies                    : 70
+    reached by this lap's P-CLOSED         : 70 / 70   [IS-B2 + IS-B3; band A's own closure reached 43]
+    NOT reached                            : []
+
+    ⚑ CLIFF C-D1 -- THE TWO FOLDS ON ONE BOARD DO NOT AGREE, AND I DO NOT RULE IT.
+       Lap B's `pet_life_at_owner_level` = floor(base x (1 + tree_pct/100)).
+       It folds the granted-passive term ONLY. It does NOT fold the Ultimate cell
+       (+580 %) nor the Crucible wave term G. The roster chain folds both.
+       Over the 149 pet rows this lap also covers, at wave 160:
+           lap-D eHP / Lap-B pet life :  min 3.38   med 4.22   max 10.04
+           aetherialcorruption_b03_summon.dbr           Lap-B     74,248   lap-D      282,675   x3.81
+           aetherialworm_b01_summon.dbr                 Lap-B     74,221   lap-D      294,325   x3.97
+           aetherialworm_b02_summon.dbr                 Lap-B     74,221   lap-D      294,325   x3.97
+           aetherialworm_b03_summon.dbr                 Lap-B     74,221   lap-D      294,325   x3.97
+       CONSEQUENCE IF UNRESOLVED: once I-1 lands, pet bodies become the SOFTEST
+       targets on the board by a factor of ~4, and PM-3 S 10's note that
+       'CLUSTER's live set includes pets (they are the only bodies carrying real
+       HP)' inverts into its opposite -- the sim would prefer pets for the wrong
+       reason. FILED, not improvised past. This lap emits a same-chain value for
+       all 70 pet bodies so the conductor can rule either way from measured
+       numbers. I have NO evidence on which fold the game applies to a summon.
+
+==================================================================================================
+V-f  STRUCTURAL CHECKS on the emitted table
+==================================================================================================
+    population: 790 MEASURED records x 20 waves
+    eHP non-decreasing in wave (G is non-decreasing on 151-170) : violations 0
+    eHP >= 0                                                    : violations 0
+    eHP(hi limb) >= eHP(lo limb)                                : violations 0
+    floor-not-round re-derivation spot-check (200 records)      : 200/200 EXACT
+
+==================================================================================================
+V-g  ARITHMETIC CONSEQUENCE -- what the covered board costs at the sim's OWN kill term
+==================================================================================================
+    ⚑ THIS IS DIVISION, NOT A PREDICTION.  It ignores travel, arrival, overkill, pets,
+       leech, deaths and every other term.  gamora's fold is what decides anything.
+    ticks/s = 12.2500   waves 151-160 SIGMA eHP  sim 18,923,016 -> lap-D 117,203,808
+                limb     dmg/tick           dps   contact s (sim)   contact s (lap-D)
+      SHEET_MEASURED       51,726       633,644              29.9               185.0  <- the run of record
+        DB_COMPONENT          334         4,092            4625.0             28645.7
+
+    reference MEASURED (Lap C): ten waves 151-160 in 186 s
+    ⚑ lap-D pure-contact on the run-of-record limb : 185.0 s  (ratio 0.99)
+       PM-3 S 3 measured CLUSTER at 102.4 s for SIX waves on a board 96.8 % empty,
+       and read the agreement as 'throughput matched'. On a FULL board the same
+       kill term needs 185 s of contact for TEN. That is arithmetic, and it
+       is the number I-2 has to argue with -- it is NOT a claim about the fold.
+
+    wrote /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-d-roster-ehp/pm4d_verify_summary.json
