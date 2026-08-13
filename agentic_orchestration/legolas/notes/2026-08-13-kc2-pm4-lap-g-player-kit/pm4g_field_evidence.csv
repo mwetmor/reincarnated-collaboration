@@ -1,0 +1,45 @@
+field,template,template_present,type,default,description,grade
+skillCooldownTime,templatebase/skill_activated.tpl,True,real,,Seconds,MEASURED
+skillManaCost,templatebase/skill_activated.tpl,True,real,,,MEASURED
+cooldownCharges,templatebase/skill_activated.tpl,True,int,,Amount of times skill can be used in a row,MEASURED
+distanceProfile,templatebase/skill_activated.tpl,True,string,Melee;Short;Moderate;Long;Maximum;Boss;,,MEASURED
+waveDistance,skill_attackpathcharge.tpl,True,real,1.0,Maximum range,MEASURED
+maxMoveRatio,skill_attackpathcharge.tpl,True,real,1.0,Ratio between absolute and walkable distances,MEASURED
+endRadiusMultiplier,skill_attackpathcharge.tpl,True,real,,Multiplier for final radius attack at destination point,MEASURED
+secondarySkillDistance,skill_attackpathcharge.tpl,True,real,,Distance between special secondary skill activation,MEASURED
+maxDistanceBuffer,skill_attackweaponcharge.tpl,True,real,0,"When specified, monster will finish charge once maximum distance + buffer has been achieved",MEASURED
+waveDistance,skill_evade.tpl,True,real,1.0,Maximum range,MEASURED
+maxMoveRatio,skill_evade.tpl,True,real,1.0,Ratio between absolute and walkable distances,MEASURED
+damageAbsorption,templatebase/skill_buff.tpl,True,real,,,MEASURED
+damageAbsorptionPercent,templatebase/skill_buff.tpl,True,real,,,MEASURED
+thresholdDuration,skill_passiveonlifebuffself.tpl,True,bool,1,Wait for life to be above threshold before starting duration timer?,MEASURED
+lifeMonitorPercent,skill_passiveonlifebuffself.tpl,True,real,,,MEASURED
+canUseWhileMoving,skillchanneled.tpl,True,bool,0,,MEASURED
+useResetsDuration,skillchanneled.tpl,True,bool,1,,MEASURED
+duration,skillchanneled.tpl,True,real,0.2,,MEASURED
+delayMovement,skill_attackradiusspin.tpl,True,bool,0,,MEASURED
+rotationSpeedMultiplier,skill_attackradiusspin.tpl,True,real,1.0,Multiplier applied to player rotation speed while skill is active,MEASURED
+timeBetweenAttacks,skill_attackradiusspin.tpl,True,int,,Time between hits to enemies along the path,MEASURED
+skillTargetRadius,templatebase/skill_radius.tpl,True,real,,,MEASURED
+skillActiveDuration,templatebase/skill_buff.tpl,True,,,,DECLARED: field not on this template
+weaponDamagePct,templatebase/skill_base.tpl,True,real,,Percentage weapon damage to use for each skill level,MEASURED
+skillMaxLevel,templatebase/skill_base.tpl,True,int,0,Max level of skill,MEASURED
+skillUltimateLevel,templatebase/skill_base.tpl,True,int,,Max level allowed when augmented,MEASURED
+targetingMode,templatebase/skill_base.tpl,True,string,Default;Point;Object;Target,,MEASURED
+forceMovement,templatebase/skill_base.tpl,True,bool,0,Force character movement into cast range,MEASURED
+triggerType,skillautocastcontroller.tpl,True,string,OnEquip;OnKill;LowHealth;LowMana;AttackEnemy;CastBuff;CastDebuf;HitByEnemy;HitByMelee;HitByProjectile;HitByCrit;AttackEnemyCrit;Block,,MEASURED
+triggerParam,skillautocastcontroller.tpl,True,real,0,,MEASURED
+chanceToRun,skillautocastcontroller.tpl,True,int,,,MEASURED
+targetType,skillautocastcontroller.tpl,True,string,Enemy;Self;Ally;EnemyLocation;,,MEASURED
+autoTargetRadius,skillautocastcontroller.tpl,True,real,10.0,Set to pick ally or enemy,MEASURED
+skillLifeBonus,skill_chargepotion.tpl,True,,,,DECLARED: field not on this template
+skillLifePercent,skill_chargepotion.tpl,True,,,,DECLARED: field not on this template
+skillManaBonus,skill_chargepotion.tpl,True,,,,DECLARED: field not on this template
+skillManaPercent,skill_chargepotion.tpl,True,,,,DECLARED: field not on this template
+bonusLifePoints,oneshot_potionhealth.tpl,True,,,,DECLARED: field not on this template
+bonusLifePercent,oneshot_potionhealth.tpl,True,,,,DECLARED: field not on this template
+useDelayTime,oneshot_potionhealth.tpl,True,,,,DECLARED: field not on this template
+damageAbsorption,skill_buffselfshield.tpl,True,,,,DECLARED: field not on this template
+lifeMonitorPercent,skill_passiveonlifebuffself.tpl,True,real,,,MEASURED
+onHitActivationChance,skill_passiveonhitbuffself.tpl,True,,,,DECLARED: field not on this template
+modifierPotency,skill_potioncontainer.tpl,True,real,,Potion container only,MEASURED

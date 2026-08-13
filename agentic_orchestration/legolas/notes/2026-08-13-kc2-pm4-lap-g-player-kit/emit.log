@@ -1,0 +1,96 @@
+{
+ "rows": {
+  "played_kit": 324,
+  "movement": 4,
+  "consumables": 76,
+  "defensive": 21,
+  "field_evidence": 44,
+  "channel_census": 15
+ },
+ "digests": {
+  "pm4g_played_kit.csv": "2fd5a34792b96125bd55a40891dfd65cdeb43c385c6ef06607486342d53ce0b3",
+  "pm4g_movement_skills.csv": "9db4c9b1bbf0c5a0813a7afbe6724709df4a58f21f8c499d7f6169b76a6e3d2e",
+  "pm4g_consumables.csv": "6956bfcbf0b02020d4404633cb11c71f0744dee2e902130648199119ac0c1797",
+  "pm4g_defensive_actives.csv": "0cdfd3af9a22e2d6d7de59ca0b8238f0e2c04c64192a16dee894ef71ae0be306",
+  "pm4g_field_evidence.csv": "11ec85bb968e861bc01f7286f358988aa9e4fc9b3dfe18bdd920eff43d79c169",
+  "pm4g_channel_census.csv": "fda0f72b00e61021082fef88c584e96fd72ba8cfc6415bdf5520356acdf5e977"
+ },
+ "saves": {
+  "played": {
+   "path": "/Volumes/reincarnated/matt-notes-from-pc/gd-save/_EoRWarlGuts/player.gdc",
+   "sha256": "b8e6f510650dad0b12d60115d119b266283eda674c9c1a7186220ec93454bfa5",
+   "expansion_status": 7,
+   "obfuscated": true,
+   "seed": "0x5298565B",
+   "bytes_walked": 98101,
+   "bytes_total": 98101,
+   "blocks": 15,
+   "blocks_clean": 13,
+   "block8_declared": 367,
+   "block8_parsed": 367,
+   "block14_len": 981,
+   "bindings": 10
+  },
+  "pristine": {
+   "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-12-kc2-pm2-lap-a-player-sheet/gdc/_EoRWarlGuts/player.gdc",
+   "sha256": "c8738da31f494462637fbc79189f4adb9d522cd21d30c315388d6e6e8b587e0d",
+   "expansion_status": 3,
+   "obfuscated": false,
+   "seed": "0x55555555",
+   "bytes_walked": 87820,
+   "bytes_total": 87820,
+   "blocks": 15,
+   "blocks_clean": 15,
+   "block8_declared": 318,
+   "block8_parsed": 318,
+   "block14_len": 1201,
+   "bindings": 13
+  }
+ },
+ "eor_channel": {
+  "Class": "Skill_AttackRadiusSpin",
+  "canUseWhileMoving": true,
+  "delayMovement": true,
+  "duration": 0.25,
+  "useResetsDuration": true,
+  "rotationSpeedMultiplier": 0.3499999940395355,
+  "timeBetweenAttacks": 200,
+  "skillTargetRadius": 3.0,
+  "characterRunSpeedModifier": null,
+  "distanceProfile": "Melee",
+  "skillCooldownTime": null,
+  "instantCast": null,
+  "forceMovement": null
+ },
+ "save_diff_bar": {
+  "dropped": [
+   "records/skills/playerclass01/fieldcommand1.dbr",
+   "records/skills/playerclass09/divinemandate1.dbr",
+   "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+   "records/skills/playerclass09/presenceofvirtue1.dbr"
+  ],
+  "added": []
+ },
+ "new_records": [
+  "records/skills/default/defaultevade.dbr",
+  "records/skills/default/defaulthealthpotion.dbr",
+  "records/skills/default/defaultmanapotion.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_energypotion_flask.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_energypotion_tincture.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_energypotion_vial.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_healthpotion_flask.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_healthpotion_tincture.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/container_healthpotion_vial.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_absorbing.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_amplification.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_bloodrite.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_electrified.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_energyovertime.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_explosive.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_freezeimmunity.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_healovertime.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_infusion.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_instantenergy.dbr",
+  "records/skills/itemskillsgdx3/potionmodifiers/energypotion_instantheal.dbr"
+ ]
+}
