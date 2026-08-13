@@ -1,0 +1,187 @@
+stat,value,unit,source_screenshot_or_gdc,notes
+character_name,EoRWarlGuts,text,"screenshot 495; screenshot 508; gdc header",gdc header name field matches exactly
+character_class,Warlord,text,"screenshot 495; screenshot 508",Soldier + Oathkeeper
+class_tag,tagSkillClassName0109,text,gdc header,01=Soldier 09=Oathkeeper — confirms Warlord
+level,100,level,"screenshot 495; screenshot 508; gdc header; gdc block2",three-way agreement
+experience,28475316,xp,gdc block2,not shown on sheet
+hardcore,0,bool,gdc header,softcore
+difficulty,Ultimate,text,gdc block1 raw byte 2,byte value 2; label inferred from GD difficulty enum — UNCERTAIN label
+physique,914,points,"screenshot 495; screenshot 508",sheet total (base + gear + skills)
+cunning,1219,points,"screenshot 495; screenshot 508",sheet total
+spirit,398,points,"screenshot 495; screenshot 508",sheet total
+health_current,20005,hp,"screenshot 495; screenshot 508",displayed 20005 / 20005
+health_max,20005,hp,"screenshot 495; screenshot 508",EXACT match to PM-1 baton player_hp track
+energy_current,1594,energy,"screenshot 495; screenshot 508",displayed 1594 / 2576
+energy_max,2576,energy,"screenshot 495; screenshot 508",
+offensive_ability,3259,OA,"screenshot 495; screenshot 508",
+defensive_ability,2591,DA,"screenshot 495; screenshot 508",
+damage_per_second,20233,dps,"screenshot 495; screenshot 508",GD's own sheet DPS estimate; not a sim input
+armor_rating,3557,armor,"screenshot 495; screenshot 508",
+armor_absorption_pct,GAP,percent,NOT CAPTURED,"Armor Rating (?) tooltip never hovered in the 117-frame corpus; GD default is 70% absorption but that is NOT measured here — sim must declare its assumption (GL-12)"
+resist_fire,80,percent,"screenshot 495; screenshot 508",page-I resistance grid row 1 slot 1
+resist_cold,80,percent,"screenshot 495; screenshot 508",row 1 slot 2
+resist_lightning,80,percent,"screenshot 495; screenshot 508",row 1 slot 3
+resist_acid_poison,80,percent,"screenshot 495; screenshot 508",row 1 slot 4
+resist_pierce,80,percent,"screenshot 495; screenshot 508",row 1 slot 5
+resist_bleeding,85,percent,"screenshot 495; screenshot 508",row 2 slot 1
+resist_vitality,80,percent,"screenshot 495; screenshot 508",row 2 slot 2
+resist_aether,80,percent,"screenshot 495; screenshot 508",row 2 slot 3
+resist_chaos,80,percent,"screenshot 495; screenshot 508",row 2 slot 4
+resist_physical,16,percent,"screenshot 495; screenshot 508","row 2 slot 5; VALUE read directly, LABEL inferred by elimination (only core damage type absent from the page-II Defense list, and 16 matches no page-II entry)"
+resist_max_overcap_all,GAP,percent,NOT CAPTURED,per-resistance tooltips (which show cap + overcap) never hovered in the corpus
+attacks_per_second,2.66,per_second,screenshot 511,
+attack_speed,196,percent,screenshot 511,
+critical_damage,57,percent,screenshot 511,+57%
+run_speed,135,percent,screenshot 511,movement speed
+healing_increase,22,percent,screenshot 511,+22%
+health_regeneration,129.38,hp_per_second,screenshot 511,sustain input for F-3
+energy_regeneration,75.37,energy_per_second,screenshot 511,
+energy_absorption,20,percent,"screenshot 511; screenshot 512",
+constitution_bonus,53,percent,screenshot 512,+53%
+experience_gained,0,percent,screenshot 512,
+light_radius,0,percent,screenshot 512,
+bonus_all_skills,1,ranks,screenshot 512,+1
+bonus_soldier_skills,3,ranks,screenshot 512,+3
+bonus_demolitionist_skills,0,ranks,screenshot 512,
+bonus_occultist_skills,2,ranks,screenshot 512,+2 (from Gutsmasher)
+bonus_nightblade_skills,0,ranks,screenshot 512,
+bonus_arcanist_skills,0,ranks,screenshot 512,
+bonus_shaman_skills,0,ranks,screenshot 512,
+bonus_inquisitor_skills,0,ranks,screenshot 512,
+bonus_necromancer_skills,1,ranks,screenshot 512,+1
+bonus_oathkeeper_skills,0,ranks,screenshot 512,
+bonus_berserker_skills,0,ranks,screenshot 512,
+physical_damage_flat,13408-37314,damage,screenshot 513,sheet PHYSICAL section
+physical_modifier,3036,percent,screenshot 513,+3036%
+pierce_damage_flat,155-206,damage,screenshot 513,
+pierce_modifier,643,percent,screenshot 513,
+bleed_damage,396,damage,screenshot 513,
+bleed_modifier,1366,percent,screenshot 513,
+bleed_duration,47,percent,screenshot 513,+47%
+trauma_damage,2640,damage,screenshot 513,
+trauma_modifier,2407,percent,screenshot 513,
+trauma_duration,80,percent,screenshot 513,+80%
+life_steal_adcth,21,percent,screenshot 513,"ATTACK DAMAGE CONVERTED TO HEALTH — the F-3 leech input. Aggregate of all sources; per-source attribution NOT decomposed"
+cast_speed,184,percent,screenshot 514,
+cooldown_reduction,0,percent,screenshot 514,
+skill_energy_cost,-10,percent,screenshot 514,
+health_damage,0,percent,screenshot 514,
+fire_damage_flat,218,damage,screenshot 514,
+fire_modifier,814,percent,screenshot 514,
+cold_damage_flat,39,damage,screenshot 514,
+cold_modifier,447,percent,screenshot 514,
+lightning_damage_flat,0,damage,screenshot 514,
+lightning_modifier,447,percent,screenshot 514,
+acid_damage_flat,116,damage,screenshot 514,
+acid_modifier,440,percent,screenshot 514,
+vitality_damage_flat,0,damage,"screenshot 514; screenshot 515",
+vitality_modifier,361,percent,"screenshot 514; screenshot 515",
+aether_damage_flat,0,damage,screenshot 515,
+aether_modifier,361,percent,screenshot 515,
+chaos_damage_flat,0,damage,screenshot 515,
+chaos_modifier,432,percent,screenshot 515,
+burn_damage,0,damage,screenshot 515,
+burn_modifier,794,percent,screenshot 515,
+burn_duration,0,percent,screenshot 515,
+frostburn_damage,0,damage,screenshot 515,
+frostburn_modifier,437,percent,screenshot 515,
+frostburn_duration,0,percent,screenshot 515,
+electrocute_damage,0,damage,"screenshot 515; screenshot 516",
+electrocute_modifier,437,percent,"screenshot 515; screenshot 516",
+electrocute_duration,0,percent,"screenshot 515; screenshot 516",
+poison_damage,0,damage,screenshot 516,
+poison_modifier,446,percent,screenshot 516,
+poison_duration,0,percent,screenshot 516,
+vitality_decay_damage,0,damage,screenshot 516,
+vitality_decay_modifier,337,percent,screenshot 516,
+vitality_decay_duration,0,percent,screenshot 516,
+pet_life,8,percent,"screenshot 516; screenshot 517",Celestial Guardian is the only summon (gdc)
+pet_damage,130,percent,"screenshot 516; screenshot 517",
+pet_critical_damage,0,percent,"screenshot 516; screenshot 517",
+pet_attack_speed,5,percent,"screenshot 516; screenshot 517",
+pet_cast_speed,0,percent,"screenshot 516; screenshot 517",
+pet_run_speed,0,percent,"screenshot 516; screenshot 517",
+pet_offensive_ability,6,percent,"screenshot 516; screenshot 517; screenshot 518",
+pet_defensive_ability,3,percent,"screenshot 517; screenshot 518",
+pet_physical_resist,0,percent,"screenshot 517; screenshot 518",
+pet_fire_resist,0,percent,"screenshot 517; screenshot 518",
+pet_cold_resist,0,percent,"screenshot 517; screenshot 518",
+pet_lightning_resist,0,percent,"screenshot 517; screenshot 518",
+pet_poison_acid_resist,0,percent,"screenshot 517; screenshot 518",
+pet_pierce_resist,27,percent,"screenshot 517; screenshot 518",
+pet_bleeding_resist,12,percent,"screenshot 517; screenshot 518",
+pet_vitality_resist,12,percent,"screenshot 517; screenshot 518",
+pet_aether_resist,0,percent,"screenshot 517; screenshot 518",
+pet_chaos_resist,0,percent,screenshot 518,
+pet_stun_resist,0,percent,screenshot 518,
+pet_trap_resist,0,percent,screenshot 518,
+pet_petrify_resist,0,percent,screenshot 518,
+pet_freeze_resist,0,percent,screenshot 518,
+pet_sleep_resist,0,percent,screenshot 518,
+pet_slow_resist,0,percent,screenshot 518,partially cut at panel edge — value read as 0 but UNCERTAIN
+chance_to_block,0,percent,screenshot 519,no shield (two-handed mace) — block is not a defensive layer for this build
+damage_blocked,0,damage,screenshot 519,
+block_recovery,0,percent,screenshot 519,
+dodge_chance,0,percent,screenshot 519,melee-attack avoidance is ZERO — F-4 dodging is positional only
+deflect_chance,0,percent,screenshot 519,projectile avoidance is ZERO
+stun_resist,79,percent,screenshot 519,
+disruption_resist,30,percent,screenshot 519,
+life_leech_resist,-25,percent,screenshot 519,NEGATIVE — enemy life-leech is amplified 25% against this player
+energy_leech_resist,0,percent,screenshot 519,
+trap_resist,76,percent,screenshot 519,
+petrify_resist,34,percent,screenshot 519,
+freeze_resist,80,percent,screenshot 519,
+slow_resist,69,percent,screenshot 519,
+reflect_resist,26,percent,screenshot 519,
+retaliation_physical,1008,damage,screenshot 520,
+retaliation_physical_modifier,371,percent,screenshot 520,+371% applies to every retaliation line
+retaliation_all_other_types,0,damage,"screenshot 520; screenshot 521; screenshot 522",pierce/bleed/trauma/fire/cold/lightning/acid/vitality/aether/chaos/burn/frostburn/electrocute/poison/vitality-decay all 0 flat
+average_item_level,92,ilvl,screenshot 522,
+elapsed_time,6:21:16,hh:mm:ss,screenshot 522,lifetime character playtime
+monsters_killed,162091,count,screenshot 522,lifetime
+bosses_and_heroes_killed,24211,count,screenshot 522,lifetime
+damage_dealt,1249739,damage,screenshot 522,"label as printed; GD semantics believed to be GREATEST SINGLE HIT, not lifetime total — UNCERTAIN semantics"
+damage_taken,27777,damage,screenshot 522,"label as printed; GREATEST SINGLE HIT reading is the only one consistent with 20005 max HP and 603 deaths — UNCERTAIN semantics"
+total_deaths,603,count,screenshot 522,lifetime
+greatest_monster_killed,Avatar of Mogdrogen,text,screenshot 522,
+weapon_name,Gutsmasher,text,screenshot 495,"Augmented Legendary Two-Handed Mace, Soulbound"
+weapon_base_damage,144-740,physical_damage,screenshot 495,as displayed on the item (post-affix)
+weapon_attacks_per_second,1.46,per_second,screenshot 495,item base attack speed
+weapon_flat_physical,91-107,damage,screenshot 495,affix line
+weapon_physical_modifier,396,percent,screenshot 495,
+weapon_internal_trauma_modifier,397,percent,screenshot 495,
+weapon_bleeding_modifier,293,percent,screenshot 495,
+weapon_chaos_to_physical_conversion,55,percent,screenshot 495,
+weapon_lightning_to_physical_conversion,46,percent,screenshot 495,
+weapon_health_bonus,13,percent,screenshot 495,+13% Health
+weapon_attack_speed_bonus,27,percent,screenshot 495,+27% Attack Speed
+weapon_plus_savagery,4,ranks,screenshot 495,+4 to Savagery
+weapon_plus_eye_of_reckoning,4,ranks,screenshot 495,+4 to Eye of Reckoning
+weapon_plus_soldier_all,2,ranks,screenshot 495,+2 to all skills in Soldier
+weapon_plus_occultist_all,2,ranks,screenshot 495,+2 to all skills in Occultist
+weapon_granted_skill,Gutsplosion,text,screenshot 495,"100% chance on enemy death; 'A shower of gore erupts from your slain foe'"
+weapon_component,Seal of Might,text,"screenshot 495; gdc block3",gdc record compa_sealmight — EXACT cross-check
+weapon_augment,Potent Oleron's Fervor,text,"screenshot 495; gdc block3","The Black Legion Rare Augment; gdc record enchants/b06a_enchant"
+weapon_required_level,84,level,screenshot 495,
+weapon_required_physique,592,points,screenshot 495,
+eye_of_reckoning_weapon_damage,14,percent,screenshot 495,weapon-granted modifier line on Gutsmasher
+eye_of_reckoning_bleeding,21117,damage_over_3s,screenshot 495,weapon-granted modifier line
+eye_of_reckoning_fire_to_physical,100,percent,screenshot 495,weapon-granted conversion
+eye_of_reckoning_rank_base,15,ranks,gdc block8,records/skills/playerclass09/eyeofreckoning1.dbr level 15
+eye_of_reckoning_modifier_rank,12,ranks,gdc block8,eyeofreckoning2.dbr level 12
+eye_of_reckoning_damage_per_hit,43691-59761,damage,screenshot 511,sheet DAMAGE PER HIT section
+blitz_damage_per_hit,46648-94986,damage,screenshot 511,
+weapon_damage_per_hit,16972-40930,damage,screenshot 511,
+savagery_weapon_damage,12,percent,screenshot 495,weapon-granted modifier line
+blade_arc_weapon_damage,30,percent,screenshot 495,weapon-granted modifier line
+soldier_mastery_rank,46,ranks,gdc block8,records/skills/playerclass01/_classtraining_class01.dbr
+oathkeeper_mastery_rank,50,ranks,gdc block8,records/skills/playerclass09/_classtraining_class09.dbr
+devotion_points_spent,55,points,gdc block2,55/55 — maximum
+devotion_points_unspent,0,points,gdc block2,
+skill_points_unspent,0,points,gdc block2,
+attribute_points_unspent,0,points,gdc block2,
+gdc_physique_stored,74.0,float,gdc block2,"DISCREPANCY vs sheet 914 — see README discrepancy table; field-order mapping UNCERTAIN"
+gdc_cunning_stored,858.0,float,gdc block2,"DISCREPANCY vs sheet 1219 — see README"
+gdc_spirit_stored,74.0,float,gdc block2,"DISCREPANCY vs sheet 398 — see README"
+gdc_health_stored,1142.0,float,gdc block2,"not the sheet's 20005; semantics UNCERTAIN"
+gdc_energy_stored,298.0,float,gdc block2,"not the sheet's 2576; semantics UNCERTAIN"
