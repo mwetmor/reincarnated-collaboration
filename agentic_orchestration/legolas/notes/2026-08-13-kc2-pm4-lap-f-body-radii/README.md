@@ -21,7 +21,8 @@
 prints a raw DB length scalar, to one decimal, immediately followed by the word **"Meter"**, with no
 factor anywhere in the format string. **⚑ But the number that re-frames Iteration 3 is the split
 between the two populations: the 169 roster bodies have a median radius of 0.600 m, and the 128
-summoned bodies — which are 76.5 % of the reference cell's kills and 53.6 % of its life — measure
+summoned bodies — which are **76.1 %** of the reference cell's kills (I-2 basis: 584 of 767; L-2's
+76.5 % is the I-1 basis, 596 of 779) and 53.6 % of its life — measure
 0.360 m.** A 0.36 m body admits **79 centres** inside the 3.0 m disc. **The wave-160 board is
 entirely 0.35–0.40 m wraiths and shards, whose ceiling is 83.** So the measured geometry does *not*
 make the observed 54 impossible on the ticks that actually carry the kill work — and separately,
@@ -326,7 +327,8 @@ that crowd the disc.**
 | board 297 | 297 | 0.000 | 0.350 | **0.500** | 0.750 | 2.000 | 0.600 | **44 / 32** |
 | player | 1 | — | — | **0.320** | — | — | 0.336 | 97 / 89 |
 
-**⚑ 76.5 % of the reference cell's kills and 53.6 % of its life are summoned bodies, and they
+**⚑ 76.1 % of the reference cell's kills (I-2 basis: 584 of 767) and 53.6 % of its life are
+summoned bodies, and they
 measure 0.360 m — a ceiling of 79 centres, above gamora's observed max of 54.** The wave-160 board
 is entirely 0.35–0.40 m bodies (ceiling **83**). **So on the ticks that carry the kill work, the
 measured geometry does not by itself make the observed occupancy impossible.**
