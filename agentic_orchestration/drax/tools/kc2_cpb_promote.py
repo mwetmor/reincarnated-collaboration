@@ -42,16 +42,46 @@ from factory.gates.media import ffprobe_verifies               # noqa: E402
 
 GODOT = Path("/Users/admin/Games/reincarnated-godot")
 CAPTURES = META / "agentic_orchestration/galadriel/captures"
-OUT_DIR = CAPTURES / "2026-08-13-sb1-a2e-cpbprime"
+OUT_DIR = CAPTURES / "2026-08-13-sb1-a2f-density"
+# ⚑ THE A2e CAPTURE IS READ, NOT RETYPED. The charter asks for a vs-A2e DELTA
+#   block so the two clips read as ONE experiment; every figure that CAN come off
+#   the previous manifest does, and the handful that cannot (A2e's realized
+#   density numbers, which predate the manifest carrying them) are quoted from
+#   the A2e landing note and LABELLED as quotations rather than measurements.
+PREV_DIR = CAPTURES / "2026-08-13-sb1-a2e-cpbprime"
 TMP = Path("/tmp/kc2_cpb")
 TEMP_RENDER = TMP / "tmp-cpbprime-cadence-ab.mp4"
-DELIVERABLE = OUT_DIR / "cpbprime-cadence-ab.mp4"
+DELIVERABLE = OUT_DIR / "a2f-density-cadence-ab.mp4"
 SMOKE = GODOT / "tmp/kc2/kc2_motion_smoke.json"
 CEILING_KB = 10 * 1024 * 1024
 BLACK_S = 0.60          # the held-black seam, must match run_kc2_cpb_clip.sh
 
-# ⚑ THE ORDER IS THE COMPARISON. Segment A first because it is the article Matt
-#   already ratified; B answers his one adjustment against it.
+# A2e's MEASURED cadence figures, quoted from `drax/notes/2026-08-12-sb1-a2e-
+# render-landing.md` § 2.4. These are HISTORY — the article Matt ratified — and
+# they are here so the delta can be read without opening a second file. They are
+# never compared against, never asserted on, and never used to derive anything.
+A2E_MEASURED = {
+    "cut_per_rev": 11,
+    "stationary_mean_per_rev": 11.003,
+    "stationary_thick_thin": 1.20,
+    "undulating_mean_per_rev": 8.333,
+    "undulating_sd": 1.3357,
+    "undulating_thick_thin": 2.40,
+    "undulating_range": [5, 12],
+    "worst_dark_run_s": 0.0333,
+    "analytic_dark_bound_s": 0.0327,
+    "epochs_b_ring": 29,
+    "epochs_d_close": 15,
+    "max_alive": 6,
+    "source": ("QUOTED from the A2e landing note § 2.4 and § 4.1, not measured here. "
+               "The A2e manifest predates the density block, so these could not be read "
+               "off it the way the artifact figures below are."),
+}
+
+# ⚑ THE ORDER IS THE COMPARISON. Segment A is the STATIONARY cadence — and after
+#   R-CPB-15 that is no longer "the article Matt ratified", because "across the
+#   board" raised BOTH cadences. A is here to isolate the undulation at the new
+#   rate; the ratified 11/rev density lives in the A2e clip, permanently.
 PART_ORDER = [
     ("A-stationary", "b-ring"),
     ("A-stationary", "d-close"),
