@@ -326,6 +326,23 @@ touching while it has it."** § 5's identity is the correction, and it is now on
 | **5** | **`PROVENANCE_VOLATILE_KEYS` is still incomplete** — carried from I-1 unrepaired | the masked baton-vs-on-disk compare | Exactly one difference per cell, confined to `sim_pin.tree_state_untracked_entries_excluded`. **Handed over, not taken. Star-lord's.** |
 | **6** | **One pre-existing test failure in star-lord's seam**, unrelated to this lap | the smoke wall | `test_cycle13_normal_season_export.py::TestRoundTrip::test_manifest_has_elements_block` asserts `water` in the manifest while the substrate emits `ice` — star-lord's own `water→ice` rename, commit `1038e285`. **No import path from anything I touched. Reported, not fixed** (not my seam) |
 
+### ⚑ 9.1 — THE REGRESSION CLAIM IS PROVED, NOT ASSERTED
+
+The full wall reads **63 failed / 10,466 passed / 21 errors** and I will not hand that over with
+"they look unrelated." Re-run over the **exact 13 files that fail**, in an isolated `git worktree`
+at the **pre-I-2 commit `e6f3b2c6`**:
+
+| | failed | passed | errors |
+|---|---:|---:|---:|
+| pre-I-2 (`e6f3b2c6`, worktree) | **72** | 574 | 21 |
+| post-I-2 (`01a42e3b`) | **63** | 583 | 21 |
+
+**Set difference of failing test IDs: ZERO new failures introduced by I-2.** Nine are present
+before and absent after — the worktree lacks untracked `data/` artifacts, which is the expected
+direction. Every one of the 63 lives outside the simulation seam: `test_cycle12_layer4_convergence`
+(33), `test_cycle13_wave5_season_generation` (21 errors), `test_cycle12_layer6_t4_wireup` (12),
+`test_kit_space_emitter` (4), `test_foundation` (4), and eight singletons.
+
 ---
 
 ## 10 — DECLARED ASSUMPTIONS + GAPS (every one on the wire)
