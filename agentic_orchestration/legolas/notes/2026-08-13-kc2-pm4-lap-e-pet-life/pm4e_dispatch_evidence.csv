@@ -1,0 +1,7 @@
+binding_record,binding_field,target_record,target_class,life_pct_at_ultimate_solo,note
+records/game/gameengine.dbr,monsterAttributePak,records/game/balancingadjustment_mp+difficulty_enemies01.dbr,AttributePak,580.0,class-scoped difficulty pak (12 cells = 3 difficulties x 4 player counts)
+records/game/gameengine.dbr,petAttributePak,records/game/balancingadjustment_mp+difficulty_pets01.dbr,AttributePak,15.0,class-scoped difficulty pak (12 cells = 3 difficulties x 4 player counts)
+records/game/gameengine.dbr,playerAttributePak,records/game/balancingadjustment_mp+difficulty_players01.dbr,AttributePak,0.0,class-scoped difficulty pak (12 cells = 3 difficulties x 4 player counts)
+records/game/survivalinfo.dbr,survivalAdjustmentElite,records/game/balancingadjustment_survivalmode_enemies02.dbr,,229.0,"GameAdjustment (attributepak.tpl + 4 spawn-COUNT fields); NO class dispatch, NO pet variant, NO player variant -- survivalinfo.tpl carries exactly 3"
+records/game/survivalinfo.dbr,survivalAdjustmentNormal,records/game/balancingadjustment_survivalmode_enemies01.dbr,,118.0,"GameAdjustment (attributepak.tpl + 4 spawn-COUNT fields); NO class dispatch, NO pet variant, NO player variant -- survivalinfo.tpl carries exactly 3"
+records/game/survivalinfo.dbr,survivalAdjustmentUltimate,records/game/balancingadjustment_survivalmode_enemies03.dbr,,324.0,"GameAdjustment (attributepak.tpl + 4 spawn-COUNT fields); NO class dispatch, NO pet variant, NO player variant -- survivalinfo.tpl carries exactly 3"

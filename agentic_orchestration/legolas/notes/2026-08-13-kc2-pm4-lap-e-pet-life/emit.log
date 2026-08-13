@@ -1,0 +1,24 @@
+  ULT(Ultimate/solo, index 8) = 580.0
+  G over band B: 306.0 .. 344.0
+    wrote pm4e_dispatch_evidence.csv: 6 rows x 6 cols
+    wrote pm4e_positive_control.csv: 4 rows x 14 cols
+  positive control: 4/4 camera-measured pets EXACT under the full fold
+     Death Revenant           L=109 measured=  468,504 full=  468,504 noULT=  227,820 noG=  334,053 lapB=   93,368 -> EXACT
+     Skeletal Archer          L=109 measured=   41,237 full=   41,237 noULT=   19,767 noG=   29,244 lapB=    7,773 -> EXACT
+     Aleksander's Shard       L=109 measured=  103,912 full=  103,912 noULT=   50,529 noG=   74,091 lapB=   20,708 -> EXACT
+     Aetherial Bileeater      L=112 measured=  484,095 full=  484,095 noULT=  236,279 noG=  345,660 lapB=   97,844 -> EXACT
+  P-SUMMON-128 (summon-only bodies over the 663 band-B pool records): 128
+  P-PET-70     (Lap B chain output, subset): 70  ⚑ Lap B misses 58 summon bodies
+    wrote pm4e_pet_ehp_by_wave.csv: 2560 rows x 15 cols
+    wrote pm4e_pet_life_decode.csv: 128 rows x 29 cols
+
+  life_grade : {'MEASURED': 127, 'ABSENT:NO-characterAttributeEquations': 1}
+  level_grade: {'DERIVED-INHERITED-FROM-SUMMONER': 128}
+
+  ⚑ HARDENING RATIO vs Lap-B (wave 160, LO limb, n=70 records): min 3.38 / median 4.20 / max 10.04
+
+  === SHA-256 PINS ===
+    pm4e_pet_ehp_by_wave.csv           35d82158c809a6b61af4e04b153da054589813901eb113b49389146be73ee6f4
+    pm4e_pet_life_decode.csv           5595898c6b3b90ee0d9354032cec9f2596fd74902b983780e8ef3152dc3ab50b
+    pm4e_positive_control.csv          0e6579c8fce308c6a5e15bee130fe7671eafdb5ff43175be517e82d33525493c
+    pm4e_dispatch_evidence.csv         2f5c01908de9bbe47347e0ca0eff2478f6b997528f5f2c6cf943d2d92570091f

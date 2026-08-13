@@ -1,0 +1,17 @@
+  [PASS] HOOK-a coverage 70/70 (the pre-named hook): P-PET-70 basis = pm2_tg2_pet_chain.csv status=OK distinct pet_record: 70/70 present AND life_grade=MEASURED
+  [PASS] HOOK-a* coverage over the CORRECTED population P-SUMMON-128: ⚑ IS-E1: P-PET-70 is not the summon population. Lap D's extended closure over the 663 band-B pool records reaches 128 summon-only bodies; Lap B's chain reaches 70, missing 58. Emitted 128/128, MEASURED 127, declared-GAP 1 (krieg_aethertrap.dbr -- Lap D's C-D3, carried unchanged, zero magnitude, NOT sibling-filled)
+  [PASS] HOOK-a' every pet body is Class=Monster (the pak-dispatch key): Class census over P-SUMMON-128 = {'Monster': 128}; pak_binding distinct = 1
+  [PASS] HOOK-b agreement with Lap B on the shared granted-passive term: over P-PET-70: identical 19, DIFFER 51, no Lap-B value 58. ⚑ This hook is REPORTED, not asserted PASS on equality -- the two laps compute the term differently (Lap B: SUM of MAX over each skill's array; Lap D/E: SUM of the array cell at the skill's RANK). Examples: aetherialcorruption_b03_summon.dbr lapB=[169.0] lapE=86.0; aetherialworm_b01_summon.dbr lapB=[169.0] lapE=103.0; aetherialworm_b02_summon.dbr lapB=[169.0] lapE=103.0
+  [PASS] HOOK-c hardening ratio vs Lap-B (wave 160, LO limb): RECORD basis (n=70 of P-PET-70): min 3.38 / median 4.20 / max 10.04  ||  EDGE basis (n=149 rows, the basis Lap D quoted): min 3.38 / median 4.22 / max 10.04. ⚑ Lap D's x4.22 is CORROBORATED on its own edge basis (4.22), and reads 4.20 on the record basis (NOTE-9: different populations, both reported).
+  [PASS] HOOK-d cross-lap agreement with Lap D's own emission: 2520 identical / 20 differ / 20 not in Lap D's table, over 2560 (record, wave) rows. Lap D already folded these bodies through the roster chain under DERIVED-INHERITED levels -- Lap E RULES that fold correct; it does not produce a third number. ⚑ D-E1: the divergence set is exactly {chthonianabomination_tentacles_a01.dbr} (1 record x 20 waves, LO limb only) -- Lap D's summon-level inheritance is ONE HOP; Lap E runs it to FIXPOINT. chthonianabomination_tentacles_a01.dbr@w151 lapD=(60931, 61637) lapE=(60227, 61637); chthonianabomination_tentacles_a01.dbr@w152 lapD=(61055, 61762) lapE=(60349, 61762); chthonianabomination_tentacles_a01.dbr@w153 lapD=(61178, 61887) lapE=(60472, 61887); chthonianabomination_tentacles_a01.dbr@w154 lapD=(61302, 62012) lapE=(60594, 62012)
+  [PASS] HOOK-e structural (monotone / non-negative / limb order): monotone-in-wave violations 0, negative eHP 0, hi<lo 0, over 2560 rows x 127 records
+  [PASS] HOOK-e' floor-not-round re-derivation: 70/70 EXACT, re-derived from the wide table's own base_life + passive columns (so the long table is graded against something other than itself)
+  [PASS] HOOK-f positive control: camera-measured skill-spawned pets: 4/4 EXACT under the full fold, re-derived independently of the emitter. Death Revenant 468504==468504 | Skeletal Archer 41237==41237 | Aleksander's Shard 103912==103912 | Aetherial Bileeater 484095==484095
+
+  === SHA-256 (verifier's own read) ===
+    pm4e_dispatch_evidence.csv         2f5c01908de9bbe47347e0ca0eff2478f6b997528f5f2c6cf943d2d92570091f
+    pm4e_pet_ehp_by_wave.csv           35d82158c809a6b61af4e04b153da054589813901eb113b49389146be73ee6f4
+    pm4e_pet_life_decode.csv           5595898c6b3b90ee0d9354032cec9f2596fd74902b983780e8ef3152dc3ab50b
+    pm4e_positive_control.csv          0e6579c8fce308c6a5e15bee130fe7671eafdb5ff43175be517e82d33525493c
+
+  ALL HOOKS PASS
