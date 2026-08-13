@@ -76,8 +76,17 @@ Five obligations, each one a thing a consumer would otherwise have to take on tr
 against the next lap, not a finding about this one — and it is *because* it is green on arrival that
 the 11 falsification tests matter: each breaks exactly one obligation and asserts the gate reds.
 
-⚑ **Consumer-visible:** `validate_baton_wire` now returns **33** results, not 32. Nothing in the
-tree hard-codes the number (checked); a driver printing "32/32" will print "33/33".
+⚑ **Consumer-visible:** `validate_baton_wire` returns **33** results, not 32; the adapter's full
+gate wall reads **67**, not 66 (`VALIDATOR 33 + G-E 33 + G-STATS 1`).
+
+⚑ **And here I was wrong out loud, and the tree corrected me.** I first wrote *"nothing in the tree
+hard-codes the number"* — I had grepped the **simulation drivers** and not the **tests**.
+`tests/test_kc2_run_adapter.py::test_HALT_PIN_the_gate_wall_refuses_the_emit_and_names_all_four`
+asserts `len(run.results) == 66` **and** the wall's `Counter` composition, deliberately: *"a gate
+cannot silently LEAVE the wall either: a shrinking denominator is the cheapest possible green."*
+**The composition guard fired on a denominator that GREW, which is exactly what it is for.** Pin
+moved to 67 with the reason written into its docstring rather than absorbed. **A wall that grows
+must say so as loudly as one that shrinks.**
 
 ---
 
