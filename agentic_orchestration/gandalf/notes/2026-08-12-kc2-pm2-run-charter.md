@@ -53,5 +53,6 @@ Commitment-boundaries: F-6 fallback firing (if the cliff hits, the (b) fallback 
 | row | content |
 |---|---|
 | **L-0** | Charter authored + Matt's closing word banked: **"agreed on F-5 and F-6"** (2026-08-12). Laps A + B fired in parallel (legolas ×2, background). |
+| **L-1** | **F-1 SOURCE UPGRADE (Matt-offered, conductor-accepted): Matt sends his ACTUAL played save** — strictly better than the re-downloadable pristine zip, and Screenshot (495) already proves the delta (Gutsmasher carries a Potent Olexra's Fervor Black Legion rank augment absent from the pristine build; played state = post-v1.2-migration + applied augments). Requested drop: the full character folder (`save\main\_<Name>\` zipped, sidecars included) at `/Volumes/reincarnated/GD-matt-test/eor-test-2/save/` — a `matt_to_do`-class action (host-level; PC tunnel machinery retired). **Source ranking re-based: screenshots = PRIMARY for effective stats (computed totals with live buffs) · played save = machine-readable truth for gear/skills/devotions · pristine zip = lineage/fallback.** Lap A's parser (built against the pristine zip) re-runs on the played save when it lands; nothing blocks meanwhile. |
 
 *Charter + ledger opened by gandalf (`RUN-CONDUCTOR`), 2026-08-12.*
