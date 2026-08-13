@@ -1,0 +1,29 @@
+wrote pm4i_band_c_wave_composition.csv rows=50 sha256=629d596809f975c8
+  w168 tier 17 rows= 15 sp=5 pools=15 recs=101 spawnmax= 51.0 champmax= 6.0 kinds=DEVOTION|HERO|trash
+  w169 tier 17 rows= 10 sp=6 pools=10 recs= 18 spawnmax= 11.0 champmax= 0.0 kinds=BOSS
+  w170 tier 17 rows=  9 sp=5 pools= 9 recs= 23 spawnmax=  9.0 champmax= 0.0 kinds=BOSS
+  w171 tier 18 rows= 12 sp=6 pools=12 recs= 47 spawnmax= 35.0 champmax= 2.0 kinds=BOSS|HERO|trash
+  w172 tier 18 rows= 16 sp=5 pools=16 recs= 90 spawnmax= 22.0 champmax= 8.0 kinds=BOSS|DEVOTION|HERO|trash
+  w175 tier 18 rows= 13 sp=6 pools=10 recs= 26 spawnmax=  7.0 champmax= 6.0 kinds=BOSS|HERO
+  w180 tier 18 rows=  8 sp=6 pools= 8 recs= 16 spawnmax=  8.0 champmax= 0.0 kinds=BOSS
+
+== band-C pool basis re-verified against the proxy .dbr records ==
+  (proxy, pool) pairs confirmed on the proxy record: 112 confirmed / 0 not-confirmed of 112
+
+  band-C pool records ABSENT from Edition-III: 3 / 331
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_01.dbr
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_02.dbr
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_03.dbr
+
+DONE
+wrote pm4i_board_dot_by_wave.csv rows=10 sha256=81128a1265bdbbb6
+  w151  actors=28  board_tot=     3,622  per_actor=     129  poison=   1,149 bleed=   2,215  top=wendigo_h01.dbr
+  w152  actors=18  board_tot=     4,559  per_actor=     253  poison=   3,240 bleed=       0  top=basilisk_h02.dbr
+  w153  actors=24  board_tot=    12,924  per_actor=     538  poison=   7,998 bleed=   3,295  top=giant_b01.dbr
+  w154  actors=13  board_tot=     5,443  per_actor=     419  poison=       0 bleed=   2,505  top=nemesis_beast_01_p1.dbr
+  w155  actors=18  board_tot=     6,295  per_actor=     350  poison=   3,280 bleed=       0  top=aetherialcorruption_c01.dbr
+  w156  actors=19  board_tot=     6,307  per_actor=     332  poison=   4,300 bleed=   1,590  top=chthonianwretch_b01.dbr
+  w157  actors=21  board_tot=     3,999  per_actor=     190  poison=     959 bleed=   1,745  top=aetherialbloater_malmouthdocks_01.dbr
+  w158  actors=33  board_tot=     3,836  per_actor=     116  poison=     848 bleed=   1,429  top=hypporaven_h03.dbr
+  w159  actors= 9  board_tot=     8,211  per_actor=     912  poison=     559 bleed=   5,309  top=humanwendigo_darkwood_01.dbr
+  w160  actors= 5  board_tot=     1,698  per_actor=     340  poison=     404 bleed=     181  top=statue_korvaaktombguardian.dbr

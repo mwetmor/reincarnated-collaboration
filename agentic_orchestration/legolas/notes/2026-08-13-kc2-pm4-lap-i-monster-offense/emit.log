@@ -1,0 +1,66 @@
+
+== TARGET 1 -- the wave-G DAMAGE modifier ==
+  survivalmode_enemies03  archive=sm_mod  array fields=27  cells=200
+  difficulty re-check  life@150/160/170: {'01': [108.0, 118.0, 128.0], '02': [218.0, 229.0, 240.0], '03': [304.0, 324.0, 344.0]}
+  ⚑ offensiveTotalDamageModifier identical across enemies01/02/03: True
+  wrote pm4i_wave_damage_modifier.csv  rows=50  sha256=f0852cec35a0362c
+  wrote pm4i_survival_wave_arrays_full.csv  rows=1350  sha256=eab2d141cb41ad83
+
+== TARGET 2 -- the Ultimate offense AttributePak ==
+  mp+difficulty_enemies01  archive=base  Class=AttributePak  arrays=61
+  wrote pm4i_ultimate_offense_paks.csv  rows=733  sha256=b09341478b938a10
+  ⚑ Ultimate/solo offense cells:
+       characterAttackSpeedModifier                 = 0.0
+       characterOffensiveAbility                    = 50.0
+       characterOffensiveAbilityModifier            = -8.0
+       characterSpellCastSpeedModifier              = 5.0
+       offensiveAetherModifier                      = 0.0
+       offensiveChaosModifier                       = 0.0
+       offensiveFreezeModifier                      = 10.0
+       offensiveLifeModifier                        = 0.0
+       offensivePetrifyModifier                     = 10.0
+       offensivePhysicalModifier                    = 0.0
+       offensivePierceModifier                      = 0.0
+       offensiveSlowBleedingModifier                = -28.0
+       offensiveSlowColdModifier                    = -28.0
+       offensiveSlowDamageMultModifier              = 40.0
+       offensiveSlowFireModifier                    = -28.0
+       offensiveSlowLifeLeachModifier               = 0.0
+       offensiveSlowLifeModifier                    = -28.0
+       offensiveSlowLightningModifier               = -28.0
+       offensiveSlowPhysicalModifier                = -28.0
+       offensiveSlowPoisonModifier                  = -28.0
+       offensiveStunModifier                        = 25.0
+       offensiveTotalDamageModifier                 = 40.0
+       offensiveTrapModifier                        = 10.0
+       retaliationTotalDamageModifier               = -15.0
+
+== TARGET 3 -- DoT riders on the waves-151-160 board ==
+  P-ROLLED-10: 188 actors / 91 records
+  summon closure: +38 pet bodies (layers [36, 2])
+  wrote pm4i_dot_riders.csv  rows=264  sha256=2dc3e380a3800b3a
+  DoT rows 264 over 90 bodies of 129 (2 bodies with no level source, skipped + declared)
+
+== TARGET 3b -- terminal-wave (159/160) DoT ranking ==
+  wrote pm4i_terminal_wave_dot_ranking.csv  rows=9  sha256=6c6a129c58c0d7e8
+   w159 #1 humanwendigo_darkwood_01.dbr                 dps_tot=  1560.933 dps_ps=    2772.0 fams=Bleeding|Life|LifeLeach
+   w159 #2 chthonianservitor_lunalvalgoth.dbr           dps_tot=  1453.267 dps_ps=    2611.0 fams=Bleeding
+   w159 #3 skeletalgolem_stepsoftorment_01.dbr          dps_tot=     539.6 dps_ps=    1306.0 fams=Fire|Life
+   w159 #4 korvaakmessenger_02b.dbr                     dps_tot=   386.833 dps_ps=    1325.0 fams=Fire
+   w159 #5 witchgod_finalboss.dbr                       dps_tot=   358.167 dps_ps=    1478.0 fams=LifeLeach|Poison
+   w160 #1 nemesis_wendigo_01.dbr                       dps_tot=     650.0 dps_ps=    1040.0 fams=Bleeding|LifeLeach
+   w160 #2 statue_korvaaktombguardian.dbr               dps_tot=   423.925 dps_ps=    1778.0 fams=Cold|Lightning|Poison
+   w160 #3 nemesis_aetherialvanguard_01.dbr             dps_tot=    114.75 dps_ps=     780.0 fams=Fire
+   w160 #4 nemesis_kymon_01.dbr                         dps_tot=      85.6 dps_ps=     428.0 fams=Fire
+  ⚑ ranking stable across both magnitude conventions: False
+
+== TARGET 4 -- band C (waves 171-180) ==
+  band-C pool population: 331 records over 98 pools
+  summon closure -> 410 bodies (layers [74, 5])
+  wrote pm4i_band_c_ehp_by_wave.csv  rows=4010  sha256=9f7fd070fa2a557d
+  wrote pm4i_band_c_roster.csv  rows=410  sha256=d442d41f260e3a24
+  band C: 401 MEASURED / 410 bodies (9 absent)
+  structural: monotone 0 · negative 0 · limb-order 0
+  discontinuity: {'G_170': 344.0, 'G_171': 420.0, 'G_180': 510.0, 'D_170': 45.0, 'D_171': 56.0, 'D_180': 75.0, 'life_step_pct_of_prior_multiplier': 7.4219}
+
+DONE

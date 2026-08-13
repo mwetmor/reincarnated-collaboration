@@ -1,0 +1,133 @@
+{
+  "lap": "I",
+  "run": "KC2-PM4",
+  "ruling": "R-PM4-14",
+  "date": "2026-08-13",
+  "surv_record_recheck": {
+    "life_at_150_160_170": {
+      "01": [
+        108.0,
+        118.0,
+        128.0
+      ],
+      "02": [
+        218.0,
+        229.0,
+        240.0
+      ],
+      "03": [
+        304.0,
+        324.0,
+        344.0
+      ]
+    },
+    "of_record": "03",
+    "verdict": "enemies03 reproduces Lap D's G(150,160,170) = 304/324/344"
+  },
+  "damage_array_identical_across_crucible_difficulties": true,
+  "t1": {
+    "rows": 50,
+    "cols": 34,
+    "sha256": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+  },
+  "t1_full": {
+    "rows": 1350,
+    "cols": 7,
+    "sha256": "eab2d141cb41ad83c89b02c9da2a9c7b75ba49d6cb38b27a988a2a172dbd1ce9"
+  },
+  "t2": {
+    "rows": 733,
+    "cols": 11,
+    "sha256": "b09341478b938a10379086a9deead12a690a950a3048f69d9a0337781b54fc5e"
+  },
+  "t2_ultimate_solo_offense": {
+    "characterAttackSpeedModifier": 0.0,
+    "characterOffensiveAbility": 50.0,
+    "characterOffensiveAbilityModifier": -8.0,
+    "characterSpellCastSpeedModifier": 5.0,
+    "offensiveAetherModifier": 0.0,
+    "offensiveChaosModifier": 0.0,
+    "offensiveFreezeModifier": 10.0,
+    "offensiveLifeModifier": 0.0,
+    "offensivePetrifyModifier": 10.0,
+    "offensivePhysicalModifier": 0.0,
+    "offensivePierceModifier": 0.0,
+    "offensiveSlowBleedingModifier": -28.0,
+    "offensiveSlowColdModifier": -28.0,
+    "offensiveSlowDamageMultModifier": 40.0,
+    "offensiveSlowFireModifier": -28.0,
+    "offensiveSlowLifeLeachModifier": 0.0,
+    "offensiveSlowLifeModifier": -28.0,
+    "offensiveSlowLightningModifier": -28.0,
+    "offensiveSlowPhysicalModifier": -28.0,
+    "offensiveSlowPoisonModifier": -28.0,
+    "offensiveStunModifier": 25.0,
+    "offensiveTotalDamageModifier": 40.0,
+    "offensiveTrapModifier": 10.0,
+    "retaliationTotalDamageModifier": -15.0
+  },
+  "dot_display_names_decoded": {
+    "Poison": "{^E}Poison Damage",
+    "Bleeding": "{^E}Bleeding Damage",
+    "Life": "{^E}Vitality Decay Damage",
+    "Fire": "{^E}Burn Damage",
+    "Cold": "{^E}Frostburn Damage",
+    "Lightning": "{^E}Electrocute Damage",
+    "Physical": "{^E}Internal Trauma",
+    "LifeLeach": "{^E}Life Leech"
+  },
+  "t3": {
+    "rows": 264,
+    "cols": 40,
+    "sha256": "2dc3e380a3800b3afd14f1923d1e2a32efe9263f4ee2eaec7c69c753ed7f6ce1"
+  },
+  "t3_population": {
+    "roster_records": 91,
+    "pet_bodies": 38,
+    "bodies_total": 129,
+    "no_level_source": 2,
+    "rows": 264,
+    "bodies_with_dot": 90
+  },
+  "t3b": {
+    "rows": 9,
+    "cols": 27,
+    "sha256": "6c6a129c58c0d7e818a38ec4f53ab1f8ca37ce10266be0929b860cb8be28fd7e"
+  },
+  "t3b_rank_stability": false,
+  "t4_ehp": {
+    "rows": 4010,
+    "cols": 13,
+    "sha256": "9f7fd070fa2a557d2a220656616e009bc06158240adfc37847d4d7b1240f153e"
+  },
+  "t4_roster": {
+    "rows": 410,
+    "cols": 23,
+    "sha256": "d442d41f260e3a2415c0fbe221a784ae5f8c63d10e1c73107ab63315674d0ecd"
+  },
+  "t4_population": {
+    "pool_records": 331,
+    "pools": 98,
+    "bodies_closed": 410,
+    "summon_layers": [
+      74,
+      5
+    ],
+    "measured": 401,
+    "absent": 9
+  },
+  "t4_structural": {
+    "monotone_violations": 0,
+    "negative": 0,
+    "limb_order_violations": 0
+  },
+  "t4_discontinuity": {
+    "G_170": 344.0,
+    "G_171": 420.0,
+    "G_180": 510.0,
+    "D_170": 45.0,
+    "D_171": 56.0,
+    "D_180": 75.0,
+    "life_step_pct_of_prior_multiplier": 7.4219
+  }
+}

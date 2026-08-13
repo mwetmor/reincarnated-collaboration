@@ -1,0 +1,333 @@
+{
+  "V1": {
+    "exact": 15800,
+    "mismatch": 0,
+    "of": 15801,
+    "examples": [],
+    "verdict": "PASS"
+  },
+  "V2": {
+    "G_agree": 20,
+    "of": 20,
+    "ultimate_580_everywhere": true,
+    "verdict": "PASS"
+  },
+  "V3": {
+    "exact": 20,
+    "mismatch": 0,
+    "sampled": 20,
+    "verdict": "PASS"
+  },
+  "V4_band_c_absent": [
+    {
+      "record": "records/creatures/enemies/boss&quest/wight_scarfelldepths_01.dbr",
+      "life_grade": "ABSENT:RECORD-ABSENT",
+      "level_grade": "MEASURED-SET",
+      "summoner": ""
+    },
+    {
+      "record": "records/creatures/enemies/boss&quest/wight_scarfelldepths_02.dbr",
+      "life_grade": "ABSENT:RECORD-ABSENT",
+      "level_grade": "MEASURED-SET",
+      "summoner": ""
+    },
+    {
+      "record": "records/creatures/enemies/boss&quest/wight_scarfelldepths_03.dbr",
+      "life_grade": "ABSENT:RECORD-ABSENT",
+      "level_grade": "MEASURED-SET",
+      "summoner": ""
+    },
+    {
+      "record": "records/creatures/enemies/chthonianabomination_tentacles_a01.dbr",
+      "life_grade": "ABSENT:ABSENT:NO-LEVEL-SOURCE",
+      "level_grade": "ABSENT:NO-LEVEL-SOURCE",
+      "summoner": "records/creatures/enemies/chthonianmonstrosity_summon.dbr"
+    },
+    {
+      "record": "records/creatures/enemies/chthonianfiend_a01_summon.dbr",
+      "life_grade": "ABSENT:ABSENT:NO-LEVEL-SOURCE",
+      "level_grade": "ABSENT:NO-LEVEL-SOURCE",
+      "summoner": "records/creatures/enemies/chthonianminion_b01_summon.dbr"
+    },
+    {
+      "record": "records/creatures/enemies/korvaakservant_b01_korvaaksummon.dbr",
+      "life_grade": "ABSENT:ABSENT:NO-LEVEL-SOURCE",
+      "level_grade": "ABSENT:NO-LEVEL-SOURCE",
+      "summoner": "records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift_02.dbr"
+    },
+    {
+      "record": "records/creatures/enemies/korvaakservant_b02_korvaaksummon.dbr",
+      "life_grade": "ABSENT:ABSENT:NO-LEVEL-SOURCE",
+      "level_grade": "ABSENT:NO-LEVEL-SOURCE",
+      "summoner": "records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift_02.dbr"
+    },
+    {
+      "record": "records/creatures/enemies/swampcrab_a00_summon.dbr",
+      "life_grade": "ABSENT:ABSENT:NO-LEVEL-SOURCE",
+      "level_grade": "ABSENT:NO-LEVEL-SOURCE",
+      "summoner": "records/creatures/enemies/swampcrab_c01_summon.dbr"
+    },
+    {
+      "record": "records/skills/nonplayerskills/summoning/warden_aethertrap01.dbr",
+      "life_grade": "ABSENT:NO-characterAttributeEquations",
+      "level_grade": "DERIVED-INHERITED",
+      "summoner": "records/creatures/enemies/boss&quest/warden01.dbr"
+    }
+  ],
+  "V4_dot_no_level": [
+    {
+      "record": "records/creatures/enemies/chthonianfiend_a01_summon.dbr",
+      "chain": "OK",
+      "summoners": [
+        "records/creatures/enemies/chthonianminion_b01_summon.dbr"
+      ]
+    },
+    {
+      "record": "records/creatures/enemies/insectswarm_a01_summon.dbr",
+      "chain": "OK",
+      "summoners": [
+        "records/creatures/enemies/bonerat_witchgod_b01_summon.dbr"
+      ]
+    }
+  ],
+  "V4_dot_measured_zero": [
+    "records/creatures/enemies/aetherialcorruption_b01.dbr",
+    "records/creatures/enemies/chthoniandevourer_a01.dbr",
+    "records/creatures/enemies/chthonianherald_b01.dbr",
+    "records/creatures/enemies/chthonianherald_c01.dbr",
+    "records/creatures/enemies/chthonianrylok_a01.dbr",
+    "records/creatures/enemies/devotion/chthonianherald_h04.dbr",
+    "records/creatures/enemies/eldritcharmor_a01.dbr",
+    "records/creatures/enemies/ghost_a01.dbr",
+    "records/creatures/enemies/ghost_a01_summon.dbr",
+    "records/creatures/enemies/ghost_a02.dbr",
+    "records/creatures/enemies/ghost_b01.dbr",
+    "records/creatures/enemies/ghost_b01_summon.dbr",
+    "records/creatures/enemies/ghost_b02.dbr",
+    "records/creatures/enemies/ghost_b02_summon.dbr",
+    "records/creatures/enemies/ghost_b03.dbr",
+    "records/creatures/enemies/ghost_b03_summon.dbr",
+    "records/creatures/enemies/ghost_b04.dbr",
+    "records/creatures/enemies/ghost_b04_summon.dbr",
+    "records/creatures/enemies/hellhound_witchgod_a01_summon.dbr",
+    "records/creatures/enemies/hellhound_witchgod_b01_summon.dbr",
+    "records/creatures/enemies/hero/aetherialimp_h02.dbr",
+    "records/creatures/enemies/hero/aetherialimp_h03.dbr",
+    "records/creatures/enemies/hero/aetherialimp_h04.dbr",
+    "records/creatures/enemies/raptor_witchgod_b01_summon.dbr",
+    "records/creatures/enemies/sandlizard_volcanic_a01.dbr",
+    "records/creatures/enemies/skeleton_a01_summon.dbr",
+    "records/creatures/enemies/swampcrab_a00_summon.dbr",
+    "records/creatures/enemies/swampcrab_a01.dbr",
+    "records/creatures/enemies/swampcrab_c01.dbr",
+    "records/creatures/enemies/swampcrab_c01_summon.dbr",
+    "records/creatures/enemies/trap_brambletrap_a01.dbr",
+    "records/creatures/enemies/trap_lightningspike_hero_a01.dbr",
+    "records/creatures/enemies/yetidire_a01.dbr",
+    "records/skills/nonplayerskills/bossskills/pets/chthonicshard_zap_b01_summon.dbr",
+    "records/skills/nonplayerskills/bossskills/pets/loghorrean_void.dbr",
+    "records/skills/nonplayerskillsgdx1/bossskills/nemesis/aetherialvanguard_crystal.dbr",
+    "records/skills/nonplayerskillsgdx2/bossskills/pets/mindreaper_summon.dbr"
+  ],
+  "V5": {
+    "159": {
+      "top3_total": [
+        "records/creatures/enemies/boss&quest/humanwendigo_darkwood_01.dbr",
+        "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr",
+        "records/creatures/enemies/boss&quest/skeletalgolem_stepsoftorment_01.dbr"
+      ],
+      "top3_persecond": [
+        "records/creatures/enemies/boss&quest/humanwendigo_darkwood_01.dbr",
+        "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr",
+        "records/creatures/enemies/boss&quest/witchgod_finalboss.dbr"
+      ],
+      "intersection": [
+        "records/creatures/enemies/boss&quest/humanwendigo_darkwood_01.dbr",
+        "records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr"
+      ],
+      "rank_flips": 2,
+      "n": 5
+    },
+    "160": {
+      "top3_total": [
+        "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+        "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr"
+      ],
+      "top3_persecond": [
+        "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+        "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr"
+      ],
+      "intersection": [
+        "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+        "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr"
+      ],
+      "rank_flips": 2,
+      "n": 4
+    }
+  },
+  "V6": {
+    "band_b_pool_records": 663,
+    "band_c_pool_records": 331,
+    "new_in_c": 134,
+    "dropped_from_b": 466,
+    "w170_records": 23,
+    "w171_records": 47,
+    "shared_170_171": 8,
+    "life_170": 344.0,
+    "life_171": 420.0,
+    "life_step": 76.0,
+    "life_within_step_b": [
+      2.0
+    ],
+    "life_within_step_c": [
+      10.0
+    ],
+    "damage_170": 45.0,
+    "damage_171": 56.0,
+    "damage_step": 11.0,
+    "damage_within_step_b": [
+      0.0,
+      1.0
+    ],
+    "damage_within_step_c": [
+      1.0,
+      11.0
+    ],
+    "tier_dirs_present": 20,
+    "verdict": "SAME REGIME, STEPPED \u2014 the tier-18 boundary is a step in the SAME 200-cell arrays and the SAME tier<NN>waves authoring structure; no scaling break, no loop",
+    "tier_boundary_steps": [
+      [
+        11,
+        0.0,
+        0.0
+      ],
+      [
+        21,
+        0.0,
+        0.0
+      ],
+      [
+        31,
+        2.0,
+        0.0
+      ],
+      [
+        41,
+        1.0,
+        0.0
+      ],
+      [
+        51,
+        3.0,
+        0.0
+      ],
+      [
+        61,
+        1.0,
+        0.0
+      ],
+      [
+        71,
+        1.0,
+        0.0
+      ],
+      [
+        81,
+        1.0,
+        1.0
+      ],
+      [
+        91,
+        2.0,
+        1.0
+      ],
+      [
+        101,
+        1.0,
+        1.0
+      ],
+      [
+        111,
+        2.0,
+        1.0
+      ],
+      [
+        121,
+        2.0,
+        0.0
+      ],
+      [
+        131,
+        3.0,
+        0.0
+      ],
+      [
+        141,
+        4.0,
+        0.0
+      ],
+      [
+        151,
+        2.0,
+        0.0
+      ],
+      [
+        161,
+        2.0,
+        1.0
+      ],
+      [
+        171,
+        76.0,
+        11.0
+      ],
+      [
+        181,
+        46.0,
+        11.0
+      ],
+      [
+        191,
+        65.0,
+        6.0
+      ]
+    ]
+  },
+  "V7": {
+    "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+    "level": 109.0,
+    "ultimate_pct": 40.0,
+    "own_pct": 109.0,
+    "own_sources": [
+      "damage_totaladjuster.dbr[10]=44.0(IN-RANGE)",
+      "armorbase05.dbr[108]=25.0(IN-RANGE)",
+      "wendigo_enrage.dbr=40.0"
+    ],
+    "wave_pct": {
+      "160": 43.0,
+      "171": 56.0,
+      "180": 75.0
+    }
+  },
+  "digests": {
+    "pm4i_band_c_ehp_by_wave.csv": "9f7fd070fa2a557d2a220656616e009bc06158240adfc37847d4d7b1240f153e",
+    "pm4i_band_c_roster.csv": "d442d41f260e3a2415c0fbe221a784ae5f8c63d10e1c73107ab63315674d0ecd",
+    "pm4i_dot_riders.csv": "2dc3e380a3800b3afd14f1923d1e2a32efe9263f4ee2eaec7c69c753ed7f6ce1",
+    "pm4i_survival_wave_arrays_full.csv": "eab2d141cb41ad83c89b02c9da2a9c7b75ba49d6cb38b27a988a2a172dbd1ce9",
+    "pm4i_terminal_wave_dot_ranking.csv": "6c6a129c58c0d7e818a38ec4f53ab1f8ca37ce10266be0929b860cb8be28fd7e",
+    "pm4i_ultimate_offense_paks.csv": "b09341478b938a10379086a9deead12a690a950a3048f69d9a0337781b54fc5e",
+    "pm4i_wave_damage_modifier.csv": "f0852cec35a0362c101618b2a269446c4fba658ee0b80821aa5e4ae47eab910b"
+  },
+  "row_counts": {
+    "pm4i_band_c_ehp_by_wave.csv": 4010,
+    "pm4i_band_c_roster.csv": 410,
+    "pm4i_dot_riders.csv": 264,
+    "pm4i_survival_wave_arrays_full.csv": 1350,
+    "pm4i_terminal_wave_dot_ranking.csv": 9,
+    "pm4i_ultimate_offense_paks.csv": 733,
+    "pm4i_wave_damage_modifier.csv": 50
+  }
+}

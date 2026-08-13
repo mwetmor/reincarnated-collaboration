@@ -1,0 +1,55 @@
+== V1 -- POSITIVE CONTROL: band-C chain re-run over Lap D's band, EXACT? ==
+  15800 EXACT / 0 MISMATCH over 15801 Lap-D rows
+
+== V2 -- wave-modifier table vs Lap D's emitted life-modifier table ==
+  G column agreement over 151..170: 20/20   ultimate 580.0 on all: True
+
+== V3 -- INDEPENDENT RE-READ of DoT rows straight off the archives ==
+  independent re-read: 20 EXACT / 0 mismatch over 20 sampled rows
+
+== V4 -- residuals, NAMED ==
+  band-C bodies without a MEASURED life chain: 9 / 410
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_01.dbr  grade=ABSENT:RECORD-ABSENT  level_grade=MEASURED-SET summoner=-
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_02.dbr  grade=ABSENT:RECORD-ABSENT  level_grade=MEASURED-SET summoner=-
+    records/creatures/enemies/boss&quest/wight_scarfelldepths_03.dbr  grade=ABSENT:RECORD-ABSENT  level_grade=MEASURED-SET summoner=-
+    records/creatures/enemies/chthonianabomination_tentacles_a01.dbr  grade=ABSENT:ABSENT:NO-LEVEL-SOURCE  level_grade=ABSENT:NO-LEVEL-SOURCE summoner=records/creatures/enemies/chthonianmonstrosity_summon.dbr
+    records/creatures/enemies/chthonianfiend_a01_summon.dbr  grade=ABSENT:ABSENT:NO-LEVEL-SOURCE  level_grade=ABSENT:NO-LEVEL-SOURCE summoner=records/creatures/enemies/chthonianminion_b01_summon.dbr
+    records/creatures/enemies/korvaakservant_b01_korvaaksummon.dbr  grade=ABSENT:ABSENT:NO-LEVEL-SOURCE  level_grade=ABSENT:NO-LEVEL-SOURCE summoner=records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift_0
+    records/creatures/enemies/korvaakservant_b02_korvaaksummon.dbr  grade=ABSENT:ABSENT:NO-LEVEL-SOURCE  level_grade=ABSENT:NO-LEVEL-SOURCE summoner=records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift_0
+    records/creatures/enemies/swampcrab_a00_summon.dbr  grade=ABSENT:ABSENT:NO-LEVEL-SOURCE  level_grade=ABSENT:NO-LEVEL-SOURCE summoner=records/creatures/enemies/swampcrab_c01_summon.dbr
+    records/skills/nonplayerskills/summoning/warden_aethertrap01.dbr  grade=ABSENT:NO-characterAttributeEquations  level_grade=DERIVED-INHERITED summoner=records/creatures/enemies/boss&quest/warden01.dbr
+  DoT bodies with NO level source: 2
+    records/creatures/enemies/chthonianfiend_a01_summon.dbr  chain=OK  summoners=['records/creatures/enemies/chthonianminion_b01_summon.dbr']
+    records/creatures/enemies/insectswarm_a01_summon.dbr  chain=OK  summoners=['records/creatures/enemies/bonerat_witchgod_b01_summon.dbr']
+  bodies MEASURED-ZERO on DoT (level present, no DoT field on any skill): 37
+
+== V5 -- terminal-wave ranking, convention sensitivity ==
+  wave 159: top3(total)=['humanwendigo_darkwood_01.dbr', 'chthonianservitor_lunalvalgoth.dbr', 'skeletalgolem_stepsoftorment_01.dbr']
+           top3(per-s)=['humanwendigo_darkwood_01.dbr', 'chthonianservitor_lunalvalgoth.dbr', 'witchgod_finalboss.dbr']
+           intersection=2/3   rank flips=2/5
+  wave 160: top3(total)=['nemesis_wendigo_01.dbr', 'statue_korvaaktombguardian.dbr', 'nemesis_aetherialvanguard_01.dbr']
+           top3(per-s)=['statue_korvaaktombguardian.dbr', 'nemesis_wendigo_01.dbr', 'nemesis_aetherialvanguard_01.dbr']
+           intersection=3/3   rank flips=2/4
+
+== V6 -- the 170/171 REGIME: what actually changes ==
+  pool records: band B (151-170) 663 · band C (171-180) 331 · new in C 134 · dropped 466
+  wave-170 pool records 23 · wave-171 47 · shared 8
+  life step 170->171: 344.0 -> 420.0  (+76.0)   within-band step 151..170 = +2.0/wave; 171..180 = +10.0/wave
+  damage step 170->171: 45.0 -> 56.0  (+11.0)   within-band 151..170 step pattern [0.0, 1.0]; 171..180 [1.0, 11.0]
+  tier-boundary steps (wave, dLife, dDamage): [(11, 0.0, 0.0), (21, 0.0, 0.0), (31, 2.0, 0.0), (41, 1.0, 0.0), (51, 3.0, 0.0), (61, 1.0, 0.0), (71, 1.0, 0.0), (81, 1.0, 1.0), (91, 2.0, 1.0), (101, 1.0, 1.0), (111, 2.0, 1.0), (121, 2.0, 0.0), (131, 3.0, 0.0), (141, 4.0, 0.0), (151, 2.0, 0.0), (161, 2.0, 1.0), (171, 76.0, 11.0), (181, 46.0, 11.0), (191, 65.0, 6.0)]
+
+== V7 -- the damage chain's three terms, re-read at a named record ==
+  nemesis_wendigo_01.dbr @L=109.0 w160: ultimate 40.0 + wave 43.0 + own 109.0 = 192.0 %   sources: ['damage_totaladjuster.dbr[10]=44.0(IN-RANGE)', 'armorbase05.dbr[108]=25.0(IN-RANGE)', 'wendigo_enrage.dbr=40.0']
+  nemesis_wendigo_01.dbr @L=109.0 w171: ultimate 40.0 + wave 56.0 + own 109.0 = 205.0 %   sources: ['damage_totaladjuster.dbr[10]=44.0(IN-RANGE)', 'armorbase05.dbr[108]=25.0(IN-RANGE)', 'wendigo_enrage.dbr=40.0']
+  nemesis_wendigo_01.dbr @L=109.0 w180: ultimate 40.0 + wave 75.0 + own 109.0 = 224.0 %   sources: ['damage_totaladjuster.dbr[10]=44.0(IN-RANGE)', 'armorbase05.dbr[108]=25.0(IN-RANGE)', 'wendigo_enrage.dbr=40.0']
+
+== DIGESTS ==
+  pm4i_band_c_ehp_by_wave.csv                  9f7fd070fa2a557d  rows=4010
+  pm4i_band_c_roster.csv                       d442d41f260e3a24  rows=410
+  pm4i_dot_riders.csv                          2dc3e380a3800b3a  rows=264
+  pm4i_survival_wave_arrays_full.csv           eab2d141cb41ad83  rows=1350
+  pm4i_terminal_wave_dot_ranking.csv           6c6a129c58c0d7e8  rows=9
+  pm4i_ultimate_offense_paks.csv               b09341478b938a10  rows=733
+  pm4i_wave_damage_modifier.csv                f0852cec35a0362c  rows=50
+
+DONE
