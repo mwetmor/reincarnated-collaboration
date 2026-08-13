@@ -1,0 +1,11 @@
+field,group,n_declaring,primary_template,var_class,var_type,description,default_value,declaring_templates
+actorRadius,actor.tpl geometry,7,actor.tpl,variable,real,,0,actor.tpl;bandariteleportpoint.tpl;charongeysermarker.tpl;copy of actor.tpl;lightoframarker.tpl;patrolpoint.tpl;skilllocation.tpl
+actorHeight,actor.tpl geometry,7,actor.tpl,variable,real,,0,actor.tpl;bandariteleportpoint.tpl;charongeysermarker.tpl;copy of actor.tpl;lightoframarker.tpl;patrolpoint.tpl;skilllocation.tpl
+collisionShape,actor.tpl geometry,1,actor.tpl,picklist,string,,Box;Sphere;Cylinder;Capsule,actor.tpl
+scale,actor.tpl geometry,9,actor.tpl,variable,real,,1,actor.tpl;bandariteleportpoint.tpl;charongeysermarker.tpl;copy of actor.tpl;fxmesh.tpl;lightoframarker.tpl;patrolpoint.tpl;skilllocation.tpl;skybox.tpl
+pathingSize,character.tpl footprint,2,character.tpl,picklist,string,,Small;Medium;Large,character.tpl;characterenemy.tpl
+pathMass,character.tpl footprint,2,character.tpl,variable,real,,1.0,character.tpl;characterenemy.tpl
+physicsMass,character.tpl footprint,1,actor.tpl,variable,real,,1,actor.tpl
+physicsFriction,character.tpl footprint,1,actor.tpl,variable,real,,1,actor.tpl
+forceCollision,monster.tpl collision,2,monster.tpl,variable,bool,force collision (ignores hostility),0,monster.tpl;npc.tpl
+forceNoCollision,monster.tpl collision,1,monster.tpl,variable,bool,force no collision (ignores hostility),0,monster.tpl

@@ -1,0 +1,314 @@
+{
+  "hooks": {
+    "a_coverage": {
+      "verdict": "PASS",
+      "detail": {
+        "board_rows": 297,
+        "union": 297,
+        "roster": 169,
+        "summon": 128,
+        "missing": [],
+        "extra": [],
+        "grade_census": {
+          "MEASURED": 297
+        },
+        "player_rows": 2
+      }
+    },
+    "b_unit": {
+      "verdict": "PASS",
+      "detail": {
+        "SkillDistanceFormat": "{%.1f0 {^E}Meter %s1}",
+        "TargetRadius": "Target Area",
+        "no_conversion_factor_in_format": true,
+        "gameengine_meleeTargetDistance": 2.4000000953674316,
+        "sim_D_ENGAGE_M": 2.4,
+        "sim_EOR_RADIUS_M": 3.0,
+        "claim": "one DB length unit renders as one Meter in the game's own UI; the sim already imports two DB length scalars 1:1 with no conversion, so actorRadius is commensurable with the 3.0 m disc without rescaling"
+      }
+    },
+    "c_distribution": {
+      "verdict": "PASS",
+      "detail": {
+        "min_including_zero": [
+          0.0,
+          "records/creatures/anomalies/aetheranomaly_01_summon.dbr"
+        ],
+        "min_physical": [
+          0.20000000298023224,
+          "records/creatures/enemies/boss&quest/beetle_maggot01_maggotsummon.dbr"
+        ],
+        "median": 0.5,
+        "max": [
+          2.0,
+          "records/creatures/enemies/boss&quest/aetherialcommander_01.dbr"
+        ],
+        "wendigo": 0.699999988079071,
+        "wraith_orb": 0.3499999940395355,
+        "wendigo_gt_wraith": true,
+        "pathingSize_medians": {
+          "Small": 0.4000000059604645,
+          "Medium": 0.75,
+          "Large": 1.0
+        },
+        "pathingSize_monotone": true,
+        "p25": 0.3499999940395355,
+        "p75": 0.75
+      }
+    },
+    "d_wave160": {
+      "verdict": "PASS",
+      "detail": {
+        "five_bodies": "w160_a000..a004 = 4 distinct records (statue_korvaaktombguardian rolls TWICE, a003 + a004)",
+        "rows": [
+          {
+            "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+            "csv_radius": 0.5,
+            "corpus_actorRadius": 0.5,
+            "scale": 1.350000023841858,
+            "hi": 0.675000011920929,
+            "pathing": "Small",
+            "arc": "sm3",
+            "match": true
+          },
+          {
+            "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+            "csv_radius": 0.699999988079071,
+            "corpus_actorRadius": 0.699999988079071,
+            "scale": 1.399999976158142,
+            "hi": 0.9799999666213992,
+            "pathing": "Medium",
+            "arc": "sm1",
+            "match": true
+          },
+          {
+            "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+            "csv_radius": 0.4000000059604645,
+            "corpus_actorRadius": 0.4000000059604645,
+            "scale": 1.350000023841858,
+            "hi": 0.5400000175833704,
+            "pathing": "Small",
+            "arc": "sm1",
+            "match": true
+          },
+          {
+            "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+            "csv_radius": 0.75,
+            "corpus_actorRadius": 0.75,
+            "scale": 3.0,
+            "hi": 2.25,
+            "pathing": "Large",
+            "arc": "sm2",
+            "match": true
+          }
+        ]
+      }
+    },
+    "e_reader": {
+      "verdict": "PASS",
+      "detail": {
+        "records": 297,
+        "fields_checked": 4,
+        "disagreements": 0,
+        "sample": [],
+        "note": "a disagreement would NOT be a failure -- L-33/C-9 rules `winner()` correct and IS-B1 caught `merged()` resurrecting deleted fields -- but it must be COUNTED"
+      }
+    },
+    "f_closure": {
+      "verdict": "PASS",
+      "detail": {
+        "closures": {
+          "monster.tpl": 14,
+          "pet.tpl": 15,
+          "player.tpl": 13
+        },
+        "actor_tpl_in_all": true,
+        "actorRadius_decl": {
+          "name": "actorRadius",
+          "class": "variable",
+          "type": "real",
+          "description": "",
+          "value": "",
+          "defaultValue": "0"
+        },
+        "collisionShape_decl": {
+          "name": "collisionShape",
+          "class": "picklist",
+          "type": "string",
+          "description": "",
+          "value": "",
+          "defaultValue": "Box;Sphere;Cylinder;Capsule"
+        },
+        "co_located": "actorRadius, actorHeight, collisionShape and scale are declared in ONE template -- that co-location is why actorRadius is read as the collision primitive's radius and not as an aggro/audio/light radius"
+      }
+    },
+    "g_mesh": {
+      "verdict": "PASS",
+      "detail": {
+        "resolved": 278,
+        "exact_byte_coverage": 278,
+        "residue": 0,
+        "chunk_id": 10,
+        "chunk_len": 24,
+        "unresolved_board_meshes": 19
+      }
+    },
+    "h_packing": {
+      "verdict": "PASS",
+      "detail": {
+        "eta": 0.9069,
+        "disc_radius_m": 3.0,
+        "measured_median_radius_LO": 0.5,
+        "measured_median_radius_HI": 0.5999999865889549,
+        "at_median_LO": {
+          "contained": 32,
+          "centre_in_disc": 44
+        },
+        "at_median_HI": {
+          "contained": 22,
+          "centre_in_disc": 32
+        },
+        "table": {
+          "0.2": {
+            "contained": 204,
+            "centre_in_disc": 232
+          },
+          "0.32": {
+            "contained": 79,
+            "centre_in_disc": 97
+          },
+          "0.35": {
+            "contained": 66,
+            "centre_in_disc": 83
+          },
+          "0.4": {
+            "contained": 51,
+            "centre_in_disc": 65
+          },
+          "0.5": {
+            "contained": 32,
+            "centre_in_disc": 44
+          },
+          "0.6": {
+            "contained": 22,
+            "centre_in_disc": 32
+          },
+          "0.7": {
+            "contained": 16,
+            "centre_in_disc": 25
+          },
+          "0.75": {
+            "contained": 14,
+            "centre_in_disc": 22
+          },
+          "1.0": {
+            "contained": 8,
+            "centre_in_disc": 14
+          },
+          "2.0": {
+            "contained": 2,
+            "centre_in_disc": 5
+          }
+        },
+        "gamora_I2_max_N_eff_observed": 54,
+        "basis_split": "\u2691 gamora's '32' is the CONTAINED basis (bodies wholly inside 28.27 m\u00b2). The sim's hit test is ||e.pos - c|| <= 3.0, i.e. CENTRE-IN-DISC, whose ceiling at the same 0.5 m radius is 44, not 32. Both are upper bounds via the plane packing density; they answer DIFFERENT predicates and the conductor must rule which one Iteration 3 binds.",
+        "composition_warning": "the board's radii span 0.00-2.00 m, so NO single cap is correct: at the wave-160 wraith radius 0.35 the centre-in-disc ceiling is 90, while at the Korvaak statue's 0.75 it is 32. The bound must be evaluated per tick on the ACTUAL co-resident mix."
+      }
+    },
+    "i_no_estimate": {
+      "verdict": "PASS",
+      "detail": {
+        "rows_audited": 299,
+        "violations": [],
+        "n_violations": 0,
+        "rule": "every emitted magnitude is a record field or that field times that record's scale; no sibling fill, no modal fill, no interpolation, no default substituted for absence"
+      }
+    },
+    "j_zero_radius": {
+      "verdict": "PASS",
+      "detail": {
+        "n": 17,
+        "by_population": {
+          "SUMMON-128": 17
+        },
+        "records": [
+          "records/creatures/anomalies/aetheranomaly_01_summon.dbr",
+          "records/creatures/anomalies/chthonicvoid_groble.dbr",
+          "records/creatures/anomalies/eldritchground.dbr",
+          "records/creatures/anomalies/sandstorm.dbr",
+          "records/skills/nonplayerskills/bossskills/pets/firedevil_01.dbr",
+          "records/skills/nonplayerskills/bossskills/pets/loghorrean_void.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/final/aetheranomaly_01.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/nemesis/beast_bloodpool.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/nemesis/chthonian02_void.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/pets/firedevil_01.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/pets/krieg_aethertrap.dbr",
+          "records/skills/nonplayerskillsgdx1/bossskills/pets/winddevil_01.dbr",
+          "records/skills/nonplayerskillsgdx2/bossskills/pets/korvaak_lieutenant_02_trapsummon_01.dbr",
+          "records/skills/nonplayerskillsgdx2/bossskills/pets/korvaak_lieutenant_02_trapsummon_02.dbr",
+          "records/skills/nonplayerskillsgdx3/bossskills/pets/aetheranomaly_beast.dbr",
+          "records/skills/nonplayerskillsgdx3/bossskills/pets/giantfire_moltenpool.dbr",
+          "records/skills/nonplayerskillsgdx3/bossskills/pets/siff_icefloe.dbr"
+        ],
+        "reading": "a MEASURED 0.0 is a declaration that the record has no body -- these are ground effects, voids, pools and anomalies. They are NOT missing data and must NOT be back-filled. Under an occupancy bound they legitimately remain POINTS."
+      }
+    },
+    "k_cross_field": {
+      "verdict": "PASS",
+      "detail": {
+        "board": {
+          "n": 297,
+          "r0_and_noCollision": 13,
+          "r0_only": 4,
+          "noCollision_only": 1,
+          "neither": 279,
+          "p_noCollision_given_r0": 0.7647,
+          "p_r0_given_noCollision": 0.9286,
+          "base_rate": 0.04714,
+          "lift": 16.22
+        },
+        "corpus": {
+          "n": 6292,
+          "r0_and_noCollision": 485,
+          "r0_only": 518,
+          "noCollision_only": 336,
+          "neither": 4953,
+          "p_noCollision_given_r0": 0.4835,
+          "p_r0_given_noCollision": 0.5907,
+          "base_rate": 0.13048,
+          "lift": 3.71
+        },
+        "reading": "`actorRadius` and `forceNoCollision` are declared in DIFFERENT templates (actor.tpl vs monster.tpl) and are set by hand per record, yet on the board 13 of the 14 force-no-collision bodies are exactly the zero-radius bodies (16.2x over base rate; 3.7x over 6,292 corpus records). Two independent authoring surfaces agreeing on which records have no body is the strongest available corroboration that `actorRadius` IS the collision radius. CORROBORATION, not proof: it does not decode engine code."
+      }
+    }
+  },
+  "fails": [],
+  "digests": {
+    "pm4f_body_radii.csv": "80517e398f05432fccfb267ccd3b26bada418abf989099ccc4cc23934ecc39d5",
+    "pm4f_discriminators.csv": "e6cd69c40e6c18eecb45d2cead4d7168f774063ea53ca21acbe7fe934c1430e9",
+    "pm4f_field_evidence.csv": "e5a6cfde16d6ec0f9a11a27e57352d4ba757a1c50fb6aefef3e2f52b0f832f9c",
+    "pm4f_mesh_aabb.csv": "34ba23694731047d4cc3d6bd900ee8c013db8fffd8d1914c75de5e33922a04e1",
+    "pm4f_scale_modifier_scan.csv": "994b6d575d4d7a3112910a5255daa01094f1d7397b2cd2c3dc26d8e87001c441"
+  },
+  "player": {
+    "records/creatures/pc/malepc01.dbr": {
+      "radius_m": "0.3199999928474426",
+      "radius_m_hi": "0.33599997723102604",
+      "actor_height": "3.0",
+      "actor_scale": "1.0499999523162842",
+      "pathing_size": "Small",
+      "path_mass": "3.0",
+      "collision_flag": "DEFAULT-HOSTILITY-DEPENDENT-UNDECODABLE"
+    },
+    "records/creatures/pc/femalepc01.dbr": {
+      "radius_m": "0.3199999928474426",
+      "radius_m_hi": "0.33599997723102604",
+      "actor_height": "3.0",
+      "actor_scale": "1.0499999523162842",
+      "pathing_size": "Small",
+      "path_mass": "3.0",
+      "collision_flag": "DEFAULT-HOSTILITY-DEPENDENT-UNDECODABLE"
+    }
+  },
+  "player_record_of_record": "records/creatures/pc/malepc01.dbr"
+}

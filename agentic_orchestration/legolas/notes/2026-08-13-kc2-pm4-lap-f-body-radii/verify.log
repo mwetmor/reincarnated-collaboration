@@ -1,0 +1,31 @@
+HOOK (a) COVERAGE
+  [PASS] a_coverage: {"board_rows": 297, "union": 297, "roster": 169, "summon": 128, "missing": [], "extra": [], "grade_census": {"MEASURED": 297}, "player_rows": 2}
+HOOK (b) UNIT SANITY
+  [PASS] b_unit: {"SkillDistanceFormat": "{%.1f0 {^E}Meter %s1}", "TargetRadius": "Target Area", "no_conversion_factor_in_format": true, "gameengine_meleeTargetDistance": 2.4000000953674316, "sim_D_ENGAGE_M": 2.4, "sim_EOR_RADIUS_M": 3.0, "claim": "one DB length unit renders as one Meter in the game's own UI; the sim already imports two DB length scalars 1:1 with no conversion, so actorRadius is commensurable with
+HOOK (c) DISTRIBUTION SANITY
+  [PASS] c_distribution: {"min_including_zero": [0.0, "records/creatures/anomalies/aetheranomaly_01_summon.dbr"], "min_physical": [0.20000000298023224, "records/creatures/enemies/boss&quest/beetle_maggot01_maggotsummon.dbr"], "median": 0.5, "max": [2.0, "records/creatures/enemies/boss&quest/aetherialcommander_01.dbr"], "wendigo": 0.699999988079071, "wraith_orb": 0.3499999940395355, "wendigo_gt_wraith": true, "pathingSize_
+HOOK (d) WAVE-160 SPOT CHECK
+  [PASS] d_wave160: {"five_bodies": "w160_a000..a004 = 4 distinct records (statue_korvaaktombguardian rolls TWICE, a003 + a004)", "rows": [{"record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr", "csv_radius": 0.5, "corpus_actorRadius": 0.5, "scale": 1.350000023841858, "hi": 0.675000011920929, "pathing": "Small", "arc": "sm3", "match": true}, {"record": "records/creatures/enemies/nemesis/nemesis_wendigo_0
+HOOK (e) READER INDEPENDENCE (winner vs merged)
+  [PASS] e_reader: {"records": 297, "fields_checked": 4, "disagreements": 0, "sample": [], "note": "a disagreement would NOT be a failure -- L-33/C-9 rules `winner()` correct and IS-B1 caught `merged()` resurrecting deleted fields -- but it must be COUNTED"}
+HOOK (f) CLOSURE INDEPENDENCE
+  [PASS] f_closure: {"closures": {"monster.tpl": 14, "pet.tpl": 15, "player.tpl": 13}, "actor_tpl_in_all": true, "actorRadius_decl": {"name": "actorRadius", "class": "variable", "type": "real", "description": "", "value": "", "defaultValue": "0"}, "collisionShape_decl": {"name": "collisionShape", "class": "picklist", "type": "string", "description": "", "value": "", "defaultValue": "Box;Sphere;Cylinder;Capsule"}, "co
+HOOK (g) MESH WALK INTEGRITY
+  [PASS] g_mesh: {"resolved": 278, "exact_byte_coverage": 278, "residue": 0, "chunk_id": 10, "chunk_len": 24, "unresolved_board_meshes": 19}
+HOOK (h) PACKING BOUND -- ON BOTH PREDICATES
+  [PASS] h_packing: {"eta": 0.9069, "disc_radius_m": 3.0, "measured_median_radius_LO": 0.5, "measured_median_radius_HI": 0.5999999865889549, "at_median_LO": {"contained": 32, "centre_in_disc": 44}, "at_median_HI": {"contained": 22, "centre_in_disc": 32}, "table": {"0.2": {"contained": 204, "centre_in_disc": 232}, "0.32": {"contained": 79, "centre_in_disc": 97}, "0.35": {"contained": 66, "centre_in_disc": 83}, "0.4": 
+HOOK (i) NO-ESTIMATE AUDIT
+  [PASS] i_no_estimate: {"rows_audited": 299, "violations": [], "n_violations": 0, "rule": "every emitted magnitude is a record field or that field times that record's scale; no sibling fill, no modal fill, no interpolation, no default substituted for absence"}
+HOOK (j) ZERO-RADIUS CENSUS
+  [PASS] j_zero_radius: {"n": 17, "by_population": {"SUMMON-128": 17}, "records": ["records/creatures/anomalies/aetheranomaly_01_summon.dbr", "records/creatures/anomalies/chthonicvoid_groble.dbr", "records/creatures/anomalies/eldritchground.dbr", "records/creatures/anomalies/sandstorm.dbr", "records/skills/nonplayerskills/bossskills/pets/firedevil_01.dbr", "records/skills/nonplayerskills/bossskills/pets/loghorrean_void.d
+HOOK (k) ⚑ CROSS-FIELD CORROBORATION -- does a SECOND, independent field agree that a zero-radius record has no body?
+  [PASS] k_cross_field: {"board": {"n": 297, "r0_and_noCollision": 13, "r0_only": 4, "noCollision_only": 1, "neither": 279, "p_noCollision_given_r0": 0.7647, "p_r0_given_noCollision": 0.9286, "base_rate": 0.04714, "lift": 16.22}, "corpus": {"n": 6292, "r0_and_noCollision": 485, "r0_only": 518, "noCollision_only": 336, "neither": 4953, "p_noCollision_given_r0": 0.4835, "p_r0_given_noCollision": 0.5907, "base_rate": 0.1304
+
+DIGESTS
+  pm4f_body_radii.csv              80517e398f05432fccfb267ccd3b26bada418abf989099ccc4cc23934ecc39d5
+  pm4f_discriminators.csv          e6cd69c40e6c18eecb45d2cead4d7168f774063ea53ca21acbe7fe934c1430e9
+  pm4f_field_evidence.csv          e5a6cfde16d6ec0f9a11a27e57352d4ba757a1c50fb6aefef3e2f52b0f832f9c
+  pm4f_mesh_aabb.csv               34ba23694731047d4cc3d6bd900ee8c013db8fffd8d1914c75de5e33922a04e1
+  pm4f_scale_modifier_scan.csv     994b6d575d4d7a3112910a5255daa01094f1d7397b2cd2c3dc26d8e87001c441
+
+11/11 hooks PASS

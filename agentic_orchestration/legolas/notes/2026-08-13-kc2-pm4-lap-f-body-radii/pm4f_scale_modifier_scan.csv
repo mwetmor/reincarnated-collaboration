@@ -1,0 +1,9 @@
+surface,kind,n_fields,geometric_fields,verdict,detail
+attributepak.tpl,template,4,(none),NO-GEOMETRIC-FIELD,ActorName;Class;FileDescription;Include File
+gameadjustment.tpl,template,8,(none),NO-GEOMETRIC-FIELD,ActorName;Class;FileDescription;Include File;spawnChampionMaxAdj;spawnChampionMinAdj;spawnMaxAdj;spawnMinAdj
+records/skills/base_template skills/skill_buffselfcolossus.dbr,Skill_BuffSelfColossus record,2,actorScale;actorScaleTime,RUNTIME-BODY-SCALE-EXISTS,actorScale=1.7999999523162842;actorScaleTime=1.5
+records/skills/nonplayerskills/bossskills/cultist_possession1.dbr,Skill_BuffSelfColossus record,2,actorScale;actorScaleTime,RUNTIME-BODY-SCALE-EXISTS,actorScale=1.2000000476837158;actorScaleTime=1.0
+records/skills/nonplayerskills/bossskills/salazar_possession1.dbr,Skill_BuffSelfColossus record,2,actorScale;actorScaleTime,RUNTIME-BODY-SCALE-EXISTS,actorScale=1.2000000476837158;actorScaleTime=1.0
+records/skills/nonplayerskills/heroskills/theforsaken_overflowingrage.dbr,Skill_BuffSelfColossus record,2,actorScale;actorScaleTime,RUNTIME-BODY-SCALE-EXISTS,actorScale=1.5;actorScaleTime=1.5
+union(297) x skillName*,board census,297,actorScale,ZERO-BOARD-BODIES-CARRY-A-BODY-SCALE-SKILL,(none)
+ALL 819 templates,corpus template sweep,18902,actorScale;actorScaleTime,SOLE-RUNTIME-BODY-SCALE-SURFACE,only skill_buffselfcolossus.tpl declares a runtime body scale

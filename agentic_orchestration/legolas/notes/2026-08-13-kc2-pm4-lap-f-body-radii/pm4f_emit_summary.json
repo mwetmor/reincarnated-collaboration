@@ -1,0 +1,387 @@
+{
+  "lap": "KC2-PM4 / I-3 / Lap F",
+  "author": "legolas",
+  "date": "2026-08-13",
+  "templates": {
+    "extracted": 817,
+    "failed": [
+      ""
+    ]
+  },
+  "include_closures": {
+    "monster.tpl": [
+      "monster.tpl",
+      "character.tpl",
+      "templatebase/monsterskillmanager.tpl",
+      "templatebase/characterloot.tpl",
+      "questmarker.tpl",
+      "actor.tpl",
+      "templatebase/characterbio.tpl",
+      "templatebase/reward.tpl",
+      "charanimationtable.tpl",
+      "conversation.tpl",
+      "characterhookpack.tpl",
+      "entity.tpl",
+      "templatebase/parameters_character.tpl",
+      "entityhookpack.tpl"
+    ],
+    "pet.tpl": [
+      "pet.tpl",
+      "monster.tpl",
+      "character.tpl",
+      "templatebase/monsterskillmanager.tpl",
+      "templatebase/characterloot.tpl",
+      "questmarker.tpl",
+      "actor.tpl",
+      "templatebase/characterbio.tpl",
+      "templatebase/reward.tpl",
+      "charanimationtable.tpl",
+      "conversation.tpl",
+      "characterhookpack.tpl",
+      "entity.tpl",
+      "templatebase/parameters_character.tpl",
+      "entityhookpack.tpl"
+    ],
+    "player.tpl": [
+      "player.tpl",
+      "character.tpl",
+      "templatebase/skillmanager.tpl",
+      "templatebase/characterloot.tpl",
+      "actor.tpl",
+      "templatebase/characterbio.tpl",
+      "templatebase/reward.tpl",
+      "charanimationtable.tpl",
+      "conversation.tpl",
+      "characterhookpack.tpl",
+      "entity.tpl",
+      "templatebase/parameters_character.tpl",
+      "entityhookpack.tpl"
+    ],
+    "character.tpl": [
+      "character.tpl",
+      "actor.tpl",
+      "templatebase/characterbio.tpl",
+      "templatebase/reward.tpl",
+      "charanimationtable.tpl",
+      "conversation.tpl",
+      "characterhookpack.tpl",
+      "entity.tpl",
+      "templatebase/parameters_character.tpl",
+      "entityhookpack.tpl"
+    ]
+  },
+  "unit_proof": [
+    {
+      "arc": "resources/Text_EN.arc",
+      "tag": "SkillDistanceFormat",
+      "value": "{%.1f0 {^E}Meter %s1}"
+    },
+    {
+      "arc": "resources/Text_EN.arc",
+      "tag": "SkillDistanceFormatMod",
+      "value": "+{%.1f0 {^E}Meter %s1}"
+    },
+    {
+      "arc": "resources/Text_EN.arc",
+      "tag": "TargetRadius",
+      "value": "Target Area"
+    }
+  ],
+  "unit_anchors": {
+    "gameengine.dbr:meleeTargetDistance": 2.4000000953674316,
+    "gameengine.dbr:meleeAutoTargetDistance": 4.0,
+    "gameengine.dbr:meleeRange": 1.25,
+    "sim locomotion.D_ENGAGE_M": 2.4,
+    "sim fixture.EOR_RADIUS_M": 3.0
+  },
+  "populations": {
+    "P-ROLLED-20": 169,
+    "P-SUMMON-128": 128,
+    "union": 297,
+    "overlap": 0,
+    "overlap_records": []
+  },
+  "mesh_index": {
+    "total": 1303,
+    "per_arc": {
+      "resources/Creatures.arc": 501,
+      "gdx1/resources/Creatures.arc": 225,
+      "gdx2/resources/Creatures.arc": 228,
+      "gdx3/resources/Creatures.arc": 331,
+      "mods/survivalmode/resources/Creatures.arc": 29
+    }
+  },
+  "player": {
+    "record_of_record": "records/creatures/pc/malepc01.dbr",
+    "male_female_geometry_identical": true,
+    "radius_m": "0.3199999928474426",
+    "radius_m_hi": "0.33599997723102604",
+    "actor_height": "3.0",
+    "actor_scale": "1.0499999523162842",
+    "pathing_size": "Small",
+    "path_mass": 3.0
+  },
+  "q2": {
+    "colossus_records": [
+      [
+        "records/skills/base_template skills/skill_buffselfcolossus.dbr",
+        1.7999999523162842,
+        1.5
+      ],
+      [
+        "records/skills/nonplayerskills/bossskills/cultist_possession1.dbr",
+        1.2000000476837158,
+        1.0
+      ],
+      [
+        "records/skills/nonplayerskills/bossskills/salazar_possession1.dbr",
+        1.2000000476837158,
+        1.0
+      ],
+      [
+        "records/skills/nonplayerskills/heroskills/theforsaken_overflowingrage.dbr",
+        1.5,
+        1.5
+      ]
+    ],
+    "board_carriers": [],
+    "attributepak_geometric_fields": 0,
+    "gameadjustment_geometric_fields": 0
+  },
+  "f4_discriminators": {
+    "D1": {
+      "groups": 189,
+      "actor_radius_constant": 105,
+      "radius_over_scale_constant": 0,
+      "neither": 84
+    },
+    "D2": {
+      "actorRadius/mesh_half_Z": {
+        "n": 278,
+        "min": 0.0,
+        "p25": 0.2749,
+        "median": 0.4993,
+        "p75": 1.169,
+        "max": 4.3717
+      },
+      "actorRadius*scale/mesh_half_Z": {
+        "n": 278,
+        "min": 0.0,
+        "p25": 0.3086,
+        "median": 0.6656,
+        "p75": 1.4426,
+        "max": 6.1204
+      }
+    },
+    "D3": {
+      "raw": {
+        "concordant": 1740812,
+        "discordant": 518123,
+        "tied": 123182,
+        "gamma": 0.541268
+      },
+      "scaled": {
+        "concordant": 1836459,
+        "discordant": 530706,
+        "tied": 14952,
+        "gamma": 0.55161
+      }
+    },
+    "D4": {
+      "varying_groups": 2,
+      "pairs_agree": 5,
+      "pairs_disagree": 0,
+      "pairs_tied": 0,
+      "constant_groups": 545,
+      "constant_groups_scale_spread_ge_1_5x": 37,
+      "widest_constant_group_ratio": 3.875,
+      "widest_constant_group_mesh": "creatures/enemies/prawn/prawnb01.msh"
+    },
+    "D4_varying_detail": [
+      [
+        "creatures/enemies/raptor/raptorwinged01.msh",
+        0.55,
+        [
+          [
+            "records/creatures/enemies/raptorb_juvenile_a01.dbr",
+            0.4000000059604645,
+            "Small"
+          ],
+          [
+            "records/creatures/enemies/raptorb_melee_a01.dbr",
+            0.6499999761581421,
+            "Medium"
+          ],
+          [
+            "records/creatures/enemies/raptora_champion_a01.dbr",
+            0.8999999761581421,
+            "Medium"
+          ],
+          [
+            "records/creatures/enemies/raptorb_champion_a01.dbr",
+            1.0,
+            "Medium"
+          ]
+        ]
+      ],
+      [
+        "creatures/enemies/possessedstatue/possessedstatue_m_01a.msh",
+        0.75,
+        [
+          [
+            "records/creatures/enemies/boss&quest/statue_solaelfaction_02.dbr",
+            2.5,
+            "Medium"
+          ],
+          [
+            "records/creatures/enemies/boss&quest/statue_solaelfaction_03.dbr",
+            2.5,
+            "Medium"
+          ],
+          [
+            "records/creatures/enemies/boss&quest/statue_roguelike_entranceguardian_01.dbr",
+            3.0,
+            "Large"
+          ]
+        ]
+      ]
+    ],
+    "verdict": "scale-applies-to-collision: DECLARED-GAP"
+  },
+  "digests": {
+    "pm4f_body_radii.csv": "80517e398f05432fccfb267ccd3b26bada418abf989099ccc4cc23934ecc39d5",
+    "pm4f_field_evidence.csv": "e5a6cfde16d6ec0f9a11a27e57352d4ba757a1c50fb6aefef3e2f52b0f832f9c",
+    "pm4f_scale_modifier_scan.csv": "994b6d575d4d7a3112910a5255daa01094f1d7397b2cd2c3dc26d8e87001c441",
+    "pm4f_discriminators.csv": "e6cd69c40e6c18eecb45d2cead4d7168f774063ea53ca21acbe7fe934c1430e9",
+    "pm4f_mesh_aabb.csv": "34ba23694731047d4cc3d6bd900ee8c013db8fffd8d1914c75de5e33922a04e1"
+  },
+  "coverage": {
+    "board_records": 297,
+    "with_actorRadius": 297,
+    "grade_MEASURED": 297,
+    "grade_DECLARED_GAP": 0,
+    "zero_radius_declared": 17,
+    "mesh_aabb_resolved": 280,
+    "player_rows": 2
+  },
+  "distribution_lo": {
+    "n": 297,
+    "min": 0.0,
+    "p25": 0.35,
+    "median": 0.5,
+    "p75": 0.75,
+    "max": 2.0
+  },
+  "distribution_hi": {
+    "n": 297,
+    "min": 0.0,
+    "p25": 0.396,
+    "median": 0.6,
+    "p75": 0.9075,
+    "max": 2.25
+  },
+  "by_pathing_size": {
+    "Large": {
+      "n": 9,
+      "min": 0.75,
+      "p25": 0.95,
+      "median": 1.0,
+      "p75": 1.0,
+      "max": 1.0
+    },
+    "Medium": {
+      "n": 99,
+      "min": 0.2,
+      "p25": 0.5,
+      "median": 0.75,
+      "p75": 0.75,
+      "max": 1.3
+    },
+    "Small": {
+      "n": 189,
+      "min": 0.0,
+      "p25": 0.35,
+      "median": 0.4,
+      "p75": 0.52,
+      "max": 2.0
+    }
+  },
+  "argmin_physical": {
+    "record": "records/creatures/enemies/boss&quest/beetle_maggot01_maggotsummon.dbr",
+    "radius_m": "0.20000000298023224",
+    "pathing_size": "Small"
+  },
+  "argmax": {
+    "record": "records/creatures/enemies/boss&quest/aetherialcommander_01.dbr",
+    "radius_m": "2.0",
+    "pathing_size": "Small"
+  },
+  "collision_flag_census": {
+    "FORCE-NO-COLLISION": 14,
+    "FORCE-COLLISION": 68,
+    "DEFAULT-HOSTILITY-DEPENDENT-UNDECODABLE": 215
+  },
+  "collision_shape_set_on_board": 0,
+  "wave160_spot_check": {
+    "roster": [
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+        "radius_m": "0.5",
+        "radius_m_hi": "0.675000011920929",
+        "actor_scale": "1.350000023841858",
+        "pathing_size": "Small",
+        "grade": "MEASURED"
+      },
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+        "radius_m": "0.699999988079071",
+        "radius_m_hi": "0.9799999666213992",
+        "actor_scale": "1.399999976158142",
+        "pathing_size": "Medium",
+        "grade": "MEASURED"
+      },
+      {
+        "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+        "radius_m": "0.4000000059604645",
+        "radius_m_hi": "0.5400000175833704",
+        "actor_scale": "1.350000023841858",
+        "pathing_size": "Small",
+        "grade": "MEASURED"
+      },
+      {
+        "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+        "radius_m": "0.75",
+        "radius_m_hi": "2.25",
+        "actor_scale": "3.0",
+        "pathing_size": "Large",
+        "grade": "MEASURED"
+      }
+    ],
+    "pets": [
+      {
+        "record": "records/creatures/enemies/wraith_b01_summon.dbr",
+        "radius_m": "0.3499999940395355",
+        "radius_m_hi": "0.4024999848008157",
+        "actor_scale": "1.149999976158142",
+        "pathing_size": "Small",
+        "grade": "MEASURED"
+      },
+      {
+        "record": "records/creatures/enemies/wraith_c01_summon.dbr",
+        "radius_m": "0.3499999940395355",
+        "radius_m_hi": "0.4374999925494194",
+        "actor_scale": "1.25",
+        "pathing_size": "Small",
+        "grade": "MEASURED"
+      },
+      {
+        "record": "records/skills/nonplayerskillsgdx1/bossskills/nemesis/aetherialvanguard_crystal.dbr",
+        "radius_m": "0.4000000059604645",
+        "radius_m_hi": "0.45999999731779084",
+        "actor_scale": "1.149999976158142",
+        "pathing_size": "Small",
+        "grade": "MEASURED"
+      }
+    ]
+  }
+}

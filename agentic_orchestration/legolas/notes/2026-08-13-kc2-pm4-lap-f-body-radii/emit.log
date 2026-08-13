@@ -1,0 +1,37 @@
+[1] templates.arc -- the declaration surface
+    monster.tpl    closure 14  actor.tpl in chain: True
+    pet.tpl        closure 15  actor.tpl in chain: True
+    player.tpl     closure 13  actor.tpl in chain: True
+    character.tpl  closure 10  actor.tpl in chain: True
+[2] Text_EN.arc -- the unit proof
+    [resources/Text_EN.arc] SkillDistanceFormat = {%.1f0 {^E}Meter %s1}
+    [resources/Text_EN.arc] SkillDistanceFormatMod = +{%.1f0 {^E}Meter %s1}
+    [resources/Text_EN.arc] TargetRadius = Target Area
+[3] populations
+    P-ROLLED-20 169  P-SUMMON-128 128  union 297  overlap 0
+[4] Creatures.arc -- mesh AABB index
+    1303 meshes over 5 arcs: {'resources/Creatures.arc': 501, 'gdx1/resources/Creatures.arc': 225, 'gdx2/resources/Creatures.arc': 228, 'gdx3/resources/Creatures.arc': 331, 'mods/survivalmode/resources/Creatures.arc': 29}
+[5] body radii
+    player male/female geometry identical: True
+[6] Q2 -- wave / difficulty / champion body-scale modifiers
+    attributepak.tpl       fields   4  geometric (none)
+    gameadjustment.tpl     fields   8  geometric (none)
+    Skill_BuffSelfColossus records: 4; board bodies carrying one: 0
+[7] F4 -- the four `scale` discriminators, over the CORPUS
+    corpus Class=Monster creature records: 3070
+    D1 {'groups': 189, 'actor_radius_constant': 105, 'radius_over_scale_constant': 0, 'neither': 84}
+    D3 gamma raw 0.541268 vs scaled 0.55161
+    D4 varying groups 2 agree 5 disagree 0 | constant groups 545 of which >=1.5x spread 37
+    D2 {'actorRadius/mesh_half_Z': {'n': 278, 'min': 0.0, 'p25': 0.2749, 'median': 0.4993, 'p75': 1.169, 'max': 4.3717}, 'actorRadius*scale/mesh_half_Z': {'n': 278, 'min': 0.0, 'p25': 0.3086, 'median': 0.6656, 'p75': 1.4426, 'max': 6.1204}}
+[8] emit
+    pm4f_body_radii.csv              80517e398f05432fccfb267ccd3b26bada418abf989099ccc4cc23934ecc39d5
+    pm4f_field_evidence.csv          e5a6cfde16d6ec0f9a11a27e57352d4ba757a1c50fb6aefef3e2f52b0f832f9c
+    pm4f_scale_modifier_scan.csv     994b6d575d4d7a3112910a5255daa01094f1d7397b2cd2c3dc26d8e87001c441
+    pm4f_discriminators.csv          e6cd69c40e6c18eecb45d2cead4d7168f774063ea53ca21acbe7fe934c1430e9
+    pm4f_mesh_aabb.csv               34ba23694731047d4cc3d6bd900ee8c013db8fffd8d1914c75de5e33922a04e1
+[9] summary -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-f-body-radii/pm4f_emit_summary.json
+
+DISTRIBUTION (LO limb, board 297): {'n': 297, 'min': 0.0, 'p25': 0.35, 'median': 0.5, 'p75': 0.75, 'max': 2.0}
+DISTRIBUTION (HI limb, board 297): {'n': 297, 'min': 0.0, 'p25': 0.396, 'median': 0.6, 'p75': 0.9075, 'max': 2.25}
+by pathingSize: {'Large': 1.0, 'Medium': 0.75, 'Small': 0.4}
+collision flags: {'FORCE-NO-COLLISION': 14, 'FORCE-COLLISION': 68, 'DEFAULT-HOSTILITY-DEPENDENT-UNDECODABLE': 215}
