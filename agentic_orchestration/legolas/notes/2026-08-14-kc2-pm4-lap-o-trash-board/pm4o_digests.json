@@ -1,0 +1,185 @@
+{
+  "lap": "KC2-PM4 Lap O",
+  "generated_utc": "2026-08-14T10:10:37.535294Z",
+  "artifacts": {
+    "pm4o_trash_terms.csv": {
+      "sha256": "fa75bc775aec80f926ad3bc272bd529a674cfe64dd375d909522e6b9fdf809ff",
+      "rows": 344,
+      "cols": 58
+    },
+    "pm4o_oa_da.csv": {
+      "sha256": "5c55998d0127ed776f8130d530fe02e035c17d7070dfe0e3fe7565a9b02cc564",
+      "rows": 96,
+      "cols": 82
+    }
+  },
+  "instruments": {
+    "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4o_emit_2026_08_14.py": "3eb5c842ba5d9a02733400fb9b56a7ae20b895fe156d71852bcfeca47be36022",
+    "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4o_lib_2026_08_14.py": "6a712cd05f4127175c8330cb4b537c5502798ef63c8c64680d831a2fdb42f6c4",
+    "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4o_verify_2026_08_14.py": "2cc48441923a6aed10825cd65ce4dcd71fa2297b47dbf9878486257099b8887c"
+  },
+  "inputs": {
+    "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-pm4-i14-findings-20260814_094018.json": {
+      "sha256": "a3c6264cce97e42fbc5cfc2929b174b06c5da70d269f60b01306d4715588017c",
+      "keys_read": [
+        "⚑ data_gate"
+      ]
+    },
+    "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-baton-v1-E-s09-cp150-20260809_052836.json": {
+      "sha256": "d7ecd866ac45ec9647ca3d4f7850c41f6a7654e718451d9e5c38ccdb59b8d5aa",
+      "keys_read": [
+        "actors[].record_path",
+        "actors[].wave",
+        "actors[].level",
+        "actors[].actor_id",
+        "actors[].display_name",
+        "actors[].threat_tier",
+        "actors[].is_champion"
+      ]
+    }
+  },
+  "summary": {
+    "lap": "KC2-PM4 Lap O -- trash-board decode + OA/DA both sides",
+    "firewall": "ONLY ⚑ data_gate keys read from the i14 findings JSON",
+    "halt_list_source": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-pm4-i14-findings-20260814_094018.json",
+    "halt_list_i14": {
+      "n_actors": 344,
+      "n_records": 169,
+      "n_attr_halted_records": 154,
+      "n_attr_halted_actors": 321,
+      "n_own_halted_records": 104,
+      "n_own_halted_actors": 193
+    },
+    "partA": {
+      "rows": 344,
+      "attr_halted_records": 154,
+      "attr_halted_actors_closed": 321,
+      "attr_records_ABSENT": [],
+      "own_halted_records": 104,
+      "own_halted_records_MEASURED_nonzero": 104,
+      "own_halted_records_ABSENT_measured_zero": 0,
+      "own_halted_actors_ABSENT": 0,
+      "own_tdm_pct_on_halted_actors": {
+        "n": 193,
+        "min": 33.0,
+        "median": 41.0,
+        "mean": 53.0415,
+        "max": 121.0
+      },
+      "attr_mult_on_halted_actors": {
+        "physical_pierce_median": 4.38,
+        "physical_pierce_min": 3.130612,
+        "physical_pierce_max": 5.77551,
+        "magical_median": 4.388372,
+        "magical_min": 2.506977,
+        "magical_max": 6.44186
+      },
+      "level_basis": {
+        "AGREE": 169,
+        "DIVERGENT": 175,
+        "NO_PROXY": 0
+      }
+    },
+    "partB": {
+      "rows": 96,
+      "monster_rows": 95,
+      "band": "151-160",
+      "player_OA": 3259.0,
+      "player_DA": 2591.0,
+      "named": [
+        {
+          "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+          "wave": 160,
+          "level": 108.0,
+          "OA": 2696.7125,
+          "DA": 2521.068,
+          "m2p_pth": 93.0201,
+          "m2p_hit_pct": 93.0201,
+          "m2p_crit_pct": 3.0201,
+          "m2p_E_mult": 0.933221,
+          "p2m_pth": 110.4968,
+          "p2m_hit_pct": 100.0,
+          "p2m_crit_pct": 20.4968,
+          "p2m_E_mult": 1.025994
+        },
+        {
+          "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+          "wave": 160,
+          "level": 109.0,
+          "OA": 2772.521,
+          "DA": 2611.8115,
+          "m2p_pth": 95.1631,
+          "m2p_hit_pct": 95.1631,
+          "m2p_crit_pct": 5.1631,
+          "m2p_E_mult": 0.956794,
+          "p2m_pth": 107.9553,
+          "p2m_hit_pct": 100.0,
+          "p2m_crit_pct": 17.9553,
+          "p2m_E_mult": 1.020911
+        },
+        {
+          "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+          "wave": 160,
+          "level": 109.0,
+          "OA": 2772.521,
+          "DA": 2611.8115,
+          "m2p_pth": 95.1631,
+          "m2p_hit_pct": 95.1631,
+          "m2p_crit_pct": 5.1631,
+          "m2p_E_mult": 0.956794,
+          "p2m_pth": 107.9553,
+          "p2m_hit_pct": 100.0,
+          "p2m_crit_pct": 17.9553,
+          "p2m_E_mult": 1.020911
+        },
+        {
+          "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+          "wave": 160,
+          "level": 109.0,
+          "OA": 2945.189,
+          "DA": 2770.0885,
+          "m2p_pth": 99.9799,
+          "m2p_hit_pct": 99.9799,
+          "m2p_crit_pct": 9.9799,
+          "m2p_E_mult": 1.009779,
+          "p2m_pth": 103.5368,
+          "p2m_hit_pct": 100.0,
+          "p2m_crit_pct": 13.5368,
+          "p2m_E_mult": 1.013537
+        }
+      ],
+      "m2p_pth_min": 77.1484,
+      "m2p_pth_max": 99.9799,
+      "p2m_pth_min": 103.5368,
+      "p2m_pth_max": 124.8879,
+      "n_m2p_floored_at_55": 0,
+      "n_p2m_floored_at_55": 0,
+      "n_p2m_cannot_miss": 95,
+      "n_m2p_cannot_miss": 0
+    },
+    "combatformulas": {
+      "archive": "base",
+      "probabilityToHitEquation": "((((offensiveAbilityDV/((defensiveAbilityDV/3.5)+offensiveAbilityDV))*300)*0.3)+(((((offensiveAbilityDV*3.25)+10000) - (defensiveAbilityDV*3.25))/100)*0.7))-50",
+      "offensiveAbilityEquation": "(offensiveAbilityDV + (characterLevelDV * 12) + ((dexterityDV + bonusDV) *0.5)) * (1 + (offensiveAbilityModifierDV / 100))+53",
+      "defensiveAbilityEquation": "(defensiveAbilityDV + (characterLevelDV * 12) + ((strengthDV + bonusDV) *0.5)) * (1 + (defensiveAbilityModifierDV / 100))+53",
+      "normalPTHEquation": "probabilityToHitDV/70",
+      "pthMinimum": 55.0,
+      "thresholds": {
+        "pthThreshold1": 70.0,
+        "pthThreshold2": 90.0,
+        "pthThreshold3": 105.0,
+        "pthThreshold4": 120.0,
+        "pthThreshold5": 130.0,
+        "pthThreshold6": 135.0
+      },
+      "multipliers": {
+        "pthDamageModifier1": 1.0,
+        "pthDamageModifier2": 1.100000023841858,
+        "pthDamageModifier3": 1.2000000476837158,
+        "pthDamageModifier4": 1.2999999523162842,
+        "pthDamageModifier5": 1.399999976158142,
+        "pthDamageModifier6": 1.5
+      }
+    }
+  }
+}
