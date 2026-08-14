@@ -1,0 +1,4 @@
+FG-12 pruned 1140 full-span frames (2.569 G) from /tmp/kc2_clk2_fire2/{c1-cold,c2-warm,c3-warm}/pass-1 (CLK-2 firing #2 item 1, canon:on:1570:full)
+  KEPT (one per distinct state, surface-9): c2-warm idx020 (state E, deepest divergence ever), c3-warm idx020 (counterpart), c1-cold idx060 (first measured frame from a COLD cache)
+  regenerate COLD: move aside .godot/shader_cache + user shader_cache, then
+    LEG=canon:on:-:full PASSES=1 TAG=c1-cold TMP=/tmp/kc2_clk2_fire2 bash scripts/clk2_probe.sh

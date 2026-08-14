@@ -1,0 +1,16 @@
+=== CLK-2 probe: leg canon:on:-:full, 1 passes, preroll 60, clear_cache=no ===
+    2026-08-14 00:47:33  godot 4.6.3.stable.official.7d41c59c4
+    cache census at open: project 0 files / 0 KB   user 0 files / 0 KB
+  pass 1: rc=0  1786683048s-1786682854s=194s  Q1 frames_written=380  after-prune=320
+    Q2 digest_of_frame_digests = f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+    cache census after pass 1: project 0 files / 0 KB   user 77 files / 2604 KB
+
+=== analysis ===
+  Q1 frames_written_per_pass : p1=380
+  after-prune frame counts   : p1=320
+  ⚑ Q1 IDENTICAL ACROSS PASSES: YES
+
+  distinct states across 1 passes: 1
+    f651b328d9589efa…  passes [1]
+
+  ⚑ VERDICT: leg reproduces. Nothing to align.

@@ -87,3 +87,41 @@ agree, so its non-zero readings mean something (NOTE-72).
 Instrument: `reincarnated-godot/scripts/clk2_probe.sh` (committed by firing #2 — it ran
 ungoverned in firing #1, and instruments get committed).
 Geography tool: `agentic_orchestration/drax/tools/kc2_clk2_geography.py`.
+
+---
+
+# FIRING #2 — the cold conviction (`evidence-firing2/`, `digests-firing2/`)
+
+Both censused shader caches were **moved aside, never deleted** (project 148 files → 0, user
+174 files → 0, both paths verified absent), then three blocking full-span passes were rendered.
+
+| pass | cache at open | wall | post-prune digest |
+|---|---|---|---|
+| `c1-cold` | project 0 / user 0 | 194 s | `f651b328d9589efa…` |
+| `c2-warm` | project 0 / user 77 | 190 s | `f651b328d9589efa…` |
+| `c3-warm` | project 0 / user 77 | 189 s | `f651b328d9589efa…` |
+
+⚑ **`c1-cold` is byte-identical to salvage warm pass 2 across all 380 frames — including the
+preroll.** Not just the same post-prune digest: the same pixels everywhere. Removing both shader
+caches changed nothing.
+
+The cold condition was real and was observed to end: the user cache repopulated 0 → 77 files /
+2,604 KB during the run, so the probe can tell "the cache is the clock" from "the cache was
+never cleared" (NOTE-72). The project-level cache never repopulated at all — it is an
+editor-time artifact the headless run does not write.
+
+**Verdict: the shader/pipeline disk-cache family is EXONERATED (NOTE-86).** The cell HALTed here
+per charter; no fix was written and no clip was promoted.
+
+`c2-warm` is a state never seen before — it diverges from every other pass at lines 19–21,
+pushing the full-span family's deepest divergence from 18 to **21**. Its frame 20 is kept as
+`c2warm-idx020-stateE-DEEPEST.png` with its counterpart and geography. The fingerprint matches
+every other state pair exactly (82.038 %, max Δ 171, ±1 share 47.84 %) — one mechanism, varying
+only in which frame it lands on (NOTE-87).
+
+Control `geography-firing2-CONTROL-cold-vs-warm-idx060.json`: **0 differing pixels** between the
+cold pass and a warm pass at the first measured frame.
+
+Caches were restored to their exact opening census (project 148 / 11,560 KB, user 174 / 26,628
+KB) before the cell ended. Landing note:
+`agentic_orchestration/drax/notes/2026-08-14-sb1-clk2-landing.md`.
