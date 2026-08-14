@@ -1,0 +1,121 @@
+SB1-REGISTER-MEASURE — RECEIPT
+cell: SB1-REGISTER-MEASURE (background micro-cell, Matt's SB-1 run; gandalf RUN-CONDUCTOR)
+agent: galadriel   date: 2026-08-14   mode: read-only measurement (no input byte modified)
+method: replicates notes/2026-07-31-gd-parity-measure.md — seg-bracketed manual subject box,
+        top/bottom/left/right -> h_px -> h_frac = subject height px / frame height px
+
+================================================================================
+1. INPUT SHA GATES  (verified BEFORE any measurement)
+================================================================================
+(a) RATIFIED WEREWOLF FRAME
+    path     agentic_orchestration/galadriel/captures/2026-08-14-sb1-werewolf-recap/frames/wwrecap-vhaura-p1.png
+    sha256   35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc
+    expected 35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc
+    dims     1280 x 720 (RGB), 537,111 B
+    GATE     PASS
+
+(b) ARENA CANDIDATE SOURCE
+    path     agentic_orchestration/galadriel/captures/2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4
+    sha256   017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16
+    expected 017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16
+    bytes    7,834,763  (expected 7,834,763)
+    stream   1920x1080, 30/1 fps, 658 frames, 21.9333 s
+    GATE     PASS
+
+No HALT. Both gates green; measurement proceeded.
+
+================================================================================
+2. FRAME EXTRACTION — exact invocation
+================================================================================
+  cd agentic_orchestration/galadriel/captures/2026-08-14-sb1-register-measure
+  ffmpeg -y -v error -i ../2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4 \
+         -vf "select=eq(n\,160)" -vframes 1 arena-n160.png
+  exit 0 -> arena-n160.png  1920x1080 RGB
+  sha256 115fd99a8b3f2e44d9c2420be82d937bbec4e9ca8b2208da673f6dd3da4b0f51
+
+================================================================================
+3. THE BOXES
+================================================================================
+(a) WEREWOLF — wwrecap-vhaura-p1.png, frame height 720
+    TIGHT BODY   top 331  bottom 399  left 599  right 635
+                 h_px  68   w_px 36   h_frac 0.094444  = 9.444 %
+    GENEROUS     top 315  bottom 399   h_px 84          h_frac 0.116667 = 11.667 %
+
+(b) ARENA — a2gr-lookdist-cadence-ab.mp4 n=160, frame height 1080
+    TIGHT BODY   top 340  bottom 480  left 839  right 937
+                 h_px 140   w_px 98   h_frac 0.129630  = 12.963 %
+    GENEROUS     top 246  bottom 480   h_px 234         h_frac 0.216667 = 21.667 %
+
+================================================================================
+4. CROSS-CHECK vs RENDER HARNESS (12.990480 % / 140.297 px)
+================================================================================
+    galadriel   12.962963 %   140 px
+    harness     12.990480 %   140.297 px
+    delta       -0.0275 pp    -0.212 % relative    -0.297 px
+    VERDICT     AGREE. The independent seg-bracket lands inside one third of one
+                pixel of the harness band. No material disagreement; the box was
+                NOT tuned to match (top/bottom were derived from the row scan and
+                the second-instance test before the comparison was computed).
+
+================================================================================
+5. DECLARED AMBIGUITIES — never resolved silently
+================================================================================
+A1. WEREWOLF body-vs-FX boundary (the charter's aura caveat).
+    RESOLVED, cleanly. Body pixels are DARK (L 23-45); aura FX sparkles are BRIGHT
+    (L > 150); the aura-lit floor sits between (L 68-140). A flank-referenced dark
+    mask therefore separates body from FX without judgement. Crown y=331 is the
+    ear-tip pair at x612-619 (L=24 against floor L=70), with the between-ears notch
+    at y=332 confirming wolf-head geometry. Ground contact y=399: L jumps 45 -> 186
+    in a single row and rows 400-411 contain ZERO sub-floor pixels.
+    Generous bracket (top=315, first FX row above the crown) reported anyway.
+
+A2. WEREWOLF lower dark band — body or cast shadow?  CONSIDERED, resolved to BODY.
+    Chromaticity does NOT discriminate here and I do not claim it does: a shadow
+    inside a green emissive aura pool loses the warm component and reads
+    green-dominant exactly as green-lit fur does (floor r/g/b .37/.40/.22; band
+    .32/.46/.21; upper fur .43/.36/.20). Resolved instead on STRUCTURE at 16x:
+    two distinct paw forms — one shaded at (608-619, 397-400), one lit at
+    (619-628, 391-396) — i.e. a bipedal ground contact, not a shadow blob.
+
+A3. ARENA — the stepped grey block at x884-899, y325-337.  EXCLUDED.
+    Test: the second instance of the same asset (top-right of frame) has clean
+    floor above its rim (verified at 13x). The block is therefore not an asset
+    part. Had it been included, top=325 and h_frac would read 14.352 %.
+
+A4. ARENA — the tall narrow upper element, y246-~340, w 20-28 px.  BOTH REPORTED.
+    Reads as a held/worn weapon or a beam; the same element appears on the second
+    instance at a different screen angle. A strict GD-convention silhouette bbox
+    would include a weapon; the harness band does not. TIGHT excludes it (12.963 %),
+    GENEROUS includes it (21.667 %).
+
+A5. ARENA lateral extent. w_px=98 is measured on the ring band y340-376 ONLY.
+    Below y378 the cast shadow reaches x~1023 and merges with the silhouette
+    laterally; no honest lateral edge exists there, so none is asserted.
+
+================================================================================
+6. INSTRUMENTS AND NEGATIVE RESULTS (kept legible, per GAL-CAM 7.2 precedent)
+================================================================================
+gp_seg.py on the werewolf at pct 60/72/80/88 returned only 139-206 px, flooding
+the LIT tan tissue and missing the dark fur entirely (mask: evidence/ww-seg-p60.png).
+Consistent with the GD-PARITY finding that the segmenter leaks/misses at these
+anchors. It bracketed the read and produced no number. The numbers of record come
+from the flank-referenced row scans plus manual ruler adjudication.
+
+Median-background differencing (42 frames, every 16th) FAILED to isolate the arena
+subject and the failure is itself informative: the subject is static across the whole
+clip (frame-160 diff vs median has p50 = 0.0), and the clip contains a CAMERA MOVE —
+off-modal frames differ across the entire subject band. Motion cannot segment this
+subject, and this frame's camera operands are not recoverable from the footage alone.
+
+Plate regeneration commands: see .gitignore in this directory.
+Ruler/seg calls used gp_ruler.py / gp_seg.py under pipeline/gd-parity/ with the
+--x0/--y0/--w/--h/--zoom/--gain arguments recorded in each plate's filename stem.
+
+================================================================================
+7. CONFOUND — stated, not buried
+================================================================================
+Subject-height fraction conflates CAMERA FRAMING with BODY SIZE. The two frames
+photograph DIFFERENT bodies. The 1.37x linear gap between them does NOT by itself
+establish that the two cameras differ, and parity would NOT by itself have
+established that they match. This cell supplies screen register only. R-CPB-17b's
+"zoom/angle looks the same" is Matt's eyeball and gandalf's reading, not mine.

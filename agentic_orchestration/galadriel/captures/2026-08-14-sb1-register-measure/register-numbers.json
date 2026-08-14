@@ -1,0 +1,144 @@
+{
+ "cell": "SB1-REGISTER-MEASURE",
+ "date": "2026-08-14",
+ "agent": "galadriel",
+ "method": "replicates agentic_orchestration/galadriel/notes/2026-07-31-gd-parity-measure.md (seg-bracketed manual subject box: top/bottom/left/right -> h_px -> h_frac = subject h px / frame h px)",
+ "purpose": "three subject-height fractions on ONE method for the SB-1 register one-pager, per R-CPB-17b",
+ "inputs": {
+  "werewolf_frame": {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-14-sb1-werewolf-recap/frames/wwrecap-vhaura-p1.png",
+   "sha256": "35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc",
+   "gate": "PASS",
+   "expected": "35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc",
+   "dims": [
+    1280,
+    720
+   ]
+  },
+  "arena_source_mp4": {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4",
+   "sha256": "017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16",
+   "gate": "PASS",
+   "expected": "017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16",
+   "bytes": 7834763,
+   "dims": [
+    1920,
+    1080
+   ]
+  },
+  "arena_extracted_frame": {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-14-sb1-register-measure/arena-n160.png",
+   "sha256": "115fd99a8b3f2e44d9c2420be82d937bbec4e9ca8b2208da673f6dd3da4b0f51",
+   "n": 160,
+   "ffmpeg": "ffmpeg -y -v error -i a2gr-lookdist-cadence-ab.mp4 -vf \"select=eq(n\\,160)\" -vframes 1 arena-n160.png"
+  }
+ },
+ "measured": [
+  {
+   "id": "wwrecap-vhaura-p1.png",
+   "subject": "player werewolf (vh_race_rig, RATIFIED frame)",
+   "state": "standing, stage centre, inside cyan-green aura pool",
+   "top": 331,
+   "bottom": 399,
+   "left": 599,
+   "right": 635,
+   "grade": "seg-bracketed manual (flank-referenced dark mask; gp_seg leaked to lit tissue only and is bracket, not number)",
+   "h_px": 68,
+   "w_px": 36,
+   "h_frac": 0.09444444444444444,
+   "frame_h_px": 720,
+   "source_sha256": "35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc",
+   "note": "TIGHT BODY. top=331 is the ear-tip pair (x612-619, L=24 vs floor L=70); y=332 is the notch between ears. bottom=399 is the paw sole; floor resumes absolutely clean at y=400 (zero sub-floor pixels, L jumps 45->186 in one row). Aura FX sparkles (BRIGHT, L>150) occupy y315-330 above the crown and are EXCLUDED. w_px is a LOWER BOUND: the dark mask by construction drops the aura-lit tan flank on the right."
+  },
+  {
+   "id": "wwrecap-vhaura-p1.png (GENEROUS bracket)",
+   "subject": "player werewolf (vh_race_rig, RATIFIED frame)",
+   "state": "standing, stage centre, inside cyan-green aura pool",
+   "top": 315,
+   "bottom": 399,
+   "left": 599,
+   "right": 635,
+   "grade": "generous bracket \u2014 declared, not preferred",
+   "h_px": 84,
+   "w_px": 36,
+   "h_frac": 0.11666666666666667,
+   "frame_h_px": 720,
+   "source_sha256": "35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc",
+   "note": "Includes the attached aura-FX sparkle plume above the crown (first FX row y=315). Reported per charter's aura caveat so the bracket is visible; the TIGHT row is the number of record because it matches the GD convention (VFX/nameplates/HUD excluded)."
+  },
+  {
+   "id": "a2gr-lookdist-cadence-ab.mp4 n=160",
+   "subject": "fighter at arena centre (world scale 1.95)",
+   "state": "A-phase, subject stationary",
+   "top": 340,
+   "bottom": 480,
+   "left": 839,
+   "right": 937,
+   "grade": "seg-bracketed manual (flank-referenced colour-distance row scan + ruler adjudication)",
+   "h_px": 140,
+   "w_px": 98,
+   "h_frac": 0.12962962962962962,
+   "frame_h_px": 1080,
+   "source_sha256": "017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16",
+   "note": "TIGHT BODY. top=340 is the upper rim of the broad subject mass. The stepped grey block at x884-899 y325-337 is EXCLUDED: the second instance of the same asset (top-right of frame) has clean floor above its rim, so the block is not an asset part. bottom=480 is the lower plate rim; diamond floor texture resumes at y=481. w_px measured on the ring band y340-376 ONLY \u2014 below y378 the cast shadow (reaching x~1023) merges with the silhouette laterally and no honest lateral edge exists."
+  },
+  {
+   "id": "a2gr-lookdist-cadence-ab.mp4 n=160 (GENEROUS bracket)",
+   "subject": "fighter at arena centre (world scale 1.95)",
+   "state": "A-phase, subject stationary",
+   "top": 246,
+   "bottom": 480,
+   "left": 839,
+   "right": 937,
+   "grade": "generous bracket \u2014 declared, not preferred",
+   "h_px": 234,
+   "w_px": 98,
+   "h_frac": 0.21666666666666667,
+   "frame_h_px": 1080,
+   "source_sha256": "017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16",
+   "note": "Includes the tall narrow upper element (y246-~340, w 20-28px) that reads as a held/worn weapon or beam. A strict GD-convention silhouette bbox WOULD include a weapon; the harness's band does not. Both reported."
+  }
+ ],
+ "gd_reference_registers": {
+  "source": "agentic_orchestration/galadriel/captures/2026-07-31-gd-parity/gd-parity-numbers.json",
+  "provenance": "Matt's own Grim Dawn play session (313-shot corpus + play_test_2026-07-26.mp4)",
+  "human_form_h_frac": 0.07037037037037037,
+  "human_form_note": "n=1, video t=200s, 76px@1080 \u2014 MEDIUM confidence",
+  "werewolf_median_h_frac": 0.1476851851851852,
+  "werewolf_range_h_frac": [
+   0.13703703703703704,
+   0.15
+  ],
+  "werewolf_n": 4,
+  "boss_tier_h_frac": 0.21574074074074073,
+  "boss_tier_note": "COARSE, tier UNCONFIRMED \u2014 MEDIUM-LOW confidence, do not tune to it"
+ },
+ "cross_check_vs_render_harness": {
+  "harness_h_frac": 0.1299048,
+  "harness_h_px": 140.297,
+  "galadriel_h_frac": 0.12962962962962962,
+  "galadriel_h_px": 140,
+  "delta_pp": -0.02751703703703645,
+  "delta_relative": -0.0021182463648022594,
+  "delta_px": -0.29699999999999704,
+  "verdict": "AGREE \u2014 independent seg-bracket lands within 0.3 px of the harness band. No material disagreement."
+ },
+ "derived": {
+  "werewolf_over_GD_werewolf": 0.6394984326018808,
+  "werewolf_over_GD_human": 1.3421052631578947,
+  "werewolf_over_GD_boss": 0.43776824034334766,
+  "arena_over_GD_werewolf": 0.8777429467084639,
+  "arena_over_GD_human": 1.8421052631578945,
+  "arena_over_GD_boss": 0.6008583690987125,
+  "arena_over_werewolf_linear": 1.3725490196078431,
+  "arena_over_werewolf_area": 1.8838908112264514,
+  "werewolf_position_human_to_werewolf": 0.31137724550898194,
+  "arena_position_human_to_werewolf": 0.7664670658682633
+ },
+ "confound_DECLARED": "Subject-height fraction conflates CAMERA FRAMING with BODY SIZE. The werewolf frame and the arena frame photograph DIFFERENT bodies. A difference in h_frac therefore does NOT by itself establish that the two cameras differ, and equality would NOT by itself establish that they match. This cell measures screen register only; it does not adjudicate R-CPB-17b's 'zoom/angle looks the same'.",
+ "cannot_answer": [
+  "What the arena subject IS. It reads as a large wheel/rim + radial-spoke mass with a cylindrical base, not an unambiguous humanoid; a second instance of the same asset sits top-right of frame. Identity is drax's seam.",
+  "Whether the tall narrow upper element (y246-340) is a weapon, a banner, or a leaning prop. Both brackets reported.",
+  "Whether the arena and werewolf cameras share operands. The clip contains a camera move (whole-frame diff on off-modal frames), so this frame's operands were not recoverable from the footage alone."
+ ]
+}

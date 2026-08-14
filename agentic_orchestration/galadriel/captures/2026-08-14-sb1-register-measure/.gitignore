@@ -1,0 +1,17 @@
+# SB1-REGISTER-MEASURE — class-E law: TEXT in git, BYTES on disk, SHA bridges.
+# Every image in this directory is regenerable from sha-gated inputs.
+#
+# Arena candidate frame (sha of extract: 115fd99a8b3f2e44d9c2420be82d937bbec4e9ca8b2208da673f6dd3da4b0f51):
+#   ffmpeg -y -i ../2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4 \
+#          -vf "select=eq(n\,160)" -vframes 1 arena-n160.png
+#
+# Ruler/seg plates under evidence/ regenerate via the gd-parity instruments:
+#   python3 ../../pipeline/gd-parity/gp_ruler.py --src <img> --x0 .. --y0 .. --w .. --h .. --zoom .. --gain .. --out ..
+#   python3 ../../pipeline/gd-parity/gp_seg.py   --src <img> --x0 .. --y0 .. --w .. --h .. --seedx .. --seedy .. --pct .. --out ..
+# Exact invocations for every plate are listed in receipt.txt.
+#
+# The ratified werewolf frame is NOT ours to vendor twice — it lives at
+# ../2026-08-14-sb1-werewolf-recap/frames/wwrecap-vhaura-p1.png and is read-only input.
+*.png
+*.npy
+tmpframes/
