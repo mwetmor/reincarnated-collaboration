@@ -1,0 +1,203 @@
+{
+  "run": "KC2-PM4",
+  "lap": "Q",
+  "agent": "legolas (UNKNOWN-RESEARCHER)",
+  "conductor": "gandalf (RUN-CONDUCTOR)",
+  "date": "2026-08-14",
+  "commission": "charter R-PM4-44 part 2; pre-named L-32; trigger met L-35 (U_P_N_1.verdict_divergent = True)",
+  "discipline": "GL-12 ENTIRE (decode-never-estimate, outcome-firewalled) + GL-6 full 64-hex digests; READ-ONLY on every source",
+  "preregistration": {
+    "file": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/PREREGISTRATION.md",
+    "sha256": "da62709f2887df1e2874f7cc1baa0ef2cd901ea47ce555678b9d4d98c07dfa77",
+    "hashed_before_instruments_ran": true,
+    "reverified_unchanged_at_banking": true
+  },
+  "inputs": {
+    "referent_video": {
+      "path": "/Volumes/reincarnated/visual-artifacts/GD-matt-test/eor-test-2/video/eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+      "bytes": 479438089,
+      "width": 1920,
+      "height": 1080,
+      "fps": 60,
+      "duration_s": 1034.1,
+      "frames": 62046,
+      "sha256": "4c60960d98e9d729e17469044dbe7b4341b253d7d36ba26fe09564d6056a4de8",
+      "note": "FIRST full digest of the referent; Laps H-2/M/N/R recorded it as NOT COMPUTED",
+      "access": "READ-ONLY"
+    },
+    "pm4p_leech_resistance_csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-p-sustain-engine/pm4p_leech_resistance.csv",
+      "sha256": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+      "rows": 7900,
+      "commission_expected": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+      "check": "EXACT"
+    },
+    "pm4n_fct_events_csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/pm4n_fct_events.csv",
+      "sha256": "cf8ed21815339bd62813237c73363e06db86b1758a725ff32567212ed0424ce2",
+      "rows": 2328
+    },
+    "ocr_swift": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/method/ocr.swift",
+      "sha256": "1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1",
+      "check": "byte-identical to Lap N method/ocr.swift"
+    }
+  },
+  "instruments": {
+    "pm4q_fct_colour_2026_08_14.py": {
+      "path": "agentic_orchestration/research/scripts/pm4q_fct_colour_2026_08_14.py",
+      "sha256": "f07da8f59e2bcf8f1b724e9cec6fcc0046e1b3ca75b0566d28baaa14f6810192"
+    },
+    "pm4q_hp_trace_2026_08_14.py": {
+      "path": "agentic_orchestration/research/scripts/pm4q_hp_trace_2026_08_14.py",
+      "sha256": "0b4df3305f5610d1d840113fdb9d20ea88c2ea4afcfe5d3eababf1289d54ecac"
+    }
+  },
+  "outputs": {
+    "pm4q_findings.md": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_findings.md",
+      "sha256": "853bba15a04ba52d40c878974db605c53c5cec20da7c79c7cb5253b50ee78854",
+      "rows": null
+    },
+    "pm4q_heal_events.csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_heal_events.csv",
+      "sha256": "7f89d2ada0abce3b947406c4ceab7234267cfcdc0a5b7ee4a2fbec8eec71aeab",
+      "rows": 129
+    },
+    "pm4q_hp_trace.csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_hp_trace.csv",
+      "sha256": "5597e1a8c993fa183adc3f2310570e70e4da47b6c1f882ad62a96583f57090fa",
+      "rows": 10861
+    },
+    "pm4q_recovery_windows.csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_recovery_windows.csv",
+      "sha256": "4a95209b599749357dc8f1f6e766b2a07628f3fceaffa45e8f7c082617f98daa",
+      "rows": 5
+    },
+    "pm4q_fct_colour.csv": {
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-q-heal-discriminator/pm4q_fct_colour.csv",
+      "sha256": "48e12482a173a00eaa695eab5b4c32e98ff12eb623154fc000a71c1aa68958c5",
+      "rows": 17908
+    }
+  },
+  "evidence": {
+    "SIGNED_0.png": "a15a8652b968faa5b3dcd65d7ec14d5e84fa2bf21bb9a609cb284dc2e4871cb7",
+    "SIGNED_1.png": "a638fe80eab2e9d28be57c884a81e33a7067caa2f5e887dd1145473251eb93e2",
+    "SIGNED_2.png": "c1fb3e7f6dae0a5c3184d4d22c1484ef18b91f91c55a7a56d02e25966997bde9",
+    "g00_t687.000.png": "9171daafd8899e48f053cb8fba64bbc4863bc7afaecbaa9afe510a4971138b1c",
+    "g01_t687.000.png": "5a92d8d19c08c6c8f552a3f0df97691539786bd5e6f41072a8f9176c2c601008",
+    "g02_t688.000.png": "e44ed0774c41ea7a4ed1908c7ed6a06e385c049071b80cb1a99377a6269761d3",
+    "g03_t705.000.png": "822924643e37e636c1bfacb735f07b275ee85fdd3b93fa6a17dcb2e1a7f764bd",
+    "g04_t705.000.png": "c0dd8f9b9e412ef6f7bd54bfabfa6761f15493771d1d9b501310857b02206ead",
+    "g05_t714.000.png": "be19f37ebcdca15c63f8113c2d830fb6aaf199b316a71c4ea06ae9c0e93575db",
+    "g06_t752.000.png": "78efcb68aadf33de5c063d2970f5451ac50be854bdacaeb9ae630208c09632a3",
+    "g07_t832.884.png": "04713178506393c644e30f9c69314c079090f657e521b4a36b2dcd46a04509c5",
+    "g08_t833.200.png": "9cd4a10f47bb6d0786fb332181e6fa2d50c3afa87f93fe46570270fa59842c7f",
+    "g09_t833.550.png": "9bc27237126089599c335fd6248eeb641e34ce47f8df020ecddfeba02406575d",
+    "g10_t833.634.png": "3e2a3cb202a9595f3e775d66eb3f0be27d905209364d37d27cc372951b077aff",
+    "g11_t833.734.png": "df9d445048d80d9a458eec093b531677223f67f8f53051c3cec9ce43567d548d",
+    "g12_t833.967.png": "6aa9e81d09619dc1233ec14533e398dce3e5c88f0a8573d6188f6222ef5ff8bf",
+    "g13_t844.016.png": "895ece1aa4342b00e24f3fafcd5f075cb075817bf3ff5502f136addaf9fceae3",
+    "g14_t853.000.png": "f55b67561bcf724fdc79b14831a0ecd97178960cadfe0518e92c3f1265513c71",
+    "g15_t855.000.png": "feec3f60815c076ff695182142789c55a8a14d820eaa55b9d0c75f4a85c4a249",
+    "g16_t863.134.png": "9b9df3cfd9da71f4a830a61ae62be573d9686e012f51e7c3a6fa03717f0e3ea1",
+    "g17_t863.300.png": "d96772704768c0e244742ba3cfe3a28fdf89ea422caed336b0d0de705009a4aa",
+    "hud-energy-bar-green-background-750.png": "0d9156a1fd05b458ef2b52008edc3e244667995441c157dc68d4543e9ed3d817",
+    "hud-player-health-readout-750.png": "ccf0c2eaace3b106ac249c61d1141ca85fa7b73c088b9f7b98814949bb2c0e57"
+  },
+  "positive_controls": {
+    "PC1_cream_numeric_fct": {
+      "req": ">=100",
+      "measured": 1712,
+      "verdict": "PASS"
+    },
+    "PC2_red_numeric_fct": {
+      "req": ">=5",
+      "measured": 16,
+      "verdict": "PASS"
+    },
+    "PC3_hp_trace_accept": {
+      "req": ">=0.95",
+      "measured": 1.0,
+      "verdict": "PASS"
+    },
+    "regen_reproduction": {
+      "decoded_LapP_hp_s": 129.38,
+      "measured_hp_s": 124.67,
+      "residual_pct": -3.64
+    },
+    "hit_cadence_reproduction": {
+      "decoded_LapL_bracket": [
+        11.387,
+        12.25
+      ],
+      "measured_ticks_s": 11.408,
+      "verdict": "INSIDE"
+    }
+  },
+  "results": {
+    "heal_fct_displayed": false,
+    "heal_fct_green_candidates": 40,
+    "heal_fct_distinct_events": 18,
+    "heal_fct_adjudicated_TRUE": 0,
+    "signed_reads": 3,
+    "signed_adjudicated_TRUE": 0,
+    "wave_join": {
+      "status": "UNDERPOWERED_BY_CONSTRUCTION",
+      "predictor_variance": 0.0,
+      "mean_adcth_mult_COUPLED_all_waves": 0.2522,
+      "across_wave_maxmin_ratio": 1.0
+    },
+    "n_leech_ticks": 129,
+    "n_clean_ticks": 67,
+    "tick_median_all": 782.8,
+    "tick_median_clean": 820.8,
+    "tick_min": 54.8,
+    "tick_max": 8541.8,
+    "COUPLED_median_band": [
+      561.0,
+      1435.6
+    ],
+    "DECOUPLED_median_band": [
+      2149.6,
+      5398.0
+    ],
+    "DECOUPLED_board_min": 371.8,
+    "filtered_ticks_below_DECOUPLED_board_min": 8,
+    "filtered_ticks_total": 19,
+    "rule1_DECOUPLED_windows": 0,
+    "rule1_fires": false,
+    "rule2_COUPLED_windows": 5,
+    "rule2_p5_condition": true,
+    "rule2_fires": true,
+    "VERDICT": "COUPLED",
+    "implied_D_weapon_median_tick": {
+      "COUPLED_at_0.12": 44670,
+      "COUPLED_at_0.35": 15315,
+      "DECOUPLED": 5360,
+      "sheet_camera_measured": [
+        16972,
+        40930
+      ]
+    }
+  },
+  "new_gaps": {
+    "D-Q1": "health_max not constant: 16,368 (-18.18%) for 8.283 s at t=713.383-721.650; mechanism UNDECODED",
+    "D-Q2": "regen residual -3.64% vs Lap P sheet",
+    "U-Q-1": "N_bodies never observed at tick resolution (lower bound only)",
+    "U-Q-2": "verdict conditional on Lap P chain + U-P-N-4",
+    "U-Q-3": "U-P-N-5 crit uplift not folded (widens the gap)",
+    "U-Q-4": "heal/damage ratio directionally consistent, NOT decisive, excluded from the verdict"
+  },
+  "declared_departures": {
+    "DEP-Q1": "red-FCT dedup by value-cluster not position (FCT drifts); the conservative direction",
+    "DEP-Q2": "damage-taken reads above health_max rejected as OCR merges; caught a 12x over-count in window 4",
+    "DEP-Q3": "rule-2 damage filter applied literally inside OCR-covered windows + a stricter whole-trace proxy; both agree"
+  },
+  "unreached": [
+    "heal FCT magnitudes",
+    "per-event heal attribution to a body",
+    "wave-tier correlation (predictor variance zero)",
+    "mechanism of the health_max reduction (D-Q1)"
+  ]
+}
