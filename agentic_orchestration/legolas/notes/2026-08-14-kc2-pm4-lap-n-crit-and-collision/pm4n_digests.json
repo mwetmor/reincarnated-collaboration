@@ -1,0 +1,110 @@
+{
+  "run": "KC2-PM4",
+  "lap": "N",
+  "agent": "legolas",
+  "date": "2026-08-14",
+  "digest_policy": "GL-6 \u2014 full 64-hex sha256, never truncated",
+  "referent_video": "/Volumes/reincarnated/visual-artifacts/GD-matt-test/eor-test-2/video/eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "sampling": {
+    "span_sec": [
+      680.0,
+      868.0
+    ],
+    "cadence_sec": 2.0,
+    "sample_frames": 95,
+    "fct_lifetime_measured_sec": [
+      1.2,
+      1.5
+    ],
+    "ocr": "Apple Vision VNRecognizeTextRequest .accurate, languageCorrection=off"
+  },
+  "csv": {
+    "pm4n_crit_multipliers.csv": {
+      "sha256": "d1cd1637daff56b76c25c1a15d7a525a05d5b1d182d4071adc386b44ff60d46d",
+      "sha256_len": 64,
+      "rows_excl_header": 154,
+      "columns": 10,
+      "bytes": 8785,
+      "header": [
+        "frame",
+        "t_sec",
+        "ocr_conf",
+        "clean_read",
+        "damage",
+        "multiplier",
+        "residue_cents",
+        "offset_family",
+        "implied_tier",
+        "source_text"
+      ]
+    },
+    "pm4n_fct_events.csv": {
+      "sha256": "cf8ed21815339bd62813237c73363e06db86b1758a725ff32567212ed0424ce2",
+      "sha256_len": 64,
+      "rows_excl_header": 2328,
+      "columns": 17,
+      "bytes": 242550,
+      "header": [
+        "frame",
+        "t_sec",
+        "text",
+        "ocr_conf",
+        "cls",
+        "damage",
+        "mult",
+        "bbox_x",
+        "bbox_y",
+        "bbox_w",
+        "bbox_h",
+        "mult_tokens",
+        "rgb_r",
+        "rgb_g",
+        "rgb_b",
+        "r_over_g",
+        "colour_class"
+      ]
+    }
+  },
+  "part_a_measured": {
+    "ocr_text_observations": 2328,
+    "clean_crit_reads_conf1": 64,
+    "crit_multiplier_tokens": 154,
+    "lattice_conforming_tokens": 151,
+    "lattice_conformance_pct": 98.1,
+    "lattice_spacing": 0.1,
+    "offset_families": {
+      "A": 0.57,
+      "B": 0.69
+    },
+    "crit_tier_distribution_n148": {
+      "1.10": 75,
+      "1.20": 61,
+      "1.30": 10,
+      "1.40": 2,
+      "1.50": 0
+    },
+    "mean_crit_tier": 1.1588,
+    "mean_displayed_multiplier": 1.7888,
+    "median_displayed_multiplier": 1.77,
+    "verdict": {
+      "M1": "FALSIFIED",
+      "M2": "SUPPORTED (form); uniform-roll parameterization CONTRADICTED",
+      "M3": "FALSIFIED"
+    },
+    "M1_overstatement_pct": 29.4,
+    "crit_share_lower_bound_pct": 39.6,
+    "crit_share_grade": "INDICATIVE \u2014 lower bound only"
+  },
+  "part_b": {
+    "question": "does projectileExplosionRadius capture targets along the path or only at terminus",
+    "finding": "NEITHER \u2014 it is not the path-capture field. Path capture is actorRadius+collisionShape on the projectile actor record.",
+    "confidence": "MODERATE-HIGH (negative claim)",
+    "undecided": "where the explosion centres on a 100%-pierce projectile",
+    "records_scanned": 93385,
+    "pierce100_joined_to_fx": 308,
+    "pierce100_with_zero_explosion_radius": 103,
+    "explosion_eq_actor_radius_pct": 2.6,
+    "pearson_r_explosion_vs_actor": -0.168,
+    "template_description_field": "EMPTY"
+  }
+}
