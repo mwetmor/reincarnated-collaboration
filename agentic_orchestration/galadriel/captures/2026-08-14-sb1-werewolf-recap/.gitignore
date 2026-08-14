@@ -1,0 +1,9 @@
+# Class-E law: TEXT in git, BYTES on disk, SHA bridges.
+# The rendered PNGs and the raw Godot stdout logs stay on disk and out of the
+# index; receipt.txt carries their sha256s and every number read off them.
+frames/
+logs/
+*.png
+*.jpg
+*.mp4
+!.gitignore

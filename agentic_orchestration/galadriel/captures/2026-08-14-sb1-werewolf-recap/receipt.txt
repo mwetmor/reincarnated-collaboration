@@ -1,0 +1,225 @@
+SB-1 WEREWOLF-RECAP MICRO-CELL — RECEIPT
+drax, 2026-08-14. Capture-only cell (zero edits to any tracked file in reincarnated-godot).
+Charter: R-CPB-17b ground truth — one fresh werewolf-room still from the WR1 level rig at the
+rig's OWN existing shot framing, for Matt's camera-match side-by-side.
+
+=============================================================================
+VERDICT: HALT — THE CHARTERED DELIVERABLE IS NOT PRODUCIBLE AS SPECIFIED.
+  No room in the WR1 level contains a werewolf. No room in the WR1 level
+  contains ANY character. `wr1_level_rig.gd --shot room:N` renders an EMPTY
+  architectural room for every N in 0..3.
+  Rendered proof below (EXHIBIT A). Werewolf provenance located and rendered
+  from the rig that actually holds it (EXHIBIT B), camera untouched.
+=============================================================================
+
+GODOT HEAD ......... be7f0c2ca6837eee4a85cb4cd0fa09c8cf4524b7  (branch main)
+GODOT BINARY ....... /Applications/Godot.app/Contents/MacOS/Godot  (356326784 B, 2026-05-20)
+CAMERA EDITS ....... NONE. No boom applied (not 72.857, not 134). No yaw/pitch/fov/
+                     distance/aim altered. Both exhibits ran at their own rig's
+                     in-file frozen camera constants.
+
+-----------------------------------------------------------------------------
+1. ROOM IDENTIFICATION — WHY THE CELL HALTS
+-----------------------------------------------------------------------------
+The charter's HALT condition: "if the werewolf room cannot be identified
+UNAMBIGUOUSLY from the scripts (name, comment, spawn table — real evidence,
+not a guess), HALT." The evidence returns something stronger than ambiguity —
+it returns absence.
+
+EVIDENCE 1 — the spawn table has four rooms and none is a creature.
+  scripts/wr1_level.gd:100-105
+      const ROOMS := [
+        {"tier": "trash",      "kit": "dark-fortress",   "label": "R1 trash"},
+        {"tier": "champion",   "kit": "dwarven-dungeon", "label": "R2 champion"},
+        {"tier": "mixed_pack", "kit": "dungeon-realms",  "label": "R3 mixed pack"},
+        {"tier": "boss",       "kit": "dark-fantasy",    "label": "R4 boss arena"},
+      ]
+  The rows are TIER + KIT (encounter class and art kit). They are not occupants.
+
+EVIDENCE 2 — the level instantiates exactly ONE PackedScene, and it is not a body.
+  grep of scripts/wr1_level.gd for `.fbx|FBX|Synty/polygon|mob_rig|actor|Skeleton|
+  instantiate()` returns a single hit:
+      wr1_level.gd:491   var amb := (load(ROOM_AMBIENT) as PackedScene).instantiate()
+      wr1_level.gd:82    const ROOM_AMBIENT := "res://vfx/ambient/room_ambient.tscn"
+  Room ambient particles. No character asset is referenced anywhere in the file.
+
+EVIDENCE 3 — the rig says so in its own header, and the code matches.
+  scripts/wr1_level_rig.gd:19-20 (verbatim)
+      "The rig contributes a camera and a clock. Every light, material and particle
+       comes from wr1_level.gd and, through it, from the frozen room class."
+  Full 171-line read: `_ready()` adds a WR1Level and a Camera3D. Nothing else.
+
+EVIDENCE 4 — the scene file is bare.
+  scenes/wr1_level_rig.tscn is 2 nodes: one Node3D with the rig script attached.
+  No instanced character, no child scene.
+
+EVIDENCE 5 — RENDERED. See EXHIBIT A. The chartered invocation at the chartered
+  framing produces an empty lit room. Zero subjects in frame.
+
+CANDIDATE ROOMS AND THEIR EVIDENCE (per the charter's HALT instruction):
+  room:0  tier=trash       kit=dark-fortress    centre x=0.0    EMPTY (no werewolf)
+  room:1  tier=champion    kit=dwarven-dungeon  centre x=47.5   EMPTY (no werewolf)
+  room:2  tier=mixed_pack  kit=dungeon-realms   centre x=100.0  EMPTY (no werewolf)
+  room:3  tier=boss        kit=dark-fantasy     centre x=157.5  EMPTY (no werewolf)
+  (centres printed by the rig's own build log; room 0 confirmed at (0.0, 0, 0.0).)
+
+  room:0 was chosen as the rendered EXHIBIT A on a real correspondence, NOT a guess
+  that it holds the werewolf:
+      wr1_level.gd:101      ROOMS[0].kit == "dark-fortress"
+      vh_race_rig.gd:42     const KIT := "dark-fortress"
+  Room 0 is the WR1 room built from the SAME art kit as the frozen L7 / R-6 stage on
+  which the werewolf actually stands. It is the closest correspondence in the tree.
+  It still contains no werewolf.
+
+-----------------------------------------------------------------------------
+2. WHERE THE WEREWOLF ACTUALLY LIVES (provenance of "the wr1 werewolf frame")
+-----------------------------------------------------------------------------
+  scripts/vh_race_rig.gd — THE L7 RACE CAPTURE RIG (arm H), drax 2026-07-28.
+      vh_race_rig.gd:38-41   const CAM_DIST := 34.0
+                             const CAM_FOV  := 24.0
+                             const CAM_YAW  := 47.0
+                             const CAM_PITCH := -50.0
+      vh_race_rig.gd:42      const KIT := "dark-fortress"
+      header §CAMERA: "R-6, FROZEN (charter §1: 'the camera is the judge; you do not
+      move the judge'): dist 34 / fov 24 / yaw 47 / pitch -50 / aim_h 1.0 / 1280x720."
+  The body comes from the brief:
+      vh_brief_aura.gd:7     "motion is the werewolf's RETARGETED WALK"
+      vh_brief_aura.gd:62    const VHCasterS := preload("res://scripts/vh_caster.gd")
+      vh_caster.gd:6-7       "The frozen caster (race charter §1 / R-PC-4 / R-PC-8):
+                              the werewolf, SK rig, `SK_Chr_Werewolf_01.fbx`."
+      vh_caster.gd:38        const BODY := ".../polygon-werewolf/.../SK_Chr_Werewolf_01.fbx"
+
+  THIS is the rig whose yaw/pitch/fov kc2_cpb_clip.gd cites as canon. The three LENS
+  numbers are byte-identical between vh_race_rig.gd:38-41 and wr1_level_rig.gd:25-27.
+  The two rigs differ in ONE term: DISTANCE. vh_race_rig is a fixed 34.0 m and carries
+  the werewolf; wr1_level_rig derives 34.0 * (37.5/17.5) = 72.857 m and carries no
+  subject at all.
+
+-----------------------------------------------------------------------------
+3. EXHIBIT A — the chartered invocation (WR1 level rig, room 0)
+-----------------------------------------------------------------------------
+INVOCATION (both passes identical; run from /Users/admin/Games/reincarnated-godot):
+  /Applications/Godot.app/Contents/MacOS/Godot --rendering-driver metal \
+    --path /Users/admin/Games/reincarnated-godot --resolution 1280x720 --fixed-fps 30 \
+    scenes/wr1_level_rig.tscn --quit-after 3093 \
+    -- --prefix wwrecap-room0-p<N> --settle 90 --frames 0 --shot room:0 --rooms 4 \
+       --ambient on --outdir <this dir>/frames
+  (Flags and defaults transcribed from scripts/run_wr1_level.sh:22-25. The harness was
+   invoked directly rather than via the .sh so that OUTBASE could point OUTSIDE the
+   godot repo tree and so the harness's `rm -f` prefix-sweep never ran.)
+
+RIG-PRINTED CAMERA, VERBATIM (identical both passes):
+  [wr1_rig] shot=room:0 aim=(0.0,1,0) dist=72.86
+  [wr1_level] SIZING  edge=37.50 m  bays/side=15.0 (whole=true)  clear>=arena 36.0 (true)
+              door=3 bays=7.50 m == corridor 7.50 m (true)
+  [wr1_level]   room 0 trash       kit=dark-fortress   centre=(0.0, 0, 0.0)  doors=[2]
+  [wr1_rig] WR1-LEVEL-RIG-DONE                     exit code 0 (both passes)
+  Implied constants (not printed, read from source): yaw 47.0 / pitch -50.0 / fov 24.0
+  (wr1_level_rig.gd:25-27), ROOM_DIST = 34.0 * (37.5 / 17.5) = 510/7 = 72.857142857 m
+  (wr1_level_rig.gd:28-29 x wr1_level.gd:87). This CONFIRMS the boom pin in
+  kc2_cpb_clip.gd:265 against the live rig: printed 72.86 == pinned 72.857142857.
+
+SHA256:
+  pass 1  7b37206e1a5c6cf0a283cf249cdf8ae9e8e988220adebfe957009ab4af136402  wwrecap-room0-p1.png
+  pass 2  9603f00ddfe363b39cefdae3689cc3da1161e15b411ba047313b361de387fcc2  wwrecap-room0-p2.png
+
+GATE (x2 render digest-compare): ***FAIL-DECLARED*** — digests DIFFER.
+  Declared per GL-12 (absences/variance declared, never filled). NOT chased: this cell
+  is not a determinism probe. Named candidate cause, already documented in-tree by the
+  seam's own authors:
+      wr1_level.gd:178-181  "THE UNSEEDED-PARTICLE PEEL. `GPUParticles3D` is unseeded
+      in this tree (BEAM-CONE §5.1 measured two identical launches differing by 0.081
+      on a mote statistic), so ANY two-render peel is contaminated by dust and room
+      mist unless they are off."
+  This exhibit ran `--ambient on` (the rig default, i.e. the rig's own framing), so the
+  room-ambient GPUParticles3D were live in both passes. Magnitude is consistent with
+  that cause and not with a structural difference: mean-luma delta 0.003/255 and byte
+  delta 165 B on a 622 KB PNG. Both passes kept on disk.
+  NOTE: the deliverable value of this exhibit does not depend on the gate — it is a
+  proof of ABSENCE, and both passes show the same absence.
+
+SANITY (PL-5 floor check):
+  pass 1  622293 B  1280x720  mean luma 22.648 / 255   nonzero, not near-black  PASS
+  pass 2  622128 B  1280x720  mean luma 22.645 / 255   nonzero, not near-black  PASS
+  EYE CHECK: LOOKED at pass 1. Lit floor plane of the 37.5 m room seen from above at
+  the telephoto orbit; four wall sconces reading as warm points; the east doorway and
+  corridor stub visible bottom-right. NO SUBJECT OF ANY KIND IN FRAME. Werewolf: ABSENT.
+
+-----------------------------------------------------------------------------
+4. EXHIBIT B — the werewolf, from the rig that actually holds it
+-----------------------------------------------------------------------------
+DECLARED SCOPE NOTE: this is NOT the chartered deliverable and is not offered as a
+substitute for it. It is rendered because it is the only in-tree rig that puts the
+werewolf in front of the canon lens, and because R-CPB-17b's gate is Matt's EYE on a
+werewolf. Camera untouched: vh_race_rig.gd's frozen R-6 constants, no override flag
+passed, no tracked file modified.
+
+INVOCATION (both passes identical):
+  /Applications/Godot.app/Contents/MacOS/Godot --rendering-driver metal \
+    --path /Users/admin/Games/reincarnated-godot --resolution 1280x720 --fixed-fps 30 \
+    scenes/vh_race_rig.tscn --quit-after 690 \
+    -- --prefix wwrecap-vhaura-p<N> --settle 90 --frames 0 --torches on --brief aura \
+       --bench 0 --outdir <this dir>/frames
+  (Flags transcribed from scripts/run_wr1.sh:38-42, which is the 2026-07-29 WR1-ROOMS
+   harness for this rig and which itself writes to tmp/wr1/ — the likely origin of the
+   "wr1 werewolf frame" label.)
+
+RIG-PRINTED CAMERA + SUBJECT, VERBATIM (identical both passes):
+  [vh_rig] stage built kit=dark-fortress nodes=830 torches=true brief=aura
+  [vh_rig] CAM fov=24.000000 eye=(15.983573, 27.045511, 14.904923)
+  [vh_caster] built — scale=0.9883 height=1.8000 skel_bones=52 prop_r=true clip_len=1.033s
+  [vh_brief_aura] built — walk 6.4 m at 1.60 m/s, particles 150
+  [vh_rig] brief mounted: res://scripts/vh_brief_aura.gd
+  [vh_rig] VH-RIG-DONE                             exit code 0 (both passes)
+  Eye-to-aim distance recomputed from the printed eye against aim (0, 1.0, 0):
+  |(15.983573, 26.045511, 14.904923)| = 34.000 m  ==  vh_race_rig.gd:38 CAM_DIST 34.0.
+
+SHA256:
+  pass 1  35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc  wwrecap-vhaura-p1.png
+  pass 2  35fd577ab4f98f0caec6cd9b1ea81519858283f9a4830ee111369e951f8b11cc  wwrecap-vhaura-p2.png
+
+GATE (x2 render digest-compare): ***PASS*** — digests IDENTICAL.
+
+SANITY (PL-5 floor check):
+  pass 1  537111 B  1280x720  mean luma 25.598 / 255   nonzero, not near-black  PASS
+  pass 2  537111 B  1280x720  mean luma 25.598 / 255   nonzero, not near-black  PASS
+  EYE CHECK: LOOKED at pass 1. The 17.5 m dark-fortress stage, four corner torches, and
+  the WEREWOLF standing near stage centre inside its cyan-green aura pool, silhouette
+  readable. Subject VISIBLE and FRAMED. This is a werewolf at yaw 47 / pitch -50 / fov 24.
+
+-----------------------------------------------------------------------------
+5. ONE FACT THE CONDUCTOR ASKED FOR WITHOUT KNOWING IT — READ, NOT ASSERTED
+-----------------------------------------------------------------------------
+R-CPB-17b calls 72.857 m "the conductor's TRANSCRIPTION of the werewolf frame" and
+asks whether it reproduces the look Matt ratified. The two rigs make the transcription
+step legible, and it is a DISTANCE step, not a lens step:
+
+  vh_race_rig.gd   yaw 47 / pitch -50 / fov 24 / dist 34.000 m   HAS the werewolf
+  wr1_level_rig.gd yaw 47 / pitch -50 / fov 24 / dist 72.857 m   has NO subject
+
+Pure lens geometry from the printed constants (Godot Camera3D.fov is vertical under
+the default KEEP_HEIGHT), frame height = 2 * d * tan(fov/2), tan(12 deg) = 0.2125566:
+      at 34.000 m  ->  14.454 m of world spans the frame height
+      at 72.857 m  ->  30.972 m of world spans the frame height   (ratio 2.1429x)
+The werewolf is 1.8000 m (printed by vh_caster above) in BOTH cases.
+
+DELIBERATELY NOT CONVERTED to a subject-percentage here. At pitch -50 the on-screen
+extent of a standing body is foreshortened and pose-dependent, so a subject fraction is
+a MEASUREMENT off pixels, not desk arithmetic (NOTE-62 — this run has twice been burned
+by proportional arithmetic authored at a desk). Flagged as the open question, not
+answered: the "subject ~12.96% at 72.857 m" figure in the ledger has no rendered
+werewolf behind it anywhere in this tree, because until this cell fired, no render of a
+werewolf at 72.857 m existed. Routing up rather than filling it (GL-12).
+
+-----------------------------------------------------------------------------
+6. CONTAINMENT
+-----------------------------------------------------------------------------
+  Tracked-file edits in reincarnated-godot ...... ZERO (verified, see landing note)
+  Pre-existing dirty file, NOT touched by this cell:
+      M tmp/br2watch/measure/census.json   (BR-2-era leftover, already accounted at A1b-7)
+  Artifacts written INSIDE the godot repo tree by this cell ..... NONE.
+      Both rigs accept an absolute --outdir; both wrote directly to this capture dir,
+      outside the repo. `.godot/` import cache is unchanged in content (no reimport ran).
+  PNG bytes .... on disk here, UNTRACKED (class-E law; see .gitignore in this dir).
+  Log files .... logs/room0-p1.log, room0-p2.log, vhaura-p1.log, vhaura-p2.log —
+                 on disk here, UNTRACKED (they carry full Godot stdout).
