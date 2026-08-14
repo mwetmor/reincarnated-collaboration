@@ -10,8 +10,11 @@
 
 You asked the run to replicate your Grim Dawn Crucible fight (EoR Warlord, waves 150–160, death
 at 160, last-4-lap 182.7167 s) faithfully, autonomously, with no tuning. Seven engine iterations
-(I-15..I-21) and eight decode laps (N/O/P/Q/R/S/T/U) later, the run has its first **T2 hit on a
-record cell** — I-21's pursuit fold lands l4l **161.0612 s, ratio 0.8815, inside the band** — with
+(I-15..I-21) and eight decode laps (N/O/P/Q/R/S/T/U) later, the run holds its **best T2 on a
+record cell** — I-21's pursuit fold lands l4l **161.0612 s, ratio 0.8815, inside the band**; T2's
+second hit, first since I-18's 0.8502, recovered through two decode-true folds that each graded
+worse (jack-ryan's audit corrected my banked "first-ever" claim against I-18's own artifact —
+ledger L-46/D-CON-1, my miss, on the record) — with
 **zero constants ever moved toward an outcome** (Law-3 tripwire clean across every iteration, with
 witnesses). The residual that remains has been renamed seven times as each carrier was decoded and
 folded — sustain → locomotion → geometry-size → structure → arrival-speed → distance → concurrency
@@ -32,9 +35,9 @@ Best-ever per target across the whole run, verified from emitted artifacts (not 
 | target | referent | best EVER on a record cell | iteration | status |
 |---|---|---|---|---|
 | **T1** death wave | 160, band {159–161} | **155** (I-21; prior best 156 at I-17/I-18) | I-21 | **MISS by 4 waves** — bounded by roster (§ 2) |
-| **T2** last-4-lap | 182.7167 s, band [155.31, 210.12] | **161.0612 s, ratio 0.8815** | **I-21** | **MET** — first record-cell hit of the run |
+| **T2** last-4-lap | 182.7167 s, band [155.31, 210.12] | **161.0612 s, ratio 0.8815** | **I-21** | **MET — twice in the run:** I-18 `COU·PX-HI` 0.8502 (l4l 155.3469, at the band floor) and I-21 0.8815 (the best; corrected per audit BLOCK, L-46) |
 | **T3** span MAE | per-wave pacing | 3.287 s (I-20, on **1** evaluable wave) vs 16.672 s (I-21, on 5) | — | **NOT COMPARABLE across iterations** (evaluable-wave counts differ); reported, not claimed |
-| **T4a** mean HP frac | 0.932 ± 0.02 | **0.9309 — in band** (I-19 `COU·PX-LO·NEAR`); I-21 reads 0.8848 | I-19 | **MET at I-19, regressed under later decode-true folds** — honest note: the in-band cell predates the arrival/pursuit decodes |
+| **T4a** mean HP frac | 0.932 ± 0.02 | **0.9309 — in band** (I-19 `COU·PX-LO·NEAR`); I-18 `COU·PX-HI` 0.9123 also in band (held T2+T4a together); I-21 reads 0.8848 | I-19 | **MET at I-18 and I-19, regressed under later decode-true folds** — honest note: the in-band cells predate the arrival/pursuit decodes |
 | **T4b(b)** full-health dwell | 1.6166 s | 0.0 s (all iterations) | — | **NEVER MET** |
 | **T4b(c)** w160 instant kill from full | fires only at wave 160 | never armed — **no ladder has reached wave 160** | — | **NEVER ARMED** (blocked behind T1) |
 
@@ -116,12 +119,38 @@ residual points at monster DPS — none does) · U-T-4 · U-R-2/3/4/6 · U-O-1 �
 U-PDEF-1 · U-I19-1/D-I19-2 · D-U-4 · D-I21-2..5 (all self-caught, addendum-before-repair on the
 record) · v3 archive-key vacuum (repaired in-run, named) · explosion-centre.
 
+**NEW from the wall audit (L-46/R-PM4-55):** N-1 — `run.py:365` + `calibration.py:1455` still
+default to `MotionLimb.ZONE_FIRST`, the limb I-21 ruled decode-false (deferral correct under
+ADR-004; routed to gamora for the next KC2 iteration) · two I-18 look-alike findings still
+committed (gamora, L-36 procedure) · legolas prereg-in-own-commit discipline (OP candidate, via
+KR) · D-CON-1 — the conductor's own banked false superlative ("first T2 hit"), corrected at L-46 ·
+assert_wall retired ON THE RECORD retroactive to I-19 (R-PM4-55 part 3; re-arms or re-rules if the
+run re-opens under option C).
+
 ---
 
 ## 4 — jack-ryan full wall audit (exit-ramp component a)
 
-> **PENDING — fired 2026-08-14 as named jack-ryan sub-agent; verdict appended on return.**
-> Report path: `agentic_orchestration/jack-ryan/notes/2026-08-14-kc2-pm4-full-wall-audit.md`
+**RETURNED. NINE WALLS PASS, ONE BLOCK — the BLOCK on wording, not on work, cleared by
+correction at L-46/R-PM4-55.** Report: `agentic_orchestration/jack-ryan/notes/2026-08-14-kc2-pm4-full-wall-audit.md` (meta `21d2da2a`).
+
+| # | wall | verdict |
+|---|---|---|
+| 1 | Math-note-first git order | PASS (5/5 note-alone; addenda before repairs) |
+| 2 | Law-3 no-tuning | PASS (`moved == {}` every iteration; the fold touches no existing production sim file — no surface for a constant to move) |
+| 3 | Determinism 3-leg ×2 | PASS (pass2 verified as a real second execution) |
+| 4 | Fold-off byte-identity | PASS (I-19/I-20/I-21 each reproduce all six I-17 digests exactly) |
+| 5 | Frozen substrate | PASS (20/20 recomputed from disk by the auditor; hard `SystemExit` gate) |
+| 6 | Export untouched | PASS-WITH-NOTE (D-PDEF-1 unrepaired as required; I-15..I-18 edits declared + routed at R-PM4-47 part 4) |
+| 7 | NOTE-9 no repair of others' artifacts | PASS (Lap T dir: one commit, never modified, despite two convictions) |
+| 8 | Pre-registration | PASS (Lap U prereg EXACT; I-21 S-3 git-provably prior, consequence wired) |
+| 9 | Ledger consistency | **BLOCK → CLEARED** (the "first T2 hit" superlative false vs I-18's artifact; corrected L-46; full-64-hex ledger rule adopted; R-PM4-49 numeric mislabel corrected) |
+| 10 | Hygiene | PASS (digests + byte counts before the bytes) |
+
+Auditor's top line, verbatim: *"The run's verification apparatus is sound and, in two places,
+better than its own claims… the refusal record is the strongest Law-3 evidence in the run. I issue
+no BLOCK against the measurements, the folds, or the code."* The smoke gate was independently
+re-run and reproduced to the failing test's name and source line (pre-existing, non-run).
 
 ---
 
