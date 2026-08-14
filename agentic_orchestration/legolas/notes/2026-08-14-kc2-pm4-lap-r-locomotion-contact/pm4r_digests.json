@@ -1,0 +1,2620 @@
+{
+  "run": "KC2-PM4",
+  "lap": "R",
+  "agent": "legolas",
+  "date": "2026-08-14",
+  "commission": "R-PM4-42 part 3 (ledger L-33) — THE LOCOMOTION-AND-CONTACT DECODE",
+  "conductor": "gandalf (RUN-CONDUCTOR)",
+  "digest_policy": "GL-6 — full 64-hex sha256, never truncated",
+  "discipline": "GL-12 decode-never-estimate · outcome-firewalled · NOTE-9 basis on every number · read-only on every external source · no simulation output opened",
+  "preregistration": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/PREREGISTRATION.md",
+    "sha256": "dc49d0ba8f176ab1d4814d522e5183867fe2ad56334ed7251e81b3db124cec10",
+    "hashed_at_utc": "2026-08-14T13:43:46Z",
+    "note": "written and hashed BEFORE any instrument ran on the full video"
+  },
+  "referent_video": {
+    "path": "/Volumes/reincarnated/visual-artifacts/GD-matt-test/eor-test-2/video/eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+    "bytes": 479438089,
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "duration_s": 1034.1,
+    "access": "READ-ONLY; never modified",
+    "sha256": "NOT COMPUTED — 479 MB source asset, read-only; identity pinned by path + byte size + ffprobe stream properties, as in Laps H-2/M/N"
+  },
+  "record_corpus": {
+    "path": "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808",
+    "note": "Edition-III .arz set + templates.arc — the same pinned corpus Laps D/F/G/I/L/M/O/P walked; read-only"
+  },
+  "inputs": {
+    "pm4n_fct_events.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/pm4n_fct_events.csv",
+      "sha256": "cf8ed21815339bd62813237c73363e06db86b1758a725ff32567212ed0424ce2",
+      "sha256_len": 64,
+      "bytes": 242550,
+      "rows_excl_header": 2328,
+      "header": [
+        "frame",
+        "t_sec",
+        "text",
+        "ocr_conf",
+        "cls",
+        "damage",
+        "mult",
+        "bbox_x",
+        "bbox_y",
+        "bbox_w",
+        "bbox_h",
+        "mult_tokens",
+        "rgb_r",
+        "rgb_g",
+        "rgb_b",
+        "r_over_g",
+        "colour_class"
+      ],
+      "pinned_sha256": "cf8ed21815339bd62813237c73363e06db86b1758a725ff32567212ed0424ce2",
+      "verdict": "EXACT"
+    },
+    "build.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/method/build.py",
+      "sha256": "1d8032185626bd74ca7458b60f837b7beb106527a19cea3194387a71691bab9a",
+      "sha256_len": 64,
+      "bytes": 8348,
+      "pinned_sha256": "1d8032185626bd74ca7458b60f837b7beb106527a19cea3194387a71691bab9a",
+      "verdict": "EXACT"
+    },
+    "ocr.swift": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/method/ocr.swift",
+      "sha256": "1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1",
+      "sha256_len": 64,
+      "bytes": 1217,
+      "pinned_sha256": "1a96036ddbdfe4d55e2be31f534e9a9661db152dc71d4c36e18c684ab8b94ec1",
+      "verdict": "EXACT"
+    },
+    "camera_translation_60fps_683-866.npy": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-h2-video-match/method/camera_translation_60fps_683-866.npy",
+      "sha256": "029a8269af0f0cba39a9cb88bf15ed4478f66aa04068875bcdaa5655f971ea33",
+      "sha256_len": 64,
+      "bytes": 352896,
+      "pinned_sha256": "029a8269af0f0cba39a9cb88bf15ed4478f66aa04068875bcdaa5655f971ea33",
+      "verdict": "EXACT"
+    },
+    "player_hp_frac_60fps.npy": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-13-kc2-pm4-lap-h2-video-match/method/player_hp_frac_60fps.npy",
+      "sha256": "692cd4115f93e7761e2ffe10089426ce096cc4abb263ce201b8ffec578c370aa",
+      "sha256_len": 64,
+      "bytes": 170192,
+      "pinned_sha256": "692cd4115f93e7761e2ffe10089426ce096cc4abb263ce201b8ffec578c370aa",
+      "verdict": "EXACT"
+    },
+    "plates60_lapH2.npy": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/method/plates60_lapH2.npy",
+      "sha256": "28e7d9dfcdff9316ccde86fd116d55655f8fa0436cd06b95b38d3cd1ff7cf7df",
+      "sha256_len": 64,
+      "bytes": 5237408,
+      "pinned_sha256": "28e7d9dfcdff9316ccde86fd116d55655f8fa0436cd06b95b38d3cd1ff7cf7df",
+      "verdict": "EXACT",
+      "provenance": "Lap H-2 nameplate census (98,794 monster plates + 10,316 player rows over 11,039 frames at 60 fps, 683-866 s); copied out of /tmp/pm4h2 into this lap so the measurement stays reproducible",
+      "shape": [
+        109110,
+        6
+      ],
+      "columns": [
+        "t_sec",
+        "is_player",
+        "x_screen_px",
+        "y_screen_px",
+        "bar_width_px",
+        "aux"
+      ]
+    },
+    "measured-player-sheet.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-12-kc2-pm2-lap-a-player-sheet/measured-player-sheet.csv",
+      "sha256": "6852794382b9bf608f13433ea18be7a52d1f2f0942801e5bb7c4e1be8899badd",
+      "sha256_len": 64,
+      "bytes": 12537,
+      "rows_excl_header": 186,
+      "header": [
+        "stat",
+        "value",
+        "unit",
+        "source_screenshot_or_gdc",
+        "notes"
+      ],
+      "used_for": "player sheet run_speed = 135 % (row 35, screenshot 511)"
+    }
+  },
+  "outputs": {
+    "pm4r_fct_gaps.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_fct_gaps.csv",
+      "sha256": "636753a7b16c5a63c152a707729be98a4a13727803ec29ebffd87b654612e12e",
+      "sha256_len": 64,
+      "bytes": 3410,
+      "rows_excl_header": 44,
+      "header": [
+        "pass_tag",
+        "cadence_s",
+        "t_first_dry_sample",
+        "t_last_dry_sample",
+        "n_dry_samples",
+        "gap_raw_s",
+        "gap_lifetime_corrected_s",
+        "gap_corr_lo_s",
+        "gap_corr_hi_s",
+        "t_proven_start",
+        "t_proven_end",
+        "wave_at_start",
+        "wave_at_end",
+        "straddles_wave_boundary"
+      ]
+    },
+    "pm4r_movement_episodes.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+      "sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc",
+      "sha256_len": 64,
+      "bytes": 7137,
+      "rows_excl_header": 86,
+      "header": [
+        "episode_id",
+        "v_on_gpx_s",
+        "t_start",
+        "t_end",
+        "duration_s",
+        "wave",
+        "wave_at_end",
+        "mean_speed_gpx_s",
+        "peak_speed_gpx_s",
+        "path_len_gpx",
+        "net_displacement_gpx",
+        "straightness",
+        "channel_probed",
+        "channel_frames_sampled",
+        "channel_frames_with_player_damage",
+        "channeling_visible"
+      ]
+    },
+    "pm4r_speed_terms.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_speed_terms.csv",
+      "sha256": "a16c99300dc5254d55a978685287331abf633e8950f51827cfc538c6b37969d0",
+      "sha256_len": 64,
+      "bytes": 363084,
+      "rows_excl_header": 2073,
+      "header": [
+        "side",
+        "subject",
+        "record",
+        "archive",
+        "field",
+        "value",
+        "wave",
+        "level",
+        "active_status",
+        "basis"
+      ]
+    },
+    "pm4r_contact_occupancy.csv": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_contact_occupancy.csv",
+      "sha256": "913a57a34e58d5e2d9b29def163303ea680189234180986ba43e4f59f7bb20e6",
+      "sha256_len": 64,
+      "bytes": 3706,
+      "rows_excl_header": 28,
+      "header": [
+        "scope",
+        "wave",
+        "R_gpx",
+        "dry_fraction",
+        "mean_occupancy",
+        "median_occupancy",
+        "n_dry_runs",
+        "longest_dry_run_s",
+        "basis"
+      ]
+    },
+    "pm4r_findings.md": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+      "sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea",
+      "sha256_len": 64,
+      "bytes": 45620
+    },
+    "PREREGISTRATION.md": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/PREREGISTRATION.md",
+      "sha256": "dc49d0ba8f176ab1d4814d522e5183867fe2ad56334ed7251e81b3db124cec10",
+      "sha256_len": 64,
+      "bytes": 13158
+    },
+    "evidence/ep05-movwhilechan-701.3833.jpg": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/evidence/ep05-movwhilechan-701.3833.jpg",
+      "sha256": "c3352dff4e58896c49c698e05d0e5e9abda677d8a13cbf1157b685387e976333",
+      "sha256_len": 64,
+      "bytes": 139002
+    },
+    "evidence/ep05-movwhilechan-701.6833.jpg": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/evidence/ep05-movwhilechan-701.6833.jpg",
+      "sha256": "9d93e3e8cf662db2bc39dc4eea7017e686caeaf3b29bda21e72fe2cc6017bcfa",
+      "sha256_len": 64,
+      "bytes": 140287
+    },
+    "evidence/ep05-movwhilechan-701.9833.jpg": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/evidence/ep05-movwhilechan-701.9833.jpg",
+      "sha256": "fe58a2973d7191967f10ab524f16a6fcf9465bde799681ed24da3e95e4efb02c",
+      "sha256_len": 64,
+      "bytes": 145230
+    },
+    "evidence/ep05-movwhilechan-702.2833.jpg": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/evidence/ep05-movwhilechan-702.2833.jpg",
+      "sha256": "2bf8608594f73114a133e6b218e993629f4989b6a0f0950dcfb8255c339ee104",
+      "sha256_len": 64,
+      "bytes": 148002
+    },
+    "evidence/ep05-movwhilechan-702.4333.jpg": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/evidence/ep05-movwhilechan-702.4333.jpg",
+      "sha256": "1ff2a760b36e66a5189cefcefff3415b339751afa007dd0486265765e3f9b55c",
+      "sha256_len": 64,
+      "bytes": 142210
+    },
+    "method/plates60_lapH2.npy": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/method/plates60_lapH2.npy",
+      "sha256": "28e7d9dfcdff9316ccde86fd116d55655f8fa0436cd06b95b38d3cd1ff7cf7df",
+      "sha256_len": 64,
+      "bytes": 5237408,
+      "note": "re-emitted input, pinned here for durability"
+    }
+  },
+  "instruments": {
+    "pm4r_lib_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_lib_2026_08_14.py",
+      "sha256": "630bede0bbc10389dca79d04601d319d37a02f266d406c0aad837480b110762b",
+      "sha256_len": 64,
+      "bytes": 14820
+    },
+    "pm4r_fct_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_fct_2026_08_14.py",
+      "sha256": "5ae10a62f6f75213eeae14776dcc3afd5a8e5da1a22fac516ac6b46e532dcb1c",
+      "sha256_len": 64,
+      "bytes": 15425
+    },
+    "pm4r_locomotion_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_locomotion_2026_08_14.py",
+      "sha256": "9b612356d7d8e275bb2ce27ddc183b7522e625c22eabb07a58aa8e0ef8e2049b",
+      "sha256_len": 64,
+      "bytes": 21543
+    },
+    "pm4r_contact_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_contact_2026_08_14.py",
+      "sha256": "8994b96a8da280e031fd6d795e8db7b5894910c4b8a233b4b064e1010068f2a7",
+      "sha256_len": 64,
+      "bytes": 13956
+    },
+    "pm4r_channel_control_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_channel_control_2026_08_14.py",
+      "sha256": "91617ff61d4fb9099711f523e45a01f89b4047f63552514e3ce65ebb449d5c8d",
+      "sha256_len": 64,
+      "bytes": 8145
+    },
+    "pm4r_speed_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_speed_2026_08_14.py",
+      "sha256": "ccba4e7ff0b2b2d24688b50e285a0329933e8606ee7f4f918a19f6385568dd7a",
+      "sha256_len": 64,
+      "bytes": 17808
+    },
+    "pm4r_digests_2026_08_14.py": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/pm4r_digests_2026_08_14.py",
+      "sha256": "4f5d551cca4a5a445267373be023947283466bc4ed35194f063b413d51f270df",
+      "sha256_len": 64,
+      "bytes": 11235
+    }
+  },
+  "results": {
+    "limb_a_fct": {
+      "pass1": {
+        "tag": "P1_lapN_2.0s",
+        "cadence_s": 2.0,
+        "span": [
+          683.0,
+          864.0
+        ],
+        "n_samples": 91,
+        "n_pout_observations": 235,
+        "n_static_positions_excluded": 13,
+        "static_positions": [
+          "(0.01, 0.94)",
+          "(0.01, 0.97)",
+          "(0.06, 0.94)",
+          "(0.3, 0.05)",
+          "(0.49, 0.06)",
+          "(0.65, 0.05)",
+          "(0.72, 0.89)",
+          "(0.78, 0.89)",
+          "(0.82, 0.9)",
+          "(0.83, 0.85)",
+          "(0.87, 0.68)",
+          "(0.88, 0.66)",
+          "(0.89, 0.97)"
+        ],
+        "n_dry_samples": 19,
+        "dry_sample_fraction": 0.208791,
+        "n_gaps": 14,
+        "longest_gap_raw_s": 4.0,
+        "longest_gap_corr_s": 3.35,
+        "median_gap_raw_s": 2.0,
+        "total_dry_time_raw_s": 38.0,
+        "total_span_s": 183.0,
+        "proven_no_damage_union_s": 28.9,
+        "proven_no_damage_union_frac": 0.157923,
+        "n_union_intervals": 14,
+        "sweep_raw": {
+          "0.5": {
+            "n_gaps": 14,
+            "time_in_gaps_s": 38.0,
+            "frac_of_fight": 0.20765
+          },
+          "1.0": {
+            "n_gaps": 14,
+            "time_in_gaps_s": 38.0,
+            "frac_of_fight": 0.20765
+          },
+          "2.0": {
+            "n_gaps": 5,
+            "time_in_gaps_s": 20.0,
+            "frac_of_fight": 0.10929
+          },
+          "3.0": {
+            "n_gaps": 5,
+            "time_in_gaps_s": 20.0,
+            "frac_of_fight": 0.10929
+          },
+          "5.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          },
+          "10.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          }
+        },
+        "sweep_lifetime_corrected": {
+          "0.5": {
+            "n_gaps": 14,
+            "time_in_gaps_s": 28.9,
+            "frac_of_fight": 0.157923
+          },
+          "1.0": {
+            "n_gaps": 14,
+            "time_in_gaps_s": 28.9,
+            "frac_of_fight": 0.157923
+          },
+          "2.0": {
+            "n_gaps": 5,
+            "time_in_gaps_s": 16.75,
+            "frac_of_fight": 0.09153
+          },
+          "3.0": {
+            "n_gaps": 5,
+            "time_in_gaps_s": 16.75,
+            "frac_of_fight": 0.09153
+          },
+          "5.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          },
+          "10.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          }
+        }
+      },
+      "pass2": {
+        "tag": "P2_dense_0.5s",
+        "cadence_s": 0.5,
+        "span": [
+          683.0,
+          864.0
+        ],
+        "n_samples": 363,
+        "n_pout_observations": 1057,
+        "n_static_positions_excluded": 13,
+        "static_positions": [
+          "(0.01, 0.94)",
+          "(0.01, 0.97)",
+          "(0.06, 0.94)",
+          "(0.3, 0.05)",
+          "(0.49, 0.06)",
+          "(0.65, 0.05)",
+          "(0.72, 0.89)",
+          "(0.78, 0.89)",
+          "(0.82, 0.9)",
+          "(0.83, 0.85)",
+          "(0.87, 0.68)",
+          "(0.88, 0.66)",
+          "(0.89, 0.97)"
+        ],
+        "n_dry_samples": 60,
+        "dry_sample_fraction": 0.165289,
+        "n_gaps": 30,
+        "longest_gap_raw_s": 3.0,
+        "longest_gap_corr_s": 3.85,
+        "median_gap_raw_s": 0.5,
+        "total_dry_time_raw_s": 30.0,
+        "total_span_s": 181.5,
+        "proven_no_damage_union_s": 52.35,
+        "proven_no_damage_union_frac": 0.28843,
+        "n_union_intervals": 21,
+        "sweep_raw": {
+          "0.5": {
+            "n_gaps": 14,
+            "time_in_gaps_s": 22.0,
+            "frac_of_fight": 0.121212
+          },
+          "1.0": {
+            "n_gaps": 10,
+            "time_in_gaps_s": 18.0,
+            "frac_of_fight": 0.099174
+          },
+          "2.0": {
+            "n_gaps": 2,
+            "time_in_gaps_s": 5.5,
+            "frac_of_fight": 0.030303
+          },
+          "3.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          },
+          "5.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          },
+          "10.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          }
+        },
+        "sweep_lifetime_corrected": {
+          "0.5": {
+            "n_gaps": 30,
+            "time_in_gaps_s": 55.5,
+            "frac_of_fight": 0.305785
+          },
+          "1.0": {
+            "n_gaps": 30,
+            "time_in_gaps_s": 55.5,
+            "frac_of_fight": 0.305785
+          },
+          "2.0": {
+            "n_gaps": 10,
+            "time_in_gaps_s": 26.5,
+            "frac_of_fight": 0.146006
+          },
+          "3.0": {
+            "n_gaps": 2,
+            "time_in_gaps_s": 7.2,
+            "frac_of_fight": 0.039669
+          },
+          "5.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          },
+          "10.0": {
+            "n_gaps": 0,
+            "time_in_gaps_s": 0.0,
+            "frac_of_fight": 0.0
+          }
+        }
+      },
+      "w154": {
+        "wave": 154,
+        "t_start": 729.8,
+        "t_end": 744.0,
+        "span_s": 14.2,
+        "source_of_boundaries": "Lap H-2 OBS-H2-6 wave-counter digit crop 52x26 @ (1582,138), +-0.25 s",
+        "gaps": [
+          {
+            "pass_tag": "P2_dense_0.5s",
+            "cadence_s": 0.5,
+            "t_first_dry_sample": 731.0,
+            "t_last_dry_sample": 732.0,
+            "n_dry_samples": 3,
+            "gap_raw_s": 1.5,
+            "gap_lifetime_corrected_s": 2.35,
+            "gap_corr_lo_s": 2.2,
+            "gap_corr_hi_s": 2.5,
+            "t_proven_start": 729.65,
+            "t_proven_end": 732.0,
+            "wave_at_start": 154,
+            "wave_at_end": 154,
+            "straddles_wave_boundary": 0
+          }
+        ],
+        "longest_gap_raw_s": 1.5,
+        "longest_gap_corr_s": 2.35,
+        "dry_sample_fraction": 0.107143,
+        "n_pout_events": 95
+      },
+      "spawn_to_first_fct": [
+        {
+          "wave": 151,
+          "t_wave_increment": 683.0,
+          "t_first_pout_sample": 686.0,
+          "latency_fct_upper_s": 3.0,
+          "latency_fct_lower_s": 1.65
+        },
+        {
+          "wave": 152,
+          "t_wave_increment": 698.6,
+          "t_first_pout_sample": 699.0,
+          "latency_fct_upper_s": 0.4,
+          "latency_fct_lower_s": 0.0
+        },
+        {
+          "wave": 153,
+          "t_wave_increment": 714.9,
+          "t_first_pout_sample": 716.5,
+          "latency_fct_upper_s": 1.6,
+          "latency_fct_lower_s": 0.25
+        },
+        {
+          "wave": 154,
+          "t_wave_increment": 729.8,
+          "t_first_pout_sample": 730.0,
+          "latency_fct_upper_s": 0.2,
+          "latency_fct_lower_s": 0.0
+        },
+        {
+          "wave": 155,
+          "t_wave_increment": 744.0,
+          "t_first_pout_sample": 744.0,
+          "latency_fct_upper_s": 0.0,
+          "latency_fct_lower_s": 0.0
+        },
+        {
+          "wave": 156,
+          "t_wave_increment": 760.2,
+          "t_first_pout_sample": 760.5,
+          "latency_fct_upper_s": 0.3,
+          "latency_fct_lower_s": 0.0
+        },
+        {
+          "wave": 157,
+          "t_wave_increment": 780.4,
+          "t_first_pout_sample": 782.5,
+          "latency_fct_upper_s": 2.1,
+          "latency_fct_lower_s": 0.75
+        },
+        {
+          "wave": 158,
+          "t_wave_increment": 799.7,
+          "t_first_pout_sample": 801.5,
+          "latency_fct_upper_s": 1.8,
+          "latency_fct_lower_s": 0.45
+        },
+        {
+          "wave": 159,
+          "t_wave_increment": 812.7,
+          "t_first_pout_sample": 813.0,
+          "latency_fct_upper_s": 0.3,
+          "latency_fct_lower_s": 0.0
+        },
+        {
+          "wave": 160,
+          "t_wave_increment": 839.0,
+          "t_first_pout_sample": 839.0,
+          "latency_fct_upper_s": 0.0,
+          "latency_fct_lower_s": 0.0
+        }
+      ],
+      "emitted": {
+        "pm4r_fct_gaps.csv": {
+          "sha256": "636753a7b16c5a63c152a707729be98a4a13727803ec29ebffd87b654612e12e",
+          "rows": 44
+        }
+      },
+      "per_wave": [
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 151,
+          "t_start": 683.0,
+          "t_end": 698.6,
+          "span_s": 15.6,
+          "n_samples": 8,
+          "n_dry_samples": 1,
+          "dry_sample_fraction": 0.125,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 27
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 152,
+          "t_start": 698.6,
+          "t_end": 714.9,
+          "span_s": 16.3,
+          "n_samples": 8,
+          "n_dry_samples": 1,
+          "dry_sample_fraction": 0.125,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 19
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 153,
+          "t_start": 714.9,
+          "t_end": 729.8,
+          "span_s": 14.9,
+          "n_samples": 7,
+          "n_dry_samples": 2,
+          "dry_sample_fraction": 0.285714,
+          "n_gaps": 2,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 9
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 154,
+          "t_start": 729.8,
+          "t_end": 744.0,
+          "span_s": 14.2,
+          "n_samples": 7,
+          "n_dry_samples": 2,
+          "dry_sample_fraction": 0.285714,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 4.0,
+          "longest_gap_corr_s": 5.35,
+          "n_pout_events": 21
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 155,
+          "t_start": 744.0,
+          "t_end": 760.2,
+          "span_s": 16.2,
+          "n_samples": 9,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.333333,
+          "n_gaps": 2,
+          "longest_gap_raw_s": 4.0,
+          "longest_gap_corr_s": 5.35,
+          "n_pout_events": 11
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 156,
+          "t_start": 760.2,
+          "t_end": 780.4,
+          "span_s": 20.2,
+          "n_samples": 10,
+          "n_dry_samples": 1,
+          "dry_sample_fraction": 0.1,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 33
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 157,
+          "t_start": 780.4,
+          "t_end": 799.7,
+          "span_s": 19.3,
+          "n_samples": 9,
+          "n_dry_samples": 1,
+          "dry_sample_fraction": 0.111111,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 22
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 158,
+          "t_start": 799.7,
+          "t_end": 812.7,
+          "span_s": 13.0,
+          "n_samples": 7,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.428571,
+          "n_gaps": 2,
+          "longest_gap_raw_s": 4.0,
+          "longest_gap_corr_s": 5.35,
+          "n_pout_events": 15
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 159,
+          "t_start": 812.7,
+          "t_end": 839.0,
+          "span_s": 26.3,
+          "n_samples": 13,
+          "n_dry_samples": 2,
+          "dry_sample_fraction": 0.153846,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 4.0,
+          "longest_gap_corr_s": 5.35,
+          "n_pout_events": 39
+        },
+        {
+          "pass_tag": "P1_lapN_2.0s",
+          "wave": 160,
+          "t_start": 839.0,
+          "t_end": 864.0,
+          "span_s": 25.0,
+          "n_samples": 12,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.25,
+          "n_gaps": 2,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 31
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 151,
+          "t_start": 683.0,
+          "t_end": 698.6,
+          "span_s": 15.6,
+          "n_samples": 32,
+          "n_dry_samples": 7,
+          "dry_sample_fraction": 0.21875,
+          "n_gaps": 2,
+          "longest_gap_raw_s": 3.0,
+          "longest_gap_corr_s": 4.35,
+          "n_pout_events": 99
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 152,
+          "t_start": 698.6,
+          "t_end": 714.9,
+          "span_s": 16.3,
+          "n_samples": 32,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.09375,
+          "n_gaps": 3,
+          "longest_gap_raw_s": 0.5,
+          "longest_gap_corr_s": 1.85,
+          "n_pout_events": 95
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 153,
+          "t_start": 714.9,
+          "t_end": 729.8,
+          "span_s": 14.9,
+          "n_samples": 30,
+          "n_dry_samples": 11,
+          "dry_sample_fraction": 0.366667,
+          "n_gaps": 5,
+          "longest_gap_raw_s": 1.5,
+          "longest_gap_corr_s": 2.85,
+          "n_pout_events": 53
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 154,
+          "t_start": 729.8,
+          "t_end": 744.0,
+          "span_s": 14.2,
+          "n_samples": 28,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.107143,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 1.5,
+          "longest_gap_corr_s": 2.85,
+          "n_pout_events": 95
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 155,
+          "t_start": 744.0,
+          "t_end": 760.2,
+          "span_s": 16.2,
+          "n_samples": 33,
+          "n_dry_samples": 10,
+          "dry_sample_fraction": 0.30303,
+          "n_gaps": 5,
+          "longest_gap_raw_s": 1.5,
+          "longest_gap_corr_s": 2.85,
+          "n_pout_events": 55
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 156,
+          "t_start": 760.2,
+          "t_end": 780.4,
+          "span_s": 20.2,
+          "n_samples": 40,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.075,
+          "n_gaps": 3,
+          "longest_gap_raw_s": 2.5,
+          "longest_gap_corr_s": 3.85,
+          "n_pout_events": 112
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 157,
+          "t_start": 780.4,
+          "t_end": 799.7,
+          "span_s": 19.3,
+          "n_samples": 39,
+          "n_dry_samples": 5,
+          "dry_sample_fraction": 0.128205,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 0.5,
+          "longest_gap_corr_s": 1.85,
+          "n_pout_events": 133
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 158,
+          "t_start": 799.7,
+          "t_end": 812.7,
+          "span_s": 13.0,
+          "n_samples": 26,
+          "n_dry_samples": 3,
+          "dry_sample_fraction": 0.115385,
+          "n_gaps": 1,
+          "longest_gap_raw_s": 1.5,
+          "longest_gap_corr_s": 2.85,
+          "n_pout_events": 85
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 159,
+          "t_start": 812.7,
+          "t_end": 839.0,
+          "span_s": 26.3,
+          "n_samples": 52,
+          "n_dry_samples": 5,
+          "dry_sample_fraction": 0.096154,
+          "n_gaps": 3,
+          "longest_gap_raw_s": 1.5,
+          "longest_gap_corr_s": 2.85,
+          "n_pout_events": 165
+        },
+        {
+          "pass_tag": "P2_dense_0.5s",
+          "wave": 160,
+          "t_start": 839.0,
+          "t_end": 864.0,
+          "span_s": 25.0,
+          "n_samples": 50,
+          "n_dry_samples": 10,
+          "dry_sample_fraction": 0.2,
+          "n_gaps": 6,
+          "longest_gap_raw_s": 2.0,
+          "longest_gap_corr_s": 3.35,
+          "n_pout_events": 143
+        }
+      ]
+    },
+    "limb_b_locomotion": {
+      "episodes": {
+        "v_on_primary": 200.0,
+        "n": 86,
+        "total_moving_s": 143.866,
+        "moving_fraction": 0.794842,
+        "span_s": 181.0,
+        "median_duration_s": 1.2583,
+        "longest_s": 8.6833,
+        "stationary_fraction": 0.205158,
+        "sensitivity": {
+          "100.0": {
+            "n": 80,
+            "total_s": 150.983,
+            "frac": 0.834162
+          },
+          "200.0": {
+            "n": 86,
+            "total_s": 143.867,
+            "frac": 0.794843
+          },
+          "400.0": {
+            "n": 83,
+            "total_s": 112.817,
+            "frac": 0.623297
+          }
+        }
+      },
+      "longest_stationary_spans": [
+        {
+          "t_start": 841.617,
+          "t_end": 843.35,
+          "duration_s": 1.733,
+          "wave": 160
+        },
+        {
+          "t_start": 815.733,
+          "t_end": 817.383,
+          "duration_s": 1.65,
+          "wave": 159
+        },
+        {
+          "t_start": 810.55,
+          "t_end": 812.017,
+          "duration_s": 1.467,
+          "wave": 158
+        },
+        {
+          "t_start": 823.983,
+          "t_end": 825.267,
+          "duration_s": 1.283,
+          "wave": 159
+        },
+        {
+          "t_start": 758.017,
+          "t_end": 759.25,
+          "duration_s": 1.233,
+          "wave": 155
+        },
+        {
+          "t_start": 728.5,
+          "t_end": 729.65,
+          "duration_s": 1.15,
+          "wave": 153
+        },
+        {
+          "t_start": 833.2,
+          "t_end": 834.25,
+          "duration_s": 1.05,
+          "wave": 159
+        },
+        {
+          "t_start": 683.0,
+          "t_end": 684.017,
+          "duration_s": 1.017,
+          "wave": 151
+        },
+        {
+          "t_start": 771.867,
+          "t_end": 772.85,
+          "duration_s": 0.983,
+          "wave": 156
+        },
+        {
+          "t_start": 838.683,
+          "t_end": 839.6,
+          "duration_s": 0.917,
+          "wave": 159
+        }
+      ],
+      "per_wave_movement": [
+        {
+          "wave": 151,
+          "span_s": 15.6,
+          "n_episodes": 5,
+          "moving_frame_frac": 0.7628,
+          "total_episode_s": 15.033,
+          "median_episode_s": 2.833
+        },
+        {
+          "wave": 152,
+          "span_s": 16.3,
+          "n_episodes": 8,
+          "moving_frame_frac": 0.818,
+          "total_episode_s": 13.117,
+          "median_episode_s": 1.233
+        },
+        {
+          "wave": 153,
+          "span_s": 14.9,
+          "n_episodes": 8,
+          "moving_frame_frac": 0.6957,
+          "total_episode_s": 13.3,
+          "median_episode_s": 1.417
+        },
+        {
+          "wave": 154,
+          "span_s": 14.2,
+          "n_episodes": 8,
+          "moving_frame_frac": 0.6444,
+          "total_episode_s": 14.267,
+          "median_episode_s": 0.667
+        },
+        {
+          "wave": 155,
+          "span_s": 16.2,
+          "n_episodes": 6,
+          "moving_frame_frac": 0.8045,
+          "total_episode_s": 7.833,
+          "median_episode_s": 0.875
+        },
+        {
+          "wave": 156,
+          "span_s": 20.2,
+          "n_episodes": 9,
+          "moving_frame_frac": 0.7591,
+          "total_episode_s": 15.767,
+          "median_episode_s": 1.75
+        },
+        {
+          "wave": 157,
+          "span_s": 19.3,
+          "n_episodes": 14,
+          "moving_frame_frac": 0.715,
+          "total_episode_s": 15.233,
+          "median_episode_s": 0.608
+        },
+        {
+          "wave": 158,
+          "span_s": 13.0,
+          "n_episodes": 3,
+          "moving_frame_frac": 0.7885,
+          "total_episode_s": 11.6,
+          "median_episode_s": 1.633
+        },
+        {
+          "wave": 159,
+          "span_s": 26.3,
+          "n_episodes": 11,
+          "moving_frame_frac": 0.6774,
+          "total_episode_s": 19.333,
+          "median_episode_s": 1.65
+        },
+        {
+          "wave": 160,
+          "span_s": 25.0,
+          "n_episodes": 14,
+          "moving_frame_frac": 0.7027,
+          "total_episode_s": 18.383,
+          "median_episode_s": 1.367
+        }
+      ],
+      "validation": {
+        "rows": [
+          {
+            "t": 794.15,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 117.51,
+            "ncc_disp_gpx": 135.54,
+            "ncc_peak": 0.714,
+            "rel_err": 0.1534
+          },
+          {
+            "t": 785.6167,
+            "class_trace": "moving",
+            "class_ncc": "stationary",
+            "agree": 0,
+            "trace_disp_gpx": 15.39,
+            "ncc_disp_gpx": 13.04,
+            "ncc_peak": 0.9918,
+            "rel_err": 0.1529
+          },
+          {
+            "t": 782.75,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 132.27,
+            "ncc_disp_gpx": 102.66,
+            "ncc_peak": 0.8899,
+            "rel_err": 0.2239
+          },
+          {
+            "t": 717.45,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 275.45,
+            "ncc_disp_gpx": 306.77,
+            "ncc_peak": 0.5824,
+            "rel_err": 0.1137
+          },
+          {
+            "t": 838.3167,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 78.93,
+            "ncc_disp_gpx": 59.18,
+            "ncc_peak": 0.9205,
+            "rel_err": 0.2502
+          },
+          {
+            "t": 846.5333,
+            "class_trace": "moving",
+            "class_ncc": "stationary",
+            "agree": 0,
+            "trace_disp_gpx": 57.7,
+            "ncc_disp_gpx": 43.25,
+            "ncc_peak": 0.8958,
+            "rel_err": 0.2504
+          },
+          {
+            "t": 799.2,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 58.37,
+            "ncc_disp_gpx": 50.64,
+            "ncc_peak": 0.9235,
+            "rel_err": 0.1325
+          },
+          {
+            "t": 702.1667,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 48.27,
+            "ncc_disp_gpx": 51.14,
+            "ncc_peak": 0.9237,
+            "rel_err": 0.0596
+          },
+          {
+            "t": 735.3167,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 52.32,
+            "ncc_disp_gpx": 55.32,
+            "ncc_peak": 0.9582,
+            "rel_err": 0.0574
+          },
+          {
+            "t": 716.7167,
+            "class_trace": "moving",
+            "class_ncc": "moving",
+            "agree": 1,
+            "trace_disp_gpx": 108.63,
+            "ncc_disp_gpx": 113.72,
+            "ncc_peak": 0.8339,
+            "rel_err": 0.0468
+          },
+          {
+            "t": 771.9667,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 0.12,
+            "ncc_disp_gpx": 0.0,
+            "ncc_peak": 0.9963,
+            "rel_err": 1.0
+          },
+          {
+            "t": 810.6,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 0.28,
+            "ncc_disp_gpx": 0.0,
+            "ncc_peak": 0.9932,
+            "rel_err": 1.0
+          },
+          {
+            "t": 701.0167,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 22.27,
+            "ncc_disp_gpx": 23.23,
+            "ncc_peak": 0.9153,
+            "rel_err": 0.043
+          },
+          {
+            "t": 700.9,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 11.8,
+            "ncc_disp_gpx": 14.12,
+            "ncc_peak": 0.929,
+            "rel_err": 0.1969
+          },
+          {
+            "t": 758.8333,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 4.38,
+            "ncc_disp_gpx": 4.23,
+            "ncc_peak": 0.98,
+            "rel_err": 0.0354
+          },
+          {
+            "t": 856.9,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 9.16,
+            "ncc_disp_gpx": 0.0,
+            "ncc_peak": 0.9492,
+            "rel_err": 1.0
+          },
+          {
+            "t": 816.0,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 0.04,
+            "ncc_disp_gpx": 0.0,
+            "ncc_peak": 0.9978,
+            "rel_err": 1.0
+          },
+          {
+            "t": 842.1333,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 60.82,
+            "ncc_disp_gpx": 44.22,
+            "ncc_peak": 0.8547,
+            "rel_err": 0.2729
+          },
+          {
+            "t": 775.9,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 5.98,
+            "ncc_disp_gpx": 3.86,
+            "ncc_peak": 0.9838,
+            "rel_err": 0.3553
+          },
+          {
+            "t": 735.8167,
+            "class_trace": "stationary",
+            "class_ncc": "stationary",
+            "agree": 1,
+            "trace_disp_gpx": 9.8,
+            "ncc_disp_gpx": 10.13,
+            "ncc_peak": 0.9758,
+            "rel_err": 0.0337
+          }
+        ],
+        "n_agree": 18,
+        "n": 20,
+        "median_rel_err_moving": 0.14274,
+        "verdict": "PASS",
+        "pass_criterion": {
+          "min_agree": 16,
+          "max_median_rel_err": 0.25
+        }
+      },
+      "channeling": {
+        "verdict": "CONTINUES",
+        "n_moving_frames": 148,
+        "n_stationary_frames": 120,
+        "fct_present_moving_frac": 0.52703,
+        "fct_present_stationary_frac": 0.75833,
+        "fct_ratio": 0.69498,
+        "ring_ratio_moving_median": 1.69954,
+        "ring_ratio_stationary_median": 1.74563,
+        "ring_ratio_moving_p25_p75": [
+          1.4529,
+          2.0664
+        ],
+        "ring_ratio_stationary_p25_p75": [
+          1.3934,
+          2.1976
+        ],
+        "episodes_probed": [
+          {
+            "episode_id": 5,
+            "t_start": 701.3833,
+            "t_end": 702.4333,
+            "mean_speed_gpx_s": 908.14,
+            "wave": 152
+          },
+          {
+            "episode_id": 55,
+            "t_start": 797.65,
+            "t_end": 798.1833,
+            "mean_speed_gpx_s": 826.38,
+            "wave": 157
+          },
+          {
+            "episode_id": 34,
+            "t_start": 760.1,
+            "t_end": 760.7167,
+            "mean_speed_gpx_s": 758.21,
+            "wave": 155
+          },
+          {
+            "episode_id": 58,
+            "t_start": 799.9333,
+            "t_end": 801.5667,
+            "mean_speed_gpx_s": 752.27,
+            "wave": 158
+          },
+          {
+            "episode_id": 18,
+            "t_start": 724.7333,
+            "t_end": 726.05,
+            "mean_speed_gpx_s": 750.72,
+            "wave": 153
+          },
+          {
+            "episode_id": 19,
+            "t_start": 726.2,
+            "t_end": 728.5,
+            "mean_speed_gpx_s": 707.85,
+            "wave": 153
+          },
+          {
+            "episode_id": 79,
+            "t_start": 847.9833,
+            "t_end": 848.4167,
+            "mean_speed_gpx_s": 662.82,
+            "wave": 160
+          },
+          {
+            "episode_id": 13,
+            "t_start": 716.35,
+            "t_end": 717.8167,
+            "mean_speed_gpx_s": 650.53,
+            "wave": 153
+          },
+          {
+            "episode_id": 64,
+            "t_start": 819.7833,
+            "t_end": 820.2667,
+            "mean_speed_gpx_s": 633.91,
+            "wave": 159
+          },
+          {
+            "episode_id": 30,
+            "t_start": 752.1333,
+            "t_end": 755.9,
+            "mean_speed_gpx_s": 608.12,
+            "wave": 155
+          },
+          {
+            "episode_id": 49,
+            "t_start": 785.95,
+            "t_end": 786.3833,
+            "mean_speed_gpx_s": 605.24,
+            "wave": 157
+          },
+          {
+            "episode_id": 44,
+            "t_start": 780.5667,
+            "t_end": 781.8,
+            "mean_speed_gpx_s": 604.69,
+            "wave": 157
+          }
+        ],
+        "witnessed_frames_t_sec": [
+          701.6833,
+          701.9833,
+          702.0833,
+          702.1833,
+          702.2833,
+          724.7333,
+          724.8333,
+          724.9333,
+          725.0333,
+          725.4333,
+          725.5333,
+          725.9333,
+          726.2,
+          726.3,
+          726.6,
+          727.2,
+          727.3,
+          727.4,
+          727.5,
+          727.6,
+          727.8,
+          727.9,
+          752.1333,
+          752.2333,
+          752.3333,
+          752.4333,
+          752.5333,
+          752.6333,
+          752.7333,
+          752.8333,
+          752.9333,
+          753.0333,
+          753.1333,
+          753.3333,
+          753.4333,
+          753.5333,
+          753.6333,
+          753.7333,
+          753.8333,
+          753.9333,
+          754.0333,
+          754.1333,
+          754.2333,
+          754.3333,
+          754.5333,
+          754.6333,
+          754.7333,
+          754.8333,
+          754.9333,
+          755.0333,
+          755.1333,
+          755.2333,
+          755.3333,
+          755.4333,
+          755.7333,
+          760.1,
+          760.2,
+          760.3,
+          760.4,
+          760.5,
+          760.6,
+          785.95,
+          786.05,
+          786.15,
+          786.25,
+          797.65,
+          797.75,
+          797.95,
+          798.05,
+          801.4333,
+          819.7833,
+          819.8833,
+          819.9833,
+          820.0833,
+          847.9833,
+          848.0833,
+          848.1833,
+          848.2833
+        ],
+        "witnessed_frames_frame_no": [
+          42101,
+          42119,
+          42125,
+          42131,
+          42137,
+          43484,
+          43490,
+          43496,
+          43502,
+          43526,
+          43532,
+          43556,
+          43572,
+          43578,
+          43596,
+          43632,
+          43638,
+          43644,
+          43650,
+          43656,
+          43668,
+          43674,
+          45128,
+          45134,
+          45140,
+          45146,
+          45152,
+          45158,
+          45164,
+          45170,
+          45176,
+          45182,
+          45188,
+          45200,
+          45206,
+          45212,
+          45218,
+          45224,
+          45230,
+          45236,
+          45242,
+          45248,
+          45254,
+          45260,
+          45272,
+          45278,
+          45284,
+          45290,
+          45296,
+          45302,
+          45308,
+          45314,
+          45320,
+          45326,
+          45344,
+          45606,
+          45612,
+          45618,
+          45624,
+          45630,
+          45636,
+          47157,
+          47163,
+          47169,
+          47175,
+          47859,
+          47865,
+          47877,
+          47883,
+          48086,
+          49187,
+          49193,
+          49199,
+          49205,
+          50879,
+          50885,
+          50891,
+          50897
+        ],
+        "note9": "pixels cannot name WHICH skill draws the ring; ceiling is 'a player-centred channel VFX persists', never 'eyeofreckoning1 specifically persists'"
+      },
+      "spawn_to_first_contact_plate": [
+        {
+          "wave": 151,
+          "t_wave_increment": 683.0,
+          "t_first_contact_R120": 685.9167,
+          "latency_plate_R120_s": 2.917,
+          "t_first_contact_R150": 685.9167,
+          "latency_plate_R150_s": 2.917,
+          "t_first_contact_R180": 685.85,
+          "latency_plate_R180_s": 2.85
+        },
+        {
+          "wave": 152,
+          "t_wave_increment": 698.6,
+          "t_first_contact_R120": 698.7833,
+          "latency_plate_R120_s": 0.183,
+          "t_first_contact_R150": 698.7833,
+          "latency_plate_R150_s": 0.183,
+          "t_first_contact_R180": 698.7833,
+          "latency_plate_R180_s": 0.183
+        },
+        {
+          "wave": 153,
+          "t_wave_increment": 714.9,
+          "t_first_contact_R120": 714.95,
+          "latency_plate_R120_s": 0.05,
+          "t_first_contact_R150": 714.95,
+          "latency_plate_R150_s": 0.05,
+          "t_first_contact_R180": 714.95,
+          "latency_plate_R180_s": 0.05
+        },
+        {
+          "wave": 154,
+          "t_wave_increment": 729.8,
+          "t_first_contact_R120": 729.8167,
+          "latency_plate_R120_s": 0.017,
+          "t_first_contact_R150": 729.8167,
+          "latency_plate_R150_s": 0.017,
+          "t_first_contact_R180": 729.8167,
+          "latency_plate_R180_s": 0.017
+        },
+        {
+          "wave": 155,
+          "t_wave_increment": 744.0,
+          "t_first_contact_R120": 744.05,
+          "latency_plate_R120_s": 0.05,
+          "t_first_contact_R150": 744.05,
+          "latency_plate_R150_s": 0.05,
+          "t_first_contact_R180": 744.05,
+          "latency_plate_R180_s": 0.05
+        },
+        {
+          "wave": 156,
+          "t_wave_increment": 760.2,
+          "t_first_contact_R120": 762.5,
+          "latency_plate_R120_s": 2.3,
+          "t_first_contact_R150": 761.5833,
+          "latency_plate_R150_s": 1.383,
+          "t_first_contact_R180": 761.5833,
+          "latency_plate_R180_s": 1.383
+        },
+        {
+          "wave": 157,
+          "t_wave_increment": 780.4,
+          "t_first_contact_R120": 780.5,
+          "latency_plate_R120_s": 0.1,
+          "t_first_contact_R150": 780.5,
+          "latency_plate_R150_s": 0.1,
+          "t_first_contact_R180": 780.5,
+          "latency_plate_R180_s": 0.1
+        },
+        {
+          "wave": 158,
+          "t_wave_increment": 799.7,
+          "t_first_contact_R120": 800.1,
+          "latency_plate_R120_s": 0.4,
+          "t_first_contact_R150": 800.1,
+          "latency_plate_R150_s": 0.4,
+          "t_first_contact_R180": 800.1,
+          "latency_plate_R180_s": 0.4
+        },
+        {
+          "wave": 159,
+          "t_wave_increment": 812.7,
+          "t_first_contact_R120": 812.7333,
+          "latency_plate_R120_s": 0.033,
+          "t_first_contact_R150": 812.7333,
+          "latency_plate_R150_s": 0.033,
+          "t_first_contact_R180": 812.7333,
+          "latency_plate_R180_s": 0.033
+        },
+        {
+          "wave": 160,
+          "t_wave_increment": 839.0,
+          "t_first_contact_R120": 839.0167,
+          "latency_plate_R120_s": 0.017,
+          "t_first_contact_R150": 839.0,
+          "latency_plate_R150_s": 0.0,
+          "t_first_contact_R180": 839.0,
+          "latency_plate_R180_s": 0.0
+        }
+      ],
+      "emitted": {
+        "pm4r_movement_episodes.csv": {
+          "sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc",
+          "rows": 86
+        }
+      }
+    },
+    "limb_c_speed_terms": {
+      "player_base_records": [
+        {
+          "record": "records/creatures/pc/malepc01.dbr",
+          "archive": "gdx3",
+          "values": {
+            "characterRunSpeed": 0.9300000071525574,
+            "characterRunSpeedModifier": 0.0,
+            "characterRunSpeedJitter": 0.0,
+            "walkSpeed": 1.0,
+            "maxRotationSpeed": 40.0,
+            "minRotationSpeed": 10.0,
+            "characterAttackSpeed": 1.25,
+            "characterAttackSpeedModifier": 0.0
+          }
+        },
+        {
+          "record": "records/creatures/pc/femalepc01.dbr",
+          "archive": "gdx3",
+          "values": {
+            "characterRunSpeed": 0.9300000071525574,
+            "characterRunSpeedModifier": 0.0,
+            "characterRunSpeedJitter": 0.0,
+            "walkSpeed": 1.0,
+            "maxRotationSpeed": 40.0,
+            "minRotationSpeed": 10.0,
+            "characterAttackSpeed": 1.25,
+            "characterAttackSpeedModifier": 0.0
+          }
+        }
+      ],
+      "gameengine_speed_fields": {
+        "absoluteRunSpeedCapMax": 350.0,
+        "absoluteRunSpeedCapMin": [
+          40.0,
+          30.0,
+          20.0
+        ],
+        "attackSpeedDamageFxPak": "records/fx/damagedefault/dmgdur_physicaldmgreduction_chfxpak01.dbr",
+        "bossAttackSpeedCapMax": 500.0,
+        "bossAttackSpeedCapMin": 50.0,
+        "bossRunSpeedCapMax": 500.0,
+        "bossRunSpeedCapMin": 40.0,
+        "bossSpellCastSpeedCapMax": 500.0,
+        "bossSpellCastSpeedCapMin": 50.0,
+        "dwWeaponSpeedFactor": 0.5,
+        "maxPlayerRotationSpeed": 30.0,
+        "maxRotationSpeed": 16.0,
+        "minPlayerRotationSpeed": 19.0,
+        "minRotationSpeed": 8.0,
+        "monsterAttackSpeedCapMax": 500.0,
+        "monsterAttackSpeedCapMin": [
+          20.0,
+          30.0,
+          40.0
+        ],
+        "monsterRunSpeedCapMax": 500.0,
+        "monsterRunSpeedCapMin": [
+          20.0,
+          25.0,
+          30.0
+        ],
+        "monsterSpellCastSpeedCapMax": 500.0,
+        "monsterSpellCastSpeedCapMin": [
+          20.0,
+          30.0,
+          40.0
+        ],
+        "playerAttackSpeedCapMax": 200.0,
+        "playerAttackSpeedCapMin": 20.0,
+        "playerRunSpeedCapMax": 135.0,
+        "playerRunSpeedCapMin": 20.0,
+        "playerSpellCastSpeedCapMax": 200.0,
+        "playerSpellCastSpeedCapMin": 20.0,
+        "runSpeedDamageFxPak": "records/fx/damagedefault/dmgdur_slowspeed_chfxpak01.dbr",
+        "spellCastSpeedDamageFxPak": "records/fx/damagedefault/dmgdur_elementaldmgreduction_chfxpak01.dbr"
+      },
+      "player_kit_runspeed_hits": [
+        {
+          "subject": "gear:component",
+          "record": "records/items/materia/compb_chainsofoleron.dbr",
+          "archive": "base",
+          "fields": {
+            "characterRunSpeedModifier": 6.0
+          },
+          "note": "slot chest"
+        },
+        {
+          "subject": "gear:base",
+          "record": "records/items/upgraded/gearfeet/d007_feet.dbr",
+          "archive": "gdx3",
+          "fields": {
+            "characterRunSpeedModifier": 10.0
+          },
+          "note": "slot feet"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/default/defaultevade.dbr",
+          "archive": "base",
+          "fields": {
+            "characterRunSpeedModifier": 250.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/playerclass01/blitz1.dbr",
+          "archive": "base",
+          "fields": {
+            "characterRunSpeedModifier": 300.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/playerclass09/viremight1.dbr",
+          "archive": "gdx2",
+          "fields": {
+            "characterRunSpeedModifier": 250.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/devotion/tier2_02b.dbr",
+          "archive": "base",
+          "fields": {
+            "characterRunSpeedModifier": 6.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/devotion/tier2_21d.dbr",
+          "archive": "base",
+          "fields": {
+            "characterRunSpeedModifier": 5.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/devotion/tier1_39b.dbr",
+          "archive": "gdx1",
+          "fields": {
+            "characterRunSpeedModifier": 5.0
+          },
+          "note": "rank 1"
+        },
+        {
+          "subject": "allocated_skill",
+          "record": "records/skills/devotion/tier3_20c.dbr",
+          "archive": "gdx2",
+          "fields": {
+            "characterRunSpeedModifier": 6.0
+          },
+          "note": "rank 1"
+        }
+      ],
+      "player_kit_records_probed": 151,
+      "monster_runspeed": {
+        "n_records": 169,
+        "n_with_field": 169,
+        "n_unreached": 0,
+        "unreached_records": [],
+        "min": 0.6000000238418579,
+        "p25": 0.8999999761581421,
+        "median": 1.0,
+        "p75": 1.100000023841858,
+        "max": 1.5499999523162842,
+        "mean": 0.9880473423286302,
+        "histogram": {
+          "0.6": 8,
+          "0.66": 8,
+          "0.7": 6,
+          "0.75": 4,
+          "0.8": 12,
+          "0.85": 3,
+          "0.9": 15,
+          "1.0": 48,
+          "1.05": 3,
+          "1.1": 25,
+          "1.12": 2,
+          "1.15": 12,
+          "1.16": 1,
+          "1.2": 11,
+          "1.25": 2,
+          "1.3": 1,
+          "1.35": 4,
+          "1.4": 2,
+          "1.45": 1,
+          "1.55": 1
+        },
+        "actor_weighted_median": 1.0,
+        "actor_weighted_mean": 0.9873837237787801,
+        "n_rostered_bodies": 344,
+        "jitter_values": [
+          0.0,
+          10.0,
+          15.0,
+          20.0,
+          25.0,
+          30.0
+        ],
+        "slowest": [
+          [
+            "records/creatures/enemies/devotion/ghost_h01.dbr",
+            0.6000000238418579
+          ],
+          [
+            "records/creatures/enemies/devotion/ghost_h02.dbr",
+            0.6000000238418579
+          ],
+          [
+            "records/creatures/enemies/ghost_a01.dbr",
+            0.6000000238418579
+          ],
+          [
+            "records/creatures/enemies/ghost_a02.dbr",
+            0.6000000238418579
+          ],
+          [
+            "records/creatures/enemies/ghost_b01.dbr",
+            0.6000000238418579
+          ],
+          [
+            "records/creatures/enemies/ghost_b02.dbr",
+            0.6000000238418579
+          ]
+        ],
+        "fastest": [
+          [
+            "records/creatures/enemies/swampgolem_a01.dbr",
+            1.5499999523162842
+          ],
+          [
+            "records/creatures/enemies/boss&quest/skeletalgolem_stepsoftorment_01.dbr",
+            1.4500000476837158
+          ],
+          [
+            "records/creatures/enemies/boss&quest/dermapteran_madqueen.dbr",
+            1.399999976158142
+          ],
+          [
+            "records/creatures/enemies/boss&quest/swampgolem_bargoll.dbr",
+            1.399999976158142
+          ],
+          [
+            "records/creatures/enemies/bounties/ro_bounty19.dbr",
+            1.350000023841858
+          ],
+          [
+            "records/creatures/enemies/hero/swampgolem_h01.dbr",
+            1.350000023841858
+          ]
+        ]
+      },
+      "monster_runspeed_per_wave": [
+        {
+          "wave": 151,
+          "n_bodies": 28,
+          "mean_runspeed": 0.8196,
+          "median_runspeed": 0.6,
+          "min_runspeed": 0.6,
+          "max_runspeed": 1.55
+        },
+        {
+          "wave": 152,
+          "n_bodies": 18,
+          "mean_runspeed": 1.0572,
+          "median_runspeed": 1.12,
+          "min_runspeed": 0.85,
+          "max_runspeed": 1.2
+        },
+        {
+          "wave": 153,
+          "n_bodies": 24,
+          "mean_runspeed": 1.0379,
+          "median_runspeed": 1.0,
+          "min_runspeed": 0.66,
+          "max_runspeed": 1.55
+        },
+        {
+          "wave": 154,
+          "n_bodies": 13,
+          "mean_runspeed": 0.8154,
+          "median_runspeed": 0.75,
+          "min_runspeed": 0.7,
+          "max_runspeed": 1.1
+        },
+        {
+          "wave": 155,
+          "n_bodies": 18,
+          "mean_runspeed": 1.1444,
+          "median_runspeed": 1.15,
+          "min_runspeed": 1.0,
+          "max_runspeed": 1.25
+        },
+        {
+          "wave": 156,
+          "n_bodies": 19,
+          "mean_runspeed": 0.9974,
+          "median_runspeed": 1.1,
+          "min_runspeed": 0.8,
+          "max_runspeed": 1.15
+        },
+        {
+          "wave": 157,
+          "n_bodies": 21,
+          "mean_runspeed": 0.9214,
+          "median_runspeed": 1.0,
+          "min_runspeed": 0.7,
+          "max_runspeed": 1.2
+        },
+        {
+          "wave": 158,
+          "n_bodies": 33,
+          "mean_runspeed": 1.0545,
+          "median_runspeed": 1.0,
+          "min_runspeed": 0.9,
+          "max_runspeed": 1.2
+        },
+        {
+          "wave": 159,
+          "n_bodies": 9,
+          "mean_runspeed": 1.0911,
+          "median_runspeed": 1.1,
+          "min_runspeed": 0.66,
+          "max_runspeed": 1.45
+        },
+        {
+          "wave": 160,
+          "n_bodies": 5,
+          "mean_runspeed": 1.1,
+          "median_runspeed": 1.1,
+          "min_runspeed": 1.0,
+          "max_runspeed": 1.2
+        }
+      ],
+      "eor_channel_rule": {
+        "Class": "Skill_AttackRadiusSpin",
+        "canUseWhileMoving": true,
+        "delayMovement": true,
+        "rotationSpeedMultiplier": 0.3499999940395355,
+        "skillTargetRadius": 3.0,
+        "timeBetweenAttacks": 200,
+        "duration": 0.25,
+        "useResetsDuration": true,
+        "characterRunSpeed": "MEASURED-ABSENT",
+        "characterRunSpeedModifier": "MEASURED-ABSENT",
+        "forceMovement": "MEASURED-ABSENT",
+        "instantCast": "MEASURED-ABSENT",
+        "skillCooldownTime": "MEASURED-ABSENT"
+      },
+      "crucible_spawn_geometry": "UNREACHED",
+      "emitted": {
+        "pm4r_speed_terms.csv": {
+          "sha256": "a16c99300dc5254d55a978685287331abf633e8950f51827cfc538c6b37969d0",
+          "rows": 2073
+        }
+      }
+    },
+    "contact_occupancy": {
+      "n_instants": 10216,
+      "span": [
+        683.0,
+        864.0
+      ],
+      "source": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/method/plates60_lapH2.npy",
+      "source_sha256": "28e7d9dfcdff9316ccde86fd116d55655f8fa0436cd06b95b38d3cd1ff7cf7df",
+      "bound_direction": "plate absence does not prove body absence -> counts are LOWER bounds -> dry fraction is an UPPER BOUND",
+      "R120": {
+        "dry_fraction": 0.500098,
+        "n_dry": 5109,
+        "n": 10216,
+        "mean_occupancy": 0.9464,
+        "median_occupancy": 0.0,
+        "p90_occupancy": 3.0,
+        "max_occupancy": 9
+      },
+      "R150": {
+        "dry_fraction": 0.412099,
+        "n_dry": 4210,
+        "n": 10216,
+        "mean_occupancy": 1.2844,
+        "median_occupancy": 1.0,
+        "p90_occupancy": 3.0,
+        "max_occupancy": 10
+      },
+      "R180": {
+        "dry_fraction": 0.352584,
+        "n_dry": 3602,
+        "n": 10216,
+        "mean_occupancy": 1.6513,
+        "median_occupancy": 1.0,
+        "p90_occupancy": 4.0,
+        "max_occupancy": 12
+      },
+      "radius_curve": [
+        {
+          "R_gpx": 60,
+          "dry_fraction": 0.752447,
+          "mean_occupancy": 0.3388,
+          "median_occupancy": 0.0,
+          "n_dry_runs": 778,
+          "longest_dry_run_s": 4.4
+        },
+        {
+          "R_gpx": 80,
+          "dry_fraction": 0.670517,
+          "mean_occupancy": 0.5128,
+          "median_occupancy": 0.0,
+          "n_dry_runs": 800,
+          "longest_dry_run_s": 3.6
+        },
+        {
+          "R_gpx": 100,
+          "dry_fraction": 0.581343,
+          "mean_occupancy": 0.7201,
+          "median_occupancy": 0.0,
+          "n_dry_runs": 781,
+          "longest_dry_run_s": 3.5166
+        },
+        {
+          "R_gpx": 120,
+          "dry_fraction": 0.500098,
+          "mean_occupancy": 0.9464,
+          "median_occupancy": 0.0,
+          "n_dry_runs": 749,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "R_gpx": 150,
+          "dry_fraction": 0.412099,
+          "mean_occupancy": 1.2844,
+          "median_occupancy": 1.0,
+          "n_dry_runs": 670,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "R_gpx": 180,
+          "dry_fraction": 0.352584,
+          "mean_occupancy": 1.6513,
+          "median_occupancy": 1.0,
+          "n_dry_runs": 588,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "R_gpx": 220,
+          "dry_fraction": 0.282987,
+          "mean_occupancy": 2.1838,
+          "median_occupancy": 2.0,
+          "n_dry_runs": 519,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "R_gpx": 260,
+          "dry_fraction": 0.226116,
+          "mean_occupancy": 2.8293,
+          "median_occupancy": 2.0,
+          "n_dry_runs": 403,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "R_gpx": 300,
+          "dry_fraction": 0.198904,
+          "mean_occupancy": 3.4251,
+          "median_occupancy": 3.0,
+          "n_dry_runs": 347,
+          "longest_dry_run_s": 2.75
+        },
+        {
+          "R_gpx": 350,
+          "dry_fraction": 0.171789,
+          "mean_occupancy": 3.9881,
+          "median_occupancy": 3.0,
+          "n_dry_runs": 298,
+          "longest_dry_run_s": 2.75
+        },
+        {
+          "R_gpx": 400,
+          "dry_fraction": 0.154464,
+          "mean_occupancy": 4.4519,
+          "median_occupancy": 4.0,
+          "n_dry_runs": 246,
+          "longest_dry_run_s": 2.65
+        },
+        {
+          "R_gpx": 450,
+          "dry_fraction": 0.139683,
+          "mean_occupancy": 4.9448,
+          "median_occupancy": 4.0,
+          "n_dry_runs": 224,
+          "longest_dry_run_s": 2.3
+        },
+        {
+          "R_gpx": 500,
+          "dry_fraction": 0.131167,
+          "mean_occupancy": 5.358,
+          "median_occupancy": 4.0,
+          "n_dry_runs": 210,
+          "longest_dry_run_s": 2.3
+        },
+        {
+          "R_gpx": 600,
+          "dry_fraction": 0.108849,
+          "mean_occupancy": 6.4344,
+          "median_occupancy": 6.0,
+          "n_dry_runs": 178,
+          "longest_dry_run_s": 2.3
+        },
+        {
+          "R_gpx": 800,
+          "dry_fraction": 0.078798,
+          "mean_occupancy": 7.4088,
+          "median_occupancy": 7.0,
+          "n_dry_runs": 137,
+          "longest_dry_run_s": 1.1833
+        }
+      ],
+      "dry_runs_primary": {
+        "n_runs": 670,
+        "longest_s": 3.1,
+        "longest_t": 745.15,
+        "longest_wave": 155,
+        "median_run_s": 0.0167,
+        "ten_longest": [
+          {
+            "t_start": 745.15,
+            "t_end": 748.25,
+            "duration_s": 3.1,
+            "wave": 155
+          },
+          {
+            "t_start": 683.0,
+            "t_end": 685.9,
+            "duration_s": 2.9,
+            "wave": 151
+          },
+          {
+            "t_start": 759.983,
+            "t_end": 761.567,
+            "duration_s": 1.5834,
+            "wave": 155
+          },
+          {
+            "t_start": 716.2,
+            "t_end": 717.733,
+            "duration_s": 1.5333,
+            "wave": 153
+          },
+          {
+            "t_start": 780.667,
+            "t_end": 782.05,
+            "duration_s": 1.3833,
+            "wave": 157
+          },
+          {
+            "t_start": 800.183,
+            "t_end": 801.467,
+            "duration_s": 1.2834,
+            "wave": 158
+          },
+          {
+            "t_start": 730.617,
+            "t_end": 731.8,
+            "duration_s": 1.1833,
+            "wave": 154
+          },
+          {
+            "t_start": 700.783,
+            "t_end": 701.8,
+            "duration_s": 1.0167,
+            "wave": 152
+          },
+          {
+            "t_start": 761.6,
+            "t_end": 762.483,
+            "duration_s": 0.8833,
+            "wave": 156
+          },
+          {
+            "t_start": 861.1,
+            "t_end": 861.967,
+            "duration_s": 0.8667,
+            "wave": 160
+          }
+        ],
+        "total_dry_s": 59.15
+      },
+      "per_wave": [
+        {
+          "wave": 151,
+          "t_start": 683.0,
+          "t_end": 698.6,
+          "span_s": 15.6,
+          "n_instants": 870,
+          "dry_fraction": 0.535632,
+          "mean_occupancy": 0.871,
+          "median_occupancy": 0.0,
+          "max_occupancy": 8,
+          "longest_dry_run_s": 2.9
+        },
+        {
+          "wave": 152,
+          "t_start": 698.6,
+          "t_end": 714.9,
+          "span_s": 16.3,
+          "n_instants": 955,
+          "dry_fraction": 0.537173,
+          "mean_occupancy": 0.77,
+          "median_occupancy": 0.0,
+          "max_occupancy": 7,
+          "longest_dry_run_s": 1.0167
+        },
+        {
+          "wave": 153,
+          "t_start": 714.9,
+          "t_end": 729.8,
+          "span_s": 14.9,
+          "n_instants": 836,
+          "dry_fraction": 0.619617,
+          "mean_occupancy": 0.605,
+          "median_occupancy": 0.0,
+          "max_occupancy": 4,
+          "longest_dry_run_s": 1.5333
+        },
+        {
+          "wave": 154,
+          "t_start": 729.8,
+          "t_end": 744.0,
+          "span_s": 14.2,
+          "n_instants": 795,
+          "dry_fraction": 0.265409,
+          "mean_occupancy": 2.036,
+          "median_occupancy": 2.0,
+          "max_occupancy": 8,
+          "longest_dry_run_s": 1.1833
+        },
+        {
+          "wave": 155,
+          "t_start": 744.0,
+          "t_end": 760.2,
+          "span_s": 16.2,
+          "n_instants": 932,
+          "dry_fraction": 0.532189,
+          "mean_occupancy": 1.014,
+          "median_occupancy": 0.0,
+          "max_occupancy": 8,
+          "longest_dry_run_s": 3.1
+        },
+        {
+          "wave": 156,
+          "t_start": 760.2,
+          "t_end": 780.4,
+          "span_s": 20.2,
+          "n_instants": 1149,
+          "dry_fraction": 0.382071,
+          "mean_occupancy": 1.328,
+          "median_occupancy": 1.0,
+          "max_occupancy": 9,
+          "longest_dry_run_s": 0.8833
+        },
+        {
+          "wave": 157,
+          "t_start": 780.4,
+          "t_end": 799.7,
+          "span_s": 19.3,
+          "n_instants": 1068,
+          "dry_fraction": 0.355805,
+          "mean_occupancy": 1.422,
+          "median_occupancy": 1.0,
+          "max_occupancy": 10,
+          "longest_dry_run_s": 1.3833
+        },
+        {
+          "wave": 158,
+          "t_start": 799.7,
+          "t_end": 812.7,
+          "span_s": 13.0,
+          "n_instants": 759,
+          "dry_fraction": 0.508564,
+          "mean_occupancy": 0.959,
+          "median_occupancy": 0.0,
+          "max_occupancy": 8,
+          "longest_dry_run_s": 1.2834
+        },
+        {
+          "wave": 159,
+          "t_start": 812.7,
+          "t_end": 839.0,
+          "span_s": 26.3,
+          "n_instants": 1503,
+          "dry_fraction": 0.280772,
+          "mean_occupancy": 1.732,
+          "median_occupancy": 1.0,
+          "max_occupancy": 9,
+          "longest_dry_run_s": 0.7
+        },
+        {
+          "wave": 160,
+          "t_start": 839.0,
+          "t_end": 864.0,
+          "span_s": 25.0,
+          "n_instants": 1349,
+          "dry_fraction": 0.280949,
+          "mean_occupancy": 1.617,
+          "median_occupancy": 1.0,
+          "max_occupancy": 8,
+          "longest_dry_run_s": 0.8667
+        }
+      ],
+      "final_20s": {
+        "t_start": 844.0,
+        "n": 1151,
+        "dry_fraction": 0.263249,
+        "mean_occupancy": 1.704
+      },
+      "final_10pct": {
+        "t_start": 845.9,
+        "n": 1061,
+        "dry_fraction": 0.248822,
+        "mean_occupancy": 1.779
+      },
+      "metre_anchors": [
+        {
+          "anchor": "a_player_ground_decal",
+          "variant": "LO radius = actorRadius",
+          "gpx_per_m": 125.0,
+          "assumption": "drawn ground decal radius == collision actorRadius",
+          "grade": "INDICATIVE"
+        },
+        {
+          "anchor": "a_player_ground_decal",
+          "variant": "HI radius = actorRadius x scale",
+          "gpx_per_m": 119.048,
+          "assumption": "drawn ground decal radius == collision actorRadius",
+          "grade": "INDICATIVE"
+        },
+        {
+          "anchor": "c_fct_x_plate_cross_calibration",
+          "variant": "R*=368.8 gpx == EoR skillTargetRadius 3.0 m",
+          "gpx_per_m": 122.92,
+          "assumption": "'no player-side damage landed' ~ 'no body inside 3.0 m'; two-sided bias (FCT dilation down, pet/proc reach up)",
+          "grade": "INDICATIVE"
+        }
+      ],
+      "metre_anchor_bracket_gpx_per_m": [
+        119.05,
+        125.0
+      ],
+      "at_sim_d_engage_2400mm": [
+        {
+          "gpx_per_m": 119.05,
+          "R_gpx": 285.7,
+          "dry_fraction": 0.206343,
+          "mean_occupancy": 3.2423,
+          "n_dry_runs": 368,
+          "longest_dry_run_s": 2.75
+        },
+        {
+          "gpx_per_m": 122.32,
+          "R_gpx": 293.6,
+          "dry_fraction": 0.201938,
+          "mean_occupancy": 3.3519,
+          "n_dry_runs": 352,
+          "longest_dry_run_s": 2.75
+        },
+        {
+          "gpx_per_m": 125.0,
+          "R_gpx": 300.0,
+          "dry_fraction": 0.198904,
+          "mean_occupancy": 3.4251,
+          "n_dry_runs": 347,
+          "longest_dry_run_s": 2.75
+        }
+      ]
+    },
+    "channel_control_posthoc": {
+      "n_samples": 355,
+      "declared": "POST-HOC, not pre-registered; published beside the pre-registered B.3 verdict, not instead of it",
+      "R150": {
+        "ALL moving": {
+          "n": 255,
+          "n_fct": 207,
+          "rate": 0.81176
+        },
+        "ALL stationary": {
+          "n": 100,
+          "n_fct": 89,
+          "rate": 0.89
+        },
+        ">=1 body in reach & moving": {
+          "n": 141,
+          "n_fct": 131,
+          "rate": 0.92908
+        },
+        ">=1 body in reach & stationary": {
+          "n": 70,
+          "n_fct": 67,
+          "rate": 0.95714
+        },
+        ">=2 bodies in reach & moving": {
+          "n": 82,
+          "n_fct": 76,
+          "rate": 0.92683
+        },
+        ">=2 bodies in reach & stationary": {
+          "n": 46,
+          "n_fct": 45,
+          "rate": 0.97826
+        },
+        "0 bodies in reach & moving": {
+          "n": 114,
+          "n_fct": 76,
+          "rate": 0.66667
+        },
+        "0 bodies in reach & stationary": {
+          "n": 30,
+          "n_fct": 22,
+          "rate": 0.73333
+        },
+        "_conditioned_ratio": 0.97068,
+        "_wilson_moving": [
+          0.8744,
+          0.961
+        ],
+        "_wilson_stationary": [
+          0.8814,
+          0.9853
+        ],
+        "_ci_overlap": true
+      },
+      "R300": {
+        "ALL moving": {
+          "n": 255,
+          "n_fct": 207,
+          "rate": 0.81176
+        },
+        "ALL stationary": {
+          "n": 100,
+          "n_fct": 89,
+          "rate": 0.89
+        },
+        ">=1 body in reach & moving": {
+          "n": 196,
+          "n_fct": 180,
+          "rate": 0.91837
+        },
+        ">=1 body in reach & stationary": {
+          "n": 90,
+          "n_fct": 84,
+          "rate": 0.93333
+        },
+        ">=2 bodies in reach & moving": {
+          "n": 166,
+          "n_fct": 155,
+          "rate": 0.93373
+        },
+        ">=2 bodies in reach & stationary": {
+          "n": 77,
+          "n_fct": 74,
+          "rate": 0.96104
+        },
+        "0 bodies in reach & moving": {
+          "n": 59,
+          "n_fct": 27,
+          "rate": 0.45763
+        },
+        "0 bodies in reach & stationary": {
+          "n": 10,
+          "n_fct": 5,
+          "rate": 0.5
+        },
+        "_conditioned_ratio": 0.98397,
+        "_wilson_moving": [
+          0.8715,
+          0.9491
+        ],
+        "_wilson_stationary": [
+          0.8621,
+          0.9691
+        ],
+        "_ci_overlap": true
+      }
+    }
+  },
+  "headline": {
+    "referent_fct_dry_sample_fraction_0.5s": 0.165289,
+    "referent_fct_proven_no_damage_union_fraction": 0.28843,
+    "referent_plate_dry_fraction_at_preregistered_R150gpx": 0.4121,
+    "referent_plate_dry_fraction_at_sim_D_ENGAGE_M_2.400": [
+      0.1989,
+      0.2063
+    ],
+    "sim_dry_fraction_whole_run_QUOTED_FROM_COMMISSION_not_measured_here": 0.4118,
+    "referent_longest_dry_run_s_any_radius_60_to_800_gpx": 4.4,
+    "referent_longest_dry_run_s_at_R150": 3.1,
+    "referent_longest_dry_run_s_at_sim_D_ENGAGE": 2.75,
+    "referent_w154_span_s": 14.2,
+    "referent_w154_longest_no_damage_gap_s": 2.35,
+    "referent_w154_longest_zero_body_run_s": 1.18,
+    "referent_w154_mean_bodies_in_ring_R150": 2.04,
+    "sim_w154_span_s_QUOTED_FROM_COMMISSION": 38.1224,
+    "moving_fraction_V_ON_200": 0.794842,
+    "n_movement_episodes": 86,
+    "longest_stationary_span_s_whole_fight": 1.73,
+    "movement_while_channeling_verdict_prereg": "CONTINUES",
+    "movement_while_channeling_conditioned_ratio_posthoc": 0.9707,
+    "movement_while_channeling_wilson_ci_overlap": true,
+    "player_run_speed_sheet_pct": 135.0,
+    "player_run_speed_cap_max_gameengine": 135.0,
+    "player_base_characterRunSpeed": 0.93,
+    "monster_runspeed_actor_weighted_median": 1.0,
+    "monster_runspeed_min_max": [
+      0.6,
+      1.55
+    ],
+    "eor_canUseWhileMoving": true,
+    "eor_rotationSpeedMultiplier": 0.3499999940395355,
+    "eor_movement_speed_penalty": "MEASURED-ABSENT",
+    "gpx_per_metre_anchor_bracket_INDICATIVE_not_ruled": [
+      119.0,
+      125.0
+    ],
+    "detector_validation": {
+      "agree": 18,
+      "n": 20,
+      "median_rel_err_moving": 0.14274,
+      "verdict": "PASS"
+    },
+    "cross_pass_consistency_two_proportion": {
+      "z": 0.979,
+      "p": 0.328
+    }
+  },
+  "unreached": [
+    "UNREACHED-1 Crucible spawn geometry (.map/.lvl world assets, not .arz record content)",
+    "UNREACHED-2 FCT gap structure below 2.0 s in PASS 1 (cadence-limited)",
+    "UNREACHED-3 FCT gap structure below 0.5 s (cadence + 1.2-1.5 s FCT lifetime)",
+    "UNREACHED-4 FCT source attribution (structural; Lap N A.6 carried)",
+    "UNREACHED-5 fresh-spawn vs straggler at a wave increment (census carries no wave identity)",
+    "UNREACHED-6 which skill draws the player-centred ring (NOTE-9, pre-declared)",
+    "UNREACHED-7 whether casting another skill breaks the EoR channel (D-P-G3, Lap G carried)",
+    "UNREACHED-8 monster EFFECTIVE in-fight speed (jitter + wave scaling + player CC unmodelled)"
+  ],
+  "undecided_for_conductor_bracket": [
+    "U-R-1 ground px -> metres, bracket 119.0-125.0 gpx/m, 3 anchors, INDICATIVE, NOT RULED (re-opens Lap H-2 OBS-H2-9)",
+    "U-R-2 which contact radius is the like-for-like comparator to the sim kill disc",
+    "U-R-3 whether GD charge skills are governed by characterRunSpeed at all",
+    "U-R-4 'no body in reach' vs 'body in reach, not attacking' — bracketed, not separated",
+    "U-R-5 the 0.4121 vs 0.4118 radius coincidence — NAMED AS COINCIDENCE, declined",
+    "U-R-6 movement-while-channeling verdict rests on a thin prereg margin + a declared post-hoc test + a record field; graded MEASURED-STRONG composite"
+  ],
+  "declared_departures_from_preregistration": [
+    "D-R-1 the prereg A.0 one-directional bound claim on the FCT dry fraction is RETRACTED — the A.3 lifetime dilation acts the other way, so the FCT dry fraction is a bound of NEITHER sign. No number changed; the claim about the numbers did. The plate census (section 3) is the instrument that DOES carry a signed bound.",
+    "D-R-2 the occupancy-conditioned channel test is POST-HOC, labelled so everywhere, and is published BESIDE the pre-registered B.3 verdict, not instead of it.",
+    "arithmetic convention on gap duration corrected mid-lap BEFORE any finding was drawn; both conventions now emitted as separate named columns plus a merged union total."
+  ]
+}
