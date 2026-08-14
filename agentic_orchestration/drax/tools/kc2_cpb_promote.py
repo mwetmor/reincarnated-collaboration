@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kc2_cpb_promote.py — SB-1 the FG-9 promotion leg. Cell A2g (canon frame).
+"""kc2_cpb_promote.py — SB-1 the FG-9 promotion leg. Cell A2g-r (the look distance).
 
     python3 agentic_orchestration/drax/tools/kc2_cpb_promote.py
 
@@ -22,24 +22,31 @@ promotion to the deliverable name happens ONLY on green; the promoted bytes are
 then re-hashed against the pre-promotion digest so the promotion itself is
 proven not to have changed them.
 
-⚑ AND AT A2g THIS FILE RUNS FOR THE FIRST TIME SINCE IT WAS REWIRED. A2f's own
-  landing filed surface 8: "THE PROMOTE TOOL IS WIRED FOR A2f AND HAS NEVER BEEN
-  RUN." The FG-10 halt meant no render ever reached it. So the charter's rider is
-  the design principle of this rewrite: A MANIFEST THAT ASSERTS WHAT WAS NOT
-  MEASURED IS A DEFECT. Every figure below is (a) read out of a file something
-  else wrote — the sidecar, the smoke, ffprobe, ffmpeg's signalstats — or (b)
-  recomputed here from those and CHECKED against them. The check list is not
-  decoration: `verify()` collects a verdict per claim, prints them, folds them
+⚑ THE CLAIM LEDGER IS THE DESIGN PRINCIPLE, NOT A PROMISE IN A COMMENT. A2f's
+  landing filed surface 8 ("THE PROMOTE TOOL IS WIRED FOR A2f AND HAS NEVER BEEN
+  RUN"); A2g ran it for the first time. The rider it was rewritten around stands:
+  A MANIFEST THAT ASSERTS WHAT WAS NOT MEASURED IS A DEFECT. Every figure below
+  is (a) read out of a file something else wrote — the sidecar, the smoke,
+  ffprobe, ffmpeg's signalstats — or (b) recomputed here from those and CHECKED
+  against them. `verify()` collects a verdict per claim, prints them, folds them
   into the manifest, and HALTS BEFORE PROMOTION if any one of them is false.
 
-  Two defects the rewrite fixes on the way past, both from reading the A2f wiring
-  rather than trusting it:
-    * `A2E_MEASURED` was defined and never referenced — the vs-A2e block A2f's
-      comment describes was declared in a dict and emitted nowhere. It is now the
-      ancestry block's rate row.
-    * the manifest's `cell` string and the RunContext's `run_id` still said A2e
-      while the paths said A2f. A promoted artifact would have been labelled with
-      the wrong cell in its own manifest.
+⚑ AND AT A2g-r THE LEDGER'S OWN DISTANCE ROW HAD TO BE REWRITTEN, WHICH IS THE
+  POINT OF HAVING ONE. A2g's row read "the canon distance is the wr1 law
+  recomputed, not a number that was typed" and it PASSED — it recomputed
+  34.0 * (86.915 / 17.5) and matched the sidecar to 1e-6. R-CPB-17 struck the law
+  that row was checking. A ledger row is a claim about what SHOULD be true, so
+  when the ruling moves, the row moves with it or it certifies the old world
+  perfectly. The distance row is now three rows: the boom is the rig's read
+  (checked against 510/7), the pose contains NO room dimension (checked by
+  recomputing the eye from station + angles + boom alone), and the arena's
+  rectangle reaches the manifest as a REPORT rather than as an input.
+
+⚑ THE ANCESTRY IS NOW FOUR DELTAS, AND EACH CARRIES WHOSE WORD MOVED IT: the rate
+  is Matt's lever (R-CPB-15), the clock is the run's own fix (CLK-1), the lens
+  ANGLES are Matt's canon (R-CPB-16), and the BOOM is Matt's ruling (R-CPB-17).
+  A fifth block compares against A2g — the immediate predecessor — where the
+  declared delta count is exactly ONE.
 """
 
 from __future__ import annotations
@@ -62,21 +69,33 @@ from factory.gates.media import ffprobe_verifies               # noqa: E402
 
 GODOT = Path("/Users/admin/Games/reincarnated-godot")
 CAPTURES = META / "agentic_orchestration/galadriel/captures"
-OUT_DIR = CAPTURES / "2026-08-13-sb1-a2g-canon"
+OUT_DIR = CAPTURES / "2026-08-13-sb1-a2gr-lookdist"
 # ⚑ THE A2e CAPTURE IS READ, NOT RETYPED. The charter asks for an ANCESTRY block
 #   against the artifact Matt actually watched, so every figure that CAN come off
 #   that manifest does, and the handful that cannot are quoted and LABELLED as
 #   quotations rather than dressed up as measurements.
 PREV_DIR = CAPTURES / "2026-08-13-sb1-a2e-cpbprime"
 PREV_MP4 = PREV_DIR / "cpbprime-cadence-ab.mp4"
+# ⚑ AND THE IMMEDIATE PREDECESSOR IS READ TOO. A2g is the clip this one differs
+#   from by exactly ONE authored change, so its sidecars are the instrument that
+#   proves the boom was the only thing that moved: every tick and layout field
+#   must match, field for field, while every camera field must differ.
+A2G_DIR = CAPTURES / "2026-08-13-sb1-a2g-canon"
 TMP = Path("/tmp/kc2_cpb")
-DELIV_STEM = "a2g-canon-cadence-ab"
+DELIV_STEM = "a2gr-lookdist-cadence-ab"
 # ⚑ CELL-SPECIFIC, AND THAT IS A DEFECT FIX. Until A2g every cell concatenated
 #   into `tmp-cpbprime-cadence-ab.mp4` and this tool read that path. A2e's file
 #   was still sitting there when A2g opened: a quietly-failed render would have
 #   had this tool verify, hash and promote A2e's bytes under A2g's name with
 #   every gate green. FG-9 protects the deliverable path, not a shared temp path.
+# ⚑ AND AT A2g-r THE SAME HOLE WAS FOUND ONE LEVEL DOWN: the PARTS this tool reads
+#   in `part_facts()` were `$TMP/tmp-$SEG-$SHOT.mp4`, shared across cells, with
+#   A2g's two parts sitting in exactly those names and ffmpeg's exit status
+#   unchecked in the harness. A quietly-failed encode would have had this tool
+#   build its timeline — durations, frame counts, the concat-equals-its-parts
+#   claim — out of ANOTHER CLIP'S parts. Parts are now cell-scoped. (NOTE-80.)
 TEMP_RENDER = TMP / f"tmp-{DELIV_STEM}.mp4"
+PARTS_DIR = TMP / f"parts-{DELIV_STEM}"
 DELIVERABLE = OUT_DIR / f"{DELIV_STEM}.mp4"
 SMOKE = GODOT / "tmp/kc2/kc2_motion_smoke.json"
 CEILING_KB = 10 * 1024 * 1024
@@ -113,22 +132,43 @@ PART_ORDER = [
     ("B-undulating", "canon"),
 ]
 
+# ⚑ THE FIELDS THAT MUST NOT HAVE MOVED, NAMED IN ADVANCE. "One authored change"
+#   is only a checkable claim if the things it does not change are enumerated
+#   before the comparison rather than after it. Every one of these is a tick,
+#   layout, article or clock property; not one of them is a camera property. The
+#   comparison is `==` on the raw sidecar values, including the whole realized
+#   epoch schedule — 36 rows of start tick, length, gap and re-anchor bearing,
+#   which is the strongest single invariant in the file because it is a function
+#   of CUT_SEED and the tick window and of nothing a camera can touch.
+A2G_INVARIANT_FIELDS = [
+    "tick_from", "tick_to", "trace_seconds", "tick_period_s", "time_base",
+    "cut_per_rev", "density_target_cuts_per_rev", "undulate", "cadence",
+    "epoch_count_in_window", "epoch_schedule_realized",
+    "weapon_scale", "grip_frac", "grip_seat_m", "palette",
+    "preroll_frames_tick_frozen", "tick0_is_shot_default",
+    "fps", "width", "height", "frames_expected",
+    "baton_sha256", "driver", "shot", "segment", "clk1_diagnostics", "fg10_layer",
+]
+
 FRAMING = (
-    "ONE clip, TWO cadences, the same 10.6 s of trace twice — and for the first time "
-    "through YOUR camera. You ruled the werewolf frame canon because it matches Grim "
-    "Dawn, so this is yaw 47 / pitch -50 / fov 24, copied out of that rig verbatim, at "
-    "the distance its own law gives for a room this size. Three things moved since the "
-    "clip you watched, and only one of them was mine to move: the CUT RATE went 11 -> 17 "
-    "because you pulled that lever; the CLOCK was fixed so the same tick renders the same "
-    "pixels twice (it costs a different draw of the smoke and sparks, and nothing else); "
-    "and the LENS is your ruling. Segment A is the stationary cadence at 17, segment B is "
-    "the undulating one — one boolean between them, same window, same seed, same binary, "
-    "one dip to black. The hammer is still at WEAPON_SCALE 1.95. Nothing here strikes, "
-    "dies or counts — combat is the next act. When a body vanishes, that is its path "
-    "ending, not a death being shown. ⚑ THE SUBJECT IS SMALL IN THIS FRAME AND THAT IS "
-    "THE CANON'S ARITHMETIC, NOT A CHOICE: the distance law scales with the room, and "
-    "this room is 86.9 m against the werewolf room's 17.5 m. The measured block says how "
-    "small, and what a distance ruling would buy, so the zoom call is yours on a number."
+    "ONE clip, TWO cadences, the same 10.6 s of trace twice — through YOUR camera, at "
+    "YOUR distance. You said the camera should have nothing to do with room size, so it "
+    "no longer does: the boom is FIXED at 72.857 m, which is the werewolf shot's own "
+    "realized distance — the frame you ratified — and it will be that distance in every "
+    "room, forever, until you say otherwise. The man is back at ~13 % of frame height, "
+    "the Grim Dawn register. FOUR things have moved since the clip you watched and only "
+    "one of them was ever mine: the CUT RATE went 11 -> 17 because you pulled that lever; "
+    "the CLOCK was fixed so the same tick renders the same pixels twice (it costs a "
+    "different draw of the smoke and sparks, and nothing else); the LENS ANGLES are your "
+    "canon; and the BOOM is your ruling. Against the last clip I sent you — the one where "
+    "the man was sixty pixels tall — there is exactly ONE change, and this is it. Segment "
+    "A is the stationary cadence at 17, segment B is the undulating one: one boolean "
+    "between them, same window, same seed, same binary, one dip to black. The hammer is "
+    "still at WEAPON_SCALE 1.95. Nothing here strikes, dies or counts — combat is the next "
+    "act. When a body vanishes, that is its path ending, not a death being shown. ⚑ THE "
+    "ARENA NOW RUNS OFF ALL FOUR EDGES OF THE FRAME AND THAT IS THE POINT, NOT THE PRICE: "
+    "the frame holds ~55 m of a 86.9 m room, exactly the way an ARPG crops a room around "
+    "its hero. This is not an arena overview and should not be read as one."
 )
 
 
@@ -176,7 +216,7 @@ def part_facts(seg: str, shot: str) -> tuple[float, int]:
     would be off by one per shot and would not know it."""
     if seg == "SEAM":
         return BLACK_S, int(round(BLACK_S * 30))
-    pr = probe(TMP / f"tmp-{seg}-{shot}.mp4")
+    pr = probe(PARTS_DIR / f"tmp-{seg}-{shot}.mp4")
     v = next(s for s in pr["streams"] if s["codec_type"] == "video")
     return float(pr["format"]["duration"]), int(v.get("nb_frames", 0))
 
@@ -321,7 +361,7 @@ def main() -> int:
         t += d
     expect_s = t
 
-    run = RunContext(run_id="sb1-a2g-canon", root=META, session_dir=TMP)
+    run = RunContext(run_id="sb1-a2gr-lookdist", root=META, session_dir=TMP)
 
     # ---- FG-9 half 1: VERIFY the temp render, on the spine's own gate --------
     rep = ffprobe_verifies(
@@ -403,6 +443,13 @@ def main() -> int:
     opt = seg_b["optics_measured"]
     ell = opt["cut_ring_ellipse"]
     subj = opt["subject"]
+    gl13 = opt["gl13_rectangle_projected"]
+
+    # ⚑ A2g's OWN SIDECAR, READ FROM DISK — the one-delta claim is checked against
+    #   the predecessor's recorded facts, never against this note's memory of them.
+    #   GL-12: absent means ABSENT and the row fails, it does not quietly skip.
+    a2g_sidecar_path = A2G_DIR / "shot-B-undulating-canon.json"
+    a2g_b = json.loads(a2g_sidecar_path.read_text()) if a2g_sidecar_path.exists() else None
 
     # ---- THE CLAIM LEDGER ----------------------------------------------------
     ok = True
@@ -424,25 +471,53 @@ def main() -> int:
     ok &= verify("the rate in the frames is R-CPB-15's 17, in the sidecars AND in the smoke",
                  seg_b["cut_per_rev"] == 17 == density["shipped_rate_per_rev"],
                  f"sidecar {seg_b['cut_per_rev']} · smoke {density['shipped_rate_per_rev']}")
-    # the canon derivation, RECOMPUTED here from the rectangle rather than read
-    edge_recomputed = max(der["rectangle_size_x_m"], der["rectangle_size_z_m"])
-    dist_recomputed = 34.0 * (edge_recomputed / 17.5)
-    ok &= verify("the canon distance is the wr1 law recomputed, not a number that was typed",
-                 close(der["edge_taken_m"], edge_recomputed, 1e-9)
-                 and close(der["distance_m"], dist_recomputed, 1e-6),
-                 f"34.0 x ({edge_recomputed:.3f} / 17.5) = {dist_recomputed:.6f} m "
-                 f"vs sidecar {der['distance_m']:.6f} m")
-    # the eye, recomputed from the angles by the wr1 orbit formula
+    # ------------------------------------------------------------------
+    # ⚑ THE BOOM. Three rows where A2g had one, because R-CPB-17 struck the
+    #   law A2g's single row was checking. A ledger row that survives a ruling
+    #   unchanged is certifying the world the ruling replaced.
+    # ------------------------------------------------------------------
+    # the rig read, RECOMPUTED here from wr1's own two constants — 34.0 m for a
+    # 17.5 m room, applied to the WEREWOLF room's 37.5 m. Exactly 510/7.
+    rig_read = 34.0 * (37.5 / 17.5)
+    ok &= verify("the boom is the wr1 rig's REALIZED werewolf-shot distance, read and not chosen",
+                 close(der["boom_m"], rig_read, 1e-9)
+                 and close(der["boom_m"], 510.0 / 7.0, 1e-9)
+                 and der["boom_pin_matches_rig_read"] is True,
+                 f"wr1_level_rig.gd:28-29 applied to wr1_level.gd:87 -> "
+                 f"34.0 x (37.5 / 17.5) = {rig_read:.9f} m = 510/7; sidecar boom "
+                 f"{der['boom_m']:.9f} m; the scene's own pin check "
+                 f"{der['boom_pin_matches_rig_read']} at delta {der['boom_pin_delta_m']:.3g}")
+    # ⚑ ROOM-INVARIANCE, CHECKED RATHER THAN DECLARED. The eye is recomputed from
+    #   (aim, angles, boom) with NO ROOM DIMENSION ANYWHERE IN THIS ARITHMETIC. If
+    #   it reproduces the rendered eye, the rendered camera is a function of those
+    #   three things and of nothing else — which is R-CPB-17, as a measurement.
     p = math.radians(der["pitch_deg"])
     y = math.radians(der["yaw_deg"])
     aim = der["aim_world"]
-    eye_recomputed = [aim[0] + der["distance_m"] * math.cos(p) * math.sin(y),
-                      aim[1] - der["distance_m"] * math.sin(p),
-                      aim[2] + der["distance_m"] * math.cos(p) * math.cos(y)]
-    ok &= verify("the eye is the wr1 orbit of those angles at that distance, recomputed",
-                 all(close(a, b, 1e-3) for a, b in zip(eye_recomputed, cam_b["eye"])),
-                 f"recomputed [{eye_recomputed[0]:.3f}, {eye_recomputed[1]:.3f}, "
-                 f"{eye_recomputed[2]:.3f}] vs rendered {[round(v,3) for v in cam_b['eye']]}")
+    eye_recomputed = [aim[0] + der["boom_m"] * math.cos(p) * math.sin(y),
+                      aim[1] - der["boom_m"] * math.sin(p),
+                      aim[2] + der["boom_m"] * math.cos(p) * math.cos(y)]
+    ok &= verify("the camera is (station, angles, boom) and NO room dimension — recomputed",
+                 all(close(a, b, 1e-3) for a, b in zip(eye_recomputed, cam_b["eye"]))
+                 and der["room_size_influences_camera"] is False
+                 and der["rectangle_is_an_input_to_the_camera"] is False,
+                 f"wr1 orbit of yaw {der['yaw_deg']} / pitch {der['pitch_deg']} at boom "
+                 f"{der['boom_m']:.6f} m about aim {aim} = "
+                 f"[{eye_recomputed[0]:.3f}, {eye_recomputed[1]:.3f}, {eye_recomputed[2]:.3f}] "
+                 f"vs rendered {[round(v,3) for v in cam_b['eye']]} — the 86.915 x 85.303 m "
+                 f"rectangle appears in no term")
+    # and the boom as the RENDERED camera actually realizes it: |eye - aim|
+    realized_boom = math.dist(cam_b["eye"], cam_b["look_at"])
+    ok &= verify("the boom the frames were shot at is the boom that was pinned",
+                 close(realized_boom, der["boom_m"], 1e-3),
+                 f"|eye - aim| off the rendered camera = {realized_boom:.6f} m vs pinned "
+                 f"{der['boom_m']:.6f} m (A2g shot the same frame at 168.863429 m)")
+    ok &= verify("the arena rectangle reaches the manifest as a REPORT, not as an input",
+                 close(der["rectangle_longer_side_m"],
+                       max(der["rectangle_size_x_m"], der["rectangle_size_z_m"]), 1e-9),
+                 f"GL-13 {der['rectangle_size_x_m']:.3f} x {der['rectangle_size_z_m']:.3f} m read "
+                 f"and never moved; longer side {der['rectangle_longer_side_m']:.3f} m is carried "
+                 f"as the scale reference the measured block reports against")
     ok &= verify("the lens is the canon lens, verbatim",
                  (der["yaw_deg"], der["pitch_deg"], cam_b["fov_deg"]) == (47.0, -50.0, 24.0),
                  f"yaw {der['yaw_deg']} / pitch {der['pitch_deg']} / fov {cam_b['fov_deg']} "
@@ -505,6 +580,70 @@ def main() -> int:
                  f"{PREV_MP4.name} recomputed from bytes = "
                  f"{sha256_of(PREV_MP4)[:12] if PREV_MP4.exists() else 'ABSENT'}…")
 
+    # ------------------------------------------------------------------
+    # ⚑ THE PRE-REGISTERED CORNER FACT. A2gr-0 predicted all four corners
+    #   outside the frame and required it be reported as a FACT rather than
+    #   discovered as a failure. A prediction recorded before the render and
+    #   checked after it is worth more than either half alone.
+    # ------------------------------------------------------------------
+    ok &= verify("all four GL-13 corners fall OUTSIDE the frame — pre-registered, and a fact",
+                 gl13["corners_outside_frame"] == 4,
+                 f"{gl13['corners_outside_frame']} of 4 corners outside; the frame spans "
+                 f"{gl13['frame_spans_m_across_at_aim_plane']:.2f} m across at the aim plane "
+                 f"against a {gl13['rectangle_longer_side_m']:.3f} m arena. R-CPB-17(b): rooms "
+                 f"crop. At A2g's 168.863 m two of four were already outside")
+
+    # ------------------------------------------------------------------
+    # ⚑ THE vs-A2g PROOF, AND IT IS THE WHOLE ARGUMENT OF THIS CELL. A2g and
+    #   A2g-r differ by ONE authored change. That is a claim about which fields
+    #   moved and which did not, so it is checked as one: every tick and layout
+    #   field must be IDENTICAL, and every camera field must DIFFER. Either half
+    #   failing alone would falsify the cell — identical camera fields would mean
+    #   the boom never landed; a moved layout field would mean something else did.
+    # ------------------------------------------------------------------
+    if a2g_b is not None:
+        same = [f for f in A2G_INVARIANT_FIELDS if seg_b.get(f) == a2g_b.get(f)]
+        differ = [f for f in A2G_INVARIANT_FIELDS if seg_b.get(f) != a2g_b.get(f)]
+        ok &= verify("every tick and layout invariant matches A2g's sidecar, field for field",
+                     not differ,
+                     f"{len(same)}/{len(A2G_INVARIANT_FIELDS)} identical: "
+                     + ", ".join(f"{f}={seg_b.get(f)!r}" for f in A2G_INVARIANT_FIELDS[:6])
+                     + f", …(+{len(A2G_INVARIANT_FIELDS)-6} more)"
+                     + (f" — MOVED: {differ}" if differ else ""))
+        a2g_cam = a2g_b["camera"]
+        a2g_der = a2g_b["canon_derivation"]
+        ok &= verify("and the camera DID move — the boom is the only authored change",
+                     a2g_cam["eye"] != cam_b["eye"]
+                     and a2g_cam["look_at"] == cam_b["look_at"]
+                     and a2g_cam["fov_deg"] == cam_b["fov_deg"]
+                     and a2g_der["yaw_deg"] == der["yaw_deg"]
+                     and a2g_der["pitch_deg"] == der["pitch_deg"],
+                     f"eye {[round(v,2) for v in a2g_cam['eye']]} -> "
+                     f"{[round(v,2) for v in cam_b['eye']]}; aim, fov, yaw and pitch ALL "
+                     f"unchanged ({cam_b['look_at']} / {cam_b['fov_deg']} / {der['yaw_deg']} / "
+                     f"{der['pitch_deg']}); distance {a2g_der['distance_m']:.6f} -> "
+                     f"{der['distance_m']:.6f} m")
+    else:
+        ok &= verify("A2g's sidecar is on disk so the one-delta claim can be checked",
+                     False, f"ABSENT at {A2G_DIR} — the vs-A2g proof cannot be taken")
+
+    # ------------------------------------------------------------------
+    # ⚑ NOTE-80: THE PARTS THIS TOOL READ ARE THIS CELL'S PARTS. The freshness
+    #   check is not decoration — until this cell the parts lived in a shared
+    #   directory under names A2g had already written, and `part_facts()` would
+    #   have read them without noticing. Cell-scoping is the fix; this row is the
+    #   proof that the fix is in force for the bytes actually promoted.
+    # ------------------------------------------------------------------
+    a2g_newest = max((f.stat().st_mtime for f in A2G_DIR.glob("*")), default=0.0)
+    part_paths = [PARTS_DIR / f"tmp-{seg}-{shot}.mp4" for seg, shot in PART_ORDER
+                  if seg != "SEAM"]
+    ok &= verify("the parts this timeline was read from are THIS cell's, not the last cell's",
+                 all(p.exists() and p.stat().st_mtime > a2g_newest for p in part_paths)
+                 and DELIV_STEM in str(PARTS_DIR),
+                 f"{len(part_paths)} parts under {PARTS_DIR.name}/ (cell-scoped), every one "
+                 f"written after the newest byte in the A2g capture "
+                 f"({', '.join(f'{p.name} +{p.stat().st_mtime - a2g_newest:.0f}s' for p in part_paths if p.exists())})")
+
     if not ok:
         print("[promote] HALT — the claim ledger is not clean. A manifest that asserts what "
               "was not measured is a defect, so nothing is promoted and nothing is written.")
@@ -558,33 +697,42 @@ def main() -> int:
             "px_per_metre_at_station": o["subject"]["px_per_metre_at_station"],
         }
     demoted_measured["⚑ what this comparison shows"] = (
-        "sin(depression) is the ORTHOGRAPHIC ellipse and the manifests before this one "
-        "reported it as though it were the ring. At 168.9 m the approximation is exact to "
-        "3e-5, so the canon frame's 0.7659 could have been predicted. At 3.6 m it is NOT: "
-        "d-close measures 0.5305 against a predicted 0.4679 — the prediction is 12 % low, "
-        "because a circle 2.2 m across seen from 4.3 m away is not a parallel projection. "
-        "The A2e figures Matt was given for the close shot were the formula, not the frame.")
+        "sin(depression) is the ORTHOGRAPHIC ellipse and the manifests before A2g "
+        "reported it as though it were the ring. The prediction's error grows as the boom "
+        f"comes in, and this cell is the third point on that curve: A2g +0.0035 % at "
+        f"168.9 m, THIS clip "
+        f"{100.0*(ell['measured_minor_over_major']/ell['analytic_sin_depression']-1.0):+.4f} % at "
+        f"{der['boom_m']:.1f} m, d-close +13.4 % at 4.3 m (measured 0.5305 against a predicted "
+        "0.4679 — the prediction is 12 % low, because a circle 2.2 m across seen from 4.3 m "
+        "away is not a parallel projection). ⚑ THE POINT IS NOT THE ERROR, IT IS THAT THE "
+        "ERROR IS KNOWN: every figure this manifest reports for the ring is the MEASURED one, "
+        "and the prediction rides beside it. The A2e figures Matt was given for the close shot "
+        "were the formula, not the frame.")
     demoted_measured["provenance"] = (
         "read off the FG-10 probe legs' own sidecars from THIS run (legs 4 and 5, "
         "d-close/undulating and b-ring/undulating, 4 passes each, one distinct state each), "
         "through the same unproject_position instrument as the canon numbers.")
 
     manifest = {
-        "cell": "SB-1 Cell A2g — THE CANON FRAME (rate 17 + fixed clock, seen through the "
-                "Grim-Dawn-matched camera)",
-        "ledger_rows": ("R-CPB-16 (camera canon, Matt) · R-CPB-15 (the rate lever, Matt) · "
-                        "CLK-1-1 / CLK-1-2 (the clock) · A2g-0 (this charter)"),
+        "cell": "SB-1 Cell A2g-r — THE LOOK DISTANCE (rate 17 + fixed clock + the "
+                "Grim-Dawn-matched lens, at the ratified boom). THE BINDING FRAME.",
+        "ledger_rows": ("R-CPB-17 (the boom / the distance fork ruled, Matt) · R-CPB-16 (camera "
+                        "canon, Matt) · R-CPB-15 (the rate lever, Matt) · CLK-1-1 / CLK-1-2 (the "
+                        "clock) · A2gr-0 (this charter) · A2g-1 / A2g-2 (the predecessor and its "
+                        "routed fork)"),
         "date": date.today().isoformat(),
         "artifact_class": ("E — owner-eye. UNTRACKED, never committed. Keep until viewed + veto "
                            "window closed, then demote to class D (PL-5)."),
         "framing_sentence": FRAMING,
         "the_question_this_answers": (
-            "Matt ruled the camera: 'The werewolf scene is our canonical camera angle/zoom as "
-            "it is set to match grim dawn... we should use it as canon for the time being, "
-            "especially while testing GD scenes.' This is the first clip rendered through that "
-            "frame — carrying the rate HE raised and the clock CLK-1 fixed — so the binding "
-            "eye-calls (density feel, palette knee, cadence read) are made through the lens "
-            "that will judge the game rather than through one this cell chose."),
+            "A2g put the canon LENS on the arena and, by the canon's own distance LAW, put the "
+            "eye 168.863 m out and the man at 5.59 % of frame height — sixty pixels. Matt ruled "
+            "the fork: 'oh wow, the camera angle and zoom should have nothing to do with room "
+            "size. nothing at all.. that is ludicrous.' (R-CPB-17.) So the law is STRUCK and the "
+            "boom is FIXED at the werewolf shot's realized 72.857 m — the frame his eye ratified. "
+            "This clip is the same 10.6 s of trace, the same seed, the same everything, at that "
+            "boom. R-CPB-17(d) routes the BINDING eye-calls here: density feel, palette knee, "
+            "cadence read, and the CLK-1 FX-draw question that A2g's geometry deferred."),
         "deliverable": {
             "file": DELIVERABLE.name,
             "sha256": verified_sha,
@@ -706,15 +854,21 @@ def main() -> int:
                                  "SPAN. The frames in this file are reproducible from the pinned "
                                  "baton and the pinned code."),
             },
-            "delta_3_LENS": {
+            "delta_3_LENS_ANGLES": {
                 "what_moved": ("fov 48 with scene-derived offsets (b-ring eye +6.5/5.6/7.0, "
-                               "d-close +2.4/3.0/2.7) -> the canon frame: yaw 47 / pitch -50 / "
-                               "fov 24 at 168.863 m by the wr1 distance law"),
+                               "d-close +2.4/3.0/2.7) -> the canon lens: yaw 47 / pitch -50 / "
+                               "fov 24, copied verbatim out of wr1_level_rig.gd:25-27"),
                 "on_whose_word": ("MATT (R-CPB-16): 'The werewolf scene is our canonical camera "
                                   "angle/zoom as it is set to match grim dawn... we should use "
                                   "it as canon for the time being, especially while testing GD "
                                   "scenes.'"),
-                "landed_by": "Cell A2g item 1 (this cell)",
+                "landed_by": "Cell A2g item 1, commit c011182 — UNCHANGED by this cell",
+                "⚑ scope_of_this_delta": (
+                    "ANGLES AND ZOOM ONLY. A2g also took the DISTANCE from that rig, by its "
+                    "same-angular-size law, and that half is now its own delta below — R-CPB-17 "
+                    "separated them, and this manifest keeps them separated so Matt can see that "
+                    "the thing he ratified in A2g (the lens) never moved and the thing he struck "
+                    "(the law) is the only thing that did."),
                 "before": {
                     "b-ring": {"fov_deg": prev["camera"]["B-undulating-b-ring"]["fov_deg"],
                                "eye": prev["camera"]["B-undulating-b-ring"]["eye"],
@@ -740,8 +894,7 @@ def main() -> int:
                 },
                 "after": {
                     "fov_deg": cam_b["fov_deg"], "yaw_deg": der["yaw_deg"],
-                    "pitch_deg": der["pitch_deg"], "distance_m": der["distance_m"],
-                    "eye": cam_b["eye"],
+                    "pitch_deg": der["pitch_deg"],
                     "ring_ellipse_minor_over_major_MEASURED":
                         ell["measured_minor_over_major"],
                     "ring_ellipse_minor_over_major_predicted":
@@ -754,58 +907,138 @@ def main() -> int:
                     f"{prev['elevation_parallax']['d-close']['ring_ellipse_minor_over_major']:.4f}"
                     f" -> {ell['measured_minor_over_major']:.4f} MEASURED. The ring OPENS toward "
                     f"circular: at the old depressions it read as a squashed band, at pitch -50 "
-                    f"it reads as very nearly the circle it is."),
+                    f"it reads as very nearly the circle it is. ⚑ AND THIS IS THE ROW THAT PROVES "
+                    f"THE BOOM WAS THE ONLY CHANGE SINCE A2g: the ellipse is a function of the "
+                    f"ANGLE, so moving the eye in along its own axis must leave it alone — A2g "
+                    f"measured 0.765857 at 168.863 m, this clip measures "
+                    f"{ell['measured_minor_over_major']:.6f} at {der['boom_m']:.3f} m."),
+            },
+
+            # ------------------------------------------------------------------
+            # ⚑ DELTA 4 — THE BOOM. THE ONE THING THAT MOVED SINCE THE LAST CLIP.
+            # ------------------------------------------------------------------
+            "delta_4_BOOM": {
+                "what_moved": (f"the camera distance: 168.863429 m, derived by the wr1 "
+                               f"same-angular-size law from this arena's 86.915 m edge, -> a "
+                               f"FIXED {der['boom_m']:.9f} m that no room can move"),
+                "on_whose_word": ("MATT (R-CPB-17), verbatim: 'oh wow, the camera angle and zoom "
+                                  "should have nothing to do with room size. nothing at all.. "
+                                  "that is ludicrous.'"),
+                "landed_by": "Cell A2g-r item 1 (this cell), commits 4646dd2 + 9e6068d",
+                "what_was_struck": {
+                    "the_law": "DIST = 34.0 * (EDGE / 17.5)  —  wr1_level_rig.gd:28-29",
+                    "its_status_now": ("STRUCK from the presentation canon (R-CPB-17(a)) and "
+                                       "demoted to what it always was: R-6's ROOM-VERIFICATION "
+                                       "convention — a judge instrument for 'does this room fit "
+                                       "the frame'. Legitimate there. It remains in "
+                                       "wr1_level_rig.gd UNTOUCHED; that file is wr1's. This shot "
+                                       "simply stops calling it."),
+                    "the_question_it_answers": ("NOTE-78 asked which invariant a transplanted "
+                                                "canon means. R-CPB-17 answers: THE SUBJECT, not "
+                                                "the room."),
+                },
+                "where_the_number_came_from": {
+                    "rule": ("GL-17 reference-governs: READ the rig's realized werewolf-shot "
+                             "distance, print the read, pin the constant with the citation. Do "
+                             "not choose a number."),
+                    "read": ("wr1_level_rig.gd:28-29 (ROOM_DIST = 34.0 * (ROOM_EDGE / 17.5)) "
+                             "applied to wr1_level.gd:87 (ROOM_EDGE = 37.5 m)"),
+                    "arithmetic": f"34.0 x (37.5 / 17.5) = 510/7 = {der['boom_m']:.15f} m",
+                    "charter_expectation": "~72.857 m",
+                    "delta_from_expectation_m": round(der["boom_m"] - 72.857, 9),
+                    "verdict": ("MATCH to 0.14 mm — nothing to route up. The charter required a "
+                                "HALT if the rig's realized number differed materially; it does "
+                                "not."),
+                    "pinned_as": ("a LITERAL in kc2_cpb_clip.gd, not a live reference. A literal "
+                                  "is the only form of this number no room dimension can reach — "
+                                  "if wr1's room ever changes size, this camera must NOT move, and "
+                                  "a live link would quietly re-introduce exactly what was struck. "
+                                  "The scene recomputes the read and compares "
+                                  f"(pin delta {der['boom_pin_delta_m']:.3g}, "
+                                  f"{der['boom_pin_matches_rig_read']}), so the pin is checked "
+                                  "rather than trusted."),
+                },
                 "the_subject_re_declared": (
                     f"{subj['world_height_m']:.3f} m of man-and-hammer subtends "
                     f"{subj['screen_h_px']:.1f} px of 1080 = "
-                    f"{100.0*subj['screen_height_fraction']:.2f} % of frame height "
-                    f"({subj['px_per_metre_at_station']:.2f} px per metre at the station). ⚑ THIS "
-                    f"IS REPORTED, NOT COMPENSATED FOR. The canon fixes the ANGLES and a distance "
-                    f"LAW, and the law scales with the room: this room is "
-                    f"{der['edge_taken_m']:.1f} m against the werewolf room's 17.5 m, so the same "
-                    f"law puts the eye {der['distance_m']/34.0:.2f}x further out than R-6's "
-                    f"reference 34 m. If the zoom is wrong, the lever is the DISTANCE and the "
-                    f"ruling is Matt's."),
-                "the_zoom_fork_NOT_APPLIED": {
-                    "the_question": ("R-CPB-16 rules the camera ANGLE and ZOOM. Angle (yaw 47 / "
-                                     "pitch -50) and zoom (fov 24) are pure lens and are "
-                                     "transplanted exactly. DISTANCE is not a lens property — in "
-                                     "wr1 it is a FORMULA whose input is room size — so applying "
-                                     "the canon to a room 5x larger moves the subject even though "
-                                     "not one lens number changed."),
-                    "what_the_canon_s_OWN_shots_do_to_a_subject_of_this_size": {
-                        "R-6 reference, 17.5 m room at 34 m":
-                            f"{100.0*subj['screen_height_fraction']*der['distance_m']/34.0:.2f} %"
-                            " of frame height",
-                        "wr1 room shot, 37.5 m room at 72.857 m":
-                            f"{100.0*subj['screen_height_fraction']*der['distance_m']/72.857:.2f} %"
-                            " of frame height",
-                        "THIS clip, 86.915 m arena at 168.863 m":
-                            f"{100.0*subj['screen_height_fraction']:.2f} % of frame height",
-                        "reading": ("the canon's own precedents put a subject of this size "
-                                    "between roughly 13 % and 28 % of frame height. The same "
-                                    "canon on this arena puts it at "
-                                    f"{100.0*subj['screen_height_fraction']:.2f} % — 2.3x to 5x "
-                                    "smaller than the frame has ever shown a body. That is the "
-                                    "distance law meeting a bigger room, not a lens change."),
-                    },
-                    "the_lever": ("screen fraction scales as 1/distance off the MEASURED "
-                                  f"{subj['px_per_metre_at_station']:.2f} px/m at "
-                                  f"{der['distance_m']:.3f} m. A subject at 12 % would want "
-                                  f"{der['distance_m']*100.0*subj['screen_height_fraction']/12.0:.1f}"
-                                  " m; at 8 %, "
-                                  f"{der['distance_m']*100.0*subj['screen_height_fraction']/8.0:.1f}"
-                                  " m. Either is one constant in `_canon_pose`."),
-                    "status": ("NOT APPLIED, and deliberately so. The charter is explicit: "
-                               "transplant the law, report the number, do not compensate. This "
-                               "block is the arithmetic of the fork so the ruling can be made on "
-                               "figures rather than on an impression — the ruling is Matt's."),
+                    f"{100.0*subj['screen_height_fraction']:.2f} % of frame height. ⚑ THAT IS THE "
+                    f"GRIM DAWN REGISTER, AND IT IS THE POINT OF THE RULING: the werewolf frame "
+                    f"Matt ratified put a subject of this size at 12.96 %, and this clip lands at "
+                    f"{100.0*subj['screen_height_fraction']:.2f} % because it is shot from the "
+                    f"same boom. A2g put it at 5.59 %."),
+                "what_the_canon_s_OWN_shots_now_agree_ON": {
+                    "wr1 room shot, 37.5 m room at 72.857 m (RATIFIED BY EYE)": "~12.96 %",
+                    "THIS clip, 86.915 m arena at the same boom":
+                        f"{100.0*subj['screen_height_fraction']:.2f} %",
+                    "reading": ("the two agree because the boom is the same, which is the whole "
+                                "content of a room-size-invariant camera: a body reads the same "
+                                "in a 37.5 m room and an 86.9 m one. Under the struck law they "
+                                "differed by 2.3x."),
                 },
+                "what_it_costs_and_the_cost_is_not_hidden": {
+                    "the_room_crops": (
+                        f"the frame spans {gl13['frame_spans_m_across_at_aim_plane']:.2f} m across "
+                        f"and {gl13['frame_spans_m_down_at_aim_plane']:.2f} m down at the aim "
+                        f"plane, against a {gl13['rectangle_longer_side_m']:.3f} m arena, so ALL "
+                        f"FOUR GL-13 corners fall outside it "
+                        f"({gl13['corners_outside_frame']} of 4, pre-registered in A2gr-0 and "
+                        f"checked in the claim ledger). This is R-CPB-17(b): rooms crop. GL-13 "
+                        f"pins the rectangle in the WORLD and never promised it fits a frame "
+                        f"(NOTE-77). ⚑ THIS CLIP IS NOT AN ARENA OVERVIEW."),
+                    "at_A2g_two_of_four_were_already_outside": (
+                        "so this is a difference of degree, not of kind — and R-6's own 17.5 m "
+                        "room did not fit either."),
+                },
+                "the_edge_judgement_is_DISSOLVED_not_resolved": (
+                    "A2g's one declared judgement was maxf-vs-minf on a non-square rectangle, "
+                    "worth 1.9 % of distance and parked veto-open at A2g-2(3). With the boom "
+                    "fixed there is no edge to choose: the judgement does not need deciding, it "
+                    "stops existing. A2gr therefore carries ZERO camera judgements — every term "
+                    "is a ruling or a read."),
+            },
+
+            # ------------------------------------------------------------------
+            # ⚑ AND THE SAME ANCESTRY AGAINST THE IMMEDIATE PREDECESSOR, WHERE THE
+            #   DECLARED DELTA COUNT IS EXACTLY ONE. Matt has not watched A2g — the
+            #   conductor audited five of its frames — but it is the clip this one
+            #   is a revision OF, so "one authored change" has to be checkable
+            #   against it rather than asserted about it.
+            # ------------------------------------------------------------------
+            "ancestry_vs_A2g_the_clip_this_one_revises": {
+                "reference": {
+                    "file": "a2g-canon-cadence-ab.mp4",
+                    "cell": "SB-1 Cell A2g — THE CANON FRAME",
+                    "status": ("DEMOTED to a diagnostic by R-CPB-17(c). Its proofs CARRY: "
+                               "transplant exactness, full-span FG-10, cross-cell digest "
+                               "identity, the corrected ellipse measurements on the demoted "
+                               "shots."),
+                },
+                "declared_deltas": 1,
+                "the_one_delta": (f"the boom: 168.863429 m -> {der['boom_m']:.9f} m. "
+                                  f"R-CPB-17, Matt's ruling."),
+                "checked_how": ("the claim ledger compares this cell's segment-B sidecar against "
+                                f"A2g's, field for field, over {len(A2G_INVARIANT_FIELDS)} named "
+                                "tick / layout / article / clock fields — including the whole "
+                                "36-row realized epoch schedule, which is a function of CUT_SEED "
+                                "and the tick window and of nothing a camera can touch. Every one "
+                                "must be IDENTICAL and the camera must DIFFER; either half "
+                                "failing falsifies the cell."),
+                "invariant_fields_compared": A2G_INVARIANT_FIELDS,
+                "⚑ what_the_FG10_digests_do_and_do_not_prove": (
+                    "the frame digests differ from A2g's EVERYWHERE, and they must: the camera "
+                    "moved, so every pixel moved. Determinism is per-leg internal (4 passes, one "
+                    "distinct state). The cross-cell identity A2g could assert on legs 4 and 5 "
+                    "still holds here for the DEMOTED shots, whose poses this cell did not touch "
+                    "— see fg10_determinism. Those two digests are the arithmetic proof that "
+                    "nothing outside `_canon_pose` moved."),
             },
             "what_did_NOT_move": (
                 "WEAPON_SCALE 1.95, the grip constants, the palette ramp and its knee, the epoch "
                 "bands, the spin period 0.36 s, the cut pool, the seed, the tick window, the "
-                "baton. Verified in the sidecars above and at the commit."),
+                "baton, the clock (PREROLL 60 + per-tick seek), and — since A2g — the lens "
+                "ANGLES (yaw 47 / pitch -50 / fov 24) and the player-anchored aim. Verified in "
+                "the sidecars above, at the commit, and field-for-field against A2g's own "
+                "sidecar in the block below."),
         },
 
         "claims_verified": CLAIMS,
@@ -819,9 +1052,18 @@ def main() -> int:
             "render_lane": ("CLASSIC, declared: D-14 keeps Godot phases off the spine "
                             "(.godot/ churn is a post-D-1 breach); only the post-hoc artifact "
                             "gates run on spine code."),
-            "first_live_run": ("A2f surface 8: this tool was wired and never run. A2g is its "
-                               "first end-to-end execution, and the claim ledger above is the "
-                               "charter's rider made mechanical."),
+            "second_live_run": ("A2f surface 8 was 'this tool is wired and has never been run'; "
+                                "A2g was its first end-to-end execution. A2g-r is the second, and "
+                                "it is the first time the ledger has been re-pointed at a RULING "
+                                "rather than at a render: four rows about the struck distance law "
+                                "were replaced by four rows about the boom, because a ledger row "
+                                "that survives a ruling unchanged is certifying the world the "
+                                "ruling replaced."),
+            "parts_are_cell_scoped": (
+                f"{PARTS_DIR} — NOTE-80. `part_facts()` used to read `$TMP/tmp-$SEG-$SHOT.mp4`, a "
+                "path shared across cells, with A2g's two parts sitting in exactly those names "
+                "and the harness not checking ffmpeg's exit status. The claim ledger now proves "
+                "the parts it read were written after the newest byte in the A2g capture."),
         },
         "fg10_determinism": (TMP / "fg10-probe.txt").read_text().strip()
         if (TMP / "fg10-probe.txt").exists() else "MISSING — the gate log is not on disk",
@@ -835,8 +1077,12 @@ def main() -> int:
         "gl15": ("one ongoing-damage read: no damage numbers, no per-cut UI, nothing flashes, "
                  "ticks or counts. The whirlwind's cuts are ONE event."),
         "gl13": ("the pinned rectangle was READ and never moved: "
-                 f"{der['rectangle_size_x_m']:.3f} x {der['rectangle_size_z_m']:.3f} m. The canon "
-                 "distance is derived FROM it; nothing about the clip writes to it."),
+                 f"{der['rectangle_size_x_m']:.3f} x {der['rectangle_size_z_m']:.3f} m. ⚑ AND AT "
+                 "A2g-r IT IS NO LONGER AN INPUT TO ANYTHING. A2g derived the canon distance FROM "
+                 "it; R-CPB-17 struck that derivation, so the rectangle is now read purely to be "
+                 "REPORTED — the scale reference the measured block quotes against and the number "
+                 "that makes 'the room crops' checkable. Nothing about the clip writes to it, and "
+                 "now nothing about the camera reads it either."),
         "pl5": {"captures_before_kb": before_kb, "ceiling_kb": CEILING_KB},
         "shots": sidecars,
     }
