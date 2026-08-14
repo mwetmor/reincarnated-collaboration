@@ -1,0 +1,95 @@
+{
+ "digests": {
+  "pm4l_eor_per_hit.csv": "120990d998ac23a4b2dadc134e0f5cf3e51a3f7f6eb34ee400d5e2531b26d5a8",
+  "pm4l_modifier_stack.csv": "4d361ebe6045a6a6d4af4c477242dd01f7de42b43f5af430a5487913c238f1b0",
+  "pm4l_target_multiplicity.csv": "9fc53083723ba47f88de063fa0977e38a0b4dfb419d56d0cd3d738bee78a102e",
+  "pm4l_mitigation_by_body.csv": "a8c1ffd97dc703419f8447f3d7bbba3903e0f14d2c2e6746a938ceefae9ecec6",
+  "pm4l_applied_damage_by_body.csv": "5a41ad7d8a9757782c2f54e7ea018bb8ade2bc81c57b64f3774dd9e42d9cee67"
+ },
+ "row_counts": {
+  "pm4l_eor_per_hit.csv": 42,
+  "pm4l_modifier_stack.csv": 440,
+  "pm4l_target_multiplicity.csv": 14,
+  "pm4l_mitigation_by_body.csv": 19810,
+  "pm4l_applied_damage_by_body.csv": 79240
+ },
+ "checks": [
+  {
+   "check": "L1-rank-ceiling",
+   "status": "PASS",
+   "detail": "effective 20 <= skillUltimateLevel 26 (skillMaxLevel 16)"
+  },
+  {
+   "check": "L1-canUseWhileMoving-positive-control",
+   "status": "PASS",
+   "detail": "eyeofreckoning1.canUseWhileMoving == 1, reproducing Lap G \u00a7 7 clause 1"
+  },
+  {
+   "check": "L1-weapon-base-vs-camera",
+   "status": "PASS",
+   "detail": "Gutsmasher offensivePhysical 144-740 == Lap A camera read 144-740 (independent surfaces)"
+  },
+  {
+   "check": "L2-composition-law-exact-count",
+   "status": "PASS",
+   "detail": "6 damage types reproduce the SAME global term 337 EXACTLY: ['aether', 'vitality', 'cold', 'lightning', 'electrocute', 'vitality_decay']"
+  },
+  {
+   "check": "L2-devotion-count",
+   "status": "PASS",
+   "detail": "55 devotion rows carry rank_allocated==1 == sheet devotion_points_spent 55 (devotion_level is NOT the allocation flag -- 285 rows carry it)"
+  },
+  {
+   "check": "L2-crit-damage-within-1pt",
+   "status": "PASS",
+   "detail": "table 56.0 vs sheet 57"
+  },
+  {
+   "check": "L3-no-target-cap-field",
+   "status": "PASS",
+   "detail": "Skill_AttackRadiusSpin declares NO target-count field -> multiplicity is GEOMETRIC (every body whose centre lies within skillTargetRadius), i.e. DENSITY-DEPENDENT and uncapped"
+  },
+  {
+   "check": "L4-no-negative-applied",
+   "status": "PASS",
+   "detail": "minimum applied_per_rev = 6553.65"
+  },
+  {
+   "check": "L4-player-cannot-miss-this-board",
+   "status": "PASS",
+   "detail": "normalPTHEquation = PTH/70 and the board's minimum PTH is 149.2 -> hit chance saturates at 1.0 on EVERY body/wave"
+  },
+  {
+   "check": "L4-armor-law-source",
+   "status": "PASS",
+   "detail": "armour law read verbatim from combatformulas.dbr, both branches present"
+  },
+  {
+   "check": "L4-absorption-closes-lapA-gap",
+   "status": "PASS",
+   "detail": "gameengine.armorDefensiveAbsorption = 70.0 -- Lap A's armor_absorption_pct GAP is CLOSED"
+  },
+  {
+   "check": "L4-two-slot-crit-law",
+   "status": "PASS",
+   "detail": "pthThreshold1..6 = [70.0, 90.0, 105.0, 120.0, 130.0, 135.0]; pthDamageModifier1..6 = [1.0, 1.100000023841858, 1.2000000476837158, 1.2999999523162842, 1.399999976158142, 1.5]; pthMinimum = 55.0"
+  }
+ ],
+ "board_bodies": 937,
+ "named_gaps": 0,
+ "eor_effective_rank": 20,
+ "is_g1_rank": 16,
+ "global_total_damage_term_inverted": 337.0,
+ "global_total_damage_term_table_sum": 325.0,
+ "law_exact_types": [
+  "aether",
+  "vitality",
+  "cold",
+  "lightning",
+  "electrocute",
+  "vitality_decay"
+ ],
+ "armor_absorption_pct": 70.0,
+ "hit_period_s_LO": 0.08782,
+ "hit_period_s_HI": 0.081633
+}

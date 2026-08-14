@@ -1,0 +1,43 @@
+quantity,value,unit,source_record,source_archive,source_field,index,grade,note
+eor_rank_allocated,15,rank,player.gdc block 8,,rank_allocated,,MEASURED,"sha256 b8e6f510...bfa5, 98,101 bytes"
+eor_rank_bonus_all_skills,1,rank,measured-player-sheet.csv,,bonus_all_skills,frame 512,MEASURED,Lap A camera sheet
+eor_rank_bonus_oathkeeper,0,rank,measured-player-sheet.csv,,bonus_oathkeeper_skills,frame 512,MEASURED,
+eor_rank_bonus_item_specific,4,rank,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,augmentSkillLevel2,,MEASURED,"augmentSkillName2 == eyeofreckoning1.dbr -- IS-L1, the term IS-G1 dropped"
+eor_rank_effective,20,rank,(composed),,,,DERIVED-SUM,15+1+0+4; ceiling is skillUltimateLevel=26
+candidate_rank16:weaponDamagePct_skill,39.0,percent,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,weaponDamagePct,15,MEASURED,exact
+candidate_rank16:weaponDamagePct_total,53.0,percent,(composed),,weaponDamagePct,,DERIVED-SUM,"skill + Gutsmasher EoR-modifier +14; Warborn's +5 needs 4 pieces, he has 3"
+candidate_rank16:flat_physical_min,85.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensivePhysicalMin,15,MEASURED,
+candidate_rank16:flat_physical_max,94.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensivePhysicalMax,15,MEASURED,
+candidate_rank16:flat_fire_min,70.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensiveFireMin,15,MEASURED,100% converted to physical by the Gutsmasher EoR modifier
+candidate_rank16:mana_per_tick,11.0,energy,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,skillManaCost,15,MEASURED,
+run_of_record_rank20:weaponDamagePct_skill,43.0,percent,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,weaponDamagePct,19,MEASURED,exact
+run_of_record_rank20:weaponDamagePct_total,57.0,percent,(composed),,weaponDamagePct,,DERIVED-SUM,"skill + Gutsmasher EoR-modifier +14; Warborn's +5 needs 4 pieces, he has 3"
+run_of_record_rank20:flat_physical_min,109.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensivePhysicalMin,19,MEASURED,
+run_of_record_rank20:flat_physical_max,122.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensivePhysicalMax,19,MEASURED,
+run_of_record_rank20:flat_fire_min,90.0,damage,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,offensiveFireMin,19,MEASURED,100% converted to physical by the Gutsmasher EoR modifier
+run_of_record_rank20:mana_per_tick,13.0,energy,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,skillManaCost,19,MEASURED,
+eor_flat_physical_add_gear,24.0,damage,records/skills/itemskillsgdx2/skillmodifiers/legendary/hands_d206_eyeofreckoning.dbr,gdx2,offensivePhysicalMin,,MEASURED,"Sandreaver Bracers, EoR-scoped"
+eor_crit_damage_add_gear,12.0,percent,records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/head_d028_eyeofreckoning.dbr,gdx2,offensiveCritDamageModifier,,MEASURED,"Warborn Visor, EoR-scoped"
+eor_set_weaponDamagePct_INACTIVE,5.0,percent,records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/set_d025_eyeofreckoning.dbr,gdx2,weaponDamagePct,,MEASURED-INACTIVE,"itemSkillModifierControl=[0,0,0,1] -> 4-piece gate; 3 pieces equipped"
+eor_bleed_flat_gear,330.0,damage_over_time,records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace2h_d107_eyeofreckoning.dbr,gdx2,offensiveSlowBleedingMin,,MEASURED,duration 3.0s; + hands 210.0
+weapon_base_physical_min,144.0,damage,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,offensivePhysicalMin,,MEASURED,Gutsmasher; Lap A camera read 144-740 EXACT
+weapon_base_physical_max,740.0,damage,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,offensivePhysicalMax,,MEASURED,
+weapon_bonus_physical_min,48.0,damage,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,offensiveBonusPhysicalMin,,MEASURED,
+weapon_bonus_physical_max,62.0,damage,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,offensiveBonusPhysicalMax,,MEASURED,
+weapon_conversion_1,Chaos->Physical 50.0%,conversion,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,conversionPercentage,,MEASURED,Lap A camera read 55% -- record says 50%; camera and table DISAGREE (see method)
+weapon_conversion_2,Lightning->Physical 50.0%,conversion,records/items/gearweapons/melee2h/d107_blunt2h.dbr,gdx2,conversionPercentage2,,MEASURED,Lap A camera read 46%
+eor_conversion_skill_scoped,Fire->Physical 100.0%,conversion,records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace2h_d107_eyeofreckoning.dbr,gdx2,conversionPercentage,,MEASURED,EoR-scoped: all EoR fire damage becomes physical
+component_conversion,Aether->Physical 25%,conversion,records/items/materia/compa_sealmight.dbr,gdx1,conversionPercentage,,MEASURED,
+channel_timeBetweenAttacks,200.0,0.8ms_quanta,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,timeBetweenAttacks,,MEASURED,template: 'Time between hits to enemies along the path'
+channel_period_at_100pct_AS,0.16,seconds,(composed),,timeBetweenAttacks*0.0008,,DERIVED,quantum established at PE-1 across the whole spin/beam family
+attack_speed_stat_line,196.0,percent,measured-player-sheet.csv,,attack_speed,frame 511,MEASURED,
+attack_speed_implied_by_APS,182.1918,percent,measured-player-sheet.csv,,attacks_per_second / weapon_attacks_per_second,frames 511/495,MEASURED-DERIVED,"the sheet's own two readings do NOT agree; both carried, LO/HI per R-PM4-2 (monotone scalar)"
+channel_hit_period_LO,0.08782,seconds,(composed),,period_at_100pct / attack_speed_multiplier,,DERIVED-BRACKET,
+channel_hit_rate_LO,11.387,hits_per_second,(composed),,1 / hit_period,,DERIVED-BRACKET,
+channel_hit_period_HI,0.081633,seconds,(composed),,period_at_100pct / attack_speed_multiplier,,DERIVED-BRACKET,
+channel_hit_rate_HI,12.25,hits_per_second,(composed),,1 / hit_period,,DERIVED-BRACKET,
+channel_duration,0.25,seconds,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,duration,,MEASURED,channel re-arm window; useResetsDuration=True
+channel_rotationSpeedMultiplier,0.35,ratio,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,rotationSpeedMultiplier,,MEASURED,turning cost while channelling
+channel_canUseWhileMoving,True,bool,records/skills/playerclass09/eyeofreckoning1.dbr,gdx2,canUseWhileMoving,,MEASURED,Lap G positive control -- reproduced from this seat
+sheet_eor_damage_per_hit,43691-59761,damage,measured-player-sheet.csv,,eye_of_reckoning_damage_per_hit,frame 511,MEASURED-BY-CAMERA,the GAME'S OWN composed per-hit figure -- the run-of-record magnitude
+sheet_weapon_damage_per_hit,16972-40930,damage,measured-player-sheet.csv,,weapon_damage_per_hit,frame 511,MEASURED-BY-CAMERA,

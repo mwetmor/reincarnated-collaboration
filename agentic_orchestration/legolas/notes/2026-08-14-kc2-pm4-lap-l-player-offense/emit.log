@@ -1,0 +1,29 @@
+
+=== L1 -- EoR per-hit arithmetic ===
+  EoR allocated=15  +all=1  +oathkeeper=0 +item-specific=4  ->  effective=20  (IS-G1 said 16)
+  [PASS] L1-rank-ceiling: effective 20 <= skillUltimateLevel 26 (skillMaxLevel 16)
+  [PASS] L1-canUseWhileMoving-positive-control: eyeofreckoning1.canUseWhileMoving == 1, reproducing Lap G § 7 clause 1
+  [PASS] L1-weapon-base-vs-camera: Gutsmasher offensivePhysical 144-740 == Lap A camera read 144-740 (independent surfaces)
+
+=== L2 -- the modifier stack ===
+  implied global term per type: aether=+337, vitality=+337, cold=+337, lightning=+337, acid_poison=+330, electrocute=+337, vitality_decay=+337, pierce=+359, fire=+410, bleed=+565, trauma=+836, physical=+977
+  EXACT at 337 on: ['aether', 'vitality', 'cold', 'lightning', 'electrocute', 'vitality_decay']
+  [PASS] L2-composition-law-exact-count: 6 damage types reproduce the SAME global term 337 EXACTLY: ['aether', 'vitality', 'cold', 'lightning', 'electrocute', 'vitality_decay']
+  [PASS] L2-devotion-count: 55 devotion rows carry rank_allocated==1 == sheet devotion_points_spent 55 (devotion_level is NOT the allocation flag -- 285 rows carry it)
+  [PASS] L2-crit-damage-within-1pt: table 56.0 vs sheet 57
+
+=== L3 -- target multiplicity ===
+  [PASS] L3-no-target-cap-field: Skill_AttackRadiusSpin declares NO target-count field -> multiplicity is GEOMETRIC (every body whose centre lies within skillTargetRadius), i.e. DENSITY-DEPENDENT and uncapped
+
+=== L4 -- monster-side mitigation ===
+  bodies on the 151-180 board: 937
+  mitigation rows 19810, applied rows 79240, named gaps 0
+  waves 151-160 applied-per-rev range (non-immune): 6554 .. 59761
+  waves 151-160 hit-chance range: 1.0000 .. 1.0000
+  waves 151-160 immune-physical rows: 920 of 31600
+  waves 151-160 revs_to_kill (LO dmg / HI crit): min 0.002 med 7.621 max 108.03
+  [PASS] L4-no-negative-applied: minimum applied_per_rev = 6553.65
+  [PASS] L4-player-cannot-miss-this-board: normalPTHEquation = PTH/70 and the board's minimum PTH is 149.2 -> hit chance saturates at 1.0 on EVERY body/wave
+  [PASS] L4-armor-law-source: armour law read verbatim from combatformulas.dbr, both branches present
+  [PASS] L4-absorption-closes-lapA-gap: gameengine.armorDefensiveAbsorption = 70.0 -- Lap A's armor_absorption_pct GAP is CLOSED
+  [PASS] L4-two-slot-crit-law: pthThreshold1..6 = [70.0, 90.0, 105.0, 120.0, 130.0, 135.0]; pthDamageModifier1..6 = [1.0, 1.100000023841858, 1.2000000476837158, 1.2999999523162842, 1.399999976158142, 1.5]; pthMinimum = 55.0
