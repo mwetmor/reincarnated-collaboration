@@ -1,0 +1,53 @@
+FG-10 determinism probe — 4 passes per leg; PROMOTED pairs at FULL span, short legs 45 frames; warm-up preroll 60 frames (tick-frozen, pruned)
+  ⚑ CLK-2 f3: BOTH digest lists are written for every pass of every leg, green or red (NOTE-90), and DEEPEST-PREROLL-DIVERGENCE is reported per leg as a standing diagnostic.
+  ⚑ THE RED CONDITION IS UNCHANGED: the MEASURED span, digest-identical across passes. The depth number is REPORTING-ONLY and cannot redden a leg (CLK-2-2(3i)).
+  leg canon/--undulate on: 320 measured frames x 4 passes (FULL PROMOTED SPAN)   [canon-undon-t0default-full]
+    pass 1 digest-of-frame-digests: f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+    pass 2 digest-of-frame-digests: f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+    pass 3 digest-of-frame-digests: f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+    pass 4 digest-of-frame-digests: f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+    distinct states: 1   disagreeing frames: none
+    FG10DEPTH label=canon-undon-t0default-full measurable=yes deepest_line1=23 margin=37 n_pre=19 measured_identical=yes overall_deepest_index0=22 overall_first_index0=4
+  leg canon/--undulate off: 320 measured frames x 4 passes (FULL PROMOTED SPAN)   [canon-undoff-t0default-full]
+    pass 1 digest-of-frame-digests: 95220575d1345ba3e2306fdaee27596030e3db51b7d99c8437565b01f937af57
+    pass 2 digest-of-frame-digests: 95220575d1345ba3e2306fdaee27596030e3db51b7d99c8437565b01f937af57
+    pass 3 digest-of-frame-digests: 95220575d1345ba3e2306fdaee27596030e3db51b7d99c8437565b01f937af57
+    pass 4 digest-of-frame-digests: 95220575d1345ba3e2306fdaee27596030e3db51b7d99c8437565b01f937af57
+    distinct states: 1   disagreeing frames: none
+    FG10DEPTH label=canon-undoff-t0default-full measurable=yes deepest_line1=23 margin=37 n_pre=19 measured_identical=yes overall_deepest_index0=22 overall_first_index0=4
+  leg canon/--undulate on/tick0 1660: 46 measured frames x 4 passes (45 frames)   [canon-undon-t01660-45f]
+    pass 1 digest-of-frame-digests: 982352531827455ac76a8e10ebc48b4d82e2caeb1edf9d95e161becc5a909bae
+    pass 2 digest-of-frame-digests: 982352531827455ac76a8e10ebc48b4d82e2caeb1edf9d95e161becc5a909bae
+    pass 3 digest-of-frame-digests: 982352531827455ac76a8e10ebc48b4d82e2caeb1edf9d95e161becc5a909bae
+    pass 4 digest-of-frame-digests: 982352531827455ac76a8e10ebc48b4d82e2caeb1edf9d95e161becc5a909bae
+    distinct states: 1   disagreeing frames: none
+    FG10DEPTH label=canon-undon-t01660-45f measurable=yes deepest_line1=20 margin=40 n_pre=16 measured_identical=yes overall_deepest_index0=19 overall_first_index0=4
+  leg d-close/--undulate on: 46 measured frames x 4 passes (45 frames)   [d-close-undon-t0default-45f]
+    pass 1 digest-of-frame-digests: 0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+    pass 2 digest-of-frame-digests: 0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+    pass 3 digest-of-frame-digests: 0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+    pass 4 digest-of-frame-digests: 0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+    distinct states: 1   disagreeing frames: none
+    FG10DEPTH label=d-close-undon-t0default-45f measurable=yes deepest_line1=23 margin=37 n_pre=4 measured_identical=yes overall_deepest_index0=22 overall_first_index0=19
+  leg b-ring/--undulate on: 46 measured frames x 4 passes (45 frames)   [b-ring-undon-t0default-45f]
+    pass 1 digest-of-frame-digests: 504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+    pass 2 digest-of-frame-digests: 504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+    pass 3 digest-of-frame-digests: 504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+    pass 4 digest-of-frame-digests: 504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+    distinct states: 1   disagreeing frames: none
+    FG10DEPTH label=b-ring-undon-t0default-45f measurable=yes deepest_line1=23 margin=37 n_pre=19 measured_identical=yes overall_deepest_index0=22 overall_first_index0=4
+  ⚑ SEGMENTS RENDERED AGAINST THE RECORDED MATRIX, RE-ADJUDICATED IMMEDIATELY BEFORE
+    THE FIRST DELIVERABLE FRAME: every leg present, 4 passes each, one
+    distinct state each, and kc2_cpb_clip.gd byte-identical to the file that drew them.
+  VERDICT: IDENTICAL, frame for frame, on every leg, across all 4 passes.
+  ⚑ At A2g the PROMOTED pairs are probed at FULL SPAN, so the gate measures
+    exactly what it certifies — CLK-1's own surface 3 ('probes 45 frames,
+    certifies 320'), closed by CLK-1-2(4) rather than carried forward.
+  ⚑ This gate HALTED the first A2e render attempt (unpinned GPUParticles3D seeds)
+    and HALTED A2f at N=2->4 (the scene did not reproduce across runs at all).
+    CLK-1 acquitted BOTH of A2f's named candidates by probe — the locomotion
+    mixer wrote bit-identical bone poses on runs whose PIXELS differed, and
+    hiding every GPUParticles3D left FOUR distinct states in six passes — and
+    convicted a ONE-TIME RENDERER warm-up instead: frames 18..25 of the process,
+    on every shot and every tick window, healing exactly and never returning.
+    The preroll excludes it; the locomotion seek is what makes that free.

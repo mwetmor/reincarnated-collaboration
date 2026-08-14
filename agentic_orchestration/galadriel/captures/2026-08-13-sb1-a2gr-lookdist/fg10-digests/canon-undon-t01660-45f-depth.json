@@ -1,0 +1,168 @@
+{
+  "label": "canon-undon-t01660-45f",
+  "measurable": true,
+  "preroll_frames": 60,
+  "n_passes": 4,
+  "lists": [
+    "canon-undon-t01660-45f-pass-1.raw.sha",
+    "canon-undon-t01660-45f-pass-2.raw.sha",
+    "canon-undon-t01660-45f-pass-3.raw.sha",
+    "canon-undon-t01660-45f-pass-4.raw.sha"
+  ],
+  "list_lengths": [
+    106,
+    106,
+    106,
+    106
+  ],
+  "list_lengths_all_equal": true,
+  "preroll_deepest_divergence_line1": 20,
+  "preroll_margin_frames": 40,
+  "preroll_n_lines_that_ever_differ": 16,
+  "preroll_lines_that_ever_differ": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "overall_deepest_divergence_index0": 19,
+  "overall_first_divergence_index0": 4,
+  "measured_span_n_frames_that_ever_differ": 0,
+  "measured_span_identical": true,
+  "pairs": [
+    {
+      "a": "canon-undon-t01660-45f-pass-1.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-2.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 5,
+      "preroll_n_differ": 5,
+      "preroll_deepest_line1": 20,
+      "preroll_lines1": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    },
+    {
+      "a": "canon-undon-t01660-45f-pass-1.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-3.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 3,
+      "preroll_n_differ": 3,
+      "preroll_deepest_line1": 20,
+      "preroll_lines1": [
+        18,
+        19,
+        20
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    },
+    {
+      "a": "canon-undon-t01660-45f-pass-1.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-4.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 16,
+      "preroll_n_differ": 16,
+      "preroll_deepest_line1": 20,
+      "preroll_lines1": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    },
+    {
+      "a": "canon-undon-t01660-45f-pass-2.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-3.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 2,
+      "preroll_n_differ": 2,
+      "preroll_deepest_line1": 17,
+      "preroll_lines1": [
+        16,
+        17
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    },
+    {
+      "a": "canon-undon-t01660-45f-pass-2.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-4.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 11,
+      "preroll_n_differ": 11,
+      "preroll_deepest_line1": 15,
+      "preroll_lines1": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    },
+    {
+      "a": "canon-undon-t01660-45f-pass-3.raw.sha",
+      "b": "canon-undon-t01660-45f-pass-4.raw.sha",
+      "compared_frames": 106,
+      "n_differ": 13,
+      "preroll_n_differ": 13,
+      "preroll_deepest_line1": 17,
+      "preroll_lines1": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    }
+  ]
+}

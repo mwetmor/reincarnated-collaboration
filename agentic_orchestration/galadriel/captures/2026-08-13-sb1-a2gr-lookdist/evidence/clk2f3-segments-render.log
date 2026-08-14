@@ -1,0 +1,68 @@
+=== PL-5 floor check: captures/ = 6.78 G of 10 G ===
+=== disk free: 23.6 G ===
+=== FG-10 RE-ADJUDICATION FROM THE RECORDED EVIDENCE — the gate is not waived ===
+      leg canon/--undulate on: 320 frames x 4 passes, 1 state, f651b328d9589efa5710d8a96927948849f4bc4a07223085d94ccfa8841eb913
+      leg canon/--undulate off: 320 frames x 4 passes, 1 state, 95220575d1345ba3e2306fdaee27596030e3db51b7d99c8437565b01f937af57
+      leg canon/--undulate on/tick0 1660: 46 frames x 4 passes, 1 state, 982352531827455ac76a8e10ebc48b4d82e2caeb1edf9d95e161becc5a909bae
+      leg d-close/--undulate on: 46 frames x 4 passes, 1 state, 0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+      leg b-ring/--undulate on: 46 frames x 4 passes, 1 state, 504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+      kc2_cpb_clip.gd unchanged since the matrix certified it: ea38c5e20a66de4017128dbc6f26582257c07ace7a29695e62a4c30a54fa65e8
+
+    FG-10 PASS — every leg of the matrix identical, frame for frame, across 4 passes.
+
+=== rendering segment A-stationary shot canon -> PNG sequence ===
+[cpb] cadence: STATIONARY (A2d's law) at 17 births/rev (target mean 11.0, R-CPB-15)
+[cpb] PL-5 floor check: captures/ = 6.78 G of a 10 G ceiling (67.8%)
+[cpb] disk free: 23.7 G (floor 8.0 G for PNG intermediates)
+[cpb] PL-5 floor check PASS — 3.22 G captures headroom
+[kc2-arena] [kc2_baton] GATE PASS | digest d7ecd866ac45 (MATCH) | 344 actors | 20 waves | 1003 knots | 1900 event rows | tick_period_s=0.0816326530612245
+[kc2-arena] built: floor 86.915 x 85.303 m · 6 emitters · 344 bodies · 8 declared absences
+[cpb] driver bound: 344 bodies, 344 anim players, drip 306 ticks
+[cpb] ⚑ CANON CAMERA (R-CPB-16 lens + R-CPB-17 boom): yaw 47.0 / pitch -50.0 / fov 24.0, FIXED BOOM 72.857142857 m (rig read 34.0 x (37.5 / 17.5) = 72.857142857, pin delta 0.000000000000, MATCH); aim = station + 1.0 m; GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose (R-CPB-17)
+[cpb] camera gate: PASS (9 rays) 
+[cpb] shot canon: ticks 1570.00 -> 1700 (10.61 s of trace) = 319 frames at 30 fps (+ 60 TICK-FROZEN warm-up frames, pruned before the encode)
+[cpb] frame     0  tick  1570.00  visible   5
+[cpb] frame    60  tick  1594.50  visible   5
+[cpb] frame   120  tick  1619.00  visible   5
+[cpb] frame   180  tick  1643.50  visible   4
+[cpb] frame   240  tick  1668.00  visible   3
+[cpb] frame   300  tick  1692.50  visible  14
+[cpb] shot canon complete: 379 frames driven
+    captured 320 frames
+=== encoding A-stationary/canon -> TEMP mp4 (dip applied) ===
+-rw-r--r--@ 1 admin  wheel  3314678 Aug 14 02:10 /tmp/kc2_cpb/parts-a2gr-lookdist-cadence-ab/tmp-A-stationary-canon.mp4
+    FG-12 pruned 320 frames (.720 G) from /tmp/kc2_cpb/frames-A-stationary-canon
+=== generating the SEAM: 0.60s of held black, same encoder settings ===
+
+=== rendering segment B-undulating shot canon -> PNG sequence ===
+[cpb] cadence: UNDULATING (epochs, R-CPB-14) at 17 births/rev (target mean 11.0, R-CPB-15)
+[cpb] PL-5 floor check: captures/ = 6.78 G of a 10 G ceiling (67.8%)
+[cpb] disk free: 24.0 G (floor 8.0 G for PNG intermediates)
+[cpb] PL-5 floor check PASS — 3.22 G captures headroom
+[kc2-arena] [kc2_baton] GATE PASS | digest d7ecd866ac45 (MATCH) | 344 actors | 20 waves | 1003 knots | 1900 event rows | tick_period_s=0.0816326530612245
+[kc2-arena] built: floor 86.915 x 85.303 m · 6 emitters · 344 bodies · 8 declared absences
+[cpb] driver bound: 344 bodies, 344 anim players, drip 306 ticks
+[cpb] ⚑ CANON CAMERA (R-CPB-16 lens + R-CPB-17 boom): yaw 47.0 / pitch -50.0 / fov 24.0, FIXED BOOM 72.857142857 m (rig read 34.0 x (37.5 / 17.5) = 72.857142857, pin delta 0.000000000000, MATCH); aim = station + 1.0 m; GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose (R-CPB-17)
+[cpb] camera gate: PASS (9 rays) 
+[cpb] shot canon: ticks 1570.00 -> 1700 (10.61 s of trace) = 319 frames at 30 fps (+ 60 TICK-FROZEN warm-up frames, pruned before the encode)
+[cpb] frame     0  tick  1570.00  visible   5
+[cpb] frame    60  tick  1594.50  visible   5
+[cpb] frame   120  tick  1619.00  visible   5
+[cpb] frame   180  tick  1643.50  visible   4
+[cpb] frame   240  tick  1668.00  visible   3
+[cpb] frame   300  tick  1692.50  visible  14
+[cpb] shot canon complete: 379 frames driven
+    captured 320 frames
+=== encoding B-undulating/canon -> TEMP mp4 (dip applied) ===
+-rw-r--r--@ 1 admin  wheel  4518160 Aug 14 02:14 /tmp/kc2_cpb/parts-a2gr-lookdist-cadence-ab/tmp-B-undulating-canon.mp4
+    FG-12 pruned 320 frames (.720 G) from /tmp/kc2_cpb/frames-B-undulating-canon
+
+=== concatenating 3 parts -> TEMP deliverable ===
+file '/tmp/kc2_cpb/parts-a2gr-lookdist-cadence-ab/tmp-A-stationary-canon.mp4'
+file '/tmp/kc2_cpb/parts-a2gr-lookdist-cadence-ab/tmp-seam.mp4'
+file '/tmp/kc2_cpb/parts-a2gr-lookdist-cadence-ab/tmp-B-undulating-canon.mp4'
+-rw-r--r--@ 1 admin  wheel  7834763 Aug 14 02:14 /tmp/kc2_cpb/tmp-a2gr-lookdist-cadence-ab.mp4
+
+=== the temp render is now the FG-9 gate's problem. Promotion is a separate step:
+    python3 agentic_orchestration/drax/tools/kc2_cpb_promote.py
+    (spine gates ffprobe_verifies + sha256_matches; promotion only on green)

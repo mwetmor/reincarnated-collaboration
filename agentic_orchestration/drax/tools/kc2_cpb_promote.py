@@ -644,6 +644,26 @@ def main() -> int:
                  f"written after the newest byte in the A2g capture "
                  f"({', '.join(f'{p.name} +{p.stat().st_mtime - a2g_newest:.0f}s' for p in part_paths if p.exists())})")
 
+    # ------------------------------------------------------------------
+    # ⚑ AND THE ROW THE WHOLE CLK-2 ARC EXISTS TO MAKE POSSIBLE. The pinned
+    #   determinism line claims the margin is WATCHED. A claim that a margin is
+    #   watched is falsifiable exactly once: by checking that the watcher wrote
+    #   something down, for every leg, and that every leg's certified span came
+    #   back identical. Before this cell the gate recorded only its verdict, so
+    #   this row could not have been written at all.
+    # ------------------------------------------------------------------
+    dl = sorted((OUT_DIR / "fg10-digests").glob("*-depth.json"))
+    dsum = [json.loads(p.read_text()) for p in dl]
+    ok &= verify("the NOTE-90 margin this manifest claims to watch was actually measured, "
+                 "on every leg",
+                 len(dsum) == 5 and all(d["measurable"] for d in dsum)
+                 and all(d["measured_span_identical"] for d in dsum)
+                 and all(d["n_passes"] == 4 for d in dsum),
+                 f"{len(dsum)} legs with a depth record, 4 passes each, certified span "
+                 f"identical on every one; deepest preroll divergence per leg = "
+                 + ", ".join(f"{d['label'].split('-t0')[0]} {d['preroll_deepest_divergence_line1']}/60"
+                             for d in dsum))
+
     if not ok:
         print("[promote] HALT — the claim ledger is not clean. A manifest that asserts what "
               "was not measured is a defect, so nothing is promoted and nothing is written.")
@@ -713,6 +733,25 @@ def main() -> int:
         "d-close/undulating and b-ring/undulating, 4 passes each, one distinct state each), "
         "through the same unproject_position instrument as the canon numbers.")
 
+    # ⚑ THE STANDING NOTE-90 DIAGNOSTIC, READ OFF THE GATE'S OWN RECORD. Not
+    #   retyped from a log: the per-leg depth JSONs the harness wrote during the
+    #   certifying matrix, parsed here so the manifest's margin claim is a file
+    #   on disk rather than a sentence.
+    depth_summary = {}
+    for dj in sorted((OUT_DIR / "fg10-digests").glob("*-depth.json")):
+        dd = json.loads(dj.read_text())
+        depth_summary[dd["label"]] = {
+            "deepest_preroll_divergence_line1": dd["preroll_deepest_divergence_line1"],
+            "margin_frames_to_certified_span": dd["preroll_margin_frames"],
+            "preroll_lines_that_ever_differ": dd["preroll_lines_that_ever_differ"],
+            "certified_span_identical_across_passes": dd["measured_span_identical"],
+            "passes": dd["n_passes"],
+        }
+    if not depth_summary:
+        print("[promote] HALT — no NOTE-90 depth record on disk. The margin this manifest "
+              "claims to watch was never measured.")
+        return 1
+
     manifest = {
         "cell": "SB-1 Cell A2g-r — THE LOOK DISTANCE (rate 17 + fixed clock + the "
                 "Grim-Dawn-matched lens, at the ratified boom). THE BINDING FRAME.",
@@ -724,6 +763,41 @@ def main() -> int:
         "artifact_class": ("E — owner-eye. UNTRACKED, never committed. Keep until viewed + veto "
                            "window closed, then demote to class D (PL-5)."),
         "framing_sentence": FRAMING,
+
+        # ------------------------------------------------------------------
+        # ⚑ THE TWO LINES CLK-2-2(3iii) PINS. They are QUOTED, not composed —
+        #   the conductor wrote them and this tool has no licence to improve
+        #   them. What it may not do is let a superseded figure stand
+        #   unaccompanied, so the measurement that overtook one of them rides
+        #   directly beneath it, labelled as a measurement (NOTE-82, K-1).
+        # ------------------------------------------------------------------
+        "ancestry_lines_pinned_verbatim": [
+            "determinism: certified by five-leg FG-10 matrix ×4 at HEAD incl. one cold-cache "
+            "pass on the promoted leg; NO fix applied — the 2026-08-13 red trigger is "
+            "unreproduced in 11+ instrumented draws (GL-12 declared absence), disk-cache family "
+            "exonerated (NOTE-86), 100% of observed variance confined to the pruned preroll "
+            "(deepest 21/60), margin watched by standing NOTE-90 diagnostic",
+            "R-CPB-17b: PROVISIONAL — binding-frame CANDIDATE for Matt's eyeball; boom value is "
+            "a conductor transcription of a ratified LOOK, not canon",
+        ],
+        "⚑ the_pinned_line_says_21_of_60_and_THIS_matrix_measured_23_of_60": {
+            "why_this_block_exists": (
+                "The pinned line was written at CLK-2-2, when 21/60 was the full-span family's "
+                "deepest preroll divergence over eleven draws. The certifying matrix below is "
+                "the twelfth through thirty-first draws, and on the PROMOTED leg it measured "
+                "23/60. The line is reproduced verbatim because it is the conductor's article; "
+                "this block exists because shipping a stale figure without its correction is "
+                "the thing the whole NOTE-90 instrument was built to stop. The tail moved "
+                "again, on a green run, and it was SEEN — which is the instrument working, not "
+                "the instrument failing."),
+            "margin_to_the_certified_span_frames": 37,
+            "still_true_without_qualification": (
+                "100% of observed variance is confined to the PRUNED PREROLL. The measured span "
+                "is digest-identical on every one of the twenty passes below, and the promoted "
+                "leg's digest f651b328... is the same digest five earlier full-span renders "
+                "produced across three cells and two cache conditions."),
+            "per_leg_deepest_preroll_divergence": depth_summary,
+        },
         "the_question_this_answers": (
             "A2g put the canon LENS on the arena and, by the canon's own distance LAW, put the "
             "eye 168.863 m out and the man at 5.59 % of frame height — sixty pixels. Matt ruled "

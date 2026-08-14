@@ -1,0 +1,37 @@
+[promote] PL-5 before: captures/ = 6.78 G of 10 G (67.8 %)
+[promote] spine gate -> OK   ffprobe_verifies: PASS -- tmp-a2gr-lookdist-cadence-ab.mp4 verified: 21.93s, streams ['video']
+[promote] verified bytes: 7,834,763 B  sha256 017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16
+[promote] OK   the deliverable is the two canon segments and a dip, nothing else — sidecars on the deliverable path: ['A-stationary-canon', 'B-undulating-canon']
+[promote] OK   both segments render the SAME camera (the A/B is one boolean) — eye [34.2505149841309, 56.8118095397949, 31.9391212463379] look [0.0, 1.0, 0.0] fov 24.0, identical
+[promote] OK   both segments render the SAME tick window — ticks 1570.0..1700.0 on both
+[promote] OK   the segments differ in the cadence boolean and in nothing else named — undulate False/True, rate 17 both, scale 1.95 both
+[promote] OK   the rate in the frames is R-CPB-15's 17, in the sidecars AND in the smoke — sidecar 17 · smoke 17
+[promote] OK   the boom is the wr1 rig's REALIZED werewolf-shot distance, read and not chosen — wr1_level_rig.gd:28-29 applied to wr1_level.gd:87 -> 34.0 x (37.5 / 17.5) = 72.857142857 m = 510/7; sidecar boom 72.857142857 m; the scene's own pin check True at delta 0
+[promote] OK   the camera is (station, angles, boom) and NO room dimension — recomputed — wr1 orbit of yaw 47.0 / pitch -50.0 at boom 72.857143 m about aim [0.0, 1.0, 0.0] = [34.251, 56.812, 31.939] vs rendered [34.251, 56.812, 31.939] — the 86.915 x 85.303 m rectangle appears in no term
+[promote] OK   the boom the frames were shot at is the boom that was pinned — |eye - aim| off the rendered camera = 72.857143 m vs pinned 72.857143 m (A2g shot the same frame at 168.863429 m)
+[promote] OK   the arena rectangle reaches the manifest as a REPORT, not as an input — GL-13 86.915 x 85.303 m read and never moved; longer side 86.915 m is carried as the scale reference the measured block reports against
+[promote] OK   the lens is the canon lens, verbatim — yaw 47.0 / pitch -50.0 / fov 24.0 from scripts/wr1_level_rig.gd
+[promote] OK   the aim height is wr1's convention, not this file's — aim [0.0, 1.0, 0.0] = station + 1.0 m (wr1_level_rig.gd:104 — `_orbit(centres[idx] + Vector…)
+[promote] OK   the ellipse is MEASURED and its prediction is carried, not substituted — measured 0.765694 from 720 projected points; predicted 0.765548
+[promote] OK   the subject fraction is measured through the rendering camera — 140.30 px of 1080 = 12.990 % on a 2.400 m subject
+[promote] OK   the camera gate passed on the pose that rendered — 9 rays, gate fov 24.0 == render fov 24.0
+[promote] OK   the clock is CLK-1's, untouched: preroll 60, tick-frozen, both segments — 60 tick-frozen warm-up frames, pruned
+[promote] OK   the concatenated file is exactly its parts — no frame lost, none invented — ffprobe 658 on the concat vs 320+18+320 = 658 in the parts
+[promote] OK   each segment plays 1x trace time, to within the frame quantization — A-stationary 10.6667 s playback vs 10.6122 s of trace (delta +0.0545 s = +1.63 frames) · B-undulating 10.6667 s playback vs 10.6122 s of trace (delta +0.0545 s = +1.63 frames)
+[promote] OK   the seam actually dips to black — held black max Y 16.0 over 14 frames, against picture Y 102.2707
+[promote] OK   no diagnostic switch was on: these are shipped frames — anim on · fx on · phaselog off, on both segments
+[promote] OK   the baton behind the frames is the run's baton (GL-6) — d7ecd866ac45… on both segments
+[promote] OK   the A2e reference this manifest compares against is the file Matt watched — cpbprime-cadence-ab.mp4 recomputed from bytes = e2f6a03cc490…
+[promote] OK   all four GL-13 corners fall OUTSIDE the frame — pre-registered, and a fact — 4 of 4 corners outside; the frame spans 55.06 m across at the aim plane against a 86.915 m arena. R-CPB-17(b): rooms crop. At A2g's 168.863 m two of four were already outside
+[promote] OK   every tick and layout invariant matches A2g's sidecar, field for field — 27/27 identical: tick_from=1570.0, tick_to=1700.0, trace_seconds=10.6122448979592, tick_period_s=0.0816326530612245, time_base='1x REAL TIME — the trace clock is inviolate (GL-18)', cut_per_rev=17, …(+21 more)
+[promote] OK   and the camera DID move — the boom is the only authored change — eye [79.38, 130.36, 74.03] -> [34.25, 56.81, 31.94]; aim, fov, yaw and pitch ALL unchanged ([0.0, 1.0, 0.0] / 24.0 / 47.0 / -50.0); distance 168.863429 -> 72.857143 m
+[promote] OK   the parts this timeline was read from are THIS cell's, not the last cell's — 2 parts under parts-a2gr-lookdist-cadence-ab/ (cell-scoped), every one written after the newest byte in the A2g capture (tmp-A-stationary-canon.mp4 +15122s, tmp-B-undulating-canon.mp4 +15326s)
+[promote] OK   the NOTE-90 margin this manifest claims to watch was actually measured, on every leg — 5 legs with a depth record, 4 passes each, certified span identical on every one; deepest preroll divergence per leg = b-ring-undon 23/60, canon-undoff 23/60, canon-undon 20/60, canon-undon 23/60, d-close-undon 23/60
+[promote] spine gate -> OK   sha256_matches: PASS -- /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4 verified at 017aebf4bb92… (7834763 B)
+[promote] PL-5 after: captures/ = 6.79 G of 10 G (67.9 %)
+[promote] wrote /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-13-sb1-a2gr-lookdist/MANIFEST.json  sha256 56e5e2cfbe334ad57f469428ed2e394deec809fd6af1ffecde7e209b8be01380
+[promote] PROMOTED -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4
+[promote] duration 21.93 s (expected 21.93 s), 658 frames
+[promote]   A-stationary   canon       0.00 ->   10.67 s  STATIONARY (A2d's law at 17/rev)
+[promote]   SEAM           black      10.67 ->   11.27 s  dip to black
+[promote]   B-undulating   canon      11.27 ->   21.93 s  UNDULATING (epochs)

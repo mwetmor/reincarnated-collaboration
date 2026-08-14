@@ -1,0 +1,14 @@
+FG-12 pruned 4 x (raw) probe frames (3.425 G) from /tmp/kc2_cpb/probe-canon-undon-t0default-full-N (canon/--undulate on, FULL PROMOTED SPAN)
+  regenerate: FG10_MODE=pass FG10_LEG=canon:on:-:full FG10_PASSNO=<n> bash scripts/run_kc2_cpb_clip.sh
+FG-12 pruned 4 x (raw) probe frames (3.425 G) from /tmp/kc2_cpb/probe-canon-undoff-t0default-full-N (canon/--undulate off, FULL PROMOTED SPAN)
+  regenerate: FG10_MODE=pass FG10_LEG=canon:off:-:full FG10_PASSNO=<n> bash scripts/run_kc2_cpb_clip.sh
+FG-12 pruned 4 x (raw) probe frames (.960 G) from /tmp/kc2_cpb/probe-canon-undon-t01660-45f-N (canon/--undulate on/tick0 1660, 45 frames)
+  regenerate: FG10_MODE=pass FG10_LEG=canon:on:1660:45 FG10_PASSNO=<n> bash scripts/run_kc2_cpb_clip.sh
+FG-12 pruned 4 x (raw) probe frames (.517 G) from /tmp/kc2_cpb/probe-d-close-undon-t0default-45f-N (d-close/--undulate on, 45 frames)
+  regenerate: FG10_MODE=pass FG10_LEG=d-close:on:-:45 FG10_PASSNO=<n> bash scripts/run_kc2_cpb_clip.sh
+FG-12 pruned 4 x (raw) probe frames (.592 G) from /tmp/kc2_cpb/probe-b-ring-undon-t0default-45f-N (b-ring/--undulate on, 45 frames)
+  regenerate: FG10_MODE=pass FG10_LEG=b-ring:on:-:45 FG10_PASSNO=<n> bash scripts/run_kc2_cpb_clip.sh
+FG-12 pruned 320 frames (.720 G) from /tmp/kc2_cpb/frames-A-stationary-canon
+  regenerate: bash scripts/run_kc2_cpb_clip.sh   (segment A-stationary, shot canon)
+FG-12 pruned 320 frames (.720 G) from /tmp/kc2_cpb/frames-B-undulating-canon
+  regenerate: bash scripts/run_kc2_cpb_clip.sh   (segment B-undulating, shot canon)
