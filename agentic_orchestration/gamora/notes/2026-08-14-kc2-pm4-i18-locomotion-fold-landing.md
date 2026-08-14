@@ -424,3 +424,261 @@ sim's arena is bigger and emptier than the one Matt actually played in.**
 **Author:** gamora (simulation seam) · 2026-08-14 · **math note first, code second, and the git
 order is the proof — including the six predictions and the two structural candidates that graded
 FALSE, one of them because I mis-specified my own test.**
+
+---
+---
+
+# ⚑ ADDENDUM — 2026-08-14 · **I-18R, THE HYGIENE-AND-REPAIR CELL**
+
+> **Fired under:** **R-PM4-44 part 4** (charter ledger **R-PM4-44**; the catch is banked at
+> **L-35**). **Conductor:** gandalf. **Author:** gamora.
+> **Math note (FIRST, its own commit, ZERO code):**
+> `simulation/math/kc2-pm4-i18r-ladder-scoped-movement-policy-2026-08-14.md` — engine `e247faa9`
+> **Engine commits:** `e247faa9` (math note) → `6c223443` (C-I18-3 + hygiene) → `0c100c16`
+> (the repair) → `1bd16b8d` (MIGRATION + AGENT_STATE). **Not pushed.**
+>
+> **Two obligations: answer `C-I18-3`, and land the sim-side half of the `C-I18-2` / `D-I18-7`
+> semantic ruling. Both below, with the failure modes I was told to report honestly if I found
+> them. ⚑ I did not find them — but § A.3 records a scope limit in my own determinism claim that
+> the conductor's catch is entitled to, and that nobody asked me for.**
+
+---
+
+## A — ⚑ `C-I18-3` ANSWERED: **WHAT THE `…145605` / `…105605` EMISSION IS**
+
+### A.1 — The answer in one line
+
+⚑ **It is the `D-I18-7` PER-WAVE-CONSTRUCTION EXPERIMENT — the run § 8 describes and never
+identified on disk. It is a DIFFERENT CONFIGURATION, not a different pass, and the
+determinism-×2 claim survives intact.**
+
+**The two emissions are two separate invocations of the same script, 2 min 08 s apart:**
+
+| | run **A** — the experiment | run **B** — ⚑ **THE RECORD** |
+|---|---|---|
+| `started_utc` | 2026-08-14T**14:55:08**.551168+00:00 | 2026-08-14T**14:57:16**.617954+00:00 |
+| `wall_s` | 57.4033 | 76.0667 |
+| actor-paths stamp (**UTC**, emitter line 1639) | `20260814_**145605**` | `20260814_**145832**` |
+| findings stamp (**LOCAL**, emitter line 1700) | `20260814_**105605**` | `20260814_**105832**` |
+| findings sha256 | `51a06f32a81c7de02648bfbd53d2a425098b9a08c98b11992c1ec8758ef5449a` | `8cb394607bb2d492a99ba9987a08918902001ff946a0e326d5e3342b874175bd` |
+| **fold-OFF `all_identical`** | ⚑ **`false`** | **`true`** |
+| **assert wall** | ⚑ **22 / 26** | **26 / 26** |
+| **predictions** | ⚑ **13 / 23** | **17 / 23** |
+
+⚑ **The four-hour stamp skew is my own emitter, not two different days.** `stamp0` is
+`datetime.now(timezone.utc)`; the findings stamp is `datetime.now()` — local, UTC−4. The two
+families pair **to the second**: `105605 ↔ 145605`, `105832 ↔ 145832`.
+
+### A.2 — ⚑ RUN A CONVICTS ITSELF — its four RED wall checks are exactly the four defects § 8 records
+
+| check | run A | what it is |
+|---|---|---|
+| **1** — fold-OFF byte identity vs I-17's six | ⚑ **RED**, mismatching on **exactly the four cluster cells**, camp **EXACT** | ⚑ **`D-I18-7` VERBATIM.** § 8: *"Building it per wave … turned check 1 RED on all four cluster cells."* |
+| **23** — max abs offset inside `PLAYER_SANE_BOUND_M` | RED at **98.9132 m** > 80.0 | the *"maximum being SUMMED across waves"* instrument bug, § 8's last row |
+| **22** — the two brackets | RED | *"check 22 iterating non-bracket keys"*, § 8's last row |
+| **24** — MIGRATION from the emitted bytes | RED | *"check 24 demanding `removed_keys == []` when `D-I18-5` declares the removal"*, § 8's last row |
+
+**Run A's fold-OFF cluster digests** (the four that moved), for the record:
+
+| cell | run A got | I-17 recorded (= run B) |
+|---|---|---|
+| `cluster_defoff__critlo__COUPLED` | `00f32ca05110ff3f6bb53934bd74d675f4278487c4438b09b932f4e8bd75f78b` | `d9824d90…8f3d43` |
+| `cluster_defoff__critlo__DECOUPLED` | `0d1a9ce8bf6aa401836a305e59128f5f77e2af98f6e4e38bc7a5fe2c5f4777bd` | `6db2f698…03c7a` |
+| `cluster_defon__critlo__COUPLED` | `eaa399ff74c94bd3c3114fdc10d27c4a2f5fe4c41af12e73d2da22be3adf4c6d` | `d1698fc3…f30e81` |
+| `cluster_defon__critlo__DECOUPLED` | `9c4cdf1b830212cd84ec11560b1f8004a27d234ee124c27f75cbfc4cbe63972f` | `3bcf7c7f…ae42c6` |
+
+**Camp's two fold-OFF digests are EXACT in run A**, and that is the whole diagnosis in two rows.
+
+### A.3 — ⚑ **CONFIGURATION, NOT A PASS — and the determinism claim's HONEST SCOPE**
+
+**(i) What the canonical determinism digest covers.** `canonical_digest(_surface(runs, term))`,
+where `_surface` is **`terminal` + every wave dict + every event row + the player's
+`hp` / `path_x` / `path_y` / `energy` / `circle_radius_m` tracks + every actor summary dict**.
+
+**(ii) Where the two passes live.** ⚑ **They share no file, because pass-2 is NEVER SERIALISED.**
+Pass-1's runs are kept (`cells[key]["_runs"]`), turned into `rows` by `extract_paths`, and written
+to the one actor-paths file per cell per invocation (emitter lines 1642–1664). Pass-2's `runs2`
+exists only long enough to produce `det2[key] = canonical_digest(_surface(runs2, term2))`.
+⚑ **It is therefore structurally impossible for two files on disk to be pass-1 and pass-2 of the
+same configuration.** Both passes of both configurations were zero-diff: **determinism ×2 is
+12/12 in run A as well as run B.**
+
+**(iii) The control that settles it empirically** — my own strip-compare, key by key:
+
+| cell | actor count A / B | keys differing between `…145605` and `…145832` |
+|---|---:|---|
+| camp COU PX-LO | 25 / 25 | ⚑ **`started_utc` ONLY** |
+| camp COU PX-HI | 25 / 25 | ⚑ **`started_utc` ONLY** |
+| camp DEC PX-LO | 44 / 44 | ⚑ **`started_utc` ONLY** |
+| camp DEC PX-HI | 44 / 44 | ⚑ **`started_utc` ONLY** |
+| all **eight** cluster cells | 46–116 / 46–116 | `started_utc` + `locomotion_census`, `loco_run_stats`, `clusters`, `T4b_strict_dwell`, `spans_vs_I17`, `conservation`, `graded_distance`, **`actors`** (+ `D_I12_5`, `per_wave_floor` on six) |
+
+⚑ **Camp carries `movement_fold=False` — no `MovementPolicy` object is ever constructed there — and
+camp's artifacts are byte-identical across two separate OS processes.** The payload moved on
+exactly the cells where a `MovementPolicy` exists and nowhere else. **That is a configuration
+difference with a named mechanism, and it is cross-process knot-level determinism besides.**
+
+**(iv) What it cost the board** — the experiment's price, so the conductor can see it was not free:
+
+| cell | run A (per-wave) | run B (ladder, the record) |
+|---|---|---|
+| `cluster_defon` COU PX-LO | @152, `l4l` 49.7143 | @152, `l4l` 50.0408 |
+| `cluster_defon` COU PX-HI | ⚑ **@152, 36.2449** | ⚑ **@156, 155.3469** |
+| `cluster_defon` DEC PX-LO | ⚑ **@152, 49.7143** | ⚑ **@156, 165.3061** |
+| `cluster_defon` DEC PX-HI | @156, 144.0000 | @156, 155.5102 |
+| **all four camp cells** | **identical to B** | **identical to A** |
+
+**(v) ⚑ THE SCOPE LIMIT NOBODY ASKED ME FOR, AND IT IS MINE TO STATE.** I-1's determinism check
+hashed **both** the surface **and** the knot rows (`sha256_knots_a` / `_b`). **I-18's hashes the
+surface only.** The `r.movers` knot polylines that the actor-paths artifacts serialise are
+therefore **outside** the ×2 comparison. The camp byte-identity in (iii) is the empirical backstop
+at knot level and it is **partial by construction** — four cells of twelve, and the four with no
+policy object. ⚑ **Restoring the knot-row leg of the determinism check is a candidate for the next
+lap's instrument, and I am naming it rather than leaving the conductor to find it.**
+
+### A.4 — HYGIENE DISPOSITION (D-I15-6 precedent honoured: on the record, in my own commit)
+
+| artifact | disposition |
+|---|---|
+| **12 `…145605` actor-paths, COMMITTED in-tree** | ⚑ **REMOVED** (`git rm`, engine `6c223443`). Digests recorded in § A.5 below; **git is the archive** and the bytes stay recoverable. 15 MB of look-alike payload beside the record carries one risk — being mistaken for the record — and now carries none. |
+| **1 `…105605` findings, UNTRACKED** | ⚑ **COMMITTED** (engine `6c223443`). 392 KB that carries the entire proof — the RED fold-off table, the wall, the grades. **The evidence is kept; only the bulk look-alikes go.** |
+| the pinned `…145832` set + `…105832` findings | **UNTOUCHED.** All twelve re-hashed from this seat and **EXACT** vs § 11. |
+
+### A.5 — THE REMOVED SET'S DIGESTS, FULL 64 HEX (GL-6), SO THE ANSWER OUTLIVES THE FILES
+
+| cell (`…-20260814_145605.json`) | sha256 |
+|---|---|
+| `camp-defoff-coupled-px-lo` | `35aeec99942c5f3242c711744dc6a1225a285e070ff78a1fdd312f40b58f051e` |
+| `camp-defoff-coupled-px-hi` | `733c872733bfb62e8302e1511d3d0ab16f45fedc1879eab44796eaa3a6610488` |
+| `camp-defoff-decoupled-px-lo` | `dedd9c35e1a8ea1ca37d2bbad9de51d0d311e009d6b9e4365a309e08629f13a8` |
+| `camp-defoff-decoupled-px-hi` | `3aa2bc06cc59f42b783baaf99f217e0b66fd98dfb1ec81f4cdd07df14a2bc378` |
+| `cluster-defoff-coupled-px-lo` | `da894e360f9271aef3f9258af49dad7e681a162247cff4fad33b3e5a984d44e2` |
+| `cluster-defoff-coupled-px-hi` | `e13d327ae24adf1af469d3949bffa58ef2c9004a534bd1afedd6a3a41ecac572` |
+| `cluster-defoff-decoupled-px-lo` | `3aac16485c5c839a4c7e372f12a12f476d2c9bda3c6443b2493098a77ff76712` |
+| `cluster-defoff-decoupled-px-hi` | `972820f651a3a33b9e8491bbd511e4f94a16710eed2ca9a4a5e550e25da3b553` |
+| `cluster-defon-coupled-px-lo` | `0124f69e3d989afac4a9d51ead6bb4be90a2ad14598a35c55fcccc594ff2e771` |
+| `cluster-defon-coupled-px-hi` | `ab57683be464f7ff7254d7411b7a6abdd7e996b2f6a9c998a46bdb662585e0fb` |
+| `cluster-defon-decoupled-px-lo` | `56b8fafce6cc498a1f8d014cd8caf8f0ca25f7cb5de44da5aa0eefb8d4d157ec` |
+| `cluster-defon-decoupled-px-hi` | `c7333ecab082aedbe9408771761b63a98228c9b7a469103c98e936408a1c6775` |
+
+### A.6 — ⚑ WHY IT HAPPENED, WITHOUT AN EXCUSE ATTACHED
+
+The findings doc was committed **by name** (one path); the actor-paths were committed **by glob**.
+The glob caught both emissions and the by-name add caught only one, so run A's payload rode into
+`77ee6302` silently while its findings sat untracked. **`D-I15-6` is the same shape and I had
+already been shown it once.** The mechanical fix is to stamp an emission set with the invocation
+that produced it and add by set, not by glob; the discipline fix is that a landing note must
+account for **every** file the lap wrote, not every file the lap **used**.
+
+---
+
+## B — ⚑ `C-I18-2` / `D-I18-7` **REPAIRED, SIM-SIDE: LADDER-SCOPED WINS**
+
+### B.1 — The ruling, and what I did with it
+
+R-PM4-44 part 4: `MovementPolicy` state is **LADDER-SCOPED**. The referent is one continuous fight
+(**Matt's longest stationary span is 1.73 s across all ten waves**), and the incumbent lineage has
+run ladder-scoped for eleven iterations. **The docstring's "state is PER WAVE" was aspiration, not
+measurement.** ⚑ **This is a Discipline #12 SEMANTIC SHIFT and it is framed as one in the code,
+not buried as a fix** — the comment that stood at the construction site argued the opposite case in
+so many words, and the new comment quotes it before reversing it on measurement.
+
+| # | change | file |
+|---|---|---|
+| **1** | ⚑ `MovementPolicy` docstring **AMENDED** to ladder-scoped, citing R-PM4-44 part 4 / `D-I18-7` / `C-I18-2`, with the old prose quoted and both deciding measurements named | `kc2/movement.py` |
+| **2** | ⚑ `simulate_wave`'s per-wave fallback construction **REPLACED BY A RAISE**. `simulate_wave` is a per-wave entry point with no ladder identity to hang state on, so building there silently handed the player a fresh cadence phase and free cooldown resets at every boundary. **The refusal is in the code so it cannot be undone by a call site** — the same idiom the adjacent `C-I4-7` refusal already uses | `kc2/run.py` |
+| **3** | ⚑ `ladder_movement_policy()` added as **THE** canonical construction site, named by the refusal message. Fifteen drivers + the adapter each hand-rolled the same four lines while a **sixteenth**, per-wave one hid in a fallback — duplicated construction is exactly how a scoping divergence survives eleven iterations before F5-M/F5-E trips on it | `kc2/run.py` |
+
+### B.2 — ⚑ THE AFFECTED-CALLER CENSUS — **MEASURED, NOT ASSUMED**
+
+| caller | passed `movement_policy` before? | scope | affected? |
+|---|---|---|---|
+| the fifteen `i4…i18` drivers | **YES**, once into `fold_kw` outside the wave loop | ladder | **no** |
+| `export/kc2_run_adapter._player_fold_state` | **YES**, once per ladder, threaded | ladder | **no** |
+| `tests/` | never sets `movement_fold` | — | **no** |
+
+⚑ **The removed branch had NO live caller.** It was the only per-wave construction site in the
+tree and the only place the old docstring was actually implemented. **A semantic implemented only
+where nothing calls it is a trap, not a policy.**
+
+### B.3 — ⚑ **REPRODUCTION, NOT RE-MODELLING — 12 / 12 BYTE-IDENTICAL**
+
+The record-cell configuration was re-run **once** under the changed code (wall 77.2 s). Since
+`started_utc` is the artifact's only time-dependent leaf, it was pinned to the banked
+`2026-08-14T14:57:16.617954+00:00` and the file re-serialised through the emitter's own
+`json.dumps(..., indent=1, default=str, ensure_ascii=False)`:
+
+| ⚑ **RECORD-CELL ARM** | banked `…145832` = re-emitted | |
+|---|---|---|
+| `cluster-defon-coupled-px-lo` | `217608ab3d00056dd21a4ac74e21e865f5ff31949fe36ecaf3fce68dbf1ee640` | ⚑ **BYTE-IDENTICAL** |
+| `cluster-defon-coupled-px-hi` | `d0a2ffba712171bad524f33b5e4d2bf2c1a491e31acca700b101d87e5dc95ba0` | ⚑ **BYTE-IDENTICAL** |
+| `cluster-defon-decoupled-px-lo` | `0b9bf3ecd41fa14939fea81754be1ad4c04689aaccd92a552e5325889910f06c` | ⚑ **BYTE-IDENTICAL** |
+| `cluster-defon-decoupled-px-hi` | `57c732d09eb5a93b4e50ff8453c6f4637df510f12d992d40b02e76ada1f2e310` | ⚑ **BYTE-IDENTICAL** |
+| the other **eight** cells | § 11's digests | ⚑ **BYTE-IDENTICAL — 12 / 12** |
+
+⚑ **And the whole findings document differs in EXACTLY 26 LEAVES, every one a timestamp
+artefact**: 12 filenames, the 12 file-hashes those filenames' embedded `started_utc` perturbs,
+`started_utc`, `wall_s`. **Every measured leaf is identical**, verified leaf-by-leaf:
+
+| surface | banked | re-run |
+|---|---|---|
+| assert wall | 26 / 26 | ⚑ **26 / 26** |
+| predictions | 17 / 23 | ⚑ **17 / 23** |
+| structural | 1 / 3 | ⚑ **1 / 3** |
+| fold-OFF digests (6) | EXACT | ⚑ **identical dict** |
+| determinism ×2 digests (12) | zero-diff | ⚑ **identical dict, zero-diff 12/12** |
+| `law_3.moved` / witnesses | `{}` / 34 | ⚑ **`{}` / 34** |
+| every cell's death wave + `l4l` | § 1 / § 1.2 | ⚑ **to the digit** |
+| every sensitivity limb | § 10 | ⚑ **to the digit**, incl. `S-SPEED-ONLY` w154 38.12244897959184 |
+| `U-P-N-1` / PX designations | DEFERRED / COLLAPSED | ⚑ **DEFERRED / COLLAPSED** |
+
+**The re-emitted verification artifacts were deleted after comparison** — reported here rather than
+left beside the record, which is the entire lesson of § A. Their raw (unpinned) digests are in
+engine commit `6c223443`'s working record; the findings doc hashed
+`96fee4f3a4c683ae38337cdf91052c88065eb384f3fcde023c4c10187eba10eb`.
+
+### B.4 — LAW 3 AND THE PRE-REGISTERED CLAIMS
+
+**`law_3.moved == {}`, 34 witnesses, re-measured from the emitted bytes.** ⚑ **Zero constants
+move** — the diff is a docstring, a comment block, a `raise`, and a constructor that forwards
+arguments it does not choose. **No number is typed into Python by this change.**
+
+| # | pre-registered claim (math note § 5) | outcome |
+|---|---|---|
+| **R.1** | four record-cell artifacts byte-identical | ✅ |
+| **R.2** | **all twelve** byte-identical | ✅ |
+| **R.3** | wall 26/26, predictions 17/23 | ✅ |
+| **R.4** | fold-OFF EXACT ×6 | ✅ |
+| **R.5** | `law_3.moved == {}` | ✅ |
+| **R.6** | 296 kc2 tests pass; the one PRE-EXISTING `test_AC_10_10` failure still the only failure | ✅ |
+| **R.7** | the fallback is unreachable, so removing it changes nothing that runs | ✅ (R.1–R.4 are its evidence) |
+
+⚑ **7 / 7.** Written before the diff existed; the git order is the proof.
+
+### B.5 — WHAT THIS CELL DID **NOT** TOUCH
+
+* ⚑ **`export/` — not one line.** `_spawn_tick`'s LAST-STILL-TICK arithmetic and the eight refused
+  batons are **star-lord's** follow-on cell. ⚑ **The batons must REPRODUCE the banked `…145832`
+  knot digests, never re-model them** — those digests are now proven reproducible from a
+  ladder-scoped sim, so an adapter that agrees with them agrees with the record.
+* **No I-18 driver.** The record has to reproduce from the same driver bytes, and it did.
+* **No verdict key, scorecard, bracket or sensitivity limb re-opened.**
+* **No constant.**
+
+---
+
+## C — TO THE CONDUCTOR
+
+| id | disposition |
+|---|---|
+| ⚑ **`C-I18-3`** | ⚑ **ANSWERED.** The `…145605`/`…105605` set is the `D-I18-7` per-wave experiment — a **CONFIGURATION**, not a pass. **The determinism-×2 claim SURVIVES**, structurally (pass-2 is never serialised) and empirically (camp byte-identical across two processes; ×2 zero-diff 12/12 in *both* runs). **I-18's adoption should finalise on this answer, not re-open.** |
+| ⚑ **determinism SCOPE** | ⚑ **VOLUNTEERED, § A.3(v).** I-18's ×2 digest covers `_surface()` only, **not** the `r.movers` knot polylines. I-1's covered both. **Restoring the knot leg is named as a next-lap instrument candidate.** |
+| ⚑ **hygiene** | ⚑ **DONE IN MY OWN COMMIT** (`6c223443`), D-I15-6 precedent honoured: twelve look-alike artifacts removed **with their digests on the record**, the untracked findings **committed** because it carries the proof. Cause named in § A.6 without an excuse attached. |
+| ⚑ **`C-I18-2` / `D-I18-7`** | ⚑ **SIM-SIDE REPAIRED** (`0c100c16`), framed as a **Discipline #12 semantic shift**. **Record reproduced 12/12 BYTE-IDENTICAL; 26 differing leaves, all timestamps.** Law 3 `{}` / 34. **`export/` untouched — star-lord's cell is unblocked and its target digests are proven.** |
+| ⚑ **MIGRATION** | filed (`1bd16b8d`): **call contract tightened, zero schema changes, zero telemetry migration required.** |
+| **push** | **NOT PUSHED.** Engine `e247faa9`, `6c223443`, `0c100c16`, `1bd16b8d` await your seat. |
+
+---
+
+**Author:** gamora (simulation seam) · 2026-08-14 · **the catch was right, the answer is mine, and
+the record did not move a single measured byte.**
