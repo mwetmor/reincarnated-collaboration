@@ -1,0 +1,36 @@
+{
+  "label": "CONTROL-p2-vs-c1cold-known-identical",
+  "measurable": true,
+  "preroll_frames": 60,
+  "n_passes": 2,
+  "lists": [
+    "full1570-pass-2.raw.sha",
+    "c1-cold.raw.sha"
+  ],
+  "list_lengths": [
+    380,
+    380
+  ],
+  "list_lengths_all_equal": true,
+  "preroll_deepest_divergence_line1": null,
+  "preroll_margin_frames": 60,
+  "preroll_n_lines_that_ever_differ": 0,
+  "preroll_lines_that_ever_differ": [],
+  "overall_deepest_divergence_index0": null,
+  "overall_first_divergence_index0": null,
+  "measured_span_n_frames_that_ever_differ": 0,
+  "measured_span_identical": true,
+  "pairs": [
+    {
+      "a": "full1570-pass-2.raw.sha",
+      "b": "c1-cold.raw.sha",
+      "compared_frames": 380,
+      "n_differ": 0,
+      "preroll_n_differ": 0,
+      "preroll_deepest_line1": null,
+      "preroll_lines1": [],
+      "measured_n_differ": 0,
+      "measured_first_index0": null
+    }
+  ]
+}
