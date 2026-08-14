@@ -464,6 +464,43 @@ grounds, and note only that the sim's terminal wave is not the reference's termi
 
 ---
 
+## 12b — ⚑ REGRESSION, ANSWERED BY DEPENDENCY CLOSURE + WORKTREE REPLAY (Discipline #11)
+
+The full suite on I-6 HEAD reports **59 failed / 10,487 passed / 21 errors**. That number is
+alarming on its face and it is **entirely pre-existing**. Rather than assert that, here is the
+proof, in two parts.
+
+**(1) The change surface is fully green.** Every test file in `tests/` that references `kc2`,
+`monster_stats`, `kc2_run_adapter` or `baton_v1` — **15 files, 480 tests — is 480/480 PASS.**
+(`kc2`-selected alone: 297/297.)
+
+**(2) Nothing outside that selection can reach the changed code.** The reverse-dependency closure of
+every module I touched (`kc2/offense.py` new, `kc2/monster_stats.py`, `kc2/threat.py`, `kc2/run.py`,
+`export/kc2_run_adapter.py`, `data/kc2/pm4i_*.csv`) is: other `kc2/` modules ·
+`export/kc2_baton_emit.py` · `export/kc2_run_adapter.py` · simulation **scripts** (drivers, not
+tests). The only test file reaching any of those is `tests/test_kc2_run_adapter.py`, **already
+inside the 480**. `comm -23` of the reverse-dependency test set against the 480-selection is
+**empty**.
+
+**(3) And the reds were replayed on the predecessor, same instrument.** A `git worktree` at pre-I-6
+HEAD **`e26f12b0`** running the two files that carry the reds reports
+**33 failed + 21 errors** — identical counts, identical test IDs, to I-6 HEAD:
+
+| file | pre-I-6 `e26f12b0` | I-6 HEAD | seam |
+|---|---:|---:|---|
+| `test_cycle12_layer4_convergence.py` | **33 failed** | 33 failed | rocket (`skill_tree.py:422 NotImplementedError`) |
+| `test_cycle13_wave5_season_generation.py` | **21 errors** | 21 errors | rocket (`season_generation_pipeline.py` cell-grain contract) |
+
+⚑ **What I did NOT do, stated rather than implied:** I did not complete a full-suite run on the
+pre-I-6 worktree for a total-count diff. Two concurrent 10.5k-test runs stalled and I killed them
+rather than let them burn the lap. The regression question is answered by (1)+(2) — a dependency
+closure plus a green surface is a **stronger** argument than two matching totals, because it says
+*why* nothing else could move — and (3) supplies the direct before/after on the tests that are
+actually red. **The 26 failures not itemised in the table above sit in files that cannot import
+anything I changed.**
+
+---
+
 ## 13 — DECLARED ASSUMPTIONS + CLIFFS
 
 **New this lap:** **C-I6-1** own damage modifier unmeasured for band B (§ 12.3) · **C-I6-2** arena
