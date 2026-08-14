@@ -1,0 +1,4333 @@
+{
+  "instrument": "I-U5",
+  "limb": "c",
+  "preregistration_sha256": "7a250772bad3bf8cbce2e43455bc3e4dae2fee677aeedc1ffad978f3dda6b144",
+  "premise": "no standalone .lvl exists in the vendor tree; Maps.arc holds only .map members, so the regions are EMBEDDED (declared in PREREG \u00a7 0.5)",
+  "maps": [
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "file_size": 4836448,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x49cc60",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_A001.lvl",
+          "offset": "0x1c136b",
+          "size": 1076532,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -224,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9046,
+            16.6978,
+            69.1558,
+            70.201,
+            21.5111,
+            76.5779
+          ],
+          "n_dbr_strings": 149,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_A002.lvl",
+          "offset": "0x2c809f",
+          "size": 296367,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -160,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.6546,
+            19.37,
+            62.0837,
+            66.6546,
+            19.37,
+            65.9163
+          ],
+          "n_dbr_strings": 12,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A003.lvl",
+          "offset": "0x31064e",
+          "size": 302292,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -32,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.5791,
+            19.37,
+            67.1583,
+            64.5791,
+            19.37,
+            67.1583
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A004.lvl",
+          "offset": "0x35a322",
+          "size": 298142,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            32,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.7712,
+            65.7224,
+            64.0,
+            19.9688,
+            65.7224
+          ],
+          "n_dbr_strings": 10,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A005.lvl",
+          "offset": "0x3a2fc0",
+          "size": 433600,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -32,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            54.323,
+            18.2034,
+            54.2356,
+            73.677,
+            20.5366,
+            73.7644
+          ],
+          "n_dbr_strings": 23,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A006.lvl",
+          "offset": "0x40cd80",
+          "size": 294614,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -160,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            19.7158,
+            61.6973,
+            64.0,
+            19.7158,
+            66.3027
+          ],
+          "n_dbr_strings": 3,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A007.lvl",
+          "offset": "0x454c56",
+          "size": 294922,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.4963,
+            19.7033,
+            61.5661,
+            64.4963,
+            19.7033,
+            66.4339
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "file_size": 4830525,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x49b53d",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_B001.lvl",
+          "offset": "0x1c1171",
+          "size": 1030000,
+          "grid": [
+            64,
+            17,
+            64,
+            64,
+            17,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.8557,
+            19.1859,
+            64.0,
+            71.1443,
+            20.1859,
+            64.0
+          ],
+          "n_dbr_strings": 112,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_B002.lvl",
+          "offset": "0x2bc8e1",
+          "size": 326469,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            17.7694,
+            64.0,
+            64.0,
+            17.7694,
+            64.0
+          ],
+          "n_dbr_strings": 3,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B003.lvl",
+          "offset": "0x30c426",
+          "size": 326680,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.5363,
+            64.0,
+            64.0,
+            18.5363,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B004.lvl",
+          "offset": "0x35c03e",
+          "size": 326759,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.1198,
+            17.0756,
+            64.0,
+            65.8802,
+            21.0312,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B005.lvl",
+          "offset": "0x3abca5",
+          "size": 327321,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.7342,
+            64.0,
+            64.0,
+            18.7342,
+            64.0
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B007.lvl",
+          "offset": "0x3fbb3e",
+          "size": 326891,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            17.847,
+            64.0,
+            64.0,
+            21.8633,
+            64.0
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B006.lvl",
+          "offset": "0x44b829",
+          "size": 326932,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.6902,
+            64.0,
+            64.0,
+            18.6902,
+            64.0
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "file_size": 5313493,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x5113d5",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_C001.lvl",
+          "offset": "0x1c1065",
+          "size": 1242395,
+          "grid": [
+            64,
+            20,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.0107,
+            12.8199,
+            69.1175,
+            75.4515,
+            35.3901,
+            78.7367
+          ],
+          "n_dbr_strings": 165,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_C002.lvl",
+          "offset": "0x2f0580",
+          "size": 377940,
+          "grid": [
+            64,
+            20,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.3196,
+            7.674,
+            57.0176,
+            66.3196,
+            32.7156,
+            70.9824
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C003.lvl",
+          "offset": "0x34c9d4",
+          "size": 445822,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.9741,
+            15.7189,
+            70.2814,
+            72.8957,
+            33.0103,
+            70.2814
+          ],
+          "n_dbr_strings": 19,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C004.lvl",
+          "offset": "0x3b9752",
+          "size": 344299,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.1916,
+            13.1832,
+            72.074,
+            64.8084,
+            25.4443,
+            72.074
+          ],
+          "n_dbr_strings": 13,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C005.lvl",
+          "offset": "0x40d83d",
+          "size": 344190,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.8769,
+            6.8819,
+            60.6164,
+            66.1231,
+            31.7457,
+            67.3836
+          ],
+          "n_dbr_strings": 12,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C006.lvl",
+          "offset": "0x4618bb",
+          "size": 360106,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.012,
+            6.2949,
+            56.0993,
+            68.988,
+            32.3332,
+            71.9007
+          ],
+          "n_dbr_strings": 9,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C007.lvl",
+          "offset": "0x4b9765",
+          "size": 359536,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.6164,
+            16.7632,
+            57.6797,
+            67.6164,
+            26.8232,
+            70.3203
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "file_size": 5948903,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x5ac5e7",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_D001.lvl",
+          "offset": "0x1c0ff2",
+          "size": 899714,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.9553,
+            18.8974,
+            63.8162,
+            75.3503,
+            51.1821,
+            75.8436
+          ],
+          "n_dbr_strings": 129,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_D002.lvl",
+          "offset": "0x29ca74",
+          "size": 1019994,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.9182,
+            14.2705,
+            70.568,
+            84.6789,
+            29.7414,
+            70.568
+          ],
+          "n_dbr_strings": 97,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D003.lvl",
+          "offset": "0x395ace",
+          "size": 405115,
+          "grid": [
+            64,
+            26,
+            64,
+            64,
+            29,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.5949,
+            12.0153,
+            75.5984,
+            92.1694,
+            25.9599,
+            75.5984
+          ],
+          "n_dbr_strings": 26,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D004.lvl",
+          "offset": "0x3f8949",
+          "size": 449665,
+          "grid": [
+            64,
+            27,
+            64,
+            64,
+            32,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            26.1079,
+            66.489,
+            64.0,
+            29.3966,
+            66.489
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D005.lvl",
+          "offset": "0x4665ca",
+          "size": 398361,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.2553,
+            27.1871,
+            64.6291,
+            71.7447,
+            32.4135,
+            64.6291
+          ],
+          "n_dbr_strings": 19,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D006.lvl",
+          "offset": "0x4c79e3",
+          "size": 438969,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.6614,
+            18.3012,
+            63.0958,
+            66.3386,
+            25.7201,
+            64.9042
+          ],
+          "n_dbr_strings": 33,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D007.lvl",
+          "offset": "0x532c9c",
+          "size": 497995,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.7635,
+            15.5468,
+            58.7992,
+            86.1405,
+            27.988,
+            69.2008
+          ],
+          "n_dbr_strings": 51,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "file_size": 5171331,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x4ee883",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_E001.lvl",
+          "offset": "0x1c16dc",
+          "size": 1054297,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.3693,
+            13.1966,
+            67.4393,
+            74.2121,
+            25.3972,
+            71.891
+          ],
+          "n_dbr_strings": 148,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_E002.lvl",
+          "offset": "0x2c2d35",
+          "size": 382523,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.6961,
+            11.9712,
+            64.0,
+            65.6961,
+            15.8098,
+            64.0
+          ],
+          "n_dbr_strings": 18,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E003.lvl",
+          "offset": "0x320370",
+          "size": 381023,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.5656,
+            11.5689,
+            64.5308,
+            67.5656,
+            16.3156,
+            64.5308
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E004.lvl",
+          "offset": "0x37d3cf",
+          "size": 381420,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5464,
+            11.3355,
+            65.2347,
+            65.4536,
+            16.4959,
+            65.2347
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E005.lvl",
+          "offset": "0x3da5bb",
+          "size": 367048,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.3121,
+            11.9369,
+            64.0,
+            65.6879,
+            16.6836,
+            64.0
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E006.lvl",
+          "offset": "0x433f83",
+          "size": 382719,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.6744,
+            11.9589,
+            59.5245,
+            65.3256,
+            16.7056,
+            68.4755
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E007.lvl",
+          "offset": "0x491682",
+          "size": 381441,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.6348,
+            12.3408,
+            62.9117,
+            64.6348,
+            15.2918,
+            65.0883
+          ],
+          "n_dbr_strings": 11,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "file_size": 8096073,
+      "n_regions": 9,
+      "tiling_exact": true,
+      "tiling_end": "0x7b8949",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_F01.lvl",
+          "offset": "0x241180",
+          "size": 2048871,
+          "grid": [
+            64,
+            1,
+            64,
+            64,
+            26,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            75.2515,
+            -4.5555,
+            74.2666,
+            92.0011,
+            47.8988,
+            94.7813
+          ],
+          "n_dbr_strings": 182,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_F02.lvl",
+          "offset": "0x4354e7",
+          "size": 579507,
+          "grid": [
+            64,
+            4294967295,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.3512,
+            -6.6499,
+            71.8833,
+            70.8946,
+            44.5057,
+            71.8833
+          ],
+          "n_dbr_strings": 27,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F03.lvl",
+          "offset": "0x4c2c9a",
+          "size": 598251,
+          "grid": [
+            64,
+            3,
+            64,
+            64,
+            26,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            96
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.2374,
+            -11.5405,
+            71.979,
+            67.2374,
+            31.629,
+            71.979
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F04.lvl",
+          "offset": "0x554d85",
+          "size": 478300,
+          "grid": [
+            64,
+            0,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            75.3979,
+            -1.3885,
+            71.907,
+            75.3979,
+            48.7913,
+            88.7219
+          ],
+          "n_dbr_strings": 19,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F05.lvl",
+          "offset": "0x5c99e1",
+          "size": 375232,
+          "grid": [
+            64,
+            4294967292,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            -0.035,
+            64.0,
+            64.0,
+            20.035,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F06.lvl",
+          "offset": "0x6253a1",
+          "size": 425189,
+          "grid": [
+            64,
+            4294967292,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            -15.1,
+            56.4643,
+            64.0,
+            35.1,
+            71.5358
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F07.lvl",
+          "offset": "0x68d086",
+          "size": 425819,
+          "grid": [
+            64,
+            4294967293,
+            64,
+            64,
+            23,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            96
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.1551,
+            -12.9848,
+            58.7468,
+            67.8449,
+            32.9848,
+            69.2532
+          ],
+          "n_dbr_strings": 10,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F08.lvl",
+          "offset": "0x6f4fe1",
+          "size": 376457,
+          "grid": [
+            64,
+            4294967294,
+            64,
+            64,
+            22,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.3344,
+            -13.744,
+            57.0566,
+            67.6656,
+            33.744,
+            70.9434
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F09.lvl",
+          "offset": "0x750e6a",
+          "size": 424671,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.5196,
+            -12.6813,
+            69.3906,
+            67.4804,
+            32.6813,
+            69.3906
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "file_size": 7146614,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x6d0c76",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_G01.lvl",
+          "offset": "0x1c1200",
+          "size": 1320053,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            17,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.6469,
+            20.6682,
+            63.1426,
+            87.6891,
+            42.3988,
+            81.7918
+          ],
+          "n_dbr_strings": 176,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_G02.lvl",
+          "offset": "0x303675",
+          "size": 633316,
+          "grid": [
+            64,
+            11,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.2587,
+            18.7036,
+            73.4277,
+            77.9079,
+            42.8262,
+            91.4708
+          ],
+          "n_dbr_strings": 87,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G03.lvl",
+          "offset": "0x39e059",
+          "size": 634856,
+          "grid": [
+            64,
+            10,
+            64,
+            64,
+            12,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.6469,
+            15.2755,
+            59.2587,
+            87.6891,
+            38.9249,
+            77.9079
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G04.lvl",
+          "offset": "0x439041",
+          "size": 726454,
+          "grid": [
+            64,
+            11,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            70.4995,
+            16.6987,
+            68.7413,
+            88.5427,
+            38.2788,
+            77.9079
+          ],
+          "n_dbr_strings": 87,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G05.lvl",
+          "offset": "0x4ea5f7",
+          "size": 683536,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            15,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.1135,
+            15.4699,
+            71.3531,
+            71.053,
+            37.2005,
+            87.6891
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G06.lvl",
+          "offset": "0x591407",
+          "size": 723318,
+          "grid": [
+            64,
+            12,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            54.5723,
+            20.6727,
+            57.7068,
+            91.4708,
+            44.7953,
+            82.1638
+          ],
+          "n_dbr_strings": 93,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G07.lvl",
+          "offset": "0x641d7d",
+          "size": 585465,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            68.7903,
+            19.5654,
+            54.5723,
+            83.6667,
+            43.6589,
+            91.4708
+          ],
+          "n_dbr_strings": 86,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "file_size": 7094502,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x6c40e6",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_J01.lvl",
+          "offset": "0x1c11d4",
+          "size": 1485407,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            29,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.8601,
+            38.8946,
+            63.8488,
+            87.6476,
+            50.92,
+            82.5581
+          ],
+          "n_dbr_strings": 197,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_J02.lvl",
+          "offset": "0x32bc33",
+          "size": 729571,
+          "grid": [
+            64,
+            15,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.975,
+            24.7237,
+            70.9964,
+            81.6985,
+            56.399,
+            84.4757
+          ],
+          "n_dbr_strings": 68,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J03.lvl",
+          "offset": "0x3dde16",
+          "size": 609009,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.562,
+            19.5558,
+            61.7461,
+            84.4733,
+            53.2209,
+            87.6088
+          ],
+          "n_dbr_strings": 104,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J04.lvl",
+          "offset": "0x472907",
+          "size": 754961,
+          "grid": [
+            64,
+            21,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9305,
+            30.9914,
+            73.9576,
+            78.7471,
+            43.882,
+            80.5441
+          ],
+          "n_dbr_strings": 108,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J05.lvl",
+          "offset": "0x52ae18",
+          "size": 623190,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5655,
+            25.4031,
+            63.2221,
+            90.3921,
+            43.9268,
+            76.914
+          ],
+          "n_dbr_strings": 67,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J06.lvl",
+          "offset": "0x5c306e",
+          "size": 477863,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9429,
+            27.4852,
+            63.3143,
+            79.8867,
+            43.2679,
+            79.5094
+          ],
+          "n_dbr_strings": 79,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J07.lvl",
+          "offset": "0x637b15",
+          "size": 574929,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.6691,
+            31.3965,
+            63.4367,
+            84.0646,
+            47.6145,
+            83.6765
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "file_size": 5751093,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x57c135",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_H01.lvl",
+          "offset": "0x1c12f1",
+          "size": 1136127,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.4249,
+            4.7278,
+            61.3388,
+            69.6032,
+            40.6429,
+            82.4249
+          ],
+          "n_dbr_strings": 152,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_H02.lvl",
+          "offset": "0x2d68f0",
+          "size": 408786,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            26.7377,
+            67.4345,
+            64.0,
+            38.8662,
+            67.4345
+          ],
+          "n_dbr_strings": 11,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H03.lvl",
+          "offset": "0x33a5c2",
+          "size": 492197,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.9656,
+            29.1251,
+            64.0,
+            68.0344,
+            36.2754,
+            64.0
+          ],
+          "n_dbr_strings": 17,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H04.lvl",
+          "offset": "0x3b2867",
+          "size": 442684,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.4832,
+            35.5937,
+            66.4271,
+            65.4832,
+            37.0163,
+            66.4271
+          ],
+          "n_dbr_strings": 17,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H05.lvl",
+          "offset": "0x41e9a3",
+          "size": 530324,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.38,
+            42.1965,
+            64.252,
+            66.38,
+            43.1184,
+            85.3429
+          ],
+          "n_dbr_strings": 74,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H06.lvl",
+          "offset": "0x4a0137",
+          "size": 441484,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.2534,
+            33.2863,
+            59.7114,
+            64.7466,
+            33.2863,
+            68.2886
+          ],
+          "n_dbr_strings": 9,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H07.lvl",
+          "offset": "0x50bdc3",
+          "size": 459634,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.2537,
+            37.4303,
+            59.0271,
+            67.7463,
+            41.0297,
+            68.9729
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "file_size": 6541665,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x63d161",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_I01.lvl",
+          "offset": "0x1c1350",
+          "size": 1245136,
+          "grid": [
+            64,
+            22,
+            64,
+            64,
+            27,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.8086,
+            27.5475,
+            61.1605,
+            73.5654,
+            38.2252,
+            77.951
+          ],
+          "n_dbr_strings": 283,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_I02.lvl",
+          "offset": "0x2f1320",
+          "size": 638413,
+          "grid": [
+            64,
+            22,
+            64,
+            64,
+            28,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            -64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5353,
+            19.25,
+            67.7787,
+            72.1036,
+            36.8796,
+            67.7787
+          ],
+          "n_dbr_strings": 118,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I03.lvl",
+          "offset": "0x38d0ed",
+          "size": 633608,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5854,
+            19.8088,
+            65.8781,
+            68.8039,
+            31.4312,
+            68.9345
+          ],
+          "n_dbr_strings": 93,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I04.lvl",
+          "offset": "0x427bf5",
+          "size": 556225,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.1893,
+            23.9342,
+            60.807,
+            73.1321,
+            24.0658,
+            67.193
+          ],
+          "n_dbr_strings": 65,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I05.lvl",
+          "offset": "0x4af8b6",
+          "size": 397297,
+          "grid": [
+            64,
+            23,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            -64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            68.999,
+            24.1625,
+            62.123,
+            68.999,
+            24.63,
+            71.5093
+          ],
+          "n_dbr_strings": 29,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I06.lvl",
+          "offset": "0x5108a7",
+          "size": 770709,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.9086,
+            19.7348,
+            66.6157,
+            70.0809,
+            45.5657,
+            67.7112
+          ],
+          "n_dbr_strings": 92,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I07.lvl",
+          "offset": "0x5ccb3c",
+          "size": 460325,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.2522,
+            22.0042,
+            58.1769,
+            75.8958,
+            27.9143,
+            69.8231
+          ],
+          "n_dbr_strings": 54,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "file_size": 4836899,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x49ce23",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_A001.lvl",
+          "offset": "0x1c1373",
+          "size": 1076975,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -224,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9046,
+            17.049,
+            69.1558,
+            70.201,
+            21.1599,
+            76.5779
+          ],
+          "n_dbr_strings": 153,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_A002.lvl",
+          "offset": "0x2c8262",
+          "size": 296367,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -160,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.6546,
+            19.37,
+            62.0837,
+            66.6546,
+            19.37,
+            65.9163
+          ],
+          "n_dbr_strings": 12,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A003.lvl",
+          "offset": "0x310811",
+          "size": 302292,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -32,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.5791,
+            19.37,
+            67.1583,
+            64.5791,
+            19.37,
+            67.1583
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A004.lvl",
+          "offset": "0x35a4e5",
+          "size": 298142,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            32,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.7712,
+            65.7224,
+            64.0,
+            19.9688,
+            65.7224
+          ],
+          "n_dbr_strings": 10,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A005.lvl",
+          "offset": "0x3a3183",
+          "size": 433600,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -32,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            54.323,
+            18.2034,
+            54.2356,
+            73.677,
+            20.5366,
+            73.7644
+          ],
+          "n_dbr_strings": 23,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A006.lvl",
+          "offset": "0x40cf43",
+          "size": 294614,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -160,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            19.7158,
+            61.6973,
+            64.0,
+            19.7158,
+            66.3027
+          ],
+          "n_dbr_strings": 3,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_A007.lvl",
+          "offset": "0x454e19",
+          "size": 294922,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.4963,
+            19.7033,
+            61.5661,
+            64.4963,
+            19.7033,
+            66.4339
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "file_size": 4830968,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x49b6f8",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_B001.lvl",
+          "offset": "0x1c1171",
+          "size": 1030443,
+          "grid": [
+            64,
+            17,
+            64,
+            64,
+            17,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.8557,
+            19.1859,
+            64.0,
+            71.1443,
+            20.1859,
+            64.0
+          ],
+          "n_dbr_strings": 116,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_B002.lvl",
+          "offset": "0x2bca9c",
+          "size": 326469,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            17.7694,
+            64.0,
+            64.0,
+            17.7694,
+            64.0
+          ],
+          "n_dbr_strings": 3,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B003.lvl",
+          "offset": "0x30c5e1",
+          "size": 326680,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.5363,
+            64.0,
+            64.0,
+            18.5363,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B004.lvl",
+          "offset": "0x35c1f9",
+          "size": 326759,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.1198,
+            17.0756,
+            64.0,
+            65.8802,
+            21.0312,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B005.lvl",
+          "offset": "0x3abe60",
+          "size": 327321,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.7342,
+            64.0,
+            64.0,
+            18.7342,
+            64.0
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B007.lvl",
+          "offset": "0x3fbcf9",
+          "size": 326891,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            17.847,
+            64.0,
+            64.0,
+            21.8633,
+            64.0
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_B006.lvl",
+          "offset": "0x44b9e4",
+          "size": 326932,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            18.6902,
+            64.0,
+            64.0,
+            18.6902,
+            64.0
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "file_size": 5324754,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x513fd2",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_C001.lvl",
+          "offset": "0x1c1065",
+          "size": 1253656,
+          "grid": [
+            64,
+            20,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.0107,
+            12.8199,
+            69.1175,
+            75.4515,
+            35.3901,
+            78.7367
+          ],
+          "n_dbr_strings": 169,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_C002.lvl",
+          "offset": "0x2f317d",
+          "size": 377940,
+          "grid": [
+            64,
+            20,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.3196,
+            7.674,
+            57.0176,
+            66.3196,
+            32.7156,
+            70.9824
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C003.lvl",
+          "offset": "0x34f5d1",
+          "size": 445822,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.9741,
+            15.7189,
+            70.2814,
+            72.8957,
+            33.0103,
+            70.2814
+          ],
+          "n_dbr_strings": 19,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C004.lvl",
+          "offset": "0x3bc34f",
+          "size": 344299,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.1916,
+            13.1832,
+            72.074,
+            64.8084,
+            25.4443,
+            72.074
+          ],
+          "n_dbr_strings": 13,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C005.lvl",
+          "offset": "0x41043a",
+          "size": 344190,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.8769,
+            6.8819,
+            60.6164,
+            66.1231,
+            31.7457,
+            67.3836
+          ],
+          "n_dbr_strings": 12,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C006.lvl",
+          "offset": "0x4644b8",
+          "size": 360106,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.012,
+            6.2949,
+            56.0993,
+            68.988,
+            32.3332,
+            71.9007
+          ],
+          "n_dbr_strings": 9,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_C007.lvl",
+          "offset": "0x4bc362",
+          "size": 359536,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.6164,
+            16.7632,
+            57.6797,
+            67.6164,
+            26.8232,
+            70.3203
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "file_size": 5949346,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x5ac7a2",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_D001.lvl",
+          "offset": "0x1c0ff2",
+          "size": 900157,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.1049,
+            26.3404,
+            64.2536,
+            75.2007,
+            40.7736,
+            75.4062
+          ],
+          "n_dbr_strings": 133,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_D002.lvl",
+          "offset": "0x29cc2f",
+          "size": 1019994,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.9182,
+            14.2705,
+            70.568,
+            84.6789,
+            29.7414,
+            70.568
+          ],
+          "n_dbr_strings": 97,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D003.lvl",
+          "offset": "0x395c89",
+          "size": 405115,
+          "grid": [
+            64,
+            26,
+            64,
+            64,
+            29,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.5949,
+            12.0153,
+            75.5984,
+            92.1694,
+            25.9599,
+            75.5984
+          ],
+          "n_dbr_strings": 26,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D004.lvl",
+          "offset": "0x3f8b04",
+          "size": 449665,
+          "grid": [
+            64,
+            27,
+            64,
+            64,
+            32,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            26.1079,
+            66.489,
+            64.0,
+            29.3966,
+            66.489
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D005.lvl",
+          "offset": "0x466785",
+          "size": 398361,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.2553,
+            27.1871,
+            64.6291,
+            71.7447,
+            32.4135,
+            64.6291
+          ],
+          "n_dbr_strings": 19,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D006.lvl",
+          "offset": "0x4c7b9e",
+          "size": 438969,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.6614,
+            18.3012,
+            63.0958,
+            66.3386,
+            25.7201,
+            64.9042
+          ],
+          "n_dbr_strings": 33,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_D007.lvl",
+          "offset": "0x532e57",
+          "size": 497995,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.7635,
+            15.5468,
+            58.7992,
+            86.1405,
+            27.988,
+            69.2008
+          ],
+          "n_dbr_strings": 51,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "file_size": 5171774,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x4eea3e",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_E001.lvl",
+          "offset": "0x1c16dc",
+          "size": 1054740,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.1877,
+            13.1966,
+            67.4393,
+            74.3937,
+            25.3972,
+            71.891
+          ],
+          "n_dbr_strings": 152,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_E002.lvl",
+          "offset": "0x2c2ef0",
+          "size": 382523,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.6961,
+            11.9712,
+            64.0,
+            65.6961,
+            15.8098,
+            64.0
+          ],
+          "n_dbr_strings": 18,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E003.lvl",
+          "offset": "0x32052b",
+          "size": 381023,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.5656,
+            11.5689,
+            64.5308,
+            67.5656,
+            16.3156,
+            64.5308
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E004.lvl",
+          "offset": "0x37d58a",
+          "size": 381420,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5464,
+            11.3355,
+            65.2347,
+            65.4536,
+            16.4959,
+            65.2347
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E005.lvl",
+          "offset": "0x3da776",
+          "size": 367048,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.3121,
+            11.9369,
+            64.0,
+            65.6879,
+            16.6836,
+            64.0
+          ],
+          "n_dbr_strings": 8,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E006.lvl",
+          "offset": "0x43413e",
+          "size": 382719,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.6744,
+            11.9589,
+            59.5245,
+            65.3256,
+            16.7056,
+            68.4755
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_E007.lvl",
+          "offset": "0x49183d",
+          "size": 381441,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.6348,
+            12.3408,
+            62.9117,
+            64.6348,
+            15.2918,
+            65.0883
+          ],
+          "n_dbr_strings": 11,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "file_size": 8096236,
+      "n_regions": 9,
+      "tiling_exact": true,
+      "tiling_end": "0x7b89ec",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_F01.lvl",
+          "offset": "0x241180",
+          "size": 2049314,
+          "grid": [
+            64,
+            1,
+            64,
+            64,
+            26,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            75.2515,
+            -9.5639,
+            79.4723,
+            92.0011,
+            52.9072,
+            99.987
+          ],
+          "n_dbr_strings": 186,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_F02.lvl",
+          "offset": "0x4356a2",
+          "size": 579507,
+          "grid": [
+            64,
+            4294967295,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.3512,
+            -6.6499,
+            71.8833,
+            70.8946,
+            44.5057,
+            71.8833
+          ],
+          "n_dbr_strings": 27,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F03.lvl",
+          "offset": "0x4c2e55",
+          "size": 598251,
+          "grid": [
+            64,
+            3,
+            64,
+            64,
+            26,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            96
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            67.2374,
+            -11.5405,
+            71.979,
+            67.2374,
+            31.629,
+            71.979
+          ],
+          "n_dbr_strings": 15,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F04.lvl",
+          "offset": "0x554f40",
+          "size": 478020,
+          "grid": [
+            64,
+            0,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            75.3768,
+            -6.0095,
+            71.7236,
+            75.3768,
+            43.8653,
+            88.5123
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F05.lvl",
+          "offset": "0x5c9a84",
+          "size": 375232,
+          "grid": [
+            64,
+            4294967292,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            -0.035,
+            64.0,
+            64.0,
+            20.035,
+            64.0
+          ],
+          "n_dbr_strings": 5,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F06.lvl",
+          "offset": "0x625444",
+          "size": 425189,
+          "grid": [
+            64,
+            4294967292,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            224
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            -15.1,
+            56.4643,
+            64.0,
+            35.1,
+            71.5358
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F07.lvl",
+          "offset": "0x68d129",
+          "size": 425819,
+          "grid": [
+            64,
+            4294967293,
+            64,
+            64,
+            23,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            96
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.1551,
+            -12.9848,
+            58.7468,
+            67.8449,
+            32.9848,
+            69.2532
+          ],
+          "n_dbr_strings": 10,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F08.lvl",
+          "offset": "0x6f5084",
+          "size": 376457,
+          "grid": [
+            64,
+            4294967294,
+            64,
+            64,
+            22,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            -32
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.3344,
+            -13.744,
+            57.0566,
+            67.6656,
+            33.744,
+            70.9434
+          ],
+          "n_dbr_strings": 7,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_F09.lvl",
+          "offset": "0x750f0d",
+          "size": 424671,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.5196,
+            -12.6813,
+            69.3906,
+            67.4804,
+            32.6813,
+            69.3906
+          ],
+          "n_dbr_strings": 6,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "file_size": 7146365,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x6d0b7d",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_G01.lvl",
+          "offset": "0x1c1200",
+          "size": 1319804,
+          "grid": [
+            64,
+            14,
+            64,
+            64,
+            17,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.6469,
+            20.6682,
+            63.1426,
+            87.6891,
+            42.3988,
+            81.7918
+          ],
+          "n_dbr_strings": 180,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_G02.lvl",
+          "offset": "0x30357c",
+          "size": 633316,
+          "grid": [
+            64,
+            11,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.2587,
+            18.7036,
+            73.4277,
+            77.9079,
+            42.8262,
+            91.4708
+          ],
+          "n_dbr_strings": 87,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G03.lvl",
+          "offset": "0x39df60",
+          "size": 634856,
+          "grid": [
+            64,
+            10,
+            64,
+            64,
+            12,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            56.6469,
+            15.2755,
+            59.2587,
+            87.6891,
+            38.9249,
+            77.9079
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G04.lvl",
+          "offset": "0x438f48",
+          "size": 726454,
+          "grid": [
+            64,
+            11,
+            64,
+            64,
+            13,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            70.4995,
+            16.6987,
+            68.7413,
+            88.5427,
+            38.2788,
+            77.9079
+          ],
+          "n_dbr_strings": 87,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G05.lvl",
+          "offset": "0x4ea4fe",
+          "size": 683536,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            15,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.1135,
+            15.4699,
+            71.3531,
+            71.053,
+            37.2005,
+            87.6891
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G06.lvl",
+          "offset": "0x59130e",
+          "size": 723318,
+          "grid": [
+            64,
+            12,
+            64,
+            64,
+            14,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            54.5723,
+            20.6727,
+            57.7068,
+            91.4708,
+            44.7953,
+            82.1638
+          ],
+          "n_dbr_strings": 93,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_G07.lvl",
+          "offset": "0x641c84",
+          "size": 585465,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            68.7903,
+            19.5654,
+            54.5723,
+            83.6667,
+            43.6589,
+            91.4708
+          ],
+          "n_dbr_strings": 86,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "file_size": 5751876,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x57c444",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_H01.lvl",
+          "offset": "0x1c12f1",
+          "size": 1136630,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.4249,
+            4.7479,
+            61.4817,
+            69.6032,
+            40.6229,
+            82.5678
+          ],
+          "n_dbr_strings": 156,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_H02.lvl",
+          "offset": "0x2d6ae7",
+          "size": 408786,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.0,
+            26.7377,
+            67.4345,
+            64.0,
+            38.8662,
+            67.4345
+          ],
+          "n_dbr_strings": 11,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H03.lvl",
+          "offset": "0x33a7b9",
+          "size": 492197,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            59.9656,
+            29.1251,
+            64.0,
+            68.0344,
+            36.2754,
+            64.0
+          ],
+          "n_dbr_strings": 17,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H04.lvl",
+          "offset": "0x3b2a5e",
+          "size": 442684,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            65.4832,
+            35.5937,
+            66.4271,
+            65.4832,
+            37.0163,
+            66.4271
+          ],
+          "n_dbr_strings": 17,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H05.lvl",
+          "offset": "0x41eb9a",
+          "size": 530604,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.38,
+            42.1965,
+            61.7962,
+            66.38,
+            43.1184,
+            80.2603
+          ],
+          "n_dbr_strings": 74,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H06.lvl",
+          "offset": "0x4a0446",
+          "size": 441484,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.2534,
+            33.2863,
+            59.7114,
+            64.7466,
+            33.2863,
+            68.2886
+          ],
+          "n_dbr_strings": 9,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_H07.lvl",
+          "offset": "0x50c0d2",
+          "size": 459634,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            60.2537,
+            37.4303,
+            59.0271,
+            67.7463,
+            41.0297,
+            68.9729
+          ],
+          "n_dbr_strings": 16,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "file_size": 6651762,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x657f72",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_I01.lvl",
+          "offset": "0x1c1350",
+          "size": 1245659,
+          "grid": [
+            64,
+            22,
+            64,
+            64,
+            27,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.8086,
+            27.5475,
+            61.1605,
+            73.5654,
+            38.2252,
+            77.951
+          ],
+          "n_dbr_strings": 287,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_I02.lvl",
+          "offset": "0x2f152b",
+          "size": 747987,
+          "grid": [
+            64,
+            22,
+            64,
+            64,
+            28,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            -64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5353,
+            22.1987,
+            67.7787,
+            72.1036,
+            39.8282,
+            67.7787
+          ],
+          "n_dbr_strings": 118,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I03.lvl",
+          "offset": "0x3a7efe",
+          "size": 633608,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5854,
+            19.8088,
+            65.8781,
+            68.8039,
+            31.4312,
+            68.9345
+          ],
+          "n_dbr_strings": 93,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I04.lvl",
+          "offset": "0x442a06",
+          "size": 556225,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.1893,
+            23.9342,
+            60.807,
+            73.1321,
+            24.0658,
+            67.193
+          ],
+          "n_dbr_strings": 65,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I05.lvl",
+          "offset": "0x4ca6c7",
+          "size": 397297,
+          "grid": [
+            64,
+            23,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            -64
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            68.999,
+            24.1625,
+            62.123,
+            68.999,
+            24.63,
+            71.5093
+          ],
+          "n_dbr_strings": 29,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I06.lvl",
+          "offset": "0x52b6b8",
+          "size": 770709,
+          "grid": [
+            64,
+            24,
+            64,
+            64,
+            24,
+            64
+          ],
+          "origin": [
+            0,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            66.9086,
+            11.0845,
+            66.6157,
+            70.0809,
+            36.9155,
+            67.7112
+          ],
+          "n_dbr_strings": 92,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_I07.lvl",
+          "offset": "0x5e794d",
+          "size": 460325,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            57.2522,
+            22.0042,
+            58.1769,
+            75.8958,
+            27.9143,
+            69.8231
+          ],
+          "n_dbr_strings": 54,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "file_size": 7100365,
+      "n_regions": 7,
+      "tiling_exact": true,
+      "tiling_end": "0x6c57cd",
+      "regions": [
+        {
+          "name": "Maps/Region_Survival_J01.lvl",
+          "offset": "0x1c11d4",
+          "size": 1491058,
+          "grid": [
+            64,
+            13,
+            64,
+            64,
+            29,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.8601,
+            38.8946,
+            63.8488,
+            87.6476,
+            50.92,
+            82.5581
+          ],
+          "n_dbr_strings": 201,
+          "patrolpoint_01_in_string_table": 1,
+          "tier16_spawn_in_string_table": 6
+        },
+        {
+          "name": "Maps/Region_Survival_J02.lvl",
+          "offset": "0x32d246",
+          "size": 729571,
+          "grid": [
+            64,
+            15,
+            64,
+            64,
+            20,
+            64
+          ],
+          "origin": [
+            -128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            64.975,
+            24.7237,
+            70.9964,
+            81.6985,
+            56.399,
+            84.4757
+          ],
+          "n_dbr_strings": 68,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J03.lvl",
+          "offset": "0x3df429",
+          "size": 609221,
+          "grid": [
+            64,
+            16,
+            64,
+            64,
+            18,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            -128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            61.562,
+            26.9254,
+            61.7461,
+            84.4733,
+            45.2796,
+            87.6088
+          ],
+          "n_dbr_strings": 104,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J04.lvl",
+          "offset": "0x473fee",
+          "size": 754961,
+          "grid": [
+            64,
+            21,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            128,
+            0,
+            0
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9305,
+            30.9914,
+            73.9576,
+            78.7471,
+            43.882,
+            80.5441
+          ],
+          "n_dbr_strings": 108,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J05.lvl",
+          "offset": "0x52c4ff",
+          "size": 623190,
+          "grid": [
+            64,
+            19,
+            64,
+            64,
+            19,
+            64
+          ],
+          "origin": [
+            -64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.5655,
+            25.4031,
+            63.2221,
+            90.3921,
+            43.9268,
+            76.914
+          ],
+          "n_dbr_strings": 67,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J06.lvl",
+          "offset": "0x5c4755",
+          "size": 477863,
+          "grid": [
+            64,
+            18,
+            64,
+            64,
+            21,
+            64
+          ],
+          "origin": [
+            64,
+            0,
+            128
+          ],
+          "grid_origin_validated": true,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            63.9429,
+            27.4852,
+            63.3143,
+            79.8867,
+            43.2679,
+            79.5094
+          ],
+          "n_dbr_strings": 79,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        },
+        {
+          "name": "Maps/Region_Survival_J07.lvl",
+          "offset": "0x6391fc",
+          "size": 574929,
+          "grid": null,
+          "origin": null,
+          "grid_origin_validated": false,
+          "magic": "LVL\u000f",
+          "header_aabb": [
+            62.6691,
+            31.3965,
+            63.4367,
+            84.0646,
+            47.6145,
+            83.6765
+          ],
+          "n_dbr_strings": 90,
+          "patrolpoint_01_in_string_table": 0,
+          "tier16_spawn_in_string_table": 0
+        }
+      ]
+    }
+  ],
+  "terrain_probe": {
+    "sample_offset": "region0+0x1c000",
+    "sample_bytes": 32768,
+    "frac_plausible_floats": 0.8291,
+    "frac_in_0_40_m": 0.8963,
+    "grade": "INFERRED-WITH-EVIDENCE \u2014 consistent with terrain height; NOT a decode; no value consumed anywhere"
+  },
+  "verdicts": {
+    "V_c1": "DECODED for the CONTAINER, PARTIAL for the CONTENTS. The region table resolves on 20 of 20 maps and its (offset, size) pairs TILE each file exactly to EOF; every region blob opens with the magic `LVL\\x0f` followed by a 6-float AABB and a string table. The contents beyond the header are only partially identified.",
+    "V_c2": "NOT NEEDED \u2014 UNREACHED-T5 was closed by limb (b) from the binary and the record corpus (radius = 2.0, shouldRun = True). No value is taken from the .lvl.",
+    "D_PDEF_2": "STAYS OPEN. Arena walls / pathing blockers are NOT identified. Per the pre-registration's standing refusal no entity-extent hull is offered as a substitute (Lap S's D-S-1 is the precedent).",
+    "UNREACHED_S8": "PARTIALLY CLOSED \u2014 container decoded, wall geometry still UNREACHED."
+  }
+}

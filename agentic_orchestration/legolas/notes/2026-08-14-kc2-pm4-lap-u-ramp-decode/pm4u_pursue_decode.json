@@ -1,0 +1,156 @@
+{
+  "instrument": "I-U3",
+  "limb": "b",
+  "preregistration_sha256": "7a250772bad3bf8cbce2e43455bc3e4dae2fee677aeedc1ffad978f3dda6b144",
+  "modules": {
+    "Game.dll": {
+      "sha256": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02",
+      "exports": 25091
+    },
+    "Engine.dll": {
+      "sha256": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c",
+      "exports": 6286
+    },
+    "Grim Dawn.exe": {
+      "sha256": "1a71e188ea3d7f83bec296e22acecf7cac71686c9c0c117d0eb03c9d7ada1ff4",
+      "exports": 26
+    }
+  },
+  "route1_export_census": {
+    "Game.dll": {
+      "Pursue": 45,
+      "Sight": 34,
+      "Detect": 3,
+      "Target": 446,
+      "SetState": 20,
+      "Alert": 28,
+      "Chase": 32,
+      "Awake": 6
+    },
+    "Engine.dll": {
+      "Detect": 18,
+      "Target": 25,
+      "SetState": 1
+    },
+    "Grim Dawn.exe": {}
+  },
+  "route3_transition": {
+    "chain": [
+      {
+        "symbol": "EnemyFound@ControllerMonsterStatePatrol",
+        "rva": "0x0fecd0",
+        "finding": "tail-jmp -> DefaultEnemyFoundResponse (0x10a360); Patrol adds NO override of its own"
+      },
+      {
+        "symbol": "DefaultEnemyFoundResponse@ControllerMonsterState<ControllerMonster,Monster>",
+        "rva": "0x10a360",
+        "finding": "builds a std::string from .rdata and calls SetState@ControllerAI (0xe6780)"
+      },
+      {
+        "symbol": "(.rdata literal pushed at 0x10a398)",
+        "rva": "0x52d5d4",
+        "finding": "the state name = 'Pursue'  <-- THE TRANSITION TARGET"
+      },
+      {
+        "symbol": "SetState@ControllerAI(const std::string&, const ControllerAIStateData&)",
+        "rva": "0x0e6780",
+        "finding": "the state-machine entry point; the name is a STRING, which is why no transition TABLE is exported (UNREACHED-T3's cause, now explained)"
+      },
+      {
+        "symbol": "ShouldFindEnemy@ControllerMonsterStatePatrol",
+        "rva": "0x009350",
+        "finding": "shared 2-byte stub `mov al,1; ret` -> Patrol DOES scan for enemies (returns TRUE)"
+      },
+      {
+        "symbol": "DefaultClosestEnemyFoundResponse@ControllerMonsterState<...>",
+        "rva": "0x10a7d0",
+        "finding": "a SECOND, gated response whose state literal is 'Flee' (rand()%100 < [monster+0x2d8]; not the pursue path)"
+      }
+    ],
+    "state_name": "Pursue",
+    "verdict": "DECODED \u2014 Patrol::EnemyFound delegates to DefaultEnemyFoundResponse, which calls ControllerAI::SetState with the literal 'Pursue'. The Patrol -> Pursue handoff is REAL and unconditional once an enemy is found.",
+    "why_no_table": "state transitions are dispatched by STRING name through ControllerAI::SetState, so there is no transition table to export. UNREACHED-T3 was looking for a structure that does not exist."
+  },
+  "route2_sight_scan": {
+    "symbol": "FindEnemiesInSight@ControllerAIStateT<ControllerMonster,Monster>",
+    "rva": "0x000d2540",
+    "radius_field_displacement": "0x21c",
+    "note": "the radius is a FLOAT MEMBER of the controller, read fresh on every scan; it is not an immediate, so no constant is decodable from this site alone"
+  },
+  "route4_UNREACHED_T5": {
+    "ctor_rva": "0x315940",
+    "load_rva": "0x315a70",
+    "default_radius": "0.0f (immediate 0x0)",
+    "default_shouldRun": "false (immediate 0x0)",
+    "field_names": [
+      "radius",
+      "shouldRun"
+    ],
+    "records": {
+      "records/controllers/controlobjects/patrolpoint_01.dbr": {
+        "radius": 2.0,
+        "shouldRun": true,
+        "templateName": "database/templates/patrolpoint.tpl"
+      },
+      "records/controllers/controlobjects/patrolpoint_02.dbr": {
+        "radius": 2.0,
+        "shouldRun": true,
+        "templateName": "database/templates/patrolpoint.tpl"
+      },
+      "records/controllers/controlobjects/patrolpoint_03.dbr": {
+        "radius": 2.0,
+        "shouldRun": true,
+        "templateName": "database/templates/patrolpoint.tpl"
+      },
+      "records/controllers/editor/patrolpoint.dbr": {
+        "radius": null,
+        "shouldRun": null,
+        "templateName": "database/templates/patrolpoint.tpl"
+      }
+    },
+    "verdict": "DECODED. The accessors Lap T decoded read this+0x3dc / this+0x3e0; the WRITER is PatrolPoint::Load, which pulls two NAMED record fields, `radius` and `shouldRun`. On records/controllers/controlobjects/patrolpoint_01.dbr \u2014 the record every arena's patrol points instantiate \u2014 radius = 2.0 and shouldRun = True. UNREACHED-T5 is CLOSED."
+  },
+  "route5_sight_radius": {
+    "load_rva": "0x000e6710",
+    "setter_rva": "0x000e6765",
+    "field_displacement": "0x21c",
+    "record_field": "ViewDistance",
+    "engine_default": 15.0,
+    "base_ShouldFindEnemy": {
+      "rva": "0x0000c3e0",
+      "body": "xor al,al; ret",
+      "value": false
+    },
+    "patrol_ShouldFindEnemy": {
+      "rva": "0x00009350",
+      "body": "mov al,1; ret",
+      "value": true
+    },
+    "roster_census": {
+      "in_rolled_20w": {
+        "n_records": 169,
+        "view_distance": {
+          "80.0": 169
+        },
+        "controller_class": {
+          "ControllerMonster": 166,
+          "ControllerGraeae": 2,
+          "ControllerStationaryMonster": 1
+        }
+      },
+      "in_pool": {
+        "n_records": 663,
+        "view_distance": {
+          "80.0": 661,
+          "15.0": 2
+        },
+        "controller_class": {
+          "ControllerMonster": 659,
+          "ControllerGraeae": 3,
+          "ControllerStationaryMonster": 1
+        }
+      }
+    },
+    "verdict": "DECODED. FindEnemiesInSight queries with controller+0x21c, which ControllerAI::Load fills from the record field 'ViewDistance' (engine default 15.0 m). Every rolled tier-16 monster carries 80.0."
+  }
+}

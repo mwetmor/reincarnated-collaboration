@@ -1,0 +1,275 @@
+{
+  "instrument": "I-U2",
+  "status": "POST-HOC, DECLARED \u2014 may not change any pre-registered verdict of I-U1",
+  "preregistration_sha256": "7a250772bad3bf8cbce2e43455bc3e4dae2fee677aeedc1ffad978f3dda6b144",
+  "S1_starvation": {
+    "net_m_per_wave": {
+      "n": 10,
+      "min": 1.99,
+      "p25": 2.8475,
+      "median": 3.607,
+      "p75": 8.257,
+      "mean": 5.3542,
+      "max": 11.268
+    },
+    "path_m_per_wave": {
+      "n": 10,
+      "min": 40.225,
+      "p25": 50.235,
+      "median": 59.8075,
+      "p75": 68.5545,
+      "mean": 60.4705,
+      "max": 83.02
+    },
+    "straightness": {
+      "n": 10,
+      "min": 0.0326,
+      "p25": 0.0426,
+      "median": 0.06,
+      "p75": 0.1256,
+      "mean": 0.0975,
+      "max": 0.2433
+    },
+    "max_player_net_displacement_in_any_hold_window_m": 4.1626,
+    "loosest_cell_requirement_m": 5.0,
+    "primary_cell_requirement_m": 9.0,
+    "player_motion_march_time_bound_s": {
+      "march_lo_3.055412": {
+        "median_s": 1.1805,
+        "max_s": 3.6879
+      },
+      "march_hi_3.209466": {
+        "median_s": 1.1239,
+        "max_s": 3.5109
+      }
+    },
+    "reading": "V-a1 returns NO INFORMATION about targeting because the referent's player never displaces far enough for the triangle inequality to bite.  What it DOES establish is that player motion cannot move the march clock by more than a few seconds."
+  },
+  "S2_D_U_3": {
+    "defect": "entry counts from track births are dominated by nameplate re-appearance (UNREACHED-S4); the pre-registration named the contamination but did not price it",
+    "h_gap_sensitivity": [
+      {
+        "h_gap_frames": 6,
+        "h_gap_s": 0.1,
+        "n_tracks": 3324,
+        "per_wave": {
+          "151": 216,
+          "152": 201,
+          "153": 191,
+          "154": 311,
+          "155": 209,
+          "156": 311,
+          "157": 480,
+          "158": 209,
+          "159": 667,
+          "160": 529
+        },
+        "entries_over_peak_living": {
+          "151": 9.0,
+          "152": 10.05,
+          "153": 7.64,
+          "154": 11.11,
+          "155": 11.0,
+          "156": 12.44,
+          "157": 13.33,
+          "158": 8.04,
+          "159": 23.0,
+          "160": 21.16
+        },
+        "median_ratio": 11.055
+      },
+      {
+        "h_gap_frames": 30,
+        "h_gap_s": 0.5,
+        "n_tracks": 3173,
+        "per_wave": {
+          "151": 222,
+          "152": 210,
+          "153": 182,
+          "154": 275,
+          "155": 187,
+          "156": 291,
+          "157": 478,
+          "158": 199,
+          "159": 616,
+          "160": 513
+        },
+        "entries_over_peak_living": {
+          "151": 9.25,
+          "152": 10.5,
+          "153": 7.28,
+          "154": 9.82,
+          "155": 9.84,
+          "156": 11.64,
+          "157": 13.28,
+          "158": 7.65,
+          "159": 21.24,
+          "160": 20.52
+        },
+        "median_ratio": 10.17
+      },
+      {
+        "h_gap_frames": 60,
+        "h_gap_s": 1.0,
+        "n_tracks": 2879,
+        "per_wave": {
+          "151": 202,
+          "152": 188,
+          "153": 158,
+          "154": 233,
+          "155": 181,
+          "156": 270,
+          "157": 426,
+          "158": 177,
+          "159": 558,
+          "160": 486
+        },
+        "entries_over_peak_living": {
+          "151": 8.42,
+          "152": 9.4,
+          "153": 6.32,
+          "154": 8.32,
+          "155": 9.53,
+          "156": 10.8,
+          "157": 11.83,
+          "158": 6.81,
+          "159": 19.24,
+          "160": 19.44
+        },
+        "median_ratio": 9.465
+      },
+      {
+        "h_gap_frames": 120,
+        "h_gap_s": 2.0,
+        "n_tracks": 2525,
+        "per_wave": {
+          "151": 187,
+          "152": 162,
+          "153": 152,
+          "154": 182,
+          "155": 156,
+          "156": 235,
+          "157": 369,
+          "158": 153,
+          "159": 501,
+          "160": 428
+        },
+        "entries_over_peak_living": {
+          "151": 7.79,
+          "152": 8.1,
+          "153": 6.08,
+          "154": 6.5,
+          "155": 8.21,
+          "156": 9.4,
+          "157": 10.25,
+          "158": 5.88,
+          "159": 17.28,
+          "160": 17.12
+        },
+        "median_ratio": 8.155
+      },
+      {
+        "h_gap_frames": 240,
+        "h_gap_s": 4.0,
+        "n_tracks": 2093,
+        "per_wave": {
+          "151": 179,
+          "152": 128,
+          "153": 138,
+          "154": 165,
+          "155": 140,
+          "156": 182,
+          "157": 295,
+          "158": 115,
+          "159": 433,
+          "160": 318
+        },
+        "entries_over_peak_living": {
+          "151": 7.46,
+          "152": 6.4,
+          "153": 5.52,
+          "154": 5.89,
+          "155": 7.37,
+          "156": 7.28,
+          "157": 8.19,
+          "158": 4.42,
+          "159": 14.93,
+          "160": 12.72
+        },
+        "median_ratio": 7.325
+      }
+    ],
+    "peak_living_per_wave": {
+      "151": 24,
+      "152": 20,
+      "153": 25,
+      "154": 28,
+      "155": 19,
+      "156": 25,
+      "157": 36,
+      "158": 26,
+      "159": 29,
+      "160": 25
+    },
+    "disposition": "the raw inter-entry interval distribution is an UPPER BOUND on true arrival rate and MUST NOT be graded against a sim as-is; the LIVING-COUNT ramp (F-10) remains the like-for-like functional and is unaffected"
+  },
+  "S3_geometry_handoff": {
+    "F4_per_spawn": {
+      "n": 120,
+      "min": 0.3253,
+      "p25": 12.9479,
+      "median": 16.4307,
+      "p75": 19.144,
+      "mean": 14.8998,
+      "max": 26.0779
+    },
+    "ring_max_extent_m": {
+      "n": 20,
+      "min": 33.1759,
+      "p25": 40.0487,
+      "median": 45.7066,
+      "p75": 53.0582,
+      "mean": 45.9845,
+      "max": 56.8065
+    },
+    "ring_nearest_neighbour_m": {
+      "n": 212,
+      "min": 2.3312,
+      "p25": 5.3995,
+      "median": 11.8987,
+      "p75": 16.3373,
+      "mean": 11.2093,
+      "max": 22.6962
+    },
+    "n_spawn_points": 120,
+    "note": "SAMPLE first-march distance PER SPAWN POINT from this distribution, never from the scalar median \u2014 R-PM4-51 part 3's instruction, now foldable because the labels are repaired (D-I20-1)"
+  },
+  "S4_march_reconciliation": {
+    "referent_t50_s": 3.267,
+    "referent_t90_s": 4.967,
+    "march_at_t50_m": [
+      9.982,
+      10.4853
+    ],
+    "march_at_t90_m": [
+      15.1762,
+      15.9414
+    ],
+    "F4_median_v3_m": 16.4307,
+    "F4_span_v3_m": [
+      0.3253,
+      26.0779
+    ],
+    "implied_spawn_to_player_m": {
+      "lo119": [
+        21.596,
+        22.0993
+      ],
+      "hi125": [
+        21.038,
+        21.5413
+      ]
+    },
+    "grade": "INFERRED-WITH-EVIDENCE \u2014 chains the decoded march bracket (UNREACHED-T1), the frustum radius (MEASURED), and the assumption that a body entering the window is marching at the pooled speed.  NOT a decode."
+  }
+}
