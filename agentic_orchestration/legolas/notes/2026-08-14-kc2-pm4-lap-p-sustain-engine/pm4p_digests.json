@@ -1,0 +1,271 @@
+{
+ "digests": {
+  "pm4p_adcth_sources.csv": "5cd69906b71bc45a5c1a3c352c419967267dd73ac2415ba7b271d2ce2c7c9768",
+  "pm4p_attack_kit.csv": "ebeaa728d09f19dd1178a02f31916184f0fb54cff6b51c91980cd7230d380c0d",
+  "pm4p_leech_resistance.csv": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+  "pm4p_findings.md": "b7468e5c1ff37bff677d841499366c05b5c315af8a54207eb9dd24798edc1dee",
+  "pm4p_emit_2026_08_14.py": "b876b790f94a543c73e409c2d8def158863284ce0e554c9346b326d22c46ee4c"
+ },
+ "row_counts": {
+  "pm4p_adcth_sources.csv": 32,
+  "pm4p_attack_kit.csv": 10,
+  "pm4p_leech_resistance.csv": 7900,
+  "pm4p_findings.md": 512,
+  "pm4p_emit_2026_08_14.py": 997
+ },
+ "checks": {
+  "P1-adcth-table-vs-sheet": {
+   "table_sum_pct": 20.0,
+   "sheet_pct": 21.0,
+   "residual_pct": 1.0,
+   "verdict": "RESIDUAL-DECLARED"
+  },
+  "P1-healing-increase-table-vs-sheet": {
+   "table_sum_pct": 22.0,
+   "sheet_pct": 22.0,
+   "verdict": "EXACT"
+  },
+  "P2-eor-wd-total": {
+   "rank": 20,
+   "wd_total_pct": 57.0,
+   "lapL_wd_total_pct": 57.0,
+   "verdict": "EXACT"
+  },
+  "P2-eor-hit-period-HI-vs-sim-tick": {
+   "hit_period_HI_s": 0.081633,
+   "sim_TICK_S": 0.08163,
+   "verdict": "AGREES-TO-5DP"
+  },
+  "P3-player-leech-resist-positive-control": {
+   "record_players01_idx8": -25.0,
+   "sheet_life_leech_resist": -25.0,
+   "verdict": "EXACT"
+  },
+  "P4-health-regen-table-vs-sheet": {
+   "bio_pc_base": 1.0,
+   "gear_skill_flat": 60.0,
+   "pct_modifier": 58.0,
+   "table_hp_per_s": 95.8,
+   "sheet_hp_per_s": 129.38,
+   "residual_hp_per_s": 33.58,
+   "verdict": "RESIDUAL-DECLARED: the physique->base-regen formula is MEASURED-ABSENT from the corpus (bio_pc.characterLifeRegen = 1 is the only declared base); the SHEET governs"
+  }
+ },
+ "summary": {
+  "lap": "KC2-PM4 Lap P \u2014 sustain engine",
+  "sources": {
+   "corpus": "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808",
+   "played_save_sha256": "b8e6f510650dad0b12d60115d119b266283eda674c9c1a7186220ec93454bfa5",
+   "sheet": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-12-kc2-pm2-lap-a-player-sheet/measured-player-sheet.csv"
+  },
+  "adcth": {
+   "permanent_global_total_pct_TABLE": 20.0,
+   "permanent_global_total_pct_SHEET": 21.0,
+   "n_permanent_sources": 5,
+   "skill_scoped_sources": [
+    {
+     "record": "records/skills/devotion/tier2_02f_skill.dbr",
+     "owner": "Tip the Scales",
+     "pct": 132.0,
+     "rank": 20,
+     "index": "list[20]@rank20:exact"
+    },
+    {
+     "record": "records/skills/devotion/tier2_05f_skill_buff.dbr",
+     "owner": "tier2_05f_skill.dbr ->buffSkillName",
+     "pct": 45.0,
+     "rank": 20,
+     "index": "list[20]@rank20:exact"
+    }
+   ],
+   "excluded_pct_if_wrongly_banked": 44.0
+  },
+  "healing_increase_pct_permanent": 22.0,
+  "healing_increase_pct_conditional_below66": 24.0,
+  "health_regen": {
+   "sheet_hp_per_s": 129.38,
+   "bio_pc_base": 1.0,
+   "gear_skill_flat": 60.0,
+   "pct_modifier": 58.0,
+   "table_hp_per_s": 95.8,
+   "conditional_low_health_adds": [
+    [
+     "Menhir's Will",
+     120.0
+    ]
+   ]
+  },
+  "eor": {
+   "rank_used": 20,
+   "weaponDamagePct_skill": 43.0,
+   "weaponDamagePct_gear_active": 14.0,
+   "weaponDamagePct_total": 57.0,
+   "adcth_leech_fraction": 0.57,
+   "hit_period_100pct_s": 0.16,
+   "hit_period_s_LO": 0.08782,
+   "hit_period_s_HI": 0.081633,
+   "hit_rate_per_s_LO": 11.387,
+   "hit_rate_per_s_HI": 12.25,
+   "skillTargetRadius_m": 3.0,
+   "target_cap_field": "ABSENT"
+  },
+  "weapon_damage_per_hit_sheet": "16972-40930",
+  "leech_resistance": {
+   "difficulty_enemies_ultimate_pct": 65.0,
+   "difficulty_players_ultimate_pct": -25.0,
+   "distinct_bodies": 790,
+   "per_body_total_distribution": {
+    "65": 255,
+    "75": 367,
+    "83": 77,
+    "88": 43,
+    "105": 5,
+    "115": 11,
+    "565": 31,
+    "588": 1
+   },
+   "min_pct": 65.0,
+   "median_pct": 75.0,
+   "max_pct": 588.0
+  },
+  "worked_arithmetic": {
+   "table20/DECOUPLED_0pct": {
+    "adcth_pct": 20.0,
+    "leech_resist_pct": 0.0,
+    "heal_per_hit_per_body_LO": 2360.47,
+    "heal_per_hit_per_body_HI": 5692.54,
+    "hps_1_body_LO": 26878.6,
+    "hps_1_body_HI": 69733.7,
+    "hps_5_bodies_LO": 134393.1,
+    "hps_5_bodies_HI": 348668.3,
+    "hps_10_bodies_LO": 268786.2,
+    "hps_10_bodies_HI": 697336.7
+   },
+   "table20/COUPLED_difficulty65": {
+    "adcth_pct": 20.0,
+    "leech_resist_pct": 65.0,
+    "heal_per_hit_per_body_LO": 826.16,
+    "heal_per_hit_per_body_HI": 1992.39,
+    "hps_1_body_LO": 9407.5,
+    "hps_1_body_HI": 24406.8,
+    "hps_5_bodies_LO": 47037.6,
+    "hps_5_bodies_HI": 122033.9,
+    "hps_10_bodies_LO": 94075.2,
+    "hps_10_bodies_HI": 244067.8
+   },
+   "table20/COUPLED_median_board": {
+    "adcth_pct": 20.0,
+    "leech_resist_pct": 75.0,
+    "heal_per_hit_per_body_LO": 590.12,
+    "heal_per_hit_per_body_HI": 1423.14,
+    "hps_1_body_LO": 6719.7,
+    "hps_1_body_HI": 17433.4,
+    "hps_5_bodies_LO": 33598.3,
+    "hps_5_bodies_HI": 87167.1,
+    "hps_10_bodies_LO": 67196.6,
+    "hps_10_bodies_HI": 174334.2
+   },
+   "sheet21/DECOUPLED_0pct": {
+    "adcth_pct": 21.0,
+    "leech_resist_pct": 0.0,
+    "heal_per_hit_per_body_LO": 2478.49,
+    "heal_per_hit_per_body_HI": 5977.17,
+    "hps_1_body_LO": 28222.6,
+    "hps_1_body_HI": 73220.4,
+    "hps_5_bodies_LO": 141112.8,
+    "hps_5_bodies_HI": 366101.8,
+    "hps_10_bodies_LO": 282225.5,
+    "hps_10_bodies_HI": 732203.5
+   },
+   "sheet21/COUPLED_difficulty65": {
+    "adcth_pct": 21.0,
+    "leech_resist_pct": 65.0,
+    "heal_per_hit_per_body_LO": 867.47,
+    "heal_per_hit_per_body_HI": 2092.01,
+    "hps_1_body_LO": 9877.9,
+    "hps_1_body_HI": 25627.1,
+    "hps_5_bodies_LO": 49389.5,
+    "hps_5_bodies_HI": 128135.6,
+    "hps_10_bodies_LO": 98778.9,
+    "hps_10_bodies_HI": 256271.2
+   },
+   "sheet21/COUPLED_median_board": {
+    "adcth_pct": 21.0,
+    "leech_resist_pct": 75.0,
+    "heal_per_hit_per_body_LO": 619.62,
+    "heal_per_hit_per_body_HI": 1494.29,
+    "hps_1_body_LO": 7055.6,
+    "hps_1_body_HI": 18305.1,
+    "hps_5_bodies_LO": 35278.2,
+    "hps_5_bodies_HI": 91525.4,
+    "hps_10_bodies_LO": 70556.4,
+    "hps_10_bodies_HI": 183050.9
+   },
+   "MITIGATED/sheet21/COUPLED_board_median": {
+    "basis": "weapon portion mitigated per body by Lap L's armour/absorption/physical-resist chain, then ADCTH x Healing-Increase x (1 - leech resist)",
+    "heal_per_hit_per_body_LO": 560.98,
+    "heal_per_hit_per_body_HI": 1435.65,
+    "hps_1_body_LO": 6387.9,
+    "hps_1_body_HI": 17586.7,
+    "hps_5_bodies_LO": 31939.3,
+    "hps_5_bodies_HI": 87933.5,
+    "hps_10_bodies_LO": 63878.6,
+    "hps_10_bodies_HI": 175867.0,
+    "rows_returning_zero_life": 490,
+    "rows": 7900
+   }
+  },
+  "checks": {
+   "P1-adcth-table-vs-sheet": {
+    "table_sum_pct": 20.0,
+    "sheet_pct": 21.0,
+    "residual_pct": 1.0,
+    "verdict": "RESIDUAL-DECLARED"
+   },
+   "P1-healing-increase-table-vs-sheet": {
+    "table_sum_pct": 22.0,
+    "sheet_pct": 22.0,
+    "verdict": "EXACT"
+   },
+   "P2-eor-wd-total": {
+    "rank": 20,
+    "wd_total_pct": 57.0,
+    "lapL_wd_total_pct": 57.0,
+    "verdict": "EXACT"
+   },
+   "P2-eor-hit-period-HI-vs-sim-tick": {
+    "hit_period_HI_s": 0.081633,
+    "sim_TICK_S": 0.08163,
+    "verdict": "AGREES-TO-5DP"
+   },
+   "P3-player-leech-resist-positive-control": {
+    "record_players01_idx8": -25.0,
+    "sheet_life_leech_resist": -25.0,
+    "verdict": "EXACT"
+   },
+   "P4-health-regen-table-vs-sheet": {
+    "bio_pc_base": 1.0,
+    "gear_skill_flat": 60.0,
+    "pct_modifier": 58.0,
+    "table_hp_per_s": 95.8,
+    "sheet_hp_per_s": 129.38,
+    "residual_hp_per_s": 33.58,
+    "verdict": "RESIDUAL-DECLARED: the physique->base-regen formula is MEASURED-ABSENT from the corpus (bio_pc.characterLifeRegen = 1 is the only declared base); the SHEET governs"
+   }
+  },
+  "digests": {
+   "pm4p_adcth_sources.csv": "5cd69906b71bc45a5c1a3c352c419967267dd73ac2415ba7b271d2ce2c7c9768",
+   "pm4p_attack_kit.csv": "ebeaa728d09f19dd1178a02f31916184f0fb54cff6b51c91980cd7230d380c0d",
+   "pm4p_leech_resistance.csv": "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e",
+   "pm4p_findings.md": "b7468e5c1ff37bff677d841499366c05b5c315af8a54207eb9dd24798edc1dee",
+   "pm4p_emit_2026_08_14.py": "b876b790f94a543c73e409c2d8def158863284ce0e554c9346b326d22c46ee4c"
+  },
+  "row_counts": {
+   "pm4p_adcth_sources.csv": 32,
+   "pm4p_attack_kit.csv": 10,
+   "pm4p_leech_resistance.csv": 7900,
+   "pm4p_findings.md": 512,
+   "pm4p_emit_2026_08_14.py": 997
+  }
+ }
+}

@@ -1,0 +1,46 @@
+=== P1 — the ADCTH / sustain source census ===
+  rows 32
+  PERMANENT GLOBAL ADCTH sources: 5  total = 20.0 %
+        5.0 %  legs                       records/items/gearlegs/b002e_legs.dbr
+        3.0 %  hands                      records/items/materia/compa_restlessremains.dbr
+        5.0 %  Scales of Ulcama           records/skills/devotion/tier2_02d.dbr
+        4.0 %  Dire Bear                  records/skills/devotion/tier2_05e.dbr
+        3.0 %  Toad                       records/skills/devotion/tier1_42c.dbr
+  SKILL-SCOPED ADCTH sources: 2
+       132.0 %  Tip the Scales                     records/skills/devotion/tier2_02f_skill.dbr
+        45.0 %  tier2_05f_skill.dbr ->buffSkillName records/skills/devotion/tier2_05f_skill_buff.dbr
+  ADCTH sources EXCLUDED (inactive / pet-only): 4  worth 44.0 % if wrongly banked
+         4.0 %  INACTIVE-FOR-PLAYER                records/skills/devotion/tier1_42c_petbonus.dbr
+        15.0 %  INACTIVE-MASTERY-NOT-ALLOCATED     records/skills/playerclass08/weaponpool01.dbr
+        15.0 %  INACTIVE-MASTERY-NOT-ALLOCATED     records/skills/playerclass08/weaponpool01.dbr
+        10.0 %  INACTIVE-MASTERY-NOT-ALLOCATED     records/skills/playerclass06/weaponpool01.dbr
+  Healing Increase (permanent) table 22.0 vs sheet 22.0 -> EXACT
+
+=== P2 — the attack kit ===
+  rows 10
+  EoR rank 20  %WD skill 43.0 + gear 14.0 = 57.0 -> leech fraction 0.57
+  EoR hit rate  LO 11.387 /s   HI 12.25 /s
+
+=== P3 — monster-side life leech resistance ===
+  difficulty enemies[8] defensiveSlowLifeLeach = 65.0
+  difficulty players[8]  defensiveSlowLifeLeach = -25.0  (sheet camera-read life_leech_resist = -25 -> POSITIVE CONTROL)
+  survivalmode enemies03 defensiveSlowLifeLeach = 0.0 (wave array present: False)
+  bodies on the 151-160 board: 790
+  Lap-L mitigation rows joined on the band: 7900
+  rows 7900  named gaps 0
+  POSITIVE CONTROL players01[8] = -25.0 vs sheet -25 -> EXACT
+  distinct bodies 790; total-leech-resist distribution (per body): {65: 255, 75: 367, 83: 77, 88: 43, 105: 5, 115: 11, 565: 31, 588: 1}
+  min 65.0  median 75.0  max 588.0
+
+=== P4 — the worked heal arithmetic ===
+  table20/DECOUPLED_0pct             heal/hit/body    2360.5–   5692.5   HPS@1     26879–    69734   HPS@10     268786–    697337
+  table20/COUPLED_difficulty65       heal/hit/body     826.2–   1992.4   HPS@1      9408–    24407   HPS@10      94075–    244068
+  table20/COUPLED_median_board       heal/hit/body     590.1–   1423.1   HPS@1      6720–    17433   HPS@10      67197–    174334
+  sheet21/DECOUPLED_0pct             heal/hit/body    2478.5–   5977.2   HPS@1     28223–    73220   HPS@10     282226–    732204
+  sheet21/COUPLED_difficulty65       heal/hit/body     867.5–   2092.0   HPS@1      9878–    25627   HPS@10      98779–    256271
+  sheet21/COUPLED_median_board       heal/hit/body     619.6–   1494.3   HPS@1      7056–    18305   HPS@10      70556–    183051
+  MITIGATED heal/hit/body (ADCTH 21.0 %, COUPLED): LO median 561.0  HI median 1435.6  (min 0.0, max 2092.0);  rows returning ZERO life: 490/7900
+    -> HPS@1 6387.9–17586.7   HPS@5 31939.3–87933.5   HPS@10 63878.6–175867.0
+  health regeneration: bio_pc base 1.0 + gear/skill flat 60.0 x (1 + 58.0/100) = 95.80 hp/s   vs SHEET 129.38 hp/s  -> residual 33.58
+  conditional regen adds (low-health only): [("Menhir's Will", 120.0)]
+  ADCTH-to-regen ratio at 1 body: 55x - 141x
