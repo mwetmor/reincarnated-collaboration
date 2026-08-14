@@ -1,0 +1,22 @@
+quantity,convention,value_gpx,value_m_lo119,value_m_hi125,grade,basis
+player_diag_gpx,player=-cumsum(camera),2867.18,24.094,22.9374,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_diag_gpx,player=-cumsum(camera),4692.0,39.4286,37.536,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+player_w_gpx,player=-cumsum(camera),1249.6,10.5009,9.9968,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+player_h_gpx,player=-cumsum(camera),2580.55,21.6853,20.6444,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_w_gpx,player=-cumsum(camera),2437.2,20.4806,19.4976,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_h_gpx,player=-cumsum(camera),4009.36,33.6921,32.0749,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+player_diag_gpx,player=+cumsum(camera),2867.18,24.094,22.9374,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_diag_gpx,player=+cumsum(camera),5153.78,43.3091,41.2302,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+player_w_gpx,player=+cumsum(camera),1249.6,10.5009,9.9968,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+player_h_gpx,player=+cumsum(camera),2580.55,21.6853,20.6444,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_w_gpx,player=+cumsum(camera),3111.33,26.1456,24.8907,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+entity_h_gpx,player=+cumsum(camera),4108.65,34.5265,32.8692,INDICATIVE,cumsum of Lap H-2 camera_translation_60fps; integration drift INFLATES
+frustum_geometric_left_gpx,n/a,960.0,8.0672,7.68,MEASURED,"screen (1920.0, 1080.0), player plate anchor (960.0, 429.0), K=0.537"
+frustum_geometric_right_gpx,n/a,960.0,8.0672,7.68,MEASURED,"screen (1920.0, 1080.0), player plate anchor (960.0, 429.0), K=0.537"
+frustum_geometric_up_gpx,n/a,798.88,6.7133,6.3911,MEASURED,"screen (1920.0, 1080.0), player plate anchor (960.0, 429.0), K=0.537"
+frustum_geometric_down_gpx,n/a,1212.29,10.1873,9.6983,MEASURED,"screen (1920.0, 1080.0), player plate anchor (960.0, 429.0), K=0.537"
+frustum_geometric_min_gpx,n/a,798.88,6.7133,6.3911,MEASURED,"screen (1920.0, 1080.0), player plate anchor (960.0, 429.0), K=0.537"
+frustum_empirical_max_abs_dx_gpx,n/a,981.0,8.2437,7.848,MEASURED,"observed extent of 98,794 monster nameplates, player-relative ground frame"
+frustum_empirical_max_abs_dy_gpx,n/a,1040.04,8.7398,8.3203,MEASURED,"observed extent of 98,794 monster nameplates, player-relative ground frame"
+frustum_empirical_max_radius_gpx,n/a,1385.53,11.6431,11.0842,MEASURED,"observed extent of 98,794 monster nameplates, player-relative ground frame"
+frustum_empirical_p99_radius_gpx,n/a,1144.71,9.6194,9.1577,MEASURED,"observed extent of 98,794 monster nameplates, player-relative ground frame"

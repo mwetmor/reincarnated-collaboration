@@ -1,0 +1,84 @@
+{
+  "bare_jitter_suffix": {
+    "Engine.dll": 0,
+    "Game.dll": 0,
+    "Grim Dawn.exe": 0
+  },
+  "declaration": {
+    "class": "variable",
+    "defaultValue": "0",
+    "description": "",
+    "name": "characterRunSpeedJitter",
+    "type": "real",
+    "value": ""
+  },
+  "declaring_templates": [
+    "backup/parameters_character.tpl",
+    "backup/parameters_characterequation.tpl",
+    "templatebase/parameters_character.tpl",
+    "templatebase/parameters_characterequation.tpl"
+  ],
+  "field": "characterRunSpeedJitter",
+  "groups": {
+    "backup/parameters_character.tpl": "Character Speed",
+    "backup/parameters_characterequation.tpl": "Character Speed",
+    "templatebase/parameters_character.tpl": "Character Speed",
+    "templatebase/parameters_characterequation.tpl": "Character Speed"
+  },
+  "literal_in_binary": {
+    "TendrilJitter": [
+      "Game.dll"
+    ],
+    "characterAttackSpeed": [
+      "Game.dll"
+    ],
+    "characterRunSpeed": [
+      "Game.dll"
+    ],
+    "characterRunSpeedJitter": [],
+    "characterRunSpeedModifier": [
+      "Game.dll"
+    ],
+    "lootRandomizerJitter": [
+      "Game.dll"
+    ],
+    "pathMass": [
+      "Game.dll"
+    ],
+    "placementExtents": [
+      "Game.dll"
+    ]
+  },
+  "module_digests": {
+    "Engine.dll": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c",
+    "Game.dll": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02",
+    "Grim Dawn.exe": "1a71e188ea3d7f83bec296e22acecf7cac71686c9c0c117d0eb03c9d7ada1ff4"
+  },
+  "n_records": 169,
+  "record_census": {
+    "0.0": 22,
+    "10.0": 32,
+    "15.0": 68,
+    "20.0": 5,
+    "25.0": 4,
+    "30.0": 6,
+    "None": 32
+  },
+  "symbols": {
+    "?AddJitter@CharAttribute@GAME@@UAEXMPAVRandomUniform@2@@Z": "0x948f0",
+    "?AddJitter@CharAttributeValSpeed@GAME@@UAEXMPAVRandomUniform@2@@Z": "0x95400",
+    "?AddJitter@CharAttributeVal_BaseAttackSpeed@GAME@@UAEXMPAVRandomUniform@2@@Z": "0xf100",
+    "?AddJitter@CharAttributeVal_LevelReqReduction@GAME@@UAEXMPAVRandomUniform@2@@Z": "0xf100",
+    "?Jitter@CharAttribute@GAME@@IAEMMMAAVRandomUniform@2@@Z": "0x94c40",
+    "?MaxJitter@CharAttribute@GAME@@IAEMMM@Z": "0x94d40",
+    "?MaxJitter@CharAttribute@GAME@@UAEXM@Z": "0x94ac0",
+    "?MaxJitter@CharAttributeValSpeed@GAME@@UAEXM@Z": "0x95520",
+    "?MaxJitter@CharAttributeVal_BaseAttackSpeed@GAME@@UAEXM@Z": "0x84d0",
+    "?MaxJitter@CharAttributeVal_LevelReqReduction@GAME@@UAEXM@Z": "0x84d0",
+    "?MinJitter@CharAttribute@GAME@@IAEMMM@Z": "0x94cc0",
+    "?MinJitter@CharAttribute@GAME@@UAEXM@Z": "0x94a10",
+    "?MinJitter@CharAttributeValSpeed@GAME@@UAEXM@Z": "0x954d0",
+    "?MinJitter@CharAttributeVal_BaseAttackSpeed@GAME@@UAEXM@Z": "0x84d0",
+    "?MinJitter@CharAttributeVal_LevelReqReduction@GAME@@UAEXM@Z": "0x84d0"
+  }
+}
