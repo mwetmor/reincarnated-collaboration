@@ -1,0 +1,25 @@
+=== CLK-2 probe: leg canon:on:-:45, 4 passes, preroll 60, clear_cache=no ===
+    2026-08-14 00:17:51  godot 4.6.3.stable.official.7d41c59c4
+    cache census at open: project 148 files / 11560 KB   user 174 files / 26628 KB
+  pass 1: rc=0  1786681126s-1786681072s=54s  Q1 frames_written=106  after-prune=46
+    Q2 digest_of_frame_digests = 1318b5be76e6a78b7a2885fd36918431edbb32635bc2cda78e620486c2375913
+    cache census after pass 1: project 148 files / 11560 KB   user 174 files / 26628 KB
+  pass 2: rc=0  1786681179s-1786681127s=52s  Q1 frames_written=106  after-prune=46
+    Q2 digest_of_frame_digests = 1318b5be76e6a78b7a2885fd36918431edbb32635bc2cda78e620486c2375913
+    cache census after pass 2: project 148 files / 11560 KB   user 174 files / 26628 KB
+  pass 3: rc=0  1786681231s-1786681180s=51s  Q1 frames_written=106  after-prune=46
+    Q2 digest_of_frame_digests = 1318b5be76e6a78b7a2885fd36918431edbb32635bc2cda78e620486c2375913
+    cache census after pass 3: project 148 files / 11560 KB   user 174 files / 26628 KB
+  pass 4: rc=0  1786681284s-1786681232s=52s  Q1 frames_written=106  after-prune=46
+    Q2 digest_of_frame_digests = 1318b5be76e6a78b7a2885fd36918431edbb32635bc2cda78e620486c2375913
+    cache census after pass 4: project 148 files / 11560 KB   user 174 files / 26628 KB
+
+=== analysis ===
+  Q1 frames_written_per_pass : p1=106  p2=106  p3=106  p4=106
+  after-prune frame counts   : p1=46  p2=46  p3=46  p4=46
+  ⚑ Q1 IDENTICAL ACROSS PASSES: YES
+
+  distinct states across 4 passes: 1
+    1318b5be76e6a78b…  passes [1, 2, 3, 4]
+
+  ⚑ VERDICT: leg reproduces. Nothing to align.

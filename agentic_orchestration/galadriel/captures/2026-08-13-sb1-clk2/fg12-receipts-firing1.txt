@@ -1,0 +1,5 @@
+FG-12 pruned 4 x 106 probe frames (.964 G) from /tmp/kc2_clk2/a-short1570/pass-N (CLK-2 probe a, canon:on:1570:45)
+  regenerate: LEG=canon:on:-:45 PASSES=4 TAG=a-short1570 bash scripts/clk2_probe.sh
+FG-12 pruned 1239 full-span probe frames (2.793 G) from /tmp/kc2_clk2/b-full1570/pass-{1,2,3,4} (CLK-2 probe b, canon:on:1570:full)
+  KEPT (one per distinct state, surface-9): p1 idx000/010/017/040/060, p2 idx010, p3 idx017 -> captures/2026-08-13-sb1-clk2/evidence/
+  regenerate: LEG=canon:on:-:full PASSES=4 TAG=b-full1570 bash scripts/clk2_probe.sh

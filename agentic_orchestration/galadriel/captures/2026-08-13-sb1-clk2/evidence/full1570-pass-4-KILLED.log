@@ -1,0 +1,43 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M2 (Apple8)
+
+Movie Maker mode enabled, recording movie in 1920×1080 @ 30 FPS...
+[cpb] cadence: UNDULATING (epochs, R-CPB-14) at 17 births/rev (target mean 11.0, R-CPB-15)
+[cpb] PL-5 floor check: captures/ = 6.75 G of a 10 G ceiling (67.5%)
+[cpb] disk free: 21.6 G (floor 8.0 G for PNG intermediates)
+[cpb] PL-5 floor check PASS — 3.25 G captures headroom
+[kc2-arena] [kc2_baton] GATE PASS | digest d7ecd866ac45 (MATCH) | 344 actors | 20 waves | 1003 knots | 1900 event rows | tick_period_s=0.0816326530612245
+[kc2-arena] built: floor 86.915 x 85.303 m · 6 emitters · 344 bodies · 8 declared absences
+WARNING: Setting autoplay after the node has been added to the scene has no effect.
+     at: set_autoplay (scene/animation/animation_player.cpp:772)
+     GDScript backtrace (most recent call first):
+         [0] _silence_players (res://scripts/kc2_player_channel.gd:2627)
+         [1] build (res://scripts/kc2_player_channel.gd:802)
+         [2] bind_scene (res://scripts/kc2_motion.gd:94)
+         [3] _ready (res://scripts/kc2_cpb_clip.gd:415)
+WARNING: Setting autoplay after the node has been added to the scene has no effect.
+     at: set_autoplay (scene/animation/animation_player.cpp:772)
+     GDScript backtrace (most recent call first):
+         [0] _silence_players (res://scripts/kc2_player_channel.gd:2627)
+         [1] build (res://scripts/kc2_player_channel.gd:802)
+         [2] bind_scene (res://scripts/kc2_motion.gd:94)
+         [3] _ready (res://scripts/kc2_cpb_clip.gd:415)
+WARNING: Setting autoplay after the node has been added to the scene has no effect.
+     at: set_autoplay (scene/animation/animation_player.cpp:772)
+     GDScript backtrace (most recent call first):
+         [0] _silence_players (res://scripts/kc2_player_channel.gd:2627)
+         [1] build (res://scripts/kc2_player_channel.gd:802)
+         [2] bind_scene (res://scripts/kc2_motion.gd:94)
+         [3] _ready (res://scripts/kc2_cpb_clip.gd:415)
+WARNING: Setting autoplay after the node has been added to the scene has no effect.
+     at: set_autoplay (scene/animation/animation_player.cpp:772)
+     GDScript backtrace (most recent call first):
+         [0] _silence_players (res://scripts/kc2_player_channel.gd:2627)
+         [1] build (res://scripts/kc2_player_channel.gd:802)
+         [2] bind_scene (res://scripts/kc2_motion.gd:94)
+         [3] _ready (res://scripts/kc2_cpb_clip.gd:415)
+[cpb] driver bound: 344 bodies, 344 anim players, drip 306 ticks
+[cpb] ⚑ CANON CAMERA (R-CPB-16 lens + R-CPB-17 boom): yaw 47.0 / pitch -50.0 / fov 24.0, FIXED BOOM 72.857142857 m (rig read 34.0 x (37.5 / 17.5) = 72.857142857, pin delta 0.000000000000, MATCH); aim = station + 1.0 m; GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose (R-CPB-17)
+[cpb] camera gate: PASS (9 rays) 
+[cpb] shot canon: ticks 1570.00 -> 1700 (10.61 s of trace) = 319 frames at 30 fps (+ 60 TICK-FROZEN warm-up frames, pruned before the encode)
+[cpb] frame     0  tick  1570.00  visible   5
