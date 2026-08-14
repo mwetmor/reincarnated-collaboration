@@ -1,0 +1,2923 @@
+{
+  "instrument": "I-T1 v2 (after D-T-1)",
+  "root": "records/creatures/traps/spawnbeacon.dbr",
+  "expand_fields": [
+    "attackskillname",
+    "auraskillname",
+    "buffskillname",
+    "controller",
+    "initialskillname",
+    "modifierskillname",
+    "passiveskillname",
+    "petbonusname",
+    "petskillname",
+    "skillname1",
+    "skillname10",
+    "skillname11",
+    "skillname12",
+    "skillname13",
+    "skillname14",
+    "skillname15",
+    "skillname16",
+    "skillname17",
+    "skillname2",
+    "skillname3",
+    "skillname4",
+    "skillname5",
+    "skillname6",
+    "skillname7",
+    "skillname8",
+    "skillname9",
+    "skillsecondaryname",
+    "spawnobjects"
+  ],
+  "declared_leaf_fields": {
+    "factions": "peer-listing of faction members; not a mechanic this record runs",
+    "charanimationtablename": "animation table; art asset, not a mechanic"
+  },
+  "records_reached": 4,
+  "records_missing": [],
+  "leaf_references_not_expanded": {
+    "records/controllers/factions/faction_aetherial.dbr": [
+      [
+        "records/creatures/traps/spawnbeacon.dbr",
+        "factions"
+      ]
+    ],
+    "records/creatures/enemies/anm/anm_groble.dbr": [
+      [
+        "records/creatures/traps/spawnbeacon.dbr",
+        "charAnimationTableName"
+      ]
+    ]
+  },
+  "fixed_point": true,
+  "unexplored_refs": [],
+  "chain": [
+    {
+      "record": "records/creatures/traps/spawnbeacon.dbr",
+      "class": "Monster",
+      "archive": "SurvivalMode.arz",
+      "depth": 0,
+      "layers": [
+        "SurvivalMode.arz"
+      ],
+      "n_fields": 924,
+      "via": []
+    },
+    {
+      "record": "records/controllers/pets/controller_trapmortar.dbr",
+      "class": "ControllerStationaryMonster",
+      "archive": "database.arz",
+      "depth": 1,
+      "layers": [
+        "database.arz"
+      ],
+      "n_fields": 63,
+      "via": [
+        "records/creatures/traps/spawnbeacon.dbr::controller"
+      ]
+    },
+    {
+      "record": "records/skills/misc/spawnbeacon_aura.dbr",
+      "class": "Skill_BuffRadiusToggled",
+      "archive": "SurvivalMode.arz",
+      "depth": 1,
+      "layers": [
+        "SurvivalMode.arz"
+      ],
+      "n_fields": 4,
+      "via": [
+        "records/creatures/traps/spawnbeacon.dbr::initialSkillName",
+        "records/creatures/traps/spawnbeacon.dbr::skillName1"
+      ]
+    },
+    {
+      "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+      "class": "SkillBuff_Passive",
+      "archive": "SurvivalMode.arz",
+      "depth": 2,
+      "layers": [
+        "SurvivalMode.arz"
+      ],
+      "n_fields": 594,
+      "via": [
+        "records/skills/misc/spawnbeacon_aura.dbr::buffSkillName"
+      ]
+    }
+  ],
+  "templates_resolved": [
+    "controllerstationarymonster.tpl",
+    "monster.tpl",
+    "skill_buffradiustoggled.tpl",
+    "skillbuff_passive.tpl"
+  ],
+  "MOVEMENT_TERM_SEARCH": {
+    "patterns": [
+      "runspeed",
+      "movespeed",
+      "movementspeed",
+      "walkspeed",
+      "speedmodifier",
+      "pathmass",
+      "pathingsize",
+      "rotationspeed",
+      "avoidforce",
+      "charge",
+      "leap",
+      "teleport",
+      "blink",
+      "sprint",
+      "haste",
+      "slow",
+      "velocity",
+      "accel",
+      "locomot",
+      "stride",
+      "gait"
+    ],
+    "scope_records": 4,
+    "hits": [
+      {
+        "record": "records/controllers/pets/controller_trapmortar.dbr",
+        "class": "ControllerStationaryMonster",
+        "field": "TeleportToLeaderDistance",
+        "value": 99999.0,
+        "neutral": false,
+        "depth": 1
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "avoidForce",
+        "value": 0.5,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterAttackSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterRunSpeed",
+        "value": 0.800000011920929,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterRunSpeedJitter",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterRunSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterSpellCastSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "maxRotationSpeed",
+        "value": 3.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "minRotationSpeed",
+        "value": 2.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "pathMass",
+        "value": 2.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "pathingSize",
+        "value": "Small",
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "walkSpeed",
+        "value": 1.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterAttackSpeedModifier",
+        "value": 30.0,
+        "neutral": false,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterRunSpeed",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterRunSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterSpellCastSpeedModifier",
+        "value": 50.0,
+        "neutral": false,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeach",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachDuration",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachDurationChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowLifeLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeach",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachDuration",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachDurationChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "defensiveSlowManaLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowAttackSpeedXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowBleedingXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowColdXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveAbilityXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowDefensiveReductionXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowFireXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeLeachXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLifeXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowLightningXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowManaLeachXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveAbilityXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowOffensiveReductionXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPhysicalXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowPoisonXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "offensiveSlowRunSpeedXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowAttackSpeedXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowBleedingXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowColdXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowDefensiveAbilityXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowFireXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeLeachXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLifeXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowLightningXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowManaLeachXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveAbilityXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowOffensiveReductionXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPhysicalXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowPoisonXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedDurationMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedDurationMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedDurationModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedDurationModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedGlobal",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedMax",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedMin",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedModifier",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedModifierChance",
+        "value": 0.0,
+        "neutral": true,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "retaliationSlowRunSpeedXOR",
+        "value": false,
+        "neutral": true,
+        "depth": 2
+      }
+    ],
+    "non_neutral_hits": [
+      {
+        "record": "records/controllers/pets/controller_trapmortar.dbr",
+        "class": "ControllerStationaryMonster",
+        "field": "TeleportToLeaderDistance",
+        "value": 99999.0,
+        "neutral": false,
+        "depth": 1
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "avoidForce",
+        "value": 0.5,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "characterRunSpeed",
+        "value": 0.800000011920929,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "maxRotationSpeed",
+        "value": 3.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "minRotationSpeed",
+        "value": 2.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "pathMass",
+        "value": 2.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "pathingSize",
+        "value": "Small",
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/creatures/traps/spawnbeacon.dbr",
+        "class": "Monster",
+        "field": "walkSpeed",
+        "value": 1.0,
+        "neutral": false,
+        "depth": 0
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterAttackSpeedModifier",
+        "value": 30.0,
+        "neutral": false,
+        "depth": 2
+      },
+      {
+        "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+        "class": "SkillBuff_Passive",
+        "field": "characterSpellCastSpeedModifier",
+        "value": 50.0,
+        "neutral": false,
+        "depth": 2
+      }
+    ],
+    "template_hits": {}
+  },
+  "active_modifiers": [
+    {
+      "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+      "class": "SkillBuff_Passive",
+      "field": "characterAttackSpeedModifier",
+      "value": 30.0
+    },
+    {
+      "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+      "class": "SkillBuff_Passive",
+      "field": "characterSpellCastSpeedModifier",
+      "value": 50.0
+    }
+  ],
+  "uptime_gates": [],
+  "radius_fields": [
+    {
+      "record": "records/skills/misc/spawnbeacon_aura_buff.dbr",
+      "class": "SkillBuff_Passive",
+      "field": "skillTargetRadius",
+      "value": 8.0
+    }
+  ],
+  "archive_digests": {
+    "database.arz": "2ad6d379285cfb745462316949e8d59e9450cb58a13f9ffa2fdeb70193183bfd",
+    "GDX1.arz": "431e64e1d372e4ebee5d1048d3aca458923e1df8c97844274636f5373a01e292",
+    "GDX2.arz": "13fa0b93be15835958968ad672b9efa5159d7221a279aca791590390dd81a072",
+    "GDX3.arz": "e990e1265f14ff2ee241658433d4d666d399a5b0be27543ae9481fc97d6a2ae4",
+    "SurvivalMode.arz": "e9f6e2213eada8f5ffcc4fc430395b43c95384b745b629def096dbb2e7da29b6",
+    "SurvivalMode1.arz": "6ac10d6180bfa8491edfc89946d1cfbf166c5ca6442c5862ecf6947290021252",
+    "SurvivalMode2.arz": "940e40344e9dde53bfac8ff6576940d52ebfece600adeabe3774f9f0c3071e95",
+    "SurvivalMode3.arz": "e848791e4b15496670e4c78832075d9868e7b502e6eed93715c24e894902e12a"
+  }
+}

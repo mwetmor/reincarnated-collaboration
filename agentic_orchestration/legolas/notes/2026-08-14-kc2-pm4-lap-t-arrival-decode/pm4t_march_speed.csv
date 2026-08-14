@@ -1,0 +1,791 @@
+record,archive,class,monster_classification,display_name,level,characterRunSpeed,characterRunSpeedModifier,characterRunSpeedMaxModifier,characterRunSpeedJitter,walkSpeed,pathMass,pathingSize,maxRotationSpeed,minRotationSpeed,avoidForce,chain_perm_speed_terms,chain_transient_speed_terms,chain_size
+records/creatures/anomalies/aetheranomaly_01_summon.dbr,GDX1.arz,Monster,Common,Whirlwind,105,0.36000001430511475,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/creatures/anomalies/chthonicvoid_groble.dbr,GDX3.arz,Monster,Common,Entropic Void,104,0.27000001072883606,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/creatures/anomalies/eldritchground.dbr,GDX2.arz,Monster,Common,Entropic Void,105,0.27000001072883606,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,7
+records/creatures/anomalies/sandstorm.dbr,GDX2.arz,Monster,Common,Entropic Void,104,0.27000001072883606,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/creatures/enemies/aetherialbloater_a01.dbr,SurvivalMode1.arz,Monster,Common,Aetherial Bloater,103,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/aetherialbloater_b01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Bileeater,104,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,3,10
+records/creatures/enemies/aetherialbloater_b01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Bileeater,104,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,3,10
+records/creatures/enemies/aetherialbloater_c01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Regurgitator,104,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/aetherialbloater_c01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Regurgitator,106,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/aetherialcolossus_a01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Behemoth,104,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/aetherialcolossus_b01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Colossus,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/aetherialcolossus_c01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Titan,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/aetherialcolossus_c02.dbr,SurvivalMode1.arz,Monster,Champion,Lightning,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/aetherialcolossus_c02_summon.dbr,SurvivalMode1.arz,Monster,Champion,Lightning,106,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/aetherialcorruption_a01.dbr,SurvivalMode1.arz,Monster,Common,Fleshwarped Corruption,102,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/aetherialcorruption_a01_summon.dbr,SurvivalMode1.arz,Monster,Common,Fleshwarped Corruption,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/aetherialcorruption_b01.dbr,SurvivalMode1.arz,Monster,Champion,Cold,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/aetherialcorruption_b01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Cold,104,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/aetherialcorruption_b02.dbr,SurvivalMode1.arz,Monster,Champion,Lightning,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialcorruption_b02_summon.dbr,SurvivalMode1.arz,Monster,Champion,Lightning,104,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialcorruption_b03.dbr,SurvivalMode1.arz,Monster,Champion,Fire,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/aetherialcorruption_b03_summon.dbr,SurvivalMode1.arz,Monster,Champion,Fire,104,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/aetherialcorruption_c01.dbr,SurvivalMode1.arz,Monster,Champion,Fleshwarped Aberration,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialcorruption_c01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Fleshwarped Aberration,106,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialfleshshaper_a01.dbr,SurvivalMode1.arz,Monster,Champion,Fleshshaper,103,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,9
+records/creatures/enemies/aetherialfleshshaper_b01.dbr,SurvivalMode1.arz,Monster,Champion,Fleshweaver,104,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,14
+records/creatures/enemies/aetherialfleshshaper_c01.dbr,SurvivalMode1.arz,Monster,Champion,Architect of Flesh,104,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,13
+records/creatures/enemies/aetherialimp_a00_summon.dbr,SurvivalMode1.arz,Monster,Common,Aetherial Crawler,104,1.2000000476837158,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/aetherialimp_a01.dbr,SurvivalMode1.arz,Monster,Common,Aetherial Scamp,102,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/aetherialimp_b01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Imp,103,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/aetherialworm_b01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Poison,106,1.0,0.0,,0.0,,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialworm_b02_summon.dbr,SurvivalMode1.arz,Monster,Champion,Fire,106,1.0,0.0,,0.0,,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialworm_b03_summon.dbr,SurvivalMode1.arz,Monster,Champion,Cold,106,1.0,0.0,,0.0,,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/aetherialworm_b04_summon.dbr,SurvivalMode1.arz,Monster,Champion,Lightning,106,1.0,0.0,,0.0,,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/avian_a01.dbr,SurvivalMode3.arz,Monster,Champion,Kaw'Hranaak Ruiner,103,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,0,0,9
+records/creatures/enemies/avian_b01.dbr,SurvivalMode3.arz,Monster,Champion,Kaw'Hranaak Iconoclast,104,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,0,0,11
+records/creatures/enemies/avian_c01.dbr,SurvivalMode3.arz,Monster,Champion,Kaw'Hranaak Despoiler,105,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,1,0,12
+records/creatures/enemies/basilisk_a01.dbr,SurvivalMode1.arz,Monster,Common,Juvenile Basilisk,102,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,7
+records/creatures/enemies/basilisk_b01.dbr,SurvivalMode1.arz,Monster,Champion,Venomgaze Basilisk,103,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/basilisk_c01.dbr,SurvivalMode1.arz,Monster,Champion,Stonegaze Basilisk,104,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/beaverriver_a01.dbr,SurvivalMode3.arz,Monster,Common,Kastorran,103,1.0,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/beaverriver_b01.dbr,SurvivalMode3.arz,Monster,Champion,Kastorran Rager,104,1.0,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/beetle_a01_summon.dbr,SurvivalMode2.arz,Monster,Common,Korvan Scarab ~ Scavenger,104,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/bonerat_witchgod_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Frenzied Plaguebeast,106,1.25,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,7
+records/creatures/enemies/bonerat_witchgod_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Rotting Plaguebeast,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/boss&quest/aetherial_enclave_sideboss01.dbr,SurvivalMode1.arz,Monster,Quest,Enclave Member - Dreven Cole,106,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/aetherial_enclave_sideboss02.dbr,SurvivalMode1.arz,Monster,Quest,Enclave Member - Cyrian Marcell,106,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,2,15
+records/creatures/enemies/boss&quest/aetherial_enclave_sideboss03.dbr,SurvivalMode1.arz,Monster,Quest,Enclave Member - Albert Rein,106,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/aetherial_final02.dbr,SurvivalMode1.arz,Monster,Quest,The Master of Flesh ~ Theodin Marcell,106,1.0,0.0,,,1.0,1.0,Large,6.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/aetherial_fleshhulk_mine.dbr,SurvivalMode.arz,Monster,Quest,Venarius the Backbreaker,106,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,14
+records/creatures/enemies/boss&quest/aetherial_fleshweaverkrieg.dbr,SurvivalMode1.arz,Monster,Quest,Normal/Elite,106,1.2000000476837158,0.0,,,0.8500000238418579,1.0,Medium,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/boss&quest/aetherial_fleshweaverkriegb.dbr,SurvivalMode1.arz,Monster,Quest,Ultimate,106,1.2000000476837158,0.0,,,0.8500000238418579,1.0,Medium,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/boss&quest/aetherial_guardian01.dbr,SurvivalMode1.arz,Monster,Quest,Guardian - Bone Monger,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,14
+records/creatures/enemies/boss&quest/aetherial_guardian02.dbr,SurvivalMode1.arz,Monster,Quest,Guardian - Flesh Collector,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,16
+records/creatures/enemies/boss&quest/aetherialbloater_malmouthdocks_01.dbr,SurvivalMode2.arz,Monster,Quest,Blugrug the Living Plague,106,1.0,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,17
+records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr,SurvivalMode1.arz,Monster,Quest,"Galakros, the Mountain",106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,1,1,15
+records/creatures/enemies/boss&quest/aetherialcommander_01.dbr,SurvivalMode.arz,Monster,Quest,Commander Lucius,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/aetherialcorruption_intro.dbr,SurvivalMode1.arz,Monster,Quest,Dralgar Keeper of Burrwitch,106,1.25,0.0,,,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/aetherialfleshshaper_haraxis.dbr,SurvivalMode1.arz,Monster,Quest,Fleshweaver Haraxis,106,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,17
+records/creatures/enemies/boss&quest/aetherialfleshshaper_hinissius.dbr,SurvivalMode1.arz,Monster,Quest,Fleshshaper Hinissius,106,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/avian_worldtear_01.dbr,SurvivalMode3.arz,Monster,Quest,Naddo the Anointed Normal/Elite,106,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/avian_worldtear_01b.dbr,SurvivalMode3.arz,Monster,Quest,Naddo the Anointed Ult,106,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/basilisk_witchritual.dbr,SurvivalMode1.arz,Monster,Quest,Stone Basilisk,106,1.0,0.0,,,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/beetle_desert01.dbr,SurvivalMode2.arz,Monster,Quest,Durg the Stormborn,106,1.100000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,2,15
+records/creatures/enemies/boss&quest/beetle_maggot01.dbr,SurvivalMode2.arz,Monster,Quest,Margul the Rotting,106,1.100000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/boss&quest/beetle_maggot01_maggotsummon.dbr,SurvivalMode2.arz,Monster,Common,Korvan Maggot,106,1.0,0.0,,15.0,0.6000000238418579,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/boss&quest/chthonian_chthonicroguelike_02.dbr,SurvivalMode.arz,Monster,Quest,Shar'Zul,106,1.2000000476837158,0.0,,,1.0,1.0,Small,18.0,12.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/chthonianherald_prodromus_01.dbr,SurvivalMode3.arz,Monster,Quest,Normal/Elite,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/boss&quest/chthonianherald_prodromus_01b.dbr,SurvivalMode3.arz,Monster,Quest,Normal/Elite,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/boss&quest/chthonianrylok_ekketzul.dbr,SurvivalMode1.arz,Monster,Quest,"Ekket'Zul, Progenitor of Darkness",106,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,15
+records/creatures/enemies/boss&quest/chthonianrylok_gabalthunn.dbr,SurvivalMode1.arz,Monster,Quest,"Gabal'Thunn, the Visage of Madness",106,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/boss&quest/chthonianservitor_lunalvalgoth.dbr,SurvivalMode1.arz,Monster,Quest,"Lunal'Valgoth, Steward of Darkness",106,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/chthoniantyrant_grulthunn.dbr,SurvivalMode3.arz,Monster,Quest,Grul'Thunn of the Crimson Tides,106,1.2000000476837158,0.0,,,1.0,1.0,Small,18.0,12.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/cultist_burrwitchcathedral_01.dbr,SurvivalMode2.arz,Monster,Quest,Father Abaddoth,106,0.699999988079071,0.0,,0.0,,1.0,Small,18.0,12.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/cultist_cultleader_01.dbr,SurvivalMode.arz,Monster,Quest,Bloodlord Thalonis,106,0.699999988079071,0.0,,0.0,,1.0,Small,18.0,12.0,0.5,0,1,16
+records/creatures/enemies/boss&quest/cultist_summoner_01.dbr,SurvivalMode.arz,Monster,Quest,Karroz,106,0.699999988079071,0.0,,0.0,,1.0,Small,18.0,12.0,0.5,0,1,19
+records/creatures/enemies/boss&quest/dermapteran_madqueen.dbr,SurvivalMode.arz,Monster,Quest,"Rashalga, the Mad Queen",106,1.399999976158142,0.0,,,1.0,1.0,Large,6.0,4.0,0.5,0,2,14
+records/creatures/enemies/boss&quest/direwolf_frozenwastes_01.dbr,SurvivalMode3.arz,Monster,Quest,Siff Icehowl,106,1.100000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/boss&quest/dravis.dbr,SurvivalMode2.arz,Monster,Quest,"Dravis, Son of Uroboruuk",106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,2,16
+records/creatures/enemies/boss&quest/eldritcharmor_dreegmindreaper_01.dbr,SurvivalMode2.arz,Monster,Quest,2 Phase - Dreeg 03,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/fatherkymon.dbr,SurvivalMode2.arz,Monster,Quest,"Father Kymon, Avatar of Korvaak",106,1.100000023841858,0.0,,0.0,1.0,1.0,Large,18.0,12.0,0.5,1,1,17
+records/creatures/enemies/boss&quest/ghost_stepsoftorment_01.dbr,SurvivalMode.arz,Monster,Quest,Alkamos (Normal),106,0.800000011920929,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,3,11
+records/creatures/enemies/boss&quest/ghost_stepsoftorment_02.dbr,SurvivalMode.arz,Monster,Quest,Alkamos (Elite/Ultimate),106,0.8999999761581421,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,3,11
+records/creatures/enemies/boss&quest/ghostcrab_mineboss_01.dbr,SurvivalMode1.arz,Monster,Quest,Naxen,106,1.0,0.0,,,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/ghoul_necropolis_01.dbr,SurvivalMode.arz,Monster,Quest,Plagius,106,1.100000023841858,0.0,,,0.75,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/giant_tempesttotem_01.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - lightning,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/boss&quest/giant_tempesttotem_02.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - fire,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/boss&quest/giant_tempesttotem_03.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - acid,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/boss&quest/giant_tempesttotem_04.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - aether,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/giant_tempesttotem_05.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - blood,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/boss&quest/giant_tempesttotem_06.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - cold,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/boss&quest/giant_tempesttotem_07.dbr,SurvivalMode3.arz,Monster,Quest,Son of the Storm - elemental,106,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/boss&quest/human_chthonickurn_chieftain_01.dbr,SurvivalMode3.arz,Monster,Quest,Chieftain Gruldir,106,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/boss&quest/human_chthonickurn_shaman_01.dbr,SurvivalMode3.arz,Monster,Quest,Yurra Voideye,106,0.800000011920929,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/boss&quest/human_chthonickurn_stronghold_chieftain_01.dbr,SurvivalMode3.arz,Monster,Quest,Chieftain Gradda,106,0.8999999761581421,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr,SurvivalMode1.arz,Monster,Quest,"Allostria, the Mindthief",106,1.0,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/boss&quest/humanascendant_terrnox.dbr,SurvivalMode1.arz,Monster,Quest,Normal/Elite,106,1.0,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/humanascendant_terrnoxb.dbr,SurvivalMode1.arz,Monster,Quest,Ultimate,106,1.0,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/humanascendant_valaxteria.dbr,SurvivalMode1.arz,Monster,Quest,Normal/Elite,106,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/humanascendant_valaxteriab.dbr,SurvivalMode1.arz,Monster,Quest,Ultimate,106,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/humanwendigo_darkwood_01.dbr,SurvivalMode1.arz,Monster,Quest,Avris Marrowill,106,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/boss&quest/korvaak_lieutenant_01.dbr,SurvivalMode2.arz,Monster,Quest,Brother Segarious,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/korvaak_lieutenant_02.dbr,SurvivalMode2.arz,Monster,Quest,Sister Crimson,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/korvaak_lieutenant_03.dbr,SurvivalMode2.arz,Monster,Quest,Astros the Sunherald,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/korvaakfinal_02.dbr,SurvivalMode2.arz,Monster,Quest,"Manifestation of Korvaak, the Eldritch Sun",106,1.0,0.0,,,1.0,1.0,Large,6.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/korvaakmessenger_02.dbr,SurvivalMode2.arz,Monster,Quest,Normal/Elite,106,1.100000023841858,0.0,,,1.0,1.0,Large,8.0,4.0,0.5,0,2,14
+records/creatures/enemies/boss&quest/korvaakmessenger_02b.dbr,SurvivalMode2.arz,Monster,Quest,Ultimate,106,1.100000023841858,0.0,,,1.0,1.0,Large,8.0,4.0,0.5,0,2,14
+records/creatures/enemies/boss&quest/lizard_desertboss.dbr,SurvivalMode2.arz,Monster,Quest,Bounty - Korvan Titanovore,106,1.100000023841858,0.0,,,1.0,1.0,Medium,18.0,12.0,0.5,0,0,12
+records/creatures/enemies/boss&quest/manticore_jaggedwaste_01.dbr,SurvivalMode.arz,Monster,Quest,Mogara - Quest Pride of Jagged Waste,106,1.0,0.0,,10.0,0.75,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/rokwind_01.dbr,SurvivalMode3.arz,Monster,Quest,Avinnia,106,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/skeletalgolem_stepsoftorment_01.dbr,SurvivalMode.arz,Monster,Quest,Ilgorr the Eternal,106,1.4500000476837158,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,2,3,15
+records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr,SurvivalMode2.arz,Monster,Quest,Korvaak's Tomb Guardian,106,1.100000023841858,0.0,,,1.0,1.0,Large,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/statue_templeguardian_02.dbr,SurvivalMode2.arz,Monster,Quest,Guardian Minion - Bysmiel 03,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,11
+records/creatures/enemies/boss&quest/statue_templeguardian_03.dbr,SurvivalMode2.arz,Monster,Quest,Guardian Minion - Bysmiel 03,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,11
+records/creatures/enemies/boss&quest/stonegryphon_templeguardian_01.dbr,SurvivalMode2.arz,Monster,Quest,Normal/Elite Inashkor - Bysmiel 03,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/swampcrab_ugdenbog_01.dbr,SurvivalMode1.arz,Monster,Quest,Carraxus Foul,106,1.0,0.0,,,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/swampgolem_bargoll.dbr,SurvivalMode1.arz,Monster,Quest,"Bargoll, the Mouldering Mound",106,1.399999976158142,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,2,0,15
+records/creatures/enemies/boss&quest/theoutcast_03.dbr,SurvivalMode.arz,Monster,Quest,"Anasteria, Wrath of the Aether",106,0.800000011920929,0.0,,0.0,,1.0,Small,18.0,12.0,0.5,0,0,17
+records/creatures/enemies/boss&quest/wendigo_ancient_namadea.dbr,SurvivalMode1.arz,Monster,Quest,"Namadea, the Screecher",106,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,1,2,14
+records/creatures/enemies/boss&quest/wendigo_turned_handar.dbr,SurvivalMode1.arz,Monster,Quest,Handarroth,106,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/wendigo_turned_olliva.dbr,SurvivalMode1.arz,Monster,Quest,Ollivioth,106,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/wendigo_turned_yuvoll.dbr,SurvivalMode1.arz,Monster,Quest,Yuvolloth,106,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/boss&quest/wendigocannibal_packla.dbr,SurvivalMode1.arz,Monster,Quest,"Packla, the Turning",106,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/boss&quest/wight_iceboundpassage_01.dbr,SurvivalMode3.arz,Monster,Quest,Hrohn Everkeep,106,1.0,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,0,2,16
+records/creatures/enemies/boss&quest/wight_scarfell_02_normal.dbr,SurvivalMode3.arz,Monster,Quest,Tulrika Hollowblaze,106,1.0,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/boss&quest/witch_janaxia.dbr,SurvivalMode1.arz,Monster,Quest,"Janaxia, the Betrayer",106,0.800000011920929,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/witch_larria.dbr,SurvivalMode1.arz,Monster,Quest,"Larria, the Hexxer",106,0.800000011920929,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/witchgod_finalboss.dbr,SurvivalMode.arz,Monster,Quest,Sentinel of the Three,106,1.0499999523162842,0.0,,,1.0,1.0,Small,18.0,12.0,0.5,0,0,14
+records/creatures/enemies/boss&quest/yeti_rimehorn_01.dbr,SurvivalMode3.arz,Monster,Quest,Rimehorn,106,0.800000011920929,0.0,,,0.800000011920929,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/bl_bounty08.dbr,SurvivalMode.arz,Monster,Hero,Gluttrius'Maw,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/bounties/bl_bounty09.dbr,SurvivalMode.arz,Monster,Hero,Sicrix,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/bounties/bl_bounty10.dbr,SurvivalMode.arz,Monster,Hero,Emberjaw,107,1.100000023841858,0.0,,0.0,1.2799999713897705,1.0,Small,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/bounties/bl_bounty17.dbr,SurvivalMode.arz,Monster,Quest,Harrath the Reborn,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/bl_bounty18.dbr,SurvivalMode.arz,Monster,Hero,Padmanestia,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/bl_bounty19.dbr,SurvivalMode.arz,Monster,Hero,Corprus,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/bounties/bl_bounty20.dbr,SurvivalMode.arz,Monster,Hero,Luthus'Balok,107,0.949999988079071,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,13
+records/creatures/enemies/bounties/cu_bounty04.dbr,SurvivalMode1.arz,Monster,Hero,Vanoxxis Bile,107,1.100000023841858,0.0,,,1.0,1.0,Medium,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/bounties/cu_bounty05.dbr,SurvivalMode1.arz,Monster,Hero,Crognoth,107,1.100000023841858,0.0,,,1.0,1.0,Medium,18.0,12.0,0.5,0,1,15
+records/creatures/enemies/bounties/cu_bounty06.dbr,SurvivalMode1.arz,Monster,Hero,Habnor,107,1.2000000476837158,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/bounties/cu_bounty07.dbr,SurvivalMode1.arz,Monster,Hero,Sllancar,107,0.699999988079071,0.0,,,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,18
+records/creatures/enemies/bounties/cu_bounty08.dbr,SurvivalMode1.arz,Monster,Hero,Chillpincer,107,1.0,0.0,,,0.699999988079071,1.0,Medium,8.0,4.0,0.5,2,0,18
+records/creatures/enemies/bounties/cu_bounty09.dbr,SurvivalMode1.arz,Monster,Hero,Vagarroth,107,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/bounties/cw_bounty04.dbr,SurvivalMode1.arz,Monster,Hero,Dar'Vagol,107,1.100000023841858,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,21
+records/creatures/enemies/bounties/cw_bounty05.dbr,SurvivalMode1.arz,Monster,Hero,Rhidal'Gulvor,107,1.2000000476837158,0.0,,,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,18
+records/creatures/enemies/bounties/cw_bounty06.dbr,SurvivalMode1.arz,Monster,Hero,Swillius,107,1.350000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/bounties/cw_bounty07.dbr,SurvivalMode1.arz,Monster,Hero,Polterrios,107,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,3,18
+records/creatures/enemies/bounties/cw_bounty08.dbr,SurvivalMode1.arz,Monster,Hero,Vladris,107,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,3,25
+records/creatures/enemies/bounties/cw_bounty09.dbr,SurvivalMode1.arz,Monster,Hero,Yoknar,107,1.149999976158142,0.0,,,0.800000011920929,1.0,Medium,8.0,4.0,0.5,0,1,20
+records/creatures/enemies/bounties/dc_bounty06.dbr,SurvivalMode.arz,Monster,Hero,"The Brusier"" Romanov",107,0.800000011920929,0.0,,10.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/bounties/dc_bounty07.dbr,SurvivalMode.arz,Monster,Hero,The Raven,107,1.0,0.0,,0.0,0.699999988079071,1.0,Small,18.0,12.0,0.5,0,0,12
+records/creatures/enemies/bounties/dc_bounty08.dbr,SurvivalMode.arz,Monster,Hero,Slathra,107,0.800000011920929,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,3,15
+records/creatures/enemies/bounties/dc_bounty09.dbr,SurvivalMode.arz,Monster,Hero,Ballior,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,1,13
+records/creatures/enemies/bounties/dc_bounty10.dbr,SurvivalMode.arz,Monster,Hero,The Bruiser,107,0.800000011920929,0.0,,0.0,0.699999988079071,1.0,Small,18.0,12.0,0.5,0,0,13
+records/creatures/enemies/bounties/dc_bounty11.dbr,SurvivalMode.arz,Monster,Hero,Blooddrinker,107,0.699999988079071,0.0,,0.0,0.699999988079071,1.0,Small,18.0,12.0,0.5,0,0,12
+records/creatures/enemies/bounties/dc_bounty15.dbr,SurvivalMode.arz,Monster,Hero,Aetherflame,107,0.800000011920929,0.0,,10.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/bounties/dc_bounty17.dbr,SurvivalMode.arz,Monster,Hero,Frostbound,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,2,0,16
+records/creatures/enemies/bounties/exile_bounty12.dbr,SurvivalMode.arz,Monster,Hero,Nucus'Dal,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,17
+records/creatures/enemies/bounties/exile_bounty13.dbr,SurvivalMode.arz,Monster,Hero,Innu'Garbal,107,0.949999988079071,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,3,0,12
+records/creatures/enemies/bounties/exile_bounty14.dbr,SurvivalMode.arz,Monster,Hero,Conastaria,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/bounties/exile_bounty15.dbr,SurvivalMode.arz,Monster,Hero,Ludia Starfire,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/hs_bounty09.dbr,SurvivalMode.arz,Monster,Hero,Bogloth the Marrowdrinker,107,1.350000023841858,0.0,,15.0,0.800000011920929,1.0,Medium,8.0,4.0,0.5,0,3,13
+records/creatures/enemies/bounties/hs_bounty10.dbr,SurvivalMode.arz,Monster,Hero,The Locust,107,1.25,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,1,13
+records/creatures/enemies/bounties/hs_bounty11.dbr,SurvivalMode.arz,Monster,Hero,Vizier Haxin,107,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,12
+records/creatures/enemies/bounties/hs_bounty12.dbr,SurvivalMode.arz,Monster,Hero,Glukrog,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/bounties/hs_bounty13.dbr,SurvivalMode.arz,Monster,Hero,Phabius,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,16
+records/creatures/enemies/bounties/kc_bounty07.dbr,SurvivalMode.arz,Monster,Hero,Holvuur Bonespeaker,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/bounties/kc_bounty08.dbr,SurvivalMode.arz,Monster,Hero,Igniaa Venomtongue,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/kc_bounty09.dbr,SurvivalMode.arz,Monster,Hero,Vom'Zul,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,15
+records/creatures/enemies/bounties/kc_bounty10.dbr,SurvivalMode.arz,Monster,Hero,Thullon,107,0.699999988079071,0.0,,0.0,0.699999988079071,1.0,Small,18.0,12.0,0.5,0,0,11
+records/creatures/enemies/bounties/kc_bounty11.dbr,SurvivalMode.arz,Monster,Hero,Abathis,107,1.149999976158142,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,2,0,13
+records/creatures/enemies/bounties/kc_bounty13.dbr,SurvivalMode.arz,Monster,Hero,Chthonian Unraveler,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,15
+records/creatures/enemies/bounties/kc_bounty19.dbr,SurvivalMode.arz,Monster,Hero,Ludia Bloodwhisper,107,0.699999988079071,0.0,,0.0,0.699999988079071,1.0,Small,18.0,12.0,0.5,0,0,14
+records/creatures/enemies/bounties/ku_bounty_05.dbr,SurvivalMode3.arz,Monster,Hero,Corridius,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/bounties/ku_bounty_06.dbr,SurvivalMode3.arz,Monster,Hero,Holvir the Crimson Blade,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/bounties/ku_bounty_07.dbr,SurvivalMode3.arz,Monster,Hero,Crogg the Maimer,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,1,2,13
+records/creatures/enemies/bounties/ku_bounty_08.dbr,SurvivalMode3.arz,Monster,Hero,Icethrasher,107,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/bounties/ku_bounty_09.dbr,SurvivalMode3.arz,Monster,Hero,Thundra,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/bounties/ku_bounty_10.dbr,SurvivalMode3.arz,Monster,Hero,Juknuuk Bloodfeather,107,1.149999976158142,0.0,,10.0,1.0,1.0,Medium,7.0,4.0,0.5,0,0,13
+records/creatures/enemies/bounties/odv_bounty06.dbr,SurvivalMode.arz,Monster,Hero,Halvastra Wrathfire,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/bounties/odv_bounty07.dbr,SurvivalMode.arz,Monster,Hero,Horvald Shieldbreaker,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,2,11
+records/creatures/enemies/bounties/odv_bounty08.dbr,SurvivalMode.arz,Monster,Hero,Olga Flamebearer,107,1.0,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,13
+records/creatures/enemies/bounties/odv_bounty09.dbr,SurvivalMode.arz,Monster,Hero,Narroth,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/bounties/odv_bounty10.dbr,SurvivalMode.arz,Monster,Hero,Barrostrandt,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,1,0,16
+records/creatures/enemies/bounties/odv_bounty11.dbr,SurvivalMode.arz,Monster,Hero,Gravvis,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/bounties/odv_bounty12.dbr,SurvivalMode.arz,Monster,Hero,Narl'Sarroth,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/bounties/odv_bounty13.dbr,SurvivalMode.arz,Monster,Hero,Revenant Deathly,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/bounties/pm_bounty05.dbr,SurvivalMode1.arz,Monster,Hero,Bluggraag,107,1.100000023841858,0.0,,,1.0,1.0,Medium,18.0,12.0,0.5,0,0,17
+records/creatures/enemies/bounties/pm_bounty06.dbr,SurvivalMode1.arz,Monster,Hero,Stormtitan,107,1.100000023841858,0.0,,,1.0,1.0,Medium,18.0,12.0,0.5,0,1,18
+records/creatures/enemies/bounties/pm_bounty07.dbr,SurvivalMode1.arz,Monster,Hero,Blazragarus,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,17
+records/creatures/enemies/bounties/pm_bounty08.dbr,SurvivalMode1.arz,Monster,Hero,Torraxsteria,107,0.6600000262260437,0.0,,,0.699999988079071,1.0,Small,8.0,4.0,0.5,2,0,22
+records/creatures/enemies/bounties/ro_bounty10.dbr,SurvivalMode.arz,Monster,Hero,Oligeane Dar,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/bounties/ro_bounty11.dbr,SurvivalMode.arz,Monster,Hero,Rixna Plaguefeather,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/bounties/ro_bounty12.dbr,SurvivalMode.arz,Monster,Hero,Mortallis,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/bounties/ro_bounty19.dbr,SurvivalMode.arz,Monster,Hero,Grum,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,3,18
+records/creatures/enemies/chthonianabomination_tentacles_a01.dbr,SurvivalMode.arz,Monster,Common,Writhing Tentacle,107,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,5
+records/creatures/enemies/chthoniandevourer_a00_summon.dbr,SurvivalMode.arz,Monster,Common,Chthonian Swarmer,106,1.2000000476837158,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/chthoniandevourer_a01.dbr,SurvivalMode.arz,Monster,Common,Chthonian Hungerer,102,1.2000000476837158,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/chthoniandevourer_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Chthonian Hungerer,106,1.2000000476837158,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/chthoniandevourer_b01.dbr,SurvivalMode.arz,Monster,Champion,Melee - Biting,103,1.149999976158142,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthoniandevourer_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Melee - Biting,106,1.149999976158142,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthoniandevourer_b02.dbr,SurvivalMode.arz,Monster,Champion,Melee - Vomitting,103,1.149999976158142,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthoniandevourer_b02_summon.dbr,SurvivalMode.arz,Monster,Champion,Melee - Vomitting,106,1.149999976158142,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthoniandreadguard_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Chthonian Vanguard,106,1.0,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,1,0,6
+records/creatures/enemies/chthoniandreadguard_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Chthonian Dreadguard,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,1,0,9
+records/creatures/enemies/chthoniandreadguard_c01_summon.dbr,SurvivalMode.arz,Monster,Champion,Chthonian Tyrant,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,1,0,12
+records/creatures/enemies/chthonianfiend_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Voidfiend,106,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/chthonianfiend_a02_summon.dbr,SurvivalMode.arz,Monster,Champion,Voidfiend Incinerator,106,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/chthonianfiend_c01_summon.dbr,SurvivalMode.arz,Monster,Champion,Voidfiend Hellion,107,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/chthonianherald_a01.dbr,SurvivalMode3.arz,Monster,Common,Chthonian Herald,103,1.0,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/chthonianherald_a01_summon.dbr,SurvivalMode3.arz,Monster,Common,Chthonian Herald,106,1.0,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/chthonianherald_b01.dbr,SurvivalMode3.arz,Monster,Champion,Chthonian Portent,104,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/chthonianherald_b01_summon.dbr,SurvivalMode3.arz,Monster,Champion,Chthonian Portent,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/chthonianherald_c01.dbr,SurvivalMode3.arz,Monster,Champion,Chthonian Omen,105,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/chthonianleech_a01.dbr,SurvivalMode.arz,Monster,Common,Void Parasite,103,1.0,0.0,,0.0,1.100000023841858,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthonianleech_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Void Parasite,106,1.0,0.0,,0.0,1.100000023841858,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthonianleech_b01.dbr,SurvivalMode.arz,Monster,Champion,Void Leech,104,1.0,0.0,,0.0,1.100000023841858,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/chthonianleech_b02.dbr,SurvivalMode.arz,Monster,Champion,Void Souldrinker,104,1.0,0.0,,0.0,1.100000023841858,1.0,Small,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/chthonianminion_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Chthonian Bloodletter,106,1.5499999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/chthonianmonstrosity_summon.dbr,SurvivalMode3.arz,Monster,Champion,Chthonian Unraveler,106,1.399999976158142,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,10
+records/creatures/enemies/chthonianrylok_a01.dbr,SurvivalMode1.arz,Monster,Common,Void Rylok,103,1.0,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/chthonianrylok_b01.dbr,SurvivalMode1.arz,Monster,Champion,Void Taskmaster,104,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/chthonianrylok_b01_summon.dbr,GDX1.arz,Monster,Champion,Void Taskmaster,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/chthonianrylok_c01.dbr,SurvivalMode1.arz,Monster,Champion,Void Oppressor,105,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/chthonianrylok_c01_summon.dbr,GDX1.arz,Monster,Champion,Void Oppressor,106,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/chthonianservitor_a01.dbr,SurvivalMode1.arz,Monster,Champion,Chthonian Drone,103,1.1799999475479126,0.0,,15.0,1.0499999523162842,1.0,Large,5.0,2.0,0.5,0,1,7
+records/creatures/enemies/chthonianservitor_a01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Chthonian Drone,106,1.1799999475479126,0.0,,15.0,1.0499999523162842,1.0,Large,5.0,2.0,0.5,0,1,7
+records/creatures/enemies/chthonianservitor_b01.dbr,SurvivalMode1.arz,Monster,Champion,Chthonian Servitor,104,1.0499999523162842,0.0,,15.0,1.0499999523162842,1.0,Large,5.0,2.0,0.5,0,0,8
+records/creatures/enemies/chthonianservitor_b02.dbr,SurvivalMode1.arz,Monster,Champion,Chthonian Harvester,104,1.0499999523162842,0.0,,15.0,1.0499999523162842,1.0,Large,5.0,2.0,0.5,0,1,10
+records/creatures/enemies/chthonianservitor_c01.dbr,SurvivalMode1.arz,Monster,Champion,Chthonian Bloodkeeper,105,1.1200000047683716,0.0,,15.0,1.0499999523162842,1.0,Large,5.0,2.0,0.5,0,0,14
+records/creatures/enemies/chthonianwretch_a01.dbr,SurvivalMode1.arz,Monster,Common,Voidlurker,102,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/chthonianwretch_b01.dbr,SurvivalMode1.arz,Monster,Champion,Voidlurker Blightbearer,103,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/chthonianwretch_c01.dbr,SurvivalMode1.arz,Monster,Champion,Voidlurker Pestilence,103,0.800000011920929,0.0,,20.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/devotion/aetherialbloater_h01.dbr,SurvivalMode1.arz,Monster,Hero,Barrthnas the Plagueborn,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,15
+records/creatures/enemies/devotion/aetherialbloater_h02.dbr,SurvivalMode1.arz,Monster,Hero,Ignos,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/aetherialbloater_h03.dbr,SurvivalMode1.arz,Monster,Hero,Frozdar ~ Frozen,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,2,0,17
+records/creatures/enemies/devotion/aetherialbloater_h04.dbr,SurvivalMode1.arz,Monster,Hero,Draklon ~ Vampiric,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,19
+records/creatures/enemies/devotion/aetherialcolossus_h01.dbr,SurvivalMode1.arz,Monster,Hero,Thunderfist ~ Electrified,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,18
+records/creatures/enemies/devotion/aetherialcolossus_h02.dbr,SurvivalMode1.arz,Monster,Hero,Infernox ~ Burning,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,16
+records/creatures/enemies/devotion/aetherialcolossus_h03.dbr,SurvivalMode1.arz,Monster,Hero,Oblaigon ~ Vampiric,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,21
+records/creatures/enemies/devotion/aetherialcolossus_h04.dbr,SurvivalMode1.arz,Monster,Hero,Speldrakus ~ Arcane,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,21
+records/creatures/enemies/devotion/aetherialcorruption_h01.dbr,SurvivalMode1.arz,Monster,Hero,Chillian,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,15
+records/creatures/enemies/devotion/aetherialcorruption_h02.dbr,SurvivalMode1.arz,Monster,Hero,Naragon the Manhunter,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,15
+records/creatures/enemies/devotion/aetherialcorruption_h03.dbr,SurvivalMode1.arz,Monster,Hero,Peuglis ~ Diseased,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,13
+records/creatures/enemies/devotion/aetherialcorruption_h04.dbr,SurvivalMode1.arz,Monster,Hero,Tirendal ~ Timewarped,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,2,18
+records/creatures/enemies/devotion/aetherialfleshshaper_h01.dbr,SurvivalMode1.arz,Monster,Hero,Filnaderzad ~ Burning,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,18
+records/creatures/enemies/devotion/aetherialfleshshaper_h02.dbr,SurvivalMode1.arz,Monster,Hero,Noxus ~ Frozen,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,2,0,18
+records/creatures/enemies/devotion/aetherialfleshshaper_h03.dbr,SurvivalMode1.arz,Monster,Hero,Karthallas ~ Electrified,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,17
+records/creatures/enemies/devotion/aetherialfleshshaper_h04.dbr,SurvivalMode1.arz,Monster,Hero,Porendallos ~ Unstoppable,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,1,0,16
+records/creatures/enemies/devotion/aetherialphantom_h01.dbr,SurvivalMode.arz,Monster,Hero,"Athraz, the Watcher",107,1.2999999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/devotion/aetherialphantom_h02.dbr,SurvivalMode.arz,Monster,Hero,"Naladrak, Essence of the Flame",107,1.2999999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/devotion/aetherialphantom_h03.dbr,SurvivalMode.arz,Monster,Hero,"Idalazius, the Corruptor",107,1.2999999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/devotion/basilisk_h01.dbr,SurvivalMode1.arz,Monster,Hero,Lagarslin Stormskin,107,1.0,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,17
+records/creatures/enemies/devotion/basilisk_h02.dbr,SurvivalMode1.arz,Monster,Hero,Venomnius,107,1.0,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,16
+records/creatures/enemies/devotion/basilisk_h03.dbr,SurvivalMode1.arz,Monster,Hero,Colplur ~ Corrupted,107,1.0,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,17
+records/creatures/enemies/devotion/basilisk_h04.dbr,SurvivalMode1.arz,Monster,Hero,Volaxius ~ Voidtouched,107,1.0,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,1,17
+records/creatures/enemies/devotion/beetle_h01.dbr,SurvivalMode2.arz,Monster,Hero,Riknithan,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,3,16
+records/creatures/enemies/devotion/beetle_h02.dbr,SurvivalMode2.arz,Monster,Hero,Baroganx,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,3,18
+records/creatures/enemies/devotion/beetle_h03.dbr,SurvivalMode2.arz,Monster,Hero,Sagaranx ~ Defender,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,3,17
+records/creatures/enemies/devotion/beetle_h04.dbr,SurvivalMode2.arz,Monster,Hero,Mlargg ~ Reflective,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,3,15
+records/creatures/enemies/devotion/chthoniandevourer_h01.dbr,SurvivalMode.arz,Monster,Hero,Gal'Barok,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/devotion/chthoniandevourer_h02.dbr,SurvivalMode.arz,Monster,Hero,Har'Nadiin,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/chthoniandevourer_h03.dbr,SurvivalMode.arz,Monster,Hero,Ellon'Siin,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/chthoniandevourer_h04.dbr,SurvivalMode.arz,Monster,Hero,Udal'Nadal,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/chthoniandevourer_h05.dbr,SurvivalMode.arz,Monster,Hero,Balok'Grot,107,1.0,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/chthoniandevourer_h06.dbr,SurvivalMode.arz,Monster,Hero,Orudin'Ak,107,1.2999999523162842,0.0,,,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/chthoniandreadguard_h01.dbr,SurvivalMode.arz,Monster,Hero,Serethal'Siin,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/devotion/chthoniandreadguard_h02.dbr,SurvivalMode.arz,Monster,Hero,Wallan'Siin,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/devotion/chthoniandreadguard_h03.dbr,SurvivalMode.arz,Monster,Hero,Zagal'Udal ~ Electrified,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/devotion/chthoniandreadguard_h04.dbr,SurvivalMode.arz,Monster,Hero,Rigak'Doth ~ Reflective,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/devotion/chthoniandreadguard_h05.dbr,SurvivalMode.arz,Monster,Hero,Palloth'Dar ~ Frozen,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,3,0,16
+records/creatures/enemies/devotion/chthonianfiend_h01.dbr,SurvivalMode.arz,Monster,Hero,Innal'Gargoth,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,13
+records/creatures/enemies/devotion/chthonianfiend_h02.dbr,SurvivalMode.arz,Monster,Hero,Udal'Thel,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,0,14
+records/creatures/enemies/devotion/chthonianfiend_h03.dbr,SurvivalMode.arz,Monster,Hero,Walloth'Dar,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,14
+records/creatures/enemies/devotion/chthonianfiend_h04.dbr,SurvivalMode.arz,Monster,Hero,Eldon'Siin ~ Electrified,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,2,17
+records/creatures/enemies/devotion/chthonianfiend_h05.dbr,SurvivalMode.arz,Monster,Hero,Sen'Udal ~ Burning,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,14
+records/creatures/enemies/devotion/chthonianfiend_h06.dbr,SurvivalMode.arz,Monster,Hero,Halloth'Siin,107,0.8999999761581421,0.0,,30.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,1,1,15
+records/creatures/enemies/devotion/chthonianherald_h01.dbr,SurvivalMode3.arz,Monster,Hero,Wen'Zoth ~ Reflective,107,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/devotion/chthonianherald_h02.dbr,SurvivalMode3.arz,Monster,Hero,Zalyth'Zoth ~ Burning,107,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/chthonianherald_h03.dbr,SurvivalMode3.arz,Monster,Hero,Goroth'Zoth ~ Shielded,107,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/chthonianherald_h04.dbr,SurvivalMode3.arz,Monster,Hero,Bane'Zoth ~ Thundering,107,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/chthonianminion_h01.dbr,SurvivalMode.arz,Monster,Hero,Carath'Lud,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/chthonianminion_h02.dbr,SurvivalMode.arz,Monster,Hero,Elegor'Dar,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/chthonianminion_h03.dbr,SurvivalMode.arz,Monster,Hero,Fallim'Gargoth,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/chthonianminion_h04.dbr,SurvivalMode.arz,Monster,Hero,Ossius'Dar,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,1,18
+records/creatures/enemies/devotion/chthonianminion_h05.dbr,SurvivalMode.arz,Monster,Hero,Blagal'Doth,107,1.399999976158142,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/chthonianminion_h06.dbr,SurvivalMode.arz,Monster,Hero,Mal'Thallon ~ Frozen,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,2,0,17
+records/creatures/enemies/devotion/chthonianminion_h07.dbr,SurvivalMode.arz,Monster,Hero,Shogal'Gargoth ~ Shielded,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,0,18
+records/creatures/enemies/devotion/chthonianmonstrosity_h01.dbr,SurvivalMode.arz,Monster,Hero,Chthonian Unraveler,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,16
+records/creatures/enemies/devotion/chthonianrylok_h01.dbr,SurvivalMode1.arz,Monster,Hero,Balg'Gawtok the Voidbringer,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/devotion/chthonianrylok_h02.dbr,SurvivalMode1.arz,Monster,Hero,Garu'Doth ~ Swift,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/devotion/chthonianrylok_h03.dbr,SurvivalMode1.arz,Monster,Hero,Zuuth'Aglathon ~ Vampiric,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,21
+records/creatures/enemies/devotion/chthonianrylok_h04.dbr,SurvivalMode1.arz,Monster,Hero,Nurdul'Siin ~ Arcane,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/chthonianservitor_h01.dbr,SurvivalMode1.arz,Monster,Hero,Ishthu'Gal the Dreadblood,107,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,18
+records/creatures/enemies/devotion/chthonianservitor_h02.dbr,SurvivalMode1.arz,Monster,Hero,Lank'Zuul the Torturer,107,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,3,20
+records/creatures/enemies/devotion/chthonianservitor_h03.dbr,SurvivalMode1.arz,Monster,Hero,Ukog'Dal ~ Electrified,107,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,18
+records/creatures/enemies/devotion/chthonianservitor_h04.dbr,SurvivalMode1.arz,Monster,Hero,Unatu'Ukog ~ Arcane,107,1.2000000476837158,0.0,,0.0,1.100000023841858,1.0,Large,6.0,3.0,0.5,0,0,20
+records/creatures/enemies/devotion/dranghoul_h01.dbr,SurvivalMode3.arz,Monster,Hero,Lurg ~ Swift,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,1,1,13
+records/creatures/enemies/devotion/dranghoul_h02.dbr,SurvivalMode3.arz,Monster,Hero,Jaduum ~ Bramble,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/devotion/dranghoul_h03.dbr,SurvivalMode3.arz,Monster,Hero,Strum ~ Electrified,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/dranghoul_h04.dbr,SurvivalMode3.arz,Monster,Hero,Chrog ~ Timewarped,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/eldritcharmor_h01.dbr,SurvivalMode2.arz,Monster,Hero,Akanax,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/devotion/eldritcharmor_h02.dbr,SurvivalMode2.arz,Monster,Hero,Volkanax,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/devotion/eldritcharmor_h03.dbr,SurvivalMode2.arz,Monster,Hero,Hallanax ~ Supporter,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,22
+records/creatures/enemies/devotion/eldritcharmor_h04.dbr,SurvivalMode2.arz,Monster,Hero,Tilkanax ~ Timewarped,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,23
+records/creatures/enemies/devotion/eldritchhound_h01.dbr,SurvivalMode2.arz,Monster,Hero,Vengrall,107,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,16
+records/creatures/enemies/devotion/eldritchhound_h02.dbr,SurvivalMode2.arz,Monster,Hero,Titanjaw,107,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,17
+records/creatures/enemies/devotion/eldritchhound_h03.dbr,SurvivalMode2.arz,Monster,Hero,Ferantis ~ Swift,107,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,1,3,17
+records/creatures/enemies/devotion/eldritchhound_h04.dbr,SurvivalMode2.arz,Monster,Hero,Noseferan ~ Vampiric,107,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,21
+records/creatures/enemies/devotion/eldritchwraith_h01.dbr,SurvivalMode2.arz,Monster,Hero,Alagandris,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/devotion/eldritchwraith_h02.dbr,SurvivalMode2.arz,Monster,Hero,Ulzimaar,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/devotion/eldritchwraith_h03.dbr,SurvivalMode2.arz,Monster,Hero,Rygonaunt ~ Reflective,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/eldritchwraith_h04.dbr,SurvivalMode2.arz,Monster,Hero,Pazaguun ~ Regenerator,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,21
+records/creatures/enemies/devotion/fleshhulk_h01.dbr,SurvivalMode.arz,Monster,Hero,Brognathar,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,14
+records/creatures/enemies/devotion/fleshhulk_h02.dbr,SurvivalMode.arz,Monster,Hero,Aethollin,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,0,16
+records/creatures/enemies/devotion/fleshhulk_h03.dbr,SurvivalMode.arz,Monster,Hero,Kollus ~ Burning,107,1.0,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,14
+records/creatures/enemies/devotion/fleshhulk_h04.dbr,SurvivalMode.arz,Monster,Hero,Feseron ~ Electrified,107,1.0,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,14
+records/creatures/enemies/devotion/gargoyle_h01.dbr,SurvivalMode2.arz,Monster,Hero,Hadsarin ~ Frozen,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,2,2,22
+records/creatures/enemies/devotion/gargoyle_h02.dbr,SurvivalMode2.arz,Monster,Hero,Bragwarr ~ Diseased,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,18
+records/creatures/enemies/devotion/gargoyle_h03.dbr,SurvivalMode2.arz,Monster,Hero,Golgant ~ Burning,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,18
+records/creatures/enemies/devotion/gargoyle_h04.dbr,SurvivalMode2.arz,Monster,Hero,Xanix ~ Electrified,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,20
+records/creatures/enemies/devotion/ghost_h01.dbr,SurvivalMode.arz,Monster,Hero,Odellia Lanos,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/devotion/ghost_h02.dbr,SurvivalMode.arz,Monster,Hero,Marden Thal ~ Burning,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/devotion/ghost_h03.dbr,SurvivalMode.arz,Monster,Hero,Agalla Varos ~ Regenerator,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,15
+records/creatures/enemies/devotion/ghost_h04.dbr,SurvivalMode.arz,Monster,Hero,Stormbane ~ Electrified,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/ghost_h05.dbr,SurvivalMode.arz,Monster,Hero,Baullos Gar ~ Electrified,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/ghost_h06.dbr,SurvivalMode.arz,Monster,Hero,Senal Thandris ~ Corrupted,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/ghost_h07.dbr,SurvivalMode.arz,Monster,Hero,Develos Ondal,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/ghost_h08.dbr,SurvivalMode.arz,Monster,Hero,Barrosa Namos,107,0.800000011920929,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,2,2,17
+records/creatures/enemies/devotion/ghost_h09.dbr,SurvivalMode.arz,Monster,Hero,Aneria Thandris,107,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,2,0,16
+records/creatures/enemies/devotion/gryphonstone_h01.dbr,SurvivalMode2.arz,Monster,Hero,Astranzor ~ Burning,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/devotion/gryphonstone_h02.dbr,SurvivalMode2.arz,Monster,Hero,Isvanzor ~ Frozen,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,2,0,21
+records/creatures/enemies/devotion/gryphonstone_h03.dbr,SurvivalMode2.arz,Monster,Hero,Sarpanzor ~ Electrified,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/gryphonstone_h04.dbr,SurvivalMode2.arz,Monster,Hero,Bolvinzor ~ Diseased,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/devotion/korvaakascended_h01.dbr,SurvivalMode2.arz,Monster,Hero,Bluguth ~ Diseased,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/korvaakascended_h02.dbr,SurvivalMode2.arz,Monster,Hero,Skron ~ Frozen,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,2,0,22
+records/creatures/enemies/devotion/korvaakascended_h03.dbr,SurvivalMode2.arz,Monster,Hero,Pallondrin ~ Unstoppable,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,19
+records/creatures/enemies/devotion/korvaakascended_h04.dbr,SurvivalMode2.arz,Monster,Hero,Reapnagal ~ Reflective,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/devotion/korvaakservant_h01.dbr,SurvivalMode2.arz,Monster,Hero,Nagnorok,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/korvaakservant_h02.dbr,SurvivalMode2.arz,Monster,Hero,Garunrok,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/korvaakservant_h03.dbr,SurvivalMode2.arz,Monster,Hero,Orgerok ~ Vampiric,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,21
+records/creatures/enemies/devotion/korvaakservant_h04.dbr,SurvivalMode2.arz,Monster,Hero,Purigalrok ~ Arcane,107,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,21
+records/creatures/enemies/devotion/prawncave_h01.dbr,SurvivalMode.arz,Monster,Hero,Direcrix,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,14
+records/creatures/enemies/devotion/prawncave_h02.dbr,SurvivalMode.arz,Monster,Hero,Malocrix ~ Voidtouched,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,13
+records/creatures/enemies/devotion/prawncave_h03.dbr,SurvivalMode.arz,Monster,Hero,Idricrix ~ Electrified,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/rhino_h01.dbr,SurvivalMode3.arz,Monster,Hero,Brimhorn ~ Bramble,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/rhino_h02.dbr,SurvivalMode3.arz,Monster,Hero,Shadowhorn ~ Shattered,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/devotion/rhino_h03.dbr,SurvivalMode3.arz,Monster,Hero,Blazehorn ~ Infernal,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/rhino_h04.dbr,SurvivalMode3.arz,Monster,Hero,Chillhorn ~ Arctic,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/rok_h01.dbr,SurvivalMode3.arz,Monster,Hero,Anarroc ~ Shielded,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/rok_h02.dbr,SurvivalMode3.arz,Monster,Hero,Codorroc ~ Corrupted,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/rok_h03.dbr,SurvivalMode3.arz,Monster,Hero,Sigirroc ~ Arcane,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/devotion/rok_h04.dbr,SurvivalMode3.arz,Monster,Hero,Navurroc ~ Shattered,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/scorpion_h01.dbr,SurvivalMode2.arz,Monster,Hero,Scourpinx,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/scorpion_h02.dbr,SurvivalMode2.arz,Monster,Hero,Karalinx,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/scorpion_h03.dbr,SurvivalMode2.arz,Monster,Hero,Razgalinx ~ Swift,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,1,1,17
+records/creatures/enemies/devotion/scorpion_h04.dbr,SurvivalMode2.arz,Monster,Hero,Elgandinx ~ Electrified,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/devotion/skeletalgolem_h01.dbr,SurvivalMode.arz,Monster,Hero,Grubwrath ~ Diseased,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,3,17
+records/creatures/enemies/devotion/skeletalgolem_h02.dbr,SurvivalMode.arz,Monster,Hero,Icesharn ~ Frozen,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,4,3,19
+records/creatures/enemies/devotion/skeletalgolem_h03.dbr,SurvivalMode.arz,Monster,Hero,Flamegore ~ Burning,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,3,17
+records/creatures/enemies/devotion/skeletalgolem_h04.dbr,SurvivalMode.arz,Monster,Hero,Aethergore ~ Corrupted,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,3,19
+records/creatures/enemies/devotion/skeletalgolem_h05.dbr,SurvivalMode.arz,Monster,Hero,Voidreach ~ Voidtouched,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,4,19
+records/creatures/enemies/devotion/skeleton_h01.dbr,SurvivalMode.arz,Monster,Hero,Elledar Bloodthirster,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/skeleton_h02.dbr,SurvivalMode.arz,Monster,Hero,Priest Dagoll,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/devotion/skeleton_h03.dbr,SurvivalMode.arz,Monster,Hero,Damnoth,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/devotion/skeleton_h04.dbr,SurvivalMode.arz,Monster,Hero,Everon ~ Burning,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/devotion/skeleton_h05.dbr,SurvivalMode.arz,Monster,Hero,Vengar the Vengeful ~ Reflective,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,4,15
+records/creatures/enemies/devotion/skeleton_h06.dbr,SurvivalMode.arz,Monster,Hero,Rimelord ~ Frozen,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,2,3,17
+records/creatures/enemies/devotion/skeleton_h07.dbr,SurvivalMode.arz,Monster,Hero,Tenethon,107,1.2000000476837158,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/devotion/skeleton_h08.dbr,SurvivalMode.arz,Monster,Hero,Alladon the Flamewatcher,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/skeleton_h09.dbr,SurvivalMode.arz,Monster,Hero,Elagorian Darkmarrow,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/devotion/skeleton_h10.dbr,SurvivalMode.arz,Monster,Hero,Ollegon the Icewatcher,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/devotion/slith_h01.dbr,SurvivalMode.arz,Monster,Hero,Rexna,107,0.699999988079071,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,3,14
+records/creatures/enemies/devotion/slith_h02.dbr,SurvivalMode.arz,Monster,Hero,Balladra Stormscion,107,0.800000011920929,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,15
+records/creatures/enemies/devotion/slith_h03.dbr,SurvivalMode.arz,Monster,Hero,Sharath,107,0.800000011920929,0.0,,0.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,1,14
+records/creatures/enemies/devotion/slith_h04.dbr,SurvivalMode.arz,Monster,Hero,Traglodan ~ Voidtouched,107,0.699999988079071,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,1,12
+records/creatures/enemies/devotion/slith_h05.dbr,SurvivalMode.arz,Monster,Hero,Wrallan ~ Electrified,107,0.699999988079071,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,14
+records/creatures/enemies/devotion/slith_h06.dbr,SurvivalMode.arz,Monster,Hero,Calladra ~ Corrupted,107,0.699999988079071,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,14
+records/creatures/enemies/devotion/slith_h07.dbr,SurvivalMode.arz,Monster,Hero,Bliegna,107,0.6000000238418579,0.0,,,,1.0,Medium,12.0,9.0,0.5,0,2,14
+records/creatures/enemies/devotion/slith_h08.dbr,SurvivalMode.arz,Monster,Hero,Lunorius,107,0.8500000238418579,0.0,,,,1.0,Medium,12.0,9.0,0.5,0,0,14
+records/creatures/enemies/devotion/spider_cave_h01.dbr,SurvivalMode.arz,Monster,Hero,Shalloth,107,2.0,0.0,,15.0,0.6600000262260437,1.0,Small,8.0,4.0,0.5,0,1,14
+records/creatures/enemies/devotion/spider_cave_h02.dbr,SurvivalMode.arz,Monster,Hero,Troaxna ~ Regenerator,107,2.0,0.0,,15.0,0.6600000262260437,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/spider_cave_h03.dbr,SurvivalMode.arz,Monster,Hero,Waviix ~ Swift,107,2.0,0.0,,15.0,0.6600000262260437,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/devotion/statue_h01.dbr,SurvivalMode2.arz,Monster,Hero,Tyrgandor ~ Timewarped,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,23
+records/creatures/enemies/devotion/statue_h02.dbr,SurvivalMode2.arz,Monster,Hero,Arclossus ~ Arcane,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,23
+records/creatures/enemies/devotion/statue_h03.dbr,SurvivalMode2.arz,Monster,Hero,Moltreax ~ Burning,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/statue_h04.dbr,SurvivalMode2.arz,Monster,Hero,Ezgannar ~ Frozen,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,0,23
+records/creatures/enemies/devotion/swampcrab_h01.dbr,SurvivalMode1.arz,Monster,Hero,Iceclaw,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,2,0,20
+records/creatures/enemies/devotion/swampcrab_h02.dbr,SurvivalMode1.arz,Monster,Hero,Bileclaw,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/swampcrab_h03.dbr,SurvivalMode1.arz,Monster,Hero,Sheldrock ~ Reflective,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/devotion/swampcrab_h04.dbr,SurvivalMode1.arz,Monster,Hero,Voidshell ~ Voidtouched,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/devotion/swampgolem_h01.dbr,SurvivalMode1.arz,Monster,Hero,Swiftrock ~ Swift,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/devotion/swampgolem_h02.dbr,SurvivalMode1.arz,Monster,Hero,Phanatos ~ Defender,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/swampgolem_h03.dbr,SurvivalMode1.arz,Monster,Hero,Gigartus ~ Diseased,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/swampgolem_h04.dbr,SurvivalMode1.arz,Monster,Hero,Rawk ~ Voidtouched,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/viper_h01.dbr,SurvivalMode2.arz,Monster,Hero,Zaranux,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/viper_h02.dbr,SurvivalMode2.arz,Monster,Hero,Alrashar,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/devotion/viper_h03.dbr,SurvivalMode2.arz,Monster,Hero,Serepin ~ Regenerator,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/viper_h04.dbr,SurvivalMode2.arz,Monster,Hero,Cesaprin ~ Arcane,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/devotion/wendigo_h01.dbr,SurvivalMode1.arz,Monster,Hero,Hegamon ~ Arcane,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,23
+records/creatures/enemies/devotion/wendigo_h02.dbr,SurvivalMode1.arz,Monster,Hero,Colporrus ~ Corrupted,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/devotion/wendigo_h03.dbr,SurvivalMode1.arz,Monster,Hero,Spiritbane ~ Timewarped,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/devotion/wendigo_h04.dbr,SurvivalMode1.arz,Monster,Hero,Reapressad ~ Unstoppable,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/devotion/wight_h01.dbr,SurvivalMode3.arz,Monster,Hero,Iglus Bloodmonger ~ Swift,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,1,19
+records/creatures/enemies/devotion/wight_h02.dbr,SurvivalMode3.arz,Monster,Hero,Alluc the Thirster ~ Vampiric,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,23
+records/creatures/enemies/devotion/wight_h03.dbr,SurvivalMode3.arz,Monster,Hero,Jirro Stormcharger ~ Electrified,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/devotion/wight_h04.dbr,SurvivalMode3.arz,Monster,Hero,Orbon the Martyr ~ Supporter,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/devotion/wraith_h01.dbr,SurvivalMode1.arz,Monster,Hero,Soulshreak,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,18
+records/creatures/enemies/devotion/wraith_h02.dbr,SurvivalMode1.arz,Monster,Hero,Oblegon,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,19
+records/creatures/enemies/devotion/wraith_h03.dbr,SurvivalMode1.arz,Monster,Hero,Dolsarr ~ Timewarped,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,4,23
+records/creatures/enemies/devotion/wraith_h04.dbr,SurvivalMode1.arz,Monster,Hero,Endearon ~ Vampiric,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,25
+records/creatures/enemies/devotion/yetidire_h01.dbr,SurvivalMode3.arz,Monster,Hero,Ashmane ~ Burning,107,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/yetidire_h02.dbr,SurvivalMode3.arz,Monster,Hero,Spellmane ~ Arcane,107,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/devotion/yetidire_h03.dbr,SurvivalMode3.arz,Monster,Hero,Rotspew ~ Diseased,107,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/devotion/yetidire_h04.dbr,SurvivalMode3.arz,Monster,Hero,Deathspew ~ Voidtouched,107,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/devotion/zombie_h01.dbr,SurvivalMode.arz,Monster,Hero,Grubnar,107,1.600000023841858,0.0,,0.0,1.0,1.0,Small,10.0,6.0,0.5,0,1,13
+records/creatures/enemies/devotion/zombie_h02.dbr,SurvivalMode.arz,Monster,Hero,Follistad,107,1.600000023841858,0.0,,0.0,1.0,1.0,Small,10.0,6.0,0.5,0,0,14
+records/creatures/enemies/devotion/zombie_h03.dbr,SurvivalMode.arz,Monster,Hero,Flamewretch ~ Burning,107,1.600000023841858,0.0,,0.0,1.0,1.0,Small,10.0,6.0,0.5,0,0,11
+records/creatures/enemies/devotion/zombie_h04.dbr,SurvivalMode.arz,Monster,Hero,Palleod ~ Electrified,107,1.600000023841858,0.0,,0.0,1.0,1.0,Small,10.0,6.0,0.5,0,0,14
+records/creatures/enemies/devotion/zombie_h05.dbr,SurvivalMode.arz,Monster,Hero,Occullon,107,1.600000023841858,0.0,,0.0,1.0,1.0,Small,10.0,6.0,0.5,0,0,12
+records/creatures/enemies/devotion/zombiemutated_h01.dbr,SurvivalMode.arz,Monster,Hero,Bloodwretch ~ Swift,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,1,0,15
+records/creatures/enemies/devotion/zombiemutated_h02.dbr,SurvivalMode.arz,Monster,Hero,Icerot,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,1,13
+records/creatures/enemies/devotion/zombiemutated_h03.dbr,SurvivalMode.arz,Monster,Hero,Vampireon,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,12
+records/creatures/enemies/devotion/zombiemutated_h04.dbr,SurvivalMode.arz,Monster,Hero,Swiftrot ~ Swift,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,10.0,6.0,0.5,1,2,15
+records/creatures/enemies/dranghoul_a01.dbr,SurvivalMode3.arz,Monster,Champion,Dranghoul,103,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/dranghoul_b01.dbr,SurvivalMode3.arz,Monster,Champion,Dranghoul Blade Fist,103,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/dranghoul_b02.dbr,SurvivalMode3.arz,Monster,Champion,Dranghoul Pyromancer,103,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/dranghoul_c01.dbr,SurvivalMode3.arz,Monster,Champion,Dranghoul Butcher,104,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,2,8
+records/creatures/enemies/dranghoul_c02.dbr,SurvivalMode3.arz,Monster,Champion,Dranghoul Oracle,105,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/eldritcharmor_a01.dbr,SurvivalMode2.arz,Monster,Common,Possessed Armor,102,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/eldritcharmor_a01_summon.dbr,SurvivalMode2.arz,Monster,Common,Possessed Armor,106,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/eldritcharmor_a02.dbr,SurvivalMode2.arz,Monster,Common,Possessed Armor,102,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/eldritcharmor_a02_summon.dbr,SurvivalMode2.arz,Monster,Common,Possessed Armor,106,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/eldritcharmor_a03_summon.dbr,SurvivalMode2.arz,Monster,Common,Possessed Armor,106,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/eldritcharmor_b01.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Armor,103,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/eldritcharmor_b01_summon.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Armor,106,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/eldritcharmor_c01.dbr,SurvivalMode2.arz,Monster,Champion,Ancient Armor,104,0.75,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/eldritchhound_a01.dbr,SurvivalMode2.arz,Monster,Common,Eldritch Mongrel ~ Runt,102,1.0,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/eldritchhound_b01.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Mongrel ~ Stalker,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,9
+records/creatures/enemies/eldritchhound_b02.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Mongrel ~ Guardian,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,9
+records/creatures/enemies/eldritchhound_c01.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Mongrel ~ Alpha,105,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,11
+records/creatures/enemies/eldritchwraith_a01.dbr,SurvivalMode2.arz,Monster,Common,Eldritch Spirit,103,0.8999999761581421,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,7
+records/creatures/enemies/eldritchwraith_b01.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Spirit ~ Haunt,103,0.800000011920929,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,12
+records/creatures/enemies/eldritchwraith_c01.dbr,SurvivalMode2.arz,Monster,Champion,Eldritch Spirit ~ Ancient,104,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/faction/cult_h01.dbr,SurvivalMode1.arz,Monster,Hero,Handaar Bloodweaver,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,15
+records/creatures/enemies/faction/cult_h02.dbr,SurvivalMode1.arz,Monster,Hero,Jakala Bonesinger,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/faction/cult_h03.dbr,SurvivalMode1.arz,Monster,Hero,Tridia the Skorned ~ Timewarped,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/faction/cult_h04.dbr,SurvivalMode1.arz,Monster,Hero,Verona Bloodskewer ~ Vampiric,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/faction/skeleton_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Skeletal Warrior,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/faction/skeleton_a02_summon.dbr,SurvivalMode.arz,Monster,Common,Skeletal Archer,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/faction/skeleton_b02_knight_summon.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Knight,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/fleshhulk_a01.dbr,SurvivalMode.arz,Monster,Champion,Flesh Hulk,104,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/fleshhulk_b01.dbr,SurvivalMode.arz,Monster,Champion,Ironside Hulk,104,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/fleshhulk_c01.dbr,SurvivalMode.arz,Monster,Champion,Rage Hulk,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/gargoyle_a01.dbr,SurvivalMode2.arz,Monster,Common,Eldritch Gargoyle,104,1.0,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/gargoyle_b01.dbr,SurvivalMode2.arz,Monster,Champion,Forsaken Gargoyle,105,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/gargoyle_c01.dbr,SurvivalMode2.arz,Monster,Champion,Ancient Gargoyle,105,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,14
+records/creatures/enemies/ghost_a01.dbr,SurvivalMode.arz,Monster,Common,Apparition,102,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/ghost_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Apparition,105,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/ghost_a02.dbr,SurvivalMode.arz,Monster,Common,Apparition,102,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/ghost_b01.dbr,SurvivalMode.arz,Monster,Champion,Rogue - Ranged,103,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,7
+records/creatures/enemies/ghost_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Rogue - Ranged,106,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,7
+records/creatures/enemies/ghost_b02.dbr,SurvivalMode.arz,Monster,Champion,Rogue - Melee,103,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,7
+records/creatures/enemies/ghost_b02_summon.dbr,SurvivalMode.arz,Monster,Champion,Rogue - Melee,106,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,7
+records/creatures/enemies/ghost_b03.dbr,SurvivalMode.arz,Monster,Champion,Champion,103,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/ghost_b03_summon.dbr,SurvivalMode.arz,Monster,Champion,Champion,106,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/ghost_b04.dbr,SurvivalMode.arz,Monster,Champion,Champion - 2h,104,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/ghost_b04_summon.dbr,SurvivalMode.arz,Monster,Champion,Champion - 2h,106,0.6000000238418579,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/ghostcrab_a01.dbr,SurvivalMode1.arz,Monster,Common,Haunted Crab,103,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,9
+records/creatures/enemies/ghostcrab_b01.dbr,SurvivalMode1.arz,Monster,Common,Haunted Spikeshell,103,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/ghostcrab_c01.dbr,SurvivalMode1.arz,Monster,Champion,Haunted Stoneshell,104,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/giant_a01.dbr,SurvivalMode3.arz,Monster,Champion,Asterkarn Giant,103,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/giant_b01.dbr,SurvivalMode3.arz,Monster,Champion,Asterkarn Behemoth,104,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/giant_c01.dbr,SurvivalMode3.arz,Monster,Champion,Asterkarn Titan,105,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/groblechthonic_a01.dbr,SurvivalMode3.arz,Monster,Common,melee,102,1.149999976158142,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,6
+records/creatures/enemies/groblechthonic_a02.dbr,SurvivalMode3.arz,Monster,Common,range,102,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/groblechthonic_b01.dbr,SurvivalMode3.arz,Monster,Champion,warrior,103,1.0499999523162842,0.0,,15.0,1.3200000524520874,1.0,Small,9.0,4.0,0.5,0,1,8
+records/creatures/enemies/groblechthonic_b02.dbr,SurvivalMode3.arz,Monster,Champion,shaman,103,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/groblechthonic_c01.dbr,SurvivalMode3.arz,Monster,Champion,warrior,104,1.0499999523162842,0.0,,15.0,1.3200000524520874,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/groblechthonic_c02.dbr,SurvivalMode3.arz,Monster,Champion,shaman,104,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/groblefrost_a01.dbr,SurvivalMode3.arz,Monster,Common,melee,102,1.149999976158142,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,6
+records/creatures/enemies/groblefrost_a02.dbr,SurvivalMode3.arz,Monster,Common,range,102,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/groblefrost_b01.dbr,SurvivalMode3.arz,Monster,Champion,warrior,103,1.0499999523162842,0.0,,15.0,1.3200000524520874,1.0,Small,9.0,4.0,0.5,0,1,8
+records/creatures/enemies/groblesand_a01.dbr,SurvivalMode2.arz,Monster,Common,melee,102,1.149999976158142,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,6
+records/creatures/enemies/groblesand_a02.dbr,SurvivalMode2.arz,Monster,Common,range,102,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/groblesand_b01.dbr,SurvivalMode2.arz,Monster,Champion,warrior,103,1.0499999523162842,0.0,,15.0,1.3200000524520874,1.0,Small,9.0,4.0,0.5,0,1,8
+records/creatures/enemies/groblesand_b02.dbr,SurvivalMode2.arz,Monster,Champion,shaman,103,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/groblesand_c01.dbr,SurvivalMode2.arz,Monster,Champion,warrior,104,1.0499999523162842,0.0,,15.0,1.3200000524520874,1.0,Small,9.0,4.0,0.5,1,0,9
+records/creatures/enemies/groblesand_c02.dbr,SurvivalMode2.arz,Monster,Champion,shaman,104,1.0,0.0,,15.0,1.350000023841858,1.0,Small,9.0,4.0,0.5,0,0,9
+records/creatures/enemies/gryphonstone_a01.dbr,SurvivalMode2.arz,Monster,Champion,Stone Gryphon,104,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/gryphonstone_b01.dbr,SurvivalMode2.arz,Monster,Champion,Stone Gryphon ~ Guardian,105,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/gryphonstone_c01.dbr,SurvivalMode2.arz,Monster,Champion,Stone Gryphon ~ Vigilant,105,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/hellhound_witchgod_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Chaos Hound of Bysmiel,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,12.0,9.0,0.5,0,0,8
+records/creatures/enemies/hellhound_witchgod_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Eldritch Stormchaser,106,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,12.0,9.0,0.5,0,0,10
+records/creatures/enemies/hero/aetherialcolossus_h01.dbr,SurvivalMode1.arz,Monster,Hero,Stormfist ~ Electrified,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,17
+records/creatures/enemies/hero/aetherialcolossus_h02.dbr,SurvivalMode1.arz,Monster,Hero,Embrallis ~ Burning,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,15
+records/creatures/enemies/hero/aetherialcolossus_h03.dbr,SurvivalMode1.arz,Monster,Hero,Hungeron ~ Vampiric,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,20
+records/creatures/enemies/hero/aetherialcolossus_h04.dbr,SurvivalMode1.arz,Monster,Hero,Archanis ~ Arcane,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,20
+records/creatures/enemies/hero/aetherialcolossus_h05.dbr,SurvivalMode3.arz,Monster,Hero,Neverus ~ Shattered,107,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,18.0,12.0,0.5,0,1,16
+records/creatures/enemies/hero/aetherialcorruption_h01.dbr,SurvivalMode1.arz,Monster,Hero,Challdrus the Coldheart,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,13
+records/creatures/enemies/hero/aetherialcorruption_h02.dbr,SurvivalMode1.arz,Monster,Hero,Vanallius the Voracious,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,14
+records/creatures/enemies/hero/aetherialcorruption_h03.dbr,SurvivalMode1.arz,Monster,Hero,Disallus ~ Diseased,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,12
+records/creatures/enemies/hero/aetherialcorruption_h04.dbr,SurvivalMode1.arz,Monster,Hero,Chromallus ~ Timewarped,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,1,17
+records/creatures/enemies/hero/aetherialcorruption_h05.dbr,SurvivalMode3.arz,Monster,Hero,Icallon ~ Arctic,107,1.2000000476837158,0.0,,10.0,0.800000011920929,1.0,Small,10.0,6.0,0.5,0,0,12
+records/creatures/enemies/hero/aetherialfleshshaper_h01.dbr,SurvivalMode1.arz,Monster,Hero,Frenazad ~ Burning,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,17
+records/creatures/enemies/hero/aetherialfleshshaper_h02.dbr,SurvivalMode1.arz,Monster,Hero,Noxraderad ~ Frozen,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,2,0,17
+records/creatures/enemies/hero/aetherialfleshshaper_h03.dbr,SurvivalMode1.arz,Monster,Hero,Joxallus ~ Electrified,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,16
+records/creatures/enemies/hero/aetherialfleshshaper_h04.dbr,SurvivalMode1.arz,Monster,Hero,Oppressius ~ Unstoppable,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,1,0,15
+records/creatures/enemies/hero/aetherialfleshshaper_h05.dbr,SurvivalMode3.arz,Monster,Hero,Omegus ~ Shattered,107,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,0,0,15
+records/creatures/enemies/hero/aetherialimp_h01.dbr,SurvivalMode1.arz,Monster,Hero,Phigillius Stormbile,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/aetherialimp_h02.dbr,SurvivalMode1.arz,Monster,Hero,Phanolg the Iceborn,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,1,14
+records/creatures/enemies/hero/aetherialimp_h03.dbr,SurvivalMode1.arz,Monster,Hero,Wourble ~ Reflective,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/hero/aetherialimp_h04.dbr,SurvivalMode1.arz,Monster,Hero,Ghalbar ~ Regenerator,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/aetherialimp_h05.dbr,SurvivalMode3.arz,Monster,Hero,Brolbos ~ Arctic,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/hero/basilisk_h01.dbr,SurvivalMode1.arz,Monster,Hero,Stormslither,107,0.8500000238418579,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,15
+records/creatures/enemies/hero/basilisk_h02.dbr,SurvivalMode1.arz,Monster,Hero,Rotmouth,107,0.8500000238418579,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,15
+records/creatures/enemies/hero/basilisk_h03.dbr,SurvivalMode1.arz,Monster,Hero,Aregos ~ Corrupted,107,0.8500000238418579,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,17
+records/creatures/enemies/hero/basilisk_h04.dbr,SurvivalMode1.arz,Monster,Hero,Janaxus ~ Voidtouched,107,0.8500000238418579,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,1,16
+records/creatures/enemies/hero/basilisk_h05.dbr,SurvivalMode3.arz,Monster,Hero,Chillslither ~ Arctic,107,0.8500000238418579,0.0,,30.0,0.6000000238418579,1.0,Medium,12.0,9.0,0.5,0,0,15
+records/creatures/enemies/hero/chthoniandreadguard_h01.dbr,SurvivalMode.arz,Monster,Hero,Shar'Oruuth,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/hero/chthoniandreadguard_h02.dbr,SurvivalMode.arz,Monster,Hero,Wen'Kazul,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/hero/chthoniandreadguard_h03.dbr,SurvivalMode.arz,Monster,Hero,Zalyth'Uthax ~Electrified,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/hero/chthoniandreadguard_h04.dbr,SurvivalMode.arz,Monster,Hero,Jugak'Siin ~ Reflective,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/hero/chthoniandreadguard_h05.dbr,SurvivalMode.arz,Monster,Hero,Sarmaz'Din ~ Frozen,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,3,0,15
+records/creatures/enemies/hero/chthoniandreadguard_h06.dbr,SurvivalMode3.arz,Monster,Hero,Sutuum'Kazul ~ Thundering,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,13
+records/creatures/enemies/hero/chthonianfiend_h01.dbr,SurvivalMode.arz,Monster,Hero,Innugaru,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,0,11
+records/creatures/enemies/hero/chthonianfiend_h02.dbr,SurvivalMode.arz,Monster,Hero,HilnRaz,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,0,13
+records/creatures/enemies/hero/chthonianfiend_h03.dbr,SurvivalMode.arz,Monster,Hero,SenThel,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,0,13
+records/creatures/enemies/hero/chthonianfiend_h04.dbr,SurvivalMode.arz,Monster,Hero,NiiThel ~ Bruiser,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,13
+records/creatures/enemies/hero/chthonianfiend_h05.dbr,SurvivalMode.arz,Monster,Hero,GurgothSiin ~ Burning,107,0.8999999761581421,0.0,,0.0,1.149999976158142,1.0,Medium,12.0,9.0,0.5,0,1,14
+records/creatures/enemies/hero/chthonianrylok_h01.dbr,SurvivalMode1.arz,Monster,Hero,Wallon'Dal the Voidbringer,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/hero/chthonianrylok_h02.dbr,SurvivalMode1.arz,Monster,Hero,Odus'Mal ~ Swift,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/hero/chthonianrylok_h03.dbr,SurvivalMode1.arz,Monster,Hero,Rydal'Garbagol ~ Vampiric,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/hero/chthonianrylok_h04.dbr,SurvivalMode1.arz,Monster,Hero,Haval'Aldos ~ Arcane,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/hero/chthonianrylok_h05.dbr,SurvivalMode3.arz,Monster,Hero,Thanar'Aldos ~ Thundering,107,1.100000023841858,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/dranghoul_h01.dbr,SurvivalMode3.arz,Monster,Hero,Lurg ~ Swift,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,1,2,13
+records/creatures/enemies/hero/dranghoul_h02.dbr,SurvivalMode3.arz,Monster,Hero,Jaduum ~ Bramble,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,2,12
+records/creatures/enemies/hero/dranghoul_h03.dbr,SurvivalMode3.arz,Monster,Hero,Strum ~ Electrified,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/dranghoul_h04.dbr,SurvivalMode3.arz,Monster,Hero,Chrog ~ Timewarped,107,1.0,0.0,,10.0,1.2000000476837158,1.0,Small,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/hero/eldritchwraith_h01.dbr,SurvivalMode2.arz,Monster,Hero,Algandir,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/eldritchwraith_h02.dbr,SurvivalMode2.arz,Monster,Hero,Ulzaar,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/eldritchwraith_h03.dbr,SurvivalMode2.arz,Monster,Hero,Rygundir ~ Reflective,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/hero/eldritchwraith_h04.dbr,SurvivalMode2.arz,Monster,Hero,Pazgadaar ~ Regenerator,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,20
+records/creatures/enemies/hero/eldritchwraith_h05.dbr,SurvivalMode3.arz,Monster,Hero,Blazzar ~ Arctic,107,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/gargoyle_h01.dbr,SurvivalMode2.arz,Monster,Hero,Hudsar ~ Frozen,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,2,2,21
+records/creatures/enemies/hero/gargoyle_h02.dbr,SurvivalMode2.arz,Monster,Hero,Broagwan ~ Diseased,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,17
+records/creatures/enemies/hero/gargoyle_h03.dbr,SurvivalMode2.arz,Monster,Hero,Goliant ~ Burning,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,17
+records/creatures/enemies/hero/gargoyle_h04.dbr,SurvivalMode2.arz,Monster,Hero,Xanatan ~ Electrified,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,19
+records/creatures/enemies/hero/gargoyle_h05.dbr,SurvivalMode3.arz,Monster,Hero,Spiron ~ Thundering,107,0.8999999761581421,0.0,,15.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,17
+records/creatures/enemies/hero/ghostcrab_h01.dbr,SurvivalMode3.arz,Monster,Hero,Foll the Burningshell,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/hero/ghostcrab_h02.dbr,SurvivalMode3.arz,Monster,Hero,Goll the Stormshell,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/ghostcrab_h03.dbr,SurvivalMode3.arz,Monster,Hero,Mudrock ~ Defender,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/ghostcrab_h04.dbr,SurvivalMode3.arz,Monster,Hero,Corrupshell ~ Corrupted,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/ghostcrab_h05.dbr,SurvivalMode3.arz,Monster,Hero,Emptius ~ Shattered,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/giant_h01.dbr,SurvivalMode3.arz,Monster,Hero,Codrommius ~ Voidtouched,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,19
+records/creatures/enemies/hero/giant_h02.dbr,SurvivalMode3.arz,Monster,Hero,Edullus ~ Corrupted,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/giant_h03.dbr,SurvivalMode3.arz,Monster,Hero,Hoduur ~ Arctic,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/giant_h04.dbr,SurvivalMode3.arz,Monster,Hero,Dracuum ~ Vampiric,107,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,22
+records/creatures/enemies/hero/gryphon_h01.dbr,SurvivalMode3.arz,Monster,Hero,Dreadtalon,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,1,17
+records/creatures/enemies/hero/gryphon_h02.dbr,SurvivalMode3.arz,Monster,Hero,Rendtalon,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/hero/gryphon_h03.dbr,SurvivalMode3.arz,Monster,Hero,Screech ~ Unstoppable,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,2,0,17
+records/creatures/enemies/hero/gryphon_h04.dbr,SurvivalMode3.arz,Monster,Hero,Juraz the Tenacious ~ Regenerator,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/hero/gryphon_h05.dbr,SurvivalMode3.arz,Monster,Hero,Inferwing ~ Infernal,107,1.100000023841858,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,0,18
+records/creatures/enemies/hero/human_ascended_h01.dbr,SurvivalMode1.arz,Monster,Hero,Pavros Undylon the Flamespeaker,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/hero/human_ascended_h02.dbr,SurvivalMode1.arz,Monster,Hero,Hagras Aetherflame,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/human_ascended_h03.dbr,SurvivalMode1.arz,Monster,Hero,Ounasteria Stormtouch ~ Electrified,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/human_ascended_h04.dbr,SurvivalMode1.arz,Monster,Hero,Ullana Everfreeze ~ Frozen,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,2,0,21
+records/creatures/enemies/hero/human_ascended_h05.dbr,SurvivalMode3.arz,Monster,Hero,Numia Stormeater ~ Thundering,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/human_wendigo_h01.dbr,SurvivalMode1.arz,Monster,Hero,Javos Bonesplinter,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,1,15
+records/creatures/enemies/hero/human_wendigo_h02.dbr,SurvivalMode1.arz,Monster,Hero,Tollia Splittongue,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/hero/human_wendigo_h03.dbr,SurvivalMode1.arz,Monster,Hero,Ignafius Mageblood ~ Arcane,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,20
+records/creatures/enemies/hero/human_wendigo_h04.dbr,SurvivalMode1.arz,Monster,Hero,Bellia Everthirst ~ Vampiric,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,20
+records/creatures/enemies/hero/human_wendigo_h05.dbr,SurvivalMode3.arz,Monster,Hero,Idia Doomsinger ~ Shattered,107,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/hero/hypporaven_h01.dbr,SurvivalMode3.arz,Monster,Hero,Covull ~ Swift,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/hero/hypporaven_h02.dbr,SurvivalMode3.arz,Monster,Hero,Corrot ~ Diseased,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/hero/hypporaven_h03.dbr,SurvivalMode3.arz,Monster,Hero,Corvunox ~ Vampiric,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/hero/hypporaven_h04.dbr,SurvivalMode3.arz,Monster,Hero,Corvulux ~ Supporter,107,1.0,0.0,,10.0,1.399999976158142,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/rhino_h01.dbr,SurvivalMode3.arz,Monster,Hero,Brimhorn ~ Bramble,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/hero/rhino_h02.dbr,SurvivalMode3.arz,Monster,Hero,Shadowhorn ~ Shattered,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/rhino_h03.dbr,SurvivalMode3.arz,Monster,Hero,Blazehorn ~ Infernal,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/rhino_h04.dbr,SurvivalMode3.arz,Monster,Hero,Chillhorn ~ Arctic,107,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/hero/springscrab_h01.dbr,SurvivalMode3.arz,Monster,Hero,Sparkmucker ~ Thundering,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/springscrab_h02.dbr,SurvivalMode3.arz,Monster,Hero,Magecruncher ~ Arcane,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/springscrab_h03.dbr,SurvivalMode3.arz,Monster,Hero,Frostfroth ~ Arctic,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/springscrab_h04.dbr,SurvivalMode3.arz,Monster,Hero,Muckclaw ~ Unstoppable,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/hero/swampcrab_h01.dbr,SurvivalMode3.arz,Monster,Hero,Iceskorn,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,2,0,19
+records/creatures/enemies/hero/swampcrab_h02.dbr,SurvivalMode3.arz,Monster,Hero,Vileclaw,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/hero/swampcrab_h03.dbr,SurvivalMode3.arz,Monster,Hero,Mudflinger ~ Reflective,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/swampcrab_h04.dbr,SurvivalMode3.arz,Monster,Hero,Chaosshell ~ Voidtouched,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,20
+records/creatures/enemies/hero/swampcrab_h05.dbr,SurvivalMode3.arz,Monster,Hero,Thornshell ~ Bramble,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,18
+records/creatures/enemies/hero/swampgolem_h01.dbr,SurvivalMode3.arz,Monster,Hero,Ferrosius ~ Swift,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/hero/swampgolem_h02.dbr,SurvivalMode3.arz,Monster,Hero,Titanius Steelskin ~ Defender,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/hero/swampgolem_h03.dbr,SurvivalMode3.arz,Monster,Hero,Jormundur ~ Diseased,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/swampgolem_h04.dbr,SurvivalMode3.arz,Monster,Hero,Garrl ~ Voidtouched,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/hero/swampgolem_h05.dbr,SurvivalMode3.arz,Monster,Hero,Frulgar ~ Infernal,107,1.350000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/thornedhorrorfrost_h01.dbr,SurvivalMode3.arz,Monster,Hero,Spellthorn ~ Arcane,107,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/thornedhorrorfrost_h02.dbr,SurvivalMode3.arz,Monster,Hero,Stormbark ~ Thundering,107,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/thornedhorrorfrost_h03.dbr,SurvivalMode3.arz,Monster,Hero,Everbarb ~ Reflective,107,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/hero/thornedhorrorfrost_h04.dbr,SurvivalMode3.arz,Monster,Hero,Ivar the Evergrowth ~ Bramble,107,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/hero/viper_h01.dbr,SurvivalMode2.arz,Monster,Hero,Zartox,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/hero/viper_h02.dbr,SurvivalMode2.arz,Monster,Hero,Arashor,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,16
+records/creatures/enemies/hero/viper_h03.dbr,SurvivalMode2.arz,Monster,Hero,Serpentior ~ Regenerator,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/hero/viper_h04.dbr,SurvivalMode2.arz,Monster,Hero,Cespal ~ Arcane,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,21
+records/creatures/enemies/hero/viper_h05.dbr,SurvivalMode3.arz,Monster,Hero,Flassar ~ Infernal,107,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/hero/wendigo_h01.dbr,SurvivalMode1.arz,Monster,Hero,Vollarius ~ Arcane,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,22
+records/creatures/enemies/hero/wendigo_h02.dbr,SurvivalMode1.arz,Monster,Hero,Anaxius ~ Corrupted,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/wendigo_h03.dbr,SurvivalMode1.arz,Monster,Hero,Waraplius ~ Timewarped,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,22
+records/creatures/enemies/hero/wendigo_h04.dbr,SurvivalMode1.arz,Monster,Hero,Ravagrad ~ Unstoppable,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/hero/wendigo_h05.dbr,SurvivalMode3.arz,Monster,Hero,Fovarran ~ Infernal,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,19
+records/creatures/enemies/hero/wendigocannibal_h01.dbr,SurvivalMode1.arz,Monster,Hero,Ulda Emberclaw,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/wendigocannibal_h02.dbr,SurvivalMode1.arz,Monster,Hero,Haldra the Bloodlust,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,1,18
+records/creatures/enemies/hero/wendigocannibal_h03.dbr,SurvivalMode1.arz,Monster,Hero,Palros Protector of the Pack ~ Defender,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/wendigocannibal_h04.dbr,SurvivalMode1.arz,Monster,Hero,Allcadius the Unburied ~ Reflective,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/wendigocannibal_h05.dbr,SurvivalMode3.arz,Monster,Hero,Gaddo Evergrown ~ Bramble,107,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,17
+records/creatures/enemies/hero/wight_h01.dbr,SurvivalMode3.arz,Monster,Hero,Iglus Bloodmonger ~ Swift,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,1,19
+records/creatures/enemies/hero/wight_h02.dbr,SurvivalMode3.arz,Monster,Hero,Alluc the Thirster ~ Vampiric,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,23
+records/creatures/enemies/hero/wight_h03.dbr,SurvivalMode3.arz,Monster,Hero,Jirro Stormcharger ~ Electrified,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/hero/wight_h04.dbr,SurvivalMode3.arz,Monster,Hero,Orbon the Martyr ~ Supporter,107,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,17
+records/creatures/enemies/hero/wraith_h01.dbr,SurvivalMode1.arz,Monster,Hero,Arcanom the Soulthief,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,16
+records/creatures/enemies/hero/wraith_h02.dbr,SurvivalMode1.arz,Monster,Hero,Obliterus,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,18
+records/creatures/enemies/hero/wraith_h03.dbr,SurvivalMode1.arz,Monster,Hero,Tildoom ~ Timewarped,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,4,24
+records/creatures/enemies/hero/wraith_h04.dbr,SurvivalMode1.arz,Monster,Hero,Suvar the Endless Hungerer ~ Vampiric,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,24
+records/creatures/enemies/hero/wraith_h05.dbr,SurvivalMode3.arz,Monster,Hero,Tulldar Endbringer ~ Shattered,107,1.0,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,20
+records/creatures/enemies/human_ascended_a01.dbr,SurvivalMode1.arz,Monster,Common,Ascended Attendant,102,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/human_ascended_a02.dbr,SurvivalMode1.arz,Monster,Common,Ascended Attendant,102,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/human_ascended_b01.dbr,SurvivalMode1.arz,Monster,Champion,Ascended Spellbreaker,103,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,2,13
+records/creatures/enemies/human_ascended_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ascended Myrmidon,105,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/human_wendigo_a01.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Cannibal ~ Fleshcrazed,103,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/human_wendigo_a02.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Cannibal ~ Fleshcrazed,104,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/human_wendigo_b01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Cannibal ~ Bloodsinger,104,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,2,14
+records/creatures/enemies/human_wendigo_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Cannibal ~ Wraithspeaker,103,0.6600000262260437,0.0,,15.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,11
+records/creatures/enemies/insectswarm_a01_summon.dbr,database.arz,Monster,Champion,Devouring Swarm,106,1.5,0.0,,15.0,1.0,1.0,Small,10.0,4.0,0.5,0,0,6
+records/creatures/enemies/korvaakascended_a01.dbr,SurvivalMode2.arz,Monster,Common,Korvaak's Ascended,103,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/korvaakascended_b01.dbr,SurvivalMode2.arz,Monster,Champion,Korvaak's Rageflame,104,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/korvaakascended_c01.dbr,SurvivalMode2.arz,Monster,Champion,Korvaak's Champion,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/korvaakascended_c02.dbr,SurvivalMode2.arz,Monster,Champion,Korvaak's Champion,105,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/korvaakservant_a01_summon.dbr,SurvivalMode2.arz,Monster,Common,Korvaak's Drudge,105,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/korvaakservant_a02_summon.dbr,SurvivalMode2.arz,Monster,Common,Korvaak's Drudge,105,1.100000023841858,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/korvaakservant_b01_korvaaksummon.dbr,GDX2.arz,Monster,Champion,Korvaak's Servant,106,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/korvaakservant_b02_korvaaksummon.dbr,GDX2.arz,Monster,Champion,Korvaak's Servant,106,0.8999999761581421,0.0,,25.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/livingplant_a01.dbr,SurvivalMode1.arz,Monster,Common,Carnivorous Plant,103,1.0,0.0,,0.0,1.0,2.0,Small,3.0,4.0,0.5,0,0,8
+records/creatures/enemies/livingplant_a01_summon.dbr,SurvivalMode1.arz,Monster,Common,Carnivorous Plant,105,1.0,0.0,,0.0,1.0,2.0,Small,3.0,4.0,0.5,0,0,8
+records/creatures/enemies/nemesis/nemesis_aetherial_01.dbr,SurvivalMode.arz,Monster,Boss,Reanimator - Valdaran,109,1.0,0.0,,,1.0,1.0,Medium,10.0,6.0,0.5,1,4,18
+records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr,SurvivalMode1.arz,Monster,Boss,Archmage Aleksander,109,1.2000000476837158,0.0,,,,1.0,Small,8.0,4.0,0.5,1,0,13
+records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr,SurvivalMode1.arz,Monster,Boss,"Kubacabra, the Endless Menace",109,1.0,0.0,,,1.100000023841858,1.0,Medium,8.0,4.0,0.5,2,0,16
+records/creatures/enemies/nemesis/nemesis_beast_02.dbr,SurvivalMode3.arz,Monster,Boss,Borreus the Underking,109,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,1,0,16
+records/creatures/enemies/nemesis/nemesis_chthonian_02.dbr,SurvivalMode.arz,Monster,Boss,Defiler - Benn'Jahr,109,1.3200000524520874,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,3,2,14
+records/creatures/enemies/nemesis/nemesis_chthonian_02_clustersummon.dbr,SurvivalMode.arz,Monster,Common,Obsidian Cluster,109,0.800000011920929,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,5
+records/creatures/enemies/nemesis/nemesis_chthonianvoidborn_01.dbr,SurvivalMode1.arz,Monster,Boss,"Grava'Thul, the Voiddrinker",109,1.0499999523162842,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,1,1,18
+records/creatures/enemies/nemesis/nemesis_chthonickurn_01.dbr,SurvivalMode3.arz,Monster,Boss,Nyarlathon,109,1.100000023841858,0.0,,0.0,1.149999976158142,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/nemesis/nemesis_eldritch_01.dbr,SurvivalMode2.arz,Monster,Boss,"Kaisan, the Eldritch Scion",109,1.100000023841858,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,1,2,15
+records/creatures/enemies/nemesis/nemesis_eldritch_02a.dbr,SurvivalMode3.arz,Monster,Boss,Ixall,109,1.0,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/nemesis/nemesis_kymon_01.dbr,SurvivalMode3.arz,Monster,Boss,Curate Ignus,109,1.100000023841858,0.0,,0.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,1,17
+records/creatures/enemies/nemesis/nemesis_kymon_02.dbr,SurvivalMode.arz,Monster,Boss,Heavy - The Iron Maiden,109,1.100000023841858,0.0,,,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,1,17
+records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr,SurvivalMode.arz,Monster,Boss,Necromancer - Zantarin,109,1.2999999523162842,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,1,1,17
+records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01_revenantsummon.dbr,SurvivalMode.arz,Monster,Champion,Revenant Deathly,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_02.dbr,SurvivalMode3.arz,Monster,Boss,Shriek,109,1.0,0.0,,0.0,0.699999988079071,1.0,Small,8.0,4.0,0.5,1,0,13
+records/creatures/enemies/nemesis/nemesis_outlaw_01.dbr,SurvivalMode.arz,Monster,Boss,Assassin - Fabius,109,1.100000023841858,0.0,,,0.699999988079071,1.0,Small,8.0,4.0,0.5,0,4,18
+records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr,SurvivalMode3.arz,Monster,Boss,Vinn the Giant Ozmald,109,1.0,0.0,,0.0,1.0,1.0,Small,18.0,12.0,0.5,0,1,12
+records/creatures/enemies/nemesis/nemesis_undead_01.dbr,SurvivalMode3.arz,Monster,Boss,Raddoth,109,1.0,0.0,,0.0,1.0,1.0,Medium,8.0,4.0,0.5,2,1,15
+records/creatures/enemies/nemesis/nemesis_undead_02b.dbr,SurvivalMode.arz,Monster,Boss,Golem P2 - Moosilauke,109,1.5199999809265137,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,2,2,14
+records/creatures/enemies/nemesis/nemesis_undead_02b_icecrystalsummon.dbr,SurvivalMode.arz,Monster,Common,Ice Crystal,109,0.800000011920929,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,7
+records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr,SurvivalMode1.arz,Monster,Boss,Reaper of the Lost,109,1.0,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,2,1,18
+records/creatures/enemies/nemesis/nemesis_wendigo_02.dbr,SurvivalMode3.arz,Monster,Boss,Reaper of Rot,109,1.0,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,14
+records/creatures/enemies/prawncave_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Pale Cavern Crawler,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/raptor_witchgod_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Winged Horror,106,1.3300000429153442,0.0,,25.0,0.699999988079071,1.0,Small,10.0,4.0,0.5,0,0,6
+records/creatures/enemies/raptor_witchgod_b01_summon.dbr,SurvivalMode.arz,Monster,Champion,Eldritch Lifedrinker,106,1.0499999523162842,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/rhinochthonic_a01.dbr,SurvivalMode3.arz,Monster,Common,Voidhorn Bristlehorn,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/rhinochthonic_b01.dbr,SurvivalMode3.arz,Monster,Champion,Voidhorn Bristlehorn ~ Cursespreader,103,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,9
+records/creatures/enemies/rhinochthonic_c01.dbr,SurvivalMode3.arz,Monster,Champion,Voidhorn Bristlehorn ~ Matriach,104,0.800000011920929,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/sandlizard_a01.dbr,SurvivalMode2.arz,Monster,Common,Sandclaw,102,1.0,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/sandlizard_b01.dbr,SurvivalMode2.arz,Monster,Champion,Sandclaw ~ Flayer,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,9
+records/creatures/enemies/sandlizard_b02.dbr,SurvivalMode2.arz,Monster,Champion,Sandclaw ~ Nest Guardian,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/sandlizard_c01.dbr,SurvivalMode2.arz,Monster,Champion,Sandclaw ~ Matriarch,105,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,11
+records/creatures/enemies/sandlizard_eldritch_a01.dbr,SurvivalMode2.arz,Monster,Common,Riftclaw,102,1.0,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/sandlizard_eldritch_b01.dbr,SurvivalMode2.arz,Monster,Champion,Riftclaw ~ Flayer,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,9
+records/creatures/enemies/sandlizard_eldritch_b02.dbr,SurvivalMode2.arz,Monster,Champion,Riftclaw ~ Nest Guardian,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/sandlizard_eldritch_c01.dbr,SurvivalMode2.arz,Monster,Champion,Riftclaw ~ Matriarch,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/sandlizard_volcanic_a01.dbr,SurvivalMode2.arz,Monster,Common,Moltenclaw,102,1.0,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/sandlizard_volcanic_b01.dbr,SurvivalMode2.arz,Monster,Champion,Moltenclaw ~ Flayer,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,2,9
+records/creatures/enemies/sandlizard_volcanic_b02.dbr,SurvivalMode2.arz,Monster,Champion,Moltenclaw ~ Nest Guardian,103,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/sandlizard_volcanic_c01.dbr,SurvivalMode2.arz,Monster,Champion,Moltenclaw ~ Matriarch,105,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,3,11
+records/creatures/enemies/skeletalgolem_b01.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Gargantuan,104,1.5499999523162842,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,2,12
+records/creatures/enemies/skeletalgolem_c01.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Monstrosity,105,1.5499999523162842,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,2,3,14
+records/creatures/enemies/skeleton_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Skeletal Warrior,105,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/skeleton_a02_summon.dbr,SurvivalMode.arz,Monster,Common,Skeletal Archer,104,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/skeleton_b01_archer_summon.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Deathbolt Archer,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,1,2,9
+records/creatures/enemies/skeleton_b02_knight.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Knight,104,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/skeleton_b02_knight_summon.dbr,SurvivalMode.arz,Monster,Champion,Skeletal Knight,105,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/skeleton_c01.dbr,SurvivalMode.arz,Monster,Champion,Revenant Fire,104,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/skeleton_c01_summon.dbr,SurvivalMode.arz,Monster,Champion,Revenant Fire,106,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/skeleton_c02.dbr,SurvivalMode.arz,Monster,Champion,Revenant Ice,104,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,8
+records/creatures/enemies/skeleton_c02_summon.dbr,SurvivalMode.arz,Monster,Champion,Revenant Ice,107,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,2,8
+records/creatures/enemies/skeleton_c03.dbr,SurvivalMode.arz,Monster,Champion,Revenant Lightning,104,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/skeleton_d01.dbr,SurvivalMode2.arz,Monster,Champion,Revenant Deathly,105,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,1,0,15
+records/creatures/enemies/skeletonfrost_b04_evoker_summon.dbr,SurvivalMode3.arz,Monster,Champion,Fallen Evoker,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/skeletonfrost_c01_summon.dbr,SurvivalMode3.arz,Monster,Champion,Revenant Fire,106,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,1,9
+records/creatures/enemies/skeletonfrost_c02_summon.dbr,SurvivalMode3.arz,Monster,Champion,Revenant Ice,109,1.100000023841858,0.0,,10.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,7
+records/creatures/enemies/spidergiantb_cave_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Terrorweave Spiderling,107,2.0,0.0,,15.0,0.6600000262260437,1.0,Small,8.0,4.0,0.5,1,0,6
+records/creatures/enemies/spore_a01.dbr,SurvivalMode2.arz,Monster,Champion,Toxic Spore,103,1.0,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/springscrab_a00_summon.dbr,SurvivalMode3.arz,Monster,Common,Calcified Crabling,107,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/statue_a01.dbr,SurvivalMode2.arz,Monster,Champion,Animated Keeper,104,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/statue_a02.dbr,SurvivalMode2.arz,Monster,Champion,Animated Keeper,104,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/statue_b01.dbr,SurvivalMode2.arz,Monster,Champion,Animated Watcher,104,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/statue_b02.dbr,SurvivalMode2.arz,Monster,Champion,Animated Watcher,104,1.0,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/statue_c01.dbr,SurvivalMode2.arz,Monster,Champion,Animated Preserver,105,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/statue_c02.dbr,SurvivalMode2.arz,Monster,Champion,Animated Preserver,105,1.100000023841858,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,15
+records/creatures/enemies/swampcrab_a00_summon.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Crabling,104,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/swampcrab_a01.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Crab,103,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/swampcrab_b01.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Spikeshell,103,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/swampcrab_b01_summon.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Spikeshell,106,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/swampcrab_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Stoneshell,104,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/swampcrab_c01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Stoneshell,106,1.0,0.0,,15.0,0.699999988079071,1.0,Medium,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/swampgolem_a01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Golem,103,1.5499999523162842,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/swampgolem_b01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Mossflinger,104,1.5499999523162842,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/swampgolem_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Overgrowth,105,1.5499999523162842,0.0,,15.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,13
+records/creatures/enemies/thornedhorrorfrost_a01.dbr,SurvivalMode3.arz,Monster,Champion,Rimethorn Horror,102,1.159999966621399,0.0,,15.0,1.25,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/thornedhorrorfrost_b01.dbr,SurvivalMode3.arz,Monster,Champion,Rimethorn Terror,103,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,2,9
+records/creatures/enemies/thornedhorrorfrost_c01.dbr,SurvivalMode3.arz,Monster,Champion,Rimethorn Monstrosity,104,1.1200000047683716,0.0,,15.0,1.2799999713897705,1.0,Medium,8.0,4.0,0.5,0,2,11
+records/creatures/enemies/trap_brambletrap_a01.dbr,SurvivalMode3.arz,Monster,Common,Bramble Trap,107,0.699999988079071,0.0,,0.0,,2.0,Small,3.0,2.0,0.5,0,0,5
+records/creatures/enemies/trap_icespike_hero_a01.dbr,SurvivalMode3.arz,Monster,Common,Ice Spike,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,6
+records/creatures/enemies/trap_lightningspike_hero_a01.dbr,SurvivalMode3.arz,Monster,Common,Storm Conduit,107,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,4
+records/creatures/enemies/viper_a01.dbr,SurvivalMode2.arz,Monster,Common,Korvan Viper,102,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,0,6
+records/creatures/enemies/viper_b01.dbr,SurvivalMode2.arz,Monster,Champion,Korvan Viper ~ Sandstalker,103,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/viper_c01.dbr,SurvivalMode2.arz,Monster,Champion,Korvan Viper ~ Deathvenom,104,1.0,0.0,,15.0,0.44999998807907104,1.0,Medium,8.0,4.0,0.5,0,1,12
+records/creatures/enemies/wendigo_a01.dbr,SurvivalMode1.arz,Monster,Common,Wendigo,103,1.0,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,10
+records/creatures/enemies/wendigo_b01.dbr,SurvivalMode1.arz,Monster,Champion,Wendigo ~ Flayer,104,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,1,11
+records/creatures/enemies/wendigo_b02.dbr,SurvivalMode1.arz,Monster,Champion,Wendigo ~ Marroweater,104,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,11
+records/creatures/enemies/wendigo_c01.dbr,SurvivalMode1.arz,Monster,Champion,Wendigo ~ Ancient,105,0.8999999761581421,0.0,,10.0,1.2000000476837158,1.0,Medium,8.0,4.0,0.5,0,0,14
+records/creatures/enemies/wendigocannibal_a01.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Wretch,102,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,5
+records/creatures/enemies/wendigocannibal_b01.dbr,SurvivalMode1.arz,Monster,Common,Ugdenbog Turned,103,1.0,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/wendigocannibal_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ugdenbog Marked,104,1.100000023841858,0.0,,15.0,0.75,1.0,Small,8.0,4.0,0.5,0,0,12
+records/creatures/enemies/wight_a01.dbr,SurvivalMode3.arz,Monster,Common,Wight,102,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/wight_b01.dbr,SurvivalMode3.arz,Monster,Champion,Wight Frostbreaker,103,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/wight_b02.dbr,SurvivalMode3.arz,Monster,Champion,Wight Death-Priest,103,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/wight_c01.dbr,SurvivalMode3.arz,Monster,Champion,Wight Champion,104,1.0,0.0,,10.0,1.0,1.0,Medium,8.0,4.0,0.5,0,1,14
+records/creatures/enemies/wormworldrot_a01_summon.dbr,database.arz,Monster,Champion,Deepdweller Grub,106,1.0,0.0,,0.0,,1.0,Small,9.0,4.0,0.5,0,0,10
+records/creatures/enemies/wraith_a01.dbr,SurvivalMode1.arz,Monster,Common,Wraith,103,0.8999999761581421,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,7
+records/creatures/enemies/wraith_a01_summon.dbr,SurvivalMode1.arz,Monster,Common,Wraith,103,0.8999999761581421,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,7
+records/creatures/enemies/wraith_b01.dbr,SurvivalMode1.arz,Monster,Champion,Spiteful Wraith,104,0.800000011920929,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,12
+records/creatures/enemies/wraith_b01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Spiteful Wraith,106,0.800000011920929,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,3,12
+records/creatures/enemies/wraith_c01.dbr,SurvivalMode1.arz,Monster,Champion,Ancient Wraith,104,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/wraith_c01_summon.dbr,SurvivalMode1.arz,Monster,Champion,Ancient Wraith,106,0.699999988079071,0.0,,15.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,16
+records/creatures/enemies/yetidire_a01.dbr,SurvivalMode3.arz,Monster,Champion,Diremane Brute,102,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,1,8
+records/creatures/enemies/yetidire_b01.dbr,SurvivalMode3.arz,Monster,Champion,Diremane Rager,103,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/creatures/enemies/yetidire_b02.dbr,SurvivalMode3.arz,Monster,Champion,Diremane Icebreaker,103,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,9
+records/creatures/enemies/yetidire_c01.dbr,SurvivalMode3.arz,Monster,Champion,Diremane Alpha,104,0.699999988079071,0.0,,20.0,1.100000023841858,1.0,Medium,8.0,4.0,0.5,0,0,10
+records/creatures/enemies/zombie_a01_summon.dbr,SurvivalMode.arz,Monster,Common,Walking Dead,107,1.25,0.0,,30.0,0.5600000023841858,1.0,Small,9.0,4.0,0.5,0,0,5
+records/creatures/enemies/zombie_aetherfire01_summon.dbr,SurvivalMode.arz,Monster,Common,Plague Walker,107,1.25,0.0,,15.0,1.0,1.0,Small,9.0,4.0,0.5,0,0,6
+records/creatures/enemies/zombie_d01_summon.dbr,SurvivalMode.arz,Monster,Champion,Cold One,107,1.25,0.0,,0.0,1.2000000476837158,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/zombie_soldiera01_summon.dbr,SurvivalMode.arz,Monster,Common,Rotting Soldier,107,1.149999976158142,0.0,,15.0,1.0,1.0,Small,9.0,4.0,0.5,0,1,7
+records/creatures/enemies/zombie_soldierfirea01_summon.dbr,SurvivalMode.arz,Monster,Champion,Fire,107,1.25,0.0,,15.0,1.2000000476837158,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/zombieberserker_a02.dbr,SurvivalMode.arz,Monster,Champion,Corpsefiend,103,1.100000023841858,0.0,,15.0,1.2000000476837158,1.0,Small,9.0,4.0,0.5,0,0,7
+records/creatures/enemies/zombiemutated_a01.dbr,SurvivalMode.arz,Monster,Champion,Fleshwarped Butcher,103,1.25,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/zombiemutated_b01.dbr,SurvivalMode.arz,Monster,Champion,Fleshwarped Thrasher,103,1.149999976158142,0.0,,15.0,0.800000011920929,1.0,Small,9.0,4.0,0.5,0,0,8
+records/creatures/enemies/zombievoid_a01_summon.dbr,SurvivalMode.arz,Monster,Champion,Burning Dead,107,1.0,0.0,,15.0,1.2000000476837158,1.0,Small,9.0,4.0,0.5,0,0,6
+records/skills/nonplayerskills/bossskills/outlaw_ravenpet_a01.dbr,database.arz,Monster,Common,Great Raven,107,1.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.5,0,0,4
+records/skills/nonplayerskills/bossskills/pets/bladeswarm_a01.dbr,SurvivalMode.arz,Monster,Common,Blade Spirit,109,0.800000011920929,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,4
+records/skills/nonplayerskills/bossskills/pets/chthonicshard_zap_b01_summon.dbr,SurvivalMode.arz,Monster,Common,Obsidian Shard,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,4
+records/skills/nonplayerskills/bossskills/pets/firedevil_01.dbr,SurvivalMode.arz,Monster,Common,Wind Devil,106,0.3499999940395355,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskills/bossskills/pets/loghorrean_void.dbr,SurvivalMode.arz,Monster,Common,Entropic Void,106,0.27000001072883606,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskills/bossskills/pets/witchgodguardian_sentinel_crystal.dbr,database.arz,Monster,Common,Sentinel's Beacon,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,6
+records/skills/nonplayerskills/heroskills/pets/hellhound_undeadfaction_a01.dbr,SurvivalMode.arz,Monster,Common,Hellhound,107,1.149999976158142,0.0,,0.0,1.0,1.0,Medium,12.0,9.0,0.5,0,0,7
+records/skills/nonplayerskillsgdx1/bossskills/final/aetheranomaly_01.dbr,GDX1.arz,Monster,Common,Whirlwind,106,0.5,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskillsgdx1/bossskills/nemesis/aetherialvanguard_crystal.dbr,GDX1.arz,Monster,Champion,Aleksander's Shard,109,0.800000011920929,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx1/bossskills/nemesis/beast_bloodpool.dbr,GDX1.arz,Monster,Common,Wendigo Totem,109,1.0,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx1/bossskills/nemesis/chthonian02_void.dbr,GDX1.arz,Monster,Common,Entropic Void,109,0.30000001192092896,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskillsgdx1/bossskills/pets/firedevil_01.dbr,SurvivalMode1.arz,Monster,Common,Wind Devil,106,0.3499999940395355,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskillsgdx1/bossskills/pets/fleshshaper_spirit_01.dbr,SurvivalMode1.arz,Monster,Champion,Aetherial Wraith,106,1.2999999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx1/bossskills/pets/gabbalthunn_obsidianshard.dbr,SurvivalMode1.arz,Monster,Common,Obsidian Pylon,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,7
+records/skills/nonplayerskillsgdx1/bossskills/pets/winddevil_01.dbr,SurvivalMode1.arz,Monster,Common,Wind Devil,106,0.4000000059604645,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,7
+records/skills/nonplayerskillsgdx2/bossskills/final/pet_celestialeffigy.dbr,SurvivalMode2.arz,Monster,Common,Celestial Effigy,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,10
+records/skills/nonplayerskillsgdx2/bossskills/final/pet_celestialeffigy_02.dbr,SurvivalMode2.arz,Monster,Common,Celestial Effigy,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,10
+records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift.dbr,SurvivalMode2.arz,Monster,Common,Eldritch Rift,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,5
+records/skills/nonplayerskillsgdx2/bossskills/final/pet_eldritchrift_02.dbr,SurvivalMode2.arz,Monster,Common,Eldritch Rift,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,5
+records/skills/nonplayerskillsgdx2/bossskills/nemesis/eldritchshard_01.dbr,GDX2.arz,Monster,Champion,Eldritch Shard,109,0.0,0.0,,0.0,1.0,1.0,Medium,12.0,9.0,0.0,0,0,9
+records/skills/nonplayerskillsgdx2/bossskills/pets/dravis_thrall_01.dbr,SurvivalMode2.arz,Monster,Champion,Dravis Quest - Mini Boss,106,1.350000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,2,12
+records/skills/nonplayerskillsgdx2/bossskills/pets/dravis_thrall_01b.dbr,SurvivalMode2.arz,Monster,Champion,Dravis Quest - Mini Boss,106,1.350000023841858,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,2,12
+records/skills/nonplayerskillsgdx2/bossskills/pets/korvaak_lieutenant_02_trapsummon_01.dbr,SurvivalMode2.arz,Monster,Common,Invisible summoned pet casts volcano,106,0.18000000715255737,0.0,,0.0,,2.0,Small,3.0,2.0,0.5,0,0,5
+records/skills/nonplayerskillsgdx2/bossskills/pets/korvaak_lieutenant_02_trapsummon_02.dbr,SurvivalMode2.arz,Monster,Common,Invisible summoned pet casts volcano,106,0.18000000715255737,0.0,,0.0,,2.0,Small,3.0,2.0,0.5,0,0,5
+records/skills/nonplayerskillsgdx2/bossskills/pets/mindreaper_summon.dbr,SurvivalMode2.arz,Monster,Quest,Mind Reaper Clone,106,1.0,0.0,,,1.0,1.0,Small,8.0,4.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx3/bossskills/nemesis/necro2_nulltotem.dbr,SurvivalMode3.arz,Monster,Champion,Aether Trap,109,0.0,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,7
+records/skills/nonplayerskillsgdx3/bossskills/nemesis/outlaw2_aethershard.dbr,SurvivalMode3.arz,Monster,Champion,Pulsating Aether Cluster,109,0.800000011920929,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,9
+records/skills/nonplayerskillsgdx3/bossskills/pets/aetheranomaly_beast.dbr,SurvivalMode3.arz,Monster,Common,Whirlwind,106,0.36000001430511475,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskillsgdx3/bossskills/pets/giantfire_moltenpool.dbr,SurvivalMode3.arz,Monster,Common,Molten Lava,106,0.0,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,0,6
+records/skills/nonplayerskillsgdx3/bossskills/pets/giantstorm_stormspike_a01.dbr,SurvivalMode3.arz,Monster,Common,Storm Bringer,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,0,4
+records/skills/nonplayerskillsgdx3/bossskills/pets/gruldir_wolf_01.dbr,SurvivalMode3.arz,Monster,Champion,Gruldir Pet,106,0.699999988079071,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx3/bossskills/pets/gruldir_wolf_02.dbr,SurvivalMode3.arz,Monster,Champion,Gruldir Pet,106,0.699999988079071,0.0,,,1.0,1.0,Medium,8.0,4.0,0.5,0,0,8
+records/skills/nonplayerskillsgdx3/bossskills/pets/rimehorn_icespike_01.dbr,SurvivalMode3.arz,Monster,Common,Rime Spike,106,0.0,0.0,,0.0,1.0,1.0,Small,12.0,9.0,0.0,0,4,6
+records/skills/nonplayerskillsgdx3/bossskills/pets/siff_icefloe.dbr,SurvivalMode3.arz,Monster,Common,Ice Floe,106,0.0,0.0,,0.0,1.0,2.0,Small,3.0,2.0,0.5,0,2,6
+records/skills/nonplayerskillsgdx3/bossskills/pets/spore_beast.dbr,SurvivalMode3.arz,Monster,Champion,Eldritch Spore,106,1.2999999523162842,0.0,,0.0,1.0,1.0,Small,8.0,4.0,0.5,0,0,8

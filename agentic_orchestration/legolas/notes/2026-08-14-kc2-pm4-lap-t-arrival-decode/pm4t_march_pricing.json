@@ -1,0 +1,145 @@
+{
+  "instrument": "I-T2b",
+  "route1_binary_decode": "FAILED as pre-registered (P-B4); see module docstring",
+  "route2_calibration": {
+    "grade": "INFERRED-WITH-EVIDENCE",
+    "named_assumption": "player and monster share one locomotion constant K",
+    "player_runspeed": 0.93,
+    "player_modifier": 1.35,
+    "player_world_speed_m_per_s": {
+      "px-LO": 4.029485,
+      "px-HI": 3.83607
+    },
+    "K": {
+      "px-LO": 3.209466,
+      "px-HI": 3.055412
+    }
+  },
+  "march_distances_m": {
+    "NEAR": 16.7992,
+    "RING": 35.8787,
+    "basis": "I-T3c corrected placement reader, medians over 110 tier-16 spawn points / 18 complete arenas"
+  },
+  "referent_ramp_s": {
+    "t50": 3.27,
+    "t90": 4.97,
+    "basis": "Lap S F-10, living-plate counts"
+  },
+  "arrival_arithmetic": {
+    "px-LO": {
+      "K_m_per_s_per_unit": 3.209466,
+      "pooled_median_runspeed": 1.0,
+      "monster_march_speed_m_per_s": 3.2095,
+      "t_NEAR_s": 5.2343,
+      "t_RING_s": 11.179,
+      "NEAR_vs_referent_t90": 1.0532,
+      "RING_vs_referent_t90": 2.2493
+    },
+    "px-HI": {
+      "K_m_per_s_per_unit": 3.055412,
+      "pooled_median_runspeed": 1.0,
+      "monster_march_speed_m_per_s": 3.0554,
+      "t_NEAR_s": 5.4982,
+      "t_RING_s": 11.7427,
+      "NEAR_vs_referent_t90": 1.1063,
+      "RING_vs_referent_t90": 2.3627
+    }
+  },
+  "by_classification": {
+    "Boss": {
+      "classification": "Boss",
+      "n_records": 19,
+      "runspeed_median": 1.100000023841858,
+      "runspeed_min_nonzero": 1.0,
+      "runspeed_max": 1.5199999809265137,
+      "n_zero_runspeed": 0,
+      "m_per_s_median_px-LO": 3.5304,
+      "m_per_s_min_px-LO": 3.2095,
+      "m_per_s_max_px-LO": 4.8784,
+      "t_march_NEAR_s_px-LO": 4.7584,
+      "t_march_RING_s_px-LO": 10.1627,
+      "m_per_s_median_px-HI": 3.361,
+      "m_per_s_min_px-HI": 3.0554,
+      "m_per_s_max_px-HI": 4.6442,
+      "t_march_NEAR_s_px-HI": 4.9983,
+      "t_march_RING_s_px-HI": 10.6752
+    },
+    "Champion": {
+      "classification": "Champion",
+      "n_records": 188,
+      "runspeed_median": 1.0,
+      "runspeed_min_nonzero": 0.6,
+      "runspeed_max": 1.5499999523162842,
+      "n_zero_runspeed": 1,
+      "m_per_s_median_px-LO": 3.2095,
+      "m_per_s_min_px-LO": 1.9257,
+      "m_per_s_max_px-LO": 4.9747,
+      "t_march_NEAR_s_px-LO": 5.2343,
+      "t_march_RING_s_px-LO": 11.179,
+      "m_per_s_median_px-HI": 3.0554,
+      "m_per_s_min_px-HI": 1.8332,
+      "m_per_s_max_px-HI": 4.7359,
+      "t_march_NEAR_s_px-HI": 5.4982,
+      "t_march_RING_s_px-HI": 11.7427
+    },
+    "Common": {
+      "classification": "Common",
+      "n_records": 110,
+      "runspeed_median": 1.0,
+      "runspeed_min_nonzero": 0.18,
+      "runspeed_max": 2.0,
+      "n_zero_runspeed": 1,
+      "m_per_s_median_px-LO": 3.2095,
+      "m_per_s_min_px-LO": 0.5777,
+      "m_per_s_max_px-LO": 6.4189,
+      "t_march_NEAR_s_px-LO": 5.2343,
+      "t_march_RING_s_px-LO": 11.179,
+      "m_per_s_median_px-HI": 3.0554,
+      "m_per_s_min_px-HI": 0.55,
+      "m_per_s_max_px-HI": 6.1108,
+      "t_march_NEAR_s_px-HI": 5.4982,
+      "t_march_RING_s_px-HI": 11.7427
+    },
+    "Hero": {
+      "classification": "Hero",
+      "n_records": 388,
+      "runspeed_median": 1.0,
+      "runspeed_min_nonzero": 0.6,
+      "runspeed_max": 2.0,
+      "n_zero_runspeed": 0,
+      "m_per_s_median_px-LO": 3.2095,
+      "m_per_s_min_px-LO": 1.9257,
+      "m_per_s_max_px-LO": 6.4189,
+      "t_march_NEAR_s_px-LO": 5.2343,
+      "t_march_RING_s_px-LO": 11.179,
+      "m_per_s_median_px-HI": 3.0554,
+      "m_per_s_min_px-HI": 1.8332,
+      "m_per_s_max_px-HI": 6.1108,
+      "t_march_NEAR_s_px-HI": 5.4982,
+      "t_march_RING_s_px-HI": 11.7427
+    },
+    "Quest": {
+      "classification": "Quest",
+      "n_records": 85,
+      "runspeed_median": 1.0,
+      "runspeed_min_nonzero": 0.66,
+      "runspeed_max": 1.4500000476837158,
+      "n_zero_runspeed": 0,
+      "m_per_s_median_px-LO": 3.2095,
+      "m_per_s_min_px-LO": 2.1182,
+      "m_per_s_max_px-LO": 4.6537,
+      "t_march_NEAR_s_px-LO": 5.2343,
+      "t_march_RING_s_px-LO": 11.179,
+      "m_per_s_median_px-HI": 3.0554,
+      "m_per_s_min_px-HI": 2.0166,
+      "m_per_s_max_px-HI": 4.4303,
+      "t_march_NEAR_s_px-HI": 5.4982,
+      "t_march_RING_s_px-HI": 11.7427
+    }
+  },
+  "no_permanent_modifier_anywhere": {
+    "roster_records_with_nonzero_characterRunSpeedModifier": 0,
+    "crucible_wave_scaling_runspeed_terms": 0,
+    "beacon_runspeed_terms": 0
+  }
+}

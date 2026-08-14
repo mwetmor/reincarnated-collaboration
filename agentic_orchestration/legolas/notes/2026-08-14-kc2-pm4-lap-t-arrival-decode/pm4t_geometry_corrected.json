@@ -1,0 +1,289 @@
+{
+  "instrument": "I-T3c",
+  "patrol_source": "head-section PatrolPoint_Attack group (== GUID-matched placement rows, residual 0.000 m)",
+  "F3_spawn_to_patrol_centroid_CORRECTED": {
+    "n": 110,
+    "min": 1.7029,
+    "median": 35.8787,
+    "mean": 33.0757,
+    "max": 52.6816
+  },
+  "F3_lapS_published": {
+    "min": 3.56,
+    "median": 37.03,
+    "mean": 34.36,
+    "max": 51.42,
+    "n": 114
+  },
+  "F4_spawn_to_nearest_patrol_CORRECTED": {
+    "n": 110,
+    "min": 0.0,
+    "median": 16.7992,
+    "mean": 15.8519,
+    "max": 35.3538
+  },
+  "F4_lapS_published": {
+    "min": 0.65,
+    "median": 17.07,
+    "mean": 16.09,
+    "max": 37.51
+  },
+  "F5_spawn_pairwise_max_per_arena": {
+    "n": 18,
+    "min": 59.2131,
+    "median": 77.3189,
+    "mean": 76.186,
+    "max": 85.3686
+  },
+  "beacon_spawn_to_nearest_beacon": {
+    "n": 110,
+    "min": 0.2363,
+    "median": 10.4726,
+    "mean": 12.4067,
+    "max": 36.0428
+  },
+  "spawn_points_inside_beacon_aura": 36,
+  "spawn_points_total": 110,
+  "per_arena": [
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 32.384,
+      "nearest_med": 13.4249,
+      "pairwise_max": 65.7209,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 34.8146,
+      "nearest_med": 18.3916,
+      "pairwise_max": 77.2443,
+      "spawn_in_aura": 3
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 36.8414,
+      "nearest_med": 14.5979,
+      "pairwise_max": 76.6595,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "complete": false,
+      "n_spawn": 1,
+      "n_patrol": 11,
+      "n_beacon": 1,
+      "centroid_med": 40.2792,
+      "nearest_med": 19.6361,
+      "pairwise_max": null,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 36.6479,
+      "nearest_med": 18.065,
+      "pairwise_max": 81.2947,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 12,
+      "n_beacon": 5,
+      "centroid_med": 34.0668,
+      "nearest_med": 9.2126,
+      "pairwise_max": 79.8183,
+      "spawn_in_aura": 3
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 38.1817,
+      "nearest_med": 21.3113,
+      "pairwise_max": 74.2888,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 42.6095,
+      "nearest_med": 18.9484,
+      "pairwise_max": 84.9226,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 9,
+      "n_beacon": 5,
+      "centroid_med": 40.9882,
+      "nearest_med": 21.0043,
+      "pairwise_max": 77.3935,
+      "spawn_in_aura": 3
+    },
+    {
+      "arc": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 36.6312,
+      "nearest_med": 17.7281,
+      "pairwise_max": 76.0691,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 32.1776,
+      "nearest_med": 13.5717,
+      "pairwise_max": 65.0179,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 35.2504,
+      "nearest_med": 18.4887,
+      "pairwise_max": 73.8595,
+      "spawn_in_aura": 3
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 29.9076,
+      "nearest_med": 7.077,
+      "pairwise_max": 59.2131,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "complete": false,
+      "n_spawn": 1,
+      "n_patrol": 11,
+      "n_beacon": 1,
+      "centroid_med": 40.2792,
+      "nearest_med": 19.6361,
+      "pairwise_max": null,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 11,
+      "n_beacon": 5,
+      "centroid_med": 36.2012,
+      "nearest_med": 17.6537,
+      "pairwise_max": 76.3322,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 12,
+      "n_beacon": 5,
+      "centroid_med": 36.7426,
+      "nearest_med": 10.1231,
+      "pairwise_max": 85.3686,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 35.5848,
+      "nearest_med": 18.946,
+      "pairwise_max": 77.9205,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 9,
+      "n_beacon": 5,
+      "centroid_med": 40.9882,
+      "nearest_med": 20.7739,
+      "pairwise_max": 77.3935,
+      "spawn_in_aura": 2
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 35.8666,
+      "nearest_med": 17.8579,
+      "pairwise_max": 77.9749,
+      "spawn_in_aura": 1
+    },
+    {
+      "arc": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "complete": true,
+      "n_spawn": 6,
+      "n_patrol": 10,
+      "n_beacon": 5,
+      "centroid_med": 41.3843,
+      "nearest_med": 18.5635,
+      "pairwise_max": 84.8567,
+      "spawn_in_aura": 2
+    }
+  ]
+}

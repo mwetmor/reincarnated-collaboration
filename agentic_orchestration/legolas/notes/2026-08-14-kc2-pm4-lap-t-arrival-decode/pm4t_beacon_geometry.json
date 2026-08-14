@@ -1,0 +1,232 @@
+{
+  "instrument": "I-T1b",
+  "aura_radius_m": 8.0,
+  "pack_scatter_m": 8.0,
+  "basis": "pm4s_arena_placements.csv (Lap S, MEASURED); ground distance in (x,z)",
+  "arenas": 20,
+  "tier16_spawn_points": 114,
+  "spawn_points_inside_a_beacon_aura": 37,
+  "spawn_to_nearest_beacon_m": {
+    "min": 0.2363,
+    "median": 10.3341,
+    "mean": 12.4891,
+    "max": 36.0427
+  },
+  "beacon_pairwise_separation_m": {
+    "min": 6.1633,
+    "median": 48.9262,
+    "max": 92.3658
+  },
+  "any_two_auras_overlap": true,
+  "overlap_threshold_m": 16.0,
+  "aura_exit_along_march_m": {
+    "median": 0.0,
+    "max": 7.7637
+  },
+  "aura_fraction_of_march": {
+    "median": 0.0,
+    "max": 0.253029
+  },
+  "per_arena": [
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 8.2459,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 3,
+      "beacon_pairwise_min_m": 29.4076,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "n_spawn": 5,
+      "n_beacon": 3,
+      "n_patrol": 10,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 40.8125,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "n_spawn": 4,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 8.2317,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "n_spawn": 5,
+      "n_beacon": 5,
+      "n_patrol": 10,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 13.6412,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 3,
+      "beacon_pairwise_min_m": 34.4825,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 10,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 22.936,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 19.4864,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 3,
+      "beacon_pairwise_min_m": 12.8311,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 10.4141,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 12.1743,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 3,
+      "beacon_pairwise_min_m": 6.1633,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 7.4115,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 21.2182,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "n_spawn": 5,
+      "n_beacon": 5,
+      "n_patrol": 11,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 15.5133,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "n_spawn": 5,
+      "n_beacon": 5,
+      "n_patrol": 10,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 30.8543,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 8,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 26.3324,
+      "auras_overlap": false
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 12.8311,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 9,
+      "spawn_covered_by_aura": 1,
+      "beacon_pairwise_min_m": 14.0263,
+      "auras_overlap": true
+    },
+    {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "n_spawn": 6,
+      "n_beacon": 5,
+      "n_patrol": 8,
+      "spawn_covered_by_aura": 2,
+      "beacon_pairwise_min_m": 26.1046,
+      "auras_overlap": false
+    }
+  ]
+}
