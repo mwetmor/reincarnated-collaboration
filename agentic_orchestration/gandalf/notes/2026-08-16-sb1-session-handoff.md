@@ -37,6 +37,12 @@ Nothing for Matt to measure — rulings only:
 2. **wr2-side mislabel — chase or park?** If chase, instrument choice (conductor holds a lean, to be argued AT the sitting, not before): (a) fix D-4 rig determinism, then probe (patch banked); (b) declared single-lap probe still (×2 waived, defect declared); (c) render-time operand re-audit of the wr2 rig (read-only). Parking is legitimate — the ratified camera does not depend on this.
 3. **Register-invariant ELICITOR fork:** is ~10% (measured 10.133% projected at the ratified rung) THE player register as a design constant — one camera language, one player register, size-deltas reserved for threat speech (GD/D3 law)?
 
+### Cross-arc interlock — the sim run's baton (read it ALONGSIDE this one)
+- **`agentic_orchestration/skill_handoff_2026-08-16.md`** (@ `e1a3e06d`) — **RUN KC2-PM4 SEALED** (68 rows, zero tuning; residual = RING RESIDENCE, Q-leg ~85%); Matt's five rulings D1–D5 banked; **the gamora mechanism wave IN FLIGHT** (Matt-launched, engine repo). Sim-arc next signals: wave ships Gate 2 → DRIFT-CRITIC → D5 checkpoint → PM5 charter. None of those are SB-1 moves.
+- **D5 hardens SB-1's ground:** `E-s09-cp150` is immutable FOREVER; new checkpoints are siblings, not successors. The sim baton § 4 names the baton/checkpoint layer as the ONLY shared surface — any pressure to touch `E-s09-cp150` or a baton HALTs to KR/Matt.
+- **The wall (sim baton § 2):** the gamora build runs BETWEEN runs, inside neither ledger. This ledger takes NO rows about the mechanism build; do not disturb the wave.
+- **Convergence at sequel time:** the mechanism bundle (post-displacement re-engagement · movement-while-channeling · pack-seek) is the machinery that turns in-place undulation into real player-register cadence (the WW-8 genre finding). A successor scene run against the D5 sibling checkpoint is the natural sequel once the wave ships Gate 2.
+
 ### Parked veto-open (unchanged owners)
 - **FG-LEGS-DRIFT triage** — HARD precondition on the next FG-10 certification.
 - **Resolution fix** (project.godot viewport vs new capture mechanism) — drax seam, run close.
@@ -62,7 +68,7 @@ Nothing for Matt to measure — rulings only:
 
 ## 4. FRESH-SESSION ROLE-ADOPTION PROMPT (paste into a new session)
 
-> Read your operating procedure skill (reincarnated-gandalf-operating-procedure) and execute session-start protocol per OP § 1 — charter-freshness gate first (role file + OP § 2 role-tags + desirable-run-pattern.md, all from disk). Then read `agentic_orchestration/gandalf/notes/2026-08-16-sb1-session-handoff.md` (the baton) and the SB-1 ledger tail — rows WW-6 through WW-8b — at `agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md`. You are gandalf, RUN-CONDUCTOR of the SB-1 run, resuming at the fork sitting. The sitting's agenda and the held instrument options are in the baton § 2. Await my direction.
+> Read your operating procedure skill (reincarnated-gandalf-operating-procedure) and execute session-start protocol per OP § 1 — charter-freshness gate first (role file + OP § 2 role-tags + desirable-run-pattern.md, all from disk). Then read `agentic_orchestration/gandalf/notes/2026-08-16-sb1-session-handoff.md` (the baton) and the SB-1 ledger tail — rows WW-6 through WW-8b — at `agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md`. You are gandalf, RUN-CONDUCTOR of the SB-1 run, resuming at the fork sitting. The sitting's agenda and the held instrument options are in the baton § 2. Read the sim-arc baton too (`agentic_orchestration/skill_handoff_2026-08-16.md`) — its constraints bind this run: `E-s09-cp150` immutable, the gamora mechanism wave in flight (do not disturb), this ledger takes no mechanism-build rows. Await my direction.
 
 ---
 
