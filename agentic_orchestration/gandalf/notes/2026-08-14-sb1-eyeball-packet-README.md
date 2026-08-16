@@ -2,7 +2,32 @@
 
 **Assembled by gandalf (`RUN-CONDUCTOR`), 2026-08-14.** All paths relative to `~/Games/reincarnated-collaboration/`. Every image byte is class-E (on disk, untracked, sha-bridged from tracked text).
 
-> **⚠ CORRECTED SAME DAY (ledger WW-3) — Matt's pointer overrides §§ 1–4 below.** The ratified reference is **`~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4`** (the BR-2 watch: seed 74000909, 1600×900, 1211 frames / 40.37 s, sha `ea61b0ee…`; `BR2W_C9.mp4` byte-identical), **NOT exhibit E2.** Its camera is READ from the BR-2 run logs + `m6/pl_audit.json` (four laps identical, anchor error < 0.0009 frac) and it is **THE GD GAME CAMERA** — `player_lock`: **pitch 52.9535° · fov_v 31.7861° (vertical) · yaw 47.0° · cam−player offset (14.7262, 28.3970, 13.7826) m = stand-off 34.831 m · anchor (0.50104, 0.55093) · player-locked** — the GAL-CAM gd-parity operands verbatim. Consequences: **E2 demotes** to camera-adjacent exhibit (its fov-24 lens never matched the reference: 24 vs 31.79, pitch 50 vs 52.95); the **§ 4 candidate-boom table is STRUCK** (boom-scaling under the wrong fov is moot); the fork resolves toward **architecture (A) instantiated at the GD camera**; **gate 1 becomes: arena re-rendered under `player_lock`, judged beside BR2W.** In flight: drax ports `player_lock` into the arena harness (camera the ONLY variable — the scale-1.95 over-read this predicts is exactly § 4(A)'s named body-scale follow-up, surfacing on schedule) · galadriel measures BR2W's own subject register from the sha-gated mp4. Full lineage: ledger row WW-3.
+> **⚠ CORRECTED SAME DAY (ledger WW-3) — Matt's pointer overrides §§ 1–4 below.** The ratified reference is **`~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4`** (the BR-2 watch: seed 74000909, 1600×900, 1211 frames / 40.37 s, sha `ea61b0ee…`; `BR2W_C9.mp4` byte-identical), **NOT exhibit E2.** Its camera is READ from the BR-2 run logs + `m6/pl_audit.json` (four laps identical, anchor error < 0.0009 frac) and it is **THE GD GAME CAMERA** — `player_lock`: **pitch 52.9535° · fov_v 31.7861° (vertical) · yaw 47.0° · cam−player offset (14.7262, 28.3970, 13.7826) m = stand-off 34.831 m · anchor (0.50104, 0.55093) · player-locked** — the GAL-CAM gd-parity operands verbatim. Consequences: **E2 demotes** to camera-adjacent exhibit (its fov-24 lens never matched the reference: 24 vs 31.79, pitch 50 vs 52.95); the **§ 4 candidate-boom table is STRUCK** (boom-scaling under the wrong fov is moot); the fork resolves toward **architecture (A) instantiated at the GD camera**; **gate 1 becomes: arena re-rendered under `player_lock`, judged beside BR2W.** Both cells LANDED — **§ 0-bis below is the v2 packet** (the gate-1 pair + the re-based table). Full lineage: ledger rows WW-3 · WW-3a · WW-3b.
+
+## 0-bis. PACKET v2 — what to eyeball now
+
+**Gate 1 pair (same camera by construction: pin delta 0.000000000000 m vs `pl_audit.json`, anchor delta 0.0002 px, still byte-identical ×2):**
+
+| | Artifact | Path |
+|---|---|---|
+| Reference | **BR2W.mp4** — your ratified watch (C9 byte-identical) | `~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4` |
+| Candidate | **Arena under `player_lock`**, 1600×900, sha `c2175da9…` | `agentic_orchestration/galadriel/captures/2026-08-14-sb1-playerlock-port/evidence/arena-playerlock-n160-1600x900.png` |
+
+**Re-based register table (one method; BR2W measured from the sha-gated mp4, n=1027 — the one frame of 1211 with both silhouette edges honestly adjudicable):**
+
+| Subject | Camera | h_frac (tight) |
+|---|---|---|
+| GD human form | GD's own | 7.04% |
+| **BR2W player werewolf — THE REFERENCE** | `player_lock` | **9.889%** (generous 10.778%) |
+| vh-rig werewolf (demoted E2) | fov-24 @ 34.0 m | 9.444% — near-equal register from different optics; register-similarity ≠ camera-identity |
+| Arena fighter @ 72.857 m boom (THE WATCH) | fov-24 | 12.963% |
+| GD werewolf form | GD's own | 14.77% |
+| **Arena fighter under `player_lock`** | `player_lock` | **20.90%** (harness projection; pixel read in flight, WW-3c) |
+| GD boss tier | GD's own | 21.57% (coarse) |
+
+**The one decision this tees up — body scale, not camera:** your reference holds the PLAYER at ~9.9%, 37% of the way from GD's man to GD's beast. The arena fighter at legacy scale 1.95 reads ~20.9% under the same camera — boss-class presence, **2.11× your ratified player register**. If the arena fighter is the player-analogue, its scale wants re-derivation by parity measurement (the `×1.29`-style route BR2W itself used), not the legacy 1.95 that compensated the struck 169 m law. Any chosen scale gets a verification render before pinning — no number is canon from a desk.
+
+Gate-2 caveats (§ 5) still stand: placeholder floor · rotor read · designed dip · determinism ancestry honest, no fix claimed.
 
 ---
 
