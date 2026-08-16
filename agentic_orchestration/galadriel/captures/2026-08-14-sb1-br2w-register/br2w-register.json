@@ -1,0 +1,296 @@
+{
+ "cell": "SB1-WW3B-BR2W-REGISTER",
+ "date": "2026-08-14",
+ "agent": "galadriel",
+ "conductor": "gandalf (RUN-CONDUCTOR, Matt's SB-1 run)",
+ "method": "replicates agentic_orchestration/galadriel/notes/2026-07-31-gd-parity-measure.md as applied in the 2026-08-14 SB1-REGISTER-MEASURE cell: profile/chroma-bracketed MANUAL subject box, top/bottom/left/right -> h_px = bottom-top -> h_frac = h_px / frame_h_px. TIGHT body is the number of record (VFX/HUD/nameplates/floating combat text excluded per GD convention); GENEROUS bracket reported where FX attaches.",
+ "purpose": "re-base the SB-1 register table on the artifact Matt ratified. Ledger row WW-3 DEMOTED the vh-rig aura frame measured by the prior cell (WW-2); this cell measures the player werewolf's h_frac in BR2W.mp4 itself.",
+ "inputs": {
+  "ratified_reference_mp4": {
+   "path": "/Users/admin/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4",
+   "sha256": "ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba",
+   "expected": "ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba",
+   "gate": "PASS",
+   "bytes": 55069886,
+   "bytes_expected": 55069886,
+   "stream": {
+    "codec": "h264",
+    "pix_fmt": "yuv420p",
+    "dims": [
+     1600,
+     900
+    ],
+    "r_frame_rate": "30/1",
+    "nb_frames": 1211,
+    "duration_s": 40.366667
+   },
+   "note": "the MP4 ITSELF is the primary source. tmp/br2watch/frames/BR2WS8_*.png were NOT used as primary (NOTE-95: different render lap); they appear only as the declared cross-check."
+  },
+  "anchor_audit": {
+   "path": "/Users/admin/Games/reincarnated-godot/tmp/br2watch/pl_audit.json",
+   "anchor_frac": [
+    0.501041450500488,
+    0.550925123426649
+   ],
+   "anchor_px_1600x900": [
+    801.6663208007808,
+    495.8326110839841
+   ],
+   "audited_error_frac": [
+    -0.000415039062531264,
+    -0.000866699218713407
+   ],
+   "note": "operand READ from the harness (GL-17), not derived. Used as the bottom of the crown-to-anchor band ONLY; the number of record does not use it."
+  }
+ },
+ "frame_extraction": {
+  "ffmpeg_frames_of_record": "ffmpeg -y -v error -i BR2W.mp4 -vf \"select=eq(n\\,N)\" -vframes 1 tmpframes/full-N.png",
+  "ffmpeg_scan_crops": "ffmpeg -y -v error -i BR2W.mp4 -vf \"crop=220:200:692:376\" -fps_mode passthrough tmpframes/scan/c%04d.png",
+  "ffmpeg_every10_full": "ffmpeg -y -v error -i BR2W.mp4 -vf \"select='not(mod(n\\,10))'\" -fps_mode passthrough tmpframes/full/m%04d.png",
+  "ffmpeg_triage_sheet": "ffmpeg -y -v error -i BR2W.mp4 -vf \"select='not(mod(n\\,15))',crop=160:150:722:390,tile=9x9\" -fps_mode passthrough -frames:v 1 evidence/triage-native-every15.png",
+  "frame_index_base": "0-based mp4 frame number; ffmpeg %04d output starts at 1, so c0001.png IS n=0",
+  "extracted_shas": {
+   "full-685.png": "651c466e7df82e745f4a0c0c6ce0cf3b3dde2dfa3f141d9c4acccc0dec9dcc27",
+   "full-1027.png": "24438360829c2a9570be3c7fa3152d5319e5620a5e9a1e93ef0fcb9f43339a51",
+   "full-1062.png": "8aaec028d13c08328fa744dae49b9468c4762ef274a633258b8b98d0930d104e",
+   "full-520.png": "907aa3fca10ac5a8f40481b62a9223961c03ce0caba2aa4b9bd89511160b3391"
+  },
+  "class": "E \u2014 bytes on disk untracked and exactly regenerable from the sha-gated mp4; shas bridge"
+ },
+ "frames_chosen": [
+  {
+   "n": 685,
+   "t_s": 22.8333,
+   "why": "standing; outside all three nova windows; chroma-discriminator-valid floor run 680-689; no bloom and no combat numerals over the body"
+  },
+  {
+   "n": 1027,
+   "t_s": 34.2333,
+   "why": "standing/rearing; discriminator-valid run 1019-1029; the ONLY frame in 1211 where BOTH silhouette edges are honestly adjudicable"
+  },
+  {
+   "n": 1062,
+   "t_s": 35.4,
+   "why": "standing; discriminator-valid run 1061-1064; independent beat 12.6 s after the first"
+  }
+ ],
+ "frames_rejected_after_measurement": [
+  {
+   "n": 520,
+   "t_s": 17.3333,
+   "why": "subject near-isoluminant with its floor: max deviation 6 L across x 748-800, y 408-439. No crown could be named honestly."
+  }
+ ],
+ "nova_windows_excluded_frames": [
+  [
+   138,
+   190
+  ],
+  [
+   552,
+   604
+  ],
+  [
+   906,
+   958
+  ]
+ ],
+ "measured": [
+  {
+   "id": "BR2W.mp4 n=1027",
+   "subject": "player werewolf (BODY WEREWOLF x1.29 parity, full cast)",
+   "state": "standing/rearing, left arm outstretched, inside its own aura ring",
+   "bracket": "TIGHT BODY \u2014 NUMBER OF RECORD",
+   "top": 416,
+   "bottom": 505,
+   "left": 766,
+   "right": 817,
+   "h_px": 89,
+   "w_px": 51,
+   "h_frac": 0.09888888888888889,
+   "frame_h_px": 900,
+   "grade": "manual adjudication; chromaticity map as bracket (fur r_frac>=0.415, b_frac<=0.285, L<=190, calibrated on this frame)",
+   "source_sha256": "24438360829c2a9570be3c7fa3152d5319e5620a5e9a1e93ef0fcb9f43339a51",
+   "note": "top=416 is the first row with a >=3-column run at >=28 L below the row reference (x 792-797), corroborated by the chroma map's first fur pixel at the same row. bottom=505 is the last fur pixel (x=811); the patch x808-813 y500-504 reads r/b frac 0.439/0.270 (FUR) and x808-813 y507-511 reads 0.356/0.319 (FLOOR). left=766 arm tip (0.457/0.253, L 98) against 0.400/0.300 immediately left. right=817 shoulder (0.424/0.277, L 97) against 0.360/0.327 immediately right. Cyan HUD self-marker bar and floating combat text EXCLUDED."
+  },
+  {
+   "id": "BR2W.mp4 n=1027 (GENEROUS bracket)",
+   "subject": "player werewolf",
+   "state": "same",
+   "bracket": "GENEROUS \u2014 declared, not preferred",
+   "top": 416,
+   "bottom": 513,
+   "h_px": 97,
+   "h_frac": 0.10777777777777778,
+   "frame_h_px": 900,
+   "source_sha256": "24438360829c2a9570be3c7fa3152d5319e5620a5e9a1e93ef0fcb9f43339a51",
+   "note": "adds the ATTACHED persistent player aura (run log: basic_area_vfx_01, authored r 4.000 m -> target r 0.871 m), a ground ring and pool at the feet. Last attached-FX row (L>190, x 770-830) is y=513; y=514 has none. It extends the bbox DOWNWARD only \u2014 there is no FX above the crown in this frame."
+  }
+ ],
+ "crown_to_anchor_band": {
+  "definition": "h_px = 495.83 (machine-audited player ground row) - adjudicated crown row; reproducible on all three frames",
+  "status": "SUPPORTING BAND, not the number of record. It is a LOWER BOUND on the GD-convention bbox.",
+  "rows": [
+   {
+    "n": 685,
+    "crown": 416,
+    "h_px": 79.82999999999998,
+    "h_frac": 0.08869999999999999
+   },
+   {
+    "n": 1027,
+    "crown": 416,
+    "h_px": 79.82999999999998,
+    "h_frac": 0.08869999999999999
+   },
+   {
+    "n": 1062,
+    "crown": 426,
+    "h_px": 69.82999999999998,
+    "h_frac": 0.07758888888888887
+   }
+  ],
+  "median_h_frac": 0.08869999999999999,
+  "range_h_frac": [
+   0.07758888888888887,
+   0.08869999999999999
+  ],
+  "offset_vs_bbox_on_1027_pp": -1.01888888888889,
+  "offset_note": "on 1027 the near paw sits 9.17 px down-screen of the audited root row, so crown-to-anchor under-reads the bbox by 1.019 pp"
+ },
+ "cross_check_s8_png_lap": {
+  "frame_match": {
+   "verdict": "NO MATCH \u2014 the laps do not align frame-for-frame",
+   "best_match_to_mp4_n1027": "BR2WS8_0047.png",
+   "best_MAE_over_x700_900_y380_560": 27.526,
+   "worst_MAE_in_set": 66.551,
+   "note": "index 47 of 330 is inconsistent with any linear time map to t=34.233 s. NOTE-95 confirmed empirically."
+  },
+  "one_instrument_both_laps": {
+   "rule": "scanning y from 402, crown = first row with a >=3-column run at >=28 L below the row median within x 772-826, cyan bar excluded; h_auto=(495.83-crown)/900",
+   "C9_mp4_every10": {
+    "frames": 122,
+    "detected": 106,
+    "median_pct": 9.037,
+    "p25_pct": 7.12,
+    "p75_pct": 10.426,
+    "saturated_at_scan_start_pct": 27
+   },
+   "S8_png_all": {
+    "frames": 330,
+    "detected": 318,
+    "median_pct": 8.537,
+    "p25_pct": 6.981,
+    "p75_pct": 10.203,
+    "saturated_at_scan_start_pct": 20
+   },
+   "lap_agreement_pp": 0.5,
+   "caveat": "the rule SATURATES at the scan-start row on 27%/20% of detected frames (dark FX or a mob above the player); both medians are UPPER-biased BRACKETS, not numbers"
+  },
+  "internal_consistency": {
+   "hand_crown_to_anchor_median_pct": 8.87,
+   "automated_same_lap_median_pct": 9.037,
+   "difference_pp": 0.167,
+   "verdict": "hand reads sit inside the automated bracket, on its low side, consistent with the stated saturation bias"
+  }
+ },
+ "camera_context_NOT_an_operand": {
+  "arm": "CAM-LOCK player_lock",
+  "pitch_deg": 52.9535411256029,
+  "fov_v_deg": 31.7861018306101,
+  "yaw_deg": 47.0,
+  "offset_m": [
+   14.7262048721313,
+   28.3970108032227,
+   13.7826108932495
+  ],
+  "standoff_m": 34.8312,
+  "height_m": 28.397,
+  "z_player_m": 34.8165340347471,
+  "viewport": [
+   1600,
+   900
+  ],
+  "seed": 74000909,
+  "body_arm": "BODY WEREWOLF x1.29 parity (full cast)",
+  "note": "context for the receipt only. NOTE-62: no number in this file derives from these operands. Pixels were measured."
+ },
+ "reference_registers": {
+  "source": "agentic_orchestration/galadriel/captures/2026-07-31-gd-parity/gd-parity-numbers.json and the 2026-08-14 SB1-REGISTER-MEASURE cell",
+  "gd_human_form_h_frac": 0.07037037037037037,
+  "gd_werewolf_median_h_frac": 0.1476851851851852,
+  "gd_boss_tier_h_frac": 0.21574074074074073,
+  "gd_boss_note": "COARSE, tier UNCONFIRMED \u2014 do not tune to it",
+  "vh_rig_frame_h_frac": 0.09444444444444444,
+  "vh_rig_status": "DEMOTED by ledger row WW-3 \u2014 camera-adjacent exhibit, not the reference",
+  "arena_72p857m_h_frac": 0.12962962962962962
+ },
+ "derived": {
+  "tight_over_gd_werewolf": 0.6695924764890282,
+  "tight_over_gd_human": 1.4052631578947368,
+  "tight_over_gd_boss": 0.45836909871244635,
+  "tight_over_vh_rig_demoted": 1.0470588235294118,
+  "tight_over_arena": 0.7628571428571429,
+  "arena_over_tight_linear": 1.3108614232209737,
+  "arena_over_tight_area": 1.7183576708889166,
+  "position_gd_human_to_gd_werewolf": 0.36886227544910166,
+  "delta_vs_vh_rig_pp": 0.44444444444444453,
+  "delta_vs_vh_rig_relative": 0.04705882352941182
+ },
+ "ambiguities": [
+  {
+   "id": "A1",
+   "q": "crown occlusion by the cyan HUD self-marker bar (x 798-805)",
+   "disposition": "DECLARED AND BOUNDED, not resolved. On 1027 fur onset is y=416 at x806-807 and y=418 at x796-797, so the apex sits at the bar's shoulder; interpolation across the 8 occluded columns puts a hidden apex no higher than y=415. The crown could be 1-2 px higher, moving the number of record to at most 10.111 %. Both reported; the measured value stands."
+  },
+  {
+   "id": "A2",
+   "q": "lower-right dark mass on 1027 \u2014 leg or cast shadow?",
+   "disposition": "RESOLVED TO BODY on chromaticity, discriminator stated. One-sun az 137 / el 66, so a ground shadow would be a darkened sample of floor hue. x808-816 y496-504 reads r/b 0.440/0.267 (fur); x814-820 y504-510 reads 0.350/0.316 (floor). The classifier placed the boundary at y=505; I did not choose it."
+  },
+  {
+   "id": "A3",
+   "q": "the y=422-423 gap in 1027's fur map",
+   "disposition": "THRESHOLD ARTEFACT, declared. Those rows are the shaded skull top, r_frac dipping under 0.415; the luminance instrument shows the head continuous. Why the chroma map is a bracket and the manual read is the number."
+  },
+  {
+   "id": "A4",
+   "q": "right edge of 1027 \u2014 817 or 819?",
+   "disposition": "REPORTED CONSERVATIVELY AT 817. Rows 474-477 carry fur-classified pixels to x=819 but at L 157 with r-g=74 \u2014 red telegraph arc signature, not fur (L 89-136 elsewhere). Affects w_px only; h_frac untouched."
+  },
+  {
+   "id": "A5",
+   "q": "left-edge candidates at x 756-759",
+   "disposition": "EXCLUDED with the test shown: r/b 0.431/0.285 at L 157 \u2014 the red arc sitting exactly on the fur threshold. Admitting them would read left=756, w_px=61."
+  },
+  {
+   "id": "A6",
+   "q": "sample size and beat independence",
+   "disposition": "DECLARED. Three frames, three beats, 12.6 s apart at the extremes. 685 and 1027 return the identical crown row \u2014 agreement, not replication. 1062 reads 1.11 pp lower on a different standing pose. The spread is POSE spread; the camera is locked and audited."
+  }
+ ],
+ "negative_results": [
+  "N1. The chromaticity discriminator holds on ONE of three frames. The carried warm omni (E 5.20, 9.0 m, colour 1.00/0.66/0.34) lights subject and floor with the same key; on 685 and 1062 the floor within that radius is itself warm and the fur test floods the lower read window. Hence the full bbox exists for 1027 alone. I did not find a second frame in 1211 where both silhouette edges are honestly adjudicable.",
+  "N2. Frame 520 passed every automated filter and failed the eye: max deviation 6 L across x 748-800, y 408-439. Dropped; sha recorded so the negative result is reproducible.",
+  "N3. Luminance-only frame selection failed twice. A wide-box darkness metric ranked the all-black end card as the cleanest frames in the clip. A red-dominance metric intended to find floating combat numerals fired at 0.197 on frame 1027 \u2014 on the werewolf's own warm-lit fur. Discarded as a HUD detector; visual triage did that job.",
+  "N4. gp_seg.py was NOT run on this clip. Its colour-distance seeding cannot separate a warm-lit subject from a warm-lit floor, which is the entire difficulty here. Skipped deliberately rather than run for the look of it."
+ ],
+ "cannot_answer": [
+  "Whether the near paw sits ~9 px below the audited root row across the clip. Measured on one frame only. Applying that offset to 685 and 1062 would be desk arithmetic dressed as measurement (NOTE-62); it is offered once in the receipt as an explicit inference and nowhere else.",
+  "Whether an idle-pose register exists for this body. There is no idle frame in this clip \u2014 it is a combat watch end to end. Every number here is a standing COMBAT pose.",
+  "Whether BR2W's camera and the arena camera read the same to the eye. Out of seam. This cell supplies screen register only."
+ ],
+ "confound_DECLARED": "Subject-height fraction conflates CAMERA FRAMING with BODY SIZE. The rows in this table photograph DIFFERENT BODIES. A difference in h_frac does not by itself establish that two cameras differ, and equality would not establish that they match. This cell supplies screen register for the artifact Matt ratified, and nothing else. R-CPB-17b's 'zoom/angle looks the same' is Matt's eye and gandalf's reading, not mine.",
+ "number_of_record": {
+  "h_frac": 0.09888888888888889,
+  "h_frac_pct": 9.88888888888889,
+  "frame": "BR2W.mp4 n=1027 (t=34.2333 s)",
+  "bracket": "TIGHT BODY, GD convention (VFX/HUD/nameplates/floating combat text excluded)",
+  "generous_h_frac_pct": 10.777777777777779,
+  "supporting_band_pct": {
+   "crown_to_anchor_median": 8.87,
+   "crown_to_anchor_min": 7.758888888888888,
+   "crown_to_anchor_max": 8.87
+  }
+ }
+}

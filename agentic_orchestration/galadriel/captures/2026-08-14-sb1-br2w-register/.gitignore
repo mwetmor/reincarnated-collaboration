@@ -1,0 +1,36 @@
+# SB1-WW3B-BR2W-REGISTER — class-E law: TEXT in git, BYTES on disk, SHA bridges.
+# Every image here is exactly regenerable from the sha-gated input mp4:
+#   MP4 = /Users/admin/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4
+#   sha256 ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba (55,069,886 B)
+# The mp4 is READ-ONLY INPUT and is NOT vendored here.
+#
+# Frames of record (0-based mp4 frame index; ffmpeg %04d output starts at 1):
+#   ffmpeg -y -v error -i $MP4 -vf "select=eq(n\,N)" -vframes 1 tmpframes/full-N.png
+#     N=685   sha256 651c466e7df82e745f4a0c0c6ce0cf3b3dde2dfa3f141d9c4acccc0dec9dcc27
+#     N=1027  sha256 24438360829c2a9570be3c7fa3152d5319e5620a5e9a1e93ef0fcb9f43339a51
+#     N=1062  sha256 8aaec028d13c08328fa744dae49b9468c4762ef274a633258b8b98d0930d104e
+#     N=520   sha256 907aa3fca10ac5a8f40481b62a9223961c03ce0caba2aa4b9bd89511160b3391  (dropped, N2)
+#
+# Scan crops (1211 files) and every-10th full frames (122 files):
+#   ffmpeg -y -v error -i $MP4 -vf "crop=220:200:692:376" -fps_mode passthrough tmpframes/scan/c%04d.png
+#   ffmpeg -y -v error -i $MP4 -vf "select='not(mod(n\,10))'" -fps_mode passthrough tmpframes/full/m%04d.png
+#
+# Triage sheet:
+#   ffmpeg -y -v error -i $MP4 -vf "select='not(mod(n\,15))',crop=160:150:722:390,tile=9x9" \
+#          -fps_mode passthrough -frames:v 1 evidence/triage-native-every15.png
+#
+# Ruler plates under evidence/ regenerate via the tracked instrument:
+#   python3 ../../pipeline/gd-parity/gp_ruler.py --src tmpframes/full-N.png \
+#           --x0 .. --y0 .. --w .. --h .. --zoom .. --minor .. --major .. --out ..
+#   (each plate's stem records its own crop origin, size and zoom; the four reads of
+#    record are evidence/subject-1027-z10.png, crown-{685,1027,1062}-z16.png,
+#    lower-1027-z12.png)
+#
+# Printed maps that carried the adjudication regenerate via the tracked instruments:
+#   python3 ../../pipeline/gd-parity/br2w_chroma.py --src tmpframes/full-1027.png --x0 756 --y0 406 --x1 832 --y1 520
+#   python3 ../../pipeline/gd-parity/br2w_rows.py   --src tmpframes/full-1027.png --y0 405 --y1 515
+#
+# Selection/bracket scripts are working memory, regenerable, and untracked.
+*.png
+*.npy
+tmpframes/

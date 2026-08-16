@@ -1,0 +1,341 @@
+SB1-WW3B-BR2W-REGISTER — RECEIPT
+cell:   SB1-WW3B-BR2W-REGISTER (Matt's SB-1 run; gandalf RUN-CONDUCTOR)
+agent:  galadriel    date: 2026-08-14    mode: read-only measurement (no input byte modified)
+method: replicates notes/2026-07-31-gd-parity-measure.md, as applied in the
+        2026-08-14 SB1-REGISTER-MEASURE cell — seg/profile-bracketed MANUAL subject box,
+        top/bottom/left/right -> h_px -> h_frac = subject height px / frame height px.
+        TIGHT body is the number of record (VFX / HUD / nameplates / floating combat
+        text EXCLUDED per GD convention); GENEROUS bracket reported where FX attaches.
+mission: measure the TRUE ratified reference's OWN subject register. The prior cell
+        (WW-2) measured the vh-rig aura frame, which ledger row WW-3 DEMOTED.
+
+================================================================================
+0. WHAT THIS CELL MEASURES AND WHAT IT DOES NOT
+================================================================================
+It measures PIXELS in the artifact Matt ratified. It does not measure models,
+does not derive from camera operands, and does not adjudicate "zoom/angle looks
+the same". NOTE-62 honoured: no desk arithmetic is presented as a number of record.
+The camera block in section 8 is CONTEXT for the receipt, not an operand of any
+number here.
+
+================================================================================
+1. INPUT SHA GATE  (verified BEFORE any extraction)
+================================================================================
+    path      /Users/admin/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4
+    sha256    ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba
+    expected  ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba
+    bytes     55,069,886   (expected 55,069,886)
+    ffprobe   h264 yuv420p 1600x900, r_frame_rate 30/1, nb_frames 1211,
+              duration 40.366667 s   (all four expected values MATCH)
+    GATE      PASS   — no HALT. Measurement proceeded.
+
+    The mp4 ITSELF is the primary source. `tmp/br2watch/frames/BR2WS8_*.png` were
+    NOT used as primary (NOTE-95 label-collision law: different render lap). They
+    appear only as the declared cross-check in section 7.
+
+================================================================================
+2. FRAME EXTRACTION — exact invocations
+================================================================================
+All run with cwd = agentic_orchestration/galadriel/captures/2026-08-14-sb1-br2w-register
+and MP4 = /Users/admin/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4
+
+(a) triage contact sheet, whole clip, anchor crop, native resolution
+    ffmpeg -y -v error -i $MP4 \
+      -vf "select='not(mod(n\,15))',crop=160:150:722:390,tile=9x9" \
+      -fps_mode passthrough -frames:v 1 evidence/triage-native-every15.png
+
+(b) per-frame anchor crop for the FX/separability scans (1211 files)
+    ffmpeg -y -v error -i $MP4 -vf "crop=220:200:692:376" \
+      -fps_mode passthrough tmpframes/scan/c%04d.png
+    NOTE the off-by-one: ffmpeg %04d starts at 1, so c0001.png IS frame n=0.
+    Every frame index in this receipt is 0-BASED mp4 frame number.
+
+(c) full frames of record (one invocation per frame, N in {520,685,1027,1062})
+    ffmpeg -y -v error -i $MP4 -vf "select=eq(n\,N)" -vframes 1 tmpframes/full-N.png
+      full-685.png    sha256 651c466e7df82e745f4a0c0c6ce0cf3b3dde2dfa3f141d9c4acccc0dec9dcc27
+      full-1027.png   sha256 24438360829c2a9570be3c7fa3152d5319e5620a5e9a1e93ef0fcb9f43339a51
+      full-1062.png   sha256 8aaec028d13c08328fa744dae49b9468c4762ef274a633258b8b98d0930d104e
+      full-520.png    sha256 907aa3fca10ac5a8f40481b62a9223961c03ce0caba2aa4b9bd89511160b3391
+                             (520 measured, then DROPPED — see section 6, N2)
+    all 1600x900 RGB.
+
+(d) every-10th full frame for the automated bracket of section 7 (122 files)
+    ffmpeg -y -v error -i $MP4 -vf "select='not(mod(n\,10))'" \
+      -fps_mode passthrough tmpframes/full/m%04d.png
+
+Class-E: extracted frames stay on disk, untracked, exactly regenerable from the
+sha-gated mp4 by the commands above. See .gitignore in this directory.
+
+================================================================================
+3. FRAME SELECTION — how the three frames were chosen, and why so few
+================================================================================
+The charter asked for 2-4 frames with the werewolf "standing reasonably clear of
+heavy FX". Selection was a four-stage filter, all stages recorded:
+
+ (i)  FX-wash scan over the subject box on all 1211 frames (tmpframes/fxscan2.py).
+      Rejected the three nova windows — the run log prints telegraph t=4.600 /
+      18.400 / 30.200 s, fire +0.850 s, corridor travel 12.00 m at 14.0 m/s =
+      0.8571 s, so frames 138-190, 552-604, 906-958 are nova-lit and excluded.
+      Also rejected the 1171-1210 end-card (all-black stats screen) and the
+      1104-1170 fade-out.
+ (ii) SEPARABILITY scan (tmpframes/sepscan.py): 85th-percentile RGB distance from
+      the per-frame floor reference inside the subject box, with subject-plausible
+      area (0.16-0.46 of box) required.
+ (iii) DISCRIMINATOR-VALIDITY scan: the player carries a warm omni (E 5.20,
+      range 9.0 m, colour 1.00/0.66/0.34 — printed in the run log). It lights the
+      werewolf and the floor under it with the SAME key, so luminance does not
+      separate them; chromaticity does, but only where the floor is NOT warm-washed.
+      Frames whose floor r-fraction was < 0.375 on BOTH flanks: 95 of 1091, in
+      eight contiguous runs — 154-166, 517-522, 560-569, 680-689, 877-880,
+      918-933, 1019-1029, 1061-1064. Runs 154-166 and 918-933 fall inside nova
+      windows and were dropped.
+ (iv) VISUAL triage of the survivors at 3-4x and then 8x (evidence/sheet*.png,
+      evidence/strip*.png, evidence/read-*-z8.png). This stage rejected frames the
+      metrics had passed: 653 and 1090 are buried under floating combat numerals
+      (a luminance metric cannot see dark-red numerals); 518/520/522 and 877/879
+      carry "WHIFF . N" text across the lower body; 885 and 883 have the subject
+      displaced off the read window; 412/442/774/990/1043 are warm-on-warm with no
+      honest edge anywhere.
+
+CHOSEN — three frames, three distinct beats:
+    n = 685    t = 22.833 s
+    n = 1027   t = 34.233 s
+    n = 1062   t = 35.400 s
+Each: standing pose, outside every nova window, no bloom and no combat numerals
+over the body, and a hand-adjudicable crown.
+
+THE HONEST LIMIT, STATED UP FRONT: this is a combat watch, not an idle pose reel.
+There is no idle frame in the clip. Three frames from three beats is what the
+clip supports; it is not a large sample and it is not treated as one.
+
+================================================================================
+4. THE BOXES
+================================================================================
+Frame height = 900 for every row. Convention h_px = bottom - top (as in the
+2026-07-31 and 2026-08-14 cells).
+
+(a) FULL SILHOUETTE BBOX — GD convention. ONLY frame 1027 permits both edges.
+
+    n=1027  TIGHT BODY   top 416   bottom 505   left 766   right 817
+                         h_px  89    w_px 51
+                         h_frac 0.098889  =  9.889 %      <== NUMBER OF RECORD
+
+    n=1027  GENEROUS     top 416   bottom 513
+                         h_px  97
+                         h_frac 0.107778  = 10.778 %
+            (adds the attached persistent player aura — the run log binds it as
+             basic_area_vfx_01, authored r 4.000 m -> target r 0.871 m, drawn as a
+             ground ring + pool at the feet. It extends the bbox DOWNWARD only;
+             there is no FX above the crown in this frame. The cyan self-marker
+             bar is HUD and is excluded from BOTH brackets.)
+
+(b) CROWN-TO-ANCHOR — reproducible on all three frames.
+    The bottom is taken as the MACHINE-AUDITED player ground row rather than an
+    adjudicated paw: pl_audit.json gives anchor (0.501041450500488,
+    0.550925123426649) of 1600x900 -> (801.67, 495.83) px, with audited error
+    (-0.000415, -0.000867) frac. This is an operand READ from the harness (GL-17),
+    not a derivation.
+
+      frame    crown y   h_px = 495.83 - crown   h_frac
+      n=685      416          79.83              8.870 %
+      n=1027     416          79.83              8.870 %
+      n=1062     426          69.83              7.759 %
+      MEDIAN                                     8.870 %   (range 7.759 - 8.870)
+
+    On 1027, where both measures exist, crown-to-anchor reads 1.019 pp BELOW the
+    full bbox, because the near paw sits 9.17 px down-screen of the audited root
+    row. Crown-to-anchor is therefore a LOWER BOUND on the GD-convention bbox, and
+    is reported as a band, not as the number of record.
+
+================================================================================
+5. HOW EACH EDGE WAS ADJUDICATED
+================================================================================
+CROWN (all three frames). Instrument: tmpframes/crown.py prints, per row, each
+column's luminance deviation from that row's own median (reference window
+x 742-856), with the cyan HUD bar flagged. Rule applied identically to all
+frames: the crown is the first row carrying a contiguous run of >= 3 columns at
+>= 28 L below the row reference. Each call was then checked by eye at 16x
+(evidence/crown-*-z16.png).
+    n=685   first >=3 run at y=416, x 788-790 (deviation 9/9/9 on the printed
+            scale, i.e. >= 36 L below reference). y=415 carries nothing stronger
+            than 2. Crown = 416.
+    n=1027  first >=3 run at y=416, x 792-797 (six columns at 9). y=415 max 1.
+            Independently corroborated by the chromaticity map, whose first fur
+            pixel is also y=416 (x=807). Crown = 416.
+    n=1062  first >=3 run at y=426, x 792-794. y=425 has a single column at 9,
+            y=424 nothing above 5. Crown = 426.
+
+BOTTOM / LEFT / RIGHT (frame 1027 only). Instrument:
+pipeline/gd-parity/br2w_chroma.py — a fur-vs-floor CHROMATICITY map, printed in
+full and adjudicated against, never trusted blind. Calibration measured on this
+frame before any threshold was chosen:
+      fur, torso lit          r/g/b fraction 0.509 / 0.311 / 0.181   L 121
+      fur, head shaded        0.452 / 0.277 / 0.272                  L  89
+      floor right of ring     0.349 / 0.313 / 0.337                  L 168
+      floor left, same band   0.380 / 0.310 / 0.311                  L 139
+      aura pool core          0.376 / 0.341 / 0.283                  L 219
+    -> fur = r_frac >= 0.415 AND b_frac <= 0.285 AND L <= 190.
+    bottom 505: last fur at x=811 y=505; the y=504 run is x 810-812. Patch mean
+      x808-813 y500-504 = r/b frac 0.439/0.270, L 136 -> FUR. Patch immediately
+      below, x808-813 y507-511 = 0.356/0.319, L 188 -> FLOOR/ring. Bottom = 505.
+    left 766: arm tip x766-769 y427-432 = 0.457/0.253, L 98 -> FUR. Immediately
+      left, x762-765 same rows = 0.400/0.300, L 112 -> FLOOR. Left = 766.
+    right 817: shoulder x813-817 y426-428 = 0.424/0.277, L 97 -> FUR. Immediately
+      right, x818-822 = 0.360/0.327, L 130 -> FLOOR. Right = 817. (See A4.)
+    generous bottom 513: last row with attached aura FX (L > 190) inside
+      x 770-830 is y=513, x 798-805. y=514 and below: zero. Generous = 513.
+
+================================================================================
+6. DECLARED AMBIGUITIES AND NEGATIVE RESULTS — nothing resolved silently
+================================================================================
+A1. CROWN OCCLUSION BY THE CYAN HUD SELF-MARKER BAR.  DECLARED, BOUNDED, NOT
+    RESOLVED. The bar occupies x 798-805 in every frame and descends to y=423
+    (1027) / y=425 (1062). On 1027 the head's fur onset is y=416 at x 806-807 and
+    y=418 at x 796-797, i.e. the apex sits at the bar's right shoulder. Linear
+    interpolation across the eight occluded columns puts a hidden apex no higher
+    than y=415. THE CROWN COULD THEREFORE BE 1-2 px HIGHER THAN REPORTED, which
+    would move the number of record from 9.889 % to at most 10.111 %. Reported
+    both ways; the measured value is the number of record.
+
+A2. THE LOWER-RIGHT DARK MASS ON 1027 — leg, or cast shadow?  RESOLVED TO BODY,
+    on chromaticity, with the discriminator stated. The one-sun vector is az 137
+    deg / el 66 deg (run log), so a ground shadow would be a darkened sample of
+    the floor's own hue. Measured: the mass at x808-816 y496-504 reads r/b
+    fraction 0.440/0.267 — fur chromaticity, b well below floor's 0.31-0.34. The
+    adjacent mass at x814-820 y504-510 reads 0.350/0.316 — floor. The classifier
+    therefore places the boundary at y=505 without my choosing it there.
+
+A3. FRAME 1027's y=422-423 GAP in the fur map.  DECLARED AS A THRESHOLD ARTEFACT,
+    not an absence of body: those two rows are the shaded top of the skull, whose
+    r-fraction dips below 0.415. The luminance-deviation instrument shows the head
+    continuous through them. This is exactly why the chroma map is a BRACKET and
+    the manual read is the number.
+
+A4. RIGHT EDGE OF 1027 — 817 or 819?  REPORTED CONSERVATIVELY AT 817. Rows 474-477
+    carry fur-classified pixels out to x=819, but that band reads L 157 with
+    r-g = 74 — the signature of the red telegraph arc, not of fur (which reads
+    L 89-136 everywhere else in this frame). With a L <= 150 guard the rightmost
+    unambiguous fur is x=818 at y=476 and x=817 at y=428. 817 is taken. Note this
+    affects w_px only; h_frac is untouched.
+
+A5. LEFT-EDGE FALSE POSITIVES AT x 756-759.  EXCLUDED, with the test shown. Those
+    columns read r/b fraction 0.431/0.285 at L 157 — the red telegraph arc again,
+    sitting exactly on the fur threshold. Had they been admitted, left would read
+    756 and w_px 61 instead of 51.
+
+A6. SAMPLE SIZE AND BEAT INDEPENDENCE.  Three frames, three beats, 12.6 s apart at
+    the extremes. Two of the three (685, 1027) return the identical crown row and
+    therefore the identical anchor-referenced h_frac; that is agreement, not
+    replication. The third (1062) reads 1.11 pp lower on a different standing pose.
+    The spread is POSE spread, not camera spread — the camera is locked and audited.
+
+N1. THE CHROMATICITY DISCRIMINATOR HOLDS ON ONE FRAME OUT OF THREE. On 685 and
+    1062 the floor within the carried light's 9 m radius is itself warm, so the
+    fur test floods the whole lower half of the read window (printed maps retained).
+    This is why the full-silhouette bbox exists for 1027 alone, and why the other
+    two frames contribute a crown and nothing below it. Stated rather than papered
+    over: I did not find a second frame in 1211 where both silhouette edges are
+    honestly adjudicable.
+
+N2. FRAME 520 MEASURED, THEN DROPPED. It survived every automated filter and then
+    failed the eye: across x 748-800, y 408-439 the subject's maximum deviation
+    from its row reference is 6 L. The werewolf is very nearly isoluminant with
+    its floor there. No crown could be named honestly, so none was. Its sha is
+    recorded in section 2 so the negative result is reproducible.
+
+N3. LUMINANCE-ONLY SCANNING FAILED AS A FRAME-SELECTOR, twice, and both failures
+    are informative. (i) A wide-box "darkness" metric ranked the all-black end card
+    as the cleanest frames in the clip. (ii) A red-dominance metric intended to
+    detect floating combat numerals fired at 0.197 on frame 1027 — on the
+    werewolf's OWN warm-lit fur. Discarded as a HUD detector; visual triage did
+    that job instead.
+
+N4. WHAT THIS CELL STILL CANNOT ANSWER: whether the werewolf's near paw is
+    typically ~9 px below the audited root row across the clip. Measured on one
+    frame. Applying that offset to 685 and 1062 would be desk arithmetic dressed
+    as measurement, so it is offered in section 9 as an inference and nowhere else.
+
+================================================================================
+7. CROSS-CHECKS
+================================================================================
+(a) DECLARED S8 PNG CROSS-CHECK (NOTE-95 — secondary, never primary).
+    First, the laps do NOT frame-match. Best-matching S8 PNG to mp4 frame 1027,
+    by mean absolute error over x 700-900 y 380-560, is BR2WS8_0047.png at
+    MAE 27.5/255 (worst in set 66.6). Index 47 of 330 is inconsistent with any
+    linear time map to t = 34.233 s. NOTE-95 is confirmed empirically: those PNGs
+    are a different render lap and are not a substitute for the mp4's own frames.
+
+    Second, ONE automated instrument was run over BOTH laps so they can still be
+    compared. Rule (tmpframes/autocrown.py): scanning y from 402, crown = first row
+    with a >= 3-column run at >= 28 L below the row median, within x 772-826,
+    cyan bar excluded; h_auto = (495.83 - crown) / 900.
+        C9 mp4, every 10th frame   122 frames, 106 detected, MEDIAN 9.037 %
+                                   p25 7.120  p75 10.426
+        S8 PNG lap, all frames     330 frames, 318 detected, MEDIAN 8.537 %
+                                   p25 6.981  p75 10.203
+    The two laps agree to 0.50 pp on the median (5.5 % relative). The register is a
+    property of camera and body, not of the lap.
+    CAVEAT STATED: the rule SATURATES at the scan-start row on 27 % (C9) and 20 %
+    (S8) of detected frames — dark FX or a mob passing above the player. Both
+    automated medians are therefore UPPER-biased brackets, not numbers.
+
+(b) INTERNAL CONSISTENCY. The hand-adjudicated crown-to-anchor median over the
+    three chosen frames is 8.870 %. The automated whole-clip median on the same
+    lap is 9.037 %. Difference 0.167 pp — the hand reads sit inside the automated
+    bracket, on its low side, consistent with the saturation bias above.
+
+================================================================================
+8. CAMERA CONTEXT — for the receipt only; no number above derives from it
+================================================================================
+CAM-LOCK `player_lock`, printed identically in all four run logs:
+    pitch 52.9535 deg   fov_v 31.7861 deg (VERTICAL, KEEP_HEIGHT)   yaw 47.0 deg
+    offset (camera - player ground) = (14.7262, 28.3970, 13.7826) m
+    |offset| 34.8312 m   height 28.3970 m   z_player 34.8165 m
+    anchor (0.50104, 0.55093) frac, player-LOCKED per frame
+    PL-AUDIT anchor error (-0.000415, -0.000867) frac
+    viewport 1600 x 900; seed 74000909; 1211 frames; 40.367 s
+Body arm on the same watch: `BODY WEREWOLF x1.29 parity (full cast)`.
+I measured pixels. The x1.29 does not enter any number here.
+
+================================================================================
+9. LANDINGS — and the confound, restated, not buried
+================================================================================
+On one method throughout (all reference rows quoted from
+captures/2026-07-31-gd-parity/gd-parity-numbers.json and the 2026-08-14 cell):
+
+    GD human form                  7.037 %
+    vh-rig frame (WW-2, DEMOTED)   9.444 %
+    BR2W ratified reference        9.889 %   <== this cell, tight bbox
+    arena candidate @ 72.857 m    12.963 %
+    GD werewolf median            14.769 %
+    GD boss-tier (coarse)         21.574 %
+
+    BR2W / GD werewolf   0.670 x      BR2W / GD human      1.405 x
+    BR2W / arena         0.763 x      arena / BR2W         1.311 x linear
+                                                           1.718 x in screen area
+    BR2W sits 36.9 % of the way from GD's man to GD's beast.
+    BR2W vs the demoted vh-rig frame: +0.444 pp, +4.71 % relative.
+
+INFERENCE, NOT MEASUREMENT (offered once, here, and nowhere else per NOTE-62):
+if the near paw sat ~9 px below the audited root row on 685 and 1062 as it does on
+1027, their bbox numbers would read ~9.9 % and ~8.8 %. UNVERIFIED. Do not quote.
+
+THE CONFOUND. Subject-height fraction conflates CAMERA FRAMING with BODY SIZE.
+These rows photograph DIFFERENT BODIES. A difference in h_frac does not by itself
+establish that two cameras differ, and equality would not establish that they
+match. This cell supplies screen register for the artifact Matt ratified, and
+nothing else. R-CPB-17b's "zoom/angle looks the same" is Matt's eye and gandalf's
+reading, not mine.
+
+================================================================================
+10. INSTRUMENTS
+================================================================================
+tracked, under pipeline/gd-parity/:
+    gp_ruler.py        integer-zoom crop with a source-pixel ruler — the read surface
+    br2w_rows.py       NEW. per-row deviation-from-row-median class map
+    br2w_chroma.py     NEW. fur-vs-floor chromaticity map with calibration in its docstring
+untracked, under tmpframes/ (regenerable, listed in .gitignore):
+    fxscan.py fxscan2.py sepscan.py sheet.py sheet2.py crown.py autocrown.py
+gp_seg.py was NOT used on this clip: its colour-distance seeding cannot separate a
+warm-lit subject from a warm-lit floor, which is the whole difficulty here. Skipped
+deliberately rather than run for the look of it.
