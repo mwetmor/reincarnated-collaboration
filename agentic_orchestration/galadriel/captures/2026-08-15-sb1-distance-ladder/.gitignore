@@ -1,0 +1,17 @@
+# SB-1 Cell WW-4a (SB1-DISTANCE-LADDER) — class-E law: TEXT in git, BYTES on
+# disk, SHA bridges. The four rung stills under evidence/ are DELIBERATELY
+# UNTRACKED; their sha256 and byte size live in receipt.txt § 6, which is the
+# committed record of them.
+#
+# ⚑ THEIR FILENAMES STATE THEIR TRUE DIMENSIONS (1920x1080), read from each PNG's
+#   own IHDR after the render — NOT the 1600x900 that was requested. The request
+#   does not reach Godot's Movie Maker encoder; see receipt.txt § 4 for the
+#   measured diagnosis. NOTE-97: capture dims are an operand, read them from the
+#   bytes.
+#
+# Regenerate all four, byte-for-byte, from reincarnated-godot at the HEAD named
+# in receipt.txt § 3:
+#     bash scripts/run_ww4a_distance_ladder.sh
+#
+evidence/*.png
+.DS_Store
