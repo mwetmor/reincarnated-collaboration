@@ -1,0 +1,114 @@
+{
+ "field_is_not_a_dbr_field": true,
+ "lua_gate_verbatim": [
+  "waveEvent.numSpawns = table.getn(entity)",
+  "local bonusSpawnStatus = gd.survival.rewards.checkBonusStatus()",
+  "if (waveEvent.waves[id][waveEvent.waveIndex] != nil && (id < waveEvent.numSpawns || bonusSpawnStatus == true)) then"
+ ],
+ "checkBonusStatus_body": "return bonusChest",
+ "bonusChest_setter_body": "if Server && not bonusChest then\r\n\t\tLuaGlobalEvent(\"bonusChestTokenGlobalMP\")\r\n\t\tbonusChest = true\r\n\r\n\t\tlocal spawn = Entity.Get(spawnPoint06FxId)\r\n\t\tlocal coords = spawn:GetCoords()\r\n\t\t\r\n\t\tlocal fx = Entity.Create(\"records/fx/ambient/fx_eldritchrift_medium01.dbr\")\r\n\r\n\t\tif (fx != nil) then\r\n\t\t\tfx:NetworkEnable()\r\n\t\t\tfx:SetCoords(coords)\r\n\t\tend\r\n\t\r\n\tend",
+ "p06_declared_by_wave": {
+  "151": false,
+  "152": true,
+  "153": true,
+  "154": false,
+  "155": true,
+  "156": true,
+  "157": true,
+  "158": true,
+  "159": false,
+  "160": true
+ },
+ "p06_proxy_by_wave": {
+  "151": null,
+  "152": "records/proxies/tier16waves/proxy_w02_p06a.dbr",
+  "153": "records/proxies/tier16waves/proxy_w03_p06a.dbr",
+  "154": null,
+  "155": "records/proxies/tier16waves/proxy_w05_p06a.dbr",
+  "156": "records/proxies/tier16waves/proxy_w06_p06a.dbr",
+  "157": "records/proxies/tier16waves/proxy_w07_p06a.dbr",
+  "158": "records/proxies/tier16waves/proxy_w08_p06a.dbr",
+  "159": null,
+  "160": "records/proxies/tier16waves/proxy_w10_p06a.dbr"
+ },
+ "spawn_points_declared_by_wave": {
+  "151": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "152": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "153": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "154": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "155": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "156": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "157": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "158": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "159": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "160": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ "proxy_list_lengths_in_tier16": [
+  0,
+  1
+ ]
+}

@@ -1,0 +1,143 @@
+{
+ "resolver_symbol_region": "Game.dll sub_10357590 (non-exported; int3 bounds 0x357590..0x357e30)",
+ "loader_symbol_region": "Game.dll sub_10357330 (ProxyPool::Load)",
+ "addresses": {
+  "exemption_branch": "0x103575f7 cmp byte [edi+0x34],0 ; jne 0x10357904",
+  "spawnMin_additive": "0x103576f0 addss xmm0,[ebp-0x18] ; call 0x104bfcf0",
+  "spawnMin_modifier": "0x1035770a mulss xmm0,[0x105f5780] (=0.01f) ; call 0x104bfcf0",
+  "spawnMin_waveadj": "0x10357797 mov eax,[esi] ; add [edi+0x20],eax",
+  "championChance_gate": "0x1035796a movss xmm0,[edi+0x30] ; jbe 0x103579b0 (BYPASS)",
+  "championChance_roll": "0x1035799e RandomFloat(0,100) ; ja 0x10357c04",
+  "champion_count_draw": "0x10357a00 sub esi,edx ; inc esi ; rand() ; idiv esi ; add cmin",
+  "champion_topup": "0x10357b12 cmp size,[edi+0x28] ; emit championMin - size",
+  "regular_clamp_lo": "0x10357c69 sbb/and/cmovb -> lo = min(max(spawnMin,0),spawnMax)",
+  "regular_count_draw": "0x10357c92 rand() ; idiv [ebp+8] ; add lo",
+  "regular_budget_subtract": "0x10357ca5 ecx -= ([edi+0xb4]-[edi+0xb0])/4",
+  "regular_topup": "0x10357d4a cmp size,[edi+0x20] ; emit spawnMin - size",
+  "weighted_picker": "0x103583d0 (level filter + limit!=0 + weight sum + dec limit)",
+  "forced_entry_scan": "0x103585c0 (limit>0 AND flag[+0x28] -> take, dec limit)",
+  "emit_one_body": "0x10358610 (push_back into [edi+0xb0], RegisterProxyHeroBoss)",
+  "float_to_int": "0x104bfcf0 (MSVC float->int32, TRUNCATION toward zero)",
+  "prng_lehmer": "0x103575c7 next = (seed*16807) mod 2147483647 (Park-Miller)",
+  "field_offsets": {
+   "spawnMin": "+0x20",
+   "spawnMax": "+0x24",
+   "championMin": "+0x28",
+   "championMax": "+0x2c",
+   "championChance": "+0x30 (float)",
+   "ignoreGameBalance": "+0x34",
+   "spawnMinEquation": "+0x38",
+   "spawnMaxEquation": "+0x50",
+   "championMinEquation": "+0x68",
+   "championMaxEquation": "+0x80",
+   "regular_selections": "+0x98",
+   "champion_selections": "+0xa4",
+   "emitted_bodies": "+0xb0"
+  }
+ },
+ "gameproxies": {
+  "record": "records/game/gameproxies.dbr",
+  "values": {
+   "championMax": [
+    0.0,
+    1.0,
+    1.0
+   ],
+   "championMin": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spawnMax": [
+    0.0,
+    1.0,
+    1.0
+   ],
+   "spawnMin": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spawnMinModifier": [
+    0.0,
+    112.0,
+    120.0
+   ]
+  },
+  "difficulty_index_used": 2
+ },
+ "challenge_adjustment": {
+  "candidates": [
+   "records/game/balancingadjustment_survivalmode_enemies01.dbr",
+   "records/game/balancingadjustment_survivalmode_enemies02.dbr",
+   "records/game/balancingadjustment_survivalmode_enemies03.dbr"
+  ],
+  "all_candidates_agree_over_band": true,
+  "values_over_band": {
+   "151": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "152": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "153": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "154": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "155": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "156": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "157": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "158": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "159": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   },
+   "160": {
+    "spawnMinAdj": 0,
+    "spawnMaxAdj": 0,
+    "spawnChampionMinAdj": 1,
+    "spawnChampionMaxAdj": 1
+   }
+  }
+ },
+ "proxy_pool_equation_census": {
+  "records/proxies/proxypoolequation_01.dbr": 139
+ },
+ "empty_roster_disposition": "NO_OP_ON_EMPTY (DECODED)"
+}

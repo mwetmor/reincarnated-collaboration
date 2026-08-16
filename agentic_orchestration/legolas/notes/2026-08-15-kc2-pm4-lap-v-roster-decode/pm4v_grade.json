@@ -1,0 +1,326 @@
+{
+ "prediction_sha256_verified": "450d52c9c5c430b528d1e2435760ff2ed45dec60c53a3b1981c20cc9701e275b",
+ "referent_note": "19-36 living inside 11.64 m, median 25, a LOWER bound (Lap U B-1). Used ONLY as a grade. Roster is a CEILING on concurrency (prereg B-2), so every grade below is a NECESSARY-condition grade and proves no sufficiency.",
+ "grade_p06_on": {
+  "limb": "p06 ON (bonusSpawnStatus == true)",
+  "G1_waves_whose_envelope_max_reaches_19": 7,
+  "G1_which": [
+   151,
+   152,
+   153,
+   155,
+   156,
+   157,
+   158
+  ],
+  "G2_decoded_median_expected_roster": 21.1875,
+  "G2_vs_referent_median_25_ratio": 0.8475,
+  "G2_vs_referent_median_25_difference": -3.8125,
+  "G3_wave160_expected": 7.0,
+  "G3_wave160_envelope": [
+   7,
+   7
+  ],
+  "G3_wave160_shortfall_vs_19": 12.0,
+  "total_expected_bodies_over_band": 197.0833
+ },
+ "grade_p06_off": {
+  "limb": "p06 OFF (bonusSpawnStatus == false)",
+  "G1_waves_whose_envelope_max_reaches_19": 4,
+  "G1_which": [
+   151,
+   153,
+   157,
+   158
+  ],
+  "G2_decoded_median_expected_roster": 16.6667,
+  "G2_vs_referent_median_25_ratio": 0.6667,
+  "G2_vs_referent_median_25_difference": -8.3333,
+  "G3_wave160_expected": 4.0,
+  "G3_wave160_envelope": [
+   4,
+   4
+  ],
+  "G3_wave160_shortfall_vs_19": 15.0,
+  "total_expected_bodies_over_band": 172.0833
+ },
+ "preregistered_priors": {
+  "PRIOR_1_median_in_20_26": true,
+  "PRIOR_1_value": 21.1875,
+  "PRIOR_2_at_least_3_waves_expected_below_19": 3,
+  "PRIOR_2_holds": true,
+  "PRIOR_3_wave160_below_19": true,
+  "PRIOR_3_point_guess_8_to_12_hit": false,
+  "PRIOR_4_G1_k_le_7": true,
+  "PRIOR_4_k": 7
+ },
+ "per_wave": [
+  {
+   "wave": 151,
+   "decoded_on": {
+    "mean": 26.5,
+    "lo": 24,
+    "hi": 29
+   },
+   "decoded_off": {
+    "mean": 26.5,
+    "lo": 24,
+    "hi": 29
+   },
+   "incumbent_sim_on": {
+    "mean": 26.5,
+    "lo": 24,
+    "hi": 29
+   },
+   "incumbent_sim_off": {
+    "mean": 26.5,
+    "lo": 24,
+    "hi": 29
+   },
+   "delta_expected_on": 0.0,
+   "delta_expected_off": 0.0,
+   "as_run_single_roll": 28
+  },
+  {
+   "wave": 152,
+   "decoded_on": {
+    "mean": 20.0,
+    "lo": 20,
+    "hi": 20
+   },
+   "decoded_off": {
+    "mean": 17.0,
+    "lo": 17,
+    "hi": 17
+   },
+   "incumbent_sim_on": {
+    "mean": 20.75,
+    "lo": 20,
+    "hi": 21
+   },
+   "incumbent_sim_off": {
+    "mean": 17.75,
+    "lo": 17,
+    "hi": 18
+   },
+   "delta_expected_on": -0.75,
+   "delta_expected_off": -0.75,
+   "as_run_single_roll": 18
+  },
+  {
+   "wave": 153,
+   "decoded_on": {
+    "mean": 26.5,
+    "lo": 26,
+    "hi": 27
+   },
+   "decoded_off": {
+    "mean": 23.5,
+    "lo": 23,
+    "hi": 24
+   },
+   "incumbent_sim_on": {
+    "mean": 26.5,
+    "lo": 26,
+    "hi": 27
+   },
+   "incumbent_sim_off": {
+    "mean": 23.5,
+    "lo": 23,
+    "hi": 24
+   },
+   "delta_expected_on": 0.0,
+   "delta_expected_off": 0.0,
+   "as_run_single_roll": 24
+  },
+  {
+   "wave": 154,
+   "decoded_on": {
+    "mean": 11.0,
+    "lo": 11,
+    "hi": 11
+   },
+   "decoded_off": {
+    "mean": 11.0,
+    "lo": 11,
+    "hi": 11
+   },
+   "incumbent_sim_on": {
+    "mean": 12.0,
+    "lo": 11,
+    "hi": 13
+   },
+   "incumbent_sim_off": {
+    "mean": 12.0,
+    "lo": 11,
+    "hi": 13
+   },
+   "delta_expected_on": -1.0,
+   "delta_expected_off": -1.0,
+   "as_run_single_roll": 13
+  },
+  {
+   "wave": 155,
+   "decoded_on": {
+    "mean": 19.333333333333332,
+    "lo": 19,
+    "hi": 21
+   },
+   "decoded_off": {
+    "mean": 16.333333333333332,
+    "lo": 16,
+    "hi": 18
+   },
+   "incumbent_sim_on": {
+    "mean": 21.333333333333332,
+    "lo": 21,
+    "hi": 23
+   },
+   "incumbent_sim_off": {
+    "mean": 18.333333333333332,
+    "lo": 18,
+    "hi": 20
+   },
+   "delta_expected_on": -2.0,
+   "delta_expected_off": -2.0,
+   "as_run_single_roll": 18
+  },
+  {
+   "wave": 156,
+   "decoded_on": {
+    "mean": 22.875,
+    "lo": 21,
+    "hi": 24
+   },
+   "decoded_off": {
+    "mean": 15.875,
+    "lo": 14,
+    "hi": 17
+   },
+   "incumbent_sim_on": {
+    "mean": 24.875,
+    "lo": 22,
+    "hi": 27
+   },
+   "incumbent_sim_off": {
+    "mean": 17.875,
+    "lo": 15,
+    "hi": 20
+   },
+   "delta_expected_on": -2.0,
+   "delta_expected_off": -2.0,
+   "as_run_single_roll": 19
+  },
+  {
+   "wave": 157,
+   "decoded_on": {
+    "mean": 22.375,
+    "lo": 18,
+    "hi": 24
+   },
+   "decoded_off": {
+    "mean": 19.375,
+    "lo": 15,
+    "hi": 21
+   },
+   "incumbent_sim_on": {
+    "mean": 23.375,
+    "lo": 19,
+    "hi": 25
+   },
+   "incumbent_sim_off": {
+    "mean": 20.375,
+    "lo": 16,
+    "hi": 22
+   },
+   "delta_expected_on": -1.0,
+   "delta_expected_off": -1.0,
+   "as_run_single_roll": 21
+  },
+  {
+   "wave": 158,
+   "decoded_on": {
+    "mean": 36.0,
+    "lo": 30,
+    "hi": 45
+   },
+   "decoded_off": {
+    "mean": 33.0,
+    "lo": 27,
+    "hi": 42
+   },
+   "incumbent_sim_on": {
+    "mean": 36.0,
+    "lo": 30,
+    "hi": 45
+   },
+   "incumbent_sim_off": {
+    "mean": 33.0,
+    "lo": 27,
+    "hi": 42
+   },
+   "delta_expected_on": 0.0,
+   "delta_expected_off": 0.0,
+   "as_run_single_roll": 33
+  },
+  {
+   "wave": 159,
+   "decoded_on": {
+    "mean": 5.5,
+    "lo": 5,
+    "hi": 7
+   },
+   "decoded_off": {
+    "mean": 5.5,
+    "lo": 5,
+    "hi": 7
+   },
+   "incumbent_sim_on": {
+    "mean": 9.25,
+    "lo": 7,
+    "hi": 11
+   },
+   "incumbent_sim_off": {
+    "mean": 9.25,
+    "lo": 7,
+    "hi": 11
+   },
+   "delta_expected_on": -3.75,
+   "delta_expected_off": -3.75,
+   "as_run_single_roll": 9
+  },
+  {
+   "wave": 160,
+   "decoded_on": {
+    "mean": 7.0,
+    "lo": 7,
+    "hi": 7
+   },
+   "decoded_off": {
+    "mean": 4.0,
+    "lo": 4,
+    "hi": 4
+   },
+   "incumbent_sim_on": {
+    "mean": 8.0,
+    "lo": 8,
+    "hi": 8
+   },
+   "incumbent_sim_off": {
+    "mean": 5.0,
+    "lo": 5,
+    "hi": 5
+   },
+   "delta_expected_on": -1.0,
+   "delta_expected_off": -1.0,
+   "as_run_single_roll": 5
+  }
+ ],
+ "totals": {
+  "decoded_on": 197.0833,
+  "decoded_off": 172.0833,
+  "incumbent_on": 208.5833,
+  "incumbent_off": 183.5833,
+  "as_run_single_roll": 188
+ }
+}
