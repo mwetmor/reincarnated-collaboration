@@ -1,0 +1,30 @@
+# SB-1 Cell WW-7 (GATE-2 CLIP) — class-E law: TEXT in git, BYTES on disk, SHA
+# bridges. The promoted MP4 and the continuity PNG are DELIBERATELY UNTRACKED;
+# their sha256 and byte size live in receipt.txt, which is the committed record
+# of them.
+#
+# ⚑ THE CLIP IS THE GATE-2 EYEBALL OBJECT. Matt's gate 2 (article FEEL —
+#   density, palette, cadence read, FX draw) is judged on MOTION, so the object
+#   is an mp4, not a still. Gate 1 (camera match) already PASSED at R-CPB-18 on
+#   arena-pl-k0665-n160-1920x1080.png (sha 4c88de0d…); this clip is that same
+#   camera, moving.
+#
+# ⚑ THE FILENAME STATES THE TRUE DIMENSIONS, READ FROM THE STREAM BY ffprobe
+#   AFTER the render — never from the invocation's intent (NOTE-97). Godot's
+#   Movie Maker locks its encode size to project.godot's viewport and ignores
+#   every per-run override (MEASURED at WW-4a v2); this runner therefore asks
+#   for nothing else and names what it got.
+#
+# ⚑ evidence/ww7-clipframe-n160-decoded-*.png is CODEC-DECODED out of the mp4.
+#   It is a CONTINUITY exhibit — same camera, same tick as the gate-1 ruling
+#   still — and is NOT byte-comparable to that still, which is a Movie-Maker
+#   PNG. See receipt.txt.
+#
+# Regenerate, from reincarnated-godot at the HEAD named in receipt.txt § 2:
+#     bash scripts/run_ww7_gate2_clip.sh              # pass 1
+#     PASS=2 bash scripts/run_ww7_gate2_clip.sh       # pass 2
+#     MODE=gate bash scripts/run_ww7_gate2_clip.sh    # x2 gate + ffprobe + promote
+#
+*.mp4
+evidence/*.png
+.DS_Store

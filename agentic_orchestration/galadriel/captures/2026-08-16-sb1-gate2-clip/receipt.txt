@@ -1,0 +1,451 @@
+================================================================================
+SB-1 CELL WW-7 v2 — GATE-2 CLIP
+The A/B cadence clip, re-rendered at the camera GATE 1 passed (--plk 0.665).
+================================================================================
+Cell        SB-1 WW-7 v2 (second lap; v1 died incomplete — see § 9)
+Seat        drax (presentation seam)
+Conductor   gandalf (RUN-CONDUCTOR); run-ledger row WW-6 routes this cell
+Date        2026-08-16
+Verdict     ALL FIVE PRE-REGISTERED GATES GREEN. DELIVERABLE PROMOTED.
+
+WHAT THIS IS FOR. Matt's eyeball gate R-CPB-17b has two halves. GATE 1 (camera
+match) PASSED at R-CPB-18 and its ruling object is a STILL. GATE 2 (article FEEL
+— density, palette knee, cadence read, FX draw) is judged on MOTION, and a still
+cannot carry it. This is the A/B cadence clip Matt already knows the grammar of,
+rendered at the gate-1-passed camera, so his gate-2 eye has its object.
+
+THE PROMOTED OBJECT
+  ww7-gate2-cadence-ab-plk0665-1920x1080.mp4
+  sha256  7e9764e3fc53096128ef6b64d2a624962c1f3df599ae5e4aaf311347c0b828ca
+  bytes   12749012
+  Class-E: the MP4 lives on disk UNTRACKED; this text is its committed record.
+
+
+--------------------------------------------------------------------------------
+1. GATE 1 — INPUT.  VERDICT: PASS
+--------------------------------------------------------------------------------
+Every input re-read FROM BYTES in this session. Nothing inherited on trust.
+
+  godot HEAD          a09057cd7eab03d71b51ac618e7660c3e6100e3a  ("a09057c")
+                      = SB-1 Cell WW-4a v2 — the commit that shipped `--plk`.
+  Godot build         4.6.3.stable.official.7d41c59c4   (metal renderer)
+  ffmpeg / ffprobe    8.1.2  (/opt/homebrew/bin)
+
+  scripts/kc2_cpb_clip.gd            81130 B
+    sha256  6932ef35bc13d4cdfbe2da8f1ca2b95ab5d934f52cbb4349360c55f39200c708
+    Charter named the 6932ef35… prefix; re-hashed here and CONFIRMED.
+  scripts/run_ww7_gate2_clip.sh      19197 B
+    sha256  c1b72ca8316473148c08dde08f12e39bfbc6f21d35ba89753a9f4005395334c1
+    v1's runner, ADOPTED (§ 9). Byte-unchanged by this cell.
+  scenes/kc2_cpb_clip.tscn             173 B  -> ExtResource kc2_cpb_clip.gd
+
+  GATE-1 RULING STILL, re-verified from bytes:
+    2026-08-15-sb1-distance-ladder/evidence/arena-pl-k0665-n160-1920x1080.png
+    sha256  4c88de0d92cdcaffd995233fc69990f9ed1d7e9a30f9d2ca79c2bb943af2d71f
+    MATCHES the charter's pre-registered value character for character.
+
+  SOURCE CLIP whose grammar is reproduced, re-verified from bytes:
+    2026-08-13-sb1-a2gr-lookdist/a2gr-lookdist-cadence-ab.mp4
+    sha256  017aebf4bb92cfffc864dd184cdfaaf99c85864e63ab65f7f44937b6d8d1ec16
+    Its MANIFEST.json /fg9/promote_gate pins the same 017aebf4… and records
+    "21.93s". Its FG-12 prune receipts record "320 frames" per segment, which
+    is the segment length reproduced here.
+
+  BATON / SCENE identity, printed identically on all four deliverable renders:
+    [kc2_baton] GATE PASS | digest d7ecd866ac45 (MATCH) | 344 actors | 20 waves
+                | 1003 knots | 1900 event rows | tick_period_s=0.0816326530612245
+    [kc2-arena] built: floor 86.915 x 85.303 m · 6 emitters · 344 bodies
+                · 8 declared absences
+
+  THE ONE AUTHORED CHANGE FROM THE SOURCE INVOCATION, NAMED: the camera argument
+  moves `canon` -> `player_lock` and `--plk 0.665` is added. Nothing else moves —
+  same scene, same shot id, same tick window, same cadence booleans, same
+  preroll, same fps, same encoder settings, same seam, same concat. "Add --plk to
+  the canon pose" is not available: kc2_cpb_clip.gd:473 HALTS on it, because a k
+  handed to the canon pose would be a knob that does nothing.
+
+
+--------------------------------------------------------------------------------
+2. THE INVOCATIONS, EXACTLY AS RUN
+--------------------------------------------------------------------------------
+From ~/Games/reincarnated-godot at HEAD a09057c:
+
+  # capped smoke — proves the invocation, the lock line and the clamp path.
+  # CANNOT reach a deliverable: capped runs are renamed -SMOKE at the temp and
+  # MODE=gate reads only pass1 / pass2.
+  FRAMECAP=4 bash scripts/run_ww7_gate2_clip.sh
+
+  # the two deliverable passes (SEPARATE INVOCATIONS — that is the x2 gate)
+  bash scripts/run_ww7_gate2_clip.sh
+  PASS=2 bash scripts/run_ww7_gate2_clip.sh
+
+  # x2 compare + ffprobe verification + promotion + continuity frame
+  MODE=gate bash scripts/run_ww7_gate2_clip.sh
+
+The Godot invocation each pass issues, twice (one per segment):
+
+  /Applications/Godot.app/Contents/MacOS/Godot --rendering-driver metal \
+    --path <reincarnated-godot> \
+    --write-movie "<tmp>/frames-<SEG>-pass<N>/frame.png" --fixed-fps 30 \
+    --disable-vsync scenes/kc2_cpb_clip.tscn --quit-after 6000 -- \
+    --out "<tmp>/sidecars-pass<N>" --shot canon --cam player_lock --plk 0.665 \
+    --undulate off|on --frames 0 --preroll 60
+
+NO --width / --height, DELIBERATELY. The scene's defaults ARE 1920x1080
+(kc2_cpb_clip.gd:36-37). See § 7.
+
+CLIP GRAMMAR, as measured on both passes:
+  segment A  --undulate off  "cadence: STATIONARY (A2d's law) at 17 births/rev"
+             raw 380 frames -> preroll 60 pruned -> 320
+  seam       0.60 s held black at 1920x1080, 30 fps, same encoder settings
+             = 18 frames (the designed dip)
+  segment B  --undulate on   "cadence: UNDULATING (epochs, R-CPB-14) at 17/rev"
+             raw 380 frames -> preroll 60 pruned -> 320
+  total      320 + 18 + 320 = 658 frames @ 30 fps = 21.933333 s
+  shot span  ticks 1570.00 -> 1700 (10.61 s of trace), 319 frames at 30 fps
+             + 60 tick-frozen warm-up frames, pruned before the encode
+  encode     libx264, yuv420p, crf 12, preset slow; concat is -c copy
+
+
+--------------------------------------------------------------------------------
+3. GATE 2 — THE LOCK LINE.  VERDICT: PASS (both passes, both segments)
+--------------------------------------------------------------------------------
+The scene's UNSCALED pin check fires FIRST; k applies AFTER, in the open.
+
+PASS 1 and PASS 2 printed CHARACTER-IDENTICAL lock blocks. Verbatim:
+
+  [cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m
+        anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+  [cpb] ⚑ WW-4a DISTANCE LADDER: --plk k = 0.665000 — a DOLLY along the lock
+        vector, NOT a zoom. Rotation (pitch 52.9535 / yaw 47.0), lens
+        (fov_v 31.7861, KEEP_HEIGHT) and the anchor expectation are UNTOUCHED;
+        only the offset's length scales.
+  [cpb] player_lock ported offset (k=1, THE PORT, pinned below)
+        = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+  [cpb] player_lock: offset (camera - player ground) = k * ported
+        = (9.7929, 18.8840, 9.1654) m  |offset| 23.1627 m  height 18.8840 m
+        (full precision: 9.7929267883301, 18.8840122222900, 9.1654367446899
+         · stand-off 23.1627407073975 m)
+  [cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta
+        0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m
+        — MATCH
+  [cpb] camera gate: PASS (9 rays)
+  [cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925);
+        expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac
+        = (0.0002, 0.0001) px at 1920 x 1080
+
+MATCH AGAINST THE OPERANDS OF RECORD — 2026-08-15-sb1-distance-ladder/receipt.txt
+(WW-4a v2), its k = 0.665 rung:
+
+  operand                   WW-4a v2 receipt of record       THIS CELL, measured
+  ------------------------  -------------------------------  -------------------
+  offset_k x                9.7929267883301                  IDENTICAL
+  offset_k y                18.8840122222900                 IDENTICAL
+  offset_k z                9.1654367446899                  IDENTICAL
+  stand-off |offset|        23.1627407073975 m               IDENTICAL
+  ported offset (k=1)       (14.7262048721313,               printed 4-dp as
+                             28.3970108032227,               (14.7262, 28.3970,
+                             13.7826108932495) m              13.7826); the PIN
+                                                              below proves the
+                                                              full-precision value
+  UNSCALED pin delta        0.000000000000 m                 0.000000000000 m
+  z_player pin delta        0.000000000000 m                 0.000000000000 m
+  pin tolerance             1.0e-5 m                         1.0e-5 m
+  pitch (down)              52.9535411256029 deg             52.9535 deg printed
+  fov_v (VERTICAL,KEEP_HT)  31.7861018306101 deg             31.7861 deg printed
+  yaw                       47.0 deg                         47.0 deg
+  anchor expected           (0.501041450500488,              (0.501041, 0.550925)
+                             0.550925123426649) frac          printed
+  camera gate               PASS (9 rays)                    PASS (9 rays)
+
+ANCHOR DELTA, READ AS A FRACTION FIRST (resolution-independent, per WW-4a v2's
+own § 4 reasoning): delta (0.000000, 0.000000) frac. Restated in px on THESE
+bytes: (0.0002, 0.0001) px against the anchor pixel
+  0.501041450500488 * 1920 = 962.00   and   0.550925123426649 * 1080 = 595.00
+i.e. px (962.0, 595.0) at 1920 x 1080. Charter tolerance ~0.000244 px; measured
+0.0002 px in x and 0.0001 px in y. WITHIN TOLERANCE, both axes, both passes.
+
+  ⚑ AND A NOTE THE OPERANDS OF RECORD DESERVE. WW-4a v2's console lines restated
+    their px "at 1600 x 900" because that cell's still runner PASSED --width 1600
+    --height 900, which reaches the anchor audit's px restatement but never
+    reaches the encoder. THIS cell passes NO --width/--height, so _shot_w/_shot_h
+    are the scene defaults, the audit restates px at 1920 x 1080, and the bytes
+    are 1920 x 1080 — the px denominator and the byte denominator AGREE here.
+    That is why this cell's px row can be quoted without WW-4a v2's 1.2x caveat.
+    The FRACTION is the same number in both cells either way.
+
+  NO HALT. Gate 2 clean on all four segment renders (2 passes x 2 segments).
+
+
+--------------------------------------------------------------------------------
+4. GATE 3 — DETERMINISM x2.  VERDICT: PASS (strongest form)
+--------------------------------------------------------------------------------
+The FULL clip was rendered TWICE, end to end, in two SEPARATE invocations of the
+runner — not one render copied. Each pass re-launched Godot twice (once per
+segment), re-encoded both segments, re-generated the seam and re-concatenated.
+
+  pass 1  sha256 7e9764e3fc53096128ef6b64d2a624962c1f3df599ae5e4aaf311347c0b828ca
+          bytes  12749012      render 154 s (A) + 155 s (B)
+  pass 2  sha256 7e9764e3fc53096128ef6b64d2a624962c1f3df599ae5e4aaf311347c0b828ca
+          bytes  12749012      render 158 s (A) + 158 s (B)
+
+  METHOD   container byte-compare (`cmp -s`)
+  VERDICT  GREEN — the two mp4s are BYTE-IDENTICAL.
+
+  The per-frame `ffmpeg -f framemd5` fallback was NOT needed and did NOT fire:
+  it exists for the case where the containers differ and the frames do not.
+  There is therefore NO container-nondeterminism declaration to make on this
+  cell — the containers matched too. This is the strongest of the two verdicts
+  the gate can return.
+
+  The segment intermediates were byte-identical across passes as well, which is
+  where the determinism actually lives:
+    tmp-A-stationary.mp4   6031625 B (pass 1)   6031625 B (pass 2)
+    tmp-B-undulating.mp4   6715454 B (pass 1)   6715454 B (pass 2)
+  and both passes' sidecars are byte-for-byte the same sizes:
+    shot-A-stationary-canon.json  52160 B / 52160 B
+    shot-B-undulating-canon.json  62958 B / 62958 B
+
+
+--------------------------------------------------------------------------------
+5. GATE 4 — PROMOTION (R-BR-56).  VERDICT: PASS
+--------------------------------------------------------------------------------
+Nothing was promoted until ffprobe READ THE STREAM. The runner lands every
+render on a temporary, PASS-scoped, cell-named path (NOTE-76 / FG-9); promotion
+is a separate mode.
+
+  ffprobe -v error -select_streams v:0 ... :
+    codec_name=h264
+    width=1920
+    height=1080
+    pix_fmt=yuv420p
+    r_frame_rate=30/1
+    avg_frame_rate=30/1
+    nb_frames=658
+    format_name=mov,mp4,m4a,3gp,3g2,mj2
+    duration=21.933333
+    size=12749012
+
+  DECODED FRAME COUNT, COUNTED NOT READ FROM THE HEADER
+  (`ffprobe -count_frames -show_entries stream=nb_read_frames`):  658
+  658 = 320 (A) + 18 (seam) + 320 (B).  658 / 30 = 21.933333 s.
+
+  Gate assertions, all satisfied:  r_frame_rate == 30/1;  counted frames == 658;
+  dims 1920x1080;  duration 21.933333 s (charter: ~21.93 s).
+
+  PROMOTED
+    .../captures/2026-08-16-sb1-gate2-clip/ww7-gate2-cadence-ab-plk0665-1920x1080.mp4
+    sha256  7e9764e3fc53096128ef6b64d2a624962c1f3df599ae5e4aaf311347c0b828ca
+    bytes   12749012
+    Re-hashed independently after promotion, from a separate command: the
+    promoted file's sha256 equals both passes'. The copy is `cp -p` of pass 1.
+
+  NOTE-97 HONOURED: the filename's "1920x1080" is the ffprobe-read stream width
+  and height substituted into the name AFTER the render, never the invocation's
+  intent. The invocation asked for no size at all.
+
+
+--------------------------------------------------------------------------------
+6. GATE 5 — CONTINUITY.  VERDICT: PASS, WITH ITS LIMIT DECLARED
+--------------------------------------------------------------------------------
+  evidence/ww7-clipframe-n160-decoded-1920x1080.png
+  sha256  ba7e8fb4e48ca3facae03692ce68636c1c4313d50773134e72121affc2d28589
+  bytes   1959839      dims 1920x1080 (read from the PNG's own IHDR)
+  extracted: ffmpeg -i <promoted mp4> -vf "select=eq(n,160)" -vsync 0 -frames:v 1
+
+  ⚑ DECODED, THEREFORE NOT BYTE-COMPARABLE TO THE GATE-1 RULING STILL, AND THIS
+    IS STATED AS A PROPERTY, NOT DISCOVERED AS A DISAPPOINTMENT. The ruling still
+    is a Movie-Maker PNG written straight out of the renderer. This is an h264
+    frame at crf 12 decoded back to RGB. Their hashes differ and MUST:
+      ruling still     4c88de0d92cdcaffd995233fc69990f9ed1d7e9a30f9d2ca79c2bb943af2d71f
+      clip frame 160   ba7e8fb4e48ca3facae03692ce68636c1c4313d50773134e72121affc2d28589
+    A byte match here would mean the encoder had done nothing.
+
+  WHAT IT DOES ESTABLISH: same camera, same tick. The clip's frame 160 is shot
+  frame 160 of segment A, which is tick 1570 + 160 * (49/120) = 1635.333333 —
+  the same tick WW-4a v2 picked for the ruling still. Compared side by side by
+  this seat: same framing, same subject placement, same stand-off, same palette.
+  CONTINUITY HOLDS. The clip is the still, moving.
+
+
+--------------------------------------------------------------------------------
+7. FG-10, AND THE RENDER-SIZE FACT — BOTH DECLARED, NEITHER WAIVED
+--------------------------------------------------------------------------------
+FG-10 IS NOT RUN ON THIS CLIP. FG-10 certification is DEFERRED RUN-WIDE for
+SB-1: FG-LEGS-DRIFT triage is a standing HARD precondition on the next FG-10
+firing, and this cell did not clear it. This clip ships x2'd and sha-pinned
+INSTEAD. THAT IS A WEAKER CLAIM THAN THE FIVE-LEG MATRIX and is recorded as such:
+x2 says "this deliverable reproduced byte-for-byte across two full renders on
+this host at this HEAD"; it does NOT say what the five pinned legs say. No
+FG-10 claim is made or implied anywhere in this receipt.
+
+RENDER SIZE IS NOT NEGOTIATED, IT IS READ. Godot's Movie Maker locks its encode
+size to project.godot's viewport and ignores every per-run override, including
+the scene's own get_viewport().size and Godot's own --resolution (MEASURED at
+WW-4a v2, two independent overrides ignored). This runner therefore asks for
+nothing and names what it got. The fix — editing project.godot's viewport — is a
+GLOBAL change in a shared tree that every other harness in this repo renders
+under; it is ROUTED UP AND PARKED, not taken here. project.godot is BYTE-
+UNTOUCHED by this cell.
+
+Here that lock is benign rather than merely tolerated: the deliverable WANTED
+1920x1080, the scene's defaults ARE 1920x1080, and the bytes ARE 1920x1080. The
+px/byte denominator disagreement that WW-4a v2 had to caveat does not arise.
+
+FG-12 — PNG INTERMEDIATES PRUNED, WITH A RECEIPT. All four segment renders'
+frames were deleted after their encode, outside captures/:
+  pruned 320 frames (.562 G) from frames-A-stationary-pass1
+  pruned 320 frames (.561 G) from frames-B-undulating-pass1
+  pruned 320 frames (.562 G) from frames-A-stationary-pass2
+  pruned 320 frames (.561 G) from frames-B-undulating-pass2
+  regenerate: [PASS=2] bash scripts/run_ww7_gate2_clip.sh
+PL-5 — captures/ measured 7.17 G of the 10 G ceiling at every pass start; disk
+free 15.1–15.3 G against the 8.0 G PNG-intermediate floor. Both checks PASSED
+before any frame was written.
+
+
+--------------------------------------------------------------------------------
+8. THE FADE ARITHMETIC — v1's FINDING, RE-PROVEN AT THIS SEAT
+--------------------------------------------------------------------------------
+v1 banked two findings about the dip. Neither was taken on trust; both were
+re-derived here before the deliverable passes ran.
+
+FINDING A — THE LEADING ZERO IS LOAD-BEARING. `bc` prints a value below 1 with
+NO leading digit, and ffmpeg refuses that outright ("Unable to parse 'd' option
+value '.1666' as duration"). run_kc2_cpb_clip.sh never met this because it
+passes the LITERAL $FADE for d and only COMPUTES st (which is > 1 and so always
+carries its digit). The moment d is computed, it must be re-formatted. Replayed
+at this seat with the deliverable's operands (N=320, FPS=30, FADE=0.50):
+
+    DUR      = bc "scale=4; 320/30"                     -> [10.6666]
+    FADE_D   = bc "scale=4; if (DUR<FADE) DUR else FADE" -> [.50]     <- no digit
+    FADE_D   = ... | awk '{printf "%.4f", $1}'           -> [0.5000]  <- the fix
+    ST_OUT   = bc "d = DUR - FADE_D; if (d<0) 0 else d"  -> [10.1666]
+
+CONFIRMED: the raw bc output really is `.50`, and the runner's awk printf really
+is what makes it acceptable to ffmpeg. v1's fix is SOUND and is adopted.
+
+FINDING B — THE CLAMP IS ARITHMETICALLY INERT AT DELIVERABLE LENGTH. A 320-frame
+segment is 10.6666 s, so min(0.50, 10.6666) = 0.50 and st = 10.1666. The clamp's
+if-branch is unreachable at 320 frames; it can only fire on a segment SHORTER
+than the fade, which is reachable only under FRAMECAP. CONFIRMED by replay.
+
+THE FILTERS ACTUALLY APPLIED, AND THEIR DELTA FROM THE SOURCE RUNNER, DECLARED:
+    this cell   A: -vf fade=t=out:st=10.1666:d=0.5000
+                B: -vf fade=t=in:st=0:d=0.5000
+    source      A: -vf fade=t=out:st=10.1666:d=0.50
+                B: -vf fade=t=in:st=0:d=0.50
+  `st` is CHARACTER-IDENTICAL. `d` is NUMERICALLY IDENTICAL and character-
+  DIFFERENT — 0.5000 vs 0.50 — because this runner formats a computed d where
+  the source passes a literal. 0.5000 == 0.50 as a duration; the dip is the same
+  dip. Recorded because "character for character" was the charter's phrase and
+  it is true of st but not of d, and a receipt that rounded that off would be
+  lying by a decimal place.
+
+
+--------------------------------------------------------------------------------
+9. v1 LINEAGE — WHAT DIED, WHAT SURVIVED, WHAT COUNTS
+--------------------------------------------------------------------------------
+A prior WW-7 cell (v1) ran in this seam on 2026-08-16 and DIED INCOMPLETE.
+
+HOW IT DIED. v1 authored the runner, passed the input and lock-line gates in its
+own transcript, then DETACHED the deliverable render behind a Monitor and ENDED
+ITS TURN. The monitor died with the session. ZERO DELIVERABLES WERE RENDERED.
+
+VERIFIED FROM BYTES BY THIS SEAT, not accepted from the charter:
+  - no tmp-ww7-gate2-cadence-ab-plk0665-pass1.mp4 and no ...-pass2.mp4 existed
+    anywhere in /tmp/kc2_ww7 (the only mp4 present was v1's 4-frame SMOKE);
+  - the evidence dir held nothing but .gitignore;
+  - v1's own log ends mid-flight: segment A completed (155 s, 320 frames,
+    1920x1080) and was FG-12 pruned, the seam was generated, segment B started
+    and stopped — its frame directory was left holding 151 orphan PNGs and a
+    frame.wav, with no encode, no concat and no deliverable.
+  There was therefore NO stale artefact that MODE=gate could have promoted, and
+  nothing of v1's was carried into this cell's evidence by accident.
+
+WHAT THIS CELL ADOPTED, AFTER INSPECTION:
+  1. scripts/run_ww7_gate2_clip.sh — v1's runner, read line by line at this seat
+     before use, verified to (a) invoke kc2_cpb_clip.gd's clip scene in clip mode
+     with --cam player_lock --plk 0.665, and (b) carry the bc leading-digit fix
+     of § 8. Found SOUND. Adopted BYTE-UNCHANGED — no minimal fix was needed and
+     none was made, so there is no delta to declare against v1's authorship.
+     It is committed to the godot repo as part of THIS cell, with v1's authorship
+     of the file recorded here.
+  2. The evidence dir's .gitignore (1538 B) — inspected; its patterns `*.mp4`,
+     `evidence/*.png` and `.DS_Store` cover the class-E artefacts this cell
+     produces. Used AS-IS, byte-unchanged.
+  3. v1's two findings (§ 8), BANKED WITH v1 ATTRIBUTION — and re-proven here
+     rather than inherited.
+
+WHAT DID NOT COUNT. v1's gate evidence was transcript-only and its session is
+dead. NOTHING from v1 is evidence of record in this receipt. Every gate in
+§§ 1–6 was re-established from this seat: the input hashes re-computed, the lock
+line re-printed by renders this session launched, the x2 verdict measured on two
+files this session produced. v1's pass-1 segment-A lock echo is consistent with
+what this cell measured — but it is cited nowhere as proof.
+
+THE PROCESS LAW THIS CELL RAN UNDER, AND HOW IT WAS KEPT. Every render pass ran
+as a BLOCKING call inside this seat's own turn: the capped smoke, deliverable
+pass 1 (~6 min), deliverable pass 2 (~6 min) and the gate. NOTHING was handed to
+a monitor. No sleep-polling was used (LAW ZERO). The turn did not end until the
+deliverable existed on disk, was re-hashed independently, was verified by an
+ffprobe call issued separately from the runner's own, and this receipt was
+committed.
+
+
+--------------------------------------------------------------------------------
+10. GL-12 — DECLARED ABSENCES
+--------------------------------------------------------------------------------
+THE SCENE'S OWN, printed identically on all four deliverable segment renders:
+  "8 declared absences" (kc2_arena.gd::_declare_scene_absences). The four
+  unconditional rows are ABSENT-ARENA-WALL (DECLARED-UNBOUNDED — the arena has
+  no wall, no rail and no perimeter; the floor ends and the edge is open),
+  ABSENT-PATROL-NODE-GEOMETRY (NOT-ON-THE-WIRE), ABSENT-EMITTER-REGION-GEOMETRY
+  (POLAR-RESTATEMENT-NOT-A-REGION) and ABSENT-ARENA-VERTICALITY
+  (GROUND-ELEVATION-ONLY — the arena is flat because that is all the wire says).
+  The remainder are the conditional ABSENT-STATIC-PLAYER-STATION /
+  ABSENT-STATIC-SWEEP / ABSENT-EMITTER-*-BODIES / ABSENT-EMITTER-SEPARATION-*
+  families. The driver sidecar carries ABSENT-SUMMON-BODIES
+  (DORMANT-EMPTY-DOMAIN).
+
+THIS CELL'S OWN ABSENCES:
+  - FG-10 NOT RUN (§ 7). Deferred run-wide; x2 + sha-pin substituted, and the
+    substitution is named as weaker.
+  - NO PER-FRAME framemd5 EVIDENCE. The containers matched byte-for-byte, so the
+    fallback never fired. There is consequently no per-frame hash list in this
+    cell's evidence, and none is claimed.
+  - NO GATE-2 VERDICT. This cell renders the OBJECT of Matt's gate-2 judgement.
+    It does not judge density, palette knee, cadence read or FX draw, and this
+    receipt records no opinion on them. That eye is Matt's.
+  - THE x2 CLAIM IS HOST-SCOPED AND HEAD-SCOPED: two full renders, this host,
+    Godot 4.6.3.stable metal, godot HEAD a09057c. It says nothing about another
+    machine, driver or build.
+  - NO AUDIO. Movie Maker writes a frame.wav beside the PNG sequence; the encode
+    globs frame*.png only. The deliverable is video-only (ffprobe shows a single
+    v:0 stream). Deliberate, and the same as the source clip.
+
+KNOWN REPO RESIDUE, DECLARED AND LEFT UNTOUCHED (pre-existing, not this cell's):
+  godot  tmp/br2watch/measure/census.json  modified
+  godot  scripts/kc2_clk2_probe.gd         orphan
+  godot  addons/ + Assets/ThirdParty/      untracked — Matt's local asset packs
+Nothing was written under ~/Games/reincarnated-godot/tmp/br2watch/ by this cell.
+All PNG intermediates lived in /tmp/kc2_ww7, outside both repos and outside
+captures/.
+
+
+--------------------------------------------------------------------------------
+11. REGENERATION
+--------------------------------------------------------------------------------
+From ~/Games/reincarnated-godot at HEAD a09057c, with Godot 4.6.3.stable:
+
+  bash scripts/run_ww7_gate2_clip.sh              # pass 1  (~6 min)
+  PASS=2 bash scripts/run_ww7_gate2_clip.sh       # pass 2  (~6 min)
+  MODE=gate bash scripts/run_ww7_gate2_clip.sh    # x2 gate + ffprobe + promote
+
+Expected: two byte-identical 12749012 B mp4s hashing to
+7e9764e3fc53096128ef6b64d2a624962c1f3df599ae5e4aaf311347c0b828ca, promoted to
+ww7-gate2-cadence-ab-plk0665-1920x1080.mp4.
+
+================================================================================
+END — SB-1 CELL WW-7 v2. Five gates, five PASSes, one clip, rendered twice.
+================================================================================
