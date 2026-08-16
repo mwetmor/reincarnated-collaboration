@@ -1,0 +1,119 @@
+--- scripts/wr2_playback.gd	2026-08-16 09:30:20
++++ /tmp/kc2_ww8a/wr2_playback.MODIFIED.gd	2026-08-16 09:30:20
+@@ -636,6 +636,11 @@
+ 			"--camaim": _cam_aim_ne = float(nxt)
+ 			"--rings": _pl_rings = (int(nxt) != 0)
+ 			"--probe": _headless_probe = true
++			# ⚑ WW-8a. NAMED `--probe-calib` AND NOT `--probe`: `--probe` already
++			#   exists one line up and means the headless probe. A calibration flag
++			#   that silently armed a different mechanism would be the exact class
++			#   of mislabel this cell was chartered to hunt.
++			"--probe-calib": _probe_calib = (String(nxt).to_lower() == "on")
+ 			# ★ BEAUTY-CORNER. `--beauty off` peels the whole family in one word;
+ 			#   the four `--no-*` switches peel one element each (Scope-8 peelability
+ 			#   is a CLI fact here, not a promise).
+@@ -2440,6 +2445,13 @@
+ var _pl_rings := false
+ var _pl_ring_root: Node3D
+ var _pl_pid := ""                  # cached once; the per-entity hot loop must not scan the roster
++# ---- WW-8a: the calibration probe. OFF unless asked for, by construction ----
++const WW8A_PROBE_H_M := 2.0                   # THE KNOWN QUANTITY. Everything else is scenery.
++const WW8A_PROBE_XZ_M := 0.5                  # footprint; irrelevant to a HEIGHT probe
++const WW8A_PROBE_HUE := Color(1.0, 0.0, 1.0)  # pure magenta — absent from this rig's palette
++const WW8A_PROBE_TOL_M := 1.0e-4              # read-back tolerance; beyond this the cell HALTS
++var _probe_calib := false
++var _ww8a_probe: MeshInstance3D = null
+ 
+ func _build_camera() -> void:
+ 	_cam = Camera3D.new(); _cam.name = "WR2Camera"
+@@ -2624,8 +2636,76 @@
+ 		_pl_offset.x, _pl_offset.y, _pl_offset.z, _pl_offset.length(), _pl_offset.y])
+ 	if _pl_rings:
+ 		_pl_build_rings()
++	# ⚑ WW-8a — THE CALIBRATION PROBE. Built LAST, after the lock is complete and
++	#   every line this function prints has already printed, so the flag cannot
++	#   move a single number the lock reports.
++	if _probe_calib:
++		_ww8a_build_calib_probe()
+ 
+ 
++## ============================================================================
++## ⚑ WW-8a — THE CALIBRATION PROBE, PORTED FROM `kc2_cpb_clip.gd`. A RULER.
++##
++## ⚑ WHY IT IS HERE AS WELL AS IN THE ARENA. The arena fighter and THIS rig's
++##   player werewolf are of nearly equal world height and read 0.665x apart in
++##   screen register under the SAME camera language. A known 2.000 m geometry
++##   rendered in BOTH rigs lets a downstream measurement say which side of the
++##   fence the mislabeled term sits on. This rig is the REFERENCE side.
++##
++## ⚑ IT MEASURES NOTHING AND PROJECTS NOTHING. Build, read the height back off
++##   the scene, print. The screen extent is galadriel's cell (WW-8b).
++##
++## ⚑ `_pl_ring_root` IS THE PRECEDENT AND THE PATTERN: a Node3D parented to the
++##   scene root and repositioned to `_pl_player_w` inside `_pl_cam_update`, so
++##   probe and camera share ONE ground read. Parenting under the player body
++##   would inherit the body's scale — one of the very terms under test.
++##
++## ⚑ ADDITIVE ONLY. Absent `--probe-calib on` no node is created, no print fires,
++##   and this rig renders the bytes it has always rendered.
++## ============================================================================
++func _ww8a_build_calib_probe() -> void:
++	var mesh := BoxMesh.new()
++	mesh.size = Vector3(WW8A_PROBE_XZ_M, WW8A_PROBE_H_M, WW8A_PROBE_XZ_M)
++	var mat := StandardMaterial3D.new()
++	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
++	mat.albedo_color = WW8A_PROBE_HUE
++	mat.disable_fog = true
++	mat.disable_receive_shadows = true
++	mesh.material = mat
++	_ww8a_probe = MeshInstance3D.new()
++	_ww8a_probe.name = "Ww8aCalibProbe"
++	_ww8a_probe.mesh = mesh
++	_ww8a_probe.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++	_ww8a_probe.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
++	add_child(_ww8a_probe)
++	# ---- THE READ-BACK. Height is invariant under the per-frame translation in
++	#      `_pl_cam_update`, so it is asserted HERE, once, off the built scene.
++	var wa: AABB = _ww8a_probe.global_transform * _ww8a_probe.get_aabb()
++	var h_err: float = absf(wa.size.y - WW8A_PROBE_H_M)
++	var ok: bool = h_err < WW8A_PROBE_TOL_M
++	print("[wr2] ⚑ WW-8a CALIBRATION PROBE — a KNOWN %.3f m geometry at the player's own "
++		% WW8A_PROBE_H_M
++		+ "ground point, under this rig's player_lock camera. NO MEASUREMENT AND NO "
++		+ "PROJECTION IS MADE BY THIS HARNESS; the screen extent is galadriel's (WW-8b).")
++	print("[wr2] WW-8a probe: parent = scene root (identity), material UNSHADED, albedo "
++		+ "(%.3f, %.3f, %.3f), fog DISABLED on material, shadow casting OFF, GI disabled, "
++		% [WW8A_PROBE_HUE.r, WW8A_PROBE_HUE.g, WW8A_PROBE_HUE.b]
++		+ "footprint %.3f x %.3f m" % [WW8A_PROBE_XZ_M, WW8A_PROBE_XZ_M])
++	print("[wr2] WW-8a probe READ-BACK world AABB: position (%.10f, %.10f, %.10f) m  "
++		% [wa.position.x, wa.position.y, wa.position.z]
++		+ "size (%.10f, %.10f, %.10f) m" % [wa.size.x, wa.size.y, wa.size.z])
++	print("[wr2] WW-8a probe HEIGHT ASSERTION: read-back %.10f m vs declared %.10f m"
++		% [wa.size.y, WW8A_PROBE_H_M]
++		+ " — |err| %.12f m; tol %.12f m — VERDICT %s"
++		% [h_err, WW8A_PROBE_TOL_M, ("PASS" if ok else "FAIL")])
++	if not ok:
++		push_error("[wr2] WW-8a HALT — probe read-back height %.10f m != %.10f m (|err| %.12f m, "
++			% [wa.size.y, WW8A_PROBE_H_M, h_err]
++			+ "tol %.12f m). A probe of unverified height is worse than no probe."
++			% WW8A_PROBE_TOL_M)
++		get_tree().quit(11)
++
++
+ ## HARD LOCK. Called at the END of `_render_tick`, i.e. AFTER the player proxy
+ ## has been placed at its interpolated position for this frame, on that exact
+ ## position. Position only — the basis was fixed at build and is never touched.
+@@ -2635,6 +2715,13 @@
+ 	_cam.global_transform = Transform3D(_pl_basis, _pl_player_w + _pl_offset)
+ 	if _pl_ring_root != null:
+ 		_pl_ring_root.global_position = _pl_player_w
++	# ⚑ WW-8a — THE PROBE RIDES THE SAME GROUND READ THE CAMERA DOES, IN THE SAME
++	#   FRAME. The player TRANSLATES in this rig (unlike the arena, where the lock
++	#   is degenerate), so a probe placed once at build would drift off the
++	#   subject's distance term within a few frames and quietly stop measuring the
++	#   thing it was built to measure. One read, two consumers, no second writer.
++	if _ww8a_probe != null:
++		_ww8a_probe.global_position = _pl_player_w + Vector3(0.0, WW8A_PROBE_H_M * 0.5, 0.0)
+ 
+ 
+ ## ⚑ THE FRAMING VERDICT. Measured THROUGH the Camera3D that renders the watch —

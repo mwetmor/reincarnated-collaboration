@@ -1,0 +1,416 @@
+================================================================================
+SB-1 CELL WW-8a — CALIBRATION PROBE
+A KNOWN 2.000 m GEOMETRY UNDER THE RATIFIED CAMERA. NOTHING IS MEASURED HERE.
+================================================================================
+Date     2026-08-16
+Cell     WW-8a (CALIBRATION PROBE), Matt's SB-1 run
+Agent    drax (presentation seam; reincarnated-godot)
+Conduct  gandalf (RUN-CONDUCTOR)
+Charter  ledger row WW-8 / ruling R-CPB-18 —
+         agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md
+Host     Mac (Darwin 24.6.0), Godot Engine v4.6.3.stable.official.7d41c59c4,
+         --rendering-driver metal
+
+⚑ THIS RECEIPT CONTAINS NO MEASUREMENT AND NO PROJECTION. No h_frac, no "the
+  probe looks N% tall", no register claim, no reconciliation verdict. What is
+  delivered is BYTES + SHAS + TRUE DIMS + LOCK LINES + READ-BACK ASSERTIONS.
+  Measurement is galadriel's (WW-8b, one method). Projection is the conductor's.
+
+⚑ THE RATIFIED LOOK IS NOT UNDER TEST BY THIS CELL. Matt ruled on FRAMES at both
+  gates (WW-6 gate 1; R-CPB-18 gate 2). The camera of record remains `player_lock`
+  @ k=0.665. This cell audits LABELS, not the look, and cannot move the ruling
+  whichever way WW-8b reads.
+
+
+--------------------------------------------------------------------------------
+0. WHAT THIS CELL IS FOR
+--------------------------------------------------------------------------------
+The arena fighter (AABB ~2.40 m, world scale 1.95) and the BR2W reference player
+werewolf (~2.32 m) read 0.665x apart in screen register under same-language
+camera operands. Two bodies of nearly equal world height should not project 1.5x
+apart, so a term is mislabeled — in the BODY (pose · scale application ·
+mesh-vs-AABB) or in the HARNESS MATH (a distance/fov term).
+
+This cell SPLITS that suspect space by rendering a KNOWN 2.000 m geometry at the
+subject's own ground point under the ratified camera. Downstream (WW-8b): if the
+probe measures to the pinhole geometry implied by the operands, the harness math
+is clean and the gap lives in body terms; if it does not, a harness term is
+mislabeled.
+
+
+--------------------------------------------------------------------------------
+1. PER-LEG GATE TABLE
+--------------------------------------------------------------------------------
+LEG   WHAT                                              VERDICT
+----  ------------------------------------------------  -------------------------
+PROOF arena, k=0.665, probe ABSENT, x1                   PASS (no-perturbation)
+A     arena, `player_lock` k=1.00,  probe ON, x2         PASS
+B     arena, `player_lock` k=0.665, probe ON, x2         PASS
+C     wr2/BR2W reference rig, player_lock, probe ON      HALT — see § 6
+
+Partial delivery. A + B delivered; C halted and declared. The charter anticipated
+this exact disposition ("If not clean: HALT that leg, declare it, deliver A+B —
+partial delivery is honorable").
+
+
+--------------------------------------------------------------------------------
+2. DELIVERABLES — shas, byte sizes, TRUE dims read from the bytes
+--------------------------------------------------------------------------------
+⚑ NOTE-97 HONOURED. Every filename states dimensions read from the PNG's own
+  IHDR AFTER the render, never the invocation's intent. Both legs REQUESTED
+  1600x900 and the bytes are 1920x1080: Godot's Movie Maker locks its encode size
+  to project.godot's viewport (1920x1080) and ignores --width / --height /
+  --resolution (MEASURED at WW-4a v2). Both are 16:9, so FRAMING is unaffected —
+  this is a pixel-count fact, not a composition fact. The DIVERGE line was printed
+  by the runner on both legs.
+
+LEG A — evidence/arena-pl-k1000-probe2m-n160-1920x1080.png
+    sha256  41a6a8bdb0d24a4af0f47e870af96f7eb0bf4f9f856a52af4ffd0b21e0599d14
+    bytes   2,122,232
+    dims    1920x1080 (IHDR; requested 1600x900 — DIVERGE, declared)
+    x2 gate pass 1 == pass 2, byte-identical (cmp)
+
+LEG B — evidence/arena-pl-k0665-probe2m-n160-1920x1080.png
+    sha256  6b5929d1bb4888efac172944c086b69e9583fdb46f42bd9ce944096f451946a9
+    bytes   1,847,848
+    dims    1920x1080 (IHDR; requested 1600x900 — DIVERGE, declared)
+    x2 gate pass 1 == pass 2, byte-identical (cmp)
+
+SIDECARS (the harness's own machine-readable read-back, one per leg)
+    evidence/sidecar-k1000-probe2m-n160.json
+    evidence/sidecar-k0665-probe2m-n160.json
+    Both carry `ww8a_calib_probe` with assertion PASS, height_err_m 0.0,
+    base_err_m 0.0, readback_aabb_size_m [0.5, 2.0, 0.5].
+
+Class-E: the PNGs are UNTRACKED on disk; their sha256 and byte size live in this
+TRACKED text. See .gitignore in this directory for regeneration commands.
+
+
+--------------------------------------------------------------------------------
+3. THE INSTRUMENT — material, geometry, placement, occlusion
+--------------------------------------------------------------------------------
+GEOMETRY      BoxMesh, size (0.500, 2.000, 0.500) m. Height 2.000 m is THE known
+              quantity; the footprint is arbitrary and irrelevant to a height probe.
+PLACEMENT     Base ON the ground plane at the player ground point, READ BACK from
+              the scene tree at runtime — `_motion.player.body_holder.global_position`,
+              the SAME expression `_pl_cam_update` locks the camera to. Never
+              hardcoded (GL-17). Read value: (0.0000000000, 0.0000000000,
+              0.0000000000) m on both legs.
+PARENT        Scene root `Kc2CpbClip` (identity transform) — deliberately NOT
+              `body_holder`, whose scale is one of the suspects under test. The
+              probe must owe nothing to the term it is calibrating against.
+MATERIAL      StandardMaterial3D
+                shading_mode              SHADING_MODE_UNSHADED
+                albedo_color              (1.000, 0.000, 1.000) — pure magenta,
+                                          absent from the scene's warm palette
+                disable_fog               true
+                disable_receive_shadows   true
+                cull_mode                 CULL_BACK
+MESH INSTANCE cast_shadow  SHADOW_CASTING_SETTING_OFF
+              gi_mode      GI_MODE_DISABLED
+
+WHY FOG IS DISABLED ON THE MATERIAL, AND ONLY THERE: the scene's depth fog
+(kc2_arena.gd:330, FOG_MODE_DEPTH, density 1.0) would tint the box toward the
+background AS A FUNCTION OF DISTANCE — i.e. would make the ruler's colour depend
+on the very term under test. The scene's own fog is untouched for every other
+object; nothing outside the box's own pixels is perturbed.
+
+OCCLUSION — DECLARED, EXPECTED, CORRECT: the probe stands at the subject's EXACT
+ground point and DOES occlude the arena fighter in both delivered stills. This is
+the design, not a defect: the probe must inherit the subject's exact distance
+term or it is measuring a different camera ray than the body it calibrates
+against. A box placed politely beside the fighter would sit at a different depth
+and answer a different question. THE SUBJECT IS NOT THE MEASURAND IN THESE
+STILLS; THE BOX IS.
+
+FURTHER DECLARED OBSERVATION FOR THE MEASURING DESK (not a measurement): the
+scene's smoke/dust particle layer draws IN FRONT OF the probe over part of its
+silhouette in both legs. It was NOT peeled, because peeling it would perturb the
+scene beyond the box's own pixels — which the charter forbids. Flagged so WW-8b
+can choose its bracket knowingly rather than discover it.
+
+
+--------------------------------------------------------------------------------
+4. READ-BACK ASSERTIONS — verbatim, both legs, both passes
+--------------------------------------------------------------------------------
+The height is NOT asserted from the constant. It is READ BACK out of the built
+scene via `_mesh_aabb_world(probe)` = `global_transform * get_aabb()` — the same
+union-of-MeshInstance3D-AABB law this harness already measures the subject with.
+Read-back failure beyond float eps HALTS the cell (a probe of unverified height
+is worse than no probe). It did not fire.
+
+Verbatim, identical on LEG A pass 1, LEG A pass 2, LEG B pass 1, LEG B pass 2:
+
+[cpb] ⚑ WW-8a CALIBRATION PROBE — a KNOWN 2.000 m geometry at the subject's own ground point, under the camera of record. NO MEASUREMENT AND NO PROJECTION IS MADE BY THIS HARNESS; the screen extent is galadriel's cell (WW-8b).
+[cpb] WW-8a probe: parent = scene root (identity), material UNSHADED, albedo (1.000, 0.000, 1.000), fog DISABLED on material, shadow casting OFF, GI disabled, footprint 0.500 x 0.500 m
+[cpb] WW-8a probe ground point READ from _motion.player.body_holder.global_position = (0.0000000000, 0.0000000000, 0.0000000000) m — the same expression the lock uses
+[cpb] WW-8a probe READ-BACK world AABB: position (-0.2500000000, 0.0000000000, -0.2500000000) m  size (0.5000000000, 2.0000000000, 0.5000000000) m
+[cpb] WW-8a probe HEIGHT ASSERTION: read-back 2.0000000000 m vs declared 2.0000000000 m — |err| 0.000000000000 m; base 0.0000000000 m vs ground 0.0000000000 m — |err| 0.000000000000 m; tol 0.000100000000 m — VERDICT PASS
+
+WORLD HEIGHT ASSERTED: 2.0000000000 m, error 0.000000000000 m, tolerance 1e-4 m.
+BASE ON GROUND ASSERTED: base y 0.0000000000 m vs ground y 0.0000000000 m,
+error 0.000000000000 m.
+
+
+--------------------------------------------------------------------------------
+5. LOCK LINES — VERBATIM, every delivered pass
+--------------------------------------------------------------------------------
+Gate: every render must emit the pin/anchor/9-ray lock line, unscaled pin check
+FIRST, per the --plk pattern. Lock-line failure HALTS the leg. The runner counts
+the lines per pass and refuses a leg that rendered without announcing its lock.
+
+LEG A (k=1.00) — pass 1 and pass 2, identical text:
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] player_lock: offset (camera - player ground) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0002) px at 1600 x 900
+
+  ⚑ At k=1.00 the harness prints the WW-3a line character for character — the
+    ladder line is suppressed because `offset * 1.0` IS `offset` (IEEE identity).
+    That is the harness's own additive-only discipline, not an omission here.
+
+LEG B (k=0.665) — pass 1 and pass 2, identical text:
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] ⚑ WW-4a DISTANCE LADDER: --plk k = 0.665000 — a DOLLY along the lock vector, NOT a zoom. Rotation (pitch 52.9535 / yaw 47.0), lens (fov_v 31.7861, KEEP_HEIGHT) and the anchor expectation are UNTOUCHED; only the offset's length scales. NOTHING HERE IS PINNED — these rungs are for Matt's eye (R-CPB-18a).
+[cpb] player_lock ported offset (k=1, THE PORT, pinned below) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock: offset (camera - player ground) = k * ported = (9.7929, 18.8840, 9.1654) m  |offset| 23.1627 m  height 18.8840 m  (full precision: 9.7929267883301, 18.8840122222900, 9.1654367446899 · stand-off 23.1627407073975 m)
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0001) px at 1600 x 900
+
+UNSCALED PIN CHECK FIRST, BOTH LEGS: offset delta 0.000000000000 m, z_player
+delta 0.000000000000 m against tmp/br2watch/m6/pl_audit.json, tol 1e-5 m — MATCH.
+
+
+--------------------------------------------------------------------------------
+6. LEG C — HALT, DECLARED, WITH ATTRIBUTION
+--------------------------------------------------------------------------------
+VERDICT: HALT. The wr2/BR2W reference rig CANNOT satisfy this cell's gates. The
+flag ported cleanly; the RIG does not reproduce.
+
+WHAT WAS ESTABLISHED BEFORE THE HALT (all by execution, not by inspection):
+  · The rig RENDERS in this session. `scenes/wr2_playback.tscn`, CAM=player_lock,
+    battery wr3_acc / acc / boss / FULL / seed 74000909 (the BR2W coordinates),
+    RES 1600x900. 10 frames captured in ~10 s.
+  · The trace EXISTS on disk: tmp/wr3acc/traces/boss__FULL__seed74000909.jsonl.
+  · TRUE dims 1600x900 (IHDR), matching BR2W.mp4's own 1600x900.
+  · The rig's lock line fires and reports the NATIVE k=1.00 camera:
+[wr2] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[wr2] player_lock: offset (camera - player ground) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[wr2] PL-AUDIT anchor: player projects to frac (0.501041, 0.550925); target (0.501042, 0.550926); err (-0.0004, -0.0009) px @1080p
+  · That offset is bit-for-bit the vector the kc2 port pins itself against at
+    0.000000000000 m delta — Leg C is k=1.00 BY CONSTRUCTION, not by argument.
+  · The probe PORTS cleanly and additively: `--probe-calib` (distinct from the
+    rig's pre-existing `--probe`), a MeshInstance3D parented to the scene root and
+    repositioned to `_pl_player_w` inside `_pl_cam_update` — the exact pattern
+    `_pl_ring_root` already uses. No canonical scene file touched. Syntax verified
+    with `--check-only` (clean).
+
+WHY IT HALTED — THE RIG IS NOT BYTE-DETERMINISTIC LAP TO LAP.
+The no-perturbation proof came back RED, and the attribution test says the edit is
+NOT the cause. Three laps of the SAME parameters:
+
+    lap 1  PRISTINE script (HEAD, unmodified)   f0009 sha 84cf3df2fb0a...
+    lap 2  this cell's tree, FLAG ABSENT        f0009 sha 62fc7cbf31d1...
+    lap 3  PRISTINE script again (re-swapped)   f0009 sha b458f4f0c12c...
+
+Two PRISTINE laps of the untouched HEAD script disagree with each other. The edit
+is EXONERATED by measurement, not by argument. Frame-by-frame across the two
+pristine laps, all ten frames differ:
+
+    f0000 f9dd57d5d205 vs 83dfc81d5f5c   DIFF     f0005 583ecc5d1464 vs 6c7d4f9950c9   DIFF
+    f0001 bd37aff5769f vs 0f508a944398   DIFF     f0006 bc7603505567 vs 45cdd596932c   DIFF
+    f0002 632f7984f2eb vs baa105105d68   DIFF     f0007 5868a739ba72 vs 0668701753fb   DIFF
+    f0003 162fc192ae59 vs d224e30608f6   DIFF     f0008 8d472bfe999d vs 09043c54ec60   DIFF
+    f0004 be390e3dd8a2 vs 6784797a0c92   DIFF     f0009 84cf3df2fb0a vs b458f4f0c12c   DIFF
+
+CONSEQUENCE, STATED PLAINLY: on this rig the cell's x2 byte gate can never go
+green, and the charter's "default (flag-absent) behavior must be provably
+unchanged" cannot be PROVEN by byte-compare, because the flag-absent behaviour is
+not byte-stable against itself. A leg that cannot be gated is not a leg this desk
+promotes.
+
+MECHANISM — HYPOTHESIS, NOT MEASUREMENT, LABELLED AS SUCH: the arena harness
+captures through Movie Maker under `--fixed-fps` (deterministic, and PROVEN so —
+see § 7), whereas this rig saves PNGs from a LIVE WINDOWED viewport read-back
+(`wr2_playback.gd:8844`, `get_viewport().get_texture().get_image().save_png`).
+The run also emits "19 shaders of type ParticlesShaderRD were never freed", so GPU
+particles are in the frame. GPU particle simulation under a live windowed capture
+is a plausible source of per-lap variation. THIS DESK DID NOT BISECT IT and does
+not claim it. Routed up as a finding, not a diagnosis.
+
+WHAT WAS DONE WITH THE PORT: `scripts/wr2_playback.gd` is left BYTE-PRISTINE at
+HEAD (verified: sha256 c39f4c85eaf1be24c55b4005c0dbb9bea0387e330f6ca9f6801698b14e883bc2,
+`git status` clean for that path). An unprovable edit is not shipped into the
+harness that produced Matt's ratified reference artifact. The authored port is
+banked instead as TRACKED text beside this receipt:
+
+    legC-wr2-probe-port.UNAPPLIED.patch    (119 lines, UNAPPLIED)
+
+so a future cell can apply it in one command once the determinism question is
+answered. Nothing is lost and nothing unprovable is in the tree.
+
+WHAT LEG C WOULD HAVE ADDED, SO THE ABSENCE IS PRICED: a known height rendered in
+the REFERENCE rig as well as the arena, letting WW-8b compare probe-to-probe
+across the two harnesses instead of probe-to-geometry in one. Its absence does not
+block the split — Legs A and B still put a known height under the ratified camera,
+which is the question the charter posed.
+
+
+--------------------------------------------------------------------------------
+7. NO-PERTURBATION PROOF (arena side) — A RENDER, NOT A CLAIM
+--------------------------------------------------------------------------------
+CLAIM: `--probe-calib` is additive; absent the flag, this harness renders exactly
+the bytes it rendered before the flag existed.
+
+HOW IT WAS PROVEN, AND IT IS THE STRONGEST FORM AVAILABLE: a FLAG-ABSENT render at
+k=0.665, with the edited script in the tree, byte-compared against the very still
+Matt's gate-1 eyeball ruled on.
+
+    reference   2026-08-15-sb1-distance-ladder/evidence/arena-pl-k0665-n160-1920x1080.png
+                sha256 4c88de0d92cdcaffd995233fc69990f9ed1d7e9a30f9d2ca79c2bb943af2d71f
+    this cell   flag-absent render, same parameters, edited tree
+                sha256 4c88de0d92cdcaffd995233fc69990f9ed1d7e9a30f9d2ca79c2bb943af2d71f
+    cmp         BYTE-IDENTICAL — PROOF GREEN
+
+The comparison is legitimate because the render chain did not move between that
+still's commit and this cell's HEAD. VERIFIED, not assumed:
+`git diff a09057c HEAD -- scripts/kc2_cpb_clip.gd scripts/kc2_arena.gd
+scripts/kc2_motion.gd scripts/kc2_player_channel.gd scripts/kc2_baton.gd` is EMPTY.
+So any byte difference would have been THIS cell's difference. There was none.
+
+  ⚑ SECOND-ORDER EVIDENCE, BANKED: this also demonstrates CROSS-LAP byte
+    determinism for the arena harness — a still rendered 2026-08-15 reproduced
+    exactly on 2026-08-16. That is the property Leg C's rig lacks, and it is why
+    the § 6 attribution test is conclusive rather than suggestive.
+
+  ⚑ AND THE PROOF RENDER WAS NOT PROMOTED. A byte-identical duplicate of a banked
+    still is not evidence; it is a second copy. Its sha is recorded here instead.
+
+STRUCTURAL BASIS OF THE ADDITIVITY (the reason the proof was expected to pass):
+the probe is built LAST in `_ready`, AFTER the camera gate, the lock, the anchor
+audit and the optics measurement have all run against a scene the probe is not in.
+Order is the no-perturbation argument in executable form — the flag cannot move a
+number the harness reports, only add pixels and its own read-back.
+
+
+--------------------------------------------------------------------------------
+8. DEFECTS FOUND, WITH ATTRIBUTION
+--------------------------------------------------------------------------------
+D-1  FOUND-BY-SMOKE (this cell's own first leg-A lap). SEVERITY: would have
+     shipped a hollow receipt line.
+     The probe's HEIGHT ASSERTION print carried SIX format conversions against
+     FIVE arguments. GDScript's `%` does not raise and does not warn on a count
+     mismatch — it returns the FORMAT STRING UNCHANGED. The line printed a literal
+     `%s` where the PASS/FAIL verdict belonged. (Cousin of NOTE-81, which records
+     the same silent-passthrough behaviour for `%e`.)
+     The SUBSTANTIVE assertion was never compromised: the `ok` boolean, the HALT
+     branch and the sidecar (`height_err_m` 0.0, `assertion` "PASS") were all
+     correct throughout. Only the human-readable line was broken.
+     FIXED: each `%` kept adjacent to its own array so the counts can be checked
+     by eye (2/2, 4/4, 2/2). Leg A was RE-RENDERED on the fixed script and came
+     back with the SAME sha (41a6a8bd...), confirming the fix moved zero rendered
+     bytes.
+
+D-2  FOUND-BY-GATE, and it is a defect in THIS CELL'S OWN GATE — the more
+     important half of D-1.
+     The runner gated the read-back by looking for the ABSENCE of "FAIL". A broken
+     format string satisfies that test exactly as well as a passing probe does, so
+     the gate went green on a line containing neither PASS nor FAIL. An
+     absence-based gate passes when its instrument breaks.
+     FIXED: the gate now requires the POSITIVE token "VERDICT PASS", once per
+     pass, and counts assertion lines separately so a MISSING line and a FAILING
+     line are two distinct HALTs.
+
+D-3  FOUND-BY-SMOKE (first delivery lap). The scene names its sidecar after the
+     SHOT (`shot-A-stationary-canon.json`) and both legs render the same shot, so
+     a straight copy had leg B silently overwriting leg A's read-back — a NOTE-95
+     label collision. FIXED: sidecars are promoted under leg-tagged names.
+
+D-4  FOUND-BY-SMOKE, PRE-EXISTING, NOT THIS CELL'S CODE. The wr2/BR2W reference
+     rig is not byte-deterministic lap to lap — see § 6 for the three-lap evidence
+     and the frame-by-frame table. Present in the PRISTINE HEAD script. Routed to
+     the conductor as a finding about the reference rig; NOT diagnosed here.
+
+D-5  FOUND-BY-SMOKE, this session's own invocation, no code impact. A first Leg C
+     probe was wrapped in `timeout 500`, which does not exist on macOS
+     (GNU coreutils; `gtimeout` if installed). The wrapper failed before Godot
+     launched and the failure was hidden by an output filter. Re-run without it.
+     Recorded because a silent zero-frame run that looks like a render failure is
+     worth one line in a receipt.
+
+
+--------------------------------------------------------------------------------
+9. GL-12 — DECLARED ABSENCES
+--------------------------------------------------------------------------------
+· LEG C IS NOT DELIVERED. Reference-rig probe stills do not exist. § 6 states why,
+  with attribution, and prices what their absence costs.
+· NO MEASUREMENT OF ANY KIND is in this receipt — by charter, not by omission.
+  No screen fraction, no pixel height, no ratio, no verdict on the 0.665x
+  reconciliation.
+· THE PROBE OCCLUDES THE FIGHTER in both delivered stills (§ 3). Deliberate.
+· THE SMOKE LAYER DRAWS OVER PART OF THE PROBE (§ 3). Not peeled; peeling would
+  perturb the scene beyond the box's own pixels.
+· THE ARENA PLAYER DOES NOT TRANSLATE, so the lock is degenerate in this scene and
+  the probe's ground read is constant across the render. That is a fact about the
+  ARENA (kc2_player_channel.gd places the body once and thereafter only spins),
+  already declared at WW-3a; restated because the probe inherits it.
+· THE FLAG-ABSENT PROOF RENDER IS NOT PROMOTED as a file (§ 7); only its sha.
+· NO ffprobe WAS RUN — these are stills, not clips. True dims come from the PNG
+  IHDR read directly out of the bytes, which is the still-equivalent of NOTE-97.
+· THE PNG INTERMEDIATES (222 raw frames per pass) were pruned per FG-12 with
+  regeneration receipts; they lived in /tmp/kc2_ww8a, never inside captures/.
+
+
+--------------------------------------------------------------------------------
+10. PROVENANCE — code state
+--------------------------------------------------------------------------------
+godot repo HEAD at cell open   68c12e5
+Harness (arena)                scripts/kc2_cpb_clip.gd
+   sha256 BEFORE this cell     6932ef35bc13d4cdfbe2da8f1ca2b95ab5d934f52cbb4349360c55f39200c708
+   sha256 AFTER  this cell     3489bc83ac9bd3461589a712770691173659bfb6f76d7b8ec1546db1ba3cd95c
+Runner (new)                   scripts/run_ww8a_calib_probe.sh
+   sha256                      507d822c7fdd59f54bd04d88c5261e7d651ffb27f153b8b508647ad4f908cd55
+Reference rig (UNTOUCHED)      scripts/wr2_playback.gd
+   sha256                      c39f4c85eaf1be24c55b4005c0dbb9bea0387e330f6ca9f6801698b14e883bc2
+   git status                  clean — byte-pristine at HEAD
+
+CANON PATHS UNTOUCHED: no canonical scene file was edited. `scenes/kc2_cpb_clip.tscn`
+and `scenes/wr2_playback.tscn` are unmodified. The probe exists ONLY when
+`--probe-calib on` is passed, and § 7 proves the flag-absent path byte-for-byte.
+
+RENDER PARAMETERS (identical across legs A/B and the proof; only k and the probe
+flag move): shot canon · --cam player_lock · --undulate off (the A-phase
+stationary state the register numbers were measured on) · tick0 1570 · PREROLL 60
+· 161 shot frames · picked shot_frame 160 = raw PNG index 220 (tick 1635.333333)
+· --width 1600 --height 900 requested. This is WW-3a's still mechanism with
+WW-4a's ladder parameters, unchanged.
+
+NOTE-84a HONOURED: every render in this cell was a BLOCKING in-turn Bash call
+within the 600000 ms budget. Nothing was handed to a background monitor. The
+runner's STAGE selector exists precisely so no invocation ever needs to be
+detached. Per-pass wall times: arena legs 91–100 s; Leg C probes ~10 s.
+
+
+--------------------------------------------------------------------------------
+11. WHAT THE NEXT DESK IS AND IS NOT HOLDING
+--------------------------------------------------------------------------------
+HOLDING: two byte-reproducible stills of the arena under the ratified camera
+language at k=1.00 and k=0.665, each containing a magenta box whose world height
+is ASSERTED BY READ-BACK at 2.0000000000 m with zero error, base on the ground
+plane at the subject's own ground point, rendered through a camera whose unscaled
+pin check reports MATCH at 0.000000000000 m.
+
+NOT HOLDING: any measurement, any screen fraction, any reconciliation verdict, any
+reference-rig probe still, and any claim about which side of the suspect space the
+mislabeled term lives on. That is WW-8b's, and then the conductor's.
+
+REPRODUCE:
+    cd ~/Games/reincarnated-godot
+    STAGE=proof bash scripts/run_ww8a_calib_probe.sh
+    STAGE=A     bash scripts/run_ww8a_calib_probe.sh
+    STAGE=B     bash scripts/run_ww8a_calib_probe.sh
+================================================================================

@@ -1,0 +1,898 @@
+{
+  "baton_sha256": "d7ecd866ac45ec9647ca3d4f7850c41f6a7654e718451d9e5c38ccdb59b8d5aa",
+  "cadence": "R-CPB-14, OFF — A2d's stationary FORMULA at the shipped rate. A2d's cadence was STATISTICALLY STATIONARY — 17 births every revolution forever, so ~7.7 cuts alive at every instant and every second looking like every other one. The births are organised into EPOCHS: a sequence of 5..13 cuts runs at the ruled 17/rev rate, ENDS, and BEGINS AGAIN after a seeded gap of 0.10..0.40 rev. Mean period 0.779 rev, mean density 11.55 cuts/rev, duty 68%. THE GAP IS THE ANGULAR RE-ANCHOR: a cut is a mark left where the steel was, so its bearing is `a0 + TAU * birth` and is not a free parameter — the only honest way to make a sequence begin again somewhere else on the circle is to make it begin again at a different TIME. Adding an angle offset would draw burn marks the hammer never passed through. Epoch length and gap are pure functions of (CUT_SEED=20260813, epoch index); the per-cut hashes GAIN the epoch index and change in no other way. THE MAX GAP IS SET AGAINST THE PERSISTENCE, not by eye — and the silence is NOT the gap: the last birth of a sequence sits half a bin before it ends and the first birth of the next half a bin after it starts, so silence = gap + (1 + jitter)/rate = 0.40 + 0.0912 = 0.4912 rev against a 0.45 rev life, leaving the ring fully dark for at most 0.0412 rev = 0.0148 s = 0.44 of a 30 fps frame at the very worst draw the seed can produce. The first derivation of this bound read the silence as the gap alone, typed 0.52, and left a TWO-FRAME blackout that the falsification row measured off the rendered window. Undulation, not a strobe. ⚑ AND THE RATE IS THE RESTORED ONE (R-CPB-15): Matt pulled the density lever A2e's landing named, so this cadence aims its realized MEAN at the RATIFIED 11.0 cuts/rev (band +/-0.5) rather than at its own rate — the analytic mean above is 11.547 — and raising the rate shrank the blackout bound as a SIDE EFFECT, because narrower bins mean less slack at each end of a sequence.",
+  "camera": {
+    "eye": [
+      9.79292678833008,
+      18.88401222229,
+      9.16543674468994
+    ],
+    "far_m": 600.0,
+    "fov_deg": 31.7861022949219,
+    "look_at": [
+      9.35231399536133,
+      18.085865020752,
+      8.75455856323242
+    ]
+  },
+  "camera_gate": {
+    "aspect": 1.77777777777778,
+    "eye": [
+      9.79292678833008,
+      18.88401222229,
+      9.16543674468994
+    ],
+    "far_m": 600.0,
+    "fog_depth_end_m": 260.0,
+    "fov_deg": 31.7861022949219,
+    "look_at": [
+      9.35231399536133,
+      18.085865020752,
+      8.75455856323242
+    ],
+    "ok": true,
+    "rays": [
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.83852881193161,
+        "fog_saturated": false,
+        "ground_distance_m": 22.5204095000497,
+        "hit": [
+          -2.27387731334946,
+          11.3914585134055
+        ],
+        "inside_skirt": true,
+        "sx": -1.0,
+        "sy": -1.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.932617604732513,
+        "fog_saturated": false,
+        "ground_distance_m": 20.2483977639541,
+        "hit": [
+          4.44895618958979,
+          4.18210221898716
+        ],
+        "inside_skirt": true,
+        "sx": 0.0,
+        "sy": -1.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.83852881193161,
+        "fog_saturated": false,
+        "ground_distance_m": 22.5204095000497,
+        "hit": [
+          11.1717914794911,
+          -3.02725424812476
+        ],
+        "inside_skirt": true,
+        "sx": 1.0,
+        "sy": -1.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.71211564540863,
+        "fog_saturated": false,
+        "ground_distance_m": 26.5181819049263,
+        "hit": [
+          -8.79958676437913,
+          8.20291950861943
+        ],
+        "inside_skirt": true,
+        "sx": -1.0,
+        "sy": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.798147439956665,
+        "fog_saturated": false,
+        "ground_distance_m": 23.6598042879337,
+        "hit": [
+          -0.631888480538874,
+          -0.555863435245556
+        ],
+        "inside_skirt": true,
+        "sx": 0.0,
+        "sy": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.71211564540863,
+        "fog_saturated": false,
+        "ground_distance_m": 26.5181819049263,
+        "hit": [
+          7.5358109739689,
+          -9.31464508423021
+        ],
+        "inside_skirt": true,
+        "sx": 1.0,
+        "sy": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.541857719421387,
+        "fog_saturated": false,
+        "ground_distance_m": 34.8504995784779,
+        "hit": [
+          -18.8981705994259,
+          3.2686318789406
+        ],
+        "inside_skirt": true,
+        "sx": -1.0,
+        "sy": 1.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.602658033370972,
+        "fog_saturated": false,
+        "ground_distance_m": 31.3345399490689,
+        "hit": [
+          -8.49453405132817,
+          -7.88789951563012
+        ],
+        "inside_skirt": true,
+        "sx": 0.0,
+        "sy": 1.0,
+        "verdict": "PASS"
+      },
+      {
+        "beyond_far_plane": false,
+        "dir_y": -0.541857719421387,
+        "fog_saturated": false,
+        "ground_distance_m": 34.8504995784779,
+        "hit": [
+          1.90910452859454,
+          -19.0444320628684
+        ],
+        "inside_skirt": true,
+        "sx": 1.0,
+        "sy": 1.0,
+        "verdict": "PASS"
+      }
+    ],
+    "reason": "",
+    "skirt_half_m": 400.0
+  },
+  "camera_mode": "player_lock",
+  "canon_derivation": null,
+  "clk1_diagnostics": {
+    "anim": true,
+    "fx": true,
+    "phaselog": false,
+    "shipped_configuration": true
+  },
+  "cut_per_rev": 17,
+  "density_target_cuts_per_rev": 11.0,
+  "driver": {
+    "absences": [
+      {
+        "detail": "K-4 / GL-12. 0 of 344 actors carry no path on this baton, so there is no summon to render: R-L53-2 declares summoned bodies OUT-OF-MODEL for this run and the sim never simulated one (PL-4). The render-at-spawn / declared-undefined half of K-4 is DORMANT; its prohibition half is LIVE and STRUCTURAL — the loader REFUSES a pathless body and this driver has no branch that could move one. NO WANDER IS FABRICATED, and none could be.",
+        "field": "actors[] (bodies raised in-fight)",
+        "id": "ABSENT-SUMMON-BODIES",
+        "state": "DORMANT-EMPTY-DOMAIN",
+        "summon_capable_rostered": "Karroz Sigil of Ch'thon x2 (w167), Tempest Spawn x2 (w169), The Steward x2 (w160), Stone Basilisk x2 (w156) — kits that summon in the source game, all fully pathed here, none raising adds. Faithful to the sim, not a rendering hole (PL-4)."
+      }
+    ],
+    "actors": 344,
+    "anim_players": 344,
+    "anim_unbound": [],
+    "bodies_bound": 344,
+    "clip_rate": "AUTHORED — speed_scale 1.0 on every clip. The wire says how fast a body moved, never what its legs should be doing.",
+    "clips": {
+      "idle": {
+        "length_s": 1.76666665077209,
+        "loaded": true,
+        "path": "res://Assets/Synty/anim-base-locomotion/SourceFiles/Animations/Sidekick/Masculine/Idles/A_MOD_BL_Idle_Standing_Masc.fbx",
+        "tracks": 124
+      },
+      "run": {
+        "length_s": 0.699999988079071,
+        "loaded": true,
+        "path": "res://Assets/Synty/anim-goblin-locomotion/SourceFiles/Animations/Sidekick/Neutral/Locomotion/Run/A_MOD_GBL_Run_F_Neut.fbx",
+        "tracks": 92
+      },
+      "walk": {
+        "length_s": 1.03333330154419,
+        "loaded": true,
+        "path": "res://Assets/Synty/anim-base-locomotion/SourceFiles/Animations/Sidekick/Masculine/Locomotion/Walk/A_MOD_BL_Walk_F_Masc.fbx",
+        "tracks": 122
+      }
+    },
+    "drip_ticks_max": 306,
+    "entry_basis": "path[0].run_tick per body — GL-8 / NOTE-2. The spawn event row is not read.",
+    "exit_basis": "path[-1].run_tick per body. Past it the position is UNDEFINED and the body is HIDDEN — not held at its last knot (GL-12), not dressed as a death (combat is the next act).",
+    "foot_slide_debt": "DECLARED, UNMEASURED THIS CELL. Clips play at their AUTHORED rate; the run's measured leg speeds (median 4.000 m/s over 642 moving legs, max 5.800) outrun every locomotion clip on disk, so fast legs foot-slide. GL-19 permits the residual as NAMED debt and forbids hiding it. The instrument that would close it exists: scripts/mobcast_stride_probe.gd measures a clip's implied ground speed.",
+    "player": {
+      "assembly": {
+        "grip": {
+          "basis": "DERIVED FROM REST, not typed: origin = midpoint(Finger_01, Thumb_02) = the centre of a closed fist; +Y = Index-base - Finger-base = the axis a handle takes when the fist closes; +Z = wrist->knuckles, orthogonalised. The A2b defect was a BoneAttachment3D at the bone ORIGIN, and the RightHand bone's origin is the WRIST.",
+          "fist_span_m": 0.0599255636334419,
+          "hand_bone": "RightHand",
+          "origin_in_hand_m": [
+            0.0148055274039507,
+            0.19370436668396,
+            -0.0125160589814186
+          ],
+          "palm_offset_from_wrist_m": 0.194672122597694
+        },
+        "grip_frac": 0.2,
+        "head": "res://Assets/Synty/polygon-dungeon-realms/FBX/Characters/Attachments/SM_Chr_Attach_Undead_Knight_Head_01.fbx",
+        "headgear": "res://Assets/Synty/polygon-dungeon-realms/FBX/Characters/Attachments/SM_Chr_Attach_Undead_Knight_Helmet_01.fbx",
+        "refusals": [],
+        "sockets": {
+          "HeadSocket": {
+            "bone": "Head",
+            "idx": 6
+          },
+          "WeaponSocket": {
+            "bone": "RightHand",
+            "idx": 28
+          }
+        },
+        "weapon": "res://Assets/Synty/polygon-dungeon-realms/FBX/SM_Wep_WarHammer_Large_04.fbx",
+        "weapon_drawn_len_m": 1.94780373573303,
+        "weapon_hand": "BOTH HANDS, stacked near the haft's base — the baseball grip (R-CPB-6). The hammer hangs off the RIGHT hand's grip frame; the LEFT arm is then SOLVED onto the haft 0.100 m below it (report.pose.left_grip_m). A2b's one-handed carry is retired.",
+        "weapon_native_len_m": 0.998873710632324,
+        "weapon_scale": 1.95,
+        "weapon_scale_is_override": false
+      },
+      "body": {
+        "assembled_height_measured_m": 1.74470472335815,
+        "assembled_with_kit_m": 2.399573802948,
+        "basis": "REGISTER PRECEDENT, WITH ITS BASIS CORRECTED. A2 drew this body at 1.7097 m believing that to be WR2's measured native rest height; the rig probe shows 1.7097 is the `Eyebrows` BONE rest height of the Synty base rig (every dark-fantasy roster rig reads 1.7096 on the same bone), not a mesh height. The number is KEPT as the drawn height so the player is the same size Matt watched at CP-B — between trash 1.70 and hero 1.75 — but it is now a MESH height measured on a body that has a head. DRESS, VETO-OPEN.",
+        "drawn_height_m": 1.7097,
+        "drawn_height_target_m": 1.7097,
+        "fbx": "res://Assets/Synty/polygon-dungeon-realms/FBX/Characters/Chr_Undead_Knight_01.fbx",
+        "headless_height_a2_m": 1.628,
+        "height_basis": "body mesh + head, EXCLUDING the headgear's horns and the weapon — normalising the full-kit AABB would resize the man whenever the kit changed",
+        "scale": 0.979936591625213
+      },
+      "channel_active_all": true,
+      "channel_active_ticks": 3732,
+      "channel_fx": {
+        "binbun_shell": "REMOVED (R-CPB-2a) — the gold/blue magic_areas aura is not in the tree",
+        "continuity": "driven per tick from tracks.circle_sweep.active — TRUE on 3732 of 3732 samples on this baton, so the field is continuous, not pulsed",
+        "design": "R-CPB-2 — spark arcs off the hammer's passage over a bed of smoky darkness",
+        "emitter_offsets_deg": [
+          0.0,
+          -41.0,
+          -97.0
+        ],
+        "emitters": 3,
+        "etch": {
+          "angle_deg": -56.2371660680828,
+          "built": true,
+          "contact_band": {
+            "angle_rad": -0.981523709878878,
+            "basis": "MEASURED: the 16 of 1958 weapon vertices whose horizontal distance from the SPIN AXIS is within 0.99 of the maximum 2.2003 m — the steel at reach, which is where R-CPB-2's invisible circular surface gets touched. Ring radius, ring height, stroke thickness and the etch's angular head all come from this one set; nothing about the etch is typed, so WEAPON_SCALE moves all of it at once.",
+            "contact_frac": 0.99,
+            "half_extent_m": 0.149611979722977,
+            "height_hi_m": 1.21585547924042,
+            "height_lo_m": 0.916631519794464,
+            "height_m": 1.08749802410603,
+            "measured": true,
+            "radius_inner_m": 2.18031078973461,
+            "radius_m": 2.20034735019359,
+            "verts": 16,
+            "verts_total": 1958
+          },
+          "core_half_width_m": 0.0329146355390549,
+          "height_m": 1.08749802410603,
+          "pattern": {
+            "alive_expected": 7.65,
+            "alternation": "STRICT on the global stroke index g = rev * 17 + slot: g even is SWORD, g odd is CLAW. The ruling alternates the CLASSES and randomises the INTERVALS, not the other way round. With 17 births per revolution — an odd number — the parity at a given slot flips every revolution, so in the STATIONARY cadence the same bearing takes the other class next time round. A cut's bearing is a0 + TAU * birth, so the integer revolution contributes a whole turn and drops out: an EVEN rate would repeat class-at-bearing every 0.36 s, which is why the rate raise landed on an odd integer rather than on the one that centred the mean better. The UNDULATING cadence is parity-independent — its g runs continuously across epochs of varying length, so nothing about it turns on this.",
+            "blackout_bound_s": 0.0148235294117647,
+            "claw_gap_m": 0.04,
+            "claw_lines": [
+              3,
+              4
+            ],
+            "claw_stagger_revs": 0.03,
+            "claw_width_frac": [
+              0.26,
+              0.62
+            ],
+            "cut_arc_deg": [
+              19.8,
+              50.4
+            ],
+            "cut_arc_revs": [
+              0.055,
+              0.14
+            ],
+            "cuts_per_rev": 17,
+            "density_band_cuts_per_rev": 0.5,
+            "density_target_cuts_per_rev": 11.0,
+            "determinism": "R-CPB-12 clause 5 / GL-18 / FG-10. Every interval, class, height, variant and per-finger stagger is a HASH of (CUT_SEED=20260813, revolution index, slot index) — the same `_hash2` the spark schedule has used since A2b. There is no `randi()` anywhere in this file, seeded or otherwise, no RNG object, no wall clock and no per-frame accumulation. The same tick produces the same frame across process restarts AND across two fresh builds, and the motion smoke asserts both.",
+            "epoch_gap_revs": [
+              0.1,
+              0.4
+            ],
+            "epoch_len_births": [
+              5,
+              13
+            ],
+            "epoch_mean_density_analytic": 11.5471698113208,
+            "epoch_mean_period_revs": 0.779411764705882,
+            "interval_jitter_of_a_bin": 0.55,
+            "library_meshes": 12,
+            "library_triangles": 28992,
+            "mean_interval_deg": 21.1764705882353,
+            "palette": "ONE RAMP, FOUR CONSUMERS (R-CPB-13): white-hot (1.00, 0.97, 0.90) -> orange (1.00, 0.42, 0.06) -> RED (0.98, 0.07, 0.02), knee at 0.56 of the DECAYED age axis (= 0.3485 of a linear life, derived), gamma 0.55 BELOW 1 so the energy drops fast off the steel and then CRAWLS — the crawl is where the red lives. CONSUMERS: the SWORD cuts and the CLAW cuts (one shader, one pool, the stops written onto every material), the SPARK contact bursts and the EMBER garnish (the ramp SAMPLED at 32 stops onto their Gradients — they do not copy the numbers, they evaluate the function). SMOKE IS OUT by ruling: darkness, not heat. REVERT POINT: PAL_TAIL, one line, all four at once. DECLARED TASTE: no wire carries a colour.",
+            "persist_revs": 0.45,
+            "persist_s": 0.162,
+            "pool": 24,
+            "pool_headroom_nodes": 16.35,
+            "seed": 20260813,
+            "undulating": false,
+            "undulation": "R-CPB-14, OFF — A2d's stationary FORMULA at the shipped rate. A2d's cadence was STATISTICALLY STATIONARY — 17 births every revolution forever, so ~7.7 cuts alive at every instant and every second looking like every other one. The births are organised into EPOCHS: a sequence of 5..13 cuts runs at the ruled 17/rev rate, ENDS, and BEGINS AGAIN after a seeded gap of 0.10..0.40 rev. Mean period 0.779 rev, mean density 11.55 cuts/rev, duty 68%. THE GAP IS THE ANGULAR RE-ANCHOR: a cut is a mark left where the steel was, so its bearing is `a0 + TAU * birth` and is not a free parameter — the only honest way to make a sequence begin again somewhere else on the circle is to make it begin again at a different TIME. Adding an angle offset would draw burn marks the hammer never passed through. Epoch length and gap are pure functions of (CUT_SEED=20260813, epoch index); the per-cut hashes GAIN the epoch index and change in no other way. THE MAX GAP IS SET AGAINST THE PERSISTENCE, not by eye — and the silence is NOT the gap: the last birth of a sequence sits half a bin before it ends and the first birth of the next half a bin after it starts, so silence = gap + (1 + jitter)/rate = 0.40 + 0.0912 = 0.4912 rev against a 0.45 rev life, leaving the ring fully dark for at most 0.0412 rev = 0.0148 s = 0.44 of a 30 fps frame at the very worst draw the seed can produce. The first derivation of this bound read the silence as the gap alone, typed 0.52, and left a TWO-FRAME blackout that the falsification row measured off the rendered window. Undulation, not a strobe. ⚑ AND THE RATE IS THE RESTORED ONE (R-CPB-15): Matt pulled the density lever A2e's landing named, so this cadence aims its realized MEAN at the RATIFIED 11.0 cuts/rev (band +/-0.5) rather than at its own rate — the analytic mean above is 11.547 — and raising the rate shrank the blackout bound as a SIDE EFFECT, because narrower bins mean less slack at each end of a sequence.",
+            "variants_per_class": 6,
+            "vertical_band_m": 0.36,
+            "vertical_centre_m": 1.08749802410603,
+            "vertical_levels": 5,
+            "world_fixed": "The cuts are parented to a NON-SPINNING node at the station, and each one carries the world angle the steel was at when it was inscribed. A2c's ring was parented to the spinning holder, which is exactly equivalent for a full circle and exactly WRONG for a discrete pattern: a burn mark stays where the steel touched."
+          },
+          "persist_revs": 0.45,
+          "persist_s": 0.162,
+          "planes": 3,
+          "radius_m": 2.20034735019359,
+          "sheath_half_width_m": 0.0954524430632591
+        },
+        "layer": "R-BR-17 — CORE is the spark arcs plus the arena's measured 3.000 m ribbon; SHELL is the smoke bed, stacked under both and carrying no silhouette; NATIVE is every piece of geometry here, because no pack ships a ring at a radius this trace measured. The packs supply two textures (GL-1).",
+        "layers": {
+          "basis": "legolas probe @ 073dc7fd: GD and D3 both split a continuous weapon-bone TRAIL from discrete CONTACT BURSTS as independent records (GD: two EffectEntity on the weapon bones). A2b shipped only the burst half; A2b-r added the trail; R-CPB-7 promoted the continuous half to an etch and demoted the particles under it. The split is RETAINED and now has three members — ETCH_*, TRAIL_*, SPARK_* — each independently tunable, which is what 'independent records' buys.",
+          "discrete_bursts": "LAYER 2, 3 staggered emitters on the sweep circle, duty-cycled from a hash of (emitter, revolution). SPARK_* constants tune it and touch nothing else.",
+          "ember_garnish": "LAYER 1b, DEMOTED from dominant by R-CPB-7. The GPUParticles trail on the hammer head, world-space, always emitting. It carried the continuous layer alone until the etch existed; it is now the spray that stops the stroke reading as a drawn ring. TRAIL_* constants tune it and touch nothing else.",
+          "etch": "LAYER 1, DOMINANT (R-CPB-7), and a PATTERN rather than a ring since R-CPB-12. Swept ribbon-crosses keyed to the hammer's measured contact band, each truncating at 0.45 rev (0.1620 s) so it dies before it closes; two classes alternating strictly, at seeded intervals and seeded heights. ETCH_* tunes the stroke, CUT_* the cadence, CLAW_* the claw class, and each touches only itself. WORLD-FIXED on a non-spinning node: a burn mark stays where the steel touched. Its per-tick surface is a pool of 24 transforms and one uniform, every number a HASH of (seed, revolution, slot) — no RNG, no clock, no accumulation."
+        },
+        "palette": "metal-strike: white-hot core -> orange -> ember red, additive. DECLARED CHOICE, veto-open at the watch — the asset language did not dictate it.",
+        "smoke_bed": {
+          "alpha_at_radius": {
+            "0.0000": 0.86,
+            "2.1563": 0.86,
+            "2.4000": 0.854830954169797,
+            "2.7500": 0.662633236636336,
+            "2.8120": 0.608758144530707,
+            "2.9999": 0.43009772727198,
+            "3.0000": 0.43,
+            "3.3000": 0.157009767092412
+          },
+          "alpha_max": 0.86,
+          "basis": "R-CPB-5b's below-noticing clause, as a profile. The falloff STRADDLES the wire's 3.000 m rather than stopping at it: full density inside 2.3400 m, zero outside 3.6600 m, exactly HALF at the wire radius. A hard edge there would DRAW the kill boundary and hand the player the rigging. Against the etch's deliberately SHARP edge at the steel's reach, the gap between the two IS the generosity margin — visible, and unreadable as a margin. R-CPB-5c: kill median 2.812 m and 67.2 % of kills in [2.75, 3.00) all land where this profile is still dark.",
+          "full_density_to_m": 2.34,
+          "half_density_at_m": 3.0,
+          "soft_frac": 0.22,
+          "zero_density_from_m": 3.66
+        },
+        "smoke_haze_amount": 170,
+        "smoke_inner_radius_m": 0.0,
+        "smoke_radius_basis": "DAMAGE TRUTH — the wire's own `tracks.circle_sweep.radius_m`, one distinct value across 3,732 samples, the same number the arena's ribbon is drawn at. Conductor lean at R-CPB-2, VETO-OPEN: when the combat act kills at ribbon range the deaths land INSIDE the darkness rather than outside the visuals.",
+        "smoke_radius_m": 3.0,
+        "smoke_top_m": 1.25,
+        "spark_radius_basis": "WEAPON TRUTH — the MEASURED hammer-tip sweep (report.weapon_sweep). Matt's law: the VFX range exactly matches the hammer's length.",
+        "spark_radius_m": 2.20034735019359,
+        "trail_attached": true,
+        "trail_head_frac": 0.93,
+        "trail_head_radius_m": 2.02027916908264
+      },
+      "heading_consumers": 0,
+      "player_distinct_x": 1,
+      "player_distinct_y": 1,
+      "plinth": "REMOVED — it stood in for the player in the statics cell",
+      "pose": {
+        "applied": true,
+        "arm_cap_left_m": 0.604519604444504,
+        "arm_cap_right_m": 0.604519515931606,
+        "arm_extension_frac": 0.99,
+        "arm_need_left_m": 0.600322186946869,
+        "arm_need_right_m": 0.576561629772186,
+        "arm_span_left_m": 0.610625863075256,
+        "arm_span_right_m": 0.610625773668289,
+        "basis": "R-CPB-6 defect 2. A FROZEN MID-SWING, authored bone by bone and spun by the 0.36 s/rev yaw — torso coiled -38 deg over hips at -13, leaning 18, arms out along the swing radius with both elbows unlocked, hammer near-horizontal with the head outboard and trailing the hands by 12 deg. PRESENTATION CHOICE, NO WIRE BASIS: the wire carries `circle_sweep.active` and nothing about limbs. The pose is applied ONCE at build; nothing here moves per tick, so FG-10's pure-function-of-sim-time spin is intact.",
+        "bind_pose_aabb_gap_basis": "RETIRED INSTRUMENT, kept visible. The lowest vertex of the BIND-POSE AABB in the holder's frame. It is POSE-INSENSITIVE by construction — Godot's AABB for a skinned mesh is the bind box — so it scored 0.0000 for a body standing on air. Use pose.stance.sole_plant_max_err_m.",
+        "bind_pose_aabb_gap_m": 0.00955973379313946,
+        "both_hands_on_the_haft": true,
+        "elbow_left_deg": 158.784274201075,
+        "elbow_right_deg": 141.291925005624,
+        "elbows": {
+          "apex_back_min_m": -0.0337721146643162,
+          "apex_inward_anywhere": false,
+          "apex_out_min_m": 0.0312074292451143,
+          "apex_outward": true,
+          "arms": {
+            "Left": {
+              "apex_back_m": -0.0337721146643162,
+              "apex_down_m": 0.0310554504394531,
+              "apex_inward": false,
+              "apex_m": 0.0554878413677216,
+              "apex_out_m": 0.0312074292451143,
+              "apex_plane_max_out": 0.721287906169891,
+              "apex_plane_out_dot_back": -0.986257433891296,
+              "flexion_deg": 21.2157257989251,
+              "forearm_m": 0.271145761013031,
+              "upper_arm_m": 0.339480102062225
+            },
+            "Right": {
+              "apex_back_m": -0.032906174659729,
+              "apex_down_m": 0.0481760501861572,
+              "apex_inward": false,
+              "apex_m": 0.0998377054929733,
+              "apex_out_m": 0.0810173973441124,
+              "apex_plane_max_out": 0.952330589294434,
+              "apex_plane_out_dot_back": -0.909834980964661,
+              "flexion_deg": 38.7080749943756,
+              "forearm_m": 0.27114525437355,
+              "upper_arm_m": 0.339480519294739
+            }
+          },
+          "chest_right": [
+            -0.774650096893311,
+            0.0,
+            -0.632390022277832
+          ],
+          "dominant_is_right": true,
+          "flexion_max_deg": 38.7080749943756,
+          "flexion_min_deg": 21.2157257989251,
+          "measure_basis": "R-CPB-11-B. The elbow apex's displacement off the SHOULDER-TO-WRIST line, decomposed onto the CHEST's own axes (the shoulder line, measured — not the pelvis's, which this coiled torso is 38 deg out of). OUT is away from the midline for BOTH arms, so one bar covers both and an INWARD elbow reads negative. A2c measured OUT +0.0172 / -0.0109 m against DOWN +0.1031 / +0.0513 — forty degrees of right-elbow flexion pointing along the arm's own visual axis, which is why Matt read straight arms off a joint angle that said otherwise. A BEND IS A DIRECTION, NOT A SCALAR.",
+          "measured": true
+        },
+        "elbows_unlocked": true,
+        "grip_residual_bar_m": 0.01,
+        "grip_residual_left_m": 0.00155283743515611,
+        "grip_residual_max_m": 0.00155283743515611,
+        "grip_residual_right_m": 0.0000414082860515919,
+        "haft_dir": [
+          -0.687729239463806,
+          0.0,
+          0.725967288017273
+        ],
+        "haft_lag_deg": 12.0,
+        "haft_tilt_from_horizontal_deg": 0.0,
+        "hand_gap_measured_m": 0.0999793410301208,
+        "hand_gap_target_m": 0.1,
+        "hands_radius_m": 0.649508595466614,
+        "left_grip_m": [
+          -0.467263460159302,
+          1.22723031044006,
+          0.29477870464325
+        ],
+        "occlusion": {
+          "arm_gap_at_m": [
+            -0.467556118965149,
+            1.29209637641907,
+            0.319824576377869
+          ],
+          "arm_gap_m": 0.00925176004148318,
+          "arm_verts": [
+            687,
+            687
+          ],
+          "arms_clear": true,
+          "basis": "R-CPB-11-C, GEOMETRIC. (a) arm vs arm: the minimum distance between the two arms' SKINNED vertex sets, 687 x 687 verts, in body space. (b) hand vs haft: for every skinned hand vertex, the PARITY of the crossings of a radially-outward ray against the weapon's own 36 triangles in the fists' band — odd means the vertex is INSIDE THE STEEL, AND whether that vertex's own skinned normal faces radially OUTWARD, which is what makes the burial visible. Exact, not an envelope: a max-radius-per-bin envelope calls this hammer's talon pommel a cylinder and condemns a fist that is nowhere near it. The envelope clearance is reported beside the boolean as the continuous number to tune against, and it is the number that may be negative while the law still holds.",
+          "burial_below_noticing": true,
+          "contact_gap_best_hand_m": -0.017859285697341,
+          "contact_gap_m": -0.0112056145444512,
+          "deepest_burial_at_m": [
+            -0.379938662052155,
+            1.26596748828888,
+            0.237384110689163
+          ],
+          "deepest_burial_m": 0.00429115321062442,
+          "envelope_clearance_min_m": 0.0600340813398361,
+          "haft_band_m": [
+            -0.319829910993576,
+            -0.0444437079131603
+          ],
+          "hand_outward_faces_buried": 2,
+          "hand_radial_clearance_min_m": 0.0600340813398361,
+          "hand_verts_inside_steel": 25,
+          "hands": {
+            "Left": {
+              "clearance_at_m": [
+                -0.460324913263321,
+                1.33260774612427,
+                0.260636478662491
+              ],
+              "contact_gap_m": -0.017859285697341,
+              "envelope_clearance_m": 0.0600340813398361,
+              "inside_the_steel": 21,
+              "outward_faces_buried": 2,
+              "radial_clearance_m": 0.0600340813398361,
+              "verts": 380
+            },
+            "Right": {
+              "clearance_at_m": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "contact_gap_m": -0.0112056145444512,
+              "envelope_clearance_m": 1000000000.0,
+              "inside_the_steel": 4,
+              "outward_faces_buried": 0,
+              "radial_clearance_m": 1000000000.0,
+              "verts": 384
+            }
+          },
+          "hands_in_contact": true,
+          "law_satisfied": true,
+          "measured": true,
+          "weapon_never_covers_flesh": true,
+          "weapon_tris_in_band": 36
+        },
+        "oscillation": "NOT BUILT, and that is a choice with a reason. A per-revolution wobble would be a second clock beside the trace's (GL-18) and would make the spark radius time-varying, which weakens the one law the ring is built on — sparks at EXACTLY the hammer's reach. Cheap to add later as a pure function of the same tick; veto-open.",
+        "reach_found_m": 0.591460621309281,
+        "reach_relax_laps": 2,
+        "refusals": [],
+        "right_grip_m": [
+          -0.534953653812408,
+          1.227787733078,
+          0.368355840444565
+        ],
+        "stance": {
+          "basis": "R-CPB-8. The boots are PLANTED at measured floor points and the legs are SOLVED to them (law of cosines, knee poled along that boot's own toes so the apex LEADS). A2b-r rotated each shin about `side` — the SWING's lateral axis, not the leg's — by a NEGATIVE angle, which decomposed into hyperextension (-15.3 deg about body-left) AND a sideways break out of the thigh's plane (-21.0 deg about body-forward): both halves of Matt's 'bending backwards (inwards)' from one wrong axis. PRESENTATION CHOICE, NO WIRE BASIS.",
+          "bone_ankle_plant_max_err_m": 0.0692682266235352,
+          "bone_line_basis": "RETIRED (R-CPB-11-A), kept visible. The ankle-to-toe BONE line and the foot bone's basis against its rest basis. Correct arithmetic on the wrong object: this rig's bone line is horizontal at bind and its boot underside is raked 18.1 deg against it, so levelling the line reproduces the rake. Reads 0.000 deg on the DEFECTIVE pose and 18.14 deg on the CORRECT one. The live flatness read is `stance.sole` (measure_soles).",
+          "bone_sole_tilt_max_deg": 18.1367857272253,
+          "bone_toe_tilt_max_deg": 18.1366995472461,
+          "hip_drop_basis": "BISECTED, not typed: the smallest pelvis drop at which the deeper knee reaches KNEE_BEND_DEG=26 deg with BOTH boots on the floor, solved against the rig's own bone lengths. A 15.0 deg split plants the boots 0.2009 m off the spin line each, which is further from the hips than the legs are long — so the drop is compulsory arithmetic before it is anybody's taste.",
+          "hip_drop_m": 0.0662409998622024,
+          "knee_apex_fwd_min_m": 0.0740568935871124,
+          "knee_lateral_frac_max": 0.0109739476775046,
+          "knees_forward": true,
+          "leg_span_rest_m": 0.776191771030426,
+          "legs": {
+            "Left": {
+              "bone_ankle_y_m": 0.0422144532203674,
+              "bone_plant_err_m": 0.0692682266235352,
+              "bone_rest_ankle_y_m": 0.055694043636322,
+              "bone_sole_tilt_deg": 18.1367857272253,
+              "bone_toe_tilt_deg": -18.1366995472461,
+              "bone_toe_y_m": -0.0135741829872131,
+              "hyperextended": false,
+              "knee_apex_fwd_m": 0.0740568935871124,
+              "knee_apex_lateral_m": 0.000354479998350143,
+              "knee_flexion_deg": 23.1705086246122
+            },
+            "Right": {
+              "bone_ankle_y_m": 0.0422357320785522,
+              "bone_plant_err_m": 0.0692468881607056,
+              "bone_rest_ankle_y_m": 0.0556941032409668,
+              "bone_sole_tilt_deg": 18.1367199017074,
+              "bone_toe_tilt_deg": -18.1366474394882,
+              "bone_toe_y_m": -0.0135527849197388,
+              "hyperextended": false,
+              "knee_apex_fwd_m": 0.0834490731358528,
+              "knee_apex_lateral_m": -0.000915765762329102,
+              "knee_flexion_deg": 26.0085124954073
+            }
+          },
+          "measure_basis": "bone globals composed from LOCAL poses (NOT get_bone_global_pose, which reads a cache a headless harness never refreshes, and NOT an AABB, which is the bind-pose box and cannot see a pose at all — the instrument that one replaced scored 0.0000 m of ground gap for a boot 0.094 m in the air). knee_apex_fwd is the knee's break off the hip-ankle line projected on that boot's OWN toe direction: positive leads, negative is the hyperextension Matt named. FLATNESS IS NOT MEASURED HERE ANY MORE — see stance.sole.",
+          "measured": true,
+          "no_knock_knee": true,
+          "pelvis_over_midfoot_m": 0.0368542820215225,
+          "planted": true,
+          "refusals": [],
+          "sole": {
+            "feet": {
+              "Left": {
+                "boot_verts": 63,
+                "fwd": [
+                  -0.733088672161102,
+                  0.0,
+                  0.680133044719696
+                ],
+                "lat": [
+                  0.680133044719696,
+                  0.0,
+                  0.733088672161102
+                ],
+                "rest_rake_deg": 18.1252770368159,
+                "sole_gap_m": -0.0000119637697935104,
+                "sole_len_m": 0.0988923609256744,
+                "sole_min_y_m": -0.0177341308444738,
+                "sole_pitch_deg": 0.00184994442698997,
+                "sole_roll_deg": 0.00000662802359280172,
+                "sole_tilt_deg": 0.0018499563004698,
+                "sole_verts": 26,
+                "toe_minus_heel_m": 0.00000319299909320778
+              },
+              "Right": {
+                "boot_verts": 63,
+                "fwd": [
+                  -0.873382210731506,
+                  0.0,
+                  0.487035483121872
+                ],
+                "lat": [
+                  0.487035483121872,
+                  0.0,
+                  0.873382210731506
+                ],
+                "rest_rake_deg": 18.1252812197276,
+                "sole_gap_m": 0.0000097230076789856,
+                "sole_len_m": 0.0988923162221909,
+                "sole_min_y_m": -0.0177124440670013,
+                "sole_pitch_deg": 0.00190707552698031,
+                "sole_roll_deg": -0.0000104154594493618,
+                "sole_tilt_deg": 0.00190710396869248,
+                "sole_verts": 26,
+                "toe_minus_heel_m": 0.00000329160572988318
+              }
+            },
+            "floor_y_m": -0.0177221670746803,
+            "measure_basis": "R-CPB-11-A. THE BOOT'S UNDERSIDE PROFILE — a side-elevation silhouette, computed. The skin is evaluated on the CPU (vertex' = sum_j w_j * (bone_pose(bind_j) * bind_pose_j) * v, composed from LOCAL bone poses, so no frame and no cache is needed); the sole SET is decided ONCE at rest — the boot's underside from the heel contact forward, within 0.006 m of each station's own floor — and those same vertices by KEY are what every pose is judged on. `sole_pitch_deg` is the least-squares slope of the lowest surface across 10 stations heel-to-toe: POSITIVE IS TOES UP, the defect Matt named, and it reads +18.1 on the A2c article. Roll is measured across the HEEL only, the one part of this boot with real lateral width. THREE EARLIER INSTRUMENTS SCORED THIS POSE FLAT: the ankle-to-toe BONE line (A2c, 0.000 deg), a lowest-22-mm vertex band (0.000 deg — on a raked boot it selects the heel pad alone), and down-facing skinned FACES (which on this asset are four 2 cm facets under the ankle, because the real underside triangle wraps up the point and its normal is 64 deg off vertical).",
+            "measured": true,
+            "sole_gap_max_m": 0.0000119637697935104,
+            "sole_pitch_max_deg": 0.00190707552698031,
+            "sole_tilt_max_deg": 0.00190710396869248,
+            "soles_flat_on_tiles": true,
+            "toe_minus_heel_max_m": 0.00000329160572988318
+          },
+          "sole_basis": "R-CPB-11-A. The boot's whole UNDERSIDE is raked NOSE-UP in the bind pose — one ramp from a heel edge at y = -0.0177 to a raised point at y = +0.0114 over 0.0868 m, 18.1 deg — while the ankle-to-toe BONE line is horizontal. So A2c's 'level the foot to its rest basis' levelled the bone line to 0.000 deg AND faithfully reproduced the mesh's rake. The ankle's orientation and its height are now SOLVED against the rendered underside: 5 laps of {plant -> bisect the drop -> solve both legs -> level the foot -> MEASURE THE MESH -> correct pitch, roll and lift}. The knee target is re-bisected INSIDE every lap, so the ratified knees survive the foot fix instead of being spent on it.",
+          "sole_lift_m": {
+            "Left": 0.0599454720504582,
+            "Right": 0.059950664639473
+          },
+          "sole_rest_rake_deg": {
+            "Left": 18.1252770368159,
+            "Right": 18.1252812197276
+          },
+          "sole_solve_laps": 5,
+          "stance_floor_y_m": -0.0177221670746803,
+          "stance_step_m": 0.200893212994529
+        },
+        "swing_yaw_deg": -54.0
+      },
+      "pose_animation_players_silenced": 4,
+      "position_pinned": true,
+      "samples": 3732,
+      "spin_basis": "R-CPB-3 — Matt's veto of the cell's own 0.60 s/rev. Genre band 0.30-0.50 s/rev (D2 Whirlwind weapon frames, D3/D4 attack-speed-scaled, GD Eye of Reckoning), endgame 0.33-0.40; 0.36 is the endgame midpoint. Still a PRESENTATION CHOICE with no wire basis: heading_rad is DECLARED-NON-SEMANTIC and no consumer reads it. The reference's per-tick 360 deg is the sim's uniform-disc abstraction (12.25 rev/s), which aliases at any frame rate this run will use.",
+      "spin_deg_per_frame_at_30fps": 33.3333333333333,
+      "spin_period_s": 0.36,
+      "sweep_distinct_radii": 1,
+      "translation_ruling": "R-CPB-4 — NOT BUILT. Matt asked for drift toward the largest pack; the wire pins x and y to one value each across 3,732 samples, so translation here would fabricate motion the sim never computed (GL-12) and would falsify the 2.400 m engage ring the bodies are standing on. Routed to the engine seam.",
+      "weapon_sweep": {
+        "basis": "MEASURED: max horizontal distance from the spin axis to any of the 1958 weapon vertices, IN THE AUTHORED CHANNEL POSE — the frozen mid-swing the scene actually draws, over 1 sample(s). Bone globals composed from LOCAL poses up the parent chain, because the global-pose cache only refreshes on a frame the headless harness never takes (NOTE-23). Spread 0.0000 m; the ring is drawn at the MEAN.",
+        "generosity_band_m": [
+          2.1,
+          2.35
+        ],
+        "generosity_law": "R-CPB-5, THE ASYMMETRIC-GENEROSITY LAW (Matt-ruled). The player's crisp VFX reach sits JUST UNDER its kill distance, so kills land 'just outside the steel's reach' and read as POWER rather than as luck. The dominant kill distance on this baton is d_engage 2.400 m; the target band is 2.10-2.35 m; the spark ring is drawn at the MEASURED hammer sweep and this row is the check, not a promise.",
+        "kill_ring_m": 2.4,
+        "margin_to_kill_ring_m": 0.199652649806406,
+        "max_m": 2.20034735019359,
+        "mean_m": 2.20034735019359,
+        "measured": true,
+        "min_m": 2.20034735019359,
+        "posed": true,
+        "samples": 1,
+        "verts": 1958
+      }
+    }
+  },
+  "epoch_count_in_window": 0,
+  "epoch_schedule_realized": [],
+  "fg10_layer": "FG-10 layer: SCENE-SIM (visibility + world position after the single presentation cast + leg index + clip state + yaw), sampled at declared ticks. NOT pixels (the N3 term is open — charter § 10). NOT skeletal pose.",
+  "fps": 30.0,
+  "frames_expected": 161,
+  "godot": "4.6.3-stable (official)",
+  "grip_frac": 0.2,
+  "grip_seat_m": 0.1,
+  "height": 900,
+  "optics_measured": {
+    "cut_ring_ellipse": {
+      "analytic_depression_deg": 88.0611171705802,
+      "analytic_sin_depression": 0.999427485587149,
+      "basis": "MEASURED: 720 points of the horizontal cut-ring circle put through Camera3D.unproject_position on the pose that renders. major = longest chord, minor = widest extent perpendicular to it. The analytic sin(depression) is carried beside it as a PREDICTION, never as the reported value.",
+      "bbox_h_px": 250.123657226562,
+      "bbox_w_px": 312.65283203125,
+      "major_axis_px": 312.65283203125,
+      "major_axis_screen_dir": [
+        1.0,
+        0.0
+      ],
+      "measured_bbox_h_over_w": 0.800004450948208,
+      "measured_minor_over_major": 0.800004450948208,
+      "minor_axis_px": 250.123657226562,
+      "points_behind_camera": 0,
+      "points_projected": 720,
+      "ring_height_m": 1.08749802410603,
+      "ring_radius_m": 2.20034735019359
+    },
+    "fov_axis": "VERTICAL — Godot's Camera3D.fov under the default KEEP_HEIGHT (the same reading `Kc2Arena.camera_ground_gate` casts its rays with)",
+    "fov_deg": 31.7861022949219,
+    "gl13_rectangle_projected": {
+      "corners_are_a_fact_not_a_failure": "R-CPB-17(b): rooms CROP at the frame edge. GL-13 pins the rectangle in the WORLD; it never promised the rectangle fits a frame. At the fixed boom the frame spans ~55 m across and this arena is 86.9 m, so all four corners fall outside — expected, pre-registered, and not a defect. At A2g's 168.863 m two of four were already outside (R-6's own 17.5 m room did not fit either: at yaw 47 a square presents 1.414x its edge in depth against roughly 1.10x that fov 24 covers on the ground). THIS CLIP IS NOT AN ARENA OVERVIEW AND MUST NOT BE READ AS ONE.",
+      "corners_inside_frame": 0,
+      "corners_outside_frame": 4,
+      "corners_px": [
+        [
+          -3008.04907226562,
+          285.459869384766
+        ],
+        [
+          "BEHIND",
+          0.0,
+          0.0
+        ],
+        [
+          5013.0029296875,
+          564.708190917969
+        ],
+        [
+          813.472473144531,
+          -828.042114257812
+        ]
+      ],
+      "frame_spans_m_across_at_aim_plane": 1.01235952634933,
+      "frame_spans_m_down_at_aim_plane": 0.569452233571498,
+      "px_per_metre_across_view_at_aim": 1580.46618652344,
+      "rectangle_longer_side_m": 86.915,
+      "rectangle_longer_side_subtends_px": 137366.234375
+    },
+    "subject": {
+      "basis": "MEASURED: the AABB's eight corners through unproject_position on the pose that renders. NOT compensated for — R-CPB-16 says the canon frame is the canon frame and a small subject is a number to report, not a thing to fix.",
+      "px_per_metre_at_station": 40.957103729248,
+      "screen_h_px": 287.404327392578,
+      "screen_height_fraction": 0.319338141547309,
+      "screen_w_px": 237.731689453125,
+      "screen_width_fraction": 0.148582305908203,
+      "what": "the union of every MeshInstance3D AABB under `body_holder` — the man and the hammer — at the shot's FIRST tick, posed by apply_tick before the read",
+      "world_aabb_size_m": [
+        2.59447860717773,
+        2.399573802948,
+        1.93731963634491
+      ],
+      "world_height_m": 2.399573802948
+    },
+    "viewport": [
+      1600,
+      900
+    ]
+  },
+  "palette": "ONE RAMP, FOUR CONSUMERS (R-CPB-13): white-hot (1.00, 0.97, 0.90) -> orange (1.00, 0.42, 0.06) -> RED (0.98, 0.07, 0.02), knee at 0.56 of the DECAYED age axis (= 0.3485 of a linear life, derived), gamma 0.55 BELOW 1 so the energy drops fast off the steel and then CRAWLS — the crawl is where the red lives. CONSUMERS: the SWORD cuts and the CLAW cuts (one shader, one pool, the stops written onto every material), the SPARK contact bursts and the EMBER garnish (the ramp SAMPLED at 32 stops onto their Gradients — they do not copy the numbers, they evaluate the function). SMOKE IS OUT by ruling: darkness, not heat. REVERT POINT: PAL_TAIL, one line, all four at once. DECLARED TASTE: no wire carries a colour.",
+  "player_lock_anchor_audit": {
+    "basis": "MEASURED through the camera that renders, not asserted from its numbers",
+    "delta_frac": [
+      0.000000114440918297376,
+      0.000000101725260659435
+    ],
+    "delta_px": [
+      0.00018310546875,
+      0.000091552734375
+    ],
+    "expected_fx": 0.501041450500488,
+    "expected_fy": 0.550925123426649,
+    "expected_source": "tmp/br2watch/m6/pl_audit.json anchor.fx / anchor.fy",
+    "measured_fx": 0.501041564941406,
+    "measured_fy": 0.55092522515191,
+    "viewport": [
+      1600,
+      900
+    ],
+    "what": "the SUBJECT'S GROUND POINT projected through the rendering Camera3D (`unproject_position`) — the same quantity wr2_playback.gd's PL-AUDIT measures, named so one measurement can answer it (NOTE-82). NOT the body AABB centroid; that is reported separately under optics_measured.subject."
+  },
+  "player_lock_derivation": {
+    "anchor_source": "wr2_playback.gd:1810-1811 (962/1920, 595/1080)",
+    "anchor_target_fx": 0.501041666666667,
+    "anchor_target_fy": 0.550925925925926,
+    "basis_orthogonality_fwd_dot_up": 0.0000000149011611938477,
+    "camera_is": "player-LOCKED. Position = subject ground position + offset, re-applied every rendered frame AFTER apply_tick has posed the board (wr2 calls its equivalent at the end of _render_tick, for the same reason). The BASIS is captured once at build and never recomputed.",
+    "compensation": "NONE. No scale, distance or aim term was touched to meet any number.",
+    "declared_prediction": "The subject WILL over-read against the 12.96 % band measured at the canon boom: this camera stands 34.83 m off where that one stood 72.86 m off. Predicted, declared before the render, and REPORTED — not compensated. Matt rules the body-scale fork on the frame (packet § 4).",
+    "focal_px_1080": 1896.55772386182,
+    "fov_source": "wr2_playback.gd:1807 — VERTICAL fov. wr2_playback.gd:5269 asserts KEEP_HEIGHT and the derivation assumes it; this pose sets keep_aspect explicitly rather than relying on Godot's default.",
+    "fov_v_deg": 31.7861018306101,
+    "g_x_player": 54.4729042232935,
+    "height_m": 28.3970108032227,
+    "offset_m": [
+      14.7262048721313,
+      28.3970108032227,
+      13.7826108932495
+    ],
+    "offset_pin_delta_m": 0.0,
+    "offset_pin_m": [
+      14.7262048721313,
+      28.3970108032227,
+      13.7826108932495
+    ],
+    "offset_pin_matches_reference_audit": true,
+    "offset_pin_tolerance_m": 0.00001,
+    "operands_are_read_not_derived": "GL-17. Eight constants transplanted character-for-character from wr2_playback.gd:1669/1806-1815; four pin values from tmp/br2watch/m6/pl_audit.json, which the reference rig wrote by measuring through the Camera3D that drew the watch.",
+    "pitch_deg": 52.9535411256029,
+    "pitch_source": "wr2_playback.gd:1806",
+    "rectangle_is_an_input_to_the_camera": false,
+    "rectangle_size_x_m": 86.915,
+    "rectangle_size_z_m": 85.303,
+    "reference_artifact": "tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)",
+    "room_invariance_is": "STRUCTURAL, not ruled. There is no room term to omit — the pose is (subject ground position, GAL-CAM operands) and nothing else. R-CPB-17's invariance holds here by construction.",
+    "room_size_influences_camera": false,
+    "ruling": "WW-3 (Matt, direct): \"the ...wwrecap-vhaura-p1.png file is the incorrect measurement. You need to hit this exact angle/zoom: /Users/admin/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4\". The camera of that watch is `player_lock` — THE GD GAME CAMERA, the GAL-CAM operand set measured from Matt's own Grim Dawn playtest. NOTE-96: reference identity is an operand, read from the owner.",
+    "source_file": "scripts/wr2_playback.gd",
+    "source_lines": "2577-2727 (`_pl_build_lock` + `_pl_cam_update` + `_pl_audit`)",
+    "stand_off_m": 34.8311882019043,
+    "what_changed_in_this_cell": "THE CAMERA, AND ONLY THE CAMERA. Scene content, world scale 1.95, the aim/station logic, palette, clock, epoch bands and the A/B grammar are byte-untouched. The canon pose (fov 24 / pitch -50 / boom 72.857142857142857 m) is still in this file, still checked, still the default.",
+    "ww4a_distance_ladder": {
+      "anchor_is_invariant_by_construction": "the offset solves the subject's ground point onto the measured anchor ray at depth zp; scaling by k slides the camera along that same ray, so the projection does not move. The PL-AUDIT is therefore a REAL test at every rung: a moved anchor convicts the port, and the response is to halt and report, never to tune.",
+      "compensation": "NONE. k is the only term that moved, and it moved by flag.",
+      "height_k_m": 18.88401222229,
+      "k": 0.665,
+      "k_flag": "--plk",
+      "k_scales": "the position offset vector ONLY: offset_k = k * offset. Rotation, fov_v and the anchor expectation are untouched — a DOLLY, not a zoom.",
+      "offset_k_m": [
+        9.79292678833008,
+        18.88401222229,
+        9.16543674468994
+      ],
+      "parent_keys_are_k1": "offset_m / stand_off_m / height_m in the enclosing dict are the PORTED k=1 values, which is what the pin is checked against. This run's camera is offset_k_m, and camera.eye at the top of this sidecar is its truth.",
+      "pinned_by_this_run": "NOTHING. No distance is ratified from any desk here. The rung pick is Matt's eye.",
+      "stand_off_k_m": 23.1627407073975,
+      "why": "R-CPB-18a, ledger row WW-4. Matt's gate-1 eyeball on the WW-3a still (stand-off 34.8312 m) reads \"still a bit closer\". These rungs put the SAME camera nearer along its own view ray so he can pick one by eye."
+    },
+    "yaw_deg": 47.0,
+    "yaw_source": "wr2_playback.gd:1669 CAM_YAW_DEG. Equal to CANON_YAW by coincidence of two provenances, kept as a separate constant so neither can drag the other.",
+    "z_player_delta_m": 0.0,
+    "z_player_m": 34.8165340347471,
+    "z_player_pin_m": 34.8165340347471
+  },
+  "preroll_frames_tick_frozen": 60,
+  "segment": "A — STATIONARY (A2d's cadence LAW at the RAISED rate of 17/rev, R-CPB-15; the ratified 11/rev article lives in the A2e clip, not in this build)",
+  "shot": "canon",
+  "tick0_is_shot_default": true,
+  "tick_from": 1570.0,
+  "tick_period_s": 0.0816326530612245,
+  "tick_to": 1700.0,
+  "time_base": "1x REAL TIME — the trace clock is inviolate (GL-18)",
+  "trace_seconds": 10.6122448979592,
+  "undulate": false,
+  "weapon_scale": 1.95,
+  "width": 1600,
+  "ww8a_calib_probe": {
+    "albedo": [
+      1.0,
+      0.0,
+      1.0
+    ],
+    "assertion": "PASS",
+    "base_err_m": 0.0,
+    "cast_shadow": "SHADOW_CASTING_SETTING_OFF",
+    "declared_height_m": 2.0,
+    "flag": "--probe-calib on",
+    "footprint_xz_m": 0.5,
+    "gi_mode": "GI_MODE_DISABLED",
+    "ground_point_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ground_point_source": "_motion.player.body_holder.global_position (READ at build, the same expression _pl_cam_update locks to)",
+    "height_err_m": 0.0,
+    "material_disable_fog": true,
+    "occlusion": "EXPECTED. The probe stands at the subject's EXACT ground point so it inherits the subject's distance term; it may occlude the fighter. The subject is not the measurand in a probe still.",
+    "parent": "scene root Kc2CpbClip (identity transform) — NOT body_holder, whose scale is one of the suspects under test",
+    "purpose": "WW-8a: put a KNOWN height under the ratified camera so the 0.665x reconciliation suspect space can be SPLIT downstream (harness math vs body terms). This harness measures nothing and projects nothing.",
+    "readback_aabb_position_m": [
+      -0.25,
+      0.0,
+      -0.25
+    ],
+    "readback_aabb_size_m": [
+      0.5,
+      2.0,
+      0.5
+    ],
+    "readback_method": "_mesh_aabb_world(probe) — global_transform * get_aabb(), the same union law this file measures the subject with",
+    "shading_mode": "UNSHADED",
+    "tol_m": 0.0001
+  }
+}

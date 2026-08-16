@@ -1,0 +1,43 @@
+# SB-1 Cell WW-8a (CALIBRATION PROBE) — class-E law: TEXT in git, BYTES on disk,
+# SHA bridges. The two probe stills are DELIBERATELY UNTRACKED; their sha256 and
+# byte size live in receipt.txt, which is the committed record of them.
+#
+# ⚑ THE STILLS ARE INSTRUMENTS, NOT LOOKS. Each carries a magenta 2.000 m box at
+#   the subject's own ground point under the ratified `player_lock` camera. They
+#   are NOT camera candidates and nobody's eye is being asked to rule on them —
+#   the camera of record was ratified at both gates (WW-6, R-CPB-18) and this
+#   cell cannot move it. The box OCCLUDES the fighter ON PURPOSE; see receipt § 3.
+#
+# ⚑ NO MEASUREMENT LIVES IN THIS DIRECTORY. Screen extent is galadriel's cell
+#   (WW-8b). receipt.txt carries bytes, shas, true dims, lock lines and the
+#   probe's read-back assertion — and nothing else, by charter.
+#
+# ⚑ THE FILENAMES STATE TRUE DIMENSIONS, READ FROM EACH PNG'S OWN IHDR AFTER the
+#   render, never from the invocation's intent (NOTE-97). Both legs REQUESTED
+#   1600x900 and the bytes are 1920x1080: Godot's Movie Maker locks its encode
+#   size to project.godot's viewport and ignores --width/--height/--resolution
+#   (MEASURED at WW-4a v2). Both are 16:9, so framing is unaffected.
+#
+# ⚑ LEG C IS ABSENT ON PURPOSE. The wr2/BR2W reference rig is not byte-
+#   deterministic lap to lap — two laps of the PRISTINE HEAD script disagree on
+#   all ten frames — so it cannot satisfy this cell's x2 byte gate and its
+#   flag-absent path cannot be proven unchanged. `scripts/wr2_playback.gd` is left
+#   BYTE-PRISTINE; the authored port is banked here, TRACKED and UNAPPLIED, as
+#   legC-wr2-probe-port.UNAPPLIED.patch. Full evidence in receipt.txt § 6.
+#
+# Regenerate, from reincarnated-godot at the HEAD named in receipt.txt § 10:
+#     STAGE=proof bash scripts/run_ww8a_calib_probe.sh   # no-perturbation proof
+#     STAGE=A     bash scripts/run_ww8a_calib_probe.sh   # leg A: k=1.00,  probe ON
+#     STAGE=B     bash scripts/run_ww8a_calib_probe.sh   # leg B: k=0.665, probe ON
+#
+# Both A and B render twice and byte-compare; a leg that does not reproduce is not
+# promoted and BOTH shas are reported. The PNG intermediates live in /tmp/kc2_ww8a
+# and are pruned per FG-12 — never inside captures/.
+#
+# ⚑ THE SIDECARS ARE TRACKED, THE PNGs ARE NOT. The per-leg sidecar JSON carries
+#   the harness's own machine-readable read-back (`ww8a_calib_probe`) — that is
+#   TEXT, and the class-E law puts text in git. House precedent:
+#   2026-08-14-sb1-playerlock-port/evidence/ww3a-sidecar-playerlock-n160-pass1.json
+#   is tracked. Only the image bytes are class-E here.
+evidence/*.png
+.DS_Store
