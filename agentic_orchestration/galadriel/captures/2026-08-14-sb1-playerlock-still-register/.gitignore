@@ -1,0 +1,39 @@
+# SB1-WW3C-STILL-REGISTER — class-E law: TEXT in git, BYTES on disk, SHA bridges.
+# Every image here is exactly regenerable from the sha-gated input still:
+#   SRC = agentic_orchestration/galadriel/captures/2026-08-14-sb1-playerlock-port/
+#         evidence/arena-playerlock-n160-1600x900.png
+#   sha256 c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4 (2,123,729 B)
+# The still is READ-ONLY INPUT and is NOT vendored here. NOTE its true dimensions
+# are 1920x1080, NOT the 1600x900 its filename, its sidecar and ledger row WW-3a
+# all assert — see receipt.txt ambiguity A0.
+#
+# Zoom plates under evidence/ regenerate with a NEAREST crop-and-scale at the
+# origin/size/zoom recorded in receipt.txt section 3 (grid overlay every 10 src px,
+# yellow on multiples of 50, labels every 20):
+#   evidence/read-anchor-z4.png            crop (862,455) 200x200   z4
+#   evidence/read-crown-z18.png            crop (950,505)  40x40    z18
+#   evidence/read-crown-wide-z18.png       crop (936,508)  44x40    z18
+#   evidence/read-legs-z8.png              crop (925,530)  85x95    z8
+#   evidence/read-groundzone-z16.png       crop (940,575)  45x43    z16
+#   evidence/read-hammer-z10.png           crop (880,440)  85x75    z10
+#   evidence/read-hammer-context-z6.png    crop (835,415) 150x120   z6
+#   evidence/read-arctail-z6.png           crop (1000,590) 110x110  z6
+#   evidence/scene-map-anchor-z2.png       crop (700,80)  500x680   z2 + anchor cross
+#   evidence/overlay-manmesh-z10.png       crop (930,505)  65x95    z10 + mesh mask
+#   evidence/overlay-allmasks-z2.png       crop (760,380) 540x400   z2  + all three masks
+#
+# Printed maps that carried (or were DISCARDED from) the adjudication regenerate
+# via the tracked instruments:
+#   python3 ../../pipeline/gd-parity/pl_struct.py cal  --src $SRC --box X0 X1 Y0 Y1 --label L
+#   python3 ../../pipeline/gd-parity/pl_struct.py scan --src $SRC --x0 .. --x1 .. \
+#           --y0 .. --y1 .. -T 15 --run 3
+#   python3 ../../pipeline/gd-parity/br2w_rows.py --src $SRC --y0 495 --y1 640 \
+#           --x0 925 --x1 1005 --refx0 860 --refx1 1070      <-- the DISCARDED flank rule,
+#           kept at evidence/DISCARDED-flankmedian-rows-*.txt so the negative result
+#           is reproducible rather than merely asserted.
+#
+# Probe/scan/emit scripts under tmpwork/ are working memory, regenerable, untracked.
+*.png
+*.npy
+evidence/*.txt
+tmpwork/

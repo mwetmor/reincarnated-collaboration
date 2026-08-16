@@ -1,0 +1,518 @@
+{
+ "cell": "SB1-WW3C-STILL-REGISTER",
+ "date": "2026-08-14",
+ "agent": "galadriel",
+ "conductor": "gandalf (RUN-CONDUCTOR, Matt's SB-1 run)",
+ "mode": "read-only measurement (no input byte modified)",
+ "input": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-14-sb1-playerlock-port/evidence/arena-playerlock-n160-1600x900.png",
+  "sha256": "c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4",
+  "sha256_expected": "c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4",
+  "sha_gate": "PASS",
+  "bytes": 2123729,
+  "bytes_expected": 2123729,
+  "dims_measured": [
+   1920,
+   1080
+  ],
+  "dims_claimed_by_charter_and_ledger": [
+   1600,
+   900
+  ],
+  "dims_claimed_by_sidecar": [
+   1600,
+   900
+  ],
+  "dims_gate": "FAIL \u2014 see ambiguity A0"
+ },
+ "anchor": {
+  "fx": 0.501041450500488,
+  "fy": 0.550925123426649,
+  "px_at_measured_dims": [
+   961.9996,
+   594.9991
+  ],
+  "px_at_claimed_900_height": 495.8326110839841,
+  "source": "tmp/br2watch/m6/pl_audit.json via the WW-3a sidecar (GL-17: read, not derived)"
+ },
+ "frame_centre_px": [
+  960.0,
+  540.0
+ ],
+ "rule": {
+  "discriminator": "local gradient magnitude on Rec.709 luma (np.gradient Sobel-equivalent); the subject is hard-edged textured mesh, the smoke bed / prop shadow / bloom are SMOOTH washes",
+  "edge_rule": "an edge row/column is the first/last carrying a contiguous run of >= 3 columns at G >= 15",
+  "calibration": {
+   "player_body_mesh_G_p50": 15.78,
+   "hammer_mesh_G_p50": 9.61,
+   "lower_legs_G_p50": 12.3,
+   "smoke_bed_G_max": 4.66,
+   "suspect_shadow_band_G_max": 4.72,
+   "bare_floor_diamonds_G_max": 24.41,
+   "trail_bloom_G_max": 54.57
+  },
+  "why_not_the_WW3B_flank_median_rule": "the still carries a strong left-right smoke/shadow luminance gradient (flank medians 127-129 L left vs 110-113 L right on the same rows), so a flank-median reference classifies smooth shadow as subject. Demonstrated: it reported a 26-column DARK run at y505-513 x961-986 where the gradient instrument reads G_max 4.72 (smooth). The flank rule was run, printed and DISCARDED with the evidence shown."
+ },
+ "boxes": {
+  "man_tight": {
+   "label": "MAN body silhouette (TIGHT \u2014 number of record)",
+   "mask_px": 1109,
+   "top": 516,
+   "bottom": 587,
+   "left": 940,
+   "right": 982,
+   "h_px": 71,
+   "w_px": 42,
+   "h_frac": 0.06574074074074074,
+   "h_frac_pct": 6.574074074074074,
+   "mask_centroid_px": [
+    960.03,
+    548.13
+   ],
+   "bbox_centre_px": [
+    961.0,
+    551.5
+   ],
+   "mask_centroid_minus_anchor_px": [
+    -1.97,
+    -46.87
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    0.03,
+    8.13
+   ],
+   "bbox_centre_minus_anchor_px": [
+    -1.0,
+    -43.5
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    1.0,
+    11.5
+   ]
+  },
+  "hammer": {
+   "label": "hammer geometry",
+   "mask_px": 834,
+   "top": 458,
+   "bottom": 513,
+   "left": 900,
+   "right": 951,
+   "h_px": 55,
+   "w_px": 51,
+   "h_frac": 0.05092592592592592,
+   "h_frac_pct": 5.092592592592593,
+   "mask_centroid_px": [
+    923.91,
+    478.9
+   ],
+   "bbox_centre_px": [
+    925.5,
+    485.5
+   ],
+   "mask_centroid_minus_anchor_px": [
+    -38.09,
+    -116.1
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    -36.09,
+    -61.1
+   ],
+   "bbox_centre_minus_anchor_px": [
+    -36.5,
+    -109.5
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    -34.5,
+    -54.5
+   ]
+  },
+  "man_hammer": {
+   "label": "MAN+HAMMER (the harness subject definition)",
+   "mask_px": 1943,
+   "top": 458,
+   "bottom": 587,
+   "left": 900,
+   "right": 982,
+   "h_px": 129,
+   "w_px": 82,
+   "h_frac": 0.11944444444444445,
+   "h_frac_pct": 11.944444444444445,
+   "mask_centroid_px": [
+    944.52,
+    518.41
+   ],
+   "bbox_centre_px": [
+    941.0,
+    522.5
+   ],
+   "mask_centroid_minus_anchor_px": [
+    -17.48,
+    -76.59
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    -15.48,
+    -21.59
+   ],
+   "bbox_centre_minus_anchor_px": [
+    -21.0,
+    -72.5
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    -19.0,
+    -17.5
+   ]
+  },
+  "weapon_fx_arc": {
+   "label": "weapon-trail arc + bloom (FX)",
+   "mask_px": 1163,
+   "top": 462,
+   "bottom": 634,
+   "left": 968,
+   "right": 1086,
+   "h_px": 172,
+   "w_px": 118,
+   "h_frac": 0.15925925925925927,
+   "h_frac_pct": 15.925925925925926,
+   "mask_centroid_px": [
+    1045.88,
+    516.96
+   ],
+   "bbox_centre_px": [
+    1027.0,
+    548.0
+   ],
+   "mask_centroid_minus_anchor_px": [
+    83.88,
+    -78.04
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    85.88,
+    -23.04
+   ],
+   "bbox_centre_minus_anchor_px": [
+    65.0,
+    -47.0
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    67.0,
+    8.0
+   ]
+  },
+  "smoke_bed": {
+   "label": "smoke-bed FX",
+   "mask_px": 46618,
+   "top": 440,
+   "bottom": 726,
+   "left": 796,
+   "right": 1132,
+   "h_px": 286,
+   "w_px": 336,
+   "h_frac": 0.26481481481481484,
+   "h_frac_pct": 26.48148148148148,
+   "mask_centroid_px": [
+    966.0,
+    587.67
+   ],
+   "bbox_centre_px": [
+    964.0,
+    583.0
+   ],
+   "mask_centroid_minus_anchor_px": [
+    4.0,
+    -7.33
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    6.0,
+    47.67
+   ],
+   "bbox_centre_minus_anchor_px": [
+    2.0,
+    -12.0
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    4.0,
+    43.0
+   ]
+  },
+  "vm_mesh_fx": {
+   "label": "VISUAL MASS: mesh + weapon FX (GENEROUS)",
+   "mask_px": 3104,
+   "top": 458,
+   "bottom": 634,
+   "left": 900,
+   "right": 1086,
+   "h_px": 176,
+   "w_px": 186,
+   "h_frac": 0.16296296296296298,
+   "h_frac_pct": 16.296296296296298,
+   "mask_centroid_px": [
+    982.48,
+    517.85
+   ],
+   "bbox_centre_px": [
+    993.0,
+    546.0
+   ],
+   "mask_centroid_minus_anchor_px": [
+    20.48,
+    -77.15
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    22.48,
+    -22.15
+   ],
+   "bbox_centre_minus_anchor_px": [
+    31.0,
+    -49.0
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    33.0,
+    6.0
+   ]
+  },
+  "vm_all": {
+   "label": "VISUAL MASS: mesh + weapon FX + smoke bed",
+   "mask_px": 49722,
+   "top": 440,
+   "bottom": 726,
+   "left": 796,
+   "right": 1132,
+   "h_px": 286,
+   "w_px": 336,
+   "h_frac": 0.26481481481481484,
+   "h_frac_pct": 26.48148148148148,
+   "mask_centroid_px": [
+    967.03,
+    583.31
+   ],
+   "bbox_centre_px": [
+    964.0,
+    583.0
+   ],
+   "mask_centroid_minus_anchor_px": [
+    5.03,
+    -11.69
+   ],
+   "mask_centroid_minus_framecentre_px": [
+    7.03,
+    43.31
+   ],
+   "bbox_centre_minus_anchor_px": [
+    2.0,
+    -12.0
+   ],
+   "bbox_centre_minus_framecentre_px": [
+    4.0,
+    43.0
+   ]
+  }
+ },
+ "number_of_record": {
+  "h_frac": 0.06574074074074074,
+  "h_frac_pct": 6.574074074074074,
+  "box": {
+   "top": 516,
+   "bottom": 587,
+   "left": 940,
+   "right": 982,
+   "h_px": 71,
+   "w_px": 42
+  },
+  "frame_h_px": 1080,
+  "bracket": "TIGHT body silhouette; weapon geometry, VFX, trail and smoke EXCLUDED per GD convention",
+  "crown_alternatives_pct": {
+   "adopted_G15_run3_y516": 6.574074074074074,
+   "literal_WW3B_28L_3col_y522": 6.018518518518518,
+   "first_onset_G15_any_col_y515": 6.666666666666667
+  },
+  "bottom_is_NOT_ground_contact": true
+ },
+ "crown_to_anchor_band": {
+  "definition": "h_px = machine-audited anchor row - adjudicated crown row; the SAME quantity the WW-3B cell reported as its supporting band",
+  "h_px": 79.0,
+  "h_frac_pct": 7.3147,
+  "br2w_comparable_pct": 8.87,
+  "ratio_to_br2w": 0.8247
+ },
+ "ground_contact": {
+  "verdict": "NOT DIRECTLY OBSERVABLE \u2014 declared absence (GL-12)",
+  "reason": "the channel_fx smoke bed occludes the ground plane and the feet; the legs fade progressively into it rather than terminating at an edge. Inside the bed the floor diamond texture is fully obliterated (G_max 4.66 vs 24.41 on bare floor).",
+  "last_resolvable_body_row": 587,
+  "delta_vs_anchor_px_at_1080": -8.0,
+  "delta_vs_anchor_px_at_900_convention": -6.67,
+  "bracket": {
+   "last_strong_body_row": 587,
+   "last_marginal_body_row": 591,
+   "pale_smudge_below_is_smoke_not_body": {
+    "rows": [
+     599,
+     608
+    ],
+    "evidence": "L 128.2 sd 9.4, BRIGHTER than the local bed (125.0 / 117.9) with matching chromaticity; body patches read sd 25-39 and DARKER"
+   },
+   "anchor_row_falls_inside_the_unresolvable_band": true
+  },
+  "if_ground_contact_were_at_the_anchor_row_pct": 7.3147
+ },
+ "harness_cross_check": {
+  "harness_screen_height_fraction_pct": 20.8961181640625,
+  "harness_px_as_stated": 188.065063476562,
+  "harness_px_stated_on_viewport": [
+   1600,
+   900
+  ],
+  "harness_px_rescaled_to_measured_1080": 225.678,
+  "fraction_is_resolution_invariant_because": "KEEP_HEIGHT vertical fov and an identical 16:9 aspect (1600/900 == 1920/1080); the FRACTION carries across, the px number does not",
+  "galadriel_man_hammer_pct": 11.944444444444445,
+  "galadriel_man_tight_pct": 6.574074074074074,
+  "delta_pp_vs_man_hammer": -8.9517,
+  "delta_relative_vs_man_hammer": -0.4284,
+  "delta_px_at_1080": -96.68,
+  "verdict": "DISAGREE",
+  "box_was_not_tuned_to_match": "the rule and both edges were fixed from the calibration before the comparison was computed"
+ },
+ "context_landings_pct": {
+  "gd_human_form": 7.037037037037037,
+  "br2w_ratified_ww3b": 9.88888888888889,
+  "vh_rig_frame_DEMOTED": 9.444444444444445,
+  "arena_at_72p857m": 12.962962962962962,
+  "gd_werewolf_median": 14.768518518518519,
+  "gd_boss_tier_coarse": 21.574074074074073
+ },
+ "ratios": {
+  "man_tight_over_gd_human_form": 0.9342,
+  "man_tight_over_br2w_ratified_ww3b": 0.6648,
+  "man_tight_over_vh_rig_frame_DEMOTED": 0.6961,
+  "man_tight_over_arena_at_72p857m": 0.5071,
+  "man_tight_over_gd_werewolf_median": 0.4451,
+  "man_tight_over_gd_boss_tier_coarse": 0.3047,
+  "crown_to_anchor_over_br2w_crown_to_anchor": 0.8247,
+  "man_hammer_over_arena_72p857": 0.9214
+ },
+ "composition_facts": {
+  "convention": "offsets are (dx,dy) px against the MEASURED 1920x1080 frame; +y is DOWN-screen. mask centroid = centroid of classified pixels; bbox centre = centre of the bounding box. Both reported because they disagree wherever the mass is lopsided. PIXEL FACTS ONLY \u2014 no adjudication of whether the composition reads correctly (R-CPB-17b: the eye rules).",
+  "F1_mesh_rides_high_of_anchor": {
+   "man_hammer_centroid_above_anchor_px": 76.59,
+   "as_frac_of_frame_height_pct": 7.0917,
+   "man_body_alone_px": 46.87,
+   "hammer_alone_px": 116.1,
+   "note": "the vertical ride of the man+hammer centroid (7.09% of frame height) EXCEEDS the entire body register (6.574%)"
+  },
+  "F2_mesh_also_rides_left": {
+   "man_hammer_centroid_left_of_anchor_px": 17.48,
+   "left_of_frame_centre_px": 15.48,
+   "hammer_alone_left_of_anchor_px": 38.09,
+   "note": "the flag named the vertical asymmetry; the horizontal one is the same size class and was not named"
+  },
+  "F3_fx_swings_horizontal_not_vertical": {
+   "centroid_dx_vs_anchor_mesh_only_px": -17.48,
+   "centroid_dx_vs_anchor_mesh_plus_fx_px": 20.48,
+   "swing_px": 37.96,
+   "centroid_dy_vs_anchor_mesh_only_px": -76.59,
+   "centroid_dy_vs_anchor_mesh_plus_fx_px": -77.15,
+   "arc_h_px": 172,
+   "arc_w_px": 118,
+   "man_body_h_px": 71
+  },
+  "F4_only_the_smoke_bed_is_anchor_centred": {
+   "bbox_centre_px": [
+    964.0,
+    583.0
+   ],
+   "bbox_centre_minus_anchor_px": [
+    2.0,
+    -12.0
+   ],
+   "mask_centroid_minus_anchor_px": [
+    4.0,
+    -7.33
+   ],
+   "span_px": [
+    336,
+    286
+   ],
+   "span_frac_pct": [
+    17.5,
+    26.4815
+   ],
+   "note": "the largest single visual mass attributable to the subject is a ground-plane FX disc centred on the subject own root; it is what fixes the composition to the anchor while the geometry does not"
+  }
+ },
+ "ambiguities": [
+  {
+   "id": "A0",
+   "q": "the artifact is 1920x1080; its filename, its sidecar, ledger row WW-3a and the charter all say 1600x900",
+   "disposition": "DECLARED, NOT RESOLVED \u2014 ROUTED UP. Four instruments agree on the bytes (PIL, sips, ffprobe, raw PNG IHDR at offset 16 = 00 00 07 80 / 00 00 04 38). sha and byte count MATCH the charter exactly: right artifact, wrong label. Measurement proceeded because the charter HALT condition is the sha (PASS) and the defect is bounded: aspect is identical (1.7778) and the fov is VERTICAL under KEEP_HEIGHT, so every screen-HEIGHT FRACTION is resolution-invariant. All fractions stand; pixel counts are stated at 1080 and restated at the 900 convention where a WW-3B comparable exists. What it DOES break: the harness stated 188.07 px, and the ledger 495.83 anchor row, which for these bytes is 595.00. Whether the render was always 1080 or a later step resampled is a harness question, not diagnosed here."
+  },
+  {
+   "id": "A1",
+   "q": "crown 516 vs the literal WW-3B >=3-column-at-28L rule, which would give 522",
+   "disposition": "BOTH REPORTED, NOT AVERAGED. The horn is a two-pixel-wide taper; a 3-column rule under-reads thin tapers by construction. Adopted G>=15 run>=3 (corroborated by eye at 18x) -> 516 -> 6.5741%. Literal WW-3B rule -> 522 -> 6.0185%. First onset -> 515 -> 6.6667%. Band 6.019-6.667%."
+  },
+  {
+   "id": "A2",
+   "q": "the harness projection and this still are different ticks",
+   "disposition": "DECLARED, UNRESOLVABLE HERE. The sidecar reads the subject AABB at the shot FIRST tick (1570); this still is tick 1635.333. Largest named suspect for the 8.95 pp cross-check gap, and NOT sized \u2014 no still of tick 1570 exists in this cell reach."
+  },
+  {
+   "id": "A3",
+   "q": "the pale smudge below the legs, y599-608 \u2014 foot or smoke?",
+   "disposition": "EXCLUDED, test shown. BRIGHTER than surround (L 128.2 vs 125.0 / 117.9) where body is DARKER; SMOOTH (sd 9.4) where body is structured (sd 25-39); chromaticity matches the bed to under 0.01 per channel fraction. Had it been admitted as a foot, bottom 608 and TIGHT 8.5185%."
+  },
+  {
+   "id": "A4",
+   "q": "is the helm horn part of the body silhouette?",
+   "disposition": "INCLUDED per GD silhouette convention (worn geometry counts; VFX does not). Noted that the harness own drawn-height basis explicitly EXCLUDES horns and weapon. The alternative reading \u2014 top of the helm dome \u2014 was attempted and ABANDONED as dishonest: at this scale the dome cannot be separated from the gripping gauntlets and the haft lower end. No number offered for it."
+  },
+  {
+   "id": "A5",
+   "q": "bloom edges are structure-positive (G max 54.57) and annex x967-999 into the mesh mask",
+   "disposition": "HANDLED BY ENVELOPE, DECLARED. Hammer band cut at x>960. The gap was verified before it was used: at y468-480 mesh columns run 900-946, nothing from ~947 to ~966, resume at 967."
+  },
+  {
+   "id": "A6",
+   "q": "the hammer left edge abuts a cast member at x~899",
+   "disposition": "REPORTED AT 900, CONTESTED. Structure is CONTINUOUS x886-949 \u2014 structure alone cannot part them. Luminance puts the seam at x~899 (x890-898 read L 45-95, x900-902 read L 118-166). If the hammer is BEHIND the neighbour its true left extent is occluded and unmeasurable. Affects w_px of the man+hammer and generous boxes ONLY; every h_frac untouched."
+  },
+  {
+   "id": "A7",
+   "q": "threshold sensitivity of the adopted rule",
+   "disposition": "MEASURED AND PRINTED. Sweep G>=14/17/20/24/28 at run>=3 gives bottoms 587/582/581/581/572 and horn-band crowns 516 at T=14, 527-528 at T>=17 (the same thin-taper effect as A1). STATED TOLERANCE on the number of record: +/-3 px bottom, +/-6 px crown -> h_frac 6.019-6.667%."
+  },
+  {
+   "id": "A8",
+   "q": "the gradient responds ON the boundary, so edges may sit ~1 px outside every extreme reported",
+   "disposition": "DECLARED, NOT CORRECTED. Systematic, same sign on all four edges, ~+/-1 px. Compensating would be a preference dressed as a measurement."
+  }
+ ],
+ "negative_results": [
+  "N1. gp_seg.py NOT run. Its colour-distance seeding cannot separate an armoured figure from a smoke-washed floor of near-identical chromaticity (subject r/g/b frac 0.334-0.341 / 0.32-0.33 / 0.333-0.345 against bed 0.330 / 0.321 / 0.350). Skipped deliberately rather than run for the look of it. Same call as WW-3B, opposite reason: there warm-on-warm, here neutral-on-neutral.",
+  "N2. Chromaticity FAILED as a discriminator and the failure is informative: the smoke bed neutralises everything it covers, subject and bed differing by under 0.01 in every channel fraction. That is why this cell is built on STRUCTURE instead; the calibration is printed so the substitution is auditable.",
+  "N3. The WW-3B flank-median rule produced a CONFIDENT FALSE POSITIVE \u2014 a 26-column DARK run at y505-513 / x961-986 which is smooth shadow (G max 4.72). Kept on the record at evidence/DISCARDED-flankmedian-rows-{player,upper}.txt rather than deleted.",
+  "N4. The arc tail could not be followed past y634: below it the warm mask fires on a cast member tan armour at x1022-1043 / y641-672, a component SEPARATE from the arc (gap y635-640). Had those been admitted the generous box would read 19.8% and landed within 1.1 pp of the harness 20.896% for spurious reasons. Named so the near-coincidence cannot later be quoted as agreement."
+ ],
+ "cannot_answer": [
+  "The ground-contact row. Not measurable on this still at all \u2014 the smoke bed occludes the ground plane and the feet, and the legs fade rather than terminate. Bracketed [587,599]; the anchor row 595.00 falls inside the bracket.",
+  "Whether the subject register would match at tick 1570, the tick the harness projected. No still of that tick exists in this cell reach.",
+  "Whether the 1600x900 / 1920x1080 divergence is a render-argument defect or a later resample. Harness question, routed, not diagnosed.",
+  "Whether this frame reads as GD-family beside BR2W. Out of seam; the eye rules (R-CPB-17b)."
+ ],
+ "confound_DECLARED": "Subject-height fraction conflates CAMERA FRAMING with BODY SIZE, and every row in the context table photographs a DIFFERENT BODY: a Grim Dawn human, a Grim Dawn werewolf, our werewolf at x1.29 parity, and now a 1.71 m armoured man carrying a hammer scaled 1.95. A difference in h_frac does not by itself establish that two cameras differ, and equality would not establish that they match. Here the cameras are IDENTICAL BY CONSTRUCTION \u2014 WW-3a pinned the offset to 0.000000000000 m and the anchor to sub-millipixel \u2014 so every difference in the table is body, pose, weapon scale and tick. Nothing in it is lens.",
+ "headline": "The prediction on ledger row WW-3a was that the subject would OVER-READ against the 12.96% canon-boom band, and 20.896% was reported as that over-read arriving. On the pixels the fighter BODY UNDER-READS EVERYTHING: 0.934x GD human form, 0.665x the ratified BR2W werewolf, 0.445x a GD werewolf. Only when the oversized hammer and then its trail are annexed does the figure climb past BR2W. The over-read is real but it lives in the WEAPON AND ITS FX, not in the man.",
+ "instruments": {
+  "tracked": [
+   "pipeline/gd-parity/pl_struct.py (NEW \u2014 local-gradient structure reader, cal + scan modes)",
+   "pipeline/gd-parity/br2w_rows.py (RE-USED as the discarded cross-instrument, N3)"
+  ],
+  "untracked_working_memory": [
+   "tmpwork/probe.py",
+   "tmpwork/edges.py",
+   "tmpwork/plate.py",
+   "tmpwork/measure.py",
+   "tmpwork/masks.py",
+   "tmpwork/final.py",
+   "tmpwork/final2.py",
+   "tmpwork/emit.py"
+  ]
+ }
+}

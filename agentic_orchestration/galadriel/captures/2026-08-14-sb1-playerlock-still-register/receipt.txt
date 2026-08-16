@@ -1,0 +1,516 @@
+SB1-WW3C-STILL-REGISTER — RECEIPT
+cell:   SB1-WW3C-STILL-REGISTER (Matt's SB-1 run; gandalf RUN-CONDUCTOR)
+agent:  galadriel    date: 2026-08-14    mode: read-only measurement (no input byte modified)
+method: gd-parity seg-bracket convention as carried by the 2026-08-14 SB1-REGISTER-MEASURE
+        and SB1-WW3B-BR2W-REGISTER cells — instrument BRACKETS, adjudicated box is the
+        number. TIGHT body is the number of record (VFX / weapon / HUD excluded per the
+        GD convention); GENEROUS bracket reported where FX attaches. Every ambiguity
+        A-declared; every negative result kept legible.
+mission: the PIXEL number of record for the arena still rendered under Matt's ratified
+        `player_lock` camera, plus the composition facts the conductor's eye flagged in
+        ledger row WW-3a.
+
+================================================================================
+0. WHAT THIS CELL MEASURES AND WHAT IT DOES NOT
+================================================================================
+It measures PIXELS in one still. It does not measure models, does not derive from
+camera operands, and does not adjudicate whether the frame "looks right" beside
+BR2W — R-CPB-17b's eye is Matt's and gandalf's, not mine. NOTE-62 honoured: no desk
+arithmetic is presented as a number of record. The camera block in section 9 is
+CONTEXT for the receipt, not an operand of any number here.
+
+================================================================================
+1. INPUT GATE — verified BEFORE any extraction. ONE LIMB PASSES, ONE FAILS.
+================================================================================
+    path      agentic_orchestration/galadriel/captures/2026-08-14-sb1-playerlock-port/
+              evidence/arena-playerlock-n160-1600x900.png
+    sha256    c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+    expected  c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+    bytes     2,123,729   (expected 2,123,729)
+    SHA GATE  PASS — byte-for-byte the artifact the charter named. No HALT.
+
+    DIMENSIONS  measured 1920 x 1080      charter/ledger/sidecar claim 1600 x 900
+    DIMS GATE   FAIL.  See A0. Measurement PROCEEDED (see A0 for why this is a
+                label defect and not a wrong-artifact defect), with every pixel
+                number stated against the MEASURED frame height of 1080 and every
+                comparable ALSO restated at the 900-height convention.
+
+================================================================================
+2. THE SUBJECT — identified before it was measured
+================================================================================
+The WW-3a sidecar names the harness's own subject: `optics_measured.subject.what` =
+"the union of every MeshInstance3D AABB under `body_holder` — the man and the hammer
+— at the shot's FIRST tick, posed by apply_tick before the read".
+
+At 34.83 m the body RESOLVES, and the WW-2 read is corrected on the frame. WW-2's
+`cannot_answer` at 72.857 m described the subject as "wheel/rim + radial-spoke mass".
+At this stand-off the wheel-and-spokes object is visible as a SEPARATE thing: a
+windmill/turbine prop with a tall vane, standing up-frame-left of the fighter, its
+rim centred near (880, 330) with its cast shadow sweeping right. It is scene
+architecture — the "whirlwind station" — not the subject.
+
+THE SUBJECT is the armoured fighter standing at the machine-audited anchor:
+    horned helm, two-handed hammer at world weapon_scale 1.95, mid-swing,
+    a warm weapon-trail arc leaving the hammer and sweeping clockwise,
+    standing inside a dense circular smoke bed (`channel_fx.smoke_bed`).
+Its ground point projects to (962.00, 595.00) px in this frame. Plate:
+evidence/read-anchor-z4.png; scene map with the anchor cross: evidence/scene-map-anchor-z2.png.
+
+Four OTHER cast members stand in frame. One of them abuts the hammer head in screen
+space at x ~899-901 (A6). None of them is the subject; all are excluded by envelope.
+
+================================================================================
+3. THE DISCRIMINATOR — and the WW-3B instrument that FAILED here
+================================================================================
+THE WW-3B RULE WAS RUN FIRST, AND IT FAILED. `br2w_rows.py` takes a per-row median
+over flanking windows as the row's reference. On this still that reference is
+CORRUPT: the frame carries a strong left-right smoke/shadow luminance gradient —
+on rows 500-520 the left flank median reads 127-129 L while the right flank reads
+110-113 L. The rule duly reported a 26-column "DARK" run at y505-513 / x961-986.
+There is no object there: that patch reads G_max 4.72, i.e. perfectly smooth. It is
+the windmill's shadow feathering into the smoke bed. Printed maps retained at
+evidence/DISCARDED-flankmedian-rows-{player,upper}.txt so the negative result is
+reproducible rather than asserted.
+
+THE RULE ADOPTED INSTEAD. A rendered mesh carries silhouette edges and surface
+texture; an FX smoke bed, a cast shadow and a bloom interior are SMOOTH washes
+regardless of how dark or bright they are. So the discriminator is LOCAL GRADIENT
+MAGNITUDE on Rec.709 luma. Calibration measured on this frame BEFORE any threshold
+was chosen (`pl_struct.py cal`):
+
+      player body mesh      x957-975  y530-570   G p50 15.78  p90 39.86  max 87.51
+      hammer head mesh      x905-945  y460-500   G p50  9.61  p90 40.67  max 92.82
+      lower legs (fading)   x952-968  y575-590   G p50 12.30  p90 26.00  max 43.57
+      suspect dark band     x960-990  y498-514   G p50  1.58  p90  3.02  max  4.72
+      smoke bed (right)    x1000-1060 y560-610   G p50  1.02  p90  2.06  max  4.66
+      smoke bed (left)      x880-930  y595-640   G p50  1.01  p90  2.27  max 14.40
+      windmill cast shadow x1000-1070 y300-380   G p50  2.08  p90 16.39  max 47.41
+      bare floor diamonds  x1150-1220 y560-640   G p50  1.62  p90 10.54  max 24.41
+      trail bloom           x975-1005 y455-470   G p50  3.25  p90 19.45  max 54.57
+
+    -> EDGE RULE: an edge row/column is the first/last carrying a CONTIGUOUS RUN of
+       >= 3 columns at G >= 15. One rule, both edges, both brackets. Instrument
+       tracked at pipeline/gd-parity/pl_struct.py.
+
+    The rule's own limit, stated: inside the smoke-washed neighbourhood the floor
+    diamonds are obliterated (G max 4.66), so G>=15 is a clean mesh detector THERE.
+    Outside the bed, bare floor edges reach G 24 and the rule would leak. Every box
+    below sits inside the bed. No box was read outside it.
+
+================================================================================
+4. THE BOXES.  Frame height = 1080 for every row (see A0).
+================================================================================
+(a) MAN BODY SILHOUETTE — TIGHT, GD convention. THE NUMBER OF RECORD.
+
+        top 516   bottom 587   left 940   right 982
+        h_px  71   w_px 42
+        h_frac 71/1080 = 0.065741  =  6.5741 %      <== NUMBER OF RECORD
+
+    Weapon geometry, weapon-trail FX, bloom and smoke bed EXCLUDED.
+    BOTTOM IS *NOT* A GROUND CONTACT — see section 6.
+
+(b) MAN + HAMMER — the harness's OWN subject definition, carried so section 7's
+    cross-check is like-for-like on scope (it is not like-for-like on tick; A2).
+
+        top 458 (hammer)   bottom 587 (man)   left 900 (A6)   right 982
+        h_px 129   h_frac 0.119444 = 11.9444 %
+
+(c) GENEROUS — mesh + ATTACHED weapon FX (the trail arc + its bloom head).
+
+        top 458   bottom 634   left 900   right 1086
+        h_px 176   h_frac 0.162963 = 16.2963 %
+        (arc alone: y 462-634, x 968-1086. It extends the bbox DOWNWARD and
+         RIGHTWARD only; there is no FX above the hammer's crown in this frame.)
+
+(d) CROWN-TO-ANCHOR BAND — the SAME quantity WW-3B reported as its supporting band,
+    and therefore the one directly comparable row in this receipt.
+
+        h_px = 595.00 (machine-audited anchor row) - 516 (adjudicated crown) = 79.00
+        h_frac 79.00/1080 = 0.073147 = 7.3147 %
+        BR2W comparable (WW-3B section 4b median) .......... 8.870 %
+        ratio this still / BR2W ............................ 0.825 x
+
+================================================================================
+5. HOW EACH EDGE WAS ADJUDICATED
+================================================================================
+CROWN 516 — the right horn tip of the helm. Raw numbers, x962-978:
+      y514  all L 92-104, all G <= 3                                 nothing
+      y515  L 94 / 92 at x969/970, G 15 / 26                         2-column onset
+      y516  L 68 / 45 at x969/970, G 16/27/15/26 across x968-971     4-column run
+    Rule met first at y=516. Checked by eye at 18x (evidence/read-crown-z18.png,
+    read-crown-wide-z18.png): the horn is a two-pixel-wide dark taper against a
+    smooth wash, unmistakable at that zoom. See A1 for the rule-vs-object problem
+    this creates and both alternative crowns.
+
+BOTTOM 587 — the last row where the legs are still resolvable THROUGH the smoke.
+    Four instruments, four answers, all printed:
+      flank-median colour distance, >=3 cols at >=28 L ....... 587
+      luma deviation |dev| >= 25, any column ................. 589
+      gradient G>=20, run>=3 ................................. 581
+      gradient G>=15, run>=3   <-- the adopted rule ........... 587
+      gradient G>=10, run>=3 .................................. 599 (reaches the smoke smudge)
+    Convergence 581-589. The adopted rule returns 587. Threshold sweep in A7.
+
+LEFT 940 — the man's left pauldron/arm. Qualifying runs at y549 (940-942) and y550
+    (940-946), i.e. WELL BELOW the haft, which by then has passed inside the body:
+    the haft tracks down-RIGHT with y (x938@y500, x941@y505, x944-946@y510,
+    x941-947@y513), so it cannot be the object at x940 / y549. The same column is
+    also reached at y516 by the haft itself; the box is 940 either way, so the
+    number does not depend on that separation.
+
+RIGHT 982 — the man's right pauldron. Qualifying runs at y541 (979-982) and y542
+    (976-982).
+
+HAMMER TOP 458 — first qualifying run x916-919 inside the declared hammer band
+    x906-960. Bands: x<906 cut to exclude the abutting cast member (A6); x>960 cut
+    to exclude the bloom, whose EDGES are structure-positive (G max 54.57) and which
+    would otherwise have annexed x967-999 into the "mesh" (A5).
+
+================================================================================
+6. THE GROUND CONTACT IS NOT OBSERVABLE. DECLARED ABSENCE (GL-12).
+================================================================================
+The charter asked for the ground-contact row. IT IS NOT IN THIS PICTURE, and the
+honest answer is that no row can be named. The `channel_fx` smoke bed occludes the
+ground plane and the feet: inside the bed the floor diamond texture is fully
+obliterated (G max 4.66 against 24.41 on bare floor). The legs do not terminate at
+an edge — they FADE. Row by row, in the leg band x952-971 against a row reference
+of ~120 L:
+
+      y583-587   L 60-95    dev -25 to -60     body, unambiguous
+      y588-591   L 88-107   dev -13 to -32     weakening
+      y592-598   L 98-118   dev  -2 to -22     marginal; no qualifying run anywhere
+      y599-608   L up to 149, BRIGHTER than the bed                   NOT body (A3)
+
+WHAT CAN HONESTLY BE SAID:
+    last resolvable body row .............................. 587
+    expected anchor row (machine-audited) ................. 595.00
+    DELTA ................................................. -8.00 px at native 1080
+                                                            -6.67 px at the 900 convention
+    The anchor row falls INSIDE the unresolvable band (587 < 595 < 599). The
+    measurement is CONSISTENT with a ground contact at the anchor; it does not
+    demonstrate one, and it could not have.
+    If the ground contact were at the anchor row, the TIGHT box would read 7.3147 %
+    rather than 6.5741 % — a +0.741 pp ceiling on this cell's bottom-truncation.
+
+CONTRAST WITH WW-3B, since the charter asked for direct comparability: there, on
+BR2W n=1027, a near PAW was adjudicated and sat 9.17 px BELOW the audited root row.
+Here nothing is adjudicated and the last visible body pixel sits 6.67 px ABOVE it
+(same 900 scale). These are DIFFERENT QUANTITIES — an adjudicated contact versus a
+fade-out limit — and the +/- sign flip between them is not evidence of anything
+about either camera. Stated so the two rows are not silently subtracted downstream.
+
+================================================================================
+7. CROSS-CHECK vs THE HARNESS PROJECTION (20.896 % / 188.07 px)
+================================================================================
+    harness screen_height_fraction ....... 20.8961 %   (188.065 px stated on 900)
+    the same fraction at 1080 ............ 225.678 px
+    galadriel MAN+HAMMER ................. 11.9444 %   (129 px at 1080)
+    galadriel MAN body TIGHT .............  6.5741 %   ( 71 px at 1080)
+
+    delta (MAN+HAMMER vs harness) ........ -8.9517 pp   -42.84 % relative   -96.68 px
+    VERDICT .............................. DISAGREE.
+
+    The box was NOT tuned to match: the rule and both edges were fixed from the
+    section-3 calibration before this comparison was computed.
+
+    The fraction — not the pixel count — is the comparable quantity, and it carries
+    across the resolution defect: KEEP_HEIGHT vertical fov with an identical 16:9
+    aspect (1600/900 == 1920/1080) leaves screen HEIGHT FRACTION invariant. So A0
+    does NOT explain this gap. FOUR THINGS THAT DO, none of them a harness error:
+
+    (i)  TICK MISMATCH. The harness reads the subject AABB "at the shot's FIRST
+         tick" — tick_from 1570. This still is n=160, tick 1635.333 (WW-3a's chain
+         read). Different pose, different AABB, different projection. A pose whose
+         hammer is raised near-vertical projects far taller than this one, whose
+         hammer is swung out low and left. This is a like-for-UNLIKE comparison and
+         it is the largest suspect. It is not resolvable from this cell: there is no
+         still of tick 1570.
+    (ii) AABB vs SILHOUETTE. The harness projects the eight corners of a world AABB
+         (2.594 x 2.400 x 1.937 m) and takes their screen bbox. A projected AABB of a
+         posed figure with an out-swung hammer encloses a great deal of empty screen.
+         A silhouette bbox is <= a projected-AABB bbox BY CONSTRUCTION, so the SIGN
+         of this disagreement was predictable before it was measured.
+    (iii) BOTTOM TRUNCATION. My bottom is a fade-out limit, not a contact (section 6).
+         Bounded: +0.741 pp if the contact sits at the anchor.
+    (iv) LABEL, not geometry: the harness's "188.07 px" is stated on a 900-tall
+         viewport for an artifact that is 1080 tall (A0). The px number is wrong for
+         these bytes by a factor 1.2; the fraction is not.
+
+    WHAT THIS CROSS-CHECK DOES **NOT** LICENCE: it does not say the port is wrong.
+    WW-3a's port was verified by pin delta 0.000000000000 m and anchor delta
+    (0.000244, 0.000214) px. Those are camera facts and this cell does not touch them.
+    What it says is narrower and worth saying plainly: THE 20.896 % FIGURE IS A
+    PROJECTED-AABB NUMBER AT A DIFFERENT TICK, AND IT DOES NOT DESCRIBE WHAT A VIEWER
+    SEES ON THIS FRAME. On this frame the fighter's body occupies 6.57 % of frame
+    height, and his body-plus-hammer 11.94 %.
+
+================================================================================
+8. COMPOSITION FACTS FOR THE CONDUCTOR'S FLAG — PIXELS ONLY, NO ADJUDICATION
+================================================================================
+Frame centre (960.0, 540.0).  Anchor (962.00, 595.00).  Offsets are (dx, dy) px,
++y = DOWN-screen. Mask centroid = centroid of the classified pixels; bbox centre =
+centre of the bounding box. Both given because they answer different questions and
+they disagree wherever the mass is lopsided.
+
+  mass                      bbox y      bbox x     h_px  h_frac%  maskC(x,y)      d vs ANCHOR    d vs FRAME-C
+  MAN body (tight)          516-587    940- 982     71   6.5741  (960.0, 548.1)  ( -2.0, -46.9)  ( +0.0,  +8.1)
+  hammer geometry           458-513    900- 951     55   5.0926  (923.9, 478.9)  (-38.1,-116.1)  (-36.1, -61.1)
+  MAN+HAMMER                458-587    900- 982    129  11.9444  (944.5, 518.4)  (-17.5, -76.6)  (-15.5, -21.6)
+  weapon-trail arc (FX)     462-634    968-1086    172  15.9259  (1045.9,517.0)  (+83.9, -78.0)  (+85.9, -23.0)
+  smoke bed (FX)            440-726    796-1132    286  26.4815  (966.0, 587.7)  ( +4.0,  -7.3)  ( +6.0, +47.7)
+  VM-B  mesh + weapon FX    458-634    900-1086    176  16.2963  (982.5, 517.9)  (+20.5, -77.2)  (+22.5, -22.1)
+  VM-C  VM-B + smoke bed    440-726    796-1132    286  26.4815  (967.0, 583.3)  ( +5.0, -11.7)  ( +7.0, +43.3)
+
+  bbox centres: MAN (961.0, 551.5) · MAN+HAMMER (941.0, 522.5) · VM-B (993.0, 546.0)
+                VM-C (964.0, 583.0)
+
+THE FOUR FACTS THE FLAG ASKED FOR, stated flat:
+
+  F1. THE MESH MASS RIDES HIGH OF THE ANCHOR, AND BY A MEASURED AMOUNT. The
+      MAN+HAMMER centroid sits 76.6 px ABOVE the anchor row — 7.09 % of frame
+      height, which is larger than the man's entire body register (6.57 %). The
+      body alone rides 46.9 px high; the hammer alone 116.1 px high.
+  F2. THE MESH MASS ALSO RIDES LEFT. MAN+HAMMER centroid is 17.5 px left of the
+      anchor and 15.5 px left of frame centre; the hammer alone is 38.1 px left.
+      The flag named the vertical asymmetry; the horizontal one is the same size
+      class and was not named.
+  F3. THE FX PULLS THE OTHER WAY HORIZONTALLY AND THE SAME WAY VERTICALLY. Adding
+      the trail arc moves the visual centroid from 17.5 px LEFT of anchor to 20.5 px
+      RIGHT of it — a 38.0 px swing — while leaving the vertical ride essentially
+      unchanged (-76.6 -> -77.2 px). The arc is the single largest mass in the
+      frame after the smoke: 172 px tall, 118 px wide, against a 71 px body.
+  F4. THE SMOKE BED IS THE ONE THING THAT IS ANCHOR-CENTRED. Its bbox centre
+      (964.0, 583.0) sits 2.0 px right and 12.0 px above the anchor; its centroid
+      4.0 px right and 7.3 px above. It spans 336 x 286 px — 26.5 % of frame height
+      and 17.5 % of frame width — i.e. the largest single visual mass attributable
+      to the subject is a ground-plane FX disc centred on the subject's own root,
+      and it is what fixes the composition to the anchor while the geometry does not.
+
+  NO JUDGEMENT IS OFFERED on whether any of this reads correctly beside BR2W.
+  R-CPB-17b: the eye rules. These are the pixel facts the eye can rule against.
+
+================================================================================
+9. CONTEXT LANDINGS — with the confound restated, not buried
+================================================================================
+One method throughout; reference rows quoted from captures/2026-07-31-gd-parity/
+gd-parity-numbers.json, the 2026-08-14 SB1-REGISTER-MEASURE cell and WW-3B.
+
+    GD human form ...................  7.037 %
+    THIS STILL, man body TIGHT ......  6.574 %   <== the number of record
+    THIS STILL, crown-to-anchor .....  7.315 %
+    vh-rig frame (DEMOTED, WW-3) ....  9.444 %
+    BR2W ratified reference (WW-3B) .  9.889 %
+    THIS STILL, man + hammer ........ 11.944 %
+    arena candidate @ 72.857 m ...... 12.963 %
+    GD werewolf median .............. 14.769 %
+    THIS STILL, generous (mesh+FX) .. 16.296 %
+    harness projection @ player_lock  20.896 %   (see section 7 — a different tick)
+    GD boss tier (coarse, UNCONFIRMED) 21.574 %
+
+    man TIGHT / GD human ...... 0.934 x      man TIGHT / BR2W .......... 0.665 x
+    man TIGHT / GD werewolf ... 0.445 x      man TIGHT / arena@72.857 .. 0.507 x
+    crown-to-anchor / BR2W crown-to-anchor .. 0.825 x    <- the one like-for-like row
+    man+hammer / arena@72.857 . 0.921 x      man+hammer / BR2W ......... 1.208 x
+
+    THE HEADLINE, AND IT IS THE OPPOSITE OF THE PREDICTION ON THE ROW. WW-3a
+    declared, before the render, that the subject WOULD OVER-READ against the
+    12.96 % canon-boom band, and reported 20.896 % as that over-read arriving. On
+    the pixels, the fighter's BODY UNDER-READS EVERYTHING: it is smaller than GD's
+    human form (0.934x), two thirds of the ratified BR2W werewolf (0.665x), and less
+    than half a GD werewolf (0.445x). Only when the oversized hammer and then the
+    trail are annexed does the figure climb past BR2W. The over-read is real but it
+    lives in the WEAPON AND ITS FX, not in the man.
+
+    THE CONFOUND, RESTATED IN MY OWN WORDS. Subject-height fraction conflates
+    CAMERA FRAMING with BODY SIZE, and every row above photographs a DIFFERENT BODY:
+    a Grim Dawn human, a Grim Dawn werewolf, our werewolf at x1.29 parity, and now a
+    1.71 m armoured man carrying a hammer scaled 1.95. A difference in h_frac does
+    not by itself establish that two cameras differ, and equality would not establish
+    that they match. The cameras here are IDENTICAL BY CONSTRUCTION — WW-3a pinned
+    the offset to 0.000000000000 m and the anchor to sub-millipixel — so every
+    difference in this table is body, pose, weapon scale and tick. Nothing in it is
+    lens. This cell supplies screen register for one still, and nothing else.
+
+================================================================================
+10. CAMERA CONTEXT — for the receipt only; no number above derives from it
+================================================================================
+CAM-LOCK `player_lock`, as printed by the WW-3a port and pin-verified against
+tmp/br2watch/m6/pl_audit.json:
+    pitch 52.9535411256029 deg   fov_v 31.7861018306101 deg (VERTICAL, KEEP_HEIGHT)
+    yaw 47.0 deg   offset (14.7262048721313, 28.3970108032227, 13.7826108932495) m
+    |offset| 34.8311882019043 m   height 28.3970108032227 m
+    anchor (0.501041450500488, 0.550925123426649) frac, player-LOCKED per frame
+    offset_pin_delta 0.0 m (tol 1e-5)   anchor audit delta (0.000244, 0.000214) px
+    godot 4.6.3-stable   segment A (STATIONARY)   shot canon
+    tick_from 1570.0  tick_to 1700.0  fps 30  this still n=160 -> tick 1635.333
+    driver body drawn_height 1.7097 m (basis EXCLUDES the headgear horns and the
+    weapon)   assembly weapon_scale 1.95   subject AABB 2.594 x 2.400 x 1.937 m
+I measured pixels. None of these operands enters any number in sections 4-8.
+
+================================================================================
+11. DECLARED AMBIGUITIES AND NEGATIVE RESULTS — nothing resolved silently
+================================================================================
+A0. THE ARTIFACT IS 1920x1080. ITS FILENAME, ITS SIDECAR, LEDGER ROW WW-3a AND THIS
+    CHARTER ALL SAY 1600x900.  DECLARED, NOT RESOLVED — routed up.
+    Four independent instruments agree on the bytes: PIL (1920,1080), sips
+    (1920,1080), ffprobe (1920x1080 rgb24), and the raw PNG IHDR at offset 16
+    (00 00 07 80 = 1920, 00 00 04 38 = 1080). The sha and the byte count MATCH the
+    charter exactly, so this is the right artifact wearing a wrong label — a
+    NOTE-95-family label defect one level down (not the reference's identity, but
+    its stated shape). The sidecar asserts viewport [1600,900] in FOUR places
+    (top-level width/height, optics_measured.viewport, player_lock_anchor_audit.
+    viewport) while its own player_lock_derivation carries `focal_px_1080`
+    1896.55772386182 and `anchor_source` "962/1920, 595/1080" — the 1080 numbers
+    are already in the file beside the 900 ones.
+    WHY MEASUREMENT PROCEEDED RATHER THAN HALTING: the charter's HALT condition is
+    the sha, and the sha passes. The defect is bounded and benign for this cell's
+    arithmetic: aspect is identical (1600/900 == 1920/1080 == 1.7778) and the fov is
+    VERTICAL under KEEP_HEIGHT, so every screen-HEIGHT FRACTION is invariant across
+    the two resolutions. Every fraction in this receipt therefore stands. Every
+    PIXEL count is stated at 1080 and, where a WW-3B comparable exists, restated at
+    the 900 convention. The one thing the defect DOES break is the harness's stated
+    "188.07 px" (section 7-iv) and the ledger's "495.83 anchor row", which for these
+    bytes is 595.00.
+    WHAT IS NOT KNOWN, AND IS NOT GUESSED: whether the render was ALWAYS 1080 and the
+    --width/--height arguments were silently ignored, or whether some later step
+    resampled. That is a drax/harness question, not a pixel question. Routed as a
+    finding, not diagnosed here.
+
+A1. CROWN 516 vs THE LITERAL WW-3B RULE. DECLARED, BOTH REPORTED, NOT AVERAGED.
+    WW-3B's crown rule was ">= 3 contiguous columns at >= 28 L below the row
+    reference". That rule was written for a werewolf skull and it UNDER-READS a
+    thin taper by construction: at y516 only x969 (dev -28) and x970 (dev -51) clear
+    28 L, because the horn is two pixels wide there. Applied literally, the rule
+    would not fire until y=522, where x967-969 first give three.
+        crown 516 (adopted, G>=15 run>=3, corroborated by eye at 18x) .. 6.5741 %
+        crown 522 (literal WW-3B 28 L / 3-column rule) ................. 6.0185 %
+        crown 515 (first onset, G>=15 any column) ..................... 6.6667 %
+    Band 6.019 - 6.667 %. The measured value under the cell's own stated rule is the
+    number of record. The rule change from WW-3B is deliberate, is section 3's
+    subject, and is declared here rather than absorbed.
+
+A2. THE HARNESS NUMBER AND THIS STILL ARE DIFFERENT TICKS. DECLARED, UNRESOLVABLE
+    HERE. Sidecar: the subject AABB is read at the shot's FIRST tick (1570). This
+    still is tick 1635.333. Section 7-i. No still of tick 1570 exists in this cell's
+    reach, so the tick's contribution to the 8.95 pp gap is NAMED and NOT SIZED.
+
+A3. THE PALE SMUDGE BELOW THE LEGS, y599-608. EXCLUDED, WITH THE TEST SHOWN.
+    It is BRIGHTER than its surround (L 128.2 against 125.0 left and 117.9 right)
+    where body is DARKER, it is SMOOTH (sd 9.4) where body is structured (sd 25-39),
+    and its chromaticity matches the bed (r/b frac 0.334/0.343 against 0.331/0.349
+    and 0.330/0.351). It is smoke. Had it been admitted as a foot, the bottom would
+    read 608 and the TIGHT box 8.52 % instead of 6.57 %.
+
+A4. THE HORN AS BODY. DECLARED. The adopted crown is a HELM HORN, and the harness's
+    own drawn-height basis explicitly EXCLUDES "the headgear's horns and the weapon".
+    A GD-convention SILHOUETTE bbox includes worn geometry, so the horn is in. The
+    alternative — top of the helm dome — was attempted and ABANDONED as dishonest:
+    at this scale the dome cannot be separated from the gripping gauntlets and the
+    haft's lower end (they occupy the same 4-5 px). No number is offered for it.
+
+A5. BLOOM EDGES ARE STRUCTURE-POSITIVE. HANDLED BY ENVELOPE, DECLARED. The trail's
+    bloom head reaches G 54.57 at its rim, well over the G>=15 rule, and would have
+    annexed x967-999 / y460-479 into the "mesh" mask. Cut at x>960 for the hammer
+    band. The gap is real and was verified before it was used: at y468-480 the mesh
+    columns run 900-946, then NOTHING from ~947 to ~966, then resume at 967.
+
+A6. THE HAMMER'S LEFT EDGE ABUTS A CAST MEMBER. REPORTED AT 900, DECLARED CONTESTED.
+    Structure is CONTINUOUS from x886 through x949 — there is no structural gap
+    between the neighbouring figure and the hammer head, so structure alone cannot
+    part them. Luminance does, weakly: across y471-486 the columns x890-898 read
+    L 45-95 (the darker neighbour) and x900-902 read L 118-166 (the hammer's pale
+    plates), putting the seam at x~899. Taken as 900. IF the hammer is BEHIND the
+    neighbour rather than in front, its true left extent is occluded and unmeasurable.
+    Affects w_px of box (b)/(c) ONLY; h_px and every h_frac are untouched.
+
+A7. THRESHOLD SENSITIVITY. MEASURED AND PRINTED, so reproducibility has a number.
+    Sweeping the rule over the man (read x940-999) gives crown/bottom:
+        G>=14 run3 -> 510/587    G>=17 run3 -> 510/582    G>=20 run3 -> 510/581
+        G>=24 run3 -> 510/581    G>=28 run3 -> 511/572
+    (those crowns are the HAFT at x940-950, which the adopted box excludes by the
+    y>=516 envelope; the horn-band sweep x960-990 gives crown 516 at T=14 and 527-528
+    at T>=17, the same thin-taper effect as A1.) Bottom across the whole sweep:
+    572-599, converging 581-589. STATED TOLERANCE for the number of record:
+    +/- 3 px on the bottom, +/- 6 px on the crown -> h_frac 6.02 - 6.67 %.
+
+A8. THE EDGE DETECTOR STRADDLES THE SILHOUETTE. DECLARED, NOT CORRECTED. A gradient
+    responds ON the boundary, so the true silhouette edge may lie ~1 px outside every
+    extreme reported here. Systematic, same sign on all four edges, ~ +/-1 px. Not
+    compensated — compensating would be a preference dressed as a measurement.
+
+N1. gp_seg.py WAS NOT RUN. Its colour-distance seeding cannot separate an armoured
+    figure from a smoke-washed floor of near-identical chromaticity (subject r/g/b
+    frac 0.334-0.341/0.32-0.33/0.333-0.345 against bed 0.330/0.321/0.350). Skipped
+    deliberately rather than run for the look of it. Same call as WW-3B, different
+    reason: there it was warm-on-warm, here it is neutral-on-neutral.
+
+N2. CHROMATICITY FAILED AS A DISCRIMINATOR HERE, AND THE FAILURE IS INFORMATIVE.
+    WW-3B separated fur from floor on r/b fractions. On this still the smoke bed
+    neutralises everything it covers: subject and bed differ by under 0.01 in every
+    channel fraction. That is why this cell is built on STRUCTURE instead. The
+    calibration is printed in section 3 so the substitution is auditable.
+
+N3. THE WW-3B FLANK-MEDIAN RULE PRODUCED A CONFIDENT FALSE POSITIVE, and it is kept
+    on the record rather than deleted: a 26-column DARK run at y505-513 / x961-986,
+    which is smooth shadow (G max 4.72). Maps at
+    evidence/DISCARDED-flankmedian-rows-{player,upper}.txt.
+
+N4. THE ARC'S TAIL COULD NOT BE FOLLOWED PAST y634. Below that the warm mask fires
+    on a cast member's tan armour at x1022-1043 / y641-672, a component SEPARATE from
+    the arc (gap at y635-640). The arc is cut at 634 and the mob's warm pixels are
+    excluded. Had they been admitted, box (c) would read 19.8 % (bottom 672) and would
+    have landed within 1.1 pp of the harness's 20.896 % for entirely spurious reasons.
+    Named so that near-coincidence cannot be quoted later as agreement.
+
+CANNOT ANSWER:
+  - The ground-contact row (section 6). Not measurable on this still at all.
+  - Whether the subject's register would match at tick 1570, the tick the harness
+    projected. No still of that tick exists here.
+  - Whether the 1600x900/1920x1080 divergence is a render-arg defect or a later
+    resample (A0). Harness question, routed, not diagnosed.
+  - Whether this frame reads as GD-family beside BR2W. Out of seam; the eye rules.
+
+================================================================================
+12. INSTRUMENTS AND EVIDENCE
+================================================================================
+TRACKED, under pipeline/gd-parity/:
+    pl_struct.py    NEW. local-gradient structure reader; `cal` mode prints the
+                    calibration, `scan` mode prints the run map. Written because
+                    br2w_rows.py fails on a gradient-lit frame (N3).
+    br2w_rows.py    RE-USED as the discarded cross-instrument (N3).
+UNTRACKED working memory under tmpwork/ (regenerable; see .gitignore):
+    probe.py edges.py plate.py measure.py masks.py final.py final2.py emit.py
+
+CLASS-E EVIDENCE (bytes on disk, untracked, regenerable per .gitignore):
+  5251bc540ace9e9faeac31e6d25273da56a0fe2cf4ccb348130f29e42084fcdc  DISCARDED-flankmedian-rows-player.txt
+  acc5350959e8d447f598c01819777e3932f43e3f2942219a8e045a18894f42a1  DISCARDED-flankmedian-rows-upper.txt
+  48db2a09802121e77bcf1b447b9c9332de80a3632e2bbf3385e47371e3834d01  overlay-allmasks-z2.png
+  5293ecf23b3517b57458fe9773c7401f13fad8645cd97cf7b2f7d5525234d5ba  overlay-manmesh-z10.png
+  63d3f0a6e7032290e2fba42b280490240bcad93974f0d5dd61725b7a857e7576  read-anchor-z4.png
+  f39bfc795eba95c8e7f905a22b7a2eb06494619b9892cd8644d274e742cc5515  read-arctail-z6.png
+  250a2bfb279b075c827c916fcc867280af0885123de41c98ef34c1c0775203b5  read-crown-wide-z18.png
+  d85ac2cb91c1772e4fc0662eb06e29b79f3d94a64e031c43473f821d249ec94d  read-crown-z18.png
+  e264aae150b7a6a978544eebf05ece76188143448e41c0e04490dbba826ffb1f  read-groundzone-z16.png
+  20b036f4087fbf37f8022fadc9435abfefda93780eaa234dec2071e761280c0b  read-hammer-context-z6.png
+  bb366a70d9927a20b4933ba79560a50e6dbe16ff7fc2f2144525387678ed656a  read-hammer-z10.png
+  03e95e8e19c1a6847e5df93404db37a79e0efc3660a280e76db6fba1e78fafa2  read-legs-z8.png
+  4c9b90d78edc2379cc0658f4cf4f3eee6488654d306e8faa129c9179791f5bc9  scene-map-anchor-z2.png
+
+================================================================================
+13. WHAT THIS CELL HANDS UP
+================================================================================
+  1. NUMBER OF RECORD: 6.5741 % (71 px / 1080), band 6.019 - 6.667 %. The fighter's
+     BODY is smaller on this frame than GD's own human form.
+  2. The one like-for-like row against BR2W — crown-to-anchor, same camera, same
+     audited anchor — is 7.315 % against BR2W's 8.870 %: ratio 0.825x.
+  3. The ground contact is NOT in the picture. Declared absence, bracketed
+     [587, 599]; the anchor row 595.00 falls inside it. Delta -8.00 px at 1080,
+     -6.67 px at the 900 convention.
+  4. Harness cross-check DISAGREE: -8.95 pp against MAN+HAMMER. Four named causes,
+     the largest being a tick mismatch the harness's own sidecar declares.
+  5. Composition: the mesh mass rides 76.6 px HIGH of the anchor and 17.5 px LEFT;
+     the trail arc swings the visual centroid 38.0 px right; the smoke bed — the
+     largest mass in the frame at 336 x 286 px — is the only thing centred on the
+     anchor. The conductor's flag is confirmed as a pixel fact and given a size.
+  6. ROUTED UP, NOT DIAGNOSED: A0, the resolution-label defect, which touches the
+     ledger's own "1600x900" and "495.83" entries for this artifact.
