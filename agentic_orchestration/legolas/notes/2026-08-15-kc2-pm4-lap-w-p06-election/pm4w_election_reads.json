@@ -1,0 +1,78 @@
+{
+ "referent_wallclock_epoch": "video t=0 == 21:37:25 local (HUD clock read at t=600 == 21:47:25; exact)",
+ "session_structure_t_s": {
+  "title_and_main_menu": [
+   0,
+   35
+  ],
+  "loading": [
+   40,
+   48
+  ],
+  "in_crucible_lobby_from": 50,
+  "character_and_devotion_screens": [
+   55,
+   440
+  ],
+  "defense_site_panels": [
+   446,
+   562
+  ],
+  "lokarr_root_dialogue_S1": [
+   565.0,
+   573.7
+  ],
+  "lokarr_wager_dialogue_S2": [
+   573.8,
+   682.05
+  ],
+  "dialogue_closed_run_started": 682.1,
+  "band_151_160_per_lap_H2": [
+   683.0,
+   866.0
+  ]
+ },
+ "clicks_frame_attested": [
+  {
+   "t_s": 573.7,
+   "frame_source": "work/hover/h_038.png (10 fps, ss=570)",
+   "state": "S1 root",
+   "highlighted_option": "I wish to raise the stakes.",
+   "icon": "blue speech bubble (navigation node)",
+   "result": "transition to S2 at t=573.80"
+  },
+  {
+   "t_s": 682.0,
+   "frame_source": "work/hover3/m_020.png (10 fps, ss=680)",
+   "state": "S2 wager",
+   "highlighted_option": "Start on Wave 150",
+   "icon": "green check (action node)",
+   "result": "dialogue gone at t=682.10; run starts"
+  }
+ ],
+ "options_never_taken": [
+  "I think you can do better.  (S1, blue speech bubble)",
+  "Sure, but I bet you can also do better.  (S2, blue speech bubble; still present and un-taken in the final frame t=682.05)"
+ ],
+ "S1_options": [
+  "I am ready to begin! (green check)",
+  "I wish to raise the stakes. (blue)",
+  "I think you can do better. (blue)",
+  "I have some questions first. (blue)",
+  "I need some time to prepare. (exit)"
+ ],
+ "S2_options": [
+  "Forget the bet. Let's begin. (Standard Crucible) (green check)",
+  "Start on Wave 50 (green check)",
+  "Start on Wave 100 (green check)",
+  "Start on Wave 150 (green check)",
+  "Start on Wave 180 (green check)",
+  "Sure, but I bet you can also do better. (blue)",
+  "I need some time to prepare. (exit)"
+ ],
+ "corroboration": "the fought band is waves 151-160 = tier 16, consistent with the 'Start on Wave 150' read",
+ "hud": {
+  "difficulty": "Gladiator",
+  "arena_name_string": "Crucible of the Dead"
+ }
+}
