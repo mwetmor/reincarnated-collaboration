@@ -1,0 +1,180 @@
+{
+ "candidate_maps": [
+  "survivalworld_a.map",
+  "survivalworld_b.map",
+  "survivalworld_e.map"
+ ],
+ "exe_dropdown_array": [
+  "tagSurvivalArenaRandom",
+  "tagSurvivalArena_01",
+  "tagSurvivalArena_03",
+  "tagSurvivalArena_04",
+  "tagSurvivalArena_05",
+  "tagSurvivalArena_06",
+  "tagSurvivalArena_07",
+  "tagSurvivalArena_08",
+  "tagSurvivalArena_09",
+  "tagSurvivalArena_10"
+ ],
+ "exe_dropdown_omits": [
+  "tagSurvivalArena_02"
+ ],
+ "exe_has_bind_section": true,
+ "exe_map_array": [
+  "maps/survivalworld_a.map",
+  "maps/survivalworld_b.map",
+  "maps/survivalworld_c.map",
+  "maps/survivalworld_d.map",
+  "maps/survivalworld_e.map",
+  "maps/survivalworld_f.map",
+  "maps/survivalworld_g.map",
+  "maps/survivalworld_j.map",
+  "maps/survivalworld_h.map",
+  "maps/survivalworld_i.map"
+ ],
+ "exe_sections": [
+  ".bind",
+  ".data",
+  ".gfids",
+  ".rdata",
+  ".reloc",
+  ".rsrc",
+  ".text",
+  ".tls",
+  "_RDATA"
+ ],
+ "maps_and_tags": {
+  "survivalworld_a.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02"
+   ]
+  },
+  "survivalworld_b.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_01"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_01"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_01"
+   ]
+  },
+  "survivalworld_c.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_03"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_03"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_03"
+   ]
+  },
+  "survivalworld_d.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_04"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_04"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_04"
+   ]
+  },
+  "survivalworld_e.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02",
+    "tagSurvivalArena_05"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02",
+    "tagSurvivalArena_05"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_01",
+    "tagSurvivalArena_02",
+    "tagSurvivalArena_05"
+   ]
+  },
+  "survivalworld_f.map": {
+   "mods/survivalmode/resources/Maps.arc": [
+    "tagSurvivalArena_06"
+   ],
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_06"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_06"
+   ]
+  },
+  "survivalworld_g.map": {
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_07"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_07"
+   ]
+  },
+  "survivalworld_h.map": {
+   "survivalmode2/resources/Maps.arc": [
+    "tagSurvivalArena_09"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_09"
+   ]
+  },
+  "survivalworld_i.map": {
+   "survivalmode2/resources/Maps.arc": [
+    "tagSurvivalArena_10"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_10"
+   ]
+  },
+  "survivalworld_j.map": {
+   "survivalmode1/resources/Maps.arc": [
+    "tagSurvivalArena_08"
+   ],
+   "survivalmode3/resources/Maps.arc": [
+    "tagSurvivalArena_08"
+   ]
+  }
+ },
+ "n_shipped_maps": 10,
+ "referent_area_name": "Crucible of the Dead",
+ "referent_area_name_frames": {
+  "Crucible of the Dead": 89
+ },
+ "referent_difficulty_frames": {
+  "Gladiator": 91
+ },
+ "referent_difficulty_tier": "Gladiator",
+ "referent_name_source": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/pm4n_fct_events.csv",
+ "referent_tag": "tagSurvivalArena_01",
+ "tag_table": {
+  "tagSurvivalArenaRandom": "Random",
+  "tagSurvivalArena_01": "Crucible of the Dead",
+  "tagSurvivalArena_02": "Crucible of the Deeps",
+  "tagSurvivalArena_03": "Crucible of the Sands",
+  "tagSurvivalArena_04": "Crucible of the Grove",
+  "tagSurvivalArena_05": "Crucible of the Void",
+  "tagSurvivalArena_06": "Crucible of the Legion",
+  "tagSurvivalArena_07": "Crucible of the Bog",
+  "tagSurvivalArena_08": "Crucible of the Woods",
+  "tagSurvivalArena_09": "Crucible of the Stars",
+  "tagSurvivalArena_10": "Crucible of the Crags"
+ },
+ "tag_table_source": "edition-III/resources/Text_EN.arc :: tags_uimain.txt"
+}

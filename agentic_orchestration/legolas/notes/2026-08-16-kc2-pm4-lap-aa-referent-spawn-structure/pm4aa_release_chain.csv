@@ -1,0 +1,5 @@
+step,va,body,timer,detail
+Proxy::DelayedRun,0x10351d10,12 instructions; state 1 -> 0 then TAIL-JMP RunProxy,NONE,"{""tail_jump"": true}"
+Proxy::RunProxy,0x10351d30,one-shot latch +0x4ac; chanceToRun roll; SelectPoolLocations x2; virtual PoolComplete (vtbl+0x1fc); latch -> 6,NONE,"{""latch_in"": true, ""latch_out"": true, ""pool_complete_vcall"": true, ""selectpoollocations_calls"": 2}"
+Proxy::PoolComplete,0x10352580,"per-body proxy-parent stamping loop, then a DIRECT call to PlaceObjects",NONE,"{""direct_call_to_placeobjects"": true, ""queues_pending"": false}"
+Proxy::PlaceObjects,0x10352af0,"single loop over (ids x coords): AddUniqueIdToEntity, then World::AddEntity",NONE,"{""loop"": true, ""world_add"": ""Engine.dll!?AddEntity@World@GAME@@QAE_NPAVEntity@2@ABVWorldCoords@2@_N@Z""}"

@@ -1,0 +1,182 @@
+KC2-PM4 · LAP AA — THE REFERENT'S SPAWN STRUCTURE — instrument I-AA-1
+prereg committed ALONE in ba368773 before this file existed
+[PINS] 16 asserted EXACT, 9 recorded. No HALT.
+
+===== FORK (d) — ARENA IDENTITY =========================================
+[d.1] referent OCR area names   : {'Crucible of the Dead': 89}
+[d.1] referent OCR difficulty   : {'Gladiator': 91}
+[d.2] tagSurvivalArena_* declared: 11
+        tagSurvivalArenaRandom = 'Random'   (tags_uimain.txt)
+        tagSurvivalArena_01 = 'Crucible of the Dead'   (tags_uimain.txt)
+        tagSurvivalArena_02 = 'Crucible of the Deeps'   (tags_uimain.txt)
+        tagSurvivalArena_03 = 'Crucible of the Sands'   (tags_uimain.txt)
+        tagSurvivalArena_04 = 'Crucible of the Grove'   (tags_uimain.txt)
+        tagSurvivalArena_05 = 'Crucible of the Void'   (tags_uimain.txt)
+        tagSurvivalArena_06 = 'Crucible of the Legion'   (tags_uimain.txt)
+        tagSurvivalArena_07 = 'Crucible of the Bog'   (tags_uimain.txt)
+        tagSurvivalArena_08 = 'Crucible of the Woods'   (tags_uimain.txt)
+        tagSurvivalArena_09 = 'Crucible of the Stars'   (tags_uimain.txt)
+        tagSurvivalArena_10 = 'Crucible of the Crags'   (tags_uimain.txt)
+[d.3] shipped arena maps (decoy set ENUMERATED): 10
+        survivalworld_a.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02']}
+        survivalworld_b.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_01'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_01'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_01']}
+        survivalworld_c.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_03'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_03'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_03']}
+        survivalworld_d.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_04'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_04'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_04']}
+        survivalworld_e.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02', 'tagSurvivalArena_05'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02', 'tagSurvivalArena_05'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_01', 'tagSurvivalArena_02', 'tagSurvivalArena_05']}
+        survivalworld_f.map      {'mods/survivalmode/resources/Maps.arc': ['tagSurvivalArena_06'], 'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_06'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_06']}
+        survivalworld_g.map      {'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_07'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_07']}
+        survivalworld_h.map      {'survivalmode2/resources/Maps.arc': ['tagSurvivalArena_09'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_09']}
+        survivalworld_i.map      {'survivalmode2/resources/Maps.arc': ['tagSurvivalArena_10'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_10']}
+        survivalworld_j.map      {'survivalmode1/resources/Maps.arc': ['tagSurvivalArena_08'], 'survivalmode3/resources/Maps.arc': ['tagSurvivalArena_08']}
+[d.4] exe map array   (10): ['maps/survivalworld_a.map', 'maps/survivalworld_b.map', 'maps/survivalworld_c.map', 'maps/survivalworld_d.map', 'maps/survivalworld_e.map', 'maps/survivalworld_f.map', 'maps/survivalworld_g.map', 'maps/survivalworld_j.map', 'maps/survivalworld_h.map', 'maps/survivalworld_i.map']
+[d.4] exe dropdown    (10): ['tagSurvivalArenaRandom', 'tagSurvivalArena_01', 'tagSurvivalArena_03', 'tagSurvivalArena_04', 'tagSurvivalArena_05', 'tagSurvivalArena_06', 'tagSurvivalArena_07', 'tagSurvivalArena_08', 'tagSurvivalArena_09', 'tagSurvivalArena_10']
+[d.5] referent name 'Crucible of the Dead' -> tagSurvivalArena_01
+[d.5] maps carrying tagSurvivalArena_01: ['survivalworld_a.map', 'survivalworld_b.map', 'survivalworld_e.map']  (of 10)
+[d.6] exe sections: ['.bind', '.data', '.gfids', '.rdata', '.reloc', '.rsrc', '.text', '.tls', '_RDATA']   .bind(DRM) present = True
+
+===== FORK (a) — WHERE ==================================================
+[a.1] Proxy::Load field->member map:
+        placementExtents   {'member': '0x410', 'name_literal_va': '0x10569268', 'loader_default': 2.5}
+        chanceToRun        {'member': '0x3e0', 'name_literal_va': '0x1056925c', 'loader_default': 0.0}
+        delayedRun         {'member': '+0x4ac (state latch <- 1)', 'name_literal_va': '0x10569250', 'loader_default': False}
+[a.2] SelectPoolLocations @ 0x103526e0
+        per-body clearance pushed into radii vector = 0.25 (0x3e800000)
+        calls Engine.dll!?FillPointSet@NavManager@GAME@@QAE_NAAV?$vector@VWorldVec3@GAME@@@mem@
+        random facing constant 0x40c90fdb = 6.2831854820251465 present = True
+[a.3] sampler @ Engine.dll 0x100edf30
+        RNG            = api-ms-win-crt-utility-l1-1-0.dll!rand
+        angle constant = 0.00019175345369149 (6d114939)   2*pi/32767 = 0.00019175345033660654
+        radius constant= 3.0518509447574615e-05 (00010038)   1/32767    = 3.051850947599719e-05
+        cos -> api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_cosf
+        sin -> api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_sinf
+        rejection retry cap = 100
+[a.4] Lap U pm4u_geometry_v3.csv imported: 120 rows, columns = ['archive', 'basis', 'inside_beacon_aura_8m', 'map', 'n_patrol_points', 'parse_complete', 'placement_extents_m', 'ring_max_extent_m', 'spawn_x', 'spawn_y', 'spawn_z', 'to_nearest_beacon_m', 'to_nearest_patrol_m', 'to_patrol_centroid_m']
+[a.4] archive copies per map: [2]; resolver = survivalmode3/resources/Maps.arc
+[a.4] maps whose lower-layer copy DISAGREES with the resolver: ['survivalworld_a.map']
+        survivalworld_a.map    n=  6  to_patrol_centroid={'n': 6, 'min': 10.2826, 'median': 32.3738, 'mean': 28.5554, 'max': 35.8773}
+        survivalworld_b.map    n=  6  to_patrol_centroid={'n': 6, 'min': 2.4534, 'median': 34.0939, 'mean': 29.0596, 'max': 35.5057}
+        survivalworld_c.map    n=  6  to_patrol_centroid={'n': 6, 'min': 9.5671, 'median': 34.6876, 'mean': 31.4095, 'max': 38.8315}
+        survivalworld_d.map    n=  6  to_patrol_centroid={'n': 6, 'min': 7.0503, 'median': 32.8835, 'mean': 30.1804, 'max': 40.2423}
+        survivalworld_e.map    n=  6  to_patrol_centroid={'n': 6, 'min': 0.1122, 'median': 36.4939, 'mean': 29.97, 'max': 38.774}
+        survivalworld_f.map    n=  6  to_patrol_centroid={'n': 6, 'min': 8.1988, 'median': 41.493, 'mean': 36.0014, 'max': 44.0685}
+        survivalworld_g.map    n=  6  to_patrol_centroid={'n': 6, 'min': 3.4985, 'median': 38.5589, 'mean': 32.1159, 'max': 40.2474}
+        survivalworld_h.map    n=  6  to_patrol_centroid={'n': 6, 'min': 3.5013, 'median': 32.0598, 'mean': 31.1328, 'max': 44.7514}
+        survivalworld_i.map    n=  6  to_patrol_centroid={'n': 6, 'min': 4.1486, 'median': 36.4159, 'mean': 32.185, 'max': 41.1003}
+        survivalworld_j.map    n=  6  to_patrol_centroid={'n': 6, 'min': 4.5258, 'median': 42.9132, 'mean': 37.6494, 'max': 48.0703}
+[a.4] CANDIDATE-ARENA BOUND (maps a/b/e only, n=18 spawn points):
+        to_patrol_centroid_m       {'n': 18, 'min': 0.1122, 'median': 33.863, 'mean': 29.195, 'max': 38.774}
+        to_nearest_patrol_m        {'n': 18, 'min': 1.8621, 'median': 16.1044, 'mean': 14.1209, 'max': 21.1464}
+        ring_max_extent_m          {'n': 18, 'min': 33.1759, 'median': 40.0487, 'mean': 40.5709, 'max': 48.488}
+        placement_extents_m        {'n': 18, 'min': 8.0, 'median': 8.0, 'mean': 8.0, 'max': 8.0}
+[a.4] all-arena comparison (n=60):
+        to_patrol_centroid_m       {'n': 60, 'min': 0.1122, 'median': 35.5947, 'mean': 31.8259, 'max': 48.0703}
+        to_nearest_patrol_m        {'n': 60, 'min': 0.3253, 'median': 16.4306, 'mean': 14.9128, 'max': 26.0779}
+        ring_max_extent_m          {'n': 60, 'min': 33.1759, 'median': 45.7066, 'mean': 45.9845, 'max': 56.8065}
+        placement_extents_m        {'n': 60, 'min': 8.0, 'median': 8.0, 'mean': 8.0, 'max': 8.0}
+
+===== FORK (b) — WHEN ===================================================
+[b.1] Proxy::DelayedRun @ 0x10351d10 — 12 instructions, tail-jmp into RunProxy = True, NO timer
+[b.1] Proxy::RunProxy @ 0x10351d30 — latch-in True, latch-out True, 2 SelectPoolLocations calls, PoolComplete vcall True, NO timer
+[b.1] Proxy::PoolComplete @ 0x10352580 — direct PlaceObjects call = True, queues into a pending vector = False
+[b.1] Proxy::PlaceObjects @ 0x10352af0 — one loop, per body -> Engine.dll!?AddEntity@World@GAME@@QAE_NPAVEntity@2@ABVWorldCoords@2@_N@Z
+[b.1b] Proxy state latch +0x4ac — imm32 writers ENUMERATED: 29
+        0x100ef7be = 0   ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ 0x35e
+        0x100f5a31 = 0   ??0ControllerMonster@GAME@@QAE@XZ 0x541
+        0x100f5f7a = 0   ??0ControllerMonster@GAME@@QAE@XZ 0xa8a
+        0x101fc3dd = 0   ??0EndlessDungeon_Generator@GAME@@QAE@XZ 0x42d
+        0x101fec6f = 0   ?Update@EndlessDungeon_Generator@GAME@@QAEXH@Z 0x58f
+        0x101ff2cf = 2   ?DisableProxies@EndlessDungeon_Generator@GAME@@QAEXAAV?$map@W4ProxyGroupType@GAME@@V?$vector@UProxyInfo@EndlessDungeon_Generator@GAME@@@mem@@@mem@@@Z 0x5f
+        0x101ff706 = 2261123072   ?Clear@EndlessDungeon_Generator@GAME@@QAEXXZ 0xa6
+        0x102de1f9 = 15   ?ParentIsMonster@SkillManager@GAME@@QAEXXZ 0x709
+        0x10350cb3 = 0   ??0Proxy@GAME@@QAE@XZ 0x1b3
+        0x10351144 = 1   ?Load@Proxy@GAME@@UAEXABVLoadTable@2@@Z 0x1b4
+        0x103515e2 = 3   ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z 0x222
+        0x10351c44 = 4   ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z 0x884
+        0x10351d19 = 0   ?DelayedRun@Proxy@GAME@@QAEXXZ 0x9
+        0x10351e1e = 5   ?RunProxy@Proxy@GAME@@IAEXXZ 0xee
+        0x10351fd4 = 6   ?RunProxy@Proxy@GAME@@IAEXXZ 0x2a4
+        0x10352540 = 2   ?Disable@Proxy@GAME@@QAEXXZ 0x0
+        0x103535d3 = 0   ?ResetSettings@Proxy@GAME@@QAEXXZ 0x3
+        0x1035545e = 1   ?Load@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z 0xe
+        0x10355bfe = 4   ?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z 0x78e
+        0x10355e1a = 1   ?InitializeAccessoryPool@ProxyEndless@GAME@@QAEXXZ 0x17a
+        0x103563a5 = 0   ?UpdateSelf@ProxyEndless@GAME@@UAEXH@Z 0x55
+        0x1035650b = 2   ?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z 0x9b
+        0x1035654c = 1   ?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z 0xdc
+        0x103d9fb2 = 0   ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z 0x192
+        0x103e83b6 = 4294967295   ??0Skill_AttackRadiusGrow@GAME@@QAE@XZ 0xb6
+        0x103e8d4c = 4294967295   ?ActivateNow@Skill_AttackRadiusGrow@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z 0x21c
+        0x103eabee = 0   ??0Skill_AttackRadiusSpin@GAME@@QAE@XZ 0xae
+        0x103f228a = 0   ??0Skill_AttackSpellReflectLink@GAME@@QAE@XZ 0x10a
+        0x10465b8f = 0   ?RunProxy@StaticShrine@GAME@@QAEXXZ 0x2f
+[b.1b] writers that clear the delayedRun park (1 -> 0) inside DelayedRun: ['0x10351d19']
+[b.2] tier-16 wave proxies: 54  classes = {'Proxy': 47, 'ProxyAmbush': 7}
+[b.2] distinct field names across all 54 records: 41
+[b.2] fields whose NAME contains a timing word: ['delayedRun', 'maxDelayTime', 'maxSpawnTime', 'minDelayTime', 'minSpawnTime']
+[b.3] per-wave batch composition (import by identity, Lap V pm4v_roster_arithmetic.csv):
+        w151: points=[1, 2, 3, 4, 5] E_bodies={p1:16.000, p2:6.000, p3:3.000, p4:16.000, p5:4.500} total=45.500
+        w152: points=[1, 2, 3, 4, 5, 6] E_bodies={p1:9.000, p2:6.000, p3:14.000, p4:4.000, p5:3.000, p6:18.000} total=54.000
+        w153: points=[1, 2, 3, 4, 5, 6] E_bodies={p1:6.000, p2:15.000, p3:14.000, p4:18.000, p5:4.500, p6:6.000} total=63.500
+        w154: points=[1, 2, 3, 4] E_bodies={p1:2.000, p2:2.000, p3:3.000, p4:24.000} total=31.000
+        w155: points=[1, 2, 3, 4, 6] E_bodies={p1:1.000, p2:2.000, p3:21.500, p4:21.500, p6:15.000} total=61.000
+        w156: points=[1, 2, 3, 4, 5, 6] E_bodies={p1:1.000, p2:2.000, p3:2.000, p4:23.500, p5:21.000, p6:7.000} total=56.500
+        w157: points=[1, 2, 3, 4, 5, 6] E_bodies={p1:3.000, p2:18.000, p3:23.500, p4:26.000, p5:9.000, p6:3.000} total=82.500
+        w158: points=[1, 2, 3, 4, 5, 6] E_bodies={p1:27.000, p2:18.000, p3:27.000, p4:27.000, p5:6.000, p6:6.000} total=111.000
+        w159: points=[1, 2, 3, 4, 5] E_bodies={p1:2.000, p2:6.000, p3:1.000, p4:4.000, p5:2.000} total=15.000
+        w160: points=[1, 2, 3, 4, 6] E_bodies={p1:1.000, p2:1.000, p3:1.000, p4:2.000, p6:3.000} total=8.000
+[b.5] 'for id = 1, waveEvent.numSpawns do' occurs at lines [539, 715, 723, 730] (SurvivalEvent_SpawnNext begins L503; the dispensing loop is the first after it)
+[b.5] survivalevent.lua L553 : waveEvent.proxy[id]:LinkPatrolPointGroup(waveEvent.patrolPoint)
+[b.5] survivalevent.lua L539 : for id = 1, waveEvent.numSpawns do
+[b.5] survivalevent.lua L548 : waveEvent.proxy[id] = Proxy.Create(waveEvent.waves[id][waveEvent.waveIndex][randomizer], w
+[b.5] survivalevent.lua L558 : waveEvent.proxy[id]:Run()
+[b.5] survivalevent.lua L513 : Game.IncrementSurvivalWaveTier()
+[b.5] SurvivalEvent_Start dispenses immediately at L438
+
+===== FORK (c) — BETWEEN SPAWN AND ENGAGE ===============================
+[c.1] ControllerMonster +0x28c  writers=3  readers=2
+        W 0x100f5542 = 1   ??0ControllerMonster@GAME@@QAE@XZ 0x52
+        W 0x100f9ce9 = 0   ?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ 0x9
+        W 0x1010a781 = 0   ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z 0x421
+        R 0x100f9ce0   ?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ 0x0
+        R 0x1010a778   ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z 0x418
+[c.2] literal 'AlertBeforePursue' raw occurrences in Game.dll = 11
+          0x52af3c   .rdata standalone=True  'UseSkillOnAlly\x00\x00Emote\x00\x00\x00AlertBeforePursue\x00\x00\x00Dead\x00\x00\x00\x00St'
+          0x52c1fc   .rdata standalone=True  'UseSkillOnAlly\x00\x00Flee\x00\x00\x00\x00AlertBeforePursue\x00\x00\x00Flee\x00\x00\x00\x00Us'
+          0x6652eb   .rdata standalone=False  '?0ControllerMonsterStateAlertBeforePursue@GAME@@QAE@AB'
+          0x665329   .rdata standalone=False  '?0ControllerMonsterStateAlertBeforePursue@GAME@@QAE@PA'
+          0x6866a1   .rdata standalone=False  '?1ControllerMonsterStateAlertBeforePursue@GAME@@UAE@XZ'
+          0x6966e5   .rdata standalone=False  '?4ControllerMonsterStateAlertBeforePursue@GAME@@QAEAAV'
+          0x6ac8e3   .rdata standalone=False  '_7ControllerMonsterStateAlertBeforePursue@GAME@@6B@\x00??'
+          0x769953   .rdata standalone=False  't@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXAB'
+          0x787e65   .rdata standalone=False  'n@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ'
+          0x789c0c   .rdata standalone=False  'd@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ'
+          0x78c265   .rdata standalone=False  'e@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXH@'
+[c.2] STANDALONE literal copies (the decoy set, ENUMERATED): ['0x1052c33c', '0x1052d5fc']
+[c.2]   .text sites referencing 0x1052c33c: 1
+          0x100f9640 prev_op=68  ?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ 0x130
+[c.2]   .text sites referencing 0x1052d5fc: 1
+          0x1010a6ec prev_op=68  ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z 0x38c
+[c.2] literal in other shipped modules: {'Engine.dll': 0, 'Grim Dawn.exe': 0}
+[c.2] 'AlertBeforePursue' as a shipped record STRING: {'database': 0, 'GDX1': 0, 'GDX2': 0, 'GDX3': 0, 'SurvivalMode': 0, 'SurvivalMode1': 0, 'SurvivalMode2': 0, 'SurvivalMode3': 0}
+[c.2] positive controls:
+        Pursue(registration)   'Pursue'  refs=['?RegisterStates@ControllerMonster@GAME@@MAEXXZ']
+        Pursue(SetState)       'Pursue'  refs=['?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z']
+[c.2b] alert gate inside DefaultEnemyFoundResponse @ 0x1010a360
+        distance operand : GameEngine+0xc80  field literal 'alertDistance' (loader neighbour at +0xc7c is 'meleeTargetDistance')
+        +0xc80 writers   : [('0x1024d176', ('?LoadFromDatabase@GameEngine@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z', 390))]
+        +0xc80 readers   : [('0x1010a6bf', ('?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z', 863))]
+        +0xc80 ctor imms : [('0x10246b0d', ('??0GameEngine@GAME@@QAE@XZ', 1677), 2.0)]
+        anger operand    : 15.0 (00007041) @ 0x105f58ac
+[c.2b] 'gameengine' SUBSTRING decoy set (7) — enumerated, `D-Z-1`:
+        records/game/gameengine.dbr                              alertDistance = {'database': 6.0}
+        records/ingameui/gameengine.dbr                          alertDistance = {'database': 5.0}
+        records/sandbox/arthur/archive/gameengine 01-23-15.dbr   alertDistance = {'database': 6.0}
+        records/sandbox/arthur/archive/gameengine 02-01-16.dbr   alertDistance = {'database': 6.0}
+        records/sandbox/arthur/archive/gameengine 09-09-15.dbr   alertDistance = {'database': 6.0}
+        records/sandbox/arthur/archive/gameengine 10-31.dbr      alertDistance = {'database': 6.0}
+        records/sandbox/arthur/archive/gameengine 7-31.dbr       alertDistance = {'database': 6.0}
+[c.2b] SHIPPED (exact path records/game/gameengine.dbr, resolver database): alertDistance = 6.0   meleeTargetDistance = 2.4000000953674316
+[c.2b] AlertBeforePursue::OnBegin @ 0x10109410 — PlayAnimation(AnimationSet_Type 0x21=True, speed 1.0f=True)
+[c.2b] AlertBeforePursue::OnEnd   @ 0x10007f40 — bare ret (no-op) = True
+[c.2b] AlertBeforePursue::OnUpdate@ 0x10109430 — locomotion-named calls in first 0x120 bytes: NONE
+[c.4] PoolComplete per-body stamping: {'proxy_parent_id': True, 'proxy_parent_name': True, 'proxy_sibling_count': True}

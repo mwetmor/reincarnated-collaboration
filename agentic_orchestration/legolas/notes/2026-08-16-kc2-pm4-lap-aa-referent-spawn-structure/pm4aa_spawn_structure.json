@@ -1,0 +1,1907 @@
+{
+ "commissioned_by": "R-PM4-67 part 7",
+ "fork_a_where": {
+  "all_arena_stats": {
+   "placement_extents_m": {
+    "max": 8.0,
+    "mean": 8.0,
+    "median": 8.0,
+    "min": 8.0,
+    "n": 60
+   },
+   "ring_max_extent_m": {
+    "max": 56.8065,
+    "mean": 45.9845,
+    "median": 45.7066,
+    "min": 33.1759,
+    "n": 60
+   },
+   "to_nearest_patrol_m": {
+    "max": 26.0779,
+    "mean": 14.9128,
+    "median": 16.4306,
+    "min": 0.3253,
+    "n": 60
+   },
+   "to_patrol_centroid_m": {
+    "max": 48.0703,
+    "mean": 31.8259,
+    "median": 35.5947,
+    "min": 0.1122,
+    "n": 60
+   }
+  },
+  "candidate_arena_bound": {
+   "placement_extents_m": {
+    "max": 8.0,
+    "mean": 8.0,
+    "median": 8.0,
+    "min": 8.0,
+    "n": 18
+   },
+   "ring_max_extent_m": {
+    "max": 48.488,
+    "mean": 40.5709,
+    "median": 40.0487,
+    "min": 33.1759,
+    "n": 18
+   },
+   "to_nearest_patrol_m": {
+    "max": 21.1464,
+    "mean": 14.1209,
+    "median": 16.1044,
+    "min": 1.8621,
+    "n": 18
+   },
+   "to_patrol_centroid_m": {
+    "max": 38.774,
+    "mean": 29.195,
+    "median": 33.863,
+    "min": 0.1122,
+    "n": 18
+   }
+  },
+  "candidate_arena_spawn_points": 18,
+  "fill_point_set": "Engine.dll!?FillPointSet@NavManager@GAME@@QAE_NAAV?$vector@VWorldVec3@GAME@@@mem@@ABVWorldVec3@2@MABV?$vector@M@4@_N3@Z",
+  "geometry_rows": 120,
+  "geometry_source": "lap-u/pm4u_geometry_v3.csv (import by identity)",
+  "k_rho": {
+   "exact_1_over_32767": 3.051850947599719e-05,
+   "hex": "00010038",
+   "va": "0x102e03c8",
+   "value": 3.0518509447574615e-05
+  },
+  "k_theta": {
+   "exact_2pi_over_32767": 0.00019175345033660654,
+   "hex": "6d114939",
+   "va": "0x102e03dc",
+   "value": 0.00019175345369149
+  },
+  "per_arena_centroid": {
+   "survivalworld_a.map": {
+    "max": 35.8773,
+    "mean": 28.5554,
+    "median": 32.3738,
+    "min": 10.2826,
+    "n": 6
+   },
+   "survivalworld_b.map": {
+    "max": 35.5057,
+    "mean": 29.0596,
+    "median": 34.0939,
+    "min": 2.4534,
+    "n": 6
+   },
+   "survivalworld_c.map": {
+    "max": 38.8315,
+    "mean": 31.4095,
+    "median": 34.6876,
+    "min": 9.5671,
+    "n": 6
+   },
+   "survivalworld_d.map": {
+    "max": 40.2423,
+    "mean": 30.1804,
+    "median": 32.8835,
+    "min": 7.0503,
+    "n": 6
+   },
+   "survivalworld_e.map": {
+    "max": 38.774,
+    "mean": 29.97,
+    "median": 36.4939,
+    "min": 0.1122,
+    "n": 6
+   },
+   "survivalworld_f.map": {
+    "max": 44.0685,
+    "mean": 36.0014,
+    "median": 41.493,
+    "min": 8.1988,
+    "n": 6
+   },
+   "survivalworld_g.map": {
+    "max": 40.2474,
+    "mean": 32.1159,
+    "median": 38.5589,
+    "min": 3.4985,
+    "n": 6
+   },
+   "survivalworld_h.map": {
+    "max": 44.7514,
+    "mean": 31.1328,
+    "median": 32.0598,
+    "min": 3.5013,
+    "n": 6
+   },
+   "survivalworld_i.map": {
+    "max": 41.1003,
+    "mean": 32.185,
+    "median": 36.4159,
+    "min": 4.1486,
+    "n": 6
+   },
+   "survivalworld_j.map": {
+    "max": 48.0703,
+    "mean": 37.6494,
+    "median": 42.9132,
+    "min": 4.5258,
+    "n": 6
+   }
+  },
+  "per_body_clearance_hex": "0x3e800000",
+  "per_body_clearance_m": 0.25,
+  "proxy_load_fields": {
+   "chanceToRun": {
+    "loader_default": 0.0,
+    "member": "0x3e0",
+    "name_literal_va": "0x1056925c"
+   },
+   "delayedRun": {
+    "loader_default": false,
+    "member": "+0x4ac (state latch <- 1)",
+    "name_literal_va": "0x10569250"
+   },
+   "placementExtents": {
+    "loader_default": 2.5,
+    "member": "0x410",
+    "name_literal_va": "0x10569268"
+   }
+  },
+  "random_facing": {
+   "constant_hex": "0x40c90fdb",
+   "present": true,
+   "value": 6.2831854820251465
+  },
+  "rejection_retry_cap": 100,
+  "sampler_cos": "api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_cosf",
+  "sampler_rng": "api-ms-win-crt-utility-l1-1-0.dll!rand",
+  "sampler_sin": "api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_sinf",
+  "sampler_va": "0x100edf30",
+  "select_pool_locations_va": "0x103526e0"
+ },
+ "fork_b_when": {
+  "ambush_import": {
+   "class_exports": {
+    "??0ProxyAmbush@GAME@@QAE@XZ": "0x3541b0",
+    "??1ProxyAmbush@GAME@@UAE@XZ": "0x354260",
+    "??_7ProxyAmbush@GAME@@6B@": "0x5e7774",
+    "??_7ProxyAmbush@GAME@@6BICrowdAgent@CROWD@@@": "0x5d6628",
+    "??_7ProxyAmbush@GAME@@6BIPhysics2@1@@": "0x5d1f88",
+    "??_7ProxyAmbush@GAME@@6BObject@1@@": "0x5e7af0",
+    "?GetPlacedObjects@ProxyAmbush@GAME@@UBEXAAV?$vector@I@mem@@@Z": "0x354dd0",
+    "?GetRTTIClassInfo@ProxyAmbush@GAME@@UBEABVRTTI_ClassInfo@2@XZ": "0xb6980",
+    "?GetStaticClassInfo@ProxyAmbush@GAME@@SAABVRTTI_ClassInfo@2@XZ": "0xb6980",
+    "?IsAlert@ProxyAmbush@GAME@@ABE_NXZ": "0x355000",
+    "?Load@ProxyAmbush@GAME@@UAEXABVLoadTable@2@@Z": "0x354400",
+    "?PlaceNextObject@ProxyAmbush@GAME@@IAEXXZ": "0x3550c0",
+    "?PoolComplete@ProxyAmbush@GAME@@MAEXPAVProxyPool@2@ABV?$vector@VWorldCoords@GAME@@@mem@@@Z": "0x354fb0",
+    "?RTTI_new@ProxyAmbush@GAME@@KAPAXXZ": "0xc96a0",
+    "?RestoreState@ProxyAmbush@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z": "0x354ab0",
+    "?SaveState@ProxyAmbush@GAME@@UBEXAAVBinaryWriter@2@@Z": "0x3546e0",
+    "?ShouldSaveState@ProxyAmbush@GAME@@UBE_NXZ": "0x9350",
+    "?UpdateSelf@ProxyAmbush@GAME@@UAEXH@Z": "0x354520",
+    "?classInfo@ProxyAmbush@GAME@@1VRTTI_ClassInfo@2@B": "0x7fdd10"
+   },
+   "field_map": [
+    {
+     "dbr_field": "alertArea",
+     "loader": "GetFloat(name, 0.0f)",
+     "member_offset": "0x4e8",
+     "note": "float, world units (metres)"
+    },
+    {
+     "dbr_field": "minSpawnTime",
+     "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+     "member_offset": "0x4ec",
+     "note": "ms, truncated"
+    },
+    {
+     "dbr_field": "maxSpawnTime",
+     "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+     "member_offset": "0x4f0",
+     "note": "ms, truncated"
+    },
+    {
+     "dbr_field": "minDelayTime",
+     "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+     "member_offset": "0x4f4",
+     "note": "ms, truncated"
+    },
+    {
+     "dbr_field": "maxDelayTime",
+     "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+     "member_offset": "0x4f8",
+     "note": "ms, truncated"
+    },
+    {
+     "dbr_field": "minGroupSize",
+     "loader": "GetInt(name, 1)",
+     "member_offset": "0x4fc",
+     "note": "int, default 1"
+    },
+    {
+     "dbr_field": "maxGroupSize",
+     "loader": "GetInt(name, 1)",
+     "member_offset": "0x500",
+     "note": "int, default 1"
+    },
+    {
+     "dbr_field": "spawnThreshold",
+     "loader": "GetInt(name, 10000)",
+     "member_offset": "0x504",
+     "note": "int, default 10000"
+    }
+   ],
+   "float_constants": {
+    "0x105f5918": 1000.0
+   },
+   "geometry": {
+    "alertArea_radius_world_units": 100.0,
+    "max_spawn_to_patrol_m_over_all_maps": 77.5189,
+    "max_spawn_to_spawn_m_over_all_maps": 85.583,
+    "pairs_beyond_alertArea": 0,
+    "per_map": [
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "max_spawn_to_patrol_m": 60.2504,
+      "max_spawn_to_spawn_m": 65.7049,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "max_spawn_to_patrol_m": 51.9885,
+      "max_spawn_to_spawn_m": 69.7062,
+      "n_patrol": 12,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "max_spawn_to_patrol_m": 67.1533,
+      "max_spawn_to_spawn_m": 77.1943,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "max_spawn_to_patrol_m": 61.8317,
+      "max_spawn_to_spawn_m": 70.9477,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "max_spawn_to_patrol_m": 59.1226,
+      "max_spawn_to_spawn_m": 73.8624,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "max_spawn_to_patrol_m": 71.2174,
+      "max_spawn_to_spawn_m": 85.583,
+      "n_patrol": 12,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "max_spawn_to_patrol_m": 58.835,
+      "max_spawn_to_spawn_m": 71.745,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode1/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "max_spawn_to_patrol_m": 77.5189,
+      "max_spawn_to_spawn_m": 85.557,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "max_spawn_to_patrol_m": 64.0087,
+      "max_spawn_to_spawn_m": 62.3293,
+      "n_patrol": 9,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode2/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "max_spawn_to_patrol_m": 61.6848,
+      "max_spawn_to_spawn_m": 76.3544,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_a.map",
+      "max_spawn_to_patrol_m": 60.2504,
+      "max_spawn_to_spawn_m": 65.7049,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_b.map",
+      "max_spawn_to_patrol_m": 51.9885,
+      "max_spawn_to_spawn_m": 69.7062,
+      "n_patrol": 12,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_c.map",
+      "max_spawn_to_patrol_m": 67.1533,
+      "max_spawn_to_spawn_m": 77.1943,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_d.map",
+      "max_spawn_to_patrol_m": 61.8317,
+      "max_spawn_to_spawn_m": 70.9477,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_e.map",
+      "max_spawn_to_patrol_m": 59.1226,
+      "max_spawn_to_spawn_m": 73.8624,
+      "n_patrol": 11,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_f.map",
+      "max_spawn_to_patrol_m": 71.2174,
+      "max_spawn_to_spawn_m": 85.583,
+      "n_patrol": 12,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_g.map",
+      "max_spawn_to_patrol_m": 58.835,
+      "max_spawn_to_spawn_m": 71.745,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_h.map",
+      "max_spawn_to_patrol_m": 64.0087,
+      "max_spawn_to_spawn_m": 62.3293,
+      "n_patrol": 9,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_i.map",
+      "max_spawn_to_patrol_m": 61.6848,
+      "max_spawn_to_spawn_m": 76.3544,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     },
+     {
+      "archive": "survivalmode3/resources/Maps.arc",
+      "map": "survivalworld_j.map",
+      "max_spawn_to_patrol_m": 77.5189,
+      "max_spawn_to_spawn_m": 85.557,
+      "n_patrol": 10,
+      "n_spawn": 6,
+      "pairs_beyond_alertArea_100": 0
+     }
+    ],
+    "spawn_x_patrol_pairs": 1284,
+    "unit_basis": "Lap U pm4u_geometry_v3.csv reports world units as metres (_m columns)",
+    "verdict": "alertArea = 100.0 m covers every arena footprint: 0 of 1284 spawn-point x patrol-point pairs exceed it, and the widest spawn-to-spawn separation in any of the 20 arena maps is under 100 m.  IsAlert() is therefore TRUE from the first evaluated tick regardless of where the player stands."
+   },
+   "load_field_strings": {
+    "0x10569250": "delayedRun",
+    "0x1056925c": "chanceToRun",
+    "0x10569ca4": "alertArea",
+    "0x10569d30": "minSpawnTime",
+    "0x10569d40": "minGroupSize",
+    "0x10569d50": "maxDelayTime",
+    "0x10569d60": "minDelayTime",
+    "0x10569d70": "maxSpawnTime",
+    "0x10569dcc": "spawnThreshold",
+    "0x10569ddc": "maxGroupSize"
+   },
+   "module": {
+    "exports": 25091,
+    "image_base": "0x10000000",
+    "name": "Game.dll",
+    "sha256": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02"
+   },
+   "records": {
+    "all_proxy_record_class_census": {
+     "": 2581,
+     "Proxy": 1821,
+     "ProxyAmbush": 528,
+     "SetPiece": 385,
+     "SetPiecePart": 2,
+     "SetPiecePool": 340
+    },
+    "ambush_records": [
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w01_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w02_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w03_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w06_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w07_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w08_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     },
+     {
+      "alertArea": 100.0,
+      "archive": "survivalmode3/database/SurvivalMode3.arz",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "maxDelayTime": 4.0,
+      "maxGroupSize": 30,
+      "maxSpawnTime": 3.0,
+      "minDelayTime": 4.0,
+      "minGroupSize": 30,
+      "minSpawnTime": 3.0,
+      "placementExtents": 8.0,
+      "record": "records/proxies/tier16waves/proxy_w09_p05a.dbr",
+      "spawnThreshold": 15,
+      "templateName": "database/templates/proxyambush.tpl"
+     }
+    ],
+    "fourth_mechanism_scan": "R-PM4-56 part 4 due diligence: every one of the 54 tier-16 wave-proxy records is either Proxy (47) or ProxyAmbush (7).  No ProxyEndless, no SetPiece, no fourth class declared in the band.",
+    "overlay_records": 84829,
+    "tier16_class_census": {
+     "Proxy": 47,
+     "ProxyAmbush": 7
+    },
+    "tier16_common_fields": [
+     {
+      "Class": "Proxy",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "n": 47,
+      "placementExtents": 8.0
+     },
+     {
+      "Class": "ProxyAmbush",
+      "chanceToRun": 100.0,
+      "delayedRun": true,
+      "n": 7,
+      "placementExtents": 8.0
+     }
+    ],
+    "tier16_wave_proxy_records": 54
+   },
+   "resolved_calls": {
+    "0x104e5028": "Engine.dll!?gEngine@GAME@@3PAVEngine@1@A",
+    "0x104e504c": "Engine.dll!?Get@?$Singleton@VObjectManager@GAME@@@GAME@@SAPAVObjectManager@2@XZ",
+    "0x104e508c": "Engine.dll!?IsNetworkClient@Engine@GAME@@QAE_NXZ",
+    "0x104e5090": "Engine.dll!?GetObjectId@Object@GAME@@QBEIXZ",
+    "0x104e5244": "Engine.dll!?GetRegionPosition@WorldVec3@GAME@@QBEABVVec3@2@XZ",
+    "0x104e5288": "Engine.dll!?GetCoords@Entity@GAME@@QBE?AVWorldCoords@2@XZ",
+    "0x104e528c": "Engine.dll!?GetObjectName@Object@GAME@@QBEPBDXZ",
+    "0x104e5294": "Engine.dll!?GetRegion@Entity@GAME@@QBEPAVRegion@2@XZ",
+    "0x104e5394": "Engine.dll!?UpdateSelf@Actor@GAME@@UAEXH@Z",
+    "0x104e5544": "Engine.dll!?IGenerate@RandomUniformLocked@GAME@@QAEHHH@Z",
+    "0x104e5558": "Engine.dll!?FGenerate@RandomUniformLocked@GAME@@QAEMMM@Z",
+    "0x104e5574": "Engine.dll!?GetEntitiesInSphere@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@PAVRegion@2@ABVSphere@2@_NW4EntityListType@2@@Z",
+    "0x104e5600": "Engine.dll!?Get@?$Singleton@VNavManager@GAME@@@GAME@@SAPAVNavManager@2@XZ",
+    "0x104e5994": "Engine.dll!?GetGameInfo@Engine@GAME@@QAEPAVGameInfo@2@XZ",
+    "0x104e59e4": "Engine.dll!?IsNavDataLoaded@NavManager@GAME@@QBE_NPBVRegion@2@@Z",
+    "0x104e5c1c": "Engine.dll!?GetDifficulty@GameInfo@GAME@@QBEIXZ",
+    "0x104e63e4": "VCRUNTIME140.dll!memmove"
+   },
+   "rtti_classinfo": {
+    "0x107ff5a0": "?classInfo@Player@GAME@@  (the IsAlert filter)",
+    "0x107ff600": "?classInfo@Monster@GAME@@ (the PlaceNextObject / PoolComplete filter)"
+   },
+   "runtime_members": [
+    {
+     "name": "m_totalObjects",
+     "note": "set by PoolComplete = (pool->[0xb0].size())",
+     "offset": "0x4a0"
+    },
+    {
+     "name": "m_placedCount",
+     "note": "incremented once per PlaceNextObject that actually spawns",
+     "offset": "0x4a4"
+    },
+    {
+     "name": "m_runState",
+     "note": "Proxy latch: Load sets 1 when delayedRun; DelayedRun 1->0; RunProxy sets 6 on success / 5 on chance-fail; RunProxy early-returns unless 0",
+     "offset": "0x4ac"
+    },
+    {
+     "name": "m_monsterPool",
+     "note": "ProxyPool*; its resolved entity-id vector lives at pool+0xb0",
+     "offset": "0x4c8"
+    },
+    {
+     "name": "m_accessoryTable",
+     "note": "loot/accessory container (vectors at +0x20 / +0x2c); NOT roster",
+     "offset": "0x4cc"
+    },
+    {
+     "name": "m_pendingIds.begin/end (0x4d0/0x4d4)",
+     "note": "vector<unsigned> \u2014 queued, NOT yet spawned",
+     "offset": "0x4d0"
+    },
+    {
+     "name": "m_pendingCoords.begin/end (0x4dc/0x4e0)",
+     "note": "vector<WorldCoords>, stride 0x34",
+     "offset": "0x4dc"
+    },
+    {
+     "name": "m_placedIds.begin/end (0x508/0x50c)",
+     "note": "vector<unsigned> \u2014 spawned AND still alive",
+     "offset": "0x508"
+    },
+    {
+     "name": "m_spawnTimer",
+     "note": "int ms, counts down by dt; ctor-initialised to 0",
+     "offset": "0x514"
+    },
+    {
+     "name": "m_delayTimer",
+     "note": "int ms, counts down by dt; ctor-initialised to 0",
+     "offset": "0x518"
+    },
+    {
+     "name": "m_armed",
+     "note": "bool latch; set 1 in UpdateSelf on first IsAlert; never cleared",
+     "offset": "0x51c"
+    },
+    {
+     "name": "m_reselectLocations",
+     "note": "bool; set 1 ONLY by RestoreState (save/load path)",
+     "offset": "0x51d"
+    }
+   ],
+   "vtable_slots": {
+    "Monster+0x000": {
+     "symbol": "?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+     "target": "0x1000bb00"
+    },
+    "Monster+0x168": {
+     "symbol": "?UpdateSelf@Monster@GAME@@UAEXH@Z",
+     "target": "0x102d4650"
+    },
+    "Monster+0x22c": {
+     "symbol": "?IsAlive@Character@GAME@@UBE_NXZ",
+     "target": "0x10047200"
+    },
+    "Monster+0x314": {
+     "symbol": "?EnableSpawnAnimation@Monster@GAME@@UAEXXZ",
+     "target": "0x102dc450"
+    },
+    "ProxyAmbush+0x000": {
+     "symbol": "?GetRTTIClassInfo@ProxyAmbush@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+     "target": "0x100b6980"
+    },
+    "ProxyAmbush+0x168": {
+     "symbol": "?UpdateSelf@ProxyAmbush@GAME@@UAEXH@Z",
+     "target": "0x10354520"
+    },
+    "ProxyAmbush+0x1f8": {
+     "symbol": "?PoolComplete@ProxyAmbush@GAME@@MAEXPAVProxyPool@2@ABV?$vector@VWorldCoords@GAME@@@mem@@@Z",
+     "target": "0x10354fb0"
+    },
+    "ProxyAmbush+0x1fc": {
+     "symbol": "?AccessoryComplete@Proxy@GAME@@MAEXAAV?$vector@I@mem@@ABV?$vector@VWorldCoords@GAME@@@4@@Z",
+     "target": "0x10352550"
+    },
+    "ProxyAmbush+0x200": {
+     "symbol": "?GetRTTIClassInfo@ProxyEndless@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+     "target": "0x100b69a0"
+    }
+   },
+   "vtables": {
+    "Monster": "0x105dc948",
+    "ProxyAmbush": "0x105e7af0",
+    "convention": "slot 0x000 == GetRTTIClassInfo (verified on ProxyAmbush)"
+   }
+  },
+  "batch_composition": {
+   "151": {
+    "1": {
+     "e": 16.0,
+     "hi": 16.0,
+     "lo": 16.0,
+     "pools": 2
+    },
+    "2": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 2
+    },
+    "3": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 1
+    },
+    "4": {
+     "e": 16.0,
+     "hi": 16.0,
+     "lo": 16.0,
+     "pools": 2
+    },
+    "5": {
+     "e": 4.5,
+     "hi": 5.0,
+     "lo": 4.0,
+     "pools": 1
+    }
+   },
+   "152": {
+    "1": {
+     "e": 9.0,
+     "hi": 9.0,
+     "lo": 9.0,
+     "pools": 3
+    },
+    "2": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 2
+    },
+    "3": {
+     "e": 14.0,
+     "hi": 14.0,
+     "lo": 14.0,
+     "pools": 2
+    },
+    "4": {
+     "e": 4.0,
+     "hi": 4.0,
+     "lo": 4.0,
+     "pools": 4
+    },
+    "5": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 1
+    },
+    "6": {
+     "e": 18.0,
+     "hi": 18.0,
+     "lo": 18.0,
+     "pools": 6
+    }
+   },
+   "153": {
+    "1": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 1
+    },
+    "2": {
+     "e": 15.0,
+     "hi": 15.0,
+     "lo": 15.0,
+     "pools": 5
+    },
+    "3": {
+     "e": 14.0,
+     "hi": 14.0,
+     "lo": 14.0,
+     "pools": 2
+    },
+    "4": {
+     "e": 18.0,
+     "hi": 18.0,
+     "lo": 18.0,
+     "pools": 6
+    },
+    "5": {
+     "e": 4.5,
+     "hi": 5.0,
+     "lo": 4.0,
+     "pools": 1
+    },
+    "6": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 2
+    }
+   },
+   "154": {
+    "1": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "2": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "3": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 3
+    },
+    "4": {
+     "e": 24.0,
+     "hi": 24.0,
+     "lo": 24.0,
+     "pools": 3
+    }
+   },
+   "155": {
+    "1": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "2": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "3": {
+     "e": 21.5,
+     "hi": 22.0,
+     "lo": 21.0,
+     "pools": 3
+    },
+    "4": {
+     "e": 21.5,
+     "hi": 22.0,
+     "lo": 21.0,
+     "pools": 3
+    },
+    "6": {
+     "e": 15.0,
+     "hi": 15.0,
+     "lo": 15.0,
+     "pools": 5
+    }
+   },
+   "156": {
+    "1": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "2": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "3": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "4": {
+     "e": 23.5,
+     "hi": 25.0,
+     "lo": 22.0,
+     "pools": 4
+    },
+    "5": {
+     "e": 21.0,
+     "hi": 21.0,
+     "lo": 21.0,
+     "pools": 3
+    },
+    "6": {
+     "e": 7.0,
+     "hi": 7.0,
+     "lo": 7.0,
+     "pools": 1
+    }
+   },
+   "157": {
+    "1": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 3
+    },
+    "2": {
+     "e": 18.0,
+     "hi": 18.0,
+     "lo": 18.0,
+     "pools": 6
+    },
+    "3": {
+     "e": 23.5,
+     "hi": 24.0,
+     "lo": 23.0,
+     "pools": 4
+    },
+    "4": {
+     "e": 26.0,
+     "hi": 27.0,
+     "lo": 25.0,
+     "pools": 4
+    },
+    "5": {
+     "e": 9.0,
+     "hi": 9.0,
+     "lo": 9.0,
+     "pools": 3
+    },
+    "6": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 1
+    }
+   },
+   "158": {
+    "1": {
+     "e": 27.0,
+     "hi": 27.0,
+     "lo": 27.0,
+     "pools": 3
+    },
+    "2": {
+     "e": 18.0,
+     "hi": 18.0,
+     "lo": 18.0,
+     "pools": 6
+    },
+    "3": {
+     "e": 27.0,
+     "hi": 27.0,
+     "lo": 27.0,
+     "pools": 3
+    },
+    "4": {
+     "e": 27.0,
+     "hi": 27.0,
+     "lo": 27.0,
+     "pools": 3
+    },
+    "5": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 2
+    },
+    "6": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 2
+    }
+   },
+   "159": {
+    "1": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "2": {
+     "e": 6.0,
+     "hi": 6.0,
+     "lo": 6.0,
+     "pools": 4
+    },
+    "3": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "4": {
+     "e": 4.0,
+     "hi": 4.0,
+     "lo": 4.0,
+     "pools": 4
+    },
+    "5": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    }
+   },
+   "160": {
+    "1": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "2": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "3": {
+     "e": 1.0,
+     "hi": 1.0,
+     "lo": 1.0,
+     "pools": 1
+    },
+    "4": {
+     "e": 2.0,
+     "hi": 2.0,
+     "lo": 2.0,
+     "pools": 2
+    },
+    "6": {
+     "e": 3.0,
+     "hi": 3.0,
+     "lo": 3.0,
+     "pools": 1
+    }
+   }
+  },
+  "distinct_field_names": 41,
+  "latch_writers": [
+   {
+    "delta": "0x35e",
+    "enclosing": "?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ",
+    "va": "0x100ef7be",
+    "value": 0
+   },
+   {
+    "delta": "0x541",
+    "enclosing": "??0ControllerMonster@GAME@@QAE@XZ",
+    "va": "0x100f5a31",
+    "value": 0
+   },
+   {
+    "delta": "0xa8a",
+    "enclosing": "??0ControllerMonster@GAME@@QAE@XZ",
+    "va": "0x100f5f7a",
+    "value": 0
+   },
+   {
+    "delta": "0x42d",
+    "enclosing": "??0EndlessDungeon_Generator@GAME@@QAE@XZ",
+    "va": "0x101fc3dd",
+    "value": 0
+   },
+   {
+    "delta": "0x58f",
+    "enclosing": "?Update@EndlessDungeon_Generator@GAME@@QAEXH@Z",
+    "va": "0x101fec6f",
+    "value": 0
+   },
+   {
+    "delta": "0x5f",
+    "enclosing": "?DisableProxies@EndlessDungeon_Generator@GAME@@QAEXAAV?$map@W4ProxyGroupType@GAME@@V?$vector@UProxyInfo@EndlessDungeon_Generator@GAME@@@mem@@@mem@@@Z",
+    "va": "0x101ff2cf",
+    "value": 2
+   },
+   {
+    "delta": "0xa6",
+    "enclosing": "?Clear@EndlessDungeon_Generator@GAME@@QAEXXZ",
+    "va": "0x101ff706",
+    "value": 2261123072
+   },
+   {
+    "delta": "0x709",
+    "enclosing": "?ParentIsMonster@SkillManager@GAME@@QAEXXZ",
+    "va": "0x102de1f9",
+    "value": 15
+   },
+   {
+    "delta": "0x1b3",
+    "enclosing": "??0Proxy@GAME@@QAE@XZ",
+    "va": "0x10350cb3",
+    "value": 0
+   },
+   {
+    "delta": "0x1b4",
+    "enclosing": "?Load@Proxy@GAME@@UAEXABVLoadTable@2@@Z",
+    "va": "0x10351144",
+    "value": 1
+   },
+   {
+    "delta": "0x222",
+    "enclosing": "?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z",
+    "va": "0x103515e2",
+    "value": 3
+   },
+   {
+    "delta": "0x884",
+    "enclosing": "?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z",
+    "va": "0x10351c44",
+    "value": 4
+   },
+   {
+    "delta": "0x9",
+    "enclosing": "?DelayedRun@Proxy@GAME@@QAEXXZ",
+    "va": "0x10351d19",
+    "value": 0
+   },
+   {
+    "delta": "0xee",
+    "enclosing": "?RunProxy@Proxy@GAME@@IAEXXZ",
+    "va": "0x10351e1e",
+    "value": 5
+   },
+   {
+    "delta": "0x2a4",
+    "enclosing": "?RunProxy@Proxy@GAME@@IAEXXZ",
+    "va": "0x10351fd4",
+    "value": 6
+   },
+   {
+    "delta": "0x0",
+    "enclosing": "?Disable@Proxy@GAME@@QAEXXZ",
+    "va": "0x10352540",
+    "value": 2
+   },
+   {
+    "delta": "0x3",
+    "enclosing": "?ResetSettings@Proxy@GAME@@QAEXXZ",
+    "va": "0x103535d3",
+    "value": 0
+   },
+   {
+    "delta": "0xe",
+    "enclosing": "?Load@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z",
+    "va": "0x1035545e",
+    "value": 1
+   },
+   {
+    "delta": "0x78e",
+    "enclosing": "?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z",
+    "va": "0x10355bfe",
+    "value": 4
+   },
+   {
+    "delta": "0x17a",
+    "enclosing": "?InitializeAccessoryPool@ProxyEndless@GAME@@QAEXXZ",
+    "va": "0x10355e1a",
+    "value": 1
+   },
+   {
+    "delta": "0x55",
+    "enclosing": "?UpdateSelf@ProxyEndless@GAME@@UAEXH@Z",
+    "va": "0x103563a5",
+    "value": 0
+   },
+   {
+    "delta": "0x9b",
+    "enclosing": "?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z",
+    "va": "0x1035650b",
+    "value": 2
+   },
+   {
+    "delta": "0xdc",
+    "enclosing": "?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z",
+    "va": "0x1035654c",
+    "value": 1
+   },
+   {
+    "delta": "0x192",
+    "enclosing": "?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z",
+    "va": "0x103d9fb2",
+    "value": 0
+   },
+   {
+    "delta": "0xb6",
+    "enclosing": "??0Skill_AttackRadiusGrow@GAME@@QAE@XZ",
+    "va": "0x103e83b6",
+    "value": 4294967295
+   },
+   {
+    "delta": "0x21c",
+    "enclosing": "?ActivateNow@Skill_AttackRadiusGrow@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z",
+    "va": "0x103e8d4c",
+    "value": 4294967295
+   },
+   {
+    "delta": "0xae",
+    "enclosing": "??0Skill_AttackRadiusSpin@GAME@@QAE@XZ",
+    "va": "0x103eabee",
+    "value": 0
+   },
+   {
+    "delta": "0x10a",
+    "enclosing": "??0Skill_AttackSpellReflectLink@GAME@@QAE@XZ",
+    "va": "0x103f228a",
+    "value": 0
+   },
+   {
+    "delta": "0x2f",
+    "enclosing": "?RunProxy@StaticShrine@GAME@@QAEXXZ",
+    "va": "0x10465b8f",
+    "value": 0
+   }
+  ],
+  "lua_sites": {
+   "link_patrol_group": 553,
+   "proxy_create": 548,
+   "proxy_run": 558,
+   "spawn_loop": 539,
+   "spawn_loop_all_hits": [
+    539,
+    715,
+    723,
+    730
+   ],
+   "spawnnext_def": 503,
+   "start_dispenses_at": 438,
+   "wave_counter_increment": 513
+  },
+  "n_tier16_proxies": 54,
+  "proxy_classes": {
+   "Proxy": 47,
+   "ProxyAmbush": 7
+  },
+  "release_chain": [
+   {
+    "body": "12 instructions; state 1 -> 0 then TAIL-JMP RunProxy",
+    "step": "Proxy::DelayedRun",
+    "tail_jump": true,
+    "timer": "NONE",
+    "va": "0x10351d10"
+   },
+   {
+    "body": "one-shot latch +0x4ac; chanceToRun roll; SelectPoolLocations x2; virtual PoolComplete (vtbl+0x1fc); latch -> 6",
+    "latch_in": true,
+    "latch_out": true,
+    "pool_complete_vcall": true,
+    "selectpoollocations_calls": 2,
+    "step": "Proxy::RunProxy",
+    "timer": "NONE",
+    "va": "0x10351d30"
+   },
+   {
+    "body": "per-body proxy-parent stamping loop, then a DIRECT call to PlaceObjects",
+    "direct_call_to_placeobjects": true,
+    "queues_pending": false,
+    "step": "Proxy::PoolComplete",
+    "timer": "NONE",
+    "va": "0x10352580"
+   },
+   {
+    "body": "single loop over (ids x coords): AddUniqueIdToEntity, then World::AddEntity",
+    "loop": true,
+    "step": "Proxy::PlaceObjects",
+    "timer": "NONE",
+    "va": "0x10352af0",
+    "world_add": "Engine.dll!?AddEntity@World@GAME@@QAE_NPAVEntity@2@ABVWorldCoords@2@_N@Z"
+   }
+  ],
+  "timing_named_fields": [
+   "delayedRun",
+   "maxDelayTime",
+   "maxSpawnTime",
+   "minDelayTime",
+   "minSpawnTime"
+  ]
+ },
+ "fork_c_between": {
+  "alert_before_pursue": {
+   "corpus_record_strings": {
+    "GDX1": 0,
+    "GDX2": 0,
+    "GDX3": 0,
+    "SurvivalMode": 0,
+    "SurvivalMode1": 0,
+    "SurvivalMode2": 0,
+    "SurvivalMode3": 0,
+    "database": 0
+   },
+   "literal_va": "0x1052d5fc",
+   "occurrences": [
+    {
+     "context": "UseSkillOnAlly\u0000\u0000Emote\u0000\u0000\u0000AlertBeforePursue\u0000\u0000\u0000Dead\u0000\u0000\u0000\u0000St",
+     "file_off": "0x52af3c",
+     "section": ".rdata",
+     "standalone": true,
+     "va": "0x1052c33c"
+    },
+    {
+     "context": "UseSkillOnAlly\u0000\u0000Flee\u0000\u0000\u0000\u0000AlertBeforePursue\u0000\u0000\u0000Flee\u0000\u0000\u0000\u0000Us",
+     "file_off": "0x52c1fc",
+     "section": ".rdata",
+     "standalone": true,
+     "va": "0x1052d5fc"
+    },
+    {
+     "context": "?0ControllerMonsterStateAlertBeforePursue@GAME@@QAE@AB",
+     "file_off": "0x6652eb",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x106666eb"
+    },
+    {
+     "context": "?0ControllerMonsterStateAlertBeforePursue@GAME@@QAE@PA",
+     "file_off": "0x665329",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x10666729"
+    },
+    {
+     "context": "?1ControllerMonsterStateAlertBeforePursue@GAME@@UAE@XZ",
+     "file_off": "0x6866a1",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x10687aa1"
+    },
+    {
+     "context": "?4ControllerMonsterStateAlertBeforePursue@GAME@@QAEAAV",
+     "file_off": "0x6966e5",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x10697ae5"
+    },
+    {
+     "context": "_7ControllerMonsterStateAlertBeforePursue@GAME@@6B@\u0000??",
+     "file_off": "0x6ac8e3",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x106adce3"
+    },
+    {
+     "context": "t@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXAB",
+     "file_off": "0x769953",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x1076ad53"
+    },
+    {
+     "context": "n@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ",
+     "file_off": "0x787e65",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x10789265"
+    },
+    {
+     "context": "d@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ",
+     "file_off": "0x789c0c",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x1078b00c"
+    },
+    {
+     "context": "e@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXH@",
+     "file_off": "0x78c265",
+     "section": ".rdata",
+     "standalone": false,
+     "va": "0x1078d665"
+    }
+   ],
+   "other_modules": {
+    "Engine.dll": 0,
+    "Grim Dawn.exe": 0
+   },
+   "positive_controls": {
+    "Pursue(SetState)": {
+     "enclosing": [
+      "?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z"
+     ],
+     "text": "Pursue"
+    },
+    "Pursue(registration)": {
+     "enclosing": [
+      "?RegisterStates@ControllerMonster@GAME@@MAEXXZ"
+     ],
+     "text": "Pursue"
+    }
+   },
+   "raw_occurrences_game_dll": 11,
+   "standalone_literal_vas": [
+    "0x1052c33c",
+    "0x1052d5fc"
+   ],
+   "text_references": [
+    {
+     "delta": "0x130",
+     "enclosing": "?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ",
+     "literal_va": "0x1052c33c",
+     "prev_op": "68",
+     "va": "0x100f9640"
+    },
+    {
+     "delta": "0x38c",
+     "enclosing": "?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z",
+     "literal_va": "0x1052d5fc",
+     "prev_op": "68",
+     "va": "0x1010a6ec"
+    }
+   ]
+  },
+  "alert_gate": {
+   "anger_call": "AngerManager::GetAngerDiff",
+   "anger_constant": 15.0,
+   "anger_constant_hex": "00007041",
+   "anger_constant_va": "0x105f58ac",
+   "ctor_default": [
+    2.0
+   ],
+   "distance_field": "alertDistance",
+   "distance_field_literal_va": "0x1054d7c0",
+   "distance_member": "GameEngine+0xc80",
+   "entry_call": "ControllerAI::AddTemporaryState(name, ControllerAIStateData&)",
+   "gameengine_record": "records/game/gameengine.dbr",
+   "gameengine_substring_decoys": [
+    "records/game/gameengine.dbr",
+    "records/ingameui/gameengine.dbr",
+    "records/sandbox/arthur/archive/gameengine 01-23-15.dbr",
+    "records/sandbox/arthur/archive/gameengine 02-01-16.dbr",
+    "records/sandbox/arthur/archive/gameengine 09-09-15.dbr",
+    "records/sandbox/arthur/archive/gameengine 10-31.dbr",
+    "records/sandbox/arthur/archive/gameengine 7-31.dbr"
+   ],
+   "gate_site": "0x1010a690",
+   "loader_neighbour_field": "meleeTargetDistance",
+   "readers": [
+    [
+     "0x1010a6bf",
+     "?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z",
+     "0x35f"
+    ]
+   ],
+   "resolver_archive": "database",
+   "shipped_alertDistance": 6.0,
+   "shipped_meleeTargetDistance": 2.4000000953674316,
+   "state_onbegin": {
+    "animation_set_type": "0x21",
+    "plays_animation": true,
+    "speed_1_0": true,
+    "va": "0x10109410"
+   },
+   "state_onend_is_noop": true,
+   "state_onupdate_locomotion_calls": [],
+   "writers": [
+    [
+     "0x1024d176",
+     "?LoadFromDatabase@GameEngine@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
+     "0x186"
+    ]
+   ]
+  },
+  "placeobjects_va": "0x10352af0",
+  "poolcomplete_stamping": {
+   "proxy_parent_id": true,
+   "proxy_parent_name": true,
+   "proxy_sibling_count": true
+  },
+  "pursue_import": {
+   "instrument": "I-U3",
+   "limb": "b",
+   "modules": {
+    "Engine.dll": {
+     "exports": 6286,
+     "sha256": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c"
+    },
+    "Game.dll": {
+     "exports": 25091,
+     "sha256": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02"
+    },
+    "Grim Dawn.exe": {
+     "exports": 26,
+     "sha256": "1a71e188ea3d7f83bec296e22acecf7cac71686c9c0c117d0eb03c9d7ada1ff4"
+    }
+   },
+   "preregistration_sha256": "7a250772bad3bf8cbce2e43455bc3e4dae2fee677aeedc1ffad978f3dda6b144",
+   "route1_export_census": {
+    "Engine.dll": {
+     "Detect": 18,
+     "SetState": 1,
+     "Target": 25
+    },
+    "Game.dll": {
+     "Alert": 28,
+     "Awake": 6,
+     "Chase": 32,
+     "Detect": 3,
+     "Pursue": 45,
+     "SetState": 20,
+     "Sight": 34,
+     "Target": 446
+    },
+    "Grim Dawn.exe": {}
+   },
+   "route2_sight_scan": {
+    "note": "the radius is a FLOAT MEMBER of the controller, read fresh on every scan; it is not an immediate, so no constant is decodable from this site alone",
+    "radius_field_displacement": "0x21c",
+    "rva": "0x000d2540",
+    "symbol": "FindEnemiesInSight@ControllerAIStateT<ControllerMonster,Monster>"
+   },
+   "route3_transition": {
+    "chain": [
+     {
+      "finding": "tail-jmp -> DefaultEnemyFoundResponse (0x10a360); Patrol adds NO override of its own",
+      "rva": "0x0fecd0",
+      "symbol": "EnemyFound@ControllerMonsterStatePatrol"
+     },
+     {
+      "finding": "builds a std::string from .rdata and calls SetState@ControllerAI (0xe6780)",
+      "rva": "0x10a360",
+      "symbol": "DefaultEnemyFoundResponse@ControllerMonsterState<ControllerMonster,Monster>"
+     },
+     {
+      "finding": "the state name = 'Pursue'  <-- THE TRANSITION TARGET",
+      "rva": "0x52d5d4",
+      "symbol": "(.rdata literal pushed at 0x10a398)"
+     },
+     {
+      "finding": "the state-machine entry point; the name is a STRING, which is why no transition TABLE is exported (UNREACHED-T3's cause, now explained)",
+      "rva": "0x0e6780",
+      "symbol": "SetState@ControllerAI(const std::string&, const ControllerAIStateData&)"
+     },
+     {
+      "finding": "shared 2-byte stub `mov al,1; ret` -> Patrol DOES scan for enemies (returns TRUE)",
+      "rva": "0x009350",
+      "symbol": "ShouldFindEnemy@ControllerMonsterStatePatrol"
+     },
+     {
+      "finding": "a SECOND, gated response whose state literal is 'Flee' (rand()%100 < [monster+0x2d8]; not the pursue path)",
+      "rva": "0x10a7d0",
+      "symbol": "DefaultClosestEnemyFoundResponse@ControllerMonsterState<...>"
+     }
+    ],
+    "state_name": "Pursue",
+    "verdict": "DECODED \u2014 Patrol::EnemyFound delegates to DefaultEnemyFoundResponse, which calls ControllerAI::SetState with the literal 'Pursue'. The Patrol -> Pursue handoff is REAL and unconditional once an enemy is found.",
+    "why_no_table": "state transitions are dispatched by STRING name through ControllerAI::SetState, so there is no transition table to export. UNREACHED-T3 was looking for a structure that does not exist."
+   },
+   "route4_UNREACHED_T5": {
+    "ctor_rva": "0x315940",
+    "default_radius": "0.0f (immediate 0x0)",
+    "default_shouldRun": "false (immediate 0x0)",
+    "field_names": [
+     "radius",
+     "shouldRun"
+    ],
+    "load_rva": "0x315a70",
+    "records": {
+     "records/controllers/controlobjects/patrolpoint_01.dbr": {
+      "radius": 2.0,
+      "shouldRun": true,
+      "templateName": "database/templates/patrolpoint.tpl"
+     },
+     "records/controllers/controlobjects/patrolpoint_02.dbr": {
+      "radius": 2.0,
+      "shouldRun": true,
+      "templateName": "database/templates/patrolpoint.tpl"
+     },
+     "records/controllers/controlobjects/patrolpoint_03.dbr": {
+      "radius": 2.0,
+      "shouldRun": true,
+      "templateName": "database/templates/patrolpoint.tpl"
+     },
+     "records/controllers/editor/patrolpoint.dbr": {
+      "radius": null,
+      "shouldRun": null,
+      "templateName": "database/templates/patrolpoint.tpl"
+     }
+    },
+    "verdict": "DECODED. The accessors Lap T decoded read this+0x3dc / this+0x3e0; the WRITER is PatrolPoint::Load, which pulls two NAMED record fields, `radius` and `shouldRun`. On records/controllers/controlobjects/patrolpoint_01.dbr \u2014 the record every arena's patrol points instantiate \u2014 radius = 2.0 and shouldRun = True. UNREACHED-T5 is CLOSED."
+   },
+   "route5_sight_radius": {
+    "base_ShouldFindEnemy": {
+     "body": "xor al,al; ret",
+     "rva": "0x0000c3e0",
+     "value": false
+    },
+    "engine_default": 15.0,
+    "field_displacement": "0x21c",
+    "load_rva": "0x000e6710",
+    "patrol_ShouldFindEnemy": {
+     "body": "mov al,1; ret",
+     "rva": "0x00009350",
+     "value": true
+    },
+    "record_field": "ViewDistance",
+    "roster_census": {
+     "in_pool": {
+      "controller_class": {
+       "ControllerGraeae": 3,
+       "ControllerMonster": 659,
+       "ControllerStationaryMonster": 1
+      },
+      "n_records": 663,
+      "view_distance": {
+       "15.0": 2,
+       "80.0": 661
+      }
+     },
+     "in_rolled_20w": {
+      "controller_class": {
+       "ControllerGraeae": 2,
+       "ControllerMonster": 166,
+       "ControllerStationaryMonster": 1
+      },
+      "n_records": 169,
+      "view_distance": {
+       "80.0": 169
+      }
+     }
+    },
+    "setter_rva": "0x000e6765",
+    "verdict": "DECODED. FindEnemiesInSight queries with controller+0x21c, which ControllerAI::Load fills from the record field 'ViewDistance' (engine default 15.0 m). Every rolled tier-16 monster carries 80.0."
+   }
+  },
+  "pursue_import_keys": [
+   "instrument",
+   "limb",
+   "modules",
+   "preregistration_sha256",
+   "route1_export_census",
+   "route2_sight_scan",
+   "route3_transition",
+   "route4_UNREACHED_T5",
+   "route5_sight_radius"
+  ],
+  "pursue_import_source": "lap-u/pm4u_pursue_decode.json",
+  "rally_latch": {
+   "member": "ControllerMonster+0x28c",
+   "readers": [
+    {
+     "delta": "0x0",
+     "enclosing": "?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ",
+     "va": "0x100f9ce0"
+    },
+    {
+     "delta": "0x418",
+     "enclosing": "?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z",
+     "va": "0x1010a778"
+    }
+   ],
+   "writers": [
+    {
+     "bytes": "c6838c02000001",
+     "delta": "0x52",
+     "enclosing": "??0ControllerMonster@GAME@@QAE@XZ",
+     "va": "0x100f5542",
+     "value": 1
+    },
+    {
+     "bytes": "c6818c02000000",
+     "delta": "0x9",
+     "enclosing": "?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ",
+     "va": "0x100f9ce9",
+     "value": 0
+    },
+    {
+     "bytes": "c6808c02000000",
+     "delta": "0x421",
+     "enclosing": "?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z",
+     "va": "0x1010a781",
+     "value": 0
+    }
+   ]
+  }
+ },
+ "fork_d_arena": {
+  "candidate_maps": [
+   "survivalworld_a.map",
+   "survivalworld_b.map",
+   "survivalworld_e.map"
+  ],
+  "exe_dropdown_array": [
+   "tagSurvivalArenaRandom",
+   "tagSurvivalArena_01",
+   "tagSurvivalArena_03",
+   "tagSurvivalArena_04",
+   "tagSurvivalArena_05",
+   "tagSurvivalArena_06",
+   "tagSurvivalArena_07",
+   "tagSurvivalArena_08",
+   "tagSurvivalArena_09",
+   "tagSurvivalArena_10"
+  ],
+  "exe_dropdown_omits": [
+   "tagSurvivalArena_02"
+  ],
+  "exe_has_bind_section": true,
+  "exe_map_array": [
+   "maps/survivalworld_a.map",
+   "maps/survivalworld_b.map",
+   "maps/survivalworld_c.map",
+   "maps/survivalworld_d.map",
+   "maps/survivalworld_e.map",
+   "maps/survivalworld_f.map",
+   "maps/survivalworld_g.map",
+   "maps/survivalworld_j.map",
+   "maps/survivalworld_h.map",
+   "maps/survivalworld_i.map"
+  ],
+  "exe_sections": [
+   ".bind",
+   ".data",
+   ".gfids",
+   ".rdata",
+   ".reloc",
+   ".rsrc",
+   ".text",
+   ".tls",
+   "_RDATA"
+  ],
+  "maps_and_tags": {
+   "survivalworld_a.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02"
+    ]
+   },
+   "survivalworld_b.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_01"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_01"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_01"
+    ]
+   },
+   "survivalworld_c.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_03"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_03"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_03"
+    ]
+   },
+   "survivalworld_d.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_04"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_04"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_04"
+    ]
+   },
+   "survivalworld_e.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02",
+     "tagSurvivalArena_05"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02",
+     "tagSurvivalArena_05"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_01",
+     "tagSurvivalArena_02",
+     "tagSurvivalArena_05"
+    ]
+   },
+   "survivalworld_f.map": {
+    "mods/survivalmode/resources/Maps.arc": [
+     "tagSurvivalArena_06"
+    ],
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_06"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_06"
+    ]
+   },
+   "survivalworld_g.map": {
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_07"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_07"
+    ]
+   },
+   "survivalworld_h.map": {
+    "survivalmode2/resources/Maps.arc": [
+     "tagSurvivalArena_09"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_09"
+    ]
+   },
+   "survivalworld_i.map": {
+    "survivalmode2/resources/Maps.arc": [
+     "tagSurvivalArena_10"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_10"
+    ]
+   },
+   "survivalworld_j.map": {
+    "survivalmode1/resources/Maps.arc": [
+     "tagSurvivalArena_08"
+    ],
+    "survivalmode3/resources/Maps.arc": [
+     "tagSurvivalArena_08"
+    ]
+   }
+  },
+  "n_shipped_maps": 10,
+  "referent_area_name": "Crucible of the Dead",
+  "referent_area_name_frames": {
+   "Crucible of the Dead": 89
+  },
+  "referent_difficulty_frames": {
+   "Gladiator": 91
+  },
+  "referent_difficulty_tier": "Gladiator",
+  "referent_name_source": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-collision/pm4n_fct_events.csv",
+  "referent_tag": "tagSurvivalArena_01",
+  "tag_table": {
+   "tagSurvivalArenaRandom": "Random",
+   "tagSurvivalArena_01": "Crucible of the Dead",
+   "tagSurvivalArena_02": "Crucible of the Deeps",
+   "tagSurvivalArena_03": "Crucible of the Sands",
+   "tagSurvivalArena_04": "Crucible of the Grove",
+   "tagSurvivalArena_05": "Crucible of the Void",
+   "tagSurvivalArena_06": "Crucible of the Legion",
+   "tagSurvivalArena_07": "Crucible of the Bog",
+   "tagSurvivalArena_08": "Crucible of the Woods",
+   "tagSurvivalArena_09": "Crucible of the Stars",
+   "tagSurvivalArena_10": "Crucible of the Crags"
+  },
+  "tag_table_source": "edition-III/resources/Text_EN.arc :: tags_uimain.txt"
+ },
+ "lap": "KC2-PM4 Lap AA",
+ "prereg_commit": "ba368773"
+}

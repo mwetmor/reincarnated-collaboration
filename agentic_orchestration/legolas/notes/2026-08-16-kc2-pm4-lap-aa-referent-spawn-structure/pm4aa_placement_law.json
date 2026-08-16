@@ -1,0 +1,196 @@
+{
+ "all_arena_stats": {
+  "placement_extents_m": {
+   "max": 8.0,
+   "mean": 8.0,
+   "median": 8.0,
+   "min": 8.0,
+   "n": 60
+  },
+  "ring_max_extent_m": {
+   "max": 56.8065,
+   "mean": 45.9845,
+   "median": 45.7066,
+   "min": 33.1759,
+   "n": 60
+  },
+  "to_nearest_patrol_m": {
+   "max": 26.0779,
+   "mean": 14.9128,
+   "median": 16.4306,
+   "min": 0.3253,
+   "n": 60
+  },
+  "to_patrol_centroid_m": {
+   "max": 48.0703,
+   "mean": 31.8259,
+   "median": 35.5947,
+   "min": 0.1122,
+   "n": 60
+  }
+ },
+ "candidate_arena_bound": {
+  "placement_extents_m": {
+   "max": 8.0,
+   "mean": 8.0,
+   "median": 8.0,
+   "min": 8.0,
+   "n": 18
+  },
+  "ring_max_extent_m": {
+   "max": 48.488,
+   "mean": 40.5709,
+   "median": 40.0487,
+   "min": 33.1759,
+   "n": 18
+  },
+  "to_nearest_patrol_m": {
+   "max": 21.1464,
+   "mean": 14.1209,
+   "median": 16.1044,
+   "min": 1.8621,
+   "n": 18
+  },
+  "to_patrol_centroid_m": {
+   "max": 38.774,
+   "mean": 29.195,
+   "median": 33.863,
+   "min": 0.1122,
+   "n": 18
+  }
+ },
+ "candidate_arena_spawn_points": 18,
+ "fill_point_set": "Engine.dll!?FillPointSet@NavManager@GAME@@QAE_NAAV?$vector@VWorldVec3@GAME@@@mem@@ABVWorldVec3@2@MABV?$vector@M@4@_N3@Z",
+ "geometry_columns": [
+  "archive",
+  "basis",
+  "inside_beacon_aura_8m",
+  "map",
+  "n_patrol_points",
+  "parse_complete",
+  "placement_extents_m",
+  "ring_max_extent_m",
+  "spawn_x",
+  "spawn_y",
+  "spawn_z",
+  "to_nearest_beacon_m",
+  "to_nearest_patrol_m",
+  "to_patrol_centroid_m"
+ ],
+ "geometry_rows": 120,
+ "geometry_source": "lap-u/pm4u_geometry_v3.csv (import by identity)",
+ "k_rho": {
+  "exact_1_over_32767": 3.051850947599719e-05,
+  "hex": "00010038",
+  "va": "0x102e03c8",
+  "value": 3.0518509447574615e-05
+ },
+ "k_theta": {
+  "exact_2pi_over_32767": 0.00019175345033660654,
+  "hex": "6d114939",
+  "va": "0x102e03dc",
+  "value": 0.00019175345369149
+ },
+ "per_arena_centroid": {
+  "survivalworld_a.map": {
+   "max": 35.8773,
+   "mean": 28.5554,
+   "median": 32.3738,
+   "min": 10.2826,
+   "n": 6
+  },
+  "survivalworld_b.map": {
+   "max": 35.5057,
+   "mean": 29.0596,
+   "median": 34.0939,
+   "min": 2.4534,
+   "n": 6
+  },
+  "survivalworld_c.map": {
+   "max": 38.8315,
+   "mean": 31.4095,
+   "median": 34.6876,
+   "min": 9.5671,
+   "n": 6
+  },
+  "survivalworld_d.map": {
+   "max": 40.2423,
+   "mean": 30.1804,
+   "median": 32.8835,
+   "min": 7.0503,
+   "n": 6
+  },
+  "survivalworld_e.map": {
+   "max": 38.774,
+   "mean": 29.97,
+   "median": 36.4939,
+   "min": 0.1122,
+   "n": 6
+  },
+  "survivalworld_f.map": {
+   "max": 44.0685,
+   "mean": 36.0014,
+   "median": 41.493,
+   "min": 8.1988,
+   "n": 6
+  },
+  "survivalworld_g.map": {
+   "max": 40.2474,
+   "mean": 32.1159,
+   "median": 38.5589,
+   "min": 3.4985,
+   "n": 6
+  },
+  "survivalworld_h.map": {
+   "max": 44.7514,
+   "mean": 31.1328,
+   "median": 32.0598,
+   "min": 3.5013,
+   "n": 6
+  },
+  "survivalworld_i.map": {
+   "max": 41.1003,
+   "mean": 32.185,
+   "median": 36.4159,
+   "min": 4.1486,
+   "n": 6
+  },
+  "survivalworld_j.map": {
+   "max": 48.0703,
+   "mean": 37.6494,
+   "median": 42.9132,
+   "min": 4.5258,
+   "n": 6
+  }
+ },
+ "per_body_clearance_hex": "0x3e800000",
+ "per_body_clearance_m": 0.25,
+ "proxy_load_fields": {
+  "chanceToRun": {
+   "loader_default": 0.0,
+   "member": "0x3e0",
+   "name_literal_va": "0x1056925c"
+  },
+  "delayedRun": {
+   "loader_default": false,
+   "member": "+0x4ac (state latch <- 1)",
+   "name_literal_va": "0x10569250"
+  },
+  "placementExtents": {
+   "loader_default": 2.5,
+   "member": "0x410",
+   "name_literal_va": "0x10569268"
+  }
+ },
+ "random_facing": {
+  "constant_hex": "0x40c90fdb",
+  "present": true,
+  "value": 6.2831854820251465
+ },
+ "rejection_retry_cap": 100,
+ "sampler_cos": "api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_cosf",
+ "sampler_rng": "api-ms-win-crt-utility-l1-1-0.dll!rand",
+ "sampler_sin": "api-ms-win-crt-math-l1-1-0.dll!__libm_sse2_sinf",
+ "sampler_va": "0x100edf30",
+ "select_pool_locations_va": "0x103526e0"
+}
