@@ -1,0 +1,348 @@
+================================================================================
+SB-1 CELL WW-4a — SB1-DISTANCE-LADDER
+THE SAME CAMERA, THREE RUNGS CLOSER. A DOLLY, NOT A ZOOM.
+================================================================================
+Date     2026-08-15
+Cell     WW-4a (SB1-DISTANCE-LADDER), Matt's SB-1 run, gandalf conducting
+Agent    drax (presentation seam; reincarnated-godot)
+Ruling   R-CPB-18a, ledger row WW-4 —
+         agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md
+Host     Mac (Darwin 24.6.0), Godot Engine v4.6.3.stable.official.7d41c59c4,
+         --rendering-driver metal
+
+⚑ NOTHING IS PINNED BY THIS CELL. No distance is ratified here, by this desk or
+  any other. Three stills exist so Matt can pick a rung BY EYE. No canon claim
+  is made, no canonical doc is touched, no ADR is proposed, and the WW-3a
+  camera-of-record is unchanged.
+
+
+--------------------------------------------------------------------------------
+1. WHY THIS RUN EXISTS
+--------------------------------------------------------------------------------
+Matt's gate-1 eyeball on the WW-3a still — the arena under the exact BR2W
+`player_lock` camera, stand-off 34.8312 m,
+  agentic_orchestration/galadriel/captures/2026-08-14-sb1-playerlock-port/
+    evidence/arena-playerlock-n160-1600x900.png
+— reads "still a bit closer". He wants the camera NEARER than the ported one.
+This cell renders three closer rungs ALONG THE SAME LOCK VECTOR:
+
+    k = 0.90 / 0.80 / 0.70
+
+at the identical frame (tick 1635.333, shot canon, --undulate off, 1600x900), so
+the ladder differs from the banked exhibit in k and in nothing else.
+
+
+--------------------------------------------------------------------------------
+2. REPO STATE
+--------------------------------------------------------------------------------
+reincarnated-godot HEAD at render time    3d896e7  (WW-3a item 2)
+reincarnated-godot HEAD carrying this cell 8ad51bd  (pushed to origin/main)
+    "SB-1 Cell WW-4a: THE SAME CAMERA, THREE RUNGS CLOSER — a dolly, not a zoom"
+    3d896e7 verified in ancestry before a line was edited.
+
+The rendered content IS the committed content — `git diff HEAD` over both files
+is empty and the blob hashes match the working tree:
+
+    scripts/kc2_cpb_clip.gd
+      sha256 6932ef35bc13d4cdfbe2da8f1ca2b95ab5d934f52cbb4349360c55f39200c708
+    scripts/run_ww4a_distance_ladder.sh                              (NEW)
+      sha256 7cd4af54c535e007996ff9c99e2308d0976669da85b7d50f714e0ef3af3d1c59
+    scripts/run_ww3a_playerlock_still.sh                       (UNTOUCHED)
+      sha256 c060b380df60ab7b7ffa339912d3c0b2ab8d3e5dbede655c8b50198863f1442d
+
+Staging was file-by-file. `tmp/br2watch/measure/census.json` (tracked-and-
+modified, pre-existing residue owned by another cell) was left EXACTLY as found:
+not staged, not restored, not cleaned. `scripts/kc2_clk2_probe.gd` (untracked,
+another cell's WIP) likewise untouched. Nothing under `tmp/br2watch/**` was
+written by this cell; `tmp/br2watch/m6/pl_audit.json` was READ only.
+
+
+--------------------------------------------------------------------------------
+3. THE SCRIPT CHANGE, IN ONE PARAGRAPH AND THEN IN DETAIL
+--------------------------------------------------------------------------------
+`--plk k` (default 1.0) scales the player_lock POSITION OFFSET VECTOR and
+nothing else. Rotation, lens and the anchor expectation are the ported values at
+every rung.
+
+    offset_k = k * offset          offset built exactly as WW-3a builds it
+
+  kc2_cpb_clip.gd
+    + const PL_K_DEFAULT 1.0 / PL_K_MIN 0.05 / PL_K_MAX 4.0, with a doc block
+      stating what k touches (the offset) and what it does not (PL_PITCH_DEG,
+      PL_YAW_DEG, PL_FOV_V_DEG + KEEP_HEIGHT, PL_PIN_ANCHOR_FX/FY).
+    + var _pl_k, parsed and VALIDATED in _ready beside --cam. Three halts:
+      a non-float `--plk` (GDScript would parse it to 0.0 and put the camera
+      inside the subject), a k outside [0.05, 4.0], and a k != 1.0 handed to the
+      canon pose (a knob that looks like it did something and did nothing).
+    ~ _playerlock_pose: the PIN CHECK IS UNMOVED and still runs on the UNSCALED
+      constructed offset — pl_audit.json records what the reference rig measured
+      at k=1, so that is what it is checked against. k is applied AFTER, in the
+      open: `offset_k = offset * _pl_k`, and eye/look are built from offset_k.
+    ~ printing: at k == 1.0 the WW-3a offset line prints CHARACTER FOR CHARACTER.
+      At any other rung that line would be FALSE (the camera's offset is no
+      longer the ported vector), so the ladder prints its own three lines naming
+      k, the ported vector, and the scaled vector at full precision.
+    + sidecar: a `player_lock_derivation.ww4a_distance_ladder` block is added
+      ONLY when k != 1.0. At k == 1.0 not one key is added.
+
+  run_ww4a_distance_ladder.sh (new)
+      loops the three rungs; x2 renders per rung with a byte-identical gate;
+      FG-12 prune receipts; NOTE-95 rig+rung in every delivered filename;
+      PL-5 floor check; cell-named temps (`tmp-ww4a-...`, NOTE-76).
+
+  run_ww3a_playerlock_still.sh — NOT EDITED. It rendered the record Matt has
+      already looked at and is left able to re-run exactly as it ran.
+
+
+--------------------------------------------------------------------------------
+4. ADDITIVE-ONLY, PROVED BY BYTES RATHER THAN BY ARGUMENT
+--------------------------------------------------------------------------------
+`run_ww3a_playerlock_still.sh` (byte-untouched, passing NO --plk) was re-run
+against the PATCHED scene, output redirected to scratch so nothing was written
+into the 2026-08-14 capture dir:
+
+    OUT=/tmp/kc2_ww4a_k1regress TMP=/tmp/kc2_ww4a_k1regress_tmp PASSES=1 \
+      bash scripts/run_ww3a_playerlock_still.sh
+
+    picked index 220, 101 s
+    sha256 c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+
+    banked WW-3a still (2026-08-14-sb1-playerlock-port/evidence/
+      arena-playerlock-n160-1600x900.png)
+    sha256 c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+
+    IDENTICAL. The k=1.0 path is unchanged by the existence of the flag, and
+    WW-3a's record does not move. Its console block also printed the WW-3a
+    offset line verbatim — no extra character, no ladder line.
+
+
+--------------------------------------------------------------------------------
+5. THE ANCHOR AUDIT — THE REAL GATE OF THIS CELL, AND IT PASSED AT EVERY RUNG
+--------------------------------------------------------------------------------
+GEOMETRY (why this is a test and not a formality): the offset was solved so the
+subject's ground point lands at the measured anchor — the point sits on the ray
+through that pixel at depth zp. Scaling the offset by k slides the camera ALONG
+THAT SAME RAY (the ground point sits at depth k*zp on the identical direction),
+so the projection is unchanged and the anchor is INVARIANT BY CONSTRUCTION. A
+rung whose anchor MOVED would convict the port, not reveal a tuning knob. The
+charter's instruction was to HALT and report if that happened. It did not
+happen, and nothing was tuned to make it not happen.
+
+MEASURED (through the camera that renders, `unproject_position`; full precision
+from the sidecars, not from the 4-dp console print):
+
+  rung  measured (fx, fy)                        delta px (x, y) @ 1600x900
+  ----  ---------------------------------------  --------------------------
+  1.00  0.501041...  0.550925...  [WW-3a banked]  0.000244141, 0.000213623
+  0.90  0.501041564941406, 0.550925259060330      0.000183105, 0.000122070
+  0.80  0.501041603088379, 0.550925326877170      0.000244141, 0.000183105
+  0.70  0.501041564941406, 0.550925292968750      0.000183105, 0.000152588
+
+  expected (both components, all rungs, from pl_audit.json):
+      fx 0.501041450500488   fy 0.550925123426649
+
+  Every rung sits AT OR BELOW the WW-3a baseline's own delta (0.000244141,
+  0.000213623 px). The largest deviation anywhere in the ladder is 0.000244 px
+  — roughly one four-thousandth of a pixel. PASS at WW-3a tolerance, all three.
+
+  The console print rounds to 4 dp and therefore shows the k=0.90 y-delta as
+  0.0001 px where the others show 0.0002 px. That is a PRINTING artefact of
+  rounding 0.000122070 vs 0.000183105 — not an anchor movement. Said plainly so
+  nobody reads the console table as a signal.
+
+OFFSET PIN vs tmp/br2watch/m6/pl_audit.json — checked pre-scale, therefore
+identical at every rung: offset delta 0.000000000000000 m, z_player delta
+0.000000000000 m, tol 0.000010000000 m, MATCH.
+
+CAMERA GATE (R-CPA-3, void-in-frame): PASS (9 rays) at every rung.
+
+
+--------------------------------------------------------------------------------
+6. THE THREE RUNGS
+--------------------------------------------------------------------------------
+Common to all: shot canon · --cam player_lock · --undulate off · tick0 1570 ·
+preroll 60 · 161 shot frames · shot_frame 160 = raw PNG index 220 ·
+tick 1570 + 160*(49/120) = 1635.333333 · 1600x900 · 222 raw frames written per
+pass · x2 passes, byte-compared.
+
+Ported (k=1.00) operand, for the arithmetic:
+    offset  (14.7262048721313, 28.3970108032227, 13.7826108932495) m
+    |offset| 34.8311882019043 m   (as the engine holds it — see § 8 absence 1)
+
+--- k = 0.90 -------------------------------------------------------------------
+  offset_k    (13.2535839080811, 25.5573081970215, 12.4043493270874) m
+  stand-off   31.3480682373047 m        height_k 25.5573081970215 m
+  camera eye  (13.253583908, 25.557308197, 12.404349327)
+  anchor      delta (0.000183105, 0.000122070) px          PASS
+  x2 gate     GREEN — pass 1 (99 s) and pass 2 (99 s) byte-identical
+  sha256      fbd8c0700a8425b30c8dad308b3bcf81181cca1ff780c9efec4dd845190cd8ce
+  bytes       2052101
+  file        evidence/arena-pl-k090-n160-1600x900.png
+
+--- k = 0.80 -------------------------------------------------------------------
+  offset_k    (11.7809638977051, 22.7176094055176, 11.0260887145996) m
+  stand-off   27.8649520874023 m        height_k 22.7176094055176 m
+  camera eye  (11.780963898, 22.717609406, 11.026088715)
+  anchor      delta (0.000244141, 0.000183105) px          PASS
+  x2 gate     GREEN — pass 1 (94 s) and pass 2 (95 s) byte-identical
+  sha256      1663fe173829859efc5e220db26ef55524d483f3864a860ff17e60a03bb2fc6a
+  bytes       1971415
+  file        evidence/arena-pl-k080-n160-1600x900.png
+
+--- k = 0.70 -------------------------------------------------------------------
+  offset_k    (10.3083429336548, 19.8779067993164, 9.6478271484375) m
+  stand-off   24.3818302154541 m        height_k 19.8779067993164 m
+  camera eye  (10.308342934, 19.877906799, 9.647827148)
+  anchor      delta (0.000183105, 0.000152588) px          PASS
+  x2 gate     GREEN — pass 1 (94 s) and pass 2 (94 s) byte-identical
+  sha256      ba7b8b5b5e0f306d40360745394e0b00b3fb9bc2902cdd632004a2396954e5fe
+  bytes       1883210
+  file        evidence/arena-pl-k070-n160-1600x900.png
+
+CLASS-E: the three PNGs are bytes on disk and are DELIBERATELY UNTRACKED. Their
+sha256 and byte size above are the committed record of them. Regenerate with
+    bash scripts/run_ww4a_distance_ladder.sh    (from reincarnated-godot)
+
+
+--------------------------------------------------------------------------------
+7. THE LOCK LINES, VERBATIM
+--------------------------------------------------------------------------------
+Pass 2 of each rung printed the identical block (the x2 gate is on the PNG, but
+the console blocks matched too).
+
+---------- k = 0.900000 ----------
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] ⚑ WW-4a DISTANCE LADDER: --plk k = 0.900000 — a DOLLY along the lock vector, NOT a zoom. Rotation (pitch 52.9535 / yaw 47.0), lens (fov_v 31.7861, KEEP_HEIGHT) and the anchor expectation are UNTOUCHED; only the offset's length scales. NOTHING HERE IS PINNED — these rungs are for Matt's eye (R-CPB-18a).
+[cpb] player_lock ported offset (k=1, THE PORT, pinned below) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock: offset (camera - player ground) = k * ported = (13.2536, 25.5573, 12.4043) m  |offset| 31.3481 m  height 25.5573 m  (full precision: 13.2535839080811, 25.5573081970215, 12.4043493270874 · stand-off 31.3480682373047 m)
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] player_lock: GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose, and none CAN: every term is (subject ground position, GAL-CAM operands)
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0001) px at 1600 x 900
+
+---------- k = 0.800000 ----------
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] ⚑ WW-4a DISTANCE LADDER: --plk k = 0.800000 — a DOLLY along the lock vector, NOT a zoom. Rotation (pitch 52.9535 / yaw 47.0), lens (fov_v 31.7861, KEEP_HEIGHT) and the anchor expectation are UNTOUCHED; only the offset's length scales. NOTHING HERE IS PINNED — these rungs are for Matt's eye (R-CPB-18a).
+[cpb] player_lock ported offset (k=1, THE PORT, pinned below) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock: offset (camera - player ground) = k * ported = (11.7810, 22.7176, 11.0261) m  |offset| 27.8650 m  height 22.7176 m  (full precision: 11.7809638977051, 22.7176094055176, 11.0260887145996 · stand-off 27.8649520874023 m)
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] player_lock: GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose, and none CAN: every term is (subject ground position, GAL-CAM operands)
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0002) px at 1600 x 900
+
+---------- k = 0.700000 ----------
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] ⚑ WW-4a DISTANCE LADDER: --plk k = 0.700000 — a DOLLY along the lock vector, NOT a zoom. Rotation (pitch 52.9535 / yaw 47.0), lens (fov_v 31.7861, KEEP_HEIGHT) and the anchor expectation are UNTOUCHED; only the offset's length scales. NOTHING HERE IS PINNED — these rungs are for Matt's eye (R-CPB-18a).
+[cpb] player_lock ported offset (k=1, THE PORT, pinned below) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock: offset (camera - player ground) = k * ported = (10.3083, 19.8779, 9.6478) m  |offset| 24.3818 m  height 19.8779 m  (full precision: 10.3083429336548, 19.8779067993164, 9.6478271484375 · stand-off 24.3818302154541 m)
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] player_lock: GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose, and none CAN: every term is (subject ground position, GAL-CAM operands)
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0002) px at 1600 x 900
+
+
+--------------------------------------------------------------------------------
+8. THE SUBJECT BAND — ONE PROJECTION AND ONE MEASUREMENT, KEPT APART
+--------------------------------------------------------------------------------
+PROJECTION (NOT A MEASUREMENT). The charter's arithmetic: take WW-3a's banked
+band of 20.896118 % at k=1.00 and divide by k, i.e. assume apparent height goes
+exactly as 1/distance.
+
+    k=0.90 -> 23.218 %      k=0.80 -> 26.120 %      k=0.70 -> 29.851 %
+
+MEASUREMENT (harness geometry, `optics_measured.subject.screen_height_fraction`,
+read by projecting the subject through the camera that renders):
+
+    k=1.00    20.896118 %   [WW-3a banked, for the comparison]
+    k=0.90    23.300161 %   (projection said 23.218 %, +0.082 pt)
+    k=0.80    26.329268 %   (projection said 26.120 %, +0.209 pt)
+    k=0.70    30.263668 %   (projection said 29.851 %, +0.413 pt)
+
+THE TWO DO NOT AGREE, AND THAT IS REPORTED RATHER THAN RECONCILED. The 1/k
+projection is a thin-subject idealisation; the subject has depth and the camera
+is a perspective camera, so its nearer parts gain more than 1/k as the camera
+closes. The gap grows monotonically as k shrinks, which is what that explanation
+predicts — but this cell did not test that explanation and does not assert it.
+Both numbers are stated; neither is a claim.
+
+HONEST BOUNDARY ON BOTH NUMBERS (NOTE-62, inherited from the WW-3a receipt):
+these are HARNESS GEOMETRY — the subject's extent projected through the Camera3D
+— NOT a pixel measurement of the delivered PNGs. No CV was run on these stills.
+
+
+--------------------------------------------------------------------------------
+9. ABSENCES DECLARED (GL-12)
+--------------------------------------------------------------------------------
+ 1. SINGLE PRECISION, NOT DOUBLE. Godot's Vector3 is float32. Every scaled
+    offset and stand-off above is what the ENGINE holds, which is float32-
+    rounded, not the exact float64 product. Worked example at k=0.70:
+        exact float64 k*x   10.3083434104919      engine 10.3083429336548
+        exact float64 |k*o| 24.3818319822206      engine 24.3818302154541
+    i.e. ~5e-7 m on a component, ~2e-6 m on the stand-off. The ported stand-off
+    itself is recorded by the engine as 34.8311882019043 where float64 gives
+    34.8311885460294 — this predates the cell and is unchanged by it. Nothing in
+    this run acts on the difference. Declared so nobody later "corrects" a
+    receipt number against a calculator and reports a drift that is a float32.
+ 2. NO PIXEL MEASUREMENT OF THE DELIVERED STILLS. No CV, no crop, no overlay, no
+    side-by-side against BR2W was produced or scored. § 8 is harness geometry.
+ 3. ONE FRAME PER RUNG. tick 1635.333 only. No claim is made about any other
+    frame, any other tick window, or motion; no clip was rendered at any rung.
+ 4. THE x2 BYTE GATE IS A ONE-FRAME, ONE-HOST, ONE-HEAD DETERMINISM CLAIM. It
+    says these stills reproduce here, at 8ad51bd, twice. It is not a cross-host
+    or cross-version claim.
+ 5. FRAMING BEYOND THE VOID GATE IS UNASSESSED. `camera gate: PASS (9 rays)`
+    says no void enters frame at any rung. Whether a rung crops something Matt
+    cares about is exactly the judgement this cell is handing to his eye, and
+    this desk did not pre-empt it.
+ 6. NO RUNG IS RECOMMENDED. This receipt contains no preference between 0.90,
+    0.80 and 0.70, and no opinion about whether the answer lies outside that
+    span. Rungs below 0.70 and between the rungs were not rendered.
+ 7. THE k=1.0 REGRESSION RAN AT PASSES=1. One pass is sufficient for the sha
+    comparison it makes (identical to the banked still); the x2 determinism
+    evidence at k=1 remains WW-3a's own banked record, not this run.
+ 8. A PRE-EXISTING SHELL QUIRK WAS OBSERVED AND NOT FIXED. Running
+    run_ww3a_playerlock_still.sh with PASSES=1 dies at its compare loop with
+    `FILES[$I]: unbound variable`, because BSD `seq 1 0` COUNTS DOWN and emits
+    "1 0". It fires only at PASSES=1; that runner is certified at its default
+    PASSES=2, where it cannot fire; and the charter forbids editing it, so it is
+    reported here rather than patched. The AFFECTED RUN STILL PRODUCED ITS SHA
+    (the failure is after the render and after the digest). WW-4a's own runner
+    carries the `[ "$PASSES" -gt 1 ]` guard.
+ 9. NOT READ, NOT NEEDED: no engine-side output, telemetry or export was
+    consumed by this cell. The camera operands came from wr2_playback.gd and
+    tmp/br2watch/m6/pl_audit.json, both read-only.
+10. PL-5 HEADROOM IS TIGHTENING. The floor check read captures/ at 7.16-7.17 G
+    of the 10 G ceiling (71.7 %, 2.83 G headroom) and disk free 14.6-14.7 G
+    against an 8.0 G floor. Both PASSED at every pass. Stated because the
+    trend, not the verdict, is the useful part for whoever renders next.
+
+
+--------------------------------------------------------------------------------
+10. FG-12 PRUNE RECEIPTS
+--------------------------------------------------------------------------------
+FG-12 pruned 222 frames (.428 G) from /tmp/kc2_ww4a/tmp-ww4a-k090-n160-frames-pass1 (k=0.90 pass 1)
+FG-12 pruned 222 frames (.428 G) from /tmp/kc2_ww4a/tmp-ww4a-k090-n160-frames-pass2 (k=0.90 pass 2)
+FG-12 pruned 222 frames (.410 G) from /tmp/kc2_ww4a/tmp-ww4a-k080-n160-frames-pass1 (k=0.80 pass 1)
+FG-12 pruned 222 frames (.410 G) from /tmp/kc2_ww4a/tmp-ww4a-k080-n160-frames-pass2 (k=0.80 pass 2)
+FG-12 pruned 222 frames (.391 G) from /tmp/kc2_ww4a/tmp-ww4a-k070-n160-frames-pass1 (k=0.70 pass 1)
+FG-12 pruned 222 frames (.391 G) from /tmp/kc2_ww4a/tmp-ww4a-k070-n160-frames-pass2 (k=0.70 pass 2)
+  regenerate (all rungs): bash scripts/run_ww4a_distance_ladder.sh
+
+The PNG intermediates lived in /tmp/kc2_ww4a, never inside captures/. The
+per-rung sidecars remain at /tmp/kc2_ww4a/tmp-ww4a-k0N0-n160-sidecar-passN/
+shot-A-stationary-canon.json; they are scratch, not evidence, and the numbers
+this receipt takes from them are transcribed above at full precision.
+
+
+--------------------------------------------------------------------------------
+11. WHAT THE NEXT DESK IS AND IS NOT HOLDING
+--------------------------------------------------------------------------------
+HOLDING: three verification stills at 31.348 / 27.865 / 24.382 m stand-off, each
+byte-reproducible, each with the ported camera's rotation, lens and anchor
+intact and measured.
+
+NOT HOLDING: a ratified distance. The rung pick is Matt's eye.
+================================================================================
