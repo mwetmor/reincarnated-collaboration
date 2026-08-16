@@ -1,0 +1,22 @@
+{
+ "determinism_x2": "all 7 emitted artefacts byte-identical on a second real execution",
+ "grade": "DECODED",
+ "instruments": {
+  "pm4y_operand_2026_08_16.py": "a1309cdba0b388039a0339dc20599d1acf96a029f644c44565b275b123b37e16"
+ },
+ "lap": "KC2-PM4 Lap Y -- sumProtectionDV: piece-alone vs piece + global flat",
+ "note": "this file is the authority for pm4y_findings.md's own digest (a file cannot carry its own).",
+ "outputs": {
+  "PREREGISTRATION.md": "6c9061a9d4e39037a109c30c80e582024d9d0780edeb913a0c6e930c0991380a",
+  "decode.log": "599c508551e1cf35a8ba3948639fccfea779829c37ae59d0e7a51f05970282c5",
+  "pm4y_armour_operand.json": "9115996733f971e10457a217bff1928226d3e102720704492026aaee6b5354c5",
+  "pm4y_binary_anchors.json": "6bb145d923a02893297183a0660c85467a3f52dab1184a5eafa459f19c76995f",
+  "pm4y_composition_grid.csv": "cf6d8cee8de8af0f14b802a31cb5f5ce3a497a331e5f9b4dc9a33ae9ee59dbaa",
+  "pm4y_findings.md": "fa2ed53a351011d59edfeb9bba0391afc92584c570ca36101a4ad9d85de57f7d",
+  "pm4y_kit_carriers.csv": "df62ce21dca7aef6bc7069314eddaf7627f3eb80c807769310b9788e20932826",
+  "pm4y_template_declarations.csv": "c2dee4636f97f4cfa94c594a89bc186f8cde2798e4072912a0c11915888cd572",
+  "pm4y_ui_text.csv": "cef046fef0445a0082d8338b7026806b501ff7bf282aff222d3481556012da5d"
+ },
+ "prereg_commit": "334c5b86",
+ "verdict": "PIECE-PLUS-GLOBAL-FLAT"
+}

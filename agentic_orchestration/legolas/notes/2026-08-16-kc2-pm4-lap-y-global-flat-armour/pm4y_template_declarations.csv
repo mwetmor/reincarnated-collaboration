@@ -1,0 +1,18 @@
+field,template,class,type,description,defaultValue
+defensiveProtection,backup/parameters_defensive.tpl,array,real,,0
+defensiveProtection,templatebase/parameters_defensive.tpl,array,real,,0
+defensiveProtectionChance,backup/parameters_defensive.tpl,array,real,,0
+defensiveProtectionChance,templatebase/parameters_defensive.tpl,array,real,,0
+defensiveProtectionModifier,backup/parameters_defensive.tpl,array,real,,0
+defensiveProtectionModifier,templatebase/parameters_defensive.tpl,array,real,,0
+defensiveProtectionModifierChance,backup/parameters_defensive.tpl,array,real,,0
+defensiveProtectionModifierChance,templatebase/parameters_defensive.tpl,array,real,,0
+defensiveBonusProtection,templatebase/parameters_defensive.tpl,array,real,,0
+armorClassification,armor_chest.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorClassification,armor_feet.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorClassification,armor_hands.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorClassification,armor_head.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorClassification,armor_legs.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorClassification,armor_shoulders.tpl,picklist,string,Armor Type,Caster;Light;Heavy;
+armorDefensiveAbsorption,gameengine.tpl,variable,real,,
+blockAbsorption,weaponarmor_shield.tpl,variable,real,,
