@@ -1,0 +1,239 @@
+{
+ "P-X-1a": {
+  "band": [
+   300.0,
+   1500.0
+  ],
+  "grade": "FAILED",
+  "in_band_by_cadence": {
+   "1.0s": false,
+   "1.5s": false,
+   "2.0s": false,
+   "2.5s": false,
+   "3.0s": false
+  },
+  "note": "graded under the prereg's OWN definition \u2014 ALL 28 bodies in contact. The melee-contact count is NOT decoded by this lap (UNREACHED-X-3); the board figure is linear in it.",
+  "per_second_grid": {
+   "1.0s": 11881.670589119998,
+   "1.5s": 7921.113726079999,
+   "2.0s": 5940.835294559999,
+   "2.5s": 4752.668235648,
+   "3.0s": 3960.5568630399994
+  }
+ },
+ "P-X-1b": {
+  "grade": "PASSED",
+  "min_over_grid": 3960.5568630399994,
+  "threshold": 129.38
+ },
+ "P-X-1c": {
+  "grade": "FAILED",
+  "max_over_grid": 11881.670589119998,
+  "note": "the threshold is a REFERENT-DERIVED yardstick; it graded the prediction and entered no decoded value",
+  "reported_implication_contact_count_that_satisfies_it": {
+   "1.0s": 2.615126584620112,
+   "1.5s": 3.9226898769301677,
+   "2.0s": 5.230253169240224,
+   "2.5s": 6.537816461550279,
+   "3.0s": 7.845379753860335
+  },
+  "threshold": 1250.3125
+ },
+ "P-X-2a": {
+  "delta_pct_same_population": -0.3587506220272899,
+  "delta_pct_vs_LapL_band_median_7.62": -17.094010006685078,
+  "grade": "PASSED",
+  "median_ticks_fullvector_LO": 6.317436437490597,
+  "median_ticks_physonly_LO": 6.340181879420681,
+  "population_caveat": "Lap L's 7.62 is the median over the 790-record BAND; this lap's is over the 13 records actually ROLLED at w151. The same-population delta is the clean number."
+ },
+ "P-X-2b": {
+  "grade": "PASSED",
+  "kill_rate_bodies_per_s_HI": 2.662582383191013,
+  "kill_rate_bodies_per_s_LO": 1.8024602098570228,
+  "note": "solo, one body in the disc; the disc is uncapped so k bodies in the ring die in the same window (Lap L \u00a7 7).",
+  "threshold": 1.0
+ },
+ "P-X-3a": {
+  "camera_anchor": {
+   "block_recovery": "0",
+   "chance_to_block": "0",
+   "damage_blocked": "0"
+  },
+  "grade": "PASSED",
+  "named_falsifier_fields_fired": [],
+  "other_block_family_fields_present": [
+   {
+    "field": "defensiveBlockAmountModifier",
+    "grade": "MEASURED",
+    "index_state": "scalar",
+    "kind": "component",
+    "rank": 1,
+    "slot": "ring1",
+    "source": "gear:ring1:component",
+    "value": 8.0
+   },
+   {
+    "field": "defensiveBlockAmountModifier",
+    "grade": "MEASURED",
+    "index_state": "exact",
+    "kind": "auramod",
+    "rank": 10,
+    "slot": "GLOBAL",
+    "source": "auramod:presenceofvirtue2.dbr",
+    "value": 40.0
+   },
+   {
+    "field": "defensiveBlockModifier",
+    "grade": "MEASURED",
+    "index_state": "exact",
+    "kind": "auramod",
+    "rank": 10,
+    "slot": "GLOBAL",
+    "source": "auramod:presenceofvirtue2.dbr",
+    "value": 10.0
+   }
+  ],
+  "prereg_sighted": true
+ },
+ "P-X-4a": {
+  "grade": "PASSED",
+  "regions": {
+   "combatRegionArmsChance": 12,
+   "combatRegionFeetChance": 12,
+   "combatRegionFullyProtectedChance": 0,
+   "combatRegionHeadChance": 15,
+   "combatRegionLegsChance": 20,
+   "combatRegionShouldersChance": 15,
+   "combatRegionTorsoChance": 26,
+   "combatRegionUnprotectedChance": 0
+  },
+  "sum": 100.0
+ },
+ "P-X-4b": {
+  "bet": "SUM",
+  "grade": "FAILED",
+  "models": {
+   "M-AVG-GLOBALFLAT-UNSCALED": 3108.87456,
+   "M-AVG-PIECESONLY": 2472.87456,
+   "M-AVG-PLUS-GLOBALFLAT": 3465.0345600000005,
+   "M-SUM-FLAT-ONLY": 8950.0,
+   "M-SUM-PIECESONLY": 14149.3248,
+   "M-SUM-PLUS-GLOBALFLAT": 15141.4848
+  },
+  "residual": -91.96543999999949,
+  "residual_pct": -2.585477649704793,
+  "sheet_armor_rating": 3557.0,
+  "winner": "M-AVG-PLUS-GLOBALFLAT"
+ },
+ "P-X-5a": {
+  "grade": "PASSED",
+  "monsterDefenseCap": [
+   100.0,
+   100.0,
+   100.0
+  ],
+  "playerDefenseCap": [
+   80.0,
+   80.0,
+   80.0
+  ],
+  "sheet_rows_at_cap": [
+   "resist_acid_poison",
+   "resist_aether",
+   "resist_chaos",
+   "resist_cold",
+   "resist_fire",
+   "resist_lightning",
+   "resist_pierce",
+   "resist_vitality"
+  ]
+ },
+ "P-X-5b": {
+  "armour_equations": [
+   "physcialDamageDefenseEquationDLEP",
+   "physicalDamageDefenseEquationDGP"
+  ],
+  "grade_order": "UNREACHED",
+  "grade_type_scope": "PASSED",
+  "order_fork_worked_example": {
+   "ARMOUR_then_RESIST": 2108.4840000000004,
+   "RESIST_then_ARMOUR": 1710.1000000000001,
+   "absorption_pct": 70.0,
+   "aggregate_armour": 3557.0,
+   "delta": 398.38400000000024,
+   "note": "no record field expresses the order. BOTH limbs published (R-PM4-27 part 3); the fold must carry both.",
+   "player_res_physical_pct": 16.0,
+   "raw_physical": 5000.0
+  }
+ },
+ "P-X-5c": {
+  "damage_reduction_rows": [
+   {
+    "chance_pct": "0.0",
+    "depth": "0",
+    "duration_min_s": "5.0",
+    "family": "offensiveTotalDamageReductionPercent",
+    "global": "False",
+    "grade": "MEASURED-RANK",
+    "level": "106",
+    "level_limb": "LO",
+    "rank": "27",
+    "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+    "skill": "records/skills/nonplayerskillsgdx2/bossskills/tombguardian_celestialbreath.dbr",
+    "value_min": "50.0",
+    "wave": "160",
+    "xor": "False"
+   },
+   {
+    "chance_pct": "0.0",
+    "depth": "0",
+    "duration_min_s": "5.0",
+    "family": "offensiveTotalDamageReductionPercent",
+    "global": "False",
+    "grade": "MEASURED-RANK",
+    "level": "108",
+    "level_limb": "HI",
+    "rank": "28",
+    "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+    "skill": "records/skills/nonplayerskillsgdx2/bossskills/tombguardian_celestialbreath.dbr",
+    "value_min": "50.0",
+    "wave": "160",
+    "xor": "False"
+   }
+  ],
+  "grade": "FAILED",
+  "n_damage_reduction_rows_found_instead": 2,
+  "n_true_resistance_reduction_rows": 0,
+  "note": "the directional bet LOST. The 151/160 roster carries ZERO `offensive*ResistanceReduction*`. What it does carry is one `offensiveTotalDamageReductionPercent` = 50 for 5 s on the w160 Korvaak Tomb Guardian \u2014 a term on the KILL-RATE side, not the intake side."
+ },
+ "grade_surface": {
+  "G-1_w151_duration_s": 16.0,
+  "G-1_w151_terminal": "CLEARED",
+  "G-2_full_health_dwell_s": 1.6166,
+  "G-2_mean_hp_fraction": 0.932,
+  "G-3_concurrent_living_w151": [
+   19,
+   36
+  ],
+  "G-4_implied_kill_rate_bodies_per_s": 1.75,
+  "G-5_pool_hp": 20005.0,
+  "G-5_regen_hp_per_s": 129.38,
+  "G-6_w160_duration_s": 29.0,
+  "G-6_w160_terminal": "DEATH"
+ },
+ "prediction_digest_reverified": "1037207f410b5b33751d9c53880dd44d42c87470bfe70da85b6ae03d6bd07164",
+ "w160_positive_control": {
+  "board_per_round_RUNREC_HP": 3128.5124687999996,
+  "per_second_grid": {
+   "1.0s": 3128.5124687999996,
+   "1.5s": 2085.6749791999996,
+   "2.0s": 1564.2562343999998,
+   "2.5s": 1251.4049875199998,
+   "3.0s": 1042.8374895999998
+  },
+  "reading": "5 bodies, 6.39 rounds to empty a 20,005 pool with no sustain at all. Reported as a scale check on the pipeline, NOT as a fit: no referent number entered the computation.",
+  "referent_w160_duration_s": 29.0,
+  "rounds_to_empty_pool": 6.394412743917655
+ }
+}

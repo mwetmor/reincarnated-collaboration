@@ -1,0 +1,185 @@
+{
+ "equation_variables": {
+  "blockChanceDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052743c"
+  },
+  "blockChanceModifierDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052746c"
+  },
+  "damageDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00527460"
+  },
+  "defensiveAbilityDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00527428"
+  },
+  "offensiveAbilityDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005273f8"
+  },
+  "physicalDamageDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00527390"
+  },
+  "probabilityToHitDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052744c"
+  },
+  "shieldAbsorptionDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00527484"
+  },
+  "shieldDefenseDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00527498"
+  },
+  "sumAbsorptionDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005273cc"
+  },
+  "sumProtectionDV": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005273a4"
+  }
+ },
+ "fields": {
+  "armorDefensiveAbsorption": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0054c31c"
+  },
+  "blockAbsorption": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005324db"
+  },
+  "blockRecoveryTime": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00532513"
+  },
+  "combatRegionArmsChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00526384"
+  },
+  "combatRegionFeetChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005263b4"
+  },
+  "combatRegionFullyProtectedChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00526318"
+  },
+  "combatRegionHeadChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052634c"
+  },
+  "combatRegionLegsChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005263cc"
+  },
+  "combatRegionShouldersChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005263e4"
+  },
+  "combatRegionTorsoChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052639c"
+  },
+  "combatRegionUnprotectedChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00526364"
+  },
+  "damageAbsorption": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00582cb4"
+  },
+  "damageAbsorptionPercent": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005830fc"
+  },
+  "defensiveAbsorption": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005407ec"
+  },
+  "defensiveAbsorptionModifier": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005407ec"
+  },
+  "defensiveBlock": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00540690"
+  },
+  "defensiveBlockChance": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00587258"
+  },
+  "defensiveBonusProtection": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0054169c"
+  },
+  "defensiveProtection": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005407ac"
+  },
+  "defensiveProtectionModifier": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005407ac"
+  },
+  "meleeBlockEquation": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052689c"
+  },
+  "monsterDefenseCap": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0055fd3c"
+  },
+  "monsterLevelGapFixer": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005608cc"
+  },
+  "normalPTHEquation": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00526a1c"
+  },
+  "physcialDamageDefenseEquationDLEP": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x00526654"
+  },
+  "physicalDamageDefenseEquationDGP": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005265bc"
+  },
+  "playerDefenseCap": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0056550c"
+  },
+  "probabilityToHitEquation": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005267ec"
+  },
+  "projectileBlockEquation": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x0052699c"
+  },
+  "shieldDamageReductionEquationDGB": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005268f4"
+  },
+  "shieldDamageReductionEquationDLEB": {
+   "Engine.dll": "ABSENT",
+   "Game.dll": "0x005269b4"
+  }
+ },
+ "note_D_V2_1": "no vtable base read; string/immediate residency only (CORROBORATION)",
+ "pins": {
+  "Engine.dll": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c",
+  "Game.dll": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02"
+ },
+ "summary": {
+  "equation_variables_resident_in_Game.dll": "11/11",
+  "fields_resident_in_Engine.dll": 0,
+  "fields_resident_in_Game.dll": "31/31",
+  "reading": "the whole mitigation pipeline is Game.dll-resident and Engine.dll-absent; and because the equation VARIABLE names resolve as strings, the combatformulas.dbr equations are evaluated by name at runtime \u2014 they are the implementation, not documentation of it."
+ }
+}

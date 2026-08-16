@@ -1,0 +1,261 @@
+{
+ "combatformulas.dbr": {
+  "archive": "base",
+  "fields": {
+   "combatRegionArmsChance": 12,
+   "combatRegionFeetChance": 12,
+   "combatRegionFullyProtectedChance": 0,
+   "combatRegionHeadChance": 15,
+   "combatRegionLegsChance": 20,
+   "combatRegionShouldersChance": 15,
+   "combatRegionTorsoChance": 26,
+   "combatRegionUnprotectedChance": 0,
+   "criticalhitFxPak": "records/fx/damagedefault/dmgspecial_criticalhit_fxpak01.dbr",
+   "defensiveAbilityEquation": "(defensiveAbilityDV + (characterLevelDV * 12) + ((strengthDV + bonusDV) *0.5)) * (1 + (defensiveAbilityModifierDV / 100))+53",
+   "magicalDamageEquation": "magicalDamageDV*((intelligenceDV/215)+1)",
+   "magicalDurationDamageEquation": "magicalDamageDV*((intelligenceDV/200)+1)",
+   "meleeBlockEquation": "(blockChanceDV + blockChanceModifierDV)",
+   "normalPTHEquation": "probabilityToHitDV/70",
+   "offensiveAbilityEquation": "(offensiveAbilityDV + (characterLevelDV * 12) + ((dexterityDV + bonusDV) *0.5)) * (1 + (offensiveAbilityModifierDV / 100))+53",
+   "physcialDamageDefenseEquationDLEP": "physicalDamageDV * (1 - sumAbsorptionDV)",
+   "physicalDamageBonus": "0",
+   "physicalDamageDefenseEquationDGP": "(sumProtectionDV * (1 - sumAbsorptionDV)) + (physicalDamageDV - sumProtectionDV)",
+   "physicalDamageEquation": "(physicalDamageDV*((dexterityDV/245)+1))",
+   "physicalDamagePercentage": "(physicalDamageDV*((dexterityDV/245)+1))",
+   "physicalDurationDamageEquation": "(physicalDamageDV*((dexterityDV/215)+1))",
+   "physicsStrengthEquation": "(2*(damage/(maxLife*.3)))+4",
+   "physicsStrengthMax": 15.0,
+   "physicsStrengthMin": 7.0,
+   "pierceDamageEquation": "pierceDamageDV*((dexterityDV/245)+1)",
+   "probabilityToHitEquation": "((((offensiveAbilityDV/((defensiveAbilityDV/3.5)+offensiveAbilityDV))*300)*0.3)+(((((offensiveAbilityDV*3.25)+10000) - (defensiveAbilityDV*3.25))/100)*0.7))-50",
+   "projectileBlockEquation": "(blockChanceDV + blockChanceModifierDV)",
+   "projectileCritFxPak": "records/fx/damagedefault/dmgspecial_projectilecriticalhit_fxpak01.dbr",
+   "pthDamageModifier1": 1.0,
+   "pthDamageModifier2": 1.100000023841858,
+   "pthDamageModifier3": 1.2000000476837158,
+   "pthDamageModifier4": 1.2999999523162842,
+   "pthDamageModifier5": 1.399999976158142,
+   "pthDamageModifier6": 1.5,
+   "pthMinimum": 55.0,
+   "pthThreshold1": 70.0,
+   "pthThreshold2": 90.0,
+   "pthThreshold3": 105.0,
+   "pthThreshold4": 120.0,
+   "pthThreshold5": 130.0,
+   "pthThreshold6": 135.0,
+   "shieldDamageReductionEquationDGB": "damageDV - (shieldDefenseDV * (shieldAbsorptionDV / 100))",
+   "shieldDamageReductionEquationDLEB": "damageDV * ((100 - shieldAbsorptionDV) / 100 )",
+   "templateName": "database/templates/combatequations.tpl"
+  }
+ },
+ "gameengine.dbr": {
+  "archive": "base",
+  "fields": {
+   "2hWeaponDamageFactor": 1.0,
+   "absMaxDamageScaling": 100.0,
+   "absorbShieldPercentHealth": null,
+   "armorDefensiveAbsorption": 70.0,
+   "damageMagnitude": 100.0,
+   "defaultCombatManagerRecord": "records/game/combatformulas.dbr",
+   "dwWeaponDamageFactor": 1.0,
+   "dwWeaponSpeedFactor": 0.5,
+   "meleeAutoTargetDistance": 4.0,
+   "meleeRange": 1.25,
+   "meleeTargetDistance": 2.4000000953674316,
+   "monsterAttackSpeedCapMax": 500.0,
+   "monsterAttackSpeedCapMin": [
+    20.0,
+    30.0,
+    40.0
+   ],
+   "monsterDefenseCap": [
+    100.0,
+    100.0,
+    100.0
+   ],
+   "monsterLevelGapFixer": [
+    0,
+    5,
+    7
+   ],
+   "playerAttackSpeedCapMax": 200.0,
+   "playerAttackSpeedCapMin": 20.0,
+   "playerDefenseCap": [
+    80.0,
+    80.0,
+    80.0
+   ],
+   "playerReflectCap": 30.0
+  }
+ },
+ "template_declarations": {
+  "absMaxDamageScaling": {
+   "class": "variable",
+   "defaultValue": "250",
+   "description": "",
+   "template": "gameengine.tpl",
+   "type": "real"
+  },
+  "armorDefensiveAbsorption": {
+   "class": "variable",
+   "defaultValue": "",
+   "description": "",
+   "template": "gameengine.tpl",
+   "type": "real"
+  },
+  "blockAbsorption": {
+   "class": "variable",
+   "defaultValue": "",
+   "description": "",
+   "template": "weaponarmor_shield.tpl",
+   "type": "real"
+  },
+  "blockRecoveryTime": {
+   "class": "variable",
+   "defaultValue": "",
+   "description": "",
+   "template": "weaponarmor_shield.tpl",
+   "type": "real"
+  },
+  "damageAbsorption": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "",
+   "template": "skill_passiveshield.tpl",
+   "type": "real"
+  },
+  "damageAbsorptionPercent": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Percent incoming damage is reduced",
+   "template": "skill_attackspellreflectlink.tpl",
+   "type": "real"
+  },
+  "damageMagnitude": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Decreasing same type duration damage",
+   "template": "gameengine.tpl",
+   "type": "real"
+  },
+  "defensiveAbsorption": {
+   "class": "array",
+   "defaultValue": "0",
+   "description": "",
+   "template": "backup/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "defensiveAbsorptionModifier": {
+   "class": "array",
+   "defaultValue": "0",
+   "description": "",
+   "template": "backup/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "defensiveBlock": {
+   "class": "variable",
+   "defaultValue": "",
+   "description": "",
+   "template": "weaponarmor_shield.tpl",
+   "type": "real"
+  },
+  "defensiveBlockAmountModifier": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Modifies shield block amount",
+   "template": "templatebase/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "defensiveBlockChance": {
+   "class": "variable",
+   "defaultValue": "",
+   "description": "",
+   "template": "weaponarmor_shield.tpl",
+   "type": "real"
+  },
+  "defensivePercentCurrentLife": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "",
+   "template": "backup/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "defensiveProtection": {
+   "class": "array",
+   "defaultValue": "0",
+   "description": "",
+   "template": "backup/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "defensiveProtectionModifier": {
+   "class": "array",
+   "defaultValue": "0",
+   "description": "",
+   "template": "backup/parameters_defensive.tpl",
+   "type": "real"
+  },
+  "monsterDefenseCap": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Index by difficulty 0 to 2",
+   "template": "gameengine.tpl",
+   "type": "real"
+  },
+  "monsterLevelGapFixer": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Index by difficulty 0 to 2 - adds to monster level",
+   "template": "gameengine.tpl",
+   "type": "int"
+  },
+  "playerDefenseCap": {
+   "class": "array",
+   "defaultValue": "",
+   "description": "Index by difficulty 0 to 2",
+   "template": "gameengine.tpl",
+   "type": "real"
+  }
+ },
+ "ui_format_strings": {
+  "DamagePercentCurrentLife": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%t0}% {^E}Reduction to Enemy's Health"
+  },
+  "DefenseAbsorptionProtection": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.0f0} Armor"
+  },
+  "DefensePercentCurrentLife": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.0f0}% {^E}Resistance to Life Reduction"
+  },
+  "ShieldBlockRecoveryTime": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.2f0} second Block Recovery"
+  },
+  "SkillDamageAbsorption": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.0f0} {^E}Damage Absorption"
+  },
+  "SkillDamageAbsorptionPercent": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.0f0}% {^E}Damage Absorption"
+  },
+  "SkillDistanceFormat": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "{%.1f0 {^E}Meter %s1}"
+  },
+  "tagCharStatsBlockRecovery": {
+   "arc": "resources/Text_EN.arc",
+   "file": "tags_ui.txt",
+   "value": "Block Recovery"
+  }
+ }
+}

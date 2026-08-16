@@ -1,0 +1,51 @@
+{
+ "P-X-1a": {
+  "claim": "gross post-mitigation intake on the 28-body w151 board \u2208 [300,1500] HP/s",
+  "hi": 1500.0,
+  "lo": 300.0,
+  "unit": "HP/s"
+ },
+ "P-X-1b": {
+  "claim": "gross intake exceeds bare regen 129.38 HP/s",
+  "threshold": 129.38
+ },
+ "P-X-1c": {
+  "claim": "gross intake below 20005/16.0 = 1250.3 HP/s",
+  "threshold": 1250.3125
+ },
+ "P-X-2a": {
+  "baseline_ticks": 7.62,
+  "claim": "full damage-type vector moves median ticks-to-kill by <\u00b125% from Lap L's physical-only 7.62 ticks",
+  "tolerance_pct": 25.0
+ },
+ "P-X-2b": {
+  "claim": "decoded band player kill rate \u2265 1.0 bodies/s at the Lap-L disc geometry",
+  "threshold_bodies_per_s": 1.0
+ },
+ "P-X-3a": {
+  "claim": "shield block DECODED-ABSENT: chance 0, amount 0, recovery 0",
+  "prereg_sighted": true
+ },
+ "P-X-3b": {
+  "claim": "FALSIFIER \u2014 any non-zero defensiveBlock/defensiveBlockChance/blockAbsorption/blockRecoveryTime anywhere in the played build FAILS P-X-3a"
+ },
+ "P-X-4a": {
+  "claim": "combatRegion*Chance is a hit-location roll \u21d2 armour applies per covering piece"
+ },
+ "P-X-4b": {
+  "bet": "SUM",
+  "claim": "sheet armor_rating 3557 is the SUM of the six pieces, not their hit-weighted average"
+ },
+ "P-X-5a": {
+  "claim": "playerDefenseCap=80 is the player resistance cap; the sheet's 80s are AT cap"
+ },
+ "P-X-5b": {
+  "claim": "armour applies to physical only, and BEFORE resistance"
+ },
+ "P-X-5c": {
+  "claim": "\u22651 band-A roster record on 151\u2013160 carries a non-zero offensive*ResistanceReduction* field",
+  "threshold": 1
+ },
+ "lap": "KC2-PM4 Lap X \u2014 the mitigation-pipeline decode",
+ "source": "PREREGISTRATION.md \u00a7 2, committed alone at meta commit 64eea319fef4def32431d4f4821e686941c35e4c"
+}
