@@ -1,0 +1,88 @@
+{
+  "F_AC_3": {
+    "criterion": ">= 1 frame with an off-centre green plate \u21d2 the census is DECISIVE for PET-EXCLUSIVE; == 0 over a detector-live population \u21d2 the green channel carries nothing but the player and fork (a) must be decided elsewhere",
+    "functional": "n_frames_with_offcentre_green (green_mask2 pass)",
+    "n_frames_with_offcentre_green": 95,
+    "population_non_emptiness": {
+      "evaluable": true,
+      "player_detect_frac": 0.914365,
+      "player_frames": 331,
+      "require_player_frames_ge": 181
+    },
+    "verdict": "DECISIVE-POSITIVE",
+    "window": "the 362 frames of [683.0, 864.0] at 2.0 fps"
+  },
+  "bound_direction": "plate presence proves a drawn plate; absence does not prove absence. A zero is a measurement ONLY under the non-emptiness clause below.",
+  "by_mask": {
+    "green_mask": {
+      "max_offcentre_in_one_frame": 7,
+      "n_frames": 362,
+      "n_frames_with_offcentre": 73,
+      "n_offcentre_detections": 144,
+      "n_player_frames": 13
+    },
+    "green_mask2": {
+      "max_offcentre_in_one_frame": 8,
+      "n_frames": 362,
+      "n_frames_with_offcentre": 95,
+      "n_offcentre_detections": 210,
+      "n_player_frames": 331
+    }
+  },
+  "detector": "bars.find_bars imported BY IDENTITY from the pinned Lap H-2 detector; the ONLY change is the mask function and the removal of extract.py:pbar's x_left in [890,960] player gate",
+  "emitted": {
+    "pm4ac_green_census.csv": {
+      "rows": 724,
+      "sha256": "09d7f6413825352682499dc1edd81bfb24a9df7ce45196a4c2c68425fdebddac"
+    },
+    "pm4ac_green_detections.csv": {
+      "rows": 354,
+      "sha256": "7308be04856b9ead56359a55c23665ad0299dad9a7e62f22f9b5b8fb2e0be3bc"
+    }
+  },
+  "firewall": "no simulation artifact opened; no sim grade computed",
+  "fork": "a",
+  "hud_rects": [
+    [
+      1330,
+      0,
+      1920,
+      262
+    ],
+    [
+      0,
+      0,
+      1920,
+      58
+    ],
+    [
+      0,
+      980,
+      1920,
+      1080
+    ],
+    [
+      0,
+      0,
+      300,
+      120
+    ]
+  ],
+  "lap": "AC",
+  "leg": "A-2",
+  "prereg_sha256": "da1fae161096b6299b56c784394d5967910aa4a0862e9825a303bb762e466bc5",
+  "primary": {
+    "mask": "green_mask2",
+    "n_frames": 362,
+    "n_frames_with_offcentre": 95,
+    "n_offcentre_detections": 210,
+    "n_player_frames": 331,
+    "player_detect_frac": 0.914365
+  },
+  "window": {
+    "n_frames_expected": 363,
+    "sample_fps": 2.0,
+    "t0": 683.0,
+    "t1": 864.0
+  }
+}

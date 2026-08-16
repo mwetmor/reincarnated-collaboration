@@ -1,0 +1,56 @@
+{
+  "bound_direction": "persistence is a LOWER bound on reality; frame-local noise cannot manufacture it",
+  "criterion": "REAL-ENTITY-POPULATION iff persistence(off-green) >= 0.5 x persistence(red)",
+  "declared_post_hoc": true,
+  "design": {
+    "burst_frames": 15,
+    "burst_stride_s": 9.0,
+    "fps": 60.0,
+    "gate_gpx": 30.0,
+    "gate_provenance": "d1b.track default `gate=30.0`, imported by identity",
+    "n_bursts": 20
+  },
+  "emitted": {
+    "pm4ac_green_persistence.csv": {
+      "rows": 20,
+      "sha256": "822878f3dc82ca7f3c7a2ac93970871d0ae3b0fefee3af6df2e43737cc4edbce"
+    }
+  },
+  "firewall": "no simulation artifact opened; no sim grade computed",
+  "fork": "a",
+  "lap": "AC",
+  "leg": "A-2b",
+  "population_non_emptiness": {
+    "evaluable": true,
+    "ref": 2319,
+    "require_ref_ge": 300,
+    "require_test_ge": 30,
+    "test": 69
+  },
+  "populations": {
+    "green_offcentre": {
+      "persisted": 33,
+      "persistence": 0.478261,
+      "role": "UNDER TEST",
+      "tested": 69
+    },
+    "green_player": {
+      "persisted": 271,
+      "persistence": 0.97482,
+      "role": "POSITIVE CONTROL \u2014 a known-real plate",
+      "tested": 278
+    },
+    "red": {
+      "persisted": 1883,
+      "persistence": 0.811988,
+      "role": "REFERENCE \u2014 the population the occupancy bracket counts",
+      "tested": 2319
+    }
+  },
+  "positive_control_passed": true,
+  "prereg_sha256": "da1fae161096b6299b56c784394d5967910aa4a0862e9825a303bb762e466bc5",
+  "ratio_offgreen_over_red": 0.589,
+  "ratio_playergreen_over_red": 1.200535,
+  "verdict": "REAL-ENTITY-POPULATION",
+  "why": "D-AC-2 repair: F-AC-3's functional cannot separate a friendly nameplate from a green VFX run standing under a red plate's white text (refuted by direct visual inspection, evidence/crop-702-cluster.png and evidence/crop-700-cluster.png)"
+}

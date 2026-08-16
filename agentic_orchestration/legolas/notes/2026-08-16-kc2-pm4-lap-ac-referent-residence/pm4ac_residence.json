@@ -1,0 +1,1391 @@
+{
+  "F_AC_1": {
+    "functional": "L_recon(RC) = sum(n_frames over intervals) / N_obs  [bodies]  vs pinned mean_occupancy at the same RC",
+    "population_non_emptiness": {
+      "N_obs": 10216,
+      "intervals_at_primary": 10205,
+      "require_N_obs_ge": 10000,
+      "require_intervals_at_primary_ge": 50
+    },
+    "rungs": {
+      "285.7": {
+        "L_pinned": 3.2423,
+        "L_recon": 3.242169,
+        "pass_": true,
+        "rel_dev": -4.036e-05
+      },
+      "293.6": {
+        "L_pinned": 3.3519,
+        "L_recon": 3.351899,
+        "pass_": true,
+        "rel_dev": -3e-07
+      },
+      "300.0": {
+        "L_pinned": 3.4251,
+        "L_recon": 3.425117,
+        "pass_": true,
+        "rel_dev": 5.1e-06
+      }
+    },
+    "tolerance": 0.05,
+    "verdict": "PASS",
+    "window": "[683.0, 864.0] restricted to the 10216 instants with a detected player plate (pm4r_contact_2026_08_14.py:58)"
+  },
+  "F_AC_2": {
+    "counts": {
+      "EITHER_SUFFICIENT": 40,
+      "MONSTER_SUFFICIENT": 136,
+      "NEITHER_SUFFICIENT": 34,
+      "PLAYER_SUFFICIENT": 99
+    },
+    "criterion": "PASS iff share_player >= 0.2",
+    "functional": "share_player = PLAYER_SUFFICIENT / (PLAYER_SUFFICIENT + MONSTER_SUFFICIENT); EITHER_/NEITHER_ published separately and never folded in",
+    "n_observed_exits": 309,
+    "population_non_emptiness": {
+      "decidable": 235,
+      "require_decidable_ge": 30
+    },
+    "share_player": 0.421277,
+    "verdict": "PASS",
+    "window": "all ring intervals at R=293.6 over [683.0, 864.0], observed (non-right-censored) exits only"
+  },
+  "F_AC_2_robustness": {
+    "A_prereg_0.05s|R285.7": {
+      "counts": {
+        "EITHER_SUFFICIENT": 36,
+        "MONSTER_SUFFICIENT": 153,
+        "NEITHER_SUFFICIENT": 47,
+        "PLAYER_SUFFICIENT": 105
+      },
+      "decidable": 258,
+      "n_observed_exits": 341,
+      "share_player": 0.406977
+    },
+    "A_prereg_0.05s|R293.6": {
+      "counts": {
+        "EITHER_SUFFICIENT": 40,
+        "MONSTER_SUFFICIENT": 136,
+        "NEITHER_SUFFICIENT": 34,
+        "PLAYER_SUFFICIENT": 99
+      },
+      "decidable": 235,
+      "n_observed_exits": 309,
+      "share_player": 0.421277
+    },
+    "A_prereg_0.05s|R300.0": {
+      "counts": {
+        "EITHER_SUFFICIENT": 33,
+        "MONSTER_SUFFICIENT": 118,
+        "NEITHER_SUFFICIENT": 44,
+        "PLAYER_SUFFICIENT": 99
+      },
+      "decidable": 217,
+      "n_observed_exits": 294,
+      "share_player": 0.456221
+    },
+    "B_bridged_0.2s|R285.7": {
+      "counts": {
+        "EITHER_SUFFICIENT": 103,
+        "MONSTER_SUFFICIENT": 374,
+        "NEITHER_SUFFICIENT": 117,
+        "PLAYER_SUFFICIENT": 196
+      },
+      "decidable": 570,
+      "n_observed_exits": 790,
+      "share_player": 0.34386
+    },
+    "B_bridged_0.2s|R293.6": {
+      "counts": {
+        "EITHER_SUFFICIENT": 102,
+        "MONSTER_SUFFICIENT": 331,
+        "NEITHER_SUFFICIENT": 100,
+        "PLAYER_SUFFICIENT": 194
+      },
+      "decidable": 525,
+      "n_observed_exits": 727,
+      "share_player": 0.369524
+    },
+    "B_bridged_0.2s|R300.0": {
+      "counts": {
+        "EITHER_SUFFICIENT": 92,
+        "MONSTER_SUFFICIENT": 295,
+        "NEITHER_SUFFICIENT": 105,
+        "PLAYER_SUFFICIENT": 194
+      },
+      "decidable": 489,
+      "n_observed_exits": 686,
+      "share_player": 0.396728
+    }
+  },
+  "bound_direction": "plate presence proves a living body; plate absence does NOT prove absence -> counts are LOWER BOUNDS and residences are TRUNCATED observations (bars.py:12-15, NOTE-9). ONE-DIRECTIONAL.",
+  "emitted": {
+    "pm4ac_ring_exits.csv": {
+      "rows": 309,
+      "sha256": "9b5c6f3d9641f182cc9f9bf8001a258973e5a5f486f807526631d296e6acb6d6"
+    },
+    "pm4ac_ring_intervals.csv": {
+      "rows": 48900,
+      "sha256": "74a6e286de1e28d44851d7e67c31d40197c7d829cd16131fd116ca78622e5a26"
+    },
+    "pm4ac_tracks.csv": {
+      "rows": 6336,
+      "sha256": "03f73b2589d2e64725eafac2634ed0a0c7bafc295e955f57f8f6e15faf3109e9"
+    }
+  },
+  "exit_life_bounds": {
+    "frac_track_ends_within_1s": 0.63754,
+    "n_near_screen_edge_at_exit": 0,
+    "n_observed_exits": 309,
+    "n_track_ends_within_1s_of_exit": 197,
+    "note": "every observed exit is EXIT_ALIVE at the exit instant BY CONSTRUCTION (a non-right-censored exit requires an observed plate at t_first_out, and a plate proves a living body). The alive/dead question therefore attaches to the TRACK's own end, not to the exit; DEATH is never claimed, only DEATH-CANDIDATE."
+  },
+  "firewall": "no simulation artifact opened; no sim grade computed",
+  "forks": [
+    "b",
+    "c",
+    "A-3"
+  ],
+  "lap": "AC",
+  "leg_A3": {
+    "candidates": [],
+    "grade": "CORROBORATIVE, never dispositive (prereg \u00a7 3.4): a world-stationary red track is consistent with an emplacement AND with a monster that does not move; the world frame is a cumulative camera sum whose drift is validated only locally, so this leg is scoped WITHIN a wave.",
+    "n_candidates": 0,
+    "n_tracks": 6336,
+    "population_non_emptiness": {
+      "max_duration_among_them_s": 4.5,
+      "min_net_world_disp_among_them_gpx": 72.09,
+      "n_tracks_duration_ge_threshold": 24,
+      "n_tracks_net_le_threshold": 3412,
+      "note": "both halves of the conjunctive predicate are reported over their own populations so a zero cannot be green-by-absence (D-I27-2's lesson)."
+    },
+    "thresholds": {
+      "STATIONARY_MIN_S": 8.0,
+      "STATIONARY_NET_GPX": 40.0
+    }
+  },
+  "leg_A3b": {
+    "R_gpx": 293.6,
+    "declared_post_hoc": true,
+    "grade": "BOUND, never identification \u2014 pixels cannot name a body (NOTE-9).",
+    "max_ring_fraction": 0.7299,
+    "min_duration_s": 4.0,
+    "n_with_ring_fraction_ge_0p5": 7,
+    "population_non_emptiness": {
+      "n_tracks_ge_min_duration": 84
+    },
+    "rationale": "leg A-3 can only see FIXED emplacements; the referent kit also carries at most THREE concurrent MOBILE pets (Lap G \u00a7 115-116). A red-plated pet would be a long-lived track resident at the ring.",
+    "top_candidates": [
+      {
+        "duration_s": 6.85,
+        "ring_body_time_s": 5.0,
+        "ring_fraction": 0.7299,
+        "track_id": "W157-T010",
+        "wave": 157
+      },
+      {
+        "duration_s": 5.183,
+        "ring_body_time_s": 3.767,
+        "ring_fraction": 0.7267,
+        "track_id": "W159-T010",
+        "wave": 159
+      },
+      {
+        "duration_s": 4.333,
+        "ring_body_time_s": 2.917,
+        "ring_fraction": 0.6731,
+        "track_id": "W151-T010",
+        "wave": 151
+      },
+      {
+        "duration_s": 4.5,
+        "ring_body_time_s": 2.933,
+        "ring_fraction": 0.6518,
+        "track_id": "W159-T013",
+        "wave": 159
+      },
+      {
+        "duration_s": 5.4,
+        "ring_body_time_s": 3.017,
+        "ring_fraction": 0.5586,
+        "track_id": "W156-T008",
+        "wave": 156
+      },
+      {
+        "duration_s": 4.917,
+        "ring_body_time_s": 2.633,
+        "ring_fraction": 0.5356,
+        "track_id": "W159-T006",
+        "wave": 159
+      },
+      {
+        "duration_s": 7.233,
+        "ring_body_time_s": 3.617,
+        "ring_fraction": 0.5,
+        "track_id": "W157-T006",
+        "wave": 157
+      },
+      {
+        "duration_s": 14.25,
+        "ring_body_time_s": 6.967,
+        "ring_fraction": 0.4889,
+        "track_id": "W159-T002",
+        "wave": 159
+      },
+      {
+        "duration_s": 4.317,
+        "ring_body_time_s": 2.1,
+        "ring_fraction": 0.4865,
+        "track_id": "W155-T007",
+        "wave": 155
+      },
+      {
+        "duration_s": 14.917,
+        "ring_body_time_s": 7.25,
+        "ring_fraction": 0.486,
+        "track_id": "W159-T001",
+        "wave": 159
+      },
+      {
+        "duration_s": 4.933,
+        "ring_body_time_s": 2.35,
+        "ring_fraction": 0.4763,
+        "track_id": "W154-T004",
+        "wave": 154
+      },
+      {
+        "duration_s": 8.367,
+        "ring_body_time_s": 3.917,
+        "ring_fraction": 0.4681,
+        "track_id": "W159-T005",
+        "wave": 159
+      },
+      {
+        "duration_s": 6.5,
+        "ring_body_time_s": 2.833,
+        "ring_fraction": 0.4359,
+        "track_id": "W151-T003",
+        "wave": 151
+      },
+      {
+        "duration_s": 7.0,
+        "ring_body_time_s": 3.017,
+        "ring_fraction": 0.431,
+        "track_id": "W152-T002",
+        "wave": 152
+      },
+      {
+        "duration_s": 4.317,
+        "ring_body_time_s": 1.833,
+        "ring_fraction": 0.4247,
+        "track_id": "W155-T011",
+        "wave": 155
+      },
+      {
+        "duration_s": 7.3,
+        "ring_body_time_s": 3.1,
+        "ring_fraction": 0.4247,
+        "track_id": "W156-T005",
+        "wave": 156
+      },
+      {
+        "duration_s": 7.267,
+        "ring_body_time_s": 2.867,
+        "ring_fraction": 0.3945,
+        "track_id": "W151-T002",
+        "wave": 151
+      },
+      {
+        "duration_s": 4.267,
+        "ring_body_time_s": 1.683,
+        "ring_fraction": 0.3945,
+        "track_id": "W155-T012",
+        "wave": 155
+      },
+      {
+        "duration_s": 4.867,
+        "ring_body_time_s": 1.9,
+        "ring_fraction": 0.3904,
+        "track_id": "W156-T006",
+        "wave": 156
+      },
+      {
+        "duration_s": 4.85,
+        "ring_body_time_s": 1.867,
+        "ring_fraction": 0.3849,
+        "track_id": "W152-T009",
+        "wave": 152
+      }
+    ]
+  },
+  "n_monster_plate_rows": 98794,
+  "n_observed_instants": 10216,
+  "n_player_plate_rows": 10316,
+  "n_tracked_plate_instants": 97527,
+  "n_tracks": 6336,
+  "plate_continuity": {
+    "continuity": 0.792396,
+    "gate_gpx": 30.0,
+    "gate_source": "d1b.track default `gate=30.0`",
+    "n_instant_pairs_not_adjacent": 54,
+    "n_instants": 10677,
+    "n_plates_tested": 97426,
+    "n_with_successor": 77200
+  },
+  "player_speed_context": {
+    "at_exits": {
+      "max": 1633.45178,
+      "mean": 428.44519,
+      "median": 434.97936,
+      "n": 309,
+      "p05": 96.19881,
+      "p25": 268.96522,
+      "p75": 511.36902,
+      "p90": 640.5429,
+      "p95": 851.52052,
+      "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+      "resolution_s": 0.016667,
+      "total": 132389.56265
+    },
+    "fight_wide": {
+      "max": 2784.26588,
+      "mean": 397.55996,
+      "median": 402.94968,
+      "n": 10861,
+      "p05": 2.6496,
+      "p25": 215.64861,
+      "p75": 510.3829,
+      "p90": 627.92809,
+      "p95": 727.20334,
+      "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+      "resolution_s": 0.016667,
+      "total": 4317898.6761
+    },
+    "halfwin_s": 0.125,
+    "smooth_frames": 9,
+    "units": "ground px/s (NOT converted to m/s; the metre anchor is Lap H-2's DECLARED GAP OBS-H2-9 and is carried as a bracket, never a scalar)"
+  },
+  "prereg_sha256": "da1fae161096b6299b56c784394d5967910aa4a0862e9825a303bb762e466bc5",
+  "residence": {
+    "150.0": {
+      "R_gpx": 150.0,
+      "body_time_all": {
+        "max": 2.7333,
+        "mean": 0.04999,
+        "median": 0.0333,
+        "n": 4375,
+        "p05": 0.0167,
+        "p25": 0.0167,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 218.7218
+      },
+      "censored_fraction": 0.982629,
+      "distinct_bodies_with_ring_time": 1637,
+      "n_censored_either_side": 4299,
+      "n_intervals": 4375,
+      "n_left_censored": 4029,
+      "n_right_censored": 4080,
+      "n_touching_wave_boundary": 10,
+      "n_with_internal_gap": 1076,
+      "per_wave": [
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 94,
+          "n_intervals": 269,
+          "n_observed_instants": 870,
+          "observed_fraction": 0.9295,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 12.636,
+          "wave": 151
+        },
+        {
+          "median_residence_s": 0.0,
+          "n_distinct_bodies": 123,
+          "n_intervals": 247,
+          "n_observed_instants": 955,
+          "observed_fraction": 0.9765,
+          "p90_residence_s": 0.09,
+          "total_body_time_s": 12.253,
+          "wave": 152
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 75,
+          "n_intervals": 136,
+          "n_observed_instants": 836,
+          "observed_fraction": 0.9351,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 8.434,
+          "wave": 153
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 183,
+          "n_intervals": 637,
+          "n_observed_instants": 795,
+          "observed_fraction": 0.9331,
+          "p90_residence_s": 0.0834,
+          "total_body_time_s": 26.989,
+          "wave": 154
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 82,
+          "n_intervals": 250,
+          "n_observed_instants": 932,
+          "observed_fraction": 0.9588,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 15.751,
+          "wave": 155
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 178,
+          "n_intervals": 499,
+          "n_observed_instants": 1149,
+          "observed_fraction": 0.948,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 25.438,
+          "wave": 156
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 202,
+          "n_intervals": 482,
+          "n_observed_instants": 1068,
+          "observed_fraction": 0.9223,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 25.32,
+          "wave": 157
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 119,
+          "n_intervals": 250,
+          "n_observed_instants": 759,
+          "observed_fraction": 0.9731,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 12.135,
+          "wave": 158
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 293,
+          "n_intervals": 807,
+          "n_observed_instants": 1503,
+          "observed_fraction": 0.9525,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 43.39,
+          "wave": 159
+        },
+        {
+          "median_residence_s": 0.0,
+          "n_distinct_bodies": 288,
+          "n_intervals": 798,
+          "n_observed_instants": 1349,
+          "observed_fraction": 0.8993,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 36.376,
+          "wave": 160
+        }
+      ],
+      "residence_all": {
+        "max": 2.8334,
+        "mean": 0.04105,
+        "median": 0.0166,
+        "n": 4375,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 179.597
+      },
+      "residence_uncensored_only": {
+        "max": 1.1,
+        "mean": 0.14276,
+        "median": 0.0333,
+        "n": 76,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.1167,
+        "p90": 0.50005,
+        "p95": 0.72085,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 10.85
+      }
+    },
+    "285.7": {
+      "R_gpx": 285.7,
+      "body_time_all": {
+        "max": 3.1667,
+        "mean": 0.05532,
+        "median": 0.0333,
+        "n": 9981,
+        "p05": 0.0167,
+        "p25": 0.0167,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 552.1176
+      },
+      "censored_fraction": 0.990782,
+      "distinct_bodies_with_ring_time": 3232,
+      "n_censored_either_side": 9889,
+      "n_intervals": 9981,
+      "n_left_censored": 9562,
+      "n_right_censored": 9640,
+      "n_touching_wave_boundary": 28,
+      "n_with_internal_gap": 2566,
+      "per_wave": [
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 211,
+          "n_intervals": 642,
+          "n_observed_instants": 870,
+          "observed_fraction": 0.9295,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 38.507,
+          "wave": 151
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 242,
+          "n_intervals": 610,
+          "n_observed_instants": 955,
+          "observed_fraction": 0.9765,
+          "p90_residence_s": 0.15,
+          "total_body_time_s": 42.789,
+          "wave": 152
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 165,
+          "n_intervals": 382,
+          "n_observed_instants": 836,
+          "observed_fraction": 0.9351,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 24.719,
+          "wave": 153
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 348,
+          "n_intervals": 1295,
+          "n_observed_instants": 795,
+          "observed_fraction": 0.9331,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 56.86,
+          "wave": 154
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 185,
+          "n_intervals": 598,
+          "n_observed_instants": 932,
+          "observed_fraction": 0.9588,
+          "p90_residence_s": 0.1217,
+          "total_body_time_s": 36.304,
+          "wave": 155
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 350,
+          "n_intervals": 1100,
+          "n_observed_instants": 1149,
+          "observed_fraction": 0.948,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 56.293,
+          "wave": 156
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 408,
+          "n_intervals": 1284,
+          "n_observed_instants": 1068,
+          "observed_fraction": 0.9223,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 78.04,
+          "wave": 157
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 213,
+          "n_intervals": 553,
+          "n_observed_instants": 759,
+          "observed_fraction": 0.9731,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 32.604,
+          "wave": 158
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 568,
+          "n_intervals": 1814,
+          "n_observed_instants": 1503,
+          "observed_fraction": 0.9525,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 108.146,
+          "wave": 159
+        },
+        {
+          "median_residence_s": 0.0,
+          "n_distinct_bodies": 542,
+          "n_intervals": 1703,
+          "n_observed_instants": 1349,
+          "observed_fraction": 0.8993,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 77.854,
+          "wave": 160
+        }
+      ],
+      "residence_all": {
+        "max": 3.3333,
+        "mean": 0.04705,
+        "median": 0.0166,
+        "n": 9981,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 469.5798
+      },
+      "residence_uncensored_only": {
+        "max": 2.6333,
+        "mean": 0.19528,
+        "median": 0.05,
+        "n": 92,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.17085,
+        "p90": 0.47997,
+        "p95": 0.9692,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 17.9661
+      }
+    },
+    "293.6": {
+      "R_gpx": 293.6,
+      "body_time_all": {
+        "max": 3.1667,
+        "mean": 0.05593,
+        "median": 0.0333,
+        "n": 10205,
+        "p05": 0.0167,
+        "p25": 0.0167,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 570.8031
+      },
+      "censored_fraction": 0.993435,
+      "distinct_bodies_with_ring_time": 3296,
+      "n_censored_either_side": 10138,
+      "n_intervals": 10205,
+      "n_left_censored": 9818,
+      "n_right_censored": 9896,
+      "n_touching_wave_boundary": 30,
+      "n_with_internal_gap": 2643,
+      "per_wave": [
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 212,
+          "n_intervals": 650,
+          "n_observed_instants": 870,
+          "observed_fraction": 0.9295,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 40.207,
+          "wave": 151
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 247,
+          "n_intervals": 631,
+          "n_observed_instants": 955,
+          "observed_fraction": 0.9765,
+          "p90_residence_s": 0.15,
+          "total_body_time_s": 44.307,
+          "wave": 152
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 167,
+          "n_intervals": 388,
+          "n_observed_instants": 836,
+          "observed_fraction": 0.9351,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 25.385,
+          "wave": 153
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 352,
+          "n_intervals": 1313,
+          "n_observed_instants": 795,
+          "observed_fraction": 0.9331,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 58.294,
+          "wave": 154
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 187,
+          "n_intervals": 606,
+          "n_observed_instants": 932,
+          "observed_fraction": 0.9588,
+          "p90_residence_s": 0.125,
+          "total_body_time_s": 36.954,
+          "wave": 155
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 358,
+          "n_intervals": 1116,
+          "n_observed_instants": 1149,
+          "observed_fraction": 0.948,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 57.393,
+          "wave": 156
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 414,
+          "n_intervals": 1328,
+          "n_observed_instants": 1068,
+          "observed_fraction": 0.9223,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 81.024,
+          "wave": 157
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 218,
+          "n_intervals": 560,
+          "n_observed_instants": 759,
+          "observed_fraction": 0.9731,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 33.638,
+          "wave": 158
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 583,
+          "n_intervals": 1859,
+          "n_observed_instants": 1503,
+          "observed_fraction": 0.9525,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 113.646,
+          "wave": 159
+        },
+        {
+          "median_residence_s": 0.0,
+          "n_distinct_bodies": 558,
+          "n_intervals": 1754,
+          "n_observed_instants": 1349,
+          "observed_fraction": 0.8993,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 79.955,
+          "wave": 160
+        }
+      ],
+      "residence_all": {
+        "max": 3.3333,
+        "mean": 0.04775,
+        "median": 0.0166,
+        "n": 10205,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 487.2817
+      },
+      "residence_uncensored_only": {
+        "max": 2.6333,
+        "mean": 0.21667,
+        "median": 0.0334,
+        "n": 67,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.225,
+        "p90": 0.5,
+        "p95": 1.12499,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 14.5168
+      }
+    },
+    "300.0": {
+      "R_gpx": 300.0,
+      "body_time_all": {
+        "max": 3.1667,
+        "mean": 0.05618,
+        "median": 0.0333,
+        "n": 10382,
+        "p05": 0.0167,
+        "p25": 0.0167,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 583.2686
+      },
+      "censored_fraction": 0.994028,
+      "distinct_bodies_with_ring_time": 3343,
+      "n_censored_either_side": 10320,
+      "n_intervals": 10382,
+      "n_left_censored": 10008,
+      "n_right_censored": 10088,
+      "n_touching_wave_boundary": 31,
+      "n_with_internal_gap": 2696,
+      "per_wave": [
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 214,
+          "n_intervals": 660,
+          "n_observed_instants": 870,
+          "observed_fraction": 0.9295,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 41.024,
+          "wave": 151
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 250,
+          "n_intervals": 647,
+          "n_observed_instants": 955,
+          "observed_fraction": 0.9765,
+          "p90_residence_s": 0.14,
+          "total_body_time_s": 45.573,
+          "wave": 152
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 170,
+          "n_intervals": 395,
+          "n_observed_instants": 836,
+          "observed_fraction": 0.9351,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 25.768,
+          "wave": 153
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 354,
+          "n_intervals": 1321,
+          "n_observed_instants": 795,
+          "observed_fraction": 0.9331,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 58.91,
+          "wave": 154
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 187,
+          "n_intervals": 616,
+          "n_observed_instants": 932,
+          "observed_fraction": 0.9588,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 37.537,
+          "wave": 155
+        },
+        {
+          "median_residence_s": 0.0166,
+          "n_distinct_bodies": 363,
+          "n_intervals": 1132,
+          "n_observed_instants": 1149,
+          "observed_fraction": 0.948,
+          "p90_residence_s": 0.1166,
+          "total_body_time_s": 58.193,
+          "wave": 156
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 425,
+          "n_intervals": 1364,
+          "n_observed_instants": 1068,
+          "observed_fraction": 0.9223,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 83.424,
+          "wave": 157
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 222,
+          "n_intervals": 569,
+          "n_observed_instants": 759,
+          "observed_fraction": 0.9731,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 34.404,
+          "wave": 158
+        },
+        {
+          "median_residence_s": 0.0167,
+          "n_distinct_bodies": 592,
+          "n_intervals": 1895,
+          "n_observed_instants": 1503,
+          "observed_fraction": 0.9525,
+          "p90_residence_s": 0.1167,
+          "total_body_time_s": 116.38,
+          "wave": 159
+        },
+        {
+          "median_residence_s": 0.0,
+          "n_distinct_bodies": 566,
+          "n_intervals": 1783,
+          "n_observed_instants": 1349,
+          "observed_fraction": 0.8993,
+          "p90_residence_s": 0.1,
+          "total_body_time_s": 82.055,
+          "wave": 160
+        }
+      ],
+      "residence_all": {
+        "max": 3.3333,
+        "mean": 0.04805,
+        "median": 0.0166,
+        "n": 10382,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 498.8656
+      },
+      "residence_uncensored_only": {
+        "max": 2.6834,
+        "mean": 0.21345,
+        "median": 0.0333,
+        "n": 62,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.2334,
+        "p90": 0.50836,
+        "p95": 0.86327,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 13.2337
+      }
+    }
+  },
+  "residence_ladder": {
+    "150.0": {
+      "R_gpx": 150.0,
+      "bounds_direction": "rung A is a LOWER bound on per-body residence (detector dropouts split real residences); rung C is an UPPER bound (it bridges genuine exit-and-re-entry inside one track). The referent's per-body ring residence lies between them AT THIS RESOLUTION.",
+      "identity_held_subpopulation_track_ge_1s": {
+        "n_tracks": 377,
+        "ring_body_time": {
+          "max": 3.3833,
+          "mean": 0.36989,
+          "median": 0.2333,
+          "n": 377,
+          "p05": 0.0333,
+          "p25": 0.1167,
+          "p75": 0.4333,
+          "p90": 0.7667,
+          "p95": 1.23664,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 139.4499
+        },
+        "ring_span": {
+          "max": 13.6667,
+          "mean": 1.15743,
+          "median": 0.7167,
+          "n": 377,
+          "p05": 0.0166,
+          "p25": 0.3,
+          "p75": 1.35,
+          "p90": 2.28998,
+          "p95": 3.73998,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 436.3503
+        },
+        "selection": "tracks whose observed lifetime >= 1.0 s \u2014 d1final.py:8's own filter, applied here as a DECLARED SURVIVORSHIP SELECTION, not as the answer"
+      },
+      "per_track_ring_body_time": {
+        "max": 3.3833,
+        "mean": 0.13359,
+        "median": 0.05,
+        "n": 1637,
+        "p05": 0.0167,
+        "p25": 0.0167,
+        "p75": 0.1333,
+        "p90": 0.3,
+        "p95": 0.5,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 218.6897
+      },
+      "rung_A_prereg_join_0p05s": {
+        "max": 2.8334,
+        "mean": 0.04105,
+        "median": 0.0166,
+        "n": 4375,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1,
+        "p95": 0.15,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 179.597
+      },
+      "rung_B_bridged_join_0p20s": {
+        "max": 4.0167,
+        "mean": 0.19298,
+        "median": 0.0667,
+        "n": 2083,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.25,
+        "p90": 0.5167,
+        "p95": 0.78164,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 401.9673
+      },
+      "rung_C_track_ring_span": {
+        "max": 13.6667,
+        "mean": 0.37176,
+        "median": 0.1,
+        "n": 1637,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.3666,
+        "p90": 0.9,
+        "p95": 1.48336,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 608.5677
+      }
+    },
+    "285.7": {
+      "R_gpx": 285.7,
+      "bounds_direction": "rung A is a LOWER bound on per-body residence (detector dropouts split real residences); rung C is an UPPER bound (it bridges genuine exit-and-re-entry inside one track). The referent's per-body ring residence lies between them AT THIS RESOLUTION.",
+      "identity_held_subpopulation_track_ge_1s": {
+        "n_tracks": 517,
+        "ring_body_time": {
+          "max": 7.2167,
+          "mean": 0.68997,
+          "median": 0.4333,
+          "n": 517,
+          "p05": 0.1167,
+          "p25": 0.2833,
+          "p75": 0.7833,
+          "p90": 1.3833,
+          "p95": 2.10666,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 356.7161
+        },
+        "ring_span": {
+          "max": 15.15,
+          "mean": 1.71386,
+          "median": 1.2,
+          "n": 517,
+          "p05": 0.25,
+          "p25": 0.8167,
+          "p75": 1.8833,
+          "p90": 3.31332,
+          "p95": 4.96,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 886.0668
+        },
+        "selection": "tracks whose observed lifetime >= 1.0 s \u2014 d1final.py:8's own filter, applied here as a DECLARED SURVIVORSHIP SELECTION, not as the answer"
+      },
+      "per_track_ring_body_time": {
+        "max": 7.2167,
+        "mean": 0.17081,
+        "median": 0.05,
+        "n": 3232,
+        "p05": 0.0167,
+        "p25": 0.0333,
+        "p75": 0.15,
+        "p90": 0.3833,
+        "p95": 0.65751,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 552.0444
+      },
+      "rung_A_prereg_join_0p05s": {
+        "max": 3.3333,
+        "mean": 0.04705,
+        "median": 0.0166,
+        "n": 9981,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 469.5798
+      },
+      "rung_B_bridged_join_0p20s": {
+        "max": 6.1833,
+        "mean": 0.27392,
+        "median": 0.1,
+        "n": 3929,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.3334,
+        "p90": 0.75,
+        "p95": 1.1333,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1076.2321
+      },
+      "rung_C_track_ring_span": {
+        "max": 15.15,
+        "mean": 0.41577,
+        "median": 0.1334,
+        "n": 3232,
+        "p05": 0.0,
+        "p25": 0.0166,
+        "p75": 0.4333,
+        "p90": 1.0333,
+        "p95": 1.55751,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1343.7675
+      }
+    },
+    "293.6": {
+      "R_gpx": 293.6,
+      "bounds_direction": "rung A is a LOWER bound on per-body residence (detector dropouts split real residences); rung C is an UPPER bound (it bridges genuine exit-and-re-entry inside one track). The referent's per-body ring residence lies between them AT THIS RESOLUTION.",
+      "identity_held_subpopulation_track_ge_1s": {
+        "n_tracks": 522,
+        "ring_body_time": {
+          "max": 7.25,
+          "mean": 0.70926,
+          "median": 0.45,
+          "n": 522,
+          "p05": 0.1167,
+          "p25": 0.2833,
+          "p75": 0.7833,
+          "p90": 1.39833,
+          "p95": 2.22747,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 370.2332
+        },
+        "ring_span": {
+          "max": 15.15,
+          "mean": 1.74339,
+          "median": 1.225,
+          "n": 522,
+          "p05": 0.25,
+          "p25": 0.85,
+          "p75": 1.8833,
+          "p90": 3.32997,
+          "p95": 5.04583,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 910.0506
+        },
+        "selection": "tracks whose observed lifetime >= 1.0 s \u2014 d1final.py:8's own filter, applied here as a DECLARED SURVIVORSHIP SELECTION, not as the answer"
+      },
+      "per_track_ring_body_time": {
+        "max": 7.25,
+        "mean": 0.17316,
+        "median": 0.05,
+        "n": 3296,
+        "p05": 0.0167,
+        "p25": 0.0333,
+        "p75": 0.15,
+        "p90": 0.3833,
+        "p95": 0.6667,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 570.7291
+      },
+      "rung_A_prereg_join_0p05s": {
+        "max": 3.3333,
+        "mean": 0.04775,
+        "median": 0.0166,
+        "n": 10205,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 487.2817
+      },
+      "rung_B_bridged_join_0p20s": {
+        "max": 6.2167,
+        "mean": 0.28125,
+        "median": 0.1,
+        "n": 3958,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.35,
+        "p90": 0.76663,
+        "p95": 1.16661,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1113.2002
+      },
+      "rung_C_track_ring_span": {
+        "max": 15.15,
+        "mean": 0.41889,
+        "median": 0.1334,
+        "n": 3296,
+        "p05": 0.0,
+        "p25": 0.0166,
+        "p75": 0.4334,
+        "p90": 1.05,
+        "p95": 1.5833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1380.6511
+      }
+    },
+    "300.0": {
+      "R_gpx": 300.0,
+      "bounds_direction": "rung A is a LOWER bound on per-body residence (detector dropouts split real residences); rung C is an UPPER bound (it bridges genuine exit-and-re-entry inside one track). The referent's per-body ring residence lies between them AT THIS RESOLUTION.",
+      "identity_held_subpopulation_track_ge_1s": {
+        "n_tracks": 525,
+        "ring_body_time": {
+          "max": 7.3167,
+          "mean": 0.72184,
+          "median": 0.45,
+          "n": 525,
+          "p05": 0.12002,
+          "p25": 0.3,
+          "p75": 0.7833,
+          "p90": 1.42666,
+          "p95": 2.35,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 378.9662
+        },
+        "ring_span": {
+          "max": 15.15,
+          "mean": 1.76172,
+          "median": 1.2334,
+          "n": 525,
+          "p05": 0.27002,
+          "p25": 0.85,
+          "p75": 1.9,
+          "p90": 3.36,
+          "p95": 5.15664,
+          "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+          "resolution_s": 0.016667,
+          "total": 924.9005
+        },
+        "selection": "tracks whose observed lifetime >= 1.0 s \u2014 d1final.py:8's own filter, applied here as a DECLARED SURVIVORSHIP SELECTION, not as the answer"
+      },
+      "per_track_ring_body_time": {
+        "max": 7.3167,
+        "mean": 0.17445,
+        "median": 0.05,
+        "n": 3343,
+        "p05": 0.0167,
+        "p25": 0.0333,
+        "p75": 0.15,
+        "p90": 0.3833,
+        "p95": 0.68164,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 583.1955
+      },
+      "rung_A_prereg_join_0p05s": {
+        "max": 3.3333,
+        "mean": 0.04805,
+        "median": 0.0166,
+        "n": 10382,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.05,
+        "p90": 0.1166,
+        "p95": 0.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 498.8656
+      },
+      "rung_B_bridged_join_0p20s": {
+        "max": 6.2167,
+        "mean": 0.28601,
+        "median": 0.1,
+        "n": 3987,
+        "p05": 0.0,
+        "p25": 0.0,
+        "p75": 0.35,
+        "p90": 0.7833,
+        "p95": 1.1833,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1140.3344
+      },
+      "rung_C_track_ring_span": {
+        "max": 15.15,
+        "mean": 0.42011,
+        "median": 0.1334,
+        "n": 3343,
+        "p05": 0.0,
+        "p25": 0.0166,
+        "p75": 0.4334,
+        "p90": 1.05,
+        "p95": 1.59834,
+        "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+        "resolution_s": 0.016667,
+        "total": 1404.4175
+      }
+    }
+  },
+  "right_censored_exits": {
+    "by_reason": {
+      "track_end": 2876,
+      "unobserved_gap_after": 7006,
+      "wave_window_end": 14
+    },
+    "n": 9896,
+    "note": "a ring interval ending because the TRACK ends (plate gone, never re-associated) is a DEATH-CANDIDATE: corpses carry no nameplate (Lap H-2 OBS-H2-1), but plate loss is equally consistent with occlusion, plate suppression, screen exit or a tracker identity break. DEATH IS NOT CLAIMED."
+  },
+  "track_length_census": {
+    "duration_s": {
+      "max": 17.1,
+      "mean": 0.4258,
+      "median": 0.1166,
+      "n": 6336,
+      "p05": 0.0,
+      "p25": 0.0166,
+      "p75": 0.4,
+      "p90": 1.0833,
+      "p95": 1.9,
+      "resolution_note": "every duration is +-1 frame = +-0.016667 s at 60 fps",
+      "resolution_s": 0.016667,
+      "total": 2697.85
+    },
+    "n_ge_1s": 692,
+    "n_ge_2s": 295,
+    "n_ge_4s": 84,
+    "n_ge_8s": 24,
+    "n_tracks": 6336,
+    "note": "the tracker's identity horizon. d1b.track defaults gate=30.0 gpx, maxgap=12 instants (0.2 s). A body whose plate is undetected for more than maxgap starts a NEW track: track count is an UPPER bound on bodies, track duration a LOWER bound on body lifetime."
+  }
+}
