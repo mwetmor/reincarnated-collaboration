@@ -4,6 +4,44 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-16 — RUN KC2-PM4 SEALED; THE MECHANISM WAVE SEQUENCED (knight-rider)
+
+**Why this is a team-level event, not a routine dispatch:** it changes which governance mode the
+KC2 work runs under. For twenty-nine iterations the KC2-PM4 replication ran as a *conducted run* —
+gandalf in the `RUN-CONDUCTOR` seat, a charter ledger as the record, grading instruments forbidden
+to attribute cause. Matt's **D3 = (a)** ends that mode for the next stretch of work: the mechanism
+build runs **outside any run, as ordinary engine work** — knight-rider sequences, jack-ryan Gate 2s,
+the decisions-log records. The charter is **SEALED** at `R-PM4-78`; no further rows will be written
+on it.
+
+**Matt's five rulings at the commitment boundary** (charter row `L-68`): **D1 = (A)** mechanism work
+authorized now · **D2 = (i)** ONE bundled gamora wave carrying monster post-displacement
+re-engagement [NEW] + player movement-while-channeling + pack-seek targeting policy (the latter two
+previously routed by `R-CPB-4`) as a single interaction loop · **D3 = (a)** build outside any run ·
+**D4** PM5's pass criterion pre-registers at its own charter · **D5** a NEW frozen checkpoint is cut
+at the wave's close, with `E-s09-cp150` retained **immutable, permanently**.
+
+**Artifacts:**
+- Design brief (gandalf, `SPEC-AUTHOR`) — `gandalf/notes/2026-08-16-kc2-mechanism-wave-design-brief.md`, commit `cf055433`
+- Dispatch (knight-rider, Pattern B) — `dispatches/2026-08-16-gamora-kc2-mechanism-wave.md`
+
+**Process notes worth carrying forward:**
+- **A three-way review split is in force on this wave** and is worth watching as a pattern:
+  jack-ryan holds **Gate 2** (process, BLOCK authority), gandalf returns as **`DRIFT-CRITIC`**
+  (design verdict against his own brief), and neither substitutes for the other. Both land before
+  the decisions-log entry closes.
+- **Gate 1 was not fired as a separate pass**, and the reasoning is recorded in the dispatch § 7
+  rather than left silent: the design brief *is* the pre-fire critique artifact, and Matt's D3 = (a)
+  names jack-ryan's role on this wave as Gate 2. The door to a Gate-1 objection stays open.
+- **The wave's acceptance is mechanism-existence only.** No numeric occupancy target appears in the
+  brief or the dispatch, by construction — a fitted constant would convert KC2-PM5 from an
+  independent grading run into a validation of its own training target. jack-ryan is specifically
+  asked to hunt for exactly that.
+- **KC2-PM5** is chartered separately by gandalf **after** the mechanism ships and the checkpoint
+  freezes — the structural wall between the runs (`R-PM4-78 part 3`).
+
+---
+
 ## 2026-08-10 — F0 LAW HARVEST: the runs' minted rules codified into standing law (gandalf)
 
 Phase **F0** of the software-factory program discharged: `operating-procedures/run-minted-law.md`.
