@@ -1,0 +1,421 @@
+SB-1 CELL WW-3a — SB1-WW3A-PLAYERLOCK-PORT
+The arena scene under the RATIFIED camera. Camera is the only variable.
+drax · 2026-08-15 · godot repo ~/Games/reincarnated-godot (opened at be7f0c2, main)
+
+VERDICT: GREEN. The port lands EXACT against the reference rig's own audit
+(offset pin delta 0.000000000000 m; anchor delta 0.0002 px at 1600x900), the
+deliverable still reproduced BYTE-IDENTICAL x2, and the predicted subject
+over-read is REPORTED at 20.896118 % — not compensated for, by anything.
+
+ONE FINDING ROUTED UP, PRE-EXISTING AND NOT THIS CELL'S: both standing FG-10
+regression legs have drifted off their 2026-08-13 pins while the tracked tree
+is byte-identical to the commit that set them. Section 3. It does not touch
+this cell's deliverable and it was not chased (CLK-2 precedent).
+
+
+============================================================================
+1. INPUT READS — what was read, from where, and read rather than derived
+============================================================================
+
+RULING READ FIRST (as instructed): collab fc45b20c,
+`agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md`,
+rows R-CPB-17 (l.185) -> A2gr-0 -> R-CPB-17b -> A2gr-1 -> CLK-2-0..3 -> WW-1 ->
+WW-2 -> WW-3 (l.201). WW-3 is the operative row: the ratified reference is
+`tmp/br2watch/BR2W.mp4` and its camera is `player_lock`, THE GD GAME CAMERA.
+
+REFERENCE ARTIFACT, sha-verified from this seat:
+  tmp/br2watch/BR2W.mp4
+  sha256 ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba
+  55,069,886 B · 1600x900 (confirmed by decode, see § 6)
+  -> matches the WW-3 row's recorded sha exactly.
+
+OPERANDS — TRANSPLANTED, NOT RE-DERIVED (GL-17). Ported from
+`scripts/wr2_playback.gd` `_pl_build_lock()` at lines 2577-2727, the same lines
+in the same order, into a new `_playerlock_pose()`:
+
+  wr2_playback.gd:1806  PL_PITCH_DEG      52.95354112560294
+  wr2_playback.gd:1807  PL_FOV_V_DEG      31.78610183061007   (VERTICAL)
+  wr2_playback.gd:1808  PL_FOCAL_PX_1080  1896.5577238618157
+  wr2_playback.gd:1809  PL_GX_PLAYER      54.47290422329346
+  wr2_playback.gd:1810  PL_ANCHOR_FX      0.5010416666666667  ( 962/1920)
+  wr2_playback.gd:1811  PL_ANCHOR_FY      0.5509259259259259  ( 595/1080)
+  wr2_playback.gd:1815  PL_ASPECT         16.0/9.0
+  wr2_playback.gd:1669  CAM_YAW_DEG       47.0
+  wr2_playback.gd:5269  KEEP_HEIGHT asserted -> fov is VERTICAL; this port sets
+                        `_cam.keep_aspect = Camera3D.KEEP_HEIGHT` explicitly
+                        rather than relying on Godot's default. A default is
+                        not a contract.
+
+  The trig transplanted verbatim, including the load-bearing MINUS on `hb` in
+  the `upc` term that wr2's own comment records as costing 70 px of anchor:
+      hb  = Vector3(sin(yaw), 0, cos(yaw))
+      fwd = (-hb*cos(p) + DOWN*sin(p)).normalized()
+      upc = (-hb*sin(p) + UP  *cos(p)).normalized()
+      rgt = fwd.cross(upc)
+      zp  = PL_FOCAL_PX_1080 / PL_GX_PLAYER
+      offset = -(rgt*xc + upc*yc + fwd*zp)     [xc,yc from the anchor NDC]
+  Measured orthogonality at run time: fwd.dot(upc) = 1.49011611938477e-08.
+
+PINS — what the reference rig MEASURED through its own camera, read from
+`tmp/br2watch/m6/pl_audit.json` (four BR-2 run logs identical per WW-3):
+  offset_m      (14.7262048721313, 28.3970108032227, 13.7826108932495)
+  z_player_m    34.8165340347471
+  anchor.fx     0.501041450500488
+  anchor.fy     0.550925123426649
+
+  The construction is BUILT and the result is PINNED — same discipline
+  `_canon_pose` applies to CANON_BOOM_M. The offset vector is the law; the
+  angles are its prints; the pin is what the law produced on the machine that
+  rendered BR2W. Drift of a millimetre fails at the pose.
+
+FRAME-CHOICE INPUTS (the n=160 mapping, § 4) read from:
+  - galadriel WW-2 receipt `2026-08-14-sb1-register-measure/receipt.txt` l.32:
+    the exhibit E3 extraction is `-vf "select=eq(n\,160)"` -> ZERO-BASED.
+  - banked FG-10 list `2026-08-13-sb1-a2gr-lookdist/fg10-digests/
+    canon-undoff-t0default-full-pass-1.sha` = 320 lines -> segment A is 320
+    frames. READ, not assumed.
+  - live baton print: tick_period_s = 0.0816326530612245.
+
+
+============================================================================
+2. THE CODE — additive, and the canon path is intact
+============================================================================
+
+`scripts/kc2_cpb_clip.gd`
+  + PL_* const block (operands + pins + provenance), after DIAG_FOV
+  + `--cam canon|player_lock` (default canon; an unknown value HALTS, and
+    `player_lock` is rejected against any shot but `canon`)
+  + `--width` / `--height` (default SHOT_W/SHOT_H = 1920/1080)
+  + `_playerlock_pose()`  — the transplant + the pin check + the lock line
+  + `_pl_cam_update()`    — wr2's hard lock: position only, basis fixed at
+                            build and never recomputed
+  + `_pl_anchor_audit()`  — measured THROUGH the rendering camera
+  + sidecar keys `camera_mode` / `player_lock_derivation` /
+    `player_lock_anchor_audit` (exactly one of canon_derivation and
+    player_lock_derivation is ever non-null — the absence rule, one camera on)
+  ~ SHOT_W/SHOT_H const reads -> `_shot_w`/`_shot_h` vars at 7 sites
+  ~ three `if _pl_active:` guards on the canon path (pose dispatch, build,
+    per-frame)
+
+`scripts/run_ww3a_playerlock_still.sh`  NEW. Renders the one still, N times,
+  byte-compares, promotes on green. It does NOT touch `run_kc2_cpb_clip.sh`,
+  whose five-leg matrix and two-segment encode are a certified path this cell
+  is not entitled to edit for a still.
+
+NOT TOUCHED, and this is the cell's whole discipline: scene content, world
+scale 1.95, aim/station logic, palette, clock, epoch bands, A/B grammar,
+`_canon_pose` (fov 24 / pitch -50 / boom 72.857142857142857 m — still there,
+still pin-checked, still the default), `run_kc2_cpb_clip.sh`, the containment
+pin 229 + census, and everything outside this seam.
+
+  Parse check:
+    /Applications/Godot.app/Contents/MacOS/Godot --headless --path . \
+      --check-only --script scripts/kc2_cpb_clip.gd      -> exit 0
+
+  kc2_cpb_clip.gd sha256
+    at HEAD be7f0c2  ea38c5e20a66de4017128dbc6f26582257c07ace7a29695e62a4c30a54fa65e8
+    this cell       cfccf2ba041f809c4a017af76aa19819d13d34f70d67c4a6ef4303338bd6b751
+
+
+============================================================================
+3. THE REGRESSION GATE (Law 2) — and the drift it uncovered
+============================================================================
+
+Law 2: lines the canon path executes DID change (the SHOT_W/SHOT_H var swap and
+three false-valued guards), so the cheapest standing regression leg was run.
+
+INVOCATION (verbatim), leg 4 = the cheapest standing leg:
+  cd ~/Games/reincarnated-godot
+  for N in 1 2 3 4; do
+    FG10_MODE=pass FG10_LEG=d-close:on:-:45 FG10_PASSNO=$N \
+    OUT=<this cell dir> TMP=/tmp/kc2_ww3a \
+    bash scripts/run_kc2_cpb_clip.sh
+  done
+
+RESULT — 4 passes, this cell's file, 46 measured frames each:
+  pass 1  41 s  d0037aca3f5c071aac7ebd2516738a329d69ceb48419711e7a285d48b3f60dcd
+  pass 2  39 s  d0037aca3f5c071aac7ebd2516738a329d69ceb48419711e7a285d48b3f60dcd
+  pass 3  39 s  d0037aca3f5c071aac7ebd2516738a329d69ceb48419711e7a285d48b3f60dcd
+  pass 4  40 s  d0037aca3f5c071aac7ebd2516738a329d69ceb48419711e7a285d48b3f60dcd
+  -> 1 distinct state across 4 passes.
+
+  PINNED VALUE (A2g-r + CLK-2 f3, reproduced across four cells at four commits):
+       0253761a43b374b9d63dfd5ed199e61a1f7574e3664fac16521b06a2628af0d3
+  -> DOES NOT MATCH.
+
+THE BISECT — asked and answered by direct measurement, not argument. The
+modified file was set aside, the file restored to pristine HEAD, the SAME leg
+run, and the file restored:
+
+  cp scripts/kc2_cpb_clip.gd /tmp/kc2_ww3a/kc2_cpb_clip.WW3A.gd
+  git checkout -- scripts/kc2_cpb_clip.gd          # -> ea38c5e2... (HEAD)
+  FG10_MODE=pass FG10_LEG=d-close:on:-:45 FG10_PASSNO=9 \
+    OUT=<this cell dir>/baseline-head TMP=/tmp/kc2_ww3a_base \
+    bash scripts/run_kc2_cpb_clip.sh
+  cp /tmp/kc2_ww3a/kc2_cpb_clip.WW3A.gd scripts/kc2_cpb_clip.gd  # -> cfccf2ba...
+
+  pass 9 (PRISTINE HEAD FILE)  39 s
+       d0037aca3f5c071aac7ebd2516738a329d69ceb48419711e7a285d48b3f60dcd
+
+  => THE EDIT IS PIXEL-NEUTRAL. Pristine HEAD and this cell's file produce the
+     IDENTICAL digest, on the same host, minutes apart. That is the question
+     Law 2 exists to ask, and it is answered with a stronger instrument than
+     the pin: an A/B at one instant rather than a comparison across two days.
+
+THE SECOND STANDING LEG, to size the drift:
+  FG10_MODE=pass FG10_LEG=b-ring:on:-:45 FG10_PASSNO=1 \
+    OUT=<this cell dir> TMP=/tmp/kc2_ww3a bash scripts/run_kc2_cpb_clip.sh
+  pass 1  40 s  560a1b545c241192422e650d941482c218c5fa5fc2a4e7815381e16f378257f5
+  PINNED  504b6d8b4c0929ff179c0a5ab32f0a313a81b91233be062363d8ffa6c6f0ad78
+  -> ALSO DRIFTED. Both standing legs, not one.
+
+LOCALISATION, from evidence already on disk (the banked digest lists earned
+their keep exactly here):
+  - frame-by-frame diff, banked d-close pass-1 list vs this cell's pass-1 list:
+    46 of 46 frames differ, INCLUDING FRAME 0. Not a temporal or accumulation
+    signature — a whole-frame, global one.
+  - the record's own scene fingerprint (`fg10-digests/scene-fingerprint.txt`)
+    at A2g-r/CLK-2 = ea38c5e20a66... == kc2_cpb_clip.gd at HEAD today. The file
+    the matrix certified is byte-identical to the file on disk.
+  - `git status` tracked, non-tmp: ONLY scripts/kc2_cpb_clip.gd (this cell's).
+    Every other tracked render input is pristine at be7f0c2.
+  - Godot version recorded in the a2gr sidecar = 4.6.3-stable (official);
+    live binary = 4.6.3.stable.official.7d41c59c4. SAME.
+  - nothing under `.godot/` has content newer than 2026-08-13 12:00; the only
+    project files with newer mtimes are content-identical to HEAD.
+  - untracked `addons/` (Aug 12) and `Assets/ThirdParty/` (Jul 28) both PREDATE
+    the pinning run. Enabled editor plugins are sidekick_creator + godot_mcp,
+    neither of which loads in a `--path` scene run.
+
+  NAMED, NOT PROVEN (GL-12): a cross-session, host-level rendering-state change
+  between 2026-08-13 and 2026-08-15 that is invisible to the tracked tree. NOT
+  CHASED — CLK-2 spent three firings on this class and its own ruling was
+  instrument-then-certify, not hunt. Routed to the conductor.
+
+  WHAT IT COSTS THE RECORD, stated plainly so nobody has to rediscover it:
+  `verify_recorded_matrix` fingerprints ONE file and then calls a recorded
+  matrix "certifying" for a later render. This drift is exactly the thing that
+  fingerprint cannot see. The five pinned digests are no longer reproducible at
+  HEAD; any future cell that expects them will go red for a reason that is not
+  its own. (Kin to NOTE-80 one level out: the gate's inputs are cell-scoped,
+  its ENVIRONMENT is not.)
+
+  WHAT IT DOES NOT COST: this cell. The deliverable carries its own x2 byte
+  gate, taken minutes apart on the state that rendered it, and it is GREEN.
+
+
+============================================================================
+4. THE FRAME — which tick, and why that one
+============================================================================
+
+The instruction is "the A-phase state galadriel measured (the promoted watch's
+clip frame n=160 equivalent)". NOT ambiguous; the chain is all read:
+
+  promoted watch  a2gr-lookdist-cadence-ab.mp4
+                  = 320 A-stationary + 18 dip + 320 B-undulating = 658 frames
+  galadriel E3    extracted with `select=eq(n\,160)` -> ZERO-BASED
+  frame 160       lies inside segment A (0..319), at A-index 160
+                  (and outside A's 15-frame encode fade-out at the tail)
+  segment A       = --shot canon --undulate off --tick0 1570 --preroll 60
+  A-index k       = harness shot_frame k = raw PNG index PREROLL + k
+  k = 160         -> raw PNG index 220
+  dt              = (1/30) / 0.0816326530612245 = 49/120 = 0.408333... ticks/frame
+  TICK CHOSEN     = 1570 + 160 * 49/120 = 1635.333333
+
+  A's 320 length reconciled with the driven span: the scene drives shot_frames
+  0..318 (t > 1700 terminates at 319) and Godot's movie writer emits one
+  trailing frame as the scene quits -> 60 + 319 + 1 = 380 raw, 320 after the
+  preroll prune. Confirmed live: 222 raw written for a 161-frame budget
+  (60 + 161 + 1). Index 220 sits well inside the driven span, not in that tail.
+
+
+============================================================================
+5. THE LOCK LINE — VERBATIM from the deliverable render (pass 1 and pass 2
+   printed these character-for-character identically)
+============================================================================
+
+[cpb] ⚑ WW-3a: camera 'player_lock' at 1600 x 900 (shipped default: canon at 1920 x 1080). The reference this is judged beside is tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] cadence: STATIONARY (A2d's law) at 17 births/rev (target mean 11.0, R-CPB-15)
+[cpb] PL-5 floor check: captures/ = 6.94 G of a 10 G ceiling (69.4%)
+[cpb] disk free: 16.2 G (floor 8.0 G for PNG intermediates)
+[cpb] PL-5 floor check PASS — 3.06 G captures headroom
+[kc2-arena] [kc2_baton] GATE PASS | digest d7ecd866ac45 (MATCH) | 344 actors | 20 waves | 1003 knots | 1900 event rows | tick_period_s=0.0816326530612245
+[kc2-arena] built: floor 86.915 x 85.303 m · 6 emitters · 344 bodies · 8 declared absences
+[cpb] driver bound: 344 bodies, 344 anim players, drip 306 ticks
+[cpb] ⚑ PLAYER_LOCK CAMERA (WW-3 — THE GD GAME CAMERA, GAL-CAM operands, ported from wr2_playback.gd:2577-2727): reference tmp/br2watch/BR2W.mp4 (== BR2W_C9.mp4, sha256 ea61b0ee..., 1600x900)
+[cpb] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  z_player 34.8165 m  anchor (0.50104, 0.55093) frac  yaw 47.0 deg
+[cpb] player_lock: offset (camera - player ground) = (14.7262, 28.3970, 13.7826) m  |offset| 34.8312 m  height 28.3970 m
+[cpb] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[cpb] player_lock: GL-13 rectangle 86.915 x 85.303 m READ FOR REPORTING ONLY — no room dimension enters this pose, and none CAN: every term is (subject ground position, GAL-CAM operands)
+[cpb] camera gate: PASS (9 rays)
+[cpb] PL-AUDIT anchor: subject ground projects to frac (0.501042, 0.550925); expected (0.501041, 0.550925); delta (0.000000, 0.000000) frac = (0.0002, 0.0002) px at 1600 x 900
+[cpb] shot canon: ticks 1570.00 -> 1700 (10.61 s of trace) = 161 frames at 30 fps (+ 60 TICK-FROZEN warm-up frames, pruned before the encode)
+[cpb] frame     0  tick  1570.00  visible   5
+[cpb] frame    60  tick  1594.50  visible   5
+[cpb] frame   120  tick  1619.00  visible   5
+[cpb] shot canon complete: 221 frames driven
+
+THE ANCHOR AUDIT AS A CLAIM ROW (full precision, from the sidecar; the print
+above is the same numbers at print precision):
+
+  measured  fx 0.501041603088379   fy 0.550925360785590
+  expected  fx 0.501041450500488   fy 0.550925123426649   [pl_audit.json]
+  delta     fx 1.52587890878131e-07  fy 2.37358941279631e-07  frac
+  delta     x  0.000244140625 px      y  0.000213623046875 px   @ 1600x900
+
+  What the quantity IS, named so one measurement can answer it (NOTE-82): the
+  SUBJECT'S GROUND POINT projected through the Camera3D that renders, via
+  `unproject_position` — the same quantity wr2_playback.gd's own PL-AUDIT
+  measures. It is NOT the body AABB centroid; that is § 6, separately.
+
+  Sub-thousandth-of-a-pixel. The port is the reference camera, not a likeness.
+
+
+============================================================================
+6. THE DELIVERABLE + THE x2 GATE
+============================================================================
+
+INVOCATION (verbatim):
+  cd ~/Games/reincarnated-godot && bash scripts/run_ww3a_playerlock_still.sh
+
+  which runs, twice:
+    /Applications/Godot.app/Contents/MacOS/Godot --rendering-driver metal \
+      --path . --write-movie <tmp>/frame.png --fixed-fps 30 --disable-vsync \
+      scenes/kc2_cpb_clip.tscn --quit-after 6000 -- \
+      --out <tmp> --shot canon --cam player_lock --undulate off \
+      --width 1600 --height 900 --frames 161 --preroll 60 --tick0 1570
+
+  pass 1  100 s  222 raw frames written  picked index 220
+  pass 2  104 s  222 raw frames written  picked index 220
+
+  pass 1 sha256  c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+  pass 2 sha256  c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+  `cmp` byte-for-byte: IDENTICAL.
+
+  x2 GATE VERDICT: GREEN. No re-run of the compare was needed and none was run.
+  (A galadriel ffmpeg/python cell was live on this host throughout. Not chased,
+  and per CLK-2 not a candidate: host concurrency was measured out as a
+  variance driver at leg 2's bit-perfect 320x4.)
+
+PROMOTED (Class-E — bytes on disk, sha in this tracked text):
+  evidence/arena-playerlock-n160-1600x900.png
+  sha256 c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+  2,123,729 B · 1600x900 · UNTRACKED by design (dir's class-E law, a2gr precedent)
+
+ALSO BANKED (text, tracked):
+  evidence/ww3a-sidecar-playerlock-n160-pass1.json   the full pose derivation,
+    the anchor audit, the measured optics and the camera gate rows
+  fg10-digests/                                      § 3's digest lists
+  baseline-head/fg10-digests/                        § 3's pristine-HEAD bisect
+  ww3a-fg12-prune-receipts.txt                       444 raw PNG frames pruned
+
+THE SUBJECT BAND — MEASURED, PREDICTED, AND NOT COMPENSATED FOR
+
+  From the harness's own optics block (projection of the union AABB of every
+  MeshInstance3D under `body_holder` — the man AND the hammer — through the
+  camera that renders, taken at the shot's FIRST tick, which is this harness's
+  standing convention and the convention the 12.990 % figure came from):
+
+    world_height_m           2.399574
+    screen_h_px            188.065  of 900
+    screen_height_fraction  20.896118 %
+    screen_w_px            153.319  of 1600  (9.582428 %)
+    px_per_metre_at_station 26.914579
+
+  BESIDE THE CANON-BOOM NUMBER IT REPLACES (same quantity, same convention):
+    canon boom 72.857 m / fov 24 / 1920x1080 : 12.990480 %  (140.297 px/1080)
+      — and galadriel's independent vision measure of the same frame: 12.963 %
+    player_lock 34.8165 m / fov_v 31.7861 / 1600x900 : 20.896118 %
+    ratio 1.6086x linear.
+
+  AGAINST THE GD ANCHORS OF RECORD (WW-2 / gd-parity, same seg-bracket family):
+    GD human 7.037 %  ·  GD werewolf 14.769 %  ·  GD boss-tier 21.574 %
+    our arena subject under GD'S OWN CAMERA: 20.896 %
+      = 2.97x the GD human register, 1.41x the werewolf, and just under the
+        BOSS-tier register.
+
+  THIS WAS PREDICTED AND DECLARED BEFORE THE RENDER. It is the body-scale fork
+  (packet § 4: (A) camera-constant vs (B) presence-constant) surfacing exactly
+  on schedule. NOTHING was moved to meet a number — not scale 1.95, not a
+  distance, not an aim term. Matt rules it on the frame.
+
+  HONEST BOUNDARY ON THAT NUMBER (NOTE-62): 20.896118 % is a GEOMETRY
+  projection taken at tick 1570, not a pixel read of the shipped still at tick
+  1635.333333. The body spins, so a vision measure of the promoted PNG will not
+  land on it exactly. It is stated here because it is the ONLY quantity
+  directly comparable to the 12.990 % of record. A pixel-domain register read
+  of this still is galadriel's method and belongs in WW-3b, not here.
+
+
+============================================================================
+7. EYE ON BOTH FRAMES (the cell's own, before shipping)
+============================================================================
+
+Reference, extracted for THIS eye-check only and NOT shipped (temp, /tmp):
+  ffmpeg -y -loglevel error -i tmp/br2watch/BR2W.mp4 \
+    -vf "select=eq(n\,150)" -vframes 1 /tmp/kc2_ww3a/tmp-ww3a-BR2W-n150-EYECHECK.png
+  -> 1600x900 confirmed by header read.
+
+  The two frames read as the SAME camera geometry family: same bearing, the
+  floor recedes the same way, the same depression, subject at the same anchor
+  slightly below frame centre. The port is the right camera.
+
+  Differences a reader should attribute to CONTENT, not to the camera: BR2W
+  carries a full HUD and a lit corridor room; ours is the placeholder tiled
+  floor with no HUD.
+
+CARRIED FORWARD, gate-2 caveats already named upstream and confirmed by this
+cell's eye at the new register (they do NOT gate the camera call):
+  - the placeholder tiled floor now fills essentially the whole frame.
+  - galadriel's WW-2 ROTOR FLAG holds and is MORE pronounced at 20.9 %: the
+    subject reads as a wheel/dome + radial-spoke mass with a tall vertical grey
+    element above it, not as an unambiguous humanoid. Filed as the standing
+    Gate-2 readability item for this seam; it is not this cell's to fix.
+
+
+============================================================================
+8. DECLARED ABSENCES + CONTAINMENT (GL-12: declared, never filled)
+============================================================================
+
+1. THE LOCK IS DEGENERATE IN THIS SCENE, and that is a fact about the arena,
+   not about the port. `kc2_player_channel.gd:747` sets
+   `body_holder.position = arena._v3(_sim_x, _sim_y)` ONCE; the body thereafter
+   only SPINS. `_pl_cam_update()` runs after `apply_tick` on every rendered
+   frame and re-reads the ground point, and computes the same camera position
+   every time. The same code follows a moving subject; this scene has none.
+
+2. NO CANON-CAMERA COUNTERPART WAS RENDERED at 1600x900. The brief scoped ONE
+   gated still, and the packet already holds the canon-camera exhibit at the
+   same tick (E3 `arena-n160.png`, 1920x1080). If the conductor wants a
+   resolution-matched canon control it is one invocation away:
+     `--cam canon --width 1600 --height 900` (same script, same everything).
+
+3. THE FIVE-LEG FG-10 MATRIX WAS NOT RE-RUN, and no deliverable CLIP was
+   rendered or promoted. This cell shipped a STILL under its own x2 byte gate.
+   Nothing was promoted into the a2gr capture directory.
+
+4. THE § 3 DRIFT IS NAMED, NOT DIAGNOSED. No root cause is claimed.
+
+CONTAINMENT: standing pins untouched — `tmp/br2watch/measure/census.json` was
+already modified in the working tree at cell open and was NOT touched by this
+cell (pin 229 + census held). Read-only outside the seam throughout: the only
+files written outside `~/Games/reincarnated-godot/scripts/` are this capture
+directory and `/tmp/kc2_ww3a*`.
+
+
+============================================================================
+9. WHAT GATE 1 NOW HAS
+============================================================================
+
+Matt's R-CPB-17b gate 1 is "eyeball arena-under-player_lock beside BR2W". The
+two files, both 1600x900, both sha-stated:
+
+  REFERENCE  ~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4
+             ea61b0ee3469d8e03cca0f6b23e3dda6411c147b56e522bdb53469f072d981ba
+  OURS       <this dir>/evidence/arena-playerlock-n160-1600x900.png
+             c2175da93243358c02f0056226d2fe9b7aebff9ec98ccb0fa43a1bdc79693cf4
+
+The camera between them is not similar, it is the SAME: the offset vector
+matches the reference rig's own audit to 0.000000000000 m and the subject lands
+on the reference's measured anchor to 0.0002 px. Whatever Matt's eye says next
+is a judgement about BODIES and CONTENT, because the camera variable is closed.
