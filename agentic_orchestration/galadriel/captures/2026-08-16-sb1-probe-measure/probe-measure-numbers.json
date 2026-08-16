@@ -1,0 +1,515 @@
+{
+ "cell": "WW-8b BLIND PROBE MEASUREMENT",
+ "agent": "galadriel",
+ "date": "2026-08-16",
+ "frame_h": 1080,
+ "frame_w": 1920,
+ "primary_chroma": "generous (m>=40)",
+ "chroma_definition": "m = min(R,B) - G on 8-bit sRGB; probe albedo pure (1,0,1) unshaded",
+ "corner_definition": "half-slope crossing of the boundary slope dx/dy taken over a +/-4 row window; TIGHT = innermost row with |slope|<=0.15 px/row; GENEROUS = outermost row before |slope| reaches 0.9x the adjacent slant magnitude",
+ "h_px_definition": "y_bottom - y_top (exclusive difference, not inclusive row count)",
+ "inputs": {
+  "k1000": {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-16-sb1-probe-calib/evidence/arena-pl-k1000-probe2m-n160-1920x1080.png",
+   "sha256": "41a6a8bdb0d24a4af0f47e870af96f7eb0bf4f9f856a52af4ffd0b21e0599d14",
+   "sha256_expected": "41a6a8bdb0d24a4af0f47e870af96f7eb0bf4f9f856a52af4ffd0b21e0599d14",
+   "sha_gate": "PASS",
+   "bytes": 2122232
+  },
+  "k0665": {
+   "path": "agentic_orchestration/galadriel/captures/2026-08-16-sb1-probe-calib/evidence/arena-pl-k0665-probe2m-n160-1920x1080.png",
+   "sha256": "6b5929d1bb4888efac172944c086b69e9583fdb46f42bd9ce944096f451946a9",
+   "sha256_expected": "6b5929d1bb4888efac172944c086b69e9583fdb46f42bd9ce944096f451946a9",
+   "sha_gate": "PASS",
+   "bytes": 1847848
+  }
+ },
+ "stills": {
+  "k1000": {
+   "thresholds": {
+    "tight": {
+     "threshold_m": 200,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 942,
+      "x_max": 981,
+      "y_top": 514,
+      "y_bottom": 589,
+      "h_px": 75,
+      "h_frac": 0.06944,
+      "w_px": 39,
+      "n_rows_inclusive": 76
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 942,
+       "top": {
+        "x": 942,
+        "y": 528,
+        "y_bracket_tight": 532,
+        "y_bracket_generous": 525
+       },
+       "bottom": {
+        "x": 943,
+        "y": 566,
+        "y_bracket_tight": 564,
+        "y_bracket_generous": 569
+       },
+       "h_px": 38,
+       "h_px_bracket": [
+        32,
+        44
+       ],
+       "h_frac": 0.03519,
+       "h_frac_bracket": [
+        0.02963,
+        0.04074
+       ],
+       "nadir_lean_px": 0,
+       "slant_pxrow_top_face": 1.31,
+       "slant_pxrow_ground_face": 0.688,
+       "occluder_notch_rows": [
+        [
+         548,
+         551
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 981,
+       "top": {
+        "x": 981,
+        "y": 529,
+        "y_bracket_tight": 531,
+        "y_bracket_generous": 525
+       },
+       "bottom": {
+        "x": 979,
+        "y": 575,
+        "y_bracket_tight": 571,
+        "y_bracket_generous": 581
+       },
+       "h_px": 46,
+       "h_px_bracket": [
+        40,
+        56
+       ],
+       "h_frac": 0.04259,
+       "h_frac_bracket": [
+        0.03704,
+        0.05185
+       ],
+       "nadir_lean_px": 1,
+       "slant_pxrow_top_face": 1.125,
+       "slant_pxrow_ground_face": 1.375,
+       "occluder_notch_rows": []
+      }
+     }
+    },
+    "nominal": {
+     "threshold_m": 128,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 942,
+      "x_max": 982,
+      "y_top": 514,
+      "y_bottom": 598,
+      "h_px": 84,
+      "h_frac": 0.07778,
+      "w_px": 40,
+      "n_rows_inclusive": 85
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 942,
+       "top": {
+        "x": 943,
+        "y": 527,
+        "y_bracket_tight": 531,
+        "y_bracket_generous": 525
+       },
+       "bottom": {
+        "x": 944,
+        "y": 584,
+        "y_bracket_tight": 579,
+        "y_bracket_generous": 591
+       },
+       "h_px": 57,
+       "h_px_bracket": [
+        48,
+        66
+       ],
+       "h_frac": 0.05278,
+       "h_frac_bracket": [
+        0.04444,
+        0.06111
+       ],
+       "nadir_lean_px": 0,
+       "slant_pxrow_top_face": 1.375,
+       "slant_pxrow_ground_face": 0.875,
+       "occluder_notch_rows": [
+        [
+         548,
+         551
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 982,
+       "top": {
+        "x": 982,
+        "y": 529,
+        "y_bracket_tight": 529,
+        "y_bracket_generous": 526
+       },
+       "bottom": {
+        "x": 979,
+        "y": 592,
+        "y_bracket_tight": 588,
+        "y_bracket_generous": 592
+       },
+       "h_px": 63,
+       "h_px_bracket": [
+        59,
+        66
+       ],
+       "h_frac": 0.05833,
+       "h_frac_bracket": [
+        0.05463,
+        0.06111
+       ],
+       "nadir_lean_px": 2,
+       "slant_pxrow_top_face": 1.125,
+       "slant_pxrow_ground_face": 1.438,
+       "occluder_notch_rows": []
+      }
+     }
+    },
+    "generous": {
+     "threshold_m": 40,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 942,
+      "x_max": 982,
+      "y_top": 513,
+      "y_bottom": 609,
+      "h_px": 96,
+      "h_frac": 0.08889,
+      "w_px": 40,
+      "n_rows_inclusive": 97
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 942,
+       "top": {
+        "x": 943,
+        "y": 527,
+        "y_bracket_tight": 530,
+        "y_bracket_generous": 525
+       },
+       "bottom": {
+        "x": 943,
+        "y": 594,
+        "y_bracket_tight": 591,
+        "y_bracket_generous": 598
+       },
+       "h_px": 67,
+       "h_px_bracket": [
+        61,
+        73
+       ],
+       "h_frac": 0.06204,
+       "h_frac_bracket": [
+        0.05648,
+        0.06759
+       ],
+       "nadir_lean_px": 0,
+       "slant_pxrow_top_face": 1.25,
+       "slant_pxrow_ground_face": 1.125,
+       "occluder_notch_rows": [
+        [
+         549,
+         551
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 982,
+       "top": {
+        "x": 982,
+        "y": 529,
+        "y_bracket_tight": 531,
+        "y_bracket_generous": 525
+       },
+       "bottom": {
+        "x": 980,
+        "y": 595,
+        "y_bracket_tight": 591,
+        "y_bracket_generous": 598
+       },
+       "h_px": 66,
+       "h_px_bracket": [
+        60,
+        73
+       ],
+       "h_frac": 0.06111,
+       "h_frac_bracket": [
+        0.05556,
+        0.06759
+       ],
+       "nadir_lean_px": 1,
+       "slant_pxrow_top_face": 1.125,
+       "slant_pxrow_ground_face": 1.312,
+       "occluder_notch_rows": []
+      }
+     }
+    }
+   }
+  },
+  "k0665": {
+   "thresholds": {
+    "tight": {
+     "threshold_m": 200,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 932,
+      "x_max": 992,
+      "y_top": 470,
+      "y_bottom": 587,
+      "h_px": 117,
+      "h_frac": 0.10833,
+      "w_px": 60,
+      "n_rows_inclusive": 118
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 932,
+       "top": {
+        "x": 933,
+        "y": 491,
+        "y_bracket_tight": 495,
+        "y_bracket_generous": 486
+       },
+       "bottom": {
+        "x": 935,
+        "y": 560,
+        "y_bracket_tight": 559,
+        "y_bracket_generous": 560
+       },
+       "h_px": 69,
+       "h_px_bracket": [
+        64,
+        74
+       ],
+       "h_frac": 0.06389,
+       "h_frac_bracket": [
+        0.05926,
+        0.06852
+       ],
+       "nadir_lean_px": 2,
+       "slant_pxrow_top_face": 1.429,
+       "slant_pxrow_ground_face": 0.75,
+       "occluder_notch_rows": [
+        [
+         522,
+         532
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 992,
+       "top": {
+        "x": 991,
+        "y": 493,
+        "y_bracket_tight": 497,
+        "y_bracket_generous": 491
+       },
+       "bottom": {
+        "x": 990,
+        "y": 563,
+        "y_bracket_tight": 559,
+        "y_bracket_generous": 576
+       },
+       "h_px": 70,
+       "h_px_bracket": [
+        62,
+        85
+       ],
+       "h_frac": 0.06481,
+       "h_frac_bracket": [
+        0.05741,
+        0.0787
+       ],
+       "nadir_lean_px": 1,
+       "slant_pxrow_top_face": 1.143,
+       "slant_pxrow_ground_face": 1.2,
+       "occluder_notch_rows": []
+      }
+     }
+    },
+    "nominal": {
+     "threshold_m": 128,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 931,
+      "x_max": 993,
+      "y_top": 469,
+      "y_bottom": 601,
+      "h_px": 132,
+      "h_frac": 0.12222,
+      "w_px": 62,
+      "n_rows_inclusive": 133
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 931,
+       "top": {
+        "x": 932,
+        "y": 491,
+        "y_bracket_tight": 495,
+        "y_bracket_generous": 489
+       },
+       "bottom": {
+        "x": 934,
+        "y": 579,
+        "y_bracket_tight": 575,
+        "y_bracket_generous": 582
+       },
+       "h_px": 88,
+       "h_px_bracket": [
+        80,
+        93
+       ],
+       "h_frac": 0.08148,
+       "h_frac_bracket": [
+        0.07407,
+        0.08611
+       ],
+       "nadir_lean_px": 1,
+       "slant_pxrow_top_face": 1.375,
+       "slant_pxrow_ground_face": 0.875,
+       "occluder_notch_rows": [
+        [
+         523,
+         530
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 993,
+       "top": {
+        "x": 993,
+        "y": 494,
+        "y_bracket_tight": 497,
+        "y_bracket_generous": 490
+       },
+       "bottom": {
+        "x": 990,
+        "y": 589,
+        "y_bracket_tight": 586,
+        "y_bracket_generous": 591
+       },
+       "h_px": 95,
+       "h_px_bracket": [
+        89,
+        101
+       ],
+       "h_frac": 0.08796,
+       "h_frac_bracket": [
+        0.08241,
+        0.09352
+       ],
+       "nadir_lean_px": 3,
+       "slant_pxrow_top_face": 1.125,
+       "slant_pxrow_ground_face": 0.75,
+       "occluder_notch_rows": []
+      }
+     }
+    },
+    "generous": {
+     "threshold_m": 40,
+     "silhouette_bbox_SECONDARY": {
+      "x_min": 931,
+      "x_max": 993,
+      "y_top": 469,
+      "y_bottom": 617,
+      "h_px": 148,
+      "h_frac": 0.13704,
+      "w_px": 62,
+      "n_rows_inclusive": 149
+     },
+     "vertical_edges_PRIMARY": {
+      "left": {
+       "plateau_x": 931,
+       "top": {
+        "x": 932,
+        "y": 491,
+        "y_bracket_tight": 494,
+        "y_bracket_generous": 488
+       },
+       "bottom": {
+        "x": 934,
+        "y": 593,
+        "y_bracket_tight": 586,
+        "y_bracket_generous": 597
+       },
+       "h_px": 102,
+       "h_px_bracket": [
+        92,
+        109
+       ],
+       "h_frac": 0.09444,
+       "h_frac_bracket": [
+        0.08519,
+        0.10093
+       ],
+       "nadir_lean_px": 2,
+       "slant_pxrow_top_face": 1.375,
+       "slant_pxrow_ground_face": 1.125,
+       "occluder_notch_rows": [
+        [
+         524,
+         529
+        ]
+       ]
+      },
+      "right": {
+       "plateau_x": 993,
+       "top": {
+        "x": 993,
+        "y": 493,
+        "y_bracket_tight": 497,
+        "y_bracket_generous": 490
+       },
+       "bottom": {
+        "x": 989,
+        "y": 596,
+        "y_bracket_tight": 592,
+        "y_bracket_generous": 599
+       },
+       "h_px": 103,
+       "h_px_bracket": [
+        95,
+        109
+       ],
+       "h_frac": 0.09537,
+       "h_frac_bracket": [
+        0.08796,
+        0.10093
+       ],
+       "nadir_lean_px": 3,
+       "slant_pxrow_top_face": 1.134,
+       "slant_pxrow_ground_face": 1.375,
+       "occluder_notch_rows": []
+      }
+     }
+    }
+   }
+  }
+ },
+ "negative_results": {
+  "N1": "tight chroma m>=200 does not track the box silhouette below the smoke line in either still; its contour traces a spurious inward V. Its numbers are reported for completeness and are NOT a measurement of the edges.",
+  "N2": "first pass of pm_measure.py mis-classified the whole top-face slant run as an occluder notch (notch search not restricted to the plateau interior), yielding top_slant 0.125 px/row and a k1000 left top corner of y=531. Fixed by bounding the notch search to rows strictly between first and last plateau contact."
+ },
+ "internal_consistency": {
+  "C1_nadir_lean": "all four walls lean INWARD going down (left wall x increases, right decreases) by 1-3 px -- the perspective signature of true world-verticals under an un-rolled camera pitched down. Sign correct on 4/4.",
+  "C2_slant_parallelism": "top-face slant magnitude matches the OPPOSITE ground-face slant: k1000 L-top 1.25 vs R-ground 1.312, R-top 1.125 vs L-ground 1.125; k0665 L-top 1.375 vs R-ground 1.375, R-top 1.134 vs L-ground 1.125.",
+  "C3_wall_agreement": "left and right wall h_px agree within 1 px under primary chroma in both stills (k1000 67/66, k0665 102/103).",
+  "C4_chroma_floor": "m>=40 gives exactly ONE connected component per frame, zero stray islands; m>=20 gives 3 (k1000) and 6 (k0665)."
+ }
+}

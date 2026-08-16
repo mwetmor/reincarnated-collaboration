@@ -1,0 +1,413 @@
+WW-8b — BLIND PROBE MEASUREMENT
+================================================================================
+Cell     : WW-8b (Matt's SB-1 run; gandalf conducting as RUN-CONDUCTOR)
+Agent    : galadriel
+Date     : 2026-08-16
+Mode     : read-only on inputs; writes confined to this new capture dir
+Scope    : NUMBERS ONLY. No comparison, no reconciliation, no verdict.
+           No ratio between the two stills. No conversion to metres.
+           The comparison is the conductor's, against expectations that pre-date
+           this work.
+
+================================================================================
+0. BLINDNESS DECLARATION
+================================================================================
+
+READ (deliberately, and this is the whole list):
+  - the two input PNGs, bytes only, read-only
+  - agentic_orchestration/galadriel/notes/2026-07-31-gd-parity-measure.md
+    (my own prior note; named in the cell brief as the method lineage to replicate)
+  - my own instruments under agentic_orchestration/galadriel/pipeline/gd-parity/
+    (gp_ruler.py, gp_seg.py headers)
+  - directory listings of galadriel/captures/2026-08-16-sb1-probe-calib/ and
+    galadriel/pipeline/
+
+REFUSED (never opened):
+  - agentic_orchestration/gandalf/notes/2026-08-10-sb1-scene-run-ledger.md
+  - agentic_orchestration/gandalf/notes/2026-08-14-sb1-eyeball-packet-README.md
+  - everything else under agentic_orchestration/gandalf/
+  - git log / git show on the collaboration repo — not run at any point
+  - agentic_orchestration/galadriel/captures/2026-08-16-sb1-probe-calib/receipt.txt
+    Permitted by the brief, but not needed and therefore not opened: both input
+    sha256 values were verified independently with shasum against the figures in
+    the brief itself (§ 1 below). Not reading it is the tighter posture.
+  - agentic_orchestration/galadriel/notes/2026-08-14-sb1-register-measure.md
+    NOT barred by the brief — it is my own note — but an SB-1
+    register-MEASUREMENT note is a plausible carrier of exactly the expectations
+    this cell must be blind to. Refused on precaution. Declared.
+
+CONTAMINATION DECLARED (two items; both declared rather than hidden):
+
+  D1. The gd-parity method note, which the brief DIRECTED me to as method
+      lineage, carries a screen-fraction ladder from a prior cell — including a
+      per-metre frame-fraction figure. That is a quantity of the same KIND this
+      cell measures. It has been put to no use: no ratio, no metre conversion,
+      no scale arithmetic and no comparison of any sort appears anywhere in this
+      receipt or in the JSON. Only the METHOD was taken from that note
+      (seg-bracketed manual boxes, row/column scans, ruler adjudication,
+      write-the-mask-before-believing-the-number).
+
+  D2. My session preamble was populated by the harness with a "Recent commits"
+      block carrying five commit subject lines from this repo. I did not request
+      it and did not run git log. Inspected for relevance: the five subjects
+      concern factory-spine closure, a DRIFT-CRITIC re-verdict, a parked Q55
+      decision, a spine landing, and a Codex worker-lane credential item. None
+      mentions the probe, the box, magenta, a dolly rung, either still, or any
+      pixel or frame-fraction figure. The exposure is real and is therefore
+      declared; for this cell's measured quantity it is null.
+
+I hold no pre-registered expectation for any number below, and none was
+consulted, inferred, or reverse-engineered.
+
+================================================================================
+1. INPUT SHA GATE — BOTH PASS
+================================================================================
+
+Verified with `shasum -a 256` before any measurement was taken.
+
+  k1000  agentic_orchestration/galadriel/captures/2026-08-16-sb1-probe-calib/
+         evidence/arena-pl-k1000-probe2m-n160-1920x1080.png
+         computed 41a6a8bdb0d24a4af0f47e870af96f7eb0bf4f9f856a52af4ffd0b21e0599d14
+         expected 41a6a8bdb0d24a4af0f47e870af96f7eb0bf4f9f856a52af4ffd0b21e0599d14
+         2,122,232 B · 1920x1080 · PASS
+
+  k0665  agentic_orchestration/galadriel/captures/2026-08-16-sb1-probe-calib/
+         evidence/arena-pl-k0665-probe2m-n160-1920x1080.png
+         computed 6b5929d1bb4888efac172944c086b69e9583fdb46f42bd9ce944096f451946a9
+         expected 6b5929d1bb4888efac172944c086b69e9583fdb46f42bd9ce944096f451946a9
+         1,847,848 B · 1920x1080 · PASS
+
+Neither input byte was modified. Every artefact in this directory is new.
+
+================================================================================
+2. METHOD
+================================================================================
+
+2.1 CHROMA REFERENCE
+    magenta-ness   m = min(R, B) - G        on 8-bit sRGB, no colour conversion,
+                                            no normalisation, no gain
+    The probe's albedo is pure (1,0,1) and unshaded, so m saturates at 255 over
+    the box body while scene content sits at m < 16. Three thresholds are
+    carried end to end rather than one being chosen in advance:
+
+        tight     m >= 200    near-pure box only
+        nominal   m >= 128    the 50%-coverage antialias convention
+        generous  m >=  40    any appreciable magenta above the noise shelf
+
+    Threshold floor READ off the frame, not guessed (GL-17). The m histogram in
+    both stills is bimodal with an empty shelf: k1000 has 108 px in m∈[16,40)
+    and k0665 has 145; below 16 the frame's ordinary content begins. At m>=40
+    each frame yields EXACTLY ONE connected component and zero stray islands;
+    at m>=20 it yields 3 (k1000) and 6 (k0665), including a singleton 145 px
+    away at x=1127. The floor is therefore placed at 40.
+
+    Core sanity: at m>=200 the median pixel is (255, 0, 255) in both stills;
+    R range 219–255 / G 0–46 / B 219–255 (k1000), R 216–255 / G 0–47 /
+    B 215–255 (k0665).
+
+2.2 PRIMARY CHROMA = GENEROUS (m >= 40).  Declared and justified, not assumed.
+    Scene smoke is drawn over the lower half of the box in both stills. It
+    attenuates the box's chroma without destroying the silhouette boundary. The
+    consequence is visible on the contour plates: the tight contour PEELS OFF
+    the straight wall below the smoke line and traces a spurious inward V that
+    has nothing to do with box geometry; the nominal contour does the same, less
+    severely. The generous contour tracks the straight wall through the smoke.
+    All three are reported; generous is the read.
+
+    Two independent corroborations that this is the right call, not a convenient
+    one: (a) at the TOP of the box, where there is no smoke, all three contours
+    coincide to the pixel; (b) under generous chroma the two walls agree in
+    height within 1 px in both stills, which two nearly-equidistant vertical
+    edges of one box must — under nominal they disagree by 6–7 px, under tight
+    by 8 px in k1000.
+
+2.3 EDGE IDENTIFICATION
+    The box is world-axis-aligned and viewed corner-on under a pitched camera,
+    so the silhouette is a hexagon: top apex, two near-vertical side walls, two
+    slanted top-face edges above them, two slanted ground-face edges below, and
+    a bottom (nearest-corner) ground apex. The PRIMARY instruments are the two
+    side walls — the leftmost and rightmost near-vertical boundaries.
+
+    For every row y the boundary is walked: x_left(y) = min magenta x,
+    x_right(y) = max magenta x. The wall is the PLATEAU in that profile.
+
+2.4 CORNER LOCATION — read, not fitted
+    Local boundary slope dx/dy over a +/-4 row window. A true vertical box edge
+    is flat to hundredths of a px/row; the top-face and ground-face silhouette
+    edges run at ~1.1–1.4 px/row. Three values per endpoint:
+
+        TIGHT     innermost row unambiguously on the flat wall
+                  (first/last row with |slope| <= 0.15 px/row)
+        READ      the half-slope crossing — the row at which |slope| first
+                  passes half the adjacent slant magnitude.  PRIMARY.
+        GENEROUS  outermost row still plausibly on the wall
+                  (last/first row before |slope| reaches 0.9x the slant)
+
+    Under a symmetric window the half-slope crossing lands on the corner row for
+    a sharp corner. Each automated READ was reproduced by hand off the printed
+    slope table before it was accepted (k1000 left: slant 1.25, half 0.625;
+    |slope| = 0.62 at y=528 and 0.75 at y=527, so READ = 527 — matching the
+    instrument exactly). Corners were then LOOKED AT on ruler crops at 9x–18x
+    with per-pixel contour overlays before any number was believed.
+
+    NOTE on the two senses of tight/generous, kept separate throughout:
+    (a) chroma threshold — the m cut; (b) endpoint bracket — the row bracket at
+    a fixed chroma. The brief's "TIGHT reading + GENEROUS bracket" is sense (b),
+    delivered in § 3. Sense (a) is the method-sensitivity sweep in § 5.
+
+2.5 OCCLUDER HANDLING
+    An excursion of the wall off its plateau by > 2 px that returns within 12
+    rows, and that lies strictly between the first and last plateau contact, is
+    logged as a NOTCH, excluded from the slant statistics, and never repaired.
+    Interior holes (scene objects drawn over the box's middle, not its edge) are
+    counted and declared but cannot affect a row's min/max x.
+
+2.6 EXCLUSION BY CHROMA
+    The fighter and all FX are excluded by construction: only magenta pixels are
+    ever considered. Verified: no non-magenta object touches either right wall
+    in either still, and the objects that DO touch the left wall are the notches
+    of A2.
+
+2.7 INSTRUMENTS (all new, all in
+    agentic_orchestration/galadriel/pipeline/probe-measure/)
+        pm_chroma_survey.py   m histogram, band counts, band bboxes, core stats
+        pm_profile.py         per-row x_left / x_right at all three thresholds
+        pm_corner.py          per-row slope table, plateau runs, per-x extents
+        pm_measure.py         the numbers; emits probe-measure-numbers.json
+        pm_plate.py           contour + read overlay plates
+    plus agentic_orchestration/galadriel/pipeline/gd-parity/gp_ruler.py
+    (existing, unmodified) for the plain ruler crops.
+
+================================================================================
+3. THE NUMBERS — PRIMARY: vertical side edges, generous chroma (m >= 40)
+================================================================================
+
+h_px = y_bottom - y_top   (exclusive difference, per the brief's definition;
+                           the inclusive row count is h_px + 1)
+h_frac = h_px / 1080
+
+k1000  arena-pl-k1000-probe2m-n160-1920x1080.png
+-------------------------------------------------------------------------------
+  LEFT vertical edge          plateau x = 942
+    top     (x, y) = (943, 527)      y bracket  tight 530 .. generous 525
+    bottom  (x, y) = (943, 594)      y bracket  tight 591 .. generous 598
+    h_px    = 67                     bracket    61 .. 73
+    h_frac  = 0.06204                bracket    0.05648 .. 0.06759
+    nadir lean over the edge = 1 px (942 -> 943 descending)
+    occluder notch rows 549..551  (A2)
+
+  RIGHT vertical edge         plateau x = 982
+    top     (x, y) = (982, 529)      y bracket  tight 531 .. generous 525
+    bottom  (x, y) = (980, 595)      y bracket  tight 591 .. generous 598
+    h_px    = 66                     bracket    60 .. 73
+    h_frac  = 0.06111                bracket    0.05556 .. 0.06759
+    nadir lean over the edge = 1 px (982 -> 981 descending)
+    no notch
+
+k0665  arena-pl-k0665-probe2m-n160-1920x1080.png
+-------------------------------------------------------------------------------
+  LEFT vertical edge          plateau x = 931
+    top     (x, y) = (932, 491)      y bracket  tight 494 .. generous 488
+    bottom  (x, y) = (934, 593)      y bracket  tight 586 .. generous 597
+    h_px    = 102                    bracket    92 .. 109
+    h_frac  = 0.09444                bracket    0.08519 .. 0.10093
+    nadir lean over the edge = 2 px (931 -> 933 descending)
+    occluder notch rows 524..529  (A2)
+
+  RIGHT vertical edge         plateau x = 993
+    top     (x, y) = (993, 493)      y bracket  tight 497 .. generous 490
+    bottom  (x, y) = (989, 596)      y bracket  tight 592 .. generous 599
+    h_px    = 103                    bracket    95 .. 109
+    h_frac  = 0.09537                bracket    0.08796 .. 0.10093
+    nadir lean over the edge = 3 px (993 -> 990 descending)
+    no notch
+
+On the reported x values: the READ row for a BOTTOM endpoint is by definition
+the first row PAST the half-slope crossing, so x there may already sit 1–4 px
+inside the plateau. plateau_x is given alongside for every edge so the geometry
+is not hidden by the convention (A7).
+
+================================================================================
+4. SECONDARY — full magenta-silhouette bounding box (declared, not preferred)
+================================================================================
+
+Reported so the geometry between edge-height and bbox-height is on the record.
+The bbox runs from the TOP APEX (a top-face corner) to the BOTTOM APEX (the
+nearest ground corner) and is therefore a different quantity from either wall.
+
+  generous chroma (m >= 40) — the primary read:
+    k1000   x [942 .. 982]   y [513 .. 609]   h_px = 96   h_frac = 0.08889
+            w_px = 40        rows inclusive = 97
+    k0665   x [931 .. 993]   y [469 .. 617]   h_px = 148  h_frac = 0.13704
+            w_px = 62        rows inclusive = 149
+
+  same bbox at the other two thresholds, for the sensitivity record:
+    k1000   nominal  y [514 .. 598]  h_px = 84   h_frac = 0.07778
+            tight    y [514 .. 589]  h_px = 75   h_frac = 0.06944
+    k0665   nominal  y [469 .. 601]  h_px = 132  h_frac = 0.12222
+            tight    y [470 .. 587]  h_px = 117  h_frac = 0.10833
+
+The bbox is markedly MORE threshold-sensitive than the walls, because its
+bottom edge is the ground apex, which sits in the thickest smoke and under the
+grey object of A4. This is the reason the walls, not the bbox, are primary.
+
+================================================================================
+5. THRESHOLD SENSITIVITY SWEEP — edges at all three chroma cuts
+================================================================================
+
+                     h_px (READ)      y_top READ      y_bottom READ
+  k1000 left   tight       38  (N1)        528              566
+               nominal     57              527              584
+               generous    67              527              594
+  k1000 right  tight       46  (N1)        529              575
+               nominal     63              529              592
+               generous    66              529              595
+  k0665 left   tight       69  (N1)        491              560
+               nominal     88              491              579
+               generous   102              491              593
+  k0665 right  tight       70  (N1)        493              563
+               nominal     95              494              589
+               generous   103              493              596
+
+Every TOP endpoint is stable across all three cuts to within 1 row — there is
+no smoke over the top of the box. Every BOTTOM endpoint moves monotonically
+down as the cut is loosened. The whole of the threshold sensitivity in this
+measurement lives in the bottom endpoint, and its cause is A1.
+
+================================================================================
+6. DECLARED AMBIGUITIES
+================================================================================
+
+A1  SMOKE WASH OVER THE LOWER BOX — the dominant ambiguity.
+    Below roughly y≈570 (k1000) and y≈555 (k0665) the box body is visibly
+    desaturated by overdrawn smoke. Consequence quantified in § 5. The tight
+    contour is unusable there; see N1. Handled by making generous chroma
+    primary, with the full sweep on the record and the failure kept legible on
+    the plates.
+
+A2  OCCLUDER NOTCH ON THE LEFT WALL — both stills.
+    A grey scene object is drawn OVER the left wall and bites the silhouette:
+      k1000  rows 549..551, wall pushed in to x=948 at worst
+      k0665  rows 524..529, wall pushed in to x=941 at worst
+    Excluded from slope and slant statistics. NOT repaired, NOT interpolated.
+    No equivalent on either right wall in either still.
+
+A3  BOTTOM-LEFT CORNER OF k0665 IS THE FUZZIEST ENDPOINT IN THE SET.
+    Bracket [586 .. 597], eleven rows wide, against seven rows for its
+    right-hand counterpart. The wall's 2 px nadir lean and the smoke wash make
+    the slope break gradual rather than sharp. The READ of 593 is the
+    half-slope crossing; a reader who wanted the most conservative value should
+    take 586 and the most generous 597.
+
+A4  GREY SCENE OBJECT OVER THE BOTTOM APEX — both stills.
+    k1000 x≈958–968, y≈596–612; k0665 x≈955–975, y≈595–620. It does not touch
+    either side wall or either wall endpoint. It does sit across the region that
+    sets the bbox's lowest magenta row, which is a second reason § 4 is
+    secondary. Chroma-excluded.
+
+A5  INTERIOR HOLES.
+    At m>=40, 19 rows in k1000 and 28 rows in k0665 contain an interior gap
+    where a non-magenta object is drawn over the box's middle. In every such row
+    the row's min and max x still lie on the two walls, so no wall read is
+    affected. Counted and declared; not repaired.
+
+A6  DIAGONAL GREY OBJECT ACROSS THE UPPER LEFT — both stills.
+    k1000 touches the top-face slant near x 943–950, y 519–525; k0665 near
+    x 930–945, y 470–485. It does not reach either top corner, and the top
+    corners are concordant across all three chroma cuts, which is the evidence
+    that it did not perturb them.
+
+A7  x AT A READ ROW vs PLATEAU x.
+    They differ by 1 px at three of the four top endpoints and by 1–4 px at the
+    bottom endpoints, as a direct consequence of the half-slope-crossing
+    convention (§ 2.4). Both are reported for every edge. Nothing is chosen
+    silently.
+
+A8  SUB-PIXEL NOT RECOVERED.
+    All endpoints are whole rows. The underlying corners are sub-pixel; this
+    cell did not attempt sub-pixel recovery, and the brackets are wider than the
+    sub-pixel residual would be.
+
+A9  WHAT THE BOX MAY BE OCCLUDING WAS NOT DETERMINED.
+    The brief notes the box may occlude a fighter. Nothing behind the box is
+    visible, so nothing about it is reported. Absence declared (GL-12).
+
+================================================================================
+7. NEGATIVE RESULTS — kept legible (GAL-CAM 7.2 precedent)
+================================================================================
+
+N1  TIGHT CHROMA (m >= 200) DOES NOT MEASURE THIS BOX.
+    Below the smoke line its contour leaves the straight wall entirely and
+    traces an inward V that is a smoke gradient, not a geometry. Its numbers
+    appear in § 5 and in the JSON; they are NOT a measurement of the edges and
+    must not be read as one. Kept because the failure is itself the evidence for
+    § 2.2, and it is visible in yellow on both contour plates.
+
+N2  AN INSTRUMENT DEFECT WAS FOUND AND FIXED MID-CELL, AND IS RECORDED.
+    The first pass of pm_measure.py had a notch detector that was not bounded to
+    the plateau interior. It classified the ENTIRE top-face slant run as an
+    "occluder notch", excluded it, and thereby computed a top-face slant of
+    0.125 px/row and a k1000 left-wall top corner of y=531 (against the correct
+    527). Fixed by restricting the notch search to rows strictly between the
+    first and last plateau contact. Both the wrong and the right outputs are
+    recorded here so the correction is auditable rather than invisible. The
+    corrected read was then hand-verified against the printed slope table.
+
+================================================================================
+8. INTERNAL CONSISTENCY — method validation only; no external quantity involved
+================================================================================
+
+C1  NADIR LEAN, 4 of 4 walls correct in sign. Every left wall's x INCREASES
+    descending and every right wall's x DECREASES descending, by 1–3 px. That is
+    the perspective signature of true world-vertical lines under an un-rolled
+    camera pitched downward: verticals converge toward the nadir, which lies on
+    the frame's vertical centreline, and both boxes straddle x≈960. A wall that
+    were an artefact of segmentation would have no reason to do this.
+
+C2  SLANT PARALLELISM. A box's silhouette projects each top-face edge parallel
+    to the ground-face edge on the OPPOSITE side. Measured:
+        k1000   L-top 1.250 vs R-ground 1.312   |   R-top 1.125 vs L-ground 1.125
+        k0665   L-top 1.375 vs R-ground 1.375   |   R-top 1.134 vs L-ground 1.125
+    Agreement to <= 0.06 px/row on three of four pairs.
+
+C3  WALL AGREEMENT. Under primary chroma the two walls agree within 1 px in both
+    stills — 67 vs 66, and 102 vs 103.
+
+C4  CHROMA FLOOR. m>=40 gives exactly one connected component per frame and zero
+    stray islands; m>=20 gives 3 and 6.
+
+None of the above is a comparison to any quantity outside these two files.
+
+================================================================================
+9. ARTEFACTS
+================================================================================
+
+TRACKED, in this directory:
+    receipt.txt                  this file
+    probe-measure-numbers.json   every number above, machine-readable
+    .gitignore                   class-E rule + exact regeneration commands
+
+UNTRACKED, class-E evidence plates in ./evidence/ (regenerable byte-for-byte;
+commands in .gitignore):
+    k1000-probebox-full-ruler-z8.png     plain ruler crop, whole silhouette
+    k0665-probebox-full-ruler-z6.png     plain ruler crop, whole silhouette
+    k1000-wallread-mask-plate-z9.png     three-threshold contour + the 4 reads
+    k0665-wallread-mask-plate-z7.png     three-threshold contour + the 4 reads
+    k1000-top-corners-z18.png            top corners, all three contours
+    k0665-top-corners-z14.png            top corners, all three contours
+    k1000-bottom-corners-z18.png         bottom corners, all three contours
+    k0665-bottom-corners-z14.png         bottom corners, all three contours
+
+The contour plates are the read surface. The yellow (tight) contour on the two
+wallread plates is the N1 failure, kept visible on purpose.
+
+================================================================================
+10. WHAT THIS RECEIPT DOES NOT CONTAIN, BY INSTRUCTION
+================================================================================
+
+No ratio between the two stills. No dolly-rung arithmetic. No conversion to
+world units. No harness value, no register ladder, no reference frame, no
+reconciliation, no verdict, no recommendation. Eight endpoints, two bounding
+boxes, their brackets, and the method that produced them.
+
+The Mirror reports what it sees. It does not say what it means.

@@ -1,0 +1,52 @@
+# WW-8b evidence plates — class-E, UNTRACKED, regenerable byte-for-byte.
+#
+# Inputs are read-only and sha-gated (receipt.txt § 1). Nothing below is a
+# source of truth; every number lives in probe-measure-numbers.json.
+#
+# Run all commands from: agentic_orchestration/galadriel/
+#   IN=captures/2026-08-16-sb1-probe-calib/evidence
+#   OUT=captures/2026-08-16-sb1-probe-measure/evidence
+#   P=pipeline/probe-measure
+#
+# 0) numbers (writes /tmp/pm_<label>.json, consumed by pm_plate.py):
+#   python3 $P/pm_measure.py --src $IN/arena-pl-k1000-probe2m-n160-1920x1080.png \
+#           --label k1000 --json /tmp/pm_k1000.json
+#   python3 $P/pm_measure.py --src $IN/arena-pl-k0665-probe2m-n160-1920x1080.png \
+#           --label k0665 --json /tmp/pm_k0665.json
+#
+# 1) plain ruler crops (whole silhouette):
+#   python3 pipeline/gd-parity/gp_ruler.py --src $IN/arena-pl-k1000-probe2m-n160-1920x1080.png \
+#           --x0 920 --y0 500 --w 90 --h 120 --zoom 8 --minor 5 --major 10 \
+#           --out $OUT/k1000-probebox-full-ruler-z8.png
+#   python3 pipeline/gd-parity/gp_ruler.py --src $IN/arena-pl-k0665-probe2m-n160-1920x1080.png \
+#           --x0 915 --y0 460 --w 95 --h 165 --zoom 6 --minor 5 --major 10 \
+#           --out $OUT/k0665-probebox-full-ruler-z6.png
+#
+# 2) three-threshold contour + read plates (the read surface):
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k1000-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k1000.json --x0 934 --y0 508 --w 56 --h 108 --zoom 9 \
+#           --out $OUT/k1000-wallread-mask-plate-z9.png
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k0665-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k0665.json --x0 924 --y0 463 --w 76 --h 160 --zoom 7 \
+#           --out $OUT/k0665-wallread-mask-plate-z7.png
+#
+# 3) corner plates:
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k1000-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k1000.json --x0 936 --y0 518 --w 52 --h 24 --zoom 18 \
+#           --out $OUT/k1000-top-corners-z18.png
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k1000-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k1000.json --x0 936 --y0 583 --w 52 --h 30 --zoom 18 \
+#           --out $OUT/k1000-bottom-corners-z18.png
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k0665-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k0665.json --x0 926 --y0 482 --w 72 --h 30 --zoom 14 \
+#           --out $OUT/k0665-top-corners-z14.png
+#   python3 $P/pm_plate.py --src $IN/arena-pl-k0665-probe2m-n160-1920x1080.png \
+#           --numbers /tmp/pm_k0665.json --x0 926 --y0 583 --w 72 --h 38 --zoom 14 \
+#           --out $OUT/k0665-bottom-corners-z14.png
+#
+# 4) the tables the receipt was hand-read against (stdout, not files):
+#   python3 $P/pm_chroma_survey.py --src $IN/<still>
+#   python3 $P/pm_profile.py       --src $IN/<still>
+#   python3 $P/pm_corner.py        --src $IN/<still> --thr 40
+
+evidence/
