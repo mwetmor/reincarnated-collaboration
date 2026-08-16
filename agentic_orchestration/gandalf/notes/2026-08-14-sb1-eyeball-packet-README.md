@@ -6,7 +6,9 @@
 
 ## 0-bis. PACKET v2 — what to eyeball now
 
-> **⚠ R-CPB-18a (gate 1, first pass — 2026-08-15, ledger WW-4):** Matt's eye on the candidate still: **"still a bit closer."** The pair below stands as the **k = 1.00 baseline**; the WW-4a DISTANCE-LADDER renders **k = 0.90 / 0.80 / 0.70** along the same lock vector (stand-offs ≈ 31.35 / 27.86 / 24.38 m) — fov/pitch/yaw/anchor UNCHANGED (dolly, not fov-zoom; the zoom alternative is declared, not defaulted). Matt picks the rung by eye; no distance pins from a desk.
+> **⚠ R-CPB-18a (gate 1, first pass — 2026-08-15, ledger WW-4):** Matt's eye on the candidate still: **"still a bit closer."** The pair below stands as the **k = 1.00 baseline**; the WW-4a DISTANCE-LADDER renders **k = 0.90 / 0.80 / 0.70 / 0.665** along the same lock vector (stand-offs ≈ 31.35 / 27.86 / 24.38 / 23.16 m) — fov/pitch/yaw/anchor UNCHANGED (dolly, not fov-zoom; the zoom alternative is declared, not defaulted). **k = 0.665 is the register-match rung:** it projects the arena subject to your ratified BR2W player register (9.889%). Matt picks the rung by eye; no distance pins from a desk.
+>
+> **⚠ WW-3c pixel correction (ledger WW-3c):** the arena subject's register in the baseline still is **6.574% MEASURED** — *under* GD's own human form — not the 20.90% this packet's first printing projected. The projection lived in the weapon+FX AABB at the wrong tick; the table below is corrected. Measured-base rung projections: **7.30 / 8.22 / 9.39 / 9.89%**. (Honesty line: the baseline still's bytes are 1920×1080 despite the `1600x900` filename — same aspect, vertical fov, so all *fractions* stand; naming fix in flight, NOTE-97.)
 
 **Gate 1 pair (same camera by construction: pin delta 0.000000000000 m vs `pl_audit.json`, anchor delta 0.0002 px, still byte-identical ×2):**
 
@@ -24,10 +26,10 @@
 | vh-rig werewolf (demoted E2) | fov-24 @ 34.0 m | 9.444% — near-equal register from different optics; register-similarity ≠ camera-identity |
 | Arena fighter @ 72.857 m boom (THE WATCH) | fov-24 | 12.963% |
 | GD werewolf form | GD's own | 14.77% |
-| **Arena fighter under `player_lock`** | `player_lock` | **20.90%** (harness projection; pixel read in flight, WW-3c) |
+| **Arena fighter under `player_lock` (k=1.00)** | `player_lock` | **6.574% MEASURED** (WW-3c tight body; man+hammer 11.94%, +weapon-trail 16.30% — the impeached 20.9% AABB projection lived in the weapon+FX, not the man) |
 | GD boss tier | GD's own | 21.57% (coarse) |
 
-**The one decision this tees up — body scale, not camera:** your reference holds the PLAYER at ~9.9%, 37% of the way from GD's man to GD's beast. The arena fighter at legacy scale 1.95 reads ~20.9% under the same camera — boss-class presence, **2.11× your ratified player register**. If the arena fighter is the player-analogue, its scale wants re-derivation by parity measurement (the `×1.29`-style route BR2W itself used), not the legacy 1.95 that compensated the struck 169 m law. Any chosen scale gets a verification render before pinning — no number is canon from a desk.
+**What this tees up (corrected by WW-3c — the first printing's "boss register / 2.11×" claim is DEAD):** your reference holds the PLAYER at ~9.9%; the arena fighter's *body* under the same camera at the same stand-off reads **6.574%** — under GD's own human register. Your "still a bit closer" is exactly what those pixels predict. Two questions ride the ladder to the same sitting: **(1) the rung** — your eye picks; k=0.665 is the rung that lands the fighter AT your ratified register; **(2) the open reconciliation** — two similar world-height bodies (fighter ≈2.40 m AABB, BR2W player ≈2.32 m) read 0.665× apart under the same operands, so somewhere a term is not what its label says (pose at the measured frame, scale application, mesh-vs-AABB proportions, or a distance term). Instruments resolve that at the body-scale fork sitting — not desk arithmetic. Any chosen scale or distance still gets a verification render before pinning — no number is canon from a desk.
 
 Gate-2 caveats (§ 5) still stand: placeholder floor · rotor read · designed dip · determinism ancestry honest, no fix claimed.
 
