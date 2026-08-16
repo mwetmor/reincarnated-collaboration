@@ -1,0 +1,133 @@
+{
+  "band_total_expected_p05_bodies": 26.0,
+  "per_wave": {
+    "151": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 5,
+      "bodies_lo": 4,
+      "conditional": false,
+      "expected_bodies": 4.5,
+      "lap_v_floor": 4.5,
+      "n_alternatives": 1,
+      "pool_weights": [
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "152": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 3,
+      "bodies_lo": 3,
+      "conditional": false,
+      "expected_bodies": 3.0,
+      "lap_v_floor": 3.0,
+      "n_alternatives": 1,
+      "pool_weights": [
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "153": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 5,
+      "bodies_lo": 4,
+      "conditional": false,
+      "expected_bodies": 4.5,
+      "lap_v_floor": 4.5,
+      "n_alternatives": 1,
+      "pool_weights": [
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "156": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 7,
+      "bodies_lo": 7,
+      "conditional": false,
+      "expected_bodies": 7.0,
+      "lap_v_floor": 7.0,
+      "n_alternatives": 3,
+      "pool_weights": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "157": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 3,
+      "bodies_lo": 3,
+      "conditional": false,
+      "expected_bodies": 3.0,
+      "lap_v_floor": 3.0,
+      "n_alternatives": 3,
+      "pool_weights": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "158": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 3,
+      "bodies_lo": 3,
+      "conditional": false,
+      "expected_bodies": 3.0,
+      "lap_v_floor": 3.0,
+      "n_alternatives": 2,
+      "pool_weights": [
+        100.0,
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    },
+    "159": {
+      "arrival_offset_s": 4.0,
+      "bodies_hi": 1,
+      "bodies_lo": 1,
+      "conditional": false,
+      "expected_bodies": 1.0,
+      "lap_v_floor": 1.0,
+      "n_alternatives": 2,
+      "pool_weights": [
+        100.0,
+        100.0
+      ],
+      "release": "single burst; the whole queue empties on the first burst because minGroupSize (30) exceeds the resolved pool size",
+      "status": "DECODE-COMPLETE (was labelled a FLOOR by Lap V \u00a7 6.1; it is EXACT)"
+    }
+  },
+  "release_law": {
+    "burst_fires_when": [
+      "m_armed",
+      "m_delayTimer <= 0",
+      "m_spawnTimer <= 0",
+      "len(m_pendingIds) > 0",
+      "len(m_placedIds_alive) <= spawnThreshold"
+    ],
+    "decoded_parameter_values": {
+      "delay_ms": 4000,
+      "maxGroupSize": 30,
+      "minGroupSize": 30,
+      "spawnThreshold": 15,
+      "spawn_interval_ms": 3000
+    },
+    "n_released_per_burst": "min( UniformInclusive(minGroupSize, maxGroupSize), len(m_pendingIds) )",
+    "queue_refill": "NONE \u2014 Proxy::RunProxy latches m_runState=6 and early-returns thereafter, so PoolComplete runs exactly once per proxy instance, and the Lua creates one fresh proxy per wave",
+    "why_it_collapses_to_a_scalar": "spawnThreshold and the 3.0 s re-burst interval can only bite when the pending queue survives the first burst.  It cannot: the largest p05 pool resolution in the band is 7 expected bodies (wave 156) against a release batch of 30.  Both constants are therefore INERT over waves 151-160."
+  },
+  "waves_declaring_no_p05": [
+    154,
+    155,
+    160
+  ]
+}

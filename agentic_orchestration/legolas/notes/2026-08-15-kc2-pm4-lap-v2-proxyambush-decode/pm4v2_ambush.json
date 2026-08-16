@@ -1,0 +1,560 @@
+{
+  "class_exports": {
+    "??0ProxyAmbush@GAME@@QAE@XZ": "0x3541b0",
+    "??1ProxyAmbush@GAME@@UAE@XZ": "0x354260",
+    "??_7ProxyAmbush@GAME@@6B@": "0x5e7774",
+    "??_7ProxyAmbush@GAME@@6BICrowdAgent@CROWD@@@": "0x5d6628",
+    "??_7ProxyAmbush@GAME@@6BIPhysics2@1@@": "0x5d1f88",
+    "??_7ProxyAmbush@GAME@@6BObject@1@@": "0x5e7af0",
+    "?GetPlacedObjects@ProxyAmbush@GAME@@UBEXAAV?$vector@I@mem@@@Z": "0x354dd0",
+    "?GetRTTIClassInfo@ProxyAmbush@GAME@@UBEABVRTTI_ClassInfo@2@XZ": "0xb6980",
+    "?GetStaticClassInfo@ProxyAmbush@GAME@@SAABVRTTI_ClassInfo@2@XZ": "0xb6980",
+    "?IsAlert@ProxyAmbush@GAME@@ABE_NXZ": "0x355000",
+    "?Load@ProxyAmbush@GAME@@UAEXABVLoadTable@2@@Z": "0x354400",
+    "?PlaceNextObject@ProxyAmbush@GAME@@IAEXXZ": "0x3550c0",
+    "?PoolComplete@ProxyAmbush@GAME@@MAEXPAVProxyPool@2@ABV?$vector@VWorldCoords@GAME@@@mem@@@Z": "0x354fb0",
+    "?RTTI_new@ProxyAmbush@GAME@@KAPAXXZ": "0xc96a0",
+    "?RestoreState@ProxyAmbush@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z": "0x354ab0",
+    "?SaveState@ProxyAmbush@GAME@@UBEXAAVBinaryWriter@2@@Z": "0x3546e0",
+    "?ShouldSaveState@ProxyAmbush@GAME@@UBE_NXZ": "0x9350",
+    "?UpdateSelf@ProxyAmbush@GAME@@UAEXH@Z": "0x354520",
+    "?classInfo@ProxyAmbush@GAME@@1VRTTI_ClassInfo@2@B": "0x7fdd10"
+  },
+  "field_map": [
+    {
+      "dbr_field": "alertArea",
+      "loader": "GetFloat(name, 0.0f)",
+      "member_offset": "0x4e8",
+      "note": "float, world units (metres)"
+    },
+    {
+      "dbr_field": "minSpawnTime",
+      "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+      "member_offset": "0x4ec",
+      "note": "ms, truncated"
+    },
+    {
+      "dbr_field": "maxSpawnTime",
+      "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+      "member_offset": "0x4f0",
+      "note": "ms, truncated"
+    },
+    {
+      "dbr_field": "minDelayTime",
+      "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+      "member_offset": "0x4f4",
+      "note": "ms, truncated"
+    },
+    {
+      "dbr_field": "maxDelayTime",
+      "loader": "(int)(GetFloat(name,0.0f)*1000.0f)",
+      "member_offset": "0x4f8",
+      "note": "ms, truncated"
+    },
+    {
+      "dbr_field": "minGroupSize",
+      "loader": "GetInt(name, 1)",
+      "member_offset": "0x4fc",
+      "note": "int, default 1"
+    },
+    {
+      "dbr_field": "maxGroupSize",
+      "loader": "GetInt(name, 1)",
+      "member_offset": "0x500",
+      "note": "int, default 1"
+    },
+    {
+      "dbr_field": "spawnThreshold",
+      "loader": "GetInt(name, 10000)",
+      "member_offset": "0x504",
+      "note": "int, default 10000"
+    }
+  ],
+  "float_constants": {
+    "0x105f5918": 1000.0
+  },
+  "geometry": {
+    "alertArea_radius_world_units": 100.0,
+    "max_spawn_to_patrol_m_over_all_maps": 77.5189,
+    "max_spawn_to_spawn_m_over_all_maps": 85.583,
+    "pairs_beyond_alertArea": 0,
+    "per_map": [
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_a.map",
+        "max_spawn_to_patrol_m": 60.2504,
+        "max_spawn_to_spawn_m": 65.7049,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_b.map",
+        "max_spawn_to_patrol_m": 51.9885,
+        "max_spawn_to_spawn_m": 69.7062,
+        "n_patrol": 12,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_c.map",
+        "max_spawn_to_patrol_m": 67.1533,
+        "max_spawn_to_spawn_m": 77.1943,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_d.map",
+        "max_spawn_to_patrol_m": 61.8317,
+        "max_spawn_to_spawn_m": 70.9477,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_e.map",
+        "max_spawn_to_patrol_m": 59.1226,
+        "max_spawn_to_spawn_m": 73.8624,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_f.map",
+        "max_spawn_to_patrol_m": 71.2174,
+        "max_spawn_to_spawn_m": 85.583,
+        "n_patrol": 12,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_g.map",
+        "max_spawn_to_patrol_m": 58.835,
+        "max_spawn_to_spawn_m": 71.745,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode1/resources/Maps.arc",
+        "map": "survivalworld_j.map",
+        "max_spawn_to_patrol_m": 77.5189,
+        "max_spawn_to_spawn_m": 85.557,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode2/resources/Maps.arc",
+        "map": "survivalworld_h.map",
+        "max_spawn_to_patrol_m": 64.0087,
+        "max_spawn_to_spawn_m": 62.3293,
+        "n_patrol": 9,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode2/resources/Maps.arc",
+        "map": "survivalworld_i.map",
+        "max_spawn_to_patrol_m": 61.6848,
+        "max_spawn_to_spawn_m": 76.3544,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_a.map",
+        "max_spawn_to_patrol_m": 60.2504,
+        "max_spawn_to_spawn_m": 65.7049,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_b.map",
+        "max_spawn_to_patrol_m": 51.9885,
+        "max_spawn_to_spawn_m": 69.7062,
+        "n_patrol": 12,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_c.map",
+        "max_spawn_to_patrol_m": 67.1533,
+        "max_spawn_to_spawn_m": 77.1943,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_d.map",
+        "max_spawn_to_patrol_m": 61.8317,
+        "max_spawn_to_spawn_m": 70.9477,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_e.map",
+        "max_spawn_to_patrol_m": 59.1226,
+        "max_spawn_to_spawn_m": 73.8624,
+        "n_patrol": 11,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_f.map",
+        "max_spawn_to_patrol_m": 71.2174,
+        "max_spawn_to_spawn_m": 85.583,
+        "n_patrol": 12,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_g.map",
+        "max_spawn_to_patrol_m": 58.835,
+        "max_spawn_to_spawn_m": 71.745,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_h.map",
+        "max_spawn_to_patrol_m": 64.0087,
+        "max_spawn_to_spawn_m": 62.3293,
+        "n_patrol": 9,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_i.map",
+        "max_spawn_to_patrol_m": 61.6848,
+        "max_spawn_to_spawn_m": 76.3544,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      },
+      {
+        "archive": "survivalmode3/resources/Maps.arc",
+        "map": "survivalworld_j.map",
+        "max_spawn_to_patrol_m": 77.5189,
+        "max_spawn_to_spawn_m": 85.557,
+        "n_patrol": 10,
+        "n_spawn": 6,
+        "pairs_beyond_alertArea_100": 0
+      }
+    ],
+    "spawn_x_patrol_pairs": 1284,
+    "unit_basis": "Lap U pm4u_geometry_v3.csv reports world units as metres (_m columns)",
+    "verdict": "alertArea = 100.0 m covers every arena footprint: 0 of 1284 spawn-point x patrol-point pairs exceed it, and the widest spawn-to-spawn separation in any of the 20 arena maps is under 100 m.  IsAlert() is therefore TRUE from the first evaluated tick regardless of where the player stands."
+  },
+  "load_field_strings": {
+    "0x10569250": "delayedRun",
+    "0x1056925c": "chanceToRun",
+    "0x10569ca4": "alertArea",
+    "0x10569d30": "minSpawnTime",
+    "0x10569d40": "minGroupSize",
+    "0x10569d50": "maxDelayTime",
+    "0x10569d60": "minDelayTime",
+    "0x10569d70": "maxSpawnTime",
+    "0x10569dcc": "spawnThreshold",
+    "0x10569ddc": "maxGroupSize"
+  },
+  "module": {
+    "exports": 25091,
+    "image_base": "0x10000000",
+    "name": "Game.dll",
+    "sha256": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02"
+  },
+  "records": {
+    "all_proxy_record_class_census": {
+      "": 2581,
+      "Proxy": 1821,
+      "ProxyAmbush": 528,
+      "SetPiece": 385,
+      "SetPiecePart": 2,
+      "SetPiecePool": 340
+    },
+    "ambush_records": [
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w01_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w02_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w03_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w06_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w07_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w08_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      },
+      {
+        "alertArea": 100.0,
+        "archive": "survivalmode3/database/SurvivalMode3.arz",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "maxDelayTime": 4.0,
+        "maxGroupSize": 30,
+        "maxSpawnTime": 3.0,
+        "minDelayTime": 4.0,
+        "minGroupSize": 30,
+        "minSpawnTime": 3.0,
+        "placementExtents": 8.0,
+        "record": "records/proxies/tier16waves/proxy_w09_p05a.dbr",
+        "spawnThreshold": 15,
+        "templateName": "database/templates/proxyambush.tpl"
+      }
+    ],
+    "fourth_mechanism_scan": "R-PM4-56 part 4 due diligence: every one of the 54 tier-16 wave-proxy records is either Proxy (47) or ProxyAmbush (7).  No ProxyEndless, no SetPiece, no fourth class declared in the band.",
+    "overlay_records": 84829,
+    "tier16_class_census": {
+      "Proxy": 47,
+      "ProxyAmbush": 7
+    },
+    "tier16_common_fields": [
+      {
+        "Class": "Proxy",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "n": 47,
+        "placementExtents": 8.0
+      },
+      {
+        "Class": "ProxyAmbush",
+        "chanceToRun": 100.0,
+        "delayedRun": true,
+        "n": 7,
+        "placementExtents": 8.0
+      }
+    ],
+    "tier16_wave_proxy_records": 54
+  },
+  "resolved_calls": {
+    "0x104e5028": "Engine.dll!?gEngine@GAME@@3PAVEngine@1@A",
+    "0x104e504c": "Engine.dll!?Get@?$Singleton@VObjectManager@GAME@@@GAME@@SAPAVObjectManager@2@XZ",
+    "0x104e508c": "Engine.dll!?IsNetworkClient@Engine@GAME@@QAE_NXZ",
+    "0x104e5090": "Engine.dll!?GetObjectId@Object@GAME@@QBEIXZ",
+    "0x104e5244": "Engine.dll!?GetRegionPosition@WorldVec3@GAME@@QBEABVVec3@2@XZ",
+    "0x104e5288": "Engine.dll!?GetCoords@Entity@GAME@@QBE?AVWorldCoords@2@XZ",
+    "0x104e528c": "Engine.dll!?GetObjectName@Object@GAME@@QBEPBDXZ",
+    "0x104e5294": "Engine.dll!?GetRegion@Entity@GAME@@QBEPAVRegion@2@XZ",
+    "0x104e5394": "Engine.dll!?UpdateSelf@Actor@GAME@@UAEXH@Z",
+    "0x104e5544": "Engine.dll!?IGenerate@RandomUniformLocked@GAME@@QAEHHH@Z",
+    "0x104e5558": "Engine.dll!?FGenerate@RandomUniformLocked@GAME@@QAEMMM@Z",
+    "0x104e5574": "Engine.dll!?GetEntitiesInSphere@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@PAVRegion@2@ABVSphere@2@_NW4EntityListType@2@@Z",
+    "0x104e5600": "Engine.dll!?Get@?$Singleton@VNavManager@GAME@@@GAME@@SAPAVNavManager@2@XZ",
+    "0x104e5994": "Engine.dll!?GetGameInfo@Engine@GAME@@QAEPAVGameInfo@2@XZ",
+    "0x104e59e4": "Engine.dll!?IsNavDataLoaded@NavManager@GAME@@QBE_NPBVRegion@2@@Z",
+    "0x104e5c1c": "Engine.dll!?GetDifficulty@GameInfo@GAME@@QBEIXZ",
+    "0x104e63e4": "VCRUNTIME140.dll!memmove"
+  },
+  "rtti_classinfo": {
+    "0x107ff5a0": "?classInfo@Player@GAME@@  (the IsAlert filter)",
+    "0x107ff600": "?classInfo@Monster@GAME@@ (the PlaceNextObject / PoolComplete filter)"
+  },
+  "runtime_members": [
+    {
+      "name": "m_totalObjects",
+      "note": "set by PoolComplete = (pool->[0xb0].size())",
+      "offset": "0x4a0"
+    },
+    {
+      "name": "m_placedCount",
+      "note": "incremented once per PlaceNextObject that actually spawns",
+      "offset": "0x4a4"
+    },
+    {
+      "name": "m_runState",
+      "note": "Proxy latch: Load sets 1 when delayedRun; DelayedRun 1->0; RunProxy sets 6 on success / 5 on chance-fail; RunProxy early-returns unless 0",
+      "offset": "0x4ac"
+    },
+    {
+      "name": "m_monsterPool",
+      "note": "ProxyPool*; its resolved entity-id vector lives at pool+0xb0",
+      "offset": "0x4c8"
+    },
+    {
+      "name": "m_accessoryTable",
+      "note": "loot/accessory container (vectors at +0x20 / +0x2c); NOT roster",
+      "offset": "0x4cc"
+    },
+    {
+      "name": "m_pendingIds.begin/end (0x4d0/0x4d4)",
+      "note": "vector<unsigned> \u2014 queued, NOT yet spawned",
+      "offset": "0x4d0"
+    },
+    {
+      "name": "m_pendingCoords.begin/end (0x4dc/0x4e0)",
+      "note": "vector<WorldCoords>, stride 0x34",
+      "offset": "0x4dc"
+    },
+    {
+      "name": "m_placedIds.begin/end (0x508/0x50c)",
+      "note": "vector<unsigned> \u2014 spawned AND still alive",
+      "offset": "0x508"
+    },
+    {
+      "name": "m_spawnTimer",
+      "note": "int ms, counts down by dt; ctor-initialised to 0",
+      "offset": "0x514"
+    },
+    {
+      "name": "m_delayTimer",
+      "note": "int ms, counts down by dt; ctor-initialised to 0",
+      "offset": "0x518"
+    },
+    {
+      "name": "m_armed",
+      "note": "bool latch; set 1 in UpdateSelf on first IsAlert; never cleared",
+      "offset": "0x51c"
+    },
+    {
+      "name": "m_reselectLocations",
+      "note": "bool; set 1 ONLY by RestoreState (save/load path)",
+      "offset": "0x51d"
+    }
+  ],
+  "vtable_slots": {
+    "Monster+0x000": {
+      "symbol": "?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+      "target": "0x1000bb00"
+    },
+    "Monster+0x168": {
+      "symbol": "?UpdateSelf@Monster@GAME@@UAEXH@Z",
+      "target": "0x102d4650"
+    },
+    "Monster+0x22c": {
+      "symbol": "?IsAlive@Character@GAME@@UBE_NXZ",
+      "target": "0x10047200"
+    },
+    "Monster+0x314": {
+      "symbol": "?EnableSpawnAnimation@Monster@GAME@@UAEXXZ",
+      "target": "0x102dc450"
+    },
+    "ProxyAmbush+0x000": {
+      "symbol": "?GetRTTIClassInfo@ProxyAmbush@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+      "target": "0x100b6980"
+    },
+    "ProxyAmbush+0x168": {
+      "symbol": "?UpdateSelf@ProxyAmbush@GAME@@UAEXH@Z",
+      "target": "0x10354520"
+    },
+    "ProxyAmbush+0x1f8": {
+      "symbol": "?PoolComplete@ProxyAmbush@GAME@@MAEXPAVProxyPool@2@ABV?$vector@VWorldCoords@GAME@@@mem@@@Z",
+      "target": "0x10354fb0"
+    },
+    "ProxyAmbush+0x1fc": {
+      "symbol": "?AccessoryComplete@Proxy@GAME@@MAEXAAV?$vector@I@mem@@ABV?$vector@VWorldCoords@GAME@@@4@@Z",
+      "target": "0x10352550"
+    },
+    "ProxyAmbush+0x200": {
+      "symbol": "?GetRTTIClassInfo@ProxyEndless@GAME@@UBEABVRTTI_ClassInfo@2@XZ",
+      "target": "0x100b69a0"
+    }
+  },
+  "vtables": {
+    "Monster": "0x105dc948",
+    "ProxyAmbush": "0x105e7af0",
+    "convention": "slot 0x000 == GetRTTIClassInfo (verified on ProxyAmbush)"
+  }
+}
