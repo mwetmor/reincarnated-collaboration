@@ -1,0 +1,807 @@
+{
+  "commission": "R-PM4-65 part 3",
+  "ec1_compiled_record": {
+    "field_stream_residue_bytes": 0,
+    "fields": {
+      "meleeAutoTargetDistance": {
+        "as_float32_promoted_to_double": "4.0",
+        "exact_decimal": "4",
+        "payload_bytes_hex": "00008040",
+        "payload_u32_hex": "0x40800000",
+        "payload_width_bytes": 4,
+        "record_stream_offset": "0x0c6c",
+        "type_tag": 1,
+        "value_count": 1
+      },
+      "meleeRange": {
+        "as_float32_promoted_to_double": "1.25",
+        "exact_decimal": "1.25",
+        "payload_bytes_hex": "0000a03f",
+        "payload_u32_hex": "0x3fa00000",
+        "payload_width_bytes": 4,
+        "record_stream_offset": "0x0c78",
+        "type_tag": 1,
+        "value_count": 1
+      },
+      "meleeTargetDistance": {
+        "as_float32_promoted_to_double": "2.4000000953674316",
+        "exact_decimal": "2.400000095367431640625",
+        "payload_bytes_hex": "9a991940",
+        "payload_u32_hex": "0x4019999a",
+        "payload_width_bytes": 4,
+        "record_stream_offset": "0x0c84",
+        "type_tag": 1,
+        "value_count": 1
+      }
+    },
+    "overlay_overrides": [
+      {
+        "archive": "SurvivalMode.arz",
+        "record_present": false
+      },
+      {
+        "archive": "SurvivalMode1.arz",
+        "record_present": false
+      },
+      {
+        "archive": "SurvivalMode2.arz",
+        "record_present": false
+      },
+      {
+        "archive": "SurvivalMode3.arz",
+        "record_present": false
+      },
+      {
+        "archive": "GDX1.arz",
+        "record_present": false
+      },
+      {
+        "archive": "GDX2.arz",
+        "record_present": false
+      },
+      {
+        "archive": "GDX3.arz",
+        "record_present": false
+      }
+    ],
+    "record": "records/game/gameengine.dbr",
+    "substring_decoys": [
+      {
+        "meleeTargetDistance": [
+          1,
+          "00005040"
+        ],
+        "record": "records/ingameui/gameengine.dbr"
+      },
+      {
+        "meleeTargetDistance": [
+          1,
+          "33331340"
+        ],
+        "record": "records/sandbox/arthur/archive/gameengine 01-23-15.dbr"
+      },
+      {
+        "meleeTargetDistance": [
+          1,
+          "33331340"
+        ],
+        "record": "records/sandbox/arthur/archive/gameengine 02-01-16.dbr"
+      },
+      {
+        "meleeTargetDistance": [
+          1,
+          "33331340"
+        ],
+        "record": "records/sandbox/arthur/archive/gameengine 09-09-15.dbr"
+      },
+      {
+        "meleeTargetDistance": [
+          1,
+          "33331340"
+        ],
+        "record": "records/sandbox/arthur/archive/gameengine 10-31.dbr"
+      },
+      {
+        "meleeTargetDistance": [
+          1,
+          "33331340"
+        ],
+        "record": "records/sandbox/arthur/archive/gameengine 7-31.dbr"
+      }
+    ]
+  },
+  "ec2_ec4_ec8_templates": {
+    "declarations": {
+      "meleeAutoTargetDistance": {
+        "class": "variable",
+        "defaultValue": "3.0",
+        "description": "TQ was 3.0",
+        "template": "gameengine.tpl",
+        "type": "real"
+      },
+      "meleeRange": {
+        "class": "variable",
+        "defaultValue": "0.4",
+        "description": "",
+        "template": "gameengine.tpl",
+        "type": "real"
+      },
+      "meleeTargetDistance": {
+        "class": "variable",
+        "defaultValue": "2.5",
+        "description": "TQ was 2.5",
+        "template": "gameengine.tpl",
+        "type": "real"
+      }
+    },
+    "distinct_variable_names": 19005,
+    "squared_field_matches": [],
+    "template_parse_failures": [
+      {
+        "comp_size": 1508,
+        "decomp_size": 0,
+        "entry_type": 0,
+        "error": "LZ4BlockError",
+        "name": ""
+      }
+    ],
+    "template_type_strings": {
+      "***UNKNOWN***": 1,
+      "bool": 931,
+      "eqnVariable": 229,
+      "equation": 944,
+      "file_anm": 2588,
+      "file_cnv": 2,
+      "file_dbr": 5928,
+      "file_fnt": 5,
+      "file_lua": 1,
+      "file_msh": 58,
+      "file_pfx": 1,
+      "file_qst": 12,
+      "file_snd": 232,
+      "file_ssh": 19,
+      "file_tex": 511,
+      "file_txt": 1,
+      "file_wav,mp3": 1,
+      "file_wav,ogg": 1,
+      "include": 995,
+      "int": 3775,
+      "list": 2265,
+      "real": 7804,
+      "string": 5281,
+      "system": 833
+    },
+    "templates_total": 819,
+    "tq_lineage_attestations": [
+      {
+        "defaultValue": "2.5",
+        "description": "TQ was 2.5",
+        "name": "meleeTargetDistance",
+        "template": "gameengine.tpl",
+        "type": "real"
+      },
+      {
+        "defaultValue": "3.0",
+        "description": "TQ was 3.0",
+        "name": "meleeAutoTargetDistance",
+        "template": "gameengine.tpl",
+        "type": "real"
+      }
+    ]
+  },
+  "ec3_type_tag_census": {
+    "distinct_type_tags": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "grand_field_entries": 32264692,
+    "grand_records": 99781,
+    "per_archive": [
+      {
+        "archive": "database.arz",
+        "field_entries": 9628677,
+        "records": 34171,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 377711, \"1\": 7395744, \"2\": 428220, \"3\": 1427002}"
+      },
+      {
+        "archive": "GDX1.arz",
+        "field_entries": 7097361,
+        "records": 18453,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 356588, \"1\": 5438406, \"2\": 338389, \"3\": 963978}"
+      },
+      {
+        "archive": "GDX2.arz",
+        "field_entries": 5327357,
+        "records": 16454,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 293089, \"1\": 4092466, \"2\": 344498, \"3\": 597304}"
+      },
+      {
+        "archive": "GDX3.arz",
+        "field_entries": 7770802,
+        "records": 24307,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 561858, \"1\": 5766265, \"2\": 540448, \"3\": 902231}"
+      },
+      {
+        "archive": "SurvivalMode.arz",
+        "field_entries": 1149073,
+        "records": 3147,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 108315, \"1\": 917387, \"2\": 89363, \"3\": 34008}"
+      },
+      {
+        "archive": "SurvivalMode1.arz",
+        "field_entries": 362442,
+        "records": 1005,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 34546, \"1\": 286399, \"2\": 30927, \"3\": 10570}"
+      },
+      {
+        "archive": "SurvivalMode2.arz",
+        "field_entries": 352960,
+        "records": 811,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 32474, \"1\": 281834, \"2\": 30106, \"3\": 8546}"
+      },
+      {
+        "archive": "SurvivalMode3.arz",
+        "field_entries": 576020,
+        "records": 1433,
+        "records_with_stream_residue": 0,
+        "type_tags": "{\"0\": 53968, \"1\": 455535, \"2\": 47924, \"3\": 18593}"
+      }
+    ],
+    "records_with_stream_residue": 0
+  },
+  "ec5_string_residency": [
+    {
+      "DistanceSq": 1,
+      "GetDistanceSquared": 1,
+      "GetEntitiesInCone": 1,
+      "GetEntitiesInSphere": 1,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 1,
+      "module": "x86/Game.dll"
+    },
+    {
+      "DistanceSq": 1,
+      "GetDistanceSquared": 1,
+      "GetEntitiesInCone": 1,
+      "GetEntitiesInSphere": 3,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "x86/Engine.dll"
+    },
+    {
+      "DistanceSq": 0,
+      "GetDistanceSquared": 0,
+      "GetEntitiesInCone": 0,
+      "GetEntitiesInSphere": 1,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "x86/Grim Dawn.exe"
+    },
+    {
+      "DistanceSq": 1,
+      "GetDistanceSquared": 1,
+      "GetEntitiesInCone": 1,
+      "GetEntitiesInSphere": 1,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 1,
+      "module": "x64/Game.dll"
+    },
+    {
+      "DistanceSq": 1,
+      "GetDistanceSquared": 1,
+      "GetEntitiesInCone": 1,
+      "GetEntitiesInSphere": 3,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "x64/Engine.dll"
+    },
+    {
+      "DistanceSq": 0,
+      "GetDistanceSquared": 0,
+      "GetEntitiesInCone": 0,
+      "GetEntitiesInSphere": 1,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "x64/Grim Dawn.exe"
+    },
+    {
+      "DistanceSq": 0,
+      "GetDistanceSquared": 0,
+      "GetEntitiesInCone": 0,
+      "GetEntitiesInSphere": 0,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "DBREditor.exe"
+    },
+    {
+      "DistanceSq": 0,
+      "GetDistanceSquared": 0,
+      "GetEntitiesInCone": 0,
+      "GetEntitiesInSphere": 0,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "ArchiveTool.exe"
+    },
+    {
+      "DistanceSq": 0,
+      "GetDistanceSquared": 0,
+      "GetEntitiesInCone": 0,
+      "GetEntitiesInSphere": 0,
+      "LengthSquared": 0,
+      "SqrDist": 0,
+      "meleeTargetDistance": 0,
+      "module": "AssetManager.exe"
+    }
+  ],
+  "ec6_instruction_stream": {
+    "link10_primitive_x64": {
+      "compare": "0x0027d0d4 comiss xmm0, xmm3",
+      "double_precision_arithmetic": [],
+      "listing": [
+        "0x0027cff0  sub rsp, 0x48",
+        "0x0027cff4  movss xmm1, dword ptr [rcx + 4]",
+        "0x0027cff9  xorps xmm3, xmm3",
+        "0x0027cffc  movss xmm2, dword ptr [rcx]",
+        "0x0027d000  movss xmm4, dword ptr [rcx + 0xc]",
+        "0x0027d005  movss xmm0, dword ptr [rcx + 8]",
+        "0x0027d00a  movss xmm5, dword ptr [rcx + 0x14]",
+        "0x0027d00f  movaps xmmword ptr [rsp + 0x30], xmm6",
+        "0x0027d014  movss xmm6, dword ptr [rcx + 0x10]",
+        "0x0027d019  movaps xmmword ptr [rsp + 0x20], xmm7",
+        "0x0027d01e  movaps xmm7, xmm0",
+        "0x0027d021  movaps xmmword ptr [rsp + 0x10], xmm8",
+        "0x0027d027  subss xmm7, xmm5",
+        "0x0027d02b  movaps xmmword ptr [rsp], xmm9",
+        "0x0027d030  addss xmm5, xmm0",
+        "0x0027d034  movaps xmm8, xmm1",
+        "0x0027d038  movaps xmm9, xmm2",
+        "0x0027d03c  subss xmm9, xmm4",
+        "0x0027d041  subss xmm8, xmm6",
+        "0x0027d046  addss xmm6, xmm1",
+        "0x0027d04a  movss xmm1, dword ptr [rdx]",
+        "0x0027d04e  addss xmm4, xmm2",
+        "0x0027d052  comiss xmm1, xmm9",
+        "0x0027d056  jae 0x18027d062",
+        "0x0027d058  movaps xmm3, xmm1",
+        "0x0027d05b  subss xmm3, xmm9",
+        "0x0027d060  jmp 0x18027d06e",
+        "0x0027d062  comiss xmm1, xmm4",
+        "0x0027d065  jbe 0x18027d072",
+        "0x0027d067  movaps xmm3, xmm1",
+        "0x0027d06a  subss xmm3, xmm4",
+        "0x0027d06e  mulss xmm3, xmm3",
+        "0x0027d072  movss xmm0, dword ptr [rdx + 4]",
+        "0x0027d077  comiss xmm0, xmm8",
+        "0x0027d07b  jae 0x18027d084",
+        "0x0027d07d  subss xmm0, xmm8",
+        "0x0027d082  jmp 0x18027d08d",
+        "0x0027d084  comiss xmm0, xmm6",
+        "0x0027d087  jbe 0x18027d095",
+        "0x0027d089  subss xmm0, xmm6",
+        "0x0027d08d  mulss xmm0, xmm0",
+        "0x0027d091  addss xmm3, xmm0",
+        "0x0027d095  movss xmm0, dword ptr [rdx + 8]",
+        "0x0027d09a  comiss xmm0, xmm7",
+        "0x0027d09d  jae 0x18027d0a5",
+        "0x0027d09f  subss xmm0, xmm7",
+        "0x0027d0a3  jmp 0x18027d0ae",
+        "0x0027d0a5  comiss xmm0, xmm5",
+        "0x0027d0a8  jbe 0x18027d0b6",
+        "0x0027d0aa  subss xmm0, xmm5",
+        "0x0027d0ae  mulss xmm0, xmm0",
+        "0x0027d0b2  addss xmm3, xmm0",
+        "0x0027d0b6  movss xmm0, dword ptr [rdx + 0xc]",
+        "0x0027d0bb  movaps xmm6, xmmword ptr [rsp + 0x30]",
+        "0x0027d0c0  movaps xmm7, xmmword ptr [rsp + 0x20]",
+        "0x0027d0c5  movaps xmm8, xmmword ptr [rsp + 0x10]",
+        "0x0027d0cb  movaps xmm9, xmmword ptr [rsp]",
+        "0x0027d0d0  mulss xmm0, xmm0",
+        "0x0027d0d4  comiss xmm0, xmm3",
+        "0x0027d0d7  setae al",
+        "0x0027d0da  add rsp, 0x48",
+        "0x0027d0de  ret "
+      ],
+      "module": "x64/Engine.dll",
+      "pdata_bounds": [
+        "0x27cff0",
+        "0x27d0df"
+      ],
+      "radius_square": [
+        "0x0027d08d mulss xmm0, xmm0",
+        "0x0027d0ae mulss xmm0, xmm0",
+        "0x0027d0d0 mulss xmm0, xmm0"
+      ],
+      "rva": "0x27cff0",
+      "sqrt_instructions": []
+    },
+    "link11_primitive_node": {
+      "double_precision_arithmetic": [],
+      "listing": [
+        "0x00134b50  movss xmm4, dword ptr [rdx]",
+        "0x00134b54  xorps xmm1, xmm1",
+        "0x00134b57  movss xmm2, dword ptr [r8]",
+        "0x00134b5c  movaps xmm3, xmm4",
+        "0x00134b5f  movss xmm0, dword ptr [r9]",
+        "0x00134b64  subss xmm3, xmm2",
+        "0x00134b68  comiss xmm0, xmm3",
+        "0x00134b6b  jae 0x180134b78",
+        "0x00134b6d  movaps xmm1, xmm0",
+        "0x00134b70  subss xmm1, xmm3",
+        "0x00134b74  mulss xmm1, xmm1",
+        "0x00134b78  addss xmm2, xmm4",
+        "0x00134b7c  comiss xmm0, xmm2",
+        "0x00134b7f  jbe 0x180134b8d",
+        "0x00134b81  subss xmm0, xmm2",
+        "0x00134b85  mulss xmm0, xmm0",
+        "0x00134b89  addss xmm1, xmm0",
+        "0x00134b8d  movss xmm5, dword ptr [rdx + 4]",
+        "0x00134b92  movss xmm3, dword ptr [r8 + 4]",
+        "0x00134b98  movaps xmm4, xmm5",
+        "0x00134b9b  movss xmm2, dword ptr [r9 + 4]",
+        "0x00134ba1  subss xmm4, xmm3",
+        "0x00134ba5  comiss xmm2, xmm4",
+        "0x00134ba8  jae 0x180134bb9",
+        "0x00134baa  movaps xmm0, xmm2",
+        "0x00134bad  subss xmm0, xmm4",
+        "0x00134bb1  mulss xmm0, xmm0",
+        "0x00134bb5  addss xmm1, xmm0",
+        "0x00134bb9  addss xmm3, xmm5",
+        "0x00134bbd  comiss xmm2, xmm3",
+        "0x00134bc0  jbe 0x180134bce",
+        "0x00134bc2  subss xmm2, xmm3",
+        "0x00134bc6  mulss xmm2, xmm2",
+        "0x00134bca  addss xmm1, xmm2",
+        "0x00134bce  movss xmm5, dword ptr [rdx + 8]",
+        "0x00134bd3  movss xmm3, dword ptr [r8 + 8]",
+        "0x00134bd9  movaps xmm4, xmm5",
+        "0x00134bdc  movss xmm2, dword ptr [r9 + 8]",
+        "0x00134be2  subss xmm4, xmm3",
+        "0x00134be6  comiss xmm2, xmm4",
+        "0x00134be9  jae 0x180134bfa",
+        "0x00134beb  movaps xmm0, xmm2",
+        "0x00134bee  subss xmm0, xmm4",
+        "0x00134bf2  mulss xmm0, xmm0",
+        "0x00134bf6  addss xmm1, xmm0",
+        "0x00134bfa  addss xmm3, xmm5",
+        "0x00134bfe  comiss xmm2, xmm3",
+        "0x00134c01  jbe 0x180134c0f",
+        "0x00134c03  subss xmm2, xmm3",
+        "0x00134c07  mulss xmm2, xmm2",
+        "0x00134c0b  addss xmm1, xmm2",
+        "0x00134c0f  movss xmm0, dword ptr [r9 + 0xc]",
+        "0x00134c15  xor eax, eax",
+        "0x00134c17  mulss xmm0, xmm0",
+        "0x00134c1b  comiss xmm0, xmm1",
+        "0x00134c1e  seta al",
+        "0x00134c21  ret "
+      ],
+      "module": "x64/Engine.dll",
+      "rva": "0x134b50",
+      "sqrt_instructions": []
+    },
+    "link12_x86": {
+      "d_z_3_start_offsets": [
+        "0x24d102",
+        "0x24d106",
+        "0x24d114"
+      ],
+      "d_z_3_store_claim_per_start": [
+        [
+          "0x0024d14b  fstp dword ptr [edi + 0xc7c]"
+        ],
+        [
+          "0x0024d14b  fstp dword ptr [edi + 0xc7c]"
+        ],
+        [
+          "0x0024d14b  fstp dword ptr [edi + 0xc7c]"
+        ]
+      ],
+      "d_z_3_three_start_convergence": true,
+      "engine_dll_primitive_listing": [
+        "0x00222d5a  pop eax",
+        "0x00222d5b  fdiv st(3)",
+        "0x00222d5d  movups xmm0, xmmword ptr [edx + 8]",
+        "0x00222d61  movss xmm1, dword ptr [esp + 8]",
+        "0x00222d67  comiss xmm1, xmm0",
+        "0x00222d6a  jbe 0x10222d72",
+        "0x00222d6c  subss xmm0, xmm1",
+        "0x00222d70  jmp 0x10222d7b",
+        "0x00222d72  comiss xmm0, xmm6",
+        "0x00222d75  jbe 0x10222d83",
+        "0x00222d77  subss xmm0, xmm6",
+        "0x00222d7b  mulss xmm0, xmm0",
+        "0x00222d7f  addss xmm3, xmm0",
+        "0x00222d83  movss xmm0, dword ptr [edx + 0xc]",
+        "0x00222d88  xor eax, eax",
+        "0x00222d8a  mulss xmm0, xmm0",
+        "0x00222d8e  comiss xmm0, xmm3",
+        "0x00222d91  setae al",
+        "0x00222d94  add esp, 0xc",
+        "0x00222d97  ret ",
+        "0x00222d98  int3 ",
+        "0x00222d99  int3 ",
+        "0x00222d9a  int3 ",
+        "0x00222d9b  int3 "
+      ],
+      "engine_dll_signature_sites": [
+        "0x17db14",
+        "0x1bcb86",
+        "0x222d8a"
+      ],
+      "game_dll_abs_refs": [
+        "0x24d142"
+      ],
+      "game_dll_store_listing": [
+        "0x0024d102  call eax",
+        "0x0024d104  fstp dword ptr [edi + 0xc5c]",
+        "0x0024d10a  mov eax, dword ptr [ebx]",
+        "0x0024d10c  movss xmm0, dword ptr [edi + 0xc78]",
+        "0x0024d114  push ecx",
+        "0x0024d115  movss dword ptr [esp], xmm0",
+        "0x0024d11a  mov ecx, ebx",
+        "0x0024d11c  mov eax, dword ptr [eax + 0x24]",
+        "0x0024d11f  push 0x1054d750",
+        "0x0024d124  call eax",
+        "0x0024d126  mov eax, dword ptr [ebx]",
+        "0x0024d128  push ecx",
+        "0x0024d129  fstp dword ptr [edi + 0xc78]",
+        "0x0024d12f  movss xmm0, dword ptr [edi + 0xc7c]",
+        "0x0024d137  mov ecx, ebx",
+        "0x0024d139  mov eax, dword ptr [eax + 0x24]",
+        "0x0024d13c  movss dword ptr [esp], xmm0",
+        "0x0024d141  push 0x1054d7ac",
+        "0x0024d146  call eax",
+        "0x0024d148  mov eax, dword ptr [ebx]",
+        "0x0024d14a  push ecx",
+        "0x0024d14b  fstp dword ptr [edi + 0xc7c]"
+      ],
+      "game_dll_string_rva": "0x54d7ac"
+    },
+    "link1_string": {
+      "bytes": "6d656c656554617267657444697374616e636500",
+      "file_offset": "0x65f928",
+      "module": "x64/Game.dll",
+      "occurrences_in_module": 1,
+      "rva": "0x660528",
+      "section": ".rdata"
+    },
+    "link2_refs": [
+      {
+        "disp_rva": "0x2b3d97",
+        "lea_bytes": "488d158dc73a00",
+        "lea_rva": "0x2b3d94"
+      }
+    ],
+    "link3_load_site": {
+      "field_slot": "gameengine-config + 0x13a4",
+      "listing": [
+        "0x002b3d66  mov rax, qword ptr [r14]",
+        "0x002b3d69  movss xmm2, dword ptr [r13 + 0x13a0]",
+        "0x002b3d72  lea rdx, [rip + 0x3ac727]",
+        "0x002b3d79  mov rcx, r14",
+        "0x002b3d7c  call qword ptr [rax + 0x48]",
+        "0x002b3d7f  movss dword ptr [r13 + 0x13a0], xmm0",
+        "0x002b3d88  mov rax, qword ptr [r14]",
+        "0x002b3d8b  movss xmm2, dword ptr [r13 + 0x13a4]",
+        "0x002b3d94  lea rdx, [rip + 0x3ac78d]",
+        "0x002b3d9b  mov rcx, r14",
+        "0x002b3d9e  call qword ptr [rax + 0x48]",
+        "0x002b3da1  movss dword ptr [r13 + 0x13a4], xmm0"
+      ],
+      "module": "x64/Game.dll",
+      "runtime_function": [
+        "0x2b3bc0",
+        "0x2bf074"
+      ],
+      "store_instruction": "0x002b3da1  movss dword ptr [r13 + 0x13a4], xmm0",
+      "store_width_bytes": 4
+    },
+    "link4_ctor_defaults": [
+      "0x002ac150  mov dword ptr [rdi + 0x1394], 0x40400000",
+      "0x002ac15a  mov dword ptr [rdi + 0x1398], 0x41200000",
+      "0x002ac164  mov dword ptr [rdi + 0x139c], 0x3e99999a",
+      "0x002ac16e  mov dword ptr [rdi + 0x13a0], 0x40200000",
+      "0x002ac178  mov dword ptr [rdi + 0x13a4], 0x40400000",
+      "0x002ac182  mov dword ptr [rdi + 0x13a8], 0x40000000"
+    ],
+    "link5_slot_refs": [
+      {
+        "fn": "0x2abcb0",
+        "mnemonic": "mov",
+        "op_str": "dword ptr [rdi + 0x13a4], 0x40400000",
+        "rva": "0x2ac178"
+      },
+      {
+        "fn": "0x2b3bc0",
+        "mnemonic": "movss",
+        "op_str": "xmm2, dword ptr [r13 + 0x13a4]",
+        "rva": "0x2b3d8b"
+      },
+      {
+        "fn": "0x2b3bc0",
+        "mnemonic": "movss",
+        "op_str": "dword ptr [r13 + 0x13a4], xmm0",
+        "rva": "0x2b3da1"
+      },
+      {
+        "fn": "0x2f6fa0",
+        "mnemonic": "mov",
+        "op_str": "dword ptr [rcx + 0x13a4], eax",
+        "rva": "0x2f6fc7"
+      },
+      {
+        "fn": "0x4b58e0",
+        "mnemonic": "call",
+        "op_str": "qword ptr [rip + 0x13a4ab]",
+        "rva": "0x4b5baf"
+      },
+      {
+        "fn": "0x4b5d20",
+        "mnemonic": "call",
+        "op_str": "qword ptr [rip + 0x13a4da]",
+        "rva": "0x4b5fa8"
+      },
+      {
+        "fn": "0x5012d0",
+        "mnemonic": "movss",
+        "op_str": "xmm7, dword ptr [rax + 0x13a4]",
+        "rva": "0x50134a"
+      }
+    ],
+    "link6_consumer": {
+      "iat_slot_rva": "0x5f1950",
+      "import": [
+        "Engine.dll",
+        "?GetEntitiesInCone@World@GAME@@QEAAXAEAV?$vector@PEAVEntity@GAME@@@mem@@AEBVWorldVec3@2@AEBVVec3@2@MM_NW4EntityListType@2@@Z"
+      ],
+      "listing": [
+        "0x00501343  mov rax, qword ptr [rip + 0x52ff3e]",
+        "0x0050134a  movss xmm7, dword ptr [rax + 0x13a4]",
+        "0x00501352  lea rsi, [rip + 0x266f9f]",
+        "0x00501359  mov qword ptr [rbp - 0x80], rsi",
+        "0x0050135d  xor edi, edi",
+        "0x005015e8  lea rax, [rsp + 0x60]",
+        "0x005015ed  mov qword ptr [rsp + 0x38], rax",
+        "0x005015f2  movss dword ptr [rsp + 0x30], xmm7",
+        "0x005015f8  movss xmm0, dword ptr [rip + 0x27262c]",
+        "0x00501600  movss dword ptr [rsp + 0x28], xmm0",
+        "0x00501606  mov qword ptr [rsp + 0x20], rsi",
+        "0x0050160b  mov r9, rbx",
+        "0x0050160e  lea r8, [r15 + 0x19f0]",
+        "0x00501615  mov rcx, qword ptr [rip + 0x52fc6c]",
+        "0x0050161c  call 0x1802d6930"
+      ],
+      "module": "x64/Game.dll",
+      "runtime_function": "0x5012d0"
+    },
+    "link7_export_guard": {
+      "exports_sharing_this_rva": [
+        "?GetEntitiesInCone@World@GAME@@QEAAXAEAV?$vector@PEAVEntity@GAME@@@mem@@AEBVWorldVec3@2@AEBVVec3@2@MM_NW4EntityListType@2@@Z"
+      ],
+      "module": "x64/Engine.dll",
+      "pdata_bounds": [
+        "0x21dc40",
+        "0x21e396"
+      ],
+      "rva": "0x21dc40",
+      "rva_is_function_start": true,
+      "section": ".text",
+      "symbol": "?GetEntitiesInCone@World@GAME@@QEAAXAEAV?$vector@PEAVEntity@GAME@@@mem@@AEBVWorldVec3@2@AEBVVec3@2@MM_NW4EntityListType@2@@Z",
+      "total_exports": 6279
+    },
+    "link8_delegate": [
+      "?GetEntitiesInSphere@World@GAME@@QEBAXAEAV?$vector@PEAVEntity@GAME@@@mem@@PEAVRegion@2@AEBVSphere@2@_NW4EntityListType@2@@Z"
+    ],
+    "link8_sphere_build": [
+      "0x0021dcd7  movsd xmm0, qword ptr [r8 + 8]",
+      "0x0021dcdd  movsd qword ptr [rsp + 0x30], xmm0",
+      "0x0021dce3  mov eax, dword ptr [r8 + 0x10]",
+      "0x0021dce7  mov dword ptr [rsp + 0x38], eax",
+      "0x0021dceb  movss xmm0, dword ptr [rbp + 0xc8]",
+      "0x0021dcf3  movss dword ptr [rsp + 0x3c], xmm0",
+      "0x0021dcf9  mov eax, dword ptr [rbp + 0xd8]",
+      "0x0021dcff  mov dword ptr [rsp + 0x28], eax",
+      "0x0021dd03  movzx r12d, byte ptr [rbp + 0xd0]",
+      "0x0021dd0b  mov byte ptr [rsp + 0x20], r12b",
+      "0x0021dd10  lea r9, [rsp + 0x30]",
+      "0x0021dd15  mov r8, qword ptr [r8]",
+      "0x0021dd18  call 0x18021e3a0"
+    ],
+    "link9_walk": [
+      "0x00134110  cmp byte ptr [rsp + 0x88], 0",
+      "0x00134118  je 0x180134124",
+      "0x0013411a  cmp byte ptr [rdi + 0x74], 0",
+      "0x0013411e  lea rcx, [rdi + 0x5c]",
+      "0x00134122  jne 0x180134128",
+      "0x00134124  lea rcx, [rdi + 0x44]",
+      "0x00134128  mov rdx, rax",
+      "0x0013412b  call 0x18027cff0",
+      "0x00134130  test al, al",
+      "0x00134132  jne 0x18013413c"
+    ]
+  },
+  "ec7_boundary_arithmetic": {
+    "decimal_2p4_as_double": "2.4",
+    "decimal_2p4_exact": "2.399999999999999911182158029987476766109466552734375",
+    "engine_effective_radius_exact": "2.400000047683715553858974089962430298328399658203125",
+    "engine_effective_radius_m": "2.4000000476837156",
+    "engine_minus_2p4_m": "4.7683715642676816059974953532218933105468750E-8",
+    "engine_minus_r32_m": "-4.7683716086766025910037569701671600341796875E-8",
+    "fl32_r32_squared": "5.760000228881836",
+    "fl32_r32_squared_exact": "5.7600002288818359375",
+    "fl32_r32_squared_hex": "ec51b840",
+    "fork_a_window_m": "9.5367431729442841970012523233890533447265625E-8",
+    "fork_b_inert_at_double_precision": true,
+    "r32_as_double": "2.4000000953674316",
+    "r32_bit_pattern": "0x4019999A",
+    "r32_exact_decimal": "2.400000095367431640625",
+    "r32_squared_double": "5.760000457763681",
+    "r32_squared_double_is_exact": true,
+    "table": [
+      {
+        "arith": "double",
+        "delta_vs_engine_m": "-4.768372E-8",
+        "exact_decimal": "2.399999999999999911182158029987476766109466552734375",
+        "id": "A2/B2",
+        "limb_a": "decimal 2.4",
+        "limb_b": "rooted",
+        "threshold_m": "2.4"
+      },
+      {
+        "arith": "double",
+        "delta_vs_engine_m": "+4.768372E-8",
+        "exact_decimal": "2.400000095367431640625",
+        "id": "A1/B2",
+        "limb_a": "stored float32",
+        "limb_b": "rooted",
+        "threshold_m": "2.4000000953674316"
+      },
+      {
+        "arith": "double",
+        "delta_vs_engine_m": "-4.768372E-8",
+        "exact_decimal": "2.399999999999999911182158029987476766109466552734375",
+        "id": "A2/B1",
+        "limb_a": "decimal 2.4",
+        "limb_b": "squared",
+        "threshold_m": "2.4"
+      },
+      {
+        "arith": "double",
+        "delta_vs_engine_m": "+4.768372E-8",
+        "exact_decimal": "2.400000095367431640625",
+        "id": "A1/B1",
+        "limb_a": "stored float32",
+        "limb_b": "squared",
+        "threshold_m": "2.4000000953674316"
+      },
+      {
+        "arith": "float32",
+        "delta_vs_engine_m": "+0.000000E-45",
+        "exact_decimal": "2.400000047683715553858974089962430298328399658203125",
+        "id": "ENGINE",
+        "limb_a": "stored float32",
+        "limb_b": "squared",
+        "threshold_m": "2.4000000476837156"
+      }
+    ]
+  },
+  "lap": "KC2-PM4 Lap Z",
+  "provenance": "UNREACHED-I24D-1 (gamora I-24-D \u00a7 10); root defect D-I24D-1"
+}
