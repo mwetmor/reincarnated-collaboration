@@ -1,0 +1,25 @@
+{
+  "determinism": "x2 into separate directories; every emitted artifact byte-identical",
+  "emitted": {
+    "pm4ad_findings.md": "ba5c7342852d44e23d9fd42fc1d3e3653c4e4223ff6a3c93b67602abe2818a11",
+    "pm4ad_t_ref.csv": "128074ad69e162b09446d5a1fd0be54fe75cd6ccadd92e978bcf6b01fff72fde",
+    "pm4ad_t_ref.json": "d7b18d3fc2f992d6a5f46746f635f703ac09caaf17fa8c720d66f2ebce293d4e",
+    "prereg.md": "93ffe4b9927eb94f100f5c5ba826bfeeafc6f447c52f4d712bf38c00381d7505"
+  },
+  "inputs": {
+    "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_contact_occupancy.csv": "913a57a34e58d5e2d9b29def163303ea680189234180986ba43e4f59f7bb20e6",
+    "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_digests.json": "17f10603ecc45faf0002ee4978d198a741484f23f4be17f77ccc69ca2dc6a1e3",
+    "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_findings.md": "28cd24aaf05116ea5c363f1ecaf1b02cd51486564b933be7f02cd137b856d4bd",
+    "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_residence.json": "bdf02b2278d2f62d23d590b6a196efd0e4ef181dff8e9992b75f1c805f037f14",
+    "agentic_orchestration/research/scripts/pm4ac_lib_2026_08_16.py": "4cd928bf265fb15972d1bd7a0a4aed5ab0b6209d1c96d8e4c3de0687b5e26b74",
+    "agentic_orchestration/research/scripts/pm4ac_residence_2026_08_16.py": "58b7a87c94791f83b497ee9ba23d0defdafd731825c28f7b35f9d12f426c1c07",
+    "agentic_orchestration/research/scripts/pm4r_contact_2026_08_14.py": "8994b96a8da280e031fd6d795e8db7b5894910c4b8a233b4b064e1010068f2a7",
+    "agentic_orchestration/research/scripts/pm4r_lib_2026_08_14.py": "630bede0bbc10389dca79d04601d319d37a02f266d406c0aad837480b110762b"
+  },
+  "instruments": {
+    "pm4ad_digests_2026_08_16.py": "SELF \u2014 not self-referential; hashed by the conductor",
+    "pm4ad_t_leg_2026_08_16.py": "34d77f15302f71ae34faa5250304a6cd483f87c9f82f24e6dd997e301210704c"
+  },
+  "lap": "AD",
+  "law": "digests computed AFTER the final write (D-AA-5); every full-64 re-hashed from bytes at the moment of writing (R-PM4-75 part 2 / I-28 DO-NOT 8); a truncated pin is a LOCATOR and is never expanded from memory"
+}
