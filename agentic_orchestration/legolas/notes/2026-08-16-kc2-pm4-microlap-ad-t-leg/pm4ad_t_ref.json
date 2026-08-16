@@ -1,0 +1,582 @@
+{
+  "F_AD_1": {
+    "aggregation_rule": {
+      "byte_citation": [
+        "pm4r_contact_2026_08_14.py:58 \u2014 times = sorted(t for t in P if FIGHT_T0 <= t <= FIGHT_T1)  [P = player-plate map, :50-52]",
+        "pm4r_contact_2026_08_14.py:248-252 \u2014 cc[i] built one integer per element of times",
+        "pm4r_contact_2026_08_14.py:266 \u2014 mean_occupancy = round(cc.mean(), 4)",
+        "pm4r_contact_2026_08_14.py:59-61 \u2014 'instants without a player plate are EXCLUDED, not imputed'",
+        "pm4ac_residence_2026_08_16.py:388 \u2014 observed_fraction(w) * T_ref(w) == n_obs(w) * DT identically, so the 4-dp rounding of observed_fraction CANCELS in the weight"
+      ],
+      "neither_option_offered": "it is NOT a per-wave mean and NOT a wall-clock time-weighted mean",
+      "rule": "OBSERVED-INSTANT-WEIGHTED mean over the whole fight window",
+      "weight": "omega(w) = observed_fraction(w) * T_ref(w) = OBSERVED time in wave w"
+    },
+    "landing_site": null,
+    "per_wave": {
+      "151": {
+        "B_A_s": 40.207,
+        "L_recon_bodies": 2.5774073448275865,
+        "T_ref_s": 15.59978483055406,
+        "omega_s": 14.5
+      },
+      "152": {
+        "B_A_s": 44.307,
+        "L_recon_bodies": 2.7182692460732985,
+        "T_ref_s": 16.299709848096946,
+        "omega_s": 15.916666666666668
+      },
+      "153": {
+        "B_A_s": 25.385,
+        "L_recon_bodies": 1.7036492942583734,
+        "T_ref_s": 14.900367162157345,
+        "omega_s": 13.933333333333334
+      },
+      "154": {
+        "B_A_s": 58.294,
+        "L_recon_bodies": 4.105217464150943,
+        "T_ref_s": 14.199978566070088,
+        "omega_s": 13.25
+      },
+      "155": {
+        "B_A_s": 36.954,
+        "L_recon_bodies": 2.280997545064378,
+        "T_ref_s": 16.200806563760256,
+        "omega_s": 15.533333333333333
+      },
+      "156": {
+        "B_A_s": 57.393,
+        "L_recon_bodies": 2.841178276762402,
+        "T_ref_s": 20.20042194092827,
+        "omega_s": 19.15
+      },
+      "157": {
+        "B_A_s": 81.024,
+        "L_recon_bodies": 4.198226696629213,
+        "T_ref_s": 19.299577144096283,
+        "omega_s": 17.8
+      },
+      "158": {
+        "B_A_s": 33.638,
+        "L_recon_bodies": 2.587599826086956,
+        "T_ref_s": 12.999691706916042,
+        "omega_s": 12.65
+      },
+      "159": {
+        "B_A_s": 113.646,
+        "L_recon_bodies": 4.32127005988024,
+        "T_ref_s": 26.299212598425196,
+        "omega_s": 25.05
+      },
+      "160": {
+        "B_A_s": 79.955,
+        "L_recon_bodies": 3.198081460340993,
+        "T_ref_s": 25.000926646651102,
+        "omega_s": 22.483333333333334
+      }
+    },
+    "primary_rung": "293.6",
+    "rungs": {
+      "285.7": {
+        "B_total_s": 552.116,
+        "L_agg": 3.2426546593578696,
+        "L_identity_check": 3.24265465935787,
+        "L_naive_mean": 2.9562208383475403,
+        "L_pinned": 3.2423,
+        "L_walltime": 3.050356601969882,
+        "R_gpx": "285.7",
+        "omega_total_s": 170.266667,
+        "pass_": true,
+        "rel_dev": 0.00010938511484726021,
+        "rel_dev_identity": 0.00010938511484748226,
+        "rel_dev_naive": -0.08823340272413405,
+        "rel_dev_walltime": -0.05919976499093804
+      },
+      "293.6": {
+        "B_total_s": 570.803,
+        "L_agg": 3.352406029757243,
+        "L_identity_check": 3.352406029757244,
+        "L_naive_mean": 3.0531897214074384,
+        "L_pinned": 3.3519,
+        "L_walltime": 3.1535994238062552,
+        "R_gpx": "293.6",
+        "omega_total_s": 170.266667,
+        "pass_": true,
+        "rel_dev": 0.0001509680352167475,
+        "rel_dev_identity": 0.00015096803521696955,
+        "rel_dev_naive": -0.08911670353905599,
+        "rel_dev_walltime": -0.0591606480484933
+      },
+      "300.0": {
+        "B_total_s": 583.268,
+        "L_agg": 3.4256147220046986,
+        "L_identity_check": 3.425614722004699,
+        "L_naive_mean": 3.1177847135240597,
+        "L_pinned": 3.4251,
+        "L_walltime": 3.222466645628399,
+        "R_gpx": "300.0",
+        "omega_total_s": 170.266667,
+        "pass_": true,
+        "rel_dev": 0.00015027940927225814,
+        "rel_dev_identity": 0.00015027940927248018,
+        "rel_dev_naive": -0.08972447124928917,
+        "rel_dev_walltime": -0.05916129583708529
+      }
+    },
+    "statement": "L_agg(RC) = sum_w B_A(w) / sum_w [observed_fraction(w) * T_ref(w)] vs the pinned mean_occupancy at scope=at_sim_D_ENGAGE_M_2.400",
+    "tolerance": 0.005,
+    "tolerance_budget_a_priori": {
+      "observed_fraction_round_4dp": 0.0,
+      "per_interval_body_time_round_4dp": 0.0009,
+      "per_wave_total_round_3dp": 8.8e-06,
+      "pinned_mean_occupancy_round_4dp": 1.5e-05,
+      "worst_case_total": 0.00092
+    },
+    "verdict": "PASS"
+  },
+  "T_ref": {
+    "T_direct_transcription_check": {
+      "is_independent": false,
+      "max_abs_dev_s": 0.0009266466511022031,
+      "note": "both descend from WAVE_START at pm4r_lib_2026_08_14.py:52-55; agreement proves no lap mangled the segmentation in transit and proves nothing about whether the segmentation is correct",
+      "per_wave_s": {
+        "151": 15.600000000000023,
+        "152": 16.299999999999955,
+        "153": 14.899999999999977,
+        "154": 14.200000000000045,
+        "155": 16.200000000000045,
+        "156": 20.199999999999932,
+        "157": 19.300000000000068,
+        "158": 13.0,
+        "159": 26.299999999999955,
+        "160": 25.0
+      },
+      "source": "pm4r_contact_occupancy.csv basis column, scope=per_wave"
+    },
+    "functional": "T_ref(w) = n_observed_instants(w) / observed_fraction(w) / 60",
+    "per_wave_n_observed_instants": {
+      "151": 870,
+      "152": 955,
+      "153": 836,
+      "154": 795,
+      "155": 932,
+      "156": 1149,
+      "157": 1068,
+      "158": 759,
+      "159": 1503,
+      "160": 1349
+    },
+    "per_wave_observed_fraction": {
+      "151": 0.9295,
+      "152": 0.9765,
+      "153": 0.9351,
+      "154": 0.9331,
+      "155": 0.9588,
+      "156": 0.948,
+      "157": 0.9223,
+      "158": 0.9731,
+      "159": 0.9525,
+      "160": 0.8993
+    },
+    "per_wave_s": {
+      "151": 15.59978483055406,
+      "152": 16.299709848096946,
+      "153": 14.900367162157345,
+      "154": 14.199978566070088,
+      "155": 16.200806563760256,
+      "156": 20.20042194092827,
+      "157": 19.299577144096283,
+      "158": 12.999691706916042,
+      "159": 26.299212598425196,
+      "160": 25.000926646651102
+    },
+    "rung_invariant": true,
+    "sum_s": 181.00047700765558,
+    "uncertainty_basis": "Lap H-2 OBS-H2-6: wave-increment times read +-0.25 s from a 52x26 wave-counter digit crop at (1582,138) by 4 fps frame-difference (pm4r_lib_2026_08_14.py:50-51).  The +-1-frame resolution the arithmetic superficially suggests is NOT this quantity's uncertainty.",
+    "uncertainty_s": 0.25,
+    "unit": "referent-clock seconds",
+    "what_it_actually_is": "an ALGEBRAIC INVERSE of WAVE_END[w] - WAVE_START[w]: observed_fraction is constructed at pm4ac_residence_2026_08_16.py:388 as len(wobs)/((WAVE_END[w]-WAVE_START[w])/DT), so the division recovers the segmentation span to 4-dp rounding.  It is NOT an independent measurement of window duration."
+  },
+  "authority": "R-PM4-75 part 4(ii) \u2014 second licensed referent-functional carve-out",
+  "constants": {
+    "DT": 0.016666666666666666,
+    "FPS": 60.0,
+    "TOL": 0.005,
+    "fight_window": [
+      683.0,
+      864.0
+    ],
+    "rung_primary": "293.6",
+    "rungs_secondary": [
+      "285.7",
+      "300.0"
+    ],
+    "waves": [
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160
+    ]
+  },
+  "exhaustiveness": {
+    "n_intervals_exact": true,
+    "n_obs_exact": true,
+    "rung_n_intervals": 10205,
+    "sum_n_intervals": 10205,
+    "sum_n_obs": 10216,
+    "top_level_n_observed_instants": 10216
+  },
+  "firewall": [
+    "no sim artifact, cell, ledger, output directory or code path opened",
+    "no comparison of any quantity to any sim quantity, in prose or by adjacency",
+    "the occupancy bracket is NOT re-derived; F-AD-1 is a fidelity gate only",
+    "the 9 cuts are OBS-H2-6's; re-expressed, never re-measured, +-0.25 s not adjudicated",
+    "pm4u_arrivals.csv not opened (Lap AB DO-NOT 9)",
+    "R=150.0 used ONLY for the rung-free T-invariance check, never pooled (AC DO-NOT 7)",
+    "no metre conversion, no body count, no arrival rate, no residence scalar quoted",
+    "no pinned instrument modified"
+  ],
+  "halts": [],
+  "input_pins": {
+    "I1_residence": {
+      "expected": "bdf02b2278d2f62d23d590b6a196efd0e4ef181dff8e9992b75f1c805f037f14",
+      "got": "bdf02b2278d2f62d23d590b6a196efd0e4ef181dff8e9992b75f1c805f037f14",
+      "match": true,
+      "path": "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_residence.json"
+    },
+    "I2_occupancy": {
+      "expected": "913a57a34e58d5e2d9b29def163303ea680189234180986ba43e4f59f7bb20e6",
+      "got": "913a57a34e58d5e2d9b29def163303ea680189234180986ba43e4f59f7bb20e6",
+      "match": true,
+      "path": "agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_contact_occupancy.csv"
+    },
+    "I3_ac_digests": {
+      "expected": "17f10603ecc45faf0002ee4978d198a741484f23f4be17f77ccc69ca2dc6a1e3",
+      "got": "17f10603ecc45faf0002ee4978d198a741484f23f4be17f77ccc69ca2dc6a1e3",
+      "match": true,
+      "path": "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_digests.json"
+    },
+    "I4_ac_residence_py": {
+      "expected": "58b7a87c94791f83b497ee9ba23d0defdafd731825c28f7b35f9d12f426c1c07",
+      "got": "58b7a87c94791f83b497ee9ba23d0defdafd731825c28f7b35f9d12f426c1c07",
+      "match": true,
+      "path": "agentic_orchestration/research/scripts/pm4ac_residence_2026_08_16.py"
+    },
+    "I5_ac_lib_py": {
+      "expected": "4cd928bf265fb15972d1bd7a0a4aed5ab0b6209d1c96d8e4c3de0687b5e26b74",
+      "got": "4cd928bf265fb15972d1bd7a0a4aed5ab0b6209d1c96d8e4c3de0687b5e26b74",
+      "match": true,
+      "path": "agentic_orchestration/research/scripts/pm4ac_lib_2026_08_16.py"
+    },
+    "I6_r_contact_py": {
+      "expected": "8994b96a8da280e031fd6d795e8db7b5894910c4b8a233b4b064e1010068f2a7",
+      "got": "8994b96a8da280e031fd6d795e8db7b5894910c4b8a233b4b064e1010068f2a7",
+      "match": true,
+      "path": "agentic_orchestration/research/scripts/pm4r_contact_2026_08_14.py"
+    },
+    "I7_r_lib_py": {
+      "expected": "630bede0bbc10389dca79d04601d319d37a02f266d406c0aad837480b110762b",
+      "got": "630bede0bbc10389dca79d04601d319d37a02f266d406c0aad837480b110762b",
+      "match": true,
+      "path": "agentic_orchestration/research/scripts/pm4r_lib_2026_08_14.py"
+    },
+    "I8_ac_findings": {
+      "expected": "28cd24aaf05116ea5c363f1ecaf1b02cd51486564b933be7f02cd137b856d4bd",
+      "got": "28cd24aaf05116ea5c363f1ecaf1b02cd51486564b933be7f02cd137b856d4bd",
+      "match": true,
+      "path": "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ac-referent-residence/pm4ac_findings.md"
+    },
+    "I9_prereg": {
+      "expected": "93ffe4b9927eb94f100f5c5ba826bfeeafc6f447c52f4d712bf38c00381d7505",
+      "got": "93ffe4b9927eb94f100f5c5ba826bfeeafc6f447c52f4d712bf38c00381d7505",
+      "match": true,
+      "path": "agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-microlap-ad-t-leg/prereg.md"
+    }
+  },
+  "lap": "AD",
+  "partition": {
+    "per_wave_element_level": {
+      "declared_unused": [
+        "median_residence_s",
+        "n_distinct_bodies",
+        "p90_residence_s"
+      ],
+      "present": [
+        "median_residence_s",
+        "n_distinct_bodies",
+        "n_intervals",
+        "n_observed_instants",
+        "observed_fraction",
+        "p90_residence_s",
+        "total_body_time_s",
+        "wave"
+      ],
+      "unassigned": [],
+      "used": [
+        "n_intervals",
+        "n_observed_instants",
+        "observed_fraction",
+        "total_body_time_s",
+        "wave"
+      ],
+      "verdict": "TOTAL-AND-EXHAUSTIVE"
+    },
+    "rung_level": {
+      "declared_unused": [
+        "body_time_all",
+        "censored_fraction",
+        "distinct_bodies_with_ring_time",
+        "n_censored_either_side",
+        "n_left_censored",
+        "n_right_censored",
+        "n_touching_wave_boundary",
+        "n_with_internal_gap",
+        "residence_all",
+        "residence_uncensored_only"
+      ],
+      "present": [
+        "R_gpx",
+        "body_time_all",
+        "censored_fraction",
+        "distinct_bodies_with_ring_time",
+        "n_censored_either_side",
+        "n_intervals",
+        "n_left_censored",
+        "n_right_censored",
+        "n_touching_wave_boundary",
+        "n_with_internal_gap",
+        "per_wave",
+        "residence_all",
+        "residence_uncensored_only"
+      ],
+      "unassigned": [],
+      "used": [
+        "R_gpx",
+        "n_intervals",
+        "per_wave"
+      ],
+      "verdict": "TOTAL-AND-EXHAUSTIVE"
+    },
+    "top_level": {
+      "declared_unused": [
+        "F_AC_1",
+        "F_AC_2",
+        "F_AC_2_robustness",
+        "bound_direction",
+        "emitted",
+        "exit_life_bounds",
+        "firewall",
+        "forks",
+        "lap",
+        "leg_A3",
+        "leg_A3b",
+        "n_monster_plate_rows",
+        "n_player_plate_rows",
+        "n_tracked_plate_instants",
+        "n_tracks",
+        "plate_continuity",
+        "player_speed_context",
+        "prereg_sha256",
+        "residence_ladder",
+        "right_censored_exits",
+        "track_length_census"
+      ],
+      "present": [
+        "F_AC_1",
+        "F_AC_2",
+        "F_AC_2_robustness",
+        "bound_direction",
+        "emitted",
+        "exit_life_bounds",
+        "firewall",
+        "forks",
+        "lap",
+        "leg_A3",
+        "leg_A3b",
+        "n_monster_plate_rows",
+        "n_observed_instants",
+        "n_player_plate_rows",
+        "n_tracked_plate_instants",
+        "n_tracks",
+        "plate_continuity",
+        "player_speed_context",
+        "prereg_sha256",
+        "residence",
+        "residence_ladder",
+        "right_censored_exits",
+        "track_length_census"
+      ],
+      "unassigned": [],
+      "used": [
+        "n_observed_instants",
+        "residence"
+      ],
+      "verdict": "TOTAL-AND-EXHAUSTIVE"
+    }
+  },
+  "post_hoc_verifications": {
+    "LABEL": "POST-HOC \u2014 added after the numbers; grades nothing; changes no verdict",
+    "note": "both descend from the same Lap H-2 nameplate census; agreement demonstrates the census survived transit through two laps intact and demonstrates nothing about whether the census is correct",
+    "per_wave_instants_LapR_basis_vs_LapAC_json": {
+      "all_10_parsed": true,
+      "exact_on_all_10": true,
+      "per_wave": {
+        "151": [
+          870,
+          870
+        ],
+        "152": [
+          955,
+          955
+        ],
+        "153": [
+          836,
+          836
+        ],
+        "154": [
+          795,
+          795
+        ],
+        "155": [
+          932,
+          932
+        ],
+        "156": [
+          1149,
+          1149
+        ],
+        "157": [
+          1068,
+          1068
+        ],
+        "158": [
+          759,
+          759
+        ],
+        "159": [
+          1503,
+          1503
+        ],
+        "160": [
+          1349,
+          1349
+        ]
+      }
+    },
+    "whole_fight_N_obs_LapR_basis": 10216
+  },
+  "predictions": [
+    {
+      "evidence": {
+        "all_10_parsed": true,
+        "max_abs_dev_s": 0.0009266466511022031
+      },
+      "grade": "PASS",
+      "id": "P-1",
+      "text": "T_ref agrees with T_direct to within 0.01 s on all 10 waves"
+    },
+    {
+      "evidence": {
+        "150.0": true,
+        "285.7": true,
+        "293.6": true,
+        "300.0": true
+      },
+      "grade": "PASS",
+      "id": "P-2",
+      "text": "T_ref identical to 4 dp across all four rungs"
+    },
+    {
+      "evidence": {
+        "fight_span_s": 181.0,
+        "gap_s": -0.0004770076555757896,
+        "sum_T_ref_s": 181.00047700765558
+      },
+      "grade": "PASS",
+      "id": "P-3",
+      "text": "Sigma T_ref = 181.00 s +- 0.05 s and equals FIGHT_T1 - FIGHT_T0"
+    },
+    {
+      "evidence": {
+        "rel_dev": 0.0001509680352167475
+      },
+      "grade": "PASS",
+      "id": "P-4",
+      "text": "F-AD-1 PASSES at rung 293.6 within TOL = 5.0e-3"
+    },
+    {
+      "evidence": {
+        "285.7": 0.00010938511484726021,
+        "300.0": 0.00015027940927225814
+      },
+      "grade": "PASS",
+      "id": "P-5",
+      "text": "F-AD-1 also passes at 285.7 and 300.0"
+    },
+    {
+      "evidence": {
+        "n_intervals_exact": true,
+        "n_obs_exact": true,
+        "rung_n_intervals": 10205,
+        "sum_n_intervals": 10205,
+        "sum_n_obs": 10216,
+        "top_level_n_observed_instants": 10216
+      },
+      "grade": "PASS",
+      "id": "P-6",
+      "text": "per-wave partition exhaustive on both instants and intervals, exactly"
+    },
+    {
+      "evidence": {
+        "rel_dev_naive": -0.08911670353905599
+      },
+      "grade": "PASS",
+      "id": "P-7",
+      "text": "BLIND: L_naive_mean misses the pinned bracket by more than TOL"
+    },
+    {
+      "evidence": {
+        "rel_dev_walltime": -0.0591606480484933
+      },
+      "grade": "PASS",
+      "id": "P-8",
+      "text": "BLIND: L_walltime misses the pinned bracket by more than TOL"
+    },
+    {
+      "evidence": {
+        "max_s": 26.299212598425196,
+        "min_s": 12.999691706916042,
+        "ratio": 2.0230643303974354
+      },
+      "grade": "PASS",
+      "id": "P-9",
+      "text": "BLIND: max_w T_ref / min_w T_ref >= 2.0"
+    },
+    {
+      "evidence": {
+        "wave_highest_L_recon": 159,
+        "wave_longest_window": 159
+      },
+      "grade": "FAIL",
+      "id": "P-10",
+      "text": "BLIND: the longest-window wave is not the highest-L_recon wave"
+    }
+  ],
+  "prereg_commit": "052008ee",
+  "prereg_sha256": "93ffe4b9927eb94f100f5c5ba826bfeeafc6f447c52f4d712bf38c00381d7505",
+  "side": "REFERENT-ONLY \u2014 no sim artifact opened, no sim quantity computed or compared",
+  "sigma_vs_fight_window": {
+    "UNREACHED_AD_1": "whether inter-wave dead time exists IN THE REFERENT is undecidable from these pins: OBS-H2-6 cuts at the wave-counter digit change and PARTITIONS rather than BRACKETS, assigning every intervening second to one wave or the other.",
+    "fight_window_span_s": 181.0,
+    "gap_s": -0.0004770076555757896,
+    "status": "TAUTOLOGY, NOT CONFIRMATION",
+    "sum_T_ref_s": 181.00047700765558,
+    "why": "pm4r_lib_2026_08_14.py:58 sets WAVE_END[w] = WAVE_START[w+1] for w<160 and WAVE_END[160] = FIGHT_T1, so the ten windows telescope across the fight window by construction: exhaustive, non-overlapping, admitting no inter-wave dead time BY DEFINITION.  A zero gap confirms this lap read line 58 correctly and nothing else."
+  }
+}
