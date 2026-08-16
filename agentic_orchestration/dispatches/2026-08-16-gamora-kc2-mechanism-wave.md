@@ -502,19 +502,80 @@ clean seat.*
 
 ## Completion record
 
-*(gamora appends here at wave close)*
+**Completed:** 2026-08-16, gamora. All three components landed as ONE bundled wave (D2=(i));
+mechanism-existence acceptance only; the wave sits at Gate 2
+(`agentic_orchestration/qa/pending/2026-08-16-gamora-kc2-mech-wave-gate2.md`).
 
-**Completed:**
 **Brief digest re-hashed at session start:**
-**Tags shipped:**
-**Math note (committed ALONE):**
+`b3761247dc723008ab7d970aec2252288f895c0418d9e080b2d32bb065151076` — re-hashed from bytes,
+matched the pin; recorded in the math note (`d242dd46`).
+
+**Tags shipped:** `gamora/v-kc2-mech-reengage-1` · `gamora/v-kc2-mech-playermove-1` ·
+`gamora/v-kc2-mech-playermove-2` · `gamora/v-kc2-mech-packseek-1` ·
+`gamora/v-kc2-mech-wave-legs-1` · `gamora/v-kc2-mech-wave-checkpoint-1` ·
+`gamora/v-kc2-mech-wave-close-1`. No unprefixed milestone tag.
+
+**Math note (committed ALONE):** `simulation/math/kc2-mech-wave-2026-08-16.md`, engine
+`d242dd46` (zero code). **Two ALONE defect addenda followed the law stack:** Addendum 1
+`8510e6cf` (the record cells have been FIGHTERS since I-16 — "camp pivot" premise false;
+repairs `a4352078`), Addendum 2 `05773ecf` (Addendum 1's own L0b construction was superseded by
+the I-24(c) kinematics law, run.py:1414 / D-I18-5; repair re-bound L0b to the bare
+construction; ladder-CAMP retained as S-CAMP-LADDER, reported never scored).
+
 **Prereg (committed ALONE, before code):**
-**A-1 … A-10 disposition:**
-**Smoke results:**
-**Round-trip smoke:**
-**MIGRATION.md written:** yes — sim-side + star-lord export boundary (semantic shift declared)
-**New checkpoint (sibling) + digest:**
-**`E-s09-cp150` byte-unchanged verification:**
-**Blast radius named:**
-**Notes for jack-ryan Gate 2:**
-**Notes for gandalf DRIFT-CRITIC:**
+`simulation/math/kc2-mech-wave-prereg-2026-08-16.md`, engine `3d0ed261` — predates every code
+commit of the wave. Rows graded WORDING-UNCHANGED: **F-MECH PASS; P-1..P-8, P-10 PASS;
+P-9 UNREACHED-partial** (latency half censored under the declared smoke seed scan, trace
+published, rule not extended post-data; cadence half PASS). The first driver execution
+(P-2 FAIL under the then-current L0b binding) is PUBLISHED UNEDITED
+(`kc2-mech-wave-findings-20260816_162248.json`, sha `8e9e0300…`) as Addendum 2's surfacing
+measurement; findings of record `…162815.json`, sha `641e1a84…`.
+
+**A-1 … A-10 disposition:** all ten demonstrated from emitted artifacts; the criterion→artifact
+map is the `acceptance` block of the findings of record. A-9 completed across two artifacts:
+first half in the findings (FROZEN 20/20 pre+post the driver), second half in the checkpoint
+(FROZEN 20/20 pre+post the cut, PUBLISHED in `parent_immutability`).
+
+**Smoke results:** full kc2 suite 332 pass / 1 PRE-EXISTING fail (`test_AC_10_10`, standing
+since I-23) — baseline moved only by the wave's 36 new tests. Wave driver 8.5 s wall;
+checkpoint driver 6.2 s wall, all gates green on first execution.
+
+**Round-trip smoke:** `tests/test_kc2_run_adapter.py` 40/40 pass unmodified, 1.38 s
+(Principle 6 both legs; export MIGRATION entry).
+
+**MIGRATION.md written:** yes — sim-side (`dd0ab918`) + star-lord export boundary
+(`a7512917`, ⚑ FLAGGED; zero schema change; semantic shift declared: the record player track
+keeps TYPE, changes LAW).
+
+**New checkpoint (sibling) + digest:** `E-s09-cp150-mech`, sim-side cut
+(`kc2-checkpoint-E-s09-cp150-mech-20260816_124031.json`), sha256 re-hashed from bytes
+`20b05cb4ef3bd888b998cbc46c68b41a8051111c12fbcf2066d101b0a4b15f4b`, engine `a411a35c`.
+**SIBLING, NOT SUCCESSOR** — bound to the record cell empirically (recorder-off payload digest
+== the P-5 pin; recorder-on IDENTICAL, proving the R-L80-2 knot recorder inert at the mech
+cell; 97 actors / 10,036 knots / 0 structural violations; salts 1-4 crosschecked float-exact
+against the findings of record). Handed to KC2-PM5 as its cells' substrate;
+`UNREACHED-I28-4`'s 54 rows named closable on it. The adapter spec surface stops at I-18 —
+the ride-or-stay baton question is star-lord's (export MIGRATION § 3).
+
+**`E-s09-cp150` byte-unchanged verification:** 20/20 PRE and 20/20 POST at the wave driver AND
+20/20 PRE and 20/20 POST at the checkpoint cut — four verifications, all published. The parent
+is frozen permanently.
+
+**Blast radius named:** ZERO on every pinned surface — P-1 reproduces I-27's pinned salt-0
+surface (`7bb6b267…`) and knot (`bc7e7a50…`) digests byte for byte through the wave's landed
+code; the checkpoint LEG-1a re-proves the bind independently. Export-visible: zero schema
+change; two keyed-when-active run-surface keys, ABSENT elsewhere by design (`fb5d780a`).
+
+**Notes for jack-ryan Gate 2:** the five hunts are surfaced with artifact pointers in the
+submission file, § 3. The two judgment calls I flagged against myself (§ 4): the Addendum-2
+P-2 re-bind (FAIL→PASS by construction repair, not row re-wording — the superseded cell
+retained unscored), and the checkpoint's sim-side layer choice.
+
+**Notes for gandalf DRIFT-CRITIC:** the promotion's true shape on the replication path is
+**arrives-and-dwells → drive-through** (not stationary→moving — the record cells have been
+fighters since I-16; Addendum 1 corrected the wave's own framing to the measured truth).
+LATENCY-ZERO of record is the identity (no constant); LATENCY-ALERT runnable with no default;
+TRACK_CADENCE declared at the incumbent tick quantum with the referent re-path rate named as a
+decode candidate for legolas, not guessed. distressCall stays a NAMED OPEN — no formation
+layer was invented. PM5 inherits: the sibling checkpoint substrate, the P-9 latency half
+(honestly UNREACHED at smoke scale), and the re-grade from a clean seat per D3=(a).
