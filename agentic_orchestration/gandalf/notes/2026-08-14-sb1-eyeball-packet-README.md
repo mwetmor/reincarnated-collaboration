@@ -6,6 +6,8 @@
 
 ## 0-bis. PACKET v2 — what to eyeball now
 
+> **⚠ R-CPB-18a (gate 1, first pass — 2026-08-15, ledger WW-4):** Matt's eye on the candidate still: **"still a bit closer."** The pair below stands as the **k = 1.00 baseline**; the WW-4a DISTANCE-LADDER renders **k = 0.90 / 0.80 / 0.70** along the same lock vector (stand-offs ≈ 31.35 / 27.86 / 24.38 m) — fov/pitch/yaw/anchor UNCHANGED (dolly, not fov-zoom; the zoom alternative is declared, not defaulted). Matt picks the rung by eye; no distance pins from a desk.
+
 **Gate 1 pair (same camera by construction: pin delta 0.000000000000 m vs `pl_audit.json`, anchor delta 0.0002 px, still byte-identical ×2):**
 
 | | Artifact | Path |
