@@ -2,6 +2,8 @@
 
 **Assembled by gandalf (`RUN-CONDUCTOR`), 2026-08-14.** All paths relative to `~/Games/reincarnated-collaboration/`. Every image byte is class-E (on disk, untracked, sha-bridged from tracked text).
 
+> **⚠ CORRECTED SAME DAY (ledger WW-3) — Matt's pointer overrides §§ 1–4 below.** The ratified reference is **`~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4`** (the BR-2 watch: seed 74000909, 1600×900, 1211 frames / 40.37 s, sha `ea61b0ee…`; `BR2W_C9.mp4` byte-identical), **NOT exhibit E2.** Its camera is READ from the BR-2 run logs + `m6/pl_audit.json` (four laps identical, anchor error < 0.0009 frac) and it is **THE GD GAME CAMERA** — `player_lock`: **pitch 52.9535° · fov_v 31.7861° (vertical) · yaw 47.0° · cam−player offset (14.7262, 28.3970, 13.7826) m = stand-off 34.831 m · anchor (0.50104, 0.55093) · player-locked** — the GAL-CAM gd-parity operands verbatim. Consequences: **E2 demotes** to camera-adjacent exhibit (its fov-24 lens never matched the reference: 24 vs 31.79, pitch 50 vs 52.95); the **§ 4 candidate-boom table is STRUCK** (boom-scaling under the wrong fov is moot); the fork resolves toward **architecture (A) instantiated at the GD camera**; **gate 1 becomes: arena re-rendered under `player_lock`, judged beside BR2W.** In flight: drax ports `player_lock` into the arena harness (camera the ONLY variable — the scale-1.95 over-read this predicts is exactly § 4(A)'s named body-scale follow-up, surfacing on schedule) · galadriel measures BR2W's own subject register from the sha-gated mp4. Full lineage: ledger row WW-3.
+
 ---
 
 ## 0. What you are ruling, and in what order (your own gate, R-CPB-17b)
