@@ -1,0 +1,52 @@
+field,family,type,cls,description,n_templates,example_template
+absoluteRunSpeedCapMax,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+absoluteRunSpeedCapMin,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+bossRunSpeedCapMax,ENGINE-CAP,real,array,,1,gameengine.tpl
+bossRunSpeedCapMin,ENGINE-CAP,real,array,,1,gameengine.tpl
+characterRunSpeed,SELF-LOCOMOTION,real,array,,4,backup/parameters_character.tpl
+characterRunSpeedJitter,SELF-LOCOMOTION,real,variable,,4,backup/parameters_character.tpl
+characterRunSpeedMaxModifier,SELF-LOCOMOTION,real,array,,1,templatebase/parameters_character.tpl
+characterRunSpeedModifier,SELF-LOCOMOTION,real,array,,4,backup/parameters_character.tpl
+characterTotalSpeedModifier,SELF-LOCOMOTION,real,array,,4,backup/parameters_character.tpl
+defensiveTotalSpeedChance,SLOW-RESISTANCE,real,array,,2,backup/parameters_defensive.tpl
+defensiveTotalSpeedMaxResist,SLOW-RESISTANCE,real,array,,1,templatebase/parameters_defensive.tpl
+defensiveTotalSpeedResistance,SLOW-RESISTANCE,real,array,,2,backup/parameters_defensive.tpl
+monsterRunSpeedCapMax,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+monsterRunSpeedCapMin,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+offensiveSlowRunSpeedChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedDurationMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,Seconds,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedDurationMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,Seconds,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedDurationModifier,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedGlobal,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedModifier,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedModifierChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowRunSpeedXOR,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedDurationMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedDurationMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedGlobal,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_offensive.tpl
+offensiveSlowTotalSpeedXOR,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_offensive.tpl
+playerRunSpeedCapMax,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+playerRunSpeedCapMin,ENGINE-CAP,real,array,Index by difficulty 0 to 2,1,gameengine.tpl
+retaliationSlowRunSpeedChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedDurationMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,Seconds,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedDurationMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,Seconds,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedDurationModifier,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedDurationModifierChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedGlobal,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedMax,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedMin,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedModifier,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedModifierChance,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",real,array,,2,backup/parameters_retaliation.tpl
+retaliationSlowRunSpeedXOR,"APPLIED-SLOW (acts on the caster's TARGET, not on the caster)",bool,variable,,2,backup/parameters_retaliation.tpl
+tab1RunSpeedNumber,UI-DISPLAY (decoy),file_dbr,variable,,1,ingameui/charstatstab1.tpl
+tab1RunSpeedRollover,UI-DISPLAY (decoy),file_dbr,variable,,1,ingameui/charstatstab1.tpl
+tab1RunSpeedText,UI-DISPLAY (decoy),file_dbr,variable,,1,ingameui/charstatstab1.tpl
+tab2PetRunSpeedRollover,UI-DISPLAY (decoy),file_dbr,variable,,1,ingameui/charstatstab2.tpl
+tab2PetRunSpeedText,UI-DISPLAY (decoy),string,variable,,1,ingameui/charstatstab2.tpl
+tab2RunSpeedRollover,UI-DISPLAY (decoy),file_dbr,variable,,1,ingameui/charstatstab2.tpl
+tab2RunSpeedText,UI-DISPLAY (decoy),string,variable,,1,ingameui/charstatstab2.tpl

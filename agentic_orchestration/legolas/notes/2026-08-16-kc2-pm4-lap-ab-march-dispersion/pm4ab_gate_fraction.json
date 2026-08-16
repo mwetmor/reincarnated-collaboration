@@ -1,0 +1,1165 @@
+{
+ "_corroboration_monte_carlo": [
+  {
+   "D_m": 0.1122,
+   "abs_diff": 0.000606,
+   "analytic": 0.749934,
+   "map": "survivalworld_e.map",
+   "monte_carlo": 0.75054
+  },
+  {
+   "D_m": 2.4534,
+   "abs_diff": 0.000115,
+   "analytic": 0.71136,
+   "map": "survivalworld_b.map",
+   "monte_carlo": 0.711245
+  },
+  {
+   "D_m": 33.9762,
+   "abs_diff": 0.0,
+   "analytic": 0.0,
+   "map": "survivalworld_b.map",
+   "monte_carlo": 0.0
+  }
+ ],
+ "_mod_stack_resolution": {
+  "basis": "Lap AA D-AA-4",
+  "precedence": [
+   "mods/survivalmode/resources/Maps.arc",
+   "survivalmode1/resources/Maps.arc",
+   "survivalmode2/resources/Maps.arc",
+   "survivalmode3/resources/Maps.arc"
+  ],
+  "rows_after_resolution": 60,
+  "rows_in_pin": 120,
+  "superseded": 60
+ },
+ "all arenas | to_nearest_patrol_m": {
+  "alert_distance_m": 6.0,
+  "mean_fraction_of_placements_inside_gate": 0.121704,
+  "n_points_entirely_inside": 0,
+  "n_points_with_any_placement_inside": 22,
+  "n_spawn_points": 60,
+  "per_point": [
+   {
+    "D_m": 1.8621,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.731601
+   },
+   {
+    "D_m": 12.8473,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.011263
+   },
+   {
+    "D_m": 15.7028,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 12.411,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.018586
+   },
+   {
+    "D_m": 14.3291,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 10.6643,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.061813
+   },
+   {
+    "D_m": 18.5679,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 18.8185,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.6614,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 3.2494,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.667578
+   },
+   {
+    "D_m": 19.1672,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 19.1363,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 1.5058,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.738047
+   },
+   {
+    "D_m": 17.9232,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 13.4074,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.004055
+   },
+   {
+    "D_m": 13.2077,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.006321
+   },
+   {
+    "D_m": 15.2024,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.3319,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 19.4815,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 13.9784,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 2.8e-05
+   },
+   {
+    "D_m": 4.4696,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.577821
+   },
+   {
+    "D_m": 12.9928,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.009142
+   },
+   {
+    "D_m": 13.7671,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.000985
+   },
+   {
+    "D_m": 9.9476,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.08647
+   },
+   {
+    "D_m": 19.3211,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.2927,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.718459
+   },
+   {
+    "D_m": 16.506,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 21.1464,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 14.6854,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.8077,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 13.0742,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.008028
+   },
+   {
+    "D_m": 1.1919,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.742545
+   },
+   {
+    "D_m": 17.6428,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.3553,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 17.8792,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 12.9815,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0093
+   },
+   {
+    "D_m": 14.6054,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 23.0859,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.515,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.708448
+   },
+   {
+    "D_m": 24.5226,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 22.3326,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 21.8583,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 18.2141,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 0.3253,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.749449
+   },
+   {
+    "D_m": 22.9801,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 12.7664,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.012513
+   },
+   {
+    "D_m": 17.0814,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 22.7277,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 1.3837,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.739926
+   },
+   {
+    "D_m": 25.3875,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 20.105,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 17.284,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 18.3029,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.2741,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 18.5329,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 22.0085,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 21.1946,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.6861,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.69989
+   },
+   {
+    "D_m": 26.0779,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 17.0019,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   }
+  ]
+ },
+ "all arenas | to_patrol_centroid_m": {
+  "alert_distance_m": 6.0,
+  "mean_fraction_of_placements_inside_gate": 0.075654,
+  "n_points_entirely_inside": 0,
+  "n_points_with_any_placement_inside": 10,
+  "n_spawn_points": 60,
+  "per_point": [
+   {
+    "D_m": 10.2826,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.074388
+   },
+   {
+    "D_m": 33.113,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.8773,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 32.9939,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 31.7538,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 27.3118,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.5057,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 33.9762,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.461,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.4534,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.71136
+   },
+   {
+    "D_m": 33.7498,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.2116,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 9.5671,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.10148
+   },
+   {
+    "D_m": 38.8315,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.8213,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 32.1328,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 38.5506,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.5538,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_c.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 40.2423,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.3093,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 7.0503,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.25261
+   },
+   {
+    "D_m": 31.4173,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 36.6054,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 31.4577,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_d.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 36.238,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 0.1122,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.749934
+   },
+   {
+    "D_m": 36.7499,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 38.774,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 30.9024,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 37.0437,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 41.4494,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 8.1988,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.169478
+   },
+   {
+    "D_m": 41.5367,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 44.0685,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 41.8059,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 38.9493,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_f.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 32.3571,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 39.0442,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 3.4985,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.651481
+   },
+   {
+    "D_m": 40.2474,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 39.4742,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 38.0737,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_g.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 30.6024,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 3.5013,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.651294
+   },
+   {
+    "D_m": 44.084,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 33.5171,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 30.3405,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 44.7514,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_h.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 4.1486,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.604251
+   },
+   {
+    "D_m": 41.1003,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 39.3457,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.6838,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.903,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 36.9288,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_i.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 43.3668,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 48.0703,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 42.4595,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 4.5258,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.572949
+   },
+   {
+    "D_m": 46.9638,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 40.5102,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_j.map",
+    "p_inside_gate": 0.0
+   }
+  ]
+ },
+ "candidate-restricted (a/b/e) | to_nearest_patrol_m": {
+  "alert_distance_m": 6.0,
+  "mean_fraction_of_placements_inside_gate": 0.122739,
+  "n_points_entirely_inside": 0,
+  "n_points_with_any_placement_inside": 6,
+  "n_spawn_points": 18,
+  "per_point": [
+   {
+    "D_m": 1.8621,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.731601
+   },
+   {
+    "D_m": 12.8473,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.011263
+   },
+   {
+    "D_m": 15.7028,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 12.411,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.018586
+   },
+   {
+    "D_m": 14.3291,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 10.6643,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.061813
+   },
+   {
+    "D_m": 18.5679,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 18.8185,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.6614,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 3.2494,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.667578
+   },
+   {
+    "D_m": 19.1672,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 19.1363,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 19.3211,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.2927,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.718459
+   },
+   {
+    "D_m": 16.506,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 21.1464,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 14.6854,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 16.8077,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   }
+  ]
+ },
+ "candidate-restricted (a/b/e) | to_patrol_centroid_m": {
+  "alert_distance_m": 6.0,
+  "mean_fraction_of_placements_inside_gate": 0.085316,
+  "n_points_entirely_inside": 0,
+  "n_points_with_any_placement_inside": 3,
+  "n_spawn_points": 18,
+  "per_point": [
+   {
+    "D_m": 10.2826,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.074388
+   },
+   {
+    "D_m": 33.113,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.8773,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 32.9939,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 31.7538,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 27.3118,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_a.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 35.5057,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 33.9762,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.461,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 2.4534,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.71136
+   },
+   {
+    "D_m": 33.7498,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 34.2116,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_b.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 36.238,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 0.1122,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.749934
+   },
+   {
+    "D_m": 36.7499,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 38.774,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 30.9024,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   },
+   {
+    "D_m": 37.0437,
+    "archive": "survivalmode3/resources/Maps.arc",
+    "extents_m": 8.0,
+    "map": "survivalworld_e.map",
+    "p_inside_gate": 0.0
+   }
+  ]
+ }
+}

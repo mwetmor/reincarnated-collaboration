@@ -1,0 +1,475 @@
+{
+ "A_d1": {
+  "adjustment_records": {
+   "survivalAdjustmentElite": "records/game/balancingadjustment_survivalmode_enemies02.dbr",
+   "survivalAdjustmentNormal": "records/game/balancingadjustment_survivalmode_enemies01.dbr",
+   "survivalAdjustmentUltimate": "records/game/balancingadjustment_survivalmode_enemies03.dbr"
+  },
+  "per_record": {
+   "records/game/balancingadjustment_survivalmode_enemies01.dbr": {
+    "layer": "sm",
+    "n_fields": 627,
+    "n_nonzero": 0,
+    "n_speed_fields": 23,
+    "nonzero": {},
+    "selector": "survivalAdjustmentNormal"
+   },
+   "records/game/balancingadjustment_survivalmode_enemies02.dbr": {
+    "layer": "sm",
+    "n_fields": 627,
+    "n_nonzero": 0,
+    "n_speed_fields": 23,
+    "nonzero": {},
+    "selector": "survivalAdjustmentElite"
+   },
+   "records/game/balancingadjustment_survivalmode_enemies03.dbr": {
+    "layer": "sm",
+    "n_fields": 627,
+    "n_nonzero": 0,
+    "n_speed_fields": 23,
+    "nonzero": {},
+    "selector": "survivalAdjustmentUltimate"
+   }
+  },
+  "survivalinfo_layer": "sm",
+  "tier16_characterRunSpeedModifier": {
+   "0.0": 91
+  }
+ },
+ "A_d2": {
+  "n_roster790": 790,
+  "n_tier16": 91,
+  "roster790_characterTotalSpeedModifier": {
+   "ABSENT": 790
+  },
+  "tier16_census": {
+   "characterRunSpeed": {
+    "0.6000000238418579": 6,
+    "0.6600000262260437": 2,
+    "0.699999988079071": 4,
+    "0.75": 3,
+    "0.800000011920929": 5,
+    "0.8500000238418579": 3,
+    "0.8999999761581421": 6,
+    "1.0": 27,
+    "1.0499999523162842": 2,
+    "1.100000023841858": 14,
+    "1.1200000047683716": 2,
+    "1.149999976158142": 5,
+    "1.159999966621399": 1,
+    "1.2000000476837158": 4,
+    "1.25": 1,
+    "1.350000023841858": 4,
+    "1.4500000476837158": 1,
+    "1.5499999523162842": 1
+   },
+   "characterRunSpeedJitter": {
+    "0.0": 12,
+    "10.0": 17,
+    "15.0": 38,
+    "20.0": 4,
+    "30.0": 6,
+    "ABSENT": 14
+   },
+   "characterRunSpeedMaxModifier": {
+    "ABSENT": 91
+   },
+   "characterRunSpeedModifier": {
+    "0.0": 91
+   },
+   "characterTotalSpeedModifier": {
+    "ABSENT": 91
+   }
+  }
+ },
+ "A_d3": {
+  "defence_records": [
+   {
+    "chain_size": 11,
+    "layer": "sm",
+    "n_skill_refs": 4,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/banner_defense.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 15,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/banner_defense02.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 15,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/banner_defense03.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 11,
+    "layer": "sm",
+    "n_skill_refs": 4,
+    "purchased_in_referent": true,
+    "record": "records/creatures/defenses/banner_offense.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 15,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/banner_offense02.dbr",
+    "speed_terms": {
+     "records/skills/defenses/banneroffense_frenzy_buff.dbr": {
+      "characterTotalSpeedModifier": 35.0
+     }
+    }
+   },
+   {
+    "chain_size": 15,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/banner_offense03.dbr",
+    "speed_terms": {
+     "records/skills/defenses/banneroffense_frenzy_buff.dbr": {
+      "characterTotalSpeedModifier": 35.0
+     }
+    }
+   },
+   {
+    "chain_size": 13,
+    "layer": "sm",
+    "n_skill_refs": 4,
+    "purchased_in_referent": true,
+    "record": "records/creatures/defenses/turret_fire.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 20,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_fire02.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 20,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_fire03.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 18,
+    "layer": "sm",
+    "n_skill_refs": 4,
+    "purchased_in_referent": true,
+    "record": "records/creatures/defenses/turret_ice.dbr",
+    "speed_terms": {
+     "records/skills/defenses/turretice_icebolt.dbr": {
+      "offensiveSlowRunSpeedDurationMin": 5.0,
+      "offensiveSlowRunSpeedMin": 35.0
+     }
+    }
+   },
+   {
+    "chain_size": 22,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_ice02.dbr",
+    "speed_terms": {
+     "records/skills/defenses/turretice_chillingsurge_buff.dbr": {
+      "characterRunSpeedModifier": -50.0
+     },
+     "records/skills/defenses/turretice_icebolt2.dbr": {
+      "offensiveSlowRunSpeedDurationMin": 5.0,
+      "offensiveSlowRunSpeedMin": 45.0
+     }
+    }
+   },
+   {
+    "chain_size": 22,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_ice03.dbr",
+    "speed_terms": {
+     "records/skills/defenses/turretice_chillingsurge02_buff.dbr": {
+      "characterRunSpeedModifier": -50.0
+     },
+     "records/skills/defenses/turretice_icebolt3.dbr": {
+      "offensiveSlowRunSpeedDurationMin": 5.0,
+      "offensiveSlowRunSpeedMin": 45.0
+     }
+    }
+   },
+   {
+    "chain_size": 11,
+    "layer": "sm",
+    "n_skill_refs": 4,
+    "purchased_in_referent": true,
+    "record": "records/creatures/defenses/turret_lightning.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 17,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_lightning02.dbr",
+    "speed_terms": {}
+   },
+   {
+    "chain_size": 17,
+    "layer": "sm",
+    "n_skill_refs": 6,
+    "purchased_in_referent": false,
+    "record": "records/creatures/defenses/turret_lightning03.dbr",
+    "speed_terms": {}
+   }
+  ],
+  "hits": [
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/banneroffense_frenzy_buff.dbr",
+    "referenced_by": [
+     {
+      "field": "buffSkillName",
+      "owner": "records/skills/defenses/banneroffense_frenzy.dbr"
+     }
+    ],
+    "terms": {
+     "characterTotalSpeedModifier": 35.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/turretice_chillingsurge02_buff.dbr",
+    "referenced_by": [
+     {
+      "field": "buffSkillName",
+      "owner": "records/skills/defenses/turretice_chillingsurge02.dbr"
+     }
+    ],
+    "terms": {
+     "characterRunSpeedModifier": -50.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/turretice_chillingsurge_buff.dbr",
+    "referenced_by": [
+     {
+      "field": "buffSkillName",
+      "owner": "records/skills/defenses/turretice_chillingsurge.dbr"
+     }
+    ],
+    "terms": {
+     "characterRunSpeedModifier": -50.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/turretice_icebolt.dbr",
+    "referenced_by": [
+     {
+      "field": "attackSkillName",
+      "owner": "records/creatures/defenses/turret_ice.dbr"
+     },
+     {
+      "field": "skillName3",
+      "owner": "records/creatures/defenses/turret_ice.dbr"
+     }
+    ],
+    "terms": {
+     "offensiveSlowRunSpeedDurationMin": 5.0,
+     "offensiveSlowRunSpeedMin": 35.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/turretice_icebolt2.dbr",
+    "referenced_by": [
+     {
+      "field": "attackSkillName",
+      "owner": "records/creatures/defenses/turret_ice02.dbr"
+     },
+     {
+      "field": "skillName3",
+      "owner": "records/creatures/defenses/turret_ice02.dbr"
+     }
+    ],
+    "terms": {
+     "offensiveSlowRunSpeedDurationMin": 5.0,
+     "offensiveSlowRunSpeedMin": 45.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/defenses/turretice_icebolt3.dbr",
+    "referenced_by": [
+     {
+      "field": "attackSkillName",
+      "owner": "records/creatures/defenses/turret_ice03.dbr"
+     },
+     {
+      "field": "skillName3",
+      "owner": "records/creatures/defenses/turret_ice03.dbr"
+     }
+    ],
+    "terms": {
+     "offensiveSlowRunSpeedDurationMin": 5.0,
+     "offensiveSlowRunSpeedMin": 45.0
+    }
+   },
+   {
+    "layer": "sm",
+    "record": "records/skills/nonplayerskills/buffoffensive/trap_iceaura_buff.dbr",
+    "referenced_by": [
+     {
+      "field": "buffSkillName",
+      "owner": "records/skills/nonplayerskills/buffoffensive/trap_iceaura.dbr"
+     }
+    ],
+    "terms": {
+     "characterTotalSpeedModifier": -20.0
+    }
+   }
+  ],
+  "n_hits": 7,
+  "n_records_scanned": 3147,
+  "purchased_slow": {
+   "controller": "records/controllers/defenses/controller_turretice.dbr",
+   "controller_layer": "sm",
+   "geometry": {
+    "offensiveFreezeChance": 50.0,
+    "projectileExplosionRadius": 2.0,
+    "skillProjectileNumber": 1,
+    "skillProjectileTargetGroundOnly": true
+   },
+   "reach": {
+    "InnerViewDistance": 18.0,
+    "MaxPursuitDistance": 25.0,
+    "MaxYViewDistance": 20.0,
+    "ViewDistance": 24.0
+   },
+   "skill": "records/skills/defenses/turretice_icebolt.dbr",
+   "skill_layer": "sm",
+   "slow_terms": {
+    "offensiveSlowRunSpeedChance": 0.0,
+    "offensiveSlowRunSpeedDurationMax": 0.0,
+    "offensiveSlowRunSpeedDurationMin": 5.0,
+    "offensiveSlowRunSpeedDurationModifier": 0.0,
+    "offensiveSlowRunSpeedGlobal": false,
+    "offensiveSlowRunSpeedMax": 0.0,
+    "offensiveSlowRunSpeedMin": 35.0,
+    "offensiveSlowRunSpeedModifier": 0.0,
+    "offensiveSlowRunSpeedModifierChance": 0.0,
+    "offensiveSlowRunSpeedXOR": false
+   }
+  }
+ },
+ "A_d4": {
+  "basis": "Lap PM3-C README \u00a7 1: the referent bought FOUR defence-site constructions and ZERO celestial blessings",
+  "n_powerup_records": 12,
+  "n_with_speed_term": 0,
+  "purchased_in_referent": false,
+  "records": [
+   {
+    "cls": "Skill_BuffOther",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/blessingulo.dbr"
+   },
+   {
+    "cls": "SkillBuff_Passive",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/blessingulo_buff.dbr"
+   },
+   {
+    "cls": "",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/blessingulo_petbonus.dbr"
+   },
+   {
+    "cls": "Skill_BuffOther",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/empyrionguidance.dbr"
+   },
+   {
+    "cls": "SkillBuff_Passive",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/empyrionguidance_buff.dbr"
+   },
+   {
+    "cls": "",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/empyrionguidance_petbonus.dbr"
+   },
+   {
+    "cls": "Skill_BuffOther",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/mightamatok.dbr"
+   },
+   {
+    "cls": "SkillBuff_Passive",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/mightamatok_buff.dbr"
+   },
+   {
+    "cls": "",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/mightamatok_petbonus.dbr"
+   },
+   {
+    "cls": "Skill_BuffOther",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/ulzuinpact.dbr"
+   },
+   {
+    "cls": "SkillBuff_Passive",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/ulzuinpact_buff.dbr"
+   },
+   {
+    "cls": "",
+    "layer": "sm",
+    "nonneutral": {},
+    "record": "records/skills/powerups/ulzuinpact_petbonus.dbr"
+   }
+  ]
+ },
+ "A_d6": {
+  "chain_perm_speed_terms": {
+   "0": 79,
+   "1": 6,
+   "2": 6
+  },
+  "chain_transient_speed_terms": {
+   "0": 62,
+   "1": 19,
+   "2": 6,
+   "3": 4
+  },
+  "source": "pm4t_march_speed.csv (Lap T \u00a7 3.3), IMPORTED BY IDENTITY",
+  "tier16_covered": 91,
+  "tier16_records_with_a_permanent_term": 12,
+  "tier16_total": 91
+ }
+}

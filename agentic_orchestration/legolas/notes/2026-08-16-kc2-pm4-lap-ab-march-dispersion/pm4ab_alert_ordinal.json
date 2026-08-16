@@ -1,0 +1,258 @@
+{
+ "B_1": {
+  "refuted_candidate": {
+   "n_literals": 269,
+   "slot_at_ordinal_0x21": "unarmedSpecialAnimRef1",
+   "slot_at_ordinal_0x25": "unarmedSpecialAnimRef3",
+   "source": "Game.dll .rdata `unarmed*` literal order (exhaustive; the recon filter's two-digit `SpecialAnimNN` bug repaired)",
+   "why_refuted": "ordinal 0x25 is passed by ControllerMonsterStateFlee::OnBegin; a Flee state cannot play a `SpecialAnimRef` slot. The literal ordering is ENUMERATED and EXCLUDED, not used (D-Z-1 discipline)."
+  },
+  "start_i": {
+   "note": "re-verified from my own seat; reproduces Lap AA \u00a7 5.2 byte-for-byte",
+   "site": "Game.dll 0x10109425 : 6a 21  (push 0x21) immediately before call ControllerAI::PlayAnimation",
+   "state": "ControllerMonsterStateAlertBeforePursue::OnBegin (0x10109410)"
+  },
+  "start_ii": {
+   "n_call_sites": 16,
+   "note": "the AnimationSet_Type is the FIRST parameter and is therefore the LAST push before the call; `ordinal_last_push` is the ordinal, the rest of the window is unrelated pushes and is published so the extraction is auditable",
+   "sites": [
+    {
+     "call_va": "0x1006152d",
+     "caller": "?PlayAnimation@?$ControllerAIStateT@VControllerAI@GAME@@VCharacter@2@@GAME@@IAEXW4AnimationSet_Type@2@ABVName@2@M_NI@Z",
+     "caller_offset": "0x1d",
+     "ordinal_last_push": null,
+     "push_imm8_window": []
+    },
+    {
+     "call_va": "0x100fdd6c",
+     "caller": "?OnUpdate@ControllerMonsterStateHidden@GAME@@UAEXH@Z",
+     "caller_offset": "0x20c",
+     "ordinal_last_push": "0x13",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x13"
+     ]
+    },
+    {
+     "call_va": "0x100fe402",
+     "caller": "?OnBegin@ControllerMonsterStateStartup@GAME@@UAEXXZ",
+     "caller_offset": "0xa2",
+     "ordinal_last_push": "0x13",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x13"
+     ]
+    },
+    {
+     "call_va": "0x10102b91",
+     "caller": "?OnBegin@ControllerMonsterStateFlee@GAME@@UAEXXZ",
+     "caller_offset": "0x91",
+     "ordinal_last_push": "0x25",
+     "push_imm8_window": [
+      "0x25",
+      "0x0",
+      "0x0",
+      "0x25"
+     ]
+    },
+    {
+     "call_va": "0x10107429",
+     "caller": "?OnBegin@ControllerMonsterStateParalyze@GAME@@MAEXXZ",
+     "caller_offset": "0x39",
+     "ordinal_last_push": "0xb",
+     "push_imm8_window": [
+      "0x0",
+      "0x1",
+      "0xb"
+     ]
+    },
+    {
+     "call_va": "0x10108638",
+     "caller": "?OnUpdate@ControllerMonsterStateGettingUp@GAME@@MAEXH@Z",
+     "caller_offset": "0x108",
+     "ordinal_last_push": "0x27",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x26",
+      "0x27"
+     ]
+    },
+    {
+     "call_va": "0x10109427",
+     "caller": "?OnBegin@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ",
+     "caller_offset": "0x17",
+     "ordinal_last_push": "0x21",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x21"
+     ]
+    },
+    {
+     "call_va": "0x101095d7",
+     "caller": "?OnBegin@ControllerMonsterStateEmote@GAME@@UAEXXZ",
+     "caller_offset": "0x17",
+     "ordinal_last_push": "0x24",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x24"
+     ]
+    },
+    {
+     "call_va": "0x10109ea1",
+     "caller": "?OnBegin@ControllerMonsterStateQuestPlayAnimation@GAME@@MAEXXZ",
+     "caller_offset": "0x21",
+     "ordinal_last_push": "0x0",
+     "push_imm8_window": [
+      "0x0"
+     ]
+    },
+    {
+     "call_va": "0x10115098",
+     "caller": "?OnBegin@ControllerNpcStateStartup@GAME@@UAEXXZ",
+     "caller_offset": "0xb8",
+     "ordinal_last_push": "0x13",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x13"
+     ]
+    },
+    {
+     "call_va": "0x10115e31",
+     "caller": "?EndOfPathReached@ControllerNpcStateWander@GAME@@MAEXXZ",
+     "caller_offset": "0x61",
+     "ordinal_last_push": "0x3",
+     "push_imm8_window": [
+      "0x0",
+      "0x1",
+      "0x3"
+     ]
+    },
+    {
+     "call_va": "0x10116b14",
+     "caller": "?OnEnd@ControllerNpcStateQuestMove@GAME@@MAEXXZ",
+     "caller_offset": "0x34",
+     "ordinal_last_push": "0x1",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x1"
+     ]
+    },
+    {
+     "call_va": "0x1011776a",
+     "caller": "?OnBegin@ControllerNpcStateQuestOrient@GAME@@MAEXXZ",
+     "caller_offset": "0x1a",
+     "ordinal_last_push": "0x1",
+     "push_imm8_window": [
+      "0x1",
+      "0x1",
+      "0x1"
+     ]
+    },
+    {
+     "call_va": "0x101254ea",
+     "caller": "?OnBegin@ControllerSpiritHostStateStartup@GAME@@UAEXXZ",
+     "caller_offset": "0x11a",
+     "ordinal_last_push": "0x12",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x12"
+     ]
+    },
+    {
+     "call_va": "0x10128062",
+     "caller": "?OnBegin@ControllerSpiritStateStartup@GAME@@UAEXXZ",
+     "caller_offset": "0x22",
+     "ordinal_last_push": "0x14",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0x14"
+     ]
+    },
+    {
+     "call_va": "0x1012d200",
+     "caller": "??0?$ControllerMonsterState@VControllerTyphonChained@GAME@@VMonster@2@@GAME@@QAE@ABV01@@Z",
+     "caller_offset": "0xf0",
+     "ordinal_last_push": "0xa",
+     "push_imm8_window": [
+      "0x0",
+      "0x0",
+      "0xa"
+     ]
+    }
+   ]
+  },
+  "start_iii": {
+   "index_of": {
+    "Alert": "0x20",
+    "Chat": "0x28",
+    "Die": "0x1d",
+    "Emote": "0x23",
+    "Fidget": "0x25",
+    "Flee": "0x24",
+    "GetUpFaceDown": "0x29",
+    "GetUpFaceUp": "0x2a",
+    "PassItem": "0x27",
+    "Pickup": "0x26",
+    "Rally": "0x22",
+    "Respawn": "0x1f",
+    "Spawn": "0x1e",
+    "Stun": "0x6",
+    "Waiting": "0x21"
+   },
+   "n_families": 79,
+   "source": "database/templates.arc :: charanimationtable.tpl, `unarmed*` field order, numbered variants collapsed to slot families"
+  }
+ },
+ "B_2": {
+  "bytes_per_bone_frame": {
+   "max": 91.5,
+   "median": 56.5844,
+   "min": 56.014,
+   "p25": 56.3012,
+   "p75": 56.9859
+  },
+  "conformance_within_5pct": 0.992178,
+  "field_identification": "field0 is constant within a rig directory far more often than field1 -> field0 = BONE COUNT, field1 = FRAME COUNT; 56 bytes per bone-frame is exactly 14 float32, a clean per-bone key stride",
+  "gate_passed": true,
+  "gate_threshold": 0.95,
+  "n_anm_files": 3452,
+  "n_parsed": 3452,
+  "n_rig_dirs": 91,
+  "n_unparsed": 0,
+  "rate_field_distribution": {
+   "30": 3452
+  },
+  "rate_field_status": "CONSTANT = 30 on 100% of the population. Constancy is CONSISTENCY, not proof that the field is frames-per-second. Durations are published in FRAMES as primary; the seconds column is derived at 30 fps and is labelled DERIVED, not decoded (UNREACHED-AB-1).",
+  "rig_dirs_with_constant_field0": 45,
+  "rig_dirs_with_constant_field1": 3
+ },
+ "B_3_summary": {
+  "actors_with_alert": 136,
+  "actors_without_alert": 52,
+  "frames": {
+   "max": 74,
+   "max_s_at_30": 2.4667,
+   "median": 49.0,
+   "median_s_at_30": 1.6333,
+   "min": 23,
+   "min_s_at_30": 0.7667,
+   "n": 94,
+   "p25": 43.0,
+   "p75": 67.5,
+   "span_ratio": 3.2174
+  },
+  "n_alert_slot_empty": 25,
+  "n_has_alert": 66,
+  "n_no_table": 0,
+  "n_records": 91
+ }
+}

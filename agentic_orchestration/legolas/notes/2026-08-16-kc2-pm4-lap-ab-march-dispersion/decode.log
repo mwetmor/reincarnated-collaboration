@@ -1,0 +1,149 @@
+==============================================================================
+§ 1  PINS — every artifact re-hashed BEFORE use (GL-6, full 64-hex)
+==============================================================================
+  EXACT   61e7db1814f6070627977393448378d4ca42f00cf1a57fb0d5087382c2dd2248  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ab-march-dispersion/prereg.md
+  EXACT   2ad6d379285cfb745462316949e8d59e9450cb58a13f9ffa2fdeb70193183bfd  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/database/database.arz
+  EXACT   679db83f019020ef7d4d27be8e61203006ee94e5c582dd8a59642f3fddd54602  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/database/templates.arc
+  EXACT   e9f6e2213eada8f5ffcc4fc430395b43c95384b745b629def096dbb2e7da29b6  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/mods/survivalmode/database/SurvivalMode.arz
+  EXACT   6ac10d6180bfa8491edfc89946d1cfbf166c5ca6442c5862ecf6947290021252  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode1/database/SurvivalMode1.arz
+  EXACT   5ab636ebccaef4b613b663db1dbf083e8a166d5e0db4dd4a5cf9e8e3423dfac2  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_geometry_v3.csv
+  EXACT   991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv
+  RECORD  a16c99300dc5254d55a978685287331abf633e8950f51827cfc538c6b37969d0  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_speed_terms.csv
+  RECORD  cb9e0c4ed85d104fd6d3ee8f212d972e1639ac958c7ed8b880239479a063ad99  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-t-arrival-decode/pm4t_march_speed.csv
+  RECORD  bd26555e38ebd570fb3f04da36d6a9cea13d4726196c4216f873234720652818  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_ramp_analysis.json
+  RECORD  53acd7d5433eef17c3b91fc34fcfecf34a9dc1f25c4bd19848a187445c593180  /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_findings.md
+  RECORD  431e64e1d372e4ebee5d1048d3aca458923e1df8c97844274636f5373a01e292  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx1/database/GDX1.arz
+  RECORD  13fa0b93be15835958968ad672b9efa5159d7221a279aca791590390dd81a072  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx2/database/GDX2.arz
+  RECORD  e990e1265f14ff2ee241658433d4d666d399a5b0be27543ae9481fc97d6a2ae4  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx3/database/GDX3.arz
+  RECORD  940e40344e9dde53bfac8ff6576940d52ebfece600adeabe3774f9f0c3071e95  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode2/database/SurvivalMode2.arz
+  RECORD  e848791e4b15496670e4c78832075d9868e7b502e6eed93715c24e894902e12a  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode3/database/SurvivalMode3.arz
+  RECORD  bdafb01070fed09d27976813f8520fa04d98d756376701fd068ccfc6bb1de07c  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/resources/Creatures.arc
+  RECORD  c6d03e7f7262ac10b91191a7546a22fe8b3622bd39703937c8c5b00181f2b6be  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx1/resources/Creatures.arc
+  RECORD  61d0145d4f6e090be92d8317242a061ede287956dd4ca9163c7d52d07d8c585b  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx2/resources/Creatures.arc
+  RECORD  c53c7e87af854360d33b0243667391d3dddb94e4b7faa31545a8f251fa140b64  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/gdx3/resources/Creatures.arc
+  RECORD  087f0d4727c0c3704424f10b6e4159dba908af64af4a8ea8e7dd25417b1eb1da  /Users/admin/Games/vendor/grim-dawn-edition-III-20260808/mods/survivalmode/resources/Creatures.arc
+  RECORD  4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02  /Users/admin/Games/vendor/grim-dawn/Game.dll
+
+==============================================================================
+§ 2  CORPUS — the mod stack, in load order (later layer WINS, Lap AA D-AA-4)
+==============================================================================
+  base  database/database.arz                            records= 34171
+  gdx1  gdx1/database/GDX1.arz                           records= 18453
+  gdx2  gdx2/database/GDX2.arz                           records= 16454
+  gdx3  gdx3/database/GDX3.arz                           records= 24307
+  sm    mods/survivalmode/database/SurvivalMode.arz      records=  3147
+  sm1   survivalmode1/database/SurvivalMode1.arz         records=  1005
+  sm2   survivalmode2/database/SurvivalMode2.arz         records=   811
+  sm3   survivalmode3/database/SurvivalMode3.arz         records=  1433
+  ⚑ the `sm` layer (mods/survivalmode/database/SurvivalMode.arz) is the Crucible's own record set; every `records/creatures/defenses/*` record lives ONLY there.
+
+==============================================================================
+§ 3  DECOY SET — the COMPLETE run/total-speed field surface, ENUMERATED (D-Z-1)
+==============================================================================
+  51 distinct fields over 819 templates (1 template payloads unreadable and counted, not skipped silently)
+      28  APPLIED-SLOW (acts on the caster's TARGET, not on the caster)
+       8  ENGINE-CAP
+       7  UI-DISPLAY (decoy)
+       5  SELF-LOCOMOTION
+       3  SLOW-RESISTANCE
+
+  tier-16 band (waves 151-160, Lap R pin): 188 rostered actors over 91 distinct records;  full roster (Lap T pin): 790 records
+  ⚑ Lap AA § 4.5's two-table caveat is CARRIED: the board labelled 150 was dispensed by the previous tier's table; this lap's band is 151-160 and no wave-150 claim is made.
+
+==============================================================================
+§ 4  FORK (a) DATA SIDE — what acts on monster movement speed in the Crucible context
+==============================================================================
+  A-d1  survivalinfo.dbr [sm] -> 3 adjustment records (indexed by DIFFICULTY, not by wave):
+          survivalAdjustmentElite    balancingadjustment_survivalmode_enemies02.dbr       fields=627 speed_surface=23 NON-ZERO=0
+          survivalAdjustmentNormal   balancingadjustment_survivalmode_enemies01.dbr       fields=627 speed_surface=23 NON-ZERO=0
+          survivalAdjustmentUltimate balancingadjustment_survivalmode_enemies03.dbr       fields=627 speed_surface=23 NON-ZERO=0
+  A-d1  tier-16 characterRunSpeedModifier census: {0.0: 91}
+  A-d2  tier-16 characterTotalSpeedModifier: {'ABSENT': 91}
+  A-d2  tier-16 characterRunSpeedMaxModifier: {'ABSENT': 91}
+  A-d2  790-roster characterTotalSpeedModifier: {'ABSENT': 790}
+  A-d2  tier-16 characterRunSpeedJitter: {'0.0': 12, '10.0': 17, '15.0': 38, '20.0': 4, '30.0': 6, 'ABSENT': 14}
+  A-d3  Crucible mod layer swept EXHAUSTIVELY: 3147 records, 7 carry a non-neutral MODIFIER/SLOW run- or total-speed term:
+          records/skills/defenses/banneroffense_frenzy_buff.dbr            {'characterTotalSpeedModifier': 35.0}
+                referenced by  records/skills/defenses/banneroffense_frenzy.dbr  ::  buffSkillName
+          records/skills/defenses/turretice_chillingsurge02_buff.dbr       {'characterRunSpeedModifier': -50.0}
+                referenced by  records/skills/defenses/turretice_chillingsurge02.dbr  ::  buffSkillName
+          records/skills/defenses/turretice_chillingsurge_buff.dbr         {'characterRunSpeedModifier': -50.0}
+                referenced by  records/skills/defenses/turretice_chillingsurge.dbr  ::  buffSkillName
+          records/skills/defenses/turretice_icebolt.dbr                    {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 35.0}
+                referenced by  records/creatures/defenses/turret_ice.dbr  ::  attackSkillName
+                referenced by  records/creatures/defenses/turret_ice.dbr  ::  skillName3
+          records/skills/defenses/turretice_icebolt2.dbr                   {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 45.0}
+                referenced by  records/creatures/defenses/turret_ice02.dbr  ::  attackSkillName
+                referenced by  records/creatures/defenses/turret_ice02.dbr  ::  skillName3
+          records/skills/defenses/turretice_icebolt3.dbr                   {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 45.0}
+                referenced by  records/creatures/defenses/turret_ice03.dbr  ::  attackSkillName
+                referenced by  records/creatures/defenses/turret_ice03.dbr  ::  skillName3
+          records/skills/nonplayerskills/buffoffensive/trap_iceaura_buff.dbr {'characterTotalSpeedModifier': -20.0}
+                referenced by  records/skills/nonplayerskills/buffoffensive/trap_iceaura.dbr  ::  buffSkillName
+  A-d3  defence-site creature records: 15 (4 purchased in the referent)
+          [NOT-PURCHASED] records/creatures/defenses/banner_offense02.dbr          {'records/skills/defenses/banneroffense_frenzy_buff.dbr': {'characterTotalSpeedModifier': 35.0}}
+          [NOT-PURCHASED] records/creatures/defenses/banner_offense03.dbr          {'records/skills/defenses/banneroffense_frenzy_buff.dbr': {'characterTotalSpeedModifier': 35.0}}
+          [PURCHASED    ] records/creatures/defenses/turret_ice.dbr                {'records/skills/defenses/turretice_icebolt.dbr': {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 35.0}}
+          [NOT-PURCHASED] records/creatures/defenses/turret_ice02.dbr              {'records/skills/defenses/turretice_icebolt2.dbr': {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 45.0}, 'records/skills/defenses/turretice_chillingsurge_buff.dbr': {'characterRunSpeedModifier': -50.0}}
+          [NOT-PURCHASED] records/creatures/defenses/turret_ice03.dbr              {'records/skills/defenses/turretice_icebolt3.dbr': {'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedMin': 45.0}, 'records/skills/defenses/turretice_chillingsurge02_buff.dbr': {'characterRunSpeedModifier': -50.0}}
+  A-d3  the ONE purchased term — turretice_icebolt: {'offensiveSlowRunSpeedChance': 0.0, 'offensiveSlowRunSpeedDurationMax': 0.0, 'offensiveSlowRunSpeedDurationMin': 5.0, 'offensiveSlowRunSpeedDurationModifier': 0.0, 'offensiveSlowRunSpeedGlobal': False, 'offensiveSlowRunSpeedMax': 0.0, 'offensiveSlowRunSpeedMin': 35.0, 'offensiveSlowRunSpeedModifier': 0.0, 'offensiveSlowRunSpeedModifierChance': 0.0, 'offensiveSlowRunSpeedXOR': False}
+          reach (controller_turretice): {'InnerViewDistance': 18.0, 'MaxPursuitDistance': 25.0, 'MaxYViewDistance': 20.0, 'ViewDistance': 24.0}
+          geometry: {'offensiveFreezeChance': 50.0, 'projectileExplosionRadius': 2.0, 'skillProjectileNumber': 1, 'skillProjectileTargetGroundOnly': True}
+  A-d4  celestial blessings: 12 powerup records, 0 carry a non-neutral run/total-speed term (MEASURED-INACTIVE for the referent regardless — not purchased)
+  A-d6  Lap T buckets over the tier-16 subset (91/91 covered): records with >=1 ALWAYS-ON speed term = 12
+==============================================================================
+§ 5  FORK (a) VIDEO/TRACK SIDE — re-query of ALREADY-PINNED artifacts (the Lap Y lesson)
+==============================================================================
+  A-v1  Lap U F-10 living-count ramp, IMPORTED BY IDENTITY: t50=3.267 s  t90=4.967 s  width=1.7000 s
+  A-v1  per-wave decomposition present in the pinned artifact? NO — only pooled t50/t90 are pinned
+  A-v1  peak living count per wave (pinned): {'151': 24, '152': 20, '153': 25, '154': 28, '155': 19, '156': 25, '157': 36, '158': 26, '159': 29, '160': 25}
+  A-v2  per-body approach speed: UNREACHED — the pinned track artifact carries entry RADIUS, bearing, lifetime and frame count for entries in...
+  A-v3  tier-16 rostered actors (waves 151-160): n=188
+  A-v3  characterRunSpeed quantiles: p0=0.6000  p5=0.6000  p10=0.6600  p25=0.8375  p50=1.0000  p75=1.1500  p90=1.2000  p95=1.3150  p100=1.5500
+  A-v3  MEASURED ramp width (t90-t50) = 1.7000 s
+  A-v3  PREDICTED arrival-time width from the referent's OWN record band, both edges, every named distance proxy:
+          AA-candidate spawn->patrol-centroid median   px-LO  pred_width=  5.709 s   ratio pred/meas =  3.36
+          AA-candidate spawn->patrol-centroid median   px-HI  pred_width=  5.435 s   ratio pred/meas =  3.20
+          AA-candidate spawn->nearest-patrol median    px-LO  pred_width=  2.715 s   ratio pred/meas =  1.60
+          AA-candidate spawn->nearest-patrol median    px-HI  pred_width=  2.585 s   ratio pred/meas =  1.52
+          U-implied spawn->player (lo119 edge)         px-LO  pred_width=  3.547 s   ratio pred/meas =  2.09
+          U-implied spawn->player (lo119 edge)         px-HI  pred_width=  3.377 s   ratio pred/meas =  1.99
+          U-implied spawn->player (hi125 edge)         px-LO  pred_width=  3.726 s   ratio pred/meas =  2.19
+          U-implied spawn->player (hi125 edge)         px-HI  pred_width=  3.547 s   ratio pred/meas =  2.09
+  A-v3  ⚑ CONFOUND, priced: peak-living / decoded-E[bodies] per wave = {151: 0.5275, 152: 0.3704, 153: 0.3937, 154: 0.9032, 155: 0.3115, 156: 0.4425, 157: 0.4364, 158: 0.2342, 159: 1.9333, 160: 3.125}
+          median = 0.4395 — fewer than half a wave's decoded bodies are ever simultaneously inside the observed window, and waves 159/160 exceed 1.0 (previous-wave survivors contaminate the baseline).
+==============================================================================
+§ 6  FORK (b) — UNREACHED-AA-3, THE ALERT ANIMATION LENGTH
+==============================================================================
+  B-1  start (i)   Game.dll 0x10109425 : 6a 21  (push 0x21) immediately before call ControllerAI::PlayAnimation
+  B-1  start (ii)  16 call sites to ControllerAI::PlayAnimation; sibling-state anchors:
+          ordinal 0x13   ?OnUpdate@ControllerMonsterStateHidden@GAME@@UAEXH@Z
+          ordinal 0x13   ?OnBegin@ControllerMonsterStateStartup@GAME@@UAEXXZ
+          ordinal 0x25   ?OnBegin@ControllerMonsterStateFlee@GAME@@UAEXXZ
+          ordinal 0xb    ?OnBegin@ControllerMonsterStateParalyze@GAME@@MAEXXZ
+          ordinal 0x27   ?OnUpdate@ControllerMonsterStateGettingUp@GAME@@MAEXH@Z
+          ordinal 0x21   ?OnBegin@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ
+          ordinal 0x24   ?OnBegin@ControllerMonsterStateEmote@GAME@@UAEXXZ
+          ordinal 0x0    ?OnBegin@ControllerMonsterStateQuestPlayAnimation@GAME@@MAEXXZ
+          ordinal 0xa    ??0?$ControllerMonsterState@VControllerTyphonChained@GAME@@VMonster@2@@GAME@@QAE@ABV01@@Z
+  B-1  start (iii) animation-table family order: {'Alert': '0x20', 'Waiting': '0x21', 'Rally': '0x22', 'Emote': '0x23', 'Flee': '0x24', 'Fidget': '0x25', 'Pickup': '0x26', 'PassItem': '0x27', 'Chat': '0x28', 'GetUpFaceDown': '0x29', 'GetUpFaceUp': '0x2a', 'Stun': '0x6', 'Spawn': '0x1e', 'Respawn': '0x1f', 'Die': '0x1d'}
+  B-1  REFUTED     .rdata literal order puts 0x21 on 'unarmedSpecialAnimRef1' and 0x25 on 'unarmedSpecialAnimRef3' — ordinal 0x25 is passed by ControllerMonsterStateFlee::OnBegin; a Flee state cannot play a `SpecialAnimRef` slot. The literal ordering is ENUMERATED and EXCLUDED, not used (D-Z-1 discipline).
+  B-2  3452 .anm files across 5 archives; parsed=3452 unparsed=0
+  B-2  rate field distribution: {'30': 3452}
+  B-2  bytes per bone-frame: {'min': 56.014, 'p25': 56.3012, 'median': 56.5844, 'p75': 56.9859, 'max': 91.5}
+  B-2  ACCEPTANCE GATE conformance within +-5% of median = 0.992178 vs threshold 0.95 -> PASS
+  B-3  tier-16 records: 91  HAS-ALERT=66  ALERT-SLOT-EMPTY=25  no-table=0
+  B-3  rostered ACTORS: with an alert animation=136  without=52  (total 188)
+  B-3  alert-animation length over the tier-16 roster, in FRAMES: {'n': 94, 'min': 23, 'p25': 43.0, 'median': 49.0, 'p75': 67.5, 'max': 74, 'min_s_at_30': 0.7667, 'median_s_at_30': 1.6333, 'max_s_at_30': 2.4667, 'span_ratio': 3.2174}
+
+==============================================================================
+§ 7  FORK (c) — OBS-I26-1 DISPOSITION
+==============================================================================
+  mod-stack resolution (D-AB-2): 120 pinned geometry rows -> 60 after resolving each (map, spawn point) to the winning archive; 60 superseded copies excluded (counted, not hidden)
+  candidate-restricted (a/b/e) | to_patrol_centroid_m          n= 18  mean P(inside gate)=0.085316  points with ANY inside=3  entirely inside=0
+  candidate-restricted (a/b/e) | to_nearest_patrol_m           n= 18  mean P(inside gate)=0.122739  points with ANY inside=6  entirely inside=0
+  all arenas | to_patrol_centroid_m                            n= 60  mean P(inside gate)=0.075654  points with ANY inside=10  entirely inside=0
+  all arenas | to_nearest_patrol_m                             n= 60  mean P(inside gate)=0.121704  points with ANY inside=22  entirely inside=0
+  CORROBORATION  D=  0.1122 m  analytic=0.749934  MC=0.750540  |d|=0.000606
+  CORROBORATION  D=  2.4534 m  analytic=0.711360  MC=0.711245  |d|=0.000115
+  CORROBORATION  D= 33.9762 m  analytic=0.000000  MC=0.000000  |d|=0.000000

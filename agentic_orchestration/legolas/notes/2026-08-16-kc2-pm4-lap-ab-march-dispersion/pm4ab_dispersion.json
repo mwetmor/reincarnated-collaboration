@@ -1,0 +1,165 @@
+{
+ "A_v1": {
+  "measured_width_s": 1.7,
+  "peak_living_per_wave": {
+   "151": 24,
+   "152": 20,
+   "153": 25,
+   "154": 28,
+   "155": 19,
+   "156": 25,
+   "157": 36,
+   "158": 26,
+   "159": 29,
+   "160": 25
+  },
+  "per_wave_ramp_pinned": false,
+  "t50_s": 3.267,
+  "t90_s": 4.967
+ },
+ "A_v2": {
+  "columns_carrying_a_speed": [],
+  "obstacle": "the pinned track artifact carries entry RADIUS, bearing, lifetime and frame count for entries into the OBSERVED ~11.6 m frustum window only \u2014 no per-body velocity column exists, the tracks do not span the 29-39 m march, and Lap U's own D-U-3 demotes the entry set to a STRICT UPPER BOUND on arrival rate. A per-body full-march approach-speed distribution is not recoverable from the pins, and the prereg forbids re-opening raw video for it.",
+  "pinned_arrival_columns": [
+   "entry_id",
+   "wave",
+   "t_abs_s",
+   "t_since_wave_s",
+   "r_gpx",
+   "r_m_lo119",
+   "r_m_hi125",
+   "bearing_deg",
+   "n_frames",
+   "lifetime_s",
+   "r_min_gpx",
+   "basis"
+  ],
+  "verdict": "UNREACHED"
+ },
+ "A_v3": {
+  "F_AB_1_fails_as_written": true,
+  "confound_median": 0.43945,
+  "confound_peak_over_expected": {
+   "151": 0.5275,
+   "152": 0.3704,
+   "153": 0.3937,
+   "154": 0.9032,
+   "155": 0.3115,
+   "156": 0.4425,
+   "157": 0.4364,
+   "158": 0.2342,
+   "159": 1.9333,
+   "160": 3.125
+  },
+  "n_actors": 188,
+  "quantiles": {
+   "p0": 0.6000000238418579,
+   "p10": 0.6600000262260437,
+   "p100": 1.5499999523162842,
+   "p25": 0.8375000208616257,
+   "p5": 0.6000000238418579,
+   "p50": 1.0,
+   "p75": 1.149999976158142,
+   "p90": 1.2000000476837158,
+   "p95": 1.3150000154972081
+  },
+  "table": [
+   {
+    "K_m_per_s_per_unit": 3.055412,
+    "distance_m": 33.863,
+    "distance_proxy": "AA-candidate spawn->patrol-centroid median",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 11.3213,
+    "predicted_t50_s": 11.083,
+    "predicted_t90_s": 16.7924,
+    "predicted_width_s": 5.7094,
+    "ratio_predicted_over_measured": 3.3585,
+    "speed_edge": "px-LO"
+   },
+   {
+    "K_m_per_s_per_unit": 3.209466,
+    "distance_m": 33.863,
+    "distance_proxy": "AA-candidate spawn->patrol-centroid median",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 10.7779,
+    "predicted_t50_s": 10.551,
+    "predicted_t90_s": 15.9863,
+    "predicted_width_s": 5.4354,
+    "ratio_predicted_over_measured": 3.1973,
+    "speed_edge": "px-HI"
+   },
+   {
+    "K_m_per_s_per_unit": 3.055412,
+    "distance_m": 16.104,
+    "distance_proxy": "AA-candidate spawn->nearest-patrol median",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 5.384,
+    "predicted_t50_s": 5.2706,
+    "predicted_t90_s": 7.9858,
+    "predicted_width_s": 2.7152,
+    "ratio_predicted_over_measured": 1.5972,
+    "speed_edge": "px-LO"
+   },
+   {
+    "K_m_per_s_per_unit": 3.209466,
+    "distance_m": 16.104,
+    "distance_proxy": "AA-candidate spawn->nearest-patrol median",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 5.1256,
+    "predicted_t50_s": 5.0177,
+    "predicted_t90_s": 7.6025,
+    "predicted_width_s": 2.5849,
+    "ratio_predicted_over_measured": 1.5205,
+    "speed_edge": "px-HI"
+   },
+   {
+    "K_m_per_s_per_unit": 3.055412,
+    "distance_m": 21.038,
+    "distance_proxy": "U-implied spawn->player (lo119 edge)",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 7.0336,
+    "predicted_t50_s": 6.8855,
+    "predicted_t90_s": 10.4326,
+    "predicted_width_s": 3.5471,
+    "ratio_predicted_over_measured": 2.0865,
+    "speed_edge": "px-LO"
+   },
+   {
+    "K_m_per_s_per_unit": 3.209466,
+    "distance_m": 21.038,
+    "distance_proxy": "U-implied spawn->player (lo119 edge)",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 6.696,
+    "predicted_t50_s": 6.555,
+    "predicted_t90_s": 9.9318,
+    "predicted_width_s": 3.3768,
+    "ratio_predicted_over_measured": 1.9864,
+    "speed_edge": "px-HI"
+   },
+   {
+    "K_m_per_s_per_unit": 3.055412,
+    "distance_m": 22.0993,
+    "distance_proxy": "U-implied spawn->player (hi125 edge)",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 7.3884,
+    "predicted_t50_s": 7.2328,
+    "predicted_t90_s": 10.9588,
+    "predicted_width_s": 3.726,
+    "ratio_predicted_over_measured": 2.1918,
+    "speed_edge": "px-LO"
+   },
+   {
+    "K_m_per_s_per_unit": 3.209466,
+    "distance_m": 22.0993,
+    "distance_proxy": "U-implied spawn->player (hi125 edge)",
+    "measured_width_s": 1.7,
+    "predicted_full_band_span_s": 7.0337,
+    "predicted_t50_s": 6.8857,
+    "predicted_t90_s": 10.4328,
+    "predicted_width_s": 3.5472,
+    "ratio_predicted_over_measured": 2.0866,
+    "speed_edge": "px-HI"
+   }
+  ]
+ }
+}
