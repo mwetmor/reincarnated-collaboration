@@ -246,3 +246,226 @@ Licensing contact of record for T18: `licencing@syntystudios.com` (S2 §5.4, S12
 ---
 
 **Filed by:** legolas (UNKNOWN-RESEARCHER), 2026-08-23. Not committed — gandalf handles commit and downstream curation (U-9 status, T18 letter scope).
+
+---
+
+# §9 Addendum — SyntyPass subscription: termination, survival, drift, seats — 2026-08-23
+
+**Trigger:** Matt confirmed his packs are held via the **SyntyPass subscription**, not one-time purchase. §6's SyntyPass row noted "rights are subscription-contingent, not perpetual" but never read the termination/survival clauses. This addendum reads them.
+**Hypothesis under test (H-Matt-2):** *assets used in a game are effectively "purchased as of the date the game is published" — a game published while subscribed retains its rights even if the subscription later lapses.*
+**Retrieval date:** 2026-08-23 (all sources re-fetched fresh this pass; §1–§8 above unchanged).
+**Sources added this pass:** S16 SyntyPass product page `https://syntystore.com/products/syntypass`; S17 Subscription Licence 6 March 2025 `https://syntystore.com/pages/standard-subscription-licence-march-6-2025`; S18 Subscription Licence 11 September 2024 `https://syntystore.com/pages/archive-standard-subscription-licence-11-september-2024`. S2, S4/S9, S1, S10, S11 re-retrieved.
+
+## H-Matt-2 verdict: **PARTIAL**
+
+Matt's *operational conclusion* is close to right; his *mechanism* is not in the document. **There is no "purchase" event anywhere in the subscription licence.** Nothing converts, nothing vests, no date pins anything. What clause 12 actually creates is a **development freeze** — you may keep and minimally maintain what you shipped, and you must stop building. The gap between "purchased as of publication date" and "frozen as of lapse date" is small in the happy case and material in three specific ones (below).
+
+The single sharpest structural fact: the subscription licence **grants no affirmative right to publish, distribute or sell anything**, at any time — subscribed or not. Verified by keyword sweep (below). What the shipped game rests on post-lapse is the *absence of a prohibition*, not the *presence of a grant*.
+
+---
+
+## §9.1 — Q1: Survival on cancellation/lapse
+
+### The controlling grant is expressly time-bounded
+
+> "**6.1** **While you have an active Subscription**, we grant you and your Authorised Users a non-exclusive right to use our Assets for the Authorised Purpose (**which may be suspended or revoked in accordance with this Agreement**). This right cannot be passed on or transferred to any other person…" — S2 §6.1
+
+And critically — **clause 6 is not in the survival list**:
+
+> "**13.11** **Survival**: Clauses **8 to 12** will survive the termination or expiry of this Agreement." — S2 §13.11
+
+The Asset Licence clause (6) is outside 8–12. The grant itself does not survive; only the IP, confidentiality, consumer-law, liability and termination clauses do. Post-termination conduct is therefore governed entirely by **clause 12**, which is inside the surviving set (§12.9 also self-survives).
+
+### The operative post-termination clauses
+
+> "**12.2** Upon termination of this Agreement in accordance with this clause 12, or expiry of the Subscription Period, you must **cease using our Assets in any new Intellectual Property (including Your Materials or New Materials) created following the date of termination or expiry**. **You reserve the right to make minor bug fixes such as maintenance updates to the Product if:** (a) the Product is not substantially developed, modified or improved after the date of termination or expiry; or (b) you are removing the use of our Assets from the Product." — S2 §12.2
+
+> "**12.3** For the avoidance of doubt, If the Product is substantially developed, modified or improved **you are required to have an active Subscription**." — S2 §12.3
+
+> "**12.4** Upon termination … you **must not create or share any new promotional or marketing material** (including social media posts) containing our Assets. **You reserve the right to leave live any promotional or marketing materials created and shared prior to the date of termination or expiry** of the Agreement." — S2 §12.4
+
+> "**6.2** Where your Subscription expires or is terminated, you must cease using our Assets in **any new Intellectual Property created following the date of expiry or termination**, in accordance with clauses 12.2 and 12.4." — S2 §6.2
+
+### Verdicts by sub-case
+
+| Sub-case | Verdict | Grade | Basis |
+|---|---|---|---|
+| **(a) Game ALREADY PUBLISHED while subscribed** | **SURVIVES** — by implication and by carve-out, **not** by express grant | **B/C** | §12.2's restriction reaches only *new IP created after* termination; and its bug-fix proviso ("minor bug fixes such as maintenance updates to the Product") **presupposes a Product that continues to exist and be maintained post-termination**. §12.4's parallel "leave live" permission for pre-existing marketing shows the drafters knew how to preserve a pre-termination artefact. Corroborated Grade **B** by S16 (below). **But no clause says the shipped Product's licence continues**, and §6.1 is subscription-conditioned. |
+| **(b) Game IN DEVELOPMENT at lapse** | **TERMINATES** | **A** | §12.2 + §12.3 are unambiguous and mutually reinforcing: cease using Assets in new IP; substantial development *requires* an active Subscription. Only two permitted activities remain — minor bug fixes to a frozen Product, or stripping the Assets out. **Development must stop.** |
+| **(c) Continued SALE / distribution after lapse** | **AMBIGUOUS — leaning survives** | **C** | Nothing prohibits it: §12.2 is scoped to *creating new IP*, §12.4 to *new marketing material*; neither reaches distribution of an already-built binary. The §12.2 bug-fix carve-out is hard to make sense of unless the Product stays live. **But the subscription confers no distribution right to survive** — see the zero-hit sweep below. |
+
+### The zero-hit sweep — the finding under the finding
+
+Keyword sweep of the **entire** 9 Jul 2026 subscription licence body for an affirmative distribution entitlement (`publish` / `distribute` / `sell` / `sale` / `broadcast` / `incorporate` / `embed`) returns **no grant**. Every hit is a *prohibition* (§6.3(f), §6.3(h), §1.4(a)), a *tax* clause (§5.8), a *definition* (Asset Marketplace), or *dispute-resolution* boilerplate.
+
+Compare the one-time licence, re-verified today:
+
+> "…your licence entitles you: to incorporate the Asset into Products produced under your direct control… **to publish, distribute, transmit, broadcast, communicate, show and play the Asset as incorporated into those Products** and promotional materials…" — S1
+> "**Your licence is perpetual, and cannot be terminated except as stated in this EULA.**" — S1
+
+**The subscription has neither sentence.** Synty's own overview page states the distinction in exactly these terms:
+
+> "[One Time Purchase] Under this licence, you will have **perpetual rights** to use the specific pack(s) you have purchased directly." … "[Standard Subscription] You are **licensed for development** using any assets available to you **while your subscription plan is active**." — S11
+
+Note the word Synty chose for the subscription: **development**. That matches §1.3's Authorised Purpose, which enumerates creation/development and promotional materials — and does not enumerate publication or sale.
+
+### The Grade-B evidence that supports Matt
+
+Synty's own SyntyPass product page markets precisely Matt's model:
+
+> "**Flexible Terms** — Flexible licensing terms mean you **stay subscribed during development, choose to cancel once your project is complete**." — S16
+
+This is the strongest support for H-Matt-2 located anywhere, and it is marketing copy on the product page for the exact SKU Matt holds. It is **Grade B, not A** — it is not clause text and it does not appear in the Agreement. It is, however, close to unusable-if-false: it describes the intended lifecycle of the product being sold.
+
+**Net read:** the happy path (ship it, then cancel, then keep selling the frozen build) is what Synty *sells* and what §12.2's bug-fix proviso *assumes*. The clause text supports it by omission rather than by grant. The three places the gap bites are (b) — development must stop, hard, Grade A — plus the two edge cases below.
+
+### Two edge cases the clauses do not cleanly resolve
+
+1. **Built-but-not-yet-published at lapse.** §12.2 restricts *creating new IP*; releasing an already-built binary is arguably not creation. But §12.4 flatly prohibits *creating or sharing any new promotional or marketing material* — so the game could not be marketed, store-paged or announced. A launch is not practically available post-lapse even if distribution technically is.
+2. **Post-launch content updates.** §12.3 is the sharp edge for a live-service or seasonal shape: "If the Product is substantially developed, modified or improved you are required to have an active Subscription." A patch cadence that adds content is "substantially developed" on any natural reading. **For RDR's serial-content-emission direction this is the clause that matters most** — it means the subscription is not a development-phase cost that ends at launch, it is an ongoing cost for as long as the game receives content. Factual note; scoping is Matt's and gandalf's call.
+
+---
+
+## §9.2 — Q2: Terms drift — **no ratchet; current terms govern; renewal-time re-check is a REAL watch item**
+
+### There is no rights-preserving clause
+
+Keyword sweep of the full subscription body for `already purchased` / `will not affect your rights` / `new version available` / `licences that you have` / `perpetual` / `in perpetuity` / `irrevocable`: **zero hits.** The OTP's ratchet —
+
+> "We can change this EULA at any time, by making a new version available through the relevant Store. However, **our changes will not affect your rights under any licences that you have already purchased**." — S1
+
+— **has no subscription analogue.** The subscriber's only remedy against an adverse change is exit:
+
+> "**1.8** We may change the scope of the Authorised Purpose (as set out in clause 1.3) from time to time and with **30 days prior written notice**. Where you reject any change to the scope of the Authorised Purpose, you reserve the right to **terminate** this Agreement in accordance with clause 12.6(c)." — S2 §1.8
+
+> "**1.14** …you agree that **we may vary our Services or the Subscription Fees at any time**, by providing 30 days' written notice to you (*Variation Notice Period*). If you do not agree to any amendment… you may, before the end of the Variation Notice Period, **terminate** this Agreement…" — S2 §1.14
+
+> "**13.1 Amendment**: Subject to clauses 1.13 and 1.14, this Agreement may only be amended if **we and you agree in writing**." — S2 §13.1
+
+### An amendment-authority gap (flagged, not relied on)
+
+§1.8's unilateral-change power is scoped by its own words to **clause 1.3** (the *Authorised Purpose* — the permitted list). §1.13/1.14 are scoped to *Services* and *Subscription Fees*. §13.1 otherwise requires mutual written agreement. But **both 2026 revisions edited clause 1.4 — the *prohibited* list** — which none of those three clauses plainly authorises Synty to change unilaterally. This is an arguable point, not a plank to stand on, and it is not a basis for acting against current terms. Recording it because it is cheap to raise in the T18 letter and it is the only leverage the subscription document contains.
+
+### Drift is real, and it is *narrowly and exclusively* an AI watch
+
+Full machine diff of the subscription licence body across **all four** published versions:
+
+| Transition | Changes |
+|---|---|
+| 11 Sep 2024 → 6 Mar 2025 | **none** (byte-identical body) |
+| 6 Mar 2025 → 3 Jun 2026 | **§1.4(a) only** — "development of or in connection with generative AI (**including as input for generative AI**), stock images…" **→** "In datasets utilised by Generative AI Programs; or in the development of Generative AI Programs; stock images…" |
+| 3 Jun 2026 → 9 Jul 2026 | **§1.4(b) added** — "Generation of 3D models utilising Generative AI Programs." (former (b)→(c), (c)→(d)) |
+
+**In ~22 months, clause 1.4 is the only clause Synty has ever edited, and both edits are AI clauses.** Everything else is byte-identical across all four versions — including the entire termination/survival regime (§6.1, §6.2, §12.1–12.9, §13.11), seats (§2, §3), amendment (§1.8, §1.13, §1.14, §13.1) and IP (§8, §14.1 definitions).
+
+Two consequences:
+
+- **The survival mechanics in §9.1 are the settled part of this document.** Two years of stability. They are not a moving target and can be banked with more confidence than the AI clauses.
+- **The renewal-time re-check is a real watch item, and it is specifically a §1.4 AI-clause watch.** One clause, twice touched in five months. This is a cheap, targeted, automatable check — diff §1.4 against the pinned 9 Jul 2026 text at each renewal — not a general terms review.
+
+### Downstream consequence: **T18 letter Q1 is MOOT for this channel**
+
+§5 Tier-1 Q1 asks whether packs bought before 3 June 2026 may rely on the current EULA. **For the subscription channel that question does not arise** — there is no purchase-date pin, no version-pinning mechanism, and no rights-preserving clause. The current published version governs, full stop. The June-2026 relaxation (removal of the blanket "as inputs to Generative AI Programs" ban) therefore **applies to Matt now**, without needing Synty's confirmation. Recommend Q1 be retired or re-scoped to the OTP-held packs only (see caveat in §9.5).
+
+---
+
+## §9.3 — Q3: Seats
+
+**Tier structure** (S16, retrieved 2026-08-23) — a single SyntyPass tier, two billing shapes:
+
+| Plan | Price | Term | Seats |
+|---|---|---|---|
+| SyntyPass, monthly | **$40 USD/mo** | 3-month pre-paid minimum | **5 seats per licence** |
+| SyntyPass, annual | **$30 USD/mo** billed annually | 12-month pre-paid (save 25%) | **5 seats per licence** |
+
+> "**Licences - 5 seats per licence**" — S16
+> "Please be aware there is a **3 month pre-paid minimum term** for our monthly SyntyPass subscription plan… your SyntyPass licensing will end after your 3 month pre-paid minimum term concludes." — S10
+
+Same 5-seat allocation as an OTP purchase. **Seat headroom is a non-issue at Matt's scale** (1 human). Scaling is by whole subscriptions, not incremental seats: "**2.2** Where you require additional Seats, you must purchase an **additional Subscription**…" (S2 §2.2).
+
+**Authorised User, verbatim** (§3.1; the §14.1 definition is identically worded):
+
+> "**3.1** An Authorised User is **any, employee, contractor, or individual engaged by you to interact with our Assets or the Product in some capacity within the last 30 days**." — S2 §3.1 *(comma placement is Synty's)*
+
+> "**Seats** means the maximum number of Authorised Users you may authorise to interact with our Assets, Product and access your Account." — S2 §14.1
+
+### Does automated / AI tooling count as a seat?
+
+**Verdict: NO on plain text — the actor categories are exhaustively human.** Grade **C** (inference), but strongly supported: all three enumerated categories — *employee*, *contractor*, *individual* — are natural persons, and each is qualified by "**engaged by you**," language of human engagement. An MCP agent or a CI job is none of the three. The human who directs the tooling is the Authorised User; the tooling is an instrument, not a user. This is the same answer §5 Q12 asks Synty to confirm, and the text leans clearly our way.
+
+**The real seat exposure is the activity limb, not the actor limb.** Note "interact with our Assets **or the Product**" — and *Product* is defined expansively:
+
+> "**Product** means **anything created, developed, modified or improved in the course of using our Services and Assets**." — S2 §14.1
+
+So any person engaged who touches *the game*, even if they never open a Synty file, is an Authorised User consuming a seat. Immaterial at 1 human; flagged because it is broader than it reads at first pass and would bite on any future collaborator or contractor.
+
+**One oddity, recorded not relied on:** §4.2 — "Each of your Authorised Users **will require your login**, to access your Account" — a shared-credential model, paired with §4.4's suspension power for "unauthorised or **excessive sharing of login details**." Internally awkward; no exposure at single-seat scale.
+
+---
+
+## §9.4 — Q4: Modifications-IP after termination — **no clause on point; asymmetry runs against us**
+
+**Verdict: AMBIGUOUS / silent.** No clause addresses rights to modifications after termination. What *can* be established from text:
+
+**(i) Synty owns your edits, and that ownership survives.**
+
+> "**Our Materials** means our Assets and all Intellectual Property which is owned by or licensed to us and any improvements, modifications or enhancements of such Intellectual Property… **For the avoidance of doubt, where you edit or alter our Assets, such edits form part of Our Materials and are our Intellectual Property.**" — S2 §14.1
+
+> "**8.4** As between the Parties, ownership of all Intellectual Property Rights in any New Materials created by you in the course of the Agreement (**excluding the use, modification, or improvement of Our Materials**) will at all times vest, or remain vested, in you upon creation." — S2 §8.4
+
+Your ownership of New Materials is expressly carved to *exclude* modifications of Synty assets. **8.6** and **13.11** put clause 8 in the surviving set — so §8.1/§8.4 ownership survives termination.
+
+**(ii) Your only right in those modifications is a *revocable* licence.**
+
+> "**8.3** We grant you a non-exclusive, **revocable**, royalty-free, worldwide, non-sublicensable and non-transferable right and licence, to use Our Materials that we provide to you, **solely for your use and enjoyment of the Services for the Authorised Purpose**, as contemplated by this Agreement." — S2 §8.3
+
+Because edits *are* Our Materials, §8.3 is the clause governing your use of your own modifications. It is expressly **revocable**; it is tethered to "the Services," which §6.1 conditions on an active Subscription; and it is nowhere made perpetual.
+
+**(iii) The interaction with lapse is genuinely unresolved.** §8.3 nominally survives (it is in clause 8, and 13.11 preserves 8–12), but it is tied to Services access that ends at lapse — a circularity the document does not resolve. Meanwhile §12.2's freeze does **not** distinguish modified from unmodified assets, so on clause 12 alone modified assets sit in the same position as unmodified ones.
+
+**The asymmetry, stated plainly:** for unmodified assets, lapse leaves you holding a frozen build of material Synty licensed you. For **modified** assets, lapse leaves you holding a frozen build of material **Synty owns**, under a licence Synty may **revoke**, with no clause preserving your position. That is a strictly worse footing, and it is the one place where "purchased as of publication date" is most clearly not what the document says.
+
+**Design-level mitigation, noted factually — Matt/gandalf decide.** The exposure scales with how much we *edit* Synty meshes as opposed to *composing* them. Scene assembly, parenting, transforms, material/shader swaps and LOD config do not obviously "edit or alter our Assets" in the §14.1 sense; mesh edits, re-topology and baked-down derivatives plainly do. Keeping the presentation seam compose-first rather than edit-first keeps the §8.3 revocable-licence surface small. This is a finding, not a recommendation.
+
+---
+
+## §9.5 — Surfaced unprompted: **Synty sells a generative-AI custom licence**
+
+Not in the commission frame; material enough to record. The SyntyPass product page lists, immediately beside the Standard Subscription Licence:
+
+> "**Custom Licence** — For custom licensing to cover the use of **generative AI**, commercial printing, reselling, agency work and more" — S16
+
+This is the first evidence located in either probe that Synty operates a **paid tier that permits generative-AI use**. §5's escape-hatch note only found the NFT-&-Metaverse tier and the §5.4 Content-Creation-System route. It changes the posture of the T18 letter on the AI surfaces (§3 rows 4, 5(i), 5(ii)) from *"is this permitted?"* — where the answer for image→3D is a flat no under §1.4(b) — to *"what does the generative-AI custom tier cover and cost?"* Recommend adding that as a Tier-1 letter item; it converts a hard block into a priced option.
+
+**Purchase-channel caveat.** SyntyPass returns "$10 USD per month back in Synty Store credit **which can be utilised on one time purchase licences**" (S16). Matt may therefore hold packs under **both** regimes — subscription-licensed library access *plus* OTP-licensed, perpetually-held packs bought with accrued credit. The two regimes differ on every question in this addendum. Worth Matt confirming whether any credit has been spent; if so, §6's OTP row and this §9 both apply, to different packs.
+
+---
+
+## §9.6 — Knowledge gaps not resolved (this pass)
+
+- **No official statement, anywhere, on what happens to a published game after cancellation.** The FAQ's "SyntyPass Billing" section (S10) is billing-only — cancellation mechanics, minimum terms, refunds. Swept the full FAQ for post-cancellation licence guidance: nothing. The §9.1(a) verdict therefore rests on clause implication plus one line of marketing copy, with no interpretive layer behind it.
+- **SyntyPass product-page Q&A accordions ("General" / "Team / Studio" tabs) are JS-rendered** and did not appear in static fetch. A human browser session could surface additional official Q&A. Expected yield low but non-zero — and the "Team / Studio" tab is the likeliest place a seat-counting or post-cancellation answer would live.
+- **Subscription plan detail is deferred to the website by clause** ("Subscription Features… as set out on our website" — §14.1), meaning the licence's own terms are partly defined by an undated, mutable page. S16 has no version stamp. Pinned by retrieval date only.
+- **Epic/FAB Content EULA (S15)** remains HTTP 403 to agent fetch — unchanged from §7, and irrelevant if SyntyPass is the sole channel.
+
+---
+
+## §9.7 — Addendum source list
+
+All retrieved 2026-08-23, read-only, no authentication.
+
+- **S2** Synty Standard Subscription Licence & EULA (current, last updated 9 July 2026) — https://syntystore.com/pages/standard-subscription-licence
+- **S9** Synty Standard Subscription Licence, 3 June 2026 — https://syntystore.com/pages/standard-subscription-licence-june-3-2026
+- **S17** Synty Standard Subscription Licence, 6 March 2025 — https://syntystore.com/pages/standard-subscription-licence-march-6-2025
+- **S18** Synty Standard Subscription Licence, 11 September 2024 — https://syntystore.com/pages/archive-standard-subscription-licence-11-september-2024
+- **S16** SyntyPass product page (pricing, seats, Flexible Terms, Custom Licence) — https://syntystore.com/products/syntypass
+- **S1** Synty One-Time Purchase Licence & EULA (current, 9 July 2026) — https://syntystore.com/pages/one-time-purchase-licence *(re-retrieved for the perpetual/distribution contrast)*
+- **S10** Synty FAQ — https://syntystore.com/community/faq
+- **S11** Synty Licences Overview — https://syntystore.com/pages/licences-overview
+- **S3** Synty EULA Versions History — https://syntystore.com/pages/eula-versions-history
+
+**Method note.** All four subscription versions were stripped to plain text, whitespace-normalised with U+00A0→space (per the §1 method note — the same non-breaking-space trap applies to these pages), sliced to the licence body ("1. Our Services" → end of definitions) and machine-diffed pairwise. The three transitions in §9.2 are complete diffs, not samples: no changes exist outside the rows shown.
+
+---
+
+**Addendum filed by:** legolas (UNKNOWN-RESEARCHER), 2026-08-23. Evidentiary; research findings, not legal advice. Not committed — gandalf handles commit and curation.
