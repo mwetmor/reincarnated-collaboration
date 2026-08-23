@@ -82,6 +82,23 @@ Verdict of record: the Codex research doc's architecture is a good general-purpo
 **Empirical criterion:** inter-judge agreement/divergence table on one capture set.
 **Status:** OPEN — queued behind U-4 pilot.
 
+## U-9 — Synty pack-level license ledger + AI-clearance stop-gate (from the 2026-08-23 Codex-QA comparison — the audit's one genuinely-new catch)
+
+**Lever:** SCOPE (legal assurance floor — the cheapest possible insurance against the most expensive possible surprise).
+**Evidence:** Codex STRATEGIC §4 flags July-2026 Synty EULA revisions around AI/editor use. Canon check 2026-08-23: `business-platform-strategy.md:52` is the ONLY license-shape sentence in canon (strategy-level, predates the AI-terms question); `ensemble-asset-pipeline-spec.md` carries ZERO license/EULA/clearance rows while its Stage-4 plans an image→3D vendor call (Tripo slot) on Synty-derived captures — i.e., we are one dispatch away from sending licensed assets into a third-party AI service with no clearance on file.
+**The build (three parts):** (a) **legolas primary-source verification** of the current Synty EULA/AI terms (the Codex citation is adopted as *exposure*, not as *fact* — verify before the ledger binds); (b) **pack-level license ledger** — pack → license version → entitlement class (`game_only` / `ai_input_allowed` / …) → source link; elrond-adjacent curation; (c) **stop-gate line into ensemble spec Stage-4** on adoption: no third-party AI vendor call fires on Synty-derived inputs until the ledger clears the source packs in writing. Pairs with `matt_to_do/` **T18** (written clarification request — Matt's hands).
+**Empirical criterion:** ledger row exists and cites primary source for every pack the ensemble pipeline touches, BEFORE the first Stage-4 vendor call; T18's written answer attached when it lands.
+**Status:** OPEN — verification lane (a) is agent-executable now; (c) graduates on adoption.
+
+## U-10 — Cross-seam contract index (contract-proliferation guard; candidate)
+
+**Lever:** SCOPE (Codex §23 "contract proliferation" — the one risk-name we lacked).
+**Evidence:** our contracts are individually strong but index-less: baton v1 + GL-6..GL-12 law, export bundle contract, atlas manifest, receipts schema (factory Spec A). A consumer today learns the contract surface by folklore or grep.
+**What:** ONE versioned index doc enumerating cross-seam artifact schemas — name, version, owner seam, consumers, pointer — consumers cite the index; schema changes land with an index bump. NOT a rewrite of any contract; an index only.
+**Empirical criterion:** index exists; two real consumers cite it; one schema change demonstrably lands with its index bump.
+**Seam:** star-lord + KR concurrence REQUIRED before this advances (their surfaces); gandalf drafts on their nod.
+**Status:** OPEN — candidate, gated on seam-owner concurrence.
+
 ---
 
 ## Adoption protocol
