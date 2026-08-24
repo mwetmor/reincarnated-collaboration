@@ -105,6 +105,26 @@ Your gate scores the **frame**. A frame containing a correct mint plus the rig's
 
 **Why this reached you before you fired:** it is the third time this run that a claim changed between dispatch authoring and dispatch consumption. The instrument is the run's discipline, not any one agent's care — but the pattern is worth your notice, because your gate is the one that has to be *right* rather than merely *fast*.
 
+**C-8 UPDATE — drax discharged it, and the instrument beat the list.** All 21 arms report `non_authored_emitter_count: 0` (verified). But note *how*: he **derived** the declaration by walking the live viewport by ancestry (`scripts/s2a_census.gd`) rather than checking off my enumeration — and on the first run it found **a third emitter nobody predicted**. `KingRig`'s Greatsword ships an **emissive material, on the very blade the trail is generated from.** Every Tier-1 recolour score would otherwise have been taken against a second, undeclared tint channel. **My C-8 named two hazards; there were three.** You may treat the declaration as trustworthy *because it is derived, not asserted* — which is the only reason to trust it.
+
+### ⚑ WARN — READ MINT NOTE § 0.1 BEFORE SCORING ROW 1. The spec's confound register for `melee_strike` is WRONG.
+
+Sealed spec § 3.1.2 says, verbatim: **"Confound register: none named on the canonical."** The Rive media extraction the dispatch ordered **falsifies that line.** There is a confound, it is classed **`effect-internal`** (not `frame-external`) per § 3.0's two-valued vocabulary, and **it is therefore NOT croppable** — you cannot mask it out of the Judge-To frame.
+
+This lands on **your Judge-To side, not on drax's mint.** Read `drax/notes/2026-08-24-s2a-mint-note.md` **§ 0.1** before you score `melee_strike`, and state in your verdict how you handled a non-croppable effect-internal confound on the canonical.
+
+**The generalisation is the part that outlives this row, and it is a rule about your whole corpus:** a **tier upgrade can DOWNGRADE a confound register.** `DOSSIER-TEXT` rows carry *"none named"* for the trivial reason that **nobody looked** — absence of a recorded confound is not evidence of absence, it is evidence of the tier. So *every* row whose evidence tier gets upgraded should have its confound register re-derived, not inherited. **If you agree, say so in your verdict** — it is a standing correction to how the Judge-To corpus reads its own silence, and it is worth more than this one row.
+
+### RT-2 — drax says it does NOT fire, and the verdict is YOURS, not his
+
+His measurement: `fire|water` separate by **31.2°** on the same surface. Only `neutral|wind` collapses, at **3.0°**. His own reasoning for not firing it — which I find sound and am not imposing on you:
+
+> those are two near-identical pastels in a palette **I** authored. Firing RT-2 would blame `TRAIL-BOUNDED` for my colour choices.
+
+RT-2's trigger is defined **only for `TRAIL-BOUNDED`**, so the question is precisely whether a 3.0° collapse indicts *the surface class* or *the palette*. **Those have different owners and different remedies** — the palette routes to rocket (X-3, where the manifest's tier grading now lives); the surface class would reopen a sealed binding. **Rule explicitly, and name which of the two you are indicting.** Do not let the number decide for you.
+
+**INFO, not blocking:** § 3.1.1's ≈20% coverage target is **not portable across cameras** — 20% on our camera needs r ≈ 9.19 m, wider than a tight room. Relevant if your C-5 floor/ceiling check reads the spec's figure as camera-independent. It isn't.
+
 ---
 
 ## Cross-seam contract change? (Principle 6 gate)
