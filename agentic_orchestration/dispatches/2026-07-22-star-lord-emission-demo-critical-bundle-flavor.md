@@ -225,3 +225,39 @@ Written. `export/MIGRATION.md` § [2026-07-22]. drax re-handshake scope stated: 
 5. **60 gear stubs:** the 60 null-name `_non_canonical` stubs will get name+flavor on live fire.
    After live fire, the `_non_canonical` flag remains (G6 ruling: never ship stubs; superseded by
    W3 output). Jack-ryan should verify the flag persists post-fill and that drax's loader gates them.
+
+---
+
+## Status pass — 2026-08-24 (star-lord, read-only; no code written, dispatch not re-fired)
+
+**VERDICT: `ALREADY-LANDED` — code wave complete + Gate-2 PASS-WITH-CONDITIONS. NOT superseded. ONE acceptance criterion remains open on a Matt-only credential gate already queued as `matt_to_do` T3.**
+
+**The "PENDING" index entry was a scan artifact, not a state.** `agentic_orchestration/skill_handoff_2026-08-24.md:93` lists this dispatch as PENDING. The completion record above is genuine and was committed the same day: collab `ac5f9a15` ("star-lord: dispatch completion record — v-emission-demo-critical-1", 2026-07-22 14:19). Engine `a3671d42` ("W3 bundle flavor wiring fixed + encounters reserved key + 9 new tests"); tag `star-lord/v-emission-demo-critical-1` exists in `~/Games/reincarnated-engine`. Gate-2 finding exists at `agentic_orchestration/qa/pending/2026-07-22-star-lord-emission-demo-critical-gate2.md` (PASS-WITH-CONDITIONS, jack-ryan DEV-MODE).
+
+**Instrument checks (2026-08-24, read directly — not quoted from prose):**
+
+| Check | Instrument | Result |
+|---|---|---|
+| Delta bundle exists | `src/reincarnated/output/one_realm_demo_bundle_w3_flavor.json` (mtime Jul 22 14:15) | present, `schema_status: DRAFT-pending-drax-handshake` |
+| `encounters` reserved | same file, top-level keys | **PRESENT** — `{"_reserved": true, "_grammar_frozen_by": "Tier-3-W1", "_acceptance_fixture": "RD-1-run-object", …}` |
+| LOCKED baseline untouched | `one_realm_demo_bundle.json` (mtime Jul 3 01:36) | `schema_status: LOCKED`, no `encounters` key — correctly NOT overwritten |
+| **skill flavor** | JSON walk of `kits[].skills[].flavor_text` in the delta bundle | **0 / 648 non-null** |
+| **monster flavor** | `monsters[].flavor_text` | **0 / 40 non-null** |
+| **gear flavor** | `gear_pool[].flavor_text` | **0 / 150 non-null** |
+| MIGRATION § entry | `src/reincarnated/export/MIGRATION.md:2334` | `## [2026-07-22] W3 emission-demo-critical: flavor-fill + encounters reservation` — present |
+| Post-dispatch code churn | `git log --since=2026-07-22 -- one_realm_bundle_assembler.py w3_demo_bundle_flavor_run.py one_realm_demo_bundle_w3_flavor.json` | **empty** — nothing has touched these since the wave |
+
+**§ 6.3 VFX-run residual `skill.flavor_text` 0/648 — STILL TRUE, and it is not a defect.** It is the exact expected dry-run state. The `_w3_flavor` filename marks the delta bundle produced by the wave; the flavor *fire* never ran because `ANTHROPIC_API_KEY` is intentionally absent from agent sessions (Max-subscription billing discipline, 2026-06-12). All three counts are 0 for the same single reason.
+
+**No later ruling supersedes or moots any acceptance criterion.** Searched:
+- `design/decisions/decisions-log.md` post-2026-07-22 (entries through 2026-08-08, Disciplines #69–#72, WR3, edition-pinned corpora) — nothing touches bundle flavor, the `encounters` reservation, or §F.4.
+- `canonical/current-to-end-state/current-to-end-state-serial-content-emission.md` — the newest entry after this wave is the 2026-07-24 seventeenth (TRUE-SOURCES / GD-SLICE); it does not touch D.1. The sixteenth entry still names this dispatch as the live carrier of the residual.
+- `export/MIGRATION.md` — the later `## [2026-07-29] HQ-2` entry **reinforces rather than supersedes**: it repaired `w3_emission_driver.py`'s parallel bundle dict to emit the same reserved `encounters` block, explicitly stating "**No schema change** … drax needs no re-handshake; the bundle shape is exactly what that entry documented." The 2026-07-22 schema is therefore load-bearing downstream.
+
+**The two Gate-2 conditions, current state:**
+- **C1 (Matt, live flavor fire)** — **STILL OPEN.** Live on `canonical/matt_to_do/README.md` row **T3** ("Fire the W3 demo-bundle flavor run with the API key present"), not struck. 838 calls ≈ $1.86, per-item resumable. This is the sole reason the flavor acceptance criterion is unmet. Build-fixture only; §F.4 emission timing untouched.
+- **C2 (drax re-handshake on the `encounters` key)** — **NO EVIDENCE OF CLOSURE.** The only signed handshake on disk is `agentic_orchestration/drax/notes/2026-07-02-one-realm-bundle-schema-handshake-drax-SIGNED.md`; no 2026-07-22 successor exists. `schema_status` correctly remains `DRAFT-pending-drax-handshake`. KR routes.
+
+**Recommendation to knight-rider (not executed here):** do NOT re-fire this dispatch. Correct the handoff index PENDING→LANDED-WITH-CONDITIONS, and route C1 (Matt T3 nudge) + C2 (drax) as the two residuals. If C1 fires, jack-ryan's INFO item — a regression test asserting `_non_canonical` survives the gear flavor pass — is the natural follow-up and would need its own dispatch.
+
+*Status pass only. No dispatch fired, no acceptance criterion amended, no bundle touched, no code written.*
