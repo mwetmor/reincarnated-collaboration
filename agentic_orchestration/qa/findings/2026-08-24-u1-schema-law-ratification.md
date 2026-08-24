@@ -175,3 +175,119 @@ REVIEW_PROCESS **#4** (the law of record is truth) drives BLOCKING-6: R-B is a b
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/flight/` — empty at G-1 close (INFO-8)
 
 **Signed:** jack-ryan, 2026-08-24. The tape earns the right to be believed by refusing to say anything it cannot source.
+
+---
+---
+
+# G-2 ruling — 2026-08-24 — schema stability across two workflows (RUN U1-BUILD, Gate G-2)
+
+**Reviewer:** jack-ryan (DEV-MODE, gatekeeper, BLOCK authority) · **Conductor:** gandalf (RUN-CONDUCTOR) · **Developer:** star-lord (B-1)
+**Target:** freeze `a4f7a569` (2026-08-24T23:37:44Z) → capture `49d717d5` (2026-08-24T23:38:40Z)
+**Criteria:** T1–T8 as pinned above, **before `flight/` held a single file**. Applied as written; not re-interpreted to fit results.
+**Scope:** schema stability ONLY. Not board quality (G-3, galadriel), not LAW-at-fold (G-4, gandalf), not the run's seal predicate (S8).
+
+## VERDICT: **PASS-WITH-FINDINGS**
+
+**All four HARD tests PASS (T1, T2, T3, T7). Zero BLOCK. 3 WARN + 1 WARN-condition · 4 INFO.**
+
+No finding is discharged by touching the schema — I checked that explicitly, because a discharge that edited `schema.py` would have retroactively failed T2. Every finding lands in the tape or the render.
+
+### Per-criterion
+
+| # | Test | Class | Verdict | Machine evidence I derived myself |
+|---|---|---|---|---|
+| **T1** | Freeze precedes capture | HARD | **PASS** | At `a4f7a569`: `schema.py`, `tape.py`, `SCHEMA.md`, validator, 61 founding rows — and `grep -c U1-BUILD` on the tape at that SHA = **0**. The six U1-BUILD rows first exist at `49d717d5`, 56s later. Checked from git, as pinned. |
+| **T2** | Zero accommodating churn | HARD | **PASS** | `git diff --name-status a4f7a569 49d717d5` = exactly **two** paths: `records-2026-08.jsonl` (M), `report.md` (A). `schema.py` sha256 `71db1f5e3258eef0` and `tape.py` `522e201d650645af` are **byte-identical at freeze, at HEAD, and on disk**. Zero fields added, zero types changed, zero widenings — and zero enum values added either (which would have passed anyway). `git status --porcelain flight/` clean: no uncommitted accommodation hiding outside the commits. |
+| **T3** | One validator, zero exceptions | HARD | **PASS** | `tape.audit()` over the live tape with default `check_paths=True`: **0 errors across all 67 rows**, both workflows, one code path. Grep for `workstream ==` / `workstream in` / `VFX-AB` / `U1-BUILD` / lane-conditionals across `schema.py`, `tape.py`, `bin/*`: the sole hit is the docstring asserting the property. `check_paths=False` exists but every production caller takes the default; it appears only in `tests/` for synthetic rows. Not a skip list. |
+| **T4** | Four payoff queries across the join | SOFT | **PASS** | Both workstreams return rows in the SEALED table and the per-model scorecard. anthropic's cost cells render `— (null, declared)` / `— null on 1/1 units`: honest null, **not a missing row**. Pin drift returns the determinate `NO SIGNAL — model_echo is null on 33/33 units … a determinate answer, not a clean bill of health` — verbatim the disposition I pre-registered under INFO-2. `enqueue→seal` returns a declared non-derivable for VFX-AB **with its reason named**. |
+| **T5** | Denominator + coverage honesty in OUTPUT | SOFT | **PASS-WITH-FINDINGS** | BLOCKING-2 holds at render: `30/30 rc=0` and `0/30 judged (verdict null — no gatekeeper at this grain)`. The string "30 PASS" appears nowhere. INFO-3's `10.6h` is relabeled **RUN DURATION** in-band with the reason. Every derived cell names n (`93.2% of 72.4M`, `6 WARN across 1 curation row(s)`, `100% (30/30 rc=0)`). INFO-4's mixed-denominator defect does **not** recur. WARN-5 coverage renders on the header **and** inside the IN-FLIGHT lane. Deductions: FINDING-2, FINDING-3. |
+| **T6** | No stored metric | SOFT | **PASS-WITH-FINDINGS** | Tape key set = **31 distinct keys, 0 unknown** against frozen `ALL_FIELDS`; exactly **one** metric-named key: `warn_count`. Ruled below. |
+| **T7** | **Orthogonality floor** (admissibility) | HARD | **PASS — admissibility HOLDS** | All three axes distinct, read off the tape not the claim: `provider` anthropic vs openai · `lane` claude-agent vs codex-serial · `currency` anthropic-max vs chatgpt-sub. **≥1 GATE row:** exactly 1 (`run:U1-BUILD` / `G-1-schema-law-ratification` / gatekeeper `jack-ryan`); VFX-AB has 0. **≥1 null-token row:** the `u1-build/B-1-recorder` CLOSE carries `rc:0`, `attempt:1`, 8 artifacts and **no token field at all** — F-7 honest-null exercised *structurally* (absent, not zero-filled). Beyond what I demanded: U1-BUILD is the only source of ENQUEUE, of a live-lane `unit_kind:"run"`, and of the **B-1 correction path** (`3e40241720e40e39` corrects `27e367fcf8fad631`) — the constitutional append-only mechanism is exercised on the live tape, not only in tests. |
+| **T8** | I re-derive; I accept no handed list | METHOD | **PASS — zero mismatches** | Independently recomputed: 67 raw / **66 after corrections** ✓ · **33 units** ✓ · 31 SEALED / 1 IN-FLIGHT ✓ · token sums **72,375,471 / 67,431,424 / 0 / 259,471 / 154,000** — reproducing spec § 1 **and my own G-1 derivation exactly** ✓ · cache 93.1689% → "93.2%" ✓ · 2,412,515.7 tok-in/artifact → "2.4M" ✓ · median openai wall **239s** → "4m" ✓ · VFX span **10:34:01** → "10.6h" ✓ · 22 open decisions ✓ · `warn_count 6` substantiated by elrond's note ("6 WARN / 19 INFO") ✓. **This is the first gate in four sittings where re-derivation found no summary-count defect** (contrast R-L47-2's four in one run). |
+
+**Tests:** `python3 -m unittest discover agentic_orchestration/flight/tests` → **45/45 OK**, run by me. `TestG1Amendments` locks B-1…B-6 individually; `TestTheLaw` locks the import ban, the no-write-verb property, and a whole-tape audit.
+
+### Star-lord's six claims — verified, not accepted
+
+He said his claims were intent; I treated them as such and checked each in code and in data.
+
+1. **`row_id` = content hash** — VERIFIED. I recomputed sha256 over each row minus `row_id` for all 67: **0 mismatches, 0 duplicates**.
+2. **Founding rows carry `rc`, no verdict** — VERIFIED. 31 rows carry `rc` (all 0); of the 30 VFX CLOSE rows, **0** carry a verdict. The corpus's one founding verdict sits on the CURATION row, gatekeeper `elrond`, sourced to elrond's own note. Legitimate under B-2.
+3. **Per-event matrix normative** — VERIFIED in code (`FIELD_MATRIX` enforces R *and* F) and in data (identity FORBIDDEN on GATE/CURATION → exactly the 2 rows with null `provider`).
+4. **Closed field set** — VERIFIED. 0 unknown keys on tape; validator rejects unknown; unit-tested against `cache_hit_rate`.
+5. **`derived_from` = disk-checked list, `.err` sidecars** — VERIFIED. 66/67 rows carry it, 0 non-list, whole-tape audit with `check_paths=True` returns 0 errors — so **every named path resolves on disk**. VFX CLOSE rows do carry the `.err` sidecar (INFO-7 honored).
+6. **`curator` on ENQUEUE** — VERIFIED in validator + `test_B6`. See FINDING-4: real enforcement, zero live exercise.
+
+**The signature fact of this build:** my six amendments landed **mid-build**, and star-lord retracted his own `rc→verdict` population rather than defend it. That is the gate working as designed, and it is why T2 could pass — the accommodation happened *before* the freeze, where it is legitimate, instead of after it, where it would have been churn.
+
+---
+
+## Ruling on `warn_count` (routed to me by ledger L-6) — **ACCEPT-WITH-CONDITION**
+
+**I accept the exception. I decline the rename. I close the door behind it.**
+
+**Substance (why the field survives).** I inspected the value rather than ruling on the name. `warn_count: 6` is copied verbatim from elrond's curation note — *"26 dossier rows, 25 finding rows — 6 WARN / 19 INFO"*. It is a **curator-reported primitive, transcribed like a token count, never computed from other tape rows**. That is the class B-4 was written to *protect*, not the class it was written to forbid. The confirming evidence is negative and strong: the report **refuses** to derive a per-model WARN rate from it and says why — *"in schema v1 a CURATION row binds to a `unit_id` … the VFX curation binds to the run, not the jobs."* A stored metric would have been used as one. This one is declined at the point of use.
+
+**Why I decline the rename.** Renaming a spec § 3.5 field would break the fork-fidelity mapping I verified mechanically at G-1, trading a real verified mapping for a cosmetic win. Wrong trade.
+
+**The actual defect is the exception mechanism, not the field.** `METRIC_NAME_EXCEPTIONS` is a module-level tuple, and `test_B4` iterates *around* it without pinning its contents. A future custodian can discharge a B-4 failure by appending one identifier and the suite stays green — which converts my parse error back into the preference BLOCKING-4 existed to abolish. That is accretion-by-one-reasonable-field (R-L47-2), relocated from the field list to the exception list.
+
+**CONDITION (= FINDING-C, WARN; does not gate).** `test_B4` must assert `schema.METRIC_NAME_EXCEPTIONS == ("warn_count",)` **exactly**. Adding a second exception then costs the same as adding a field: a red suite, a `v:2` bump, a custodian-signed note. The grandfather stands; the gate behind it closes. Discipline #60.
+
+---
+
+## Findings
+
+**FINDING-1 — WARN — U1-BUILD's six rows are undeclared backfill.**
+All six carry event `ts` from 22:59:53Z–23:38:14Z and were written at 23:38:40Z; each derives from an **authored artifact** (request doc, run ledger, dispatch file, this finding file), not from an instrumented stream. That is reconstruction, and `SCHEMA.md` § 8 uses `backfill: true` for exactly this on the 61 founding rows. `flight_record` exposes `--backfill`; it was not passed. So workflow #2 is a **second backfill**, not the forward capture L-2 described. Two consequences, opposite in sign: (a) the board cannot distinguish recorded-live from reconstructed — the Discipline #70 / WARN-5 honesty class, one level in; (b) it *reduces* the self-capture hazard I named at L-2, since no emitter was shaped to fit. So it is not an admissibility problem — but it must be **labeled**. *Action (star-lord):* append correction rows carrying `backfill: true` (the append-only correction path is already exercised on this tape — this is the mechanism working, not a rewrite), or declare the class in `SCHEMA.md` § 8. `backfill` is already OPTIONAL on every event, so **this does not touch the schema and does not trip T2.**
+
+**FINDING-2 — WARN — the report's lanes do not partition its own units.**
+33 units on tape; 31 SEALED + 1 IN-FLIGHT = **32 rendered**. `run:VFX-AB` folds to state **OPEN** (CURATION only; never STARTed under the recorder) and appears in **no lane** — and it is the unit carrying the corpus's only judged verdict. `fold()` defines OPEN; the render has no home for it. A reader who adds the lanes gets 32 while the header says 33. Cite: Discipline #70, my own WARN-5. *Action (drax + `flight_report`):* render an OPEN/UNBOUND lane, or state the residual on the header line. Render-side; no schema change.
+
+**FINDING-3 — WARN — IN-FLIGHT mis-attributes the run's operator.**
+`run:U1-BUILD` renders `operator = jack-ryan` because the lane takes the operator of the **latest** row — my GATE. The unit's ENQUEUE and START both carry `operator = gandalf`. A gatekeeper who judged one event is rendered as the owner of the run. Cite: Discipline #9 (attribution clarity). *Action (drax + `flight_report`):* take `operator` from the unit's earliest identity-bearing row, or render owner and last-actor as separate columns. Render-side.
+
+**FINDING-C — WARN — pin `METRIC_NAME_EXCEPTIONS` in the test.** See the `warn_count` ruling.
+
+**FINDING-4 — INFO — B-6 `curator` is enforced but unexercised.**
+Zero tape rows populate `curator`; the one ENQUEUE is `claude-agent`, a non-vendor lane, so the rule correctly does not bite. Enforcement is real (validator + `test_B6`); live exercise is absent. R-B's *"zero governance leaks"* criterion becomes falsifiable-by-query only when the codex durable queue emits its first vendor ENQUEUE. Recorded so the silence is a known gap and not read as a green.
+
+**FINDING-5 — INFO — `codex login status` is an outbound vendor-CLI invocation from a read-only view. ACCEPTED as designed.**
+Discipline #74 clean on substance: zero write verbs onto the tape, zero authority, no LLM, no network module (`test_no_llm_or_network_imports_anywhere` enforces the import ban). `flight_report` writes exactly one path — its `--out` target — and nothing else, ever. But the HEALTH lane does spawn an external vendor binary. It is bounded: status subcommand, 30s timeout, failure rendered **loudly** (`probe failed: …`), `--no-probes` **declared** rather than silent. Recorded so that the first probe which is *not* a status query is visibly a new decision rather than a precedent already set.
+
+**FINDING-6 — INFO — my own G-1 attribution error, corrected by the tape.**
+G-1 attributed the corpus's one judged verdict to *galadriel's* run-level selection gate. The tape attributes it to **elrond**, sourced to `elrond/notes/2026-08-24-vfx-p2-dossier-curation.md`, which names elrond as executor and carries the verdict section. **The tape is right; my G-1 sentence was the imprecise one.** Recorded rather than quietly dropped — the standard I hold others to (Discipline #9) is not waived for the gatekeeper.
+
+**FINDING-7 — INFO — Discipline #73 verified clean at code level.**
+**Zero** occurrences of `Status:`-header parsing anywhere in `flight/`. Lane state derives from tape rows and from the two Matt-queue files via a mechanical `~~`-strike test that reads no prose. My U-1 build constraint is honored **in code**, not only in prose, and the report states the rule in-band. This is the constraint earning its keep: L-7(b) surfaced the queue-file strike defect *because* the view refused to interpret.
+
+### G-1 WARNs discharged by this build (verified, not claimed)
+
+- **WARN-1** — DISCHARGED in schema: `SLA_CLASS_KEY = ("lane","unit_kind")`, `SLA_MIN_N = 5`, unit-tested.
+- **WARN-5** — DISCHARGED in render: COVERAGE clause on the header **and** inside the IN-FLIGHT lane, in the census-honesty wording I asked for.
+- **WARN-6** — DISCHARGED: `bin/check_append_only` exists, runs, reports `0 deleted or modified`; `git diff --numstat` freeze→capture on the tape is `6  0`.
+- **INFO-3 / INFO-4 / INFO-7** — all honored in output.
+
+---
+
+## THE SENTENCE
+
+> **G-2 PASSES. Both drax renders are hereby OPEN.** The local fleet board and the Glance historical fleet card may both be built against schema v1 **as frozen at `a4f7a569`**, carrying forward as render obligations — none of which gates the start of work — G-1 **WARN-1** (SLA class key `(lane, unit_kind)`, min-n 5, below which a lane renders `no SLA — n=k` rather than a colour), G-1 **WARN-5** (per-lane coverage declaration), the **F-1 rider** (the Glance card must NEVER render IN-FLIGHT or HEALTH — rear-view scope only), and G-2 **FINDING-2** and **FINDING-3** (lane partition; operator attribution).
+
+## Action
+
+- [ ] **star-lord:** FINDING-1 (`backfill:true` corrections or an `SCHEMA.md` § 8 declaration) · FINDING-C (pin `METRIC_NAME_EXCEPTIONS` in `test_B4`). Both are tape/test-level; neither touches `schema.py`.
+- [ ] **drax (NOW UNBLOCKED):** both renders. Carry WARN-1, WARN-5, the F-1 rider, FINDING-2, FINDING-3.
+- [ ] **gandalf (conductor):** fold this ruling; FINDING-4 rides to the Step-2 queue wave as the first live `curator` exercise.
+- [x] **jack-ryan:** G-2 ruled. No ESCALATE filed — every finding is seam-executable within ADR-002.
+- [ ] **Matt:** nothing required by this gate.
+
+## References
+
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/flight/` — `schema.py`, `tape.py`, `SCHEMA.md`, `records-2026-08.jsonl`, `report.md`, `bin/flight_record`, `bin/flight_report`, `bin/normalize_vfx_corpus`, `bin/check_append_only`, `tests/test_flight.py`
+- Commits `a4f7a569` (freeze) · `49d717d5` (capture)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-08-24-u1-build-run-ledger.md` — L-2, L-5, L-6, L-7
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/notes/2026-08-24-vfx-p2-dossier-curation.md` — the `warn_count: 6` source of record
+- `/Users/admin/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — #9, #60, #70, #73, #74
+
+**Signed:** jack-ryan, 2026-08-24. The goalposts were pinned before the field existed, and they did not move. The schema held.
