@@ -1,6 +1,6 @@
 # GD-kit framesets — VFX archetype-binding run (P2), index note
 
-**Date:** 2026-08-23
+**Date:** 2026-08-23 (amended same day, attempt 3 — see § 8)
 **Author:** galadriel (visual-perception seam) — second resume of the GD-kit supplement
 **Run:** VFX ARCHETYPE-BINDING RUN (P2), conducted by gandalf (RUN-CONDUCTOR)
 **Governing rulings:** charter ledger L-16 (referent), L-18 (two skills / two roles), L-19 (owner criterion)
@@ -106,6 +106,28 @@ unmodified native pixels (no crop, no resize, no colour transform).
 | `eor1-t2012.667-active-late.png` | 2012.667 | active (pre-release) | A′ | Peak annulus response (72.5) immediately before release. |
 | `eor1-t2013.200-release-decay.png` | 2013.200 | **release / decay** | A′ | Mid-decay, ≈45 % of peak. |
 | `eor1-t2013.467-release-off.png` | 2013.467 | release complete | A′ | Disc extinguished (metric 5.1). Note: an unrelated pale bloom from another effect is present at frame right — it is **not** EoR. |
+
+### 3.2b Supplementary cropped set — `eor-test-1/whirlwind/set-03-sustain-1118-LOWREAD/`
+
+One cropped beat-set from the same (accepted) fixture is also tracked. It predates the switch to
+native-resolution PNG delivery and survives only because it is the **one tracked contact-sheet
+view** (`_sheet.jpg`) of an uninterrupted sustain burst, which is convenient for reading cadence
+at a glance.
+
+JPG 1040×640, crop `1040:640:440:230` (player-centred on the 1920×1080 source), sampled at 20 fps
+from a 3.2 s window at t=1117.4.
+
+| File | t (s) | Phase |
+|---|---|---|
+| `b1-sustain-a_t01117.80.jpg` | 1117.80 | sustain-a |
+| `b2-sustain-b_t01118.35.jpg` | 1118.35 | sustain-b |
+| `b3-sustain-c_t01118.85.jpg` | 1118.85 | sustain-c |
+| `b4-sustain-d_t01119.40.jpg` | 1119.40 | sustain-d |
+| `b5-sustain-e_t01119.90.jpg` | 1119.90 | sustain-e |
+
+**Readability: LOW** — the acid-green Crucible-of-the-Deeps ground VFX washes the plate. Role is
+the same as § 3.1 (negative anchor + semantics). **The § 3.2 native PNG set is authoritative for
+any style read; do not use this set for colour or edge measurement**, only for cadence-at-a-glance.
 
 Adjuncts in `_evidence/` (documented transformations, raw frames preserved above):
 
@@ -348,6 +370,57 @@ ffmpeg -nostdin -v error -ss 2012.6  -i "$V1" -t 1.9 -vf "fps=15,crop=760:560:58
 6. **`_workbench/` (746 MB) and `eor-test-2/` (117 MB) are now git-ignored** in that capture
    directory. They are scratch and fully regenerable from § 6. Say the word if the conductor wants
    them tracked instead.
+7. **`framesets.json` v1 carried a wrong Judgment attribution; it is retracted (§ 8).** If anything
+   downstream already consumed v1 — any Codex-lane fold-in, any P3 corpus staging — it must be
+   re-read against v2. This is the one item in this note that requires an action rather than a
+   decision.
+
+---
+
+## 8. Amendment (attempt 3, same day) — `framesets.json` retraction
+
+A third spawn was fired against this workbench. It found the extraction **already complete and
+already committed** (`a35e92cf`, 39 tracked files) and the resumption note already discharged
+(`adefff2a`). No frames were re-extracted; nothing in `eye_of_reckoning/`,
+`circle_candidate_unresolved/` or `_evidence/` changed. What it found instead was a **labelling
+defect inside the landed commit**, which it has closed.
+
+**The defect.** `framesets.json` v1 shipped in the same commit as `judgment/README-EMPTY.md` and
+contradicted it. v1 described six framesets, three of them captioned:
+
+```
+"skill": "Judgment (attribution MODERATE)"
+"p3_role": "style candidate — full status (L-18 unaffected)"
+```
+
+Three things are wrong with that, in ascending order of seriousness:
+
+1. **It indexes files that are not in the repo.** Five of v1's six framesets live under
+   `eor-test-2/`, which § 7.6 git-ignores. A consumer following that manifest finds nothing.
+2. **It contradicts the pause it shipped beside.** § 4 invoked the honorable pause and left
+   `judgment/` empty on purpose; v1 simultaneously asserted three Judgment framesets at full
+   candidate status. Both statements were committed together.
+3. **The name is probably not merely unproven but wrong.** § 4.3's leading hypothesis is
+   **War Cry**, a *Soldier* skill. "Attribution MODERATE" dignifies a guess that the evidence
+   actively leans against.
+
+**Verification before retracting.** I did not retract on the mtime ordering alone — I looked at
+the pixels. `eor-test-2/circle/set-01-cast-816/_sheet.jpg`: the pale front in `b4-spread` cannot be
+separated from the green Crucible ground wash, and `b3-burst`'s white star sits at frame-left while
+the ring centres elsewhere. `eor-test-2/whirlwind/set-01-wave-start-683/_sheet.jpg` degrades from
+legible at `b1-approach` to total superposition by `b6-active-peak`. **§ 1's rejection of eor-test-2
+as an identity frame source is correct**, and the sets built from it cannot carry a skill name.
+
+**The fix.** `framesets.json` is now **v2** (`_schema: gd-kit-framesets/2`) and describes only what
+is actually tracked: `ww-native-eor1` (12 frames), `ww-crop-eor1-set03` (5 frames, § 3.2b) and
+`circle-unresolved-eor1` (8 frames, `skill: "UNRESOLVED — DO NOT NAME"`, both hypotheses carried
+with their leans). It also carries a `_p3_consumer_warning`, the scene confounds of § 5.3 in
+machine-readable form, and an `untracked_scratch` block so the git-ignored material is not mistaken
+for an omission. The v1 Judgment attribution is recorded as **RETRACTED** in `_revision_note`.
+
+**Net effect on the corpus: none of the evidence changed, and one wrong name was removed before it
+could travel.** The frame count, the fixtures, the measurements and the pause all stand exactly as
+§§ 1–7 record them.
 
 ---
 

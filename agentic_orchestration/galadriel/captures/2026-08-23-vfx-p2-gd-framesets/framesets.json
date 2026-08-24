@@ -1,260 +1,152 @@
-[
- {
-  "skill": "Eye of Reckoning",
-  "archetype_binding": "whirlwind",
-  "beat_model": "channel",
-  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
-  "referent": "eor-test-2",
-  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 683.0,
-  "window_dur_s": 7.2,
-  "ffmpeg_command": "ffmpeg -ss 683.000 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 7.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-approach",
-    "t": 683.4,
-    "file": "b1-approach_t00683.40.jpg"
-   },
-   {
-    "beat": "b2-aura-faintest",
-    "t": 685.15,
-    "file": "b2-aura-faintest_t00685.15.jpg"
-   },
-   {
-    "beat": "b3-active-early",
-    "t": 685.85,
-    "file": "b3-active-early_t00685.85.jpg"
-   },
-   {
-    "beat": "b4-active-mid",
-    "t": 686.3,
-    "file": "b4-active-mid_t00686.30.jpg"
-   },
-   {
-    "beat": "b5-active-mid2",
-    "t": 686.75,
-    "file": "b5-active-mid2_t00686.75.jpg"
-   },
-   {
-    "beat": "b6-active-peak",
-    "t": 687.3,
-    "file": "b6-active-peak_t00687.30.jpg"
-   }
+{
+  "_schema": "gd-kit-framesets/2",
+  "_run": "VFX ARCHETYPE-BINDING RUN (P2), §4 GD-kit supplement",
+  "_governing_rulings": ["L-16 referent", "L-18 two skills / two roles", "L-19 action-caused vs action-decorating"],
+  "_index_note": "agentic_orchestration/galadriel/notes/2026-08-23-vfx-p2-gd-framesets.md",
+  "_revision_note": "v2 (galadriel, attempt 3, 2026-08-23). v1 of this file labelled three eor-test-2 framesets `Judgment (attribution MODERATE)` with `p3_role: style candidate — full status`. That label CONTRADICTED judgment/README-EMPTY.md in the same commit and is RETRACTED: Judgment was never positively identified in the L-16 fixtures, and the index note § 4.3 argues the circle-archetype event is most likely War Cry — a Soldier skill — which would make the name not merely unproven but wrong. v1 also indexed five framesets under eor-test-2/, which is git-ignored scratch and NOT in the repo. This file now describes only what is actually tracked.",
+
+  "_p3_consumer_warning": "This supplement contains ZERO confirmed positive style candidates. Every tracked frameset is either a NEGATIVE style anchor (whirlwind) or an UNRESOLVED-identity candidate (circle). Do not train, calibrate, or exemplify positively on this set alone. The Codex dossier lane carries the positive load.",
+
+  "sources": {
+    "eor1": {
+      "referent": "eor-test-1",
+      "basename": "eor-warlord-2026-08-04 21-09-31.mp4",
+      "geometry": "1920x1080 @ 60fps",
+      "duration_s": 2498.37,
+      "scene": "Crucible of the Deeps, x10 spawn multiplier, Gladiator",
+      "status": "SELECTED — all tracked frames come from here"
+    },
+    "eor2": {
+      "referent": "eor-test-2",
+      "basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+      "geometry": "1920x1080 @ 60fps",
+      "duration_s": 1034.10,
+      "scene": "Crucible of the Dead, waves 150-160",
+      "status": "REJECTED as a frame source — at waves 150-160 the plate is a superposition of 10-20 simultaneous emitters and no single skill's boundary can be traced. Used only for tooltip/skill-tree build identification at t~173-300 (pre-combat). Recommend re-labelling in the charter as a DENSITY referent, not a frame source."
+    }
+  },
+
+  "framesets": [
+    {
+      "id": "ww-native-eor1",
+      "skill": "Eye of Reckoning",
+      "skill_confidence": "CONFIRMED — hotbar slot R icon matches the tree node at 26/16 invested, adjacent Soulfire node tooltip reads '...during the Eye of Reckoning'",
+      "archetype_binding": "whirlwind",
+      "beat_model": "channel",
+      "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth — NOT a style candidate",
+      "p3_role_basis": "L-18. Matt rejected this art at the owner instrument: 'a generic magical aura that happens to be spinning along with the character.'",
+      "l19_verdict": "action-DECORATING, unambiguously, on every axis tested — no blade/weapon geometry, caster occluded by own effect, no contact response on bodies, no cadence coupling, colour carries all identity",
+      "source": "eor1",
+      "dir": "eye_of_reckoning/",
+      "format": "PNG 1920x1080, unmodified native pixels — no crop, no resize, no colour transform",
+      "ffmpeg_command": "ffmpeg -nostdin -v error -ss <T> -i \"$V1\" -frames:v 1 -y <OUT>.png",
+      "frames": [
+        { "t": 2015.600, "phase": "pre / OFF",            "instance": "A",  "file": "eor1-t2015.600-prechannel.png" },
+        { "t": 2015.733, "phase": "windup",               "instance": "A",  "file": "eor1-t2015.733-windup-early.png" },
+        { "t": 2015.867, "phase": "windup",               "instance": "A",  "file": "eor1-t2015.867-windup-mid.png" },
+        { "t": 2016.133, "phase": "windup",               "instance": "A",  "file": "eor1-t2016.133-windup-late.png" },
+        { "t": 2016.400, "phase": "active (steady)",      "instance": "A",  "file": "eor1-t2016.400-active-established.png" },
+        { "t": 1060.000, "phase": "active",               "instance": "B",  "file": "eor1-t1060.000-active-sustain.png" },
+        { "t": 1310.000, "phase": "active (contested)",   "instance": "C",  "file": "eor1-t1310.000-active-sustain-dense.png" },
+        { "t": 1810.000, "phase": "active + movement",    "instance": "D",  "file": "eor1-t1810.000-active-move-a.png" },
+        { "t": 1810.500, "phase": "active + movement",    "instance": "D",  "file": "eor1-t1810.500-active-move-b.png" },
+        { "t": 2012.667, "phase": "active (pre-release)", "instance": "A'", "file": "eor1-t2012.667-active-late.png" },
+        { "t": 2013.200, "phase": "release / decay",      "instance": "A'", "file": "eor1-t2013.200-release-decay.png" },
+        { "t": 2013.467, "phase": "release complete",     "instance": "A'", "file": "eor1-t2013.467-release-off.png" }
+      ],
+      "semantics": {
+        "radius_px_at_1080p": "150-160, ~1.9x standing character height; constant",
+        "anchoring": "rigidly player-centred; no lag, no elastic trail, no lean into movement vector",
+        "spin_up_s": 0.70,
+        "spin_down_s": 0.80,
+        "movement_while_channeling": "permitted and used constantly at full or near-full speed",
+        "occlusion": "renders over the caster's lower body and over enemies inside it"
+      },
+      "coverage_flags": {
+        "windup": "PRESENT but it is a fade-in, not a windup — opacity ramps, no anticipation pose, no charge tell",
+        "active": "PRESENT, dominant phase",
+        "impact": "ABSENT — no contact flash, no hit spark, no stagger, no spatter. Damage exists only as HUD text.",
+        "cadence": "ABSENT — no visible periodicity; nothing tells the player how fast they are hitting"
+      }
+    },
+    {
+      "id": "ww-crop-eor1-set03",
+      "skill": "Eye of Reckoning",
+      "skill_confidence": "CONFIRMED (same binding as ww-native-eor1)",
+      "archetype_binding": "whirlwind",
+      "beat_model": "channel-sustain-only",
+      "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth — NOT a style candidate",
+      "readability": "LOW — acid-green Crucible-of-the-Deeps ground VFX washes the plate",
+      "source": "eor1",
+      "dir": "eor-test-1/whirlwind/set-03-sustain-1118-LOWREAD/",
+      "format": "JPG 1040x640, player-centred crop of the 1920x1080 source",
+      "crop": "1040:640:440:230",
+      "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+      "sample_fps": 20,
+      "window_start_s": 1117.4,
+      "window_dur_s": 3.2,
+      "ffmpeg_command": "ffmpeg -ss 1117.400 -i \"$V1\" -t 3.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+      "supplementary": true,
+      "supplementary_note": "Cropped-format sibling of ww-native-eor1, retained because it is the only tracked contact-sheet (_sheet.jpg) view of a sustain burst. The native PNG set is authoritative for style reads; this set is for cadence-at-a-glance only. Flagged LOWREAD — do not use for colour or edge measurement.",
+      "frames": [
+        { "t": 1117.80, "phase": "sustain-a", "file": "b1-sustain-a_t01117.80.jpg" },
+        { "t": 1118.35, "phase": "sustain-b", "file": "b2-sustain-b_t01118.35.jpg" },
+        { "t": 1118.85, "phase": "sustain-c", "file": "b3-sustain-c_t01118.85.jpg" },
+        { "t": 1119.40, "phase": "sustain-d", "file": "b4-sustain-d_t01119.40.jpg" },
+        { "t": 1119.90, "phase": "sustain-e", "file": "b5-sustain-e_t01119.90.jpg" }
+      ]
+    },
+    {
+      "id": "circle-unresolved-eor1",
+      "skill": "UNRESOLVED — DO NOT NAME",
+      "skill_confidence": "NOT IDENTIFIED. Honorable-pause invoked.",
+      "skill_hypotheses": [
+        { "name": "War Cry", "lean": "LEADING", "basis": "slot-3 icon is a shouting face in profile with a light burst; War Cry is tooltip-confirmed present in this build; player-centred pale shockwave at 8-12s cadence is its signature. NOTE: War Cry is a SOLDIER skill, so this reading would make the name 'Judgment' wrong, not merely unproven." },
+        { "name": "Judgment", "lean": "AGAINST", "basis": "the brief describes Judgment as thrown/targeted creating a ground area; this effect is caster-emitted in every instance measured and its centre never displaces toward the cursor. Judgment is never named in any tooltip read from these fixtures." }
+      ],
+      "archetype_binding": "circle",
+      "beat_model": "instant-cast",
+      "p3_role": "UNRESOLVED-IDENTITY candidate — usable as archetype/contrast evidence ONLY; MUST NOT enter the P3 corpus under a skill name until identity is resolved",
+      "l19_verdict": "PARTIAL — 'caused' in its propagation (a real expanding front with radius-over-time, and it leaves a ground decal, so it acknowledges the world), 'decorating' in its termination (enemies overtaken by the front do not flash, stagger or spatter)",
+      "source": "eor1",
+      "dir": "circle_candidate_unresolved/",
+      "format": "PNG 1920x1080, unmodified native pixels",
+      "ffmpeg_command": "ffmpeg -nostdin -v error -ss <T> -i \"$V1\" -frames:v 1 -y <OUT>.png",
+      "frames": [
+        { "t": 1400.400, "phase": "pre",          "instance": "1", "file": "UNRESOLVED-eor1-t1400.400-pre.png" },
+        { "t": 1400.600, "phase": "expand-early", "instance": "1", "file": "UNRESOLVED-eor1-t1400.600-expand-early.png" },
+        { "t": 1400.750, "phase": "peak",         "instance": "1", "file": "UNRESOLVED-eor1-t1400.750-peak.png", "caution": "whites out ~40% of frame — poor style exemplar" },
+        { "t": 1401.100, "phase": "ring maximum", "instance": "1", "file": "UNRESOLVED-eor1-t1401.100-ring-max.png", "note": "USABLE frame — clean arc readable against terrain" },
+        { "t": 1401.600, "phase": "decay",        "instance": "1", "file": "UNRESOLVED-eor1-t1401.600-decay.png" },
+        { "t": 1423.500, "phase": "onset",        "instance": "2", "file": "UNRESOLVED-eor1-t1423.500-onset.png" },
+        { "t": 1423.750, "phase": "peak",         "instance": "2", "file": "UNRESOLVED-eor1-t1423.750-peak.png", "caution": "whites out ~40% of frame — poor style exemplar" },
+        { "t": 1424.200, "phase": "ring / decay", "instance": "2", "file": "UNRESOLVED-eor1-t1424.200-ring.png", "note": "USABLE frame" }
+      ],
+      "settled_facts": {
+        "player_pressed_not_devotion_proc": "SETTLED. Slot-3 cooldown onsets at 1400.50 / 1407.25 / 1423.50 / 1440.25 / 1465.00 are each followed by the screen flash at exactly +0.25s (one sample at 4fps), at 4.7x-12.4x local baseline. Devotion procs do not put a hotbar slot on cooldown.",
+        "cooldown_s": "minimum observed re-fire 5.5; modal interval 8-12",
+        "geometry": "ring is PLAYER-CENTRED, not offset toward the cursor — four instances checked against a crosshair at the player position (960,520) in _evidence/UNRESOLVED-ring-centre-vs-player-crosshair.jpg"
+      },
+      "resolution_experiments": [
+        "E-1 (~15 min): template-match the slot-3 hotbar icon against every node in the Soldier and Oathkeeper trees at eor-test-2 t~180-246 (both trees open and at rest). A match in the Soldier tree falsifies 'Judgment' outright and names the skill.",
+        "E-2 (owner, ~2 min): ask Matt directly whether Judgment is on the gd-eor-warlord bar and on which key. He built the character."
+      ]
+    }
+  ],
+
+  "empty_by_decision": {
+    "judgment/": "Deliberately empty. See judgment/README-EMPTY.md. The circle-archetype candidate frames live in circle_candidate_unresolved/ under an UNRESOLVED- filename prefix. The plausible conclusion — flagged, not asserted — is that this build does not slot Judgment at all; EoR Warlords commonly run Eye of Reckoning + Vire's Might + Ascension + War Cry and skip it."
+  },
+
+  "untracked_scratch": {
+    "_note": "Regenerable, deliberately git-ignored, NOT deliverables. Listed so a future reader does not mistake their absence for an omission.",
+    "_workbench/": "~746 MB. Probe stills, hotbar series, detection .npy series from both spawns.",
+    "eor-test-2/": "~117 MB. 1,812 verification JPGs @ 900x600 across 12 burst dirs, plus five curated 1040x640 beat-sets (whirlwind set-01/set-02, circle set-01/set-02/set-03) produced before eor-test-2 was rejected as a frame source. The circle sets among them were provisionally captioned 'Judgment' in v1 of this file; that attribution is RETRACTED and they must not be promoted under that name. Regeneration commands are preserved in the index note § 6.",
+    "~/gd-scratch/": "Local byte-identical copies of both referent MP4s (2.73 GB) plus decimated 4fps grayscale scan substrates. /Volumes/reincarnated/ was read-only throughout."
+  },
+
+  "scene_confounds_do_not_learn": [
+    "Green crackling rings in eor-test-1 (visible at t1060.000, t1310.000, t2016.400) are Crucible RIFTSPAWN SPAWN PORTALS. They are circles on the ground and they are NOT a skill. Any automated pass over these frames will mistake them for `circle` instances.",
+    "Cyan crystal fans are static level props (Crucible of the Deeps decor), not an emitter."
   ]
- },
- {
-  "skill": "Eye of Reckoning",
-  "archetype_binding": "whirlwind",
-  "beat_model": "channel-sustain-only",
-  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
-  "referent": "eor-test-2",
-  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 770.4,
-  "window_dur_s": 3.4,
-  "ffmpeg_command": "ffmpeg -ss 770.400 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 3.400 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-sustain-a",
-    "t": 770.6,
-    "file": "b1-sustain-a_t00770.60.jpg"
-   },
-   {
-    "beat": "b2-sustain-b",
-    "t": 771.1,
-    "file": "b2-sustain-b_t00771.10.jpg"
-   },
-   {
-    "beat": "b3-sustain-c",
-    "t": 771.6,
-    "file": "b3-sustain-c_t00771.60.jpg"
-   },
-   {
-    "beat": "b4-sustain-d",
-    "t": 772.1,
-    "file": "b4-sustain-d_t00772.10.jpg"
-   },
-   {
-    "beat": "b5-sustain-e",
-    "t": 772.6,
-    "file": "b5-sustain-e_t00772.60.jpg"
-   }
-  ]
- },
- {
-  "skill": "Eye of Reckoning",
-  "archetype_binding": "whirlwind",
-  "beat_model": "channel-sustain-only",
-  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
-  "readability": "LOW \u2014 acid-green Crucible-of-the-Deeps ground VFX washes the plate",
-  "referent": "eor-test-1",
-  "source_basename": "eor-warlord-2026-08-04 21-09-31.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 1117.4,
-  "window_dur_s": 3.2,
-  "ffmpeg_command": "ffmpeg -ss 1117.400 -i \"<eor-warlord-2026-08-04 21-09-31.mp4>\" -t 3.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-sustain-a",
-    "t": 1117.8,
-    "file": "b1-sustain-a_t01117.80.jpg"
-   },
-   {
-    "beat": "b2-sustain-b",
-    "t": 1118.35,
-    "file": "b2-sustain-b_t01118.35.jpg"
-   },
-   {
-    "beat": "b3-sustain-c",
-    "t": 1118.85,
-    "file": "b3-sustain-c_t01118.85.jpg"
-   },
-   {
-    "beat": "b4-sustain-d",
-    "t": 1119.4,
-    "file": "b4-sustain-d_t01119.40.jpg"
-   },
-   {
-    "beat": "b5-sustain-e",
-    "t": 1119.9,
-    "file": "b5-sustain-e_t01119.90.jpg"
-   }
-  ]
- },
- {
-  "skill": "Judgment (attribution MODERATE)",
-  "archetype_binding": "circle",
-  "beat_model": "instant-cast",
-  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
-  "referent": "eor-test-2",
-  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 815.8,
-  "window_dur_s": 2.6,
-  "ffmpeg_command": "ffmpeg -ss 815.800 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-windup",
-    "t": 816.05,
-    "file": "b1-windup_t00816.05.jpg"
-   },
-   {
-    "beat": "b2-cast",
-    "t": 816.4,
-    "file": "b2-cast_t00816.40.jpg"
-   },
-   {
-    "beat": "b3-burst",
-    "t": 816.6,
-    "file": "b3-burst_t00816.60.jpg"
-   },
-   {
-    "beat": "b4-spread",
-    "t": 816.85,
-    "file": "b4-spread_t00816.85.jpg"
-   },
-   {
-    "beat": "b5-residue",
-    "t": 817.35,
-    "file": "b5-residue_t00817.35.jpg"
-   }
-  ]
- },
- {
-  "skill": "Judgment (attribution MODERATE)",
-  "archetype_binding": "circle",
-  "beat_model": "instant-cast",
-  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
-  "referent": "eor-test-2",
-  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 841.3,
-  "window_dur_s": 2.6,
-  "ffmpeg_command": "ffmpeg -ss 841.300 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-windup",
-    "t": 841.55,
-    "file": "b1-windup_t00841.55.jpg"
-   },
-   {
-    "beat": "b2-cast",
-    "t": 841.9,
-    "file": "b2-cast_t00841.90.jpg"
-   },
-   {
-    "beat": "b3-burst",
-    "t": 842.1,
-    "file": "b3-burst_t00842.10.jpg"
-   },
-   {
-    "beat": "b4-spread",
-    "t": 842.35,
-    "file": "b4-spread_t00842.35.jpg"
-   },
-   {
-    "beat": "b5-residue",
-    "t": 842.85,
-    "file": "b5-residue_t00842.85.jpg"
-   }
-  ]
- },
- {
-  "skill": "Judgment (attribution MODERATE)",
-  "archetype_binding": "circle",
-  "beat_model": "instant-cast",
-  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
-  "referent": "eor-test-2",
-  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
-  "source_geometry": "1920x1080 @ 60fps",
-  "crop": "1040:640:440:230",
-  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
-  "sample_fps": 20,
-  "window_start_s": 750.8,
-  "window_dur_s": 2.6,
-  "ffmpeg_command": "ffmpeg -ss 750.800 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
-  "beats": [
-   {
-    "beat": "b1-windup",
-    "t": 751.05,
-    "file": "b1-windup_t00751.05.jpg"
-   },
-   {
-    "beat": "b2-cast",
-    "t": 751.4,
-    "file": "b2-cast_t00751.40.jpg"
-   },
-   {
-    "beat": "b3-burst",
-    "t": 751.6,
-    "file": "b3-burst_t00751.60.jpg"
-   },
-   {
-    "beat": "b4-spread",
-    "t": 751.85,
-    "file": "b4-spread_t00751.85.jpg"
-   },
-   {
-    "beat": "b5-residue",
-    "t": 752.35,
-    "file": "b5-residue_t00752.35.jpg"
-   }
-  ]
- }
-]
+}
