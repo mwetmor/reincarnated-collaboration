@@ -2,9 +2,11 @@
 
 **Date:** 2026-08-24 · **Author:** gandalf (SPEC-AUTHOR; grill by ELICITOR — § 9)
 **Status:** DRAFT → **FORKS RULED 2026-08-24** — Matt: *"all as leaned"* (Q61; all eight § 9 leans
-adopted verbatim). Remaining gates: (1) **Matt's nod on the § 11 render sketch** (his rider:
-*"before we build, sketch an abstraction of what it will look like here"*), (2) jack-ryan
-ratification of the record schema + THE LAW as discipline. **On ratification, schema custody
+adopted verbatim) → **BUILD AUTHORIZED 2026-08-24** — Matt on the § 11 sketch: *"sketch is good to
+go"*, same message staging IN the § 12.4 Glance historical card (*"stage it in"*) and establishing
+session push-pattern (*"push as you go"*). Remaining gate: jack-ryan
+ratification of the record schema + THE LAW as discipline (parallel with star-lord build start
+per the KR request; drax renders — local board AND Glance card — stay behind his ≥2-workflow gate). **On ratification, schema custody
 transfers to star-lord** (software-factory § 8: one schema, one custodian, many readers) and this
 doc's § 3 becomes the schema's founding version, versioned forward by star-lord.
 **Governing docs:** `agentic_orchestration/workflow-upgrades.md` U-1 (the charter) ·
@@ -469,7 +471,7 @@ Because **F-8 ruled the tape committed**, the pushed `flight/records-*.jsonl` al
 
 **Division of labor this yields:** Glance = the **rear-view mirror** (historical scorecards, cost trends, verdict history — iOS-visible without waiting for the F-4-gated Tier-3 push tier); local fleet board = the **windshield** (live lanes, auth, unpushed, staleness). One tape, two windows, zero overlap in what each does best.
 
-**Lean (gandalf):** YES, stage it — but sequence it AFTER the recorder accumulates and jack-ryan's ≥2-workflow schema gate passes (same gate as the drax board; the Glance card is arguably the cheaper of the two renders). Not a new fork requiring ruling if Matt's question is a nod; recorded as staged-in on his word.
+**✓ RULED — STAGED IN (Matt 2026-08-24, verbatim *"stage it in"*):** sequenced AFTER the recorder accumulates and jack-ryan's ≥2-workflow schema gate passes (same gate as the drax local board; the Glance card is arguably the cheaper of the two renders). Carried into the KR request as a staged drax work unit.
 
 ---
 
