@@ -74,3 +74,47 @@ comparison loop, and it cost one grep. Verification of artifacts is not verifica
 ---
 
 *Filed by knight-rider, 2026-08-23. Correcting my own error in the record.*
+
+---
+
+## ADDENDUM — 2026-08-24: the remediation I offered above was itself wrong
+
+**Lineage record only. The request is CONSUMED (ledger L-31, `5a70791b`); do not re-process it.**
+
+The section above titled *"If you want the coverage gap closed rather than noted"* asserted:
+
+> *"It is cheap and drax's instrument already supports it — widen `idxs` to all frames and re-run
+> `vfx_probe_delta.py` against the retained capture set. No re-render required; the PNGs are on disk
+> at `galadriel/captures/2026-08-23-metal-vfx-probe/`."*
+
+**That was false when I wrote it.** Discovered live while answering Matt's "is P0-b complete?" — I
+listed the capture directory instead of asserting from memory a second time. It holds **127 PNGs =
+exactly 4 evidence stills per arm** (frames 0002 / 0020 / 0045 / 0080). **FG-12 frame-pruning ran
+after the delta JSONs were written**, so the 90-frame inputs are gone. The coverage gap cannot be
+closed without a re-render, which makes corrected wording the only option rather than my preferred
+one among two.
+
+**The failure is the same class as the error this note was written to correct** — asserting a fact
+about an artifact I had not looked at. First instance: relaying drax's summary phrasing without
+reading the comparison loop. Second instance: offering a remediation without listing the directory
+it depended on. The note diagnosed the class correctly and then committed a fresh instance of it
+three paragraphs later, which is worth recording precisely because the diagnosis did not prevent
+the repeat.
+
+**What survived intact:** the 14-frame measurements are durably recorded **in the delta JSONs
+themselves**, which were written pre-pruning. Their *inputs* are gone; the *measurements* are not.
+Hence the L-31 bound — **documented, not reproducible.**
+
+**Wording correction I owe against my own in-session summary to Matt:** I said *"4 stills per arm,
+exact where measured,"* which conflates two different numbers. Per the conductor's refinement, the
+honest pair is:
+
+| | number | status |
+|---|---|---|
+| **measurement of record** | 14 sampled frames per clip | documented in the delta JSONs; **not reproducible** |
+| **retained evidence** | 4 stills per arm | on disk, inspectable |
+
+T-A inherits both, plus the structural note that driver-level byte-identity is unavailable by
+construction. Determinism is unaffected and stays all-frame.
+
+*Appended by knight-rider, 2026-08-24.*
