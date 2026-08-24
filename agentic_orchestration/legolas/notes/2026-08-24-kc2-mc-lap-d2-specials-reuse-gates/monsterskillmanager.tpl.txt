@@ -1,0 +1,1898 @@
+Group
+{
+	name = "All Groups"
+	type = "list"
+
+	Variable
+	{
+		name = "Object Variable"
+		class = "static"
+		type = "eqnVariable"
+		description = ""
+		value = ""
+		defaultValue = "charLevel"
+	}
+
+	Group
+	{
+		name = "Header"
+		type = "system"
+
+		Variable
+		{
+			name = "ActorName"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "Class"
+			class = "static"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "FileDescription"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+	}
+
+	Group
+	{
+		name = "Skill Tree"
+		type = "list"
+
+		Variable
+		{
+			name = "skillName1"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel1"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName2"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel2"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName3"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel3"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName4"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel4"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName5"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel5"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName6"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel6"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName7"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel7"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName8"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel8"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName9"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel9"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName10"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel10"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName11"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel11"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName12"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel12"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName13"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel13"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName14"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel14"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName15"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel15"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName16"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel16"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillName17"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel17"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName18"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel18"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName19"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel19"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName20"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel20"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName21"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel21"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName22"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel22"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName23"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel23"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName24"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel24"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName25"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel25"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName26"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel26"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName27"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel27"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName28"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel28"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName29"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel29"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName30"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel30"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName31"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel31"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName32"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel32"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName33"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel33"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName34"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel34"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillName35"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel35"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName36"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel36"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName37"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel37"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName38"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel38"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName39"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel39"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName40"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel40"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName41"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel41"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName42"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel42"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName43"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel43"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName44"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel44"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName45"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel45"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName46"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel46"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName47"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel47"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName48"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel48"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName49"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel49"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName50"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel50"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName51"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+		
+		Variable
+		{
+			name = "skillLevel51"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName52"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel52"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName53"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel53"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName54"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel54"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName55"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel55"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName56"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel56"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName57"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel57"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName58"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel58"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName59"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel59"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "skillName60"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "skillLevel60"
+			class = "variable"
+			type = "equation"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+	}
+
+	Group
+	{
+		name = "Skill Configuration"
+		type = "list"
+
+		Variable
+		{
+			name = "attackSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffSelfSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffSelf2SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffSelf3SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffOtherSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffOther2SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "buffOther3SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "nightBuffSkill"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "healSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "healSkillDelay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "berserkSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "dyingSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "initialSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "initial2SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttackSkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttackTimeout"
+			class = "variable"
+			type = "real"
+			description = "Seconds - time out for all skill use"
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttackDelay"
+			class = "variable"
+			type = "real"
+			description = "Seconds - delay for special skill use"
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttackChance"
+			class = "variable"
+			type = "real"
+			description = "[0..100]"
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttackRange"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+
+		Variable
+		{
+			name = "specialAttack2SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack2Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack2Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack2Chance"
+			class = "variable"
+			type = "real"
+			description = "[0..100]"
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack2Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+
+		Variable
+		{
+			name = "specialAttack3SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack3Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack3Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack3Chance"
+			class = "variable"
+			type = "real"
+			description = "[0..100]"
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack3Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+
+		Variable
+		{
+			name = "specialAttack4SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack4Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack4Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack4Chance"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack4Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+
+		Variable
+		{
+			name = "specialAttack5SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack5Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack5Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack5Chance"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack5Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+		
+		Variable
+		{
+			name = "specialAttack6SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack6Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack6Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack6Chance"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack6Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+		
+		Variable
+		{
+			name = "specialAttack7SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack7Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack7Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack7Chance"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack7Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+		
+		Variable
+		{
+			name = "specialAttack8SkillName"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack8Timeout"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack8Delay"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack8Chance"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "specialAttack8Range"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "AnyRange;ShortRange;MediumRange;LongRange"
+		}
+
+		Variable
+		{
+			name = "shortRangeMin"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "shortRangeMax"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "4"
+		}
+
+		Variable
+		{
+			name = "mediumRangeMin"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "4"
+		}
+
+		Variable
+		{
+			name = "mediumRangeMax"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "15"
+		}
+
+		Variable
+		{
+			name = "longRangeMin"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "8"
+		}
+
+		Variable
+		{
+			name = "longRangeMax"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "20"
+		}
+
+		Variable
+		{
+			name = "chainInitialSkill"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "chainNextSkill"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "chainBehavior"
+			class = "picklist"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "UseOnCurrentEnemy;UseOnLeader;UseOnSelf;UseOnAllies"
+		}
+
+	}
+
+}
+
