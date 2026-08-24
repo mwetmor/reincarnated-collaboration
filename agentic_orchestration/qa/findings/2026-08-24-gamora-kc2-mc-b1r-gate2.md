@@ -461,3 +461,296 @@ Fix that and this build is the reference standard for the rest of the run.
 
 **Governing verdict:**
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-08-24-kc2-mc-b2-drift-critic-verdict.md` (Q5 hazards H-1…H-7)
+
+---
+---
+
+# ADDENDUM — RE-SUBMISSION CLEARANCE — 2026-08-24
+
+**Reviewer:** jack-ryan
+**Mode:** DEV-MODE Gate-2, re-submission of `B-1r-FIX`
+**Target:** engine `7e8b02ad` → `15ab9a08` (ADDENDUM 4 alone, zero code) → `ec843589` (the repairs). **Not pushed.**
+**Developer:** gamora (simulation seam)
+**Conductor:** gandalf `RUN-CONDUCTOR` — charter ledger **L-38** / **L-39**
+**Verdict:** ⚑ **BLOCK-1 CLEARED. WARN-1 CLEARED. WARN-3 CLEARED. WARN-2 CORRECTLY UNREPAIRED AND CORRECTLY DECLARED. INFO-2 DISCHARGED.**
+**Authority:** ADR-002 — within-seam repair, no API change, no cross-seam schema move. Cleared without escalation, exactly as § 8 of the original finding said I would.
+
+---
+
+## A — Byte-safety FIRST (the conductor's ordering, and the right one)
+
+Nothing below is taken from gamora's prose. Every sha in this section came out of my own
+`shasum -a 256` at HEAD.
+
+| # | Claim | Result |
+|---|---|---|
+| A1 | Parent `E-s09-cp150` `d7ecd866ac45…d5aa` byte-unchanged | **EXACT** |
+| A2 | `-mech` `20b05cb4ef3b…5f4b` byte-unchanged | **EXACT** |
+| A3 | `-b1` `0957daaff1d2…635b` byte-unchanged | **EXACT** |
+| A4 | `-b2` `a49ef783a6a6…8470` byte-unchanged | **EXACT** |
+| A5 | No predecessor touched by either fix commit | **CONFIRMED** — `git log --name-only 7e8b02ad..HEAD` is 8 files, none a predecessor |
+| A6 | **OLD** b1r artifact still `6ac7c4e0ef3c…6b11` | **EXACT — the pre-repair artifact was NOT overwritten** |
+| A7 | **NEW** b1r artifact `30ef0031d7b9e048f3bbe7fedfb83afca53b834f6d813829c052fd75a7f98e8a` | **EXACT** |
+| A8 | Old→new delta is *only* the `declared_constants` / `scope_a` addition | **EXACT — 0 removed / 8 added / 3 changed** |
+| A9 | No payload digest moved (`B1r-P1a`, `P1b` stripped+full, `P1c`) | **CONFIRMED** — no digest path appears in the leaf diff |
+
+**A8 in full, since it is the whole safety argument.** Exhaustive leaf-path diff of the two
+artifacts: **0 removed**, **8 added** (`…/B1r-P11/per_module/player_kit_residual/cited_in_receipt/[0]`,
+`…/module_level_numeric_constants/[0]`, `⚑ block_1_repair`, `⚑ restated_at_addendum_3`, and the four
+`scope_a/declared_constants/constants_introduced/[0]/{name,value,type,basis}`), **3 changed**
+(`⚑ constants_introduced_basis`, `started_utc`, `wall_s`). **Not one path under `/waves`,
+`/events`, `/tracks` or `/terminal` moved.** The claim that the repair is digest-inert is not
+asserted — it is measured, and it matches my § 3 prediction in the original finding exactly.
+
+**⚑ A10 — the check nobody asked me for, and the strongest one available.** I ran the driver
+myself and diffed **my** emission against gamora's shipped artifact leaf-by-leaf. **Two leaves
+differ: `started_utc` and `wall_s`.** Everything else — all 13 predicates, every digest, every
+census, the entire `scope_a`/`scope_b` receipt — is **byte-equal to an independent re-run**.
+`30ef0031…` is therefore not merely *a* valid emission, it is *the* emission the driver at HEAD
+produces. (My re-run artifact `…164610.json` was deleted; the tree is as gamora left it.)
+
+---
+
+## B — ⚑ RULING: does emitting a SECOND b1r artifact satisfy the D5 sibling-immutability law?
+
+**YES. The law is SATISFIED, and this is the disposition I want used for the rest of the run.**
+The conductor's reading is correct; I am adopting it as governing and stating the reasoning so it
+is citable.
+
+D5 exists so that **a digest, once emitted and cited, never stops naming the same bytes**. The
+mischief it forbids is *rewriting history under a name someone has already relied on*. Measured
+against that purpose:
+
+1. **The old artifact is byte-identical to its recorded sha** (A6). Every citation of
+   `6ac7c4e0…6b11` — including the one in § 1 of the original finding above — still resolves to
+   the bytes it resolved to when it was written. **Nothing that was relied upon has moved.**
+2. **The new file is the fix's own emission, not an edit of the old one.** A repair that changes
+   what a run *emits* must emit; the alternative — mutating `…153359.json` in place to carry
+   post-repair content — is precisely the D5 violation.
+3. **The pre-repair artifact is now evidentiary in its own right.** It is the object that carried
+   the BLOCK. Retaining it is what makes A8's diff re-runnable by a third party, and a law that
+   forced its deletion would destroy the evidence for its own enforcement.
+
+**One governing condition, which the build already satisfies:** where two siblings share a stem,
+the record must say **which is of record and which is retained-as-evidence**. `AGENT_STATE.md` and
+ADDENDUM 4 both do this explicitly and both carry the *"re-derive at HEAD, do not transcribe"*
+rider from release condition (b). **Sibling multiplicity is legal; sibling ambiguity is not.**
+
+---
+
+## C — BLOCK-1: CLEARED
+
+Gamora took the **first** of the two dispositions I offered — cite the constant rather than declare
+the exclusion — which is the one I named as cleaner, and it is cleaner for the reason that matters:
+it leaves the predicate **falsifiable**, where an ADDENDUM declaring the exclusion would have left
+`B1r-P11` grading a surface with a permanent hole in it.
+
+| Check | Method | Result |
+|---|---|---|
+| The `found.discard(...)` is **deleted** | `git diff` on the driver | **DELETED** — replaced by an 8-line ⚑ comment naming the conviction |
+| **No** by-name exclusion remains **anywhere** in the driver | `grep -n "discard\|exclu\|RNG_SALT\|remove("` over the whole file | **NONE** — all 5 hits are prose *about* the deleted line |
+| Salt cited in `constants_introduced` with provenance + Law-3 argument | executed `declared_constants()` | **CITED** — `['KIT_RESIDUAL_RNG_SALT']`, value `0x51d3b12a`, `type: int`, **1,833-char basis** |
+| **⚑ Non-vacuity probe** — patch the citation away | monkeypatched `constants_introduced` → `[]`, re-graded | **`holds=False`, `uncited=['KIT_RESIDUAL_RNG_SALT']` — REPRODUCES EXACTLY** |
+| The walk is genuinely **unnarrowed** | baseline `per_module` | **`module_level_numeric_constants: ['KIT_RESIDUAL_RNG_SALT']`** — the salt is now **found**, where the artifact previously reported `[]`. This is the load-bearing change. |
+| Driver re-run | ran it | **`all_predicates_hold=True`, 13 predicates, wall 11.75 s** |
+
+**The distinction that makes this a clearance rather than a re-BLOCK:** before the repair the
+artifact reported `module_level_numeric_constants: []` — the salt was invisible to the *instrument*.
+It now reports the salt as **found** and separately as **cited**. The predicate passes because the
+constant is **on a governing surface**, not because it is skipped. That is the difference between
+a green light and a green light that cannot turn red.
+
+**On the basis itself.** I read all 1,833 characters and it does the thing I did not require but
+would have valued: it names the hazard it could have waved away (*"a salt IS in principle
+searchable against an outcome, and 'it is only a seed' is exactly the argument that would conceal
+one"*) and then bounds it three ways — `B1r-P1b`'s byte-inertness, the survival-only reach into
+`B1r-Q`, and **git revision count as a salt-search detector**. The third is a genuinely good idea
+and I have not seen it used before. It is also honest about provenance in the one way that is
+hardest to be honest about: *"a fixed hexadecimal NONCE I typed"* — no invented substrate lineage
+for a value that has none.
+
+### C2 — Prereg immutability: **INTACT** (the unprompted disclosure, checked as a claim)
+
+Gamora volunteered that the artifact's `registered_form` published only the narrow "float" form
+while the code implemented ADDENDUM 3's wider "float or int" form — the `WARN-1` shape, self-caught.
+The question for me was whether the fix *rewrote* the registration to make itself pass.
+
+**It did not.** `⚑ registered_form` in `predicates/B1r-P11` is **byte-identical** between the old
+and new artifacts (string equality, verified). The restatement ships **beside** it as two **new**
+keys (`⚑ restated_at_addendum_3`, `⚑ block_1_repair`); old keys `{holds, per_module,
+⚑ registered_form}` → new `{… + 2}`. **No registered text was altered anywhere** — the math note
+and ADDENDA 1–3 are untouched by both commits (`git diff --stat` on `math/` is **one file, 409
+insertions, zero deletions**: ADDENDUM 4, additive-only).
+
+This is the correct handling of a widened registration and it is the exact inverse of what
+BLOCK-1 convicted: the wider form is **published on the artifact** and then **graded**, instead of
+being implemented in code and left off every governing surface.
+
+### C3 — The inverted test: **SOUND and DISCLOSED**
+
+`test_every_scope_a_magnitude_is_READ_from_the_pinned_d6_csv` had
+`assert declared_constants()["constants_introduced"] == []` — an assertion the repair necessarily
+falsifies. It was **inverted, not deleted**, and I agree it is **strictly stronger**:
+
+- The new form is **exact list equality** on names (`== ["KIT_RESIDUAL_RNG_SALT"]`), so it still
+  convicts any model magnitude typed into engine source instead of being read from the pinned D-6
+  CSV — the original assertion's entire purpose is preserved.
+- It adds two assertions the old form did not have: the cited **value** must match the live
+  constant, and the **basis must be a basis** (`"fitted"` and `"random.random"` must appear) — so
+  the citation cannot silently decay into a bare name.
+- It now also convicts **the citation going missing again**, which is the BLOCK-1 regression.
+- A 9-line docstring states the inversion, its cause, and why it is stronger.
+
+This is the second inversion this build has handled correctly (INFO-6 was the first). The pattern
+is right: **assertions strengthened in a new direction, never removed to make a build green.**
+
+---
+
+## D — WARN-1: CLEARED
+
+- `player_offense.py:146` `CritLimb` docstring — the false licence is **replaced by a pointer** to
+  `F-B1r-1`, with the old figures **named rather than deleted**, exactly as `sustain_procs` did.
+- **⚑ The bracket VALUE is untouched, which was the requirement.** At HEAD: `LO = "crit-lo-1.0"`,
+  `HI = "crit-hi-1.5"`, `return 1.0 if self is CritLimb.LO else 1.5`. The `player_offense` diff is
+  **entirely inside the docstring**. What was falsified was the justification; the bracket is
+  conservative and stays, with the Lap-O re-grade routed to Wave-4 (`L-37` / `F-2`). Correct.
+- `simulation/MIGRATION.md` § 5 amended **three → four**, with a ⚑ block that says *the heading
+  originally said "THREE" and the enumeration was short by one* rather than quietly retyping the
+  numeral. The repair-in-place justification (`__doc__`/`getdoc`/`inspect` absent from `kc2/`,
+  scanned not assumed) is restated, and the `D-B1r-3` freeze is correctly held off `CRIT_BASIS` /
+  `HIT_BASIS` — both still carry `149.2-182.2` at HEAD, **as they must**, with their falsity
+  stated above them.
+
+---
+
+## E — WARN-3: CLEARED — and this is now the best-priced deferral in the run
+
+I did not spot-check this. **I re-derived it.**
+
+| Check | Result |
+|---|---|
+| `Σ w_r = 1.0` | **EXACT** |
+| `ᾱ = Σ w_r α_r = 0.987` | **EXACT** (`0.98×0.65 + 0.35`) |
+| `A_r ∈ [2714.40, 3968.64]` | **CONFIRMED** from `intake.ARMOUR_OPERAND_LAPY` |
+| **Closed form ≡ branch form** | Ran `Δ(p,a) = −(1−r)Σ w_r α_r clamp(p−A_r,0,a)` against `intake.armour_branch` over `p ∈ {7.4, 500, 2714.4, 2800, 3000, 3500, 3968.64, 4100, 11764.51} × a ∈ {190, 296.4} × r ∈ {0.16, 0.20}` — **agreement < 1e-9 on every cell** |
+| Asymptotes −157.5252 / −150.0240 / −245.7393 / −234.0374 | **EXACT to 6 dp**, all four, and equal to `−a·ᾱ·(1−r)` |
+| Δ = 0 below every operand | **CONFIRMED** — `Δ(2714.40) = 0.0`, `Δ(2000) = 0.0` |
+| 615 lines = 173 + 50 + 392 | **SUMS**; shares **28.1301 % / 8.1301 % / 63.7398 %** — matches 28.13 / 8.13 / 63.74 |
+| mean `−99.0938 / 2172.5701 = −4.5611 %` | **EXACT** |
+| mean `−154.0984 / 2172.5701 = −7.0929 %` | **EXACT** |
+| duty-cycled `0.2667 → −26.4250`; `0.4545 → −45.0426` | **EXACT** against `4/15` and `5/11` — the note used the **exact** rationals, not the printed 4-dp roundings |
+
+I also checked the algebra by hand and it is right for the reason stated: below the branch `A_r` is
+**absent from the expression**, so the refused addend changes nothing at all — not "a little". The
+`clamp` form is the correct unification of the three regimes.
+
+**Three things raise this above compliance.** (1) Both arms are run and **neither is designated** —
+the composition question (`×1.56` or not) is left to the intake seam rather than decided inside a
+stacking lap to produce a tidier number, which is the whole point of `C-B1r-1`. (2) The **three
+limits are named before anyone had to find them** — first-order on the fold-absent trajectory,
+duty-cycling assumes buff-independent hit arrival, salts 2/3/4 horizon-limited. (3) **The
+instrument ships**, explicitly applying `WARN-2` / `D-B1r-4`'s lesson *prospectively*. Every figure
+above is reproducible from the published block, which is why I could re-derive rather than trust.
+
+`defensiveProtection +190` remains `DECLARED-NOT-FOLDED`; the price is reported and **graded by
+nothing**. That is the correct shape for a deferral.
+
+---
+
+## F — WARN-2: CORRECTLY UNREPAIRED. INFO-2: DISCHARGED.
+
+- **No WARN-2 surface was touched.** The math note and ADDENDA 1–3 have **zero** deletions
+  (`math/` diff = ADDENDUM 4 only, additive). `MIGRATION.md`'s diff touches **§ 5 only** — § 2(b)'s
+  census is untouched. The § 0 / H-5 figures and ADDENDUM 2's 70-vs-73 count stand as they were.
+- The build **declares** this rather than leaving it to be noticed: ADDENDUM 4 § "WHAT ADDENDUM 4
+  DOES NOT DO" states it is *"not repaired, not reconciled, and **not claimed to be**"*, and routes
+  it into `B1r-Q` on survival coupling. That is the disposition I named as defensible in the
+  original finding; what was missing was **one published sentence**, and it is now published.
+  **WARN-2 remains open inside the quarantine** and is inherited by whichever build is first
+  commissioned to speak about survival — per § 7(c), B-2app must reconcile it if it re-uses the P-A
+  population.
+- **INFO-2 discharged** — the smoke selector is published: `pytest tests/ -q -k kc2`. I ran exactly
+  that at HEAD: **410 passed / 1 failed**, and the 1 is `test_AC_10_10`
+  (`secondary_streams.py:136`), **the same pre-existing failure I verified at parent `1888b218`**.
+  The earlier unreproducible "525" is retired.
+- **INFO-1** — the falsifier-failure tally basis is not separately restated. Immaterial: every
+  failure remains published above its repair, and BLOCK-1's own failure is now on the record in
+  `AGENT_STATE.md` as *"the build shipped claiming 13/13; it was 12/13 as registered."* Not carried
+  forward.
+
+---
+
+## G — VERDICT
+
+**⚑ BLOCK-1 IS CLEARED.** `B1r-P11` holds in its **registered form**, on the **unnarrowed** walk,
+with **no by-name exclusion anywhere in the instrument**, and a non-vacuity probe I ran myself
+turns it **red** when the citation is removed. **13/13 as registered.**
+
+**(a) B-1r SEALS on artifact sha**
+`30ef0031d7b9e048f3bbe7fedfb83afca53b834f6d813829c052fd75a7f98e8a`
+(`src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b1r-20260824_163444.json`),
+**of record**; `6ac7c4e0…6b11` (`…-20260824_153359.json`) is **retained as pre-repair evidence,
+byte-unchanged, and is NOT of record**. Per § B the D5 sibling-immutability law is **satisfied**.
+⚑ **This sha is a measurement, not a licence to transcribe** — release condition (b) stands: any
+downstream build re-derives it at HEAD.
+
+**(b) The B-2app hold is RELEASED — UNCONDITIONALLY.** Conditions (a) and (b) of the original § 7
+are **discharged** ((a) by this clearance; (b) is restated in `AGENT_STATE.md` and ADDENDUM 4 and
+becomes a standing rider rather than a hold). **Condition (c) survives as an obligation on B-2app,
+not as a hold on B-1r**: if B-2app re-uses the P-A population it must reconcile WARN-2's census in
+its own note.
+
+**Residual, carried and named:**
+1. **WARN-2** — open, inside `B1r-Q`, correctly declared. Owed by the first build licensed to speak
+   about survival.
+2. **`CritLimb` bracket re-grade** on the Lap-O basis — Wave-4, `L-37` / `F-2`.
+3. **`C-B1r-1` / `C-B1r-2`** routed to the intake cluster; **`C-B1r-3`** to star-lord per ADR-004.
+   I renew my request that `C-B1r-3` be prioritised over the cosmetic repairs it defers — *a
+   provenance string inside a digested surface is a latent baseline-breaker*, and this build hit it
+   once already (`D-B1r-3`).
+4. Engine-wide suite debt (59 failed / 21 errors at HEAD) is **pre-existing and outside B-1r's
+   eight-file blast radius** — recorded again so it is not mistaken for a regression at the next
+   milestone tag.
+
+**Escalation to Matt: NONE.** ADR-002 — within-seam repair, no API change, no cross-seam schema
+move, no locked decisions-log conflict. Cleared under my own authority, as § 8 committed.
+
+---
+
+## H — For the record
+
+I wrote in § 9 that *"fix that and this build is the reference standard for the rest of the run."*
+**It is.** The repair took the harder of the two paths I offered, and took it for the right reason.
+It could have shipped an ADDENDUM declaring the exclusion — I said that would discharge L-33, and
+it would have. Instead the constant went onto a governing surface where **a reader who disagrees
+with the distinction can now see it and argue with it**, which is what `constants_introduced` is
+for. The build then went **past** the finding: it disclosed a `registered_form`/code mismatch I had
+not caught, published the wider form beside the registration instead of over it, inverted rather
+than deleted the test the repair falsified, and completed `WARN-3`'s price with the instrument
+attached so that I could re-derive every figure instead of accepting it.
+
+One line is worth preserving as the run's standing lesson, and it is gamora's own:
+
+> *12/13 BECOMES 13/13 BY CITING THE CONSTANT, NOT BY SKIPPING IT.*
+
+**Two clearances now rest on measurements a third party can re-run**: A10 (independent re-run,
+byte-equal but for two timestamps) and E (closed form re-derived against the live branch function).
+Neither was requested. Both are why this cleared in one pass.
+
+---
+
+## References — re-submission
+
+**Engine (`~/Games/reincarnated-engine/`) — not pushed:**
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/math/kc2-mc-b1r-residual-and-dot-stacking-ADDENDUM-4-2026-08-24.md` (`15ab9a08`, zero code)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/scripts/gamora_kc2_mc_b1r_residual_2026_08_24.py` (**BLOCK-1 repair** — `found.discard` deleted, `_b1r_p11_ast`)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/kc2/player_kit_residual.py` (**BLOCK-1 repair** — `declared_constants()`, salt cited)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/kc2/player_offense.py` (**WARN-1 repair** — `CritLimb` docstring; bracket untouched)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/kc2/intake.py` (read-only — WARN-3 re-derivation source)
+- `/Users/admin/Games/reincarnated-engine/tests/test_kc2_mc_b1r_residual_and_dot_stacking.py` (the disclosed inversion)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` (`F-B1r-1` three → four)
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md`
+
+**Artifacts:**
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b1r-20260824_163444.json` — **OF RECORD**, `30ef0031…8e8a`
+- `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b1r-20260824_153359.json` — pre-repair evidence, `6ac7c4e0…6b11`, byte-unchanged
