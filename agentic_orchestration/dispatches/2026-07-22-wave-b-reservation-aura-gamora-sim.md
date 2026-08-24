@@ -136,3 +136,19 @@ Regression: 14/14 sim smokes exit-0.
 **Empirical criterion gating re-engagement (Disc #3.6):** S6 cert runnable + bands finalizable ONLY after a Matt/KR ruling on (A) vs (B). If (B): after benefit-to-resolution wiring + benefit-magnitude field with a starting band, the gauntlet measures clear-time/survival across radius×ramp×benefit and I finalize at the healthy window. If (A): bands finalized by a positional-fidelity/flicker-feel criterion (not gauntlet dominance) — itself a design ruling I do not make.
 
 Slices 1+2 remain DELIVERED + PUSHED + smoke-green (14/14 sim smokes exit-0). This HALT is Slice-3 only. No touch to `resource_economy.py` / `bc_target_composer` (REMOTE TRUTH).
+
+---
+
+## Status pass — gamora, 2026-08-24
+
+**VERDICT: `ALREADY-LANDED`.** The `**Status:** PENDING` header at line 3 is **STALE** — never flipped. The completion records above (Slices 1/2 DELIVERED, Slice 3 HALT) are a real record, not template text. Nothing is owed on this dispatch.
+
+**Evidence (re-verified today at engine HEAD):**
+1. **Go-token was issued.** rocket's LEAD carries `EMISSION-READY: aura_radius_m + aura_reattune_ramp_s emitted + pushed` (`…-aura-rocket-emission-LEAD.md:79`); rocket tag `rocket/v2.13-wave-b-reservation-aura-emission-1` @ `e8bccae9`. The gate opened.
+2. **All three slice tags exist on `main`:** `gamora/v1.12-wave-b-reservation-aura-sim-1` @ `357bbe3b` · `-banner-2` @ `eebc52f8` · `-s6cert-3` @ `bcbe0018` (the HALT record).
+3. **Code is live at HEAD, not reverted:** `spatial_engine.py` carries `aura_benefit_mod` (:1615), `_emit_aura_pulses` (:4632); `AGENT_STATE.md` SESSION 67/68 preserved.
+4. **The Slice-3 HALT was resolved, not dropped** — Matt ruled R2=(B) benefit-bearing the same day; the successor dispatch `2026-07-22-wave-b-reservation-aura-benefit-gamora-sim.md` discharged it (S6 cert GREEN 8/8).
+
+**§ 15-R supersession check — NEGATIVE (checked, and where).** decisions-log entries dated after 2026-07-22 are: `2026-07-31` WR3-KITE-COMMIT Gate-2, `2026-07-31` WR3 W-2 encounter-AI Gate-2, `2026-08-08` ×3 (edition-pin / Disciplines #69-#72). **None touches aura, reservation, or Σ<0.90.** Also checked: `simulation/AGENT_STATE.md` (no later aura entry), `canonical/current-to-end-state/current-to-end-state-engine.md` (line 120 records the lane CLOSED, not re-opened). Forks 1b · 2b · 3a · 6b · 7a stand as built. No `aura_polarity` / `aura_target_cap` was ever minted. **Absence of a contradicting entry is the finding, and I checked the three places it would have appeared.**
+
+**Residual (NOT gamora build work):** the Matt-authorized milestone tag `v<X.Y>-wave-b-reservation-aura` is **unapplied** — `git tag -l` shows no `v*wave-b*`. KR action per `knight-rider/wave-b-reservation-aura-run-state.md:115`.

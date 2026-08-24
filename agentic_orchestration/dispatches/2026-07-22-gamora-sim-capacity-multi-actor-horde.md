@@ -151,3 +151,26 @@ Route the spec to jack-ryan. Do not fire step (b) until PASS / PASS-WITH-AMENDME
 ## Commit / push
 
 Auto-commit in-scope work-products (spec, math-notes, smoke scripts, code). **PUSH: authorized "as you go"** (Matt 2026-07-22 — per-workstream push pattern established for this lane, ADR-006 exception). Push after each unit completes (spec at step-(a) close; each build slice at step-(b)). Prove pre-existing HEAD failures via git-stash before any tagged push.
+
+---
+
+## Status pass — gamora, 2026-08-24
+
+**VERDICT: `ALREADY-LANDED`.** The `**Status:** PENDING — FIREABLE` header at line 3 is **STALE**. This dispatch is the one item in the stall with no dependency excuse — and it turns out it had no excuse because it was never stalled. It fired and completed on 2026-07-22, the day it was authored. The completion record was appended to `simulation/AGENT_STATE.md` (per the dispatch's own "append a completion record per slice" instruction) rather than to this file, which is why this file reads unstarted.
+
+**Evidence — every wave-level acceptance item is discharged:**
+1. **Step (a) spec on disk:** `src/reincarnated/simulation/spec/sim-capacity-extension-spec-2026-07-22.md` @ `4ee8ccbb`, partitioning all six audited extensions (§A1a A1-enemy BUILDABLE · §A1b A1-player DESIGN-GATED · §A2 horde BUILDABLE · §A3 formation BUILDABLE, W2 pre-hedge SATISFIED · §A4 temperature DESIGN-GATED · §A5 per-kit-level DESIGN-GATED), plus §2 Principle-6 determination and the #1.1 resource-bounds projection.
+2. **Internal gate cleared, then Gate-2 cleared:** `agentic_orchestration/qa/pending/2026-07-22-gamora-sim-capacity-gate2.md` — jack-ryan **PASS-WITH-AMENDMENTS, no BLOCK**, targeting `-1` @ `e51fbf5` · `-2` @ `a57ee1f` · `-3` @ `620f687` · AGENT_STATE @ `99aaf50`.
+3. **Step (b) built and live at HEAD (not reverted):** `SCENARIO_OVERRUN` band rows in `gauntlet_sim.py:522/682`; the four formation builders in `arena.py:1225/1260/…/1334`; M1 gather promotion. Tags `gamora/v1.14-sim-capacity-1..3` all present.
+4. **Provenance artifact committed:** `output/sim-capacity-horde-band-baseline-71000301.json` (seed 71_000_301, N=55 verified concurrent) — the AM-1 measurement the band was fit against.
+5. **Principle-6 determination made:** no cross-seam field entered (`scenario_id` is a free-form `str`; band constants are sim-side metrology) ⇒ **no MIGRATION owed**, confirmed independently by jack-ryan at Gate-2.
+6. **T3-V7 rider honored:** the post-close W2 harness-extension inputs (R-1..R-4) were folded as a **spec amendment, not a build re-open** (`b34a14bf`, spec §A7), with Matt confirming "follow-on queue given step (b) landed."
+
+**Is the work still wanted / overtaken by KC2? — STILL WANTED; NOT overtaken; explicitly composed-upon.** `canonical/current-to-end-state/current-to-end-state-engine.md:64` states the law directly: *"pack opposition COMPOSES on Lane-2 arena/horde machinery; KC2-SIM delivers the calibrated single-kit + wave-engine truth Tier-3's fit layer later consumes — **no double-build**."* KC2's month of mechanism work sits **on top of** this capacity layer, not instead of it. Verified in code: the formation builders and the `scenario_overrun` band are referenced only by their own slice smokes — i.e. they are **declared expressive capacity awaiting a consumer**, which is exactly the scope this dispatch specified ("you build the capacity to express formations; you do not author the encounter grammar").
+
+**Open residuals carried out of this lane (named, not re-fired here):**
+- **Gate-2 AMENDMENT — STILL OPEN (gamora, non-blocking, WARN-tier).** The viability probe ("vit-200 kit, dm swept 6→20→60, death ~3.6 s invariant to damage; WR 0.00 at n=8") remains **narrated in prose only** — `simulation/math/sim-capacity-horde-kpm-band-refit-2026-07-22.md:140-142` — with no tracked script and no persisted output. Verified: no probe script in `scripts/`, no post-07-22 commit adding one. Disc #19.1 cheapest-refuting-test reproducibility is unmet on this one claim. Small, cheap, mine.
+- **Two decisions-log entries owed by jack-ryan — NOT DRAFTED.** Verified absent: grep of `design/decisions/decisions-log.md` for `scenario_overrun` / horde-band returns nothing. (a) geometry-only horde-band posture; (b) ≥50 defensive-axis re-fit as a named forward item.
+- **The horde-band pilot cross-check + the ≥50 defensive-axis re-fit** remain routed to the Lane-3 calibration pilot, both blocked on the same prerequisite (a survivable endgame kit distribution at density). No post-07-22 commits touch either. Legitimately deferred per Gate-2, not swept.
+- **Tracker drift (gandalf/KR-owned, flagged not fixed):** `current-to-end-state-engine.md` IV.2 item #2 still lists "Author the `SCENARIO_OVERRUN` design spec + horde-regime KPM-band methodology" as an open forward-queue item with a lock-in clock. The sim-side build discharged; the gandalf-side design-spec half may or may not still be wanted. Not my seam to amend.
+- **Filing:** the Gate-2 finding still sits in `qa/pending/` rather than `qa/findings/`.

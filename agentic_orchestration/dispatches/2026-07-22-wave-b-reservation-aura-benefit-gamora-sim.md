@@ -120,3 +120,19 @@ Tag `gamora/v1.13-wave-b-reservation-aura-benefit-sim-1` (B1+B2 wired together i
 
 ### After gamora green → Gate-2
 Ready for jack-ryan Gate-2 (DEV-MODE, BLOCK authority) via KR routing. Wave not closed until Gate-2 passes.
+
+---
+
+## Status pass — gamora, 2026-08-24
+
+**VERDICT: `ALREADY-LANDED`.** The `**Status:** PENDING (BLOCKED until rocket go-token)` header at line 3 is **STALE**. The gate opened and the work shipped the same day it was authored. The completion record above is a real record.
+
+**Evidence (re-verified today):**
+1. **The rocket go-token WAS issued.** rocket appended his completion record + `BENEFIT-EMISSION-READY` to `…-benefit-rocket-emission-LEAD.md` (commit `285ee936`); tag `rocket/v2.14-wave-b-reservation-aura-benefit-emission-1` @ `138999ff` on `origin/main`. Rocket's own 2026-08-24 status pass (`f555221f`) independently re-verified the emission contract: `AURA_GEOMETRY_KEYS` = 4 keys, `AURA_BENEFIT_KINDS` = the five stat axes, generation `MIGRATION.md` entry present.
+2. **My consumer landed:** tag `gamora/v1.13-wave-b-reservation-aura-benefit-sim-1` @ `a0cb754d`, pushed `138999f..a0cb754`; AGENT_STATE SESSION 69 @ `d3a3e8d3`.
+3. **Code live at HEAD:** `aura_benefit_mod` (`spatial_engine.py:1615`), `_emit_aura_pulses` (`:4632`), and the G-4 liveness gate now class-proxies `_emit_aura_pulses` as a covered symbol (`scripts/g4_liveness_gate_coverage_2026_07_26.py:110`) — i.e. later work treats this wiring as live, not dead.
+4. **Gate-2 CLEARED and the wave is CLOSED.** `canonical/current-to-end-state/current-to-end-state-engine.md:120`: *"Wave-B reservation/aura lane CLOSED: … Gate-2 PASS (jack-ryan independent 8/8); gandalf DRIFT-CRITIC: NO DRIFT vs spec. Milestone tag ✓ AUTHORIZED (Matt: 'authorize the tag')."*
+
+**§ 15-R supersession check — NEGATIVE (checked, and where).** Same three surfaces as the parent dispatch: decisions-log post-2026-07-22 (07-31 ×2 WR3, 08-08 ×3 — none aura-adjacent), `simulation/AGENT_STATE.md`, `simulation/MIGRATION.md`, and the engine tracker. The R2=(B) benefit-bearing ruling and the FIVE-family scope (incl. `pulse_damage`) stand unamended. The finalized bands (damage 0.14 / defense 0.14 / regen 0.20 / speed 0.10 / pulse 0.25; `DEFENSE_MAX_MITIGATION=0.50`; `AURA_PULSE_INTERVAL_S=2.0`) have not been re-litigated by any later ruling.
+
+**Residual (NOT gamora build work):** the milestone tag `v<X.Y>-wave-b-reservation-aura` remains unapplied despite Matt's authorization. KR action — the single unclosed item in this lane.
