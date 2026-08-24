@@ -54,6 +54,15 @@ SOURCE = "codex serialized P2 dossier lane (charter § 4 P2 / ledger L-14..L-24)
 SOURCE_DATE = "2026-08-24"
 BACKUP_NAME = "corpus.db.pre-vfx-p2-20260824T130336Z-backup"   # TRUE pre-state (taken pre-DDL)
 
+# Dossiers belonging to the SUPPLEMENT lane (jobs 27-30, ledger L-30/L-32), curated by
+# vfx_p2_supplement_curation_delta_2026_08_24.py under its own curation_run. Their filenames are
+# JOB names, not archetype names — without this guard a re-run of THIS script would curate 12 rows
+# with dangling archetype_ids into the main lane and produce FK violations. Excluded loudly (a
+# finding is raised), never silently. Added by elrond 2026-08-24 with the supplement delta.
+SUPPLEMENT_LANE_FILES = {
+    "gtc_nonpoe_supplement", "st_nonpoe_supplement", "ww_clean_baseline", "ma_video_companion",
+}
+
 REQUIRED_FIELDS = [
     "source_game", "skill_or_mtx_name", "primary_url", "secondary_urls",
     "media_type", "temporal_coverage", "why_it_fits", "readability_notes",
@@ -275,7 +284,16 @@ def main() -> int:
         for line in open(MANIFEST, encoding="utf-8"):
             if line.strip():
                 manifest_ids.append(line.split("\t")[0].strip())
-    on_disk = sorted(os.path.basename(p)[:-3] for p in glob.glob(os.path.join(DOSSIER_DIR, "*.md")))
+    all_on_disk = sorted(os.path.basename(p)[:-3] for p in glob.glob(os.path.join(DOSSIER_DIR, "*.md")))
+    on_disk = [a for a in all_on_disk if a not in SUPPLEMENT_LANE_FILES]
+    for a in sorted(set(all_on_disk) & SUPPLEMENT_LANE_FILES):
+        finding("supplement-lane-file-skipped", "INFO",
+                f"{a}.md is a SUPPLEMENT-lane dossier (jobs 27-30, ledger L-30/L-32) whose filename "
+                f"is a job name, not an archetype name. It is curated by "
+                f"vfx_p2_supplement_curation_delta_2026_08_24.py under its own curation_run and is "
+                f"deliberately skipped here — curating it in this lane would create a dangling "
+                f"archetype_id. Skipped loudly, not silently",
+                subject=a)
     for a in sorted(set(manifest_ids) - set(on_disk)):
         finding("manifest-gap", "UNRESOLVED", f"manifest requested archetype {a!r} but no dossier exists on disk",
                 archetype_id=a, subject=a)
@@ -294,6 +312,8 @@ def main() -> int:
 
     for path in sorted(glob.glob(os.path.join(DOSSIER_DIR, "*.md"))):
         arche = os.path.basename(path)[:-3]
+        if arche in SUPPLEMENT_LANE_FILES:
+            continue                      # supplement lane; finding already raised above
         rel = os.path.relpath(path, ROOT)
         cands, log_lines, nbytes = parse_dossier(path)
         joins = 1 if arche in known else 0
@@ -476,12 +496,27 @@ def main() -> int:
         con.execute("delete from vfx_reference_candidate where curation_run = ?", (CURATION_RUN,))
         con.execute("delete from vfx_reference_dossier  where curation_run = ?", (CURATION_RUN,))
         con.execute("delete from vfx_curation_finding   where curation_run = ?", (CURATION_RUN,))
+        # FORWARD-COMPAT (elrond 2026-08-24, supplement delta): columns are named explicitly rather
+        # than positionally. The supplement lane added two additive nullable columns
+        # (vfx_reference_candidate.confounds, vfx_curation_finding.target_curation_run); a positional
+        # INSERT would have made this script un-re-runnable. Behaviour is otherwise unchanged —
+        # the column lists below are this script's original write order, verbatim.
         con.executemany(
-            "insert into vfx_reference_candidate values (" + ",".join(["?"] * 29) + ")", cand_rows)
+            "insert into vfx_reference_candidate (curation_run,archetype_id,vote_run,candidate_rank,"
+            "source_game,skill_or_mtx_name,candidate_title_raw,primary_url,primary_url_raw,"
+            "primary_url_label,primary_url_norm,secondary_urls_json,secondary_urls_raw,"
+            "secondary_url_count,media_type,coverage_windup,coverage_active,coverage_impact,"
+            "coverage_raw,full_lifecycle,why_it_fits,readability_notes,provenance,validation_status,"
+            "dossier_path,conformance,curated_at,source,source_date) "
+            "values (" + ",".join(["?"] * 29) + ")", cand_rows)
         con.executemany(
-            "insert into vfx_reference_dossier values (" + ",".join(["?"] * 15) + ")", dossier_rows)
+            "insert into vfx_reference_dossier (curation_run,archetype_id,vote_run,dossier_path,"
+            "dossier_bytes,dossier_md5,candidate_count,search_log_lines,archetype_joins,"
+            "meets_min_three,conformance,finding_count,curated_at,source,source_date) "
+            "values (" + ",".join(["?"] * 15) + ")", dossier_rows)
         con.executemany(
-            "insert into vfx_curation_finding values (?,?,?,?,?,?,?,?,?,?)",
+            "insert into vfx_curation_finding (curation_run,finding_id,kind,severity,archetype_id,"
+            "candidate_rank,subject,detail,status,raised_at) values (?,?,?,?,?,?,?,?,?,?)",
             [(CURATION_RUN, f["finding_id"], f["kind"], f["severity"], f["archetype_id"],
               f["candidate_rank"], f["subject"], f["detail"], f["status"], now) for f in findings])
 
