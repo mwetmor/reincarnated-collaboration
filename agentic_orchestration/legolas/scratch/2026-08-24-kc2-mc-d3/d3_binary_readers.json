@@ -1,0 +1,982 @@
+{
+  "ViewDistance": {
+    "field": "ViewDistance",
+    "literal_vas": [
+      "0x10528e08"
+    ],
+    "readers": [
+      {
+        "rva": "0xe6726",
+        "enclosing": "?Load@ControllerAI@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xe6710"
+      },
+      {
+        "rva": "0xf6dcf",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      },
+      {
+        "rva": "0x110686",
+        "enclosing": "?Load@ControllerNpc2@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0x110670"
+      },
+      {
+        "rva": "0x1191a6",
+        "enclosing": "?Load@ControllerPlayer@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0x119190"
+      }
+    ],
+    "store_disp": null
+  },
+  "pathingViewDistance": {
+    "field": "pathingViewDistance",
+    "literal_vas": [
+      "0x10528e50"
+    ],
+    "readers": [
+      {
+        "rva": "0xe6742",
+        "enclosing": "?Load@ControllerAI@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xe6710"
+      },
+      {
+        "rva": "0xf6deb",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      },
+      {
+        "rva": "0x1106a2",
+        "enclosing": "?Load@ControllerNpc2@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0x110670"
+      },
+      {
+        "rva": "0x1191c2",
+        "enclosing": "?Load@ControllerPlayer@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0x119190"
+      }
+    ],
+    "store_disp": null
+  },
+  "enemyTooClose": {
+    "field": "enemyTooClose",
+    "literal_vas": [
+      "0x1052bf10"
+    ],
+    "readers": [
+      {
+        "rva": "0xf786d",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "InnerViewDistance": {
+    "field": "InnerViewDistance",
+    "literal_vas": [
+      "0x1052babc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf70b8",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MaxYViewDistance": {
+    "field": "MaxYViewDistance",
+    "literal_vas": [
+      "0x1052bae8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf70d4",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "AngerTolerance": {
+    "field": "AngerTolerance",
+    "literal_vas": [
+      "0x1052beb8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf77a9",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "AttackedAnger": {
+    "field": "AttackedAnger",
+    "literal_vas": [
+      "0x1052bea8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf77c5",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "AllyAttackedAnger": {
+    "field": "AllyAttackedAnger",
+    "literal_vas": [
+      "0x1052bed8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf77e1",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ForgiveRate": {
+    "field": "ForgiveRate",
+    "literal_vas": [
+      "0x1052bf20"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7851",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "SightAngerRate": {
+    "field": "SightAngerRate",
+    "literal_vas": [
+      "0x1052bec8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf77fd",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "InnerSightAngerRate": {
+    "field": "InnerSightAngerRate",
+    "literal_vas": [
+      "0x1052befc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7819",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ProjectileAnger": {
+    "field": "ProjectileAnger",
+    "literal_vas": [
+      "0x1052beec"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7835",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "FleeBehavior": {
+    "field": "FleeBehavior",
+    "literal_vas": [
+      "0x1052ba14"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6f03",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "FleeTime": {
+    "field": "FleeTime",
+    "literal_vas": [
+      "0x1052b9b0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6e90",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "FleeTarget": {
+    "field": "FleeTarget",
+    "literal_vas": [
+      "0x1052ba78"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6fca",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "maxFleeCount": {
+    "field": "maxFleeCount",
+    "literal_vas": [
+      "0x1052b9a0",
+      "0x1052baac"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6ea4",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      },
+      {
+        "rva": "0xf7073",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "FleeDelay": {
+    "field": "FleeDelay",
+    "literal_vas": [
+      "0x1052baa0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf708a",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "FleeChance": {
+    "field": "FleeChance",
+    "literal_vas": [
+      "0x1052bad0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf709e",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "fleeDistance": {
+    "field": "fleeDistance",
+    "literal_vas": [
+      "0x1052b9d4"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6ebe",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ClearAngerWhenFleeing": {
+    "field": "ClearAngerWhenFleeing",
+    "literal_vas": [
+      "0x1052b9bc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6ed4",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ResetOriginAfterFleeing": {
+    "field": "ResetOriginAfterFleeing",
+    "literal_vas": [
+      "0x1052b9f0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6eea",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "PursuitTime": {
+    "field": "PursuitTime",
+    "literal_vas": [
+      "0x1052badc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf70ed",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MaxPursuitDistance": {
+    "field": "MaxPursuitDistance",
+    "literal_vas": [
+      "0x1052bb08"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7114",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "EmoteBeforePursuingChance": {
+    "field": "EmoteBeforePursuingChance",
+    "literal_vas": [],
+    "readers": [],
+    "store_disp": null
+  },
+  "BuffSelfBehavior": {
+    "field": "BuffSelfBehavior",
+    "literal_vas": [
+      "0x1052bbc8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7279",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "BuffAllyBehavior": {
+    "field": "BuffAllyBehavior",
+    "literal_vas": [
+      "0x1052bc2c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7342",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DebuffEnemyBehavior": {
+    "field": "DebuffEnemyBehavior",
+    "literal_vas": [
+      "0x1052bcf8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf74c4",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "healLeaderHealthPercentage": {
+    "field": "healLeaderHealthPercentage",
+    "literal_vas": [
+      "0x1052be20"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7739",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "healAllyHealthPercentage": {
+    "field": "healAllyHealthPercentage",
+    "literal_vas": [
+      "0x1052be64"
+    ],
+    "readers": [
+      {
+        "rva": "0xf774d",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "BuffAllyTargeting": {
+    "field": "BuffAllyTargeting",
+    "literal_vas": [
+      "0x1052bc90"
+    ],
+    "readers": [
+      {
+        "rva": "0xf740e",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "RoamBehavior": {
+    "field": "RoamBehavior",
+    "literal_vas": [
+      "0x1052bb28"
+    ],
+    "readers": [
+      {
+        "rva": "0xf712d",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MinRoamDistance": {
+    "field": "MinRoamDistance",
+    "literal_vas": [
+      "0x1052bb38"
+    ],
+    "readers": [
+      {
+        "rva": "0xf71c2",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "RoamDistance": {
+    "field": "RoamDistance",
+    "literal_vas": [
+      "0x1052bb64"
+    ],
+    "readers": [
+      {
+        "rva": "0xf71de",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MinTimeBeforeRoam": {
+    "field": "MinTimeBeforeRoam",
+    "literal_vas": [
+      "0x1052bb50"
+    ],
+    "readers": [
+      {
+        "rva": "0xf71f7",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MaxTimeBeforeRoam": {
+    "field": "MaxTimeBeforeRoam",
+    "literal_vas": [
+      "0x1052bb88"
+    ],
+    "readers": [
+      {
+        "rva": "0xf720e",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MinWanderDistance": {
+    "field": "MinWanderDistance",
+    "literal_vas": [
+      "0x1052bb74"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7228",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "WanderDistance": {
+    "field": "WanderDistance",
+    "literal_vas": [
+      "0x1052bbb8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7244",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "TeleportToLeaderDistance": {
+    "field": "TeleportToLeaderDistance",
+    "literal_vas": [
+      "0x1052bb9c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7260",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ChanceToIdleOnPatrol": {
+    "field": "ChanceToIdleOnPatrol",
+    "literal_vas": [
+      "0x1052be4c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7761",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MinPatrolIdleTime": {
+    "field": "MinPatrolIdleTime",
+    "literal_vas": [
+      "0x1052be94"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7778",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MaxPatrolIdleTime": {
+    "field": "MaxPatrolIdleTime",
+    "literal_vas": [
+      "0x1052be80"
+    ],
+    "readers": [
+      {
+        "rva": "0xf778f",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ChanceToRespondToDistressCall": {
+    "field": "ChanceToRespondToDistressCall",
+    "literal_vas": [
+      "0x1052bd28"
+    ],
+    "readers": [
+      {
+        "rva": "0xf756c",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DistressResponseBehavior": {
+    "field": "DistressResponseBehavior",
+    "literal_vas": [
+      "0x1052bd84"
+    ],
+    "readers": [
+      {
+        "rva": "0xf75bf",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DistressResponseGroup": {
+    "field": "DistressResponseGroup",
+    "literal_vas": [
+      "0x1052bd58"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7583",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "RandomAngerChance": {
+    "field": "RandomAngerChance",
+    "literal_vas": [
+      "0x1052bf48"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7883",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "RandomAngerEvaluationTime": {
+    "field": "RandomAngerEvaluationTime",
+    "literal_vas": [
+      "0x1052bf2c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf789a",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DodgeDistance": {
+    "field": "DodgeDistance",
+    "literal_vas": [
+      "0x1052bf5c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf78cb",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DodgeDelay": {
+    "field": "DodgeDelay",
+    "literal_vas": [
+      "0x1052bf6c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf78b1",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "DodgeChance": {
+    "field": "DodgeChance",
+    "literal_vas": [
+      "0x1052bf8c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf78e1",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "MinDodgeDistance": {
+    "field": "MinDodgeDistance",
+    "literal_vas": [
+      "0x1052bf78"
+    ],
+    "readers": [
+      {
+        "rva": "0xf78fb",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "LeadChance": {
+    "field": "LeadChance",
+    "literal_vas": [
+      "0x1052bfdc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7952",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "RepositionChance": {
+    "field": "RepositionChance",
+    "literal_vas": [
+      "0x1052bfb0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7911",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "randomRepositionChance": {
+    "field": "randomRepositionChance",
+    "literal_vas": [
+      "0x1052bf98"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7925",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "minSwingPause": {
+    "field": "minSwingPause",
+    "literal_vas": [
+      "0x1052b990"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6e20",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "maxSwingPause": {
+    "field": "maxSwingPause",
+    "literal_vas": [
+      "0x1052b980"
+    ],
+    "readers": [
+      {
+        "rva": "0xf6e3a",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ignoreSleepingEnemies": {
+    "field": "ignoreSleepingEnemies",
+    "literal_vas": [
+      "0x1052bfc4"
+    ],
+    "readers": [
+      {
+        "rva": "0xf79d9",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "randomEmoteChance": {
+    "field": "randomEmoteChance",
+    "literal_vas": [
+      "0x1052bffc"
+    ],
+    "readers": [
+      {
+        "rva": "0xf79ef",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "randomEmoteMinTime": {
+    "field": "randomEmoteMinTime",
+    "literal_vas": [
+      "0x1052bfe8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a06",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "randomEmoteMaxTime": {
+    "field": "randomEmoteMaxTime",
+    "literal_vas": [
+      "0x1052c024"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a1d",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ignorePetsChance": {
+    "field": "ignorePetsChance",
+    "literal_vas": [
+      "0x1052c010"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a31",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "ignorePetsInterval": {
+    "field": "ignorePetsInterval",
+    "literal_vas": [
+      "0x1052c050"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a48",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "petAngerTransference": {
+    "field": "petAngerTransference",
+    "literal_vas": [
+      "0x1052c038"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a5c",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "petTargetLevelRange": {
+    "field": "petTargetLevelRange",
+    "literal_vas": [
+      "0x1052c07c"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a69",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "petTargetLeastAttacked": {
+    "field": "petTargetLeastAttacked",
+    "literal_vas": [
+      "0x1052c064"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7a98",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "petTargetGreatestHealth": {
+    "field": "petTargetGreatestHealth",
+    "literal_vas": [
+      "0x1052c090"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7aae",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "lootDropAttachPointName": {
+    "field": "lootDropAttachPointName",
+    "literal_vas": [
+      "0x1052c0c0"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7aff",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "lootDropCallbackPoint": {
+    "field": "lootDropCallbackPoint",
+    "literal_vas": [
+      "0x1052c0a8"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7ac7",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  },
+  "dyingSkillCallbackPoint": {
+    "field": "dyingSkillCallbackPoint",
+    "literal_vas": [
+      "0x1052c0e4"
+    ],
+    "readers": [
+      {
+        "rva": "0xf7b77",
+        "enclosing": "?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z",
+        "enclosing_rva": "0xf6da0"
+      }
+    ],
+    "store_disp": null
+  }
+}

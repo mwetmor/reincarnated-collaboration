@@ -1,0 +1,158 @@
+{
+  "FleeBehavior": {
+    "slot": "0x304",
+    "default_string": "NeverFlee",
+    "mapping": [
+      [
+        "NeverFlee",
+        "eax(=0 on this path)"
+      ],
+      [
+        "FleeOnLowHealth",
+        1
+      ],
+      [
+        "FleeOnDamage",
+        2
+      ],
+      [
+        "FleeWhenEnemyClose",
+        3
+      ]
+    ]
+  },
+  "FleeTarget": {
+    "slot": "0x308",
+    "default_string": "AwayFromEnemy",
+    "mapping": [
+      [
+        "AwayFromEnemy",
+        0
+      ],
+      [
+        "TowardsAllies",
+        1
+      ],
+      [
+        "TowardsHome",
+        2
+      ]
+    ]
+  },
+  "RoamBehavior": {
+    "slot": "0x320",
+    "default_string": "NeverRoam",
+    "mapping": [
+      [
+        "NeverRoam",
+        0
+      ],
+      [
+        "Roam",
+        1
+      ]
+    ]
+  },
+  "BuffSelfBehavior": {
+    "slot": "0x324",
+    "default_string": "NeverUseSkill",
+    "mapping": [
+      [
+        "NeverUseSkill",
+        0
+      ],
+      [
+        "WhenIdle",
+        1
+      ],
+      [
+        "WhenEnemyIsSeen",
+        2
+      ],
+      [
+        "WheneverPossible",
+        3
+      ]
+    ]
+  },
+  "BuffAllyBehavior": {
+    "slot": "0x328",
+    "default_string": "NeverUseSkill",
+    "mapping": [
+      [
+        "NeverUseSkill",
+        0
+      ],
+      [
+        "WhenIdle",
+        1
+      ],
+      [
+        "WhenEnemyIsSeen",
+        2
+      ],
+      [
+        "WheneverPossible",
+        3
+      ]
+    ]
+  },
+  "BuffAllyTargeting": {
+    "slot": "0x32c",
+    "default_string": "BuffClosest",
+    "mapping": [
+      [
+        "BuffClosest",
+        0
+      ],
+      [
+        "BuffStrongest",
+        1
+      ],
+      [
+        "BuffWeakest",
+        2
+      ]
+    ]
+  },
+  "DebuffEnemyBehavior": {
+    "slot": "0x330",
+    "default_string": "NeverUseDebuff",
+    "mapping": [
+      [
+        "NeverUseSkill",
+        0
+      ],
+      [
+        "WhenIdle",
+        1
+      ],
+      [
+        "WhenEnemyIsSeen",
+        2
+      ]
+    ]
+  },
+  "DistressResponseBehavior": {
+    "slot": "0x360",
+    "default_string": "RespondToAll",
+    "mapping": [
+      [
+        "RespondToSameGroup",
+        "eax(=0 on this path)"
+      ],
+      [
+        "RespondToSameRace",
+        "eax(=0 on this path)"
+      ],
+      [
+        "NeverLead",
+        "eax(=0 on this path)"
+      ],
+      [
+        "LeadOnPatrol",
+        1
+      ]
+    ]
+  }
+}

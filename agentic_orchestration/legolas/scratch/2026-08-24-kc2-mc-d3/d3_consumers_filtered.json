@@ -1,0 +1,613 @@
+{
+  "ViewDistance": {
+    "slot": "0x21c",
+    "consumers": [
+      "GetViewDistance@ControllerAI",
+      "0ControllerAI",
+      "GetViewDistance@?$ControllerAIStateT@VControllerTyphonChained",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerNpcHerder",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerNpcHerder",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerNpcHerder",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerTyphonChained",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerTyphonChained",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerTyphonChained",
+      "Load@ControllerAI",
+      "SetViewDistance@ControllerAI",
+      "CheckAction@ControllerBaseCharacter",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerCerberus",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerCerberus",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerCerberus",
+      "HandleEvent@ControllerCombat",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerMegalesios",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerMegalesios",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerMegalesios",
+      "ChooseBestAllyToBuff@ControllerMonster",
+      "ProcessAngerTarget@ControllerMonster",
+      "AngerUpdate@ControllerMonster",
+      "PickRandomEnemyInView@ControllerMonster",
+      "TryToHealAlly@ControllerMonster",
+      "OnUpdate@ControllerMonsterStateHidden",
+      "Load@ControllerNpc2",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerNpcHerdAnimal",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerNpcHerdAnimal",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerNpcHerdAnimal",
+      "Load@ControllerPlayer",
+      "DeathUpdate@ControllerPlayer",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerPlayer",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerPlayer",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerPlayer",
+      "FindAlliesInSight@?$ControllerAIStateT@VControllerSpiritHost",
+      "FindAlliesOfType@?$ControllerAIStateT@VControllerSpiritHost",
+      "FindEnemiesInSight@?$ControllerAIStateT@VControllerSpiritHost",
+      "TouchedByActor@FixedItemDoorController"
+    ]
+  },
+  "FleeChance": {
+    "slot": "0x2d8",
+    "consumers": [
+      "GetFleeChance@ControllerMonster",
+      "InitialUpdate@ControllerGraeae",
+      "GetEye@ControllerGraeae",
+      "LoseEye@ControllerGraeae",
+      "CanFlee@ControllerMonster",
+      "Attacked@ControllerMonsterStateAttack",
+      "DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster",
+      "1ControllerPlayer",
+      "0FixedItemContainerController"
+    ]
+  },
+  "DodgeChance": {
+    "slot": "0x2dc",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetDodgeChance@ControllerMonster",
+      "SendDropItemRandom@ControllerCharacter",
+      "InitialUpdate@ControllerGraeae",
+      "GetEye@ControllerGraeae",
+      "LoseEye@ControllerGraeae",
+      "OnBegin@ControllerMonsterStateJumpAttack",
+      "DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster",
+      "Load@ControllerPlayer",
+      "OnBegin@ControllerPlayerStateJumpToUseSkill"
+    ]
+  },
+  "randomRepositionChance": {
+    "slot": "0x2e0",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetRandomRepositionChance@ControllerMonster",
+      "InitialUpdate@ControllerGraeae",
+      "GetEye@ControllerGraeae",
+      "LoseEye@ControllerGraeae",
+      "OnUpdate@ControllerMonsterStateAttack",
+      "DeathUpdate@ControllerPlayer"
+    ]
+  },
+  "minSwingPause": {
+    "slot": "0x2f0",
+    "consumers": [
+      "ResetSwingTimer@ControllerMonster",
+      "OnUpdate@ControllerMonsterStateAttack",
+      "EnemyFound@ControllerMonsterStateTrapped",
+      "0ControllerPlayer",
+      "ClearTarget@ControllerPlayer",
+      "SetMouseRepeatData@ControllerPlayer",
+      "GetMouseRepeatData@ControllerPlayer"
+    ]
+  },
+  "maxSwingPause": {
+    "slot": "0x2f4",
+    "consumers": [
+      "ResetSwingTimer@ControllerMonster",
+      "OnUpdate@ControllerMonsterStateAttack",
+      "EnemyFound@ControllerMonsterStateTrapped"
+    ]
+  },
+  "swingPauseRoll": {
+    "slot": "0x2f8",
+    "consumers": [
+      "0ControllerPlayer",
+      "Update@ControllerMonster",
+      "SkillFailed@ControllerMonster",
+      "ResetSwingTimer@ControllerMonster",
+      "ZeroSwingTimer@ControllerMonster",
+      "GetSwingTimer@ControllerMonster",
+      "OnBegin@ControllerMonsterStateAttack",
+      "OnUpdate@ControllerMonsterStateAttack",
+      "OnUpdate@ControllerMonsterStateTrapped",
+      "EnemyFound@ControllerMonsterStateTrapped",
+      "OnEnd@ControllerMonsterStateUseSkillOnPoint",
+      "0RefreshSkillCooldownController",
+      "ModifyChanceToRun@SkillAutoCastController"
+    ]
+  },
+  "PursuitTime": {
+    "slot": "0x2fc",
+    "consumers": [
+      "GetPursuitTime@ControllerMonster",
+      "StartedRoaming@ControllerMonsterStateIdle",
+      "OnBegin@ControllerMonsterStatePursue",
+      "OnUpdate@ControllerMonsterStatePursue",
+      "OnBegin@ControllerMonsterStatePatrol",
+      "OnBegin@ControllerNpcStateWander",
+      "CharacterIsDying@ControllerPlayer",
+      "MoveAndPickUpItem@ControllerPlayerState",
+      "MoveAndPickUpItemAlternate@ControllerPlayerState",
+      "DefaultRequestInteractableAction@ControllerPlayerState",
+      "DefaultRequestMoveAction@ControllerPlayerState"
+    ]
+  },
+  "MaxPursuitDistance": {
+    "slot": "0x300",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetMaxPursuitDistance@ControllerMonster",
+      "InPursuitRange@ControllerMonster",
+      "ShouldCareAboutDistressCall@ControllerMonster",
+      "OnBegin@ControllerMonsterStateReturn",
+      "SetControllerDirection@ControllerPlayer",
+      "GetControllerDirection@ControllerPlayer",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "OnBegin@ControllerPlayerStateUseSkill",
+      "0RefreshSkillCooldownController"
+    ]
+  },
+  "FleeBehavior": {
+    "slot": "0x304",
+    "consumers": [
+      "GetFleeBehavior@ControllerMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerMegalesios",
+      "FindEnemyUpdate@ControllerMonster",
+      "Attacked@ControllerMonsterStateAttack",
+      "OnBegin@ControllerMonsterStateConfused",
+      "DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerNpc2",
+      "UseSkill@?$ControllerAIStateT@VControllerPlayer"
+    ]
+  },
+  "FleeTarget": {
+    "slot": "0x308",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetFleeTarget@ControllerMonster",
+      "PickFleePoint@ControllerMonsterStateFlee",
+      "SetControllerDirection@ControllerPlayer",
+      "GetControllerDirection@ControllerPlayer",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "OnBegin@ControllerPlayerStateUseSkill"
+    ]
+  },
+  "maxFleeCount": {
+    "slot": "0x30c",
+    "consumers": [
+      "0ControllerPlayer",
+      "CanFlee@ControllerMonster",
+      "Attacked@ControllerMonsterStateAttack",
+      "DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster",
+      "CallForFollowers@?$ControllerMonsterState@VControllerMonster",
+      "JoinLeader@?$ControllerMonsterState@VControllerMonster",
+      "SetControllerMovementLength@ControllerPlayer",
+      "GetControllerMovementLength@ControllerPlayer",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "OnBegin@ControllerPlayerStateUseSkill",
+      "ConvertToJoystickEvent@GameController"
+    ]
+  },
+  "FleeTime": {
+    "slot": "0x310",
+    "consumers": [
+      "0ControllerPlayer",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerAI",
+      "GetFleeTime@ControllerMonster",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerMonster",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerMonsterHidden",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerCerberus",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerSpirit",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerMegalesios",
+      "DoFlee@ControllerMonsterStateFlee",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerMonsterSynergy",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerNpc2",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerNpcHerdAnimal",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerNpcHerder",
+      "SetCombatEnemy@ControllerPlayer",
+      "ClearTarget@ControllerPlayer",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerPlayer",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "DefaultRequestInstantSkillAction@ControllerPlayerState",
+      "RequestSkillAction@ControllerPlayerStateTrapped",
+      "RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerSpiritHost",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerStationaryMonster",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerTerracotta",
+      "MaxSkillDistance@?$ControllerAIStateT@VControllerTyphonChained"
+    ]
+  },
+  "FleeDelay": {
+    "slot": "0x314",
+    "consumers": [
+      "0ControllerPlayer",
+      "ResetFleeTimer@ControllerMonster",
+      "OnEnd@ControllerMonsterStateFlee",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "DefaultRequestInstantSkillAction@ControllerPlayerState",
+      "RequestSkillAction@ControllerPlayerStateTrapped",
+      "RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped",
+      "AppraiseAndExecute@SkillAutoCastController",
+      "0RefreshSkillCooldownController"
+    ]
+  },
+  "fleeDistance": {
+    "slot": "0x318",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetFleeDistance@ControllerMonster",
+      "PickFleePoint@ControllerMonsterStateFlee",
+      "PickRunToPoint@ControllerMonsterStateScared",
+      "OnBegin@ControllerNpcStateStartup",
+      "1ControllerPlayer",
+      "Update@ControllerPlayer",
+      "GiveItemToPlayer@ControllerPlayer",
+      "GiveArtifactToPlayer@ControllerPlayer",
+      "GiveRecoveredItemToPlayer@ControllerPlayer",
+      "GiveDismantledItemToPlayer@ControllerPlayer",
+      "GiveDismantledBonusItemToPlayer@ControllerPlayer",
+      "GiveTinkeredItemToPlayer@ControllerPlayer",
+      "GiveSetItemToPlayer@ControllerPlayer",
+      "GiveRerollItemToPlayer@ControllerPlayer",
+      "GiveAscendedItemToPlayer@ControllerPlayer",
+      "GetInventoryCtrl@ControllerPlayer",
+      "GiveAllItems@InventorySack",
+      "NotifyControllerItemRemovedFromInventory@Player",
+      "0RefreshSkillCooldownController"
+    ]
+  },
+  "ClearAngerWhenFleeing": {
+    "slot": "0x31c",
+    "consumers": [
+      "CharacterHandlerUpdate@ControllerBaseCharacter",
+      "OnEnd@ControllerMonsterStateFlee",
+      "PostParentAttached@ControllerPlayer"
+    ]
+  },
+  "RoamBehavior": {
+    "slot": "0x320",
+    "consumers": [
+      "GetRoamBehavior@ControllerMonster",
+      "SetRoamBehavior@ControllerMonster",
+      "StartedRoaming@ControllerMonsterStateIdle",
+      "0ControllerPlayer"
+    ]
+  },
+  "BuffSelfBehavior": {
+    "slot": "0x324",
+    "consumers": [
+      "GetBuffSelfBehavior@ControllerMonster",
+      "Update@ControllerMonster",
+      "HandleEvent@ControllerMonsterStateAttack",
+      "HandleEvent@ControllerMonsterStateJumpAttack",
+      "DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAllyAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster",
+      "ShouldBuffSelf@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "BuffAllyBehavior": {
+    "slot": "0x328",
+    "consumers": [
+      "GetBuffAllyBehavior@ControllerMonster",
+      "Update@ControllerMonster",
+      "DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "BuffAllyTargeting": {
+    "slot": "0x32c",
+    "consumers": [
+      "ChooseBestAllyToBuff@ControllerMonster"
+    ]
+  },
+  "DebuffEnemyBehavior": {
+    "slot": "0x330",
+    "consumers": [
+      "GetDebuffEnemyBehavior@ControllerMonster"
+    ]
+  },
+  "ChanceToRespondToDistressCall": {
+    "slot": "0x338",
+    "consumers": [
+      "GetChanceToRespondToDistressCall@ControllerMonster",
+      "DefaultAllyAttackedResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "DistressResponseGroup": {
+    "slot": "0x33c",
+    "consumers": [
+      "GetDistressResponseGroup@ControllerMonster",
+      "SetDistressResponseGroup@ControllerMonster",
+      "1ControllerMonster"
+    ]
+  },
+  "DistressResponseBehavior": {
+    "slot": "0x354",
+    "consumers": [
+      "GetDistressResponseBehavior@ControllerMonster",
+      "ShouldCareAboutDistressCall@ControllerMonster"
+    ]
+  },
+  "healLeaderHealthPercentage": {
+    "slot": "0x358",
+    "consumers": [
+      "GetHealLeaderHealthPercentage@ControllerMonster",
+      "TryToHealAlly@ControllerMonster",
+      "HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "healAllyHealthPercentage": {
+    "slot": "0x35c",
+    "consumers": [
+      "GetHealAllyHealthPercentage@ControllerMonster",
+      "TryToHealAlly@ControllerMonster",
+      "HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "LeaderBehavior": {
+    "slot": "0x360",
+    "consumers": [
+      "GetLeaderBehavior@ControllerMonster",
+      "FindEnemyUpdate@ControllerMonster",
+      "OnBegin@ControllerMonsterStatePatrol",
+      "DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster",
+      "DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "LeaderDistance": {
+    "slot": "0x364",
+    "consumers": [
+      "GetLeaderDistance@ControllerMonster",
+      "CallForFollowers@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "MaxFollowers": {
+    "slot": "0x368",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetMaxFollowers@ControllerMonster",
+      "CallForFollowers@?$ControllerMonsterState@VControllerMonster",
+      "SetPet@ControllerPlayer",
+      "HandlePetAction@ControllerPlayer",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "DefaultRequestInstantSkillAction@ControllerPlayerState",
+      "RequestSkillAction@ControllerPlayerStateTrapped",
+      "RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped"
+    ]
+  },
+  "WanderDistance": {
+    "slot": "0x370",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetWanderDistance@ControllerMonster",
+      "OnBegin@ControllerMonsterStateWander",
+      "CheckLeaderAndWanderDistance@ControllerMonsterStateWander",
+      "ClearTarget@ControllerPlayer",
+      "SetTargetPoint@ControllerPlayer",
+      "GetTargetPoint@ControllerPlayer",
+      "DefaultRequestEvadeAction@ControllerPlayerState",
+      "DefaultRequestSkillAction@ControllerPlayerState",
+      "EndOfPathReached@ControllerPlayerStateMoveToUseSkill",
+      "PathFailed@ControllerPlayerStateMoveToUseSkill",
+      "EndOfPathReached@ControllerPlayerStateJumpToUseSkill"
+    ]
+  },
+  "RoamDistance": {
+    "slot": "0x374",
+    "consumers": [
+      "GetRoamDistance@ControllerMonster",
+      "PickFleePoint@ControllerMonsterStateFlee",
+      "StartRoaming@ControllerMonsterStateRoam"
+    ]
+  },
+  "TeleportToLeaderDistance": {
+    "slot": "0x378",
+    "consumers": [
+      "GetTeleportToLeaderDistance@ControllerMonster",
+      "HandleEvent@ControllerMonsterStateAttack",
+      "HandleEvent@ControllerMonsterStateJumpAttack",
+      "OnUpdate@ControllerMonsterStateFollowLeader",
+      "OnUpdate@ControllerMonsterStateDefendLeader"
+    ]
+  },
+  "ChanceToIdleOnPatrol": {
+    "slot": "0x37c",
+    "consumers": [
+      "GetChanceToIdleOnPatrol@ControllerMonster",
+      "PathFailed@ControllerMonsterStatePatrol"
+    ]
+  },
+  "MinPatrolIdleTime": {
+    "slot": "0x380",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetMinPatrolIdleTime@ControllerMonster",
+      "PathFailed@ControllerMonsterStatePatrol",
+      "SetAllowWorldEvents@ControllerPlayer",
+      "GetAllowWorldEvents@ControllerPlayer"
+    ]
+  },
+  "MaxPatrolIdleTime": {
+    "slot": "0x384",
+    "consumers": [
+      "0ControllerPlayer",
+      "GetMaxPatrolIdleTime@ControllerMonster",
+      "PathFailed@ControllerMonsterStatePatrol",
+      "Update@ControllerPlayer",
+      "SetAttackDelay@ControllerPlayer",
+      "OnUpdate@ControllerPlayerStateMoveAndUseSkill",
+      "OnBegin@ControllerPlayerStateUseSkill",
+      "OnUpdate@ControllerPlayerStateUseSkill"
+    ]
+  },
+  "RandomAngerChance": {
+    "slot": "0x390",
+    "consumers": [
+      "Update@ControllerMonster"
+    ]
+  },
+  "MinTimeBeforeRoam": {
+    "slot": "0x394",
+    "consumers": [
+      "GetMinTimeBeforeRoam@ControllerMonster",
+      "OnBegin@ControllerMonsterStateIdle"
+    ]
+  },
+  "MaxTimeBeforeRoam": {
+    "slot": "0x398",
+    "consumers": [
+      "GetMaxTimeBeforeRoam@ControllerMonster",
+      "OnBegin@ControllerMonsterStateIdle"
+    ]
+  },
+  "MinRoamDistance": {
+    "slot": "0x39c",
+    "consumers": [
+      "GetMinRoamDistance@ControllerMonster",
+      "StartRoaming@ControllerMonsterStateRoam"
+    ]
+  },
+  "MinWanderDistance": {
+    "slot": "0x3a0",
+    "consumers": [
+      "GetMinWanderDistance@ControllerMonster",
+      "OnBegin@ControllerMonsterStateNavigateObstacle",
+      "OnBegin@ControllerMonsterStateWander"
+    ]
+  },
+  "ResetOriginAfterFleeing": {
+    "slot": "0x3a4",
+    "consumers": [
+      "ShouldRemoveEnemy@AngerManager",
+      "GetResetOriginAfterFleeing@ControllerMonster",
+      "OnEnd@ControllerMonsterStateFlee"
+    ]
+  },
+  "DodgeDistance": {
+    "slot": "0x3a8",
+    "consumers": [
+      "ShouldRemoveEnemy@AngerManager",
+      "UseSkill@?$ControllerAIStateT@VControllerAI",
+      "GetDodgeDistance@ControllerMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerMonsterHidden",
+      "UseSkill@?$ControllerAIStateT@VControllerCerberus",
+      "UseSkill@?$ControllerAIStateT@VControllerSpirit",
+      "UseSkill@?$ControllerAIStateT@VControllerMegalesios",
+      "DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerMonsterSynergy",
+      "UseSkill@?$ControllerAIStateT@VControllerNpcHerdAnimal",
+      "UseSkill@?$ControllerAIStateT@VControllerNpcHerder",
+      "UseSkill@?$ControllerAIStateT@VControllerSpiritHost",
+      "UseSkill@?$ControllerAIStateT@VControllerStationaryMonster",
+      "UseSkill@?$ControllerAIStateT@VControllerTerracotta",
+      "UseSkill@?$ControllerAIStateT@VControllerTyphonChained"
+    ]
+  },
+  "MinDodgeDistance": {
+    "slot": "0x3ac",
+    "consumers": [
+      "GetMinDodgeDistance@ControllerMonster",
+      "DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster"
+    ]
+  },
+  "RepositionChance": {
+    "slot": "0x3b0",
+    "consumers": [
+      "GetRepositionChance@ControllerMonster",
+      "ProjectileCollisionCallback@ControllerMonsterStateAttack"
+    ]
+  },
+  "ignoreSleepingEnemies": {
+    "slot": "0x4d9",
+    "consumers": [
+      "IgnoreSleepingEnemies@ControllerMonster",
+      "FindEnemy@ControllerMonster",
+      "GetMostHatedEnemy@ControllerMonster",
+      "AngerUpdate@ControllerMonster",
+      "FindEnemyUpdate@ControllerMonster"
+    ]
+  },
+  "RandomAngerEvaluationTime": {
+    "slot": "0x504",
+    "consumers": [
+      "Update@ControllerMonster"
+    ]
+  },
+  "DodgeDelay": {
+    "slot": "0x510",
+    "consumers": [
+      "ProjectileNotification@ControllerMonster"
+    ]
+  },
+  "randomEmoteChance": {
+    "slot": "0x514",
+    "consumers": [
+      "Update@ControllerMonster"
+    ]
+  },
+  "randomEmoteMinTime": {
+    "slot": "0x518",
+    "consumers": [
+      "DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden",
+      "Update@ControllerMonster"
+    ]
+  },
+  "randomEmoteMaxTime": {
+    "slot": "0x51c",
+    "consumers": [
+      "DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden",
+      "Update@ControllerMonster"
+    ]
+  },
+  "ignorePetsChance": {
+    "slot": "0x56c",
+    "consumers": [
+      "GetIgnorePetChance@ControllerMonster",
+      "Update@ControllerMonster"
+    ]
+  },
+  "ignorePetsInterval": {
+    "slot": "0x570",
+    "consumers": [
+      "GetIgnorePetInterval@ControllerMonster",
+      "Update@ControllerMonster"
+    ]
+  },
+  "petTargetLevelRange": {
+    "slot": "0x580",
+    "consumers": [
+      "FindEnemy@ControllerMonster",
+      "GetMostHatedEnemy@ControllerMonster"
+    ]
+  },
+  "petTargetLeastAttacked": {
+    "slot": "0x584",
+    "consumers": [
+      "DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden",
+      "FindEnemy@ControllerMonster",
+      "GetMostHatedEnemy@ControllerMonster"
+    ]
+  },
+  "petTargetGreatestHealth": {
+    "slot": "0x585",
+    "consumers": [
+      "FindEnemy@ControllerMonster",
+      "GetMostHatedEnemy@ControllerMonster"
+    ]
+  }
+}

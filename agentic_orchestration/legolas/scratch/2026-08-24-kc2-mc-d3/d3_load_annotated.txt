@@ -1,0 +1,1091 @@
+100f6da0: push	ebp
+100f6da1: mov	ebp, esp
+100f6da3: push	-0x1
+100f6da5: push	0x104c7fa8
+100f6daa: mov	eax, dword ptr fs:[0x0]
+100f6db0: push	eax
+100f6db1: mov	dword ptr fs:[0x0], esp
+100f6db8: sub	esp, 0x3c
+100f6dbb: push	ebx
+100f6dbc: push	esi
+100f6dbd: mov	esi, dword ptr [ebp + 0x8]
+100f6dc0: push	edi
+100f6dc1: push	ecx
+100f6dc2: mov	edi, ecx
+100f6dc4: mov	dword ptr [esp], 0x41700000
+100f6dcb: mov	eax, dword ptr [esi]
+100f6dcd: mov	ecx, esi
+100f6dcf: push	0x10528e08   <<<<< ViewDistance
+100f6dd4: mov	eax, dword ptr [eax + 0x24]
+100f6dd7: call	eax
+100f6dd9: fstp	dword ptr [edi + 0x21c]
+100f6ddf: mov	eax, dword ptr [esi]
+100f6de1: push	ecx
+100f6de2: mov	dword ptr [esp], 0x0
+100f6de9: mov	ecx, esi
+100f6deb: push	0x10528e50   <<<<< pathingViewDistance
+100f6df0: mov	eax, dword ptr [eax + 0x24]
+100f6df3: call	eax
+100f6df5: fstp	dword ptr [edi + 0x220]
+100f6dfb: mov	dword ptr [ebp - 0x1c], 0xf
+100f6e02: mov	dword ptr [ebp - 0x20], 0x0
+100f6e09: mov	byte ptr [ebp - 0x30], 0x0
+100f6e0d: mov	dword ptr [ebp - 0x4], 0x0
+100f6e14: mov	eax, dword ptr [esi]
+100f6e16: push	ecx
+100f6e17: mov	dword ptr [esp], 0x0
+100f6e1e: mov	ecx, esi
+100f6e20: push	0x1052b990   <<<<< minSwingPause
+100f6e25: mov	eax, dword ptr [eax + 0x24]
+100f6e28: call	eax
+100f6e2a: fmul	dword ptr [0x105f5918]
+100f6e30: push	ecx
+100f6e31: mov	dword ptr [esp], 0x0
+100f6e38: mov	ecx, esi
+100f6e3a: push	0x1052b980   <<<<< maxSwingPause
+100f6e3f: fstp	dword ptr [ebp + 0x8]
+100f6e42: cvttss2si	eax, dword ptr [ebp + 0x8]
+100f6e47: mov	dword ptr [edi + 0x2f0], eax
+100f6e4d: mov	eax, dword ptr [esi]
+100f6e4f: mov	eax, dword ptr [eax + 0x24]
+100f6e52: call	eax
+100f6e54: fmul	dword ptr [0x105f5918]
+100f6e5a: fstp	dword ptr [ebp + 0x8]
+100f6e5d: cvttss2si	edx, dword ptr [ebp + 0x8]
+100f6e62: mov	dword ptr [edi + 0x2f4], edx
+100f6e68: mov	ecx, dword ptr [0x108080a4]
+100f6e6e: push	edx
+100f6e6f: push	dword ptr [edi + 0x2f0]
+100f6e75: lea	ecx, [ecx + 0xc04]
+100f6e7b: call	dword ptr [0x104e5544]
+100f6e81: mov	dword ptr [edi + 0x2f8], eax
+100f6e87: mov	ecx, esi
+100f6e89: mov	eax, dword ptr [esi]
+100f6e8b: push	0xbb8
+100f6e90: push	0x1052b9b0   <<<<< FleeTime
+100f6e95: call	dword ptr [eax + 0x1c]
+100f6e98: mov	dword ptr [edi + 0x310], eax
+100f6e9e: mov	ecx, esi
+100f6ea0: mov	eax, dword ptr [esi]
+100f6ea2: push	0x2
+100f6ea4: push	0x1052b9a0   <<<<< maxFleeCount
+100f6ea9: call	dword ptr [eax + 0x1c]
+100f6eac: mov	dword ptr [edi + 0x30c], eax
+100f6eb2: mov	eax, dword ptr [esi]
+100f6eb4: push	ecx
+100f6eb5: mov	dword ptr [esp], 0x40a00000
+100f6ebc: mov	ecx, esi
+100f6ebe: push	0x1052b9d4   <<<<< fleeDistance
+100f6ec3: mov	eax, dword ptr [eax + 0x24]
+100f6ec6: call	eax
+100f6ec8: fstp	dword ptr [edi + 0x318]
+100f6ece: mov	eax, dword ptr [esi]
+100f6ed0: mov	ecx, esi
+100f6ed2: push	0x0
+100f6ed4: push	0x1052b9bc   <<<<< ClearAngerWhenFleeing
+100f6ed9: mov	eax, dword ptr [eax + 0x2c]
+100f6edc: call	eax
+100f6ede: mov	byte ptr [edi + 0x31c], al
+100f6ee4: mov	eax, dword ptr [esi]
+100f6ee6: mov	ecx, esi
+100f6ee8: push	0x0
+100f6eea: push	0x1052b9f0   <<<<< ResetOriginAfterFleeing
+100f6eef: mov	eax, dword ptr [eax + 0x2c]
+100f6ef2: call	eax
+100f6ef4: mov	byte ptr [edi + 0x3a4], al
+100f6efa: mov	ecx, esi
+100f6efc: mov	eax, dword ptr [esi]
+100f6efe: push	0x1052b9e4
+100f6f03: push	0x1052ba14   <<<<< FleeBehavior
+100f6f08: call	dword ptr [eax + 0x14]
+100f6f0b: mov	edx, eax
+100f6f0d: cmp	byte ptr [edx], 0x0
+100f6f10: jne	0x100f6f16 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x176>
+100f6f12: xor	ecx, ecx
+100f6f14: jmp	0x100f6f29 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x189>
+100f6f16: mov	ecx, edx
+100f6f18: lea	ebx, [ecx + 0x1]
+100f6f1b: nop	dword ptr [eax + eax]
+100f6f20: mov	al, byte ptr [ecx]
+100f6f22: inc	ecx
+100f6f23: test	al, al
+100f6f25: jne	0x100f6f20 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x180>
+100f6f27: sub	ecx, ebx
+100f6f29: push	ecx
+100f6f2a: push	edx
+100f6f2b: lea	ecx, [ebp - 0x30]
+100f6f2e: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f6f33: cmp	dword ptr [ebp - 0x1c], 0x10
+100f6f37: lea	ecx, [ebp - 0x30]
+100f6f3a: mov	ebx, dword ptr [ebp - 0x20]
+100f6f3d: mov	eax, 0x9
+100f6f42: cmovae	ecx, dword ptr [ebp - 0x30]
+100f6f46: mov	edx, 0x1052ba08
+100f6f4b: cmp	ebx, eax
+100f6f4d: cmovb	eax, ebx
+100f6f50: push	eax
+100f6f51: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f6f56: add	esp, 0x4
+100f6f59: test	eax, eax
+100f6f5b: jne	0x100f6f6c <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x1cc>
+100f6f5d: cmp	ebx, 0x9
+100f6f60: jb	0x100f6f6c <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x1cc>
+100f6f62: ja	0x100f6f6c <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x1cc>
+100f6f64: mov	dword ptr [edi + 0x304], eax
+100f6f6a: jmp	0x100f6fc1 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221>
+100f6f6c: mov	edx, 0x1052ba34
+100f6f71: lea	ecx, [ebp - 0x30]
+100f6f74: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f6f79: test	al, al
+100f6f7b: je	0x100f6f89 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x1e9>
+100f6f87: jmp	0x100f6fc1 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221>
+100f6f89: mov	edx, 0x1052ba24
+100f6f8e: lea	ecx, [ebp - 0x30]
+100f6f91: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f6f96: test	al, al
+100f6f98: je	0x100f6fa6 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x206>
+100f6fa4: jmp	0x100f6fc1 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221>
+100f6fa6: mov	edx, 0x1052ba54
+100f6fab: lea	ecx, [ebp - 0x30]
+100f6fae: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f6fb3: test	al, al
+100f6fb5: je	0x100f6fc1 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x221>
+100f6fc1: mov	eax, dword ptr [esi]
+100f6fc3: mov	ecx, esi
+100f6fc5: push	0x1052ba44
+100f6fca: push	0x1052ba78   <<<<< FleeTarget
+100f6fcf: call	dword ptr [eax + 0x14]
+100f6fd2: mov	edx, eax
+100f6fd4: cmp	byte ptr [edx], 0x0
+100f6fd7: jne	0x100f6fdd <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x23d>
+100f6fd9: xor	ecx, ecx
+100f6fdb: jmp	0x100f6feb <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x24b>
+100f6fdd: mov	ecx, edx
+100f6fdf: lea	ebx, [ecx + 0x1]
+100f6fe2: mov	al, byte ptr [ecx]
+100f6fe4: inc	ecx
+100f6fe5: test	al, al
+100f6fe7: jne	0x100f6fe2 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x242>
+100f6fe9: sub	ecx, ebx
+100f6feb: push	ecx
+100f6fec: push	edx
+100f6fed: lea	ecx, [ebp - 0x30]
+100f6ff0: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f6ff5: cmp	dword ptr [ebp - 0x1c], 0x10
+100f6ff9: lea	ecx, [ebp - 0x30]
+100f6ffc: mov	ebx, 0xd
+100f7001: mov	edx, 0x1052ba68
+100f7006: cmovae	ecx, dword ptr [ebp - 0x30]
+100f700a: mov	eax, ebx
+100f700c: cmp	dword ptr [ebp - 0x20], eax
+100f700f: cmovb	eax, dword ptr [ebp - 0x20]
+100f7013: push	eax
+100f7014: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f7019: add	esp, 0x4
+100f701c: test	eax, eax
+100f701e: jne	0x100f7035 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x295>
+100f7020: mov	eax, dword ptr [ebp - 0x20]
+100f7023: cmp	eax, ebx
+100f7025: jb	0x100f7035 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x295>
+100f7027: ja	0x100f7035 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x295>
+100f7033: jmp	0x100f706d <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2cd>
+100f7035: mov	edx, 0x1052ba90
+100f703a: lea	ecx, [ebp - 0x30]
+100f703d: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f7042: test	al, al
+100f7044: je	0x100f7052 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2b2>
+100f7050: jmp	0x100f706d <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2cd>
+100f7052: mov	edx, 0x1052ba84
+100f7057: lea	ecx, [ebp - 0x30]
+100f705a: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f705f: test	al, al
+100f7061: je	0x100f706d <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x2cd>
+100f706d: mov	eax, dword ptr [esi]
+100f706f: mov	ecx, esi
+100f7071: push	0x3
+100f7073: push	0x1052baac   <<<<< maxFleeCount
+100f7078: call	dword ptr [eax + 0x1c]
+100f707b: mov	dword ptr [edi + 0x30c], eax
+100f7081: mov	ecx, esi
+100f7083: mov	eax, dword ptr [esi]
+100f7085: push	0x7d0
+100f708a: push	0x1052baa0   <<<<< FleeDelay
+100f708f: call	dword ptr [eax + 0x1c]
+100f7092: mov	dword ptr [edi + 0x314], eax
+100f7098: mov	ecx, esi
+100f709a: mov	eax, dword ptr [esi]
+100f709c: push	0x64
+100f709e: push	0x1052bad0   <<<<< FleeChance
+100f70a3: call	dword ptr [eax + 0x1c]
+100f70a6: mov	dword ptr [edi + 0x2d8], eax
+100f70ac: mov	eax, dword ptr [esi]
+100f70ae: push	ecx
+100f70af: mov	dword ptr [esp], 0x40a00000
+100f70b6: mov	ecx, esi
+100f70b8: push	0x1052babc   <<<<< InnerViewDistance
+100f70bd: mov	eax, dword ptr [eax + 0x24]
+100f70c0: call	eax
+100f70c2: fstp	dword ptr [edi + 0x388]
+100f70c8: mov	eax, dword ptr [esi]
+100f70ca: push	ecx
+100f70cb: mov	dword ptr [esp], 0x0
+100f70d2: mov	ecx, esi
+100f70d4: push	0x1052bae8   <<<<< MaxYViewDistance
+100f70d9: mov	eax, dword ptr [eax + 0x24]
+100f70dc: call	eax
+100f70de: fstp	dword ptr [edi + 0x38c]
+100f70e4: mov	eax, dword ptr [esi]
+100f70e6: mov	ecx, esi
+100f70e8: push	0x2710
+100f70ed: push	0x1052badc   <<<<< PursuitTime
+100f70f2: call	dword ptr [eax + 0x1c]
+100f70f5: cmp	eax, 0x3e8
+100f70fa: mov	ecx, 0x1f40
+100f70ff: push	ecx
+100f7100: cmovl	eax, ecx
+100f7103: mov	dword ptr [esp], 0x0
+100f710a: mov	dword ptr [edi + 0x2fc], eax
+100f7110: mov	ecx, esi
+100f7112: mov	eax, dword ptr [esi]
+100f7114: push	0x1052bb08   <<<<< MaxPursuitDistance
+100f7119: mov	eax, dword ptr [eax + 0x24]
+100f711c: call	eax
+100f711e: fstp	dword ptr [edi + 0x300]
+100f7124: mov	eax, dword ptr [esi]
+100f7126: mov	ecx, esi
+100f7128: push	0x1052bafc
+100f712d: push	0x1052bb28   <<<<< RoamBehavior
+100f7132: call	dword ptr [eax + 0x14]
+100f7135: mov	edx, eax
+100f7137: cmp	byte ptr [edx], 0x0
+100f713a: jne	0x100f7140 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3a0>
+100f713c: xor	ecx, ecx
+100f713e: jmp	0x100f7152 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3b2>
+100f7140: mov	ecx, edx
+100f7142: lea	eax, [ecx + 0x1]
+100f7145: mov	dword ptr [ebp + 0x8], eax
+100f7148: mov	al, byte ptr [ecx]
+100f714a: inc	ecx
+100f714b: test	al, al
+100f714d: jne	0x100f7148 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3a8>
+100f714f: sub	ecx, dword ptr [ebp + 0x8]
+100f7152: push	ecx
+100f7153: push	edx
+100f7154: lea	ecx, [ebp - 0x30]
+100f7157: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f715c: cmp	dword ptr [ebp - 0x1c], 0x10
+100f7160: lea	ecx, [ebp - 0x30]
+100f7163: mov	eax, 0x9
+100f7168: mov	edx, 0x1052bb1c
+100f716d: cmovae	ecx, dword ptr [ebp - 0x30]
+100f7171: cmp	dword ptr [ebp - 0x20], eax
+100f7174: cmovb	eax, dword ptr [ebp - 0x20]
+100f7178: push	eax
+100f7179: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f717e: add	esp, 0x4
+100f7181: test	eax, eax
+100f7183: jne	0x100f719b <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3fb>
+100f7185: mov	eax, dword ptr [ebp - 0x20]
+100f7188: cmp	eax, 0x9
+100f718b: jb	0x100f719b <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3fb>
+100f718d: ja	0x100f719b <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x3fb>
+100f7199: jmp	0x100f71b6 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x416>
+100f719b: mov	edx, 0x1052bb48
+100f71a0: lea	ecx, [ebp - 0x30]
+100f71a3: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f71a8: test	al, al
+100f71aa: je	0x100f71b6 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x416>
+100f71b6: mov	eax, dword ptr [esi]
+100f71b8: push	ecx
+100f71b9: mov	dword ptr [esp], 0x40000000
+100f71c0: mov	ecx, esi
+100f71c2: push	0x1052bb38   <<<<< MinRoamDistance
+100f71c7: mov	eax, dword ptr [eax + 0x24]
+100f71ca: call	eax
+100f71cc: fstp	dword ptr [edi + 0x39c]
+100f71d2: mov	eax, dword ptr [esi]
+100f71d4: push	ecx
+100f71d5: mov	dword ptr [esp], 0x41200000
+100f71dc: mov	ecx, esi
+100f71de: push	0x1052bb64   <<<<< RoamDistance
+100f71e3: mov	eax, dword ptr [eax + 0x24]
+100f71e6: call	eax
+100f71e8: fstp	dword ptr [edi + 0x374]
+100f71ee: mov	eax, dword ptr [esi]
+100f71f0: mov	ecx, esi
+100f71f2: push	0xbb8
+100f71f7: push	0x1052bb50   <<<<< MinTimeBeforeRoam
+100f71fc: call	dword ptr [eax + 0x1c]
+100f71ff: mov	dword ptr [edi + 0x394], eax
+100f7205: mov	ecx, esi
+100f7207: mov	eax, dword ptr [esi]
+100f7209: push	0x2710
+100f720e: push	0x1052bb88   <<<<< MaxTimeBeforeRoam
+100f7213: call	dword ptr [eax + 0x1c]
+100f7216: mov	dword ptr [edi + 0x398], eax
+100f721c: mov	eax, dword ptr [esi]
+100f721e: push	ecx
+100f721f: mov	dword ptr [esp], 0x40000000
+100f7226: mov	ecx, esi
+100f7228: push	0x1052bb74   <<<<< MinWanderDistance
+100f722d: mov	eax, dword ptr [eax + 0x24]
+100f7230: call	eax
+100f7232: fstp	dword ptr [edi + 0x3a0]
+100f7238: mov	eax, dword ptr [esi]
+100f723a: push	ecx
+100f723b: mov	dword ptr [esp], 0x40a00000
+100f7242: mov	ecx, esi
+100f7244: push	0x1052bbb8   <<<<< WanderDistance
+100f7249: mov	eax, dword ptr [eax + 0x24]
+100f724c: call	eax
+100f724e: fstp	dword ptr [edi + 0x370]
+100f7254: mov	eax, dword ptr [esi]
+100f7256: push	ecx
+100f7257: mov	dword ptr [esp], 0x41a00000
+100f725e: mov	ecx, esi
+100f7260: push	0x1052bb9c   <<<<< TeleportToLeaderDistance
+100f7265: mov	eax, dword ptr [eax + 0x24]
+100f7268: call	eax
+100f726a: fstp	dword ptr [edi + 0x378]
+100f7270: mov	eax, dword ptr [esi]
+100f7272: mov	ecx, esi
+100f7274: push	0x1052bbdc
+100f7279: push	0x1052bbc8   <<<<< BuffSelfBehavior
+100f727e: call	dword ptr [eax + 0x14]
+100f7281: mov	edx, eax
+100f7283: cmp	byte ptr [edx], 0x0
+100f7286: jne	0x100f728c <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x4ec>
+100f7288: xor	ecx, ecx
+100f728a: jmp	0x100f729e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x4fe>
+100f728c: mov	ecx, edx
+100f728e: lea	eax, [ecx + 0x1]
+100f7291: mov	dword ptr [ebp + 0x8], eax
+100f7294: mov	al, byte ptr [ecx]
+100f7296: inc	ecx
+100f7297: test	al, al
+100f7299: jne	0x100f7294 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x4f4>
+100f729b: sub	ecx, dword ptr [ebp + 0x8]
+100f729e: push	ecx
+100f729f: push	edx
+100f72a0: lea	ecx, [ebp - 0x30]
+100f72a3: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f72a8: cmp	dword ptr [ebp - 0x1c], 0x10
+100f72ac: lea	ecx, [ebp - 0x30]
+100f72af: mov	eax, ebx
+100f72b1: mov	edx, 0x1052bbf8
+100f72b6: cmovae	ecx, dword ptr [ebp - 0x30]
+100f72ba: cmp	dword ptr [ebp - 0x20], eax
+100f72bd: cmovb	eax, dword ptr [ebp - 0x20]
+100f72c1: push	eax
+100f72c2: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f72c7: add	esp, 0x4
+100f72ca: test	eax, eax
+100f72cc: jne	0x100f72e4 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x544>
+100f72ce: mov	eax, dword ptr [ebp - 0x20]
+100f72d1: cmp	eax, 0xd
+100f72d4: jb	0x100f72e4 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x544>
+100f72d6: ja	0x100f72e4 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x544>
+100f72e2: jmp	0x100f7339 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599>
+100f72e4: mov	edx, 0x1052bbec
+100f72e9: lea	ecx, [ebp - 0x30]
+100f72ec: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f72f1: test	al, al
+100f72f3: je	0x100f7301 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x561>
+100f72ff: jmp	0x100f7339 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599>
+100f7301: mov	edx, 0x1052bc1c
+100f7306: lea	ecx, [ebp - 0x30]
+100f7309: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f730e: test	al, al
+100f7310: je	0x100f731e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x57e>
+100f731c: jmp	0x100f7339 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599>
+100f731e: mov	edx, 0x1052bc08
+100f7323: lea	ecx, [ebp - 0x30]
+100f7326: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f732b: test	al, al
+100f732d: je	0x100f7339 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x599>
+100f7339: mov	eax, dword ptr [esi]
+100f733b: mov	ecx, esi
+100f733d: push	0x1052bc40
+100f7342: push	0x1052bc2c   <<<<< BuffAllyBehavior
+100f7347: call	dword ptr [eax + 0x14]
+100f734a: mov	edx, eax
+100f734c: cmp	byte ptr [edx], 0x0
+100f734f: jne	0x100f7355 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x5b5>
+100f7351: xor	ecx, ecx
+100f7353: jmp	0x100f736a <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x5ca>
+100f7355: mov	ecx, edx
+100f7357: lea	eax, [ecx + 0x1]
+100f735a: mov	dword ptr [ebp + 0x8], eax
+100f735d: nop	dword ptr [eax]
+100f7360: mov	al, byte ptr [ecx]
+100f7362: inc	ecx
+100f7363: test	al, al
+100f7365: jne	0x100f7360 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x5c0>
+100f7367: sub	ecx, dword ptr [ebp + 0x8]
+100f736a: push	ecx
+100f736b: push	edx
+100f736c: lea	ecx, [ebp - 0x30]
+100f736f: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7374: cmp	dword ptr [ebp - 0x1c], 0x10
+100f7378: lea	ecx, [ebp - 0x30]
+100f737b: mov	eax, ebx
+100f737d: mov	edx, 0x1052bc5c
+100f7382: cmovae	ecx, dword ptr [ebp - 0x30]
+100f7386: cmp	dword ptr [ebp - 0x20], eax
+100f7389: cmovb	eax, dword ptr [ebp - 0x20]
+100f738d: push	eax
+100f738e: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f7393: add	esp, 0x4
+100f7396: test	eax, eax
+100f7398: jne	0x100f73b0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x610>
+100f739a: mov	eax, dword ptr [ebp - 0x20]
+100f739d: cmp	eax, 0xd
+100f73a0: jb	0x100f73b0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x610>
+100f73a2: ja	0x100f73b0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x610>
+100f73ae: jmp	0x100f7405 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665>
+100f73b0: mov	edx, 0x1052bc50
+100f73b5: lea	ecx, [ebp - 0x30]
+100f73b8: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f73bd: test	al, al
+100f73bf: je	0x100f73cd <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x62d>
+100f73cb: jmp	0x100f7405 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665>
+100f73cd: mov	edx, 0x1052bc80
+100f73d2: lea	ecx, [ebp - 0x30]
+100f73d5: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f73da: test	al, al
+100f73dc: je	0x100f73ea <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x64a>
+100f73e8: jmp	0x100f7405 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665>
+100f73ea: mov	edx, 0x1052bc6c
+100f73ef: lea	ecx, [ebp - 0x30]
+100f73f2: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f73f7: test	al, al
+100f73f9: je	0x100f7405 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x665>
+100f7405: mov	eax, dword ptr [esi]
+100f7407: mov	ecx, esi
+100f7409: push	0x1052bca4
+100f740e: push	0x1052bc90   <<<<< BuffAllyTargeting
+100f7413: call	dword ptr [eax + 0x14]
+100f7416: mov	edx, eax
+100f7418: cmp	byte ptr [edx], 0x0
+100f741b: jne	0x100f7421 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x681>
+100f741d: xor	ecx, ecx
+100f741f: jmp	0x100f743a <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x69a>
+100f7421: mov	ecx, edx
+100f7423: lea	eax, [ecx + 0x1]
+100f7426: mov	dword ptr [ebp + 0x8], eax
+100f7429: nop	dword ptr [eax]
+100f7430: mov	al, byte ptr [ecx]
+100f7432: inc	ecx
+100f7433: test	al, al
+100f7435: jne	0x100f7430 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x690>
+100f7437: sub	ecx, dword ptr [ebp + 0x8]
+100f743a: push	ecx
+100f743b: push	edx
+100f743c: lea	ecx, [ebp - 0x30]
+100f743f: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7444: cmp	dword ptr [ebp - 0x1c], 0x10
+100f7448: lea	ecx, [ebp - 0x30]
+100f744b: mov	eax, 0xb
+100f7450: mov	edx, 0x1052bcc0
+100f7455: cmovae	ecx, dword ptr [ebp - 0x30]
+100f7459: cmp	dword ptr [ebp - 0x20], eax
+100f745c: cmovb	eax, dword ptr [ebp - 0x20]
+100f7460: push	eax
+100f7461: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f7466: add	esp, 0x4
+100f7469: test	eax, eax
+100f746b: jne	0x100f7483 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x6e3>
+100f746d: mov	eax, dword ptr [ebp - 0x20]
+100f7470: cmp	eax, 0xb
+100f7473: jb	0x100f7483 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x6e3>
+100f7475: ja	0x100f7483 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x6e3>
+100f7481: jmp	0x100f74bb <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x71b>
+100f7483: mov	edx, 0x1052bcb0
+100f7488: lea	ecx, [ebp - 0x30]
+100f748b: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f7490: test	al, al
+100f7492: je	0x100f74a0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x700>
+100f749e: jmp	0x100f74bb <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x71b>
+100f74a0: mov	edx, 0x1052bcdc
+100f74a5: lea	ecx, [ebp - 0x30]
+100f74a8: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f74ad: test	al, al
+100f74af: je	0x100f74bb <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x71b>
+100f74bb: mov	eax, dword ptr [esi]
+100f74bd: mov	ecx, esi
+100f74bf: push	0x1052bccc
+100f74c4: push	0x1052bcf8   <<<<< DebuffEnemyBehavior
+100f74c9: call	dword ptr [eax + 0x14]
+100f74cc: mov	edx, eax
+100f74ce: cmp	byte ptr [edx], 0x0
+100f74d1: jne	0x100f74d7 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x737>
+100f74d3: xor	ecx, ecx
+100f74d5: jmp	0x100f74ea <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x74a>
+100f74d7: mov	ecx, edx
+100f74d9: lea	eax, [ecx + 0x1]
+100f74dc: mov	dword ptr [ebp + 0x8], eax
+100f74df: nop
+100f74e0: mov	al, byte ptr [ecx]
+100f74e2: inc	ecx
+100f74e3: test	al, al
+100f74e5: jne	0x100f74e0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x740>
+100f74e7: sub	ecx, dword ptr [ebp + 0x8]
+100f74ea: push	ecx
+100f74eb: push	edx
+100f74ec: lea	ecx, [ebp - 0x30]
+100f74ef: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f74f4: cmp	dword ptr [ebp - 0x1c], 0x10
+100f74f8: lea	ecx, [ebp - 0x30]
+100f74fb: mov	edx, 0x1052bce8
+100f7500: cmovae	ecx, dword ptr [ebp - 0x30]
+100f7504: cmp	dword ptr [ebp - 0x20], ebx
+100f7507: cmovb	ebx, dword ptr [ebp - 0x20]
+100f750b: push	ebx
+100f750c: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f7511: add	esp, 0x4
+100f7514: test	eax, eax
+100f7516: jne	0x100f752e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x78e>
+100f7518: mov	eax, dword ptr [ebp - 0x20]
+100f751b: cmp	eax, 0xd
+100f751e: jb	0x100f752e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x78e>
+100f7520: ja	0x100f752e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x78e>
+100f752c: jmp	0x100f7566 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7c6>
+100f752e: mov	edx, 0x1052bd1c
+100f7533: lea	ecx, [ebp - 0x30]
+100f7536: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f753b: test	al, al
+100f753d: je	0x100f754b <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7ab>
+100f7549: jmp	0x100f7566 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7c6>
+100f754b: mov	edx, 0x1052bd0c
+100f7550: lea	ecx, [ebp - 0x30]
+100f7553: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f7558: test	al, al
+100f755a: je	0x100f7566 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7c6>
+100f7566: mov	eax, dword ptr [esi]
+100f7568: mov	ecx, esi
+100f756a: push	0x64
+100f756c: push	0x1052bd28   <<<<< ChanceToRespondToDistressCall
+100f7571: call	dword ptr [eax + 0x1c]
+100f7574: mov	dword ptr [edi + 0x338], eax
+100f757a: mov	ecx, esi
+100f757c: mov	eax, dword ptr [esi]
+100f757e: push	0x104f0bc3
+100f7583: push	0x1052bd58   <<<<< DistressResponseGroup
+100f7588: call	dword ptr [eax + 0x14]
+100f758b: mov	edx, eax
+100f758d: cmp	byte ptr [edx], 0x0
+100f7590: jne	0x100f7596 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x7f6>
+100f7592: xor	ecx, ecx
+100f7594: jmp	0x100f75a9 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x809>
+100f7596: mov	ecx, edx
+100f7598: lea	ebx, [ecx + 0x1]
+100f759b: nop	dword ptr [eax + eax]
+100f75a0: mov	al, byte ptr [ecx]
+100f75a2: inc	ecx
+100f75a3: test	al, al
+100f75a5: jne	0x100f75a0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x800>
+100f75a7: sub	ecx, ebx
+100f75a9: push	ecx
+100f75aa: push	edx
+100f75ab: lea	ecx, [edi + 0x33c]
+100f75b1: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f75b6: mov	eax, dword ptr [esi]
+100f75b8: mov	ecx, esi
+100f75ba: push	0x1052bd48
+100f75bf: push	0x1052bd84   <<<<< DistressResponseBehavior
+100f75c4: call	dword ptr [eax + 0x14]
+100f75c7: mov	edx, eax
+100f75c9: cmp	byte ptr [edx], 0x0
+100f75cc: jne	0x100f75d2 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x832>
+100f75ce: xor	ecx, ecx
+100f75d0: jmp	0x100f75e0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x840>
+100f75d2: mov	ecx, edx
+100f75d4: lea	ebx, [ecx + 0x1]
+100f75d7: mov	al, byte ptr [ecx]
+100f75d9: inc	ecx
+100f75da: test	al, al
+100f75dc: jne	0x100f75d7 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x837>
+100f75de: sub	ecx, ebx
+100f75e0: push	ecx
+100f75e1: push	edx
+100f75e2: lea	ecx, [ebp - 0x30]
+100f75e5: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f75ea: cmp	dword ptr [ebp - 0x1c], 0x10
+100f75ee: lea	ecx, [ebp - 0x30]
+100f75f1: mov	ebx, dword ptr [ebp - 0x20]
+100f75f4: mov	eax, 0x12
+100f75f9: cmovae	ecx, dword ptr [ebp - 0x30]
+100f75fd: mov	edx, 0x1052bd70
+100f7602: cmp	ebx, eax
+100f7604: cmovb	eax, ebx
+100f7607: push	eax
+100f7608: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f760d: add	esp, 0x4
+100f7610: test	eax, eax
+100f7612: jne	0x100f7623 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x883>
+100f7614: cmp	ebx, 0x12
+100f7617: jb	0x100f7623 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x883>
+100f7619: ja	0x100f7623 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x883>
+100f761b: mov	dword ptr [edi + 0x354], eax
+100f7621: jmp	0x100f7640 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8a0>
+100f7623: mov	edx, 0x1052bdac
+100f7628: lea	ecx, [ebp - 0x30]
+100f762b: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f7630: movzx	eax, al
+100f7633: neg	eax
+100f7635: sbb	eax, eax
+100f7637: add	eax, 0x2
+100f763a: mov	dword ptr [edi + 0x354], eax
+100f7640: mov	eax, dword ptr [esi]
+100f7642: mov	ecx, esi
+100f7644: push	0x1052bda0
+100f7649: push	0x1052bdcc
+100f764e: call	dword ptr [eax + 0x14]
+100f7651: mov	edx, eax
+100f7653: cmp	byte ptr [edx], 0x0
+100f7656: jne	0x100f765c <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8bc>
+100f7658: xor	ecx, ecx
+100f765a: jmp	0x100f766a <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8ca>
+100f765c: mov	ecx, edx
+100f765e: lea	ebx, [ecx + 0x1]
+100f7661: mov	al, byte ptr [ecx]
+100f7663: inc	ecx
+100f7664: test	al, al
+100f7666: jne	0x100f7661 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x8c1>
+100f7668: sub	ecx, ebx
+100f766a: push	ecx
+100f766b: push	edx
+100f766c: lea	ecx, [ebp - 0x30]
+100f766f: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7674: cmp	dword ptr [ebp - 0x1c], 0x10
+100f7678: lea	ecx, [ebp - 0x30]
+100f767b: mov	ebx, dword ptr [ebp - 0x20]
+100f767e: mov	eax, 0x9
+100f7683: cmovae	ecx, dword ptr [ebp - 0x30]
+100f7687: mov	edx, 0x1052bdc0
+100f768c: cmp	ebx, 0x9
+100f768f: cmovb	eax, ebx
+100f7692: push	eax
+100f7693: call	0x1000bd40 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x20>
+100f7698: add	esp, 0x4
+100f769b: test	eax, eax
+100f769d: jne	0x100f76ae <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x90e>
+100f769f: cmp	ebx, 0x9
+100f76a2: jb	0x100f76ae <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x90e>
+100f76a4: ja	0x100f76ae <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x90e>
+100f76a6: mov	dword ptr [edi + 0x360], eax
+100f76ac: jmp	0x100f7703 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963>
+100f76ae: mov	edx, 0x1052bdf0
+100f76b3: lea	ecx, [ebp - 0x30]
+100f76b6: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f76bb: test	al, al
+100f76bd: je	0x100f76cb <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x92b>
+100f76c9: jmp	0x100f7703 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963>
+100f76cb: mov	edx, 0x1052bddc
+100f76d0: lea	ecx, [ebp - 0x30]
+100f76d3: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f76d8: test	al, al
+100f76da: je	0x100f76e8 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x948>
+100f76e6: jmp	0x100f7703 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963>
+100f76e8: mov	edx, 0x1052be10
+100f76ed: lea	ecx, [ebp - 0x30]
+100f76f0: call	0x1000bda0 <??0ScriptableConditionCollection@GAME@@QAE@XZ+0x80>
+100f76f5: test	al, al
+100f76f7: je	0x100f7703 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0x963>
+100f7703: mov	eax, dword ptr [esi]
+100f7705: push	ecx
+100f7706: mov	dword ptr [esp], 0x40a00000
+100f770d: mov	ecx, esi
+100f770f: push	0x1052be00
+100f7714: mov	eax, dword ptr [eax + 0x24]
+100f7717: call	eax
+100f7719: fstp	dword ptr [edi + 0x364]
+100f771f: mov	eax, dword ptr [esi]
+100f7721: mov	ecx, esi
+100f7723: push	0x4
+100f7725: push	0x1052be3c
+100f772a: call	dword ptr [eax + 0x1c]
+100f772d: mov	dword ptr [edi + 0x368], eax
+100f7733: mov	ecx, esi
+100f7735: mov	eax, dword ptr [esi]
+100f7737: push	0x0
+100f7739: push	0x1052be20   <<<<< healLeaderHealthPercentage
+100f773e: call	dword ptr [eax + 0x1c]
+100f7741: mov	dword ptr [edi + 0x358], eax
+100f7747: mov	ecx, esi
+100f7749: mov	eax, dword ptr [esi]
+100f774b: push	0x0
+100f774d: push	0x1052be64   <<<<< healAllyHealthPercentage
+100f7752: call	dword ptr [eax + 0x1c]
+100f7755: mov	dword ptr [edi + 0x35c], eax
+100f775b: mov	ecx, esi
+100f775d: mov	eax, dword ptr [esi]
+100f775f: push	0x14
+100f7761: push	0x1052be4c   <<<<< ChanceToIdleOnPatrol
+100f7766: call	dword ptr [eax + 0x1c]
+100f7769: mov	dword ptr [edi + 0x37c], eax
+100f776f: mov	ecx, esi
+100f7771: mov	eax, dword ptr [esi]
+100f7773: push	0x7d0
+100f7778: push	0x1052be94   <<<<< MinPatrolIdleTime
+100f777d: call	dword ptr [eax + 0x1c]
+100f7780: mov	dword ptr [edi + 0x380], eax
+100f7786: mov	ecx, esi
+100f7788: mov	eax, dword ptr [esi]
+100f778a: push	0x1388
+100f778f: push	0x1052be80   <<<<< MaxPatrolIdleTime
+100f7794: call	dword ptr [eax + 0x1c]
+100f7797: mov	dword ptr [edi + 0x384], eax
+100f779d: mov	eax, dword ptr [esi]
+100f779f: push	ecx
+100f77a0: mov	dword ptr [esp], 0x41200000
+100f77a7: mov	ecx, esi
+100f77a9: push	0x1052beb8   <<<<< AngerTolerance
+100f77ae: mov	eax, dword ptr [eax + 0x24]
+100f77b1: call	eax
+100f77b3: fstp	dword ptr [edi + 0x294]
+100f77b9: mov	eax, dword ptr [esi]
+100f77bb: push	ecx
+100f77bc: mov	dword ptr [esp], 0x42c80000
+100f77c3: mov	ecx, esi
+100f77c5: push	0x1052bea8   <<<<< AttackedAnger
+100f77ca: mov	eax, dword ptr [eax + 0x24]
+100f77cd: call	eax
+100f77cf: fstp	dword ptr [edi + 0x298]
+100f77d5: mov	eax, dword ptr [esi]
+100f77d7: push	ecx
+100f77d8: mov	dword ptr [esp], 0x3f800000
+100f77df: mov	ecx, esi
+100f77e1: push	0x1052bed8   <<<<< AllyAttackedAnger
+100f77e6: mov	eax, dword ptr [eax + 0x24]
+100f77e9: call	eax
+100f77eb: fstp	dword ptr [edi + 0x29c]
+100f77f1: mov	eax, dword ptr [esi]
+100f77f3: push	ecx
+100f77f4: mov	dword ptr [esp], 0x41a00000
+100f77fb: mov	ecx, esi
+100f77fd: push	0x1052bec8   <<<<< SightAngerRate
+100f7802: mov	eax, dword ptr [eax + 0x24]
+100f7805: call	eax
+100f7807: push	ecx
+100f7808: fstp	dword ptr [edi + 0x2a0]
+100f780e: mov	eax, dword ptr [esi]
+100f7810: mov	ecx, esi
+100f7812: mov	dword ptr [esp], 0x41a00000
+100f7819: push	0x1052befc   <<<<< InnerSightAngerRate
+100f781e: mov	eax, dword ptr [eax + 0x24]
+100f7821: call	eax
+100f7823: fstp	dword ptr [edi + 0x2a8]
+100f7829: mov	eax, dword ptr [esi]
+100f782b: push	ecx
+100f782c: mov	dword ptr [esp], 0x41a00000
+100f7833: mov	ecx, esi
+100f7835: push	0x1052beec   <<<<< ProjectileAnger
+100f783a: mov	eax, dword ptr [eax + 0x24]
+100f783d: call	eax
+100f783f: fstp	dword ptr [edi + 0x2ac]
+100f7845: mov	eax, dword ptr [esi]
+100f7847: push	ecx
+100f7848: mov	dword ptr [esp], 0x42480000
+100f784f: mov	ecx, esi
+100f7851: push	0x1052bf20   <<<<< ForgiveRate
+100f7856: mov	eax, dword ptr [eax + 0x24]
+100f7859: call	eax
+100f785b: fstp	dword ptr [edi + 0x2a4]
+100f7861: mov	eax, dword ptr [esi]
+100f7863: push	ecx
+100f7864: mov	dword ptr [esp], 0x40a00000
+100f786b: mov	ecx, esi
+100f786d: push	0x1052bf10   <<<<< enemyTooClose
+100f7872: mov	eax, dword ptr [eax + 0x24]
+100f7875: call	eax
+100f7877: fstp	dword ptr [edi + 0x2b4]
+100f787d: mov	eax, dword ptr [esi]
+100f787f: mov	ecx, esi
+100f7881: push	0x0
+100f7883: push	0x1052bf48   <<<<< RandomAngerChance
+100f7888: call	dword ptr [eax + 0x1c]
+100f788b: mov	dword ptr [edi + 0x390], eax
+100f7891: mov	ecx, esi
+100f7893: mov	eax, dword ptr [esi]
+100f7895: push	0xbb8
+100f789a: push	0x1052bf2c   <<<<< RandomAngerEvaluationTime
+100f789f: call	dword ptr [eax + 0x1c]
+100f78a2: mov	dword ptr [edi + 0x504], eax
+100f78a8: mov	ecx, esi
+100f78aa: mov	eax, dword ptr [esi]
+100f78ac: push	0x1388
+100f78b1: push	0x1052bf6c   <<<<< DodgeDelay
+100f78b6: call	dword ptr [eax + 0x1c]
+100f78b9: mov	dword ptr [edi + 0x510], eax
+100f78bf: mov	eax, dword ptr [esi]
+100f78c1: push	ecx
+100f78c2: mov	dword ptr [esp], 0x40800000
+100f78c9: mov	ecx, esi
+100f78cb: push	0x1052bf5c   <<<<< DodgeDistance
+100f78d0: mov	eax, dword ptr [eax + 0x24]
+100f78d3: call	eax
+100f78d5: fstp	dword ptr [edi + 0x3a8]
+100f78db: mov	eax, dword ptr [esi]
+100f78dd: mov	ecx, esi
+100f78df: push	0x0
+100f78e1: push	0x1052bf8c   <<<<< DodgeChance
+100f78e6: call	dword ptr [eax + 0x1c]
+100f78e9: mov	dword ptr [edi + 0x2dc], eax
+100f78ef: mov	eax, dword ptr [esi]
+100f78f1: push	ecx
+100f78f2: mov	dword ptr [esp], 0x0
+100f78f9: mov	ecx, esi
+100f78fb: push	0x1052bf78   <<<<< MinDodgeDistance
+100f7900: mov	eax, dword ptr [eax + 0x24]
+100f7903: call	eax
+100f7905: fstp	dword ptr [edi + 0x3ac]
+100f790b: mov	eax, dword ptr [esi]
+100f790d: mov	ecx, esi
+100f790f: push	0x0
+100f7911: push	0x1052bfb0   <<<<< RepositionChance
+100f7916: call	dword ptr [eax + 0x1c]
+100f7919: mov	dword ptr [edi + 0x3b0], eax
+100f791f: mov	ecx, esi
+100f7921: mov	eax, dword ptr [esi]
+100f7923: push	0x0
+100f7925: push	0x1052bf98   <<<<< randomRepositionChance
+100f792a: call	dword ptr [eax + 0x1c]
+100f792d: mov	dword ptr [edi + 0x2e0], eax
+100f7933: mov	dword ptr [ebp - 0x18], 0x0
+100f793a: mov	dword ptr [ebp - 0x14], 0x0
+100f7941: mov	dword ptr [ebp - 0x10], 0x0
+100f7948: mov	byte ptr [ebp - 0x4], 0x1
+100f794c: lea	ecx, [ebp - 0x18]
+100f794f: mov	eax, dword ptr [esi]
+100f7951: push	ecx
+100f7952: push	0x1052bfdc   <<<<< LeadChance
+100f7957: mov	ecx, esi
+100f7959: call	dword ptr [eax + 0x34]
+100f795c: mov	edx, dword ptr [ebp - 0x18]
+100f795f: mov	ecx, dword ptr [ebp - 0x14]
+100f7962: cmp	edx, ecx
+100f7964: movss	xmm1, dword ptr [0x105f5780]
+100f796c: sete	al
+100f796f: test	al, al
+100f7971: jne	0x100f79d3 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xc33>
+100f7973: movd	xmm0, dword ptr [edx]
+100f7977: sub	ecx, edx
+100f7979: cvtdq2ps	xmm0, xmm0
+100f797c: sar	ecx, 0x2
+100f797f: mulss	xmm0, xmm1
+100f7983: movss	dword ptr [edi + 0x2e4], xmm0
+100f798b: cmp	ecx, 0x1
+100f798e: jbe	0x100f79bf <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xc1f>
+100f7990: movd	xmm0, dword ptr [edx + 0x4]
+100f7995: cvtdq2ps	xmm0, xmm0
+100f7998: mulss	xmm0, xmm1
+100f799c: movss	dword ptr [edi + 0x2e8], xmm0
+100f79a4: cmp	ecx, 0x2
+100f79a7: jbe	0x100f79b5 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xc15>
+100f79a9: movd	xmm0, dword ptr [edx + 0x8]
+100f79ae: cvtdq2ps	xmm0, xmm0
+100f79b1: mulss	xmm0, xmm1
+100f79b5: movss	dword ptr [edi + 0x2ec], xmm0
+100f79bd: jmp	0x100f79d3 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xc33>
+100f79bf: mov	eax, dword ptr [edi + 0x2e4]
+100f79c5: movss	dword ptr [edi + 0x2e8], xmm0
+100f79cd: mov	dword ptr [edi + 0x2ec], eax
+100f79d3: mov	eax, dword ptr [esi]
+100f79d5: mov	ecx, esi
+100f79d7: push	0x0
+100f79d9: push	0x1052bfc4   <<<<< ignoreSleepingEnemies
+100f79de: mov	eax, dword ptr [eax + 0x2c]
+100f79e1: call	eax
+100f79e3: mov	byte ptr [edi + 0x4d9], al
+100f79e9: mov	ecx, esi
+100f79eb: mov	eax, dword ptr [esi]
+100f79ed: push	0x64
+100f79ef: push	0x1052bffc   <<<<< randomEmoteChance
+100f79f4: call	dword ptr [eax + 0x1c]
+100f79f7: mov	dword ptr [edi + 0x514], eax
+100f79fd: mov	ecx, esi
+100f79ff: mov	eax, dword ptr [esi]
+100f7a01: push	0x1388
+100f7a06: push	0x1052bfe8   <<<<< randomEmoteMinTime
+100f7a0b: call	dword ptr [eax + 0x1c]
+100f7a0e: mov	dword ptr [edi + 0x518], eax
+100f7a14: mov	ecx, esi
+100f7a16: mov	eax, dword ptr [esi]
+100f7a18: push	0x2710
+100f7a1d: push	0x1052c024   <<<<< randomEmoteMaxTime
+100f7a22: call	dword ptr [eax + 0x1c]
+100f7a25: mov	dword ptr [edi + 0x51c], eax
+100f7a2b: mov	ecx, esi
+100f7a2d: mov	eax, dword ptr [esi]
+100f7a2f: push	0x0
+100f7a31: push	0x1052c010   <<<<< ignorePetsChance
+100f7a36: call	dword ptr [eax + 0x1c]
+100f7a39: mov	dword ptr [edi + 0x56c], eax
+100f7a3f: mov	ecx, esi
+100f7a41: mov	eax, dword ptr [esi]
+100f7a43: push	0x1388
+100f7a48: push	0x1052c050   <<<<< ignorePetsInterval
+100f7a4d: call	dword ptr [eax + 0x1c]
+100f7a50: mov	dword ptr [edi + 0x570], eax
+100f7a56: mov	ecx, esi
+100f7a58: mov	eax, dword ptr [esi]
+100f7a5a: push	0x0
+100f7a5c: push	0x1052c038   <<<<< petAngerTransference
+100f7a61: call	dword ptr [eax + 0x1c]
+100f7a64: push	0x3e8
+100f7a69: push	0x1052c07c   <<<<< petTargetLevelRange
+100f7a6e: mov	ecx, esi
+100f7a70: movd	xmm0, eax
+100f7a74: cvtdq2ps	xmm0, xmm0
+100f7a77: mulss	xmm0, dword ptr [0x105f5780]
+100f7a7f: movss	dword ptr [edi + 0x57c], xmm0
+100f7a87: mov	eax, dword ptr [esi]
+100f7a89: call	dword ptr [eax + 0x1c]
+100f7a8c: mov	dword ptr [edi + 0x580], eax
+100f7a92: mov	ecx, esi
+100f7a94: mov	eax, dword ptr [esi]
+100f7a96: push	0x0
+100f7a98: push	0x1052c064   <<<<< petTargetLeastAttacked
+100f7a9d: mov	eax, dword ptr [eax + 0x2c]
+100f7aa0: call	eax
+100f7aa2: mov	byte ptr [edi + 0x584], al
+100f7aa8: mov	ecx, esi
+100f7aaa: mov	eax, dword ptr [esi]
+100f7aac: push	0x0
+100f7aae: push	0x1052c090   <<<<< petTargetGreatestHealth
+100f7ab3: mov	eax, dword ptr [eax + 0x2c]
+100f7ab6: call	eax
+100f7ab8: mov	byte ptr [edi + 0x585], al
+100f7abe: mov	ecx, esi
+100f7ac0: mov	eax, dword ptr [esi]
+100f7ac2: push	0x104f0bd5
+100f7ac7: push	0x1052c0a8   <<<<< lootDropCallbackPoint
+100f7acc: call	dword ptr [eax + 0x14]
+100f7acf: mov	edx, eax
+100f7ad1: cmp	byte ptr [edx], 0x0
+100f7ad4: jne	0x100f7ada <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd3a>
+100f7ad6: xor	ecx, ecx
+100f7ad8: jmp	0x100f7ae9 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd49>
+100f7ada: mov	ecx, edx
+100f7adc: lea	ebx, [ecx + 0x1]
+100f7adf: nop
+100f7ae0: mov	al, byte ptr [ecx]
+100f7ae2: inc	ecx
+100f7ae3: test	al, al
+100f7ae5: jne	0x100f7ae0 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd40>
+100f7ae7: sub	ecx, ebx
+100f7ae9: push	ecx
+100f7aea: push	edx
+100f7aeb: lea	ecx, [edi + 0x64c]
+100f7af1: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7af6: mov	eax, dword ptr [esi]
+100f7af8: mov	ecx, esi
+100f7afa: push	0x104f0bd6
+100f7aff: push	0x1052c0c0   <<<<< lootDropAttachPointName
+100f7b04: call	dword ptr [eax + 0x14]
+100f7b07: mov	edx, eax
+100f7b09: mov	dword ptr [ebp - 0x34], 0xf
+100f7b10: mov	dword ptr [ebp - 0x38], 0x0
+100f7b17: mov	byte ptr [ebp - 0x48], 0x0
+100f7b1b: cmp	byte ptr [edx], 0x0
+100f7b1e: jne	0x100f7b24 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd84>
+100f7b20: xor	ecx, ecx
+100f7b22: jmp	0x100f7b39 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd99>
+100f7b24: mov	ecx, edx
+100f7b26: lea	ebx, [ecx + 0x1]
+100f7b29: nop	dword ptr [eax]
+100f7b30: mov	al, byte ptr [ecx]
+100f7b32: inc	ecx
+100f7b33: test	al, al
+100f7b35: jne	0x100f7b30 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xd90>
+100f7b37: sub	ecx, ebx
+100f7b39: push	ecx
+100f7b3a: push	edx
+100f7b3b: lea	ecx, [ebp - 0x48]
+100f7b3e: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7b43: mov	byte ptr [ebp - 0x4], 0x2
+100f7b47: cmp	dword ptr [ebp - 0x38], 0x0
+100f7b4b: je	0x100f7b6e <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xdce>
+100f7b4d: cmp	dword ptr [ebp - 0x34], 0x10
+100f7b51: lea	eax, [ebp - 0x48]
+100f7b54: cmovae	eax, dword ptr [ebp - 0x48]
+100f7b58: push	eax
+100f7b59: lea	eax, [ebp + 0x8]
+100f7b5c: push	eax
+100f7b5d: call	dword ptr [0x104e5258]
+100f7b63: add	esp, 0x8
+100f7b66: mov	eax, dword ptr [eax]
+100f7b68: mov	dword ptr [edi + 0x648], eax
+100f7b6e: mov	eax, dword ptr [esi]
+100f7b70: mov	ecx, esi
+100f7b72: push	0x104f0bd7
+100f7b77: push	0x1052c0e4   <<<<< dyingSkillCallbackPoint
+100f7b7c: call	dword ptr [eax + 0x14]
+100f7b7f: mov	edx, eax
+100f7b81: cmp	byte ptr [edx], 0x0
+100f7b84: jne	0x100f7b8a <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xdea>
+100f7b86: xor	ecx, ecx
+100f7b88: jmp	0x100f7b99 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xdf9>
+100f7b8a: mov	ecx, edx
+100f7b8c: lea	esi, [ecx + 0x1]
+100f7b8f: nop
+100f7b90: mov	al, byte ptr [ecx]
+100f7b92: inc	ecx
+100f7b93: test	al, al
+100f7b95: jne	0x100f7b90 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xdf0>
+100f7b97: sub	ecx, esi
+100f7b99: push	ecx
+100f7b9a: push	edx
+100f7b9b: lea	ecx, [edi + 0x664]
+100f7ba1: call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f7ba6: mov	edx, dword ptr [ebp - 0x34]
+100f7ba9: pop	edi
+100f7baa: pop	esi
+100f7bab: pop	ebx
+100f7bac: cmp	edx, 0x10
+100f7baf: jb	0x100f7bbf <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xe1f>
+100f7bb1: mov	ecx, dword ptr [ebp - 0x48]
+100f7bb4: inc	edx
+100f7bb5: push	0x1
+100f7bb7: call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f7bbc: add	esp, 0x4
+100f7bbf: mov	ecx, dword ptr [ebp - 0x18]
+100f7bc2: mov	dword ptr [ebp - 0x34], 0xf
+100f7bc9: mov	dword ptr [ebp - 0x38], 0x0
+100f7bd0: mov	byte ptr [ebp - 0x48], 0x0
+100f7bd4: test	ecx, ecx
+100f7bd6: je	0x100f7bff <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xe5f>
+100f7bd8: mov	edx, dword ptr [ebp - 0x10]
+100f7bdb: sub	edx, ecx
+100f7bdd: push	0x4
+100f7bdf: sar	edx, 0x2
+100f7be2: call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f7be7: add	esp, 0x4
+100f7bea: mov	dword ptr [ebp - 0x18], 0x0
+100f7bf1: mov	dword ptr [ebp - 0x14], 0x0
+100f7bf8: mov	dword ptr [ebp - 0x10], 0x0
+100f7bff: mov	edx, dword ptr [ebp - 0x1c]
+100f7c02: cmp	edx, 0x10
+100f7c05: jb	0x100f7c15 <?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z+0xe75>
+100f7c07: mov	ecx, dword ptr [ebp - 0x30]
+100f7c0a: inc	edx
+100f7c0b: push	0x1
+100f7c0d: call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f7c12: add	esp, 0x4
+100f7c15: mov	ecx, dword ptr [ebp - 0xc]
+100f7c18: mov	dword ptr fs:[0x0], ecx
+100f7c1f: mov	esp, ebp
+100f7c21: pop	ebp
+100f7c22: ret	0x4
+100f7c25: int3
+100f7c26: int3
+100f7c27: int3
+100f7c28: int3
+100f7c29: int3
+100f7c2a: int3
+100f7c2b: int3
+100f7c2c: int3
+100f7c2d: int3
+100f7c2e: int3
+100f7c2f: int3

@@ -1,0 +1,538 @@
+{
+  "ViewDistance": {
+    "addr": "0x100f6dcf",
+    "literal_va": "0x10528e08",
+    "default": "0x41700000",
+    "conversion_mul": null,
+    "slot": "0x21c",
+    "store": "fstp\tdword ptr [edi + 0x21c]"
+  },
+  "pathingViewDistance": {
+    "addr": "0x100f6deb",
+    "literal_va": "0x10528e50",
+    "default": "0x0",
+    "conversion_mul": null,
+    "slot": "0x220",
+    "store": "fstp\tdword ptr [edi + 0x220]"
+  },
+  "minSwingPause": {
+    "addr": "0x100f6e20",
+    "literal_va": "0x1052b990",
+    "default": "0x0",
+    "conversion_mul": 1000.0,
+    "slot": null,
+    "store": null
+  },
+  "maxSwingPause": {
+    "addr": "0x100f6e3a",
+    "literal_va": "0x1052b980",
+    "default": "0x0",
+    "conversion_mul": null,
+    "slot": "0x2f0",
+    "store": "mov\tdword ptr [edi + 0x2f0], eax"
+  },
+  "FleeTime": {
+    "addr": "0x100f6e90",
+    "literal_va": "0x1052b9b0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x310",
+    "store": "mov\tdword ptr [edi + 0x310], eax"
+  },
+  "maxFleeCount": {
+    "addr": "0x100f7073",
+    "literal_va": "0x1052baac",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x30c",
+    "store": "mov\tdword ptr [edi + 0x30c], eax"
+  },
+  "fleeDistance": {
+    "addr": "0x100f6ebe",
+    "literal_va": "0x1052b9d4",
+    "default": "0x40a00000",
+    "conversion_mul": null,
+    "slot": "0x318",
+    "store": "fstp\tdword ptr [edi + 0x318]"
+  },
+  "ClearAngerWhenFleeing": {
+    "addr": "0x100f6ed4",
+    "literal_va": "0x1052b9bc",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x31c",
+    "store": "mov\tbyte ptr [edi + 0x31c], al"
+  },
+  "ResetOriginAfterFleeing": {
+    "addr": "0x100f6eea",
+    "literal_va": "0x1052b9f0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x3a4",
+    "store": "mov\tbyte ptr [edi + 0x3a4], al"
+  },
+  "FleeBehavior": {
+    "addr": "0x100f6f03",
+    "literal_va": "0x1052ba14",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "FleeTarget": {
+    "addr": "0x100f6fca",
+    "literal_va": "0x1052ba78",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "FleeDelay": {
+    "addr": "0x100f708a",
+    "literal_va": "0x1052baa0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x314",
+    "store": "mov\tdword ptr [edi + 0x314], eax"
+  },
+  "FleeChance": {
+    "addr": "0x100f709e",
+    "literal_va": "0x1052bad0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x2d8",
+    "store": "mov\tdword ptr [edi + 0x2d8], eax"
+  },
+  "InnerViewDistance": {
+    "addr": "0x100f70b8",
+    "literal_va": "0x1052babc",
+    "default": "0x40a00000",
+    "conversion_mul": null,
+    "slot": "0x388",
+    "store": "fstp\tdword ptr [edi + 0x388]"
+  },
+  "MaxYViewDistance": {
+    "addr": "0x100f70d4",
+    "literal_va": "0x1052bae8",
+    "default": "0x0",
+    "conversion_mul": null,
+    "slot": "0x38c",
+    "store": "fstp\tdword ptr [edi + 0x38c]"
+  },
+  "PursuitTime": {
+    "addr": "0x100f70ed",
+    "literal_va": "0x1052badc",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x2fc",
+    "store": "mov\tdword ptr [edi + 0x2fc], eax"
+  },
+  "MaxPursuitDistance": {
+    "addr": "0x100f7114",
+    "literal_va": "0x1052bb08",
+    "default": "0x0",
+    "conversion_mul": null,
+    "slot": "0x300",
+    "store": "fstp\tdword ptr [edi + 0x300]"
+  },
+  "RoamBehavior": {
+    "addr": "0x100f712d",
+    "literal_va": "0x1052bb28",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "MinRoamDistance": {
+    "addr": "0x100f71c2",
+    "literal_va": "0x1052bb38",
+    "default": "0x40000000",
+    "conversion_mul": null,
+    "slot": "0x39c",
+    "store": "fstp\tdword ptr [edi + 0x39c]"
+  },
+  "RoamDistance": {
+    "addr": "0x100f71de",
+    "literal_va": "0x1052bb64",
+    "default": "0x41200000",
+    "conversion_mul": null,
+    "slot": "0x374",
+    "store": "fstp\tdword ptr [edi + 0x374]"
+  },
+  "MinTimeBeforeRoam": {
+    "addr": "0x100f71f7",
+    "literal_va": "0x1052bb50",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x394",
+    "store": "mov\tdword ptr [edi + 0x394], eax"
+  },
+  "MaxTimeBeforeRoam": {
+    "addr": "0x100f720e",
+    "literal_va": "0x1052bb88",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x398",
+    "store": "mov\tdword ptr [edi + 0x398], eax"
+  },
+  "MinWanderDistance": {
+    "addr": "0x100f7228",
+    "literal_va": "0x1052bb74",
+    "default": "0x40000000",
+    "conversion_mul": null,
+    "slot": "0x3a0",
+    "store": "fstp\tdword ptr [edi + 0x3a0]"
+  },
+  "WanderDistance": {
+    "addr": "0x100f7244",
+    "literal_va": "0x1052bbb8",
+    "default": "0x40a00000",
+    "conversion_mul": null,
+    "slot": "0x370",
+    "store": "fstp\tdword ptr [edi + 0x370]"
+  },
+  "TeleportToLeaderDistance": {
+    "addr": "0x100f7260",
+    "literal_va": "0x1052bb9c",
+    "default": "0x41a00000",
+    "conversion_mul": null,
+    "slot": "0x378",
+    "store": "fstp\tdword ptr [edi + 0x378]"
+  },
+  "BuffSelfBehavior": {
+    "addr": "0x100f7279",
+    "literal_va": "0x1052bbc8",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "BuffAllyBehavior": {
+    "addr": "0x100f7342",
+    "literal_va": "0x1052bc2c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "BuffAllyTargeting": {
+    "addr": "0x100f740e",
+    "literal_va": "0x1052bc90",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "DebuffEnemyBehavior": {
+    "addr": "0x100f74c4",
+    "literal_va": "0x1052bcf8",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "ChanceToRespondToDistressCall": {
+    "addr": "0x100f756c",
+    "literal_va": "0x1052bd28",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x338",
+    "store": "mov\tdword ptr [edi + 0x338], eax"
+  },
+  "DistressResponseGroup": {
+    "addr": "0x100f7583",
+    "literal_va": "0x1052bd58",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "DistressResponseBehavior": {
+    "addr": "0x100f75bf",
+    "literal_va": "0x1052bd84",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "healLeaderHealthPercentage": {
+    "addr": "0x100f7739",
+    "literal_va": "0x1052be20",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x358",
+    "store": "mov\tdword ptr [edi + 0x358], eax"
+  },
+  "healAllyHealthPercentage": {
+    "addr": "0x100f774d",
+    "literal_va": "0x1052be64",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x35c",
+    "store": "mov\tdword ptr [edi + 0x35c], eax"
+  },
+  "ChanceToIdleOnPatrol": {
+    "addr": "0x100f7761",
+    "literal_va": "0x1052be4c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x37c",
+    "store": "mov\tdword ptr [edi + 0x37c], eax"
+  },
+  "MinPatrolIdleTime": {
+    "addr": "0x100f7778",
+    "literal_va": "0x1052be94",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x380",
+    "store": "mov\tdword ptr [edi + 0x380], eax"
+  },
+  "MaxPatrolIdleTime": {
+    "addr": "0x100f778f",
+    "literal_va": "0x1052be80",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x384",
+    "store": "mov\tdword ptr [edi + 0x384], eax"
+  },
+  "AngerTolerance": {
+    "addr": "0x100f77a9",
+    "literal_va": "0x1052beb8",
+    "default": "0x41200000",
+    "conversion_mul": null,
+    "slot": "0x294",
+    "store": "fstp\tdword ptr [edi + 0x294]"
+  },
+  "AttackedAnger": {
+    "addr": "0x100f77c5",
+    "literal_va": "0x1052bea8",
+    "default": "0x42c80000",
+    "conversion_mul": null,
+    "slot": "0x298",
+    "store": "fstp\tdword ptr [edi + 0x298]"
+  },
+  "AllyAttackedAnger": {
+    "addr": "0x100f77e1",
+    "literal_va": "0x1052bed8",
+    "default": "0x3f800000",
+    "conversion_mul": null,
+    "slot": "0x29c",
+    "store": "fstp\tdword ptr [edi + 0x29c]"
+  },
+  "SightAngerRate": {
+    "addr": "0x100f77fd",
+    "literal_va": "0x1052bec8",
+    "default": "0x41a00000",
+    "conversion_mul": null,
+    "slot": "0x2a0",
+    "store": "fstp\tdword ptr [edi + 0x2a0]"
+  },
+  "InnerSightAngerRate": {
+    "addr": "0x100f7819",
+    "literal_va": "0x1052befc",
+    "default": "0x41a00000",
+    "conversion_mul": null,
+    "slot": "0x2a8",
+    "store": "fstp\tdword ptr [edi + 0x2a8]"
+  },
+  "ProjectileAnger": {
+    "addr": "0x100f7835",
+    "literal_va": "0x1052beec",
+    "default": "0x41a00000",
+    "conversion_mul": null,
+    "slot": "0x2ac",
+    "store": "fstp\tdword ptr [edi + 0x2ac]"
+  },
+  "ForgiveRate": {
+    "addr": "0x100f7851",
+    "literal_va": "0x1052bf20",
+    "default": "0x42480000",
+    "conversion_mul": null,
+    "slot": "0x2a4",
+    "store": "fstp\tdword ptr [edi + 0x2a4]"
+  },
+  "enemyTooClose": {
+    "addr": "0x100f786d",
+    "literal_va": "0x1052bf10",
+    "default": "0x40a00000",
+    "conversion_mul": null,
+    "slot": "0x2b4",
+    "store": "fstp\tdword ptr [edi + 0x2b4]"
+  },
+  "RandomAngerChance": {
+    "addr": "0x100f7883",
+    "literal_va": "0x1052bf48",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x390",
+    "store": "mov\tdword ptr [edi + 0x390], eax"
+  },
+  "RandomAngerEvaluationTime": {
+    "addr": "0x100f789a",
+    "literal_va": "0x1052bf2c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x504",
+    "store": "mov\tdword ptr [edi + 0x504], eax"
+  },
+  "DodgeDelay": {
+    "addr": "0x100f78b1",
+    "literal_va": "0x1052bf6c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x510",
+    "store": "mov\tdword ptr [edi + 0x510], eax"
+  },
+  "DodgeDistance": {
+    "addr": "0x100f78cb",
+    "literal_va": "0x1052bf5c",
+    "default": "0x40800000",
+    "conversion_mul": null,
+    "slot": "0x3a8",
+    "store": "fstp\tdword ptr [edi + 0x3a8]"
+  },
+  "DodgeChance": {
+    "addr": "0x100f78e1",
+    "literal_va": "0x1052bf8c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x2dc",
+    "store": "mov\tdword ptr [edi + 0x2dc], eax"
+  },
+  "MinDodgeDistance": {
+    "addr": "0x100f78fb",
+    "literal_va": "0x1052bf78",
+    "default": "0x0",
+    "conversion_mul": null,
+    "slot": "0x3ac",
+    "store": "fstp\tdword ptr [edi + 0x3ac]"
+  },
+  "RepositionChance": {
+    "addr": "0x100f7911",
+    "literal_va": "0x1052bfb0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x3b0",
+    "store": "mov\tdword ptr [edi + 0x3b0], eax"
+  },
+  "randomRepositionChance": {
+    "addr": "0x100f7925",
+    "literal_va": "0x1052bf98",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x2e0",
+    "store": "mov\tdword ptr [edi + 0x2e0], eax"
+  },
+  "LeadChance": {
+    "addr": "0x100f7952",
+    "literal_va": "0x1052bfdc",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "ignoreSleepingEnemies": {
+    "addr": "0x100f79d9",
+    "literal_va": "0x1052bfc4",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x4d9",
+    "store": "mov\tbyte ptr [edi + 0x4d9], al"
+  },
+  "randomEmoteChance": {
+    "addr": "0x100f79ef",
+    "literal_va": "0x1052bffc",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x514",
+    "store": "mov\tdword ptr [edi + 0x514], eax"
+  },
+  "randomEmoteMinTime": {
+    "addr": "0x100f7a06",
+    "literal_va": "0x1052bfe8",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x518",
+    "store": "mov\tdword ptr [edi + 0x518], eax"
+  },
+  "randomEmoteMaxTime": {
+    "addr": "0x100f7a1d",
+    "literal_va": "0x1052c024",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x51c",
+    "store": "mov\tdword ptr [edi + 0x51c], eax"
+  },
+  "ignorePetsChance": {
+    "addr": "0x100f7a31",
+    "literal_va": "0x1052c010",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x56c",
+    "store": "mov\tdword ptr [edi + 0x56c], eax"
+  },
+  "ignorePetsInterval": {
+    "addr": "0x100f7a48",
+    "literal_va": "0x1052c050",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x570",
+    "store": "mov\tdword ptr [edi + 0x570], eax"
+  },
+  "petAngerTransference": {
+    "addr": "0x100f7a5c",
+    "literal_va": "0x1052c038",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "petTargetLevelRange": {
+    "addr": "0x100f7a69",
+    "literal_va": "0x1052c07c",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x580",
+    "store": "mov\tdword ptr [edi + 0x580], eax"
+  },
+  "petTargetLeastAttacked": {
+    "addr": "0x100f7a98",
+    "literal_va": "0x1052c064",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x584",
+    "store": "mov\tbyte ptr [edi + 0x584], al"
+  },
+  "petTargetGreatestHealth": {
+    "addr": "0x100f7aae",
+    "literal_va": "0x1052c090",
+    "default": null,
+    "conversion_mul": null,
+    "slot": "0x585",
+    "store": "mov\tbyte ptr [edi + 0x585], al"
+  },
+  "lootDropCallbackPoint": {
+    "addr": "0x100f7ac7",
+    "literal_va": "0x1052c0a8",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "lootDropAttachPointName": {
+    "addr": "0x100f7aff",
+    "literal_va": "0x1052c0c0",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  },
+  "dyingSkillCallbackPoint": {
+    "addr": "0x100f7b77",
+    "literal_va": "0x1052c0e4",
+    "default": null,
+    "conversion_mul": null,
+    "slot": null,
+    "store": null
+  }
+}

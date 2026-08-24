@@ -1,0 +1,665 @@
+
+### ?Update@ControllerMonster@GAME@@UAEXH@Z @0xf6200
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100f6200 <?Update@ControllerMonster@GAME@@UAEXH@Z>:
+100f6200: 55                           	push	ebp
+100f6201: 8b ec                        	mov	ebp, esp
+100f6203: 6a ff                        	push	-0x1
+100f6205: 68 81 7f 4c 10               	push	0x104c7f81
+100f620a: 64 a1 00 00 00 00            	mov	eax, dword ptr fs:[0x0]
+100f6210: 50                           	push	eax
+100f6211: 64 89 25 00 00 00 00         	mov	dword ptr fs:[0x0], esp
+100f6218: 83 ec 74                     	sub	esp, 0x74
+100f621b: 53                           	push	ebx
+100f621c: 56                           	push	esi
+100f621d: 57                           	push	edi
+100f621e: 8b f9                        	mov	edi, ecx
+100f6220: c7 45 e8 00 00 00 00         	mov	dword ptr [ebp - 0x18], 0x0
+100f6227: 8b 35 4c 50 4e 10            	mov	esi, dword ptr [0x104e504c]
+100f622d: 80 bf db 04 00 00 00         	cmp	byte ptr [edi + 0x4db], 0x0
+100f6234: 74 45                        	je	0x100f627b <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7b>
+100f6236: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f6239: ff d6                        	call	esi
+100f623b: 8b c8                        	mov	ecx, eax
+100f623d: e8 7e 4e f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f6242: 0f 57 c9                     	xorps	xmm1, xmm1
+100f6245: f3 0f 10 80 b8 37 00 00      	movss	xmm0, dword ptr [eax + 0x37b8]
+100f624d: f3 0f 59 05 18 59 5f 10      	mulss	xmm0, dword ptr [0x105f5918]
+100f6255: 0f 2e c1                     	ucomiss	xmm0, xmm1
+100f6258: 9f                           	lahf
+100f6259: f6 c4 44                     	test	ah, 0x44
+100f625c: 7b 0a                        	jnp	0x100f6268 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x68>
+100f625e: f3 0f 2c c0                  	cvttss2si	eax, xmm0
+100f6262: 89 87 40 05 00 00            	mov	dword ptr [edi + 0x540], eax
+100f6268: 8b 87 cc 03 00 00            	mov	eax, dword ptr [edi + 0x3cc]
+100f626e: 89 87 d0 03 00 00            	mov	dword ptr [edi + 0x3d0], eax
+100f6274: c6 87 db 04 00 00 00         	mov	byte ptr [edi + 0x4db], 0x0
+100f627b: 6a 05                        	push	0x5
+100f627d: 68 48 b9 52 10               	push	0x1052b948
+100f6282: 8d 4d a0                     	lea	ecx, [ebp - 0x60]
+100f6285: c7 45 b4 0f 00 00 00         	mov	dword ptr [ebp - 0x4c], 0xf
+100f628c: c7 45 b0 00 00 00 00         	mov	dword ptr [ebp - 0x50], 0x0
+100f6293: c6 45 a0 00                  	mov	byte ptr [ebp - 0x60], 0x0
+100f6297: e8 e4 28 f1 ff               	call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f629c: 8d 45 a0                     	lea	eax, [ebp - 0x60]
+100f629f: c7 45 fc 00 00 00 00         	mov	dword ptr [ebp - 0x4], 0x0
+100f62a6: bb 01 00 00 00               	mov	ebx, 0x1
+100f62ab: 8b cf                        	mov	ecx, edi
+100f62ad: 50                           	push	eax
+100f62ae: 89 5d e8                     	mov	dword ptr [ebp - 0x18], ebx
+100f62b1: e8 aa 23 ff ff               	call	0x100e8660 <?IsInState@ControllerAI@GAME@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z>
+100f62b6: 84 c0                        	test	al, al
+100f62b8: 75 38                        	jne	0x100f62f2 <?Update@ControllerMonster@GAME@@UAEXH@Z+0xf2>
+100f62ba: 6a 04                        	push	0x4
+100f62bc: 68 40 b9 52 10               	push	0x1052b940
+100f62c1: 8d 4d cc                     	lea	ecx, [ebp - 0x34]
+100f62c4: c7 45 e0 0f 00 00 00         	mov	dword ptr [ebp - 0x20], 0xf
+100f62cb: c7 45 dc 00 00 00 00         	mov	dword ptr [ebp - 0x24], 0x0
+100f62d2: 88 45 cc                     	mov	byte ptr [ebp - 0x34], al
+100f62d5: e8 a6 28 f1 ff               	call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f62da: 8d 45 cc                     	lea	eax, [ebp - 0x34]
+100f62dd: 8b cf                        	mov	ecx, edi
+100f62df: 50                           	push	eax
+100f62e0: bb 03 00 00 00               	mov	ebx, 0x3
+100f62e5: e8 76 23 ff ff               	call	0x100e8660 <?IsInState@ControllerAI@GAME@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z>
+100f62ea: c6 45 ef 01                  	mov	byte ptr [ebp - 0x11], 0x1
+100f62ee: 84 c0                        	test	al, al
+100f62f0: 74 04                        	je	0x100f62f6 <?Update@ControllerMonster@GAME@@UAEXH@Z+0xf6>
+100f62f2: c6 45 ef 00                  	mov	byte ptr [ebp - 0x11], 0x0
+100f62f6: f6 c3 02                     	test	bl, 0x2
+100f62f9: 74 28                        	je	0x100f6323 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x123>
+100f62fb: 8b 55 e0                     	mov	edx, dword ptr [ebp - 0x20]
+100f62fe: 83 fa 10                     	cmp	edx, 0x10
+100f6301: 72 0e                        	jb	0x100f6311 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x111>
+100f6303: 8b 4d cc                     	mov	ecx, dword ptr [ebp - 0x34]
+100f6306: 42                           	inc	edx
+100f6307: 6a 01                        	push	0x1
+100f6309: e8 f2 29 f1 ff               	call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f630e: 83 c4 04                     	add	esp, 0x4
+100f6311: c7 45 e0 0f 00 00 00         	mov	dword ptr [ebp - 0x20], 0xf
+100f6318: c7 45 dc 00 00 00 00         	mov	dword ptr [ebp - 0x24], 0x0
+100f631f: c6 45 cc 00                  	mov	byte ptr [ebp - 0x34], 0x0
+100f6323: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100f632a: 8b 55 b4                     	mov	edx, dword ptr [ebp - 0x4c]
+100f632d: 83 fa 10                     	cmp	edx, 0x10
+100f6330: 72 0e                        	jb	0x100f6340 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x140>
+100f6332: 8b 4d a0                     	mov	ecx, dword ptr [ebp - 0x60]
+100f6335: 42                           	inc	edx
+100f6336: 6a 01                        	push	0x1
+100f6338: e8 c3 29 f1 ff               	call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f633d: 83 c4 04                     	add	esp, 0x4
+100f6340: 80 7d ef 00                  	cmp	byte ptr [ebp - 0x11], 0x0
+100f6344: 8b 5d 08                     	mov	ebx, dword ptr [ebp + 0x8]
+100f6347: 0f 84 60 06 00 00            	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f634d: 29 9f 74 05 00 00            	sub	dword ptr [edi + 0x574], ebx
+100f6353: 83 bf 74 05 00 00 00         	cmp	dword ptr [edi + 0x574], 0x0
+100f635a: 7f 29                        	jg	0x100f6385 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x185>
+100f635c: 8b 87 70 05 00 00            	mov	eax, dword ptr [edi + 0x570]
+100f6362: 89 87 74 05 00 00            	mov	dword ptr [edi + 0x574], eax
+100f6368: ff 15 0c 65 4e 10            	call	dword ptr [0x104e650c]
+100f636e: 99                           	cdq
+100f636f: b9 65 00 00 00               	mov	ecx, 0x65
+100f6374: f7 f9                        	idiv	ecx
+100f6376: 3b 97 6c 05 00 00            	cmp	edx, dword ptr [edi + 0x56c]
+100f637c: 0f 9c c0                     	setl	al
+100f637f: 88 87 78 05 00 00            	mov	byte ptr [edi + 0x578], al
+100f6385: 83 bf f8 02 00 00 00         	cmp	dword ptr [edi + 0x2f8], 0x0
+100f638c: 7e 25                        	jle	0x100f63b3 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1b3>
+100f638e: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f6391: ff d6                        	call	esi
+100f6393: 8b c8                        	mov	ecx, eax
+100f6395: e8 26 4d f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f639a: 85 c0                        	test	eax, eax
+100f639c: 74 15                        	je	0x100f63b3 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1b3>
+100f639e: 8b 10                        	mov	edx, dword ptr [eax]
+100f63a0: 8b c8                        	mov	ecx, eax
+100f63a2: ff 92 28 02 00 00            	call	dword ptr [edx + 0x228]
+100f63a8: 83 f8 07                     	cmp	eax, 0x7
+100f63ab: 74 06                        	je	0x100f63b3 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1b3>
+100f63ad: 29 9f f8 02 00 00            	sub	dword ptr [edi + 0x2f8], ebx
+100f63b3: 8b 87 f8 03 00 00            	mov	eax, dword ptr [edi + 0x3f8]
+100f63b9: 85 c0                        	test	eax, eax
+100f63bb: 7e 08                        	jle	0x100f63c5 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1c5>
+100f63bd: 2b c3                        	sub	eax, ebx
+100f63bf: 89 87 f8 03 00 00            	mov	dword ptr [edi + 0x3f8], eax
+100f63c5: 8b 87 14 04 00 00            	mov	eax, dword ptr [edi + 0x414]
+100f63cb: 85 c0                        	test	eax, eax
+100f63cd: 7e 08                        	jle	0x100f63d7 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1d7>
+100f63cf: 2b c3                        	sub	eax, ebx
+100f63d1: 89 87 14 04 00 00            	mov	dword ptr [edi + 0x414], eax
+100f63d7: 8b 87 30 04 00 00            	mov	eax, dword ptr [edi + 0x430]
+100f63dd: 85 c0                        	test	eax, eax
+100f63df: 7e 08                        	jle	0x100f63e9 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1e9>
+100f63e1: 2b c3                        	sub	eax, ebx
+100f63e3: 89 87 30 04 00 00            	mov	dword ptr [edi + 0x430], eax
+100f63e9: 8b 87 4c 04 00 00            	mov	eax, dword ptr [edi + 0x44c]
+100f63ef: 85 c0                        	test	eax, eax
+100f63f1: 7e 08                        	jle	0x100f63fb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x1fb>
+100f63f3: 2b c3                        	sub	eax, ebx
+100f63f5: 89 87 4c 04 00 00            	mov	dword ptr [edi + 0x44c], eax
+100f63fb: 8b 87 68 04 00 00            	mov	eax, dword ptr [edi + 0x468]
+100f6401: 85 c0                        	test	eax, eax
+100f6403: 7e 08                        	jle	0x100f640d <?Update@ControllerMonster@GAME@@UAEXH@Z+0x20d>
+100f6405: 2b c3                        	sub	eax, ebx
+100f6407: 89 87 68 04 00 00            	mov	dword ptr [edi + 0x468], eax
+100f640d: 8b 87 84 04 00 00            	mov	eax, dword ptr [edi + 0x484]
+100f6413: 85 c0                        	test	eax, eax
+100f6415: 7e 08                        	jle	0x100f641f <?Update@ControllerMonster@GAME@@UAEXH@Z+0x21f>
+100f6417: 2b c3                        	sub	eax, ebx
+100f6419: 89 87 84 04 00 00            	mov	dword ptr [edi + 0x484], eax
+100f641f: 8b 87 a0 04 00 00            	mov	eax, dword ptr [edi + 0x4a0]
+100f6425: 85 c0                        	test	eax, eax
+100f6427: 7e 08                        	jle	0x100f6431 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x231>
+100f6429: 2b c3                        	sub	eax, ebx
+100f642b: 89 87 a0 04 00 00            	mov	dword ptr [edi + 0x4a0], eax
+100f6431: 8b 87 bc 04 00 00            	mov	eax, dword ptr [edi + 0x4bc]
+100f6437: 85 c0                        	test	eax, eax
+100f6439: 7e 08                        	jle	0x100f6443 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x243>
+100f643b: 2b c3                        	sub	eax, ebx
+100f643d: 89 87 bc 04 00 00            	mov	dword ptr [edi + 0x4bc], eax
+100f6443: 8b 87 0c 05 00 00            	mov	eax, dword ptr [edi + 0x50c]
+100f6449: 85 c0                        	test	eax, eax
+100f644b: 7e 08                        	jle	0x100f6455 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x255>
+100f644d: 2b c3                        	sub	eax, ebx
+100f644f: 89 87 0c 05 00 00            	mov	dword ptr [edi + 0x50c], eax
+100f6455: 80 bf d8 04 00 00 00         	cmp	byte ptr [edi + 0x4d8], 0x0
+100f645c: 0f 84 90 00 00 00            	je	0x100f64f2 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2f2>
+100f6462: 8b 87 fc 03 00 00            	mov	eax, dword ptr [edi + 0x3fc]
+100f6468: 85 c0                        	test	eax, eax
+100f646a: 7e 08                        	jle	0x100f6474 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x274>
+100f646c: 2b c3                        	sub	eax, ebx
+100f646e: 89 87 fc 03 00 00            	mov	dword ptr [edi + 0x3fc], eax
+100f6474: 8b 87 18 04 00 00            	mov	eax, dword ptr [edi + 0x418]
+100f647a: 85 c0                        	test	eax, eax
+100f647c: 7e 08                        	jle	0x100f6486 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x286>
+100f647e: 2b c3                        	sub	eax, ebx
+100f6480: 89 87 18 04 00 00            	mov	dword ptr [edi + 0x418], eax
+100f6486: 8b 87 34 04 00 00            	mov	eax, dword ptr [edi + 0x434]
+100f648c: 85 c0                        	test	eax, eax
+100f648e: 7e 08                        	jle	0x100f6498 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x298>
+100f6490: 2b c3                        	sub	eax, ebx
+100f6492: 89 87 34 04 00 00            	mov	dword ptr [edi + 0x434], eax
+100f6498: 8b 87 50 04 00 00            	mov	eax, dword ptr [edi + 0x450]
+100f649e: 85 c0                        	test	eax, eax
+100f64a0: 7e 08                        	jle	0x100f64aa <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2aa>
+100f64a2: 2b c3                        	sub	eax, ebx
+100f64a4: 89 87 50 04 00 00            	mov	dword ptr [edi + 0x450], eax
+100f64aa: 8b 87 6c 04 00 00            	mov	eax, dword ptr [edi + 0x46c]
+100f64b0: 85 c0                        	test	eax, eax
+100f64b2: 7e 08                        	jle	0x100f64bc <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2bc>
+100f64b4: 2b c3                        	sub	eax, ebx
+100f64b6: 89 87 6c 04 00 00            	mov	dword ptr [edi + 0x46c], eax
+100f64bc: 8b 87 88 04 00 00            	mov	eax, dword ptr [edi + 0x488]
+100f64c2: 85 c0                        	test	eax, eax
+100f64c4: 7e 08                        	jle	0x100f64ce <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2ce>
+100f64c6: 2b c3                        	sub	eax, ebx
+100f64c8: 89 87 88 04 00 00            	mov	dword ptr [edi + 0x488], eax
+100f64ce: 8b 87 a4 04 00 00            	mov	eax, dword ptr [edi + 0x4a4]
+100f64d4: 85 c0                        	test	eax, eax
+100f64d6: 7e 08                        	jle	0x100f64e0 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2e0>
+100f64d8: 2b c3                        	sub	eax, ebx
+100f64da: 89 87 a4 04 00 00            	mov	dword ptr [edi + 0x4a4], eax
+100f64e0: 8b 87 c0 04 00 00            	mov	eax, dword ptr [edi + 0x4c0]
+100f64e6: 85 c0                        	test	eax, eax
+100f64e8: 7e 08                        	jle	0x100f64f2 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x2f2>
+100f64ea: 2b c3                        	sub	eax, ebx
+100f64ec: 89 87 c0 04 00 00            	mov	dword ptr [edi + 0x4c0], eax
+100f64f2: 8b 87 2c 05 00 00            	mov	eax, dword ptr [edi + 0x52c]
+100f64f8: 85 c0                        	test	eax, eax
+100f64fa: 7e 08                        	jle	0x100f6504 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x304>
+100f64fc: 2b c3                        	sub	eax, ebx
+100f64fe: 89 87 2c 05 00 00            	mov	dword ptr [edi + 0x52c], eax
+100f6504: 8b 87 30 05 00 00            	mov	eax, dword ptr [edi + 0x530]
+100f650a: 85 c0                        	test	eax, eax
+100f650c: 7e 08                        	jle	0x100f6516 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x316>
+100f650e: 2b c3                        	sub	eax, ebx
+100f6510: 89 87 30 05 00 00            	mov	dword ptr [edi + 0x530], eax
+100f6516: 8b 87 20 05 00 00            	mov	eax, dword ptr [edi + 0x520]
+100f651c: 85 c0                        	test	eax, eax
+100f651e: 7e 08                        	jle	0x100f6528 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x328>
+100f6520: 2b c3                        	sub	eax, ebx
+100f6522: 89 87 20 05 00 00            	mov	dword ptr [edi + 0x520], eax
+100f6528: 83 bf 20 05 00 00 00         	cmp	dword ptr [edi + 0x520], 0x0
+100f652f: 0f 8f f9 00 00 00            	jg	0x100f662e <?Update@ControllerMonster@GAME@@UAEXH@Z+0x42e>
+100f6535: 8b 0d a4 80 80 10            	mov	ecx, dword ptr [0x108080a4]
+100f653b: ff b7 1c 05 00 00            	push	dword ptr [edi + 0x51c]
+100f6541: ff b7 18 05 00 00            	push	dword ptr [edi + 0x518]
+100f6547: 8d 89 04 0c 00 00            	lea	ecx, [ecx + 0xc04]
+100f654d: ff 15 44 55 4e 10            	call	dword ptr [0x104e5544]
+100f6553: 89 87 20 05 00 00            	mov	dword ptr [edi + 0x520], eax
+100f6559: ff 15 0c 65 4e 10            	call	dword ptr [0x104e650c]
+100f655f: 99                           	cdq
+100f6560: b9 64 00 00 00               	mov	ecx, 0x64
+100f6565: f7 f9                        	idiv	ecx
+100f6567: 3b 97 14 05 00 00            	cmp	edx, dword ptr [edi + 0x514]
+100f656d: 0f 8d bb 00 00 00            	jge	0x100f662e <?Update@ControllerMonster@GAME@@UAEXH@Z+0x42e>
+100f6573: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f6576: ff d6                        	call	esi
+100f6578: 8b c8                        	mov	ecx, eax
+100f657a: e8 41 4b f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f657f: 33 c9                        	xor	ecx, ecx
+100f6581: 8d 90 50 1c 00 00            	lea	edx, [eax + 0x1c50]
+100f6587: 83 3a 00                     	cmp	dword ptr [edx], 0x0
+100f658a: 75 11                        	jne	0x100f659d <?Update@ControllerMonster@GAME@@UAEXH@Z+0x39d>
+100f658c: 41                           	inc	ecx
+100f658d: 83 c2 04                     	add	edx, 0x4
+100f6590: 83 f9 02                     	cmp	ecx, 0x2
+100f6593: 72 f2                        	jb	0x100f6587 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x387>
+100f6595: 8b 88 0c 1c 00 00            	mov	ecx, dword ptr [eax + 0x1c0c]
+100f659b: eb 07                        	jmp	0x100f65a4 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x3a4>
+100f659d: 8b 8c 88 50 1c 00 00         	mov	ecx, dword ptr [eax + 4*ecx + 0x1c50]
+100f65a4: 85 c9                        	test	ecx, ecx
+100f65a6: 0f 84 82 00 00 00            	je	0x100f662e <?Update@ControllerMonster@GAME@@UAEXH@Z+0x42e>
+100f65ac: 8b 89 9c 00 00 00            	mov	ecx, dword ptr [ecx + 0x9c]
+100f65b2: 8b 01                        	mov	eax, dword ptr [ecx]
+100f65b4: 8b 40 3c                     	mov	eax, dword ptr [eax + 0x3c]
+100f65b7: ff d0                        	call	eax
+100f65b9: 84 c0                        	test	al, al
+100f65bb: 75 71                        	jne	0x100f662e <?Update@ControllerMonster@GAME@@UAEXH@Z+0x42e>
+100f65bd: 6a 05                        	push	0x5
+100f65bf: 68 60 b9 52 10               	push	0x1052b960
+100f65c4: 8d 4d a0                     	lea	ecx, [ebp - 0x60]
+100f65c7: c7 45 b4 0f 00 00 00         	mov	dword ptr [ebp - 0x4c], 0xf
+100f65ce: c7 45 b0 00 00 00 00         	mov	dword ptr [ebp - 0x50], 0x0
+100f65d5: 88 45 a0                     	mov	byte ptr [ebp - 0x60], al
+100f65d8: e8 a3 25 f1 ff               	call	0x10008b80 <?_DrawEditorArrow@SkillLocation@GAME@@IBEXABVWorldVec3@2@@Z+0x6b0>
+100f65dd: c7 45 fc 01 00 00 00         	mov	dword ptr [ebp - 0x4], 0x1
+100f65e4: 8d 4d d4                     	lea	ecx, [ebp - 0x2c]
+100f65e7: c7 45 c8 00 00 00 00         	mov	dword ptr [ebp - 0x38], 0x0
+100f65ee: c7 45 cc 00 00 00 00         	mov	dword ptr [ebp - 0x34], 0x0
+100f65f5: c7 45 d0 00 00 00 00         	mov	dword ptr [ebp - 0x30], 0x0
+100f65fc: ff 15 88 53 4e 10            	call	dword ptr [0x104e5388]
+100f6602: 8d 45 c8                     	lea	eax, [ebp - 0x38]
+100f6605: 8b cf                        	mov	ecx, edi
+100f6607: 50                           	push	eax
+100f6608: 8d 45 a0                     	lea	eax, [ebp - 0x60]
+100f660b: 50                           	push	eax
+100f660c: e8 7f 03 ff ff               	call	0x100e6990 <?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z>
+100f6611: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100f6618: 8b 55 b4                     	mov	edx, dword ptr [ebp - 0x4c]
+100f661b: 83 fa 10                     	cmp	edx, 0x10
+100f661e: 72 0e                        	jb	0x100f662e <?Update@ControllerMonster@GAME@@UAEXH@Z+0x42e>
+100f6620: 8b 4d a0                     	mov	ecx, dword ptr [ebp - 0x60]
+100f6623: 42                           	inc	edx
+100f6624: 6a 01                        	push	0x1
+100f6626: e8 d5 26 f1 ff               	call	0x10008d00 <??1AuraContainer@GAME@@QAE@XZ+0x40>
+100f662b: 83 c4 04                     	add	esp, 0x4
+100f662e: 8b 87 ec 04 00 00            	mov	eax, dword ptr [edi + 0x4ec]
+100f6634: 85 c0                        	test	eax, eax
+100f6636: 7e 2e                        	jle	0x100f6666 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x466>
+100f6638: 2b c3                        	sub	eax, ebx
+100f663a: 89 87 ec 04 00 00            	mov	dword ptr [edi + 0x4ec], eax
+100f6640: 85 c0                        	test	eax, eax
+100f6642: 7f 22                        	jg	0x100f6666 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x466>
+100f6644: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f6647: ff d6                        	call	esi
+100f6649: 8b c8                        	mov	ecx, eax
+100f664b: e8 70 4a f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f6650: 8b cf                        	mov	ecx, edi
+100f6652: 8a 80 25 19 00 00            	mov	al, byte ptr [eax + 0x1925]
+100f6658: 88 45 08                     	mov	byte ptr [ebp + 0x8], al
+100f665b: 8b 07                        	mov	eax, dword ptr [edi]
+100f665d: ff 75 08                     	push	dword ptr [ebp + 0x8]
+100f6660: ff 90 88 00 00 00            	call	dword ptr [eax + 0x88]
+100f6666: 8b 87 d0 03 00 00            	mov	eax, dword ptr [edi + 0x3d0]
+100f666c: 85 c0                        	test	eax, eax
+100f666e: 7e 1f                        	jle	0x100f668f <?Update@ControllerMonster@GAME@@UAEXH@Z+0x48f>
+100f6670: 2b c3                        	sub	eax, ebx
+100f6672: 89 87 d0 03 00 00            	mov	dword ptr [edi + 0x3d0], eax
+100f6678: 85 c0                        	test	eax, eax
+100f667a: 7f 13                        	jg	0x100f668f <?Update@ControllerMonster@GAME@@UAEXH@Z+0x48f>
+100f667c: 8b cf                        	mov	ecx, edi
+100f667e: e8 ed 5f 00 00               	call	0x100fc670 <?TryToHealAlly@ControllerMonster@GAME@@IAEXXZ>
+100f6683: 8b 87 cc 03 00 00            	mov	eax, dword ptr [edi + 0x3cc]
+100f6689: 89 87 d0 03 00 00            	mov	dword ptr [edi + 0x3d0], eax
+100f668f: 8b 87 34 05 00 00            	mov	eax, dword ptr [edi + 0x534]
+100f6695: 85 c0                        	test	eax, eax
+100f6697: 7e 08                        	jle	0x100f66a1 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x4a1>
+100f6699: 2b c3                        	sub	eax, ebx
+100f669b: 89 87 34 05 00 00            	mov	dword ptr [edi + 0x534], eax
+100f66a1: 80 bf 08 05 00 00 00         	cmp	byte ptr [edi + 0x508], 0x0
+100f66a8: 75 66                        	jne	0x100f6710 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x510>
+100f66aa: 29 9f 00 05 00 00            	sub	dword ptr [edi + 0x500], ebx
+100f66b0: 79 5e                        	jns	0x100f6710 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x510>
+100f66b2: 8b 87 04 05 00 00            	mov	eax, dword ptr [edi + 0x504]
+100f66b8: 89 87 00 05 00 00            	mov	dword ptr [edi + 0x500], eax
+100f66be: ff 15 0c 65 4e 10            	call	dword ptr [0x104e650c]
+100f66c4: 99                           	cdq
+100f66c5: b9 64 00 00 00               	mov	ecx, 0x64
+100f66ca: f7 f9                        	idiv	ecx
+100f66cc: 3b 97 90 03 00 00            	cmp	edx, dword ptr [edi + 0x390]
+100f66d2: 73 3c                        	jae	0x100f6710 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x510>
+100f66d4: 8b cf                        	mov	ecx, edi
+100f66d6: e8 05 1e ff ff               	call	0x100e84e0 <?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ>
+100f66db: 83 38 00                     	cmp	dword ptr [eax], 0x0
+100f66de: 75 30                        	jne	0x100f6710 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x510>
+100f66e0: 8b cf                        	mov	ecx, edi
+100f66e2: e8 69 5e 00 00               	call	0x100fc550 <?PickRandomEnemyInView@ControllerMonster@GAME@@IBEPAVCharacter@2@XZ>
+100f66e7: 85 c0                        	test	eax, eax
+100f66e9: 74 25                        	je	0x100f6710 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x510>
+100f66eb: 6a 01                        	push	0x1
+100f66ed: 51                           	push	ecx
+100f66ee: 8b c8                        	mov	ecx, eax
+100f66f0: c7 04 24 00 00 c8 42         	mov	dword ptr [esp], 0x42c80000
+100f66f7: ff 15 90 50 4e 10            	call	dword ptr [0x104e5090]
+100f66fd: 50                           	push	eax
+100f66fe: 8d 8f b8 02 00 00            	lea	ecx, [edi + 0x2b8]
+100f6704: e8 97 8f f1 ff               	call	0x1000f6a0 <?AddAnger@AngerManager@GAME@@QAEXIM_N@Z>
+100f6709: c6 87 08 05 00 00 01         	mov	byte ptr [edi + 0x508], 0x1
+100f6710: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f6713: ff d6                        	call	esi
+100f6715: 8b c8                        	mov	ecx, eax
+100f6717: e8 a4 49 f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f671c: 0f 57 c9                     	xorps	xmm1, xmm1
+100f671f: f3 0f 10 80 b4 37 00 00      	movss	xmm0, dword ptr [eax + 0x37b4]
+100f6727: 0f 2e c1                     	ucomiss	xmm0, xmm1
+100f672a: 9f                           	lahf
+100f672b: f6 c4 44                     	test	ah, 0x44
+100f672e: 7b 34                        	jnp	0x100f6764 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x564>
+100f6730: 8b 87 40 05 00 00            	mov	eax, dword ptr [edi + 0x540]
+100f6736: 85 c0                        	test	eax, eax
+100f6738: 7e 08                        	jle	0x100f6742 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x542>
+100f673a: 2b c3                        	sub	eax, ebx
+100f673c: 89 87 40 05 00 00            	mov	dword ptr [edi + 0x540], eax
+100f6742: 29 9f 3c 05 00 00            	sub	dword ptr [edi + 0x53c], ebx
+100f6748: 79 1a                        	jns	0x100f6764 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x564>
+100f674a: 83 bf 40 05 00 00 00         	cmp	dword ptr [edi + 0x540], 0x0
+100f6751: c7 87 3c 05 00 00 c8 00 00 00	mov	dword ptr [edi + 0x53c], 0xc8
+100f675b: 7f 07                        	jg	0x100f6764 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x564>
+100f675d: 8b cf                        	mov	ecx, edi
+100f675f: e8 ec 59 00 00               	call	0x100fc150 <?DieIfEnemyInRange@ControllerMonster@GAME@@IAEXXZ>
+100f6764: 8b 07                        	mov	eax, dword ptr [edi]
+100f6766: 8b cf                        	mov	ecx, edi
+100f6768: 53                           	push	ebx
+100f6769: ff 90 30 01 00 00            	call	dword ptr [eax + 0x130]
+100f676f: 53                           	push	ebx
+100f6770: 8b cf                        	mov	ecx, edi
+100f6772: e8 d9 55 00 00               	call	0x100fbd50 <?FindEnemyUpdate@ControllerMonster@GAME@@IAEXH@Z>
+100f6777: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f677a: ff d6                        	call	esi
+100f677c: 8b c8                        	mov	ecx, eax
+100f677e: e8 cd 49 f1 ff               	call	0x1000b150 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd90>
+100f6783: 8a 80 ba 1c 00 00            	mov	al, byte ptr [eax + 0x1cba]
+100f6789: 84 c0                        	test	al, al
+100f678b: 74 0b                        	je	0x100f6798 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x598>
+100f678d: 8d 8f b8 02 00 00            	lea	ecx, [edi + 0x2b8]
+100f6793: e8 98 94 f1 ff               	call	0x1000fc30 <?ShowAngerLevels@AngerManager@GAME@@QBEXXZ>
+100f6798: 80 3d 94 80 80 10 00         	cmp	byte ptr [0x10808094], 0x0
+100f679f: 74 07                        	je	0x100f67a8 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x5a8>
+100f67a1: 8b 07                        	mov	eax, dword ptr [edi]
+100f67a3: 8b cf                        	mov	ecx, edi
+100f67a5: ff 50 24                     	call	dword ptr [eax + 0x24]
+100f67a8: 8b 87 d4 04 00 00            	mov	eax, dword ptr [edi + 0x4d4]
+100f67ae: 85 c0                        	test	eax, eax
+100f67b0: 7e 08                        	jle	0x100f67ba <?Update@ControllerMonster@GAME@@UAEXH@Z+0x5ba>
+100f67b2: 2b c3                        	sub	eax, ebx
+100f67b4: 89 87 d4 04 00 00            	mov	dword ptr [edi + 0x4d4], eax
+100f67ba: 83 bf d4 04 00 00 00         	cmp	dword ptr [edi + 0x4d4], 0x0
+100f67c1: 0f 8f e6 01 00 00            	jg	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f67c7: 83 bf 24 03 00 00 03         	cmp	dword ptr [edi + 0x324], 0x3
+100f67ce: c7 87 d4 04 00 00 a0 0f 00 00	mov	dword ptr [edi + 0x4d4], 0xfa0
+100f67d8: 0f 85 ed 00 00 00            	jne	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f67de: 8b cf                        	mov	ecx, edi
+100f67e0: e8 9b 1d 00 00               	call	0x100f8580 <?ChooseBestBuffSelfSkill@ControllerMonster@GAME@@QBEIXZ>
+100f67e5: 89 45 e4                     	mov	dword ptr [ebp - 0x1c], eax
+100f67e8: 85 c0                        	test	eax, eax
+100f67ea: 0f 84 db 00 00 00            	je	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f67f0: 50                           	push	eax
+100f67f1: ff d6                        	call	esi
+100f67f3: 8b c8                        	mov	ecx, eax
+100f67f5: e8 f6 6c f1 ff               	call	0x1000d4f0 <?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0>
+100f67fa: 89 45 e8                     	mov	dword ptr [ebp - 0x18], eax
+100f67fd: 85 c0                        	test	eax, eax
+100f67ff: 0f 84 c6 00 00 00            	je	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f6805: 83 b8 80 00 00 00 00         	cmp	dword ptr [eax + 0x80], 0x0
+100f680c: 0f 85 b9 00 00 00            	jne	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f6812: 83 78 3c 00                  	cmp	dword ptr [eax + 0x3c], 0x0
+100f6816: 8d 48 2c                     	lea	ecx, [eax + 0x2c]
+100f6819: 89 4d 08                     	mov	dword ptr [ebp + 0x8], ecx
+100f681c: 75 2d                        	jne	0x100f684b <?Update@ControllerMonster@GAME@@UAEXH@Z+0x64b>
+100f681e: 8b 30                        	mov	esi, dword ptr [eax]
+100f6820: 8b cf                        	mov	ecx, edi
+100f6822: ff 15 90 50 4e 10            	call	dword ptr [0x104e5090]
+100f6828: 8b 4d e8                     	mov	ecx, dword ptr [ebp - 0x18]
+100f682b: 50                           	push	eax
+100f682c: 8b 86 00 01 00 00            	mov	eax, dword ptr [esi + 0x100]
+100f6832: ff d0                        	call	eax
+100f6834: 84 c0                        	test	al, al
+100f6836: 74 3e                        	je	0x100f6876 <?Update@ControllerMonster@GAME@@UAEXH@Z+0x676>
+100f6838: 8b 4d 08                     	mov	ecx, dword ptr [ebp + 0x8]
+100f683b: 8b 35 4c 50 4e 10            	mov	esi, dword ptr [0x104e504c]
+100f6841: 83 79 10 00                  	cmp	dword ptr [ecx + 0x10], 0x0
+100f6845: 0f 84 80 00 00 00            	je	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f684b: ff 77 24                     	push	dword ptr [edi + 0x24]
+100f684e: ff d6                        	call	esi
+100f6850: 8b c8                        	mov	ecx, eax
+100f6852: e8 69 48 f1 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+100f6857: ff 75 08                     	push	dword ptr [ebp + 0x8]
+100f685a: 8b f0                        	mov	esi, eax
+100f685c: 8d 45 08                     	lea	eax, [ebp + 0x8]
+100f685f: 50                           	push	eax
+100f6860: 8d 8e 88 06 00 00            	lea	ecx, [esi + 0x688]
+100f6866: e8 05 3e f1 ff               	call	0x1000a670 <?Reset@AchievementManager@GAME@@QAEXXZ+0x2b0>
+100f686b: 8b 86 8c 06 00 00            	mov	eax, dword ptr [esi + 0x68c]
+100f6871: 39 45 08                     	cmp	dword ptr [ebp + 0x8], eax
+100f6874: 75 55                        	jne	0x100f68cb <?Update@ControllerMonster@GAME@@UAEXH@Z+0x6cb>
+100f6876: 68 50 b9 52 10               	push	0x1052b950
+100f687b: 8d 4d a0                     	lea	ecx, [ebp - 0x60]
+100f687e: e8 fd 5a f1 ff               	call	0x1000c380 <??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100>
+100f6883: c7 45 fc 02 00 00 00         	mov	dword ptr [ebp - 0x4], 0x2
+100f688a: 8d 4d d4                     	lea	ecx, [ebp - 0x2c]
+100f688d: 8b 77 24                     	mov	esi, dword ptr [edi + 0x24]
+100f6890: ff 15 88 53 4e 10            	call	dword ptr [0x104e5388]
+100f6896: 8b 4d e4                     	mov	ecx, dword ptr [ebp - 0x1c]
+100f6899: 89 4d 88                     	mov	dword ptr [ebp - 0x78], ecx
+100f689c: 8b cf                        	mov	ecx, edi
+100f689e: c7 45 80 00 00 00 00         	mov	dword ptr [ebp - 0x80], 0x0
+100f68a5: 0f 10 00                     	movups	xmm0, xmmword ptr [eax]
+100f68a8: 8d 45 80                     	lea	eax, [ebp - 0x80]
+100f68ab: 89 75 84                     	mov	dword ptr [ebp - 0x7c], esi
+100f68ae: 50                           	push	eax
+100f68af: 8d 45 a0                     	lea	eax, [ebp - 0x60]
+100f68b2: 50                           	push	eax
+100f68b3: 0f 11 45 8c                  	movups	xmmword ptr [ebp - 0x74], xmm0
+100f68b7: e8 d4 00 ff ff               	call	0x100e6990 <?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z>
+100f68bc: 8d 4d a0                     	lea	ecx, [ebp - 0x60]
+100f68bf: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100f68c6: e8 f5 23 f1 ff               	call	0x10008cc0 <??1AuraContainer@GAME@@QAE@XZ>
+100f68cb: 83 bf 28 03 00 00 03         	cmp	dword ptr [edi + 0x328], 0x3
+100f68d2: 0f 85 d5 00 00 00            	jne	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f68d8: 8b 87 e0 03 00 00            	mov	eax, dword ptr [edi + 0x3e0]
+100f68de: 89 45 e8                     	mov	dword ptr [ebp - 0x18], eax
+100f68e1: 85 c0                        	test	eax, eax
+100f68e3: 0f 84 c4 00 00 00            	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f68e9: 50                           	push	eax
+100f68ea: ff 15 4c 50 4e 10            	call	dword ptr [0x104e504c]
+100f68f0: 8b c8                        	mov	ecx, eax
+100f68f2: e8 f9 6b f1 ff               	call	0x1000d4f0 <?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0>
+100f68f7: 8b f0                        	mov	esi, eax
+100f68f9: 85 f6                        	test	esi, esi
+100f68fb: 0f 84 ac 00 00 00            	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f6901: 83 be 80 00 00 00 00         	cmp	dword ptr [esi + 0x80], 0x0
+100f6908: 0f 85 9f 00 00 00            	jne	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f690e: 8d 46 2c                     	lea	eax, [esi + 0x2c]
+100f6911: 8b cf                        	mov	ecx, edi
+100f6913: 50                           	push	eax
+100f6914: 89 45 e4                     	mov	dword ptr [ebp - 0x1c], eax
+100f6917: e8 24 1b 00 00               	call	0x100f8440 <?ChooseBestAllyToBuff@ControllerMonster@GAME@@QBEIABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z>
+100f691c: 89 45 08                     	mov	dword ptr [ebp + 0x8], eax
+100f691f: 85 c0                        	test	eax, eax
+100f6921: 0f 84 86 00 00 00            	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f6927: 8b 16                        	mov	edx, dword ptr [esi]
+100f6929: 8b ce                        	mov	ecx, esi
+100f692b: 50                           	push	eax
+100f692c: 8b 92 a4 02 00 00            	mov	edx, dword ptr [edx + 0x2a4]
+100f6932: ff d2                        	call	edx
+100f6934: 84 c0                        	test	al, al
+100f6936: 74 75                        	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f6938: 8b 75 08                     	mov	esi, dword ptr [ebp + 0x8]
+100f693b: 56                           	push	esi
+100f693c: ff 15 4c 50 4e 10            	call	dword ptr [0x104e504c]
+100f6942: 8b c8                        	mov	ecx, eax
+100f6944: e8 07 48 f1 ff               	call	0x1000b150 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd90>
+100f6949: 85 c0                        	test	eax, eax
+100f694b: 74 60                        	je	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f694d: ff 75 e4                     	push	dword ptr [ebp - 0x1c]
+100f6950: 8b c8                        	mov	ecx, eax
+100f6952: e8 c9 cb f5 ff               	call	0x10053520 <?IsSkillBuffActive@Character@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z>
+100f6957: 84 c0                        	test	al, al
+100f6959: 75 52                        	jne	0x100f69ad <?Update@ControllerMonster@GAME@@UAEXH@Z+0x7ad>
+100f695b: 68 70 b9 52 10               	push	0x1052b970
+100f6960: 8d 4d 84                     	lea	ecx, [ebp - 0x7c]
+100f6963: e8 18 5a f1 ff               	call	0x1000c380 <??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100>
+100f6968: 8d 4d b8                     	lea	ecx, [ebp - 0x48]
+100f696b: c7 45 fc 03 00 00 00         	mov	dword ptr [ebp - 0x4], 0x3
+100f6972: ff 15 88 53 4e 10            	call	dword ptr [0x104e5388]
+100f6978: 8b 4d e8                     	mov	ecx, dword ptr [ebp - 0x18]
+100f697b: 89 4d a4                     	mov	dword ptr [ebp - 0x5c], ecx
+100f697e: 8b cf                        	mov	ecx, edi
+100f6980: c7 45 9c 00 00 00 00         	mov	dword ptr [ebp - 0x64], 0x0
+100f6987: 0f 10 00                     	movups	xmm0, xmmword ptr [eax]
+100f698a: 8d 45 9c                     	lea	eax, [ebp - 0x64]
+100f698d: 89 75 a0                     	mov	dword ptr [ebp - 0x60], esi
+100f6990: 50                           	push	eax
+100f6991: 8d 45 84                     	lea	eax, [ebp - 0x7c]
+100f6994: 50                           	push	eax
+100f6995: 0f 11 45 a8                  	movups	xmmword ptr [ebp - 0x58], xmm0
+100f6999: e8 f2 ff fe ff               	call	0x100e6990 <?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z>
+100f699e: 8d 4d 84                     	lea	ecx, [ebp - 0x7c]
+100f69a1: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100f69a8: e8 13 23 f1 ff               	call	0x10008cc0 <??1AuraContainer@GAME@@QAE@XZ>
+100f69ad: 53                           	push	ebx
+100f69ae: 8d 8f 88 05 00 00            	lea	ecx, [edi + 0x588]
+100f69b4: e8 97 e5 1c 00               	call	0x102c4f50 <?SetAltarEnabled@LootBase@GAME@@UAEX_N@Z+0xd10>
+100f69b9: 53                           	push	ebx
+100f69ba: 8b cf                        	mov	ecx, edi
+100f69bc: e8 bf f1 fe ff               	call	0x100e5b80 <?Update@ControllerAI@GAME@@UAEXH@Z>
+100f69c1: 8b 4d f4                     	mov	ecx, dword ptr [ebp - 0xc]
+100f69c4: 5f                           	pop	edi
+100f69c5: 5e                           	pop	esi
+100f69c6: 64 89 0d 00 00 00 00         	mov	dword ptr fs:[0x0], ecx
+100f69cd: 5b                           	pop	ebx
+100f69ce: 8b e5                        	mov	esp, ebp
+100f69d0: 5d                           	pop	ebp
+100f69d1: c2 04 00                     	ret	0x4
+100f69d4: cc                           	int3
+100f69d5: cc                           	int3
+100f69d6: cc                           	int3
+100f69d7: cc                           	int3
+100f69d8: cc                           	int3
+100f69d9: cc                           	int3
+100f69da: cc                           	int3
+100f69db: cc                           	int3
+100f69dc: cc                           	int3
+100f69dd: cc                           	int3
+100f69de: cc                           	int3
+100f69df: cc                           	int3
+
+
+### ?OnBegin@ControllerMonsterStateEmote@GAME@@UAEXXZ @0x1095c0
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+101095c0 <?OnBegin@ControllerMonsterStateEmote@GAME@@UAEXXZ>:
+101095c0: 6a 00                        	push	0x0
+101095c2: 6a 00                        	push	0x0
+101095c4: 51                           	push	ecx
+101095c5: 8b 49 04                     	mov	ecx, dword ptr [ecx + 0x4]
+101095c8: c7 04 24 00 00 80 3f         	mov	dword ptr [esp], 0x3f800000
+101095cf: ff 35 b0 52 4e 10            	push	dword ptr [0x104e52b0]
+101095d5: 6a 24                        	push	0x24
+101095d7: e8 14 e2 fd ff               	call	0x100e77f0 <?PlayAnimation@ControllerAI@GAME@@QAEXW4AnimationSet_Type@2@ABVName@2@M_NI@Z>
+101095dc: c3                           	ret
+101095dd: cc                           	int3
+101095de: cc                           	int3
+101095df: cc                           	int3
+
+
+### ?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ @0x105980
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10105980 <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ>:
+10105980: 56                           	push	esi
+10105981: 8b f1                        	mov	esi, ecx
+10105983: 57                           	push	edi
+10105984: 8b 3d 4c 50 4e 10            	mov	edi, dword ptr [0x104e504c]
+1010598a: 83 7e 08 00                  	cmp	dword ptr [esi + 0x8], 0x0
+1010598e: 75 12                        	jne	0x101059a2 <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x22>
+10105990: 8b 46 04                     	mov	eax, dword ptr [esi + 0x4]
+10105993: ff 70 24                     	push	dword ptr [eax + 0x24]
+10105996: ff d7                        	call	edi
+10105998: 8b c8                        	mov	ecx, eax
+1010599a: e8 21 57 f0 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+1010599f: 89 46 08                     	mov	dword ptr [esi + 0x8], eax
+101059a2: 8b 4e 08                     	mov	ecx, dword ptr [esi + 0x8]
+101059a5: 8b 01                        	mov	eax, dword ptr [ecx]
+101059a7: 8b 80 2c 02 00 00            	mov	eax, dword ptr [eax + 0x22c]
+101059ad: ff d0                        	call	eax
+101059af: 84 c0                        	test	al, al
+101059b1: 74 2e                        	je	0x101059e1 <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x61>
+101059b3: 83 7e 08 00                  	cmp	dword ptr [esi + 0x8], 0x0
+101059b7: 75 12                        	jne	0x101059cb <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x4b>
+101059b9: 8b 46 04                     	mov	eax, dword ptr [esi + 0x4]
+101059bc: ff 70 24                     	push	dword ptr [eax + 0x24]
+101059bf: ff d7                        	call	edi
+101059c1: 8b c8                        	mov	ecx, eax
+101059c3: e8 f8 56 f0 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+101059c8: 89 46 08                     	mov	dword ptr [esi + 0x8], eax
+101059cb: 8b 4e 04                     	mov	ecx, dword ptr [esi + 0x4]
+101059ce: 8b 46 08                     	mov	eax, dword ptr [esi + 0x8]
+101059d1: 8b 11                        	mov	edx, dword ptr [ecx]
+101059d3: 0f b6 80 8c 1d 00 00         	movzx	eax, byte ptr [eax + 0x1d8c]
+101059da: 50                           	push	eax
+101059db: ff 92 00 01 00 00            	call	dword ptr [edx + 0x100]
+101059e1: a1 b0 52 4e 10               	mov	eax, dword ptr [0x104e52b0]
+101059e6: 8b 4e 10                     	mov	ecx, dword ptr [esi + 0x10]
+101059e9: 3b 08                        	cmp	ecx, dword ptr [eax]
+101059eb: 75 2e                        	jne	0x10105a1b <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x9b>
+101059ed: 83 7e 08 00                  	cmp	dword ptr [esi + 0x8], 0x0
+101059f1: 75 12                        	jne	0x10105a05 <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x85>
+101059f3: 8b 46 04                     	mov	eax, dword ptr [esi + 0x4]
+101059f6: ff 70 24                     	push	dword ptr [eax + 0x24]
+101059f9: ff d7                        	call	edi
+101059fb: 8b c8                        	mov	ecx, eax
+101059fd: e8 be 56 f0 ff               	call	0x1000b0c0 <?Reset@AchievementManager@GAME@@QAEXXZ+0xd00>
+10105a02: 89 46 08                     	mov	dword ptr [esi + 0x8], eax
+10105a05: 8b 46 08                     	mov	eax, dword ptr [esi + 0x8]
+10105a08: 80 b8 cd 1d 00 00 00         	cmp	byte ptr [eax + 0x1dcd], 0x0
+10105a0f: 75 0a                        	jne	0x10105a1b <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0x9b>
+10105a11: 8b 4e 04                     	mov	ecx, dword ptr [esi + 0x4]
+10105a14: 6a 01                        	push	0x1
+10105a16: e8 f5 4c ff ff               	call	0x100fa710 <?DropLoot@ControllerMonster@GAME@@QAEX_N@Z>
+10105a1b: a1 b0 52 4e 10               	mov	eax, dword ptr [0x104e52b0]
+10105a20: 8b 4e 14                     	mov	ecx, dword ptr [esi + 0x14]
+10105a23: 5f                           	pop	edi
+10105a24: 3b 08                        	cmp	ecx, dword ptr [eax]
+10105a26: 75 08                        	jne	0x10105a30 <?OnBegin@ControllerMonsterStateDying@GAME@@UAEXXZ+0xb0>
+10105a28: 8b ce                        	mov	ecx, esi
+10105a2a: 5e                           	pop	esi
+10105a2b: e9 b0 00 00 00               	jmp	0x10105ae0 <?StartDyingSkill@ControllerMonsterStateDying@GAME@@IAEXXZ>
+10105a30: 5e                           	pop	esi
+10105a31: c3                           	ret
+10105a32: cc                           	int3
+10105a33: cc                           	int3
+10105a34: cc                           	int3
+10105a35: cc                           	int3
+10105a36: cc                           	int3
+10105a37: cc                           	int3
+10105a38: cc                           	int3
+10105a39: cc                           	int3
+10105a3a: cc                           	int3
+10105a3b: cc                           	int3
+10105a3c: cc                           	int3
+10105a3d: cc                           	int3
+10105a3e: cc                           	int3
+10105a3f: cc                           	int3
+

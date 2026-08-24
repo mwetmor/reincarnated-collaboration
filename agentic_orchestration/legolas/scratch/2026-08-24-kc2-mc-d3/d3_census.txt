@@ -1,0 +1,340 @@
+
+=== [Senses] ViewDistance  (real, variable) default='15.0'  desc=''
+    rolled_20w_controllers           n=   77  [('80.0', 77)]
+    pool_controllers                 n=  145  [('80.0', 144), ('15.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('80.0', 300), ('18.0', 11), ('15.0', 8), ('16.0', 7), ('20.0', 6), ('14.0', 5)]
+
+=== [Senses] pathingViewDistance  (real, variable) default='0.0'  desc=''
+    rolled_20w_controllers           n=   77  [('__ABSENT__', 74), ('0.0', 1), ('50.0', 1), ('4.0', 1)]
+    pool_controllers                 n=  145  [('__ABSENT__', 141), ('50.0', 2), ('0.0', 1), ('4.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('__ABSENT__', 317), ('18.0', 12), ('14.0', 10), ('8.0', 4), ('20.0', 3), ('50.0', 3)]
+
+=== [Senses] enemyTooClose  (real, variable) default='5.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 71), ('3.0', 3), ('5.0', 3)]
+    pool_controllers                 n=  145  [('0.0', 130), ('3.0', 9), ('5.0', 5), ('4.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 275), ('3.0', 36), ('4.0', 24), ('2.0', 13), ('5.0', 7), ('8.0', 4)]
+
+=== [Senses] InnerViewDistance  (real, variable) default='5.0'  desc=''
+    rolled_20w_controllers           n=   77  [('12.0', 66), ('4.0', 11)]
+    pool_controllers                 n=  145  [('12.0', 119), ('4.0', 25), ('6.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('12.0', 253), ('4.0', 66), ('6.0', 18), ('5.0', 13), ('8.0', 5), ('20.0', 1)]
+
+=== [Senses] MaxYViewDistance  (real, variable) default='0.0'  desc=''
+    rolled_20w_controllers           n=   77  [('20.0', 42), ('10.0', 35)]
+    pool_controllers                 n=  145  [('20.0', 90), ('10.0', 53), ('12.0', 1), ('15.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('20.0', 207), ('10.0', 101), ('12.0', 34), ('0.0', 10), ('15.0', 6), ('3.0', 1)]
+
+=== [AngerManagement] AngerTolerance  (real, variable) default='10.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 76), ('1.0', 1)]
+    pool_controllers                 n=  145  [('0.0', 144), ('1.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 331), ('1.0', 17), ('12.0', 4), ('6.0', 2), ('3.0', 1), ('4.0', 1)]
+
+=== [AngerManagement] AttackedAnger  (real, variable) default='100.0'  desc=''
+    rolled_20w_controllers           n=   77  [('15.0', 77)]
+    pool_controllers                 n=  145  [('15.0', 144), ('16.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('15.0', 305), ('12.0', 18), ('9.0', 7), ('5.0', 6), ('4.0', 5), ('16.0', 4)]
+
+=== [AngerManagement] AllyAttackedAnger  (real, variable) default='40.0'  desc=''
+    rolled_20w_controllers           n=   77  [('8.0', 76), ('5.0', 1)]
+    pool_controllers                 n=  145  [('8.0', 143), ('4.0', 1), ('5.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('8.0', 316), ('6.0', 14), ('5.0', 11), ('0.0', 5), ('4.0', 3), ('25.0', 3)]
+
+=== [AngerManagement] ForgiveRate  (real, variable) default='50.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 76), ('2.0', 1)]
+    pool_controllers                 n=  145  [('0.0', 144), ('2.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 331), ('1.0', 15), ('2.0', 6), ('3.0', 3), ('4.0', 2), ('25.0', 1)]
+
+=== [AngerManagement] SightAngerRate  (real, variable) default='20.0'  desc=''
+    rolled_20w_controllers           n=   77  [('5.0', 77)]
+    pool_controllers                 n=  145  [('5.0', 144), ('4.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('5.0', 331), ('4.0', 9), ('0.0', 8), ('6.0', 4), ('9.0', 2), ('8.0', 1)]
+
+=== [AngerManagement] InnerSightAngerRate  (real, variable) default='50.0'  desc=''
+    rolled_20w_controllers           n=   77  [('10.0', 77)]
+    pool_controllers                 n=  145  [('10.0', 144), ('8.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('10.0', 318), ('15.0', 11), ('12.0', 11), ('8.0', 10), ('0.0', 4), ('5.0', 3)]
+
+=== [AngerManagement] ProjectileAnger  (real, variable) default='20.0'  desc=''
+    rolled_20w_controllers           n=   77  [('5.0', 76), ('3.0', 1)]
+    pool_controllers                 n=  145  [('5.0', 143), ('3.0', 2)]
+    corpus_all_ControllerMonster     n=  359  [('5.0', 301), ('2.0', 31), ('0.0', 10), ('4.0', 5), ('3.0', 5), ('1.0', 3)]
+
+=== [Fleeing] FleeBehavior  (string, picklist) default='NeverFlee;FleeOnLowHealth;FleeOnDamage;FleeWhenEnemyClose'  desc=''
+    rolled_20w_controllers           n=   77  [('NeverFlee', 77)]
+    pool_controllers                 n=  145  [('NeverFlee', 145)]
+    corpus_all_ControllerMonster     n=  359  [('NeverFlee', 351), ('FleeOnLowHealth', 6), ('FleeWhenEnemyClose', 1), ('FleeOnDamage', 1)]
+
+=== [Fleeing] FleeTime  (int, variable) default='3000'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 50), ('3000', 26), ('3', 1)]
+    pool_controllers                 n=  145  [('0', 95), ('3000', 47), ('3', 2), ('2500', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 204), ('3000', 103), ('2500', 29), ('3', 9), ('2000', 6), ('5000', 4)]
+
+=== [Fleeing] FleeTarget  (string, picklist) default='AwayFromEnemy;TowardsAllies;TowardsHome'  desc=''
+    rolled_20w_controllers           n=   77  [('__ABSENT__', 32), ('AwayFromEnemy', 31), ('TowardsAllies', 12), ('TowardsHome', 2)]
+    pool_controllers                 n=  145  [('AwayFromEnemy', 73), ('__ABSENT__', 47), ('TowardsAllies', 22), ('TowardsHome', 3)]
+    corpus_all_ControllerMonster     n=  359  [('AwayFromEnemy', 166), ('__ABSENT__', 95), ('TowardsAllies', 84), ('TowardsHome', 14)]
+
+=== [Fleeing] maxFleeCount  (int, variable) default='3'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 71), ('2', 5), ('1', 1)]
+    pool_controllers                 n=  145  [('0', 135), ('2', 8), ('1', 2)]
+    corpus_all_ControllerMonster     n=  359  [('0', 297), ('999', 22), ('2', 17), ('3', 9), ('1', 9), ('__ABSENT__', 2)]
+
+=== [Fleeing] FleeDelay  (int, variable) default='2000'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 37), ('5000', 25), ('3000', 12), ('10000', 2), ('8000', 1)]
+    pool_controllers                 n=  145  [('5000', 62), ('0', 61), ('3000', 18), ('10000', 3), ('8000', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 137), ('5000', 127), ('3000', 42), ('6000', 23), ('10000', 9), ('8000', 6)]
+
+=== [Fleeing] FleeChance  (int, variable) default='100'  desc='[0..100]'
+    rolled_20w_controllers           n=   77  [('0', 72), ('50', 3), ('75', 2)]
+    pool_controllers                 n=  145  [('0', 133), ('50', 10), ('75', 2)]
+    corpus_all_ControllerMonster     n=  359  [('0', 311), ('50', 36), ('100', 7), ('75', 2), ('__ABSENT__', 1), ('30', 1)]
+
+=== [Fleeing] fleeDistance  (real, variable) default='5.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 34), ('8.0', 18), ('10.0', 13), ('5.0', 7), ('16.0', 3), ('12.0', 2)]
+    pool_controllers                 n=  145  [('0.0', 57), ('8.0', 48), ('10.0', 19), ('5.0', 14), ('16.0', 4), ('12.0', 3)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 133), ('8.0', 105), ('10.0', 45), ('5.0', 35), ('16.0', 9), ('12.0', 9)]
+
+=== [Fleeing] ClearAngerWhenFleeing  (bool, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('False', 77)]
+    pool_controllers                 n=  145  [('False', 145)]
+    corpus_all_ControllerMonster     n=  359  [('False', 358), ('True', 1)]
+
+=== [Fleeing] ResetOriginAfterFleeing  (bool, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('False', 59), ('True', 18)]
+    pool_controllers                 n=  145  [('False', 119), ('True', 26)]
+    corpus_all_ControllerMonster     n=  359  [('False', 290), ('True', 69)]
+
+=== [Pursuit] PursuitTime  (int, variable) default='10000'  desc='Maximum length of time for which to pursue enemies (milliseconds)'
+    rolled_20w_controllers           n=   77  [('10000', 76), ('12000', 1)]
+    pool_controllers                 n=  145  [('10000', 144), ('12000', 1)]
+    corpus_all_ControllerMonster     n=  359  [('10000', 333), ('4000', 10), ('12000', 5), ('5000', 4), ('30000', 3), ('6000000', 1)]
+
+=== [Pursuit] MaxPursuitDistance  (real, variable) default='20.0'  desc=''
+    rolled_20w_controllers           n=   77  [('125.0', 76), ('35.0', 1)]
+    pool_controllers                 n=  145  [('125.0', 143), ('75.0', 1), ('35.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('125.0', 300), ('75.0', 13), ('20.0', 9), ('15.0', 8), ('16.0', 7), ('18.0', 5)]
+
+=== [Pursuit] EmoteBeforePursuingChance  (int, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 77)]
+    pool_controllers                 n=  145  [('0', 144), ('20', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 326), ('20', 18), ('30', 9), ('15', 5), ('50', 1)]
+
+=== [SkillUsage] BuffSelfBehavior  (string, picklist) default='NeverUseSkill;WhenIdle;WhenEnemyIsSeen;WheneverPossible'  desc=''
+    rolled_20w_controllers           n=   77  [('WhenEnemyIsSeen', 54), ('WheneverPossible', 23)]
+    pool_controllers                 n=  145  [('WhenEnemyIsSeen', 95), ('WheneverPossible', 50)]
+    corpus_all_ControllerMonster     n=  359  [('WhenEnemyIsSeen', 220), ('WheneverPossible', 137), ('NeverUseSkill', 2)]
+
+=== [SkillUsage] BuffAllyBehavior  (string, picklist) default='NeverUseSkill;WhenIdle;WhenEnemyIsSeen;WheneverPossible'  desc=''
+    rolled_20w_controllers           n=   77  [('WhenEnemyIsSeen', 54), ('WheneverPossible', 23)]
+    pool_controllers                 n=  145  [('WhenEnemyIsSeen', 95), ('WheneverPossible', 50)]
+    corpus_all_ControllerMonster     n=  359  [('WhenEnemyIsSeen', 241), ('WheneverPossible', 116), ('NeverUseSkill', 2)]
+
+=== [SkillUsage] DebuffEnemyBehavior  (string, picklist) default='NeverUseSkill;WhenIdle;WhenEnemyIsSeen'  desc=''
+    rolled_20w_controllers           n=   77  [('WhenEnemyIsSeen', 77)]
+    pool_controllers                 n=  145  [('WhenEnemyIsSeen', 145)]
+    corpus_all_ControllerMonster     n=  359  [('WhenEnemyIsSeen', 357), ('NeverUseSkill', 2)]
+
+=== [SkillUsage] healLeaderHealthPercentage  (int, variable) default='20'  desc='[0..100], will heal leader when health goes below percentage'
+    rolled_20w_controllers           n=   77  [('80', 38), ('70', 18), ('75', 13), ('20', 4), ('60', 2), ('66', 2)]
+    pool_controllers                 n=  145  [('80', 60), ('70', 36), ('75', 35), ('20', 8), ('60', 4), ('66', 2)]
+    corpus_all_ControllerMonster     n=  359  [('80', 158), ('75', 78), ('70', 67), ('20', 29), ('60', 8), ('85', 6)]
+
+=== [SkillUsage] healAllyHealthPercentage  (int, variable) default='20'  desc='[0..100], will heal ally when health goes below percentage'
+    rolled_20w_controllers           n=   77  [('80', 40), ('70', 18), ('75', 13), ('20', 4), ('60', 2)]
+    pool_controllers                 n=  145  [('80', 62), ('70', 36), ('75', 35), ('20', 8), ('60', 4)]
+    corpus_all_ControllerMonster     n=  359  [('80', 163), ('70', 75), ('75', 71), ('20', 29), ('60', 15), ('0', 4)]
+
+=== [SkillUsage] BuffAllyTargeting  (string, picklist) default='BuffClosest;BuffStrongest;BuffWeakest'  desc=''
+    rolled_20w_controllers           n=   77  [('BuffStrongest', 64), ('BuffWeakest', 13)]
+    pool_controllers                 n=  145  [('BuffStrongest', 119), ('BuffWeakest', 26)]
+    corpus_all_ControllerMonster     n=  359  [('BuffStrongest', 307), ('BuffWeakest', 47), ('BuffClosest', 4), ('__ABSENT__', 1)]
+
+=== [Roaming] RoamBehavior  (string, picklist) default='NeverRoam;Roam'  desc=''
+    rolled_20w_controllers           n=   77  [('Roam', 75), ('NeverRoam', 2)]
+    pool_controllers                 n=  145  [('Roam', 139), ('NeverRoam', 6)]
+    corpus_all_ControllerMonster     n=  359  [('Roam', 324), ('NeverRoam', 35)]
+
+=== [Roaming] MinRoamDistance  (real, variable) default='5.0'  desc=''
+    rolled_20w_controllers           n=   77  [('2.0', 72), ('3.0', 3), ('0.0', 2)]
+    pool_controllers                 n=  145  [('2.0', 130), ('3.0', 12), ('0.0', 3)]
+    corpus_all_ControllerMonster     n=  359  [('2.0', 295), ('3.0', 47), ('0.0', 7), ('8.0', 5), ('12.0', 4), ('6.0', 1)]
+
+=== [Roaming] RoamDistance  (real, variable) default='10.0'  desc='How far monsters will roam around'
+    rolled_20w_controllers           n=   77  [('2.0', 66), ('5.0', 6), ('4.0', 2), ('0.0', 2), ('3.0', 1)]
+    pool_controllers                 n=  145  [('2.0', 119), ('5.0', 14), ('4.0', 6), ('0.0', 3), ('3.0', 2), ('3.5', 1)]
+    corpus_all_ControllerMonster     n=  359  [('2.0', 253), ('5.0', 37), ('4.0', 21), ('3.0', 8), ('7.0', 8), ('0.0', 7)]
+
+=== [Roaming] MinTimeBeforeRoam  (int, variable) default='3000'  desc=''
+    rolled_20w_controllers           n=   77  [('2000', 66), ('6000', 10), ('0', 1)]
+    pool_controllers                 n=  145  [('2000', 119), ('6000', 25), ('0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('2000', 253), ('6000', 63), ('100', 9), ('80000', 8), ('4000', 5), ('3000', 5)]
+
+=== [Roaming] MaxTimeBeforeRoam  (int, variable) default='10000'  desc=''
+    rolled_20w_controllers           n=   77  [('2000', 66), ('12000', 9), ('16000', 1), ('0', 1)]
+    pool_controllers                 n=  145  [('2000', 119), ('12000', 20), ('16000', 4), ('10000', 1), ('0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('2000', 257), ('12000', 59), ('10000', 13), ('16000', 7), ('8000', 6), ('6000', 5)]
+
+=== [Roaming] MinWanderDistance  (real, variable) default='2.0'  desc=''
+    rolled_20w_controllers           n=   77  [('2.0', 76), ('0.0', 1)]
+    pool_controllers                 n=  145  [('2.0', 144), ('0.0', 1)]
+    corpus_all_ControllerMonster     n=  359  [('2.0', 328), ('4.0', 8), ('3.0', 6), ('1.0', 6), ('8.0', 5), ('20.0', 4)]
+
+=== [Roaming] WanderDistance  (real, variable) default='7.0'  desc='How far pets will wander around their leader'
+    rolled_20w_controllers           n=   77  [('0.0', 77)]
+    pool_controllers                 n=  145  [('0.0', 145)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 317), ('4.0', 8), ('5.0', 7), ('7.0', 7), ('3.0', 6), ('12.0', 5)]
+
+=== [Roaming] TeleportToLeaderDistance  (real, variable) default='20.0'  desc=''
+    rolled_20w_controllers           n=   77  [('40.0', 77)]
+    pool_controllers                 n=  145  [('40.0', 145)]
+    corpus_all_ControllerMonster     n=  359  [('40.0', 309), ('20.0', 10), ('23.0', 7), ('15.0', 6), ('60.0', 5), ('19.0', 4)]
+
+=== [Patrolling] ChanceToIdleOnPatrol  (int, variable) default='20'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 70), ('75', 3), ('20', 2), ('__ABSENT__', 2)]
+    pool_controllers                 n=  145  [('0', 126), ('20', 8), ('75', 7), ('__ABSENT__', 4)]
+    corpus_all_ControllerMonster     n=  359  [('0', 310), ('20', 24), ('75', 18), ('__ABSENT__', 7)]
+
+=== [Patrolling] MinPatrolIdleTime  (int, variable) default='2000'  desc=''
+    rolled_20w_controllers           n=   77  [('1000', 76), ('0', 1)]
+    pool_controllers                 n=  145  [('1000', 143), ('0', 2)]
+    corpus_all_ControllerMonster     n=  359  [('1000', 308), ('0', 49), ('__ABSENT__', 2)]
+
+=== [Patrolling] MaxPatrolIdleTime  (int, variable) default='5000'  desc=''
+    rolled_20w_controllers           n=   77  [('5000', 76), ('0', 1)]
+    pool_controllers                 n=  145  [('5000', 143), ('0', 2)]
+    corpus_all_ControllerMonster     n=  359  [('5000', 308), ('0', 43), ('1500', 6), ('__ABSENT__', 2)]
+
+=== [DistressCalls] ChanceToRespondToDistressCall  (int, variable) default='100'  desc=''
+    rolled_20w_controllers           n=   77  [('15', 29), ('75', 18), ('20', 13), ('50', 8), ('100', 7), ('0', 2)]
+    pool_controllers                 n=  145  [('15', 60), ('75', 29), ('20', 23), ('50', 17), ('100', 14), ('0', 2)]
+    corpus_all_ControllerMonster     n=  359  [('15', 142), ('20', 57), ('75', 46), ('0', 42), ('100', 41), ('50', 27)]
+
+=== [DistressCalls] DistressResponseBehavior  (string, picklist) default='RespondToAll;RespondToSameGroup;RespondToSameRace'  desc=''
+    rolled_20w_controllers           n=   77  [('RespondToSameGroup', 77)]
+    pool_controllers                 n=  145  [('RespondToSameGroup', 145)]
+    corpus_all_ControllerMonster     n=  359  [('RespondToSameGroup', 320), ('__ABSENT__', 36), ('RespondToSameRace', 3)]
+
+=== [DistressCalls] DistressResponseGroup  (string, variable) default=''  desc=''
+    rolled_20w_controllers           n=   77  [('Aetherial', 77)]
+    pool_controllers                 n=  145  [('Aetherial', 144), ('Chthonic', 1)]
+    corpus_all_ControllerMonster     n=  359  [('Aetherial', 300), ('__ABSENT__', 39), ('Eldritch', 4), ('Celestial', 4), ('Survivor', 4), ('Beast', 3)]
+
+=== [RandomAnger] RandomAngerChance  (int, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 54), ('10', 22), ('15', 1)]
+    pool_controllers                 n=  145  [('0', 110), ('10', 34), ('15', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 269), ('10', 75), ('50', 5), ('20', 3), ('75', 2), ('15', 2)]
+
+=== [RandomAnger] RandomAngerEvaluationTime  (int, variable) default='3000'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 43), ('3000', 33), ('5000', 1)]
+    pool_controllers                 n=  145  [('0', 93), ('3000', 51), ('5000', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 218), ('3000', 125), ('2000', 7), ('5000', 6), ('10000', 2), ('2', 1)]
+
+=== [Dodging] DodgeDistance  (real, variable) default='4.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 39), ('2.0', 15), ('__ABSENT__', 10), ('3.0', 9), ('5.0', 3), ('4.0', 1)]
+    pool_controllers                 n=  145  [('0.0', 65), ('2.0', 35), ('__ABSENT__', 23), ('3.0', 15), ('4.0', 4), ('5.0', 3)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 135), ('2.0', 97), ('3.0', 63), ('__ABSENT__', 36), ('4.0', 17), ('5.0', 9)]
+
+=== [Dodging] DodgeDelay  (int, variable) default='5'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 34), ('5000', 13), ('__ABSENT__', 10), ('1500', 8), ('3000', 7), ('6000', 2)]
+    pool_controllers                 n=  145  [('0', 57), ('5000', 25), ('__ABSENT__', 23), ('3000', 14), ('1500', 12), ('6000', 8)]
+    corpus_all_ControllerMonster     n=  359  [('0', 116), ('5000', 61), ('3000', 53), ('__ABSENT__', 36), ('4000', 30), ('1500', 24)]
+
+=== [Dodging] DodgeChance  (int, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 41), ('__ABSENT__', 10), ('75', 10), ('50', 8), ('30', 6), ('65', 1)]
+    pool_controllers                 n=  145  [('0', 73), ('__ABSENT__', 23), ('75', 15), ('30', 14), ('50', 12), ('70', 5)]
+    corpus_all_ControllerMonster     n=  359  [('0', 178), ('75', 49), ('50', 38), ('__ABSENT__', 36), ('30', 32), ('70', 11)]
+
+=== [Dodging] MinDodgeDistance  (real, variable) default='2.0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.0', 39), ('2.0', 15), ('__ABSENT__', 10), ('4.0', 9), ('6.0', 2), ('5.0', 1)]
+    pool_controllers                 n=  145  [('0.0', 65), ('2.0', 32), ('__ABSENT__', 23), ('4.0', 16), ('5.0', 5), ('6.0', 3)]
+    corpus_all_ControllerMonster     n=  359  [('0.0', 135), ('2.0', 94), ('4.0', 38), ('__ABSENT__', 36), ('3.0', 31), ('6.0', 13)]
+
+=== [Attacking] LeadChance  (int, array) default=''  desc='percent chance to lead target'
+    rolled_20w_controllers           n=   77  [('0', 17), ('__ABSENT__', 14), ('0;50;100', 13), ('50;75;100', 13), ('30;60;100', 11), ('30;50;80', 7)]
+    pool_controllers                 n=  145  [('__ABSENT__', 38), ('0', 25), ('50;75;100', 24), ('0;50;100', 23), ('30;60;100', 17), ('30;50;80', 12)]
+    corpus_all_ControllerMonster     n=  359  [('__ABSENT__', 102), ('50;75;100', 55), ('30;60;100', 49), ('0', 47), ('0;50;100', 42), ('30;50;80', 17)]
+
+=== [Attacking] RepositionChance  (int, variable) default='0'  desc='chance to reposition after blocked projectile attack'
+    rolled_20w_controllers           n=   77  [('0', 48), ('100', 15), ('45', 9), ('50', 2), ('65', 2), ('75', 1)]
+    pool_controllers                 n=  145  [('0', 86), ('100', 28), ('45', 22), ('50', 4), ('75', 3), ('65', 2)]
+    corpus_all_ControllerMonster     n=  359  [('0', 194), ('100', 87), ('45', 62), ('50', 6), ('75', 4), ('65', 3)]
+
+=== [Attacking] randomRepositionChance  (int, variable) default='0'  desc='chance to reposition anytime during normal attack'
+    rolled_20w_controllers           n=   77  [('0', 60), ('20', 11), ('5', 3), ('25', 2), ('30', 1)]
+    pool_controllers                 n=  145  [('0', 111), ('20', 24), ('5', 6), ('25', 2), ('30', 2)]
+    corpus_all_ControllerMonster     n=  359  [('0', 253), ('20', 71), ('100', 11), ('5', 11), ('30', 11), ('25', 2)]
+
+=== [Attacking] minSwingPause  (real, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('0.5', 17), ('0.4000000059604645', 9), ('0.20000000298023224', 8), ('0.30000001192092896', 7), ('0.0', 5), ('0.6499999761581421', 5)]
+    pool_controllers                 n=  145  [('0.5', 28), ('0.20000000298023224', 20), ('0.30000001192092896', 17), ('0.4000000059604645', 13), ('0.6499999761581421', 9), ('0.0', 8)]
+    corpus_all_ControllerMonster     n=  359  [('0.5', 45), ('0.20000000298023224', 42), ('0.30000001192092896', 41), ('0.0', 36), ('0.4000000059604645', 28), ('0.6499999761581421', 21)]
+
+=== [Attacking] maxSwingPause  (real, variable) default='0'  desc=''
+    rolled_20w_controllers           n=   77  [('1.2000000476837158', 12), ('0.6000000238418579', 12), ('1.0', 10), ('0.30000001192092896', 7), ('0.800000011920929', 7), ('0.5', 4)]
+    pool_controllers                 n=  145  [('0.6000000238418579', 23), ('1.2000000476837158', 22), ('1.0', 19), ('0.800000011920929', 13), ('0.30000001192092896', 9), ('1.600000023841858', 8)]
+    corpus_all_ControllerMonster     n=  359  [('1.0', 45), ('0.6000000238418579', 44), ('1.2000000476837158', 43), ('0.800000011920929', 24), ('0.0', 22), ('0.699999988079071', 19)]
+
+=== [Sleep] ignoreSleepingEnemies  (bool, variable) default=''  desc='do we ignore sleeping enemies?'
+    rolled_20w_controllers           n=   77  [('True', 50), ('__ABSENT__', 27)]
+    pool_controllers                 n=  145  [('True', 94), ('__ABSENT__', 51)]
+    corpus_all_ControllerMonster     n=  359  [('True', 222), ('__ABSENT__', 137)]
+
+=== [Emote] randomEmoteChance  (int, variable) default='100'  desc=''
+    rolled_20w_controllers           n=   77  [('0', 69), ('100', 5), ('__ABSENT__', 2), ('50', 1)]
+    pool_controllers                 n=  145  [('0', 124), ('100', 14), ('__ABSENT__', 4), ('50', 2), ('30', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 277), ('100', 64), ('__ABSENT__', 8), ('50', 5), ('30', 5)]
+
+=== [Emote] randomEmoteMinTime  (int, variable) default='5000'  desc=''
+    rolled_20w_controllers           n=   77  [('5000', 57), ('0', 11), ('6000', 8), ('9000', 1)]
+    pool_controllers                 n=  145  [('5000', 106), ('0', 21), ('6000', 16), ('9000', 2)]
+    corpus_all_ControllerMonster     n=  359  [('5000', 288), ('0', 35), ('6000', 24), ('9000', 10), ('__ABSENT__', 2)]
+
+=== [Emote] randomEmoteMaxTime  (int, variable) default='10000'  desc=''
+    rolled_20w_controllers           n=   77  [('10000', 65), ('0', 11), ('12000', 1)]
+    pool_controllers                 n=  145  [('10000', 122), ('0', 21), ('12000', 2)]
+    corpus_all_ControllerMonster     n=  359  [('10000', 312), ('0', 35), ('12000', 10), ('__ABSENT__', 2)]
+
+=== [PetBehaviour] ignorePetsChance  (int, variable) default='0'  desc='chance to ignore pets when targeting'
+    rolled_20w_controllers           n=   77  [('35', 39), ('0', 35), ('18', 2), ('15', 1)]
+    pool_controllers                 n=  145  [('0', 73), ('35', 64), ('70', 3), ('18', 3), ('40', 1), ('15', 1)]
+    corpus_all_ControllerMonster     n=  359  [('0', 192), ('35', 134), ('30', 11), ('18', 9), ('70', 6), ('25', 3)]
+
+=== [PetBehaviour] ignorePetsInterval  (int, variable) default='5000'  desc='time until I can change my mind about attack pets'
+    rolled_20w_controllers           n=   77  [('7000', 76), ('5000', 1)]
+    pool_controllers                 n=  145  [('7000', 143), ('5000', 2)]
+    corpus_all_ControllerMonster     n=  359  [('7000', 312), ('5000', 45), ('6000', 1), ('12000', 1)]
+
+=== [PetBehaviour] petAngerTransference  (int, variable) default='30'  desc='percent of pet anger to transfer to player ALL THE TIME'
+    rolled_20w_controllers           n=   77  [('17', 53), ('12', 16), ('22', 6), ('27', 1), ('15', 1)]
+    pool_controllers                 n=  145  [('17', 91), ('12', 39), ('22', 10), ('27', 2), ('20', 1), ('32', 1)]
+    corpus_all_ControllerMonster     n=  359  [('17', 197), ('12', 77), ('30', 41), ('22', 25), ('27', 10), ('15', 5)]
+
+=== [PetBehaviour] petTargetLevelRange  (int, variable) default='1000'  desc='only target enemies within n levels of player'
+    rolled_20w_controllers           n=   77  [('1000', 77)]
+    pool_controllers                 n=  145  [('1000', 145)]
+    corpus_all_ControllerMonster     n=  359  [('1000', 357), ('__ABSENT__', 2)]
+
+=== [PetBehaviour] petTargetLeastAttacked  (bool, variable) default='0'  desc='try to target the least-recently attacked enemy'
+    rolled_20w_controllers           n=   77  [('False', 77)]
+    pool_controllers                 n=  145  [('False', 145)]
+    corpus_all_ControllerMonster     n=  359  [('False', 356), ('__ABSENT__', 2), ('True', 1)]
+
+=== [PetBehaviour] petTargetGreatestHealth  (bool, variable) default='0'  desc='try to target monsters with greatest health'
+    rolled_20w_controllers           n=   77  [('False', 77)]
+    pool_controllers                 n=  145  [('False', 145)]
+    corpus_all_ControllerMonster     n=  359  [('False', 356), ('True', 3)]
+
+=== [Loot] lootDropAttachPointName  (string, variable) default=''  desc=''
+    rolled_20w_controllers           n=   77  [('__ABSENT__', 77)]
+    pool_controllers                 n=  145  [('__ABSENT__', 145)]
+    corpus_all_ControllerMonster     n=  359  [('__ABSENT__', 358), ('FX_Weapon', 1)]
+
+=== [Loot] lootDropCallbackPoint  (string, variable) default=''  desc=''
+    rolled_20w_controllers           n=   77  [('__ABSENT__', 77)]
+    pool_controllers                 n=  145  [('__ABSENT__', 145)]
+    corpus_all_ControllerMonster     n=  359  [('__ABSENT__', 358), ('LootDrop', 1)]
+
+=== [Dying] dyingSkillCallbackPoint  (string, variable) default=''  desc=''
+    rolled_20w_controllers           n=   77  [('__ABSENT__', 77)]
+    pool_controllers                 n=  145  [('__ABSENT__', 145)]
+    corpus_all_ControllerMonster     n=  359  [('__ABSENT__', 358), ('skillFX', 1)]

@@ -1,0 +1,446 @@
+
+ViewDistance  (+0x021c)
+     GetViewDistance@ControllerAI
+     0ControllerAI
+     GetViewDistance@?$ControllerAIStateT@VControllerTyphonChained
+     FindAlliesInSight@?$ControllerAIStateT@VControllerNpcHerder
+     FindAlliesOfType@?$ControllerAIStateT@VControllerNpcHerder
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerNpcHerder
+     FindAlliesInSight@?$ControllerAIStateT@VControllerTyphonChained
+     FindAlliesOfType@?$ControllerAIStateT@VControllerTyphonChained
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerTyphonChained
+     Load@ControllerAI
+     SetViewDistance@ControllerAI
+     CheckAction@ControllerBaseCharacter
+     FindAlliesInSight@?$ControllerAIStateT@VControllerCerberus
+     FindAlliesOfType@?$ControllerAIStateT@VControllerCerberus
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerCerberus
+     HandleEvent@ControllerCombat
+     FindAlliesInSight@?$ControllerAIStateT@VControllerMegalesios
+     FindAlliesOfType@?$ControllerAIStateT@VControllerMegalesios
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerMegalesios
+     ChooseBestAllyToBuff@ControllerMonster
+     ProcessAngerTarget@ControllerMonster
+     AngerUpdate@ControllerMonster
+     PickRandomEnemyInView@ControllerMonster
+     TryToHealAlly@ControllerMonster
+     OnUpdate@ControllerMonsterStateHidden
+     Load@ControllerNpc2
+     FindAlliesInSight@?$ControllerAIStateT@VControllerNpcHerdAnimal
+     FindAlliesOfType@?$ControllerAIStateT@VControllerNpcHerdAnimal
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerNpcHerdAnimal
+     Load@ControllerPlayer
+     DeathUpdate@ControllerPlayer
+     FindAlliesInSight@?$ControllerAIStateT@VControllerPlayer
+     FindAlliesOfType@?$ControllerAIStateT@VControllerPlayer
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerPlayer
+     FindAlliesInSight@?$ControllerAIStateT@VControllerSpiritHost
+     FindAlliesOfType@?$ControllerAIStateT@VControllerSpiritHost
+     FindEnemiesInSight@?$ControllerAIStateT@VControllerSpiritHost
+     TouchedByActor@FixedItemDoorController
+
+FleeChance  (+0x02d8)
+     GetFleeChance@ControllerMonster
+     InitialUpdate@ControllerGraeae
+     GetEye@ControllerGraeae
+     LoseEye@ControllerGraeae
+     CanFlee@ControllerMonster
+     Attacked@ControllerMonsterStateAttack
+     DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster
+     1ControllerPlayer
+     0FixedItemContainerController
+
+DodgeChance  (+0x02dc)
+     0ControllerPlayer
+     GetDodgeChance@ControllerMonster
+     SendDropItemRandom@ControllerCharacter
+     InitialUpdate@ControllerGraeae
+     GetEye@ControllerGraeae
+     LoseEye@ControllerGraeae
+     OnBegin@ControllerMonsterStateJumpAttack
+     DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster
+     Load@ControllerPlayer
+     OnBegin@ControllerPlayerStateJumpToUseSkill
+
+randomRepositionChance  (+0x02e0)
+     0ControllerPlayer
+     GetRandomRepositionChance@ControllerMonster
+     InitialUpdate@ControllerGraeae
+     GetEye@ControllerGraeae
+     LoseEye@ControllerGraeae
+     OnUpdate@ControllerMonsterStateAttack
+     DeathUpdate@ControllerPlayer
+
+minSwingPause  (+0x02f0)
+     ResetSwingTimer@ControllerMonster
+     OnUpdate@ControllerMonsterStateAttack
+     EnemyFound@ControllerMonsterStateTrapped
+     0ControllerPlayer
+     ClearTarget@ControllerPlayer
+     SetMouseRepeatData@ControllerPlayer
+     GetMouseRepeatData@ControllerPlayer
+
+maxSwingPause  (+0x02f4)
+     ResetSwingTimer@ControllerMonster
+     OnUpdate@ControllerMonsterStateAttack
+     EnemyFound@ControllerMonsterStateTrapped
+
+swingPauseRoll  (+0x02f8)
+     0ControllerPlayer
+     Update@ControllerMonster
+     SkillFailed@ControllerMonster
+     ResetSwingTimer@ControllerMonster
+     ZeroSwingTimer@ControllerMonster
+     GetSwingTimer@ControllerMonster
+     OnBegin@ControllerMonsterStateAttack
+     OnUpdate@ControllerMonsterStateAttack
+     OnUpdate@ControllerMonsterStateTrapped
+     EnemyFound@ControllerMonsterStateTrapped
+     OnEnd@ControllerMonsterStateUseSkillOnPoint
+     0RefreshSkillCooldownController
+     ModifyChanceToRun@SkillAutoCastController
+
+PursuitTime  (+0x02fc)
+     GetPursuitTime@ControllerMonster
+     StartedRoaming@ControllerMonsterStateIdle
+     OnBegin@ControllerMonsterStatePursue
+     OnUpdate@ControllerMonsterStatePursue
+     OnBegin@ControllerMonsterStatePatrol
+     OnBegin@ControllerNpcStateWander
+     CharacterIsDying@ControllerPlayer
+     MoveAndPickUpItem@ControllerPlayerState
+     MoveAndPickUpItemAlternate@ControllerPlayerState
+     DefaultRequestInteractableAction@ControllerPlayerState
+     DefaultRequestMoveAction@ControllerPlayerState
+
+MaxPursuitDistance  (+0x0300)
+     0ControllerPlayer
+     GetMaxPursuitDistance@ControllerMonster
+     InPursuitRange@ControllerMonster
+     ShouldCareAboutDistressCall@ControllerMonster
+     OnBegin@ControllerMonsterStateReturn
+     SetControllerDirection@ControllerPlayer
+     GetControllerDirection@ControllerPlayer
+     DefaultRequestSkillAction@ControllerPlayerState
+     OnBegin@ControllerPlayerStateUseSkill
+     0RefreshSkillCooldownController
+
+FleeBehavior  (+0x0304)
+     GetFleeBehavior@ControllerMonster
+     UseSkill@?$ControllerAIStateT@VControllerMonster
+     UseSkill@?$ControllerAIStateT@VControllerMegalesios
+     FindEnemyUpdate@ControllerMonster
+     Attacked@ControllerMonsterStateAttack
+     OnBegin@ControllerMonsterStateConfused
+     DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster
+     UseSkill@?$ControllerAIStateT@VControllerNpc2
+     UseSkill@?$ControllerAIStateT@VControllerPlayer
+
+FleeTarget  (+0x0308)
+     0ControllerPlayer
+     GetFleeTarget@ControllerMonster
+     PickFleePoint@ControllerMonsterStateFlee
+     SetControllerDirection@ControllerPlayer
+     GetControllerDirection@ControllerPlayer
+     DefaultRequestSkillAction@ControllerPlayerState
+     OnBegin@ControllerPlayerStateUseSkill
+
+maxFleeCount  (+0x030c)
+     0ControllerPlayer
+     CanFlee@ControllerMonster
+     Attacked@ControllerMonsterStateAttack
+     DefaultClosestEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultLowHealthResponse@?$ControllerMonsterState@VControllerMonster
+     CallForFollowers@?$ControllerMonsterState@VControllerMonster
+     JoinLeader@?$ControllerMonsterState@VControllerMonster
+     SetControllerMovementLength@ControllerPlayer
+     GetControllerMovementLength@ControllerPlayer
+     DefaultRequestSkillAction@ControllerPlayerState
+     OnBegin@ControllerPlayerStateUseSkill
+     ConvertToJoystickEvent@GameController
+
+FleeTime  (+0x0310)
+     0ControllerPlayer
+     MaxSkillDistance@?$ControllerAIStateT@VControllerAI
+     GetFleeTime@ControllerMonster
+     MaxSkillDistance@?$ControllerAIStateT@VControllerMonster
+     MaxSkillDistance@?$ControllerAIStateT@VControllerMonsterHidden
+     MaxSkillDistance@?$ControllerAIStateT@VControllerCerberus
+     MaxSkillDistance@?$ControllerAIStateT@VControllerSpirit
+     MaxSkillDistance@?$ControllerAIStateT@VControllerMegalesios
+     DoFlee@ControllerMonsterStateFlee
+     MaxSkillDistance@?$ControllerAIStateT@VControllerMonsterSynergy
+     MaxSkillDistance@?$ControllerAIStateT@VControllerNpc2
+     MaxSkillDistance@?$ControllerAIStateT@VControllerNpcHerdAnimal
+     MaxSkillDistance@?$ControllerAIStateT@VControllerNpcHerder
+     SetCombatEnemy@ControllerPlayer
+     ClearTarget@ControllerPlayer
+     MaxSkillDistance@?$ControllerAIStateT@VControllerPlayer
+     DefaultRequestSkillAction@ControllerPlayerState
+     DefaultRequestInstantSkillAction@ControllerPlayerState
+     RequestSkillAction@ControllerPlayerStateTrapped
+     RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped
+     MaxSkillDistance@?$ControllerAIStateT@VControllerSpiritHost
+     MaxSkillDistance@?$ControllerAIStateT@VControllerStationaryMonster
+     MaxSkillDistance@?$ControllerAIStateT@VControllerTerracotta
+     MaxSkillDistance@?$ControllerAIStateT@VControllerTyphonChained
+
+FleeDelay  (+0x0314)
+     0ControllerPlayer
+     ResetFleeTimer@ControllerMonster
+     OnEnd@ControllerMonsterStateFlee
+     DefaultRequestSkillAction@ControllerPlayerState
+     DefaultRequestInstantSkillAction@ControllerPlayerState
+     RequestSkillAction@ControllerPlayerStateTrapped
+     RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped
+     AppraiseAndExecute@SkillAutoCastController
+     0RefreshSkillCooldownController
+
+fleeDistance  (+0x0318)
+     0ControllerPlayer
+     GetFleeDistance@ControllerMonster
+     PickFleePoint@ControllerMonsterStateFlee
+     PickRunToPoint@ControllerMonsterStateScared
+     OnBegin@ControllerNpcStateStartup
+     1ControllerPlayer
+     Update@ControllerPlayer
+     GiveItemToPlayer@ControllerPlayer
+     GiveArtifactToPlayer@ControllerPlayer
+     GiveRecoveredItemToPlayer@ControllerPlayer
+     GiveDismantledItemToPlayer@ControllerPlayer
+     GiveDismantledBonusItemToPlayer@ControllerPlayer
+     GiveTinkeredItemToPlayer@ControllerPlayer
+     GiveSetItemToPlayer@ControllerPlayer
+     GiveRerollItemToPlayer@ControllerPlayer
+     GiveAscendedItemToPlayer@ControllerPlayer
+     GetInventoryCtrl@ControllerPlayer
+     GiveAllItems@InventorySack
+     NotifyControllerItemRemovedFromInventory@Player
+     0RefreshSkillCooldownController
+
+ClearAngerWhenFleeing  (+0x031c)
+     CharacterHandlerUpdate@ControllerBaseCharacter
+     OnEnd@ControllerMonsterStateFlee
+     PostParentAttached@ControllerPlayer
+
+RoamBehavior  (+0x0320)
+     GetRoamBehavior@ControllerMonster
+     SetRoamBehavior@ControllerMonster
+     StartedRoaming@ControllerMonsterStateIdle
+     0ControllerPlayer
+
+BuffSelfBehavior  (+0x0324)
+     GetBuffSelfBehavior@ControllerMonster
+     Update@ControllerMonster
+     HandleEvent@ControllerMonsterStateAttack
+     HandleEvent@ControllerMonsterStateJumpAttack
+     DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAllyAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster
+     ShouldBuffSelf@?$ControllerMonsterState@VControllerMonster
+
+BuffAllyBehavior  (+0x0328)
+     GetBuffAllyBehavior@ControllerMonster
+     Update@ControllerMonster
+     DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster
+
+BuffAllyTargeting  (+0x032c)
+     ChooseBestAllyToBuff@ControllerMonster
+
+DebuffEnemyBehavior  (+0x0330)
+     GetDebuffEnemyBehavior@ControllerMonster
+
+ChanceToRespondToDistressCall  (+0x0338)
+     GetChanceToRespondToDistressCall@ControllerMonster
+     DefaultAllyAttackedResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster
+
+DistressResponseGroup  (+0x033c)
+     GetDistressResponseGroup@ControllerMonster
+     SetDistressResponseGroup@ControllerMonster
+     1ControllerMonster
+
+DistressResponseBehavior  (+0x0354)
+     GetDistressResponseBehavior@ControllerMonster
+     ShouldCareAboutDistressCall@ControllerMonster
+
+healLeaderHealthPercentage  (+0x0358)
+     GetHealLeaderHealthPercentage@ControllerMonster
+     TryToHealAlly@ControllerMonster
+     HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster
+
+healAllyHealthPercentage  (+0x035c)
+     GetHealAllyHealthPercentage@ControllerMonster
+     TryToHealAlly@ControllerMonster
+     HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster
+
+LeaderBehavior  (+0x0360)
+     GetLeaderBehavior@ControllerMonster
+     FindEnemyUpdate@ControllerMonster
+     OnBegin@ControllerMonsterStatePatrol
+     DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster
+     DefaultAttackedResponse@?$ControllerMonsterState@VControllerMonster
+
+LeaderDistance  (+0x0364)
+     GetLeaderDistance@ControllerMonster
+     CallForFollowers@?$ControllerMonsterState@VControllerMonster
+
+MaxFollowers  (+0x0368)
+     0ControllerPlayer
+     GetMaxFollowers@ControllerMonster
+     CallForFollowers@?$ControllerMonsterState@VControllerMonster
+     SetPet@ControllerPlayer
+     HandlePetAction@ControllerPlayer
+     DefaultRequestSkillAction@ControllerPlayerState
+     DefaultRequestInstantSkillAction@ControllerPlayerState
+     RequestSkillAction@ControllerPlayerStateTrapped
+     RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped
+
+WanderDistance  (+0x0370)
+     0ControllerPlayer
+     GetWanderDistance@ControllerMonster
+     OnBegin@ControllerMonsterStateWander
+     CheckLeaderAndWanderDistance@ControllerMonsterStateWander
+     ClearTarget@ControllerPlayer
+     SetTargetPoint@ControllerPlayer
+     GetTargetPoint@ControllerPlayer
+     DefaultRequestEvadeAction@ControllerPlayerState
+     DefaultRequestSkillAction@ControllerPlayerState
+     EndOfPathReached@ControllerPlayerStateMoveToUseSkill
+     PathFailed@ControllerPlayerStateMoveToUseSkill
+     EndOfPathReached@ControllerPlayerStateJumpToUseSkill
+
+RoamDistance  (+0x0374)
+     GetRoamDistance@ControllerMonster
+     PickFleePoint@ControllerMonsterStateFlee
+     StartRoaming@ControllerMonsterStateRoam
+
+TeleportToLeaderDistance  (+0x0378)
+     GetTeleportToLeaderDistance@ControllerMonster
+     HandleEvent@ControllerMonsterStateAttack
+     HandleEvent@ControllerMonsterStateJumpAttack
+     OnUpdate@ControllerMonsterStateFollowLeader
+     OnUpdate@ControllerMonsterStateDefendLeader
+
+ChanceToIdleOnPatrol  (+0x037c)
+     GetChanceToIdleOnPatrol@ControllerMonster
+     PathFailed@ControllerMonsterStatePatrol
+
+MinPatrolIdleTime  (+0x0380)
+     0ControllerPlayer
+     GetMinPatrolIdleTime@ControllerMonster
+     PathFailed@ControllerMonsterStatePatrol
+     SetAllowWorldEvents@ControllerPlayer
+     GetAllowWorldEvents@ControllerPlayer
+
+MaxPatrolIdleTime  (+0x0384)
+     0ControllerPlayer
+     GetMaxPatrolIdleTime@ControllerMonster
+     PathFailed@ControllerMonsterStatePatrol
+     Update@ControllerPlayer
+     SetAttackDelay@ControllerPlayer
+     OnUpdate@ControllerPlayerStateMoveAndUseSkill
+     OnBegin@ControllerPlayerStateUseSkill
+     OnUpdate@ControllerPlayerStateUseSkill
+
+RandomAngerChance  (+0x0390)
+     Update@ControllerMonster
+
+MinTimeBeforeRoam  (+0x0394)
+     GetMinTimeBeforeRoam@ControllerMonster
+     OnBegin@ControllerMonsterStateIdle
+
+MaxTimeBeforeRoam  (+0x0398)
+     GetMaxTimeBeforeRoam@ControllerMonster
+     OnBegin@ControllerMonsterStateIdle
+
+MinRoamDistance  (+0x039c)
+     GetMinRoamDistance@ControllerMonster
+     StartRoaming@ControllerMonsterStateRoam
+
+MinWanderDistance  (+0x03a0)
+     GetMinWanderDistance@ControllerMonster
+     OnBegin@ControllerMonsterStateNavigateObstacle
+     OnBegin@ControllerMonsterStateWander
+
+ResetOriginAfterFleeing  (+0x03a4)
+     ShouldRemoveEnemy@AngerManager
+     GetResetOriginAfterFleeing@ControllerMonster
+     OnEnd@ControllerMonsterStateFlee
+
+DodgeDistance  (+0x03a8)
+     ShouldRemoveEnemy@AngerManager
+     UseSkill@?$ControllerAIStateT@VControllerAI
+     GetDodgeDistance@ControllerMonster
+     UseSkill@?$ControllerAIStateT@VControllerMonsterHidden
+     UseSkill@?$ControllerAIStateT@VControllerCerberus
+     UseSkill@?$ControllerAIStateT@VControllerSpirit
+     UseSkill@?$ControllerAIStateT@VControllerMegalesios
+     DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster
+     UseSkill@?$ControllerAIStateT@VControllerMonsterSynergy
+     UseSkill@?$ControllerAIStateT@VControllerNpcHerdAnimal
+     UseSkill@?$ControllerAIStateT@VControllerNpcHerder
+     UseSkill@?$ControllerAIStateT@VControllerSpiritHost
+     UseSkill@?$ControllerAIStateT@VControllerStationaryMonster
+     UseSkill@?$ControllerAIStateT@VControllerTerracotta
+     UseSkill@?$ControllerAIStateT@VControllerTyphonChained
+
+MinDodgeDistance  (+0x03ac)
+     GetMinDodgeDistance@ControllerMonster
+     DefaultProjectileNotificationResponse@?$ControllerMonsterState@VControllerMonster
+
+RepositionChance  (+0x03b0)
+     GetRepositionChance@ControllerMonster
+     ProjectileCollisionCallback@ControllerMonsterStateAttack
+
+ignoreSleepingEnemies  (+0x04d9)
+     IgnoreSleepingEnemies@ControllerMonster
+     FindEnemy@ControllerMonster
+     GetMostHatedEnemy@ControllerMonster
+     AngerUpdate@ControllerMonster
+     FindEnemyUpdate@ControllerMonster
+
+RandomAngerEvaluationTime  (+0x0504)
+     Update@ControllerMonster
+
+DodgeDelay  (+0x0510)
+     ProjectileNotification@ControllerMonster
+
+randomEmoteChance  (+0x0514)
+     Update@ControllerMonster
+
+randomEmoteMinTime  (+0x0518)
+     DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden
+     Update@ControllerMonster
+
+randomEmoteMaxTime  (+0x051c)
+     DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden
+     Update@ControllerMonster
+
+ignorePetsChance  (+0x056c)
+     GetIgnorePetChance@ControllerMonster
+     Update@ControllerMonster
+
+ignorePetsInterval  (+0x0570)
+     GetIgnorePetInterval@ControllerMonster
+     Update@ControllerMonster
+
+petTargetLevelRange  (+0x0580)
+     FindEnemy@ControllerMonster
+     GetMostHatedEnemy@ControllerMonster
+
+petTargetLeastAttacked  (+0x0584)
+     DefaultQuestCommandUseSkillResponse@?$ControllerMonsterState@VControllerMonsterHidden
+     FindEnemy@ControllerMonster
+     GetMostHatedEnemy@ControllerMonster
+
+petTargetGreatestHealth  (+0x0585)
+     FindEnemy@ControllerMonster
+     GetMostHatedEnemy@ControllerMonster

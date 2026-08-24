@@ -1,0 +1,2175 @@
+{
+  "rolled_20w_controllers": {
+    "n": 77,
+    "classes": {
+      "ControllerMonster": 75,
+      "ControllerGraeae": 1,
+      "ControllerStationaryMonster": 1
+    },
+    "fields": {
+      "ViewDistance": {
+        "80.0": 77
+      },
+      "pathingViewDistance": {
+        "__ABSENT__": 74,
+        "0.0": 1,
+        "50.0": 1,
+        "4.0": 1
+      },
+      "enemyTooClose": {
+        "0.0": 71,
+        "3.0": 3,
+        "5.0": 3
+      },
+      "InnerViewDistance": {
+        "12.0": 66,
+        "4.0": 11
+      },
+      "MaxYViewDistance": {
+        "20.0": 42,
+        "10.0": 35
+      },
+      "AngerTolerance": {
+        "0.0": 76,
+        "1.0": 1
+      },
+      "AttackedAnger": {
+        "15.0": 77
+      },
+      "AllyAttackedAnger": {
+        "8.0": 76,
+        "5.0": 1
+      },
+      "ForgiveRate": {
+        "0.0": 76,
+        "2.0": 1
+      },
+      "SightAngerRate": {
+        "5.0": 77
+      },
+      "InnerSightAngerRate": {
+        "10.0": 77
+      },
+      "ProjectileAnger": {
+        "5.0": 76,
+        "3.0": 1
+      },
+      "FleeBehavior": {
+        "NeverFlee": 77
+      },
+      "FleeTime": {
+        "0": 50,
+        "3000": 26,
+        "3": 1
+      },
+      "FleeTarget": {
+        "__ABSENT__": 32,
+        "AwayFromEnemy": 31,
+        "TowardsAllies": 12,
+        "TowardsHome": 2
+      },
+      "maxFleeCount": {
+        "0": 71,
+        "2": 5,
+        "1": 1
+      },
+      "FleeDelay": {
+        "0": 37,
+        "5000": 25,
+        "3000": 12,
+        "10000": 2,
+        "8000": 1
+      },
+      "FleeChance": {
+        "0": 72,
+        "50": 3,
+        "75": 2
+      },
+      "fleeDistance": {
+        "0.0": 34,
+        "8.0": 18,
+        "10.0": 13,
+        "5.0": 7,
+        "16.0": 3,
+        "12.0": 2
+      },
+      "ClearAngerWhenFleeing": {
+        "False": 77
+      },
+      "ResetOriginAfterFleeing": {
+        "False": 59,
+        "True": 18
+      },
+      "PursuitTime": {
+        "10000": 76,
+        "12000": 1
+      },
+      "MaxPursuitDistance": {
+        "125.0": 76,
+        "35.0": 1
+      },
+      "EmoteBeforePursuingChance": {
+        "0": 77
+      },
+      "BuffSelfBehavior": {
+        "WhenEnemyIsSeen": 54,
+        "WheneverPossible": 23
+      },
+      "BuffAllyBehavior": {
+        "WhenEnemyIsSeen": 54,
+        "WheneverPossible": 23
+      },
+      "DebuffEnemyBehavior": {
+        "WhenEnemyIsSeen": 77
+      },
+      "healLeaderHealthPercentage": {
+        "80": 38,
+        "70": 18,
+        "75": 13,
+        "20": 4,
+        "60": 2,
+        "66": 2
+      },
+      "healAllyHealthPercentage": {
+        "80": 40,
+        "70": 18,
+        "75": 13,
+        "20": 4,
+        "60": 2
+      },
+      "BuffAllyTargeting": {
+        "BuffStrongest": 64,
+        "BuffWeakest": 13
+      },
+      "RoamBehavior": {
+        "Roam": 75,
+        "NeverRoam": 2
+      },
+      "MinRoamDistance": {
+        "2.0": 72,
+        "3.0": 3,
+        "0.0": 2
+      },
+      "RoamDistance": {
+        "2.0": 66,
+        "5.0": 6,
+        "4.0": 2,
+        "0.0": 2,
+        "3.0": 1
+      },
+      "MinTimeBeforeRoam": {
+        "2000": 66,
+        "6000": 10,
+        "0": 1
+      },
+      "MaxTimeBeforeRoam": {
+        "2000": 66,
+        "12000": 9,
+        "16000": 1,
+        "0": 1
+      },
+      "MinWanderDistance": {
+        "2.0": 76,
+        "0.0": 1
+      },
+      "WanderDistance": {
+        "0.0": 77
+      },
+      "TeleportToLeaderDistance": {
+        "40.0": 77
+      },
+      "ChanceToIdleOnPatrol": {
+        "0": 70,
+        "75": 3,
+        "20": 2,
+        "__ABSENT__": 2
+      },
+      "MinPatrolIdleTime": {
+        "1000": 76,
+        "0": 1
+      },
+      "MaxPatrolIdleTime": {
+        "5000": 76,
+        "0": 1
+      },
+      "ChanceToRespondToDistressCall": {
+        "15": 29,
+        "75": 18,
+        "20": 13,
+        "50": 8,
+        "100": 7,
+        "0": 2
+      },
+      "DistressResponseBehavior": {
+        "RespondToSameGroup": 77
+      },
+      "DistressResponseGroup": {
+        "Aetherial": 77
+      },
+      "RandomAngerChance": {
+        "0": 54,
+        "10": 22,
+        "15": 1
+      },
+      "RandomAngerEvaluationTime": {
+        "0": 43,
+        "3000": 33,
+        "5000": 1
+      },
+      "DodgeDistance": {
+        "0.0": 39,
+        "2.0": 15,
+        "__ABSENT__": 10,
+        "3.0": 9,
+        "5.0": 3,
+        "4.0": 1
+      },
+      "DodgeDelay": {
+        "0": 34,
+        "5000": 13,
+        "__ABSENT__": 10,
+        "1500": 8,
+        "3000": 7,
+        "6000": 2,
+        "750": 1,
+        "2000": 1,
+        "4000": 1
+      },
+      "DodgeChance": {
+        "0": 41,
+        "__ABSENT__": 10,
+        "75": 10,
+        "50": 8,
+        "30": 6,
+        "65": 1,
+        "70": 1
+      },
+      "MinDodgeDistance": {
+        "0.0": 39,
+        "2.0": 15,
+        "__ABSENT__": 10,
+        "4.0": 9,
+        "6.0": 2,
+        "5.0": 1,
+        "3.0": 1
+      },
+      "LeadChance": {
+        "0": 17,
+        "__ABSENT__": 14,
+        "0;50;100": 13,
+        "50;75;100": 13,
+        "30;60;100": 11,
+        "30;50;80": 7,
+        "0;30;60": 1,
+        "0;50;75": 1
+      },
+      "RepositionChance": {
+        "0": 48,
+        "100": 15,
+        "45": 9,
+        "50": 2,
+        "65": 2,
+        "75": 1
+      },
+      "randomRepositionChance": {
+        "0": 60,
+        "20": 11,
+        "5": 3,
+        "25": 2,
+        "30": 1
+      },
+      "minSwingPause": {
+        "0.5": 17,
+        "0.4000000059604645": 9,
+        "0.20000000298023224": 8,
+        "0.30000001192092896": 7,
+        "0.0": 5,
+        "0.6499999761581421": 5,
+        "1.0499999523162842": 4,
+        "0.800000011920929": 4,
+        "1.0": 3,
+        "0.550000011920929": 3,
+        "0.949999988079071": 3,
+        "__ABSENT__": 2,
+        "1.2999999523162842": 1,
+        "0.10000000149011612": 1,
+        "1.600000023841858": 1,
+        "0.6000000238418579": 1,
+        "2.0": 1,
+        "0.8999999761581421": 1,
+        "0.15000000596046448": 1
+      },
+      "maxSwingPause": {
+        "1.2000000476837158": 12,
+        "0.6000000238418579": 12,
+        "1.0": 10,
+        "0.30000001192092896": 7,
+        "0.800000011920929": 7,
+        "0.5": 4,
+        "1.600000023841858": 4,
+        "1.7999999523162842": 4,
+        "1.100000023841858": 3,
+        "0.8999999761581421": 3,
+        "1.2999999523162842": 3,
+        "0.699999988079071": 2,
+        "1.899999976158142": 1,
+        "1.7000000476837158": 1,
+        "2.0": 1,
+        "3.299999952316284": 1,
+        "__ABSENT__": 1,
+        "0.75": 1
+      },
+      "ignoreSleepingEnemies": {
+        "True": 50,
+        "__ABSENT__": 27
+      },
+      "randomEmoteChance": {
+        "0": 69,
+        "100": 5,
+        "__ABSENT__": 2,
+        "50": 1
+      },
+      "randomEmoteMinTime": {
+        "5000": 57,
+        "0": 11,
+        "6000": 8,
+        "9000": 1
+      },
+      "randomEmoteMaxTime": {
+        "10000": 65,
+        "0": 11,
+        "12000": 1
+      },
+      "ignorePetsChance": {
+        "35": 39,
+        "0": 35,
+        "18": 2,
+        "15": 1
+      },
+      "ignorePetsInterval": {
+        "7000": 76,
+        "5000": 1
+      },
+      "petAngerTransference": {
+        "17": 53,
+        "12": 16,
+        "22": 6,
+        "27": 1,
+        "15": 1
+      },
+      "petTargetLevelRange": {
+        "1000": 77
+      },
+      "petTargetLeastAttacked": {
+        "False": 77
+      },
+      "petTargetGreatestHealth": {
+        "False": 77
+      },
+      "lootDropAttachPointName": {
+        "__ABSENT__": 77
+      },
+      "lootDropCallbackPoint": {
+        "__ABSENT__": 77
+      },
+      "dyingSkillCallbackPoint": {
+        "__ABSENT__": 77
+      }
+    }
+  },
+  "pool_controllers": {
+    "n": 145,
+    "classes": {
+      "ControllerMonster": 143,
+      "ControllerGraeae": 1,
+      "ControllerStationaryMonster": 1
+    },
+    "fields": {
+      "ViewDistance": {
+        "80.0": 144,
+        "15.0": 1
+      },
+      "pathingViewDistance": {
+        "__ABSENT__": 141,
+        "50.0": 2,
+        "0.0": 1,
+        "4.0": 1
+      },
+      "enemyTooClose": {
+        "0.0": 130,
+        "3.0": 9,
+        "5.0": 5,
+        "4.0": 1
+      },
+      "InnerViewDistance": {
+        "12.0": 119,
+        "4.0": 25,
+        "6.0": 1
+      },
+      "MaxYViewDistance": {
+        "20.0": 90,
+        "10.0": 53,
+        "12.0": 1,
+        "15.0": 1
+      },
+      "AngerTolerance": {
+        "0.0": 144,
+        "1.0": 1
+      },
+      "AttackedAnger": {
+        "15.0": 144,
+        "16.0": 1
+      },
+      "AllyAttackedAnger": {
+        "8.0": 143,
+        "4.0": 1,
+        "5.0": 1
+      },
+      "ForgiveRate": {
+        "0.0": 144,
+        "2.0": 1
+      },
+      "SightAngerRate": {
+        "5.0": 144,
+        "4.0": 1
+      },
+      "InnerSightAngerRate": {
+        "10.0": 144,
+        "8.0": 1
+      },
+      "ProjectileAnger": {
+        "5.0": 143,
+        "3.0": 2
+      },
+      "FleeBehavior": {
+        "NeverFlee": 145
+      },
+      "FleeTime": {
+        "0": 95,
+        "3000": 47,
+        "3": 2,
+        "2500": 1
+      },
+      "FleeTarget": {
+        "AwayFromEnemy": 73,
+        "__ABSENT__": 47,
+        "TowardsAllies": 22,
+        "TowardsHome": 3
+      },
+      "maxFleeCount": {
+        "0": 135,
+        "2": 8,
+        "1": 2
+      },
+      "FleeDelay": {
+        "5000": 62,
+        "0": 61,
+        "3000": 18,
+        "10000": 3,
+        "8000": 1
+      },
+      "FleeChance": {
+        "0": 133,
+        "50": 10,
+        "75": 2
+      },
+      "fleeDistance": {
+        "0.0": 57,
+        "8.0": 48,
+        "10.0": 19,
+        "5.0": 14,
+        "16.0": 4,
+        "12.0": 3
+      },
+      "ClearAngerWhenFleeing": {
+        "False": 145
+      },
+      "ResetOriginAfterFleeing": {
+        "False": 119,
+        "True": 26
+      },
+      "PursuitTime": {
+        "10000": 144,
+        "12000": 1
+      },
+      "MaxPursuitDistance": {
+        "125.0": 143,
+        "75.0": 1,
+        "35.0": 1
+      },
+      "EmoteBeforePursuingChance": {
+        "0": 144,
+        "20": 1
+      },
+      "BuffSelfBehavior": {
+        "WhenEnemyIsSeen": 95,
+        "WheneverPossible": 50
+      },
+      "BuffAllyBehavior": {
+        "WhenEnemyIsSeen": 95,
+        "WheneverPossible": 50
+      },
+      "DebuffEnemyBehavior": {
+        "WhenEnemyIsSeen": 145
+      },
+      "healLeaderHealthPercentage": {
+        "80": 60,
+        "70": 36,
+        "75": 35,
+        "20": 8,
+        "60": 4,
+        "66": 2
+      },
+      "healAllyHealthPercentage": {
+        "80": 62,
+        "70": 36,
+        "75": 35,
+        "20": 8,
+        "60": 4
+      },
+      "BuffAllyTargeting": {
+        "BuffStrongest": 119,
+        "BuffWeakest": 26
+      },
+      "RoamBehavior": {
+        "Roam": 139,
+        "NeverRoam": 6
+      },
+      "MinRoamDistance": {
+        "2.0": 130,
+        "3.0": 12,
+        "0.0": 3
+      },
+      "RoamDistance": {
+        "2.0": 119,
+        "5.0": 14,
+        "4.0": 6,
+        "0.0": 3,
+        "3.0": 2,
+        "3.5": 1
+      },
+      "MinTimeBeforeRoam": {
+        "2000": 119,
+        "6000": 25,
+        "0": 1
+      },
+      "MaxTimeBeforeRoam": {
+        "2000": 119,
+        "12000": 20,
+        "16000": 4,
+        "10000": 1,
+        "0": 1
+      },
+      "MinWanderDistance": {
+        "2.0": 144,
+        "0.0": 1
+      },
+      "WanderDistance": {
+        "0.0": 145
+      },
+      "TeleportToLeaderDistance": {
+        "40.0": 145
+      },
+      "ChanceToIdleOnPatrol": {
+        "0": 126,
+        "20": 8,
+        "75": 7,
+        "__ABSENT__": 4
+      },
+      "MinPatrolIdleTime": {
+        "1000": 143,
+        "0": 2
+      },
+      "MaxPatrolIdleTime": {
+        "5000": 143,
+        "0": 2
+      },
+      "ChanceToRespondToDistressCall": {
+        "15": 60,
+        "75": 29,
+        "20": 23,
+        "50": 17,
+        "100": 14,
+        "0": 2
+      },
+      "DistressResponseBehavior": {
+        "RespondToSameGroup": 145
+      },
+      "DistressResponseGroup": {
+        "Aetherial": 144,
+        "Chthonic": 1
+      },
+      "RandomAngerChance": {
+        "0": 110,
+        "10": 34,
+        "15": 1
+      },
+      "RandomAngerEvaluationTime": {
+        "0": 93,
+        "3000": 51,
+        "5000": 1
+      },
+      "DodgeDistance": {
+        "0.0": 65,
+        "2.0": 35,
+        "__ABSENT__": 23,
+        "3.0": 15,
+        "4.0": 4,
+        "5.0": 3
+      },
+      "DodgeDelay": {
+        "0": 57,
+        "5000": 25,
+        "__ABSENT__": 23,
+        "3000": 14,
+        "1500": 12,
+        "6000": 8,
+        "4000": 4,
+        "750": 1,
+        "2000": 1
+      },
+      "DodgeChance": {
+        "0": 73,
+        "__ABSENT__": 23,
+        "75": 15,
+        "30": 14,
+        "50": 12,
+        "70": 5,
+        "65": 2,
+        "80": 1
+      },
+      "MinDodgeDistance": {
+        "0.0": 65,
+        "2.0": 32,
+        "__ABSENT__": 23,
+        "4.0": 16,
+        "5.0": 5,
+        "6.0": 3,
+        "3.0": 1
+      },
+      "LeadChance": {
+        "__ABSENT__": 38,
+        "0": 25,
+        "50;75;100": 24,
+        "0;50;100": 23,
+        "30;60;100": 17,
+        "30;50;80": 12,
+        "0;50;75": 4,
+        "90": 1,
+        "0;30;60": 1
+      },
+      "RepositionChance": {
+        "0": 86,
+        "100": 28,
+        "45": 22,
+        "50": 4,
+        "75": 3,
+        "65": 2
+      },
+      "randomRepositionChance": {
+        "0": 111,
+        "20": 24,
+        "5": 6,
+        "25": 2,
+        "30": 2
+      },
+      "minSwingPause": {
+        "0.5": 28,
+        "0.20000000298023224": 20,
+        "0.30000001192092896": 17,
+        "0.4000000059604645": 13,
+        "0.6499999761581421": 9,
+        "0.0": 8,
+        "1.0": 8,
+        "0.800000011920929": 7,
+        "1.0499999523162842": 6,
+        "0.949999988079071": 6,
+        "0.550000011920929": 5,
+        "0.699999988079071": 4,
+        "__ABSENT__": 2,
+        "0.8999999761581421": 2,
+        "1.149999976158142": 1,
+        "1.2999999523162842": 1,
+        "0.10000000149011612": 1,
+        "0.25": 1,
+        "1.600000023841858": 1,
+        "0.6000000238418579": 1,
+        "2.0": 1,
+        "1.399999976158142": 1,
+        "0.44999998807907104": 1,
+        "0.15000000596046448": 1
+      },
+      "maxSwingPause": {
+        "0.6000000238418579": 23,
+        "1.2000000476837158": 22,
+        "1.0": 19,
+        "0.800000011920929": 13,
+        "0.30000001192092896": 9,
+        "1.600000023841858": 8,
+        "1.100000023841858": 7,
+        "0.5": 7,
+        "1.7999999523162842": 7,
+        "1.2999999523162842": 5,
+        "0.699999988079071": 5,
+        "0.8999999761581421": 5,
+        "0.4000000059604645": 3,
+        "1.7000000476837158": 3,
+        "1.899999976158142": 2,
+        "2.0": 2,
+        "1.399999976158142": 1,
+        "3.299999952316284": 1,
+        "1.0499999523162842": 1,
+        "__ABSENT__": 1,
+        "0.75": 1
+      },
+      "ignoreSleepingEnemies": {
+        "True": 94,
+        "__ABSENT__": 51
+      },
+      "randomEmoteChance": {
+        "0": 124,
+        "100": 14,
+        "__ABSENT__": 4,
+        "50": 2,
+        "30": 1
+      },
+      "randomEmoteMinTime": {
+        "5000": 106,
+        "0": 21,
+        "6000": 16,
+        "9000": 2
+      },
+      "randomEmoteMaxTime": {
+        "10000": 122,
+        "0": 21,
+        "12000": 2
+      },
+      "ignorePetsChance": {
+        "0": 73,
+        "35": 64,
+        "70": 3,
+        "18": 3,
+        "40": 1,
+        "15": 1
+      },
+      "ignorePetsInterval": {
+        "7000": 143,
+        "5000": 2
+      },
+      "petAngerTransference": {
+        "17": 91,
+        "12": 39,
+        "22": 10,
+        "27": 2,
+        "20": 1,
+        "32": 1,
+        "15": 1
+      },
+      "petTargetLevelRange": {
+        "1000": 145
+      },
+      "petTargetLeastAttacked": {
+        "False": 145
+      },
+      "petTargetGreatestHealth": {
+        "False": 145
+      },
+      "lootDropAttachPointName": {
+        "__ABSENT__": 145
+      },
+      "lootDropCallbackPoint": {
+        "__ABSENT__": 145
+      },
+      "dyingSkillCallbackPoint": {
+        "__ABSENT__": 145
+      }
+    }
+  },
+  "corpus_all_ControllerMonster": {
+    "n": 359,
+    "classes": {
+      "ControllerMonster": 359
+    },
+    "fields": {
+      "ViewDistance": {
+        "80.0": 300,
+        "18.0": 11,
+        "15.0": 8,
+        "16.0": 7,
+        "20.0": 6,
+        "14.0": 5,
+        "19.0": 3,
+        "8.0": 3,
+        "25.0": 2,
+        "40.0": 2,
+        "24.0": 2,
+        "15.5": 1,
+        "35.0": 1,
+        "100.0": 1,
+        "200.0": 1,
+        "30.0": 1,
+        "10.0": 1,
+        "12.0": 1,
+        "22.0": 1,
+        "0.0": 1,
+        "6.0": 1
+      },
+      "pathingViewDistance": {
+        "__ABSENT__": 317,
+        "18.0": 12,
+        "14.0": 10,
+        "8.0": 4,
+        "20.0": 3,
+        "50.0": 3,
+        "6.0": 3,
+        "4.0": 2,
+        "12.0": 2,
+        "100.0": 1,
+        "30.0": 1,
+        "10.0": 1
+      },
+      "enemyTooClose": {
+        "0.0": 275,
+        "3.0": 36,
+        "4.0": 24,
+        "2.0": 13,
+        "5.0": 7,
+        "8.0": 4
+      },
+      "InnerViewDistance": {
+        "12.0": 253,
+        "4.0": 66,
+        "6.0": 18,
+        "5.0": 13,
+        "8.0": 5,
+        "20.0": 1,
+        "1.0": 1,
+        "15.0": 1,
+        "3.0": 1
+      },
+      "MaxYViewDistance": {
+        "20.0": 207,
+        "10.0": 101,
+        "12.0": 34,
+        "0.0": 10,
+        "15.0": 6,
+        "3.0": 1
+      },
+      "AngerTolerance": {
+        "0.0": 331,
+        "1.0": 17,
+        "12.0": 4,
+        "6.0": 2,
+        "3.0": 1,
+        "4.0": 1,
+        "50.0": 1,
+        "99.0": 1,
+        "10.0": 1
+      },
+      "AttackedAnger": {
+        "15.0": 305,
+        "12.0": 18,
+        "9.0": 7,
+        "5.0": 6,
+        "4.0": 5,
+        "16.0": 4,
+        "6.0": 4,
+        "0.0": 4,
+        "10.0": 2,
+        "8.0": 2,
+        "1.0": 1,
+        "14.0": 1
+      },
+      "AllyAttackedAnger": {
+        "8.0": 316,
+        "6.0": 14,
+        "5.0": 11,
+        "0.0": 5,
+        "4.0": 3,
+        "25.0": 3,
+        "16.0": 2,
+        "1.0": 1,
+        "2.0": 1,
+        "10.0": 1,
+        "20.0": 1,
+        "12.0": 1
+      },
+      "ForgiveRate": {
+        "0.0": 331,
+        "1.0": 15,
+        "2.0": 6,
+        "3.0": 3,
+        "4.0": 2,
+        "25.0": 1,
+        "10.0": 1
+      },
+      "SightAngerRate": {
+        "5.0": 331,
+        "4.0": 9,
+        "0.0": 8,
+        "6.0": 4,
+        "9.0": 2,
+        "8.0": 1,
+        "2.0": 1,
+        "10.0": 1,
+        "15.0": 1,
+        "1.0": 1
+      },
+      "InnerSightAngerRate": {
+        "10.0": 318,
+        "15.0": 11,
+        "12.0": 11,
+        "8.0": 10,
+        "0.0": 4,
+        "5.0": 3,
+        "6.0": 2
+      },
+      "ProjectileAnger": {
+        "5.0": 301,
+        "2.0": 31,
+        "0.0": 10,
+        "4.0": 5,
+        "3.0": 5,
+        "1.0": 3,
+        "15.0": 2,
+        "6.0": 1,
+        "8.0": 1
+      },
+      "FleeBehavior": {
+        "NeverFlee": 351,
+        "FleeOnLowHealth": 6,
+        "FleeWhenEnemyClose": 1,
+        "FleeOnDamage": 1
+      },
+      "FleeTime": {
+        "0": 204,
+        "3000": 103,
+        "2500": 29,
+        "3": 9,
+        "2000": 6,
+        "5000": 4,
+        "__ABSENT__": 3,
+        "1000": 1
+      },
+      "FleeTarget": {
+        "AwayFromEnemy": 166,
+        "__ABSENT__": 95,
+        "TowardsAllies": 84,
+        "TowardsHome": 14
+      },
+      "maxFleeCount": {
+        "0": 297,
+        "999": 22,
+        "2": 17,
+        "3": 9,
+        "1": 9,
+        "__ABSENT__": 2,
+        "12": 1,
+        "500": 1,
+        "5": 1
+      },
+      "FleeDelay": {
+        "0": 137,
+        "5000": 127,
+        "3000": 42,
+        "6000": 23,
+        "10000": 9,
+        "8000": 6,
+        "6": 5,
+        "2000": 4,
+        "1000": 2,
+        "__ABSENT__": 1,
+        "9000": 1,
+        "5": 1,
+        "4000": 1
+      },
+      "FleeChance": {
+        "0": 311,
+        "50": 36,
+        "100": 7,
+        "75": 2,
+        "__ABSENT__": 1,
+        "30": 1,
+        "90": 1
+      },
+      "fleeDistance": {
+        "0.0": 133,
+        "8.0": 105,
+        "10.0": 45,
+        "5.0": 35,
+        "16.0": 9,
+        "12.0": 9,
+        "6.0": 9,
+        "4.0": 7,
+        "3.0": 3,
+        "20.0": 2,
+        "2.5": 1,
+        "__ABSENT__": 1
+      },
+      "ClearAngerWhenFleeing": {
+        "False": 358,
+        "True": 1
+      },
+      "ResetOriginAfterFleeing": {
+        "False": 290,
+        "True": 69
+      },
+      "PursuitTime": {
+        "10000": 333,
+        "4000": 10,
+        "12000": 5,
+        "5000": 4,
+        "30000": 3,
+        "6000000": 1,
+        "60000": 1,
+        "15000": 1,
+        "0": 1
+      },
+      "MaxPursuitDistance": {
+        "125.0": 300,
+        "75.0": 13,
+        "20.0": 9,
+        "15.0": 8,
+        "16.0": 7,
+        "18.0": 5,
+        "40.0": 3,
+        "30.0": 3,
+        "100.0": 2,
+        "12.0": 2,
+        "17.0": 2,
+        "80.0": 1,
+        "200.0": 1,
+        "7.0": 1,
+        "3.0": 1,
+        "23.0": 1
+      },
+      "EmoteBeforePursuingChance": {
+        "0": 326,
+        "20": 18,
+        "30": 9,
+        "15": 5,
+        "50": 1
+      },
+      "BuffSelfBehavior": {
+        "WhenEnemyIsSeen": 220,
+        "WheneverPossible": 137,
+        "NeverUseSkill": 2
+      },
+      "BuffAllyBehavior": {
+        "WhenEnemyIsSeen": 241,
+        "WheneverPossible": 116,
+        "NeverUseSkill": 2
+      },
+      "DebuffEnemyBehavior": {
+        "WhenEnemyIsSeen": 357,
+        "NeverUseSkill": 2
+      },
+      "healLeaderHealthPercentage": {
+        "80": 158,
+        "75": 78,
+        "70": 67,
+        "20": 29,
+        "60": 8,
+        "85": 6,
+        "0": 4,
+        "66": 4,
+        "90": 3,
+        "65": 1,
+        "95": 1
+      },
+      "healAllyHealthPercentage": {
+        "80": 163,
+        "70": 75,
+        "75": 71,
+        "20": 29,
+        "60": 15,
+        "0": 4,
+        "90": 2
+      },
+      "BuffAllyTargeting": {
+        "BuffStrongest": 307,
+        "BuffWeakest": 47,
+        "BuffClosest": 4,
+        "__ABSENT__": 1
+      },
+      "RoamBehavior": {
+        "Roam": 324,
+        "NeverRoam": 35
+      },
+      "MinRoamDistance": {
+        "2.0": 295,
+        "3.0": 47,
+        "0.0": 7,
+        "8.0": 5,
+        "12.0": 4,
+        "6.0": 1
+      },
+      "RoamDistance": {
+        "2.0": 253,
+        "5.0": 37,
+        "4.0": 21,
+        "3.0": 8,
+        "7.0": 8,
+        "0.0": 7,
+        "6.0": 7,
+        "12.0": 6,
+        "8.0": 5,
+        "30.0": 4,
+        "3.5": 2,
+        "9.0": 1
+      },
+      "MinTimeBeforeRoam": {
+        "2000": 253,
+        "6000": 63,
+        "100": 9,
+        "80000": 8,
+        "4000": 5,
+        "3000": 5,
+        "500": 4,
+        "8000": 4,
+        "60000": 3,
+        "5000": 2,
+        "0": 1,
+        "9000": 1,
+        "600": 1
+      },
+      "MaxTimeBeforeRoam": {
+        "2000": 257,
+        "12000": 59,
+        "10000": 13,
+        "16000": 7,
+        "8000": 6,
+        "6000": 5,
+        "1000": 4,
+        "300": 4,
+        "9000": 1,
+        "0": 1,
+        "3000": 1,
+        "1200": 1
+      },
+      "MinWanderDistance": {
+        "2.0": 328,
+        "4.0": 8,
+        "3.0": 6,
+        "1.0": 6,
+        "8.0": 5,
+        "20.0": 4,
+        "0.0": 2
+      },
+      "WanderDistance": {
+        "0.0": 317,
+        "4.0": 8,
+        "5.0": 7,
+        "7.0": 7,
+        "3.0": 6,
+        "12.0": 5,
+        "30.0": 4,
+        "10.0": 4,
+        "8.0": 1
+      },
+      "TeleportToLeaderDistance": {
+        "40.0": 309,
+        "20.0": 10,
+        "23.0": 7,
+        "15.0": 6,
+        "60.0": 5,
+        "19.0": 4,
+        "1000.0": 3,
+        "18.0": 3,
+        "200.0": 2,
+        "50.0": 2,
+        "90.0": 1,
+        "0.0": 1,
+        "30.0": 1,
+        "100.0": 1,
+        "22.0": 1,
+        "25.0": 1,
+        "999999.0": 1,
+        "16.0": 1
+      },
+      "ChanceToIdleOnPatrol": {
+        "0": 310,
+        "20": 24,
+        "75": 18,
+        "__ABSENT__": 7
+      },
+      "MinPatrolIdleTime": {
+        "1000": 308,
+        "0": 49,
+        "__ABSENT__": 2
+      },
+      "MaxPatrolIdleTime": {
+        "5000": 308,
+        "0": 43,
+        "1500": 6,
+        "__ABSENT__": 2
+      },
+      "ChanceToRespondToDistressCall": {
+        "15": 142,
+        "20": 57,
+        "75": 46,
+        "0": 42,
+        "100": 41,
+        "50": 27,
+        "30": 4
+      },
+      "DistressResponseBehavior": {
+        "RespondToSameGroup": 320,
+        "__ABSENT__": 36,
+        "RespondToSameRace": 3
+      },
+      "DistressResponseGroup": {
+        "Aetherial": 300,
+        "__ABSENT__": 39,
+        "Eldritch": 4,
+        "Celestial": 4,
+        "Survivor": 4,
+        "Beast": 3,
+        "Chthonic": 2,
+        "Spider": 2,
+        "Satyr": 1
+      },
+      "RandomAngerChance": {
+        "0": 269,
+        "10": 75,
+        "50": 5,
+        "20": 3,
+        "75": 2,
+        "15": 2,
+        "30": 2,
+        "100": 1
+      },
+      "RandomAngerEvaluationTime": {
+        "0": 218,
+        "3000": 125,
+        "2000": 7,
+        "5000": 6,
+        "10000": 2,
+        "2": 1
+      },
+      "DodgeDistance": {
+        "0.0": 135,
+        "2.0": 97,
+        "3.0": 63,
+        "__ABSENT__": 36,
+        "4.0": 17,
+        "5.0": 9,
+        "3.5": 1,
+        "10.0": 1
+      },
+      "DodgeDelay": {
+        "0": 116,
+        "5000": 61,
+        "3000": 53,
+        "__ABSENT__": 36,
+        "4000": 30,
+        "1500": 24,
+        "6000": 21,
+        "2000": 13,
+        "5": 4,
+        "750": 1
+      },
+      "DodgeChance": {
+        "0": 178,
+        "75": 49,
+        "50": 38,
+        "__ABSENT__": 36,
+        "30": 32,
+        "70": 11,
+        "65": 10,
+        "80": 4,
+        "45": 1
+      },
+      "MinDodgeDistance": {
+        "0.0": 135,
+        "2.0": 94,
+        "4.0": 38,
+        "__ABSENT__": 36,
+        "3.0": 31,
+        "6.0": 13,
+        "5.0": 12
+      },
+      "LeadChance": {
+        "__ABSENT__": 102,
+        "50;75;100": 55,
+        "30;60;100": 49,
+        "0": 47,
+        "0;50;100": 42,
+        "30;50;80": 17,
+        "0;30;60": 11,
+        "100": 10,
+        "0;50;75": 5,
+        "90": 5,
+        "50": 5,
+        "75;85;100": 4,
+        "80": 3,
+        "60": 1,
+        "30": 1,
+        "15;30;50": 1,
+        "85": 1
+      },
+      "RepositionChance": {
+        "0": 194,
+        "100": 87,
+        "45": 62,
+        "50": 6,
+        "75": 4,
+        "65": 3,
+        "25": 3
+      },
+      "randomRepositionChance": {
+        "0": 253,
+        "20": 71,
+        "100": 11,
+        "5": 11,
+        "30": 11,
+        "25": 2
+      },
+      "minSwingPause": {
+        "0.5": 45,
+        "0.20000000298023224": 42,
+        "0.30000001192092896": 41,
+        "0.0": 36,
+        "0.4000000059604645": 28,
+        "0.6499999761581421": 21,
+        "1.0": 21,
+        "1.0499999523162842": 19,
+        "0.550000011920929": 14,
+        "__ABSENT__": 13,
+        "0.800000011920929": 12,
+        "0.699999988079071": 9,
+        "0.8999999761581421": 8,
+        "0.10000000149011612": 8,
+        "0.949999988079071": 8,
+        "0.6000000238418579": 5,
+        "1.149999976158142": 5,
+        "1.399999976158142": 4,
+        "2.0": 4,
+        "0.15000000596046448": 3,
+        "5.0": 2,
+        "1.2999999523162842": 2,
+        "0.44999998807907104": 2,
+        "4.0": 2,
+        "1.5": 1,
+        "1.25": 1,
+        "0.25": 1,
+        "0.3499999940395355": 1,
+        "8.0": 1
+      },
+      "maxSwingPause": {
+        "1.0": 45,
+        "0.6000000238418579": 44,
+        "1.2000000476837158": 43,
+        "0.800000011920929": 24,
+        "0.0": 22,
+        "0.699999988079071": 19,
+        "0.30000001192092896": 18,
+        "0.5": 17,
+        "1.600000023841858": 17,
+        "1.7999999523162842": 13,
+        "1.100000023841858": 12,
+        "1.2999999523162842": 12,
+        "1.7000000476837158": 12,
+        "__ABSENT__": 11,
+        "0.8999999761581421": 9,
+        "1.5": 5,
+        "1.899999976158142": 4,
+        "2.0": 4,
+        "0.4000000059604645": 4,
+        "0.20000000298023224": 3,
+        "0.75": 3,
+        "0.25": 3,
+        "5.0": 2,
+        "1.399999976158142": 2,
+        "3.0": 2,
+        "4.0": 2,
+        "2.200000047683716": 1,
+        "3.299999952316284": 1,
+        "2.299999952316284": 1,
+        "1.0499999523162842": 1,
+        "2.9000000953674316": 1,
+        "2.5": 1,
+        "8.0": 1
+      },
+      "ignoreSleepingEnemies": {
+        "True": 222,
+        "__ABSENT__": 137
+      },
+      "randomEmoteChance": {
+        "0": 277,
+        "100": 64,
+        "__ABSENT__": 8,
+        "50": 5,
+        "30": 5
+      },
+      "randomEmoteMinTime": {
+        "5000": 288,
+        "0": 35,
+        "6000": 24,
+        "9000": 10,
+        "__ABSENT__": 2
+      },
+      "randomEmoteMaxTime": {
+        "10000": 312,
+        "0": 35,
+        "12000": 10,
+        "__ABSENT__": 2
+      },
+      "ignorePetsChance": {
+        "0": 192,
+        "35": 134,
+        "30": 11,
+        "18": 9,
+        "70": 6,
+        "25": 3,
+        "40": 1,
+        "50": 1,
+        "__ABSENT__": 1,
+        "15": 1
+      },
+      "ignorePetsInterval": {
+        "7000": 312,
+        "5000": 45,
+        "6000": 1,
+        "12000": 1
+      },
+      "petAngerTransference": {
+        "17": 197,
+        "12": 77,
+        "30": 41,
+        "22": 25,
+        "27": 10,
+        "15": 5,
+        "20": 1,
+        "10": 1,
+        "32": 1,
+        "24": 1
+      },
+      "petTargetLevelRange": {
+        "1000": 357,
+        "__ABSENT__": 2
+      },
+      "petTargetLeastAttacked": {
+        "False": 356,
+        "__ABSENT__": 2,
+        "True": 1
+      },
+      "petTargetGreatestHealth": {
+        "False": 356,
+        "True": 3
+      },
+      "lootDropAttachPointName": {
+        "__ABSENT__": 358,
+        "FX_Weapon": 1
+      },
+      "lootDropCallbackPoint": {
+        "__ABSENT__": 358,
+        "LootDrop": 1
+      },
+      "dyingSkillCallbackPoint": {
+        "__ABSENT__": 358,
+        "skillFX": 1
+      }
+    }
+  },
+  "rolled_controller_owner_archives": {
+    "SurvivalMode.arz": 30,
+    "SurvivalMode1.arz": 25,
+    "SurvivalMode2.arz": 12,
+    "SurvivalMode3.arz": 10
+  },
+  "rolled_controller_records": [
+    "records/controllers/enemy/controller_aetherialbloater.dbr",
+    "records/controllers/enemy/controller_aetherialcolossus.dbr",
+    "records/controllers/enemy/controller_aetherialcorruption.dbr",
+    "records/controllers/enemy/controller_aetherialimp.dbr",
+    "records/controllers/enemy/controller_avian.dbr",
+    "records/controllers/enemy/controller_basilisk_melee.dbr",
+    "records/controllers/enemy/controller_basilisk_ranged.dbr",
+    "records/controllers/enemy/controller_boss_aetherialabomination.dbr",
+    "records/controllers/enemy/controller_boss_aetherialroguelike_reanimators.dbr",
+    "records/controllers/enemy/controller_boss_alkamos.dbr",
+    "records/controllers/enemy/controller_boss_basiliskwitchritual.dbr",
+    "records/controllers/enemy/controller_boss_chthonicheraldnemesis.dbr",
+    "records/controllers/enemy/controller_boss_cultwendigo.dbr",
+    "records/controllers/enemy/controller_boss_dermapteranqueen_02.dbr",
+    "records/controllers/enemy/controller_boss_dravis.dbr",
+    "records/controllers/enemy/controller_boss_korvaak.dbr",
+    "records/controllers/enemy/controller_boss_korvaaklieutenant.dbr",
+    "records/controllers/enemy/controller_boss_kymonnemesis_01.dbr",
+    "records/controllers/enemy/controller_boss_mindreaper_01.dbr",
+    "records/controllers/enemy/controller_boss_outcast.dbr",
+    "records/controllers/enemy/controller_boss_themessenger.dbr",
+    "records/controllers/enemy/controller_boss_tombguardian.dbr",
+    "records/controllers/enemy/controller_boss_witch.dbr",
+    "records/controllers/enemy/controller_boss_witchgodguardian_temple.dbr",
+    "records/controllers/enemy/controller_cannibal.dbr",
+    "records/controllers/enemy/controller_chthoniandevourer.dbr",
+    "records/controllers/enemy/controller_chthonianservitor.dbr",
+    "records/controllers/enemy/controller_chthonicherald.dbr",
+    "records/controllers/enemy/controller_chthonicminiona01.dbr",
+    "records/controllers/enemy/controller_chthonicrylok.dbr",
+    "records/controllers/enemy/controller_cultwendigo_meleebasic.dbr",
+    "records/controllers/enemy/controller_cultwendigo_rangedcaster.dbr",
+    "records/controllers/enemy/controller_dranghoul2.dbr",
+    "records/controllers/enemy/controller_dranghoulcaster.dbr",
+    "records/controllers/enemy/controller_eldritcharmor_firebreath.dbr",
+    "records/controllers/enemy/controller_eldritcharmor_meleebasic.dbr",
+    "records/controllers/enemy/controller_eldritcharmor_rangedcaster.dbr",
+    "records/controllers/enemy/controller_fleshhulk.dbr",
+    "records/controllers/enemy/controller_gargoyle.dbr",
+    "records/controllers/enemy/controller_ghost_meleebasic.dbr",
+    "records/controllers/enemy/controller_ghost_meleechampion.dbr",
+    "records/controllers/enemy/controller_ghost_rangedbasic.dbr",
+    "records/controllers/enemy/controller_giant.dbr",
+    "records/controllers/enemy/controller_groblemelee01.dbr",
+    "records/controllers/enemy/controller_groblescavenger01.dbr",
+    "records/controllers/enemy/controller_harpymelee01.dbr",
+    "records/controllers/enemy/controller_humanascended_rangedcaster.dbr",
+    "records/controllers/enemy/controller_humanchthonic_bosscaster.dbr",
+    "records/controllers/enemy/controller_humanchthonic_rangedcaster.dbr",
+    "records/controllers/enemy/controller_humanpossessed_rangedcaster.dbr",
+    "records/controllers/enemy/controller_hypporaven.dbr",
+    "records/controllers/enemy/controller_kurnchthonic_shamanboss.dbr",
+    "records/controllers/enemy/controller_livingplant.dbr",
+    "records/controllers/enemy/controller_meleetank.dbr",
+    "records/controllers/enemy/controller_nemesis_aetherialvanguard.dbr",
+    "records/controllers/enemy/controller_nemesis_chthonicrylok.dbr",
+    "records/controllers/enemy/controller_nemesis_human_meleechampion.dbr",
+    "records/controllers/enemy/controller_nemesis_necro_rangedcaster.dbr",
+    "records/controllers/enemy/controller_nemesis_reanimator.dbr",
+    "records/controllers/enemy/controller_nemesis_wendigo.dbr",
+    "records/controllers/enemy/controller_nemesis_yeti.dbr",
+    "records/controllers/enemy/controller_rhino.dbr",
+    "records/controllers/enemy/controller_sandlizard.dbr",
+    "records/controllers/enemy/controller_skeletoncaster01.dbr",
+    "records/controllers/enemy/controller_skeletoncaster01_slow.dbr",
+    "records/controllers/enemy/controller_swampcrab_melee.dbr",
+    "records/controllers/enemy/controller_swampgolem.dbr",
+    "records/controllers/enemy/controller_thornedhorror.dbr",
+    "records/controllers/enemy/controller_viper_melee.dbr",
+    "records/controllers/enemy/controller_wendigo.dbr",
+    "records/controllers/enemy/controller_wraith.dbr",
+    "records/controllers/enemy/controller_wraith_ranged.dbr",
+    "records/controllers/enemy/controller_yeti.dbr",
+    "records/controllers/enemy/controller_zealot_meleebasic.dbr",
+    "records/controllers/enemy/controller_zombieberserker.dbr",
+    "records/controllers/enemy/controller_zombiemutanta01.dbr",
+    "records/controllers/enemy/controller_zombiemutantb01.dbr"
+  ],
+  "unresolved_rolled": [],
+  "template": [
+    {
+      "group": "Senses",
+      "name": "ViewDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "15.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "Senses",
+      "name": "pathingViewDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "0.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "Senses",
+      "name": "enemyTooClose",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "5.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "Senses",
+      "name": "InnerViewDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "5.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "Senses",
+      "name": "MaxYViewDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "0.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "AngerTolerance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "10.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "AttackedAnger",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "100.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "AllyAttackedAnger",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "40.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "ForgiveRate",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "50.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "SightAngerRate",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "20.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "InnerSightAngerRate",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "50.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "AngerManagement",
+      "name": "ProjectileAnger",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "20.0",
+      "tpl": "controllerai.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "FleeBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "NeverFlee;FleeOnLowHealth;FleeOnDamage;FleeWhenEnemyClose",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "FleeTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "3000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "FleeTarget",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "AwayFromEnemy;TowardsAllies;TowardsHome",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "maxFleeCount",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "3",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "FleeDelay",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "2000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "FleeChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "[0..100]",
+      "default": "100",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "fleeDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "5.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "ClearAngerWhenFleeing",
+      "vclass": "variable",
+      "vtype": "bool",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Fleeing",
+      "name": "ResetOriginAfterFleeing",
+      "vclass": "variable",
+      "vtype": "bool",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Pursuit",
+      "name": "PursuitTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "Maximum length of time for which to pursue enemies (milliseconds)",
+      "default": "10000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Pursuit",
+      "name": "MaxPursuitDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "20.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Pursuit",
+      "name": "EmoteBeforePursuingChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "BuffSelfBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "NeverUseSkill;WhenIdle;WhenEnemyIsSeen;WheneverPossible",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "BuffAllyBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "NeverUseSkill;WhenIdle;WhenEnemyIsSeen;WheneverPossible",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "DebuffEnemyBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "NeverUseSkill;WhenIdle;WhenEnemyIsSeen",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "healLeaderHealthPercentage",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "[0..100], will heal leader when health goes below percentage",
+      "default": "20",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "healAllyHealthPercentage",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "[0..100], will heal ally when health goes below percentage",
+      "default": "20",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "SkillUsage",
+      "name": "BuffAllyTargeting",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "BuffClosest;BuffStrongest;BuffWeakest",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "RoamBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "NeverRoam;Roam",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "MinRoamDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "5.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "RoamDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "How far monsters will roam around",
+      "default": "10.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "MinTimeBeforeRoam",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "3000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "MaxTimeBeforeRoam",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "10000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "MinWanderDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "2.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "WanderDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "How far pets will wander around their leader",
+      "default": "7.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Roaming",
+      "name": "TeleportToLeaderDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "20.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Patrolling",
+      "name": "ChanceToIdleOnPatrol",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "20",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Patrolling",
+      "name": "MinPatrolIdleTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "2000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Patrolling",
+      "name": "MaxPatrolIdleTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "5000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "DistressCalls",
+      "name": "ChanceToRespondToDistressCall",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "100",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "DistressCalls",
+      "name": "DistressResponseBehavior",
+      "vclass": "picklist",
+      "vtype": "string",
+      "description": "",
+      "default": "RespondToAll;RespondToSameGroup;RespondToSameRace",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "DistressCalls",
+      "name": "DistressResponseGroup",
+      "vclass": "variable",
+      "vtype": "string",
+      "description": "",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "RandomAnger",
+      "name": "RandomAngerChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "RandomAnger",
+      "name": "RandomAngerEvaluationTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "3000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Dodging",
+      "name": "DodgeDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "4.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Dodging",
+      "name": "DodgeDelay",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "5",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Dodging",
+      "name": "DodgeChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Dodging",
+      "name": "MinDodgeDistance",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "2.0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Attacking",
+      "name": "LeadChance",
+      "vclass": "array",
+      "vtype": "int",
+      "description": "percent chance to lead target",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Attacking",
+      "name": "RepositionChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "chance to reposition after blocked projectile attack",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Attacking",
+      "name": "randomRepositionChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "chance to reposition anytime during normal attack",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Attacking",
+      "name": "minSwingPause",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Attacking",
+      "name": "maxSwingPause",
+      "vclass": "variable",
+      "vtype": "real",
+      "description": "",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Sleep",
+      "name": "ignoreSleepingEnemies",
+      "vclass": "variable",
+      "vtype": "bool",
+      "description": "do we ignore sleeping enemies?",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Emote",
+      "name": "randomEmoteChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "100",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Emote",
+      "name": "randomEmoteMinTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "5000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Emote",
+      "name": "randomEmoteMaxTime",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "",
+      "default": "10000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "ignorePetsChance",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "chance to ignore pets when targeting",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "ignorePetsInterval",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "time until I can change my mind about attack pets",
+      "default": "5000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "petAngerTransference",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "percent of pet anger to transfer to player ALL THE TIME",
+      "default": "30",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "petTargetLevelRange",
+      "vclass": "variable",
+      "vtype": "int",
+      "description": "only target enemies within n levels of player",
+      "default": "1000",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "petTargetLeastAttacked",
+      "vclass": "variable",
+      "vtype": "bool",
+      "description": "try to target the least-recently attacked enemy",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "PetBehaviour",
+      "name": "petTargetGreatestHealth",
+      "vclass": "variable",
+      "vtype": "bool",
+      "description": "try to target monsters with greatest health",
+      "default": "0",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Loot",
+      "name": "lootDropAttachPointName",
+      "vclass": "variable",
+      "vtype": "string",
+      "description": "",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Loot",
+      "name": "lootDropCallbackPoint",
+      "vclass": "variable",
+      "vtype": "string",
+      "description": "",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    },
+    {
+      "group": "Dying",
+      "name": "dyingSkillCallbackPoint",
+      "vclass": "variable",
+      "vtype": "string",
+      "description": "",
+      "default": "",
+      "tpl": "controllermonster.tpl"
+    }
+  ]
+}

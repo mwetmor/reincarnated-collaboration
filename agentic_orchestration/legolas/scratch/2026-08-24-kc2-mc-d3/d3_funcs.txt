@@ -1,0 +1,108 @@
+
+### ?ResetSwingTimer@ControllerMonster@GAME@@QAEXXZ  @ 0xfca50  (len 0x30)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100fca50 <?ResetSwingTimer@ControllerMonster@GAME@@QAEXXZ>:
+100fca50: 56                           	push	esi
+100fca51: 8b f1                        	mov	esi, ecx
+100fca53: 8b 0d a4 80 80 10            	mov	ecx, dword ptr [0x108080a4]
+100fca59: ff b6 f4 02 00 00            	push	dword ptr [esi + 0x2f4]
+100fca5f: 8d 89 04 0c 00 00            	lea	ecx, [ecx + 0xc04]
+100fca65: ff b6 f0 02 00 00            	push	dword ptr [esi + 0x2f0]
+100fca6b: ff 15 44 55 4e 10            	call	dword ptr [0x104e5544]
+100fca71: 89 86 f8 02 00 00            	mov	dword ptr [esi + 0x2f8], eax
+100fca77: 5e                           	pop	esi
+100fca78: c3                           	ret
+100fca79: cc                           	int3
+100fca7a: cc                           	int3
+100fca7b: cc                           	int3
+100fca7c: cc                           	int3
+100fca7d: cc                           	int3
+100fca7e: cc                           	int3
+100fca7f: cc                           	int3
+
+
+### ?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ  @ 0xf9ce0  (len 0x20)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100f9ce0 <?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ>:
+100f9ce0: 80 b9 8c 02 00 00 00         	cmp	byte ptr [ecx + 0x28c], 0x0
+100f9ce7: 74 0a                        	je	0x100f9cf3 <?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ+0x13>
+100f9ce9: c6 81 8c 02 00 00 00         	mov	byte ptr [ecx + 0x28c], 0x0
+100f9cf0: b0 01                        	mov	al, 0x1
+100f9cf2: c3                           	ret
+100f9cf3: 32 c0                        	xor	al, al
+100f9cf5: c3                           	ret
+100f9cf6: cc                           	int3
+100f9cf7: cc                           	int3
+100f9cf8: cc                           	int3
+100f9cf9: cc                           	int3
+100f9cfa: cc                           	int3
+100f9cfb: cc                           	int3
+100f9cfc: cc                           	int3
+100f9cfd: cc                           	int3
+100f9cfe: cc                           	int3
+100f9cff: cc                           	int3
+
+
+### ?CanFlee@ControllerMonster@GAME@@QBE_NXZ  @ 0xf6d40  (len 0x40)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100f6d40 <?CanFlee@ControllerMonster@GAME@@QBE_NXZ>:
+100f6d40: 56                           	push	esi
+100f6d41: 8b f1                        	mov	esi, ecx
+100f6d43: 8b 86 28 05 00 00            	mov	eax, dword ptr [esi + 0x528]
+100f6d49: 3b 86 0c 03 00 00            	cmp	eax, dword ptr [esi + 0x30c]
+100f6d4f: 73 23                        	jae	0x100f6d74 <?CanFlee@ControllerMonster@GAME@@QBE_NXZ+0x34>
+100f6d51: 83 be 2c 05 00 00 00         	cmp	dword ptr [esi + 0x52c], 0x0
+100f6d58: 7f 1a                        	jg	0x100f6d74 <?CanFlee@ControllerMonster@GAME@@QBE_NXZ+0x34>
+100f6d5a: ff 15 0c 65 4e 10            	call	dword ptr [0x104e650c]
+100f6d60: 99                           	cdq
+100f6d61: b9 64 00 00 00               	mov	ecx, 0x64
+100f6d66: f7 f9                        	idiv	ecx
+100f6d68: 3b 96 d8 02 00 00            	cmp	edx, dword ptr [esi + 0x2d8]
+100f6d6e: 73 04                        	jae	0x100f6d74 <?CanFlee@ControllerMonster@GAME@@QBE_NXZ+0x34>
+100f6d70: b0 01                        	mov	al, 0x1
+100f6d72: 5e                           	pop	esi
+100f6d73: c3                           	ret
+100f6d74: 32 c0                        	xor	al, al
+100f6d76: 5e                           	pop	esi
+100f6d77: c3                           	ret
+100f6d78: cc                           	int3
+100f6d79: cc                           	int3
+100f6d7a: cc                           	int3
+100f6d7b: cc                           	int3
+100f6d7c: cc                           	int3
+100f6d7d: cc                           	int3
+100f6d7e: cc                           	int3
+100f6d7f: cc                           	int3
+
+
+### ?IgnoreSleepingEnemies@ControllerMonster@GAME@@QBE_NXZ  @ 0x6a4b0  (len 0x10)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1006a4b0 <?IgnoreSleepingEnemies@ControllerMonster@GAME@@QBE_NXZ>:
+1006a4b0: 8a 81 d9 04 00 00            	mov	al, byte ptr [ecx + 0x4d9]
+1006a4b6: c3                           	ret
+1006a4b7: cc                           	int3
+1006a4b8: cc                           	int3
+1006a4b9: cc                           	int3
+1006a4ba: cc                           	int3
+1006a4bb: cc                           	int3
+1006a4bc: cc                           	int3
+1006a4bd: cc                           	int3
+1006a4be: cc                           	int3
+1006a4bf: cc                           	int3
+
