@@ -7,6 +7,53 @@
 
 ---
 
+## vfx-x4-materialization-2026-08-24 — T-K view materialized + fold bridge closes DB-27/spec-24 + `aura` anchor finding — 2026-08-24 — **APPLIED** (dedicated note: `MIGRATION-vfx-x4-materialization-2026-08-24.md`)
+
+Cross-seam routing **X-4** of the VFX archetype-binding run (commissioned L-35, expanded L-38,
+extended L-39, run SEALED L-40). Three additive deliverables on `corpus.db`:
+
+1. **`v_vfx_kit_skill_binding` — NEW view**, body **verbatim from spec § 4.1's derivation of record**
+   (no derivation invented). Verified live: **511 kits ✅ exact · 24 archetypes ✅ · annulus 50 ✅ ·
+   defensive 4 ✅ · circle 93/88 ✅ · dash_attack 36/35 ✅ · knockback held out ✅ · zero skills lost
+   to the folds PROVEN** (pre-fold 43+50+32+4 = 129 = post-fold 93+36, plus a NOT-EXISTS assert).
+   ⚠ **Bound rows measure 1,134, not the spec's printed 1,135** — surfaced as finding **X007**, not
+   silently reconciled. Cause is exact and one row wide: the spec's verification parenthetical
+   ("1,138 − 3 unassignable") stops one clause short of its own SQL's `archetype_id <> 'knockback'`.
+   **1,135 = ASSIGNED skills (P1's number); 1,134 = BOUND skills (post-hold), which is what T-K is.**
+   The spec's own § 3.1a index sums to 1,134 and `SUM(member_skills)` over the 26 non-held archetypes
+   is 1,134 — so it is a **two-cell editorial off-by-one, not a substrate defect and not a lost
+   skill.** Routed to gandalf.
+2. **Fold bridge on `vfx_archetype` (+6 columns)** — `fold_status` (CHECK `active|folded|held`),
+   `folded_into`, `fold_survives_as`, `fold_receives`, `fold_authority`, `fold_note`.
+   **`27 = 24 active + 2 folded + 1 held` now resolves from the table alone.** `ring`→`circle`
+   (survives as `annulus`), `defensive_dash`→`dash_attack` (survives as `defensive`).
+   **`knockback` is `held` with `folded_into` NULL BY INTENT** — HELD is not a fold and a commit-time
+   assert fails the migration if a held row ever carries a fold target. **The bridge is reciprocal**:
+   fold targets carry `fold_receives`, because `member_skills` is PRE-FOLD and deliberately not
+   rewritten (`circle` stores 43, truth is 93) — a one-way bridge would hand a reader a wrong count.
+3. **`aura` emitter-anchor mis-attestation (L-39 item 4) — 13 findings. NOT a grain change**
+   (grain Matt-audited + confirmed at L-39). **L-39 asked about one case; measured, it is six of 73
+   (8.2%)**, ceiling 8/73 with two contradictory composites. Two sub-shapes: **placed/world-anchored
+   n=4** (Oak Sage ×2, Big Bad Voodoo, Holy Banner — `totem` emitter geometry; Oak Sage's curator
+   *named* the anchor and routed to `aura` anyway = a deliberate call, not an oversight) and
+   **delegate-carried n=2**. Unexpected: **the Demonologist seed case is the WEAKEST of the six** —
+   it arguably has no field at all, so a T-A `aura` VFX would render a field where the game shows a
+   crowd. **NEGATIVE RESULT banked: `self_buff` is clean, 0/6** — this is not a general
+   field-archetype defect. **Method note: the lexicon scan ran precision 37.5% / recall 50%**;
+   3 of the 6 confirmed rows were recovered only by reading the cell by eye.
+
+**Iron laws proven by differential digest against `corpus.db.pre-vfx-x4-20260824-backup`
+(md5 `5831c8bf…`): `vfx_archetype_member` byte-identical (`008b60d7…`) — not one row, not one column;
+no pre-existing `vfx_archetype` column mutated (`e0643aac…`).** Transactional + idempotent (second
+live re-run = identical POST-state); asserts guard PRE/POST state, losslessness, recoverability,
+HELD-is-not-a-fold, bridge reciprocity, and the 27=24+2+1 arithmetic; proven on a throwaway copy
+before the live apply; `integrity_check=ok`. **Only consumer-visible contract change: `SELECT *` on
+`vfx_archetype` widens by six trailing columns.** No engine-side change — star-lord's engine
+`MIGRATION.md` files unaffected. Script:
+`../scripts/vfx_x4_materialization_2026_08_24.py`. Auto-committed per project discipline. **NO push.**
+
+---
+
 ## gd-devotion-payloads-2026-07-25 — GD devotion payload bank: rank axis RESOLVED, 7,114 payload rows + 3 new tables, `exact_skill` re-identified — 2026-07-25 — **APPLIED** (dedicated note: `MIGRATION-devotion-payloads-2026-07-25.md`)
 
 ### What happened (one line)
