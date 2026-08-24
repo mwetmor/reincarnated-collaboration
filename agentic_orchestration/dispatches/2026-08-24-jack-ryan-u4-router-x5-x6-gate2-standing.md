@@ -66,9 +66,9 @@ Expected in your queue, roughly in this order:
 
 | Tag | Seam | What to watch |
 |---|---|---|
-| `drax/v-s2a-mint-tranche-1` | presentation | mint note exists **before** the mint (Discipline #1); the seven C-constraints honored; C-3 captures at albedo **0.085** |
-| `drax/v-s2-whirlwind-cleanroom-1` | presentation | **the clean-room declaration** — quarantine honored, windup marked *authored-not-referenced*. gandalf DRIFT-CRITICs the lineage; your lane is whether the declaration is *complete and checkable*, not whether the effect is pretty |
-| `drax/v-s2-body-pipeline-1` | presentation | **Synty-clean lineage recorded** if Meshy was used; Synty-first survey with rejections and reasons |
+| `drax/v<X.Y>-s2a-mint-tranche-1` | presentation | mint note exists **before** the mint (Discipline #1); the seven C-constraints honored; C-3 captures at albedo **0.085** |
+| `drax/v<X.Y>-s2-whirlwind-cleanroom-1` | presentation | **the clean-room declaration** — quarantine honored, windup marked *authored-not-referenced*. gandalf DRIFT-CRITICs the lineage; your lane is whether the declaration is *complete and checkable*, not whether the effect is pretty |
+| `drax/v<X.Y>-s2-body-pipeline-1` | presentation | **Synty-clean lineage recorded** if Meshy was used; Synty-first survey with rejections and reasons |
 | `gamora/v<X.Y>-x1-orbit-spatial-map` | simulation | the 18-skill count **re-derived, not inherited**; `acceptance.py` and `kit_compiler` moved together; MIGRATION.md if the compiled surface moved |
 | `star-lord/v<X.Y>-codex-durable-queue-1` | factory | **serial law enforced structurally, not by convention**; U-1 schema **not** frozen ahead of Matt's F-1…F-8 rulings |
 | `rocket/v<X.Y>-x3-vfx-coverage-refresh` | element | counts derived from the artifact; `generated_date` actually bumped |

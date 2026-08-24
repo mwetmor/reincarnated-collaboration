@@ -29,6 +29,7 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 - **The queue never runs two jobs concurrently.** Not "usually," not "unless the jobs are small." Never.
 - **A busy lane means queue behind it or fire the Claude lane — NEVER parallel.**
 - The mechanism must make violation *structurally impossible*, not merely discouraged. A lock that a caller can forget to take is not a lock. **If a second queue process starts, it must fail closed** — refuse to run, exit non-zero, and say why.
+- ⚠ **The exclusion must be held at the `codex exec` invocation site, not merely at the queue-process boundary.** A single queue process spawning two children is the same violation as two queue processes. **State the mutual-exclusion primitive by name.** **Gate-2 will ask for: (i) the primitive, (ii) a test that starts a second `codex exec` under the lock and observes non-zero exit, (iii) your written choice of which crash failure-mode you accepted and why.**
 - **Crash-safety matters more than throughput here.** A lock left behind by a killed process that then blocks the lane forever is a real failure mode; so is a lock that a stale-PID check clears too eagerly and lets two jobs run. Choose deliberately and **write down which failure you chose to risk and why.**
 
 ## MODEL PIN — of record, do not drift
@@ -49,7 +50,9 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 
 ### The queue itself
 
-- [ ] **Fill `factory/harness/codex.py`** against the existing `HarnessAdapter` protocol in `harness/base.py` — `run(prompt, cwd, config) -> RawResult`, `available()`. Return a real `RawResult`: `ok`, `text`, `usage`, `harness`, `model`, `exit_code`, `raw_output_path`, `prompt_path`, `error`. **`available()` must now tell the truth in both directions** — it returns `False` when auth is expired or the lane is busy, and the *reason* must be surfaceable, not swallowed.
+- [ ] **Fill `factory/harness/codex.py`** against the existing `HarnessAdapter` protocol in `harness/base.py` — `run(prompt, cwd, config) -> RawResult`. Return a real `RawResult`: `ok`, `text`, `usage`, `harness`, `model`, `exit_code`, `raw_output_path`, `prompt_path`, `error`. **`available()` must now tell the truth in both directions** — it returns `False` when auth is expired or the lane is busy, and the *reason* must be surfaceable, not swallowed.
+- [ ] ⚠ **Correction to a claim I made and got wrong: `available()` is NOT on the `HarnessAdapter` Protocol.** `base.py` declares only `name` and `run`; `available()` is **duck-typed** at `workflow.py:196`. Verify that yourself before relying on it. **Promoting `available()` onto the Protocol is a base-class change consumed by `claude_code.py` and the spine — if you do it, it is an explicit decision, named in the MIGRATION.md this dispatch already requires, not a quiet tidy-up.**
+- [ ] **Update `factory/tests/test_harness.py:169`** — it asserts `CodexHarness().available() is False` and will break the moment the stub is filled. **Update it to assert the new auth/busy-aware contract in both directions. Do not delete it — a deleted test is how `available()` stops telling the truth.**
 - [ ] **`codex exec --json` emits per-turn usage natively.** Map it into `UsageBreakdown` the same way `claude_code.py` maps the `result` frame. Do not invent a second usage vocabulary; the spine already has one.
 - [ ] **Clone the proven runner's semantics, don't reinvent them.** From `run_p2_serial.sh`: strict serialization, **idempotent re-entry** (a re-fired queue must not redo completed jobs), per-job usage JSONL, per-job stdout and stderr captured to separate files. `-s read-only` and `--skip-git-repo-check` are the posture of record for research jobs; make the sandbox posture a **declared per-job-class config value**, not a hardcoded constant — a future job class may need something else and it must be a visible decision when it does.
 - [ ] **A standing durable queue**, not a one-shot: jobs enqueue as files/rows; the queue drains them serially; state survives process death. **Re-entry after a crash must be safe and must be tested** — kill it mid-job and restart it, and report what happened.
@@ -58,7 +61,11 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 ### The telemetry half (U-1(a) from birth)
 
 - [ ] **Emit per-job lifecycle telemetry as append-only JSONL from day one.** Matt's framing: *"This also births U-1(a) telemetry for the lane from day one."* Minimum grain: enqueue → start → finish timestamps, job identity, model + reasoning-effort actually used, exit code, token usage, retry/fallback flags, terminal outcome.
-- [ ] ⚠ **DO NOT pre-commit to the U-1 record schema.** The fleet flight-recorder spec (`gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md`) is **DRAFT and awaiting Matt's fork rulings F-1…F-8** (queue Q61), and jack-ryan has not ratified its schema or THE LAW. Emit the facts in a shape that a recorder can *read and normalize later*; do not freeze axes Matt has not ruled on. **If you find yourself needing a schema decision to proceed, that is a HALT to knight-rider, not a design choice at the keyboard.**
+- [ ] ⚠ **DO NOT pre-commit to the U-1 record schema.** The fleet flight-recorder spec (`gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md`) is **DRAFT and awaiting Matt's fork rulings F-1…F-8** (queue Q61), and jack-ryan has not ratified its schema or THE LAW. Emit the facts in a shape that a recorder can *read and normalize later*; do not freeze axes Matt has not ruled on.
+
+  **The eight items above are FACTS THAT MUST BE PRESENT, not a record schema.** Emit append-only JSONL, one event per line, carrying `schema_version` and a permissive passthrough object for anything you observe that the list does not name. Do not build any consumer that depends on the top-level shape.
+
+  **"Which axes does the recorder normalize on" is the F-1…F-8 decision and is HALT-worthy. "What field name do I use for exit code" is yours. Do not HALT on the second.**
 - [ ] **THE LAW applies pre-emptively:** any view over this data is **read-only, zero authority, never in the data path.** The queue is the data path; a board is a projection. Do not build anything that reads queue state and then *writes back into it*.
 
 ### Fault fallback
@@ -68,8 +75,9 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 
 ### Standing
 
-- [ ] Tests: serial-law violation attempt fails closed · crash-and-resume is safe · idempotent re-entry does not redo work · auth-expired path stops cleanly and surfaces
+- [ ] Tests: **a second `codex exec` started under the lock exits non-zero** · crash-and-resume is safe · idempotent re-entry does not redo work · auth-expired path stops cleanly and surfaces · `test_harness.py:169` updated (not deleted) to the new two-directional `available()` contract
 - [ ] `AGENT_STATE.md` updated; MIGRATION.md if any factory-consumed surface moves
+- [ ] ℹ **Gate-1 INFO, carried so it is not lost:** `AGENTS.md` has **no ownership entry for `agentic_orchestration/factory/`**. You are being asked to make it standing infrastructure; a standing seam with no owner in the topology map is a gap. **Do not write AGENTS.md yourself** — surface the gap in your completion record and knight-rider routes it.
 - [ ] Tag `star-lord/v<X.Y>-codex-durable-queue-1`
 
 ## Cross-seam contract change? (Principle 6 gate)
@@ -83,7 +91,7 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 ## Acceptance criteria
 
 - [ ] `codex.py` is a real adapter; `HONEST_STUB` and `BLOCKED_ON` are **gone**, not left lying next to working code
-- [ ] Serial law enforced structurally; a concurrent-start attempt fails closed with a stated reason
+- [ ] Serial law enforced **at the `codex exec` invocation site**; mutual-exclusion primitive named; a concurrent-start attempt fails closed with a stated reason, proven by test
 - [ ] Crash-resume and idempotent re-entry demonstrated, not asserted
 - [ ] Model pin declared as a constant with the "every banked statistic was measured here" note
 - [ ] Auth-expired path: stops taking jobs, surfaces the condition, names the `matt_to_do/` + Claude-fallback response
@@ -125,4 +133,6 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24. **Gate-1 should specifically check that the U-1 schema is not being frozen ahead of Matt's rulings, and that the serial law is enforced structurally rather than by convention.**
+- jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  Serial law tightened to the `codex exec` invocation site (a single process spawning two children is the same violation); U-1 hold clarified so it stops firing a spurious HALT on field-naming; two factual errors corrected (`available()` is duck-typed at `workflow.py:196`, not on the Protocol; `test_harness.py:169` will break and must be updated, not deleted).
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**

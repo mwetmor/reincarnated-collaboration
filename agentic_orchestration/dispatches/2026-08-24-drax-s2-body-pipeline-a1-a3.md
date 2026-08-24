@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — drax — A-1 / A-3 body pipeline (transformation + totem delegate)
 
-**Status:** PENDING — **QUEUED behind `drax/v-s2a-mint-tranche-1`.** Do not start until tranche 1 lands.
+**Status:** PENDING — **QUEUED behind `drax/v<X.Y>-s2a-mint-tranche-1`.** Do not start until tranche 1 lands.
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 — tier-2 rulings **L-36 / L-37**
@@ -33,6 +33,8 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 - Stage-4 of the ensemble asset pipeline carries the same gate; this dispatch does not weaken it.
 - **If you cannot construct a Synty-clean input chain for a needed body, that is a HALT to knight-rider, not a judgment call at the keyboard.** The clearance question is cheap to ask and expensive to get wrong.
 - Record the input chain for every generated asset — what went in, from where. **A lineage you cannot show is a lineage you cannot defend.**
+- **The permitted input chain, stated positively** — because everything above says only what may NOT enter, and the ChatGPT step will want a style reference, and **the nearest style reference to hand is a render of our own game, which is Synty pixels.** That is the most likely real violation, so it is closed here explicitly:
+  > A text prompt authored from `canonical/reap-die-rise-story/style-register.md` **PROSE**, plus non-Synty third-party reference art whose source you can name. **In-engine screenshots, `Assets/` renders, and any capture of a scene containing Synty geometry are Synty-derived pixels — including when used "just as a style reference" for the ChatGPT step.** If you need to convey our look to the generator, **convey it in words.**
 
 **Synty-first is not a preference, it is the cheap path AND the clean path.** Exhaust it before opening the Meshy lane at all; a Synty body needs no lineage argument.
 
@@ -40,8 +42,16 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 
 ## Required reading
 
-1. Sealed spec **§ 5** (the ratification block at the top is the law of record; the proposal text beneath is retained unedited as the record of what was asked) · **§ 3.1.3** (`self_buff`, the sub-flag) · **§ 3.1.4** (`totem`)
-2. Charter ledger **L-36 / L-37**
+1. Sealed spec **§ 3.1.3** (`self_buff`, the sub-flag) · **§ 3.1.4** (`totem`)
+2. ⚠ **§ 5 and charter L-36 / L-37 are QUARANTINED — do not read them.** They are this dispatch's most natural sources and they are forbidden, because they describe the adopted `whirlwind` lineage in build detail and **you are the agent who mints `whirlwind` clean-room.** Contaminating that experiment costs the run its calibration datum; nothing in this dispatch is worth that price.
+
+   **Everything they give you is extracted here, and the extraction is complete:**
+   - **A-1 YES** — `self_buff` gets a `transformation` sub-shape
+   - **A-2 ADOPT + WW-AB** — not this dispatch
+   - **A-3 same pipeline as A-1** — one body-acquisition pipeline serves both. **This is the ruling that dissolves the § 5.1 double-buy risk**, and it is why this dispatch establishes the pipeline once and uses it twice.
+   - **Class B REJECTED** — Matt verbatim: *"We should only adopt one move per skill-type, not one more per kit."*
+
+   If you believe you need something from § 5 that is not in that list, **that is a question for knight-rider, not a judgment call at the keyboard.** The same quarantine covers the carve-out #2 request.
 3. `canonical/reap-die-rise-story/style-register.md` — register A; a new body must sit inside it
 4. `agentic_orchestration/legolas/notes/2026-08-23-synty-eula-primary-source-read.md` — the primary-source read behind the gate. Channel is **SyntyPass subscription**, single governing licence, current version binds.
 5. The ensemble asset-pipeline spec, Stage-4 lineage gate
@@ -65,7 +75,7 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 
 ### Standing
 - [ ] Lineage record per generated asset (if any)
-- [ ] `AGENT_STATE.md` updated; tag `drax/v-s2-body-pipeline-1`
+- [ ] `AGENT_STATE.md` updated; tag `drax/v<X.Y>-s2-body-pipeline-1`
 
 ## Cross-seam contract change? (Principle 6 gate)
 
@@ -79,7 +89,7 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 - [ ] **If Meshy was used: Synty-clean input chain documented and defensible.** If it was not used, say so — that is the better outcome
 - [ ] Both bodies sit inside register A at the fixed 2.5D camera
 - [ ] Round-trip: not applicable
-- [ ] Tag `drax/v-s2-body-pipeline-1`
+- [ ] Tag `drax/v<X.Y>-s2-body-pipeline-1`
 
 ## Quality criterion
 
@@ -101,7 +111,7 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 
 ## References
 
-- Sealed spec § 5 / § 3.1.3 / § 3.1.4 · charter L-36 / L-37
+- Sealed spec § 3.1.3 / § 3.1.4 · **(§ 5 and charter L-36 / L-37 quarantined — see Required reading item 2)**
 - `legolas/notes/2026-08-23-synty-eula-primary-source-read.md`
 - `agentic_orchestration/workflow-upgrades.md` § U-9 (discharged as a build; the lineage gate survives as standing discipline)
 
@@ -109,4 +119,6 @@ A-1 and A-3 were ruled to share **ONE body-acquisition pipeline** — that rulin
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24. **Gate-1 must confirm the Synty-clean gate is carried verbatim and is actionable as written.**
+- jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  Quarantine propagated (§ 5, L-36/L-37) with A-3's double-buy-dissolving ruling extracted inline; the Synty gate's hole closed by stating the **permitted** input chain positively — the gate previously said only what may not enter, and the nearest style reference to hand is a render of our own game.
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**

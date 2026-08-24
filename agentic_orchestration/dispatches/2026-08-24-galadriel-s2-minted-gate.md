@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — galadriel — Step-2 MINTED GATE (standing procedure + tranche-1 scoring)
 
-**Status:** PENDING — **blocked until drax lands `drax/v-s2a-mint-tranche-1`**
+**Status:** PENDING — **blocked until drax lands `drax/v<X.Y>-s2a-mint-tranche-1`**
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** galadriel (visual perception + UX-similarity steward)
 **Approved by:** Matt, 2026-08-24
@@ -85,7 +85,7 @@ Also verify, because 112 `self_buff` skills will be **active during other skills
 - [ ] Standing procedure authored, covering all eight items in § (A), and reusable for the remaining 21 rows without rewriting
 - [ ] Three rows scored on the § 3.2 three-axis rubric with receipts
 - [ ] L-19 causality check applied **per row against its declared class** — with the `aura` case demonstrating the rubric declining to penalize correct decoration
-- [ ] RT-2 verdict recorded per row (held / fired / converse-observed)
+- [ ] RT-2 verdict recorded **per `TRAIL-BOUNDED` row** (held / fired / converse-observed). On the others, state **`n/a — class not TRAIL-BOUNDED`** explicitly rather than omitting the line. *(RT-2's trigger is defined only for `TRAIL-BOUNDED`; two of the three tranche rows are `PAYLOAD-CARRIED` and `FIELD-CARRIED`, where it is undefined. **Do not invent a verdict to fill the cell** — an invented verdict and an omitted one fail the same way, silently.)*
 - [ ] Judge-From captures verified rendered at stage albedo **0.085**; if they were not, that is a re-render request to drax, not a scored result
 - [ ] Per-row verdict: `PASS` / `PASS-WITH-FINDINGS` / `REWORK` / `HALT-unscorable`
 - [ ] Round-trip: not applicable
@@ -119,4 +119,6 @@ Also verify, because 112 `self_buff` skills will be **active during other skills
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24.
+- jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  RT-2 acceptance line corrected: RT-2's trigger is defined only for `TRAIL-BOUNDED`, so the other classes get an explicit `n/a` rather than an invented verdict.
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**

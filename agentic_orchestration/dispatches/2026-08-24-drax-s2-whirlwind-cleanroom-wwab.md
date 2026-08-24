@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — drax — `whirlwind` CLEAN-ROOM mint (the WW-AB experiment)
 
-**Status:** PENDING — **GATED on RT-4 pre-flight clearing** (see § Gate below)
+**Status:** PENDING — **RT-4 CLEARED `BOTH-LIVE` 2026-08-24. Donor A (D3 March-2012 rune-free core-skill clip) carries the subtraction basis.** The gate below is satisfied; it is retained as the record of what was checked.
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 — ruling **L-37**, verbatim: **"ADOPT but hide."**
@@ -11,7 +11,9 @@
 
 ## Context — read this, because the protocol only makes sense with it
 
-`whirlwind` is the run's **most owner-invested row and its thinnest pixel evidence.** Matt's criterion of record (L-19) was articulated *about this move*. Not one whirlwind candidate in the entire corpus yields a frame-verified read — the incumbent is a title card, two archival donors are 120×90 placeholders, one archive is behind a Cloudflare challenge. The row's evidence tier is `OWNER-ATTESTATION + DOSSIER-TEXT`, and the spec says so plainly rather than dressing it up.
+`whirlwind` is the run's **most owner-invested row.** Matt's criterion of record (L-19) was articulated *about this move*.
+
+⚠ **The spec calls this the run's thinnest pixel evidence. That was true when it sealed and it is no longer true** — RT-4 fired between the seal and this brief and refuted it. The spec's account (incumbent is a title card; two archival donors are 120×90 placeholders; one archive behind a Cloudflare challenge) reflects what was known then. **What RT-4 measured: the Cloudflare-blocked page never contained a video at all — it is a text mirror linking out, and the actual media is live on Blizzard's own CDN at 1280×720 with 374 decodable frames.** So the row's `OWNER-ATTESTATION + DOSSIER-TEXT` tier understates it, and **you have real frames to work from.** gandalf owns the tier correction; do not wait on it.
 
 Two whirlwind artifacts will exist at wave end, **by design**:
 
@@ -26,13 +28,40 @@ Two whirlwind artifacts will exist at wave end, **by design**:
 
 **Start a FRESH session for this dispatch.** Do not run it inside a session that has already been reading whirlwind prior art. Clean-room is a property of what this session has *seen*, not merely of what it copies.
 
-### QUARANTINE LIST — you are FORBIDDEN to read any of the following
+### QUARANTINE LIST — ENUMERATED PATHS, not a content judgment
 
-- **SB-1 A2-series cells**
-- **The CPB shaders**
-- **All `vfxbo_*` scripts**
+**You are not asked to judge whether something "describes the adopted build."** That test is uncompliable — you would have to read a thing to find out whether you were allowed to read it. So the list is paths. **If a path is not on this list, it is permitted.**
 
-Do not open them, do not grep them, do not read them "just to check what not to do," and do not read notes, ledger rows, commit messages or diffs that describe their contents. **If you have already read any of them in this session, STOP and report to knight-rider — a fresh session costs minutes; a contaminated comparison costs the experiment.**
+Do not open, `grep`, `git show`, or diff any of:
+
+```
+reincarnated-godot/
+  scripts/vfxbo_*                        (all 11: arms, probe, reach_diag,
+                                          reach_probe, apply_retarget,
+                                          murzak_plan, stage_catalogue, + .uid)
+  scenes/kc2_cpb_clip.tscn
+  scripts/kc2_cpb_clip.gd
+  scripts/run_kc2_cpb_clip.sh
+  tmp/kc2/kc2_cpb_render.txt
+
+reincarnated-collaboration/
+  agentic_orchestration/galadriel/captures/2026-08-1*-sb1-a2*/     (all A2 cells)
+  agentic_orchestration/galadriel/captures/2026-08-12-sb1-cpa/
+  agentic_orchestration/galadriel/captures/2026-08-12-sb1-cpb/
+  agentic_orchestration/drax/notes/2026-08-1*-sb1-a2*              (all)
+
+Documents:
+  charter rows L-36 and L-37          — they describe the adopted build in detail
+  sealed spec § 5                     — same
+  gandalf/requests/2026-08-24-knight-rider-carveout2-step2-build-wave.md
+
+Commits:
+  a337d30 and any descendant touching the paths above
+```
+
+**⚠ Note what is on that list: charter L-36/L-37, sealed spec § 5, and the carve-out request.** They are ordinarily required reading and they are forbidden *here*. Everything from them that you actually need has been lifted into this brief. **If you find yourself reaching for one of them, the answer you want is either already above or is a question for knight-rider.**
+
+Do not read them "just to check what not to do." **If you have already read any of them in this session, STOP and report to knight-rider — a fresh session costs minutes; a contaminated comparison costs the experiment.**
 
 If you encounter a quarantined artifact incidentally (a search result, a directory listing), that is not a violation — **reading it is.** Note the encounter and move on.
 
@@ -43,6 +72,8 @@ If you encounter a quarantined artifact incidentally (a search result, a directo
 ## What you build FROM (this is the whole permitted input set)
 
 **T-A § 3.1.12** in `gandalf/notes/2026-08-24-vfx-archetype-binding-spec-DRAFT.md` (**STATUS: SEALED**; the STATUS line governs the filename), **plus** the spec's general law that binds every row: § 1 (design law digest), § 1.1 (L-19 owner criterion), § 1.2 (style register), § 2.3 (the seven P0-b constraints — your own probe's findings), § 3.0 (column semantics).
+
+⚠ **That enumeration is exhaustive, and § 5 is NOT on it. `§ 5 IS QUARANTINED.`** It reads as general tier-2 law and you would reasonably treat it as such — but it describes the adopted build. **Everything in § 5 that governs this dispatch is already in this brief.** The tier-2 rulings, stated here so you never need the source: **A-1 YES · A-2 ADOPT + WW-AB · A-3 same pipeline as A-1 · Class B REJECTED.** That is the whole of what you need from it.
 
 Plus the row's own named evidence, which § 3.1.12 points at directly:
 
@@ -91,7 +122,7 @@ Mint note at `agentic_orchestration/drax/notes/2026-08-24-s2-whirlwind-cleanroom
 - [ ] C-1: shadow casting disabled on additive/emissive meshes
 - [ ] Captures rendered at stage albedo **0.085** (C-3) for the gate
 - [ ] Mint note incl. clean-room declaration, committed before minting
-- [ ] `AGENT_STATE.md` updated; tag `drax/v-s2-whirlwind-cleanroom-1`
+- [ ] `AGENT_STATE.md` updated; tag `drax/v<X.Y>-s2-whirlwind-cleanroom-1`
 
 ## Cross-seam contract change? (Principle 6 gate)
 
@@ -105,7 +136,7 @@ Mint note at `agentic_orchestration/drax/notes/2026-08-24-s2-whirlwind-cleanroom
 - [ ] Clean-room declaration present and honest; **no quarantined artifact read**
 - [ ] Windup treatment present and explicitly marked authored-not-referenced
 - [ ] Round-trip: not applicable
-- [ ] Tag `drax/v-s2-whirlwind-cleanroom-1`
+- [ ] Tag `drax/v<X.Y>-s2-whirlwind-cleanroom-1`
 
 ## Quality criterion
 
@@ -133,16 +164,23 @@ Mint note at `agentic_orchestration/drax/notes/2026-08-24-s2-whirlwind-cleanroom
 - **BOTH-LIVE or ONE-LIVE** → proceed; knight-rider records which donor carries the subtraction basis.
 - **BOTH-FAIL** → the Dust-Devil confound is **un-subtractable**, the row's confidence drops materially below what "PRIMARY" implies, and **this dispatch does not fire until knight-rider re-shapes it.**
 
-**Check the RT-4 result before you start.** Do not assume it cleared.
+### ✅ RESULT — `BOTH-LIVE`, recorded 2026-08-24
+
+**Donor A carries the subtraction basis** (knight-rider's owed record, discharged here). The confound is subtractable and the row proceeds at stated confidence.
+
+**One thing the pre-flight changed, and it is in your favour:** Donor A is not merely alive — at **1280×720 with 374 decodable frames on Blizzard's own CDN it is the highest-fidelity whirlwind reference in the corpus**, and its rune-free provenance is now measured from an archived primary source rather than asserted. The row's `OWNER-ATTESTATION + DOSSIER-TEXT` evidence tier **understates what is available to you.** gandalf owns the tier correction; you own using the frames.
 
 ## References
 
-- Sealed spec § 3.1.12 · charter L-18/L-19/L-30/L-32/L-34/L-36/L-37
-- `gandalf/requests/2026-08-24-knight-rider-carveout2-step2-build-wave.md`
-- RT-4 pre-flight: `legolas/notes/2026-08-24-rt4-whirlwind-donor-playback.md`
+- Sealed spec **§ 3.1.12 only** (§ 5 is quarantined) · charter **L-18 / L-19 / L-30 / L-32 / L-34 only**
+- ⚠ **L-36 and L-37 are QUARANTINED — they describe the adopted lineage.** Their rulings are quoted above; the rows are not for reading.
+- ⚠ **The carve-out request is QUARANTINED** for the same reason.
+- RT-4 pre-flight: `legolas/notes/2026-08-24-rt4-whirlwind-donor-playback.md` — **`BOTH-LIVE`; Donor A carries the subtraction basis** (D3 March-2012 rune-free clip, 1280×720, 374 decodable frames, live on Blizzard's CDN; Donor B `DEGRADED-BUT-USABLE`, capped 240p)
 
 ---
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24. **Gate-1 must specifically confirm this brief does not leak quarantined content.**
+- jack-ryan Gate-1 DESIGN-MODE: **BLOCK → **DISCHARGED 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  The BLOCK was that the References list cited charter L-36/L-37 and the carve-out request — documents that *describe* the quarantined build — so an honest agent following the brief would violate its own quarantine clause. Fixed: quarantine is now an **enumerated path list** (a content-predicate was uncompliable — you would have to read a thing to learn whether you were allowed to read it), § 5 is quarantined explicitly, the References are stripped, and the tier-2 rulings are extracted inline. Re-verified: this brief no longer leaks quarantined content.
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**

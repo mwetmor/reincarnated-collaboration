@@ -40,7 +40,7 @@ Tier semantics are in the file's own `source_attribution`: **A** = direct vendor
 - [ ] **Grade the 20 LIVE-slot allow-list elements.** These are the ones that can actually be selected into a season, so they carry the real risk. Each gets `vfx_mapping_tier` + `vfx_catalogue_mapping_clean` + `rationale`, in the existing vocabulary.
 - [ ] **Grade the 38 vocab-frozen entries, or state explicitly why they are deferred.** They are reserved for Phase-1 P1 introduction and cannot be selected today. Grading them now is cheap insurance; *not* grading them is defensible — **but the manifest must say which, so the next reader is not left inferring from absence.**
 - [ ] **Bump `version` and `generated_date`;** extend `source_attribution` with this pass's basis. A refreshed manifest that still says `2026-05-17` is a lie about its own freshness.
-- [ ] Smoke: `pool.py _validate_pool_invariants` still passes; the vocab freeze still enforces; no allow-list element loses a tier it already had
+- [ ] Smoke: `pool.py _validate_pool_invariants` still passes; the vocab freeze still enforces; **before/after `d1_status` census across all 100 entries** (see the Principle 6 gate — grading PROMOTES entries the loader had auto-demoted, so the selectable set moves)
 - [ ] Tag `rocket/v<X.Y>-x3-vfx-coverage-refresh`
 
 ## Grading input — use the run's evidence, don't re-derive it
@@ -54,7 +54,8 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 
 **Potentially YES — the manifest is consumed at pool load.**
 
-- If entries are added/graded but the **entry shape does not change**: `Round-trip: not applicable because the manifest schema is unchanged; only field VALUES are added to existing entries, and pool-load validation is exercised by the smoke.` State it in those terms.
+- ⚠ **A value-only change here IS selection-visible.** `pool.py:95-102` auto-demotes any allow-list entry lacking `vfx_catalogue_mapping_clean` to `eligible` at load (Drift-14 invariant; `element/MIGRATION.md:186`). Grading the 20 ungraded LIVE-slot allow-list elements will PROMOTE them back to `allow-list` and change the set a season can select. **"Only field values changed" is NOT a valid not-applicable reason on this artifact.**
+  **Required:** `Round-trip smoke: production-path season generation reading the refreshed manifest → pool load → element selection, with a before/after d1_status census across all 100 entries and an explicit statement of which elements changed status and why.`
 - **If you add a field** (e.g. a per-surface-class tier cell), that IS a contract change: **MIGRATION.md required per ADR-004**, plus `Round-trip smoke: production-path season generation reading the refreshed manifest → pool load → element selection, with a field-presence check on the new field and a no-regression check on the existing tier field.`
 - Silence on this field is a Gate-1 BLOCK per REVIEW_PROCESS Principle 6.
 
@@ -64,8 +65,8 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 - [ ] 20 LIVE-slot allow-list elements graded with rationale
 - [ ] 38 frozen entries graded OR explicitly deferred **in the file**, with the reason
 - [ ] `version` / `generated_date` / `source_attribution` refreshed
-- [ ] Vocab freeze still enforced; no element loses an existing tier
-- [ ] Round-trip clause satisfied or explicitly not-applicable with a stated reason
+- [ ] Vocab freeze still enforced; **before/after `d1_status` census filed for all 100 entries; every membership change is intended and named**
+- [ ] Round-trip smoke green — **`not applicable` is NOT available on this dispatch** (see the Principle 6 gate)
 - [ ] Tag cut
 
 ## Quality criterion
@@ -76,7 +77,8 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 - The 42/100 or 20-element counts do not reproduce against the file — the finding needs re-derivation, not a grading pass
 - The A–E vocabulary cannot express what you actually find — a schema finding, worth more than a forced letter
 - Grading requires rendered evidence that does not exist yet — say what would need rendering and at what albedo; **do not grade from imagination and mark it as measured**
-- The manifest turns out to be consumed somewhere that makes a value-only change contract-visible
+- The `pool.py:95-102` auto-demote behavior does not reproduce as described — that would change the Principle 6 gate above, and the gate is stated on my reading, not yours; **check it before you rely on it**
+- The manifest turns out to be consumed somewhere ELSE that makes a value-only change contract-visible
 
 ## Out of scope
 
@@ -96,4 +98,6 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24.
+- jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  My not-applicable branch was wrong and was the branch rocket would have taken: `pool.py:95-102` auto-demotes ungraded allow-list entries at load, so grading them **promotes them back** and moves the selectable set. Round-trip smoke is now REQUIRED with a before/after `d1_status` census across all 100 entries.
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**

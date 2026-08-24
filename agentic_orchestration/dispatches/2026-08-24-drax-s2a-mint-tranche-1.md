@@ -39,7 +39,9 @@ If the loop works across these three, it works. If the rubric cannot separate th
    - **§ 3.1.1, § 3.1.2, § 3.1.8** — your three rows
    - **§ 6.1** — the pre-registered revisit triggers, especially **RT-2, RT-3, RT-8**
    - **§ 7** — what the spec does NOT decide (so you do not read silence as permission)
-2. `agentic_orchestration/gandalf/notes/2026-08-23-vfx-archetype-binding-charter.md` — ledger **L-19** (the owner criterion), **L-29** (the folds), **L-36/L-37** (tier-2 rulings), **L-39** (key-grain audit).
+2. `agentic_orchestration/gandalf/notes/2026-08-23-vfx-archetype-binding-charter.md` — ledger **L-19** (the owner criterion), **L-29** (the folds), **L-39** (key-grain audit).
+
+   ⚠ **Do NOT read L-36 or L-37, sealed spec § 5, or the carve-out #2 request.** They are **quarantined under the WW-AB clean-room protocol** — they describe the adopted `whirlwind` lineage in build detail, and **you are the agent who will later mint `whirlwind` clean-room.** Reading them here contaminates that experiment even though this dispatch has nothing to do with it. **You need nothing from them:** the tier-2 rulings are **A-1 YES · A-2 ADOPT + WW-AB · A-3 same pipeline as A-1 · Class B REJECTED**, and not one of the four bears on tranche 1. That is the complete extraction.
 3. `galadriel/notes/2026-08-24-vfx-p3-selection-gate.md` **+ its delta** (the delta supersedes row-by-row) — the Judge-To corpus you are building toward.
 4. `galadriel/captures/2026-08-23-vfx-p2-gd-framesets/framesets.json` **v2**.
 5. `canonical/reap-die-rise-story/style-register.md` — register A, bounded stylized-low-poly-3D (Synty) through a fixed 2.5D ARPG camera.
@@ -105,7 +107,7 @@ Before minting, write a short **mint note** per row into `agentic_orchestration/
 - [ ] C-1 shadow-casting disabled on every additive/emissive mesh you mount
 - [ ] Capture set for galadriel's gate (Judge-From side), rendered at stage albedo 0.085
 - [ ] `AGENT_STATE.md` updated at session end
-- [ ] Tag: `drax/v-s2a-mint-tranche-1`
+- [ ] Tag: `drax/v<X.Y>-s2a-mint-tranche-1`
 
 ## Cross-seam contract change? (Principle 6 gate)
 
@@ -124,7 +126,7 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 - [ ] Mint note committed **before** minting, covering all five required items per row
 - [ ] Capture set rendered against stage albedo **0.085** and handed to galadriel's gate
 - [ ] Round-trip: not applicable — no cross-seam contract change
-- [ ] Tag `drax/v-s2a-mint-tranche-1`
+- [ ] Tag `drax/v<X.Y>-s2a-mint-tranche-1`
 
 ---
 
@@ -173,4 +175,6 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — see completion of the Gate-1 batch review, 2026-08-24.
+- jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
+  Quarantine propagated into Required reading (L-36/L-37, spec § 5, carve-out request) with the four tier-2 rulings extracted inline; tag convention corrected to `v<X.Y>` form.
+  Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
