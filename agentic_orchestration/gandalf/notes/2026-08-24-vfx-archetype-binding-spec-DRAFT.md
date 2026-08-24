@@ -1,10 +1,10 @@
 # VFX Archetype-Binding Spec — **T-A + T-K**
 
-> **STATUS: DRAFT — awaiting DRIFT-CRITIC + Matt seal ratification.**
+> **STATUS: SEALED — RATIFIED at run seal (charter ledger L-37/L-38/L-39/L-40, 2026-08-24). T-A + T-K are BINDING; § 5 carries the tier-2 ratification of record; the key grain was Matt-audited and confirmed at L-39.**
 > **Run:** VFX ARCHETYPE-BINDING RUN · **Phase P4** (terminal deliverable) · charter
 > `agentic_orchestration/gandalf/notes/2026-08-23-vfx-archetype-binding-charter.md`
 > **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Authored by:** gandalf (`SPEC-AUTHOR`), named sub-agent
-> **Binding inputs:** charter § 1 / § 3 / § 4 / § 5 + ruling ledger **L-1 … L-34** ·
+> **Binding inputs:** charter § 1 / § 3 / § 4 / § 5 + ruling ledger **L-1 … L-40** ·
 > `elrond/notes/2026-08-23-vfx-p1-archetype-vote.md` · `elrond/notes/2026-08-24-vfx-p2-dossier-curation.md` ·
 > `elrond/notes/2026-08-24-vfx-p2-supplement-curation-delta.md` ·
 > `galadriel/notes/2026-08-24-vfx-p3-selection-gate.md` + `…-delta.md` (delta supersedes row-by-row) ·
@@ -915,15 +915,35 @@ charter forbids at P1 and this spec declines to smuggle in at P4.**
 
 ## 5 · **PROPOSED Tier-2 deserving list — MATT'S RATIFICATION ITEM**
 
-> ## ⚠ THIS ENTIRE SECTION IS **PROPOSED**, NOT SPEC'D.
-> **Charter § 3.3: *"the deserving list is Matt's ratification, not the run's."* Charter § 5 lists
-> the tier-2 deserving list as a COMMITMENT BOUNDARY — a HALT-to-Matt item, always.**
-> The `tier-2` column throughout § 4.3 is stamped **PROPOSED** for the same reason. **Nothing in this
-> section is authorized by the run, and Step 2 mints nothing from it until Matt rules.**
+> ## ✓ THIS SECTION IS **RATIFIED** — Matt, 2026-08-24 (charter ledger **L-36 / L-37**; seal **L-40**).
 >
-> What is offered here is what a proposal owes: **named candidates, the specific reason each one
-> cannot be carried by a Tier-1 parameter, the cost class, and a stated lean.** The lean is the
-> spec-author's; the ruling is Matt's.
+> **Rulings of record (these govern; the proposal text below is retained unedited as the record of
+> what was asked):**
+>
+> - **A-1 — YES.** One scoped `transformation` treatment (model-swap + transition VFX), reused as
+>   the `self_buff` transformation sub-shape. The body is already owned (Synty
+>   `SK_Chr_Werewolf_01.fbx`, live in `vh_race_rig` via `vh_caster.gd:38`, 1.80 m) — A-1's cost is
+>   the swap + transition treatment, not model acquisition.
+> - **A-2 — ADOPT + WW-AB EXPERIMENT** (Matt verbatim: *"ADOPT but hide"*). The SB-1
+>   cut-pattern-blade build (`reincarnated-godot` `a337d30` et seq.) is ADOPTED as whirlwind's
+>   binding-of-record lineage — AND Step-2's whirlwind cell is ALSO built **clean-room** from
+>   § 3.1.12 alone: the building agent is forbidden the SB-1 A2 cells, the CPB shaders, and the
+>   `vfxbo_*` scripts (quarantine list; DRIFT-CRITIC audits lineage), so Matt compares
+>   **agent-built-without-human-in-loop vs the human-in-loop SB-1 build** side-by-side. Whichever
+>   build Matt prefers ships; the comparison is banked either way.
+> - **A-3 — SAME PIPELINE AS A-1** (Matt's ruling). Totem delegate body sourced **Synty-first; if
+>   no fitting Synty body exists, created via the ChatGPT → Meshy pipeline** — the same
+>   body-acquisition lane A-1 establishes; the § 5.1 double-buy risk dissolves by ruling.
+>   **Conductor guard (binding on Step-2 briefs, verbatim):** the 3D-gen input chain must be
+>   **SYNTY-CLEAN — no Synty-derived pixels or geometry as generation inputs** (S16 gen-AI block;
+>   vision-LLM *judging* is permitted under the June-2026 relaxation; 3D-*generation from* Synty
+>   assets is not, absent the Custom Licence).
+> - **Class B — § 5.2 REJECTED** (Matt verbatim kernel: *"We should only adopt one move per
+>   skill-type, not one more per kit."*). Bespoke work attaches at the **skill-type (archetype)
+>   level only, never per-kit.** Tier-2's only shape is Class A. No roster question survives.
+>
+> The § 5.3 ratification questions are therefore **all four RESOLVED**; nothing files to
+> `matt_decision_needed/`.
 
 ### 5.0 The rule this list is proposed against
 
@@ -954,7 +974,7 @@ a base-quality requirement, not a flourish.
 | **A-2** | **`whirlwind`** | The owner-validated row, the L-19 exemplar, **82 % element-agnostic — the smallest Tier-1 surface of any T1/T2 archetype except `dash_attack`.** Tier-1 buys very little here by construction, and the row simultaneously carries the run's thinnest pixel evidence and the run's only measured cadence data. If any single archetype earns a bespoke pass, the evidence says it is this one. | **One flourish layer** on an existing base binding. Bounded. | 33 | **LEAN: YES.** This is the move Matt named from taste, twice, before any instrument was built. It is also the row where a mediocre base binding would be most obvious to the person who cares most. |
 | **A-3** | **`totem` → the delegate BODY** | ⚠ **CONDITIONAL — and I flag the conflation risk myself.** Tier-1 can recolour what a totem *throws*; it cannot recolour what a totem *is* (§ 3.1.4, `P = 4` ceiling). **But a delegate body is a MODEL-pipeline cost, not a flourish** — it sits closer to A-1 than to A-2, and closer to an authoring obligation than to a signature. | **Model pipeline.** Unbounded unless scoped. | 97 | **LEAN: DEFER, and re-ask after A-1 rules.** If A-1 lands a transformation treatment, the delegate-body question may be answerable by the same pipeline at marginal cost. Ruling them independently risks buying the same capability twice. |
 
-### 5.2 Class B — kit-signature slots (the charter's actual Tier-2 shape)
+### 5.2 Class B — kit-signature slots — **REJECTED BY RULING (L-36); retained as proposal-of-record only**
 
 *"The one or two skills carrying a kit's fantasy" — per kit, not per archetype.*
 
@@ -1005,6 +1025,7 @@ is the index a reader can act from.
 | **RT-5** | **drax C-7 beam-pack fragility** | before scheduling `beam_channel`, `line` or `placed_lane` | **pre-flight: confirm the Binbun `beam_vfx` pack still loads.** It resolves only via `uid://`; a UID-cache rebuild breaks it. |
 | **RT-6** | **`vortex_pull` cannot be validated on VFX alone** (§ 3.1.19) | the minted gate reaches this row | **do not score it against the VFX rubric in isolation** — its readability is carried by engine-side enemy displacement. Either the engine dependency has landed, or the row is scored with the dependency named as the limiting factor. |
 | **RT-7** | **C-1 source concentration** | any future reference lap | corpus-wide PoE share is **48.4 %** (61/126) after the supplement lane; the **canonical set is 7/26 = 26.9 % PoE.** **C-1 is REDUCED, NOT RETIRED.** Do not let one studio's VFX grammar become the de-facto register by accretion. |
+| **RT-8** | **`ground_targeted_circle` payload-vector + zone-valence params** (from the L-39 key-grain audit — Matt-fired, measured) | Step 2 mints the first GTC variants | The archetype's grammar is "descending payload inside a crisp perimeter" — but the substrate holds **3 erupt-from-ground skills** (Fissure, Fire Trap) and **~7 friendly-platform skills** (Inquisitor-Seal class) inside the same key. Mint with two params: `payload_vector` (descend / erupt — same perimeter grammar, inverted payload direction) and `zone_valence` (hostile / friendly — a **palette-convention rule**, Tier-1-adjacent, zero new assets; a player must never read a friendly platform as enemy fire). If the erupt variant cannot share the descend emitter cleanly, that is a finding for the next lap, not a silent fork. |
 
 ### 6.2 Cross-seam routings (this spec names them; it does not execute them)
 
@@ -1026,6 +1047,9 @@ is the index a reader can act from.
 - **`source_game` string variance is NOT normalized** — `Diablo 3` / `Diablo III` / `Diablo III, 2008 pre-release build`. **Build and season qualifiers are real provenance; do not normalize them.** Any P4-or-later rollup keyed on `source_game` must group them **deliberately.**
 - **Reference-corpus link health:** re-checking is cheap, but **403 is never absence.** Confirmed bot-blocked: `pathofexile.com`, `gamestar.de`, `bluetracker.gg`.
 - **`melee_strike`'s canonical is a downloadable MP4** — cutting it is the cheapest evidence-tier upgrade available on any T1 row (§ 3.1.2).
+- **L-39 key-grain audit residuals (measured, none key-shaped):** totem delegate mobility — mobile summons ≤18/97 vs placed-static 55 (regex over-count admitted in-ledger); VFX composes identically (summon puff + delegate attacks), mobility is AI/animation, the body rides A-3. `self_buff` shout sub-read 4/112 (Warcry class — radial wave vs personal glow); flag-worthy at Step 2, not a split. `single_target` utility-verb tail ~6/90 (Find Item, Hex et al. — zero combat-telegraph load; the generic point-cast is acceptable and said so here). *(elrond / Step-2 notes)*
+- **`aura` mis-attestation smell:** the Demonologist 39-demon companion swarm is attested `aura` — a companion swarm is summon-delegate-shaped. Catalogue finding routed to elrond with X-4; **not** a grain change. *(elrond)*
+- **Tempo (`cadence_class`) coverage is 0–47 % per archetype, median ~5 %** — measured at L-39. Tempo **parameterizes but cannot key**; if tempo is ever wanted as a reliable modular input, that is a coverage lap on `skill_geometry_band`, named here so nobody keys on absence. *(elrond, future lap)*
 
 ### 6.4 Conductor rulings owed at seal — **explicitly NOT ruled by this spec**
 
@@ -1086,5 +1110,7 @@ owner's eye stays in the loop, and it is written into the row rather than dresse
 
 *Authored by gandalf (`SPEC-AUTHOR`), 2026-08-24, VFX archetype-binding run **P4**. Read-only on
 `corpus.db`, on the engine tree, on all 30 dossiers, and on every seam tree outside `gandalf/`. No
-production code written. **STATUS: DRAFT — awaiting DRIFT-CRITIC by the conductor and Matt's seal
-ratification.** The tier-2 deserving list (§ 5) is Matt's, and is marked PROPOSED throughout.*
+production code written. **STATUS: SEALED — DRIFT-CRITIC passed (L-35); tier-2 ratified by Matt
+(L-36/L-37); Atlas alignment MAPPED (L-38); key grain Matt-audited and confirmed (L-39); run sealed
+at L-40, 2026-08-24.** The § 5 ratification block is the tier-2 law of record; Step 2 builds against
+these tables.*
