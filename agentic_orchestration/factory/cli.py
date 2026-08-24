@@ -6,6 +6,14 @@
     factory gates                     list registered gates (grep-able inventory)
     factory determinism <workflow>    run twice, compare gate verdicts (R-BR-51)
     factory probe-agent <seam>        one live headless call; verifies the lane
+
+    factory lane-status <queue-dir>   auth + serial-lane + last-row liveness, one screen
+    factory lane-enqueue <queue-dir>  add one job (--curator is REQUIRED; U-4 R-B)
+    factory lane-drain <queue-dir>    drain the queue serially; safe to re-fire
+
+The three `lane-*` commands are the uptime half of U-4: hand-fired scripts were the
+bridge, the queue is the uptime. `lane-drain` is idempotent and crash-safe, so the
+correct response to "did that finish?" is to run it again.
 """
 
 from __future__ import annotations
@@ -120,6 +128,73 @@ def _cmd_probe_agent(args: argparse.Namespace) -> int:
     return 0 if result.ok else 1
 
 
+def _lane_pieces(args: argparse.Namespace):
+    from .harness.codex import CodexHarness
+    from .jobqueue import JobQueue
+
+    return JobQueue(Path(args.queue_dir)), CodexHarness()
+
+
+def _cmd_lane_status(args: argparse.Namespace) -> int:
+    """The U-4 router's question (3), answered in one place instead of two habits.
+
+    *"Lane open?"* is `last _run-log.tsv row terminal` AND `auth valid`, and until now
+    those were a `tail -1` and a `codex login status` that a dispatcher had to remember
+    to run in the right order. Exit code is the answer: 0 = fire, 1 = do not.
+    """
+    queue, harness = _lane_pieces(args)
+    state = harness.availability()
+    row = queue.runlog.last_row()
+    pending = queue.pending()
+    print(f"auth/lane : {state.state} — {state.reason}")
+    print(f"last row  : {'  '.join(row) if row else '(none — nothing has ever run)'}")
+    print(f"terminal  : {queue.runlog.is_idle()}")
+    print(f"pending   : {len(pending)} job(s)" + (
+        "  [" + ", ".join(f"{j.job_id}->{j.curator}" for j in pending[:8]) + "]"
+        if pending else ""
+    ))
+    blocked = queue.root / "AUTH-BLOCKED.md"
+    if blocked.exists():
+        print(f"\n!! {blocked} exists — an unfiled matt_to_do row is waiting")
+    return 0 if (state.ok and queue.runlog.is_idle()) else 1
+
+
+def _cmd_lane_enqueue(args: argparse.Namespace) -> int:
+    queue, _ = _lane_pieces(args)
+    prompt = Path(args.prompt_file).read_text(encoding="utf-8")
+    try:
+        job = queue.enqueue(
+            job_id=args.job_id,
+            prompt=prompt,
+            curator=args.curator,
+            job_class=args.job_class,
+            output_path=args.output,
+            sandbox=args.sandbox,
+            web_search=args.web_search,
+            min_output_bytes=args.min_output_bytes,
+            enqueued_by=args.enqueued_by or "",
+        )
+    except ValueError as exc:
+        print(f"REFUSED: {exc}", file=sys.stderr)
+        return 2
+    print(f"enqueued {job.job_id}  curator={job.curator}  sandbox={job.sandbox}")
+    return 0
+
+
+def _cmd_lane_drain(args: argparse.Namespace) -> int:
+    queue, harness = _lane_pieces(args)
+    report = queue.drain(harness, limit=args.limit)
+    print(f"lane {report.lane_state}: fired={report.fired} skipped={report.skipped} "
+          f"deferred={report.deferred} handed-to-claude={report.handed_to_claude}")
+    for outcome in report.outcomes:
+        print(f"  {outcome.job_id:<32} {outcome.marker:<16} curator={outcome.curator}"
+              + (f"  {outcome.error[:120]}" if outcome.error else ""))
+    if report.stopped_reason:
+        print(f"\nSTOPPED: {report.stopped_reason}", file=sys.stderr)
+        return 2
+    return 0 if report.handed_to_claude == 0 else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="factory", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -154,6 +229,33 @@ def build_parser() -> argparse.ArgumentParser:
     p_probe.add_argument("--cwd", default=None)
     p_probe.add_argument("--timeout-s", dest="timeout_s", type=int, default=300)
     p_probe.set_defaults(func=_cmd_probe_agent)
+
+    p_ls = sub.add_parser("lane-status", help="auth + serial lane + last-row liveness")
+    p_ls.add_argument("queue_dir")
+    p_ls.set_defaults(func=_cmd_lane_status)
+
+    p_le = sub.add_parser("lane-enqueue", help="add one job to a vendor-lane queue")
+    p_le.add_argument("queue_dir")
+    p_le.add_argument("job_id")
+    p_le.add_argument("prompt_file")
+    # REQUIRED at the argparse layer as well as at the queue layer. U-4 R-B makes an
+    # unnamed curator a refusal to fire, and a flag that DEFAULTS is a flag that gets
+    # left off — the governance line would then be enforced by whoever typed the
+    # command remembering it, which is the state R-B exists to replace.
+    p_le.add_argument("--curator", required=True,
+                      help="the named Claude agent who owns this output downstream (REQUIRED)")
+    p_le.add_argument("--job-class", dest="job_class", default="research")
+    p_le.add_argument("--output", default=None)
+    p_le.add_argument("--sandbox", default="read-only")
+    p_le.add_argument("--web-search", dest="web_search", action="store_true")
+    p_le.add_argument("--min-output-bytes", dest="min_output_bytes", type=int, default=0)
+    p_le.add_argument("--enqueued-by", dest="enqueued_by", default=None)
+    p_le.set_defaults(func=_cmd_lane_enqueue)
+
+    p_ld = sub.add_parser("lane-drain", help="drain a vendor-lane queue serially")
+    p_ld.add_argument("queue_dir")
+    p_ld.add_argument("--limit", type=int, default=None)
+    p_ld.set_defaults(func=_cmd_lane_drain)
 
     return parser
 

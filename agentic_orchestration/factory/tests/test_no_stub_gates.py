@@ -7,8 +7,12 @@ it yet. This file is the mechanical proof that none exists.
 Three independent proofs, because "no stubs" fails in three different ways:
 
 1. **Marker scan** — no TODO/FIXME/stub/NotImplementedError anywhere in the
-   gate tree. One declared exception exists in the whole factory (the Codex
-   adapter), and it must declare itself honestly and RAISE.
+   gate tree, and — since 2026-08-24 — nowhere in the factory at all. The one
+   declared exception was the Codex adapter, permitted while Matt action T16
+   blocked the lane on terms it had to state and honour (declare itself, and
+   RAISE rather than return green). T16 is done and the lane is live, so the
+   carve-out is gone WITH the thing it forgave rather than outliving it. An
+   exemption for a condition that has passed is an exemption nobody maintains.
 2. **Red-path proof** — every registered gate's own source contains a path to
    `failed` or `not_runnable`. A gate that can only return `passed` is a stub
    wearing a gate's name.
@@ -39,8 +43,12 @@ STUB_MARKERS = (
     "for now, return",
 )
 
-# The ONE declared stub in the tree, and the terms on which it is allowed to exist.
-HONEST_STUB_MODULE = FACTORY_DIR / "harness" / "codex.py"
+#: There is no declared stub in this tree any more. This used to be
+#: `HONEST_STUB_MODULE = harness/codex.py`, and the row below used to assert
+#: `flagged == [HONEST_STUB_MODULE]`. Now it asserts `flagged == []`, which is the
+#: same row with the exemption removed rather than a different row — the direction
+#: matters, because relaxing this to a membership test would let the next stub in.
+NO_STUB_MODULES: list[Path] = []
 
 
 def _python_files(root: Path) -> list[Path]:
@@ -91,32 +99,43 @@ def test_gate_tree_carries_no_stub_markers():
     assert not offenders, "stub markers found in the gate tree:\n" + "\n".join(offenders)
 
 
-def test_the_only_stub_in_the_factory_is_the_declared_codex_adapter():
-    """A stub is permitted only where it announces itself and refuses to run."""
+def test_there_is_NO_stub_left_in_the_factory():
+    """The carve-out is gone with the thing it forgave.
+
+    While the Codex lane was blocked on T16 this asserted `flagged == [codex.py]`.
+    T16 is done and the lane is live, so the equality target is the EMPTY list —
+    the same row, one exemption smaller. It is still an equality and not a
+    membership test, because `in` cannot tell a shorter list from a longer one.
+    """
     flagged: list[Path] = []
     for path in _python_files(FACTORY_DIR):
         if "tests" in path.parts:
             continue
         if "NotImplementedError" in _code_text(path):
             flagged.append(path)
-    assert flagged == [HONEST_STUB_MODULE], (
-        "NotImplementedError may appear in exactly one module (the declared Codex "
-        f"stub); found it in {[str(p.relative_to(FACTORY_DIR)) for p in flagged]}"
+    assert flagged == NO_STUB_MODULES, (
+        "NotImplementedError may appear in NO module of this package; found it in "
+        f"{[str(p.relative_to(FACTORY_DIR)) for p in flagged]}. There is no longer a "
+        "declared-stub exemption to add one to."
     )
 
+
+def test_the_codex_lane_no_longer_declares_itself_closed():
+    """The stub markers are DELETED, not left lying next to a working body.
+
+    A `HONEST_STUB = True` beside a live `run()` is worse than either half alone: it
+    tells its reader the lane is shut while the lane executes jobs. This row is what
+    stops the markers being re-added out of habit, and what stops a future reader
+    trusting `BLOCKED_ON` after the block was lifted.
+    """
     from factory.harness import codex
 
-    assert codex.HONEST_STUB is True, "a stub must declare itself"
-    assert codex.BLOCKED_ON, "a stub must name what blocks it"
-
-
-def test_the_honest_stub_raises_rather_than_returning_green():
-    import pytest
-
-    from factory.harness.codex import CodexHarness
-
-    with pytest.raises(NotImplementedError):
-        CodexHarness().run("anything", Path("."), {"agent": "star-lord"})
+    assert not hasattr(codex, "HONEST_STUB"), (
+        "`HONEST_STUB` is back in a module with a live body. If the lane closes again, "
+        "it closes through `available()`/`unavailable_reason()`, which report the "
+        "CURRENT state — a module constant fixed at import time cannot."
+    )
+    assert not hasattr(codex, "BLOCKED_ON")
 
 
 # ---------------------------------------------------------------------------

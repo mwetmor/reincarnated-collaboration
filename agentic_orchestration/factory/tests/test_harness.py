@@ -20,7 +20,12 @@ from factory.harness.claude_code import (
     check_grant,
     parse_frames,
 )
-from factory.harness.codex import BLOCKED_ON, HONEST_STUB, CodexHarness
+from factory.harness.codex import (
+    MODEL_PIN,
+    MODEL_REASONING_EFFORT_PIN,
+    CodexHarness,
+    LaneAvailability,
+)
 
 FIXTURE = Path(__file__).resolve().parents[1] / "fixtures" / "claude_stream_probe.jsonl"
 
@@ -152,7 +157,7 @@ def test_the_result_frame_carries_what_the_spine_needs():
 
 
 # ---------------------------------------------------------------------------
-# the registry and the honest stub
+# the registry and the second lane
 # ---------------------------------------------------------------------------
 def test_both_lanes_are_registered():
     assert set(available_harnesses()) == {"claude_code", "codex"}
@@ -163,15 +168,243 @@ def test_an_unknown_harness_name_raises_at_lookup():
         get_harness("telepathy")
 
 
-def test_the_codex_lane_declares_itself_closed():
-    assert HONEST_STUB is True
-    assert "T16" in BLOCKED_ON
-    assert CodexHarness().available() is False
+def _codex(tmp_path, *, auth_ok=True, state="open", reason="Logged in using ChatGPT"):
+    return CodexHarness(
+        executable="codex",
+        lock_path=tmp_path / "lane.lock",
+        auth_probe=lambda: LaneAvailability(auth_ok, state, reason),
+    )
 
 
-def test_the_codex_lane_raises_rather_than_returning_a_result(tmp_path):
-    with pytest.raises(NotImplementedError, match="T16"):
-        CodexHarness().run("x", tmp_path, {"agent": "a"})
+def test_available_TELLS_THE_TRUTH_IN_BOTH_DIRECTIONS(tmp_path):
+    """This row replaced `assert CodexHarness().available() is False`.
+
+    That assertion was CORRECT while the lane was a stub and would have gone RED the
+    moment the body was filled — which is exactly why the instruction was to UPDATE it
+    rather than delete it. A deleted test is how `available()` stops telling the
+    truth: the one-directional version could not distinguish a lane that is open from
+    a lane whose `available()` had been quietly hardcoded, and neither can an absent
+    one.
+
+    So both directions are asserted here, and the reason is asserted with them —
+    because a bare `False` cannot tell an operator whether to wait (busy) or to fetch
+    Matt (auth).
+    """
+    open_lane = _codex(tmp_path)
+    assert open_lane.available() is True
+    assert open_lane.unavailable_reason() == ""
+
+    expired = _codex(tmp_path, auth_ok=False, state="auth_expired", reason="token gone")
+    assert expired.available() is False
+    assert "auth_expired" in expired.unavailable_reason()
+
+
+def test_the_REAL_auth_check_reads_the_CLI_and_fails_closed(tmp_path):
+    """`check_auth` itself, not an injected stand-in.
+
+    The row above injects an `auth_probe`, which is what makes the AVAILABILITY
+    contract testable — and which means it never exercises the production auth path.
+    Two probes with the same shape, one of which tests nothing, is how a green suite
+    ends up saying nothing about the thing under review, so this row runs the real
+    method against a real `codex` binary.
+
+    THE POSITIVE FIXTURE WRITES TO **STDERR**, AND THAT IS THE POINT OF THIS ROW.
+    Measured on this host, `codex login status` returns rc=0 with **stdout empty** and
+    `Logged in using ChatGPT` on **stderr**. `check_auth` shipped reading `proc.stdout`
+    — so it reported `auth_expired` unconditionally, and the queue would never have
+    drained a single job. The earlier version of this fixture `echo`-ed to stdout,
+    which meant the test was written against the same wrong belief as the code and
+    agreed with it. A fake that shares the bug's premise cannot find the bug.
+
+    The stdout-only fixture is kept BESIDE it, because a fix that reads only stderr
+    would be the same defect mirrored, and nothing here should pass by luck.
+
+    HONESTY ABOUT WHAT THIS MEASURES. The NEGATIVE branch is still REASONED, NOT
+    MEASURED — verifying the vendor's actual not-logged-in text requires
+    `codex logout`, a Matt-only action on a live lane. So it asserts the CONTRACT (a
+    non-zero exit or an unrecognised answer reads as closed, and the reason names the
+    Matt-only response), not the vendor's wording.
+    """
+    on_stderr = tmp_path / "codex-in-stderr"
+    on_stderr.write_text(
+        "#!/bin/sh\n>&2 echo 'Logged in using ChatGPT'\nexit 0\n", encoding="utf-8"
+    )
+    on_stderr.chmod(0o755)
+    state = CodexHarness(executable=str(on_stderr)).check_auth()
+    assert state.ok is True, (
+        "the vendor answers on STDERR with an EMPTY stdout. A check that reads one "
+        "stream reports a healthy lane as expired, forever, and every job is handed to "
+        "the Claude lane with a matt_to_do row for an auth that never expired."
+    )
+    assert state.state == "open"
+
+    on_stdout = tmp_path / "codex-in-stdout"
+    on_stdout.write_text("#!/bin/sh\necho 'Logged in using ChatGPT'\nexit 0\n", encoding="utf-8")
+    on_stdout.chmod(0o755)
+    assert CodexHarness(executable=str(on_stdout)).check_auth().ok is True
+
+    logged_out = tmp_path / "codex-out"
+    logged_out.write_text("#!/bin/sh\n>&2 echo 'Not logged in'\nexit 1\n", encoding="utf-8")
+    logged_out.chmod(0o755)
+    state = CodexHarness(executable=str(logged_out)).check_auth()
+    assert state.ok is False
+    assert state.state == "auth_expired"
+    # The RESPONSE is part of the contract, not just the verdict: re-auth is Matt-only
+    # and this must never read as a retryable job failure.
+    assert "MATT-ONLY" in state.reason.upper()
+    assert "MUST NOT BE RETRIED" in state.reason.upper()
+
+    # A CLI that answers rc=0 with something unrecognisable is ALSO closed. Absence of
+    # a recognised answer is not a pass.
+    ambiguous = tmp_path / "codex-huh"
+    ambiguous.write_text("#!/bin/sh\n>&2 echo 'shrug'\nexit 0\n", encoding="utf-8")
+    ambiguous.chmod(0o755)
+    assert CodexHarness(executable=str(ambiguous)).check_auth().ok is False
+
+    missing = CodexHarness(executable=str(tmp_path / "no-such-binary"))
+    assert missing.check_auth().state == "cli_missing"
+
+
+def test_available_reports_BUSY_when_the_serial_lane_is_held(tmp_path):
+    """The second direction of "busy", which the stub could not have had.
+
+    A lane that is authenticated and OCCUPIED is not an open lane, and reporting it as
+    one is how two `codex exec` processes end up on one `auth.json`.
+    """
+    from factory.lane import SerialLaneLock
+
+    harness = _codex(tmp_path)
+    holder = SerialLaneLock(tmp_path / "lane.lock").acquire()
+    try:
+        assert harness.available() is False
+        state = harness.availability()
+        assert state.state == "busy"
+        assert "NEVER parallel" in state.reason
+    finally:
+        holder.release()
+    assert harness.available() is True
+
+
+def test_the_codex_lane_RETURNS_A_RESULT_rather_than_raising(tmp_path):
+    """It used to raise `NotImplementedError`. A live adapter must not raise at all.
+
+    The spine records a `RawResult`; it cannot record an exception. So every
+    operational condition — missing binary included — comes back as `ok=False` with an
+    error that says which.
+    """
+    harness = CodexHarness(
+        executable="codex-does-not-exist-xyz",
+        lock_path=tmp_path / "lane.lock",
+        auth_probe=lambda: LaneAvailability(True, "open", "stubbed ok"),
+    )
+    result = harness.run("x", tmp_path, {})
+    assert result.ok is False
+    assert "not found on PATH" in (result.error or "")
+    assert result.usage.billable_token_total() is None
+    assert result.usage.absent_reason
+
+
+def test_the_model_pin_is_ON_THE_ARGV_not_left_to_ambient_config():
+    """It lived only in `~/.codex/config.toml` — host state no file here controls.
+
+    Every banked lane statistic was measured at this config, so where the pin is SAID
+    is the difference between a reproducible baseline and a coincidence.
+    """
+    argv = CodexHarness().build_argv({"web_search": True, "output_path": "/tmp/x.md"})
+    assert argv[:3] == ["codex", "exec", "--json"]
+    assert argv[argv.index("-m") + 1] == MODEL_PIN
+    assert f'model_reasoning_effort="{MODEL_REASONING_EFFORT_PIN}"' in argv
+    assert argv[argv.index("-s") + 1] == "read-only"
+    assert "tools.web_search=true" in argv
+    assert argv[-1] == "-", "the prompt arrives on stdin, never on argv"
+
+
+def test_a_silent_model_swap_is_REFUSED_and_an_evidenced_one_is_not():
+    """Drift is loud at the call site, per U-4's A/B requirement.
+
+    The refusal is not "you may not change the model". It is "you may not change it
+    without naming the evidence", which is the difference between an experiment and a
+    baseline that quietly stopped meaning anything.
+    """
+    h = CodexHarness()
+    with pytest.raises(ValueError, match="A/B evidence"):
+        h.build_argv({"model": "gpt-4o-mini"})
+    argv = h.build_argv({"model": "gpt-4o-mini", "model_ab_note": "notes/ab-2026-09-01.md"})
+    assert argv[argv.index("-m") + 1] == "gpt-4o-mini"
+
+
+def test_an_unenumerated_sandbox_is_REFUSED():
+    with pytest.raises(ValueError, match="not one of"):
+        CodexHarness().build_argv({"sandbox": "read_only"})  # underscore, not hyphen
+
+
+def test_the_codex_lane_REFUSES_a_tool_allowlist_it_cannot_enforce():
+    """`codex exec` has no `--tools`. Accepting a list would be the fail-open."""
+    with pytest.raises(ValueError, match="no tool allowlist"):
+        CodexHarness.validate_tools(["Read"], "a phase")
+
+
+def test_ABSENT_turn_completed_IS_the_failure_signal():
+    """Measured with a bad `-m`: rc=1, a `turn.failed`, and NO `turn.completed`."""
+    result = CodexHarness().adjudicate(
+        [
+            {"type": "thread.started", "thread_id": "t-1"},
+            {"type": "turn.started"},
+            {"type": "turn.failed", "error": {"message": "model not supported"}},
+        ],
+        returncode=1,
+    )
+    assert result.ok is False
+    assert "no `turn.completed`" in (result.error or "")
+    assert "model not supported" in (result.error or "")
+    assert result.harness_session_id == "t-1"
+    assert result.usage.billable_token_total() is None
+
+
+def test_a_fallback_metadata_run_FAILS_rather_than_warns():
+    """A run at fallback metadata is not a run at the pin, and the stats are ABOUT the pin."""
+    result = CodexHarness().adjudicate(
+        [
+            {"type": "thread.started", "thread_id": "t-2"},
+            {"type": "item.completed", "item": {
+                "type": "error",
+                "message": "Model metadata for `nope` not found. Defaulting to fallback metadata; "
+                           "this can degrade performance and cause issues.",
+            }},
+            {"type": "item.completed", "item": {"type": "agent_message", "text": "done"}},
+            {"type": "turn.completed", "usage": {
+                "input_tokens": 100, "cached_input_tokens": 40,
+                "cache_write_input_tokens": 0, "output_tokens": 5,
+                "reasoning_output_tokens": 2}},
+        ],
+        returncode=0,
+    )
+    assert result.ok is False
+    assert "fallback metadata" in (result.error or "")
+    # The usage is still recorded — the tokens were really spent.
+    assert result.usage.billable_token_total() == 105
+
+
+def test_a_clean_turn_carries_what_the_spine_needs():
+    result = CodexHarness().adjudicate(
+        [
+            {"type": "thread.started", "thread_id": "t-3"},
+            {"type": "item.completed", "item": {"type": "agent_message", "text": "OK"}},
+            {"type": "turn.completed", "usage": {
+                "input_tokens": 17422, "cached_input_tokens": 9984,
+                "cache_write_input_tokens": 0, "output_tokens": 5,
+                "reasoning_output_tokens": 0}},
+        ],
+        returncode=0,
+        model=MODEL_PIN,
+    )
+    assert result.ok is True
+    assert result.text == "OK"
+    assert result.model == MODEL_PIN
+    assert result.exit_code == 0
+    assert result.harness == "codex"
+    # in(uncached) 7438 + out 5 + cache_read 9984 + cache_write 0
+    assert result.usage.billable_token_total() == 7438 + 5 + 9984
 
 
 def test_C3_an_agentic_phase_without_a_tools_allowlist_is_REFUSED():

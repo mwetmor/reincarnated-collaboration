@@ -1,9 +1,14 @@
-# factory/receipts.db — schema migrations
+# factory — cross-seam schema + surface migrations
 
 Schema custody: **star-lord** (SOFTWARE FACTORY strategy § 8). This file is the
-cross-seam contract for the factory's receipts DB, per ADR-004. Any consumer that reads
-`receipts.db` — the CLI `status` / `report` surfaces, a future Tier-1/2 UI, jack-ryan's
-Gate-2 queries — reads this file first.
+cross-seam contract for the factory's durable surfaces, per ADR-004. Any consumer that
+reads `receipts.db` — the CLI `status` / `report` surfaces, a future Tier-1/2 UI,
+jack-ryan's Gate-2 queries — reads this file first.
+
+**As of 2026-08-24 this file also covers the VENDOR-LANE surfaces** (`_run-log.tsv`,
+`telemetry.jsonl`, `jobs/*.job.json`) — the surfaces the U-1 flight recorder, a future
+board, and knight-rider's session-start liveness check will build against. See the
+**codex-lane v0** entry at the bottom.
 
 **Standing rule:** the DB is *evidence*. Migrations are **additive only**. `ADD COLUMN`
 cannot destroy a row. Anything that rewrites or drops is not a migration this module
@@ -236,3 +241,195 @@ killer recorded. The four load-bearing ones:
   because J5's first mutation pass found the column-writing correct and the call site
   absent.
 - `test_H6_the_caveat_is_rendered_on_a_run_with_NO_breaches` — the green path.
+
+---
+
+## codex-lane v0 — the vendor lane becomes a durable queue (U-4, 2026-08-24)
+
+**Shipped:** 2026-08-24. **Author:** star-lord.
+**Dispatch:** `agentic_orchestration/dispatches/2026-08-24-star-lord-codex-durable-queue.md`
+**Blast radius:** one BEHAVIOURAL contract change (below), plus three NEW surfaces that
+nothing consumed before. No existing consumer of `receipts.db` is affected; its schema
+is unchanged at v3.
+
+### 1. BEHAVIOURAL CONTRACT CHANGE — `codex.available()` flips `False → True`
+
+This is the one item in this entry that changes what already-written code does, so it
+is first.
+
+`harness/codex.py` was an honest stub: `HONEST_STUB = True`, `available()` returned
+`False` unconditionally, `run()` raised `NotImplementedError`. `workflow.py` reads
+`available()` at LOAD and refuses any agentic phase naming a closed lane. **A workflow
+declaring `harness: codex` used to be rejected at load, always. It is now ACCEPTED
+whenever `codex login status` is healthy and the serial lane is free.**
+
+What that means for the spine: the loader will now ROUTE work to a second vendor. Any
+workflow that named `codex` as a placeholder — expecting the load-time refusal to keep
+it from running — will now run. There is exactly one such workflow shipped
+(`workflows/kc2-baton-mechanical.yaml`) and it does not name `codex`; a grep for
+`harness: codex` across the repo returns nothing else. Named here anyway, because a
+contract change whose blast radius is currently zero is still the change that bites when
+the radius stops being zero.
+
+`HONEST_STUB` and `BLOCKED_ON` are **DELETED**, not left beside the working body, and
+`tests/test_no_stub_gates.py` now asserts they are absent. The stub carve-out in that
+file (`flagged == [codex.py]`) became `flagged == []` — the same equality, one exemption
+smaller.
+
+**`available()` was NOT promoted onto the `HarnessAdapter` Protocol — an explicit
+decision, not an oversight.** `base.HarnessAdapter` still declares only `name` and
+`run`; `available()` remains duck-typed at `workflow.py:196`. Promoting it makes
+`ClaudeCodeHarness` non-conforming to the protocol it is the reference implementation
+for, and both repairs are worse than the status quo: give the Claude lane an
+`available()` returning `True` (a green nobody measured, in a package whose loudest rule
+forbids exactly that), or make it probe `claude` on every workflow load (a subprocess
+per load to answer a question that lane has never needed asked). Duck-typing says the
+true thing: a lane that can answer "am I open?" answers; a lane that cannot is not
+asked.
+
+**New optional adapter method: `unavailable_reason() -> str`.** `workflow.py` now asks
+the ADAPTER for the reason a lane is closed and falls back to the module-level
+`BLOCKED_ON` only if the adapter does not answer. This is additive — a harness
+publishing only `BLOCKED_ON` keeps its exact message. It exists because `BLOCKED_ON` is
+fixed at import time, which was adequate for one closed state ("Matt has not installed
+it") and is not adequate for a live lane with three (`auth_expired`, `busy`,
+`cli_missing`), which an operator must be able to tell apart: one needs Matt, one needs
+a minute, one needs a PATH.
+
+### 2. NEW SURFACE — `_run-log.tsv`, extended ADDITIVELY
+
+The proven runner (`research/vfx-p2-dossiers/run_p2_serial.sh`) wrote four
+tab-separated columns. **Those four columns are unmoved.** Two are appended:
+
+| col | field | example | new? |
+|---|---|---|---|
+| 1 | `ts_utc` | `2026-08-24T14:03:40Z` | no |
+| 2 | `job_id` | `30-ma_video_companion` | no |
+| 3 | **`marker`** | `rc=0` · `SKIP-EXISTS` · `ENQUEUED` · `START` · `FALLBACK-CLAUDE` · `AUTH-BLOCKED` · `ENQUEUE-REFUSED` | no (vocabulary widened) |
+| 4 | `detail` | free-form `k=v k=v` | no |
+| 5 | **`curator=<agent>`** | `curator=elrond` | **YES** |
+| 6 | `event=<enqueue\|start\|finish>` | `event=enqueue` | **YES** |
+
+**THE LIVENESS CONTRACT IS PRESERVED AND IS THE POINT.** The pre-fire check of record —
+*"last row terminal"*, which the U-4 router's question (3) reads and which knight-rider
+reads at session start — is still `tail -1`, and still column 3:
+
+```sh
+tail -1 usage/_run-log.tsv | cut -f3        # rc=0  -> lane idle
+tail -1 usage/_run-log.tsv | cut -f5        # curator=elrond
+```
+
+Asserted by `test_the_terminal_check_is_answerable_by_TAIL_MINUS_1_AND_CUT`, which runs
+that exact shell pipeline rather than simulating it.
+
+**Reading rules a consumer must not get wrong:**
+
+- **Four-column rows are legal and must stay readable.** Every row the proven 30-job
+  VFX run wrote has four columns. `RunLog.curator_of` returns `None` for them, meaning
+  **UNKNOWN**, and a governance-leak query must not read that as "empty". The pre-R-B
+  corpus has no curator field; it does not have an empty one.
+- **`ENQUEUED` and `START` are NON-terminal.** A log ending in `ENQUEUED` means the
+  lane is idle but has pending work; ending in `START` means a job was launched and no
+  finish row followed it — a crash, or a job still running. Both correctly read as *do
+  not fire*.
+- **An unrecognised marker is NON-terminal**, and `RunLog.append` now REFUSES to write
+  one. Column 3 is a closed vocabulary in both directions.
+- `rc=<N>` is matched by PREFIX, any exit code, exactly as the proven runner wrote it.
+
+### 3. NEW SURFACE — `telemetry.jsonl` (U-1(a) emission, schema DELIBERATELY NOT frozen)
+
+Append-only JSONL, one event per line. `schema_version` is
+`reincarnated.lane.telemetry/0.1`.
+
+> **DO NOT BUILD A CONSUMER THAT DEPENDS ON THE TOP-LEVEL SHAPE.** The U-1 fleet
+> flight-recorder record schema is Matt's F-1…F-8 rulings and jack-ryan has not
+> ratified its axes. This emission exists so the FACTS are on disk and findable when
+> the recorder is specified; it does not pre-empt the axes. Every record carries a
+> permissive `passthrough` object for exactly that reason: a normaliser must have
+> somewhere to have found the fact it needs.
+
+Events: `enqueue` · `start` · `attempt_failed` · `finish` · `lane_blocked`.
+Facts present across the lifecycle: enqueue/start/finish timestamps (`ts_utc` +
+`ts_epoch`), `job_id`, `curator`, `lane`, `model`, `reasoning_effort`, `exit_code`,
+`usage` (a `UsageBreakdown` dict), `attempt`, `fallback`, `outcome`, `error`.
+
+**Absent is absent.** A fact the queue does not know is OMITTED, never zero-filled —
+the `start` event carries no `model`, because the queue does not know which model the
+harness will pin and a guess beside the finish event's measured value is worse than a
+gap.
+
+**Discipline #73 is enforced mechanically here, not by convention.** No lane module
+reads a dispatch `**Status:**` header, emits a work-state claim, or references
+`dispatches/` in executable code, and
+`test_DISCIPLINE_73_no_lane_module_reads_a_dispatch_Status_header` proves it over the
+AST (non-docstring string constants only, so the modules can DESCRIBE the rule without
+tripping the scan). The marker vocabularies are separately asserted to contain no
+work-state term (`SEALED`, `COMPLETE`, `PENDING`, …), because a board rendering lane
+data must not be able to project a work-state claim through it.
+
+### 4. NEW SURFACE — `jobs/<id>.job.json`
+
+`schema_version` `reincarnated.lane.job/0.1`. Written atomically (tmp + `os.replace`).
+Fields: `job_id`, `curator`, `job_class`, `prompt_path`, `output_path`, `sandbox`,
+`skip_git_repo_check`, `web_search`, `ephemeral`, `min_output_bytes`, `max_attempts`,
+`timeout_s`, `enqueued_at`, `enqueued_by`, `schema_version`, `extra`.
+
+**U-4 R-B is SCHEMA here, not convention.** `curator` is a required field, refused at
+enqueue when empty, and written into the `_run-log.tsv` row **at enqueue time**. A job
+that cannot name its curator does not enqueue, and nothing is written when the refusal
+fires — no job record, no prompt file, no run-log row. Enqueue-time is the whole point:
+a curator recorded at close is one chosen after seeing the output, which is an
+endorsement rather than a control. `JobQueue.curator_at_enqueue(job_id)` reads the
+ENQUEUE row specifically, so R-B's empirical criterion ("zero governance leaks") is
+falsifiable by query rather than by memory.
+
+### 5. `UsageBreakdown.from_codex_turn_completed` — read this before summing anything
+
+`cached_input_tokens` **is a subset of** `input_tokens` in the codex frame, not a
+sibling of it. Established from the record, not assumed: the VFX run totals
+`input 72,375,471` / `cached 67,431,424`, and `cached / input = 0.9317` reproduces the
+banked **93.2 % cache-hit** statistic exactly; the disjoint reading gives 0.4823, which
+matches nothing anyone recorded.
+
+So the mapping stores `input_tokens = input - cached` (the UNCACHED share) and
+`cache_read_tokens = cached`. Passing the vendor's `input_tokens` through unchanged
+would have made `billable_token_total()` count 67 M tokens twice on a 72 M-token run —
+a **93 % over-report produced by a mapping that looked like a rename.** Any consumer
+recomputing a cache-hit rate from these fields wants
+`cache_read / (input + cache_read)`, not `cache_read / input`.
+
+`dollars` is NULL on this lane with a stated `absent_reason`: codex emits no cost
+figure at all (unlike the Claude lane's list-price imputation), so a row printed from
+this breakdown carries `[INCOMPLETE: ...]` rather than looking whole.
+
+### 6. Model pin
+
+`MODEL_PIN = "gpt-5.6-sol"` @ `MODEL_REASONING_EFFORT_PIN = "xhigh"`, passed **on the
+argv**. It previously lived only in `~/.codex/config.toml` — ambient host state no file
+in this repository controls. Changing it requires the U-4 A/B evidence template, and
+`build_argv` enforces that: a config naming a different model is refused unless it also
+names `model_ab_note`.
+
+The pin can be DISPROVED but not CONFIRMED from the stream, and the adapter says so
+rather than implying otherwise: no codex frame echoes the model, but an unrecognised
+model produces a `Model metadata for X not found` error item, which `adjudicate` treats
+as a FAILURE rather than a warning.
+
+### 7. New CLI surface
+
+```
+factory lane-status  <queue-dir>          # auth + serial lane + last-row, exit 0 = fire
+factory lane-enqueue <queue-dir> <job-id> <prompt-file> --curator <agent> [...]
+factory lane-drain   <queue-dir> [--limit N]
+```
+
+`--curator` is `required=True` at the argparse layer as well as at the queue layer: a
+flag with a default is a flag that gets left off, and the governance line would then be
+enforced by whoever typed the command remembering it.
+
+### Nothing is needed from any consumer
+
+There is no coordination window. `receipts.db` is untouched at v3. The `_run-log.tsv`
+extension is additive and every pre-existing reader keeps working. The one thing a
+consumer MUST do before building on the telemetry stream is read § 3 above and not
+freeze the shape.

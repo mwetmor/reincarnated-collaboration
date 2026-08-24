@@ -194,9 +194,22 @@ def load_workflow(path: str | Path, root: Path | None = None) -> Workflow:
                 ) from exc
             available = getattr(adapter, "available", None)
             if callable(available) and not available():
-                blocked = getattr(
-                    __import__(adapter.__module__, fromlist=["BLOCKED_ON"]), "BLOCKED_ON", ""
-                )
+                # The reason comes from the ADAPTER first, and from a module constant
+                # only as a fallback. `BLOCKED_ON` was fixed at import time, which was
+                # adequate for a lane with exactly one closed state ("Matt has not
+                # installed it yet") and is not adequate for a live lane: the codex
+                # adapter distinguishes `auth_expired` (a Matt-only action; no retry
+                # will help) from `busy` (the next drain fixes it) from `cli_missing`,
+                # and a constant string cannot say which one an operator is looking at.
+                # The `getattr` fallback is kept so that any harness still publishing
+                # only `BLOCKED_ON` keeps its message.
+                reason_fn = getattr(adapter, "unavailable_reason", None)
+                blocked = reason_fn() if callable(reason_fn) else ""
+                if not blocked:
+                    blocked = getattr(
+                        __import__(adapter.__module__, fromlist=["BLOCKED_ON"]),
+                        "BLOCKED_ON", "",
+                    )
                 raise WorkflowError(
                     f"phase {pname!r} runs on the {harness!r} lane, which is not open"
                     + (f" — blocked on {blocked}" if blocked else "")

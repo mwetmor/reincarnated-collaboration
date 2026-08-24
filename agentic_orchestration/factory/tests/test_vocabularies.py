@@ -209,6 +209,31 @@ VOCABULARY_PINS: dict[str, object] = {
     #: entry until a frame says otherwise" — a claim nothing enforced. The pin is
     #: what makes "until a frame says otherwise" mean something.
     "INVOCATION_ONLY_TOOLS": ("Agent",),  # keys only; the reason is prose, pinned below
+    # --- the vendor lane (2026-08-24) --------------------------------------
+    #: COLUMN 3 of `_run-log.tsv` — the vocabulary that answers the pre-fire check of
+    #: record, *"last row terminal"*, which the U-4 router's question (3) reads and
+    #: which knight-rider reads at session start. ADDITION is the fail-open direction
+    #: and it is fail-open in the worst available way: a new member makes some
+    #: NOT-IDLE state read as IDLE, which is how a second `codex exec` gets fired at a
+    #: busy lane — and no scenario row can catch it, because the row would have to
+    #: exercise a state nobody has named yet. `rc=<N>` is matched by PREFIX in
+    #: `is_terminal_marker` and is deliberately not a member.
+    "TERMINAL_MARKERS": frozenset({
+        "SKIP-EXISTS", "FALLBACK-CLAUDE", "AUTH-BLOCKED", "ENQUEUE-REFUSED",
+    }),
+    #: The other half of the SAME accept vocabulary: `RunLog.append` refuses any
+    #: marker in neither set, so this collection gates what may be WRITTEN into the
+    #: liveness surface. Adding a member admits a lane state nobody adjudicated —
+    #: same direction, same reason, and pinned separately because the two halves mean
+    #: opposite things and merging them would forgive a terminal marker added here.
+    "BUSY_MARKERS": frozenset({"ENQUEUED", "START"}),
+    #: The Codex lane's PRE-HOC CONTAINMENT — spent as
+    #: `if sandbox not in SANDBOX_MODES: raise` in both `codex.build_argv` and
+    #: `JobQueue.enqueue`. That lane has no tool allowlist (`codex exec` has no
+    #: `--tools`), so the sandbox IS the whole fence. Adding a member admits a posture
+    #: nobody adjudicated. The three members are the CLI's own values, enumerated from
+    #: `codex exec --help` on this host rather than copied from documentation.
+    "SANDBOX_MODES": frozenset({"read-only", "workspace-write", "danger-full-access"}),
 }
 
 #: `INVOCATION_ONLY_TOOLS` is a dict; its keys are the record and its values are
@@ -253,6 +278,19 @@ VOCABULARY_COVERED: dict[str, str] = {
         "deleting the only member makes that row pass a workflow it must refuse",
     "ENVELOPE_STATUSES":
         "carries an equality assert in test_envelope_triad.py",
+    "REQUIRED_JOB_FIELDS":
+        "protection; DELETION is the fail-open direction and it is covered, because "
+        "the set DRIVES the refusal rather than describing it (its first version named "
+        "the requirement in an error message while three hardcoded conditions did the "
+        "enforcing — a label, not a vocabulary). MEASURED 2026-08-24: `curator` "
+        "deleted, KILLED, **2 failed** — "
+        "`test_lane.py::test_RB_a_job_with_no_curator_does_not_enqueue` directly, plus "
+        "the reach audit's child run reporting the suite not green. That is the member "
+        "that matters, since U-4 R-B makes the curator enqueue-time SCHEMA and not "
+        "convention. `job_id` and `prompt` are covered by "
+        "`test_the_OTHER_required_fields_are_refused_from_the_same_closed_set`. "
+        "ADDITION is fail-CLOSED here: a new required field refuses jobs that used to "
+        "enqueue, loudly",
 }
 
 

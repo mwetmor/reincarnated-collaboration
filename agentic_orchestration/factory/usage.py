@@ -77,6 +77,84 @@ class UsageBreakdown:
             else "harness reported no reasoning_tokens field",
         )
 
+    @classmethod
+    def from_codex_turn_completed(cls, frame: dict[str, Any]) -> "UsageBreakdown":
+        """Parse the `turn.completed` frame of `codex exec --json`.
+
+        The frame's own vocabulary, measured on codex-cli 0.147.0::
+
+            {"type": "turn.completed", "usage": {
+                "input_tokens": 1581825, "cached_input_tokens": 1449472,
+                "cache_write_input_tokens": 0, "output_tokens": 7148,
+                "reasoning_output_tokens": 4084}}
+
+        **`cached_input_tokens` IS A SUBSET OF `input_tokens`, NOT A SIBLING OF IT.**
+        This is the one thing in this mapping that could silently corrupt every
+        number downstream, so it is established rather than assumed. Over the VFX
+        run's 30 jobs the totals are `input 72,375,471` and `cached 67,431,424`;
+        `cached / input = 0.9317`, and the banked lane statistic -- carried in
+        `workflow-upgrades.md` and in the flight-recorder spec -- is
+        **93.2 % cache-hit**, described there as "the cache absorbed 93.2 % OF
+        them". The disjoint reading gives `cached / (cached + input) = 0.4823`,
+        which matches nothing anyone recorded. So the containment direction is
+        settled by the record, and:
+
+          * `input_tokens` here = `input_tokens - cached_input_tokens`, the UNCACHED
+            share. Passing the vendor's `input_tokens` through unchanged would make
+            `billable_token_total()` count 67 M tokens twice on a 72 M-token run --
+            a 93 % over-report, produced by a mapping that looked like a rename.
+          * `cache_read_tokens` = `cached_input_tokens`.
+
+        `reasoning_output_tokens` maps to `reasoning_tokens`, which this module
+        already defines as a SHARE OF OUTPUT and never a fifth addend. That is the
+        vendor's own framing too (`reasoning_OUTPUT_tokens`), so the two agree.
+
+        Codex reports NO cost figure at all -- unlike the Claude lane, where
+        `total_cost_usd` is present as a list-price imputation. Absent is absent:
+        `dollars` stays NULL and `absent_reason` says why, so `one_line()` prints
+        `[INCOMPLETE: ...]` rather than presenting a complete-looking row whose
+        money column was never reported.
+        """
+        usage = frame.get("usage") or {}
+        if not usage:
+            return cls.absent("codex turn.completed frame carried no usage object")
+
+        def _int(value: Any) -> int | None:
+            return int(value) if isinstance(value, (int, float)) else None
+
+        raw_input = _int(usage.get("input_tokens"))
+        cached = _int(usage.get("cached_input_tokens"))
+        uncached: int | None
+        if raw_input is None:
+            uncached = None
+        elif cached is None:
+            uncached = raw_input
+        else:
+            # `max(0, ...)` because a negative token count is not a number this
+            # module will publish. If the vendor ever reports cached > input the
+            # containment assumption above has broken, and the floor keeps the
+            # arithmetic sane while `absent_reason` below says the split is suspect.
+            uncached = max(0, raw_input - cached)
+        contradiction = (
+            raw_input is not None and cached is not None and cached > raw_input
+        )
+        return cls(
+            input_tokens=uncached,
+            output_tokens=_int(usage.get("output_tokens")),
+            cache_read_tokens=cached,
+            cache_write_tokens=_int(usage.get("cache_write_input_tokens")),
+            reasoning_tokens=_int(usage.get("reasoning_output_tokens")),
+            dollars=None,
+            dollars_source=DOLLARS_NONE,
+            absent_reason=(
+                "codex reported cached_input_tokens > input_tokens, contradicting the "
+                "subset relation this mapping is built on; the split is not trustworthy"
+                if contradiction
+                else "codex exec reports no cost figure; the ChatGPT subscription lane "
+                "is flat-rate and no list-price imputation is emitted"
+            ),
+        )
+
     # -- arithmetic --------------------------------------------------------
     def billable_token_total(self) -> int | None:
         """input + output + cache_read + cache_write.

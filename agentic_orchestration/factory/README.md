@@ -12,7 +12,7 @@ their claims against the disk, and writes receipts.
 
 ---
 
-## The five compiled laws
+## The seven compiled laws
 
 Everything in this package exists to make one of these mechanical rather than
 aspirational. Each has a test that reds when the law is broken.
@@ -24,6 +24,8 @@ aspirational. Each has a test that reds when the law is broken.
 | Gates adjudicate the world, never the envelope's word; **NOT_RUNNABLE is red**; **zero stubs** | `gates/` | `tests/test_gates.py`, `tests/test_no_stub_gates.py` |
 | A write outside the allowlist is **quarantine + rollback + ABORT**, never a retry | `permissions.py` | `tests/test_permissions.py` |
 | **Only failures travel**; reasoning tokens are a share of output, **never a fifth addend** | `gates/core.py`, `usage.py` | `tests/test_gates.py`, `tests/test_usage.py` |
+| **THE SERIAL LAW** — ONE `codex exec` at a time, one `auth.json`, one job stream; held at the invocation site, fails CLOSED | `lane.py` | `tests/test_lane.py` |
+| Every vendor-lane job names its **Claude curator at ENQUEUE time**; an empty curator is a refusal to fire (U-4 R-B) | `jobqueue.py` | `tests/test_lane.py` |
 
 ## Layout
 
@@ -35,13 +37,18 @@ factory/
                    core.py (the v1 six + command_succeeds)
                    digest.py (sha256_matches)  media.py (ffprobe_verifies)
   permissions.py   before/after tree fingerprinting, classify, quarantine, rollback
-  harness/         claude_code.py (LIVE)   codex.py (HONEST STUB, blocked on T16)
+  harness/         claude_code.py (LIVE)   codex.py (LIVE since 2026-08-24)
+  lane.py          THE SERIAL LAW: flock at the `codex exec` invocation site;
+                   _run-log.tsv (the tail -1 liveness surface) + append-only telemetry
+  jobqueue.py      the durable vendor-lane queue: enqueue (curator REQUIRED) ->
+                   serial drain -> idempotent re-entry -> Claude-lane fallback
   receipts.py      SQLite/WAL, 7 tables + schema_meta, SCHEMA_VERSION = 1
   runner.py        phases in order; fingerprint -> execute -> fingerprint -> permissions
                    -> gates -> fingerprint again -> phase verdict
   workflow.py      YAML/JSON loader; every refusal happens at LOAD
   report.py        renders from receipts only (one data path)
   cli.py           run · status · report · gates · determinism · probe-agent
+                   lane-status · lane-enqueue · lane-drain
   workflows/       kc2-baton-mechanical.yaml (the founding run's mechanical cells)
   pytest.ini       states the suite's subject; keeps the walk out of sessions/ (rule 23)
   sessions/        per-run session dirs, incl. the durable breach QUARANTINE
