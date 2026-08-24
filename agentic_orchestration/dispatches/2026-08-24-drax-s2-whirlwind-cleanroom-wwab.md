@@ -184,3 +184,171 @@ Mint note at `agentic_orchestration/drax/notes/2026-08-24-s2-whirlwind-cleanroom
 - jack-ryan Gate-1 DESIGN-MODE: **BLOCK → **DISCHARGED 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   The BLOCK was that the References list cited charter L-36/L-37 and the carve-out request — documents that *describe* the quarantined build — so an honest agent following the brief would violate its own quarantine clause. Fixed: quarantine is now an **enumerated path list** (a content-predicate was uncompliable — you would have to read a thing to learn whether you were allowed to read it), § 5 is quarantined explicitly, the References are stripped, and the tier-2 rulings are extracted inline. Re-verified: this brief no longer leaks quarantined content.
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+---
+
+## Completion record
+
+**Completed:** 2026-08-24
+**Agent:** drax (presentation seam — `reincarnated-godot/`)
+**Tags shipped:** `drax/v0.1-s2-whirlwind-cleanroom-1` (godot repo, commit `1692d6e`)
+**Push:** **NONE.** COMMIT-ONLY per this wave's instruction. ⚠ This conflicts with charter **L-2**
+("push as you go — authorized for this run"). I followed the narrower, more recent instruction and am
+flagging the discrepancy rather than resolving it silently.
+**Mint note (math, provenance, results):**
+`agentic_orchestration/drax/notes/2026-08-24-s2-whirlwind-cleanroom-mint-note.md` — committed **before**
+minting per Discipline #1, results appended at § 9 afterwards.
+**MIGRATION.md written:** no — Principle 6 gate is NO, Godot-side presentation authoring only.
+
+---
+
+### (a) CLEAN-ROOM DECLARATION
+
+**Fresh, dedicated session.** The dispatch was the first file read; nothing in this project had been read
+this session before it.
+
+**What I read** (full affirmative list in mint note § 6.2):
+sealed spec **§ 1, 1.1, 1.2, 2.3, 3.0, 3.1.12 by explicit line range** (never whole-file; § 5 never
+opened — a header-grep printed its *title* in a list, nothing more) · charter rows **L-18/19/30/32/34
+only**, extracted by a grep anchored to exactly those five labels · `framesets.json` frameset
+`ww-native-eor1` (extracted by key) + two of its native PNGs · the RT-4 note + its two evidence PNGs ·
+**Donor A fetched live** (`whirlwind.flv`, HTTP 200, 6,872,672 B, 1280×720, 374 frames — independently
+matching RT-4) and measured · and, in the Godot repo, `CLAUDE.md`, `project.godot`,
+`data/camera_floor1_ratification.md`, `capture_rig.gd`, a scene-file example, and a **grep-only** pass
+over `king_rig.gd`.
+
+**What I did not read.** **The enumerated quarantine held in full** — no `vfxbo_*`, no `kc2_cpb_clip.*`,
+no `sb1-a2*`/`cpa`/`cpb` captures, no `drax/notes/2026-08-1*-sb1-a2*`, no charter **L-36/L-37**, no spec
+**§ 5**, no carve-out request, no `a337d30`. Incidental encounters only: `ls scripts/` and `ls scenes/`
+printed quarantined *filenames*. Names, never content.
+
+**I ALSO SELF-QUARANTINED FIVE PATH CLASSES THAT ARE NOT ON THE LIST**, and this is the finding I most
+want in front of knight-rider:
+
+| Path | Why I flinched |
+|---|---|
+| `scripts/run_ww3a_playerlock_still.sh`, `run_ww4a_distance_ladder.sh`, `run_ww7_gate2_clip.sh`, `run_ww8a_calib_probe.sh` | `ww` + "playerlock" + "gate2" reads as an existing whirlwind build with a galadriel gate |
+| whatever those four invoke | unknown by construction — I did not open them to find out |
+| `scenes/rigs/pilots/rig_poe1_cyclone.tscn` | Cyclone **is** the PoE whirlwind referent |
+| `scripts/kc2_player_channel.gd` | "channel" is this archetype's lifecycle class, and `kc2_cpb_clip` **is** quarantined |
+| `AGENT_STATE.md` | not grepped for `whirlwind`/`ww`/`cyclone`/`spin` — but see the disclosure below |
+
+**⚑ GATE-1 ESCAPE, RAISED NOT PATCHED.** The enumerated list does not cover `scripts/run_ww*.sh` or
+`scenes/rigs/pilots/rig_poe1_cyclone.tscn`. **An agent obeying the list literally — which is exactly what
+the list instructs — could have read them.** If they are the SB-1 lineage, the quarantine as written was
+leaky and the next clean-room dispatch must name them. **I did not open them to check, because checking
+is the violation.** The cost asymmetry decided it: abstaining from a permitted file costs nothing the
+spec did not already give me; reading one that turns out to be the adopted build destroys the experiment
+irrecoverably.
+
+**⚠ ONE DISCLOSED READ.** To learn the file's entry format before appending, I ran
+`tail -c 2000 AGENT_STATE.md`. Not a quarantined path, but inside my own self-quarantine, so it is
+declared rather than glossed. Content: the tail of an SB-1 **A1b scene-statics** entry — arena floor
+dimensions, 344 body placements, dress pools, CP-A stills, three defects in that work, and an "owed:
+CP-B" line. **No VFX, no trail/emitter/tint/lifecycle content, no archetype binding.** My assessment is
+that it does not contaminate the comparison, and everything in the design sections was authored before
+it. **That assessment is gandalf's to overturn** — the actual text is recorded in mint note § 6.3 so the
+DRIFT-CRITIC audits it rather than my summary.
+
+**THE QUARANTINE HELD. I did not read the adopted lineage, any description of it, or any artifact derived
+from it.** Everything built came from § 3.1.12, the named general-law sections, the `ww-native-eor1`
+semantics block, Donor A's own pixels, and measurements I took off our own rig.
+
+---
+
+### (b) IS THE WINDUP MARKED AUTHORED-NOT-REFERENCED?
+
+**YES — in three places, and cadence is marked the same way.**
+
+1. **In code**, `scripts/wwcr_whirlwind.gd` header: `WINDUP_S + the whole windup treatment — AUTHORED
+   (windup coverage is ZERO corpus-wide). NOT reference-backed.` `OMEGA_DEG` carries the same marking.
+2. **In `scripts/wwcr_pose.gd`**, on the anticipation pose itself.
+3. **In mint note § 4.1 / § 4.2**, with the reasoning exposed so the invention is auditable.
+
+The windup is 0.25 s of **body mechanics** — torso counter-rotates −28° against the spin, root drops
+6 cm, blade drags a neutral ground scrape — preceding the measured 0.70 s spin-up. Deliberately **not**
+an opacity ramp and **not** a charge glow: those are what the negative anchor does, and either would
+change the causality class from `physical-cause` to `magical-cause`. Total telegraph 0.95 s.
+
+**Cadence is authored too, and I tried to measure it first.** I attempted to recover the rotation rate
+from Donor A by axial phase-unwrapping of the white-hot trail centroid. It returned 0.16 rev/s — absurd,
+and absurd in the specific way that means **temporal aliasing**: at 29.97 fps a fast spin advances more
+than 180° of doubled angle per frame. **Donor A cannot yield a rotation rate at its own frame rate**,
+which is now measured rather than assumed and explains the corpus's `cadence: ABSENT`. So 900 °/s is
+mine, chosen on three stated constraints (mint note § 4.2).
+
+---
+
+### (c) TAG
+
+**`drax/v0.1-s2-whirlwind-cleanroom-1`**
+
+---
+
+### Smoke + gate results
+
+Godot 4.6.3, Forward+/Metal, 1920×1080, stage albedo **0.085** (C-3), ratified combat camera
+(FOV 40 / pitch −55 / yaw 47 / dist 34 m). Deterministic 1/60 s stepping, so captures are reproducible.
+Log: `reincarnated-godot/harness_logs/wwcr_2026-08-24/render.txt` (PNGs local-only per the repo's
+`.gitignore harness_logs/**/*.png`).
+
+**THE DEFECT TO CORRECT — machine-graded** (`scripts/wwcr_occlusion_gate.py`):
+
+```
+noise floor (inert marks)  lower= 2.87%  enemy= 0.02%
+worst during channel       lower= 4.65%  enemy= 0.03%
+EXCESS OVER NOISE FLOOR    lower= 1.78%  enemy= 0.01%
+lower-body defect corrected : PASS   enemies remain readable : PASS
+```
+
+For scale: in the negative anchor the caster is not visible inside his own effect at all — that is
+effectively 100 %. Enemy-silhouette change is 0.01 % and sits **72–86 % on silhouette edges**, where
+contact sparks spawn by design.
+
+**Runtime self-check** — measured, not reprinted constants: trail radius **[0.985, 2.168] m**, never
+approaching `R_ENGAGE` 3.515 m · arc **150°**, never a closed ring · lower-body clearance **+0.301 m** ·
+tinted surfaces **exactly `["TrailRibbon", "ContactSpark"]`**, asserted in `set_element()`.
+
+**Tier-1**: `harness_logs/wwcr_2026-08-24/t1_element_composite.png` — wind/fire/water/earth. Tint rides
+trail + contact spark only; caster untinted; scuff quanta neutral; **no variant produces a
+caster-surrounding field.**
+
+Scope checkboxes: fresh session + quarantine ✅ · minted from § 3.1.12 alone ✅ · measured ramps
+0.70/0.80 ✅ · constant radius ✅ · rigid player-anchoring (history stored relative to caster position and
+re-anchored each frame — store it in world space and a moving caster leaves an elastic trail) ✅ ·
+movement at full speed 3.5 m/s ✅ · occlusion defect corrected ✅ · Tier-1 on trail + spark only ✅ ·
+C-1 shadow casting off on every additive mesh and the pooled light ✅ · captures at albedo 0.085 ✅ ·
+mint note committed before minting ✅ · `AGENT_STATE.md` updated ✅ · tag ✅.
+
+---
+
+### Notes for jack-ryan (Gate-2: is the declaration complete and checkable?)
+
+- **Every claim above is checkable.** The read-list is enumerated; the quarantine abstentions are named;
+  the one borderline read is disclosed with its actual content, not a summary. `selfcheck()` and the
+  occlusion gate are re-runnable: `./scripts/run_wwcr_stage.sh` then
+  `python3 scripts/wwcr_occlusion_gate.py harness_logs/wwcr_2026-08-24`.
+- **I corrected a claim of my own rather than burying it.** Mint note § 3.1 asserted the trail Y band was
+  [1.02, 1.38] m. Measured, it is **[1.209, 2.333] m** — the blade levels during spin-up and rides high
+  on the way. The load-bearing half (disjoint from the lower-body band) survives with **more** margin
+  than predicted (+0.301 m vs +0.111 m). The asserted band was wrong; the inequality was right.
+- **The occlusion gate's first control was invalid and I say so in the file.** v1 diffed against "no
+  whirlwind at all" and scored 7.65 % lower-body occlusion on a frame where the effect was inert — it was
+  measuring the caster's pose. Fixed with an `--fx=novfx` control (identical pose and rotation, VFX
+  hidden) and a **measured-and-subtracted** noise floor. I did not loosen the bar until it passed.
+- **Three bugs were caught by instrumentation, not by eye**, and are recorded with their catching
+  mechanism in mint note § 9.4 — most notably a left-handed basis (det = −1) in the blade re-seat, which
+  `Basis.slerp` turned into garbage and which looked merely "off" at the gameplay camera.
+
+### For knight-rider
+
+1. **Quarantine-list escape** (above) — needs a ruling before the next clean-room dispatch.
+2. **Push-policy conflict** — charter L-2 vs this wave's COMMIT-ONLY. Resolved conservatively; nothing pushed.
+3. **`KingRig` ships this archetype's failure mode on by default.** Its stock `HolyAura` is a glowing
+   caster-surrounding ground disc and read as exactly *"a generic magical aura that happens to be spinning
+   along with the character"* in my first capture. **Any T-A row staged on `KingRig` inherits it** — worth
+   a warning to every Step-2 builder, not just this row.
+4. **Donor A's evidence tier understates it** — second independent confirmation of RT-4. I decoded 374
+   frames at 1280×720 and measured off them. gandalf owns the correction.
+5. **`// TODO(drax)`** — `king_rig.gd:65 BLADE_TEAL` is hard-coded, so the sword's own emissive does not
+   follow the element parameter. Route it when whirlwind binds to the real player rig.
