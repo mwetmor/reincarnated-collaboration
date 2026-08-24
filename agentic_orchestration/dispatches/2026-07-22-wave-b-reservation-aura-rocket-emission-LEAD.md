@@ -77,3 +77,22 @@ NO new field, NO MIGRATION for banner reservation, NO escalation. Carrier D (ban
 
 ### go-token (gamora waits on this)
 `EMISSION-READY: aura_radius_m + aura_reattune_ramp_s emitted + pushed`
+
+---
+
+## Status pass — 2026-08-24 (rocket, dispatch-triage sweep)
+
+**VERDICT: `ALREADY-LANDED`.** The `**Status:** PENDING` header at line 3 is **STALE** — it was never flipped after delivery. Nothing in this dispatch is owed.
+
+**Evidence (all independently re-verified today, not read off the completion record):**
+1. **Tag exists on remote:** `git ls-remote --tags origin` returns `e8bccae9… refs/tags/rocket/v2.13-wave-b-reservation-aura-emission-1`.
+2. **Fields exist in the emission surface:** `src/reincarnated/generation/aura_geometry.py` `AURA_GEOMETRY_KEYS` (line 55) contains `aura_radius_m` and `aura_reattune_ramp_s` (plus the two BENEFIT-round siblings). Bands live at `AURA_RADIUS_M_MIN/MAX = 2.0/12.0` and `AURA_REATTUNE_RAMP_S_DEFAULT/MIN/MAX = 1.0/0.5/1.5`, both carrying the Discipline #40 SCAFFOLD annotation. Consumed downstream in `simulation/spatial_gauntlet/spatial_engine.py`.
+3. **AC-3 forbidden-field check holds today:** repo-wide grep for `aura_polarity` / `aura_target_cap` / `exclusive_aura_class` returns **only** doc-comments and the smoke's negative assertions — zero occurrences in any emitted key tuple or dict. The extra-key drift guard (`aura_geometry.py:162`) still raises on injection.
+4. **MIGRATION.md entry present:** `src/reincarnated/generation/MIGRATION.md` § `[2026-07-22] WAVE-B RESERVATION/AURA` (line 35 ff.), including the additive-identity theorem against pre-slice HEAD `8d8bd26`.
+5. **Lane declared closed in the tracker:** `canonical/current-to-end-state/current-to-end-state-engine.md:120` — *"Wave-B reservation/aura lane CLOSED … Gate-2 PASS (jack-ryan independent 8/8); gandalf DRIFT-CRITIC: NO DRIFT vs spec."*
+
+**§ 15-R supersession check — NEGATIVE.** `design/decisions/decisions-log.md` has **no entry dated after 2026-07-22 that touches auras**. The post-07-22 entries are: 07-31 WR3-KITE-COMMIT, 07-31 WR3 W-2 encounter-AI, and three 08-08 corpus/edition-pin entries (Disciplines #69–#72). None mentions any of Forks 1/2/3/6/7 or any `aura_*` field. Forks 1b / 2b / 3a / 6b / 7a all still stand as built.
+
+**Residuals (NOT mine — flagged to KR, not acted on in this read-only pass):**
+- **Milestone tag AUTHORIZED but NOT APPLIED.** Matt authorized `v<X.Y>-wave-b-reservation-aura` (tracker line 120, *"authorize the tag"*); `git tag -l "v*wave-b*"` is **empty**. KR action.
+- **MIGRATION.md tag-reference defect (INFO):** `MIGRATION.md:41` cites the MVP tag as `rocket/v2.12-wave-b-reservation-aura-emission-1`; the tag actually cut was **`v2.13`** (bumped to dodge a Wave-D `v2.12` collision — noted in this file's completion record). One-token doc error, no code impact. Left unedited per the read-only scope of this pass.

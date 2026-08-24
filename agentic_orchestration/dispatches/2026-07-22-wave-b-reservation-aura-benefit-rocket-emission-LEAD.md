@@ -86,3 +86,22 @@ Auto-commit in-scope work-products (CLAUDE.md team discipline). **PUSH authorize
 
 **GO-TOKEN for gamora:**
 `BENEFIT-EMISSION-READY: aura_benefit_mod + aura_benefit_kind (5-value incl pulse_damage) emitted + pushed`
+
+---
+
+## Status pass — 2026-08-24 (rocket, dispatch-triage sweep)
+
+**VERDICT: `ALREADY-LANDED`.** The `**Status:** PENDING` header at line 3 is **STALE** — never flipped after delivery. Nothing owed. The full chain (this dispatch → gamora benefit-sim → Gate-2) completed the same day it was authored.
+
+**Evidence (all independently re-verified today):**
+1. **Commit + tag on remote:** `138999ff… refs/tags/rocket/v2.14-wave-b-reservation-aura-benefit-emission-1`, commit `138999ff rocket(v2.14-…): aura BENEFIT field pair (R2=B, 5-family)`, and `git branch -r --contains 138999ff` → `origin/main`.
+2. **Both fields in the frozen contract:** `src/reincarnated/generation/aura_geometry.py` `AURA_GEOMETRY_KEYS` (line 55) is now **4 keys** — `aura_radius_m`, `aura_reattune_ramp_s`, `aura_benefit_mod`, `aura_benefit_kind`. `AURA_BENEFIT_KINDS` (line 79) holds the FIVE stat axes; the per-kind `AURA_BENEFIT_BANDS` carry the Disc #40 SCAFFOLD tag.
+3. **AC-6 forbidden-field check holds today:** grep for `aura_polarity` / `aura_target_cap` / `exclusive_aura_class` returns only doc-comments + the smoke's negative assertions. No fantasy-archetype enum exists; `aura_benefit_kind` remains stat-axis-only (Disc #41-clean).
+4. **AC-7 holds:** no cadence field and no pulse-radius field was ever minted — `pulse_interval_s` stayed an engine constant on gamora's seam.
+5. **MIGRATION.md entry present:** `src/reincarnated/generation/MIGRATION.md` § `[2026-07-22] WAVE-B RESERVATION/AURA BENEFIT round (R2=B)` (line 8 ff.), carrying the gamora reader contract `full_benefit ← aura_benefit_mod` and the per-kind band table.
+6. **Downstream consumed + certified:** gamora `a0cb754d` / tag `gamora/v1.13-wave-b-reservation-aura-benefit-sim-1` (both on origin), S6 cert GREEN 8/8.
+7. **Lane closed in tracker:** `canonical/current-to-end-state/current-to-end-state-engine.md:120` names this exact range — *"rocket `bcbe001..138999f` benefit-emission + gamora `138999f..d3a3e8d` benefit-sim; falsification dead (monotonic sweep); AC-9a–d pass; Gate-2 PASS."*
+
+**§ 15-R supersession check — NEGATIVE.** No decisions-log entry after 2026-07-22 touches auras (post-07-22 set = 07-31 WR3-KITE-COMMIT, 07-31 WR3 W-2, 08-08 ×3 corpus/edition-pin). The R2=(B) BENEFIT-BEARING ruling and the FIVE-family scope amendment (pulse_damage in v1) both stand unamended; Forks 1b/2b/3a/6b/7a stand as built.
+
+**Residual (NOT mine):** the Matt-authorized milestone tag `v<X.Y>-wave-b-reservation-aura` is still **unapplied** — `git tag -l "v*wave-b*"` is empty. KR action; it is the only unclosed item in this lane.
