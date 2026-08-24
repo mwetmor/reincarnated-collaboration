@@ -1,0 +1,260 @@
+[
+ {
+  "skill": "Eye of Reckoning",
+  "archetype_binding": "whirlwind",
+  "beat_model": "channel",
+  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
+  "referent": "eor-test-2",
+  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 683.0,
+  "window_dur_s": 7.2,
+  "ffmpeg_command": "ffmpeg -ss 683.000 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 7.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-approach",
+    "t": 683.4,
+    "file": "b1-approach_t00683.40.jpg"
+   },
+   {
+    "beat": "b2-aura-faintest",
+    "t": 685.15,
+    "file": "b2-aura-faintest_t00685.15.jpg"
+   },
+   {
+    "beat": "b3-active-early",
+    "t": 685.85,
+    "file": "b3-active-early_t00685.85.jpg"
+   },
+   {
+    "beat": "b4-active-mid",
+    "t": 686.3,
+    "file": "b4-active-mid_t00686.30.jpg"
+   },
+   {
+    "beat": "b5-active-mid2",
+    "t": 686.75,
+    "file": "b5-active-mid2_t00686.75.jpg"
+   },
+   {
+    "beat": "b6-active-peak",
+    "t": 687.3,
+    "file": "b6-active-peak_t00687.30.jpg"
+   }
+  ]
+ },
+ {
+  "skill": "Eye of Reckoning",
+  "archetype_binding": "whirlwind",
+  "beat_model": "channel-sustain-only",
+  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
+  "referent": "eor-test-2",
+  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 770.4,
+  "window_dur_s": 3.4,
+  "ffmpeg_command": "ffmpeg -ss 770.400 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 3.400 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-sustain-a",
+    "t": 770.6,
+    "file": "b1-sustain-a_t00770.60.jpg"
+   },
+   {
+    "beat": "b2-sustain-b",
+    "t": 771.1,
+    "file": "b2-sustain-b_t00771.10.jpg"
+   },
+   {
+    "beat": "b3-sustain-c",
+    "t": 771.6,
+    "file": "b3-sustain-c_t00771.60.jpg"
+   },
+   {
+    "beat": "b4-sustain-d",
+    "t": 772.1,
+    "file": "b4-sustain-d_t00772.10.jpg"
+   },
+   {
+    "beat": "b5-sustain-e",
+    "t": 772.6,
+    "file": "b5-sustain-e_t00772.60.jpg"
+   }
+  ]
+ },
+ {
+  "skill": "Eye of Reckoning",
+  "archetype_binding": "whirlwind",
+  "beat_model": "channel-sustain-only",
+  "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
+  "readability": "LOW \u2014 acid-green Crucible-of-the-Deeps ground VFX washes the plate",
+  "referent": "eor-test-1",
+  "source_basename": "eor-warlord-2026-08-04 21-09-31.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 1117.4,
+  "window_dur_s": 3.2,
+  "ffmpeg_command": "ffmpeg -ss 1117.400 -i \"<eor-warlord-2026-08-04 21-09-31.mp4>\" -t 3.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-sustain-a",
+    "t": 1117.8,
+    "file": "b1-sustain-a_t01117.80.jpg"
+   },
+   {
+    "beat": "b2-sustain-b",
+    "t": 1118.35,
+    "file": "b2-sustain-b_t01118.35.jpg"
+   },
+   {
+    "beat": "b3-sustain-c",
+    "t": 1118.85,
+    "file": "b3-sustain-c_t01118.85.jpg"
+   },
+   {
+    "beat": "b4-sustain-d",
+    "t": 1119.4,
+    "file": "b4-sustain-d_t01119.40.jpg"
+   },
+   {
+    "beat": "b5-sustain-e",
+    "t": 1119.9,
+    "file": "b5-sustain-e_t01119.90.jpg"
+   }
+  ]
+ },
+ {
+  "skill": "Judgment (attribution MODERATE)",
+  "archetype_binding": "circle",
+  "beat_model": "instant-cast",
+  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
+  "referent": "eor-test-2",
+  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 815.8,
+  "window_dur_s": 2.6,
+  "ffmpeg_command": "ffmpeg -ss 815.800 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-windup",
+    "t": 816.05,
+    "file": "b1-windup_t00816.05.jpg"
+   },
+   {
+    "beat": "b2-cast",
+    "t": 816.4,
+    "file": "b2-cast_t00816.40.jpg"
+   },
+   {
+    "beat": "b3-burst",
+    "t": 816.6,
+    "file": "b3-burst_t00816.60.jpg"
+   },
+   {
+    "beat": "b4-spread",
+    "t": 816.85,
+    "file": "b4-spread_t00816.85.jpg"
+   },
+   {
+    "beat": "b5-residue",
+    "t": 817.35,
+    "file": "b5-residue_t00817.35.jpg"
+   }
+  ]
+ },
+ {
+  "skill": "Judgment (attribution MODERATE)",
+  "archetype_binding": "circle",
+  "beat_model": "instant-cast",
+  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
+  "referent": "eor-test-2",
+  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 841.3,
+  "window_dur_s": 2.6,
+  "ffmpeg_command": "ffmpeg -ss 841.300 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-windup",
+    "t": 841.55,
+    "file": "b1-windup_t00841.55.jpg"
+   },
+   {
+    "beat": "b2-cast",
+    "t": 841.9,
+    "file": "b2-cast_t00841.90.jpg"
+   },
+   {
+    "beat": "b3-burst",
+    "t": 842.1,
+    "file": "b3-burst_t00842.10.jpg"
+   },
+   {
+    "beat": "b4-spread",
+    "t": 842.35,
+    "file": "b4-spread_t00842.35.jpg"
+   },
+   {
+    "beat": "b5-residue",
+    "t": 842.85,
+    "file": "b5-residue_t00842.85.jpg"
+   }
+  ]
+ },
+ {
+  "skill": "Judgment (attribution MODERATE)",
+  "archetype_binding": "circle",
+  "beat_model": "instant-cast",
+  "p3_role": "style candidate \u2014 full status (L-18 unaffected)",
+  "referent": "eor-test-2",
+  "source_basename": "eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4",
+  "source_geometry": "1920x1080 @ 60fps",
+  "crop": "1040:640:440:230",
+  "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+  "sample_fps": 20,
+  "window_start_s": 750.8,
+  "window_dur_s": 2.6,
+  "ffmpeg_command": "ffmpeg -ss 750.800 -i \"<eor-warlord-wave-150-160-2026-08-05 21-37-25.mp4>\" -t 2.600 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+  "beats": [
+   {
+    "beat": "b1-windup",
+    "t": 751.05,
+    "file": "b1-windup_t00751.05.jpg"
+   },
+   {
+    "beat": "b2-cast",
+    "t": 751.4,
+    "file": "b2-cast_t00751.40.jpg"
+   },
+   {
+    "beat": "b3-burst",
+    "t": 751.6,
+    "file": "b3-burst_t00751.60.jpg"
+   },
+   {
+    "beat": "b4-spread",
+    "t": 751.85,
+    "file": "b4-spread_t00751.85.jpg"
+   },
+   {
+    "beat": "b5-residue",
+    "t": 752.35,
+    "file": "b5-residue_t00752.35.jpg"
+   }
+  ]
+ }
+]

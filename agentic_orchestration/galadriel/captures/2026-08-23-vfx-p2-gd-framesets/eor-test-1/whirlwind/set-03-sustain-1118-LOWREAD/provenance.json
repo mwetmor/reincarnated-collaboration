@@ -1,0 +1,43 @@
+{
+ "skill": "Eye of Reckoning",
+ "archetype_binding": "whirlwind",
+ "beat_model": "channel-sustain-only",
+ "p3_role": "NEGATIVE STYLE ANCHOR + semantics ground truth \u2014 NOT a style candidate",
+ "readability": "LOW \u2014 acid-green Crucible-of-the-Deeps ground VFX washes the plate",
+ "referent": "eor-test-1",
+ "source_basename": "eor-warlord-2026-08-04 21-09-31.mp4",
+ "source_geometry": "1920x1080 @ 60fps",
+ "crop": "1040:640:440:230",
+ "crop_note": "w:h:x:y on the 1920x1080 source; player-centred",
+ "sample_fps": 20,
+ "window_start_s": 1117.4,
+ "window_dur_s": 3.2,
+ "ffmpeg_command": "ffmpeg -ss 1117.400 -i \"<eor-warlord-2026-08-04 21-09-31.mp4>\" -t 3.200 -vf \"fps=20,crop=1040:640:440:230\" -q:v 2 f-%04d.jpg",
+ "beats": [
+  {
+   "beat": "b1-sustain-a",
+   "t": 1117.8,
+   "file": "b1-sustain-a_t01117.80.jpg"
+  },
+  {
+   "beat": "b2-sustain-b",
+   "t": 1118.35,
+   "file": "b2-sustain-b_t01118.35.jpg"
+  },
+  {
+   "beat": "b3-sustain-c",
+   "t": 1118.85,
+   "file": "b3-sustain-c_t01118.85.jpg"
+  },
+  {
+   "beat": "b4-sustain-d",
+   "t": 1119.4,
+   "file": "b4-sustain-d_t01119.40.jpg"
+  },
+  {
+   "beat": "b5-sustain-e",
+   "t": 1119.9,
+   "file": "b5-sustain-e_t01119.90.jpg"
+  }
+ ]
+}
