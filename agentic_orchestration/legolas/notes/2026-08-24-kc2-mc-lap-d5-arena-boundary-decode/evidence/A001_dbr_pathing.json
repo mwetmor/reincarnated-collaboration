@@ -1,0 +1,807 @@
+{
+ "records/controllers/controlobjects/patrolpoint_01.dbr": {
+  "source": "database/database.arz",
+  "cls": "PatrolPoint",
+  "allowPathing": null,
+  "actorRadius": 0.0,
+  "mesh": "fx/meshfx/ui_exclamation01.msh"
+ },
+ "records/controllers/player/spawnplayer.dbr": {
+  "source": "database/database.arz",
+  "cls": "PlayerSpawnPoint",
+  "allowPathing": null,
+  "actorRadius": 0.0,
+  "mesh": "creatures/pc/hero01.msh"
+ },
+ "records/creatures/npcs/merchants/blacksmiths01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "NpcCrafter",
+  "allowPathing": null,
+  "actorRadius": 0.3499999940395355,
+  "mesh": "creatures/enemies/skeleton/skeleton_basecaster_01a.msh"
+ },
+ "records/creatures/npcs/merchants/caravans01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "NpcCaravan",
+  "allowPathing": null,
+  "actorRadius": 0.3499999940395355,
+  "mesh": "creatures/enemies/skeleton/skeleton_baselight_01a.msh"
+ },
+ "records/creatures/npcs/merchants/illusionists01.dbr": {
+  "source": "survivalmode1/database/survivalmode1.arz",
+  "cls": "NpcTransmuter",
+  "allowPathing": null,
+  "actorRadius": 0.3499999940395355,
+  "mesh": "creatures/npcs/humanmale18b.msh"
+ },
+ "records/creatures/npcs/merchants/inventors01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "NpcEnchanter",
+  "allowPathing": null,
+  "actorRadius": 0.3499999940395355,
+  "mesh": "creatures/enemies/ghost/ghost_f_a01.msh"
+ },
+ "records/creatures/npcs/merchants/powerups_s01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "Npc",
+  "allowPathing": null,
+  "actorRadius": 0.3799999952316284,
+  "mesh": "creatures/enemies/ghost/ghost_f_a01.msh"
+ },
+ "records/creatures/npcs/merchants/reallocators01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "NpcSkillReallocator",
+  "allowPathing": null,
+  "actorRadius": 0.3499999940395355,
+  "mesh": "creatures/enemies/skeleton/skeleton_basecaster_01a.msh"
+ },
+ "records/fx/ambient/fx_eldritchrift_medium01.dbr": {
+  "source": "database/database.arz",
+  "cls": "EffectEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/ambient/fx_epicdungeondoor_greenaura01.dbr": {
+  "source": "database/database.arz",
+  "cls": "EffectEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/ambient/fx_waterfall_sewer_lrg01.dbr": {
+  "source": "database/database.arz",
+  "cls": "EffectEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/ambient/fx_waterfallbase_lrg01.dbr": {
+  "source": "database/database.arz",
+  "cls": "EffectEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/ambient/fx_waterrapids_lrg01.dbr": {
+  "source": "database/database.arz",
+  "cls": "EffectEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/lights/light_firelanternflame_green01_noshadow.dbr": {
+  "source": "database/database.arz",
+  "cls": "FireLight",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/fx/lights/light_ugambientlowbluea01.dbr": {
+  "source": "database/database.arz",
+  "cls": "FireLight",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/level art/chestmarker_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "creatures/defenses/defense_floorgrate01a.msh"
+ },
+ "records/level art/chestmarker_02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "creatures/defenses/defense_floorgrate01a.msh"
+ },
+ "records/level art/chestmarker_03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "creatures/defenses/defense_floorgrate01a.msh"
+ },
+ "records/level art/defensemarker_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "creatures/defenses/defense_floorgrate01a.msh"
+ },
+ "records/level art/doorsinterior/door_rewardroom.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "FixedDoor",
+  "allowPathing": null,
+  "actorRadius": 0.5,
+  "mesh": "level art/doors/epicdoor_rewardroom01a.msh"
+ },
+ "records/level art/doorsinterior/door_stepsoftorment_epicdoor_frame.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 1.0,
+  "mesh": "level art/doors/epicruindungeon_doorframe01a.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow01a.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow01a.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow01b.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow01b.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow01c.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow01c.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow01d.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow01d.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow01e.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow01e.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow02a.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow02a.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow02b.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow02b.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow02c.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow02c.msh"
+ },
+ "records/level art/flora/groundcover/mossplantcluster_glow02d.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": true,
+  "actorRadius": 0.30000001192092896,
+  "mesh": "level art/flora/groundcover/mossplantcluster_glow02d.msh"
+ },
+ "records/level art/terrain/_bak-cliff_a03_paintable.dbr": {
+  "source": "database/database.arz",
+  "cls": "TerrainDecoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/terrain/cliffs/cliff03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_large01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_large01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_large02.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_large02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_large03.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_large03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_large04.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_large04.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_large05.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_large05.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_single01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_single01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmite_single02.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmite_single02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_blockermedium01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 1.7999999523162842,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_medium01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_curved01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_curved01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_curved02.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_curved02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_large01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_large01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_long01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_long01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_long02.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_long02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_long03.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_long03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_medium01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 1.7999999523162842,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_medium01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_pillar01_base.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_pillar01_base.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_pillar01_top.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_pillar01_top.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_short01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_short01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_short03.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_short03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitecluster_sloped01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitecluster_sloped01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large01.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large01_nofade.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large01.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large02.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large02_nofade.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large02.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large03.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large03_nofade.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large03.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large04.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large04.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large04_nofade.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large04.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large05.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large05.msh"
+ },
+ "records/level art/undergrounds/natural/stalagmitetop_large05_nofade.dbr": {
+  "source": "database/database.arz",
+  "cls": "Decoration",
+  "allowPathing": false,
+  "actorRadius": 0.0,
+  "mesh": "level art/undergrounds/natural/stalagmitetop_large05.msh"
+ },
+ "records/scriptentities/bonuschest01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/bonuschest02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/defensepoint_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/defensepoint_02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/defensepoint_03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/defensepoint_npc_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/defensepoint_npc_03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/eventnpc_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/merchantnpc_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/rewardchest01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/rewardchest02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/rewardchest03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/rewardchest04.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/rewardchest05.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnbeacon_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnbeacon_02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnbeacon_03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnbeacon_04.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnbeacon_05.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint04.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint05.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint06.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/spawnpoint06_fx.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier01spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier02spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier03spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier04spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier05spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier06spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier07spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier08spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier09spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier10spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier11spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier12spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier13spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier14spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier15spawnpoint01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier16spawnpoint01.dbr": {
+  "source": "survivalmode1/database/survivalmode1.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/tier17spawnpoint01.dbr": {
+  "source": "survivalmode1/database/survivalmode1.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_01.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_02.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_03.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_04.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_05.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_06.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_07.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/scriptentities/trappoint_08.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "ScriptEntity",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/soundgenerators/sndgen_water_stream01.dbr": {
+  "source": "database/database.arz",
+  "cls": "SoundObject",
+  "allowPathing": null,
+  "actorRadius": 0.0,
+  "mesh": "fx/meshfx/soundgeneratormesh.msh"
+ },
+ "records/soundgenerators/sndgen_waterfalllarge.dbr": {
+  "source": "database/database.arz",
+  "cls": "SoundObject",
+  "allowPathing": null,
+  "actorRadius": 0.0,
+  "mesh": "fx/meshfx/soundgeneratormesh.msh"
+ },
+ "records/triggervolumes/treasureroom_cleanup.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "BoxTrigger",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ },
+ "records/triggervolumes/treasureroom_teleport.dbr": {
+  "source": "mods/survivalmode/database/SurvivalMode.arz",
+  "cls": "BoxTrigger",
+  "allowPathing": null,
+  "actorRadius": null,
+  "mesh": null
+ }
+}

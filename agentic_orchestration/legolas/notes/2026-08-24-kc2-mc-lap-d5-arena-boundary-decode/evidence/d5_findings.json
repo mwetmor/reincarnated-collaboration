@@ -1,0 +1,261 @@
+{
+ "grid": {
+  "width": 129,
+  "depth": 129,
+  "cell_m": 1.0,
+  "world_x": "col + -4.00",
+  "world_z": "row + +0.00",
+  "validation_median_dy_m": 0.003925,
+  "validation_n": 65
+ },
+ "rule": {
+  "symbol": "?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z",
+  "rva": "0x18c120",
+  "K": 0.25,
+  "K_va": "0x102e04c8",
+  "T": 0.6000000238418579,
+  "T_va": "0x102e0538",
+  "form": "impassable(i,j) <=> max_k |h_k - 0.25*sum(h)| > T over the cell's 4 corners"
+ },
+ "sweep": [
+  {
+   "T": 0.3,
+   "impassable_fraction": 0.305969,
+   "cells": 8583,
+   "sim_x": [
+    -81.26,
+    42.74
+   ],
+   "sim_y": [
+    -58.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  },
+  {
+   "T": 0.45,
+   "impassable_fraction": 0.202942,
+   "cells": 10010,
+   "sim_x": [
+    -81.26,
+    42.74
+   ],
+   "sim_y": [
+    -58.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  },
+  {
+   "T": 0.6,
+   "impassable_fraction": 0.132507,
+   "cells": 13516,
+   "sim_x": [
+    -85.26,
+    42.74
+   ],
+   "sim_y": [
+    -64.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  },
+  {
+   "T": 0.8,
+   "impassable_fraction": 0.087891,
+   "cells": 14599,
+   "sim_x": [
+    -85.26,
+    42.74
+   ],
+   "sim_y": [
+    -64.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  },
+  {
+   "T": 1.2,
+   "impassable_fraction": 0.050842,
+   "cells": 15517,
+   "sim_x": [
+    -85.26,
+    42.74
+   ],
+   "sim_y": [
+    -64.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  },
+  {
+   "T": 2.0,
+   "impassable_fraction": 0.021362,
+   "cells": 16034,
+   "sim_x": [
+    -85.26,
+    42.74
+   ],
+   "sim_y": [
+    -64.36,
+    63.64
+   ],
+   "reaches_region_edge": true
+  }
+ ],
+ "entity_blocking": {
+  "placements": 483,
+  "blocking": 341,
+  "radius_histogram": {
+   "0.0": 336,
+   "1.0": 1,
+   "1.8": 4
+  },
+  "unresolved_dbr": []
+ },
+ "identity": {
+  "sm1": {
+   "archive": "survivalmode1/resources/Maps.arc",
+   "region_sha256": "030656b8586fe85dc42f30cf637715ccb023b06524bd8c8d8a9e9f9ef5e7d686",
+   "heightfield_sha256": "0b2d98fb7fcb1dd6a0989098dfb4f1b2f87c57664baef4e0296cc434e8ec67ea",
+   "n_placements": 494,
+   "n_group_members": 11,
+   "group_centroid": [
+    81.2601,
+    64.3606
+   ],
+   "emitters": {
+    "spawnpoint02.dbr": [
+     90.603,
+     32.898,
+     32.82
+    ],
+    "spawnpoint05.dbr": [
+     74.439,
+     66.536,
+     7.16
+    ],
+    "tier16spawnpoint01.dbr": [
+     46.813,
+     73.955,
+     35.76
+    ],
+    "spawnpoint03.dbr": [
+     89.385,
+     96.729,
+     33.37
+    ],
+    "spawnpoint04.dbr": [
+     112.165,
+     71.508,
+     31.72
+    ],
+    "spawnpoint06.dbr": [
+     112.475,
+     71.166,
+     31.95
+    ]
+   }
+  },
+  "sm3": {
+   "archive": "survivalmode3/resources/Maps.arc",
+   "region_sha256": "bea1aa2b48fe11bf4b05a7b7919de02ba568a72457e091feb2ff9fb41e94d403",
+   "heightfield_sha256": "0b2d98fb7fcb1dd6a0989098dfb4f1b2f87c57664baef4e0296cc434e8ec67ea",
+   "n_placements": 498,
+   "n_group_members": 11,
+   "group_centroid": [
+    81.4449,
+    64.4246
+   ],
+   "emitters": {
+    "spawnpoint05.dbr": [
+     93.469,
+     63.597,
+     12.05
+    ],
+    "spawnpoint02.dbr": [
+     90.603,
+     32.898,
+     32.83
+    ],
+    "tier16spawnpoint01.dbr": [
+     47.194,
+     73.976,
+     35.56
+    ],
+    "spawnpoint03.dbr": [
+     70.761,
+     94.075,
+     31.52
+    ],
+    "spawnpoint04.dbr": [
+     112.165,
+     71.508,
+     31.53
+    ],
+    "spawnpoint06.dbr": [
+     108.746,
+     88.093,
+     36.13
+    ]
+   }
+  },
+  "sm_mod": {
+   "archive": "mods/survivalmode/resources/Maps.arc",
+   "region_sha256": "1b0e16d085457450a17ce00a4443e83cadfa4b20c00a0ee4b41cde519683e019",
+   "heightfield_sha256": "0b2d98fb7fcb1dd6a0989098dfb4f1b2f87c57664baef4e0296cc434e8ec67ea",
+   "n_placements": 491,
+   "n_group_members": 11,
+   "group_centroid": [
+    81.2601,
+    64.3606
+   ],
+   "emitters": {
+    "spawnpoint02.dbr": [
+     95.906,
+     36.871,
+     31.15
+    ],
+    "spawnpoint05.dbr": [
+     71.793,
+     57.653,
+     11.6
+    ],
+    "spawnpoint03.dbr": [
+     89.385,
+     96.729,
+     33.37
+    ],
+    "spawnpoint04.dbr": [
+     112.165,
+     71.508,
+     31.72
+    ],
+    "spawnpoint06.dbr": [
+     102.189,
+     82.58,
+     27.75
+    ]
+   }
+  }
+ },
+ "emitter_delta_m": {
+  "spawnpoint02.dbr": 0.0,
+  "spawnpoint05.dbr": 19.256,
+  "tier16spawnpoint01.dbr": 0.382,
+  "spawnpoint03.dbr": 18.812,
+  "spawnpoint04.dbr": 0.0,
+  "spawnpoint06.dbr": 17.333
+ },
+ "digests": {
+  "/Users/admin/Games/vendor/grim-dawn/Engine.dll": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c",
+  "/Users/admin/Games/vendor/grim-dawn/Game.dll": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode1/resources/Maps.arc": "2f5b34fe914e26d6fadda88aebd4080d172dc92b8d66ac990c3e108e05821237",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode2/resources/Maps.arc": "cef96030be9bdc9be64bf187389aeccec6552ba1cfde30d1c63d716d2f6dbaec",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode3/resources/Maps.arc": "94e20abadfce0f92d5187ab20bb8a9510fca9163e2b5b67b038cb55953f34911",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/mods/survivalmode/resources/Maps.arc": "5377259861ad5c17a6009ae045ebc94612faca9a65bc14904b193b9c6d4fa708",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/database/database.arz": "2ad6d379285cfb745462316949e8d59e9450cb58a13f9ffa2fdeb70193183bfd",
+  "/Users/admin/Games/vendor/grim-dawn-edition-III-20260808/survivalmode1/resources/Scripts.arc": "27d0c258d1b6dc6017d1b0e68385a67913f73e019196aaeb7f81c28b40f52278",
+  "/Users/admin/Games/vendor/grim-dawn/resources/Level Art.arc": "e33e3b93b89c4f4d1bfdbf6fbd3223e097ebea7941a45a0b16a86f173a4a8f33"
+ }
+}

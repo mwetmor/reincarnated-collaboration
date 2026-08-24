@@ -1,0 +1,104 @@
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1018c120 <?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z>:
+1018c120: 55                           	push	ebp
+1018c121: 8b ec                        	mov	ebp, esp
+1018c123: 83 e4 f8                     	and	esp, -0x8
+1018c126: 83 ec 10                     	sub	esp, 0x10
+1018c129: 8b 55 08                     	mov	edx, dword ptr [ebp + 0x8]
+1018c12c: 8b c2                        	mov	eax, edx
+1018c12e: 56                           	push	esi
+1018c12f: 8b f1                        	mov	esi, ecx
+1018c131: f3 0f 10 2d 40 0e 2e 10      	movss	xmm5, dword ptr [0x102e0e40]
+1018c139: 33 c9                        	xor	ecx, ecx
+1018c13b: 89 74 24 0c                  	mov	dword ptr [esp + 0xc], esi
+1018c13f: 85 d2                        	test	edx, edx
+1018c141: f3 0f 10 35 38 05 2e 10      	movss	xmm6, dword ptr [0x102e0538]
+1018c149: 57                           	push	edi
+1018c14a: 8b 7e 34                     	mov	edi, dword ptr [esi + 0x34]
+1018c14d: 0f 4e c1                     	cmovle	eax, ecx
+1018c150: 3b c7                        	cmp	eax, edi
+1018c152: 89 7c 24 08                  	mov	dword ptr [esp + 0x8], edi
+1018c156: 8b cf                        	mov	ecx, edi
+1018c158: 8b 7e 38                     	mov	edi, dword ptr [esi + 0x38]
+1018c15b: 0f 4c c8                     	cmovl	ecx, eax
+1018c15e: 89 7c 24 0c                  	mov	dword ptr [esp + 0xc], edi
+1018c162: 33 f6                        	xor	esi, esi
+1018c164: 89 4c 24 14                  	mov	dword ptr [esp + 0x14], ecx
+1018c168: 8b 4d 0c                     	mov	ecx, dword ptr [ebp + 0xc]
+1018c16b: 85 c9                        	test	ecx, ecx
+1018c16d: 8b c1                        	mov	eax, ecx
+1018c16f: 0f 4e c6                     	cmovle	eax, esi
+1018c172: 8b f7                        	mov	esi, edi
+1018c174: 3b c7                        	cmp	eax, edi
+1018c176: 0f 4c f0                     	cmovl	esi, eax
+1018c179: 8d 42 01                     	lea	eax, [edx + 0x1]
+1018c17c: 33 d2                        	xor	edx, edx
+1018c17e: 85 c0                        	test	eax, eax
+1018c180: 0f 4e c2                     	cmovle	eax, edx
+1018c183: 8b 54 24 08                  	mov	edx, dword ptr [esp + 0x8]
+1018c187: 3b c2                        	cmp	eax, edx
+1018c189: 8b fa                        	mov	edi, edx
+1018c18b: 0f 4c f8                     	cmovl	edi, eax
+1018c18e: 8d 41 01                     	lea	eax, [ecx + 0x1]
+1018c191: 33 c9                        	xor	ecx, ecx
+1018c193: 85 c0                        	test	eax, eax
+1018c195: 0f 4e c1                     	cmovle	eax, ecx
+1018c198: 8b 4c 24 0c                  	mov	ecx, dword ptr [esp + 0xc]
+1018c19c: 3b c1                        	cmp	eax, ecx
+1018c19e: 0f 4c c8                     	cmovl	ecx, eax
+1018c1a1: 89 4c 24 0c                  	mov	dword ptr [esp + 0xc], ecx
+1018c1a5: 8b ca                        	mov	ecx, edx
+1018c1a7: 8b 54 24 10                  	mov	edx, dword ptr [esp + 0x10]
+1018c1ab: 0f af ce                     	imul	ecx, esi
+1018c1ae: 8b 74 24 14                  	mov	esi, dword ptr [esp + 0x14]
+1018c1b2: 8b 52 5c                     	mov	edx, dword ptr [edx + 0x5c]
+1018c1b5: 8d 04 31                     	lea	eax, [ecx + esi]
+1018c1b8: f3 0f 10 04 c2               	movss	xmm0, dword ptr [edx + 8*eax]
+1018c1bd: 8b 44 24 08                  	mov	eax, dword ptr [esp + 0x8]
+1018c1c1: 0f af 44 24 0c               	imul	eax, dword ptr [esp + 0xc]
+1018c1c6: 89 44 24 08                  	mov	dword ptr [esp + 0x8], eax
+1018c1ca: 03 c6                        	add	eax, esi
+1018c1cc: f3 0f 10 1c c2               	movss	xmm3, dword ptr [edx + 8*eax]
+1018c1d1: 8d 04 39                     	lea	eax, [ecx + edi]
+1018c1d4: f3 0f 10 14 c2               	movss	xmm2, dword ptr [edx + 8*eax]
+1018c1d9: 0f 28 e3                     	movaps	xmm4, xmm3
+1018c1dc: 8b 44 24 08                  	mov	eax, dword ptr [esp + 0x8]
+1018c1e0: f3 0f 58 e0                  	addss	xmm4, xmm0
+1018c1e4: 03 c7                        	add	eax, edi
+1018c1e6: f3 0f 10 0c c2               	movss	xmm1, dword ptr [edx + 8*eax]
+1018c1eb: f3 0f 58 e2                  	addss	xmm4, xmm2
+1018c1ef: f3 0f 58 e1                  	addss	xmm4, xmm1
+1018c1f3: f3 0f 59 25 c8 04 2e 10      	mulss	xmm4, dword ptr [0x102e04c8]
+1018c1fb: f3 0f 5c c4                  	subss	xmm0, xmm4
+1018c1ff: 0f 54 c5                     	andps	xmm0, xmm5
+1018c202: 0f 2f c6                     	comiss	xmm0, xmm6
+1018c205: 77 2e                        	ja	0x1018c235 <?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z+0x115>
+1018c207: f3 0f 5c dc                  	subss	xmm3, xmm4
+1018c20b: 0f 54 dd                     	andps	xmm3, xmm5
+1018c20e: 0f 2f de                     	comiss	xmm3, xmm6
+1018c211: 77 22                        	ja	0x1018c235 <?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z+0x115>
+1018c213: f3 0f 5c d4                  	subss	xmm2, xmm4
+1018c217: 0f 54 d5                     	andps	xmm2, xmm5
+1018c21a: 0f 2f d6                     	comiss	xmm2, xmm6
+1018c21d: 77 16                        	ja	0x1018c235 <?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z+0x115>
+1018c21f: f3 0f 5c cc                  	subss	xmm1, xmm4
+1018c223: 0f 54 cd                     	andps	xmm1, xmm5
+1018c226: 0f 2f ce                     	comiss	xmm1, xmm6
+1018c229: 77 0a                        	ja	0x1018c235 <?SlopeImpassable@Terrain@GAME@@AAE_NHH@Z+0x115>
+1018c22b: 32 c0                        	xor	al, al
+1018c22d: 5f                           	pop	edi
+1018c22e: 5e                           	pop	esi
+1018c22f: 8b e5                        	mov	esp, ebp
+1018c231: 5d                           	pop	ebp
+1018c232: c2 08 00                     	ret	0x8
+1018c235: 5f                           	pop	edi
+1018c236: b0 01                        	mov	al, 0x1
+1018c238: 5e                           	pop	esi
+1018c239: 8b e5                        	mov	esp, ebp
+1018c23b: 5d                           	pop	ebp
+1018c23c: c2 08 00                     	ret	0x8
+1018c23f: cc                           	int3

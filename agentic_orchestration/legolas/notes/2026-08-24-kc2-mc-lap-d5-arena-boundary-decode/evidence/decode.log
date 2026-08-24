@@ -1,0 +1,48 @@
+====================================================================================================
+KC2-MC · D-5 — THE ARENA-BOUNDARY DECODE (UNREACHED-S8)
+====================================================================================================
+
+§2  sm1/survivalworld_a.map :: Region_Survival_A001.lvl  @ 1839979 (1076532 B)
+    strings 117 · placements declared 494 · parsed plain 483 + group-member 11 = 494
+    heightfield 129x129 f32 at blob+0xdee6  range -0.4102 .. 18.2090 m
+
+§3  grid mapping FITTED then VALIDATED on 65 ground-anchored placements
+    world x = col + (-4.00)   world z = row + (+0.00)   cell = 1.000 m
+    median |H(x,z) - y_placement| = 3.92 mm   (rejects: the runner-up offset scores 0.0678 m — a unique optimum)
+    cross-check on the SIM's own 11 PatrolPoint_Attack rows: median |dy| = 3.67 mm  (independent population, same mapping)
+    group-member centroid  (81.2601, 64.3606)  vs sim centroid_xz (81.2601, 64.3606)  Δ = 0.042 mm
+
+§4  Terrain::SlopeImpassable  Engine.dll RVA 0x18c120 (VA 0x1018c120)
+    avg = (h00 + h01 + h10 + h11) * K      K = 0.25  @ 0x102e04c8
+    impassable  <=>  max_k |h_k - avg| > T   T = 0.6000000238418579  @ 0x102e0538
+    (andps 0x102e0e40 = 0x7fffffff abs-mask; comiss/ja on each of the four corners)
+
+§5  flood-fill from the PatrolPoint_Attack centroid, cell (64, 85)
+      T (m)  imp.frac   cells         sim x span         sim y span  edge?
+      0.300    0.3060    8583  [  -81.3,   42.7] [  -58.4,   63.6]   True
+      0.450    0.2029   10010  [  -81.3,   42.7] [  -58.4,   63.6]   True
+      0.600    0.1325   13516  [  -85.3,   42.7] [  -64.4,   63.6]   True
+      0.800    0.0879   14599  [  -85.3,   42.7] [  -64.4,   63.6]   True
+      1.200    0.0508   15517  [  -85.3,   42.7] [  -64.4,   63.6]   True
+      2.000    0.0214   16034  [  -85.3,   42.7] [  -64.4,   63.6]   True
+    ⚑ EDGE REACHED AT EVERY THRESHOLD — terrain does NOT close the Crucible arena.
+
+§6  entity-side blocking (`Decoration.allowPathing`)
+    placements 483 · resolvable dbr 115 · unresolved 0
+    placements with allowPathing = False : 341
+    their authored actorRadius histogram : {0.0: 336, 1.0: 1, 1.8: 4}
+    ⚑ 336 of 341 carry actorRadius = 0 -> extent lives in the .msh mesh, which this lap did NOT open.
+
+§7  NAMED-I26-1 — sm1 vs survivalmode3, measured
+    sm1     placements 494  group members 11  centroid (81.2601, 64.3606)  heightfield sha 0b2d98fb7fcb1dd6
+    sm3     placements 498  group members 11  centroid (81.4449, 64.4246)  heightfield sha 0b2d98fb7fcb1dd6
+    sm_mod  placements 491  group members 11  centroid (81.2601, 64.3606)  heightfield sha 0b2d98fb7fcb1dd6
+    heightfield byte-identical across all three layers: True
+    frame-origin shift sm1 -> sm3: 0.1956 m
+    emitter                            sm1 (x,z)           sm3 (x,z)     Δ m
+    spawnpoint02.dbr               (90.60,32.90)       (90.60,32.90)    0.00
+    spawnpoint05.dbr               (74.44,66.54)       (93.47,63.60)   19.26
+    tier16spawnpoint01.dbr         (46.81,73.95)       (47.19,73.98)    0.38
+    spawnpoint03.dbr               (89.39,96.73)       (70.76,94.08)   18.81
+    spawnpoint04.dbr              (112.17,71.51)      (112.17,71.51)    0.00
+    spawnpoint06.dbr              (112.47,71.17)      (108.75,88.09)   17.33
