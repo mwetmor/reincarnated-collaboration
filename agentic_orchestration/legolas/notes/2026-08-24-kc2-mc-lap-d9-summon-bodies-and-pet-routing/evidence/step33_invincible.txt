@@ -1,0 +1,127 @@
+STR b'invincible\x00' rva=0x4f4b9c sec=.rdata
+    ref rva 0x43d01  ?Load@Character@GAME@@UAEXABVLoadTable@2@@Z+0x2831
+
+EXPORT ??0SetInvincibleConfigCmd@GAME@@QAE@ABV01@@Z                                               0x00023f60
+EXPORT ??0SetInvincibleConfigCmd@GAME@@QAE@I_N@Z                                                  0x000aeeb0
+EXPORT ??0SetInvincibleConfigCmdPacket@GAME@@QAE@ABV01@@Z                                         0x004717c0
+EXPORT ??0SetInvincibleConfigCmdPacket@GAME@@QAE@XZ                                               0x002ec110
+EXPORT ??1SetInvincibleConfigCmd@GAME@@UAE@XZ                                                     0x000aeee0
+EXPORT ??1SetInvincibleConfigCmdPacket@GAME@@UAE@XZ                                               0x002ec170
+EXPORT ??4SetInvincibleConfigCmd@GAME@@QAEAAV01@ABV01@@Z                                          0x00023880
+EXPORT ??4SetInvincibleConfigCmdPacket@GAME@@QAEAAV01@ABV01@@Z                                    0x00471400
+EXPORT ??_7SetInvincibleConfigCmd@GAME@@6B@                                                       0x0058dec0
+EXPORT ??_7SetInvincibleConfigCmdPacket@GAME@@6B@                                                 0x005dd288
+EXPORT ?CopyInbound@SetInvincibleConfigCmdPacket@GAME@@UAEXPAEH@Z                                 0x002eb310
+EXPORT ?Execute@SetInvincibleConfigCmd@GAME@@UAEXXZ                                               0x000aeef0
+EXPORT ?GetNetPacket@SetInvincibleConfigCmd@GAME@@UAEPAVNetPacket@2@XZ                            0x000aef20
+EXPORT ?GetPacketDescription@SetInvincibleConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z 0x002ec190
+EXPORT ?IsInvincible@Character@GAME@@UBE_NXZ                                                      0x00059c80
+EXPORT ?IsInvincible@Player@GAME@@UBE_NXZ                                                         0x0031b090
+EXPORT ?IsInvincibleInDbr@Character@GAME@@QBE_NXZ                                                 0x00059c90
+EXPORT ?PrepareOutBuffer@SetInvincibleConfigCmdPacket@GAME@@UAEIXZ                                0x002eb290
+EXPORT ?QuestCommandToggleInvincible@GameEngine@GAME@@QAEXI_N@Z                                   0x0026eb80
+EXPORT ?SetInvincible@Character@GAME@@QAEX_N@Z                                                    0x000570c0
+EXPORT ?SetInvincible@ControllerAI@GAME@@QAEX_N@Z                                                 0x000e7c20
+==========================================================================================
+=== IsInvincible@Character @0x00059c80
+  0x00059c80  mov      al, byte ptr [ecx + 0x1844]
+  0x00059c86  ret      
+  0x00059c87  int3     
+  0x00059c88  int3     
+  0x00059c89  int3     
+  0x00059c8a  int3     
+  0x00059c8b  int3     
+  0x00059c8c  int3     
+  0x00059c8d  int3     
+  0x00059c8e  int3     
+  0x00059c8f  int3     
+==========================================================================================
+=== IsInvincibleInDbr@Character @0x00059c90
+  0x00059c90  mov      al, byte ptr [ecx + 0x1845]
+  0x00059c96  ret      
+  0x00059c97  int3     
+  0x00059c98  int3     
+  0x00059c99  int3     
+  0x00059c9a  int3     
+  0x00059c9b  int3     
+  0x00059c9c  int3     
+  0x00059c9d  int3     
+  0x00059c9e  int3     
+  0x00059c9f  int3     
+==========================================================================================
+=== IsInvincible@Player @0x0031b090
+  0x0031b090  push     esi
+  0x0031b091  mov      esi, ecx
+  0x0031b093  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0031b099  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x0031b09f  push     eax
+  0x0031b0a0  call     0x10274750   ; -> ?IsPlayingVideo@GameEngine@GAME@@QBE_NI@Z
+  0x0031b0a5  test     al, al
+  0x0031b0a7  mov      al, 1
+  0x0031b0a9  jne      0x1031b0b1
+  0x0031b0ab  mov      al, byte ptr [esi + 0x1844]
+  0x0031b0b1  pop      esi
+  0x0031b0b2  ret      
+  0x0031b0b3  int3     
+  0x0031b0b4  int3     
+  0x0031b0b5  int3     
+  0x0031b0b6  int3     
+  0x0031b0b7  int3     
+  0x0031b0b8  int3     
+  0x0031b0b9  int3     
+  0x0031b0ba  int3     
+  0x0031b0bb  int3     
+  0x0031b0bc  int3     
+  0x0031b0bd  int3     
+  0x0031b0be  int3     
+  0x0031b0bf  int3     
+==========================================================================================
+=== SetInvincible@Character @0x000570c0
+  0x000570c0  push     ebp
+  0x000570c1  mov      ebp, esp
+  0x000570c3  mov      al, byte ptr [ebp + 8]
+  0x000570c6  mov      byte ptr [ecx + 0x1844], al
+  0x000570cc  pop      ebp
+  0x000570cd  ret      4
+==========================================================================================
+=== Load@Character+0x2831 (the dbr read) @0x00043cf0
+  0x00043cf0  inc      eax
+  0x00043cf1  and      al, 0xff
+  0x00043cf3  rcr      cl, 1
+  0x00043cf5  lahf     
+  0x00043cf6  adc      al, 0x30
+  0x00043cf8  add      byte ptr [eax], al
+  0x00043cfa  mov      eax, dword ptr [ebx]
+  0x00043cfc  mov      ecx, ebx
+  0x00043cfe  push     0
+  0x00043d00  push     0x104f4b9c
+  0x00043d05  mov      eax, dword ptr [eax + 0x2c]
+  0x00043d08  call     eax
+  0x00043d0a  mov      byte ptr [edi + 0x1845], al
+  0x00043d10  lea      ecx, [edi + 0x1b58]
+  0x00043d16  push     ebx
+  0x00043d17  mov      byte ptr [edi + 0x1844], al
+  0x00043d1d  call     0x10204830   ; -> ?SetDungeonId@FixedItemDungeonTeleport@GAME@@QAEXI@Z+0x130
+  0x00043d22  mov      eax, dword ptr [ebx]
+  0x00043d24  mov      ecx, ebx
+  0x00043d26  push     0
+  0x00043d28  push     0x104f4ba8
+  0x00043d2d  mov      eax, dword ptr [eax + 0x2c]
+  0x00043d30  call     eax
+  0x00043d32  mov      byte ptr [edi + 0x94], al
+  0x00043d38  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x00043d3d  mov      eax, dword ptr [eax]
+  0x00043d3f  mov      al, byte ptr [eax + 0x192]
+  0x00043d45  test     al, al
+  0x00043d47  jne      0x10043eda
+  0x00043d4d  mov      eax, dword ptr [ebx]
+  0x00043d4f  mov      ecx, ebx
+  0x00043d51  push     0x104f068a
+  0x00043d56  push     0x104f4bc0
+  0x00043d5b  call     dword ptr [eax + 0x14]
+  0x00043d5e  push     eax
+  0x00043d5f  lea      ecx, [ebp - 0x74]
+  0x00043d62  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x00043d67  mov      byte ptr [ebp - 4], 0x3d
+  0x00043d6b  cmp      dword ptr [ebp - 0x64], 0
+  0x00043d6f  je       0x10043d99

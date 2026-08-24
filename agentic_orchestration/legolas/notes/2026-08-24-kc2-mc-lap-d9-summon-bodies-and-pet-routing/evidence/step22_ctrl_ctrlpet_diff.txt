@@ -1,0 +1,154 @@
+candidate vftables:
+   ??_7ControllerAlly@GAME@@6BControllerAI@1@@                  0x005b7bc4
+   ??_7ControllerAlly@GAME@@6BILootContainer@1@@                0x005c2490
+   ??_7ControllerMonster@GAME@@6BControllerAI@1@@               0x0059293c
+   ??_7ControllerMonster@GAME@@6BILootContainer@1@@             0x005c2490
+   ??_7ControllerPet@GAME@@6BControllerAI@1@@                   0x005b3cb8
+   ??_7ControllerPet@GAME@@6BILootContainer@1@@                 0x005c2490
+
+DIFF ??_7ControllerMonster@GAME@@6BControllerAI@1@@  vs  ??_7ControllerPet@GAME@@6BControllerAI@1@@
+  slot   0 (+0x000)  MON ?GetRTTIClassInfo@ControllerMonster@GAME@@UBEABVRTTI_ClassInfo@2@XZ      PET ?GetRTTIClassInfo@ControllerPet@GAME@@UBEABVRTTI_ClassInfo@2@XZ
+  slot   4 (+0x010)  MON ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x7c0                            PET ??0ControllerPet@GAME@@QAE@ABV01@@Z+0x30
+  slot  65 (+0x104)  MON ?RegisterStates@ControllerMonster@GAME@@MAEXXZ                           PET ?RegisterStates@ControllerPet@GAME@@MAEXXZ
+  slot  66 (+0x108)  MON ?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ                  PET ?RegisterTemporaryStates@ControllerPet@GAME@@MAEXXZ
+  slot  78 (+0x138)  MON ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98   PET ?GetRTTIClassInfo@ControllerOrmenos@GAME@@UBEABVRTTI_ClassInfo@2@XZ
+  slot  79 (+0x13c)  MON ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98   PET ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z
+  slot  80 (+0x140)  MON ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98   PET ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3644e
+  slot  81 (+0x144)  MON ?GetRTTIClassInfo@Skill_PetAttack@GAME@@UBEABVRTTI_ClassInfo@2@XZ        PET ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36448
+  slot  82 (+0x148)  MON ?Load@SkillActivated@GAME@@UAEXABVLoadTable@2@@Z                         PET ??0ControllerOrmenos@GAME@@QAE@ABV01@@Z+0x30
+  slot  83 (+0x14c)  MON ?CalculateMemoryUsage@Skill@GAME@@UBEIXZ                                 PET ?AttachParent@Controller@GAME@@UAEXI@Z
+  slot  84 (+0x150)  MON ?CalculateAllocatedMemory@Skill@GAME@@UBEIXZ                             PET ?PostParentAttached@ControllerMonster@GAME@@MAEXXZ
+  slot  85 (+0x154)  MON ??4SkillActivated@GAME@@QAEAAV01@ABV01@@Z+0x70                           PET ?InitialUpdate@ControllerAI@GAME@@UAEXXZ
+  slot  86 (+0x158)  MON ?OnDestroy@Skill@GAME@@UAEXXZ                                            PET ?Update@ControllerMonster@GAME@@UAEXH@Z
+  slot  87 (+0x15c)  MON ?Install@Skill@GAME@@UAEXPAVCharacter@2@@Z                               PET ?DebugRender@ControllerMonster@GAME@@UAEXXZ
+  slot  88 (+0x160)  MON ?UnInstall@Skill@GAME@@UAEXPAVCharacter@2@@Z                             PET ?Stop@Fx@GAME@@UAEXXZ
+  slot  89 (+0x164)  MON ?GetId@CursorHandler@GAME@@UAEIXZ                                        PET ?HandleEvent@ControllerAI@GAME@@UAEXABVName@2@@Z
+  slot  90 (+0x168)  MON ?IncrementSkillLevel@Skill@GAME@@UAEXI@Z                                 PET ?SetParent@CharFxPak@GAME@@QAEXI@Z
+  slot  91 (+0x16c)  MON ?SetSkillLevel@Skill@GAME@@UAEXI@Z                                       PET ?GetNumberOfDeaths@PlayStats@GAME@@QBEIXZ
+  slot  92 (+0x170)  MON ?DecrementSkillLevel@Skill@GAME@@UAE_NI@Z                                PET ?RespawnMe@ControllerBaseCharacter@GAME@@UAEXXZ
+  slot  93 (+0x174)  MON ?IncrementAugmentedSkillLevel@Skill@GAME@@UAEXI@Z                        PET ?LowHealth@ControllerAI@GAME@@UAEXXZ
+  slot  94 (+0x178)  MON ?SetAugmentedSkillLevel@Skill@GAME@@UAEXI@Z                              PET ?EndOfPathReached@ControllerAI@GAME@@UAEXXZ
+  slot  95 (+0x17c)  MON ?DecrementAugmentedSkillLevel@Skill@GAME@@UAEXI@Z                        PET ?PathFailed@ControllerAI@GAME@@UAEXXZ
+  slot  96 (+0x180)  MON ?SkillLevelChange@Skill@GAME@@UAEXXZ                                     PET ?LostSlot@ControllerAI@GAME@@UAEXXZ
+  slot  97 (+0x184)  MON ?ReleasePets@Skill@GAME@@UAEXXZ                                          PET ?PickupItem@ControllerCharacter@GAME@@UAEXI@Z
+  slot  98 (+0x188)  MON ?Stop@Fx@GAME@@UAEXXZ                                                    PET ?Teleport@ControllerCharacter@GAME@@UAEXABVWorldCoords@2@@Z
+  slot  99 (+0x18c)  MON ?AddExperience@Skill@GAME@@UAEXI@Z                                       PET ?ProjectileNotification@ControllerMonster@GAME@@UAEXI@Z
+  slot 100 (+0x190)  MON ?ClampExperience@Skill@GAME@@UAEXXZ                                      PET ?ProjectileCollisionCallback@ControllerAI@GAME@@UAEXABUProjectileInfo@2@ABUCollisionData@2@@Z
+  slot 101 (+0x194)  MON ?IncrementDevotionLevel@Skill@GAME@@UAEXXZ                               PET ?ProjectileResultCallback@ControllerAI@GAME@@UAEXIABVEntity@2@@Z
+  slot 102 (+0x198)  MON ?IncrementComboCharge@Skill@GAME@@UAEXABV?$vector@I@mem@@ABUAttackInfo@2@H@Z   PET ?GetClosestMovePoint@ControllerBaseCharacter@GAME@@UAE?AVWorldVec3@2@ABV32@@Z
+  slot 103 (+0x19c)  MON ?LoadResources@Skill@GAME@@UAEXABVLoadTable@2@@Z                         PET ?CharacterHandlerUpdate@ControllerBaseCharacter@GAME@@MAEXH@Z
+  slot 104 (+0x1a0)  MON ?PreLoad@Skill@GAME@@UAEX_N@Z                                            PET ?CheckAction@ControllerBaseCharacter@GAME@@MBE?AW4CharacterActionPermission@2@PAVCharacterAction@2@@Z
+  slot 105 (+0x1a4)  MON ?CacheResources@Skill@GAME@@UAEXXZ                                       PET ?SetLevel@LootBase@GAME@@UAEXII@Z
+  slot 106 (+0x1a8)  MON ?ReleaseResources@Skill@GAME@@UAEXXZ                                     PET ?CreateItemInInventory@ControllerCharacter@GAME@@UAEPAVItem@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  slot 107 (+0x1ac)  MON ?Update@Skill@GAME@@UAEXAAVCharacter@2@H@Z                               PET ?NeedsDeathUpdate@ControllerMonster@GAME@@UBE_NXZ
+  slot 108 (+0x1b0)  MON ?CreateUISkillName@Skill@GAME@@UBE?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@_N@Z   PET ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  slot 109 (+0x1b4)  MON ?CreateUISkillName@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?StunMe@ControllerAI@GAME@@UAEXH@Z
+  slot 110 (+0x1b8)  MON ?CreateUISkillHeading@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@W4GameTextClass@2@@Z   PET ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  slot 111 (+0x1bc)  MON ?CreateUINameText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?ScareMe@ControllerMonster@GAME@@UAEXIM@Z
+  slot 112 (+0x1c0)  MON ?CreateUIParameterText@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@W4GameTextClass@2@@Z   PET ?KillMe@ControllerCombat@GAME@@UAEX_N@Z
+  slot 113 (+0x1c4)  MON ?CreateUINextParameterText@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@HH@Z   PET ?TauntMe@ControllerMonster@GAME@@UAEXMI@Z
+  slot 114 (+0x1c8)  MON ?CreateUISpecializedText1@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?BeginStun@ControllerPlayer@GAME@@UAEXXZ
+  slot 115 (+0x1cc)  MON ?CreateUISpecializedText2@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?EndStun@ControllerPlayer@GAME@@UAEXXZ
+  slot 116 (+0x1d0)  MON ?CreateUINextSpecializedText1@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@HHW4GameTextClass@2@@Z   PET ?BeginKnockdown@ControllerPlayer@GAME@@UAEXXZ
+  slot 117 (+0x1d4)  MON ?CreateUINextSpecializedText2@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@HHW4GameTextClass@2@@Z   PET ?EndKnockdown@ControllerPlayer@GAME@@UAEXXZ
+  slot 118 (+0x1d8)  MON ?CreateUIModifierText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@V?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@5@@Z   PET ?BeginTakeHit@ControllerPlayer@GAME@@UAEXXZ
+  slot 119 (+0x1dc)  MON ?CreateUINextModifierText@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@V?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@4@HHW4GameTextClass@2@@Z   PET ?EndTakeHit@ControllerPlayer@GAME@@UAEXXZ
+  slot 120 (+0x1e0)  MON ?CreateUIPetText@Skill@GAME@@UBEXPAVCharacter@2@IW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?BeginSleep@ControllerPlayer@GAME@@UAEXXZ
+  slot 121 (+0x1e4)  MON ?CreateUINextPetText@Skill@GAME@@UBEXPAVCharacter@2@IIW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?EndSleep@ControllerPlayer@GAME@@UAEXXZ
+  slot 122 (+0x1e8)  MON ?JoinMe@Character@GAME@@UAEXIH_N0@Z                                      PET ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ
+  slot 123 (+0x1ec)  MON ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z   PET ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ
+  slot 124 (+0x1f0)  MON ?CreateUIShortSummaryText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@_N@Z   PET ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ
+  slot 125 (+0x1f4)  MON ?CreateUINextShortSummaryText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@_N@Z   PET ?EndTrap@ControllerPlayer@GAME@@UAEXXZ
+  slot 126 (+0x1f8)  MON ?CreateUIPetLimitText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?BeginDeath@ControllerAI@GAME@@UAEXXZ
+  slot 127 (+0x1fc)  MON ?CreateUINextPetLimitText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@II@Z   PET ?UnderAttack@ControllerMonster@GAME@@UAEXI@Z
+  slot 128 (+0x200)  MON ?CreateUIPetTimeToLiveText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z   PET ?AllyAttacked@ControllerMonster@GAME@@UAEXII@Z
+  slot 129 (+0x204)  MON ?CreateUINextPetTimeToLiveText@Skill@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@II@Z   PET ?CharacterIsDying@ControllerAI@GAME@@UAEXXZ
+  slot 130 (+0x208)  MON ?CreateUITrackerText@Skill@GAME@@UAEXAAV?$vector@UGameTextLine@GAME@@@mem@@W4GameTextClass@2@@Z   PET ?CharacterIsDead@ControllerAI@GAME@@UAEXXZ
+  slot 131 (+0x20c)  MON ?GetTargetRadiusTag@Skill@GAME@@UBEPBDXZ                                 PET ?KnockMeDown@ControllerAI@GAME@@UAEXXZ
+  slot 132 (+0x210)  MON ?GetExplosionRadiusTag@Skill@GAME@@UBEPBDXZ                              PET ?Panic@ControllerAI@GAME@@UAEXI@Z
+  slot 133 (+0x214)  MON ?GetWaveDistanceLimit@Skill@GAME@@UBEMXZ                                 PET ?WakeUp@ControllerAI@GAME@@UAEXXZ
+  slot 134 (+0x218)  MON ?SetLevel@LootBase@GAME@@UAEXII@Z                                        PET ?ClearAnger@ControllerMonster@GAME@@QAEXXZ
+  slot 135 (+0x21c)  MON ?Stop@Fx@GAME@@UAEXXZ                                                    PET ?QuestCommandMove@ControllerAI@GAME@@UAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IABVWorldVec3@2@_N@Z
+  slot 136 (+0x220)  MON ?JoinMe@Character@GAME@@UAEXIH_N0@Z                                      PET ?QuestCommandWalk@ControllerAI@GAME@@UAEXIABVWorldVec3@2@_N@Z
+  slot 137 (+0x224)  MON ?OnSkillScript@Skill@GAME@@UAEXAAVCharacter@2@@Z                         PET ?QuestCommandPlayAnimation@ControllerAI@GAME@@UAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4AnimationSet_Type@2@_N2@Z
+  slot 138 (+0x228)  MON ?GetCurrentLevel@Skill@GAME@@UBE?BIXZ                                    PET ?QuestCommandUseSkill@ControllerAI@GAME@@UAEXIII_N@Z
+  slot 139 (+0x22c)  MON ?AddTimeToLive@Skill@GAME@@UAEXH@Z                                       PET ?QuestCommandOrient@ControllerAI@GAME@@UAEXIABVWorldVec3@2@_N@Z
+  slot 140 (+0x230)  MON ?GetSkillLevel@Skill@GAME@@QBE?BIXZ                                      PET ?ChatCommandUseSkill@ControllerAI@GAME@@UAEXIII_N@Z
+  slot 141 (+0x234)  MON ?GetChanceWeight@Skill@GAME@@UBE?BI_N@Z                                  PET ?CanMove@ControllerMonster@GAME@@UBE_NXZ
+  slot 142 (+0x238)  MON ?IsSkillEnabled@Skill@GAME@@UBE?B_NXZ                                    PET ?Die@ControllerAI@GAME@@UAEX_N@Z
+  slot 143 (+0x23c)  MON ?IsActive@Skill@GAME@@UBE_NXZ                                            PET ?RegisterStates@ControllerOrmenos@GAME@@MAEXXZ
+  slot 144 (+0x240)  MON ?IsActive@Skill@GAME@@UBE_NXZ                                            PET ?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ
+  slot 145 (+0x244)  MON ?IsTrackable@Skill@GAME@@UBE?B_NI@Z                                      PET ?InitializeStates@ControllerMonster@GAME@@MAEXXZ
+  slot 146 (+0x248)  MON ?IsTrackable@Skill@GAME@@UBE?B_NI@Z                                      PET ?ProcessAngerTarget@ControllerMonster@GAME@@UAEMABVCharacter@2@H@Z
+  slot 147 (+0x24c)  MON ?HasIconDisplay@Skill@GAME@@UBE?B_NI@Z                                   PET ?GetMostHatedEnemy@ControllerMonster@GAME@@UAEIXZ
+  slot 148 (+0x250)  MON ?GetChanceWeight@Skill@GAME@@UBE?BI_N@Z                                  PET ?ShouldCareAboutDistressCall@ControllerMonster@GAME@@UBE_NI@Z
+  slot 149 (+0x254)  MON ?GetChanceWeight@Skill@GAME@@UBE?BI_N@Z                                  PET ?TransferAnger@ControllerMonster@GAME@@UAEXAAV12@@Z
+  slot 150 (+0x258)  MON ?GetId@CursorHandler@GAME@@UAEIXZ                                        PET ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  slot 151 (+0x25c)  MON ?GetTrackableIcon@Skill@GAME@@UBEPBDXZ                                   PET ?ChooseBestSkillOverride@ControllerMonster@GAME@@MBEII_N@Z
+  slot 152 (+0x260)  MON ?GetPartyManager@GameEngine@GAME@@QAEPAVPartyManager@2@XZ                PET ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+  slot 153 (+0x264)  MON ?GetRange@Skill@GAME@@UBEMXZ                                             PET ?IsActive@Skill@GAME@@UBE_NXZ
+  slot 154 (+0x268)  MON ?GetGamepadRange@Skill@GAME@@UBEMXZ                                      PET ?AngerUpdate@ControllerMonster@GAME@@MAEXH@Z
+  slot 155 (+0x26c)  MON ?GetForceMovement@Skill@GAME@@UBE_NXZ                                    PET ?FindEnemy@ControllerMonster@GAME@@MAEXXZ
+  slot 156 (+0x270)  MON ?GetMoveType@Skill@GAME@@UBE?AW4Skill_MoveType@2@XZ                      PET ?GetRTTIClassInfo@ControllerNpc2@GAME@@UBEABVRTTI_ClassInfo@2@XZ
+  slot 157 (+0x274)  MON ?GetMoveTypeStateString@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Load@ControllerNpc2@GAME@@UAEXABVLoadTable@2@@Z
+  slot 158 (+0x278)  MON ?MoveToPointSkill@Skill@GAME@@UBE_NXZ                                    PET ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3644e
+  slot 159 (+0x27c)  MON ?IsActive@Skill@GAME@@UBE_NXZ                                            PET ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36448
+  slot 160 (+0x280)  MON ?EndCooldown@Skill@GAME@@UAEXH@Z                                         PET ??0ControllerNpc2@GAME@@QAE@ABV01@@Z+0xf0
+  slot 161 (+0x284)  MON ?ReplaceCooldownTime@Skill@GAME@@UAEXMM@Z                                PET ?AttachParent@Controller@GAME@@UAEXI@Z
+  slot 162 (+0x288)  MON ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z                         PET ?PostParentAttached@ControllerNpc2@GAME@@MAEXXZ
+  slot 163 (+0x28c)  MON ?SetAvailability@Skill_PetAttack@GAME@@UAE_NAAVCharacter@2@_N1@Z         PET ?InitialUpdate@ControllerAI@GAME@@UAEXXZ
+  slot 164 (+0x290)  MON ?SetDisabled@Skill@GAME@@UAEXXZ                                          PET ?Update@ControllerAI@GAME@@UAEXH@Z
+  slot 165 (+0x294)  MON ?GetTotalSkillAttribute@Skill@GAME@@UBEMW4SkillAttributeType@2@_N@Z      PET ?DebugRender@ControllerNpc2@GAME@@UAEXXZ
+  slot 166 (+0x298)  MON ?GetSpawnObject@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 167 (+0x29c)  MON ?GetSpawnObject2@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z   PET ?HandleEvent@ControllerAI@GAME@@UAEXABVName@2@@Z
+  slot 168 (+0x2a0)  MON ?GetSpawnObject3@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z   PET ?SetParent@CharFxPak@GAME@@QAEXI@Z
+  slot 169 (+0x2a4)  MON ?GetSpawnObject4@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z   PET ?GetNumberOfDeaths@PlayStats@GAME@@QBEIXZ
+  slot 170 (+0x2a8)  MON ?GetSpawnObjectTimeToLive@Skill@GAME@@UBEHI@Z                            PET ?RespawnMe@ControllerBaseCharacter@GAME@@UAEXXZ
+  slot 171 (+0x2ac)  MON ?GetPetLimit@Skill@GAME@@UBEII@Z                                         PET ?LowHealth@ControllerAI@GAME@@UAEXXZ
+  slot 172 (+0x2b0)  MON ?GetSkillData@Skill@GAME@@UBEXAAVSkillProfile_Modifiers@2@_N1@Z          PET ?EndOfPathReached@ControllerAI@GAME@@UAEXXZ
+  slot 173 (+0x2b4)  MON ?GetSkillModifierData@Skill@GAME@@UBEXAAVSkillProfile_Modifiers@2@H_N11@Z   PET ?PathFailed@ControllerAI@GAME@@UAEXXZ
+  slot 174 (+0x2b8)  MON ?GetSkillModifierData@Skill@GAME@@UBEXAAVSkillProfile_Modifiers@2@_N@Z   PET ?LostSlot@ControllerAI@GAME@@UAEXXZ
+  slot 175 (+0x2bc)  MON ?GetSkillSecondaryModifierData@Skill@GAME@@UBEXAAVSkillProfile_Modifiers@2@@Z   PET ?PickupItem@ControllerCharacter@GAME@@UAEXI@Z
+  slot 176 (+0x2c0)  MON ?GetSkillProjectileModifierData@Skill@GAME@@UBEXAAVSkillProfile_ProjectileModifiers@2@H_N11@Z   PET ?Teleport@ControllerCharacter@GAME@@UAEXABVWorldCoords@2@@Z
+  slot 177 (+0x2c4)  MON ?GetSkillProjectileModifierData@Skill@GAME@@UBEXAAVSkillProfile_ProjectileModifiers@2@_N1@Z   PET ?ProjectileNotification@ControllerAI@GAME@@UAEXI@Z
+  slot 178 (+0x2c8)  MON ?GetProjectileName@Skill@GAME@@UBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?ProjectileCollisionCallback@ControllerAI@GAME@@UAEXABUProjectileInfo@2@ABUCollisionData@2@@Z
+  slot 179 (+0x2cc)  MON ?GetProjectileFragmentsName@Skill@GAME@@UBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?ProjectileResultCallback@ControllerAI@GAME@@UAEXIABVEntity@2@@Z
+  slot 180 (+0x2d0)  MON ?AddProjectileModifier@Skill@GAME@@UBEXPAVProjectileBase@2@@Z            PET ?GetClosestMovePoint@ControllerBaseCharacter@GAME@@UAE?AVWorldVec3@2@ABV32@@Z
+  slot 181 (+0x2d4)  MON ?AddProjectileEffects@SkillActivated@GAME@@UBEXPAVProjectileBase@2@@Z    PET ?CharacterHandlerUpdate@ControllerBaseCharacter@GAME@@MAEXH@Z
+  slot 182 (+0x2d8)  MON ?GetId@CursorHandler@GAME@@UAEIXZ                                        PET ?CheckAction@ControllerBaseCharacter@GAME@@MBE?AW4CharacterActionPermission@2@PAVCharacterAction@2@@Z
+  slot 183 (+0x2dc)  MON ?PlaySwipeSound@Skill@GAME@@UBEXABVWorldVec3@2@@Z                        PET ?SetLevel@LootBase@GAME@@UAEXII@Z
+  slot 184 (+0x2e0)  MON ?PlayHitSound@Skill@GAME@@UBEXABVWorldVec3@2@@Z                          PET ?CreateItemInInventory@ControllerCharacter@GAME@@UAEPAVItem@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  slot 185 (+0x2e4)  MON ?PlaySkillSound1@Skill@GAME@@UBEXABVWorldVec3@2@@Z                       PET ?IsActive@Skill@GAME@@UBE_NXZ
+  slot 186 (+0x2e8)  MON ?PlaySkillSound2@Skill@GAME@@UBEXABVWorldVec3@2@@Z                       PET ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  slot 187 (+0x2ec)  MON ?PlayWeaponSwipeSound@Skill@GAME@@UAEXAAVCharacter@2@ABVName@2@@Z        PET ?StunMe@ControllerAI@GAME@@UAEXH@Z
+  slot 188 (+0x2f0)  MON ?ParticleEffect1@Skill@GAME@@UAEXAAVCharacter@2@_N@Z                     PET ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  slot 189 (+0x2f4)  MON ?ParticleEffect2@Skill@GAME@@UAEXAAVCharacter@2@_N@Z                     PET ?SetLevel@LootBase@GAME@@UAEXII@Z
+  slot 190 (+0x2f8)  MON ?ParticleEffect3@Skill@GAME@@UAEXAAVCharacter@2@_N@Z                     PET ?KillMe@ControllerCombat@GAME@@UAEX_N@Z
+  slot 191 (+0x2fc)  MON ?GetParticleEffect1@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?SetLevel@LootBase@GAME@@UAEXII@Z
+  slot 192 (+0x300)  MON ?GetParticleEffect2@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 193 (+0x304)  MON ?GetParticleEffect3@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 194 (+0x308)  MON ?GetParticleEffectAttach1@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 195 (+0x30c)  MON ?GetParticleEffectAttach2@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 196 (+0x310)  MON ?GetParticleEffectAttach3@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ   PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 197 (+0x314)  MON ?WarmUpEffect@Skill@GAME@@UAE_NAAVCharacter@2@_N@Z                       PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 198 (+0x318)  MON ?CreateTargetFx@Skill@GAME@@UAEXABVWorldCoords@2@_N@Z                    PET ?Stop@Fx@GAME@@UAEXXZ
+  slot 199 (+0x31c)  MON ?CreateWarmUpFx@Skill@GAME@@UAEXABVWorldCoords@2@@Z                      PET ?Stop@Fx@GAME@@UAEXXZ
+total differing slots in first 200: 126
+
+named slots:
+  +0x084 StunMe/+0x84       MON ?ScareMe@ControllerMonster@GAME@@UAEXIM@Z                        PET ?ScareMe@ControllerMonster@GAME@@UAEXIM@Z
+  +0x088 KnockMeDown/+0x88  MON ?KillMe@ControllerCombat@GAME@@UAEX_N@Z                          PET ?KillMe@ControllerCombat@GAME@@UAEX_N@Z
+  +0x08c Taunt/+0x8c        MON ?TauntMe@ControllerMonster@GAME@@UAEXMI@Z                        PET ?TauntMe@ControllerMonster@GAME@@UAEXMI@Z
+  +0x090 BeginStun          MON ?BeginStun@ControllerPlayer@GAME@@UAEXXZ                         PET ?BeginStun@ControllerPlayer@GAME@@UAEXXZ
+  +0x094 EndStun            MON ?EndStun@ControllerPlayer@GAME@@UAEXXZ                           PET ?EndStun@ControllerPlayer@GAME@@UAEXXZ
+  +0x0a8 BeginSleep         MON ?BeginSleep@ControllerPlayer@GAME@@UAEXXZ                        PET ?BeginSleep@ControllerPlayer@GAME@@UAEXXZ
+  +0x0ac EndSleep           MON ?EndSleep@ControllerPlayer@GAME@@UAEXXZ                          PET ?EndSleep@ControllerPlayer@GAME@@UAEXXZ
+  +0x0b0 BeginImmobilize    MON ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ                   PET ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ
+  +0x0b4 EndImmobilize      MON ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ                     PET ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ
+  +0x0b8 BeginTrap          MON ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ                         PET ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ
+  +0x0bc EndTrap            MON ?EndTrap@ControllerPlayer@GAME@@UAEXXZ                           PET ?EndTrap@ControllerPlayer@GAME@@UAEXXZ
+  +0x0c0 BeginKnockdown     MON ?BeginDeath@ControllerAI@GAME@@UAEXXZ                            PET ?BeginDeath@ControllerAI@GAME@@UAEXXZ
+  +0x0c4 EndKnockdown       MON ?UnderAttack@ControllerMonster@GAME@@UAEXI@Z                     PET ?UnderAttack@ControllerMonster@GAME@@UAEXI@Z
+  +0x3c4 Fear               MON ?IsComplete@Item@GAME@@UBE_NXZ                                   PET ?PathFailed@ControllerAI@GAME@@UAEXXZ
+  +0x3c8 Confusion          MON ?ReceiveStateUpdate@Skill@GAME@@UAEXABVSkillState@2@_N@Z         PET ?LostSlot@ControllerAI@GAME@@UAEXXZ
+  +0x3cc Taunt              MON ?ReceiveActiveUpdate@Skill@GAME@@UAEXAAVCharacter@2@ABVSkillActiveState@2@_N@Z PET ?PickupItem@ControllerCharacter@GAME@@UAEXI@Z

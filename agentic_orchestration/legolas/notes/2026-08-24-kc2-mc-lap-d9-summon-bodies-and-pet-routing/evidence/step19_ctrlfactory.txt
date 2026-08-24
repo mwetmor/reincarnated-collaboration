@@ -1,0 +1,43 @@
+=== b'ControllerPet\x00'     1 occurrences
+    file0x005241d0 rva=0x5255d0 sec=.rdata VA=0x105255d0
+         ref @ rva 0x00001d41  None
+
+=== b'ControllerMonster\x00' 1 occurrences
+    file0x00524120 rva=0x525520 sec=.rdata VA=0x10525520
+         ref @ rva 0x00001b01  None
+
+=== b'PetPlayerScaling\x00'  1 occurrences
+    file0x005249e0 rva=0x525de0 sec=.rdata VA=0x10525de0
+         ref @ rva 0x00003c41  None
+
+=== b'PetNonScaling\x00'     1 occurrences
+    file0x005249d0 rva=0x525dd0 sec=.rdata VA=0x10525dd0
+         ref @ rva 0x00003c01  None
+
+=== b'Pet\x00'               19 occurrences
+    file0x005241da rva=0x5255da sec=.rdata VA=0x105255da
+    file0x005249cc rva=0x525dcc sec=.rdata VA=0x10525dcc
+         ref @ rva 0x00003bc1  None
+    file0x00524da3 rva=0x5261a3 sec=.rdata VA=0x105261a3
+    file0x00524e14 rva=0x526214 sec=.rdata VA=0x10526214
+    file0x00524ef7 rva=0x5262f7 sec=.rdata VA=0x105262f7
+    file0x005254b7 rva=0x5268b7 sec=.rdata VA=0x105268b7
+    file0x005254e4 rva=0x5268e4 sec=.rdata VA=0x105268e4
+    file0x005254f7 rva=0x5268f7 sec=.rdata VA=0x105268f7
+    file0x0052550f rva=0x52690f sec=.rdata VA=0x1052690f
+    file0x00525ae0 rva=0x526ee0 sec=.rdata VA=0x10526ee0
+    file0x0055fb94 rva=0x560f94 sec=.rdata VA=0x10560f94
+    file0x00564bfe rva=0x565ffe sec=.rdata VA=0x10565ffe
+
+=== b'petAttributePak\x00'   1 occurrences
+    file0x0054e6e4 rva=0x54fae4 sec=.rdata VA=0x1054fae4
+         ref @ rva 0x002538bd  ?LoadFromDatabase@GameEngine@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x68cd
+
+=== b'controllerAggressive\x00' 1 occurrences
+    file0x0055fc84 rva=0x561084 sec=.rdata VA=0x10561084
+         ref @ rva 0x002d3aa2  ?Load@Monster@GAME@@UAEXABVLoadTable@2@@Z+0xa92
+
+=== b'controllerDefensive\x00' 1 occurrences
+    file0x0055fcf8 rva=0x5610f8 sec=.rdata VA=0x105610f8
+         ref @ rva 0x002d3af4  ?Load@Monster@GAME@@UAEXABVLoadTable@2@@Z+0xae4
+

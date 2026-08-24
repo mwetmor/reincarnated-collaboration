@@ -1,0 +1,1483 @@
+===============================================================================================
+=== RegisterStates@ControllerPet @ 0x000e8e90
+  0x000e8e90  jmp      0x100f87c0   ; -> ?RegisterStates@ControllerMonster@GAME@@MAEXXZ
+  0x000e8e95  int3     
+  0x000e8e96  int3     
+  0x000e8e97  int3     
+  0x000e8e98  int3     
+  0x000e8e99  int3     
+  0x000e8e9a  int3     
+  0x000e8e9b  int3     
+  0x000e8e9c  int3     
+  0x000e8e9d  int3     
+  0x000e8e9e  int3     
+  0x000e8e9f  int3     
+===============================================================================================
+=== RegisterTemporaryStates@ControllerPet @ 0x000e8ef0
+  0x000e8ef0  jmp      0x100f9510   ; -> ?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ
+  0x000e8ef5  int3     
+  0x000e8ef6  int3     
+  0x000e8ef7  int3     
+  0x000e8ef8  int3     
+  0x000e8ef9  int3     
+  0x000e8efa  int3     
+  0x000e8efb  int3     
+  0x000e8efc  int3     
+  0x000e8efd  int3     
+  0x000e8efe  int3     
+  0x000e8eff  int3     
+  0x000e8f00  mov      eax, 0x107fd158
+  0x000e8f05  ret      
+  0x000e8f06  int3     
+  0x000e8f07  int3     
+  0x000e8f08  int3     
+  0x000e8f09  int3     
+  0x000e8f0a  int3     
+  0x000e8f0b  int3     
+  0x000e8f0c  int3     
+  0x000e8f0d  int3     
+  0x000e8f0e  int3     
+  0x000e8f0f  int3     
+  0x000e8f10  push     ebp
+  0x000e8f11  mov      ebp, esp
+  0x000e8f13  mov      eax, dword ptr fs:[0]
+  0x000e8f19  push     -1
+  0x000e8f1b  push     0x104c0287
+  0x000e8f20  push     eax
+  0x000e8f21  mov      dword ptr fs:[0], esp
+  0x000e8f28  push     ebx
+  0x000e8f29  mov      ebx, dword ptr [ebp + 8]
+  0x000e8f2c  push     esi
+  0x000e8f2d  mov      esi, ecx
+  0x000e8f2f  push     edi
+  0x000e8f30  test     bl, 2
+  0x000e8f33  je       0x100e8f78
+  0x000e8f35  push     0x100e9b50
+  0x000e8f3a  push     dword ptr [esi - 4]
+  0x000e8f3d  lea      edi, [esi - 4]
+  0x000e8f40  push     0x3dc
+  0x000e8f45  push     esi
+  0x000e8f46  call     0x104be834   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b84
+  0x000e8f4b  test     bl, 1
+  0x000e8f4e  je       0x100e8f63
+  0x000e8f50  imul     ecx, dword ptr [edi], 0x3dc
+  0x000e8f56  add      ecx, 4
+  0x000e8f59  push     ecx
+  0x000e8f5a  push     edi
+  0x000e8f5b  call     0x104be826   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b76
+  0x000e8f60  add      esp, 8
+  0x000e8f63  mov      eax, edi
+  0x000e8f65  mov      ecx, dword ptr [ebp - 0xc]
+  0x000e8f68  mov      dword ptr fs:[0], ecx
+  0x000e8f6f  pop      edi
+  0x000e8f70  pop      esi
+  0x000e8f71  pop      ebx
+  0x000e8f72  mov      esp, ebp
+  0x000e8f74  pop      ebp
+  0x000e8f75  ret      4
+  0x000e8f78  mov      dword ptr [ebp - 4], 0
+  0x000e8f7f  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x000e8f84  mov      dword ptr [esi], 0x105ba8b8
+  0x000e8f8a  mov      dword ptr [esi + 0x24], 0x105d1f88
+  0x000e8f91  mov      dword ptr [esi + 0x28], 0x105d6628
+  0x000e8f98  mov      eax, dword ptr [eax]
+  0x000e8f9a  cmp      byte ptr [eax + 0x192], 0
+  0x000e8fa1  je       0x100e8fba
+  0x000e8fa3  mov      ecx, esi
+  0x000e8fa5  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000e8fab  push     eax
+  0x000e8fac  call     dword ptr [0x104e583c]   ; f32=1.16723e-38 i32=8329662 f64=2.76809e-306
+  0x000e8fb2  mov      ecx, eax
+  0x000e8fb4  call     dword ptr [0x104e5838]   ; f32=1.16723e-38 i32=8329612 f64=2.76804e-306
+  0x000e8fba  mov      ecx, esi
+  0x000e8fbc  call     dword ptr [0x104e537c]   ; f32=1.16494e-38 i32=8313282 f64=2.74583e-306
+  0x000e8fc2  test     bl, 1
+  0x000e8fc5  je       0x100e8fd5
+  0x000e8fc7  push     0x3dc
+  0x000e8fcc  push     esi
+  0x000e8fcd  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x000e8fd2  add      esp, 8
+  0x000e8fd5  mov      ecx, dword ptr [ebp - 0xc]
+  0x000e8fd8  mov      eax, esi
+  0x000e8fda  pop      edi
+  0x000e8fdb  pop      esi
+  0x000e8fdc  mov      dword ptr fs:[0], ecx
+  0x000e8fe3  pop      ebx
+  0x000e8fe4  mov      esp, ebp
+  0x000e8fe6  pop      ebp
+  0x000e8fe7  ret      4
+  0x000e8fea  int3     
+  0x000e8feb  int3     
+  0x000e8fec  int3     
+  0x000e8fed  int3     
+  0x000e8fee  int3     
+  0x000e8fef  int3     
+  0x000e8ff0  push     ebp
+  0x000e8ff1  mov      ebp, esp
+  0x000e8ff3  push     ecx
+  0x000e8ff4  push     esi
+  0x000e8ff5  mov      esi, ecx
+  0x000e8ff7  mov      dword ptr [ebp - 4], esi
+  0x000e8ffa  call     0x100f54f0   ; -> ??0ControllerMonster@GAME@@QAE@XZ
+  0x000e8fff  mov      dword ptr [esi], 0x105baaa4
+  0x000e9005  mov      eax, esi
+  0x000e9007  mov      dword ptr [esi + 0x288], 0x105c2490
+  0x000e9011  mov      dword ptr [esi + 0x6a0], 0
+  0x000e901b  mov      dword ptr [esi + 0x6a4], 0
+  0x000e9025  mov      dword ptr [esi + 0x6a8], 0
+  0x000e902f  mov      dword ptr [esi + 0x6ac], 0
+  0x000e9039  mov      byte ptr [esi + 0x6b0], 1
+  0x000e9040  mov      dword ptr [esi + 0x6b4], 0
+  0x000e904a  pop      esi
+  0x000e904b  mov      esp, ebp
+  0x000e904d  pop      ebp
+  0x000e904e  ret      
+  0x000e904f  int3     
+  0x000e9050  push     ebp
+  0x000e9051  mov      ebp, esp
+  0x000e9053  push     esi
+  0x000e9054  mov      esi, ecx
+  0x000e9056  call     0x100e9080   ; -> ?RegisterTemporaryStates@ControllerPet@GAME@@MAEXXZ+0x190
+  0x000e905b  test     byte ptr [ebp + 8], 1
+  0x000e905f  je       0x100e906f
+  0x000e9061  push     0x6b8
+  0x000e9066  push     esi
+  0x000e9067  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x000e906c  add      esp, 8
+  0x000e906f  mov      eax, esi
+  0x000e9071  pop      esi
+  0x000e9072  pop      ebp
+  0x000e9073  ret      4
+  0x000e9076  int3     
+  0x000e9077  int3     
+  0x000e9078  int3     
+  0x000e9079  int3     
+  0x000e907a  int3     
+  0x000e907b  int3     
+  0x000e907c  int3     
+  0x000e907d  int3     
+  0x000e907e  int3     
+  0x000e907f  int3     
+  0x000e9080  push     esi
+  0x000e9081  mov      esi, ecx
+  0x000e9083  mov      dword ptr [esi], 0x105baaa4
+  0x000e9089  mov      dword ptr [esi + 0x288], 0x105c2490
+  0x000e9093  mov      ecx, dword ptr [esi + 0x6a0]
+  0x000e9099  test     ecx, ecx
+  0x000e909b  je       0x100e90d0
+  0x000e909d  mov      edx, dword ptr [esi + 0x6a8]
+  0x000e90a3  sub      edx, ecx
+  0x000e90a5  push     0x10
+  0x000e90a7  sar      edx, 4
+  0x000e90aa  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000e90af  mov      dword ptr [esi + 0x6a0], 0
+  0x000e90b9  add      esp, 4
+  0x000e90bc  mov      dword ptr [esi + 0x6a4], 0
+  0x000e90c6  mov      dword ptr [esi + 0x6a8], 0
+  0x000e90d0  mov      ecx, esi
+  0x000e90d2  pop      esi
+  0x000e90d3  jmp      0x100f5ff0   ; -> ??1ControllerMonster@GAME@@UAE@XZ
+  0x000e90d8  int3     
+  0x000e90d9  int3     
+  0x000e90da  int3     
+  0x000e90db  int3     
+  0x000e90dc  int3     
+  0x000e90dd  int3     
+  0x000e90de  int3     
+  0x000e90df  int3     
+  0x000e90e0  push     ebp
+  0x000e90e1  mov      ebp, esp
+  0x000e90e3  and      esp, 0xfffffff8
+  0x000e90e6  push     ecx
+  0x000e90e7  push     esi
+  0x000e90e8  push     dword ptr [ebp + 8]
+  0x000e90eb  mov      esi, ecx
+  0x000e90ed  call     0x100f6200   ; -> ?Update@ControllerMonster@GAME@@UAEXH@Z
+  0x000e90f2  cmp      byte ptr [esi + 0x6b0], 0
+  0x000e90f9  je       0x100e9190
+  0x000e90ff  push     dword ptr [esi + 0x24]
+  0x000e9102  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000e9108  mov      ecx, eax
+  0x000e910a  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000e910f  movsd    xmm0, qword ptr [eax + 0xa38]
+  0x000e9117  maxsd    xmm0, qword ptr [0x105f5710]   ; f32=0 i32=0 f64=0
+  0x000e911f  mov      eax, dword ptr [esi + 0x6a4]
+  0x000e9125  sub      eax, dword ptr [esi + 0x6a0]
+  0x000e912b  sar      eax, 4
+  0x000e912e  sub      eax, dword ptr [esi + 0x6ac]
+  0x000e9134  cvtpd2ps xmm2, xmm0
+  0x000e9138  movd     xmm0, eax
+  0x000e913c  cvtdq2pd xmm0, xmm0
+  0x000e9140  shr      eax, 0x1f
+  0x000e9143  divss    xmm2, dword ptr [esi + 0x6b4]
+  0x000e914b  addsd    xmm0, qword ptr [eax*8 + 0x105f5ae0]
+  0x000e9154  mov      eax, dword ptr [esi + 0x6a4]
+  0x000e915a  sub      eax, dword ptr [esi + 0x6a0]
+  0x000e9160  sar      eax, 4
+  0x000e9163  inc      eax
+  0x000e9164  cvtpd2ps xmm1, xmm0
+  0x000e9168  movd     xmm0, eax
+  0x000e916c  cvtdq2pd xmm0, xmm0
+  0x000e9170  shr      eax, 0x1f
+  0x000e9173  addsd    xmm0, qword ptr [eax*8 + 0x105f5ae0]
+  0x000e917c  cvtpd2ps xmm0, xmm0
+  0x000e9180  divss    xmm1, xmm0
+  0x000e9184  comiss   xmm1, xmm2
+  0x000e9187  jbe      0x100e9190
+  0x000e9189  mov      ecx, esi
+  0x000e918b  call     0x100e95b0   ; -> ?Load@ControllerCerberus@GAME@@UAEXABVLoadTable@2@@Z+0x410
+  0x000e9190  pop      esi
+  0x000e9191  mov      esp, ebp
+  0x000e9193  pop      ebp
+  0x000e9194  ret      4
+  0x000e9197  int3     
+  0x000e9198  int3     
+  0x000e9199  int3     
+  0x000e919a  int3     
+  0x000e919b  int3     
+  0x000e919c  int3     
+  0x000e919d  int3     
+  0x000e919e  int3     
+  0x000e919f  int3     
+===============================================================================================
+=== RegisterStates@ControllerMonster @ 0x000f87c0
+  0x000f87c0  push     ebp
+  0x000f87c1  mov      ebp, esp
+  0x000f87c3  push     -1
+  0x000f87c5  push     0x104c812c
+  0x000f87ca  mov      eax, dword ptr fs:[0]
+  0x000f87d0  push     eax
+  0x000f87d1  mov      dword ptr fs:[0], esp
+  0x000f87d8  sub      esp, 0x34
+  0x000f87db  push     esi
+  0x000f87dc  push     edi
+  0x000f87dd  push     0x14
+  0x000f87df  mov      edi, ecx
+  0x000f87e1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f87e6  mov      esi, eax
+  0x000f87e8  lea      ecx, [ebp - 0x28]
+  0x000f87eb  add      esp, 4
+  0x000f87ee  mov      dword ptr [ebp - 0x10], esi
+  0x000f87f1  mov      dword ptr [esi + 4], edi
+  0x000f87f4  mov      dword ptr [esi + 8], 0
+  0x000f87fb  mov      byte ptr [esi + 0xc], 0
+  0x000f87ff  mov      dword ptr [esi], 0x105b748c
+  0x000f8805  mov      byte ptr [esi + 0x10], 0
+  0x000f8809  push     7
+  0x000f880b  push     0x1052c18c   ; "Startup"
+  0x000f8810  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8817  mov      dword ptr [ebp - 0x18], 0
+  0x000f881e  mov      byte ptr [ebp - 0x28], 0
+  0x000f8822  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8827  push     esi
+  0x000f8828  lea      eax, [ebp - 0x28]
+  0x000f882b  mov      dword ptr [ebp - 4], 0
+  0x000f8832  push     eax
+  0x000f8833  mov      ecx, edi
+  0x000f8835  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f883a  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8841  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8844  cmp      edx, 0x10
+  0x000f8847  jb       0x100f8857
+  0x000f8849  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f884c  inc      edx
+  0x000f884d  push     1
+  0x000f884f  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8854  add      esp, 4
+  0x000f8857  push     0x14
+  0x000f8859  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f885e  mov      esi, eax
+  0x000f8860  lea      ecx, [ebp - 0x28]
+  0x000f8863  add      esp, 4
+  0x000f8866  mov      dword ptr [ebp - 0x10], esi
+  0x000f8869  mov      dword ptr [esi + 4], edi
+  0x000f886c  mov      dword ptr [esi + 8], 0
+  0x000f8873  mov      byte ptr [esi + 0xc], 0
+  0x000f8877  mov      dword ptr [esi], 0x105b735c
+  0x000f887d  mov      dword ptr [esi + 0x10], 0
+  0x000f8884  push     4
+  0x000f8886  push     0x1052c184   ; "Idle"
+  0x000f888b  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8892  mov      dword ptr [ebp - 0x18], 0
+  0x000f8899  mov      byte ptr [ebp - 0x28], 0
+  0x000f889d  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f88a2  push     esi
+  0x000f88a3  lea      eax, [ebp - 0x28]
+  0x000f88a6  mov      dword ptr [ebp - 4], 1
+  0x000f88ad  push     eax
+  0x000f88ae  mov      ecx, edi
+  0x000f88b0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f88b5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f88bc  mov      edx, dword ptr [ebp - 0x14]
+  0x000f88bf  cmp      edx, 0x10
+  0x000f88c2  jb       0x100f88d2
+  0x000f88c4  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f88c7  inc      edx
+  0x000f88c8  push     1
+  0x000f88ca  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f88cf  add      esp, 4
+  0x000f88d2  push     0x30
+  0x000f88d4  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f88d9  mov      esi, eax
+  0x000f88db  add      esp, 4
+  0x000f88de  mov      dword ptr [ebp - 0x10], esi
+  0x000f88e1  mov      dword ptr [ebp - 4], 2
+  0x000f88e8  mov      dword ptr [esi + 4], edi
+  0x000f88eb  mov      dword ptr [esi + 8], 0
+  0x000f88f2  mov      byte ptr [esi + 0xc], 0
+  0x000f88f6  mov      byte ptr [ebp - 4], 3
+  0x000f88fa  lea      ecx, [esi + 0x20]
+  0x000f88fd  mov      dword ptr [esi], 0x105b722c
+  0x000f8903  mov      dword ptr [esi + 0x10], 0
+  0x000f890a  mov      dword ptr [esi + 0x18], 0
+  0x000f8911  mov      word ptr [esi + 0x1c], 0
+  0x000f8917  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f891d  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8924  lea      ecx, [ebp - 0x28]
+  0x000f8927  push     6
+  0x000f8929  push     0x1052c19c   ; "Pursue"
+  0x000f892e  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8935  mov      dword ptr [ebp - 0x18], 0
+  0x000f893c  mov      byte ptr [ebp - 0x28], 0
+  0x000f8940  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8945  push     esi
+  0x000f8946  lea      eax, [ebp - 0x28]
+  0x000f8949  mov      dword ptr [ebp - 4], 4
+  0x000f8950  push     eax
+  0x000f8951  mov      ecx, edi
+  0x000f8953  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8958  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f895f  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8962  cmp      edx, 0x10
+  0x000f8965  jb       0x100f8975
+  0x000f8967  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f896a  inc      edx
+  0x000f896b  push     1
+  0x000f896d  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8972  add      esp, 4
+  0x000f8975  push     0x1c
+  0x000f8977  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f897c  mov      esi, eax
+  0x000f897e  lea      ecx, [ebp - 0x28]
+  0x000f8981  mov      dword ptr [ebp - 0x10], esi
+  0x000f8984  add      esp, 4
+  0x000f8987  mov      dword ptr [esi + 4], edi
+  0x000f898a  mov      dword ptr [esi + 8], 0
+  0x000f8991  mov      byte ptr [esi + 0xc], 0
+  0x000f8995  mov      dword ptr [esi], 0x105b6fcc
+  0x000f899b  mov      dword ptr [esi + 0x10], 0x2710
+  0x000f89a2  mov      word ptr [esi + 0x14], 0
+  0x000f89a8  mov      word ptr [esi + 0x17], 0
+  0x000f89ae  push     6
+  0x000f89b0  push     0x1052c194   ; "Attack"
+  0x000f89b5  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f89bc  mov      dword ptr [ebp - 0x18], 0
+  0x000f89c3  mov      byte ptr [ebp - 0x28], 0
+  0x000f89c7  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f89cc  push     esi
+  0x000f89cd  lea      eax, [ebp - 0x28]
+  0x000f89d0  mov      dword ptr [ebp - 4], 5
+  0x000f89d7  push     eax
+  0x000f89d8  mov      ecx, edi
+  0x000f89da  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f89df  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f89e6  mov      edx, dword ptr [ebp - 0x14]
+  0x000f89e9  cmp      edx, 0x10
+  0x000f89ec  jb       0x100f89fc
+  0x000f89ee  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f89f1  inc      edx
+  0x000f89f2  push     1
+  0x000f89f4  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f89f9  add      esp, 4
+  0x000f89fc  push     0x10
+  0x000f89fe  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8a03  mov      esi, eax
+  0x000f8a05  lea      ecx, [ebp - 0x28]
+  0x000f8a08  add      esp, 4
+  0x000f8a0b  mov      dword ptr [ebp - 0x10], esi
+  0x000f8a0e  mov      dword ptr [esi + 4], edi
+  0x000f8a11  mov      dword ptr [esi + 8], 0
+  0x000f8a18  mov      byte ptr [esi + 0xc], 0
+  0x000f8a1c  mov      dword ptr [esi], 0x105b6e9c
+  0x000f8a22  push     0xa
+  0x000f8a24  push     0x1052c1b8   ; "JumpAttack"
+  0x000f8a29  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8a30  mov      dword ptr [ebp - 0x18], 0
+  0x000f8a37  mov      byte ptr [ebp - 0x28], 0
+  0x000f8a3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8a40  push     esi
+  0x000f8a41  lea      eax, [ebp - 0x28]
+  0x000f8a44  mov      dword ptr [ebp - 4], 6
+  0x000f8a4b  push     eax
+  0x000f8a4c  mov      ecx, edi
+  0x000f8a4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8a53  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8a5a  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8a5d  cmp      edx, 0x10
+  0x000f8a60  jb       0x100f8a70
+  0x000f8a62  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f8a65  inc      edx
+  0x000f8a66  push     1
+  0x000f8a68  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8a6d  add      esp, 4
+  0x000f8a70  push     0x20
+  0x000f8a72  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8a77  mov      esi, eax
+  0x000f8a79  lea      ecx, [ebp - 0x28]
+  0x000f8a7c  mov      dword ptr [ebp - 0x10], esi
+  0x000f8a7f  add      esp, 4
+  0x000f8a82  mov      dword ptr [esi + 4], edi
+  0x000f8a85  mov      dword ptr [esi + 8], 0
+  0x000f8a8c  mov      byte ptr [esi + 0xc], 0
+  0x000f8a90  mov      dword ptr [esi], 0x105b6d6c
+  0x000f8a96  mov      dword ptr [esi + 0x1c], 0
+  0x000f8a9d  mov      byte ptr [esi + 0x18], 0
+  0x000f8aa1  push     0x13
+  0x000f8aa3  push     0x1052c1a4   ; "RepositionForAttack"
+  0x000f8aa8  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8aaf  mov      dword ptr [ebp - 0x18], 0
+  0x000f8ab6  mov      byte ptr [ebp - 0x28], 0
+  0x000f8aba  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8abf  push     esi
+  0x000f8ac0  lea      eax, [ebp - 0x28]
+  0x000f8ac3  mov      dword ptr [ebp - 4], 7
+  0x000f8aca  push     eax
+  0x000f8acb  mov      ecx, edi
+  0x000f8acd  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ad2  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8ad9  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8adc  cmp      edx, 0x10
+  0x000f8adf  jb       0x100f8aef
+  0x000f8ae1  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f8ae4  inc      edx
+  0x000f8ae5  push     1
+  0x000f8ae7  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8aec  add      esp, 4
+  0x000f8aef  push     0x18
+  0x000f8af1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8af6  mov      esi, eax
+  0x000f8af8  lea      ecx, [ebp - 0x28]
+  0x000f8afb  mov      dword ptr [ebp - 0x10], esi
+  0x000f8afe  add      esp, 4
+  0x000f8b01  mov      dword ptr [esi + 4], edi
+  0x000f8b04  mov      dword ptr [esi + 8], 0
+  0x000f8b0b  mov      byte ptr [esi + 0xc], 0
+  0x000f8b0f  mov      dword ptr [esi], 0x105b6c3c
+  0x000f8b15  mov      dword ptr [esi + 0x10], 0
+  0x000f8b1c  mov      word ptr [esi + 0x14], 0
+  0x000f8b22  push     4
+  0x000f8b24  push     0x1052c1cc   ; "Flee"
+  0x000f8b29  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8b30  mov      dword ptr [ebp - 0x18], 0
+  0x000f8b37  mov      byte ptr [ebp - 0x28], 0
+  0x000f8b3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8b40  push     esi
+  0x000f8b41  lea      eax, [ebp - 0x28]
+  0x000f8b44  mov      dword ptr [ebp - 4], 8
+  0x000f8b4b  push     eax
+  0x000f8b4c  mov      ecx, edi
+  0x000f8b4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8b53  lea      ecx, [ebp - 0x28]
+  0x000f8b56  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8b5d  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8b62  push     0x10
+  0x000f8b64  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8b69  mov      esi, eax
+  0x000f8b6b  lea      ecx, [ebp - 0x28]
+  0x000f8b6e  add      esp, 4
+  0x000f8b71  mov      dword ptr [ebp - 0x10], esi
+  0x000f8b74  mov      dword ptr [esi + 4], edi
+  0x000f8b77  push     0x1052c1c4   ; "Roam"
+  0x000f8b7c  mov      dword ptr [esi + 8], 0
+  0x000f8b83  mov      byte ptr [esi + 0xc], 0
+  0x000f8b87  mov      dword ptr [esi], 0x105b6b0c
+  0x000f8b8d  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8b92  push     esi
+  0x000f8b93  lea      eax, [ebp - 0x28]
+  0x000f8b96  mov      dword ptr [ebp - 4], 9
+  0x000f8b9d  push     eax
+  0x000f8b9e  mov      ecx, edi
+  0x000f8ba0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ba5  lea      ecx, [ebp - 0x28]
+  0x000f8ba8  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8baf  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8bb4  push     0x10
+  0x000f8bb6  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8bbb  mov      esi, eax
+  0x000f8bbd  lea      ecx, [ebp - 0x28]
+  0x000f8bc0  add      esp, 4
+  0x000f8bc3  mov      dword ptr [ebp - 0x10], esi
+  0x000f8bc6  mov      dword ptr [esi + 4], edi
+  0x000f8bc9  push     0x1052c1e0   ; "Wander"
+  0x000f8bce  mov      dword ptr [esi + 8], 0
+  0x000f8bd5  mov      byte ptr [esi + 0xc], 0
+  0x000f8bd9  mov      dword ptr [esi], 0x105b69dc
+  0x000f8bdf  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8be4  push     esi
+  0x000f8be5  lea      eax, [ebp - 0x28]
+  0x000f8be8  mov      dword ptr [ebp - 4], 0xa
+  0x000f8bef  push     eax
+  0x000f8bf0  mov      ecx, edi
+  0x000f8bf2  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8bf7  lea      ecx, [ebp - 0x28]
+  0x000f8bfa  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8c01  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c06  push     0x14
+  0x000f8c08  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c0d  mov      esi, eax
+  0x000f8c0f  add      esp, 4
+  0x000f8c12  mov      dword ptr [ebp - 0x10], esi
+  0x000f8c15  mov      dword ptr [esi + 4], edi
+  0x000f8c18  mov      dword ptr [esi + 8], 0
+  0x000f8c1f  mov      byte ptr [esi + 0xc], 0
+  0x000f8c23  mov      dword ptr [esi], 0x105b68ac
+  0x000f8c29  push     0x1052c1d4   ; "WanderPause"
+  0x000f8c2e  lea      ecx, [ebp - 0x28]
+  0x000f8c31  mov      dword ptr [esi + 0x10], 0
+  0x000f8c38  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c3d  push     esi
+  0x000f8c3e  lea      eax, [ebp - 0x28]
+  0x000f8c41  mov      dword ptr [ebp - 4], 0xb
+  0x000f8c48  push     eax
+  0x000f8c49  mov      ecx, edi
+  0x000f8c4b  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8c50  lea      ecx, [ebp - 0x28]
+  0x000f8c53  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8c5a  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c5f  push     0x10
+  0x000f8c61  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c66  mov      esi, eax
+  0x000f8c68  lea      ecx, [ebp - 0x28]
+  0x000f8c6b  add      esp, 4
+  0x000f8c6e  mov      dword ptr [ebp - 0x10], esi
+  0x000f8c71  mov      dword ptr [esi + 4], edi
+  0x000f8c74  push     0x1052c1f0   ; "Return"
+  0x000f8c79  mov      dword ptr [esi + 8], 0
+  0x000f8c80  mov      byte ptr [esi + 0xc], 0
+  0x000f8c84  mov      dword ptr [esi], 0x105b6644
+  0x000f8c8a  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c8f  push     esi
+  0x000f8c90  lea      eax, [ebp - 0x28]
+  0x000f8c93  mov      dword ptr [ebp - 4], 0xc
+  0x000f8c9a  push     eax
+  0x000f8c9b  mov      ecx, edi
+  0x000f8c9d  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ca2  lea      ecx, [ebp - 0x28]
+  0x000f8ca5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8cac  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8cb1  push     0x18
+  0x000f8cb3  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8cb8  add      esp, 4
+  0x000f8cbb  mov      dword ptr [ebp - 0x10], eax
+  0x000f8cbe  push     edi
+  0x000f8cbf  mov      ecx, eax
+  0x000f8cc1  mov      dword ptr [ebp - 4], 0xd
+  0x000f8cc8  call     0x10105880   ; -> ??0ControllerMonsterStateDying@GAME@@QAE@PAVControllerMonster@1@@Z
+  0x000f8ccd  push     0x1052c1e8   ; "Dying"
+  0x000f8cd2  lea      ecx, [ebp - 0x28]
+  0x000f8cd5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8cdc  mov      esi, eax
+  0x000f8cde  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8ce3  push     esi
+  0x000f8ce4  lea      eax, [ebp - 0x28]
+  0x000f8ce7  mov      dword ptr [ebp - 4], 0xe
+  0x000f8cee  push     eax
+  0x000f8cef  mov      ecx, edi
+  0x000f8cf1  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8cf6  lea      ecx, [ebp - 0x28]
+  0x000f8cf9  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8d00  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d05  push     0x10
+  0x000f8d07  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d0c  mov      esi, eax
+  0x000f8d0e  lea      ecx, [ebp - 0x28]
+  0x000f8d11  add      esp, 4
+  0x000f8d14  mov      dword ptr [ebp - 0x10], esi
+  0x000f8d17  mov      dword ptr [esi + 4], edi
+  0x000f8d1a  push     0x1052c208   ; "Dead"
+  0x000f8d1f  mov      dword ptr [esi + 8], 0
+  0x000f8d26  mov      byte ptr [esi + 0xc], 0
+  0x000f8d2a  mov      dword ptr [esi], 0x105b6184
+  0x000f8d30  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d35  push     esi
+  0x000f8d36  lea      eax, [ebp - 0x28]
+  0x000f8d39  mov      dword ptr [ebp - 4], 0xf
+  0x000f8d40  push     eax
+  0x000f8d41  mov      ecx, edi
+  0x000f8d43  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d48  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8d4f  lea      ecx, [ebp - 0x28]
+  0x000f8d52  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d57  push     0x14
+  0x000f8d59  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d5e  mov      esi, eax
+  0x000f8d60  lea      ecx, [ebp - 0x28]
+  0x000f8d63  add      esp, 4
+  0x000f8d66  mov      dword ptr [ebp - 0x10], esi
+  0x000f8d69  mov      dword ptr [esi + 4], edi
+  0x000f8d6c  push     0x1052c1f8   ; "FollowLeader"
+  0x000f8d71  mov      dword ptr [esi + 8], 0
+  0x000f8d78  mov      byte ptr [esi + 0xc], 0
+  0x000f8d7c  mov      dword ptr [esi], 0x105b6054
+  0x000f8d82  mov      byte ptr [esi + 0x10], 0
+  0x000f8d86  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d8b  push     esi
+  0x000f8d8c  lea      eax, [ebp - 0x28]
+  0x000f8d8f  mov      dword ptr [ebp - 4], 0x10
+  0x000f8d96  push     eax
+  0x000f8d97  mov      ecx, edi
+  0x000f8d99  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d9e  lea      ecx, [ebp - 0x28]
+  0x000f8da1  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8da8  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8dad  push     0x18
+  0x000f8daf  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8db4  mov      esi, eax
+  0x000f8db6  lea      ecx, [ebp - 0x28]
+  0x000f8db9  add      esp, 4
+  0x000f8dbc  mov      dword ptr [ebp - 0x10], esi
+  0x000f8dbf  mov      dword ptr [esi + 4], edi
+  0x000f8dc2  push     0x1052c224   ; "DefendLeader"
+  0x000f8dc7  mov      dword ptr [esi + 8], 0
+  0x000f8dce  mov      byte ptr [esi + 0xc], 0
+  0x000f8dd2  mov      dword ptr [esi], 0x105b5f24
+===============================================================================================
+=== ControllerPet::RegisterStates  0x000e8e90..0x000e8ef0
+  0x000e8e90  jmp      0x100f87c0   ; -> ?RegisterStates@ControllerMonster@GAME@@MAEXXZ
+  0x000e8e95  int3     
+  0x000e8e96  int3     
+  0x000e8e97  int3     
+  0x000e8e98  int3     
+  0x000e8e99  int3     
+  0x000e8e9a  int3     
+  0x000e8e9b  int3     
+  0x000e8e9c  int3     
+  0x000e8e9d  int3     
+  0x000e8e9e  int3     
+  0x000e8e9f  int3     
+  0x000e8ea0  push     ebp
+  0x000e8ea1  mov      ebp, esp
+  0x000e8ea3  push     ecx
+  0x000e8ea4  push     esi
+  0x000e8ea5  mov      esi, ecx
+  0x000e8ea7  mov      dword ptr [ebp - 4], esi
+  0x000e8eaa  call     0x100f54f0   ; -> ??0ControllerMonster@GAME@@QAE@XZ
+  0x000e8eaf  mov      dword ptr [esi], 0x105b7bc4
+  0x000e8eb5  mov      eax, esi
+  0x000e8eb7  mov      dword ptr [esi + 0x288], 0x105c2490
+  0x000e8ec1  pop      esi
+  0x000e8ec2  mov      esp, ebp
+  0x000e8ec4  pop      ebp
+  0x000e8ec5  ret      
+  0x000e8ec6  int3     
+  0x000e8ec7  int3     
+  0x000e8ec8  int3     
+  0x000e8ec9  int3     
+  0x000e8eca  int3     
+  0x000e8ecb  int3     
+  0x000e8ecc  int3     
+  0x000e8ecd  int3     
+  0x000e8ece  int3     
+  0x000e8ecf  int3     
+  0x000e8ed0  mov      dword ptr [ecx], 0x105b7bc4
+  0x000e8ed6  mov      dword ptr [ecx + 0x288], 0x105c2490
+  0x000e8ee0  jmp      0x100f5ff0   ; -> ??1ControllerMonster@GAME@@UAE@XZ
+  0x000e8ee5  int3     
+  0x000e8ee6  int3     
+  0x000e8ee7  int3     
+  0x000e8ee8  int3     
+  0x000e8ee9  int3     
+  0x000e8eea  int3     
+  0x000e8eeb  int3     
+  0x000e8eec  int3     
+  0x000e8eed  int3     
+  0x000e8eee  int3     
+  0x000e8eef  int3     
+===============================================================================================
+=== ControllerPet::RegisterTemporaryStates  0x000e8ef0..0x000e8fb0
+  0x000e8ef0  jmp      0x100f9510   ; -> ?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ
+  0x000e8ef5  int3     
+  0x000e8ef6  int3     
+  0x000e8ef7  int3     
+  0x000e8ef8  int3     
+  0x000e8ef9  int3     
+  0x000e8efa  int3     
+  0x000e8efb  int3     
+  0x000e8efc  int3     
+  0x000e8efd  int3     
+  0x000e8efe  int3     
+  0x000e8eff  int3     
+  0x000e8f00  mov      eax, 0x107fd158
+  0x000e8f05  ret      
+  0x000e8f06  int3     
+  0x000e8f07  int3     
+  0x000e8f08  int3     
+  0x000e8f09  int3     
+  0x000e8f0a  int3     
+  0x000e8f0b  int3     
+  0x000e8f0c  int3     
+  0x000e8f0d  int3     
+  0x000e8f0e  int3     
+  0x000e8f0f  int3     
+  0x000e8f10  push     ebp
+  0x000e8f11  mov      ebp, esp
+  0x000e8f13  mov      eax, dword ptr fs:[0]
+  0x000e8f19  push     -1
+  0x000e8f1b  push     0x104c0287
+  0x000e8f20  push     eax
+  0x000e8f21  mov      dword ptr fs:[0], esp
+  0x000e8f28  push     ebx
+  0x000e8f29  mov      ebx, dword ptr [ebp + 8]
+  0x000e8f2c  push     esi
+  0x000e8f2d  mov      esi, ecx
+  0x000e8f2f  push     edi
+  0x000e8f30  test     bl, 2
+  0x000e8f33  je       0x100e8f78
+  0x000e8f35  push     0x100e9b50
+  0x000e8f3a  push     dword ptr [esi - 4]
+  0x000e8f3d  lea      edi, [esi - 4]
+  0x000e8f40  push     0x3dc
+  0x000e8f45  push     esi
+  0x000e8f46  call     0x104be834   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b84
+  0x000e8f4b  test     bl, 1
+  0x000e8f4e  je       0x100e8f63
+  0x000e8f50  imul     ecx, dword ptr [edi], 0x3dc
+  0x000e8f56  add      ecx, 4
+  0x000e8f59  push     ecx
+  0x000e8f5a  push     edi
+  0x000e8f5b  call     0x104be826   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b76
+  0x000e8f60  add      esp, 8
+  0x000e8f63  mov      eax, edi
+  0x000e8f65  mov      ecx, dword ptr [ebp - 0xc]
+  0x000e8f68  mov      dword ptr fs:[0], ecx
+  0x000e8f6f  pop      edi
+  0x000e8f70  pop      esi
+  0x000e8f71  pop      ebx
+  0x000e8f72  mov      esp, ebp
+  0x000e8f74  pop      ebp
+  0x000e8f75  ret      4
+  0x000e8f78  mov      dword ptr [ebp - 4], 0
+  0x000e8f7f  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x000e8f84  mov      dword ptr [esi], 0x105ba8b8
+  0x000e8f8a  mov      dword ptr [esi + 0x24], 0x105d1f88
+  0x000e8f91  mov      dword ptr [esi + 0x28], 0x105d6628
+  0x000e8f98  mov      eax, dword ptr [eax]
+  0x000e8f9a  cmp      byte ptr [eax + 0x192], 0
+  0x000e8fa1  je       0x100e8fba
+  0x000e8fa3  mov      ecx, esi
+  0x000e8fa5  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000e8fab  push     eax
+  0x000e8fac  call     dword ptr [0x104e583c]   ; f32=1.16723e-38 i32=8329662 f64=2.76809e-306
+===============================================================================================
+=== ControllerMonster::RegisterStates(full)  0x000f8780..0x000f9000
+  0x000f8780  enter    0x3ae8, 0x29
+  0x000f8784  int1     
+  0x000f8785  dec      dword ptr [ebx - 0xef7438]
+  0x000f878b  xchg     edx, eax
+  0x000f878c  add      al, 0
+  0x000f878f  add      byte ptr [eax - 1], dl
+  0x000f8792  xlatb    
+  0x000f8793  mov      ecx, eax
+  0x000f8795  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000f879a  test     eax, eax
+  0x000f879c  jne      0x100f873c
+  0x000f879e  push     dword ptr [esi + 0x24]
+  0x000f87a1  call     edi
+  0x000f87a3  mov      ecx, eax
+  0x000f87a5  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f87aa  pop      edi
+  0x000f87ab  pop      esi
+  0x000f87ac  movups   xmm0, xmmword ptr [eax + 0x9b4]
+  0x000f87b3  mov      eax, dword ptr [ebp + 8]
+  0x000f87b6  movups   xmmword ptr [eax], xmm0
+  0x000f87b9  pop      ebp
+  0x000f87ba  ret      4
+  0x000f87bd  int3     
+  0x000f87be  int3     
+  0x000f87bf  int3     
+  0x000f87c0  push     ebp
+  0x000f87c1  mov      ebp, esp
+  0x000f87c3  push     -1
+  0x000f87c5  push     0x104c812c
+  0x000f87ca  mov      eax, dword ptr fs:[0]
+  0x000f87d0  push     eax
+  0x000f87d1  mov      dword ptr fs:[0], esp
+  0x000f87d8  sub      esp, 0x34
+  0x000f87db  push     esi
+  0x000f87dc  push     edi
+  0x000f87dd  push     0x14
+  0x000f87df  mov      edi, ecx
+  0x000f87e1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f87e6  mov      esi, eax
+  0x000f87e8  lea      ecx, [ebp - 0x28]
+  0x000f87eb  add      esp, 4
+  0x000f87ee  mov      dword ptr [ebp - 0x10], esi
+  0x000f87f1  mov      dword ptr [esi + 4], edi
+  0x000f87f4  mov      dword ptr [esi + 8], 0
+  0x000f87fb  mov      byte ptr [esi + 0xc], 0
+  0x000f87ff  mov      dword ptr [esi], 0x105b748c
+  0x000f8805  mov      byte ptr [esi + 0x10], 0
+  0x000f8809  push     7
+  0x000f880b  push     0x1052c18c   ; "Startup"
+  0x000f8810  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8817  mov      dword ptr [ebp - 0x18], 0
+  0x000f881e  mov      byte ptr [ebp - 0x28], 0
+  0x000f8822  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8827  push     esi
+  0x000f8828  lea      eax, [ebp - 0x28]
+  0x000f882b  mov      dword ptr [ebp - 4], 0
+  0x000f8832  push     eax
+  0x000f8833  mov      ecx, edi
+  0x000f8835  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f883a  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8841  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8844  cmp      edx, 0x10
+  0x000f8847  jb       0x100f8857
+  0x000f8849  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f884c  inc      edx
+  0x000f884d  push     1
+  0x000f884f  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8854  add      esp, 4
+  0x000f8857  push     0x14
+  0x000f8859  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f885e  mov      esi, eax
+  0x000f8860  lea      ecx, [ebp - 0x28]
+  0x000f8863  add      esp, 4
+  0x000f8866  mov      dword ptr [ebp - 0x10], esi
+  0x000f8869  mov      dword ptr [esi + 4], edi
+  0x000f886c  mov      dword ptr [esi + 8], 0
+  0x000f8873  mov      byte ptr [esi + 0xc], 0
+  0x000f8877  mov      dword ptr [esi], 0x105b735c
+  0x000f887d  mov      dword ptr [esi + 0x10], 0
+  0x000f8884  push     4
+  0x000f8886  push     0x1052c184   ; "Idle"
+  0x000f888b  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8892  mov      dword ptr [ebp - 0x18], 0
+  0x000f8899  mov      byte ptr [ebp - 0x28], 0
+  0x000f889d  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f88a2  push     esi
+  0x000f88a3  lea      eax, [ebp - 0x28]
+  0x000f88a6  mov      dword ptr [ebp - 4], 1
+  0x000f88ad  push     eax
+  0x000f88ae  mov      ecx, edi
+  0x000f88b0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f88b5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f88bc  mov      edx, dword ptr [ebp - 0x14]
+  0x000f88bf  cmp      edx, 0x10
+  0x000f88c2  jb       0x100f88d2
+  0x000f88c4  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f88c7  inc      edx
+  0x000f88c8  push     1
+  0x000f88ca  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f88cf  add      esp, 4
+  0x000f88d2  push     0x30
+  0x000f88d4  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f88d9  mov      esi, eax
+  0x000f88db  add      esp, 4
+  0x000f88de  mov      dword ptr [ebp - 0x10], esi
+  0x000f88e1  mov      dword ptr [ebp - 4], 2
+  0x000f88e8  mov      dword ptr [esi + 4], edi
+  0x000f88eb  mov      dword ptr [esi + 8], 0
+  0x000f88f2  mov      byte ptr [esi + 0xc], 0
+  0x000f88f6  mov      byte ptr [ebp - 4], 3
+  0x000f88fa  lea      ecx, [esi + 0x20]
+  0x000f88fd  mov      dword ptr [esi], 0x105b722c
+  0x000f8903  mov      dword ptr [esi + 0x10], 0
+  0x000f890a  mov      dword ptr [esi + 0x18], 0
+  0x000f8911  mov      word ptr [esi + 0x1c], 0
+  0x000f8917  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f891d  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8924  lea      ecx, [ebp - 0x28]
+  0x000f8927  push     6
+  0x000f8929  push     0x1052c19c   ; "Pursue"
+  0x000f892e  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8935  mov      dword ptr [ebp - 0x18], 0
+  0x000f893c  mov      byte ptr [ebp - 0x28], 0
+  0x000f8940  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8945  push     esi
+  0x000f8946  lea      eax, [ebp - 0x28]
+  0x000f8949  mov      dword ptr [ebp - 4], 4
+  0x000f8950  push     eax
+  0x000f8951  mov      ecx, edi
+  0x000f8953  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8958  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f895f  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8962  cmp      edx, 0x10
+  0x000f8965  jb       0x100f8975
+  0x000f8967  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f896a  inc      edx
+  0x000f896b  push     1
+  0x000f896d  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8972  add      esp, 4
+  0x000f8975  push     0x1c
+  0x000f8977  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f897c  mov      esi, eax
+  0x000f897e  lea      ecx, [ebp - 0x28]
+  0x000f8981  mov      dword ptr [ebp - 0x10], esi
+  0x000f8984  add      esp, 4
+  0x000f8987  mov      dword ptr [esi + 4], edi
+  0x000f898a  mov      dword ptr [esi + 8], 0
+  0x000f8991  mov      byte ptr [esi + 0xc], 0
+  0x000f8995  mov      dword ptr [esi], 0x105b6fcc
+  0x000f899b  mov      dword ptr [esi + 0x10], 0x2710
+  0x000f89a2  mov      word ptr [esi + 0x14], 0
+  0x000f89a8  mov      word ptr [esi + 0x17], 0
+  0x000f89ae  push     6
+  0x000f89b0  push     0x1052c194   ; "Attack"
+  0x000f89b5  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f89bc  mov      dword ptr [ebp - 0x18], 0
+  0x000f89c3  mov      byte ptr [ebp - 0x28], 0
+  0x000f89c7  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f89cc  push     esi
+  0x000f89cd  lea      eax, [ebp - 0x28]
+  0x000f89d0  mov      dword ptr [ebp - 4], 5
+  0x000f89d7  push     eax
+  0x000f89d8  mov      ecx, edi
+  0x000f89da  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f89df  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f89e6  mov      edx, dword ptr [ebp - 0x14]
+  0x000f89e9  cmp      edx, 0x10
+  0x000f89ec  jb       0x100f89fc
+  0x000f89ee  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f89f1  inc      edx
+  0x000f89f2  push     1
+  0x000f89f4  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f89f9  add      esp, 4
+  0x000f89fc  push     0x10
+  0x000f89fe  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8a03  mov      esi, eax
+  0x000f8a05  lea      ecx, [ebp - 0x28]
+  0x000f8a08  add      esp, 4
+  0x000f8a0b  mov      dword ptr [ebp - 0x10], esi
+  0x000f8a0e  mov      dword ptr [esi + 4], edi
+  0x000f8a11  mov      dword ptr [esi + 8], 0
+  0x000f8a18  mov      byte ptr [esi + 0xc], 0
+  0x000f8a1c  mov      dword ptr [esi], 0x105b6e9c
+  0x000f8a22  push     0xa
+  0x000f8a24  push     0x1052c1b8   ; "JumpAttack"
+  0x000f8a29  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8a30  mov      dword ptr [ebp - 0x18], 0
+  0x000f8a37  mov      byte ptr [ebp - 0x28], 0
+  0x000f8a3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8a40  push     esi
+  0x000f8a41  lea      eax, [ebp - 0x28]
+  0x000f8a44  mov      dword ptr [ebp - 4], 6
+  0x000f8a4b  push     eax
+  0x000f8a4c  mov      ecx, edi
+  0x000f8a4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8a53  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8a5a  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8a5d  cmp      edx, 0x10
+  0x000f8a60  jb       0x100f8a70
+  0x000f8a62  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f8a65  inc      edx
+  0x000f8a66  push     1
+  0x000f8a68  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8a6d  add      esp, 4
+  0x000f8a70  push     0x20
+  0x000f8a72  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8a77  mov      esi, eax
+  0x000f8a79  lea      ecx, [ebp - 0x28]
+  0x000f8a7c  mov      dword ptr [ebp - 0x10], esi
+  0x000f8a7f  add      esp, 4
+  0x000f8a82  mov      dword ptr [esi + 4], edi
+  0x000f8a85  mov      dword ptr [esi + 8], 0
+  0x000f8a8c  mov      byte ptr [esi + 0xc], 0
+  0x000f8a90  mov      dword ptr [esi], 0x105b6d6c
+  0x000f8a96  mov      dword ptr [esi + 0x1c], 0
+  0x000f8a9d  mov      byte ptr [esi + 0x18], 0
+  0x000f8aa1  push     0x13
+  0x000f8aa3  push     0x1052c1a4   ; "RepositionForAttack"
+  0x000f8aa8  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8aaf  mov      dword ptr [ebp - 0x18], 0
+  0x000f8ab6  mov      byte ptr [ebp - 0x28], 0
+  0x000f8aba  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8abf  push     esi
+  0x000f8ac0  lea      eax, [ebp - 0x28]
+  0x000f8ac3  mov      dword ptr [ebp - 4], 7
+  0x000f8aca  push     eax
+  0x000f8acb  mov      ecx, edi
+  0x000f8acd  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ad2  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8ad9  mov      edx, dword ptr [ebp - 0x14]
+  0x000f8adc  cmp      edx, 0x10
+  0x000f8adf  jb       0x100f8aef
+  0x000f8ae1  mov      ecx, dword ptr [ebp - 0x28]
+  0x000f8ae4  inc      edx
+  0x000f8ae5  push     1
+  0x000f8ae7  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8aec  add      esp, 4
+  0x000f8aef  push     0x18
+  0x000f8af1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8af6  mov      esi, eax
+  0x000f8af8  lea      ecx, [ebp - 0x28]
+  0x000f8afb  mov      dword ptr [ebp - 0x10], esi
+  0x000f8afe  add      esp, 4
+  0x000f8b01  mov      dword ptr [esi + 4], edi
+  0x000f8b04  mov      dword ptr [esi + 8], 0
+  0x000f8b0b  mov      byte ptr [esi + 0xc], 0
+  0x000f8b0f  mov      dword ptr [esi], 0x105b6c3c
+  0x000f8b15  mov      dword ptr [esi + 0x10], 0
+  0x000f8b1c  mov      word ptr [esi + 0x14], 0
+  0x000f8b22  push     4
+  0x000f8b24  push     0x1052c1cc   ; "Flee"
+  0x000f8b29  mov      dword ptr [ebp - 0x14], 0xf
+  0x000f8b30  mov      dword ptr [ebp - 0x18], 0
+  0x000f8b37  mov      byte ptr [ebp - 0x28], 0
+  0x000f8b3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8b40  push     esi
+  0x000f8b41  lea      eax, [ebp - 0x28]
+  0x000f8b44  mov      dword ptr [ebp - 4], 8
+  0x000f8b4b  push     eax
+  0x000f8b4c  mov      ecx, edi
+  0x000f8b4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8b53  lea      ecx, [ebp - 0x28]
+  0x000f8b56  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8b5d  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8b62  push     0x10
+  0x000f8b64  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8b69  mov      esi, eax
+  0x000f8b6b  lea      ecx, [ebp - 0x28]
+  0x000f8b6e  add      esp, 4
+  0x000f8b71  mov      dword ptr [ebp - 0x10], esi
+  0x000f8b74  mov      dword ptr [esi + 4], edi
+  0x000f8b77  push     0x1052c1c4   ; "Roam"
+  0x000f8b7c  mov      dword ptr [esi + 8], 0
+  0x000f8b83  mov      byte ptr [esi + 0xc], 0
+  0x000f8b87  mov      dword ptr [esi], 0x105b6b0c
+  0x000f8b8d  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8b92  push     esi
+  0x000f8b93  lea      eax, [ebp - 0x28]
+  0x000f8b96  mov      dword ptr [ebp - 4], 9
+  0x000f8b9d  push     eax
+  0x000f8b9e  mov      ecx, edi
+  0x000f8ba0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ba5  lea      ecx, [ebp - 0x28]
+  0x000f8ba8  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8baf  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8bb4  push     0x10
+  0x000f8bb6  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8bbb  mov      esi, eax
+  0x000f8bbd  lea      ecx, [ebp - 0x28]
+  0x000f8bc0  add      esp, 4
+  0x000f8bc3  mov      dword ptr [ebp - 0x10], esi
+  0x000f8bc6  mov      dword ptr [esi + 4], edi
+  0x000f8bc9  push     0x1052c1e0   ; "Wander"
+  0x000f8bce  mov      dword ptr [esi + 8], 0
+  0x000f8bd5  mov      byte ptr [esi + 0xc], 0
+  0x000f8bd9  mov      dword ptr [esi], 0x105b69dc
+  0x000f8bdf  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8be4  push     esi
+  0x000f8be5  lea      eax, [ebp - 0x28]
+  0x000f8be8  mov      dword ptr [ebp - 4], 0xa
+  0x000f8bef  push     eax
+  0x000f8bf0  mov      ecx, edi
+  0x000f8bf2  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8bf7  lea      ecx, [ebp - 0x28]
+  0x000f8bfa  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8c01  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c06  push     0x14
+  0x000f8c08  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c0d  mov      esi, eax
+  0x000f8c0f  add      esp, 4
+  0x000f8c12  mov      dword ptr [ebp - 0x10], esi
+  0x000f8c15  mov      dword ptr [esi + 4], edi
+  0x000f8c18  mov      dword ptr [esi + 8], 0
+  0x000f8c1f  mov      byte ptr [esi + 0xc], 0
+  0x000f8c23  mov      dword ptr [esi], 0x105b68ac
+  0x000f8c29  push     0x1052c1d4   ; "WanderPause"
+  0x000f8c2e  lea      ecx, [ebp - 0x28]
+  0x000f8c31  mov      dword ptr [esi + 0x10], 0
+  0x000f8c38  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c3d  push     esi
+  0x000f8c3e  lea      eax, [ebp - 0x28]
+  0x000f8c41  mov      dword ptr [ebp - 4], 0xb
+  0x000f8c48  push     eax
+  0x000f8c49  mov      ecx, edi
+  0x000f8c4b  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8c50  lea      ecx, [ebp - 0x28]
+  0x000f8c53  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8c5a  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c5f  push     0x10
+  0x000f8c61  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c66  mov      esi, eax
+  0x000f8c68  lea      ecx, [ebp - 0x28]
+  0x000f8c6b  add      esp, 4
+  0x000f8c6e  mov      dword ptr [ebp - 0x10], esi
+  0x000f8c71  mov      dword ptr [esi + 4], edi
+  0x000f8c74  push     0x1052c1f0   ; "Return"
+  0x000f8c79  mov      dword ptr [esi + 8], 0
+  0x000f8c80  mov      byte ptr [esi + 0xc], 0
+  0x000f8c84  mov      dword ptr [esi], 0x105b6644
+  0x000f8c8a  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c8f  push     esi
+  0x000f8c90  lea      eax, [ebp - 0x28]
+  0x000f8c93  mov      dword ptr [ebp - 4], 0xc
+  0x000f8c9a  push     eax
+  0x000f8c9b  mov      ecx, edi
+  0x000f8c9d  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ca2  lea      ecx, [ebp - 0x28]
+  0x000f8ca5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8cac  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8cb1  push     0x18
+  0x000f8cb3  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8cb8  add      esp, 4
+  0x000f8cbb  mov      dword ptr [ebp - 0x10], eax
+  0x000f8cbe  push     edi
+  0x000f8cbf  mov      ecx, eax
+  0x000f8cc1  mov      dword ptr [ebp - 4], 0xd
+  0x000f8cc8  call     0x10105880   ; -> ??0ControllerMonsterStateDying@GAME@@QAE@PAVControllerMonster@1@@Z
+  0x000f8ccd  push     0x1052c1e8   ; "Dying"
+  0x000f8cd2  lea      ecx, [ebp - 0x28]
+  0x000f8cd5  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8cdc  mov      esi, eax
+  0x000f8cde  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8ce3  push     esi
+  0x000f8ce4  lea      eax, [ebp - 0x28]
+  0x000f8ce7  mov      dword ptr [ebp - 4], 0xe
+  0x000f8cee  push     eax
+  0x000f8cef  mov      ecx, edi
+  0x000f8cf1  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8cf6  lea      ecx, [ebp - 0x28]
+  0x000f8cf9  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8d00  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d05  push     0x10
+  0x000f8d07  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d0c  mov      esi, eax
+  0x000f8d0e  lea      ecx, [ebp - 0x28]
+  0x000f8d11  add      esp, 4
+  0x000f8d14  mov      dword ptr [ebp - 0x10], esi
+  0x000f8d17  mov      dword ptr [esi + 4], edi
+  0x000f8d1a  push     0x1052c208   ; "Dead"
+  0x000f8d1f  mov      dword ptr [esi + 8], 0
+  0x000f8d26  mov      byte ptr [esi + 0xc], 0
+  0x000f8d2a  mov      dword ptr [esi], 0x105b6184
+  0x000f8d30  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d35  push     esi
+  0x000f8d36  lea      eax, [ebp - 0x28]
+  0x000f8d39  mov      dword ptr [ebp - 4], 0xf
+  0x000f8d40  push     eax
+  0x000f8d41  mov      ecx, edi
+  0x000f8d43  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d48  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8d4f  lea      ecx, [ebp - 0x28]
+  0x000f8d52  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d57  push     0x14
+  0x000f8d59  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d5e  mov      esi, eax
+  0x000f8d60  lea      ecx, [ebp - 0x28]
+  0x000f8d63  add      esp, 4
+  0x000f8d66  mov      dword ptr [ebp - 0x10], esi
+  0x000f8d69  mov      dword ptr [esi + 4], edi
+  0x000f8d6c  push     0x1052c1f8   ; "FollowLeader"
+  0x000f8d71  mov      dword ptr [esi + 8], 0
+  0x000f8d78  mov      byte ptr [esi + 0xc], 0
+  0x000f8d7c  mov      dword ptr [esi], 0x105b6054
+  0x000f8d82  mov      byte ptr [esi + 0x10], 0
+  0x000f8d86  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d8b  push     esi
+  0x000f8d8c  lea      eax, [ebp - 0x28]
+  0x000f8d8f  mov      dword ptr [ebp - 4], 0x10
+  0x000f8d96  push     eax
+  0x000f8d97  mov      ecx, edi
+  0x000f8d99  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d9e  lea      ecx, [ebp - 0x28]
+  0x000f8da1  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8da8  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8dad  push     0x18
+  0x000f8daf  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8db4  mov      esi, eax
+  0x000f8db6  lea      ecx, [ebp - 0x28]
+  0x000f8db9  add      esp, 4
+  0x000f8dbc  mov      dword ptr [ebp - 0x10], esi
+  0x000f8dbf  mov      dword ptr [esi + 4], edi
+  0x000f8dc2  push     0x1052c224   ; "DefendLeader"
+  0x000f8dc7  mov      dword ptr [esi + 8], 0
+  0x000f8dce  mov      byte ptr [esi + 0xc], 0
+  0x000f8dd2  mov      dword ptr [esi], 0x105b5f24
+  0x000f8dd8  mov      dword ptr [esi + 0x10], 0
+  0x000f8ddf  mov      dword ptr [esi + 0x14], 0
+  0x000f8de6  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8deb  push     esi
+  0x000f8dec  lea      eax, [ebp - 0x28]
+  0x000f8def  mov      dword ptr [ebp - 4], 0x11
+  0x000f8df6  push     eax
+  0x000f8df7  mov      ecx, edi
+  0x000f8df9  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8dfe  lea      ecx, [ebp - 0x28]
+  0x000f8e01  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8e08  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8e0d  push     0x34
+  0x000f8e0f  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8e14  add      esp, 4
+  0x000f8e17  mov      dword ptr [ebp - 0x10], eax
+  0x000f8e1a  push     edi
+  0x000f8e1b  mov      ecx, eax
+  0x000f8e1d  mov      dword ptr [ebp - 4], 0x12
+  0x000f8e24  call     0x100ffce0   ; -> ??0ControllerMonsterStateNavigateObstacle@GAME@@QAE@PAVControllerMonster@1@@Z
+  0x000f8e29  push     0x1052c210   ; "NavigateObstacle"
+  0x000f8e2e  lea      ecx, [ebp - 0x28]
+  0x000f8e31  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8e38  mov      esi, eax
+  0x000f8e3a  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8e3f  push     esi
+  0x000f8e40  lea      eax, [ebp - 0x28]
+  0x000f8e43  mov      dword ptr [ebp - 4], 0x13
+  0x000f8e4a  push     eax
+  0x000f8e4b  mov      ecx, edi
+  0x000f8e4d  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8e52  lea      ecx, [ebp - 0x28]
+  0x000f8e55  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8e5c  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8e61  push     0x10
+  0x000f8e63  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8e68  mov      esi, eax
+  0x000f8e6a  add      esp, 4
+  0x000f8e6d  mov      dword ptr [ebp - 0x10], esi
+  0x000f8e70  mov      dword ptr [esi + 4], edi
+  0x000f8e73  mov      dword ptr [esi + 8], 0
+  0x000f8e7a  mov      byte ptr [esi + 0xc], 0
+  0x000f8e7e  mov      dword ptr [esi], 0x105b5df4
+  0x000f8e84  push     0x1052c23c   ; "Move"
+  0x000f8e89  lea      ecx, [ebp - 0x28]
+  0x000f8e8c  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8e91  push     esi
+  0x000f8e92  lea      eax, [ebp - 0x28]
+  0x000f8e95  mov      dword ptr [ebp - 4], 0x14
+  0x000f8e9c  push     eax
+  0x000f8e9d  mov      ecx, edi
+  0x000f8e9f  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ea4  lea      ecx, [ebp - 0x28]
+  0x000f8ea7  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8eae  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8eb3  push     0x10
+  0x000f8eb5  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8eba  mov      esi, eax
+  0x000f8ebc  lea      ecx, [ebp - 0x28]
+  0x000f8ebf  add      esp, 4
+  0x000f8ec2  mov      dword ptr [ebp - 0x10], esi
+  0x000f8ec5  mov      dword ptr [esi + 4], edi
+  0x000f8ec8  push     0x1052c234   ; "Charge"
+  0x000f8ecd  mov      dword ptr [esi + 8], 0
+  0x000f8ed4  mov      byte ptr [esi + 0xc], 0
+  0x000f8ed8  mov      dword ptr [esi], 0x105b5cc4
+  0x000f8ede  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8ee3  push     esi
+  0x000f8ee4  lea      eax, [ebp - 0x28]
+  0x000f8ee7  mov      dword ptr [ebp - 4], 0x15
+  0x000f8eee  push     eax
+  0x000f8eef  mov      ecx, edi
+  0x000f8ef1  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ef6  lea      ecx, [ebp - 0x28]
+  0x000f8ef9  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8f00  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8f05  push     0x10
+  0x000f8f07  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8f0c  mov      esi, eax
+  0x000f8f0e  lea      ecx, [ebp - 0x28]
+  0x000f8f11  add      esp, 4
+  0x000f8f14  mov      dword ptr [ebp - 0x10], esi
+  0x000f8f17  mov      dword ptr [esi + 4], edi
+  0x000f8f1a  push     0x1052c24c   ; "DodgeAttack"
+  0x000f8f1f  mov      dword ptr [esi + 8], 0
+  0x000f8f26  mov      byte ptr [esi + 0xc], 0
+  0x000f8f2a  mov      dword ptr [esi], 0x105b5b94
+  0x000f8f30  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8f35  push     esi
+  0x000f8f36  lea      eax, [ebp - 0x28]
+  0x000f8f39  mov      dword ptr [ebp - 4], 0x16
+  0x000f8f40  push     eax
+  0x000f8f41  mov      ecx, edi
+  0x000f8f43  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8f48  lea      ecx, [ebp - 0x28]
+  0x000f8f4b  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8f52  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8f57  push     0x10
+  0x000f8f59  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8f5e  mov      esi, eax
+  0x000f8f60  lea      ecx, [ebp - 0x28]
+  0x000f8f63  add      esp, 4
+  0x000f8f66  mov      dword ptr [ebp - 0x10], esi
+  0x000f8f69  mov      dword ptr [esi + 4], edi
+  0x000f8f6c  push     0x1052c244   ; "Panic"
+  0x000f8f71  mov      dword ptr [esi + 8], 0
+  0x000f8f78  mov      byte ptr [esi + 0xc], 0
+  0x000f8f7c  mov      dword ptr [esi], 0x105b5934
+  0x000f8f82  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8f87  push     esi
+  0x000f8f88  lea      eax, [ebp - 0x28]
+  0x000f8f8b  mov      dword ptr [ebp - 4], 0x17
+  0x000f8f92  push     eax
+  0x000f8f93  mov      ecx, edi
+  0x000f8f95  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8f9a  lea      ecx, [ebp - 0x28]
+  0x000f8f9d  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8fa4  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8fa9  push     0x14
+  0x000f8fab  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8fb0  mov      esi, eax
+  0x000f8fb2  lea      ecx, [ebp - 0x28]
+  0x000f8fb5  add      esp, 4
+  0x000f8fb8  mov      dword ptr [ebp - 0x10], esi
+  0x000f8fbb  mov      dword ptr [esi + 4], edi
+  0x000f8fbe  push     0x1052c264   ; "Paralyze"
+  0x000f8fc3  mov      dword ptr [esi + 8], 0
+  0x000f8fca  mov      byte ptr [esi + 0xc], 0
+  0x000f8fce  mov      dword ptr [esi], 0x105b5a64
+  0x000f8fd4  mov      dword ptr [esi + 0x10], 0
+  0x000f8fdb  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8fe0  push     esi
+  0x000f8fe1  lea      eax, [ebp - 0x28]
+  0x000f8fe4  mov      dword ptr [ebp - 4], 0x18
+  0x000f8feb  push     eax
+  0x000f8fec  mov      ecx, edi
+  0x000f8fee  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ff3  lea      ecx, [ebp - 0x28]
+  0x000f8ff6  mov      dword ptr [ebp - 4], 0xffffffff
+  0x000f8ffd  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+===============================================================================================
+=== ControllerMonster::RegisterTemporaryStates  0x000f8600..0x000f8780
+  0x000f8600  call     esi
+  0x000f8602  mov      ecx, eax
+  0x000f8604  call     0x1000d4f0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000f8609  mov      ecx, eax
+  0x000f860b  mov      dword ptr [ebp - 4], eax
+  0x000f860e  mov      edx, dword ptr [eax]
+  0x000f8610  mov      edx, dword ptr [edx + 0xf4]
+  0x000f8616  call     edx
+  0x000f8618  test     al, al
+  0x000f861a  je       0x100f864f
+  0x000f861c  push     dword ptr [ebx + 0x24]
+  0x000f861f  call     esi
+  0x000f8621  mov      ecx, eax
+  0x000f8623  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8628  mov      esi, dword ptr [ebp - 4]
+  0x000f862b  mov      ecx, eax
+  0x000f862d  mov      esi, dword ptr [esi]
+  0x000f862f  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000f8635  mov      ecx, dword ptr [ebp - 4]
+  0x000f8638  push     eax
+  0x000f8639  mov      eax, dword ptr [esi + 0x100]
+  0x000f863f  call     eax
+  0x000f8641  test     al, al
+  0x000f8643  jne      0x100f864f
+  0x000f8645  mov      edi, dword ptr [ebx + 0x3d8]
+  0x000f864b  test     edi, edi
+  0x000f864d  jne      0x100f86b2
+  0x000f864f  mov      eax, dword ptr [ebx + 0x3dc]
+  0x000f8655  test     eax, eax
+  0x000f8657  je       0x100f86b2
+  0x000f8659  mov      esi, dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000f865f  push     eax
+  0x000f8660  call     esi
+  0x000f8662  mov      ecx, eax
+  0x000f8664  call     0x1000d4f0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x000f8669  mov      ecx, eax
+  0x000f866b  mov      dword ptr [ebp - 4], eax
+  0x000f866e  mov      edx, dword ptr [eax]
+  0x000f8670  mov      edx, dword ptr [edx + 0xf4]
+  0x000f8676  call     edx
+  0x000f8678  test     al, al
+  0x000f867a  je       0x100f86b2
+  0x000f867c  push     dword ptr [ebx + 0x24]
+  0x000f867f  call     esi
+  0x000f8681  mov      ecx, eax
+  0x000f8683  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f8688  mov      esi, dword ptr [ebp - 4]
+  0x000f868b  mov      ecx, eax
+  0x000f868d  mov      esi, dword ptr [esi]
+  0x000f868f  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000f8695  mov      ecx, dword ptr [ebp - 4]
+  0x000f8698  push     eax
+  0x000f8699  mov      eax, dword ptr [esi + 0x100]
+  0x000f869f  call     eax
+  0x000f86a1  test     al, al
+  0x000f86a3  jne      0x100f86b2
+  0x000f86a5  mov      eax, dword ptr [ebx + 0x3dc]
+  0x000f86ab  pop      edi
+  0x000f86ac  pop      esi
+  0x000f86ad  pop      ebx
+  0x000f86ae  mov      esp, ebp
+  0x000f86b0  pop      ebp
+  0x000f86b1  ret      
+  0x000f86b2  mov      eax, edi
+  0x000f86b4  pop      edi
+  0x000f86b5  pop      esi
+  0x000f86b6  pop      ebx
+  0x000f86b7  mov      esp, ebp
+  0x000f86b9  pop      ebp
+  0x000f86ba  ret      
+  0x000f86bb  int3     
+  0x000f86bc  int3     
+  0x000f86bd  int3     
+  0x000f86be  int3     
+  0x000f86bf  int3     
+  0x000f86c0  push     ebp
+  0x000f86c1  mov      ebp, esp
+  0x000f86c3  push     esi
+  0x000f86c4  mov      esi, ecx
+  0x000f86c6  push     edi
+  0x000f86c7  mov      edi, dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000f86cd  push     dword ptr [esi + 0x24]
+  0x000f86d0  call     edi
+  0x000f86d2  mov      ecx, eax
+  0x000f86d4  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f86d9  test     eax, eax
+  0x000f86db  jne      0x100f8706
+  0x000f86dd  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x000f86e2  push     0x1052c10c   ; "ControllerMonster::GetHomePosition() : No monster!"
+  0x000f86e7  push     2
+  0x000f86e9  mov      eax, dword ptr [eax]
+  0x000f86eb  push     eax
+  0x000f86ec  mov      ecx, dword ptr [eax]
+  0x000f86ee  call     dword ptr [ecx + 0xc]
+  0x000f86f1  mov      ecx, dword ptr [ebp + 8]
+  0x000f86f4  add      esp, 0xc
+  0x000f86f7  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f86fd  mov      eax, dword ptr [ebp + 8]
+  0x000f8700  pop      edi
+  0x000f8701  pop      esi
+  0x000f8702  pop      ebp
+  0x000f8703  ret      4
+  0x000f8706  cmp      dword ptr [esi + 0x214], 0
+  0x000f870d  je       0x100f871c
+  0x000f870f  mov      eax, dword ptr [esi + 0x210]
+  0x000f8715  mov      eax, dword ptr [eax]
+  0x000f8717  mov      ecx, dword ptr [eax + 8]
+  0x000f871a  jmp      0x100f8722   ; -> ?GetHomePosition@ControllerMonster@GAME@@QBE?AVWorldVec3@2@XZ+0x62
+  0x000f871c  mov      ecx, dword ptr [esi + 0x1e4]
+  0x000f8722  mov      eax, dword ptr [ecx]
+  0x000f8724  mov      eax, dword ptr [eax + 0xd4]
+  0x000f872a  call     eax
+  0x000f872c  push     dword ptr [esi + 0x24]
+  0x000f872f  test     al, al
+  0x000f8731  je       0x100f8753
+  0x000f8733  call     edi
+  0x000f8735  mov      ecx, eax
+  0x000f8737  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f873c  mov      ecx, eax
+  0x000f873e  call     dword ptr [0x104e55ec]   ; f32=1.16607e-38 i32=8321344 f64=2.75683e-306
+  0x000f8744  pop      edi
+  0x000f8745  pop      esi
+  0x000f8746  movups   xmm0, xmmword ptr [eax]
+  0x000f8749  mov      eax, dword ptr [ebp + 8]
+  0x000f874c  movups   xmmword ptr [eax], xmm0
+  0x000f874f  pop      ebp
+  0x000f8750  ret      4
+  0x000f8753  call     edi
+  0x000f8755  mov      ecx, eax
+  0x000f8757  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f875c  mov      ecx, eax
+  0x000f875e  mov      edx, dword ptr [eax]
+  0x000f8760  call     dword ptr [edx + 0x464]
+  0x000f8766  test     eax, eax
+  0x000f8768  je       0x100f879e
+  0x000f876a  mov      eax, dword ptr [esi]
+  0x000f876c  mov      ecx, esi
+  0x000f876e  mov      eax, dword ptr [eax + 0xfc]
+  0x000f8774  call     eax
+  0x000f8776  test     al, al
+  0x000f8778  je       0x100f879e
+  0x000f877a  push     dword ptr [esi + 0x24]
+  0x000f877d  call     edi
+  0x000f877f  mov      ecx, eax

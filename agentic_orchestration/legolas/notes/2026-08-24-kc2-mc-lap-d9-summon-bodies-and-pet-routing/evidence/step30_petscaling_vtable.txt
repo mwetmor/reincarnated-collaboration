@@ -1,0 +1,130 @@
+PetPlayerScaling / PetNonScaling exports:
+   ??0PetNonScaling@GAME@@QAE@XZ                                                                    0x00316560
+   ??0PetPlayerScaling@GAME@@QAE@XZ                                                                 0x003165b0
+   ??1PetNonScaling@GAME@@UAE@XZ                                                                    0x000b5c70
+   ??1PetPlayerScaling@GAME@@UAE@XZ                                                                 0x000b5c70
+   ??_7PetNonScaling@GAME@@6BICrowdAgent@CROWD@@@                                                   0x005dc928
+   ??_7PetNonScaling@GAME@@6BIPhysics2@1@@                                                          0x005bb52c
+   ??_7PetNonScaling@GAME@@6BObject@1@@                                                             0x005e3f90
+   ??_7PetPlayerScaling@GAME@@6BICrowdAgent@CROWD@@@                                                0x005dc928
+   ??_7PetPlayerScaling@GAME@@6BIPhysics2@1@@                                                       0x005bb52c
+   ??_7PetPlayerScaling@GAME@@6BObject@1@@                                                          0x005e3b00
+   ?ContributeGameBalanceCharAttributes@PetNonScaling@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z    0x000084d0
+   ?ContributeGameBalanceDefenseAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x000084d0
+   ?ContributeGameBalanceOffensiveDamageAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x0000f100
+   ?ContributeGameBalanceOffensiveModifierAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x000084d0
+   ?ContributeGameBalanceRetaliationAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x0000f100
+   ?ContributeGameBalanceRetaliationModifierAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x000084d0
+   ?ContributeGameBalanceSkillAttributes@PetNonScaling@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z  0x000084d0
+   ?ContributeMiscCharAttributes@PetPlayerScaling@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z        0x00316600
+   ?ContributeMiscConversionAttributes@PetPlayerScaling@GAME@@UBEXAAVConversionAttributeAccumulator@2@@Z 0x00316690
+   ?ContributeMiscDefenseAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z   0x00316620
+   ?ContributeMiscOffensiveDamageAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x00316630
+   ?ContributeMiscOffensiveModifierAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x00316650
+   ?ContributeMiscRetaliationAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x00316660
+   ?ContributeMiscRetaliationModifierAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x00316680
+   ?ContributeMiscSkillAttributes@PetPlayerScaling@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z      0x00316610
+   ?GetRTTIClassInfo@PetNonScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ                                  0x00009480
+   ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ                               0x00009490
+   ?GetStaticClassInfo@PetNonScaling@GAME@@SAABVRTTI_ClassInfo@2@XZ                                 0x00009480
+   ?GetStaticClassInfo@PetPlayerScaling@GAME@@SAABVRTTI_ClassInfo@2@XZ                              0x00009490
+   ?RTTI_new@PetNonScaling@GAME@@KAPAXXZ                                                            0x000c8bd0
+   ?RTTI_new@PetPlayerScaling@GAME@@KAPAXXZ                                                         0x000c8c50
+   ?classInfo@PetNonScaling@GAME@@1VRTTI_ClassInfo@2@B                                              0x007ff5d0
+   ?classInfo@PetPlayerScaling@GAME@@1VRTTI_ClassInfo@2@B                                           0x007ff5e8
+
+ContributeGameBalanceCharAttributes slot = 225 offset=0x384
+   Monster      -> 0x002d9ab0  ?ContributeGameBalanceCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+   Pet          -> 0x00315f90  ?ContributeGameBalanceCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+   Player       -> 0x0032b5b0  ?ContributeGameBalanceCharAttributes@Player@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+   Character    -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+slot225 PetPlayerScaling   -> 0x00315f90 ?ContributeGameBalanceCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+slot225 PetNonScaling      -> 0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+
+===============================================================================================
+=== ctor PetPlayerScaling @0x003165b0
+  0x003165b0  push     ebp
+  0x003165b1  mov      ebp, esp
+  0x003165b3  push     ecx
+  0x003165b4  push     esi
+  0x003165b5  mov      esi, ecx
+  0x003165b7  mov      dword ptr [ebp - 4], esi
+  0x003165ba  call     0x102d24a0   ; -> ??0Monster@GAME@@QAE@XZ
+  0x003165bf  mov      dword ptr [esi + 0x3ac8], 0
+  0x003165c9  mov      eax, esi
+  0x003165cb  mov      dword ptr [esi + 0x3acc], 0
+  0x003165d5  mov      dword ptr [esi + 0x3ad0], 0
+  0x003165df  mov      dword ptr [esi], 0x105e3b00
+  0x003165e5  mov      dword ptr [esi + 0x24], 0x105bb52c
+  0x003165ec  mov      dword ptr [esi + 0x28], 0x105dc928
+  0x003165f3  pop      esi
+  0x003165f4  mov      esp, ebp
+  0x003165f6  pop      ebp
+  0x003165f7  ret      
+  0x003165f8  int3     
+  0x003165f9  int3     
+  0x003165fa  int3     
+  0x003165fb  int3     
+  0x003165fc  int3     
+  0x003165fd  int3     
+  0x003165fe  int3     
+  0x003165ff  int3     
+===============================================================================================
+=== ContributeMiscCharAttributes@PetPlayerScaling @0x00316600
+  0x00316600  push     ebp
+  0x00316601  mov      ebp, esp
+  0x00316603  pop      ebp
+  0x00316604  jmp      0x10056190   ; -> ?ContributeMiscCharAttributes@Character@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+  0x00316609  int3     
+  0x0031660a  int3     
+  0x0031660b  int3     
+  0x0031660c  int3     
+  0x0031660d  int3     
+  0x0031660e  int3     
+  0x0031660f  int3     
+===============================================================================================
+=== ContributeMiscCharAttributes@Pet @0x00315d70
+  0x00315d70  push     ebp
+  0x00315d71  mov      ebp, esp
+  0x00315d73  push     edi
+  0x00315d74  push     dword ptr [ebp + 8]
+  0x00315d77  mov      edi, ecx
+  0x00315d79  call     0x10056190   ; -> ?ContributeMiscCharAttributes@Character@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+  0x00315d7e  push     dword ptr [ebp + 8]
+  0x00315d81  lea      eax, [edi + 0x3ac8]
+  0x00315d87  mov      ecx, edi
+  0x00315d89  push     eax
+  0x00315d8a  mov      eax, dword ptr [edi]
+  0x00315d8c  call     dword ptr [eax + 0x464]
+  0x00315d92  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315d98  push     eax
+  0x00315d99  call     0x10272140   ; -> ?ContributePetBonusCharAttributes@GameEngine@GAME@@QBEXIABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@AAVCharAttributeAccumulator@2@@Z
+  0x00315d9e  pop      edi
+  0x00315d9f  pop      ebp
+  0x00315da0  ret      4
+  0x00315da3  int3     
+  0x00315da4  int3     
+  0x00315da5  int3     
+  0x00315da6  int3     
+  0x00315da7  int3     
+  0x00315da8  int3     
+  0x00315da9  int3     
+  0x00315daa  int3     
+  0x00315dab  int3     
+  0x00315dac  int3     
+  0x00315dad  int3     
+  0x00315dae  int3     
+  0x00315daf  int3     
+===============================================================================================
+=== ContributeMiscDefenseAttributes@PetPlayerScaling @0x00316620
+  0x00316620  push     ebp
+  0x00316621  mov      ebp, esp
+  0x00316623  pop      ebp
+  0x00316624  jmp      0x10056610   ; -> ?ContributeMiscDefenseAttributes@Character@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+  0x00316629  int3     
+  0x0031662a  int3     
+  0x0031662b  int3     
+  0x0031662c  int3     
+  0x0031662d  int3     
+  0x0031662e  int3     
+  0x0031662f  int3     

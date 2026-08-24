@@ -1,0 +1,199 @@
+===============================================================================================
+records/skills/itemskills/pets/armorpets03.dbr ['base'] found= True
+   Class                                          'Skill_Passive'
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   defensiveProtection                            [8.0, 9.0, 10.0, 11.0, 12.0, 14.0, 15.0, 17.0, 18.0, 20.0, 22.0, 25.0, 27.0, 29.0, 32.0, 35.0, 38.0, 41.0, 44.0, 48.0, 53.0, 58.0, 63.0, 68.0, 73.0, 79.0, 87.0, 93.0, 99.0, 106.0, 113.0, 120.0, 127.0, 134.0, 141.0, 148.0, 155.0, 162.0, 169.0, 176.0, 184.0, 192.0, 200.0, 207.0, 216.0, 225.0, 234.0, 246.0, 256.0, 266.0, 276.0, 287.0, 299.0, 310.0, 318.0, 328.0, 339.0, 351.0, 364.0, 379.0, 392.0, 406.0, 418.0, 428.0, 441.0, 455.0, 470.0, 480.0, 496.0, 509.0, 521.0, 536.0, 552.0, 564.0, 583.0, 598.0, 614.0, 631.0, 644.0, 661.0, 675.0, 695.0, 710.0, 729.0, 741.0, 757.0, 780.0, 794.0, 810.0, 836.0, 849.0, 868.0, 890.0, 908.0, 927.0, 944.0, 964.0, 984.0, 1001.0, 1021.0, 1042.0, 1062.0, 1082.0, 1102.0, 1126.0, 1146.0, 1171.0, 1191.0, 1214.0, 1235.0, 1257.0, 1278.0, 1298.0, 1321.0, 1347.0, 1369.0, 1392.0, 1412.0, 1439.0, 1468.0, 1494.0, 1512.0, 1537.0, 1563.0, 1591.0, 1612.0, 1640.0, 1662.0, 1691.0, 1717.0, 1741.0, 1768.0, 1792.0, 1821.0, 1849.0, 1879.0, 1906.0, 1932.0, 1959.0, 1989.0, 2019.0, 2047.0, 2076.0, 2105.0, 2132.0, 2161.0, 2191.0, 2221.0, 2248.0, 2283.0, 2312.0, 2342.0, 2379.0, 2405.0, 2436.0, 2469.0, 2498.0, 2532.0, 2565.0, 2591.0, 2628.0, 2659.0, 2690.0, 2728.0, 2763.0, 2798.0, 2828.0, 2864.0, 2894.0, 2932.0, 2967.0, 3003.0, 3033.0, 3071.0, 3105.0, 3139.0, 3175.0, 3210.0, 3248.0, 3289.0, 3324.0, 3362.0, 3398.0, 3434.0, 3472.0, 3510.0, 3551.0, 3586.0, 3626.0, 3662.0, 3700.0, 3741.0, 3779.0, 3820.0, 3863.0, 3902.0, 3943.0, 3981.0, 4023.0, 4062.0]
+   defensiveSlowLifeLeach                         60.0
+   defensiveSlowManaLeach                         33.0
+   offensiveCritDamageModifier                    [-15.0, -15.0, -15.0, -12.0, -12.0, -10.0, -10.0, -10.0, -7.0, -7.0, -7.0, -5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+   offensiveTauntMin                              8.0
+   skillMaxLevel                                  200
+   templateName                                   'database/templates/skill_passive.tpl'
+===============================================================================================
+records/skills/itemskills/pets/armorpets04.dbr ['base'] found= True
+   Class                                          'Skill_Passive'
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   defensiveProtection                            [10.0, 11.0, 12.0, 13.0, 14.0, 17.0, 18.0, 20.0, 22.0, 24.0, 26.0, 30.0, 32.0, 35.0, 38.0, 42.0, 46.0, 49.0, 53.0, 58.0, 64.0, 70.0, 76.0, 82.0, 88.0, 95.0, 104.0, 112.0, 119.0, 127.0, 136.0, 144.0, 152.0, 161.0, 169.0, 178.0, 186.0, 194.0, 203.0, 211.0, 221.0, 230.0, 240.0, 248.0, 259.0, 270.0, 281.0, 295.0, 307.0, 319.0, 331.0, 344.0, 359.0, 372.0, 382.0, 394.0, 407.0, 421.0, 437.0, 455.0, 470.0, 487.0, 502.0, 514.0, 529.0, 546.0, 564.0, 576.0, 595.0, 611.0, 625.0, 643.0, 662.0, 677.0, 700.0, 718.0, 737.0, 757.0, 773.0, 793.0, 810.0, 834.0, 852.0, 875.0, 889.0, 908.0, 936.0, 953.0, 972.0, 1003.0, 1019.0, 1042.0, 1068.0, 1090.0, 1112.0, 1133.0, 1157.0, 1181.0, 1201.0, 1225.0, 1250.0, 1274.0, 1298.0, 1322.0, 1351.0, 1375.0, 1405.0, 1429.0, 1457.0, 1482.0, 1508.0, 1534.0, 1558.0, 1585.0, 1616.0, 1643.0, 1670.0, 1694.0, 1727.0, 1762.0, 1793.0, 1814.0, 1844.0, 1876.0, 1909.0, 1934.0, 1968.0, 1994.0, 2029.0, 2060.0, 2089.0, 2122.0, 2150.0, 2185.0, 2219.0, 2255.0, 2287.0, 2318.0, 2351.0, 2387.0, 2423.0, 2456.0, 2491.0, 2526.0, 2558.0, 2593.0, 2629.0, 2665.0, 2698.0, 2740.0, 2774.0, 2810.0, 2855.0, 2886.0, 2923.0, 2963.0, 2998.0, 3038.0, 3078.0, 3109.0, 3154.0, 3191.0, 3228.0, 3274.0, 3316.0, 3358.0, 3394.0, 3437.0, 3473.0, 3518.0, 3560.0, 3604.0, 3640.0, 3685.0, 3726.0, 3767.0, 3810.0, 3852.0, 3898.0, 3947.0, 3989.0, 4034.0, 4078.0, 4121.0, 4166.0, 4212.0, 4261.0, 4303.0, 4351.0, 4394.0, 4440.0, 4489.0, 4535.0, 4584.0, 4636.0, 4682.0, 4732.0, 4777.0, 4828.0, 4874.0]
+   defensiveSlowLifeLeach                         60.0
+   defensiveSlowManaLeach                         33.0
+   offensiveCritDamageModifier                    [-15.0, -15.0, -15.0, -12.0, -12.0, -10.0, -10.0, -10.0, -7.0, -7.0, -7.0, -5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+   offensiveTauntMin                              8.0
+   skillMaxLevel                                  200
+   templateName                                   'database/templates/skill_passive.tpl'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr ['gdx1'] found= True
+   Class                                          'Skill_Passive'
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   defensiveBleeding                              88.0
+   defensiveBleedingDuration                      33.0
+   defensiveColdDuration                          33.0
+   defensiveConfusion                             500.0
+   defensiveConvert                               500.0
+   defensiveFear                                  500.0
+   defensiveFireDuration                          33.0
+   defensiveLifeDuration                          33.0
+   defensiveLightningDuration                     33.0
+   defensivePercentCurrentLife                    500.0
+   defensivePercentReflectionResistance           50.0
+   defensivePhysicalDuration                      33.0
+   defensivePoisonDuration                        33.0
+   defensiveSlowLifeLeach                         90.0
+   defensiveSlowManaLeach                         90.0
+   defensiveTotalSpeedResistance                  500.0
+   skillDisplayName                               'tagItemSkillC004PetSkill02'
+   skillMaxLevel                                  1
+   templateName                                   'database/templates/skill_passive.tpl'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr ['gdx1'] found= True
+   Class                                          'Skill_AttackWeapon'
+   cameraShakeAmplitude                           0.11999999731779099
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   distanceProfile                                'Melee;Short;Moderate;Long;Maximum;'
+   isPetDisplayable                               True
+   offensivePhysicalMin                           130.0
+   offensivePoisonMax                             215.0
+   offensivePoisonMin                             130.0
+   offensiveSlowBleedingDurationMin               3.0
+   offensiveSlowBleedingMin                       70.0
+   particleEffectAttachPoint1                     'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;Target;SpecialHit01;SpecialHit02;SpecialHit03;SpecialHit04;'
+   particleEffectAttachPoint2                     'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;Target;SpecialHit01;SpecialHit02;SpecialHit03;SpecialHit04;'
+   particleEffectAttachPoint3                     'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;Target;SpecialHit01;SpecialHit02;SpecialHit03;SpecialHit04;'
+   ragDollDirection                               ';Push;Pull;'
+   ragDollEffect                                  ';Crumple;TakeHit;Random;'
+   ragDollElevation                               ';Upward;Downward;'
+   ragDollPush                                    ';Left;Right;'
+   skillDisplayName                               'tagItemSkillC004PetSkill02'
+   skillMaxLevel                                  1
+   skillProjectileNumber                          1
+   templateName                                   'database/templates/skill_attackweapon.tpl'
+   warmUpEffectAttachPoint                        'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;'
+===============================================================================================
+records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr ['gdx2'] found= True
+   Class                                          'Skill_Passive'
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   defensiveBleeding                              88.0
+   defensiveBleedingDuration                      33.0
+   defensiveColdDuration                          33.0
+   defensiveConfusion                             500.0
+   defensiveConvert                               500.0
+   defensiveFear                                  500.0
+   defensiveFireDuration                          33.0
+   defensiveLifeDuration                          33.0
+   defensiveLightningDuration                     33.0
+   defensivePercentCurrentLife                    500.0
+   defensivePercentReflectionResistance           50.0
+   defensivePhysicalDuration                      33.0
+   defensivePoisonDuration                        33.0
+   defensiveSlowLifeLeachMaxResist                90.0
+   defensiveSlowManaLeachMaxResist                90.0
+   defensiveTotalSpeedResistance                  500.0
+   skillMaxLevel                                  1
+   skillUltimateLevel                             1
+   templateName                                   'database/templates/skill_passive.tpl'
+===============================================================================================
+records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr ['gdx2'] found= True
+   Class                                          'Skill_AttackWeapon'
+   cameraShakeAmplitude                           0.11999999731779099
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   distanceProfile                                'Melee'
+   isPetDisplayable                               True
+   offensiveFireMin                               [15.0, 25.0, 35.0, 45.0, 55.0, 64.0, 73.0, 82.0, 91.0, 100.0, 109.0, 118.0, 127.0, 136.0, 145.0, 154.0, 164.0, 174.0, 184.0, 194.0, 204.0, 215.0, 226.0, 240.0, 254.0, 272.0]
+   offensivePhysicalMax                           [60.0, 69.0, 78.0, 87.0, 96.0, 104.0, 112.0, 120.0, 128.0, 136.0, 144.0, 152.0, 160.0, 168.0, 176.0, 184.0, 195.0, 206.0, 217.0, 228.0, 239.0, 251.0, 263.0, 278.0, 294.0, 314.0]
+   offensivePhysicalMin                           [26.0, 33.0, 40.0, 47.0, 54.0, 60.0, 66.0, 72.0, 78.0, 84.0, 90.0, 96.0, 102.0, 108.0, 114.0, 120.0, 128.0, 136.0, 144.0, 152.0, 160.0, 169.0, 178.0, 190.0, 202.0, 218.0]
+   offensiveSlowFireDurationMin                   3.0
+   offensiveSlowFireMin                           [11.0, 16.0, 21.0, 26.0, 31.0, 35.0, 39.0, 43.0, 47.0, 51.0, 55.0, 59.0, 63.0, 67.0, 71.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0, 106.0, 112.0, 121.0, 130.0, 144.0]
+   ragDollAmplification                           1.0
+   skillDisplayName                               'tagGDX2Class09SkillName08A_PetSkillA'
+   skillMaxLevel                                  16
+   skillSpecialAnimationName                      'FireArc'
+   skillSwipeSound                                'records/sounds/skillsounds/class01/spak_bladearc.dbr'
+   skillTargetAngle                               180.0
+   skillTargetNumber                              5
+   skillUltimateLevel                             26
+   templateName                                   'database/templates/skill_attackweapon.tpl'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_auraofdarkness.dbr ['gdx1'] found= True
+   Class                                          'Skill_BuffRadiusToggled'
+   buffSkillName                                  'records/skills/itemskillsgdx1/pets/petskill_deathstalker_auraofdarkness_buff.dbr'
+   instantCast                                    True
+   templateName                                   'database/templates/skill_buffradiustoggled.tpl'
+===============================================================================================
+records/skills/playerclass09/pets/petskill_celestialguardian_celestialwrath1.dbr ['gdx2'] found= True
+   Class                                          'Skill_BuffRadiusToggled'
+   buffSkillName                                  'records/skills/playerclass09/pets/petskill_celestialguardian_celestialwrath1_buff.dbr'
+   templateName                                   'database/templates/skill_buffradiustoggled.tpl'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr ['gdx1'] found= True
+   Class                                          'Skill_AttackWeapon'
+   cameraShakeAmplitude                           0.11999999731779099
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   distanceProfile                                'Melee'
+   offensivePhysicalMin                           130.0
+   offensivePoisonMax                             215.0
+   offensivePoisonMin                             130.0
+   offensiveSlowBleedingDurationMin               3.0
+   offensiveSlowBleedingMin                       70.0
+   skillHitSound                                  'records/sounds/enemies/combatbasic/spak_attack_fistloud01.dbr'
+   skillMaxLevel                                  1
+   skillSpecialAnimationName                      'Slam'
+   skillSwipeSound                                'records/sounds/enemies/combatbasic/spak_swipe_genericbig01.dbr'
+   skillTargetAngle                               90.0
+   skillTargetNumber                              3
+   templateName                                   'database/templates/skill_attackweapon.tpl'
+   warmUpEffectAttachPoint                        'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr ['gdx1'] found= True
+   Class                                          'Skill_AttackWeaponBlink'
+   cameraShakeAmplitude                           0.11999999731779099
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   characterRunSpeedModifier                      100.0
+   distanceProfile                                'Long'
+   offensivePhysicalMin                           250.0
+   offensivePoisonMax                             388.0
+   offensivePoisonMin                             250.0
+   offensiveSlowBleedingDurationMin               3.0
+   offensiveSlowBleedingMin                       100.0
+   skillAllowsWarmUp                              True
+   skillMaxLevel                                  1
+   skillSpecialAnimationName                      'ShadowStrike'
+   skillWarmUpSound                               'records/sounds/skillsounds/class04/spak_shadowstrike.dbr'
+   targetFxPakName                                'records/fx/skillclass04/shadowstrike1_target_fxpak.dbr'
+   templateName                                   'database/templates/skill_attackweaponblink.tpl'
+   warmupFxPakName                                'records/fx/skillclass04/shadowstrike1_activate_fxpak.dbr'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr ['gdx1'] found= True
+   Class                                          'Skill_AttackWeapon'
+   FileDescription                                'Pierce + Poison + stun'
+   cameraShakeAmplitude                           0.11999999731779099
+   characterBaseAttackSpeedTag                    'CharacterAttackSpeedAverage'
+   distanceProfile                                'Melee'
+   offensivePhysicalMin                           177.0
+   offensivePoisonMin                             177.0
+   offensiveSlowBleedingDurationMin               3.0
+   offensiveSlowBleedingMin                       122.0
+   skillHitSound                                  'records/sounds/enemies/combatbasic/spak_attack_fistloud01.dbr'
+   skillMaxLevel                                  1
+   skillSpecialAnimationName                      'TailStrike'
+   skillSwipeSound                                'records/sounds/enemies/combatbasic/spak_swipe_genericbig01.dbr'
+   templateName                                   'database/templates/skill_attackweapon.tpl'
+   warmUpEffectAttachPoint                        'R Hand;L Hand;Upper Body;Lower Body;Head;Forearm;Particle1;Particle2;Particle3;'
+===============================================================================================
+records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr ['gdx1'] found= True
+   Class                                          'Skill_AttackRadius'
+   cameraShakeAmplitude                           0.11999999731779099
+   distanceProfile                                'Long'
+   expansionTime                                  0.10000000149011612
+   offensivePhysicalMin                           130.0
+   offensivePoisonMax                             215.0
+   offensivePoisonMin                             130.0
+   offensiveSlowBleedingDurationMin               3.0
+   offensiveSlowBleedingMin                       70.0
+   radiusEffectName                               'records/fx/skillsother/attackradius/chthonianwarrior_roar_radius_fxpak01.dbr'
+   ragDollAmplification                           1.2999999523162842
+   ragDollDirection                               'Push'
+   ragDollEffect                                  'TakeHit'
+   skillMaxLevel                                  1
+   skillSpecialAnimationName                      'Roar'
+   skillSwipeSound                                'records/sounds/enemies/vocalizations/spak_manticorevox.dbr'
+   skillTargetRadius                              6.0
+   templateName                                   'database/templates/skill_attackradius.tpl'

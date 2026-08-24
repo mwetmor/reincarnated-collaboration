@@ -1,0 +1,64 @@
+=== DefaultRequestReleasePetAction @ 0x0011f0d0
+  0x0011f0d0  push     ebp
+  0x0011f0d1  mov      ebp, esp
+  0x0011f0d3  push     -1
+  0x0011f0d5  push     0x104c7bef
+  0x0011f0da  mov      eax, dword ptr fs:[0]
+  0x0011f0e0  push     eax
+  0x0011f0e1  mov      dword ptr fs:[0], esp
+  0x0011f0e8  push     ecx
+  0x0011f0e9  push     esi
+  0x0011f0ea  push     edi
+  0x0011f0eb  push     0x14
+  0x0011f0ed  mov      esi, ecx
+  0x0011f0ef  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x0011f0f4  mov      edi, eax
+  0x0011f0f6  add      esp, 4
+  0x0011f0f9  mov      dword ptr [ebp - 0x10], edi
+  0x0011f0fc  mov      dword ptr [ebp - 4], 0
+  0x0011f103  cmp      dword ptr [esi + 8], 0
+  0x0011f107  jne      0x1011f11f
+  0x0011f109  mov      ecx, dword ptr [esi + 4]
+  0x0011f10c  push     dword ptr [ecx + 0x24]
+  0x0011f10f  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0011f115  mov      ecx, eax
+  0x0011f117  call     0x1000b260   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+  0x0011f11c  mov      dword ptr [esi + 8], eax
+  0x0011f11f  mov      ecx, dword ptr [esi + 8]
+  0x0011f122  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0011f128  push     eax
+  0x0011f129  mov      ecx, edi
+  0x0011f12b  call     dword ptr [0x104e57b4]   ; f32=1.16698e-38 i32=8327848 f64=2.76563e-306
+  0x0011f131  mov      eax, dword ptr [ebp + 8]
+  0x0011f134  mov      dword ptr [edi + 0xc], eax
+  0x0011f137  mov      al, byte ptr [ebp + 0xc]
+  0x0011f13a  mov      dword ptr [edi], 0x1058e0f4
+  0x0011f140  mov      byte ptr [edi + 0x10], al
+  0x0011f143  mov      byte ptr [edi + 8], 1
+  0x0011f147  mov      dword ptr [ebp - 4], 0xffffffff
+  0x0011f14e  cmp      dword ptr [esi + 8], 0
+  0x0011f152  jne      0x1011f16a
+  0x0011f154  mov      eax, dword ptr [esi + 4]
+  0x0011f157  push     dword ptr [eax + 0x24]
+  0x0011f15a  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0011f160  mov      ecx, eax
+  0x0011f162  call     0x1000b260   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+  0x0011f167  mov      dword ptr [esi + 8], eax
+  0x0011f16a  mov      ecx, dword ptr [esi + 8]
+  0x0011f16d  push     edi
+  0x0011f16e  mov      eax, dword ptr [ecx]
+  0x0011f170  call     dword ptr [eax + 0x1a4]
+  0x0011f176  mov      ecx, dword ptr [ebp - 0xc]
+  0x0011f179  mov      al, 1
+  0x0011f17b  pop      edi
+  0x0011f17c  pop      esi
+  0x0011f17d  mov      dword ptr fs:[0], ecx
+  0x0011f184  mov      esp, ebp
+  0x0011f186  pop      ebp
+  0x0011f187  ret      8
+  0x0011f18a  int3     
+  0x0011f18b  int3     
+  0x0011f18c  int3     
+  0x0011f18d  int3     
+  0x0011f18e  int3     
+  0x0011f18f  int3     

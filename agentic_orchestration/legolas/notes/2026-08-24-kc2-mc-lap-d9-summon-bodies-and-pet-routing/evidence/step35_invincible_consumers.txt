@@ -1,0 +1,32 @@
+IsInvincible@Character vtable slot = 262 offset 0x418
+   ??_7Character@GAME@@6BObject@1@@             -> 0x00059c80 ?IsInvincible@Character@GAME@@UBE_NXZ
+   ??_7Monster@GAME@@6BObject@1@@               -> 0x00059c80 ?IsInvincible@Character@GAME@@UBE_NXZ
+   ??_7Pet@GAME@@6BObject@1@@                   -> 0x00059c80 ?IsInvincible@Character@GAME@@UBE_NXZ
+   ??_7PetPlayerScaling@GAME@@6BObject@1@@      -> 0x00059c80 ?IsInvincible@Character@GAME@@UBE_NXZ
+   ??_7Player@GAME@@6BObject@1@@                -> 0x0031b090 ?IsInvincible@Player@GAME@@UBE_NXZ
+
+=== call/jmp through vtable offset 0x418  (scan for FF /2 and FF /4 with disp32==0x418)
+   total: 0
+
+==========================================================================================
+=== IsTargetable@Monster @0x002dc780
+  0x002dc780  push     esi
+  0x002dc781  mov      esi, ecx
+  0x002dc783  cmp      byte ptr [esi + 0x1845], 0
+  0x002dc78a  je       0x102dc790
+  0x002dc78c  xor      al, al
+  0x002dc78e  jmp      0x102dc79a   ; -> ?IsTargetable@Monster@GAME@@UBE_NXZ+0x1a
+  0x002dc790  mov      eax, dword ptr [esi]
+  0x002dc792  mov      eax, dword ptr [eax + 0x418]
+  0x002dc798  call     eax
+  0x002dc79a  cmp      byte ptr [esi + 0x182e], 0
+  0x002dc7a1  pop      esi
+  0x002dc7a2  je       0x102dc7ab
+  0x002dc7a4  test     al, al
+  0x002dc7a6  jne      0x102dc7ab
+  0x002dc7a8  mov      al, 1
+  0x002dc7aa  ret      
+  0x002dc7ab  xor      al, al
+  0x002dc7ad  ret      
+  0x002dc7ae  int3     
+  0x002dc7af  int3     

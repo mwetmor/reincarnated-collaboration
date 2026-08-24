@@ -1,0 +1,228 @@
+body vftables:
+   ??_7AmbientCharacter@GAME@@6BICrowdAgent@CROWD@@@                0x0058f0d8
+   ??_7AmbientCharacter@GAME@@6BIPhysics2@1@@                       0x005bb52c
+   ??_7AmbientCharacter@GAME@@6BObject@1@@                          0x005894dc
+   ??_7Character@GAME@@6BICrowdAgent@CROWD@@@                       0x0058f0d8
+   ??_7Character@GAME@@6BIPhysics2@1@@                              0x005bb52c
+   ??_7Character@GAME@@6BObject@1@@                                 0x0058f0f8
+   ??_7DefenseAttributeStore_Character@GAME@@6B@                    0x00592e10
+   ??_7FixedItemSkill_SpawnMonster@GAME@@6B@                        0x005b3c44
+   ??_7Monster@GAME@@6BICrowdAgent@CROWD@@@                         0x005dc928
+   ??_7Monster@GAME@@6BIPhysics2@1@@                                0x005bb52c
+   ??_7Monster@GAME@@6BObject@1@@                                   0x005dc948
+   ??_7Pet@GAME@@6BICrowdAgent@CROWD@@@                             0x005dc928
+   ??_7Pet@GAME@@6BIPhysics2@1@@                                    0x005bb52c
+   ??_7Pet@GAME@@6BObject@1@@                                       0x005e4420
+   ??_7Player@GAME@@6BICrowdAgent@CROWD@@@                          0x005e4afc
+   ??_7Player@GAME@@6BIPhysics2@1@@                                 0x005e4fc8
+   ??_7Player@GAME@@6BObject@1@@                                    0x005e4b1c
+   ??_7SkillSecondary_TargetedSpawnPet@GAME@@6B@                    0x00598a00
+   ??_7SkillServices_Character@GAME@@6B@                            0x005ef794
+   ??_7Skill_AttackProjectileSpawnPet@GAME@@6B@                     0x005b014c
+   ??_7Skill_AttackRadiusLightningSpawnPet@GAME@@6B@                0x005aef60
+   ??_7Skill_AttackSpellChaosSpawnPet@GAME@@6B@                     0x005ae83c
+   ??_7Skill_SpawnMiniPet@GAME@@6B@                                 0x005b3004
+   ??_7Skill_SpawnPet@GAME@@6B@                                     0x005b33c0
+   ??_7Skill_SpawnPetMonster@GAME@@6B@                              0x005a2ad0
+   ??_7Skill_SpawnQuestPet@GAME@@6B@                                0x005a2714
+   ??_7Skill_TargetedSpawnPet@GAME@@6B@                             0x005a237c
+   ??_7SpecialCharHandler_FadeAwayFromPlayer@GAME@@6B@              0x0058f900
+   ??_7SpecialCharHandler_FadeNearPlayer@GAME@@6B@                  0x0058f8dc
+   ??_7SpecialCharHandler_IcyCharacter@GAME@@6BGMIEffectListener@1@@ 0x0058f924
+   ??_7SpecialCharHandler_IcyCharacter@GAME@@6BSpecialCharHandler@1@@ 0x0058f92c
+
+??_7Character@GAME@@6BObject@1@@ @0x0058f0f8  slots<=291 (next export @0x0058f584)
+
+??_7Monster@GAME@@6BObject@1@@ @0x005dc948  slots<=416 (next export @0x005dcfc8)
+
+??_7Pet@GAME@@6BObject@1@@ @0x005e4420  slots<=294 (next export @0x005e48b8)
+
+??_7Player@GAME@@6BObject@1@@ @0x005e4b1c  slots<=299 (next export @0x005e4fc8)
+
+=== control-influence slots, per body class
+  ??_7AmbientCharacter@GAME@@6BICrowdAgent@CROWD@@@            (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7AmbientCharacter@GAME@@6BIPhysics2@1@@                   (slots<=300)
+       +0x3c0               0x002da100 ?ContributeMutatorCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+       Fear (+0x3c4)        0x002da190 ?ContributeMutatorSkillAttributes@Monster@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z
+       Confusion (+0x3c8)   0x002da220 ?ContributeMutatorDefenseAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+       Taunt (+0x3cc)       0x002da2b0 ?ContributeMutatorOffensiveDamageAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+       +0x3d0               0x002da350 ?ContributeMutatorOffensiveModifierAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+  ??_7AmbientCharacter@GAME@@6BObject@1@@                      (slots<=291)
+       +0x3c0               0x000571e0 ?DetachItemAction@Character@GAME@@UAEXI@Z
+       Fear (+0x3c4)        0x00054690 ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z
+       Confusion (+0x3c8)   0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+       Taunt (+0x3cc)       0x000546d0 ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z
+       +0x3d0               0x00054710 ?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z
+  ??_7Character@GAME@@6BICrowdAgent@CROWD@@@                   (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Character@GAME@@6BIPhysics2@1@@                          (slots<=300)
+       +0x3c0               0x002da100 ?ContributeMutatorCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+       Fear (+0x3c4)        0x002da190 ?ContributeMutatorSkillAttributes@Monster@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z
+       Confusion (+0x3c8)   0x002da220 ?ContributeMutatorDefenseAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+       Taunt (+0x3cc)       0x002da2b0 ?ContributeMutatorOffensiveDamageAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+       +0x3d0               0x002da350 ?ContributeMutatorOffensiveModifierAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+  ??_7Character@GAME@@6BObject@1@@                             (slots<=291)
+       +0x3c0               0x000571e0 ?DetachItemAction@Character@GAME@@UAEXI@Z
+       Fear (+0x3c4)        0x00054690 ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z
+       Confusion (+0x3c8)   0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+       Taunt (+0x3cc)       0x000546d0 ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z
+       +0x3d0               0x00054710 ?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z
+  ??_7DefenseAttributeStore_Character@GAME@@6B@                (slots<=7)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7FixedItemSkill_SpawnMonster@GAME@@6B@                    (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Monster@GAME@@6BICrowdAgent@CROWD@@@                     (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Monster@GAME@@6BIPhysics2@1@@                            (slots<=300)
+       +0x3c0               0x002da100 ?ContributeMutatorCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+       Fear (+0x3c4)        0x002da190 ?ContributeMutatorSkillAttributes@Monster@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z
+       Confusion (+0x3c8)   0x002da220 ?ContributeMutatorDefenseAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+       Taunt (+0x3cc)       0x002da2b0 ?ContributeMutatorOffensiveDamageAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+       +0x3d0               0x002da350 ?ContributeMutatorOffensiveModifierAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+  ??_7Monster@GAME@@6BObject@1@@                               (slots<=416)
+       +0x3c0               0x000571e0 ?DetachItemAction@Character@GAME@@UAEXI@Z
+       Fear (+0x3c4)        0x00054690 ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z
+       Confusion (+0x3c8)   0x002d9670 ?CombatExertInfluenceConfusion@Monster@GAME@@UAEXH@Z
+       Taunt (+0x3cc)       0x000546d0 ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z
+       +0x3d0               0x00054710 ?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z
+  ??_7Pet@GAME@@6BICrowdAgent@CROWD@@@                         (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Pet@GAME@@6BIPhysics2@1@@                                (slots<=300)
+       +0x3c0               0x002da100 ?ContributeMutatorCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z
+       Fear (+0x3c4)        0x002da190 ?ContributeMutatorSkillAttributes@Monster@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z
+       Confusion (+0x3c8)   0x002da220 ?ContributeMutatorDefenseAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+       Taunt (+0x3cc)       0x002da2b0 ?ContributeMutatorOffensiveDamageAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+       +0x3d0               0x002da350 ?ContributeMutatorOffensiveModifierAttributes@Monster@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+  ??_7Pet@GAME@@6BObject@1@@                                   (slots<=294)
+       +0x3c0               0x000571e0 ?DetachItemAction@Character@GAME@@UAEXI@Z
+       Fear (+0x3c4)        0x00054690 ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z
+       Confusion (+0x3c8)   0x002d9670 ?CombatExertInfluenceConfusion@Monster@GAME@@UAEXH@Z
+       Taunt (+0x3cc)       0x000546d0 ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z
+       +0x3d0               0x00054710 ?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z
+  ??_7Player@GAME@@6BICrowdAgent@CROWD@@@                      (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Player@GAME@@6BIPhysics2@1@@                             (slots<=12)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Player@GAME@@6BObject@1@@                                (slots<=299)
+       +0x3c0               0x0032bea0 ?DetachItemAction@Player@GAME@@UAEXI@Z
+       Fear (+0x3c4)        0x00054690 ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z
+       Confusion (+0x3c8)   0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+       Taunt (+0x3cc)       0x000546d0 ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z
+       +0x3d0               0x00054710 ?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z
+  ??_7SkillSecondary_TargetedSpawnPet@GAME@@6B@                (slots<=212)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7SkillServices_Character@GAME@@6B@                        (slots<=31)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_AttackProjectileSpawnPet@GAME@@6B@                 (slots<=230)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_AttackRadiusLightningSpawnPet@GAME@@6B@            (slots<=231)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_AttackSpellChaosSpawnPet@GAME@@6B@                 (slots<=229)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_SpawnMiniPet@GAME@@6B@                             (slots<=239)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_SpawnPet@GAME@@6B@                                 (slots<=239)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_SpawnPetMonster@GAME@@6B@                          (slots<=239)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_SpawnQuestPet@GAME@@6B@                            (slots<=239)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7Skill_TargetedSpawnPet@GAME@@6B@                         (slots<=230)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7SpecialCharHandler_FadeAwayFromPlayer@GAME@@6B@          (slots<=9)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7SpecialCharHandler_FadeNearPlayer@GAME@@6B@              (slots<=9)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7SpecialCharHandler_IcyCharacter@GAME@@6BGMIEffectListener@1@@ (slots<=2)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>
+  ??_7SpecialCharHandler_IcyCharacter@GAME@@6BSpecialCharHandler@1@@ (slots<=8)
+       +0x3c0               <past end>
+       Fear (+0x3c4)        <past end>
+       Confusion (+0x3c8)   <past end>
+       Taunt (+0x3cc)       <past end>
+       +0x3d0               <past end>

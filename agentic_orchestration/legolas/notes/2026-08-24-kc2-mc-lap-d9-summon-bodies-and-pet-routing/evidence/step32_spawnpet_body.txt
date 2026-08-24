@@ -1,0 +1,325 @@
+=== SpawnPet@Skill_SpawnPet @0x0041c850
+  0x0041c850  push     ebp
+  0x0041c851  mov      ebp, esp
+  0x0041c853  push     -1
+  0x0041c855  push     0x104db078
+  0x0041c85a  mov      eax, dword ptr fs:[0]
+  0x0041c860  push     eax
+  0x0041c861  mov      dword ptr fs:[0], esp
+  0x0041c868  sub      esp, 0x90
+  0x0041c86e  push     ebx
+  0x0041c86f  push     esi
+  0x0041c870  push     edi
+  0x0041c871  mov      edi, ecx
+  0x0041c873  push     1
+  0x0041c875  push     dword ptr [ebp + 0xc]
+  0x0041c878  mov      eax, dword ptr [edi]
+  0x0041c87a  call     dword ptr [eax + 0x1d4]
+  0x0041c880  mov      eax, dword ptr [edi]
+  0x0041c882  mov      ecx, edi
+  0x0041c884  call     dword ptr [eax + 0xe4]
+  0x0041c88a  mov      esi, eax
+  0x0041c88c  mov      ecx, edi
+  0x0041c88e  push     esi
+  0x0041c88f  lea      eax, [ebp - 0x30]
+  0x0041c892  push     eax
+  0x0041c893  call     0x103c0120   ; -> ?GetWeightedSpawnObject@Skill@GAME@@QBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z
+  0x0041c898  mov      dword ptr [ebp - 4], 0
+  0x0041c89f  cmp      dword ptr [ebp - 0x20], 0
+  0x0041c8a3  jne      0x1041c8df
+  0x0041c8a5  mov      eax, dword ptr [edi]
+  0x0041c8a7  lea      ecx, [ebp - 0x68]
+  0x0041c8aa  push     esi
+  0x0041c8ab  push     ecx
+  0x0041c8ac  mov      ecx, edi
+  0x0041c8ae  call     dword ptr [eax + 0x154]
+  0x0041c8b4  lea      ecx, [ebp - 0x30]
+  0x0041c8b7  mov      byte ptr [ebp - 4], 1
+  0x0041c8bb  cmp      ecx, eax
+  0x0041c8bd  je       0x1041c8c9
+  0x0041c8bf  push     -1
+  0x0041c8c1  push     0
+  0x0041c8c3  push     eax
+  0x0041c8c4  call     0x10008820   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x350
+  0x0041c8c9  mov      edx, dword ptr [ebp - 0x54]
+  0x0041c8cc  cmp      edx, 0x10
+  0x0041c8cf  jb       0x1041c8df
+  0x0041c8d1  mov      ecx, dword ptr [ebp - 0x68]
+  0x0041c8d4  inc      edx
+  0x0041c8d5  push     1
+  0x0041c8d7  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0041c8dc  add      esp, 4
+  0x0041c8df  mov      dword ptr [ebp - 0x18], 0
+  0x0041c8e6  mov      dword ptr [ebp - 0x14], 0
+  0x0041c8ed  mov      dword ptr [ebp - 0x10], 0
+  0x0041c8f4  lea      eax, [ebp - 0x18]
+  0x0041c8f7  mov      byte ptr [ebp - 4], 2
+  0x0041c8fb  push     eax
+  0x0041c8fc  mov      ecx, edi
+  0x0041c8fe  call     0x103c14e0   ; -> ?AddModifierPetChanges@Skill@GAME@@QBEXAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z
+  0x0041c903  mov      ebx, dword ptr [ebp - 0x18]
+  0x0041c906  mov      ecx, dword ptr [ebp - 0x14]
+  0x0041c909  cmp      ebx, ecx
+  0x0041c90b  sete     al
+  0x0041c90e  test     al, al
+  0x0041c910  jne      0x1041c945
+  0x0041c912  sub      ecx, ebx
+  0x0041c914  mov      eax, 0x2aaaaaab
+  0x0041c919  imul     ecx
+  0x0041c91b  lea      ecx, [esi - 1]
+  0x0041c91e  sar      edx, 2
+  0x0041c921  mov      eax, edx
+  0x0041c923  shr      eax, 0x1f
+  0x0041c926  dec      eax
+  0x0041c927  add      eax, edx
+  0x0041c929  cmp      ecx, eax
+  0x0041c92b  cmovbe   eax, ecx
+  0x0041c92e  lea      ecx, [ebp - 0x30]
+  0x0041c931  lea      eax, [eax + eax*2]
+  0x0041c934  lea      eax, [ebx + eax*8]
+  0x0041c937  cmp      ecx, eax
+  0x0041c939  je       0x1041c945
+  0x0041c93b  push     -1
+  0x0041c93d  push     0
+  0x0041c93f  push     eax
+  0x0041c940  call     0x10008820   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x350
+  0x0041c945  mov      eax, dword ptr [edi]
+  0x0041c947  mov      ecx, edi
+  0x0041c949  push     esi
+  0x0041c94a  call     dword ptr [eax + 0x164]
+  0x0041c950  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x0041c954  lea      edx, [ebp - 0x30]
+  0x0041c957  mov      dword ptr [ebp - 0x3c], 0xf
+  0x0041c95e  cmovae   edx, dword ptr [ebp - 0x30]
+  0x0041c962  mov      dword ptr [ebp - 0x40], 0
+  0x0041c969  mov      byte ptr [ebp - 0x50], 0
+  0x0041c96d  mov      dword ptr [ebp - 0x38], eax
+  0x0041c970  cmp      byte ptr [edx], 0
+  0x0041c973  jne      0x1041c979
+  0x0041c975  xor      ecx, ecx
+  0x0041c977  jmp      0x1041c989   ; -> ?SpawnPet@Skill_SpawnPet@GAME@@MAEIAAVCharacter@2@ABVWorldCoords@2@@Z+0x139
+  0x0041c979  mov      ecx, edx
+  0x0041c97b  lea      esi, [ecx + 1]
+  0x0041c97e  nop      
+  0x0041c980  mov      al, byte ptr [ecx]
+  0x0041c982  inc      ecx
+  0x0041c983  test     al, al
+  0x0041c985  jne      0x1041c980
+  0x0041c987  sub      ecx, esi
+  0x0041c989  push     ecx
+  0x0041c98a  push     edx
+  0x0041c98b  lea      ecx, [ebp - 0x50]
+  0x0041c98e  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x0041c993  mov      byte ptr [ebp - 4], 3
+  0x0041c997  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0041c99d  push     0
+  0x0041c99f  mov      esi, eax
+  0x0041c9a1  lea      eax, [ebp - 0x50]
+  0x0041c9a4  push     0
+  0x0041c9a6  push     eax
+  0x0041c9a7  mov      ecx, esi
+  0x0041c9a9  call     dword ptr [0x104e5098]   ; f32=1.1635e-38 i32=8303012 f64=2.73203e-306
+  0x0041c9af  test     eax, eax
+  0x0041c9b1  je       0x1041c9c3
+  0x0041c9b3  push     eax
+  0x0041c9b4  lea      eax, [ebp - 0x50]
+  0x0041c9b7  mov      ecx, esi
+  0x0041c9b9  push     eax
+  0x0041c9ba  call     0x101a2920   ; -> ?Execute@PlaySoundDeathHandler@GAME@@UAEX_N@Z+0x3a0
+  0x0041c9bf  mov      ebx, eax
+  0x0041c9c1  jmp      0x1041c9c5   ; -> ?SpawnPet@Skill_SpawnPet@GAME@@MAEIAAVCharacter@2@ABVWorldCoords@2@@Z+0x175
+  0x0041c9c3  xor      ebx, ebx
+  0x0041c9c5  mov      byte ptr [ebp - 4], 2
+  0x0041c9c9  mov      edx, dword ptr [ebp - 0x3c]
+  0x0041c9cc  cmp      edx, 0x10
+  0x0041c9cf  jb       0x1041c9df
+  0x0041c9d1  mov      ecx, dword ptr [ebp - 0x50]
+  0x0041c9d4  inc      edx
+  0x0041c9d5  push     1
+  0x0041c9d7  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0041c9dc  add      esp, 4
+  0x0041c9df  mov      dword ptr [ebp - 0x3c], 0xf
+  0x0041c9e6  mov      dword ptr [ebp - 0x40], 0
+  0x0041c9ed  mov      byte ptr [ebp - 0x50], 0
+  0x0041c9f1  test     ebx, ebx
+  0x0041c9f3  je       0x1041cb6e
+  0x0041c9f9  mov      esi, dword ptr [ebp + 8]
+  0x0041c9fc  lea      ecx, [ebp - 0x68]
+  0x0041c9ff  mov      eax, dword ptr [esi + 0x1198]
+  0x0041ca05  mov      dword ptr [ebx + 0x1198], eax
+  0x0041ca0b  lea      eax, [ebp - 0x30]
+  0x0041ca0e  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x0041ca12  cmovae   eax, dword ptr [ebp - 0x30]
+  0x0041ca16  push     eax
+  0x0041ca17  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x0041ca1c  lea      eax, [ebp - 0x68]
+  0x0041ca1f  mov      byte ptr [ebp - 4], 4
+  0x0041ca23  push     eax
+  0x0041ca24  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0041ca2a  mov      ecx, eax
+  0x0041ca2c  call     dword ptr [0x104e5540]   ; f32=1.16574e-38 i32=8318990 f64=2.75371e-306
+  0x0041ca32  mov      byte ptr [ebp - 4], 2
+  0x0041ca36  mov      edx, dword ptr [ebp - 0x54]
+  0x0041ca39  mov      dword ptr [ebp - 0x34], eax
+  0x0041ca3c  cmp      edx, 0x10
+  0x0041ca3f  jb       0x1041ca4f
+  0x0041ca41  mov      ecx, dword ptr [ebp - 0x68]
+  0x0041ca44  inc      edx
+  0x0041ca45  push     1
+  0x0041ca47  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0041ca4c  add      esp, 4
+  0x0041ca4f  mov      eax, dword ptr [ebx]
+  0x0041ca51  mov      ecx, ebx
+  0x0041ca53  push     dword ptr [ebp - 0x34]
+  0x0041ca56  mov      dword ptr [ebp - 0x54], 0xf
+  0x0041ca5d  mov      dword ptr [ebp - 0x58], 0
+  0x0041ca64  mov      byte ptr [ebp - 0x68], 0
+  0x0041ca68  call     dword ptr [eax + 4]
+  0x0041ca6b  mov      eax, dword ptr [edi]
+  0x0041ca6d  mov      ecx, edi
+  0x0041ca6f  mov      eax, dword ptr [eax + 0x3b0]
+  0x0041ca75  call     eax
+  0x0041ca77  test     al, al
+  0x0041ca79  je       0x1041caa6
+  0x0041ca7b  mov      eax, dword ptr [edi]
+  0x0041ca7d  mov      ecx, edi
+  0x0041ca7f  mov      esi, dword ptr [ebx]
+  0x0041ca81  mov      eax, dword ptr [eax + 0x398]
+  0x0041ca87  call     eax
+  0x0041ca89  mov      ecx, dword ptr [ebp + 8]
+  0x0041ca8c  movzx    eax, al
+  0x0041ca8f  push     eax
+  0x0041ca90  push     0
+  0x0041ca92  push     -1
+  0x0041ca94  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0041ca9a  push     eax
+  0x0041ca9b  mov      ecx, ebx
+  0x0041ca9d  call     dword ptr [esi + 0x30c]
+  0x0041caa3  mov      esi, dword ptr [ebp + 8]
+  0x0041caa6  mov      eax, dword ptr [esi]
+  0x0041caa8  mov      ecx, esi
+  0x0041caaa  call     dword ptr [eax]
+  0x0041caac  cmp      eax, 0x107ff600
+  0x0041cab1  je       0x1041cad0
+  0x0041cab3  mov      ecx, dword ptr [eax + 8]
+  0x0041cab6  test     ecx, ecx
+  0x0041cab8  je       0x1041cad8
+  0x0041caba  cmp      ecx, 0x107ff600
+  0x0041cac0  je       0x1041cad0
+  0x0041cac2  push     0x107ff600
+  0x0041cac7  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0041cacc  test     al, al
+  0x0041cace  je       0x1041cad8
+  0x0041cad0  push     ebx
+  0x0041cad1  mov      ecx, esi
+  0x0041cad3  call     0x102da930   ; -> ?TransferAnger@Monster@GAME@@QBEXAAV12@@Z
+  0x0041cad8  mov      esi, dword ptr [ebp - 0x38]
+  0x0041cadb  test     esi, esi
+  0x0041cadd  jle      0x1041cafc
+  0x0041cadf  push     dword ptr [ebx + 0x1120]
+  0x0041cae5  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0041caeb  mov      ecx, eax
+  0x0041caed  call     0x10071360   ; -> ?GetNetPacket@RotateAction@GAME@@UAEPAVNetPacket@2@XZ+0x1e0
+  0x0041caf2  test     eax, eax
+  0x0041caf4  je       0x1041cafc
+  0x0041caf6  mov      dword ptr [eax + 0x4ec], esi
+  0x0041cafc  mov      eax, dword ptr [edi]
+  0x0041cafe  mov      ecx, edi
+  0x0041cb00  mov      eax, dword ptr [eax + 0x398]
+  0x0041cb06  call     eax
+  0x0041cb08  test     al, al
+  0x0041cb0a  je       0x1041cb13
+  0x0041cb0c  mov      byte ptr [ebx + 0x1924], 1
+  0x0041cb13  mov      eax, dword ptr [ebx]
+  0x0041cb15  mov      ecx, ebx
+  0x0041cb17  call     dword ptr [eax + 0x314]
+  0x0041cb1d  push     dword ptr [ebp + 0xc]
+  0x0041cb20  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x0041cb26  push     ebx
+  0x0041cb27  call     0x10258ac0   ; -> ?FastSpawnEntity@GameEngine@GAME@@QAEXPAVEntity@2@ABVWorldCoords@2@@Z
+  0x0041cb2c  mov      esi, dword ptr [edi]
+  0x0041cb2e  mov      ecx, edi
+  0x0041cb30  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0041cb36  push     eax
+  0x0041cb37  mov      ecx, ebx
+  0x0041cb39  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0041cb3f  push     eax
+  0x0041cb40  lea      eax, [ebp - 0x9c]
+  0x0041cb46  mov      ecx, ebx
+  0x0041cb48  push     eax
+  0x0041cb49  call     dword ptr [0x104e5288]   ; f32=1.16448e-38 i32=8310008 f64=2.74142e-306
+  0x0041cb4f  mov      ecx, dword ptr [ebp + 8]
+  0x0041cb52  push     eax
+  0x0041cb53  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0041cb59  push     eax
+  0x0041cb5a  mov      ecx, edi
+  0x0041cb5c  call     dword ptr [esi + 0x3b4]
+  0x0041cb62  mov      ecx, ebx
+  0x0041cb64  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x0041cb6a  mov      ebx, eax
+  0x0041cb6c  jmp      0x1041cb93   ; -> ?SpawnPet@Skill_SpawnPet@GAME@@MAEIAAVCharacter@2@ABVWorldCoords@2@@Z+0x343
+  0x0041cb6e  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x0041cb73  lea      edx, [ebp - 0x30]
+  0x0041cb76  cmp      dword ptr [ebp - 0x1c], 0x10
+  0x0041cb7a  cmovae   edx, dword ptr [ebp - 0x30]
+  0x0041cb7e  mov      eax, dword ptr [eax]
+  0x0041cb80  push     edx
+  0x0041cb81  push     0x1057aa54   ; "Failed to spawn pet object (%s)"
+  0x0041cb86  push     1
+  0x0041cb88  mov      ecx, dword ptr [eax]
+  0x0041cb8a  push     eax
+  0x0041cb8b  call     dword ptr [ecx + 0xc]
+  0x0041cb8e  add      esp, 0x10
+  0x0041cb91  xor      ebx, ebx
+  0x0041cb93  mov      eax, dword ptr [edi]
+  0x0041cb95  mov      ecx, edi
+  0x0041cb97  push     dword ptr [ebp + 8]
+  0x0041cb9a  call     dword ptr [eax + 0x3b8]
+  0x0041cba0  mov      ecx, dword ptr [ebp - 0x18]
+  0x0041cba3  test     ecx, ecx
+  0x0041cba5  je       0x1041cbed
+  0x0041cba7  push     dword ptr [ebp + 8]
+  0x0041cbaa  mov      edx, dword ptr [ebp - 0x14]
+  0x0041cbad  push     ecx
+  0x0041cbae  call     0x1000bc70   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x170
+  0x0041cbb3  mov      edx, dword ptr [ebp - 0x10]
+  0x0041cbb6  mov      eax, 0x2aaaaaab
+  0x0041cbbb  mov      ecx, dword ptr [ebp - 0x18]
+  0x0041cbbe  sub      edx, ecx
+  0x0041cbc0  imul     edx
+  0x0041cbc2  push     0x18
+  0x0041cbc4  mov      eax, edx
+  0x0041cbc6  sar      eax, 2
+  0x0041cbc9  mov      edx, eax
+  0x0041cbcb  shr      edx, 0x1f
+  0x0041cbce  add      edx, eax
+  0x0041cbd0  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0041cbd5  add      esp, 0xc
+  0x0041cbd8  mov      dword ptr [ebp - 0x18], 0
+  0x0041cbdf  mov      dword ptr [ebp - 0x14], 0
+  0x0041cbe6  mov      dword ptr [ebp - 0x10], 0
+  0x0041cbed  mov      edx, dword ptr [ebp - 0x1c]
+  0x0041cbf0  cmp      edx, 0x10
+  0x0041cbf3  jb       0x1041cc03
+  0x0041cbf5  mov      ecx, dword ptr [ebp - 0x30]
+  0x0041cbf8  inc      edx
+  0x0041cbf9  push     1
+  0x0041cbfb  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0041cc00  add      esp, 4
+  0x0041cc03  mov      ecx, dword ptr [ebp - 0xc]
+  0x0041cc06  mov      eax, ebx
+  0x0041cc08  pop      edi
+  0x0041cc09  pop      esi
+  0x0041cc0a  pop      ebx
+  0x0041cc0b  mov      dword ptr fs:[0], ecx
+  0x0041cc12  mov      esp, ebp
+  0x0041cc14  pop      ebp
+  0x0041cc15  ret      8
+  0x0041cc18  int3     
+  0x0041cc19  int3     
+  0x0041cc1a  int3     
+  0x0041cc1b  int3     
+  0x0041cc1c  int3     
+  0x0041cc1d  int3     
+  0x0041cc1e  int3     
+  0x0041cc1f  int3     

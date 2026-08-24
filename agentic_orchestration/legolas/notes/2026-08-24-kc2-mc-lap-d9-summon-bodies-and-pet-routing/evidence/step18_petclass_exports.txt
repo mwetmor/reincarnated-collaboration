@@ -1,0 +1,250 @@
+=== ControllerPet                11 hits
+    ??0ControllerPet@GAME@@QAE@ABV01@@Z                                                                  0x000b5300
+    ??0ControllerPet@GAME@@QAE@XZ                                                                        0x001187b0
+    ??1ControllerPet@GAME@@UAE@XZ                                                                        0x001187e0
+    ??_7ControllerPet@GAME@@6BControllerAI@1@@                                                           0x005b3cb8
+    ??_7ControllerPet@GAME@@6BILootContainer@1@@                                                         0x005c2490
+    ?GetRTTIClassInfo@ControllerPet@GAME@@UBEABVRTTI_ClassInfo@2@XZ                                      0x000b52f0
+    ?GetStaticClassInfo@ControllerPet@GAME@@SAABVRTTI_ClassInfo@2@XZ                                     0x000b52f0
+    ?RTTI_new@ControllerPet@GAME@@KAPAXXZ                                                                0x000c5de0
+    ?RegisterStates@ControllerPet@GAME@@MAEXXZ                                                           0x000e8e90
+    ?RegisterTemporaryStates@ControllerPet@GAME@@MAEXXZ                                                  0x000e8ef0
+    ?classInfo@ControllerPet@GAME@@1VRTTI_ClassInfo@2@B                                                  0x007fd308
+
+=== @Pet@GAME                    32 hits
+    ?ContributeGameBalanceCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z                  0x00315f90
+    ?ContributeGameBalanceDefenseAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z             0x00315ff0
+    ?ContributeGameBalanceOffensiveDamageAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z    0x00316020
+    ?ContributeGameBalanceOffensiveModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z   0x00316060
+    ?ContributeGameBalanceRetaliationAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z        0x00316090
+    ?ContributeGameBalanceRetaliationModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x003160d0
+    ?ContributeGameBalanceSkillAttributes@Pet@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z                0x00315fc0
+    ?ContributeMiscCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z                         0x00315d70
+    ?ContributeMiscConversionAttributes@Pet@GAME@@UBEXAAVConversionAttributeAccumulator@2@@Z             0x00315f50
+    ?ContributeMiscDefenseAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z                    0x00315df0
+    ?ContributeMiscOffensiveDamageAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z           0x00315e30
+    ?ContributeMiscOffensiveModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z          0x00315e80
+    ?ContributeMiscRetaliationAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z               0x00315ec0
+    ?ContributeMiscRetaliationModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z        0x00315f10
+    ?ContributeMiscSkillAttributes@Pet@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z                       0x00315db0
+    ?ContributeMutatorCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z                      0x003161a0
+    ?ContributeMutatorDefenseAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z                 0x003162a0
+    ?ContributeMutatorOffensiveDamageAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z        0x00316320
+    ?ContributeMutatorOffensiveModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z       0x003163c0
+    ?ContributeMutatorRetaliationAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z            0x00316440
+    ?ContributeMutatorRetaliationModifierAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z     0x003164e0
+    ?ContributeMutatorSkillAttributes@Pet@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z                    0x00316220
+    ?GetCharLevelGapFixer@Pet@GAME@@UBEII@Z                                                              0x00009470
+    ?GetPetMutators@Pet@GAME@@QBEXAAV?$vector@PAVMutator@GAME@@@mem@@@Z                                  0x00316100
+    ?GetPetTypeNames@Pet@GAME@@QAEXAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z 0x00315c00
+    ?GetRTTIClassInfo@Pet@GAME@@UBEABVRTTI_ClassInfo@2@XZ                                                0x00009460
+    ?GetStaticClassInfo@Pet@GAME@@SAABVRTTI_ClassInfo@2@XZ                                               0x00009460
+    ?InitialUpdate@Pet@GAME@@UAEXXZ                                                                      0x00315c20
+    ?Load@Pet@GAME@@UAEXABVLoadTable@2@@Z                                                                0x00315bd0
+    ?RTTI_new@Pet@GAME@@KAPAXXZ                                                                          0x000c8b50
+    ?UpdateSelf@Pet@GAME@@UAEXH@Z                                                                        0x00315c70
+    ?classInfo@Pet@GAME@@1VRTTI_ClassInfo@2@B                                                            0x007ff5b8
+
+=== BeginConfusion               0 hits
+
+=== BeginFear                    0 hits
+
+=== BeginTaunt                   0 hits
+
+=== BeginConvert                 0 hits
+
+=== Confuse                      52 hits
+    ??0ControllerMonsterStateConfused@GAME@@QAE@ABV01@@Z                                                 0x000b49c0
+    ??0ControllerMonsterStateConfused@GAME@@QAE@PAVControllerMonster@1@@Z                                0x00107aa0
+    ??1ControllerMonsterStateConfused@GAME@@UAE@XZ                                                       0x0003b010
+    ??4ControllerMonsterStateConfused@GAME@@QAEAAV01@ABV01@@Z                                            0x000b3f60
+    ??_7ControllerMonsterStateConfused@GAME@@6B@                                                         0x005b5804
+    ?CalculateTimeUntilRandomAttack@ControllerMonsterStateConfused@GAME@@AAEXXZ                          0x00107e60
+    ?Confuse@ControllerMonster@GAME@@QAEXH@Z                                                             0x000f69e0
+    ?Confused@?$ControllerAIStateT@VControllerAI@GAME@@VCharacter@2@@GAME@@MAEXH@Z                       0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerCerberus@GAME@@VCerberus@2@@GAME@@MAEXH@Z                  0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerMegalesios@GAME@@VMegalesios@2@@GAME@@MAEXH@Z              0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerMegalesios@GAME@@VMonster@2@@GAME@@MAEXH@Z                 0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerMonster@GAME@@VMonster@2@@GAME@@MAEXH@Z                    0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerMonsterHidden@GAME@@VMonster@2@@GAME@@MAEXH@Z              0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerMonsterSynergy@GAME@@VMonster@2@@GAME@@MAEXH@Z             0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MAEXH@Z                           0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerNpcHerdAnimal@GAME@@VCharacter@2@@GAME@@MAEXH@Z            0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerNpcHerdAnimal@GAME@@VNpc@2@@GAME@@MAEXH@Z                  0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerNpcHerder@GAME@@VCharacter@2@@GAME@@MAEXH@Z                0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerPlayer@GAME@@VPlayer@2@@GAME@@MAEXH@Z                      0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerSpirit@GAME@@VMonster@2@@GAME@@MAEXH@Z                     0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerSpiritHost@GAME@@VSpiritHost@2@@GAME@@MAEXH@Z              0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerStationaryMonster@GAME@@VMonster@2@@GAME@@MAEXH@Z          0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerTerracotta@GAME@@VMonster@2@@GAME@@MAEXH@Z                 0x000084d0
+    ?Confused@?$ControllerAIStateT@VControllerTyphonChained@GAME@@VMonster@2@@GAME@@MAEXH@Z              0x000084d0
+    ?Confused@ControllerMonsterStateAttack@GAME@@MAEXH@Z                                                 0x000fedb0
+    ?Confused@ControllerMonsterStateDefendLeader@GAME@@MAEXH@Z                                           0x000fedb0
+    ?Confused@ControllerMonsterStateDodgeAttack@GAME@@MAEXH@Z                                            0x000fedb0
+    ?Confused@ControllerMonsterStateFlee@GAME@@UAEXH@Z                                                   0x000fedb0
+    ?Confused@ControllerMonsterStateFollowLeader@GAME@@MAEXH@Z                                           0x000fedb0
+    ?Confused@ControllerMonsterStateIdle@GAME@@MAEXH@Z                                                   0x000fedb0
+    ?Confused@ControllerMonsterStateJumpAttack@GAME@@MAEXH@Z                                             0x000084d0
+    ?Confused@ControllerMonsterStateMove@GAME@@MAEXH@Z                                                   0x000fedb0
+    ?Confused@ControllerMonsterStateNavigateObstacle@GAME@@MAEXH@Z                                       0x000fedb0
+    ?Confused@ControllerMonsterStatePanic@GAME@@MAEXH@Z                                                  0x000fedb0
+    ?Confused@ControllerMonsterStatePatrol@GAME@@MAEXH@Z                                                 0x000fedb0
+    ?Confused@ControllerMonsterStatePursue@GAME@@MAEXH@Z                                                 0x000fedb0
+    ?Confused@ControllerMonsterStateQuestMove@GAME@@UAEXH@Z                                              0x00109cd0
+    ?Confused@ControllerMonsterStateRepositionForAttack@GAME@@MAEXH@Z                                    0x000fedb0
+    ?Confused@ControllerMonsterStateReturn@GAME@@UAEXH@Z                                                 0x000fedb0
+    ?Confused@ControllerMonsterStateRoam@GAME@@UAEXH@Z                                                   0x000fedb0
+    ?Confused@ControllerMonsterStateWaitToAttack@GAME@@UAEXH@Z                                           0x000fedb0
+    ?Confused@ControllerMonsterStateWander@GAME@@UAEXH@Z                                                 0x000fedb0
+    ?DefaultConfusedResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXH@Z 0x0010b300
+    ?EndOfPathReached@ControllerMonsterStateConfused@GAME@@MAEXXZ                                        0x00107e50
+    ?GetConfusedTime@ControllerMonster@GAME@@QBEHXZ                                                      0x0006a490
+    ?OnBegin@ControllerMonsterStateConfused@GAME@@MAEXXZ                                                 0x00107ad0
+    ?OnEnd@ControllerMonsterStateConfused@GAME@@MAEXXZ                                                   0x00107bb0
+    ?OnUpdate@ControllerMonsterStateConfused@GAME@@MAEXH@Z                                               0x00107c70
+    ?PathFailed@ControllerMonsterStateConfused@GAME@@MAEXXZ                                              0x00107e50
+    ?SetConfusedTime@ControllerMonster@GAME@@QAEXH@Z                                                     0x0006a4a0
+    ?ShouldFindEnemy@ControllerMonsterStateConfused@GAME@@MBE_NXZ                                        0x0000c3e0
+    ?WalkRandomly@ControllerMonsterStateConfused@GAME@@AAEXXZ                                            0x00107e80
+
+=== Taunt                        36 hits
+    ??0CombatAttributeInfluenceDamage_Taunt@GAME@@QAE@$$QAV01@@Z                                         0x000da830
+    ??0CombatAttributeInfluenceDamage_Taunt@GAME@@QAE@ABV01@@Z                                           0x000da830
+    ??0CombatAttributeInfluenceDamage_Taunt@GAME@@QAE@W4CombatAttributeType@1@M@Z                        0x000da7d0
+    ??0DamageAttributeAbs_Taunt@GAME@@QAE@$$QAV01@@Z                                                     0x00146b80
+    ??0DamageAttributeAbs_Taunt@GAME@@QAE@ABV01@@Z                                                       0x00146b00
+    ??0DamageAttributeAbs_Taunt@GAME@@QAE@XZ                                                             0x00146ab0
+    ??0DefenseAttributeAbs_Taunt@GAME@@QAE@$$QAV01@@Z                                                    0x001a7450
+    ??0DefenseAttributeAbs_Taunt@GAME@@QAE@ABV01@@Z                                                      0x001a73d0
+    ??0DefenseAttributeAbs_Taunt@GAME@@QAE@XZ                                                            0x001ace80
+    ??1CombatAttributeInfluenceDamage_Taunt@GAME@@UAE@XZ                                                 0x000d7010
+    ??1DamageAttributeAbs_Taunt@GAME@@UAE@XZ                                                             0x00146050
+    ??1DefenseAttributeAbs_Taunt@GAME@@UAE@XZ                                                            0x001a6e20
+    ??4DamageAttributeAbs_Taunt@GAME@@QAEAAV01@$$QAV01@@Z                                                0x00146550
+    ??4DamageAttributeAbs_Taunt@GAME@@QAEAAV01@ABV01@@Z                                                  0x00146510
+    ??4DefenseAttributeAbs_Taunt@GAME@@QAEAAV01@$$QAV01@@Z                                               0x001a6f00
+    ??4DefenseAttributeAbs_Taunt@GAME@@QAEAAV01@ABV01@@Z                                                 0x001a6ee0
+    ??_7CombatAttributeInfluenceDamage_Taunt@GAME@@6B@                                                   0x005b9ce8
+    ??_7DamageAttributeAbs_Taunt@GAME@@6B@                                                               0x005cad88
+    ??_7DefenseAttributeAbs_Taunt@GAME@@6B@                                                              0x005cdb88
+    ?AddDamageToAccumulator@DamageAttributeAbs_Taunt@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z 0x0014c9d0
+    ?Clone@CombatAttributeInfluenceDamage_Taunt@GAME@@UBEPAVCombatAttribute@2@XZ                         0x000dcec0
+    ?CombatExertInfluenceTaunt@Character@GAME@@UAEXM@Z                                                   0x000546d0
+    ?Execute@CombatAttributeInfluenceDamage_Taunt@GAME@@UAEXAAVCharacter@2@@Z                            0x000dcf30
+    ?GetDisplayTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                               0x0014c660
+    ?GetLoadChanceTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                            0x0014c630
+    ?GetLoadGlobalTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                            0x0014c650
+    ?GetLoadValueMaxTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                          0x0014c680
+    ?GetLoadValueMinTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                          0x0014c670
+    ?GetLoadXorTag@DamageAttributeAbs_Taunt@GAME@@MBEPBDXZ                                               0x0014c640
+    ?GetNextText@DamageAttributeAbs_Taunt@GAME@@MBEXAAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@II_N@Z 0x0014c800
+    ?GetText@DamageAttributeAbs_Taunt@GAME@@MBEXAAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@I_N1@Z 0x0014c690
+    ?GetType@DamageAttributeAbs_Taunt@GAME@@UBE?AW4CombatAttributeType@2@XZ                              0x0014c620
+    ?GetType@DefenseAttributeAbs_Taunt@GAME@@UBE?AW4CombatAttributeType@2@XZ                             0x0014c620
+    ?TauntMe@ControllerAI@GAME@@UAEXMI@Z                                                                 0x0000f100
+    ?TauntMe@ControllerCombat@GAME@@UAEXMI@Z                                                             0x0000f100
+    ?TauntMe@ControllerMonster@GAME@@UAEXMI@Z                                                            0x000f9c80
+
+=== Fear@                        80 hits
+    ??0CombatAttributeInfluenceDamage_Fear@GAME@@QAE@$$QAV01@@Z                                          0x000da940
+    ??0CombatAttributeInfluenceDamage_Fear@GAME@@QAE@ABV01@@Z                                            0x000da940
+    ??0CombatAttributeInfluenceDamage_Fear@GAME@@QAE@W4CombatAttributeType@1@M@Z                         0x000da8e0
+    ??0DamageAttributeAbs_Fear@GAME@@QAE@$$QAV01@@Z                                                      0x00146d80
+    ??0DamageAttributeAbs_Fear@GAME@@QAE@ABV01@@Z                                                        0x00146d00
+    ??0DamageAttributeAbs_Fear@GAME@@QAE@XZ                                                              0x00146cb0
+    ??0DefenseAttributeAbs_Fear@GAME@@QAE@$$QAV01@@Z                                                     0x001a75b0
+    ??0DefenseAttributeAbs_Fear@GAME@@QAE@ABV01@@Z                                                       0x001a7530
+    ??0DefenseAttributeAbs_Fear@GAME@@QAE@XZ                                                             0x001acf00
+    ??0RetaliationAttributeAbs_Fear@GAME@@QAE@$$QAV01@@Z                                                 0x00363300
+    ??0RetaliationAttributeAbs_Fear@GAME@@QAE@ABV01@@Z                                                   0x00363280
+    ??0RetaliationAttributeAbs_Fear@GAME@@QAE@XZ                                                         0x00363230
+    ??1CombatAttributeInfluenceDamage_Fear@GAME@@UAE@XZ                                                  0x000d7010
+    ??1DamageAttributeAbs_Fear@GAME@@UAE@XZ                                                              0x00146050
+    ??1DefenseAttributeAbs_Fear@GAME@@UAE@XZ                                                             0x001a6e20
+    ??1RetaliationAttributeAbs_Fear@GAME@@UAE@XZ                                                         0x00146050
+    ??4DamageAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z                                                 0x00146550
+    ??4DamageAttributeAbs_Fear@GAME@@QAEAAV01@ABV01@@Z                                                   0x00146510
+    ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z                                                0x001a6f00
+    ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@ABV01@@Z                                                  0x001a6ee0
+    ??4RetaliationAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z                                            0x00146550
+    ??4RetaliationAttributeAbs_Fear@GAME@@QAEAAV01@ABV01@@Z                                              0x00146510
+    ??_7CombatAttributeInfluenceDamage_Fear@GAME@@6B@                                                    0x005b9bb0
+    ??_7DamageAttributeAbs_Fear@GAME@@6B@                                                                0x005cac00
+    ??_7DefenseAttributeAbs_Fear@GAME@@6B@                                                               0x005cdab8
+    ??_7RetaliationAttributeAbs_Fear@GAME@@6B@                                                           0x005eba98
+    ?AddDamageToAccumulator@DamageAttributeAbs_Fear@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z 0x0014cdc0
+    ?AddDamageToAccumulator@RetaliationAttributeAbs_Fear@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z 0x0014cdc0
+    ?Clone@CombatAttributeInfluenceDamage_Fear@GAME@@UBEPAVCombatAttribute@2@XZ                          0x000dd090
+    ?CombatExertInfluenceFear@Character@GAME@@UAEXH@Z                                                    0x00054690
+    ?Execute@CombatAttributeInfluenceDamage_Fear@GAME@@UAEXAAVCharacter@2@@Z                             0x000dd100
+    ?GetDisplayTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                                0x0014cd90
+    ?GetDisplayTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                           0x003676f0
+    ?GetLoadChanceTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                             0x0014cd60
+    ?GetLoadChanceTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                        0x003676c0
+    ?GetLoadGlobalTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                             0x0014cd80
+    ?GetLoadGlobalTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                        0x003676e0
+    ?GetLoadValueMaxTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                           0x0014cdb0
+    ?GetLoadValueMaxTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                      0x00367710
+    ?GetLoadValueMinTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                           0x0014cda0
+    ?GetLoadValueMinTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                      0x00367700
+    ?GetLoadXorTag@DamageAttributeAbs_Fear@GAME@@MBEPBDXZ                                                0x0014cd70
+    ?GetLoadXorTag@RetaliationAttributeAbs_Fear@GAME@@MBEPBDXZ                                           0x003676d0
+    ?GetType@DamageAttributeAbs_Fear@GAME@@UBE?AW4CombatAttributeType@2@XZ                               0x0014cd50
+    ?GetType@DefenseAttributeAbs_Fear@GAME@@UBE?AW4CombatAttributeType@2@XZ                              0x0014cd50
+    ?GetType@RetaliationAttributeAbs_Fear@GAME@@UBE?AW4CombatAttributeType@2@XZ                          0x0014cd50
+    ?RespondsToFear@?$ControllerAIStateT@VControllerAI@GAME@@VCharacter@2@@GAME@@MBE_NXZ                 0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerCerberus@GAME@@VCerberus@2@@GAME@@MBE_NXZ            0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerMegalesios@GAME@@VMegalesios@2@@GAME@@MBE_NXZ        0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerMegalesios@GAME@@VMonster@2@@GAME@@MBE_NXZ           0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerMonster@GAME@@VMonster@2@@GAME@@MBE_NXZ              0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerMonsterHidden@GAME@@VMonster@2@@GAME@@MBE_NXZ        0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerMonsterSynergy@GAME@@VMonster@2@@GAME@@MBE_NXZ       0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBE_NXZ                     0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerNpcHerdAnimal@GAME@@VCharacter@2@@GAME@@MBE_NXZ      0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerNpcHerdAnimal@GAME@@VNpc@2@@GAME@@MBE_NXZ            0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerNpcHerder@GAME@@VCharacter@2@@GAME@@MBE_NXZ          0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerPlayer@GAME@@VPlayer@2@@GAME@@MBE_NXZ                0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerSpirit@GAME@@VMonster@2@@GAME@@MBE_NXZ               0x0000c3e0
+    ?RespondsToFear@?$ControllerAIStateT@VControllerSpiritHost@GAME@@VSpiritHost@2@@GAME@@MBE_NXZ        0x0000c3e0
+
+=== ControllerMonster@GAME@@6B   2 hits
+    ??_7ControllerMonster@GAME@@6BControllerAI@1@@                                                       0x0059293c
+    ??_7ControllerMonster@GAME@@6BILootContainer@1@@                                                     0x005c2490
+
+=== PetPlayerScaling             17 hits
+    ??0PetPlayerScaling@GAME@@QAE@XZ                                                                     0x003165b0
+    ??1PetPlayerScaling@GAME@@UAE@XZ                                                                     0x000b5c70
+    ??_7PetPlayerScaling@GAME@@6BICrowdAgent@CROWD@@@                                                    0x005dc928
+    ??_7PetPlayerScaling@GAME@@6BIPhysics2@1@@                                                           0x005bb52c
+    ??_7PetPlayerScaling@GAME@@6BObject@1@@                                                              0x005e3b00
+    ?ContributeMiscCharAttributes@PetPlayerScaling@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z            0x00316600
+    ?ContributeMiscConversionAttributes@PetPlayerScaling@GAME@@UBEXAAVConversionAttributeAccumulator@2@@Z 0x00316690
+    ?ContributeMiscDefenseAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z       0x00316620
+    ?ContributeMiscOffensiveDamageAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x00316630
+    ?ContributeMiscOffensiveModifierAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x00316650
+    ?ContributeMiscRetaliationAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z  0x00316660
+    ?ContributeMiscRetaliationModifierAttributes@PetPlayerScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x00316680
+    ?ContributeMiscSkillAttributes@PetPlayerScaling@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z          0x00316610
+    ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ                                   0x00009490
+    ?GetStaticClassInfo@PetPlayerScaling@GAME@@SAABVRTTI_ClassInfo@2@XZ                                  0x00009490
+    ?RTTI_new@PetPlayerScaling@GAME@@KAPAXXZ                                                             0x000c8c50
+    ?classInfo@PetPlayerScaling@GAME@@1VRTTI_ClassInfo@2@B                                               0x007ff5e8
+
+=== PetNonScaling                16 hits
+    ??0PetNonScaling@GAME@@QAE@XZ                                                                        0x00316560
+    ??1PetNonScaling@GAME@@UAE@XZ                                                                        0x000b5c70
+    ??_7PetNonScaling@GAME@@6BICrowdAgent@CROWD@@@                                                       0x005dc928
+    ??_7PetNonScaling@GAME@@6BIPhysics2@1@@                                                              0x005bb52c
+    ??_7PetNonScaling@GAME@@6BObject@1@@                                                                 0x005e3f90
+    ?ContributeGameBalanceCharAttributes@PetNonScaling@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z        0x000084d0
+    ?ContributeGameBalanceDefenseAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z   0x000084d0
+    ?ContributeGameBalanceOffensiveDamageAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x0000f100
+    ?ContributeGameBalanceOffensiveModifierAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x000084d0
+    ?ContributeGameBalanceRetaliationAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z 0x0000f100
+    ?ContributeGameBalanceRetaliationModifierAttributes@PetNonScaling@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z 0x000084d0
+    ?ContributeGameBalanceSkillAttributes@PetNonScaling@GAME@@UBEXAAVSkillAttributeAccumulator@2@@Z      0x000084d0
+    ?GetRTTIClassInfo@PetNonScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ                                      0x00009480
+    ?GetStaticClassInfo@PetNonScaling@GAME@@SAABVRTTI_ClassInfo@2@XZ                                     0x00009480
+    ?RTTI_new@PetNonScaling@GAME@@KAPAXXZ                                                                0x000c8bd0
+    ?classInfo@PetNonScaling@GAME@@1VRTTI_ClassInfo@2@B                                                  0x007ff5d0
+

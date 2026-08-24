@@ -1,0 +1,228 @@
+slot                 ControllerPlayer                              ControllerMonster                             ControllerPet                                 ControllerAlly                                
++0x084 Fear -> ScareMe?   0x00f100 ?SetLevel@LootBase                   0x0f6c50 ?ScareMe@ControllerMonster           0x0f6c50 ?ScareMe@ControllerMonster           0x0f6c50 ?ScareMe@ControllerMonster           
++0x08c Taunt -> TauntMe?  0x00f100 ?SetLevel@LootBase                   0x0f9c80 ?TauntMe@ControllerMonster           0x0f9c80 ?TauntMe@ControllerMonster           0x0f9c80 ?TauntMe@ControllerMonster           
++0x090 BeginStun          0x0f6ad0 ?BeginStun@ControllerPlayer          0x0f6ad0 ?BeginStun@ControllerPlayer          0x0f6ad0 ?BeginStun@ControllerPlayer          0x0f6ad0 ?BeginStun@ControllerPlayer          
++0x094 EndStun            0x0f6b00 ?EndStun@ControllerPlayer            0x0f6b00 ?EndStun@ControllerPlayer            0x0f6b00 ?EndStun@ControllerPlayer            0x0f6b00 ?EndStun@ControllerPlayer            
++0x0a8 BeginSleep         0x0f6bf0 ?BeginSleep@ControllerPlayer         0x0f6bf0 ?BeginSleep@ControllerPlayer         0x0f6bf0 ?BeginSleep@ControllerPlayer         0x0f6bf0 ?BeginSleep@ControllerPlayer         
++0x0ac EndSleep           0x0f6c20 ?EndSleep@ControllerPlayer           0x0f6c20 ?EndSleep@ControllerPlayer           0x0f6c20 ?EndSleep@ControllerPlayer           0x0f6c20 ?EndSleep@ControllerPlayer           
++0x0b0 BeginImmobilize    0x0f6a10 ?BeginImmobilize@ControllerPlayer    0x0f6a10 ?BeginImmobilize@ControllerPlayer    0x0f6a10 ?BeginImmobilize@ControllerPlayer    0x0f6a10 ?BeginImmobilize@ControllerPlayer    
++0x0b4 EndImmobilize      0x0f6a40 ?EndImmobilize@ControllerPlayer      0x0f6a40 ?EndImmobilize@ControllerPlayer      0x0f6a40 ?EndImmobilize@ControllerPlayer      0x0f6a40 ?EndImmobilize@ControllerPlayer      
++0x0b8 BeginTrap          0x0f6a70 ?BeginTrap@ControllerPlayer          0x0f6a70 ?BeginTrap@ControllerPlayer          0x0f6a70 ?BeginTrap@ControllerPlayer          0x0f6a70 ?BeginTrap@ControllerPlayer          
++0x0bc EndTrap            0x0f6aa0 ?EndTrap@ControllerPlayer            0x0f6aa0 ?EndTrap@ControllerPlayer            0x0f6aa0 ?EndTrap@ControllerPlayer            0x0f6aa0 ?EndTrap@ControllerPlayer            
++0x0c0 BeginKnockdown     0x0e6090 ?BeginDeath@ControllerAI             0x0e6090 ?BeginDeath@ControllerAI             0x0e6090 ?BeginDeath@ControllerAI             0x0e6090 ?BeginDeath@ControllerAI             
++0x0c4 EndKnockdown       0x0e5fd0 ?UnderAttack@ControllerAI            0x0fc350 ?UnderAttack@ControllerMonster       0x0fc350 ?UnderAttack@ControllerMonster       0x0fc350 ?UnderAttack@ControllerMonster       
+
+==========================================================================================
+=== ControllerPlayer +0x84 @ 0x0000f100
+  0x0000f100  ret      8
+  0x0000f103  int3     
+  0x0000f104  int3     
+  0x0000f105  int3     
+  0x0000f106  int3     
+  0x0000f107  int3     
+  0x0000f108  int3     
+  0x0000f109  int3     
+  0x0000f10a  int3     
+  0x0000f10b  int3     
+  0x0000f10c  int3     
+  0x0000f10d  int3     
+  0x0000f10e  int3     
+  0x0000f10f  int3     
+  0x0000f110  push     ebp
+  0x0000f111  mov      ebp, esp
+  0x0000f113  mov      ecx, dword ptr [ecx + 4]
+  0x0000f116  mov      eax, dword ptr [ecx]
+  0x0000f118  mov      eax, dword ptr [eax + 4]
+  0x0000f11b  pop      ebp
+  0x0000f11c  jmp      eax
+  0x0000f11e  int3     
+  0x0000f11f  int3     
+==========================================================================================
+=== ControllerPlayer +0x8c @ 0x0000f100
+  0x0000f100  ret      8
+  0x0000f103  int3     
+  0x0000f104  int3     
+  0x0000f105  int3     
+  0x0000f106  int3     
+  0x0000f107  int3     
+  0x0000f108  int3     
+  0x0000f109  int3     
+  0x0000f10a  int3     
+  0x0000f10b  int3     
+  0x0000f10c  int3     
+  0x0000f10d  int3     
+  0x0000f10e  int3     
+  0x0000f10f  int3     
+  0x0000f110  push     ebp
+  0x0000f111  mov      ebp, esp
+  0x0000f113  mov      ecx, dword ptr [ecx + 4]
+  0x0000f116  mov      eax, dword ptr [ecx]
+  0x0000f118  mov      eax, dword ptr [eax + 4]
+  0x0000f11b  pop      ebp
+  0x0000f11c  jmp      eax
+  0x0000f11e  int3     
+  0x0000f11f  int3     
+==========================================================================================
+=== ScareMe@ControllerMonster @ 0x000f6c50
+  0x000f6c50  push     ebp
+  0x000f6c51  mov      ebp, esp
+  0x000f6c53  mov      eax, dword ptr fs:[0]
+  0x000f6c59  push     -1
+  0x000f6c5b  push     0x104c34c8
+  0x000f6c60  push     eax
+  0x000f6c61  mov      dword ptr fs:[0], esp
+  0x000f6c68  sub      esp, 0x44
+  0x000f6c6b  push     esi
+  0x000f6c6c  mov      esi, ecx
+  0x000f6c6e  cmp      dword ptr [esi + 0x214], 0
+  0x000f6c75  je       0x100f6c84
+  0x000f6c77  mov      eax, dword ptr [esi + 0x210]
+  0x000f6c7d  mov      eax, dword ptr [eax]
+  0x000f6c7f  mov      ecx, dword ptr [eax + 8]
+  0x000f6c82  jmp      0x100f6c8a   ; -> ?ScareMe@ControllerMonster@GAME@@UAEXIM@Z+0x3a
+  0x000f6c84  mov      ecx, dword ptr [esi + 0x1e4]
+  0x000f6c8a  mov      eax, dword ptr [ecx]
+  0x000f6c8c  mov      eax, dword ptr [eax + 0xd0]
+  0x000f6c92  call     eax
+  0x000f6c94  test     al, al
+  0x000f6c96  je       0x100f6d14
+  0x000f6c98  movd     xmm0, dword ptr [esi + 0x530]
+  0x000f6ca0  movss    xmm1, dword ptr [ebp + 0xc]
+  0x000f6ca5  cvtdq2ps xmm0, xmm0
+  0x000f6ca8  comiss   xmm1, xmm0
+  0x000f6cab  jbe      0x100f6d14
+  0x000f6cad  cvttss2si eax, xmm1
+  0x000f6cb1  push     0x1052b968
+  0x000f6cb6  lea      ecx, [ebp - 0x34]
+  0x000f6cb9  mov      dword ptr [esi + 0x530], eax
+  0x000f6cbf  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f6cc4  lea      ecx, [ebp - 0x1c]
+  0x000f6cc7  mov      dword ptr [ebp - 4], 0
+  0x000f6cce  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f6cd4  mov      ecx, dword ptr [ebp + 8]
+  0x000f6cd7  mov      dword ptr [ebp - 0x50], ecx
+  0x000f6cda  mov      ecx, esi
+  0x000f6cdc  mov      dword ptr [ebp - 0x4c], 0
+  0x000f6ce3  movups   xmm0, xmmword ptr [eax]
+  0x000f6ce6  lea      eax, [ebp - 0x50]
+  0x000f6ce9  mov      dword ptr [ebp - 0x48], 0
+  0x000f6cf0  push     eax
+  0x000f6cf1  lea      eax, [ebp - 0x34]
+  0x000f6cf4  push     eax
+==========================================================================================
+=== TauntMe@ControllerMonster @ 0x000f9c80
+  0x000f9c80  push     ebp
+  0x000f9c81  mov      ebp, esp
+  0x000f9c83  push     esi
+  0x000f9c84  push     dword ptr [ebp + 0xc]
+  0x000f9c87  mov      esi, ecx
+  0x000f9c89  call     0x100fb7a0   ; -> ?InPursuitRange@ControllerMonster@GAME@@QBE_NI@Z
+  0x000f9c8e  test     al, al
+  0x000f9c90  je       0x100f9cad
+  0x000f9c92  movss    xmm0, dword ptr [ebp + 8]
+  0x000f9c97  push     1
+  0x000f9c99  push     ecx
+  0x000f9c9a  movss    dword ptr [esp], xmm0
+  0x000f9c9f  lea      ecx, [esi + 0x2b8]
+  0x000f9ca5  push     dword ptr [ebp + 0xc]
+  0x000f9ca8  call     0x1000f6a0   ; -> ?AddAnger@AngerManager@GAME@@QAEXIM_N@Z
+  0x000f9cad  pop      esi
+  0x000f9cae  pop      ebp
+  0x000f9caf  ret      8
+  0x000f9cb2  int3     
+  0x000f9cb3  int3     
+  0x000f9cb4  int3     
+  0x000f9cb5  int3     
+  0x000f9cb6  int3     
+  0x000f9cb7  int3     
+  0x000f9cb8  int3     
+  0x000f9cb9  int3     
+  0x000f9cba  int3     
+  0x000f9cbb  int3     
+  0x000f9cbc  int3     
+  0x000f9cbd  int3     
+  0x000f9cbe  int3     
+  0x000f9cbf  int3     
+==========================================================================================
+=== CombatExertInfluenceConfusion@Monster @ 0x002d9670
+  0x002d9670  push     ebp
+  0x002d9671  mov      ebp, esp
+  0x002d9673  push     dword ptr [ecx + 0x1120]
+  0x002d9679  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x002d967f  mov      ecx, eax
+  0x002d9681  call     0x10071360   ; -> ?GetNetPacket@RotateAction@GAME@@UAEPAVNetPacket@2@XZ+0x1e0
+  0x002d9686  test     eax, eax
+  0x002d9688  je       0x102d96af
+  0x002d968a  cmp      dword ptr [eax + 0x214], 0
+  0x002d9691  je       0x102d96a0
+  0x002d9693  mov      eax, dword ptr [eax + 0x210]
+  0x002d9699  mov      eax, dword ptr [eax]
+  0x002d969b  mov      ecx, dword ptr [eax + 8]
+  0x002d969e  jmp      0x102d96a6   ; -> ?CombatExertInfluenceConfusion@Monster@GAME@@UAEXH@Z+0x36
+  0x002d96a0  mov      ecx, dword ptr [eax + 0x1e4]
+  0x002d96a6  mov      eax, dword ptr [ecx]
+  0x002d96a8  pop      ebp
+  0x002d96a9  jmp      dword ptr [eax + 0x9c]
+  0x002d96af  pop      ebp
+  0x002d96b0  ret      4
+  0x002d96b3  int3     
+  0x002d96b4  int3     
+  0x002d96b5  int3     
+  0x002d96b6  int3     
+  0x002d96b7  int3     
+  0x002d96b8  int3     
+  0x002d96b9  int3     
+  0x002d96ba  int3     
+  0x002d96bb  int3     
+  0x002d96bc  int3     
+  0x002d96bd  int3     
+  0x002d96be  int3     
+  0x002d96bf  int3     
+==========================================================================================
+=== CombatExertInfluenceFear@Character @ 0x00054690
+  0x00054690  push     ebp
+  0x00054691  mov      ebp, esp
+  0x00054693  push     esi
+  0x00054694  mov      esi, ecx
+  0x00054696  push     dword ptr [esi + 0x1120]
+  0x0005469c  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000546a2  mov      ecx, eax
+  0x000546a4  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x000546a9  test     eax, eax
+  0x000546ab  je       0x100546cb
+  0x000546ad  movd     xmm0, dword ptr [ebp + 8]
+  0x000546b2  mov      edx, dword ptr [eax]
+  0x000546b4  cvtdq2ps xmm0, xmm0
+  0x000546b7  push     ecx
+  0x000546b8  mov      ecx, eax
+  0x000546ba  movss    dword ptr [esp], xmm0
+  0x000546bf  push     dword ptr [esi + 0x4d0]
+  0x000546c5  call     dword ptr [edx + 0x84]
+  0x000546cb  pop      esi
+  0x000546cc  pop      ebp
+  0x000546cd  ret      4
+==========================================================================================
+=== CombatExertInfluenceTaunt@Character @ 0x000546d0
+  0x000546d0  push     ebp
+  0x000546d1  mov      ebp, esp
+  0x000546d3  push     esi
+  0x000546d4  mov      esi, ecx
+  0x000546d6  push     dword ptr [esi + 0x1120]
+  0x000546dc  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000546e2  mov      ecx, eax
+  0x000546e4  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x000546e9  test     eax, eax
+  0x000546eb  je       0x10054708
+  0x000546ed  push     dword ptr [esi + 0x4d0]
+  0x000546f3  mov      edx, dword ptr [eax]
+  0x000546f5  movss    xmm0, dword ptr [ebp + 8]
+  0x000546fa  push     ecx
+  0x000546fb  mov      ecx, eax
+  0x000546fd  movss    dword ptr [esp], xmm0
+  0x00054702  call     dword ptr [edx + 0x8c]
+  0x00054708  pop      esi
+  0x00054709  pop      ebp
+  0x0005470a  ret      4
+  0x0005470d  int3     
+  0x0005470e  int3     
+  0x0005470f  int3     

@@ -1,0 +1,196 @@
+Skill* vftables: 160
+  ??_7Skill@GAME@@6B@                                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivated@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivatedBuffOther@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivatedBuffSelf@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivatedSpell@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivatedWeapon@GAME@@6B@                                     +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivatedWeaponPool@GAME@@6B@                                 +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActivated_Suicide@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillActiveStateUpdateConfigCmd@GAME@@6B@                          +0x2b0 -> 0x004be27e  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365ce
+  ??_7SkillActiveStateUpdateConfigCmdPacket@GAME@@6B@                    +0x2b0 -> 0x002e1b00  ?CopyInbound@CreateRemoveSkillBuffConfigCmdPacket@GAME@@UAEXPAEH@Z
+  ??_7SkillAttribute@GAME@@6B@                                           +0x2b0 -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  ??_7SkillAttributeAccumulator@GAME@@6B@                                +0x2b0 -> 0x004be35c  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x366ac
+  ??_7SkillAttributeMod@GAME@@6B@                                        +0x2b0 -> 0x00094dc0  ?Scale@CharAttribute@GAME@@IAEMMM@Z
+  ??_7SkillAttributeMod_CooldownReduction@GAME@@6B@                      +0x2b0 -> 0x00432bd0  ??0RefreshSkillCooldownController@GAME@@QAE@PAVCharacter@1@IMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@II@Z+0x8c0
+  ??_7SkillAttributeMod_ManaCostReduction@GAME@@6B@                      +0x2b0 -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  ??_7SkillAttributeStore@GAME@@6B@                                      +0x2b0 -> 0x001a6db0  ?GetCostInfo@DefenseAttributeDur@GAME@@UBEXAAUCostInfo_DefenseAttributes@2@@Z
+  ??_7SkillAttributeStore_Equipment@GAME@@6B@                            +0x2b0 -> 0x002b04e0  ?GetOffensiveDamageAttributes@ItemEquipment@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+  ??_7SkillAttributeStore_Max@GAME@@6B@                                  +0x2b0 -> 0x0013ddf0  ?Jitter@DefenseAttribute@GAME@@MAEMMMAAVRandomUniform@2@@Z
+  ??_7SkillAttributeStore_Min@GAME@@6B@                                  +0x2b0 -> 0x0042d200  ?CreateRangeText@SkillAttribute@GAME@@UBEXPBV12@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@@Z
+  ??_7SkillAttributeStore_Skill@GAME@@6B@                                +0x2b0 -> 0x001562e0  ?CreateText@DamageAttributeStore@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+  ??_7SkillAttributeVal@GAME@@6B@                                        +0x2b0 -> 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+  ??_7SkillAttributeVal_ComboChargeSpendReduction@GAME@@6B@              +0x2b0 -> 0x001a0bd0  ?Reset@DeathHandler@GAME@@UAEXXZ
+  ??_7SkillAttributeVal_CooldownReduction@GAME@@6B@                      +0x2b0 -> 0x00430860  ?Load@SkillAttributeStore_Max@GAME@@UAEXABVLoadTable@2@PBV32@11_NM@Z+0xfe0
+  ??_7SkillAttributeVal_ManaCostReduction@GAME@@6B@                      +0x2b0 -> 0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+  ??_7SkillAttributeVal_ProjectileSpeedModifier@GAME@@6B@                +0x2b0 -> 0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+  ??_7SkillAugmentUpdateConfigCmd@GAME@@6B@                              +0x2b0 -> 0x004be26c  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365bc
+  ??_7SkillAugmentUpdateConfigCmdPacket@GAME@@6B@                        +0x2b0 -> 0x002e23b0  ?CopyInbound@SkillTargetResultConfigCmdPacket@GAME@@UAEXPAEH@Z
+  ??_7SkillAutoCastController@GAME@@6B@                                  +0x2b0 -> 0x0014eb40  ?GetItemType@ItemTransmuter@GAME@@UBE?BW4Item_Type@2@XZ
+  ??_7SkillChanneled@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillComboChargeUpdateConfigCmd@GAME@@6B@                          +0x2b0 -> 0x004be25a  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365aa
+  ??_7SkillComboChargeUpdateConfigCmdPacket@GAME@@6B@                    +0x2b0 -> 0x002e2b10  ?CopyInbound@DecBaseManaConfigCmdPacket@GAME@@UAEXPAEH@Z
+  ??_7SkillManagerBase@GAME@@6B@                                         +0x2b0 -> 0x004be338  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36688
+  ??_7SkillManagerLite@GAME@@6B@                                         +0x2b0 -> 0x004be2f0  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36640
+  ??_7SkillOnDeath@GAME@@6B@                                             +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillProfile@GAME@@6B@                                             +0x2b0 -> 0x004be18e  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x364de
+  ??_7SkillSecondary@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_AttackProjectileAreaEffect@GAME@@6B@                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_AttackProjectileOrbiting@GAME@@6B@                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_AttackProjectileRing@GAME@@6B@                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_AttackRadius@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_AttackRadiusLightning@GAME@@6B@                     +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_Bonus@GAME@@6B@                                     +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_BuffAttackRadiusDuration@GAME@@6B@                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_BuffRadius@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_BuffSelfDuration@GAME@@6B@                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_ChainBonus@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_ChainLightning@GAME@@6B@                            +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_ForkLightning@GAME@@6B@                             +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_OnHitBuffRadius@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_OnKillAttackRadius@GAME@@6B@                        +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_PetModifier@GAME@@6B@                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_PetSpawn@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_TargetedSpawnPet@GAME@@6B@                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillSecondary_Tether@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7SkillServicesBase@GAME@@6B@                                        +0x2b0 -> 0x004be1be  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3650e
+  ??_7SkillServices_Character@GAME@@6B@                                  +0x2b0 -> 0x004be24e  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3659e
+  ??_7SkillStateUpdateConfigCmd@GAME@@6B@                                +0x2b0 -> 0x00298e00  ?UpdateSelf@Item@GAME@@UAEXH@Z
+  ??_7SkillStateUpdateConfigCmdPacket@GAME@@6B@                          +0x2b0 -> 0x002e1330  ?CopyInbound@PickupItemConfigCmdPacket@GAME@@UAEXPAEH@Z
+  ??_7SkillTargetResultConfigCmd@GAME@@6B@                               +0x2b0 -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  ??_7SkillTargetResultConfigCmdPacket@GAME@@6B@                         +0x2b0 -> 0x00307010  ??0PlayerNetHeartbeatInfo@GAME@@QAE@XZ+0x320
+  ??_7Skill_AktaiosLightOfRa@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AktaiosMirage@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackBuff@GAME@@6B@                                         +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackBuffRadius@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackChain@GAME@@6B@                                        +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackInherent@GAME@@6B@                                     +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackLineFan@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackPathCharge@GAME@@6B@                                   +0x2b0 -> 0x00400550  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+  ??_7Skill_AttackPattern@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectile@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileAreaEffect@GAME@@6B@                         +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileBurst@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileChain@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileDebuf@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileDrop@GAME@@6B@                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileFan@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileMultiHit@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileOrbiting@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileRing@GAME@@6B@                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackProjectileSpawnPet@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadius@GAME@@6B@                                       +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusDisengage@GAME@@6B@                              +0x2b0 -> 0x003ea1d0  ?GetWarmUpWasActive@Skill_AttackRadiusLeap@GAME@@MBE_NXZ
+  ??_7Skill_AttackRadiusGrow@GAME@@6B@                                   +0x2b0 -> 0x003e96f0  ?GetWarmUpWasActive@Skill_AttackRadiusGrow@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusLeap@GAME@@6B@                                   +0x2b0 -> 0x003ea1d0  ?GetWarmUpWasActive@Skill_AttackRadiusLeap@GAME@@MBE_NXZ
+  ??_7Skill_AttackRadiusLightning2@GAME@@6B@                             +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusLightning@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusLightningSpawnPet@GAME@@6B@                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusSpin@GAME@@6B@                                   +0x2b0 -> 0x003e96f0  ?GetWarmUpWasActive@Skill_AttackRadiusGrow@GAME@@UBE_NXZ
+  ??_7Skill_AttackRadiusTeleport@GAME@@6B@                               +0x2b0 -> 0x003ea1d0  ?GetWarmUpWasActive@Skill_AttackRadiusLeap@GAME@@MBE_NXZ
+  ??_7Skill_AttackSpell@GAME@@6B@                                        +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellBeam@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellChaos@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellChaosSpawnPet@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellCone@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellDrain@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellTeleport@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackSpellTeleportSelf@GAME@@6B@                            +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackTelekinesis@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackWave@GAME@@6B@                                         +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_AttackWeapon@GAME@@6B@                                       +0x2b0 -> 0x00400550  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+  ??_7Skill_AttackWeaponBlink@GAME@@6B@                                  +0x2b0 -> 0x00400550  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+  ??_7Skill_AttackWeaponCharge@GAME@@6B@                                 +0x2b0 -> 0x00400550  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+  ??_7Skill_AttackWeaponRangedSpread@GAME@@6B@                           +0x2b0 -> 0x00400550  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+  ??_7Skill_BuffOther@GAME@@6B@                                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_BuffRadius@GAME@@6B@                                         +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_BuffRadiusToggled@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_CerberusGeysers@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_ChargedBuffOther@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_CharonGeysers@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_DefensiveGround@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_DefensiveLine@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_DefensiveWall@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_DispelMagic@GAME@@6B@                                        +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_DropProjectileTelekinesis@GAME@@6B@                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_E3FauxAttack@GAME@@6B@                                       +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Evade@GAME@@6B@                                              +0x2b0 -> 0x003ea1d0  ?GetWarmUpWasActive@Skill_AttackRadiusLeap@GAME@@MBE_NXZ
+  ??_7Skill_GiveBonus@GAME@@6B@                                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Kick@GAME@@6B@                                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Mastery@GAME@@6B@                                            +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_MeleeModifier@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_MeleeModifierRadius@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Modifier@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_MonsterGenerator@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Move@GAME@@6B@                                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_OnDeathSpawnActor@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_OnHitAttackRadius@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_OnHitBuffSelf@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_OrmenosChainLaser@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Passive@GAME@@6B@                                            +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_PassiveDualWieldWeapon@GAME@@6B@                             +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_PetAttack@GAME@@6B@                                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_PlayAttackAnimation@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_PotionContainer@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_PotionModifier@GAME@@6B@                                     +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_ProjectileModifier@GAME@@6B@                                 +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_ProjectileTransmuter@GAME@@6B@                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_RefreshCooldown@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_RefreshCooldownModifier@GAME@@6B@                            +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnMegalesiosSpirit@GAME@@6B@                              +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnMiniPet@GAME@@6B@                                       +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnPet@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnPetMonster@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnPetTransmuter@GAME@@6B@                                 +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_SpawnQuestPet@GAME@@6B@                                      +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_TargetedSpawnPet@GAME@@6B@                                   +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Teleport@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_Transmuter@GAME@@6B@                                         +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_TurretFireControl@GAME@@6B@                                  +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_TyphonSkillTransfer@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack@GAME@@6B@                                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack_AttackWave@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack_BasicAttack@GAME@@6B@                               +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack_ProjectileBurst@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack_RadialCrit@GAME@@6B@                                +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WPAttack_Radius@GAME@@6B@                                    +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WeaponPool_BasicAttack@GAME@@6B@                             +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WeaponPool_ChargedFinale@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WeaponPool_ChargedLinear@GAME@@6B@                           +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WeaponPool_ChargedScaling@GAME@@6B@                          +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+  ??_7Skill_WeaponPool_Default@GAME@@6B@                                 +0x2b0 -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+
+=== census of +0x2b0 occupants
+    118  ?IsActive@Skill@GAME@@UBE_NXZ
+      5  ?GetWarmUpWasActive@Skill_AttackWeapon@GAME@@UBE_NXZ
+      4  ?GetWarmUpWasActive@Skill_AttackRadiusLeap@GAME@@MBE_NXZ
+      3  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+      2  ?GetWarmUpWasActive@Skill_AttackRadiusGrow@GAME@@UBE_NXZ
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365ce
+      1  ?CopyInbound@CreateRemoveSkillBuffConfigCmdPacket@GAME@@UAEXPAEH@Z
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x366ac
+      1  ?Scale@CharAttribute@GAME@@IAEMMM@Z
+      1  ??0RefreshSkillCooldownController@GAME@@QAE@PAVCharacter@1@IMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@II@Z+0x8c0
+      1  ?GetCostInfo@DefenseAttributeDur@GAME@@UBEXAAUCostInfo_DefenseAttributes@2@@Z
+      1  ?GetOffensiveDamageAttributes@ItemEquipment@GAME@@UBEXAAVCombatAttributeAccumulator@2@M@Z
+      1  ?Jitter@DefenseAttribute@GAME@@MAEMMMAAVRandomUniform@2@@Z
+      1  ?CreateRangeText@SkillAttribute@GAME@@UBEXPBV12@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@@Z
+      1  ?CreateText@DamageAttributeStore@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+      1  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+      1  ?Reset@DeathHandler@GAME@@UAEXXZ
+      1  ?Load@SkillAttributeStore_Max@GAME@@UAEXABVLoadTable@2@PBV32@11_NM@Z+0xfe0
+      1  ?Stop@Fx@GAME@@UAEXXZ
+      1  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365bc
+      1  ?CopyInbound@SkillTargetResultConfigCmdPacket@GAME@@UAEXPAEH@Z
+      1  ?GetItemType@ItemTransmuter@GAME@@UBE?BW4Item_Type@2@XZ
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x365aa
+      1  ?CopyInbound@DecBaseManaConfigCmdPacket@GAME@@UAEXPAEH@Z
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36688
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36640
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x364de
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3650e
+      1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3659e
+      1  ?UpdateSelf@Item@GAME@@UAEXH@Z
+      1  ?CopyInbound@PickupItemConfigCmdPacket@GAME@@UAEXPAEH@Z
+      1  ??0PlayerNetHeartbeatInfo@GAME@@QAE@XZ+0x320

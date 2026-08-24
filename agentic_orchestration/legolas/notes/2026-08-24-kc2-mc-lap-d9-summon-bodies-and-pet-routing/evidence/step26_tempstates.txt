@@ -1,0 +1,208 @@
+===============================================================================================
+=== RegisterTemporaryStates@ControllerMonster @ 0x000f9510
+  0x000f9531  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9557  push     0x1052c324   ; "UseSkillOnAlly"
+  0x000f956e  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f9581  call     0x100e8390   ; -> ?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f959b  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f95a5  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f95cb  push     0x1052c314   ; "UseSkillOnPoint"
+  0x000f95e2  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f95f5  call     0x100e8390   ; -> ?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f960f  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f9619  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f963f  push     0x1052c33c   ; "AlertBeforePursue"
+  0x000f9656  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f9669  call     0x100e8390   ; -> ?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9683  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f968d  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f96b3  push     0x1052c334   ; "Emote"
+  0x000f96ca  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f96dd  call     0x100e8390   ; -> ?AddTemporaryState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f96f2  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+===============================================================================================
+=== RegisterStates@ControllerMonster @ 0x000f87c0
+  0x000f87e1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f880b  push     0x1052c18c   ; "Startup"
+  0x000f8822  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8835  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f884f  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8859  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8886  push     0x1052c184   ; "Idle"
+  0x000f889d  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f88b0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f88ca  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f88d4  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8917  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f8929  push     0x1052c19c   ; "Pursue"
+  0x000f8940  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8953  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f896d  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8977  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f89b0  push     0x1052c194   ; "Attack"
+  0x000f89c7  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f89da  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f89f4  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f89fe  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8a24  push     0x1052c1b8   ; "JumpAttack"
+  0x000f8a3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8a4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8a68  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8a72  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8aa3  push     0x1052c1a4   ; "RepositionForAttack"
+  0x000f8aba  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8acd  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ae7  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f8af1  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8b24  push     0x1052c1cc   ; "Flee"
+  0x000f8b3b  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000f8b4e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8b5d  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8b64  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8b77  push     0x1052c1c4   ; "Roam"
+  0x000f8b8d  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8ba0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8baf  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8bb6  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8bc9  push     0x1052c1e0   ; "Wander"
+  0x000f8bdf  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8bf2  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8c01  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c08  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c29  push     0x1052c1d4   ; "WanderPause"
+  0x000f8c38  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c4b  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8c5a  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8c61  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8c74  push     0x1052c1f0   ; "Return"
+  0x000f8c8a  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8c9d  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8cac  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8cb3  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8cc8  call     0x10105880   ; -> ??0ControllerMonsterStateDying@GAME@@QAE@PAVControllerMonster@1@@Z
+  0x000f8ccd  push     0x1052c1e8   ; "Dying"
+  0x000f8cde  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8cf1  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d00  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d07  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d1a  push     0x1052c208   ; "Dead"
+  0x000f8d30  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d43  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8d52  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8d59  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8d6c  push     0x1052c1f8   ; "FollowLeader"
+  0x000f8d86  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8d99  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8da8  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8daf  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8dc2  push     0x1052c224   ; "DefendLeader"
+  0x000f8de6  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8df9  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8e08  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8e0f  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8e24  call     0x100ffce0   ; -> ??0ControllerMonsterStateNavigateObstacle@GAME@@QAE@PAVControllerMonster@1@@Z
+  0x000f8e29  push     0x1052c210   ; "NavigateObstacle"
+  0x000f8e3a  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8e4d  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8e5c  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8e63  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8e84  push     0x1052c23c   ; "Move"
+  0x000f8e8c  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8e9f  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8eae  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8eb5  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8ec8  push     0x1052c234   ; "Charge"
+  0x000f8ede  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8ef1  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8f00  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8f07  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8f1a  push     0x1052c24c   ; "DodgeAttack"
+  0x000f8f30  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8f43  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8f52  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8f59  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8f6c  push     0x1052c244   ; "Panic"
+  0x000f8f82  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8f95  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8fa4  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f8fab  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f8fbe  push     0x1052c264   ; "Paralyze"
+  0x000f8fdb  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f8fee  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f8ffd  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f9004  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9017  push     0x1052c258   ; "Confused"
+  0x000f9034  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9047  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9056  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f905d  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9070  push     0x1052c278   ; "Immobile"
+  0x000f9086  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9099  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f90a8  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f90af  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f90c2  push     0x1052c270   ; "Trapped"
+  0x000f90dc  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f90ef  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f90fe  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f9105  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9118  push     0x1052c290   ; "Stunned"
+  0x000f912e  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9141  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9150  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f9157  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f916a  push     0x1052c284   ; "KnockedDown"
+  0x000f9180  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9193  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f91a2  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f91a9  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f91bc  push     0x1052c2a0   ; "Sleeping"
+  0x000f91d2  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f91e5  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f91f4  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f91fb  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9212  push     0x1052c298   ; "Scared"
+  0x000f9232  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9245  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9254  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f925b  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f926e  push     0x1052c2bc   ; "Patrol"
+  0x000f9284  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9297  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f92a6  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f92ad  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f92dc  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x000f92e2  push     0x1052c2ac   ; "WaitToAttack"
+  0x000f92f1  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9304  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9313  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f931a  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f932d  push     0x1052c2d0   ; "QuestMove"
+  0x000f9343  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f9356  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9365  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f936c  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f937f  push     0x1052c2c4   ; "QuestWalk"
+  0x000f9395  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f93a8  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f93b7  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f93be  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f93d1  push     0x1052c2ec   ; "QuestPlayAnimation"
+  0x000f93e7  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f93fa  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f9409  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f9410  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9423  push     0x1052c2dc   ; "QuestUseSkill"
+  0x000f9439  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f944c  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f945b  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f9462  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f9472  push     0x1052c308   ; "GettingUp"
+  0x000f948b  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f949e  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f94ad  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x000f94b4  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000f94c7  push     0x1052c300   ; "TakeHit"
+  0x000f94dd  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x000f94f0  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000f94f8  call     0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ

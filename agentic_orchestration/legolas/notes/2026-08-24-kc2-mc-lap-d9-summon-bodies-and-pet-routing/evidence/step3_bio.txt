@@ -1,0 +1,24 @@
+==========================================================================================
+records/skills/itemskills/pets/bio_nemesis.dbr ['base'] found= True n= 10
+   characterDefensiveAbility                    '(charLevel*5)+25'
+   characterDexterity                           '(charLevel*8)+50'
+   characterIntelligence                        '(charLevel*8)+30'
+   characterLife                                '((charLevel*28)^1.3)+50'
+   characterLifeRegen                           '(((charLevel*90+10) + lifeRegen))*elapsedTime'
+   characterMana                                '((charLevel*15)^1.2)+50'
+   characterManaRegen                           '(((charLevel/10+3) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime'
+   characterOffensiveAbility                    '(charLevel*6)+50'
+   characterStrength                            '(charLevel*6)+30'
+   templateName                                 'database/templates/characterattributeequations.tpl'
+==========================================================================================
+records/skills/playerclass09/pets/bio_celestialguardian_01.dbr ['gdx2'] found= True n= 10
+   characterDefensiveAbility                    '(charLevel*5)+25'
+   characterDexterity                           '0'
+   characterIntelligence                        '0'
+   characterLife                                '((charLevel*12)^1.29)+35'
+   characterLifeRegen                           '0'
+   characterMana                                '500'
+   characterManaRegen                           '0'
+   characterOffensiveAbility                    '(charLevel*9)+90'
+   characterStrength                            '0'
+   templateName                                 'database/templates/characterattributeequations.tpl'

@@ -1,0 +1,62 @@
+=== disp32 0x1844 byte-exact scan over .text
+   0x0003ea10  0x0003ea10  mov      dword ptr [edi + 0x1844], 0             in ??0Character@GAME@@QAE@XZ+0x270
+   0x00043d17  0x00043d17  mov      byte ptr [edi + 0x1844], al             in ?Load@Character@GAME@@UAEXABVLoadTable@2@@Z+0x2847
+   0x000570c6  0x000570c6  mov      byte ptr [ecx + 0x1844], al             in ?SetInvincible@Character@GAME@@QAEX_N@Z+0x6
+   0x00059c80  0x00059c80  mov      al, byte ptr [ecx + 0x1844]             in ?IsInvincible@Character@GAME@@UBE_NXZ
+   0x000aef0a  0x000aef0a  mov      byte ptr [eax + 0x1844], cl             in ?Execute@SetInvincibleConfigCmd@GAME@@UAEXXZ+0x1a
+   0x0028ff7e  0x0028ff7e  mov      byte ptr [esi + 0x1844], 1              in ?Load@Guard@GAME@@UAEXABVLoadTable@2@@Z+0xe
+   0x0030a020  0x0030a020  mov      byte ptr [ebx + 0x1844], 1              in ?Load@Npc@GAME@@UAEXABVLoadTable@2@@Z+0x2a0
+   0x0031b0ab  0x0031b0ab  mov      al, byte ptr [esi + 0x1844]             in ?IsInvincible@Player@GAME@@UBE_NXZ+0x1b
+   0x0047dbab  0x0047dbab  mov      byte ptr [edi + 0x1844], 1              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x6e2b
+   0x0047dced  0x0047dced  mov      byte ptr [edi + 0x1844], 0              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x6f6d
+   0x0047dfbb  0x0047dfbb  mov      byte ptr [edi + 0x1844], 1              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x723b
+   0x0047e104  0x0047e104  mov      byte ptr [edi + 0x1844], 0              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x7384
+   0x0047e3b3  0x0047e3b3  mov      byte ptr [edi + 0x1844], 1              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x7633
+   0x0047e49b  0x0047e49b  mov      byte ptr [edi + 0x1844], 0              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x771b
+   0x0047e88e  0x0047e88e  mov      byte ptr [edi + 0x1844], 1              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x7b0e
+   0x0047e991  0x0047e991  mov      byte ptr [edi + 0x1844], 0              in ?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QBEMXZ+0x7c11
+   total: 16
+
+=== disp32 0x1845 byte-exact scan over .text
+   0x00043d0a  0x00043d0a  mov      byte ptr [edi + 0x1845], al             in ?Load@Character@GAME@@UAEXABVLoadTable@2@@Z+0x283a
+   0x00059c90  0x00059c90  mov      al, byte ptr [ecx + 0x1845]             in ?IsInvincibleInDbr@Character@GAME@@QBE_NXZ
+   0x000fe5c2  0x000fe5c2  mov      al, byte ptr [edi + 0x1845]             in ?OnEnd@ControllerMonsterStateStartup@GAME@@UAEXXZ+0xa2
+   0x001f6347  <not an instruction start>  near ?ShouldCastShadows@Destructible@GAME@@UBE_NXZ+0x317
+   0x002d85b2  0x002d85b2  mov      al, byte ptr [edi + 0x1845]             in ?RestoreState@Monster@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x412
+   0x002dc783  0x002dc783  cmp      byte ptr [esi + 0x1845], 0              in ?IsTargetable@Monster@GAME@@UBE_NXZ+0x3
+   0x003b61af  <not an instruction start>  near ?CreateUINextModifierText@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@V?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@4@HHW4GameTextClass@2@@Z+0x10f
+   0x003b6381  <not an instruction start>  near ?CreateUINextModifierText@Skill@GAME@@UBEXAAV?$vector@UGameTextLine@GAME@@@mem@@V?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@4@HHW4GameTextClass@2@@Z+0x2e1
+   0x004584cc  <not an instruction start>  near ?ActivateNow@SkillSecondary_ChainLightning@GAME@@UAEXAAVCharacter@2@ABVName@2@IABV?$vector@I@mem@@ABVWorldVec3@2@@Z+0x2ac
+   total: 9
+
+=== Load@Character region around the 'invincible' literal ref
+  0x00043ce0  push     ecx
+  0x00043ce1  mov      dword ptr [esp], 0x41400000
+  0x00043ce8  mov      ecx, ebx
+  0x00043cea  push     0x104f4b88
+  0x00043cef  mov      eax, dword ptr [eax + 0x24]
+  0x00043cf2  call     eax
+  0x00043cf4  fstp     dword ptr [edi + 0x3014]
+  0x00043cfa  mov      eax, dword ptr [ebx]
+  0x00043cfc  mov      ecx, ebx
+  0x00043cfe  push     0
+  0x00043d00  push     0x104f4b9c
+  0x00043d05  mov      eax, dword ptr [eax + 0x2c]
+  0x00043d08  call     eax
+  0x00043d0a  mov      byte ptr [edi + 0x1845], al
+  0x00043d10  lea      ecx, [edi + 0x1b58]
+  0x00043d16  push     ebx
+  0x00043d17  mov      byte ptr [edi + 0x1844], al
+  0x00043d1d  call     0x10204830   ; -> ?SetDungeonId@FixedItemDungeonTeleport@GAME@@QAEXI@Z+0x130
+  0x00043d22  mov      eax, dword ptr [ebx]
+  0x00043d24  mov      ecx, ebx
+  0x00043d26  push     0
+  0x00043d28  push     0x104f4ba8
+  0x00043d2d  mov      eax, dword ptr [eax + 0x2c]
+  0x00043d30  call     eax
+  0x00043d32  mov      byte ptr [edi + 0x94], al
+  0x00043d38  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x00043d3d  mov      eax, dword ptr [eax]
+  0x00043d3f  mov      al, byte ptr [eax + 0x192]
+  0x00043d45  test     al, al
+  0x00043d47  jne      0x10043eda

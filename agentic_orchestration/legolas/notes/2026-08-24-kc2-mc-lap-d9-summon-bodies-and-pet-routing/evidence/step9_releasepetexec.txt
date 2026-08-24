@@ -1,0 +1,66 @@
+=== Execute@ReleasePetConfigCmd @ 0x000a9580
+  0x000a9580  push     ebp
+  0x000a9581  mov      ebp, esp
+  0x000a9583  sub      esp, 0xc
+  0x000a9586  push     ebx
+  0x000a9587  mov      ebx, ecx
+  0x000a9589  push     esi
+  0x000a958a  push     edi
+  0x000a958b  mov      edi, dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000a9591  push     dword ptr [ebx + 0xc]
+  0x000a9594  call     edi
+  0x000a9596  mov      ecx, eax
+  0x000a9598  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x000a959d  mov      esi, eax
+  0x000a959f  test     esi, esi
+  0x000a95a1  je       0x100a961a
+  0x000a95a3  push     dword ptr [esi + 0x1120]
+  0x000a95a9  call     edi
+  0x000a95ab  mov      ecx, eax
+  0x000a95ad  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x000a95b2  mov      edi, eax
+  0x000a95b4  test     edi, edi
+  0x000a95b6  je       0x100a961a
+  0x000a95b8  movsd    xmm0, qword ptr [esi + 0xa38]
+  0x000a95c0  lea      ecx, [esi + 0xa18]
+  0x000a95c6  maxsd    xmm0, qword ptr [0x105f5710]   ; f32=0 i32=0 f64=0
+  0x000a95ce  mov      byte ptr [ebp - 1], 0
+  0x000a95d2  cvtpd2ps xmm0, xmm0
+  0x000a95d6  movss    dword ptr [ebp - 8], xmm0
+  0x000a95db  call     0x100730b0   ; -> ?GetLifeLimit@CharacterBio@GAME@@QBE?BMXZ
+  0x000a95e0  fmul     dword ptr [esi + 0x1d84]
+  0x000a95e6  mov      ecx, 1
+  0x000a95eb  movss    xmm0, dword ptr [ebp - 8]
+  0x000a95f0  movzx    eax, byte ptr [ebp - 1]
+  0x000a95f4  fstp     dword ptr [ebp - 0xc]
+  0x000a95f7  comiss   xmm0, dword ptr [ebp - 0xc]
+  0x000a95fb  cmovae   eax, ecx
+  0x000a95fe  cmp      byte ptr [ebx + 0x10], 0
+  0x000a9602  mov      byte ptr [ebp - 0xc], al
+  0x000a9605  je       0x100a960d
+  0x000a9607  mov      byte ptr [esi + 0x1dcc], cl
+  0x000a960d  mov      eax, dword ptr [edi]
+  0x000a960f  mov      ecx, edi
+  0x000a9611  push     dword ptr [ebp - 0xc]
+  0x000a9614  call     dword ptr [eax + 0x88]
+  0x000a961a  pop      edi
+  0x000a961b  pop      esi
+  0x000a961c  pop      ebx
+  0x000a961d  mov      esp, ebp
+  0x000a961f  pop      ebp
+  0x000a9620  ret      
+  0x000a9621  int3     
+  0x000a9622  int3     
+  0x000a9623  int3     
+  0x000a9624  int3     
+  0x000a9625  int3     
+  0x000a9626  int3     
+  0x000a9627  int3     
+  0x000a9628  int3     
+  0x000a9629  int3     
+  0x000a962a  int3     
+  0x000a962b  int3     
+  0x000a962c  int3     
+  0x000a962d  int3     
+  0x000a962e  int3     
+  0x000a962f  int3     

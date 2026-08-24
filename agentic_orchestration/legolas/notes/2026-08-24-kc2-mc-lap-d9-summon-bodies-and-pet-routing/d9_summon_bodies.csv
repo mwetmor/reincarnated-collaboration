@@ -1,0 +1,217 @@
+summon,group,field,value,grade,source_record_or_rva,extraction_method
+Guardian of Empyrion,chain,spawn_skill_record,records/skills/playerclass09/summon_celestialguardian1.dbr,MEASURED,records/skills/playerclass09/summon_celestialguardian1.dbr,"E3.merged, archives=gdx2"
+Guardian of Empyrion,chain,spawn_skill_class,Skill_TargetedSpawnPet,MEASURED,records/skills/playerclass09/summon_celestialguardian1.dbr,field read
+Guardian of Empyrion,chain,spawnObjects_len,26,MEASURED,records/skills/playerclass09/summon_celestialguardian1.dbr,field read
+Guardian of Empyrion,chain,rank_eff_used,2,MEASURED,pm4g_defensive_actives.csv (B-3 § 0.1),inherited registered value
+Guardian of Empyrion,chain,body_record,records/skills/playerclass09/pets/celestialguardian_02.dbr,DECODED,records/skills/playerclass09/summon_celestialguardian1.dbr,spawnObjects indexed by GetCurrentLevel@Skill via GetSpawnObject@Skill (SpawnPet@Skill_SpawnPet 0x0041c884/0x0041c8ae); spawnObjects[rank_eff-1]
+Guardian of Empyrion,chain,body_archives,gdx2|gdx3,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,arz index
+Guardian of Empyrion,body,Class,PetPlayerScaling,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,templateName,database/templates/petplayerscaling.tpl,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,monsterClassification,Champion,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,invincible,True,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,invincible_SEMANTICS,"Load@Character (0x00043d0a/0x00043d17) writes this field to BOTH Character+0x1845 and +0x1844. IsInvincible@Character (0x00059c80) = read of +0x1844, Character vtable slot 262 (+0x418), inherited unchanged by Monster/Pet/PetPlayerScaling. FIVE gates early-return on it: SubtractLife@Character 0x000542b4, SubtractLife@SkillManager 0x004405f1, AddDamage@DurationDamageManager 0x00208a53, AddFixedDamage@DurationDamageManager 0x00208d46, DebufTarget@Character 0x0005302f. IsTargetable@Monster (0x002dc783) deliberately BYPASSES the runtime test for an invincible-in-DBR body, so it stays targetable.",DECODED,Game.dll 0x00043d0a / 0x00059c80 / 0x00043d17 / 0x002dc783,"byte-exact disp32 scans for 0x1844, 0x1845 and 0x418 over .text; every hit decoded"
+Guardian of Empyrion,body,factions,records/controllers/factions/faction_player.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,charLevel_equation,charLevel*1,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,controller,records/controllers/pets/controller_celestialguardian_aggressive.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,controllerAggressive,,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,controllerDefensive,,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,causesAnger,False,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,angerMultiplier,0.0,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,body,actorHeight,2.0,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,bio,bio_record,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,bio,characterLife_equation,((charLevel*12)^1.29)+35,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterOffensiveAbility_equation,(charLevel*9)+90,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterDefensiveAbility_equation,(charLevel*5)+25,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterMana_equation,500,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterLifeRegen_equation,0,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterStrength_equation,0,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterDexterity_equation,0,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,characterIntelligence_equation,0,MEASURED,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,field read
+Guardian of Empyrion,bio,life_base_at_charLevel_100,9413.725121,INFERRED-WITH-EVIDENCE,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Guardian of Empyrion,bio,OA_base_at_charLevel_100,990.0,INFERRED-WITH-EVIDENCE,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Guardian of Empyrion,bio,DA_base_at_charLevel_100,525.0,INFERRED-WITH-EVIDENCE,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Guardian of Empyrion,bio,mana_base_at_charLevel_100,500.0,INFERRED-WITH-EVIDENCE,records/skills/playerclass09/pets/bio_celestialguardian_01.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Guardian of Empyrion,attack_slot,basic.record,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,attack_slot,basic.class,Skill_AttackWeapon,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.rank_equation,2,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillLevel3 beside skillName3
+Guardian of Empyrion,attack_slot,basic.rank_used,2,DECODED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillLevel equation evaluated at charLevel=100
+Guardian of Empyrion,attack_slot,basic.offensiveFireMin,25.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,rank-array[2] of 26 ranks
+Guardian of Empyrion,attack_slot,basic.offensivePhysicalMax,69.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,rank-array[2] of 26 ranks
+Guardian of Empyrion,attack_slot,basic.offensivePhysicalMin,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,rank-array[2] of 26 ranks
+Guardian of Empyrion,attack_slot,basic.offensiveSlowFireDurationMin,3.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,scalar field
+Guardian of Empyrion,attack_slot,basic.offensiveSlowFireMin,16.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,rank-array[2] of 26 ranks
+Guardian of Empyrion,attack_slot,basic.skillTargetNumber,5,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.skillTargetAngle,180.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.skillMaxLevel,16,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.skillUltimateLevel,26,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.distanceProfile,Melee,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,basic.skillSpecialAnimationName,FireArc,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_bladearc1.dbr,field read
+Guardian of Empyrion,attack_slot,buff_self.record,records/skills/playerclass09/pets/petskill_celestialguardian_celestialwrath1.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,attack_slot,buff_self.class,Skill_BuffRadiusToggled,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_celestialwrath1.dbr,field read
+Guardian of Empyrion,attack_slot,buff_self.rank_equation,0,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillLevel16 beside skillName16
+Guardian of Empyrion,attack_slot,buff_self.rank_used,0,DECODED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillLevel equation evaluated at charLevel=100
+Guardian of Empyrion,attack_slot,n_attack_slots,1,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,count of populated attack/specialAttack* slots
+Guardian of Empyrion,swing,charAnimationTableName,records/creatures/enemies/anm/anm_celestialguardian.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,swing,characterAttackSpeed,0.8999999761581421,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,swing,characterSpellCastSpeed,1.0,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,swing,characterRunSpeed,1.2000000476837158,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,field read
+Guardian of Empyrion,swing,unarmed_anim_weighted_base_s,0.633333,MEASURED,records/creatures/enemies/anm/anm_celestialguardian.dbr,"anm_index frames/30 fps, weighted by unarmedAttackAnimWeight"
+Guardian of Empyrion,swing,basic_swing_period_s,0.703704,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,weighted base / characterAttackSpeed (pm2b_petchain method)
+Guardian of Empyrion,passive,armour_skill_record,records/skills/itemskills/pets/armorpets04.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillName2
+Guardian of Empyrion,passive,armour_skill_rank_equation,charLevel*1,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillLevel2
+Guardian of Empyrion,passive,armour_skill_rank_used,100,DECODED,records/skills/playerclass09/pets/celestialguardian_02.dbr,evaluated at charLevel=100
+Guardian of Empyrion,passive,defensiveProtection,1225.0,MEASURED,records/skills/itemskills/pets/armorpets04.dbr,rank-array[100] of 200
+Guardian of Empyrion,passive,defensiveSlowLifeLeach,60.0,MEASURED,records/skills/itemskills/pets/armorpets04.dbr,field read
+Guardian of Empyrion,passive,defensiveSlowManaLeach,33.0,MEASURED,records/skills/itemskills/pets/armorpets04.dbr,field read
+Guardian of Empyrion,passive,offensiveTauntMin,8.0,MEASURED,records/skills/itemskills/pets/armorpets04.dbr,field read
+Guardian of Empyrion,passive,offensiveCritDamageModifier,0.0,MEASURED,records/skills/itemskills/pets/armorpets04.dbr,rank-array[100]
+Guardian of Empyrion,resist,innate_passive_record,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,MEASURED,records/skills/playerclass09/pets/celestialguardian_02.dbr,skillName1
+Guardian of Empyrion,resist,defensiveBleeding,88.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveBleedingDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveColdDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveConfusion,500.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveConvert,500.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveFear,500.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveFireDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveLifeDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveLightningDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensivePercentCurrentLife,500.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensivePercentReflectionResistance,50.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensivePhysicalDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensivePoisonDuration,33.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveSlowLifeLeachMaxResist,90.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveSlowManaLeachMaxResist,90.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,resist,defensiveTotalSpeedResistance,500.0,MEASURED,records/skills/playerclass09/pets/petskill_celestialguardian_innate01.dbr,field read
+Guardian of Empyrion,UNDERIVABLE,pet_charLevel_binding,UNDERIVABLE-WITH-PATH-NAMED,UNDERIVABLE-WITH-PATH-NAMED,records/skills/playerclass09/pets/celestialguardian_02.dbr,"SpawnPet@Skill_SpawnPet (0x0041c850) contains NO SetLevel call; the pet is Load()ed from its record then JoinMe@Monster (Character vtable +0x30c, called at 0x0041ca9d) binds it to the caster. PATH TO CLOSE: decode JoinMe@Monster (0x002d5200) and the leader-level read it performs, OR read a live Guardian's level off a save/GDC block (NOT a tooltip - display-layer guard)."
+Guardian of Empyrion,UNDERIVABLE,difficulty_pak_cell_index,UNDERIVABLE-WITH-PATH-NAMED,UNDERIVABLE-WITH-PATH-NAMED,records/game/balancingadjustment_mp+difficulty_pets01.dbr,"THE PAK IS DECODED (ContributeGameBalanceCharAttributes@Pet 0x00315f90 reads gGameEngine+0x19f0 = petAttributePak, and does NOT fold GetChallengeAdjustment). The 12-cell index for Crucible-Ultimate-solo was not re-derived on THIS lap. PATH TO CLOSE: Lap E pm4e_dispatch_evidence.csv already publishes cell 8 = 15.0 for the pet pak; re-derive the index selection in GameEngine before folding it."
+Deathstalker,chain,spawn_skill_record,records/skills/itemskillsgdx1/relics/summondeathstalker.dbr,MEASURED,records/skills/itemskillsgdx1/relics/summondeathstalker.dbr,"E3.merged, archives=gdx1"
+Deathstalker,chain,spawn_skill_class,Skill_SpawnPet,MEASURED,records/skills/itemskillsgdx1/relics/summondeathstalker.dbr,field read
+Deathstalker,chain,spawnObjects_len,1,MEASURED,records/skills/itemskillsgdx1/relics/summondeathstalker.dbr,field read
+Deathstalker,chain,rank_eff_used,1,MEASURED,pm4g_defensive_actives.csv (B-3 § 0.1),inherited registered value
+Deathstalker,chain,body_record,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,DECODED,records/skills/itemskillsgdx1/relics/summondeathstalker.dbr,spawnObjects indexed by GetCurrentLevel@Skill via GetSpawnObject@Skill (SpawnPet@Skill_SpawnPet 0x0041c884/0x0041c8ae); spawnObjects (scalar)
+Deathstalker,chain,body_archives,gdx1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,arz index
+Deathstalker,body,Class,PetPlayerScaling,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,templateName,database/templates/petplayerscaling.tpl,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,monsterClassification,Champion,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,invincible,True,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,invincible_SEMANTICS,"Load@Character (0x00043d0a/0x00043d17) writes this field to BOTH Character+0x1845 and +0x1844. IsInvincible@Character (0x00059c80) = read of +0x1844, Character vtable slot 262 (+0x418), inherited unchanged by Monster/Pet/PetPlayerScaling. FIVE gates early-return on it: SubtractLife@Character 0x000542b4, SubtractLife@SkillManager 0x004405f1, AddDamage@DurationDamageManager 0x00208a53, AddFixedDamage@DurationDamageManager 0x00208d46, DebufTarget@Character 0x0005302f. IsTargetable@Monster (0x002dc783) deliberately BYPASSES the runtime test for an invincible-in-DBR body, so it stays targetable.",DECODED,Game.dll 0x00043d0a / 0x00059c80 / 0x00043d17 / 0x002dc783,"byte-exact disp32 scans for 0x1844, 0x1845 and 0x418 over .text; every hit decoded"
+Deathstalker,body,factions,records/controllers/factions/faction_player.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,charLevel_equation,charLevel*1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,controller,records/controllers/pets/controller_hellhound_normal.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,controllerAggressive,records/controllers/pets/controller_hellhound_aggressive.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,controllerDefensive,records/controllers/pets/controller_hellhound_defensive.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,causesAnger,False,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,angerMultiplier,0.0,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,body,actorHeight,2.0,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,bio,bio_record,records/skills/itemskills/pets/bio_nemesis.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,bio,characterLife_equation,((charLevel*28)^1.3)+50,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterOffensiveAbility_equation,(charLevel*6)+50,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterDefensiveAbility_equation,(charLevel*5)+25,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterMana_equation,((charLevel*15)^1.2)+50,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterLifeRegen_equation,(((charLevel*90+10) + lifeRegen))*elapsedTime,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterStrength_equation,(charLevel*6)+30,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterDexterity_equation,(charLevel*8)+50,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,characterIntelligence_equation,(charLevel*8)+30,MEASURED,records/skills/itemskills/pets/bio_nemesis.dbr,field read
+Deathstalker,bio,life_base_at_charLevel_100,30340.430151,INFERRED-WITH-EVIDENCE,records/skills/itemskills/pets/bio_nemesis.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Deathstalker,bio,OA_base_at_charLevel_100,650.0,INFERRED-WITH-EVIDENCE,records/skills/itemskills/pets/bio_nemesis.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Deathstalker,bio,DA_base_at_charLevel_100,525.0,INFERRED-WITH-EVIDENCE,records/skills/itemskills/pets/bio_nemesis.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Deathstalker,bio,mana_base_at_charLevel_100,6526.039826,INFERRED-WITH-EVIDENCE,records/skills/itemskills/pets/bio_nemesis.dbr,"equation evaluated at charLevel=player level 100 (screenshot 495; screenshot 508; gdc header; gdc block2). Level BINDING is inferred, not measured: Class=PetPlayerScaling + GetCharLevelGapFixer@Pet (0x00009470) is `xor eax,eax; ret 4` + Lap E Q3 MEASURED owner-level binding for the Class=Monster sibling. See UNDERIVABLE row `pet_charLevel_binding`."
+Deathstalker,attack_slot,basic.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,basic.class,Skill_AttackWeapon,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,field read
+Deathstalker,attack_slot,basic.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel1 beside skillName1
+Deathstalker,attack_slot,basic.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,basic.offensivePhysicalMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,scalar field
+Deathstalker,attack_slot,basic.offensivePoisonMax,215.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,scalar field
+Deathstalker,attack_slot,basic.offensivePoisonMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,scalar field
+Deathstalker,attack_slot,basic.offensiveSlowBleedingDurationMin,3.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,scalar field
+Deathstalker,attack_slot,basic.offensiveSlowBleedingMin,70.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,scalar field
+Deathstalker,attack_slot,basic.skillMaxLevel,1,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,field read
+Deathstalker,attack_slot,basic.distanceProfile,Melee;Short;Moderate;Long;Maximum;,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_basicattack.dbr,field read
+Deathstalker,attack_slot,special1.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,special1.class,Skill_AttackWeapon,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special1.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel3 beside skillName3
+Deathstalker,attack_slot,special1.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,special1.offensivePhysicalMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,scalar field
+Deathstalker,attack_slot,special1.offensivePoisonMax,215.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,scalar field
+Deathstalker,attack_slot,special1.offensivePoisonMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,scalar field
+Deathstalker,attack_slot,special1.offensiveSlowBleedingDurationMin,3.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,scalar field
+Deathstalker,attack_slot,special1.offensiveSlowBleedingMin,70.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,scalar field
+Deathstalker,attack_slot,special1.skillTargetNumber,3,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special1.skillTargetAngle,90.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special1.skillMaxLevel,1,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special1.distanceProfile,Melee,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special1.skillSpecialAnimationName,Slam,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_maul.dbr,field read
+Deathstalker,attack_slot,special2.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,special2.class,Skill_AttackWeapon,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,field read
+Deathstalker,attack_slot,special2.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel5 beside skillName5
+Deathstalker,attack_slot,special2.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,special2.offensivePhysicalMin,177.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,scalar field
+Deathstalker,attack_slot,special2.offensivePoisonMin,177.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,scalar field
+Deathstalker,attack_slot,special2.offensiveSlowBleedingDurationMin,3.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,scalar field
+Deathstalker,attack_slot,special2.offensiveSlowBleedingMin,122.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,scalar field
+Deathstalker,attack_slot,special2.skillMaxLevel,1,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,field read
+Deathstalker,attack_slot,special2.distanceProfile,Melee,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,field read
+Deathstalker,attack_slot,special2.skillSpecialAnimationName,TailStrike,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_tailstrike.dbr,field read
+Deathstalker,attack_slot,special3.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,special3.class,Skill_AttackWeaponBlink,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,field read
+Deathstalker,attack_slot,special3.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel4 beside skillName4
+Deathstalker,attack_slot,special3.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,special3.offensivePhysicalMin,250.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,scalar field
+Deathstalker,attack_slot,special3.offensivePoisonMax,388.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,scalar field
+Deathstalker,attack_slot,special3.offensivePoisonMin,250.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,scalar field
+Deathstalker,attack_slot,special3.offensiveSlowBleedingDurationMin,3.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,scalar field
+Deathstalker,attack_slot,special3.offensiveSlowBleedingMin,100.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,scalar field
+Deathstalker,attack_slot,special3.skillMaxLevel,1,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,field read
+Deathstalker,attack_slot,special3.distanceProfile,Long,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,field read
+Deathstalker,attack_slot,special3.skillSpecialAnimationName,ShadowStrike,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_shadowstrike.dbr,field read
+Deathstalker,attack_slot,special4.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,special4.class,Skill_AttackRadius,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,field read
+Deathstalker,attack_slot,special4.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel8 beside skillName8
+Deathstalker,attack_slot,special4.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,special4.offensivePhysicalMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,scalar field
+Deathstalker,attack_slot,special4.offensivePoisonMax,215.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,scalar field
+Deathstalker,attack_slot,special4.offensivePoisonMin,130.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,scalar field
+Deathstalker,attack_slot,special4.offensiveSlowBleedingDurationMin,3.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,scalar field
+Deathstalker,attack_slot,special4.offensiveSlowBleedingMin,70.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,scalar field
+Deathstalker,attack_slot,special4.skillTargetRadius,6.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,field read
+Deathstalker,attack_slot,special4.skillMaxLevel,1,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,field read
+Deathstalker,attack_slot,special4.distanceProfile,Long,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,field read
+Deathstalker,attack_slot,special4.skillSpecialAnimationName,Roar,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_roar.dbr,field read
+Deathstalker,attack_slot,buff_self.record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_auraofdarkness.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,attack_slot,buff_self.class,Skill_BuffRadiusToggled,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_auraofdarkness.dbr,field read
+Deathstalker,attack_slot,buff_self.rank_equation,1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel7 beside skillName7
+Deathstalker,attack_slot,buff_self.rank_used,1,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel equation evaluated at charLevel=100
+Deathstalker,attack_slot,n_attack_slots,5,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,count of populated attack/specialAttack* slots
+Deathstalker,swing,charAnimationTableName,records/creatures/enemies/anm/anm_manticore.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,swing,characterAttackSpeed,1.149999976158142,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,swing,characterSpellCastSpeed,1.149999976158142,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,swing,characterRunSpeed,1.2000000476837158,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,field read
+Deathstalker,swing,unarmed_anim_weighted_base_s,0.933333,MEASURED,records/creatures/enemies/anm/anm_manticore.dbr,"anm_index frames/30 fps, weighted by unarmedAttackAnimWeight"
+Deathstalker,swing,basic_swing_period_s,0.811594,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,weighted base / characterAttackSpeed (pm2b_petchain method)
+Deathstalker,passive,armour_skill_record,records/skills/itemskills/pets/armorpets03.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillName2
+Deathstalker,passive,armour_skill_rank_equation,charLevel*1,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillLevel2
+Deathstalker,passive,armour_skill_rank_used,100,DECODED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,evaluated at charLevel=100
+Deathstalker,passive,defensiveProtection,1021.0,MEASURED,records/skills/itemskills/pets/armorpets03.dbr,rank-array[100] of 200
+Deathstalker,passive,defensiveSlowLifeLeach,60.0,MEASURED,records/skills/itemskills/pets/armorpets03.dbr,field read
+Deathstalker,passive,defensiveSlowManaLeach,33.0,MEASURED,records/skills/itemskills/pets/armorpets03.dbr,field read
+Deathstalker,passive,offensiveTauntMin,8.0,MEASURED,records/skills/itemskills/pets/armorpets03.dbr,field read
+Deathstalker,passive,offensiveCritDamageModifier,0.0,MEASURED,records/skills/itemskills/pets/armorpets03.dbr,rank-array[100]
+Deathstalker,resist,innate_passive_record,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,MEASURED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,skillName6
+Deathstalker,resist,defensiveBleeding,88.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveBleedingDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveColdDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveConfusion,500.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveConvert,500.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveFear,500.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveFireDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveLifeDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveLightningDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensivePercentCurrentLife,500.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensivePercentReflectionResistance,50.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensivePhysicalDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensivePoisonDuration,33.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveSlowLifeLeach,90.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveSlowManaLeach,90.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,resist,defensiveTotalSpeedResistance,500.0,MEASURED,records/skills/itemskillsgdx1/pets/petskill_deathstalker_passiveproperties.dbr,field read
+Deathstalker,UNDERIVABLE,pet_charLevel_binding,UNDERIVABLE-WITH-PATH-NAMED,UNDERIVABLE-WITH-PATH-NAMED,records/skills/itemskillsgdx1/pets/itempet_deathstalker_a01.dbr,"SpawnPet@Skill_SpawnPet (0x0041c850) contains NO SetLevel call; the pet is Load()ed from its record then JoinMe@Monster (Character vtable +0x30c, called at 0x0041ca9d) binds it to the caster. PATH TO CLOSE: decode JoinMe@Monster (0x002d5200) and the leader-level read it performs, OR read a live Guardian's level off a save/GDC block (NOT a tooltip - display-layer guard)."
+Deathstalker,UNDERIVABLE,difficulty_pak_cell_index,UNDERIVABLE-WITH-PATH-NAMED,UNDERIVABLE-WITH-PATH-NAMED,records/game/balancingadjustment_mp+difficulty_pets01.dbr,"THE PAK IS DECODED (ContributeGameBalanceCharAttributes@Pet 0x00315f90 reads gGameEngine+0x19f0 = petAttributePak, and does NOT fold GetChallengeAdjustment). The 12-cell index for Crucible-Ultimate-solo was not re-derived on THIS lap. PATH TO CLOSE: Lap E pm4e_dispatch_evidence.csv already publishes cell 8 = 15.0 for the pet pak; re-derive the index selection in GameEngine before folding it."

@@ -1,0 +1,17 @@
+StopCurrentSkill exports: ['?StopCurrentSkill@SkillManager@GAME@@QAEXXZ']
+
+=== E8/E9 xrefs to ?StopCurrentSkill@SkillManager@GAME@@QAEXXZ @0x0043ea00
+   call @ 0x0006c6bf  in ?Execute@MoveToAction@GAME@@UAEXXZ+0xbf
+   call @ 0x0006de19  in ?Execute@JumpAttackAction@GAME@@UAEXXZ+0xc9
+   call @ 0x0006e5dd  in ?Execute@EvadeAction@GAME@@UAEXXZ+0xcd
+   call @ 0x0006f172  in ?Execute@TakeStunAction@GAME@@UAEXXZ+0x42
+   call @ 0x0006f2e2  in ?Execute@TakeKnockdownAction@GAME@@UAEXXZ+0x42
+   call @ 0x0006f5b2  in ?Execute@TakeSleepAction@GAME@@UAEXXZ+0x42
+   call @ 0x0006f722  in ?Execute@ImmobilizeAction@GAME@@UAEXXZ+0x42
+   4-byte occurrences image-wide: 0
+
+=== release-pet lane call-target audit (bounded listings, all call/jmp targets)
+  RequestReleasePet@ControllerPlayerStateIdle          targets: ['?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z']
+  DefaultRequestReleasePetAction@ControllerPlayerState targets: ['?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70', '?Reset@AchievementManager@GAME@@QAEXXZ+0xea0']
+  Execute@ReleasePetConfigCmd                          targets: ['?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750', '?GetLifeLimit@CharacterBio@GAME@@QBE?BMXZ', '?Reset@AchievementManager@GAME@@QAEXXZ+0xd90']
+  KillMe@ControllerCombat                              targets: ['??0CharAttributeStore_Skill@GAME@@QAE@XZ+0x30', '??0DieAction@GAME@@QAE@IABV?$vector@I@mem@@_N@Z', '?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940', '?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70', '?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x2a0', '?HandleAction@ControllerBaseCharacter@GAME@@QAEXPAVCharacterAction@2@@Z', '?IsRegisteredForForcedUpdates@Character@GAME@@QBE_NXZ+0x300', '?Reset@AchievementManager@GAME@@QAEXXZ+0xd90']

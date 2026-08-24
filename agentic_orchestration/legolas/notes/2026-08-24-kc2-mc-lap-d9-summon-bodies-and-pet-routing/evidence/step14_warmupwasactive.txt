@@ -1,0 +1,106 @@
+==========================================================================================
+=== GetWarmUpWasActive@Skill_AttackRadiusGrow @ 0x003e96f0
+  0x003e96f0  cmp      dword ptr [ecx + 0x44c], 1
+  0x003e96f7  sete     al
+  0x003e96fa  ret      
+  0x003e96fb  int3     
+  0x003e96fc  int3     
+  0x003e96fd  int3     
+  0x003e96fe  int3     
+  0x003e96ff  int3     
+==========================================================================================
+=== GetWarmUpWasActive@Skill_AttackWeapon @ 0x00400550
+  0x00400550  mov      al, byte ptr [ecx + 0x441]
+  0x00400556  ret      
+  0x00400557  int3     
+  0x00400558  int3     
+  0x00400559  int3     
+  0x0040055a  int3     
+  0x0040055b  int3     
+  0x0040055c  int3     
+  0x0040055d  int3     
+  0x0040055e  int3     
+  0x0040055f  int3     
+==========================================================================================
+=== GetWarmUpWasActive@Skill_AttackRadiusLeap @ 0x003ea1d0
+  0x003ea1d0  mov      al, byte ptr [ecx + 0x445]
+  0x003ea1d6  ret      
+  0x003ea1d7  int3     
+  0x003ea1d8  int3     
+  0x003ea1d9  int3     
+  0x003ea1da  int3     
+  0x003ea1db  int3     
+  0x003ea1dc  int3     
+  0x003ea1dd  int3     
+  0x003ea1de  int3     
+  0x003ea1df  int3     
+==========================================================================================
+=== IsActive@Skill @ 0x0000c3e0
+  0x0000c3e0  xor      al, al
+  0x0000c3e2  ret      
+  0x0000c3e3  int3     
+  0x0000c3e4  int3     
+  0x0000c3e5  int3     
+  0x0000c3e6  int3     
+  0x0000c3e7  int3     
+  0x0000c3e8  int3     
+  0x0000c3e9  int3     
+  0x0000c3ea  int3     
+  0x0000c3eb  int3     
+  0x0000c3ec  int3     
+  0x0000c3ed  int3     
+  0x0000c3ee  int3     
+  0x0000c3ef  int3     
+  0x0000c3f0  push     ebp
+  0x0000c3f1  mov      ebp, esp
+  0x0000c3f3  mov      eax, dword ptr fs:[0]
+  0x0000c3f9  push     -1
+  0x0000c3fb  push     0x104c00f0
+  0x0000c400  push     eax
+  0x0000c401  mov      dword ptr fs:[0], esp
+  0x0000c408  push     ebx
+  0x0000c409  mov      ebx, dword ptr [ebp + 8]
+  0x0000c40c  push     esi
+  0x0000c40d  mov      esi, ecx
+  0x0000c40f  push     edi
+  0x0000c410  test     bl, 2
+  0x0000c413  je       0x1000c455
+  0x0000c415  push     0x1000c490
+  0x0000c41a  push     dword ptr [esi - 4]
+  0x0000c41d  lea      edi, [esi - 4]
+  0x0000c420  push     8
+  0x0000c422  push     esi
+  0x0000c423  call     0x104be834   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b84
+  0x0000c428  test     bl, 1
+  0x0000c42b  je       0x1000c440
+  0x0000c42d  mov      ecx, dword ptr [edi]
+  0x0000c42f  lea      ecx, [ecx*8 + 4]
+  0x0000c436  push     ecx
+  0x0000c437  push     edi
+  0x0000c438  call     0x104be826   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b76
+  0x0000c43d  add      esp, 8
+  0x0000c440  mov      eax, edi
+  0x0000c442  mov      ecx, dword ptr [ebp - 0xc]
+  0x0000c445  mov      dword ptr fs:[0], ecx
+  0x0000c44c  pop      edi
+  0x0000c44d  pop      esi
+  0x0000c44e  pop      ebx
+  0x0000c44f  mov      esp, ebp
+  0x0000c451  pop      ebp
+  0x0000c452  ret      4
+  0x0000c455  mov      dword ptr [esi], 0x105894c0
+  0x0000c45b  test     bl, 1
+  0x0000c45e  je       0x1000c46b
+  0x0000c460  push     8
+  0x0000c462  push     esi
+  0x0000c463  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x0000c468  add      esp, 8
+  0x0000c46b  mov      ecx, dword ptr [ebp - 0xc]
+  0x0000c46e  mov      eax, esi
+  0x0000c470  pop      edi
+  0x0000c471  pop      esi
+  0x0000c472  mov      dword ptr fs:[0], ecx
+  0x0000c479  pop      ebx
+  0x0000c47a  mov      esp, ebp
+  0x0000c47c  pop      ebp
+  0x0000c47d  ret      4

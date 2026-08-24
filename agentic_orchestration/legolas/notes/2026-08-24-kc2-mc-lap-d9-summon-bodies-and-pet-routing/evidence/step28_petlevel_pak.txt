@@ -1,0 +1,219 @@
+===============================================================================================
+=== GetCharLevelGapFixer@Pet @ 0x00009470
+  0x00009470  xor      eax, eax
+  0x00009472  ret      4
+  0x00009475  int3     
+  0x00009476  int3     
+  0x00009477  int3     
+  0x00009478  int3     
+  0x00009479  int3     
+  0x0000947a  int3     
+  0x0000947b  int3     
+  0x0000947c  int3     
+  0x0000947d  int3     
+  0x0000947e  int3     
+  0x0000947f  int3     
+===============================================================================================
+=== Load@Pet @ 0x00315bd0
+  0x00315bd0  push     ebp
+  0x00315bd1  mov      ebp, esp
+  0x00315bd3  push     esi
+  0x00315bd4  push     edi
+  0x00315bd5  mov      edi, dword ptr [ebp + 8]
+  0x00315bd8  mov      esi, ecx
+  0x00315bda  push     edi
+  0x00315bdb  call     0x102d3010   ; -> ?Load@Monster@GAME@@UAEXABVLoadTable@2@@Z
+  0x00315be0  mov      edx, dword ptr [edi]
+  0x00315be2  lea      eax, [esi + 0x3ac8]
+  0x00315be8  push     eax
+  0x00315be9  push     0x10565f48   ; "petTypeNames"
+  0x00315bee  mov      ecx, edi
+  0x00315bf0  call     dword ptr [edx + 0x54]
+  0x00315bf3  pop      edi
+  0x00315bf4  pop      esi
+  0x00315bf5  pop      ebp
+  0x00315bf6  ret      4
+  0x00315bf9  int3     
+  0x00315bfa  int3     
+  0x00315bfb  int3     
+  0x00315bfc  int3     
+  0x00315bfd  int3     
+  0x00315bfe  int3     
+  0x00315bff  int3     
+===============================================================================================
+=== InitialUpdate@Pet @ 0x00315c20
+  0x00315c20  push     ebp
+  0x00315c21  mov      ebp, esp
+  0x00315c23  push     ecx
+  0x00315c24  push     edi
+  0x00315c25  mov      edi, ecx
+  0x00315c27  call     0x102d4120   ; -> ?InitialUpdate@Monster@GAME@@UAEXXZ
+  0x00315c2c  mov      eax, dword ptr [edi]
+  0x00315c2e  mov      ecx, edi
+  0x00315c30  call     dword ptr [eax + 0x464]
+  0x00315c36  test     eax, eax
+  0x00315c38  je       0x10315c5f
+  0x00315c3a  mov      al, byte ptr [edi + 0x1924]
+  0x00315c40  mov      ecx, edi
+  0x00315c42  push     esi
+  0x00315c43  mov      esi, dword ptr [edi]
+  0x00315c45  mov      byte ptr [ebp - 4], al
+  0x00315c48  push     dword ptr [ebp - 4]
+  0x00315c4b  push     0
+  0x00315c4d  push     -1
+  0x00315c4f  call     dword ptr [esi + 0x464]
+  0x00315c55  push     eax
+  0x00315c56  mov      ecx, edi
+  0x00315c58  call     dword ptr [esi + 0x30c]
+  0x00315c5e  pop      esi
+  0x00315c5f  pop      edi
+  0x00315c60  mov      esp, ebp
+  0x00315c62  pop      ebp
+  0x00315c63  ret      
+  0x00315c64  int3     
+  0x00315c65  int3     
+  0x00315c66  int3     
+  0x00315c67  int3     
+  0x00315c68  int3     
+  0x00315c69  int3     
+  0x00315c6a  int3     
+  0x00315c6b  int3     
+  0x00315c6c  int3     
+  0x00315c6d  int3     
+  0x00315c6e  int3     
+  0x00315c6f  int3     
+===============================================================================================
+=== UpdateSelf@Pet @ 0x00315c70
+  0x00315c70  push     ebp
+  0x00315c71  mov      ebp, esp
+  0x00315c73  sub      esp, 0x4c
+  0x00315c76  push     ebx
+  0x00315c77  push     esi
+  0x00315c78  push     edi
+  0x00315c79  push     dword ptr [ebp + 8]
+  0x00315c7c  mov      esi, ecx
+  0x00315c7e  call     0x102d4650   ; -> ?UpdateSelf@Monster@GAME@@UAEXH@Z
+  0x00315c83  mov      ecx, esi
+  0x00315c85  mov      byte ptr [ebp + 0xb], 0
+  0x00315c89  xor      bl, bl
+  0x00315c8b  call     dword ptr [0x104e5294]   ; f32=1.1645e-38 i32=8310154 f64=2.74161e-306
+  0x00315c91  mov      edi, eax
+  0x00315c93  mov      dword ptr [ebp - 8], edi
+  0x00315c96  test     edi, edi
+  0x00315c98  je       0x10315d55
+  0x00315c9e  lea      eax, [ebp - 0x4c]
+  0x00315ca1  mov      ecx, esi
+  0x00315ca3  push     eax
+  0x00315ca4  call     dword ptr [0x104e5288]   ; f32=1.16448e-38 i32=8310008 f64=2.74142e-306
+  0x00315caa  mov      ecx, eax
+  0x00315cac  call     dword ptr [0x104e5244]   ; f32=1.16434e-38 i32=8309020 f64=2.74008e-306
+  0x00315cb2  mov      ecx, edi
+  0x00315cb4  mov      dword ptr [ebp - 4], eax
+  0x00315cb7  call     dword ptr [0x104e5548]   ; f32=1.16576e-38 i32=8319160 f64=2.75384e-306
+  0x00315cbd  test     eax, eax
+  0x00315cbf  je       0x10315d20
+  0x00315cc1  mov      ecx, eax
+  0x00315cc3  call     dword ptr [0x104e554c]   ; f32=1.16577e-38 i32=8319206 f64=2.75392e-306
+  0x00315cc9  test     eax, eax
+  0x00315ccb  je       0x10315d20
+  0x00315ccd  mov      edx, dword ptr [ebp - 4]
+  0x00315cd0  cvttss2si ecx, dword ptr [edx + 8]
+  0x00315cd5  push     ecx
+  0x00315cd6  cvttss2si ecx, dword ptr [edx]
+  0x00315cda  push     ecx
+  0x00315cdb  push     0xd
+  0x00315cdd  lea      ecx, [ebp - 0x18]
+  0x00315ce0  push     ecx
+  0x00315ce1  mov      ecx, eax
+  0x00315ce3  call     dword ptr [0x104e5550]   ; f32=1.16578e-38 i32=8319262 f64=2.754e-306
+  0x00315ce9  lea      eax, [ebp - 0x18]
+  0x00315cec  push     eax
+  0x00315ced  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x00315cf2  push     0xd
+  0x00315cf4  mov      ecx, dword ptr [eax]
+  0x00315cf6  add      ecx, 4
+  0x00315cf9  call     dword ptr [0x104e5554]   ; f32=1.16579e-38 i32=8319320 f64=2.7541e-306
+  0x00315cff  test     eax, eax
+  0x00315d01  je       0x10315d20
+  0x00315d03  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315d09  add      eax, 0x4c
+  0x00315d0c  push     eax
+  0x00315d0d  lea      eax, [ebp - 0x18]
+  0x00315d10  push     eax
+  0x00315d11  call     0x1025bc60   ; -> ?GetChallengeArea@GameEngine@GAME@@QAEPAVChallengeArea@2@ABVUniqueId@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00315d16  mov      dword ptr [esi + 0x1930], eax
+  0x00315d1c  mov      byte ptr [ebp + 0xb], 1
+  0x00315d20  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315d25  mov      edi, dword ptr [eax + 0xbfc]
+  0x00315d2b  test     edi, edi
+  0x00315d2d  je       0x10315d4f
+  0x00315d2f  mov      ecx, dword ptr [ebp - 8]
+  0x00315d32  push     0
+  0x00315d34  call     dword ptr [0x104e585c]   ; f32=1.16729e-38 i32=8330078 f64=2.76866e-306
+  0x00315d3a  push     eax
+  0x00315d3b  mov      ecx, edi
+  0x00315d3d  call     0x101ffbe0   ; -> ?IsRegionInDungeon@EndlessDungeon_Generator@GAME@@QBE_NABVRegionId@2@_N@Z
+  0x00315d42  test     al, al
+  0x00315d44  movzx    ebx, bl
+  0x00315d47  mov      ecx, 1
+  0x00315d4c  cmovne   ebx, ecx
+  0x00315d4f  cmp      byte ptr [ebp + 0xb], 0
+  0x00315d53  jne      0x10315d5f
+  0x00315d55  mov      dword ptr [esi + 0x1930], 0
+  0x00315d5f  pop      edi
+  0x00315d60  mov      byte ptr [esi + 0x1938], bl
+  0x00315d66  pop      esi
+  0x00315d67  pop      ebx
+  0x00315d68  mov      esp, ebp
+  0x00315d6a  pop      ebp
+  0x00315d6b  ret      4
+  0x00315d6e  int3     
+  0x00315d6f  int3     
+===============================================================================================
+=== ContributeGameBalanceCharAttributes@Pet @ 0x00315f90
+  0x00315f90  push     ebp
+  0x00315f91  mov      ebp, esp
+  0x00315f93  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315f98  push     dword ptr [ecx + 0x30dc]
+  0x00315f9e  push     dword ptr [ebp + 8]
+  0x00315fa1  mov      edx, dword ptr [eax + 0x19f0]
+  0x00315fa7  lea      ecx, [eax + 0x19f0]
+  0x00315fad  call     dword ptr [edx + 0x10]
+  0x00315fb0  pop      ebp
+  0x00315fb1  ret      4
+  0x00315fb4  int3     
+  0x00315fb5  int3     
+  0x00315fb6  int3     
+  0x00315fb7  int3     
+  0x00315fb8  int3     
+  0x00315fb9  int3     
+  0x00315fba  int3     
+  0x00315fbb  int3     
+  0x00315fbc  int3     
+  0x00315fbd  int3     
+  0x00315fbe  int3     
+  0x00315fbf  int3     
+===============================================================================================
+=== ContributeGameBalanceDefenseAttributes@Pet @ 0x00315ff0
+  0x00315ff0  push     ebp
+  0x00315ff1  mov      ebp, esp
+  0x00315ff3  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315ff8  push     dword ptr [ecx + 0x30dc]
+  0x00315ffe  push     dword ptr [ebp + 8]
+  0x00316001  mov      edx, dword ptr [eax + 0x19f0]
+  0x00316007  lea      ecx, [eax + 0x19f0]
+  0x0031600d  call     dword ptr [edx + 0x28]
+  0x00316010  pop      ebp
+  0x00316011  ret      4
+  0x00316014  int3     
+  0x00316015  int3     
+  0x00316016  int3     
+  0x00316017  int3     
+  0x00316018  int3     
+  0x00316019  int3     
+  0x0031601a  int3     
+  0x0031601b  int3     
+  0x0031601c  int3     
+  0x0031601d  int3     
+  0x0031601e  int3     
+  0x0031601f  int3     

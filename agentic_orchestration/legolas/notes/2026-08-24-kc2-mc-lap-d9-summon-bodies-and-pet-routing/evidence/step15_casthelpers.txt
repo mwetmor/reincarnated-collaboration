@@ -1,0 +1,328 @@
+==========================================================================================
+=== cast helper A (used by UseSkill slot76) @ 0x0000d4f0  nearest=?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x0000d4f0  push     ebp
+  0x0000d4f1  mov      ebp, esp
+  0x0000d4f3  push     ecx
+  0x0000d4f4  mov      eax, dword ptr [ebp + 8]
+  0x0000d4f7  push     esi
+  0x0000d4f8  mov      esi, ecx
+  0x0000d4fa  mov      dword ptr [ebp + 8], eax
+  0x0000d4fd  push     edi
+  0x0000d4fe  push     0x10589370
+  0x0000d503  lea      edi, [esi + 0xc]
+  0x0000d506  mov      ecx, edi
+  0x0000d508  call     dword ptr [0x104e5060]   ; f32=1.16341e-38 i32=8302382 f64=2.73105e-306
+  0x0000d50e  lea      eax, [ebp + 8]
+  0x0000d511  push     eax
+  0x0000d512  lea      eax, [ebp - 4]
+  0x0000d515  push     eax
+  0x0000d516  lea      ecx, [esi + 0x18]
+  0x0000d519  call     0x1000bb10   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x10
+  0x0000d51e  mov      eax, dword ptr [ebp - 4]
+  0x0000d521  mov      ecx, edi
+  0x0000d523  cmp      eax, dword ptr [esi + 0x1c]
+  0x0000d526  je       0x1000d569
+  0x0000d528  mov      esi, dword ptr [eax + 0xc]
+  0x0000d52b  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000d531  test     esi, esi
+  0x0000d533  je       0x1000d56f
+  0x0000d535  mov      eax, dword ptr [esi]
+  0x0000d537  mov      ecx, esi
+  0x0000d539  call     dword ptr [eax]
+  0x0000d53b  cmp      eax, 0x107ff570
+  0x0000d540  je       0x1000d55f
+  0x0000d542  mov      ecx, dword ptr [eax + 8]
+  0x0000d545  test     ecx, ecx
+  0x0000d547  je       0x1000d56f
+  0x0000d549  cmp      ecx, 0x107ff570
+  0x0000d54f  je       0x1000d55f
+  0x0000d551  push     0x107ff570
+  0x0000d556  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0000d55b  test     al, al
+  0x0000d55d  je       0x1000d56f
+  0x0000d55f  pop      edi
+  0x0000d560  mov      eax, esi
+  0x0000d562  pop      esi
+  0x0000d563  mov      esp, ebp
+  0x0000d565  pop      ebp
+  0x0000d566  ret      4
+  0x0000d569  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000d56f  pop      edi
+  0x0000d570  xor      eax, eax
+  0x0000d572  pop      esi
+  0x0000d573  mov      esp, ebp
+  0x0000d575  pop      ebp
+  0x0000d576  ret      4
+  0x0000d579  int3     
+  0x0000d57a  int3     
+  0x0000d57b  int3     
+  0x0000d57c  int3     
+  0x0000d57d  int3     
+  0x0000d57e  int3     
+  0x0000d57f  int3     
+  0x0000d580  push     ebp
+  0x0000d581  mov      ebp, esp
+  0x0000d583  push     -1
+  0x0000d585  push     0x104c0360
+  0x0000d58a  mov      eax, dword ptr fs:[0]
+  0x0000d590  push     eax
+  0x0000d591  mov      dword ptr fs:[0], esp
+  0x0000d598  sub      esp, 0xc
+  0x0000d59b  mov      dword ptr [ebp - 4], 0
+  0x0000d5a2  push     ebx
+  0x0000d5a3  push     esi
+  0x0000d5a4  push     edi
+  0x0000d5a5  mov      edi, dword ptr [ebp + 0xc]
+  0x0000d5a8  mov      ebx, ecx
+  0x0000d5aa  mov      dword ptr [ebp - 0x10], esp
+  0x0000d5ad  mov      dword ptr [ebp - 0x18], ebx
+  0x0000d5b0  movzx    eax, byte ptr [edi]
+  0x0000d5b3  xor      eax, 0x811c9dc5
+  0x0000d5b8  mov      esi, dword ptr [ebx + 0xc]
+  0x0000d5bb  imul     edx, eax, 0x1000193
+==========================================================================================
+=== cast helper B (ReleasePet: id -> ?) @ 0x0000b150  nearest=?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0000b150  push     ebp
+  0x0000b151  mov      ebp, esp
+  0x0000b153  push     ecx
+  0x0000b154  mov      eax, dword ptr [ebp + 8]
+  0x0000b157  push     esi
+  0x0000b158  mov      esi, ecx
+  0x0000b15a  mov      dword ptr [ebp + 8], eax
+  0x0000b15d  push     edi
+  0x0000b15e  push     0x10589370
+  0x0000b163  lea      edi, [esi + 0xc]
+  0x0000b166  mov      ecx, edi
+  0x0000b168  call     dword ptr [0x104e5060]   ; f32=1.16341e-38 i32=8302382 f64=2.73105e-306
+  0x0000b16e  lea      eax, [ebp + 8]
+  0x0000b171  push     eax
+  0x0000b172  lea      eax, [ebp - 4]
+  0x0000b175  push     eax
+  0x0000b176  lea      ecx, [esi + 0x18]
+  0x0000b179  call     0x1000bb10   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x10
+  0x0000b17e  mov      eax, dword ptr [ebp - 4]
+  0x0000b181  mov      ecx, edi
+  0x0000b183  cmp      eax, dword ptr [esi + 0x1c]
+  0x0000b186  je       0x1000b1c9
+  0x0000b188  mov      esi, dword ptr [eax + 0xc]
+  0x0000b18b  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000b191  test     esi, esi
+  0x0000b193  je       0x1000b1cf
+  0x0000b195  mov      eax, dword ptr [esi]
+  0x0000b197  mov      ecx, esi
+  0x0000b199  call     dword ptr [eax]
+  0x0000b19b  cmp      eax, 0x107ff618
+  0x0000b1a0  je       0x1000b1bf
+  0x0000b1a2  mov      ecx, dword ptr [eax + 8]
+  0x0000b1a5  test     ecx, ecx
+  0x0000b1a7  je       0x1000b1cf
+  0x0000b1a9  cmp      ecx, 0x107ff618
+  0x0000b1af  je       0x1000b1bf
+  0x0000b1b1  push     0x107ff618
+  0x0000b1b6  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0000b1bb  test     al, al
+  0x0000b1bd  je       0x1000b1cf
+  0x0000b1bf  pop      edi
+  0x0000b1c0  mov      eax, esi
+  0x0000b1c2  pop      esi
+  0x0000b1c3  mov      esp, ebp
+  0x0000b1c5  pop      ebp
+  0x0000b1c6  ret      4
+  0x0000b1c9  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000b1cf  pop      edi
+  0x0000b1d0  xor      eax, eax
+  0x0000b1d2  pop      esi
+  0x0000b1d3  mov      esp, ebp
+  0x0000b1d5  pop      ebp
+  0x0000b1d6  ret      4
+  0x0000b1d9  int3     
+  0x0000b1da  int3     
+  0x0000b1db  int3     
+  0x0000b1dc  int3     
+  0x0000b1dd  int3     
+  0x0000b1de  int3     
+  0x0000b1df  int3     
+  0x0000b1e0  push     esi
+  0x0000b1e1  mov      esi, ecx
+  0x0000b1e3  test     esi, esi
+  0x0000b1e5  je       0x1000b213
+  0x0000b1e7  mov      eax, dword ptr [esi]
+  0x0000b1e9  call     dword ptr [eax]
+  0x0000b1eb  cmp      eax, 0x107ff5b8
+  0x0000b1f0  je       0x1000b20f
+  0x0000b1f2  mov      ecx, dword ptr [eax + 8]
+  0x0000b1f5  test     ecx, ecx
+  0x0000b1f7  je       0x1000b213
+  0x0000b1f9  cmp      ecx, 0x107ff5b8
+  0x0000b1ff  je       0x1000b20f
+  0x0000b201  push     0x107ff5b8
+  0x0000b206  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0000b20b  test     al, al
+  0x0000b20d  je       0x1000b213
+  0x0000b20f  mov      eax, esi
+  0x0000b211  pop      esi
+  0x0000b212  ret      
+==========================================================================================
+=== cast helper C (ReleasePet: +0x1120 -> ?) @ 0x0000d460  nearest=?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0000d460  push     ebp
+  0x0000d461  mov      ebp, esp
+  0x0000d463  push     ecx
+  0x0000d464  mov      eax, dword ptr [ebp + 8]
+  0x0000d467  push     esi
+  0x0000d468  mov      esi, ecx
+  0x0000d46a  mov      dword ptr [ebp + 8], eax
+  0x0000d46d  push     edi
+  0x0000d46e  push     0x10589370
+  0x0000d473  lea      edi, [esi + 0xc]
+  0x0000d476  mov      ecx, edi
+  0x0000d478  call     dword ptr [0x104e5060]   ; f32=1.16341e-38 i32=8302382 f64=2.73105e-306
+  0x0000d47e  lea      eax, [ebp + 8]
+  0x0000d481  push     eax
+  0x0000d482  lea      eax, [ebp - 4]
+  0x0000d485  push     eax
+  0x0000d486  lea      ecx, [esi + 0x18]
+  0x0000d489  call     0x1000bb10   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x10
+  0x0000d48e  mov      eax, dword ptr [ebp - 4]
+  0x0000d491  mov      ecx, edi
+  0x0000d493  cmp      eax, dword ptr [esi + 0x1c]
+  0x0000d496  je       0x1000d4d9
+  0x0000d498  mov      esi, dword ptr [eax + 0xc]
+  0x0000d49b  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000d4a1  test     esi, esi
+  0x0000d4a3  je       0x1000d4df
+  0x0000d4a5  mov      eax, dword ptr [esi]
+  0x0000d4a7  mov      ecx, esi
+  0x0000d4a9  call     dword ptr [eax]
+  0x0000d4ab  cmp      eax, 0x107ff510
+  0x0000d4b0  je       0x1000d4cf
+  0x0000d4b2  mov      ecx, dword ptr [eax + 8]
+  0x0000d4b5  test     ecx, ecx
+  0x0000d4b7  je       0x1000d4df
+  0x0000d4b9  cmp      ecx, 0x107ff510
+  0x0000d4bf  je       0x1000d4cf
+  0x0000d4c1  push     0x107ff510
+  0x0000d4c6  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0000d4cb  test     al, al
+  0x0000d4cd  je       0x1000d4df
+  0x0000d4cf  pop      edi
+  0x0000d4d0  mov      eax, esi
+  0x0000d4d2  pop      esi
+  0x0000d4d3  mov      esp, ebp
+  0x0000d4d5  pop      ebp
+  0x0000d4d6  ret      4
+  0x0000d4d9  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000d4df  pop      edi
+  0x0000d4e0  xor      eax, eax
+  0x0000d4e2  pop      esi
+  0x0000d4e3  mov      esp, ebp
+  0x0000d4e5  pop      ebp
+  0x0000d4e6  ret      4
+  0x0000d4e9  int3     
+  0x0000d4ea  int3     
+  0x0000d4eb  int3     
+  0x0000d4ec  int3     
+  0x0000d4ed  int3     
+  0x0000d4ee  int3     
+  0x0000d4ef  int3     
+  0x0000d4f0  push     ebp
+  0x0000d4f1  mov      ebp, esp
+  0x0000d4f3  push     ecx
+  0x0000d4f4  mov      eax, dword ptr [ebp + 8]
+  0x0000d4f7  push     esi
+  0x0000d4f8  mov      esi, ecx
+  0x0000d4fa  mov      dword ptr [ebp + 8], eax
+  0x0000d4fd  push     edi
+  0x0000d4fe  push     0x10589370
+  0x0000d503  lea      edi, [esi + 0xc]
+  0x0000d506  mov      ecx, edi
+  0x0000d508  call     dword ptr [0x104e5060]   ; f32=1.16341e-38 i32=8302382 f64=2.73105e-306
+  0x0000d50e  lea      eax, [ebp + 8]
+  0x0000d511  push     eax
+  0x0000d512  lea      eax, [ebp - 4]
+  0x0000d515  push     eax
+  0x0000d516  lea      ecx, [esi + 0x18]
+  0x0000d519  call     0x1000bb10   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x10
+  0x0000d51e  mov      eax, dword ptr [ebp - 4]
+  0x0000d521  mov      ecx, edi
+==========================================================================================
+=== cast helper D (Default*: id -> ?) @ 0x0000b260  nearest=?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+  0x0000b260  push     ebp
+  0x0000b261  mov      ebp, esp
+  0x0000b263  push     ecx
+  0x0000b264  mov      eax, dword ptr [ebp + 8]
+  0x0000b267  push     esi
+  0x0000b268  mov      esi, ecx
+  0x0000b26a  mov      dword ptr [ebp + 8], eax
+  0x0000b26d  push     edi
+  0x0000b26e  push     0x10589370
+  0x0000b273  lea      edi, [esi + 0xc]
+  0x0000b276  mov      ecx, edi
+  0x0000b278  call     dword ptr [0x104e5060]   ; f32=1.16341e-38 i32=8302382 f64=2.73105e-306
+  0x0000b27e  lea      eax, [ebp + 8]
+  0x0000b281  push     eax
+  0x0000b282  lea      eax, [ebp - 4]
+  0x0000b285  push     eax
+  0x0000b286  lea      ecx, [esi + 0x18]
+  0x0000b289  call     0x1000bb10   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x10
+  0x0000b28e  mov      eax, dword ptr [ebp - 4]
+  0x0000b291  mov      ecx, edi
+  0x0000b293  cmp      eax, dword ptr [esi + 0x1c]
+  0x0000b296  je       0x1000b2d9
+  0x0000b298  mov      esi, dword ptr [eax + 0xc]
+  0x0000b29b  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000b2a1  test     esi, esi
+  0x0000b2a3  je       0x1000b2df
+  0x0000b2a5  mov      eax, dword ptr [esi]
+  0x0000b2a7  mov      ecx, esi
+  0x0000b2a9  call     dword ptr [eax]
+  0x0000b2ab  cmp      eax, 0x107ff5a0
+  0x0000b2b0  je       0x1000b2cf
+  0x0000b2b2  mov      ecx, dword ptr [eax + 8]
+  0x0000b2b5  test     ecx, ecx
+  0x0000b2b7  je       0x1000b2df
+  0x0000b2b9  cmp      ecx, 0x107ff5a0
+  0x0000b2bf  je       0x1000b2cf
+  0x0000b2c1  push     0x107ff5a0
+  0x0000b2c6  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x0000b2cb  test     al, al
+  0x0000b2cd  je       0x1000b2df
+  0x0000b2cf  pop      edi
+  0x0000b2d0  mov      eax, esi
+  0x0000b2d2  pop      esi
+  0x0000b2d3  mov      esp, ebp
+  0x0000b2d5  pop      ebp
+  0x0000b2d6  ret      4
+  0x0000b2d9  call     dword ptr [0x104e505c]   ; f32=1.16341e-38 i32=8302344 f64=2.73099e-306
+  0x0000b2df  pop      edi
+  0x0000b2e0  xor      eax, eax
+  0x0000b2e2  pop      esi
+  0x0000b2e3  mov      esp, ebp
+  0x0000b2e5  pop      ebp
+  0x0000b2e6  ret      4
+  0x0000b2e9  int3     
+  0x0000b2ea  int3     
+  0x0000b2eb  int3     
+  0x0000b2ec  int3     
+  0x0000b2ed  int3     
+  0x0000b2ee  int3     
+  0x0000b2ef  int3     
+  0x0000b2f0  push     ebp
+  0x0000b2f1  mov      ebp, esp
+  0x0000b2f3  push     -1
+  0x0000b2f5  push     0x104c0248
+  0x0000b2fa  mov      eax, dword ptr fs:[0]
+  0x0000b300  push     eax
+  0x0000b301  mov      dword ptr fs:[0], esp
+  0x0000b308  sub      esp, 8
+  0x0000b30b  push     ebx
+  0x0000b30c  push     esi
+  0x0000b30d  mov      esi, ecx
+  0x0000b30f  push     edi
+  0x0000b310  mov      dword ptr [ebp - 0x14], esi
+  0x0000b313  mov      dword ptr [ebp - 0x10], esp
+  0x0000b316  mov      dword ptr [esi], 0
+  0x0000b31c  mov      dword ptr [esi + 4], 0
+  0x0000b323  call     0x1000b4d0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x1110
+  0x0000b328  mov      dword ptr [esi], eax
+  0x0000b32a  mov      dword ptr [ebp - 4], 0
+  0x0000b331  mov      ecx, esi

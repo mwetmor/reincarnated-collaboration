@@ -1,0 +1,74 @@
+=== Character vtable +0x3c4 (Fear) : 25 touching instructions
+   0x0002acd5  mov      eax, dword ptr [edi + 0x3c4]          in ??1ChallengeArea@GAME@@QAE@XZ+0x45
+   0x0002ace7  mov      ecx, dword ptr [edi + 0x3c4]          in ??1ChallengeArea@GAME@@QAE@XZ+0x57
+   0x0002b3b4  mov      ecx, dword ptr [edi + 0x3c4]          in ??0ChallengeArea@GAME@@QAE@$$QAV01@@Z+0x274
+   0x0002b3bc  mov      dword ptr [edi + 0x3c4], eax          in ??0ChallengeArea@GAME@@QAE@$$QAV01@@Z+0x27c
+   0x0002b887  mov      eax, dword ptr [esi + 0x3c4]          in ??4ChallengeArea@GAME@@QAEAAV01@$$QAV01@@Z+0x2d7
+   0x0002b88f  mov      dword ptr [esi + 0x3c4], ecx          in ??4ChallengeArea@GAME@@QAEAAV01@$$QAV01@@Z+0x2df
+   0x0006957f  mov      byte ptr [esi + 0x3c4], al            in ??4Skill@GAME@@QAEAAV01@ABV01@@Z+0x6bf
+   0x0006a3b8  mov      byte ptr [esi + 0x3c4], al            in ??0Skill@GAME@@QAE@ABV01@@Z+0xa18
+   0x0006a810  mov      eax, dword ptr [ecx + 0x3c4]          in ?GetDyingSkillId@ControllerMonster@GAME@@QBEIXZ
+   0x0006ad14  mov      eax, dword ptr [ebx + 0x3c4]          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3d4
+   0x0006ad1a  mov      dword ptr [edi + 0x3c4], eax          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3da
+   0x000f7ce6  mov      dword ptr [ecx + 0x3c4], eax          in ?SetDyingSkill@ControllerMonster@GAME@@QAEXI@Z+0x6
+   0x00105bcd  mov      eax, dword ptr [ecx + 0x3c4]          in ?StartDyingSkill@ControllerMonsterStateDying@GAME@@IAEXXZ+0xed
+   0x0010ff90  mov      eax, dword ptr [ecx + 0x3c4]          in ?OnBegin@ControllerMonsterSynergyStateDying@GAME@@MAEXXZ+0x140
+   0x0020a19f  call     dword ptr [esi + 0x3c4]               in ?UpdateFxAndInfluence@DurationDamageManager@GAME@@IAEXXZ+0x1df
+   0x00264420  mov      al, byte ptr [ebx + 0x3c4]            in ?GenerateUIDevotionText@GameEngine@GAME@@SAXPBVSkill@2@0AAV?$vector@UGameTextLine@GAME@@@mem@@PBUSkillReasons@2@_N3HHW4GameTextClass@2@@Z+0x610
+   0x002b976d  mov      dword ptr [ebx + 0x3c4], ebx          in ??0ItemSet@GAME@@QAE@XZ+0x17d
+   0x002d934f  mov      dword ptr [edi + 0x3c4], eax          in ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xaff
+   0x003b14bb  mov      byte ptr [esi + 0x3c4], 0             in ??0Skill@GAME@@QAE@XZ+0x4bb
+   0x003be656  mov      byte ptr [ecx + 0x3c4], al            in ?SetConstellationSelfLocked@Skill@GAME@@QAEX_N@Z+0x6
+   0x003be660  mov      al, byte ptr [ecx + 0x3c4]            in ?GetConstellationSelfLocked@Skill@GAME@@QBE_NXZ
+   0x0046bef3  mov      eax, dword ptr [ebx + 0x3c4]          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x853
+   0x0046bef9  mov      dword ptr [edi + 0x3c4], eax          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x859
+   0x0046cef5  mov      eax, dword ptr [edi + 0x3c4]          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x6f5
+   0x0046cefb  mov      dword ptr [esi + 0x3c4], eax          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x6fb
+
+=== Character vtable +0x3c8 (Confusion) : 26 touching instructions
+   0x0002b3c5  mov      eax, dword ptr [edi + 0x3c8]          in ??0ChallengeArea@GAME@@QAE@$$QAV01@@Z+0x285
+   0x0002b3d4  mov      dword ptr [edi + 0x3c8], ecx          in ??0ChallengeArea@GAME@@QAE@$$QAV01@@Z+0x294
+   0x0002b898  mov      eax, dword ptr [esi + 0x3c8]          in ??4ChallengeArea@GAME@@QAEAAV01@$$QAV01@@Z+0x2e8
+   0x0002b8a1  mov      dword ptr [esi + 0x3c8], ecx          in ??4ChallengeArea@GAME@@QAEAAV01@$$QAV01@@Z+0x2f1
+   0x0006a7f0  mov      eax, dword ptr [ecx + 0x3c8]          in ?GetHealSkillId@ControllerMonster@GAME@@QBEIXZ
+   0x0006ad20  mov      eax, dword ptr [ebx + 0x3c8]          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3e0
+   0x0006ad26  mov      dword ptr [edi + 0x3c8], eax          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3e6
+   0x000f7cb6  mov      dword ptr [ecx + 0x3c8], eax          in ?SetHealSkill@ControllerMonster@GAME@@QAEXIH@Z+0x6
+   0x000fc773  mov      edi, dword ptr [esi + 0x3c8]          in ?TryToHealAlly@ControllerMonster@GAME@@IAEXXZ+0x103
+   0x000fc9c7  mov      edi, dword ptr [esi + 0x3c8]          in ?TryToHealAlly@ControllerMonster@GAME@@IAEXXZ+0x357
+   0x0010b8ef  mov      esi, dword ptr [eax + 0x3c8]          in ?HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAE_NI@Z+0x10f
+   0x0010b982  mov      esi, dword ptr [eax + 0x3c8]          in ?HealAllyWhenAttacked@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAE_NI@Z+0x1a2
+   0x0020a15b  call     dword ptr [esi + 0x3c8]               in ?UpdateFxAndInfluence@DurationDamageManager@GAME@@IAEXXZ+0x19b
+   0x00269784  mov      dword ptr [esi + 0x3c8], eax          in ?LoadItemSet@GameEngine@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVItem@2@@Z+0xa4
+   0x002b9c96  mov      dword ptr [ecx + 0x3c8], eax          in ?SetId@ItemSet@GAME@@QAEXI@Z+0x6
+   0x002d92df  mov      dword ptr [edi + 0x3c8], ecx          in ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xa8f
+   0x00318a9b  mov      dword ptr [edi + 0x3c8], eax          in ?PhysicsSync@PhysicsDecoration@GAME@@UAEXPAVPhysicsSystem2@2@@Z+0x1bb
+   0x003bdaf0  mov      eax, dword ptr [ecx + 0x3c8]          in ?CacheResources@Skill@GAME@@UAEXXZ
+   0x003bdb77  mov      eax, dword ptr [esi + 0x3c8]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x7
+   0x003bdbb0  mov      eax, dword ptr [esi + 0x3c8]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x40
+   0x003bdbf7  mov      ecx, dword ptr [esi + 0x3c8]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x87
+   0x003bdc02  mov      eax, dword ptr [esi + 0x3c8]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x92
+   0x0046beff  mov      eax, dword ptr [ebx + 0x3c8]          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x85f
+   0x0046bf05  mov      dword ptr [edi + 0x3c8], eax          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x865
+   0x0046cf01  mov      eax, dword ptr [edi + 0x3c8]          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x701
+   0x0046cf07  mov      dword ptr [esi + 0x3c8], eax          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x707
+
+=== Character vtable +0x3cc (Taunt) : 17 touching instructions
+   0x000368a9  mov      byte ptr [edi + 0x3cc], 0             in ??0ChallengeArea@GAME@@QAE@XZ+0x1b9
+   0x0006ad2c  mov      eax, dword ptr [ebx + 0x3cc]          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3ec
+   0x0006ad32  mov      dword ptr [edi + 0x3cc], eax          in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x3f2
+   0x000dcf4c  call     dword ptr [eax + 0x3cc]               in ?Execute@CombatAttributeInfluenceDamage_Taunt@GAME@@UAEXAAVCharacter@2@@Z+0x1c
+   0x000f6268  mov      eax, dword ptr [edi + 0x3cc]          in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x68
+   0x000f6683  mov      eax, dword ptr [edi + 0x3cc]          in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x483
+   0x000f7cbf  mov      dword ptr [ecx + 0x3cc], eax          in ?SetHealSkill@ControllerMonster@GAME@@QAEXIH@Z+0xf
+   0x002414d7  mov      dword ptr [edi + 0x3cc], eax          in ?Load@FxMesh@GAME@@UAEXABVLoadTable@2@@Z+0xa67
+   0x002d92ef  mov      dword ptr [edi + 0x3cc], eax          in ?InitSkillsInController@Monster@GAME@@AAEXABVLoadTable@2@PAVControllerMonster@2@I@Z+0xa9f
+   0x003bdb89  mov      ecx, dword ptr [esi + 0x3cc]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x19
+   0x003bdbc7  mov      ecx, dword ptr [esi + 0x3cc]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x57
+   0x003bdbf0  mov      edx, dword ptr [esi + 0x3cc]          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x80
+   0x003bdc0b  mov      dword ptr [esi + 0x3cc], eax          in ?ReleaseResources@Skill@GAME@@UAEXXZ+0x9b
+   0x0046bf0b  mov      eax, dword ptr [ebx + 0x3cc]          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x86b
+   0x0046bf11  mov      dword ptr [edi + 0x3cc], eax          in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x871
+   0x0046cf0d  mov      eax, dword ptr [edi + 0x3cc]          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x70d
+   0x0046cf13  mov      dword ptr [esi + 0x3cc], eax          in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x713
+

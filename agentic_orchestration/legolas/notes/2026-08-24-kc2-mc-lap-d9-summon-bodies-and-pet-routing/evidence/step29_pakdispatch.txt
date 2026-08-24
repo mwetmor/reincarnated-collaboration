@@ -1,0 +1,130 @@
+===============================================================================================
+=== ?ContributeGameBalanceCharAttributes@Pet@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z @0x00315f90
+  0x00315f90  push     ebp
+  0x00315f91  mov      ebp, esp
+  0x00315f93  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315f98  push     dword ptr [ecx + 0x30dc]
+  0x00315f9e  push     dword ptr [ebp + 8]
+  0x00315fa1  mov      edx, dword ptr [eax + 0x19f0]
+  0x00315fa7  lea      ecx, [eax + 0x19f0]
+  0x00315fad  call     dword ptr [edx + 0x10]
+  0x00315fb0  pop      ebp
+  0x00315fb1  ret      4
+  0x00315fb4  int3     
+  0x00315fb5  int3     
+  0x00315fb6  int3     
+  0x00315fb7  int3     
+  0x00315fb8  int3     
+  0x00315fb9  int3     
+  0x00315fba  int3     
+  0x00315fbb  int3     
+  0x00315fbc  int3     
+  0x00315fbd  int3     
+  0x00315fbe  int3     
+  0x00315fbf  int3     
+===============================================================================================
+=== ?ContributeGameBalanceCharAttributes@Monster@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z @0x002d9ab0
+  0x002d9ab0  push     ebp
+  0x002d9ab1  mov      ebp, esp
+  0x002d9ab3  push     esi
+  0x002d9ab4  mov      esi, ecx
+  0x002d9ab6  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x002d9abc  add      ecx, 0x1400
+  0x002d9ac2  push     edi
+  0x002d9ac3  mov      edi, dword ptr [ebp + 8]
+  0x002d9ac6  push     dword ptr [esi + 0x30dc]
+  0x002d9acc  mov      eax, dword ptr [ecx]
+  0x002d9ace  push     edi
+  0x002d9acf  call     dword ptr [eax + 0x10]
+  0x002d9ad2  cmp      dword ptr [esi + 0x30e0], 0
+  0x002d9ad9  jbe      0x102d9af5
+  0x002d9adb  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x002d9ae1  call     0x1026d550   ; -> ?GetChallengeAdjustment@GameEngine@GAME@@QBEABVGameAdjustment@2@XZ
+  0x002d9ae6  push     dword ptr [esi + 0x30e0]
+  0x002d9aec  push     edi
+  0x002d9aed  lea      ecx, [eax + 0xc]
+  0x002d9af0  mov      eax, dword ptr [ecx]
+  0x002d9af2  call     dword ptr [eax + 0x10]
+  0x002d9af5  mov      ecx, dword ptr [esi + 0x1930]
+  0x002d9afb  test     ecx, ecx
+  0x002d9afd  je       0x102d9b0f
+  0x002d9aff  push     dword ptr [esi + 0x30dc]
+  0x002d9b05  mov      eax, dword ptr [ecx + 0x74]
+  0x002d9b08  add      ecx, 0x74
+  0x002d9b0b  push     edi
+  0x002d9b0c  call     dword ptr [eax + 0x10]
+  0x002d9b0f  cmp      byte ptr [esi + 0x1938], 0
+  0x002d9b16  je       0x102d9b44
+  0x002d9b18  mov      edx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x002d9b1e  mov      ecx, dword ptr [edx + 0xbfc]
+  0x002d9b24  test     ecx, ecx
+  0x002d9b26  je       0x102d9b56
+  0x002d9b28  push     dword ptr [edx + 0xc00]
+  0x002d9b2e  mov      eax, dword ptr [ecx + 0x178]
+  0x002d9b34  add      ecx, 0x178
+  0x002d9b3a  push     edi
+  0x002d9b3b  call     dword ptr [eax + 0x10]
+  0x002d9b3e  pop      edi
+  0x002d9b3f  pop      esi
+  0x002d9b40  pop      ebp
+  0x002d9b41  ret      4
+  0x002d9b44  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x002d9b4a  push     edi
+  0x002d9b4b  push     dword ptr [esi + 0x3798]
+  0x002d9b51  call     0x10267fd0   ; -> ?GetAscendantCharAttributes@GameEngine@GAME@@QBEXW4MonsterClassification@2@AAVCharAttributeAccumulator@2@@Z
+  0x002d9b56  pop      edi
+  0x002d9b57  pop      esi
+  0x002d9b58  pop      ebp
+  0x002d9b59  ret      4
+  0x002d9b5c  int3     
+  0x002d9b5d  int3     
+  0x002d9b5e  int3     
+  0x002d9b5f  int3     
+===============================================================================================
+=== ?ContributeGameBalanceCharAttributes@Player@GAME@@UBEXAAVCharAttributeAccumulator@2@@Z @0x0032b5b0
+  0x0032b5b0  push     ebp
+  0x0032b5b1  mov      ebp, esp
+  0x0032b5b3  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x0032b5b8  mov      edx, dword ptr [eax + 0x16f8]
+  0x0032b5be  lea      ecx, [eax + 0x16f8]
+  0x0032b5c4  push     dword ptr [eax + 0x28b4c]
+  0x0032b5ca  push     dword ptr [ebp + 8]
+  0x0032b5cd  call     dword ptr [edx + 0x10]
+  0x0032b5d0  pop      ebp
+  0x0032b5d1  ret      4
+  0x0032b5d4  int3     
+  0x0032b5d5  int3     
+  0x0032b5d6  int3     
+  0x0032b5d7  int3     
+  0x0032b5d8  int3     
+  0x0032b5d9  int3     
+  0x0032b5da  int3     
+  0x0032b5db  int3     
+  0x0032b5dc  int3     
+  0x0032b5dd  int3     
+  0x0032b5de  int3     
+  0x0032b5df  int3     
+===============================================================================================
+=== ?ContributeGameBalanceDefenseAttributes@Pet@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z @0x00315ff0
+  0x00315ff0  push     ebp
+  0x00315ff1  mov      ebp, esp
+  0x00315ff3  mov      eax, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00315ff8  push     dword ptr [ecx + 0x30dc]
+  0x00315ffe  push     dword ptr [ebp + 8]
+  0x00316001  mov      edx, dword ptr [eax + 0x19f0]
+  0x00316007  lea      ecx, [eax + 0x19f0]
+  0x0031600d  call     dword ptr [edx + 0x28]
+  0x00316010  pop      ebp
+  0x00316011  ret      4
+  0x00316014  int3     
+  0x00316015  int3     
+  0x00316016  int3     
+  0x00316017  int3     
+  0x00316018  int3     
+  0x00316019  int3     
+  0x0031601a  int3     
+  0x0031601b  int3     
+  0x0031601c  int3     
+  0x0031601d  int3     
+  0x0031601e  int3     
+  0x0031601f  int3     
