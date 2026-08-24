@@ -1,0 +1,89 @@
+=== IsRunning @ 0x003ebc10  (6 touches of +0x4f4)
+    0x003ebc19  cmp      byte ptr [ecx + 0x4f4], 0
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== StartAction @ 0x003eba30  (6 touches of +0x4f4)
+    0x003ebc19  cmp      byte ptr [ecx + 0x4f4], 0
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== EndAction @ 0x003ebb70  (6 touches of +0x4f4)
+    0x003ebc19  cmp      byte ptr [ecx + 0x4f4], 0
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== StopSpinning @ 0x003eb930  (4 touches of +0x4f4)
+    0x003eba0e  mov      byte ptr [edi + 0x4f4], 0
+    0x003ebc19  cmp      byte ptr [ecx + 0x4f4], 0
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+=== StopSkill @ 0x003e8df0  (0 touches of +0x4f4)
+=== Update @ 0x003eb410  (0 touches of +0x4f4)
+=== Load @ 0x003eaed0  (2 touches of +0x4f4)
+    0x003eb299  cmp      byte ptr [edi + 0x4f4], 0
+    0x003eb2ab  mov      byte ptr [edi + 0x4f4], 1
+=== ActivateNow @ 0x003eb250  (2 touches of +0x4f4)
+    0x003eb299  cmp      byte ptr [edi + 0x4f4], 0
+    0x003eb2ab  mov      byte ptr [edi + 0x4f4], 1
+=== GetAllowMove @ 0x003ebc30  (5 touches of +0x4f4)
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== CanInterrupt @ 0x003e96e0  (0 touches of +0x4f4)
+=== GetWarmUpWasActive @ 0x003e96f0  (0 touches of +0x4f4)
+=== CollectPassiveCharAttributes @ 0x003ebc70  (5 touches of +0x4f4)
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== CollectPassiveRetaliationAttributes @ 0x003ebd00  (4 touches of +0x4f4)
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== ApplyCastVisualEffects @ 0x003eb010  (2 touches of +0x4f4)
+    0x003eb299  cmp      byte ptr [edi + 0x4f4], 0
+    0x003eb2ab  mov      byte ptr [edi + 0x4f4], 1
+=== StartMove @ 0x003ebc50  (5 touches of +0x4f4)
+    0x003ebc76  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd06  cmp      byte ptr [ebx + 0x4f4], 0
+    0x003ebd76  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+    0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+=== ctor @ 0x003eab40  (1 touches of +0x4f4)
+    0x003eac53  mov      word ptr [esi + 0x4f4], 0
+
+=== IsRunning / GetAllowMove / CanInterrupt full bodies ===
+--- IsRunning
+  0x003ebc10  cmp      dword ptr [ecx + 0x44c], 0
+  0x003ebc17  jne      0x103ebc25
+  0x003ebc19  cmp      byte ptr [ecx + 0x4f4], 0
+  0x003ebc20  jne      0x103ebc25
+  0x003ebc22  xor      al, al
+  0x003ebc24  ret      
+--- GetAllowMove
+  0x003ebc30  cmp      byte ptr [ecx + 0x4f5], 0
+  0x003ebc37  je       0x103ebc40
+  0x003ebc39  mov      al, byte ptr [ecx + 0x4f6]
+  0x003ebc3f  ret      
+--- CanInterrupt
+  0x003e96e0  cmp      dword ptr [ecx + 0x44c], 2
+  0x003e96e7  sete     al
+  0x003e96ea  ret      
+--- GetWarmUpWasActive
+  0x003e96f0  cmp      dword ptr [ecx + 0x44c], 1
+  0x003e96f7  sete     al
+  0x003e96fa  ret      
+--- StartMove
+  0x003ebc50  mov      byte ptr [ecx + 0x4f6], 1
+  0x003ebc57  ret      

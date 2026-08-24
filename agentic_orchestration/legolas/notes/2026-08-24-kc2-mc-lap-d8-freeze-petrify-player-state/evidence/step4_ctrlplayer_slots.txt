@@ -1,0 +1,35 @@
+=== ??_7ControllerPlayer@GAME@@6B@ @ 0x0058f734
+  +0x084 (slot  33) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x088 (slot  34) -> 0x000eeab0  ?KillMe@ControllerCombat@GAME@@UAEX_N@Z
+        body: ebp | ebp, esp | -1 | 0x104c7de6
+  +0x08c (slot  35) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x090 (slot  36) -> 0x000f6ad0  ?BeginStun@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6ae6 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x094 (slot  37) -> 0x000f6b00  ?EndStun@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6b16 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x098 (slot  38) -> 0x000f6b30  ?BeginKnockdown@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6b46 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x09c (slot  39) -> 0x000f6b60  ?EndKnockdown@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6b76 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0a0 (slot  40) -> 0x000f6b90  ?BeginTakeHit@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6ba6 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0a4 (slot  41) -> 0x000f6bc0  ?EndTakeHit@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6bd6 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0a8 (slot  42) -> 0x000f6bf0  ?BeginSleep@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6c06 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0ac (slot  43) -> 0x000f6c20  ?EndSleep@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6c36 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0b0 (slot  44) -> 0x000f6a10  ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6a26 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0b4 (slot  45) -> 0x000f6a40  ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6a56 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0b8 (slot  46) -> 0x000f6a70  ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6a86 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0bc (slot  47) -> 0x000f6aa0  ?EndTrap@ControllerPlayer@GAME@@UAEXXZ
+        body: dword ptr [ecx + 0x214], 0 | 0x100f6ab6 | eax, dword ptr [ecx + 0x210] | eax, dword ptr [eax]
+  +0x0c0 (slot  48) -> 0x000e6090  ?BeginDeath@ControllerAI@GAME@@UAEXXZ
+        body: ebp | ebp, esp | -1 | 0x104c0228
+  +0x0c4 (slot  49) -> 0x000e5fd0  ?UnderAttack@ControllerAI@GAME@@UAEXI@Z
+        body: ebp | ebp, esp | dword ptr [ecx + 0x214], 0 | 0x100e5fe9

@@ -1,0 +1,171 @@
+=== ?IsFrozenOrPetrified@Character@GAME@@QBE_NXZ @ 0x0005b3a0 ===
+  0x0005b3a0  mov      eax, dword ptr [ecx + 0x2e84]
+  0x0005b3a6  test     eax, eax
+  0x0005b3a8  je       0x1005b3b3
+  0x0005b3aa  cmp      byte ptr [eax + 0x20], 0
+  0x0005b3ae  je       0x1005b3b3
+  0x0005b3b0  mov      al, 1
+  0x0005b3b2  ret      
+  0x0005b3b3  mov      eax, dword ptr [ecx + 0x2e88]
+  0x0005b3b9  test     eax, eax
+  0x0005b3bb  je       0x1005b3c3
+  0x0005b3bd  cmp      byte ptr [eax + 0x20], 0
+  0x0005b3c1  jne      0x1005b3b0
+  0x0005b3c3  xor      al, al
+  0x0005b3c5  ret      
+  0x0005b3c6  int3     
+  0x0005b3c7  int3     
+  0x0005b3c8  int3     
+  0x0005b3c9  int3     
+  0x0005b3ca  int3     
+  0x0005b3cb  int3     
+  0x0005b3cc  int3     
+  0x0005b3cd  int3     
+  0x0005b3ce  int3     
+  0x0005b3cf  int3     
+
+=== ?RemoveAllDamages@DurationDamageManager@GAME@@UAEXXZ @ 0x00208f40 ===
+  0x00208f40  push     ebx
+  0x00208f41  push     esi
+  0x00208f42  push     edi
+  0x00208f43  mov      edi, ecx
+  0x00208f45  mov      ebx, dword ptr [edi + 0x30]
+  0x00208f48  mov      esi, dword ptr [edi + 0x2c]
+  0x00208f4b  cmp      esi, ebx
+  0x00208f4d  je       0x10208f5f
+  0x00208f4f  nop      
+  0x00208f50  mov      eax, dword ptr [esi]
+  0x00208f52  mov      ecx, esi
+  0x00208f54  push     0
+  0x00208f56  call     dword ptr [eax]
+  0x00208f58  add      esi, 0x24
+  0x00208f5b  cmp      esi, ebx
+  0x00208f5d  jne      0x10208f50
+  0x00208f5f  mov      eax, dword ptr [edi + 0x2c]
+  0x00208f62  mov      dword ptr [edi + 0x30], eax
+  0x00208f65  mov      ebx, dword ptr [edi + 0x3c]
+  0x00208f68  mov      esi, dword ptr [edi + 0x38]
+  0x00208f6b  cmp      esi, ebx
+  0x00208f6d  je       0x10208f7f
+  0x00208f6f  nop      
+  0x00208f70  mov      eax, dword ptr [esi]
+  0x00208f72  mov      ecx, esi
+  0x00208f74  push     0
+  0x00208f76  call     dword ptr [eax]
+  0x00208f78  add      esi, 0x24
+  0x00208f7b  cmp      esi, ebx
+  0x00208f7d  jne      0x10208f70
+  0x00208f7f  mov      eax, dword ptr [edi + 0x38]
+  0x00208f82  mov      ecx, edi
+  0x00208f84  mov      dword ptr [edi + 0x3c], eax
+  0x00208f87  pop      edi
+  0x00208f88  pop      esi
+  0x00208f89  pop      ebx
+  0x00208f8a  jmp      0x10209fc0   ; -> ?UpdateFxAndInfluence@DurationDamageManager@GAME@@IAEXXZ
+  0x00208f8f  int3     
+
+=== ?ExecuteImmobilize@Character@GAME@@UAEXXZ @ 0x00048830 ===
+  0x00048830  push     esi
+  0x00048831  mov      esi, ecx
+  0x00048833  mov      eax, dword ptr [esi]
+  0x00048835  mov      byte ptr [esi + 0x1cb7], 1
+  0x0004883c  call     dword ptr [eax + 0x228]
+  0x00048842  cmp      eax, 0xc
+  0x00048845  je       0x100488aa
+  0x00048847  mov      eax, dword ptr [esi]
+  0x00048849  mov      ecx, esi
+  0x0004884b  push     0xc
+  0x0004884d  call     dword ptr [eax + 0x224]
+  0x00048853  xor      eax, eax
+  0x00048855  lea      ecx, [esi + 0x1c50]
+  0x0004885b  nop      dword ptr [eax + eax]
+  0x00048860  cmp      dword ptr [ecx], 0
+  0x00048863  jne      0x10048876
+  0x00048865  inc      eax
+  0x00048866  add      ecx, 4
+  0x00048869  cmp      eax, 2
+  0x0004886c  jb       0x10048860
+  0x0004886e  mov      eax, dword ptr [esi + 0x1c0c]
+  0x00048874  jmp      0x1004887d   ; -> ?ExecuteImmobilize@Character@GAME@@UAEXXZ+0x4d
+  0x00048876  mov      eax, dword ptr [esi + eax*4 + 0x1c50]
+  0x0004887d  mov      ecx, dword ptr [eax + 4]
+  0x00048880  cmp      ecx, 0x33
+  0x00048883  ja       0x10048899
+  0x00048885  mov      ecx, dword ptr [eax + ecx*4 + 0xc]
+  0x00048889  push     ecx
+  0x0004888a  mov      dword ptr [esp], 0
+  0x00048891  push     esi
+  0x00048892  mov      eax, dword ptr [ecx]
+  0x00048894  call     dword ptr [eax + 0x18]
+  0x00048897  pop      esi
+  0x00048898  ret      
+  0x00048899  mov      ecx, dword ptr [eax + 0xc]
+  0x0004889c  push     ecx
+  0x0004889d  mov      dword ptr [esp], 0
+  0x000488a4  push     esi
+  0x000488a5  mov      eax, dword ptr [ecx]
+  0x000488a7  call     dword ptr [eax + 0x18]
+  0x000488aa  pop      esi
+  0x000488ab  ret      
+  0x000488ac  int3     
+  0x000488ad  int3     
+  0x000488ae  int3     
+  0x000488af  int3     
+
+=== ?ExecuteStun@Character@GAME@@UAEXXZ @ 0x000486a0 ===
+  0x000486a0  push     esi
+  0x000486a1  mov      esi, ecx
+  0x000486a3  mov      eax, dword ptr [esi]
+  0x000486a5  call     dword ptr [eax + 0x228]
+  0x000486ab  cmp      eax, 8
+  0x000486ae  je       0x10048721
+  0x000486b0  xor      eax, eax
+  0x000486b2  lea      ecx, [esi + 0x1c50]
+  0x000486b8  push     edi
+  0x000486b9  nop      dword ptr [eax]
+  0x000486c0  cmp      dword ptr [ecx], 0
+  0x000486c3  jne      0x100486d6
+  0x000486c5  inc      eax
+  0x000486c6  add      ecx, 4
+  0x000486c9  cmp      eax, 2
+  0x000486cc  jb       0x100486c0
+  0x000486ce  mov      edi, dword ptr [esi + 0x1c0c]
+  0x000486d4  jmp      0x100486dd   ; -> ?ExecuteStun@Character@GAME@@UAEXXZ+0x3d
+  0x000486d6  mov      edi, dword ptr [esi + eax*4 + 0x1c50]
+  0x000486dd  mov      edx, dword ptr [0x104e52b0]   ; f32=1.16458e-38 i32=8310708 f64=2.74234e-306
+  0x000486e3  mov      dword ptr [edi + 8], 0xb
+  0x000486ea  mov      ecx, dword ptr [edi + 0x38]
+  0x000486ed  push     0
+  0x000486ef  push     1
+  0x000486f1  push     ecx
+  0x000486f2  mov      eax, dword ptr [ecx]
+  0x000486f4  mov      dword ptr [esp], 0x3f800000
+  0x000486fb  push     edx
+  0x000486fc  push     esi
+  0x000486fd  mov      eax, dword ptr [eax + 4]
+  0x00048700  call     eax
+  0x00048702  test     al, al
+  0x00048704  je       0x10048714
+  0x00048706  mov      dword ptr [edi + 4], 0xb
+  0x0004870d  mov      dword ptr [edi + 8], 0
+  0x00048714  mov      eax, dword ptr [esi]
+  0x00048716  mov      ecx, esi
+  0x00048718  push     8
+  0x0004871a  call     dword ptr [eax + 0x224]
+  0x00048720  pop      edi
+  0x00048721  pop      esi
+  0x00048722  ret      
+  0x00048723  int3     
+  0x00048724  int3     
+  0x00048725  int3     
+  0x00048726  int3     
+  0x00048727  int3     
+  0x00048728  int3     
+  0x00048729  int3     
+  0x0004872a  int3     
+  0x0004872b  int3     
+  0x0004872c  int3     
+  0x0004872d  int3     
+  0x0004872e  int3     
+  0x0004872f  int3     
+

@@ -1,0 +1,204 @@
+=== SpecialCharHandler exports ===
+  0x00007f40 ?Reset@SpecialCharHandler@GAME@@UAEXXZ
+  0x000084d0 ?LoadFromTable@SpecialCharHandler@GAME@@UAEXABVLoadTable@2@@Z
+  0x000084d0 ?OnGMIEffectFinished@SpecialCharHandler_IcyCharacter@GAME@@UAEXH@Z
+  0x000084d0 ?PhysicsUpdate@SpecialCharHandler@GAME@@UAEXPAVPhysicsSystem2@2@@Z
+  0x000084d0 ?PreLoad@SpecialCharHandler@GAME@@UAEX_N@Z
+  0x000084d0 ?Update@SpecialCharHandler@GAME@@UAEXH@Z
+  0x000084d0 ?Update@SpecialCharHandler_IcyCharacter@GAME@@UAEXH@Z
+  0x0003d6c0 ??0SpecialCharHandler@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x0003d710 ??1SpecialCharHandler@GAME@@UAE@XZ
+  0x0003d710 ??1SpecialCharHandler_FadeAwayFromPlayer@GAME@@UAE@XZ
+  0x0003d710 ??1SpecialCharHandler_FadeNearPlayer@GAME@@UAE@XZ
+  0x0003d760 ?Enable@SpecialCharHandler@GAME@@UAEXXZ
+  0x0003d770 ?Disable@SpecialCharHandler@GAME@@UAEXXZ
+  0x0003d780 ?GetEnabled@SpecialCharHandler@GAME@@QAE_NXZ
+  0x0003d790 ??0SpecialCharHandler@GAME@@QAE@ABV01@@Z
+  0x0003d7e0 ??4SpecialCharHandler@GAME@@QAEAAV01@ABV01@@Z
+  0x0003d8f0 ??0SpecialCharHandler_IcyCharacter@GAME@@QAE@ABV01@@Z
+  0x0003dc40 ??0SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAE@ABV01@@Z
+  0x0003dce0 ??4SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAEAAV01@ABV01@@Z
+  0x0003dce0 ??4SpecialCharHandler_FadeNearPlayer@GAME@@QAEAAV01@ABV01@@Z
+  0x0003de10 ??0SpecialCharHandler_FadeNearPlayer@GAME@@QAE@ABV01@@Z
+  0x00130f40 ?CalculateAllocatedMemory@SpecialCharHandler@GAME@@QBEIXZ
+  0x00462250 ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x004623e0 ??0SpecialCharHandler_IcyCharacter@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00462560 ??1SpecialCharHandler_IcyCharacter@GAME@@UAE@XZ
+  0x004627d0 ?OnGMIEffectDestroy@SpecialCharHandler_IcyCharacter@GAME@@UAEXPAVGMIEffect@2@@Z
+  0x00462820 ?Start@SpecialCharHandler_IcyCharacter@GAME@@IAEXXZ
+  0x00462bc0 ?End@SpecialCharHandler_IcyCharacter@GAME@@IAEX_N0@Z
+  0x00462f70 ?LoadFromTable@SpecialCharHandler_IcyCharacter@GAME@@UAEXABVLoadTable@2@@Z
+  0x00463080 ?Enable@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  0x00463090 ?Disable@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  0x004630f0 ?Reset@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  0x00463120 ?PhysicsUpdate@SpecialCharHandler_IcyCharacter@GAME@@UAEXPAVPhysicsSystem2@2@@Z
+  0x00463280 ?PreLoad@SpecialCharHandler_IcyCharacter@GAME@@UAEX_N@Z
+  0x004632c0 ?AllowBone@SpecialCharHandler_IcyCharacter@GAME@@IBE_NPBVGraphicsMeshInstance@2@ABUBone@GraphicsMesh@2@@Z
+  0x00463350 ?StoreOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IAEXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x004633e0 ?GetOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z
+  0x00463450 ??0SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x004634f0 ?LoadFromTable@SpecialCharHandler_FadeAwayFromPlayer@GAME@@UAEXABVLoadTable@2@@Z
+  0x004635c0 ?Enable@SpecialCharHandler_FadeAwayFromPlayer@GAME@@UAEXXZ
+  0x00463600 ?Disable@SpecialCharHandler_FadeAwayFromPlayer@GAME@@UAEXXZ
+  0x00463690 ?Update@SpecialCharHandler_FadeAwayFromPlayer@GAME@@UAEXH@Z
+  0x00463850 ?GetDistanceToClosestPlayer@SpecialCharHandler_FadeAwayFromPlayer@GAME@@IAEMXZ
+  0x004639f0 ?GetFadeColor@SpecialCharHandler_FadeAwayFromPlayer@GAME@@MAE_NAAVColor@2@M@Z
+  0x00463b00 ??0SpecialCharHandler_FadeNearPlayer@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00463b30 ?GetFadeColor@SpecialCharHandler_FadeNearPlayer@GAME@@MAE_NAAVColor@2@M@Z
+  0x0058f8dc ??_7SpecialCharHandler_FadeNearPlayer@GAME@@6B@
+  0x0058f900 ??_7SpecialCharHandler_FadeAwayFromPlayer@GAME@@6B@
+  0x0058f924 ??_7SpecialCharHandler_IcyCharacter@GAME@@6BGMIEffectListener@1@@
+  0x0058f92c ??_7SpecialCharHandler_IcyCharacter@GAME@@6BSpecialCharHandler@1@@
+  0x0058f94c ??_7SpecialCharHandler@GAME@@6B@
+
+=== ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z @ 0x00462250 ===
+  0x00462250  push     ebp
+  0x00462251  mov      ebp, esp
+  0x00462253  push     -1
+  0x00462255  push     0x104dd608
+  0x0046225a  mov      eax, dword ptr fs:[0]
+  0x00462260  push     eax
+  0x00462261  mov      dword ptr fs:[0], esp
+  0x00462268  sub      esp, 0x20
+  0x0046226b  push     ebx
+  0x0046226c  mov      ebx, dword ptr [ebp + 0xc]
+  0x0046226f  push     esi
+  0x00462270  mov      esi, dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x00462276  push     edi
+  0x00462277  push     ebx
+  0x00462278  call     esi
+  0x0046227a  mov      ecx, eax
+  0x0046227c  call     dword ptr [0x104e5048]   ; f32=1.16336e-38 i32=8302000 f64=2.73064e-306
+  0x00462282  push     ebx
+  0x00462283  call     esi
+  0x00462285  mov      ecx, eax
+  0x00462287  call     dword ptr [0x104e5540]   ; f32=1.16574e-38 i32=8318990 f64=2.75371e-306
+  0x0046228d  push     0x104f6ea9
+  0x00462292  push     0x10586ca8
+  0x00462297  mov      ecx, eax
+  0x00462299  mov      dword ptr [ebp - 0x10], eax
+  0x0046229c  mov      edx, dword ptr [eax]
+  0x0046229e  xor      esi, esi
+  0x004622a0  call     dword ptr [edx + 0x14]
+  0x004622a3  mov      edx, eax
+  0x004622a5  mov      dword ptr [ebp - 0x18], 0xf
+  0x004622ac  mov      dword ptr [ebp - 0x1c], esi
+  0x004622af  mov      byte ptr [ebp - 0x2c], 0
+  0x004622b3  cmp      byte ptr [edx], 0
+  0x004622b6  jne      0x104622bc
+  0x004622b8  xor      ecx, ecx
+  0x004622ba  jmp      0x104622ca   ; -> ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x7a
+  0x004622bc  mov      ecx, edx
+  0x004622be  lea      edi, [ecx + 1]
+  0x004622c1  mov      al, byte ptr [ecx]
+  0x004622c3  inc      ecx
+  0x004622c4  test     al, al
+  0x004622c6  jne      0x104622c1
+  0x004622c8  sub      ecx, edi
+  0x004622ca  push     ecx
+  0x004622cb  push     edx
+  0x004622cc  lea      ecx, [ebp - 0x2c]
+  0x004622cf  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x004622d4  mov      dword ptr [ebp - 4], 0
+  0x004622db  lea      ecx, [ebp - 0x2c]
+  0x004622de  mov      edi, dword ptr [ebp - 0x18]
+  0x004622e1  mov      eax, 0x12
+  0x004622e6  cmp      edi, 0x10
+  0x004622e9  mov      edx, 0x10586cb4
+  0x004622ee  cmovae   ecx, dword ptr [ebp - 0x2c]
+  0x004622f2  cmp      dword ptr [ebp - 0x1c], eax
+  0x004622f5  cmovb    eax, dword ptr [ebp - 0x1c]
+  0x004622f9  push     eax
+  0x004622fa  call     0x1000bd40   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x004622ff  add      esp, 4
+  0x00462302  test     eax, eax
+  0x00462304  jne      0x1046232e
+  0x00462306  mov      eax, dword ptr [ebp - 0x1c]
+  0x00462309  cmp      eax, 0x12
+  0x0046230c  jb       0x1046232e
+  0x0046230e  ja       0x1046232e
+  0x00462310  push     0x50
+  0x00462312  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x00462317  add      esp, 4
+  0x0046231a  mov      dword ptr [ebp - 0x14], eax
+  0x0046231d  push     ebx
+  0x0046231e  push     dword ptr [ebp + 8]
+  0x00462321  mov      ecx, eax
+  0x00462323  mov      byte ptr [ebp - 4], 1
+  0x00462327  call     0x10463450   ; -> ??0SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x0046232c  jmp      0x10462395   ; -> ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x145
+  0x0046232e  mov      edx, 0x10586cc8
+  0x00462333  lea      ecx, [ebp - 0x2c]
+  0x00462336  call     0x1000bda0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x0046233b  test     al, al
+  0x0046233d  je       0x10462365
+  0x0046233f  push     0x50
+  0x00462341  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x00462346  mov      esi, eax
+  0x00462348  add      esp, 4
+  0x0046234b  mov      dword ptr [ebp - 0x14], esi
+  0x0046234e  push     ebx
+  0x0046234f  push     dword ptr [ebp + 8]
+  0x00462352  mov      ecx, esi
+  0x00462354  mov      byte ptr [ebp - 4], 2
+  0x00462358  call     0x10463450   ; -> ??0SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x0046235d  mov      dword ptr [esi], 0x1058f8dc
+  0x00462363  jmp      0x10462397   ; -> ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x147
+  0x00462365  mov      edx, 0x10586c34
+  0x0046236a  lea      ecx, [ebp - 0x2c]
+  0x0046236d  call     0x1000bda0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x00462372  test     al, al
+  0x00462374  je       0x104623ac
+  0x00462376  push     0xd0
+  0x0046237b  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x00462380  add      esp, 4
+  0x00462383  mov      dword ptr [ebp - 0x14], eax
+  0x00462386  push     ebx
+  0x00462387  push     dword ptr [ebp + 8]
+  0x0046238a  mov      ecx, eax
+  0x0046238c  mov      byte ptr [ebp - 4], 3
+  0x00462390  call     0x104623e0   ; -> ??0SpecialCharHandler_IcyCharacter@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00462395  mov      esi, eax
+  0x00462397  mov      byte ptr [ebp - 4], 0
+  0x0046239b  test     esi, esi
+  0x0046239d  je       0x104623a9
+  0x0046239f  mov      eax, dword ptr [esi]
+  0x004623a1  mov      ecx, esi
+  0x004623a3  push     dword ptr [ebp - 0x10]
+  0x004623a6  call     dword ptr [eax + 4]
+  0x004623a9  mov      edi, dword ptr [ebp - 0x18]
+  0x004623ac  cmp      edi, 0x10
+  0x004623af  jb       0x104623c1
+  0x004623b1  mov      ecx, dword ptr [ebp - 0x2c]
+  0x004623b4  lea      edx, [edi + 1]
+  0x004623b7  push     1
+  0x004623b9  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x004623be  add      esp, 4
+  0x004623c1  mov      ecx, dword ptr [ebp - 0xc]
+  0x004623c4  mov      eax, esi
+  0x004623c6  pop      edi
+  0x004623c7  pop      esi
+  0x004623c8  mov      dword ptr fs:[0], ecx
+  0x004623cf  pop      ebx
+  0x004623d0  mov      esp, ebp
+  0x004623d2  pop      ebp
+  0x004623d3  ret      
+  0x004623d4  int3     
+  0x004623d5  int3     
+  0x004623d6  int3     
+  0x004623d7  int3     
+  0x004623d8  int3     
+  0x004623d9  int3     
+  0x004623da  int3     
+  0x004623db  int3     
+  0x004623dc  int3     
+  0x004623dd  int3     
+  0x004623de  int3     
+  0x004623df  int3     
+  0x004623e0  push     ebp
+  0x004623e1  mov      ebp, esp
+  0x004623e3  push     -1
+  0x004623e5  push     0x104dd670
+  0x004623ea  mov      eax, dword ptr fs:[0]
+  0x004623f0  push     eax
+  0x004623f1  mov      dword ptr fs:[0], esp

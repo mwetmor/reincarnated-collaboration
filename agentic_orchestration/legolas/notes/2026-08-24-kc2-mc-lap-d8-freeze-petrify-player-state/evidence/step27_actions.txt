@@ -1,0 +1,126 @@
+=== ?Execute@ImmobilizeAction@GAME@@UAEXXZ @ 0x0006f6e0 ===
+  0x0006f6e0  push     esi
+  0x0006f6e1  mov      esi, ecx
+  0x0006f6e3  push     edi
+  0x0006f6e4  push     dword ptr [esi + 4]
+  0x0006f6e7  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0006f6ed  mov      ecx, eax
+  0x0006f6ef  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0006f6f4  mov      edi, eax
+  0x0006f6f6  test     edi, edi
+  0x0006f6f8  jne      0x1006f703
+  0x0006f6fa  mov      eax, dword ptr [esi]
+  0x0006f6fc  mov      ecx, esi
+  0x0006f6fe  pop      edi
+  0x0006f6ff  pop      esi
+  0x0006f700  jmp      dword ptr [eax + 0xc]
+  0x0006f703  mov      eax, dword ptr [edi]
+  0x0006f705  mov      ecx, edi
+  0x0006f707  mov      eax, dword ptr [eax + 0x22c]
+  0x0006f70d  call     eax
+  0x0006f70f  test     al, al
+  0x0006f711  jne      0x1006f71c
+  0x0006f713  mov      eax, dword ptr [esi]
+  0x0006f715  mov      ecx, esi
+  0x0006f717  pop      edi
+  0x0006f718  pop      esi
+  0x0006f719  jmp      dword ptr [eax + 0xc]
+  0x0006f71c  lea      ecx, [edi + 0x600]
+  0x0006f722  call     0x1043ea00   ; -> ?StopCurrentSkill@SkillManager@GAME@@QAEXXZ
+  0x0006f727  mov      eax, dword ptr [edi]
+  0x0006f729  mov      ecx, edi
+  0x0006f72b  pop      edi
+  0x0006f72c  pop      esi
+  0x0006f72d  jmp      dword ptr [eax + 0x294]
+  0x0006f733  int3     
+  0x0006f734  int3     
+  0x0006f735  int3     
+  0x0006f736  int3     
+  0x0006f737  int3     
+  0x0006f738  int3     
+  0x0006f739  int3     
+  0x0006f73a  int3     
+  0x0006f73b  int3     
+  0x0006f73c  int3     
+  0x0006f73d  int3     
+  0x0006f73e  int3     
+  0x0006f73f  int3     
+
+=== ?Execute@TakeStunAction@GAME@@UAEXXZ @ 0x0006f130 ===
+  0x0006f130  push     esi
+  0x0006f131  mov      esi, ecx
+  0x0006f133  push     edi
+  0x0006f134  push     dword ptr [esi + 4]
+  0x0006f137  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0006f13d  mov      ecx, eax
+  0x0006f13f  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0006f144  mov      edi, eax
+  0x0006f146  test     edi, edi
+  0x0006f148  jne      0x1006f153
+  0x0006f14a  mov      eax, dword ptr [esi]
+  0x0006f14c  mov      ecx, esi
+  0x0006f14e  pop      edi
+  0x0006f14f  pop      esi
+  0x0006f150  jmp      dword ptr [eax + 0xc]
+  0x0006f153  mov      eax, dword ptr [edi]
+  0x0006f155  mov      ecx, edi
+  0x0006f157  mov      eax, dword ptr [eax + 0x22c]
+  0x0006f15d  call     eax
+  0x0006f15f  test     al, al
+  0x0006f161  jne      0x1006f16c
+  0x0006f163  mov      eax, dword ptr [esi]
+  0x0006f165  mov      ecx, esi
+  0x0006f167  pop      edi
+  0x0006f168  pop      esi
+  0x0006f169  jmp      dword ptr [eax + 0xc]
+  0x0006f16c  lea      ecx, [edi + 0x600]
+  0x0006f172  call     0x1043ea00   ; -> ?StopCurrentSkill@SkillManager@GAME@@QAEXXZ
+  0x0006f177  mov      eax, dword ptr [edi]
+  0x0006f179  mov      ecx, edi
+  0x0006f17b  call     dword ptr [eax + 0x274]
+  0x0006f181  mov      ecx, edi
+  0x0006f183  pop      edi
+  0x0006f184  pop      esi
+  0x0006f185  jmp      0x10047e20   ; -> ?PlayStunSound@Character@GAME@@QAEXXZ
+  0x0006f18a  int3     
+  0x0006f18b  int3     
+  0x0006f18c  int3     
+  0x0006f18d  int3     
+  0x0006f18e  int3     
+  0x0006f18f  int3     
+
+=== ?StopCurrentSkill@SkillManager@GAME@@QAEXXZ @ 0x0043ea00 ===
+  0x0043ea00  push     esi
+  0x0043ea01  push     edi
+  0x0043ea02  mov      edi, ecx
+  0x0043ea04  push     dword ptr [edi + 0x160]
+  0x0043ea0a  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0043ea10  mov      ecx, eax
+  0x0043ea12  call     0x1000d4f0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x0043ea17  mov      esi, eax
+  0x0043ea19  test     esi, esi
+  0x0043ea1b  je       0x1043ea44
+  0x0043ea1d  mov      dword ptr [edi + 0x160], 0
+  0x0043ea27  mov      ecx, esi
+  0x0043ea29  mov      edx, dword ptr [esi]
+  0x0043ea2b  mov      edx, dword ptr [edx + 0x2d4]
+  0x0043ea31  call     edx
+  0x0043ea33  test     al, al
+  0x0043ea35  je       0x1043ea44
+  0x0043ea37  mov      eax, dword ptr [esi]
+  0x0043ea39  mov      ecx, esi
+  0x0043ea3b  push     dword ptr [edi + 0xc]
+  0x0043ea3e  call     dword ptr [eax + 0x24c]
+  0x0043ea44  pop      edi
+  0x0043ea45  pop      esi
+  0x0043ea46  ret      
+  0x0043ea47  int3     
+  0x0043ea48  int3     
+  0x0043ea49  int3     
+  0x0043ea4a  int3     
+  0x0043ea4b  int3     
+  0x0043ea4c  int3     
+  0x0043ea4d  int3     
+  0x0043ea4e  int3     
+  0x0043ea4f  int3     
+

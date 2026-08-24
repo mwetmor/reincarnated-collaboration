@@ -1,0 +1,74 @@
+=== ??_7Skill_AttackRadiusSpin@GAME@@6B@ @ 0x005959b0
+  +0x21c (slot 135) -> 0x003ebdc0  ?CollectPassiveDefenseAttributes@Skill_AttackRadiusSpin@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+        body: ebp | ebp, esp | edi | edi, ecx
+  +0x218 (slot 134) -> 0x003ebd70  ?CollectPassiveRetaliationModifierAttributes@Skill_AttackRadiusSpin@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z
+        body: ebp | ebp, esp | edi | edi, ecx
+  +0x220 (slot 136) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        body: 4
+  +0x224 (slot 137) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x228 (slot 138) -> 0x003ebe10  ?CollectPassiveRacialBonusDefense@Skill_AttackRadiusSpin@GAME@@UBEXABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@AAURacialBonus_Defense@2@@Z
+        body: ebp | ebp, esp | ebx | ebx, ecx
+  +0x0e4 (slot  57) -> 0x003be400  ?GetCurrentLevel@Skill@GAME@@UBE?BIXZ
+        body: ebx | esi | esi, ecx | edi
+=== ?CollectPassiveDefenseAttributes@Skill_AttackRadiusSpin@GAME@@UBEXAAVCombatAttributeAccumulator@2@@Z @ 0x003ebdc0 ===
+  0x003ebdc0  push     ebp
+  0x003ebdc1  mov      ebp, esp
+  0x003ebdc3  push     edi
+  0x003ebdc4  mov      edi, ecx
+  0x003ebdc6  cmp      byte ptr [edi + 0x4f4], 0
+  0x003ebdcd  je       0x103ebe09
+  0x003ebdcf  mov      eax, dword ptr [edi]
+  0x003ebdd1  push     esi
+  0x003ebdd2  call     dword ptr [eax + 0xe4]
+  0x003ebdd8  mov      edx, dword ptr [edi]
+  0x003ebdda  mov      ecx, edi
+  0x003ebddc  mov      esi, eax
+  0x003ebdde  call     dword ptr [edx + 0x2bc]
+  0x003ebde4  mov      edx, dword ptr [eax + 0x1fc]
+  0x003ebdea  lea      ecx, [eax + 0x1fc]
+  0x003ebdf0  push     ecx
+  0x003ebdf1  mov      dword ptr [esp], 0x3f800000
+  0x003ebdf8  push     esi
+  0x003ebdf9  mov      esi, dword ptr [ebp + 8]
+  0x003ebdfc  push     esi
+  0x003ebdfd  call     dword ptr [edx + 0x10]
+  0x003ebe00  push     esi
+  0x003ebe01  mov      ecx, edi
+  0x003ebe03  call     0x103c1320   ; -> ?AddModifierDefenseAttributes@Skill@GAME@@QBEXAAVCombatAttributeAccumulator@2@@Z
+  0x003ebe08  pop      esi
+  0x003ebe09  pop      edi
+  0x003ebe0a  pop      ebp
+  0x003ebe0b  ret      4
+  0x003ebe0e  int3     
+  0x003ebe0f  int3     
+  0x003ebe10  push     ebp
+  0x003ebe11  mov      ebp, esp
+  0x003ebe13  push     ebx
+  0x003ebe14  mov      ebx, ecx
+  0x003ebe16  cmp      byte ptr [ebx + 0x4f4], 0
+  0x003ebe1d  je       0x103ebe53
+  0x003ebe1f  mov      eax, dword ptr [ebx]
+  0x003ebe21  push     esi
+  0x003ebe22  call     dword ptr [eax + 0xe4]
+  0x003ebe28  mov      edx, dword ptr [ebx]
+  0x003ebe2a  mov      ecx, ebx
+  0x003ebe2c  mov      esi, eax
+  0x003ebe2e  call     dword ptr [edx + 0x2bc]
+  0x003ebe34  push     esi
+  0x003ebe35  push     dword ptr [ebp + 0xc]
+  0x003ebe38  mov      esi, dword ptr [ebp + 8]
+  0x003ebe3b  push     esi
+  0x003ebe3c  lea      ecx, [eax + 0x224]
+  0x003ebe42  call     0x10360720   ; -> ?OnPickup@QuestItem@GAME@@UAEXPAVCharacter@2@@Z+0x10f0
+  0x003ebe47  push     dword ptr [ebp + 0xc]
+  0x003ebe4a  mov      ecx, ebx
+  0x003ebe4c  push     esi
+  0x003ebe4d  call     0x103c0e80   ; -> ?AddModifierRacialBonusDefense@Skill@GAME@@QBEXABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@AAURacialBonus_Defense@2@@Z
+  0x003ebe52  pop      esi
+  0x003ebe53  pop      ebx
+  0x003ebe54  pop      ebp
+  0x003ebe55  ret      8
+  0x003ebe58  int3     
+  0x003ebe59  int3     
+  0x003ebe5a  int3     

@@ -1,0 +1,48 @@
+N-A  string at 0x105300b0 (EndImmobilize@Immobilized SetState target, len 4) = 'Idle'
+     string at 0x10530094 / 0x105300a8 (UseSkill OnBegin SetState targets) = 'Idle' 'Idle'
+
+N-B  ControllerPlayerState classes containing Freez/Petrif/Froz/Stone:
+     NONE — searched all 25,091 exports
+N-B2 ANY class whose name contains Frozen/Petrified:
+     ['?IsFrozenOrPetrified@Character@GAME@@QBE_NXZ']
+
+N-C  DurationDamageManager methods that could CLEAR a fixed-damage timeline:
+     0x00059810 ?GetDurationDamageMgr@Character@GAME@@QAEAAVDurationDamageManager@2@XZ
+     0x000d70e0 ?SetAttacker@DurationDamageManager@GAME@@QAEXI@Z
+     0x000e3690 ?GetDurationDamageMgr@CombatManager@GAME@@QAEAAVDurationDamageManager@2@XZ
+     0x000e52b0 ?AssignParents@DurationDamageManager@GAME@@QAEXPAVCharacter@2@PAVCombatManager@2@@Z
+     0x00207e50 ??0DurationDamageManager@GAME@@QAE@XZ
+     0x00207ef0 ??1DurationDamageManager@GAME@@UAE@XZ
+     0x00207f40 ?Update@DurationDamageManager@GAME@@UAEXH@Z
+     0x00208370 ?ExecuteDamage@DurationDamageManager@GAME@@IAEMAAM@Z
+     0x002088d0 ?ProcessDamage@DurationDamageManager@GAME@@IAEXH@Z
+     0x00208930 ?GetFixedDamage@DurationDamageManager@GAME@@UBE?BMW4CombatAttributeType@2@@Z
+     0x002089b0 ?GetFixedDamageDuration@DurationDamageManager@GAME@@UBE?BHW4CombatAttributeType@2@@Z
+     0x00208a30 ?AddDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@IM@Z
+     0x00208c30 ?EndAttack@DurationDamageManager@GAME@@QAEXXZ
+     0x00208cd0 ?BeginNewAttack@DurationDamageManager@GAME@@QAEXW4ParametersCombatStyle@2@@Z
+     0x00208d20 ?AddFixedDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@I@Z
+     0x00208f40 ?RemoveAllDamages@DurationDamageManager@GAME@@UAEXXZ
+     0x00208f90 ?GetSpeedUpdate@DurationDamageManager@GAME@@QBE?B_NXZ
+     0x00208fb0 ?GetDamageReplica@DurationDamageManager@GAME@@QBEXAAV?$vector@UDurationDamageReplication@GAME@@@mem@@@Z
+     0x00209240 ?GetFixedDamageReplica@DurationDamageManager@GAME@@QBEXAAV?$vector@UFixedDurationDamageReplication@GAME@@@mem@@@Z
+     0x002094f0 ?SetDamageReplica@DurationDamageManager@GAME@@QAEXABV?$vector@UDurationDamageReplication@GAME@@@mem@@@Z
+     0x00209560 ?SetFixedDamageReplica@DurationDamageManager@GAME@@QAEXABV?$vector@UFixedDurationDamageReplication@GAME@@@mem@@@Z
+     0x002095b0 ?GetDamageData@DurationDamageManager@GAME@@QAEXAAV?$vector@UDamageData@DurationDamageManager@GAME@@@mem@@@Z
+     0x00209750 ?AddDamageReplication@DurationDamageManager@GAME@@IAEXW4CombatAttributeType@2@IABV?$vector@V?$vector@UDurationDamageInfo@GAME@@@mem@@@mem@@@Z
+     0x00209a80 ?AddFixedDamageReplication@DurationDamageManager@GAME@@IAEXW4CombatAttributeType@2@ABV?$vector@V?$vector@UDurationDamageInfo@GAME@@@mem@@@mem@@@Z
+     0x00209db0 ?ModifyDuration@DurationDamageManager@GAME@@IAEMW4CombatAttributeType@2@M@Z
+     0x00209e50 ?ImDead@DurationDamageManager@GAME@@QAEXXZ
+     0x00209f90 ?IsPoisoned@DurationDamageManager@GAME@@QBE?B_NXZ
+     0x00209fc0 ?UpdateFxAndInfluence@DurationDamageManager@GAME@@IAEXXZ
+     0x0020a3e0 ?AddDamageEffect@DurationDamageManager@GAME@@IAEXW4CombatAttributeType@2@@Z
+     0x0020a440 ?CalculateAllocatedMemory@DurationDamageManager@GAME@@QBEIXZ
+     0x0046d650 ??0DurationDamageManager@GAME@@QAE@ABV01@@Z
+     0x0046d710 ??4DurationDamageManager@GAME@@QAEAAV01@ABV01@@Z
+     0x005cf068 ??_7DurationDamageManager@GAME@@6B@
+
+N-D  Character vtable slots used by the two Execute tails
+     ??_7Player@GAME@@6BObject@1@@ +0x274 -> 0x000486a0 ?ExecuteStun@Character@GAME@@UAEXXZ
+     ??_7Player@GAME@@6BObject@1@@ +0x294 -> 0x00048830 ?ExecuteImmobilize@Character@GAME@@UAEXXZ
+     ??_7Character@GAME@@6BObject@1@@ +0x274 -> 0x000486a0 ?ExecuteStun@Character@GAME@@UAEXXZ
+     ??_7Character@GAME@@6BObject@1@@ +0x294 -> 0x00048830 ?ExecuteImmobilize@Character@GAME@@UAEXXZ

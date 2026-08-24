@@ -1,0 +1,136 @@
+  0x104f6ea9 = ''
+  0x10586ca8 = 'handlerType'
+  0x10586cb4 = 'FadeAwayFromPlayer'
+  0x10586cc8 = 'FadeNearPlayer'
+  0x10586cdc = 'Sound'
+
+=== CreateHandler tail ===
+  0x0046234e  push     ebx
+  0x0046234f  push     dword ptr [ebp + 8]
+  0x00462352  mov      ecx, esi
+  0x00462354  mov      byte ptr [ebp - 4], 2
+  0x00462358  call     0x10463450   ; -> ??0SpecialCharHandler_FadeAwayFromPlayer@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x0046235d  mov      dword ptr [esi], 0x1058f8dc
+  0x00462363  jmp      0x10462397   ; -> ?CreateHandler@SpecialCharHandler@GAME@@SAPAV12@PAVCharacter@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x147
+  0x00462365  mov      edx, 0x10586c34
+  0x0046236a  lea      ecx, [ebp - 0x2c]
+  0x0046236d  call     0x1000bda0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x00462372  test     al, al
+  0x00462374  je       0x104623ac
+  0x00462376  push     0xd0
+  0x0046237b  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x00462380  add      esp, 4
+  0x00462383  mov      dword ptr [ebp - 0x14], eax
+  0x00462386  push     ebx
+  0x00462387  push     dword ptr [ebp + 8]
+  0x0046238a  mov      ecx, eax
+  0x0046238c  mov      byte ptr [ebp - 4], 3
+  0x00462390  call     0x104623e0   ; -> ??0SpecialCharHandler_IcyCharacter@GAME@@QAE@PAVCharacter@1@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00462395  mov      esi, eax
+  0x00462397  mov      byte ptr [ebp - 4], 0
+  0x0046239b  test     esi, esi
+  0x0046239d  je       0x104623a9
+  0x0046239f  mov      eax, dword ptr [esi]
+  0x004623a1  mov      ecx, esi
+  0x004623a3  push     dword ptr [ebp - 0x10]
+  0x004623a6  call     dword ptr [eax + 4]
+  0x004623a9  mov      edi, dword ptr [ebp - 0x18]
+  0x004623ac  cmp      edi, 0x10
+  0x004623af  jb       0x104623c1
+  0x004623b1  mov      ecx, dword ptr [ebp - 0x2c]
+  0x004623b4  lea      edx, [edi + 1]
+  0x004623b7  push     1
+  0x004623b9  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x004623be  add      esp, 4
+  0x004623c1  mov      ecx, dword ptr [ebp - 0xc]
+  0x004623c4  mov      eax, esi
+  0x004623c6  pop      edi
+  0x004623c7  pop      esi
+  0x004623c8  mov      dword ptr fs:[0], ecx
+  0x004623cf  pop      ebx
+  0x004623d0  mov      esp, ebp
+  0x004623d2  pop      ebp
+  0x004623d3  ret      
+  0x004623d4  int3     
+  0x004623d5  int3     
+  0x004623d6  int3     
+  0x004623d7  int3     
+  0x004623d8  int3     
+  0x004623d9  int3     
+  0x004623da  int3     
+  0x004623db  int3     
+  0x004623dc  int3     
+  0x004623dd  int3     
+  0x004623de  int3     
+  0x004623df  int3     
+  0x004623e0  push     ebp
+  0x004623e1  mov      ebp, esp
+
+=== SpecialCharHandler_IcyCharacter vtable (SpecialCharHandler branch) slots 0..12 ===
+  +0x000 (slot  0) -> 0x0003db10  ??0SpecialCharHandler_IcyCharacter@GAME@@QAE@ABV01@@Z+0x220
+  +0x004 (slot  1) -> 0x00462f70  ?LoadFromTable@SpecialCharHandler_IcyCharacter@GAME@@UAEXABVLoadTable@2@@Z
+  +0x008 (slot  2) -> 0x00463080  ?Enable@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  +0x00c (slot  3) -> 0x00463090  ?Disable@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  +0x010 (slot  4) -> 0x004630f0  ?Reset@SpecialCharHandler_IcyCharacter@GAME@@UAEXXZ
+  +0x014 (slot  5) -> 0x00463120  ?PhysicsUpdate@SpecialCharHandler_IcyCharacter@GAME@@UAEXPAVPhysicsSystem2@2@@Z
+  +0x018 (slot  6) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  +0x01c (slot  7) -> 0x00463280  ?PreLoad@SpecialCharHandler_IcyCharacter@GAME@@UAEX_N@Z
+  +0x020 (slot  8) -> 0x0003d820  ??4SpecialCharHandler@GAME@@QAEAAV01@ABV01@@Z+0x40
+  +0x024 (slot  9) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  +0x028 (slot 10) -> 0x0003d760  ?Enable@SpecialCharHandler@GAME@@UAEXXZ
+  +0x02c (slot 11) -> 0x0003d770  ?Disable@SpecialCharHandler@GAME@@UAEXXZ
+  +0x030 (slot 12) -> 0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+
+=== Start@SpecialCharHandler_IcyCharacter — every CALL target (gameplay audit) ===
+  0x00462882  call     dword ptr [0x104e5288]   ; f32=1.16448e-38 i32=8310008 f64=2.74142e-306
+  0x0046288f  call     dword ptr [esi + 0x18]
+  0x00462897  call     dword ptr [eax + 0x1b4]
+  0x004628a7  call     esi
+  0x004628b6  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x004628f6  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x00462905  call     dword ptr [eax + 0x1b4]
+  0x0046290e  call     dword ptr [0x104e5d34]   ; f32=1.16989e-38 i32=8348602 f64=2.79397e-306
+  0x0046292a  call     dword ptr [0x104e5d3c]   ; f32=1.16992e-38 i32=8348806 f64=2.79414e-306
+  0x00462937  call     0x1000a3e0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x20
+  0x00462942  call     dword ptr [0x104e5dfc]   ; f32=1.17038e-38 i32=8352114 f64=2.7987e-306
+  0x00462970  jmp      0x10462974   ; -> ?Start@SpecialCharHandler_IcyCharacter@GAME@@IAEXXZ+0x154
+  0x0046297f  call     0x10008820   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x350
+  0x00462988  call     0x10463350   ; -> ?StoreOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IAEXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x004629a1  call     dword ptr [0x104e596c]   ; f32=1.16785e-38 i32=8334044 f64=2.77407e-306
+  0x004629bc  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x004629cd  call     dword ptr [0x104e5624]   ; f32=1.16619e-38 i32=8322232 f64=2.75801e-306
+  0x004629e9  call     dword ptr [0x104e5628]   ; f32=1.1662e-38 i32=8322278 f64=2.75808e-306
+  0x004629fd  call     dword ptr [edx]
+  0x00462a1e  call     0x1048a5f0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2940
+  0x00462a3c  call     dword ptr [eax + 0x1b4]
+  0x00462a43  call     esi
+  0x00462a52  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x00462a5f  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x00462aa9  call     dword ptr [eax + 0x1b4]
+  0x00462ab2  call     dword ptr [0x104e5d34]   ; f32=1.16989e-38 i32=8348602 f64=2.79397e-306
+  0x00462aca  call     dword ptr [eax + 0x1b4]
+  0x00462ad2  call     dword ptr [0x104e5d3c]   ; f32=1.16992e-38 i32=8348806 f64=2.79414e-306
+  0x00462ae8  call     0x10019270   ; -> ?HasInstantiated@?$Singleton@VQuest2Repository@GAME@@@GAME@@SA_NXZ+0x130
+  0x00462af5  call     dword ptr [eax + 0x1b4]
+  0x00462afd  call     dword ptr [0x104e5dfc]   ; f32=1.17038e-38 i32=8352114 f64=2.7987e-306
+  0x00462b2b  jmp      0x10462b2f   ; -> ?Start@SpecialCharHandler_IcyCharacter@GAME@@IAEXXZ+0x30f
+  0x00462b3a  call     0x10008820   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x350
+  0x00462b44  call     0x10463350   ; -> ?StoreOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IAEXIV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+  0x00462b57  call     dword ptr [0x104e54c4]   ; f32=1.16551e-38 i32=8317380 f64=2.75142e-306
+  0x00462b72  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x00462c30  call     eax
+  0x00462c38  jmp      0x10462c5c   ; -> ?End@SpecialCharHandler_IcyCharacter@GAME@@IAEX_N0@Z+0x9c
+  0x00462c54  call     eax
+  0x00462c5d  call     dword ptr [esi + 0x18]
+  0x00462c65  call     dword ptr [eax + 0x1b4]
+  0x00462c79  call     0x104633e0   ; -> ?GetOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z
+  0x00462c94  call     0x1001d350   ; -> ?GetRTTIClassInfo@ItemEquipment@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x1e0
+  0x00462ca9  jmp      0x10462cad   ; -> ?End@SpecialCharHandler_IcyCharacter@GAME@@IAEX_N0@Z+0xed
+  0x00462caf  call     dword ptr [0x104e596c]   ; f32=1.16785e-38 i32=8334044 f64=2.77407e-306
+  0x00462cca  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x00462ce4  call     dword ptr [eax + 0x10]
+  0x00462d09  call     edx
+  0x00462d0d  call     0x10062760   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x670
+  0x00462d2b  call     dword ptr [eax + 0x10]
+  0x00462d3a  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x00462d47  call     0x104633e0   ; -> ?GetOverriddenTexture@SpecialCharHandler_IcyCharacter@GAME@@IBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z

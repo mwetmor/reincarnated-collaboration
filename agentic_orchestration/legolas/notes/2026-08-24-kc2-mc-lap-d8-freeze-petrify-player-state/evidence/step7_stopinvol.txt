@@ -1,0 +1,460 @@
+=== ?StopInvoluntaryEffect@Character@GAME@@QAEXW4CombatAttributeType@2@@Z @ 0x0005adb0 ===
+  0x0005adb0  push     ebp
+  0x0005adb1  mov      ebp, esp
+  0x0005adb3  mov      eax, dword ptr [ebp + 8]
+  0x0005adb6  cmp      eax, 0x31
+  0x0005adb9  jne      0x1005ade4
+  0x0005adbb  push     dword ptr [ecx + 0x1120]
+  0x0005adc1  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005adc7  mov      ecx, eax
+  0x0005adc9  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005adce  test     eax, eax
+  0x0005add0  je       0x1005ae7a
+  0x0005add6  mov      edx, dword ptr [eax]
+  0x0005add8  mov      ecx, eax
+  0x0005adda  call     dword ptr [edx + 0xa4]
+  0x0005ade0  pop      ebp
+  0x0005ade1  ret      4
+  0x0005ade4  cmp      eax, 0x2b
+  0x0005ade7  jne      0x1005ae0e
+  0x0005ade9  push     dword ptr [ecx + 0x1120]
+  0x0005adef  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005adf5  mov      ecx, eax
+  0x0005adf7  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005adfc  test     eax, eax
+  0x0005adfe  je       0x1005ae7a
+  0x0005ae00  mov      edx, dword ptr [eax]
+  0x0005ae02  mov      ecx, eax
+  0x0005ae04  call     dword ptr [edx + 0xac]
+  0x0005ae0a  pop      ebp
+  0x0005ae0b  ret      4
+  0x0005ae0e  cmp      eax, 0x2a
+  0x0005ae11  jne      0x1005ae38
+  0x0005ae13  push     dword ptr [ecx + 0x1120]
+  0x0005ae19  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005ae1f  mov      ecx, eax
+  0x0005ae21  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005ae26  test     eax, eax
+  0x0005ae28  je       0x1005ae7a
+  0x0005ae2a  mov      edx, dword ptr [eax]
+  0x0005ae2c  mov      ecx, eax
+  0x0005ae2e  call     dword ptr [edx + 0x94]
+  0x0005ae34  pop      ebp
+  0x0005ae35  ret      4
+  0x0005ae38  cmp      eax, 0x2c
+  0x0005ae3b  jne      0x1005ae46
+  0x0005ae3d  call     0x1005aff0   ; -> ?EndTrap@Character@GAME@@QAEXXZ
+  0x0005ae42  pop      ebp
+  0x0005ae43  ret      4
+  0x0005ae46  cmp      eax, 0x2d
+  0x0005ae49  jne      0x1005ae54
+  0x0005ae4b  call     0x1005b110   ; -> ?EndFreeze@Character@GAME@@QAEXXZ
+  0x0005ae50  pop      ebp
+  0x0005ae51  ret      4
+  0x0005ae54  cmp      eax, 0x2e
+  0x0005ae57  jne      0x1005ae62
+  0x0005ae59  call     0x1005b240   ; -> ?EndPetrify@Character@GAME@@QAEXXZ
+  0x0005ae5e  pop      ebp
+  0x0005ae5f  ret      4
+  0x0005ae62  cmp      eax, 0x2f
+  0x0005ae65  jne      0x1005ae70
+  0x0005ae67  call     0x1005b2b0   ; -> ?EndImmobilize@Character@GAME@@QAEXXZ
+  0x0005ae6c  pop      ebp
+  0x0005ae6d  ret      4
+  0x0005ae70  cmp      eax, 0x30
+  0x0005ae73  jne      0x1005ae7a
+  0x0005ae75  call     0x1005b310   ; -> ?EndKnockdown@Character@GAME@@QAEXXZ
+  0x0005ae7a  pop      ebp
+  0x0005ae7b  ret      4
+  0x0005ae7e  int3     
+  0x0005ae7f  int3     
+  0x0005ae80  push     ebp
+  0x0005ae81  mov      ebp, esp
+  0x0005ae83  push     esi
+  0x0005ae84  mov      esi, dword ptr [ebp + 8]
+  0x0005ae87  push     edi
+  0x0005ae88  cmp      dword ptr [esi + 0x14], 0x10
+  0x0005ae8c  jb       0x1005ae92
+  0x0005ae8e  mov      ecx, dword ptr [esi]
+  0x0005ae90  jmp      0x1005ae94   ; -> ?ConvertFxBuffName@Character@GAME@@SA?AW4CharacterBuff@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x14
+  0x0005ae92  mov      ecx, esi
+  0x0005ae94  mov      edi, dword ptr [esi + 0x10]
+  0x0005ae97  mov      eax, 4
+  0x0005ae9c  cmp      edi, eax
+  0x0005ae9e  mov      edx, 0x104f557c
+  0x0005aea3  cmovb    eax, edi
+  0x0005aea6  push     eax
+  0x0005aea7  call     0x1000bd40   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x0005aeac  add      esp, 4
+  0x0005aeaf  test     eax, eax
+  0x0005aeb1  jne      0x1005aebe
+  0x0005aeb3  cmp      edi, 4
+
+=== ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ @ 0x000f6a10 ===
+  0x000f6a10  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6a17  je       0x100f6a26
+  0x000f6a19  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6a1f  mov      eax, dword ptr [eax]
+  0x000f6a21  mov      ecx, dword ptr [eax + 8]
+  0x000f6a24  jmp      0x100f6a2c   ; -> ?BeginImmobilize@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6a26  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6a2c  mov      eax, dword ptr [ecx]
+  0x000f6a2e  jmp      dword ptr [eax + 0xa0]
+  0x000f6a34  int3     
+  0x000f6a35  int3     
+  0x000f6a36  int3     
+  0x000f6a37  int3     
+  0x000f6a38  int3     
+  0x000f6a39  int3     
+  0x000f6a3a  int3     
+  0x000f6a3b  int3     
+  0x000f6a3c  int3     
+  0x000f6a3d  int3     
+  0x000f6a3e  int3     
+  0x000f6a3f  int3     
+  0x000f6a40  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6a47  je       0x100f6a56
+  0x000f6a49  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6a4f  mov      eax, dword ptr [eax]
+  0x000f6a51  mov      ecx, dword ptr [eax + 8]
+  0x000f6a54  jmp      0x100f6a5c   ; -> ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6a56  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6a5c  mov      eax, dword ptr [ecx]
+  0x000f6a5e  jmp      dword ptr [eax + 0xa4]
+  0x000f6a64  int3     
+  0x000f6a65  int3     
+  0x000f6a66  int3     
+  0x000f6a67  int3     
+  0x000f6a68  int3     
+  0x000f6a69  int3     
+  0x000f6a6a  int3     
+  0x000f6a6b  int3     
+  0x000f6a6c  int3     
+  0x000f6a6d  int3     
+  0x000f6a6e  int3     
+  0x000f6a6f  int3     
+  0x000f6a70  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6a77  je       0x100f6a86
+  0x000f6a79  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6a7f  mov      eax, dword ptr [eax]
+  0x000f6a81  mov      ecx, dword ptr [eax + 8]
+  0x000f6a84  jmp      0x100f6a8c   ; -> ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6a86  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6a8c  mov      eax, dword ptr [ecx]
+  0x000f6a8e  jmp      dword ptr [eax + 0xa8]
+  0x000f6a94  int3     
+  0x000f6a95  int3     
+  0x000f6a96  int3     
+  0x000f6a97  int3     
+  0x000f6a98  int3     
+  0x000f6a99  int3     
+  0x000f6a9a  int3     
+  0x000f6a9b  int3     
+  0x000f6a9c  int3     
+  0x000f6a9d  int3     
+  0x000f6a9e  int3     
+  0x000f6a9f  int3     
+  0x000f6aa0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6aa7  je       0x100f6ab6
+  0x000f6aa9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6aaf  mov      eax, dword ptr [eax]
+  0x000f6ab1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ab4  jmp      0x100f6abc   ; -> ?EndTrap@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6ab6  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6abc  mov      eax, dword ptr [ecx]
+  0x000f6abe  jmp      dword ptr [eax + 0xac]
+  0x000f6ac4  int3     
+  0x000f6ac5  int3     
+  0x000f6ac6  int3     
+  0x000f6ac7  int3     
+  0x000f6ac8  int3     
+  0x000f6ac9  int3     
+  0x000f6aca  int3     
+  0x000f6acb  int3     
+  0x000f6acc  int3     
+  0x000f6acd  int3     
+  0x000f6ace  int3     
+  0x000f6acf  int3     
+  0x000f6ad0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6ad7  je       0x100f6ae6
+  0x000f6ad9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6adf  mov      eax, dword ptr [eax]
+  0x000f6ae1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ae4  jmp      0x100f6aec   ; -> ?BeginStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+
+=== ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ @ 0x000f6a40 ===
+  0x000f6a40  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6a47  je       0x100f6a56
+  0x000f6a49  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6a4f  mov      eax, dword ptr [eax]
+  0x000f6a51  mov      ecx, dword ptr [eax + 8]
+  0x000f6a54  jmp      0x100f6a5c   ; -> ?EndImmobilize@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6a56  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6a5c  mov      eax, dword ptr [ecx]
+  0x000f6a5e  jmp      dword ptr [eax + 0xa4]
+  0x000f6a64  int3     
+  0x000f6a65  int3     
+  0x000f6a66  int3     
+  0x000f6a67  int3     
+  0x000f6a68  int3     
+  0x000f6a69  int3     
+  0x000f6a6a  int3     
+  0x000f6a6b  int3     
+  0x000f6a6c  int3     
+  0x000f6a6d  int3     
+  0x000f6a6e  int3     
+  0x000f6a6f  int3     
+  0x000f6a70  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6a77  je       0x100f6a86
+  0x000f6a79  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6a7f  mov      eax, dword ptr [eax]
+  0x000f6a81  mov      ecx, dword ptr [eax + 8]
+  0x000f6a84  jmp      0x100f6a8c   ; -> ?BeginTrap@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6a86  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6a8c  mov      eax, dword ptr [ecx]
+  0x000f6a8e  jmp      dword ptr [eax + 0xa8]
+  0x000f6a94  int3     
+  0x000f6a95  int3     
+  0x000f6a96  int3     
+  0x000f6a97  int3     
+  0x000f6a98  int3     
+  0x000f6a99  int3     
+  0x000f6a9a  int3     
+  0x000f6a9b  int3     
+  0x000f6a9c  int3     
+  0x000f6a9d  int3     
+  0x000f6a9e  int3     
+  0x000f6a9f  int3     
+  0x000f6aa0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6aa7  je       0x100f6ab6
+  0x000f6aa9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6aaf  mov      eax, dword ptr [eax]
+  0x000f6ab1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ab4  jmp      0x100f6abc   ; -> ?EndTrap@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6ab6  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6abc  mov      eax, dword ptr [ecx]
+  0x000f6abe  jmp      dword ptr [eax + 0xac]
+  0x000f6ac4  int3     
+  0x000f6ac5  int3     
+  0x000f6ac6  int3     
+  0x000f6ac7  int3     
+  0x000f6ac8  int3     
+  0x000f6ac9  int3     
+  0x000f6aca  int3     
+  0x000f6acb  int3     
+  0x000f6acc  int3     
+  0x000f6acd  int3     
+  0x000f6ace  int3     
+  0x000f6acf  int3     
+  0x000f6ad0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6ad7  je       0x100f6ae6
+  0x000f6ad9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6adf  mov      eax, dword ptr [eax]
+  0x000f6ae1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ae4  jmp      0x100f6aec   ; -> ?BeginStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6ae6  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6aec  mov      eax, dword ptr [ecx]
+  0x000f6aee  jmp      dword ptr [eax + 0xb0]
+  0x000f6af4  int3     
+  0x000f6af5  int3     
+  0x000f6af6  int3     
+  0x000f6af7  int3     
+  0x000f6af8  int3     
+  0x000f6af9  int3     
+  0x000f6afa  int3     
+  0x000f6afb  int3     
+  0x000f6afc  int3     
+  0x000f6afd  int3     
+  0x000f6afe  int3     
+  0x000f6aff  int3     
+  0x000f6b00  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b07  je       0x100f6b16
+  0x000f6b09  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b0f  mov      eax, dword ptr [eax]
+  0x000f6b11  mov      ecx, dword ptr [eax + 8]
+  0x000f6b14  jmp      0x100f6b1c   ; -> ?EndStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+
+=== ?BeginStun@ControllerPlayer@GAME@@UAEXXZ @ 0x000f6ad0 ===
+  0x000f6ad0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6ad7  je       0x100f6ae6
+  0x000f6ad9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6adf  mov      eax, dword ptr [eax]
+  0x000f6ae1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ae4  jmp      0x100f6aec   ; -> ?BeginStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6ae6  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6aec  mov      eax, dword ptr [ecx]
+  0x000f6aee  jmp      dword ptr [eax + 0xb0]
+  0x000f6af4  int3     
+  0x000f6af5  int3     
+  0x000f6af6  int3     
+  0x000f6af7  int3     
+  0x000f6af8  int3     
+  0x000f6af9  int3     
+  0x000f6afa  int3     
+  0x000f6afb  int3     
+  0x000f6afc  int3     
+  0x000f6afd  int3     
+  0x000f6afe  int3     
+  0x000f6aff  int3     
+  0x000f6b00  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b07  je       0x100f6b16
+  0x000f6b09  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b0f  mov      eax, dword ptr [eax]
+  0x000f6b11  mov      ecx, dword ptr [eax + 8]
+  0x000f6b14  jmp      0x100f6b1c   ; -> ?EndStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6b16  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6b1c  mov      eax, dword ptr [ecx]
+  0x000f6b1e  jmp      dword ptr [eax + 0xb4]
+  0x000f6b24  int3     
+  0x000f6b25  int3     
+  0x000f6b26  int3     
+  0x000f6b27  int3     
+  0x000f6b28  int3     
+  0x000f6b29  int3     
+  0x000f6b2a  int3     
+  0x000f6b2b  int3     
+  0x000f6b2c  int3     
+  0x000f6b2d  int3     
+  0x000f6b2e  int3     
+  0x000f6b2f  int3     
+  0x000f6b30  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b37  je       0x100f6b46
+  0x000f6b39  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b3f  mov      eax, dword ptr [eax]
+  0x000f6b41  mov      ecx, dword ptr [eax + 8]
+  0x000f6b44  jmp      0x100f6b4c   ; -> ?BeginKnockdown@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6b46  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6b4c  mov      eax, dword ptr [ecx]
+  0x000f6b4e  jmp      dword ptr [eax + 0xc0]
+  0x000f6b54  int3     
+  0x000f6b55  int3     
+  0x000f6b56  int3     
+  0x000f6b57  int3     
+  0x000f6b58  int3     
+  0x000f6b59  int3     
+  0x000f6b5a  int3     
+  0x000f6b5b  int3     
+  0x000f6b5c  int3     
+  0x000f6b5d  int3     
+  0x000f6b5e  int3     
+  0x000f6b5f  int3     
+  0x000f6b60  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b67  je       0x100f6b76
+  0x000f6b69  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b6f  mov      eax, dword ptr [eax]
+  0x000f6b71  mov      ecx, dword ptr [eax + 8]
+  0x000f6b74  jmp      0x100f6b7c   ; -> ?EndKnockdown@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6b76  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6b7c  mov      eax, dword ptr [ecx]
+  0x000f6b7e  jmp      dword ptr [eax + 0xc4]
+  0x000f6b84  int3     
+  0x000f6b85  int3     
+  0x000f6b86  int3     
+  0x000f6b87  int3     
+  0x000f6b88  int3     
+  0x000f6b89  int3     
+  0x000f6b8a  int3     
+  0x000f6b8b  int3     
+  0x000f6b8c  int3     
+  0x000f6b8d  int3     
+  0x000f6b8e  int3     
+  0x000f6b8f  int3     
+  0x000f6b90  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b97  je       0x100f6ba6
+  0x000f6b99  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b9f  mov      eax, dword ptr [eax]
+  0x000f6ba1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ba4  jmp      0x100f6bac   ; -> ?BeginTakeHit@ControllerPlayer@GAME@@UAEXXZ+0x1c
+
+=== ?DefaultBeginImmobilizeAction@ControllerPlayerState@GAME@@IAEXXZ @ 0x0011f480 ===
+  0x0011f480  push     ebp
+  0x0011f481  mov      ebp, esp
+  0x0011f483  push     -1
+  0x0011f485  push     0x104c0228
+  0x0011f48a  mov      eax, dword ptr fs:[0]
+  0x0011f490  push     eax
+  0x0011f491  mov      dword ptr fs:[0], esp
+  0x0011f498  sub      esp, 0x34
+  0x0011f49b  push     esi
+  0x0011f49c  push     0xb
+  0x0011f49e  mov      esi, ecx
+  0x0011f4a0  mov      dword ptr [ebp - 0x10], 0xf
+  0x0011f4a7  push     0x1052ff18
+  0x0011f4ac  lea      ecx, [ebp - 0x24]
+  0x0011f4af  mov      dword ptr [ebp - 0x14], 0
+  0x0011f4b6  mov      byte ptr [ebp - 0x24], 0
+  0x0011f4ba  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x0011f4bf  mov      dword ptr [ebp - 4], 0
+  0x0011f4c6  lea      ecx, [ebp - 0x34]
+  0x0011f4c9  mov      dword ptr [ebp - 0x40], 0
+  0x0011f4d0  mov      dword ptr [ebp - 0x3c], 0
+  0x0011f4d7  mov      dword ptr [ebp - 0x38], 0
+  0x0011f4de  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x0011f4e4  mov      ecx, dword ptr [esi + 4]
+  0x0011f4e7  lea      eax, [ebp - 0x40]
+  0x0011f4ea  push     eax
+  0x0011f4eb  lea      eax, [ebp - 0x24]
+  0x0011f4ee  push     eax
+  0x0011f4ef  call     0x100e6780   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x0011f4f4  mov      edx, dword ptr [ebp - 0x10]
+  0x0011f4f7  pop      esi
+  0x0011f4f8  cmp      edx, 0x10
+  0x0011f4fb  jb       0x1011f50b
+  0x0011f4fd  mov      ecx, dword ptr [ebp - 0x24]
+  0x0011f500  inc      edx
+  0x0011f501  push     1
+  0x0011f503  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0011f508  add      esp, 4
+  0x0011f50b  mov      ecx, dword ptr [ebp - 0xc]
+  0x0011f50e  mov      dword ptr fs:[0], ecx
+  0x0011f515  mov      esp, ebp
+  0x0011f517  pop      ebp
+  0x0011f518  ret      
+  0x0011f519  int3     
+  0x0011f51a  int3     
+  0x0011f51b  int3     
+  0x0011f51c  int3     
+  0x0011f51d  int3     
+  0x0011f51e  int3     
+  0x0011f51f  int3     
+  0x0011f520  push     ebp
+  0x0011f521  mov      ebp, esp
+  0x0011f523  push     -1
+  0x0011f525  push     0x104c0228
+  0x0011f52a  mov      eax, dword ptr fs:[0]
+  0x0011f530  push     eax
+  0x0011f531  mov      dword ptr fs:[0], esp
+  0x0011f538  sub      esp, 0x34
+  0x0011f53b  push     esi
+  0x0011f53c  push     7
+  0x0011f53e  mov      esi, ecx
+  0x0011f540  mov      dword ptr [ebp - 0x10], 0xf
+  0x0011f547  push     0x1052ff10
+  0x0011f54c  lea      ecx, [ebp - 0x24]
+  0x0011f54f  mov      dword ptr [ebp - 0x14], 0
+  0x0011f556  mov      byte ptr [ebp - 0x24], 0
+  0x0011f55a  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x0011f55f  mov      dword ptr [ebp - 4], 0
+  0x0011f566  lea      ecx, [ebp - 0x34]
+  0x0011f569  mov      dword ptr [ebp - 0x40], 0
+  0x0011f570  mov      dword ptr [ebp - 0x3c], 0
+  0x0011f577  mov      dword ptr [ebp - 0x38], 0
+  0x0011f57e  call     dword ptr [0x104e5388]   ; f32=1.16495e-38 i32=8313394 f64=2.74599e-306
+  0x0011f584  mov      ecx, dword ptr [esi + 4]
+  0x0011f587  lea      eax, [ebp - 0x40]
+  0x0011f58a  push     eax
+  0x0011f58b  lea      eax, [ebp - 0x24]
+  0x0011f58e  push     eax
+  0x0011f58f  call     0x100e6780   ; -> ?SetState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVControllerAIStateData@2@@Z
+  0x0011f594  mov      edx, dword ptr [ebp - 0x10]
+  0x0011f597  pop      esi
+  0x0011f598  cmp      edx, 0x10
+  0x0011f59b  jb       0x1011f5ab
+  0x0011f59d  mov      ecx, dword ptr [ebp - 0x24]
+  0x0011f5a0  inc      edx
+  0x0011f5a1  push     1
+  0x0011f5a3  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x0011f5a8  add      esp, 4
+  0x0011f5ab  mov      ecx, dword ptr [ebp - 0xc]
+  0x0011f5ae  mov      dword ptr fs:[0], ecx
+

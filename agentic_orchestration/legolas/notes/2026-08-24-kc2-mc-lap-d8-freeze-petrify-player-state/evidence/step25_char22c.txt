@@ -1,0 +1,14 @@
+=== ??_7Player@GAME@@6BObject@1@@ @ 0x005e4b1c
+  +0x22c (slot 139) -> 0x0031b050  ?IsAlive@Player@GAME@@UBE_NXZ
+        body: esi | esi, ecx | byte ptr [esi + 0x1ba1], 0 | 0x1031b060
+  +0x228 (slot 138) -> 0x00046f90  ?GetActionState@Character@GAME@@UBE?BW4Character_ActionState@2@XZ
+        body: eax, dword ptr [ecx + 0x1b9c] | 
+  +0x230 (slot 140) -> 0x00047220  ?IsHiding@Character@GAME@@UBE_NXZ
+        body: esi | esi, ecx | dword ptr [0x104e55e0]   ; f32=1.16604e-38 i32=8321146 f64=2.75652e-306 | al, al
+=== ??_7Character@GAME@@6BObject@1@@ @ 0x0058f0f8
+  +0x22c (slot 139) -> 0x00047200  ?IsAlive@Character@GAME@@UBE_NXZ
+        body: byte ptr [ecx + 0x1ba1], 0 | 0x1004720c | al, al | 
+  +0x228 (slot 138) -> 0x00046f90  ?GetActionState@Character@GAME@@UBE?BW4Character_ActionState@2@XZ
+        body: eax, dword ptr [ecx + 0x1b9c] | 
+  +0x230 (slot 140) -> 0x00047220  ?IsHiding@Character@GAME@@UBE_NXZ
+        body: esi | esi, ecx | dword ptr [0x104e55e0]   ; f32=1.16604e-38 i32=8321146 f64=2.75652e-306 | al, al

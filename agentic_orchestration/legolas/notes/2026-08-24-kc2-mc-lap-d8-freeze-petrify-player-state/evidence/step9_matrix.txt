@@ -1,0 +1,64 @@
+### REQUEST-SLOT MATRIX  (PERMITTED = keeps Idle occupant)
+slot request                           Stunned  KnockedDown        Sleep      Trapped  Immobilized     UseSkill  ChargeToUse  MoveAndUseS  MoveToUseSk  JumpToUseSk  UseSkillWhi        Evade       MoveTo
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  54 SelectPrimaryAction             PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  55 SelectSecondaryAction           PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  56 SelectJoystickAction            PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  57 ActivateSuperSkill              PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  58 RequestUseItem                  PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  59 RequestReleasePet               PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  60 RequestUseItemOn                PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  61 RequestItemAction                STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret         IMPL         IMPL         IMPL         IMPL         IMPL     STUB-ret         IMPL    PERMITTED
+  62 RequestInteractableAction        STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret         IMPL         IMPL         IMPL         IMPL         IMPL     STUB-ret         IMPL    PERMITTED
+  63 RequestNpcAction                 STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret         IMPL         IMPL         IMPL         IMPL         IMPL     STUB-ret         IMPL    PERMITTED
+  64 RequestCompleteRelics           PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  76 RequestSkillAction             STUB-false   STUB-false   STUB-false         IMPL   STUB-false         IMPL         IMPL         IMPL         IMPL         IMPL         IMPL         IMPL    PERMITTED
+  77 RequestInstantSkillAction       PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED    PERMITTED         IMPL    PERMITTED         IMPL    PERMITTED    PERMITTED    PERMITTED    PERMITTED
+  78 RequestEvadeAction             STUB-false   STUB-false   STUB-false   STUB-false   STUB-false    PERMITTED         IMPL    PERMITTED         IMPL         IMPL   STUB-false         IMPL    PERMITTED
+  80 RequestMoveAction                STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret         IMPL         IMPL         IMPL         IMPL         IMPL     STUB-ret         IMPL         IMPL
+  81 RequestRotateAction              STUB-ret     STUB-ret     STUB-ret    PERMITTED     STUB-ret         IMPL     STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret     STUB-ret
+
+### CONTROL-ENTRY SLOTS 40..51  (who each state routes an incoming control to)
+slot entry            IDLE                                            Stunned  KnockedDown        Sleep      Trapped  Immobilized     UseSkill  ChargeToUse  MoveAndUseS  MoveToUseSk  JumpToUseSk  UseSkillWhi        Evade       MoveTo
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  40 BeginImmobilize  ?BeginImmobilize@ControllerPlayerStateIdle         Stop         Stop         Stop         Stop         Stop        =IDLE        =IDLE        =IDLE        =IDLE BeginImmobil         Stop BeginImmobil        =IDLE
+  41 EndImmobilize    ?Stop@Fx@GAME@@UAEXXZ                             =IDLE        =IDLE        =IDLE        =IDLE EndImmobiliz        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE
+  42 BeginTrap        ?BeginTrap@ControllerPlayerStateIdle@GAME@         Stop         Stop         Stop         Stop         Stop        =IDLE    BeginTrap    BeginTrap    BeginTrap    BeginTrap         Stop    BeginTrap        =IDLE
+  43 EndTrap          ?Stop@Fx@GAME@@UAEXXZ                             =IDLE        =IDLE        =IDLE      EndTrap        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE      EndTrap        =IDLE        =IDLE
+  44 BeginStun        ?BeginStun@ControllerPlayerStateIdle@GAME@         Stop         Stop         Stop         Stop         Stop        =IDLE        =IDLE        =IDLE        =IDLE    BeginStun         Stop    BeginStun        =IDLE
+  45 EndStun          ?Stop@Fx@GAME@@UAEXXZ                           EndStun        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE
+  46 BeginSleep       ?BeginSleep@ControllerPlayerStateIdle@GAME         Stop         Stop         Stop         Stop         Stop        =IDLE        =IDLE        =IDLE        =IDLE   BeginSleep         Stop   BeginSleep        =IDLE
+  47 EndSleep         ?Stop@Fx@GAME@@UAEXXZ                             =IDLE        =IDLE     EndSleep        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE
+  48 BeginKnockdown   ?BeginKnockdown@ControllerPlayerStateIdle@         Stop         Stop         Stop         Stop         Stop        =IDLE        =IDLE        =IDLE        =IDLE BeginKnockdo         Stop BeginKnockdo        =IDLE
+  49 EndKnockdown     ?Stop@Fx@GAME@@UAEXXZ                             =IDLE EndKnockdown        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE
+  50 BeginTakeHit     ?BeginTakeHit@ControllerPlayerStateIdle@GA         Stop         Stop         Stop         Stop         Stop        =IDLE        =IDLE        =IDLE        =IDLE BeginTakeHit         Stop BeginTakeHit        =IDLE
+  51 EndTakeHit       ?Stop@Fx@GAME@@UAEXXZ                             =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE        =IDLE
+  68 OnBegin          ?OnBegin@ControllerPlayerStateIdle@GAME@@U      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin      OnBegin
+  70 OnUpdate         ?OnUpdate@ControllerPlayerStateIdle@GAME@@     OnUpdate AddTimeToLiv AddTimeToLiv AddTimeToLiv AddTimeToLiv     OnUpdate     OnUpdate     OnUpdate     OnUpdate AddTimeToLiv AddTimeToLiv AddTimeToLiv     OnUpdate
+
+### FULL 83-SLOT DIFF: Immobilized vs Stunned  (the STUN_PROXY test)
+6 of 83 slots differ
+  [ 0] +0x000 ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30 Stunned=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30
+                                    Immobilized=??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+        Stunned body     : ['ebp', 'ebp, esp', 'eax, dword ptr fs:[0]', '-1', '0x104c00f0']
+        Immobilized body : ['ebp', 'ebp, esp', 'eax, dword ptr fs:[0]', '-1', '0x104c00f0']
+  [41] +0x0a4 Stop                       Stunned=?Stop@Fx@GAME@@UAEXXZ
+                                    Immobilized=?EndImmobilize@ControllerPlayerStateImmobilized@GAME@@MAEXXZ
+        Stunned body     : ['']
+        Immobilized body : ['ebp', 'ebp, esp', '-1', '0x104c0228', 'eax, dword ptr fs:[0]']
+  [45] +0x0b4 Stop                       Stunned=?EndStun@ControllerPlayerStateStunned@GAME@@MAEXXZ
+                                    Immobilized=?Stop@Fx@GAME@@UAEXXZ
+        Stunned body     : ['ebp', 'ebp, esp', '-1', '0x104c0228', 'eax, dword ptr fs:[0]']
+        Immobilized body : ['']
+  [68] +0x110 OnBegin                    Stunned=?OnBegin@ControllerPlayerStateStunned@GAME@@UAEXXZ
+                                    Immobilized=?OnBegin@ControllerPlayerStateImmobilized@GAME@@UAEXXZ
+        Stunned body     : ['ebp', 'ebp, esp', '-1', '0x104c7888', 'eax, dword ptr fs:[0]']
+        Immobilized body : ['ebp', 'ebp, esp', '-1', '0x104c7888', 'eax, dword ptr fs:[0]']
+  [69] +0x114 GetLeftHandType            Stunned=?OnEnd@ControllerPlayerStateStunned@GAME@@UAEXXZ
+                                    Immobilized=?OnEnd@ControllerPlayerStateImmobilized@GAME@@UAEXXZ
+        Stunned body     : ['ebp', 'ebp, esp', '-1', '0x104c79ff', 'eax, dword ptr fs:[0]']
+        Immobilized body : ['ebp', 'ebp, esp', '-1', '0x104c79ff', 'eax, dword ptr fs:[0]']
+  [70] +0x118 OnUpdate                   Stunned=?OnUpdate@ControllerPlayerStateStunned@GAME@@UAEXH@Z
+                                    Immobilized=?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        Stunned body     : ['ebp', 'ebp, esp', 'eax, dword ptr [ecx + 0x10]', 'eax, eax', '0x101234af']
+        Immobilized body : ['4']

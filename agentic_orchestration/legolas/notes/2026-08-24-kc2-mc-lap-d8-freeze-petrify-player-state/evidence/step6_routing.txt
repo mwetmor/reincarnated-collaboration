@@ -1,0 +1,126 @@
+=== StopInvoluntaryEffect exports ===
+  0x0005acc0 ?StartInvoluntaryEffect@Character@GAME@@QAEXW4CombatAttributeType@2@@Z
+  0x0005adb0 ?StopInvoluntaryEffect@Character@GAME@@QAEXW4CombatAttributeType@2@@Z
+
+=== ?StartInvoluntaryEffect@Character@GAME@@QAEXW4CombatAttributeType@2@@Z @ 0x0005acc0 ===
+  0x0005acc0  push     ebp
+  0x0005acc1  mov      ebp, esp
+  0x0005acc3  and      esp, 0xfffffff8
+  0x0005acc6  mov      eax, dword ptr [ebp + 8]
+  0x0005acc9  cmp      eax, 0x31
+  0x0005accc  jne      0x1005acf9
+  0x0005acce  push     dword ptr [ecx + 0x1120]
+  0x0005acd4  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005acda  mov      ecx, eax
+  0x0005acdc  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005ace1  test     eax, eax
+  0x0005ace3  je       0x1005ad9f
+  0x0005ace9  mov      edx, dword ptr [eax]
+  0x0005aceb  mov      ecx, eax
+  0x0005aced  call     dword ptr [edx + 0xa0]
+  0x0005acf3  mov      esp, ebp
+  0x0005acf5  pop      ebp
+  0x0005acf6  ret      4
+  0x0005acf9  cmp      eax, 0x2b
+  0x0005acfc  jne      0x1005ad29
+  0x0005acfe  push     dword ptr [ecx + 0x1120]
+  0x0005ad04  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005ad0a  mov      ecx, eax
+  0x0005ad0c  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005ad11  test     eax, eax
+  0x0005ad13  je       0x1005ad9f
+  0x0005ad19  mov      edx, dword ptr [eax]
+  0x0005ad1b  mov      ecx, eax
+  0x0005ad1d  call     dword ptr [edx + 0xa8]
+  0x0005ad23  mov      esp, ebp
+  0x0005ad25  pop      ebp
+  0x0005ad26  ret      4
+  0x0005ad29  cmp      eax, 0x2a
+  0x0005ad2c  jne      0x1005ad55
+  0x0005ad2e  push     dword ptr [ecx + 0x1120]
+  0x0005ad34  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005ad3a  mov      ecx, eax
+  0x0005ad3c  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005ad41  test     eax, eax
+  0x0005ad43  je       0x1005ad9f
+  0x0005ad45  mov      edx, dword ptr [eax]
+  0x0005ad47  mov      ecx, eax
+  0x0005ad49  call     dword ptr [edx + 0x90]
+  0x0005ad4f  mov      esp, ebp
+  0x0005ad51  pop      ebp
+  0x0005ad52  ret      4
+  0x0005ad55  cmp      eax, 0x2c
+  0x0005ad58  jne      0x1005ad65
+  0x0005ad5a  call     0x1005afc0   ; -> ?BeginTrap@Character@GAME@@QAEXXZ
+  0x0005ad5f  mov      esp, ebp
+  0x0005ad61  pop      ebp
+  0x0005ad62  ret      4
+  0x0005ad65  cmp      eax, 0x2d
+  0x0005ad68  jne      0x1005ad75
+  0x0005ad6a  call     0x1005b020   ; -> ?BeginFreeze@Character@GAME@@QAEXXZ
+  0x0005ad6f  mov      esp, ebp
+  0x0005ad71  pop      ebp
+  0x0005ad72  ret      4
+  0x0005ad75  cmp      eax, 0x2e
+  0x0005ad78  jne      0x1005ad85
+  0x0005ad7a  call     0x1005b150   ; -> ?BeginPetrify@Character@GAME@@QAEXXZ
+  0x0005ad7f  mov      esp, ebp
+  0x0005ad81  pop      ebp
+  0x0005ad82  ret      4
+  0x0005ad85  cmp      eax, 0x2f
+  0x0005ad88  jne      0x1005ad95
+  0x0005ad8a  call     0x1005b280   ; -> ?BeginImmobilize@Character@GAME@@QAEXXZ
+  0x0005ad8f  mov      esp, ebp
+  0x0005ad91  pop      ebp
+  0x0005ad92  ret      4
+  0x0005ad95  cmp      eax, 0x30
+  0x0005ad98  jne      0x1005ad9f
+  0x0005ad9a  call     0x1005b2e0   ; -> ?BeginKnockdown@Character@GAME@@QAEXXZ
+  0x0005ad9f  mov      esp, ebp
+  0x0005ada1  pop      ebp
+  0x0005ada2  ret      4
+  0x0005ada5  int3     
+  0x0005ada6  int3     
+  0x0005ada7  int3     
+  0x0005ada8  int3     
+  0x0005ada9  int3     
+  0x0005adaa  int3     
+  0x0005adab  int3     
+  0x0005adac  int3     
+  0x0005adad  int3     
+  0x0005adae  int3     
+  0x0005adaf  int3     
+  0x0005adb0  push     ebp
+  0x0005adb1  mov      ebp, esp
+  0x0005adb3  mov      eax, dword ptr [ebp + 8]
+  0x0005adb6  cmp      eax, 0x31
+  0x0005adb9  jne      0x1005ade4
+  0x0005adbb  push     dword ptr [ecx + 0x1120]
+  0x0005adc1  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005adc7  mov      ecx, eax
+  0x0005adc9  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005adce  test     eax, eax
+  0x0005add0  je       0x1005ae7a
+  0x0005add6  mov      edx, dword ptr [eax]
+  0x0005add8  mov      ecx, eax
+  0x0005adda  call     dword ptr [edx + 0xa4]
+  0x0005ade0  pop      ebp
+  0x0005ade1  ret      4
+  0x0005ade4  cmp      eax, 0x2b
+  0x0005ade7  jne      0x1005ae0e
+  0x0005ade9  push     dword ptr [ecx + 0x1120]
+  0x0005adef  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0005adf5  mov      ecx, eax
+  0x0005adf7  call     0x1000d460   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x750
+  0x0005adfc  test     eax, eax
+  0x0005adfe  je       0x1005ae7a
+  0x0005ae00  mov      edx, dword ptr [eax]
+  0x0005ae02  mov      ecx, eax
+  0x0005ae04  call     dword ptr [edx + 0xac]
+  0x0005ae0a  pop      ebp
+  0x0005ae0b  ret      4
+  0x0005ae0e  cmp      eax, 0x2a
+  0x0005ae11  jne      0x1005ae38
+  0x0005ae13  push     dword ptr [ecx + 0x1120]
+  0x0005ae19  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+

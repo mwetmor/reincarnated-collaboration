@@ -1,0 +1,138 @@
+=== disp32 0x1cb7 occurrences in .text: 14
+   0x0003f7bf  mov      byte ptr [edi + 0x1cb7], 0                        in ??0Character@GAME@@QAE@XZ+0x101f
+   0x000468eb  mov      byte ptr [esi + 0x1cb7], 0                        in ?StartRespawn@Character@GAME@@UAEXABVWorldCoords@2@@Z+0x1b
+   0x00048835  mov      byte ptr [esi + 0x1cb7], 1                        in ?ExecuteImmobilize@Character@GAME@@UAEXXZ+0x5
+   0x000488b5  mov      byte ptr [esi + 0x1cb7], 1                        in ?ExecuteTrap@Character@GAME@@UAEXXZ+0x5
+   0x000488e0  mov      byte ptr [ecx + 0x1cb7], 0                        in ?ReleaseTrap@Character@GAME@@UAEXXZ
+   0x000488f5  mov      byte ptr [esi + 0x1cb7], 0                        in ?ReleaseImmobilize@Character@GAME@@UAEXXZ+0x5
+   0x0005b3d0  mov      al, byte ptr [ecx + 0x1cb7]                       in ?DisallowsMovement@Character@GAME@@QBE_NXZ
+   0x0006c64b  cmp      byte ptr [edi + 0x1cb7], 0                        in ?Execute@MoveToAction@GAME@@UAEXXZ+0x4b
+   0x0006ca33  cmp      byte ptr [ebx + 0x1cb7], 0                        in ?Execute@WalkAction@GAME@@UAEXXZ+0x33
+   0x0006dd9c  cmp      byte ptr [esi + 0x1cb7], 0                        in ?Execute@JumpAttackAction@GAME@@UAEXXZ+0x4c
+   0x0006e55c  cmp      byte ptr [esi + 0x1cb7], 0                        in ?Execute@EvadeAction@GAME@@UAEXXZ+0x4c
+   rva 0x000cef35  (no clean decode)  in ?RTTI_new@Skill_AttackLineFan@GAME@@KAPAXXZ+0x7e5
+   0x000fb62d  cmp      byte ptr [eax + 0x1cb7], 0                        in ?CanMove@ControllerMonster@GAME@@UBE_NXZ+0x6d
+   rva 0x00276015  (no clean decode)  in ?GetPuritySkills@GameEngine@GAME@@QBEABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@XZ+0x1185
+
+=== ImDead@DurationDamageManager (does the death path cleanse?) ===
+  0x00209e50  push     ebp
+  0x00209e51  mov      ebp, esp
+  0x00209e53  push     -1
+  0x00209e55  push     0x104c0477
+  0x00209e5a  mov      eax, dword ptr fs:[0]
+  0x00209e60  push     eax
+  0x00209e61  mov      dword ptr fs:[0], esp
+  0x00209e68  push     ecx
+  0x00209e69  push     ebx
+  0x00209e6a  push     esi
+  0x00209e6b  push     edi
+  0x00209e6c  mov      ebx, ecx
+  0x00209e6e  call     0x10209fc0   ; -> ?UpdateFxAndInfluence@DurationDamageManager@GAME@@IAEXXZ
+  0x00209e73  mov      edi, dword ptr [ebx + 0x30]
+  0x00209e76  mov      esi, dword ptr [ebx + 0x2c]
+  0x00209e79  cmp      esi, edi
+  0x00209e7b  je       0x10209e8f
+  0x00209e7d  nop      dword ptr [eax]
+  0x00209e80  mov      eax, dword ptr [esi]
+  0x00209e82  mov      ecx, esi
+  0x00209e84  push     0
+  0x00209e86  call     dword ptr [eax]
+  0x00209e88  add      esi, 0x24
+  0x00209e8b  cmp      esi, edi
+  0x00209e8d  jne      0x10209e80
+  0x00209e8f  mov      eax, dword ptr [ebx + 0x2c]
+  0x00209e92  mov      dword ptr [ebx + 0x30], eax
+  0x00209e95  mov      edi, dword ptr [ebx + 0x3c]
+  0x00209e98  mov      esi, dword ptr [ebx + 0x38]
+  0x00209e9b  cmp      esi, edi
+  0x00209e9d  je       0x10209eaf
+  0x00209e9f  nop      
+  0x00209ea0  mov      eax, dword ptr [esi]
+  0x00209ea2  mov      ecx, esi
+  0x00209ea4  push     0
+  0x00209ea6  call     dword ptr [eax]
+  0x00209ea8  add      esi, 0x24
+  0x00209eab  cmp      esi, edi
+  0x00209ead  jne      0x10209ea0
+  0x00209eaf  mov      eax, dword ptr [ebx + 0x38]
+  0x00209eb2  mov      dword ptr [ebx + 0x3c], eax
+  0x00209eb5  mov      dword ptr [ebx + 0x28], 0
+  0x00209ebc  mov      dword ptr [ebx + 0x1c], 0
+  0x00209ec3  mov      esi, dword ptr [ebx + 0x20]
+  0x00209ec6  mov      esi, dword ptr [esi]
+  0x00209ec8  cmp      esi, dword ptr [ebx + 0x20]
+  0x00209ecb  je       0x10209f27
+  0x00209ecd  mov      edi, ebx
+  0x00209ecf  nop      
+  0x00209ed0  mov      ecx, dword ptr [edi + 4]
+  0x00209ed3  push     dword ptr [esi + 0x10]
+  0x00209ed6  mov      eax, dword ptr [ecx]
+  0x00209ed8  call     dword ptr [eax + 0x42c]
+  0x00209ede  cmp      byte ptr [esi + 0xd], 0
+  0x00209ee2  jne      0x10209f22
+  0x00209ee4  mov      eax, dword ptr [esi + 8]
+  0x00209ee7  cmp      byte ptr [eax + 0xd], 0
+  0x00209eeb  jne      0x10209f03
+  0x00209eed  mov      esi, eax
+  0x00209eef  mov      eax, dword ptr [esi]
+  0x00209ef1  cmp      byte ptr [eax + 0xd], 0
+  0x00209ef5  jne      0x10209f22
+  0x00209ef7  mov      esi, eax
+  0x00209ef9  mov      eax, dword ptr [esi]
+  0x00209efb  cmp      byte ptr [eax + 0xd], 0
+  0x00209eff  je       0x10209ef7
+  0x00209f01  jmp      0x10209f22   ; -> ?ImDead@DurationDamageManager@GAME@@QAEXXZ+0xd2
+  0x00209f03  mov      eax, dword ptr [esi + 4]
+  0x00209f06  cmp      byte ptr [eax + 0xd], 0
+  0x00209f0a  jne      0x10209f20
+  0x00209f0c  nop      dword ptr [eax]
+  0x00209f10  cmp      esi, dword ptr [eax + 8]
+  0x00209f13  jne      0x10209f20
+  0x00209f15  mov      esi, eax
+  0x00209f17  mov      eax, dword ptr [eax + 4]
+  0x00209f1a  cmp      byte ptr [eax + 0xd], 0
+  0x00209f1e  je       0x10209f10
+  0x00209f20  mov      esi, eax
+  0x00209f22  cmp      esi, dword ptr [ebx + 0x20]
+  0x00209f25  jne      0x10209ed0
+  0x00209f27  mov      dword ptr [ebp - 4], 0
+  0x00209f2e  mov      eax, dword ptr [ebx + 0x20]
+  0x00209f31  mov      edi, dword ptr [eax + 4]
+  0x00209f34  mov      esi, edi
+  0x00209f36  cmp      byte ptr [edi + 0xd], 0
+  0x00209f3a  jne      0x10209f5e
+  0x00209f3c  nop      dword ptr [eax]
+  0x00209f40  push     dword ptr [esi + 8]
+  0x00209f43  lea      ecx, [ebx + 0x20]
+  0x00209f46  call     0x1000ad70   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x9b0
+  0x00209f4b  mov      esi, dword ptr [esi]
+  0x00209f4d  push     edi
+  0x00209f4e  call     0x104be91b   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c6b
+  0x00209f53  add      esp, 4
+  0x00209f56  mov      edi, esi
+  0x00209f58  cmp      byte ptr [esi + 0xd], 0
+  0x00209f5c  je       0x10209f40
+  0x00209f5e  mov      eax, dword ptr [ebx + 0x20]
+  0x00209f61  mov      ecx, dword ptr [ebp - 0xc]
+  0x00209f64  pop      edi
+  0x00209f65  pop      esi
+  0x00209f66  mov      dword ptr [eax + 4], eax
+  0x00209f69  mov      eax, dword ptr [ebx + 0x20]
+  0x00209f6c  mov      dword ptr [eax], eax
+  0x00209f6e  mov      eax, dword ptr [ebx + 0x20]
+  0x00209f71  mov      dword ptr [eax + 8], eax
+  0x00209f74  mov      dword ptr [ebx + 0x24], 0
+  0x00209f7b  pop      ebx
+  0x00209f7c  mov      dword ptr fs:[0], ecx
+  0x00209f83  mov      esp, ebp
+  0x00209f85  pop      ebp
+  0x00209f86  ret      
+  0x00209f87  int3     
+  0x00209f88  int3     
+  0x00209f89  int3     
+  0x00209f8a  int3     
+  0x00209f8b  int3     
+  0x00209f8c  int3     
+  0x00209f8d  int3     
+  0x00209f8e  int3     
+  0x00209f8f  int3     
