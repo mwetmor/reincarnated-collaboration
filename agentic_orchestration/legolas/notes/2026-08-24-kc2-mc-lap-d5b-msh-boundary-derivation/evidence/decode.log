@@ -1,0 +1,129 @@
+====================================================================================================
+KC2-MC · D-5b — THE `.msh` DECODE + ARENA-BOUNDARY DERIVATION
+====================================================================================================
+
+§3  A001 re-parsed WITH rotations: 483 plain + 11 group members
+    PatrolPoint_Attack centroid (sim origin) = (81.2601, 64.3606)
+    blocking placements (allowPathing = False): 341  [D-5 count 341 -> MATCH]
+    3x3 row norms in [0.999997, 1.000000]  det in [0.999994, 1.000000]  => pure rotation, unit scale
+    blocker distance from the arena centroid: min 4.7 · p10 21.6 · median 48.0 · p90 76.4 · max 100.7 m
+    10 m-bin histogram 0..110 m: [10, 24, 29, 72, 44, 55, 44, 42, 19, 1, 1]
+    => a FIELD, not a ring: no annulus holds a dominant share.
+
+§4  ENGINE CHAIN — D-5 § 5 step 2 CORRECTED
+       0xa0a0  c2 08 00 cc cc cc     ?AddEntity@ImpassableData@GAME
+      0x10be0  c2 0c 00 cc cc cc     ?AddBox@ImpassableData@GAME
+       0xaab0  32 c0 c2 04 00 cc     ?GetCollisionBox@Entity@GAME
+       0xa6a0  32 c0 c3 cc cc cc     ?OccludesPathing@Entity@GAME
+      0x22e90  b0 01 c3 cc cc cc     ?OccludesPathing@Actor@GAME
+    -> ImpassableData::AddEntity = `ret 8`, ::AddBox = `ret 0xc`, Entity::GetCollisionBox
+       = `xor al,al; ret 4`, Entity::OccludesPathing = `xor al,al; ret`  (ICF-folded stubs).
+       The LIVE chain is Level::CreatePathMesh -> NavMeshBuilder::Create(Level*) [TRIANGLES]
+       + NavMeshBuilder::Create(Entity*) [HITBOX OBBs] -> NavManager::AddData(Region*).
+
+    NavManager::SetDefaultConfig  RVA 0x126d70 — 13 immediates:
+      this+0xc   u32=32           f32=0.0
+      this+0x10  u32=1048576000   f32=0.25
+      this+0x14  u32=1045220557   f32=0.2
+      this+0x18  u32=1073741824   f32=2.0
+      this+0x1c  u32=1061997773   f32=0.8
+      this+0x20  u32=1056964608   f32=0.5
+      this+0x24  u32=1098907648   f32=16.0
+      this+0x28  u32=1069547520   f32=1.5
+      this+0x2c  u32=1101004800   f32=20.0
+      this+0x30  u32=1112014848   f32=50.0
+      this+0x34  u32=6            f32=0.0
+      this+0x38  u32=1086324736   f32=6.0
+      this+0x3c  u32=1065353216   f32=1.0
+    -> gate inputs used below: cell 0.25 m · height 2.0 m · radius 0.8 m
+    Terrain::SlopeImpassable RVA 0x18c120  K=0.25  T=0.6000000238418579  (D-5 § 4, re-read)
+
+§5  `.msh` decode — 27 distinct meshes behind the 341 blocking placements
+    chunk chain closes exactly at EOF : 27/27
+    chunk-10 AABB == vertex extremes  : 27/27   (bit-exact, 6/6 floats)
+    chunk-5 max index == n_vert - 1   : 27/27
+    total triangles behind the blockers: 620,182
+    meshes carrying a chunk-8 hitbox   : 25/27  (total OBBs 37)
+    corpus control (400 random `.msh` from 3360 in Level Art.arc): chain 400/400 · AABB-exact 399/400 · index-exact 399/400
+    chunk-8 vs chunk-10 cross-check on 15 single-hitbox meshes: |delta y-centre| median 328.334 mm; tightest stalagmite_single01.msh delta [-0.0743, 0.0, -0.0]
+    scale falsifier — creatures/pc/hero01.msh AABB y -0.0188 .. 2.5372 = 2.5559 m tall, against the decoded agentHeight 2.0 m => mesh units ARE world metres.
+
+§9  blocking-geometry sample clouds (world-space, indexed to the 0.25 m grid)
+    triangles      28,987,859 in-region samples · height-above-terrain p05 -1.90 · median +3.21 · p95 +9.99 m
+    hitboxOBB      48,524,899 in-region samples · height-above-terrain p05 -3.20 · median +2.07 · p95 +8.80 m
+    renderAABB     96,497,757 in-region samples · height-above-terrain p05 -2.72 · median +3.69 · p95 +11.70 m
+    (hitboxOBB uses 453 chunk-8 OBBs across the 341 placements)
+
+§10a  TERRAIN ALONE — three rules, each swept.  D-5 swept only the first.
+     rule                         param    imp%  reach m2  edge?  anchors
+     SlopeImpassable dev (m)      0.150   50.4%      4011   True    17/18
+     SlopeImpassable dev (m)      0.300   30.6%      8583   True    17/18
+     SlopeImpassable dev (m)      0.600   13.3%     13516   True    18/18
+     SlopeImpassable dev (m)      1.200    5.1%     15517   True    18/18
+     SlopeImpassable dev (m)      2.000    2.1%     16034   True    18/18
+     surface slope (deg)          8.000   69.6%         0   True     0/18
+     surface slope (deg)         10.000   63.0%      2468   True    14/18
+     surface slope (deg)         12.000   56.3%      2944   True    15/18
+     surface slope (deg)         16.000   46.3%      5981   True    17/18
+     surface slope (deg)         20.000   39.4%      7493   True    17/18
+     surface slope (deg)         30.000   26.9%      9054   True    18/18
+     surface slope (deg)         45.000   12.5%     13794   True    18/18
+     max step per cell (m)        0.200   60.7%      2561   True    15/18
+     max step per cell (m)        0.300   47.7%      5828   True    17/18
+     max step per cell (m)        0.500   33.4%      8254   True    17/18
+     max step per cell (m)        0.800   21.6%      9925   True    18/18
+     max step per cell (m)        1.500    8.5%     14648   True    18/18
+
+§10b  TERRAIN + COMPOSED STATIC GEOMETRY — 3 blocking rules x walkable band
+      band = [terrain + lo, terrain + hi]; lo = walkable-climb analogue, hi = agent height
+     rule           lo    hi    geo%  reach m2         sim x span         sim y span  edge?  anchors
+     triangles     0.0   1.0   19.7%      2063    [-30.39, 42.61]    [-40.49, 55.51]   True    14/18
+     triangles     0.0   2.0   28.9%      1743    [-30.39, 42.61]    [-40.49, 35.26]   True    14/18
+     triangles     0.0   3.0   37.1%        39      [-4.39, 4.36]      [-9.49, 0.26]  False     0/18
+     triangles     0.5   1.0   15.6%      7086    [-85.14, 42.61]    [-40.99, 63.51]   True    14/18
+     triangles     0.5   2.0   26.1%      5688    [-85.14, 42.61]    [-40.99, 63.51]   True    14/18
+     triangles     0.5   3.0   34.8%        40      [-4.39, 4.36]      [-9.49, 0.26]  False     0/18
+     triangles     1.0   2.0   22.5%      6485    [-85.14, 42.61]    [-41.49, 63.51]   True    14/18
+     triangles     1.0   3.0   32.1%        41      [-4.39, 4.36]      [-9.49, 0.26]  False     0/18
+     hitboxOBB     0.0   1.0   42.7%         0               None               None   True     0/18
+     hitboxOBB     0.0   2.0   46.5%         0               None               None   True     0/18
+     hitboxOBB     0.0   3.0   48.9%         0               None               None   True     0/18
+     hitboxOBB     0.5   1.0   42.5%         0               None               None   True     0/18
+     hitboxOBB     0.5   2.0   46.3%         0               None               None   True     0/18
+     hitboxOBB     0.5   3.0   48.7%         0               None               None   True     0/18
+     hitboxOBB     1.0   2.0   45.8%         0               None               None   True     0/18
+     hitboxOBB     1.0   3.0   48.2%         0               None               None   True     0/18
+     renderAABB    0.0   1.0   55.6%         0               None               None   True     0/18
+     renderAABB    0.0   2.0   59.9%         0               None               None   True     0/18
+     renderAABB    0.0   3.0   64.5%         0               None               None   True     0/18
+     renderAABB    0.5   1.0   55.4%         0               None               None   True     0/18
+     renderAABB    0.5   2.0   59.7%         0               None               None   True     0/18
+     renderAABB    0.5   3.0   64.3%         0               None               None   True     0/18
+     renderAABB    1.0   2.0   59.5%         0               None               None   True     0/18
+     renderAABB    1.0   3.0   64.1%         0               None               None   True     0/18
+
+     BEST cell over the whole 27-cell sweep, by anchors reachable: triangles|0.0|2.0 -> 14/18 anchors, closed = False
+     ⚑ NO CELL IN THE SWEEP IS BOTH CLOSED AND ANCHOR-COMPLETE. The pre-registered acceptance test (D-5 § 5 step 4) FAILS everywhere.
+
+§10c  ANCHOR DIAGNOSIS at rule=triangles, band=[+0.5, +2.0] m (the engine-faithful cell): 770 free components; seed component 5,688 m2
+     ⚑ emitter:spawnpoint02       sim (  +9.34,  -31.46)  DISCONNECTED (component 199, 4 m2)
+     ⚑ emitter:spawnpoint05       sim (  -6.82,   +2.18)  INSIDE-BLOCKING-GEOMETRY
+     ⚑ emitter:tier16spawnpoint01 sim ( -34.45,   +9.59)  INSIDE-BLOCKING-GEOMETRY
+     ⚑ patrolpoint_attack_03      sim ( -14.86,  -11.36)  INSIDE-BLOCKING-GEOMETRY
+     14/18 anchors reachable; 4 FAIL.
+     ⚑ A monster emitter cannot be inside a wall.  The composition is FALSIFIED BY THE
+       GAME'S OWN DATA — not by judgement.  No boundary is offered.
+
+§11  CLEARANCE — what survives the negative
+     occupancy hull  sim x [-45.28, +41.64] · sim y [-42.41, +42.90]
+     A001 region tile sim x [-85.26, 42.74] · sim y [-64.361, 63.639]
+     terrain-passable-from-centroid (decoded T) sim x [-85.14, 42.61] · sim y [-64.24, 63.51]
+     hull edge to the REGION TILE edge:  east +1.10 m · west +39.98 m · north +20.74 m · south +21.95 m
+     hull perimeter samples on terrain-passable ground: 1452/1600
+
+§11b  RESIDUALS
+     (i) `.map` head named objects: ['PatrolPoint_Attack', 'Patrol Points', 'SurvivalMode_Tomb', 'tagSurvivalArena_01', 'SurvivalMode_Deeps', 'tagSurvivalArena_02', 'BossMusic', 'Spawn Area', 'Spawn Area 02', 'Survival Mode 01', 'NoRiftgates', 'NoPVP']
+         each carries a GUID + two editor RGBA colours; NO geometry payload.
+     (ii) 7 regions; A001 blob @1839979 (1076532 B). Trailing (grid, origin) words recorded in the findings JSON; they do NOT read as a contiguous 128 m tiling and were NOT reconciled this lap.
+     (iii) head arithmetic: 7 x 262188 + 4655 = 1839971 vs A001 blob offset 1839979 (delta 8 B); 262188 - 44 = 262144, which is 512*512 (True) AND 256*256*4 (True). Payload reads as 4-byte pixel runs -> a 256x256 RGBA IMAGE, not a 512x512 0.25 m pathing bitmap.
+     (iv) `.lvl` property list: entity section ends 0x8643, heightfield marker 0xdede, gap 22683 B, declared property-section size 22659 -> 392 [key][size][payload] entries, payload-size histogram {12: 390, 5048: 1, 9795: 1}; the 12-byte payloads decode as RGB float triples -> a colour/lighting table, NOT bounds.
