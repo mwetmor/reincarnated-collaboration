@@ -1,0 +1,214 @@
+#!/usr/bin/env python3
+"""flight_record — the U-1 fleet flight-recorder appender.
+
+Append ONE schema-v1 event row to the monthly tape at
+`agentic_orchestration/flight/records-YYYY-MM.jsonl` (month taken from the event ts, UTC).
+
+  flight_record START  --unit-id vfx-p2/01-foo --unit-kind job --lane codex-serial ...
+  flight_record CLOSE  --unit-id vfx-p2/01-foo --unit-kind job --rc 0 \
+                       --tokens-input 845782 --artifact path/to/out.md \
+                       --derived-from path/to/usage.jsonl --derived-from path/to/usage.err
+  flight_record GATE   --unit-id run:X --unit-kind run --gate-id G-1 \
+                       --gatekeeper jack-ryan --verdict PASS-WITH-FINDINGS \
+                       --derived-from qa/findings/....md
+  flight_record snapshot --currency anthropic-max \
+                       --meter session_pct_used=34 --meter week_pct_used=61
+
+HARD RULES (enforced here and in schema.py):
+  * append-only — this tool has no edit and no delete verb. A wrong row is corrected by a
+    NEW row carrying `--corrects <row_id>`; the tape never lies about what was believed.
+  * never estimate — omit a token flag and the field is absent. There is no zero default.
+  * a verdict NEVER comes from `rc` (amendment B-2): `--verdict` requires `--gatekeeper`
+    AND `--derived-from`. An exit code is a mechanical fact; a verdict is a judgement.
+  * telemetry only — no work-product bodies, no prose, no model in the loop.
+
+Python 3 stdlib only. Exit 0 on append, 0 on dedupe-skip (stderr note), 2 on schema refusal.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FLIGHT_DIR = os.path.dirname(HERE)
+sys.path.insert(0, FLIGHT_DIR)
+
+import schema  # noqa: E402
+from tape import append_row  # noqa: E402
+
+
+def utcnow() -> str:
+    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _artifact(spec: str, repo: str = None) -> dict:
+    """`path` or `path:BYTES`. Bytes are MEASURED from disk when omitted, never guessed."""
+    path, bytes_ = spec, None
+    if ":" in spec:
+        head, tail = spec.rsplit(":", 1)
+        if tail.isdigit():
+            path, bytes_ = head, int(tail)
+    abspath = schema.resolve_path(path, repo)
+    if bytes_ is None and os.path.exists(abspath):
+        bytes_ = os.path.getsize(abspath)
+    out = {"path": path}
+    if bytes_ is not None:
+        out["bytes"] = bytes_
+    return out
+
+
+def _meter(pairs):
+    out = {}
+    for p in pairs or []:
+        if "=" not in p:
+            raise SystemExit("--meter expects key=value, got %r" % p)
+        k, v = p.split("=", 1)
+        # Preserve the meter's own vocabulary; only numeric coercion, no interpretation.
+        try:
+            out[k] = int(v)
+        except ValueError:
+            try:
+                out[k] = float(v)
+            except ValueError:
+                out[k] = v
+    return out
+
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        prog="flight_record",
+        description="Append one schema-v1 row to the fleet flight recorder tape.",
+        epilog="THE LAW: the tape is truth-of-record; views over it carry zero authority.",
+    )
+    p.add_argument("event", help="one of: %s (case-insensitive)" % ", ".join(schema.EVENTS))
+    p.add_argument("--ts", default=None, help="ISO-8601 UTC event time (default: now)")
+
+    g = p.add_argument_group("common (§ 3.2)")
+    g.add_argument("--unit-id")
+    g.add_argument("--unit-kind", choices=list(schema.UNIT_KINDS))
+    g.add_argument("--parent-id")
+    g.add_argument("--workstream")
+    g.add_argument("--operator", help="the NAMED agent that fired/owns it")
+    g.add_argument("--seam")
+    g.add_argument("--repo")
+    g.add_argument("--backfill", action="store_true", help="retrospective row (U-2 class)")
+    g.add_argument("--corrects", help="row_id this row supersedes (append-only correction)")
+
+    g = p.add_argument_group("identity (B-3 matrix: ENQUEUE/START/CLOSE; currency also SNAPSHOT)")
+    g.add_argument("--provider")
+    g.add_argument("--lane", choices=list(schema.LANES))
+    g.add_argument("--pin", help="the config-of-record WE requested")
+    g.add_argument("--model-echo", help="model string the VENDOR echoed, verbatim")
+    g.add_argument("--harness")
+    g.add_argument("--harness-version")
+    g.add_argument("--currency", choices=list(schema.CURRENCIES))
+    g.add_argument("--curator", help="named curator (B-6: REQUIRED at ENQUEUE on vendor lanes)")
+
+    g = p.add_argument_group("outcome (§ 3.5 — GATE/CURATION/CLOSE)")
+    g.add_argument("--verdict", choices=list(schema.VERDICTS),
+                   help="B-2: requires --gatekeeper and --derived-from. NEVER derived from rc.")
+    g.add_argument("--gate-id")
+    g.add_argument("--gatekeeper", help="the named agent that judged")
+    g.add_argument("--warn-count", type=int)
+    g.add_argument("--fabrication-check", choices=list(schema.FABRICATION_CHECKS))
+    g.add_argument("--derived-from", action="append", metavar="PATH[#ANCHOR]",
+                   help="repeatable (B-5: a LIST); each path must exist on disk")
+
+    g = p.add_argument_group("cost (§ 3.4 — CLOSE only; primitives, never estimates)")
+    g.add_argument("--tokens-input", type=int)
+    g.add_argument("--tokens-cached-input", type=int)
+    g.add_argument("--tokens-cache-write", type=int)
+    g.add_argument("--tokens-output", type=int)
+    g.add_argument("--tokens-reasoning", type=int)
+    g.add_argument("--rc", type=int)
+    g.add_argument("--attempt", type=int)
+    g.add_argument("--retry-of")
+    g.add_argument("--artifact", action="append", metavar="PATH[:BYTES]",
+                   help="repeatable; bytes measured from disk when omitted")
+
+    g = p.add_argument_group("snapshot (§ 5)")
+    g.add_argument("--meter", action="append", metavar="KEY=VALUE",
+                   help="repeatable; stored raw under meter_raw in the meter's own vocabulary")
+
+    g = p.add_argument_group("plumbing")
+    g.add_argument("--records-dir", default=FLIGHT_DIR,
+                   help="tape directory (default: the flight/ dir beside this script)")
+    g.add_argument("--force", action="store_true",
+                   help="append even if an identical row_id already exists on the tape")
+    g.add_argument("--dry-run", action="store_true", help="validate + print, write nothing")
+    g.add_argument("--print", dest="print_row", action="store_true", help="echo the row to stdout")
+    return p
+
+
+def main(argv=None) -> int:
+    args = build_parser().parse_args(argv)
+
+    event = args.event.upper()
+    if event not in schema.EVENTS:
+        sys.stderr.write("flight_record: unknown event %r (expected one of %s)\n"
+                         % (args.event, ", ".join(schema.EVENTS)))
+        return 2
+
+    ts = args.ts or utcnow()
+
+    fields = dict(
+        unit_id=args.unit_id,
+        unit_kind=args.unit_kind,
+        parent_id=args.parent_id,
+        workstream=args.workstream,
+        operator=args.operator,
+        seam=args.seam,
+        repo=args.repo,
+        backfill=True if args.backfill else None,
+        corrects=args.corrects,
+        provider=args.provider,
+        lane=args.lane,
+        pin=args.pin,
+        model_echo=args.model_echo,
+        harness=args.harness,
+        harness_version=args.harness_version,
+        currency=args.currency,
+        curator=args.curator,
+        verdict=args.verdict,
+        gate_id=args.gate_id,
+        gatekeeper=args.gatekeeper,
+        warn_count=args.warn_count,
+        fabrication_check=args.fabrication_check,
+        derived_from=list(args.derived_from) if args.derived_from else None,
+        tokens_input=args.tokens_input,
+        tokens_cached_input=args.tokens_cached_input,
+        tokens_cache_write=args.tokens_cache_write,
+        tokens_output=args.tokens_output,
+        tokens_reasoning=args.tokens_reasoning,
+        rc=args.rc,
+        attempt=args.attempt,
+        retry_of=args.retry_of,
+        artifacts=([_artifact(a, args.repo) for a in args.artifact]
+                   if args.artifact else None),
+        meter_raw=_meter(args.meter) if args.meter else None,
+    )
+
+    try:
+        row = schema.make_row(event, ts, **fields)
+    except schema.SchemaError as exc:
+        sys.stderr.write("flight_record: REFUSED — %s\n" % exc)
+        return 2
+
+    path, status = append_row(row, args.records_dir, force=args.force, dry_run=args.dry_run)
+
+    if status == "duplicate":
+        sys.stderr.write("flight_record: skip — row_id %s already on %s "
+                         "(use --force to append anyway)\n" % (row["row_id"], os.path.basename(path)))
+    if args.print_row or args.dry_run:
+        sys.stdout.write(schema.serialize(row) + "\n")
+    elif status == "appended":
+        sys.stdout.write("%s %s %s -> %s\n" % (row["row_id"], event,
+                                               row.get("unit_id"), os.path.basename(path)))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

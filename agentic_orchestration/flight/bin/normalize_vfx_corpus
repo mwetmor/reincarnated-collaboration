@@ -1,0 +1,251 @@
+#!/usr/bin/env python3
+"""normalize_vfx_corpus — U-1 founding rows (the VFX archetype-binding P2 lane).
+
+One-shot, idempotent backfill of the first receipts the fleet ever left on disk:
+`agentic_orchestration/research/vfx-p2-dossiers/` (SEALED 2026-08-24).
+
+For each usage-bearing job it emits exactly two rows:
+  START  — ts from `usage/_run-log.tsv` `start=`; lane identity from the emitter of record,
+           every claim naming its own source in `derived_from`. `backfill: true`.
+  CLOSE  — ts from the TSV row's leading (end) timestamp; `rc` from the TSV; token primitives
+           COPIED VERBATIM from that job's `turn.completed.usage`; artifacts = the dossier
+           path + the `dossier_bytes` the harness measured; `derived_from` lists the raw
+           vendor stream, its `.err` sidecar, and the TSV. `backfill: true`.
+
+What it deliberately does NOT emit (jack-ryan G-1 amendments, binding):
+  * **no `verdict` on any founding row (B-2).** No gatekeeper judged those 30 jobs at job
+    grain. `rc=0` is a mechanical fact about a process, and the corpus proves the gap: job 01
+    exited rc=0 while its `.err` logged an `AuthRequired` transport failure. The board renders
+    `30 rc=0`, never `30 PASS`. Ledger S2's "verdicts from rc only" is retracted by B-2.
+  * **no ENQUEUE rows (INFO-3).** `_run-log.tsv` carries `start`/`end` only; an ENQUEUE at
+    ts=start would be a fabricated event, and `enqueue→seal` is simply not derivable here.
+  * **no `harness_version` (B-5c).** All 30 streams carry no model/version/rate-limit key of
+    any kind, so a version on a backfill row is an unsourced claim about the past. Null.
+  * **no GATE rows.** The VFX run's judged surface (galadriel's P3 selection gate) carries
+    per-item merge/distinct rulings, not a run-level verdict in the § 3.5 enum. Inventing one
+    is exactly the fabrication class this recorder exists to make impossible.
+  * no estimated numbers anywhere. A `SKIP-EXISTS` TSV row is not a verdict-bearing run and is
+    skipped outright (it has no usage stream to reproduce from).
+
+Idempotency: row_ids are content-addressed (schema.compute_row_id), so re-running produces
+byte-identical ids and every row is refused as a duplicate. Safe to re-run forever.
+
+Python 3 stdlib only. No LLM. Read-only against the corpus; append-only against the tape.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FLIGHT_DIR = os.path.dirname(HERE)
+AO_DIR = os.path.dirname(FLIGHT_DIR)                    # agentic_orchestration/
+REPO_ROOT = os.path.dirname(AO_DIR)                     # reincarnated-collaboration/
+sys.path.insert(0, FLIGHT_DIR)
+
+import schema                      # noqa: E402
+from tape import append_row        # noqa: E402
+
+CORPUS_REL = "agentic_orchestration/research/vfx-p2-dossiers"
+
+# --- the lane identity of record for this corpus -----------------------------
+# B-5(c): every identity claim below names its source in IDENTITY_SOURCES. Anything with no
+# nameable source on a backfill row is NULL — see `harness_version`, absent by ruling.
+CHARTER = "agentic_orchestration/gandalf/notes/2026-08-23-vfx-archetype-binding-charter.md"
+EMITTER = "agentic_orchestration/research/vfx-p2-dossiers/run_p2_serial.sh"
+RUN_LOG_REL = "agentic_orchestration/research/vfx-p2-dossiers/usage/_run-log.tsv"
+PIN_SOURCE = "agentic_orchestration/workflow-upgrades.md#§ U-4"
+CURRENCY_SOURCE = "canonical/matt_to_do/README.md#T16"
+
+IDENTITY = dict(
+    provider="openai",        # <- EMITTER (`codex exec`)
+    lane="codex-serial",      # <- EMITTER (serial law, one exec at a time)
+    pin="gpt-5.6-sol@xhigh",  # <- PIN_SOURCE
+    model_echo=None,          # the codex --json stream echoes no model string; declared null
+    harness="codex-cli",      # <- EMITTER
+    harness_version=None,     # B-5(c): no version key exists in any of the 30 streams. NULL.
+    currency="chatgpt-sub",   # <- CURRENCY_SOURCE
+    curator=None,             # B-6: the 4-column founding TSV predates R-B. Null, declared.
+)
+IDENTITY_SOURCES = [EMITTER, PIN_SOURCE, CURRENCY_SOURCE, CHARTER]
+
+WORKSTREAM = "VFX-AB"
+PARENT_ID = "run:VFX-AB"
+OPERATOR = "gandalf"          # <- CHARTER (conductor of record)
+SEAM = "research"
+REPO = "reincarnated-collaboration"
+UNIT_PREFIX = "vfx-p2/"
+
+# --- the one downstream verdict artifact that IS in the § 3.5 vocabulary ------
+# elrond's P2 curation note states an explicit run-level PASS with a counted WARN total, filed
+# by a NAMED verifier — so it satisfies B-2 (gatekeeper) and B-5 (named source).
+CURATION = dict(
+    note="agentic_orchestration/elrond/notes/2026-08-24-vfx-p2-dossier-curation.md",
+    ts="2026-08-24T14:03:40Z",   # not before the last job closed; the note's own day
+    gatekeeper="elrond",
+    verdict="PASS",
+    warn_count=6,                # "25 finding rows — 6 WARN / 19 INFO / 0 UNRESOLVED"
+)
+
+
+def parse_run_log(path: str) -> list:
+    """Rows: {ts_end, job, rc, ts_start, dossier_bytes}. SKIP-EXISTS rows are dropped."""
+    out = []
+    with open(path, "r", encoding="utf-8") as fh:
+        for raw in fh:
+            raw = raw.rstrip("\n")
+            if not raw.strip():
+                continue
+            f = raw.split("\t")
+            if len(f) < 4:
+                continue
+            ts_end, job, status, tail = f[0], f[1], f[2], f[3]
+            if not status.startswith("rc="):
+                continue  # SKIP-EXISTS and friends are not verdict-bearing runs
+            rc = int(status[3:])
+            parts = dict()
+            for token in tail.replace("dossier_bytes=", "dossier_bytes= ").split():
+                if "=" in token:
+                    k, v = token.split("=", 1)
+                    parts[k] = v
+            bytes_ = tail.split("dossier_bytes=")[1].strip() if "dossier_bytes=" in tail else ""
+            out.append(dict(
+                ts_end=ts_end,
+                job=job,
+                rc=rc,
+                ts_start=parts.get("start"),
+                dossier_bytes=int(bytes_) if bytes_.isdigit() else None,
+            ))
+    return out
+
+
+def read_usage(path: str) -> dict:
+    """Return the single `turn.completed.usage` object, verbatim. Absent -> {}."""
+    found = []
+    with open(path, "r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                o = json.loads(line)
+            except Exception:
+                continue
+            if o.get("type") == "turn.completed":
+                found.append(o.get("usage") or {})
+    if len(found) > 1:
+        raise SystemExit("%s carries %d turn.completed rows; expected 1 — refusing to guess"
+                         % (path, len(found)))
+    return found[0] if found else {}
+
+
+def tok(usage: dict, key: str):
+    """Copy a vendor primitive or return None. NEVER a zero default."""
+    v = usage.get(key)
+    return v if isinstance(v, int) else None
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(prog="normalize_vfx_corpus", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--corpus", default=os.path.join(REPO_ROOT, CORPUS_REL))
+    ap.add_argument("--records-dir", default=FLIGHT_DIR)
+    ap.add_argument("--no-curation", action="store_true",
+                    help="skip the one elrond CURATION row")
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args(argv)
+
+    run_log = os.path.join(args.corpus, "usage", "_run-log.tsv")
+    if not os.path.exists(run_log):
+        sys.stderr.write("normalize_vfx_corpus: no run log at %s\n" % run_log)
+        return 2
+
+    jobs = parse_run_log(run_log)
+    appended = dupes = skipped = 0
+    sums = dict.fromkeys(schema.TOKEN_FIELDS, 0)
+
+    for j in jobs:
+        job = j["job"]
+        usage_rel = "%s/usage/%s.jsonl" % (CORPUS_REL, job)
+        usage_abs = os.path.join(args.corpus, "usage", job + ".jsonl")
+        if not os.path.exists(usage_abs):
+            sys.stderr.write("  skip %s — no usage stream on disk (nothing to reproduce from)\n" % job)
+            skipped += 1
+            continue
+
+        usage = read_usage(usage_abs)
+        aid = job.split("-", 1)[1] if "-" in job else job
+        dossier_rel = "%s/dossiers/%s.md" % (CORPUS_REL, aid)
+        err_rel = "%s/usage/%s.err" % (CORPUS_REL, job)
+        unit_id = UNIT_PREFIX + job
+
+        start = schema.make_row(
+            "START", j["ts_start"],
+            unit_id=unit_id, unit_kind="job", parent_id=PARENT_ID,
+            workstream=WORKSTREAM, operator=OPERATOR, seam=SEAM, repo=REPO,
+            backfill=True, derived_from=[RUN_LOG_REL] + IDENTITY_SOURCES, **IDENTITY)
+
+        artifacts = None
+        if j["dossier_bytes"] is not None:
+            artifacts = [{"path": dossier_rel, "bytes": j["dossier_bytes"]}]
+
+        # INFO-7: the `.err` sidecar rides along as free evidence — it is what keeps B-2's
+        # argument auditable years from now (job 01: rc=0 with AuthRequired in the .err).
+        close_sources = [usage_rel, RUN_LOG_REL]
+        if os.path.exists(os.path.join(args.corpus, "usage", job + ".err")):
+            close_sources.append(err_rel)
+        close_sources += IDENTITY_SOURCES
+
+        close = schema.make_row(
+            "CLOSE", j["ts_end"],
+            unit_id=unit_id, unit_kind="job", parent_id=PARENT_ID,
+            workstream=WORKSTREAM, operator=OPERATOR, seam=SEAM, repo=REPO,
+            backfill=True,
+            # B-2: verdict is ABSENT. rc is the mechanical fact; no gatekeeper judged these.
+            rc=j["rc"], attempt=1,
+            tokens_input=tok(usage, "input_tokens"),
+            tokens_cached_input=tok(usage, "cached_input_tokens"),
+            tokens_cache_write=tok(usage, "cache_write_input_tokens"),
+            tokens_output=tok(usage, "output_tokens"),
+            tokens_reasoning=tok(usage, "reasoning_output_tokens"),
+            artifacts=artifacts,
+            derived_from=close_sources,
+            **IDENTITY)
+
+        for f in schema.TOKEN_FIELDS:
+            if close.get(f) is not None:
+                sums[f] += close[f]
+
+        for row in (start, close):
+            _, status = append_row(row, args.records_dir, dry_run=args.dry_run)
+            if status == "appended":
+                appended += 1
+            else:
+                dupes += 1
+
+    if not args.no_curation:
+        cur = schema.make_row(
+            "CURATION", CURATION["ts"],
+            unit_id=PARENT_ID, unit_kind="run", workstream=WORKSTREAM,
+            operator="elrond", seam=SEAM, repo=REPO, backfill=True,
+            gatekeeper=CURATION["gatekeeper"], verdict=CURATION["verdict"],
+            warn_count=CURATION["warn_count"],
+            derived_from=[CURATION["note"]])
+        _, status = append_row(cur, args.records_dir, dry_run=args.dry_run)
+        appended += status == "appended"
+        dupes += status == "duplicate"
+
+    print("jobs in run log (verdict-bearing): %d" % len(jobs))
+    print("rows appended: %d · already on tape: %d · jobs skipped (no usage): %d"
+          % (appended, dupes, skipped))
+    print("MEASURED token sums over the corpus (mechanical, from the raw streams):")
+    for f in schema.TOKEN_FIELDS:
+        print("  %-22s %s" % (f, "{:,}".format(sums[f])))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,700 @@
+#!/usr/bin/env python3
+"""flight_report — Tier-1 fleet VIEW generator (U-1).
+
+Reads the tape (`flight/records-*.jsonl`), folds it (latest event per unit governs), runs a
+fixed set of READ-ONLY disk probes, and writes `flight/report.md`.
+
+THE LAW (U-1), enforced by construction:
+  * this is a VIEW — zero authority, never in the data path; no agent reads it to decide.
+  * every number here is DERIVED at render time from rows. Nothing is stored back.
+  * every probe is a READ. This tool has no write verb except writing report.md itself.
+  * no LLM anywhere. No network except the probes' own local CLIs.
+  * a probe that fails renders as `probe failed: <name>` — never silently absent.
+  * a null renders as a declared null, never as a zero.
+
+Determinism: the render is a pure function of (disk state, `now`). `now` is captured ONCE and
+printed on the header line; every age in the document derives from that single reading.
+Pass `--now` to pin it for tests.
+
+Python 3 stdlib only.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime
+import os
+import re
+import shutil
+import subprocess
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FLIGHT_DIR = os.path.dirname(HERE)
+AO_DIR = os.path.dirname(FLIGHT_DIR)
+REPO_ROOT = os.path.dirname(AO_DIR)
+sys.path.insert(0, FLIGHT_DIR)
+
+import schema  # noqa: E402
+import tape as tapemod  # noqa: E402
+
+SIBLING_REPOS = ("reincarnated-collaboration", "reincarnated-engine",
+                 "reincarnated-demo", "reincarnated-loadout", "reincarnated-godot")
+
+AGENT_LANES = {"claude-agent", "claude-subagent"}
+
+# F-2 SLA (RULED): agent dispatches amber 48 h / red 7 d.
+AGENT_AMBER_S = 48 * 3600
+AGENT_RED_S = 7 * 86400
+# F-2 SLA: scripted jobs amber at 2× / red at 5× their class median duration.
+SCRIPTED_AMBER_MULT = 2
+SCRIPTED_RED_MULT = 5
+
+GREEN, AMBER, RED = "\U0001F7E2", "\U0001F7E1", "\U0001F534"
+
+
+# ---------------------------------------------------------------- time helpers
+def parse_ts(ts: str) -> datetime.datetime:
+    return datetime.datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(
+        tzinfo=datetime.timezone.utc)
+
+
+def fmt_age(seconds: float) -> str:
+    s = int(max(0, seconds))
+    if s < 90:
+        return "%ds" % s
+    if s < 5400:
+        return "%dm" % round(s / 60)
+    if s < 172800:
+        return "%dh" % round(s / 3600)
+    return "%dd" % round(s / 86400)
+
+
+def fmt_span(seconds: float) -> str:
+    """Headline durations keep one decimal in hours — a rounded rollup hides a real delta."""
+    s = float(max(0, seconds))
+    if s < 5400:
+        return "%dm" % round(s / 60)
+    if s < 172800:
+        return "%.1fh" % (s / 3600.0)
+    return "%.1fd" % (s / 86400.0)
+
+
+def median(values):
+    vs = sorted(values)
+    if not vs:
+        return None
+    n = len(vs)
+    return vs[n // 2] if n % 2 else (vs[n // 2 - 1] + vs[n // 2]) / 2.0
+
+
+def human_n(n):
+    if n is None:
+        return "—"
+    if n >= 1_000_000:
+        return "%.1fM" % (n / 1_000_000.0)
+    if n >= 1_000:
+        return "%.0fK" % (n / 1000.0)
+    return str(n)
+
+
+# ---------------------------------------------------------------- probe runner
+class Probes(object):
+    """Every probe is a READ. Failures are recorded, never swallowed."""
+
+    def __init__(self, repo_root: str):
+        self.repo_root = repo_root
+        self.results = {}   # name -> payload
+        self.failures = {}  # name -> reason
+        self.ran = 0
+        self.total = 0
+
+    def run(self, name, fn):
+        self.total += 1
+        try:
+            self.results[name] = fn()
+            self.ran += 1
+        except Exception as exc:
+            self.failures[name] = "%s: %s" % (type(exc).__name__, exc)
+
+    def get(self, name):
+        return self.results.get(name)
+
+    def status(self, name):
+        if name in self.failures:
+            return "failed"
+        if name in self.results:
+            return "ok"
+        return "not-run"
+
+    def line(self, name, render):
+        """Uniform rendering: a failure is LOUD, a skip is DECLARED, never silently absent."""
+        st = self.status(name)
+        if st == "failed":
+            return "probe failed: %s (%s)" % (name, self.failures[name])
+        if st == "not-run":
+            return "probe not run: %s (`--no-probes`)" % name
+        return render(self.results[name])
+
+
+def _sh(cmd, cwd=None, timeout=25):
+    p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout)
+    return p.returncode, p.stdout.strip(), p.stderr.strip()
+
+
+def probe_git(repo_path):
+    def fn():
+        rc, out, err = _sh(["git", "-C", repo_path, "status", "--porcelain", "-b"])
+        if rc != 0:
+            raise RuntimeError(err or "git exited %d" % rc)
+        lines = out.split("\n") if out else []
+        head = lines[0] if lines and lines[0].startswith("##") else ""
+        dirty = len([l for l in lines[1:] if l.strip()])
+        ahead = behind = 0
+        m = re.search(r"\[(.*)\]", head)
+        if m:
+            for part in m.group(1).split(","):
+                part = part.strip()
+                if part.startswith("ahead "):
+                    ahead = int(part.split()[1])
+                elif part.startswith("behind "):
+                    behind = int(part.split()[1])
+        branch = head[3:].split("...")[0] if head else "?"
+        return dict(branch=branch, ahead=ahead, behind=behind, dirty=dirty)
+    return fn
+
+
+def probe_codex_login():
+    def fn():
+        if shutil.which("codex") is None:
+            raise RuntimeError("codex CLI not on PATH")
+        rc, out, err = _sh(["codex", "login", "status"], timeout=30)
+        return dict(rc=rc, text=(out or err).split("\n")[0][:120])
+    return fn
+
+
+def probe_env_cache1h():
+    def fn():
+        val = os.environ.get("ENABLE_PROMPT_CACHING_1H")
+        return dict(present=val is not None, value=val)
+    return fn
+
+
+def _parse_queue(path):
+    """Parse THE QUEUE table only. Struck iff the id cell carries `~~` (mechanical, no reading)."""
+    with open(path, "r", encoding="utf-8") as fh:
+        lines = fh.read().split("\n")
+    start = None
+    for i, l in enumerate(lines):
+        if l.startswith("## THE QUEUE"):
+            start = i
+            break
+    if start is None:
+        raise RuntimeError("no '## THE QUEUE' heading in %s" % os.path.basename(path))
+    rows, seen_table = [], False
+    for l in lines[start + 1:]:
+        if l.startswith("## "):
+            break
+        if not l.startswith("|"):
+            continue
+        cells = [c.strip() for c in l.strip().strip("|").split("|")]
+        if set(cells[0]) <= set("-: ") and cells[0]:
+            seen_table = True
+            continue
+        if not seen_table:
+            continue  # header row
+        if len(cells) < 2:
+            continue
+        idcell = cells[0]
+        struck = "~~" in idcell
+        rid = re.sub(r"[^A-Za-z0-9]", "", re.sub(r"✓.*$", "", idcell))
+        title = re.sub(r"[*_`]", "", cells[1])
+        title = re.sub(r"\s+", " ", title).strip()
+        date = cells[-1] if re.match(r"^\d{4}-\d{2}-\d{2}$", cells[-1]) else None
+        rows.append(dict(id=rid, struck=struck, title=title, date=date))
+    return rows
+
+
+def probe_matt_queue(path):
+    def fn():
+        rows = _parse_queue(path)
+        return dict(rows=rows,
+                    open=len([r for r in rows if not r["struck"]]),
+                    struck=len([r for r in rows if r["struck"]]))
+    return fn
+
+
+def probe_requests(ao_dir):
+    def fn():
+        out = {}
+        for entry in sorted(os.listdir(ao_dir)):
+            rdir = os.path.join(ao_dir, entry, "requests")
+            if os.path.isdir(rdir):
+                files = [f for f in sorted(os.listdir(rdir)) if f.endswith(".md")]
+                out[entry] = files
+        return out
+    return fn
+
+
+def probe_disk(path):
+    def fn():
+        st = os.statvfs(path)
+        free = st.f_bavail * st.f_frsize
+        total = st.f_blocks * st.f_frsize
+        return dict(free_gb=free / 1e9, total_gb=total / 1e9,
+                    pct_free=100.0 * free / total if total else 0.0)
+    return fn
+
+
+# ---------------------------------------------------------------- fold helpers
+def unit_identity(unit):
+    """Resolve a unit's lane identity from its own START/CLOSE rows (render-time join)."""
+    ident = {}
+    for r in unit["rows"]:
+        if r["event"] in ("START", "CLOSE"):
+            for f in schema.IDENTITY_FIELDS:
+                if r.get(f) is not None and f not in ident:
+                    ident[f] = r[f]
+    return ident
+
+
+def unit_event(unit, event):
+    for r in unit["rows"]:
+        if r["event"] == event:
+            return r
+    return None
+
+
+def unit_duration(unit):
+    s, c = unit_event(unit, "START"), unit_event(unit, "CLOSE")
+    if not s or not c:
+        return None
+    return (parse_ts(c["ts"]) - parse_ts(s["ts"])).total_seconds()
+
+
+def sla_class(unit):
+    """WARN-1: the class key is DECLARED IN SCHEMA (`schema.SLA_CLASS_KEY`), not invented here.
+
+    The board performs no derivation beyond fold-of-events: it reads the declared key off the
+    unit's own rows.
+    """
+    ident = unit_identity(unit)
+    latest = unit["latest"]
+    parts = []
+    for f in schema.SLA_CLASS_KEY:
+        parts.append(ident.get(f) or latest.get(f) or "—")
+    return tuple(parts)
+
+
+def class_medians(units):
+    """Median START→CLOSE duration per declared class, over SEALED units, with its n.
+
+    Derived at render time, stored nowhere.
+    """
+    buckets = {}
+    for u in units.values():
+        d = unit_duration(u)
+        if d is None:
+            continue
+        buckets.setdefault(sla_class(u), []).append(d)
+    return {k: (median(v), len(v)) for k, v in buckets.items()}
+
+
+def staleness(age_s, lane, med_n):
+    """F-2 SLA. Returns (marker, rule-text).
+
+    WARN-1: below `schema.SLA_MIN_N` a class median is the unit itself and the SLA is
+    vacuously green, so the lane renders `no SLA — n=k` instead of a colour.
+    """
+    if lane in AGENT_LANES:
+        if age_s >= AGENT_RED_S:
+            return RED, "red@7d (n/a — fixed SLA)"
+        if age_s >= AGENT_AMBER_S:
+            return AMBER, "amber@48h"
+        return GREEN, "amber@48h · red@7d"
+    med, n = med_n if med_n else (None, 0)
+    if med is None:
+        return "—", "no SLA — no closed unit in this class yet (n=0)"
+    if n < schema.SLA_MIN_N:
+        return "—", "no SLA — n=%d < min-n %d" % (n, schema.SLA_MIN_N)
+    if age_s >= SCRIPTED_RED_MULT * med:
+        return RED, "red@5×med (med %s, n=%d)" % (fmt_age(med), n)
+    if age_s >= SCRIPTED_AMBER_MULT * med:
+        return AMBER, "amber@2×med (med %s, n=%d)" % (fmt_age(med), n)
+    return GREEN, "amber@2×med (med %s, n=%d)" % (fmt_age(med), n)
+
+
+# ---------------------------------------------------------------- the renderer
+def render(records_dir, repo_root, now, run_probes=True):
+    rows, raw_count = tapemod.load(records_dir)
+    units = schema.fold(rows)
+    tape_names = [os.path.basename(p) for p in tapemod.tape_files(records_dir)]
+
+    p = Probes(repo_root)
+    if run_probes:
+        games = os.path.dirname(repo_root)
+        for name in SIBLING_REPOS:
+            path = os.path.join(games, name)
+            if os.path.isdir(os.path.join(path, ".git")):
+                p.run("git:" + name, probe_git(path))
+        p.run("codex-login", probe_codex_login())
+        p.run("env:ENABLE_PROMPT_CACHING_1H", probe_env_cache1h())
+        p.run("matt_decision_needed",
+              probe_matt_queue(os.path.join(repo_root, "canonical/matt_decision_needed/README.md")))
+        p.run("matt_to_do",
+              probe_matt_queue(os.path.join(repo_root, "canonical/matt_to_do/README.md")))
+        p.run("requests-dirs", probe_requests(os.path.join(repo_root, "agentic_orchestration")))
+        p.run("disk", probe_disk(repo_root))
+
+    L = []
+    A = L.append
+
+    # ---- header
+    A("# FLEET — regenerated %s · VIEW ONLY (THE LAW: zero authority; disk is truth)"
+      % now.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    A("")
+    A("tape: %s (%d rows on disk; %d after corrections) · probes: %d/%d ran · schema v%d"
+      % (", ".join(tape_names) or "(none)", raw_count, len(rows), p.ran, p.total,
+         schema.SCHEMA_VERSION))
+    A("")
+    A("> Generated by `flight/bin/flight_report` — deterministic, no LLM in the path. "
+      "Every figure is derived from rows at render time and stored nowhere. "
+      "Nothing on this page is authority: rule from the ledgers, dispatches and queues.")
+    A("")
+
+    # WARN-5 — the coverage boundary, stated before any lane can read as a census.
+    cov = schema.coverage(rows)
+    cov_line = ("**COVERAGE:** tape begins %s. Every unit that started before the recorder "
+                "existed is structurally invisible here — including the six 2026-07-22 "
+                "engine-seam dispatches this lane was created for. A lane count is a count "
+                "of RECORDED units, never a census of the fleet."
+                % (cov["first_ts"] or "(no rows yet)"))
+    A(cov_line)
+    A("")
+
+    # ---- lane 1: AWAITING MATT
+    dq = p.results.get("matt_decision_needed")
+    tq = p.results.get("matt_to_do")
+    halts = [u for u in units.values()
+             if u["state"] != "SEALED" and any(r["event"] == "HALT" for r in u["rows"])]
+    ndec = "%d open / %d struck" % (dq["open"], dq["struck"]) if dq else "(%s)" % p.status(
+        "matt_decision_needed")
+    nact = "%d open / %d struck" % (tq["open"], tq["struck"]) if tq else "(%s)" % p.status(
+        "matt_to_do")
+    A("## ⏸ AWAITING MATT — decisions %s · actions %s · %d open HALT(s) on tape"
+      % (ndec, nact, len(halts)))
+    A("")
+
+    def queue_block(label, name):
+        def render_ok(res):
+            items = [r for r in res["rows"] if not r["struck"]]
+            if not items:
+                return "none open"
+            parts = []
+            for r in items:
+                age = ""
+                if r["date"]:
+                    try:
+                        age = " (%s)" % fmt_age(
+                            (now - parse_ts(r["date"] + "T00:00:00Z")).total_seconds())
+                    except Exception:
+                        age = ""
+                else:
+                    age = " (no date in the row)"
+                parts.append("- **%s**%s %s" % (r["id"], age, r["title"][:90]))
+            return "\n" + "\n".join(parts)
+        return "%s %s" % (label, p.line(name, render_ok))
+
+    A("_Strike rule (mechanical, no interpretation): a queue row counts as CLOSED only when its "
+      "`#` cell is struck (`~~`). Rows whose body says RULED/DONE but whose `#` cell is not struck "
+      "render as open — that is a defect in the queue file, not in this view._")
+    A("")
+    A(queue_block("**DECISIONS** (`canonical/matt_decision_needed/`):", "matt_decision_needed"))
+    A("")
+    A(queue_block("**ACTIONS** (`canonical/matt_to_do/`):", "matt_to_do"))
+    A("")
+    if halts:
+        A("**HALTS / OPEN VETO WINDOWS** (from tape):")
+        for u in halts:
+            h = [r for r in u["rows"] if r["event"] == "HALT"][-1]
+            A("- `%s` — %s · %s ago" % (h["unit_id"], h.get("operator") or "operator —",
+                                        fmt_age((now - parse_ts(h["ts"])).total_seconds())))
+    else:
+        A("**HALTS / OPEN VETO WINDOWS** (from tape): none")
+    A("")
+
+    # ---- lane 2: IN-FLIGHT
+    meds = class_medians(units)
+    inflight = sorted([u for u in units.values() if u["state"] == "IN-FLIGHT"],
+                      key=lambda u: u["latest"]["ts"])
+    queued = [u for u in units.values() if u["state"] == "QUEUED"]
+    A("## ▶ IN-FLIGHT — %d of %d units on tape   (staleness per F-2 SLA)"
+      % (len(inflight), len(units)))
+    A("")
+    A("_%s_" % cov_line)
+    A("")
+    if inflight:
+        A("| unit | kind | operator | lane | last event | age | SLA |")
+        A("|---|---|---|---|---|---|---|")
+        for u in inflight:
+            ident = unit_identity(u)
+            lane = ident.get("lane") or "—"
+            latest = u["latest"]
+            age = (now - parse_ts(latest["ts"])).total_seconds()
+            mark, rule = staleness(age, lane, meds.get(sla_class(u)))
+            A("| `%s` | %s | %s | %s | %s | %s | %s %s |"
+              % (latest["unit_id"], latest.get("unit_kind") or "—",
+                 latest.get("operator") or "—", lane, latest["event"], fmt_age(age), mark, rule))
+    else:
+        A("_none_")
+    A("")
+    A("queued (ENQUEUE seen, no START yet): %d%s"
+      % (len(queued), (" — " + ", ".join("`%s`" % u["latest"]["unit_id"] for u in queued))
+         if queued else ""))
+    A("")
+
+    # ---- lane 3: AT GATE
+    open_gates = []
+    for u in units.values():
+        gates = [r for r in u["rows"] if r["event"] == "GATE"]
+        if not gates:
+            continue
+        g = gates[-1]
+        closes = [r for r in u["rows"] if r["event"] == "CLOSE" and r["ts"] >= g["ts"]]
+        if not closes:
+            open_gates.append(g)
+    A("## \U0001f6a7 AT GATE — %d" % len(open_gates))
+    A("")
+    if open_gates:
+        A("| unit | gate | gatekeeper | verdict so far | waiting |")
+        A("|---|---|---|---|---|")
+        for g in sorted(open_gates, key=lambda r: r["ts"]):
+            A("| `%s` | %s | %s | %s | %s |"
+              % (g["unit_id"], g.get("gate_id") or "—", g.get("gatekeeper") or "—",
+                 g.get("verdict") or "(none yet — declared)",
+                 fmt_age((now - parse_ts(g["ts"])).total_seconds())))
+    else:
+        A("_none open on the tape_  \n"
+          "(gates that never emitted a GATE row are invisible here — the tape only knows "
+          "what was recorded; that is the honest limit of a flight recorder, not a claim of none.)")
+    A("")
+
+    # ---- lane 4: HEALTH
+    A("## ⚙ HEALTH   (read-only probes, run at render time)")
+    A("")
+    A("- codex auth: " + p.line(
+        "codex-login",
+        lambda r: "%s %s" % (GREEN if r["rc"] == 0 else RED, r["text"])))
+    A("- `ENABLE_PROMPT_CACHING_1H`: " + p.line(
+        "env:ENABLE_PROMPT_CACHING_1H",
+        lambda e: ("%s set (`%s`)" % (GREEN, e["value"]) if e["present"]
+                   else "%s NOT SET in this render's env (the U-3 lever)" % RED)))
+    for name in SIBLING_REPOS:
+        key = "git:" + name
+        if p.status(key) == "not-run" and not run_probes:
+            continue
+        if p.status(key) == "not-run":
+            continue  # repo absent on this host; the roster line below declares the set probed
+        A("- git `%s`: " % name + p.line(
+            key,
+            lambda g: "%s %s · unpushed %d · dirty %d%s"
+            % (GREEN if (g["ahead"] == 0 and g["dirty"] == 0) else AMBER,
+               g["branch"], g["ahead"], g["dirty"],
+               " · behind %d" % g["behind"] if g["behind"] else "")))
+    A("- unswept `requests/` (L-31: owners sweep at phase boundaries): " + p.line(
+        "requests-dirs",
+        lambda rq: (" · ".join("%s %d (earliest by name `%s`)" % (k, len(v), v[0])
+                               for k, v in sorted(rq.items()) if v) or "all clear")))
+    A("- disk: " + p.line(
+        "disk",
+        lambda d: "%s %.0f GB free of %.0f GB (%.0f%%)"
+        % (GREEN if d["pct_free"] > 5 else RED, d["free_gb"], d["total_gb"], d["pct_free"])))
+
+    # window meters, from the tape's SNAPSHOT rows
+    snaps = [r for r in rows if r["event"] == "SNAPSHOT"]
+    if snaps:
+        latest_by_cur = {}
+        for s in sorted(snaps, key=lambda r: r["ts"]):
+            latest_by_cur[s.get("currency")] = s
+        for cur, s in sorted(latest_by_cur.items()):
+            A("- window meter `%s`: %s (snapshot %s)"
+              % (cur, ", ".join("%s=%s" % kv for kv in sorted(s["meter_raw"].items())), s["ts"]))
+    else:
+        A("- window meters: no SNAPSHOT rows on the tape (declared null, not zero)")
+
+    # pin drift — model_echo vs pin
+    drift = []
+    echoes = 0
+    for u in units.values():
+        ident = unit_identity(u)
+        if ident.get("model_echo"):
+            echoes += 1
+            if ident.get("pin") and ident["model_echo"] != ident["pin"]:
+                drift.append((u["latest"]["unit_id"], ident["pin"], ident["model_echo"]))
+    if drift:
+        A("- pin drift: %s %d unit(s) where model_echo ≠ pin" % (RED, len(drift)))
+        for uid, pin, echo in drift[:5]:
+            A("  - `%s` pin `%s` → echo `%s`" % (uid, pin, echo))
+    elif echoes:
+        A("- pin drift: %s none — %d/%d units carry a `model_echo` and all match their pin"
+          % (GREEN, echoes, len(units)))
+    else:
+        A("- pin drift: **NO SIGNAL** — `model_echo` is null on %d/%d units, so the tripwire "
+          "cannot fire on any lane currently captured (INFO-2). This is a determinate answer, "
+          "not a clean bill of health. Closing it needs a vendor that echoes its model, or an "
+          "enqueue-time `codex --version` probe into `harness_version`." % (len(units), len(units)))
+    harnesses = {}
+    for u in units.values():
+        ident = unit_identity(u)
+        ws = (unit_event(u, "START") or u["latest"]).get("workstream")
+        if ws and ident.get("harness_version"):
+            harnesses.setdefault(ws, set()).add(
+                "%s %s" % (ident.get("harness"), ident["harness_version"]))
+    mixed = {k: v for k, v in harnesses.items() if len(v) > 1}
+    if mixed:
+        A("- harness version: %s MIXED within %s (a silent CLI update is the same class of "
+          "confound as a silent model change)" % (AMBER, ", ".join(mixed)))
+    elif harnesses:
+        A("- harness version: %s stable per workstream (%s)"
+          % (GREEN, "; ".join("%s: %s" % (k, list(v)[0]) for k, v in sorted(harnesses.items()))))
+    else:
+        A("- harness version: **not recorded on any unit** — declared null, not stable. "
+          "Backfill rows carry no version because no vendor stream in the corpus emits one "
+          "(B-5c); forward capture should probe the tool at enqueue.")
+    A("")
+
+    # ---- lane 5: SEALED
+    sealed = [u for u in units.values() if u["state"] == "SEALED"]
+    A("## ✓ SEALED — %d unit(s) on the tape" % len(sealed))
+    A("")
+    ws_groups = {}
+    for u in sealed:
+        c = unit_event(u, "CLOSE")
+        ws_groups.setdefault(c.get("workstream") or "(no workstream)", []).append(u)
+    if ws_groups:
+        A("Every cell names its denominator (INFO-4). `rc` is a mechanical exit code; a "
+          "**verdict** appears only where a named gatekeeper filed one (B-2).")
+        A("")
+        A("| workstream | units | rc | judged verdicts | curation | tok-in | cache | tok-out | reasoning | currency | first-start→last-close |")
+        A("|---|---|---|---|---|---|---|---|---|---|---|")
+        for ws, us in sorted(ws_groups.items()):
+            closes = [unit_event(u, "CLOSE") for u in us]
+            n = len(us)
+            rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+            rc_cell = ("%d/%d rc=0" % (len([r for r in rcs if r == 0]), len(rcs))
+                       if rcs else "— no rc on %d/%d units" % (n, n))
+            vcount = {}
+            for c in closes:
+                if c.get("verdict"):
+                    vcount[c["verdict"]] = vcount.get(c["verdict"], 0) + 1
+            judged = (" · ".join("%d %s" % (k, v) for v, k in sorted(vcount.items(),
+                                                                    key=lambda kv: -kv[1]))
+                      if vcount else "0/%d judged (verdict null — no gatekeeper at this grain)" % n)
+            cur_rows = [r for r in rows if r["event"] == "CURATION" and r.get("workstream") == ws]
+            warns = sum(r.get("warn_count") or 0 for r in cur_rows)
+            cur_cell = ("%d WARN across %d curation row(s)" % (warns, len(cur_rows))
+                        if cur_rows else "no curation row")
+            tin = sum(c.get("tokens_input") or 0 for c in closes)
+            tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
+            tout = sum(c.get("tokens_output") or 0 for c in closes)
+            treason = sum(c.get("tokens_reasoning") or 0 for c in closes)
+            n_tok = len([c for c in closes if c.get("tokens_input") is not None])
+            firsts, lasts = [], []
+            for u in us:
+                firsts.append(parse_ts(u["rows"][0]["ts"]))
+                lasts.append(parse_ts(unit_event(u, "CLOSE")["ts"]))
+            span = fmt_span((max(lasts) - min(firsts)).total_seconds())
+            currencies = sorted({c.get("currency") for c in closes if c.get("currency")})
+            A("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s | %s |"
+              % (ws, n, rc_cell, judged, cur_cell,
+                 "%s (%d/%d units)" % (human_n(tin), n_tok, n) if n_tok
+                 else "— null on %d/%d units" % (n, n),
+                 ("%.1f%% of %s" % (100.0 * tcache / tin, human_n(tin))) if n_tok and tin else "—",
+                 human_n(tout) if n_tok else "—",
+                 human_n(treason) if n_tok else "—",
+                 "/".join(currencies) or "—", span))
+        A("")
+        A("_`first-start→last-close` is a RUN DURATION, not `enqueue→seal` (INFO-3): the "
+          "founding corpus records no ENQUEUE events, so enqueue→seal is not derivable for it._")
+    else:
+        A("_no sealed units on the tape yet_")
+    A("")
+
+    A("### Per-model scorecard — derived at render time from CLOSE rows (never stored)")
+    A("")
+    groups = {}
+    for u in sealed:
+        ident = unit_identity(u)
+        key = (ident.get("provider") or "—", ident.get("pin") or "(no pin recorded)")
+        groups.setdefault(key, []).append(u)
+    if groups:
+        A("| provider / pin | units | first-pass rc=0 | tok-in | cache | tok-out | tok-in/artifact | med wall |")
+        A("|---|---|---|---|---|---|---|---|")
+        for (prov, pin), us in sorted(groups.items()):
+            closes = [unit_event(u, "CLOSE") for u in us]
+            have_tokens = any(c.get("tokens_input") is not None for c in closes)
+            tin = sum(c.get("tokens_input") or 0 for c in closes)
+            tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
+            tout = sum(c.get("tokens_output") or 0 for c in closes)
+            rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+            firstpass = ("%.0f%% (%d/%d rc=0)"
+                         % (100.0 * len([r for r in rcs if r == 0]) / len(rcs),
+                            len([r for r in rcs if r == 0]), len(rcs))) if rcs else "— (no rc)"
+            arts = sum(len(c.get("artifacts") or []) for c in closes)
+            durs = [d for d in (unit_duration(u) for u in us) if d is not None]
+            A("| %s / %s | %d | %s | %s | %s | %s | %s | %s |"
+              % (prov, pin, len(us), firstpass,
+                 human_n(tin) if have_tokens else "— (null, declared)",
+                 ("%.1f%%" % (100.0 * tcache / tin)) if have_tokens and tin else "—",
+                 human_n(tout) if have_tokens else "—",
+                 human_n(int(tin / arts)) if have_tokens and arts else "—",
+                 fmt_age(median(durs)) if durs else "—"))
+        A("")
+        A("_WARN / fabrication-check columns are omitted rather than zero-filled: in schema v1 a "
+          "CURATION row binds to a `unit_id`, so a per-model WARN rate is only derivable when the "
+          "curated unit is itself a lane unit. The VFX curation binds to the run, not the jobs._")
+    else:
+        A("_no sealed units to score_")
+    A("")
+
+    if p.failures:
+        A("---")
+        A("")
+        A("**PROBE FAILURES (%d):**" % len(p.failures))
+        for k, v in sorted(p.failures.items()):
+            A("- probe failed: %s — %s" % (k, v))
+        A("")
+
+    A("---")
+    A("")
+    A("`flight/report.md` · Tier-1 · SHOP-ONLY · regenerate with "
+      "`agentic_orchestration/flight/bin/flight_report`. "
+      "This file is disposable: delete it and it rebuilds identically from the tape.")
+    return "\n".join(L) + "\n"
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(prog="flight_report", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--records-dir", default=FLIGHT_DIR)
+    ap.add_argument("--repo-root", default=REPO_ROOT)
+    ap.add_argument("--out", default=os.path.join(FLIGHT_DIR, "report.md"))
+    ap.add_argument("--now", default=None, help="pin the clock (ISO-8601 UTC) for deterministic runs")
+    ap.add_argument("--no-probes", action="store_true", help="tape-only render (probes skipped)")
+    ap.add_argument("--stdout", action="store_true", help="print instead of writing report.md")
+    args = ap.parse_args(argv)
+
+    now = (parse_ts(args.now) if args.now
+           else datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0))
+    text = render(args.records_dir, args.repo_root, now, run_probes=not args.no_probes)
+    if args.stdout:
+        sys.stdout.write(text)
+    else:
+        with open(args.out, "w", encoding="utf-8") as fh:
+            fh.write(text)
+        sys.stdout.write("wrote %s (%d bytes)\n" % (args.out, len(text.encode("utf-8"))))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""check_append_only — turn append-only from a discipline into a gate (WARN-6).
+
+The tape is committed (F-8), so a rewrite is at least VISIBLE in git history. This makes it
+REJECTED as well: any staged change to `flight/records-*.jsonl` that deletes or modifies a
+line fails, and only pure appends pass.
+
+    agentic_orchestration/flight/bin/check_append_only            # staged changes (pre-commit)
+    agentic_orchestration/flight/bin/check_append_only --range HEAD~1..HEAD
+
+Wire it as a pre-commit hook (host-level, Matt's call):
+    ln -s ../../agentic_orchestration/flight/bin/check_append_only .git/hooks/pre-commit
+
+Exit 0 = append-only holds. Exit 1 = a line was deleted or modified. Read-only; no LLM.
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import subprocess
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+TAPE_GLOB = "agentic_orchestration/flight/records-*.jsonl"
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(prog="check_append_only", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--range", dest="rng", default=None,
+                    help="commit range to check (default: the staged index)")
+    ap.add_argument("--repo-root", default=REPO_ROOT)
+    args = ap.parse_args(argv)
+
+    cmd = ["git", "-C", args.repo_root, "diff", "--numstat"]
+    cmd += [args.rng] if args.rng else ["--cached"]
+    cmd += ["--", TAPE_GLOB]
+
+    p = subprocess.run(cmd, capture_output=True, text=True)
+    if p.returncode != 0:
+        sys.stderr.write("check_append_only: git failed — %s\n" % p.stderr.strip())
+        return 2
+
+    violations = []
+    added = 0
+    for line in p.stdout.strip().split("\n"):
+        if not line.strip():
+            continue
+        add, dele, path = (line.split("\t") + ["", "", ""])[:3]
+        if dele.isdigit() and int(dele) > 0:
+            violations.append((path, int(dele)))
+        if add.isdigit():
+            added += int(add)
+
+    if violations:
+        sys.stderr.write("check_append_only: APPEND-ONLY VIOLATION — the tape does not lie "
+                         "about what was believed at the time.\n")
+        for path, dele in violations:
+            sys.stderr.write("  %s: %d line(s) deleted or modified\n" % (path, dele))
+        sys.stderr.write("  A wrong row is corrected by a NEW row carrying "
+                         "`corrects: <row_id>`, never by rewrite.\n")
+        return 1
+
+    print("check_append_only: OK — %d line(s) appended, 0 deleted or modified" % added)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
