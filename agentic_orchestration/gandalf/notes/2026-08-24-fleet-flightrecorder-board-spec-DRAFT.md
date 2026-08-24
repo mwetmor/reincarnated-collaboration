@@ -475,5 +475,28 @@ Because **F-8 ruled the tape committed**, the pushed `flight/records-*.jsonl` al
 
 ---
 
+## 13 · AMENDMENT AM-1 (Matt directive 2026-08-24, mid-U1-BUILD): vendor LANE CARDS + Grok parity
+
+**Matt verbatim:** *"I should probably have the codex lane status on the fleet board at a glance so that I can reference it before ever engaging with the codex TUI on my mac. If a card does not exist for codex lane, please add it. Also, I fully tested the Grok lane just now and we have the same capabilities to use grok in our fleet (even with additional data available from grok on spend/etc; better than codex), so please add a grok lane and grok information in the same exact way that we have a codex lane and codex information available within our fleet management data/board/card/etc."*
+
+**Anchors (parallel-session canon, already ratified):** `gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` (jack-ryan RATIFIED-WITH-AMENDMENTS `aed7dd43`) — § 3 busy-check answer states, § 8 Q62 RULING (*"the fleet-board's lane card should RENDER the busy check's output"* — a view of the derivation, never a second truth source), § 9 Grok lane law (P-1…P-11 per-credential; serial-BY-CHOICE; leader-mode forbidden; `grok models` = auth check of record; measured envelope carries **`costUSD` natively**).
+
+### 13.1 LANES card — Tier-1 report section + board card, per vendor lane
+
+Per-lane (codex · grok; claude lanes summarized): **state** (the § 3 answer enum: open / busy-lock / busy-out-of-band / queue-pending / auth-expired / cli-missing / interactive-\<vendor\>-present) · **auth health** (`codex login status` / `grok models`) · **pin** · **last tape activity on the lane** (last CLOSE: unit, rc, tokens, cost) · **queue backlog** where a run-log exists. **Probe honesty:** the D-2 `factory` lane subcommand does NOT exist yet (lane-spec § 7 build delta, other workstream). Until it lands, the card renders a DEGRADED composite from the legs reachable today — leg 1 `lane_is_free()` (import, read-only), leg 2 shell process-scan (`codex exec` / `grok -p|agent` / `leader.sock` argv shapes), leg 3 run-log tail where present, plus auth + CLI-presence probes — and SAYS SO on the card (`probe: degraded — D-2 CLI pending`). When D-2 lands, the card switches to rendering its `--json` output. **The card never answers liveness-NOW authoritatively** — Q62's instrument caveat renders verbatim: the CLI check is the truth; the board may lag.
+
+### 13.2 Schema v1.1 (custodian amendment, star-lord; jack-ryan micro-gate G-2b pre-seal)
+
+- **Lane vocabulary:** the grok execution stream is `grok-serial` (mirrors `codex-serial`; lane-spec § 9.3 serial-per-credential). `grok-judge` in the v1 enum conflates workload-class with stream — custodian resolves (rename is tape-safe: zero grok rows exist) with jack-ryan's eyes.
+- **`grok-sub` currency** (grok.com subscription — the third economy).
+- **`cost_usd` COST field (CLOSE-only, optional):** vendor-REPORTED dollar cost copied verbatim (Grok emits `costUSD` per call natively). A reported primitive, not a derivation — derived-not-stored holds. Field ADDITION = versioned custodian amendment (v1.1), outside G-2's v1-stability claim; G-2b verifies.
+- **Founding grok row:** the 2026-08-24 live probe (PROBE-OK, $0.00286, ~4.3 s) is real credential spend and enters the tape as `backfill:true`, `derived_from` = lane-spec § 9.1 (the measurement record); any number NOT in that record stays null — no fabricated depth.
+
+### 13.3 Scope guard (what AM-1 does NOT do)
+
+AM-1 gives Grok **fleet-management parity** (data/board/card) — Matt's enumerated list. It does NOT build `GrokHarness` (D-6 stays gated behind U-8 judge-pilot authorization) and does NOT widen Grok workload admission beyond the U-8 judge door (lane-spec § 9.2: widening = U-4 re-ratification, Matt's word away if wanted). The lane card will honestly show `grok-serial: no rows on tape` until admitted work fires.
+
+---
+
 **Signed:** gandalf (SPEC-AUTHOR + ELICITOR), 2026-08-24. The tape must be boring, complete, and
 incapable of opinion; the board must be loud, derived, and incapable of authority.
