@@ -17,7 +17,7 @@
 - **(c) THE LAW (welded on, non-negotiable):** the board is a VIEW, never a second truth source; **zero authority, read-only, never in the data path** (per § 4.8 queue-rows-are-views precedent and the Q3 staleness failure case). A watcher that carries traffic is a middleman, not a monitor.
 **Empirical criterion:** after one full wave under the recorder, Matt can answer from rows (not prose): what did this wave cost, where did the time go, what got reworked and why.
 **Seam:** harness logging = star-lord-adjacent factory work; board render = bounded drax-class build (or a Codex-lane job post-F2). KR sequences.
-**Status:** OPEN — awaiting Matt adoption ruling.
+**Status (2026-08-24):** **SPEC DRAFTED** — `gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md` (event-grain record schema with identity/cost/outcome axes; board lanes AWAITING-MATT/IN-FLIGHT/AT-GATE/HEALTH/SEALED; constitution carried verbatim; grounded in the VFX founding receipts — 30 jobs, 72.4M input, **93.2% cache-hit**, the first U-3-class measurement on record). KR build request filed (`gandalf/requests/2026-08-24-knight-rider-u1-fleetboard-build.md`): star-lord recorder-first (composes with the Step-2 codex-queue task — native U-1 emission, one data path), drax board behind the ≥2-workflow gate, jack-ryan ratifies schema + THE LAW. **Awaiting Matt: fork rulings F-1…F-8 (queue Q61)** — build fires on rulings.
 
 ## U-2 — Historical retrospective mining (the backward half of U-1)
 
