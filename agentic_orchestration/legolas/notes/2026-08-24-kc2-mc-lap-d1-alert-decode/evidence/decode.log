@@ -1,0 +1,740 @@
+==============================================================================
+HALF 1 — ENTRY CONDITION
+==============================================================================
+
+ShouldPlayRallyOrAlert @ Game.dll RVA 0xf9ce0 (VA 0x100f9ce0)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100f9ce0 <?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ>:
+100f9ce0: 80 b9 8c 02 00 00 00         	cmp	byte ptr [ecx + 0x28c], 0x0
+100f9ce7: 74 0a                        	je	0x100f9cf3 <?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ+0x13>
+100f9ce9: c6 81 8c 02 00 00 00         	mov	byte ptr [ecx + 0x28c], 0x0
+100f9cf0: b0 01                        	mov	al, 0x1
+100f9cf2: c3                           	ret
+100f9cf3: 32 c0                        	xor	al, al
+100f9cf5: c3                           	ret
+direct call sites: []   <-- fully inlined; zero out-of-line callers
+
+EVERY .text access to ControllerMonster+0x28c (the latch):
+      0x6a994  movzx eax, byte ptr [ebx + 0x28c]          ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x54
+      0x6a99b  mov byte ptr [edi + 0x28c], al             ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x5b
+      0xf5542  mov byte ptr [ebx + 0x28c], 1              ??0ControllerMonster@GAME@@QAE@XZ+0x52
+      0xf9ce1  mov ecx, 0x28c                             ?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ+0x1
+      0xf9ce9  mov byte ptr [ecx + 0x28c], 0              ?ShouldPlayRallyOrAlert@ControllerMonster@GAME@@QAE_NXZ+0x9
+     0x10a779  mov eax, 0x28c                             ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z+0x419
+     0x10a781  mov byte ptr [eax + 0x28c], 0              ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z+0x421
+
+DefaultEnemyFoundResponse @ RVA 0x10a360 (VA 0x1010a360)
+
+Gate operands, resolved:
+   IsInState literal   0x1052d5dc = 'Pursue'
+   AddTemporaryState   0x1052d5fc = 'AlertBeforePursue'
+   SetState literal    0x1052d5d4 = 'Pursue'
+   anger threshold     0x105f58ac = 15.0
+   'AlertBeforePursue' standalone literals (D-Z-1 guard): ['0x1052c33c', '0x1052d5fc']
+      0x1052c33c referenced from: [('0xf9640', '?RegisterTemporaryStates@ControllerMonster@GAME@@MAEXXZ+0x130')]
+      0x1052d5fc referenced from: [('0x10a6ec', '?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z+0x38c')]
+
+Monster chance/sound field offsets (bound by their own accessors):
+   Monster+0x323c    = GetAlertSound
+   Monster+0x3240    = GetAlertSoundChance
+   Monster+0x3244    = GetAlertAnimChance
+   Monster+0x3248    = GetRallySound
+   Monster+0x324c    = GetRallySoundChance
+   Monster+0x3254    = GetRallyAnimChance
+
+AnimationSet alert-slot emptiness limb:
+   gate reads AnimationSet+0x90  ->  slot index (0x90-0xc)/4 = 0x21  (== AnimationSet_Type 0x21, the Alert slot)
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10015d60 <?DoesAnimationExist@AnimationSet@GAME@@QAE_NW4AnimationSet_Type@2@@Z>:
+10015d60: 55                           	push	ebp
+10015d61: 8b ec                        	mov	ebp, esp
+10015d63: 8b 45 08                     	mov	eax, dword ptr [ebp + 0x8]
+10015d66: 83 f8 33                     	cmp	eax, 0x33
+10015d69: 77 14                        	ja	0x10015d7f <?DoesAnimationExist@AnimationSet@GAME@@QAE_NW4AnimationSet_Type@2@@Z+0x1f>
+10015d6b: 8b 4c 81 0c                  	mov	ecx, dword ptr [ecx + 4*eax + 0xc]
+10015d6f: 8b 01                        	mov	eax, dword ptr [ecx]
+10015d71: 8b 40 3c                     	mov	eax, dword ptr [eax + 0x3c]
+10015d74: ff d0                        	call	eax
+10015d76: 84 c0                        	test	al, al
+10015d78: 0f 94 c0                     	sete	al
+10015d7b: 5d                           	pop	ebp
+10015d7c: c2 04 00                     	ret	0x4
+10015d7f: 8b 49 0c                     	mov	ecx, dword ptr [ecx + 0xc]
+10015d82: 8b 01                        	mov	eax, dword ptr [ecx]
+10015d84: 8b 40 3c                     	mov	eax, dword ptr [eax + 0x3c]
+10015d87: ff d0                        	call	eax
+10015d89: 84 c0                        	test	al, al
+10015d8b: 0f 94 c0                     	sete	al
+10015d8e: 5d                           	pop	ebp
+10015d8f: c2 04 00                     	ret	0x4
+
+EnemyFound dispatch — which states can reach the gate:
+   0x000084d0  NO-OP (ICF-folded empty)         ControllerMonsterStateDodgeAttack, ControllerMonsterStateJumpAttack, ControllerMonsterStateMove, ControllerMonsterStateReturn
+   0x000fecd0  -> DefaultEnemyFoundResponse     ControllerMonsterStateDefendLeader, ControllerMonsterStateFollowLeader, ControllerMonsterStateIdle, ControllerMonsterStatePatrol, ControllerMonsterStateRoam, ControllerMonsterStateWaitToAttack, ControllerMonsterStateWander
+   0x000ff7a0  own impl (re-targets, no alert)  ControllerMonsterStatePursue
+   0x001007d0  own impl (re-targets, no alert)  ControllerMonsterStateAttack
+   0x001023b0  own impl (re-targets, no alert)  ControllerMonsterStateRepositionForAttack
+   0x001081d0  own impl (re-targets, no alert)  ControllerMonsterStateTrapped
+   0x001099b0  -> DefaultEnemyFoundResponse     ControllerMonsterStateQuestMove
+   tail-jmp/call sites into DefaultEnemyFoundResponse: [('0xe9', '0xfecd4', '?EnemyFound@ControllerMonsterStateWander@GAME@@UAEXI@Z+0x4'), ('0xe9', '0x1099c0', '?EnemyFound@ControllerMonsterStateQuestMove@GAME@@UAEXI@Z+0x10')]
+
+alertAnimChance / alertSoundChance — .dbr field literals bound at the loader:
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+102d3010 <?Load@Monster@GAME@@UAEXABVLoadTable@2@@Z>:
+102d3511: 30 d4                        	xor	ah, dl
+102d3513: ff 8d 4d cc 89 87            	dec	dword ptr [ebp - 0x787633b3]
+102d3519: a0 32 00 00 c6               	mov	al, byte ptr [0xc6000032]
+102d351e: 45                           	inc	ebp
+102d351f: fc                           	cld
+102d3520: 00 e8                        	add	al, ch
+102d3522: 9a 57 d3 ff 8b 03 51         	lcall	0x5103, 0x8bffd357
+102d3529: c7 04 24 00 00 00 00         	mov	dword ptr [esp], 0x0
+102d3530: 8b cb                        	mov	ecx, ebx
+102d3532: 68 a0 0e 56 10               	push	0x10560ea0
+102d3537: 8b 40 24                     	mov	eax, dword ptr [eax + 0x24]
+102d353a: ff d0                        	call	eax
+102d353c: d9 7d ee                     	fnstcw	word ptr [ebp - 0x12]
+102d353f: 0f b7 45 ee                  	movzx	eax, word ptr [ebp - 0x12]
+102d3543: 8b cb                        	mov	ecx, ebx
+102d3545: 0d 00 0c 00 00               	or	eax, 0xc00
+102d354a: 89 45 e8                     	mov	dword ptr [ebp - 0x18], eax
+102d354d: 6a 00                        	push	0x0
+102d354f: 68 70 0e 56 10               	push	0x10560e70
+102d3554: d9 6d e8                     	fldcw	word ptr [ebp - 0x18]
+102d3557: df 7d e4                     	fistp	qword ptr [ebp - 0x1c]
+102d355a: 8b 45 e4                     	mov	eax, dword ptr [ebp - 0x1c]
+102d355d: 89 87 40 32 00 00            	mov	dword ptr [edi + 0x3240], eax
+102d3563: 8b 03                        	mov	eax, dword ptr [ebx]
+102d3565: d9 6d ee                     	fldcw	word ptr [ebp - 0x12]
+102d3568: ff 50 1c                     	call	dword ptr [eax + 0x1c]
+102d356b: 89 87 44 32 00 00            	mov	dword ptr [edi + 0x3244], eax
+102d3571: 8b 03                        	mov	eax, dword ptr [ebx]
+102d3573: 51                           	push	ecx
+102d3574: c7 04 24 00 00 00 00         	mov	dword ptr [esp], 0x0
+102d357b: 8b cb                        	mov	ecx, ebx
+102d357d: 68 80 0e 56 10               	push	0x10560e80
+   0x10560ea0 = 'alertSoundChance'
+   0x10560e70 = 'alertAnimChance'
+   0x10560e80 = 'rallySoundChance'
+
+The alert-chance operand over the tier-16 roster (joined from Lap AB `pm4ab_alert_anim.csv`, digest asserted):
+   alertAnimChance=   0  ALERT-SLOT-EMPTY  records= 23  rostered_actors= 50
+   alertAnimChance=  30  ALERT-SLOT-EMPTY  records=  2  rostered_actors=  2
+   alertAnimChance=   0  HAS-ALERT         records= 43  rostered_actors= 98
+   alertAnimChance=  30  HAS-ALERT         records= 19  rostered_actors= 33
+   alertAnimChance= 100  HAS-ALERT         records=  4  rostered_actors=  5
+   records that CAN alert: 23   actors: 38 / 188
+   EXPECTED alerting actors over the full roster: 14.90 / 188 (7.9 %)
+
+DURATION operand over the CAN-ALERT population (23 records / 36 resolved slots):
+   frames  min=41 p25=51.0 med=61.0 p75=68.0 max=74
+   seconds = (frames-1)/30  min=1.333 med=2.000 max=2.433
+   AlertAnimSpeed, can-alert subset: {'1.0': 35, '1.2000000476837158': 1}
+   AlertAnimSpeed, ALL resolved slots: {'1.0': 92, '1.2000000476837158': 2}   <-- Lap AB Sect5.3 said 'every resolved slot carries 1.0'; it is 92/94, not 94/94
+      exception: records/creatures/enemies/devotion/rhino_h02.dbr chance=30 frames=49 speed=1.2000000476837158 actors=1
+
+Anger arithmetic:
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1000f360 <?GetAngerDiff@AngerManager@GAME@@QBEMI@Z>:
+1000f360: 55                           	push	ebp
+1000f361: 8b ec                        	mov	ebp, esp
+1000f363: 51                           	push	ecx
+1000f364: 56                           	push	esi
+1000f365: 8d 45 08                     	lea	eax, [ebp + 0x8]
+1000f368: 50                           	push	eax
+1000f369: 8d 71 04                     	lea	esi, [ecx + 0x4]
+1000f36c: 8d 45 fc                     	lea	eax, [ebp - 0x4]
+1000f36f: 8b ce                        	mov	ecx, esi
+1000f371: 50                           	push	eax
+1000f372: e8 a9 0e 00 00               	call	0x10010220 <?ShouldRemoveEnemy@AngerManager@GAME@@AAE_NI_N@Z+0x230>
+1000f377: 8b 00                        	mov	eax, dword ptr [eax]
+1000f379: 3b 06                        	cmp	eax, dword ptr [esi]
+1000f37b: 5e                           	pop	esi
+1000f37c: 74 0c                        	je	0x1000f38a <?GetAngerDiff@AngerManager@GAME@@QBEMI@Z+0x2a>
+1000f37e: d9 40 14                     	fld	dword ptr [eax + 0x14]
+1000f381: d8 60 18                     	fsub	dword ptr [eax + 0x18]
+1000f384: 8b e5                        	mov	esp, ebp
+1000f386: 5d                           	pop	ebp
+1000f387: c2 04 00                     	ret	0x4
+1000f38a: d9 ee                        	fldz
+1000f38c: 8b e5                        	mov	esp, ebp
+1000f38e: 5d                           	pop	ebp
+1000f38f: c2 04 00                     	ret	0x4
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1000f3a0 <?Update@AngerManager@GAME@@QAEXHM_N0@Z>:
+1000f460: 00 00                        	add	byte ptr [eax], al
+1000f462: 84 c0                        	test	al, al
+1000f464: 0f 85 be 01 00 00            	jne	0x1000f628 <?Update@AngerManager@GAME@@QAEXHM_N0@Z+0x288>
+1000f46a: f3 0f 10 46 14               	movss	xmm0, dword ptr [esi + 0x14]
+1000f46f: 0f 57 e4                     	xorps	xmm4, xmm4
+1000f472: 0f 2f e0                     	comiss	xmm4, xmm0
+1000f475: 0f 87 ad 01 00 00            	ja	0x1000f628 <?Update@AngerManager@GAME@@QAEXHM_N0@Z+0x288>
+1000f47b: 8b 7d f8                     	mov	edi, dword ptr [ebp - 0x8]
+1000f47e: f3 0f 10 2d 08 58 5f 10      	movss	xmm5, dword ptr [0x105f5808]
+1000f486: f3 0f 11 46 18               	movss	dword ptr [esi + 0x18], xmm0
+1000f48b: f3 0f 10 97 68 0c 00 00      	movss	xmm2, dword ptr [edi + 0xc68]
+1000f493: f3 0f 10 9f 98 0a 00 00      	movss	xmm3, dword ptr [edi + 0xa98]
+1000f49b: f3 0f 58 d5                  	addss	xmm2, xmm5
+1000f49f: 0f 2f dc                     	comiss	xmm3, xmm4
+   AddAnger clamp ceiling 0x105f58e8 = 100.0
+
+==============================================================================
+HALF 2 — DURATION
+==============================================================================
+
+AlertBeforePursue members: {'0ControllerMonsterStateAlertBeforePursue': '0x1093f0', '1ControllerMonsterStateAlertBeforePursue': '0x3b010', '4ControllerMonsterStateAlertBeforePursue': '0x3b0e0', 'HandleEvent': '0x1094f0', 'OnBegin': '0x109410', 'OnEnd': '0x7f40', 'OnUpdate': '0x109430', '_7ControllerMonsterStateAlertBeforePursue': '0x5b4af0'}
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10109410 <?OnBegin@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ>:
+10109410: 6a 00                        	push	0x0
+10109412: 6a 00                        	push	0x0
+10109414: 51                           	push	ecx
+10109415: 8b 49 04                     	mov	ecx, dword ptr [ecx + 0x4]
+10109418: c7 04 24 00 00 80 3f         	mov	dword ptr [esp], 0x3f800000
+1010941f: ff 35 b0 52 4e 10            	push	dword ptr [0x104e52b0]
+10109425: 6a 21                        	push	0x21
+10109427: e8 c4 e3 fd ff               	call	0x100e77f0 <?PlayAnimation@ControllerAI@GAME@@QAEXW4AnimationSet_Type@2@ABVName@2@M_NI@Z>
+1010942c: c3                           	ret
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+101094f0 <?HandleEvent@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXABVName@2@@Z>:
+101094f0: 55                           	push	ebp
+101094f1: 8b ec                        	mov	ebp, esp
+101094f3: 64 a1 00 00 00 00            	mov	eax, dword ptr fs:[0x0]
+101094f9: 6a ff                        	push	-0x1
+101094fb: 68 5c 8a 4c 10               	push	0x104c8a5c
+10109500: 50                           	push	eax
+10109501: 64 89 25 00 00 00 00         	mov	dword ptr fs:[0x0], esp
+10109508: 64 a1 2c 00 00 00            	mov	eax, dword ptr fs:[0x2c]
+1010950e: 8b 15 80 80 80 10            	mov	edx, dword ptr [0x10808080]
+10109514: 56                           	push	esi
+10109515: 8b f1                        	mov	esi, ecx
+10109517: 8b 14 90                     	mov	edx, dword ptr [eax + 4*edx]
+1010951a: a1 34 b3 80 10               	mov	eax, dword ptr [0x1080b334]
+1010951f: 3b 82 04 00 00 00            	cmp	eax, dword ptr [edx + 0x4]
+10109525: 7e 41                        	jle	0x10109568 <?HandleEvent@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXABVName@2@@Z+0x78>
+10109527: 68 34 b3 80 10               	push	0x1080b334
+1010952c: e8 ae 55 3b 00               	call	0x104beadf <?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36e2f>
+10109531: 83 c4 04                     	add	esp, 0x4
+10109534: 83 3d 34 b3 80 10 ff         	cmp	dword ptr [0x1080b334], -0x1
+1010953b: 75 2b                        	jne	0x10109568 <?HandleEvent@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXABVName@2@@Z+0x78>
+1010953d: 68 f4 d3 52 10               	push	0x1052d3f4
+10109542: 68 38 b3 80 10               	push	0x1080b338
+10109547: c7 45 fc 00 00 00 00         	mov	dword ptr [ebp - 0x4], 0x0
+1010954e: ff 15 58 52 4e 10            	call	dword ptr [0x104e5258]
+10109554: 68 34 b3 80 10               	push	0x1080b334
+10109559: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+10109560: e8 3b 55 3b 00               	call	0x104beaa0 <?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36df0>
+10109565: 83 c4 0c                     	add	esp, 0xc
+10109568: 8b 45 08                     	mov	eax, dword ptr [ebp + 0x8]
+1010956b: 8b 00                        	mov	eax, dword ptr [eax]
+1010956d: 3b 05 38 b3 80 10            	cmp	eax, dword ptr [0x1080b338]
+10109573: 75 0c                        	jne	0x10109581 <?HandleEvent@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXABVName@2@@Z+0x91>
+10109575: 8b 06                        	mov	eax, dword ptr [esi]
+10109577: 8b ce                        	mov	ecx, esi
+10109579: 6a 01                        	push	0x1
+1010957b: ff 90 0c 01 00 00            	call	dword ptr [eax + 0x10c]
+10109581: 8b 4d f4                     	mov	ecx, dword ptr [ebp - 0xc]
+10109584: 64 89 0d 00 00 00 00         	mov	dword ptr fs:[0x0], ecx
+1010958b: 5e                           	pop	esi
+1010958c: 8b e5                        	mov	esp, ebp
+1010958e: 5d                           	pop	ebp
+1010958f: c2 04 00                     	ret	0x4
+   HandleEvent event-name literal 0x1052d3f4 = 'End'
+
+AlertBeforePursue vtable @ 0x5b4af0 — the slots the decode uses:
+   +0x034  0x001094f0  ?HandleEvent@ControllerMonsterStateAlertBeforePursue@GAME@@MAEXABVName@2@@Z+0x0
+   +0x108  0x0005e060  ?SupportsNetwork@CharacterActionBase@GAME@@UAE_NXZ+0x0
+   +0x10c  0x0005e050  ?SetProcess@CombatAttribute@GAME@@UAEX_N@Z+0x0
+   +0x110  0x00109410  ?OnBegin@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXXZ+0x0
+   +0x114  0x00007f40  ?_MoveToPersonalHerdLocation@ControllerNpcAnimalStateFollowHerd@GAME@@AAEXXZ+0x0
+   +0x118  0x00109430  ?OnUpdate@ControllerMonsterStateAlertBeforePursue@GAME@@UAEXH@Z+0x0
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1005e050 <?SetProcess@CombatAttribute@GAME@@UAEX_N@Z>:
+1005e050: 55                           	push	ebp
+1005e051: 8b ec                        	mov	ebp, esp
+1005e053: 8a 45 08                     	mov	al, byte ptr [ebp + 0x8]
+1005e056: 88 41 0c                     	mov	byte ptr [ecx + 0xc], al
+1005e059: 5d                           	pop	ebp
+1005e05a: c2 04 00                     	ret	0x4
+
+1005e060 <?SupportsNetwork@CharacterActionBase@GAME@@UAE_NXZ>:
+1005e060: 8a 41 0c                     	mov	al, byte ptr [ecx + 0xc]
+1005e063: c3                           	ret
+
+ControllerAI event routing + temporary-state pop:
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100e6130 <?HandleEvent@ControllerAI@GAME@@UAEXABVName@2@@Z>:
+100e6130: 55                           	push	ebp
+100e6131: 8b ec                        	mov	ebp, esp
+100e6133: 56                           	push	esi
+100e6134: ff 75 08                     	push	dword ptr [ebp + 0x8]
+100e6137: 8b f1                        	mov	esi, ecx
+100e6139: e8 42 85 00 00               	call	0x100ee680 <?HandleEvent@ControllerCombat@GAME@@UAEXABVName@2@@Z>
+100e613e: 83 be 14 02 00 00 00         	cmp	dword ptr [esi + 0x214], 0x0
+100e6145: 74 0d                        	je	0x100e6154 <?HandleEvent@ControllerAI@GAME@@UAEXABVName@2@@Z+0x24>
+100e6147: 8b 86 10 02 00 00            	mov	eax, dword ptr [esi + 0x210]
+100e614d: 8b 00                        	mov	eax, dword ptr [eax]
+100e614f: 8b 48 08                     	mov	ecx, dword ptr [eax + 0x8]
+100e6152: eb 06                        	jmp	0x100e615a <?HandleEvent@ControllerAI@GAME@@UAEXABVName@2@@Z+0x2a>
+100e6154: 8b 8e e4 01 00 00            	mov	ecx, dword ptr [esi + 0x1e4]
+100e615a: 8b 01                        	mov	eax, dword ptr [ecx]
+100e615c: 5e                           	pop	esi
+100e615d: 5d                           	pop	ebp
+100e615e: ff 60 34                     	jmp	dword ptr [eax + 0x34]
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100e5b80 <?Update@ControllerAI@GAME@@UAEXH@Z>:
+100e5b80: 55                           	push	ebp
+100e5b81: 8b ec                        	mov	ebp, esp
+100e5b83: 83 ec 38                     	sub	esp, 0x38
+100e5b86: 53                           	push	ebx
+100e5b87: 56                           	push	esi
+100e5b88: 8b 75 08                     	mov	esi, dword ptr [ebp + 0x8]
+100e5b8b: 57                           	push	edi
+100e5b8c: 8b f9                        	mov	edi, ecx
+100e5b8e: 56                           	push	esi
+100e5b8f: 89 7d dc                     	mov	dword ptr [ebp - 0x24], edi
+100e5b92: e8 79 8e 00 00               	call	0x100eea10 <?Update@ControllerCombat@GAME@@UAEXH@Z>
+100e5b97: 8b cf                        	mov	ecx, edi
+100e5b99: e8 82 29 00 00               	call	0x100e8520 <?GetExecutingState@ControllerAI@GAME@@IBEPAVControllerAIState@2@XZ>
+100e5b9e: 8b c8                        	mov	ecx, eax
+100e5ba0: 8b 10                        	mov	edx, dword ptr [eax]
+100e5ba2: 8b 82 08 01 00 00            	mov	eax, dword ptr [edx + 0x108]
+100e5ba8: ff d0                        	call	eax
+100e5baa: 84 c0                        	test	al, al
+100e5bac: 74 78                        	je	0x100e5c26 <?Update@ControllerAI@GAME@@UAEXH@Z+0xa6>
+100e5bae: 66 90                        	nop
+100e5bb0: 8b 87 10 02 00 00            	mov	eax, dword ptr [edi + 0x210]
+100e5bb6: 8b 00                        	mov	eax, dword ptr [eax]
+100e5bb8: 8b 48 08                     	mov	ecx, dword ptr [eax + 0x8]
+100e5bbb: 8b 01                        	mov	eax, dword ptr [ecx]
+100e5bbd: ff 90 14 01 00 00            	call	dword ptr [eax + 0x114]
+100e5bc3: 8b 87 10 02 00 00            	mov	eax, dword ptr [edi + 0x210]
+100e5bc9: 6a 00                        	push	0x0
+100e5bcb: 8b 00                        	mov	eax, dword ptr [eax]
+100e5bcd: 8b 48 08                     	mov	ecx, dword ptr [eax + 0x8]
+100e5bd0: 8b 01                        	mov	eax, dword ptr [ecx]
+100e5bd2: ff 90 0c 01 00 00            	call	dword ptr [eax + 0x10c]
+100e5bd8: 8b 87 10 02 00 00            	mov	eax, dword ptr [edi + 0x210]
+100e5bde: 8b 10                        	mov	edx, dword ptr [eax]
+100e5be0: 52                           	push	edx
+100e5be1: 8b 4a 04                     	mov	ecx, dword ptr [edx + 0x4]
+100e5be4: 8b 02                        	mov	eax, dword ptr [edx]
+100e5be6: 89 01                        	mov	dword ptr [ecx], eax
+100e5be8: 8b 0a                        	mov	ecx, dword ptr [edx]
+100e5bea: 8b 42 04                     	mov	eax, dword ptr [edx + 0x4]
+100e5bed: 89 41 04                     	mov	dword ptr [ecx + 0x4], eax
+100e5bf0: ff 8f 14 02 00 00            	dec	dword ptr [edi + 0x214]
+100e5bf6: e8 20 8d 3d 00               	call	0x104be91b <?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c6b>
+100e5bfb: 83 c4 04                     	add	esp, 0x4
+100e5bfe: 8b cf                        	mov	ecx, edi
+100e5c00: e8 1b 29 00 00               	call	0x100e8520 <?GetExecutingState@ControllerAI@GAME@@IBEPAVControllerAIState@2@XZ>
+100e5c05: 8b c8                        	mov	ecx, eax
+100e5c07: 8b 10                        	mov	edx, dword ptr [eax]
+100e5c09: ff 92 10 01 00 00            	call	dword ptr [edx + 0x110]
+100e5c0f: 8b cf                        	mov	ecx, edi
+100e5c11: e8 0a 29 00 00               	call	0x100e8520 <?GetExecutingState@ControllerAI@GAME@@IBEPAVControllerAIState@2@XZ>
+100e5c16: 8b c8                        	mov	ecx, eax
+100e5c18: 8b 10                        	mov	edx, dword ptr [eax]
+100e5c1a: 8b 82 08 01 00 00            	mov	eax, dword ptr [edx + 0x108]
+100e5c20: ff d0                        	call	eax
+100e5c22: 84 c0                        	test	al, al
+100e5c24: 75 8a                        	jne	0x100e5bb0 <?Update@ControllerAI@GAME@@UAEXH@Z+0x30>
+100e5c26: 83 bf 14 02 00 00 00         	cmp	dword ptr [edi + 0x214], 0x0
+100e5c2d: 74 0d                        	je	0x100e5c3c <?Update@ControllerAI@GAME@@UAEXH@Z+0xbc>
+100e5c2f: 8b 87 10 02 00 00            	mov	eax, dword ptr [edi + 0x210]
+100e5c35: 8b 00                        	mov	eax, dword ptr [eax]
+100e5c37: 8b 48 08                     	mov	ecx, dword ptr [eax + 0x8]
+100e5c3a: eb 06                        	jmp	0x100e5c42 <?Update@ControllerAI@GAME@@UAEXH@Z+0xc2>
+100e5c3c: 8b 8f e4 01 00 00            	mov	ecx, dword ptr [edi + 0x1e4]
+100e5c42: 8b 01                        	mov	eax, dword ptr [ecx]
+100e5c44: 56                           	push	esi
+100e5c45: ff 90 18 01 00 00            	call	dword ptr [eax + 0x118]
+100e5c4b: 8b 87 d8 01 00 00            	mov	eax, dword ptr [edi + 0x1d8]
+
+Who emits the 'End' animation event — EVERY standalone "End" literal in Engine.dll:
+   0x102a5834  refs=[('0x31182', '?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x28d2')]
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1002e8b0 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ>:
+10031133: 8b 5d f0                     	mov	ebx, dword ptr [ebp - 0x10]
+10031136: 8b 75 0c                     	mov	esi, dword ptr [ebp + 0xc]
+10031139: 8b 45 e0                     	mov	eax, dword ptr [ebp - 0x20]
+1003113c: f3 0f 10 43 08               	movss	xmm0, dword ptr [ebx + 0x8]
+10031141: f3 0f 58 45 ec               	addss	xmm0, dword ptr [ebp - 0x14]
+10031146: f3 0f 11 43 08               	movss	dword ptr [ebx + 0x8], xmm0
+1003114b: 84 c0                        	test	al, al
+1003114d: 74 6b                        	je	0x100311ba <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x290a>
+1003114f: 64 a1 2c 00 00 00            	mov	eax, dword ptr fs:[0x2c]
+10031155: 8b 0d 88 71 36 10            	mov	ecx, dword ptr [0x10367188]
+1003115b: 8b 0c 88                     	mov	ecx, dword ptr [eax + 4*ecx]
+1003115e: a1 18 89 36 10               	mov	eax, dword ptr [0x10368918]
+10031163: 3b 81 04 00 00 00            	cmp	eax, dword ptr [ecx + 0x4]
+10031169: 7e 40                        	jle	0x100311ab <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x28fb>
+1003116b: 68 18 89 36 10               	push	0x10368918
+10031170: e8 b6 e5 24 00               	call	0x1027f72b <LZ4_decompress_fast_usingDict+0x5feab>
+10031175: 83 c4 04                     	add	esp, 0x4
+10031178: 83 3d 18 89 36 10 ff         	cmp	dword ptr [0x10368918], -0x1
+1003117f: 75 2a                        	jne	0x100311ab <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x28fb>
+10031181: 68 34 58 2a 10               	push	0x102a5834
+10031186: 68 1c 89 36 10               	push	0x1036891c
+1003118b: c7 45 fc 00 00 00 00         	mov	dword ptr [ebp - 0x4], 0x0
+10031192: e8 39 5b 0f 00               	call	0x10126cd0 <?Create@Name@GAME@@SA?AV12@PBD@Z>
+10031197: 68 18 89 36 10               	push	0x10368918
+1003119c: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100311a3: e8 44 e5 24 00               	call	0x1027f6ec <LZ4_decompress_fast_usingDict+0x5fe6c>
+100311a8: 83 c4 0c                     	add	esp, 0xc
+100311ab: 8b 06                        	mov	eax, dword ptr [esi]
+100311ad: 8b ce                        	mov	ecx, esi
+100311af: 68 1c 89 36 10               	push	0x1036891c
+100311b4: ff 90 f8 00 00 00            	call	dword ptr [eax + 0xf8]
+100311ba: 8b 4d f4                     	mov	ecx, dword ptr [ebp - 0xc]
+100311bd: 5f                           	pop	edi
+100311be: 5e                           	pop	esi
+100311bf: 64 89 0d 00 00 00 00         	mov	dword ptr fs:[0x0], ecx
+100311c6: 5b                           	pop	ebx
+100311c7: 8b e5                        	mov	esp, ebp
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+1002e8b0 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ>:
+10030577: 8b 33                        	mov	esi, dword ptr [ebx]
+10030579: 8b ce                        	mov	ecx, esi
+1003057b: e8 30 21 13 00               	call	0x101626b0 <?EnsureAvailable@Resource@GAME@@QBEXXZ>
+10030580: 8b 86 8c 00 00 00            	mov	eax, dword ptr [esi + 0x8c]
+10030586: f3 0f 10 4d 20               	movss	xmm1, dword ptr [ebp + 0x20]
+1003058b: f3 0f 10 55 08               	movss	xmm2, dword ptr [ebp + 0x8]
+10030590: 8d 48 ff                     	lea	ecx, [eax - 0x1]
+10030593: 8a 43 04                     	mov	al, byte ptr [ebx + 0x4]
+10030596: 84 c0                        	test	al, al
+10030598: 74 0c                        	je	0x100305a6 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1cf6>
+1003059a: 0f 2f d1                     	comiss	xmm2, xmm1
+1003059d: 76 07                        	jbe	0x100305a6 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1cf6>
+1003059f: ba 01 00 00 00               	mov	edx, 0x1
+100305a4: eb 02                        	jmp	0x100305a8 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1cf8>
+100305a6: 33 d2                        	xor	edx, edx
+100305a8: 84 c0                        	test	al, al
+100305aa: 75 18                        	jne	0x100305c4 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1d14>
+100305ac: 66 0f 6e c1                  	movd	xmm0, ecx
+100305b0: 0f 5b c0                     	cvtdq2ps	xmm0, xmm0
+100305b3: 0f 2f c2                     	comiss	xmm0, xmm2
+100305b6: 76 0c                        	jbe	0x100305c4 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1d14>
+100305b8: 0f 2f c8                     	comiss	xmm1, xmm0
+100305bb: 72 07                        	jb	0x100305c4 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1d14>
+100305bd: b8 01 00 00 00               	mov	eax, 0x1
+100305c2: eb 02                        	jmp	0x100305c6 <?Destroy@?$Singleton@VJukebox@GAME@@@GAME@@SAXXZ+0x1d16>
+100305c4: 33 c0                        	xor	eax, eax
+100305c6: 8b 3d 94 21 2a 10            	mov	edi, dword ptr [0x102a2194]
+100305cc: 0a d0                        	or	dl, al
+100305ce: 8b 1d 98 21 2a 10            	mov	ebx, dword ptr [0x102a2198]
+100305d4: 89 55 e0                     	mov	dword ptr [ebp - 0x20], edx
+
+Character::AnimationCallback — the 'End' branch, and the animation event vocabulary:
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100454b0 <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z>:
+10045cb0: e8 db 04 fd ff               	call	0x10016190 <?CalculateAllocatedMemory@AnimationSet@GAME@@QBEIXZ+0x310>
+10045cb5: 84 c0                        	test	al, al
+10045cb7: 0f 85 a6 05 00 00            	jne	0x10046263 <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0xdb3>
+10045cbd: 8b 06                        	mov	eax, dword ptr [esi]
+10045cbf: 3b 05 08 b1 80 10            	cmp	eax, dword ptr [0x1080b108]
+10045cc5: 75 22                        	jne	0x10045ce9 <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0x839>
+10045cc7: 8b 07                        	mov	eax, dword ptr [edi]
+10045cc9: 8b cf                        	mov	ecx, edi
+10045ccb: ff 10                        	call	dword ptr [eax]
+10045ccd: 8b 87 a4 1b 00 00            	mov	eax, dword ptr [edi + 0x1ba4]
+10045cd3: 8b 48 04                     	mov	ecx, dword ptr [eax + 0x4]
+10045cd6: 85 c9                        	test	ecx, ecx
+10045cd8: 0f 84 85 05 00 00            	je	0x10046263 <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0xdb3>
+10045cde: 8b 01                        	mov	eax, dword ptr [ecx]
+10045ce0: 56                           	push	esi
+10045ce1: ff 50 08                     	call	dword ptr [eax + 0x8]
+10045ce4: e9 7a 05 00 00               	jmp	0x10046263 <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0xdb3>
+10045ce9: 3b 05 10 b1 80 10            	cmp	eax, dword ptr [0x1080b110]
+10045cef: 0f 84 38 01 00 00            	je	0x10045e2d <?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0x97d>
+   animation event names @ 0x104f4eb8: ['End', 'L Footstep', 'R Footstep', 'Pickup', 'Fall', 'StopRotation', 'HideRightHand', 'HideLeftHand', 'ShowRightHand', 'ShowLeftHand', 'voxSound', 'deathSound1', 'deathSound2']
+
+.anm header -> GraphicsAnim fields (independent confirmation of Lap AB's field ids):
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10087660 <?LoadANMData@GraphicsAnim@GAME@@QAE_NPBXHH@Z>:
+100876a0: 45                           	inc	ebp
+100876a1: fc                           	cld
+100876a2: 00 00                        	add	byte ptr [eax], al
+100876a4: 00 00                        	add	byte ptr [eax], al
+100876a6: 8d 79 04                     	lea	edi, [ecx + 0x4]
+100876a9: 8b 01                        	mov	eax, dword ptr [ecx]
+100876ab: 8d 9e 80 00 00 00            	lea	ebx, [esi + 0x80]
+100876b1: 50                           	push	eax
+100876b2: 8b cb                        	mov	ecx, ebx
+100876b4: 89 45 90                     	mov	dword ptr [ebp - 0x70], eax
+100876b7: 89 bd 64 ff ff ff            	mov	dword ptr [ebp - 0x9c], edi
+100876bd: e8 fe 2c fa ff               	call	0x1002a3c0 <?SupportsNetwork@ActorConfigCommand@GAME@@QBE?B_NXZ+0x1230>
+100876c2: 8b 07                        	mov	eax, dword ptr [edi]
+100876c4: 89 86 8c 00 00 00            	mov	dword ptr [esi + 0x8c], eax
+100876ca: 8b 47 04                     	mov	eax, dword ptr [edi + 0x4]
+100876cd: 83 c7 08                     	add	edi, 0x8
+100876d0: 89 86 90 00 00 00            	mov	dword ptr [esi + 0x90], eax
+100876d6: 33 f6                        	xor	esi, esi
+100876d8: 89 bd 64 ff ff ff            	mov	dword ptr [ebp - 0x9c], edi
+100876de: 39 75 90                     	cmp	dword ptr [ebp - 0x70], esi
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100889a0 <?GetLength@GraphicsAnim@GAME@@QBEIXZ>:
+100889a0: 56                           	push	esi
+100889a1: 8b f1                        	mov	esi, ecx
+100889a3: e8 08 9d 0d 00               	call	0x101626b0 <?EnsureAvailable@Resource@GAME@@QBEXXZ>
+100889a8: 8b 86 8c 00 00 00            	mov	eax, dword ptr [esi + 0x8c]
+100889ae: 5e                           	pop	esi
+100889af: c3                           	ret
+
+100889b0 <?GetNumHitBoxes@GraphicsMesh@GAME@@QBEIXZ>:
+100889b0: 56                           	push	esi
+100889b1: 8b f1                        	mov	esi, ecx
+100889b3: e8 f8 9c 0d 00               	call	0x101626b0 <?EnsureAvailable@Resource@GAME@@QBEXXZ>
+100889b8: 8b 86 90 00 00 00            	mov	eax, dword ptr [esi + 0x90]
+100889be: 5e                           	pop	esi
+100889bf: c3                           	ret
+   ms->s constant 0x102e0400 = 0.0010000000474974513
+   1.0f          0x102e0594 = 1.0
+
+ControllerAI::PlayAnimation -> PlayAnimationAction -> AnimationSet::PlayAnimation:
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+100e77f0 <?PlayAnimation@ControllerAI@GAME@@QAEXW4AnimationSet_Type@2@ABVName@2@M_NI@Z>:
+100e77f0: 55                           	push	ebp
+100e77f1: 8b ec                        	mov	ebp, esp
+100e77f3: 6a ff                        	push	-0x1
+100e77f5: 68 d8 79 4c 10               	push	0x104c79d8
+100e77fa: 64 a1 00 00 00 00            	mov	eax, dword ptr fs:[0x0]
+100e7800: 50                           	push	eax
+100e7801: 64 89 25 00 00 00 00         	mov	dword ptr fs:[0x0], esp
+100e7808: 51                           	push	ecx
+100e7809: 53                           	push	ebx
+100e780a: 56                           	push	esi
+100e780b: 57                           	push	edi
+100e780c: 6a 48                        	push	0x48
+100e780e: 8b d9                        	mov	ebx, ecx
+100e7810: e8 0b 71 3d 00               	call	0x104be920 <?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70>
+100e7815: 8b f8                        	mov	edi, eax
+100e7817: 83 c4 04                     	add	esp, 0x4
+100e781a: 89 7d f0                     	mov	dword ptr [ebp - 0x10], edi
+100e781d: c7 45 fc 00 00 00 00         	mov	dword ptr [ebp - 0x4], 0x0
+100e7824: 8b cf                        	mov	ecx, edi
+100e7826: 8b 73 24                     	mov	esi, dword ptr [ebx + 0x24]
+100e7829: 56                           	push	esi
+100e782a: ff 15 60 57 4e 10            	call	dword ptr [0x104e5760]
+100e7830: c6 45 fc 01                  	mov	byte ptr [ebp - 0x4], 0x1
+100e7834: 8d 4f 18                     	lea	ecx, [edi + 0x18]
+100e7837: c7 07 d4 21 59 10            	mov	dword ptr [edi], 0x105921d4
+100e783d: 89 77 04                     	mov	dword ptr [edi + 0x4], esi
+100e7840: c7 47 08 00 00 00 00         	mov	dword ptr [edi + 0x8], 0x0
+100e7847: 66 c7 47 0c 00 01            	mov	word ptr [edi + 0xc], 0x100
+100e784d: c7 47 10 00 00 7a 43         	mov	dword ptr [edi + 0x10], 0x437a0000
+100e7854: c6 47 14 00                  	mov	byte ptr [edi + 0x14], 0x0
+100e7858: ff 15 88 53 4e 10            	call	dword ptr [0x104e5388]
+100e785e: 8b 45 08                     	mov	eax, dword ptr [ebp + 0x8]
+100e7861: 8b cb                        	mov	ecx, ebx
+100e7863: f3 0f 10 45 10               	movss	xmm0, dword ptr [ebp + 0x10]
+100e7868: c7 07 48 1b 59 10            	mov	dword ptr [edi], 0x10591b48
+100e786e: c7 47 38 00 00 00 00         	mov	dword ptr [edi + 0x38], 0x0
+100e7875: 89 47 34                     	mov	dword ptr [edi + 0x34], eax
+100e7878: 8b 45 0c                     	mov	eax, dword ptr [ebp + 0xc]
+100e787b: 57                           	push	edi
+100e787c: 8b 00                        	mov	eax, dword ptr [eax]
+100e787e: 89 47 38                     	mov	dword ptr [edi + 0x38], eax
+100e7881: 8a 45 14                     	mov	al, byte ptr [ebp + 0x14]
+100e7884: 88 47 40                     	mov	byte ptr [edi + 0x40], al
+100e7887: 8b 45 18                     	mov	eax, dword ptr [ebp + 0x18]
+100e788a: f3 0f 11 47 3c               	movss	dword ptr [edi + 0x3c], xmm0
+100e788f: 89 47 44                     	mov	dword ptr [edi + 0x44], eax
+100e7892: c7 47 08 12 00 00 00         	mov	dword ptr [edi + 0x8], 0x12
+100e7899: c6 47 0c 01                  	mov	byte ptr [edi + 0xc], 0x1
+100e789d: c7 45 fc ff ff ff ff         	mov	dword ptr [ebp - 0x4], 0xffffffff
+100e78a4: e8 d7 2b 00 00               	call	0x100ea480 <?HandleAction@ControllerBaseCharacter@GAME@@QAEXPAVCharacterAction@2@@Z>
+100e78a9: 8b 4d f4                     	mov	ecx, dword ptr [ebp - 0xc]
+100e78ac: 5f                           	pop	edi
+100e78ad: 5e                           	pop	esi
+100e78ae: 5b                           	pop	ebx
+100e78af: 64 89 0d 00 00 00 00         	mov	dword ptr fs:[0x0], ecx
+100e78b6: 8b e5                        	mov	esp, ebp
+100e78b8: 5d                           	pop	ebp
+100e78b9: c2 14 00                     	ret	0x14
+
+/Users/admin/Games/vendor/grim-dawn/Game.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10015b50 <?PlayAnimationIfAvailable@AnimationSet@GAME@@QAE?B_NAAVActor@2@W4AnimationSet_Type@2@ABVName@2@M_NI@Z>:
+10015b50: 55                           	push	ebp
+10015b51: 8b ec                        	mov	ebp, esp
+10015b53: 56                           	push	esi
+10015b54: 8b f1                        	mov	esi, ecx
+10015b56: 57                           	push	edi
+10015b57: 8b 7d 0c                     	mov	edi, dword ptr [ebp + 0xc]
+10015b5a: 89 7e 08                     	mov	dword ptr [esi + 0x8], edi
+10015b5d: 83 ff 33                     	cmp	edi, 0x33
+10015b60: 77 06                        	ja	0x10015b68 <?PlayAnimationIfAvailable@AnimationSet@GAME@@QAE?B_NAAVActor@2@W4AnimationSet_Type@2@ABVName@2@M_NI@Z+0x18>
+10015b62: 8b 4c be 0c                  	mov	ecx, dword ptr [esi + 4*edi + 0xc]
+10015b66: eb 03                        	jmp	0x10015b6b <?PlayAnimationIfAvailable@AnimationSet@GAME@@QAE?B_NAAVActor@2@W4AnimationSet_Type@2@ABVName@2@M_NI@Z+0x1b>
+10015b68: 8b 4e 0c                     	mov	ecx, dword ptr [esi + 0xc]
+10015b6b: ff 75 1c                     	push	dword ptr [ebp + 0x1c]
+10015b6e: f3 0f 10 45 14               	movss	xmm0, dword ptr [ebp + 0x14]
+10015b73: ff 75 18                     	push	dword ptr [ebp + 0x18]
+10015b76: 8b 01                        	mov	eax, dword ptr [ecx]
+10015b78: 51                           	push	ecx
+10015b79: f3 0f 11 04 24               	movss	dword ptr [esp], xmm0
+10015b7e: ff 75 10                     	push	dword ptr [ebp + 0x10]
+10015b81: 8b 40 04                     	mov	eax, dword ptr [eax + 0x4]
+10015b84: ff 75 08                     	push	dword ptr [ebp + 0x8]
+10015b87: ff d0                        	call	eax
+10015b89: 84 c0                        	test	al, al
+10015b8b: 74 12                        	je	0x10015b9f <?PlayAnimationIfAvailable@AnimationSet@GAME@@QAE?B_NAAVActor@2@W4AnimationSet_Type@2@ABVName@2@M_NI@Z+0x4f>
+10015b8d: 89 7e 04                     	mov	dword ptr [esi + 0x4], edi
+10015b90: b0 01                        	mov	al, 0x1
+10015b92: 5f                           	pop	edi
+10015b93: c7 46 08 00 00 00 00         	mov	dword ptr [esi + 0x8], 0x0
+10015b9a: 5e                           	pop	esi
+10015b9b: 5d                           	pop	ebp
+10015b9c: c2 18 00                     	ret	0x18
+10015b9f: 5f                           	pop	edi
+10015ba0: 32 c0                        	xor	al, al
+10015ba2: 5e                           	pop	esi
+10015ba3: 5d                           	pop	ebp
+10015ba4: c2 18 00                     	ret	0x18
+
+/Users/admin/Games/vendor/grim-dawn/Engine.dll:	file format coff-i386
+
+Disassembly of section .text:
+
+10031480 <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z>:
+10031480: 55                           	push	ebp
+10031481: 8b ec                        	mov	ebp, esp
+10031483: 64 a1 00 00 00 00            	mov	eax, dword ptr fs:[0x0]
+10031489: 6a ff                        	push	-0x1
+1003148b: 68 5f 29 29 10               	push	0x1029295f
+10031490: 50                           	push	eax
+10031491: 64 89 25 00 00 00 00         	mov	dword ptr fs:[0x0], esp
+10031498: 83 ec 30                     	sub	esp, 0x30
+1003149b: 56                           	push	esi
+1003149c: 8b f1                        	mov	esi, ecx
+1003149e: 57                           	push	edi
+1003149f: 8b 7d 14                     	mov	edi, dword ptr [ebp + 0x14]
+100314a2: 83 7e 08 00                  	cmp	dword ptr [esi + 0x8], 0x0
+100314a6: 74 66                        	je	0x1003150e <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0x8e>
+100314a8: 0f 10 46 08                  	movups	xmm0, xmmword ptr [esi + 0x8]
+100314ac: 53                           	push	ebx
+100314ad: 0f 11 45 c4                  	movups	xmmword ptr [ebp - 0x3c], xmm0
+100314b1: 0f 10 46 18                  	movups	xmm0, xmmword ptr [esi + 0x18]
+100314b5: 0f 11 45 d4                  	movups	xmmword ptr [ebp - 0x2c], xmm0
+100314b9: c7 45 fc 00 00 00 00         	mov	dword ptr [ebp - 0x4], 0x0
+100314c0: 8b 46 2c                     	mov	eax, dword ptr [esi + 0x2c]
+100314c3: 89 7d e4                     	mov	dword ptr [ebp - 0x1c], edi
+100314c6: 8b 18                        	mov	ebx, dword ptr [eax]
+100314c8: 8d 45 c4                     	lea	eax, [ebp - 0x3c]
+100314cb: 50                           	push	eax
+100314cc: ff 73 04                     	push	dword ptr [ebx + 0x4]
+100314cf: 53                           	push	ebx
+100314d0: e8 4b 8e fe ff               	call	0x1001a320 <?Destroy@?$Singleton@VNavManager@GAME@@@GAME@@SAXXZ+0x2440>
+100314d5: b9 5c 74 d1 05               	mov	ecx, 0x5d1745c
+100314da: 8b d0                        	mov	edx, eax
+100314dc: 2b 4e 30                     	sub	ecx, dword ptr [esi + 0x30]
+100314df: 83 f9 01                     	cmp	ecx, 0x1
+100314e2: 73 0b                        	jae	0x100314ef <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0x6f>
+100314e4: 68 4c 4f 2d 10               	push	0x102d4f4c
+100314e9: ff 15 b0 22 2a 10            	call	dword ptr [0x102a22b0]
+100314ef: ff 46 30                     	inc	dword ptr [esi + 0x30]
+100314f2: 89 53 04                     	mov	dword ptr [ebx + 0x4], edx
+100314f5: 8b 42 04                     	mov	eax, dword ptr [edx + 0x4]
+100314f8: 89 10                        	mov	dword ptr [eax], edx
+100314fa: c7 45 fc 01 00 00 00         	mov	dword ptr [ebp - 0x4], 0x1
+10031501: 8b 4d c4                     	mov	ecx, dword ptr [ebp - 0x3c]
+10031504: 5b                           	pop	ebx
+10031505: 85 c9                        	test	ecx, ecx
+10031507: 74 05                        	je	0x1003150e <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0x8e>
+10031509: e8 02 76 05 00               	call	0x10088b10 <?ReleaseCreateEntities@GraphicsAnim@GAME@@QBEXXZ>
+1003150e: 85 ff                        	test	edi, edi
+10031510: 75 1c                        	jne	0x1003152e <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0xae>
+10031512: 8b 46 2c                     	mov	eax, dword ptr [esi + 0x2c]
+10031515: 8b 08                        	mov	ecx, dword ptr [eax]
+10031517: 3b c8                        	cmp	ecx, eax
+10031519: 74 13                        	je	0x1003152e <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0xae>
+1003151b: 0f 1f 44 00 00               	nop	dword ptr [eax + eax]
+10031520: c7 41 28 00 00 00 00         	mov	dword ptr [ecx + 0x28], 0x0
+10031527: 8b 09                        	mov	ecx, dword ptr [ecx]
+10031529: 3b 4e 2c                     	cmp	ecx, dword ptr [esi + 0x2c]
+1003152c: 75 f2                        	jne	0x10031520 <?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z+0xa0>
+1003152e: 8b 45 08                     	mov	eax, dword ptr [ebp + 0x8]
+10031531: 0f 57 c9                     	xorps	xmm1, xmm1
+10031534: f3 0f 10 45 10               	movss	xmm0, dword ptr [ebp + 0x10]
+10031539: 8b 4d f4                     	mov	ecx, dword ptr [ebp - 0xc]
+1003153c: 89 46 08                     	mov	dword ptr [esi + 0x8], eax
+1003153f: 8a 45 0c                     	mov	al, byte ptr [ebp + 0xc]
+10031542: 88 46 0c                     	mov	byte ptr [esi + 0xc], al
+10031545: c7 45 f0 00 00 00 00         	mov	dword ptr [ebp - 0x10], 0x0
+1003154c: 8b 45 f0                     	mov	eax, dword ptr [ebp - 0x10]
+1003154f: 0f 14 c9                     	unpcklps	xmm1, xmm1              # xmm1 = xmm1[0,0,1,1]
+10031552: 66 0f d6 4e 18               	movq	qword ptr [esi + 0x18], xmm1
+10031557: c7 46 10 00 00 00 00         	mov	dword ptr [esi + 0x10], 0x0
+1003155e: f3 0f 11 46 14               	movss	dword ptr [esi + 0x14], xmm0
+10031563: 89 46 20                     	mov	dword ptr [esi + 0x20], eax
+10031566: c7 46 24 00 00 00 00         	mov	dword ptr [esi + 0x24], 0x0
+1003156d: c7 46 28 00 00 00 00         	mov	dword ptr [esi + 0x28], 0x0
+10031574: 5f                           	pop	edi
+10031575: 5e                           	pop	esi
+10031576: 64 89 0d 00 00 00 00         	mov	dword ptr fs:[0x0], ecx

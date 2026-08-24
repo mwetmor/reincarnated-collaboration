@@ -1,0 +1,33 @@
+{
+  "lap": "2026-08-24-kc2-mc-lap-d1-alert-decode",
+  "instrument": "mcd1_alert_decode_2026_08_24.py",
+  "pins": {
+    "/Users/admin/Games/vendor/grim-dawn/Game.dll": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02",
+    "/Users/admin/Games/vendor/grim-dawn/Engine.dll": "7141b51ae61b396fd0743da9e51471043329c51b3bb61d0037b2ce934864c87c"
+  },
+  "evidence": [
+    "01-ShouldPlayRallyOrAlert.asm",
+    "02-DefaultEnemyFoundResponse-gate.asm",
+    "03-DefaultEnemyFoundResponse-tail.asm",
+    "04-AnimationSet-DoesAnimationExist.asm",
+    "05-AngerManager-GetAngerDiff.asm",
+    "06-AngerManager-Update-baseline-snapshot.asm",
+    "07-AlertBeforePursue-OnBegin.asm",
+    "08-AlertBeforePursue-HandleEvent.asm",
+    "09-SetDone-IsDone.asm",
+    "10-ControllerAI-HandleEvent.asm",
+    "11-ControllerAI-Update-pop.asm",
+    "12-Engine-anim-End-emission.asm",
+    "13-Engine-anim-end-crossing-predicate.asm",
+    "14-Character-AnimationCallback-End-branch.asm",
+    "15-GraphicsAnim-LoadANMData-header.asm",
+    "16-GraphicsAnim-GetLength-GetFrameRate.asm",
+    "17-ControllerAI-PlayAnimation.asm",
+    "18-AnimationSet-PlayAnimation.asm",
+    "19-AnimChannel-PlayAnimation.asm",
+    "20-Monster-Load-chance-fields.asm",
+    "alert_incidence.json",
+    "decode.log",
+    "manifest.json"
+  ]
+}

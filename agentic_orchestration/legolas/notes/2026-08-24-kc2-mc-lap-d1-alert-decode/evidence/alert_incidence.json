@@ -1,0 +1,63 @@
+{
+  "source_csv": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-ab-march-dispersion/pm4ab_alert_anim.csv",
+  "source_csv_sha256": "65706232f07e8366459f20e9c3873527ac4c837f7896b80a3e87eebb56fe3aa5",
+  "buckets": [
+    {
+      "alertAnimChance": 0,
+      "status": "ALERT-SLOT-EMPTY",
+      "records": 23,
+      "rostered_actors": 50
+    },
+    {
+      "alertAnimChance": 30,
+      "status": "ALERT-SLOT-EMPTY",
+      "records": 2,
+      "rostered_actors": 2
+    },
+    {
+      "alertAnimChance": 0,
+      "status": "HAS-ALERT",
+      "records": 43,
+      "rostered_actors": 98
+    },
+    {
+      "alertAnimChance": 30,
+      "status": "HAS-ALERT",
+      "records": 19,
+      "rostered_actors": 33
+    },
+    {
+      "alertAnimChance": 100,
+      "status": "HAS-ALERT",
+      "records": 4,
+      "rostered_actors": 5
+    }
+  ],
+  "records_that_can_alert": 23,
+  "actors_that_can_alert": 38,
+  "rostered_actors_total": 188,
+  "expected_alerting_actors_full_roster": 14.9,
+  "can_alert_duration": {
+    "resolved_slots": 36,
+    "frames": {
+      "min": 41,
+      "p25": 51.0,
+      "median": 61.0,
+      "p75": 68.0,
+      "max": 74
+    },
+    "seconds_frames_minus_1_over_30": {
+      "min": 1.3333,
+      "median": 2.0,
+      "max": 2.4333
+    },
+    "alert_anim_speed_can_alert": {
+      "1.0": 35,
+      "1.2000000476837158": 1
+    },
+    "alert_anim_speed_all_resolved": {
+      "1.0": 92,
+      "1.2000000476837158": 2
+    }
+  }
+}
