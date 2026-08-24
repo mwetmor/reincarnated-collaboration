@@ -114,12 +114,50 @@ only value in 0..99 that satisfies the oracle on both saves.**
 
 Three independent corroborations that the field names are right, not just arithmetically lucky:
 
-1. `slotsPerPage` reads **47** on all three files.
-2. `pageCount` reads **1** for `_EoRWarlGuts` and **2** for `_Fresh Character 01` — and the fresh
-   character is a Shaman-tree build with **Werewolf**, a transform, which is exactly why it has a
-   second action-bar page. Its page 1 contains nothing but werewolf-form skills
-   (`werewolf1_skill01_claws`, `werewolf1_skill02_charge`). The field means what I named it.
+1. The second int reads **47** on all three files.
+2. The first int reads **1** for `_EoRWarlGuts` and **2** for `_Fresh Character 01` — and the fresh
+   character is a Shaman-tree build with **Werewolf**, a transform, which is exactly why it would
+   have a second action-bar page. Under the two-page reading its page 1 contains nothing but
+   werewolf-form skills (`werewolf1_skill01_claws`, `werewolf1_skill02_charge`).
 3. The parsed slot order matches galadriel's own hotbar screenshot cell-for-cell (below).
+
+### Correction and independent replication — prior art I initially missed
+
+**I missed a prior solve of this exact block in my own lane and should not have.** My first
+prior-art sweep was truncated and I did not see
+`agentic_orchestration/legolas/scratch/2026-08-05-eorwarlguts-parse/`, which contains a *separately
+written* parser (`gdc2.py`, legolas 2026-08-05) that had already solved `ui_settings` v7 against the
+same block-end oracle, and had already parsed this same save.
+
+Its conclusion, reached independently three weeks earlier, is the same: v7 writes **three int32**
+after the five `(string, string, byte)` groups, and the **second of them is the hotslot count
+(47)**. It also records that the FoA fork of the community tooling hard-codes **95** hotslots for
+v ≥ 7, which is wrong for a 1.3.0.5-written save and overruns the block.
+
+Its parsed hotslot table for `_EoRWarlGuts` is **identical to mine, index for index**:
+
+```
+hotslots[ 1] playerclass09/viremight1.dbr        hotslots[11] default/defaultweaponattack.dbr
+hotslots[ 2] playerclass01/warcry1.dbr           hotslots[12] playerclass09/eyeofreckoning1.dbr
+hotslots[ 3] playerclass09/ascension1.dbr        hotslots[13] playerclass09/eyeofreckoning1.dbr
+hotslots[ 6] itemskillsgdx2/runes/rush_d203.dbr  hotslots[18] playerclass09/summon_celestialguardian1.dbr
+hotslots[10] playerclass01/blitz1.dbr            hotslots[19] itemskillsgdx1/relics/summondeathstalker.dbr
+```
+
+Zero `judgment` hits in that parse as well. This is a **fourth independent confirmation** of the
+answer, from a different decoder written at a different time.
+
+**Where the prior art corrects me:** I named the first int `pageCount` and the second
+`slotsPerPage`. That reading is *not* established. For `_EoRWarlGuts` the second int (47) is simply
+the slot count and my "1 page × 47" is indistinguishable from "47 slots". For
+`_Fresh Character 01` the second int also reads 47, yet 47 slots does **not** consume the block —
+95 slots does, and 95 is exactly the FoA fork's hard-coded value. So the fresh file admits two
+readings of the same bytes, `2 × 47 + 1 trailing int` or a flat `95`, and I cannot separate them.
+
+**Status: the third word is unnamed, and the first word is `1`/`2` with an unproven meaning.** The
+Werewolf-second-bar story is suggestive, not demonstrated. **None of this touches the answer for
+`_EoRWarlGuts`**, where the block parses to exactly 47 slots with a zero sentinel under both
+readings and under two independently written decoders.
 
 ### The bar
 
@@ -336,8 +374,10 @@ outcome, but it is the cheapest remaining refuting test.
 - **`ui_settings` v7 slot semantics beyond type 0/4.** Types 2, 3 and 5 appear at fixed indices
   (24, 25, 46) in every file and are almost certainly the health-potion, mana-potion and a trailing
   sentinel cell. I did not confirm this; they carry no payload, so it did not block the answer.
-- **The three new v7 preamble ints.** `pageCount` and `slotsPerPage` are named on strong evidence
-  (see above). The third word reads 0 in all three files and is **unnamed**.
+- **The three new v7 preamble ints.** The second is the hotslot count (47) — established, and
+  independently confirmed by the 2026-08-05 prior art. The first (`1` / `2`) and the third (`0` in
+  all three files) are **unnamed**; my `pageCount` / `slotsPerPage` reading is a hypothesis, not a
+  result. See the correction note in Q2.
 - **Indices 14–23 of the slot table.** Occupied by Guardian of Empyrion and the Deathstalker relic
   at 18/19, but these do not correspond to visible numbered cells in the capture. Probably a second
   bar page or the pet-command row. Not determined.

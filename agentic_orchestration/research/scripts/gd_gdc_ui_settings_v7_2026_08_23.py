@@ -4,7 +4,20 @@
 Drift vs the 1.1.9.1 (v5) reference is confined to the preamble, which gains
 three int words after the five (str,str,byte) groups:
 
-    pageCount(int)   slotsPerPage(int) = 47   unknown(int) = 0
+    unknown_a(int)   hotslotCount(int) = 47   unknown_c(int) = 0
+
+NAMING CAUTION. Only the SECOND word is established: it is the hotslot count. That
+is confirmed independently by the 2026-08-05 prior solve in
+legolas/scratch/2026-08-05-eorwarlguts-parse/gdc2.py, which also records that the
+FoA community-tooling fork hard-codes 95 hotslots for v>=7 and thereby overruns a
+block written by GD 1.3.0.5.
+
+This module reads unknown_a as a PAGE COUNT (pages * hotslotCount slots). That is a
+HYPOTHESIS, not a result. It reconciles both fixture files, and is suggestive on
+_Fresh Character 01 -- which reads 2 and carries a Werewolf transform, i.e. a second
+action bar -- but the same bytes also parse as a flat 95 slots and I cannot separate
+the two readings. For _EoRWarlGuts (unknown_a == 1) the distinction does not arise:
+47 slots consume the block exactly under either reading.
 
 The slot struct itself is UNCHANGED. Proof of the slot struct: the gap between
 the end of one skill record-path and the start of the next is invariantly 17
