@@ -141,9 +141,17 @@ The in-flight build is RATIFIED-AS-PROTOCOL by § 2–§ 4 (nothing in it moves)
 
 ---
 
-## 8 · The Matt-fork (queued as Q62) — the only fork evidence cannot resolve
+## 8 · The Matt-fork (Q62) — **✓ RULED 2026-08-24, same day**
 
-**Does Matt's own interactive vendor-CLI presence (`codex` TUI — and per § 9.3, `grok` TUI, one vendor-generic ruling) BLOCK that vendor's lane, or report advisory-only?** Lean: **advisory-only** — the vendor precondition names automated job streams; interactive use is ordinary plan usage; and a fleet lane that idles whenever Matt opens a chat window converts his presence into downtime. But the credential is genuinely shared, and only Matt can rule on the visibility of his own working habit. One-word shapes: **"advise as leaned"** / **"block"**. (Second-machine residual: accepted invisible, single-host fleet; re-opens by name if a second host ever authenticates.)
+**Original fork:** does Matt's own interactive vendor-CLI presence (`codex` TUI — and per § 9.3, `grok` TUI, one vendor-generic ruling) BLOCK that vendor's lane, or report advisory-only? Lean was **advisory-only** — the vendor precondition names automated job streams; interactive use is ordinary plan usage; and a fleet lane that idles whenever Matt opens a chat window converts his presence into downtime. (Second-machine residual: accepted invisible, single-host fleet; re-opens by name if a second host ever authenticates.)
+
+**RULING (Matt verbatim):** *"I'm not worried about TUI. I'll simply check the fleet-board before ever engaging with the codex or grok TUI."*
+
+**Adopted as protocol:**
+
+- **ADVISE-ONLY, vendor-generic** — `interactive-codex-present` / `interactive-grok-present` are advisory states; drains proceed. D-1 stands as specified.
+- **The ledger refinement is IN:** any drain firing while an advisory is active writes the advisory token into its ledger note — the choice is evidence-generating, and flips to block only by amendment citing observed vendor friction (auth error, 429 burst, account flag). Standing empirical criterion for keeping advise-only: TUI-concurrent drains completing clean, countable from the rows.
+- **Matt's board-first glance is the HUMAN half of the serial discipline** — he self-serializes from the fleet side before opening a TUI. One instrument caveat, recorded so the glance and the truth stay aligned: **liveness-NOW is the § 3 CLI check's answer; the board is a VIEW (THE LAW) and may lag its refresh.** Consequence for U-1: the fleet-board's lane card should RENDER the busy check's output (a view of the derivation, never a second truth source — THE LAW-compliant by construction, since the check emits nothing and the card merely displays what a fresh probe returns). Until that card exists, the pre-TUI glance of record is the D-2 one-liner (`factory` lane status), documented at the queue root.
 
 ---
 
