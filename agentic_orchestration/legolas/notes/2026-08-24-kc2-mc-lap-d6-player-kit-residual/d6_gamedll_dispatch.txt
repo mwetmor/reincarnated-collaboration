@@ -1,0 +1,290 @@
+KC2-MC / D-6 -- Game.dll dispatch listing (verbatim capstone output, no interpretation)
+Game.dll x64, imagebase 0x180000000
+
+============================================================================================================
+?UnderAttack@SkillManager@GAME@@QEAAXAEBVParametersCombat@2@@Z
+rva 0x51e4d0 .. 0x51e641
+
+  0x018051e4d0  mov        qword ptr [rsp + 8], rbx                    
+  0x018051e4d5  mov        qword ptr [rsp + 0x10], rbp                 
+  0x018051e4da  mov        qword ptr [rsp + 0x18], rsi                 
+  0x018051e4df  push       rdi                                         
+  0x018051e4e0  sub        rsp, 0x20                                   
+  0x018051e4e4  mov        rbx, qword ptr [rcx + 0x228]                
+  0x018051e4eb  mov        rbp, rdx                                    
+  0x018051e4ee  mov        rdi, rcx                                    
+  0x018051e4f1  cmp        rbx, qword ptr [rcx + 0x230]                
+  0x018051e4f8  je         0x18051e567                                 
+  0x018051e4fa  nop        word ptr [rax + rax]                        
+  0x018051e500  mov        rsi, qword ptr [rbx]                        
+  0x018051e503  test       rsi, rsi                                    
+  0x018051e506  je         0x18051e55a                                 
+  0x018051e508  mov        rax, qword ptr [rsi]                        
+  0x018051e50b  mov        rcx, rsi                                    
+  0x018051e50e  call       qword ptr [rax + 0x1f0]                        ; <<< vslot62 Skill::IsSkillOnHitActive
+  0x018051e514  test       al, al                                      
+  0x018051e516  je         0x18051e52b                                 
+  0x018051e518  mov        rax, qword ptr [rsi]                        
+  0x018051e51b  mov        r8, rbp                                     
+  0x018051e51e  mov        rdx, qword ptr [rdi + 0x18]                 
+  0x018051e522  mov        rcx, rsi                                    
+  0x018051e525  call       qword ptr [rax + 0x1a8]                        ; <<< vslot53 Skill::OnHitActivation
+  0x018051e52b  mov        rax, qword ptr [rsi]                        
+  0x018051e52e  mov        rcx, rsi                                    
+  0x018051e531  call       qword ptr [rax + 0x1e8]                        ; <<< vslot61 Skill::IsSkillEnabled
+  0x018051e537  test       al, al                                      
+  0x018051e539  je         0x18051e55a                                 
+  0x018051e53b  mov        rax, qword ptr [rsi]                        
+  0x018051e53e  mov        rcx, rsi                                    
+  0x018051e541  call       qword ptr [rax + 0x600]                     
+  0x018051e547  test       al, al                                      
+  0x018051e549  je         0x18051e55a                                 
+  0x018051e54b  mov        rdx, qword ptr [rdi + 0x18]                 
+  0x018051e54f  mov        r8, rbp                                     
+  0x018051e552  mov        rcx, rsi                                    
+  0x018051e555  call       0x180486620                                    ; -> ?OnHitActivationSecondarySkills@Skill@GAME@@QEAAXAEAVCharacter@2@AEBVParametersCombat@2@@Z
+  0x018051e55a  add        rbx, 8                                      
+  0x018051e55e  cmp        rbx, qword ptr [rdi + 0x230]                
+  0x018051e565  jne        0x18051e500                                 
+  0x018051e567  mov        rbx, qword ptr [rdi + 0x258]                
+  0x018051e56e  cmp        rbx, qword ptr [rdi + 0x260]                
+  0x018051e575  je         0x18051e5af                                 
+  0x018051e577  mov        rsi, qword ptr [rbx]                        
+  0x018051e57a  test       rsi, rsi                                    
+  0x018051e57d  je         0x18051e5a2                                 
+  0x018051e57f  mov        rax, qword ptr [rsi]                        
+  0x018051e582  mov        rcx, rsi                                    
+  0x018051e585  call       qword ptr [rax + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x018051e58b  test       eax, eax                                    
+  0x018051e58d  je         0x18051e5a2                                 
+  0x018051e58f  mov        rax, qword ptr [rsi]                        
+  0x018051e592  mov        r8, rbp                                     
+  0x018051e595  mov        rdx, qword ptr [rdi + 0x18]                 
+  0x018051e599  mov        rcx, rsi                                    
+  0x018051e59c  call       qword ptr [rax + 0x1a8]                        ; <<< vslot53 Skill::OnHitActivation
+  0x018051e5a2  add        rbx, 8                                      
+  0x018051e5a6  cmp        rbx, qword ptr [rdi + 0x260]                
+  0x018051e5ad  jne        0x18051e577                                 
+  0x018051e5af  mov        rax, qword ptr [rdi + 0x368]                
+  0x018051e5b6  xor        esi, esi                                    
+  0x018051e5b8  sub        rax, qword ptr [rdi + 0x360]                
+  0x018051e5bf  sar        rax, 3                                      
+  0x018051e5c3  test       rax, rax                                    
+  0x018051e5c6  je         0x18051e62c                                 
+  0x018051e5c8  mov        ecx, esi                                    
+  0x018051e5ca  nop        word ptr [rax + rax]                        
+  0x018051e5d0  mov        rax, qword ptr [rdi + 0x360]                
+  0x018051e5d7  mov        rbx, qword ptr [rax + rcx*8]                
+  0x018051e5db  test       rbx, rbx                                    
+  0x018051e5de  je         0x18051e611                                 
+  0x018051e5e0  mov        eax, dword ptr [rbx + 0x1d4]                
+  0x018051e5e6  cmp        dword ptr [rdi + 0x424], eax                
+  0x018051e5ec  jne        0x18051e611                                 
+  0x018051e5ee  mov        rax, qword ptr [rbx]                        
+  0x018051e5f1  mov        rcx, rbx                                    
+  0x018051e5f4  call       qword ptr [rax + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x018051e5fa  test       eax, eax                                    
+  0x018051e5fc  je         0x18051e611                                 
+  0x018051e5fe  mov        rax, qword ptr [rbx]                        
+  0x018051e601  mov        r8, rbp                                     
+  0x018051e604  mov        rdx, qword ptr [rdi + 0x18]                 
+  0x018051e608  mov        rcx, rbx                                    
+  0x018051e60b  call       qword ptr [rax + 0x1a8]                        ; <<< vslot53 Skill::OnHitActivation
+  0x018051e611  mov        rax, qword ptr [rdi + 0x368]                
+  0x018051e618  inc        esi                                         
+  0x018051e61a  sub        rax, qword ptr [rdi + 0x360]                
+  0x018051e621  sar        rax, 3                                      
+  0x018051e625  mov        ecx, esi                                    
+  0x018051e627  cmp        rcx, rax                                    
+  0x018051e62a  jb         0x18051e5d0                                 
+  0x018051e62c  mov        rbx, qword ptr [rsp + 0x30]                 
+  0x018051e631  mov        rbp, qword ptr [rsp + 0x38]                 
+  0x018051e636  mov        rsi, qword ptr [rsp + 0x40]                 
+  0x018051e63b  add        rsp, 0x20                                   
+  0x018051e63f  pop        rdi                                         
+  0x018051e640  ret                                                    
+
+============================================================================================================
+?OnCriticalAttack@SkillManager@GAME@@QEAAXAEBVParametersCombat@2@@Z
+rva 0x51e650 .. 0x51e675
+
+  0x018051e650  mov        qword ptr [rsp + 0x18], rbp                 
+  0x018051e655  push       rdi                                         
+  0x018051e656  sub        rsp, 0x20                                   
+  0x018051e65a  movss      xmm0, dword ptr [rip + 0x25553a]            
+  0x018051e662  mov        rbp, rdx                                    
+  0x018051e665  comiss     xmm0, dword ptr [rdx + 0x9c]                
+  0x018051e66c  mov        rdi, rcx                                    
+  0x018051e66f  jae        0x18051e796                                 
+
+============================================================================================================
+?OnHitActivation@Skill_PassiveOnHitBuffSelf@GAME@@UEAAXAEAVCharacter@2@AEBVParametersCombat@2@@Z
+rva 0x4ea830 .. 0x4eaa7d
+
+  0x01804ea830  mov        rax, rsp                                    
+  0x01804ea833  push       rdi                                         
+  0x01804ea834  sub        rsp, 0x240                                  
+  0x01804ea83b  mov        qword ptr [rsp + 0x20], 0xfffffffffffffffe  
+  0x01804ea844  mov        qword ptr [rax + 0x10], rbx                 
+  0x01804ea848  mov        qword ptr [rax + 0x18], rsi                 
+  0x01804ea84c  movaps     xmmword ptr [rax - 0x18], xmm6              
+  0x01804ea850  mov        rdi, rcx                                    
+  0x01804ea853  mov        rcx, qword ptr [rcx + 0x30]                 
+  0x01804ea857  test       rcx, rcx                                    
+  0x01804ea85a  jne        0x1804ea86a                                 
+  0x01804ea85c  mov        rcx, qword ptr [rip + 0x546a25]             
+  0x01804ea863  add        rcx, 0x37318                                
+  0x01804ea86a  mov        rax, qword ptr [rcx]                        
+  0x01804ea86d  call       qword ptr [rax + 8]                         
+  0x01804ea870  mov        rsi, rax                                    
+  0x01804ea873  test       rax, rax                                    
+  0x01804ea876  je         0x1804eaa63                                 
+  0x01804ea87c  mov        rdx, qword ptr [rdi]                        
+  0x01804ea87f  mov        rcx, rdi                                    
+  0x01804ea882  call       qword ptr [rdx + 0x1e8]                        ; <<< vslot61 Skill::IsSkillEnabled
+  0x01804ea888  test       al, al                                      
+  0x01804ea88a  je         0x1804eaa63                                 
+  0x01804ea890  mov        rdx, qword ptr [rdi]                        
+  0x01804ea893  mov        rcx, rdi                                    
+  0x01804ea896  call       qword ptr [rdx + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x01804ea89c  test       eax, eax                                    
+  0x01804ea89e  je         0x1804eaa63                                 
+  0x01804ea8a4  cmp        dword ptr [rdi + 0x5cc], 0                  
+  0x01804ea8ab  jg         0x1804eaa63                                 
+  0x01804ea8b1  mov        rax, qword ptr [rdi]                        
+  0x01804ea8b4  mov        rcx, rdi                                    
+  0x01804ea8b7  call       qword ptr [rax + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x01804ea8bd  mov        ebx, eax                                    
+  0x01804ea8bf  mov        rdx, qword ptr [rdi]                        
+  0x01804ea8c2  mov        rcx, rdi                                    
+  0x01804ea8c5  call       qword ptr [rdx + 0x578]                        ; <<< vslot175 Skill::GetSkillProfile
+  0x01804ea8cb  mov        rcx, rax                                    
+  0x01804ea8ce  mov        edx, ebx                                    
+  0x01804ea8d0  call       0x180531230                                    ; -> ?GetActivationChance@SkillProfile@GAME@@QEBA?BMI@Z
+  0x01804ea8d5  movaps     xmm6, xmm0                                  
+  0x01804ea8d8  mov        rcx, qword ptr [rip + 0x5469a9]             
+  0x01804ea8df  add        rcx, 0x1308                                 
+  0x01804ea8e6  xor        edx, edx                                    
+  0x01804ea8e8  lea        r8d, [rdx + 0x64]                           
+  0x01804ea8ec  call       qword ptr [rip + 0x106196]                  
+  0x01804ea8f2  movd       xmm1, eax                                   
+  0x01804ea8f6  cvtdq2ps   xmm1, xmm1                                  
+  0x01804ea8f9  comiss     xmm1, xmm6                                  
+  0x01804ea8fc  ja         0x1804eaa63                                 
+  0x01804ea902  mov        dword ptr [rsp + 0x250], 0                  
+  0x01804ea90d  mov        word ptr [rsp + 0x254], 1                   
+  0x01804ea917  mov        rax, qword ptr [rsi]                        
+  0x01804ea91a  lea        r8, [rsp + 0x250]                           
+  0x01804ea922  mov        rdx, rdi                                    
+  0x01804ea925  mov        rcx, rsi                                    
+  0x01804ea928  call       qword ptr [rax + 0x30]                      
+  0x01804ea92b  lea        rcx, [rsp + 0x130]                          
+  0x01804ea933  call       0x180533290                                    ; -> sub_533290
+  0x01804ea938  nop                                                    
+  0x01804ea939  mov        rax, qword ptr [rdi]                        
+  0x01804ea93c  mov        r8b, 1                                      
+  0x01804ea93f  lea        rdx, [rsp + 0x130]                          
+  0x01804ea947  mov        rcx, rdi                                    
+  0x01804ea94a  call       qword ptr [rax + 0x2e8]                     
+  0x01804ea950  movss      xmm0, dword ptr [rsp + 0x160]               
+  0x01804ea959  movss      xmm6, dword ptr [rip + 0x28934b]            
+  0x01804ea961  mulss      xmm0, xmm6                                  
+  0x01804ea965  cvttss2si  eax, xmm0                                   
+  0x01804ea969  mov        dword ptr [rdi + 0x5cc], eax                
+  0x01804ea96f  mov        dword ptr [rdi + 0x5c8], eax                
+  0x01804ea975  mov        dword ptr [rdi + 0x5dc], 0                  
+  0x01804ea97f  lea        rcx, [rsp + 0x30]                           
+  0x01804ea984  call       0x180533290                                    ; -> sub_533290
+  0x01804ea989  nop                                                    
+  0x01804ea98a  mov        rax, qword ptr [rdi]                        
+  0x01804ea98d  mov        rcx, rdi                                    
+  0x01804ea990  call       qword ptr [rax + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x01804ea996  mov        r8d, eax                                    
+  0x01804ea999  lea        rdx, [rsp + 0x30]                           
+  0x01804ea99e  mov        rcx, rdi                                    
+  0x01804ea9a1  call       0x180479ec0                                    ; -> ?GetRefreshDurationModifierData@Skill@GAME@@QEAAXAEAVSkillProfile_Modifiers@2@H@Z
+  0x01804ea9a6  xorps      xmm0, xmm0                                  
+  0x01804ea9a9  movss      xmm1, dword ptr [rsp + 0xec]                
+  0x01804ea9b2  comiss     xmm1, xmm0                                  
+  0x01804ea9b5  jbe        0x1804ea9c7                                 
+  0x01804ea9b7  mulss      xmm1, xmm6                                  
+  0x01804ea9bb  cvttss2si  eax, xmm1                                   
+  0x01804ea9bf  mov        dword ptr [rdi + 0x5d0], eax                
+  0x01804ea9c5  jmp        0x1804ea9d1                                 
+  0x01804ea9c7  mov        dword ptr [rdi + 0x5d0], 0xffffffff         
+  0x01804ea9d1  lea        rbx, [rip + 0x27d920]                       
+  0x01804ea9d8  mov        qword ptr [rsp + 0x30], rbx                 
+  0x01804ea9dd  mov        rcx, qword ptr [rsp + 0x48]                 
+  0x01804ea9e2  test       rcx, rcx                                    
+  0x01804ea9e5  je         0x1804eaa1f                                 
+  0x01804ea9e7  mov        rdx, qword ptr [rsp + 0x50]                 
+  0x01804ea9ec  call       0x18002d8e0                                    ; -> sub_2d8e0
+  0x01804ea9f1  mov        rdx, qword ptr [rsp + 0x58]                 
+  0x01804ea9f6  mov        rcx, qword ptr [rsp + 0x48]                 
+  0x01804ea9fb  sub        rdx, rcx                                    
+  0x01804ea9fe  sar        rdx, 5                                      
+  0x01804eaa02  mov        r8d, 0x20                                   
+  0x01804eaa08  call       0x180016610                                    ; -> sub_16610
+  0x01804eaa0d  mov        qword ptr [rsp + 0x48], 0                   
+  0x01804eaa16  xorps      xmm0, xmm0                                  
+  0x01804eaa19  movdqa     xmmword ptr [rsp + 0x50], xmm0              
+  0x01804eaa1f  mov        qword ptr [rsp + 0x130], rbx                
+  0x01804eaa27  mov        rcx, qword ptr [rsp + 0x148]                
+  0x01804eaa2f  test       rcx, rcx                                    
+  0x01804eaa32  je         0x1804eaa63                                 
+  0x01804eaa34  mov        rdx, qword ptr [rsp + 0x150]                
+  0x01804eaa3c  call       0x18002d8e0                                    ; -> sub_2d8e0
+  0x01804eaa41  mov        rdx, qword ptr [rsp + 0x158]                
+  0x01804eaa49  mov        rcx, qword ptr [rsp + 0x148]                
+  0x01804eaa51  sub        rdx, rcx                                    
+  0x01804eaa54  sar        rdx, 5                                      
+  0x01804eaa58  mov        r8d, 0x20                                   
+  0x01804eaa5e  call       0x180016610                                    ; -> sub_16610
+  0x01804eaa63  lea        r11, [rsp + 0x240]                          
+  0x01804eaa6b  mov        rbx, qword ptr [r11 + 0x18]                 
+  0x01804eaa6f  mov        rsi, qword ptr [r11 + 0x20]                 
+  0x01804eaa73  movaps     xmm6, xmmword ptr [r11 - 0x10]              
+  0x01804eaa78  mov        rsp, r11                                    
+  0x01804eaa7b  pop        rdi                                         
+  0x01804eaa7c  ret                                                    
+
+============================================================================================================
+?IsSkillOnHitActive@Skill_PassiveOnHitBuffSelf@GAME@@UEBA?B_NXZ
+rva 0x4eb1f0 .. 0x4eb207
+
+  0x01804eb1f0  sub        rsp, 0x28                                   
+  0x01804eb1f4  mov        rax, qword ptr [rcx]                        
+  0x01804eb1f7  call       qword ptr [rax + 0x1c8]                        ; <<< vslot57 Skill::GetCurrentLevel
+  0x01804eb1fd  test       eax, eax                                    
+  0x01804eb1ff  setne      al                                          
+  0x01804eb202  add        rsp, 0x28                                   
+  0x01804eb206  ret                                                    
+
+============================================================================================================
+?EndCooldown@Skill_PassiveOnHitBuffSelf@GAME@@UEAAXH@Z
+rva 0x158b0 .. 0x158f0
+
+  0x01800158b0  ret        0                                           
+  0x01800158b3  int3                                                   
+  0x01800158b4  int3                                                   
+  0x01800158b5  int3                                                   
+  0x01800158b6  int3                                                   
+  0x01800158b7  int3                                                   
+  0x01800158b8  int3                                                   
+  0x01800158b9  int3                                                   
+  0x01800158ba  int3                                                   
+  0x01800158bb  int3                                                   
+  0x01800158bc  int3                                                   
+  0x01800158bd  int3                                                   
+  0x01800158be  int3                                                   
+  0x01800158bf  int3                                                   
+  0x01800158c0  mov        rax, rsp                                    
+  0x01800158c3  push       rbp                                         
+  0x01800158c4  lea        rbp, [rax - 0x5f]                           
+  0x01800158c8  sub        rsp, 0xb0                                   
+  0x01800158cf  mov        qword ptr [rbp + 0x3f], 0xfffffffffffffffe  
+  0x01800158d7  mov        qword ptr [rax + 8], rbx                    
+  0x01800158db  mov        qword ptr [rax + 0x10], rsi                 
+  0x01800158df  mov        qword ptr [rax + 0x18], rdi                 
+  0x01800158e3  mov        rdi, rcx                                    
+  0x01800158e6  mov        word ptr [rcx + 0xc8], 0x100                

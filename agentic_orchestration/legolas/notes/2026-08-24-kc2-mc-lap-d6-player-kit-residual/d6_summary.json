@@ -1,0 +1,633 @@
+{
+  "lap": "KC2-MC / D-6",
+  "date": "2026-08-24",
+  "law": "decode-before-declare (LAW 3)",
+  "index_convention_checks": [
+    {
+      "record": "records/skills/devotion/tier2_05f_skill_buff.dbr",
+      "level": 20,
+      "field": "defensiveProtectionModifier",
+      "index": 19,
+      "read": -35.0,
+      "expected_by": "B-1 5.2 / pm4g_defensive_actives",
+      "expected": -35.0,
+      "agrees": true,
+      "how": "array[19]/len20"
+    },
+    {
+      "record": "records/skills/devotion/tier2_05f_skill_buff.dbr",
+      "level": 20,
+      "field": "offensiveLifeLeechMin",
+      "index": 19,
+      "read": 45.0,
+      "expected_by": "B-1 5.2",
+      "expected": 45.0,
+      "agrees": true,
+      "how": "array[19]/len20"
+    },
+    {
+      "record": "records/skills/devotion/tier2_17c_skill.dbr",
+      "level": 20,
+      "field": "damageAbsorption",
+      "index": 19,
+      "read": 2900.0,
+      "expected_by": "Lap G Arcane Barrier",
+      "expected": 2900.0,
+      "agrees": true,
+      "how": "array[19]/len20"
+    },
+    {
+      "record": "records/skills/devotion/tier1_29e_skill.dbr",
+      "level": 25,
+      "field": "damageAbsorption",
+      "index": 24,
+      "read": 6100.0,
+      "expected_by": "Lap G Turtle Shell",
+      "expected": 6100.0,
+      "agrees": true,
+      "how": "array[24]/len25"
+    },
+    {
+      "record": "records/skills/devotion/tier1_29e_skill.dbr",
+      "level": 25,
+      "field": "skillCooldownTime",
+      "index": 24,
+      "read": 8.0,
+      "expected_by": "Lap G Turtle Shell",
+      "expected": 8.0,
+      "agrees": true,
+      "how": "array[24]/len25"
+    },
+    {
+      "record": "records/skills/playerclass01/fightingspirit1.dbr",
+      "level": 5,
+      "field": "onHitActivationChance",
+      "index": 4,
+      "read": 30.0,
+      "expected_by": "Lap G trigger_chance_pct",
+      "expected": 30.0,
+      "agrees": true,
+      "how": "array[4]/len22"
+    },
+    {
+      "record": "records/skills/playerclass01/fightingspirit1.dbr",
+      "level": 5,
+      "field": "characterOffensiveAbility",
+      "index": 4,
+      "read": 108.0,
+      "expected_by": "B-1 5.1",
+      "expected": 108.0,
+      "agrees": true,
+      "how": "array[4]/len22"
+    },
+    {
+      "record": "records/skills/playerclass01/fightingspirit1.dbr",
+      "level": 5,
+      "field": "offensiveTotalDamageModifier",
+      "index": 4,
+      "read": 95.0,
+      "expected_by": "B-1 5.1",
+      "expected": 95.0,
+      "agrees": true,
+      "how": "array[4]/len22"
+    },
+    {
+      "record": "records/skills/playerclass09/passive02.dbr",
+      "level": 3,
+      "field": "characterHealIncreasePercent",
+      "index": 2,
+      "read": 24.0,
+      "expected_by": "I-17 / B-1 5.3",
+      "expected": 24.0,
+      "agrees": true,
+      "how": "array[2]/len22"
+    }
+  ],
+  "index_convention_verdict": "CONFIRMED: array index = level - 1",
+  "T1_fighting_spirit": {
+    "record": "records/skills/playerclass01/fightingspirit1.dbr",
+    "archives": "base",
+    "Class": "Skill_PassiveOnHitBuffSelf",
+    "templateName": "database/templates/skill_passiveonhitbuffself.tpl",
+    "onHitActivationChance_declared_on": "templatebase/skill_onhit.tpl",
+    "onHitActivationChance_declaration": {
+      "name": "onHitActivationChance",
+      "class": "array",
+      "type": "real",
+      "description": "0 to 100",
+      "value": "",
+      "defaultValue": ""
+    },
+    "shipped_description_tag": "tagClass01SkillDescription07A",
+    "shipped_description": "Far from beating you into submission, the sting of enemy blows rouses your anger instead, adding extra force to your attacks. ^oActivates when taking damage.",
+    "shipped_description_source": "resources/Text_EN.arc::tags_skills.txt",
+    "vslot_OnHitActivation": 53,
+    "vslot_IsSkillOnHitActive": 62,
+    "slot53_bytescan_superset_receiver_type_UNKNOWN": {
+      "VERIFIED": [
+        "?CreateRangeText@DamageAttributeDurFixed@GAME@@UEBAXPEBVDamageAttribute@2@AEAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z",
+        "?GetCurrentRadius@RadiusMagic@GAME@@IEBAMXZ (unnamed@0x415020)",
+        "?GetHomePosition@ControllerMonster@GAME@@QEBA?AVWorldVec3@2@XZ",
+        "?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QEBAMXZ (unnamed@0x569dd0)",
+        "?GetSelectionBiasLockOnOffset@GameEngine@GAME@@QEBAMXZ (unnamed@0x56a470)",
+        "?OnCriticalAttack@SkillManager@GAME@@QEAAXAEBVParametersCombat@2@@Z (unnamed@0x51e675)",
+        "?UnderAttack@SkillManager@GAME@@QEAAXAEBVParametersCombat@2@@Z"
+      ],
+      "byte_scan_candidates_total": 17,
+      "rejected_as_mid_instruction_or_unattributable": [
+        "?CreateCopy@Player@GAME@@IEAAPEAV12@PEAVRegion@2@@Z",
+        "?CreateCopy@Player@GAME@@IEBAPEAVEntity@2@I@Z",
+        "?DeleteSocialTarget@FixedItemBlastContainer@GAME@@UEAAXI@Z",
+        "?DisplayPlayerCopy@Player@GAME@@QEAAPEAV12@XZ",
+        "?OnConversationEnd@FixedItemBlastContainer@GAME@@QEAAXI@Z",
+        "?ResetDisplayPlayer@Player@GAME@@QEAAXXZ"
+      ]
+    },
+    "slot62_bytescan_superset_receiver_type_UNKNOWN": {
+      "VERIFIED": [
+        "?OnHitActivationSecondarySkills@Skill@GAME@@QEAAXAEAVCharacter@2@AEBVParametersCombat@2@@Z (unnamed@0x48664a)",
+        "?SelectPrimaryAction@ControllerPlayerState@GAME@@UEAA_N_N_N1AEBVWorldVec3@2@AEAI1@Z",
+        "?UnderAttack@SkillManager@GAME@@QEAAXAEBVParametersCombat@2@@Z"
+      ],
+      "byte_scan_candidates_total": 5,
+      "rejected_as_mid_instruction_or_unattributable": [
+        "?ChatCommandUseSkill@Character@GAME@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@II_N@Z (unnamed@0x6dd9a)",
+        "?QuestCommandWalk@GameEngine@GAME@@QEAAXIIVWorldVec3@2@_N@Z"
+      ]
+    },
+    "dispatch_chain_PROVEN": [
+      "CombatManager::TakeAttack(ParametersCombat&, SkillManager&, CharacterBio&)   [victim side]",
+      "  -> SkillManager::UnderAttack(const ParametersCombat&)   [sole caller; see callers_of_...]",
+      "     for each Skill* s in this->skills:  if s->vslot62 IsSkillOnHitActive() then",
+      "        s->vslot53 OnHitActivation(owner, params)",
+      "Skill_PassiveOnHitBuffSelf overrides BOTH vslot62 and vslot53, and does NOT override",
+      "vslot63 IsSkillOnCritActive -- so it is unreachable from SkillManager::OnCriticalAttack."
+    ],
+    "callers_of_SkillManager_UnderAttack": [
+      "?TakeAttack@CombatManager@GAME@@QEAA_NAEAVParametersCombat@2@AEAVSkillManager@2@AEAVCharacterBio@2@@Z"
+    ],
+    "EndCooldown_override_rva": "0x158b0",
+    "EndCooldown_override_first_bytes": "c20000cc",
+    "EndCooldown_override_is_ret_stub": true,
+    "EndCooldown_stub_aliases": [
+      "??1?$Singleton@VQuest2Repository@GAME@@@GAME@@IEAA@XZ",
+      "??1ControllerAIStateData@GAME@@QEAA@XZ",
+      "??1EquipManagerContainer@GAME@@QEAA@XZ",
+      "??1GameController@GAME@@QEAA@XZ",
+      "??1SkillActiveState@GAME@@QEAA@XZ",
+      "??1SkillState@GAME@@QEAA@XZ"
+    ]
+  },
+  "T1_onhit_family_census": {
+    "Skill_PassiveOnHitBuffSelf": [
+      {
+        "record": "records/skills/base_template skills/skill_passiveonhitbuffself.dbr",
+        "name": "Rename Me",
+        "desc": "Describe Me"
+      },
+      {
+        "record": "records/skills/nonplayerskills/passivelyactivated/scavenger_whirlwind.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/nonplayerskills/bossskills/nemesis/ironmaiden_fightingspirit1.dbr",
+        "name": "Fighting Spirit",
+        "desc": "Far from beating you into submission, the sting of enemy blows rouses your anger instead, adding extra force to your attacks. ^oActivates when taking damage."
+      },
+      {
+        "record": "records/skills/playerclass01/fightingspirit1.dbr",
+        "name": "Fighting Spirit",
+        "desc": "Far from beating you into submission, the sting of enemy blows rouses your anger instead, adding extra force to your attacks. ^oActivates when taking damage."
+      },
+      {
+        "record": "records/skills/itemskillsgdx1/legendary/stoneward.dbr",
+        "name": "Stone Ward",
+        "desc": "A physical barrier shields you from harm."
+      }
+    ],
+    "Skill_OnHitAttackRadius": [
+      {
+        "record": "records/skills/nonplayerskills/bossskills/special/cloneice_onhit01.dbr",
+        "name": "Cold Flash",
+        "desc": "A blast of negative energy freezes anything in its path."
+      },
+      {
+        "record": "records/skills/nonplayerskills/heroskills/aetheros_aetherdischarge.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/playerclass02/vindictiveflame1.dbr",
+        "name": "Vindictive Flame",
+        "desc": "Ulzuin's eternal flame once brought life and healing to the world, but betrayal and torment twisted this gift into a weapon of vengeance. Those sworn to Ulzuin receive vigor in battle and fiery retaliation upon their foes."
+      },
+      {
+        "record": "records/skills/nonplayerskills/bossskills/nemesis/valdaran_lightningsurge_onhit01.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/nonplayerskills/passivelyactivated/prawn_poisonnova_onhit01.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/nonplayerskills/attackradius/surgelightning_onhit01.dbr",
+        "name": "Static Charge",
+        "desc": "A surge of electricity discharges from you, damaging nearby enemies."
+      },
+      {
+        "record": "records/skills/base_template skills/skill_onhitattackradius.dbr",
+        "name": "Rename Me",
+        "desc": "Describe Me"
+      },
+      {
+        "record": "records/skills/itemskills/relics/relic_icesurge.dbr",
+        "name": "Ice Surge",
+        "desc": "Channel chilling energy through your very core, causing enemies that strike you to occasionally trigger a surge of ice."
+      },
+      {
+        "record": "records/skills/nonplayerskills/attackradius/surgeice_onhit01.dbr",
+        "name": "Cold Flash",
+        "desc": "A blast of negative energy freezes anything in its path."
+      },
+      {
+        "record": "records/skills/nonplayerskills/bossskills/special/cloneposion_poisonnova_onhit01.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/nonplayerskills/passivelyactivated/aetherobelisk_vindictiveaether.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/playerclass01/counterstrike1.dbr",
+        "name": "Counter Strike",
+        "desc": "Enter a state of intense readiness in order to unleash lightning-fast counter strikes against your attackers."
+      },
+      {
+        "record": "records/skills/nonplayerskillsgdx2/bossskills/pvp/vindictiveflame1.dbr",
+        "name": "Vindictive Flame",
+        "desc": "Ulzuin's eternal flame once brought life and healing to the world, but betrayal and torment twisted this gift into a weapon of vengeance. Those sworn to Ulzuin receive vigor in battle and fiery retaliation upon their foes."
+      }
+    ],
+    "Skill_OnHitBuffSelf": [
+      {
+        "record": "records/skills/base_template skills/skill_onhitbuffself.dbr",
+        "name": "Rename Me",
+        "desc": "Describe Me"
+      }
+    ],
+    "Skill_PassiveOnHitBuffShield": [
+      {
+        "record": "records/skills/itemskills/legendary/item_voidwalker.dbr",
+        "name": "Voidwalker",
+        "desc": "You are resistant to the corrupting effects of the void, putting up a barrier whenever struck by vile fiends that use such magic."
+      },
+      {
+        "record": "records/skills/itemskills/legendary/item_wardofgulamash.dbr",
+        "name": "Ward of Gul'Amash",
+        "desc": "The Ward of Gul'Amash shields you from harm when struck by physical blows."
+      },
+      {
+        "record": "records/skills/itemskills/legendary/item_wyrmscale.dbr",
+        "name": "Wyrmscale",
+        "desc": "The wyrmscale shields you from harm."
+      },
+      {
+        "record": "records/skills/itemskills/relics/relic_sanctuary.dbr",
+        "name": "Sanctuary",
+        "desc": "A protective barrier forms around you whenever an enemy manages to find a weak point in your defenses."
+      },
+      {
+        "record": "records/skills/itemskillsgdx1/componentskills/compb_ancestralward.dbr",
+        "name": "Ancestral Ward",
+        "desc": "The power within the seal shields you from the powers beyond."
+      },
+      {
+        "record": "records/skills/itemskillsgdx1/legendary/boneshield.dbr",
+        "name": "Bone Barrier",
+        "desc": "The bones of fallen minions form a barrier around you, shielding you from physical and unliving harm."
+      },
+      {
+        "record": "records/skills/itemskillsgdx1/legendary/runeguard.dbr",
+        "name": "Runeguard",
+        "desc": "The runes inscribed upon the greaves shield you from arcane harm."
+      },
+      {
+        "record": "records/skills/itemskillsgdx2/legendary/stonetread.dbr",
+        "name": "Stonetread",
+        "desc": "The enchantment upon these boots shields you from physical harm."
+      },
+      {
+        "record": "records/skills/itemskillsgdx2/legendary/deathwalker.dbr",
+        "name": "Deathwalker",
+        "desc": "You are resistant to the call of death, putting up a barrier whenever struck by abilities that seek to drain you of life's essence."
+      },
+      {
+        "record": "records/skills/itemskillsgdx3/legendary/bileguard.dbr",
+        "name": "Bileguard",
+        "desc": "A wretched miasma shields you from toxins and physical blows."
+      },
+      {
+        "record": "records/skills/itemskillsgdx3/relics/aurora.dbr",
+        "name": "Aurora Occidentalis",
+        "desc": "Upon suffering harm, an aurora of energy wards you from further injury."
+      }
+    ],
+    "SkillSecondary_OnHitBuffRadius": [
+      {
+        "record": "records/skills/base_template skills/skill_skillsecondary_onhitbuffradius.dbr",
+        "name": "",
+        "desc": ""
+      },
+      {
+        "record": "records/skills/playerclass08/spectralarmor2.dbr",
+        "name": "",
+        "desc": ""
+      }
+    ],
+    "Skill_PassiveOnCritBuffSelf": [
+      {
+        "record": "records/skills/base_template skills/skill_passiveoncritbuffself.dbr",
+        "name": "Rename Me",
+        "desc": "Describe Me"
+      },
+      {
+        "record": "records/skills/playerclass07/passive02.dbr",
+        "name": "Deadly Aim",
+        "desc": "For an Inquisitor facing off against some of humanity's greatest foes, sometimes a single shot or well-placed ^ocritical blow^h is all the opportunity they have, and the only one they need."
+      },
+      {
+        "record": "records/skills/nonplayerskillsgdx2/bossskills/pvp/deadlyaim.dbr",
+        "name": "Deadly Aim",
+        "desc": "For an Inquisitor facing off against some of humanity's greatest foes, sometimes a single shot or well-placed ^ocritical blow^h is all the opportunity they have, and the only one they need."
+      },
+      {
+        "record": "records/skills/playerclass10/passive02.dbr",
+        "name": "Battle Surge",
+        "desc": "To a trained berserker, there is no greater thrill than the glory of combat. As you land ^ocritical blows^h, you feel invigorated."
+      }
+    ]
+  },
+  "T2_ulzaads_decree": {
+    "record": "records/skills/devotion/tier2_37d_skill.dbr",
+    "archives": "gdx3",
+    "Class": "Skill_BuffSelfDuration",
+    "templateName": "database/templates/skill_buffselfduration.tpl",
+    "instantCast": true,
+    "templateAutoCast": "records/controllers/itemskills/cast_@selfonattack_20%.dbr",
+    "buff_companion_record": "records/skills/devotion/tier2_37d_skill_buff.dbr",
+    "buff_companion_exists": false,
+    "devotion_level": 20,
+    "payload": {
+      "defensiveProtection": {
+        "value": 190.0,
+        "how": "array[19]/len20"
+      },
+      "defensiveProtectionModifier": {
+        "value": 0.0,
+        "how": "scalar"
+      },
+      "offensivePhysicalModifier": {
+        "value": 200.0,
+        "how": "array[19]/len20"
+      },
+      "offensivePierceModifier": {
+        "value": 200.0,
+        "how": "array[19]/len20"
+      },
+      "offensiveSlowPhysicalModifier": {
+        "value": 200.0,
+        "how": "array[19]/len20"
+      },
+      "offensivePhysicalMin": {
+        "value": 42.0,
+        "how": "array[19]/len20"
+      },
+      "offensivePhysicalMax": {
+        "value": 45.0,
+        "how": "array[19]/len20"
+      },
+      "retaliationPhysicalMin": {
+        "value": 205.0,
+        "how": "array[19]/len20"
+      },
+      "retaliationPhysicalMax": {
+        "value": 450.0,
+        "how": "array[19]/len20"
+      },
+      "damageAbsorption": {
+        "value": null,
+        "how": "ABSENT"
+      },
+      "damageAbsorptionPercent": {
+        "value": null,
+        "how": "ABSENT"
+      },
+      "skillActiveDuration": {
+        "value": 10.0,
+        "how": "array[19]/len20"
+      },
+      "skillCooldownTime": {
+        "value": 22.0,
+        "how": "scalar"
+      }
+    }
+  },
+  "T3_resilience": {
+    "record": "records/skills/playerclass09/passive02.dbr",
+    "archives": "gdx2",
+    "Class": "Skill_PassiveOnLifeBuffSelf",
+    "templateName": "database/templates/skill_passiveonlifebuffself.tpl",
+    "rank_effective": 3,
+    "payload": {
+      "characterHealIncreasePercent": {
+        "value": 24.0,
+        "how": "array[2]/len22"
+      },
+      "characterDefensiveAbilityModifier": {
+        "value": 3.0,
+        "how": "array[2]/len22"
+      },
+      "defensiveAllMaxResist": {
+        "value": 2.0,
+        "how": "array[2]/len22"
+      },
+      "defensivePhysical": {
+        "value": 4.0,
+        "how": "array[2]/len22"
+      },
+      "defensiveProtection": {
+        "value": 0.0,
+        "how": "scalar"
+      },
+      "damageAbsorption": {
+        "value": null,
+        "how": "ABSENT"
+      },
+      "damageAbsorptionPercent": {
+        "value": null,
+        "how": "ABSENT"
+      },
+      "lifeMonitorPercent": {
+        "value": 66.0,
+        "how": "scalar"
+      },
+      "skillActiveDuration": {
+        "value": 5.0,
+        "how": "scalar"
+      },
+      "skillCooldownTime": {
+        "value": 15.0,
+        "how": "scalar"
+      }
+    },
+    "thresholdDuration_declaration": {
+      "name": "thresholdDuration",
+      "class": "variable",
+      "type": "bool",
+      "description": "Wait for life to be above threshold before starting duration timer?",
+      "value": "",
+      "defaultValue": "1"
+    },
+    "thresholdDuration_on_record": true,
+    "thresholdDuration_effective": false,
+    "n_corpus_records_setting_it_explicitly": 65
+  },
+  "field_semantics_from_shipped_ui_tags": {
+    "defensiveProtection": [
+      {
+        "tag": "DefenseAbsorptionProtectionPlus",
+        "text": "+{%.0f0} {^E}Armor",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      },
+      {
+        "tag": "DefenseProtectionModifier",
+        "text": "{^E}Increases Armor by {^H}{%.0f0}%",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      }
+    ],
+    "defensivePhysical": [
+      {
+        "tag": "DefensePhysical",
+        "text": "{%.0f0}% {^E}Physical Resistance",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      }
+    ],
+    "defensiveAllMaxResist": [
+      {
+        "tag": "DefenseAllMaxResist",
+        "text": "{%+.0f0}% {^E}Max All Resistances",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      }
+    ],
+    "characterDefensiveAbilityModifier": [
+      {
+        "tag": "tagCharDefensiveAbilityModifier",
+        "text": "{%+.0f0}% {^E}Defensive Ability",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      }
+    ],
+    "characterHealIncreasePercent": [
+      {
+        "tag": "tagCharHealIncreaseModifier",
+        "text": "{^E}Healing Effects Increased by {^H}{%.0f0}%",
+        "source": "gdx2/resources/Text_EN.arc::tagsgdx2_ui.txt"
+      },
+      {
+        "tag": "tagCharStatsHealIncreaseInfo",
+        "text": "The percent bonus to all healing effects, including Potions and Attack Damage Converted to Health. Does not increase Health Regeneration.",
+        "source": "gdx2/resources/Text_EN.arc::tagsgdx2_ui.txt"
+      }
+    ],
+    "retaliationPhysicalMin": [
+      {
+        "tag": "RetaliationPhysical",
+        "text": "{%t0} {^E}Physical Damage Retaliation",
+        "source": "resources/Text_EN.arc::tags_ui.txt"
+      }
+    ]
+  },
+  "bool_fields_differing_from_template_default": {
+    "records/skills/playerclass01/fightingspirit1.dbr": {
+      "template": "skill_passiveonhitbuffself.tpl",
+      "n_template_vars_incl_includes": 1143,
+      "authored_bool_overrides": []
+    },
+    "records/skills/devotion/tier2_37d_skill.dbr": {
+      "template": "skill_buffselfduration.tpl",
+      "n_template_vars_incl_includes": 1169,
+      "authored_bool_overrides": [
+        {
+          "field": "instantCast",
+          "record_value": true,
+          "template_default": "0",
+          "template_description": ""
+        }
+      ]
+    },
+    "records/skills/playerclass09/passive02.dbr": {
+      "template": "skill_passiveonlifebuffself.tpl",
+      "n_template_vars_incl_includes": 1144,
+      "authored_bool_overrides": [
+        {
+          "field": "roundBitmap",
+          "record_value": true,
+          "template_default": "0",
+          "template_description": "Used for duration and cooldown wipes"
+        },
+        {
+          "field": "thresholdDuration",
+          "record_value": false,
+          "template_default": "1",
+          "template_description": "Wait for life to be above threshold before starting duration timer?"
+        }
+      ]
+    }
+  },
+  "gamedll_x86_x64_symbol_parity": {
+    "?UnderAttack@SkillManager@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?OnCriticalAttack@SkillManager@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?TakeAttack@CombatManager@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?OnHitActivation@Skill_PassiveOnHitBuffSelf@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?IsSkillOnHitActive@Skill_PassiveOnHitBuffSelf@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?IsSkillOnCritActive@Skill_PassiveOnCritBuffSelf@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    },
+    "?EndCooldown@Skill_PassiveOnHitBuffSelf@GAME@@": {
+      "x86_present": true,
+      "x64_present": true
+    }
+  },
+  "gamedll_parity_verdict": "ALL PRESENT IN BOTH BUILDS",
+  "digests": {
+    "Game.dll (x64)": "7c62f1aa8b32ce3dbfb5a640b7af280203d28016b8f9e39225e36028136b26eb",
+    "database/database.arz": "2ad6d379285cfb745462316949e8d59e9450cb58a13f9ffa2fdeb70193183bfd",
+    "gdx2/database/GDX2.arz": "13fa0b93be15835958968ad672b9efa5159d7221a279aca791590390dd81a072",
+    "gdx3/database/GDX3.arz": "e990e1265f14ff2ee241658433d4d666d399a5b0be27543ae9481fc97d6a2ae4",
+    "database/templates.arc": "679db83f019020ef7d4d27be8e61203006ee94e5c582dd8a59642f3fddd54602",
+    "resources/Text_EN.arc": "1105b1eef70c83914a00d0516ea6db3a25ed06fad8ec91757481e66879d58a27",
+    "gdx2/resources/Text_EN.arc": "8aec9207b5dd0b33cb981455ec867d71ebc0d1646fa27e85b59b4556e8d814a1",
+    "grim-dawn/Game.dll (x86, the build prior KC2 laps pinned)": "4876d6bdb69cca71cfa987652cbd7a42cf6d5578564d02d09aaf9b55c078ab02"
+  },
+  "version_skew_DECLARED": "MAGNITUDES are read from the edition-III 2026-08-08 depot (the corpus every prior KC2 lap used).  SEMANTICS (T1's dispatch chain) are read from the 2026-07-23 install's Game.dll, a DIFFERENT build -- that install's database.arz sha is 8cdeff12..., not the edition-III 2ad6d379....  The bridge is the class-name string, which appears verbatim in BOTH the edition-III templates.arc (Class=Skill_PassiveOnHitBuffSelf) and in Game.dll's export table; and the x86/x64 parity check above shows the class/method set is identical across the two builds shipped in that install.  No MAGNITUDE in this lap comes from Game.dll."
+}

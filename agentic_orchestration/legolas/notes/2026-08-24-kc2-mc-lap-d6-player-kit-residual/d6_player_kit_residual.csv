@@ -1,0 +1,28 @@
+target,record,level_kind,level,index,field,value,unit,status,provenance
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,TRIGGER_DIRECTION,HitByEnemy,enum,DECODED,"Game.dll CombatManager::TakeAttack -> SkillManager::UnderAttack -> vslot62 IsSkillOnHitActive -> vslot53 OnHitActivation; + shipped desc 'Far from beating you into submission, the sting of enemy blows rouses your anger instead, adding extra force to your attacks. ^oActivates when taking damage.'"
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,onHitActivationChance,30.0,percent,DECODED,"arz winner overlay (b,a,s,e) array[4]/len22"
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,skillActiveDuration,6.199999809265137,seconds,DECODED,"arz winner overlay (b,a,s,e) array[4]/len22"
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,characterOffensiveAbility,108.0,flat_OA,DECODED,"arz winner overlay (b,a,s,e) array[4]/len22"
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,offensiveTotalDamageModifier,95.0,percent,DECODED,"arz winner overlay (b,a,s,e) array[4]/len22"
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,skillCooldownTime,5.0,seconds,DECODED-BUT-INERT,value on record; Skill_PassiveOnHitBuffSelf::EndCooldown is the COMDAT-folded ret-stub at 0x158b0 and OnHitActivation never reads the cooldown timer -- the re-fire gate is activeDurationRemaining>0
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,REFIRE_GATE,activeDurationRemaining_ms > 0,predicate,DECODED,Game.dll Skill_PassiveOnHitBuffSelf::OnHitActivation: early-out on [this+0x5cc]>0; on fire [0x5cc]=[0x5c8]=duration_s*1000.0
+fighting_spirit,records/skills/playerclass01/fightingspirit1.dbr,rank,5,4,ROLL_RULE,"fire iff uniform_int(0,100) <= onHitActivationChance",predicate,DECODED,"Game.dll: SkillProfile::GetActivationChance(profile, level); rng(0,100); comiss/ja early-out on roll > chance"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,defensiveProtection,190.0,flat_armor,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,offensivePhysicalModifier,200.0,percent,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,offensivePierceModifier,200.0,percent,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,offensiveSlowPhysicalModifier,200.0,percent,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,offensivePhysicalMin,42.0,flat_damage,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,offensivePhysicalMax,45.0,flat_damage,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,retaliationPhysicalMin,205.0,flat_damage,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,retaliationPhysicalMax,450.0,flat_damage,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,skillActiveDuration,10.0,seconds,DECODED,"arz winner overlay (g,d,x,3) array[19]/len20"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,skillCooldownTime,22.0,seconds,DECODED,"arz winner overlay (g,d,x,3) scalar"
+ulzaads_decree,records/skills/devotion/tier2_37d_skill.dbr,devotion_level,20,19,PAYLOAD_HOME,self (no _buff companion),note,DECODED,Class=Skill_BuffSelfDuration; tier2_37d_skill_buff.dbr does not exist in any of the 8 archives
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,characterHealIncreasePercent,24.0,percent,DECODED,"arz winner overlay (g,d,x,2) array[2]/len22"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,characterDefensiveAbilityModifier,3.0,percent,DECODED,"arz winner overlay (g,d,x,2) array[2]/len22"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,defensiveAllMaxResist,2.0,percent,DECODED,"arz winner overlay (g,d,x,2) array[2]/len22"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,defensivePhysical,4.0,percent,DECODED,"arz winner overlay (g,d,x,2) array[2]/len22"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,lifeMonitorPercent,66.0,percent,DECODED,"arz winner overlay (g,d,x,2) scalar"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,skillActiveDuration,5.0,seconds,DECODED,"arz winner overlay (g,d,x,2) scalar"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,skillCooldownTime,15.0,seconds,DECODED,"arz winner overlay (g,d,x,2) scalar"
+resilience,records/skills/playerclass09/passive02.dbr,rank,3,2,thresholdDuration,False,bool,DECODED-AUTHORED-OVERRIDE,"ON THE RECORD as False, OVERRIDING skill_passiveonlifebuffself.tpl default=1 'Wait for life to be above threshold before starting duration timer?'; 65 corpus skill records set this field explicitly"
