@@ -10,7 +10,7 @@
 
 ## Context
 
-The VFX archetype-binding run **SEALED 2026-08-24**. T-A binds 24 canonical VFX archetypes; T-K binds 1,135 kit-skills to them. The whole binding rests on a claim in the **Tier-1** layer: that **element parameterization ships with the base binding** — one authored effect, recoloured per element.
+The VFX archetype-binding run **SEALED 2026-08-24**. T-A binds 24 canonical VFX archetypes; T-K binds **1,134** kit-skills to them (1,135 is the assigned count; 1,134 is the bound count post-hold — gandalf, L-41). The whole binding rests on a claim in the **Tier-1** layer: that **element parameterization ships with the base binding** — one authored effect, recoloured per element.
 
 That claim is graded for **42 of 100** allow-list elements. It is asserted for the other 58.
 
@@ -71,7 +71,7 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 
 ## Quality criterion
 
-**Game-quality goal:** that **every element a season can actually roll produces a VFX read the player can identify as that element** — that a water skill looks like water at the gameplay camera and not like a blue fire skill. Tier-1 recolour is the mechanism by which 1,135 skills inherit 24 authored effects; the manifest is the only place where "will this recolour actually work" is written down. **An ungraded element is an untested promise**, and it fails on the day a season rolls it.
+**Game-quality goal:** that **every element a season can actually roll produces a VFX read the player can identify as that element** — that a water skill looks like water at the gameplay camera and not like a blue fire skill. Tier-1 recolour is the mechanism by which 1,134 bound skills inherit 24 authored effects; the manifest is the only place where "will this recolour actually work" is written down. **An ungraded element is an untested promise**, and it fails on the day a season rolls it.
 
 **Refutation conditions** (surface to knight-rider before executing if any apply):
 - The 42/100 or 20-element counts do not reproduce against the file — the finding needs re-derivation, not a grading pass

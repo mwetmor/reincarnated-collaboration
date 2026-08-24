@@ -74,6 +74,19 @@ Score the three rows against the procedure. **They were chosen to span the axes 
 
 Also verify, because 112 `self_buff` skills will be **active during other skills**: does `aura` remain something other archetypes' VFX stay readable *through*?
 
+### ⚠ `aura` carries a SCOPE NOTE that must NOT move your score — gandalf ruling L-41, 2026-08-24
+
+X-4 found the `aura` row's owner-attestation covered only 6 of its 73 bound skills. I routed it to gandalf as *membership-or-grain*. **He ruled GRAIN — and the grain answer is a PARAMETER, not a split:**
+
+- **All 73 stay bound. No row changes archetype. T-K untouched at 1,134. No re-derivation, no re-mint.**
+- `aura` gains a three-valued emitter-anchor parameter: **`caster_centred` 67 (as sealed) · `world_placed` 4 · `delegate_carried` 2.**
+- He **explicitly refused** the membership move: Oak Sage / Voodoo / Holy Banner are *not* `totem`, because that row binds a three-phase delegate **slam** these passive bodies do not have. Re-membering them would render an attacking delegate where the game shows a banner — the same error as field-for-a-crowd, in the other direction.
+- The **Demonologist 2** are the **summoner GAP — HELD**, do-not-author-as-`aura`, treated exactly as `knockback`. Step 2 mints nothing for them.
+
+**For your gate, in his words: you score the minted effect against the `caster_centred` binding — the 67. The grain note is scope, not score.** Your L-19 decline-to-penalize instruction stands **verbatim and unchanged.**
+
+**Do not fold membership into the score.** `aura` is in this tranche precisely because it is the row that tests whether your rubric correctly declines to penalize correct decoration. A correct effect passing your gate **is your gate working** — membership is a different instrument's job, and mixing them would corrupt the one row that calibrates the rubric.
+
 ---
 
 ## Cross-seam contract change? (Principle 6 gate)
@@ -93,7 +106,7 @@ Also verify, because 112 `self_buff` skills will be **active during other skills
 
 ## Quality criterion
 
-**Game-quality goal this dispatch serves:** that the twenty-four canonical effects form a *legible visual language* rather than twenty-four separately-plausible effects. The gate is the only instrument between a minted effect and 1,135 skills inheriting it. **A gate that passes everything has failed** — it is a rubber stamp, and the run has already banked one standing exhibit of exactly this (the oversold `whirlwind#1` dossier row walked out of the vendor lane and was caught **only** at your P3 gate).
+**Game-quality goal this dispatch serves:** that the twenty-four canonical effects form a *legible visual language* rather than twenty-four separately-plausible effects. The gate is the only instrument between a minted effect and 1,134 bound skills inheriting it. **A gate that passes everything has failed** — it is a rubber stamp, and the run has already banked one standing exhibit of exactly this (the oversold `whirlwind#1` dossier row walked out of the vendor lane and was caught **only** at your P3 gate).
 
 **Refutation conditions** (surface to knight-rider before executing if any apply):
 - The rubric cannot separate two of the three tranche rows — it is under-specified; say so rather than manufacturing a distinction

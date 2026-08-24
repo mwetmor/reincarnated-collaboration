@@ -94,7 +94,7 @@ Expected in your queue, roughly in this order:
 
 ## Quality criterion
 
-**Game-quality goal this dispatch serves:** the run just bound **1,135 skills to 24 authored effects**. That leverage is the whole design win *and* the whole risk surface — a defect in a base binding does not affect one skill, it affects every skill that inherited it. **Gate-2 on the first landings is the cheapest point at which that leverage can be checked**, and it gets more expensive every row after.
+**Game-quality goal this dispatch serves:** the run just bound **1,134 skills to 24 authored effects**. That leverage is the whole design win *and* the whole risk surface — a defect in a base binding does not affect one skill, it affects every skill that inherited it. **Gate-2 on the first landings is the cheapest point at which that leverage can be checked**, and it gets more expensive every row after.
 
 **Refutation conditions** (surface to knight-rider before executing if any apply):
 - The U-4 router cannot be ratified without re-opening a Matt ruling — **HALT to Matt, not a design conversation with KR**

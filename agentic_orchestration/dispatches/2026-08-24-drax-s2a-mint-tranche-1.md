@@ -12,7 +12,7 @@
 
 ## Context
 
-The VFX archetype-binding run **SEALED 2026-08-24**. It produced two binding tables: **T-A** (24 archetype → canonical VFX bindings + `knockback` HELD) and **T-K** (1,135 kit-skills bound to those 24). Step 1 was gandalf's; **Step 2 is the build, and this dispatch opens it.**
+The VFX archetype-binding run **SEALED 2026-08-24**. It produced two binding tables: **T-A** (24 archetype → canonical VFX bindings + `knockback` HELD) and **T-K** (**1,134** kit-skills bound to those 24 — 1,135 is the *assigned* count from P1; 1,134 is what T-K IS, post-`knockback`-hold. Corrected by gandalf at L-41). Step 1 was gandalf's; **Step 2 is the build, and this dispatch opens it.**
 
 The design thesis in one sentence: **twenty-four effects stand behind one thousand one hundred and thirty-five skills.** A player who learns what a descending payload inside a crisp perimeter *means* has learned it for 115 skills at once, and the element tint tells him which of them is about to burn him. That is telegraph literacy, and it is the return on the archetype-first factory.
 
@@ -100,6 +100,13 @@ Before minting, write a short **mint note** per row into `agentic_orchestration/
 - [ ] Mint the base binding: caster-centred field, layers — **(a) a radius-defining ground ring/falloff, (b) sparse influence particles.** The selected property is that it *communicates influence without filling the radius with opaque effects* — that is the coverage-ceiling solve an always-on field needs.
 - [ ] **Tier-1: tint the ring and the influence particles. Radius and opacity are NOT Tier-1 knobs on this archetype** — they are the archetype's readability contract, and a recolour must not move them.
 - [ ] **`magical-cause` is CORRECT here.** Decoration is what an aura *is*. Do not "fix" it into a physical read.
+- [ ] ⚠ **NEW — gandalf ruling L-41, 2026-08-24, landed after this dispatch was authored. It NARROWS what you mint, and that is the only change: you mint the `caster_centred` case and nothing else.**
+  X-4 found the row's attestation covered 6 of its 73 skills. gandalf ruled **GRAIN, not membership** — all 73 stay bound, T-K is untouched, **no re-mint** — and the grain resolves as a three-valued emitter-anchor **parameter**, not a split:
+  - **`caster_centred` — 67 skills. This is what you mint. It is the row exactly as sealed; nothing about the layer recipe above changes.**
+  - `world_placed` — 4 skills (Oak Sage / Voodoo / Holy Banner class). **Do not mint.** gandalf explicitly refused re-membering them as `totem`: that row binds a three-phase delegate **slam** these passive bodies do not have, and minting one would render an attacking delegate where the game shows a banner.
+  - `delegate_carried` — 2 skills (Demonologist). **HELD as the summoner GAP — do-not-author-as-`aura`, treated exactly as `knockback`. Step 2 mints nothing for them.**
+
+  **If you find yourself authoring a variant for the 4 or the 2, stop — that is out of scope by ruling, not by omission.**
 
 ### Standing
 

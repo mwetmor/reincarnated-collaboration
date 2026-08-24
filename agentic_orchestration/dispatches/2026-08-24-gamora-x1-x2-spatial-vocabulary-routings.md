@@ -10,7 +10,7 @@
 
 ## Context
 
-The VFX archetype-binding run **SEALED 2026-08-24**, binding 24 canonical VFX archetypes to 1,135 kit-skills. In the course of that work it surfaced two findings that live in **your** seam, not in the presentation seam. The sealed spec names and routes them (§ 6.2, X-1 and X-2); it explicitly **does not write them** — *"Where a change must land in the engine, this document names the seam owner and routes it."*
+The VFX archetype-binding run **SEALED 2026-08-24**, binding 24 canonical VFX archetypes to **1,134** kit-skills (1,135 was the *assigned* count; 1,134 is the bound count post-hold — corrected by gandalf at L-41). In the course of that work it surfaced two findings that live in **your** seam, not in the presentation seam. The sealed spec names and routes them (§ 6.2, X-1 and X-2); it explicitly **does not write them** — *"Where a change must land in the engine, this document names the seam owner and routes it."*
 
 Both landed in `simulation/` on inspection: `kit_compiler` and `spatial_engine` are yours.
 
@@ -129,3 +129,164 @@ Charter L-11 names the error of **two deliberately-distinct things collapsing in
 - jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   Three-site verification table added (`orbit → circle` already exists in the authoritative table and the engine mirror; `kit_compiler` is the only stale site) — my original anti-aliasing warning was withdrawn; the real L-11 hazard relocated to `AOE_GEOMETRIES`; the false MIGRATION.md-corroboration claim withdrawn (6 ≠ 18; two populations, not corroboration) and a reconcile step added to Scope.
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+---
+
+## Completion record — gamora, 2026-08-24
+
+**Part 1: COMPLETE, committed + tagged `gamora/v1.4-x1-orbit-spatial-map` (commit `45a0dc15`). Landed ALONE, not held by Part 2.**
+**Part 2: SURVEY COMPLETE. Verdict = WIRING (mostly). NOT advanced to a build — returning to knight-rider per scope.**
+**Push: NOT pushed (no push pattern set for this wave).**
+
+### The three-site check — the table is CORRECT at all three sites
+
+Re-derived from source, not inherited. `generation/geometry_derivation.py:485` ✅ and
+`spatial_engine.py:1210` ✅ both carry `orbit → circle`; `kit_compiler.py:52` ❌ was the only
+stale site. The sealed spec's § 3.1.17 "outside the engine's keyspace" claim did go stale on
+2026-07-23. **No correction to the table is owed.**
+
+⚑ **What the check DID find is the mechanism.** The dispatch's suspected mechanism is
+**PROVEN** (probe, not reading): because `kit_compiler` stamps `spatial_geometry_type`
+EXPLICITLY, the engine reads it via Path 1 and never re-derives. The missing key did not
+*default* orbit to `point` — it **OVERRODE the engine's already-correct `circle`**. With the
+stamp: `('point','explicit')`. Without it: `('circle','rich_type_translation')`. The worse of
+the two failure modes.
+
+### The 18-vs-6 reconcile CHANGED THE PICTURE — there are THREE populations, and 18 is not the one
+
+| N | Counts | Tense |
+|---|---|---|
+| **6** | Wave-C **kits** that WILL be tagged at S5 by the new R8-orbit rule (`generation/MIGRATION.md:229`) | **FUTURE** |
+| **18** | Existing corpus orbit skills at **ordinal 0** — the `primary_geometry` surface | present |
+| **21** | Existing corpus orbit skills at **all** ordinals — the hit-gauge surface | present |
+
+The 6 is **not a census at all** — it is a forward-looking plan count of kits a generation rule
+will tag later. It and 18 never shared a tense, so the withdrawn "corroboration" framing was
+withdrawn for an even stronger reason than stated.
+
+**The 18 did not reproduce as the hit-gauge count.** My instrument found **21** orbit skills in
+1,224 kit-skills, ordinal split `{0: 18, 1: 3}`. 18 is exactly the ordinal-0 subset, because
+`primary_geometry` reads `skills[0]` only. **The hit-gauge question turns on 21** — the stamp is
+applied at every ordinal. Three skills (`gd-belgothian-blademaster`, `le-warpath-vk`,
+`vs-fuwalafuwaloo`) were mis-gauged *and* invisible to the primary-geometry assert.
+
+### `AOE_GEOMETRIES` — trap avoided, and it is structurally unreachable
+
+`orbit` NOT added. Beyond restraint: `AOE_GEOMETRIES` is keyed on the **rich** value
+(`damage_resolver.py:1235,1317`; `combatant.py:988`); this change edits only the rich→**spatial**
+map. Different vocabulary, different field — the change *cannot* reach it. B10.2 pack-proxy and
+GEOMETRY_COLLAPSE ×1.5 unchanged, and now **asserted in smoke (P5)** rather than merely intended.
+*(Minor: the docstring's "two live consumers" is right for sim; there are 2 more in generation —
+all read the rich field, none affected.)*
+
+### Smoke + round-trip
+
+- `smoke_x1_orbit.py` (NEW): **18 GREEN / 0 RED.** All 21 orbit kits → `circle`; P4 corpus-wide
+  before/after diff proves **exactly one** rich value moved and it is `orbit`; P6 all 26 shared
+  keys agree across the three sites.
+- **Round-trip clause SATISFIED, not waived** — shape is unchanged but a consumed field's *value*
+  moves into the hit-gauge path. `d2-frozen-orb-sorc` → `run_spatial_fight`, field present, value
+  `circle`, fight runs.
+- `smoke_kf4_compiler`: **36 GREEN / 0 RED / 1 GAP — documented baseline exactly restored.**
+- pytest geometry+spatial+compiler sweep: **235 passed.**
+- Test skew closed: `acceptance.py` imports the *same symbol*, so pre-fix its EXPECTED was `point`
+  from the same broken map — **it would have agreed with the bug.** Verified both now read `circle`.
+
+### Judgement calls made (flagging, not burying)
+
+- **`PILOT_KITS` not widened** — `emit_assert_sql.py` reads it to scope corpus SQL emission;
+  widening it widens a **DB-write surface**.
+- **An orbit kit was trialled in the kf4 roster and REMOVED.** All 21 orbit kits are
+  damage-base-GAP, so it contributed a `primary_has_damage_base` RED unrelated to geometry that
+  polluted a documented baseline. Orbit coverage lives in the dedicated smoke instead.
+- **`generation/MIGRATION.md` NOT edited** — rocket's seam. Its "6 Wave-C kits" reads as a census
+  but is future-tense; **routed, not patched.**
+
+---
+
+## PART 2 — X-2 survey. Verdict: **WIRING, not capability** — with one genuinely new piece
+
+### ⚑ The cheap half paid off: enemy displacement ALREADY EXISTS and is proven in production
+
+`spatial_engine.py:2378-2443` — the **Wave-D fear flee-AI** is a complete per-tick enemy
+displacement mechanism:
+
+- reads an `ActiveEffect` marker + params off `entity.combatant_state.active_effects`
+- computes a **radial unit vector** relative to `nav_target` (`_dx = entity.x - nav_target.x` — outward)
+- **mutates position per tick**: `entity.x += _flee_dx * _step`
+- composes with `decrepify`, chill (`_f8_slow_factor`), `move_scale`
+- clamps to arena, sets heading, and **short-circuits the behavior tree**
+
+**`vortex_pull` inward displacement is this mechanism with the sign flipped.** The marker
+plumbing, per-tick hook, composition chain, arena clamp and behavior-tree override all exist and
+are exercised. That drops X-2 out of the "new capability" cost class.
+
+### What genuinely does NOT exist (not overclaiming the above)
+
+1. ⚑ **`on_vortex_pull` IS A PHANTOM.** `damage_resolver.py:1487` states the pull "is logged as
+   metadata via the `on_vortex_pull` event fired in resolve_skill." **That event is fired
+   nowhere** — repo-wide it occurs twice, both being that same comment (one a stale worktree
+   copy). **This is X-5's error class again, in the same file family as X-1's false comments**: a
+   reader asking "is the pull represented at all?" finds this and concludes yes-at-least-logged.
+   It is not. `damage_resolver.py:1488` returns `1.0` with "no spatial model" — itself now stale,
+   since `spatial_gauntlet` *is* a spatial model.
+2. **Nothing ever applies a pull marker.** Fear's marker arrives via the ailment path; there is no
+   equivalent for `vortex_pull`. The trigger half is missing.
+3. **The one real new piece: a WORLD-ANCHORED attractor.** Fear's anchor is `nav_target` — an
+   *entity*. A vortex's anchor is its **cast point**, which need not be the player's position.
+   The engine has no notion of an attractor at a fixed world coordinate. This is the honest
+   capability gap, and it is small.
+4. **Impulse vs sustained-velocity semantics.** The declared `knockback` ailment
+   (`config/ailments.yaml`, `hard_control`, `distance` 3-8 m, `stagger_seconds`) is a
+   **displacement magnitude in metres**; fear's is a **speed multiplier**. Generation *emits*
+   both params (`ability_grammar.py:708-711`); **the sim reads neither** (`stagger_seconds` has
+   zero sim consumers). Which model a pull uses is a design decision, not an implementation detail.
+5. **Centre behavior undefined** — fear flees outward without bound (arena-clamped); a pull
+   converges, so the at-centre case must be specified.
+
+### CC interaction — the dispatch's framing inverts
+
+**A pull would not fight an existing CC resolver, because no CC resolver applies anything.**
+`kc2/control_states.py` (my own B-2, landed 2026-08-24) builds the **delivery half only** — every
+ledger row carries `applied: False` / `effect_model: DECLARED-ABSENT`, and limb E ("the effect")
+is a NAMED OPEN (`MD-B2-2`), deliberately refused as "a choice of which switch to throw, with no
+conservative direction."
+
+So the hazard is **precedent, not conflict**: displacement would be the first control effect in
+the sim to actually apply, setting the effect-application law ahead of the decode B-2 refused to
+guess. Two further notes: (a) direction/lane differs — KC2's chain is monster→player, X-2's pull
+is player→monster; the player-directed lane is the one governed by the I-24(c) kinematics policy
+that "supersedes every non-drive limb", so pulling the **player** is where a real conflict lives.
+(b) A pull should extend fear's composition chain, **not** open a second movement-override path —
+two overrides is L-11's collapse in reverse.
+
+### RT-6 disposition
+
+Either outcome remains available. On this survey the dependency is **small and wiring-shaped**,
+so "the engine dependency has landed" is a realistic option rather than a default to
+"scored-with-dependency-named". **Not my call to make** — returning to knight-rider.
+
+### NOT DONE, deliberately
+
+No X-2 code, no math note. Dispatch: *"Do not build the feature in this dispatch without
+returning to knight-rider first."* The verdict changes the cost class, which is exactly the input
+that decision needs.
+
+### Named opens routed to knight-rider
+
+1. **→ rocket:** `generation/MIGRATION.md:229`'s "6 Wave-C kits" is future-tense and reads as a
+   census. V10 clarification recommended. Not patched (his seam).
+2. **→ elrond:** corpus `geometry_value` values **`mobility` (1)** and **`knockback` (1)** exist
+   in **no** `_RICH_TO_SPATIAL` at any site and are absent from `VALID_GEOMETRY_TYPES`; they
+   silently default to `point`. Not patched here — that would paper over an upstream vocabulary
+   violation.
+3. **Vocabulary finding:** orbit's swept region is an **annulus**; the 6-type vocabulary has no
+   annulus primitive and `circle` has no inner-radius param. `circle` is an honest
+   **approximation** (over-covers the interior disc), already canon at two sites — recorded so it
+   is not later mistaken for exact.
+4. **Balance proposal (NOT taken):** whether `orbit` belongs in `AOE_GEOMETRIES` is real and
+   separate.
+5. ⚑ **Stale/false comments in `damage_resolver.py:1484-1488`** (phantom `on_vortex_pull`, "no
+   spatial model"). In my seam; not fixed in this commit because it is X-2 surface and X-2 is
+   survey-only. **Flagging rather than silently touching.** Will fix on X-2 go, or as a standalone
+   comment-truth commit on request.
