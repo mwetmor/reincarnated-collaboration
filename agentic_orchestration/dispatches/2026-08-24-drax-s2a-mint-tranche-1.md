@@ -59,6 +59,22 @@ From your own probe (spec § 2.3). Restated because a constraint you discovered 
 - **C-5 — readability has a FLOOR and a CEILING** (measured coverage spans 0.03 % → 67 %). One occludes the fight; the other cannot be seen.
 - C-2 (beam −Z orientation) and C-7 (beam-pack `uid://` fragility) do **not** bind this tranche — no beam-class row here. C-6 (zero attractor content) binds `vortex_pull`, not these rows.
 
+### ⚑ C-8 — THE STAGE SHIPS THE FAILURE MODE ON BY DEFAULT (added 2026-08-24, post-WW-AB)
+
+**You found this yourself, hours ago, in the whirlwind clean-room mint** (`drax/v0.1-s2-whirlwind-cleanroom-1`), and you flagged it as bigger than that dispatch. It is:
+
+> **`KingRig`'s stock `HolyAura` read as literally "a generic magical aura spinning with the character"** in your first capture.
+
+That sentence is a near-verbatim statement of the **L-19 failure mode** — an effect that *decorates* the actor rather than being *caused* by the action. **Every T-A row staged on `KingRig` inherits it.** The contamination is silent and it flows the wrong way through the gate: galadriel scores the *frame*, and a frame containing your correct mint plus the rig's stock aura is a frame where the inherited failure is indistinguishable from an authored one. **A row can fail her L-19 check for a reason that is not in your effect at all.**
+
+**Required for every row in this tranche:**
+
+- [ ] **Disable / strip the rig's stock ambient VFX before capture, and state in the mint note that you did.** Name what you disabled, per row.
+- [ ] **If a row's staged frame contains ANY emitter you did not author, name it.** An unnamed inherited emitter reaching galadriel is a false verdict in either direction — it can sink a good mint or flatter a bad one.
+- [ ] **Say whether stripping it is a capture-time step or a rig fix.** If the rig itself should not ship a spinning aura by default, that is a finding about the staging substrate and it outlives this tranche.
+
+**This is not a scope increase — it is the removal of a confound that was already in every frame.** Judging Tier-1 recolour or L-19 causality against a frame carrying an unattributed emitter is the same class of error as judging albedo against 0.20: **a real measurement taken against the wrong stage.**
+
 ---
 
 ## Math-before-code (Discipline #1)

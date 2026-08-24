@@ -87,6 +87,24 @@ X-4 found the `aura` row's owner-attestation covered only 6 of its 73 bound skil
 
 **Do not fold membership into the score.** `aura` is in this tranche precisely because it is the row that tests whether your rubric correctly declines to penalize correct decoration. A correct effect passing your gate **is your gate working** — membership is a different instrument's job, and mixing them would corrupt the one row that calibrates the rubric.
 
+### ⚑ CONFOUND WARNING — the staging rig may put an L-19 failure in your frame that nobody authored (added 2026-08-24)
+
+drax surfaced this from the whirlwind clean-room mint, unprompted, and it lands directly on your instrument:
+
+> **`KingRig`'s stock `HolyAura` read as literally "a generic magical aura spinning with the character."**
+
+That is a near-verbatim statement of the **L-19 failure mode** — and it is the rig's *default*, not anyone's mint. **Every row staged on `KingRig` inherits it.**
+
+Your gate scores the **frame**. A frame containing a correct mint plus the rig's stock aura is a frame where an inherited failure is **indistinguishable from an authored one**. That cuts both ways and both are false verdicts: it can **sink a correct mint**, or it can **flatter a weak one** by supplying visual energy the effect did not earn.
+
+**Required of you:**
+
+- [ ] **Before scoring, confirm drax's mint note names every emitter in the frame he did not author.** His dispatch now requires the declaration; **if it is absent, that is a HALT back to me, not a scoring judgment you make around.** You are not required to reverse-engineer provenance from pixels.
+- [ ] **If you observe an emitter that is not declared, name it and do not score that row.** An undeclared emitter is an uncontrolled variable, and scoring past it converts your gate from a measurement into an impression.
+- [ ] **This does NOT change the `aura` row's decline-to-penalize instruction.** Two different things are now in play and they must not be conflated: a **correctly authored** decorative effect must pass (that is the row's whole purpose), while an **undeclared inherited** emitter is not a scoring question at all — it is a control failure in the capture. **Penalizing the first would break the rubric; scoring through the second would break the frame.**
+
+**Why this reached you before you fired:** it is the third time this run that a claim changed between dispatch authoring and dispatch consumption. The instrument is the run's discipline, not any one agent's care — but the pattern is worth your notice, because your gate is the one that has to be *right* rather than merely *fast*.
+
 ---
 
 ## Cross-seam contract change? (Principle 6 gate)
