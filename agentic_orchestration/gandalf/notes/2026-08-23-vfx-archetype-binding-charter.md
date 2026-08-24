@@ -1,6 +1,6 @@
 # VFX Archetype-Binding Run — Charter (Step 1: substrate vote → reference corpus → binding spec)
 
-> **STATUS:** CHARTERED 2026-08-23 — launch awaits Matt's word. Conductor: **gandalf
+> **STATUS:** **IN-FLIGHT** — launched 2026-08-23 on Matt's word (ledger L-1; push-as-you-go per L-2). Conductor: **gandalf
 > (`RUN-CONDUCTOR`)** — intent resident: this charter was elicited fork-by-fork in Matt dialogue
 > this date (ELICITOR → ARCHITECT gate → charter), per the desirable-run pattern. Fit test:
 > bounded substrate (kit corpus + owned VFX packs + oracle video) · decidable target-state (the
@@ -86,3 +86,19 @@ charter (this dialogue or next session).
 
 *Charter authored by gandalf, 2026-08-23, from the eliciting dialogue of the same date (Codex
 seam-substitution review → VFX binding design → referent-corpus proposal → R-1..R-4 rulings).*
+
+---
+
+## 7 · Ruling ledger (veto-open; appended in-run per § 6)
+
+> Every in-run conductor ruling recorded here with Matt's one-word veto open (desirable-run
+> pattern § 5 safety #4). Reasoning-boundaries ruled in-run; commitment-boundaries HALT per § 5.
+
+| # | Date | Ruling | Kind | Status |
+|---|---|---|---|---|
+| **L-1** | 2026-08-23 | **RUN LAUNCHED** — Matt's launch word received in the conducting-session prompt ("This prompt is Matt's launch word — the run is AUTHORIZED"). Charter STATUS moves CHARTERED → **IN-FLIGHT**. Conductor: gandalf `RUN-CONDUCTOR` (intent resident — charter author conducts). | launch-of-record | STANDING |
+| **L-2** | 2026-08-23 | **Push policy — RULED BY MATT: "push as you go - authorized for this run."** (The launch prompt's placeholder was unresolved; the conductor briefly adopted the ADR-006 commit-only default; Matt's live word same-session supersedes it.) **Push-as-you-go is the policy of record for this run.** | Matt ruling | RULED — push-as-you-go |
+| **L-3** | 2026-08-23 | **BEAT 1a fired — P0-a conducted.** Named `elrond` sub-agent spawned (subagent_type: elrond, per § 4.10 named-agents-only routing) for the kit-substrate clusterability verification per charter § 4 P0-a. Gate semantics briefed verbatim: VOTABLE → P1; GAP → HALT to Matt with the gap named; honorable fallback = pause, never improvise a taxonomy. | conduction event | P0-a IN-FLIGHT |
+| **L-4** | 2026-08-23 | **BEAT 1b fired — KR carve-out #1.** Dispatch REQUEST for P0-b (Metal VFX smoke probe, drax) filed at `agentic_orchestration/gandalf/requests/2026-08-23-knight-rider-metal-vfx-smoke-probe-dispatch.md`, pointing KR at the probe brief. gandalf does NOT conduct P0-b (drax diagnostic; KR sequences). Findings land back at this run's P4 gate. | conduction event | REQUEST FILED |
+| **L-5** | 2026-08-23 | **KR carve-out #2 sequencing law reaffirmed** — the Step-2 build-wave dispatch request is drafted AT RUN SEAL only (it consumes T-A/T-K, which do not exist until P4 closes). Pre-authorized by Matt's launch word; not drafted early; gandalf never conducts the build it will DRIFT-CRITIC (charter wall). | sequencing-of-record | STANDING |
+| **L-6** | 2026-08-23 | **P2 mechanics pinned** (from launch prompt, operating notes): Codex queue harness is a stub → dossier jobs run as SERIAL `codex exec` invocations, one at a time, NEVER parallel (one-`auth.json` serialization law, U-4). Per-job usage JSONL logged beside dossier artifacts — the lane's FOUNDING U-1 flight-recorder rows. | mechanics-of-record | STANDING (fires at P2) |
