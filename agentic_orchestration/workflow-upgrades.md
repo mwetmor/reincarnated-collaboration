@@ -33,7 +33,7 @@
 **Evidence:** on Claude subscriptions, prompt-cache TTL silently drops 1 h → 5 min once usage credits engage, unless `ENABLE_PROMPT_CACHING_1H=1` is set. A 2.5-day throttled multi-arm run tipping into credits reprocesses full context at every >5-min gap. Part of the late-July burn may be cache thrash, not demand. (Research of record 2026-08-23; Anthropic docs primary.)
 **Action:** set the env var machine-wide; run a `/usage` attribution audit; measure post-fix burn on comparable work.
 **Empirical criterion (also gates U-4's scale):** how much of the July-class burn survives the cache fix.
-**Status:** OPEN — Matt action (host-level env). Candidate for `matt_to_do/`.
+**Status:** OPEN — Matt action (host-level env). **Filed:** `canonical/matt_to_do/2026-08-23-enable-prompt-caching-1h.md` (2026-08-23).
 
 ## U-4 — Serialized Codex worker lane (the ruled F2 pilot, generalized)
 
@@ -42,7 +42,10 @@
 **Pilot:** F2 baton-consumer (already Matt-ruled), differential-judged — this IS the G-S3 behavioral-equivalence test. Gates G-S0–G-S6 from the seam-substitution doc adopted as the lane's standing gate set, esp. G-S4 (delegation rate is first-class — a lane that never fires has failed) and G-S5 (rubber-stamp detector).
 **Sequencing law:** discipline-heavy seams (gamora law-stack, jack-ryan gate authority, orchestrator) HOLD permanently; Godot seam only after G-S1 (MCP into `CODEX_HOME`) + G-S2 (skill→AGENTS.md port) close AND SB-1 reaches a seam boundary.
 **Empirical criterion:** F2 differential verdict vs `baton_v1_stub_consumer.py`.
-**Status:** OPEN — F2 staged, blocked on D5 containment revisit (pre-existing); queue build awaits KR sequencing.
+**AMENDED 2026-08-23 (Matt rulings R-2 + R-3, VFX-run gate dialogue):**
+- **R-2 — First live workload = VFX reference-dossier research** (per-archetype source-game gallery/video hunts for the VFX archetype-binding run), fired AHEAD of the blocked F2 pilot. Rationale: F2 is idle-blocked on D5 containment; a lane that never fires has failed (G-S4); dossier work is zero-repo-context, externally verifiable (elrond curation + galadriel selection gate downstream), serial-friendly.
+- **R-3 — Q-A data-exposure fork CLOSED as MOOT** (Matt disclosure: a full-project Codex QA pass already ran — `gandalf/notes/2026-08-23-codex-qa-audit-comparison-verdict.md`). Standing policy: **no repo-content restriction on the Codex lane.** Rider: if a future artifact class deserves quarantine (e.g., unreleased marketing beats), name it then via this doc.
+**Status:** OPEN — dossier workload chartered under the VFX archetype-binding run (gandalf, 2026-08-23); F2 remains staged behind D5 revisit; queue build awaits KR sequencing.
 
 ## U-5 — Dispatch outcome scorecard (prompt + model efficiency, made measurable)
 
@@ -79,8 +82,9 @@ Verdict of record: the Codex research doc's architecture is a good general-purpo
 
 **Lever:** MODEL-EFFICIENCY (correlated-bias attack on our judging layer).
 **What:** a second-vendor judge scoring the same artifacts galadriel scores — vendor diversity in judgment is the point (the one unambiguously good idea in the original seam-swap doc). Rides the U-4 lane once serialized capacity exists.
+**FOUNDING CORPUS (ruled R-4, Matt 2026-08-23): VFX minted-gate From/To pairs** — Judge-From (our Metal capture) vs Judge-To (source-game reference frame-set) from the VFX archetype-binding run. Ideal profile: comparative judgment, cheap receipts, correlated-bias risk real (one vendor's aesthetic priors scoring VFX). **GATED behind the lane proving itself on the R-2 dossier workload first** — one new lane behavior at a time. Galadriel stays primary judge; Codex ADDS.
 **Empirical criterion:** inter-judge agreement/divergence table on one capture set.
-**Status:** OPEN — queued behind U-4 pilot.
+**Status:** OPEN — gated per R-4.
 
 ## U-9 — Synty pack-level license ledger + AI-clearance stop-gate (from the 2026-08-23 Codex-QA comparison — the audit's one genuinely-new catch)
 
