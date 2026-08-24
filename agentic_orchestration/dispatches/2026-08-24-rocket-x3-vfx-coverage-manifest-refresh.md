@@ -105,3 +105,65 @@ The sealed spec gives you two things the 2026-05-17 pass did not have:
 - jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   My not-applicable branch was wrong and was the branch rocket would have taken: `pool.py:95-102` auto-demotes ungraded allow-list entries at load, so grading them **promotes them back** and moves the selectable set. Round-trip smoke is now REQUIRED with a before/after `d1_status` census across all 100 entries.
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+---
+
+## Completion record
+
+**Status:** COMPLETE — 2026-08-24, rocket.
+**Tag:** `rocket/v1.4-x3-vfx-coverage-refresh` · commit `0a07c144` · pushed to `origin/main`.
+**Smoke:** `src/reincarnated/element/smoke_x3_vfx_coverage.py` (NEW, in-repo, self-contained) — **45 GREEN / 0 RED**.
+
+### AC-1 — counts derived, not inherited
+
+| Prose in this dispatch | Derived from the artifacts | Verdict |
+|---|---|---|
+| 42 of 100 allow-list graded | 100 allow-list in `pool.json`; 42 have a manifest entry | reproduces |
+| 20 LIVE-slot: fire 6 / water 6 / earth 4 / wind 4 | fire 6 / water 6 / earth 4 / wind 4 | **reproduces exactly** |
+| 38 in the three vocab-frozen slots | lightning 12 / holy 14 / shadow 12 | **reproduces exactly** |
+
+Unlike gamora's X-1, the handed figures held. **But 42 was concealing a second number.** The post-load allow-list count is **38**, not 42: `tempest`/`cyclone`/`squall`/`hurricane` are graded Tier C `clean=false` from the Drift-14 wind-storm cull and are demoted on purpose. The demote population is **62, not 58**. "Graded" and "selectable" are different sets that had been used interchangeably.
+
+**Gap provenance (not in the dispatch):** all 58 unmanifested entries entered `pool.json` **2026-06-01** via the WS1A Q18 lock, 15 days after v1.0 was generated. Recorded at the time at `element/MIGRATION.md:185`. A staleness gap, not a grading omission.
+
+### The `pool.py:95-102` gate — checked, not relied on
+
+Auto-demote reproduces exactly as described. **But the gate's consequence does not.** `selector.py:167` builds `active_pool` excluding only `quarantine`, so `eligible` entries were **already selectable** at `1.0` weight vs `D1_ALLOW_LIST_WEIGHT = 2.0`. This is a **sampling-weight change, not a set-membership change**. Measured, N=4,000 seeds × 4 slots — promoted-share: fire 11.7→20.4 %, water 22.6→36.4 %, wind 5.5→10.5 %, **earth 0.0→0.0 %**. Filed for gamora in `element/MIGRATION.md`.
+
+### Before/after `d1_status` census (all 214 pool entries)
+
+| | allow-list | eligible | quarantine |
+|---|---|---|---|
+| before | 38 | 62 | 114 |
+| after | **48** | **52** | 114 |
+
+**10 changes, all promotions, all `eligible → allow-list`, every one intended and named:** `inferno`, `fira`, `thermal`, `aqua`, `hydro`, `torrent`, `glacial`, `chill`, `hydraulic`, `zephyr`. **Zero demotions.** Predicted before running; matched exactly.
+
+### AC-2 — 20 LIVE-slot graded (10 promoted, 10 held back)
+
+Earth gained **zero**: the 29-row substrate inventory has no seismic substrate, so `quake`/`tremor`/`seismic`/`tectonic` are Tier C composite. `whirlwind` held at C — a member of the **culled** drift-14-wind-storm-cluster; grading it clean would have silently re-admitted a culled member from the element side. `sonic` → E (auditory cluster is uniformly non-visual). `shockwave` → C (kinetic mega-cluster, not wind). `ignite`/`combustion` bound by sibling `ignition` (C). `fusion` → C.
+
+**Basis:** catalogue-adjacency at *substrate* granularity + binding sibling precedent. **No effect was rendered; no grade cites an albedo** — per the refutation condition, grades were not invented and marked as measured. Where a better tier needed a render, the worse tier was taken.
+
+### AC-3 — the 38 explicitly DEFERRED in the file, with reason
+
+**Grading them would have broken the freeze this pass was meant to respect.** `_VOCAB_FREEZE_IDS` is a 4-id frozenset; `umbra` is not in `pool.json`, so it enforces **3 of the 38**. The other 35 are held out *incidentally*, by the Drift-14 gate firing on manifest absence. Grading them `clean=true` promotes all 35. Recorded in-file at `deferred_grading`. `vocab_freeze_note` also **corrected** — its "none currently in pool.json" was true on 2026-05-17 and false since 2026-06-01.
+
+### AC-4/5/6/7
+
+`version` 1.0→**1.1**, `generated_date`→**2026-08-24**, `source_attribution` extended with this pass's basis. Vocab freeze still enforced (asserted in smoke). Round-trip smoke green through the production path `pool load → element selection → season slots`. Tag cut and pushed.
+
+### Routed fix delivered (gamora, X-1)
+
+`generation/MIGRATION.md:229` rewritten as a **PROJECTED-vs-MEASURED table** with tense marked, plus a stated convention for all future roster figures in that file. Measured read-only over `corpus.db`, n=1,224 kit-skills, reproduced across five corpus copies: **0** kits carry the `orbit` effect tag (the rule has never fired), **0** carry `placed_lane`/`walls_demand`; separately **21** carry `geometry_value == "orbit"` from elrond's curation. Independently reproduced gamora's 21.
+
+### Findings raised to knight-rider — NOT taken here
+
+1. **Freeze enforcement should be substrate-driven, not a 4-id list.** Selection-visible: `spark` (`substrate_native=lightning`, `flex_slots=["wind"]`, Tier A, clean) survives load as allow-list and **is selectable into the wind slot today** — a live vocab-freeze leak predating this pass. A substrate predicate would demote it and change output for every existing seed. Own dispatch, gamora consulted.
+2. **Schema finding, per the dispatch's § "Grading input" invitation: tier depends on surface class.** Six grades are Tier C purely because their identity is *displacement, not colour* — a tinted payload keeps its element read; a tinted field does not. `vfx_mapping_tier` should be a per-surface-class cell. **Surfaced in `schema_findings` rather than forced into a letter; A–E semantics unchanged.**
+
+### Out-of-scope respected
+
+`AOE_GEOMETRIES` **untouched** — verified still 16 entries, `orbit` absent. Vocab freeze not re-opened. No elements added to `pool.json`. No VFX authoring, no archetype work.
+
+`pytest -k "element or pool or selector"`: 529 pass, 7 fail — **all 7 verified pre-existing** by re-running at baseline with only my own paths stashed.
