@@ -1,4 +1,22 @@
-# GD-kit frameset extraction — FLIGHT ENDED MID-RUN, awaiting resumption orders
+# GD-kit frameset extraction — RESUMED AND DISCHARGED
+
+> **STATUS 2026-08-23: DISCHARGED. Do not re-fire from this file.**
+> The resumption happened and completed. Deliverables landed at commit `a35e92cf`:
+> `eye_of_reckoning/` (12 framesets, the `whirlwind` semantics-ground-truth set) and
+> `judgment/README-EMPTY.md` (the `circle` archetype — honorable pause held; the identity was
+> never confirmed and no frames were placed under that name). Full account in
+> `galadriel/notes/2026-08-23-vfx-p2-gd-framesets.md`; conductor report at
+> `gandalf/requests/2026-08-23-knight-rider-galadriel-p2-landing.md`.
+>
+> **One thing below is still live:** the `~/gd-scratch/` inventory. Those local video copies are
+> what make `_workbench/` and `eor-test-2/` cheap to regenerate, which is the basis of the ~0.9 G
+> PL-5 reclaim offered to the conductor. Do not delete `~/gd-scratch/` without reading that.
+>
+> Everything else below is the historical record of the interrupted first flight.
+
+---
+
+## Historical record — flight ended mid-run, awaiting resumption orders
 
 **Stopped by:** knight-rider, 2026-08-23, on Matt's order (5-hour window token budget).
 **Not a failure, not a HALT, not an honorable pause.** Clean stop at a natural boundary.
