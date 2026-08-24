@@ -1,0 +1,71 @@
+=== GetAllDefenseAttributes@Character @0x55a70
+  0x00055a70  push     ebp
+  0x00055a71  mov      ebp, esp
+  0x00055a73  push     ebx
+  0x00055a74  mov      ebx, dword ptr [ebp + 8]
+  0x00055a77  push     esi
+  0x00055a78  push     edi
+  0x00055a79  mov      edi, ecx
+  0x00055a7b  mov      esi, dword ptr [edi + 0x438]
+  0x00055a81  cmp      esi, dword ptr [edi + 0x43c]
+  0x00055a87  je       0x10055ab9
+  0x00055a89  nop      dword ptr [eax]
+  0x00055a90  push     dword ptr [esi]
+  0x00055a92  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x00055a98  mov      ecx, eax
+  0x00055a9a  call     0x10062760   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x670
+  0x00055a9f  test     eax, eax
+  0x00055aa1  je       0x10055aae
+  0x00055aa3  mov      edx, dword ptr [eax]
+  0x00055aa5  mov      ecx, eax
+  0x00055aa7  push     ebx
+  0x00055aa8  call     dword ptr [edx + 0x260]
+  0x00055aae  add      esi, 0xc
+  0x00055ab1  cmp      esi, dword ptr [edi + 0x43c]
+  0x00055ab7  jne      0x10055a90
+  0x00055ab9  push     ebx
+  0x00055aba  lea      ecx, [edi + 0x600]
+  0x00055ac0  call     0x1043ba20   ; -> ?GetDefenseAttributes@SkillManager@GAME@@QBEXAAVCombatAttributeAccumulator@2@@Z
+  0x00055ac5  mov      ecx, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x00055acb  mov      ecx, dword ptr [ecx]
+  0x00055acd  call     dword ptr [0x104e5994]   ; f32=1.16793e-38 i32=8334616 f64=2.77483e-306
+  0x00055ad3  mov      ecx, eax
+  0x00055ad5  call     dword ptr [0x104e5c1c]   ; f32=1.16928e-38 i32=8344232 f64=2.78788e-306
+  0x00055adb  mov      edx, dword ptr [edi + 0x10e4]
+  0x00055ae1  lea      ecx, [edi + 0x10e4]
+  0x00055ae7  push     ecx
+  0x00055ae8  inc      eax
+  0x00055ae9  mov      dword ptr [esp], 0x3f800000
+  0x00055af0  push     eax
+  0x00055af1  push     ebx
+  0x00055af2  call     dword ptr [edx + 0x10]
+  0x00055af5  mov      eax, dword ptr [edi]
+  0x00055af7  mov      ecx, edi
+  0x00055af9  push     ebx
+  0x00055afa  call     dword ptr [eax + 0x36c]
+  0x00055b00  mov      eax, dword ptr [edi]
+  0x00055b02  mov      ecx, edi
+  0x00055b04  push     ebx
+  0x00055b05  call     dword ptr [eax + 0x38c]
+  0x00055b0b  mov      eax, dword ptr [edi]
+  0x00055b0d  mov      ecx, edi
+  0x00055b0f  push     ebx
+  0x00055b10  call     dword ptr [eax + 0x3a8]
+  0x00055b16  pop      edi
+  0x00055b17  pop      esi
+  0x00055b18  pop      ebx
+  0x00055b19  pop      ebp
+  0x00055b1a  ret      4
+  0x00055b1d  int3     
+  0x00055b1e  int3     
+  0x00055b1f  int3     
+  0x00055b20  push     ebp
+  0x00055b21  mov      ebp, esp
+  0x00055b23  push     -1
+  0x00055b25  push     0x104c0ba8
+  0x00055b2a  mov      eax, dword ptr fs:[0]
+  0x00055b30  push     eax
+  0x00055b31  mov      dword ptr fs:[0], esp
+  0x00055b38  sub      esp, 0x10
+  0x00055b3b  push     ebx
+  0x00055b3c  push     esi

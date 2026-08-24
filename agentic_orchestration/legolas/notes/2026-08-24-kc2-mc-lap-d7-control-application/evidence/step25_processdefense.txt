@@ -1,0 +1,103 @@
+=== ProcessDefense @0xde740
+  0x000de740  push     ebp
+  0x000de741  mov      ebp, esp
+  0x000de743  push     ebx
+  0x000de744  mov      ebx, ecx
+  0x000de746  push     esi
+  0x000de747  push     edi
+  0x000de748  mov      edi, dword ptr [ebx + 0x28]
+  0x000de74b  cmp      edi, dword ptr [ebx + 0x2c]
+  0x000de74e  je       0x100de778
+  0x000de750  mov      esi, dword ptr [ebx + 0x1c]
+  0x000de753  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de756  je       0x100de770
+  0x000de758  mov      ecx, dword ptr [edi]
+  0x000de75a  test     ecx, ecx
+  0x000de75c  je       0x100de76b
+  0x000de75e  push     dword ptr [ebx + 0x3c]
+  0x000de761  mov      eax, dword ptr [ecx]
+  0x000de763  push     dword ptr [esi]
+  0x000de765  call     dword ptr [eax + 0x20]
+  0x000de768  add      esi, 4
+  0x000de76b  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de76e  jne      0x100de758
+  0x000de770  add      edi, 4
+  0x000de773  cmp      edi, dword ptr [ebx + 0x2c]
+  0x000de776  jne      0x100de750
+  0x000de778  mov      esi, dword ptr [ebx + 0x28]
+  0x000de77b  cmp      esi, dword ptr [ebx + 0x2c]
+  0x000de77e  je       0x100de79a
+  0x000de780  mov      ecx, dword ptr [esi]
+  0x000de782  test     ecx, ecx
+  0x000de784  je       0x100de792
+  0x000de786  mov      eax, dword ptr [ecx]
+  0x000de788  push     1
+  0x000de78a  call     dword ptr [eax]
+  0x000de78c  mov      dword ptr [esi], 0
+  0x000de792  add      esi, 4
+  0x000de795  cmp      esi, dword ptr [ebx + 0x2c]
+  0x000de798  jne      0x100de780
+  0x000de79a  mov      eax, dword ptr [ebx + 0x28]
+  0x000de79d  mov      dword ptr [ebx + 0x2c], eax
+  0x000de7a0  mov      esi, dword ptr [ebx + 0x1c]
+  0x000de7a3  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de7a6  je       0x100de7d1
+  0x000de7a8  mov      edi, dword ptr [ebp + 0x10]
+  0x000de7ab  nop      dword ptr [eax + eax]
+  0x000de7b0  mov      ecx, dword ptr [esi]
+  0x000de7b2  movss    xmm0, dword ptr [ebp + 0x14]
+  0x000de7b7  push     ecx
+  0x000de7b8  movss    dword ptr [esp], xmm0
+  0x000de7bd  mov      eax, dword ptr [ecx]
+  0x000de7bf  push     edi
+  0x000de7c0  push     dword ptr [ebp + 0xc]
+  0x000de7c3  push     dword ptr [ebp + 8]
+  0x000de7c6  call     dword ptr [eax + 0x14]
+  0x000de7c9  add      esi, 4
+  0x000de7cc  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de7cf  jne      0x100de7b0
+  0x000de7d1  pop      edi
+  0x000de7d2  pop      esi
+  0x000de7d3  pop      ebx
+
+=== ExecuteDefense @0xde7e0
+  0x000de7e0  push     ebx
+  0x000de7e1  mov      ebx, ecx
+  0x000de7e3  push     esi
+  0x000de7e4  push     edi
+  0x000de7e5  mov      edi, dword ptr [ebx + 0x1c]
+  0x000de7e8  cmp      edi, dword ptr [ebx + 0x20]
+  0x000de7eb  je       0x100de818
+  0x000de7ed  nop      dword ptr [eax]
+  0x000de7f0  mov      esi, dword ptr [ebx + 4]
+  0x000de7f3  cmp      esi, dword ptr [ebx + 8]
+  0x000de7f6  je       0x100de810
+  0x000de7f8  mov      ecx, dword ptr [edi]
+  0x000de7fa  test     ecx, ecx
+  0x000de7fc  je       0x100de80b
+  0x000de7fe  push     dword ptr [ebx + 0x3c]
+  0x000de801  mov      eax, dword ptr [ecx]
+  0x000de803  push     dword ptr [esi]
+  0x000de805  call     dword ptr [eax + 0x20]
+  0x000de808  add      esi, 4
+  0x000de80b  cmp      esi, dword ptr [ebx + 8]
+  0x000de80e  jne      0x100de7f8
+  0x000de810  add      edi, 4
+  0x000de813  cmp      edi, dword ptr [ebx + 0x20]
+  0x000de816  jne      0x100de7f0
+  0x000de818  mov      esi, dword ptr [ebx + 0x1c]
+  0x000de81b  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de81e  je       0x100de83a
+  0x000de820  mov      ecx, dword ptr [esi]
+  0x000de822  test     ecx, ecx
+  0x000de824  je       0x100de832
+  0x000de826  mov      eax, dword ptr [ecx]
+  0x000de828  push     1
+  0x000de82a  call     dword ptr [eax]
+  0x000de82c  mov      dword ptr [esi], 0
+  0x000de832  add      esi, 4
+  0x000de835  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de838  jne      0x100de820
+  0x000de83a  mov      eax, dword ptr [ebx + 0x1c]
+  0x000de83d  pop      edi
+  0x000de83e  pop      esi

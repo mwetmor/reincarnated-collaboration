@@ -1,0 +1,60 @@
+=== ?CalculateStun@Player@GAME @0x31ee20
+  0x0031ee20  push     ebp
+  0x0031ee21  mov      ebp, esp
+  0x0031ee23  push     ecx
+  0x0031ee24  movss    xmm2, dword ptr [ebp + 8]
+  0x0031ee29  divss    xmm2, dword ptr [ebp + 0xc]
+  0x0031ee2e  mov      dword ptr [ebp - 4], 0
+  0x0031ee35  movss    xmm0, dword ptr [ebp + 0x10]
+  0x0031ee3a  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x0031ee42  movss    xmm3, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x0031ee4a  movss    xmm1, dword ptr [ebp + 0x14]
+  0x0031ee4f  addss    xmm1, dword ptr [0x105f58ac]   ; f32=15 i32=1097859072 f64=1.34218e+08
+  0x0031ee57  subss    xmm3, xmm0
+  0x0031ee5b  movaps   xmm0, xmm2
+  0x0031ee5e  mulss    xmm0, xmm3
+  0x0031ee62  mulss    xmm0, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x0031ee6a  comiss   xmm0, xmm1
+  0x0031ee6d  jbe      0x1031ee88
+  0x0031ee6f  mulss    xmm2, dword ptr [0x105f5870]   ; f32=3 i32=1077936128 f64=50.1239
+  0x0031ee77  addss    xmm2, dword ptr [0x105f5918]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x0031ee7f  mulss    xmm2, xmm3
+  0x0031ee83  movss    dword ptr [ebp - 4], xmm2
+  0x0031ee88  fld      dword ptr [ebp - 4]
+  0x0031ee8b  mov      esp, ebp
+  0x0031ee8d  pop      ebp
+  0x0031ee8e  ret      0x10
+
+=== ?CalculateStun@Monster@GAME @0x2d5170
+  0x002d5170  push     ebp
+  0x002d5171  mov      ebp, esp
+  0x002d5173  push     ecx
+  0x002d5174  movss    xmm0, dword ptr [ebp + 0x10]
+  0x002d5179  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x002d5181  mov      dword ptr [ebp - 4], 0
+  0x002d5188  movss    xmm4, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x002d5190  movss    xmm5, dword ptr [ebp + 0xc]
+  0x002d5195  movsd    xmm1, qword ptr [0x105f5868]   ; f32=0 i32=0 f64=10
+  0x002d519d  subss    xmm4, xmm0
+  0x002d51a1  cvtps2pd xmm0, xmm5
+  0x002d51a4  movss    xmm3, dword ptr [ebp + 8]
+  0x002d51a9  divsd    xmm1, xmm0
+  0x002d51ad  movss    xmm2, dword ptr [ebp + 0x14]
+  0x002d51b2  addss    xmm2, dword ptr [0x105f588c]   ; f32=5 i32=1084227584 f64=4086.94
+  0x002d51ba  cvtps2pd xmm0, xmm3
+  0x002d51bd  mulsd    xmm1, xmm0
+  0x002d51c1  cvtps2pd xmm0, xmm4
+  0x002d51c4  mulsd    xmm1, xmm0
+  0x002d51c8  cvtpd2ps xmm0, xmm1
+  0x002d51cc  mulss    xmm0, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x002d51d4  comiss   xmm0, xmm2
+  0x002d51d7  jbe      0x102d51f6
+  0x002d51d9  divss    xmm3, xmm5
+  0x002d51dd  mulss    xmm3, dword ptr [0x105f5870]   ; f32=3 i32=1077936128 f64=50.1239
+  0x002d51e5  addss    xmm3, dword ptr [0x105f5918]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x002d51ed  mulss    xmm3, xmm4
+  0x002d51f1  movss    dword ptr [ebp - 4], xmm3
+  0x002d51f6  fld      dword ptr [ebp - 4]
+  0x002d51f9  mov      esp, ebp
+  0x002d51fb  pop      ebp
+  0x002d51fc  ret      0x10

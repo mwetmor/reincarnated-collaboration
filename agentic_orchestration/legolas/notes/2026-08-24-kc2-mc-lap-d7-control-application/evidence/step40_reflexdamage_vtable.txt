@@ -1,0 +1,34 @@
+=== 0x5b976c @ 0x005b976c
+  +0x014 (slot   5) -> 0x000d7220  ?Process@CombatAttributeAbsDamage@GAME@@UAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+        body: ebp | ebp, esp | esp, 0xc | xmm7, dword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  +0x020 (slot   8) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x024 (slot   9) -> 0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+        body: 0xc
+  +0x028 (slot  10) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x02c (slot  11) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        body: 4
+  +0x030 (slot  12) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x040 (slot  16) -> 0x000d7600  ?ModifyDefenseCap@CombatAttributeAbsDefense@GAME@@UAEXW4CombatAttributeType@2@M@Z
+        body: ebp | ebp, esp | eax, dword ptr [ebp + 8] | eax, dword ptr [ecx + 4]
+  +0x044 (slot  17) -> 0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+        body: 0xc
+  +0x048 (slot  18) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+=== CombatAttributeAbsDefense::Execute @0xd9280
+  0x000d9280  push     ebp
+  0x000d9281  mov      ebp, esp
+  0x000d9283  mov      edx, ecx
+  0x000d9285  mov      ecx, dword ptr [ebp + 8]
+  0x000d9288  test     ecx, ecx
+  0x000d928a  je       0x100d929f
+  0x000d928c  movss    xmm0, dword ptr [edx + 0x1c]
+  0x000d9291  mov      eax, dword ptr [ecx]
+  0x000d9293  push     ecx
+  0x000d9294  movss    dword ptr [esp], xmm0
+  0x000d9299  push     dword ptr [edx + 4]
+  0x000d929c  call     dword ptr [eax + 0x54]
+  0x000d929f  pop      ebp
+  0x000d92a0  ret      8

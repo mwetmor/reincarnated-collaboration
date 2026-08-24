@@ -1,0 +1,528 @@
+=== ??_7DamageAttributeAbs_Confusion@GAME@@6B@  @ 0x005cab3c
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014cf40  ?GetType@DamageAttributeAbs_Confusion@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x0014cdc0  ?AddDamageToAccumulator@DamageAttributeAbs_Fear@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeAbs_Convert@GAME@@6B@  @ 0x005cacc4
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014cb50  ?GetType@DamageAttributeAbs_Convert@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x0014cbc0  ?AddDamageToAccumulator@DamageAttributeAbs_Convert@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeAbs_Disruption@GAME@@6B@  @ 0x005ca9b4
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0001fc80  ?GetItemType@ArmorProtective_Waist@GAME@@UBE?BW4Item_Type@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x0014d850  ?AddDamageToAccumulator@DamageAttributeAbs_Disruption@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeAbs_Fear@GAME@@6B@  @ 0x005cac00
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014cd50  ?GetType@DamageAttributeAbs_Fear@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x0014cdc0  ?AddDamageToAccumulator@DamageAttributeAbs_Fear@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeAbs_Fire@GAME@@6B@  @ 0x005c9efc
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0001d6b0  ?GetItemType@ArmorJewelry_Ring@GAME@@UBE?BW4Item_Type@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x001419e0  ?AddDamageToAccumulator@DamageAttributeAbsBaseElemental@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x00140600  ?ScaleAttribute@DamageAttributeAbs@GAME@@UAEXM@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeAbs_Taunt@GAME@@6B@  @ 0x005cad88
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c620  ?GetType@DamageAttributeAbs_Taunt@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x0014c9d0  ?AddDamageToAccumulator@DamageAttributeAbs_Taunt@GAME@@MBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Freeze@GAME@@6B@  @ 0x005cafd4
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c4c0  ?GetType@DefenseAttributeAbs_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Knockdown@GAME@@6B@  @ 0x005cb098
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c450  ?GetType@DefenseAttributeAbs_Knockdown@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Petrify@GAME@@6B@  @ 0x005caf10
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c540  ?GetType@DefenseAttributeAbs_Petrify@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Sleep@GAME@@6B@  @ 0x005cb220
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c370  ?GetType@DefenseAttributeAbs_Sleep@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Stun@GAME@@6B@  @ 0x005cb15c
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c3e0  ?GetType@DefenseAttributeAbs_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DamageAttributeReflex_Trap@GAME@@6B@  @ 0x005cae4c
+   [ 0] 0x00146090  ??1DamageAttributeAbs@GAME@@UAE@XZ+0x40
+   [ 1] 0x0013d740  ?GetChance@DamageAttribute@GAME@@UBEMI@Z
+   [ 2] 0x00146360  ?HasGlobalChance@DamageAttribute@GAME@@UBE_NXZ
+   [ 3] 0x0013ff50  ?LoadFromTable@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 4] 0x0013d990  ?AddToStore@DamageAttributeAbs@GAME@@UAE_NAAVDamageAttributeStore@2@ABVLoadTable@2@@Z
+   [ 5] 0x0014c5b0  ?GetType@DefenseAttributeAbs_Trap@GAME@@UBE?AW4CombatAttributeType@2@XZ
+   [ 6] 0x00141be0  ?CreateText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00I_N1@Z
+   [ 7] 0x00141c60  ?CreateNextText@DamageAttributeAbsBonus@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@00II_N@Z
+   [ 8] 0x00141ce0  ?CreateRangeText@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [ 9] 0x00141d60  ?CreateRangeNumbers@DamageAttributeAbsBonus@GAME@@UBEXPBVDamageAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@11I@Z
+   [10] 0x00145d70  ?AddDamageToAccumulator@DamageAttributeReflex@GAME@@UBEXIAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NMM@Z
+   [11] 0x000d7040  ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+   [12] 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+   [13] 0x00140440  ?AddJitter@DamageAttributeAbs@GAME@@UAEXMPAVRandomUniform@2@@Z
+
+=== ??_7DefenseAttributeAbs_Confusion@GAME@@6B@  @ 0x005cda50
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Convert@GAME@@6B@  @ 0x005cdb20
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_CrowdControl@GAME@@6B@  @ 0x005cdbf0
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001acc70  ?AddToAccumulator@DefenseAttributeAbs_CrowdControl@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Disruption@GAME@@6B@  @ 0x005cd3d0
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Fear@GAME@@6B@  @ 0x005cdab8
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Fire@GAME@@6B@  @ 0x005cd8b0
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6680  ?AddToAccumulator@DefenseAttributeAbs@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Freeze@GAME@@6B@  @ 0x005cdd28
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Knockdown@GAME@@6B@  @ 0x005cdd90
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Petrify@GAME@@6B@  @ 0x005cdcc0
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Sleep@GAME@@6B@  @ 0x005cde60
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Stun@GAME@@6B@  @ 0x005cddf8
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Taunt@GAME@@6B@  @ 0x005cdb88
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeAbs_Trap@GAME@@6B@  @ 0x005cdc58
+   [ 0] 0x001a6f20  ??4DefenseAttributeAbs_Fear@GAME@@QAEAAV01@$$QAV01@@Z+0x20
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a68b0  ?CreateText@DefenseAttributeAbsRestricted@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a6ab0  ?CreateNextText@DefenseAttributeAbsRestricted@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a67d0  ?AddToAccumulator@DefenseAttributeAbsRestricted@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_CrowdControl@GAME@@6B@  @ 0x005cb830
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001af030  ?AddToAccumulator@DefenseAttributeDefenseCap_CrowdControl@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Disruption@GAME@@6B@  @ 0x005cbbd8
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Fire@GAME@@6B@  @ 0x005cbf18
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Freeze@GAME@@6B@  @ 0x005cb9d0
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Petrify@GAME@@6B@  @ 0x005cba38
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Sleep@GAME@@6B@  @ 0x005cb900
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Stun@GAME@@6B@  @ 0x005cb968
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+
+=== ??_7DefenseAttributeDefenseCap_Trap@GAME@@6B@  @ 0x005cbaa0
+   [ 0] 0x00030820  ??4DefenseAttributeAbs@GAME@@QAEAAV01@$$QAV01@@Z+0x60
+   [ 1] 0x001a5870  ?LoadFromTable@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@_N@Z
+   [ 2] 0x001a58f0  ?AddToStore@DefenseAttribute_Typical@GAME@@UAE_NAAVDefenseAttributeStore@2@ABVLoadTable@2@@Z
+   [ 3] 0x001a5a60  ?CreateText@DefenseAttribute_Typical@GAME@@UBEXIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0_N@Z
+   [ 4] 0x001a5bc0  ?CreateNextText@DefenseAttribute_Typical@GAME@@UBEXIIAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0@Z
+   [ 5] 0x001a5d60  ?CreateRangeText@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@IAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1@Z
+   [ 6] 0x001a5f10  ?CreateRangeNumbers@DefenseAttribute_Typical@GAME@@UBEXPBVDefenseAttribute@2@AAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@1I@Z
+   [ 7] 0x001a6600  ?AddToAccumulator@DefenseAttributeDefenseCap@GAME@@UBEXAAVCombatAttributeAccumulator@2@IAAVRandomUniform@2@_NM@Z
+   [ 8] 0x001a61e0  ?ScaleAttribute@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [ 9] 0x001a60b0  ?AddJitter@DefenseAttribute_Typical@GAME@@UAEXMPAVRandomUniform@2@@Z
+   [10] 0x001a62b0  ?MinJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [11] 0x001a6120  ?MinJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+   [12] 0x001a6320  ?MaxJitter@DefenseAttribute_Typical@GAME@@MAEMMM@Z
+   [13] 0x001a6180  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+

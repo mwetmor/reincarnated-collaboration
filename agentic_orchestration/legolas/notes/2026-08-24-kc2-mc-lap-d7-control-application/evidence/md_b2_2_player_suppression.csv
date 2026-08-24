@@ -1,0 +1,13 @@
+vtable_slot,vtable_offset,request,Stunned,KnockedDown,Sleep,Trapped,Immobilized,UseSkillWhileTrapped
+58,0xe8,RequestUseItem,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED
+59,0xec,RequestReleasePet,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED
+60,0xf0,RequestUseItemOn,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED
+61,0xf4,RequestItemAction,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret
+62,0xf8,RequestInteractableAction,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret
+63,0xfc,RequestNpcAction,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret
+64,0x100,RequestCompleteRelics,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED
+76,0x130,RequestSkillAction,STUB-false,STUB-false,STUB-false,IMPL,STUB-false,IMPL
+77,0x134,RequestInstantSkillAction,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED,PERMITTED
+78,0x138,RequestEvadeAction,STUB-false,STUB-false,STUB-false,STUB-false,STUB-false,STUB-false
+80,0x140,RequestMoveAction,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret,STUB-ret
+81,0x144,RequestRotateAction,STUB-ret,STUB-ret,STUB-ret,PERMITTED,STUB-ret,STUB-ret

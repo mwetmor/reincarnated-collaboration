@@ -1,0 +1,115 @@
+"""D-7 step 50 — emit the machine-readable parameter table for gamora's B-2-application follow-up.
+Every row carries the RVA that establishes it.  Nothing here is inferred; each `rule` is the
+literal effect of the named function body.  READ-ONLY on substrate; writes only this notes dir."""
+import csv, collections, sys
+
+ROWS = [
+ # ---- family census (CombatAttributeType enum, recovered from GetType bodies) ----
+ dict(id='D7-E-01', kind='enum', key='CombatAttributeType.Stun',        value='42 (0x2a)', rva='0x0014c3e0', fn='GetType@DefenseAttributeAbs_Stun',       note='shared by Damage/Defense/Retaliation _Stun'),
+ dict(id='D7-E-02', kind='enum', key='CombatAttributeType.Sleep',       value='43 (0x2b)', rva='0x0014c370', fn='GetType@DamageAttributeReflex_Sleep',    note=''),
+ dict(id='D7-E-03', kind='enum', key='CombatAttributeType.Trap',        value='44 (0x2c)', rva='0x0014c5b0', fn='GetType@DamageAttributeReflex_Trap',     note=''),
+ dict(id='D7-E-04', kind='enum', key='CombatAttributeType.Freeze',      value='45 (0x2d)', rva='0x0014c4c0', fn='GetType@DamageAttributeReflex_Freeze',   note=''),
+ dict(id='D7-E-05', kind='enum', key='CombatAttributeType.Petrify',     value='46 (0x2e)', rva='0x0014c540', fn='GetType@DamageAttributeReflex_Petrify',  note=''),
+ dict(id='D7-E-06', kind='enum', key='CombatAttributeType.Immobilize',  value='47 (0x2f)', rva='0x0005ad85', fn='StartInvoluntaryEffect switch arm',      note='NO DefenseAttribute class exists for 47 -> no per-type resistance stat'),
+ dict(id='D7-E-07', kind='enum', key='CombatAttributeType.Knockdown',   value='48 (0x30)', rva='0x0014c450', fn='GetType@DamageAttributeReflex_Knockdown', note=''),
+ dict(id='D7-E-08', kind='enum', key='CombatAttributeType.TakeHit',     value='49 (0x31)', rva='0x0005accc', fn='StartInvoluntaryEffect switch arm',      note='NO DefenseAttribute class exists for 49'),
+ dict(id='D7-E-09', kind='enum', key='CombatAttributeType.Taunt',       value='50 (0x32)', rva='0x0014c620', fn='GetType@DamageAttributeAbs_Taunt',       note='influence family, not involuntary'),
+ dict(id='D7-E-10', kind='enum', key='CombatAttributeType.Convert',     value='51 (0x33)', rva='0x0014cb50', fn='GetType@DamageAttributeAbs_Convert',     note='influence family, not involuntary'),
+ dict(id='D7-E-11', kind='enum', key='CombatAttributeType.Fear',        value='52 (0x34)', rva='0x0014cd50', fn='GetType@DamageAttributeAbs_Fear',        note='influence family'),
+ dict(id='D7-E-12', kind='enum', key='CombatAttributeType.Confusion',   value='53 (0x35)', rva='0x0014cf40', fn='GetType@DamageAttributeAbs_Confusion',   note='influence family'),
+ dict(id='D7-E-13', kind='enum', key='CombatAttributeType.CrowdControl',value='54 (0x36)', rva='0x001acc60', fn='GetType@DefenseAttributeAbs_CrowdControl', note='defence-only aggregate'),
+ dict(id='D7-E-14', kind='enum', key='CombatAttributeType.Disruption',  value='13 (0x0d)', rva='',           fn='GetType@DamageAttributeAbs_Disruption',  note='NOT an involuntary state; no controller path'),
+ dict(id='D7-E-15', kind='enum', key='CombatAttributeType.CrowdControlCap', value='65 (0x41)', rva='0x001af020', fn='GetType@DefenseAttributeDefenseCap_CrowdControl', note=''),
+
+ # ---- MD-B2-1: the application law ----
+ dict(id='D7-1-01', kind='rule', key='control_resistance_semantics', value='DURATION SCALAR',
+      rva='0x000d7620', fn='ReduceDamage@CombatAttributeAbsDamage',
+      note='if attr.type==r.type: attr.value *= (1 - r/100); then attr.value = max(attr.value, 0). NOT a chance gate, NOT a threshold.'),
+ dict(id='D7-1-02', kind='rule', key='control_attribute_value_is_duration', value='TRUE; magnitude is hardcoded 1.0f',
+      rva='0x000d8b80', fn='Execute@CombatAttributeReflexDamage',
+      note='calls target(+0x3e4)->AddFixedDamage(type=attr[+4], magnitude=1.0f, duration=attr[+0x1c], src, 0) and ONLY if attr[+0x1c] > 0.'),
+ dict(id='D7-1-03', kind='rule', key='resistance_composition', value='ADDITIVE SUM over accumulator entries of the same type',
+      rva='0x000de500', fn='GetTotalDefenseType@CombatAttributeAccumulator',
+      note='the count-divide branch is gated on type==0x27 (Absorption) only; for control types the divisor stays 0 and the sum is returned unaveraged.'),
+ dict(id='D7-1-04', kind='rule', key='defensiveCrowdControl_expansion', value='Stun(42), Freeze(45), Petrify(46), Trap(44) — EXACTLY these four',
+      rva='0x001acc70', fn='AddToAccumulator@DefenseAttributeAbs_CrowdControl',
+      note='emits four separate CombatAttribute defence entries carrying the SAME value; NOT Sleep, NOT Knockdown, NOT Confusion/Fear/Convert/Disruption.'),
+ dict(id='D7-1-05', kind='rule', key='defensiveCrowdControlMaxResist_expansion', value='Stun(42), Freeze(45), Petrify(46), Trap(44) — EXACTLY these four',
+      rva='0x001af030', fn='AddToAccumulator@DefenseAttributeDefenseCap_CrowdControl', note=''),
+ dict(id='D7-1-06', kind='rule', key='EoR_confound_resolution', value='ADDITIVE, same pool',
+      rva='0x001acc70 + 0x000de500', fn='(expansion) + (sum)',
+      note='stun_resist_effective = defensiveStun + defensiveCrowdControl. The channel bonus is not a separate multiplier and not a max().'),
+ dict(id='D7-1-07', kind='rule', key='resistance_cap_applied', value='YES — min(cap, value) per accumulated entry',
+      rva='0x000d8ff0', fn='Process@CombatAttributeAbsDefenseRestricted',
+      note='cap = Character::GetDefenseAttributeCap() + attr[+0x28]; applied only when cap > 0. Runs inside ProcessDefense, BEFORE GetTotalDefenseType sums.'),
+ dict(id='D7-1-08', kind='rule', key='player_defense_cap_source', value='Player field +0x3690',
+      rva='0x0032b720', fn='GetDefenseAttributeCap@Player', note='`fld dword ptr [ecx+0x3690]; ret` — the gameengine.dbr playerDefenseCap seat.'),
+ dict(id='D7-1-09', kind='rule', key='cap_bonus_composition', value='ADDITIVE into attr[+0x28] when types match',
+      rva='0x000d7600', fn='ModifyDefenseCap@CombatAttributeAbsDefense', note='attr[+0x28] += value.'),
+ dict(id='D7-1-10', kind='rule', key='duration_quantisation', value='buckets = (int)(duration_seconds * 10.0f); remaining_ms = buckets * 100',
+      rva='0x0020e08d / 0x0020dc30', fn='fixed-entry insert / fixed-entry GetDuration',
+      note='mulss 10.0f then cvttss2si (TRUNCATION). A 1.25 s stun becomes 12 buckets = 1.200 s.'),
+ dict(id='D7-1-11', kind='rule', key='same_type_stacking', value='LONGEST WINS (max), never additive',
+      rva='0x0020e0ae / 0x002089f2', fn='fixed-entry insert (jae skip) / GetFixedDamageDuration (cmovg max)',
+      note='insert only grows the bucket list if the new length exceeds the current; the manager takes the MAX over matching entries.'),
+ dict(id='D7-1-12', kind='rule', key='pvp_only_duration_multiplier', value='PvE: NO-OP',
+      rva='0x00209db0', fn='ModifyDuration@DurationDamageManager',
+      note='for types 0x2a..0x31 multiplies by max(gGameEngine[+0x22f4],0) ONLY when FactionManager::GetPvpIds(target,attacker,..)==true. gGameEngine[+0x22f4] == GetPvpCrowdControlDurationMultiplier (0x0026d5d0).'),
+ dict(id='D7-1-13', kind='rule', key='application_guard', value='AddFixedDamage returns early unless magnitude>0 AND duration>0',
+      rva='0x00208da3, 0x00208db9', fn='AddFixedDamage', note='so a 100%-resisted control never enters the timeline at all.'),
+
+ # ---- MD-B2-2: player suppression ----
+ dict(id='D7-2-01', kind='rule', key='family_to_player_state_map', value='42->Stunned 43->Sleeping 44->Trapped 45+46->Character::BeginFreeze/BeginPetrify 47->Immobilized 48->KnockedDown 49->TakeHit',
+      rva='0x0005acc0', fn='StartInvoluntaryEffect@Character',
+      note='Stun/Sleep/TakeHit route to the CONTROLLER (vtable +0x90/+0xa8/+0xa0); Trap/Freeze/Petrify/Immobilize/Knockdown route to Character::Begin<X>.'),
+ dict(id='D7-2-02', kind='rule', key='exactly_one_involuntary_effect', value='TRUE — first-match-wins ladder',
+      rva='0x00209fc0', fn='UpdateFxAndInfluence@DurationDamageManager',
+      note='tests GetFixedDamage(t)>0 in order 47,46,45,44,43,42,48,49 and takes the FIRST; on change it Stops the old effect then Starts the new one.'),
+ dict(id='D7-2-03', kind='rule', key='influence_suppressed_by_hard_control', value='TRUE',
+      rva='0x0020a11c', fn='UpdateFxAndInfluence',
+      note='Confusion(53)/Fear(52) are evaluated ONLY when the active involuntary type is 0.'),
+ dict(id='D7-2-04', kind='rule', key='Confusion_on_player', value='NO-OP',
+      rva='Player vtable +0x3c8 -> 0x000084d0', fn='CombatExertInfluenceConfusion',
+      note='Player does not override; Character::CombatExertInfluenceConfusion IS the shared `ret 4` stub at 0x000084d0. Monster DOES override (0x002d9670).'),
+ dict(id='D7-2-05', kind='rule', key='Fear_on_player', value='routes to controller vtable +0x84, which on ControllerPlayer is a `ret 8` stub -> NO-OP',
+      rva='0x00054690 -> ControllerPlayer vtable +0x84 = 0x0000f100', fn='CombatExertInfluenceFear@Character',
+      note='the Character body is real, the ControllerPlayer slot it calls is not.'),
+ dict(id='D7-2-06', kind='rule', key='Taunt_on_player', value='routes to controller vtable +0x8c, `ret 8` stub -> NO-OP',
+      rva='0x000546d0 -> ControllerPlayer vtable +0x8c = 0x0000f100', fn='CombatExertInfluenceTaunt@Character', note=''),
+ dict(id='D7-2-07', kind='rule', key='channel_is_broken_by_control', value='TRUE',
+      rva='ControllerPlayerStateUseSkill vtable +0xb0 = 0x0011ffa0', fn='BeginStun@ControllerPlayerStateIdle',
+      note='UseSkill/MoveTo/ChargeToUseSkill inherit IDLE\'s Begin<Control>, which calls ControllerAI::SetState("Stunned"/...) — the skill state is REPLACED, so the channel ends.'),
+ dict(id='D7-2-08', kind='rule', key='control_state_does_not_refresh', value='TRUE',
+      rva='ControllerPlayerStateStunned vtable +0xa0..+0xc8 = 0x00007f40', fn='Stop@Fx (bare ret)',
+      note='every Begin<Control> slot inside a control state is a no-op stub; a second landing of the same family does not restart the state.'),
+ dict(id='D7-2-09', kind='rule', key='control_state_exit', value='externally driven by StopInvoluntaryEffect',
+      rva='0x00123490', fn='OnUpdate@ControllerPlayerStateStunned',
+      note='decrements [this+0x10] and self-ends only if it started > 0; DefaultBeginStunAction passes a ZERO ControllerAIStateData (0x0011f609..0x0011f617), so the timer is the DurationDamageManager bucket list, not the state.'),
+ dict(id='D7-2-10', kind='rule', key='state_names', value='Immobilized / Trapped / Stunned / KnockedDown / TakeHit / Sleeping',
+      rva='0x0011f480,0x0011f520,0x0011f5c0,0x0011f660,0x0011f700,0x0011f7a0', fn='Default*Action@ControllerPlayerState',
+      note='string literals passed to ControllerAI::SetState.'),
+
+ # ---- MD-B2-3: outgoing duration modifiers ----
+ dict(id='D7-3-01', kind='rule', key='offensive_control_modifier_composition', value='ONE ADDITIVE POOL',
+      rva='0x000de490', fn='GetTotalDurationModifierType@CombatAttributeAccumulator',
+      note='iterates the damage-modifier list and ADDS every entry whose GetType()==requested type. Identical shape to GetTotalDamageModifierType (0x000de410). gamora\'s analogy is CORRECT and is now DECODED.'),
+ dict(id='D7-3-02', kind='rule', key='duration_modifier_consumer', value='Player::CollectDamageDurationModifiers',
+      rva='0x0031a290', fn='CollectDamageDurationModifiers@Player', note='sole caller of GetTotalDurationModifierType in the image.'),
+
+ # ---- negatives worth carrying ----
+ dict(id='D7-N-01', kind='negative', key='CalculateStun is NOT the control-application path', value='CLEAN NEGATIVE',
+      rva='0x0031ee20 (Player), 0x002d5170 (Monster), 0x00054110 (Character stub)', fn='CalculateStun',
+      note='vtable slot 286 (+0x478) of the Character hierarchy; ZERO call sites found by exhaustive byte-scan of .text for both `call [reg+0x478]` and `mov reg,[reg+0x478]` encodings. Sits between UnderAttack and CombatCausedHitReaction. Recorded, not used.'),
+ dict(id='D7-N-02', kind='negative', key='no defensiveImmobilize / defensiveTakeHit stat exists', value='CLEAN NEGATIVE',
+      rva='n/a', fn='GetType census over 278 constant bodies',
+      note='enum values 47 and 49 have NO DefenseAttribute class in the 25,091-symbol export table; slow/immobilise on a player is unresistible by a per-type stat.'),
+ dict(id='D7-N-03', kind='negative', key='control resistance is NOT applied in CombatManager::TakeAttack', value='CLEAN NEGATIVE',
+      rva='0x000e1bed,0x000e1eb6,0x000e1eef,0x000e20a1,0x000e20e8,0x000e2197,0x000e2c19', fn='TakeAttack',
+      note='all seven GetTotalDefenseType call sites there pass 0x3f/0x39/0x3d/0x37/0x38 (reflection, reflect, damage-multiplier, block) — never a control type.'),
+]
+
+with open('evidence/d7_control_application_parameters.csv', 'w', newline='') as f:
+    w = csv.DictWriter(f, fieldnames=['id', 'kind', 'key', 'value', 'rva', 'fn', 'note'])
+    w.writeheader(); w.writerows(ROWS)
+print(f'wrote {len(ROWS)} rows -> evidence/d7_control_application_parameters.csv')
+print(collections.Counter(r['kind'] for r in ROWS))

@@ -1,0 +1,210 @@
+=== 0xe1bc0
+  0x000e1bc0  push     es
+  0x000e1bc1  jne      0x100e1c4b
+  0x000e1bc7  lea      ecx, [ebp - 0x184]
+  0x000e1bcd  call     0x100dd240   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@XZ
+  0x000e1bd2  lea      eax, [ebp - 0x184]
+  0x000e1bd8  mov      byte ptr [ebp - 4], 8
+  0x000e1bdc  mov      ecx, dword ptr [ebx + 4]
+  0x000e1bdf  push     eax
+  0x000e1be0  call     0x10055a70   ; -> ?GetAllDefenseAttributes@Character@GAME@@QBEXAAVCombatAttributeAccumulator@2@@Z
+  0x000e1be5  push     0x3f
+  0x000e1be7  lea      ecx, [ebp - 0x184]
+  0x000e1bed  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e1bf2  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000e1bfa  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x000e1bff  fstp     dword ptr [ebp - 0x28]
+  0x000e1c02  movss    xmm0, dword ptr [ebp - 0x28]
+  0x000e1c07  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000e1c0f  mov      eax, dword ptr [eax]
+  0x000e1c11  push     0x1052837c
+  0x000e1c16  push     dword ptr [0x10808098]   ; [?gLogCombat@GAME@@3IA] f32=0 i32=0 f64=0
+  0x000e1c1c  subss    xmm1, xmm0
+  0x000e1c20  xorps    xmm0, xmm0
+  0x000e1c23  mov      ecx, dword ptr [eax]
+  0x000e1c25  push     0
+  0x000e1c27  push     eax
+  0x000e1c28  maxss    xmm1, xmm0
+  0x000e1c2c  movss    dword ptr [ebp - 0x18], xmm1
+  0x000e1c31  call     dword ptr [ecx + 8]
+  0x000e1c34  add      esp, 0x10
+  0x000e1c37  mov      byte ptr [ebp - 4], 2
+  0x000e1c3b  lea      ecx, [ebp - 0x184]
+  0x000e1c41  call     0x100dd2c0   ; -> ??1CombatAttributeAccumulator@GAME@@UAE@XZ
+  0x000e1c46  jmp      0x100e1d48   ; -> ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xc68
+  0x000e1c4b  cmp      eax, 4
+  0x000e1c4e  je       0x100e1d15
+  0x000e1c54  cmp      eax, 5
+  0x000e1c57  je       0x100e1d15
+  0x000e1c5d  mov      eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+  0x000e1c62  push     0x105283c8
+  0x000e1c67  push     dword ptr [0x10808098]   ; [?gLogCombat@GAME@@3IA] f32=0 i32=0 f64=0
+
+=== 0xe1e90
+  0x000e1e90  push     dword ptr [0x10808098]   ; [?gLogCombat@GAME@@3IA] f32=0 i32=0 f64=0
+  0x000e1e96  push     0
+  0x000e1e98  mov      eax, dword ptr [eax]
+  0x000e1e9a  push     eax
+  0x000e1e9b  mov      ecx, dword ptr [eax]
+  0x000e1e9d  call     dword ptr [ecx + 8]
+  0x000e1ea0  add      esp, 0x10
+  0x000e1ea3  mov      esi, dword ptr [ebp - 0x20]
+  0x000e1ea6  push     dword ptr [ebp - 0x1c]
+  0x000e1ea9  mov      ecx, dword ptr [ebx + 4]
+  0x000e1eac  call     0x10055a70   ; -> ?GetAllDefenseAttributes@Character@GAME@@QBEXAAVCombatAttributeAccumulator@2@@Z
+  0x000e1eb1  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e1eb4  push     0x39
+  0x000e1eb6  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e1ebb  movss    xmm1, dword ptr [ebp - 0x18]
+  0x000e1ec0  xorps    xmm0, xmm0
+  0x000e1ec3  comiss   xmm1, xmm0
+  0x000e1ec6  mov      byte ptr [ebp - 0x2d], 0
+  0x000e1eca  fstp     st(0)
+  0x000e1ecc  jbe      0x100e2be1
+  0x000e1ed2  mov      eax, dword ptr [ebx + 8]
+  0x000e1ed5  lea      ecx, [ebx + 8]
+  0x000e1ed8  push     0x3d
+  0x000e1eda  mov      eax, dword ptr [eax + 8]
+  0x000e1edd  call     eax
+  0x000e1edf  fadd     dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x000e1ee5  mov      esi, dword ptr [ebp - 0x1c]
+  0x000e1ee8  mov      ecx, esi
+  0x000e1eea  push     0x3d
+  0x000e1eec  fstp     dword ptr [ebp - 0x28]
+  0x000e1eef  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e1ef4  fadd     dword ptr [ebp - 0x28]
+  0x000e1ef7  fstp     dword ptr [ebp - 0x34]
+  0x000e1efa  movss    xmm1, dword ptr [ebp - 0x34]
+  0x000e1eff  comiss   xmm1, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x000e1f06  jbe      0x100e1fb8
+  0x000e1f0c  xorps    xmm0, xmm0
+  0x000e1f0f  comiss   xmm1, xmm0
+  0x000e1f12  jb       0x100e1fb8
+  0x000e1f18  mov      eax, dword ptr [ebp - 0x1c]
+
+=== 0xe2070
+  0x000e2070  mov      al, byte ptr [0x110ff351]
+  0x000e2075  add      al, 0x24
+  0x000e2077  mov      ecx, esi
+  0x000e2079  push     eax
+  0x000e207a  lea      eax, [ebp - 0x13c]
+  0x000e2080  mov      dword ptr [ebp - 0x60], 0
+  0x000e2087  push     eax
+  0x000e2088  push     dword ptr [ebx + 4]
+  0x000e208b  fstp     dword ptr [ebp - 0x128]
+  0x000e2091  mov      dword ptr [ebp - 0x5c], 0
+  0x000e2098  call     0x100de740   ; -> ?ProcessDefense@CombatAttributeAccumulator@GAME@@QAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+  0x000e209d  push     0x39
+  0x000e209f  mov      ecx, esi
+  0x000e20a1  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e20a6  cmp      dword ptr [ebx + 0x1ec], 0
+  0x000e20ad  fstp     dword ptr [ebp - 0x34]
+  0x000e20b0  jg       0x100e226b
+  0x000e20b6  lea      ecx, [ebx + 0x58]
+  0x000e20b9  call     0x10212170   ; -> ?GetLeftHandShield@EquipManager@GAME@@QBE?BIXZ
+  0x000e20be  push     eax
+  0x000e20bf  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000e20c5  mov      ecx, eax
+  0x000e20c7  call     0x100e5090   ; -> ?RecordHit@CombatManager@GAME@@IAEXPAVCharacter@2@I_NM@Z+0x330
+  0x000e20cc  mov      esi, eax
+  0x000e20ce  test     esi, esi
+  0x000e20d0  je       0x100e2268
+  0x000e20d6  movss    xmm0, dword ptr [esi + 0xfac]
+  0x000e20de  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e20e1  push     0x37
+  0x000e20e3  movss    dword ptr [ebp - 0x28], xmm0
+  0x000e20e8  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e20ed  mov      eax, dword ptr [edi + 0xc]
+  0x000e20f0  fstp     dword ptr [ebp - 0x50]
+  0x000e20f3  cmp      eax, 1
+  0x000e20f6  jne      0x100e212f
+  0x000e20f8  movss    xmm0, dword ptr [ebp - 0x44]
+  0x000e20fd  lea      eax, [ebp - 0x3c]
+  0x000e2100  push     eax
+  0x000e2101  lea      eax, [ebp - 0xc0]
+  0x000e2107  mov      ecx, ebx
+
+=== 0xe2170
+  0x000e2170  movss    dword ptr [esp], xmm0
+  0x000e2175  call     0x100e4930   ; -> ?DesignerCalculateProjectileBlockChance@CombatManager@GAME@@QBE_NMMMAAVRandomUniform@2@@Z
+  0x000e217a  mov      byte ptr [ebp - 0x2d], al
+  0x000e217d  test     al, al
+  0x000e217f  je       0x100e2268
+  0x000e2185  movss    xmm0, dword ptr [esi + 0xfb0]
+  0x000e218d  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e2190  push     0x38
+  0x000e2192  movss    dword ptr [ebp - 0x50], xmm0
+  0x000e2197  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e219c  movss    xmm0, dword ptr [esi + 0xfb4]
+  0x000e21a4  sub      esp, 8
+  0x000e21a7  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e21aa  fstp     dword ptr [ebp - 0x28]
+  0x000e21ad  movss    xmm1, dword ptr [ebp - 0x28]
+  0x000e21b2  mulss    xmm1, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000e21ba  movss    dword ptr [esp + 4], xmm0
+  0x000e21c0  addss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000e21c8  mulss    xmm1, dword ptr [ebp - 0x50]
+  0x000e21cd  movss    dword ptr [esp], xmm1
+  0x000e21d2  push     dword ptr [ebx + 4]
+  0x000e21d5  call     0x100dd830   ; -> ?DamageReductionByShield@CombatAttributeAccumulator@GAME@@QAEXABVCharacter@2@MM@Z
+  0x000e21da  mov      byte ptr [edi + 0x9d], 1
+  0x000e21e1  mov      ecx, esi
+  0x000e21e3  push     dword ptr [ebx + 4]
+  0x000e21e6  call     0x104867e0   ; -> ?PlayBlockEffect@WeaponArmor_Shield@GAME@@QAEXPAVCharacter@2@@Z
+  0x000e21eb  mov      ecx, dword ptr [ebx + 4]
+  0x000e21ee  lea      eax, [ebp - 0x170]
+  0x000e21f4  push     eax
+  0x000e21f5  call     dword ptr [0x104e5288]   ; f32=1.16448e-38 i32=8310008 f64=2.74142e-306
+  0x000e21fb  push     eax
+  0x000e21fc  mov      ecx, esi
+  0x000e21fe  call     0x104868c0   ; -> ?PlayBlockSound@WeaponArmor_Shield@GAME@@QAEXABVWorldVec3@2@@Z
+  0x000e2203  mov      ecx, dword ptr [ebx + 4]
+  0x000e2206  push     0x19
+  0x000e2208  call     0x10054eb0   ; -> ?GetTotalCharAttribute@Character@GAME@@QBEMW4CharAttributeType@2@@Z
+  0x000e220d  movss    xmm0, dword ptr [esi + 0xfb8]
+  0x000e2215  mulss    xmm0, dword ptr [0x105f5918]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x000e221d  fstp     dword ptr [ebp - 0x28]
+  0x000e2220  call     0x104bfcf0   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38040
+
+=== 0xe2bf0
+  0x000e2bf0  add      byte ptr [eax], al
+  0x000e2bf2  add      byte ptr [eax], al
+  0x000e2bf4  lea      eax, [ebp - 0x60]
+  0x000e2bf7  push     eax
+  0x000e2bf8  mov      eax, ecx
+  0x000e2bfa  mov      dword ptr [ebp - 0x60], 0
+  0x000e2c01  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e2c04  push     eax
+  0x000e2c05  push     dword ptr [ebx + 4]
+  0x000e2c08  mov      dword ptr [ebp - 0x5c], 0
+  0x000e2c0f  call     0x100de740   ; -> ?ProcessDefense@CombatAttributeAccumulator@GAME@@QAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+  0x000e2c14  mov      ecx, dword ptr [ebp - 0x1c]
+  0x000e2c17  push     0x39
+  0x000e2c19  call     0x100de500   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z
+  0x000e2c1e  fstp     dword ptr [ebp - 0x34]
+  0x000e2c21  mov      ecx, dword ptr [ebx + 4]
+  0x000e2c24  push     0x1a
+  0x000e2c26  call     0x10054eb0   ; -> ?GetTotalCharAttribute@Character@GAME@@QBEMW4CharAttributeType@2@@Z
+  0x000e2c2b  fstp     dword ptr [ebp + 8]
+  0x000e2c2e  movss    xmm1, dword ptr [ebp + 8]
+  0x000e2c33  xorps    xmm0, xmm0
+  0x000e2c36  comiss   xmm1, xmm0
+  0x000e2c39  jbe      0x100e2c67
+  0x000e2c3b  mulss    xmm1, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000e2c43  mulss    xmm1, dword ptr [edi + 0x80]
+  0x000e2c4b  comiss   xmm1, xmm0
+  0x000e2c4e  jbe      0x100e2c67
+  0x000e2c50  push     ecx
+  0x000e2c51  mov      ecx, dword ptr [ebx + 4]
+  0x000e2c54  add      ecx, 0xa18
+  0x000e2c5a  movss    dword ptr [esp], xmm1
+  0x000e2c5f  call     0x10073650   ; -> ?AddManaSlow@CharacterBio@GAME@@QAEXM@Z
+  0x000e2c64  xorps    xmm0, xmm0
+  0x000e2c67  mov      eax, dword ptr [edi + 0xc]
+  0x000e2c6a  cmp      eax, 3
+  0x000e2c6d  je       0x100e2d87
+  0x000e2c73  cmp      eax, 6
+  0x000e2c76  je       0x100e2d87
+  0x000e2c7c  cmp      eax, 1
+  0x000e2c7f  jne      0x100e2c96
+

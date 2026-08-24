@@ -1,0 +1,27 @@
+=== xrefs to ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z @ 0x000de500
+   call @ 0x0005481a  in ?GetRunSpeed@Character@GAME@@QAE?BM_N@Z+0xca
+   call @ 0x00097135  in ?AddToAccumulator@CharAttributeMod_TotalSpeed@GAME@@UBEMAAVCharAttributeAccumulator@2@IM@Z+0x65
+   call @ 0x0009719f  in ?AddToAccumulator@CharAttributeMod_TotalSpeed@GAME@@UBEMAAVCharAttributeAccumulator@2@IM@Z+0xcf
+   call @ 0x00097204  in ?AddToAccumulator@CharAttributeMod_TotalSpeed@GAME@@UBEMAAVCharAttributeAccumulator@2@IM@Z+0x134
+   call @ 0x0009783c  in ?ExecuteDefense@CharAttributeAccumulator@GAME@@QAEMW4CharAttributeType@2@M@Z+0x5c
+   call @ 0x000e1bed  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xb0d
+   call @ 0x000e1eb6  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xdd6
+   call @ 0x000e1eef  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xe0f
+   call @ 0x000e20a1  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xfc1
+   call @ 0x000e20e8  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0x1008
+   call @ 0x000e2197  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0x10b7
+   call @ 0x000e2c19  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0x1b39
+   call @ 0x00435988  in ?GetResistance@SkillBuff_DebufTrap@GAME@@MAEMAAVCombatAttributeAccumulator@2@@Z+0x8
+   call @ 0x00435c68  in ?GetResistance@SkillBuff_DebufFreeze@GAME@@MAEMAAVCombatAttributeAccumulator@2@@Z+0x8
+
+=== xrefs to ?GetTotalDurationModifierType@CombatAttributeAccumulator@GAME@@QAEMPAVCharacter@2@W4CombatAttributeType@2@@Z @ 0x000de490
+   call @ 0x0031a29d  in ?CollectDamageDurationModifiers@Player@GAME@@QAEXAAMW4CombatAttributeType@2@@Z+0xd
+
+=== xrefs to ?GetTotalDefenseModifierType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z @ 0x000de5f0
+
+=== xrefs to ?ProcessDefense@CombatAttributeAccumulator@GAME@@QAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z @ 0x000de740
+   call @ 0x00074aae  in ?UpdateResources@CharacterBio@GAME@@IAEXABVCharacter@2@@Z+0x7e
+   call @ 0x000e2098  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0xfb8
+   call @ 0x000e2c0f  in ?TakeAttack@CombatManager@GAME@@QAE_NAAVParametersCombat@2@AAVSkillManager@2@AAVCharacterBio@2@@Z+0x1b2f
+   call @ 0x00435a82  in ?ModifyDuration@SkillBuff_DebufTrap@GAME@@MAEXXZ+0xe2
+

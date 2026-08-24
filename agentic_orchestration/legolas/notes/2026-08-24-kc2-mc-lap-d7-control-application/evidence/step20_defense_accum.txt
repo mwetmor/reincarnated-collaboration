@@ -1,0 +1,284 @@
+=== DefenseAttributeAbs::AddToAccumulator 0x1a6680
+  0x001a6680  push     ebp
+  0x001a6681  mov      ebp, esp
+  0x001a6683  push     ecx
+  0x001a6684  push     esi
+  0x001a6685  push     edi
+  0x001a6686  push     dword ptr [ebp + 0xc]
+  0x001a6689  mov      edi, ecx
+  0x001a668b  mov      eax, dword ptr [edi]
+  0x001a668d  mov      eax, dword ptr [eax + 0x3c]
+  0x001a6690  call     eax
+  0x001a6692  cmp      byte ptr [ebp + 0x14], 0
+  0x001a6696  mov      esi, dword ptr [ebp + 8]
+  0x001a6699  fstp     dword ptr [ebp - 4]
+  0x001a669c  jne      0x101a66ba
+  0x001a669e  mov      eax, dword ptr [esi]
+  0x001a66a0  movss    xmm0, dword ptr [ebp - 4]
+  0x001a66a5  push     ecx
+  0x001a66a6  mov      ecx, esi
+  0x001a66a8  movss    dword ptr [esp], xmm0
+  0x001a66ad  mov      eax, dword ptr [eax + 8]
+  0x001a66b0  call     eax
+  0x001a66b2  test     al, al
+  0x001a66b4  je       0x101a674f
+  0x001a66ba  mov      eax, dword ptr [edi]
+  0x001a66bc  mov      ecx, edi
+  0x001a66be  push     0
+  0x001a66c0  push     dword ptr [ebp + 0xc]
+  0x001a66c3  mov      eax, dword ptr [eax + 0x64]
+  0x001a66c6  call     eax
+  0x001a66c8  mov      eax, dword ptr [esi]
+  0x001a66ca  movss    xmm0, dword ptr [ebp - 4]
+  0x001a66cf  push     ecx
+  0x001a66d0  fstp     dword ptr [ebp + 0x14]
+  0x001a66d3  mov      eax, dword ptr [eax + 0xc]
+  0x001a66d6  mov      ecx, esi
+  0x001a66d8  movss    dword ptr [esp], xmm0
+  0x001a66dd  call     eax
+  0x001a66df  fmul     dword ptr [ebp + 0x14]
+  0x001a66e2  push     0x30
+  0x001a66e4  fmul     dword ptr [ebp + 0x18]
+  0x001a66e7  fstp     dword ptr [ebp + 0x14]
+  0x001a66ea  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001a66ef  mov      ecx, dword ptr [edi + 4]
+  0x001a66f2  add      esp, 4
+  0x001a66f5  movss    xmm0, dword ptr [ebp + 0x14]
+  0x001a66fa  mov      dword ptr [ebp + 0xc], eax
+  0x001a66fd  mov      dword ptr [eax + 4], ecx
+  0x001a6700  mov      ecx, esi
+  0x001a6702  mov      dword ptr [eax + 8], 0
+  0x001a6709  mov      byte ptr [eax + 0xc], 1
+  0x001a670d  mov      dword ptr [eax + 0x10], 0
+  0x001a6714  mov      dword ptr [eax + 0x14], 0
+  0x001a671b  push     eax
+  0x001a671c  mov      dword ptr [eax + 0x18], 0
+  0x001a6723  mov      dword ptr [eax], 0x105b93c4
+  0x001a6729  movss    dword ptr [eax + 0x1c], xmm0
+  0x001a672e  mov      dword ptr [eax + 0x20], 0
+  0x001a6735  mov      dword ptr [eax + 0x24], 0
+  0x001a673c  mov      dword ptr [eax + 0x28], 0
+  0x001a6743  mov      dword ptr [eax + 0x2c], 1
+
+=== DefenseAttributeAbsRestricted::AddToAccumulator 0x1a67d0
+  0x001a67d0  push     ebp
+  0x001a67d1  mov      ebp, esp
+  0x001a67d3  push     ecx
+  0x001a67d4  push     esi
+  0x001a67d5  push     edi
+  0x001a67d6  push     dword ptr [ebp + 0xc]
+  0x001a67d9  mov      edi, ecx
+  0x001a67db  mov      eax, dword ptr [edi]
+  0x001a67dd  mov      eax, dword ptr [eax + 0x3c]
+  0x001a67e0  call     eax
+  0x001a67e2  cmp      byte ptr [ebp + 0x14], 0
+  0x001a67e6  mov      esi, dword ptr [ebp + 8]
+  0x001a67e9  fstp     dword ptr [ebp - 4]
+  0x001a67ec  jne      0x101a680a
+  0x001a67ee  mov      eax, dword ptr [esi]
+  0x001a67f0  movss    xmm0, dword ptr [ebp - 4]
+  0x001a67f5  push     ecx
+  0x001a67f6  mov      ecx, esi
+  0x001a67f8  movss    dword ptr [esp], xmm0
+  0x001a67fd  mov      eax, dword ptr [eax + 8]
+  0x001a6800  call     eax
+  0x001a6802  test     al, al
+  0x001a6804  je       0x101a689f
+  0x001a680a  mov      eax, dword ptr [edi]
+  0x001a680c  mov      ecx, edi
+  0x001a680e  push     0
+  0x001a6810  push     dword ptr [ebp + 0xc]
+  0x001a6813  mov      eax, dword ptr [eax + 0x64]
+  0x001a6816  call     eax
+  0x001a6818  mov      eax, dword ptr [esi]
+  0x001a681a  movss    xmm0, dword ptr [ebp - 4]
+  0x001a681f  push     ecx
+  0x001a6820  fstp     dword ptr [ebp + 0x14]
+  0x001a6823  mov      eax, dword ptr [eax + 0xc]
+  0x001a6826  mov      ecx, esi
+  0x001a6828  movss    dword ptr [esp], xmm0
+  0x001a682d  call     eax
+  0x001a682f  fmul     dword ptr [ebp + 0x14]
+  0x001a6832  push     0x30
+  0x001a6834  fmul     dword ptr [ebp + 0x18]
+  0x001a6837  fstp     dword ptr [ebp + 0x14]
+  0x001a683a  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001a683f  mov      ecx, dword ptr [edi + 4]
+  0x001a6842  add      esp, 4
+  0x001a6845  movss    xmm0, dword ptr [ebp + 0x14]
+  0x001a684a  mov      dword ptr [ebp + 0xc], eax
+  0x001a684d  mov      dword ptr [eax + 4], ecx
+  0x001a6850  mov      ecx, esi
+  0x001a6852  mov      dword ptr [eax + 8], 0
+  0x001a6859  mov      byte ptr [eax + 0xc], 1
+  0x001a685d  mov      dword ptr [eax + 0x10], 0
+  0x001a6864  mov      dword ptr [eax + 0x14], 0
+  0x001a686b  push     eax
+  0x001a686c  mov      dword ptr [eax + 0x18], 0
+  0x001a6873  movss    dword ptr [eax + 0x1c], xmm0
+  0x001a6878  mov      dword ptr [eax + 0x20], 0
+  0x001a687f  mov      dword ptr [eax + 0x24], 0
+  0x001a6886  mov      dword ptr [eax + 0x28], 0
+  0x001a688d  mov      dword ptr [eax + 0x2c], 1
+  0x001a6894  mov      dword ptr [eax], 0x105b9328
+
+=== DefenseAttributeAbs_CrowdControl::AddToAccumulator 0x1acc70
+  0x001acc70  push     ebp
+  0x001acc71  mov      ebp, esp
+  0x001acc73  push     ecx
+  0x001acc74  push     esi
+  0x001acc75  push     edi
+  0x001acc76  push     dword ptr [ebp + 0xc]
+  0x001acc79  mov      edi, ecx
+  0x001acc7b  mov      eax, dword ptr [edi]
+  0x001acc7d  mov      eax, dword ptr [eax + 0x3c]
+  0x001acc80  call     eax
+  0x001acc82  cmp      byte ptr [ebp + 0x14], 0
+  0x001acc86  mov      esi, dword ptr [ebp + 8]
+  0x001acc89  fstp     dword ptr [ebp - 4]
+  0x001acc8c  jne      0x101accaa
+  0x001acc8e  mov      eax, dword ptr [esi]
+  0x001acc90  movss    xmm0, dword ptr [ebp - 4]
+  0x001acc95  push     ecx
+  0x001acc96  mov      ecx, esi
+  0x001acc98  movss    dword ptr [esp], xmm0
+  0x001acc9d  mov      eax, dword ptr [eax + 8]
+  0x001acca0  call     eax
+  0x001acca2  test     al, al
+  0x001acca4  je       0x101ace75
+  0x001accaa  mov      eax, dword ptr [edi]
+  0x001accac  mov      ecx, edi
+  0x001accae  push     0
+  0x001accb0  push     dword ptr [ebp + 0xc]
+  0x001accb3  mov      eax, dword ptr [eax + 0x64]
+  0x001accb6  call     eax
+  0x001accb8  mov      eax, dword ptr [esi]
+  0x001accba  movss    xmm0, dword ptr [ebp - 4]
+  0x001accbf  push     ecx
+  0x001accc0  fstp     dword ptr [ebp + 0x14]
+  0x001accc3  mov      eax, dword ptr [eax + 0xc]
+  0x001accc6  mov      ecx, esi
+  0x001accc8  movss    dword ptr [esp], xmm0
+  0x001acccd  call     eax
+  0x001acccf  fmul     dword ptr [ebp + 0x14]
+  0x001accd2  push     0x30
+  0x001accd4  fstp     dword ptr [ebp + 0x14]
+  0x001accd7  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001accdc  movss    xmm0, dword ptr [ebp + 0x14]
+  0x001acce1  add      esp, 4
+  0x001acce4  mov      ecx, esi
+  0x001acce6  mov      dword ptr [ebp + 0xc], eax
+  0x001acce9  mov      dword ptr [eax + 4], 0x2a
+  0x001accf0  mov      dword ptr [eax + 8], 0
+  0x001accf7  mov      byte ptr [eax + 0xc], 1
+  0x001accfb  mov      dword ptr [eax + 0x10], 0
+  0x001acd02  mov      dword ptr [eax + 0x14], 0
+  0x001acd09  push     eax
+  0x001acd0a  mov      dword ptr [eax + 0x18], 0
+  0x001acd11  movss    dword ptr [eax + 0x1c], xmm0
+  0x001acd16  mov      dword ptr [eax + 0x20], 0
+  0x001acd1d  mov      dword ptr [eax + 0x24], 0
+  0x001acd24  mov      dword ptr [eax + 0x28], 0
+  0x001acd2b  mov      dword ptr [eax + 0x2c], 1
+  0x001acd32  mov      dword ptr [eax], 0x105b9328
+  0x001acd38  call     0x100de6b0   ; -> ?AddDefense@CombatAttributeAccumulator@GAME@@QAEXPAVCombatAttribute@2@@Z
+  0x001acd3d  push     0x30
+
+=== DefenseAttributeDefenseCap::AddToAccumulator 0x1a6600
+  0x001a6600  push     ebp
+  0x001a6601  mov      ebp, esp
+  0x001a6603  push     esi
+  0x001a6604  mov      esi, ecx
+  0x001a6606  push     0
+  0x001a6608  push     dword ptr [ebp + 0xc]
+  0x001a660b  mov      eax, dword ptr [esi]
+  0x001a660d  mov      eax, dword ptr [eax + 0x64]
+  0x001a6610  call     eax
+  0x001a6612  fmul     dword ptr [ebp + 0x18]
+  0x001a6615  push     0x20
+  0x001a6617  fstp     dword ptr [ebp + 0xc]
+  0x001a661a  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001a661f  mov      ecx, dword ptr [esi + 4]
+  0x001a6622  add      esp, 4
+  0x001a6625  movss    xmm0, dword ptr [ebp + 0xc]
+  0x001a662a  mov      dword ptr [ebp + 0x18], eax
+  0x001a662d  mov      dword ptr [eax + 4], ecx
+  0x001a6630  mov      ecx, dword ptr [ebp + 8]
+  0x001a6633  mov      dword ptr [eax + 8], 0
+  0x001a663a  mov      byte ptr [eax + 0xc], 1
+  0x001a663e  mov      dword ptr [eax + 0x10], 0
+  0x001a6645  mov      dword ptr [eax + 0x14], 0
+  0x001a664c  lea      ecx, [ecx + 0x28]
+  0x001a664f  mov      dword ptr [eax + 0x18], 0
+  0x001a6656  mov      dword ptr [eax], 0x105b8f80
+  0x001a665c  movss    dword ptr [eax + 0x1c], xmm0
+  0x001a6661  mov      dword ptr [ebp + 0xc], eax
+  0x001a6664  lea      eax, [ebp + 0xc]
+  0x001a6667  push     eax
+  0x001a6668  call     0x1000a3e0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x20
+  0x001a666d  pop      esi
+  0x001a666e  pop      ebp
+  0x001a666f  ret      0x14
+
+=== DefenseAttributeDefenseCap_CrowdControl::AddToAccumulator 0x1af030
+  0x001af030  push     ebp
+  0x001af031  mov      ebp, esp
+  0x001af033  push     ecx
+  0x001af034  mov      eax, dword ptr [ecx]
+  0x001af036  push     esi
+  0x001af037  push     0
+  0x001af039  push     dword ptr [ebp + 0xc]
+  0x001af03c  mov      eax, dword ptr [eax + 0x64]
+  0x001af03f  call     eax
+  0x001af041  push     0x20
+  0x001af043  fstp     dword ptr [ebp + 0xc]
+  0x001af046  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001af04b  mov      dword ptr [ebp - 4], eax
+  0x001af04e  add      esp, 4
+  0x001af051  movss    xmm0, dword ptr [ebp + 0xc]
+  0x001af056  mov      esi, dword ptr [ebp + 8]
+  0x001af059  mov      dword ptr [eax + 4], 0x2a
+  0x001af060  add      esi, 0x28
+  0x001af063  mov      dword ptr [eax + 8], 0
+  0x001af06a  mov      ecx, esi
+  0x001af06c  mov      byte ptr [eax + 0xc], 1
+  0x001af070  mov      dword ptr [eax + 0x10], 0
+  0x001af077  mov      dword ptr [eax + 0x14], 0
+  0x001af07e  mov      dword ptr [eax + 0x18], 0
+  0x001af085  mov      dword ptr [eax], 0x105b8f80
+  0x001af08b  movss    dword ptr [eax + 0x1c], xmm0
+  0x001af090  mov      dword ptr [ebp - 4], eax
+  0x001af093  lea      eax, [ebp - 4]
+  0x001af096  push     eax
+  0x001af097  call     0x1000a3e0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x20
+  0x001af09c  push     0x20
+  0x001af09e  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001af0a3  mov      dword ptr [ebp + 8], eax
+  0x001af0a6  add      esp, 4
+  0x001af0a9  movss    xmm0, dword ptr [ebp + 0xc]
+  0x001af0ae  mov      ecx, esi
+  0x001af0b0  mov      dword ptr [ebp + 8], eax
+  0x001af0b3  mov      dword ptr [eax + 4], 0x2d
+  0x001af0ba  mov      dword ptr [eax + 8], 0
+  0x001af0c1  mov      byte ptr [eax + 0xc], 1
+  0x001af0c5  mov      dword ptr [eax + 0x10], 0
+  0x001af0cc  mov      dword ptr [eax + 0x14], 0
+  0x001af0d3  mov      dword ptr [eax + 0x18], 0
+  0x001af0da  mov      dword ptr [eax], 0x105b8f80
+  0x001af0e0  movss    dword ptr [eax + 0x1c], xmm0
+  0x001af0e5  lea      eax, [ebp + 8]
+  0x001af0e8  push     eax
+  0x001af0e9  call     0x1000a3e0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x20
+  0x001af0ee  push     0x20
+  0x001af0f0  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x001af0f5  mov      dword ptr [ebp + 8], eax
+  0x001af0f8  add      esp, 4
+  0x001af0fb  movss    xmm0, dword ptr [ebp + 0xc]
+  0x001af100  mov      ecx, esi
+  0x001af102  mov      dword ptr [ebp + 8], eax
+  0x001af105  mov      dword ptr [eax + 4], 0x2e
+  0x001af10c  mov      dword ptr [eax + 8], 0
+  0x001af113  mov      byte ptr [eax + 0xc], 1
+  0x001af117  mov      dword ptr [eax + 0x10], 0
+  0x001af11e  mov      dword ptr [eax + 0x14], 0
+

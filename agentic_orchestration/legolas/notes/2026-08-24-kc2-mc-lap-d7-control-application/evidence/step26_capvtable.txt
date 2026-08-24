@@ -1,0 +1,25 @@
+=== 0x5b8f80 @ 0x005b8f80
+  +0x020 (slot   8) -> 0x000d9c00  ?Execute@CombatAttributeDefenseCap@GAME@@UAEXPAVCombatAttribute@2@W4CombatAttributeRegion@2@@Z
+        body: ebp | ebp, esp | edx, ecx | ecx, dword ptr [ebp + 8]
+  +0x028 (slot  10) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x008 (slot   2) -> 0x00015db0  ?GetAllyID@ControllerAIStateData@GAME@@QBEIXZ
+        body: eax, dword ptr [ecx + 4] | 
+=== 0x5b9328 @ 0x005b9328
+  +0x014 (slot   5) -> 0x000d8ff0  ?Process@CombatAttributeAbsDefenseRestricted@GAME@@UAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+        body: ebp | ebp, esp | xmm4, dword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan | xmm3, xmm3
+  +0x020 (slot   8) -> 0x000d9280  ?Execute@CombatAttributeAbsDefense@GAME@@UAEXPAVCombatAttribute@2@W4CombatAttributeRegion@2@@Z
+        body: ebp | ebp, esp | edx, ecx | ecx, dword ptr [ebp + 8]
+  +0x028 (slot  10) -> 0x000d92d0  ?GetTotalDefense@CombatAttributeAbsDefense@GAME@@UBEXAAM0@Z
+        body: ebp | ebp, esp | eax, dword ptr [ebp + 8] | xmm0, dword ptr [ecx + 0x1c]
+  +0x008 (slot   2) -> 0x00015db0  ?GetAllyID@ControllerAIStateData@GAME@@QBEIXZ
+        body: eax, dword ptr [ecx + 4] | 
+=== 0x5b93c4 @ 0x005b93c4
+  +0x014 (slot   5) -> 0x000d9180  ?Process@CombatAttributeAbsDefense@GAME@@UAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+        body: ebp | ebp, esp | xmm5, dword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan | xmm2, xmm2
+  +0x020 (slot   8) -> 0x000d9280  ?Execute@CombatAttributeAbsDefense@GAME@@UAEXPAVCombatAttribute@2@W4CombatAttributeRegion@2@@Z
+        body: ebp | ebp, esp | edx, ecx | ecx, dword ptr [ebp + 8]
+  +0x028 (slot  10) -> 0x000d92d0  ?GetTotalDefense@CombatAttributeAbsDefense@GAME@@UBEXAAM0@Z
+        body: ebp | ebp, esp | eax, dword ptr [ebp + 8] | xmm0, dword ptr [ecx + 0x1c]
+  +0x008 (slot   2) -> 0x00015db0  ?GetAllyID@ControllerAIStateData@GAME@@QBEIXZ
+        body: eax, dword ptr [ecx + 4] | 

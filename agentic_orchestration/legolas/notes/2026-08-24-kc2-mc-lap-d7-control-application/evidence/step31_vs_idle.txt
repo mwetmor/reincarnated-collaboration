@@ -1,0 +1,224 @@
+=== Stunned: 17 of 83 slots differ from Idle
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [45] +0x0b4  IDLE=Stop@Fx                                          -> EndStun@ControllerPlayerStateStunned
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0] ; eax
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateStunned
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0] ; eax
+  [69] +0x114  IDLE=Stop@Fx                                          -> OnEnd@ControllerPlayerStateStunned
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0] ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> OnUpdate@ControllerPlayerStateStunned
+            body: ebp ; ebp, esp ; eax, dword ptr [ecx + 0x10] ; eax, eax ; 0x101234af ; eax, dword ptr [ebp + 8]
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> GetValidTarget@Skill_Move
+            body: al, al ; 0x14
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+  [81] +0x144  IDLE=RequestRotateAction@ControllerPlayerStateIdle    -> AddTimeToLive@Skill
+            body: 4
+
+=== KnockedDown: 18 of 83 slots differ from Idle
+  [ 0] +0x000  IDLE=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30 -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0 ; eax
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [49] +0x0c4  IDLE=Stop@Fx                                          -> EndKnockdown@ControllerPlayerStateKnockedDown
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0] ; eax
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateKnockedDown
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0] ; eax
+  [69] +0x114  IDLE=Stop@Fx                                          -> OnEnd@ControllerPlayerStateKnockedDown
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0] ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> AddTimeToLive@Skill
+            body: 4
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> GetValidTarget@Skill_Move
+            body: al, al ; 0x14
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+  [81] +0x144  IDLE=RequestRotateAction@ControllerPlayerStateIdle    -> AddTimeToLive@Skill
+            body: 4
+
+=== Sleep: 18 of 83 slots differ from Idle
+  [ 0] +0x000  IDLE=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30 -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0 ; eax
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [47] +0x0bc  IDLE=Stop@Fx                                          -> EndSleep@ControllerPlayerStateSleep
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0] ; eax
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateSleep
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0] ; eax
+  [69] +0x114  IDLE=Stop@Fx                                          -> OnEnd@ControllerPlayerStateSleep
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0] ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> AddTimeToLive@Skill
+            body: 4
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> GetValidTarget@Skill_Move
+            body: al, al ; 0x14
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+  [81] +0x144  IDLE=RequestRotateAction@ControllerPlayerStateIdle    -> AddTimeToLive@Skill
+            body: 4
+
+=== Trapped: 17 of 83 slots differ from Idle
+  [ 0] +0x000  IDLE=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30 -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0 ; eax
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [43] +0x0ac  IDLE=Stop@Fx                                          -> EndTrap@ControllerPlayerStateTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0] ; eax
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0] ; eax
+  [69] +0x114  IDLE=Stop@Fx                                          -> OnEnd@ControllerPlayerStateTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0] ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> AddTimeToLive@Skill
+            body: 4
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> RequestSkillAction@ControllerPlayerStateTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c9478 ; eax, dword ptr fs:[0] ; eax
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+
+=== Immobilized: 18 of 83 slots differ from Idle
+  [ 0] +0x000  IDLE=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30 -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0 ; eax
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [41] +0x0a4  IDLE=Stop@Fx                                          -> EndImmobilize@ControllerPlayerStateImmobilized
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0] ; eax
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateImmobilized
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0] ; eax
+  [69] +0x114  IDLE=Stop@Fx                                          -> OnEnd@ControllerPlayerStateImmobilized
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0] ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> AddTimeToLive@Skill
+            body: 4
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> GetValidTarget@Skill_Move
+            body: al, al ; 0x14
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+  [81] +0x144  IDLE=RequestRotateAction@ControllerPlayerStateIdle    -> AddTimeToLive@Skill
+            body: 4
+
+=== UseSkillWhileTrapped: 18 of 83 slots differ from Idle
+  [ 0] +0x000  IDLE=??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30 -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0 ; eax
+  [13] +0x034  IDLE=AddTimeToLive@Skill                              -> HandleEvent@ControllerPlayerStateUseSkillWhileTrapped
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c94f4 ; eax
+  [40] +0x0a0  IDLE=BeginImmobilize@ControllerPlayerStateIdle        -> Stop@Fx
+            body: 
+  [42] +0x0a8  IDLE=BeginTrap@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [43] +0x0ac  IDLE=Stop@Fx                                          -> EndTrap@ControllerPlayerStateUseSkillWhileTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c94cf ; eax, dword ptr fs:[0] ; eax
+  [44] +0x0b0  IDLE=BeginStun@ControllerPlayerStateIdle              -> Stop@Fx
+            body: 
+  [46] +0x0b8  IDLE=BeginSleep@ControllerPlayerStateIdle             -> Stop@Fx
+            body: 
+  [48] +0x0c0  IDLE=BeginKnockdown@ControllerPlayerStateIdle         -> Stop@Fx
+            body: 
+  [50] +0x0c8  IDLE=BeginTakeHit@ControllerPlayerStateIdle           -> Stop@Fx
+            body: 
+  [61] +0x0f4  IDLE=RequestItemAction@ControllerPlayerStateIdle      -> JoinMe@Character
+            body: 0x10
+  [62] +0x0f8  IDLE=RequestInteractableAction@ControllerPlayerStateIdle -> JoinMe@Character
+            body: 0x10
+  [63] +0x0fc  IDLE=RequestNpcAction@ControllerPlayerStateIdle       -> JoinMe@Character
+            body: 0x10
+  [68] +0x110  IDLE=OnBegin@ControllerPlayerStateIdle                -> OnBegin@ControllerPlayerStateUseSkillWhileTrapped
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c9498 ; eax
+  [70] +0x118  IDLE=OnUpdate@ControllerPlayerStateIdle               -> AddTimeToLive@Skill
+            body: 4
+  [76] +0x130  IDLE=RequestSkillAction@ControllerPlayerStateIdle     -> RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped
+            body: ebp ; ebp, esp ; -1 ; 0x104c9478 ; eax, dword ptr fs:[0] ; eax
+  [78] +0x138  IDLE=RequestEvadeAction@ControllerPlayerStateIdle     -> IncrementStack@ItemArtifact
+            body: al, al ; 8
+  [80] +0x140  IDLE=RequestMoveAction@ControllerPlayerStateIdle      -> GetTotalDamage@CombatAttribute
+            body: 0xc
+  [81] +0x144  IDLE=RequestRotateAction@ControllerPlayerStateIdle    -> AddTimeToLive@Skill
+            body: 4
+

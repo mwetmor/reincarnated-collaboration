@@ -1,0 +1,26 @@
+=== 0x5b976c @ 0x005b976c
+  +0x050 (slot  20) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x054 (slot  21) -> 0x000d7620  ?ReduceDamage@CombatAttributeAbsDamage@GAME@@UAEXW4CombatAttributeType@2@M@Z
+        body: ebp | ebp, esp | eax, dword ptr [ecx + 4] | eax, dword ptr [ebp + 8]
+  +0x058 (slot  22) -> 0x0000f100  ?SetLevel@LootBase@GAME@@UAEXII@Z
+        body: 8
+  +0x05c (slot  23) -> 0x000d7690  ?DamageReductionByShield@CombatAttributeAbsDamage@GAME@@UAEXABVCharacter@2@MM@Z
+        body: ebp | ebp, esp | esp, 0x14 | xmm0, dword ptr [ebp + 0x10]
+=== target 0xd7620
+  0x000d7620  push     ebp
+  0x000d7621  mov      ebp, esp
+  0x000d7623  mov      eax, dword ptr [ecx + 4]
+  0x000d7626  cmp      eax, dword ptr [ebp + 8]
+  0x000d7629  jne      0x100d764e
+  0x000d762b  movss    xmm0, dword ptr [ebp + 0xc]
+  0x000d7630  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000d7638  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000d7640  subss    xmm1, xmm0
+  0x000d7644  mulss    xmm1, dword ptr [ecx + 0x1c]
+  0x000d7649  movss    dword ptr [ecx + 0x1c], xmm1
+  0x000d764e  movss    xmm0, dword ptr [ecx + 0x1c]
+  0x000d7653  maxss    xmm0, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000d765b  movss    dword ptr [ecx + 0x1c], xmm0
+  0x000d7660  pop      ebp
+  0x000d7661  ret      8

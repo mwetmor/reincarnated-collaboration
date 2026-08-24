@@ -1,0 +1,131 @@
+=== CombatAttributeDefenseCap::Execute 0xd9c00
+  0x000d9c00  push     ebp
+  0x000d9c01  mov      ebp, esp
+  0x000d9c03  mov      edx, ecx
+  0x000d9c05  mov      ecx, dword ptr [ebp + 8]
+  0x000d9c08  test     ecx, ecx
+  0x000d9c0a  je       0x100d9c1f
+  0x000d9c0c  movss    xmm0, dword ptr [edx + 0x1c]
+  0x000d9c11  mov      eax, dword ptr [ecx]
+  0x000d9c13  push     ecx
+  0x000d9c14  movss    dword ptr [esp], xmm0
+  0x000d9c19  push     dword ptr [edx + 4]
+  0x000d9c1c  call     dword ptr [eax + 0x50]
+  0x000d9c1f  pop      ebp
+  0x000d9c20  ret      8
+
+=== CombatAttributeAbsDefenseRestricted::Process 0xd8ff0
+  0x000d8ff0  push     ebp
+  0x000d8ff1  mov      ebp, esp
+  0x000d8ff3  movss    xmm4, dword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  0x000d8ffb  xorps    xmm3, xmm3
+  0x000d8ffe  movss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000d9006  mov      eax, dword ptr [ebp + 0x10]
+  0x000d9009  push     esi
+  0x000d900a  mov      esi, ecx
+  0x000d900c  movss    xmm1, dword ptr [esi + 0x1c]
+  0x000d9011  andps    xmm1, xmm4
+  0x000d9014  mulss    xmm1, dword ptr [esi + 0x24]
+  0x000d9019  mulss    xmm1, xmm2
+  0x000d901d  addss    xmm1, dword ptr [esi + 0x1c]
+  0x000d9022  movss    dword ptr [esi + 0x1c], xmm1
+  0x000d9027  movss    xmm0, dword ptr [eax]
+  0x000d902b  comiss   xmm0, xmm3
+  0x000d902e  jbe      0x100d903d
+  0x000d9030  mulss    xmm0, xmm2
+  0x000d9034  mulss    xmm0, xmm1
+  0x000d9038  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d903d  movss    xmm1, dword ptr [esi + 0x1c]
+  0x000d9042  movss    xmm0, dword ptr [esi + 0x1c]
+  0x000d9047  andps    xmm1, xmm4
+  0x000d904a  mov      ecx, dword ptr [ebp + 8]
+  0x000d904d  mulss    xmm1, xmm3
+  0x000d9051  mov      dword ptr [esi + 0x24], 0
+  0x000d9058  subss    xmm0, xmm1
+  0x000d905c  movss    dword ptr [esi + 0x20], xmm1
+  0x000d9061  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d9066  mov      eax, dword ptr [ecx]
+  0x000d9068  mov      eax, dword ptr [eax + 0x330]
+  0x000d906e  call     eax
+  0x000d9070  fadd     dword ptr [esi + 0x28]
+  0x000d9073  xorps    xmm1, xmm1
+  0x000d9076  fstp     dword ptr [ebp + 0x10]
+  0x000d9079  movss    xmm0, dword ptr [ebp + 0x10]
+  0x000d907e  comiss   xmm0, xmm1
+  0x000d9081  jbe      0x100d908d
+  0x000d9083  minss    xmm0, dword ptr [esi + 0x1c]
+  0x000d9088  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d908d  pop      esi
+  0x000d908e  pop      ebp
+  0x000d908f  ret      0x10
+
+=== CombatAttributeAbsDefense::Process 0xd9180
+  0x000d9180  push     ebp
+  0x000d9181  mov      ebp, esp
+  0x000d9183  movss    xmm5, dword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  0x000d918b  xorps    xmm2, xmm2
+  0x000d918e  movss    xmm4, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000d9196  mov      eax, dword ptr [ebp + 0x10]
+  0x000d9199  push     esi
+  0x000d919a  mov      esi, ecx
+  0x000d919c  movss    xmm1, dword ptr [esi + 0x1c]
+  0x000d91a1  andps    xmm1, xmm5
+  0x000d91a4  mulss    xmm1, dword ptr [esi + 0x24]
+  0x000d91a9  mulss    xmm1, xmm4
+  0x000d91ad  addss    xmm1, dword ptr [esi + 0x1c]
+  0x000d91b2  movss    dword ptr [esi + 0x1c], xmm1
+  0x000d91b7  movss    xmm0, dword ptr [eax]
+  0x000d91bb  comiss   xmm0, xmm2
+  0x000d91be  jbe      0x100d91cd
+  0x000d91c0  mulss    xmm0, xmm4
+  0x000d91c4  mulss    xmm0, xmm1
+  0x000d91c8  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d91cd  mov      eax, dword ptr [ebp + 0xc]
+  0x000d91d0  mov      ecx, dword ptr [esi + 4]
+  0x000d91d3  movss    xmm2, dword ptr [eax + 4]
+  0x000d91d8  movss    xmm3, dword ptr [eax]
+  0x000d91dc  cmp      ecx, 2
+  0x000d91df  jne      0x100d91f4
+  0x000d91e1  movss    xmm0, dword ptr [eax + 0xc]
+  0x000d91e6  maxss    xmm0, xmm2
+  0x000d91ea  movaps   xmm2, xmm0
+  0x000d91ed  movss    xmm0, dword ptr [eax + 8]
+  0x000d91f2  jmp      0x100d9214   ; -> ?Process@CombatAttributeAbsDefense@GAME@@UAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z+0x94
+  0x000d91f4  cmp      ecx, 6
+  0x000d91f7  je       0x100d9203
+  0x000d91f9  cmp      ecx, 5
+  0x000d91fc  je       0x100d9203
+  0x000d91fe  cmp      ecx, 8
+  0x000d9201  jne      0x100d921b
+  0x000d9203  movss    xmm0, dword ptr [eax + 0x14]
+  0x000d9208  maxss    xmm0, xmm2
+  0x000d920c  movaps   xmm2, xmm0
+  0x000d920f  movss    xmm0, dword ptr [eax + 0x10]
+  0x000d9214  maxss    xmm0, xmm3
+  0x000d9218  movaps   xmm3, xmm0
+  0x000d921b  movss    xmm1, dword ptr [esi + 0x1c]
+  0x000d9220  movss    xmm0, dword ptr [esi + 0x1c]
+  0x000d9225  andps    xmm1, xmm5
+  0x000d9228  mov      ecx, dword ptr [ebp + 8]
+  0x000d922b  mulss    xmm2, xmm4
+  0x000d922f  mov      dword ptr [esi + 0x24], 0
+  0x000d9236  mulss    xmm1, xmm2
+  0x000d923a  addss    xmm1, xmm3
+  0x000d923e  subss    xmm0, xmm1
+  0x000d9242  movss    dword ptr [esi + 0x20], xmm1
+  0x000d9247  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d924c  mov      eax, dword ptr [ecx]
+  0x000d924e  mov      eax, dword ptr [eax + 0x330]
+  0x000d9254  call     eax
+  0x000d9256  fadd     dword ptr [esi + 0x28]
+  0x000d9259  xorps    xmm1, xmm1
+  0x000d925c  fstp     dword ptr [ebp + 0x10]
+  0x000d925f  movss    xmm0, dword ptr [ebp + 0x10]
+  0x000d9264  comiss   xmm0, xmm1
+  0x000d9267  jbe      0x100d9273
+  0x000d9269  minss    xmm0, dword ptr [esi + 0x1c]
+  0x000d926e  movss    dword ptr [esi + 0x1c], xmm0
+  0x000d9273  pop      esi
+  0x000d9274  pop      ebp
+  0x000d9275  ret      0x10
+

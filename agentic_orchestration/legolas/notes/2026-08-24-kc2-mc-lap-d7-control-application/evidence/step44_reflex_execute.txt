@@ -1,0 +1,61 @@
+=== Execute@CombatAttributeReflexDamage @0xd8b80
+  0x000d8b80  push     ebp
+  0x000d8b81  mov      ebp, esp
+  0x000d8b83  mov      edx, ecx
+  0x000d8b85  sub      esp, 8
+  0x000d8b88  movss    xmm0, dword ptr [edx + 0x1c]
+  0x000d8b8d  comiss   xmm0, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000d8b94  jbe      0x100d8bd1
+  0x000d8b96  mov      ecx, dword ptr [ebp + 8]
+  0x000d8b99  push     esi
+  0x000d8b9a  push     0
+  0x000d8b9c  lea      esi, [ebp - 8]
+  0x000d8b9f  mov      dword ptr [ebp - 8], 0
+  0x000d8ba6  mov      eax, dword ptr [ecx + 0x3e4]
+  0x000d8bac  add      ecx, 0x3e4
+  0x000d8bb2  push     esi
+  0x000d8bb3  sub      esp, 8
+  0x000d8bb6  mov      dword ptr [ebp - 4], 0
+  0x000d8bbd  movss    dword ptr [esp + 4], xmm0
+  0x000d8bc3  mov      dword ptr [esp], 0x3f800000
+  0x000d8bca  push     dword ptr [edx + 4]
+  0x000d8bcd  call     dword ptr [eax + 0x14]
+  0x000d8bd0  pop      esi
+  0x000d8bd1  mov      esp, ebp
+  0x000d8bd3  pop      ebp
+  0x000d8bd4  ret      4
+  0x000d8bd7  int3     
+  0x000d8bd8  int3     
+  0x000d8bd9  int3     
+  0x000d8bda  int3     
+  0x000d8bdb  int3     
+  0x000d8bdc  int3     
+  0x000d8bdd  int3     
+  0x000d8bde  int3     
+  0x000d8bdf  int3     
+  0x000d8be0  push     ebp
+  0x000d8be1  mov      ebp, esp
+  0x000d8be3  mov      eax, dword ptr [ebp + 8]
+  0x000d8be6  movss    xmm0, dword ptr [ebp + 0xc]
+  0x000d8beb  mov      dword ptr [ecx + 4], eax
+  0x000d8bee  mov      eax, ecx
+  0x000d8bf0  mov      dword ptr [ecx + 8], 0x101
+  0x000d8bf7  mov      dword ptr [ecx + 0x10], 0
+  0x000d8bfe  mov      dword ptr [ecx + 0x14], 0
+  0x000d8c05  mov      dword ptr [ecx + 0x18], 0
+  0x000d8c0c  movss    dword ptr [ecx + 0x1c], xmm0
+  0x000d8c11  mov      dword ptr [ecx + 0x20], 0
+  0x000d8c18  mov      dword ptr [ecx + 0x24], 0
+  0x000d8c1f  mov      dword ptr [ecx + 0x28], 0
+  0x000d8c26  mov      byte ptr [ecx + 0xc], 1
+  0x000d8c2a  mov      dword ptr [ecx], 0x105b96d0
+  0x000d8c30  pop      ebp
+  0x000d8c31  ret      8
+  0x000d8c34  int3     
+  0x000d8c35  int3     
+  0x000d8c36  int3     
+  0x000d8c37  int3     
+  0x000d8c38  int3     
+  0x000d8c39  int3     
+  0x000d8c3a  int3     
+  0x000d8c3b  int3     

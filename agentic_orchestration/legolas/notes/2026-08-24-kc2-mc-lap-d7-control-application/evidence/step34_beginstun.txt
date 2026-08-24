@@ -1,0 +1,36 @@
+0x5921d4 -> ??_7CharacterActionBase@GAME@@6B@ (+0x0)
+0x591e40 -> ??_7TakeStunAction@GAME@@6B@ (+0x0)
+0x58e040 -> ??_7ReleaseStunConfigCmd@GAME@@6B@ (+0x0)
+0x5921c8 -> ??_7IdleAction@GAME@@6B@ (+0x38)
+
+=== ControllerPlayer::BeginStun @0xf6ad0
+  0x000f6ad0  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6ad7  je       0x100f6ae6
+  0x000f6ad9  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6adf  mov      eax, dword ptr [eax]
+  0x000f6ae1  mov      ecx, dword ptr [eax + 8]
+  0x000f6ae4  jmp      0x100f6aec   ; -> ?BeginStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6ae6  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6aec  mov      eax, dword ptr [ecx]
+  0x000f6aee  jmp      dword ptr [eax + 0xb0]
+  0x000f6af4  int3     
+  0x000f6af5  int3     
+  0x000f6af6  int3     
+  0x000f6af7  int3     
+  0x000f6af8  int3     
+  0x000f6af9  int3     
+  0x000f6afa  int3     
+  0x000f6afb  int3     
+  0x000f6afc  int3     
+  0x000f6afd  int3     
+  0x000f6afe  int3     
+  0x000f6aff  int3     
+  0x000f6b00  cmp      dword ptr [ecx + 0x214], 0
+  0x000f6b07  je       0x100f6b16
+  0x000f6b09  mov      eax, dword ptr [ecx + 0x210]
+  0x000f6b0f  mov      eax, dword ptr [eax]
+  0x000f6b11  mov      ecx, dword ptr [eax + 8]
+  0x000f6b14  jmp      0x100f6b1c   ; -> ?EndStun@ControllerPlayer@GAME@@UAEXXZ+0x1c
+  0x000f6b16  mov      ecx, dword ptr [ecx + 0x1e4]
+  0x000f6b1c  mov      eax, dword ptr [ecx]
+  0x000f6b1e  jmp      dword ptr [eax + 0xb4]

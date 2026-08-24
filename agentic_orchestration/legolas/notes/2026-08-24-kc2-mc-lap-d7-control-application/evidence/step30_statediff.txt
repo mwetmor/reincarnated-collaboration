@@ -1,0 +1,367 @@
+=== ControllerPlayerStateStunned  @ 0x005c06d0
+  [ 0] +0x000  0x000b3e90  ??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30
+            base -> ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c00f0
+  [45] +0x0b4  0x00123570  ?EndStun@ControllerPlayerStateStunned@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x001233b0  ?OnBegin@ControllerPlayerStateStunned@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0]
+  [69] +0x114  0x001234c0  ?OnEnd@ControllerPlayerStateStunned@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0]
+  [70] +0x118  0x00123490  ?OnUpdate@ControllerPlayerStateStunned@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; eax, dword ptr [ecx + 0x10] ; eax, eax ; 0x101234af
+  [76] +0x130  0x0005e070  ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0x14
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== ControllerPlayerStateKnockedDown  @ 0x005c0584
+  [49] +0x0c4  0x001237b0  ?EndKnockdown@ControllerPlayerStateKnockedDown@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x00123630  ?OnBegin@ControllerPlayerStateKnockedDown@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0]
+  [69] +0x114  0x00123700  ?OnEnd@ControllerPlayerStateKnockedDown@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0]
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x0005e070  ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0x14
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== ControllerPlayerStateSleep  @ 0x005c0438
+  [47] +0x0bc  0x001239f0  ?EndSleep@ControllerPlayerStateSleep@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x00123870  ?OnBegin@ControllerPlayerStateSleep@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0]
+  [69] +0x114  0x00123940  ?OnEnd@ControllerPlayerStateSleep@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0]
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x0005e070  ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0x14
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== ControllerPlayerStateTrapped  @ 0x005c02ec
+  [43] +0x0ac  0x00124010  ?EndTrap@ControllerPlayerStateTrapped@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x00123ab0  ?OnBegin@ControllerPlayerStateTrapped@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0]
+  [69] +0x114  0x00123b80  ?OnEnd@ControllerPlayerStateTrapped@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0]
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x00123c30  ?RequestSkillAction@ControllerPlayerStateTrapped@GAME@@MAE_N_N0IABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c9478 ; eax, dword ptr fs:[0]
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x00060d80  ?RequestRotateAction@ControllerPlayerStateIdle@GAME@@MAEXABVWorldVec3@2@@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c346f ; eax, dword ptr fs:[0]
+
+=== ControllerPlayerStateImmobilized  @ 0x005c081c
+  [41] +0x0a4  0x001232e0  ?EndImmobilize@ControllerPlayerStateImmobilized@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c0228 ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x00123160  ?OnBegin@ControllerPlayerStateImmobilized@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c7888 ; eax, dword ptr fs:[0]
+  [69] +0x114  0x00123230  ?OnEnd@ControllerPlayerStateImmobilized@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c79ff ; eax, dword ptr fs:[0]
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x0005e070  ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0x14
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== ControllerPlayerStateUseSkillWhileTrapped  @ 0x005c01a0
+  [13] +0x034  0x001247f0  ?HandleEvent@ControllerPlayerStateUseSkillWhileTrapped@GAME@@MAEXABVName@2@@Z
+            base -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c94f4
+  [43] +0x0ac  0x00124600  ?EndTrap@ControllerPlayerStateUseSkillWhileTrapped@GAME@@MAEXXZ
+            base -> ?Stop@Fx@GAME@@UAEXXZ
+            body: ebp ; ebp, esp ; -1 ; 0x104c94cf ; eax, dword ptr fs:[0]
+  [58] +0x0e8  0x0011ff50  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011eff0   ; -> ?DefaultRequestUseItemAction@ControllerPlayerState@GAME@@IAE_NIW4ItemSource@2@_N@Z ; 
+  [59] +0x0ec  0x0011ff60  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z
+            base -> ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f0d0   ; -> ?DefaultRequestReleasePetAction@ControllerPlayerState@GAME@@IAE_NI_N@Z ; 
+  [60] +0x0f0  0x0011ff70  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z
+            base -> ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f190   ; -> ?DefaultRequestUseItemOnAction@ControllerPlayerState@GAME@@IAE_NIIW4ItemSource@2@I_N@Z ; 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [64] +0x100  0x0011ff80  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z
+            base -> ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+            body: ebp ; ebp, esp ; ebp ; 0x1011f2e0   ; -> ?DefaultRequestCompleteRelics@ControllerPlayerState@GAME@@IAE_NABV?$vector@I@mem@@@Z ; 
+  [68] +0x110  0x001240d0  ?OnBegin@ControllerPlayerStateUseSkillWhileTrapped@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; eax, dword ptr fs:[0] ; -1 ; 0x104c9498
+  [69] +0x114  0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x00124220  ?RequestSkillAction@ControllerPlayerStateUseSkillWhileTrapped@GAME@@MAE_N_N0IABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; -1 ; 0x104c9478 ; eax, dword ptr fs:[0]
+  [77] +0x134  0x0011ff40  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: ebp ; ebp, esp ; ebp ; 0x1011ed00   ; -> ?DefaultRequestInstantSkillAction@ControllerPlayerState@GAME@@IAE_NIABVWorldVec3@2@AAI@Z ; 
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== ControllerPlayerStateDying  @ 0x005c0968
+  [38] +0x098  0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+            base -> ?CharacterIsDead@?$ControllerAIStateT@VControllerPlayer@GAME@@VPlayer@2@@GAME@@MAEXXZ
+            body: 
+  [61] +0x0f4  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [62] +0x0f8  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [63] +0x0fc  0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0x10
+  [68] +0x110  0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 
+  [69] +0x114  0x00007f40  ?Stop@Fx@GAME@@UAEXXZ
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 
+  [70] +0x118  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+  [76] +0x130  0x0005e070  ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0x14
+  [77] +0x134  0x0005e080  ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 0xc
+  [78] +0x138  0x0002ffe0  ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: al, al ; 8
+  [80] +0x140  0x0003e4c0  ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 0xc
+  [81] +0x144  0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+            base -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+            body: 4
+
+=== IDLE deltas vs base (control reference) ===
+  [ 0] +0x000  ??4ControllerCerberusStateRoar@GAME@@QAEAAV01@ABV01@@Z+0x30   (base ??0ControllerAIStatePreStart@GAME@@QAE@ABV01@@Z+0x30)
+  [40] +0x0a0  ?BeginImmobilize@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [42] +0x0a8  ?BeginTrap@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [44] +0x0b0  ?BeginStun@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [46] +0x0b8  ?BeginSleep@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [48] +0x0c0  ?BeginKnockdown@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [50] +0x0c8  ?BeginTakeHit@ControllerPlayerStateIdle@GAME@@MAEXXZ   (base ?Stop@Fx@GAME@@UAEXXZ)
+  [58] +0x0e8  ?RequestUseItem@ControllerPlayerStateIdle@GAME@@MAE_NIW4ItemSource@2@_N@Z   (base ?RequestUseItem@ControllerPlayerStateDying@GAME@@MAE_NIW4ItemSource@2@_N@Z)
+  [59] +0x0ec  ?RequestReleasePet@ControllerPlayerStateIdle@GAME@@MAE_NI_N@Z   (base ?IncrementStack@ItemArtifact@GAME@@UAE_NIAAI@Z)
+  [60] +0x0f0  ?RequestUseItemOn@ControllerPlayerStateIdle@GAME@@MAE_NIIW4ItemSource@2@I_N@Z   (base ?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z)
+  [61] +0x0f4  ?RequestItemAction@ControllerPlayerStateIdle@GAME@@MAEX_N0ABVWorldVec3@2@PBVItem@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [62] +0x0f8  ?RequestInteractableAction@ControllerPlayerStateIdle@GAME@@MAEX_N0ABVWorldVec3@2@PBVFixedActor@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [63] +0x0fc  ?RequestNpcAction@ControllerPlayerStateIdle@GAME@@MAEX_N0ABVWorldVec3@2@PBVNpc@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [64] +0x100  ?RequestCompleteRelics@ControllerPlayerStateIdle@GAME@@MAE_NABV?$vector@I@mem@@@Z   (base ?IsTrackable@Skill@GAME@@UBE?B_NI@Z)
+  [68] +0x110  ?OnBegin@ControllerPlayerStateIdle@GAME@@UAEXXZ   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [69] +0x114  ?Stop@Fx@GAME@@UAEXXZ   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [70] +0x118  ?OnUpdate@ControllerPlayerStateIdle@GAME@@UAEXH@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [76] +0x130  ?RequestSkillAction@ControllerPlayerStateIdle@GAME@@MAE_N_N0IABVWorldVec3@2@AAI@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [77] +0x134  ?RequestInstantSkillAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@AAI@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [78] +0x138  ?RequestEvadeAction@ControllerPlayerStateIdle@GAME@@MAE_NIABVWorldVec3@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [80] +0x140  ?RequestMoveAction@ControllerPlayerStateIdle@GAME@@MAEX_N0ABVWorldVec3@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)
+  [81] +0x144  ?RequestRotateAction@ControllerPlayerStateIdle@GAME@@MAEXABVWorldVec3@2@@Z   (base ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98)

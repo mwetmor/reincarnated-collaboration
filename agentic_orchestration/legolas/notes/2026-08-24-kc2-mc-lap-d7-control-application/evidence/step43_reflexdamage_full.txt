@@ -1,0 +1,40 @@
+next vftable after CombatAttributeReflexDamage: 0x5b9808 ??_7CombatAttributeDurFixedDamage@GAME@@6B@
+  [ 0] +0x000 0x000d9f80 ?Clone@CombatAttributeDefenseNegative@GAME@@UBEPAVCombatAttribute@2@XZ+0x2f0
+  [ 1] +0x004 0x000d8b00 ?Clone@CombatAttributeReflexDamage@GAME@@UBEPAVCombatAttribute@2@XZ
+  [ 2] +0x008 0x00015db0 ?GetAllyID@ControllerAIStateData@GAME@@QBEIXZ
+  [ 3] +0x00c 0x000d7020 ?GetExecutingTypes@CombatAttribute@GAME@@UBEXAAV?$vector@W4CombatAttributeType@GAME@@@mem@@@Z
+  [ 4] +0x010 0x00008e80 ?GetMaxStackSize@ItemArtifact@GAME@@UBEIXZ
+  [ 5] +0x014 0x000d7220 ?Process@CombatAttributeAbsDamage@GAME@@UAEXABVCharacter@2@ABUReductionInfo@2@ABUDamageScaleInfo@2@M@Z
+  [ 6] +0x018 0x000d7540 ?ProcessBluntDamageModifier@CombatAttributeAbsDamage@GAME@@UAEMM@Z
+  [ 7] +0x01c 0x000d8b80 ?Execute@CombatAttributeReflexDamage@GAME@@UAEXAAVCharacter@2@@Z
+  [ 8] +0x020 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [ 9] +0x024 0x0003e4c0 ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+  [10] +0x028 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [11] +0x02c 0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  [12] +0x030 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [13] +0x034 0x000084d0 ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+  [14] +0x038 0x000d7040 ?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z
+  [15] +0x03c 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [16] +0x040 0x000d7600 ?ModifyDefenseCap@CombatAttributeAbsDefense@GAME@@UAEXW4CombatAttributeType@2@M@Z
+  [17] +0x044 0x0003e4c0 ?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z
+  [18] +0x048 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [19] +0x04c 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [20] +0x050 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [21] +0x054 0x000d7620 ?ReduceDamage@CombatAttributeAbsDamage@GAME@@UAEXW4CombatAttributeType@2@M@Z
+  [22] +0x058 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [23] +0x05c 0x000d7690 ?DamageReductionByShield@CombatAttributeAbsDamage@GAME@@UAEXABVCharacter@2@MM@Z
+  [24] +0x060 0x0000f100 ?SetLevel@LootBase@GAME@@UAEXII@Z
+  [25] +0x064 0x000d7740 ?ScaleDamage@CombatAttributeAbsDamage@GAME@@UAEXM@Z
+  [26] +0x068 0x000d7790 ?ScaleModifiers@CombatAttributeAbsDamage@GAME@@UAEXM@Z
+  [27] +0x06c 0x000d7050 ?IsFinished@DeathHandler@GAME@@QAE_NXZ
+  [28] +0x070 0x000d7060 ?UseReflectCap@CombatAttribute@GAME@@UBE_NXZ
+  [29] +0x074 0x0002db20 ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+  [30] +0x078 0x00008e90 ?GetRadiusOverride@Skill@GAME@@UBEMXZ
+  [31] +0x07c 0x00008e90 ?GetRadiusOverride@Skill@GAME@@UBEMXZ
+  [32] +0x080 0x0002db20 ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+  [33] +0x084 0x000d77c0 ?Copy@CombatAttributeAbsDamage@GAME@@UAEXPAVCombatAttribute@2@@Z
+  [34] +0x088 0x000d7800 ?GetValues@CombatAttributeAbsDamage@GAME@@UAEXAAM0000@Z
+  [35] +0x08c 0x0002db20 ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+  [36] +0x090 0x0005e050 ?SetDebug@FactionManager@GAME@@QAEX_N@Z
+  [37] +0x094 0x000d70e0 ?SetSkillSource@CombatAttribute@GAME@@UAEXI@Z
+  [38] +0x098 0x000d70f0 ?GetFilterForDamageMult@CombatAttribute@GAME@@UBE_NXZ

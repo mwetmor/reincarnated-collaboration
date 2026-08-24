@@ -1,0 +1,61 @@
+=== BeginImmobilize@Idle 0x11ff90
+  0x0011ff90  jmp      0x1011f480   ; -> ?DefaultBeginImmobilizeAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ff95  int3     
+  0x0011ff96  int3     
+  0x0011ff97  int3     
+  0x0011ff98  int3     
+  0x0011ff99  int3     
+  0x0011ff9a  int3     
+  0x0011ff9b  int3     
+
+=== BeginStun@Idle 0x11ffa0
+  0x0011ffa0  jmp      0x1011f5c0   ; -> ?DefaultBeginStunAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ffa5  int3     
+  0x0011ffa6  int3     
+  0x0011ffa7  int3     
+  0x0011ffa8  int3     
+  0x0011ffa9  int3     
+  0x0011ffaa  int3     
+  0x0011ffab  int3     
+
+=== BeginKnockdown@Idle 0x11ffb0
+  0x0011ffb0  jmp      0x1011f660   ; -> ?DefaultBeginKnockdownAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ffb5  int3     
+  0x0011ffb6  int3     
+  0x0011ffb7  int3     
+  0x0011ffb8  int3     
+  0x0011ffb9  int3     
+  0x0011ffba  int3     
+  0x0011ffbb  int3     
+
+=== BeginTakeHit@Idle 0x11ffc0
+  0x0011ffc0  jmp      0x1011f700   ; -> ?DefaultBeginTakeHitAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ffc5  int3     
+  0x0011ffc6  int3     
+  0x0011ffc7  int3     
+  0x0011ffc8  int3     
+  0x0011ffc9  int3     
+  0x0011ffca  int3     
+  0x0011ffcb  int3     
+
+=== BeginSleep@Idle 0x11ffd0
+  0x0011ffd0  jmp      0x1011f7a0   ; -> ?DefaultBeginSleepAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ffd5  int3     
+  0x0011ffd6  int3     
+  0x0011ffd7  int3     
+  0x0011ffd8  int3     
+  0x0011ffd9  int3     
+  0x0011ffda  int3     
+  0x0011ffdb  int3     
+
+=== BeginTrap@Idle 0x11ffe0
+  0x0011ffe0  jmp      0x1011f520   ; -> ?DefaultBeginTrapAction@ControllerPlayerState@GAME@@IAEXXZ
+  0x0011ffe5  int3     
+  0x0011ffe6  int3     
+  0x0011ffe7  int3     
+  0x0011ffe8  int3     
+  0x0011ffe9  int3     
+  0x0011ffea  int3     
+  0x0011ffeb  int3     
+
+=== DefaultBeginStunAction-ish: ControllerPlayerState helpers

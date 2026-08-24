@@ -1,0 +1,13 @@
+=== ??_7DurationDamageManager@GAME@@6B@ @ 0x005cf068
+  +0x000 (slot   0) -> 0x0020c8b0  ?CalculateAllocatedMemory@DurationDamageManager@GAME@@QBEIXZ+0x2470
+        body: ebp | ebp, esp | eax, dword ptr fs:[0] | -1
+  +0x004 (slot   1) -> 0x00207f40  ?Update@DurationDamageManager@GAME@@UAEXH@Z
+        body: ebp | ebp, esp | -1 | 0x104cb5c4
+  +0x008 (slot   2) -> 0x00208930  ?GetFixedDamage@DurationDamageManager@GAME@@UBE?BMW4CombatAttributeType@2@@Z
+        body: ebp | ebp, esp | ecx | ebx
+  +0x00c (slot   3) -> 0x002089b0  ?GetFixedDamageDuration@DurationDamageManager@GAME@@UBE?BHW4CombatAttributeType@2@@Z
+        body: ebp | ebp, esp | ecx | ebx
+  +0x010 (slot   4) -> 0x00208a30  ?AddDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@IM@Z
+        body: ebp | ebp, esp | eax, dword ptr fs:[0] | -1
+  +0x014 (slot   5) -> 0x00208d20  ?AddFixedDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@I@Z
+        body: ebp | ebp, esp | -1 | 0x104cb608

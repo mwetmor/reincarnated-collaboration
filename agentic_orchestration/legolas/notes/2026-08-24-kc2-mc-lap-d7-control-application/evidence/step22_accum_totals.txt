@@ -1,0 +1,210 @@
+=== GetTotalDefenseType 0xde500
+  0x000de500  push     ebp
+  0x000de501  mov      ebp, esp
+  0x000de503  sub      esp, 0xc
+  0x000de506  push     ebx
+  0x000de507  mov      ebx, ecx
+  0x000de509  xorps    xmm0, xmm0
+  0x000de50c  push     esi
+  0x000de50d  movss    dword ptr [ebp - 4], xmm0
+  0x000de512  movss    dword ptr [ebp - 8], xmm0
+  0x000de517  mov      esi, dword ptr [ebx + 0x1c]
+  0x000de51a  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de51d  je       0x100de5da
+  0x000de523  push     edi
+  0x000de524  mov      edi, dword ptr [ebp + 8]
+  0x000de527  mov      ecx, dword ptr [esi]
+  0x000de529  mov      eax, dword ptr [ecx]
+  0x000de52b  call     dword ptr [eax + 8]
+  0x000de52e  cmp      eax, edi
+  0x000de530  jne      0x100de563
+  0x000de532  mov      ecx, dword ptr [esi]
+  0x000de534  lea      edx, [ebp - 0xc]
+  0x000de537  mov      dword ptr [ebp + 8], 0
+  0x000de53e  mov      dword ptr [ebp - 0xc], 0
+  0x000de545  push     edx
+  0x000de546  mov      eax, dword ptr [ecx]
+  0x000de548  lea      edx, [ebp + 8]
+  0x000de54b  push     edx
+  0x000de54c  call     dword ptr [eax + 0x28]
+  0x000de54f  movss    xmm0, dword ptr [ebp + 8]
+  0x000de554  addss    xmm0, dword ptr [ebp - 4]
+  0x000de559  movaps   xmm2, xmm0
+  0x000de55c  movss    dword ptr [ebp - 4], xmm2
+  0x000de561  jmp      0x100de5b2   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z+0xb2
+  0x000de563  cmp      edi, 0x27
+  0x000de566  jne      0x100de5ad
+  0x000de568  mov      ecx, dword ptr [esi]
+  0x000de56a  lea      edx, [ebp + 8]
+  0x000de56d  mov      dword ptr [ebp + 8], 0
+  0x000de574  push     edx
+  0x000de575  mov      eax, dword ptr [ecx]
+  0x000de577  call     dword ptr [eax + 0x2c]
+  0x000de57a  movss    xmm1, dword ptr [ebp + 8]
+  0x000de57f  comiss   xmm1, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000de586  movaps   xmm2, xmm1
+  0x000de589  addss    xmm2, dword ptr [ebp - 4]
+  0x000de58e  movss    dword ptr [ebp - 4], xmm2
+  0x000de593  jbe      0x100de5b2
+  0x000de595  movss    xmm0, dword ptr [ebp - 8]
+  0x000de59a  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000de5a2  addss    xmm0, xmm1
+  0x000de5a6  movss    dword ptr [ebp - 8], xmm0
+  0x000de5ab  jmp      0x100de5bf   ; -> ?GetTotalDefenseType@CombatAttributeAccumulator@GAME@@QAEMW4CombatAttributeType@2@@Z+0xbf
+  0x000de5ad  movss    xmm2, dword ptr [ebp - 4]
+  0x000de5b2  movss    xmm0, dword ptr [ebp - 8]
+  0x000de5b7  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000de5bf  add      esi, 4
+  0x000de5c2  cmp      esi, dword ptr [ebx + 0x20]
+  0x000de5c5  jne      0x100de527
+  0x000de5cb  comiss   xmm0, xmm1
+  0x000de5ce  pop      edi
+  0x000de5cf  jbe      0x100de5da
+  0x000de5d1  divss    xmm2, xmm0
+  0x000de5d5  movss    dword ptr [ebp - 4], xmm2
+  0x000de5da  fld      dword ptr [ebp - 4]
+  0x000de5dd  pop      esi
+  0x000de5de  pop      ebx
+  0x000de5df  mov      esp, ebp
+  0x000de5e1  pop      ebp
+  0x000de5e2  ret      4
+
+=== GetTotalDefenseModifierType 0xde5f0
+  0x000de5f0  push     ebp
+  0x000de5f1  mov      ebp, esp
+  0x000de5f3  sub      esp, 8
+  0x000de5f6  push     esi
+  0x000de5f7  push     edi
+  0x000de5f8  mov      edi, ecx
+  0x000de5fa  xorps    xmm0, xmm0
+  0x000de5fd  movss    dword ptr [ebp - 4], xmm0
+  0x000de602  mov      esi, dword ptr [edi + 0x28]
+  0x000de605  cmp      esi, dword ptr [edi + 0x2c]
+  0x000de608  je       0x100de654
+  0x000de60a  push     ebx
+  0x000de60b  mov      ebx, dword ptr [ebp + 8]
+  0x000de60e  nop      
+  0x000de610  mov      ecx, dword ptr [esi]
+  0x000de612  test     ecx, ecx
+  0x000de614  je       0x100de64b
+  0x000de616  mov      eax, dword ptr [ecx]
+  0x000de618  call     dword ptr [eax + 8]
+  0x000de61b  cmp      eax, ebx
+  0x000de61d  jne      0x100de64b
+  0x000de61f  mov      ecx, dword ptr [esi]
+  0x000de621  lea      edx, [ebp - 8]
+  0x000de624  mov      dword ptr [ebp + 8], 0
+  0x000de62b  mov      dword ptr [ebp - 8], 0
+  0x000de632  push     edx
+  0x000de633  mov      eax, dword ptr [ecx]
+  0x000de635  lea      edx, [ebp + 8]
+  0x000de638  push     edx
+  0x000de639  call     dword ptr [eax + 0x28]
+  0x000de63c  movss    xmm0, dword ptr [ebp + 8]
+  0x000de641  addss    xmm0, dword ptr [ebp - 4]
+  0x000de646  movss    dword ptr [ebp - 4], xmm0
+  0x000de64b  add      esi, 4
+  0x000de64e  cmp      esi, dword ptr [edi + 0x2c]
+  0x000de651  jne      0x100de610
+  0x000de653  pop      ebx
+  0x000de654  fld      dword ptr [ebp - 4]
+  0x000de657  pop      edi
+  0x000de658  pop      esi
+  0x000de659  mov      esp, ebp
+  0x000de65b  pop      ebp
+  0x000de65c  ret      4
+
+=== GetTotalDurationModifierType 0xde490
+  0x000de490  push     ebp
+  0x000de491  mov      ebp, esp
+  0x000de493  push     ecx
+  0x000de494  push     esi
+  0x000de495  push     edi
+  0x000de496  mov      edi, ecx
+  0x000de498  xorps    xmm0, xmm0
+  0x000de49b  movss    dword ptr [ebp - 4], xmm0
+  0x000de4a0  mov      esi, dword ptr [edi + 0x10]
+  0x000de4a3  cmp      esi, dword ptr [edi + 0x14]
+  0x000de4a6  je       0x100de4ec
+  0x000de4a8  push     ebx
+  0x000de4a9  mov      ebx, dword ptr [ebp + 0xc]
+  0x000de4ac  nop      dword ptr [eax]
+  0x000de4b0  mov      ecx, dword ptr [esi]
+  0x000de4b2  test     ecx, ecx
+  0x000de4b4  je       0x100de4e3
+  0x000de4b6  mov      eax, dword ptr [ecx]
+  0x000de4b8  call     dword ptr [eax + 8]
+  0x000de4bb  cmp      eax, ebx
+  0x000de4bd  jne      0x100de4e3
+  0x000de4bf  mov      ecx, dword ptr [esi]
+  0x000de4c1  lea      edx, [ebp + 0xc]
+  0x000de4c4  mov      dword ptr [ebp + 0xc], 0
+  0x000de4cb  push     edx
+  0x000de4cc  push     dword ptr [ebp + 8]
+  0x000de4cf  mov      eax, dword ptr [ecx]
+  0x000de4d1  call     dword ptr [eax + 0x30]
+  0x000de4d4  movss    xmm0, dword ptr [ebp + 0xc]
+  0x000de4d9  addss    xmm0, dword ptr [ebp - 4]
+  0x000de4de  movss    dword ptr [ebp - 4], xmm0
+  0x000de4e3  add      esi, 4
+  0x000de4e6  cmp      esi, dword ptr [edi + 0x14]
+  0x000de4e9  jne      0x100de4b0
+  0x000de4eb  pop      ebx
+  0x000de4ec  fld      dword ptr [ebp - 4]
+  0x000de4ef  pop      edi
+  0x000de4f0  pop      esi
+  0x000de4f1  mov      esp, ebp
+  0x000de4f3  pop      ebp
+  0x000de4f4  ret      8
+
+=== GetTotalDamageModifierType 0xde410
+  0x000de410  push     ebp
+  0x000de411  mov      ebp, esp
+  0x000de413  sub      esp, 8
+  0x000de416  push     esi
+  0x000de417  push     edi
+  0x000de418  mov      edi, ecx
+  0x000de41a  xorps    xmm0, xmm0
+  0x000de41d  movss    dword ptr [ebp - 4], xmm0
+  0x000de422  mov      esi, dword ptr [edi + 0x10]
+  0x000de425  cmp      esi, dword ptr [edi + 0x14]
+  0x000de428  je       0x100de483
+  0x000de42a  push     ebx
+  0x000de42b  mov      ebx, dword ptr [ebp + 0x10]
+  0x000de42e  nop      
+  0x000de430  mov      ecx, dword ptr [esi]
+  0x000de432  test     ecx, ecx
+  0x000de434  je       0x100de47a
+  0x000de436  mov      eax, dword ptr [ecx]
+  0x000de438  call     dword ptr [eax + 8]
+  0x000de43b  cmp      eax, dword ptr [ebp + 0xc]
+  0x000de43e  jne      0x100de47a
+  0x000de440  mov      ecx, dword ptr [esi]
+  0x000de442  mov      eax, dword ptr [ecx]
+  0x000de444  call     dword ptr [eax + 0x10]
+  0x000de447  cmp      eax, ebx
+  0x000de449  jne      0x100de47a
+  0x000de44b  mov      ecx, dword ptr [esi]
+  0x000de44d  lea      edx, [ebp - 8]
+  0x000de450  push     edx
+  0x000de451  lea      edx, [ebp + 0x10]
+  0x000de454  mov      dword ptr [ebp + 0x10], 0
+  0x000de45b  mov      dword ptr [ebp - 8], 0
+  0x000de462  mov      eax, dword ptr [ecx]
+  0x000de464  push     edx
+  0x000de465  push     dword ptr [ebp + 8]
+  0x000de468  call     dword ptr [eax + 0x24]
+  0x000de46b  movss    xmm0, dword ptr [ebp + 0x10]
+  0x000de470  addss    xmm0, dword ptr [ebp - 4]
+  0x000de475  movss    dword ptr [ebp - 4], xmm0
+  0x000de47a  add      esi, 4
+  0x000de47d  cmp      esi, dword ptr [edi + 0x14]
+  0x000de480  jne      0x100de430
+  0x000de482  pop      ebx
+  0x000de483  fld      dword ptr [ebp - 4]
+  0x000de486  pop      edi
+  0x000de487  pop      esi
+  0x000de488  mov      esp, ebp
+  0x000de48a  pop      ebp
+  0x000de48b  ret      0xc
+
