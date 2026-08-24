@@ -142,3 +142,243 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 - jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   Serial law tightened to the `codex exec` invocation site (a single process spawning two children is the same violation); U-1 hold clarified so it stops firing a spurious HALT on field-naming; two factual errors corrected (`available()` is duck-typed at `workflow.py:196`, not on the Protocol; `test_harness.py:169` will break and must be updated, not deleted).
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+---
+
+## Completion record — star-lord, 2026-08-24
+
+**Tag:** `star-lord/v1.0-codex-durable-queue-1`
+**Commit:** `dbd5bf22` (meta-repo `main`)
+**Suite:** **661/661 green** (was 656 at session start; +26 new rows in
+`factory/tests/test_lane.py`, +11 in `test_harness.py`, two existing rows UPDATED, none
+deleted). ~178 s.
+**Tree touched:** `agentic_orchestration/factory/` only. No engine paths, no
+`gandalf/`, no `AGENTS.md`. Staged by name throughout (Discipline #62; gandalf was
+concurrently active in this tree).
+
+### 1. The mutual-exclusion primitive, and why it
+
+**`fcntl.flock(fd, LOCK_EX | LOCK_NB)`** on a lock file keyed to a sha256 of the
+resolved `CODEX_HOME` — `~/.reincarnated/lane-locks/codex-<sha12>.lock`. The lock's
+subject is **the `auth.json` it serialises**, not a queue directory: two queues sharing
+one `CODEX_HOME` share one token and MUST share one lock; two different `CODEX_HOME`s
+are two different tokens and must NOT block each other. Keying on the queue directory
+gets both of those backwards.
+
+Held in `CodexHarness.run()` across the `subprocess.run` call **and nowhere else** —
+that is the invocation site, and it is the only place in the package that spawns
+`codex`.
+
+**The measurement that makes `flock` satisfy the tightened requirement**, and it is the
+non-obvious half, because `flock` is usually described as per-PROCESS:
+
+```
+same process, two separate open() calls on the same path
+  -> second flock(LOCK_EX|LOCK_NB) FAILS, errno 35 (EWOULDBLOCK)   [Darwin 24.6.0]
+```
+
+`flock` locks are held by the **open file description**, not the process. So
+`acquire()` opens a **fresh descriptor every time and never caches one**, which turns
+"two processes cannot both run" into "two `codex exec` invocations cannot both run,
+however they were reached" — two threads, a nested call, or one drain loop that got its
+concurrency wrong. `test_ONE_PROCESS_cannot_hold_the_lane_TWICE` is the row; if it ever
+reds, the guarantee has silently degraded to "one queue process", which is exactly what
+Gate-1 refused.
+
+Rejected alternatives: a **PID file + stale reaper** (its two failure modes are
+symmetric and both fatal here — clear too slowly and a dead process wedges the lane,
+clear too eagerly and two jobs run on one `auth.json`); an in-process
+`threading.Lock` (cannot see a second process); a queue-level "only one drainer" guard
+(the case Gate-1 named).
+
+**Gate-2's requested test:** `test_a_SECOND_codex_exec_under_the_lock_EXITS_NONZERO` —
+a real second process, a real `flock` attempt, **exit code 3**, stderr naming the law.
+Plus `test_the_harness_DOES_NOT_LAUNCH_codex_when_the_lane_is_held`, which asserts the
+absence of an invocation (a marker file the fake `codex` writes on start is never
+created) — a refusal that still ran the vendor CLI would be a log line, not a lock.
+**Also proven live** against the real host lock: a real `factory lane-drain` under a
+held lock exited **2**, fired nothing, handed nothing off.
+
+### 2. The crash failure-mode I accepted
+
+The lock fd is made inheritable and passed to the child (`pass_fds=(lock.fd,)`), so the
+child holds the same open file description and therefore the same lock. **Lock lifetime
+== max(queue process, `codex exec` process), never longer.**
+
+- **REFUSED:** a dead process's lock outliving it. No lock file whose mere existence
+  blocks anything, no PID to go stale, no reaper to tune, and deliberately **no
+  timeout-based lock breaking and no `--force`** — adding one converts the refused
+  failure back into the accepted one at exactly the moment an operator is impatient.
+  Row: `test_a_KILLED_queue_leaves_NO_STALE_LOCK` (SIGKILL the process group; the lane
+  is free once the last holder exits).
+- **ACCEPTED:** a **live orphaned `codex exec`** — parent killed while it ran — holds
+  the lane until it exits or is killed. Chosen because that process is genuinely using
+  `auth.json`; releasing the lane for it would be the double-fire the law forbids. A
+  wedged lane is loud (`ps` names the holder; the run log's last row is non-terminal)
+  and fails CLOSED. A double-fire is silent and violates a vendor precondition. Row:
+  `test_a_LIVE_ORPHANED_child_STILL_HOLDS_the_lane` — the accepted half is **exhibited,
+  not described**, because a trade is only honest if both directions have a row.
+
+### 3. How the curator is enforced at enqueue (U-4 R-B)
+
+Four layers, refusing outward-in:
+
+1. `--curator` is `required=True` at argparse. A flag with a default is a flag that
+   gets left off, and the governance line would then be enforced by whoever typed the
+   command remembering it — the state R-B replaces.
+2. `JobQueue.enqueue` refuses **first**, before any file or row is written. A refused
+   job leaves no job record, no prompt file, no run-log row — nothing for someone to
+   find later and fire. The refusal is derived from `REQUIRED_JOB_FIELDS` rather than
+   restated beside it (the first version made that constant a *label*: it named the
+   requirement in an error message while hardcoded conditions did the enforcing).
+3. `RunLog.append` independently refuses an `event=enqueue` row with an empty curator,
+   so no *other* writer can put a curator-less row into the surface the "zero
+   governance leaks" criterion is queried from.
+4. The name lands in **column 5 of the ENQUEUE row**, and
+   `curator_at_enqueue(job_id)` reads the **enqueue row specifically** — not "a curator
+   appears somewhere in this job's rows", which would accept a name chosen at close and
+   report zero leaks while every name was picked after seeing the output.
+
+Verified live: three real jobs, `curator=star-lord` on every row,
+`tail -1 | cut -f5` → `curator=star-lord`.
+
+### 4. Three defects this build made, and how each was caught
+
+Recorded rather than quietly repaired, because how they were made is worth more than
+the fixes.
+
+- **`D-SL-CQ-1` — `str(None)` is the truthy string `"None"`.** I wrote
+  `str(curator).strip()`, so `curator=None` sailed straight through the R-B refusal and
+  would have written `curator=None` into the surface the leak query reads — counted as
+  compliant by any query testing for a non-empty field. Caught by my own row.
+- **`D-SL-CQ-2` — the usage mapping that looked like a rename.** codex's
+  `cached_input_tokens` is a **subset** of `input_tokens`. Established from the record,
+  not assumed: `67,431,424 / 72,375,471 = 0.9317` reproduces the banked **93.2%
+  cache-hit** exactly, and the disjoint reading gives 0.4823 and matches nothing anyone
+  wrote down. Passing the vendor's `input_tokens` through unchanged would have made
+  `billable_token_total()` **count 67M tokens twice on a 72M-token run — a 93%
+  over-report**.
+- **`D-SL-CQ-3` — `codex login status` answers on STDERR, with an EMPTY stdout.**
+  `check_auth` shipped reading `proc.stdout`, so it returned `auth_expired`
+  **unconditionally**: `available()` would never have returned True, the queue would
+  never have drained a job, and every job would have been handed to the Claude lane with
+  a `matt_to_do` row demanding re-authentication of a lane that was already
+  authenticated. **A permanently-closed lane fails safe and delivers zero uptime**,
+  which is this dispatch's entire subject. **No unit test could have found it** — the
+  fake `codex` binaries were written by me against the same wrong belief and agreed
+  with the bug. The **live round-trip** found it, on the first invocation. How it was
+  made: I ran the command in a terminal, which merges the streams, so what I measured
+  was "the sentence appears somewhere" and what I wrote down was "the sentence appears
+  on stdout". The test fixture now writes to **stderr** (with a stdout variant kept
+  beside it, so a stderr-only fix would not pass by luck).
+
+A fourth, found by reasoning about the live case rather than by a failure: **a busy lane
+was reaching the fallback path.** `drain` proceeded on `busy`, `harness.run` refused
+with `LaneBusy`, and that refusal was counted as a failed *attempt* — so a job whose
+only problem was another drainer holding the lane for ten seconds got a **terminal
+`FALLBACK-CLAUDE` row and a handoff manifest**. The serial law says "queue behind it or
+fire the Claude lane"; a *drainer*'s answer is unambiguously the first, because the
+other drainer is already doing the work. Busy now **defers** (non-terminal `ENQUEUED`
+row, `event=defer`, job stays pending), with both the pre-check path and the race window
+covered.
+
+### 5. Acceptance criteria
+
+| criterion | state |
+|---|---|
+| `codex.py` real; `HONEST_STUB` / `BLOCKED_ON` gone | DONE — deleted, and `test_no_stub_gates` asserts they are absent; its carve-out `flagged == [codex.py]` became `flagged == []` (same equality, one exemption smaller) |
+| Serial law at the invocation site; primitive named; concurrent start fails closed, proven | DONE — `flock` per open-file-description; exit 3 in test, exit 2 live |
+| Crash-resume + idempotent re-entry demonstrated | DONE — SIGKILL mid-job then resume; re-fired drain fires 0 and the fake's marker file does not grow |
+| Model pin declared with the "every banked statistic was measured here" note | DONE — and moved **onto the argv**; it previously lived only in `~/.codex/config.toml` |
+| Auth-expired path stops, surfaces, names `matt_to_do` + Claude fallback | DONE — and see § 6 for the choice I made |
+| Per-job telemetry, append-only, without freezing U-1's schema | DONE — `schema_version` + `passthrough` on every record; no consumer built |
+| Curator at ENQUEUE; empty = refusal to fire, proven | DONE — four layers, § 3 |
+| No work state derived from a dispatch `Status:` header | DONE — `test_DISCIPLINE_73_...` scans the AST (non-docstring constants only, so the modules can describe the rule); a second row asserts the marker vocabularies contain no work-state term |
+| `_run-log.tsv` terminal-row check answerable by `tail -1` | DONE — the test runs the actual `tail -1 \| cut -f3` pipeline; the proven runner's 4-column row is pinned as a literal and still reads terminal |
+| Round-trip smoke green; MIGRATION.md written | DONE — § 7 |
+| Tag cut | DONE |
+
+### 6. Named choices the dispatch left to me
+
+- **`matt_to_do/`: the queue writes a DRAFT, it does not file it.** On auth-expiry it
+  writes a fully-formed ready-to-file row to `<queue>/AUTH-BLOCKED.md`, emits a
+  `lane_blocked` telemetry event, writes an `AUTH-BLOCKED` run-log row, and hands every
+  pending job to its named curator via a `fallback/` manifest. It does **not** append to
+  `canonical/matt_to_do/`. Two reasons: an automated row in a curated human queue has no
+  author in the accountability graph (the dispatch's own "silently and unattributably");
+  and THE LAW — a queue that writes into a governance surface has put itself in that
+  surface's data path. knight-rider files it.
+- **`available()` NOT promoted onto the `HarnessAdapter` Protocol.** Verified the
+  correction: it is duck-typed at `workflow.py:196` and `base.py` declares only `name`
+  and `run`. Promoting it makes `ClaudeCodeHarness` non-conforming to the protocol it is
+  the reference for, and both repairs are worse — give the Claude lane an `available()`
+  returning `True` (a green nobody measured, in a package whose loudest rule forbids
+  exactly that), or probe `claude` on every workflow load. Instead, an **additive**
+  optional `unavailable_reason()` was added: `BLOCKED_ON` is fixed at import time, which
+  was adequate for one closed state and is not adequate for three (`auth_expired` needs
+  Matt, `busy` needs a minute, `cli_missing` needs a PATH). Named in MIGRATION.md.
+- **Retry posture: `DEFAULT_MAX_ATTEMPTS = 1`, ceiling 3, exponential backoff.** The
+  U-4 fault fallback is *hand it to the named Claude agent, no re-litigating*, not *try
+  harder*. The ceiling is a constant, because "retries with backoff" degenerates into a
+  spin-retry the moment it is a variable.
+- **`validate_tools` REFUSES on this lane.** `codex exec` has no `--tools`; accepting a
+  list would be the fail-open (a workflow would read as fenced and not be). This lane's
+  pre-hoc containment is the SANDBOX MODE, declared per job class, validated against a
+  closed vocabulary.
+
+### 7. Round-trip smoke — LIVE, not simulated
+
+Three real `codex exec` jobs through the production path
+(`lane-enqueue` → `lane-drain` → `RawResult` → run log + telemetry):
+
+```
+lane open: fired=2 skipped=0 deferred=0 handed-to-claude=0
+  01-smoke   rc=0   curator=star-lord
+  02-smoke   rc=0   curator=star-lord
+```
+
+Serial confirmed from the timestamps — `02-smoke START` at `23:09:01Z`, the same second
+`01-smoke` finished. Field-presence on `RawResult`: `usage` (`cache_read_tokens`,
+`reasoning_tokens`, uncached `input_tokens`), `model=gpt-5.6-sol`,
+`reasoning_effort=xhigh`, `exit_code=0`, `harness_session_id`. Re-drain fired 0 and
+added no rows. `tail -1 | cut -f3` → `rc=0`; `cut -f5` → `curator=star-lord`.
+
+**One scope limit, stated rather than papered over:** the dispatch asked for the
+round-trip through "a production-path factory *workflow* selecting the codex harness".
+That path requires an **agentic phase**, and the agentic lane has been on **HOLD since
+round 17** (`LANDING.md` § 1 — a threat-model boundary that is gandalf's and Matt's to
+draw, not mine). So the round-trip was proven through the queue's production path
+instead, which is the path this dispatch actually builds. The workflow-load half is
+covered: `available()` flipping `False → True` changes what the spine will route, and
+that behavioural contract change is the first item in MIGRATION.md.
+
+### 8. Gate-1 INFO carried forward — for knight-rider to route
+
+**`AGENTS.md` has no ownership entry for `agentic_orchestration/factory/`.** This
+dispatch makes it standing infrastructure; a standing seam with no owner in the topology
+map is a gap. **I did not write `AGENTS.md`.** Naming it here, per instruction.
+
+Two things worth knowing when it is routed: the tree now holds a **durable lock keyed to
+host state outside the repo** (`~/.reincarnated/lane-locks/`), and it is the **only
+place in the ecosystem that spawns a second vendor's CLI** — so "who owns
+`factory/`" is also "who owns the vendor lane's uptime, its cost ledger, and its auth
+health".
+
+### 9. Flagged, not taken (no dispatch → not picked up)
+
+- **Ambient MCP servers load inside every `codex exec`** — measured: a `vercel` MCP
+  server is contacted and fails auth on all 30 jobs of the proven run, and on my smoke
+  jobs. This is the Claude lane's H2 finding arriving on the second vendor.
+  **RECORDED in `codex.py`, not fixed:** `--ignore-user-config` would also drop the
+  model pin (which lives in `~/.codex/config.toml`), so closing it properly means
+  pinning the whole config surface on the argv — a separate decision with its own
+  evidence. Naming it is not fixing it and the comment says so.
+- The negative branch of `check_auth` remains **REASONED, NOT MEASURED** — verifying
+  the vendor's real not-logged-in text needs `codex logout`, a Matt-only action. Given
+  `D-SL-CQ-3`, treat it as genuinely untested rather than as covered by symmetry.
+- **The model pin can be DISPROVED but not CONFIRMED from the stream.** No codex frame
+  echoes the model (`thread.started` carries only a `thread_id`; `turn.started` is
+  empty), so there is no init-frame equivalent to `check_grant`. An unrecognised model
+  DOES produce a `Model metadata for X not found` error item, which `adjudicate` treats
+  as a failure rather than a warning. The adapter states both directions rather than
+  implying a verification it cannot perform.
