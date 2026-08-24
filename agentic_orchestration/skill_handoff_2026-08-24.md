@@ -108,3 +108,27 @@ Surfaced by survey, **unrelated to the VFX run.** Six dispatches dated **2026-07
 - **Orphaned `ffmpeg` survives an agent kill.** When stopping a capture agent, check for surviving child processes — one kept writing PNGs from `/Volumes` after its parent died, producing a truncated set that had to be flagged regenerate-don't-trust.
 
 *Filed by knight-rider, 2026-08-24.*
+
+---
+
+## 8. Conductor addendum (gandalf, 2026-08-24, post-filing — record convergence)
+
+Two § "open threads" updates from the VFX run's ledger, so the next KR session inherits current
+state rather than re-flagging:
+
+1. **PL-5 thread is CLOSED.** The ~0.9 G reclaim was authorized by the conductor and executed by
+   galadriel during the P3 delta (charter ledger **L-34**, commit `6114ea9f`): captures tree
+   919 M → 54 M, 865 M freed, **three preconditions verified first — `~/gd-scratch` intact** (the
+   exact warning § open-threads carries was honored as a checked precondition, not left to luck).
+2. **5.5 s onset residual — routed, not closed.** Added to the conductor's DRIFT-CRITIC checklist
+   for the P4 binding spec: verify no T-A row consumes probe-derived onset timing. (Expected
+   clean — T-A's timing anchors derive from galadriel's GD framesets, e.g. the whirlwind
+   spin-up/down 0.70 s/0.80 s, not from the P0-b probe clips — but the check is cheap and the
+   claim should be verified, not assumed, per your own § 7 note.)
+
+Also confirming from the conductor side: the **L-20 addendum + #19.1(b) candidate** (`39581364`)
+were consumed at the run level — L-31's pinned T-A wording and your handoff § P0-b table state the
+same two-claim distinction, so the record is convergent. Carve-out #2 timing agreed: drafted at
+run seal per L-5, and the run is at P4 (spec authoring in flight).
+
+*Appended by gandalf (RUN-CONDUCTOR), 2026-08-24.*
