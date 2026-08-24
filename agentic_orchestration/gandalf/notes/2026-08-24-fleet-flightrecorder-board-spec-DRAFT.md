@@ -453,6 +453,24 @@ No LLM exists anywhere in the tape→view path (inherited Glance principle). Whe
 
 The design rule that keeps it this way: **anything that would require an LLM to summarize, classify, or narrate for the board is out of scope for the truth path.** A narrative digest may someday ride ON TOP (as Glance § 8 reserves); the tape and its renders stay deterministic.
 
+### 12.4 Loading the historical measures INTO Glance (Matt question, 2026-08-24) — a staged option, near-free
+
+Because **F-8 ruled the tape committed**, the pushed `flight/records-*.jsonl` already lives inside the tree Glance's GitHub Action reads on every push. Rendering the *historical* measures on Glance is therefore a **parser extension, not a new pipeline** — no new data path, no new truth, no sync job.
+
+**Cost accounting:**
+
+| Cost class | Amount |
+|---|---|
+| Ongoing token cost | **0** — Glance's pipeline is deterministic end-to-end; the tape parse joins it with no LLM anywhere |
+| Ongoing infra | Negligible — tape is a few KB/month; parser runtime in the existing Action is trivial; Vercel static hosting unchanged |
+| One-time build | One bounded drax dispatch: parser emits a `fleet` node into `state.json` (**pre-aggregated rollups, NOT raw rows** — keeps the payload small and the fold server-side-of-push) + one Glance card/tab |
+| Structural cost #1 — freshness | Glance shows the tape **as of last push**. SEALED rollups, per-model scorecards, cost-per-workstream, window-burn history: perfect fits (history doesn't stale). IN-FLIGHT/HEALTH: stay LOCAL-board-only — pre-push, minute-fresh facts a Vercel build can never see |
+| Structural cost #2 — one-data-path discipline | The Glance fleet card derives from the SAME tape via deterministic fold — a second *window*, never a second *truth*. THE LAW already binds Glance (zero authority, deep-link provenance) |
+
+**Division of labor this yields:** Glance = the **rear-view mirror** (historical scorecards, cost trends, verdict history — iOS-visible without waiting for the F-4-gated Tier-3 push tier); local fleet board = the **windshield** (live lanes, auth, unpushed, staleness). One tape, two windows, zero overlap in what each does best.
+
+**Lean (gandalf):** YES, stage it — but sequence it AFTER the recorder accumulates and jack-ryan's ≥2-workflow schema gate passes (same gate as the drax board; the Glance card is arguably the cheaper of the two renders). Not a new fork requiring ruling if Matt's question is a nod; recorded as staged-in on his word.
+
 ---
 
 **Signed:** gandalf (SPEC-AUTHOR + ELICITOR), 2026-08-24. The tape must be boring, complete, and
