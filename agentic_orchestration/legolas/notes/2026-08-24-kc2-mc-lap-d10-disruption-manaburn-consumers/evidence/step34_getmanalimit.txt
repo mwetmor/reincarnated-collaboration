@@ -1,0 +1,91 @@
+=== 0x00056e20  @ RVA 0x00056e20  (nearest=?GetManaLimit@Character@GAME@@QBE?BMXZ)
+  0x00056e20  push     ebp
+  0x00056e21  mov      ebp, esp
+  0x00056e23  push     ecx
+  0x00056e24  movss    xmm3, dword ptr [ecx + 0xc6c]
+  0x00056e2c  xorps    xmm5, xmm5
+  0x00056e2f  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x00056e37  movss    xmm4, dword ptr [ecx + 0xa9c]
+  0x00056e3f  addss    xmm3, xmm1
+  0x00056e43  comiss   xmm4, xmm5
+  0x00056e46  mulss    xmm3, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x00056e4e  movss    xmm2, dword ptr [ecx + 0xb84]
+  0x00056e56  maxss    xmm3, xmm5
+  0x00056e5a  jb       0x10056e88
+  0x00056e5c  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056e64  addss    xmm2, xmm1
+  0x00056e68  mulss    xmm2, xmm4
+  0x00056e6c  mulss    xmm2, xmm3
+  0x00056e70  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056e78  maxss    xmm2, xmm5
+  0x00056e7c  movss    dword ptr [ebp - 4], xmm2
+  0x00056e81  fld      dword ptr [ebp - 4]
+  0x00056e84  mov      esp, ebp
+  0x00056e86  pop      ebp
+  0x00056e87  ret      
+  0x00056e88  movaps   xmm1, xmm4
+  0x00056e8b  andps    xmm1, xmmword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  0x00056e92  mulss    xmm1, xmm2
+  0x00056e96  mulss    xmm1, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056e9e  addss    xmm1, xmm4
+  0x00056ea2  mulss    xmm1, xmm3
+  0x00056ea6  mulss    xmm1, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056eae  minss    xmm1, xmm5
+  0x00056eb2  movss    dword ptr [ebp - 4], xmm1
+  0x00056eb7  fld      dword ptr [ebp - 4]
+  0x00056eba  mov      esp, ebp
+  0x00056ebc  pop      ebp
+  0x00056ebd  ret      
+  0x00056ebe  int3     
+  0x00056ebf  int3     
+
+=== 0x00056a30  @ RVA 0x00056a30  (nearest=?SetCurrentMana@Character@GAME@@QAEXM@Z)
+  0x00056a30  push     ebp
+  0x00056a31  mov      ebp, esp
+  0x00056a33  movss    xmm3, dword ptr [ecx + 0xc6c]
+  0x00056a3b  xorps    xmm5, xmm5
+  0x00056a3e  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x00056a46  movss    xmm4, dword ptr [ecx + 0xa9c]
+  0x00056a4e  addss    xmm3, xmm1
+  0x00056a52  comiss   xmm4, xmm5
+  0x00056a55  mulss    xmm3, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x00056a5d  movss    xmm6, dword ptr [ecx + 0xa54]
+  0x00056a65  movss    xmm2, dword ptr [ecx + 0xb84]
+  0x00056a6d  maxss    xmm6, xmm5
+  0x00056a71  maxss    xmm3, xmm5
+  0x00056a75  jb       0x10056a99
+  0x00056a77  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056a7f  addss    xmm2, xmm1
+  0x00056a83  mulss    xmm2, xmm4
+  0x00056a87  mulss    xmm2, xmm3
+  0x00056a8b  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056a93  maxss    xmm2, xmm5
+  0x00056a97  jmp      0x10056ac3   ; -> ?SetCurrentMana@Character@GAME@@QAEXM@Z+0x93
+  0x00056a99  movaps   xmm1, xmm4
+  0x00056a9c  andps    xmm1, xmmword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  0x00056aa3  mulss    xmm2, xmm1
+  0x00056aa7  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056aaf  addss    xmm2, xmm4
+  0x00056ab3  mulss    xmm2, xmm3
+  0x00056ab7  mulss    xmm2, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x00056abf  minss    xmm2, xmm5
+  0x00056ac3  movss    xmm0, dword ptr [ebp + 8]
+  0x00056ac8  subss    xmm0, xmm6
+  0x00056acc  addss    xmm0, dword ptr [ecx + 0xa54]
+  0x00056ad4  minss    xmm0, xmm2
+  0x00056ad8  movss    dword ptr [ecx + 0xa54], xmm0
+  0x00056ae0  pop      ebp
+  0x00056ae1  ret      4
+  0x00056ae4  int3     
+  0x00056ae5  int3     
+  0x00056ae6  int3     
+  0x00056ae7  int3     
+  0x00056ae8  int3     
+  0x00056ae9  int3     
+  0x00056aea  int3     
+  0x00056aeb  int3     
+  0x00056aec  int3     
+  0x00056aed  int3     
+  0x00056aee  int3     
+  0x00056aef  int3     
+

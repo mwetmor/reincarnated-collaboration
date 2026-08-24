@@ -1,0 +1,15 @@
+=== ??_7Character@GAME@@6BObject@1@@ @ 0x0058f0f8
+  +0x2ac (slot 171) -> 0x0004b2c0  ?GetCharLevel@Character@GAME@@QBE?BIXZ
+        body: eax, dword ptr [ecx + 0x1198] | 
+  +0x30c (slot 195) -> 0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+        body: 0x10
+=== ??_7Player@GAME@@6BObject@1@@ @ 0x005e4b1c
+  +0x2ac (slot 171) -> 0x0004b2c0  ?GetCharLevel@Character@GAME@@QBE?BIXZ
+        body: eax, dword ptr [ecx + 0x1198] | 
+  +0x30c (slot 195) -> 0x0003e4b0  ?JoinMe@Character@GAME@@UAEXIH_N0@Z
+        body: 0x10
+=== ??_7Monster@GAME@@6BObject@1@@ @ 0x005dc948
+  +0x2ac (slot 171) -> 0x002d5470  ?GetConvertLevel@Monster@GAME@@UBEIXZ
+        body: eax, dword ptr [ecx + 0x3774] | eax, eax | 0x102d5480 | eax, dword ptr [ecx + 0x1198]
+  +0x30c (slot 195) -> 0x002d5200  ?JoinMe@Monster@GAME@@UAEXIH_N0@Z
+        body: ebp | ebp, esp | eax, dword ptr fs:[0] | -1

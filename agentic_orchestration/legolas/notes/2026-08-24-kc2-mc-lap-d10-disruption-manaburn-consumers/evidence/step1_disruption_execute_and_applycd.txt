@@ -1,0 +1,33 @@
+=== 0x000dc9e0  @ RVA 0x000dc9e0  (nearest=?Execute@CombatAttributeAbsDamage_Disruption@GAME@@UAEXAAVCharacter@2@@Z)
+  0x000dc9e0  push     ebp
+  0x000dc9e1  mov      ebp, esp
+  0x000dc9e3  movss    xmm0, dword ptr [ecx + 0x1c]
+  0x000dc9e8  comiss   xmm0, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000dc9ef  jbe      0x100dca0c
+  0x000dc9f1  mov      ecx, dword ptr [ebp + 8]
+  0x000dc9f4  mulss    xmm0, dword ptr [0x105f5918]   ; f32=1000 i32=1148846080 f64=8.53804e+24
+  0x000dc9fc  mov      edx, dword ptr [ecx]
+  0x000dc9fe  cvttss2si eax, xmm0
+  0x000dca02  mov      dword ptr [ebp + 8], eax
+  0x000dca05  pop      ebp
+  0x000dca06  jmp      dword ptr [edx + 0x3d0]
+  0x000dca0c  pop      ebp
+  0x000dca0d  ret      4
+
+=== 0x003bf110  @ RVA 0x003bf110  (nearest=?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z)
+  0x003bf110  push     ebp
+  0x003bf111  mov      ebp, esp
+  0x003bf113  cmp      byte ptr [ecx + 0xca], 0
+  0x003bf11a  je       0x103bf139
+  0x003bf11c  mov      eax, dword ptr [ecx]
+  0x003bf11e  sub      esp, 8
+  0x003bf121  movss    xmm0, dword ptr [ebp + 8]
+  0x003bf126  mov      dword ptr [esp + 4], 0
+  0x003bf12e  movss    dword ptr [esp], xmm0
+  0x003bf133  call     dword ptr [eax + 0x140]
+  0x003bf139  pop      ebp
+  0x003bf13a  ret      4
+  0x003bf13d  int3     
+  0x003bf13e  int3     
+  0x003bf13f  int3     
+

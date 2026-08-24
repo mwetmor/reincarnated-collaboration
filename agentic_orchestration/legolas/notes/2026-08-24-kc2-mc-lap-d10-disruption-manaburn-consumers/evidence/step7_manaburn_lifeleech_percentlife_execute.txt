@@ -1,0 +1,213 @@
+=== 0x000dcc90  @ RVA 0x000dcc90  (nearest=?Execute@CombatAttributeAbsDamage_ManaBurn@GAME@@UAEXAAVCharacter@2@@Z)
+  0x000dcc90  push     ebp
+  0x000dcc91  mov      ebp, esp
+  0x000dcc93  mov      eax, dword ptr fs:[0]
+  0x000dcc99  xorps    xmm4, xmm4
+  0x000dcc9c  push     -1
+  0x000dcc9e  push     0x104c4ba8
+  0x000dcca3  push     eax
+  0x000dcca4  mov      dword ptr fs:[0], esp
+  0x000dccab  sub      esp, 0x14
+  0x000dccae  push     edi
+  0x000dccaf  mov      edi, ecx
+  0x000dccb1  movss    xmm2, dword ptr [edi + 0x1c]
+  0x000dccb6  comiss   xmm2, xmm4
+  0x000dccb9  jbe      0x100dce2c
+  0x000dccbf  movss    xmm0, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000dccc7  movss    xmm3, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000dcccf  push     esi
+  0x000dccd0  mov      esi, dword ptr [ebp + 8]
+  0x000dccd3  movss    xmm5, dword ptr [esi + 0xc6c]
+  0x000dccdb  movss    xmm6, dword ptr [esi + 0xa9c]
+  0x000dcce3  addss    xmm5, xmm0
+  0x000dcce7  comiss   xmm6, xmm4
+  0x000dccea  mulss    xmm5, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x000dccf2  movss    xmm7, dword ptr [esi + 0xa54]
+  0x000dccfa  movss    xmm1, dword ptr [esi + 0xb84]
+  0x000dcd02  maxss    xmm7, xmm4
+  0x000dcd06  maxss    xmm5, xmm4
+  0x000dcd0a  mulss    xmm1, xmm3
+  0x000dcd0e  jb       0x100dcd26
+  0x000dcd10  addss    xmm1, xmm0
+  0x000dcd14  mulss    xmm1, xmm6
+  0x000dcd18  mulss    xmm1, xmm5
+  0x000dcd1c  mulss    xmm1, xmm3
+  0x000dcd20  maxss    xmm1, xmm4
+  0x000dcd24  jmp      0x100dcd44   ; -> ?Execute@CombatAttributeAbsDamage_ManaBurn@GAME@@UAEXAAVCharacter@2@@Z+0xb4
+  0x000dcd26  movaps   xmm0, xmm6
+  0x000dcd29  andps    xmm0, xmmword ptr [0x105f5af0]   ; f32=nan i32=2147483647 f64=nan
+  0x000dcd30  mulss    xmm1, xmm0
+  0x000dcd34  addss    xmm1, xmm6
+  0x000dcd38  mulss    xmm1, xmm5
+  0x000dcd3c  mulss    xmm1, xmm3
+  0x000dcd40  minss    xmm1, xmm4
+  0x000dcd44  mov      al, byte ptr [esi + 0x1847]
+  0x000dcd4a  mulss    xmm2, xmm3
+  0x000dcd4e  mulss    xmm2, xmm1
+  0x000dcd52  minss    xmm2, xmm7
+  0x000dcd56  movss    dword ptr [ebp + 8], xmm2
+  0x000dcd5b  test     al, al
+  0x000dcd5d  jne      0x100dcd8d
+  0x000dcd5f  movaps   xmm0, xmm2
+  0x000dcd62  mov      byte ptr [esi + 0x10f8], 1
+  0x000dcd69  addss    xmm0, dword ptr [esi + 0xa5c]
+  0x000dcd71  movss    dword ptr [esi + 0xa5c], xmm0
+  0x000dcd79  movss    xmm0, dword ptr [esi + 0x1320]
+  0x000dcd81  addss    xmm0, xmm2
+  0x000dcd85  movss    dword ptr [esi + 0x1320], xmm0
+  0x000dcd8d  mov      dword ptr [ebp - 0x20], 0
+  0x000dcd94  mov      dword ptr [ebp - 0x1c], 0
+  0x000dcd9b  mov      dword ptr [ebp - 0x18], 0
+  0x000dcda2  lea      eax, [edi + 0x18]
+  0x000dcda5  mov      dword ptr [ebp - 4], 0
+  0x000dcdac  push     eax
+  0x000dcdad  lea      ecx, [ebp - 0x20]
+  0x000dcdb0  call     0x10019270   ; -> ?HasInstantiated@?$Singleton@VQuest2Repository@GAME@@@GAME@@SA_NXZ+0x130
+  0x000dcdb5  movss    xmm0, dword ptr [edi + 0x2c]
+  0x000dcdba  xorps    xmm1, xmm1
+  0x000dcdbd  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000dcdc5  mulss    xmm0, dword ptr [ebp + 8]
+  0x000dcdca  comiss   xmm0, xmm1
+  0x000dcdcd  jbe      0x100dce12
+  0x000dcdcf  mov      eax, dword ptr [edi + 4]
+  0x000dcdd2  lea      ecx, [ebp - 0x20]
+  0x000dcdd5  push     ecx
+  0x000dcdd6  push     eax
+  0x000dcdd7  mov      dword ptr [ebp - 0x10], eax
+  0x000dcdda  lea      eax, [ebp - 0x14]
+  0x000dcddd  push     eax
+  0x000dcdde  push     ecx
+  0x000dcddf  lea      ecx, [esi + 0x3dc]
+  0x000dcde5  mov      dword ptr [ebp - 0x14], 1
+  0x000dcdec  movss    dword ptr [esp], xmm0
+  0x000dcdf1  call     0x100e0a40   ; -> ?ApplyDamage@CombatManager@GAME@@QAE_NMABUPlayStatsDamageType@2@W4CombatAttributeType@2@ABV?$vector@I@mem@@@Z
+  0x000dcdf6  push     dword ptr [esi + 0x4d0]
+  0x000dcdfc  mov      ecx, esi
+  0x000dcdfe  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000dce04  push     eax
+  0x000dce05  push     3
+  0x000dce07  lea      ecx, [esi + 0x3044]
+  0x000dce0d  call     0x10062560   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x470
+  0x000dce12  mov      ecx, dword ptr [ebp - 0x20]
+  0x000dce15  pop      esi
+  0x000dce16  test     ecx, ecx
+  0x000dce18  je       0x100dce2c
+  0x000dce1a  mov      edx, dword ptr [ebp - 0x18]
+  0x000dce1d  sub      edx, ecx
+  0x000dce1f  push     4
+  0x000dce21  sar      edx, 2
+  0x000dce24  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000dce29  add      esp, 4
+  0x000dce2c  mov      ecx, dword ptr [ebp - 0xc]
+  0x000dce2f  pop      edi
+  0x000dce30  mov      dword ptr fs:[0], ecx
+  0x000dce37  mov      esp, ebp
+  0x000dce39  pop      ebp
+  0x000dce3a  ret      4
+  0x000dce3d  int3     
+  0x000dce3e  int3     
+  0x000dce3f  int3     
+
+=== 0x000dcbb0  @ RVA 0x000dcbb0  (nearest=?Execute@CombatAttributeAbsDamage_LifeLeech@GAME@@UAEXAAVCharacter@2@@Z)
+  0x000dcbb0  push     ebp
+  0x000dcbb1  mov      ebp, esp
+  0x000dcbb3  movss    xmm0, dword ptr [ecx + 0x1c]
+  0x000dcbb8  comiss   xmm0, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000dcbbf  jbe      0x100dcbd2
+  0x000dcbc1  mov      ecx, dword ptr [ebp + 8]
+  0x000dcbc4  push     ecx
+  0x000dcbc5  movss    dword ptr [esp], xmm0
+  0x000dcbca  mov      eax, dword ptr [ecx]
+  0x000dcbcc  call     dword ptr [eax + 0x3d4]
+  0x000dcbd2  pop      ebp
+  0x000dcbd3  ret      4
+  0x000dcbd6  int3     
+  0x000dcbd7  int3     
+  0x000dcbd8  int3     
+  0x000dcbd9  int3     
+  0x000dcbda  int3     
+  0x000dcbdb  int3     
+  0x000dcbdc  int3     
+  0x000dcbdd  int3     
+  0x000dcbde  int3     
+  0x000dcbdf  int3     
+
+=== 0x000dc760  @ RVA 0x000dc760  (nearest=?Execute@CombatAttributeAbsDamage_PercentLife@GAME@@UAEXAAVCharacter@2@@Z)
+  0x000dc760  push     ebp
+  0x000dc761  mov      ebp, esp
+  0x000dc763  mov      eax, dword ptr fs:[0]
+  0x000dc769  push     -1
+  0x000dc76b  push     0x104c4ba8
+  0x000dc770  push     eax
+  0x000dc771  mov      dword ptr fs:[0], esp
+  0x000dc778  sub      esp, 0x14
+  0x000dc77b  push     edi
+  0x000dc77c  mov      edi, ecx
+  0x000dc77e  movss    xmm1, dword ptr [edi + 0x1c]
+  0x000dc783  comiss   xmm1, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000dc78a  jbe      0x100dc843
+  0x000dc790  push     esi
+  0x000dc791  mov      esi, dword ptr [ebp + 8]
+  0x000dc794  mov      dword ptr [ebp - 0x20], 0
+  0x000dc79b  mov      dword ptr [ebp - 0x1c], 0
+  0x000dc7a2  mov      dword ptr [ebp - 0x18], 0
+  0x000dc7a9  movsd    xmm0, qword ptr [esi + 0xa38]
+  0x000dc7b1  maxsd    xmm0, qword ptr [0x105f5710]   ; f32=0 i32=0 f64=0
+  0x000dc7b9  cvtpd2ps xmm0, xmm0
+  0x000dc7bd  mulss    xmm0, xmm1
+  0x000dc7c1  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000dc7c9  movss    dword ptr [ebp + 8], xmm0
+  0x000dc7ce  lea      eax, [edi + 0x18]
+  0x000dc7d1  mov      dword ptr [ebp - 4], 0
+  0x000dc7d8  push     eax
+  0x000dc7d9  lea      ecx, [ebp - 0x20]
+  0x000dc7dc  call     0x10019270   ; -> ?HasInstantiated@?$Singleton@VQuest2Repository@GAME@@@GAME@@SA_NXZ+0x130
+  0x000dc7e1  mov      eax, dword ptr [edi + 4]
+  0x000dc7e4  lea      ecx, [ebp - 0x20]
+  0x000dc7e7  movss    xmm0, dword ptr [ebp + 8]
+  0x000dc7ec  push     ecx
+  0x000dc7ed  push     eax
+  0x000dc7ee  mov      dword ptr [ebp - 0x10], eax
+  0x000dc7f1  lea      eax, [ebp - 0x14]
+  0x000dc7f4  push     eax
+  0x000dc7f5  push     ecx
+  0x000dc7f6  lea      ecx, [esi + 0x3dc]
+  0x000dc7fc  mov      dword ptr [ebp - 0x14], 1
+  0x000dc803  movss    dword ptr [esp], xmm0
+  0x000dc808  call     0x100e0a40   ; -> ?ApplyDamage@CombatManager@GAME@@QAE_NMABUPlayStatsDamageType@2@W4CombatAttributeType@2@ABV?$vector@I@mem@@@Z
+  0x000dc80d  push     dword ptr [esi + 0x4d0]
+  0x000dc813  mov      ecx, esi
+  0x000dc815  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000dc81b  push     eax
+  0x000dc81c  push     3
+  0x000dc81e  lea      ecx, [esi + 0x3044]
+  0x000dc824  call     0x10062560   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x470
+  0x000dc829  mov      ecx, dword ptr [ebp - 0x20]
+  0x000dc82c  pop      esi
+  0x000dc82d  test     ecx, ecx
+  0x000dc82f  je       0x100dc843
+  0x000dc831  mov      edx, dword ptr [ebp - 0x18]
+  0x000dc834  sub      edx, ecx
+  0x000dc836  push     4
+  0x000dc838  sar      edx, 2
+  0x000dc83b  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000dc840  add      esp, 4
+  0x000dc843  mov      ecx, dword ptr [ebp - 0xc]
+  0x000dc846  pop      edi
+  0x000dc847  mov      dword ptr fs:[0], ecx
+  0x000dc84e  mov      esp, ebp
+  0x000dc850  pop      ebp
+  0x000dc851  ret      4
+  0x000dc854  int3     
+  0x000dc855  int3     
+  0x000dc856  int3     
+  0x000dc857  int3     
+  0x000dc858  int3     
+  0x000dc859  int3     
+  0x000dc85a  int3     
+  0x000dc85b  int3     
+  0x000dc85c  int3     
+  0x000dc85d  int3     
+  0x000dc85e  int3     
+  0x000dc85f  int3     
+

@@ -1,0 +1,21 @@
+=== ??_7Skill@GAME@@6B@ @ 0x00590ed4
+  +0x340 (slot 208) -> 0x0003cf10  ??4ItemSet@GAME@@QAEAAV01@ABV01@@Z+0x3c0
+        body: ebp | ebp, esp | esi | esi, ecx
+  +0x0c8 (slot  50) -> 0x003c8ab0  ?GetTargetRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574acc | 
+  +0x0cc (slot  51) -> 0x003c8ac0  ?GetExplosionRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574abc | 
+=== ??_7SkillChanneled@GAME@@6B@ @ 0x00592218
+  +0x340 (slot 208) -> 0x0042b310  ?StartAction@SkillActivatedSpell@GAME@@UAE_NAAVCharacter@2@IABVWorldVec3@2@IABUTargetLeadingData@2@@Z
+        body: ebp | ebp, esp | esi | esi, ecx
+  +0x0c8 (slot  50) -> 0x003c8ab0  ?GetTargetRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574acc | 
+  +0x0cc (slot  51) -> 0x003c8ac0  ?GetExplosionRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574abc | 
+=== ??_7SkillActivatedBuffSelf@GAME@@6B@ @ 0x00590094
+  +0x340 (slot 208) -> 0x003cbca0  ?StartAction@SkillActivatedBuffSelf@GAME@@UAE_NAAVCharacter@2@IABVWorldVec3@2@IABUTargetLeadingData@2@@Z
+        body: ebp | ebp, esp | ecx | esi
+  +0x0c8 (slot  50) -> 0x003c8ab0  ?GetTargetRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574acc | 
+  +0x0cc (slot  51) -> 0x003c8ac0  ?GetExplosionRadiusTag@Skill@GAME@@UBEPBDXZ
+        body: eax, 0x10574abc | 

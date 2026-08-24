@@ -1,0 +1,15 @@
+=== all DispelBuff exports
+   0x000084d0 ?DispelBuff@SkillBuff@GAME@@UAEXAAVCharacter@2@@Z
+   0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+   0x000084d0 ?DispelDeBuff@SkillBuff@GAME@@UAEXAAVCharacter@2@@Z
+   0x004356f0 ?DispelDeBuff@SkillBuff_Debuf@GAME@@UAEXAAVCharacter@2@@Z
+   0x004451e0 ?IsDispelBuffActive@SkillManager@GAME@@AAE_NXZ
+
+=== slot +0x340 across EVERY Skill-family vtable
+   ??_7NpcSkillReallocator@GAME@@6BICrowdAgent@CROWD@@@     +0x340 -> 0x00053430 ?DispelSkillBuffs@Character@GAME@@UAEXXZ
+   ??_7NpcSkillReallocator@GAME@@6BIPhysics2@1@@            +0x340 -> 0x00053430 ?DispelSkillBuffs@Character@GAME@@UAEXXZ
+   ??_7SkillBuff_BuffImmobilize@GAME@@6BSkill@1@@           +0x340 -> 0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+   ??_7SkillBuff_Passive@GAME@@6BSkill@1@@                  +0x340 -> 0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+   ??_7SkillBuff_PassiveCharged@GAME@@6BSkill@1@@           +0x340 -> 0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+   ??_7SkillBuff_PassiveEndless@GAME@@6BSkill@1@@           +0x340 -> 0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+   ??_7SkillBuff_PassiveShield@GAME@@6BSkill@1@@            +0x340 -> 0x004356f0 ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z

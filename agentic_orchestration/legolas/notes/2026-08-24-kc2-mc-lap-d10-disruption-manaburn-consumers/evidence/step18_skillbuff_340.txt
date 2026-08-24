@@ -1,0 +1,20 @@
+=== ??_7SkillBuff@GAME@@6BSkill@1@@ @ 0x0059ea64
+  +0x340 (slot 208) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        body: 4
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7SkillBuff_Passive@GAME@@6BSkill@1@@ @ 0x0059e70c
+  +0x340 (slot 208) -> 0x004356f0  ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+        body: ebp | ebp, esp | eax, dword ptr fs:[0] | -1
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7SkillBuff_Debuf@GAME@@6BSkill@1@@ @ 0x0059d9ac
+  +0x340 (slot 208) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        body: 4
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7SkillBuff_DispelMagic@GAME@@6BSkill@1@@ @ 0x005974cc
+  +0x340 (slot 208) -> 0x000084d0  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+        body: 4
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139

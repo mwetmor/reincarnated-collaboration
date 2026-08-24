@@ -1,0 +1,30 @@
+=== ??_7Skill_Passive@GAME@@6B@ @ 0x005a8434
+  +0x340 (slot 208) -> 0x00428b30  ?Load@SkillActivated@GAME@@UAEXABVLoadTable@2@@Z
+        body: ebp | ebp, esp | ecx | ebx
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7Skill_PassiveShield@GAME@@6BSkill_Passive@1@@ @ 0x005a43f0
+  +0x340 (slot 208) -> 0x0002db20  ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+        body: al, al | 4
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7Skill_PassiveOnHitBuffSelf@GAME@@6BSkill@1@@ @ 0x005a50f8
+  +0x340 (slot 208) -> 0x003bcb40  ?Load@Skill@GAME@@UAEXABVLoadTable@2@@Z
+        body: ebp | ebp, esp | ecx | esi
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7Skill_PassiveOnLifeBuffSelf@GAME@@6BSkill@1@@ @ 0x005a4734
+  +0x340 (slot 208) -> 0x0002db20  ?IsTrackable@Skill@GAME@@UBE?B_NI@Z
+        body: al, al | 4
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7SkillBuff_Passive@GAME@@6BSkill@1@@ @ 0x0059e70c
+  +0x340 (slot 208) -> 0x004356f0  ?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z
+        body: ebp | ebp, esp | eax, dword ptr fs:[0] | -1
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139
+=== ??_7Skill_AttackRadiusSpin@GAME@@6B@ @ 0x005959b0
+  +0x340 (slot 208) -> 0x003eba30  ?StartAction@Skill_AttackRadiusSpin@GAME@@UAE_NAAVCharacter@2@IABVWorldVec3@2@IABUTargetLeadingData@2@@Z
+        body: ebp | ebp, esp | esp, 0x38 | ebx
+  +0x144 (slot  81) -> 0x003bf110  ?ApplyDisruptionCooldownTime@Skill@GAME@@UAEXM@Z
+        body: ebp | ebp, esp | byte ptr [ecx + 0xca], 0 | 0x103bf139

@@ -1,0 +1,75 @@
+=== 0x004454d0  @ RVA 0x004454d0  (nearest=?ApplyCooldownDamage@SkillManager@GAME@@QAEXM@Z)
+  0x004454d0  push     ebp
+  0x004454d1  mov      ebp, esp
+  0x004454d3  push     esi
+  0x004454d4  push     edi
+  0x004454d5  mov      edi, ecx
+  0x004454d7  mov      esi, dword ptr [edi + 0x154]
+  0x004454dd  cmp      esi, dword ptr [edi + 0x158]
+  0x004454e3  je       0x10445509
+  0x004454e5  mov      ecx, dword ptr [esi]
+  0x004454e7  test     ecx, ecx
+  0x004454e9  je       0x104454fe
+  0x004454eb  mov      eax, dword ptr [ecx]
+  0x004454ed  movss    xmm0, dword ptr [ebp + 8]
+  0x004454f2  push     ecx
+  0x004454f3  movss    dword ptr [esp], xmm0
+  0x004454f8  call     dword ptr [eax + 0x144]
+  0x004454fe  add      esi, 4
+  0x00445501  cmp      esi, dword ptr [edi + 0x158]
+  0x00445507  jne      0x104454e5
+  0x00445509  mov      eax, dword ptr [edi + 0x8c]
+  0x0044550f  mov      esi, dword ptr [eax]
+  0x00445511  cmp      esi, eax
+  0x00445513  je       0x10445539
+  0x00445515  mov      ecx, dword ptr [esi + 0x20]
+  0x00445518  test     ecx, ecx
+  0x0044551a  je       0x1044552f
+  0x0044551c  mov      eax, dword ptr [ecx]
+  0x0044551e  movss    xmm0, dword ptr [ebp + 8]
+  0x00445523  push     ecx
+  0x00445524  movss    dword ptr [esp], xmm0
+  0x00445529  call     dword ptr [eax + 0x144]
+  0x0044552f  mov      esi, dword ptr [esi]
+  0x00445531  cmp      esi, dword ptr [edi + 0x8c]
+  0x00445537  jne      0x10445515
+  0x00445539  mov      esi, dword ptr [edi + 0x174]
+  0x0044553f  cmp      esi, dword ptr [edi + 0x178]
+  0x00445545  je       0x1044556b
+  0x00445547  mov      ecx, dword ptr [esi]
+  0x00445549  test     ecx, ecx
+  0x0044554b  je       0x10445560
+  0x0044554d  mov      eax, dword ptr [ecx]
+  0x0044554f  movss    xmm0, dword ptr [ebp + 8]
+  0x00445554  push     ecx
+  0x00445555  movss    dword ptr [esp], xmm0
+  0x0044555a  call     dword ptr [eax + 0x144]
+  0x00445560  add      esi, 4
+  0x00445563  cmp      esi, dword ptr [edi + 0x178]
+  0x00445569  jne      0x10445547
+  0x0044556b  mov      esi, dword ptr [edi + 0x1f8]
+  0x00445571  cmp      esi, dword ptr [edi + 0x1fc]
+  0x00445577  je       0x104455a4
+  0x00445579  nop      dword ptr [eax]
+  0x00445580  mov      ecx, dword ptr [esi]
+  0x00445582  test     ecx, ecx
+  0x00445584  je       0x10445599
+  0x00445586  mov      eax, dword ptr [ecx]
+  0x00445588  movss    xmm0, dword ptr [ebp + 8]
+  0x0044558d  push     ecx
+  0x0044558e  movss    dword ptr [esp], xmm0
+  0x00445593  call     dword ptr [eax + 0x144]
+  0x00445599  add      esi, 4
+  0x0044559c  cmp      esi, dword ptr [edi + 0x1fc]
+  0x004455a2  jne      0x10445580
+  0x004455a4  pop      edi
+  0x004455a5  pop      esi
+  0x004455a6  pop      ebp
+  0x004455a7  ret      4
+  0x004455aa  int3     
+  0x004455ab  int3     
+  0x004455ac  int3     
+  0x004455ad  int3     
+  0x004455ae  int3     
+  0x004455af  int3     
+

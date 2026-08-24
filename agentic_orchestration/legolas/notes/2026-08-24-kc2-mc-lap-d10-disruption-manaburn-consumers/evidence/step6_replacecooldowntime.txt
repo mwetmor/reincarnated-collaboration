@@ -1,0 +1,101 @@
+=== 0x003bf0b0  @ RVA 0x003bf0b0  (nearest=?ReplaceCooldownTime@Skill@GAME@@UAEXMM@Z)
+  0x003bf0b0  push     ebp
+  0x003bf0b1  mov      ebp, esp
+  0x003bf0b3  movss    xmm1, dword ptr [ebp + 8]
+  0x003bf0b8  xorps    xmm2, xmm2
+  0x003bf0bb  comiss   xmm1, xmm2
+  0x003bf0be  jbe      0x103bf0ff
+  0x003bf0c0  movd     xmm0, dword ptr [ecx + 0x150]
+  0x003bf0c8  cvtdq2ps xmm0, xmm0
+  0x003bf0cb  comiss   xmm1, xmm0
+  0x003bf0ce  jbe      0x103bf0ff
+  0x003bf0d0  movss    xmm0, dword ptr [ebp + 0xc]
+  0x003bf0d5  comiss   xmm0, xmm2
+  0x003bf0d8  cvttss2si eax, xmm1
+  0x003bf0dc  mov      dword ptr [ecx + 0x150], eax
+  0x003bf0e2  jbe      0x103bf0e8
+  0x003bf0e4  cvttss2si eax, xmm0
+  0x003bf0e8  mov      dword ptr [ecx + 0x154], eax
+  0x003bf0ee  mov      dword ptr [ecx + 0x80], 1
+  0x003bf0f8  mov      byte ptr [ecx + 0x86], 1
+  0x003bf0ff  pop      ebp
+  0x003bf100  ret      8
+  0x003bf103  int3     
+  0x003bf104  int3     
+  0x003bf105  int3     
+  0x003bf106  int3     
+  0x003bf107  int3     
+  0x003bf108  int3     
+  0x003bf109  int3     
+  0x003bf10a  int3     
+  0x003bf10b  int3     
+  0x003bf10c  int3     
+  0x003bf10d  int3     
+  0x003bf10e  int3     
+  0x003bf10f  int3     
+
+=== 0x003bf000  @ RVA 0x003bf000  (nearest=?EndCooldown@Skill@GAME@@UAEXH@Z)
+  0x003bf000  push     ebp
+  0x003bf001  mov      ebp, esp
+  0x003bf003  push     esi
+  0x003bf004  mov      esi, ecx
+  0x003bf006  mov      eax, dword ptr [esi + 0x150]
+  0x003bf00c  test     eax, eax
+  0x003bf00e  jg       0x103bf01d
+  0x003bf010  cmp      dword ptr [esi + 0x15c], 0
+  0x003bf017  jg       0x103bf01d
+  0x003bf019  xor      cl, cl
+  0x003bf01b  jmp      0x103bf01f   ; -> ?EndCooldown@Skill@GAME@@UAEXH@Z+0x1f
+  0x003bf01d  mov      cl, 1
+  0x003bf01f  mov      edx, dword ptr [ebp + 8]
+  0x003bf022  test     edx, edx
+  0x003bf024  jg       0x103bf064
+  0x003bf026  mov      dword ptr [esi + 0x150], 0
+  0x003bf030  mov      dword ptr [esi + 0x15c], 0
+  0x003bf03a  test     cl, cl
+  0x003bf03c  je       0x103bf0a3
+  0x003bf03e  mov      eax, dword ptr [esi]
+  0x003bf040  mov      ecx, esi
+  0x003bf042  inc      dword ptr [esi + 0x158]
+  0x003bf048  call     dword ptr [eax + 0x2e8]
+  0x003bf04e  mov      ecx, dword ptr [esi + 0x158]
+  0x003bf054  cmp      ecx, eax
+  0x003bf056  cmovl    eax, ecx
+  0x003bf059  mov      dword ptr [esi + 0x158], eax
+  0x003bf05f  pop      esi
+  0x003bf060  pop      ebp
+  0x003bf061  ret      4
+  0x003bf064  sub      eax, edx
+  0x003bf066  push     edi
+  0x003bf067  xor      edi, edi
+  0x003bf069  test     eax, eax
+  0x003bf06b  cmovg    edi, eax
+  0x003bf06e  sub      dword ptr [esi + 0x15c], edx
+  0x003bf074  mov      eax, dword ptr [esi + 0x15c]
+  0x003bf07a  xor      edx, edx
+  0x003bf07c  test     eax, eax
+  0x003bf07e  mov      dword ptr [esi + 0x150], edi
+  0x003bf084  cmovg    edx, eax
+  0x003bf087  mov      dword ptr [esi + 0x15c], edx
+  0x003bf08d  test     cl, cl
+  0x003bf08f  je       0x103bf0a2
+  0x003bf091  test     edi, edi
+  0x003bf093  jg       0x103bf0a2
+  0x003bf095  test     edx, edx
+  0x003bf097  jg       0x103bf0a2
+  0x003bf099  push     1
+  0x003bf09b  mov      ecx, esi
+  0x003bf09d  call     0x103bf660   ; -> ?IncrementCooldownCharge@Skill@GAME@@IAEXI@Z
+  0x003bf0a2  pop      edi
+  0x003bf0a3  pop      esi
+  0x003bf0a4  pop      ebp
+  0x003bf0a5  ret      4
+  0x003bf0a8  int3     
+  0x003bf0a9  int3     
+  0x003bf0aa  int3     
+  0x003bf0ab  int3     
+  0x003bf0ac  int3     
+  0x003bf0ad  int3     
+  0x003bf0ae  int3     
+  0x003bf0af  int3     
+

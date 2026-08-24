@@ -1,0 +1,33 @@
+=== ??_7Character@GAME@@6BObject@1@@ @ 0x0058f0f8
+  +0x320 (slot 200) -> 0x00053430  ?DispelSkillBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x10444ec0   ; -> ?DispelSkillBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x324 (slot 201) -> 0x00053440  ?DispelSkillDeBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x104450e0   ; -> ?DispelSkillDeBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x328 (slot 202) -> 0x00053450  ?DispelDamageOverTime@Character@GAME@@UAEXXZ
+        body: eax, dword ptr [ecx + 0x3e4] | ecx, 0x3e4 | dword ptr [eax + 0x18] | 
+  +0x308 (slot 194) -> 0x00052dc0  ?AttackTarget@Character@GAME@@UAE_NIAAVEntity@2@AAVParametersCombat@2@_NIII@Z
+        body: ebp | ebp, esp | ecx | esi
+  +0x27c (slot 159) -> 0x00048920  ?ExecuteKnockdown@Character@GAME@@UAEXXZ
+        body: esi | esi, ecx | eax, dword ptr [esi] | dword ptr [eax + 0x228]
+=== ??_7Player@GAME@@6BObject@1@@ @ 0x005e4b1c
+  +0x320 (slot 200) -> 0x00053430  ?DispelSkillBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x10444ec0   ; -> ?DispelSkillBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x324 (slot 201) -> 0x00053440  ?DispelSkillDeBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x104450e0   ; -> ?DispelSkillDeBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x328 (slot 202) -> 0x00053450  ?DispelDamageOverTime@Character@GAME@@UAEXXZ
+        body: eax, dword ptr [ecx + 0x3e4] | ecx, 0x3e4 | dword ptr [eax + 0x18] | 
+  +0x308 (slot 194) -> 0x00052dc0  ?AttackTarget@Character@GAME@@UAE_NIAAVEntity@2@AAVParametersCombat@2@_NIII@Z
+        body: ebp | ebp, esp | ecx | esi
+  +0x27c (slot 159) -> 0x00048920  ?ExecuteKnockdown@Character@GAME@@UAEXXZ
+        body: esi | esi, ecx | eax, dword ptr [esi] | dword ptr [eax + 0x228]
+=== ??_7Monster@GAME@@6BObject@1@@ @ 0x005dc948
+  +0x320 (slot 200) -> 0x00053430  ?DispelSkillBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x10444ec0   ; -> ?DispelSkillBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x324 (slot 201) -> 0x00053440  ?DispelSkillDeBuffs@Character@GAME@@UAEXXZ
+        body: ecx, 0x600 | 0x104450e0   ; -> ?DispelSkillDeBuffs@SkillManager@GAME@@QAEXXZ |  | 
+  +0x328 (slot 202) -> 0x00053450  ?DispelDamageOverTime@Character@GAME@@UAEXXZ
+        body: eax, dword ptr [ecx + 0x3e4] | ecx, 0x3e4 | dword ptr [eax + 0x18] | 
+  +0x308 (slot 194) -> 0x00052dc0  ?AttackTarget@Character@GAME@@UAE_NIAAVEntity@2@AAVParametersCombat@2@_NIII@Z
+        body: ebp | ebp, esp | ecx | esi
+  +0x27c (slot 159) -> 0x00048920  ?ExecuteKnockdown@Character@GAME@@UAEXXZ
+        body: esi | esi, ecx | eax, dword ptr [esi] | dword ptr [eax + 0x228]

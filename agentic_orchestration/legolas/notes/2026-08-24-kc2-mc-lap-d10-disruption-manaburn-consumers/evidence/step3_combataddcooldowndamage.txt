@@ -1,0 +1,25 @@
+=== 0x00054710  @ RVA 0x00054710  (nearest=?CombatAddCooldownDamage@Character@GAME@@UAEXH@Z)
+  0x00054710  push     ebp
+  0x00054711  mov      ebp, esp
+  0x00054713  movd     xmm0, dword ptr [ebp + 8]
+  0x00054718  cvtdq2ps xmm0, xmm0
+  0x0005471b  push     ecx
+  0x0005471c  add      ecx, 0x600
+  0x00054722  movss    dword ptr [esp], xmm0
+  0x00054727  call     0x104454d0   ; -> ?ApplyCooldownDamage@SkillManager@GAME@@QAEXM@Z
+  0x0005472c  pop      ebp
+  0x0005472d  ret      4
+
+=== 0x00054730  @ RVA 0x00054730  (nearest=?CombatAddLifeLeechDamage@Character@GAME@@UAEXM@Z)
+  0x00054730  push     ebp
+  0x00054731  mov      ebp, esp
+  0x00054733  movss    xmm0, dword ptr [ecx + 0x4d4]
+  0x0005473b  addss    xmm0, dword ptr [ebp + 8]
+  0x00054740  movss    dword ptr [ecx + 0x4d4], xmm0
+  0x00054748  pop      ebp
+  0x00054749  ret      4
+  0x0005474c  int3     
+  0x0005474d  int3     
+  0x0005474e  int3     
+  0x0005474f  int3     
+

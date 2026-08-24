@@ -1,0 +1,81 @@
+=== 0x0003e4c0  @ RVA 0x0003e4c0  (nearest=?GetTotalDamage@CombatAttribute@GAME@@UAEXPAVCharacter@2@AAM1@Z)
+  0x0003e4c0  ret      0xc
+  0x0003e4c3  int3     
+  0x0003e4c4  int3     
+  0x0003e4c5  int3     
+  0x0003e4c6  int3     
+  0x0003e4c7  int3     
+  0x0003e4c8  int3     
+  0x0003e4c9  int3     
+  0x0003e4ca  int3     
+  0x0003e4cb  int3     
+  0x0003e4cc  int3     
+  0x0003e4cd  int3     
+  0x0003e4ce  int3     
+  0x0003e4cf  int3     
+
+=== 0x000d7040  @ RVA 0x000d7040  (nearest=?GetMinMaxDamage@CombatAttribute@GAME@@UAEXAAM0W4CombatAttributeType@2@M_N@Z)
+  0x000d7040  ret      0x14
+  0x000d7043  int3     
+  0x000d7044  int3     
+  0x000d7045  int3     
+  0x000d7046  int3     
+  0x000d7047  int3     
+  0x000d7048  int3     
+  0x000d7049  int3     
+  0x000d704a  int3     
+  0x000d704b  int3     
+  0x000d704c  int3     
+  0x000d704d  int3     
+  0x000d704e  int3     
+  0x000d704f  int3     
+
+=== 0x000d7620  @ RVA 0x000d7620  (nearest=?ReduceDamage@CombatAttributeAbsDamage@GAME@@UAEXW4CombatAttributeType@2@M@Z)
+  0x000d7620  push     ebp
+  0x000d7621  mov      ebp, esp
+  0x000d7623  mov      eax, dword ptr [ecx + 4]
+  0x000d7626  cmp      eax, dword ptr [ebp + 8]
+  0x000d7629  jne      0x100d764e
+  0x000d762b  movss    xmm0, dword ptr [ebp + 0xc]
+  0x000d7630  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000d7638  movss    xmm1, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000d7640  subss    xmm1, xmm0
+  0x000d7644  mulss    xmm1, dword ptr [ecx + 0x1c]
+  0x000d7649  movss    dword ptr [ecx + 0x1c], xmm1
+  0x000d764e  movss    xmm0, dword ptr [ecx + 0x1c]
+  0x000d7653  maxss    xmm0, dword ptr [0x105f5708]   ; f32=0 i32=0 f64=0
+  0x000d765b  movss    dword ptr [ecx + 0x1c], xmm0
+  0x000d7660  pop      ebp
+  0x000d7661  ret      8
+  0x000d7664  int3     
+  0x000d7665  int3     
+  0x000d7666  int3     
+  0x000d7667  int3     
+  0x000d7668  int3     
+  0x000d7669  int3     
+  0x000d766a  int3     
+  0x000d766b  int3     
+  0x000d766c  int3     
+  0x000d766d  int3     
+  0x000d766e  int3     
+  0x000d766f  int3     
+
+=== 0x000d7570  @ RVA 0x000d7570  (nearest=?GetTotalDamage@CombatAttributeAbsDamage@GAME@@UAEXPAVCharacter@2@AAM1@Z)
+  0x000d7570  push     ebp
+  0x000d7571  mov      ebp, esp
+  0x000d7573  mov      eax, dword ptr [ebp + 0xc]
+  0x000d7576  movss    xmm0, dword ptr [ecx + 0x1c]
+  0x000d757b  addss    xmm0, dword ptr [eax]
+  0x000d757f  movss    dword ptr [eax], xmm0
+  0x000d7583  pop      ebp
+  0x000d7584  ret      0xc
+  0x000d7587  int3     
+  0x000d7588  int3     
+  0x000d7589  int3     
+  0x000d758a  int3     
+  0x000d758b  int3     
+  0x000d758c  int3     
+  0x000d758d  int3     
+  0x000d758e  int3     
+  0x000d758f  int3     
+

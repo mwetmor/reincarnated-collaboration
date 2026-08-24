@@ -1,0 +1,99 @@
+=== 0x00122dc0  @ RVA 0x00122dc0  (nearest=?OnUpdate@ControllerPlayerStateUseSkill@GAME@@UAEXH@Z)
+  0x00122dc0  push     ebp
+  0x00122dc1  mov      ebp, esp
+  0x00122dc3  and      esp, 0xfffffff0
+  0x00122dc6  sub      esp, 0x38
+  0x00122dc9  push     esi
+  0x00122dca  push     edi
+  0x00122dcb  mov      edi, ecx
+  0x00122dcd  cmp      byte ptr [edi + 0x14], 0
+  0x00122dd1  je       0x10122e2c
+  0x00122dd3  mov      ecx, dword ptr [edi + 4]
+  0x00122dd6  cmp      dword ptr [ecx + 0x384], 0
+  0x00122ddd  jg       0x10122e2c
+  0x00122ddf  mov      byte ptr [esp + 0x20], 0
+  0x00122de4  call     0x100e84e0   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x00122de9  mov      ecx, dword ptr [edi + 4]
+  0x00122dec  mov      esi, dword ptr [eax + 8]
+  0x00122def  call     0x100e84e0   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x00122df4  sub      esp, 0x14
+  0x00122df7  mov      ecx, esp
+  0x00122df9  movups   xmm0, xmmword ptr [eax + 0xc]
+  0x00122dfd  mov      eax, dword ptr [esp + 0x44]
+  0x00122e01  movups   xmmword ptr [esp + 0x24], xmm0
+  0x00122e06  movups   xmm0, xmmword ptr [esp + 0x34]
+  0x00122e0b  movups   xmmword ptr [ecx], xmm0
+  0x00122e0e  mov      dword ptr [ecx + 0x10], eax
+  0x00122e11  call     dword ptr [0x104e650c]   ; f32=1.17333e-38 i32=8373140 f64=4.13688e-317
+  0x00122e17  push     eax
+  0x00122e18  push     esi
+  0x00122e19  lea      eax, [esp + 0x2c]
+  0x00122e1d  mov      ecx, edi
+  0x00122e1f  push     eax
+  0x00122e20  push     dword ptr [edi + 0x10]
+  0x00122e23  call     0x1011b8e0   ; -> ?UseSkill@?$ControllerAIStateT@VControllerPlayer@GAME@@VPlayer@2@@GAME@@IAEXIABVWorldVec3@2@IIUTargetLeadingData@2@@Z
+  0x00122e28  mov      byte ptr [edi + 0x14], 0
+  0x00122e2c  pop      edi
+  0x00122e2d  pop      esi
+  0x00122e2e  mov      esp, ebp
+  0x00122e30  pop      ebp
+  0x00122e31  ret      4
+  0x00122e34  int3     
+  0x00122e35  int3     
+  0x00122e36  int3     
+  0x00122e37  int3     
+  0x00122e38  int3     
+  0x00122e39  int3     
+  0x00122e3a  int3     
+  0x00122e3b  int3     
+  0x00122e3c  int3     
+  0x00122e3d  int3     
+  0x00122e3e  int3     
+  0x00122e3f  int3     
+
+=== 0x00122f50  @ RVA 0x00122f50  (nearest=?RequestSkillAction@ControllerPlayerStateUseSkill@GAME@@MAE_N_N0IABVWorldVec3@2@AAI@Z)
+  0x00122f50  push     ebp
+  0x00122f51  mov      ebp, esp
+  0x00122f53  push     esi
+  0x00122f54  mov      esi, ecx
+  0x00122f56  mov      ecx, dword ptr [esi + 4]
+  0x00122f59  call     0x100e84e0   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x00122f5e  push     dword ptr [eax + 8]
+  0x00122f61  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x00122f67  mov      ecx, eax
+  0x00122f69  call     0x1000d4f0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x00122f6e  mov      ecx, eax
+  0x00122f70  test     ecx, ecx
+  0x00122f72  je       0x10122f89
+  0x00122f74  mov      eax, dword ptr [ecx]
+  0x00122f76  mov      eax, dword ptr [eax + 0x2b0]
+  0x00122f7c  call     eax
+  0x00122f7e  test     al, al
+  0x00122f80  je       0x10122f89
+  0x00122f82  xor      al, al
+  0x00122f84  pop      esi
+  0x00122f85  pop      ebp
+  0x00122f86  ret      0x14
+  0x00122f89  push     dword ptr [ebp + 0x18]
+  0x00122f8c  mov      ecx, esi
+  0x00122f8e  push     dword ptr [ebp + 0x14]
+  0x00122f91  push     dword ptr [ebp + 0x10]
+  0x00122f94  push     dword ptr [ebp + 0xc]
+  0x00122f97  push     dword ptr [ebp + 8]
+  0x00122f9a  call     0x1011e1d0   ; -> ?DefaultRequestSkillAction@ControllerPlayerState@GAME@@IAE_N_N0IABVWorldVec3@2@AAI@Z
+  0x00122f9f  pop      esi
+  0x00122fa0  pop      ebp
+  0x00122fa1  ret      0x14
+  0x00122fa4  int3     
+  0x00122fa5  int3     
+  0x00122fa6  int3     
+  0x00122fa7  int3     
+  0x00122fa8  int3     
+  0x00122fa9  int3     
+  0x00122faa  int3     
+  0x00122fab  int3     
+  0x00122fac  int3     
+  0x00122fad  int3     
+  0x00122fae  int3     
+  0x00122faf  int3     
+

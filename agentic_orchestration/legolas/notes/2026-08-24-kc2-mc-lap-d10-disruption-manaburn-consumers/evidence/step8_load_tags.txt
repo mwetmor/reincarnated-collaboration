@@ -1,0 +1,226 @@
+######## Disruption
+  0x0014d820  ?GetDisplayTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "DamageDisruption"
+  0x0014d7f0  ?GetLoadChanceTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "offensiveDisruptionChance"
+  0x0014d810  ?GetLoadGlobalTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "offensiveDisruptionGlobal"
+  0x0014d840  ?GetLoadValueMaxTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "offensiveDisruptionMax"
+  0x0014d830  ?GetLoadValueMinTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "offensiveDisruptionMin"
+  0x0014d800  ?GetLoadXorTag@DamageAttributeAbs_Disruption@GAME@@MBEPBDXZ
+        -> "offensiveDisruptionXOR"
+  0x0001fc80  ?GetType@DamageAttributeAbs_Disruption@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xd |  |  | 
+  0x0001fc80  ?GetType@DefenseAttributeAbs_Disruption@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xd |  |  | 
+  0x0001fc80  ?GetType@DefenseAttributeDefenseCap_Disruption@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xd |  |  | 
+
+######## ManaBurn
+  0x001555d0  ?GetDamageRatio@DamageAttributeAbs_ManaBurn@GAME@@MBEMI_N@Z
+        -> ebp | ebp, esp | ecx | edx, ecx
+  0x0014fd10  ?GetDisplayTag@DamageAttributeAbsMod_ManaBurn@GAME@@MBEPBDXZ
+        -> "DamageModifierManaBurn"
+  0x00155160  ?GetDisplayTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "DamageManaDrain"
+  0x0014fce0  ?GetLoadChanceTag@DamageAttributeAbsMod_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnRatioAdderChance"
+  0x00155130  ?GetLoadChanceTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnChance"
+  0x00155190  ?GetLoadDamageRatioTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnDamageRatio"
+  0x0014fd00  ?GetLoadGlobalTag@DamageAttributeAbsMod_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnGlobal"
+  0x00155150  ?GetLoadGlobalTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnGlobal"
+  0x0014fd20  ?GetLoadModifierTag@DamageAttributeAbsMod_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnRatioAdder"
+  0x00155180  ?GetLoadValueMaxTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnDrainMax"
+  0x00155170  ?GetLoadValueMinTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnDrainMin"
+  0x0014fcf0  ?GetLoadXorTag@DamageAttributeAbsMod_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnXOR"
+  0x00155140  ?GetLoadXorTag@DamageAttributeAbs_ManaBurn@GAME@@MBEPBDXZ
+        -> "offensiveManaBurnXOR"
+  0x0014fcd0  ?GetType@DamageAttributeAbsMod_ManaBurn@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xc |  |  | 
+  0x0014fcd0  ?GetType@DamageAttributeAbs_ManaBurn@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xc |  |  | 
+  0x0014fcd0  ?GetType@DefenseAttributeAbs_ManaBurn@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0xc |  |  | 
+  0x001ad230  ?GetType@DefenseAttributeAbs_ManaBurnRatio@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x3e |  |  | 
+
+######## Convert
+  0x0014cb90  ?GetDisplayTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "DamageConvert"
+  0x00367690  ?GetDisplayTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "RetaliationConvert"
+  0x0014cb60  ?GetLoadChanceTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "offensiveConvertChance"
+  0x00367660  ?GetLoadChanceTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "retaliationConvertChance"
+  0x0014cb80  ?GetLoadGlobalTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "offensiveConvertGlobal"
+  0x00367680  ?GetLoadGlobalTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "retaliationConvertGlobal"
+  0x0014cbb0  ?GetLoadValueMaxTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "offensiveConvertMax"
+  0x003676b0  ?GetLoadValueMaxTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "retaliationConvertMax"
+  0x0014cba0  ?GetLoadValueMinTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "offensiveConvertMin"
+  0x003676a0  ?GetLoadValueMinTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "retaliationConvertMin"
+  0x0014cb70  ?GetLoadXorTag@DamageAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "offensiveConvertXOR"
+  0x00367670  ?GetLoadXorTag@RetaliationAttributeAbs_Convert@GAME@@MBEPBDXZ
+        -> "retaliationConvertXOR"
+  0x0014cb50  ?GetType@DamageAttributeAbs_Convert@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x33 |  |  | 
+  0x0014cb50  ?GetType@DefenseAttributeAbs_Convert@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x33 |  |  | 
+  0x0014cb50  ?GetType@RetaliationAttributeAbs_Convert@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x33 |  |  | 
+
+######## Confusion
+  0x0014cf80  ?GetDisplayTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "DamageConfusion"
+  0x00367750  ?GetDisplayTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "RetaliationConfusion"
+  0x0014cf50  ?GetLoadChanceTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "offensiveConfusionChance"
+  0x00367720  ?GetLoadChanceTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "retaliationConfusionChance"
+  0x0014cf70  ?GetLoadGlobalTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "offensiveConfusionGlobal"
+  0x00367740  ?GetLoadGlobalTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "retaliationConfusionGlobal"
+  0x0014cfa0  ?GetLoadValueMaxTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "offensiveConfusionMax"
+  0x00367770  ?GetLoadValueMaxTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "retaliationConfusionMax"
+  0x0014cf90  ?GetLoadValueMinTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "offensiveConfusionMin"
+  0x00367760  ?GetLoadValueMinTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "retaliationConfusionMin"
+  0x0014cf60  ?GetLoadXorTag@DamageAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "offensiveConfusionXOR"
+  0x00367730  ?GetLoadXorTag@RetaliationAttributeAbs_Confusion@GAME@@MBEPBDXZ
+        -> "retaliationConfusionXOR"
+  0x0014cf40  ?GetType@DamageAttributeAbs_Confusion@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x35 |  |  | 
+  0x0014cf40  ?GetType@DefenseAttributeAbs_Confusion@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x35 |  |  | 
+  0x0014cf40  ?GetType@RetaliationAttributeAbs_Confusion@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x35 |  |  | 
+
+######## Stun
+  0x0014fb70  ?GetDisplayTag@DamageAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "DamageModifierStun"
+  0x0014c420  ?GetDisplayTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "DamageStun"
+  0x003689a0  ?GetDisplayTag@RetaliationAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "RetaliationModifierStun"
+  0x00367450  ?GetDisplayTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "RetaliationStun"
+  0x0014fb40  ?GetLoadChanceTag@DamageAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunModifierChance"
+  0x0014c3f0  ?GetLoadChanceTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunChance"
+  0x00368970  ?GetLoadChanceTag@RetaliationAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunModifierChance"
+  0x00367420  ?GetLoadChanceTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunChance"
+  0x0014fb60  ?GetLoadGlobalTag@DamageAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunGlobal"
+  0x0014c410  ?GetLoadGlobalTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunGlobal"
+  0x00368990  ?GetLoadGlobalTag@RetaliationAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunGlobal"
+  0x00367440  ?GetLoadGlobalTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunGlobal"
+  0x0014fb80  ?GetLoadModifierTag@DamageAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunModifier"
+  0x003689b0  ?GetLoadModifierTag@RetaliationAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunModifier"
+  0x0014c440  ?GetLoadValueMaxTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunMax"
+  0x00367470  ?GetLoadValueMaxTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunMax"
+  0x0014c430  ?GetLoadValueMinTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunMin"
+  0x00367460  ?GetLoadValueMinTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunMin"
+  0x0014fb50  ?GetLoadXorTag@DamageAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunXOR"
+  0x0014c400  ?GetLoadXorTag@DamageAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "offensiveStunXOR"
+  0x00368980  ?GetLoadXorTag@RetaliationAttributeAbsMod_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunXOR"
+  0x00367430  ?GetLoadXorTag@RetaliationAttributeReflex_Stun@GAME@@MBEPBDXZ
+        -> "retaliationStunXOR"
+  0x0014c3e0  ?GetType@DamageAttributeAbsMod_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@DamageAttributeReflex_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@DefenseAttributeAbsMod_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@DefenseAttributeAbs_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@DefenseAttributeDefenseCap_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@RetaliationAttributeAbsMod_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+  0x0014c3e0  ?GetType@RetaliationAttributeReflex_Stun@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2a |  |  | 
+
+######## Freeze
+  0x0014fc60  ?GetDisplayTag@DamageAttributeAbsMod_Freeze@GAME@@MBEPBDXZ
+        -> "DamageModifierFreeze"
+  0x0014c500  ?GetDisplayTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "DamageFreeze"
+  0x00367570  ?GetDisplayTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "RetaliationFreeze"
+  0x0014fc30  ?GetLoadChanceTag@DamageAttributeAbsMod_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeModifierChance"
+  0x0014c4d0  ?GetLoadChanceTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeChance"
+  0x00367540  ?GetLoadChanceTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "retaliationFreezeChance"
+  0x0014fc50  ?GetLoadGlobalTag@DamageAttributeAbsMod_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeGlobal"
+  0x0014c4f0  ?GetLoadGlobalTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeGlobal"
+  0x00367560  ?GetLoadGlobalTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "retaliationFreezeGlobal"
+  0x0014fc70  ?GetLoadModifierTag@DamageAttributeAbsMod_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeModifier"
+  0x0014c520  ?GetLoadValueMaxTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeMax"
+  0x00367590  ?GetLoadValueMaxTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "retaliationFreezeMax"
+  0x0014c510  ?GetLoadValueMinTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeMin"
+  0x00367580  ?GetLoadValueMinTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "retaliationFreezeMin"
+  0x0014fc40  ?GetLoadXorTag@DamageAttributeAbsMod_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeXOR"
+  0x0014c4e0  ?GetLoadXorTag@DamageAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "offensiveFreezeXOR"
+  0x00367550  ?GetLoadXorTag@RetaliationAttributeReflex_Freeze@GAME@@MBEPBDXZ
+        -> "retaliationFreezeXOR"
+  0x0014c4c0  ?GetType@DamageAttributeAbsMod_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2d |  |  | 
+  0x0014c4c0  ?GetType@DamageAttributeReflex_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2d |  |  | 
+  0x0014c4c0  ?GetType@DefenseAttributeAbs_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2d |  |  | 
+  0x0014c4c0  ?GetType@DefenseAttributeDefenseCap_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2d |  |  | 
+  0x0014c4c0  ?GetType@RetaliationAttributeReflex_Freeze@GAME@@UBE?AW4CombatAttributeType@2@XZ
+        -> eax, 0x2d |  |  | 
+

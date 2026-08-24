@@ -1,0 +1,59 @@
+=== 0x004356f0  @ RVA 0x004356f0  (nearest=?DispelBuff@SkillBuff_Passive@GAME@@UAEXAAVCharacter@2@@Z)
+  0x004356f0  push     ebp
+  0x004356f1  mov      ebp, esp
+  0x004356f3  mov      eax, dword ptr fs:[0]
+  0x004356f9  push     -1
+  0x004356fb  push     0x104c0228
+  0x00435700  push     eax
+  0x00435701  mov      dword ptr fs:[0], esp
+  0x00435708  sub      esp, 0x18
+  0x0043570b  push     esi
+  0x0043570c  mov      esi, ecx
+  0x0043570e  mov      eax, dword ptr [esi]
+  0x00435710  call     dword ptr [eax + 0x2bc]
+  0x00435716  mov      al, byte ptr [eax + 0x2c0]
+  0x0043571c  test     al, al
+  0x0043571e  jne      0x1043577b
+  0x00435720  mov      ecx, dword ptr [esi + 0x24]
+  0x00435723  test     ecx, ecx
+  0x00435725  jne      0x10435733
+  0x00435727  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x0043572d  add      ecx, 0x29094
+  0x00435733  mov      eax, dword ptr [ecx]
+  0x00435735  push     edi
+  0x00435736  call     dword ptr [eax + 4]
+  0x00435739  mov      edi, eax
+  0x0043573b  test     edi, edi
+  0x0043573d  je       0x1043577a
+  0x0043573f  mov      ecx, esi
+  0x00435741  call     dword ptr [0x104e528c]   ; f32=1.16449e-38 i32=8310058 f64=2.74147e-306
+  0x00435747  push     eax
+  0x00435748  lea      ecx, [ebp - 0x24]
+  0x0043574b  call     0x1000c380   ; -> ??0CombatAttributeAccumulator@GAME@@QAE@ABV01@@Z+0x100
+  0x00435750  mov      dword ptr [ebp - 4], 0
+  0x00435757  lea      ecx, [ebp - 0x24]
+  0x0043575a  mov      eax, dword ptr [edi]
+  0x0043575c  push     1
+  0x0043575e  push     ecx
+  0x0043575f  mov      ecx, edi
+  0x00435761  call     dword ptr [eax + 0x30]
+  0x00435764  mov      edx, dword ptr [ebp - 0x10]
+  0x00435767  cmp      edx, 0x10
+  0x0043576a  jb       0x1043577a
+  0x0043576c  mov      ecx, dword ptr [ebp - 0x24]
+  0x0043576f  inc      edx
+  0x00435770  push     1
+  0x00435772  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x00435777  add      esp, 4
+  0x0043577a  pop      edi
+  0x0043577b  mov      ecx, dword ptr [ebp - 0xc]
+  0x0043577e  pop      esi
+  0x0043577f  mov      dword ptr fs:[0], ecx
+  0x00435786  mov      esp, ebp
+  0x00435788  pop      ebp
+  0x00435789  ret      4
+  0x0043578c  int3     
+  0x0043578d  int3     
+  0x0043578e  int3     
+  0x0043578f  int3     
+
