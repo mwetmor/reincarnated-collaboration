@@ -1,0 +1,128 @@
+# Dispatch — 2026-08-24 — star-lord — the Codex durable queue (U-4 lane, made standing)
+
+**Status:** PENDING
+**From:** knight-rider (Matt directive, 2026-08-24 — Codex-lane HIGH-UPTIME provisions)
+**To:** star-lord (export / output / telemetry / llm seam — and the factory harness)
+**Approved by:** Matt, 2026-08-24
+**Pattern:** B (dedicated session)
+
+---
+
+## Context — why this, and why now
+
+The Codex lane is **a proven instrument**, and that is a measured statement, not an impression: **34/34 jobs `rc=0`** across the VFX archetype-binding run, fabrication checks clean, one judged selection gate downstream. Matt's directive is short and it is the whole reason this dispatch exists:
+
+> **Hand-fired scripts are the bridge; the queue is the uptime.**
+
+Today the lane runs off `agentic_orchestration/research/vfx-p2-dossiers/run_p2_serial.sh` — a good script, strictly serialized, idempotent on re-entry, per-job usage JSONL. It works. It is also **bespoke to one job class**, and its liveness is a human remembering to fire it. Every new job class means a new hand-cloned script, and every clone is a fresh chance to get the serial law wrong.
+
+`agentic_orchestration/factory/harness/codex.py` is currently **an honest stub** — `HONEST_STUB = True`, `available()` returns `False`, `run()` raises. It was pinned deliberately so the fill would be a body-fill rather than a redesign. **The lane is now open** (auth healthy; last `_run-log.tsv` row terminal), so the block that stub names is gone. Fill it.
+
+---
+
+## THE SERIAL LAW — absolute, and it is the one thing this build must not get wrong
+
+> **ONE `codex exec` at a time. One `auth.json`, one job stream.**
+
+This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or serialized job stream."* Concretely, for this build:
+
+- **The queue never runs two jobs concurrently.** Not "usually," not "unless the jobs are small." Never.
+- **A busy lane means queue behind it or fire the Claude lane — NEVER parallel.**
+- The mechanism must make violation *structurally impossible*, not merely discouraged. A lock that a caller can forget to take is not a lock. **If a second queue process starts, it must fail closed** — refuse to run, exit non-zero, and say why.
+- **Crash-safety matters more than throughput here.** A lock left behind by a killed process that then blocks the lane forever is a real failure mode; so is a lock that a stale-PID check clears too eagerly and lets two jobs run. Choose deliberately and **write down which failure you chose to risk and why.**
+
+## MODEL PIN — of record, do not drift
+
+**`gpt-5.6-sol` @ `model_reasoning_effort=xhigh`.** Every banked lane statistic — the 34/34, the 93.2 % cache-hit, the fabrication-check pass rate — was measured at this config. **A silent swap invalidates the whole baseline.** The pin belongs in the harness as a declared constant with a comment saying exactly that. Changes require the A/B evidence template in U-4 (~6 duplicate jobs, candidate vs pinned; criteria = curation WARN rate + URL-verification pass rate), never an edit.
+
+## AUTH HEALTH — a first-class queue state, not an exception
+
+`codex login status` is the check. Expired auth is **not** a job failure to retry — re-auth is a **Matt-only action**.
+
+- The queue detects it, **stops taking Codex jobs**, and surfaces it loudly.
+- Matt's directive is explicit about the response: **file a `canonical/matt_to_do/` row immediately and fall back to the Claude lane rather than idling the work.** Idle work is the failure; a filed row plus a fallback is the success.
+- Whether the queue *writes* that row automatically or emits the condition for KR to file is your call — **but do not have it write to `matt_to_do/` silently and unattributably.** Name what you chose.
+
+---
+
+## Scope
+
+### The queue itself
+
+- [ ] **Fill `factory/harness/codex.py`** against the existing `HarnessAdapter` protocol in `harness/base.py` — `run(prompt, cwd, config) -> RawResult`, `available()`. Return a real `RawResult`: `ok`, `text`, `usage`, `harness`, `model`, `exit_code`, `raw_output_path`, `prompt_path`, `error`. **`available()` must now tell the truth in both directions** — it returns `False` when auth is expired or the lane is busy, and the *reason* must be surfaceable, not swallowed.
+- [ ] **`codex exec --json` emits per-turn usage natively.** Map it into `UsageBreakdown` the same way `claude_code.py` maps the `result` frame. Do not invent a second usage vocabulary; the spine already has one.
+- [ ] **Clone the proven runner's semantics, don't reinvent them.** From `run_p2_serial.sh`: strict serialization, **idempotent re-entry** (a re-fired queue must not redo completed jobs), per-job usage JSONL, per-job stdout and stderr captured to separate files. `-s read-only` and `--skip-git-repo-check` are the posture of record for research jobs; make the sandbox posture a **declared per-job-class config value**, not a hardcoded constant — a future job class may need something else and it must be a visible decision when it does.
+- [ ] **A standing durable queue**, not a one-shot: jobs enqueue as files/rows; the queue drains them serially; state survives process death. **Re-entry after a crash must be safe and must be tested** — kill it mid-job and restart it, and report what happened.
+- [ ] **`_run-log.tsv` remains the lane's liveness surface.** The pre-fire check of record — *"last row terminal"* — is what the U-4 router's question (3) reads and what KR reads at session start. **Do not break that contract while generalizing it.** If you extend the format, the terminal-row check must still be answerable by a human running `tail -1`.
+
+### The telemetry half (U-1(a) from birth)
+
+- [ ] **Emit per-job lifecycle telemetry as append-only JSONL from day one.** Matt's framing: *"This also births U-1(a) telemetry for the lane from day one."* Minimum grain: enqueue → start → finish timestamps, job identity, model + reasoning-effort actually used, exit code, token usage, retry/fallback flags, terminal outcome.
+- [ ] ⚠ **DO NOT pre-commit to the U-1 record schema.** The fleet flight-recorder spec (`gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md`) is **DRAFT and awaiting Matt's fork rulings F-1…F-8** (queue Q61), and jack-ryan has not ratified its schema or THE LAW. Emit the facts in a shape that a recorder can *read and normalize later*; do not freeze axes Matt has not ruled on. **If you find yourself needing a schema decision to proceed, that is a HALT to knight-rider, not a design choice at the keyboard.**
+- [ ] **THE LAW applies pre-emptively:** any view over this data is **read-only, zero authority, never in the data path.** The queue is the data path; a board is a projection. Do not build anything that reads queue state and then *writes back into it*.
+
+### Fault fallback
+
+- [ ] **Junk output or an unmodeled condition → the named Claude agent takes the lane, no re-litigating.** Encode this as the queue's declared failure posture: it does not retry indefinitely, it does not improvise, it marks the job for Claude-lane pickup and moves on. (This is the VFX charter P2 fallback, generalized.)
+- [ ] **Every vendor-lane output must have a named Claude curator downstream — no exceptions. That is the governance line.** The queue must carry the curator's identity as a **required** job field. A job that cannot name its curator does not enqueue.
+
+### Standing
+
+- [ ] Tests: serial-law violation attempt fails closed · crash-and-resume is safe · idempotent re-entry does not redo work · auth-expired path stops cleanly and surfaces
+- [ ] `AGENT_STATE.md` updated; MIGRATION.md if any factory-consumed surface moves
+- [ ] Tag `star-lord/v<X.Y>-codex-durable-queue-1`
+
+## Cross-seam contract change? (Principle 6 gate)
+
+**YES — likely.** `codex.py` implements a registered harness the factory spine consumes, and the queue introduces a job-record surface plus a telemetry surface that downstream consumers (U-1 recorder, board, KR's liveness check) will read.
+
+- **Required:** `Round-trip smoke: a production-path factory workflow selecting the codex harness → enqueue → serial drain → RawResult returned to the spine → receipts/usage recorded, with a field-presence check on RawResult's usage + model + exit_code and a terminal-row check on _run-log.tsv.`
+- **MIGRATION.md required per ADR-004** for the job-record and telemetry surfaces — those are the surfaces other seams will build against, and `factory/MIGRATION.md` already exists as the place it goes.
+- The stub's removal is itself a behavioral contract change: **`available()` flipping `False → True` changes what the spine will route.** Say so in MIGRATION.md.
+
+## Acceptance criteria
+
+- [ ] `codex.py` is a real adapter; `HONEST_STUB` and `BLOCKED_ON` are **gone**, not left lying next to working code
+- [ ] Serial law enforced structurally; a concurrent-start attempt fails closed with a stated reason
+- [ ] Crash-resume and idempotent re-entry demonstrated, not asserted
+- [ ] Model pin declared as a constant with the "every banked statistic was measured here" note
+- [ ] Auth-expired path: stops taking jobs, surfaces the condition, names the `matt_to_do/` + Claude-fallback response
+- [ ] Per-job telemetry emitted append-only, **without freezing an unratified U-1 schema**
+- [ ] Curator field required at enqueue
+- [ ] `_run-log.tsv` terminal-row liveness check still answerable by `tail -1`
+- [ ] Round-trip smoke green; MIGRATION.md written
+- [ ] Tag cut
+
+## Quality criterion
+
+**Game-quality goal this dispatch serves:** it is indirect and it is real — **the lane is capacity, and capacity is content.** The VFX run's 24-archetype reference corpus existed because the lane could grind 34 serial research jobs nobody had hours to do by hand. A durable queue means the next 24-row corpus does not wait on a human remembering to re-fire a shell script. **Uptime on this lane converts directly into how much of the game gets built.**
+
+**Refutation conditions** (surface to knight-rider before executing if any apply):
+- The serial law cannot be enforced structurally with the mechanisms available — say what you'd need; **do not ship a lock that relies on callers behaving**
+- Proceeding requires a U-1 schema decision that Matt has not ruled (F-1…F-8) — **HALT, do not choose for him**
+- Generalizing the runner would break the `_run-log.tsv` terminal-row contract KR and the U-4 router both read
+- The acceptance criteria can all pass while the queue still permits two `codex exec` processes under some path you did not test
+- The queue would become a second source of truth about work state rather than a lane — that violates THE LAW's spirit before U-1 even lands
+
+## Out of scope
+
+- **The board / any UI.** U-1(b) is a separate build behind the ≥2-workflow gate. You build the recorder-side emission; nobody renders it here.
+- **Ratifying the U-4 router.** That is jack-ryan's, in flight.
+- **Adding a Grok lane or any third vendor.** Admitted-in-principle via the U-8 judge door only, and gated.
+- **Any third-party router/harness — Pi Agent Harness included.** DSH rejection is REAFFIRMED and generalized: context binds via AGENTS.md + brief through OUR harness; provider resolution is one line in `codex.py`.
+- **Routing discipline-heavy seams to the lane.** gamora's law-stack, jack-ryan's gate authority, and the orchestrator seam HOLD permanently.
+- Re-opening the F2 baton-consumer pilot (staged behind D5 revisit).
+
+## References
+
+- `agentic_orchestration/workflow-upgrades.md` § U-4 (lane shape, serial law, model pin, router, fault fallback) · § U-1 (flight recorder + THE LAW) · § U-3 (cache lever)
+- `agentic_orchestration/factory/harness/base.py` (the pinned protocol) · `harness/claude_code.py` (the live-lane reference implementation, incl. how honestly to document a measured flag surface) · `harness/codex.py` (the stub to fill)
+- `agentic_orchestration/research/vfx-p2-dossiers/run_p2_serial.sh` + `usage/_run-log.tsv` (the proven pattern and the liveness surface)
+- `gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md` — **DRAFT, awaiting Matt F-1…F-8; read for shape, do not implement its schema**
+- `gandalf/requests/2026-08-24-knight-rider-u1-fleetboard-build.md`
+
+---
+
+## Gate record
+
+- jack-ryan Gate-1 DESIGN-MODE: **pending at authoring time** — Gate-1 batch review, 2026-08-24. **Gate-1 should specifically check that the U-1 schema is not being frozen ahead of Matt's rulings, and that the serial law is enforced structurally rather than by convention.**
