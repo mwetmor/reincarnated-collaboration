@@ -419,5 +419,41 @@ file — or later one local page — and see what scattered scrollback used to e
 
 ---
 
+## 12 · Boundary with Glance + maintenance-cost budget (Matt clarity questions, 2026-08-24)
+
+### 12.1 Glance vs the fleet board — two instruments, two substrates
+
+| | **Glance** (Vercel, live) | **U-1 fleet board** (this spec) |
+|---|---|---|
+| Substrate | **Authored canon**: `canonical/**` trackers + the two Matt queues, parsed deterministically on every **push** | **Operational lifecycle events**: the new `flight/records-*.jsonl` tape + render-time local probes |
+| Question answered | *"What is the state of the WORK/spec?"* — trackers, deltas, queue rows, `gates-on` chains, dangling tokens, FLOW bars | *"What is the fleet DOING and what did it cost?"* — runs/dispatches in flight, verdicts, tokens by provider/pin/currency, window meters, auth/push/staleness health |
+| Sees sessions? | Never — knows nothing about sessions, lanes, models, tokens, or runtime | Yes — lifecycle rows at ENQUEUE/START/GATE/HALT/CLOSE boundaries; **the tape is append-only history**, so SEALED rollups + per-model scorecards accumulate over months (NOT only open/recent sessions; IN-FLIGHT/AT-GATE lanes are current-state *derivations* from that permanent record) |
+| Update trigger | Push → GitHub Action → static deploy (can't see anything unpushed, by definition) | Local append at lifecycle boundaries; report regenerated on demand |
+| Can it show unpushed commits, codex auth, local disk, env flags? | **Structurally never** — a Vercel build only sees pushed state; auth/disk/env are Mac-local facts | Yes — that's what the render-time read-only probes are FOR (the HEALTH lane is mostly pre-push, local-only truth) |
+| Overlap | `matt_decision_needed` / `matt_to_do` counts (header strip) | AWAITING-MATT lane — **same two disk files rendered**, deliberately: both are views of ONE truth (the queue READMEs), so no second truth exists; the fleet board adds tape-derived HALTs/veto-windows Glance can't know about |
+
+Glance's "dangling" counters are **dangling `gates-on:` reference tokens in canon docs** — spec-graph debt. Nothing to do with sessions. The two instruments compose: Glance = the plan's ledger; fleet board = the shop floor's tape. Both obey the same founding principle (derived, never authored; no LLM in the truth path).
+
+### 12.2 What data is tracked — the exhaustive list
+
+**Stored on the tape (per row):** event type (ENQUEUE/START/GATE/HALT/CURATION/SNAPSHOT/CLOSE) · unit identity (`unit_id`, `unit_kind`, `parent_id`, `workstream`, `operator`, `seam`) · lane identity (`provider`, `lane`, `pin`, `model_echo`, `harness`, `harness_version`, `currency`) · outcome (`verdict` from named gatekeepers only, `rc`, `artifacts` path+bytes, `derived_from` pointer to raw vendor stream) · cost **primitives only** (tokens input/cached/cache-write/output/reasoning — copied from vendor usage streams, never estimated) · SNAPSHOT meter captures (`meter_raw` as the meter reports it). **Probed at render time, never stored:** git status ×4 repos · codex/gh auth state · env flags · Matt-queue tables · `requests/` dirs · disk. **Never captured anywhere:** session prose, conversation content, authored status claims. Lifecycle boundaries only.
+
+### 12.3 Token cost of maintaining the view — near-zero marginal, by construction
+
+No LLM exists anywhere in the tape→view path (inherited Glance principle). Where tokens do and don't go:
+
+| Path | Token cost |
+|---|---|
+| Codex-queue emission | **0** — the harness script writes rows outside any model context; vendor usage JSONL exists anyway |
+| Claude-session hooks + cron SNAPSHOT | **0** — shell, no model in the loop |
+| `flight_report` regeneration + Tier-2 board render | **0** — deterministic scripts reading disk |
+| An agent emitting a row in-session via Bash (`flight_record CLOSE …`) | ~150–250 tokens per event (tool call + echo); ~2–4 events per dispatch → **~500–750 tokens per dispatch**, against dispatches that run 10⁵–10⁶ tokens: **<1% worst case, ≈0.1% typical** |
+| Reading the report | Matt's eyes — free. Agents don't read the board (THE LAW), so no session ever pays to consume it |
+| One-time builds | Normal dispatch cost (star-lord recorder, drax board) — the only real spend, paid once |
+
+The design rule that keeps it this way: **anything that would require an LLM to summarize, classify, or narrate for the board is out of scope for the truth path.** A narrative digest may someday ride ON TOP (as Glance § 8 reserves); the tape and its renders stay deterministic.
+
+---
+
 **Signed:** gandalf (SPEC-AUTHOR + ELICITOR), 2026-08-24. The tape must be boring, complete, and
 incapable of opinion; the board must be loud, derived, and incapable of authority.
