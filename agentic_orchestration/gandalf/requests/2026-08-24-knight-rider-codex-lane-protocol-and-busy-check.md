@@ -12,6 +12,42 @@ This file contains TWO things:
 
 ---
 
+## ⚑ MID-FLIGHT AMENDMENT — 2026-08-24, AFTER THIS FILE WAS HANDED TO GANDALF
+
+**READ THIS BEFORE § A. Roughly half of deliverable (B) shipped while you were reading the commission for it.**
+
+star-lord's durable-queue build landed (`dbd5bf22`, `660dfd6a`, tag `star-lord/v1.0-codex-durable-queue-1`) at `agentic_orchestration/factory/lane.py`. **I tested it live rather than reading it** — three states, one process:
+
+```
+lock path: /Users/admin/.reincarnated/lane-locks/codex-7b80b031a89d.lock
+free (nothing running)?   True
+free while HELD?          False
+free after release?       True
+```
+
+**`lane.lane_is_free()` is the cross-session busy check.** The lock file lives **outside every repo**, keyed to a hash of the resolved `CODEX_HOME` — so its subject is *the `auth.json` being serialised*, not a queue directory, not a working tree. It answers across sessions, repos, and worktrees.
+
+**What this settles, by construction rather than by spec:**
+
+- **G-1 (truth source)** — `fcntl.flock(LOCK_EX|LOCK_NB)`. The kernel holds it and drops it when the holder dies, **including on SIGKILL where no userspace cleanup runs.** State is *derived* from the kernel, never *asserted* by a file's contents. #73 satisfied structurally, which is the strongest form.
+- **G-2 (which failure we choose)** — chosen, documented, and **both directions have a row**: a dead process's lock is refused the right to outlive it (no PID, no reaper, deliberately no `--force`); a *live orphaned* `codex exec` **does** hold the lane until it exits, because that process is genuinely using `auth.json`. star-lord rejected PID-file+reaper on the reasoning that its two failure modes are symmetric and both fatal.
+- **G-3 (granularity)** — per-`CODEX_HOME`, i.e. **per-account**. And the *reason* I said was written down nowhere is now written down: an **OpenAI CI/CD-auth precondition — "one machine or serialized job stream"** — not a preference. Granularity follows the reason exactly as G-3 predicted it should.
+- **G-4 (query vs acquire)** — `lane_is_free()` is explicitly **ADVISORY**: it acquires and immediately releases, and its own docstring names the TOCTOU — *"a PROBE, not a reservation… between its answer and any use of that answer the lane can change hands."* The guarantee is the lock held across `subprocess.run`, at exactly one call site.
+- **G-5 (works with the queue down)** — yes. It is a library call against a lock file in `~/.reincarnated/`; no queue process need be running.
+
+**What is STILL YOURS, and is now the whole job:**
+
+- **G-6 — Matt's hand-run `codex` is INVISIBLE to this.** A raw `codex` in a terminal never enters `CodexHarness.run()`, so it takes no lock and `lane_is_free()` will cheerfully report **True** while Matt is mid-session. This is now the **single largest remaining hole**, and it cannot be closed inside agent tooling — it needs either a wrapper Matt actually uses, or an out-of-band liveness derivation (process scan), or an explicit accepted-risk ruling. **Rule on it.**
+- **G-7 — what a machine-answerable Q3 `NO` means for the router.** Untouched by the build, and now *more* pressing: the check is cheap and reliable, so Q3 stops being a memory question and becomes a branch. Route-to-Claude versus queue-and-wait are two different routers, and **R-D** makes each recorded NO durable and countable.
+- **G-8 — recorder versus read-model.** `Telemetry` now emits append-only JSONL from birth, so the events exist. Whether lane state is *emitted* by the check or *derived* by the recorder is undecided — and getting it backwards makes the busy check the second truth source **THE LAW** exists to prevent, in its most dangerous form: the one that gates firing, and therefore feels authoritative.
+- **All of deliverable (A)** — the operating protocol. Entirely untouched by this build. Serial-law enforcement point, auth-health precondition, model pin, fault fallback, HELD-job release. Still living in a Matt directive and in my head.
+
+**One more thing the build produced that belongs in your protocol.** star-lord's own defect record: **`codex login status` answers on stderr with empty stdout.** His `check_auth` read stdout and therefore reported the healthy lane **expired unconditionally** — the queue would never have drained a single job. He notes **no unit test could have found it, because his fakes shared the bug's premise**; the live run caught it on first invocation. The auth-health precondition in deliverable (A) must specify *which stream it reads*, and the protocol should say plainly that a fake sharing the bug's premise is not a test.
+
+**Read `factory/lane.py` and `factory/MIGRATION.md` before specing.** Do not spec around what shipped, and do not take the paragraph above on my word — my numbers have had a bad run and **#19.1(b)** applies to me hardest.
+
+---
+
 ## § A — SESSION PROMPT (paste this)
 
 > You are gandalf, in **ELICITOR / SPEC-AUTHOR** mode. Run your session-start protocol first, then take this commission. **You author a spec; you do not build.** jack-ryan ratifies after you; star-lord builds after him.
