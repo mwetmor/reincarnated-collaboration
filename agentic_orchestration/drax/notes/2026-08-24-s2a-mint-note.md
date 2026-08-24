@@ -665,4 +665,251 @@ evidence, and the honest move is to mark it rather than to imply a basis I do no
 
 ## 9 · RESULTS
 
-> *Appended after the build. Everything above this line was committed first.*
+> *Appended after the build. Everything above this line was committed first, in
+> commit `40d22e99`, before a single effect node existed.*
+
+**Capture set:** `reincarnated-godot/harness_logs/s2a_2026-08-24-final/` — **21 arms, 156 PNGs**,
+every one rendered at stage albedo **0.085** and at the ratified combat camera. Machine-graded
+receipts in `gate.json`; per-mark logs including the full C-8 census in `render.txt`.
+
+### 9.0 ⚑ C-8 — DISCHARGED, and the instrument earned its place immediately
+
+**Across all 21 arms: `non_authored_emitter_count: 0`.** Every emitter in every frame galadriel
+receives is one I authored. The declaration is derived by `scripts/s2a_census.gd` walking the live
+viewport at each capture mark, not assembled from memory.
+
+**It found something my hand-list did not, on the first run:**
+
+| Emitter | On my C-8 list? | Disposition |
+|---|---|---|
+| `KingRig.HolyAura` | yes | **stripped** — `stock_vfx_enabled = false` |
+| `KingRig.SwordLootVFX` | yes | **stripped** — same flag |
+| `KingRig/…/Greatsword/SF_Wep_Elven_Sweihander_01` — `MeshInstance3D[emissive]` | **NO** | **neutralised** |
+
+The rig applies a teal **emissive** material to the blade. On `melee_strike` that is not background:
+it sits **on the very blade the weapon trail is generated from**, glowing a fixed cyan. A fire-tinted
+trail measured against a permanently teal blade is a Tier-1 recolour score taken against a second,
+undeclared tint channel — **the same error class as judging albedo against 0.20.** Neutralised
+(`emission_enabled = false` on a *duplicated* material; `Assets/` never mutated) rather than hidden,
+because `physical-cause` needs a **visible** weapon — a blade you cannot see causes nothing. It is
+now stage-lit steel.
+
+**This is the whole argument for deriving the declaration.** My enumeration was two items; the hazard
+was three. A hand-list is illustrative of the hazard, never exhaustive of it — the same shape as the
+whitelist ruling, arriving in a different room.
+
+**Rig-fix verdict (dispatch's third C-8 bullet):** capture-time for this tranche, **and it is a rig
+defect.** `KingRig` became the project's default humanoid staging rig while still shipping throne-room
+set dressing. `stock_vfx_enabled: bool = true` added — **blast radius zero**, existing scenes
+unchanged — and it replaces the whirlwind stage's name-matched `_hide_named()`, which fails *silently*
+on a rename. **Routed to knight-rider: the default should eventually be `false`, with throne-room
+scenes opting in. A staging rig should not ship an effect; a scene should mount one.** Not executed —
+that is a behaviour change to other seams' scenes.
+
+### 9.1 THE METHOD FINDINGS — three defects, each caught by disbelieving a number
+
+These cost most of the session and are the most transferable thing in it. **All three produced
+plausible numbers.** None announced itself.
+
+**(1) The trail never rendered at all — and every diagnostic said it was fine.**
+`MeshInstance3D.mesh` was never assigned. The `ImmediateMesh` was rebuilt correctly every frame into
+an object nothing drew. Surfaces existed, vertices were right, material was right, node was
+`visible_in_tree`. I chased it through primitive type (STRIP → TRIANGLES), mesh class (Immediate →
+Array), cull margin and parenting — **because every probe I wrote interrogated `_ribbon_mesh` (the
+mesh I was BUILDING) instead of `_ribbon` (the instance that DRAWS).** Mesh AABB: valid. Instance
+AABB: `(0,0,0)/(0,0,0)`. One print of the second number would have ended it in a minute.
+
+> **Discipline #11 is "empirical inspection over assumption." I inspected — the wrong object. That is
+> assumption wearing a measurement's clothes. INSPECT THE ARTIFACT THAT SHIPS, NOT THE ONE YOU
+> AUTHORED.**
+
+**(2) The ON/OFF control was not a control.** Effects ran on the stage's fixed 1/60 s clock; the rig
+and mob `AnimationPlayer`s were still on **real frame time**. Two runs of the same arm reached a mark
+with the bodies posed differently. The diff reported **404–573 "trail pixels"** — a plausible,
+publishable number, every pixel of it animation phase. I nearly read it as readability evidence.
+Fixed by putting every `AnimationPlayer` on the stage clock. **Receipt that it worked: `00-pre` and
+`08-post` now diff to exactly `0` on all five melee arms.** The whirlwind gate hit this class from the
+other direction (its v1 control was "no whirlwind at all", so it measured the caster's pose).
+**A control has to control everything that moves.**
+
+**(3) The read-through ratio had a control on only one side.** First form diffed each arm against its
+own *earlier* frame, so the aura's drifting influence particles landed in the numerator: **retention
+6.383** — the trail apparently six times *more* visible inside the field. Rebuilt as a four-arm
+matrix (aura×trail on/off, same frame, one variable each): **retention 0.998.**
+
+**And (4), the same shape once more, caught by the gate rather than by eye:** the GTC payload
+rendered **sub-pixel** at its first scale — present, correct material, counted by the census,
+contributing zero lit px. It surfaced because `erupt` and `descend` returned **byte-identical**
+coverage at the payload-mid mark, and two variants differing only in payload direction cannot measure
+identical unless the payload is not there. Motifs are now **normalised to one world size**, so a
+motif-swap changes shape and not scale — otherwise "motif-swap survivable" measures size.
+
+### 9.2 ROW 1 — `melee_strike`
+
+| element | swing lit px | × vs C-5 `p_trail` (535 px = "effectively invisible") | contact lit px | mean Δrgb |
+|---|---:|---:|---:|---|
+| `neutral` | 2,022 | 3.8× | 12,021 | (117, 115, 111) |
+| `fire` | 2,025 | 3.8× | 12,806 | (122, 89, 41) |
+| `water` | 2,014 | 3.8× | 12,059 | (73, 101, 113) |
+| `earth` | 2,015 | 3.8× | 11,370 | (114, 98, 61) |
+| `wind` | 2,018 | 3.8× | 12,119 | (105, 117, 103) |
+
+**Determinism receipt: `00-pre` and `08-post` = 0 lit px on every arm.**
+
+Runtime selfcheck, every arm: `tinted_count_ok true` (exactly 2 kinds: trail, hit) ·
+`body_anchored_ok true` (**3 hits fired, 0 off-body, max body error 0.0000 m**) ·
+`no_ground_propagation_ok true` (min authored Y **1.013 m** vs `GROUND_EPS` 0.15) ·
+`trail_within_blade_reach_ok true` (ribbon r_max **2.381 m** = blade tip r_max — the trail cannot
+exceed the weapon that generates it) · `ribbon_max_dev_from_blade_m 0.0` ·
+`burst_separation_ok true` · `has_ground_layer false` · `has_field_layer false`.
+
+**Both "must NOT" clauses hold as measurements, not intentions.** No ground propagation is a number.
+No body-surrounding field is an assert.
+
+**⚑ The failure that looks like success, observed in pixels.** An intermediate tune
+(`TRAIL_ENERGY 1.7`, wide band, shallow fade) produced a **thick cream-white crescent**: highly
+readable, and its element tint was **gone**. Additive stacking blown to white — **C-3 arriving from
+inside the effect instead of off the floor.** It is the more dangerous of the two failure directions
+because nothing in the frame complains. Retuned to an edge rather than a sail.
+
+**RT-2 — DOES NOT FIRE. The verdict is galadriel's; here is the measurement and my reading.**
+RT-2 fires when a `TRAIL-BOUNDED` row's element variants read **indistinguishable**. Pairwise hue
+separation: `fire|water` **31.2°**, `water|earth` 23.1°, `fire|wind` 21.0°, `neutral|fire` 20.6° …
+and **`neutral|wind` 3.0°**, the only near-collapse.
+
+`neutral` (0.90, 0.92, 0.98) and `wind` (0.72, 0.95, 0.82) are **two near-identical pastels in a
+palette I authored** (§ 8, Class A). **That is a palette defect, not a surface-class defect** — the
+same surface separates fire from water by 31°. Firing RT-2 on it would blame `TRAIL-BOUNDED` for my
+colour choices and push a row toward `PAYLOAD-CARRIED` for no reason. **Recorded as a palette finding
+routed to rocket's element-grading seam (X-3), with the numbers.** galadriel has the full pair matrix
+and should reach her own RT-2 verdict independently.
+
+**Third-stroke escalation hook — NOTED, NOT BUILT (as instructed).** Confirmed from the built
+structure: `_stroke` already selects arc direction and resets the ribbon, so an escalation is a
+per-stroke multiplier on `TRAIL_SPAN_S`, ribbon energy and hit count — **three existing scalars, no
+new node, no new asset, and the tinted-surface count stays 2**, so the § 1.6 assert still passes with
+escalation on. Room confirmed; nothing built.
+
+### 9.3 ROW 2 — `ground_targeted_circle` (RT-8)
+
+| arm | telegraph px | **perimeter 10→90 % rise** | payload-mid px | interior/perimeter | interior opaque |
+|---|---:|---:|---:|---:|---:|
+| fire · descend · hostile | 80,970 | **1 px** | 93,277 (4.50 %) | 0.110 | 1.9 % |
+| water · descend · hostile | 76,906 | **1 px** | 89,735 (4.33 %) | 0.094 | 1.6 % |
+| earth · descend · hostile | 57,654 | **1 px** | 82,370 (3.97 %) | 0.084 | 1.3 % |
+| fire · **erupt** · hostile | 80,970 | **1 px** | 81,474 (3.93 %) | 0.110 | 1.9 % |
+| water · descend · **friendly** | 70,603 | **1 px** | 85,865 (4.14 %) | 0.093 | 1.4 % |
+| fire · descend · **large** | 334,782 | **1 px** | 335,735 (**16.19 %**) | 0.115 | 1.8 % |
+
+**Perimeter definition — the deciding property — measures 1 px on every arm.** The 10 %→90 % edge
+rise is a single pixel: maximally hard. GD Devastation was rejected for a perimeter that established
+the footprint *temporally*; this one is a hard band, and now that is a number rather than a word.
+
+**Telegraph precedence: `telegraph_precedence_ok true`.** The perimeter reaches full intensity at
+**t = 0.183 s** while the payload is still **5.5 m** from the ground (`TELEGRAPH_H` 1.5). The player
+reads *"a thing is going to land THERE"* before it lands.
+
+**Meteor-Indigo interior bloom — DOES NOT OCCUR.** Nominal 0.1097 → large 0.1147 (+0.005). Interior
+opaque fraction actually **falls** with scale, 1.90 % → 1.79 %. A bloom is the ratio *rising*; it
+does not. Checked at large scale before calling it done, as instructed.
+
+**Coverage, and the ≈20 % target — a real measurement taken against the wrong stage, a third time.**
+Measured 3.97–4.50 % nominal, **16.19 % at large**. § 3.1.1's ≈20 % was measured on the *reference's*
+camera; our ratified combat camera frames ~24.7 m × 44.0 m ≈ 1,087 m² of ground, so hitting 20 % here
+needs **r ≈ 9.19 m** — an 18-metre meteor, wider than a structure-1 tight room (20–30 m). I built to
+the intent (mid-band, legible, does not occlude) at r = 4.0 m and **carried the arithmetic in the code**
+(`coverage_note()`) rather than resolving it silently. **This is the C-3 error class through a third
+door, and C-8 was the second.** Surfaced for gandalf: the ≈20 % figure is not portable across cameras.
+
+**RT-8 `zone_valence` — WORKS.** Same element, valence-only delta: hostile (27, 38, 45 — blue) vs
+friendly (23, 32, 24 — green), **13.19° hue separation**, plus the segmented-perimeter structural
+signature at zero new assets. **The convention is authored and flagged** (§ 8, `SCAFFOLD-WITH-PENDING-
+DECISION`): *valence outranks element on the zone layers.* Ratify or overrule — a palette rule binding
+~7 skills should not be inherited by default.
+
+**RT-8 `payload_vector` — THE ANSWER THE DISPATCH ASKED FOR, and it is a qualified yes.**
+
+- **The EMITTER shares cleanly.** `perimeter_hash` is **byte-identical** between `descend` and `erupt`
+  (`1727583023` both), one signed axis parameter, **zero new geometry**. "Same perimeter grammar" is
+  proven, not asserted.
+- **The LIFECYCLE does not share, and it is measured.** At the shared travel envelope the erupting
+  payload spent most of its travel **below the ground plane** — 81,450 lit px against `descend`'s
+  93,277, an ~11,800 px hole where the payload should be. **A descending payload spends its travel
+  visible; an erupting one spends it buried.** `erupt` now carries its own travel envelope.
+- **The payload's screen presence still does not share.** With motifs normalised to one world size,
+  the spike silhouette contributes **~504 px** against the meteor's **~12,300** — the erupt payload
+  sits *at* our own C-5 "effectively invisible" datum while the descend payload sits **23× above it**.
+  **Consequence: on `erupt` the perimeter carries essentially the entire effect, not just the
+  telegraph.**
+- **FINDING FOR THE NEXT LAP, surfaced not forked** (RT-8's own clause). Cheapest directions, named
+  and *not built* in this tranche: more payload bodies, a wider motif, or a ground-burst at the moment
+  of emergence. **The asymmetry is a property of the archetype, not of the code** — which is exactly
+  why it belongs in the record rather than in a tuning pass.
+
+**Composite lifecycle — BUILT, not merely enabled.** Mark `05-coexist` shows **cast A's decaying
+residue coexisting with cast B's fresh perimeter** in one frame — the lifecycle state § 3.1.1 says no
+other reference in the corpus shows. Caster legible at frame-edge, entirely outside both zones.
+Enemies stand inside the zone and read through the translucent interior, so **this row's physical half
+is witnessed** — the gap § 3.1.1 records against its own canonical (whose frame contains no enemies
+at all).
+
+### 9.4 ROW 3 — `aura`
+
+| element | ring radius px | lit px | % screen | interior opaque | mean Δrgb |
+|---|---:|---:|---:|---:|---|
+| `fire` | 142.4 | 30,894 | 1.49 % | 0.45 % | (56, 32, 13) |
+| `water` | 142.8 | 28,628 | 1.38 % | 0.30 % | (26, 42, 54) |
+| `earth` | 142.9 | 27,336 | 1.32 % | 0.15 % | (53, 41, 22) |
+| `wind` | 142.8 | 28,715 | 1.38 % | 0.30 % | (44, 55, 45) |
+
+**THE READABILITY CONTRACT HOLDS, MEASURED: ring radius spread across all four elements = 0.5 px.**
+§ 3.1.8 rules radius and opacity **not** Tier-1 knobs; `set_element()` never touches either and the
+pixels agree. *(The 11.5 % lit-px spread is a threshold artifact — different hues cross a fixed
+RGB-delta threshold differently. The alpha constants are `const` and provably untouched by
+`set_element()`.)*
+
+**The coverage-ceiling solve is delivered: interior opaque fraction 0.15–0.45 %.** The field
+communicates influence without filling its radius — the selected property, now a number.
+
+**Tier-1 separation is stronger here than on the trail** (more area): `fire|water` **43.7°**, minimum
+pair 10.5°. **No `neutral` variant, deliberately** — unlike `melee_strike`, this row's members are
+element-bearing; an aura's job is signalling *what kind* of influence.
+
+**`magical-cause` left CORRECT and un-"fixed".** `has_impact_layer false` · `has_contact_layer false` ·
+`has_ground_scuff_layer false`. No physical-causality tells were added to make it score better —
+which would have corrupted the one row that calibrates whether the rubric declines to penalise correct
+decoration, **in the direction that looks like diligence.**
+
+**galadriel's read-through question, answered with an experiment: retention 0.998.** Melee trail
+inside the aura **1,813 px** vs outside **1,817 px**; peak 202 vs 216. **The sustained field costs
+another archetype's VFX essentially nothing** — which matters because 112 `self_buff` skills will be
+active during other skills.
+
+**Scope held: `caster_centred` only.** Nothing authored for `world_placed` (4) or `delegate_carried`
+(2, the summoner GAP). Out of scope by ruling, not omission; recorded in the selfcheck of every arm.
+
+### 9.5 Convergence check (refutation condition 4) — the three rows do NOT converge
+
+| | anchor | lifecycle | surface class | coverage | tinted kinds |
+|---|---|---|---|---|---|
+| `melee_strike` | body | `burst` | TRAIL-BOUNDED | 0.10 % | 2 |
+| `ground_targeted_circle` | world-ground | composite | PAYLOAD-CARRIED | 3.97–16.19 % | 4 |
+| `aura` | caster-centred | `sustained` | FIELD-CARRIED | 1.32–1.49 % | 2 |
+
+Different on every axis, with **two orders of magnitude between the coverage extremes**. No fold
+finding. The prediction in § 0.2 is now a measurement.
+
+### 9.6 Residuals handed on
+
+1. **WARN → gandalf:** spec § 3.1.2's *"Confound register: none named on the canonical"* is falsified
+   by the extraction the dispatch ordered (§ 0.1). `effect-internal`, not croppable. **galadriel's
+   Judge-To side for this row inherits it.**
+2. **INFO → gandalf:** § 3.1.1's ≈20 % coverage target is **not portable across cameras** (§ 9.3).
+3. **FINDING → next lap:** RT-8 `payload_vector` — emitter shares, lifecycle and payload presence do
+   not (§ 9.3).
+4. **→ rocket (X-3):** `neutral`/`wind` palette entries separate by only 3.0°; not a surface-class
+   defect (§ 9.2).
+5. **→ knight-rider:** `KingRig.stock_vfx_enabled` should eventually default `false` (§ 9.0).
+6. **Discipline candidate → jack-ryan:** *inspect the artifact that ships, not the one you authored* —
+   and its sibling, *a control must control everything that moves* (§ 9.1). Three instances this
+   session, each producing a plausible number.

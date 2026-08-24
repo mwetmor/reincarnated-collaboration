@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — drax — Step-2 VFX mint, TRANCHE 1 (the loop-proving tranche)
 
-**Status:** PENDING
+**Status:** COMPLETE (2026-08-24)
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 (launch word covering the whole carve-out #2 agenda)
@@ -201,3 +201,66 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 - jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   Quarantine propagated into Required reading (L-36/L-37, spec § 5, carve-out request) with the four tier-2 rulings extracted inline; tag convention corrected to `v<X.Y>` form.
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+
+---
+
+## Completion record
+
+**Completed:** 2026-08-24 by drax.
+**Tag:** `drax/v0.1-s2a-mint-tranche-1` · godot commit `c6eede0` (pushed) · mint note `40d22e99` (§§ 0–8) + this commit (§ 9).
+**Mint note:** `agentic_orchestration/drax/notes/2026-08-24-s2a-mint-note.md` — §§ 0–8 committed at `40d22e99` **before any effect node existed**; § 9 (RESULTS) appended after. That ordering is the math-before-code receipt.
+**Captures (galadriel's Judge-From set):** `reincarnated-godot/harness_logs/s2a_2026-08-24-final/` — **21 arms / 156 PNGs**, every one at stage albedo **0.085** and the ratified combat camera. PNGs are local-only per `.gitignore harness_logs/**/*.png` (Synty IP); `render.txt` (per-mark C-8 census + per-arm selfchecks) and `gate.json` (machine-graded receipts) **are committed**.
+
+### Acceptance criteria
+
+- [x] Three base bindings minted, each built to its row's stated layer decomposition
+- [x] Tier-1 demonstrated on the permitted layers and **not** on the forbidden ones — the "must NOT" clauses are enforced as **asserts and measurements**, not intentions (`tinted_count == 2` on rows 1/3; min authored Y 1.013 m vs `GROUND_EPS` 0.15 for "no ground propagation"; aura ring-radius spread **0.5 px** across four elements)
+- [x] `melee_strike` canonical MP4 cut — HTTP 200 / 5.36 MB / 1920×1080 / 60 fps / 460 frames; tier upgraded `DOSSIER-TEXT` → `FRAMES-INSPECTED-BY-EXTRACTION`; frames filed
+- [x] RT-8's two params exist and are demonstrated **each with a matched control** (erupt vs descend at fixed element; friendly vs hostile at fixed element; large vs nominal at fixed everything)
+- [x] Mint note committed **before** minting, covering all five required items per row
+- [x] Capture set rendered at albedo **0.085** and handed to galadriel's gate
+- [x] Round-trip: not applicable — no cross-seam contract change
+- [x] Tag `drax/v0.1-s2a-mint-tranche-1`
+
+### ⚑ C-8 — discharged, and the instrument found what the hand-list missed
+
+**All 21 arms: `non_authored_emitter_count: 0`.** The declaration is **derived** — `scripts/s2a_census.gd` walks the live viewport at every capture mark and tags each light-emitting node AUTHORED/INHERITED **by ancestry, not by name**.
+
+It immediately found a **third** emitter that was not on the enumerated list: `KingRig`'s Greatsword ships an **emissive** material, sitting **on the very blade the weapon trail is generated from**. A fire-tinted trail measured against a permanently teal blade is a Tier-1 recolour score taken against a second undeclared tint channel — the same error class as judging albedo against 0.20. Neutralised on a *duplicated* material (blade stays visible, stage-lit steel; `Assets/` untouched).
+
+**Rig-fix verdict:** capture-time for this tranche, **and it is a rig defect.** `KingRig` gained `stock_vfx_enabled: bool = true` — default preserved, **blast radius zero** — replacing the whirlwind stage's name-matched `_hide_named()`, which fails *silently* on a rename. **ROUTED TO KR: the default should eventually be `false`, with throne-room scenes opting in.** Not executed; that is a behaviour change to other seams' scenes.
+
+### Refutation conditions — surfaced before executing, per instruction
+
+No HALT-class condition applied; the tranche proceeded with one WARN and one INFO on the record (mint note § 0). Post-build, **RT-2 does not fire** and that verdict is galadriel's, not mine — `fire|water` separate by **31.2°** on the same TRAIL-BOUNDED surface; only `neutral|wind` collapses (**3.0°**), and those are two near-identical pastels in a palette **I authored**. That is a palette defect, not a surface-class defect; firing RT-2 on it would blame `TRAIL-BOUNDED` for my colour choices. Routed to rocket (X-3) with the full pair matrix.
+
+### Findings routed (mint note § 9.6)
+
+1. **WARN → gandalf.** The extraction this dispatch ordered **falsifies the row it upgraded**: spec § 3.1.2's *"Confound register: none named on the canonical"* is wrong. The Rive clip is not skill-isolated — a large green swirling column is co-located with the caster through the back half, plus a gold radial burst I **cannot** resolve from pixels as Rive's own hit response or a second skill (**I did not guess**). Class **`effect-internal`**, not croppable. **WARN not BLOCK** — the red trail crescent is legible across ~50 frames including a clean early window, so the readability target survives. **Not patched: I do not rewrite a sealed spec.** Two consequences: **(a) galadriel's Judge-To side for this row inherits the confound** — the mirror image of C-8, same error class on the other side of her comparison; **(b) a tier upgrade can DOWNGRADE a row's confound register** — `DOSSIER-TEXT` rows carry "no confound named" for the trivial reason that nobody looked, and other rows rest their empty registers on the same silence.
+2. **INFO → gandalf.** § 3.1.1's **≈20 % coverage target is not portable across cameras.** Our ratified camera frames ~1,087 m² of ground, so 20 % needs **r ≈ 9.19 m** — an 18-metre meteor, wider than a structure-1 tight room. Built to the intent at r = 4.0 m (measured 3.97–4.50 %; large arm 16.19 %) with the arithmetic carried **in the code**. This is the C-3 error class through a **third** door; C-8 was the second.
+3. **RT-8 finding → next lap.** `erupt` shares the `descend` **emitter** cleanly — `perimeter_hash` **byte-identical**, one signed axis, zero new geometry. It shares neither the **travel envelope** (the payload spent its travel *buried*) nor the **payload's screen presence** (~504 px against the meteor's ~12,300 — *at* our C-5 invisibility datum while descend sits 23× above it). Consequence: on `erupt` the perimeter carries essentially the entire effect. **Surfaced, not silently forked.**
+4. **→ rocket (X-3).** `neutral`/`wind` palette entries separate by 3.0°.
+5. **→ knight-rider.** `KingRig.stock_vfx_enabled` default should eventually flip to `false`.
+6. **Discipline candidate → jack-ryan.** Two paired rules, three instances this session: **"inspect the artifact that ships, not the one you authored"** and **"a control must control everything that moves."**
+
+### The method half — three defects, each of which produced a *plausible number* first
+
+1. **The weapon trail never rendered.** `MeshInstance3D.mesh` was never assigned; the mesh was rebuilt perfectly every frame into an object nothing drew. I chased primitive type, mesh class, cull margin and parenting because **every probe interrogated the mesh I was BUILDING instead of the instance that DRAWS** — mesh AABB valid, instance AABB `(0,0,0)`. Discipline #11 says *empirical inspection over assumption*; I inspected the wrong object, which is assumption wearing a measurement's clothes.
+2. **The ON/OFF control was not a control.** Effects ran on a fixed 1/60 s clock while the rig and mob `AnimationPlayer`s ran on real frame time. The diff reported **404–573 "trail pixels"** — every one animation phase, and I nearly read it as readability evidence. Fixed by pinning every `AnimationPlayer` to the stage clock; **receipt: `00-pre`/`08-post` now diff to exactly 0 on all five melee arms.** The whirlwind gate hit this class from the other direction.
+3. **The read-through ratio had a control on one side only** — retention **6.383**, the trail apparently *more* visible inside a field. Rebuilt as a four-arm matrix: **0.998** (1,813 px with the aura vs 1,817 without), which is the valid answer to galadriel's own question.
+*(Same shape a fourth time: the GTC payload rendered **sub-pixel**, caught only because `erupt` and `descend` returned **byte-identical** coverage — which two variants differing only in payload direction cannot.)*
+
+**One more worth naming:** an intermediate melee tune was **highly readable and had lost its element tint** — additive blown to cream. C-3 arriving from *inside* the effect rather than off the floor, and the more dangerous direction because nothing in the frame complains.
+
+### Headline receipts (`gate.json`)
+
+| | measurement |
+|---|---|
+| `melee_strike` | trail **2,014–2,025 lit px**/arm = **3.8×** our own C-5 "effectively invisible" datum (`p_trail` 535 px) · hit response 11.4–12.8k px · `tinted_count == 2` · **3 hits fired, 0 off-body**, max body error 0.0000 m · min authored Y **1.013 m** · trail r_max **==** blade-tip r_max · `burst_separation_ok` |
+| `ground_targeted_circle` | perimeter 10→90 % rise **1 px on every arm** · telegraph full at **0.183 s** with payload **5.5 m** out · **no Meteor-Indigo bloom** (int/peri 0.110 nominal → 0.115 large; interior opaque *falls* 1.90 % → 1.79 %) · `perimeter_hash` byte-identical descend/erupt · valence hue sep **13.19°** · residue-coexistence frame captured |
+| `aura` | **ring-radius spread 0.5 px** across four elements (the § 3.1.8 readability contract) · interior opaque **0.15–0.45 %** · read-through retention **0.998** · `magical-cause` left CORRECT — no impact/contact/scuff layer added · `caster_centred` only (L-41) |
+
+### Next in the wave
+
+**galadriel's minted gate** (`2026-08-24-galadriel-s2-minted-gate.md`) is unblocked. Her C-8 HALT condition is **satisfied**: the mint note declares every non-authored emitter, and the count is **zero across all 21 arms**. She should also read § 0.1 **before** scoring row 1 — the confound is on *her* side of the comparison, not mine.
