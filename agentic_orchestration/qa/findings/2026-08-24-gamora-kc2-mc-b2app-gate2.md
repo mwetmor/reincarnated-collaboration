@@ -490,3 +490,340 @@ the old block. Filed as part of `WARN-2`'s family, not separately.
 
 **Prior findings in this run:** `2026-08-24-gamora-kc2-mc-b1-gate2.md` · `…-b2-gate2.md` ·
 `…-b1r-gate2.md` (`BLOCK-1` and its `L-40` clearance)
+
+---
+---
+
+# CLEARANCE — 2026-08-24 — `BLOCK-2` DISCHARGED · **B-2app SEALS**
+
+**Reviewer:** jack-ryan (DEV-MODE, Gate 2 · clearance re-derivation)
+**Severity:** **CLEAR** — `BLOCK-2` discharged · 1 new WARN · 3 new INFO · none seal-holding
+**Target:** engine `f7382122` (ADDENDUM 4) → `1208ae12` (ADDENDUM 5) → `15ffccc5` (build), NOT pushed
+**Sha of record:** `a4b84ed5da98d306ceb3111e4aa940a1c4a6d629b58113d45530b90b9f599a12`
+**Developer:** gamora · **Conductor:** gandalf (RUN-CONDUCTOR), charter ledger `L-46`
+**Precedent:** the `B-1r` clearance appended at `d1e9495e` — same shape, same method.
+
+> **Method note.** As with the parent finding: **re-derived, not read.** I re-ran the driver at HEAD
+> and diffed my emission against gamora's key-by-key; I ran M1 and M2 myself rather than reading the
+> artifact's probe block, **and I added a third mutation gamora did not run**; I mutation-tested all
+> three registered-form changes (`P10`, `P7`, `P19`) on every falsifier limb; I re-hashed all six
+> retained artifacts; and I re-derived the digest and numeric-leaf censuses independently rather than
+> adopting `P18`/`P19`'s counts. My probe emission has been deleted — exactly two `b2app` artifacts
+> remain on disk.
+
+## What I found
+
+`BLOCK-2` is **discharged, and the discharge is stronger than the ask.** I asked for one clause whose
+expectation does not route through `ca.verdict_honours`; gamora shipped **two mutually independent**
+ones — the literal `is True` on the `IMPL` cell and the standalone `"IMPL" in ca.HONOURED_VERDICTS` —
+and my own third mutation proves they are independent in the direction gamora did not test. Every
+registered-form change in the build is covered by an addendum whose commit precedes the build, and
+each one convicts under mutation. The label-only delta re-derives exactly on my own census. And the
+build's own self-disclosure sweep found and repaired a second instance of the `BLOCK-2` class
+(`P7`) that I had not caught, then ADDENDUM 5 found a third (`P18`'s digest blindness) by reading its
+own emission rather than its own `holds` field. **That is the behaviour the run law was written to
+produce.** One new WARN — and it is, once more, `WARN-2`'s exact shape.
+
+---
+
+## 1 · Driver re-run — REPRODUCES, 3 volatile leaves
+
+Re-ran `gamora_kc2_mc_b2app_control_2026_08_24.py` at HEAD. **20/21 holding, `B2app-P9` failing**,
+wall **8.21 s** (gamora 8.33 s). Key-by-key diff of my whole emission tree against `a4b84ed5…`:
+
+```
+n_diff = 3
+  /wall_s                                                       8.33 -> 8.21
+  /started_utc                                                  19:22:34.922599 -> 19:30:10.448115
+  /predicates/B2app-P18/class_2_differing_leaves//started_utc/new   (the same volatile, once more)
+```
+
+**Two distinct volatile quantities, nothing else.** `a4b84ed5…` **is** the emission HEAD produces.
+
+## 2 · Mutations — I ran M1 and M2 myself, and added M3
+
+```
+BASELINE   holds=True   impl_asserted=['Trapped/RequestSkillAction'] impl_bad=[] IMPL_in_HON=True  trapped_may_cast=True
+M1  D-B2app-3 reinstated      holds=False  disagreements=[]  impl_bad=['Trapped/RequestSkillAction=IMPL']  IMPL_in_HON=False  trapped_may_cast=False
+M2  IMPL dropped              holds=False  unmapped=['Trapped/RequestSkillAction=IMPL']                    IMPL_in_HON=False
+M3  ⚑ MINE — tuples UNTOUCHED, _permits() broken on the IMPL cell
+                              holds=False  disagreements=[...]  impl_bad=['Trapped/RequestSkillAction=IMPL']  IMPL_in_HON=True
+RESTORE    holds=True   tuples byte-equal: True
+```
+
+`M1` — my own `BLOCK-2` mutation verbatim — now reds, and note **`disagreements` is still empty under
+it**: the old collapse is *still silent*, exactly as the commit subject claims, and the two new
+clauses are what convict. `M3` is the test gamora did not run and the one that matters most for
+durability: with `HONOURED_VERDICTS` left correct and the *implementation* broken, `IMPL_in_HON`
+stays `True` and the literal `is True` clause is the sole conviction. **The two clauses cover the two
+different failure directions.** The repair is an instrument, not a mirror.
+
+> **Ruling on predicate-independence, reversed from the parent finding: YES.** `B2app-P12`'s
+> expectation now comes from the artifact, in the artifact's own vocabulary. `BLOCK-2` is discharged.
+
+## 3 · The three registered-form changes — all addendum-covered, all non-vacuous
+
+Commit times (`git log`, not read from prose):
+
+| doc / commit | time | precedes build? |
+|---|---|---|
+| ADDENDUM 4 `f7382122` — `P12` § 1.2, `P10` § 2, `P7` § 10.1, `P14` § 6.1, `P15` § 9.3, `P18` § 9.4 | 15:08:39 | ✅ |
+| ADDENDUM 5 `1208ae12` — `P19` § 4 | 15:21:26 | ✅ |
+| the emission itself | 15:22:43 | (77 s after ADDENDUM 5) |
+| build `15ffccc5` | 15:27:20 | — |
+
+**Prereg immutability: PERFECT for the second time.** `git log --follow` on all **six** governing
+documents returns **exactly one commit each** — nothing edited after its ALONE commit, including the
+parent math note § 9, which was correctly reconciled in ADDENDUM 4 § 5 rather than amended.
+
+**No silent registered-form change.** I diffed every `registered_form` string across the two
+siblings: `P10`, `P14`, `P15` changed and each carries its `D-B2app-N` tag and addendum section
+inline; `P18`/`P19` are added; **all fifteen others are byte-identical, `B2app-P9` included.**
+
+My mutations on each of the three:
+
+```
+P10  baseline holds=True (n_walked=34)
+     drop HONOURED_VERDICTS from receipt  -> holds=False  uncited_decision_tables=['HONOURED_VERDICTS']
+     drop SURVIVAL_DIFFICULTY (WARN-3)    -> holds=False  uncited_scalars=['SURVIVAL_DIFFICULTY']
+     add a NEW module-level re.Pattern    -> holds=False  excluded_unregistered=['JR_NEW_PATTERN']
+P7   baseline holds=True  n_over=0  min_headroom=0.0
+     one entry +1 over cap, module clamp flag STILL 0 -> holds=False  (the OLD form would have said True)
+P19  P1a/digest (the config bind) moved   -> holds=False   P1c/digest_stripped moved -> holds=False
+     a P11 predecessor pin moved          -> holds=False   stale may-move path       -> holds=False
+     P1c inequality collapsed             -> holds=False   wrong candidate file      -> HALTS (found by hash)
+```
+
+`P10`'s widening **closes the class, not the instance** — my third mutation adds a constant of an
+unregistered *type* and it reds. `P7`'s new clause convicts while the module's own clamp flag reads
+`0`, which is precisely the `BLOCK-2` shape it was repaired for. `P19` is armed on all four limbs.
+
+## 4 · RULING — the `985067cb…` deletion is **LEGAL**
+
+Under my own `L-40` D5 ruling (sibling **multiplicity** legal, sibling **ambiguity** not), a declared
+deletion of a superseded intermediate is legal **when three conditions hold, all three of which hold
+here:**
+
+1. **It is not the seal candidate and no sealed surface cites it.** `985067cb…` was a FIX2
+   intermediate emitted before ADDENDUM 5 registered `P19`. Nothing grades against it — `P18` and
+   `P19` both diff against `43a6a48b…`.
+2. **The deletion is DECLARED, by sha, with a reason, in an immutable prereg document, before the
+   seal.** ADDENDUM 5 § 5 item 2 does exactly this. ⚑ This condition carries more weight here than
+   it looks: **`b2app` artifacts are untracked in git**, so the deletion is irreversible and the
+   declaration is the *only* record. "Git history is the archive" does not apply to this run's
+   emissions. Gamora met the higher bar without being told it existed.
+3. **The fact it witnessed is independently reproducible from a retained artifact.** The digest
+   movement `848e102c… → db73e052…` that motivated `P19` is reproduced on the sealed emission's own
+   `P19` block against `43a6a48b…`. The deleted file was not the sole witness.
+
+**Fail any of the three and the deletion is illegal** — in particular, deleting a *cited* or
+*sole-witness* emission would be evidence destruction regardless of declaration. Retaining
+`985067cb…` would itself have created the D5 hazard: three `b2app` files, one of which carries a
+**different predicate set** (20 rows, no `P19`), which is ambiguity of exactly the forbidden kind.
+**The deletion improved the record.** Disk state verified: exactly two `b2app` artifacts, both
+gamora's, my probe removed.
+
+## 5 · Label-only delta — RE-DERIVED INDEPENDENTLY, verified
+
+I ran my own census over the two **finished** files rather than adopting `P18`/`P19`'s numbers:
+
+```
+digest leaves  OLD=27  NEW=35  IN BOTH=27  moved=1  -> ['/predicates/B2app-P1c/digest_full']
+NUMERIC leaves moved over the whole tree = 3:
+   /wall_s                 8.94 -> 8.33    (registered volatile)
+   /⚑ predicates_holding     18 -> 20      (excluded by PATH, declared, values printed)
+   /⚑ predicates_registered  19 -> 21      (excluded by PATH, declared, values printed)
+/predicates/B2app-P1a/digest            a17951a83365…  SAME  ← ⚑ the config bind to B-1r's sealed cell
+/predicates/B2app-P1c/digest_stripped   a17951a83365…  SAME  ← ⚑ the survival claim
+/predicates/B2app-P1c/digest_full       848e102c… -> db73e052…  MOVED (the one registered path)
+/predicates/B2app-P1c/digest_full_of_incumbent  538e5178…  SAME
+```
+
+**Not one number moved outside the two declared count fields and the volatile.** The `D-8` re-grade
+is label-only **by my measurement, not by gamora's.** `P1a`'s bind and `digest_stripped` are
+byte-identical, so the survival claim and the B-1r seal binding both survive the re-grade intact.
+
+## 6 · Predecessor bytes + the pre-existing fail — EXACT
+
+```
+43a6a48b…  b2app candidate (retained evidence)      a4b84ed5…  b2app OF RECORD
+30ef0031…  b1r-of-record      6ac7c4e0…  b1r-retained
+0957daaf…  b1                 a49ef783…  b2          20b05cb4…  mech
+```
+
+All re-hashed by me. All match the artifact's `B2app-P11` **PRE and POST** blocks exactly, and all
+match the parent finding's record. `43a6a48b…` verified byte-unchanged and is declared on the sealed
+artifact's `⚑ b2app_candidate_retained` block — **which is the disambiguation `L-40` D5 requires.**
+
+Smoke, re-run by me: `tests/test_kc2_mc_b2app_control_application.py` — **44 passed** (was 42; two
+added by the repair), 0.11 s. KC2 blast radius — **454 passed / 1 failed**, the failure being
+`test_kc2_locomotion.py::test_AC_10_10…` at `secondary_streams.py:136`. **Pre-existing, verified
+structurally again**: `git diff --name-only d01506df..HEAD` returns seven files, and neither
+`secondary_streams.py` nor `test_kc2_locomotion.py` is among them.
+
+## 7 · Star-lord `5764f89c` — CANNOT have moved anything I graded
+
+Doc-only: **one file, `src/reincarnated/export/MIGRATION.md`, 274 insertions, zero deletions.**
+`MIGRATION.md` appears in **no** `pins` entry, is read by no predicate, and is in no digested surface.
+The boundary I set in the parent finding **held exactly**: star-lord's own § 1 records
+*"`_surface()` is UNTOUCHED and no digest moved"*, and the commit stat confirms it. Landed 15:06:07,
+before ADDENDUM 4, so it also sits inside this build's own `B2app-P11` PRE bracket. ⚑ Checked
+unprompted: gamora's `15ffccc5` also writes `MIGRATION.md` — it is a **pure append**, star-lord's
+`C-B1r-3` text survives at HEAD intact. No clobber.
+
+---
+
+# `WARN-5` (NEW) — ⚑ `WARN-2` RECURS AT FOUR ADDRESSES, IN THE BUILD THAT REPAIRED `WARN-2`
+
+ADDENDUM 4 § 4 correctly repaired both `addenda` arrays and both `⚑ quarantine` scope sentences.
+Then **ADDENDUM 5 added `B2app-P19`, and the repaired text went stale by one — undeclared.**
+
+| surface | says | truth |
+|---|---|---|
+| `artifact["addenda"]` | ADDENDA **1–4** | ADDENDUM 5 exists and registers a grading predicate |
+| `declared_constants()["addenda"]` | ADDENDA **1–4** | same |
+| `artifact["⚑ quarantine"]` | *"The grading predicates are `B2app-P1…P18` and nothing else."* | `P19` grades, and holds |
+| `declared_constants()["⚑ quarantine"]` | same sentence | same |
+
+The string `ADDENDUM-5-2026-08-24.md` **appears nowhere in the sealed artifact.** This is the
+identical failure shape to `WARN-2` — *the sentence that defines the quarantine's own scope is
+wrong*, and the machine receipt does not carry a governing document — one build later, on the
+repair. ADDENDUM 5 § 5 declared **two** consequences of adding a predicate (the row count, the
+deleted intermediate); **the third — that it invalidates ADDENDUM 4's just-shipped scope text — was
+not among them.**
+
+**Severity: WARN, not BLOCK, and it does NOT hold the seal.** No falsifier is disarmed; `P19` is
+armed on all four limbs and I proved it. No number moves. `P19`'s own `registered_form` on the
+artifact names *"ADDENDUM 5 § 4"*, so the registration is traceable at one remove, and
+`⚑ predicates_registered = 21` is correct. Principle #5: an 8-second re-run to fix two strings and
+one array entry would emit a **third** `b2app` sibling — a worse outcome under `L-40` D5 than a
+carried WARN.
+
+**Durable fix, and it is the standard gamora set for herself in ADDENDUM 4 § 2 — close the class, not
+the instance.** Both defects are hand-maintained literals (`control_application.py:1179,1355`;
+driver `:1337,1386`). Derive the `addenda` array from a glob of `simulation/math/kc2-mc-b2app-*` and
+derive the quarantine's predicate range from `sorted(preds)` at emission time. Then no future
+addendum can strand either sentence. **Rides to B-3.**
+
+# INFO
+
+### `INFO-6` — the deletion is declared in the addendum but not on the artifact
+
+`985067cb…` appears **nowhere** in the sealed artifact. The artifact carries
+`⚑ b2app_candidate_retained` for the *retained* sibling and nothing for the *deleted* one. The
+declaration in ADDENDUM 5 § 5 is what makes the deletion legal (§ 4 above) and it is sufficient —
+but by `WARN-1`'s own lesson, *the artifact is the surface a third party reads*, and a reader of the
+artifact alone cannot learn that a third emission existed. A `⚑ b2app_intermediate_deleted` block
+with the sha and the reason costs one key.
+
+### `INFO-7` — `P18`'s promised side-by-side prints `null`, and its reason text pre-dates ADDENDUM 5
+
+ADDENDUM 4 § 9.4 promised the excluded paths' *"old and new values … printed side by side so the
+reader sees `18 → 19` and `19 → 20` explicitly rather than being told they were skipped."* The
+artifact publishes `{"old": 18, "new": null}` and `{"old": 19, "new": null}` — the *new* side is
+absent, a consequence of the diff timing that ADDENDUM 4 itself pre-declared, so the mechanism is
+honest but the promise is half-kept. The `reason` string also states the movement as `19 -> 20` /
+`18 -> 19`; the true movement is `19 -> 21` / `18 -> 20`. **Disclosed** — ADDENDUM 5 § 5 item 1
+corrected it in writing and deliberately did not edit `P18`, which is the correct immutability call.
+Recorded so the artifact and the addendum are read together.
+
+### `INFO-8` — ADDENDUM 5's digest census does not re-derive; `P19` holds anyway
+
+ADDENDUM 5 § 2 says it re-derived *"all **33** digest-shaped leaves"* and § 4 registers the
+expectation *"exactly one moved … and **32** unmoved."* My independent count over the candidate:
+
+```
+digest leaves in the candidate = 27   (in both = 27, moved = 1, unmoved = 26)
+```
+
+§ 2's own table enumerates **26** — it counts *"the five substrate pins"* when `/pins` carries
+**six** (`b1r_record_digest_read_from_artifact` is the sixth). So the prose says 33, the table
+implies 26, and the artifact measures 27. **`P19` holds legitimately** — its three registered clauses
+are about *illegal moves*, *stale registrations* and the `P1c` inequality, none of which references
+the census size, and all three re-derive. This is the **fourth instance this run** of the
+`F-B1r-1` / `D-B2app-1` / `WARN-3` shape: a summary that names a count its own table does not carry.
+At four instances it has stopped being an errata item and started being a **discipline candidate** —
+*a registered expectation stated as a number must be computed, not counted by hand.* Recommend
+gandalf consider it for the disciplines file.
+
+---
+
+## Action
+
+- [x] **gamora — `BLOCK-2`: DISCHARGED.** Verified by independent re-run, independent M1/M2, and a
+      third mutation of my own. No further action.
+- [x] **gamora — `WARN-1` / `WARN-3` / `WARN-4`: DISCHARGED.** Row convention stated once
+      (`⚑ predicate_count_convention`, `20/21`, merged counts published beside); § 9 reconciled in
+      ADDENDUM 4 § 5 with § 9 correctly unedited and both `SURVIVAL_DIFFICULTY` and
+      `TRUNCATE_BUCKETS` now in the receipt **and enforced** by the widened `P10`; `P14`'s tautology
+      replaced with a real presence check and `gate_rolled` split into
+      `⚑ gate_is_ROLLED_by_this_build` (capability) vs `⚑ n_gate_rolled_MEASURED = 0` (measurement).
+- [ ] **gamora — `WARN-2`: PARTIAL → carried as `WARN-5`.** Four addresses stale by one. **Do not
+      re-run B-2app for it.** Fix in B-3 by *deriving* the addenda array and the quarantine's
+      predicate range instead of hardcoding them.
+- [ ] **gamora — `INFO-6/7/8`.** Publish the deleted intermediate on the artifact; note `INFO-7`
+      when B-3 re-uses the excluded-by-path construction; recompute registered census figures rather
+      than hand-counting them.
+- [ ] **gandalf (RUN-CONDUCTOR).** Record the clearance and **seal B-2app at `a4b84ed5…`** (§ below).
+      `MD-B2app-1` errata note remains owed from the parent finding, with `INFO-4` / `INFO-5` folded
+      in. Consider `INFO-8` as a new engineering-discipline candidate — four instances this run.
+- [ ] **Matt — no decision required.** Within-seam predicate repair cleared under ADR-002.
+
+---
+
+## Verdicts
+
+### Does B-2app SEAL?
+
+> ## **YES.**
+>
+> **B-2app SEALS on `a4b84ed5da98d306ceb3111e4aa940a1c4a6d629b58113d45530b90b9f599a12`**
+> — `src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b2app-20260824_192243.json`,
+> at engine commit **`15ffccc5`**. **That is the single sha of record.**
+>
+> `43a6a48b…` is **retained as evidence and is explicitly NOT of record**; the sealed artifact names
+> it in `⚑ b2app_candidate_retained` with its status, which discharges the `L-40` D5 ambiguity
+> condition on the artifact itself rather than by convention. `985067cb…` is **legally deleted**
+> (§ 4). Exactly two `b2app` artifacts exist on disk and only one claims the seal.
+>
+> `BLOCK-2` is discharged on my own measurements. Every registered-form change is addendum-covered
+> with a commit time preceding the build, and every one convicts under mutation. Prereg immutability
+> is perfect across all six governing documents. `B2app-P9` stands **byte-untouched and failing**, as
+> registered, at 20/21. `WARN-5` and `INFO-6/7/8` ride to B-3 and **do not hold the seal**: none
+> disarms a falsifier, none moves a number, and a re-run to discharge them would emit a third sibling
+> — which `L-40` D5 disfavours more than it disfavours a carried WARN.
+
+### The thing I looked hardest for, and did not find
+
+> The parent `BLOCK-2` was *a repair that routed both sides of the comparison through a shared
+> collapse.* I swept the whole repair for a recurrence and **there is none.** `P12`'s two new clauses
+> are independent of each other and of the classifier — proven by my `M3`, which breaks the
+> implementation while leaving the tuples correct and is still convicted. `P7`'s new clause is
+> literal arithmetic that fires while the module's own clamp flag reads `0`. `P10`'s widening is
+> type-complete with a both-directions exclusion register. `P18` and `P19` take their expectations
+> from a re-hashed file on disk, and `P19` re-checks `P1c`'s inequality rather than inheriting its
+> `holds`. The single shared `_b2app_p12_body()` between the graded run and the probe is **not** the
+> same-collapse hazard — it is the opposite one closed, since a probe that re-implements the
+> predicate is a second copy that can drift.
+>
+> The one thing I did find, `WARN-5`, is not the `BLOCK-2` class at all. It is `WARN-2`'s class:
+> **a hand-maintained string that a later, correctly-immutable document made stale.** The fix is to
+> stop hand-maintaining it.
+
+---
+
+## References — clearance
+
+**Re-derived (engine, `~/Games/reincarnated-engine/`):**
+- `src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b2app-20260824_192243.json` (**of record**)
+- `src/reincarnated/simulation/output/kc2-checkpoint-E-s09-cp150-b2app-20260824_175717.json` (retained evidence)
+- `src/reincarnated/simulation/scripts/gamora_kc2_mc_b2app_control_2026_08_24.py`
+  (`_b2app_p12_body` `:411`, `_b2app_p12_mutation_probe` `:471`, `_b2app_p10_ast` `:544`,
+  `_b2app_p18_label_only` `:250`, `_b2app_p19_digests` `:330`, `P19_MAY_MOVE` `:326`, `P7` `:802`)
+- `src/reincarnated/simulation/kc2/control_application.py` (`:1179` addenda array, `:1355` quarantine)
+- `src/reincarnated/simulation/math/kc2-mc-b2app-control-application-ADDENDUM-4-2026-08-24.md`
+- `src/reincarnated/simulation/math/kc2-mc-b2app-control-application-ADDENDUM-5-2026-08-24.md`
+- `src/reincarnated/export/MIGRATION.md` (star-lord `5764f89c` + gamora's append)
+- `tests/test_kc2_mc_b2app_control_application.py` (44 passed)
+
+*Clearance appended by jack-ryan, 2026-08-24. Not pushed.*
