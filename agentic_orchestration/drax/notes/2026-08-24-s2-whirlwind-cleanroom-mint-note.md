@@ -68,7 +68,21 @@ adopted lineage destroys the experiment irrecoverably. The five:
 | whatever scenes/scripts those four invoke | unknown by construction — I did not open them to find out |
 | `scenes/rigs/pilots/rig_poe1_cyclone.tscn` | Cyclone **is** the PoE whirlwind referent |
 | `scripts/kc2_player_channel.gd` | "channel" is this archetype's lifecycle class, and `kc2_cpb_clip` **is** quarantined |
-| `AGENT_STATE.md` (583 KB) | I did not grep it for `whirlwind`/`ww`/`cyclone`/`spin`. I appended to it blind-tail only. |
+| `AGENT_STATE.md` (583 KB) | I did not grep it for `whirlwind`/`ww`/`cyclone`/`spin`. See the disclosure immediately below. |
+
+**⚠ DISCLOSURE — one read I did make, that I had intended not to.** To learn the file's entry format before appending,
+I ran `tail -c 2000 AGENT_STATE.md`. That is not a quarantined path, but it is inside my own self-quarantine, so it is
+declared rather than glossed.
+
+- **What was in it:** the tail of an SB-1 **A1b statics/landing** entry — arena floor dimensions (86.915 × 85.303 m),
+  344 body placements at `path[0]`, six dress pools, 8 CP-A stills, three defects found in that work (a double
+  `build()`, a mis-applied pack atlas, a 0.462 m plinth spacing), and an "owed: CP-B (motion)" line noting that the
+  player never translates in that run.
+- **What was NOT in it:** any whirlwind VFX design, any trail/emitter/tint/lifecycle content, any archetype binding,
+  anything about how an effect is built. It is scene-statics and roster-placement work.
+- **My assessment:** this does not describe the adopted lineage's whirlwind effect and I do not believe it contaminates
+  the comparison. **That assessment is mine, and it is gandalf's to overturn** — the record is here so the DRIFT-CRITIC
+  audits the actual text rather than my summary of it. Everything in § 1–§ 5 was authored before this read.
 
 **This is a Gate-1 escape and I am flagging it, not just working around it:** the enumerated list does not cover
 `scripts/run_ww*.sh` or `scenes/rigs/pilots/rig_poe1_cyclone.tscn`. An agent obeying the list literally — which is what
@@ -379,3 +393,99 @@ covering a body.
 
 A number that can falsify the § 3.1 claim is worth more than a paragraph asserting it. Results are appended to this
 note at § 9 after the gate runs.
+
+---
+
+## 9 · RESULTS — what the built thing actually measured
+
+Build: `scripts/wwcr_whirlwind.gd` + `scripts/wwcr_pose.gd`, staged by `scripts/wwcr_stage.gd` /
+`scenes/wwcr_stage.tscn`, driven by `scripts/run_wwcr_stage.sh`. Captures in
+`reincarnated-godot/harness_logs/wwcr_2026-08-24/`. Godot 4.6.3, Forward+/Metal, 1920×1080, stage albedo **0.085**.
+
+### 9.1 Runtime self-check — the § 3 claims, checked against the running effect
+
+`WWCRWhirlwind.selfcheck()` measures what the lit surface **actually** occupied, rather than reprinting the constants:
+
+| Claim | Authored | **Measured at runtime** | Verdict |
+|---|---|---|---|
+| trail Y band | [1.12, 1.28] | **[1.209, 2.333]** | wider than authored — the blade *levels* during spin-up, so the transition legitimately rides higher |
+| clears the caster's lower body (0.9088 m) | +0.211 m | **+0.301 m** | **holds, with more margin than claimed** |
+| trail radius band | ≤ 2.36 m | **[0.985, 2.168]** | holds; **the lit surface never approaches `R_ENGAGE` = 3.515 m** |
+| arc is open, never a ring | < 360° | **150°** | holds |
+| tinted surfaces == 2 | 2 | **`["TrailRibbon", "ContactSpark"]`** | holds |
+
+⚠ **Correction to § 3.1, made rather than buried.** I claimed the trail band was [1.02, 1.38] m. **It is not.** The
+measured band is [1.209, 2.333] m, because during spin-up the blade slerps from the held-guard pose to level and rides
+high on the way. The *load-bearing* half of the claim — that the trail band and the lower-body band are disjoint —
+survives, and by a **larger** margin (0.301 m vs the 0.111 m I predicted). The exact band I asserted was wrong and the
+inequality I cared about was right. The runtime measurement exists precisely so that distinction gets caught rather
+than assumed.
+
+### 9.2 THE DEFECT TO CORRECT — machine-graded
+
+`scripts/wwcr_occlusion_gate.py`, ON vs CONTROL at the ratified combat camera:
+
+```
+noise floor (inert marks)  lower= 2.87%  enemy= 0.02%
+worst during channel       lower= 4.65%  enemy= 0.03%
+EXCESS OVER NOISE FLOOR    lower= 1.78%  enemy= 0.01%
+lower-body defect corrected      : PASS  (bar: excess < 3%)
+enemies remain readable          : PASS  (bar: excess < 20%)
+```
+
+**Two methodology points, because the first version of this gate was wrong and the second version is only trustworthy
+because the first one failed loudly:**
+
+1. **The control had to change.** v1 diffed *effect ON* against *no whirlwind at all* and scored **37–53 %**
+   lower-body "occlusion" — including **7.65 % on `09-off`, a frame where the effect is completely inert.** It was
+   measuring the caster's own pose and rotation. A baseline differing from the test condition in more than one
+   variable is not a baseline. Fixed by adding `--fx=novfx`: identical pose, identical rotation, VFX layers hidden.
+2. **The noise floor is measured and subtracted, not accommodated.** Two marks (`00-pre`, `09-off`) are inert in both
+   conditions, so their residual (anti-aliasing, bloom, float drift in the accumulated spin) is instrument noise. It
+   is measured every run and subtracted. **I did not loosen the bar until it passed** — a threshold tuned until it
+   passes is not a test.
+
+**For scale:** in the negative anchor the caster is *not visible inside his own effect at all* — I looked at
+`eor1-t2015.600-prechannel.png` and he is a smudge in a white-orange ball. Lower-body coverage there is effectively
+100 %. This build measures **1.78 % over noise.**
+
+Enemy silhouettes: **0.01 % excess**, and what little there is sits at **72–86 % on silhouette EDGES** — which is
+where contact sparks are spawned by design. Nothing covers a body.
+
+### 9.3 Tier-1 — `TRAIL-BOUNDED` demonstrated across four elements
+
+`harness_logs/wwcr_2026-08-24/t1_element_composite.png` (wind / fire / water / earth). In all four: the tint rides the
+trail arc and the contact spark **only**; the caster's body is untinted; the scuff quanta stay neutral; **no variant
+produces a caster-surrounding field.** `set_element`'s assertion held at 2 tinted surfaces on every run.
+
+### 9.4 Bugs the build surfaced, and what caught each
+
+Recorded because the catching mechanism is the reusable part:
+
+1. **The rig's own `HolyAura` was rendering** — a glowing caster-surrounding ground disc shipped by `king_rig.gd`. In
+   the first capture it read as *exactly* "a generic magical aura that happens to be spinning along with the
+   character." **Caught by looking at the pixels.** Hidden on the stage (not in `king_rig.gd` — the aura is legitimate
+   for other scenes). ⚠ **Worth a general warning: the stock hero rig ships the failure mode of this archetype
+   switched on by default.** Any T-A row staged on `KingRig` inherits it.
+2. **Left-handed basis in the blade re-seat.** `up.cross(radial)` gives det = −1, and `Basis.slerp` on a det = −1
+   matrix produces garbage — it put the blade above the caster's head at r = 0.76 m. **Caught by the runtime band
+   measurement**, not by eye; at the combat camera it looked merely "off." Fixed to `radial.cross(up)`, det = +1.
+3. **Stale global poses in the limb chain.** The lower arm read its parent's pre-modification pose. Fixed with
+   `force_update_bone_child_transform`.
+4. **The wobble, not the ribbon, was the apparent thickness.** At `sin(2·spin)` and 900 °/s the wobble completed a
+   full cycle inside the 10-sample history, so the trail read as a broad scarf. One slow cycle per revolution instead.
+5. **`--import` strips `[rendering] mesh_lod` from `project.godot`.** Known (CLAUDE.md); `git restore`d before commit.
+
+### 9.5 Residuals
+
+- **The king's blade emissive stays teal in every element variant** (`king_rig.gd:65 BLADE_TEAL`, hard-coded). My
+  trail tints correctly; the sword under it does not. Following it would mean editing `king_rig.gd`, which other
+  scenes depend on. `// TODO(drax): route blade emissive through the element parameter when whirlwind binds to the
+  real player rig rather than the King showcase rig.`
+- **`R_GRIP_sweep` measured 0.652 m at runtime vs 0.845 m derived**, because the sweep pose spreads the arms
+  laterally rather than fully radially; tip radius lands at **2.168 m vs 2.360 m derived**. The derivation was an
+  upper bound. Reported measured, not derived, everywhere it matters.
+- **Cadence remains authored** (§ 4.2). A ≥60 fps whirlwind source would settle it.
+- The trail still reads slightly soft/ribbon-like rather than razor-thin. Tunable (`TRAIL_INNER_FRAC`, taper exponent,
+  glow); left at a legible setting rather than tuned to my own taste, since **Matt's comparison is the instrument
+  here, not mine.**
