@@ -1,7 +1,9 @@
 # U-1 — Fleet Flight-Recorder + Read-Only Board — build spec (DRAFT)
 
 **Date:** 2026-08-24 · **Author:** gandalf (SPEC-AUTHOR; grill by ELICITOR — § 9)
-**Status:** DRAFT — awaiting (1) Matt rulings on forks F-1…F-8 (§ 9; queue row Q61), (2) jack-ryan
+**Status:** DRAFT → **FORKS RULED 2026-08-24** — Matt: *"all as leaned"* (Q61; all eight § 9 leans
+adopted verbatim). Remaining gates: (1) **Matt's nod on the § 11 render sketch** (his rider:
+*"before we build, sketch an abstraction of what it will look like here"*), (2) jack-ryan
 ratification of the record schema + THE LAW as discipline. **On ratification, schema custody
 transfers to star-lord** (software-factory § 8: one schema, one custodian, many readers) and this
 doc's § 3 becomes the schema's founding version, versioned forward by star-lord.
@@ -269,14 +271,14 @@ ancestor bug is the class she exists to catch). Every surface carries a **SHOP-O
 
 | # | Fork | Options | gandalf lean | Status |
 |---|---|---|---|---|
-| **F-1** | Board home | (a) extend the Spec B factory dashboard to fleet scope (ONE local board) · (b) separate fleet web app · (c) terminal TUI only · (d) markdown report only | **(a)**, with Tier-1 markdown shipping first regardless — two dashboards would fork the one-data-path story; a TUI can't serve iOS; markdown-only under-serves the staleness/red rendering | OPEN |
-| **F-2** | Staleness SLA (when IN-FLIGHT turns red) | per-class thresholds vs one global | **per-class**: scripted job amber at 2× / red at 5× its class median duration; agent dispatch amber 48 h / red 7 d; HALT/veto rows amber immediately (they're waiting on Matt by definition, but rendering them stale pressures the wrong party — they live in lane 1 instead) | OPEN |
-| **F-3** | Card grain | dispatch vs run vs wave | **card = the unit that receives a verdict** (dispatch/job), grouped under run headers with wave rollups. Schema is grain-agnostic via `parent_id` either way — this fork binds only the render | OPEN |
-| **F-4** | Tier-3 iOS push timing | now vs after Tier-2 earns trust | **gate it** (ladder discipline); unlock criterion § 8.5. The tempting exception (push HALTs early because AWAITING-MATT is the product) is exactly how a view acquires authority — resist | OPEN |
-| **F-5** | Window reporting shape | per-window burn table vs rolling daily | **both from the same substrate**: per-window table for anthropic-max (windows are the real constraint), rolling daily+weekly for chatgpt-sub (its meter is murkier); SNAPSHOT rows support both | OPEN |
-| **F-6** | Truth substrate | JSONL truth-of-record vs factory SQLite as fleet truth | **JSONL is fleet truth-of-record** (append-only, committable, survives with zero runtime); factory SQLite stays workflow-internal; any fleet SQLite is a derived, rebuildable index. Star-lord holds the implementation latitude within this constraint | OPEN |
-| **F-7** | Claude-lane token capture depth | hooks+snapshots only (nulls honest) vs invest in deeper per-session attribution now | **hooks + SNAPSHOT brackets in v1; no fabricated numbers**; revisit with U-3's attribution audit as the empirical input | OPEN |
-| **F-8** | Record git policy | committed monthly JSONL vs git-ignored + promoted rollups | **committed** — durability and multi-session visibility beat commit churn at this volume (30 jobs ≈ 30 CLOSE rows ≈ a few KB) | OPEN |
+| **F-1** | Board home | (a) extend the Spec B factory dashboard to fleet scope (ONE local board) · (b) separate fleet web app · (c) terminal TUI only · (d) markdown report only | **(a)**, with Tier-1 markdown shipping first regardless — two dashboards would fork the one-data-path story; a TUI can't serve iOS; markdown-only under-serves the staleness/red rendering | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-2** | Staleness SLA (when IN-FLIGHT turns red) | per-class thresholds vs one global | **per-class**: scripted job amber at 2× / red at 5× its class median duration; agent dispatch amber 48 h / red 7 d; HALT/veto rows amber immediately (they're waiting on Matt by definition, but rendering them stale pressures the wrong party — they live in lane 1 instead) | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-3** | Card grain | dispatch vs run vs wave | **card = the unit that receives a verdict** (dispatch/job), grouped under run headers with wave rollups. Schema is grain-agnostic via `parent_id` either way — this fork binds only the render | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-4** | Tier-3 iOS push timing | now vs after Tier-2 earns trust | **gate it** (ladder discipline); unlock criterion § 8.5. The tempting exception (push HALTs early because AWAITING-MATT is the product) is exactly how a view acquires authority — resist | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-5** | Window reporting shape | per-window burn table vs rolling daily | **both from the same substrate**: per-window table for anthropic-max (windows are the real constraint), rolling daily+weekly for chatgpt-sub (its meter is murkier); SNAPSHOT rows support both | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-6** | Truth substrate | JSONL truth-of-record vs factory SQLite as fleet truth | **JSONL is fleet truth-of-record** (append-only, committable, survives with zero runtime); factory SQLite stays workflow-internal; any fleet SQLite is a derived, rebuildable index. Star-lord holds the implementation latitude within this constraint | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-7** | Claude-lane token capture depth | hooks+snapshots only (nulls honest) vs invest in deeper per-session attribution now | **hooks + SNAPSHOT brackets in v1; no fabricated numbers**; revisit with U-3's attribution audit as the empirical input | ✓ RULED as leaned (Matt 2026-08-24) |
+| **F-8** | Record git policy | committed monthly JSONL vs git-ignored + promoted rollups | **committed** — durability and multi-session visibility beat commit churn at this volume (30 jobs ≈ 30 CLOSE rows ≈ a few KB) | ✓ RULED as leaned (Matt 2026-08-24) |
 
 ## 10 · Seam routing + sequencing (the KR request carries this — pinned here for one-doc reading)
 
@@ -292,6 +294,128 @@ ancestor bug is the class she exists to catch). Every surface carries a **SHOP-O
 
 **Sequencing law:** recorder before board (discipline 3); Tier-1 report before Tier-2 board;
 Tier-2 before Tier-3. Nothing renders what wasn't recorded.
+
+---
+
+## 11 · Render sketch (Matt-requested pre-build abstraction, 2026-08-24 — the build target)
+
+> **Honesty key:** rows/numbers marked ⊙ are REAL, reproduced from the founding receipts or live
+> disk state at sketch time. Everything else is ILLUSTRATIVE mock content showing shape only —
+> a mock is allowed to illustrate; a record is not allowed to fabricate.
+
+### 11.1 What lands on disk (the whole footprint)
+
+```
+agentic_orchestration/flight/
+├── records-2026-08.jsonl      ← THE TAPE — append-only truth-of-record (F-6, F-8)
+├── report.md                  ← Tier-1 VIEW — regenerated on demand, read-only
+└── bin/
+    ├── flight_record          ← star-lord's ~20-line appender (any lane wraps it)
+    └── flight_report          ← report generator (reads tape + read-only probes; writes report.md)
+
+(raw vendor streams stay beside their runs, e.g. research/vfx-p2-dossiers/usage/*.jsonl;
+ tape rows point at them via derived_from — nothing moves, nothing is duplicated)
+```
+
+```
+ EMITTERS                          TRUTH                      VIEWS
+ codex queue (native)  ──┐
+ factory spine (F1)    ──┼─ append ─▶ records-YYYY-MM.jsonl ─┬─▶ report.md   (Tier-1, now)
+ claude session hooks  ──┤                                   └─▶ local board (Tier-2, gated)
+ manual/cron appender  ──┘                    ▲ read-only probes at render time:
+                                              git status ×4 · codex login status · env ·
+                                              matt-queue tables · requests/ dirs · disk
+```
+
+The ledgers, trackers, queues, and dispatch files **stay exactly where they are and stay truth**.
+The tape is their row-shaped shadow; the views are glass. Nothing in this drawing carries traffic.
+
+### 11.2 The tape — four real-shaped rows (first two ⊙ REAL: VFX job 01, normalized)
+
+```jsonl
+{"v":1,"ts":"2026-08-24T03:29:39Z","event":"START","unit_id":"vfx-p2/01-ground_targeted_circle","unit_kind":"job","parent_id":"run:VFX-AB","workstream":"VFX-AB","operator":"gandalf","seam":"research","provider":"openai","lane":"codex-serial","pin":"gpt-5.6-sol@xhigh","model_echo":null,"harness":"codex-cli","harness_version":"0.147.0","currency":"chatgpt-sub","attempt":1,"backfill":true}
+{"v":1,"ts":"2026-08-24T03:32:18Z","event":"CLOSE","unit_id":"vfx-p2/01-ground_targeted_circle","unit_kind":"job","workstream":"VFX-AB","verdict":"PASS","rc":0,"tokens_input":845782,"tokens_cached_input":750336,"tokens_cache_write":0,"tokens_output":4826,"tokens_reasoning":2812,"artifacts":[{"path":"research/vfx-p2-dossiers/dossiers/ground_targeted_circle.md","bytes":3877}],"derived_from":"research/vfx-p2-dossiers/usage/01-ground_targeted_circle.jsonl","backfill":true}
+{"v":1,"ts":"2026-08-24T18:12:00Z","event":"GATE","unit_id":"run:VFX-AB","unit_kind":"run","gate_id":"galadriel-selection-gate","gatekeeper":"galadriel","verdict":"PASS-WITH-FINDINGS"}
+{"v":1,"ts":"2026-08-24T18:40:00Z","event":"SNAPSHOT","unit_id":null,"currency":"anthropic-max","meter_raw":{"session_pct_used":34,"week_pct_used":61}}
+```
+
+### 11.3 Tier-1 — `flight/report.md` as you would read it (in terminal, iOS, or any session)
+
+```markdown
+# FLEET — regenerated 2026-08-24T18:42Z · VIEW ONLY (THE LAW: zero authority; disk is truth)
+tape: records-2026-08.jsonl (214 rows) · probes: 9/9 ran · schema v1
+
+## ⏸ AWAITING MATT — 3 decisions · 7 actions
+DECISIONS (matt_decision_needed/): ⊙ Q60 fun-proof placement (1d) · ⊙ Q57 W-4 mutation
+  self-test (10d) · ⊙ Q49 primary_attack measurement (30d)
+ACTIONS (matt_to_do/): ⊙ T14 EoR tooltip screenshot (16d) · ⊙ T17 npc_event_01.cnv (9d) ·
+  ⊙ T3 flavor run w/ API key (33d) · ⊙ T1 Mac RC (53d) · ⊙ T2 min-spec HW · ⊙ T6 vercel
+  auth (32d) · ⊙ T10 OBS install (29d)
+HALTS / OPEN VETO WINDOWS (from tape): none
+
+## ▶ IN-FLIGHT — 2                                        (staleness per F-2 SLA)
+| unit                        | operator     | lane         | age | SLA |
+| codexq/step2-07-…           | star-lord    | codex-serial | 11m | 🟢 amber@2×med |
+| dispatch:2026-08-24-kr-…    | knight-rider | claude-agent | 3h  | 🟢 amber@48h   |
+
+## 🚧 AT GATE — 1
+| U-1 record schema v1 | ratification | jack-ryan | waiting 0d |
+
+## ⚙ HEALTH
+codex auth 🟢 (ChatGPT login OK) · github oauth 🟢 · ⊙ ENABLE_PROMPT_CACHING_1H 🔴 NOT SET (U-3!)
+windows: anthropic-max session 34% · week 61% (snapshot 18:40Z) · chatgpt-sub: no meter exposed
+⊙ unpushed: collaboration +5 · engine 0 · godot 0 · loadout 0        disk 🟢
+unswept requests/: gandalf 2 open (oldest 1d) · others 0
+pin drift 🟢 (harness_version stable 0.147.0; codex stream echoes no model — null, declared)
+crons/wakeups: none registered
+
+## ✓ SEALED — last 7 days
+| workstream    | units | verdicts               | tok-in  | cache  | tok-out | currency    | enqueue→seal |
+| ⊙ VFX-AB (P2) | 30    | 30 PASS · 1 curation WARN | 72.4M | 93.2% | 259K    | chatgpt-sub | 10.6h |
+| KC2-MC B-2app | 1     | SEALED a4b84ed5        | (pre-recorder — no rows; shown from ledger ref) |
+
+### Per-model scorecard — month to date
+| provider/pin              | units | first-pass | WARN   | fabrication  | tok-in/artifact | med wall |
+| ⊙ openai/gpt-5.6-sol@xhigh | 30   | 100% rc=0  | 3.3%   | ⊙ 22/22 pass | 2.41M           | ~4m |
+| anthropic/claude-…        | (lifecycle rows only until F-7 deepens — token cells null, declared) |
+```
+
+Reading rules the mock demonstrates: AWAITING-MATT is always first and is a *render of the two
+queue files* (row IDs + ages + one-line titles — the queues stay the truth you rule in);
+staleness is loud and colored; every null is declared, never dressed as a zero; the scorecard
+line for the Claude lane shows honest nulls rather than fabricated depth; the ⊙ VFX row's numbers
+are the actual founding-corpus aggregates.
+
+### 11.4 Tier-2 — the board (drax, AFTER the ≥2-workflow gate; same fold, rendered as columns)
+
+```
+┌─────────────────────────── FLEET BOARD · SHOP-ONLY · VIEW ONLY ───────────────────────────┐
+│ ⏸ AWAITING MATT (10)   │ ▶ IN-FLIGHT (2)       │ 🚧 AT GATE (1)      │ ✓ SEALED (31)     │
+│ ┌────────────────────┐ │ ┌───────────────────┐ │ ┌─────────────────┐ │ ┌───────────────┐ │
+│ │ Q60 fun-proof   1d │ │ │ codexq/step2-07   │ │ │ U-1 schema v1   │ │ │ ▣ VFX-AB      │ │
+│ │ decision · one-word│ │ │ star-lord · 11m 🟢│ │ │ jack-ryan · 0d  │ │ │ 30 PASS       │ │
+│ ├────────────────────┤ │ ├───────────────────┤ │ └─────────────────┘ │ │ 72.4M · 93.2% │ │
+│ │ T14 EoR tooltip 16d│ │ │ kr:step2-wave     │ │                     │ │ cache · 10.6h │ │
+│ │ action · 1 screen  │ │ │ knight-rider·3h 🟢│ │                     │ ├───────────────┤ │
+│ ├────────────────────┤ │ └───────────────────┘ │                     │ │ ▣ KC2-MC      │ │
+│ │ … (7 more)         │ │  cards = verdict-     │                     │ │ SEALED        │ │
+│ └────────────────────┘ │  bearing units,       │                     │ └───────────────┘ │
+│                        │  grouped by run (F-3) │                     │  → scorecards     │
+├───────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚙ HEALTH: codex 🟢 · gh 🟢 · CACHE_1H 🔴 · win 34%/61% · unpushed +5 · req 2 · disk 🟢    │
+└───────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+Zero write verbs in v1 (F-4/read-mostly): no button on this board does anything. Refresh
+re-folds the tape and re-runs the probes; closing the window loses nothing because the board
+owns nothing.
+
+### 11.5 What does NOT change when this ships
+
+Terminals still run the work. Ledgers, charters, trackers, and the two Matt queues remain the
+only truth and the only ruling surfaces. Agents never read the board. The ONLY new behaviors in
+the fleet are: lanes append rows at lifecycle boundaries, and anyone (mostly Matt) can open one
+file — or later one local page — and see what scattered scrollback used to eat.
 
 ---
 
