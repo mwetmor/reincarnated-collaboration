@@ -67,11 +67,16 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 
   **"Which axes does the recorder normalize on" is the F-1…F-8 decision and is HALT-worthy. "What field name do I use for exit code" is yours. Do not HALT on the second.**
 - [ ] **THE LAW applies pre-emptively:** any view over this data is **read-only, zero authority, never in the data path.** The queue is the data path; a board is a projection. Do not build anything that reads queue state and then *writes back into it*.
+- [ ] ⚠ **NEW AND BINDING — Discipline #73 (jack-ryan, 2026-08-24), and it lands ahead of Matt's F-1…F-8 rulings because it is a defect finding, not a schema choice.** A dispatch's `**Status:**` header is **measured-defective and NON-AUTHORITATIVE**: across 197 dispatch files, 99 carry no `Status:` header at all, and of the 31 reading open/pending, **14 are contradicted by a substantive completion record in the same file** — tags, SHAs, smoke counts — spanning 2026-05-16 → 2026-07-22 across five agents. **Work state is DERIVED from the completion record's presence and terminal marker plus git. Never asserted by a field.** Your telemetry must not emit, and no consumer you build may read, a work-state claim sourced from that header. (This is why it is yours and not the board's problem: rendering a board from that field would project a corpus-wide stale claim onto a *surface* — THE LAW's failure mode arriving through the front door.)
 
 ### Fault fallback
 
 - [ ] **Junk output or an unmodeled condition → the named Claude agent takes the lane, no re-litigating.** Encode this as the queue's declared failure posture: it does not retry indefinitely, it does not improvise, it marks the job for Claude-lane pickup and moves on. (This is the VFX charter P2 fallback, generalized.)
 - [ ] **Every vendor-lane output must have a named Claude curator downstream — no exceptions. That is the governance line.** The queue must carry the curator's identity as a **required** job field. A job that cannot name its curator does not enqueue.
+- [ ] ⚠ **NEW AND BINDING — U-4 was RATIFIED-WITH-AMENDMENTS by jack-ryan 2026-08-24, AFTER this dispatch was first authored. Amendment R-B is a build constraint on YOU, and it is verbatim:**
+  > **R-B — Question (4) becomes a RECORDED FIELD, not an assertion.** "Zero governance leaks" is not machine-checkable while the curator's identity lives only in the dispatcher's head. Ruled: every vendor-lane job writes the **named curator agent** into its `_run-log.tsv` row at **enqueue time (not at close)**. A job whose curator field is empty is a **refusal to fire**, not a job to be reconciled later. This makes the empirical criterion falsifiable by query rather than by memory, and the field is the natural identity axis for U-1's flight recorder (§ U-1(a)) — **capture it once, at the source.**
+
+  The ratification's status line names this explicitly: *"R-B is a build constraint on star-lord's durable-queue task — the curator field is enqueue-time schema, not a later add."* **Enqueue-time, not close-time, is the whole point** — a curator recorded at close is a curator chosen after seeing the output, which is not a governance control. Read § U-4 R-A…R-D in `workflow-upgrades.md` before you design the job record.
 
 ### Standing
 
@@ -96,7 +101,8 @@ This is an OpenAI CI/CD-auth precondition, not a preference: *"one machine or se
 - [ ] Model pin declared as a constant with the "every banked statistic was measured here" note
 - [ ] Auth-expired path: stops taking jobs, surfaces the condition, names the `matt_to_do/` + Claude-fallback response
 - [ ] Per-job telemetry emitted append-only, **without freezing an unratified U-1 schema**
-- [ ] Curator field required at enqueue
+- [ ] **Curator field written to the `_run-log.tsv` row at ENQUEUE time; empty curator = refusal to fire, proven by test** (U-4 R-B, binding)
+- [ ] No emitted field, and no consumer built here, derives work state from a dispatch `**Status:**` header (Discipline #73)
 - [ ] `_run-log.tsv` terminal-row liveness check still answerable by `tail -1`
 - [ ] Round-trip smoke green; MIGRATION.md written
 - [ ] Tag cut
