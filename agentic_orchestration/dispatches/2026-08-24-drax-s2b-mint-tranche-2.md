@@ -5,7 +5,7 @@
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 (launch word covering the whole carve-out #2 agenda)
 **Pattern:** B (dedicated session)
-**Gates:** jack-ryan Gate-1 DESIGN-MODE — **pending; see § Gate record.** Fire on his return; do not wait to start **E-0**, which is a stage fix ordered by a landed gate verdict and carries no design surface.
+**Gates:** jack-ryan Gate-1 DESIGN-MODE — **RETURNED 2026-08-24: PASS-WITH-FINDINGS, ten amendments BINDING. Read § Gate record before Row 1.** A-1 fires before the first cathedral capture; A-2's seven sensitivity receipts gate rows 3–7; A-7 removes `stock_vfx_enabled` from this dispatch's scope.
 **Position in wave:** tranche 1 minted (3 rows) + WW-AB minted (`whirlwind`) → **galadriel's minted gate returned with 7 findings** → **you mint tranche 2** → galadriel re-gates → gandalf DRIFT-CRITIC.
 
 ---
@@ -245,9 +245,12 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 - [ ] **`line` C-2 orientation asserted at ≥ 3 aim vectors**; lifecycle proven `travelling burst`, not `sustained`
 - [ ] **C-8 census derived at every mark on BOTH stages**; any cathedral-stage emitter declared and classed
 - [ ] **All three tranche-1 method pre-flights run per row**, with their receipts in `gate.json` (drawn-instance AABB non-degenerate; `00-pre`/`08-post` diff exactly 0 with effect disabled; every ratio matched on both sides)
-- [ ] **RT-2 re-measured on CIEDE2000, not hue angle**, including a re-measure of the tranche-1 `neutral`/`wind` pair, with the ΔE(rendered) vs ΔE(added) fork test applied
-- [ ] Mint note committed **before** minting, covering all six required items per row
-- [ ] `KingRig.stock_vfx_enabled` default flipped to `false` with explicit opt-in at presentation scenes — **or** an escalation to KR if the opt-in surface is materially larger than a handful of scenes
+- [ ] **RT-2 re-measured on CIEDE2000, not hue angle**, including a re-measure of the tranche-1 `neutral`/`wind` pair, with the ΔE(rendered) vs ΔE(added) fork test applied — **⚑ AMENDED BY A-4: RT-2 is recorded PER ROW with explicit `n/a` on the five non-`TRAIL-BOUNDED` rows; this tranche's RT-2 population is `melee_arc` + `multi_projectile`, and the fork test is now cross-row**
+- [ ] **⚑ A-2 — the seven instrument sensitivity receipts, in `gate.json`, before rows 3–7 start**
+- [ ] **⚑ A-6 — the cross-row separation threshold DERIVED** (within-row null + the `melee_strike`/`ground_targeted_circle` positive control from the tranche-1 captures), with the anti-tuning clause stated in the mint note before measuring
+- [ ] **⚑ A-5 — the four assertable "must NOT" clauses carry named measurements**; `melee_arc` re-anchored off the non-portable ≈ 12 % coverage figure
+- [ ] Mint note committed **before** minting, covering all six required items per row — **plus A-1's E-0/E-1 pre-registration, which fires before the first cathedral capture**
+- [ ] ~~`KingRig.stock_vfx_enabled` default flipped to `false`~~ — **⚑ REMOVED FROM SCOPE BY A-7.** Not load-bearing for this tranche (tranche 1 hit `non_authored_emitter_count: 0` on 21/21 arms with the default still `true`). Derive the opt-in call-site set mechanically (#76 cl. 1), then flip in its own change with its own receipt.
 - [ ] Confound registers re-audited where an extraction master was inspected; **delta reported in both directions**
 - [ ] Round-trip: not applicable — no cross-seam contract change
 - [ ] `AGENT_STATE.md` updated at session end
@@ -310,9 +313,94 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 
 ## Gate record
 
-- jack-ryan Gate-1 DESIGN-MODE: **PENDING.** He is in session on the X-6 methodology ruling + standing Gate-2 on the tranche-1 tags; this dispatch enters his queue on return.
-- **E-0 and E-1 may proceed immediately** — they execute a landed gate verdict (§ 1.9) and a routed finding, and carry no design surface for Gate-1 to rule on.
-- **Rows 1–7 begin on the Gate-1 record being filled in above.** If Gate-1 returns amendments, they apply under ADR-002 without escalation unless a § 1 design-law ruling is implicated.
+**jack-ryan Gate-1 DESIGN-MODE — 2026-08-24 — PASS-WITH-FINDINGS → ten amendments applied, BINDING.**
+Approved directly under **ADR-002** (dispatch documents are documentation-only). **Nothing escalated to Matt** — no § 1 design-law ruling is implicated, no cross-seam contract moves, and no locked decisions-log entry conflicts (checked against `decisions-log.md` through `2026-08-24 #75/#76`).
+**Principles applied:** 1 (math-before-code) · 2 (smoke-gate) · 3 (cross-seam impact) · 5 (severity) · 6 (round-trip gate).
+**Disciplines cited:** #1, #10, #40, #63, #70, #73, #75 (cl. 1–3), § 75.5 cl. 5.4, #76 (cl. 1).
+
+### Ruling on the E-0/E-1 pre-Gate-1 split — LEGITIMATE, with one correction to its stated premise
+
+The split holds. A dispatch is not indivisible, and executing a **landed** gate verdict (galadriel § 1.9, routed finding #7, class *procedure item*, routed to KR/drax) ahead of a review that has no standing over it is a refinement of the gate, not a hole in it. **I would not have ruled differently had I been in queue.**
+
+**But the premise "carries no design surface" is false in two places, and both are cheap now:**
+
+1. **E-0's fourth bullet partitions a pre-registered HALT population.** galadriel's HALT condition 3 fires on *"captures not rendered at the ratified albedo, or arms diverge."* Instructing drax to hold **two uniformity cohorts and not pool them** changes the set over which her own HALT evaluates. The instruction is substantively right — pooling two stages would manufacture a divergence — but it is a change to a gate's pre-registered condition made by the dispatcher. **Action: KR notifies galadriel that the cohort is partitioned, before she re-gates.** Not drax's to carry.
+2. **E-0 has no math-before-code receipt, because § Math-before-code is row-scoped and E-0 has no row.** The stage fix is the item that conditions every subsequent measurement in this tranche, and as written its adequacy verdict would be authored *after* its result is known. **This is the one thing the split actually cost, and it is still recoverable.** See A-1.
+
+### The amendments
+
+**A-1 — ⚑ FIRES BEFORE THE FIRST CATHEDRAL CAPTURE (Discipline #1).** Write the **E-0/E-1 section of the mint note now**, pre-registering: the expected structured-content fraction for the cathedral stage, the margin below which E-0's refutation condition fires, and the two-cohort C-3 partition. If a cathedral arm has already been captured, state that in the note and mark the pre-registration as partial rather than back-dating it.
+
+**A-2 — ⚑ THE FIVE NEW INSTRUMENTS EACH NEED A SENSITIVITY PROOF BEFORE THEIR READING IS EVIDENCE (#75 clause 2). This is the amendment that carries the tranche.** The claim *"the instruments now exist and are proven"* is true of tranche 1's instruments and **false of this tranche's**. Five surfaces here have never been run: (i) the cathedral stage, (ii) the structured-content derivation, (iii) **CIEDE2000 replacing hue angle**, (iv) the C-2 yaw assertion, (v) the cross-row separation measurement — plus two instrument *fixes* (`C8_DECLARATION` key, `vfx_probe_delta.py` coverage fields), which are new code paths, not repairs to proven ones. Each gets a **known-negative that must move the number**:
+
+| # | Instrument | Known-negative that must move it |
+|---|---|---|
+| i | cathedral stage | structured-content fraction measured **effect-off** must equal the effect-on value (the stage number must not depend on the effect) **and** differ from the bare stage by the A-1 margin |
+| ii | structured-content derivation | run it on the **bare** stage and reproduce galadriel's **0.218 %** (§ 2.0). A derivation that cannot reproduce a known value is not yet an instrument |
+| iii | CIEDE2000 | a **known-identical** pair (one element, two arms) → ≈ 0, **and** a **known-different** pair (`fire`\|`water`, tranche-1 hue sep 31.2°) → large. Both legs, or the metric change is unproven on this harness |
+| iv | C-2 yaw assert | one arm with a **deliberately wrong** yaw; the assertion must **fail**. A yaw assert that has only ever passed is #75 cl. 2 verbatim |
+| v | cross-row separation | the positive control in A-6 |
+| fix a | `C8_DECLARATION` + `fx`/`rt` | re-derive the collision set after the fix; tranche 1 collapsed **8 declarations onto 2 keys** — the receipt is that delta going to **zero** |
+| fix b | `vfx_probe_delta.py` | emit one record where the all-frame and sampled coverages **differ**, proving the two are now separable on the record (§ 75.5 cl. 5.4) |
+
+**Rows 3–7 do not start until these seven receipts are in `gate.json`.** They cost two arms and no re-render.
+
+**A-3 — the HALT-and-surface circuit-breaker is RE-SPECIFIED, because as written it cannot fire.** Its trigger is *"if any new instrument defect of the tranche-1 class appears in rows 1–2."* Tranche-1-class defects are **silent by construction** — #75's own text: *"all five probes were checked, in the sense that their authors read them and believed them; four of five returned values in a plausible range, which is what suppressed the check."* A breaker that depends on noticing an undetectable-by-construction defect is an intention, not a control. **Replaced by a scheduled receipt gate: A-2's seven receipts ARE the checkpoint.** If any fails, **the cut is 7 → 4** — mint `self_buff`, `totem`, `circle`, `melee_arc` (independently mintable) and **re-dispatch rows 4/6/7 as a unit**, because the projectile trio's value is co-tranche measurement and cutting one of the three destroys the other two's criterion. **Seven rows is not the wrong number. Seven rows on seven un-sensitivity-proven instruments is the wrong number.**
+
+**A-4 — state the Tier-1 surface class per row, and name the RT-2 population (#63, #70).** The dispatch's own Math-before-code item 2 sends drax to *"the row's Tier-1 surface-class clause"* and then omits the class on **four of seven rows**. From the sealed spec: `self_buff` **FIELD-CARRIED** · `totem` **PAYLOAD-CARRIED** (delegate attack only) · `circle` **PAYLOAD-CARRIED** · `single_target` **PAYLOAD-CARRIED** · `melee_arc` **TRAIL-BOUNDED** · `multi_projectile` **TRAIL-BOUNDED** · `line` **PAYLOAD-CARRIED**.
+**Consequence the dispatch missed: RT-2 fires only on TRAIL-BOUNDED rows, so this tranche's RT-2 population is `melee_arc` + `multi_projectile` — and the dispatch identifies only one of the two.** Record RT-2 **per row** with explicit `n/a` on the other five, as galadriel did in tranche 1 — do not omit.
+**And this is an upgrade, not just a correction: two TRAIL-BOUNDED rows on one palette make the § 1.3 fork test cross-row for the first time.** RT-2 firing on **one** row indicts the **row**; firing on **both** indicts the class or the palette, and ΔE(rendered)-vs-ΔE(added) decides which. Tranche 1 could only run that fork within a single row. **The second row is free — it is being captured anyway.**
+
+**A-5 — four "must NOT" clauses admit numeric treatment and currently have none; one is mis-anchored.** Answering the dispatcher's question directly: **five of the prohibitions are assertable, three are provenance/scope prohibitions correctly honoured by declaration, and one is anchored to a bar galadriel already ruled non-portable.**
+
+- `self_buff` **"never let a Tier-1 recolour raise coverage"** → assert `coverage(element_i) ≤ coverage(baseline) + ε` across element arms. Same shape as `aura`'s ring-radius spread **0.5 px**. **"Cap opacity and radius"** has **no number and no source** — derive the cap from the read-through requirement rather than declaring one, and state the derivation.
+- `self_buff` **read-through** — *"meaningfully below 1.0"* is not a threshold. Tranche 1 returned **0.998** on `aura`; use it as the anchor and state the band. Run it on `aura`'s **worst-case element** too (galadriel finding #6, 1.84× effective-opacity spread, *"read-through untested on the worst-case element"* — cheap to close, and this row is where it matters for 112 skills).
+- `totem` **"the slam must show the contact step change; the manifestation must not"** → **the sharpest test in the tranche**: galadriel's § 1.2 test (3) applied twice on one row with **opposite expected signs**. Tranche 1's `melee_strike` gives the scale (0.2 % → 34.1 %). **Promote it to an acceptance criterion** — it is currently only in the row body. Likewise the anticipation beat: *"measured"* names no measurement; GTC's *"telegraph full at 0.183 s with payload 5.5 m out"* is the precedent shape — report lead time and delegate-pixel activity before `t_slam`.
+- `circle` **`annulus`** → **two comparisons with opposite expected signs on one record, and the dispatch names only one.** `perimeter_hash` **byte-identical** proves shared emitter (identity = good); interior fill must **differ** by a stated margin (identity = a near-inert parameter, which is exactly galadriel's finding #5 on `payload_vector`: byte-identical at 7 of 8 marks). Name both, with their own coverage each (**§ 75.5 cl. 5.4**).
+- `multi_projectile` **"count / spacing / range are ENGINE params, not Tier-1"** → **the clearest missing assert in the tranche, and tranche 1 already ran its twin.** Assert **spread ≈ 0** for projectile count, angular spacing and range **across element arms**. *Not conflating them* is an intention; a zero spread is a receipt.
+- `melee_arc` **"DO NOT thicken the crescent into a field"** → ⚠ **the dispatch hands drax `Reference coverage ≈ 12 %`, which is the one bar galadriel's § 1.6 ruled NON-PORTABLE** (*"never against a spec percentage lifted from another camera"*) — the same C-3-error-class door the ≈ 20 % GTC finding closed at tranche 1. **Re-anchor to the two properties that are portable:** (a) **angular extent < 360° and radial thickness / outer radius**, which is what makes a crescent not a field; (b) **"terrain visible THROUGH the arc"** and **"caster legible and NOT occluded"**, both stated in the spec as the explicit correction of EoR failure #2, both directly measurable as background-structure retention and caster-pixel retention. **Note the interlock: on a 99.78 %-bare floor, "terrain visible through the arc" is untestable because there is no terrain. E-0 is what makes this row's core prohibition measurable at all** — which is an independent argument for the stage going first.
+- **Correctly honoured by declaration, no assert owed:** the `transformation` sub-shape, the delegate body (**#40** scaffold), Hades II as beats-only, the excluded War Cry frames, and the Javelin `t_end`. These are scope and provenance boundaries, not measurable properties. Do not manufacture asserts for them.
+- `line`: two cheap receipts the dispatch asks for in prose — **`travelling burst`** = authored coverage returns to zero with no steady-state plateau; **no UID-cache rebuild** = cache hash byte-identical before/after, exactly as RT-5 already demonstrated. Put both in `gate.json`.
+
+**A-6 — the cross-row separation criterion is LEGITIMATE and its missing threshold is a real defect. Do not invent one — derive it.** The criterion as written (*"proven separable at the gameplay camera"*) is a **rendered-appearance** claim carried by intent, and this wave already ruled that **only pixels refute pixels** (#19.1, per-claim-type row, 2026-08-24). Construct it as a pairwise separation matrix over **rendered shape descriptors** at the ratified camera — aspect ratio, radial extent, trail length/width, pierce persistence past first contact, payload count, contact-event count and location — with the three arms held at **one fixed element** (#10).
+
+- **Null (lower bound):** within-row separation across the same row's element arms. Under the P-axis geometric-invariance requirement this should be ≈ 0, and it is being measured anyway.
+- **Positive control (scale anchor):** `melee_strike` vs `ground_targeted_circle` — two **already-minted, unambiguously distinct** rows whose descriptor distance is computable from the tranche-1 captures **at zero cost**. This is also A-2's item (v) sensitivity proof: a separation instrument that has never been shown to return "distinct" is not an instrument.
+- **Pass criterion:** cross-row separation among {`single_target`, `multi_projectile`(count=1), `line`} **exceeds the within-row null by a stated margin**, reported against the known-distinct pair as scale. Threshold with a source, both legs free.
+- ⚑ **Anti-tuning clause, and it is binding.** A negative result is a **finding routed to gandalf about L-29's fold**, **NOT a licence to differentiate the effects until the number passes.** A threshold on an acceptance criterion creates pressure to author artificial distinctness, which would corrupt the archetype semantics T-A locked — § 75.5 cl. 5.6 inverted (*do not change the artifact to suit the instrument*). **Say this in the mint note before you measure.**
+
+**A-7 — `KingRig.stock_vfx_enabled` comes OUT of this dispatch's scope and tag.** It is drax's to decide (seam authority, ADR-002) and the routed decision is sound. Two reasons it does not belong here: (a) **it is not load-bearing for this tranche** — tranche 1 already achieved `non_authored_emitter_count: 0` on **21/21 arms with the default still `true`**, via the declarative export, so the confound is already controlled; (b) it changes scenes **none of the seven rows exercise**, so it would ship untested inside a tag whose gate measures VFX mint quality — one tag, two unrelated changes, one receipt (#10 at the dispatch layer).
+⚠ **And as written it is a bare hand-list: "four call sites" / "a handful of scenes" / "materially larger than a handful" is a threshold with no derivation, which makes the escape hatch undecidable.** **#76 clause 1**, whose standing effect is *"Gate-1 surfaces a bare hand-list with no governing predicate as WARN at minimum"* — applied here to a dispatch I did not author, on a rule whose founding instances are two documents I did. **Derive the opt-in call-site set mechanically, report it, then flip, in its own change.** The derivation also makes KR's own stop-and-tell-me condition decidable for the first time.
+
+**A-8 — declare the two-stage coverage boundary, and state the disposition of tranche 1's verdicts (#70, #63).** E-1 produces a **second capture set for four already-verdicted rows on a different stage.** Nothing may pool them. Two things need saying in the mint note: (a) every arm declares its stage, and any absolute R or S claim names the stage population it covers; (b) **E-1 is not a re-open.** My Gate-2 verdict on `drax/v0.1-s2a-mint-tranche-1` scored the **record** and is unaffected. galadriel's tranche-1 R scores were capped at 4 *citing this exact stage limitation* (§ 2.0), so an R-axis delta on the cathedral stage is a **finding on the harder test**, as the dispatch already says — it is hers to disposition, and she should say whether it re-scores or annotates. **Better raised now than discovered at her re-gate.**
+
+**A-9 — four refutation conditions added to the § Quality criterion block.**
+1. **Any of A-2's seven sensitivity receipts fails** → A-3's cut fires. *(The block currently has no condition covering its own new instruments — the largest gap in it.)*
+2. **The cathedral stage's own emitters cannot be held constant across arms** → the stage has traded one non-comparability for another. Declared-and-classed satisfies galadriel's HALT 1, but a brazier that is an authored **light source** moves C-3 and the R axis. *Declared is not the same as controlled.*
+3. **The three projectile-family rows do not separate on RENDERED descriptors** → fold finding to gandalf, under A-6's anti-tuning clause. The existing condition covers *authoring* convergence (same emitter/anchor/coverage); three rows can be authored differently and still render indistinguishably, and it is the rendered side that reaches a player.
+4. **RT-2 splits across the two TRAIL-BOUNDED rows** → row indicted, not class; both → fork test decides (A-4).
+
+**A-10 — `circle`'s windup donor is missing.** Spec § 3.1.5 carries **D3 · Condemn** as *"the corpus's best windup donor for the radial-burst family,"* explicitly against the run-wide **80.5 % windup scarcity**. The dispatch carries the row's excluded-frames finding and drops the donor. `circle` is the **only row in this tranche with a named windup donor**, its lifecycle is `burst` with windup Y, and this dispatch's own quality criterion is telegraph literacy — for a caster-centred expanding annulus that is *"structurally the same object"* as the EoR failure, the windup is the second separator after the contact response. **Restore it.**
+
+**ℹ INFO — one overclaim, corrected so it cannot bend a threshold.** *"The only tranche in which those distinctions can be measured side by side"* is not true: once rows 4/6/7 are minted, re-capturing them together is cheap. Overstating the one-shot-ness creates pressure to accept a weak separation result rather than re-run — which is precisely what A-6's anti-tuning clause exists to prevent. **The cross-row measurement is high-value because it is early, not because it is unrepeatable.**
+
+### Verified clean, stated so it is not re-litigated
+
+- **Principle 6 gate — the `NO` is correct.** Verified independently: all seven rows are `reincarnated-godot/` presentation-internal; `multi_projectile`'s count/spacing/range are held on this side of the boundary; `totem`'s delegate body is held as a model-pipeline dependency. **No MIGRATION.md owed** (ADR-004). Round-trip **n/a**.
+- **Spec fidelity, rows 1–7, checked line-by-line against § 3.1.3–3.1.10.** No row mis-states its emitter geometry, causality class, lifecycle class or scope boundary. The two hardest constraints to carry — `totem`'s `two-layered` split causality and `line`'s `travelling burst` vs `beam_channel` — are carried **more explicitly than the spec states them**. A-4 and A-10 are omissions, not distortions.
+- **Quarantine handling is correct** — the tranche consumes none of L-36/L-37/§ 5/carve-out, the reach-for-§-5 signal is the right tripwire, and lifting is correctly left to gandalf.
+- **Both Gate-2 WARNs from `2026-08-24-step2-first-landings.md` are folded in and correctly characterised**, including WARN-1's *latent-not-active* status and why a two-stage tranche is where it stops being latent.
+
+### Pre-declared Gate-2 BLOCK condition (stated in advance so it is an output, not a judgment under pressure)
+
+**If rows 3–7 are minted without A-2's seven sensitivity receipts in `gate.json`, that is a Gate-2 BLOCK on the tranche-2 tag.** Declared here rather than issued now because the fix is additive, drax has not reached Row 1, and I hold dispatch-amendment authority under ADR-002 — a BLOCK now would stop work that an amendment can steer. **Seven rows re-minted on an instrument found wrong at row 6 is the outcome this clause exists to buy off, and it is the same arithmetic the dispatch used to put E-0 ahead of the rows.**
+
+### Disposition
+
+- **E-0 / E-1: CLEARED, continuing** — with **A-1 firing before the first cathedral capture** and KR notifying galadriel of the cohort partition.
+- **Rows 1–7: CLEARED TO START** on A-1 and A-4 being folded into the mint note. A-2's receipts gate **rows 3–7**, not rows 1–2.
+- **A-7 leaves this dispatch's scope.** Everything else is a mint-note and `gate.json` obligation.
+- **Nothing escalated to Matt.**
 
 ---
 
