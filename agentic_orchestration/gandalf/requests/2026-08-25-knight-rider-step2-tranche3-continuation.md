@@ -93,6 +93,11 @@ UNEVALUABLE.
 - **ENABLE_PROMPT_CACHING_1H** — the one line of the original agenda with no evidence either
   way. Verify machine-wide in the first hour; if unset, one-line `matt_to_do/` row. Close the
   loop with a dated record whichever way it lands.
+  ⚑ **CLOSED 2026-08-25 (this is the dated record):** verified UNSET everywhere (`.zshrc`,
+  user + project `settings.json`, launchd), then SET at Matt's word by gandalf —
+  `~/.claude/settings.json` `env` block (authoritative; all launch contexts) + `~/.zshrc`
+  export. Applies to sessions launched from now on; the in-flight tranche-3 session is
+  unaffected either way (env is captured at process launch). Rider DISCHARGED.
 - Codex-lane HIGH-UPTIME provisions carry unchanged from Matt's original agenda (serial law ·
   `codex login status` at session start · `gpt-5.6-sol` @ xhigh pin · fault-fallback to the
   named Claude agent).
