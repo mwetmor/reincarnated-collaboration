@@ -1188,5 +1188,569 @@ class TestTheLaw(unittest.TestCase):
                 self.assertNotIn(tok, k.lower(), "metric-named key on the tape: %s" % k)
 
 
+# =============================================================================
+# U-11 — Claude-lane usage ingester (RUN U11-BUILD block B-1, star-lord)
+#
+# R-L47-2 standing law governs every assertion below: NO hand-written literal over the
+# growing tape, and no hand-counted summary of a fixture either. Fixture expectations are
+# RE-DERIVED from the fixture's own specification by a second, independent path — the test
+# adds up the per-message usage it wrote and compares that against what the emitter
+# aggregated. Two paths to the same number, neither of them a typed-in constant.
+#
+# The fixtures are SYNTHETIC and live in a tempdir. The live substrate at ~/.claude/projects
+# is never written, never copied, and is not read by any test here: the live-tape class below
+# asks properties of ROWS, which is a read of the tape, not of the transcripts.
+# =============================================================================
+
+import ast  # noqa: E402
+import calendar  # noqa: E402
+import random  # noqa: E402
+import time  # noqa: E402
+
+import claude_usage  # noqa: E402
+
+
+def _call_names(src):
+    """Every call target in a source file, as a dotted name. AST, not grep.
+
+    The grep form of this test is not merely fragile, it is WRONG in a way that matters here:
+    `claude_usage.py`'s own docstring contains the strings `open(path, "r")` and
+    `open(..., "w")` while EXPLAINING that only the first shape appears in the code. A
+    string-matching law test would convict the file for describing the law it obeys.
+    """
+    names = []
+    for node in ast.walk(ast.parse(src)):
+        if not isinstance(node, ast.Call):
+            continue
+        f, parts = node.func, []
+        while isinstance(f, ast.Attribute):
+            parts.append(f.attr)
+            f = f.value
+        if isinstance(f, ast.Name):
+            parts.append(f.id)
+        if parts:
+            names.append(".".join(reversed(parts)))
+    return names
+
+
+def _open_modes(src):
+    """The mode literal of every `open(...)` call in a source file."""
+    out = []
+    for node in ast.walk(ast.parse(src)):
+        if not (isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+                and node.func.id == "open"):
+            continue
+        mode = None
+        if len(node.args) > 1 and isinstance(node.args[1], ast.Constant):
+            mode = node.args[1].value
+        for kw in node.keywords:
+            if kw.arg == "mode" and isinstance(kw.value, ast.Constant):
+                mode = kw.value.value
+        out.append(mode if mode is not None else "r")
+    return out
+
+
+def _imported(src):
+    mods = set()
+    for node in ast.walk(ast.parse(src)):
+        if isinstance(node, ast.Import):
+            mods |= {a.name.split(".")[0] for a in node.names}
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            mods.add(node.module.split(".")[0])
+    return mods
+
+
+def _epoch(ts: str) -> float:
+    return calendar.timegm(time.strptime(ts, "%Y-%m-%dT%H:%M:%SZ"))
+
+
+def _iso(epoch: float) -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(epoch))
+
+
+class FixtureSubstrate(object):
+    """Builds a synthetic `~/.claude/projects` tree. Nothing here touches the real one.
+
+    A fixture message carries the four anthropic usage axes, a ts, and a `repeat` count.
+    `repeat` writes the SAME `message.id` on N transcript lines — exactly the multi-content-
+    block shape that makes naive line-summing double-count on the real substrate — so the
+    dedupe path is exercised by construction rather than by hope.
+
+    The project directory NAME is computed with the emitter's own encoding rule rather than
+    typed out, so the scope test cannot pass by accident against a hand-copied string.
+    """
+
+    MODEL = "claude-fixture-4-1"
+    VERSION = "9.9.9-fixture"
+
+    def __init__(self, root, repo="reincarnated-collaboration"):
+        self.root = root
+        self.games = os.path.join(root, "Games")
+        self.projects = os.path.join(root, "claude-projects")
+        self.project_dir = os.path.join(self.projects,
+                                        os.path.join(self.games, repo).replace("/", "-"))
+        os.makedirs(self.project_dir, exist_ok=True)
+        self.spec = {}
+        self.files = {}
+
+    @staticmethod
+    def messages(seed, n, start_ts):
+        """Pseudo-random per-message usage — derived from a seed, never typed in."""
+        rng = random.Random(seed)
+        base = _epoch(start_ts)
+        out = []
+        for i in range(n):
+            out.append({
+                "id": "msg_%s_%04d" % (seed, i),
+                "ts": _iso(base + i * 37),
+                "input_tokens": rng.randint(0, 500),
+                "cache_creation_input_tokens": rng.randint(0, 40000),
+                "cache_read_input_tokens": rng.randint(0, 900000),
+                "output_tokens": rng.randint(0, 3000),
+                "repeat": rng.choice((1, 1, 2, 3)),
+            })
+        return out
+
+    def _write(self, path, session_id, msgs):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write(json.dumps({"type": "user", "sessionId": session_id,
+                                 "message": {"role": "user", "content": "hi"}}) + "\n")
+            for m in msgs:
+                usage = {k: m[k] for k in ("input_tokens", "cache_creation_input_tokens",
+                                           "cache_read_input_tokens", "output_tokens")}
+                for k in range(m["repeat"]):
+                    fh.write(json.dumps({
+                        "type": "assistant", "sessionId": session_id, "cwd": self.games,
+                        "timestamp": m["ts"].replace("Z", ".123Z"),
+                        "version": self.VERSION, "uuid": "u-%s-%d" % (m["id"], k),
+                        "requestId": "req_" + m["id"],
+                        "message": {"id": m["id"], "model": self.MODEL, "usage": usage},
+                    }) + "\n")
+
+    def session(self, session_id, msgs, subagents=(), mtime_ts=None):
+        """Write one session: a main transcript plus optional sub-agent tapes."""
+        main = os.path.join(self.project_dir, session_id + ".jsonl")
+        self._write(main, session_id, msgs)
+        files = [main]
+        all_msgs = list(msgs)
+        for i, sub in enumerate(subagents):
+            p = os.path.join(self.project_dir, session_id, "subagents", "agent-%d.jsonl" % i)
+            self._write(p, session_id, sub)
+            files.append(p)
+            all_msgs.extend(sub)
+        self.spec[session_id] = all_msgs
+        self.files[session_id] = files
+        if mtime_ts:
+            self.touch(session_id, mtime_ts)
+        return files
+
+    def touch(self, session_id, mtime_ts):
+        e = _epoch(mtime_ts)
+        for f in self.files[session_id]:
+            os.utime(f, (e, e))
+
+    def expect(self, session_id):
+        """Re-derive the session's economy from the fixture SPEC — the second path."""
+        msgs = self.spec[session_id]
+        tot = {k: sum(m[k] for m in msgs)
+               for k in ("input_tokens", "cache_creation_input_tokens",
+                         "cache_read_input_tokens", "output_tokens")}
+        tot["calls"] = len(msgs)
+        tot["lines"] = sum(m["repeat"] for m in msgs)
+        tot["last_ts"] = max(m["ts"] for m in msgs)
+        return tot
+
+
+class TestU11Ingester(unittest.TestCase):
+    """The emitter's properties, proved against a synthetic substrate."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="u11-")
+        self.records = os.path.join(self.tmp, "records")
+        os.makedirs(self.records)
+        self.fx = FixtureSubstrate(self.tmp)
+        self.repo_root = os.path.join(self.tmp, "repo")
+        os.makedirs(os.path.join(self.repo_root,
+                                 os.path.dirname(claude_usage.CUSTODY_TSV)))
+        self.custody = os.path.join(self.repo_root, claude_usage.CUSTODY_TSV)
+        open(self.custody, "w").close()
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def seed_vocabulary(self):
+        """The workstream matcher reads its vocabulary from the tape it is writing to."""
+        shutil.copy(os.path.join(FLIGHT_DIR, "records-2026-08.jsonl"),
+                    os.path.join(self.records, "records-2026-08.jsonl"))
+
+    def ingest(self, now="2026-09-01T00:00:00Z", months=("2026-08",), **kw):
+        return claude_usage.ingest(records_dir=self.records, projects_dir=self.fx.projects,
+                                   games_dir=self.fx.games, months=months,
+                                   now_epoch=_epoch(now), repo_root=self.repo_root, **kw)
+
+    def rows_on_tape(self):
+        return schema.read_tape(tape.tape_files(self.records))
+
+    # -- R-1 aggregation ------------------------------------------------------
+    def test_aggregate_equals_the_per_message_sums_of_the_fixture(self):
+        sid = "aaaaaaaa-0000-0000-0000-000000000001"
+        main = self.fx.messages("main", 40, "2026-08-03T01:00:00Z")
+        subs = [self.fx.messages("sub%d" % i, 15, "2026-08-03T02:00:00Z") for i in range(3)]
+        self.fx.session(sid, main, subs, mtime_ts="2026-08-03T09:00:00Z")
+
+        row = self.ingest()["rows"][0]
+        want = self.fx.expect(sid)
+
+        self.assertEqual(row["tokens_cached_input"], want["cache_read_input_tokens"])
+        self.assertEqual(row["tokens_cache_write"], want["cache_creation_input_tokens"])
+        self.assertEqual(row["tokens_output"], want["output_tokens"])
+        # the TOKEN AXIS MAPPING, asserted as the identity it claims to be
+        self.assertEqual(row["tokens_input"],
+                         want["input_tokens"] + want["cache_creation_input_tokens"]
+                         + want["cache_read_input_tokens"])
+        # NON-VACUITY: sub-agent tapes carry a real share, so a main-only fold would fail here
+        self.assertGreater(row["tokens_cached_input"],
+                           sum(m["cache_read_input_tokens"] for m in main),
+                           "sub-agent tapes did not fold in — R-1's whole point")
+
+    def test_repeated_transcript_lines_are_counted_once(self):
+        sid = "aaaaaaaa-0000-0000-0000-000000000002"
+        self.fx.session(sid, self.fx.messages("dup", 25, "2026-08-04T01:00:00Z"),
+                        mtime_ts="2026-08-04T09:00:00Z")
+        rep = self.ingest()
+        want = self.fx.expect(sid)
+        agg = rep["aggregates"][sid]
+        self.assertEqual(agg["calls"], want["calls"])
+        self.assertEqual(agg["lines"], want["lines"])
+        self.assertEqual(agg["repeated_lines"], want["lines"] - want["calls"])
+        # NON-VACUITY: the fixture must actually contain repeats, or this proves nothing
+        self.assertGreater(agg["repeated_lines"], 0)
+        self.assertEqual(rep["rows"][0]["tokens_output"], want["output_tokens"])
+
+    # -- R-2 month assignment -------------------------------------------------
+    def test_month_assignment_uses_the_LAST_usage_timestamp(self):
+        """A session spanning a boundary lands once, in its CLOSING month (R-2)."""
+        spanning, july = ("aaaaaaaa-0000-0000-0000-000000000003",
+                          "aaaaaaaa-0000-0000-0000-000000000004")
+        msgs = self.fx.messages("span", 30, "2026-07-30T12:00:00Z")
+        msgs[-1]["ts"] = "2026-08-01T04:00:00Z"
+        self.fx.session(spanning, msgs, mtime_ts="2026-08-02T00:00:00Z")
+        self.fx.session(july, self.fx.messages("july", 10, "2026-07-02T12:00:00Z"),
+                        mtime_ts="2026-07-03T00:00:00Z")
+
+        rep = self.ingest()
+        self.assertEqual([r["unit_id"] for r in rep["rows"]],
+                         [claude_usage.unit_id_for(spanning)])
+        self.assertEqual([s for s, _ in rep["skipped"]["out-of-month"]], [july])
+        want = self.fx.expect(spanning)
+        self.assertEqual(rep["rows"][0]["ts"], want["last_ts"])
+        self.assertEqual([os.path.basename(p) for p in tape.tape_files(self.records)],
+                         ["records-%s.jsonl" % schema.month_of(want["last_ts"])])
+
+    # -- R-6 quiescence + idempotence ----------------------------------------
+    def test_a_session_still_being_written_is_not_emitted(self):
+        sid = "aaaaaaaa-0000-0000-0000-000000000005"
+        self.fx.session(sid, self.fx.messages("live", 12, "2026-08-20T01:00:00Z"),
+                        mtime_ts="2026-08-20T11:30:00Z")
+        rep = self.ingest(now="2026-08-20T12:00:00Z")
+        self.assertEqual(rep["rows"], [])
+        self.assertEqual([s for s, _ in rep["skipped"]["not-quiescent"]], [sid])
+        # …and it lands on the very next run once the window passes. Same session, one row.
+        self.assertEqual([r["unit_id"] for r in self.ingest(now="2026-08-20T13:00:00Z")["rows"]],
+                         [claude_usage.unit_id_for(sid)])
+
+    def test_quiescence_is_asked_of_the_SUBAGENT_tapes_too(self):
+        """A session whose sub-agent is still writing is still spending."""
+        sid = "aaaaaaaa-0000-0000-0000-000000000006"
+        files = self.fx.session(sid, self.fx.messages("q1", 5, "2026-08-21T01:00:00Z"),
+                                [self.fx.messages("q2", 5, "2026-08-21T01:30:00Z")],
+                                mtime_ts="2026-08-21T01:00:00Z")
+        e = _epoch("2026-08-21T11:59:00Z")
+        os.utime(files[-1], (e, e))          # only the sub-agent tape is fresh
+        self.assertEqual(self.ingest(now="2026-08-21T12:00:00Z")["rows"], [])
+
+    def test_double_run_appends_nothing_the_second_time(self):
+        """R-6 idempotence — dedupe by unit_id, so a session gets exactly one row, ever."""
+        for i in range(3):
+            self.fx.session("bbbbbbbb-0000-0000-0000-00000000000%d" % i,
+                            self.fx.messages("i%d" % i, 8, "2026-08-1%dT01:00:00Z" % i),
+                            mtime_ts="2026-08-19T00:00:00Z")
+        first = self.ingest()
+        before = self.rows_on_tape()
+        self.assertEqual(len(first["rows"]), len(before))
+        self.assertGreater(len(before), 0)
+
+        second = self.ingest()
+        self.assertEqual(second["rows"], [])
+        self.assertEqual(len(second["skipped"]["already-emitted"]), len(before))
+        self.assertEqual([r["row_id"] for r in self.rows_on_tape()],
+                         [r["row_id"] for r in before],
+                         "a second run mutated the tape — idempotence is broken")
+
+    def test_dedupe_survives_a_session_that_GREW_between_runs(self):
+        """The hazard a row_id-keyed dedupe would miss (see `existing_unit_ids`).
+
+        A content address changes the moment one more message arrives, so a content-addressed
+        dedupe waves through a SECOND row for the same session. The unit_id key refuses it.
+        This test fails against the row_id key and passes against this one, which is the only
+        reason to prefer it.
+        """
+        sid = "cccccccc-0000-0000-0000-000000000001"
+        msgs = self.fx.messages("grow", 10, "2026-08-05T01:00:00Z")
+        self.fx.session(sid, msgs, mtime_ts="2026-08-05T09:00:00Z")
+        self.ingest()
+        first = [r["row_id"] for r in self.rows_on_tape()]
+
+        self.fx.session(sid, msgs + self.fx.messages("grow2", 5, "2026-08-06T01:00:00Z"),
+                        mtime_ts="2026-08-06T09:00:00Z")
+        self.assertEqual(self.ingest()["rows"], [],
+                         "a grown session minted a SECOND row for one session")
+        self.assertEqual([r["row_id"] for r in self.rows_on_tape()], first)
+
+    # -- R-4 provenance -------------------------------------------------------
+    def test_every_ingester_authored_row_declares_backfill(self):
+        for i in range(4):
+            self.fx.session("dddddddd-0000-0000-0000-00000000000%d" % i,
+                            self.fx.messages("bf%d" % i, 6, "2026-08-14T01:00:00Z"),
+                            mtime_ts="2026-08-14T09:00:00Z")
+        rows = self.ingest()["rows"]
+        self.assertEqual(len(rows), 4)
+        for r in rows:
+            self.assertIs(r.get("backfill"), True,
+                          "R-4/G-2c-R1: this emitter can only ever author retrospectively")
+
+    # -- R-3 attribution ------------------------------------------------------
+    def write_custody(self, rows):
+        with open(self.custody, "w", encoding="utf-8") as fh:
+            for holder, note in rows:
+                fh.write("\t".join(["2026-08-15T00:00:00Z", "star-lord", holder,
+                                    "CLAIM", note, "spec 11.3"]) + "\n")
+
+    def test_custody_ledger_supplies_operator_and_an_unambiguous_workstream(self):
+        sid = "eeeeeeee-1234-0000-0000-000000000001"
+        self.fx.session(sid, self.fx.messages("attr", 6, "2026-08-15T01:00:00Z"),
+                        mtime_ts="2026-08-15T09:00:00Z")
+        self.seed_vocabulary()
+        vocab = claude_usage.known_workstreams(self.records)
+        ws = sorted(vocab)[0]                       # a name the TAPE carries, not a literal
+        self.write_custody([("gandalf-session-" + sid[:8], "work for " + ws)])
+
+        row = self.ingest(dry_run=True)["rows"][0]
+        self.assertEqual(row["operator"], "gandalf")
+        self.assertEqual(row["workstream"], ws)
+        self.assertIn(claude_usage.CUSTODY_TSV, row["derived_from"],
+                      "an attributed row must name the ledger it was attributed from")
+
+    def test_a_session_claimed_under_two_workstreams_is_honest_null(self):
+        sid = "eeeeeeee-5678-0000-0000-000000000002"
+        self.fx.session(sid, self.fx.messages("amb", 6, "2026-08-15T01:00:00Z"),
+                        mtime_ts="2026-08-15T09:00:00Z")
+        self.seed_vocabulary()
+        two = sorted(claude_usage.known_workstreams(self.records))[:2]
+        self.assertEqual(len(two), 2, "the tape must know >=2 workstreams for this to mean it")
+        self.write_custody([("gandalf-session-" + sid[:8], "work for " + w) for w in two])
+
+        rep = self.ingest(dry_run=True)
+        self.assertIsNone(rep["rows"][0].get("workstream"),
+                          "two claims, one field — the honest answer is null, not a pick")
+        self.assertEqual(rep["rows"][0]["operator"], "gandalf")
+        self.assertTrue(rep["attribution"]["workstream-ambiguous"],
+                        "an ambiguity must be REPORTED, not merely dropped")
+
+    def test_a_holder_token_that_is_not_a_session_id_attributes_nothing(self):
+        """`gandalf-session-85515` is on the LIVE ledger and is not a session id.
+
+        Coercing a short fragment into a prefix match would have attributed four real
+        sessions to whichever one happened to start with those digits.
+        """
+        sid = "eeeeeeee-9999-0000-0000-000000000003"
+        self.fx.session(sid, self.fx.messages("noattr", 6, "2026-08-15T01:00:00Z"),
+                        mtime_ts="2026-08-15T09:00:00Z")
+        self.seed_vocabulary()
+        ws = sorted(claude_usage.known_workstreams(self.records))[0]
+        self.write_custody([("gandalf-session-" + sid[:5], "work for " + ws)])
+        row = self.ingest(dry_run=True)["rows"][0]
+        self.assertIsNone(row.get("operator"))
+        self.assertIsNone(row.get("workstream"))
+
+    def test_the_matcher_cannot_mint_a_workstream_the_tape_does_not_know(self):
+        sid = "eeeeeeee-aaaa-0000-0000-000000000004"
+        self.fx.session(sid, self.fx.messages("mint", 6, "2026-08-15T01:00:00Z"),
+                        mtime_ts="2026-08-15T09:00:00Z")
+        self.seed_vocabulary()
+        invented = "NOT-A-WORKSTREAM-ON-THIS-TAPE"
+        self.assertNotIn(invented, claude_usage.known_workstreams(self.records))
+        self.write_custody([("gandalf-session-" + sid[:8], "work for " + invented)])
+        self.assertIsNone(self.ingest(dry_run=True)["rows"][0].get("workstream"))
+
+    # -- honest nulls ---------------------------------------------------------
+    def test_unmeasured_axes_are_absent_not_zero(self):
+        self.fx.session("ffffffff-0000-0000-0000-000000000001",
+                        self.fx.messages("null", 6, "2026-08-16T01:00:00Z"),
+                        mtime_ts="2026-08-16T09:00:00Z")
+        row = self.ingest()["rows"][0]
+        for absent in ("tokens_reasoning", "pin", "rc", "attempt", "artifacts",
+                       "verdict", "gatekeeper", "seam", "cost_usd", "workstream"):
+            self.assertNotIn(absent, row,
+                             "%s is unmeasured on this lane; a stored value would assert a "
+                             "measurement that was never taken" % absent)
+
+    def test_a_measured_zero_is_recorded_as_zero(self):
+        """The counterpart, and the reason honest-null is not the same as zero-averse."""
+        sid = "ffffffff-0000-0000-0000-000000000002"
+        msgs = self.fx.messages("zero", 3, "2026-08-17T01:00:00Z")
+        for m in msgs:
+            for k in ("input_tokens", "cache_creation_input_tokens",
+                      "cache_read_input_tokens", "output_tokens"):
+                m[k] = 0
+        self.fx.session(sid, msgs, mtime_ts="2026-08-17T09:00:00Z")
+        row = self.ingest()["rows"][0]
+        for f in ("tokens_input", "tokens_cached_input", "tokens_cache_write",
+                  "tokens_output"):
+            self.assertEqual(row[f], 0)
+
+    def test_a_session_spanning_two_harness_versions_records_none(self):
+        sid = "ffffffff-0000-0000-0000-000000000003"
+        self.fx.session(sid, self.fx.messages("ver", 4, "2026-08-18T01:00:00Z"),
+                        mtime_ts="2026-08-18T09:00:00Z")
+        main = self.fx.files[sid][0]
+        with open(main, encoding="utf-8") as fh:
+            text = fh.read()
+        with open(main, "w", encoding="utf-8") as fh:
+            fh.write(text.replace(FixtureSubstrate.VERSION, "8.8.8-other", 1))
+        self.fx.touch(sid, "2026-08-18T09:00:00Z")
+        row = self.ingest()["rows"][0]
+        self.assertNotIn("harness_version", row,
+                         "two versions is not one version; joining them would put a "
+                         "non-version string in a version field")
+        self.assertEqual(row["harness"], claude_usage.HARNESS)
+
+    # -- THE LAW --------------------------------------------------------------
+    SOURCES = ("claude_usage.py", "bin/ingest_claude_usage")
+
+    def source(self, rel):
+        with open(os.path.join(FLIGHT_DIR, rel), encoding="utf-8") as fh:
+            return fh.read()
+
+    def test_the_ingester_carries_no_write_verb_against_the_substrate(self):
+        banned = {"os.remove", "os.unlink", "os.rename", "os.replace", "os.utime",
+                  "os.truncate", "os.rmdir", "os.makedirs", "os.mkdir",
+                  "shutil.copy", "shutil.move", "shutil.rmtree"}
+        for rel in self.SOURCES:
+            called = set(_call_names(self.source(rel)))
+            self.assertEqual(called & banned, set(),
+                             "%s calls a write verb — the substrate is read-only" % rel)
+
+    def test_every_open_in_the_ingester_is_read_mode(self):
+        for rel in self.SOURCES:
+            modes = _open_modes(self.source(rel))
+            for m in modes:
+                self.assertEqual(m, "r", "%s opens a file in mode %r" % (rel, m))
+        # NON-VACUITY: the module must actually open transcripts, or this proves nothing
+        self.assertTrue(_open_modes(self.source("claude_usage.py")))
+
+    def test_no_network_and_no_model_client_in_the_truth_path(self):
+        for rel in self.SOURCES:
+            mods = _imported(self.source(rel))
+            for banned in ("urllib", "requests", "http", "socket", "ssl", "subprocess",
+                           "anthropic", "openai"):
+                self.assertNotIn(banned, mods,
+                                 "%s imports %s — no network and no model client belongs "
+                                 "in the truth path" % (rel, banned))
+
+    def test_rows_reach_disk_only_through_the_one_data_path(self):
+        """The emitter has no door of its own: it hands rows to `tape.append_row` or nothing.
+
+        Composed with the read-mode test above, this is the whole one-data-path claim —
+        every write leaves through `tape.py`, and every `open` here is a read.
+        """
+        called = _call_names(self.source("claude_usage.py"))
+        self.assertIn("tape.append_row", called)
+        self.assertEqual([m for m in _open_modes(self.source("claude_usage.py")) if m != "r"],
+                         [], "a non-read open here would be a second data path")
+
+
+class TestU11RowsOnTheLiveTape(unittest.TestCase):
+    """Properties asked of whatever U-11 rows the live tape carries — derived, never listed.
+
+    Every assertion is a CLASS property over `claude-session/*` units. Nothing here counts
+    rows, names row_ids, or pins a token total: the tape grows, and a test that hand-lists its
+    contents is red-by-construction on the next append (R-L47-2).
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        rows, _ = tape.load(FLIGHT_DIR)
+        cls.all_rows = rows
+        cls.u11 = [r for r in rows
+                   if str(r.get("unit_id") or "").startswith(claude_usage.UNIT_PREFIX)]
+
+    def test_non_vacuity(self):
+        self.assertTrue(self.u11, "no U-11 rows on the tape — every property here is vacuous")
+
+    def test_every_u11_row_declares_backfill_and_names_a_transcript(self):
+        for r in self.u11:
+            self.assertIs(r.get("backfill"), True, r["unit_id"])
+            self.assertTrue(r.get("derived_from"), r["unit_id"])
+            self.assertTrue(any(".claude/projects" in s for s in r["derived_from"]),
+                            "%s names no transcript" % r["unit_id"])
+
+    def test_every_u11_row_is_a_claude_lane_close_carrying_all_four_axes(self):
+        for r in self.u11:
+            self.assertEqual(r["event"], "CLOSE")
+            self.assertEqual(r["unit_kind"], claude_usage.UNIT_KIND)
+            self.assertEqual(r["lane"], claude_usage.LANE)
+            self.assertEqual(r["provider"], claude_usage.PROVIDER)
+            self.assertEqual(r["currency"], claude_usage.CURRENCY)
+            for f in ("tokens_input", "tokens_cached_input", "tokens_cache_write",
+                      "tokens_output"):
+                self.assertIsNotNone(r.get(f), "%s missing %s" % (r["unit_id"], f))
+            self.assertNotIn("tokens_reasoning", r,
+                             "%s asserts a reasoning count no anthropic stream reported"
+                             % r["unit_id"])
+
+    def test_one_row_per_session_across_the_whole_tape(self):
+        ids = [r["unit_id"] for r in self.u11]
+        self.assertEqual(len(ids), len(set(ids)), "a session has more than one row (R-1/R-6)")
+
+    def test_the_cache_axis_is_a_SHARE_of_input_on_every_token_bearing_row(self):
+        """Cross-lane invariant: the board's cache cell is `tokens_cached_input/tokens_input`.
+
+        That expression is a RATE only if the cached figure is a subset of the input figure.
+        Asked of every token-bearing row on the tape — Codex's and Claude's alike — because
+        the moment one lane files a cached count exceeding its input count, every cache-hit%
+        on the board silently becomes a different quantity than its heading claims.
+        """
+        checked = 0
+        for r in self.all_rows:
+            tin = r.get("tokens_input")
+            if tin is None:
+                continue
+            checked += 1
+            for f in ("tokens_cached_input", "tokens_cache_write"):
+                v = r.get(f)
+                if v is not None:
+                    self.assertLessEqual(v, tin,
+                                         "%s: %s (%d) exceeds tokens_input (%d) — the cache "
+                                         "cell would render above 100%%"
+                                         % (r["unit_id"], f, v, tin))
+        self.assertGreater(checked, 0)
+
+    def test_the_report_renders_a_claude_token_total_beside_codex(self):
+        """T3, the spec's empirical criterion — asserted on the RENDER, not on the row."""
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--no-probes", "--now", "2026-08-26T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        lines = [l for l in p.stdout.split("\n")
+                 if l.startswith("| %s /" % claude_usage.PROVIDER)]
+        self.assertTrue(lines, "no anthropic row in the per-model scorecard")
+        for l in lines:
+            self.assertNotIn("null, declared", l,
+                             "the Claude lane still renders a declared-null token cell — "
+                             "U-11's whole reason for existing")
+            self.assertIn("%", l, "no cache-hit%% cell on the anthropic row")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

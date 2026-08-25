@@ -8,6 +8,66 @@ Append-only, like the tape. Newest revision first.
 
 ---
 
+## Revision 1.1 — U-11 CLAUDE-LANE INGESTER — 2026-08-25 (RUN U11-BUILD, block B-1)
+
+**No schema change. `SCHEMA_VERSION` 1, `SCHEMA_REVISION` "1.1", both untouched** — no field
+added, no enum widened, no rule altered, and `row_min_revision` reports **1.0** for every row
+this emitter writes. A v1.0 reader can read them. This entry exists because the tape's
+POPULATION changed in ways a consumer can be surprised by, which ADR-004 covers even when the
+schema does not move.
+
+**What landed:** `flight/claude_usage.py` + `flight/bin/ingest_claude_usage` fold Claude Code
+session-transcript usage onto the tape. 27 rows for the quiescent 2026-08 sessions.
+
+### What readers will see that was not there before
+
+| change | consequence for a reader |
+|---|---|
+| **A new unit namespace `claude-session/<uuid>`**, `unit_kind: "session"` (an enum value v1 always had, now used for the first time) | Anything keyed on `unit_kind ∈ {job, run}` now has a third population. `session` units are **CLOSE-only** — no ENQUEUE, no START. |
+| **CLOSE-only units** — 27 of them | Any derivation that assumes a SEALED unit has a START gets a null. `flight_report` already says so per-cell ("no START row on 27/27 units"); a consumer that instead computes `close − start` will divide by nothing. |
+| **The `anthropic` lane now carries token primitives.** Before: `— (null, declared)`. After: 8.44 B input / 97.6 % cache-hit. | This is the point of U-11 and the thing to re-baseline against. Any dashboard copy that says the Claude lane reports no tokens is now **stale, not wrong-in-future** — fix the copy. |
+| **Tape coverage moved backwards** — `coverage.first_ts` was `2026-08-24T03:29:39Z`, is now `2026-08-01T05:01:30Z` | Anything that pinned the coverage boundary as a literal is now stale. Derive it. |
+| **A `(no workstream)` group of 27 units** in the SEALED-by-workstream table | Honest-null attribution (R-3), not a gap in the row. See the attribution note below before treating it as a defect. |
+| **`derived_from` carries ABSOLUTE paths** on these rows | The transcripts live at `~/.claude/projects/**`, which is inside **no repo**, so a repo-relative path cannot name them. `schema.resolve_path` handles this correctly (`os.path.join(root, "/abs")` → `/abs`) and the validator's existence check passes. **Consequence: these rows are host-local.** A reader on another machine cannot re-derive them — the same property the substrate itself has. |
+
+### The token-axis mapping — the one thing to read before querying these rows
+
+    anthropic output_tokens               -> tokens_output        (1:1)
+    anthropic cache_read_input_tokens     -> tokens_cached_input  (1:1)
+    anthropic cache_creation_input_tokens -> tokens_cache_write   (1:1)
+    anthropic input_tokens
+      + cache_creation_input_tokens
+      + cache_read_input_tokens           -> tokens_input         (the SUM)
+    (no anthropic axis)                   -> tokens_reasoning     ABSENT
+
+`tokens_input` is the **total input presented, cached portion included** — the same axis Codex's
+stream reports directly (`input_tokens: 845782` alongside `cached_input_tokens: 750336` on one
+turn: a subset, not an addend). Anthropic reports that same whole as three disjoint components,
+so the row stores their exact sum. **A reader wanting fresh (uncached) input computes
+`tokens_input − tokens_cached_input − tokens_cache_write`** — nothing is lost, but it is not
+`tokens_input`. Storing `input_tokens` alone would have rendered a "cache-hit rate" of several
+thousand percent. `tokens_reasoning` is **absent, not 0**: no anthropic axis reports it, and a
+measured zero is a different fact from an unmeasured one.
+
+### Attribution: honest-null is the finding, not the failure
+
+`workstream` and `operator` are null on **27/27** rows. The mechanical index (R-3) works — it is
+proved against a fixture, and it resolves `gandalf-session-53631d11` correctly — but the custody
+ledger holds exactly **one** holder token that is a real session-id fragment, and it belongs to a
+session that is still live and therefore not yet emitted. **Nothing durable in the repo records
+which session did which work.** That is a fleet-level gap worth closing at the source (record the
+session id in run ledgers / custody claims), not by guessing here.
+
+### Re-running
+
+Idempotent by `unit_id`: a session gets exactly one row, ever. Re-running appends nothing for
+sessions already on the tape and picks up any session that has since gone quiet (60 min with no
+transcript mtime change). Live sessions are skipped by design — the conductor's own session
+lands on a later run. A quiescent session that later resumes is a `corrects:` chain, the only
+amendment path, and expected to be rare.
+
+---
+
 ## Revision 1.1 — G-2b DISCHARGE — 2026-08-24 (block B-1c)
 
 Still **revision 1.1**, deliberately: gate amendments ship *as part of* the version they gate

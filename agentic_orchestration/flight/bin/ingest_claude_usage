@@ -1,0 +1,143 @@
+#!/usr/bin/env python3
+"""ingest_claude_usage — fold Claude Code session-transcript usage onto the flight tape (U-11).
+
+    agentic_orchestration/flight/bin/ingest_claude_usage --dry-run     # show, write nothing
+    agentic_orchestration/flight/bin/ingest_claude_usage               # append
+
+Read-only against `~/.claude/projects/**` — this program opens transcripts for READING and
+nothing else. It writes exactly one thing: appended rows, through `tape.append_row`, which is
+the same door every other emitter uses (one data path).
+
+Idempotent and re-runnable by construction: a session that already has a row on the tape is
+skipped by `unit_id`, so running this twice appends nothing the second time. Sessions still
+being written are skipped by the quiescence rule (R-6) and picked up on a later run.
+
+See `flight/claude_usage.py` for the binding rulings R-1…R-7 and the token-axis mapping.
+
+Exit 0 = ran. Exit 1 = a session could not be read as required. No LLM in the path.
+"""
+
+from __future__ import annotations
+
+import argparse
+import calendar
+import json
+import os
+import sys
+import time
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FLIGHT_DIR = os.path.dirname(HERE)
+REPO_ROOT = os.path.dirname(os.path.dirname(FLIGHT_DIR))
+sys.path.insert(0, FLIGHT_DIR)
+
+import claude_usage  # noqa: E402
+import schema  # noqa: E402
+
+
+def human(n):
+    for unit, div in (("B", 1e9), ("M", 1e6), ("k", 1e3)):
+        if n >= div:
+            return "%.2f%s" % (n / div, unit)
+    return str(n)
+
+
+def main(argv=None) -> int:
+    ap = argparse.ArgumentParser(prog="ingest_claude_usage", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--records-dir", default=FLIGHT_DIR)
+    ap.add_argument("--repo-root", default=REPO_ROOT)
+    ap.add_argument("--projects-dir", default=None,
+                    help="override ~/.claude/projects (tests point this at a fixture)")
+    ap.add_argument("--games-dir", default=None)
+    ap.add_argument("--month", action="append", default=None,
+                    help="YYYY-MM in scope; repeatable (default: 2026-08 per R-2)")
+    ap.add_argument("--quiescence-minutes", type=int,
+                    default=claude_usage.QUIESCENCE_SECONDS // 60)
+    ap.add_argument("--now", default=None,
+                    help="pin the clock (ISO-8601 UTC) — deterministic quiescence in tests")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="build + validate every row, write none")
+    ap.add_argument("--json", action="store_true", help="machine-readable summary on stdout")
+    args = ap.parse_args(argv)
+
+    now_epoch = time.time()
+    if args.now:
+        now_epoch = calendar.timegm(time.strptime(args.now, "%Y-%m-%dT%H:%M:%SZ"))
+
+    try:
+        rep = claude_usage.ingest(
+            records_dir=args.records_dir,
+            projects_dir=args.projects_dir,
+            games_dir=args.games_dir,
+            months=tuple(args.month or ("2026-08",)),
+            now_epoch=now_epoch,
+            quiescence_seconds=args.quiescence_minutes * 60,
+            dry_run=args.dry_run,
+            repo_root=args.repo_root,
+        )
+    except (claude_usage.IngestError, schema.SchemaError) as exc:
+        sys.stderr.write("ingest_claude_usage: HALT — %s\n" % exc)
+        return 1
+
+    s = claude_usage.summarize(rep)
+
+    if args.json:
+        print(json.dumps({"summary": s,
+                          "appended": rep["appended"],
+                          "skipped": rep["skipped"],
+                          "attribution": {k: v for k, v in rep["attribution"].items()}},
+                         indent=2, default=str))
+        return 0
+
+    mode = "DRY-RUN (nothing written)" if args.dry_run else "APPENDED"
+    print("ingest_claude_usage — %s · scanned %d session(s) · %s %d row(s)"
+          % (claude_usage.utc(now_epoch), rep["scanned"], mode, s["rows"]))
+    print("")
+    print("| session | ts (last usage) | operator | workstream | calls | tok-in | cache-hit | "
+          "tok-out |")
+    print("|---|---|---|---|---|---|---|---|")
+    for row in rep["rows"]:
+        sid = row["unit_id"][len(claude_usage.UNIT_PREFIX):]
+        tin = row["tokens_input"]
+        print("| %s | %s | %s | %s | %d | %s | %s | %s |"
+              % (sid[:8], row["ts"], row.get("operator") or "— (null)",
+                 row.get("workstream") or "— (null)",
+                 rep["aggregates"][sid]["calls"], human(tin),
+                 ("%.1f%%" % (100.0 * row["tokens_cached_input"] / tin)) if tin else "—",
+                 human(row["tokens_output"])))
+    print("")
+    print("TOTALS over the %d row(s) this run produced — derived here, stored nowhere:"
+          % s["rows"])
+    print("  tokens_input        %s (%d)" % (human(s["tokens_input"]), s["tokens_input"]))
+    print("  tokens_cached_input %s (%d)  -> cache-hit %s"
+          % (human(s["tokens_cached_input"]), s["tokens_cached_input"],
+             ("%.2f%%" % s["cache_hit_pct"]) if s["cache_hit_pct"] is not None else "—"))
+    print("  tokens_cache_write  %s (%d)" % (human(s["tokens_cache_write"]),
+                                             s["tokens_cache_write"]))
+    print("  tokens_output       %s (%d)" % (human(s["tokens_output"]), s["tokens_output"]))
+    print("  api calls           %d (%d repeated transcript lines discarded; %d unidentified)"
+          % (s["calls"], s["repeated_lines_discarded"], s["unidentified_lines"]))
+    print("")
+    print("SKIPPED — every session the emitter passed over, with its reason:")
+    for why, items in sorted(rep["skipped"].items()):
+        print("  %-16s %d%s" % (why, len(items),
+                                ("  " + ", ".join(str(i) for i in items[:6])
+                                 + (" …" if len(items) > 6 else "")) if items else ""))
+    print("")
+    a = rep["attribution"]
+    print("ATTRIBUTION (R-3, mechanical only — honest-null is the default, not a failure):")
+    print("  operator derived   %d/%d row(s)" % (len(a["operator"]), s["rows"]))
+    print("  workstream derived %d/%d row(s)%s"
+          % (len(a["workstream"]), s["rows"],
+             ("  " + ", ".join("%s=%s" % (x[0][:8], x[1]) for x in a["workstream"]))
+             if a["workstream"] else ""))
+    if a["workstream-ambiguous"]:
+        print("  workstream AMBIGUOUS (left null, named here): %s"
+              % ", ".join("%s=%s" % (x[0][:8], "/".join(x[1]))
+                          for x in a["workstream-ambiguous"]))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
