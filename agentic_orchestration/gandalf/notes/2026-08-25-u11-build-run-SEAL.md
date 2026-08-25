@@ -44,7 +44,7 @@ From `flight/report.md`, derived from rows, zero prose sources:
 
 ## 5 · Handoffs out of the run
 
-- **→ drax (post-run backlog):** WARN-6 — Glance's *exported* `fold` is correction-blind by default (live pipeline correct; standalone consumers at hazard); F-3 mixed scorecard denominators; carried D4–D7+G1 from U1.
+- **→ drax (post-run backlog):** WARN-6 — Glance's *exported* `fold` is correction-blind by default (live pipeline correct; standalone consumers at hazard); **WARN-7 (deployed-check catch):** prod `state.json` carries `reasoning: 0` where the axis is absent on all units — the BLOCK-3 `or 0` class alive in the Glance DATA layer (Python side now fixed; JS side owes the same honest-null); F-3 mixed scorecard denominators; carried D4–D7+G1 from U1.
 - **→ star-lord (standing operation, no dispatch needed):** `bin/ingest_claude_usage` is idempotent and re-runnable — any future run may fold newly-quiescent sessions (this conductor session's own 8-figure row lands on the next ingest). Candidate cadence: at each run-seal.
 - **→ Matt (`matt_to_do/`, unchanged + sharpened):** **U-3** `ENABLE_PROMPT_CACHING_1H=1` — the recorder can now MEASURE this lever per-lane; **T20** disk RED still open.
 - **→ KR:** Step-2 build wave unchanged (prompt banked at `e765eb32`); F-5 governance candidate for sequencing if Matt adopts.
