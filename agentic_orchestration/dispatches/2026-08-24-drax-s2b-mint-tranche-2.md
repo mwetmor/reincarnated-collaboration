@@ -463,4 +463,163 @@ The split holds. A dispatch is not indivisible, and executing a **landed** gate 
 
 ## Completion record
 
-*(to be appended by drax)*
+**Appended by drax, 2026-08-24.** Godot `08d4715`; tags `drax/v0.1-s2b-e0-stage-fix` and
+`drax/v0.1-s2b-e0-gate1-amendments`, both pushed.
+Mint note: `agentic_orchestration/drax/notes/2026-08-24-s2b-mint-note.md`.
+Receipts: `reincarnated-godot/harness_logs/s2b_e1_2026-08-24/{gate,sensitivity}.json` (152 PNG).
+
+### Status: **E-0 + E-1 + the two unblocked C-8 items COMPLETE. Rows 1–7 NOT STARTED.**
+
+Gate-1 landed **mid-execution**. Its ten binding amendments re-scope the rows, and four of
+them change what a row mint must contain before it can begin — **A-2/A-3** (the receipt gate
+that replaces the circuit-breaker), **A-4** (surface classes omitted on 4 of 7 rows; this
+tranche's RT-2 population is `melee_arc` + `multi_projectile`, making the § 1.3 fork test
+cross-row for the first time), **A-5** (`melee_arc`'s ≈ 12 % bar is the one § 1.6 ruled
+non-portable), **A-6** (derived separation threshold). Starting Row 1 would mint against a
+scope already amended.
+
+### E-0 — the derived answer
+
+**Instrument calibrated before it was believed.** HLF ported verbatim from
+`register-metrics.mjs` and re-measured against galadriel's own anchors: graybox **14.342 %**
+vs published **14.4 %**; cathedral **9.451 %** vs **9.35 %**. *(And the published anchors are
+lifecycle **maxima**, not means — comparing against a mean would understate every stage by
+~2 pp.)*
+
+| stage | structured content | vs bare | HLF (control) | HLF (effect ON) | max luma, effect ON |
+|---|---:|---:|---:|---:|---:|
+| bare | **0.304 %** | — | 0.0015 % | 0.0064 % | **242** |
+| **cathedral** (ordered) | **23.440 %** | **77.1×** | 0.0000 % | **0.0000 %** | 193 |
+| **arena** (built after measuring) | **45.111 %** | **148.4×** | 0.0000 % | **0.0000 %** | 195 |
+
+**On the dispatch's stated refutation test, E-0 passes decisively.** Two things it did not
+anticipate:
+
+- **The 9.35 % anchor is ~80 % hero VFX.** Decomposed along its own lifecycle: pre-ignition
+  (braziers only) **1.71–2.50 %**, hero burn **6.32–9.45 %**, post-stop 2.84–3.96 %. It is
+  not a stage number and should not be used as one.
+- **HLF does not survive the fix, and geometry is not why.** The same effect peaks at luma
+  **242** on the bare env and **195** on the lift env — either side of the 204 cut. Lowering
+  the cut inverts the wrong way (at >150: bare 0.078 %, arena 0.016 %). **The cohorts sit on
+  different transfer functions: HLF is non-comparable across TONEMAPS, a direction § 1.9 had
+  not named.**
+
+**Replacement instrument proposed — GLF**, the fraction of authored pixels landing where the
+*control* frame carries geometry (∇ > 10):
+
+| row (peak) | bare | **arena** | cathedral |
+|---|---:|---:|---:|
+| `melee_strike` @ contact | 0.194 | **0.676** | 0.515 |
+| `ground_targeted_circle` | — | **0.717** | 0.250 |
+| `aura` @ steady | 0.114 | **0.700** | 0.279 |
+| `whirlwind` @ sustain | — | **0.835** | 0.712 |
+
+**68–84 % of every effect's light lands on environment geometry on the arena stage, against
+3–19 % on bare — and that bare fraction is the actors' own silhouettes, the only structure a
+bare floor has.** It operationalizes § 1.9's own wording and was *unaskable* before E-0.
+
+**⚑ A third recipe was built because the measurement said to.** `Demo_Cathedral_01.tscn` is a
+six-section **showcase diorama**, not a room; its ritual circle sits on an **outdoor terrace**
+and at the ratified camera terrain occludes **81 %** of `melee_strike`'s authored pixels
+(13,802 arena → 2,589 cathedral). `arena` is the same pack and same lift rig in a room the
+camera can photograph, lifted from `render_boss_arena.gd`, sized from **our** camera footprint,
+with two pillar rings because § 1.9 asked literally for *"pillars for VFX light to fall on"*.
+**Recommended as the S-axis cohort of record;** the cathedral is retained and captured beside it.
+
+**C-3 uniformity — per cohort, never pooled**, and the finer cohort is the real one (a pooled
+spread on a textured floor measures the roster, not albedo divergence):
+
+| cohort | `melee` | `gtc` | `aura` | `whirlwind` |
+|---|---:|---:|---:|---:|
+| arena | **0.0000** | **0.0000** | **0.0000** | 0.8716 |
+| cathedral | **0.0000** | **0.0000** | **0.0000** | 2.4192 |
+
+Three of four rows reproduce tranche 1's 0.000 receipt on both new stages. Whirlwind's spread
+is the caster **moving at 3.5 m/s** through the sample band — an archetype property, named.
+
+**C-8 on new geometry:** cathedral ships **0** particle emitters and 29 OmniLights (1 survives
+the arena filter); arena carries 4 static brazier OmniLights. All `INHERITED-BY-DESIGN`,
+census-enumerated at every mark, inside `C8_DECLARATION`. The lift recipe's hero VFX are
+omitted **and the omission is declared**.
+
+### E-1 — four rows re-captured, with the receipt that it is not a re-mint
+
+152 PNG, both structured stages, `fx=on` + `fx=novfx` per row per stage (two arms, not the one
+allowed — method defect #3 was a ratio missing a control on one side).
+
+> **46 of 46 `melee`/`gtc`/`aura` fx-on frames BYTE-IDENTICAL across the § 3.1 control fix.**
+
+**R-axis delta:** against the arena stage three of four rows hold **89–94 %** of bare-stage
+authored pixels, mean added luma 27–31 on structure. **The effects survive structured
+geometry. Nothing was retuned to rescue a number** — including `melee_strike`'s 81 % loss on
+the cathedral, where the stage was indicted instead, which is where the fault was.
+
+### ⚑ FOUR new defects of the tranche-1 class
+
+1. **`s2a_ground_circle.fire()` un-stripped its own control.** `visible=false` at build time,
+   `visible=true` at run time ⇒ fx and ctl **byte-identical** ⇒ gate reported
+   **`authored_px = 0`**, which reads as *"invisible against structured geometry"*, an R-axis
+   finding, and was a **contaminated control**. Never fired before: tranche 1 had **no novfx
+   arm on this row**. Fixed; true figure **88,761 px**.
+2. **⚑ `wwcr_stage.gd` NEVER RECEIVED THE TRANCHE-1 CLOCK PIN.** Two runs of *unmodified* code
+   differ by **144–1,028 px**, including at `00-pre`. **I found method defect #2, fixed it
+   where I found it, elevated it to a standing pre-flight, and left the sibling stage alone.**
+   Back-ported; **0 drift across two runs on all 10 marks.**
+   **This affects the LANDED `whirlwind` clean-room mint (`1692d6e`,
+   `drax/v0.1-s2-whirlwind-cleanroom-1`) — its ON/OFF diffs carry animation phase. Whether
+   that moves the WW-AB verdict is galadriel's call. ROUTED.**
+3. **My own gate table read two archetypes' SPECIFIED residue as broken determinism**
+   (`gtc 07-late = 56,984`, `ww 09-off = 3,973`). Localising the pixels settled it. **A
+   plausible number can be a false alarm as well as a false pass.**
+4. **⚑ The gradient operator — and Gate-1 caught this one, not me.** I calibrated against
+   § 2.0's **0.218 %** (forward-difference), landed on `sobel/4 = 0.2699 %`, and **declared a
+   1.24× offset**. A-2(ii) + galadriel's **G-4** give the correct target: **0.304 %, Sobel
+   |∇| > 10, § 1.9a**. Re-swept: **raw Sobel = 0.3038 %**. *0.2699 % matched neither published
+   operator, and declaring an offset made the mismatch look handled.*
+
+Plus **reported-not-fixed**: the `wwcr` novfx control is not pose-matched before `T_BEGIN`
+(83 px at `00-pre`). The repair reaches inside a minted effect, which E-1 forbids; the failing
+receipt ships as a failing receipt.
+
+### Gate-1 amendments folded
+
+| | |
+|---|---|
+| **A-1** | Pre-registration marked **PARTIAL and NOT back-dated** — arms were already captured, so § 1.5's adequacy verdict was authored after its result was known. The two-cohort C-3 partition and the derive-don't-declare rules **were** genuinely pre-registered in code. |
+| **A-2** | **3 of 7 sensitivity receipts BANKED**, all PASS: structured-content reproduces 0.304 % to **0.0002** with the operator named; the stage number **does not depend on the effect** (effect contributes 0.16–2.6 % of stage content — I did *not* claim exact equality, which is the flattering answer and is false); **CIEDE2000 on BOTH legs** — known-identical **ΔE = 0.0000** using *two different RT-8 arms that render byte-identical*, not a file against itself; known-different **18.70**. **4 owed before rows 3–7.** |
+| **A-3** | Receipt gate accepted as the checkpoint replacing the circuit-breaker. |
+| **A-6** | Anti-tuning clause **recorded before any cross-row measurement exists**. |
+| **A-7** | ⚠ **BREACH, DISCLOSED.** The `stock_vfx_enabled` flip shipped inside `drax/v0.1-s2b-e0-stage-fix` before A-7 landed. **Tag not deleted or moved** (destructive, not mine unasked) — revert-and-reland is **KR's call**. A-7's *substantive* requirement is met: the opt-in set is **derived mechanically with a stated governing predicate** (#76 cl. 1), **15 sites — 7 opt in, 1 explicit false, 7 new default**, against an estimate of four. |
+
+### RT-2 on CIEDE2000 — my tranche-1 finding is REFUTED
+
+**`fire|earth` is the minimum on all four marks; mask choice never moves it. My
+`neutral|wind` "3.0°" is third and is refuted.** Third independent measurement, same verdict —
+plus one addition: **the collapse is tightest at CONTACT (6.50), not on the trail (7.28)**,
+i.e. at the instant the effect is largest and the player is looking. `neutral|water` (7.35) is
+a fourth pair absent from both prior matrices. **Fork test: ratio 0.805–1.053, mean |transfer|
+1.66 ΔE ⇒ FAITHFUL TRANSMITTER. RT-2 does not fire; surface class exonerated, PALETTE indicted
+→ rocket (X-3).**
+
+### Acceptance criteria
+
+| Criterion | Status |
+|---|---|
+| E-0 stage wired; structured-content **derived and reported** for both stages | ✅ |
+| E-0 C-3 uniformity **within each cohort separately** | ✅ (+ per-row refinement) |
+| E-1 control arms re-captured; **no re-mint**; R-axis delta surfaced | ✅ byte-identity receipt |
+| **RT-2 re-measured on CIEDE2000**, tranche-1 pair re-measured, fork test applied | ✅ **refuted** |
+| `stock_vfx_enabled` flipped, opt-in derived | ✅ — ⚠ **but tag-scope breach, A-7** |
+| C-8 census derived at every mark on both stages; new emitters declared and classed | ✅ |
+| Mint note committed | ✅ |
+| Round-trip: not applicable — no cross-seam contract change | ✅ |
+| Tag + push | ✅ ×2 |
+| Sealed spec **not** patched; findings routed to gandalf | ✅ |
+| Nothing under `Assets/` modified | ✅ |
+| `AGENT_STATE.md` updated | ✅ |
+| **Seven rows minted** | ❌ **NOT STARTED — Gate-1 amendments re-scope them; 4 of 7 A-2 receipts owed** |
+
+**8 findings routed** (mint note § 8) — galadriel (3), knight-rider (2), rocket (1),
+jack-ryan (1), gandalf via KR (1). **Not escalated to Matt:** no § 1 design-law ruling
+required reopening; no sealed binding moved; the sealed spec was not patched.
+
