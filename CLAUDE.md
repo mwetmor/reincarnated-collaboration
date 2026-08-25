@@ -158,8 +158,23 @@ Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-defa
   **`git commit --only` is sound and did nothing wrong. The instrument was the defect.**
 
   **Standing rule — two questions, two commands, neither substitutes for the other:**
-  - **BEFORE committing** — *"what WILL this commit contain?"* → `git diff HEAD --name-status -- <the paths you named>`
+  - **BEFORE committing** — *"what WILL this commit contain?"* → ~~`git diff HEAD --name-status -- <the paths you named>`~~ ⚑ **`git status --porcelain -- <the paths you named>`** *(amended below — the `diff` form cannot see a new file)*
   - **AFTER committing** — *"what DID this commit contain?"* → **`git show --stat HEAD`** (or `git diff HEAD~1 HEAD --name-status`, with **both** commits named)
+
+  ⚑ **FOURTH AMENDMENT, 2026-08-25, same session as the second and third — the PRE-commit instrument is BLIND TO NEW FILES. It reported nothing for a file that was about to be committed.**
+
+  **`git diff HEAD` compares the working tree to `HEAD` across TRACKED paths only.** An untracked file is in neither `HEAD` nor the index, so it is not in the diff — **and the command exits 0 with silence.** Verified live, this repo: four paths named, three tracked and one brand-new; the mandated check printed exactly **three rows**. The fourth file was created, real, on disk, and about to ship.
+
+  | Instrument | On a NEW file about to be committed | Correct? |
+  |---|---|---|
+  | `git diff HEAD --name-status -- <paths>` | **(no output)** | ❌ **omits it entirely, silently, exit 0** |
+  | `git status --porcelain -- <paths>` | `?? <path>` | ✅ reports it, and distinguishes `M` from `??` |
+
+  **Both failure directions are live and the second is the dangerous one.** *Under-report*: you conclude a file "isn't really changed" and drop it — recoverable, the work is still on disk. ⚑ *Over-trust*: you read a silent check as *"the commit contains only what I see,"* when it is **the check that cannot see, not the commit that is clean.** **A new file is precisely what you most want a pre-commit check to catch** — it is the one path with no prior review history.
+
+  ⚑ **Fourth instance of ONE shape in a single session** — *an instrument returning cleanly after it stopped answering the question* (the `factory/permissions.py` non-defect · the crop that could not see the aim difference · `git diff HEAD~1` naming a concurrent session's file · this). **And the reflexive sting compounds: this is the third consecutive amendment to this same block, and each fixed the half of the instrument that had just embarrassed it while leaving the other half un-derived.** The second amendment fixed the pre-commit check's **ref**. The third fixed the post-commit check's **ref**. ⚑ **Neither asked what either command's DOMAIN was** — and `git diff`'s domain has always been *tracked paths*: documented, unchanged, unread.
+
+  **`git status --porcelain -- <paths>` answers the pre-commit question for both classes at once**, and it is what the *"never `git add -A`"* rule above was already implicitly relying on without naming. **Operational note:** `git commit --only` on an untracked path errors rather than silently skipping, so the failure here is a *blind check*, not a lost file — **but the check is the thing that was supposed to make the error unnecessary.**
 
   **Occasioned by:** KR ran the post-commit form, saw a third file — a live drax session's uncommitted note — and read it as evidence he had swept a concurrent session's work into a push **for the second time in one session**. He had not. `git show --stat HEAD` showed exactly the two files named; the note was still unstaged and untouched. **The near-miss is the finding**: an incident report was minutes from being filed against a correct commit and against a builder who had done nothing.
 
