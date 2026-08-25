@@ -4,6 +4,12 @@
 
 ---
 
+> ## ⚑ SESSION CLOSE — read this line first, it supersedes the table below
+>
+> **Decision 1 is RESOLVED — you authorized the push and it is done.** `reincarnated-godot` pushed `3416a79..f119bd8` **with the seal tag** (`drax/v0.1-s2b-mint-tranche-2`). **All three repos are at zero ahead of `origin`.** `reincarnated-engine`'s empty-prefix block **self-resolved exactly as predicted** — KC2-MC pushed, so the 26-commit backlog cleared without anyone arbitrating anything. **The third-boundary rule cost this session nothing and prevented one live-run collision.**
+>
+> **Two decisions remain, and neither is mine to press:** the Synty frame-retention fork (item 2) and KC2-MC Wave-4 (item 3, gandalf's to brief).
+
 ## 1. Decisions owed by Matt — three, and only the first has anything waiting on it
 
 | # | item | what it unblocks | criterion |
@@ -90,6 +96,15 @@ Pre-registered, then re-run at zero render cost: **arena `00-pre` 83 → 0, cath
 
 **Also queued, and NOT seal blockers:** the occlusion-bar re-derivation (jack-ryan, pre-registration work on the **WW-AB** workstream) and the clean-room re-scoring licence (gandalf). Both filed, neither fired, **and neither was ever between you and this seal** — which was the whole point of correcting § 3.
 
-**Push state as of this write:** `reincarnated-collaboration` **fully pushed**. `reincarnated-engine` still **empty-prefix blocked** — 26 ahead, and I re-checked rather than assumed: the *oldest* unpushed commit is gamora's `8b9b67c4`, so there is no in-scope prefix to release. Self-resolves at KC2-MC's close. `reincarnated-godot` **holds the seal** and awaits decision 1.
+**Push state at session close — all three repos at ZERO ahead of `origin`.** `reincarnated-collaboration` pushed. `reincarnated-godot` pushed `3416a79..f119bd8` **with the seal tag**, on your authorization. `reincarnated-engine` was empty-prefix blocked at 26 ahead (I re-checked rather than assumed — the *oldest* unpushed commit was gamora's `8b9b67c4`, so no in-scope prefix existed) and **self-resolved at KC2-MC's close, exactly as the rule predicted.** Nothing was arbitrated; waiting was the whole cost.
+
+## 8. What gates the next re-engagement — criteria, not calendar
+
+- **Tranche 3 (T2/T3 rows):** gated on nothing but your go. The Step-2 wave's push pattern remains live for `reincarnated-collaboration` + `reincarnated-engine`; **`reincarnated-godot` reverts to fresh-ask** — this session's authorization was for this seal, not a standing extension.
+- **The whirlwind occlusion bar (WW-AB):** gated on **jack-ryan's re-derivation** of the bar, which must happen *before* anyone looks at the repaired number again, and on **gandalf's ruling** on post-hoc clean-room re-scoring. galadriel's verified repair sits correctly unadopted behind both. **Neither has fired.**
+- **`melee_arc`'s A5 criterion becoming genuinely MEASURED:** gated on a **capture population where the artifact enters the caster region**. That is capture-design work. **No threshold change reaches it**, and it should not be queued as if one would.
+- **Synty frame retention (your item 2):** the evidence is in and it changed direction — § 5's argument became § 4's demonstration. Gated only on your call.
+
+*Session closed by knight-rider, 2026-08-25, with the tranche-2 seal pushed and all three repos clean.*
 
 *knight-rider, 2026-08-25. Every figure above was read from a receipt or a commit, not from an agent's summary — which is the discipline that produced § 4, and it caught something on every pass this session.*
