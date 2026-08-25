@@ -423,3 +423,189 @@ This is P-9 at the agent level, and it is what turns *custody ≠ ownership* fro
 ---
 
 **jack-ryan**, 2026-08-24 — DEV-MODE. **GATE-2 on `dddd232d`: PASS-WITH-FINDINGS** (G2-1, G2-2, Amendment J). **§ 11: RATIFIED-WITH-AMENDMENTS K, L.** A–I stand. No sealed clause reopened; no BLOCK issued. Custody RELEASE row appended — the first ledgered claim/release cycle closes on its own record.
+
+---
+---
+
+# ADDENDUM 3 — 2026-08-25 — RATIFICATION of § 9.6 AM-3 (Grok lane: serial-by-choice RETIRED → per-agent seam, ceiling N=3)
+
+**Target:** `agentic_orchestration/gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` § 9.5 + § 9.6, commit `403f9e0c`.
+**Requested by:** gandalf (RUN-CONDUCTOR, session 85515), holding the custody claim for this ratification.
+**Scope, stated first:** **MECHANICS ONLY.** Matt's ruling — *"agreed on (b) per agent seam"* — is not re-litigated at any point below. What is under review is whether the ruling is **buildable as written**, and whether it composes cleanly with A–L. Every amendment below serves the ruling; none narrows it.
+
+**Verdict: RATIFIED-WITH-AMENDMENTS M, N, O, P, Q, R.** A–L stand unamended and survive. **No BLOCK issued; nothing sealed reopened. D-11 / D-12 are build-authorized on star-lord subject to M–R.**
+
+**On severity, since six amendments on one section deserves an explanation:** § 9.3's serial law was a policy that could afford to be slightly under-specified, because "one" needs no arbitration. A counted, named, per-agent semaphore needs arbitration everywhere — who claims, under what name, what a partial read means, what a refusal means to a drain. The amendment count is a property of what the ruling opened, not a verdict on the ruling. **N would be a Gate-2 BLOCK if it were built as written**; it is issued as a binding amendment instead of a BLOCK for one reason, and it is the right one: *nothing has executed.* The gate is doing its job at the cheap end.
+
+## 0 · Clause verdicts
+
+| § 9.6 clause | Verdict |
+|---|---|
+| **Constraint 1** — 1× Grok job per named agent seam, second claim REFUSED | **RATIFY-WITH-AMENDMENT (M)** |
+| **Constraint 2** — per-credential ceiling N=3, slot 4 enqueues | **RATIFY-WITH-AMENDMENT (O)** |
+| **Enforcement** — binary flock → counted semaphore, 3 slot files, slots tagged with claiming seam | **RATIFY-WITH-AMENDMENT (N)** |
+| **"What does NOT move"** — Codex hard-serial, `--no-leader`, § 10.3, P-8/R-B, § 3 emits-nothing | **RATIFY** (checked one by one; § 4) |
+| **Banking regime (b)** — fly the per-agent regime from job 1; `slots_held=` at START | **RATIFY-WITH-AMENDMENT (P)** |
+| **Busy-check consequence** — `k/3`, shape is star-lord's call, J binding test same commit | **RATIFY-WITH-AMENDMENT (Q)** |
+| **Build delta D-11 / D-12** | **RATIFY-WITH-AMENDMENT (R)** |
+| **§ 9.5 probe** as evidence for the loosening | **RATIFY as evidence** — the door § 9.3 named was opened by the path § 9.3 named. The measurement's own stated limits are load-bearing and are picked up by O. |
+
+## 1 · § 9.5 — the evidence, checked before the ruling that rests on it
+
+The probe is the § 9.3 loosening door used correctly: **evidence, in this spec, by amendment** — not a preference, not a re-read of the old text. Round 2 is the one that carries weight (`--no-leader`, lane posture exact, 4s wall for 3 concurrent against a 4.3s single baseline — zero contention penalty, no daemon, no leader socket). The UUIDv7 false alarm was chased down and dissolved rather than waved off, which is #19.1(b) behaviour and I note it approvingly. **The section states its own limits honestly and completely** (n=6, trivial prompts, default effort, one moment, upper bound tested = 3). I add nothing to that list. Amendment O does not dispute the limits — it makes one of them **mechanical** instead of merely disclosed.
+
+## 2 · Constraint 1 — the grain question (gandalf's item (b)), answered
+
+§ 9.6 says the per-agent grain is *"same grain as § 11 custody."* **It is definable, and § 11 does define it — but not in the sentence a reader will land on.** § 11.2's ledger is six columns: `ts · seam · holder (session/agent id) · event · intent · detail`. Custody's **grain is the `seam` column**; the **`holder` is a session**. § 11.3 then says a RUN-CONDUCTOR's sub-agents operate under the run's claim — which is a statement about *holders*, not about *seams*, and Amendment L already forced one row **per seam** with no wildcards. So the two clauses that look like they collide do not: a conductor fanning out to star-lord, elrond and galadriel holds three distinct **seam** rows under one **holder** session.
+
+Read the Grok slot at the `holder` grain and the ruling breaks in its own favour's direction — a conductor could hold exactly one slot for its entire run, and N=3 would be unreachable in the fleet's dominant operating shape (autonomous runs), which is precisely the capacity the amendment exists to unlock. Read it at the `seam` grain and it works. **So the grain is the seam, and it must say so.**
+
+Two consequences that must be written down rather than inferred:
+
+- **`seam` is not `curator`.** `REQUIRED_JOB_FIELDS` today is `{job_id, curator, prompt}` — there is **no seam field on `Job`**. The curator is the named Claude owner of the *output* (R-B/P-8); the seam is the agent whose process makes the *invocation*. They legitimately differ (a star-lord-run job curated by galadriel). Defaulting one to the other breaks exclusivity in **both** directions: two different agents running galadriel-curated jobs would collide on one slot, and one agent running three differently-curated jobs would take three slots.
+- **The anti-monopoly rationale delivers less than its sentence promises, and should say so.** *"No single agent monopolizing the lane by parallel self-dispatch"* is true of **self**-parallelism only. A conductor fanning out to three seams legally fills the lane — the N=3 ceiling is the **only** bound on fan-out, and per-agent exclusivity is not a second one. This is the same law-vs-policy honesty § 9.3 kept about the serial law; AM-3's rationale should keep it about itself.
+
+### AMENDMENT M (BINDING) — **THE SEAM IS A DECLARED FIELD AT THE GRAIN OF § 11's `seam` COLUMN. IT IS REFUSED, NEVER DEFAULTED, AND NEVER INFERRED FROM `curator`.**
+
+1. **Grain, pinned:** the slot's identity is the **`seam` column's grain** (agent name), not the holder session. § 9.6 says "same grain as § 11 custody" — it should say **"same grain as § 11's `seam` column; the holder session is not the grain."**
+2. **New required field.** `seam` joins `REQUIRED_JOB_FIELDS` for vendor-lane jobs (or a lane-specific required set). **An unnamed seam is a refusal to fire**, raised before any file or row exists — verbatim the P-8 curator-law shape, and the same shape as L's refusal of a claim with no stated release condition. It is never derived from `curator`, never from the process, never defaulted.
+3. **Closed roster.** Seam names validate against the pinned agent roster and are pinned by equality in `test_vocabularies.py`, exactly as every other closed vocabulary in the package is. A free-text seam field makes `star-lord` and `starlord` two agents, and exclusivity fails **silently** — the one failure direction this whole spec refuses.
+4. **Vocabulary shared, mechanism decoupled — scope guard.** The Grok slot claim borrows custody's **grain**; it must NOT read, require, or consult the custody **ledger**. A vendor-lane fire that depends on an agent-ledger row acquires a second truth source and lets a missing or stale CLAIM row block a legal fire. Two axes, one vocabulary, no coupling.
+5. **The rationale sentence is corrected** per the paragraph above: per-agent exclusivity bounds self-parallelism; the ceiling is the only bound on fan-out.
+
+## 3 · Enforcement — the counted semaphore (gandalf's item (a)), and the defect in it
+
+**G-1's grounding carries per slot, and P-2 carries per slot — with one exception that is not small.**
+
+The good half, checked and concurred: each slot is an independent flock on its own file, `LOCK_NB`, fd inheritable and `pass_fds`'d to the child, kernel-released on last-holder exit including SIGKILL. That is derived kernel state N times over; **nothing in the multiplication weakens G-1's dissolution.** P-2's no-timeout/no-force law likewise holds per slot **provided it is restated per slot** — a semaphore invites exactly the "just break slot 2, it's probably stale" reflex that P-2 exists to refuse, and there are now three files an impatient operator can `rm`. Acquisition is `LOCK_NB` on each slot in turn, so no slot ever waits on another and **deadlock is structurally impossible**; that should be stated, not left to be rediscovered.
+
+The defect: **"each held slot TAGGED with its claiming agent seam."** `SerialLaneLock.acquire()` writes `os.write(fd, b"")` under the comment *"the CONTENT is never read and never trusted"* — and G-1's entire dissolution rests on that sentence (*"the file's content is never read or trusted, and the lock IS kernel state"*). If per-agent exclusivity is enforced by **reading the tag**, the mechanism reads slot-file content to make a fire/refuse decision, and three things go wrong at once:
+
+- **Stale content outlives the lock.** A holder dies, the kernel releases the flock, the tag string remains on disk. A reader who reads content without first proving the slot held sees a phantom seam — a lockfile whose *existence-and-contents* are the claim, which is the exact primitive G-1 dissolved the dichotomy by **not** being.
+- **Write-after-acquire is a window.** Between `flock` and the tag write, a slot is held and untagged. Between acquire and a previous holder's tag being truncated, it is held and **wrongly** tagged.
+- **Check-then-act.** "Scan the three tags, see if my seam is present, then claim" is TOCTOU — Amendment K's finding, arriving one axis over, in a mechanism that would this time be spending flock's authority on a read that does not have it.
+
+The fix is cheap and it is already in the building: **the ruling has two nested constraints, so give it two nested locks.**
+
+### AMENDMENT N (BINDING) — **PER-AGENT EXCLUSIVITY IS ITS OWN FLOCK, NOT A READ OF SLOT CONTENT. THE TAG IS DIAGNOSTIC, NEVER ENFORCEMENT.**
+
+1. **Two nested atomic test-and-sets, in this order:** (i) a **per-seam lock**, `grok-agent-<seam>.lock`, keyed to the resolved Grok home — its acquisition failing IS the second-claim refusal, by construction, with no content read and no race; then (ii) a **counted slot** from `grok-slot-{0,1,2}.lock`, first acquirable wins. Release in reverse order. Both `LOCK_NB`; neither ever waits, so the ordering cannot deadlock.
+2. **Both locks live exactly as long as the child** — `pass_fds` for both fds, per P-2's lifetime discipline. A killed queue leaves neither an untracked stream nor a phantom seam hold; a dead holder's per-seam lock is released by the kernel, so an agent that crashes mid-job is not locked out of its own lane.
+3. **The tag is written after acquisition and read ONLY for a slot proved held** (i.e. a slot whose `LOCK_NB` probe just failed), and it feeds **display only** — the busy check's human-readable reason, the `busy-lock`-names-the-holder courtesy. **No fire/refuse decision reads it.** Truncate-on-acquire so a stale tag cannot survive one handover.
+4. **P-2 is restated per slot, in the spec text:** no timeout, no `--force`, no per-slot break flag, no "stale slot" reaper. Three files is three times the temptation and the law does not thin out by division.
+5. **Enqueued jobs hold nothing.** Both locks are taken at the invocation site and only there — a job waiting in the queue must not hold a per-seam lock, or an agent's backlog would lock the agent out of its own next fire.
+
+## 4 · "What does NOT move" — audited, RATIFIED
+
+- **Codex hard-serial:** untouched, and correctly so — P-1 cites a *verified vendor precondition*; § 9.5 probed xAI and says nothing about OpenAI. Evidence does not travel across vendors. **CONFIRMED.**
+- **`--no-leader` (Amendment E):** survives intact, and § 9.5 round 2 strengthens it — the probe ran the lane posture exactly rather than a convenient approximation. The reason given for keeping the prohibition under a *concurrency* regime is the right one and is worth preserving verbatim: **our slots are governed and attributed; the leader's multiplexing is opaque and unattributable.** The E preflight assertion still gates the lane. **CONFIRMED.**
+- **§ 10.3 selection law + Amendment H:** I checked the composition specifically. A Grok lane at 3/3 held answers in the `busy-*` band = **occupied**, not **closed** — so § 10.3 step 4's Claude branch does **not** fire on a full Grok lane; the default is enqueue. Matt's floor (Claude takes vendor-scoped work only when both vendors are closed) is **not** eroded by the ceiling. H holds unamended. **CONFIRMED.**
+- **P-8 / R-B curator law:** untouched, and M keeps `seam` strictly beside `curator` rather than on top of it. **CONFIRMED.**
+- **§ 3 emits-nothing:** the check still derives and writes nothing; probing three slots instead of one is three acquire-and-release probes, no writes. G-4 holds — a `k/3` answer is no more a reservation than an `open` answer was. **CONFIRMED.**
+
+## 5 · Constraint 2 — the ceiling, and the posture it was not measured at
+
+Two separate things, one amendment.
+
+**(i) The raise license is written too loosely.** § 9.6: the ceiling is *"raised only by evidence (a widening probe or clean in-window rows at 3), never by preference."* **Clean rows at 3 are evidence FOR 3. They are not evidence for 4.** Evidence at the tested level confirms that level; it cannot license an untested one, and a clause that says it can is the same category error § 9.3 refused when it declined to let the Grok serial policy borrow the Codex law's grounding. This is the one place AM-3's text slips out of the discipline that produced it.
+
+**(ii) The tested posture is not the lane's posture — and the spec says so itself.** § 9.5's own limits: **default reasoning effort, NOT the `xhigh` pin**, and trivial single-line prompts. The lane of record runs `grok-4.6 @ --reasoning-effort xhigh` (§ 10.4, Amendment D) against the **~28,170-token per-job input floor** I measured at Gate-2 (finding G2-2). Three concurrent trivial default-effort calls and three concurrent xhigh calls at ~28K input each are not the same load on any token-bucket rate limiter. The limits paragraph disclosed this; the ruling then rests on the measurement anyway. That is acceptable — the failure direction is **loud** (a 429, or degraded output), lands in-window, and is signal under regime (b) — but it should be **mechanical**, not merely disclosed.
+
+### AMENDMENT O (BINDING) — **N=3 IS A CEILING CONFIRMED AT ONE POSTURE AND UNTESTED AT THE LANE'S OWN. NAME THE RAISE LICENSE HONESTLY, AND GIVE THE UNTESTED POSTURE A FIRST-EVIDENCE TRIGGER.**
+
+1. **Raise license, corrected:** the ceiling rises **only on a probe at the proposed level** (§ 9.5's shape at N=4 or above). Clean in-window rows at 3 **confirm 3** — they are the evidence that retires "provisional," not the evidence that raises the number.
+2. **The provisional stamp, and what discharges it:** N=3 is recorded as **confirmed at default effort / trivial prompt / n=6, and provisional at the lane's pinned posture (`xhigh`, ~28K input floor)**. It discharges on the first in-window occurrence of **3 concurrent jobs at the pin** completing clean. That occurrence is a **named lane event, recorded** — not a thing noticed in passing.
+3. **Ceiling-drop on first friction, which is the G-2 direction:** a 429, an auth flag, or a measurable output degradation observed at k concurrent jobs drops the operating ceiling to **k−1** immediately and pending a re-probe, with a lane-event row. Erring toward do-not-fire is this spec's chosen failure everywhere else; the ceiling should not be the one place it is chosen the other way.
+
+## 6 · Banking regime (b) — decidability (gandalf's item (c))
+
+**Does regime (b) damage the Amendment-I verdict's decidability? Not fatally — but `slots_held=` at START is NOT sufficient conditioning, on three counts.**
+
+The reasoning behind regime (b) is sound and I do not contest it: I's banked criteria — **curation WARN rate** and **URL-verification pass rate** — are per-job *output-quality* metrics, and concurrency at the credential level does not touch model output unless the vendor throttles or degrades. § 9.5 measured no such effect at 3. "Fly what you fly" is the right call, and "friction is signal" is a genuine improvement on measuring a condition we would immediately abandon. What needs fixing is the instrument, not the regime.
+
+- **`slots_held` at START is a point sample of an interval.** A job that starts alone and spends 90% of its life alongside two others records `slots_held=1` and will be read as a solo row. The exact quantity is derivable at zero new cost: the run-log already carries per-job `START`/finish rows with same-clock timestamps, so each job's **true overlap interval** is a post-hoc join over the lane's own rows. Keep `slots_held=` (it is the honest concurrency context *at claim*, and it is cheap) — but the verdict conditions on the **derived overlap**, and MIGRATION names that derivation so job-10 is not reconstructed from memory.
+- **Two variables, one 10-row window.** I's verdict rules **pin confirmation**; § 9.6 adds **concurrency posture**. If every row is concurrent, a poor curation rate cannot be attributed between the pin and the load — #10 arriving through the back door of a window that was designed for one variable. The fix is not more rows (that delays the close, and I exists because banking without a close never returns): the fix is to **pre-register the decidability condition** and let the verdict name what it could not decide. That is the discipline the fleet already applies elsewhere — an UNDECIDED that names its gap is a result; an UNDECIDED discovered at verdict time is a wasted window.
+- **§ 9.5's own named countable changed meaning and must not be dropped.** The serial-era criterion was *"`ENQUEUED`-to-`START` gaps — does anything actually queue behind the lock?"* Under AM-3 that same gap now measures **ceiling exhaustion at N=3** and, separately, **per-agent refusal**. Same column, different question. Both are the evidence that decides whether N=3 is the right number, and both are countable the way G-7 made lane contention countable (`grep -c "router=Q3-NO"`).
+
+### AMENDMENT P (BINDING) — **RECORD THE OVERLAP INTERVAL, NOT ONLY THE START-INSTANT; PRE-REGISTER THE WINDOW'S DECIDABILITY CONDITION.**
+
+1. Rows carry `slots_held=` at **START** (as ruled) **and** at **finish**, plus `slot_index=`. The verdict conditions on the **derived overlap interval** (join over the lane's own START/finish timestamps), and MIGRATION pins that derivation by name.
+2. **`waited_ms=`** (ENQUEUED→START) is recorded with its **reason** — `ceiling` vs `per-agent` vs neither — so the two distinct causes of a queue wait never share one number.
+3. **Pre-registered decidability, declared now rather than discovered at job 10:** if all ten rows are concurrent, or all ten solo, the window decides **one** of {pin, concurrency posture} and names the other **UNDECIDED with the rows it needs** — never silently assumed. The window still closes at 10 (I's close is not reopened); the verdict states which question it answered.
+4. I's other required fields — curator (R-B), resolved model id (C), declared effort (D, and G2-1's outstanding fix), per-call `costUSD` — are unchanged and still required. **G2-2's ~28,170-token floor must land in MIGRATION § 10 before this window closes**; under regime (b) it is now load-bearing twice, since a per-job cost column read against concurrent rows without the floor beside it mis-attributes CLI overhead to load.
+
+## 7 · The busy check and Amendment J (gandalf's item (d))
+
+**Is "any vocabulary growth ships with the J binding test in the same commit" sufficient? No — necessary, and it covers one of the two branches.**
+
+J binds **state-name vocabularies** (`SAFE_TO_FIRE_STATES` / `OCCUPIED_STATES` / `CLOSED_STATES` / unknown-handling) and `STATE_PRECEDENCE` across `factory/lane_status.py` and `flight/bin/flight_report`. § 9.6 correctly leaves the `k/3` **shape** to star-lord — but the two candidate shapes have different exposure:
+
+- **New state** → J's rule catches it exactly. This is the branch § 9.6 is thinking of, and for it the same-commit rule is right and sufficient.
+- **Detail field on `open`** → **J's test does not see it at all.** J binds sets of state names, not the answer record's key set. `flight_report` builds its own answer dict; a `free_slots` key added on one side and absent on the other diverges with every test green. The board — Matt's decision surface, and per § 11.3 the surface a dispatcher consults — then renders a Grok lane as a plain `open` while 2 of 3 slots are held, at exactly the moment § 10.3 step 3 wants to know whether firing means *now* or means *enqueue*. Fails safe (toward enqueue), reads wrong.
+
+Separately, and this is the part that should not wait for a shape decision: **leg 1 just grew from one read to three, and the spec does not say what a partial read means.** § 3's union is fail-closed per leg; nothing yet says it is fail-closed **per slot**.
+
+### AMENDMENT Q (BINDING) — **PIN THE SEMANTICS NOW; LET STAR-LORD PIN THE SHAPE — AND EXTEND J TO THE ANSWER RECORD'S KEY SET, NOT ONLY ITS STATE NAMES.**
+
+1. **Fail-closed per slot, ruled now, independent of shape:** a slot that cannot be read counts **HELD** (`k` decreases). If **no** slot can be read, the lane answers **`busy-unknown`** — the seventh state, already ratified twice, already sitting in the occupied band at exit 22. This is G-2's direction applied to a leg that just tripled its surface area, and it should not be a build-time discovery.
+2. **All slots held reports in the `busy-*` band** (as § 9.6 says) — specifically `busy-lock`, with the held slots' seam tags in the human-readable reason (per N.3, display only).
+3. **Whichever shape is chosen, MIGRATION pins the field name and its type beside the state names**, and the **J binding test extends to assert the answer record's KEY SET is equal across both derivations** — not only the state vocabularies. That is J's actual sentence (*consumers bind to the predicate by name, never re-derive it*) applied to the payload the largest consumer re-derives.
+4. **`SAFE_TO_FIRE_STATES` is unchanged.** `open` with `k≥1` is safe to fire; `open` with `k=0` must not exist as an answer (it is `busy-lock`). If the chosen shape can produce that pair, the shape is wrong.
+
+## 8 · The composed door (gandalf's item (e)) — found, in the drain
+
+**Yes. There is one, it is L-shaped, and it lives in code that already exists.**
+
+`JobQueue.drain()` breaks its loop on a **lane-global** busy answer:
+
+```
+pre = harness.availability()
+if not pre.ok and pre.state == "busy":
+    report.lane_state = "busy"; report.stopped_reason = pre.reason; break
+```
+
+Under the serial law that is correct: lane busy means *the other drainer is doing this work*, and the standing comment beside it records what happened when it was written the other way — a busy lane reached `_run_one`, `LaneBusy` was counted as an **attempt**, and the job was handed **permanently** to its Claude curator for a condition that clears by itself.
+
+AM-3 introduces a refusal that is **job-specific, not lane-specific**: *this job's seam already holds a slot.* Compose it with the code above and with M's per-agent rule:
+
+- If a per-agent refusal is surfaced as **lane busy**, one agent's long job **stops the entire drain** — head-of-line blocking, the lane sitting at 1/3 with a full queue and two free slots, which inverts the amendment's own purpose.
+- If it is surfaced as a **job failure**, it is counted as an attempt and the job goes **FALLBACK-CLAUDE, permanently** — the exact defect the existing comment says was already made once, arriving through a new door. This spends the Claude lane on a condition that resolves in minutes, and ownership moves once (P-7): it does not come back.
+
+Neither outcome is anywhere in AM-3's intent, and both are reachable by building D-11 exactly as § 9.6 words it.
+
+### AMENDMENT R (BINDING) — **A PER-AGENT REFUSAL IS NEITHER A BUSY LANE NOR A FAILED JOB. THE DRAIN SKIPS AND KEEPS GOING, VISIBLY.**
+
+1. **A per-agent refusal is its own outcome**, distinct from `LaneBusy` (ceiling exhausted → the existing break is still correct) and distinct from a job fault. **It is never an attempt** and never reaches the fallback path.
+2. **The drain SKIPS the refused job and takes the next eligible one**, FIFO otherwise preserved. Head-of-line blocking by one agent's in-flight job is refused.
+3. **The reordering is recorded and countable** — `skipped=per-agent-slot-held` in the run-log detail column, exactly as G-7 made lane contention countable via `router=Q3-NO`. A queue that silently reorders is folklore; one that says why is evidence, and this is a number the job-10 verdict will want (P.2).
+4. **D-12 gains two rows:** (a) a drain over a queue whose head job's seam holds a slot **completes the rest of the queue** and marks the head skipped; (b) a per-agent refusal **never** produces a `FALLBACK-CLAUDE` row and never increments the attempt count.
+5. **`harness.availability()` stays lane-global** — it answers about the lane, not about a job. Per-agent eligibility is evaluated **per job at claim time**, not folded into the lane state; folding it in is what creates (1).
+
+## 9 · Rulings carried without amendment
+
+- **Refuse-don't-queue at the claim** (the agent's second task enqueues normally) — RATIFIED. It is the right shape: the refusal is about *concurrent execution*, and an enqueued job holds nothing (N.5).
+- **The ceiling is the CREDENTIAL's, the slot is the DISPATCH grain** — RATIFIED, and it is the correct reading of P-3. One grok.com subscription, one usage window; the slot count is a policy inside that window, not a claim about it.
+- **Grok as the lane that widens under load** (§ 10.3 step 3 strengthened, not amended) — CONCURRED. Spillover into a 3-slot lane is more spillover, not different spillover; the deterministic Codex → Grok order is untouched and re-ranking remains a U-5 evidence event.
+- **Slot release on child exit including SIGKILL** (D-12) — RATIFIED as the right test to demand; it is P-2's lifetime discipline per slot and N.2 extends it to the per-seam lock.
+- **§ 9.5's UUIDv7 dissolution** — verified as reasoning, not accepted as assertion: concurrent launches sharing a millisecond timestamp prefix with differing tails is exactly what UUIDv7 specifies. The false alarm was correctly dissolved.
+
+## 10 · Action
+
+- [ ] **star-lord — D-11 / D-12 BUILD-AUTHORIZED**, subject to: **M** (`seam` a required, roster-validated field; refused not defaulted; never inferred from `curator`; decoupled from the custody ledger) · **N** (two nested flocks — per-seam lock then counted slot; both `pass_fds`'d; tag is display-only, read only for a slot proved held, truncate-on-acquire; P-2 restated per slot) · **O** (raise license = probe at the proposed level; N=3 provisional at the pinned posture with a named discharge event; ceiling-drop to k−1 on first friction) · **P** (`slots_held=` at START **and** finish, `slot_index=`, `waited_ms=` with reason; overlap derivation pinned in MIGRATION) · **Q** (fail-closed per slot; all-held → `busy-lock`; no slot readable → `busy-unknown`; MIGRATION pins the `k/3` field name and type; J's binding test extends to the answer record's key set) · **R** (per-agent refusal is its own outcome — skip, never break, never an attempt, never FALLBACK-CLAUDE; two new D-12 rows).
+- [ ] **star-lord — carried from Addendum 2, now load-bearing:** **G2-2**'s ~28,170-token floor into MIGRATION § 10 **before the Amendment-I window closes** (P.4); **G2-1**'s `effort=` on the run-log row; **Amendment J**'s binding test (Q.3 extends it — build both at once).
+- [ ] **gandalf — spec folds:** § 9.6 constraint 1 says *"same grain as § 11's `seam` column; the holder session is not the grain"*; the anti-monopoly rationale states that it bounds **self**-parallelism and that the ceiling is the only bound on fan-out; the enforcement paragraph replaces "slots tagged with the claiming seam" as the exclusion mechanism with N's two nested locks (tag retained, demoted to diagnostic); the raise-license clause drops "or clean in-window rows at 3" per O.1. Carries with the outstanding A–F / G fold-in debt.
+- [ ] **KR** — nothing new. The § 10.3 vocabulary binding (H) and the Amendment-I count are unchanged; a Grok lane at 3/3 is **occupied**, not closed, and enqueue remains the default.
+- [ ] **Matt** — **nothing owed.** Your ruling is ratified as ruled; M–R are build constraints under it, not qualifications of it. The one item worth your eye is **O.2**: the tested posture is not the lane's pinned posture, and the first 3-concurrent `xhigh` job is where that gap closes.
+
+## 11 · References
+
+- `agentic_orchestration/gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` § 9.5, § 9.6 (commit `403f9e0c`), read in full alongside § 2 (P-2, P-3, P-8, P-9), § 3 (union rule, seven answer states), § 4 (G-1…G-4, G-7), § 10.3, § 11.2–11.5
+- `agentic_orchestration/factory/lane.py:241–276` — `SerialLaneLock.acquire`, including `os.write(fd, b"")` under *"the CONTENT is never read and never trusted"* (the grounding Amendment N protects)
+- `agentic_orchestration/factory/jobqueue.py:474–535` — `drain()`'s lane-busy `break` and the standing comment recording the FALLBACK-CLAUDE mis-routing (the door Amendment R closes); `jobqueue.py:82` — `REQUIRED_JOB_FIELDS = {job_id, curator, prompt}`, no `seam` field
+- `agentic_orchestration/factory/lane_status.py:96–158` — `SAFE_TO_FIRE_STATES` / `OCCUPIED_STATES` / `CLOSED_STATES` / `STATE_PRECEDENCE` / `exit_code_for()` (the vocabularies Amendment Q extends)
+- `agentic_orchestration/factory/harness/grok.py:132, 176–184, 243–296, 505–576` — `NO_LEADER_FLAG`, `grok_lock_path()`, the Amendment-E preflight assertion, the single invocation site with `pass_fds`
+- This record's Addenda 1 and 2 — Amendments E, H, I, J, K, L, and findings G2-1 / G2-2, all re-read for composition
+
+---
+
+**jack-ryan**, 2026-08-25 — DEV-MODE ratification of § 9.6 AM-3. **RATIFIED-WITH-AMENDMENTS M, N, O, P, Q, R.** A–L stand. No sealed clause reopened; **no BLOCK issued** — N would be one at Gate 2, and is not one here only because nothing has executed yet. Matt's ruling is ratified as ruled; the amendments are the price of building it correctly the first time. D-11 / D-12 are authorized. The custody RELEASE row is gandalf's to write.
