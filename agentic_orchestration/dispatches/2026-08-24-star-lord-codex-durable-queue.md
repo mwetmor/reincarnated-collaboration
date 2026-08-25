@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — star-lord — the Codex durable queue (U-4 lane, made standing)
 
-**Status:** PENDING
+**Status:** COMPLETE — 2026-08-24. Tag `star-lord/v1.0-codex-durable-queue-1` → `660dfd6a`; build commit `dbd5bf22`; both ancestors of `origin/main`. Re-verified 2026-08-25 (§ Verification below).
 **From:** knight-rider (Matt directive, 2026-08-24 — Codex-lane HIGH-UPTIME provisions)
 **To:** star-lord (export / output / telemetry / llm seam — and the factory harness)
 **Approved by:** Matt, 2026-08-24
@@ -382,3 +382,66 @@ health".
   DOES produce a `Model metadata for X not found` error item, which `adjudicate` treats
   as a failure rather than a warning. The adapter states both directions rather than
   implying a verification it cannot perform.
+
+---
+
+## Verification — star-lord, 2026-08-25 (header reconciliation)
+
+This dispatch carried a substantive completion record under a `**Status:** PENDING`
+header for a day — **the exact defect Discipline #73 was written from**, sitting on the
+dispatch that binds #73 on its own build. Re-verified from git and a live suite run
+before flipping the header, because deriving state is the whole point and taking the
+record's word for it would have reproduced the defect one level up.
+
+**Derivation (not assertion) — every claim re-runnable:**
+
+| check | result |
+|---|---|
+| `dbd5bf22` exists, is ancestor of `HEAD` | YES |
+| tag `star-lord/v1.0-codex-durable-queue-1` → `660dfd6a` | YES — the completion-record commit, a superset of `dbd5bf22` |
+| both on `origin/main` | YES (`git branch -r --contains`) |
+| `HONEST_STUB` / `BLOCKED_ON` gone from `codex.py` | YES — only prose references remain |
+| `codex login status` | **`Logged in using ChatGPT`, exit 0 — lane auth HEALTHY** |
+| `tail -1 \| cut -f3` on the real 30-row VFX log | `rc=0` — legacy 4-column rows still read terminal |
+| `test_lane.py` + `test_harness.py` | **72/72 green** |
+
+**Serial law re-confirmed BY CONSTRUCTION, not convention.** Exactly one `codex exec`
+argv site in the package (`codex.py:320`) and exactly one spawn of it (`codex.py:380`),
+wrapped in `SerialLaneLock` with `pass_fds=(lock.fd,)`. The only other `subprocess.run`
+in the module (`codex.py:180`) is `codex login status`, not `exec`. A caller cannot
+reach the vendor CLI by another path, so the exclusion is not something a caller can
+forget to take.
+
+**Durability re-confirmed independently of the tests that assert it.** Job state is
+per-job JSON written through `_atomic_write` (write-then-rename, `os.replace`), so a
+crash leaves the old file or the new one and never half of one; `is_done()` gates
+re-entry on **two independent predicates** (a terminal `_run-log.tsv` row OR the
+declared output at declared size). The queue is durable in the substantive sense, not
+only in the sense that a green row says so.
+
+### Suite context — one failure, and it is NOT this seam
+
+A full run is **803 passed / 1 failed**. The failure is
+`test_JR20_every_vocabulary_is_either_PINNED_or_NAMES_the_row_that_covers_it`, on an
+unclassified `AGENT_ROSTER` in `factory/roster.py` — a module that is **untracked and
+was written during this session**, alongside dirty `grok.py` and `lane.py`. It cascades
+into `test_reach_audit.py::test_C2`, which runs the suite as a child and reports it
+non-green. **A live concurrent session is building the Grok per-agent-seam work**
+(§ 9.6 AM-3); three `test_grok_harness.py` rows are red mid-edit, including that lane's
+own second-job-refused row. Not touched — not my seam, not my dispatch, and an in-flight
+tree is not a place to tidy.
+
+**The concurrent edit to `lane.py` was checked rather than assumed**, because it is the
+module holding the mutual-exclusion primitive. It is **purely additive** — a
+`SeamSlotSemaphore` beside `SerialLaneLock`, which is itself unmodified — and it
+explicitly exempts this lane: *"The Codex lane never takes it: P-1 cites a verified
+OpenAI precondition… the evidence that loosened the Grok lane does not travel across
+vendors."* That is the correct reading of the serial law. **The Codex lane's guarantee
+is intact.**
+
+### Still open, still not taken
+
+§ 8's `AGENTS.md` ownership gap for `agentic_orchestration/factory/` remains
+**unrouted** — and the tree is now materially larger than when it was filed (a second
+vendor lane, a counted semaphore, a host-level lock directory, an agent roster). Still
+knight-rider's to route; still not written by me.
