@@ -595,3 +595,61 @@ Canonical: `~/Games/reincarnated-engine/design/working-agreement/engineering-dis
 **A-6 stays RETIRED.** Nothing in this amendment touches the ground it rests on. **T-1 is the only open instrument and it is running.** If it returns flat, the payload mechanism dies for the third and final time and §§ 9.3 / 11.2 are wrong; if it returns slope ≈ −0.5 with shape held exactly constant, **(b)'s confounding is broken and the mechanism is established.** Either way the answer arrives from an instrument rather than from me arbitrating two specialists.
 
 *Amended by knight-rider, 2026-08-25. All three of his attacks were re-derived before disposition; the obs/pred table in § 12.2(c) is mine and is the reason (c) does not carry.*
+
+---
+
+# § 13 — AMENDMENT 7 (galadriel T-1, `fd6b4f24`). **T-1 CONFIRMS, and it confirms the SUPERPOSITION — the account neither specialist held. Both of them were right about the row they were looking at.**
+
+## 13.1 — The instrument, verified before the result
+
+`agentic_orchestration/galadriel/pipeline/t1_payload_scaling.py`. **`descriptors` is imported via `importlib` from `~/Games/reincarnated-godot/scripts/s2b_xrow_rows37.py:53` — not retyped. I checked the import, not her description of it.** The two are one function. **Zero corpus data; the only corpus input is the published payload ladder.** Receipt reproduces her reported figures exactly under my own read.
+
+**She ran TWO conditions where I specified one, and the second is what makes this decisive.** **A** = sub-pixel phase only, **true shape difference exactly zero**. **B** = ±2° / ±1 % real shape perturbation on top. k = 4 at the corpus cohort size; **60 replicates, because a 4-arm null is 6 pairs and is itself a noisy estimate.** I did not ask for the replication and it is the difference between a number and a measurement.
+
+## 13.2 — Condition A: the noise limb is real, and jack-ryan's (a) and (b) both fall
+
+**Monotone on all four shape families. Slopes −0.514 / −0.517 / −0.633 / −0.663, r = −0.995 … −1.000.** Radial moments **−0.564 / −0.582** against the −0.5 prediction. **Endpoint ratios 8.65× and 9.19× against √73.4 = 8.57×.**
+
+- **(a) "the exponent is selected" — ANSWERED.** Four shape families, pre-specified prediction, r ≈ −1.000. **You cannot slope-hunt across a family you generated.**
+- **(b) "payload and shape are perfectly confounded" — BROKEN, which is exactly what T-1 was built to do.** Condition A holds shape **exactly** constant while payload varies over 73×. **The confounding that is unanswerable in the corpus is absent by construction here.**
+- **(c) was already shown not to discriminate** (§ 12.2).
+
+**The payload mechanism is ESTABLISHED.** Not "upheld in direction" — established, on an instrument with no corpus data in it.
+
+## 13.3 — ⚑ And the superposition is MEASURED. This is the finding.
+
+Noise and a real shape difference are **independent contributions to a Euclidean distance, so they add in quadrature**, not linearly. She decomposes **S = √(B² − A²)**:
+
+| family | A slope (**noise**) | **S slope (signal)** | B/A @ 128k | B/A @ 1.7k |
+|---|---:|---:|---:|---:|
+| elongate | −0.514 | **−0.081** | **3.64×** | 1.11× |
+| scatter | −0.663 | **+0.028** | **5.44×** | 1.05× |
+| lobed | −0.517 | −0.145 | 1.40× | 1.02× |
+| blob | −0.633 | −0.222 | 1.29× | 0.86× |
+
+> **The noise limb falls at n^−0.5. The signal limb is flat.**
+
+**Crossover n\* = 9.0k – 32.9k px — INSIDE the corpus's own ladder.** `single_target` (1,740 px) sits far **below** it; `circle` (127,747 px) far **above**.
+
+**⚑ Her sentence is the resolution of the entire collision and I am putting it in verbatim:** ***"jack-ryan and I were each measuring the limb that dominates the row we looked at."***
+
+**Neither specialist was wrong. Each generalised from the regime they sampled.** jack-ryan looked at `fire@cathedral` — a real shape difference on a row below crossover where B/A ≈ 1.05–1.11, so signal is what he saw. galadriel regressed across the ladder, which is dominated by the noise limb. **The superposition I proposed in § 11.2 is the account, and it is now measured rather than asserted.**
+
+**⚑ Flag, mine, against the result I just accepted:** the **S-limb regressions are weakly fit** — r = −0.693 / +0.230 / −0.622 / −0.761 — against condition A's r ≈ −1.000. **"The signal limb is flat" is inferred from a POOR fit to a power law, not from a good fit to a flat line.** That is consistent with a size-independent constant plus estimation noise — which is what it should look like — **but it is weaker evidence than the A limb and the table's presentation does not distinguish them.** The finding stands; the asymmetry in evidential strength should travel with it.
+
+## 13.4 — Two corrections she filed against herself, and the second is a third instance of the run's thesis
+
+1. **Her own confirm band was wrong.** She pre-specified *"1.4k reads 3–8× 128k"* — **below the prediction her own mechanism makes (√73.4 = 8.57×).** Applied literally, **it would have called a dead-on 9.19× an overshoot and rejected a correct result.** ⚑ **That is #80 pointed at a pre-registration: a band that could convict the truth.** The band was wrong, not the result. **She caught it herself, in the return that used it.**
+2. **Her third discriminator FAILED, and the failure is more informative than the success.** She had said *"if `outer_shell_frac` stays flat, § 1.3 is confirmed independently."* **It does not stay flat — it reads −0.593, like everything else.** So its corpus **+0.075 is NOT quantisation immunity**; it is a descriptor whose **signal term outweighs its noise term even at 1,740 px.** **Her conclusion (not a driver) stands; her reason for it is refuted.**
+
+**⚑ And that is a SECOND, INDEPENDENT instance of the superposition visible in the corpus itself:** `outer_shell_frac`'s **+0.075** is the **pure-signal limb**, sitting in the same corpus beside `radial_std`'s **−0.492** noise-dominated limb. **The two descriptors I and jack-ryan each argued from were the two limbs, and neither of us noticed we were holding one each.**
+
+## 13.5 — Standing after T-1
+
+- **A-6 stays RETIRED, now on THREE independent grounds:** cohort non-replication (jack-ryan); un-poolability across payload (galadriel, corpus); **and now T-1's measured n^−0.5 noise limb with crossover inside the corpus ladder.** Her engine-level statement is ratified: **any cross-row instrument pooling a null across payloads spanning ~10× compares bars at different noise floors by construction.**
+- **§ 9.3's direction: VINDICATED. § 9.3's descriptor attribution: REFUTED and it stays refuted** — I named `outer_shell_frac`, which is the *signal* limb, i.e. **I picked the one descriptor of eight that is the counter-example to my own mechanism.**
+- **§ 12.3's downgrade is itself upgraded:** *upheld in direction / mechanism open / T-1 decisive* → **mechanism ESTABLISHED.** jack-ryan's calibration was correct **at the time he made it** and T-1 is what moved it. **That is the ordering working: he refused to let me bank an unearned conclusion, and the instrument settled it two hours later.**
+- **T-2 does not fire.** Nothing needs it.
+- **She set no bar.** Third time she has declined to set one. Correct each time.
+
+*Amended by knight-rider, 2026-08-25. The `importlib` import at `t1_payload_scaling.py:53` and every figure in §§ 13.2–13.3 were verified from the instrument and its receipt before this section was written. § 13.3's flag on the S-limb fit quality is mine and is against the result I am accepting.*
