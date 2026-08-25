@@ -1,6 +1,26 @@
-# Dispatch — 2026-08-25 — drax — `king_rig.gd` puts the sword on the King's RIGHT; Matt asked for LEFT
+# Dispatch — 2026-08-25 — drax — `king_rig.gd` sword-side — ⛔ RETIRED UNFIRED
 
-**Status:** PENDING — queued, **not** to be picked up while S2C tranche-3A is in flight
+> ## ⛔ RETIRED BY MATT, 2026-08-25, BEFORE PICKUP — AND THE PREMISE WAS WRONG
+>
+> **Matt, verbatim:** *"I don't recall asking for a sword in the left hand.. let's have it in the right hand as is and not bother with 3A."*
+>
+> **He is right, and I checked rather than taking his word for it, because the citation was mine to answer for.**
+>
+> `AGENT_STATE.md:803`, CHANGE 1, 2026-06-22, reads in full:
+>
+> > *"CHANGE 1 — sword now points FORWARD toward an enemy (`king_rig.gd _seat_sword`). Blade was straight-up; now ~15° above horizontal pointing mostly forward, **~12° to the king's LEFT**."*
+>
+> **That is the BLADE'S AIM, not the HAND THAT HOLDS IT.** The instruction was *"stop the blade pointing straight up; aim it forward at an enemy,"* with a 12° yaw off centre. The sword has been in the right hand since `945e6e8` and Matt never asked otherwise. **jack-ryan's Gate-1 finding read a blade-yaw direction as a hand assignment, and I relayed it into a filed ticket without opening `AGENT_STATE.md`.**
+>
+> ⚑ **That is `#79` cl. 6 — a mechanism claim relayed without its empirical test — for the THIRD time in one session, by me, against a clause I filed this same day.** The prior two (the `defensive ≡ control` "defect" that the run script had predicted in writing; the "no dash footage exists" that 460 clip frames refuted) were caught by other agents' work. **This one was caught by Matt**, which is the failure mode the clause exists to prevent: the human is the last line, not the first.
+>
+> **The residue, recorded and NOT actioned:** if `+X` is the king's left (per `mobcast_stride_probe.gd`), then `_sword_yaw_left_deg := 12.0` built toward `−X` aims the blade 12° to the king's **right** — a ~24° blade-aim error against CHANGE 1's stated intent. **Cosmetic, sub-degree-of-notice at gameplay scale, and Matt has ruled: leave it.** Recorded so the next reader of `king_rig.gd:191` does not rediscover it and re-open this.
+>
+> **What does NOT retire with it:** the `king_rig.gd:191` comment still contradicts both of this repo's own probes, and the **180° facing defect Matt himself spotted is a separate finding and remains live.** Sword side ≠ body facing. Retiring this ticket does not touch that.
+>
+> **Reading applied to *"not bother with 3A"*:** this ticket was sequenced *after* tranche-3A, and the sentence is entirely about the sword — so I read it as *"don't bother with this ticket,"* **not** as cancelling the 3A capture, which the same message's request for review footage implies should continue. Stated explicitly so it is cheap to correct.
+
+**Status:** ⛔ **RETIRED UNFIRED** (was: PENDING — queued, **not** to be picked up while S2C tranche-3A is in flight)
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Pattern:** A (short, self-contained — ≤2h)

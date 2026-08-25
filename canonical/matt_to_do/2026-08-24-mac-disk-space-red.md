@@ -110,5 +110,23 @@ Every capture pass ends with `cp "$USERDIR"/*.png "$OUT"/` — duplicating ~1,60
 
 **What does NOT close with it.** Two items survive the reclaim and should not be lost in the relief:
 
-1. ⚑ **The `cp "$USERDIR"/*.png "$OUT"/` waste step is still in the harness** and is the proximate cause. ~2.6 GB per pass duplicated into a gitignored path with no consumer. Dispatched to drax as a pre-condition of the re-fire — **if it re-fires unfixed, this row returns**, and the reclaim only bought time.
+1. ⚑ ~~**The `cp "$USERDIR"/*.png "$OUT"/` waste step is still in the harness** and is the proximate cause. ~2.6 GB per pass duplicated into a gitignored path with no consumer.~~ **WRONG — CORRECTED BY drax, same day. See § below. My "one-line fix" would have created a silent false-green.**
 2. **`reincarnated-engine` at 127 GB remains the largest single object on the machine and still nobody has looked at it.** It is a Python repo; that figure is retained run outputs and DBs, not source. Not named in this row's original candidate table, not touched by the 64 GB reclaim, and not my seam — it stays flagged as the highest-yield surface available if headroom is ever wanted again.
+
+---
+
+## ⚑⚑ CORRECTION — my `cp`-is-pure-waste diagnosis was WRONG, and acting on it alone would have printed a perfect green over a test that had stopped testing
+
+**Source:** drax, S2C tranche-3A completion record, same day. **This corrects § ⚑ ESCALATION above**, where I wrote that the copy step was *"PURE WASTE and it is fixable in one line."*
+
+**The actual mechanism:** `USERDIR` was a **constant** (`s2c38`) while `OUT` carried the `$SUFFIX`. **Both determinism passes rendered into the same directory, so pass 2 overwrote pass 1.** The `cp` into `harness_logs/` was therefore **pass 1's only surviving copy** — and is what the rows-1-2 receipt was computed from.
+
+> **Delete the copy alone and nothing errors. The gate compares pass 2 against itself and prints a perfect green.**
+
+A determinism check that compares a run to itself passes with probability 1. **My one-line fix would have removed the disk cost and the test in the same stroke, and the receipt would have looked better afterwards.** I had the symptom right — real duplication, real GBs — and the mechanism exactly backwards: it was not a copy with no consumer, it was **a copy that was the only consumer's only input.**
+
+**drax fixed it at the cause instead**: capture dir parameterised by `SUFFIX`, 41 sites. Result **4 × 4.2 GB → 2 × 4.2 GB**, and the receipt now keeps two genuinely independent passes. He found a second consumer the same way — the gate needs `render.txt` co-located, so a 29 MB text file now moves to the frames rather than 4.2 GB of frames moving to it.
+
+**Why this is recorded in a Matt-facing row rather than only in a QA finding:** the escalation above is what asked Matt to spend an afternoon freeing 64 GB, and it named a cause that was wrong. The ask was still correct — the host genuinely was at 0.6% and genuinely did halt a build — but **the reader of this row should not carry away a mechanism that would break the instrument if applied.**
+
+⚑ **Second finding from the same repair, and it defeats the remedy I dispatched:** **bash reads a running script lazily, by byte offset.** drax edited the runner 90 seconds into a detached run of it. **Detachment alone is not enough** — and worse, *a detached run is precisely the one you are most likely to edit*, because it is not holding your terminal. The complete remedy is detach **and** launch from a frozen copy. I dispatched half of it.
