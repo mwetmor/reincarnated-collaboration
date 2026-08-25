@@ -108,3 +108,57 @@ Pre-registered, then re-run at zero render cost: **arena `00-pre` 83 → 0, cath
 *Session closed by knight-rider, 2026-08-25, with the tranche-2 seal pushed and all three repos clean.*
 
 *knight-rider, 2026-08-25. Every figure above was read from a receipt or a commit, not from an agent's summary — which is the discipline that produced § 4, and it caught something on every pass this session.*
+
+---
+---
+
+# ⚑ SESSION 2 — same date, second knight-rider session (tranche-3 continuation)
+
+## 0. CORRECTION TO SESSION 1, ABOVE — read before you trust its § 8 or its lines 9 / 31
+
+**Matt REVOKED and DELETED the "third-boundary rule" on 2026-08-25**, after Session 1 closed. The revocation is recorded in `CLAUDE.md` per that section's own mandate. Session 1's handoff (above) **praises the rule twice** — *"cost this session nothing and prevented one live-run collision"*, *"working as intended"*. **That praise is now stale and must not be relied on.**
+
+Matt's ruling, in substance: pushes are **not** to be de-authorized per autonomous run. **A push authorization covers the BRANCH state being pushed** — sealed work from any seam rides along as ancestors, and autonomous runs do not acquire a push veto over `main` by committing to it. A conductor who genuinely needs commits withheld from `origin` uses a branch, not an embargo on the shared trunk.
+
+⚑ **What this does NOT change:** `reincarnated-godot`'s commit-only posture stands, because it rests on a **different and independent** ground — the standing push pattern's own **scope boundary**, which covers `reincarnated-collaboration` + `reincarnated-engine` only. **When you make the seal-time push ask, ground it in the scope boundary. Never in the third-boundary rule.**
+
+---
+
+## 1. Pending Matt-decisions queue
+
+| # | Decision | Why it's yours | Blocking? |
+|---|---|---|---|
+| **1** | ⚑ **The push bracket in your launch prompt was left UNFILLED** — `[(a) fresh ask at seal / (b) godot added to the pattern]`. | I read an unfilled bracket as **not a choice** and held the conservative default: **godot commit-only.** Written into both dispatches as a per-dispatch clause (which governs over the standing pattern) and into the new wave record. **One word from you settles it either way.** | **Not blocking** — 3A mints and commits regardless. Blocks only the *seal push*. |
+| **2** | **X-2 / `vortex_pull` displacement** — `canonical/matt_decision_needed/2026-08-25-x2-…-precedent.md` | I declined the build at phase level. gamora found it cheap ("wiring, not capability"); I declined anyway because it would set the sim's **first effect-application law** ahead of the `MD-B2-2` decode B-2 refused to guess. **engine > game > phase.** You own whether a VFX wave may set engine law. | **Not blocking.** Row mints `UNEVALUABLE — never PASS`. |
+| **3** | **U-3 / `ENABLE_PROMPT_CACHING_1H` — the premise may be wrong** | Verified unset on all six surfaces. **But** the changelog scopes the var to *"API key, Bedrock, Vertex, and Foundry"* — none of which is your Max-subscription auth — and a later line implies subscribers already get 1-hour TTL by default. Its *"largest single cost lever on the board"* headline is now unevidenced. Its remedy also targets `~/.zshrc`, which Remote Control never sources. | **Not blocking.** Full record + re-based criterion on the row. |
+| **4** | **`agentic_orchestration/factory/` still has no owner** (row open since 2026-08-24) | Seam-ownership is architectural, exceeds ADR-002. **The tree has GROWN since filing** — second vendor lane, counted semaphore, host-level lock dir, agent roster. star-lord holds interim custody. | Not blocking. |
+
+## 2. Active workstreams
+
+- ⚑ **Tranche 3A — FIRING** (drax, 8 rows: `dash_attack` · `blink` · `teleport` · `leap_strike` · `ground_slam` · `cone` · `orbit` · `vortex_pull`). Gate-1 cleared, M1–M4 folded pre-fire. Next: galadriel gate → KR requests Gate-2 → jack-ryan seals.
+- **Tranche 3B — QUEUED** (5 rows) behind the P-BEAM byte-identity probe **and** behind 3A in the serial drax lane.
+- **WW-AB clean-room `whirlwind` — AUTHORED, un-run.** The run's thesis under empirical test. Quarantine binding.
+- **A-1/A-3 body pipeline — fireable**, held behind the serial lane.
+- ✅ **star-lord codex queue — was already COMPLETE** (tagged 2026-08-24). Lane auth healthy; serial law holds by construction.
+- ✅ **gamora comment-truth fix — LANDED** (`83f351ce`, verified comment-only at source).
+
+**Row ledger: 10 / 24 sealed · 8 firing · 6 queued.** Wave record (new): `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md`.
+
+## 3. What I decided this session (so you can overrule cheaply)
+
+1. **8+5 split on the beam pack**, not the spec's T2/T3 tiers — a tier split would separate the exact pairs the spec requires be proven distinguishable side by side. Gate-1 confirmed this "stands on the spec, not on the precedent."
+2. **P-BEAM cleared only on byte-identity.** No "small enough" branch: the pack's noise floor (~6.7 % of its authored mask) exceeds the effect a Tier-1 claim measures.
+3. **Four MP4s ordered as first-class criteria**, each with its numeric series. L-19's discriminating terms are events in time; a still expresses neither.
+4. **drax lane runs SERIAL** — 3A / 3B / WW-AB / A-1-A-3 are one working tree, and clean-room contamination is not a recoverable error.
+
+## 4. What I got wrong or nearly did
+
+- **My own MP4 criterion was satisfiable by four clips that show nothing.** jack-ryan caught it (M4): I ordered the object and left its *contents* a routing statement — the same defect one level down from the one I was fixing. Now each clip ships with its numeric series.
+- **3B had no push clause at all** while 3A did, same repo, same wave. One dispatch away from re-running the opposite-instructions failure. Added, with the omission recorded rather than silently patched.
+- **I relayed star-lord's "factory/ still unrouted" without checking.** It *is* routed; what's unresolved is the ruling. Caught it before it shipped.
+
+## 5. Next-session pickup
+
+**First action:** check whether 3A returned. If sealed → request Gate-2 at `qa/pending/`. If it HALTed → the halt record names the owner. Then 3B (P-BEAM probe first), then WW-AB.
+
+**Standing:** `reincarnated-collaboration` + `reincarnated-engine` push-as-you-go. **`reincarnated-godot` commit-only.**
