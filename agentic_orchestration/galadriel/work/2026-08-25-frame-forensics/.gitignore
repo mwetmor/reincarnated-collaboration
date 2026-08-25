@@ -1,0 +1,25 @@
+# Frame-forensics working tree — dispatch 2026-08-25.
+#
+# Class-E law, as used by the SB-1 gate-2 clip capture: TEXT in git, BYTES on
+# disk, sha256 bridging the two.
+#
+# media/  — the fetched reference master and the transcode-null. The reference
+#           is re-derivable at zero information loss from Blizzard's CDN under a
+#           2012 mtime; its sha256 is recorded in the note and matches legolas's
+#           RT-4 fetch of 2026-08-24 character for character. Committing 6.5 MiB
+#           of Blizzard media to this repo would also be a rights posture nobody
+#           has authorised, and the provenance rules in my role definition put
+#           public-source reference material in the manifest, not in the tree.
+media/
+
+# out/*.png — evidence exhibits. Regenerable from the committed instrument plus
+#             the pinned media. Their sha256s travel in the note.
+out/*.png
+
+# ⚑ out/series_*.json and out/reading.json are DELIBERATELY TRACKED. They are
+#   acceptance criterion 1 itself — "machine-readable data, per-frame rows, not
+#   summary stats". ~1.5 MiB of text. If a later reader cannot re-derive my
+#   numbers from the rows, the reading is not reproducible, and reproducibility
+#   is the one property this seam is not allowed to trade away.
+
+.DS_Store
