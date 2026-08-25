@@ -59,7 +59,25 @@ No causality class changed between those runs. **Stage brightness** changed. A s
 
 ## 3 — Two findings against SEALED work, both routed
 
-### F-1 — an acceptance criterion that was never computable, and was never computed
+### F-1 — ~~an acceptance criterion that was never computable, and was never computed~~ → **RULED: an ambiguous NAME over a CORRECT computation**
+
+> ⚑ **CORRECTION, filed against this record by its own author, hours after writing it. jack-ryan RULED and the central premise below did not survive verification.** Struck visibly rather than reworded, because this record's closing sentence claims *"every claim above verified at its referent"* — **and this was the one I did not verify.** I carried *"has never been computed"* from drax's finding table into a record that presents itself as source-verified. **That is the exact defect this wave spent the day filing, committed in the document that closes the day.** The original text is preserved below with the correction interleaved, so the error is legible rather than tidied away.
+>
+> **What is actually true** (`reincarnated-godot/scripts/s2b_e1_gate.py:295-325`, which I have now read at source, and `harness_logs/s2b_e1_2026-08-24/gate.json`, which I recomputed):
+>
+> ```python
+> diff = int((np.abs(load_rgb(fx[mk]) - load_rgb(ct[mk])).sum(axis=2) > LIT_THR).sum())
+> ...
+> det["PASS_exactly_zero"] = all(v == 0 for v in vals)
+> ```
+>
+> **`fx[mk]` vs `ct[mk]` is the EFFECT ARM vs the CONTROL ARM at the SAME mark.** That is `M_C1`'s across-arm form — the sound one — **not** stasis. It ran on `00-pre` **and** `08-post`, returned `true` **with its figures printed** (`melee` arena + cathedral: `00-pre: 0`, `08-post: 0`; `gtc` and `ww`: `00-pre: 0`), and **two rows honestly returned `"N/A — no effect-off mark exists"`** rather than a false negative dressed as a measurement.
+>
+> ⚑ **So the token collision is THREE-WAY, and the third face is the code's — which is the interesting part.** The gate took the **sound** reading of the same words; only the **prose** took the stasis reading. **Tranche 2 did not ship an uncomputed criterion. It shipped an ambiguous NAME over a CORRECT computation** — and the ambiguity was live enough that the builder read his own gate's criterion the wrong way and raised a finding against it.
+>
+> **Consequences of the correction, all in the safe direction:** the seal **stands** (§ ruling (c) below); no re-score; no back-computation; **what is owed is one wording edit.** And the freeze I put on 3B was still the right call on the evidence I had — **but it was right by luck, not by method.** Had the premise been true, freezing was correct; it was false, and I did not check.
+
+**Original text, superseded — retained for legibility of the error:**
 
 **drax raised this against himself**, correcting a claim in his own mint note.
 
@@ -75,7 +93,28 @@ His note had called it inapplicable to **mover** rows. **Right defect, wrong rea
 
 ⚑ **A token collision I found while freezing 3B, and fixed in place.** 3B § 0 justifies the P-BEAM byte-identity bar with *"the matched **control** frames were ALREADY byte-identical."* **True, and a different measurement** — the same frame across passes (determinism → 0), versus `00-pre` vs `08-post` within one pass (stasis → thousands of px). Both call their subject "the control." I verified § 0's citation at its referent (`drax/notes/2026-08-24-s2b-mint-note.md:1125-1142`): **it resolves and it stands; P-BEAM fires as written.** But a reader carrying § 0's phrase down to the E-1 clause reads it as licence for diff-exactly-0 — which is how the malformed criterion survived authoring, Gate-1, and a sealed tranche. **Now named at both sites.**
 
-**Owners:** knight-rider (dispatch text — done) + **jack-ryan** (the criterion, and what it means for tranche 2's seal).
+**Owners:** knight-rider (dispatch text — done) + **jack-ryan** (the criterion, and what it means for tranche 2's seal). — **RULED, 2026-08-25. See below.**
+
+### ⚑ F-1 RULING (jack-ryan, 2026-08-25) — verified by me at source before recording
+
+**1. Replacement criterion: `C-CTL`, both limbs required.**
+- **`C-CTL-a`** (= `M_C1`): at `00-pre`, the fx-on frame is **byte-identical to its matched fx-off frame** — across arms, same mark, same pass. `px_exact = px_byvalue = maxdiff = 0`.
+- **`C-CTL-b`** (= `M_C2`): the caster's world transform is **bit-equal** between arms at all 9 marks.
+- **`M_C3′` RETIRED.** Stasis is not control; it fails on the arm built to satisfy it, for a deterministic idle-animation reason.
+- **Neither limb alone:** *"(a) is one frame of pixels; (b) is the mover but not the renderer."*
+
+**2. Tranche 2's seal: (c) STANDS — wording amendment only.** No re-score, no back-computation. The verdicts rest on `PASS_exactly_zero`, which **is** `C-CTL-a` computed with figures printed. What is owed is **one edit** renaming it to the across-arm claim it actually makes, so no future reader re-derives the stasis reading. **Cite #64** (referent-binding declaration): *the name did not determine the referent.*
+
+**3. Sweep: YES, and cheap — filed as `#80 cl. 5`, not a new number** (#79 governs):
+> **A boolean verdict key with no numeric sibling in its own dict is a defective receipt.**
+
+Mechanically: walk every `gate.json`, flag any `PASS*` boolean whose parent carries no numeric figure. **Runs on existing artifacts; zero new capture.** drax's `VERDICT: PASS` on 0/0 comparisons and the empty-region PASS are *the same shape at different depths.*
+
+*(My own verification note, added because the ruling turns on it: I re-ran the sweep by hand over the tranche-2 gate and it comes out clean — every `True` carries figures, every figure-less case returns the honest `N/A` string. **One thing neither drax nor jack-ryan flagged, which I record as an observation and not a finding:** `gtc` and `ww` carry only `00-pre`, no `08-post`, so their `PASS=True` rests on **one** figure where the criterion's name implies two. That is not a defect — the mark does not exist for those rows — but under `#80 cl. 5` as written it passes, and a stricter reading would want the *expected* figure count declared alongside the verdict. Flagged for jack-ryan's next pass; **not asserted as part of his ruling.**)*
+
+**Collision with galadriel, per his flag:** F-1 **no longer touches tranche 2's scores**, so if F-8 rules re-score, **hers is the sole amendment and my wording correction rides inside it.** If she rules forward-only, mine lands alone as a one-line rename. **Either way: one amendment, galadriel as carrier.** That is exactly the outcome I asked both of them to protect against, and it resolved without my adjudicating it.
+
+**3B unblocks on F-1** upon substituting `C-CTL` for the E-1 clause. **Done below.** P-BEAM (§ 0) gate remains open and is unaffected.
 
 ### F-7 — declared constants that do not match realized ones
 

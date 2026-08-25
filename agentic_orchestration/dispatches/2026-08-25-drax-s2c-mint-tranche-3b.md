@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — Step-2 VFX mint, TRANCHE 3B (the five linear/beam rows) + the P-BEAM fork
 
-**Status:** ⚑ **HELD — DO NOT FIRE.** Two independent gates, both open. (1) **F-1**: an acceptance criterion in this dispatch is **malformed and has never been computable**; it is SUSPENDED below and awaits a jack-ryan ruling. (2) P-BEAM (§ 0), unchanged — P-BEAM is IN THIS DISPATCH; it is not a separate errand. **This header was PENDING and is now HELD in the same edit that suspended the criterion** — per the candidate discipline this wave filed after three headers went stale (`qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`).
+**Status:** ⚑ **HELD — DO NOT FIRE.** **One gate remains open, down from two.** ~~(1) **F-1**~~ — **RULED and CLOSED** 2026-08-25 (jack-ryan): the E-1 clause is **replaced by `C-CTL`** (both limbs) and the stasis form is **retired**; the "never computed" premise I relayed **was refuted at source** — tranche 2's gate computed the sound across-arm form all along, so **tranche 2's seal STANDS**. **(2) P-BEAM (§ 0) — STILL OPEN**, unchanged; P-BEAM is IN THIS DISPATCH, not a separate errand. **When P-BEAM resolves, this dispatch fires.** **This header was PENDING and is now HELD in the same edit that suspended the criterion** — per the candidate discipline this wave filed after three headers went stale (`qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`).
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-25 (launch prompt — go-word for tranche-3 authoring + fire)
@@ -130,7 +130,23 @@ Run the **self-identity determinism probe** first: **three renders of one identi
 
   **What replaces this clause is NOT mine to author** — it is an acceptance criterion, it impugns a **sealed** tranche's gate, and inventing it here would be the conductor deciding inside QA's seam. Routed to **jack-ryan**. drax's own 3A substitutes are on the table as candidates and **both PASSED**: `M_C1` (`00-pre` fx-on **byte-identical to `00-pre` fx-off** — compares ACROSS arms, which is the claim actually being made) and `M_C2` (the caster's world transform **bit-equal** between fx-on and its matched fx-off control at all 9 marks — *"the control controls everything that moves," stated on the thing that moves*). Note that his third, `M_C3′`, is the ordered check on a static arm and it **FAILED** — so the stasis form does not survive even on the arm built to satisfy it.
 
-  **Until jack-ryan rules: this dispatch does not fire.** The other E-1 requirements are untouched.
+  ---
+
+  ### ⚑ RULED (jack-ryan, 2026-08-25) — the clause is REPLACED, and the premise above was WRONG
+
+  > **"Never computed" does not survive verification, and I am the one who relayed it.** `reincarnated-godot/scripts/s2b_e1_gate.py:295-325` computes `|fx[mk] − ct[mk]|` — **the effect arm against the control arm at the SAME mark** — on `00-pre` **and** `08-post`. That is `C-CTL-a`'s across-arm form, not stasis. It returned `true` **with figures printed** (`melee` both stages `00-pre: 0`, `08-post: 0`; `gtc`/`ww` `00-pre: 0`) and **two rows honestly returned `"N/A — no effect-off mark exists"`.** I read the code and recomputed the gate JSON myself before writing this.
+  >
+  > ⚑ **The token collision is THREE-WAY and the third face is the code's: the GATE took the sound reading; only the PROSE took the stasis reading.** Tranche 2 never shipped an uncomputed criterion — it shipped **an ambiguous NAME over a CORRECT computation**, ambiguous enough that the builder read his own gate wrong and raised a finding against it. **Tranche 2's seal STANDS.** No re-score. What was owed was a rename.
+
+  **DO THIS — `C-CTL`, both limbs required on every row × every stage:**
+
+  - [ ] **`C-CTL-a`** — at `00-pre`, the **fx-on frame is BYTE-IDENTICAL to its matched fx-off frame**: across arms, same mark, same pass. **`px_exact = px_byvalue = maxdiff = 0`.** ⚑ **Report all three figures on every pass regardless of verdict**, per § 0's operator discipline.
+  - [ ] **`C-CTL-b`** — the **caster's world transform is BIT-EQUAL** between the fx-on arm and its matched fx-off control **at all 9 marks**. Report `worst_abs_delta` and any divergences. *"The control controls everything that moves," stated on the thing that moves rather than inferred from a frame diff.*
+  - [ ] **`M_C3′` / any `00-pre` vs `08-post` stasis check — RETIRED. Do not compute it, and do not report it.** Stasis is not control. It fails on the arm built to satisfy it, for a deterministic idle-animation reason (idle `AnimationPlayer`s on the stage clock; 606/606 byte-identical across passes — **not drift**).
+  - [ ] ⚑ **Neither limb alone suffices, and the reason is worth carrying:** *"(a) is one frame of pixels; (b) is the mover but not the renderer."*
+  - [ ] ⚑ **`#80 cl. 5` now applies to your own receipts** (jack-ryan, this ruling): **a boolean verdict key with no numeric sibling in its own dict is a defective receipt.** Your 3A determinism receipt printed `VERDICT: PASS` on **0/0 comparisons** — the same shape one level down. **Every `PASS*` you emit carries its figures, or it carries the honest `N/A` string with its reason.** The tranche-2 gate already does this correctly; match it.
+
+  **F-1 GATE: CLOSED.** This dispatch is **no longer held on F-1.** ⚑ **It remains HELD on P-BEAM (§ 0)**, which is unchanged and **fires as written** — its citation resolves at `drax/notes/2026-08-24-s2b-mint-note.md:1125-1142`, and its "control frames were byte-identical" claim is the **across-passes determinism** measurement, a third distinct thing from both of the above. **All other E-1 requirements untouched.**
 - [ ] **E-0 two-stage law; per-stage cohorts never pooled; stage-adequacy reported.**
 - [ ] **Both screens — exact-bound AND by-value — on every criterion.**
 - [ ] **`authored ∩ region` emptiness sweep as PRE-FLIGHT across all five rows**; disjoint regions return **UNEVALUABLE, never PASS.**
