@@ -224,3 +224,110 @@ finding → next kit-mapping lap (elrond), naturally folded into the F-2 re-mapp
 `../scripts/vfx_x4_materialization_2026_08_24.py` — transactional, idempotent, assert-guarded.
 
 Auto-committed per project discipline (dispatch-authorized). **NO push.**
+
+---
+
+# ADDENDUM A — the second-home hazard, and the drift guard that answers it
+
+**Added:** 2026-08-24 (elrond, X-4 re-verification pass) · **Schema change: NONE.**
+**New artifact:** `../scripts/vfx_x4_binding_drift_check.py` — read-only, writes nothing.
+
+## Why this addendum exists
+
+X-4 was re-derived from the substrate rather than re-read from this note (Discipline #19.1(b):
+a claim does not inherit its verification). Every count above re-derives exactly. **But the
+re-derivation surfaced a structural hazard the original note did not name.**
+
+**The fold set has TWO HOMES, and the second carries zero independent information.**
+
+| Home | What encodes the fold | Reads the other? |
+|---|---|---|
+| `v_vfx_kit_skill_binding` | hardcoded `CASE` literals, verbatim from sealed spec § 4.1 | **No** — the view's only `FROM` table is `vfx_archetype_member` |
+| `vfx_archetype.folded_into` / `.fold_survives_as` | the L-38 bridge columns | **No** |
+
+Agreement today: **2 of 2, zero counterexamples.** Independent information in the second copy:
+**none.** That is the same structural shape rocket measured at X-3c (`c7f8a87f`) on
+`vfx_coverage_manifest.json`'s `substrate_native` — 176/176 agreement, no independent
+information, harmless until it isn't.
+
+## The hazard was measured, not theorised
+
+On a throwaway copy:
+
+- Mutating `vfx_archetype.folded_into` for `ring` to `melee_strike` left the view still
+  reporting `ring → circle / annulus` and `circle` still at 93. **The DB told two contradictory
+  stories and nothing complained.**
+- Re-running `vfx_x4_materialization_2026_08_24.py` against that drifted copy **silently healed**
+  the bridge back to its constants — it never reported that it had found a divergence.
+
+**Drift was silent in both directions.** Detection did not exist; correction was invisible.
+
+## The tie-break — named here so a merge never decides it later
+
+1. **Sealed spec T-A § 3.1b is the SOLE AUTHORITY for the fold set.**
+2. **`v_vfx_kit_skill_binding` is authoritative FOR BINDING** — it is § 4.1's executable form,
+   and post-fold counts come from it, never from `member_skills`.
+3. **The bridge columns are a DERIVED READER-AID and are NEVER AUTHORITATIVE.**
+4. **If spec and view disagree, that is a HALT to the conductor, not a data fix** — T-A is sealed
+   law, and reconciling by editing the view to match a drifted bridge would be exactly the
+   stranded-artifact failure this run already paid for.
+
+### Why the view was NOT re-pointed at the bridge
+
+Making the view read `vfx_archetype.folded_into` would collapse the two homes into one — but it
+would also make **a mutable data column silently redefine sealed law**: one `UPDATE` would
+re-bind T-K without touching the spec. That is a worse failure than drift. **The correct
+disposition is to keep the spec-verbatim literals and make divergence LOUD**, which is what the
+guard does.
+
+## The guard
+
+`../scripts/vfx_x4_binding_drift_check.py` — exit 0 = consistent, exit 1 = divergence.
+
+Every list it checks is **parsed from the sealed spec at run time** (Discipline #76 — the fold
+set, the 24-row roster, the per-row counts and the FIELD-surface class are all derived, never
+hand-listed), and every roster comparison reports **both directions** — named-but-absent and
+derived-but-unnamed. It cross-checks **spec ↔ bridge ↔ view** three ways, plus losslessness in
+both directions, HELD-is-not-a-fold, and bridge reciprocity.
+
+**Live DB: PASSES, exit 0.**
+
+### The guard was proven able to fail (7 mutations killed, 2 controls clean)
+
+| # | Mutation | Caught |
+|---|---|:-:|
+| M1 | bridge fold-target drift (`ring → melee_strike`) | ✅ |
+| M2 | layer-flag drift only, fold target still correct | ✅ |
+| M3 | `knockback` given a `folded_into` (the state-collapse L-38's shorthand invited) | ✅ |
+| M4 | bridge reciprocity broken (`circle.fold_receives` nulled) | ✅ |
+| M5b | one real skill dropped from the view | ✅ (4 independent checks) |
+| M7 | folds silently undone in the view only | ✅ (8 checks, both directions) |
+| M8b | `knockback` un-held, leaking into the binding | ✅ |
+| M6/M9 | **controls** — pristine copies must pass | ✅ exit 0 |
+
+Two earlier mutation attempts (M5, M8) returned exit 0 and were investigated rather than
+accepted: **both were defective tests, not gaps** — M5 filtered on `source_skill='Rive'`, which
+matches zero corpus rows (a spec-side reference name, not a corpus skill name), and M8 left the
+`knockback` exclusion clause in place. Recorded because a mutation that fails to bite looks
+exactly like a checker that works.
+
+## Two corrections to the record above
+
+- **The "one trap" section understates itself.** `member_skills` being pre-fold is not only a
+  reader trap — it is the *first* of the two second-home surfaces. Both are now covered by the
+  guard.
+- **`vfx_curation_finding` count.** The table above lists `X010–X015` as one line; the landed
+  total is **13 rows**, verified live. Consistent, but the row list reads as 7 lines.
+
+## Cross-seam (ADR-004)
+
+**No schema change, no engine-side change, no write of any kind.** The guard is read-only
+(`mode=ro`). Star-lord's engine `MIGRATION.md` files remain unaffected — `corpus.db` is elrond's
+seam and the engine does not read it. **No new consumer contract**; nothing widens.
+
+## Durability caveat, stated because acceptance could otherwise pass falsely
+
+`corpus.db` is **git-ignored** (`research/curated/.gitignore:9 → *.db`). The view therefore exists
+**on this host only**; what is durable in git is the *script* that recreates it plus this note.
+"The binding is queryable" is true here and reproducible elsewhere **only by re-running the
+materialization script.** Naming it so a future reader does not mistake host state for repo state.
