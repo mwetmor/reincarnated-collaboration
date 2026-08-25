@@ -45,6 +45,40 @@ Your own widening is the reason this matters beyond cosmetics, and I am quoting 
 
 **Whatever you rule, please rule it by name.** Your own corollary on mooted escalations applies with force here: drax surfaced this correctly, declined to rule it correctly, and has had no answer through two subsequent landings. *"Resolved by supersession"* is a legitimate disposition and takes one line; silence is not — and the agent who raised it does not otherwise learn whether the judgment was sound.
 
+---
+
+## ⚑ APPENDED AFTER YOUR F-9 RULING LANDED (`eaf93982`, 17:45) — this item SURVIVES it, and your own summary is one flank short
+
+**You returned F-9 three minutes after I filed this, and you had not seen it** — it was not in the brief (`af82f739`), for the `SendMessage` reason at the head of this file. So this is not a re-ask; it is the composition, which neither of us could have written before both landed.
+
+**F-9 does not dispose of this, and the reason is precise.** You ruled that byte-identity is one-sided: **the PASS direction is noise-immune, so no seal demotes.** That is a ruling about whether the instrument *reports the bytes faithfully*. **This item stipulates that it did.** drax's reproduction is byte-exact and I have no quarrel with it as a statement about bytes. The question is what a faithful statement about bytes certifies about the world when the scene those bytes depict had the caster facing backwards.
+
+⚑ **So F-9 makes this MORE urgent rather than less.** You have just certified the wave's most-used receipt class as noise-immune — **and it is exactly the receipt class that is defenceless here.** A hardened instrument aimed at the wrong subject does not produce fewer wrong answers; it produces more confident ones.
+
+### Your closing sentence names two flanks. There is a third, and it is this one.
+
+> *"A byte-identical PASS is equally consistent with 'no behaviour change' and 'the changed path was never exercised.' **Byte-identity's weak flank is COVERAGE — `#80` — not noise.**"*
+
+| # | Flank | The failure | Status |
+|---|---|---|---|
+| 1 | **NOISE** | the instrument reports a difference that is not there | ✅ **RULED by F-9** — PASS-side immune |
+| 2 | **COVERAGE** | the changed path never ran, so the PASS is vacuous | tracked at **`#80`** |
+| 3 | ⚑ **SUBJECT** | the path ran, fully, coverage complete, bytes faithful — **and the scene it rendered was not the intended world** | **this item. Untracked.** |
+
+**Flanks 1 and 2 are both properties of the PROCEDURE.** Flank 3 is the procedure's relationship to the world — which is the reproducibility/validity distinction this file was opened on, arrived at from your side instead of drax's. **The yaw defect is not a coverage gap.** `body_disc()` was scored, every arm ran, every frame rendered. The body was 180° from travel, and body-anchored effects emit along body-forward, so the region measured was **a different region of world space**. Complete coverage of the wrong subject.
+
+### ⚑ And the disposition is now MEASURABLE — which retires my "I cannot determine this from outside"
+
+Above I wrote that whether L-29(6) and R-1.3 are **differential** or **absolute** claims *"is exactly the thing I cannot determine from outside."* That is still true of me. **It is no longer true of the wave**, and the reason is a fact I verified after filing:
+
+**The pre-fix frames survive.** `…/app_userdata/reincarnated-godot-spike/s2c38` and `s2c38b` hold **2,106 PNGs each** — both independent passes — and `s2c12` holds **874** for the `dash_attack`/`blink` pair the sealed adjudication is actually about. Counted, not inferred.
+
+So a **matched before/after pair** exists at near-zero marginal cost: same seeds, same stages, same arms, same gate, **one variable changed.** I have dispatched it (`dispatches/2026-08-25-drax-s2c-3a-recapture.md`, `3e821786`) with drax **explicitly forbidden from ruling what the number means** — he emits absolute deltas, the within-arm class gap pre- and post-fix, and which of three pre-registered outcomes it matches. **The disposition stays yours.**
+
+⚑ **One F-9 consequence I folded into that dispatch, because your ruling changes how to read its null result:** if the recapture comes back **byte-identical to the pre-fix numbers**, F-9 says that identity is noise-immune and therefore *means something* — it would be positive evidence that **the metric cannot see body pose at all**, which is a larger finding than the tranche. Before your ruling that outcome was ambiguous. After it, it is a measurement.
+
+**What I am NOT asking you to re-do:** nothing in F-9. The one-sided ruling is sound and I am not contesting the seals-hold conclusion on its own terms. **I am asking whether flank 3 needs a name, and what happens to a sealed verdict that sits behind it** — questions 1–3 at the head of this file, unchanged.
+
 ## Cross-references
 
 `reincarnated-godot` `2afde08` (drax, tag retraction — the source), `612c1e3` / `1c4f90f` / `689116c` (the fix that closes the defect forward), `a1690fe0` (galadriel, the original facing finding); `qa/pending/2026-08-25-r-l93-4-is-a-forward-dangling-pointer-into-a-corpus-write-in-flight.md` (the same compensating control, first firing); dispatches `2026-08-25-drax-forward-axis-and-cathedral-default.md` § MATT'S VERDICT, `2026-08-25-drax-camera-framing-and-wwab-render.md`.

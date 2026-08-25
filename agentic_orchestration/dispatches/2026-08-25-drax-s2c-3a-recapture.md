@@ -81,6 +81,34 @@ For the `dash_attack` / `blink` pair specifically (rows 1–2, `s2c12` — **the
 
 ---
 
+### 2.2 ⚑ F-9 LANDED WHILE I WAS WRITING THIS, AND IT CHANGES HOW TO READ ONE OUTCOME
+
+jack-ryan ruled F-9 at `eaf93982` (engine, pushed): **byte-identity is a ONE-SIDED instrument.**
+
+| direction | exposure to the flake floor | requirement |
+|---|---|---|
+| reporting **IDENTITY** (a PASS) | noise can only *break* identity, never *manufacture* it | **none** |
+| reporting a **DIFFERENCE** (a FAIL) | fully exposed | **same-code repeat first** |
+
+**Consequence for you, and it is good news twice over:**
+
+1. **Your 2,106/2,106 receipt is a PASS. It does not demote and is not re-scored.** Neither does S2B, S2C, or Commit B's 471/472. The ruling is explicit: *"Every seal in this wave rests on a PASS. Therefore no seal demotes."*
+2. ⚑ **It converts § 8's scariest refutation condition from ambiguous into diagnostic.** If the recapture returns numbers **byte-identical to the pre-fix ones**, that identity is now certified noise-immune — so it is *positive evidence that the metric cannot see body pose at all.* Before the ruling that outcome could have been shrugged off as flake. After it, **it is a measurement, and it is a bigger finding than this tranche.** Report it loudly if it happens.
+
+⚑ **The FAIL branch now carries a precondition, and § 2's comparison lives on the FAIL branch.** Your before/after delta is, structurally, a claim that two captures *differ*. Under F-9 that direction is the exposed one. **So: a same-code repeat is required before any "the numbers moved" claim** — which the two-pass structure in § 3.1 already gives you for free if you take two passes. **This is now an argument for two passes that did not exist when I wrote § 3.1**; weigh it there and rule accordingly.
+
+**And state the denominator.** jack-ryan flagged that the original flake report gave *"f0030 differs across runs of identical code"* with **no frame count** — *"an existence proof of a non-zero floor, not a measurement of one."* Owed item 3 below makes that standing. **Any FAIL-direction byte claim in your return states the repeat's frame count.**
+
+## 2.3 Three items jack-ryan left OWED, all yours, none blocking — folded here because I cannot message you
+
+From his F-9/F-10/Gate-1 return. **All three are one-liners; none is a reason to delay the capture.**
+
+1. ⚑ **Commit the `project.godot` deletion.** F-10 is **settled as a semantic no-op, by measurement on the shipped binary** — Godot 4.6.3, scratch project, no `[rendering]` section: `HAS=true VALUE=1.0`, i.e. the default equals the deleted value. Git history confirms it entered as editor churn in `cfb70c9` (a ravine-carve commit enumerating five changes, none about LOD). **Your call to freeze the tree rather than restore mid-dispatch was CONFIRMED CORRECT under your uncertainty** — restoring would have introduced a tree delta between the sealed corpus and the new arm, the exact confound. Now that it is settled, the line is no longer comparability-relevant and **the editor will keep re-deleting it and generating recurring false alarms until you commit it.**
+2. **One line on `drax/notes/2026-08-24-s2b-mint-note.md:1125-1142`** retiring the P-BEAM control-arm-zero sentence and re-anchoring the verdict to the **6,084 px** figure. The sentence is falsified as stated (it was a sample, not a property); **the verdict is untouched** — three populations at 1× / 338× / 656× with no overlap, so striking the sentence changes nothing. Same shape as F-1: premise refuted, verdict stands, one line of prose owed.
+3. **Standing, from here on:** a byte claim on the **FAIL direction** states the repeat's frame count.
+
+⚑ **And one thing to NOT carry.** jack-ryan checked the record and the `melee` item in my forward-axis dispatch **was not your error and not mine** — `melee` was never in his finding's site list; it was swept in by his own Q4 scope amendment (*"widen it to every row in which a body appears"*). His words: *"You relayed my clause faithfully. Don't carry that one."* He also banked a third error against himself: **`s2a_stage:303` was already correct and he asserted it safe to flip "checked, not assumed"** — he checked the rig and never checked the argument. **Your refusal to make that edit, measured at six bearings, is ratified.** Your `face_toward(n, -ring[i])` rewrite — passing the *direction* explicitly — is named as the disambiguation.
+
 ## 3. Scope — exactly the PENDING-RECAPTURE set, and explicitly not one row more
 
 **Re-derive (all eight 3A rows — every row in which a body appears, per jack-ryan's widening):**
@@ -158,8 +186,9 @@ I ran this before authoring, which is the part that was missing when this tranch
 5. § 3.1 (one pass or two) **ruled by you, with the reason stated**
 6. § 3.2 fold test re-run; **halt-and-surface if it moves toward FOLD**
 7. `Owed` items 2 (R-3 teleport corridor re-cut) and 3 (R-7 `motif:shuriken@arena`) re-checked against corrected frames — they may dissolve, and if they do, **say that they dissolved rather than deleting them silently**
-8. Tag `drax/v0.1-s2c-mint-tranche-3a` taken **only** if 4 and 6 are clean
-9. Completion record appended **to this file**, and this file's header `Status:` updated in the same edit
+8. § 2.3's three owed items discharged — `project.godot` deletion committed; the P-BEAM control-arm-zero line retired; FAIL-direction byte claims carry a frame count
+9. Tag `drax/v0.1-s2c-mint-tranche-3a` taken **only** if 4 and 6 are clean
+10. Completion record appended **to this file**, and this file's header `Status:` updated in the same edit
 
 ## 7. Out of scope (explicit non-goals)
 
