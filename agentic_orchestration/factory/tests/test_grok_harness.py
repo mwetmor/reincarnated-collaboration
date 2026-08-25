@@ -39,7 +39,16 @@ from factory.harness.grok import (
     resolved_model_ids,
 )
 from factory.jobqueue import JobQueue
-from factory.lane import SerialLaneLock
+from factory.lane import (
+    LANE_STATE_SEAM_HELD,
+    SKIPPED_PER_AGENT,
+    SeamSlotHeld,
+    SeamSlotSemaphore,
+    SerialLaneLock,
+    probe_slots,
+    seam_lock_path,
+    slot_lock_path,
+)
 from factory.usage import UsageBreakdown
 
 #: The envelope of the LIVE SMOKE JOB, 2026-08-24, copied field-for-field from
@@ -129,11 +138,26 @@ def _argv(tmp_path: Path) -> list[str]:
     return json.loads((tmp_path / "argv.json").read_text(encoding="utf-8"))
 
 
+#: The seam every row below fires under, unless it is testing the seam itself.
+SEAM = "star-lord"
+
+
+def _cfg(**kw) -> dict:
+    """A job config that NAMES ITS SEAM — required on this lane since § 9.6 AM-3.
+
+    A helper rather than a default inside the harness, deliberately: `run()` REFUSES a
+    config with no seam (Amendment M), and a fixture that quietly supplied one would
+    make every row below pass through a door the production caller has to open for
+    itself. The rows that test the refusal build their config by hand.
+    """
+    return {"seam": SEAM, **kw}
+
+
 # ===========================================================================
 # 1 — AMENDMENT E: --no-leader, said AND asserted
 # ===========================================================================
 def test_AMENDMENT_E_no_leader_is_on_EVERY_argv(fake_grok, lock_path, tmp_path):
-    result = _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     assert result.ok
     assert NO_LEADER_FLAG in _argv(tmp_path), (
         "leader mode multiplexes clients onto ONE backend through `~/.grok/leader.sock` "
@@ -160,7 +184,7 @@ def test_AMENDMENT_E_a_REJECTED_flag_REFUSES_THE_FIRE(fake_grok, lock_path, tmp_
     assert ok is False
     assert "REFUSES TO FIRE" in why
 
-    result = harness.run("hello", tmp_path, {})
+    result = harness.run("hello", tmp_path, _cfg())
     assert result.ok is False
     assert "PREFLIGHT REFUSED" in (result.error or "")
     assert (result.extra or {}).get("lane_state") == "preflight_failed"
@@ -196,7 +220,7 @@ def test_AMENDMENT_E_a_FAILED_preflight_closes_availability_BEFORE_the_busy_prob
 # 2 — AMENDMENT C: the RESOLVED model id
 # ===========================================================================
 def test_AMENDMENT_C_the_RESOLVED_model_id_is_captured_per_call(fake_grok, lock_path, tmp_path):
-    result = _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     assert result.extra["resolved_model"] == "grok-4.6-build"
     assert result.extra["resolved_model_ids"] == ["grok-4.6-build"]
     assert result.model == MODEL_PIN, "the DECLARED pin is recorded too — both, not either"
@@ -229,7 +253,7 @@ def test_a_MISSING_modelUsage_records_ABSENCE_rather_than_a_guess(fake_grok, loc
 # 3 — AMENDMENT D + the pin discipline
 # ===========================================================================
 def test_AMENDMENT_D_the_effort_is_ARGV_SAID_from_the_first_job(fake_grok, lock_path, tmp_path):
-    _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     argv = _argv(tmp_path)
     assert "--reasoning-effort" in argv
     assert argv[argv.index("--reasoning-effort") + 1] == REASONING_EFFORT_PIN == "xhigh"
@@ -238,7 +262,7 @@ def test_AMENDMENT_D_the_effort_is_ARGV_SAID_from_the_first_job(fake_grok, lock_
 
 def test_the_pin_is_said_on_the_ARGV_never_left_to_ambient_config(fake_grok, lock_path, tmp_path):
     """H1 on the third vendor. `~/.grok/config.toml` is host state no file here controls."""
-    _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     # The fake records `sys.argv[1:]`, so argv[0] (the binary) is not in this list.
     argv = _argv(tmp_path)
     assert argv[:2] == ["-p", "hello"], "single-turn headless, prompt on argv"
@@ -246,7 +270,7 @@ def test_the_pin_is_said_on_the_ARGV_never_left_to_ambient_config(fake_grok, loc
 
 
 def test_an_UNANNOUNCED_pin_swap_is_REFUSED(fake_grok, lock_path, tmp_path):
-    result = _harness(fake_grok, lock_path).run("hello", tmp_path, {"model": "grok-4.5"})
+    result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg(model="grok-4.5"))
     assert result.ok is False
     assert "model_ab_note" in (result.error or "")
     assert "DECLARED, not banked" in (result.error or ""), (
@@ -258,7 +282,7 @@ def test_an_UNANNOUNCED_pin_swap_is_REFUSED(fake_grok, lock_path, tmp_path):
 
 def test_an_ANNOUNCED_swap_with_an_AB_NOTE_is_permitted(fake_grok, lock_path, tmp_path):
     result = _harness(fake_grok, lock_path).run(
-        "hello", tmp_path, {"model": "grok-4.5", "model_ab_note": "notes/2026-08-24-ab.md"})
+        "hello", tmp_path, _cfg(model="grok-4.5", model_ab_note="notes/2026-08-24-ab.md"))
     assert result.ok is True
     argv = _argv(tmp_path)
     assert argv[argv.index("-m") + 1] == "grok-4.5"
@@ -281,7 +305,7 @@ def test_the_EFFORT_PIN_is_a_MEMBER_of_the_CLIs_own_vocabulary():
 def test_an_EFFORT_OUTSIDE_the_vocabulary_is_refused_HERE_not_at_the_vendor(
         fake_grok, lock_path, tmp_path):
     result = _harness(fake_grok, lock_path).run(
-        "hello", tmp_path, {"reasoning_effort": "maximum"})
+        "hello", tmp_path, _cfg(reasoning_effort="maximum"))
     assert result.ok is False
     assert "xhigh" in (result.error or "")
     assert not (tmp_path / "argv.json").exists()
@@ -293,19 +317,19 @@ def test_an_EFFORT_OUTSIDE_the_vocabulary_is_refused_HERE_not_at_the_vendor(
 @pytest.mark.parametrize("mode", sorted(FORBIDDEN_PERMISSION_MODES))
 def test_the_FENCE_DISSOLVING_permission_modes_are_refused_BY_NAME(
         mode, fake_grok, lock_path, tmp_path):
-    result = _harness(fake_grok, lock_path).run("hello", tmp_path, {"permission_mode": mode})
+    result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg(permission_mode=mode))
     assert result.ok is False
     assert "REFUSED BY NAME" in (result.error or "")
     assert not (tmp_path / "argv.json").exists()
 
 
 def test_WEB_SEARCH_IS_OFF_unless_the_job_class_NAMES_it(fake_grok, lock_path, tmp_path):
-    _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     assert "--disable-web-search" in _argv(tmp_path)
 
 
 def test_WEB_SEARCH_ON_is_a_DECLARATION_not_a_default(fake_grok, lock_path, tmp_path):
-    _harness(fake_grok, lock_path).run("hello", tmp_path, {"web_search": True})
+    _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg(web_search=True))
     assert "--disable-web-search" not in _argv(tmp_path)
 
 
@@ -315,7 +339,7 @@ def test_a_TOOLS_declaration_is_REFUSED_with_the_reason_stated(fake_grok, lock_p
 
 
 def test_an_OVERSIZE_prompt_is_refused_HERE_not_as_an_E2BIG(fake_grok, lock_path, tmp_path):
-    result = _harness(fake_grok, lock_path).run("x" * (300 * 1024), tmp_path, {})
+    result = _harness(fake_grok, lock_path).run("x" * (300 * 1024), tmp_path, _cfg())
     assert result.ok is False
     assert "ARG_MAX" in (result.error or "")
     assert "--prompt-file" in (result.error or ""), "name the door past the ceiling"
@@ -330,51 +354,80 @@ def test_the_GROK_lane_is_INDEPENDENT_of_a_BUSY_CODEX_lane(fake_grok, lock_path,
 
     codex_lock = SerialLaneLock(tmp_path / "codex.lock").acquire()
     try:
-        result = _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+        result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
         assert result.ok is True, "a busy Codex lane closed the Grok lane — it must not"
     finally:
         codex_lock.release()
     assert default_lock_path(vendor="grok") != default_lock_path(vendor="codex")
 
 
-def test_a_SECOND_grok_job_under_the_lock_is_REFUSED(fake_grok, lock_path, tmp_path):
-    held = SerialLaneLock(lock_path).acquire()
+def test_a_SECOND_grok_job_FOR_THE_SAME_SEAM_is_REFUSED(fake_grok, lock_path, tmp_path):
+    """**AM-3 replaced this row's subject and NOT its shape.** It used to hold the single
+    lane lock and assert `lane_state == "busy"`. Under § 9.6 AM-3 the lane is not serial:
+    what is refused is a second job for the SAME SEAM, and the refusal is `per-agent`,
+    not `busy` — because the lane may have two free slots and other seams may be firing
+    into them at that instant. The old assertion would now be measuring the ceiling."""
+    held = SeamSlotSemaphore(lock_path, SEAM).acquire()
     try:
-        result = _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+        result = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     finally:
         held.release()
     assert result.ok is False
-    assert (result.extra or {}).get("lane_state") == "busy"
+    assert (result.extra or {}).get("lane_state") == LANE_STATE_SEAM_HELD, (
+        "a per-agent refusal reported as a BUSY LANE. That stops a whole drain at 1/3 "
+        "with two slots idle (Amendment R.2's head-of-line blocking) — the lane is not "
+        "busy, this one agent is."
+    )
     assert not (tmp_path / "argv.json").exists()
 
 
-def test_the_lock_fd_is_INHERITED_by_the_child(fake_grok, lock_path, tmp_path, monkeypatch):
-    """`pass_fds` is what makes lock lifetime = max(queue, grok), not the parent's."""
-    monkeypatch.setenv("FAKE_GROK_SLEEP", "0.4")
+def test_BOTH_lock_fds_are_INHERITED_by_the_child(fake_grok, lock_path, tmp_path, monkeypatch):
+    """`pass_fds` is what makes lock lifetime = max(queue, grok) — now for BOTH locks.
+
+    **AMENDMENT N.2.** One fd inherited and the other not would be the worst of the two
+    worlds available: a killed queue would release the per-seam hold while the child
+    kept running (the agent could double-fire itself), or hold the seam after the child
+    died (the agent locked out of its own lane). Both are probed from a THIRD process,
+    because a probe inside this one cannot distinguish "the child holds it" from "I hold
+    it" — `flock` conflicts across two open file descriptions in one process either way.
+    """
+    monkeypatch.setenv("FAKE_GROK_SLEEP", "0.5")
     import subprocess as sp
     import threading
 
-    seen: dict[str, bool] = {}
+    seam_path = seam_lock_path(lock_path, SEAM)
+    slot_path = slot_lock_path(lock_path, 0)
+    seen: dict[str, str] = {}
 
     def watch():
         import time
 
-        time.sleep(0.15)
+        time.sleep(0.2)
         probe = sp.run(
             [__import__("sys").executable, "-c",
-             f"import fcntl,os,sys\n"
-             f"fd=os.open({str(lock_path)!r}, os.O_CREAT|os.O_RDWR)\n"
-             f"try:\n fcntl.flock(fd, fcntl.LOCK_EX|fcntl.LOCK_NB); print('FREE')\n"
-             f"except OSError: print('HELD')\n"],
+             "import fcntl,os,sys\n"
+             "for name, p in ((\"seam\", %r), (\"slot\", %r)):\n"
+             "    fd=os.open(p, os.O_CREAT|os.O_RDWR)\n"
+             "    try:\n"
+             "        fcntl.flock(fd, fcntl.LOCK_EX|fcntl.LOCK_NB); print(name+'=FREE')\n"
+             "    except OSError: print(name+'=HELD')\n"
+             % (str(seam_path), str(slot_path))],
             capture_output=True, text=True,
         )
-        seen["held"] = "HELD" in probe.stdout
+        seen["out"] = probe.stdout
 
     thread = threading.Thread(target=watch)
     thread.start()
-    _harness(fake_grok, lock_path).run("hello", tmp_path, {})
+    _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
     thread.join()
-    assert seen.get("held") is True
+    assert "seam=HELD" in seen.get("out", ""), (
+        "the PER-SEAM lock did not travel to the child. A killed queue would then leave "
+        "a live job with its seam unheld — and the agent could fire a second one."
+    )
+    assert "slot=HELD" in seen.get("out", ""), (
+        "the SLOT lock did not travel to the child — a killed queue would leave a "
+        "running job on an uncounted slot, which is the ceiling silently becoming N+1."
+    )
 
 
 # ===========================================================================
@@ -494,7 +547,7 @@ def test_D8_the_GROK_run_log_is_born_with_the_CURATOR_COLUMN_and_ENQUEUE_ROWS(
         tmp_path, fake_grok, lock_path, monkeypatch):
     """This lane never has a rows-at-close era, because it never has a hand-fire era."""
     queue = JobQueue(tmp_path / "q", lane="grok")
-    queue.enqueue(job_id="j1", prompt="p", curator="galadriel", sandbox="n/a")
+    queue.enqueue(job_id="j1", prompt="p", curator="galadriel", seam=SEAM, sandbox="n/a")
 
     rows = list(queue.runlog.rows())
     assert len(rows) == 1
@@ -518,12 +571,12 @@ def test_a_GROK_job_declaring_a_CODEX_SANDBOX_is_REFUSED(tmp_path):
     """A fence this lane cannot hold must not be accepted and ignored."""
     queue = JobQueue(tmp_path / "q", lane="grok")
     with pytest.raises(ValueError, match="holds no sandbox fence"):
-        queue.enqueue(job_id="j", prompt="p", curator="galadriel", sandbox="read-only")
+        queue.enqueue(job_id="j", prompt="p", curator="galadriel", seam=SEAM, sandbox="read-only")
 
 
 def test_the_GROK_FENCE_lands_in_the_ENQUEUE_ROW_where_it_can_be_read(tmp_path):
     queue = JobQueue(tmp_path / "q", lane="grok")
-    queue.enqueue(job_id="j", prompt="p", curator="galadriel", sandbox="n/a",
+    queue.enqueue(job_id="j", prompt="p", curator="galadriel", seam=SEAM, sandbox="n/a",
                   extra={"permission_mode": "plan"})
     assert "permission_mode=plan" in list(queue.runlog.rows())[0][3]
 
@@ -547,7 +600,7 @@ def test_a_job_with_NO_router_verdict_does_NOT_get_a_fabricated_one(tmp_path):
 
 def test_the_AUTH_BLOCKED_note_names_WHICH_LANE(tmp_path, fake_grok, lock_path):
     queue = JobQueue(tmp_path / "q", lane="grok")
-    queue.enqueue(job_id="j", prompt="p", curator="galadriel", sandbox="n/a")
+    queue.enqueue(job_id="j", prompt="p", curator="galadriel", seam=SEAM, sandbox="n/a")
     harness = _harness(
         fake_grok, lock_path,
         auth_probe=lambda: LaneAvailability(False, "auth_expired", "expired (injected)"))
@@ -565,7 +618,7 @@ def test_the_AUTH_BLOCKED_note_names_WHICH_LANE(tmp_path, fake_grok, lock_path):
 def test_ROUND_TRIP_enqueue_drain_and_the_row_carries_C_and_I(tmp_path, fake_grok, lock_path):
     """Amendment I's window needs curator + resolved id + effort + cost ON EVERY ROW."""
     queue = JobQueue(tmp_path / "q", lane="grok")
-    queue.enqueue(job_id="j1", prompt="do it", curator="galadriel", sandbox="n/a")
+    queue.enqueue(job_id="j1", prompt="do it", curator="galadriel", seam=SEAM, sandbox="n/a")
     report = queue.drain(_harness(fake_grok, lock_path))
 
     assert report.fired == 1
@@ -599,7 +652,7 @@ def test_G2_1_a_harness_that_reports_NO_EFFORT_gets_no_FABRICATED_one(
     window sees a gap it can ask about rather than a default it cannot detect.
     """
     queue = JobQueue(tmp_path / "q", lane="grok")
-    queue.enqueue(job_id="j1", prompt="do it", curator="galadriel", sandbox="n/a")
+    queue.enqueue(job_id="j1", prompt="do it", curator="galadriel", seam=SEAM, sandbox="n/a")
 
     inner = _harness(fake_grok, lock_path)
 

@@ -52,15 +52,19 @@ import json
 import os
 import time
 from dataclasses import asdict, dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
 from .lane import (
+    LANE_STATE_SEAM_HELD,
     SANDBOX_MODES,
+    SKIPPED_PER_AGENT,
     RunLog,
     Telemetry,
     utcnow,
 )
+from .roster import validate_seam
 
 #: Bumped when the on-disk job record changes shape. Present on every record so a
 #: reader never has to infer the vintage of a file it did not write.
@@ -81,6 +85,46 @@ RETRY_BACKOFF_BASE_S = 5.0
 #: named as the covering row in `tests/test_vocabularies.py`.
 REQUIRED_JOB_FIELDS = frozenset({"job_id", "curator", "prompt"})
 
+#: **AMENDMENT M — `seam` is a REQUIRED field, and it is required PER LANE.**
+#:
+#: M's own words leave the shape open: *"`seam` joins `REQUIRED_JOB_FIELDS` for
+#: vendor-lane jobs (**or a lane-specific required set**)"*. Taken the second way, and
+#: the reason is the same one that made `_validate_fence` a per-lane dispatch rather
+#: than an `if lane == "codex"`: **the field is only load-bearing where a mechanism
+#: enforces it.**
+#:
+#:   * **grok** — the per-seam flock is keyed on this name. An unnamed seam is a job
+#:     that cannot be excluded against, so it is a REFUSAL TO FIRE, raised before any
+#:     file or row exists (the P-8 curator-law shape, and Amendment L's shape one axis
+#:     over: a claim whose release condition cannot be stated is not written).
+#:   * **codex** — hard serial by VENDOR LAW, N=1, no per-agent grain and none coming.
+#:     Requiring the field there would add a mandatory declaration that refuses jobs
+#:     while enforcing nothing — a governance line with no mechanism behind it, which
+#:     is exactly the "label, not a vocabulary" state R-B's own first version was in
+#:     and which this package spent a Gate-2 finding getting out of. It is ACCEPTED
+#:     there (roster-validated when given, recorded on the row) and never demanded.
+#:
+#: Deleting a lane's row does not fail open loudly — it silently stops demanding a
+#: field — so this mapping is pinned by equality in `tests/test_vocabularies.py`.
+REQUIRED_JOB_FIELDS_BY_LANE: dict[str, frozenset[str]] = {
+    "codex": REQUIRED_JOB_FIELDS,
+    "grok": REQUIRED_JOB_FIELDS | frozenset({"seam"}),
+}
+
+#: **AMENDMENT P.2 — why a queue wait happened, as a CLOSED vocabulary.**
+#:
+#: § 9.5's banked countable was *"`ENQUEUED`-to-`START` gaps — does anything actually
+#: queue behind the lock?"*. Under AM-3 that same gap now measures TWO different things
+#: — ceiling exhaustion at N=3, and a per-agent refusal — and P is explicit that the
+#: two distinct causes must never share one number. So the number carries its reason.
+#:
+#: `both` exists because a job can wait for both across successive drains, and the
+#: honest answer to *which one* is then *both*; collapsing it to the most recent would
+#: publish a clean attribution the rows do not support. ADDITION is the fail-open
+#: direction (a reason nobody adjudicated entering the banking window's own
+#: attribution), so this is pinned by equality.
+WAIT_REASONS: frozenset[str] = frozenset({"none", "ceiling", "per-agent", "both"})
+
 
 @dataclass
 class Job:
@@ -88,6 +132,11 @@ class Job:
 
     job_id: str
     curator: str
+    #: **AMENDMENT M.** The agent seam whose process makes the INVOCATION — the grain of
+    #: § 11's `seam` column, and NOT the holder session. Beside `curator`, never on top
+    #: of it: the curator owns the OUTPUT (R-B/P-8) and the two legitimately differ (a
+    #: star-lord-run job curated by galadriel). Empty on lanes with no per-agent grain.
+    seam: str = ""
     job_class: str = "research"
     prompt_path: str = ""
     output_path: str | None = None
@@ -110,6 +159,7 @@ class Job:
 
     def harness_config(self, *, raw_output_path: str, prompt_path: str) -> dict[str, Any]:
         return {
+            "seam": self.seam,
             "sandbox": self.sandbox,
             "skip_git_repo_check": self.skip_git_repo_check,
             "web_search": self.web_search,
@@ -132,6 +182,14 @@ class JobOutcome:
     error: str | None = None
     exit_code: int | None = None
     usage: dict[str, Any] | None = None
+    #: **AMENDMENT R.3.** Why the drain passed over this job, when it did. Carried as
+    #: its own field rather than folded into `marker`, because the run-log marker is a
+    #: CLOSED vocabulary answering the LIVENESS question (*is anything executing?*) and
+    #: a per-agent skip's honest marker there is `ENQUEUED` — the job is pending again,
+    #: exactly as it was. What is new is not the job's state but the REASON the drain
+    #: reordered, and a queue that silently reorders is folklore while one that says why
+    #: is evidence. `None` means the drain did not skip this job.
+    skipped_reason: str | None = None
 
 
 @dataclass
@@ -162,6 +220,19 @@ class DrainReport:
         somewhere else."
         """
         return sum(1 for o in self.outcomes if o.marker == "ENQUEUED")
+
+    @property
+    def skipped_per_agent(self) -> int:
+        """**AMENDMENT R.3** — per-agent skips, counted. NOT failures, NOT attempts.
+
+        Distinct from `deferred` (the lane's ceiling was full, so the drain stopped) and
+        from `handed_to_claude` (ownership moved, once, permanently). This one means:
+        *this agent already had a job in flight, so the drain took the next one and will
+        come back for this.* The banking window's job-10 verdict wants this number —
+        P.2 names ENQUEUED-to-START gaps as evidence about whether N=3 is right, and
+        under AM-3 a gap has two possible causes that must not share one column.
+        """
+        return sum(1 for o in self.outcomes if o.skipped_reason == SKIPPED_PER_AGENT)
 
 
 #: **THE PER-LANE FENCE, dispatched by vendor.** The two lanes do not have the same
@@ -244,6 +315,29 @@ _NO_FENCE_FIELD = "n/a"
 ROUTER_Q3_NO = "Q3-NO"
 
 
+def _slot_line(harness: Any) -> str:
+    """`"k/N"` for a counted lane, `""` for one without slots. DUCK-TYPED ON PURPOSE.
+
+    Reached by `getattr` rather than by `if self.lane == "grok"`, for the reason
+    `_validate_fence` is a dispatch table: the Codex lane has no slots and must not grow
+    any (P-1 is a vendor law, N=1, and § 9.5 probed xAI — evidence does not travel
+    across vendors), and the next counted lane should be a harness that answers this
+    method, not another branch in a queue that knows vendors by name.
+
+    Any failure reads as ABSENT, never as zero: a `slots_held=0/3` written because the
+    probe raised would publish a solo row for a job whose concurrency nobody measured,
+    and the banking window would attribute the difference to load.
+    """
+    probe = getattr(harness, "slot_occupancy", None)
+    if probe is None:
+        return ""
+    try:
+        slots = probe()
+    except Exception:  # noqa: BLE001 — an unmeasurable lane is not a measured-empty one
+        return ""
+    return f"{slots.held}/{slots.total}"
+
+
 def _atomic_write(path: Path, text: str) -> None:
     """Write-then-rename. A crash leaves the old file or the new one, never half of one."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -297,6 +391,7 @@ class JobQueue:
         job_id: str,
         prompt: str,
         curator: str,
+        seam: str = "",
         job_class: str = "research",
         output_path: str | Path | None = None,
         sandbox: str = "read-only",
@@ -332,9 +427,14 @@ class JobQueue:
         # would have read `curator=None` — a governance leak that a query counting
         # non-empty curator fields would have counted as compliant. The refusal that
         # can be passed by not passing anything is the exact shape R-B exists to close.
-        supplied = {"job_id": job_id, "prompt": prompt, "curator": curator}
+        supplied = {"job_id": job_id, "prompt": prompt, "curator": curator, "seam": seam}
+        # PER-LANE required set (Amendment M). `.get(lane, REQUIRED_JOB_FIELDS)` would
+        # be the fail-open spelling for a lane nobody declared — but a lane nobody
+        # declared is already refused by `_validate_fence` below, loudly and by name,
+        # so the base set here is the honest default rather than a silent forgiveness.
+        required = REQUIRED_JOB_FIELDS_BY_LANE.get(self.lane, REQUIRED_JOB_FIELDS)
         missing = sorted(
-            f for f in REQUIRED_JOB_FIELDS if not str(supplied.get(f) or "").strip()
+            f for f in required if not str(supplied.get(f) or "").strip()
         )
         # `curator` is separated out and refused FIRST, with its own message, because
         # a governance refusal that reads like a validation error gets fixed like one.
@@ -349,11 +449,36 @@ class JobQueue:
                 "step (U-4 R-A), so this refusal has no override.\n"
                 f"Pass `curator=\"<agent>\"` for job {job_id!r}."
             )
+        if "seam" in missing:
+            # AMENDMENT M, refused FIRST among the remainder and with its own message,
+            # for the reason the curator refusal is separated: an exclusivity refusal
+            # that reads like a validation error gets fixed like one — by typing
+            # something into the field — and the one thing that must not happen here is
+            # a plausible name being invented to satisfy a validator.
+            raise ValueError(
+                f"AMENDMENT M: REFUSAL TO FIRE — job {job_id!r} on the {self.lane!r} "
+                "lane names no seam.\n"
+                "This lane's per-agent exclusivity is a flock keyed on the seam name, "
+                "so a job with no seam is not a job with a missing label — it is a job "
+                "nothing can exclude against. The seam is the agent whose PROCESS makes "
+                "the invocation; the curator is the named Claude owner of the OUTPUT. "
+                "They legitimately differ, and defaulting one to the other breaks "
+                "exclusivity in BOTH directions: two agents running one curator's jobs "
+                "would collide on one slot, and one agent running three curators' jobs "
+                "would take three.\n"
+                f"Pass `seam=\"<agent>\"` (see `factory.roster.AGENT_ROSTER`)."
+            )
         if missing:
             raise ValueError(
-                f"lane job refused: empty {', '.join(missing)}. Required fields are "
-                f"{sorted(REQUIRED_JOB_FIELDS)}."
+                f"lane job refused: empty {', '.join(missing)}. Required fields on the "
+                f"{self.lane!r} lane are {sorted(required)}."
             )
+        # ROSTER-VALIDATED WHEREVER GIVEN (M.3), including on a lane that does not
+        # demand it: a recorded seam that is a typo is worse than an absent one,
+        # because it reads as an answer. Vocabulary borrowed from § 11 custody;
+        # MECHANISM DECOUPLED (M.4) — nothing here reads `_custody.tsv`, so a missing or
+        # stale CLAIM row can never block a legal vendor fire.
+        seam_name = validate_seam(seam, where=f"lane job {job_id!r}") if str(seam or "").strip() else ""
         job_extra = dict(extra or {})
         if web_search:
             job_extra.setdefault("web_search", True)
@@ -363,6 +488,7 @@ class JobQueue:
         job = Job(
             job_id=str(job_id).strip(),
             curator=str(curator).strip(),
+            seam=seam_name,
             job_class=job_class,
             prompt_path=str(self.prompt_path(job_id)),
             output_path=str(output_path) if output_path else None,
@@ -399,6 +525,12 @@ class JobQueue:
         _atomic_write(self.prompt_path(job.job_id), prompt)
         _atomic_write(self.job_path(job.job_id), json.dumps(asdict(job), indent=2) + "\n")
         detail = f"job_class={job.job_class} {fence}"
+        if job.seam:
+            # On the ENQUEUE row, beside the fence, for the same reason the curator is:
+            # the surface the banking window and the job-10 verdict read is the RUN-LOG,
+            # and a per-agent skip counted later is only attributable if the row that
+            # opened the job says which agent it belongs to.
+            detail += f" seam={job.seam}"
         if router:
             # D-3. The token rides the free-form column; no schema change, and
             # `grep -c "router=Q3-NO"` counts lane contention from the surface that
@@ -416,6 +548,7 @@ class JobQueue:
             lane=self.lane,
             job_id=job.job_id,
             curator=job.curator,
+            seam=job.seam or None,
             job_class=job.job_class,
             fence=fence,
             router=router or None,
@@ -530,8 +663,30 @@ class JobQueue:
                 report.lane_state = "busy"
                 report.stopped_reason = pre.reason
                 break
+            outcome = self._run_one(job, harness, sleep)
+            report.outcomes.append(outcome)
+            if outcome.skipped_reason == SKIPPED_PER_AGENT:
+                # **AMENDMENT R.2 — SKIP AND CONTINUE.** The `continue` is the whole
+                # ruling, and the two things it is NOT are what make it necessary:
+                #
+                #   * NOT a `break`. A per-agent refusal is JOB-specific, not
+                #     lane-specific. Breaking here head-of-line-blocks the entire drain
+                #     on one agent's in-flight job — the lane sitting at 1/3 with a full
+                #     queue and two free slots, inverting the amendment's own purpose.
+                #   * NOT a fault. `_run_one` returned before the fallback path and did
+                #     not count an attempt, so this job is still pending and still
+                #     owned by this lane. Counting it as an attempt would hand it
+                #     PERMANENTLY to FALLBACK-CLAUDE (P-7: ownership moves once) for a
+                #     condition that clears when the agent's other job finishes — the
+                #     exact defect the comment above records being made once already,
+                #     arriving through a new door.
+                #
+                # `count` is deliberately NOT incremented: `limit` bounds jobs RUN, and
+                # spending the budget on a job that never launched would make a
+                # `--limit 1` drain do nothing at all whenever the head job's seam is
+                # busy.
+                continue
             count += 1
-            report.outcomes.append(self._run_one(job, harness, sleep))
             # Re-check auth between jobs: a token can expire mid-drain, and the next
             # job would otherwise fail as if the MODEL had failed, which routes a
             # Matt-only condition into the fallback path where it does not belong.
@@ -558,9 +713,28 @@ class JobQueue:
         last_exit: int | None = None
         usage: dict[str, Any] | None = None
         for attempt in range(1, job.max_attempts + 1):
+            start_detail = f"attempt={attempt}/{job.max_attempts} pid={os.getpid()}"
+            if job.seam:
+                start_detail += f" seam={job.seam}"
+            # AMENDMENT P.1 — `slots_held=` AT START. Probed here, before the claim, so
+            # it is the AMBIENT concurrency this job started into. Its inclusivity is
+            # pinned in MIGRATION § 11.4 and it differs from the finish sample's on
+            # purpose: at START this job holds nothing, at finish it holds one, and both
+            # rows state the literal truth about the lane at the instant they were
+            # written. `slots_at_claim` (inclusive, measured at acquisition) rides the
+            # telemetry stream, where there is no column pressure.
+            ambient = _slot_line(harness)
+            if ambient:
+                start_detail += f" slots_held={ambient}"
+            # AMENDMENT P.2 — the ENQUEUED->START gap, WITH ITS REASON. § 9.5's banked
+            # countable measured one thing under the serial law and measures two under
+            # AM-3, and the two causes must never share one number.
+            waited_ms, waited_reason = self._waited(job)
+            if waited_ms is not None:
+                start_detail += f" waited_ms={waited_ms} waited_reason={waited_reason}"
             self.runlog.append(
                 job_id=job.job_id, marker="START",
-                detail=f"attempt={attempt}/{job.max_attempts} pid={os.getpid()}",
+                detail=start_detail,
                 curator=job.curator, event="start",
             )
             # No `model` on the START event. The queue does not know which model the
@@ -568,12 +742,50 @@ class JobQueue:
             # telemetry beside the FINISH event's measured one. Absent is absent.
             self.telemetry.emit(
                 "start", lane=self.lane, job_id=job.job_id, curator=job.curator,
-                attempt=attempt,
+                seam=job.seam or None, attempt=attempt,
+                slots_held_at_start=ambient, waited_ms=waited_ms,
+                waited_reason=waited_reason if waited_ms is not None else None,
                 passthrough={"pid": os.getpid(), "sandbox": job.sandbox},
             )
             started = time.time()
             result = harness.run(prompt, self.root, config)
             elapsed = time.time() - started
+
+            if (result.extra or {}).get("lane_state") == LANE_STATE_SEAM_HELD:
+                # **AMENDMENT R.1 — ITS OWN OUTCOME.** Not `LaneBusy` (the lane may have
+                # two free slots and other seams may be firing into them right now) and
+                # not a fault (it is never an attempt, and it must never reach
+                # `_hand_to_claude`). The job goes back to pending exactly as it was:
+                # `ENQUEUED` is non-terminal, `is_done` says no, and the next drain —
+                # or this same drain, once the agent's other job finishes — picks it up.
+                #
+                # The START row above is ANSWERED rather than left dangling, which is
+                # what keeps leg 3 honest: a job that began and never ended reads
+                # `busy-out-of-band` to every session on this host.
+                self.runlog.append(
+                    job_id=job.job_id, marker="ENQUEUED",
+                    detail=(
+                        f"skipped={SKIPPED_PER_AGENT} seam={job.seam} "
+                        f"attempts_counted=0"
+                    ),
+                    curator=job.curator, event="defer",
+                )
+                self.telemetry.emit(
+                    "skipped", lane=self.lane, job_id=job.job_id, curator=job.curator,
+                    seam=job.seam or None, outcome=SKIPPED_PER_AGENT, error=result.error,
+                    passthrough={
+                        "transient": True,
+                        "handed_to_claude": False,
+                        # Named in the record, not only in the code: R.1's two
+                        # prohibitions are the whole reason this outcome exists.
+                        "counted_as_attempt": False,
+                        "lane_state": "not-busy — this is a JOB refusal, not a lane one",
+                    },
+                )
+                return JobOutcome(
+                    job.job_id, job.curator, "ENQUEUED", False, 0, result.error,
+                    skipped_reason=SKIPPED_PER_AGENT,
+                )
 
             if (result.extra or {}).get("lane_state") == "busy":
                 # The race window `drain`'s pre-check cannot close: free when asked,
@@ -652,6 +864,22 @@ class JobQueue:
                 effort = (result.extra or {}).get("reasoning_effort")
                 if effort:
                     detail += f" effort={effort}"
+                # AMENDMENT P.1 — `slot_index=` and `slots_held=` AT FINISH, read by the
+                # harness while this job still held its slot (so the sample is inclusive
+                # on the same terms as `slots_at_claim`). The pair start/finish is
+                # CONTEXT; the verdict conditions on the DERIVED OVERLAP INTERVAL — a
+                # join over this log's own START/finish timestamps — because a job that
+                # starts alone and spends 90% of its life alongside two others would
+                # otherwise be read as a solo row. That derivation is pinned by name in
+                # `MIGRATION.md` § 11.4 so job 10 is not reconstructed from memory.
+                slot_index = (result.extra or {}).get("slot_index")
+                if slot_index is not None:
+                    detail += f" slot_index={slot_index}"
+                finish_slots = (result.extra or {}).get("slots_at_finish")
+                if finish_slots:
+                    detail += (
+                        f" slots_held={finish_slots['held']}/{finish_slots['total']}"
+                    )
                 # AMENDMENT I's per-row cost. Only where the vendor reports one —
                 # absent is absent, and a zero here would read as a free call.
                 if result.usage is not None and result.usage.dollars is not None:
@@ -671,6 +899,50 @@ class JobQueue:
                 sleep(RETRY_BACKOFF_BASE_S * (2 ** (attempt - 1)))
 
         return self._hand_to_claude(job, last_error or "unmodelled condition", last_exit, usage)
+
+    # -- Amendment P's two derivations ---------------------------------------
+    def _waited(self, job: Job) -> tuple[int | None, str]:
+        """`(ENQUEUED->START milliseconds, reason)` — P.2, derived, never asserted.
+
+        The REASON is read off this job's own prior rows rather than carried in memory,
+        because a drain is a process: the drain that skipped this job for a per-agent
+        refusal is usually not the drain that eventually runs it, and a number whose
+        cause lives in a dead process's variables is a number nobody can attribute. The
+        run-log already records both causes as tokens in the detail column
+        (`skipped=per-agent-slot-held`, `deferred=lane-busy`, `router=Q3-NO`), so the
+        attribution is a query over the surface that exists.
+
+        `both` rather than most-recent-wins: a job that queued behind the ceiling AND
+        was skipped for its seam waited for two reasons, and picking one would publish a
+        clean attribution the rows do not support. `none` means the gap is the drain's
+        own cadence — nobody was in the way — which is the answer § 9.5's countable was
+        originally asking for.
+        """
+        if not job.enqueued_at:
+            return None, "none"
+        try:
+            enqueued = datetime.strptime(job.enqueued_at, "%Y-%m-%dT%H:%M:%SZ").replace(
+                tzinfo=timezone.utc)
+        except ValueError:
+            return None, "none"
+        waited_ms = max(0, int(
+            (datetime.now(timezone.utc) - enqueued).total_seconds() * 1000))
+        ceiling = per_agent = False
+        for row in self.runlog.rows():
+            if len(row) < 4 or row[1] != job.job_id:
+                continue
+            detail = row[3]
+            if f"skipped={SKIPPED_PER_AGENT}" in detail:
+                per_agent = True
+            if "deferred=lane-busy" in detail or f"router={ROUTER_Q3_NO}" in detail:
+                ceiling = True
+        reason = {
+            (False, False): "none",
+            (True, False): "ceiling",
+            (False, True): "per-agent",
+            (True, True): "both",
+        }[(ceiling, per_agent)]
+        return waited_ms, reason
 
     def _hand_to_claude(
         self, job: Job, error: str, exit_code: int | None, usage: dict[str, Any] | None

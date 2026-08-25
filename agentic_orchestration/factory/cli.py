@@ -285,6 +285,7 @@ def _cmd_lane_enqueue(args: argparse.Namespace) -> int:
             job_id=args.job_id,
             prompt=prompt,
             curator=args.curator,
+            seam=args.seam or "",
             job_class=args.job_class,
             output_path=args.output,
             sandbox=args.sandbox,
@@ -296,7 +297,9 @@ def _cmd_lane_enqueue(args: argparse.Namespace) -> int:
     except ValueError as exc:
         print(f"REFUSED: {exc}", file=sys.stderr)
         return 2
-    print(f"enqueued {job.job_id}  curator={job.curator}  sandbox={job.sandbox}")
+    print(f"enqueued {job.job_id}  curator={job.curator}"
+          + (f"  seam={job.seam}" if job.seam else "")
+          + f"  sandbox={job.sandbox}")
     return 0
 
 
@@ -304,9 +307,15 @@ def _cmd_lane_drain(args: argparse.Namespace) -> int:
     queue, harness = _lane_pieces(args)
     report = queue.drain(harness, limit=args.limit)
     print(f"lane {report.lane_state}: fired={report.fired} skipped={report.skipped} "
-          f"deferred={report.deferred} handed-to-claude={report.handed_to_claude}")
+          f"deferred={report.deferred} skipped-per-agent={report.skipped_per_agent} "
+          f"handed-to-claude={report.handed_to_claude}")
     for outcome in report.outcomes:
-        print(f"  {outcome.job_id:<32} {outcome.marker:<16} curator={outcome.curator}"
+        # AMENDMENT R.3 — a per-agent skip is shown as a SKIP, not as a defer. On screen
+        # they would otherwise both read `ENQUEUED`, and the two mean different things to
+        # an operator: a defer says the credential is full, a skip says this agent was.
+        marker = (f"SKIPPED[{outcome.skipped_reason}]" if outcome.skipped_reason
+                  else outcome.marker)
+        print(f"  {outcome.job_id:<32} {marker:<28} curator={outcome.curator}"
               + (f"  {outcome.error[:120]}" if outcome.error else ""))
     if report.stopped_reason:
         print(f"\nSTOPPED: {report.stopped_reason}", file=sys.stderr)
@@ -451,6 +460,18 @@ def build_parser() -> argparse.ArgumentParser:
     # command remembering it, which is the state R-B exists to replace.
     p_le.add_argument("--curator", required=True,
                       help="the named Claude agent who owns this output downstream (REQUIRED)")
+    # **AMENDMENT M.** NOT `required=True` here, and the asymmetry with `--curator` is
+    # deliberate: the curator law is vendor-generic (no curator, no fire, either lane)
+    # while the seam is only load-bearing where a per-agent mechanism enforces it. The
+    # refusal lives at the QUEUE, per lane, where it can say which lane demanded it —
+    # making it universally required at the argparse layer would refuse Codex jobs for a
+    # field that lane has no mechanism behind, and a governance flag with nothing under
+    # it teaches people to type anything.
+    p_le.add_argument("--seam", default=None,
+                      help="the agent seam whose process makes the invocation — REQUIRED "
+                           "on the grok lane (per-agent slot), roster-validated on both. "
+                           "NOT the curator: the curator owns the OUTPUT, the seam makes "
+                           "the CALL, and they legitimately differ")
     p_le.add_argument("--job-class", dest="job_class", default="research")
     p_le.add_argument("--output", default=None)
     p_le.add_argument("--sandbox", default="read-only")

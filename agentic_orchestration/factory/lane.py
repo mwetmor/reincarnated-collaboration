@@ -6,14 +6,19 @@ This is an OpenAI CI/CD-auth precondition ("one machine or serialized job stream
 not a preference, and this module exists so that violating it is not something a
 caller can do by forgetting something.
 
-Three surfaces live here, in the order they matter:
+Four surfaces live here, in the order they matter:
 
 1. `SerialLaneLock` — the mutual exclusion. Held at the `codex exec` INVOCATION
    SITE, never merely at a queue-process boundary.
-2. `RunLog` — the lane's liveness surface, `_run-log.tsv`. The pre-fire check of
+2. `SeamSlotSemaphore` — the SAME primitive, counted, for a lane whose serial law
+   is policy rather than vendor precondition. **The Codex lane never takes it:**
+   P-1 cites a verified OpenAI precondition and § 9.5 probed xAI, so the evidence
+   that loosened the Grok lane does not travel across vendors. Grok's law is now
+   *one job per named agent seam, ceiling N=3 per credential* (§ 9.6 AM-3).
+3. `RunLog` — the lane's liveness surface, `_run-log.tsv`. The pre-fire check of
    record is *"last row terminal"*, answerable by `tail -1`, and this module
    generalises the format ADDITIVELY so that check keeps working.
-3. `Telemetry` — append-only JSONL, one event per line, emitted from birth.
+4. `Telemetry` — append-only JSONL, one event per line, emitted from birth.
 
 THE MUTUAL-EXCLUSION PRIMITIVE, NAMED
 -------------------------------------
@@ -274,6 +279,384 @@ class SerialLaneLock:
             os.close(fd)
 
     def __enter__(self) -> "SerialLaneLock":
+        return self.acquire()
+
+    def __exit__(self, *exc: object) -> None:
+        self.release()
+
+
+# ---------------------------------------------------------------------------
+# 1b — the COUNTED semaphore (§ 9.6 AM-3, Amendment N)
+# ---------------------------------------------------------------------------
+#: **N=3, and what that number is and is not** (Amendment O). CONFIRMED at default
+#: reasoning effort, trivial single-line prompts, n=6 across two rounds (§ 9.5's live
+#: concurrency probe: 3/3 clean, 4s wall against a 4.3s single-job baseline, no 429, no
+#: `leader.sock`). **PROVISIONAL at this lane's own pinned posture** — `grok-4.6 @
+#: xhigh` against the ~28,170-token input floor measured at Gate-2 (G2-2) is not the
+#: same load on a token-bucket limiter as three trivial default-effort calls, and the
+#: probe never ran there.
+#:
+#: THE RAISE LICENSE, CORRECTED (O.1): this number rises **only on a probe at the
+#: proposed level**. Clean in-window rows at 3 confirm 3 — they retire "provisional",
+#: they never license 4. The discharge event is a NAMED LANE EVENT, recorded, not
+#: noticed in passing: `factory/MIGRATION.md` § 11.3 names it and the row that carries
+#: it. The ceiling DROPS to k-1 on the first 429, auth flag, or measurable output
+#: degradation observed at k concurrent jobs (O.3) — erring toward do-not-fire is this
+#: lane's chosen failure everywhere else, and the ceiling is not the one place it is
+#: chosen the other way.
+GROK_SLOT_CEILING = 3
+
+#: `extra["lane_state"]` on a `RawResult` whose SEAM already holds a slot. **Amendment
+#: R:** this is NOT `"busy"` and NOT a fault. Surfacing it as busy stops the whole drain
+#: at 1/3 with two slots idle (head-of-line blocking, inverting AM-3's own purpose);
+#: surfacing it as a fault counts an attempt and hands the job PERMANENTLY to
+#: FALLBACK-CLAUDE for a condition that clears in minutes — the exact defect
+#: `jobqueue.drain`'s standing comment records being made once already. It is its own
+#: outcome, and `JobQueue._run_one` skips on it.
+LANE_STATE_SEAM_HELD = "per-agent-slot-held"
+
+#: The `detail`-column token that makes a per-agent skip COUNTABLE (R.3), in the shape
+#: G-7 gave lane contention: `grep -c "skipped=per-agent-slot-held" _run-log.tsv`. A
+#: queue that silently reorders is folklore; one that says why is evidence — and this is
+#: a number the job-10 banking verdict will want.
+SKIPPED_PER_AGENT = "per-agent-slot-held"
+
+
+class SeamSlotHeld(RuntimeError):
+    """This SEAM already holds a slot on this lane. A JOB-specific refusal, never a lane state.
+
+    Distinct from `LaneBusy` by TYPE and not merely by message, because the two produce
+    opposite correct behaviours in a drain (Amendment R.1): `LaneBusy` means *the
+    credential's ceiling is full, stop*; this means *this one job cannot go now, take
+    the next one*. A caller that cannot tell them apart will get one of them wrong.
+    """
+
+    def __init__(self, seam: str, path: Path):
+        self.seam = seam
+        self.path = path
+        super().__init__(
+            f"PER-AGENT SLOT: seam {seam!r} already holds a Grok slot ({path.name}). "
+            "One in-flight vendor job per named agent seam (§ 9.6 AM-3): the refusal is "
+            "at the CLAIM and it is refuse-don't-queue — this agent's second task "
+            "enqueues normally and an enqueued job holds nothing. This is NOT a busy "
+            "lane (other seams may still fire; the ceiling is the only bound on total "
+            "fan-out) and NOT a fault (it is never an attempt, and it never reaches the "
+            "Claude fallback). The kernel releases this lock when its last holder exits, "
+            "so an agent that crashes mid-job is not locked out of its own lane."
+        )
+
+
+class LaneCeilingReached(LaneBusy):
+    """Every slot on the credential is held. THE LANE is busy — the existing break is correct.
+
+    A subclass of `LaneBusy` on purpose: under the serial law "lane busy" meant *the one
+    slot is taken*, and under AM-3 it means *all N slots are taken*. Both are the same
+    fact to every consumer — the credential cannot take more work right now — so a drain
+    that already breaks on `LaneBusy` keeps doing the right thing without being taught a
+    new word. What changed is only the ARITY, and arity is not a new disposition.
+    """
+
+    def __init__(self, ceiling: int, paths: tuple[Path, ...]):
+        self.ceiling = ceiling
+        self.paths = paths
+        self.path = paths[0] if paths else Path("(no slots declared)")
+        RuntimeError.__init__(
+            self,
+            f"THE CEILING: all {ceiling} slot(s) on this credential are held "
+            f"({', '.join(p.name for p in paths)}). The ceiling is the CREDENTIAL's — "
+            "one grok.com subscription, one usage window — and the slot is the DISPATCH "
+            "grain. Slot 4 ENQUEUES (a P-9 named-condition hold); it does not wait, "
+            "does not break a slot, and does not fall back to Claude on backlog alone: "
+            "a full lane is OCCUPIED, not CLOSED (Amendment H), so § 10.3 step 4's "
+            "Claude branch is NOT reachable from here. There is no timeout, no "
+            "`--force`, and no stale-slot reaper — P-2 restated PER SLOT, because three "
+            "files is three times the 'just break slot 2' temptation and the law does "
+            "not thin out by division."
+        )
+
+
+def seam_lock_path(base: Path, seam: str) -> Path:
+    """`<vendor>-<credential digest>-agent-<seam>.lock` — the per-seam lock (N.1(i)).
+
+    Derived from the lane's BASE lock path rather than spelled independently, so the
+    credential digest rides along: the lane spec writes this file as
+    `grok-agent-<seam>.lock`, and building it that way would key per-agent exclusivity
+    to the VENDOR instead of to the CREDENTIAL. Two `GROK_HOME`s are two lanes under
+    P-3, and one seam legally holds one slot on each; a digest-less name would have
+    merged them into a single semaphore and refused the second, silently narrowing a
+    granularity ruling nobody re-opened. The vendor and the seam are both still legible
+    in an `ls`, which is the property the spec's spelling was after.
+    """
+    return base.with_name(f"{base.stem}-agent-{seam}.lock")
+
+
+def slot_lock_path(base: Path, index: int) -> Path:
+    """`<vendor>-<credential digest>-slot-<i>.lock` — one counted slot (N.1(ii))."""
+    return base.with_name(f"{base.stem}-slot-{index}.lock")
+
+
+def slot_lock_paths(base: Path, ceiling: int = GROK_SLOT_CEILING) -> tuple[Path, ...]:
+    return tuple(slot_lock_path(base, i) for i in range(ceiling))
+
+
+@dataclass(frozen=True)
+class SlotOccupancy:
+    """What the counted semaphore looks like RIGHT NOW. Derived, read-only, emits nothing.
+
+    `tags` are DISPLAY-ONLY (Amendment N.3) and are read only for a slot whose
+    `LOCK_NB` probe just FAILED — i.e. a slot proved held by the kernel. No fire/refuse
+    decision anywhere reads them. That restriction is the whole of N: enforcing
+    exclusivity by reading a tag rebuilds the assert-style lockfile G-1 dissolved (stale
+    content outlives the lock, write-after-acquire is a window, scan-then-claim is
+    TOCTOU) — so the tag exists to tell a human WHO, and nothing else.
+
+    `unreadable` is counted separately from `held` and is ALSO INCLUDED in `held`
+    (Amendment Q.1): a slot that cannot be read counts HELD, so `free` never
+    over-reports. Keeping the count beside it is what lets a caller distinguish *the
+    lane is full* from *the instrument is broken* — the first is `busy-lock` and the
+    second, when it is total, is `busy-unknown`.
+    """
+
+    total: int
+    held: int
+    free: int
+    unreadable: int
+    tags: tuple[str, ...] = ()
+
+    @property
+    def all_held(self) -> bool:
+        return self.total > 0 and self.free == 0
+
+    @property
+    def all_unreadable(self) -> bool:
+        return self.total > 0 and self.unreadable == self.total
+
+    def to_dict(self) -> dict[str, Any]:
+        """The `k/3` payload, whose KEY SET is pinned across both derivations (Q.3)."""
+        return {
+            "total": self.total,
+            "held": self.held,
+            "free": self.free,
+            "unreadable": self.unreadable,
+            "tags": list(self.tags),
+        }
+
+    def one_line(self) -> str:
+        return f"{self.free}/{self.total} free"
+
+
+def probe_slot(path: Path) -> tuple[str, str]:
+    """One slot: `("free"|"held"|"unreadable", tag-or-reason)`. Acquires nothing durable.
+
+    A slot file that does not exist is FREE and is **not created** — `lane_is_free`
+    opens with `O_CREAT`, and asking it here would make a read-only status call leave a
+    file behind, which is the § 3 emits-nothing discipline broken by the instrument that
+    exists to uphold it. A lock file that does not exist cannot be held.
+
+    Any other `OSError` is `unreadable`, never `free`. That is Amendment Q.1 at the
+    smallest grain: leg 1 grew from one read to three, and a partial read that resolved
+    toward "free" would let one broken permission bit fire a job at a full lane.
+    """
+    if not path.exists():
+        return "free", "no slot file exists — nothing has ever taken this slot"
+    try:
+        fd = os.open(path, os.O_RDWR)
+    except OSError as exc:
+        return "unreadable", f"{path.name}: {exc.strerror or exc}"
+    try:
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            if exc.errno in (errno.EWOULDBLOCK, errno.EAGAIN, errno.EACCES):
+                # HELD — proved by the kernel. ONLY NOW may the tag be read, and only
+                # for display (N.3).
+                try:
+                    tag = os.pread(fd, 512, 0).decode("utf-8", "replace").strip()
+                except OSError:
+                    tag = ""
+                return "held", tag or f"{path.name} (held; no tag written yet)"
+            return "unreadable", f"{path.name}: {exc.strerror or exc}"
+        fcntl.flock(fd, fcntl.LOCK_UN)
+        return "free", ""
+    finally:
+        os.close(fd)
+
+
+def probe_slots(base: Path, ceiling: int = GROK_SLOT_CEILING) -> SlotOccupancy:
+    """Leg 1 for a COUNTED lane: `k/N`, fail-closed PER SLOT (Amendment Q.1).
+
+    Three acquire-and-release probes instead of one, and no writes — G-4 holds
+    unchanged: a `k/3` answer is no more a reservation than an `open` answer was.
+    """
+    held = free = unreadable = 0
+    tags: list[str] = []
+    for path in slot_lock_paths(base, ceiling):
+        state, note = probe_slot(path)
+        if state == "free":
+            free += 1
+        elif state == "held":
+            held += 1
+            if note:
+                tags.append(note)
+        else:
+            # UNREADABLE COUNTS HELD (Q.1). Counted in both places on purpose: `held`
+            # is what the disposition is computed from, `unreadable` is what tells a
+            # human the difference between a full lane and a broken instrument.
+            held += 1
+            unreadable += 1
+            tags.append(f"UNREADABLE: {note}")
+    return SlotOccupancy(total=ceiling, held=held, free=free,
+                         unreadable=unreadable, tags=tuple(tags))
+
+
+class SeamSlotSemaphore:
+    """**AMENDMENT N — TWO NESTED FLOCKS.** Per-seam lock FIRST, then a counted slot.
+
+        with SeamSlotSemaphore(base, seam="star-lord") as sem:
+            subprocess.run(argv, pass_fds=sem.fds, ...)
+
+    The ordering is the ruling, and so is the primitive:
+
+      1. **`grok-agent-<seam>.lock`** — its acquisition failing IS the second-claim
+         refusal, *by construction*, with no content read and no race. The alternative
+         the spec first reached for — tag each slot with its claiming seam and scan the
+         tags — is check-then-act over file CONTENT, which is Amendment K's TOCTOU one
+         axis over, on top of a stale tag that outlives its lock. jack-ryan named it a
+         Gate-2 BLOCK-if-built. The fix costs one more `flock`.
+      2. **`grok-slot-{0..N-1}.lock`** — first acquirable wins; all held raises
+         `LaneCeilingReached`, which IS a busy lane.
+
+    Released in reverse order. **Both are `LOCK_NB`. Nothing here ever waits**, so the
+    nesting cannot deadlock — that property is stated rather than left to be
+    rediscovered, because it is the reason a fixed acquisition order is safe here and
+    is not safe in general.
+
+    **Both fds are inheritable and both are `pass_fds`'d to the child** (N.2), so both
+    lifetimes are `max(queue, grok)` — a killed queue leaves neither an untracked job
+    stream nor a phantom seam hold, and a dead holder's per-seam lock is released by
+    the kernel, so an agent that crashes mid-job is not locked out of its own lane.
+
+    **Nothing else in this package takes these locks.** Enqueued jobs hold nothing
+    (N.5): an agent's backlog must not lock the agent out of its own next fire.
+    """
+
+    def __init__(
+        self,
+        base: Path,
+        seam: str,
+        ceiling: int = GROK_SLOT_CEILING,
+    ):
+        self.base = Path(base)
+        self.seam = str(seam)
+        self.ceiling = int(ceiling)
+        self.slot_index: int | None = None
+        self._seam_fd: int | None = None
+        self._slot_fd: int | None = None
+
+    # -- fds ----------------------------------------------------------------
+    @property
+    def fds(self) -> tuple[int, ...]:
+        if self._seam_fd is None or self._slot_fd is None:
+            raise RuntimeError(
+                "SeamSlotSemaphore.fds read while the semaphore is not fully held. The "
+                "descriptors ARE the locks; handing out stale integers would hand out "
+                "locks nobody holds — and `pass_fds` would then close them into the "
+                "child's table as ordinary numbers."
+            )
+        return (self._seam_fd, self._slot_fd)
+
+    @property
+    def seam_lock_path(self) -> Path:
+        return seam_lock_path(self.base, self.seam)
+
+    def slot_paths(self) -> tuple[Path, ...]:
+        return slot_lock_paths(self.base, self.ceiling)
+
+    # -- acquire / release ---------------------------------------------------
+    def acquire(self) -> "SeamSlotSemaphore":
+        """Take the seam, then a slot. Raises `SeamSlotHeld` or `LaneCeilingReached`.
+
+        A fresh descriptor every time, for the reason `SerialLaneLock.acquire` gives:
+        `flock` binds to the open file description, so re-opening is what makes a second
+        acquisition inside the SAME process fail (measured, errno 35). That is what
+        makes one process's two threads as safely excluded as two processes.
+        """
+        self.base.parent.mkdir(parents=True, exist_ok=True)
+        seam_path = self.seam_lock_path
+        seam_fd = os.open(seam_path, os.O_CREAT | os.O_RDWR, 0o644)
+        try:
+            fcntl.flock(seam_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except OSError as exc:
+            os.close(seam_fd)
+            if exc.errno in (errno.EWOULDBLOCK, errno.EAGAIN, errno.EACCES):
+                raise SeamSlotHeld(self.seam, seam_path) from exc
+            raise
+        os.set_inheritable(seam_fd, True)
+
+        slot_paths = self.slot_paths()
+        for index, path in enumerate(slot_paths):
+            try:
+                slot_fd = os.open(path, os.O_CREAT | os.O_RDWR, 0o644)
+            except OSError:
+                # An unopenable slot is not an available slot. Fail-closed here for the
+                # same reason `probe_slot` counts it HELD.
+                continue
+            try:
+                fcntl.flock(slot_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except OSError as exc:
+                os.close(slot_fd)
+                if exc.errno in (errno.EWOULDBLOCK, errno.EAGAIN, errno.EACCES):
+                    continue
+                self._release_fd(seam_fd)
+                raise
+            os.set_inheritable(slot_fd, True)
+            # TRUNCATE-ON-ACQUIRE (N.3), so a stale tag cannot survive one handover, and
+            # a reader who (legitimately, for display) reads a held slot never sees the
+            # previous holder's name. Written AFTER the lock, which is why the window
+            # between acquisition and tag-write is harmless: the tag is not the claim.
+            os.ftruncate(slot_fd, 0)
+            os.pwrite(slot_fd, self._tag().encode("utf-8"), 0)
+            self._seam_fd, self._slot_fd, self.slot_index = seam_fd, slot_fd, index
+            return self
+
+        # Every slot held. Give the seam lock back BEFORE raising: a refused claim that
+        # keeps holding something is a refusal that can wedge the lane it declined.
+        self._release_fd(seam_fd)
+        raise LaneCeilingReached(self.ceiling, slot_paths)
+
+    def _tag(self) -> str:
+        """DISPLAY ONLY. Never parsed, never compared, never a fire/refuse input (N.3)."""
+        return f"seam={self.seam} pid={os.getpid()} since={utcnow()}"
+
+    @staticmethod
+    def _release_fd(fd: int) -> None:
+        try:
+            fcntl.flock(fd, fcntl.LOCK_UN)
+        finally:
+            os.close(fd)
+
+    def release(self) -> None:
+        """Reverse order (N.1): the slot first, then the seam."""
+        slot_fd, self._slot_fd = self._slot_fd, None
+        seam_fd, self._seam_fd = self._seam_fd, None
+        self.slot_index = None
+        if slot_fd is not None:
+            self._release_fd(slot_fd)
+        if seam_fd is not None:
+            self._release_fd(seam_fd)
+
+    def occupancy(self) -> SlotOccupancy:
+        """`k/N` as seen from here — INCLUSIVE of this holder's own slot.
+
+        Inclusive because `flock` conflicts across two open file descriptions in one
+        process (measured, errno 35), so the probe below genuinely cannot acquire the
+        slot this object holds and reports it held. That is the honest reading and it is
+        the one `MIGRATION.md` § 11.4 pins: `slots_held=` counts every held slot on the
+        lane at the instant of the reading, this job's own included when it holds one.
+        """
+        return probe_slots(self.base, self.ceiling)
+
+    def __enter__(self) -> "SeamSlotSemaphore":
         return self.acquire()
 
     def __exit__(self, *exc: object) -> None:

@@ -116,6 +116,31 @@ SAFE_TO_FIRE_STATES = ("open", "queue-pending")
 OCCUPIED_STATES = ("busy-lock", "busy-out-of-band", "busy-unknown")
 CLOSED_STATES = ("auth-expired", "cli-missing")
 
+# --- Amendment Q.3 (jack-ryan, ADDENDUM 3, folded `83e591fb`) — THE ANSWER RECORD'S KEY SET ---
+#
+# Amendment J bound this file's STATE-NAME vocabularies to `factory/lane_status.py`'s. It could
+# not see the payload: `lane_answer` below builds its own dict, so a key added on one side and
+# absent on the other diverges with every J row GREEN. The named instance is `slots` — the Grok
+# lane's `k/3` occupancy under § 9.6 AM-3 — and the named harm is this card rendering a plain
+# `open` while 2 of 3 slots are held, at exactly the moment § 10.3 step 3 wants to know whether
+# firing means NOW or means ENQUEUE. (Fails safe, toward enqueue; READS WRONG.)
+#
+# So the answer record is partitioned, and both halves are declared:
+#
+#   LANE_ANSWER_KEYS        keys BOTH derivations must carry, spelled identically. Adding one
+#                           here without adding it to `lane_status.LANE_ANSWER_KEYS` reds
+#                           `test_vocabularies.py::test_AMENDMENT_Q_...`.
+#   LANE_ANSWER_LOCAL_KEYS  this renderer's own. `reasons` (a list; `lane_status` carries a
+#                           single `reason`) and `na` (NOT-APPLICABLE coverage, a concept that
+#                           belongs to a DEGRADED card and expires with it) are genuinely
+#                           local, and are DECLARED rather than laundered into the contract.
+#
+# NOT a refactor — jack-ryan declined to order one under Amendment J and nothing here reverses
+# that. `lane_answer` remains slated for DELETION when D-2's `--json` becomes this card's
+# source; these two names make the interim divergence mechanical instead of hopeful.
+LANE_ANSWER_KEYS = ("state", "advisories", "unreachable", "slots")
+LANE_ANSWER_LOCAL_KEYS = ("reasons", "na")
+
 
 def safe_to_fire(ans) -> bool:
     """Amendment H's predicate. THE answer consumers bind to — one derivation, exported."""
@@ -463,7 +488,7 @@ def lane_units(units, lane_key):
     return sorted(out, key=lambda u: u["latest"]["ts"])
 
 
-def lane_answer(cfg, lock, procs, runlogs, auth):
+def lane_answer(cfg, lock, procs, runlogs, auth, slots=None):
     """The § 3 answer state, unioned FAIL-CLOSED across whichever legs were reachable.
 
     Vocabulary is lane spec § 3 (`open · busy-lock · busy-out-of-band · queue-pending ·
@@ -506,7 +531,32 @@ def lane_answer(cfg, lock, procs, runlogs, auth):
     """
     signals, advisories, unreachable, na = [], [], [], []
 
-    if not cfg["has_lane_lock"]:
+    # AMENDMENT Q — the `k/N` counted-slot payload, PASSED IN, never derived here. When a
+    # caller supplies it, all-held is `busy-lock` and all-unreadable is `busy-unknown`
+    # (fail-closed PER SLOT, Q.1); when it does not, the answer carries `slots=None` and
+    # leg 1 falls through to the single-lock branch exactly as before.
+    #
+    # WHAT THIS DELIBERATELY DOES NOT DO, named so the next reader does not mistake it for
+    # an oversight: no card WIRES a slot probe yet. `LANE_CARDS`' grok entry still declares
+    # `has_lane_lock=False` on a comment citing the D-6 gate, and `runlogs=()` on a lane
+    # whose run-log D-8 shipped — two staleness items that belong to this board's owner and
+    # to a dispatch of its own, not to the lane build passing through. The mechanism lands
+    # here so it is correct the day it is wired; the wiring is somebody's dispatch.
+    if slots is not None:
+        held, total = slots.get("held", 0), slots.get("total", 0)
+        unreadable_slots = slots.get("unreadable", 0)
+        if total and unreadable_slots >= total:
+            signals.append(("busy-unknown",
+                            "none of the %d slot files could be read — ambiguity, not "
+                            "capacity (G-2's direction on a leg that tripled its surface)"
+                            % total))
+        elif total and held >= total:
+            signals.append(("busy-lock",
+                            "all %d slots HELD (%s) — OCCUPIED, not closed: ENQUEUE"
+                            % (total, " | ".join(slots.get("tags") or []) or "no tags")))
+    if slots is not None:
+        pass                      # leg 1 answered above, by the counted semaphore
+    elif not cfg["has_lane_lock"]:
         na.append("leg 1 — no lane lock exists for this vendor (D-6 gated)")
     elif lock is None:
         unreachable.append("leg 1 (kernel lock)")
@@ -571,8 +621,11 @@ def lane_answer(cfg, lock, procs, runlogs, auth):
         reasons = reasons + ["COVERAGE — this answer rests on %d of 3 legs; %s. Not a full-"
                              "coverage green: it is the honest reach of the surfaces that exist "
                              "today (#70)." % (3 - len(na), " · ".join(na))]
+    # KEY SET = LANE_ANSWER_KEYS | LANE_ANSWER_LOCAL_KEYS, asserted across the seam by
+    # `factory/tests/test_vocabularies.py` (Amendment Q.3). A key added here must be
+    # classified into one of those two tuples or that row reds.
     return dict(state=state, reasons=reasons, advisories=advisories,
-                unreachable=unreachable, na=na)
+                unreachable=unreachable, na=na, slots=slots)
 
 
 def probe_disk(path):

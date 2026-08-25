@@ -5,16 +5,33 @@ Matt exercised the AM-1 § 13.3 release valve and widened Grok from the U-8-judg
 to a general second vendor lane. Amendments C, D and E ride this file and are cited
 inline where they are enforced rather than summarised at the top.
 
-**THE SERIAL POLICY, AND WHY IT IS NOT THE CODEX LAW.** This lane takes a
-`SerialLaneLock` exactly as the Codex lane does, and the two are NOT the same kind of
-rule. Codex's serial law cites a VERIFIED VENDOR PRECONDITION (OpenAI CI/CD auth: one
-machine or a serialized job stream). **No equivalent xAI statement has been
-verified.** This lane is serialised BY CHOICE — G-2's false-busy ruling applied at the
-policy level: serial costs delay, parallel-on-an-unknown-constraint risks an
-account-level fault. Loosening it requires the evidence NAMED, by amendment to the
-lane spec — but it is a policy, and a future reader who finds the same primitive on
-both lanes must be able to tell which one is a law. That is what this paragraph is
-for, and jack-ryan required it by name.
+**THE SERIAL POLICY WAS RETIRED BY THE PATH IT NAMED FOR ITSELF (§ 9.6 AM-3,
+2026-08-25).** This lane WAS serialised by a single `SerialLaneLock` — and that was a
+POLICY, not the Codex law. Codex's serial law cites a VERIFIED VENDOR PRECONDITION
+(OpenAI CI/CD auth: one machine or a serialized job stream); **no equivalent xAI
+statement was ever verified**, so this lane was serial BY CHOICE, and § 9.3 wrote its
+own loosening door: *evidence, in the spec, by amendment*. Matt directed the probe,
+§ 9.5 measured it (3 concurrent `grok -p` at the lane's exact `--no-leader` posture:
+3/3 clean, 4s wall against a 4.3s single-job baseline, zero contention penalty, no 429,
+no `leader.sock`), and Matt ruled: **per agent seam**.
+
+So the primitive on this lane is now a **counted semaphore behind a per-seam lock**
+(`SeamSlotSemaphore`), and the two lanes' rules are still different KINDS of rule —
+which is the distinction jack-ryan required be legible from the file:
+
+  * **Codex** — hard serial, N=1, VENDOR LAW. Untouched by any of this. Evidence
+    measured against xAI does not travel to OpenAI.
+  * **Grok** — 1 job per named agent SEAM (Amendment M: the grain is § 11's `seam`
+    column, not the holder session — a conductor fanning out to three agents holds
+    three slots under one session, and reading it at holder-grain would make N=3
+    unreachable in the fleet's dominant shape), under a per-CREDENTIAL ceiling of
+    N=3 (Amendment O: confirmed at default effort / trivial prompts / n=6,
+    **PROVISIONAL at this lane's own `xhigh` pin**, raised only by a probe AT the
+    proposed level, dropped to k-1 on the first friction).
+
+**`--no-leader` did NOT move** and the reason is worth keeping verbatim: our slots are
+governed and attributed; the leader's multiplexing is opaque and unattributable. A
+concurrency regime we chose is not a licence for one we cannot see.
 
 FLAG SURFACE VERIFIED at grok 1.0.5 (5115b46bc909) [stable] on this host (star-lord
 probe, 2026-08-24). Every claim below was RUN, not read:
@@ -85,7 +102,18 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from ..lane import LaneBusy, SerialLaneLock, default_lock_path, lane_is_free
+from ..lane import (
+    GROK_SLOT_CEILING,
+    LANE_STATE_SEAM_HELD,
+    LaneBusy,
+    LaneCeilingReached,
+    SeamSlotHeld,
+    SeamSlotSemaphore,
+    SlotOccupancy,
+    default_lock_path,
+    probe_slots,
+)
+from ..roster import validate_seam
 from ..usage import UsageBreakdown
 from .base import RawResult, register_harness
 
@@ -174,12 +202,22 @@ def resolve_grok_binary() -> Path | None:
 
 
 def grok_lock_path() -> Path:
-    """This lane's lock, keyed to `~/.grok` — an INDEPENDENT lane from Codex's.
+    """This lane's lock BASE PATH, keyed to `~/.grok` — an INDEPENDENT lane from Codex's.
 
     Per-credential (P-3): `~/.grok/auth.json` is not `~/.codex/auth.json`, so a busy
     Codex lane does NOT close this one and running both at once is LEGAL and intended.
     The law was never "one vendor process per host"; it is "one job stream per
     credential."
+
+    **UNDER § 9.6 AM-3 THIS FILE IS NO LONGER TAKEN.** The Grok lane's serial law was
+    serial-BY-CHOICE, and § 9.5's live concurrency probe opened the door § 9.3 named for
+    itself: the lane now runs a counted semaphore over `<this stem>-slot-{0,1,2}.lock`
+    behind a per-seam `<this stem>-agent-<seam>.lock` (Amendment N). This path survives
+    as the DERIVATION of both families' names — it carries the credential digest, and
+    dropping it would key per-agent exclusivity to the vendor instead of to the
+    credential, silently narrowing P-3. Nothing acquires the base file itself; a caller
+    probing it in isolation would read a permanently free lane, which is why leg 1 for
+    this vendor probes the SLOTS (`lane_status.py`).
     """
     return default_lock_path(resolve_grok_home(), vendor="grok")
 
@@ -212,7 +250,13 @@ class GrokHarness:
         lock_path: Path | None = None,
         auth_probe: Any = None,
         preflight_probe: Any = None,
+        ceiling: int = GROK_SLOT_CEILING,
     ):
+        #: **N=3** (Amendment O), injectable so a test can exercise the ceiling without
+        #: three concurrent children and so an O.3 ceiling-DROP (to k-1, on the first
+        #: 429 or degradation) is a value change rather than a code change. The default
+        #: is the constant, and the constant is the ruling.
+        self.ceiling = int(ceiling)
         #: `None` means "resolve at use", so that a test setting the env var after
         #: construction still gets the right binary and so a missing binary is a
         #: reported STATE rather than a constructor explosion.
@@ -236,7 +280,16 @@ class GrokHarness:
 
     @property
     def lock_path(self) -> Path:
+        """The BASE path the seam locks and the counted slots are derived from."""
         return self._lock_path if self._lock_path is not None else grok_lock_path()
+
+    def slot_occupancy(self) -> SlotOccupancy:
+        """`k/N` right now. Read-only, emits nothing, creates nothing (G-4).
+
+        Duck-typed: `JobQueue` reaches for this by `getattr` so the Codex lane — which
+        has no slots and must not grow any, P-1 being a vendor law — is untouched.
+        """
+        return probe_slots(self.lock_path, self.ceiling)
 
     # -- Amendment E: the preflight assertion -------------------------------
     def assert_no_leader_parses(self, force: bool = False) -> tuple[bool, str]:
@@ -355,12 +408,18 @@ class GrokHarness:
         )
 
     def availability(self) -> LaneAvailability:
-        """Auth first, then the leader assertion, then busy.
+        """Auth first, then the leader assertion, then the CEILING.
 
         The ORDER is the ruling. An expired lane is not a busy lane, and a lane whose
         concurrency door cannot be proven shut is not an open lane no matter how free
-        the lock reads — asserting the flag AFTER the busy probe would let a caller
-        see `open` on a lane this harness will then refuse to fire.
+        the slots read — asserting the flag AFTER the busy probe would let a caller see
+        `open` on a lane this harness will then refuse to fire.
+
+        **AMENDMENT R.5 — THIS STAYS LANE-GLOBAL.** It answers about the LANE, never
+        about a job. Per-agent eligibility is evaluated per job at CLAIM time inside
+        `run()`, and folding it in here is precisely what would make one agent's long
+        job stop an entire drain at 1/3 with two slots idle. Busy here means one thing
+        only: the credential's ceiling is exhausted.
         """
         auth = self.check_auth()
         if not auth.ok:
@@ -368,15 +427,31 @@ class GrokHarness:
         ok, why = self.assert_no_leader_parses()
         if not ok:
             return LaneAvailability(False, "preflight_failed", why)
-        if not lane_is_free(self.lock_path):
+        slots = self.slot_occupancy()
+        if slots.all_unreadable:
+            # Fail-closed (Q.1). No slot could be read at all: that is ambiguity, not
+            # capacity, and `open` here would be false-open on an instrument that just
+            # went blind.
+            return LaneAvailability(
+                False, "auth_unknown",
+                f"none of the {slots.total} slot files could be read "
+                f"({'; '.join(slots.tags) or 'no detail'}). An unreadable semaphore is "
+                "reported ambiguous rather than open — a partial read that resolved "
+                "toward free would fire a job at a lane nobody can see.",
+            )
+        if slots.all_held:
             return LaneAvailability(
                 False, "busy",
-                "another `grok` job holds the serial lane. ONE job stream at a time per "
-                "credential — SERIAL BY CHOICE on this lane, not by a verified vendor "
-                "precondition — queue behind it, take the Codex lane, or fire the named "
-                "Claude curator, NEVER parallel on this credential.",
+                f"all {slots.total} Grok slots are held ({slots.one_line()}). The "
+                "ceiling is the CREDENTIAL's — one grok.com subscription, one usage "
+                "window — and it is N=3 (Amendment O: confirmed at default effort and "
+                "trivial prompts, PROVISIONAL at this lane's own `xhigh` pin). Slot 4 "
+                "ENQUEUES; a full lane is OCCUPIED, not CLOSED, so the Claude branch of "
+                "the § 10.3 selection law is not reachable from here.",
             )
-        return LaneAvailability(True, "open", auth.reason)
+        return LaneAvailability(
+            True, "open", f"{auth.reason}  [slots {slots.one_line()}]",
+        )
 
     def available(self) -> bool:
         """Duck-typed at `workflow.py`, exactly as `CodexHarness.available` is.
@@ -539,15 +614,54 @@ class GrokHarness:
                 usage=UsageBreakdown.absent("harness never launched: refused at argv"),
             )
 
-        started = time.monotonic()
+        # AMENDMENT M, at the gate. `seam` is REQUIRED on this lane, refused and never
+        # defaulted, and NEVER inferred from `curator` — the curator owns the OUTPUT,
+        # the seam is the agent whose process makes the INVOCATION, and conflating them
+        # breaks exclusivity in both directions (two agents running one curator's jobs
+        # collide on one slot; one agent running three curators' jobs takes three).
+        # M.4's scope guard: this reads a NAME against a roster. It does not read,
+        # require or consult the custody LEDGER — a vendor fire that depended on an
+        # agent-ledger row would acquire a second truth source and let a missing or
+        # stale CLAIM row block a legal fire.
         try:
-            lock = SerialLaneLock(self.lock_path).acquire()
-        except LaneBusy as exc:
+            seam = validate_seam(config.get("seam"), where="grok harness")
+        except ValueError as exc:
             return RawResult(
                 ok=False, harness=self.name, error=str(exc),
-                usage=UsageBreakdown.absent("harness never launched: lane busy"),
-                extra={"lane_state": "busy"},
+                usage=UsageBreakdown.absent("harness never launched: no seam named"),
+                extra={"lane_state": "seam-refused"},
             )
+
+        started = time.monotonic()
+        semaphore = SeamSlotSemaphore(self.lock_path, seam, ceiling=self.ceiling)
+        try:
+            semaphore.acquire()
+        except SeamSlotHeld as exc:
+            # A JOB-specific refusal (Amendment R.1). NOT `"busy"`: the lane may have
+            # two free slots and other seams may fire into them right now. The queue
+            # skips this job and takes the next one; it is never an attempt and it
+            # never reaches the Claude fallback.
+            return RawResult(
+                ok=False, harness=self.name, error=str(exc),
+                usage=UsageBreakdown.absent(
+                    "harness never launched: this seam already holds a slot"),
+                extra={"lane_state": LANE_STATE_SEAM_HELD, "seam": seam},
+            )
+        except LaneBusy as exc:
+            # `LaneCeilingReached` is a `LaneBusy` subclass: every slot on the
+            # credential is taken, which is the ONE condition that still stops a drain.
+            return RawResult(
+                ok=False, harness=self.name, error=str(exc),
+                usage=UsageBreakdown.absent("harness never launched: lane ceiling reached"),
+                extra={"lane_state": "busy", "seam": seam,
+                       "ceiling": self.ceiling},
+            )
+        slot_index = semaphore.slot_index
+        # AMENDMENT P — the concurrency context AT CLAIM, inclusive of this job's own
+        # slot. Measured immediately after acquisition, which is the one instant it
+        # describes; the finish sample below closes the interval.
+        slots_at_claim = semaphore.occupancy()
+        slots_at_finish: SlotOccupancy | None = None
         try:
             try:
                 proc = subprocess.run(
@@ -557,8 +671,11 @@ class GrokHarness:
                     capture_output=True,
                     text=True,
                     timeout=timeout_s,
-                    # THE CRASH-SAFETY LINE, identical to the Codex lane's.
-                    pass_fds=(lock.fd,),
+                    # THE CRASH-SAFETY LINE, identical to the Codex lane's — and now
+                    # TWICE (Amendment N.2). BOTH descriptors travel to the child, so
+                    # both lifetimes are `max(queue, grok)`: a killed queue leaves
+                    # neither an untracked job stream nor a phantom seam hold.
+                    pass_fds=semaphore.fds,
                 )
             except FileNotFoundError:
                 return RawResult(
@@ -573,7 +690,14 @@ class GrokHarness:
                     usage=UsageBreakdown.absent("harness killed on timeout; no envelope"),
                 )
         finally:
-            lock.release()
+            # AMENDMENT P — the OTHER end of the interval, read while this job still
+            # holds its slot, so `slots_held` at finish is inclusive on the same terms
+            # as at claim. Taken BEFORE the release for exactly that reason.
+            try:
+                slots_at_finish = semaphore.occupancy()
+            except OSError:
+                slots_at_finish = None
+            semaphore.release()
         elapsed_ms = int((time.monotonic() - started) * 1000)
 
         if raw_path:
@@ -594,6 +718,10 @@ class GrokHarness:
             model=str(config.get("model", MODEL_PIN)),
             effort=str(config.get("reasoning_effort", REASONING_EFFORT_PIN)),
             stderr=proc.stderr or "",
+            seam=seam,
+            slot_index=slot_index,
+            slots_at_claim=slots_at_claim,
+            slots_at_finish=slots_at_finish,
         )
 
     # -- adjudication -------------------------------------------------------
@@ -609,6 +737,10 @@ class GrokHarness:
         model: str = MODEL_PIN,
         effort: str = REASONING_EFFORT_PIN,
         stderr: str = "",
+        seam: str | None = None,
+        slot_index: int | None = None,
+        slots_at_claim: SlotOccupancy | None = None,
+        slots_at_finish: SlotOccupancy | None = None,
     ) -> RawResult:
         """Turn the JSON envelope into a verdict. Separated from `run` so it is TESTABLE.
 
@@ -623,6 +755,18 @@ class GrokHarness:
             "reasoning_effort": effort,
             "declared_model": model,
         }
+        # AMENDMENT P's interval, carried to the queue that writes the rows. ABSENT is
+        # ABSENT: a job adjudicated outside `run()` (every test of this method, and any
+        # future replay of a stored envelope) took no slot, and zero-filling these would
+        # publish a solo row for a job whose concurrency nobody measured.
+        if seam:
+            extra["seam"] = seam
+        if slot_index is not None:
+            extra["slot_index"] = slot_index
+        if slots_at_claim is not None:
+            extra["slots_at_claim"] = slots_at_claim.to_dict()
+        if slots_at_finish is not None:
+            extra["slots_at_finish"] = slots_at_finish.to_dict()
 
         if envelope is None:
             return RawResult(

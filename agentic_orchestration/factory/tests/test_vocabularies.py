@@ -382,6 +382,50 @@ VOCABULARY_PINS: dict[str, object] = {
     #: keys.
     "LIVENESS_TO_SEAM_STATE": {
         "alive": "held", "dead": "stale", "unknown": "custody-unknown"},
+    # --- the Grok per-agent semaphore (2026-08-25, D-11/D-12, § 9.6 AM-3) --
+    #: **AMENDMENT M.3 — the CLOSED agent roster**, read off `AGENTS.md` § 2 rather than
+    #: from memory. ADDITION is the fail-open direction and it is fail-open in a way that
+    #: spends money: a name added here is an agent nobody adjudicated getting its own
+    #: concurrent slot, which raises the fleet's real parallelism against ONE grok.com
+    #: credential without anyone deciding to. DELETION is fail-CLOSED (that agent's jobs
+    #: stop enqueuing, loudly, at the refusal). The membership test is what makes
+    #: `star-lord` and `starlord` one agent instead of two — a free-text seam breaks
+    #: per-agent exclusivity SILENTLY, with every instrument reporting compliance, and
+    #: silence is the failure direction this whole spec refuses.
+    "AGENT_ROSTER": frozenset({
+        "knight-rider", "jack-ryan", "gandalf", "rocket", "gamora", "star-lord",
+        "drax", "legolas", "legolas-crawler", "elrond", "galadriel",
+    }),
+    #: **AMENDMENT M.2 — the PER-LANE required-field sets.** Deleting a lane's row does
+    #: not fail open loudly; it silently stops DEMANDING a field, and on the grok lane
+    #: that field is the key the per-seam flock is built from — so its absence is not a
+    #: missing label, it is a job nothing can exclude against. Pinned as the whole
+    #: mapping because the danger is in the VALUES: pointing `grok` at the base set is a
+    #: one-word edit that repeals Amendment M while every other row stays green.
+    "REQUIRED_JOB_FIELDS_BY_LANE": {
+        "codex": frozenset({"job_id", "curator", "prompt"}),
+        "grok": frozenset({"job_id", "curator", "prompt", "seam"}),
+    },
+    #: **AMENDMENT P.2 — why an ENQUEUED->START gap happened.** § 9.5's banked countable
+    #: measured ONE thing under the serial law and measures TWO under AM-3 (ceiling
+    #: exhaustion vs a per-agent refusal), and P is explicit that the two causes must
+    #: never share one number. ADDITION is the fail-open direction: a reason nobody
+    #: adjudicated entering the banking window's own attribution is #10 arriving through
+    #: the instrument built to keep the window decidable.
+    "WAIT_REASONS": frozenset({"none", "ceiling", "per-agent", "both"}),
+    #: **AMENDMENT Q.3 — the answer record's SHARED key contract.** DELETION is the
+    #: fail-open direction and `slots` is the member that shows why: drop it here and
+    #: `test_AMENDMENT_Q_...` stops requiring the board to carry occupancy at all, which
+    #: is precisely the divergence Q was written to close — a Grok lane rendering plain
+    #: `open` at 2-of-3 held, on Matt's decision surface, at the moment § 10.3 step 3
+    #: needs to know whether firing means NOW or means ENQUEUE.
+    "LANE_ANSWER_KEYS": frozenset({"state", "advisories", "unreachable", "slots"}),
+    #: The other half of the same partition: keys this derivation carries ALONE. ADDITION
+    #: is the fail-open direction — moving a genuinely shared key into the local set is
+    #: how a consumer stops being bound to it while the contract still looks complete.
+    "LANE_ANSWER_LOCAL_KEYS": frozenset({
+        "lane", "vendor", "reason", "safe_to_fire", "exit_code", "legs",
+    }),
     #: Release conditions that assert NOTHING — Amendment L's refusal set. DELETION is
     #: the fail-open direction: remove a spelling and a vacuous claim is admitted, and a
     #: claim with no evaluable end condition is the unbounded live claim L exists to
@@ -900,6 +944,141 @@ def test_AMENDMENT_J_the_BOARD_and_lane_status_answer_with_ONE_vocabulary():
             f"{ls.safe_to_fire(state)}. Equal literals with a divergent function body "
             "is the divergence the literals alone cannot see."
         )
+
+
+def test_AMENDMENT_Q_the_ANSWER_RECORDS_KEY_SET_is_BOUND_across_the_seam():
+    """**AMENDMENT Q.3 — J extended from the state NAMES to the PAYLOAD.**
+
+    J binds four collections of state names and the predicate over them. It cannot see
+    the answer RECORD: `flight_report.lane_answer` builds its own dict, so a key added
+    on one side and absent on the other diverges with every J row green. jack-ryan named
+    the instance before it existed — a `free_slots` key on one side only — and named the
+    harm: the board renders a Grok lane as a plain `open` while 2 of 3 slots are held,
+    on Matt's decision surface, at exactly the moment § 10.3 step 3 wants to know
+    whether firing means NOW or means ENQUEUE. Fails safe (toward enqueue). Reads wrong.
+
+    **THE SHAPE OF THE BINDING, AND THE DEVIATION IT CARRIES.** Q.3's sentence is
+    *"the answer record's KEY SET is equal across both derivations."* Taken literally
+    that is not buildable and would not be right: the two records were never the same
+    object — `lane_status` answers one lane with an exit code and a `legs` payload, the
+    board answers a card with `reasons` (plural) and a NOT-APPLICABLE coverage list that
+    belongs to a degraded renderer and expires with it. Literal equality would demand
+    the refactor jack-ryan explicitly DECLINED to order under J.
+
+    So the binding is a declared PARTITION instead, and it closes the same door at least
+    as tightly:
+
+      1. the SHARED contract (`LANE_ANSWER_KEYS`) is equal on both sides — this is the
+         half Q is actually about, and `slots` is in it;
+      2. each side's real answer dict has EXACTLY `contract | local` for keys, so a new
+         key must be classified as shared (and then appear on both sides, or row 1 reds)
+         or local (and then be declared) — an unclassified key reds here;
+      3. the two halves do not overlap, so nothing is "shared" and "local" at once;
+      4. the shared `slots` payload has the same KEY SET on both sides when present.
+
+    Row 2 is the one that does the work: the failure Q describes is *a key added on one
+    side only*, and under row 2 that key has nowhere to hide.
+    """
+    from factory import lane_status as ls
+    from factory.lane import SlotOccupancy
+
+    board = _load_flight_report()
+
+    # (1) — the shared contract.
+    assert set(board.LANE_ANSWER_KEYS) == set(ls.LANE_ANSWER_KEYS), (
+        "the answer record's SHARED key contract has DIVERGED.\n"
+        f"  board:       {sorted(board.LANE_ANSWER_KEYS)!r}\n"
+        f"  lane_status: {sorted(ls.LANE_ANSWER_KEYS)!r}\n"
+        "A key both renderers are supposed to carry, carried by one. This is Amendment "
+        "H's own sentence — consumers bind by name, never re-derive — applied to the "
+        "payload the largest consumer re-derives."
+    )
+    assert "slots" in ls.LANE_ANSWER_KEYS, (
+        "`slots` left the shared contract. The `k/3` occupancy is the whole reason Q "
+        "extended J: without it on both sides a full Grok lane renders as plain `open`."
+    )
+
+    # (3) — no key is both shared and local, on either side.
+    for name, (shared, local) in {
+        "flight_report": (board.LANE_ANSWER_KEYS, board.LANE_ANSWER_LOCAL_KEYS),
+        "lane_status": (ls.LANE_ANSWER_KEYS, ls.LANE_ANSWER_LOCAL_KEYS),
+    }.items():
+        assert not (set(shared) & set(local)), (
+            f"`{name}` declares {sorted(set(shared) & set(local))!r} as BOTH shared and "
+            "local. A key in both halves is a key the partition cannot police."
+        )
+
+    # (2) — each side's REAL answer dict equals its own declared partition.
+    occupancy = SlotOccupancy(total=3, held=2, free=1, unreadable=0, tags=("seam=drax",))
+    ours = ls.LaneStatus(
+        lane="grok", vendor="grok", state=ls.STATE_OPEN, reason="probe",
+        slots=occupancy,
+    ).to_dict()
+    assert set(ours) == set(ls.LANE_ANSWER_KEYS) | set(ls.LANE_ANSWER_LOCAL_KEYS), (
+        "`LaneStatus.to_dict()` emits keys its own declaration does not account for "
+        f"(or omits some): {sorted(set(ours) ^ (set(ls.LANE_ANSWER_KEYS) | set(ls.LANE_ANSWER_LOCAL_KEYS)))!r}.\n"
+        "Classify it: SHARED (and add it to the board in the same commit) or LOCAL."
+    )
+
+    cfg = dict(board.LANE_CARDS[1])          # the grok card — the one with slots
+    theirs = board.lane_answer(
+        cfg,
+        dict(free=True, path="/tmp/x.lock", acquired=False, why=None),
+        [], None,
+        dict(state="ok", rc=0, text="ok", cli="/x/grok", on_path=False),
+        slots=occupancy.to_dict(),
+    )
+    assert set(theirs) == set(board.LANE_ANSWER_KEYS) | set(board.LANE_ANSWER_LOCAL_KEYS), (
+        "`flight_report.lane_answer` emits keys its own declaration does not account "
+        f"for (or omits some): {sorted(set(theirs) ^ (set(board.LANE_ANSWER_KEYS) | set(board.LANE_ANSWER_LOCAL_KEYS)))!r}"
+    )
+
+    # (4) — the shared payload's own key set, on both sides.
+    assert set(theirs["slots"]) == set(ours["slots"]), (
+        "the `slots` PAYLOAD diverged even though the key did not.\n"
+        f"  board:       {sorted(theirs['slots'])!r}\n"
+        f"  lane_status: {sorted(ours['slots'])!r}\n"
+        "A `free` count on one side and a `held` count on the other is two instruments "
+        "answering `k/3` in two arithmetics."
+    )
+    assert set(ours["slots"]) == {"total", "held", "free", "unreadable", "tags"}
+
+
+def test_AMENDMENT_Q_the_BOARD_reads_a_FULL_LANE_as_OCCUPIED_when_it_is_GIVEN_ONE():
+    """The mechanism, not just the key. All slots held -> `busy-lock`; all unreadable ->
+    `busy-unknown` (fail-closed PER SLOT, Q.1).
+
+    **Measured scope, stated so it is not mistaken for a claim about today's board:** no
+    card WIRES a slot probe yet. `LANE_CARDS`' grok entry still declares
+    `has_lane_lock=False` citing the D-6 gate (D-6 shipped) and `runlogs=()` on a lane
+    whose run-log D-8 shipped — two staleness items belonging to that board's owner and
+    to a dispatch of its own. What this row proves is that the DERIVATION is correct the
+    day it is wired, so the wiring is a one-line change and not a second adjudication.
+    """
+    board = _load_flight_report()
+    cfg = dict(board.LANE_CARDS[1])
+    auth = dict(state="ok", rc=0, text="ok", cli="/x/grok", on_path=False)
+    free_lock = dict(free=True, path="/tmp/x.lock", acquired=False, why=None)
+
+    full = board.lane_answer(cfg, free_lock, [], None, auth,
+                             slots=dict(total=3, held=3, free=0, unreadable=0, tags=[]))
+    assert full["state"] == "busy-lock"
+    assert board.safe_to_fire(full) is False
+    assert full["state"] in board.OCCUPIED_STATES and full["state"] not in board.CLOSED_STATES
+
+    blind = board.lane_answer(cfg, free_lock, [], None, auth,
+                              slots=dict(total=3, held=3, free=0, unreadable=3, tags=[]))
+    assert blind["state"] == "busy-unknown", (
+        "an unreadable semaphore rendered as a FULL lane. Amber says *enqueue behind "
+        "it*; red says *somebody must fix this*. They are different instructions."
+    )
+
+    room = board.lane_answer(cfg, free_lock, [], None, auth,
+                             slots=dict(total=3, held=1, free=2, unreadable=0, tags=[]))
+    assert board.safe_to_fire(room) is True, (
+        "a lane with two free slots read as not-fire-safe. Under AM-3 partial occupancy "
+        "is capacity."
+    )
 
 
 def test_AMENDMENT_J_the_BOARD_never_renders_a_NOT_FIRE_SAFE_state_GREEN():

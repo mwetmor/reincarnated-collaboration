@@ -1017,3 +1017,163 @@ Two things a consumer **should** do:
 2. **Claim before spawn, release on completion, override only over a dead holder with a
    note.** Occupied seam → **DO NOT SPAWN**: coordinate, wait, or escalate. Standing down
    is the honourable path and it gets a ledger row, not a shrug.
+
+---
+
+## grok-lane v2 — SERIAL-BY-CHOICE RETIRED → the PER-AGENT SEMAPHORE (§ 9.6 AM-3, 2026-08-25)
+
+**Shipped:** 2026-08-25. **Author:** star-lord.
+**Authority:** Matt ruling 2026-08-25, verbatim — *"agreed on (b) per agent seam"* — folded as lane spec § 9.6 **AMENDMENT AM-3**, and **ratified by jack-ryan as ADDENDUM 3 with binding Amendments M, N, O, P, Q, R** (`gandalf/requests/2026-08-24-jack-ryan-lane-spec-ratification.md`, commit `83e591fb`). Build items **D-11 / D-12**.
+**Blast radius:** **one lane only.** The Codex lane is untouched — P-1 cites a *verified OpenAI precondition* and § 9.5 probed *xAI*; evidence does not travel across vendors. `receipts.db` untouched at v3. `_run-log.tsv` is still **six columns**: everything new rides the free-form `detail` column. `_custody.tsv` is untouched and is **never read by the vendor fire**.
+**One BREAKING change**, named in § 11.2 below: a **grok**-lane job that names no `seam` is now REFUSED at enqueue.
+
+Consumers this section is written for: knight-rider (the § 10.3 selection law and the dispatch router), the fleet board (`flight/bin/flight_report`, `factory/ui/board.py`), jack-ryan (the Amendment-I job-10 banking verdict), and any session asking *"may I fire at the Grok lane?"*.
+
+---
+
+### 11.1 What changed, in one paragraph
+
+The Grok lane's serial rule was **a policy, not a law** — § 9.3 said so when it was written, and it wrote its own loosening door: *evidence, in this spec, by amendment.* Matt directed a concurrency probe, § 9.5 measured it (3 simultaneous `grok -p` jobs at the lane's exact `--no-leader` posture: 3/3 clean, **4 s wall against a 4.3 s single-job baseline**, zero contention penalty, no 429, no `leader.sock`), and Matt ruled. The lane is now:
+
+> **one in-flight job per named agent SEAM, under a per-CREDENTIAL ceiling of N=3.**
+
+`SerialLaneLock` is no longer taken on this lane. `SeamSlotSemaphore` is.
+
+### 11.2 BREAKING — `seam` is a REQUIRED job field on the grok lane (Amendment M)
+
+```
+factory lane-enqueue <queue> <job_id> <prompt_file> --lane grok \
+        --curator <agent> --seam <agent>          # <-- NEW, and REQUIRED here
+```
+
+* **Refused, never defaulted.** A grok job with no seam raises before any file or row exists. The per-agent flock is keyed on this name, so an unnamed seam is not a job with a missing label — it is **a job nothing can exclude against**.
+* **NEVER inferred from `curator`.** The curator is the named Claude owner of the OUTPUT (U-4 R-B / P-8); the seam is the agent whose PROCESS makes the invocation. They legitimately differ — a star-lord-run job curated by galadriel is a normal shape — and conflating them breaks exclusivity **in both directions**: two agents running one curator's jobs would collide on one slot, and one agent running three curators' jobs would take three.
+* **Roster-validated, CLOSED vocabulary** — `factory.roster.AGENT_ROSTER`, eleven names read off `AGENTS.md` § 2, pinned by equality in `tests/test_vocabularies.py`. A near miss is **refused, not normalised**: `starlord` and `star-lord` as two agents would break exclusivity *silently*, with every instrument reporting compliance.
+* **Codex is NOT affected.** `REQUIRED_JOB_FIELDS_BY_LANE` makes the demand per-lane. Codex is hard-serial by vendor law with no per-agent grain, so requiring the field there would be a governance line with no mechanism behind it. A seam given on a Codex job is still roster-validated and still recorded.
+* **Vocabulary borrowed from § 11 custody; MECHANISM DECOUPLED (M.4).** The vendor fire never reads `_custody.tsv`. `test_grok_semaphore.py::test_M4_...` asserts that over the AST of `grok.py` / `jobqueue.py` / `lane.py` / `roster.py` rather than leaving it to this sentence. A fire gated on a hand-appended row is a fire a forgotten CLAIM can block.
+* **Honesty clause (M.5):** per-agent slots bound **self**-parallelism only. A conductor fanning out to three seams legally fills the lane. **The ceiling is the ONLY bound on total fan-out.**
+
+### 11.3 THE CEILING — N=3, and exactly what that number is worth (Amendment O)
+
+`factory.lane.GROK_SLOT_CEILING = 3`.
+
+| | |
+|---|---|
+| **CONFIRMED at** | default reasoning effort · trivial single-line prompts · n=6 across two rounds (§ 9.5) · upper concurrency tested = 3 · one moment in time on a subscription credential |
+| **PROVISIONAL at** | **this lane's own pinned posture** — `grok-4.6 @ --reasoning-effort xhigh` against the **~28,170-token per-job input floor** of § 10.1. Three concurrent trivial default-effort calls and three concurrent `xhigh` calls at ~28 K input each are **not the same load on a token-bucket limiter**, and the probe never ran there. |
+| **DISCHARGE EVENT (named, recorded)** | the **first in-window occurrence of 3 concurrent jobs AT THE PIN completing clean**. It is derived from the run-log by the § 11.5 overlap join and is written as a **lane event** — a row in the lane's own record, not a thing noticed in passing. Until that row exists, "provisional" stands. |
+| **RAISE LICENSE** | **only a probe AT THE PROPOSED LEVEL** (§ 9.5's shape at N=4 or above). Clean in-window rows at 3 **confirm 3**. They retire *provisional*; **they never license 4.** |
+| **CEILING DROP** | a 429, an auth flag, or measurable output degradation observed at *k* concurrent jobs drops the operating ceiling to **k−1** immediately, pending a re-probe, with a lane-event row. `GrokHarness(ceiling=...)` takes the number, so the drop is a value change and not a commit. |
+
+**A full lane is OCCUPIED, not CLOSED.** At 3/3 the busy check answers `busy-lock` (exit 20), which is in `OCCUPIED_STATES`. § 10.3 step 4's Claude branch requires **both vendors CLOSED**, so Matt's floor is not eroded by the ceiling: the answer at 3/3 is **enqueue**.
+
+### 11.4 NEW run-log DETAIL tokens (Amendment P). Still six columns.
+
+| token | on which row | meaning — READ THE INCLUSIVITY RULE |
+|---|---|---|
+| `seam=<agent>` | ENQUEUE, START | the agent whose process makes the invocation |
+| `slots_held=<k>/<N>` | **START** | occupancy probed **at row-write time, BEFORE this job claims** — the *ambient* concurrency this job started into. This job holds nothing yet, so it is **not** counted. |
+| `slots_held=<k>/<N>` | **finish (`rc=…`)** | occupancy probed **at release time, INCLUSIVE of this job's own slot**. |
+| `slot_index=<i>` | finish | which counted slot this job held, `0..N-1` |
+| `waited_ms=<n>` | START | ENQUEUED→START gap in milliseconds |
+| `waited_reason=<r>` | START | **CLOSED vocabulary** `none` / `ceiling` / `per-agent` / `both` (`factory.jobqueue.WAIT_REASONS`, pinned) |
+| `skipped=per-agent-slot-held` | a `ENQUEUED` defer row | Amendment R.3 — countable: `grep -c "skipped=per-agent-slot-held"` |
+
+**The two `slots_held=` samples have DIFFERENT inclusivity and that is deliberate.** Each row states the literal truth about the lane at the instant it was written; at START this job holds nothing and at finish it holds one. A single convention would have required either fabricating an imminent claim or subtracting a slot the row can see. **The richer at-claim sample** (`slots_held_at_claim`, inclusive, measured immediately after acquisition) rides `telemetry.jsonl`, where there is no column pressure.
+
+#### THE DERIVATION THE JOB-10 VERDICT CONDITIONS ON — pinned by name
+
+> **DERIVED OVERLAP INTERVAL.** For each job, take its `START` row timestamp and its finish row timestamp from `_run-log.tsv` (same clock, same file). Two jobs OVERLAP when their `[start, finish]` intervals intersect. A job's **concurrency context** is the number of other jobs whose intervals intersect its own; its **overlap fraction** is the share of its own duration spent intersecting at least one other.
+
+`slots_held=` at either end is a **point sample of an interval** and must not be read as the job's concurrency: a job that starts alone and spends 90 % of its life beside two others records `slots_held=0/3` at START and would be read as a solo row. **The verdict conditions on the derived overlap.** The point samples are context and cross-check.
+
+#### PRE-REGISTERED DECIDABILITY CONDITION (P.3) — declared NOW, not discovered at job 10
+
+The Amendment-I banking window runs **under the per-agent regime from job 1** (regime (b), fly-what-you-fly). It carries two variables in ten rows — **pin confirmation** and **concurrency posture** — so:
+
+> If the ten rows land **all-concurrent** or **all-solo**, the job-10 verdict decides **ONE** of {pin, concurrency posture} and names the other **UNDECIDED, with the rows it needs**. The window still closes at 10. The verdict states which question it answered.
+
+Concurrency friction appearing in-window (429s, degraded output under concurrent load) is **signal, not contamination** — and it fires the § 11.3 ceiling drop.
+
+### 11.5 NEW lock files (Amendment N). Two nested flocks; no content is ever trusted.
+
+```
+~/.reincarnated/lane-locks/
+  grok-<credential-digest>.lock                  # the BASE path. NO LONGER TAKEN.
+  grok-<credential-digest>-agent-<seam>.lock     # (i) per-seam   — acquired FIRST
+  grok-<credential-digest>-slot-{0,1,2}.lock     # (ii) counted   — first acquirable wins
+```
+
+* Acquisition order is **seam, then slot**; release is the reverse. **Both are `LOCK_NB`. Nothing ever waits**, so the nesting has no cycle to close and deadlock is structurally impossible.
+* **Both fds are `pass_fds`'d to the child**, so both lifetimes are `max(queue, grok)`. A killed queue leaves neither an untracked job stream nor a phantom seam hold; a dead holder's per-seam lock is released by the kernel, so **an agent that crashes mid-job is not locked out of its own lane**.
+* **THE SLOT TAG IS DISPLAY-ONLY.** It is written after acquisition, truncated on acquire, and read **only for a slot proved held by a failed `LOCK_NB` probe** — for the human-readable reason and nothing else. **No fire/refuse decision reads it.** Enforcing exclusivity by reading a tag would rebuild the assert-style lockfile G-1 dissolved (stale content outlives the lock; the window between acquire and tag-write is untagged; scan-then-claim is TOCTOU). jack-ryan named the tag-as-enforcement design a **Gate-2 BLOCK if built**; it is not built.
+* **P-2 RESTATED PER SLOT: no timeout, no `--force`, no per-slot break flag, no stale-slot reaper — ever.** Three files is three times the "just break slot 2, it's probably stale" temptation, and the law does not thin out by division. If a slot reads held and you believe it should not, `ps` names the holder: the kernel releases these locks when their last holder exits.
+* **DEVIATION FROM THE SPEC'S LITERAL FILENAMES, and why.** § 9.6 writes these as `grok-agent-<seam>.lock` / `grok-slot-{0,1,2}.lock`. Built with the **credential digest** in the name, because the spec's spelling keys per-agent exclusivity to the VENDOR instead of to the CREDENTIAL — two `GROK_HOME`s are two lanes under P-3, one seam legally holds one slot on each, and a digest-less name would have merged them into one semaphore and refused the second, silently narrowing a granularity ruling nobody reopened. Vendor and seam are both still legible in an `ls`, which is the property the spec's spelling was after.
+* **The base `grok-<digest>.lock` file is no longer acquired by anything.** A consumer probing it in isolation reads a permanently free lane. **Probe the slots** — `factory.lane.probe_slots(base, ceiling)` — or ask `factory lane --lane grok`.
+
+### 11.6 THE BUSY CHECK — `k/3` is a DETAIL FIELD, not an eighth state (Amendment Q)
+
+**The shape call was star-lord's (§ 9.6 delegated it) and this is the record of it.** The answer state vocabulary stays at **seven**; the occupancy rides a new field.
+
+```jsonc
+// factory lane --lane grok --json  ->  lanes.grok
+{
+  "state": "open",                 // unchanged vocabulary — seven states
+  "slots": {                       // NEW. `null` on a lane without counted slots.
+    "total": 3, "held": 1, "free": 2, "unreadable": 0,
+    "tags": ["seam=elrond pid=… since=…"]     // DISPLAY ONLY (§ 11.5)
+  }
+}
+```
+
+**Field name and type, pinned:** `slots` — `object | null`, keys exactly `{total, held, free, unreadable, tags}`, all integers except `tags` (array of strings). `null` means *this lane has no counted slots* (Codex), which is a different fact from `held == 0`.
+
+Why a field and not a state: (1) Q.4 pins `SAFE_TO_FIRE_STATES` unchanged and rules `open` with k≥1 safe to fire — a new state would have to join that set, i.e. the vocabulary would grow a member meaning exactly what `open` already means; (2) the seven states answer *what disposition do I take?* while the count answers *how much room is there?*, and a state name encoding both makes every consumer parse a number out of a label; (3) seven states are pinned across four collections here, four more on the fleet board, an exit-code table, a precedence tuple and this document — an eighth would touch all of them to publish a number.
+
+**FAIL-CLOSED PER SLOT (Q.1)** — leg 1 grew from one read to three, and the § 3 union did not cover a partial read:
+
+| leg-1 reading | answer |
+|---|---|
+| any slot free | `open` (or `queue-pending` on backlog) — **safe to fire** |
+| a slot cannot be read | that slot counts **HELD**, and `unreadable` is incremented so an operator can tell a full lane from a broken instrument |
+| all slots held | `busy-lock` (exit 20) — OCCUPIED, enqueue |
+| **no** slot readable | `busy-unknown` (exit 22) — ambiguity, not capacity. Amber says *enqueue behind it*; red says *somebody must fix this*. |
+
+> **`open` with zero free slots is NOT an expressible answer.** `test_grok_semaphore.py::test_Q4_...` sweeps every occupancy the lane can reach and asserts it.
+
+**The check still WRITES NOTHING.** Three acquire-and-release probes instead of one, and a slot file that does not exist is answered free **without creating it**. G-4 holds unchanged: a `k/3` answer is no more a reservation than an `open` answer was.
+
+**AMENDMENT J IS EXTENDED TO THE KEY SET (Q.3), in this same commit.** J bound the state-name vocabularies across `lane_status.py` and `flight/bin/flight_report`; it could not see the payload. Both files now declare `LANE_ANSWER_KEYS` (the SHARED contract — `state`, `advisories`, `unreachable`, `slots`) and `LANE_ANSWER_LOCAL_KEYS` (each renderer's own), and `test_vocabularies.py::test_AMENDMENT_Q_...` asserts the contracts are equal, that each side's real answer dict is **exactly** `contract | local`, that the halves do not overlap, and that the `slots` payload's own key set matches. **A new key must be classified as shared (and then appear on both sides) or local (and then be declared); an unclassified key reds.**
+
+*Named deviation:* Q.3's sentence says the key sets are *equal*. Built as a declared **partition** instead, because the two records were never the same object — `lane_status` carries an exit code and a `legs` payload, the board carries `reasons` (plural) and a NOT-APPLICABLE coverage list that belongs to a degraded renderer and expires with it. Literal equality would demand the renderer refactor jack-ryan explicitly declined to order under J. The partition closes the divergence Q *names* — a key on one side only — at least as tightly.
+
+### 11.7 THE DRAIN LAW — a per-agent refusal is neither a busy lane nor a failed job (Amendment R)
+
+`JobQueue.drain()` now has **three** dispositions where it had two:
+
+| condition | disposition | why |
+|---|---|---|
+| **ceiling exhausted** (`LaneBusy` / `LaneCeilingReached`) | **BREAK.** Unchanged. | The credential cannot take more work. The existing behaviour was and is correct. |
+| **this job's SEAM holds a slot** (`SeamSlotHeld`) | **SKIP AND CONTINUE.** New. | The refusal is **JOB-specific**. Breaking would head-of-line-block the lane at 1/3 with two free slots — inverting AM-3's own purpose. |
+| junk / unmodelled | FALLBACK-CLAUDE. Unchanged. | P-7. |
+
+**A per-agent skip is NEVER an attempt.** It does not increment `attempts`, it never reaches `_hand_to_claude`, and it never writes a `fallback/` manifest. `jobqueue.py`'s own standing comment records this exact defect being made once already, through a different door: a transient lane condition counted as an attempt handed a job **permanently** to its Claude curator for something that clears by itself, and **ownership moves once** (P-7) — it does not come back.
+
+The skipped job's marker is `ENQUEUED`, which is non-terminal, so it is still pending and the next drain takes it. FIFO is otherwise preserved, and the reordering is **recorded and countable**:
+
+```sh
+grep -c "skipped=per-agent-slot-held" _run-log.tsv     # R.3, in G-7's shape
+```
+
+`DrainReport.skipped_per_agent` exposes the same number in code, held apart from `deferred` (the ceiling was full) and `handed_to_claude` (ownership moved).
+
+**`harness.availability()` stays LANE-GLOBAL (R.5)** — it answers about the lane, never about a job. Per-agent eligibility is evaluated **per job, at claim time**, inside `run()`. Folding it into the lane state is precisely what creates head-of-line blocking.
+
+### 11.8 What a consumer must do
+
+| consumer | action |
+|---|---|
+| **knight-rider / any dispatcher** | **Pass `--seam <agent>` on every grok enqueue.** Nothing else changes: `SAFE_TO_FIRE_STATES` is unchanged, the § 10.3 order is unchanged, and a Grok lane at 3/3 is **occupied → enqueue**, never closed. |
+| **the fleet board** (`flight/bin/flight_report`, `factory/ui/board.py`) | `lane_answer` now accepts `slots=` and returns it; the derivation is correct **the day a card wires a probe**. **NOT WIRED HERE, ON PURPOSE** — `LANE_CARDS`' grok entry still declares `has_lane_lock=False` citing the D-6 gate (D-6 shipped) and `runlogs=()` on a lane whose run-log D-8 shipped. Those are that board's staleness and belong to a dispatch of its own; wiring them from inside a lane build would be a second adjudication of somebody else's surface. Until then the grok card renders **amber with declared reduced coverage**, which is honest-if-stale rather than false-open. |
+| **jack-ryan (job-10 verdict)** | Condition on the **derived overlap interval** (§ 11.4), not on `slots_held=` alone. The pre-registered decidability condition is § 11.4's block — the window closes at 10 either way and the verdict names what it could not decide. Watch for the § 11.3 **discharge event** (first clean 3-concurrent at the pin) and for the ceiling-drop trigger. |
+| **anyone reading `_run-log.tsv`** | Still six columns. Every new field is a `k=v` token in `detail`. `tail -1 \| cut -f3` is unchanged. |

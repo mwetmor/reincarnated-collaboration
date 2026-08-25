@@ -23,7 +23,11 @@ hypothetical — each one is a way the lane has actually been mis-read:
   * **Leg 1, the kernel lock.** Sees every lock-taking invocation with zero
     staleness by construction (`flock` binds to the open file description; the
     kernel drops it when the last holder exits, including on SIGKILL). CANNOT see a
-    `codex exec` that never took the lock.
+    `codex exec` that never took the lock. **On a COUNTED lane (Grok, § 9.6 AM-3)
+    this leg is N probes instead of one** and answers `k/N` — and Amendment Q rules
+    the partial read that the spec's three-leg union did not cover: an unreadable
+    slot counts HELD, all-held is `busy-lock`, no-slot-readable is `busy-unknown`,
+    and `open` with zero free slots is not an expressible answer.
   * **Leg 2, the process table.** The ONLY leg that sees an out-of-band invocation —
     a hand-fired script, an agent exercising the CLI in a live session, Matt in his
     own terminal. This is the motivating incident and the one leg the pre-existing
@@ -73,7 +77,14 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Iterable
 
-from .lane import default_lock_path, is_terminal_marker, lane_is_free
+from .lane import (
+    GROK_SLOT_CEILING,
+    SlotOccupancy,
+    default_lock_path,
+    is_terminal_marker,
+    lane_is_free,
+    probe_slots,
+)
 
 # ---------------------------------------------------------------------------
 # The answer vocabulary (lane spec § 3, + one declared extension)
@@ -149,6 +160,41 @@ STATE_PRECEDENCE: tuple[str, ...] = (
 )
 
 
+#: **AMENDMENT Q.3 — THE ANSWER RECORD'S SHARED KEY CONTRACT.**
+#:
+#: Amendment J bound the two implementations' STATE-NAME vocabularies. It could not see
+#: this: `flight_report` builds its own answer dict, so a `slots` key added on one side
+#: and absent on the other diverges with every J row green — and the board is Matt's
+#: decision surface and, per spec § 11.3, the surface a dispatcher consults before
+#: spawning. A Grok lane rendered as a plain `open` at 2-of-3 held is wrong at exactly
+#: the moment § 10.3 step 3 wants to know whether firing means NOW or means ENQUEUE.
+#:
+#: These are the keys BOTH derivations must carry, spelled identically. Everything else
+#: each side emits is declared in its own `LANE_ANSWER_LOCAL_KEYS`, and
+#: `tests/test_vocabularies.py` asserts the two sets PARTITION each side's real answer
+#: dict — so a new key must be classified as shared (and then appear on both sides) or
+#: local (and then be declared), and an unclassified one reds rather than diverging.
+#:
+#: Why a CONTRACT and not full key-set equality, stated because Q.3's sentence says
+#: "equal": the two records are not the same object and never were —
+#: `lane_status` answers one lane with an exit code and a `legs` payload, the board
+#: answers a card with `reasons` and a coverage list. Demanding literal equality would
+#: demand the renderer refactor jack-ryan explicitly declined to order (Amendment J's
+#: own text), and the divergence Q names — one side growing a key the other lacks — is
+#: closed exactly as tightly by a declared partition. The pre-existing spelling
+#: differences are made VISIBLE by the local sets rather than laundered.
+LANE_ANSWER_KEYS: frozenset[str] = frozenset({
+    "state", "advisories", "unreachable", "slots",
+})
+
+#: This derivation's own keys, beyond the shared contract. Declared so that a key added
+#: here without being added to the board reds `test_AMENDMENT_Q_...` rather than
+#: silently becoming a fact only one renderer knows.
+LANE_ANSWER_LOCAL_KEYS: frozenset[str] = frozenset({
+    "lane", "vendor", "reason", "safe_to_fire", "exit_code", "legs",
+})
+
+
 def safe_to_fire(state: str) -> bool:
     """THE predicate. One name, one place, bound by every consumer (Amendment H)."""
     return state in SAFE_TO_FIRE_STATES
@@ -204,6 +250,12 @@ class LaneConfig:
     extra_busy_re: re.Pattern[str] | None
     runlogs: tuple[Path, ...]
     serial_law_grounding: str
+    #: **0 = leg 1 is ONE lock; N > 0 = leg 1 is N counted slots** (§ 9.6 AM-3).
+    #: A per-lane number rather than a global one, because the two lanes' serial rules
+    #: are different KINDS of rule: Codex's N=1 is a verified vendor precondition and
+    #: Grok's N=3 is our own policy, measured. A shared constant would have made the
+    #: next loosening look like an edit to both.
+    slot_ceiling: int = 0
 
 
 LANES: dict[str, LaneConfig] = {
@@ -229,11 +281,18 @@ LANES: dict[str, LaneConfig] = {
         extra_busy_re=re.compile(r"leader\.sock"),
         runlogs=(GROK_LANE_ROOT / "_run-log.tsv",),
         serial_law_grounding=(
-            "SERIAL BY CHOICE — no equivalent xAI precondition has been verified, so this "
-            "lane is serialised as a POLICY (G-2's false-busy ruling applied at the policy "
-            "level), not as a vendor law. Loosening requires the evidence NAMED, by "
-            "amendment to the lane spec. Do not defend this as if it were the Codex law."
+            "SERIAL BY CHOICE — RETIRED 2026-08-25 by the path it named for itself. No xAI "
+            "precondition was ever verified, so this lane's serial rule was a POLICY, and "
+            "§ 9.3 wrote its own loosening door: evidence, in the spec, by amendment. "
+            "§ 9.5 measured 3 concurrent jobs at the lane's exact posture (3/3 clean, zero "
+            "contention penalty, no 429) and Matt ruled PER AGENT SEAM. The law is now: "
+            "one job per named agent seam, under a per-CREDENTIAL ceiling of N=3 — "
+            "confirmed at default effort and trivial prompts, PROVISIONAL at this lane's "
+            "own `xhigh` pin (Amendment O). The Codex lane did NOT move: P-1 cites a "
+            "verified OpenAI precondition, and evidence measured against xAI does not "
+            "travel across vendors."
         ),
+        slot_ceiling=GROK_SLOT_CEILING,
     ),
 }
 
@@ -387,6 +446,28 @@ class LaneStatus:
     advisories: list[str] = field(default_factory=list)
     unreachable: list[str] = field(default_factory=list)
     legs: dict[str, Any] = field(default_factory=dict)
+    #: **AMENDMENT Q — the `k/3` payload.** `None` for a lane with no counted slots.
+    #:
+    #: THE SHAPE CALL WAS MINE (§ 9.6 left it to me): a DETAIL FIELD on the existing
+    #: states, not an eighth state. Three reasons, in the order they decided it:
+    #:
+    #:   1. Q.4 pins `SAFE_TO_FIRE_STATES` unchanged and rules that `open` with k>=1 is
+    #:      safe to fire. A new state would have to be added to that set to preserve
+    #:      that — i.e. the vocabulary would grow by a member that means exactly what
+    #:      `open` already means, which is how a closed vocabulary starts drifting.
+    #:   2. The seven states answer *what disposition do I take?* (fire · enqueue ·
+    #:      escalate). Slot count answers *how much room is there?*. Those are different
+    #:      questions, and a state name that encodes both makes every consumer parse a
+    #:      number out of a label.
+    #:   3. Growth cost. Seven states are pinned in four collections here, four more on
+    #:      the fleet board, an exit-code table, a precedence tuple and MIGRATION. An
+    #:      eighth would touch all of them to publish a number; a field touches the
+    #:      record, which is where the number belongs.
+    #:
+    #: The cost of that choice is precisely the exposure Q.3 names — a detail field is
+    #: invisible to Amendment J's state-name binding — which is why the key-set contract
+    #: above ships in the same commit, as Q requires.
+    slots: SlotOccupancy | None = None
 
     @property
     def safe_to_fire(self) -> bool:
@@ -397,12 +478,17 @@ class LaneStatus:
         return exit_code_for(self.state)
 
     def one_line(self) -> str:
-        head = f"{self.lane:<6} {self.state:<18} {self.reason}"
+        head = f"{self.lane:<6} {self.state:<18}"
+        if self.slots is not None:
+            head += f" [{self.slots.one_line()}]"
+        head += f" {self.reason}"
         if self.advisories:
             head += "  |  " + "; ".join(self.advisories)
         return head
 
     def to_dict(self) -> dict[str, Any]:
+        """The answer record. Its KEY SET is `LANE_ANSWER_KEYS | LANE_ANSWER_LOCAL_KEYS`,
+        asserted across the seam by `test_vocabularies.py` (Amendment Q.3)."""
         return {
             "lane": self.lane,
             "vendor": self.vendor,
@@ -413,6 +499,7 @@ class LaneStatus:
             "advisories": list(self.advisories),
             "unreachable": list(self.unreachable),
             "legs": self.legs,
+            "slots": self.slots.to_dict() if self.slots is not None else None,
         }
 
 
@@ -468,9 +555,38 @@ def lane_status(
     unreachable: list[str] = []
     legs: dict[str, Any] = {}
 
-    # -- leg 1: the kernel lock -------------------------------------------
+    # -- leg 1: the kernel lock (ONE lock, or N counted slots) -------------
     path = Path(lock_path) if lock_path is not None else default_lock_path(vendor=cfg.vendor)
-    if not path.exists():
+    slots: SlotOccupancy | None = None
+    if cfg.slot_ceiling:
+        # **AMENDMENT Q — leg 1 grew from one read to three, and the spec did not say
+        # what a partial read means. Ruled here, fail-closed PER SLOT:** an unreadable
+        # slot counts HELD (`probe_slots`), all-held is `busy-lock`, and no-slot-readable
+        # is `busy-unknown`. Still three acquire-and-release probes and no writes, so
+        # G-4 holds unchanged: a `k/3` answer is no more a reservation than `open` was.
+        slots = probe_slots(path, cfg.slot_ceiling)
+        legs["lock"] = {
+            "base": str(path), "probed": True, "counted": True, **slots.to_dict(),
+        }
+        if slots.all_unreadable:
+            signals.append((
+                STATE_BUSY_UNKNOWN,
+                f"NONE of the {slots.total} slot files could be read "
+                f"({'; '.join(slots.tags) or 'no detail'}) — reported ambiguous rather "
+                "than open. A leg that just tripled its surface area resolving toward "
+                "free on a partial read is the one direction G-2 forbids",
+            ))
+        elif slots.all_held:
+            signals.append((
+                STATE_BUSY_LOCK,
+                f"all {slots.total} slots are HELD ({slots.one_line()}"
+                + (f"; {slots.unreadable} unreadable" if slots.unreadable else "")
+                + f") — {' | '.join(slots.tags) if slots.tags else 'no holder tags'}. "
+                "The ceiling is the CREDENTIAL's; this is OCCUPIED, not closed — "
+                "ENQUEUE behind it (Amendment H: § 10.3 step 4's Claude branch needs "
+                "both vendors CLOSED, and a full lane is not a closed one)",
+            ))
+    elif not path.exists():
         # ANSWERED FREE WITHOUT OPENING ANYTHING. `lane_is_free` opens with `O_CREAT`;
         # asking it here would make a read-only status call create a file that
         # outlives the question. A lock file that does not exist cannot be held.
@@ -567,14 +683,14 @@ def lane_status(
         return LaneStatus(
             lane=cfg.key, vendor=cfg.vendor, state=STATE_BUSY_UNKNOWN,
             reason="; ".join(unreachable) + " — reported ambiguous rather than open",
-            advisories=advisories, unreachable=unreachable, legs=legs,
+            advisories=advisories, unreachable=unreachable, legs=legs, slots=slots,
         )
     if signals:
         rank = {state: i for i, state in enumerate(STATE_PRECEDENCE)}
         state, reason = min(signals, key=lambda s: rank.get(s[0], 0))
         return LaneStatus(
             lane=cfg.key, vendor=cfg.vendor, state=state, reason=reason,
-            advisories=advisories, unreachable=unreachable, legs=legs,
+            advisories=advisories, unreachable=unreachable, legs=legs, slots=slots,
         )
     if pending_total:
         return LaneStatus(
@@ -585,12 +701,12 @@ def lane_status(
                 "state is SAFE TO FIRE (Amendment A) and counts OPEN for the "
                 "selection law (Amendment H)."
             ),
-            advisories=advisories, unreachable=unreachable, legs=legs,
+            advisories=advisories, unreachable=unreachable, legs=legs, slots=slots,
         )
     return LaneStatus(
         lane=cfg.key, vendor=cfg.vendor, state=STATE_OPEN,
         reason="lane free on all three legs; auth healthy",
-        advisories=advisories, unreachable=unreachable, legs=legs,
+        advisories=advisories, unreachable=unreachable, legs=legs, slots=slots,
     )
 
 
