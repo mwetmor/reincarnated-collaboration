@@ -220,6 +220,27 @@ The in-flight build is RATIFIED-AS-PROTOCOL by § 2–§ 4 (nothing in it moves)
 
 ---
 
+## 11 · THE SECOND AXIS — agent-level seam custody (born of a live near-miss, 2026-08-24)
+
+**11.1 — The founding incident (KR's finding, verbatim shape).** Same day the vendor-lane busy check shipped, the collision it cannot see almost happened one level up: this RUN-CONDUCTOR session dispatched a star-lord sub-agent to build the Grok lane; twenty-eight minutes later KR — whose knowledge was true when formed and false by mtime 20:32 — dispatched a second star-lord sub-agent for the same build. Neither dispatcher could see the other. KR stood his down (correctly; ledgered). The lane lock did its job perfectly and was never the problem: **it serializes vendor invocations, not agents.** Two agents colliding is duplicated work, contended files, and a corrupted verification run — Matt's original question ("is a Codex agent in use, across all sessions?") applied to AGENTS instead of CLIs, now with an empirical instance.
+
+**11.2 — The mechanism: SEAM-CUSTODY LEDGER, two legs, same design DNA as § 3.** One append-only TSV at `agentic_orchestration/lanes/agents/_custody.tsv` (6-column format family): `ts · seam · holder (session/agent id) · event (CLAIM / RELEASE / OVERRIDE) · intent · detail`.
+
+- **CLAIM is written at DISPATCH time, by the dispatcher, BEFORE the sub-agent spawns** — the R-B enqueue-time lesson applied verbatim: a row written at close cannot answer "busy now," and that defect does not get rebuilt one level up. Claim names the seam (agent name = the grain), the holder session, and the intent in one line.
+- **RELEASE is written when the completion lands** (the completion record is the evidence; the RELEASE row cites it).
+- **The check is two-legged, unioned fail-closed over occupancy:** leg 1 = ledger (last CLAIM without RELEASE per seam → occupied); leg 2 = holder-session process liveness (sessions ARE host processes — KR located this session as "85515, 3h05m alive" from the process table). A CLAIM whose holder is dead is STALE, not free: release requires an explicit **OVERRIDE row with a ledger note** — the G-2 FALSE-BUSY choice at the agent level, loud and manual, never auto-expired (no TTL: a TTL is a timeout-based lock break, refused at § 2 P-2 for the same reason).
+- **#73-clean:** occupancy is DERIVED (ledger × process liveness), never asserted by a status header; the ledger rows are events, not states.
+
+**11.3 — THE AGENT-LEVEL ROUTING RULE (the codification Matt asked for — proposed as fleet law, jack-ryan ratifies mechanics, Matt vetoes at will):**
+
+> **Before dispatching a sub-agent into a named seam, the dispatcher checks seam custody. Occupied seam → DO NOT SPAWN** — coordinate with the holder, wait, or escalate; standing down (KR's move) is the honorable path and gets a ledger row, not a shrug. **Claim before spawn; release on completion; override only over a dead holder, with a note.** A RUN-CONDUCTOR charter claims its seams FOR THE RUN at charter time (run-scoped custody — the conductor's sub-agents operate under the run's claim, so intra-run dispatches don't re-contend). Custody is DISPATCH exclusivity, not seam ownership: it says "someone is mid-flight here," never "this seam answers to me."
+
+**11.4 — Interim discipline + build delta.** The ledger is a TSV and a habit — it starts NOW, by hand-append, before any tooling exists (the vendor lane's own lesson: the record's schema was the gap, not the tooling). Build delta, star-lord, additive: **D-9** — `factory custody` subcommand (`check [--seam <name>]` / `claim` / `release` / `override`, same read-only-emits-nothing discipline for `check`, exit codes banded like § 3, pinned in MIGRATION.md); **D-10** — tests (claim-before-spawn ordering; stale-holder requires OVERRIDE; check writes nothing). The fleet-board grows an eventual SEAMS card rendering the same derivation (a VIEW, per THE LAW).
+
+**11.5 — Scope guard.** This axis governs DISPATCH concurrency only. It does not replace KR's sequencing authority (custody is how two live routers see each other, not a router itself); does not gate Matt's own terminal sessions (he outranks custody; his presence is visible via leg 2 regardless); does not touch the vendor-lane law (§ 2–§ 10 unchanged); and its grain (seam = agent name) widens only by amendment if worktree-level contention ever produces an instance.
+
+---
+
 ## Sign-off
 
 **gandalf**, 2026-08-24 — SPEC-AUTHOR (ELICITOR posture at § 8; § 9 added same day on Matt's directed Grok probe; § 10 AM-2 folded same day on Matt's widening directive + verbatim selection ruling). Anchors: commission `gandalf/requests/2026-08-24-knight-rider-codex-lane-protocol-and-busy-check.md` · `workflow-upgrades.md` § U-4 (R-A…R-D; Grok-via-U-8-door clause) + § U-1 (THE LAW, #73 build constraint) · star-lord dispatch `dispatches/2026-08-24-star-lord-codex-durable-queue.md` + in-flight `factory/lane.py` / `factory/jobqueue.py` / `factory/harness/codex.py` (read in full) · `run_p2_serial.sh` + `_run-log.tsv` (verified directly) · **live Grok probe 2026-08-24 (`~/.grok/bin/grok` v1.0.5, measured first-hand: auth, models, headless JSON envelope, cost telemetry)** · engineering-disciplines #73, #19.1(b), #62(a), #9/#10/#11 · sealed VFX spec § 6.6 (fence untouched).
