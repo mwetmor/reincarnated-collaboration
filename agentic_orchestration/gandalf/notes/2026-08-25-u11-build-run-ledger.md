@@ -56,3 +56,17 @@ Push-as-you-go at each fold; red-flag pings only; seal report at close. Commitme
 ## L-2 — Launch fold
 
 Custody: star-lord seam verified FREE (last row RELEASE 01:51:27Z); jack-ryan FREE (RELEASE 02:52:33Z). CLAIM row for star-lord appended per § 11.3 in this fold. Adoption stamped in `workflow-upgrades.md` same commit. B-1 (emitter build) dispatches to the named star-lord sub-agent on push.
+
+## L-3 — B-1 FOLDED (star-lord commit `7f71ee5b`; conductor re-verified)
+
+**27 rows appended** (tape 75→102): 8,442,547,650 tok-in · **97.58% cache-hit** · 204.1M cache-write · 19.3M out · 49,590 API calls. Skips all classified: 4 non-quiescent (incl. this conductor session — R-6 working as designed), 4 non-August, 0 no-usage. **Idempotence proven on the live tape** (second run appended 0, 27× already-emitted). Suite **104/104 re-run from conductor hands**; whole-tape validator CLEAN (102), retrospection audit CLEAN (all U-11 rows `backfill:true`), `check_append_only` 27/0. Both T3 tests were red-before-emission — pre-registered goalposts doing their job. **T1 ✓ T2 ✓ T3 ✓ (conductor-verified in `flight/report.md`: anthropic row 8442.5M / 97.6% / 19.3M beside Codex 72.4M / 93.2%).** R-7 held: zero render work.
+
+**Findings register (→ G-U11 unless noted):**
+- **F-1 (RULING REQUESTED):** `tokens_input` = SUM of anthropic's three input components (anthropic's `input_tokens` EXCLUDES cache reads/writes; OpenAI's includes them). Conductor lean: **RATIFY** — sum is the cross-lane-comparable total; the alternative renders cache-hit at thousands of percent. jack-ryan rules.
+- **F-2:** 42,595 repeated transcript lines (46%) discarded via `message.id` dedupe — double-count hazard measured, not guessed.
+- **F-3:** mixed denominators on the anthropic scorecard row (`tok-in/artifact` 1055.3M over 8 artifacts; `med wall` 69m over 1 duration, across 29 units) — reported not patched (R-7); post-run render backlog.
+- **F-4:** U-11 rows are host-local (`derived_from` absolute paths — transcripts live in no repo). Standing fact for consumers.
+- **F-5 (governance candidate):** attribution 0/27 derived — the mechanical index works (fixture-proved) but **nothing durable in the repo records which session did which work**; the one real session-id fragment in custody belongs to the still-live conductor session. Candidate: session-id in completion records / custody rows as standing discipline.
+- **F-6 (conductor-spotted, → G-U11):** the tool-fence-probe rows carry `model_echo:"<synthetic>"` with all-zero token fields — gate should confirm these are measured zeros (recorded usage blocks valued 0), not nulls rendered as zeros (honest-null law, colour-layer class).
+
+R-3 fallback exercised as chartered: T3 is lane-level; workstream honest-null on 27/27. Custody: star-lord RELEASED this fold; jack-ryan CLAIM for G-U11 follows.

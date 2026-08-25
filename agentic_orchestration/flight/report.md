@@ -1,4 +1,4 @@
-# FLEET — regenerated 2026-08-25T14:30:04Z · VIEW ONLY (THE LAW: zero authority; disk is truth)
+# FLEET — regenerated 2026-08-25T14:31:49Z · VIEW ONLY (THE LAW: zero authority; disk is truth)
 
 tape: records-2026-08.jsonl (102 rows on disk; 95 after corrections) · probes: 15/15 ran · schema **v1.1** (rows stamped `v:1` — the row FORMAT is unchanged; v1.1 is the custodian-amendment marker, and a row's minimum revision is derived from its keys AND its values, never stamped — G-2b BLOCK-2: two of AM-1's three amendments live in values)
 
@@ -81,7 +81,7 @@ _The D-2 `factory lane` subcommand — which will answer all three legs under on
 - auth health (`codex login status`, the check of record): 🟢 Logged in using ChatGPT
 - CLI: `/opt/homebrew/bin/codex`
 - leg 1 (kernel lock): FREE (`codex-7b80b031a89d.lock`; probed by acquire+release, nothing persisted)
-- leg 2 (process table): scanned 538 process(es); argv[0]-anchored match on `codex`
+- leg 2 (process table): scanned 537 process(es); argv[0]-anchored match on `codex`
 - leg 3 (run-log): `_run-log.tsv` 30 rows, last `rc=0` terminal (backlog NOT derivable: 4-column pre-queue format carries no ENQUEUE marker)
 - pin (DERIVED from this lane's own rows, never asserted here): `gpt-5.6-sol@xhigh`
 - last tape activity: **30 unit(s)** on this lane; last CLOSE `vfx-p2/30-ma_video_companion` at 2026-08-24T14:03:40Z — rc 0 · tok-in 1.6M · cost — (this vendor's stream reports no dollar cost)
@@ -95,7 +95,7 @@ _The D-2 `factory lane` subcommand — which will answer all three legs under on
 - auth health (`grok models`, the check of record): 🟢 You are logged in with grok.com.
 - CLI: `/Users/admin/.grok/bin/grok` (installed, NOT on PATH — invoke by absolute path)
 - leg 1 (kernel lock): **not applicable** — no lane lock exists for this vendor. `GrokHarness` is build-delta D-6 and stays gated behind U-8 judge-pilot authorisation, so nothing takes a Grok lock today. NOT APPLICABLE (the surface does not exist), which is a different fact from a probe that failed — and it is declared on the state line as reduced coverage rather than hidden.
-- leg 2 (process table): scanned 538 process(es); argv[0]-anchored match on `grok`
+- leg 2 (process table): scanned 537 process(es); argv[0]-anchored match on `grok`
 - leg 3 (run-log): **none exists for this lane** — a Grok run-log is build-delta D-8 and is born with the queue. Backlog is unmeasured, which is not zero (#63).
 - pin (DERIVED from this lane's own rows, never asserted here): **none recorded on any row of this lane** — declared null. The pin OF RECORD lives in the lane spec (§ 2 P-5 / § 9.3); this view renders what the tape measured.
 - last tape activity: **1 unit(s)** on this lane; last CLOSE `grok-probe/2026-08-24-capability` at 2026-08-24T23:24:56Z — rc — (not recorded) · tok-in — (null, declared) · cost $0.00286 (vendor-reported)
@@ -109,7 +109,7 @@ _The D-2 `factory lane` subcommand — which will answer all three legs under on
 
 - vendor auth: see the LANES cards above (`codex login status` · `grok models` — each vendor's own check of record, run once per render)
 - `ENABLE_PROMPT_CACHING_1H`: 🔴 NOT SET in this render's env (the U-3 lever)
-- git `reincarnated-collaboration`: 🟡 main · unpushed 0 · dirty 166
+- git `reincarnated-collaboration`: 🟡 main · unpushed 1 · dirty 162
 - git `reincarnated-engine`: 🟡 main · unpushed 26 · dirty 591
 - git `reincarnated-demo`: 🟡 main · unpushed 0 · dirty 5
 - git `reincarnated-loadout`: 🟡 main · unpushed 0 · dirty 10
