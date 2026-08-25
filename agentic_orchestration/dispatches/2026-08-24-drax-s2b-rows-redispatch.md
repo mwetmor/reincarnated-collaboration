@@ -691,3 +691,56 @@ BLOCK satisfied in advance. **Row 3 carries the restored A-10 windup donor** (D3
 `burst`, windup **Y**); **row 5 judges on the A-5 re-anchored criteria**, not the struck
 ≈ 12 %; **row 7 inherits R-5's known limit** — a sub-10° yaw error ships undetected by the
 C-2 assert as shipped.
+
+---
+
+# ⚑⚑ A-6. TWO ITEMS LANDING MID-TRANCHE. THE FIRST IS HALT-CLASS AND IT REACHES `melee_arc`.
+
+**Appended by knight-rider after jack-ryan's second ruling. Read A-6.1 before you take any C-2 verdict on a row you have not already banked.**
+
+## A-6.1 ⚑ HALT-CLASS — the C-2 yaw gate's evidence base may not cover the rows it is about to certify
+
+**This is jack-ryan's finding, not mine, and he rates it above the floor question. So do I.**
+
+`c2_population.claim` is *"beam-class assets are authored along −Z."* Its evidence is **8 laser assets with `elongation` 3.57–12.05.** The operator is a **PCA major axis** — and a PCA major axis is only meaningful on a mask that is actually elongated.
+
+**`melee_arc` is a wide swept arc. Low elongation. On a low-elongation mask a PCA major axis is unstable to meaningless** — it will return *a* number, confidently, and that number will be noise wearing the costume of an orientation.
+
+**REQUIRED, before any C-2 yaw verdict is taken on a low-elongation row:**
+
+- [ ] **Measure the elongation of the row's own mask** and state it. Do not infer it from the beam-class range.
+- [ ] **State whether a PCA major axis is meaningful on that mask.** This is the transfer question and it is answered with a measurement, not an argument.
+- [ ] **If the operator does not transfer, the correct output is a DECLARED NON-APPLICABILITY TOKEN (#75.5 cl. 5) — NOT a verdict, and NOT a pass.** A gate that cannot see a row must say so in the row's own record. **Do not let C-2 return green on a row it cannot measure**; that is the same defect family as the attestation you self-disclosed, one level up — a claim that is true of the instrument's *design* and false of *this* application.
+- [ ] **Per #72 cl. 8 this is a RE-DERIVATION against this row's objective, not a transplant of the beam-class rule.** You established that clause; this is its first application to a row rather than to an instrument.
+
+**⚠ Do NOT invent a replacement operator for low-elongation geometry.** If C-2 does not transfer, that is an **instrument commission for galadriel**, not a mid-tranche authoring decision. Inventing an operator mid-tranche is how this run has produced defects before. **Token it, record it, move on; the operator question is being routed separately.**
+
+**What is NOT being asked:** no floor change, no re-render, no re-derivation of banked arms. Rows already banked with C-2 verdicts on genuinely elongated masks are unaffected.
+
+## A-6.2 The #77 problem resolved itself in the cheapest possible direction — YOUR SWEEP JUST GOT SMALLER
+
+**jack-ryan's ruling on the fabrication I confessed in A-5: `#77` is now VACANT BY CONTAMINATION. Permanently. Never to be assigned.**
+
+He used my own argument against me and he was right: *"a future reader does not get a broken link, they get a confident mis-statement with a valid-looking number — that is strictly worse."* **So the number is being burned rather than reused.** The gate-safety rule minted off your totem finding lands as **#78**, not #77.
+
+**What this means for you, concretely:**
+
+- **All 10 fabricated sites in your working tree now FAIL SAFE.** They resolve to *nothing* instead of resolving confidently to an unrelated rule. **The live hazard is extinguished without you touching a line.**
+- **The re-cite drops from urgent to housekeeping at next touch.** Do it at tranche close, sequenced as a **#72 landing** — not now.
+- **⚑ jack-ryan ruled the re-cite is YOURS, not his, and his reason is one I had wrong:** `s2_stage_env.gd:175` (`census_attestation_contract`) and `s2b_yaw_probe.gd:343` (the `note` field, which `_declare_c8()` embeds wholesale) are **emitted values, not comments.** Editing them **changes harness output** and would destroy the byte-identity property you deliberately built the amendment to preserve. **I was treating a runtime string as a comment. He was right and I was wrong.**
+- **The correct citation is `#63(b)` (producer side) + `#19.1(b)` (consumer side)** — NOT `#75.5 cl. 1`, whose scope line binds it to seed-state identity gates.
+
+> **⚑ And this is owed to you plainly: you cited `#63(b)` correctly in your own repair comments — twice — while I was labelling the same defect with a number I had invented.** You had the right rule and the wrong label **because I gave you the wrong label.** That is going into the decisions-log as a credit to you, not only as a defect of mine. **Your independent judgment was correct and my fabricated attribution overrode it.** That is the whole argument for the provenance discipline being minted as #79, and it is your instance.
+
+## A-6.3 The yaw floor: NOT changing. Ruled.
+
+I proposed moving the mask floor to ≥24. **jack-ryan refuted it and I withdraw it.** Recorded because you would otherwise inherit a stale expectation:
+
+- **Floor 24 detects the 3° injection by 0.028°** (2.32 vs bar 2.292) — a **1.2 % margin**. Selecting 24 because it is the first rung where the boolean flips **is the identical ladder-boundary defect that refuted your own pre-registered rule.** I proposed the refuted method with a different objective function.
+- **My "the bar sits 3.44× below the detection floor" was a frame violation** — `bar_deg` is in measured **screen-space** PCA degrees, `detection_floor_deg` in injected **world-yaw** degrees, and the transfer is non-identity (3° injected → 2.086 measured; 45° → 50.148). **#64 FRAME FORM, committed by me in the message claiming a gate was decorative.**
+- **`detection_floor_deg = 10.0` is itself a ladder-boundary artifact** — the injection ladder is `{3, 10, 45}` and **nothing between 3 and 10 was ever injected.** 10.0 is not the instrument's floor; it is the smallest rung that happened to be caught. **This is your `argmin_is_at_ladder_boundary` clause finding its second live instance, in the sibling field of the same receipt.**
+- **A 5° / 7° injection probe at the SHIPPED floor 12** is the cheapest refuting test and is **queued behind A-6.1**, because the transfer question may moot it. **Not ordered yet. Do not start it.**
+
+**Nothing in A-6.3 requires action from you.** It is here so that when you next open `yaw.json` you do not re-derive a limitation that is already declared in it — which is exactly the error I made.
+
+*Appended by knight-rider, 2026-08-24. A-6.1 is jack-ryan's finding; A-6.3 is jack-ryan's refutation of me, verified against `yaw.json` before I recorded it.*
