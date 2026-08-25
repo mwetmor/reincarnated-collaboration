@@ -1,0 +1,2429 @@
+{
+ "cloud-20260802": {
+  "file": "save-copy/steamcloud/_EoRWarlGuts/player.gdc",
+  "playTime": 591060,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g00": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g00",
+  "playTime": 591060,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g01": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g01",
+  "playTime": 588493,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g02": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g02",
+  "playTime": 588122,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g03": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g03",
+  "playTime": 588122,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g04": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g04",
+  "playTime": 581773,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "<type 4>",
+   "L": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "<type 4>",
+   "7": "<type 4>",
+   "8": "<type 4>",
+   "9": "records/skills/playerclass09/viremight1.dbr",
+   "0": "records/skills/playerclass09/viremight1.dbr"
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 4,
+    "position": "primary action bar #5",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_lifestealer01.dbr"
+   },
+   {
+    "index": 5,
+    "position": "primary action bar #6",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_wendigo.dbr"
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_elemental01.dbr"
+   },
+   {
+    "index": 7,
+    "position": "primary action bar #8",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/crystal_aethercluster01.dbr"
+   },
+   {
+    "index": 8,
+    "position": "primary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 9,
+    "position": "primary action bar #10",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g05": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g05",
+  "playTime": 580838,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "<type 4>",
+   "L": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "<type 4>",
+   "7": "<type 4>",
+   "8": "",
+   "9": "records/skills/playerclass09/viremight1.dbr",
+   "0": "records/skills/playerclass09/viremight1.dbr"
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 4,
+    "position": "primary action bar #5",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_lifestealer01.dbr"
+   },
+   {
+    "index": 5,
+    "position": "primary action bar #6",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_wendigo.dbr"
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_elemental01.dbr"
+   },
+   {
+    "index": 8,
+    "position": "primary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 9,
+    "position": "primary action bar #10",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g06": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g06",
+  "playTime": 580838,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "<type 4>",
+   "L": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "<type 4>",
+   "7": "<type 4>",
+   "8": "",
+   "9": "records/skills/playerclass09/viremight1.dbr",
+   "0": "records/skills/playerclass09/viremight1.dbr"
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 4,
+    "position": "primary action bar #5",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_lifestealer01.dbr"
+   },
+   {
+    "index": 5,
+    "position": "primary action bar #6",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_wendigo.dbr"
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 4,
+    "type_name": "item",
+    "item": "records/items/crafting/consumables/oil_elemental01.dbr"
+   },
+   {
+    "index": 8,
+    "position": "primary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 9,
+    "position": "primary action bar #10",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g07": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g07",
+  "playTime": 576584,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass09/ascension1.dbr",
+   "4": "",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g08": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g08",
+  "playTime": 576551,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass09/ascension1.dbr",
+   "4": "",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/fieldcommand1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "g09": {
+  "file": "save-copy/live/_EoRWarlGuts/player.g09",
+  "playTime": 575543,
+  "ui_version": 5,
+  "slot_count": 46,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "records/skills/playerclass08/soulscythe1.dbr",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass09/ascension1.dbr",
+   "4": "",
+   "5": "records/skills/playerclass08/soultransfer.dbr",
+   "L": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass08/soulscythe1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 4,
+    "position": "primary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass08/soultransfer.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/shadowstrike_d218.dbr",
+    "item": "records/items/enchants/runes/d218_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 14,
+    "position": "secondary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass08/spectralarmor1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 15,
+    "position": "secondary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/divinemandate1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 9
+   },
+   {
+    "index": 17,
+    "position": "secondary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/presenceofvirtue1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/componentskills/compa_presenceofmight_01.dbr",
+    "item": "records/items/materia/compa_sealmight.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 10
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskills/legendary/item_mightofberonath.dbr",
+    "item": "records/items/upgraded/gearweapons/swords1h/d005_sword.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 9
+   },
+   {
+    "index": 20,
+    "position": "secondary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 21,
+    "position": "secondary action bar #8",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   }
+  ]
+ },
+ "bak-20260824": {
+  "file": "save-copy/live/_EoRWarlGuts/player.gdc.bak",
+  "playTime": 595826,
+  "ui_version": 7,
+  "slot_count": 47,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 13,
+    "position": "weapon-set-2 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   },
+   {
+    "index": 46,
+    "position": "unmapped index 46",
+    "type": 5,
+    "type_name": "type=5"
+   }
+  ]
+ },
+ "live-20260824": {
+  "file": "save-copy/live/_EoRWarlGuts/player.gdc",
+  "playTime": 595993,
+  "ui_version": 7,
+  "slot_count": 47,
+  "index_lands_on_eof": true,
+  "hud": {
+   "1": "",
+   "2": "records/skills/playerclass09/viremight1.dbr",
+   "3": "records/skills/playerclass01/warcry1.dbr",
+   "4": "records/skills/playerclass09/ascension1.dbr",
+   "5": "",
+   "L": "records/skills/playerclass01/blitz1.dbr",
+   "R": "records/skills/playerclass09/eyeofreckoning1.dbr",
+   "6": "",
+   "7": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+   "8": "",
+   "9": "",
+   "0": ""
+  },
+  "all_slots": [
+   {
+    "index": 0,
+    "position": "primary action bar #1",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 1,
+    "position": "primary action bar #2",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/viremight1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 2,
+    "position": "primary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/warcry1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 3,
+    "position": "primary action bar #4",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/ascension1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 6,
+    "position": "primary action bar #7",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx2/runes/rush_d203.dbr",
+    "item": "records/items/enchants/runes/d203_rune.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 14
+   },
+   {
+    "index": 10,
+    "position": "weapon-set-1 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass01/blitz1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 11,
+    "position": "weapon-set-2 LEFT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/default/defaultweaponattack.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 12,
+    "position": "weapon-set-1 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 13,
+    "position": "weapon-set-2 RIGHT click",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/eyeofreckoning1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 16,
+    "position": "secondary action bar #3",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 18,
+    "position": "secondary action bar #5",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/playerclass09/summon_celestialguardian1.dbr",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 19,
+    "position": "secondary action bar #6",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "records/skills/itemskillsgdx1/relics/summondeathstalker.dbr",
+    "item": "records/items/gearrelic/d114_relic.dbr",
+    "isItemSkill": 1,
+    "equipLocation": 11
+   },
+   {
+    "index": 22,
+    "position": "secondary action bar #9",
+    "type": 0,
+    "type_name": "skill",
+    "skill": "",
+    "item": "",
+    "isItemSkill": 0,
+    "equipLocation": 0
+   },
+   {
+    "index": 24,
+    "position": "health potion",
+    "type": 2,
+    "type_name": "health potion"
+   },
+   {
+    "index": 25,
+    "position": "energy potion",
+    "type": 3,
+    "type_name": "energy potion"
+   },
+   {
+    "index": 46,
+    "position": "unmapped index 46",
+    "type": 5,
+    "type_name": "type=5"
+   }
+  ]
+ }
+}

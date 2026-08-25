@@ -14,7 +14,7 @@
 |---|---|---|
 | `reincarnated-collaboration` | ✅ **PUSH AS YOU GO** | Matt standing pattern, 2026-08-24 |
 | `reincarnated-engine` | ✅ **PUSH AS YOU GO** | Matt standing pattern, 2026-08-24 |
-| ⚑ `reincarnated-godot` | ❌ **COMMIT ONLY — FRESH ASK AT EACH SEAL** | conservative default; see below |
+| ⚑ `reincarnated-godot` | ✅ **PUSH AS YOU GO — for THIS SESSION ONLY** (2026-08-25 second session) | ⚑ **Matt, 2026-08-25, verbatim: _"push as you go through this session"_** — supersedes the commit-only default below **for the duration of this session and no longer.** See § 1.1. |
 | `reincarnated-demo` / `reincarnated-loadout` | ❌ fresh ask | outside the pattern's scope boundary |
 
 **Why godot is COMMIT-ONLY, stated precisely:** Matt's 2026-08-25 launch prompt contained a bracketed placeholder — `[Matt — pick one: (a) "fresh ask at seal, as before" / (b) "godot is added to the push pattern for the remainder of the Step-2 wave"]` — and **it was left UNFILLED.** ⚑ **An unfilled bracket is not a choice.** The conservative default therefore holds, per gandalf's brief § 5 and `skill_handoff_2026-08-25.md:103` (*"`reincarnated-godot` reverts to fresh-ask — this session's authorization was for this seal, not a standing extension"*).
@@ -26,6 +26,26 @@
 ⚑ **Do NOT ground the seal-time push ask in the "third-boundary rule."** Matt **revoked and deleted** that rule on 2026-08-25 (CLAUDE.md, revocation recorded per the section's own mandate). Ground the ask in the **scope boundary** — godot is outside the standing pattern — which is independent and still stands. *(`skill_handoff_2026-08-25.md` still praises the revoked rule; that handoff is stale on this point.)*
 
 **If Matt fills the bracket:** record the answer HERE, in this file, then in the dispatches. Not only in the session that hears it.
+
+---
+
+### § 1.1 — ⚑ POSTURE CHANGE, 2026-08-25 (second session): Matt extended push-as-you-go
+
+**Matt, verbatim: _"push as you go through this session"_** — given immediately after I surfaced that the godot bracket in his launch prompt was left unfilled and that it gated only the seal push.
+
+**Recorded HERE, in the wave record, BEFORE being acted on.** That ordering is the entire point of the conflict rule: *"a posture communicated to one session is not a posture the wave has."* The rule was written after this wave gave two drax sessions opposite instructions eight hours apart with no record to reconcile them. This is the first posture change since the wave got a record to hold one.
+
+**How I am reading it, stated so it can be corrected cheaply:**
+
+| Question | My reading | Why |
+|---|---|---|
+| Which repos? | **All of them, including `reincarnated-godot`.** | The only open push question on the board was godot's seal push — I had just named it as such. A reading that excludes godot makes his sentence non-responsive to the thing it answers. |
+| How long? | ⚑ **THIS SESSION ONLY.** Not the remainder of the wave. | He said *"through this session"*, not *"for the wave"* — and his launch prompt offered *"for the remainder of the Step-2 wave"* as the explicit option (b). **He did not take option (b); he took something narrower.** Reading it as wave-long would grant more than was given. |
+| What does it authorize? | **Pushing ALREADY-COMMITTED work.** | Unchanged by this. It does not authorize staging untracked files — capture directories, `.lock` files, `.tsv` state — into a push. **#62(a) still binds: verify `git diff --cached --name-status` against what you named.** |
+
+⚑ **AT THE NEXT SESSION BOUNDARY THIS EXPIRES AND godot REVERTS TO COMMIT-ONLY / FRESH-ASK.** A conductor picking this wave up after this session must not inherit the extension. That expiry is written here rather than assumed, because *an authorization whose scope is remembered only by the session that heard it is the exact defect this file exists to prevent* — and an over-broad inheritance is the more dangerous direction of error.
+
+**No mid-flight instruction change was needed for the in-flight 3A session, and none was made.** Its push clause already reads *"commit only; knight-rider requests the push at seal time."* **drax's behaviour is identical either way** — the only thing that changed is that KR now HOLDS the authorization instead of having to ask for it. The clause below stays as written for the duration of his session; changing an in-flight agent's instructions is the documented hazard, and here there was nothing to gain by it.
 
 ---
 
