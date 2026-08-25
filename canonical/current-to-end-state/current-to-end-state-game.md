@@ -30,6 +30,27 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-08-25 — STEP-2 **TRANCHE 3 FIRING (8+5)** · two stale figures in the entry below corrected (knight-rider)
+
+**Build-vs-spec delta: 10 of 24 T-A rows SEALED · 8 FIRING · 6 QUEUED.** Wave record (new, and the wave's first): `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md` — it holds the push posture, the row ledger and the in-wave rulings, per the CLAUDE.md conflict rule's requirement that a posture be recorded *against the wave* rather than only in the session that hears it.
+
+⚑ **Two figures in the 2026-08-24 entry below are STALE and are corrected here, not silently:**
+
+1. **"Tranche 1 MINTED — 4 of 24 T-A rows: `melee_strike`, `ground_targeted_circle`, `aura`, `whirlwind`."** ⚑ **`whirlwind` is NOT among the sealed rows.** Its tranche-1 mint is under **quarantine** (SB-1 A2-series cells · the CPB shaders · all `vfxbo_*` scripts) and the archetype is being re-built **clean-room** on a separate dispatch that has not yet run. **Tranche 1 sealed 3, not 4.** The corrected running count is **10 sealed** (3 + tranche 2's 7), which is the figure the wave record and gandalf's brief both carry. Counting a quarantined row as sealed inflates the wave's completion by one row *and* obscures that the run's own thesis is still untested.
+2. **"The tag is local-only; … the seal awaits Matt's push authorization."** ⚑ **Discharged.** `drax/v0.1-s2b-mint-tranche-2` @ `f119bd8` is **on `origin`** — verified independently twice (KR at session start; jack-ryan at Gate-1, `refs/tags/…^{}`). Matt authorized that push at the prior session's handoff.
+
+**Tranche 3 — 13 remaining non-whirlwind rows, split 8+5 on the BEAM PACK, not on the spec's T2/T3 tiers.** A tier split would separate `dash_attack`(T2)↔`blink`(T3) and `beam_channel`(T2)↔`chain`(T3) — precisely the pairs the spec requires be proven distinguishable side by side. The beam pack is the only dependency that can *block capture*, so it is the only real seam. **3A (8 rows) is FIRING; 3B (5 rows) is queued behind a byte-identity determinism probe** on the Binbun pack, which currently differs from itself by ~6.7 % of its authored mask between identical renders. Both Gate-1 cleared (jack-ryan, PASS-WITH-FINDINGS, M1–M4 folded pre-fire).
+
+**New deliverable class this tranche: FOUR MP4s**, each filed with the numeric series it depicts. L-19's two discriminating terms (*"clashing into"* / *"happens to be spinning along with"*) are **events in time, and a still expresses neither** — so four rows whose claims are temporal now order the object the judgment will be made on, rather than assigning the judgment and not the object. No MP4 has been produced anywhere in this wave; R-1 is an MP4 row by design so the clip pipeline is priced inside the first two rows, and the HALT checkpoint now fires on **cost** as well as on instrument defects.
+
+**`vortex_pull` mints with its displacement criterion `UNEVALUABLE — never PASS`.** The X-2 build that would make it scorable was **DECLINED at phase level** — not on cost (gamora: *"WIRING, not capability"*) but because displacement would be the sim's **first control effect to actually apply**, setting the effect-application law ahead of the `MD-B2-2` decode B-2 deliberately refused. **engine > game > phase.** Routed to Matt: `canonical/matt_decision_needed/2026-08-25-x2-vortex-pull-displacement-effect-application-precedent.md`.
+
+**`orbit`'s X-1 engine gate is DISCHARGED** (`gamora/v1.4-x1-orbit-spatial-map` @ `45a0dc15`, on origin, verified at source). The engine gauges orbit's swept **annulus** as `circle`, over-covering the interior disc — which is exactly the preserved negative space around the caster the VFX must protect, so it enters the row as an **authoring instruction** rather than a blocker.
+
+**Push posture unchanged and now recorded where it binds:** `reincarnated-collaboration` + `reincarnated-engine` push-as-you-go; **`reincarnated-godot` is COMMIT-ONLY, fresh ask at each seal.** Matt's launch prompt left the godot extension bracket **unfilled**, and an unfilled bracket is not a choice.
+
+---
+
 ### 2026-08-24 — STEP-2 BUILD WAVE **ENTERED** (knight-rider) — supersedes § below's "OWED / fires on Matt's go-word"
 
 **The line immediately below this entry is now stale in one respect and one only: the wave is no
