@@ -74,3 +74,39 @@ The two surfaces now on the table:
 **Concrete cheap instrument, offered for your judgment, not asserted:** the `file:line` surface is the one that is **mechanically checkable** — a citation of the form `path.py:NNN` can be resolved and its neighbourhood matched against the citing text. The header surface is not (it requires a `git` call per dispatch). If any of this ships as tooling rather than as prose, the `file:line` half is where it pays.
 
 **Routing for the five stale refs themselves:** gamora flagged rather than fixed, correctly — they were outside a comment-truth scope she was right to keep tight. They are hers to correct when she next opens that file; **I am not dispatching a session for five line numbers**, and recording that decision so their survival is a choice rather than a lapse.
+
+---
+
+## ⚑ SECOND ADDENDUM, same day — I dispatched a fix for a defect that had already been fixed, and I am the one who argued for the check that would have caught it
+
+**This is the strongest evidence in the filing and it is against me.** Bank it accordingly.
+
+**What happened.** I routed instance-3-of-the-third-surface — `generation/MIGRATION.md:229`'s *"6 Wave-C kits"* — to rocket as a live doc-truth defect, quoting gamora's finding. rocket's return, in his words:
+
+> *"Premise partially refuted — the named line was already fixed."*
+
+It was repaired at **`0a07c144`** (rocket, 2026-08-24 18:52) **and pushed** — roughly eighteen hours before I dispatched it. It now carries a bordered **"PROJECTED, NOT MEASURED"** box with the projected/measured split, the 6/18/21 disambiguation, and gamora's attribution. **The dispatch was written against a stale read, not against a stale doc.**
+
+**Why this is not merely embarrassing — it is the exact shape under review.** gamora's carry note in `simulation/MIGRATION.md:640-642` is itself **a pointer that no longer points.** Her note was true when written. The referent moved. Nothing re-checked it. I then followed the pointer, found it plausible, and *acted on it without resolving it* — spending a specialist session on a repair that had already landed.
+
+**And I had already written the rule against doing that, in this file, hours earlier:**
+
+> *"a dispatch header is evidence, not proof. Where a header's state is load-bearing for a decision, verify against the tag / commit / origin, not against the field."*
+
+**Load-bearing does not get narrower than "this dispatch exists because of it."** One `sed` at the cited line — the same call I ran twenty minutes later before dispatching elrond, having learned it the expensive way — would have shown the box.
+
+**⚑ What this does to the recommendation: it moves the corollary from *preferable* to *the load-bearing clause*, and it widens its trigger.** My body text scoped the corollary to consumers of `Status:` headers. That scope is too narrow by exactly this case. The corrected form:
+
+> **Before ACTING on a routed finding — dispatching it, gating on it, or citing it as a premise — resolve its pointer at source.** A carry note, a `→ agent` routing line, and a `Status:` header are all the same instrument: a cheap reference to an expensive fact, recorded by someone who could not know when the fact would move. **The one who acts is the one who must re-resolve, because they are the only party present at the moment it becomes load-bearing.**
+
+The author-side clause could not have saved this one. gamora's note was correct at authorship; there is no edit she failed to make. **Only the consumer-side check was ever going to catch it** — which is the argument the body makes, now demonstrated rather than asserted.
+
+**A refinement I did not previously see, and which I would not have believed without this case: a stale routing is worse than a stale header, because it is *actionable*.** A stale header produces a false alarm someone may notice and dismiss. A stale routing **produces a dispatch** — it converts the error into a specialist session, cross-repo commits, and a push, before anyone reads it critically.
+
+**What it cost, and the honest ledger** — because a self-report that inflates its own harm is as useless as one that hides it:
+
+- **Cost:** one rocket session (~2.4 min, 18 tool calls) on a premise that was 18 hours dead.
+- ⚑ **Return, which was real:** the neighbourhood sweep I ordered — the part of the dispatch that was *not* premised on the stale pointer — **found a live instance at `:266`**, a bare *"the 9 Wave-C kit rosters"* reading as census. It is the same defect **inside the very document that adopts the anti-census convention six lines earlier at `:260`**. rocket's line: *"A convention its own document breaks in the next paragraph is not yet a convention."* Fixed at `9d4ee5d1`, pushed.
+- **The lesson that survives both:** the dispatch paid for itself **through its sweep clause, not its premise.** *"Sweep for the class, not just the instance, and report the count including zero"* is a cheap clause that made a dead dispatch productive. **Where a routed finding might be stale, ordering the sweep alongside the fix converts a wasted session into a live one.** I intend to keep writing it, and I note that it worked here by accident rather than by design.
+
+**One measurement banked in passing** (rocket, read-only over `corpus.db`, 574 kits / 1,224 kit-skills): effect-tags `orbit` / `placed_lane` / `walls_demand` fire **0 / 0 / 0** times — **neither Wave-C tagging rule has ever fired on real data**, while 21 skills carry `orbit` geometry by the mapping path. That is a separate finding, routed to the `AOE_GEOMETRIES` deferral (routing record item 4), and recorded here only so it is not lost in a completion summary.

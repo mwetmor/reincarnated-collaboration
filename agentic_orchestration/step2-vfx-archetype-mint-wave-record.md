@@ -111,4 +111,21 @@ This wave has now produced **three dispatches whose Status header said PENDING o
 - **X-2 — declined at phase level**, routed to Matt.
 - **`AGENTS.md` ownership gap for `agentic_orchestration/factory/`** — ⚑ **ROUTED, not unrouted.** star-lord's return called it *"still unrouted"*; that is itself a stale premise, and I checked rather than relaying it: the row exists at `canonical/matt_decision_needed/2026-08-24-factory-tree-seam-ownership.md`, raised 2026-08-24, escalated because **seam-ownership assignment is architectural and exceeds ADR-002 documentation-tier.** star-lord holds interim operational custody. **What is unresolved is the ruling, not the routing** — the distinction matters, because "unrouted" invites re-filing a duplicate and "unruled" correctly points at Matt. **His substantive point stands and is sharper than he framed it:** the unowned tree has GROWN since the row was filed — a second vendor lane, a counted semaphore, a host-level lock directory outside the repo, an agent roster. Appended to the row as a growth note.
 
+---
+
+## § 7 — gamora's held routings, DISCHARGED (2026-08-25, during the 3A wait)
+
+Routing-record items 1 and 2 were deliberately **held** while three sessions were pushing to one repo. The lane was clear during the 3A build, so both fired in parallel. Recorded here rather than only in the routing record, per this file's own § 1 rule: **a disposition communicated in one session is not a disposition the wave has.**
+
+| # | Routed to | Outcome |
+|---|---|---|
+| 1 | rocket — `generation/MIGRATION.md:229` census-tense | ⚑ **PREMISE PARTIALLY REFUTED.** The named line was **already fixed** at `0a07c144` (2026-08-24 18:52, pushed) — ~18 hours before I dispatched it. I routed gamora's carry note without resolving it at source. **But the sweep clause paid:** a live instance at `:266` (*"the 9 Wave-C kit rosters"*) — inside the document that adopts the anti-census convention six lines earlier at `:260`. Fixed + pushed, `9d4ee5d1`. |
+| 2 | elrond — `mobility` / `knockback` corpus-vocabulary violation | **FIRED.** Premise **re-verified at source before dispatch** (`simulation/MIGRATION.md:643-646`; 1 occurrence each of 1,224 kit-skills) — the check item 1 taught me to run, twenty minutes late. Asked for an explicit (A) extend-vocabulary / (B) corpus-noise ruling plus a class-wide out-of-vocabulary sweep; a vocabulary extension is cross-seam and returns to me under ADR-004 rather than landing unilaterally. |
+
+⚑ **The item-1 finding is banked against the wave, not just against me.** A **stale routing is worse than a stale header, because it is actionable**: a stale header produces a false alarm someone may dismiss; a stale routing produces a *dispatch* — a specialist session, cross-repo commits and a push — before anyone reads it critically. And the author-side fix could not have helped: gamora's note was **correct when written**. Only the consumer-side check was ever going to catch it. Full write-up, including that I authored that check hours before failing to run it, is the SECOND ADDENDUM at `qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`.
+
+**Cheap instrument that fell out of it, now standing practice for this conductor:** every routed-fix dispatch carries a **sweep-the-class clause with report-the-count-including-zero**. It is what made a dead dispatch productive here — by accident rather than design, which is why it is written down.
+
+**Measurement banked in passing** (rocket, read-only over `corpus.db`; 574 kits / 1,224 kit-skills): effect-tags `orbit` / `placed_lane` / `walls_demand` fire **0 / 0 / 0** — **neither Wave-C tagging rule has ever fired on real data** — while 21 skills carry `orbit` geometry via the mapping path. Attached to the `AOE_GEOMETRIES` deferral (routing-record item 4); it materially informs that question and would otherwise have died inside a completion summary.
+
 **Recorded by:** knight-rider, 2026-08-25.
