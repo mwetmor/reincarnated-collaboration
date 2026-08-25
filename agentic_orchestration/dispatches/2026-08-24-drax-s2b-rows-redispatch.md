@@ -757,3 +757,171 @@ I proposed moving the mask floor to ≥24. **jack-ryan refuted it and I withdraw
 **Nothing in A-6.3 requires action from you.** It is here so that when you next open `yaw.json` you do not re-derive a limitation that is already declared in it — which is exactly the error I made.
 
 *Appended by knight-rider, 2026-08-24. A-6.1 is jack-ryan's finding; A-6.3 is jack-ryan's refutation of me, verified against `yaw.json` before I recorded it.*
+
+---
+
+# COMPLETION RECORD — STAGE 3 of 3. **ROWS 3–7 MINTED.** Appended by drax, 2026-08-24.
+
+Godot `d9e908c`, tag **`drax/v0.1-s2b-rows-3-7`**, **pushed**.
+Mint note § 9. Receipts:
+`harness_logs/s2b_rows37_2026-08-24/{gate.json,xrow.json,determinism.json,rt2_*.json,render.txt,arm_cost.txt}`.
+**76 arms × 2 recipes (cathedral + arena), captured TWICE end to end.**
+
+## A-1 done properly, and the two late additions are declared rather than back-dated
+
+Every bar was committed **and pushed** at `e41741e` before the scored corpus
+existed. **Two things were added after numbers had been read**, and neither is
+back-dated: row 5's **pixel-leg growth curve** (**no bar** — descriptive only)
+and row 7's **C-2 measurement mark** moved to `02-travel-early`, which is a
+**mask isolation justified by a mechanism**, not a threshold moved to flatter.
+The contaminated mark is reported alongside every arm rather than dropped.
+
+## Determinism 606/606 — and the environment claim is checkable this time
+
+Rows 1–2's honest limit was that a determinism receipt proves reproducibility
+*within* an environment and says nothing about whether the environment moved —
+the import stripped a `[rendering]` override mid-tranche and 258/258 could not
+have caught it. **This tranche needed the same import. `project.godot` was
+snapshotted, the strip observed again, and the file restored to its tracked state
+BEFORE the first arm** (md5 `f1f25805…`, recorded beside the result).
+**Mutated-then-shown-harmless became declared-and-unmutated.**
+
+## The rows
+
+| row | headline |
+|---|---|
+| **3 `circle`⊕`ring`** | ⚑ **A-10 windup lead 0.383 s — 2.09× gtc's 0.183 s, and a LOWER BOUND.** Contact response on overtaken bodies **2/4, 0 off-body**. `annulus` shares the base emitter **PROVEN** (`ring_hash` identical, peak radius 4.2→6.0, `outer_shell_frac` 0.29→0.70 — the open interior is real in pixels). Shared control **byte-identical**. |
+| **4 `single_target`** | ⚑ **The `line` boundary at 7.41×** on rendered aspect (1.29 vs 9.56). Terminates: px@post = 0. ⚠ **Thinnest coverage in T-A: 709 px against our own 535 px floor — 1.32×.** Passes, and it is the Javelin low-contrast risk in our own pixels. |
+| **5 `melee_arc`** | ⚑ **All three A-5 re-anchored criteria met**; the struck ≈12 % used nowhere. Caster retention **1.0000 / 0.9993 with ZERO authored px in the caster region** — and that **closes a limit row 1 had to declare**. Background retention 0.562/0.698. |
+| **6 `multi_projectile`** | Engine/Tier-1 wall as a **receipt**: hash identical across five element arms, **and differs on count=1** — both directions. 3 contacts, 2 clean misses. |
+| **7 `line`** | ⚑ **C-2 LIVE and PASSING**: worst **1.185° / 0.935°** vs the banked 2.907° bar, three aim vectors — **carrying its declared 10° floor, not reading as unconditional.** `travelling burst` proven (px@post = 0). Pierce: 2 targets, 6.97 m of travel past first contact. |
+
+## ⚑ RT-2 — the fork test answered CROSS-ROW, and the old instrument read in the wrong ORDER
+
+**All four (row × stage) cohorts: minimum `fire|earth`, ΔE 7.3–8.0, verdict
+FAITHFUL TRANSMITTER — surface class EXONERATED, palette indicted.** Third
+independent confirmation of `fire|earth`. **Routed to rocket (X-3).**
+
+⚑ **The hue-angle instrument named `wind|neutral` (5.2–6.3°) as the minimum,
+where CIEDE2000 ranks that pair 9.4–12.8 — well ABOVE the true minimum.** `wind`
+renders at **C\* = 0.47**. Not a low number, **a wrong order** — the
+ordering-inversion class, exactly where galadriel's § 1.3 said it would be.
+Rows 3/4/7 carry no `neutral` and sit at 12.1–14.9°; **the entire difference is
+the element-agnostic member, which is why those two rows ARE the RT-2 population.**
+
+## ⚑ THREE GATE RESULTS CONVICTED CORRECT EFFECTS. ALL THREE WERE MY INSTRUMENTS.
+
+Your standing instruction fired **three times in one scoring pass**.
+
+1. **C-2 FAILED ON THE ROW C-2 GOVERNS** — arena `aim0` at 4.198° vs a 2.907°
+   bar. The mask carried **contact-spark light spilled on arena floor geometry**;
+   at `03-first-contact` the same arms are elongation **1.15–1.53** and one
+   reports a **41.5° "error"** — an axis fitted to a cloud that has no axis.
+   ⚑ **My instrument printed `elongation` beside it the whole time and I had not
+   made the verdict conditional on it.** Repaired by isolation, not threshold.
+2 + 3. **`pierce_prohibition_ok` could never pass, on two rows** — a one-frame
+   latch, `pierced_frames` 1 every run and `bodies_visible_after_impact` == 5 of
+   5. An off-by-one inside a boolean naming a design **prohibition**. A residual
+   survived in the miss branch returning exactly `shots_that_missed` (2 of 2).
+
+**Plus two defects in instruments written this session, both R-4 one lap later:**
+the degeneracy check coded as `boundary AND monotone` **passed the very sweep it
+was written for**; and a diagnostic printed **`5378300000.0x`** for a ratio whose
+denominator does not exist — **the row-2 defect verbatim, minutes after I wrote
+the field.**
+
+**And one near-miss in the other direction:** I inferred 42 s/arm from elapsed
+wall time and nearly reported `arm_cost` as understating by 5×. Measured:
+**6.67 s/arm wall vs 6.90 reported.** ⚑ **I almost manufactured a defect in an
+instrument R-8 rests on, out of a number I had inferred instead of measured.**
+
+## ⚑ A-6 IS NOT EVALUABLE ON THIS POPULATION. THE ROWS ARE NOT CONVICTED.
+
+Every question came back below the noise bar (0.13–1.83× where receipt (v)
+returned **8.30× on the same instrument**). Decomposed:
+
+**The entire global `null_max` is ONE PAIR of ONE ROW** —
+`single_target/fire|water` at 3.6678, where every other row's max is 0.32–1.03 —
+**and 81.65 % of its squared distance is a single INTEGER descriptor**
+(`significant_components`, 1→3 on a 1,767 px mask).
+
+⚑ **galadriel named this trap in advance — for her own S-A3.** *"Connected-
+component counts are RESOLUTION-SENSITIVE."* You wrote *"this is exactly the trap
+that produced instances 2–6; the difference is that it is named in advance this
+time."* **I carried the descriptor across and did not carry the warning.**
+
+Separately, **A-6's null-leg premise is false here by spec**: it expects element
+arms of one row to be the same SHAPE, and **four of five rows key a MOTIF SWAP to
+the element axis.** Only `melee_arc` holds element to tint — **and it returns the
+tightest invariance in the gate** (spread 0.045, Jaccard 0.937), which is the
+internal check that the instrument works once labelled correctly.
+
+**Bias direction: toward FAILING the rows** — firing the anti-tuning clause and
+routing a **spurious** fold finding to gandalf. **That is receipt (v)'s false
+verdict in the same expensive direction, through a different door: (v) was a
+contaminated FLOOR, this is a contaminated NULL.**
+
+**Emitted UNRESOLVED (#72 cl. 6(b)). The instrument DECLINES; the rows are not
+convicted.** Positive control still returns distinct at 1.466×. **The repair is
+deliberately NOT made this session** — the only non-destructive fix is a new
+continuous descriptor, and inventing one after seeing the number it would change
+is 75.5 cl. 5.6 inverted. **Routed to you + jack-ryan.**
+
+**What survives without the contaminated bar, and it is the load-bearing one:**
+**Q1 `single_target` vs `line` separates 7.41× on rendered aspect** — no z-scored
+distance, no noise term.
+
+## ⚑ THE BEAM PACK IS NON-DETERMINISTIC. RT-5 CLEARED IT TO LOAD, NOT TO CAPTURE.
+
+Three renders of one identical `laser_vfx_01` arm gave three different frames:
+**maxdiff 214, up to 2,680 px at |d| ≥ 12 — ~6.7 % of ~39,800 authored px** —
+while matched controls were byte-identical. 2 unpinnable `GPUParticles3D`, 7
+census-opaque `ShaderMaterial`s. Row 7 therefore authors its layers; **C-2 stays
+live because the contract is the aim→yaw CODE PATH, not whose mesh is on the end
+of it.** **Receipt (iv)'s verdict is untouched** — the yaw angle moves in the 4th
+decimal (0.2686/0.2761/0.2826° vs a 2.907° bar) — **its reproducibility is
+qualified, and it never claimed byte-identity.** No UID-cache rebuild.
+
+## Answering your direct ask: the four rows-1–2 instrument defects
+
+| # | defect | status |
+|---|---|---|
+| 1 | gate convicted a correct effect (attack hue 4.5° through an 80 % untinted mask) | **CLOSED as a defect, PROMOTED to a standing check.** It is in this gate's header and it fired **three times** this session. |
+| 2 | ratio with a zero denominator printed as finite | **CLOSED on row 2 — AND IT RECURRED.** A field I wrote this session printed `5378300000.0x`. Now emits UNRESOLVED. **The class is not closed; only the instance was.** |
+| 3 | manifestation control did not control the arm | **CLOSED.** No unmatched control shipped in rows 3–7; every fx arm has a same-pass matched control, and axis-varying arms have their own. |
+| 4 | ⚑ **two of twenty `str.replace` edits silently no-op'd on indentation, both in `C8_DECLARATION`, where `layer` is an axis the run VARIES** | **CLOSED, and closed the way it had to be.** Rows 3–7 add **four** more varied axes — `annulus`, `motif`, `count`, `aim`. **All four were written by hand and verified against the file**, not against an edit claiming to have made it. `key_axes` now carries 13 entries. **The count=1 arm is the proof it matters**: when a shell bug silently ran it at `count=5`, the axis-carrying receipt `count1_hash_differs_as_it_must` is what caught it. |
+
+## #77 — CLOSED
+
+`s2b_yaw_probe.gd` inherited `s2_stage_env.gd:512`'s claim to be *"enumerated by
+`s2a_census.gd` at every mark"* and **had never run the census** — into the
+harness that produced receipt (iv). **Both compliant forms are in:** the probe
+now runs the census and prints `non_authored_emitter_count` (**0**, over **2**
+marks), and the shared builder no longer asserts on its callers' behalf —
+`census_attested_by` is **null** until a caller that did the check writes it
+through `attest_census()`. Verified live. `s2a_stage.gd` attests too.
+
+## Not touched
+
+**R-6 / whirlwind re-render — STAGE 4, NOT STARTED**, as instructed.
+**R-7 — no workaround built**, parked with Matt.
+
+## Routed
+
+| # | finding | to |
+|---|---|---|
+| 1 | **A-6's cross-row instrument is not evaluable on this population** — noise term is one integer descriptor on one pair; null-leg premise false on 4/5 rows by spec | **knight-rider + jack-ryan** |
+| 2 | **Beam pack non-deterministic under capture** (RT-5 cleared LOADING only); qualifies receipt (iv)'s reproducibility, not its verdict | **knight-rider + jack-ryan** |
+| 3 | **RT-2 fork test: FAITHFUL TRANSMITTER on both TRAIL-BOUNDED rows** — surface class exonerated, `fire\|earth` indicted a third time | **rocket (X-3)** |
+| 4 | **Hue-angle inverted the RT-2 ordering** (`wind\|neutral` named minimum at 5.2° where ΔE ranks it 9.4–12.8; `wind` C\* = 0.47) | **galadriel** — confirms § 1.3 |
+| 5 | **`single_target` sits at 1.32× the C-5 invisibility floor** (709 px vs 535) — the Javelin low-contrast risk, in our pixels | **galadriel + gandalf** |
+| 6 | **`melee_arc` arena curve is contact-light spill onto stage geometry** — an unasked-for GLF signal; crescent bands agree to 1.2 % once the transient decays | **galadriel** |
+| 7 | **Discipline candidate:** *a shared builder must not assert on its callers' behalf* is #77; **its dual** is that **a receipt written for one purpose is the cheapest thing that convicts an unrelated error** — the `count=1` hash caught a shell bug it was not written for | **jack-ryan** |
+
+## Next
+
+**STAGE 4 — the whirlwind re-render** (`⚑ GALADRIEL VERDICT`): port
+`_neutralize_blade_emissive()` into `wwcr_stage.gd` (absent at HEAD), re-render
+both arms at HEAD, census green with a `neutralised` key in `render.txt`, and her
+acceptance condition — **her own determinism check on delivered frames, maxdiff 0
+at `00-pre` and `09-off`.**

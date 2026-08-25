@@ -848,3 +848,504 @@ re-capture, before a single tranche-2 effect node existed.
 **Not escalated to Matt.** No § 1 design-law ruling required reopening; no sealed binding
 moved; the sealed spec was **not** patched — § 8 routes to gandalf via knight-rider, as at
 tranche 1.
+
+---
+
+## 9 · ROWS 3–7 — MINTED
+
+**Tag:** `drax/v0.1-s2b-rows-3-7` (`d9e908c`). **Receipts:**
+`harness_logs/s2b_rows37_2026-08-24/{gate.json,xrow.json,determinism.json,rt2_*.json,render.txt,arm_cost.txt}`.
+**76 arms × 2 recipes (cathedral + arena), captured TWICE end to end.**
+
+> ### ⚑ A-1, AND THE ORDERING IS CHECKABLE WITH `git log`
+> Every bar rows 3–7 are judged against was committed **and pushed** at
+> `e41741e` **before the scored corpus existed** — the five effect classes, the
+> capture script, the gate, the cross-row instrument, with all thresholds in them
+> and no output.
+>
+> **Two things were added AFTER numbers had been read, and both are declared
+> rather than back-dated:**
+> 1. row 5's **pixel-leg growth curve** (§ 9.3) — added after the corpus began
+>    rendering. **It carries NO BAR**; it is descriptive only, which is why a late
+>    addition is a much weaker hazard here than a late threshold would be.
+> 2. row 7's **C-2 measurement mark** moved from `05-full-line` to
+>    `02-travel-early` (§ 9.5). That is a **MASK ISOLATION justified by a
+>    mechanism**, not a threshold moved to flatter — and the contaminated mark is
+>    reported alongside every arm rather than dropped.
+
+### 9.0 Determinism — and the environment claim is checkable this time
+
+| | frames | byte-identical |
+|---|---:|---:|
+| two independent full passes, both stages, all five rows | **606** | **606** |
+
+**And the honest limit rows 1–2 named is now closed.** That note said: *"a
+determinism receipt proves reproducibility WITHIN an environment; it says nothing
+about whether the environment moved"* — the `--headless --import` had stripped
+`[rendering] mesh_lod/lod_change/threshold_pixels=1.0` from `project.godot`
+mid-tranche and **258/258 could not have caught it, because both passes were
+post-import.**
+
+This tranche needed the same import (five new `class_name`s). So: `project.godot`
+was snapshotted, the import run, the strip **observed again**, and the file
+**restored to its tracked state BEFORE the first arm was captured** rather than
+after. `md5 f1f25805e5334c327c27403669b202e3`, recorded beside the determinism
+result. **Mutated-then-shown-harmless became declared-and-unmutated.**
+
+---
+
+### 9.1 ROW 3 — `circle` ⊕ `ring` (§ 3.1.5) · PAYLOAD-CARRIED · `physical-cause` · `burst` · **windup Y**
+
+| item | value |
+|---|---|
+| **Layers → nodes** | (a) 16 solid blade meshes on a literal circumference (`BladeRing`, motif-swapped per element) + translucent `Interior`; (b) body-anchored `ContactPool`; (w) `WindupGlyph` + 12 converging `WindupMotes` |
+| **Takes the tint** | blades · interior · contact · windup — **4 kinds**; spec-named set is {front, contact}, the other two declared as authored extension (#40) |
+| **Must NOT move** | `RING_R`, blade count, angular distribution, `WINDUP_S`, `INTERIOR_ALPHA` |
+| **Anchor** | **caster-CENTRED — the caster stands INSIDE.** That is the fold boundary against `ground_targeted_circle`, whose caster is *"at frame-edge, ENTIRELY OUTSIDE the effect"*; the two placements sit ten lines apart in `s2a_stage.gd` so neither can be collapsed without seeing both |
+| **RT-2** | **n/a** (A-4) |
+
+**⚑ THE A-10 WINDUP DONOR EARNED ITS RESTORATION.**
+
+| mark | t | lead to `t_burst` | changed px | legible |
+|---|---:|---:|---:|---|
+| `01-windup-early` | 0.467 | **0.383** | 3,222 / 3,510 | **yes** |
+| `02-windup-mid` | 0.650 | 0.200 | 6,532 / 6,824 | yes |
+| `03-windup-late` | 0.833 | 0.017 | 9,827 / 10,046 | yes |
+
+**0.383 s — 2.09× `ground_targeted_circle`'s 0.183 s telegraph, and a LOWER
+BOUND** (already legible at the first mark inside the window). No blade is above
+the ground plane before `t_burst`, so the lead time is measuring a **telegraph**
+and not the payload arriving early. `t_burst` is derived as
+`S2B_FIRE_T (0.30) + t_burst_effect_local (0.55)`; the effect-local key is
+**named with its origin**, because the two numbers differ by exactly the stage's
+fire time and sit three characters apart in a log.
+
+⚠ **Donor scope, named:** D3 · Condemn donates the **beat structure**. Its ~3 s
+charge is a D3 pacing decision on a D3 camera and is **not** transferred —
+`WINDUP_S` is Class A. Same discipline as `melee_arc`'s Hades II cadence donor.
+
+**⚑ THE TWO EoR SEPARATORS, BOTH MEASURED.** The excluded War Cry frames are
+*"a player-centred expanding annulus with a propagating front, a ground residue,
+and NO CONTACT RESPONSE on the bodies it overtakes."* This row is structurally
+that object plus **(1)** a windup and **(2)** a contact response: **2 of 4 bodies
+struck, 0 off-body, body-anchored at torso height on the near face.** The base
+variant reaches the two bodies at r = 4.20; the `annulus` front additionally
+crosses the one at r = 2.30 — **and the difference between 2 and 3 is itself
+evidence that the toggle moved the SCHEDULE and not the CONTACT RULE.**
+
+**⚑ THE `annulus` LAYER TOGGLE SHARES THE BASE EMITTER — PROVEN.**
+
+| | base | annulus |
+|---|---:|---:|
+| `ring_hash` (angular set + normalised scale + motif) | **1932682457** | **1932682457** |
+| peak front radius | 4.20 m | 6.00 m |
+| rendered `outer_shell_frac` | 0.2915 | **0.6960** |
+
+Identical hash, divergent schedule, **and the open interior is real in pixels** —
+mass moves from the inner bins to the outer ones, which is the D2R Poison Nova
+grammar rendered rather than asserted. `perimeter_hash`'s shape, one row later.
+
+**And the shared control is a receipt, not an assumption:** the two variants use
+one `novfx` arm because the effect node is hidden wholesale in a control, so
+`annulus` cannot reach the frame. That is a *claim* until the two control frames
+are compared. **They are byte-identical.** One arm to stop being one.
+
+**Tier-1:** spread 0.052–0.070 · min Jaccard 0.834–0.906 · **min hue 14.46–14.92°**.
+**C-5:** 107,994–119,055 px (5.59–5.74 % coverage) — above our own 535 px floor,
+far below the 67 % ceiling.
+
+---
+
+### 9.2 ROW 4 — `single_target` (§ 3.1.6) · PAYLOAD-CARRIED · `burst`
+
+**⚑ THE LOAD-BEARING BOUNDARY, MEASURED ON THE RENDERED FRAME.**
+
+| | rendered aspect (major/minor) |
+|---|---:|
+| `single_target` at `03-flight-mid` | **1.287 – 1.290** |
+| `line` at `05-full-line` (cathedral) | **9.564** |
+| **ratio** | **7.41×** |
+
+Essence Drain *protects* the boundary, Javelin *softens* it — and our payload
+cloud is **nearly round** where `line`'s is a **9.5 : 1 streak**. The number is
+taken at FLIGHT marks, where the mask is body + trail with **no impact residue in
+it**: a mixed mask dilutes the property and the dilution reads like a defect in
+the effect. That isolation is row 2's lesson applied prospectively.
+
+**`pierce` absent by construction:** authored px at `07-post` = **0** on both
+stages, `pierced_frames` = 0, impact residue on the target's body volume with
+`impact_off_body` = 0.
+
+**⚑ AND ITS COVERAGE IS THIN — A REAL FINDING, NOT A FAILURE.** The dimmest
+motif (`earth`, spear) measures **709 px on arena / 723 on cathedral** against
+our own **535 px `p_trail` invisibility datum**. It PASSES, at **1.32×** the
+floor. That is the thinnest margin anywhere in T-A so far, and it is exactly the
+risk § 3.1.6's own confound register names: *"the dark spear against dark terrain
+is genuinely low-contrast and identity is carried almost entirely by the wake — a
+real risk in our dark-mood register."* **The reference's honest limit showed up
+in our own pixels.** Surfaced, not tuned.
+
+**Tier-1:** spread **0.83–0.84**, min Jaccard **0.45**, min hue 13.89–13.91°.
+⚑ **That spread is the MOTIF AXIS DOING ITS JOB, not a failure** — see § 9.6.
+
+---
+
+### 9.3 ROW 5 — `melee_arc` (§ 3.1.7) · TRAIL-BOUNDED · **RT-2 population** · `burst`
+
+**⚑ THE STRUCK ≈ 12 % IS USED NOWHERE.** A-5's three portable properties replace
+it, and all three are in `gate.json`:
+
+**(a) angular extent < 360° and radial thickness / outer radius** — per motif:
+
+| motif | extent | thickness/outer | crescent-not-field |
+|---|---:|---:|---|
+| scythe | 168° | 0.2722 | ✅ |
+| axe | 118° | 0.2909 | ✅ |
+| claw | 142° | 0.3239 | ✅ |
+| greatsword | 150° | 0.2917 | ✅ |
+
+Machine-checked **per motif inside the effect class**, because *"do not thicken
+the crescent into a field"* is an acceptance criterion and an assert is the only
+form of that sentence a future edit cannot skim past.
+
+**(b) background-structure retention THROUGH the arc: 0.562 (cathedral) / 0.698
+(arena)**, Sobel |∇| > 10, **operator named** (Amendment G-4), measured against
+each arm's own matched control so it is a statement about the EFFECT.
+
+**(c) caster-pixel retention at the arc's origin: 1.0000 / 0.9993, with ZERO
+authored pixels inside the caster region.**
+
+⚑ **(c) CLOSES A LIMIT ROW 1 HAD TO DECLARE AND COULD NOT MEASURE.** Row 1's
+gate said: *"this bounds how much of the effect is opaque, not which pixels are
+the caster's. The caster-specific number needs a caster-only matte the harness
+does not emit."* The harness now emits the rig's foot and head **unprojected
+through the capture camera by the engine**, which gives a principled disc instead
+of an eyeballed rectangle — and the gate never re-derives the camera. **Zero
+capture cost.**
+
+⚑ **AND THE INTERLOCK IS NOW EVIDENCE RATHER THAN AN ARGUMENT.** On a bare floor
+`structured_px_in_region` would be ~0 and the criterion would return UNRESOLVED —
+*"terrain visible THROUGH the arc" is untestable where there is no terrain.*
+**E-0 going first is what made this row's core prohibition measurable at all.**
+
+**The evidence upgrade, and one honest correction to it.** § 3.1.7's limit is
+that the extraction master does **not** contain the blade, so *"the arc IS the
+weapon's own path"* was **confirmed-CONSISTENT, not proven.** The crescent's
+extent is read off the blade's real world transform every frame — but
+⚑ **three of the fields I first emitted for this are TAUTOLOGIES**:
+`blade_swept_bearing_deg` and `crescent_swept_bearing_deg` are computed from the
+same variable, and `arc_to_blade_dev_max_deg` compares the swept range against
+the sample just folded into it. Restatements of the construction wearing
+evidence's clothes. **The falsifiable form is that the crescent GROWS ACROSS THE
+SWING**, and it does:
+
+| mark | `01-windup` | `02-swing-early` | `03-swing-mid` | `04-contact` |
+|---|---:|---:|---:|---:|
+| cathedral authored px | **0** | 7,245 | 12,042 | 13,984 |
+
+**`01-windup` = 0: the crescent does not exist before the path does.**
+
+⚠ **The arena curve is NOT monotone (14,708 → 26,606 → 20,739) and it is not the
+crescent shrinking.** Swept across floors 2/4/8/12 it is non-monotone at every
+one, so it is not a threshold artifact. Radial decomposition against the caster's
+screen position: arena carries up to **7,924 px inside r < 95** and **1,930 px
+beyond r > 155** that cathedral does not have at all — the crescent's own band is
+r ∈ [95, 155]. It is **CONTACT-SPARK LIGHT SPILLING ONTO ARENA FLOOR GEOMETRY**,
+which the cathedral terrace has nowhere to receive (E-0 finding #4: a showcase
+diorama, not a room). **Decisive check: at `05-follow`, with the transient light
+decayed, the two stages' crescent bands agree to 1.2 %** (13,397 vs 13,235).
+Not a defect — and arguably a positive S-axis signal, which is galadriel's GLF
+quantity showing up unasked.
+
+**Tier-1 element (tint only): spread 0.045–0.076, min Jaccard 0.927–0.937 — the
+tightest invariance in the whole gate**, and that is the internal consistency
+check that the instrument measures what it should once labelled correctly (§ 9.6).
+**Motif is a SEPARATE axis** (`--motif=`), because keying it off element would
+move the crescent's geometry with element and confound this very number.
+Motifs distinguishable: max Jaccard 0.80 / 0.85.
+
+**`burst`:** authored px at `07-post` = **0** on both stages. Contacts **2/4**,
+off-body 0 — two bodies inside, and two outside in **two different ways** (one
+out of BEARING, one out of RADIUS), because a discrimination claim proven only
+against distance has not been tested against the sector.
+
+---
+
+### 9.4 ROW 6 — `multi_projectile` (§ 3.1.9) · TRAIL-BOUNDED · **RT-2 population** · `burst`
+
+**⚑ THE ENGINE / TIER-1 WALL, AS A RECEIPT.** `engine_param_hash` is **identical
+across all five element arms (1572252)** and **differs for the count = 1 arm** —
+both directions checked, because a hash that did not move on a count change would
+mean the hash cannot see the axis it exists to police.
+
+Count / spacing / range move through **one door** (`set_engine_params`, called by
+the harness); `_apply_tint()` cannot reach them. **Not a cross-seam contract
+change** — the VFX *accepts* the parameters and is not wired to engine emission
+(Principle-6 gate); a later lap that drives them is a contract change **then**,
+with its own MIGRATION.md per ADR-004.
+
+**Discrimination: 3 contacts of 4 bodies, 2 shots missed, 0 off-body.** A lane
+with no body in it produces **no** impact response — an archetype whose hit
+response fires whether or not it hit anything is not a projectile.
+
+**Tier-1:** spread 0.282–0.314, min Jaccard 0.710–0.729 (motif keyed to element —
+§ 9.6).
+
+---
+
+### 9.5 ROW 7 — `line` (§ 3.1.10) · PAYLOAD-CARRIED · **`travelling burst`** · **C-2 LIVE**
+
+**⚑ C-2, THREE AIM VECTORS, PIXEL LEG:**
+
+| stage | aim 0 | aim +35 | aim −50 | worst | bar |
+|---|---:|---:|---:|---:|---:|
+| cathedral | 1.076° | 0.627° | 1.185° | **1.185°** | 2.907° |
+| arena | 0.106° | 0.416° | 0.935° | **0.935°** | 2.907° |
+
+**PASS on both stages — and the PASS is NOT unconditional.** It carries the
+banked **10° detection floor** (receipt (iv) / R-5): a sub-10° yaw error ships
+undetected by that assert as shipped. R-4 showed the floor drops to 3° at mask
+floor ≥ 24, **but recovering it means SELECTING a floor and the rule that would
+select one is refuted** (monotone objective, argmin at the ladder boundary). The
+limit is **DECLARED, NOT CLOSED**, and its exposure is bounded: all eight
+`laser_vfx_0*` assets measure 0.218°–0.969°, an order of magnitude inside the
+floor. **The exposure is a future asset, not a current one.**
+
+**`travelling burst`, not `sustained`:** authored px at `07-post` = **0**,
+`verts_after_clear` = 0. That frame exists for exactly this and it is the only
+frame in the row that can prove it — a lifecycle claim nobody sampled after the
+clear is a lifecycle claim nobody tested.
+
+**`pierce`:** **2 targets pierced**, trail persists past first contact,
+**6.967 m of travel after the first pierce**, 0 off-body. The two straddling
+marks exist because *"the trail persists past first contact"* is a comparison
+between two frames and cannot be read off one.
+
+**Tier-1:** spread 0.162–0.292, min Jaccard 0.735–0.744, min hue 12.11–12.20°.
+
+**⚑ THE BEAM PACK IS NOT MOUNTED, AND THE REASON IS A MEASUREMENT.**
+RT-5 cleared the pack for **LOADING**. Loading is not **CAPTURING**. Three
+renders of one identical `laser_vfx_01` arm produced **three different frames**:
+
+| comparison | maxdiff | px ≥ 12 | px ≥ 4 |
+|---|---:|---:|---:|
+| pass 1 vs pass 2 | 214 | 2,292 | 6,084 |
+| pass 2 vs pass 3 | 214 | 2,680 | 6,972 |
+
+against ~39,800 authored px — **~6.7 % of the authored mask drifting**, while
+the matched **control** frames were byte-identical. The asset ships **2
+`GPUParticles3D`** (which cannot be pinned to the stage clock) and **7
+`ShaderMaterial`s** (which the C-8 census can only classify as `shader?` —
+UNKNOWN, not assumed-innocent, and an uninspectable second tint channel that
+Tier-1 survivability would then be measured *through*). Every Tier-1 claim on
+this row is a comparison between element arms of one geometry; **a payload that
+differs from ITSELF by 2,680 px cannot support one.**
+
+**Effect on banked receipt (iv):** the yaw ANGLE moves only in the fourth
+decimal — **0.2686 / 0.2761 / 0.2826°** at the shipped floor against a 2.907°
+bar. **The receipt's verdict stands; its reproducibility is qualified, and it
+never claimed byte-identity.** C-7's actual prohibition is honoured: no UID-cache
+rebuild anywhere. **Confound register gains an entry after inspection**, which is
+the expected outcome per the tranche-1 propagation finding.
+
+---
+
+### 9.6 ⚑ RT-2 — AND THE HUE INSTRUMENT DID NOT READ LOW, IT READ IN THE WRONG ORDER
+
+A-4 predicted this tranche makes galadriel's § 1.3 fork test **cross-row for the
+first time**. All four (row × stage) cohorts agree:
+
+| cohort | CIEDE2000 minimum pair | ΔE | fork verdict |
+|---|---|---:|---|
+| `melee_arc` @ cathedral | **fire\|earth** | 7.528 | FAITHFUL TRANSMITTER |
+| `melee_arc` @ arena | **fire\|earth** | 7.305 | FAITHFUL TRANSMITTER |
+| `multi_projectile` @ cathedral | **fire\|earth** | 7.566 | FAITHFUL TRANSMITTER |
+| `multi_projectile` @ arena | **fire\|earth** | 8.034 | FAITHFUL TRANSMITTER |
+
+**TRAIL-BOUNDED is EXONERATED as a surface class on two independent rows; the
+PALETTE's fire/earth proximity is what is indicted.** Third independent
+confirmation of `fire|earth` as the tightest pair. **Routed to rocket (X-3).**
+`mask_choice_moves_the_minimum` = False on all four, so the instrument's own
+known instability did not fire.
+
+**⚑ AND THE HUE-ANGLE INSTRUMENT INVERTED THE ORDERING — exactly the failure
+§ 1.3 exists to prevent.** My gate's hue block named **`wind|neutral` at
+5.17–6.27°** as the minimum on both RT-2 rows. On CIEDE2000 that same pair
+measures **9.4–12.8, well ABOVE the true minimum.** `wind` renders at
+**C\* = 0.47** at the low floor — essentially zero chroma, where hue angle is
+undefined.
+
+**This is not "the number was low."** It is the same **ordering-inversion class**
+KR flagged in HLF/GLF, and it would have read as *"rows 5 and 6 lost their tint"*
+on precisely the two rows RT-2 governs. **Rows 3, 4 and 7 do not carry `neutral`
+and their hue minima sit at 12.1–14.9°; rows 5 and 6 do, and theirs collapse.
+The entire difference is the presence of the element-agnostic member** — which is
+*why* those two rows are the RT-2 population in the first place.
+
+### ⚑ 9.7 THE OTHER THING THE HUE NUMBERS TAUGHT: WHY ROW 4's 0.83 SPREAD IS NOT A DEFECT
+
+Coverage-invariance spread, by row:
+
+| row | element axis carries | spread | min Jaccard |
+|---|---|---:|---:|
+| `melee_arc` | **tint only** | **0.045–0.076** | **0.927–0.937** |
+| `circle` | tint + motif | 0.052–0.070 | 0.834–0.906 |
+| `line` | tint + motif | 0.162–0.292 | 0.735–0.744 |
+| `multi_projectile` | tint + motif | 0.282–0.314 | 0.710–0.729 |
+| `single_target` | tint + motif | **0.829–0.843** | **0.447–0.452** |
+
+**The ordering is predicted by what the element axis carries and by how much of
+the mask the motif occupies.** `melee_arc` — the only row holding element to
+tint — is the tightest. `single_target` is the loosest because its motif *is*
+essentially the whole mask (a 700–1,600 px payload; a sphere fills its bounding
+box, a spike does not, so projected area moves 2.2×).
+
+⚑ **And § 3.1.6 carries NO "never let a recolour raise coverage" clause.** That
+clause is **row 1's** (`self_buff`, § 3.1.3), where radius/alpha/count are the
+readability contract. Applying row 1's bar to row 4 would have been **row 2's
+false conviction in a third location**: a number that convicts, produced by a
+mask whose composition the claim does not match. **The pass shape on a
+motif-swapping row is hue MOVED plus the row's own invariants held** (trail span,
+arc frac, pierce absence, engine-param hash) — all of which hold.
+
+---
+
+### ⚑ 9.8 FIVE DEFECTS IN MY OWN INSTRUMENTS, AND THREE OF THEM CONVICTED CORRECT EFFECTS
+
+The standing instruction from rows 1–2 fired **three times in one scoring pass**.
+
+**1. ⚑ C-2 FAILED ON THE ROW C-2 GOVERNS — AND IT WAS THE MASK.**
+Scored at `05-full-line`, arena `aim0` returned **4.198°** against the 2.907°
+bar. By that mark the mask carries **contact-spark light spilled across the arena
+floor**, which is not the payload. The same arms at `03-first-contact` measure
+elongation **1.15–1.53** — near-isotropic blobs — and one reports a **41.5°
+"error"**, which is an axis fitted to a cloud that *has no axis*.
+⚑ **My instrument printed `elongation` beside that number the whole time and I
+had not made the verdict conditional on it** (#72 cl. 6(b)). Repaired by **mask
+isolation, not by a threshold**: C-2 is scored at `02-travel-early`, before the
+first pierce, where the mask is payload-only. All six arms then read
+0.106–1.185°. The contaminated mark is reported alongside every arm.
+
+**2 + 3. `pierce_prohibition_ok` COULD NEVER PASS, ON TWO ROWS.** The payload
+body was hidden on the tick *after* impact, leaving it visible for exactly one
+frame. `pierced_frames` latched to **1** every run; row 6 returned
+`bodies_visible_after_impact` == `shots_built` (**5 of 5** — one frame per shot).
+**An off-by-one inside a boolean that names a design PROHIBITION.** The pixel leg
+said the opposite all along (px at post-mark = 0). A residual survived the first
+repair in the **miss** branch, returning exactly `shots_that_missed` (2 of 2) —
+*the mechanism naming itself* — and that counter was **mislabelled** as well as
+late: a shot reaching max range has not "impacted" anything, so counting it under
+a pierce prohibition conflates *hit a body* with *ended its flight*.
+
+**4. ⚑ THE R-4 DEGENERACY CHECK I WROTE TO ENFORCE R-4 FAILED R-4.** I coded the
+verdict as `boundary AND monotone`. **R-4's rule is that the BOUNDARY is the
+hazard**; monotonicity is merely the most obvious route to it. The conjunction
+weakened the test until it **passed the very sweep it was written for** — argmin
+on the first ladder point, objective non-monotone — and printed *"genuine
+interior optimum."* A boundary argmin on a **non-monotone** objective is *worse*:
+the objective has an interior **maximum**, so both ladder ends are local minima
+and the winner is decided by where the ladder stops **at either end**. Boundary
+alone now disqualifies, and the corrected check returns **DEGENERATE**.
+
+**5. A RATIO WITH NO DENOMINATOR PRINTED AS `5378300000.0x`.** A diagnostic I
+added *minutes earlier* divided by `max(null_a, null_b, 1e-9)` for the positive
+control, whose two rows have exactly one arm each in the E-1 cohort and therefore
+**no within-row pairs at all**. ⚑ **The exact defect I self-disclosed on row 2**
+(`step_frac = 3345.0` from `(3345 − 0) / max(0, 1)`), one lap later, in a field
+I had just written. Emits UNRESOLVED now.
+
+**Plus one near-miss that was not an instrument defect at all:** I estimated
+**42 s/arm** from inferred elapsed wall time and was about to report `arm_cost`
+as understating by 5×. **Measured properly: 6.67 s/arm wall vs 6.9 s reported.**
+The instrument was fine. ⚑ **I nearly manufactured a defect in my own instrument
+out of a number I had inferred instead of measured** — R-8 rests on those
+arm-cost figures, so the false report would have landed on a number KR used to
+change his mind.
+
+**And one environment trap, three times:** `zsh does not word-split unquoted
+parameter expansions`. It silently collapsed multi-argument strings into single
+tokens, and on the third occurrence it produced a **wrong-but-plausible corpus** —
+every rebuilt row-6 arm ran at default `count=5`, including the arm whose whole
+purpose is `count=1`. ⚑ **Caught only because `count1_hash_differs_as_it_must`
+came back False: a receipt written for a different purpose convicted it.**
+Rebuilt under `bash` with explicit arguments; determinism returned to 606/606.
+
+---
+
+### 9.9 ⚑ A-6 IS NOT EVALUABLE ON THIS POPULATION — AND THE ROWS ARE NOT CONVICTED
+
+The cross-row instrument returned **every question below the noise bar** at the
+selected floor (ratios 0.13–1.83 where receipt (v) returned **8.30×** on the
+*same instrument*). Two orders of magnitude on one instrument is a finding about
+the instrument.
+
+**Decomposed rather than argued:**
+
+| row | within-row `null_max` |
+|---|---:|
+| **`single_target`** | **3.6678** |
+| `multi_projectile` | 1.0262 |
+| `line` | 0.7554 |
+| `melee_arc` | 0.6011 |
+| `circle` | 0.3187 |
+
+**The entire global noise term is ONE PAIR of ONE ROW** —
+`single_target/fire | single_target/water` — and **81.65 % of its squared
+distance is a single INTEGER descriptor**, `significant_components`, flipping
+**1 → 3** on a 1,767 px mask because a ~18 px fragment crosses the 1 % cutoff.
+Every other descriptor between those two arms agrees closely
+(`largest_component_frac` 0.988 vs 0.952; aspect 1.20 vs 1.21).
+
+⚑ **galadriel NAMED THIS TRAP IN ADVANCE — for her own instrument.** Amendment
+G's S-A3 note: *"connected-component counts are RESOLUTION-SENSITIVE; at
+1920×1080 structure that merged into one component at 1152×648 may resolve into
+several."* KR wrote *"this is exactly the trap that produced instances 2–6; the
+difference is that it is named in advance this time."* **I carried the descriptor
+into my instrument and did not carry her warning across.** It did no harm in
+receipt (v), whose arms were 82,000 px with stable topology; it dominates on a
+1,700 px payload.
+
+**And A-6's null-leg premise is separately false here.** Its stated expectation
+is *"~0 under P-axis geometric invariance: element arms of one row are the same
+SHAPE."* **On four of five rows the spec keys a MOTIF SWAP to the element axis**,
+so that premise is false *by design* — only `melee_arc` holds element to tint.
+
+**Direction of the bias: toward FAILING the rows**, which fires the anti-tuning
+clause and routes a **spurious fold finding to gandalf about L-29**. ⚑ **That is
+the same false verdict in the same expensive direction receipt (v) was built to
+prevent, arriving through a different door: (v) was a contaminated FLOOR, this is
+a contaminated NULL.**
+
+**Emitted UNRESOLVED per #72 cl. 6(b)** — *a row the instrument DECLINES is
+emitted as UNRESOLVED, never folded into a substantive verdict token.* **The rows
+are NOT convicted of failing to separate. The instrument declines.** The positive
+control still returns distinct at **1.466×**, so the failure is specific to the
+noise term and not general (#75 cl. 2's leg holds).
+
+**⚑ THE REPAIR IS NOT MADE IN THIS SESSION, DELIBERATELY.** The two candidates
+are (a) drop the descriptor — but it is the one carrying the payload-COUNT axis,
+which is exactly what Q2 needs, so dropping it makes Q2 *unaskable*; or (b)
+replace it with a continuous statistic of the component-size distribution. **(b)
+is a NEW INSTRUMENT, and inventing one after seeing the number it would change is
+75.5 cl. 5.6 inverted.** The mechanism is published; the instrument is not re-cut
+to suit its own output. **Routed to knight-rider + jack-ryan.**
+
+**What CAN be said from this corpus without the contaminated bar** — and it is
+the load-bearing question:
+
+> **Q1 `single_target` vs `line` separates on the single most relevant descriptor
+> by 7.41×** (rendered aspect 1.29 vs 9.56, cathedral), which requires no
+> z-scored distance and no noise term at all.
+
+---
+
+### 9.10 Standing items
+
+- **Frame retention:** camera, tonemap, seed, module counts in `STAGE_META` on
+  all 76 arms, **plus** `census_attested_by` (#77) and the caster's screen
+  footprint. **PNGs not committed** (Synty licence) — 1.2 GB on disk, 32 MB of
+  committed records. **No workaround built** (KR R-7); parked with Matt.
+- **Measured arm cost: 6.90 s/arm** (n = 76), wall-verified at **6.67 s/arm**.
+  **R-8 stands** — capture is not the cost of a row.
+- **S scored QUALITATIVELY** (galadriel § 1.9). **No S bar proposed or implied.**
+- **R-6 untouched.** Stage 4 not started.
