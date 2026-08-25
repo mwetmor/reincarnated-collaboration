@@ -6,6 +6,7 @@
 **Approved by:** Matt, 2026-08-24 (launch word covering the whole carve-out #2 agenda)
 **Pattern:** B (dedicated session)
 **Gates:** jack-ryan Gate-1 DESIGN-MODE — **RETURNED 2026-08-24: PASS-WITH-FINDINGS, ten amendments BINDING. Read § Gate record before Row 1.** A-1 fires before the first cathedral capture; A-2's seven sensitivity receipts gate rows 3–7; A-7 removes `stock_vfx_enabled` from this dispatch's scope.
+**⚑⚑ ALSO READ `§ AMENDMENT G` (in the E-0 block, above Required reading) BEFORE YOUR FIRST CATHEDRAL CAPTURE.** galadriel verified E-0's instrument choice and returned *"right instrument, wrong number."* **9.35 % is a scene number, not an effect number; the comparable quantity is ΔHLF against a matched fx-off control, which makes E-1 the instrument rather than backfill; and S-A1/S-A2/S-A3 are the derived pass thresholds that A-1 requires you to pre-register.** A-5's `melee_arc` re-anchor and A-10's `circle` windup donor are folded into their row bodies; the struck text is left visible in both.
 **Position in wave:** tranche 1 minted (3 rows) + WW-AB minted (`whirlwind`) → **galadriel's minted gate returned with 7 findings** → **you mint tranche 2** → galadriel re-gates → gandalf DRIFT-CRITIC.
 
 ---
@@ -43,6 +44,42 @@ galadriel's § 1.9, verbatim:
 - [ ] One arm per row is sufficient. If an effect's *readability* changes materially against structured geometry — an additive effect that had near-perfect contrast by construction on a bare floor may not — **that is a finding about the R axis on the harder test**, and galadriel's own § 2.0 anticipates it: her stage *"reproduces the flattering condition."* Surface it; do not tune the effect to rescue the number.
 
 **E-0 and E-1 are the only items in this dispatch that may proceed before the Gate-1 record below is filled in.**
+
+---
+
+### ⚑⚑ AMENDMENT G — POST-AUTHORING, FROM GALADRIEL, 2026-08-24. READ BEFORE YOUR FIRST CATHEDRAL CAPTURE. IT CHANGES THE NUMBER E-0 AIMS AT AND IT CHANGES WHAT E-1 IS.
+
+I routed my E-0 instrument choice to galadriel for verification rather than assuming it. Her verdict: **"Right instrument. Wrong number — and I did name it for a weaker reason than the one you used."** Three findings, all binding, all derived (`galadriel/pipeline/stage_adequacy.py`, `galadriel/reports/s2-gate-2026-08-24/m-stage-adequacy.json`, notes § 1.9a, commit `74df5fc8`):
+
+**G-1 — ⚑ THE 9.35 % CATHEDRAL ANCHOR IS A SCENE NUMBER, NOT AN EFFECT NUMBER. DO NOT COMPARE A MINT'S ABSOLUTE HLF TO IT.**
+Decomposed: **9.343 % = 1.759 % stage + 7.584 % effect.** The cathedral clears her own 1.5 % bloom threshold **with zero hero VFX in the scene.** Her words: *"Comparing a mint's absolute HLF to 9.35 % compares an effect against an effect-plus-scene. That is C-3 through a fifth door."* My E-0 text above says the S axis *"becomes a comparison against a number measured on the same geometry."* **That sentence is wrong and is hereby struck.** Same geometry is necessary and not sufficient.
+
+**G-2 — ⚑ THE COMPARABLE QUANTITY IS ΔHLF AGAINST A MATCHED fx-OFF CONTROL ON THE SAME STAGE. NEVER HLF.**
+Consequence, and it is the one that reorders your work: **E-1 is not backfill. E-1 is the instrument.** Verbatim: *"You scoped it as 'makes the scorecard comparable.' It is more than that — the fx-off control arm is the only thing that converts HLF from a statement about a stage into a statement about an effect. Without it there is no S axis on any stage, cathedral included."* Read the § E-1 heading above as **"E-1 — the fx-off control arms, without which no S score in this tranche is a statement about an effect"** and sequence it accordingly. Every row in this tranche needs an fx-off control on every stage it is captured on, not just the four already-minted rows.
+
+**G-3 — 9.35 % IS NOT CAMERA-PORTABLE EITHER.** It was measured 1152×648 top-down in Movie Maker; we render 1920×1080 on the ratified camera. **Same error class as the ≈ 20 % GTC finding and as A-5's `melee_arc` ≈ 12 %.** This is now the third instance. Treat any percentage lifted from a foreign camera as non-portable **by default**, and say so in the mint note rather than re-deriving the rule a fourth time.
+
+#### The derived stage-adequacy thresholds — these REPLACE my "if it comes back near-bare, that is a finding," which had no pass condition and therefore could not fail
+
+Her measured floor, both stages, effect-off:
+
+| | s2a bare | cathedral (no hero VFX) |
+|---|---:|---:|
+| structured content ∇ > 10 | **0.304 %** | **44.570 %** |
+| HLF with no VFX | **0.0018 %** | **1.759 %** |
+| luma spread p25→p75 | **1.07** | **34.60** |
+
+- **S-A1 — structured content ≥ 15 %.** One third of the measured 44.570 %. ⚑ **The one-third safety fraction is her judgment and is labelled as such; the quantity it is a fraction of is measured.** Do not report the fraction without the label (#40).
+- **S-A2 — the same density must hold LOCAL TO THE EFFECT.** A global fraction is gameable: the s2a stage's structured pixels **all sit in one 59×94 px island**. Measure the density in the effect's own neighbourhood, not over the frame.
+- **S-A3 — ⚑ STAGE-CARRIED LIGHT FRACTION ≥ 0.12. THIS IS THE DECIDER, AND GALADRIEL ASKED SPECIFICALLY THAT IT GO IN YOUR DISPATCH.** Of the pixels that newly cross the HLF threshold when the effect fires, what share lies **outside the emitter's own contiguous core**. On her anchor: 59,656 newly-crossing px across 447 components, largest component = 75.93 %, so stage-carried = **0.241**. The bar is half of that. **On a bare stage this is ≈ 0 by construction** — which is exactly why it is the decider and why S-A1 alone would not have been.
+
+#### How this composes with jack-ryan's A-1 — it interlocks, it does not conflict
+
+A-1 requires you to pre-register, before the first cathedral capture, *"the expected structured-content fraction for the cathedral stage, the margin below which E-0's refutation condition fires, and the two-cohort C-3 partition."* **S-A1 / S-A2 / S-A3 ARE those pre-registration values, and they were derived independently of your capture, which is what makes them a legitimate pre-registration rather than a post-hoc fit.** Pre-register them verbatim with their source, then measure. A-2 item (ii) still stands on top: your derivation must reproduce galadriel's **0.218 %** on the bare stage — note that her § 2.0 figure (0.218 %) and her § 1.9a figure (0.304 %) are **two different measurements, not a discrepancy to average**; reproduce the one whose method you are running and say which.
+
+#### One thing that is now KR's, not yours
+
+galadriel has been notified of the two-cohort C-3 partition (A-1 / jack-ryan's disposition item 1). **You do not carry that notification.** Her HALT condition 3 is re-scoped on her side before she re-gates.
 
 ---
 
@@ -84,7 +121,11 @@ The **WW-AB clean-room protocol is discharged** — you have minted `whirlwind`,
 `s2a_census.gd` exists and it earned its keep: it found a third emitter nobody had enumerated (the Greatsword's emissive material, **on the very blade the trail is generated from**). galadriel accepted the tranche-1 declaration **specifically because it was derived by ancestry rather than hand-listed** (Discipline #76).
 
 - [ ] **Run the census at every capture mark, on both stages.** The cathedral stage is new geometry and **new geometry is exactly where an un-enumerated emitter enters** — a torch, a brazier, a glowing rune on a wall. If the cathedral recipe ships emissive set-dressing, **that is not automatically a defect** (a lit environment is the point), but it **must be declared and classed** — INHERITED-BY-DESIGN is a legitimate class; INHERITED-AND-UNNOTICED is not.
-- [ ] **`KingRig.stock_vfx_enabled` — routed to me at tranche 1, and I am routing it back to you with a decision.** You own `reincarnated-godot/` end to end, so the flip is yours to make; what you correctly escalated is that it changes *other scenes' behaviour*, and that is the part I am answering. **Flip the default to `false`, and make the throne-room / presentation scenes opt in explicitly.** Rationale: a default that ships the L-19 failure mode into every frame is a default that is wrong in the common case, and an opt-in at four call sites is cheaper than a confound in every capture forever. **If the opt-in surface turns out to be materially larger than a handful of scenes, stop and tell me** — that changes the arithmetic and I will take it back.
+- [ ] ~~**`KingRig.stock_vfx_enabled` — flip the default to `false`, and make the throne-room / presentation scenes opt in explicitly** … *an opt-in at four call sites is cheaper than a confound in every capture forever* … *if the opt-in surface turns out to be materially larger than a handful of scenes, stop and tell me*.~~
+  ⚑ **STRUCK BY GATE-1 A-7. DO NOT DO THIS IN THIS TRANCHE.** Two reasons, and the second one is mine to own:
+  **(a) It is not load-bearing here.** Tranche 1 already returned `non_authored_emitter_count: 0` on **21/21 arms with the default still `true`** — the declarative export already controls the confound. The flip is hygiene, and it would ship **untested** inside a tag whose gate measures mint quality: one tag, two unrelated changes, one receipt (#10 at the dispatch layer).
+  **(b) ⚠ My struck text was a bare hand-list with an undecidable escape hatch** — *"four call sites" / "a handful of scenes" / "materially larger than a handful"* is a threshold with no derivation, so my own stop-and-tell-me condition could never have been evaluated. **#76 clause 1**, applied by jack-ryan to a dispatch I authored, on a rule whose founding instances are two documents he authored. **The fix is the rule: derive the opt-in call-site set mechanically, report the set, then flip — in its own change, with its own receipt.** The derivation is also what makes the escape hatch decidable for the first time.
+  **The decision itself stands and is still yours** (seam authority, ADR-002). It moves out of this tag, not off the board.
 
 ---
 
@@ -163,7 +204,8 @@ If any **new** instrument defect of the tranche-1 class appears in rows 1–2 �
 - [ ] **Tier-1: motif-swap the erupting element** (blades → shards → flame tongues → bolts); **tint the front and the contact response.**
 - [ ] ⚑ **THE CLEAREST STATEMENT IN THE RUN OF WHAT NOT TO BUILD is attached to this row.** The 8 frames captured under a `circle` hypothesis resolved by icon template-match (L-28) to **War Cry**, not Judgment, and are **EXCLUDED from the pool** — but retained as a **finding**: *a player-centred expanding annulus with a propagating front, a ground residue, and **no contact response on the bodies it overtakes*** — **a second independent instance of the EoR L-19 failure mode, in a different skill, in the same game.** Your `annulus` variant is **structurally the same object as that failure**. The single property separating them is **the contact response on overtaken bodies.** Build it, measure it, and put the measurement in `gate.json`.
 - [ ] **Frame-set pointer: NONE.** There is no first-party GD frameset for this archetype. That is a **provenance fact, not a silent gap** — do not read the absence as permission to substitute the excluded War Cry frames.
-- [ ] Lifecycle `burst`.
+- [ ] ⚑ **RESTORED PER GATE-1 A-10 — THE WINDUP DONOR. I dropped it when authoring; it is the second separator on this row after the contact response.** Spec § 3.1.5 carries **D3 · Condemn** as *"the corpus's best windup donor for the radial-burst family,"* named explicitly against the run-wide **80.5 % windup scarcity**. **`circle` is the only row in this tranche with a named windup donor**, its lifecycle is `burst` with windup **Y**, and this dispatch's stated quality criterion is telegraph literacy. For a caster-centred expanding annulus that is *structurally the same object* as the EoR failure, **the windup is what tells a player the ring is coming before it overtakes them** — the contact response tells them it landed. **Both, or the row only half-answers the failure it was built against.** Report lead time and pre-`t_burst` emitter activity, in the shape GTC set (*telegraph full at 0.183 s with payload 5.5 m out*).
+- [ ] Lifecycle `burst`, **windup Y**.
 
 ### Row 4 — `single_target` (§ 3.1.6) — 90 skills / 77 kits
 
@@ -177,8 +219,9 @@ If any **new** instrument defect of the tranche-1 class appears in rows 1–2 �
 
 ### Row 5 — `melee_arc` (§ 3.1.7) — 76 skills / 63 kits · `physical-cause`
 
-- [ ] Mint: caster-origin, frontal, ground-plane · layers — **(a) a broad TRANSLUCENT pale crescent on the ground plane (radius ≈ 2× character height), (b) contact response on bodies inside it.** Reference coverage ≈ 12 % — mid-band against C-5.
-- [ ] **Caster legible at the arc's origin and NOT occluded; terrain visible THROUGH the arc.** That is the **explicit correction of EoR failure #2** and it is an acceptance criterion.
+- [ ] Mint: caster-origin, frontal, ground-plane · layers — **(a) a broad TRANSLUCENT pale crescent on the ground plane (radius ≈ 2× character height), (b) contact response on bodies inside it.**
+- [ ] ⚑ **RE-ANCHORED PER GATE-1 A-5 — the original text handed you `Reference coverage ≈ 12 % — mid-band against C-5`. THAT IS STRUCK.** It is a percentage lifted from a foreign camera, which is the exact bar galadriel's § 1.6 ruled **NON-PORTABLE** (*"never against a spec percentage lifted from another camera"*) — the same door the ≈ 20 % GTC finding closed at tranche 1 and the same door Amendment G-3 closed on 9.35 %. **Third instance; do not open it a fourth time.** The two portable properties replace it: **(a) angular extent < 360° and radial thickness / outer radius** — that ratio is what makes a crescent not a field, and it is camera-invariant; **(b) background-structure retention through the arc** and **caster-pixel retention at the arc's origin**, both measured as retention fractions rather than absolute coverage. Put all three numbers in `gate.json`.
+- [ ] **Caster legible at the arc's origin and NOT occluded; terrain visible THROUGH the arc.** That is the **explicit correction of EoR failure #2** and it is an acceptance criterion. ⚑ **Interlock, and it is an independent argument for E-0 going first: on a 99.78 %-bare floor, "terrain visible THROUGH the arc" is UNTESTABLE, because there is no terrain. The cathedral stage is what makes this row's core prohibition measurable at all.** Capture this row's retention arm on the cathedral stage or the criterion is unfalsifiable.
 - [ ] **`physical-cause`, the purest read available: the arc IS the weapon's own path, not an energy wave chasing it.** This is the same failure mode `melee_strike` was built against — you have already solved it once on a TRAIL-BOUNDED surface, and the crescent is the harder case because a ground-plane crescent looks like a field until it is proven otherwise by its contact response.
 - [ ] **Tier-1: blade-motif swap (scythe → axe → claw → greatsword) — the cheapest high-yield parameterization in T-A.** Tint the crescent and the contact spark. **DO NOT thicken the crescent into a field** — **79 % of this archetype's referent members are element-agnostic** (§ 4.2.3), which is the same argument that capped `melee_strike`'s tint at 70 %.
 - [ ] Lifecycle `burst` — **short-lived, so it never occludes.** That is a design property, not an incidental one.
