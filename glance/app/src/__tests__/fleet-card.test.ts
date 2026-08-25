@@ -116,8 +116,7 @@ describe('fleet node against the committed tape', () => {
     if (!fleet) return;                       // absence is legal, including in CI forks
     expect(fleet.rows_on_disk).toBeGreaterThan(0);
     expect(fleet.units_sealed).toBeLessThanOrEqual(fleet.units_total);
-    expect(fleet.lanes.map((l: { lane: string }) => l.lane))
-      .toEqual(['codex-serial', 'grok-serial']);
+    expect(fleet.lanes.map((l) => l.lane)).toEqual(['codex-serial', 'grok-serial']);
   });
 
   it('emits no live-state NODE — rear-view scope is enforced in the data, not the prose', () => {
