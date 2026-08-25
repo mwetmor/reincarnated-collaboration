@@ -341,3 +341,26 @@ ones were rewired. Routing back to jack-ryan for ratification or correction.
 `vh_caster.gd:78` MODEL_FORWARD_YAW (body-corrected rig; flipping re-opens WR1) ·
 `king_rig.gd` sword side (Matt: leave it) · `s2c_cone:339`, `s2b_melee_arc:359/450`,
 `s2b_line:425`, all camera/shader azimuths and sim-heading conversions (not rig yaws).
+
+---
+
+## ✅ MATT'S VERDICT — 2026-08-25, on the v3 deliverable. ACCEPTANCE CRITERION 1 DISCHARGED BY THE ONLY INSTRUMENT THAT COULD DISCHARGE IT.
+
+**Matt, verbatim:** *"I confirmed that the _v3 mp4s from drax now have the character facing the correct way (forwards)."*
+
+**Recorded here, immediately, because a verdict that lives only in a conversation is not a verdict the wave has** — the § conflict-rule corollary in `CLAUDE.md`, and the fourth instance in this wave of *the work is right and the record does not carry it*. The conductor owns this file and had no excuse for a fifth.
+
+**What this closes, precisely.** The defect was **player-visible and eye-adjudicable**, so Matt's eye is the instrument of record — not `blackdetect`, not md5, not a byte-identity receipt. Those verified that *nothing else moved*; only Matt could verify that *the intended thing moved*. Both halves were required and both are now in.
+
+⚑ **The finding that outranks the fix, and it is drax's not mine.** The four movers the dispatch named were real, but the defect Matt has been seeing since the first render was upstream of all four: **the caster's rest yaw was never set at all.** *Never set* is not neutral — it asserts yaw 0, so the caster fronted world **+Z** while every world-framed row authors its payload along world **−Z**. **He had his back to his own effect from frame 0, at rest, on every row, including rows with no aim at all.** No amount of fixing the aim formulae would have touched it. It was found by probing rather than by reading the dispatch's list, which is the only way it could have been found.
+
+**What does NOT close with this verdict — carried forward, not lost in the acceptance:**
+
+1. ⚑ **THE CAMERA FRAMING WAS NEVER DONE, AND THAT IS THE CONDUCTOR'S FAILURE, NOT THE BUILDER'S.** Matt asked for the zoom to match the ice-golem reference. I authored that as a **Task-5 addendum after drax had already read this file** (`7d344a9b`), with `SendMessage` unavailable for the fifth confirmed time this session. He never saw it. Verified against the tree rather than inferred: `s2a_stage.gd` still reads `CAM_PITCH := -55.0` / `CAM_DIST := 34.0`, and his completion record's only occurrence of the word "camera" is in the out-of-scope list. **A dispatch amended mid-flight is not a dispatch amended.** Re-issued as its own file.
+2. **F-9 — the determinism receipt has counterexamples.** `clip_tp_cathedral_f0030` differs across runs of *identical code* by one pixel at maxdiff 2/255. So **md5 inequality on a single frame is not evidence of a behaviour change on this corpus.** This constrains every byte-identity seal already taken in this wave and is routed to jack-ryan, not resolved here.
+3. **F-10 — `project.godot` carries an uncommitted deletion** of `[rendering] mesh_lod/lod_change/threshold_pixels=1.0`, verified live in `git diff`. mtime 12:09, i.e. **before** the 14:12 sealed captures, so those captures were taken under the deleted setting. drax deliberately left it dirty rather than break comparability mid-dispatch — the right call. Still open; wants a ruling.
+4. **The Gate-1 narrowing** (the five player-facing sites cannot carry a byte-identity receipt because they are non-deterministic by construction) is routed to jack-ryan and unanswered.
+
+⚑ **And the part that should survive longest: refutation condition 1 FIRED, and it fired against ME.** This dispatch ordered five sites fixed. **Two were not defects, and one of those would have broken the build.** `s2a_stage.gd:303`'s `atan2(-p.x, -p.z)` *looks* like the −Z formula and is not — it aligns local +Z toward the origin, so on a +Z-fronted rig it points every staged mob **at** the caster, correctly. drax measured it at six bearings including one behind the caster (dot = +1.000, every one) and **refused the ordered edit**. Flipping it would have turned every staged body around, in a commit whose stated purpose was fixing facing.
+
+**The reusable lesson is not "check your dispatches."** It is that the repo holds **two independent facts** where I assumed one: the rig's forward axis, *and the frame each row authors its payload in*. `melee` / `melee_arc` / `aura` author about the caster's own bearing-0 and stage their bodies to match; they must not be rotated, though Gate-1 scoped `melee` in. Receipt: 79/79 byte-identical to the sealed pre-fix capture. **jack-ryan's own ruling — *"the right formula is a function of the RIG, not of the repo"* — was one axis short. It is a function of the rig AND the authoring frame.**
