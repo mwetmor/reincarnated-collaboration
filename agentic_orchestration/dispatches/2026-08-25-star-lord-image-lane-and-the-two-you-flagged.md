@@ -1,6 +1,6 @@
 # Dispatch — star-lord: the image lane Matt's second-opinion request needs, plus the two items you flagged back to me
 
-**Status:** PENDING
+**Status:** COMPLETE (see completion record at end)
 **Authored:** 2026-08-25 (knight-rider)
 **Seam:** `factory/harness/` + `factory/` (star-lord)
 **Predecessor:** `7837ade3` — the Grok transient-auth debounce. **This dispatch exists partly because you flagged two items and correctly declined to pick them up without one.**
@@ -119,3 +119,61 @@ You left `codex.py` `terminal: bool = True`, byte-preserving today's behaviour, 
 ## Push
 
 Matt authorized push across repos **for this session only**; it expires at the session boundary. `reincarnated-collaboration` also sits under the standing Step-2 wave pattern. Push your own committed work; **do not stage untracked files** — the tree carries other sessions' capture directories.
+
+---
+
+## Completion record
+
+**Status:** COMPLETE. **Executed:** 2026-08-25 (star-lord). **Commit:** `18c64165`.
+**Suite:** 856 passed (845 baseline + 12 new − 1 replaced pin). **Full detail:** `factory/MIGRATION.md` § 13.
+
+| # | Acceptance criterion | Result |
+|---|---|---|
+| 1 | `--prompt-json` image probe run, recorded either way | **PASS — and it PASSED.** Grok reads images via an ACP `image` content block. Verbatim answer + the refuting error text in § 13.1. |
+| 2 | `codex.py` emits `-i/--image`; no-images argv byte-identical | done, pinned against a **hand-written literal** (a self-comparison would pass regardless) |
+| 3 | `preflight_failed` separates rejection from timeout; timeout non-terminal; escalation names the right remedy | done — `PreflightVerdict.refuted`, new `preflight_unknown` state, `LaneAvailability.remedy` / `matt_only` |
+| 4 | Tests for both branches, both RED before | done — detached worktree at `9508b867`, receipts in § 13.7 |
+| 5 | Word collision resolved, rename in MIGRATION | done — the **display string** renamed (§ 13.5); the field is a contract, the string is not |
+| 6 | Codex `terminal` dispositioned in writing | **CLOSED**, in code and § 13.6, with the reason and with the counter-argument |
+| 7 | Full suite green, count against 845 | **856.** Two pre-existing gates fired in the run; both adjudicated, neither silenced |
+| 8 | MIGRATION § 12 extended | § 13 added, with a cross-seam consumer table |
+| 9 | Cite by symbol, never line number | done throughout |
+| 10 | `--only`, verify before with `HEAD`, after with `show --stat` | done — 9 files named, 9 files landed |
+
+### The refutation condition that fired
+
+**§ 4's premise was wrong and my own test caught it.** I wrote a row to prove that `busy`
+was terminal and handing queues to Claude on lane contention. **It went GREEN against
+pre-fix source** — `drain` guards on the state's *name*, so `busy` never reached
+`_stop_on_closed_lane`. The claim was in a code comment and a MIGRATION draft as the
+*deciding* argument before the test ran. Both were rewritten; the withdrawal is recorded
+in `codex.py`, in § 13.6, and in the test's own docstring, because a claim that was
+retracted teaches more than one that was never made.
+
+**What replaced it is measured, not argued:** a 60 s `codex login status` **timeout** —
+a host hiccup — handed the pending queue to Claude permanently against pre-fix source.
+No vendor premise required.
+
+### What I did NOT do, and why
+
+- **Grok images are PROBED, NOT WIRED.** § 1a's boundary, kept. And it is not a small next
+  dispatch: `--prompt-json` displaces `-p`, so the prompt leaves argv entirely and
+  `MAX_PROMPT_ARGV_BYTES` — the ceiling `build_argv` refuses against — stops measuring the
+  right thing the moment base64 joins the payload.
+- **No production frames touched.** One 640×300 synthetic PNG, per § 1c. Nothing here
+  establishes behaviour at frame scale or frame count; the 2000px wall is a constraint for
+  whoever wires this, not one this probe tested.
+
+### Cost
+
+**$0.0060 total** — three Grok calls (`$0.00283` text-shape probe, `$0.00317` image probe,
+`$0.00` for the parse rejection that documented the accepted vocabulary) plus one Codex
+call at the pin. Two orders of magnitude under the notice threshold.
+
+### For knight-rider
+
+**Matt's request is executable on both lanes** and can be re-framed from *"which lane can
+see a frame"* to *"which lane's opinion is worth the tokens."* Codex is wired and shippable
+today; Grok needs the wiring dispatch above. **Neither lane has been shown a real frame** —
+that is the wiring dispatch's job, and the 2000px wall is its first constraint, not a
+surprise waiting for it.
