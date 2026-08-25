@@ -241,3 +241,185 @@ I read § 10.3 specifically hunting for the reverse-direction override. It is no
 ---
 
 **jack-ryan**, 2026-08-24 — DEV-MODE **RE-RATIFICATION. RATIFIED-WITH-AMENDMENTS G, H, I.** A–F stand. No sealed clause reopened; no BLOCK issued. The waived condition is recorded as waived, and Amendment I gives it a close.
+
+---
+
+# ADDENDUM 2 — 2026-08-24 (night) — GATE-2 on `dddd232d` + RATIFICATION of § 11 (agent-level seam custody)
+
+**Reviewer:** jack-ryan (DEV-MODE, BLOCK authority) · **Targets:** commit `dddd232d` (star-lord, D-1…D-8); spec § 11 (gandalf, commit `61b421e0`)
+**Verdicts: GATE-2 = PASS-WITH-FINDINGS. § 11 = RATIFIED-WITH-AMENDMENTS (K, L).** Sequence continues A–I; **J** is issued at Gate-2 and amends the Amendment-H consumer clause. **No BLOCK. Nothing sealed reopened.**
+**Principles applied:** REVIEW_PROCESS #2 (smoke-gate), #3 (cross-seam impact), #5 (severity) · Disciplines **#10**, **#11**, **#19.1(b)**, **#62(a)**, **#73** · ADR-002, ADR-004, ADR-006.
+
+---
+
+## 1 · The test run, from my hands (#19.1(b) — I did not accept the count)
+
+| Suite | Result |
+|---|---|
+| `agentic_orchestration/factory/tests/` | **735 passed, 0 failed** (203 s) |
+| `agentic_orchestration/factory/ui/tests/` | **18 passed, 0 failed** (11 s) |
+| **Total** | **753 passed, 0 failed** — reproduces star-lord's reported count **exactly** |
+
+No network reached; no vendor CLI invoked by any test. Separately: `agentic_orchestration/flight/tests/` is **2 failed / 74 passed** — those are the two reds star-lord *declared* in `ca3ec471`, which post-dates `dddd232d` and belongs to the U1-BUILD workstream. **Out of this gate's scope**, recorded so nobody later reads my 753 as a whole-repo claim.
+
+---
+
+## 2 · Amendment compliance — audited one by one
+
+| # | Ruling | Evidence |
+|---|---|---|
+| **A** | **PASS** | `SAFE_TO_FIRE_STATES = frozenset({"open", "queue-pending"})`; `read_runlog` sets `executing` only for `START`/unrecognised markers; the P-9 × leg-3 row exists by name — `test_AMENDMENT_A_a_HELD_job_answers_queue_pending_and_is_SAFE_TO_FIRE`. MIGRATION § 1 explains *why* `is_idle()` was the wrong composite and keeps it exported as correct-about-what-it-measures. |
+| **B** | **PASS** | `classify_processes(cfg, procs)` keys every match to a per-vendor `LaneConfig`. Held by **two** rows, both directions, plus `test_the_argv_patterns_are_ANCHORED_and_do_not_convict_a_MENTION` — which is the row I would have asked for and did not have to. |
+| **C** | **PASS** | Live finish row carries `resolved_model=grok-4.6-build`; telemetry carries `declared_model`, `resolved_model_ids`, `model_resolution_captured`. Declared pin and resolved id are both on the record, separately. |
+| **D** | **PARTIAL → FINDING G2-1 (WARN)** | argv-said (`--reasoning-effort xhigh`) and telemetry (`reasoning_effort: "xhigh"`) — **yes**. Run-log row — **no**. See § 4. |
+| **E** | **PASS** | `assert_no_leader_parses()` is a parse-level rc check with no model call, pinned by literal `NO_LEADER_FLAG`, evaluated **before the lock is taken** so a refused lane never holds it, and returning `PREFLIGHT REFUSED (lane spec Amendment E)` rather than raising. Stronger than I ruled: I asked for refuse-to-fire, he also made the refusal not-take-the-lock. |
+| **H** | **PASS inside `factory/`; violated in fact outside it → AMENDMENT J** | MIGRATION § 1 pins the predicate **by state name** in a blockquote, `SAFE_TO_FIRE_STATES` is pinned by equality in `test_vocabularies.py`, and the three dispositions are asserted to **partition** the vocabulary so a state deleted from one set and not added to another reds a row instead of leaving the denominator. See § 5. |
+| **THE LAW** | **PASS, and the test is REAL** | Three rows, not one. `_tree_fingerprint` digests **content and mtime_ns** for every file under the queue root across three status calls and compares the whole dict — a behavioural claim, not a tautology. A second row counts telemetry events. A third refuses `RunLog`/`Telemetry` imports and filesystem-mutating calls **over the AST**. The docstring records that the coarse first version (*"no call named `append`"*) failed on a local `signals.append` and was replaced — a test that reports its own false-positive history is a test somebody actually exercised. Plus `test_THE_LAW_asking_does_not_CREATE_the_lock_file`, which catches the O_CREAT trap I had not thought of. |
+| **Serial law** | **INTACT** | Exactly one `subprocess.run` site in `grok.py::run`; `SerialLaneLock(...).acquire()` immediately precedes it, `pass_fds=(lock.fd,)` gives the child the fd, `finally: lock.release()`. `TimeoutExpired` kills the **child** and returns `ok=False` — it does **not** break the lock. No `--force`, no reaper. The `force=` parameter on `assert_no_leader_parses` is a preflight-**cache** bypass, verified by reading it, not a lock-break. |
+
+**INFO (not an amendment).** The AST leg of THE LAW refuses `ImportFrom` of `RunLog`/`Telemetry` and a named set of mutating attribute calls. It would not catch `import jobqueue` + `jobqueue.RunLog(...)`, nor `os.remove` / `os.rename` / `os.makedirs`, nor `.open("w")` reached as an attribute. I am **not** ruling on it: the behavioural fingerprint row tests the actual claim, and the AST row is the structural belt, not the braces. Recorded so a future reader does not mistake the belt for a proof.
+
+---
+
+## 3 · The three named deviations — ruled
+
+### Deviation 1 — `busy-unknown` as a seventh answer state: **RATIFIED — and it is not a new deviation.**
+
+I ruled this **RATIFY** earlier today at `agentic_orchestration/qa/findings/2026-08-24-u1-schema-law-ratification.md` § 6, on the flight-recorder's degraded card, with a WARN-3 carry-forward. Nothing has changed in its favour or against it, and I do not re-litigate my own ruling twelve hours later.
+
+**Yes, false-open is the alternative**, and it is the one direction G-2's FALSE-BUSY ruling forbids. An unreachable leg coerced into an existing label is the semantic-shift failure; a lane whose lock could not be read rendering `open` is the failure that fires a second job at an occupied credential. `STATE_PRECEDENCE` places it above `auth-expired`/`cli-missing` and above `open` — ambiguity outranks a credential state, which is the right ordering. Exit `22` sits in the occupied band, and `exit_code_for()` returns **22 for any state nobody named**, pinned by `test_the_exit_code_for_an_UNNAMED_state_is_busy_unknown_NEVER_zero`. That fail-closed default is the part I care about most: the vocabulary can grow wrong without the exit code going fire-safe.
+
+**It belongs in the spec by amendment: § 3's answer-state list goes from six to SEVEN.** Editorial debt on gandalf, folded with the outstanding Amendment-G fold-in. The spelling is genuinely shared with the board (`flight/bin/flight_report:98`) — see Amendment J for why *shared spelling* is not yet *shared definition*.
+
+### Deviation 2 — per-state exit codes vs. `0 = open`: **RATIFIED AS BUILT. This is the only correct reconciliation.**
+
+The two constraints really do pull apart: the spec imposed `0 = open`, Amendment A required `open` and `queue-pending` **separately identifiable by exit code**. One integer cannot satisfy both. The resolution — **two questions, two surfaces** — is right: the default exit answers *what state*, `--safe-to-fire` answers *may I fire*, and neither has to lie for the other.
+
+The load-bearing addition is the one star-lord made and I did not ask for: **the band.** `[ $? -lt 20 ]` lets a shell caller bind to the **predicate** without knowing the vocabulary at all — which is Amendment H satisfied at the shell boundary, where I had only pinned it at the Python boundary. A future eighth state cannot be handed a number that reads fire-safe to a band-checker, and `test_lane_status.py` asserts the banding separately from the table so the two cannot drift. `--lane all` returning the **worst** lane's code under fail-closed precedence is correct — a caller reading only the exit code is never told *open* while a lane is occupied. Exit `2` reserved to argparse and documented as *not ours* is the right kind of honesty about a number we do not control.
+
+### Deviation 3 — the `test_JR24` adjudication: **IT WAS ADJUDICATION. VERIFIED, NOT ACCEPTED.**
+
+I did not take the inherited claim. I built a clean worktree at **`dddd232d^`** and ran the row:
+
+```
+FAILED test_vocabularies.py::test_JR24_the_classifier_ADJUDICATES_what_it_cannot_CLASSIFY
+AssertionError: public UPPERCASE names the classifier cannot place:
+['ui/board.py:AO_DIR', 'ui/board.py:FACTORY_DIR', 'ui/board.py:FLIGHT_DIR', 'ui/board.py:HERE',
+ 'ui/board.py:REPO_ROOT', 'ui/tests/test_board.py:AO_DIR', 'ui/tests/test_board.py:FACTORY_DIR',
+ 'ui/tests/test_board.py:FLIGHT_DIR', 'ui/tests/test_board.py:NOW',
+ 'ui/tests/test_board.py:REPO_ROOT', 'ui/tests/test_board.py:UI_DIR']
+```
+
+**RED at the parent commit, on exactly those eleven names, no more and no fewer.** The claim is true and the scope is exact.
+
+**And the remedy applied is the remedy the test itself prescribes**, in its own docstring: *"the third exit reds this row, and clearing it means writing the name into `NOT_A_VOCABULARY` with a reason — which is the adjudication, performed by a human, exactly once."* That is what was done. He did **not** widen `_classify_module`, did **not** add a subtree exemption, did **not** touch `FACTORY_RUNTIME_FILES`, and did **not** edit drax's files. Authoring-around would have looked like any of those four; none is present.
+
+I checked the eleven **reasons** against source rather than trusting the labels: `ui/board.py:60–64` and `ui/tests/test_board.py:30–34` are all `os.path.dirname` / `os.path.join` expressions, and `test_board.py:41` `NOW` is `datetime.datetime(2026, 8, 25, 0, 0, 0, tzinfo=utc)` — a fixed clock reading. **All eleven reasons are true.** Ruled **CORRECT**.
+
+**INFO, and it is a positive one.** This is a cross-seam classification made unilaterally on drax's names. It is the right call — the alternative was leaving a red nobody wrote down, and *a suite that is red for a reason nobody wrote down is a suite people learn to scroll past* is the correct governing sentence. What makes it clean is the in-file header: **"ADJUDICATED HERE, NOT AUTHORED HERE."** That is precisely the source/authorship-provenance discipline I accepted the draft assignment for at § 6.2. I am recording it as a **fourth instance — the first positive one**, showing the rule already has a practised shape to codify rather than one to invent.
+
+---
+
+## 4 · FINDINGS
+
+### G2-1 — **WARN. Amendment D is honoured on the argv and in telemetry; it is NOT honoured on the run-log row, and MIGRATION asserts that it is.**
+
+My Amendment D reads: *"the pilot declares its effort value explicitly on the argv **and records it in the run-log row**."* The live finish row is
+
+```
+2026-08-25T00:36:20Z  smoke-grok-lane-2026-08-24  rc=0  attempt=1 elapsed_s=5.1 tokens=30645 resolved_model=grok-4.6-build cost_usd=0.00983  curator=star-lord  event=finish
+```
+
+No `effort=` token. § 7's detail-token table lists three conventions (`router=`, `resolved_model=`, `cost_usd=`) and effort is not among them — but **MIGRATION § 5 asserts "every row carries curator + resolved model id + declared effort + per-call `cost_usd`."** A document asserting a property the artifact does not carry is **#73 arriving in the MIGRATION doc that pins #73's own build constraint** — the same shape as Amendment F, one layer up.
+
+Nothing is lost (`telemetry.jsonl` has it), so this is WARN and not BLOCK. But the surface Amendment I names for the banking window is the **run-log**, and effort is one of the three things the window must attribute against. **Action, star-lord:** add `effort=<value>` to the finish row and to § 7's table, or strike the claim from § 5. One of the two, not neither.
+
+### G2-2 — **WARN. The smoke job's real finding — a ~28K-token per-job floor — did not survive into the cost expectations.**
+
+MIGRATION § 10 settles the token *arithmetic* exactly right, by the vendor's own numbers rather than by inference (`28,170 + 2,432 + 0 + 43 = 30,645`; the subset reading gives 28,213, which matches nothing). That is model work and I endorse it.
+
+What is **absent** is the operational fact the same measurement exposed: **28,170 input tokens on a one-line prompt.** That is not the prompt; it is a fixed context the CLI injects on every call. It is a **per-job cost floor**, and it is material to Amendment I, whose whole purpose is to compare Grok's banking window against Codex's banked baseline. An unrecorded fixed overhead makes every per-job cost comparison mis-attribute CLI overhead to the model or to the effort pin — **#10, change one thing and measure one thing**, defeated before the window opens. `$0.00983` for 43 output tokens is a number that will mislead anyone who meets it without the floor beside it.
+
+**Action, star-lord:** record the floor in MIGRATION § 10 as a named quantity with its measurement (job `smoke-grok-lane-2026-08-24`), so the banking window's cost column is read against it. **Verified separately and correctly:** the smoke row carries `router=SMOKE` / `job_class=smoke` and is properly outside the Amendment-I window, which counts the first ten **production** jobs.
+
+### AMENDMENT J (BINDING) — **THE RATIFIED PREDICATE HAS TWO IMPLEMENTATIONS AND NOTHING BINDS THEM.**
+
+`agentic_orchestration/flight/bin/flight_report` carries its own `STATE_PRECEDENCE`, `SAFE_TO_FIRE_STATES`, `OCCUPIED_STATES`, `CLOSED_STATES` and `lane_answer()`. I grepped: **`lane_status` appears zero times anywhere under `flight/` or `factory/ui/`.**
+
+I compared them member-for-member and order-for-order: **they agree today, exactly.** `lane_status.py` even says so in a comment — *"Identical ordering to the fleet board's `STATE_PRECEDENCE`, deliberately: one question, one answer, two renderers."*
+
+**Deliberately identical by hand-copy is not bound.** Amendment H's sentence is *consumers bind to the predicate by name, never re-derive it*; this is the **largest consumer**, re-deriving it in full. The blast radius is not abstract: the fleet board is Matt's decision surface, and § 11.3 now instructs a dispatcher to consult it before spawning. An eighth state added to `lane_status.py` — `busy-unknown` was a seventh, so this is a demonstrated growth path, not a hypothetical — renders on that board through a classifier that has never heard of it, and `flight_report:137`'s `if ans["state"] in CLOSED_STATES or ans["state"] == "busy-unknown"` will colour it by falling through. The duplicate was written honestly, when D-2 **did not exist** and the card was declared *degraded — D-2 CLI pending*. **That justification expired at `dddd232d`.**
+
+**Ruled: one test asserts the four vocabularies AND `STATE_PRECEDENCE` are EQUAL across the two modules, and reds on any divergence.** I am **not** ordering a refactor — `flight_report`'s standalone-script shape is a deliberate G-4 property and importing `factory` into it would trade away more than it buys. A test is enough. It is cheap, it converts a comment into a mechanism, and it is exactly what `test_vocabularies.py` already does for every other pin in the package. **Owner: star-lord** (both files sit on his seam). **WARN, not BLOCK** — they agree today, so nothing is presently wrong; the amendment exists so that stays true by mechanism rather than by memory.
+
+---
+
+## 5 · § 11 — agent-level seam custody
+
+### 5.1 · The #73 question: **gandalf's argument HOLDS.** Checked, not accepted.
+
+The defect #73 names is a **status header asserting state** — true when written, false by mtime, with nobody able to tell which. That is not an analogy to the founding incident; it **is** the founding incident, in KR's own words: *knowledge true when formed and false by mtime 20:32.*
+
+A CLAIM row does not have that property. It is a statement about a **past event** — *at time T, dispatcher D spawned into seam S* — and a past event cannot become false by the passage of time. Occupancy is never read off a row; it is the derivation `last CLAIM without RELEASE, per seam × holder-session process liveness`. **Leg 2 is kernel state in exactly G-1's sense:** sessions ARE host processes, `ps` is the kernel's answer, and nobody writes it. That is the same reasoning I independently concurred with for `flock`, applied one level up, and it survives the same test. **No TTL** is correct for the § 2 P-2 reason and I do not reopen it: a TTL is a timeout-based lock break wearing a different word, and it would silently free a claim whose holder is alive and mid-flight.
+
+### 5.2 · Hand-append before D-9: **SOUND. RATIFIED.**
+
+The vendor lane's own lesson is applied correctly — *the record's schema was the gap, not the tooling*. I verified both seeded rows are **6-column**, matching the declared format family. Starting the habit before the tool exists is right, and it is why this ratification has a ledgered claim to close.
+
+### AMENDMENT K (BINDING) — **THE LEDGER BUYS VISIBILITY, NOT MUTUAL EXCLUSION. SAY SO — AND CLOSE THE RACE AT D-9.**
+
+§ 11.3's rule is **check, then claim**. That is a time-of-check/time-of-use race: two dispatchers may both read *free*, both append CLAIM, and both spawn. **That is the founding incident, unprevented by the mechanism built to prevent it.** The vendor lane does not have this problem because `flock` is an **atomic test-and-set**; the custody ledger has no atomicity whatsoever.
+
+This does not sink § 11, and I want to be precise about why: **visibility alone would have stopped the founding incident.** KR would have seen gandalf's row and stood down twenty-eight minutes earlier, without coordination, without a conversation. That is a real and sufficient win. What must not happen is § 11 **spending flock's authority on a mechanism that does not have it** — the same defect § 9.3 avoided so carefully when it refused to let the Grok serial policy borrow the Codex law's grounding. A rule whose strength is misdescribed cannot be reasoned about later.
+
+**Ruled:**
+1. § 11 states plainly that the hand-append era provides **visibility, not exclusion**, and that the exclusion is a **dispatcher discipline** resting on it.
+2. **D-9's `custody claim` performs check-and-append ATOMICALLY, under an `flock` on the ledger file.** The primitive already exists at `factory/lane.py::SerialLaneLock` and costs nothing to reuse; G-1's grounding carries over unchanged (derived kernel state, content never trusted, released by the kernel on holder exit).
+3. **D-10 gains the row:** two concurrent claims on one seam — exactly one wins, and the loser is told who holds it.
+
+### AMENDMENT L (BINDING) — **A RUN-SCOPED CONDUCTOR CLAIM NAMES ITS SEAMS AND ITS RELEASE CONDITION. NO WILDCARDS, NO BLANKET ROWS.**
+
+Yes — the door is real, and it is the one I was asked to hunt for. Compose three ratified clauses: *a RUN-CONDUCTOR charter claims its seams FOR THE RUN* + *no TTL* + *occupied seam → DO NOT SPAWN*. A multi-day charter over eight seams then holds the fleet for days, with **no expiry, no named end, and OVERRIDE unavailable because the holder is alive**. § 11.5's *custody is dispatch exclusivity, never seam ownership* is a statement of intent with no mechanism behind it — and the practical effect of an unbounded live claim is indistinguishable from ownership, which is the thing the sentence promises it is not.
+
+The spec already solved this exact problem one level down, and I am reusing its answer rather than inventing one: **P-9 requires a hold to name the condition that ends it.** That is what makes a hold governance instead of drift, and it is what makes a claim governance instead of a lock.
+
+**Ruled:**
+1. A run-scoped claim writes **one row per seam** — never a wildcard, never a blanket row — so a dispatcher checking seam X finds a row **about seam X**, and a partial release is expressible.
+2. **Every CLAIM row's `intent` names the condition whose satisfaction produces the RELEASE.** A claim whose release condition cannot be stated is a claim that should not be written.
+3. D-9's `custody claim` **refuses a claim with no stated release condition**, the same way the Grok harness refuses an undeclared vendor rather than defaulting one.
+
+This is P-9 at the agent level, and it is what turns *custody ≠ ownership* from asserted into checkable.
+
+### 5.3 · Ratified without amendment
+
+**The routing rule itself — RATIFIED.** *Check before spawning; occupied = do not spawn; standing down gets a ledger row, not a shrug* is correct, and making the stand-down **ledgered** is the load-bearing half: an unrecorded stand-down teaches nobody, and KR's was the finding that produced this section. **Custody does not replace KR's sequencing authority** — right, and the distinction is clean: custody is how two live routers see each other, not a third router. **Matt outranks custody** — right, and § 11.5's observation that his presence is visible via leg 2 regardless means the exemption costs no blindness. **Grain = agent name, widening only by amendment on an instance** — right, and it is the same evidence discipline U-4's router criterion uses.
+
+**Build delta D-9 / D-10 — AUTHORIZED on star-lord**, under K and L, with `check` held to the same emits-nothing discipline as § 3 and banded exit codes pinned in MIGRATION.md. The eventual SEAMS board card is a **VIEW** per THE LAW — and per **Amendment J**, it binds to the custody predicate by name rather than re-deriving it. That is J's whole point arriving before the second instance instead of after it.
+
+**INFO — RELEASE authorship is unspecified.** § 11.2 says CLAIM is written by the dispatcher; it does not say who writes RELEASE. Both seeded rows carry the same holder (`gandalf-session-85515`) for two different seams, which is correct — the holder column names the **session that must be alive**, not the agent — but a crashed sub-agent whose dispatcher also dies leaves a claim that only OVERRIDE can clear. Leg 2 covers that case, so this is not an amendment. Name it in D-9.
+
+**INFO — holder ids are PIDs, and PIDs recycle.** A dead session whose PID is reassigned reads **alive**, which fails in the FALSE-BUSY direction and is therefore G-2-consistent and safe. But an OVERRIDE refused by a recycled PID will look wrong to the operator at the moment they most need the ledger to make sense. **D-9's liveness leg should compare process START TIME as well as PID** (`ps -o lstart=`). Cheap, not blocking, not an amendment.
+
+---
+
+## 6 · Action
+
+- [ ] **star-lord** — **G2-1**: put `effort=` on the run-log finish row and in MIGRATION § 7, or strike the claim from § 5. **G2-2**: record the ~28,170-token per-job floor in MIGRATION § 10 as a named measured quantity, before the Amendment-I window closes. **AMENDMENT J**: one test binding `flight/bin/flight_report`'s four vocabularies + `STATE_PRECEDENCE` to `factory/lane_status.py`'s, red on divergence. **D-9 / D-10 authorized** under K (atomic check-and-claim under an flock on the ledger; concurrency row in D-10) and L (one row per seam; refuse a claim with no stated release condition).
+- [ ] **gandalf** — § 3's answer-state list goes from **six to seven** (`busy-unknown`, already ruled at the U1 finding § 6); fold K's *visibility-not-exclusion* sentence and L's naming rule into § 11.2/§ 11.3. Carries with the outstanding Amendment-G fold-in debt.
+- [ ] **KR** — nothing new. The Q3 binding and the Amendment-I count stand from Addendum 1.
+- [ ] **Matt** — nothing owed by this addendum. § 11 is fleet law as ratified, and it is yours to veto at will; Q62 is ruled and § 6.4 remains in your queue.
+
+## 7 · References
+
+- `agentic_orchestration/factory/lane_status.py`, `factory/harness/grok.py`, `factory/cli.py`, `factory/MIGRATION.md` (§ 1, § 2, § 5, § 7, § 10)
+- `agentic_orchestration/factory/tests/test_lane_status.py`, `test_grok_harness.py`, `test_vocabularies.py`
+- `agentic_orchestration/flight/bin/flight_report:98–117, 137, 466–560` (the second derivation — Amendment J)
+- `agentic_orchestration/lanes/grok/_run-log.tsv`, `lanes/grok/telemetry.jsonl`, `lanes/README.md`
+- `agentic_orchestration/lanes/agents/_custody.tsv` (both seeded rows verified 6-column)
+- `agentic_orchestration/qa/findings/2026-08-24-u1-schema-law-ratification.md` § 6 (`busy-unknown` — my earlier RATIFY, WARN-3)
+- `agentic_orchestration/gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` § 11 (commit `61b421e0`)
+- Live checks this session: full suite from a clean run (753/753); **`test_JR24` reproduced RED in a throwaway worktree at `dddd232d^`** on exactly eleven names; all eleven adjudication reasons verified against `ui/board.py:60–64` and `ui/tests/test_board.py:30–34, 41`; vocabulary comparison across both derivations. Zero cost, no vendor call.
+
+---
+
+**jack-ryan**, 2026-08-24 — DEV-MODE. **GATE-2 on `dddd232d`: PASS-WITH-FINDINGS** (G2-1, G2-2, Amendment J). **§ 11: RATIFIED-WITH-AMENDMENTS K, L.** A–I stand. No sealed clause reopened; no BLOCK issued. Custody RELEASE row appended — the first ledgered claim/release cycle closes on its own record.
