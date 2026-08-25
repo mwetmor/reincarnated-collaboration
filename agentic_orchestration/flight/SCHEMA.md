@@ -67,6 +67,18 @@ nothing, and tightens nothing.
 1. **Append-only.** No tool in `flight/bin/` has an edit verb or a delete verb. A wrong row is
    corrected by a **new** row carrying `corrects: <row_id>`; the superseded row stays on disk and
    leaves only the *fold*. `check_append_only` makes this a commit gate, not a hope.
+
+   **Consumer clause — R-8, RATIFIED-WITH-AMENDMENT at G-U11b (jack-ryan, 2026-08-25).**
+   The sentence above is a statement about the **tape**; this one is the obligation it puts on
+   the **reader**, and it is the half a consumer can violate:
+
+   > **Supersession binds the READER, not just the tape.** A row named by any `corrects` edge is
+   > superseded and MUST be dropped before any derivation — count, sum, state or cell.
+   > `schema.fold` applies this by default and `glance/parser/fleet.mjs` `applyCorrections` is
+   > the reference semantics; the two are line-for-line equivalent. A consumer deriving from rows
+   > it has not folded is deriving from superseded facts. Proved live at G-U11: a valid, accepted,
+   > on-tape correction was invisible while `correction_errors` returned `[]`.
+
 2. **Never estimate.** Absent is absent. `make_row()` drops `None` rather than storing a null,
    and there is no zero default anywhere. *A null is a fact; an estimate in a truth-of-record
    stream is a fabrication.*
