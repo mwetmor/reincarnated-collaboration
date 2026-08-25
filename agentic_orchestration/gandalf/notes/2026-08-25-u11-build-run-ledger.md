@@ -70,3 +70,16 @@ Custody: star-lord seam verified FREE (last row RELEASE 01:51:27Z); jack-ryan FR
 - **F-6 (conductor-spotted, → G-U11):** the tool-fence-probe rows carry `model_echo:"<synthetic>"` with all-zero token fields — gate should confirm these are measured zeros (recorded usage blocks valued 0), not nulls rendered as zeros (honest-null law, colour-layer class).
 
 R-3 fallback exercised as chartered: T3 is lane-level; workstream honest-null on 27/27. Custody: star-lord RELEASED this fold; jack-ryan CLAIM for G-U11 follows.
+
+## L-4 — G-U11 FOLDED: **BLOCK** (jack-ryan `cda4a2d8`; findings `qa/findings/2026-08-25-u11-gate.md`)
+
+**Ratified/ruled at gate:** F-1 RATIFIED (tokens_input = sum, re-derived byte-exact 8,442,547,650; WARN-1: SCHEMA.md § 3 clause required — line 141 currently asserts the OPPOSITE). rev-1.2 trigger NOT FIRED (conductor lean upheld; restated crisply: fires when a row could truthfully carry `backfill:false` as a positive claim of instrumented capture). F-6 MEASURED ZEROS clean (source-verified; `iter_usage` skips null-usage lines; 0 partial-nulls in population). Test audit CLEAN (0 live-tape literals in +25). THE LAW AST-verified. Suite 104/104 unmodified.
+
+**Three BLOCKs (all star-lord-seam repairs; B-2 dispatched):**
+- **BLOCK-1** — `tokens_output` under-reported 62% on 27/27: `message.id` dedupe keeps the FIRST line, but 22,907/49,590 messages carry placeholder usage on non-terminal content-block lines. Shipped 19.3M; measured **50,878,369** (three independent selectors agree; output non-decreasing 22,907/22,907). tokens_input / cache-hit / T3 UNAFFECTED. Discharge: fix selector to terminal usage + emit correction rows (`corrects:` chain, `backfill:true`) for all 27.
+- **BLOCK-2** — Python renders are correction-blind: `unit_event` returns the FIRST CLOSE, so a valid on-tape correction is invisible (proved live, both ts orderings). Coupled to BLOCK-1's discharge path. Pre-existing U-1 defect, surfaced by this gate.
+- **BLOCK-3** — `reasoning | 0` rendered for an axis absent on 27/27 (`sum(... or 0)`) — the measured-negative-from-absence class, live one cell over from F-6.
+
+**R-8 (conductor ruling on jack-ryan's ESCALATE, veto-open; reasoning-boundary):** correction-supersession is **FOLD-LEVEL LAW — a property of the tape contract, not any single view.** Grounds: the `corrects:` field + `correction_integrity_audit` already define supersession in schema v1.1, and the Glance parser's `applyCorrections` is the existing reference consumer — the Python report/board are DEFECTIVE CONSUMERS of an already-ruled contract, not sites of a new law. Every consumer folds corrections before deriving; BLOCK-2's fix is defect repair. jack-ryan ratifies this wording at re-gate; flagged for Matt in the seal report (veto-open).
+
+**Carry:** F-3 mixed-denominators confirmed reported-not-patched; F-4 host-local paths → SCHEMA.md note at B-2; F-5 no inference leaked (0/27 honest-null clean). Custody: jack-ryan RELEASED; star-lord CLAIMED for B-2.
