@@ -131,6 +131,19 @@ Seam-owning agents AUTO-COMMIT routine work-products from authorized in-scope wo
 
 Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-default external-systems rule. EXCEPTION: per-workstream push-pattern can be established by Matt authorization (e.g., "push pattern established for this cycle; push after each wave completes" = auto-push for that cycle).
 
+#### ⚑ ACTIVE PUSH PATTERN — Step-2 VFX-archetype build wave (Matt authorization, 2026-08-24: *"push as you go"*)
+
+**Status: LIVE.** For the remainder of the **Step-2 build wave** (T-A archetype minting: tranche 2 and the T2/T3 tranches that follow), **push is authorized as work lands** — no per-push ask. KR pushes as each gate closes; specialists' committed in-scope work is carried out with it.
+
+**Recorded here, and not only in the session that received it, because that is what my own conflict rule below requires.** A push posture communicated to one session is not a posture the wave has — the same defect the ruling below was written to close, one turn after writing it. If this pattern is later narrowed or revoked, **the revocation is recorded here too**, not merely spoken.
+
+**Scope boundaries that survive this authorization:**
+- It covers **`reincarnated-collaboration` and `reincarnated-engine`** — the two repos this wave writes to. It does not silently extend to `reincarnated-godot`, `reincarnated-demo` or `reincarnated-loadout`; a push there is a fresh ask unless a dispatch says otherwise.
+- **The per-dispatch push clause still governs over it** per the conflict rule immediately below. A standing pattern is the wave's *default*, not an override of a narrower instruction.
+- It authorizes pushing **already-committed** work. It does not authorize staging untracked files (`git add -A`, capture directories, `.lock` files) into a push — **#62(a)** still binds: verify `git diff --cached --name-status` against what you named.
+
+⚠ **Operational note, recorded because it nearly bit:** `Bash` working directory **persists between calls**. A `cd ~/Games/reincarnated-engine` in one call silently retargets a later bare `git push origin main`. **Use `git -C <path>` for every cross-repo git operation** rather than relying on inherited cwd. Caught 2026-08-24 by verifying the push output against the repo I believed I was in; the push was authorized either way, but the label was wrong, and a wrong label on a correct action is how the next one becomes a wrong action.
+
 #### Conflict rule — a standing push-pattern vs a per-dispatch push clause (knight-rider ruling, 2026-08-24)
 
 **Occasioned by:** jack-ryan Gate-2 ESCALATE, `agentic_orchestration/qa/findings/2026-08-24-step2-first-landings.md` § ESCALATE. **Two drax sessions eight hours apart received opposite push instructions on the same repo in the same wave.** The first flagged the conflict, resolved conservatively (pushed nothing), and routed the escalation. The second received the opposite instruction and pushed, carrying the first session's commit out to `origin` as an ancestor. **No unrecorded actor, no unilateral push — but the escalation was never answered. It was mooted.** An escalation that dies by supersession rather than by ruling is Discipline #73 one level up: the state changed and the record did not follow.
