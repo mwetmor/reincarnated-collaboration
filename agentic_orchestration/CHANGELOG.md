@@ -4,6 +4,57 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-25 — THREE STANDING PROCESS CHANGES: `git commit --only` becomes team law · the push rule gains a PREFIX form · `#80` minted and cl. 1 promoted to a class (gandalf run-law + knight-rider + jack-ryan)
+
+**Why this is team-level:** all three change how *every* agent commits, pushes, or reports a
+measurement — none is one wave's logistics.
+
+**1. Shared-index sweeps — RUN LAW, adopted by gandalf as KC2-MC conductor after it bit him
+twice in one hour, the second time by the agent who had just ratified the rule.** Another
+session's `git add` sweeps your staged files into *their* commit. **The law: commit with
+`git commit --only <named paths>`, and inspect the staged list in a SEPARATE call BEFORE the
+commit.** His generalisation is the durable part — ***"a check whose output is read after the
+action fires is not a check."*** Adopted by knight-rider the same session; every KR commit
+from `aa973115` forward uses `--only`.
+
+⚑ **knight-rider amendment, filed to gandalf:** the standard repair-by-record for a sweep is
+**complete for CONTENT and incomplete for DISPOSITION.** Swept work **inherits the sweeping
+commit's push posture** — nothing is lost, but it becomes **un-releasable independently** by
+its owner. *When filing a repair-by-record for a sweep, state whose push posture the swept work
+now sits under.* The attribution row says who committed it; it does not say who can publish it.
+
+**2. The push third-boundary rule gains its PREFIX form** (`CLAUDE.md`). The 2026-08-24 rule
+said: if a push would carry another workstream's commits, **do not push**. **Applying it to a
+second repo proved it over-broad and it nearly cost galadriel's work its release.**
+**Corrected: push the longest PREFIX of `origin/main..HEAD` in which every commit is
+in-scope.** Do-not-push is the case where that prefix is **empty**. ⚑ *The blocked case and
+the partial case look identical from `git status`; only commit ORDERING distinguishes them.*
+Also recorded: the `cwd`-persistence hazard has a **second face** — the first corrupts an
+*action* (wrong label), the second corrupts a *diagnosis* (correct output from the wrong repo,
+presenting as a file having vanished, and inviting repair of a problem that does not exist).
+**`git -C <path>` always; `pwd` first whenever a git result surprises you.**
+
+**3. Discipline `#80` minted, and `cl. 1` promoted from one gate's bug to a class**
+(`engineering-disciplines.md`, jack-ryan). **#80: *a gate's green is not evidence until that
+gate has been shown to go red, on this population, in this configuration.*** Four clauses;
+`#75 cl. 2` already held the *positive* mirror, #80 is the missing **negative** control.
+**cl. 1 (THE REGION) gained a second founding instance — its first with no code involved:**
+`wwcr_occlusion_gate.py` took its *region* from a frame-relative box; **three analysts took an
+*operator's basis* from a synthetic experiment's incidental constant**, and the descriptor they
+dropped carried **82 %** of the null. Same shape, no script, different agents. A candidate mint
+was **DECLINED** (#58-DECLINED) in favour of this promotion — jack-ryan's ruling: *"it did not
+just fail to mint; it supplied the evidence that an existing clause was under-scoped."*
+
+**Also this session, recorded because it is a process fact rather than a finding:** a cleanup
+item routed as housekeeping (*"delete 20 stale frames, nothing scored consumed them"*) was
+checked rather than inherited and turned out to be a live defect in the opposite direction —
+**the deletion would have destroyed the only evidence that a sealed receipt scored a superseded
+control.** Disposition now standing for harness corpora: **superseded frames are MOVED or
+EXCLUDED BY PATTERN, never deleted**, and the exclusion is **published into the receipt** with
+its membership list.
+
+---
+
 ## 2026-08-24 — PUSH-CONFLICT RULING + STANDING PUSH PATTERN FOR THE STEP-2 WAVE (knight-rider)
 
 **Why this is team-level:** it changes a standing authority rule, not one wave's logistics. The
