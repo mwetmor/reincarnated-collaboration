@@ -43,11 +43,38 @@ Everything else in the SEALED entry stands.
   `dispatches/2026-08-24-drax-s2b-rows-redispatch.md` (`894077fe`, Gate-1 cleared). Order is fixed:
   **four owed receipts → rows 1–2 → rows 3–7**, with a **live pre-declared Gate-2 BLOCK** on rows
   3–7 minted without the seven sensitivity receipts.
-  - **Delta 2026-08-25 (KR):** seal-blocking set reduced to **one item**. A-6 **RETIRED** on three
+  - **Delta 2026-08-25 (KR):** ~~seal-blocking set reduced to **one item**~~ → **seal-blocking set is EMPTY; the tranche is SEALED — see the next bullet.** (Struck per #79 cl. 5: the "one item" was the mis-filed whirlwind gate, which was never a tranche-2 blocker at all.) A-6 **RETIRED** on three
     independent grounds; `#80` + `#78 cl. 6` canonical writes **LANDED**; the E-1 superseded-control
     defect **MEASURED, CONFIRMED and CLOSED** — it *retired* an open defect rather than adding one,
-    and corrected a published GLF table with **no verdict flips**. ⚑ **The one open blocker is the
-    whirlwind occlusion gate**: galadriel measured that the repaired region **moves the verdict
+    and corrected a published GLF table with **no verdict flips**.
+
+  - **⚑ SEALED, 2026-08-25 (KR): `drax/v0.1-s2b-mint-tranche-2` at `f119bd8` (`reincarnated-godot`).**
+    Gate 2 returned **PASS-WITH-CONDITIONS** (jack-ryan, `c234aadb`); his pre-declared BLOCK did
+    **not** fire — he verified all seven A-2 receipts at source rather than from the completion
+    record. **All three conditions discharged.** The tag is **local-only**; `reincarnated-godot`
+    sits outside the standing push pattern, so the seal awaits Matt's push authorization.
+    **Row 5 (`melee_arc`) seals on TWO measured A-5 criteria plus ONE construction argument, not
+    three measured criteria** — `authored ∩ caster_region = ∅` on both corpora, so the pixel leg is
+    **UNEVALUABLE per #80 cl. 2(a)**, not PASS. The design claim is undamaged and rests on stronger
+    evidence than the pixels (`INNER_R` 2.34–2.62 m vs `BODY_R` 0.34 m); **the record over-claimed
+    and now does not.** A mechanical `authored ∩ region` emptiness sweep across **all** rows
+    (`s2b_region_emptiness_sweep.py`, re-runnable) returned **`melee_arc` ONLY** — 90 criterion
+    nodes, 6 DEFECT, all six the same criterion — so rows 1/2 and 3/4/6/7 are clean of this class
+    **on evidence, not on the absence of a look.** ⚑ **Transferable: an exact-bound screen is
+    INSUFFICIENT.** The added by-value screen caught the **arena** leg at `retention_frac` 0.9993 —
+    **1340 of 1341 px, one pixel between caught and invisible** — which the exact-bound screen
+    walked past; jack-ryan found the defect on *cathedral*, where it lands on exactly 1.0. **An
+    arena-only tranche would have passed an exact-bound audit clean.** Deferred with ratification:
+    `melee_arc` sensitivity proof; row 7's 5°/7° fill-in. `A5_CASTER_RETENTION` can become MEASURED
+    only on a population where the artifact enters the caster region — a **capture-design** question
+    that **no bar change fixes**.
+
+  - ~~⚑ **The one open blocker is the whirlwind occlusion gate**~~ **⚑ STRUCK, not deleted (#79
+    cl. 5) — this was FALSE and it is the same premise error corrected in the 2026-08-25 handoff
+    § 3. The whirlwind occlusion gate is NOT a tranche-2 item and NOT a tranche-1 item; it belongs
+    to the separate WW-AB clean-room workstream and never gated this seal.** It remains a real open
+    item **there**. The substance below stands and is re-filed under WW-AB:
+    galadriel measured that the repaired region **moves the verdict
     PASS → FAIL on both corpora**, then **declined to adopt her own repair** because the 20 % bar
     was calibrated against a **99.6 %-sky denominator** — so the repaired FAIL is as uninterpretable
     as the original PASS. **Gated on two acts, neither hers and neither Matt's:** a re-derived bar

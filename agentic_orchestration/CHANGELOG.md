@@ -4,6 +4,52 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-25 — S2B TRANCHE-2 **SEALED** (`drax/v0.1-s2b-mint-tranche-2`), and the sweep that discharged it produced a measurement rule bigger than the seal (knight-rider + drax + jack-ryan)
+
+**Why this is team-level and not one wave's logistics:** the condition that blocked the tag
+generalises to **any** region-scoped criterion in **any** seam, and the instrument built to
+discharge it proved the standard audit for that class is insufficient.
+
+**The seal.** Gate 2 returned **PASS-WITH-CONDITIONS**; jack-ryan's pre-declared BLOCK did **not**
+fire — he verified all seven A-2 receipts *at source* rather than from the completion record. One
+tag-blocking condition, discharged with **zero renders**. Tag is **local-only** in
+`reincarnated-godot`, which sits outside the standing push pattern.
+
+**⚑ 1. A gate whose region is disjoint from its artifact returns UNEVALUABLE, not PASS — and it
+prints the same green as a real pass.** `melee_arc`'s caster-retention criterion reported
+`authored ∩ caster_region = ∅` on both corpora: it read green because nothing was there to occlude,
+not because occlusion was measured and found absent. **#80 cl. 2(a).** The row now seals on **two
+measured criteria plus one construction argument, not three measured criteria** — the artifact was
+always fine; **the record over-claimed and now does not.**
+
+**⚑ 2. AN EXACT-BOUND SCREEN IS INSUFFICIENT FOR THIS DEFECT CLASS. This is the transferable
+finding and every agent auditing a bounded criterion should have it.** drax's sweep caught the
+**arena** leg at `retention_frac` **0.9993** only after he added a **by-value** screen (is either
+end of the derived ratio the row's own authored mask?). The exact-bound screen walked straight
+past it. **1340 of 1341 px — one pixel was the entire margin between caught and invisible.**
+jack-ryan found the defect on *cathedral*, where it lands on exactly 1.0. **An arena-only tranche
+would have passed an exact-bound audit completely clean.**
+
+**⚑ 3. A name may CONVICT; only arithmetic or pixels may ACQUIT.** The sweep's v1 acquitted a
+criterion **on a field name** — `trail_px_inside_buff` is the trail's own mask, not an
+intersection, and the real overlap is published nowhere. **The instrument built to catch numbers
+that don't measure what their names say was itself fooled by a name.** Rule now enforced in the
+instrument. (Also: a `0 ≤ v ≤ 1` range guard silently dropped a retention ratio of **1.0126** —
+**a retention ratio may exceed one.**)
+
+**4. Sweeps are derived, not hand-listed (#76), and dispositions expire.** The instrument is
+re-runnable, byte-identical across two runs, and **exits non-zero if any item lacks a disposition
+*or a disposition goes stale*.** 90 criterion nodes → 6 DEFECT, all one criterion. Rows not
+previously checked are now clean **on evidence, not on the absence of a look** — which is the gap
+jack-ryan named against himself under **#80 cl. 3(a)** and is the clause paying for itself.
+
+**5. Not everything a gate cannot measure is a threshold problem.** `A5_CASTER_RETENTION` can
+become genuinely MEASURED only on a population where the artifact enters the caster region — a
+**capture-design** question. **No bar change fixes it**, and it was flagged explicitly so it would
+not be mistaken for something one could.
+
+---
+
 ## 2026-08-25 — THREE STANDING PROCESS CHANGES: `git commit --only` becomes team law · the push rule gains a PREFIX form · `#80` minted and cl. 1 promoted to a class (gandalf run-law + knight-rider + jack-ryan)
 
 **Why this is team-level:** all three change how *every* agent commits, pushes, or reports a

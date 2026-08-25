@@ -8,7 +8,7 @@
 
 | # | item | what it unblocks | criterion |
 |---|---|---|---|
-| **1** | **`reincarnated-godot` push authorization** | four S2B commits: `f29f12b` (whirlwind re-render at HEAD), `7dc58d3` (galadriel's occlusion-region audit), `0c38b79` + `0d26021` (the E-1 pre-registration and its result). **All four are S2B-in-scope; `origin/main..HEAD` carries nothing foreign.** | The standing "push as you go" pattern **explicitly excludes this repo by its own scope boundary.** This is the fresh ask that boundary requires. **A yes costs nothing and carries no other workstream's work.** |
+| **1** | **`reincarnated-godot` push authorization — now carries the SEAL** | **five** S2B commits and **the tranche-2 seal tag**: `f29f12b` (whirlwind re-render at HEAD), `7dc58d3` (galadriel's occlusion-region audit), `0c38b79` + `0d26021` (the E-1 pre-registration and its result), `f119bd8` (the C1 discharge + emptiness sweep) — with **`drax/v0.1-s2b-mint-tranche-2`** on the last of them. **All five are S2B-in-scope; `origin/main..HEAD` carries nothing foreign.** | The standing "push as you go" pattern **explicitly excludes this repo by its own scope boundary.** This is the fresh ask that boundary requires. **A yes costs nothing and carries no other workstream's work.** ⚑ **This is the only item that grew while you were away** — and the growth is the seal itself, which now exists locally and cannot reach `origin` without you. |
 | **2** | **Synty VFX frame-retention fork** (`canonical/matt_decision_needed/2026-08-24-…`) | whether harness frame corpora persist on this Mac | **New evidence landed against the discard fork.** A defect that had been sealed into an E-1 receipt was recoverable **only** because 20 superseded PNGs were still on disk — and confirming the fix cost **zero renders** for the same reason. § 5 of the E-1 ruling was written as an argument; it is now a demonstration. |
 | **3** | **KC2-MC Wave-4 go/no-go + the M-POL-2 fork** | gandalf's run (not mine) | gandalf's L-82 records Wave-4 **HALTED on your word** at an owner-eye checkpoint. Flagged here only so it is in one place with the rest; it is his to brief. |
 
@@ -60,7 +60,22 @@ Pre-registered, then re-run at zero render cost: **arena `00-pre` 83 → 0, cath
 - ⚑ **The largest one, and you surfaced it by asking: the run's terminal act is a SEAL, and I never requested it.** All four build stages had completion records; `qa/pending/` had no tranche-2 submission. I spent the session on forensic instrument work — real work, none of it the gate that closes the run. **I kept finding things and stopped driving the thing to its end.** Gate 2 fired only because you asked whether the run was complete.
 - **Fifth recurrence of one premise-error shape, in the document you read** — see § 3's correction. **I had written the correct fact myself, in my own dispatch, and labelled it there as the fourth instance.** Recording the shape did not stop me repeating it; only another agent's read did.
 
-## 6. Next-session pickup
+## 6. ⚑ THE SEAL IS IN — `drax/v0.1-s2b-mint-tranche-2` at `f119bd8`
+
+**Written after §§ 1–5, which is why they read as though it were still open.** All three Gate-2 conditions discharged; the tranche-2 tag is dropped. **It is local-only** — the tag lives in `reincarnated-godot`, which sits outside the standing push pattern, so **decision 1 is now the only thing between this seal and `origin`.**
+
+**The sweep came back `melee_arc` ONLY.** 90 criterion nodes, 176 pixel counts, 212 fractions, three receipts; 30 flagged, **6 DEFECT — all six the same `melee_arc/A5_CASTER_RETENTION` across both corpora.** Rows 1/2 and 3/4/6/7 are clean of the C1 defect class **on evidence, not on the absence of a look**, which is the gap jack-ryan named against himself and it is now closed. **I verified all of this from the sweep JSON and the amended dispatch, not from drax's report.**
+
+⚑ **The finding that outlives the seal: the sweep convicted itself three times before it convicted the tranche, and one of those is genuinely load-bearing.** An exact-bound screen alone is **insufficient**. drax added a by-value screen, and it independently caught the **arena** leg at `retention_frac` **0.9993** — which the exact-bound screen walked straight past. **1340 of 1341 pixels: one pixel was the entire margin between caught and invisible.** jack-ryan found C1 on *cathedral*, where it lands on exactly 1.0. **Had this tranche shipped arena-only, an exact-bound audit would have found nothing at all.** The other two: v1 acquitted a criterion **on a field name** (`trail_px_inside_buff` is the trail's own mask, not an intersection) — so the rule now enforced is *a name may convict, only arithmetic or pixels may acquit*; and a `0 ≤ v ≤ 1` range guard silently dropped a retention ratio of **1.0126**, because a retention ratio may exceed one.
+
+**What the tag does NOT seal, and this is deliberate:** `melee_arc`'s sensitivity proof and row 7's 5°/7° fill-in stay deferred with jack-ryan's ratification. And `A5_CASTER_RETENTION` can only become genuinely MEASURED on a population where the artifact actually enters the caster region — **a capture-design question, not a threshold one. No bar change fixes it**, and drax flagged it specifically so it would not be mistaken for something one could.
+
+## 7. Next-session pickup
+
+**Nothing is blocked on me.** The seal is done; decision 1 releases it. Below is what was in flight and stays that way.
+
+<details>
+<summary>The C1 dispatch as it stood before it returned — kept for the record</summary>
 
 **C1 is FIRING — not queued for you to start.** drax amends the row-5 claim (one sentence: two measured A-5 criteria plus one construction argument), **and runs the mechanical `authored ∩ region` emptiness sweep across all rows** — jack-ryan explicitly did not check rows 3/4/6/7 for the C1 defect class and said so. **The sweep result is the gate, and it forks:**
 
@@ -69,8 +84,12 @@ Pre-registered, then re-run at zero render cost: **arena `00-pre` 83 → 0, cath
 
 **Second action, mine, and it is ordered BEFORE galadriel's next move:** carry the **corrected** E-0 GLF table to her as explicitly superseding (the ~3.5× authored-pixel inflation from § 4). She must not run the enrichment sweep or propose bars off the published figures. **A stale table in a bar-derivation input is exactly how a `#80 cl. 2` bar gets minted**, and this run has three of those on file already.
 
-**Also queued, and NOT seal blockers:** the occlusion-bar re-derivation (jack-ryan, pre-registration work on the **WW-AB** workstream) and the clean-room re-scoring licence (gandalf). Both filed, neither fired, neither between you and this seal.
+*Outcome: **the first branch.** The fork never reached you. The second action is done — the note is filed at `galadriel/notes/2026-08-25-knight-rider-glf-table-superseded-…`.*
 
-**Push state as of this write:** `reincarnated-collaboration` is **fully pushed** (`c234aadb`). `reincarnated-engine` still empty-prefix blocked. `reincarnated-godot` awaits decision 1.
+</details>
+
+**Also queued, and NOT seal blockers:** the occlusion-bar re-derivation (jack-ryan, pre-registration work on the **WW-AB** workstream) and the clean-room re-scoring licence (gandalf). Both filed, neither fired, **and neither was ever between you and this seal** — which was the whole point of correcting § 3.
+
+**Push state as of this write:** `reincarnated-collaboration` **fully pushed**. `reincarnated-engine` still **empty-prefix blocked** — 26 ahead, and I re-checked rather than assumed: the *oldest* unpushed commit is gamora's `8b9b67c4`, so there is no in-scope prefix to release. Self-resolves at KC2-MC's close. `reincarnated-godot` **holds the seal** and awaits decision 1.
 
 *knight-rider, 2026-08-25. Every figure above was read from a receipt or a commit, not from an agent's summary — which is the discipline that produced § 4, and it caught something on every pass this session.*
