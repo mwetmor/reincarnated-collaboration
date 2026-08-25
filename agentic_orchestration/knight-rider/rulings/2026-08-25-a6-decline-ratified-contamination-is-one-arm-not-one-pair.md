@@ -422,3 +422,85 @@ He declined to mint five disciplines and minted one, and I think he is right tha
 She was dispatched in parallel with Item 1 = *specify the decimation test, do not run it.* **jack-ryan's § 2 moots that item and his § 3 authorises the synthetic variant she was being asked to rule on.** `SendMessage` does not exist in this harness (confirmed seven times against the tool surface, despite the agent-launch output advertising it), **so a running agent cannot be told that its task has been overtaken.** Her Item 2 — the `wwcr_occlusion_gate.py` region repair and the sibling-gate sweep — is untouched and is the more valuable half. **Recorded as an orchestration cost, not as a defect of hers: I fired two agents in parallel on questions that turned out to be sequential, and the parallelism is what made them unfixable mid-flight.**
 
 *Amended by knight-rider, 2026-08-25. Every figure in §§ 10.1–10.2 was re-derived from `xrow.json` before being accepted; the two that did not reproduce are flagged in § 10.4 rather than smoothed.*
+
+---
+
+# § 11 — AMENDMENT 5 (galadriel return, `01cef26b`). **My two senior agents re-derived from the same source and reached OPPOSITE verdicts on the same hypothesis. They are describing the same physics. jack-ryan's premise 2 cites the correct scaling law as evidence AGAINST the mechanism that scaling law describes — and my § 10.2 retraction was PREMATURE.**
+
+## 11.1 — The collision, stated exactly
+
+- **jack-ryan (§ 10.2, premise 2):** `radial_mean` + `radial_std` carry 51.3 % of the residual; they are **moments over all *n* pixels**, so *"averaging suppresses per-pixel quantisation as ~1/√n"* → **quantisation-ROBUST** → **not the driver** → mechanism refuted.
+- **galadriel:** log-log regression of within-row raw dispersion on median payload, excluding `line`: **`radial_std` slope −0.492, r = −0.984**; `radial_mean` −0.452. **Counting noise predicts −0.5.** `radial_std`'s `single_target`/`circle` ratio is **8.79 against √73.4 = 8.57.** → the mechanism **IS** 1/√n counting noise, **concentrated in the radial moments.**
+
+**Both re-derived from source. Both reproduce under my own hand — I ran the regression before writing this line: `radial_std` slope −0.492, r = −0.984, ratio 8.79 vs 8.57.**
+
+**⚑ They are the same statement.** *"Suppressed as 1/√n"* and *"scales as n^−0.5"* are one physics. **The error is jack-ryan's inference, not his arithmetic: suppressed-as-1/√n does not mean negligible, it means the noise is 8.57× larger on a 1,740 px mask than on a 127,746 px one — which is the 8.79× galadriel measured.** He named the law that predicts the effect and read it as ruling the effect out.
+
+**This is the most instructive thing in the run and I want it recorded as such:** two Tier-A agents, same artifact, same operator, opposite verdicts, **and neither is careless.** The disagreement is not about data. It is about whether a known scaling law is a *suppression* or a *rate*.
+
+## 11.2 — What actually survives, itemised, because "I was wrong" was too coarse
+
+| § 9.3 claim | status |
+|---|---|
+| **Within-row dispersion scales with payload** | **UPHELD, and quantitatively stronger than I stated it** — I asserted a rank order; she measured an exponent against a prediction. |
+| **The mechanism is 1/√n counting noise** | **UPHELD**, but I never said this — I said generic ratio wobble. **Her mechanism is not mine; it is a better one occupying the same slot.** |
+| **It lives in `fill_of_bbox` / `inner_core_frac` / `outer_shell_frac`** | **REFUTED.** It lives in the **radial moments**. |
+| **`outer_shell_frac` is a driver** | **REFUTED HARD.** Slope **+0.075** — the wrong *sign*. Raw dispersion 0.0057 on `single_target` vs 0.0098 on `circle`: **the corpus's second most stable descriptor on the row I claimed it destabilised.** |
+| **`line` is an inversion against me** | **WITHDRAWN — it is a second effect.** Its null is carried by `aspect_major_minor`, whose raw dispersion is **0.1510 — the largest single raw dispersion anywhere in the corpus, 8.6× `circle`'s** — genuine inter-element shape variation on a row that also has a smaller payload term. **Confirmed by my own run.** |
+| **"Smallest mask dominates the leave-one-out"** | **REFUTED by jack-ryan and NOT rescued by galadriel.** `fire` — the largest payload in the row — drives it, because `fire` is genuinely a different shape. |
+
+**So the correct account is a SUPERPOSITION, and neither agent stated it:**
+
+> **`single_target`'s null = a real shape difference in `fire` (signal — it REPLICATES across cohorts) SITTING ON a payload-scaled noise floor (counting noise — it does NOT replicate).** jack-ryan measured the first and concluded the second was absent. galadriel measured the second and did not address the first. **Both measurements are right. Both exclusions are wrong.**
+
+**⚑ And jack-ryan's replication test is the discriminator that proves it, used against his own conclusion:** noise does not reproduce across independent cohorts, signal does. **`fire`'s `radial_mean` reproduces (0.4855 / 0.4559). The row-level null does not (49.4 %).** That is exactly what a superposition predicts and neither a pure-signal nor a pure-noise account does.
+
+## 11.3 — ⚑ My § 10.2 retraction was premature, and the way it failed is the same way, a fifth time
+
+**I verified jack-ryan's three arithmetic claims — all three reproduced — and did not check the INFERENCE drawn from claim 2.** I checked that 51.3 % was 51.3 % and not whether "all-pixel moment ⇒ quantisation-robust" follows. **It does not.**
+
+**This is the fifth instance of one failure mode and the second in consecutive amendments**, immediately after I wrote *"naming a failure mode is not a control on it."* **It still is not.** The refinement I can actually use: **my verification habit terminates at numbers.** Every catch this run came from re-deriving a figure; every miss came from accepting a *sentence* that sat next to a figure I had confirmed. **Confirming an agent's arithmetic licenses nothing about their reasoning, and a verified number beside an unverified inference reads as a verified claim.** That is drax's *"a fix ported in prose is a fix that reads as adopted"* pointed at a reviewer instead of a codebase — **and it is #80 cl. 3 operating on me.**
+
+**§ 10.2 stands as written, struck where § 11.2 corrects it, per #79 cl. 5.** I am not editing the retraction away; being wrong twice in opposite directions is the record.
+
+## 11.4 — Does A-6's retirement survive? **YES — and galadriel STRENGTHENS it.**
+
+**The retirement does not rest on the mechanism.** It rests on the null failing to reproduce across cohorts, worst on the one spec-clean row (`melee_arc`, 76.4 %). **galadriel does not contest that and nothing in § 11 touches it.**
+
+**And she supplies a second, independent reason A-6 is mis-specified:** if the within-row null floor **scales as n^−0.5**, then a **global `null_max` consumed across rows spanning 1,740 → 127,746 px is comparing bars that differ by ~8.6× in noise floor by construction.** A-6 was not merely unpopulated — **it was un-poolable.** Two independent refutations, from two agents, neither aware of the other's. **A-6 is RETIRED and the retirement is now over-determined.**
+
+## 11.5 — Item 2: **⚑ my premise was half-wrong and the verdict MOVES — PASS → FAIL, on both corpora**
+
+I told her the repaired region *"does not move any verdict."* **That was true of the LOWER-BODY claim and never established for the ENEMY claim** — drax measured the defect; nobody measured the repair. Thresholds carried verbatim, neither re-tuned:
+
+| corpus | | lower | enemy |
+|---|---|---|---|
+| mint | OLD | 1.78 % PASS | 0.01 % PASS |
+| mint | **NEW** | **5.47 % FAIL** | **23.01 % FAIL** |
+| HEAD | OLD | 1.73 % PASS | 0.00 % PASS |
+| HEAD | **NEW** | 1.38 % PASS | **26.98 % FAIL** |
+
+**Root defect is `actor`, not the complement:** it reads *"differs from the floor colour,"* so the **darker void is admitted**; the box then cannot exclude it. **Two composing errors.** Repair: actor must be **brighter** than floor, split by **connected component** not by box. Denominator **50,840 → 1,705 px**; ledger resolves to caster (972 px) + exactly four mobs. The mint's lower-body flip is **drax's own predicted failure realised** — the old `lower` pooled caster with mobs.
+
+**Her disposition, which I ratify and which is the important part: this is NOT "the row fails."** The 20 % bar was calibrated against a 99.6 %-sky denominator, so **the repaired FAIL is as uninterpretable as the original PASS. Third instance of the bar-set-by-what-it-measures class.** The region is adopted only with a **re-derived bar, derived before the repaired number is looked at again** — a pre-registration act, **jack-ryan's, not hers**. She declined to set it. Correct.
+
+**What IS newly known and is a real finding: ~27 % of true enemy-silhouette pixels change at `05-sustain`, on both corpora — the exact failure the row exists to correct, which the gate was structurally incapable of seeing.**
+
+## 11.6 — Sibling scan: **NO FOURTH**, and the counter-example is by the same hand
+
+`wwcr` is the **only** gate hardcoding a frame-relative box. `cj_gate:152` / `sa_gate:209` boxes are world-projected with no denominator; complement regions are count-only (`quiltfix:138`) or content-derived (`s2b_rows12:437`, `s2b_stagemetrics:238`).
+
+**⚑ `s2b_rows12` and `rows37` — drax's own — derive regions from engine geometry AND print the denominator beside the fraction. `wwcr` did neither, and the absence of that one integer hid 62,048 px of sky for an entire run.** Routed to jack-ryan as **ratification of existing practice, not a new discipline** — the practice already exists in this codebase and has been right the whole time.
+
+**Her closing line is the run's thesis and I am putting it in the record verbatim:** *"every bar in this run that could not be failed was measured against a region chosen for convenience. The sky was not an error of arithmetic. It was an error of not printing the denominator."*
+
+## 11.7 — Disposition
+
+- **T-1 fires** — synthetic parametric shapes at the corpus's own payload ladder, k=4 arms per rung, shape held **exactly** constant while payload varies. **Zero corpus data, zero hazard, authorised by jack-ryan at any time, ~60 lines, minutes.** It is the decisive discriminator between two Tier-A agents and **the outcome is engine-level**: if descriptor dispersion scales n^−0.5, **every future cross-row instrument comparing effects of different payload size carries a built-in bias.** Engine first.
+- **T-2 (corpus-side) does NOT fire**, and her correction to my spec is accepted: random decimation destroys connectivity and is not the physical situation — **a mask smaller on screen is not a mask with pixels deleted.** Area-downscale + re-threshold, and only after disposition.
+- **My synthetic worry was unfounded and she explained why I was wrong to have it:** the halo structure drives `significant_components`, which is **excluded** from the eight descriptors under test. **I worried about a contaminant that is not in the experiment.**
+- **Her correction on `count1`:** its `sig = 4` is evidence for her `0.01·n` **gate** mechanism, **not** the payload mechanism — `sig` is excluded from the null being explained. **Two mechanisms keyed to small *n*; I pooled them and she unpooled them.** Accepted.
+- **The bar re-derivation for the repaired enemy region → jack-ryan**, pre-registered before the repaired number is looked at again.
+- **R-1 / R-2 / R-3 remain proposed and unscored.** Third time that ordering has held under pressure.
+
+*Amended by knight-rider, 2026-08-25. The regression in § 11.1, the `outer_shell_frac` sign, and `line`'s 0.1510 aspect dispersion were re-derived by me from `xrow.json` before this section was written. Where two agents disagree, both were reproduced rather than one adjudicated on authority.*
