@@ -632,3 +632,199 @@ def test_JR20_no_pinned_vocabulary_can_be_ADDED_TO_or_DELETED_FROM_silently():
             "textually becomes a `str`, and every membership test in the suite keeps "
             "passing because `in` on a `str` is a substring test."
         )
+
+
+# ===========================================================================
+# AMENDMENT J (jack-ryan, Gate-2 2026-08-24, BINDING)
+# ===========================================================================
+#
+# The ratified safe-to-fire predicate had TWO implementations and nothing bound
+# them. `agentic_orchestration/flight/bin/flight_report` carries its own
+# `STATE_PRECEDENCE`, `SAFE_TO_FIRE_STATES`, `OCCUPIED_STATES`, `CLOSED_STATES`
+# and `safe_to_fire()`; `lane_status` appears zero times anywhere under `flight/`.
+# They agree today, exactly — `lane_status.py` even says so in a comment
+# (*"Identical ordering to the fleet board's STATE_PRECEDENCE, deliberately"*).
+#
+# **DELIBERATELY IDENTICAL BY HAND-COPY IS NOT BOUND.** Amendment H's sentence is
+# *consumers bind to the predicate by name, never re-derive it*, and this is the
+# largest consumer re-deriving it in full. The duplicate was written honestly, when
+# D-2 did not exist and the board's lane card was declared *degraded — D-2 CLI
+# pending*; that justification expired at `dddd232d`.
+#
+# The blast radius is not abstract. The fleet board is Matt's decision surface and
+# spec § 11.3 now instructs a dispatcher to consult it BEFORE spawning. `busy-unknown`
+# was a SEVENTH state added after the board was written, so growth is demonstrated
+# rather than hypothetical — and an eighth state would render on that board through a
+# classifier that has never heard of it.
+#
+# **jack-ryan did NOT order a refactor**, and this file does not perform one: the
+# script's standalone shape is a deliberate G-4 property and importing `factory` into
+# it would trade away more than it buys. A test is enough — it is cheap, it converts a
+# comment into a mechanism, and it is exactly what the rest of this file already does
+# for every other pin in the package.
+
+_FLIGHT_REPORT = FACTORY_DIR.parent / "flight" / "bin" / "flight_report"
+
+
+def _load_flight_report():
+    """Load the board AS A MODULE, so the comparison is over OBJECTS not re-typed text.
+
+    By loader, because the file is extension-less by design. Re-typing the board's
+    four collections into this file as literals would satisfy the letter of the
+    amendment and defeat its purpose: the copy would then be THREE derivations, and
+    the new one would be the one nobody looks at.
+
+    The spelling of this load is taken from `flight/tests/test_flight.py`, which
+    already loads the same script the same way, so the two suites cannot disagree
+    about what "the board" means.
+    """
+    import importlib.machinery
+    import importlib.util
+
+    spec = importlib.util.spec_from_loader(
+        "flight_report",
+        importlib.machinery.SourceFileLoader("flight_report", str(_FLIGHT_REPORT)),
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_AMENDMENT_J_the_BOARD_and_lane_status_answer_with_ONE_vocabulary():
+    """The board's four collections and its precedence EQUAL `lane_status`'s. Red on drift.
+
+    Five bindings, each closing a different way the two can part:
+
+    1. `STATE_PRECEDENCE` as an ORDERED sequence — the fail-closed resolution order.
+       Compared with `==` on tuples, not as sets: a reorder that puts `open` above
+       `busy-lock` is precisely the divergence that renders an occupied lane green.
+    2. Each of the three dispositions as a SET — the board spells them as tuples and
+       `lane_status` as frozensets, and requiring the container TYPE to match would be
+       demanding a refactor jack-ryan declined to order.
+    3. The three dispositions PARTITION the same vocabulary on both sides, so a state
+       deleted from one and not added to another reds here rather than falling out of
+       the denominator (the discipline `test_lane_status.py` already applies within
+       the package, extended across the seam).
+    4. No duplicate members, and no member is a bare `str` — the round-21 type
+       degeneration, where a one-element tuple that loses its comma becomes a string
+       and every set comparison keeps agreeing.
+    5. The PREDICATE ITSELF, evaluated by both implementations over every state in the
+       shared vocabulary. Equal literals with a divergent function body is the failure
+       the literals alone cannot see.
+    """
+    from factory import lane_status as ls
+
+    board = _load_flight_report()
+
+    pairs = {
+        "SAFE_TO_FIRE_STATES": (board.SAFE_TO_FIRE_STATES, ls.SAFE_TO_FIRE_STATES),
+        "OCCUPIED_STATES": (board.OCCUPIED_STATES, ls.OCCUPIED_STATES),
+        "CLOSED_STATES": (board.CLOSED_STATES, ls.CLOSED_STATES),
+    }
+
+    # (4) — degeneration first, because every comparison below is a set comparison and
+    # a bare string would pass three of them by being iterable over its characters.
+    for name, (theirs, _) in pairs.items():
+        assert not isinstance(theirs, str), (
+            f"`flight_report.{name}` is a bare string, not a collection. A one-element "
+            "tuple that loses its trailing comma becomes `str`, and `set(...)` of a "
+            "string is a set of its CHARACTERS — which compares unequal here loudly, "
+            "which is the point of checking the type before the members."
+        )
+        assert len(tuple(theirs)) == len(set(theirs)), (
+            f"`flight_report.{name}` has a duplicate member: {sorted(theirs)}. A set "
+            "comparison cannot see a duplicate, so it is checked separately."
+        )
+
+    # (1) — the ordered precedence.
+    assert tuple(board.STATE_PRECEDENCE) == tuple(ls.STATE_PRECEDENCE), (
+        "the fleet board and `lane_status` resolve conflicting legs in DIFFERENT "
+        "orders.\n"
+        f"  board:       {tuple(board.STATE_PRECEDENCE)!r}\n"
+        f"  lane_status: {tuple(ls.STATE_PRECEDENCE)!r}\n"
+        "Order is the whole content of this collection: it is what puts a running "
+        "process above a credential state and ambiguity above `open`. Two renderers "
+        "of one question may not disagree about which fact wins."
+    )
+
+    # (2) — the three dispositions.
+    for name, (theirs, ours) in pairs.items():
+        assert set(theirs) == set(ours), (
+            f"`{name}` has DIVERGED between the fleet board and `lane_status`.\n"
+            f"  board:       {sorted(theirs)!r}\n"
+            f"  lane_status: {sorted(ours)!r}\n"
+            f"  board-only:  {sorted(set(theirs) - set(ours))!r}\n"
+            f"  ours-only:   {sorted(set(ours) - set(theirs))!r}\n"
+            "Amendment H says consumers bind to the predicate BY NAME and never "
+            "re-derive it. The board re-derives it, so this row is the binding — and "
+            "a state added to `lane_status` and not to the board is a state Matt's "
+            "pre-spawn surface renders through a classifier that has never heard of "
+            "it. Add it on BOTH sides, in the same commit."
+        )
+
+    # (3) — the partition, on both sides of the seam.
+    board_vocab = set(board.SAFE_TO_FIRE_STATES) | set(board.OCCUPIED_STATES) | set(board.CLOSED_STATES)
+    our_vocab = set(ls.SAFE_TO_FIRE_STATES) | set(ls.OCCUPIED_STATES) | set(ls.CLOSED_STATES)
+    assert board_vocab == our_vocab == set(ls.STATE_PRECEDENCE), (
+        "the answer vocabulary is not the same set on both sides, or one side's "
+        "dispositions no longer cover its own precedence.\n"
+        f"  board dispositions: {sorted(board_vocab)!r}\n"
+        f"  ours:               {sorted(our_vocab)!r}\n"
+        f"  our precedence:     {sorted(set(ls.STATE_PRECEDENCE))!r}"
+    )
+
+    # (5) — the predicate, run by both implementations over the whole vocabulary.
+    for state in sorted(our_vocab):
+        assert board.safe_to_fire({"state": state}) == ls.safe_to_fire(state), (
+            f"the two implementations of THE PREDICATE disagree about {state!r}: "
+            f"board says {board.safe_to_fire({'state': state})}, `lane_status` says "
+            f"{ls.safe_to_fire(state)}. Equal literals with a divergent function body "
+            "is the divergence the literals alone cannot see."
+        )
+
+
+def test_AMENDMENT_J_the_BOARD_never_renders_a_NOT_FIRE_SAFE_state_GREEN():
+    """The render's fail-open direction, guarded across the whole shared vocabulary.
+
+    The equality row above catches a state that exists on one side and not the other.
+    This one catches the other half of jack-ryan's named blast radius: `state_marker`
+    decides its colour with `if ans["state"] in CLOSED_STATES or ans["state"] ==
+    "busy-unknown"` and then falls through, so a state the board does not recognise
+    reaches the final `return GREEN`. Green on Matt's pre-spawn surface is *fire here*.
+
+    Asserted as an INEQUALITY against GREEN rather than as a colour table, because the
+    colours themselves are presentation and pinning them would red on a cosmetic move.
+    The fail-open direction is the only one that costs anything.
+    """
+    from factory import lane_status as ls
+
+    board = _load_flight_report()
+
+    for state in sorted(ls.STATE_PRECEDENCE):
+        if ls.safe_to_fire(state):
+            continue
+        for na in (False, True):
+            marker = board.state_marker({"state": state, "na": na})
+            assert marker != board.GREEN, (
+                f"the board renders {state!r} GREEN (na={na}). That state is NOT "
+                "fire-safe by the ratified predicate, and green on the fleet board is "
+                "read as *fire here* — by Matt at a glance and by a dispatcher at "
+                "§ 11.3's pre-spawn check."
+            )
+
+    # The one colour that IS load-bearing rather than presentational, and the one line
+    # jack-ryan quoted by number: `flight_report:137` reads
+    #   `if ans["state"] in CLOSED_STATES or ans["state"] == "busy-unknown":`
+    # — a hand-typed state NAME, which is the *shared spelling is not yet shared
+    # definition* half of Amendment J. Measured: deleting that clause degrades
+    # `busy-unknown` from RED to AMBER while every other row in this file stays green,
+    # because AMBER is not fire-open. But RED and AMBER are different INSTRUCTIONS —
+    # amber says *enqueue behind it*, red says *you must act on this* — and an
+    # unreadable leg is a thing only Matt can clear. So the literal is bound here by
+    # the behaviour it drives, rather than by grepping the source for the string.
+    for state in sorted(set(ls.CLOSED_STATES) | {ls.STATE_BUSY_UNKNOWN}):
+        assert board.state_marker({"state": state, "na": False}) == board.RED, (
+            f"the board no longer renders {state!r} RED. A dead credential and an "
+            "unreadable leg are both things only Matt can clear; amber reads as "
+            "*enqueue behind it*, which is an instruction nobody can act on here."
+        )
