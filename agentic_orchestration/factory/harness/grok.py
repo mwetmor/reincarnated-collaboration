@@ -98,6 +98,7 @@ import json
 import os
 import subprocess
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -171,6 +172,45 @@ DEFAULT_GROK_BINARY_RELATIVE = "bin/grok"
 
 DEFAULT_TIMEOUT_S = 3600
 
+#: **THE DEBOUNCE. Total CONSECUTIVE not-authenticated readings required before this
+#: lane will call its auth TERMINAL** — i.e. before ownership of pending work may move
+#: to the Claude fallback, which P-7 makes a one-way door.
+#:
+#: OCCASIONED BY A MEASURED FALSE POSITIVE (jack-ryan, 2026-08-25, ~17:27):
+#: `factory lane-status --lane grok` returned `auth_expired`; six probes seconds later
+#: all returned rc=0 and *"You are logged in with grok.com."* **The token had
+#: auto-refreshed.** So the FIRST real-world occurrence of `check_auth`'s
+#: REASONED-NOT-MEASURED negative branch was not a `grok logout` at all — it was a
+#: routine refresh, and it produced the identical classification. One reading,
+#: no re-probe, terminal by design, and `jobqueue._stop_on_closed_lane` then hands
+#: EVERY pending job to Claude permanently and files a Matt-only re-auth escalation
+#: that was never needed.
+#:
+#: **WHAT IS MEASURED AND WHAT IS NOT, said plainly.** The PROBE's latency is measured:
+#: n=6 on this host, `~/.grok/bin/grok models`, 0.74 / 0.89 / 0.94 / 0.96 / 0.83 / 0.89 s
+#: wall, 6/6 rc=0 (star-lord, 2026-08-25). The REFRESH WINDOW — how long the CLI reports
+#: not-authenticated while a refresh is in flight — is **NOT measured and cannot be
+#: measured from here**: inducing it requires a real expiry, and `grok logout` is a
+#: Matt-only action on a live lane. jack-ryan's observation bounds it at "seconds",
+#: n=1, with no distribution behind it.
+#:
+#: **So this value is chosen on COST ASYMMETRY, not on a fitted window, and that is the
+#: honest reason.** An extra reading costs ~0.9 s of wall and $0.00. A false terminal
+#: costs the entire queue, permanently, Claude-ward, plus a false escalation to Matt.
+#: Three readings spanning ~4.7 s of wall (probe + 1 s + probe + 2 s + probe) buy a
+#: materially wider window than jack-ryan's proposed single re-probe for two seconds of
+#: a path that ends in a human escalation anyway. It also matches the house retry norm
+#: — three attempts, exponential backoff — rather than inventing a second one.
+#:
+#: **This bounds ONLY the affirmative `auth_expired` reading.** `auth_unknown` is never
+#: re-probed and is never terminal at any count; see `check_auth`.
+AUTH_CONFIRM_READINGS = 3
+
+#: Backoff between confirmation readings: `BASE * 2**(n-1)` -> 1 s, then 2 s. Exponential
+#: rather than flat because the two samples are then asking different questions — "did a
+#: fast refresh land" and "did a slow one" — instead of asking one question twice.
+AUTH_CONFIRM_BACKOFF_BASE_S = 1.0
+
 #: The prompt travels on ARGV (`-p`), which is the invocation of record. `ARG_MAX` on
 #: this host is ~1 MB, so a 40 KB brief is comfortable — but "comfortable" is not a
 #: bound, so the bound is declared here and REFUSED at the argv builder rather than
@@ -235,6 +275,22 @@ class LaneAvailability:
     ok: bool
     state: str
     reason: str
+    #: **CAN THIS STATE MOVE OWNERSHIP?** `False` means *stop the drain and change
+    #: nothing*; `True` means *this lane is confirmed unable to take the work, so
+    #: `jobqueue` may file the condition and hand pending jobs to the Claude fallback.*
+    #:
+    #: The two outcomes used to share ONE trigger — `not state.ok` — and they must not,
+    #: because they are not equally undoable. **Stopping a drain is reversible; a
+    #: `FALLBACK-CLAUDE` row is not** (P-7: ownership moves once, and a drain after
+    #: re-auth must NOT pick the job back up). A trigger shared between a reversible and
+    #: an irreversible consequence is adjudicated at the irreversible one's cost.
+    #:
+    #: **DEFAULT `False` — fail toward the reversible outcome.** A state that has not
+    #: positively established it is terminal does not get to spend the one-way door.
+    #: Every construction site below therefore says `terminal=True` EXPLICITLY or means
+    #: it when it stays silent. `jobqueue` reads this by `getattr(state, "terminal",
+    #: False)`, so the same safe default covers a harness that has no opinion at all.
+    terminal: bool = False
 
 
 class GrokPreflightFailed(RuntimeError):
@@ -251,7 +307,12 @@ class GrokHarness:
         auth_probe: Any = None,
         preflight_probe: Any = None,
         ceiling: int = GROK_SLOT_CEILING,
+        sleep: Callable[[float], None] = time.sleep,
     ):
+        #: Injected for the same reason `_auth_probe` is: the auth DEBOUNCE is the thing
+        #: under test, and a test that had to spend 3 real seconds to exercise it is a
+        #: test that gets deleted the first time the suite feels slow.
+        self._sleep = sleep
         #: **N=3** (Amendment O), injectable so a test can exercise the ceiling without
         #: three concurrent children and so an O.3 ceiling-DROP (to k-1, on the first
         #: 429 or degradation) is a value change rather than a code change. The default
@@ -353,8 +414,14 @@ class GrokHarness:
         return result
 
     # -- availability -------------------------------------------------------
-    def check_auth(self) -> LaneAvailability:
-        """`grok models` — the check of record.
+    def probe_auth_once(self) -> LaneAvailability:
+        """ONE reading of `grok models`. No re-probe, no debounce, NEVER terminal-by-auth.
+
+        This is the raw instrument. It answers *"what did the CLI say just now"* and
+        deliberately nothing else — `check_auth` is what turns readings into a VERDICT.
+        Splitting them is the whole remedy: the old single method answered both
+        questions with one subprocess call, so a reading and a verdict were the same
+        object and a transient reading was a terminal verdict by construction.
 
         MEASURED (2026-08-24, grok 1.0.5): rc=0, and *"You are logged in with
         grok.com."* on STDOUT. Both streams are read anyway, because the Codex lane
@@ -366,6 +433,13 @@ class GrokHarness:
         Matt-only action on a live lane. It fails CLOSED — non-zero exit, an
         unrecognised answer, or a missing binary all read as "not authenticated".
         Treat it as genuinely untested rather than as covered by symmetry.
+
+        **AND THE DOWNSTREAM OF THAT DISCLOSURE IS NOW FOLLOWED.** The sentence above
+        shipped honest and was read by nobody past this method: `auth_expired` went
+        straight to `jobqueue._stop_on_closed_lane`, which is terminal by design. An
+        untested branch wired to a one-way door is a disclosure that does not do any
+        work. It is wired to a debounce now, and no caller gets the raw reading unless
+        it asks for it by this name.
         """
         if self._auth_probe is not None:
             return self._auth_probe()
@@ -376,6 +450,11 @@ class GrokHarness:
                 f"the grok CLI was not found (looked at ${GROK_BINARY_ENV}, then "
                 f"{resolve_grok_home() / DEFAULT_GROK_BINARY_RELATIVE}). It is NOT on "
                 "PATH by design; this lane resolves it explicitly.",
+                # TERMINAL, and on a DIFFERENT footing from the auth readings: this is a
+                # filesystem fact, not a credential one. `Path.exists()` is deterministic
+                # and has no refresh window to race, so one reading IS the confirmation
+                # and re-probing it would spend wall time re-learning a constant.
+                terminal=True,
             )
         try:
             proc = subprocess.run(
@@ -385,12 +464,20 @@ class GrokHarness:
         except FileNotFoundError:
             return LaneAvailability(
                 False, "cli_missing", f"{binary!r} is not executable from this process",
+                terminal=True,
             )
         except subprocess.TimeoutExpired:
             return LaneAvailability(
                 False, "auth_unknown",
                 "`grok models` did not answer within 60s. Absence of an answer is not a "
-                "pass — the lane is treated as closed.",
+                "pass — the lane is treated as closed for THIS DRAIN, and nothing more.",
+                # **NEVER TERMINAL, AT ANY READING COUNT.** A timeout is the absence of
+                # an answer, not an answer of "expired" — it is FIRE-UNSAFE, which stops
+                # the drain, and it is not OWNERSHIP-TRANSFERRING, which would need a
+                # positive finding. "The CLI did not answer in 60s" previously emptied
+                # the entire queue Claude-ward and filed a Matt-only re-auth row for a
+                # lane nobody had established was even unhealthy.
+                terminal=False,
             )
         answer = "\n".join(
             part for part in ((proc.stdout or "").strip(), (proc.stderr or "").strip()) if part
@@ -400,11 +487,83 @@ class GrokHarness:
         return LaneAvailability(
             False, "auth_expired",
             f"Grok auth is not healthy (`grok models` exited {proc.returncode}: "
-            f"{answer[:300] or 'no output on either stream'}). THIS IS NOT A JOB FAILURE "
+            f"{answer[:300] or 'no output on either stream'}).",
+            # UNCONFIRMED — one reading. The MATT-ONLY discipline and the fallback are
+            # deliberately NOT claimed here any more; `check_auth` adds them, and only
+            # after `AUTH_CONFIRM_READINGS` consecutive readings agree. A single reading
+            # of this branch is exactly what a token auto-refresh produces.
+            terminal=False,
+        )
+
+    def check_auth(self) -> LaneAvailability:
+        """THE VERDICT. Debounced, and the ONLY thing on this lane that may mint terminal.
+
+        The distinction it enforces, which the old one-reading method could not express:
+
+          * a **TRANSIENT** not-authenticated reading — a token auto-refreshing, which is
+            MEASURED to complete in seconds — stops nothing and costs one re-probe;
+          * a **TERMINAL** one — `AUTH_CONFIRM_READINGS` consecutive readings that all
+            say `auth_expired` — is what a real logout looks like, and only that may
+            move ownership.
+
+        **WHY THE DEBOUNCE IS HERE AND NOT AT THE DRAIN BOUNDARY.** It is placed at the
+        narrowest waist every consumer already goes through: `availability()` calls this,
+        `lane_status._auth_state()` calls this, and `JobQueue.drain` calls
+        `availability()`. Putting it at the drain would have left `factory lane-status`
+        — the exact command that produced the false `auth_expired` — still reporting the
+        transient reading to a human as a lane closure. Putting it at the drain would
+        also have been the easier write, which is the tell.
+
+        The raw single reading has not been taken away; it is `probe_auth_once`, by that
+        name, so a caller that genuinely wants an undebounced instrument reading must say
+        so and cannot get one by accident.
+
+        **`auth_unknown` DOES NOT ENTER THE LOOP.** No count of timeouts is a positive
+        finding, so re-probing one buys only wall time on the way to the same verdict —
+        and would push a `lane-status` worst case from 60 s to 180 s to answer a question
+        it already answered. It returns immediately, non-terminal.
+        """
+        reading = self.probe_auth_once()
+        if reading.ok or reading.state != "auth_expired":
+            return reading
+
+        readings = 1
+        started = time.monotonic()
+        while readings < AUTH_CONFIRM_READINGS:
+            self._sleep(AUTH_CONFIRM_BACKOFF_BASE_S * (2 ** (readings - 1)))
+            reading = self.probe_auth_once()
+            readings += 1
+            if reading.ok:
+                # THE TRANSIENT, ABSORBED — and SAID, not swallowed. The annotation rides
+                # `availability()`'s reason into `factory lane-status` output and into
+                # `DrainReport`, so "this lane blipped and recovered" is a visible lane
+                # event rather than a silence that looks identical to a lane that never
+                # blipped. A debounce nobody can see is indistinguishable from a bug.
+                return LaneAvailability(
+                    True, "open",
+                    f"{reading.reason}  [auth reading 1 said not-authenticated and "
+                    f"reading {readings} said logged-in after "
+                    f"{time.monotonic() - started:.1f}s — TRANSIENT, absorbed; the token "
+                    "had almost certainly refreshed]",
+                )
+            if reading.state != "auth_expired":
+                # The confirmation could not be COMPLETED (a timeout, or the binary went
+                # away mid-sequence). That is not a confirmed expiry — it is a different
+                # unresolved state, and it travels on its own terms with its own
+                # `terminal` value rather than inheriting a verdict from reading 1.
+                return reading
+
+        return LaneAvailability(
+            False, "auth_expired",
+            f"{reading.reason} CONFIRMED by {readings} consecutive readings over "
+            f"{time.monotonic() - started:.1f}s — this is a real expiry, not the "
+            "seconds-long window a token auto-refresh opens. THIS IS NOT A JOB FAILURE "
             "AND MUST NOT BE RETRIED: re-authentication is a MATT-ONLY action. The queue "
             "stops taking Grok jobs, files the condition, and hands pending work to the "
             "named Claude curator's lane — idle work is the failure, a filed row plus a "
             "fallback is the success.",
+            # The ONE site on this lane that mints terminal from a credential reading.
+            terminal=True,
         )
 
     def availability(self) -> LaneAvailability:
@@ -426,7 +585,17 @@ class GrokHarness:
             return auth
         ok, why = self.assert_no_leader_parses()
         if not ok:
-            return LaneAvailability(False, "preflight_failed", why)
+            # **DELIBERATELY LEFT TERMINAL — behaviour byte-preserved, and FLAGGED.**
+            # This branch has the same shape as the auth defect and it is NOT fixed here:
+            # `assert_no_leader_parses` folds "the flag was REJECTED" (a real, permanent
+            # refusal) together with "the assertion could not be MADE" (a 30 s timeout,
+            # a vanished binary) into one `False`, and the `AUTH-BLOCKED.md` this then
+            # files tells Matt to run `grok login` — the wrong remedy for a flag that a
+            # CLI update removed. Fixing it needs a third value out of that method, which
+            # is a signature change with its own tests. Shipping it inside THIS commit
+            # would convert a fix with a RED-proven gate into two changes with one gate.
+            # Named here so it is a queued item and not a discovery. See the report.
+            return LaneAvailability(False, "preflight_failed", why, terminal=True)
         slots = self.slot_occupancy()
         if slots.all_unreadable:
             # Fail-closed (Q.1). No slot could be read at all: that is ambiguity, not
@@ -438,6 +607,12 @@ class GrokHarness:
                 f"({'; '.join(slots.tags) or 'no detail'}). An unreadable semaphore is "
                 "reported ambiguous rather than open — a partial read that resolved "
                 "toward free would fire a job at a lane nobody can see.",
+                # Q.1 fails CLOSED on FIRING, and that was right; it must not also fail
+                # closed on OWNERSHIP. A blind instrument says nothing about the lane's
+                # auth or about whether Grok can ever do this work — it says the queue
+                # cannot see. Handing the backlog to Claude over an unreadable lock file
+                # spends the one-way door on an instrument fault.
+                terminal=False,
             )
         if slots.all_held:
             return LaneAvailability(

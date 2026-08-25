@@ -1013,7 +1013,17 @@ class JobQueue:
         gets produced twice and two agents both believe they own it. Ownership moves
         once, cleanly, and the run log says when. Idle work is the failure; a filed row
         plus a fallback is the success.
+
+        **AND THAT LAST SENTENCE WAS BEING SPENT ON UNCONFIRMED STATES.** Everything
+        above is right for a lane that is CONFIRMED unable to take the work, and it was
+        firing for any `not state.ok` at all — a single transient auth reading, a 60 s
+        CLI timeout, an unreadable lock file. Those close a drain; they do not establish
+        that Grok cannot do the job. So the gate is now the state's own
+        `terminal` flag, read defensively: **absent means NOT terminal**, because a
+        harness with no opinion must land on the reversible outcome.
         """
+        if not bool(getattr(state, "terminal", False)):
+            return self._stop_without_moving_ownership(state)
         pending = self.pending()
         note = self.root / "AUTH-BLOCKED.md"
         # VENDOR-GENERIC. The filename is unchanged because knight-rider's filing habit
@@ -1060,4 +1070,62 @@ class JobQueue:
         return DrainReport(
             lane_state=state.state,
             stopped_reason=state.reason,
+        )
+
+    def _stop_without_moving_ownership(self, state: Any) -> DrainReport:
+        """The lane is UNSAFE TO FIRE but NOT CONFIRMED CLOSED. Stop. Change nothing.
+
+        Reached when a harness reports a not-ok state it has NOT established is terminal:
+        a Grok `auth_unknown` (the CLI did not answer inside 60 s), an unreadable
+        semaphore, or — before `AUTH_CONFIRM_READINGS` agree — a single not-authenticated
+        auth reading, which is MEASURED to be what a routine token auto-refresh looks
+        like from the outside (jack-ryan, 2026-08-25: `lane-status` said `auth_expired`;
+        six probes seconds later all said logged-in).
+
+        **THE THREE THINGS THIS DELIBERATELY DOES NOT DO**, each of which the old shared
+        path did unconditionally:
+
+          1. **No `fallback/` manifest and no `FALLBACK-CLAUDE` row.** P-7 makes
+             ownership a one-way door — a drain after recovery must NOT pick the job back
+             up — so spending it requires a positive finding, not the absence of one. A
+             stopped drain resumes for free on the next invocation; a handed-off job
+             never comes back.
+          2. **No `AUTH-BLOCKED.md`.** That file escalates a MATT-ONLY re-authentication.
+             Raising it for a lane that refreshed its own token five seconds ago trains
+             the escalation surface to be ignored, which is worse than not having one.
+          3. **No run-log row.** `RunLog.append` accepts a CLOSED marker vocabulary split
+             into `TERMINAL_MARKERS` and `BUSY_MARKERS`, and both halves are wrong here:
+             a terminal marker would say ownership moved, and a busy marker would leave
+             the liveness surface's *"last row terminal"* check reading NOT IDLE with
+             nothing running — wedging the lane on a condition that self-clears. The
+             right answer is that this is a LANE event with no JOB in it, so it goes to
+             the reporter surface and not the per-job ledger.
+
+        It is NOT silent. Telemetry carries the condition with the count of jobs it did
+        NOT touch, and the `DrainReport` carries a reason the CLI prints as `STOPPED:`.
+        """
+        pending = self.pending()
+        self.telemetry.emit(
+            "lane_stopped_unconfirmed", lane=self.lane, outcome="lane_unconfirmed",
+            lane_state=state.state, error=getattr(state, "reason", ""),
+            pending_jobs=len(pending),
+            passthrough={
+                "jobs_handed_to_claude": 0,
+                "ownership_moved": False,
+                "matt_only_action": False,
+                "auth_blocked_note_written": False,
+                "response": (
+                    "stop this drain, touch nothing, re-probe on the next one — the "
+                    "state was never confirmed terminal, and handing work over is the "
+                    "one decision here that cannot be taken back"
+                ),
+            },
+        )
+        return DrainReport(
+            lane_state=state.state,
+            stopped_reason=(
+                f"DRAIN STOPPED, NOTHING HANDED OFF — lane state {state.state!r} is "
+                f"UNCONFIRMED, so {len(pending)} pending job(s) stay on this lane and "
+                f"nothing was escalated. {getattr(state, 'reason', '')}"
+            ),
         )

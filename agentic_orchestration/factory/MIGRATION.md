@@ -1178,3 +1178,102 @@ grep -c "skipped=per-agent-slot-held" _run-log.tsv     # R.3, in G-7's shape
 | **the fleet board** (`flight/bin/flight_report`, `factory/ui/board.py`) | `lane_answer` now accepts `slots=` and returns it; the derivation is correct **the day a card wires a probe**. **NOT WIRED HERE, ON PURPOSE** — `LANE_CARDS`' grok entry still declares `has_lane_lock=False` citing the D-6 gate (D-6 shipped) and `runlogs=()` on a lane whose run-log D-8 shipped. Those are that board's staleness and belong to a dispatch of its own; wiring them from inside a lane build would be a second adjudication of somebody else's surface. Until then the grok card renders **amber with declared reduced coverage**, which is honest-if-stale rather than false-open. |
 | **jack-ryan (job-10 verdict)** | Condition on the **derived overlap interval** (§ 11.4), not on `slots_held=` alone. The pre-registered decidability condition is § 11.4's block — the window closes at 10 either way and the verdict names what it could not decide. Watch for the § 11.3 **discharge event** (first clean 3-concurrent at the pin) and for the ceiling-drop trigger. |
 | **anyone reading `_run-log.tsv`** | Still six columns. Every new field is a `k=v` token in `detail`. `tail -1 \| cut -f3` is unchanged. |
+
+---
+
+## lane-availability v3 — TRANSIENT auth is separated from TERMINAL auth (2026-08-25)
+
+**Shipped:** 2026-08-25. **Author:** star-lord.
+**Authority:** jack-ryan (in-seam approval, relayed by knight-rider, 2026-08-25). Empirical finding jack-ryan's; wiring verified independently by knight-rider before relay; both under `#79` cl. 6 (`engineering-disciplines.md:3919` — a mechanism claim carries an empirical-test obligation before relay).
+**Blast radius:** **the Grok lane and the queue's ownership-transfer decision.** `_run-log.tsv` unchanged, still six columns, no new markers. `receipts.db` untouched. `_custody.tsv` untouched. **No `factory` CLI signature changed.** The Codex lane's BEHAVIOUR is byte-preserved (§ 12.5).
+**No breaking change for job authors.** One additive field on a harness↔queue contract (§ 12.2), one new telemetry event (§ 12.4).
+
+---
+
+### 12.1 THE DEFECT, and why it was fixed while it was still inert
+
+A **transient** auth reading on the Grok lane irreversibly handed the entire pending queue to the Claude fallback. One reading, no re-probe, no debounce, terminal by design.
+
+* `harness/grok.py` `check_auth` — its positive branch is MEASURED (rc=0, *"You are logged in with grok.com."*). Its negative branch's own docstring said **"REASONED, NOT MEASURED… Treat it as genuinely untested rather than as covered by symmetry."** That disclosure was honest and correct. **What nobody did was follow it downstream.**
+* `factory lane-status --lane grok lanes/grok` returned `auth_expired` at ~17:27 on 2026-08-25. **Six probes seconds later all returned rc=0 and "You are logged in."** The token had auto-refreshed. So the first real-world occurrence of the untested negative branch was **not** a `grok logout` — it was a routine refresh, producing the identical classification.
+* `jobqueue.py` `drain`: `if not state.ok and state.state != "busy": return self._stop_on_closed_lane(state)`
+* `_stop_on_closed_lane`: `for job in pending: self._hand_to_claude(...)` — **every** pending job, with a `FALLBACK-CLAUDE` row the method's own comment makes **deliberately terminal** (a drain after re-auth must NOT pick it back up), plus an `AUTH-BLOCKED.md` escalating a **Matt-only** re-authentication that was never needed.
+* `auth_unknown` — the 60 s CLI timeout — took the **identical** path. *"The CLI didn't answer in time"* also permanently emptied the queue Claude-ward.
+
+**It had never bitten because `pending: 0`.** The defect is inert exactly while the queue is empty and becomes maximally expensive on the first dispatch that enqueues real work — and such a dispatch (Codex/Grok second opinions on VFX quality) was being prepared. **The free window was now; it closes at first enqueue.**
+
+### 12.2 ADDITIVE — `LaneAvailability.terminal: bool`
+
+Both `harness/grok.py` and `harness/codex.py` declare their own `LaneAvailability` (duplicated on purpose so the two vendors' vocabularies may diverge). Each gains one field:
+
+```python
+@dataclass(frozen=True)
+class LaneAvailability:
+    ok: bool
+    state: str
+    reason: str
+    terminal: bool = ...   # grok: False   ·   codex: True   (see § 12.5)
+```
+
+**What it means:** *may this state MOVE OWNERSHIP of pending work?* `False` = stop the drain and change nothing. `True` = the lane is confirmed unable to take the work, so the queue may file the condition and hand pending jobs to Claude.
+
+**Why it exists as a separate field rather than as a set of state names:** the two consequences — *stop the drain* and *hand the backlog to Claude permanently* — shared ONE trigger (`not state.ok`) and are **not equally undoable**. Stopping a drain is reversible; a `FALLBACK-CLAUDE` row is not (P-7: ownership moves once). A trigger shared between a reversible and an irreversible consequence gets adjudicated at the irreversible one's cost.
+
+**Positional construction is unaffected** — the field is last and defaulted. Existing 3-arg `LaneAvailability(ok, state, reason)` call sites, including test injections, keep working.
+
+### 12.3 THE DEBOUNCE — `AUTH_CONFIRM_READINGS = 3`, and the honest account of that number
+
+`grok.py` `check_auth` splits in two:
+
+| method | answers | re-probes? | may mint `terminal`? |
+|---|---|---|---|
+| `probe_auth_once()` | *what did the CLI say just now* | no | only `cli_missing` |
+| `check_auth()` | *what is this lane's auth VERDICT* | yes, on `auth_expired` only | yes |
+
+Terminal requires **`AUTH_CONFIRM_READINGS` consecutive readings that all say `auth_expired`**, with exponential backoff `AUTH_CONFIRM_BACKOFF_BASE_S * 2**(n-1)` → **1 s, then 2 s**.
+
+**WHAT IS MEASURED AND WHAT IS NOT.** The **probe's latency** is measured: n=6 on this host, `~/.grok/bin/grok models`, **0.74 / 0.89 / 0.94 / 0.96 / 0.83 / 0.89 s** wall, 6/6 rc=0 (star-lord, 2026-08-25). The **refresh window** — how long the CLI reports not-authenticated while a refresh is in flight — is **NOT measured and cannot be measured from here**: inducing it needs a real expiry, and `grok logout` is a Matt-only action on a live lane. jack-ryan's observation bounds it at *"seconds"*, **n=1**, with no distribution behind it. **So 3 is chosen on COST ASYMMETRY, not on a fitted window** — an extra reading costs ~0.9 s and $0.00; a false terminal costs the whole queue permanently plus a false Matt escalation — and it matches the house retry norm (3 attempts, exponential backoff) rather than inventing a second one. jack-ryan proposed one re-probe; this is two, and this paragraph is the reason.
+
+**`auth_unknown` NEVER enters the loop and is NEVER terminal at any count.** A timeout is the absence of an answer, not an answer of *expired*: fire-unsafe, which stops the drain, and not ownership-transferring, which needs a positive finding. Re-probing it would also push a `lane-status` worst case from 60 s to 180 s to reach a verdict it already had.
+
+**Placement, since it was a judgement call.** The debounce sits at `check_auth` — the narrowest waist every consumer already goes through (`availability()` → `drain`; and `lane_status._auth_state()` directly). Putting it at the drain boundary would have been the easier write and would have left `factory lane-status` — **the exact command that produced the false reading, read by a human** — still reporting a transient blip as a lane closure.
+
+### 12.4 NEW telemetry event — `lane_stopped_unconfirmed`
+
+`_stop_on_closed_lane` now routes a non-terminal state to `_stop_without_moving_ownership`, which **writes no `fallback/` manifest, no `FALLBACK-CLAUDE` row, no `AUTH-BLOCKED.md`, and no run-log row at all**, and emits instead:
+
+```json
+{"event": "lane_stopped_unconfirmed", "lane": "grok", "outcome": "lane_unconfirmed",
+ "lane_state": "auth_unknown", "pending_jobs": 3,
+ "passthrough": {"jobs_handed_to_claude": 0, "ownership_moved": false,
+                 "matt_only_action": false, "auth_blocked_note_written": false}}
+```
+
+**Why no run-log row:** `RunLog.append` accepts a CLOSED marker vocabulary split into `TERMINAL_MARKERS` and `BUSY_MARKERS`, and **both halves are wrong here**. A terminal marker would claim ownership moved. A busy marker would leave the liveness surface's *"last row terminal"* check reading NOT IDLE **with nothing running** — wedging the lane on a condition that self-clears. This is a LANE event with no JOB in it, so it goes to the reporter surface and not the per-job ledger.
+
+It is **not silent**: `DrainReport.stopped_reason` leads with `DRAIN STOPPED, NOTHING HANDED OFF`, which `factory lane-drain` already prints as `STOPPED:`. A transient reading that IS absorbed is also said — `check_auth` annotates the recovered `open` reason with `TRANSIENT, absorbed`, so it surfaces in `factory lane-status`. **A debounce nobody can see is indistinguishable from a bug.**
+
+### 12.5 THE CODEX LANE — byte-preserved, and the hazard is FLAGGED, NOT FIXED
+
+**`terminal` defaults to `True` in `harness/codex.py`, and that default IS the open defect, declared.** It reproduces this lane's current behaviour exactly: every not-ok state Codex can report — `cli_missing`, `auth_expired`, **and `auth_unknown`** — empties the pending queue Claude-ward on ONE reading, as it did before the field existed.
+
+**`CodexHarness.check_auth` has the same shape as the Grok defect:** one reading of `codex login status`, no re-probe, no debounce, and both a one-shot `auth_expired` and a 60 s `auth_unknown` routed to the same one-way door.
+
+**What is NOT established is the premise.** Nobody has observed a ChatGPT-auth token refresh presenting as a failed `codex login status` on this host. Porting the remedy on the strength of xAI evidence would widen a verified fix into an unverified one — the same error this lane's own serial law refuses in the other direction (OpenAI's vendor precondition does not travel to xAI; § 9.5's xAI concurrency probe does not travel to OpenAI).
+
+**The fix, when dispatched and measured:** flip the default to `False`, set `terminal=True` at the confirmed sites, port the debounce, and rewrite `test_lane.py::test_the_CODEX_lane_STILL_hands_off_on_ONE_reading_and_this_row_is_the_OPEN_DEFECT`, which is green **on purpose** and goes RED exactly when the hazard is closed.
+
+### 12.6 ALSO FLAGGED, NOT FIXED — `preflight_failed` (Grok)
+
+`availability()` still returns `preflight_failed` with `terminal=True`, byte-preserving today's behaviour. It has the same shape: `assert_no_leader_parses` folds *"the flag was REJECTED"* (a real, permanent refusal) together with *"the assertion could not be MADE"* (a 30 s timeout, a vanished binary) into one `False` — and the `AUTH-BLOCKED.md` it then files tells Matt to run `grok login`, **the wrong remedy for a flag a CLI update removed**. Separating them needs a third value out of that method: a signature change with its own tests. Shipping it here would have converted one fix with a RED-proven gate into two changes with one gate. **Queued, named, not discovered later.**
+
+### 12.7 What a consumer must do
+
+| You are | Do |
+|---|---|
+| a job author enqueuing Grok work | **nothing.** No CLI or job-field change. |
+| reading `DrainReport` | a stop can now mean *unconfirmed*. `lane_state` still carries the state; `stopped_reason` leads with `DRAIN STOPPED, NOTHING HANDED OFF` when ownership did **not** move. Do not infer a handoff from a non-`open` `lane_state`. |
+| consuming the telemetry stream | handle `event: "lane_stopped_unconfirmed"` alongside `lane_blocked`. `lane_blocked` still means exactly what it meant: **confirmed** closure, jobs handed over, `AUTH-BLOCKED.md` written. |
+| knight-rider, watching for `AUTH-BLOCKED.md` | the file is now written **only** for a confirmed terminal state. Its absence after a stopped drain is now informative rather than ambiguous. |
+| writing a NEW vendor harness | `jobqueue` reads `getattr(state, "terminal", False)` — **absent means NOT terminal.** A harness with no opinion lands on the reversible outcome and will stop drains without ever handing work off. Declare `terminal=True` deliberately, or not at all. |
+| jack-ryan, at Gate 2 | the RED-proof is recorded: 10 of the 12 new Grok rows fail against pre-fix source in a detached worktree at `4adb7ce0`; the headline is `test_D12_a_TRANSIENT_reading_hands_ZERO_JOBS_TO_CLAUDE` failing `assert ['j0.json','j1.json','j2.json'] == []`. Full suite **845 passed** (832 baseline + 13). |

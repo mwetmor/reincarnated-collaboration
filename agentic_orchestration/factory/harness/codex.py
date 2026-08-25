@@ -124,6 +124,28 @@ class LaneAvailability:
     ok: bool
     state: str
     reason: str
+    #: **A DECLARATION OF TODAY'S BEHAVIOUR, NOT A FIX. READ THE DEFAULT AS THE DEFECT.**
+    #:
+    #: `jobqueue._stop_on_closed_lane` now moves ownership to the Claude fallback only
+    #: for a state that says `terminal=True`, defaulting to `False` for a harness with
+    #: no opinion (stopping a drain is reversible; a `FALLBACK-CLAUDE` row is not).
+    #: Defaulting to `True` HERE reproduces this lane's current behaviour byte for byte:
+    #: every not-ok state Codex can report — `cli_missing`, `auth_expired`, AND
+    #: `auth_unknown` — empties the pending queue Claude-ward on ONE reading, exactly as
+    #: it did before this field existed.
+    #:
+    #: **THE GROK LANE'S DEFECT ALMOST CERTAINLY LIVES HERE TOO, AND IS LEFT UNFIXED ON
+    #: PURPOSE** (star-lord, 2026-08-25). `check_auth` below takes ONE reading of
+    #: `codex login status`, has no re-probe and no debounce, and routes both a
+    #: one-shot `auth_expired` and a 60 s `auth_unknown` timeout to the same one-way
+    #: door. What is NOT established is the premise: nobody has observed a ChatGPT-auth
+    #: token auto-refresh presenting as a failed `codex login status` on this host, and
+    #: the Grok evidence does not travel to OpenAI any more than xAI's concurrency
+    #: evidence did (see this lane's serial law). Fixing it in the same commit as the
+    #: MEASURED Grok defect would widen a verified remedy into an unverified one.
+    #: **Flipping this default to `False` and porting the debounce is the whole of that
+    #: fix, when it is dispatched and measured.**
+    terminal: bool = True
 
 
 class CodexHarness:

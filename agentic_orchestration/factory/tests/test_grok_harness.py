@@ -28,6 +28,7 @@ from pathlib import Path
 import pytest
 
 from factory.harness.grok import (
+    AUTH_CONFIRM_READINGS,
     FORBIDDEN_PERMISSION_MODES,
     MODEL_PIN,
     NO_LEADER_FLAG,
@@ -45,6 +46,7 @@ from factory.lane import (
     SeamSlotHeld,
     SeamSlotSemaphore,
     SerialLaneLock,
+    SlotOccupancy,
     probe_slots,
     seam_lock_path,
     slot_lock_path,
@@ -130,6 +132,10 @@ def _harness(fake_grok: Path, lock_path: Path, **kw) -> GrokHarness:
     return GrokHarness(
         executable=str(fake_grok), lock_path=lock_path,
         auth_probe=kw.pop("auth_probe", lambda: LaneAvailability(True, "open", "logged in")),
+        # The auth DEBOUNCE sleeps between confirmation readings. A no-op by default so
+        # no existing row pays 3 s of real wall for a code path it is not about; the rows
+        # that ARE about it inject a recorder and assert the schedule.
+        sleep=kw.pop("sleep", lambda _s: None),
         **kw,
     )
 
@@ -673,3 +679,296 @@ def test_G2_1_a_harness_that_reports_NO_EFFORT_gets_no_FABRICATED_one(
         "none, because the gap is detectable and the default is not."
     )
     assert "resolved_model=" in finish[3], "the rest of the row is untouched"
+
+
+# ===========================================================================
+# 9 — TRANSIENT vs TERMINAL AUTH: the one-way door is spent only on a finding
+# ===========================================================================
+"""Occasioned by a MEASURED false positive, 2026-08-25.
+
+jack-ryan ran `factory lane-status --lane grok lanes/grok` at ~17:27 and got
+`auth_expired`. Six probes seconds later all returned rc=0 and *"You are logged in with
+grok.com."* **The token had auto-refreshed.** So the first real-world occurrence of
+`check_auth`'s REASONED-NOT-MEASURED negative branch was not a `grok logout` — it was a
+routine refresh, and it produced the identical classification.
+
+Downstream of that reading, on the code as it stood: `jobqueue.drain` ->
+`if not state.ok and state.state != "busy"` -> `_stop_on_closed_lane` -> `for job in
+pending: self._hand_to_claude(...)`, **every** pending job, with a `FALLBACK-CLAUDE` row
+the queue's own comment makes deliberately terminal (a drain after re-auth must NOT pick
+it back up), plus an `AUTH-BLOCKED.md` escalating a Matt-only re-authentication that was
+never needed. `auth_unknown` — the 60 s CLI timeout — took the identical path.
+
+The defect was INERT only because `pending: 0`. These rows exist because the window in
+which it is free to fix closes on the first dispatch that enqueues real work.
+
+Every row below is written to go RED against the pre-fix code, and each names which
+assertion does it.
+"""
+
+
+class _SequencedAuth:
+    """A probe that answers a SCRIPTED SEQUENCE — the instrument the old code made impossible.
+
+    The pre-fix `check_auth` read the lane ONCE, so no injected probe could express "the
+    CLI said one thing and then said another": a sequence and a constant were the same
+    input. 69 rows passed against that method and none of them exercised a lane whose
+    answer CHANGED, which is precisely the lane jack-ryan measured.
+    """
+
+    def __init__(self, *readings: LaneAvailability):
+        self._readings = list(readings)
+        self.calls = 0
+
+    def __call__(self) -> LaneAvailability:
+        self.calls += 1
+        # The last reading repeats, so a script is a PREFIX and never a length puzzle.
+        return self._readings[min(self.calls - 1, len(self._readings) - 1)]
+
+
+_EXPIRED = LaneAvailability(False, "auth_expired", "exited 1: not logged in (injected)")
+_OPEN = LaneAvailability(True, "open", "You are logged in with grok.com.")
+_UNKNOWN = LaneAvailability(
+    False, "auth_unknown", "`grok models` did not answer within 60s (injected)")
+
+
+def _grok_queue(tmp_path: Path, n: int = 3) -> JobQueue:
+    queue = JobQueue(tmp_path / "q", lane="grok")
+    for i in range(n):
+        queue.enqueue(job_id=f"j{i}", prompt="p", curator="galadriel",
+                      seam=SEAM, sandbox="n/a")
+    return queue
+
+
+def _handed_off(queue: JobQueue) -> list[str]:
+    return sorted(p.name for p in (queue.root / "fallback").glob("*.json"))
+
+
+# -- the harness half: a reading is not a verdict ---------------------------
+def test_a_TRANSIENT_auth_reading_is_ABSORBED_and_does_NOT_close_the_lane(
+    fake_grok, lock_path
+):
+    """THE MEASURED CASE, replayed: one not-authenticated reading, then logged-in.
+
+    RED against the old code at `state.ok is False` — the old `check_auth` returned the
+    FIRST reading verbatim, so a lane that had already refreshed read as expired.
+    """
+    probe = _SequencedAuth(_EXPIRED, _OPEN)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    state = harness.check_auth()
+
+    assert state.ok is True, (
+        "one transient not-authenticated reading closed the lane. This is jack-ryan's "
+        "17:27 measurement: the token was auto-refreshing and the CLI answered logged-in "
+        "seconds later."
+    )
+    assert probe.calls == 2, "the negative branch must RE-PROBE, not conclude"
+    assert "TRANSIENT" in state.reason, (
+        "the absorbed blip must be SAID. A debounce nobody can see is indistinguishable "
+        "from a bug, and an operator needs to know the lane wobbled."
+    )
+
+
+def test_a_CONFIRMED_expiry_takes_THREE_CONSECUTIVE_readings_and_only_then_is_TERMINAL(
+    fake_grok, lock_path
+):
+    """The real-logout path still works, and terminal is minted at exactly ONE site."""
+    probe = _SequencedAuth(_EXPIRED)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    state = harness.check_auth()
+
+    assert state.ok is False and state.state == "auth_expired"
+    assert probe.calls == AUTH_CONFIRM_READINGS == 3
+    assert state.terminal is True
+    assert "MATT-ONLY" in state.reason, "the Matt-only discipline survives the debounce"
+    assert "CONFIRMED by 3 consecutive readings" in state.reason
+
+
+def test_the_readings_must_be_CONSECUTIVE_a_recovery_at_ANY_point_absorbs(
+    fake_grok, lock_path
+):
+    """expired, expired, logged-in -> OPEN. Two out of three is not a confirmation."""
+    probe = _SequencedAuth(_EXPIRED, _EXPIRED, _OPEN)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    state = harness.check_auth()
+
+    assert state.ok is True, "a recovery on the LAST reading still absorbs"
+    assert probe.calls == 3
+
+
+def test_AUTH_UNKNOWN_is_NEVER_terminal_and_is_NEVER_re_probed(fake_grok, lock_path):
+    """CLAUSE 2. Absence of an answer is FIRE-UNSAFE, never OWNERSHIP-TRANSFERRING.
+
+    RED against the old code at `state.terminal is False` (the attribute did not exist,
+    and the queue handed the whole backlog over on this state).
+
+    The `calls == 1` assertion is the other half and is deliberate: no COUNT of timeouts
+    is a positive finding, so re-probing one would push a `lane-status` worst case from
+    60 s to 180 s to reach a verdict it already had.
+    """
+    probe = _SequencedAuth(_UNKNOWN)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    state = harness.check_auth()
+
+    assert state.ok is False and state.state == "auth_unknown"
+    assert state.terminal is False
+    assert probe.calls == 1
+
+
+def test_a_confirmation_that_CANNOT_COMPLETE_does_not_inherit_reading_ONEs_verdict(
+    fake_grok, lock_path
+):
+    """expired, then the CLI stops answering. That is unresolved, NOT a confirmed expiry."""
+    probe = _SequencedAuth(_EXPIRED, _UNKNOWN)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    state = harness.check_auth()
+
+    assert state.state == "auth_unknown"
+    assert state.terminal is False, (
+        "one affirmative reading plus a timeout is ONE affirmative reading. Promoting it "
+        "would make the debounce bypassable by a slow CLI."
+    )
+
+
+def test_the_RE_PROBE_SCHEDULE_is_exponential_and_bounded(fake_grok, lock_path):
+    """The delay is a MEASURED-COST decision, so the schedule is asserted, not assumed."""
+    slept: list[float] = []
+    harness = _harness(
+        fake_grok, lock_path, auth_probe=_SequencedAuth(_EXPIRED), sleep=slept.append)
+
+    harness.check_auth()
+
+    assert slept == [1.0, 2.0], (
+        f"re-probe schedule drifted to {slept}. Probe latency is measured on this host "
+        "(n=6, 0.74-0.96s); the REFRESH WINDOW is not measurable from here, so the "
+        "schedule is chosen on cost asymmetry and pinned rather than tuned by feel."
+    )
+    assert sum(slept) < 10, "a debounce is not a retry storm"
+
+
+def test_probe_auth_once_REMAINS_the_undebounced_instrument(fake_grok, lock_path):
+    """The raw reading is still reachable — BY NAME, and not by accident."""
+    probe = _SequencedAuth(_EXPIRED, _OPEN)
+    harness = _harness(fake_grok, lock_path, auth_probe=probe)
+
+    reading = harness.probe_auth_once()
+
+    assert reading.ok is False and probe.calls == 1
+    assert reading.terminal is False, "a raw reading may never be a terminal verdict"
+
+
+def test_a_LIVE_probe_of_the_REAL_lane_confirms_the_positive_branch_is_UNCHANGED():
+    """n=6 on this host said rc=0 and 'You are logged in with grok.com.' — one call each.
+
+    Skipped where the binary is absent, so the row is a fact when it can be and never a
+    fabrication. The point it holds: the debounce costs the HEALTHY path nothing.
+    """
+    harness = GrokHarness()
+    if harness.executable is None:
+        pytest.skip("the grok CLI is not installed on this host")
+    state = harness.check_auth()
+    if not state.ok:
+        pytest.skip(f"the live lane is not open right now: {state.state}")
+    assert "logged in" in state.reason.lower()
+    assert "TRANSIENT" not in state.reason, "the healthy path must not re-probe at all"
+
+
+# -- the queue half: D-12's new row -----------------------------------------
+def test_D12_a_TRANSIENT_reading_hands_ZERO_JOBS_TO_CLAUDE(tmp_path, fake_grok, lock_path):
+    """**THE ROW.** Drain a real queue across the exact reading jack-ryan measured.
+
+    RED against the old code at `_handed_off(queue) == []` — the old drain saw
+    `not state.ok`, called `_stop_on_closed_lane`, and wrote a `fallback/` manifest plus a
+    terminal `FALLBACK-CLAUDE` row for EVERY pending job, permanently, on one reading.
+    """
+    queue = _grok_queue(tmp_path)
+    harness = _harness(fake_grok, lock_path, auth_probe=_SequencedAuth(_EXPIRED, _OPEN))
+
+    report = queue.drain(harness)
+
+    assert _handed_off(queue) == [], (
+        "a transient auth reading moved ownership of pending work to Claude. P-7 makes "
+        "that a ONE-WAY DOOR: a drain after recovery must not pick these jobs back up."
+    )
+    assert not (queue.root / "AUTH-BLOCKED.md").exists(), (
+        "a transient reading escalated a MATT-ONLY re-authentication that was not needed"
+    )
+    assert report.lane_state == "open" and report.fired == 3, (
+        "the lane had already refreshed; the work should simply have run"
+    )
+
+
+def test_D12_an_UNCONFIRMED_lane_STOPS_the_drain_and_hands_off_NOTHING(
+    tmp_path, fake_grok, lock_path
+):
+    """CLAUSE 3, both halves at once: the drain stops AND ownership does not move.
+
+    These two outcomes shared one trigger and are not equally undoable — stopping a drain
+    is reversible, `FALLBACK-CLAUDE` is not. RED against the old code at
+    `_handed_off(queue) == []`.
+    """
+    queue = _grok_queue(tmp_path)
+    harness = _harness(fake_grok, lock_path, auth_probe=_SequencedAuth(_UNKNOWN))
+
+    report = queue.drain(harness)
+
+    assert report.lane_state == "auth_unknown"
+    assert report.fired == 0, "the lane was unsafe to fire, so nothing fired"
+    assert _handed_off(queue) == [], "'the CLI did not answer' is not a finding about Grok"
+    assert not (queue.root / "AUTH-BLOCKED.md").exists()
+    assert len(queue.pending()) == 3, "the work stayed on this lane, still ownable"
+    assert "NOTHING HANDED OFF" in (report.stopped_reason or "")
+
+    # NOT SILENT — the reporter surface carries it, with the count it did not touch.
+    events = [e for e in queue.telemetry.events() if e["event"] == "lane_stopped_unconfirmed"]
+    assert len(events) == 1
+    assert events[0]["pending_jobs"] == 3
+    assert events[0]["passthrough"]["jobs_handed_to_claude"] == 0
+    assert events[0]["passthrough"]["matt_only_action"] is False
+
+    # And it did NOT write the per-job ledger: a terminal marker would claim ownership
+    # moved, a busy marker would wedge the "last row terminal" liveness check with
+    # nothing running. This is a LANE event with no JOB in it.
+    assert [r for r in queue.runlog.rows() if r[2] == "AUTH-BLOCKED"] == []
+
+
+def test_D12_a_CONFIRMED_expiry_STILL_files_and_STILL_hands_off(tmp_path, fake_grok, lock_path):
+    """The remedy must not have cost the real path. Three consecutive readings -> handoff."""
+    queue = _grok_queue(tmp_path)
+    harness = _harness(fake_grok, lock_path, auth_probe=_SequencedAuth(_EXPIRED))
+
+    report = queue.drain(harness)
+
+    assert report.lane_state == "auth_expired"
+    assert _handed_off(queue) == ["j0.json", "j1.json", "j2.json"]
+    assert (queue.root / "AUTH-BLOCKED.md").exists()
+    assert queue.runlog.last_row()[2] == "FALLBACK-CLAUDE"
+
+
+def test_D12_an_UNREADABLE_SEMAPHORE_stops_the_drain_but_does_not_move_ownership(
+    tmp_path, fake_grok, lock_path
+):
+    """Q.1 fails closed on FIRING — correctly. It must not also fail closed on OWNERSHIP.
+
+    A blind instrument says the queue cannot SEE the lane. It says nothing about whether
+    Grok can do the work, so it cannot be the finding that spends the one-way door.
+    """
+    queue = _grok_queue(tmp_path)
+    harness = _harness(fake_grok, lock_path)
+    # The instrument going BLIND, expressed directly rather than by breaking a real
+    # lock file: `all_unreadable` is the condition Q.1 names, and constructing it is
+    # honest about what is under test here (the OWNERSHIP consequence), not the
+    # semaphore primitive, which D-12's sibling file already proves with real flocks.
+    harness.slot_occupancy = lambda: SlotOccupancy(
+        total=3, held=3, free=0, unreadable=3, tags=("unreadable",))
+
+    report = queue.drain(harness)
+
+    assert report.lane_state == "auth_unknown"
+    assert _handed_off(queue) == []
+    assert not (queue.root / "AUTH-BLOCKED.md").exists()

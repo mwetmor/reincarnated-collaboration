@@ -486,6 +486,56 @@ def test_EXPIRED_AUTH_stops_the_queue_surfaces_it_and_does_NOT_retry(
     assert handoffs["02-b"]["job"]["curator"] == "galadriel"
 
 
+def test_the_CODEX_lane_STILL_hands_off_on_ONE_reading_and_this_row_is_the_OPEN_DEFECT(
+    tmp_path, fake_codex, lock_path
+):
+    """**A PIN ON AN UNFIXED HAZARD, deliberately GREEN. Read it as a queued item.**
+
+    On 2026-08-25 star-lord fixed the Grok lane's transient-auth defect: a token
+    auto-refresh presents as a not-authenticated reading (MEASURED by jack-ryan — six
+    probes seconds later all said logged-in), and one such reading used to hand the whole
+    pending queue to Claude permanently under P-7's one-way door. Grok now requires
+    `AUTH_CONFIRM_READINGS` consecutive readings before a state may be `terminal`, and
+    `_stop_on_closed_lane` moves ownership only for a `terminal` one.
+
+    **THIS LANE WAS NOT FIXED, AND THIS ROW ASSERTS THAT ON PURPOSE.** `CodexHarness`
+    takes ONE reading of `codex login status`, has no re-probe, and routes both a
+    one-shot `auth_expired` and a 60 s `auth_unknown` to the same door;
+    `LaneAvailability.terminal` defaults `True` here precisely to preserve that.
+
+    What is NOT established is the PREMISE: nobody has observed a ChatGPT-auth token
+    refresh presenting as a failed `codex login status` on this host. Porting the remedy
+    on the strength of xAI evidence would widen a verified fix into an unverified one —
+    the same error this lane's own serial law refuses in the other direction (OpenAI's
+    vendor precondition does not travel to xAI, and xAI's concurrency probe does not
+    travel to OpenAI).
+
+    **So when the Codex hazard is dispatched and measured, THIS ROW GOES RED, and that
+    is the intended signal — not a regression.** Flip `terminal`'s default to `False`,
+    port the debounce, and rewrite this row to assert the fixed behaviour.
+    """
+    root = tmp_path / "queue"
+    queue = JobQueue(root)
+    _enqueue(queue, "01-a", curator="elrond")
+
+    one_reading = CodexHarness(
+        executable=str(fake_codex), lock_path=lock_path,
+        auth_probe=lambda: LaneAvailability(False, "auth_unknown", "no answer in 60s"),
+    )
+    report = queue.drain(one_reading)
+
+    assert report.lane_state == "auth_unknown"
+    assert (root / "fallback" / "01-a.json").exists(), (
+        "the Codex lane's one-reading handoff changed. If that was deliberate, this row "
+        "is the place the change gets recorded; if it was not, ownership just started "
+        "moving on a different trigger than anyone ruled."
+    )
+    assert LaneAvailability(False, "auth_unknown", "x").terminal is True, (
+        "the Codex default is the DECLARATION of the unfixed hazard. If it is now False, "
+        "the debounce was ported and this row should have been rewritten with it."
+    )
+
+
 def test_a_FAILED_job_is_handed_to_the_named_curator_not_retried_forever(
     tmp_path, fake_codex, lock_path, monkeypatch
 ):
