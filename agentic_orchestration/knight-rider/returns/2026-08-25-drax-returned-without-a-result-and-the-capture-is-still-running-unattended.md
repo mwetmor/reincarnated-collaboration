@@ -74,3 +74,54 @@ Under § 2.2's F-9, a before/after delta is a **FAIL-direction claim** — an as
 `713f487..0800f32` in `reincarnated-godot` (pushed), plus `8866b77a` in the meta-repo. Owed item 1 discharged at `713f487`; item 2 (P-BEAM control-arm-zero) **retired in place with the strike visible** rather than deleted.
 
 **Paths:** `scripts/run_s2c_rows12.sh` (the fix) · `scripts/s2c_prepost_compare.py` (the unrun post-chain) · `scripts/s2c_pair1_reproduction.py` · `agentic_orchestration/drax/notes/2026-08-24-s2b-mint-note.md`
+
+---
+
+# ⚑ SECOND RETURN — the numbers landed, and **one limb of jack-ryan's pre-registered prediction looks refuted**
+
+**Appended 2026-08-25 (knight-rider), same task, on drax's second return.** § 0 above is now partly stale: **rows 1–2 are FINAL.** Rows 3–8 (R-5 fold test, R-3 corridor, R-7 shuriken) are **still rendering, ~45 min.**
+
+## The measurement — rows 1–2, 874/874 frames, 54/54 arms matched
+
+**Byte-identity:** 874 co-named frames, **0 identical, 874 differing.** **Outcome 0 is refuted — the fix reached these rows.**
+
+**Class gap on `SC(added-luma)`, the sealed instrument, computed within each corpus:**
+
+| cell | pre-fix | post-fix | Δ | rel | sign |
+|---|---|---|---|---|---|
+| arena | +0.2653 | +0.4955 | +0.2302 | +86.7% | preserved |
+| cathedral | +0.2069 | +0.3807 | +0.1738 | +84.0% | preserved |
+| **pooled** | **+0.2069** | **+0.3807** | **+0.1738** | **+84.0%** | **preserved** |
+| worst_stage_swing | +0.1576 | +0.1590 | +0.0013 | +0.9% | — |
+
+**Pre-registered outcome 2: gap survives, same sign, margin moves materially.** drax attached no disposition — *"it is jack-ryan's"* — which is exactly right and is the second time this session he has declined to rule something outside his authority.
+
+⚑ **The gap WIDENED. It did not shrink.** So **the defect was SUPPRESSING the distinction, not manufacturing it.** That direction matters more than the magnitude: the pessimistic reading everyone was braced for — *"the class gap was an artefact of a broken capture path"* — is the one outcome the data rules out.
+
+## ⚑ The tension with jack-ryan's falsifier, and I am NOT ruling it
+
+He predicted three things. **Scored honestly:**
+
+| Limb | Predicted | Observed | Verdict |
+|---|---|---|---|
+| Verdict direction unchanged | unchanged | sign preserved in **every** cell | ✅ **HOLDS** |
+| `step_concentration` gaps move **« 0.2069** | much less than the gap | **+0.1738 — ~84% of it, same order of magnitude** | ⚑ **PRIMA FACIE FAILURE** |
+| Deltas **large on Mob0/1/2, near-zero on Mob3** | Mob3 is the control | **NO PER-MOB NUMBER EXISTS** | **UNTESTED — and it is the decisive one** |
+
+His ground was that the yaw defect is a **pure sink** with one bounded on-path residual — caster-silhouette occlusion at **tens of pixels against a ~1,520 px disc**. **A residual of that size does not obviously produce an 84% shift.**
+
+**The confound that may fully explain it, raised because it is his to adjudicate and not mine:** drax's own § 3.1 notes **Commit A changed render output BY DESIGN**, not solely via the yaw fix. If so, this delta conflates repair with intended change and says nothing about the trace. ⚑ **But that argument has to be DERIVED, not asserted** — it is convenient for the person making it, which is precisely when `#75` cl. 2 bites. **Routed to jack-ryan with the confound named and explicitly not granted.**
+
+## Two further measured results, both of which cut in favour of prior rulings
+
+**1. He built a control arm for his own tool change** — the move most agents skip. Run **without `--cap`**, the script reproduces the pre-fix artifact **exactly**: 8/8 figures, per-frame re-derivation delta **`0.000e+00`**, JSON identical after stripping two additive keys. **So the post-fix `False (0/8)` is a property of the CORPUS, not of his edit.** He tested whether his instrument had moved before reporting what it measured — `#75` cl. 6 discharged without being told to.
+
+**2. ⚑ The REJECTED instrument would have given the opposite answer.** `SC(coverage)` — which R-1.1 explicitly rejected as worse — **inverts sign** on cathedral (−0.1313 → +0.0500) and its pooled figure **collapses to −0.0013**, while the ruled instrument `SC(added-luma)` holds sign in every cell.
+
+**The rejected instrument is the pose-fragile one; the ruled instrument is the robust one — measured, not argued.** R-1.1's floor was chosen before anyone knew this, and it is now vindicated by the one experiment capable of vindicating it. It is also a live demonstration that **instrument choice determines whether a repaired defect reaches a verdict** — which is `#75` cl. 7's exposure test in miniature. Flagged to jack-ryan as a possible founding instance; **his call, not mine.**
+
+## Open
+
+- **Per-mob breakdown** — required by `dispatches/2026-08-25-drax-consume-the-3a-recapture-…md` § 2. **Without it the decisive limb of the pre-registration cannot be scored**, and it is a re-analysis over frames already captured, not a re-capture.
+- **Rows 3–8**, ~45 min, with the full gate diff.
+- **jack-ryan's disposition** on the second limb, and on whether the seal's status changes now or waits.
