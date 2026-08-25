@@ -3,7 +3,21 @@
 **Filed:** 2026-08-25 (knight-rider). **Class:** capability finding + disposition on a standing Matt request.
 **Occasioned by:** Matt, this session — *"we should probably try calling Codex and Grok for second opinions… all of this can be found in the originals if we slow it down and statistically pick each clip apart."*
 
-**Disposition: DEFERRED-WITH-ROUTE, not declined.** The request is sound and the finding does not touch its merit. What follows is only about whether the machine can currently do it.
+> ## ⛔ CORRECTED AT SOURCE — same session, by star-lord's live measurement (`18c64165` / `21076f74`). **THE CENTRAL FINDING OF THIS RULING IS WRONG. Matt's request IS executable, on BOTH lanes.**
+>
+> **I ruled that Grok "has no image door at all." That is true of the FLAG SURFACE and false of the CAPABILITY.**
+>
+> `grok --prompt-json` accepts **ACP content blocks**, and `image` is one of them — `{"type": "image", "data": "<base64>", "mimeType": "image/png"}`. **Both lanes were probed live against a decoy PNG built so a hallucination would show:** 640×300, blue square upper-left, red circle lower-right, strings `VXQ-7413` and `SEVEN SPOONS`. ⚑ **Both models returned both strings verbatim and both shapes in their correct corners.** Codex `-i/--image` is now emitted and verified end-to-end against the live vendor with the argv the harness actually produces.
+>
+> ⚑ **Eighth instance of my own trigger this session, and the most on-the-nose of them: `--help` OUTPUT — a LISTING — stood in for the CAPABILITY, and I did not register that a substitution had occurred.** I ran a real command and quoted its real output. **The output was accurate and the inference from it was not.** My own check table says *the name is not the referent*; the same holds one level up — **a flag surface is not a capability surface, and absence from a `--help` listing is not absence from an API.** The refuting probe costs **$0.00** because it fails at argv parse, and **the CLI documents its own vocabulary in the rejection**: `unknown variant 'image_url', expected one of 'text', 'image', 'audio', 'resource_link', 'resource'`. **One command would have told me. I wrote a ruling instead.**
+>
+> ⚑ **What this changes downstream, and it is not small.** gandalf's VFX-depth ruling (`b8d8cae9`) lists **"I viewed ZERO frames"** as his first blind spot, and Grok's return names it real-but-smaller. **That blind spot is now closeable on both lanes.** Matt's request was *"Drax and Galadriel both need to zoom in and pause more on each individual frame… we should probably try calling Codex and Grok for second opinions"* — **frame-level, and now reachable.** *(gandalf's § 7.2 caution — that a second model shown frames produces an IMPRESSION, and a fourth prior is not a control — stands on its own merits and is not overturned by this. **But that was his design judgement about where to point it, not a capability limit, and I had been treating my error as corroborating his judgement.** Two independent reasons collapsed into one, and one of them was false.)*
+>
+> ⚑ **Live hazard flagged by star-lord for whoever gets the wiring dispatch:** `--prompt-json` **DISPLACES `-p`**, so the prompt leaves argv entirely — and `MAX_PROMPT_ARGV_BYTES`, the ceiling `build_argv` refuses against, **stops measuring the right thing the moment base64 joins the payload.** A 640×300 PNG is 11.8 KB of JSON. **A VFX frame is not.** Composes with the `2000px` wall ruling (`knight-rider/rulings/2026-08-25-the-2000px-wall-killed-drax-…md`): **crop at native resolution, never downscale** — and now **also budget the base64 against a ceiling that is no longer watching.**
+>
+> **The table below is left standing with its error intact. It is the artifact of the mistake, and rewriting it would hide what a `--help` listing did to a ruling.**
+
+**Disposition: ~~DEFERRED-WITH-ROUTE~~ → ⚑ EXECUTABLE ON BOTH LANES.** The request is sound and the finding does not touch its merit — **and the finding itself was half wrong.**
 
 ---
 
