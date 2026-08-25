@@ -117,3 +117,7 @@ Custody: star-lord RELEASED; jack-ryan CLAIMED for G-U11b (discharge verificatio
 - Final state: flight **131/131** · board 18 · glance 128/128 · validator 0/120 · retrospection 33 caught/0 violations · append-only clean across all fold ranges.
 
 **SEAL predicate S = T1✓ T2✓ T3✓ T4✓ T5✓ + folds pushed → run SEALS this fold.** Custody: star-lord RELEASED. Seal report: `gandalf/notes/2026-08-25-u11-build-run-SEAL.md`. Deployed-surface data-presence check (120 rows) rides this push.
+
+## L-7-VERIFIED — deployed data-presence check PASSES
+
+Prod `reincarnated-glance.vercel.app/state.json`: **rows_on_disk 120** (all 27 session rows + 16 corrections + 2 U11 lifecycle rows live), `U11-BUILD` present in the fleet node, and the CORRECTED output figure (50,878,369) renders on the deployed surface — live proof the Glance `buildFleet` path folds corrections (R-8 reference-consumer status confirmed in production). One catch banked as WARN-7 (deployed `reasoning: 0` for an unmeasured axis → drax backlog, seal report § 5). **RUN U11-BUILD is closed end-to-end: tape → gates → board → prod.**
