@@ -33,6 +33,13 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-08-25 — KC2 MODEL-COMPLETION RUN CLOSED (charter L-95); BATON-V2 BEHAVIORAL TWIN DELIVERED; LIFT RUN CHARTERED
+
+- **KC2-MC run CLOSED at L-95** (`agentic_orchestration/gandalf/notes/2026-08-24-kc2-model-completion-run-charter.md`) — Matt's word. Terminal state: **success at the declared layer.** The **baton-v2 pack pair** is cut and digest-pinned (model `302620c7…a40a875d` · reference `b1034c77…7844a6ed`, engine `f6c1c64d`, receipt `kc2-baton-v2-cut-receipt-20260825_163811.json`): 14 rules / 88 parameters / 13 provenance / 21 absence rows. **The Godot team can build a playable character from it NOW** — player-side numbers are footage-measured EFFECTIVE values (post-CDR/gear); the model is a **behavioral twin, honest about being incomplete as a mechanistic one** (9 playability blockers named + pinned in the pack's own absence registry; 8 of 9 DECODED-NOT-YET-LIFTED).
+- **Matt rulings folded (checkpoint #2, L-94):** **D-CP2-1** walls + spawn-pool DoT for BOTH sim and live (sim behavior policy avoids pools; sealed wall-less reference stays the historical referent, K-7; walls+pools sim = NEW gamora sibling); **D-CP2-2** interrupts bind as per-skill `interrupts_channel` flag; **D-CP2-3** mouse-exclusivity = referent binding-config, not a product commitment. Supersession notes appended to both Wave-4 specs (twin-test F-5 + SKIRT).
+- **SUCCESSOR CHARTERED — the KC2 LIFT RUN** (`agentic_orchestration/gandalf/notes/2026-08-25-kc2-lift-run-charter.md`, ledger at L-0, awaiting Matt's launch word in a fresh session): lift the 8 pinned mechanistic blocks + decode target-selection (the one NOT-YET-DECODED blocker, also a 160-residual candidate) + build W1 walls/pools sibling + W2 interrupt flag → **baton-v3 mechanistic twin**. Fit test all-four-YES.
+- **Routed at close:** run-close harvest → jack-ryan (`agentic_orchestration/qa/pending/2026-08-25-kc2-mc-run-close-harvest.md`; staging limb to #62(a) per the L-93 corrigendum); **R-L45-1(b) devotion-envelope golden regeneration → knight-rider** (R-L92-5, build-lane); **T11 struck-with-residual** in `canonical/matt_to_do/README.md` (save target lost on PC — only `_DawnGuard` L1 survives; revives only if a second save root exists).
+
 ### 2026-08-24 (b) — § 7 RESTORED TO A LIVE PATH; TRANCHE-1b STRANDED 22 MORE; `spark` VOCABULARY RULING QUEUED AS Q63
 
 - **Record of record:** `agentic_orchestration/gandalf/notes/2026-08-24-stranded-live-clause-audit-and-section-7-relocation.md` — the relocation call, the derived citation set, the Tranche-1b audit, the § 6.3 governance proposal, the Gate-1 answer. This delta is the pointer + the state moves.

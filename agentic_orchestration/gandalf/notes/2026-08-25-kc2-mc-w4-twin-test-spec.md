@@ -197,4 +197,13 @@ The twin-test spec is discharged when the consuming drax session produces, in th
 
 ---
 
+## ⚑ POST-SEAL SUPERSESSION NOTE (run close, charter L-95; rulings D-CP2-1..2, 2026-08-25)
+
+Appended FORWARD — nothing above is rewritten; where this note conflicts with the body, this note governs for all future use.
+
+- **D-CP2-1 (Matt verbatim: "live walls for both, dot ticks in spawn pools for both (have the sim stay out of there)")** supersedes the walls facet: the twin-test's two sides BOTH carry authored walls + spawn-pool DoT ticks; the surviving asymmetry is BEHAVIORAL only (the pilot's policy avoids pools, as the referent did). Comparisons stay apples-to-apples because both sides change together.
+- **Referent boundary (K-7):** the sealed wall-less reference stays the historical referent and is never regraded. The twin-test grades runtime ≡ **the walls+pools gamora sibling** (LIFT RUN item W1) once it exists — not runtime ≡ the sealed wall-less cells.
+- **D-CP2-2:** interrupt behavior enters the row schema as the per-skill `interrupts_channel` flag (skill property), not as mouse-binding or uniform rate.
+- **OQ dispositions at close:** OQ-6 lean (C) carried into the LIFT RUN charter § 4 unruled; F-5's G-0 coverage-before-accuracy gate performed as designed and carries forward unchanged.
+
 *Filed 2026-08-25 by gandalf (`SPEC-AUTHOR`), Wave-4, KC2 MODEL-COMPLETION RUN. No production code. Files to run notes per charter § 7; committed, not pushed — the conductor releases.*

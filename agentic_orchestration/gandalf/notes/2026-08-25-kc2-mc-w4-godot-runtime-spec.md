@@ -217,4 +217,13 @@ Every row above is an **absence with a reason**, and the runtime's obligation is
 
 ---
 
+## ⚑ POST-SEAL SUPERSESSION NOTE (run close, charter L-95; rulings D-CP2-1..3, 2026-08-25)
+
+Appended FORWARD — nothing above is rewritten; where this note conflicts with the body, this note governs for all future use.
+
+- **§ 7 substrate-unbounded row SUPERSEDED by D-CP2-1 (Matt verbatim):** *"live walls for both, dot ticks in spawn pools for both (have the sim stay out of there)"* — the runtime carries authored walls AND spawn-pool DoT ticks; so does the sim (as a NEW gamora sibling, LIFT RUN item W1 — never a regrade of the sealed reference, K-7). The asymmetry that survives is the pilot's behavioral pool-avoidance policy.
+- **§ 3 binding-exclusivity SUPERSEDED by D-CP2-2:** the mechanism that transfers is a **per-skill `interrupts_channel` flag** (skill property; casting a flagged skill while the channel is ACTIVE releases it). The mouse-exclusivity finding demotes to (i) the referent's explanation and (ii) the default-assignment heuristic. Measured reference rates ride as evidence: Blitz 0.385 · Vire's Might 0.136 · War Cry 0.000.
+- **OQ-5 DISPOSED by D-CP2-3:** with interrupts as per-skill flags, mouse-exclusivity stops being a candidate product-seam commitment and becomes a fact about the referent's binding config. The project-input-rule question dissolves.
+- **OQ-4 (CDR) carried to the LIFT RUN** unresolved with the § lean intact — the behavioral twin ships effective values; CDR-as-derivation is part of the mechanistic lift.
+
 *Filed 2026-08-25 by gandalf (`SPEC-AUTHOR`), Wave-4, KC2 MODEL-COMPLETION RUN. No production code. Files to run notes per charter § 7; committed, not pushed — the conductor releases.*
