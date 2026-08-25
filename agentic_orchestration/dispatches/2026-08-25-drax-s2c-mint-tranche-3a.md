@@ -1,5 +1,48 @@
 # Dispatch — 2026-08-25 — drax — Step-2 VFX mint, TRANCHE 3A (the eight beam-pack-INDEPENDENT rows)
 
+---
+
+## 🛑 SEAL-BLOCK — ADDED MID-FLIGHT 2026-08-25, AFTER YOU STARTED PASS 2. READ BEFORE YOU TAG ANYTHING.
+
+**I have no channel to you while you run.** `SendMessage` is unavailable to this conductor — fourth time this session. So this banner is the only way I can reach you, and it is written on the assumption that you may not see it until you return. **If you are already past the capture, this still binds at the tag.**
+
+**galadriel's finding (`a1690fe0`, `galadriel/findings/2026-08-25-dash-attack-facing.md`) landed while you were capturing. Matt was right, and the scope is worse than his framing:**
+
+> **The caster faces 180° from travel — on dash, on every other S2A/S2C row, and at rest before any skill fires.**
+
+Root cause is a **two-convention collision in one repo**, and it is **not** in the skill scripts:
+- The shipped surfaces face **local +Z** and say so — `render_arena_room.gd:524` (`atan2(dir.x, dir.z)  # Synty rigs face +Z`), `playshell.gd:206/306/474`, `_zoomladder_probe.gd`, `render_boss_arena.gd:257`, `render_descent_scene.gd:765`.
+- **The benchmark stage uses the opposite**: `s2a_stage.gd:303` `atan2(-ring[i].x, -ring[i].z)` — every staged mob, every row — plus `atan2(-aim_vector().x, -aim_vector().z)` at `s2c_dash_attack.gd:320`, `s2c_blink.gd:285`, `s2c_teleport.gd:258`, `s2c_leap_strike.gd:282`. Non-mover rows never set caster yaw at all and inherit the same 180° by omission.
+- `king_rig.gd:191` calls forward `+Z` *"verified via probe"* and then calls left `-X` — **self-contradicting**; galadriel declined to treat it as dispositive and so should you.
+
+**Aim is wired correctly** — `yaw_deg == aim_deg` across all 26 arms. The yaw is applied to the wrong axis. At aim=0 the wrong answer and the rest pose are both 0, which is exactly why aim=0 reads as "unwired."
+
+### The split that governs what you may and may not seal
+
+**These are two different questions and the defect only kills one of them:**
+
+| Purpose of pass 2 | Survives a backwards body? | Why |
+|---|---|---|
+| **Determinism receipt** (pass 1 ≡ pass 2) | ✅ **YES — finish it, seal it** | Reproducibility is orthogonal to pose. A deterministic harness is deterministic whether the King faces forward or backward. This work is not wasted. |
+| **Archetype separation verdicts** (A[i], STEPS/RAMPS identity) | 🛑 **NO — DO NOT SEAL** | `dash_attack`'s § 3.1.11 identity is explicitly *"silhouette + knockback."* A silhouette scored on a backwards body is **a precise number about the wrong pose** — and once sealed it becomes inherited design substrate (Discipline #25). |
+
+**So: complete the capture, land the determinism receipt, push the held commits — and STOP SHORT of tagging `drax/v0.1-s2c-mint-tranche-3a` as sealed archetype evidence.** Mark the separation verdicts **PENDING-RECAPTURE**, not FAIL and not PASS. (`#79` cl. 5(a): a verdict whose truth is a function of a state about to change is marked pending, not struck and not asserted.)
+
+### On the fix itself — do NOT land five line edits
+
+galadriel's recommendation, which I am ratifying as this dispatch's instruction: **settle the rig's forward axis in ONE place and reconcile the `king_rig.gd:191` contradiction.** Five scattered sign flips would make the captures right and leave the repo holding two conventions and no statement of which is true. That is a convention decision spanning `playshell` / boss-arena / descent-scene surfaces, so it goes to **jack-ryan at Gate 1 before it lands** — I am routing it. **Re-capture is mandatory after it lands.**
+
+### Two corrections to what I sent you at launch
+
+1. ⚑ **My `defensive ≡ control` finding was a false alarm and you should not spend a minute on it.** galadriel confirmed the identity reproduces (159 unique / 234) but `run_s2c_rows12.sh` **predicted it in writing** — *"the effect node is hidden wholesale in a control, so the two frames SHOULD be byte-identical."* It is a **passed receipt between two controls.** The only thing owed is that the gate should **assert** the predicted identity rather than measure across it. I relayed a mechanism claim without testing it against the harness that produces it — `#79` cl. 6, and I am the one who filed that clause.
+2. ⚑ **A real structural zero galadriel found that my census did not:** `da_cathedral_aimn50_04-arrive ≡ ..._novfx_04-arrive` — fx-ON identical to fx-OFF because **that landing is fully pillar-occluded**. The arena counterpart is *not* identical, which is what separates occlusion from a control. **Any cathedral aim−50 separation number at 04-arrive is measuring a pillar.**
+
+### And the thing I told you did not exist, which does
+
+I told you there is no dash video. **There are 61-frame 60 fps `clip_da_*_novfx` series in `s2c12`** — 874 files there, not the 234 I counted (`da_` 234, `bl_` 180, `clip_` 460). **The frames the MP4 would have been made from are already on disk.** My grep asked "does an MP4 exist" and answered correctly; the question worth asking was "does the footage exist." Same error family as the crop that could not see the aim difference — a narrow instrument answering a broad question. **Cutting `clip_da_*` to MP4 is cheap and Matt asked for it by name** — but cut it only after the yaw fix, or you hand him a video of the bug.
+
+---
+
 **Status:** ⚑ **RESUMED — rows 3-8 LIVE on the ruled instrument** (knight-rider, 2026-08-25). Supersedes `HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT`. Rows 1-2 minted, measured, committed and **now adjudicated** (`dash_attack` STEPS / `blink` RAMPS, both stages — L-29(6) holds). **F-8 RULED by galadriel; F-1 RULED by jack-ryan.** ⚑ **Read `§ RESUMPTION` at the foot of this file BEFORE any of the body above** — it replaces the § 1.2 test-(3) input series and adds a mandatory floor. F-7 remains filed, unrepaired, out of scope.
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
