@@ -448,3 +448,72 @@ Fired to gandalf with galadriel's measurement as substrate and **four things to 
 - **jack-ryan owes a forward-pointer stamp** on `qa/findings/2026-08-25-godot-forward-axis-convention.md` (Q2 narrowing **corrected, not superseded**). **He wrote no files this invocation** — his four dispositions exist only because they were captured to `knight-rider/returns/`.
 - **`census.json` ruled: PARK** — quarantine path + `UNEXPLAINED-REGRESSION` marker; **do not commit** (that is `#63` — an unmeasured zero promoted to a measured one on the authority surface); **do not discard.** Carried in the new drax dispatch. **Still needs a named BR2-WATCH owner** — that absence is why it survived 23 days.
 - **The HITL Whirlwind run** (§ 5 above) — still the only item genuinely blocking, and still yours.
+
+---
+
+# SEGMENT 3 — three returns landed, and **all three of them corrected me**
+
+## 14. ⚑ READ THIS FIRST — your VFX critique produced a ruling, an attack on that ruling, and a build order
+
+**Your depth critique is fully processed.** gandalf ruled from galadriel's receipts (zero frames viewed, every figure traced). Grok then attacked the ruling — pointed at **the ruling, not the frames**, which was gandalf's own recommendation — and **broke it in four places using gandalf's own numbers.**
+
+**The build order that came out, and item 1 is uncontested by every attack:**
+
+| | work | why here |
+|---|---|---|
+| **1** | ⚑ **Author the missing windup** — `01-windup-early` and `02-windup-late` render **exactly zero pixels**; fx-on is byte-identical to fx-off. **The whirlwind has no anticipation.** | An absence is unambiguous, bounded, ungameable. **Highest player-facing return on the list, and nothing in Grok's attack touches it.** |
+| 2 | Inspect emitter independence + hit-stop on **`melee_combo` only** | ⚠ **CONTESTED** — see § 16 |
+| 3 | Coarse-band mass (where your smoke and wind actually live) | Grok: *"do not hold smoke hostage to a combo metronome"* — argues to move sooner, not later |
+| 4 | Cheap environmental response — light spill, decal, contact shake | environmental response is **exactly zero** in our build |
+| 5 | Surface inventory — scrape sparks, lasers | ⚠ **CONTESTED** — see § 16 |
+
+> **gandalf's one-line version: do not author MORE. Author across more of the ability, on more clocks, at more scales.**
+
+## 15. ⚑ FIVE QUESTIONS FOR YOU — `canonical/matt_decision_needed/2026-08-25-vfx-depth-four-questions-none-of-which-block-the-build.md`
+
+**None blocks item 1.** Each answers in one line.
+
+- **M-1 — where is the HITL Whirlwind run?** Verified absent twice, independently (galadriel by pixels: WW-7 is an SB-1 cell id, not a whirlwind; me by predicate: 278 MP4s, zero matching). ⚑ **It is the ONLY proof-of-achievability for our own stack, and it answers what nothing else can: what a HUMAN pass adds over a CLEAN-ROOM pass on the same row. Step-2 IS a clean-room minting process — if that delta is large, the process is the defect.** *(a path · a platform · or "it was a live session, never captured")*
+- **M-2 — which tier earns screen-space distortion?** *(a tier name, or "agreed, park it")*
+- **M-3 — "alternating through a specific color range": WHICH range, over WHAT duration?** ⚑ Converts an **unclosable** measurement into a one-line spec from the person who authored it. *(e.g. "amber → white-hot → ember over the 0.4 s strike")*
+- **M-4 — is tint-swap acceptable at the form-library surface?** Four element arms are within **0.26 %** on pixels and identical to **3dp** on spectrum. Only hue moves. *("fine at T1, differentiate at form-library" · or "fine everywhere")*
+- ⚑ **M-5 — NEW, and it decides what we refuse to build. "Scraping TIMING" — do you mean SYNC TO CONTACT, or an INDEPENDENT CLOCK?** gandalf read your timing words as a request for **irregularity** and concluded the scrape should be deferred until the beat is broken. Grok says the domain meaning is the opposite — *sparks on the contact frame, ejected along the grind* — and that **"off-beat scrape is the bug."** **Two parses of your sentence, opposite directions, by two readers who each caught the other's error.** *("sync to contact" · "independent clock" · or "both")*
+
+## 16. What Grok broke, and what survived
+
+**SURVIVED, under attack from a model instructed to break it:** gandalf's refusal to mint CV as a graded target. *Jitter-to-pass is real; CV cannot tell rhythm from noise.*
+
+**BROKE — the sharpest is internal:** *"A light-attack string is SUPPOSED to be periodic. 0.392 s ± 40 ms is what a tight 3-hit combo IS. He used the cross-row pairing to REFUSE a CV target, then used the same pairing to mark `melee_combo` L1-BROKEN. **If the pairing cannot support a bar, it cannot support that verdict either.**"* Also: **P-1 "ungameable" passes with ONE PIXEL at windup** · **P-3 is the wrong predicate** — phase-offset clones of the same clock, or a harmonic, **lock harder**; independent ≠ unlocked · *"buys nothing" is falsified inside the receipts* — `dash_attack` is cadence-healthy at CV 0.955 **and still thin, broken and zero on three other layers** · **hit-stop increases same-frame binding**, inverting its own recommendation · **camera shake is already spent at T1** — the more exhausted signifier than distortion.
+
+⛔ **Its genre-history claims (PoE Cyclone, D3 launch cause, "D4's VFX bible") are FLAGGED UNVERIFIED and I have not acted on them.** Web search was disabled; that is a model asserting history from memory. **A fourth prior asserting history is still a prior** — gandalf's own § 7.2 argument turned back on the thing § 7.2 recommended. Research commission, not evidence.
+
+**Routed back to gandalf** for disposition per hit. **I did not adjudicate any of it** — design ruling is his seam.
+
+## 17. ⚑ The image lane is OPEN — and that ruling was mine and wrong
+
+star-lord measured it: **`grok --prompt-json` takes ACP content blocks and `image` is one of them.** Both lanes probed live against a decoy PNG built so a hallucination would show; **both models returned both hidden strings verbatim and both shapes in their correct corners.** Codex `-i/--image` verified end-to-end.
+
+**I had ruled "Grok has no image door at all." True of the FLAG SURFACE, false of the CAPABILITY.** ⚑ **Your original request — *"Drax and Galadriel both need to zoom in and pause more on each individual frame… try calling Codex and Grok"* — was frame-level, and it is now reachable.** gandalf's first-listed blind spot is *"I viewed ZERO frames."* **That is now closeable.**
+
+**Hazard carried:** `--prompt-json` displaces `-p`, so the prompt leaves argv and `MAX_PROMPT_ARGV_BYTES` stops measuring the right thing once base64 joins the payload. **Crop at native resolution, never downscale** (the 1–3 px features average out of both legs at the same rate and manufacture a false null) **and budget the base64 too.**
+
+## 18. Where I was wrong this segment — **eight instances, one trigger**
+
+**I retracted my own headline result before anyone asked.** The 327× separation I filed as confirming jack-ryan's off-path prediction **compared ABSOLUTE deltas across arms whose baselines differ 3,000×.** Recomputed relatively, **the cell I cited as second-strongest evidence of INVARIANCE moved −50.1 % — its peak halved — the largest relative movement of any cell in the table.** Limb 1 returns to **UNEVALUABLE**, which is where I originally filed it before I talked myself out of it *because the wrong answer was more decisive.*
+
+⚑ **And jack-ryan made the same error inverted, in the same corpus, in the same hour** — he bounded a **scale-free** statistic in **absolute pixel** units. **Two agents, one missing check, run zero times by both.** His proposed clause — ***"a bound is only a bound in the units of the statistic it bounds"*** — now has a second instance before it is numbered. **Numbering is your call.**
+
+**The other seven** are one shape, and I filed the trigger for it mid-session and then hit it five more times: ***a LISTING, a NAME, or a STATUS FIELD stood in for the CONTENTS, and I did not register that a substitution had occurred.*** This segment: a `--help` listing stood in for a capability (§ 17) · a summary stood in for the table it summarized (gandalf's F-1 — I generalized ONE outlier row into a build-wide claim that would have dispatched a renderer-wide fix) · your inventory of what your HITL run **had** stood in for a checklist of what ours **lacks** (his F-2 — *"the deficiency-checklist reading is yours, not his"*) · a byte-count read **mid-write** stood in for a completed run, so I declared a successful Grok call defective and fired a redundant third against it.
+
+## 19. State — the seal HOLDS, and it moved the opposite way from expectation
+
+`L-29(6)` / `R-1.3` **HOLDS**, reclassified `OFF-PATH` → **`ON-PATH-INVARIANT`**: the defect was **suppressing** separation, so the margin **widened** +0.2069 → +0.3807. ⚑ **Stop quoting +0.2069 as a measurement — it is a contaminated understatement.**
+
+- **Capture:** on its **final pass** (`rows38_v3b`). 49 GB free. Sentinel not yet written. drax's dispatch stays correctly gated.
+- **drax dispatch TRIMMED before pickup** — jack-ryan proved `per_body` existed in both JSONs all along and derived the flake floor from **byte-identity** (874/873 identical), a stronger receipt than the one I ordered. **Three acceptance criteria struck.** What remains is the part that matters: the **defect-class sweep** of `run_*.sh` (one of those scripts wipes the pre-fix capture the seal rests on) and the `census.json` quarantine.
+- **In flight:** galadriel on the P-2 instrument-fitness gate (gandalf refused to make her call for her) · gandalf on Grok's four hits.
+- **All three repos at zero ahead of origin.**
+
+## 20. Filing caution star-lord raised, and it is mine to honour
+
+`AUTH-BLOCKED.md` was telling you to run `grok login` **for a flag a CLI update had removed.** Fixed — but the marker is still named `AUTH-BLOCKED` for non-auth blocks, deliberately, because renaming it would move the file out from under the two things that watch it. ⚑ **Consequence for me: read the row before filing it. A row saying `NOT MATT-ONLY` is a seam-owner engineering task, and filing it to `matt_to_do/` is now the error that file exists to prevent.**
