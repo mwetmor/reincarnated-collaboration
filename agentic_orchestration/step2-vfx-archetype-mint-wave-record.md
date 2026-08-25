@@ -128,4 +128,30 @@ Routing-record items 1 and 2 were deliberately **held** while three sessions wer
 
 **Measurement banked in passing** (rocket, read-only over `corpus.db`; 574 kits / 1,224 kit-skills): effect-tags `orbit` / `placed_lane` / `walls_demand` fire **0 / 0 / 0** — **neither Wave-C tagging rule has ever fired on real data** — while 21 skills carry `orbit` geometry via the mapping path. Attached to the `AOE_GEOMETRIES` deferral (routing-record item 4); it materially informs that question and would otherwise have died inside a completion summary.
 
+### § 7.1 — item 2 RETURNED: (B) corpus noise, both. And a figure that didn't close.
+
+**Ruling:** both struck. `VALID_GEOMETRY_TYPES` stays 26; no vocabulary extension, so **no ADR-004 change is owed**. Defect located at **authoring, not apply** (`authored-vdm1`, 2026-07-18). Sweep over 1,224 kit-skills: PRE **exactly those two, nothing else**; POST **0 distinct / 0 occurrences**; **26/26 vocabulary values attested** — no dead vocabulary in either direction. `689371c9`, pushed.
+
+⚑ **The `knockback` row adjudicated itself and the verdict never reached the field.** Its own `delivery_notes` end *"…vortex_pull OR knockback contested; dominant loop → vortex_pull"* — and the **losing** candidate was transcribed into `geometry_value`. That is CLAUDE.md's own phrase — *the work is right and the record does not carry it* — **found inside a data row.** Fourth surface this week, after dispatch headers, `file:line` citations, and census prose.
+
+**My two-holes hypothesis was refuted twice, differently.** Neither strike was a field swap. I asked to be corrected rather than obeyed, and was; that is the part worth having.
+
+**Corroboration, not drift:** zero `knockback` members ⇒ **no T-A row**, which independently matches what tranche-3A already holds at `§ 3.2` (*"HELD per L-14, zero corpus, T4. Nothing to mint."*). **No mid-flight correction owed to drax.**
+
+⚑ **F005 — one token, two referents, both live in this wave.** `knockback`-the-`geometry_value` is now struck to zero. `knockback`-the-contact-response is an **active build instruction** to drax at 3A lines 149/151/200 (*"the only cone candidate with enemy launch + knockback"*). Neither document is wrong; the hazard is the reader who carries *"zero corpus, nothing to mint"* across to line 200. Noted in `research/curated/MIGRATION.md` at my request; elrond agreed it was worth the line rather than waving it off.
+
+**F004, reconciled — I was right on the arithmetic and wrong on what it meant.** Measured: `|kit_mapping| = 574`, `|vote| = 531`, **`|∩| = 525`**, **`|mapping \ vote| = 49`**, **`|vote \ mapping| = 6`**. My 525/6 reconstruction from arithmetic alone was exact. **But my reading of the 6 was not:** I called it *"a vote that ruled on kits the mapping does not contain."* It ruled on nothing. All six carry `skill_ordinal = -1`, `archetype_id NULL`, `unassignable_reason = "kit is in the active combat universe but carries no kit_mapping row — no skill entries exist to vote"`. **The vote recorded the absence in-band, per the schema's documented sentinel convention.** The asymmetry I flagged survives — the 49 close on a vote refresh, the 6 close only when those kits are *mapped* — but it is a **mapping gap, not a vote defect**, and the schema behaved correctly. Recorded because a correct number carried the wrong meaning for twenty minutes on my say-so.
+
+**F003 — dispositioned, and it grew.** The unattested `motion_signature` is a **class, not a row**: the pattern (a PATH claim resting on generic build-utility prose with no path-attesting token) holds for **8 of 47** motion-class band rows, ~6 genuinely unattested. **Trigger:** next band pass over the motion basin, or a datamine lane populating `exact_json` — **not a standalone dispatch**. **Inert:** nothing reads `skill_geometry_band.motion_signature`; `le-frost-wall-rm` has zero `vfx_archetype_member` rows. **Owed, not urgent.**
+
+⚑ **The sharpest thing in that disposition is a line elrond wrote in passing:** all 47 rows sit at `band_conf = 0.75 / dossier-prose` — **"confidence does not discriminate the defect; only anchor re-read does."** A confidence field that reads 0.75 for the six unattested rows *and* the forty-one sound ones is not carrying information about attestation quality; it is carrying information about **provenance channel**, which is a different fact wearing a confidence field's name. **A number that cannot separate the good rows from the bad ones will still be consulted as though it can.** Same family as F005 and as the `knockback` row itself: the name promises more than the referent delivers. Banked for whoever next reaches for `band_conf` as a filter — it will not filter this.
+
+### § 7.2 — ⚑ The corrected staging instruction was validated in the field, unprompted, on its first outing
+
+elrond, closing his follow-up: *"two sibling-staged gandalf notes sat in the index at commit time. **Committed by explicit pathspec so they stay staged for their owner.**"*
+
+**That is the exact counterfactual to `d7835900`.** Same shared tree, same hazard, a sibling session's staged work sitting in the index at commit time — and this time it stayed with its owner, because the instruction that reached him told him to look **in a call that could still refuse**, not in a call chained to the commit. He did not flag it as a difficulty; he handled it and mentioned it in a closing aside. **The fix works, and the evidence is that it stopped being interesting to the agent applying it.**
+
+Weigh this at Gate-2 for what it is: **one instance, self-reported, not an audit.** It is the cheapest possible evidence that the corrected wording is executable as written — which is precisely what the original M3 wording was not.
+
 **Recorded by:** knight-rider, 2026-08-25.

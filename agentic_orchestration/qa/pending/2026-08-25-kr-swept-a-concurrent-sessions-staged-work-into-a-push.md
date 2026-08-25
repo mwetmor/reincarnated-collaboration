@@ -72,3 +72,35 @@ I attempted to send the corrected instruction to the live 3A session and **`Send
 > **Before requesting Gate-2 on `drax/v0.1-s2c-mint-tranche-3a`, knight-rider verifies the tag's own contents** — `git -C ~/Games/reincarnated-godot show --stat <tag>` and `git diff --name-status` across the tagged range — **against the eight rows the dispatch names.** If the tag carries a path belonging to a sibling session, **the seal request does not go out**; the defect is surfaced and the tag is re-cut before Gate-2 sees it.
 
 This moves the check from "he remembers" to "I verify," which is the consumer-side corollary I argued for this morning in the adjacent filing — applied to myself, at my own cost, on the one occasion today it would have saved me. **The `reincarnated-godot` tree is the lower-risk one for this class anyway** (drax is the only agent working it), but "lower risk" is not the same as checked, and I have already spent today's allowance for treating a plausible premise as a verified one.
+
+---
+
+## ⚑ ADDENDUM — the corrected instruction has now FIRED IN THE FIELD, twice, and the second one is the counterfactual
+
+Filed later the same day. **Both instances are evidence about the WORDING, which is the half of this filing I asked you to rule on.**
+
+### Instance 1 — it caught a discrepancy on my own very first use
+
+The next commit I made, I ran the corrected form: stage by pathspec, then `git diff --cached --name-status` **in its own call**, read the result, then commit. **Three files named. Two staged.**
+
+The third — a notice I had just written into a live legolas directory — was already **tracked and committed by someone else**, in the ~14 minutes between my writing it and my staging it. The chained form would have committed two files while I believed I was committing three, and I would have had no reason to look. **It cost one round trip and it immediately returned information I did not have.**
+
+*(The resolution was benign and worth recording for its own sake: the conductor capturing legolas's findings had read the notice and carried it deliberately — commit `698d504a` **names it in the message** and records that the swept artifacts *"landed early under `d7835900` and were not the seat's to time."* My own defect's reciprocal, answered correctly, within the hour. **The check did not find a problem; it found that a thing I assumed was undone was done.** That is the same FALSE-ALARM face documented in the adjacent filing, caught this time before it produced any effort.)*
+
+### ⚑ Instance 2 — elrond hit the actual hazard and it did not land on him
+
+This is the one that matters, because it is `d7835900`'s exact situation with the corrected instruction in place. From his return, as a closing aside:
+
+> *"two sibling-staged gandalf notes sat in the index at commit time. **Committed by explicit pathspec so they stay staged for their owner.**"*
+
+**Same shared tree. Same index holding a sibling session's staged work at the moment of commit. Opposite outcome.** The notes stayed with their owner, to be committed at a time their owner chose — the two things my defect took from legolas (attribution, and timing chosen by the owner) were both preserved.
+
+**And note what he did NOT do:** he did not flag it as a difficulty, ask what to do, or file it as a finding. He handled it and mentioned it in passing. **The strongest available evidence that an instruction is executable as written is that it stopped being interesting to the agent applying it.**
+
+### What I am claiming, and what I am not
+
+**Claiming:** the corrected wording is executable as written, and in one live encounter with the precise hazard it prevented the precise harm. That is exactly what the original M3 wording — *"verify `git diff --cached` before every commit"* — could not have done, since I satisfied it to the letter while failing.
+
+**Not claiming:** that two instances are an audit. N=2, both self-reported, neither adversarial, and one of them is me testing my own fix. **A fix validated only by its author is not validated.** I am filing the evidence, not the verdict.
+
+**What would actually settle it, if you want it settled:** the corrected wording is currently live in three places — 3A's M3, 3B's M3, and the two elrond briefs. **The cheap audit is one pass over the commits those sessions produce, asking whether any carries a path its dispatch did not name.** That is mechanically checkable against the dispatch row lists, and unlike the prose it does not depend on anyone's self-report.
