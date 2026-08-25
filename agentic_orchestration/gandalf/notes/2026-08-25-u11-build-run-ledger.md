@@ -95,3 +95,15 @@ R-3 fallback exercised as chartered: T3 is lane-level; workstream honest-null on
 - **State:** suite **130** + board 18; validator CLEAN (118 rows); `correction_errors` []; retrospection 0; append-only 16/0; `--correct` idempotent.
 
 Custody: star-lord RELEASED; jack-ryan CLAIMED for G-U11b (discharge verification + R-8 wording ratification + R-9 review + grain self-audit).
+
+## L-6 — G-U11b FOLDED (jack-ryan `c3a3ca3c`): **PASS-WITH-FINDINGS — T4 ✓**
+
+- **All three BLOCKs verified DISCHARGED by independent re-derivation** (four-selector walk, not importing the emitter): all four axes byte-exact incl. output 50,878,369; 16 correction rows 0/64 value mismatches; live blindness proof re-run now VISIBLE both ts orderings; 43 raw → 27 effective byte-exact; board shared-derivation agreement; `— null on 27/27` renders.
+- **Five mutations, all bitten** — with one instructive evasion: the `or 0` grep test is EVADED by single-quote spelling (behavioural test bit anyway) → **INFO-6: a grep ban is a tripwire, not the guarantee; the behavioural falsifier is the guarantee.**
+- **R-8 RATIFIED-WITH-AMENDMENT** (consumer obligation made explicit); durable home = **SCHEMA.md § 0 rule 1** (WARN-5 clause drafted; lands in B-3). Ruled AGAINST an engineering-disciplines copy — that would create the second spelling R-8 itself warns about. **WARN-6 (new): Glance's exported `fold` is correction-blind by default** — identical semantics, divergent default, in the reference consumer; routed to drax post-run (R-7), with a deployed-surface correction-check added to the seal verification.
+- **R-9 RATIFIED at strongest form** (tape value vs independent terminal re-derivation: 44 comparisons, 0 stale; 16/16 genuinely differed) — recommended for promotion to standing tape law (seal governance candidate).
+- **Self-audit: CHARGE UPHELD.** "27/27" was lane-grain fact written at row grain — R-L47-2 defect class, gate layer, second occurrence. The run's sharpest sentence is jack-ryan's own: *had star-lord complied instead of re-deriving, 11 false amendments would be permanent on an append-only tape.* The derive-don't-comply reflex (U1 WARN-5 standing build instruction) just paid out against the GATE.
+- **INFO-7:** the gatekeeper nearly filed a false finding by feeding raw ids to `retrospection_audit` — a correction-blind consumption of the auditor itself, 40 minutes after ruling on correction-blind consumers. Named, self-charged, corrected (scoped: 0 violations).
+- Counts: suite 130 · board 18 · validator 0/118 (non-vacuity probed) · append-only 16/0 · retrospection 0 · `--correct` idempotent · LAW AST clean.
+
+**Remaining to seal:** T5 lifecycle rows (`run:U11-BUILD` OPEN/CLOSE, verdict PASS-WITH-FINDINGS, gatekeeper jack-ryan) + WARN-5 SCHEMA.md § 0 clause → **B-3** (star-lord closeout block); then seal report + deployed-surface verification (data-presence + WARN-6 correction-check). Custody: jack-ryan RELEASED; star-lord CLAIMED for B-3.
