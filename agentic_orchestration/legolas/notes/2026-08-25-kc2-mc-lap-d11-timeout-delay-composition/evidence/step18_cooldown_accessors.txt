@@ -1,0 +1,137 @@
+=== 0x3bf1c0  @ RVA 0x003bf1c0  (nearest=?GetCooldownRemaining@Skill@GAME@@QBEHXZ)
+  0x003bf1c0  mov      eax, dword ptr [ecx + 0x15c]
+  0x003bf1c6  test     eax, eax
+  0x003bf1c8  jg       0x103bf1d0
+  0x003bf1ca  mov      eax, dword ptr [ecx + 0x150]
+  0x003bf1d0  ret      
+  0x003bf1d1  int3     
+  0x003bf1d2  int3     
+  0x003bf1d3  int3     
+  0x003bf1d4  int3     
+  0x003bf1d5  int3     
+  0x003bf1d6  int3     
+  0x003bf1d7  int3     
+  0x003bf1d8  int3     
+  0x003bf1d9  int3     
+  0x003bf1da  int3     
+  0x003bf1db  int3     
+  0x003bf1dc  int3     
+  0x003bf1dd  int3     
+  0x003bf1de  int3     
+  0x003bf1df  int3     
+
+=== 0x3bf1e0  @ RVA 0x003bf1e0  (nearest=?GetCooldownTotal@Skill@GAME@@QBEHXZ)
+  0x003bf1e0  cmp      dword ptr [ecx + 0x15c], 0
+  0x003bf1e7  jle      0x103bf1f3
+  0x003bf1e9  mov      eax, dword ptr [ecx + 0x160]
+  0x003bf1ef  test     eax, eax
+  0x003bf1f1  jg       0x103bf1f9
+  0x003bf1f3  mov      eax, dword ptr [ecx + 0x154]
+  0x003bf1f9  ret      
+  0x003bf1fa  int3     
+  0x003bf1fb  int3     
+  0x003bf1fc  int3     
+  0x003bf1fd  int3     
+  0x003bf1fe  int3     
+  0x003bf1ff  int3     
+
+=== 0x3beda0  @ RVA 0x003beda0  (nearest=?StartCooldown@Skill@GAME@@QAEX_N@Z)
+  0x003beda0  push     ebp
+  0x003beda1  mov      ebp, esp
+  0x003beda3  and      esp, 0xfffffff8
+  0x003beda6  sub      esp, 0xc
+  0x003beda9  push     ebx
+  0x003bedaa  push     esi
+  0x003bedab  push     edi
+  0x003bedac  mov      edi, ecx
+  0x003bedae  mov      ecx, dword ptr [edi + 0x24]
+  0x003bedb1  test     ecx, ecx
+  0x003bedb3  jne      0x103bedc1
+  0x003bedb5  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003bedbb  add      ecx, 0x29094
+  0x003bedc1  mov      eax, dword ptr [ecx]
+  0x003bedc3  call     dword ptr [eax + 4]
+  0x003bedc6  mov      ebx, eax
+  0x003bedc8  test     ebx, ebx
+  0x003bedca  je       0x103beddc
+  0x003bedcc  mov      esi, dword ptr [ebx]
+  0x003bedce  mov      ecx, edi
+  0x003bedd0  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x003bedd6  push     eax
+  0x003bedd7  mov      ecx, ebx
+  0x003bedd9  call     dword ptr [esi + 0x70]
+  0x003beddc  push     dword ptr [ebp + 8]
+  0x003beddf  lea      eax, [esp + 0x17]
+  0x003bede3  mov      ecx, edi
+  0x003bede5  push     eax
+  0x003bede6  call     0x103beeb0   ; -> ?GetCooldownTime@Skill@GAME@@QBEMAA_N_N@Z
+  0x003bedeb  cmp      byte ptr [esp + 0x13], 0
+  0x003bedf0  fstp     dword ptr [esp + 0x14]
+  0x003bedf4  je       0x103bee15
+  0x003bedf6  mov      ecx, dword ptr [edi + 0x24]
+  0x003bedf9  test     ecx, ecx
+  0x003bedfb  jne      0x103bee09
+  0x003bedfd  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003bee03  add      ecx, 0x29094
+  0x003bee09  mov      eax, dword ptr [ecx]
+  0x003bee0b  call     dword ptr [eax + 8]
+  0x003bee0e  mov      ecx, eax
+  0x003bee10  call     0x1004b020   ; -> ?PlayCooldownResetFx@Character@GAME@@QAEXXZ
+  0x003bee15  movss    xmm0, dword ptr [esp + 0x14]
+  0x003bee1b  cvtps2pd xmm0, xmm0
+  0x003bee1e  comisd   xmm0, xmmword ptr [0x105f5820]   ; f32=-1.58819e-23 i32=-1717986918 f64=0.1
+  0x003bee26  jbe      0x103bee94
+  0x003bee28  mov      eax, dword ptr [edi + 0x158]
+  0x003bee2e  test     eax, eax
+  0x003bee30  jle      0x103bee46
+  0x003bee32  dec      eax
+  0x003bee33  xor      ecx, ecx
+  0x003bee35  test     eax, eax
+  0x003bee37  mov      dword ptr [edi + 0x158], eax
+  0x003bee3d  cmovs    eax, ecx
+  0x003bee40  mov      dword ptr [edi + 0x158], eax
+  0x003bee46  mov      eax, dword ptr [edi]
+  0x003bee48  mov      ecx, edi
+  0x003bee4a  call     dword ptr [eax + 0x2e8]
+  0x003bee50  movss    xmm0, dword ptr [esp + 0x14]
+  0x003bee56  cmp      eax, 1
+  0x003bee59  jle      0x103bee71
+  0x003bee5b  push     ecx
+  0x003bee5c  mov      ecx, edi
+  0x003bee5e  movss    dword ptr [esp], xmm0
+  0x003bee63  call     0x103bf220   ; -> ?SetChargeCooldown@Skill@GAME@@IAEXM@Z
+  0x003bee68  pop      edi
+  0x003bee69  pop      esi
+  0x003bee6a  pop      ebx
+  0x003bee6b  mov      esp, ebp
+  0x003bee6d  pop      ebp
+  0x003bee6e  ret      4
+  0x003bee71  mov      eax, dword ptr [edi]
+  0x003bee73  sub      esp, 8
+  0x003bee76  mov      ecx, edi
+  0x003bee78  mov      dword ptr [esp + 4], 0
+  0x003bee80  movss    dword ptr [esp], xmm0
+  0x003bee85  call     dword ptr [eax + 0x140]
+  0x003bee8b  pop      edi
+  0x003bee8c  pop      esi
+  0x003bee8d  pop      ebx
+  0x003bee8e  mov      esp, ebp
+  0x003bee90  pop      ebp
+  0x003bee91  ret      4
+  0x003bee94  mov      dword ptr [edi + 0x154], 0
+  0x003bee9e  pop      edi
+  0x003bee9f  pop      esi
+  0x003beea0  pop      ebx
+  0x003beea1  mov      esp, ebp
+  0x003beea3  pop      ebp
+  0x003beea4  ret      4
+  0x003beea7  int3     
+  0x003beea8  int3     
+  0x003beea9  int3     
+  0x003beeaa  int3     
+  0x003beeab  int3     
+  0x003beeac  int3     
+  0x003beead  int3     
+  0x003beeae  int3     
+  0x003beeaf  int3     
+

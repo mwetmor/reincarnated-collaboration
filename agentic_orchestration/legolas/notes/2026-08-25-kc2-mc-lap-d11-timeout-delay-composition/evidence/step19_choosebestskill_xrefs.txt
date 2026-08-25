@@ -1,0 +1,31 @@
+=== xrefs to ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z @ 0x000f8020
+   call @ 0x000fe076  in ?HandleEvent@ControllerMonsterStateHidden@GAME@@MAEXABVName@2@@Z+0xd6
+   call @ 0x000ff5b3  in ?OnUpdate@ControllerMonsterStatePursue@GAME@@MAEXH@Z+0x233
+   call @ 0x000ff7d9  in ?EnemyFound@ControllerMonsterStatePursue@GAME@@MAEXI@Z+0x39
+   call @ 0x00100519  in ?OnUpdate@ControllerMonsterStateAttack@GAME@@MAEXH@Z+0x89
+   call @ 0x00100655  in ?OnUpdate@ControllerMonsterStateAttack@GAME@@MAEXH@Z+0x1c5
+   call @ 0x00100809  in ?EnemyFound@ControllerMonsterStateAttack@GAME@@MAEXI@Z+0x39
+   call @ 0x001019b3  in ?OnBegin@ControllerMonsterStateJumpAttack@GAME@@MAEXXZ+0x153
+   call @ 0x00101ed9  in ?HandleEvent@ControllerMonsterStateJumpAttack@GAME@@MAEXABVName@2@@Z+0x4d9
+   call @ 0x001023e9  in ?EnemyFound@ControllerMonsterStateRepositionForAttack@GAME@@MAEXI@Z+0x39
+   call @ 0x001025e7  in ?EndOfPathReached@ControllerMonsterStateRepositionForAttack@GAME@@MAEXXZ+0x117
+   call @ 0x00104532  in ?OnBegin@ControllerMonsterStateReturn@GAME@@UAEXXZ+0x2d2
+   call @ 0x00104ae0  in ?OnUpdate@ControllerMonsterStateWaitToAttack@GAME@@UAEXH@Z+0xc0
+   call @ 0x00107e0d  in ?OnUpdate@ControllerMonsterStateConfused@GAME@@MAEXH@Z+0x19d
+   call @ 0x001081e5  in ?EnemyFound@ControllerMonsterStateTrapped@GAME@@MAEXI@Z+0x15
+   call @ 0x0010a3d3  in ?DefaultEnemyFoundResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXI@Z+0x73
+   call @ 0x0010aad7  in ?DefaultAllyAttackedResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXII@Z+0xc7
+   call @ 0x0010af88  in ?DefaultAllyNeedsHelpResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXII@Z+0x238
+   call @ 0x0010b0aa  in ?DefaultRequestAttackResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXII@Z+0xda
+   call @ 0x00128177  in ?HandleEvent@ControllerSpiritStateStartup@GAME@@MAEXABVName@2@@Z+0x107
+   call @ 0x001285f6  in ?OnUpdate@ControllerSpiritStatePursueToAnimate@GAME@@MAEXH@Z+0xb6
+   call @ 0x0012888d  in ?PathFailed@ControllerSpiritStatePursueToAnimate@GAME@@MAEXXZ+0xad
+   call @ 0x00128acb  in ?OnUpdate@ControllerSpiritStateIdle@GAME@@MAEXH@Z+0xbb
+
+=== xrefs to ?ChooseBestSkillOverride@ControllerMonster@GAME@@MBEII_N@Z @ 0x0006a910
+
+=== indirect calls through [reg+0x124]
+   0x000f8043  in ?ChooseBestSkill@ControllerMonster@GAME@@QAEII_N@Z+0x23
+   0x00320156  in ?RequestCompleteInventoryRelics@Player@GAME@@QBEXXZ+0x126
+   (2 sites)
+

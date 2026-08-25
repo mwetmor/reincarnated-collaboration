@@ -1,0 +1,563 @@
+=== 0x4bfcf0  @ RVA 0x004bfcf0  (nearest=?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38040)
+  0x004bfcf0  mov      ecx, 1
+  0x004bfcf5  movsd    xmm5, qword ptr [0x105f5b68]   ; f32=0 i32=0 f64=9.22337e+18
+  0x004bfcfd  jmp      0x104bfd1b   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3806b
+  0x004bfcff  mov      ecx, 2
+  0x004bfd04  movsd    xmm5, qword ptr [0x105f5b70]   ; f32=0 i32=0 f64=1.84467e+19
+  0x004bfd0c  jmp      0x104bfd1b   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3806b
+  0x004bfd0e  mov      ecx, 3
+  0x004bfd13  movsd    xmm5, qword ptr [0x105f5b68]   ; f32=0 i32=0 f64=9.22337e+18
+  0x004bfd1b  movd     eax, xmm0
+  0x004bfd1f  and      eax, 0x7fffffff
+  0x004bfd24  cmp      eax, 0x7f800000
+  0x004bfd29  jae      0x104bfe7b
+  0x004bfd2f  cvtss2sd xmm0, xmm0
+  0x004bfd33  cmp      ecx, 2
+  0x004bfd36  jne      0x104bfd50
+  0x004bfd38  movsd    xmm2, qword ptr [0x105f5b88]   ; f32=0 i32=0 f64=1.54743e+26
+  0x004bfd40  comisd   xmm0, xmm2
+  0x004bfd44  jbe      0x104bfd50
+  0x004bfd46  mov      edx, 0x10
+  0x004bfd4b  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bfd50  comisd   xmm0, xmm5
+  0x004bfd54  jae      0x104bfe7b
+  0x004bfd5a  movsd    xmm6, qword ptr [0x105f5b60]   ; f32=0 i32=0 f64=-9.22337e+18
+  0x004bfd62  comisd   xmm0, xmm6
+  0x004bfd66  jb       0x104bfe7b
+  0x004bfd6c  movdqa   xmm1, xmm0
+  0x004bfd70  psllq    xmm1, 1
+  0x004bfd75  psrlq    xmm1, 1
+  0x004bfd7a  cmp      ecx, 1
+  0x004bfd7d  je       0x104bfdb9
+  0x004bfd7f  movsd    xmm2, qword ptr [0x105f5b80]   ; f32=-1.58456e+29 i32=-268435456 f64=1.17549e-38
+  0x004bfd87  comisd   xmm1, xmm2
+  0x004bfd8b  ja       0x104bfdb9
+  0x004bfd8d  xorpd    xmm2, xmm2
+  0x004bfd91  comisd   xmm1, xmm2
+  0x004bfd95  je       0x104bfdb9
+  0x004bfd97  push     eax
+  0x004bfd98  wait     
+  0x004bfd99  fnstcw   word ptr [esp]
+  0x004bfd9c  mov      ax, word ptr [esp]
+  0x004bfda0  test     ax, 0x10
+  0x004bfda4  pop      eax
+  0x004bfda5  jne      0x104bfdb9
+  0x004bfda7  mov      edx, 2
+  0x004bfdac  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bfdb1  xor      eax, eax
+  0x004bfdb3  mov      edx, 0x80000000
+  0x004bfdb8  ret      
+  0x004bfdb9  xorpd    xmm6, xmm6
+  0x004bfdbd  comisd   xmm1, xmm6
+  0x004bfdc1  je       0x104bfe6d
+  0x004bfdc7  movsd    xmm3, qword ptr [0x105f5b40]   ; f32=nan i32=-1 f64=2.22507e-308
+  0x004bfdcf  movsd    xmm4, qword ptr [0x105f5b48]   ; f32=0 i32=0 f64=2.22507e-308
+  0x004bfdd7  movd     xmm5, dword ptr [0x105f5ba0]   ; f32=1.5064e-42 i32=1075 f64=2.30661e-311
+  0x004bfddf  movdqa   xmm6, xmm0
+  0x004bfde3  cmpeqsd  xmm6, xmm1
+  0x004bfde8  movdqa   xmm2, xmm1
+  0x004bfdec  pand     xmm2, xmm3
+  0x004bfdf0  por      xmm2, xmm4
+  0x004bfdf4  psrlq    xmm1, 0x34
+  0x004bfdf9  movdqa   xmm4, xmm1
+  0x004bfdfd  psubq    xmm4, xmm5
+  0x004bfe01  movdqa   xmm3, xmm2
+  0x004bfe05  psllq    xmm3, xmm4
+  0x004bfe09  movdqa   xmm4, xmm5
+  0x004bfe0d  psubq    xmm4, xmm1
+  0x004bfe11  movdqa   xmm7, xmm2
+  0x004bfe15  psrlq    xmm7, xmm4
+  0x004bfe19  pcmpgtd  xmm1, xmm5
+  0x004bfe1d  punpckldq xmm1, xmm1
+  0x004bfe21  pand     xmm3, xmm1
+  0x004bfe25  pandn    xmm1, xmm7
+  0x004bfe29  por      xmm1, xmm3
+  0x004bfe2d  pxor     xmm5, xmm5
+  0x004bfe31  psubq    xmm5, xmm1
+  0x004bfe35  pand     xmm1, xmm6
+  0x004bfe39  pandn    xmm6, xmm5
+  0x004bfe3d  por      xmm6, xmm1
+  0x004bfe41  movd     eax, xmm4
+  0x004bfe45  cmp      eax, 0
+  0x004bfe48  jle      0x104bfe6d
+  0x004bfe4a  psllq    xmm7, xmm4
+  0x004bfe4e  pxor     xmm2, xmm7
+  0x004bfe52  movd     eax, xmm2
+  0x004bfe56  psrldq   xmm2, 4
+  0x004bfe5b  movd     edx, xmm2
+  0x004bfe5f  or       eax, edx
+  0x004bfe61  je       0x104bfe6d
+  0x004bfe63  mov      edx, 0x10
+  0x004bfe68  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bfe6d  movd     eax, xmm6
+  0x004bfe71  psrldq   xmm6, 4
+  0x004bfe76  movd     edx, xmm6
+  0x004bfe7a  ret      
+  0x004bfe7b  mov      edx, 8
+  0x004bfe80  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bfe85  xor      eax, eax
+  0x004bfe87  mov      edx, 0x80000000
+  0x004bfe8c  ret      
+  0x004bfe8d  sub      esp, 0x20
+  0x004bfe90  wait     
+  0x004bfe91  fnstcw   word ptr [esp]
+  0x004bfe94  movzx    eax, word ptr [esp]
+  0x004bfe98  cmp      edx, 8
+  0x004bfe9b  je       0x104bfea5
+  0x004bfe9d  test     byte ptr [edx + 0x105f5b8f], al
+  0x004bfea3  jne      0x104bfecd
+  0x004bfea5  fldcw    word ptr [0x105f5bb0]   ; f32=6.9042e-42 i32=4927 f64=2.43426e-320
+  0x004bfeab  mov      dword ptr [esp], edx
+  0x004bfeae  mov      dword ptr [esp + 4], 0
+  0x004bfeb6  movsd    qword ptr [esp + 8], xmm0
+  0x004bfebc  movsd    qword ptr [esp + 0x10], xmm0
+  0x004bfec2  mov      dword ptr [esp + 0x18], eax
+  0x004bfec6  call     0x104c0092   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x383e2
+  0x004bfecb  fstp     st(0)
+  0x004bfecd  add      esp, 0x20
+  0x004bfed0  ret      
+  0x004bfed1  mov      ecx, 1
+  0x004bfed6  movsd    xmm5, qword ptr [0x105f5b68]   ; f32=0 i32=0 f64=9.22337e+18
+  0x004bfede  jmp      0x104bfefc   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3824c
+  0x004bfee0  mov      ecx, 4
+  0x004bfee5  movsd    xmm5, qword ptr [0x105f5b70]   ; f32=0 i32=0 f64=1.84467e+19
+  0x004bfeed  jmp      0x104bfefc   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3824c
+  0x004bfeef  mov      ecx, 5
+  0x004bfef4  movsd    xmm5, qword ptr [0x105f5b68]   ; f32=0 i32=0 f64=9.22337e+18
+  0x004bfefc  movdqa   xmm1, xmm0
+  0x004bff00  psrldq   xmm1, 4
+  0x004bff05  movd     eax, xmm1
+  0x004bff09  and      eax, 0x7fffffff
+  0x004bff0e  cmp      eax, 0x7ff00000
+  0x004bff13  jae      0x104bfe7b
+  0x004bff19  cmp      ecx, 1
+  0x004bff1c  je       0x104bfd33
+  0x004bff22  movdqa   xmm1, xmm0
+  0x004bff26  psllq    xmm1, 1
+  0x004bff2b  psrlq    xmm1, 1
+  0x004bff30  movsd    xmm2, qword ptr [0x105f5b78]   ; f32=-1.58456e+29 i32=-268435456 f64=3.40282e+38
+  0x004bff38  comisd   xmm1, xmm2
+  0x004bff3c  jbe      0x104bff6d
+  0x004bff3e  cmp      ecx, 4
+  0x004bff41  je       0x104bff59
+  0x004bff43  mov      edx, 1
+  0x004bff48  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff4d  mov      edx, 0x10
+  0x004bff52  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff57  jmp      0x104bff6d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x382bd
+  0x004bff59  mov      edx, 0x10
+  0x004bff5e  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff63  mov      edx, 1
+  0x004bff68  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff6d  movsd    xmm2, qword ptr [0x105f5b80]   ; f32=-1.58456e+29 i32=-268435456 f64=1.17549e-38
+  0x004bff75  comisd   xmm1, xmm2
+  0x004bff79  jae      0x104bffa2
+  0x004bff7b  xorpd    xmm2, xmm2
+  0x004bff7f  comisd   xmm1, xmm2
+  0x004bff83  je       0x104bfdb9
+  0x004bff89  mov      edx, 2
+  0x004bff8e  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff93  mov      edx, 0x10
+  0x004bff98  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bff9d  jmp      0x104bfdb9   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38109
+  0x004bffa2  movdqa   xmm3, xmm0
+  0x004bffa6  cmp      ecx, 4
+  0x004bffa9  jne      0x104bffbd
+  0x004bffab  movsd    xmm2, qword ptr [0x105f5b68]   ; f32=0 i32=0 f64=9.22337e+18
+  0x004bffb3  comisd   xmm3, xmm2
+  0x004bffb7  jb       0x104bffbd
+  0x004bffb9  subpd    xmm3, xmm2
+  0x004bffbd  movdqa   xmm4, xmm3
+  0x004bffc1  psllq    xmm4, 0x23
+  0x004bffc6  psrlq    xmm4, 0x23
+  0x004bffcb  movd     eax, xmm4
+  0x004bffcf  or       eax, eax
+  0x004bffd1  je       0x104bffdd
+  0x004bffd3  mov      edx, 0x10
+  0x004bffd8  call     0x104bfe8d   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x381dd
+  0x004bffdd  comisd   xmm0, xmm5
+  0x004bffe1  jae      0x104bfe7b
+  0x004bffe7  movsd    xmm2, qword ptr [0x105f5b60]   ; f32=0 i32=0 f64=-9.22337e+18
+  0x004bffef  comisd   xmm0, xmm2
+  0x004bfff3  jb       0x104bfe7b
+  0x004bfff9  jmp      0x104bfdb9   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x38109
+  0x004bfffe  mov      edi, edi
+  0x004c0000  xorps    xmm0, xmm0
+  0x004c0003  cvtsi2sd xmm0, ecx
+  0x004c0007  shr      ecx, 0x1f
+  0x004c000a  addsd    xmm0, qword ptr [ecx*8 + 0x105f5b30]
+  0x004c0013  test     edx, edx
+  0x004c0015  je       0x104c0036
+  0x004c0017  xorps    xmm1, xmm1
+  0x004c001a  cvtsi2sd xmm1, edx
+  0x004c001e  shr      edx, 0x1f
+  0x004c0021  addsd    xmm1, qword ptr [edx*8 + 0x105f5b30]
+  0x004c002a  mulsd    xmm1, qword ptr [0x105f5b38]   ; f32=0 i32=0 f64=4.29497e+09
+  0x004c0032  addsd    xmm0, xmm1
+  0x004c0036  ret      
+  0x004c0037  lea      esp, [esp]
+  0x004c003e  mov      edi, edi
+  0x004c0040  xorps    xmm1, xmm1
+  0x004c0043  cvtsi2sd xmm1, edx
+  0x004c0047  xorps    xmm0, xmm0
+  0x004c004a  cvtsi2sd xmm0, ecx
+  0x004c004e  shr      ecx, 0x1f
+  0x004c0051  mulsd    xmm1, qword ptr [0x105f5b38]   ; f32=0 i32=0 f64=4.29497e+09
+  0x004c0059  addsd    xmm0, qword ptr [ecx*8 + 0x105f5b30]
+  0x004c0062  addsd    xmm0, xmm1
+  0x004c0066  ret      
+  0x004c0067  int3     
+  0x004c0068  jmp      dword ptr [0x104e6440]   ; f32=1.17355e-38 i32=8374734 f64=2.82927e-306
+  0x004c006e  jmp      dword ptr [0x104e6444]   ; f32=1.17355e-38 i32=8374744 f64=2.82929e-306
+  0x004c0074  jmp      dword ptr [0x104e6448]   ; f32=1.17355e-38 i32=8374764 f64=2.82932e-306
+  0x004c007a  jmp      dword ptr [0x104e644c]   ; f32=1.17356e-38 i32=8374784 f64=2.82935e-306
+  0x004c0080  jmp      dword ptr [0x104e6450]   ; f32=1.17356e-38 i32=8374804 f64=2.82937e-306
+  0x004c0086  jmp      dword ptr [0x104e6454]   ; f32=1.17356e-38 i32=8374824 f64=2.8294e-306
+  0x004c008c  jmp      dword ptr [0x104e6458]   ; f32=1.17357e-38 i32=8374844 f64=2.82941e-306
+  0x004c0092  jmp      dword ptr [0x104e645c]   ; f32=1.17357e-38 i32=8374852 f64=4.13773e-317
+  0x004c0098  int3     
+  0x004c0099  int3     
+  0x004c009a  int3     
+  0x004c009b  int3     
+  0x004c009c  int3     
+  0x004c009d  int3     
+  0x004c009e  int3     
+  0x004c009f  int3     
+  0x004c00a0  lea      ecx, [ebp - 0x4c]
+  0x004c00a3  jmp      0x10008110   ; -> ?Unlock@Achievement@GAME@@QAEXXZ+0x1c0
+  0x004c00a8  lea      ecx, [ebp - 0x34]
+  0x004c00ab  jmp      0x10008110   ; -> ?Unlock@Achievement@GAME@@QAEXXZ+0x1c0
+  0x004c00b0  lea      ecx, [ebp - 0x68]
+  0x004c00b3  jmp      0x100080d0   ; -> ?Unlock@Achievement@GAME@@QAEXXZ+0x180
+  0x004c00b8  mov      eax, 0x105f8340
+  0x004c00bd  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c00c2  int3     
+  0x004c00c3  int3     
+  0x004c00c4  int3     
+  0x004c00c5  int3     
+  0x004c00c6  int3     
+  0x004c00c7  int3     
+  0x004c00c8  int3     
+  0x004c00c9  int3     
+  0x004c00ca  int3     
+  0x004c00cb  int3     
+  0x004c00cc  int3     
+  0x004c00cd  int3     
+  0x004c00ce  int3     
+  0x004c00cf  int3     
+  0x004c00d0  mov      eax, 0x105f837c
+  0x004c00d5  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c00da  int3     
+  0x004c00db  int3     
+  0x004c00dc  int3     
+  0x004c00dd  int3     
+  0x004c00de  int3     
+  0x004c00df  int3     
+  0x004c00e0  mov      eax, 0x105f8408
+  0x004c00e5  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c00ea  int3     
+  0x004c00eb  int3     
+  0x004c00ec  int3     
+  0x004c00ed  int3     
+  0x004c00ee  int3     
+  0x004c00ef  int3     
+  0x004c00f0  mov      eax, 0x105f8494
+  0x004c00f5  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c00fa  int3     
+  0x004c00fb  int3     
+  0x004c00fc  int3     
+  0x004c00fd  int3     
+  0x004c00fe  int3     
+  0x004c00ff  int3     
+  0x004c0100  push     0xb8
+  0x004c0105  mov      eax, dword ptr [ebp - 0x10]
+  0x004c0108  push     eax
+  0x004c0109  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x004c010e  add      esp, 8
+  0x004c0111  ret      
+  0x004c0112  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0115  jmp      0x10007c20   ; -> ??1Achievement@GAME@@UAE@XZ
+  0x004c011a  push     0xc8
+  0x004c011f  mov      eax, dword ptr [ebp - 0x14]
+  0x004c0122  push     eax
+  0x004c0123  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x004c0128  add      esp, 8
+  0x004c012b  ret      
+  0x004c012c  mov      ecx, dword ptr [ebp - 0x14]
+  0x004c012f  jmp      0x10007c20   ; -> ??1Achievement@GAME@@UAE@XZ
+  0x004c0134  mov      eax, 0x105f84b8
+  0x004c0139  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c013e  int3     
+  0x004c013f  int3     
+  0x004c0140  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0143  jmp      0x100096e0   ; -> ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x250
+  0x004c0148  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c014b  add      ecx, 0x20
+  0x004c014e  jmp      0x10009730   ; -> ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x2a0
+  0x004c0153  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0156  add      ecx, 0x2c
+  0x004c0159  jmp      0x10009730   ; -> ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x2a0
+  0x004c015e  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0161  add      ecx, 0x38
+  0x004c0164  jmp      0x10009730   ; -> ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x2a0
+  0x004c0169  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c016c  add      ecx, 0x44
+  0x004c016f  jmp      0x1000c040   ; -> ??0AuraManager@GAME@@QAE@XZ+0x320
+  0x004c0174  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0177  add      ecx, 0x50
+  0x004c017a  jmp      0x1000bf70   ; -> ??0AuraManager@GAME@@QAE@XZ+0x250
+  0x004c017f  mov      eax, 0x105f84fc
+  0x004c0184  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c0189  int3     
+  0x004c018a  int3     
+  0x004c018b  int3     
+  0x004c018c  int3     
+  0x004c018d  int3     
+  0x004c018e  int3     
+  0x004c018f  int3     
+  0x004c0190  call     dword ptr [0x104e63e8]   ; f32=1.17327e-38 i32=8372744 f64=2.82695e-306
+  0x004c0196  ret      
+  0x004c0197  call     dword ptr [0x104e63e8]   ; f32=1.17327e-38 i32=8372744 f64=2.82695e-306
+  0x004c019d  ret      
+  0x004c019e  mov      eax, 0x105f8550
+  0x004c01a3  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c01a8  int3     
+  0x004c01a9  int3     
+  0x004c01aa  int3     
+  0x004c01ab  int3     
+  0x004c01ac  int3     
+  0x004c01ad  int3     
+  0x004c01ae  int3     
+  0x004c01af  int3     
+  0x004c01b0  lea      ecx, [ebp - 0x48]
+  0x004c01b3  jmp      0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x004c01b8  mov      eax, 0x105f8584
+  0x004c01bd  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c01c2  int3     
+  0x004c01c3  int3     
+  0x004c01c4  int3     
+  0x004c01c5  int3     
+  0x004c01c6  int3     
+  0x004c01c7  int3     
+  0x004c01c8  int3     
+  0x004c01c9  int3     
+  0x004c01ca  int3     
+  0x004c01cb  int3     
+  0x004c01cc  int3     
+  0x004c01cd  int3     
+  0x004c01ce  int3     
+  0x004c01cf  int3     
+  0x004c01d0  lea      ecx, [ebp - 0x38]
+  0x004c01d3  jmp      0x1000bc60   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x160
+  0x004c01d8  lea      ecx, [ebp - 0x44]
+  0x004c01db  jmp      0x1000bc60   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x160
+  0x004c01e0  call     dword ptr [0x104e63e8]   ; f32=1.17327e-38 i32=8372744 f64=2.82695e-306
+  0x004c01e6  ret      
+  0x004c01e7  lea      ecx, [ebp - 0x2c]
+  0x004c01ea  jmp      0x1000bc60   ; -> ?GetRTTIClassInfo@Monster@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x160
+  0x004c01ef  mov      eax, 0x105f85b0
+  0x004c01f4  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c01f9  int3     
+  0x004c01fa  int3     
+  0x004c01fb  int3     
+  0x004c01fc  int3     
+  0x004c01fd  int3     
+  0x004c01fe  int3     
+  0x004c01ff  int3     
+  0x004c0200  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c0203  add      ecx, 4
+  0x004c0206  jmp      0x1000a5e0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x220
+  0x004c020b  mov      ecx, dword ptr [ebp - 0x10]
+  0x004c020e  add      ecx, 0xc
+  0x004c0211  jmp      0x10009730   ; -> ?GetRTTIClassInfo@PetPlayerScaling@GAME@@UBEABVRTTI_ClassInfo@2@XZ+0x2a0
+  0x004c0216  mov      eax, 0x105f85f4
+  0x004c021b  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c0220  lea      ecx, [ebp - 0x24]
+  0x004c0223  jmp      0x10008cc0   ; -> ??1AuraContainer@GAME@@QAE@XZ
+  0x004c0228  mov      eax, 0x105f8628
+  0x004c022d  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c0232  int3     
+  0x004c0233  int3     
+  0x004c0234  int3     
+  0x004c0235  int3     
+  0x004c0236  int3     
+  0x004c0237  int3     
+  0x004c0238  int3     
+  0x004c0239  int3     
+  0x004c023a  int3     
+  0x004c023b  int3     
+  0x004c023c  int3     
+  0x004c023d  int3     
+  0x004c023e  int3     
+  0x004c023f  int3     
+  0x004c0240  mov      ecx, dword ptr [ebp - 0x14]
+  0x004c0243  jmp      0x1000a500   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x140
+  0x004c0248  mov      eax, 0x105f8654
+  0x004c024d  jmp      0x104bfc60   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37fb0
+  0x004c0252  int3     
+  0x004c0253  int3     
+  0x004c0254  int3     
+  0x004c0255  int3     
+  0x004c0256  int3     
+
+=== 0xfd880  @ RVA 0x000fd880  (nearest=?GetAscendantObjects@ProxyAccessoryPool@GAME@@QAEAAV?$vector@I@mem@@XZ+0x10)
+  0x000fd880  push     esi
+  0x000fd881  mov      esi, ecx
+  0x000fd883  push     edi
+  0x000fd884  cmp      dword ptr [esi + 0x14], 0x10
+  0x000fd888  jb       0x100fd88c
+  0x000fd88a  mov      ecx, dword ptr [esi]
+  0x000fd88c  mov      edi, dword ptr [esi + 0x10]
+  0x000fd88f  mov      eax, 0xa
+  0x000fd894  cmp      edi, eax
+  0x000fd896  mov      edx, 0x1052c79c
+  0x000fd89b  cmovb    eax, edi
+  0x000fd89e  push     eax
+  0x000fd89f  call     0x1000bd40   ; -> ??0AuraManager@GAME@@QAE@XZ+0x20
+  0x000fd8a4  add      esp, 4
+  0x000fd8a7  test     eax, eax
+  0x000fd8a9  jne      0x100fd8ba
+  0x000fd8ab  cmp      edi, 0xa
+  0x000fd8ae  jb       0x100fd8ba
+  0x000fd8b0  ja       0x100fd8ba
+  0x000fd8b2  pop      edi
+  0x000fd8b3  mov      eax, 1
+  0x000fd8b8  pop      esi
+  0x000fd8b9  ret      
+  0x000fd8ba  mov      edx, 0x1052c790
+  0x000fd8bf  mov      ecx, esi
+  0x000fd8c1  call     0x1000bda0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000fd8c6  test     al, al
+  0x000fd8c8  je       0x100fd8d2
+  0x000fd8ca  pop      edi
+  0x000fd8cb  mov      eax, 2
+  0x000fd8d0  pop      esi
+  0x000fd8d1  ret      
+  0x000fd8d2  mov      edx, 0x1052c7b4
+  0x000fd8d7  mov      ecx, esi
+  0x000fd8d9  call     0x1000bda0   ; -> ??0AuraManager@GAME@@QAE@XZ+0x80
+  0x000fd8de  movzx    eax, al
+  0x000fd8e1  neg      eax
+  0x000fd8e3  pop      edi
+  0x000fd8e4  sbb      eax, eax
+  0x000fd8e6  and      eax, 3
+  0x000fd8e9  pop      esi
+  0x000fd8ea  ret      
+  0x000fd8eb  int3     
+  0x000fd8ec  int3     
+  0x000fd8ed  int3     
+  0x000fd8ee  int3     
+  0x000fd8ef  int3     
+  0x000fd8f0  mov      eax, 0x107fd248
+  0x000fd8f5  ret      
+  0x000fd8f6  int3     
+  0x000fd8f7  int3     
+  0x000fd8f8  int3     
+  0x000fd8f9  int3     
+  0x000fd8fa  int3     
+  0x000fd8fb  int3     
+  0x000fd8fc  int3     
+  0x000fd8fd  int3     
+  0x000fd8fe  int3     
+  0x000fd8ff  int3     
+  0x000fd900  push     ebp
+  0x000fd901  mov      ebp, esp
+  0x000fd903  push     esi
+  0x000fd904  mov      esi, ecx
+  0x000fd906  mov      dword ptr [esi], 0x105bd8cc
+  0x000fd90c  mov      dword ptr [esi + 0x288], 0x105c2490
+  0x000fd916  call     0x100f5ff0   ; -> ??1ControllerMonster@GAME@@UAE@XZ
+  0x000fd91b  test     byte ptr [ebp + 8], 1
+  0x000fd91f  je       0x100fd92f
+  0x000fd921  push     0x6a4
+  0x000fd926  push     esi
+  0x000fd927  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x000fd92c  add      esp, 8
+  0x000fd92f  mov      eax, esi
+  0x000fd931  pop      esi
+  0x000fd932  pop      ebp
+  0x000fd933  ret      4
+  0x000fd936  int3     
+  0x000fd937  int3     
+  0x000fd938  int3     
+  0x000fd939  int3     
+  0x000fd93a  int3     
+  0x000fd93b  int3     
+  0x000fd93c  int3     
+  0x000fd93d  int3     
+  0x000fd93e  int3     
+  0x000fd93f  int3     
+  0x000fd940  push     ebp
+  0x000fd941  mov      ebp, esp
+  0x000fd943  push     esi
+  0x000fd944  mov      esi, dword ptr [ebp + 8]
+  0x000fd947  push     edi
+  0x000fd948  push     esi
+  0x000fd949  mov      edi, ecx
+  0x000fd94b  call     0x100f6da0   ; -> ?Load@ControllerMonster@GAME@@UAEXABVLoadTable@2@@Z
+  0x000fd950  mov      eax, dword ptr [esi]
+  0x000fd952  push     ecx
+  0x000fd953  mov      dword ptr [esp], 0x40a00000
+  0x000fd95a  mov      ecx, esi
+  0x000fd95c  push     0x1052c7e4
+  0x000fd961  mov      eax, dword ptr [eax + 0x24]
+  0x000fd964  call     eax
+  0x000fd966  fstp     dword ptr [edi + 0x6a0]
+  0x000fd96c  pop      edi
+  0x000fd96d  pop      esi
+  0x000fd96e  pop      ebp
+  0x000fd96f  ret      4
+  0x000fd972  int3     
+  0x000fd973  int3     
+  0x000fd974  int3     
+  0x000fd975  int3     
+  0x000fd976  int3     
+  0x000fd977  int3     
+  0x000fd978  int3     
+  0x000fd979  int3     
+  0x000fd97a  int3     
+  0x000fd97b  int3     
+  0x000fd97c  int3     
+  0x000fd97d  int3     
+  0x000fd97e  int3     
+  0x000fd97f  int3     
+  0x000fd980  push     ebp
+  0x000fd981  mov      ebp, esp
+  0x000fd983  push     -1
+  0x000fd985  push     0x104c0fd8
+  0x000fd98a  mov      eax, dword ptr fs:[0]
+  0x000fd990  push     eax
+  0x000fd991  mov      dword ptr fs:[0], esp
+  0x000fd998  sub      esp, 0x1c
+  0x000fd99b  push     esi
+  0x000fd99c  push     edi
+  0x000fd99d  mov      edi, ecx
+  0x000fd99f  call     0x100f87c0   ; -> ?RegisterStates@ControllerMonster@GAME@@MAEXXZ
+  0x000fd9a4  push     0x14
+  0x000fd9a6  call     0x104be920   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36c70
+  0x000fd9ab  mov      esi, eax
+  0x000fd9ad  lea      ecx, [ebp - 0x28]
+  0x000fd9b0  add      esp, 4
+  0x000fd9b3  mov      dword ptr [ebp - 0x10], esi
+  0x000fd9b6  mov      dword ptr [esi + 4], edi
+  0x000fd9b9  mov      dword ptr [esi + 8], 0
+  0x000fd9c0  mov      byte ptr [esi + 0xc], 0
+  0x000fd9c4  mov      dword ptr [esi], 0x105b4170
+  0x000fd9ca  push     7
+  0x000fd9cc  push     0x1052c7dc
+  0x000fd9d1  mov      dword ptr [ebp - 0x14], 0xf
+  0x000fd9d8  mov      dword ptr [ebp - 0x18], 0
+  0x000fd9df  mov      byte ptr [ebp - 0x28], 0
+  0x000fd9e3  call     0x10008b80   ; -> ?AddTimeToLive@Skill@GAME@@UAEXH@Z+0x6b0
+  0x000fd9e8  push     esi
+  0x000fd9e9  lea      eax, [ebp - 0x28]
+  0x000fd9ec  mov      dword ptr [ebp - 4], 0
+  0x000fd9f3  push     eax
+  0x000fd9f4  mov      ecx, edi
+  0x000fd9f6  call     0x100e8330   ; -> ?AddState@ControllerAI@GAME@@IAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAVControllerAIState@2@@Z
+  0x000fd9fb  mov      edx, dword ptr [ebp - 0x14]
+  0x000fd9fe  pop      edi
+  0x000fd9ff  pop      esi
+  0x000fda00  cmp      edx, 0x10
+  0x000fda03  jb       0x100fda13
+  0x000fda05  mov      ecx, dword p

@@ -1,0 +1,21 @@
+=== 0xfc510  @ RVA 0x000fc510  (nearest=?SkillFailed@ControllerMonster@GAME@@QAEXXZ)
+  0x000fc510  mov      dword ptr [ecx + 0x2f8], 0
+  0x000fc51a  cmp      dword ptr [ecx + 0x214], 0
+  0x000fc521  push     esi
+  0x000fc522  je       0x100fc531
+  0x000fc524  mov      eax, dword ptr [ecx + 0x210]
+  0x000fc52a  mov      eax, dword ptr [eax]
+  0x000fc52c  mov      esi, dword ptr [eax + 8]
+  0x000fc52f  jmp      0x100fc537   ; -> ?SkillFailed@ControllerMonster@GAME@@QAEXXZ+0x27
+  0x000fc531  mov      esi, dword ptr [ecx + 0x1e4]
+  0x000fc537  test     esi, esi
+  0x000fc539  je       0x100fc54d
+  0x000fc53b  call     0x100e84e0   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000fc540  mov      edx, dword ptr [esi]
+  0x000fc542  mov      ecx, esi
+  0x000fc544  push     dword ptr [eax + 8]
+  0x000fc547  call     dword ptr [edx + 0x120]
+  0x000fc54d  pop      esi
+  0x000fc54e  ret      
+  0x000fc54f  int3     
+

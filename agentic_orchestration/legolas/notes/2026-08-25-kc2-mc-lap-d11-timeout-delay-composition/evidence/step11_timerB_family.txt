@@ -1,0 +1,1012 @@
+=== [reg+0x418]  (99 distinct sites)
+   0x000148e7  lea eax, [edx + 0x418]                                in ??0AnimationSet@GAME@@QAE@XZ+0x647
+   0x0001552f  mov dword ptr [esi + 0x418], 0x10589c3c               in ??1AnimationSet@GAME@@UAE@XZ+0x4cf
+   0x00015556  mov dword ptr [esi + 0x418], 0x10589c80               in ??1AnimationSet@GAME@@UAE@XZ+0x4f6
+   0x0002473c  mov byte ptr [edi + 0x418], 0                         in ??0AscendantAltar@GAME@@QAE@XZ+0xcc
+   0x0005302f  mov eax, dword ptr [eax + 0x418]                      in ?DebufTarget@Character@GAME@@QAEXAAV12@_NABUSkillBuffTransfer@2@ABV?$vector@W4Weapon_Type@GAME@@@mem@@W4EquipmentHandTypes@2@@Z+0xf
+   0x000542b6  mov eax, dword ptr [eax + 0x418]                      in ?SubtractLife@Character@GAME@@QAEXMABUPlayStatsDamageType@2@_N_N@Z+0x16
+   0x000bcb94  mov eax, dword ptr [esi + 0x418]                      in ??0Skill_PassiveOnHitBuffShield@GAME@@QAE@ABV01@@Z+0x24
+   0x000bcb9a  mov dword ptr [edi + 0x418], eax                      in ??0Skill_PassiveOnHitBuffShield@GAME@@QAE@ABV01@@Z+0x2a
+   0x000bcbc0  mov eax, dword ptr [esi + 0x418]                      in ??4Skill_PassiveOnHitBuffShield@GAME@@QAEAAV01@ABV01@@Z+0x10
+   0x000bcbc6  mov dword ptr [edi + 0x418], eax                      in ??4Skill_PassiveOnHitBuffShield@GAME@@QAEAAV01@ABV01@@Z+0x16
+   0x000bcd0e  mov al, byte ptr [esi + 0x418]                        in ??0Skill_PassiveOnLifeBuffSelf@GAME@@QAE@ABV01@@Z+0x6e
+   0x000bcd14  mov byte ptr [edi + 0x418], al                        in ??0Skill_PassiveOnLifeBuffSelf@GAME@@QAE@ABV01@@Z+0x74
+   0x000bcd80  mov al, byte ptr [esi + 0x418]                        in ??4Skill_PassiveOnLifeBuffSelf@GAME@@QAEAAV01@ABV01@@Z+0x50
+   0x000bcd86  mov byte ptr [edi + 0x418], al                        in ??4Skill_PassiveOnLifeBuffSelf@GAME@@QAEAAV01@ABV01@@Z+0x56
+   0x000bee86  mov eax, dword ptr [esi + 0x418]                      in ??0SkillBuff@GAME@@QAE@ABV01@@Z+0x76
+   0x000bee8c  mov dword ptr [edi + 0x418], eax                      in ??0SkillBuff@GAME@@QAE@ABV01@@Z+0x7c
+   0x000bef48  mov eax, dword ptr [esi + 0x418]                      in ??4SkillBuff@GAME@@QAEAAV01@ABV01@@Z+0x58
+   0x000bef4e  mov dword ptr [edi + 0x418], eax                      in ??4SkillBuff@GAME@@QAEAAV01@ABV01@@Z+0x5e
+   0x000c02b9  lea ecx, [esi + 0x418]                                in ??0SkillSecondary_PetModifier@GAME@@QAE@ABV01@@Z+0x89
+   0x000c02ca  lea edx, [edi + 0x418]                                in ??0SkillSecondary_PetModifier@GAME@@QAE@ABV01@@Z+0x9a
+   0x000c03c4  lea eax, [edi + 0x418]                                in ??4SkillSecondary_PetModifier@GAME@@QAEAAV01@ABV01@@Z+0x44
+   0x000c03ca  lea ecx, [esi + 0x418]                                in ??4SkillSecondary_PetModifier@GAME@@QAEAAV01@ABV01@@Z+0x4a
+   0x000cbd55  mov dword ptr [esi + 0x418], 0                        in ?RTTI_new@Skill_PassiveOnHitBuffShield@GAME@@KAPAXXZ+0xc5
+   0x000ccad7  mov dword ptr [esi + 0x418], 0                        in ?RTTI_new@SkillBuff@GAME@@KAPAXXZ+0x97
+   0x000eea4a  mov eax, dword ptr [eax + 0x418]                      in ?Update@ControllerCombat@GAME@@UAEXH@Z+0x3a
+   0x000ef4ea  movq xmm0, qword ptr [esi + 0x418]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x8a
+   0x000ef5e6  mov dword ptr [esi + 0x418], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x186
+   0x000efd5b  mov dword ptr [esi + 0x418], eax                      in ?GetEye@ControllerGraeae@GAME@@AAEXXZ+0x7b
+   0x000efec1  mov dword ptr [esi + 0x418], 0                        in ?LoseEye@ControllerGraeae@GAME@@AAEX_N@Z+0x61
+   0x000f58bf  mov dword ptr [ebx + 0x418], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x3cf
+   0x000f6474  mov eax, dword ptr [edi + 0x418]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x274
+   0x000f6480  mov dword ptr [edi + 0x418], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x280
+   0x000fe5b6  mov eax, dword ptr [eax + 0x418]                      in ?OnEnd@ControllerMonsterStateStartup@GAME@@UAEXXZ+0x96
+   0x001a44f8  mov byte ptr [edi + 0x418], 0                         in ??0Decoration@GAME@@QAE@XZ+0xe8
+   0x001a5079  cmp byte ptr [esi + 0x418], 0                         in ?InitialUpdate@Decoration@GAME@@UAEXXZ+0x19
+   0x001fb4d5  mov dword ptr [ebx + 0x418], ecx                      in ?RestoreState@EndlessBuffShrine@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x25
+   0x001fb60d  mov dword ptr [esi + 0x418], eax                      in ?ApplyReplicationData@EndlessBuffShrine@GAME@@UAEXXZ+0x1d
+   0x00208a53  mov eax, dword ptr [eax + 0x418]                      in ?AddDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@IM@Z+0x23
+   0x00208d46  mov eax, dword ptr [eax + 0x418]                      in ?AddFixedDamage@DurationDamageManager@GAME@@UAEXW4CombatAttributeType@2@MMABUDurationDamageSource@2@I@Z+0x26
+   0x0023080b  cmp dword ptr [edi + 0x418], 0x10                     in ?GetGameDescription@FixedDoor@GAME@@UBE?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@_N0@Z+0xeb
+   0x0023dfcf  mov dword ptr [edi + 0x418], 0x437a0000               in ??0FixedLever@GAME@@QAE@XZ+0xaf
+   0x0025980e  sub dword ptr [ebx + 0x418], esi                      in ?Update@GameEngine@GAME@@QAEXH@Z+0x44e
+   0x00259814  cmp dword ptr [ebx + 0x418], 0                        in ?Update@GameEngine@GAME@@QAEXH@Z+0x454
+   0x0026928c  movups xmmword ptr [esp + 0x418], xmm0                in ?GetTargetsInFrustum@GameEngine@GAME@@QBEXIABVFactionPack@2@ABVWorldFrustum@2@AAV?$vector@I@mem@@I_N3@Z+0x6c
+   0x0028ecf9  mov dword ptr [esi + 0x418], 0xf                      in ??0GMIActor_Icy@GAME@@QAE@XZ+0x39
+   0x002d85a6  mov eax, dword ptr [eax + 0x418]                      in ?RestoreState@Monster@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x406
+   0x002dc792  mov eax, dword ptr [eax + 0x418]                      in ?IsTargetable@Monster@GAME@@UBE_NXZ+0x12
+   0x003446e8  mov dword ptr [ebx + 0x418], 0                        in ??0ProjectileBase@GAME@@QAE@XZ+0xb8
+   0x00344e4c  mov eax, dword ptr [edi + 0x418]                      in ??1ProjectileBase@GAME@@UAE@XZ+0x3ec
+   0x00350bb2  mov dword ptr [edi + 0x418], 0                        in ??0Proxy@GAME@@QAE@XZ+0xb2
+   0x00350ebf  mov dword ptr [esi + 0x418], 0                        in ??1Proxy@GAME@@UAE@XZ+0x19f
+   0x00358f6f  mov dword ptr [esi + 0x418], 0                        in ??0Puppet@GAME@@QAE@XZ+0xaf
+   0x003ac872  mov dword ptr [esi + 0x418], 0                        in ??0SetPiece@GAME@@QAE@XZ+0xb2
+   0x003acb2a  mov dword ptr [esi + 0x418], 5                        in ?Load@SetPiece@GAME@@UAEXABVLoadTable@2@@Z+0x6a
+   0x003accdc  mov dword ptr [esi + 0x418], 1                        in ?Load@SetPiece@GAME@@UAEXABVLoadTable@2@@Z+0x21c
+   0x003acdb8  mov dword ptr [esi + 0x418], 2                        in ?Load@SetPiece@GAME@@UAEXABVLoadTable@2@@Z+0x2f8
+   0x003ad3e4  cmp dword ptr [edi + 0x418], 0                        in ?UpdateSelf@SetPiece@GAME@@UAEXH@Z+0x3e4
+   0x003ad41b  mov dword ptr [edi + 0x418], 3                        in ?UpdateSelf@SetPiece@GAME@@UAEXH@Z+0x41b
+   0x003ad42e  cmp dword ptr [edi + 0x418], 3                        in ?UpdateSelf@SetPiece@GAME@@UAEXH@Z+0x42e
+   0x003ad493  mov dword ptr [edi + 0x418], 4                        in ?UpdateSelf@SetPiece@GAME@@UAEXH@Z+0x493
+   0x003cc620  mov dword ptr [edi + 0x418], 0                        in ??0SkillBuff_DispelMagic@GAME@@QAE@XZ+0x80
+   0x003cd532  mov dword ptr [edi + 0x418], 0                        in ?GetLaunchPoint@Skill_AttackProjectileDrop@GAME@@MBE?AVWorldCoords@2@AAVCharacter@2@ABVName@2@@Z+0x92
+   0x003cd782  lea ecx, [edi + 0x418]                                in ?GetLaunchPoint@Skill_AttackProjectileDrop@GAME@@MBE?AVWorldCoords@2@AAVCharacter@2@ABVName@2@@Z+0x2e2
+   0x003cd937  push dword ptr [edi + 0x418]                          in ?GetLaunchPoint@Skill_AttackProjectileDrop@GAME@@MBE?AVWorldCoords@2@AAVCharacter@2@ABVName@2@@Z+0x497
+   0x00417462  mov dword ptr [esi + 0x418], 0                        in ??0Skill_PassiveOnHitBuffShield@GAME@@QAE@XZ+0xb2
+   0x004174b2  movss xmm0, dword ptr [esi + 0x418]                   in ?Update@Skill_PassiveOnHitBuffShield@GAME@@UAEXAAVCharacter@2@H@Z+0x32
+   0x004176f0  cvttss2si eax, dword ptr [ecx + 0x418]                in ?TrackableTotalTime@Skill_PassiveOnHitBuffShield@GAME@@UBE?BHI@Z
+   0x00417729  mov dword ptr [esi + 0x418], eax                      in ?ReceiveActiveUpdate@Skill_PassiveOnHitBuffShield@GAME@@UAEXAAVCharacter@2@ABVSkillActiveState@2@_N@Z+0x29
+   0x004179b3  mov byte ptr [esi + 0x418], 1                         in ??0Skill_PassiveOnLifeBuffSelf@GAME@@QAE@XZ+0x63
+   0x00417a6c  mov byte ptr [edi + 0x418], al                        in ?Load@Skill_PassiveOnLifeBuffSelf@GAME@@UAEXABVLoadTable@2@@Z+0x3c
+   0x00417c5c  cmp byte ptr [esi + 0x418], 0                         in ?Update@Skill_PassiveOnLifeBuffSelf@GAME@@UAEXAAVCharacter@2@H@Z+0x1dc
+   0x00428aeb  mov dword ptr [esi + 0x418], 0xf                      in ??0SkillActivated@GAME@@QAE@XZ+0x2b
+   0x004337f4  mov dword ptr [esi + 0x418], 0                        in ??0SkillBuff@GAME@@QAE@XZ+0x84
+   0x00433912  cmp dword ptr [esi + 0x418], 0                        in ?Update@SkillBuff@GAME@@UAEXAAVCharacter@2@H@Z+0x42
+   0x00433c26  cmp dword ptr [esi + 0x418], 0x5dc                    in ?TrackableTotalTime@SkillBuff@GAME@@UBE?BHI@Z+0x6
+   0x00433cd5  mov eax, dword ptr [esi + 0x418]                      in ?TrackableTotalTime@SkillBuff@GAME@@UBE?BHI@Z+0xb5
+   0x004345cc  mov dword ptr [ecx + 0x418], eax                      in ?SetTimeToLive@SkillBuff@GAME@@UAEXH@Z+0xc
+   0x0043461a  mov eax, dword ptr [edx + 0x418]                      in ?AddTimeToLive@SkillBuff@GAME@@UAEXH@Z+0x3a
+   0x0043462b  mov dword ptr [edx + 0x418], ecx                      in ?AddTimeToLive@SkillBuff@GAME@@UAEXH@Z+0x4b
+   0x0043523a  movd xmm0, dword ptr [esi + 0x418]                    in ?Install@SkillBuff_Contageous@GAME@@UAEXPAVCharacter@2@@Z+0x13a
+   0x00435350  mov dword ptr [edi + 0x418], 0                        in ??0SkillBuff_Debuf@GAME@@QAE@XZ+0x80
+   0x00435833  mov dword ptr [ecx + 0x418], eax                      in ?SetTimeToLive@SkillBuff_DebufTrap@GAME@@UAEXH@Z+0x13
+   0x00435d00  mov dword ptr [edi + 0x418], 0                        in ??0SkillBuff_Passive@GAME@@QAE@XZ+0x80
+   0x004405f3  mov eax, dword ptr [eax + 0x418]                      in ?SubtractLife@SkillManager@GAME@@UAEXMABUPlayStatsDamageType@2@@Z+0x13
+   0x00459d7d  lea eax, [esi + 0x418]                                in ??0SkillSecondary_PetModifier@GAME@@QAE@XZ+0x7d
+   0x00459eb9  lea edi, [esi + 0x418]                                in ??1SkillSecondary_PetModifier@GAME@@UAE@XZ+0x89
+   0x0045a16a  lea esi, [edi + 0x418]                                in ?Load@SkillSecondary_PetModifier@GAME@@UAEXABVLoadTable@2@@Z+0x1ca
+   0x004644c6  mov dword ptr [edi + 0x418], 0                        in ??0StaticShrine@GAME@@QAE@XZ+0xc6
+   0x00465ecb  mov eax, dword ptr [esi + 0x418]                      in ?InitialUpdate@StaticShrine@GAME@@UAEXXZ+0x3b
+   0x00465edb  mov dword ptr [esi + 0x418], 0                        in ?InitialUpdate@StaticShrine@GAME@@UAEXXZ+0x4b
+   0x00467992  mov eax, dword ptr [edi + 0x418]                      in ?SaveState@StaticShrine@GAME@@UBEXAAVBinaryWriter@2@@Z+0x12
+   0x00467aa5  mov dword ptr [ebx + 0x418], ecx                      in ?RestoreState@StaticShrine@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x25
+   0x00467d44  cmp dword ptr [esi + 0x418], 0                        in ?WriteReplicationData@StaticShrine@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z+0x14
+   0x00467d56  mov al, byte ptr [esi + 0x418]                        in ?WriteReplicationData@StaticShrine@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z+0x26
+   0x00467e4d  mov dword ptr [esi + 0x418], eax                      in ?ApplyReplicationData@StaticShrine@GAME@@UAEXXZ+0x1d
+   0x004680f2  cmp dword ptr [ebx + 0x418], 6                        in ?AppendDetailMapData@MonsterShrine@GAME@@UAEXAAV?$vector@UMinimapGameNugget@GAME@@@mem@@@Z+0x42
+   0x0047f3da  mov eax, dword ptr [eax + 0x418]                      in ?Update@TickManager@GAME@@QAEXH@Z+0x1aa
+   0x0047f77d  mov eax, dword ptr [eax + 0x418]                      in ?Tick@TickManager@GAME@@QAEXXZ+0x17d
+   0x004882c9  cmp byte ptr [edi + 0x418], 0                         in ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x619
+
+=== [reg+0x434]  (183 distinct sites)
+   0x000412cb  lea ecx, [edi + 0x434]                                in ?InitialUpdate@Character@GAME@@UAEXXZ+0x5bb
+   0x00044de3  lea ecx, [esi + 0x434]                                in ?PreLoad@Character@GAME@@UAE_N_N@Z+0x723
+   0x00045d09  lea ecx, [edi + 0x434]                                in ?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0x859
+   0x00045d53  lea ecx, [edi + 0x434]                                in ?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0x8a3
+   0x00045d9d  lea ecx, [edi + 0x434]                                in ?AnimationCallback@Character@GAME@@UAE_NABVName@2@@Z+0x8ed
+   0x0004dee8  lea ecx, [esi + 0x434]                                in ?HasItem@Character@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0x28
+   0x0004df31  lea ecx, [esi + 0x434]                                in ?HasItem@Character@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@1_N@Z+0x31
+   0x0004dfa7  lea ecx, [esi + 0x434]                                in ?GetItemCount@Character@GAME@@QBEHABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@1AAV?$vector@I@6@_N333@Z+0x47
+   0x00054bba  lea ecx, [esi + 0x434]                                in ?GetAttackSpeed@Character@GAME@@QAE?BMXZ+0x10a
+   0x00055b63  lea ecx, [eax + 0x434]                                in ?ContributeRacialBonusDamage@Character@GAME@@QBEXABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@IIAAURacialBonus_Damage@2@@Z+0x43
+   0x00057197  lea ecx, [edi + 0x434]                                in ?AttachItemAction@Character@GAME@@UAEXIW4EquipLocations@2@_N@Z+0x17
+   0x000571ec  lea ecx, [esi + 0x434]                                in ?DetachItemAction@Character@GAME@@UAEXI@Z+0xc
+   0x0005a19e  lea ebx, [ecx + 0x434]                                in ?RemoveEquipmentProp@Character@GAME@@QAEXI@Z+0xe
+   0x0005c252  lea ecx, [esi + 0x434]                                in ?AllocateAnimSets@Character@GAME@@AAEXXZ+0x2e2
+   0x0005cb24  lea ecx, [ebx + 0x434]                                in ?CalculateAllocatedMemory@Character@GAME@@UBEIXZ+0x14
+   0x0005d984  lea ecx, [esi + 0x434]                                in ?OnSkillInterrupted@Character@GAME@@UAEXXZ+0x14
+   0x0005d9cd  lea ecx, [esi + 0x434]                                in ?OnSkillInterrupted@Character@GAME@@UAEXXZ+0x5d
+   0x000ba1ce  movups xmm0, xmmword ptr [esi + 0x434]                in ??0Skill_BuffRadius@GAME@@QAE@ABV01@@Z+0x5e
+   0x000ba1d5  movups xmmword ptr [edi + 0x434], xmm0                in ??0Skill_BuffRadius@GAME@@QAE@ABV01@@Z+0x65
+   0x000ba34e  mov eax, dword ptr [esi + 0x434]                      in ??0Skill_BuffSelfToggled@GAME@@QAE@ABV01@@Z+0x5e
+   0x000ba354  mov dword ptr [edi + 0x434], eax                      in ??0Skill_BuffSelfToggled@GAME@@QAE@ABV01@@Z+0x64
+   0x000ba3ea  mov eax, dword ptr [esi + 0x434]                      in ??4Skill_BuffSelfToggled@GAME@@QAEAAV01@ABV01@@Z+0x3a
+   0x000ba3f0  mov dword ptr [edi + 0x434], eax                      in ??4Skill_BuffSelfToggled@GAME@@QAEAAV01@ABV01@@Z+0x40
+   0x000bc2f7  mov eax, dword ptr [esi + 0x434]                      in ??0Skill_OnHitAttackRadius@GAME@@QAE@ABV01@@Z+0x77
+   0x000bc3a5  mov eax, dword ptr [esi + 0x434]                      in ??4Skill_OnHitAttackRadius@GAME@@QAEAAV01@ABV01@@Z+0x55
+   0x000bc3ab  mov dword ptr [edi + 0x434], eax                      in ??4Skill_OnHitAttackRadius@GAME@@QAEAAV01@ABV01@@Z+0x5b
+   0x000bc536  mov eax, dword ptr [esi + 0x434]                      in ??0Skill_OnHitBuffSelf@GAME@@QAE@ABV01@@Z+0x56
+   0x000bc53c  mov dword ptr [edi + 0x434], eax                      in ??0Skill_OnHitBuffSelf@GAME@@QAE@ABV01@@Z+0x5c
+   0x000bc596  mov eax, dword ptr [esi + 0x434]                      in ??4Skill_OnHitBuffSelf@GAME@@QAEAAV01@ABV01@@Z+0x46
+   0x000bc59c  mov dword ptr [edi + 0x434], eax                      in ??4Skill_OnHitBuffSelf@GAME@@QAEAAV01@ABV01@@Z+0x4c
+   0x000bf180  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_BuffImmobilize@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf186  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_BuffImmobilize@GAME@@QAE@ABV01@@Z+0x36
+   0x000bf2a0  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_Debuf@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf2a6  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_Debuf@GAME@@QAE@ABV01@@Z+0x36
+   0x000bf3c0  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_Contageous@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf3c6  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_Contageous@GAME@@QAE@ABV01@@Z+0x36
+   0x000bf520  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_DebufTrap@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf526  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_DebufTrap@GAME@@QAE@ABV01@@Z+0x36
+   0x000bf610  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_DebufRadius@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf616  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_DebufRadius@GAME@@QAE@ABV01@@Z+0x36
+   0x000bf690  mov eax, dword ptr [esi + 0x434]                      in ??0SkillBuff_DebufProjectile@GAME@@QAE@ABV01@@Z+0x30
+   0x000bf696  mov dword ptr [edi + 0x434], eax                      in ??0SkillBuff_DebufProjectile@GAME@@QAE@ABV01@@Z+0x36
+   0x000c0f70  mov eax, dword ptr [esi + 0x434]                      in ??0SkillSecondary_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0x70
+   0x000c0f76  mov dword ptr [edi + 0x434], eax                      in ??0SkillSecondary_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0x76
+   0x000c1050  mov eax, dword ptr [esi + 0x434]                      in ??4SkillSecondary_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0x60
+   0x000c1056  mov dword ptr [edi + 0x434], eax                      in ??4SkillSecondary_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0x66
+   0x000cb9fa  mov dword ptr [esi + 0x434], 0                        in ?RTTI_new@Skill_OnHitBuffSelf@GAME@@KAPAXXZ+0x9a
+   0x000ccb98  mov dword ptr [esi + 0x434], 0x64                     in ?RTTI_new@SkillBuff_BuffImmobilize@GAME@@KAPAXXZ+0x58
+   0x000e0abc  call dword ptr [eax + 0x434]                          in ?ApplyDamage@CombatManager@GAME@@QAE_NMABUPlayStatsDamageType@2@W4CombatAttributeType@2@ABV?$vector@I@mem@@@Z+0x7c
+   0x000ef51e  movq xmm0, qword ptr [esi + 0x434]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0xbe
+   0x000ef62c  mov dword ptr [esi + 0x434], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x1cc
+   0x000f5905  mov dword ptr [ebx + 0x434], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x415
+   0x000f6486  mov eax, dword ptr [edi + 0x434]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x286
+   0x000f6492  mov dword ptr [edi + 0x434], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x292
+   0x001182ff  lea ecx, [ebx + 0x434]                                in ?UnequipAndExplodeSickle@Ormenos@GAME@@QAEX_N@Z+0x2f
+   0x0011830c  lea ecx, [ebx + 0x434]                                in ?UnequipAndExplodeSickle@Ormenos@GAME@@QAEX_N@Z+0x3c
+   0x0011832a  lea ecx, [ebx + 0x434]                                in ?UnequipAndExplodeSickle@Ormenos@GAME@@QAEX_N@Z+0x5a
+   0x001f105f  mov dword ptr [edi + 0x434], 0                        in ?BreakApart@Destructible@GAME@@QAEXABVVec3@2@M_N@Z+0x1f
+   0x001f31f3  mov dword ptr [esi + 0x434], eax                      in ?UpdateSelf@Destructible@GAME@@MAEXH@Z+0x143
+   0x001f340a  mov dword ptr [edi + 0x434], 0x3f800000               in ??0Destructible@GAME@@QAE@XZ+0x6a
+   0x001f3c53  movss dword ptr [ebx + 0x434], xmm0                   in ?Load@Destructible@GAME@@UAEXABVLoadTable@2@@Z+0x183
+   0x001f3c63  mov dword ptr [ebx + 0x434], eax                      in ?Load@Destructible@GAME@@UAEXABVLoadTable@2@@Z+0x193
+   0x001f4b4e  movss xmm0, dword ptr [ebx + 0x434]                   in ?TakeAttack@Destructible@GAME@@UAE_NAAVParametersCombat@2@@Z+0xfe
+   0x001f4b63  movss dword ptr [ebx + 0x434], xmm0                   in ?TakeAttack@Destructible@GAME@@UAE_NAAVParametersCombat@2@@Z+0x113
+   0x001f4ed1  movss xmm0, dword ptr [edi + 0x434]                   in ?SaveState@Destructible@GAME@@UBEXAAVBinaryWriter@2@@Z+0x11
+   0x001f4f1f  comiss xmm0, dword ptr [edi + 0x434]                  in ?SaveState@Destructible@GAME@@UBEXAAVBinaryWriter@2@@Z+0x5f
+   0x001f4f7d  movss dword ptr [edi + 0x434], xmm1                   in ?RestoreState@Destructible@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x2d
+   0x001f5530  fld dword ptr [ecx + 0x434]                           in ?GetLife@Destructible@GAME@@QBEMXZ
+   0x001f5f32  lea esi, [edi + 0x434]                                in ?WriteReplicationData@Destructible@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z+0x12
+   0x001f5fe9  movss dword ptr [esi + 0x434], xmm1                   in ?ApplyReplicationData@Destructible@GAME@@UAEXXZ+0x19
+   0x0022edc5  mov dword ptr [edi + 0x434], 0                        in ??0FixedDoor@GAME@@QAE@XZ+0xf5
+   0x0023e012  mov dword ptr [edi + 0x434], 0                        in ??0FixedLever@GAME@@QAE@XZ+0xf2
+   0x0023e0f9  mov eax, dword ptr [esi + 0x434]                      in ??1FixedLever@GAME@@UAE@XZ+0x49
+   0x002b1370  lea ecx, [eax + 0x434]                                in ?UpdateTransmute@ItemEquipment@GAME@@UAEXXZ+0x200
+   0x002b1a01  lea ecx, [esi + 0x434]                                in ?UpdateTransmute@ItemEquipment@GAME@@UAEXXZ+0x891
+   0x002b1b12  lea ecx, [edi + 0x434]                                in ?AddTransmute@ItemEquipment@GAME@@UAEXPAVItem@2@@Z+0xa2
+   0x002b1b1d  lea ecx, [edi + 0x434]                                in ?AddTransmute@ItemEquipment@GAME@@UAEXPAVItem@2@@Z+0xad
+   0x002b1b28  lea ecx, [edi + 0x434]                                in ?AddTransmute@ItemEquipment@GAME@@UAEXPAVItem@2@@Z+0xb8
+   0x002b3f1d  lea ecx, [eax + 0x434]                                in ?UseAlternateMesh@ItemEquipment@GAME@@UBE_N_N@Z+0x8d
+   0x002db9a2  lea ecx, [ebx + 0x434]                                in ?DropItemFromEquipLocation@Monster@GAME@@QAEXAAIW4EquipLocations@2@_N@Z+0x122
+   0x00312a0f  lea ecx, [ecx + 0x434]                                in ?SyncItems@Paperdoll@GAME@@AAEXXZ+0x5f
+   0x0031a19d  lea ecx, [esi + 0x434]                                in ?CalculateAttackSpeed@Player@GAME@@QAEM_N@Z+0x11d
+   0x0031e4c7  lea ecx, [edi + 0x434]                                in ?UpdateSelf@Player@GAME@@UAEXH@Z+0x5c7
+   0x00326648  lea ecx, [esi + 0x434]                                in ?CompareItems@Player@GAME@@QAEXIAAM000AA_N@Z+0x168
+   0x00326655  lea ecx, [esi + 0x434]                                in ?CompareItems@Player@GAME@@QAEXIAAM000AA_N@Z+0x175
+   0x00326c2e  lea ecx, [ecx + 0x434]                                in ?CompareItems@Player@GAME@@QAEXIAAM000AA_N@Z+0x74e
+   0x00326c75  lea ecx, [ecx + 0x434]                                in ?CompareItems@Player@GAME@@QAEXIAAM000AA_N@Z+0x795
+   0x0032901a  lea ecx, [edi + 0x434]                                in ?PlayAnimation@Player@GAME@@UAEXHPBVGraphicsAnim@2@_NMH@Z+0xca
+   0x0032a4cd  lea ecx, [ebx + 0x434]                                in ?GetCompatibleItems@Player@GAME@@QAEXIAAV?$vector@I@mem@@@Z+0x1d
+   0x0032bdc0  lea ecx, [ebx + 0x434]                                in ?AttachItemAction@Player@GAME@@UAEXIW4EquipLocations@2@_N@Z+0x20
+   0x00339c26  lea ecx, [esi + 0x434]                                in ?VerifyPlayerEquipment@PlayerManagerClient@GAME@@IAEXXZ+0x356
+   0x00339c3c  lea ecx, [esi + 0x434]                                in ?VerifyPlayerEquipment@PlayerManagerClient@GAME@@IAEXXZ+0x36c
+   0x0034472b  mov dword ptr [ebx + 0x434], 0x10589cc4               in ??0ProjectileBase@GAME@@QAE@XZ+0xfb
+   0x00344e31  mov dword ptr [edi + 0x434], 0x10589cc4               in ??1ProjectileBase@GAME@@UAE@XZ+0x3d1
+   0x00350bf8  mov dword ptr [edi + 0x434], 0                        in ??0Proxy@GAME@@QAE@XZ+0xf8
+   0x00350e06  mov edx, dword ptr [esi + 0x434]                      in ??1Proxy@GAME@@UAE@XZ+0xe6
+   0x00350e2f  mov dword ptr [esi + 0x434], 0                        in ??1Proxy@GAME@@UAE@XZ+0x10f
+   0x00358fb2  mov dword ptr [esi + 0x434], 0                        in ??0Puppet@GAME@@QAE@XZ+0xf2
+   0x00361caa  mov dword ptr [esi + 0x434], 0x3f800000               in ??0RadiusMagic@GAME@@QAE@XZ+0x4a
+   0x00361d0a  mov dword ptr [esi + 0x434], eax                      in ?SetEffect@RadiusMagic@GAME@@QAEXABVRadiusEffect@2@@Z+0x1a
+   0x00361d33  movss xmm0, dword ptr [esi + 0x434]                   in ?SetEffect@RadiusMagic@GAME@@QAEXABVRadiusEffect@2@@Z+0x43
+   0x00361d5d  movss dword ptr [ecx + 0x434], xmm1                   in ?SetEffect@RadiusMagic@GAME@@QAEXMM@Z+0xd
+   0x003ab056  mov dword ptr [ebx + 0x434], eax                      in ?Generate@SetPiece@GAME@@AAEXABV?$vector@UPool@SetPiece@GAME@@@mem@@@Z+0x3e6
+   0x003ab9c8  mov esi, dword ptr [ebx + 0x434]                      in ?Pick@SetPiece@GAME@@AAEXXZ+0x2d8
+   0x003ac8b5  mov dword ptr [esi + 0x434], 0                        in ??0SetPiece@GAME@@QAE@XZ+0xf5
+   0x003bdd25  lea ecx, [eax + 0x434]                                in ?AddToItemSkillModifiers@Skill@GAME@@QAEXI@Z+0x95
+   0x003be115  lea ecx, [eax + 0x434]                                in ?AddToItemSecondarySkills@Skill@GAME@@QAEXI@Z+0x95
+   0x003c1860  lea ecx, [ecx + 0x434]                                in ?GetItemSkillEquipLocation@Skill@GAME@@QBEXABVCharacter@2@AAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAW4EquipmentCtrlLocation@2@AA_N@Z+0x50
+   0x003cbf61  mov eax, dword ptr [esi + 0x434]                      in ?Update@SkillBuff_DebufProjectile@GAME@@UAEXAAVCharacter@2@H@Z+0x81
+   0x003cc1a7  mov eax, dword ptr [ebx + 0x434]                      in ?Update@SkillBuff_DebufRadius@GAME@@UAEXAAVCharacter@2@H@Z+0x57
+   0x003ce304  mov dword ptr [edi + 0x434], 0                        in ??0SkillSecondary_AttackProjectileOrbiting@GAME@@QAE@XZ+0x74
+   0x003ce3cb  mov dword ptr [esi + 0x434], eax                      in ?Load@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXABVLoadTable@2@@Z+0x7b
+   0x003cebd3  mov eax, dword ptr [esi + 0x434]                      in ?Update@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0x1f3
+   0x003d0d46  movss xmm2, dword ptr [edi + 0x434]                   in ?OnLightningComplete@SkillSecondary_AttackRadiusLightning@GAME@@MAEXAAVCharacter@2@AAURadiusLightning@12@@Z+0x756
+   0x003d0e00  movss xmm2, dword ptr [edi + 0x434]                   in ?OnLightningComplete@SkillSecondary_AttackRadiusLightning@GAME@@MAEXAAVCharacter@2@AAURadiusLightning@12@@Z+0x810
+   0x003d0fdc  fstp dword ptr [edi + 0x434]                          in ?GetValidTarget@SkillActivatedSpell@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z+0x16c
+   0x003d4568  movss dword ptr [esi + 0x434], xmm1                   in ?CreateVisualEffect@SkillSecondary_AttackRadius@GAME@@MAEXABVWorldCoords@2@MH@Z+0xa8
+   0x003d862b  movss dword ptr [esi + 0x434], xmm1                   in ?CreateVisualEffect@Skill_AttackBuffRadius@GAME@@MAEXABVWorldCoords@2@MH@Z+0xab
+   0x003deebc  movss dword ptr [esi + 0x434], xmm1                   in ?CreateVisualEffect@Skill_AttackRadius@GAME@@MAEXABVWorldCoords@2@MH@Z+0xac
+   0x003f474e  sub dword ptr [esi + 0x434], edi                      in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0x71e
+   0x003f4754  cmp dword ptr [esi + 0x434], 0                        in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0x724
+   0x00401910  sub dword ptr [edi + 0x434], esi                      in ?Update@Skill_BuffAttackRadiusLightning@GAME@@UAEXAAVCharacter@2@H@Z+0x220
+   0x00401916  cmp dword ptr [edi + 0x434], 0                        in ?Update@Skill_BuffAttackRadiusLightning@GAME@@UAEXAAVCharacter@2@H@Z+0x226
+   0x0040217d  sub dword ptr [esi + 0x434], edi                      in ?Update@Skill_BuffAttackRadiusDuration@GAME@@UAEXAAVCharacter@2@H@Z+0x3d
+   0x00402183  cmp dword ptr [esi + 0x434], 0                        in ?Update@Skill_BuffAttackRadiusDuration@GAME@@UAEXAAVCharacter@2@H@Z+0x43
+   0x00402254  mov dword ptr [esi + 0x434], eax                      in ?ActivateNow@Skill_BuffAttackRadiusDuration@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x94
+   0x004022a0  mov eax, dword ptr [ecx + 0x434]                      in ?TrackableRemainingTime@Skill_BuffAttackRadiusDuration@GAME@@UBE?BHI@Z
+   0x0040235b  mov dword ptr [esi + 0x434], 0                        in ??0Skill_BuffAttackRadiusToggled@GAME@@QAE@XZ+0x9b
+   0x004035a1  mov byte ptr [esi + 0x434], 0                         in ??0Skill_BuffRadius@GAME@@QAE@XZ+0x91
+   0x004036f8  cmp byte ptr [edx + 0x434], 0                         in ?UpdateSkillController@Skill_BuffRadius@GAME@@UAEXPAVSkillServicesBase@2@H@Z+0x8
+   0x00403717  mov byte ptr [edx + 0x434], 0                         in ?UpdateSkillController@Skill_BuffRadius@GAME@@UAEXPAVSkillServicesBase@2@H@Z+0x27
+   0x0040379f  cmp byte ptr [esi + 0x434], 0                         in ?Update@Skill_BuffRadius@GAME@@UAEXAAVCharacter@2@H@Z+0x5f
+   0x00403a2a  mov byte ptr [edi + 0x434], 1                         in ?ActivateNow@Skill_BuffRadius@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x8a
+   0x004044ac  mov byte ptr [edi + 0x434], al                        in ?ReceiveActiveUpdate@Skill_BuffRadius@GAME@@UAEXAAVCharacter@2@ABVSkillActiveState@2@_N@Z+0x9c
+   0x004044f9  mov al, byte ptr [ecx + 0x434]                        in ?HasIconDisplay@Skill_BuffRadius@GAME@@UBE?B_NI@Z+0x9
+   0x00404510  mov al, byte ptr [ecx + 0x434]                        in ?IsTrackable@Skill_BuffRadius@GAME@@UBE?B_NI@Z
+   0x00404567  cmp byte ptr [esi + 0x434], 0                         in ?StopSkill@Skill_BuffRadius@GAME@@UAEXAAVCharacter@2@@Z+0x27
+   0x00404570  mov byte ptr [esi + 0x434], 0                         in ?StopSkill@Skill_BuffRadius@GAME@@UAEXAAVCharacter@2@@Z+0x30
+   0x00404610  mov al, byte ptr [ecx + 0x434]                        in ?IsActive@Skill_BuffRadius@GAME@@UBE_NXZ
+   0x00404709  cmp byte ptr [esi + 0x434], 0                         in ?UpdateSkillController@Skill_BuffRadiusToggled@GAME@@UAEXPAVSkillServicesBase@2@H@Z+0x9
+   0x0040472c  mov byte ptr [esi + 0x434], 0                         in ?UpdateSkillController@Skill_BuffRadiusToggled@GAME@@UAEXPAVSkillServicesBase@2@H@Z+0x2c
+   0x0040480d  mov byte ptr [esi + 0x434], 1                         in ?AutoActivateNow@Skill_BuffRadiusToggled@GAME@@UAE_NAAVCharacter@2@@Z+0xbd
+   0x00404a1a  cmp byte ptr [esi + 0x434], bl                        in ?ActivateNow@Skill_BuffRadiusToggled@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x4a
+   0x00404a31  mov byte ptr [esi + 0x434], bl                        in ?ActivateNow@Skill_BuffRadiusToggled@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x61
+   0x00404ac4  mov byte ptr [esi + 0x434], 1                         in ?ActivateNow@Skill_BuffRadiusToggled@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xf4
+   0x004052fe  mov dword ptr [esi + 0x434], eax                      in ?ActivateNow@Skill_BuffSelfDuration@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xce
+   0x00405306  mov dword ptr [esi + 0x434], 0xffffffff               in ?ActivateNow@Skill_BuffSelfDuration@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xd6
+   0x00405446  mov esi, dword ptr [edx + 0x434]                      in ?AddTimeToLive@Skill_BuffSelfDuration@GAME@@UAEXH@Z+0x6
+   0x00405463  mov dword ptr [edx + 0x434], esi                      in ?AddTimeToLive@Skill_BuffSelfDuration@GAME@@UAEXH@Z+0x23
+   0x00405ccb  mov dword ptr [esi + 0x434], 0                        in ??0Skill_BuffSelfToggled@GAME@@QAE@XZ+0x9b
+   0x00414348  mov dword ptr [edi + 0x434], 1                        in ??0Skill_OnHitAttackRadius@GAME@@QAE@XZ+0xb8
+   0x00414881  mov dword ptr [ebx + 0x434], eax                      in ?OnHitActivation@Skill_OnHitAttackRadius@GAME@@UAEXAAVCharacter@2@ABVParametersCombat@2@@Z+0x101
+   0x00414d7b  movss dword ptr [esi + 0x434], xmm1                   in ?CreateVisualEffect@Skill_OnHitAttackRadius@GAME@@MAEXABVWorldCoords@2@MH@Z+0xab
+   0x004150d7  mov dword ptr [esi + 0x434], 0                        in ??0Skill_OnHitBuffSelf@GAME@@QAE@XZ+0x87
+   0x00415135  mov ecx, dword ptr [esi + 0x434]                      in ?Update@Skill_OnHitBuffSelf@GAME@@UAEXAAVCharacter@2@H@Z+0x35
+   0x00415141  mov dword ptr [esi + 0x434], ecx                      in ?Update@Skill_OnHitBuffSelf@GAME@@UAEXAAVCharacter@2@H@Z+0x41
+   0x0041517e  mov dword ptr [esi + 0x434], eax                      in ?Update@Skill_OnHitBuffSelf@GAME@@UAEXAAVCharacter@2@H@Z+0x7e
+   0x00415261  cmp dword ptr [esi + 0x434], 0                        in ?OnHitActivation@Skill_OnHitBuffSelf@GAME@@UAEXAAVCharacter@2@ABVParametersCombat@2@@Z+0xa1
+   0x0041aef3  mov dword ptr [esi + 0x434], eax                      in ?ActivateNow@Skill_Shapeshift@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x143
+   0x0041aefb  mov dword ptr [esi + 0x434], 0xffffffff               in ?ActivateNow@Skill_Shapeshift@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x14b
+   0x0041b94f  mov esi, dword ptr [edx + 0x434]                      in ?AddTimeToLive@Skill_Shapeshift@GAME@@UAEXH@Z+0xf
+   0x0041b96c  mov dword ptr [edx + 0x434], esi                      in ?AddTimeToLive@Skill_Shapeshift@GAME@@UAEXH@Z+0x2c
+   0x00434935  mov dword ptr [esi + 0x434], 0x64                     in ??0SkillBuff_BuffImmobilize@GAME@@QAE@XZ+0x45
+   0x004349aa  mov eax, dword ptr [edi + 0x434]                      in ?Update@SkillBuff_BuffImmobilize@GAME@@UAEXAAVCharacter@2@H@Z+0x3a
+   0x004353c5  mov dword ptr [edi + 0x434], 0x3e8                    in ??0SkillBuff_Debuf@GAME@@QAE@XZ+0xf5
+   0x00435467  mov eax, dword ptr [edi + 0x434]                      in ?Update@SkillBuff_Debuf@GAME@@UAEXAAVCharacter@2@H@Z+0x57
+   0x004644e9  lea eax, [edi + 0x434]                                in ??0StaticShrine@GAME@@QAE@XZ+0xe9
+   0x00464ecb  lea ecx, [esi + 0x434]                                in ??1StaticShrine@GAME@@UAE@XZ+0x50b
+   0x0046514b  lea ecx, [edi + 0x434]                                in ?Load@StaticShrine@GAME@@UAEXABVLoadTable@2@@Z+0xdb
+   0x0046529b  lea ecx, [edi + 0x434]                                in ?Load@StaticShrine@GAME@@UAEXABVLoadTable@2@@Z+0x22b
+   0x004653eb  lea ecx, [edi + 0x434]                                in ?Load@StaticShrine@GAME@@UAEXABVLoadTable@2@@Z+0x37b
+   0x004655aa  lea eax, [edi + 0x434]                                in ?Load@StaticShrine@GAME@@UAEXABVLoadTable@2@@Z+0x53a
+   0x00465c30  lea eax, [esi + 0x434]                                in ?GetItems@StaticShrine@GAME@@QBEXAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00@Z+0x20
+   0x00467339  lea esi, [ebx + 0x434]                                in ?LoadOffering2@StaticShrine@GAME@@AAEXXZ+0x29
+   0x00467b2e  lea eax, [edi + 0x434]                                in ?OnDestroy@StaticShrine@GAME@@UAEXXZ+0x4e
+   0x0046d000  movzx eax, byte ptr [edi + 0x434]                     in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x800
+   0x0046d007  mov byte ptr [esi + 0x434], al                        in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x807
+   0x0047ead8  mov word ptr [edi + 0x434], 0                         in ??0TerrainDecoration@GAME@@QAE@XZ+0x68
+   0x0047ebfe  movzx eax, byte ptr [edi + 0x434]                     in ?CreateGeometry@TerrainDecoration@GAME@@QAEXXZ+0x1e
+   0x0047ec29  mov byte ptr [edi + 0x434], 0                         in ?CreateGeometry@TerrainDecoration@GAME@@QAEXXZ+0x49
+   0x0047ef3d  mov byte ptr [edi + 0x434], 1                         in ?Read@TerrainDecoration@GAME@@UAEXAAVBinaryReader@2@@Z+0xcd
+   0x00488360  movss xmm0, dword ptr [edi + 0x434]                   in ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x6b0
+   0x00488551  fstp dword ptr [edi + 0x434]                          in ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x8a1
+
+=== [reg+0x450]  (251 distinct sites)
+   0x0002479e  mov dword ptr [edi + 0x450], 0                        in ??0AscendantAltar@GAME@@QAE@XZ+0x12e
+   0x000b753c  lea ecx, [edi + 0x450]                                in ??0Skill_AttackProjectileBurst@GAME@@QAE@ABV01@@Z+0x5c
+   0x000b7584  lea eax, [esi + 0x450]                                in ??0Skill_AttackProjectileBurst@GAME@@QAE@ABV01@@Z+0xa4
+   0x000b75d6  lea ecx, [edi + 0x450]                                in ??4Skill_AttackProjectileBurst@GAME@@QAEAAV01@ABV01@@Z+0x16
+   0x000b7638  lea eax, [esi + 0x450]                                in ??4Skill_AttackProjectileBurst@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000b792e  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_AttackProjectileDrop@GAME@@QAE@ABV01@@Z+0x3e
+   0x000b7934  mov dword ptr [edi + 0x450], eax                      in ??0Skill_AttackProjectileDrop@GAME@@QAE@ABV01@@Z+0x44
+   0x000b79e2  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_AttackProjectileDrop@GAME@@QAEAAV01@ABV01@@Z+0x72
+   0x000b79e8  mov dword ptr [edi + 0x450], eax                      in ??4Skill_AttackProjectileDrop@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000b7bb2  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0x82
+   0x000b7bb8  mov dword ptr [edi + 0x450], eax                      in ??0Skill_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0x88
+   0x000b7c62  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0x72
+   0x000b7c68  mov dword ptr [edi + 0x450], eax                      in ??4Skill_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000b7ddf  movzx eax, byte ptr [esi + 0x450]                     in ??0Skill_AttackProjectileRing@GAME@@QAE@ABV01@@Z+0x8f
+   0x000b7de9  mov byte ptr [edi + 0x450], al                        in ??0Skill_AttackProjectileRing@GAME@@QAE@ABV01@@Z+0x99
+   0x000b7e80  movzx eax, byte ptr [esi + 0x450]                     in ??4Skill_AttackProjectileRing@GAME@@QAEAAV01@ABV01@@Z+0x60
+   0x000b7e87  mov byte ptr [edi + 0x450], al                        in ??4Skill_AttackProjectileRing@GAME@@QAEAAV01@ABV01@@Z+0x67
+   0x000b892b  lea ecx, [edi + 0x450]                                in ??0Skill_AttackSpellChaos@GAME@@QAE@ABV01@@Z+0x7b
+   0x000b8949  lea eax, [esi + 0x450]                                in ??0Skill_AttackSpellChaos@GAME@@QAE@ABV01@@Z+0x99
+   0x000b89ee  lea ecx, [esi + 0x450]                                in ??4Skill_AttackSpellChaos@GAME@@QAEAAV01@ABV01@@Z+0x4e
+   0x000b8a06  lea eax, [edi + 0x450]                                in ??4Skill_AttackSpellChaos@GAME@@QAEAAV01@ABV01@@Z+0x66
+   0x000b8d6a  movups xmm0, xmmword ptr [edi + 0x450]                in ??0Skill_AttackTelekinesis@GAME@@QAE@ABV01@@Z+0xaa
+   0x000b8d71  movups xmmword ptr [esi + 0x450], xmm0                in ??0Skill_AttackTelekinesis@GAME@@QAE@ABV01@@Z+0xb1
+   0x000b913b  mov eax, dword ptr [edi + 0x450]                      in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0xab
+   0x000b9141  mov dword ptr [esi + 0x450], eax                      in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0xb1
+   0x000b9d94  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_BuffAttackRadiusDuration@GAME@@QAE@ABV01@@Z+0x24
+   0x000b9d9a  mov dword ptr [edi + 0x450], eax                      in ??0Skill_BuffAttackRadiusDuration@GAME@@QAE@ABV01@@Z+0x2a
+   0x000b9eb9  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_BuffAttackRadiusLightning@GAME@@QAE@ABV01@@Z+0x39
+   0x000b9ebf  mov dword ptr [edi + 0x450], eax                      in ??0Skill_BuffAttackRadiusLightning@GAME@@QAE@ABV01@@Z+0x3f
+   0x000ba660  mov al, byte ptr [esi + 0x450]                        in ??0Skill_BuffSelfColossus@GAME@@QAE@ABV01@@Z+0x40
+   0x000ba666  mov byte ptr [edi + 0x450], al                        in ??0Skill_BuffSelfColossus@GAME@@QAE@ABV01@@Z+0x46
+   0x000ba6bc  mov al, byte ptr [esi + 0x450]                        in ??4Skill_BuffSelfColossus@GAME@@QAEAAV01@ABV01@@Z+0x1c
+   0x000ba6c2  mov byte ptr [edi + 0x450], al                        in ??4Skill_BuffSelfColossus@GAME@@QAEAAV01@ABV01@@Z+0x22
+   0x000ba800  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_BuffSelfImmobilize@GAME@@QAE@ABV01@@Z+0x40
+   0x000ba806  mov dword ptr [edi + 0x450], eax                      in ??0Skill_BuffSelfImmobilize@GAME@@QAE@ABV01@@Z+0x46
+   0x000baaa0  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_BuffSelfSick@GAME@@QAE@ABV01@@Z+0x40
+   0x000baaa6  mov dword ptr [edi + 0x450], eax                      in ??0Skill_BuffSelfSick@GAME@@QAE@ABV01@@Z+0x46
+   0x000baafc  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_BuffSelfSick@GAME@@QAEAAV01@ABV01@@Z+0x1c
+   0x000bab02  mov dword ptr [edi + 0x450], eax                      in ??4Skill_BuffSelfSick@GAME@@QAEAAV01@ABV01@@Z+0x22
+   0x000baf3c  mov al, byte ptr [esi + 0x450]                        in ??0Skill_DefensiveLine@GAME@@QAE@ABV01@@Z+0x3c
+   0x000baf42  mov byte ptr [edi + 0x450], al                        in ??0Skill_DefensiveLine@GAME@@QAE@ABV01@@Z+0x42
+   0x000bafa0  mov al, byte ptr [esi + 0x450]                        in ??4Skill_DefensiveLine@GAME@@QAEAAV01@ABV01@@Z+0x10
+   0x000bafac  mov byte ptr [edi + 0x450], al                        in ??4Skill_DefensiveLine@GAME@@QAEAAV01@ABV01@@Z+0x1c
+   0x000bb1cd  lea esi, [ebx + 0x450]                                in ??4Skill_DropProjectileTelekinesis@GAME@@QAEAAV01@ABV01@@Z+0x1d
+   0x000bc7d2  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_OrmenosChainLaser@GAME@@QAEAAV01@ABV01@@Z+0x72
+   0x000bc7d8  mov dword ptr [edi + 0x450], eax                      in ??4Skill_OrmenosChainLaser@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000bdcce  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_TurretFireControl@GAME@@QAE@ABV01@@Z+0x6e
+   0x000bdcd4  mov dword ptr [edi + 0x450], eax                      in ??0Skill_TurretFireControl@GAME@@QAE@ABV01@@Z+0x74
+   0x000bdda6  mov eax, dword ptr [edi + 0x450]                      in ??4Skill_TurretFireControl@GAME@@QAEAAV01@ABV01@@Z+0x86
+   0x000bddac  mov dword ptr [esi + 0x450], eax                      in ??4Skill_TurretFireControl@GAME@@QAEAAV01@ABV01@@Z+0x8c
+   0x000bdeec  lea ecx, [esi + 0x450]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@ABV01@@Z+0x5c
+   0x000bdef8  lea edx, [edi + 0x450]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@ABV01@@Z+0x68
+   0x000bdfd6  lea ecx, [esi + 0x450]                                in ??4Skill_TyphonSkillTransfer@GAME@@QAEAAV01@ABV01@@Z+0x16
+   0x000be038  lea eax, [edi + 0x450]                                in ??4Skill_TyphonSkillTransfer@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000be234  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_WeaponPool_ChargedFinale@GAME@@QAE@ABV01@@Z+0x84
+   0x000be23a  mov dword ptr [edi + 0x450], eax                      in ??0Skill_WeaponPool_ChargedFinale@GAME@@QAE@ABV01@@Z+0x8a
+   0x000be2c4  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_WeaponPool_ChargedFinale@GAME@@QAEAAV01@ABV01@@Z+0x74
+   0x000be2ca  mov dword ptr [edi + 0x450], eax                      in ??4Skill_WeaponPool_ChargedFinale@GAME@@QAEAAV01@ABV01@@Z+0x7a
+   0x000be41f  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_WeaponPool_ChargedLinear@GAME@@QAE@ABV01@@Z+0x8f
+   0x000be428  mov dword ptr [edi + 0x450], eax                      in ??0Skill_WeaponPool_ChargedLinear@GAME@@QAE@ABV01@@Z+0x98
+   0x000be4b0  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_WeaponPool_ChargedLinear@GAME@@QAEAAV01@ABV01@@Z+0x60
+   0x000be4b6  mov dword ptr [edi + 0x450], eax                      in ??4Skill_WeaponPool_ChargedLinear@GAME@@QAEAAV01@ABV01@@Z+0x66
+   0x000be634  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_WeaponPool_ChargedScaling@GAME@@QAE@ABV01@@Z+0xa4
+   0x000be63a  mov dword ptr [edi + 0x450], eax                      in ??0Skill_WeaponPool_ChargedScaling@GAME@@QAE@ABV01@@Z+0xaa
+   0x000be6f8  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_WeaponPool_ChargedScaling@GAME@@QAEAAV01@ABV01@@Z+0x78
+   0x000be6fe  mov dword ptr [edi + 0x450], eax                      in ??4Skill_WeaponPool_ChargedScaling@GAME@@QAEAAV01@ABV01@@Z+0x7e
+   0x000beb37  mov eax, dword ptr [edi + 0x450]                      in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x67
+   0x000beb3d  mov dword ptr [esi + 0x450], eax                      in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x6d
+   0x000c0fc4  mov eax, dword ptr [esi + 0x450]                      in ??0SkillSecondary_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0xc4
+   0x000c0fca  mov dword ptr [edi + 0x450], eax                      in ??0SkillSecondary_AttackProjectileOrbiting@GAME@@QAE@ABV01@@Z+0xca
+   0x000c10a4  mov eax, dword ptr [esi + 0x450]                      in ??4SkillSecondary_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0xb4
+   0x000c10aa  mov dword ptr [edi + 0x450], eax                      in ??4SkillSecondary_AttackProjectileOrbiting@GAME@@QAEAAV01@ABV01@@Z+0xba
+   0x000c1912  mov eax, dword ptr [esi + 0x450]                      in ??0Skill_AttackProjectileMultiHit@GAME@@QAE@ABV01@@Z+0x92
+   0x000c1918  mov dword ptr [edi + 0x450], eax                      in ??0Skill_AttackProjectileMultiHit@GAME@@QAE@ABV01@@Z+0x98
+   0x000c1990  mov eax, dword ptr [esi + 0x450]                      in ??4Skill_AttackProjectileMultiHit@GAME@@QAEAAV01@ABV01@@Z+0x60
+   0x000c1996  mov dword ptr [edi + 0x450], eax                      in ??4Skill_AttackProjectileMultiHit@GAME@@QAEAAV01@ABV01@@Z+0x66
+   0x000c1e82  movzx eax, byte ptr [esi + 0x450]                     in ??0Skill_AttackRadiusDisengage@GAME@@QAE@ABV01@@Z+0x32
+   0x000c1e89  mov byte ptr [edi + 0x450], al                        in ??0Skill_AttackRadiusDisengage@GAME@@QAE@ABV01@@Z+0x39
+   0x000c1ed8  movzx eax, byte ptr [esi + 0x450]                     in ??4Skill_AttackRadiusDisengage@GAME@@QAEAAV01@ABV01@@Z+0x28
+   0x000c1edf  mov byte ptr [edi + 0x450], al                        in ??4Skill_AttackRadiusDisengage@GAME@@QAEAAV01@ABV01@@Z+0x2f
+   0x000c26ec  lea ecx, [esi + 0x450]                                in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0x5c
+   0x000c274f  lea eax, [edi + 0x450]                                in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0xbf
+   0x000c2986  lea ecx, [esi + 0x450]                                in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0x16
+   0x000c2a03  lea eax, [edi + 0x450]                                in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0x93
+   0x000c2f7a  movups xmm0, xmmword ptr [edi + 0x450]                in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x5a
+   0x000c2f81  movups xmmword ptr [esi + 0x450], xmm0                in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x61
+   0x000c31c4  movups xmm0, xmmword ptr [edi + 0x450]                in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0x34
+   0x000c31cb  movups xmmword ptr [esi + 0x450], xmm0                in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0x3b
+   0x000c345a  movups xmm0, xmmword ptr [esi + 0x450]                in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x5a
+   0x000c3465  movups xmmword ptr [edi + 0x450], xmm0                in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x65
+   0x000c36ea  movups xmm0, xmmword ptr [edi + 0x450]                in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x5a
+   0x000c36f1  movups xmmword ptr [esi + 0x450], xmm0                in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x61
+   0x000c3924  movups xmm0, xmmword ptr [edi + 0x450]                in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0x34
+   0x000c392b  movups xmmword ptr [esi + 0x450], xmm0                in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0x3b
+   0x000c3baa  movups xmm0, xmmword ptr [edi + 0x450]                in ??0Skill_AttackRadiusSpin@GAME@@QAE@ABV01@@Z+0x5a
+   0x000c3bb1  movups xmmword ptr [esi + 0x450], xmm0                in ??0Skill_AttackRadiusSpin@GAME@@QAE@ABV01@@Z+0x61
+   0x000c3d64  movups xmm0, xmmword ptr [edi + 0x450]                in ??4Skill_AttackRadiusSpin@GAME@@QAEAAV01@ABV01@@Z+0x34
+   0x000c3d6b  movups xmmword ptr [esi + 0x450], xmm0                in ??4Skill_AttackRadiusSpin@GAME@@QAEAAV01@ABV01@@Z+0x3b
+   0x000c3f60  lea ecx, [esi + 0x450]                                in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x30
+   0x000c3f6c  lea edx, [edi + 0x450]                                in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x3c
+   0x000c4176  lea ecx, [esi + 0x450]                                in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0x16
+   0x000c418e  lea eax, [edi + 0x450]                                in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0x2e
+   0x000ca17d  mov dword ptr [esi + 0x450], 0                        in ?RTTI_new@Skill_AttackProjectileOrbiting@GAME@@KAPAXXZ+0x9d
+   0x000caae8  mov dword ptr [esi + 0x450], 0                        in ?RTTI_new@Skill_BuffAttackRadiusDuration@GAME@@KAPAXXZ+0x68
+   0x000ea138  call dword ptr [eax + 0x450]                          in ?CharacterHandlerUpdate@ControllerBaseCharacter@GAME@@MAEXH@Z+0x68
+   0x000ea543  call dword ptr [eax + 0x450]                          in ?LocalHandleAction@ControllerBaseCharacter@GAME@@QAEXPAVCharacterAction@2@@Z+0x63
+   0x000ef552  movq xmm0, qword ptr [esi + 0x450]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0xf2
+   0x000ef672  mov dword ptr [esi + 0x450], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x212
+   0x000ef876  mov dword ptr [esi + 0x450], eax                      in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x416
+   0x000efd9d  mov dword ptr [esi + 0x450], 0                        in ?GetEye@ControllerGraeae@GAME@@AAEXXZ+0xbd
+   0x000eff1b  mov dword ptr [esi + 0x450], eax                      in ?LoseEye@ControllerGraeae@GAME@@AAEX_N@Z+0xbb
+   0x000f594b  mov dword ptr [ebx + 0x450], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x45b
+   0x000f6498  mov eax, dword ptr [edi + 0x450]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x298
+   0x000f64a4  mov dword ptr [edi + 0x450], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2a4
+   0x001f2e80  mov eax, dword ptr [ebx + 0x450]                      in ?PickStatics@Destructible@GAME@@IAEXAAV?$vector@VName@GAME@@@mem@@@Z+0x10
+   0x001f2ef9  mov eax, dword ptr [ebx + 0x450]                      in ?PickStatics@Destructible@GAME@@IAEXAAV?$vector@VName@GAME@@@mem@@@Z+0x89
+   0x001f343c  mov dword ptr [edi + 0x450], 0                        in ??0Destructible@GAME@@QAE@XZ+0x9c
+   0x001f3943  mov dword ptr [esi + 0x450], 0                        in ??1Destructible@GAME@@UAE@XZ+0x2a3
+   0x001f4ea0  mov eax, dword ptr [ecx + 0x450]                      in ?DynamicPathingOccluder@Destructible@GAME@@UBE?AW4DynamicOccluderType@Entity@2@XZ
+   0x0022b05e  mov dword ptr [esi + 0x450], edx                      in ??0FactionPack@GAME@@QAE@XZ+0x1be
+   0x0022baec  fstp dword ptr [edi + 0x450]                          in ?Load@FactionPack@GAME@@QAEXABVLoadTable@2@@Z+0x7cc
+   0x0022ee08  mov dword ptr [edi + 0x450], 0                        in ??0FixedDoor@GAME@@QAE@XZ+0x138
+   0x0023e063  mov byte ptr [edi + 0x450], 0                         in ??0FixedLever@GAME@@QAE@XZ+0x143
+   0x0023e30d  mov byte ptr [ecx + 0x450], al                        in ?SetAutoClose@FixedLever@GAME@@QAEX_N@Z+0xd
+   0x0023e53f  mov byte ptr [esi + 0x450], al                        in ?Load@FixedLever@GAME@@UAEXABVLoadTable@2@@Z+0x9f
+   0x0023e89f  cmp byte ptr [esi + 0x450], 0                         in ?UpdateSelf@FixedLever@GAME@@UAEXH@Z+0xf
+   0x0023e8f1  cmp byte ptr [edi + 0x450], 0                         in ?SaveState@FixedLever@GAME@@UBEXAAVBinaryWriter@2@@Z+0x11
+   0x0034476e  mov dword ptr [ebx + 0x450], 0                        in ??0ProjectileBase@GAME@@QAE@XZ+0x13e
+   0x003459ae  mov dword ptr [esi + 0x450], 1                        in ?StartLaunchAnimation@ProjectileBase@GAME@@IAEXXZ+0x1e
+   0x003459dd  mov dword ptr [esi + 0x450], 2                        in ?StartLaunchAnimation@ProjectileBase@GAME@@IAEXXZ+0x4d
+   0x00345a1a  mov dword ptr [edx + 0x450], 2                        in ?StartFlightAnimation@ProjectileBase@GAME@@IAEXXZ+0x1a
+   0x00345aa8  cmp dword ptr [esi + 0x450], 1                        in ?AnimationCallback@ProjectileBase@GAME@@UAE_NABVName@2@@Z+0x78
+   0x00345ad6  mov dword ptr [esi + 0x450], 2                        in ?AnimationCallback@ProjectileBase@GAME@@UAE_NABVName@2@@Z+0xa6
+   0x00345b08  mov dword ptr [esi + 0x450], 0                        in ?CollisionCallback@ProjectileBase@GAME@@UAEXABUCollisionData@2@@Z+0x8
+   0x00361c8f  mov dword ptr [esi + 0x450], 0                        in ??0RadiusMagic@GAME@@QAE@XZ+0x2f
+   0x003ce525  mov dword ptr [esi + 0x450], eax                      in ?ActivateNow@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@ABVName@2@IABV?$vector@I@mem@@ABVWorldVec3@2@@Z+0xc5
+   0x003cea8b  cmp dword ptr [esi + 0x450], 1                        in ?Update@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0xab
+   0x003cea95  mov dword ptr [esi + 0x450], eax                      in ?Update@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0xb5
+   0x003cebc5  push dword ptr [esi + 0x450]                          in ?Update@SkillSecondary_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0x1e5
+   0x003d9f8a  mov dword ptr [edi + 0x450], 0x64                     in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x16a
+   0x003da26f  mov dword ptr [edi + 0x450], eax                      in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x44f
+   0x003da6f8  mov eax, dword ptr [esi + 0x450]                      in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x8d8
+   0x003db300  mov dword ptr [esi + 0x450], 0                        in ??0Skill_AttackLineFan@GAME@@QAE@XZ+0x60
+   0x003db74b  mov ecx, dword ptr [edi + 0x450]                      in ??1Skill_AttackLineFan@GAME@@UAE@XZ+0x26b
+   0x003db767  mov dword ptr [edi + 0x450], 0                        in ??1Skill_AttackLineFan@GAME@@UAE@XZ+0x287
+   0x003db883  lea eax, [ebx + 0x450]                                in ?Load@Skill_AttackLineFan@GAME@@UAEXABVLoadTable@2@@Z+0xe3
+   0x003dc43a  sub ecx, dword ptr [esi + 0x450]                      in ?TargetResult@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x45a
+   0x003dc449  mov eax, dword ptr [esi + 0x450]                      in ?TargetResult@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x469
+   0x003e082e  mov dword ptr [esi + 0x450], 0                        in ??0Skill_AttackPattern@GAME@@QAE@XZ+0x7e
+   0x003e09eb  mov edx, dword ptr [esi + 0x450]                      in ??1Skill_AttackPattern@GAME@@UAE@XZ+0xfb
+   0x003e0a14  mov dword ptr [esi + 0x450], 0                        in ??1Skill_AttackPattern@GAME@@UAE@XZ+0x124
+   0x003e20b6  mov dword ptr [esi + 0x450], 0                        in ??0Skill_AttackProjectileBurst@GAME@@QAE@XZ+0x56
+   0x003e2149  mov ecx, dword ptr [esi + 0x450]                      in ??1Skill_AttackProjectileBurst@GAME@@UAE@XZ+0x9
+   0x003e2174  mov dword ptr [esi + 0x450], 0                        in ??1Skill_AttackProjectileBurst@GAME@@UAE@XZ+0x34
+   0x003e231a  lea ecx, [ebx + 0x450]                                in ?Load@Skill_AttackProjectileBurst@GAME@@UAEXABVLoadTable@2@@Z+0x16a
+   0x003e300b  mov eax, dword ptr [esi + 0x450]                      in ?TargetResult@Skill_AttackProjectileBurst@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x15b
+   0x003e43c2  mov dword ptr [esi + 0x450], 0                        in ??0Skill_AttackProjectileMultiHit@GAME@@QAE@XZ+0x92
+   0x003e461a  mov eax, dword ptr [esi + 0x450]                      in ?ActivateNow@Skill_AttackProjectileMultiHit@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xaa
+   0x003e463a  mov eax, dword ptr [esi + 0x450]                      in ?ActivateNow@Skill_AttackProjectileMultiHit@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xca
+   0x003e4657  mov dword ptr [esi + 0x450], edx                      in ?ActivateNow@Skill_AttackProjectileMultiHit@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xe7
+   0x003e4b5a  mov dword ptr [esi + 0x450], 0                        in ??0Skill_AttackProjectileOrbiting@GAME@@QAE@XZ+0x8a
+   0x003e4c93  cmp dword ptr [esi + 0x450], 0                        in ?ActivateNow@Skill_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x33
+   0x003e4cd7  mov dword ptr [esi + 0x450], eax                      in ?ActivateNow@Skill_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x77
+   0x003e4da9  cmp dword ptr [esi + 0x450], 0                        in ?Update@Skill_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0x69
+   0x003e4f1f  dec dword ptr [esi + 0x450]                           in ?Update@Skill_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0x1df
+   0x003e4f42  mov dword ptr [esi + 0x450], 0                        in ?Update@Skill_AttackProjectileOrbiting@GAME@@UAEXAAVCharacter@2@H@Z+0x202
+   0x003e50c7  mov word ptr [esi + 0x450], 0                         in ??0Skill_AttackProjectileRing@GAME@@QAE@XZ+0xb7
+   0x003e52ec  mov byte ptr [ebx + 0x450], al                        in ?Load@Skill_AttackProjectileRing@GAME@@UAEXABVLoadTable@2@@Z+0x1ac
+   0x003e546d  cmp byte ptr [edi + 0x450], 0                         in ?ActivateNow@Skill_AttackProjectileRing@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xbd
+   0x003e80da  mov word ptr [edi + 0x450], 0                         in ??0Skill_AttackRadiusDisengage@GAME@@QAE@XZ+0xfa
+   0x003e832b  lea eax, [esi + 0x450]                                in ??0Skill_AttackRadiusGrow@GAME@@QAE@XZ+0x2b
+   0x003e8508  lea eax, [esi + 0x450]                                in ??1Skill_AttackRadiusGrow@GAME@@UAE@XZ+0x38
+   0x003e8641  lea edi, [esi + 0x450]                                in ??1Skill_AttackRadiusGrow@GAME@@UAE@XZ+0x171
+   0x003eab6b  lea ecx, [esi + 0x450]                                in ??0Skill_AttackRadiusSpin@GAME@@QAE@XZ+0x2b
+   0x003ecd4b  lea edi, [esi + 0x450]                                in ?GetMaxConeLength@Skill_AttackSpellCone@GAME@@IAEMAAUConeInfo@12@AAW4PhysicsSurface@2@@Z+0x9b
+   0x003ecffe  lea ecx, [edi + 0x450]                                in ??0Skill_AttackSpellCone@GAME@@QAE@XZ+0x2e
+   0x003ed9b6  movups xmmword ptr [edi + 0x450], xmm0                in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x126
+   0x003ee010  lea eax, [esi + 0x450]                                in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0xa0
+   0x003ee178  lea edx, [esi + 0x450]                                in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x208
+   0x003ee284  movups xmm0, xmmword ptr [esi + 0x450]                in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x314
+   0x003ee4ca  lea eax, [esi + 0x450]                                in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x55a
+   0x003ef1be  lea ecx, [edi + 0x450]                                in ??0Skill_AttackSpellDrain@GAME@@QAE@XZ+0x2e
+   0x003efb01  movups xmmword ptr [ebx + 0x450], xmm0                in ?FindNewTargets@Skill_AttackSpellDrain@GAME@@QAEXAAVCharacter@2@ABVWorldVec3@2@_N@Z+0x71
+   0x003efefa  lea eax, [edi + 0x450]                                in ?FindNewTargets@Skill_AttackSpellDrain@GAME@@QAEXAAVCharacter@2@ABVWorldVec3@2@_N@Z+0x46a
+   0x003f01db  lea eax, [ebx + 0x450]                                in ?Update@Skill_AttackSpellDrain@GAME@@UAEXAAVCharacter@2@H@Z+0xbb
+   0x003f17ba  lea edi, [ebx + 0x450]                                in ?TargetResult@Skill_AttackSpellDrain@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x4ea
+   0x003f4260  mov dword ptr [esi + 0x450], 0                        in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0x230
+   0x003f671f  lea edi, [eax + 0x450]                                in ?GetMaxBeamLength@Skill_AttackSpellBeam@GAME@@IAEMABVVec3@2@AAW4PhysicsSurface@2@@Z+0x5f
+   0x003f6a6e  lea ecx, [edi + 0x450]                                in ??0Skill_AttackSpellBeam@GAME@@QAE@XZ+0x2e
+   0x003f74d7  movups xmmword ptr [edi + 0x450], xmm0                in ?ActivateNow@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x117
+   0x003f7de6  lea eax, [esi + 0x450]                                in ?Update@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@H@Z+0xa6
+   0x003f7efb  lea edx, [esi + 0x450]                                in ?Update@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@H@Z+0x1bb
+   0x003f7f20  lea edx, [esi + 0x450]                                in ?Update@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@H@Z+0x1e0
+   0x003f82a3  lea eax, [esi + 0x450]                                in ?Update@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@H@Z+0x563
+   0x003f9384  lea eax, [esi + 0x450]                                in ??0Skill_AttackSpellChaos@GAME@@QAE@XZ+0x74
+   0x003f949e  lea esi, [edi + 0x450]                                in ??1Skill_AttackSpellChaos@GAME@@UAE@XZ+0xae
+   0x003f9654  lea ecx, [edi + 0x450]                                in ?Load@Skill_AttackSpellChaos@GAME@@UAEXABVLoadTable@2@@Z+0x64
+   0x003f967b  lea ecx, [edi + 0x450]                                in ?Load@Skill_AttackSpellChaos@GAME@@UAEXABVLoadTable@2@@Z+0x8b
+   0x003f981d  lea eax, [ebx + 0x450]                                in ?Update@Skill_AttackSpellChaos@GAME@@UAEXAAVCharacter@2@H@Z+0x18d
+   0x003faa51  lea ecx, [edi + 0x450]                                in ??0Skill_AttackTelekinesis@GAME@@QAE@XZ+0x51
+   0x003fb96f  movups xmmword ptr [edi + 0x450], xmm0                in ?ClaimObject@Skill_AttackTelekinesis@GAME@@IAE_NAAVCharacter@2@ABVWorldVec3@2@@Z+0x45f
+   0x003fc2a8  lea ecx, [ebx + 0x450]                                in ?LiftEntity@Skill_AttackTelekinesis@GAME@@IAE_NABVCharacter@2@H@Z+0x48
+   0x003fccca  mov dword ptr [edi + 0x450], 0x3f800000               in ??0Skill_AttackWave@GAME@@QAE@XZ+0x8a
+   0x003fd12d  fstp dword ptr [ebx + 0x450]                          in ?Load@Skill_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0xdd
+   0x003fda81  movss xmm1, dword ptr [edi + 0x450]                   in ?Update@Skill_AttackWave@GAME@@UAEXAAVCharacter@2@H@Z+0x681
+   0x00401610  mov dword ptr [esi + 0x450], 0                        in ??0Skill_BuffAttackRadiusLightning@GAME@@QAE@XZ+0x50
+   0x00402105  mov dword ptr [esi + 0x450], 0                        in ??0Skill_BuffAttackRadiusDuration@GAME@@QAE@XZ+0x55
+   0x0040225a  mov dword ptr [esi + 0x450], eax                      in ?ActivateNow@Skill_BuffAttackRadiusDuration@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x9a
+   0x004022b0  mov eax, dword ptr [ecx + 0x450]                      in ?TrackableTotalTime@Skill_BuffAttackRadiusDuration@GAME@@UBE?BHI@Z
+   0x00404ce9  mov byte ptr [edi + 0x450], 0                         in ??0Skill_BuffSelfColossus@GAME@@QAE@XZ+0x89
+   0x00404d51  mov al, byte ptr [esi + 0x450]                        in ?Update@Skill_BuffSelfColossus@GAME@@UAEXAAVCharacter@2@H@Z+0x11
+   0x00404db8  mov byte ptr [edi + 0x450], 1                         in ?ReceiveActiveUpdate@Skill_BuffSelfColossus@GAME@@UAEXAAVCharacter@2@ABVSkillActiveState@2@_N@Z+0x38
+   0x00405115  mov byte ptr [esi + 0x450], 0                         in ?Scale@Skill_BuffSelfColossus@GAME@@MAEXAAVCharacter@2@H_N@Z+0x95
+   0x0040553d  mov dword ptr [edi + 0x450], 0                        in ??0Skill_BuffSelfImmobilize@GAME@@QAE@XZ+0x9d
+   0x00405588  sub dword ptr [esi + 0x450], edi                      in ?Update@Skill_BuffSelfImmobilize@GAME@@UAEXAAVCharacter@2@H@Z+0x28
+   0x0040558e  cmp dword ptr [esi + 0x450], 0                        in ?Update@Skill_BuffSelfImmobilize@GAME@@UAEXAAVCharacter@2@H@Z+0x2e
+   0x004055b0  mov dword ptr [esi + 0x450], eax                      in ?Update@Skill_BuffSelfImmobilize@GAME@@UAEXAAVCharacter@2@H@Z+0x50
+   0x00405b03  mov dword ptr [edi + 0x450], eax                      in ?Load@Skill_BuffSelfSick@GAME@@UAEXABVLoadTable@2@@Z+0x43
+   0x00405c06  push dword ptr [esi + 0x450]                          in ?Update@Skill_BuffSelfSick@GAME@@UAEXAAVCharacter@2@H@Z+0x86
+   0x0040c675  mov byte ptr [edi + 0x450], al                        in ?Load@Skill_DefensiveLine@GAME@@UAEXABVLoadTable@2@@Z+0x95
+   0x0040e6f2  mov dword ptr [edi + 0x450], eax                      in ?Load@Skill_AttackProjectileDrop@GAME@@UAEXABVLoadTable@2@@Z+0x72
+   0x0040eab0  mov eax, dword ptr [ecx + 0x450]                      in ?GetNumProjectiles@Skill_AttackProjectileDrop@GAME@@UBEHXZ
+   0x0040eb31  lea eax, [esi + 0x450]                                in ?GetNumProjectiles@Skill_AttackProjectileDrop@GAME@@UBEHXZ+0x81
+   0x0040ec13  lea eax, [edi + 0x450]                                in ??0Skill_DropProjectileTelekinesis@GAME@@QAE@XZ+0x93
+   0x0040eca4  lea eax, [esi + 0x450]                                in ??1Skill_DropProjectileTelekinesis@GAME@@UAE@XZ+0x24
+   0x00414394  mov edx, dword ptr [edi + 0x450]                      in ??1Skill_OnHitAttackRadius@GAME@@UAE@XZ+0x14
+   0x004143bd  mov dword ptr [edi + 0x450], 0                        in ??1Skill_OnHitAttackRadius@GAME@@UAE@XZ+0x3d
+   0x0041f0ba  fstp dword ptr [edi + 0x450]                          in ?LoadResources@Skill_TurretFireControl@GAME@@UAEXABVLoadTable@2@@Z+0x7a
+   0x0041f21f  movss xmm0, dword ptr [ebx + 0x450]                   in ?ActivateNow@Skill_TurretFireControl@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xff
+   0x0041f900  lea eax, [esi + 0x450]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@XZ+0x50
+   0x0041fa2c  lea esi, [edi + 0x450]                                in ??1Skill_TyphonSkillTransfer@GAME@@UAE@XZ+0x7c
+   0x0041ff80  lea ecx, [edi + 0x450]                                in ?Load@Skill_TyphonSkillTransfer@GAME@@UAEXABVLoadTable@2@@Z+0x80
+   0x00420202  lea eax, [esi + 0x450]                                in ?Update@Skill_TyphonSkillTransfer@GAME@@UAEXAAVCharacter@2@H@Z+0x1e2
+   0x004202c8  lea eax, [esi + 0x450]                                in ?Update@Skill_TyphonSkillTransfer@GAME@@UAEXAAVCharacter@2@H@Z+0x2a8
+   0x0042064b  mov dword ptr [esi + 0x450], 0                        in ??0Skill_WeaponPool_ChargedFinale@GAME@@QAE@XZ+0x8b
+   0x004206f4  sub dword ptr [esi + 0x450], edi                      in ?Update@Skill_WeaponPool_ChargedFinale@GAME@@UAEXAAVCharacter@2@H@Z+0x34
+   0x00420703  cmp dword ptr [esi + 0x450], 0                        in ?Update@Skill_WeaponPool_ChargedFinale@GAME@@UAEXAAVCharacter@2@H@Z+0x43
+   0x00420c51  mov dword ptr [esi + 0x450], 0                        in ?HitAction@Skill_WeaponPool_ChargedFinale@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x171
+   0x00421122  mov dword ptr [edi + 0x450], eax                      in ?WPPostAttackCallback@Skill_WeaponPool_ChargedFinale@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x192
+   0x004213b7  mov dword ptr [esi + 0x450], 0                        in ??0Skill_WeaponPool_ChargedLinear@GAME@@QAE@XZ+0xc7
+   0x00421508  mov eax, dword ptr [esi + 0x450]                      in ?Update@Skill_WeaponPool_ChargedLinear@GAME@@UAEXAAVCharacter@2@H@Z+0xa8
+   0x00421515  mov dword ptr [esi + 0x450], eax                      in ?Update@Skill_WeaponPool_ChargedLinear@GAME@@UAEXAAVCharacter@2@H@Z+0xb5
+   0x0042162c  mov dword ptr [edi + 0x450], eax                      in ?IncrementCharge@Skill_WeaponPool_ChargedLinear@GAME@@IAEXAAVCharacter@2@@Z+0xfc
+   0x00422b60  cmp dword ptr [esi + 0x450], 0                        in ?WPPostAttackCallback@Skill_WeaponPool_ChargedLinear@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x20
+   0x00423445  mov dword ptr [esi + 0x450], 0                        in ??0Skill_WeaponPool_ChargedScaling@GAME@@QAE@XZ+0x85
+   0x00424644  movss dword ptr [ebx + 0x450], xmm0                   in ?Load@Skill_WPAttack_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0x44
+   0x0042465c  movss dword ptr [ebx + 0x450], xmm0                   in ?Load@Skill_WPAttack_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0x5c
+   0x00424974  divss xmm1, dword ptr [edi + 0x450]                   in ?Update@Skill_WPAttack_AttackWave@GAME@@UAEXAAVCharacter@2@H@Z+0x74
+   0x00459dcf  mov dword ptr [esi + 0x450], 0                        in ??0SkillSecondary_PetModifier@GAME@@QAE@XZ+0xcf
+   0x0046d03d  mov eax, dword ptr [edi + 0x450]                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x83d
+   0x0046d043  mov dword ptr [esi + 0x450], eax                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x843
+
+=== [reg+0x46c]  (125 distinct sites)
+   0x00041970  mov eax, dword ptr [eax + 0x46c]                      in ?Load@Character@GAME@@UAEXABVLoadTable@2@@Z+0x4a0
+   0x000b8979  mov eax, dword ptr [esi + 0x46c]                      in ??0Skill_AttackSpellChaos@GAME@@QAE@ABV01@@Z+0xc9
+   0x000b897f  mov dword ptr [edi + 0x46c], eax                      in ??0Skill_AttackSpellChaos@GAME@@QAE@ABV01@@Z+0xcf
+   0x000b8a26  mov eax, dword ptr [edi + 0x46c]                      in ??4Skill_AttackSpellChaos@GAME@@QAEAAV01@ABV01@@Z+0x86
+   0x000b8a2c  mov dword ptr [esi + 0x46c], eax                      in ??4Skill_AttackSpellChaos@GAME@@QAEAAV01@ABV01@@Z+0x8c
+   0x000b8d9c  mov eax, dword ptr [edi + 0x46c]                      in ??0Skill_AttackTelekinesis@GAME@@QAE@ABV01@@Z+0xdc
+   0x000b8da2  mov dword ptr [esi + 0x46c], eax                      in ??0Skill_AttackTelekinesis@GAME@@QAE@ABV01@@Z+0xe2
+   0x000b95c3  lea ecx, [esi + 0x46c]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0xc3
+   0x000b95d4  lea edx, [edi + 0x46c]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0xd4
+   0x000b975a  lea eax, [edi + 0x46c]                                in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0x6a
+   0x000b9760  lea ecx, [esi + 0x46c]                                in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0x70
+   0x000b9988  mov eax, dword ptr [esi + 0x46c]                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0x98
+   0x000b998e  mov dword ptr [edi + 0x46c], eax                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0x9e
+   0x000b9aac  mov eax, dword ptr [esi + 0x46c]                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0x6c
+   0x000b9ab2  mov dword ptr [edi + 0x46c], eax                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0x72
+   0x000bc73a  mov eax, dword ptr [esi + 0x46c]                      in ??0Skill_OrmenosChainLaser@GAME@@QAE@ABV01@@Z+0xda
+   0x000bc740  mov dword ptr [edi + 0x46c], eax                      in ??0Skill_OrmenosChainLaser@GAME@@QAE@ABV01@@Z+0xe0
+   0x000bc84e  mov eax, dword ptr [esi + 0x46c]                      in ??4Skill_OrmenosChainLaser@GAME@@QAEAAV01@ABV01@@Z+0xee
+   0x000bc854  mov dword ptr [edi + 0x46c], eax                      in ??4Skill_OrmenosChainLaser@GAME@@QAEAAV01@ABV01@@Z+0xf4
+   0x000bdcfb  movzx eax, byte ptr [esi + 0x46c]                     in ??0Skill_TurretFireControl@GAME@@QAE@ABV01@@Z+0x9b
+   0x000bdd05  mov byte ptr [edi + 0x46c], al                        in ??0Skill_TurretFireControl@GAME@@QAE@ABV01@@Z+0xa5
+   0x000bddc6  mov al, byte ptr [edi + 0x46c]                        in ??4Skill_TurretFireControl@GAME@@QAEAAV01@ABV01@@Z+0xa6
+   0x000bddcc  mov byte ptr [esi + 0x46c], al                        in ??4Skill_TurretFireControl@GAME@@QAEAAV01@ABV01@@Z+0xac
+   0x000bdf65  lea ecx, [esi + 0x46c]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@ABV01@@Z+0xd5
+   0x000bdf77  lea eax, [edi + 0x46c]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@ABV01@@Z+0xe7
+   0x000be052  lea ecx, [esi + 0x46c]                                in ??4Skill_TyphonSkillTransfer@GAME@@QAEAAV01@ABV01@@Z+0x92
+   0x000be05e  lea eax, [edi + 0x46c]                                in ??4Skill_TyphonSkillTransfer@GAME@@QAEAAV01@ABV01@@Z+0x9e
+   0x000beb1f  lea ecx, [esi + 0x46c]                                in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x4f
+   0x000beb2b  lea edx, [edi + 0x46c]                                in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x5b
+   0x000c084b  mov eax, dword ptr [edi + 0x46c]                      in ??0SkillSecondary_Tether@GAME@@QAE@ABV01@@Z+0x14b
+   0x000c0851  mov dword ptr [esi + 0x46c], eax                      in ??0SkillSecondary_Tether@GAME@@QAE@ABV01@@Z+0x151
+   0x000c09c8  mov eax, dword ptr [edi + 0x46c]                      in ??4SkillSecondary_Tether@GAME@@QAEAAV01@ABV01@@Z+0xc8
+   0x000c09ce  mov dword ptr [esi + 0x46c], eax                      in ??4SkillSecondary_Tether@GAME@@QAEAAV01@ABV01@@Z+0xce
+   0x000c214b  mov eax, dword ptr [edi + 0x46c]                      in ??0Skill_ChargePotion@GAME@@QAE@ABV01@@Z+0xfb
+   0x000c2151  mov dword ptr [esi + 0x46c], eax                      in ??0Skill_ChargePotion@GAME@@QAE@ABV01@@Z+0x101
+   0x000c220e  mov eax, dword ptr [edi + 0x46c]                      in ??4Skill_ChargePotion@GAME@@QAEAAV01@ABV01@@Z+0x8e
+   0x000c2214  mov dword ptr [esi + 0x46c], eax                      in ??4Skill_ChargePotion@GAME@@QAEAAV01@ABV01@@Z+0x94
+   0x000c279e  mov eax, dword ptr [edi + 0x46c]                      in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0x10e
+   0x000c27a4  mov dword ptr [esi + 0x46c], eax                      in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0x114
+   0x000c2a45  mov eax, dword ptr [edi + 0x46c]                      in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0xd5
+   0x000c2a4b  mov dword ptr [esi + 0x46c], eax                      in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0xdb
+   0x000c347b  mov eax, dword ptr [esi + 0x46c]                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x7b
+   0x000c3481  mov dword ptr [edi + 0x46c], eax                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x81
+   0x000d6c91  mov eax, dword ptr [esi + 0x46c]                      in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x171
+   0x000d6c9d  mov dword ptr [ebx + 0x46c], eax                      in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x17d
+   0x000ef586  movq xmm0, qword ptr [esi + 0x46c]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x126
+   0x000ef6be  mov dword ptr [esi + 0x46c], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x25e
+   0x000efdf7  mov dword ptr [esi + 0x46c], eax                      in ?GetEye@ControllerGraeae@GAME@@AAEXXZ+0x117
+   0x000eff5d  mov dword ptr [esi + 0x46c], 0                        in ?LoseEye@ControllerGraeae@GAME@@AAEX_N@Z+0xfd
+   0x000f5991  mov dword ptr [ebx + 0x46c], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x4a1
+   0x000f64aa  mov eax, dword ptr [edi + 0x46c]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2aa
+   0x000f64b6  mov dword ptr [edi + 0x46c], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2b6
+   0x001f1e7e  mov ecx, dword ptr [edi + 0x46c]                      in ?PhysicsSetup@Destructible@GAME@@UAE_NPAVPhysicsSystem2@2@@Z+0x8ee
+   0x00223291  mov dword ptr [esi + 0x46c], esi                      in ??0GameEngineInboundInterface@GAME@@QAE@ABV01@@Z+0x2a1
+   0x0022af89  mov dword ptr [esi + 0x46c], 0                        in ??0FactionPack@GAME@@QAE@XZ+0xe9
+   0x0022b1a1  mov dword ptr [esi + 0x46c], 0                        in ??0FactionPack@GAME@@QAE@W4FactionType@1@@Z+0xf1
+   0x0022c863  cmp eax, dword ptr [esi + 0x46c]                      in ?Adjust@FactionPack@GAME@@QAEXW4FactionType@2@ABUKillAdjustment@12@W4MonsterClassification@2@@Z+0x1b3
+   0x0022c9be  cmp eax, dword ptr [esi + 0x46c]                      in ?Adjust@FactionPack@GAME@@QAEXW4FactionType@2@ABUKillAdjustment@12@W4MonsterClassification@2@@Z+0x30e
+   0x0022ca34  cmp eax, dword ptr [esi + 0x46c]                      in ?Adjust@FactionPack@GAME@@QAEXW4FactionType@2@ABUKillAdjustment@12@W4MonsterClassification@2@@Z+0x384
+   0x0022cad5  push dword ptr [esi + 0x46c]                          in ?Adjust@FactionPack@GAME@@QAEXW4FactionType@2@ABUKillAdjustment@12@W4MonsterClassification@2@@Z+0x425
+   0x0022cb71  push dword ptr [edi + 0x46c]                          in ?SetValue@FactionPack@GAME@@QAEXW4FactionType@2@M@Z+0x81
+   0x0022ee4b  mov dword ptr [edi + 0x46c], 0                        in ??0FixedDoor@GAME@@QAE@XZ+0x17b
+   0x003307c6  mov dword ptr [ecx + 0x46c], eax                      in ?SetParent@FactionPack@GAME@@QAEXI@Z+0x6
+   0x003307d0  mov eax, dword ptr [ecx + 0x46c]                      in ?GetParent@FactionPack@GAME@@QAEIXZ
+   0x003c1ec8  cmp dword ptr [ebx + 0x46c], 0                        in ?GetParticleEffect1@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x98
+   0x003c1f31  cmp dword ptr [ebx + 0x46c], 0                        in ?GetParticleEffect1@Skill@GAME@@UBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x101
+   0x003d5d1a  mov dword ptr [ebx + 0x46c], eax                      in ?Load@SkillSecondary_Tether@GAME@@UAEXABVLoadTable@2@@Z+0x10a
+   0x003d6397  mov eax, dword ptr [edi + 0x46c]                      in ?ActivateNow@SkillSecondary_Tether@GAME@@UAEXAAVCharacter@2@ABVName@2@IABV?$vector@I@mem@@ABVWorldVec3@2@@Z+0x287
+   0x003db47a  mov dword ptr [esi + 0x46c], 0                        in ??0Skill_AttackLineFan@GAME@@QAE@XZ+0x1da
+   0x003dba57  fstp dword ptr [ebx + 0x46c]                          in ?Load@Skill_AttackLineFan@GAME@@UAEXABVLoadTable@2@@Z+0x2b7
+   0x003dcdd2  movss xmm1, dword ptr [ebx + 0x46c]                   in ?Update@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@H@Z+0x392
+   0x003dcea1  movss xmm1, dword ptr [ebx + 0x46c]                   in ?Update@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@H@Z+0x461
+   0x003dd6b3  movss xmm2, dword ptr [ecx + 0x46c]                   in ?GetTextureWidth@Skill_AttackLineFan@GAME@@QAEMM@Z+0x23
+   0x003ddff3  mov dword ptr [edi + 0x46c], 0                        in ??0Skill_AttackPathCharge@GAME@@QAE@XZ+0x93
+   0x003de8c5  mov eax, dword ptr [edi + 0x46c]                      in ?Update@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@H@Z+0x315
+   0x003de8d2  mov dword ptr [edi + 0x46c], eax                      in ?Update@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@H@Z+0x322
+   0x003dec45  mov dword ptr [edi + 0x46c], eax                      in ?WarmUpStart@Skill_AttackPathCharge@GAME@@UAE_NAAVCharacter@2@@Z+0x45
+   0x003ed672  mov dword ptr [ebx + 0x46c], eax                      in ?Load@Skill_AttackSpellCone@GAME@@UAEXABVLoadTable@2@@Z+0x32
+   0x003edbaa  movd xmm0, dword ptr [edi + 0x46c]                    in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x31a
+   0x003ee42c  movd xmm0, dword ptr [esi + 0x46c]                    in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x4bc
+   0x003eef78  movd xmm0, dword ptr [esi + 0x46c]                    in ?GetSkillModifierData@Skill_AttackSpellCone@GAME@@UBEXAAVSkillProfile_Modifiers@2@H_N11@Z+0x38
+   0x003eefd3  movd xmm0, dword ptr [esi + 0x46c]                    in ?GetManaCostPeriod@Skill_AttackSpellCone@GAME@@UBEMXZ+0x23
+   0x003ef10e  movd xmm0, dword ptr [ecx + 0x46c]                    in ?CalculateDPS@Skill_AttackSpellCone@GAME@@UAEMAAUSkillAttackInfo@2@@Z+0x1e
+   0x003f2224  lea eax, [edi + 0x46c]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@XZ+0xa4
+   0x003f2378  lea eax, [esi + 0x46c]                                in ??1Skill_AttackSpellReflectLink@GAME@@UAE@XZ+0x58
+   0x003f242a  lea edi, [esi + 0x46c]                                in ??1Skill_AttackSpellReflectLink@GAME@@UAE@XZ+0x10a
+   0x003f2789  lea eax, [ebx + 0x46c]                                in ?Load@Skill_AttackSpellReflectLink@GAME@@UAEXABVLoadTable@2@@Z+0x189
+   0x003f2b80  lea ecx, [edi + 0x46c]                                in ?ActivateNow@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x1e0
+   0x003f40e6  movss xmm2, dword ptr [edi + 0x46c]                   in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0xb6
+   0x003f41a0  movss xmm2, dword ptr [edi + 0x46c]                   in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0x170
+   0x003f4352  fstp dword ptr [edi + 0x46c]                          in ?Cancel@Skill_AttackRadiusTeleport@GAME@@MAEXAAVCharacter@2@@Z+0x322
+   0x003f93cb  mov dword ptr [esi + 0x46c], 0                        in ??0Skill_AttackSpellChaos@GAME@@QAE@XZ+0xbb
+   0x003f9c17  mov eax, dword ptr [ebx + 0x46c]                      in ?Update@Skill_AttackSpellChaos@GAME@@UAEXAAVCharacter@2@H@Z+0x587
+   0x003fa02a  lea eax, [edi + 0x46c]                                in ?ActivateNow@Skill_AttackSpellChaos@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x16a
+   0x003fabd2  movss dword ptr [edi + 0x46c], xmm0                   in ??0Skill_AttackTelekinesis@GAME@@QAE@XZ+0x1d2
+   0x003fc922  addss xmm0, dword ptr [edi + 0x46c]                   in ?WobbleCoords@Skill_AttackTelekinesis@GAME@@IBE?AVWorldCoords@2@V32@H@Z+0x2f2
+   0x00401645  mov dword ptr [esi + 0x46c], 0                        in ??0Skill_BuffAttackRadiusLightning@GAME@@QAE@XZ+0x85
+   0x0040169d  mov edx, dword ptr [esi + 0x46c]                      in ??1Skill_BuffAttackRadiusLightning@GAME@@UAE@XZ+0x1d
+   0x004016c6  mov dword ptr [esi + 0x46c], 0                        in ??1Skill_BuffAttackRadiusLightning@GAME@@UAE@XZ+0x46
+   0x00408cc0  cvttss2si eax, dword ptr [ecx + 0x46c]                in ?TrackableTotalTime@Skill_ChargePotion@GAME@@UBE?BHI@Z
+   0x004093bf  movss dword ptr [edi + 0x46c], xmm0                   in ?TargetResult@Skill_ChargePotion@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x21f
+   0x00415886  mov dword ptr [ebx + 0x46c], edi                      in ??0Skill_OrmenosChainLaser@GAME@@QAE@XZ+0x96
+   0x00415e8f  mov dword ptr [ecx + 0x46c], eax                      in ?TargetResult@Skill_OrmenosChainLaser@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x1ff
+   0x00416010  mov eax, dword ptr [edi + 0x46c]                      in ?Update@Skill_OrmenosChainLaser@GAME@@UAEXAAVCharacter@2@H@Z+0x20
+   0x0041efd7  mov byte ptr [esi + 0x46c], 0                         in ??0Skill_TurretFireControl@GAME@@QAE@XZ+0xe7
+   0x0041f109  mov byte ptr [edi + 0x46c], al                        in ?LoadResources@Skill_TurretFireControl@GAME@@UAEXABVLoadTable@2@@Z+0xc9
+   0x0041f55a  cmp byte ptr [eax + 0x46c], 0                         in ?ActivateNow@Skill_TurretFireControl@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x43a
+   0x0041f94a  lea eax, [esi + 0x46c]                                in ??0Skill_TyphonSkillTransfer@GAME@@QAE@XZ+0x9a
+   0x0041f9fb  lea esi, [edi + 0x46c]                                in ??1Skill_TyphonSkillTransfer@GAME@@UAE@XZ+0x4b
+   0x0041ffa7  lea ecx, [edi + 0x46c]                                in ?Load@Skill_TyphonSkillTransfer@GAME@@UAEXABVLoadTable@2@@Z+0xa7
+   0x0041ffcb  lea ecx, [edi + 0x46c]                                in ?Load@Skill_TyphonSkillTransfer@GAME@@UAEXABVLoadTable@2@@Z+0xcb
+   0x00424275  lea eax, [edi + 0x46c]                                in ??0Skill_WPAttack_AttackWave@GAME@@QAE@XZ+0x55
+   0x00424466  lea esi, [edi + 0x46c]                                in ??1Skill_WPAttack_AttackWave@GAME@@UAE@XZ+0xa6
+   0x00424517  lea eax, [edi + 0x46c]                                in ?OnDestroy@Skill_WPAttack_AttackWave@GAME@@UAEXXZ+0x17
+   0x0042476d  lea ecx, [ebx + 0x46c]                                in ?Load@Skill_WPAttack_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0x16d
+   0x004247f1  lea eax, [ebx + 0x46c]                                in ?Load@Skill_WPAttack_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0x1f1
+   0x0044b4c4  lea eax, [edi + 0x46c]                                in ??0SkillProfile@GAME@@QAE@XZ+0x7c4
+   0x0044c17d  lea ecx, [esi + 0x46c]                                in ??1SkillProfile@GAME@@UAE@XZ+0x58d
+   0x0044e7a0  lea eax, [ecx + 0x46c]                                in ?GetSkillSound2Name@SkillProfile@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+   0x004686ef  cmp dword ptr [edi + 0x46c], 0                        in ?SetActive@StaticTeleporter@GAME@@IAEX_N0@Z+0x4f
+   0x00468a0f  mov dword ptr [esi + 0x46c], 0                        in ??0StaticTeleporter@GAME@@QAE@XZ+0xaf
+   0x0046d07a  mov eax, dword ptr [edi + 0x46c]                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x87a
+   0x0046d080  mov dword ptr [esi + 0x46c], eax                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x880
+   0x00473d86  lea eax, [edi + 0x46c]                                in ??4SkillProfile@GAME@@QAEAAV01@ABV01@@Z+0x5f6
+   0x00473d8c  lea ecx, [esi + 0x46c]                                in ??4SkillProfile@GAME@@QAEAAV01@ABV01@@Z+0x5fc
+
+=== [reg+0x488]  (63 distinct sites)
+   0x00024800  mov dword ptr [edi + 0x488], 0                        in ??0AscendantAltar@GAME@@QAE@XZ+0x190
+   0x000b866c  movups xmm0, xmmword ptr [esi + 0x488]                in ??0Skill_AttackRadiusLightning2@GAME@@QAE@ABV01@@Z+0xcc
+   0x000b8673  movups xmmword ptr [edi + 0x488], xmm0                in ??0Skill_AttackRadiusLightning2@GAME@@QAE@ABV01@@Z+0xd3
+   0x000b875a  movups xmm0, xmmword ptr [esi + 0x488]                in ??4Skill_AttackRadiusLightning2@GAME@@QAEAAV01@ABV01@@Z+0x9a
+   0x000b8761  movups xmmword ptr [edi + 0x488], xmm0                in ??4Skill_AttackRadiusLightning2@GAME@@QAEAAV01@ABV01@@Z+0xa1
+   0x000b99d5  mov eax, dword ptr [esi + 0x488]                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0xe5
+   0x000b99de  mov dword ptr [edi + 0x488], eax                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0xee
+   0x000b9af6  mov eax, dword ptr [esi + 0x488]                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0xb6
+   0x000b9afc  mov dword ptr [edi + 0x488], eax                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0xbc
+   0x000c27f2  mov eax, dword ptr [edi + 0x488]                      in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0x162
+   0x000c27f8  mov dword ptr [esi + 0x488], eax                      in ??0Skill_AttackLineFan@GAME@@QAE@ABV01@@Z+0x168
+   0x000c2a99  mov eax, dword ptr [edi + 0x488]                      in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0x129
+   0x000c2a9f  mov dword ptr [esi + 0x488], eax                      in ??4Skill_AttackLineFan@GAME@@QAEAAV01@ABV01@@Z+0x12f
+   0x000c34c4  mov eax, dword ptr [esi + 0x488]                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0xc4
+   0x000c34ca  mov dword ptr [edi + 0x488], eax                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0xca
+   0x000d6cca  lea ecx, [ebx + 0x488]                                in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x1aa
+   0x000d6cdb  lea edx, [esi + 0x488]                                in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x1bb
+   0x000ef6ec  movq xmm0, qword ptr [esi + 0x488]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x28c
+   0x000ef782  mov dword ptr [esi + 0x488], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x322
+   0x000f59d7  mov dword ptr [ebx + 0x488], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x4e7
+   0x000f64bc  mov eax, dword ptr [edi + 0x488]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2bc
+   0x000f64c8  mov dword ptr [edi + 0x488], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2c8
+   0x001f110b  mov dword ptr [edi + 0x488], eax                      in ?BreakApart@Destructible@GAME@@QAEXABVVec3@2@M_N@Z+0xcb
+   0x001f1348  mov dword ptr [esi + 0x488], eax                      in ?ReplicateBreakApart@Destructible@GAME@@QAEXXZ+0x58
+   0x001f3181  push dword ptr [esi + 0x488]                          in ?UpdateSelf@Destructible@GAME@@MAEXH@Z+0xd1
+   0x001f349d  mov dword ptr [edi + 0x488], 0                        in ??0Destructible@GAME@@QAE@XZ+0xfd
+   0x001f371f  push dword ptr [esi + 0x488]                          in ??1Destructible@GAME@@UAE@XZ+0x7f
+   0x001f4fa0  mov dword ptr [edi + 0x488], eax                      in ?RestoreState@Destructible@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x50
+   0x001fc376  mov dword ptr [edi + 0x488], 0x3e8                    in ??0EndlessDungeon_Generator@GAME@@QAE@XZ+0x3c6
+   0x0022af5a  mov byte ptr [esi + 0x488], 0                         in ??0FactionPack@GAME@@QAE@XZ+0xba
+   0x0022b167  mov byte ptr [esi + 0x488], 0                         in ??0FactionPack@GAME@@QAE@W4FactionType@1@@Z+0xb7
+   0x0022b263  lea esi, [edi + 0x488]                                in ??1FactionPack@GAME@@UAE@XZ+0x33
+   0x0022ee8e  mov dword ptr [edi + 0x488], 0x437a0000               in ??0FixedDoor@GAME@@QAE@XZ+0x1be
+   0x00230c1f  mov dword ptr [edi + 0x488], 0                        in ??0FixedItem@GAME@@QAE@XZ+0x24f
+   0x003d9f28  lea eax, [edi + 0x488]                                in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x108
+   0x003da0db  lea esi, [edi + 0x488]                                in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x2bb
+   0x003da30b  lea ecx, [edi + 0x488]                                in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x4eb
+   0x003da4a7  lea ebx, [edi + 0x488]                                in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x687
+   0x003db48e  mov dword ptr [esi + 0x488], 0                        in ??0Skill_AttackLineFan@GAME@@QAE@XZ+0x1ee
+   0x003db97c  fstp dword ptr [ebx + 0x488]                          in ?Load@Skill_AttackLineFan@GAME@@UAEXABVLoadTable@2@@Z+0x1dc
+   0x003dcfbb  comiss xmm0, dword ptr [ebx + 0x488]                  in ?Update@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@H@Z+0x57b
+   0x003de025  mov dword ptr [edi + 0x488], 0                        in ??0Skill_AttackPathCharge@GAME@@QAE@XZ+0xc5
+   0x003de243  fstp dword ptr [edi + 0x488]                          in ?Load@Skill_AttackPathCharge@GAME@@UAEXABVLoadTable@2@@Z+0x103
+   0x003de84e  comiss xmm0, dword ptr [edi + 0x488]                  in ?Update@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@H@Z+0x29e
+   0x003e089c  mov dword ptr [esi + 0x488], 0                        in ??0Skill_AttackPattern@GAME@@QAE@XZ+0xec
+   0x003e0959  mov dword ptr [esi + 0x488], 0                        in ??1Skill_AttackPattern@GAME@@UAE@XZ+0x69
+   0x003e0a4f  cmp esi, dword ptr [ebx + 0x488]                      in ?OnDestroy@Skill_AttackPattern@GAME@@UAEXXZ+0xf
+   0x003e0aa4  cmp esi, dword ptr [ebx + 0x488]                      in ?OnDestroy@Skill_AttackPattern@GAME@@UAEXXZ+0x64
+   0x003e11b5  cmp esi, dword ptr [edi + 0x488]                      in ?Update@Skill_AttackPattern@GAME@@UAEXAAVCharacter@2@H@Z+0x35
+   0x003e12b8  mov edx, dword ptr [edi + 0x488]                      in ?Update@Skill_AttackPattern@GAME@@UAEXAAVCharacter@2@H@Z+0x138
+   0x003e12d7  add dword ptr [edi + 0x488], -8                       in ?Update@Skill_AttackPattern@GAME@@UAEXAAVCharacter@2@H@Z+0x157
+   0x003e12e6  cmp esi, dword ptr [edi + 0x488]                      in ?Update@Skill_AttackPattern@GAME@@UAEXAAVCharacter@2@H@Z+0x166
+   0x003ead15  cmp dword ptr [esi + 0x488], 0                        in ??1Skill_AttackRadiusSpin@GAME@@UAE@XZ+0x45
+   0x003ed70d  fstp dword ptr [ebx + 0x488]                          in ?Load@Skill_AttackSpellCone@GAME@@UAEXABVLoadTable@2@@Z+0xcd
+   0x003edcd9  mov eax, dword ptr [edi + 0x488]                      in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x449
+   0x003f6c45  cmp dword ptr [edi + 0x488], 0                        in ??1Skill_AttackSpellBeam@GAME@@UAE@XZ+0x45
+   0x00468a20  mov dword ptr [esi + 0x488], 0xf                      in ??0StaticTeleporter@GAME@@QAE@XZ+0xc0
+   0x0046d0b7  mov eax, dword ptr [edi + 0x488]                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x8b7
+   0x0046d0bd  mov dword ptr [esi + 0x488], eax                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x8bd
+   0x00474992  mov eax, dword ptr [esi + 0x488]                      in ??0EndlessDungeon_Generator@GAME@@QAE@ABV01@@Z+0x3a2
+   0x00474998  mov dword ptr [ebx + 0x488], eax                      in ??0EndlessDungeon_Generator@GAME@@QAE@ABV01@@Z+0x3a8
+   0x00474d66  mov eax, dword ptr [esi + 0x488]                      in ??4EndlessDungeon_Generator@GAME@@QAEAAV01@ABV01@@Z+0x2c6
+   0x00474d72  mov dword ptr [ebx + 0x488], eax                      in ??4EndlessDungeon_Generator@GAME@@QAEAAV01@ABV01@@Z+0x2d2
+
+=== [reg+0x4a4]  (86 distinct sites)
+   0x000b869e  mov al, byte ptr [esi + 0x4a4]                        in ??0Skill_AttackRadiusLightning2@GAME@@QAE@ABV01@@Z+0xfe
+   0x000b86a4  mov byte ptr [edi + 0x4a4], al                        in ??0Skill_AttackRadiusLightning2@GAME@@QAE@ABV01@@Z+0x104
+   0x000b878c  mov al, byte ptr [esi + 0x4a4]                        in ??4Skill_AttackRadiusLightning2@GAME@@QAEAAV01@ABV01@@Z+0xcc
+   0x000b8792  mov byte ptr [edi + 0x4a4], al                        in ??4Skill_AttackRadiusLightning2@GAME@@QAEAAV01@ABV01@@Z+0xd2
+   0x000b9653  mov eax, dword ptr [edi + 0x4a4]                      in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0x153
+   0x000b9659  mov dword ptr [esi + 0x4a4], eax                      in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0x159
+   0x000b97ac  mov eax, dword ptr [edi + 0x4a4]                      in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0xbc
+   0x000b97b2  mov dword ptr [esi + 0x4a4], eax                      in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0xc2
+   0x000bb6ce  lea ecx, [esi + 0x4a4]                                in ??0Skill_Modifier@GAME@@QAE@ABV01@@Z+0x1ae
+   0x000bb6df  lea edx, [edi + 0x4a4]                                in ??0Skill_Modifier@GAME@@QAE@ABV01@@Z+0x1bf
+   0x000bb940  lea eax, [edi + 0x4a4]                                in ??4Skill_Modifier@GAME@@QAEAAV01@ABV01@@Z+0xd0
+   0x000bb946  lea ecx, [esi + 0x4a4]                                in ??4Skill_Modifier@GAME@@QAEAAV01@ABV01@@Z+0xd6
+   0x000c3502  mov eax, dword ptr [esi + 0x4a4]                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x102
+   0x000c3508  mov dword ptr [edi + 0x4a4], eax                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x108
+   0x000c404d  mov eax, dword ptr [edi + 0x4a4]                      in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x11d
+   0x000c4053  mov dword ptr [esi + 0x4a4], eax                      in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x123
+   0x000c4200  mov eax, dword ptr [edi + 0x4a4]                      in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0xa0
+   0x000c4206  mov dword ptr [esi + 0x4a4], eax                      in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0xa6
+   0x000ef720  movq xmm0, qword ptr [esi + 0x4a4]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x2c0
+   0x000ef7c8  mov dword ptr [esi + 0x4a4], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x368
+   0x000f5a1d  mov dword ptr [ebx + 0x4a4], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x52d
+   0x000f64ce  mov eax, dword ptr [edi + 0x4a4]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2ce
+   0x000f64da  mov dword ptr [edi + 0x4a4], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2da
+   0x001f1221  mov eax, dword ptr [edi + 0x4a4]                      in ?BreakApart@Destructible@GAME@@QAEXABVVec3@2@M_N@Z+0x1e1
+   0x001f14bc  cmp dword ptr [esi + 0x4a4], 0                        in ?ReplicateBreakApart@Destructible@GAME@@QAEXXZ+0x1cc
+   0x001f3de0  mov dword ptr [ebx + 0x4a4], eax                      in ?Load@Destructible@GAME@@UAEXABVLoadTable@2@@Z+0x310
+   0x001f9681  mov byte ptr [ebx + 0x4a4], al                        in ?Load@DynamicDoor@GAME@@UAEXABVLoadTable@2@@Z+0xb1
+   0x001fa118  cmp byte ptr [esi + 0x4a4], 0                         in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x98
+   0x001fa1c8  cmp byte ptr [edi + 0x4a4], 0                         in ?SaveState@DynamicDoor@GAME@@UBEXAAVBinaryWriter@2@@Z+0x18
+   0x001fc3c9  mov dword ptr [edi + 0x4a4], 0                        in ??0EndlessDungeon_Generator@GAME@@QAE@XZ+0x419
+   0x00200390  mov eax, dword ptr [ecx + 0x4a4]                      in ?IncrementBonusTimeKillCounter@EndlessDungeon_Generator@GAME@@QAEXXZ
+   0x0022af6b  mov dword ptr [esi + 0x4a4], 0                        in ??0FactionPack@GAME@@QAE@XZ+0xcb
+   0x0022b178  mov dword ptr [esi + 0x4a4], 0                        in ??0FactionPack@GAME@@QAE@W4FactionType@1@@Z+0xc8
+   0x0022eed1  mov byte ptr [edi + 0x4a4], 0                         in ??0FixedDoor@GAME@@QAE@XZ+0x201
+   0x0022f649  mov byte ptr [esi + 0x4a4], al                        in ?SetAutoClose@FixedDoor@GAME@@QAEX_N@Z+0x9
+   0x0022f864  mov byte ptr [edi + 0x4a4], al                        in ?Load@FixedDoor@GAME@@UAEXABVLoadTable@2@@Z+0xb4
+   0x0022ff58  cmp byte ptr [esi + 0x4a4], 0                         in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x98
+   0x00230028  cmp byte ptr [edi + 0x4a4], 0                         in ?SaveState@FixedDoor@GAME@@UBEXAAVBinaryWriter@2@@Z+0x18
+   0x0026c20f  mov eax, dword ptr [ecx + 0x4a4]                      in ?OnCreatureDeath@GameEngine@GAME@@QAEXABUGameEvent_CreatureDeath@2@@Z+0x2ef
+   0x00309aa7  call dword ptr [eax + 0x4a4]                          in ?OnPlayerInteract@Npc@GAME@@UAEXI_N0@Z+0x27
+   0x0030d438  call dword ptr [eax + 0x4a4]                          in ?OnPlayerInteract@NpcMerchant@GAME@@UAEXI_N0@Z+0x8
+   0x00313d8b  push dword ptr [edi + 0x4a4]                          in ?SetCharacter@Paperdoll@GAME@@QAEXPAVCharacter@2@@Z+0x7b
+   0x00329c3d  call dword ptr [edx + 0x4a4]                          in ?OnAttack@Player@GAME@@UAEXPAVEntity@2@@Z+0x4d
+   0x00329c6a  call dword ptr [edx + 0x4a4]                          in ?OnDurationDamage@Player@GAME@@UAEXXZ+0x1a
+   0x003447ec  lea eax, [ebx + 0x4a4]                                in ??0ProjectileBase@GAME@@QAE@XZ+0x1bc
+   0x00344d4b  lea esi, [edi + 0x4a4]                                in ??1ProjectileBase@GAME@@UAE@XZ+0x2eb
+   0x00345232  lea ecx, [ebx + 0x4a4]                                in ?Load@ProjectileBase@GAME@@UAEXABVLoadTable@2@@Z+0x362
+   0x00348934  lea eax, [esi + 0x4a4]                                in ?CreateImpactFx@ProjectileBase@GAME@@IAEXXZ+0x14
+   0x00350c9f  mov dword ptr [edi + 0x4a4], 0                        in ??0Proxy@GAME@@QAE@XZ+0x19f
+   0x00352cc4  inc dword ptr [eax + 0x4a4]                           in ?PlaceObjects@Proxy@GAME@@IAEXAAV?$vector@I@mem@@ABV?$vector@VWorldCoords@GAME@@@4@@Z+0x1d4
+   0x00353623  mov dword ptr [esi + 0x4a4], 0                        in ?ResetSettings@Proxy@GAME@@QAEXXZ+0x53
+   0x003552ae  inc dword ptr [ebx + 0x4a4]                           in ?PlaceNextObject@ProxyAmbush@GAME@@IAEXXZ+0x1ee
+   0x003c2abf  lea eax, [ebx + 0x4a4]                                in ?GetLightning@Skill@GAME@@QBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x9f
+   0x003c2b28  lea eax, [ebx + 0x4a4]                                in ?GetLightning@Skill@GAME@@QBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x108
+   0x003c8200  mov ecx, dword ptr [edi + 0x4a4]                      in ?ApplyBuffSelfEffects@Skill@GAME@@IAEXAAVCharacter@2@_N@Z+0x210
+   0x003c821f  mov ecx, dword ptr [edi + 0x4a4]                      in ?ApplyBuffSelfEffects@Skill@GAME@@IAEXAAVCharacter@2@_N@Z+0x22f
+   0x003c85a1  mov ecx, dword ptr [edi + 0x4a4]                      in ?ApplyBuffOtherEffects@Skill@GAME@@IAEXAAVCharacter@2@_N1@Z+0x211
+   0x003c85c0  mov ecx, dword ptr [edi + 0x4a4]                      in ?ApplyBuffOtherEffects@Skill@GAME@@IAEXAAVCharacter@2@_N1@Z+0x230
+   0x003d9f9e  mov dword ptr [edi + 0x4a4], 0                        in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x17e
+   0x003da063  push dword ptr [edi + 0x4a4]                          in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x243
+   0x003da3e3  cmp dword ptr [edi + 0x4a4], 0                        in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x5c3
+   0x003da42f  mov dword ptr [edi + 0x4a4], ecx                      in ?TargetResult@Skill_AttackInherent@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x60f
+   0x003e87a1  fstp dword ptr [ebx + 0x4a4]                          in ?Load@Skill_AttackRadiusGrow@GAME@@UAEXABVLoadTable@2@@Z+0x91
+   0x003e8d80  mov eax, dword ptr [edi + 0x4a4]                      in ?ActivateNow@Skill_AttackRadiusGrow@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x250
+   0x003ed0a8  mov dword ptr [edi + 0x4a4], 0                        in ??0Skill_AttackSpellCone@GAME@@QAE@XZ+0xd8
+   0x003ed9b0  push dword ptr [edi + 0x4a4]                          in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x120
+   0x003edd81  mov dword ptr [edi + 0x4a4], eax                      in ?GetValidTarget@Skill_AttackSpellCone@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z+0x81
+   0x003f26bf  mov dword ptr [ebx + 0x4a4], eax                      in ?Load@Skill_AttackSpellReflectLink@GAME@@UAEXABVLoadTable@2@@Z+0xbf
+   0x003f2c17  mov eax, dword ptr [edi + 0x4a4]                      in ?ActivateNow@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x277
+   0x003f576c  mov byte ptr [esi + 0x4a4], 0                         in ??0Skill_AttackRadiusLightning2@GAME@@QAE@XZ+0xdc
+   0x003f57f0  mov byte ptr [edi + 0x4a4], al                        in ?Load@Skill_AttackRadiusLightning2@GAME@@UAEXABVLoadTable@2@@Z+0x20
+   0x003f5914  cmp byte ptr [edi + 0x4a4], 0                         in ?ActivateNow@Skill_AttackRadiusLightning2@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x44
+   0x00411637  lea eax, [esi + 0x4a4]                                in ??0Skill_Modifier@GAME@@QAE@XZ+0x127
+   0x00411899  lea edi, [esi + 0x4a4]                                in ??1Skill_Modifier@GAME@@UAE@XZ+0x109
+   0x00411c02  lea ecx, [edi + 0x4a4]                                in ?Load@Skill_Modifier@GAME@@UAEXABVLoadTable@2@@Z+0x1d2
+   0x004125a0  lea eax, [ecx + 0x4a4]                                in ?GetModifierLightningName@Skill_Modifier@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+   0x0044b528  mov dword ptr [edi + 0x4a4], 0                        in ??0SkillProfile@GAME@@QAE@XZ+0x828
+   0x0044ee8e  mov edx, dword ptr [edi + 0x4a4]                      in ?GetWeaponEnchantment@SkillProfile@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z+0xe
+   0x0044eead  mov ecx, dword ptr [edi + 0x4a4]                      in ?GetWeaponEnchantment@SkillProfile@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z+0x2d
+   0x0046d0f4  mov eax, dword ptr [edi + 0x4a4]                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x8f4
+   0x004749e8  mov eax, dword ptr [esi + 0x4a4]                      in ??0EndlessDungeon_Generator@GAME@@QAE@ABV01@@Z+0x3f8
+   0x004749ee  mov dword ptr [ebx + 0x4a4], eax                      in ??0EndlessDungeon_Generator@GAME@@QAE@ABV01@@Z+0x3fe
+   0x00474dd0  mov eax, dword ptr [esi + 0x4a4]                      in ??4EndlessDungeon_Generator@GAME@@QAEAAV01@ABV01@@Z+0x330
+   0x00474dd6  mov dword ptr [ebx + 0x4a4], eax                      in ??4EndlessDungeon_Generator@GAME@@QAEAAV01@ABV01@@Z+0x336
+   0x0047f454  call dword ptr [eax + 0x4a4]                          in ?Update@TickManager@GAME@@QAEXH@Z+0x224
+   0x0047f7fa  call dword ptr [eax + 0x4a4]                          in ?Tick@TickManager@GAME@@QAEXXZ+0x1fa
+
+=== [reg+0x4c0]  (117 distinct sites)
+   0x0005cb58  mov eax, dword ptr [ebx + 0x4c0]                      in ?CalculateAllocatedMemory@Character@GAME@@UBEIXZ+0x48
+   0x000b9252  mov eax, dword ptr [edi + 0x4c0]                      in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0x1c2
+   0x000b9258  mov dword ptr [esi + 0x4c0], eax                      in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0x1c8
+   0x000b9635  lea ecx, [esi + 0x4c0]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0x135
+   0x000b9677  lea eax, [edi + 0x4c0]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@ABV01@@Z+0x177
+   0x000b9794  lea ecx, [esi + 0x4c0]                                in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0xa4
+   0x000b97d0  lea eax, [edi + 0x4c0]                                in ??4Skill_AttackSpellReflectLink@GAME@@QAEAAV01@ABV01@@Z+0xe0
+   0x000b9a1a  mov eax, dword ptr [esi + 0x4c0]                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0x12a
+   0x000b9a20  mov dword ptr [edi + 0x4c0], eax                      in ??0Skill_AttackPathCharge@GAME@@QAE@ABV01@@Z+0x130
+   0x000b9b38  mov eax, dword ptr [esi + 0x4c0]                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0xf8
+   0x000b9b3e  mov dword ptr [edi + 0x4c0], eax                      in ??4Skill_AttackPathCharge@GAME@@QAEAAV01@ABV01@@Z+0xfe
+   0x000bec4e  mov eax, dword ptr [edi + 0x4c0]                      in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x17e
+   0x000bec54  mov dword ptr [esi + 0x4c0], eax                      in ??0Skill_WPAttack_AttackWave@GAME@@QAE@ABV01@@Z+0x184
+   0x000c305e  mov eax, dword ptr [edi + 0x4c0]                      in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x13e
+   0x000c3064  mov dword ptr [esi + 0x4c0], eax                      in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x144
+   0x000c322e  mov eax, dword ptr [edi + 0x4c0]                      in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0x9e
+   0x000c323a  mov dword ptr [esi + 0x4c0], eax                      in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0xaa
+   0x000c3535  mov eax, dword ptr [esi + 0x4c0]                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x135
+   0x000c353b  mov dword ptr [edi + 0x4c0], eax                      in ??0Skill_AttackSpellCone@GAME@@QAE@ABV01@@Z+0x13b
+   0x000c37ce  mov eax, dword ptr [edi + 0x4c0]                      in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x13e
+   0x000c37d4  mov dword ptr [esi + 0x4c0], eax                      in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x144
+   0x000c398e  mov eax, dword ptr [edi + 0x4c0]                      in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0x9e
+   0x000c399a  mov dword ptr [esi + 0x4c0], eax                      in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0xaa
+   0x000d6d59  mov eax, dword ptr [esi + 0x4c0]                      in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x239
+   0x000d6d60  mov dword ptr [ebx + 0x4c0], eax                      in ??0FactionPack@GAME@@QAE@ABV01@@Z+0x240
+   0x000ef754  movq xmm0, qword ptr [esi + 0x4c0]                    in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x2f4
+   0x000ef814  mov dword ptr [esi + 0x4c0], 0                        in ?InitialUpdate@ControllerGraeae@GAME@@UAEXXZ+0x3b4
+   0x000f5a63  mov dword ptr [ebx + 0x4c0], 0                        in ??0ControllerMonster@GAME@@QAE@XZ+0x573
+   0x000f64e0  mov eax, dword ptr [edi + 0x4c0]                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2e0
+   0x000f64ec  mov dword ptr [edi + 0x4c0], eax                      in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x2ec
+   0x001f92df  lea ecx, [esi + 0x4c0]                                in ?Open@DynamicDoor@GAME@@UAE_NXZ+0x11f
+   0x001fa0bc  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x3c
+   0x001fa0d0  sub eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x50
+   0x001fa0e0  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x60
+   0x001fa0fe  sub eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x7e
+   0x001fa10b  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@DynamicDoor@GAME@@UAEXH@Z+0x8b
+   0x0022afba  mov dword ptr [esi + 0x4c0], 0                        in ??0FactionPack@GAME@@QAE@XZ+0x11a
+   0x0022b1d0  mov dword ptr [esi + 0x4c0], 0                        in ??0FactionPack@GAME@@QAE@W4FactionType@1@@Z+0x120
+   0x0022df4d  cmp eax, dword ptr [esi + 0x4c0]                      in ?ResetNemesis@FactionPack@GAME@@QAEXI@Z+0x1d
+   0x0022df55  mov dword ptr [esi + 0x4c0], 0                        in ?ResetNemesis@FactionPack@GAME@@QAEXI@Z+0x25
+   0x0022dfc6  cmp dword ptr [edi + 0x4c0], 0                        in ?IncrementNemesisSpawnCounter@FactionPack@GAME@@QAEXIW4MonsterClassification@2@@Z+0x56
+   0x0022e2e7  mov dword ptr [edi + 0x4c0], eax                      in ?IncrementNemesisSpawnCounter@FactionPack@GAME@@QAEXIW4MonsterClassification@2@@Z+0x377
+   0x0022ef0a  mov dword ptr [edi + 0x4c0], 0                        in ??0FixedDoor@GAME@@QAE@XZ+0x23a
+   0x0022efe1  mov ecx, dword ptr [esi + 0x4c0]                      in ??1FixedDoor@GAME@@UAE@XZ+0x51
+   0x0022effd  mov dword ptr [esi + 0x4c0], 0                        in ??1FixedDoor@GAME@@UAE@XZ+0x6d
+   0x0022f302  lea ecx, [edi + 0x4c0]                                in ?Open@FixedDoor@GAME@@UAE_NXZ+0x122
+   0x0022fefc  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x3c
+   0x0022ff10  sub eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x50
+   0x0022ff20  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x60
+   0x0022ff3e  sub eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x7e
+   0x0022ff4b  mov eax, dword ptr [esi + 0x4c0]                      in ?UpdateSelf@FixedDoor@GAME@@UAEXH@Z+0x8b
+   0x002882e0  mov eax, dword ptr [eax + 0x4c0]                      in ?EngageNpcRequest@GameEngineInboundInterface@GAME@@UAEXII_N0@Z+0x80
+   0x00288395  mov edx, dword ptr [edx + 0x4c0]                      in ?DisengageNpc@GameEngineInboundInterface@GAME@@UAEXII@Z+0x35
+   0x002d0f05  mov edx, dword ptr [edx + 0x4c0]                      in ?GetTableName@MarketMisc_List@GAME@@MBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x305
+   0x002de21e  mov dword ptr [esi + 0x4c0], 0                        in ?ParentIsMonster@SkillManager@GAME@@QAEXXZ+0x72e
+   0x00350ce5  mov dword ptr [edi + 0x4c0], 0                        in ??0Proxy@GAME@@QAE@XZ+0x1e5
+   0x0035160a  cmp dword ptr [edi + 0x4c0], 2                        in ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z+0x24a
+   0x003516ed  cmp dword ptr [edi + 0x4c0], 2                        in ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z+0x32d
+   0x003517bf  mov eax, dword ptr [edi + 0x4c0]                      in ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z+0x3ff
+   0x00351962  cmp dword ptr [edi + 0x4c0], 2                        in ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z+0x5a2
+   0x003519ad  mov eax, dword ptr [edi + 0x4c0]                      in ?InitializePools@Proxy@GAME@@MAEXABVLoadTable@2@@Z+0x5ed
+   0x00352de3  mov ecx, dword ptr [edi + 0x4c0]                      in ?SetDesignerLimits@Proxy@GAME@@IAEXXZ+0x63
+   0x0035308f  push dword ptr [edi + 0x4c0]                          in ?SetDesignerLimits@Proxy@GAME@@IAEXXZ+0x30f
+   0x00355718  cmp dword ptr [esi + 0x4c0], 2                        in ?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z+0x2a8
+   0x00355788  mov eax, dword ptr [esi + 0x4c0]                      in ?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z+0x318
+   0x00355849  cmp dword ptr [esi + 0x4c0], 2                        in ?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z+0x3d9
+   0x003558b8  mov eax, dword ptr [esi + 0x4c0]                      in ?InitializePools@ProxyEndless@GAME@@UAEXABVLoadTable@2@@Z+0x448
+   0x003db574  cmp dword ptr [edi + 0x4c0], 0                        in ??1Skill_AttackLineFan@GAME@@UAE@XZ+0x94
+   0x003dc60e  cmp dword ptr [esi + 0x4c0], 0                        in ?TargetResult@Skill_AttackLineFan@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x62e
+   0x003de03f  mov dword ptr [edi + 0x4c0], 0                        in ??0Skill_AttackPathCharge@GAME@@QAE@XZ+0xdf
+   0x003deb32  inc dword ptr [edi + 0x4c0]                           in ?TargetResult@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x232
+   0x003dec69  mov dword ptr [edi + 0x4c0], 0                        in ?WarmUpStart@Skill_AttackPathCharge@GAME@@UAE_NAAVCharacter@2@@Z+0x69
+   0x003ded52  cmp dword ptr [esi + 0x4c0], 0                        in ?WarmUpEnd@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@I@Z+0x42
+   0x003ded76  push dword ptr [esi + 0x4c0]                          in ?WarmUpEnd@Skill_AttackPathCharge@GAME@@UAEXAAVCharacter@2@I@Z+0x66
+   0x003e83e8  mov dword ptr [esi + 0x4c0], 0                        in ??0Skill_AttackRadiusGrow@GAME@@QAE@XZ+0xe8
+   0x003e85c2  mov dword ptr [esi + 0x4c0], 0                        in ??1Skill_AttackRadiusGrow@GAME@@UAE@XZ+0xf2
+   0x003e88b9  mov eax, dword ptr [esi + 0x4c0]                      in ?ApplyCastVisualEffects@Skill_AttackRadiusGrow@GAME@@UAEXAAVCharacter@2@_N@Z+0x29
+   0x003e88e3  mov eax, dword ptr [esi + 0x4c0]                      in ?ApplyCastVisualEffects@Skill_AttackRadiusGrow@GAME@@UAEXAAVCharacter@2@_N@Z+0x53
+   0x003ed176  mov dword ptr [edi + 0x4c0], 0                        in ??0Skill_AttackSpellCone@GAME@@QAE@XZ+0x1a6
+   0x003ed94d  cmp dword ptr [edi + 0x4c0], 0                        in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xbd
+   0x003edc6f  mov dword ptr [edi + 0x4c0], eax                      in ?ActivateNow@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x3df
+   0x003ee22a  cmp eax, dword ptr [esi + 0x4c0]                      in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x2ba
+   0x003ee53f  cmp eax, dword ptr [esi + 0x4c0]                      in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x5cf
+   0x003ee62a  cmp dword ptr [esi + 0x4c0], 0                        in ?Update@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@H@Z+0x6ba
+   0x003eec2d  mov ecx, dword ptr [edi + 0x4c0]                      in ?StopEmitting@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@_N@Z+0xd
+   0x003eec5d  mov dword ptr [edi + 0x4c0], 0                        in ?StopEmitting@Skill_AttackSpellCone@GAME@@UAEXAAVCharacter@2@_N@Z+0x3d
+   0x003eee70  cmp dword ptr [esi + 0x4c0], 0                        in ?EndAction@Skill_AttackSpellCone@GAME@@UAE_NAAVCharacter@2@@Z+0x70
+   0x003ef258  mov dword ptr [edi + 0x4c0], 0                        in ??0Skill_AttackSpellDrain@GAME@@QAE@XZ+0xc8
+   0x003ef775  mov dword ptr [ebx + 0x4c0], eax                      in ?Load@Skill_AttackSpellDrain@GAME@@UAEXABVLoadTable@2@@Z+0x95
+   0x003f1582  movd xmm0, dword ptr [ebx + 0x4c0]                    in ?TargetResult@Skill_AttackSpellDrain@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x2b2
+   0x003f20a8  movd xmm0, dword ptr [esi + 0x4c0]                    in ?GetSkillModifierData@Skill_AttackSpellBeam@GAME@@UBEXAAVSkillProfile_Modifiers@2@H_N11@Z+0x38
+   0x003f2103  movd xmm0, dword ptr [esi + 0x4c0]                    in ?GetManaCostPeriod@Skill_AttackSpellBeam@GAME@@UBEMXZ+0x23
+   0x003f214e  movd xmm0, dword ptr [ecx + 0x4c0]                    in ?CalculateDPS@Skill_AttackSpellBeam@GAME@@UAEMAAUSkillAttackInfo@2@@Z+0x1e
+   0x003f2296  lea esi, [edi + 0x4c0]                                in ??0Skill_AttackSpellReflectLink@GAME@@QAE@XZ+0x116
+   0x003f23e5  lea ecx, [esi + 0x4c0]                                in ??1Skill_AttackSpellReflectLink@GAME@@UAE@XZ+0xc5
+   0x003f24ed  mov eax, dword ptr [edi + 0x4c0]                      in ?OnDestroy@Skill_AttackSpellReflectLink@GAME@@UAEXXZ+0x3d
+   0x003f25e1  cmp esi, dword ptr [eax + 0x4c0]                      in ?OnDestroy@Skill_AttackSpellReflectLink@GAME@@UAEXXZ+0x131
+   0x003f2868  mov ecx, dword ptr [esi + 0x4c0]                      in ?GetDamageReductionPercent@Skill_AttackSpellReflectLink@GAME@@QBEMXZ+0x48
+   0x003f2a89  mov eax, dword ptr [edi + 0x4c0]                      in ?ActivateNow@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xe9
+   0x003f2cc9  lea ecx, [edi + 0x4c0]                                in ?ActivateNow@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x329
+   0x003f2e56  mov edi, dword ptr [ebx + 0x4c0]                      in ?ReflectLinkDamage@Skill_AttackSpellReflectLink@GAME@@QBEXABVParametersCombat@2@@Z+0x26
+   0x003f2e5e  cmp edi, dword ptr [ebx + 0x4c0]                      in ?ReflectLinkDamage@Skill_AttackSpellReflectLink@GAME@@QBEXABVParametersCombat@2@@Z+0x2e
+   0x003f30f6  cmp edi, dword ptr [ebx + 0x4c0]                      in ?ReflectLinkDamage@Skill_AttackSpellReflectLink@GAME@@QBEXABVParametersCombat@2@@Z+0x2c6
+   0x003f3142  mov eax, dword ptr [esi + 0x4c0]                      in ?Update@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@H@Z+0x22
+   0x003f37bc  cmp edi, dword ptr [esi + 0x4c0]                      in ?Update@Skill_AttackSpellReflectLink@GAME@@UAEXAAVCharacter@2@H@Z+0x69c
+   0x003f37d0  mov ecx, dword ptr [ecx + 0x4c0]                      in ?IsTrackable@Skill_AttackSpellReflectLink@GAME@@UBE?B_NI@Z
+   0x003f3800  mov edx, dword ptr [ecx + 0x4c0]                      in ?TrackableRemainingTime@Skill_AttackSpellReflectLink@GAME@@UBE?BHI@Z
+   0x003f3851  mov eax, dword ptr [esi + 0x4c0]                      in ?TrackableTotalTime@Skill_AttackSpellReflectLink@GAME@@UBE?BHI@Z+0x21
+   0x003f3859  cmp eax, dword ptr [esi + 0x4c0]                      in ?TrackableTotalTime@Skill_AttackSpellReflectLink@GAME@@UBE?BHI@Z+0x29
+   0x003f386f  cmp eax, dword ptr [esi + 0x4c0]                      in ?TrackableTotalTime@Skill_AttackSpellReflectLink@GAME@@UBE?BHI@Z+0x3f
+   0x003f70de  mov dword ptr [ebx + 0x4c0], eax                      in ?Load@Skill_AttackSpellBeam@GAME@@UAEXABVLoadTable@2@@Z+0x5e
+   0x003f7748  movd xmm0, dword ptr [edi + 0x4c0]                    in ?ActivateNow@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x388
+   0x003f81d7  movd xmm0, dword ptr [esi + 0x4c0]                    in ?Update@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@H@Z+0x497
+   0x003fcd7e  mov dword ptr [edi + 0x4c0], 0x3fa00000               in ??0Skill_AttackWave@GAME@@QAE@XZ+0x13e
+   0x003fe687  movss xmm1, dword ptr [esi + 0x4c0]                   in ?ActivateNow@Skill_AttackWave@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x47
+   0x00424332  mov dword ptr [edi + 0x4c0], 0x40a00000               in ??0Skill_WPAttack_AttackWave@GAME@@QAE@XZ+0x112
+   0x00426c7c  movss xmm0, dword ptr [ebx + 0x4c0]                   in ?RunTargeting@Skill_WPAttack_AttackWave@GAME@@IAEXABVCharacter@2@AAV?$_List_iterator@V?$_List_val@U?$_List_simple_types@UWaveInfo@Skill_WPAttack_AttackWave@GAME@@@std@@@std@@@std@@AAV?$vector@I@mem@@_N@Z+0x26c
+
+=== [reg+0x4d8]  (72 distinct sites)
+   0x00054e53  mov eax, dword ptr [ecx + 0x4d8]                      in ?GetCombatRegionChance@Character@GAME@@QBEMW4CombatAttributeRegion@2@@Z+0x3
+   0x0005cb52  sub edx, dword ptr [ebx + 0x4d8]                      in ?CalculateAllocatedMemory@Character@GAME@@UBEIXZ+0x42
+   0x0006adcc  movzx eax, byte ptr [ebx + 0x4d8]                     in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x48c
+   0x0006add3  mov byte ptr [esi + 0x4d8], al                        in ??0ControllerMonster@GAME@@QAE@ABV01@@Z+0x493
+   0x000b9210  lea ecx, [esi + 0x4d8]                                in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0x180
+   0x000b929a  lea eax, [edi + 0x4d8]                                in ??0Skill_AttackWave@GAME@@QAE@ABV01@@Z+0x20a
+   0x000bb740  lea ecx, [esi + 0x4d8]                                in ??0Skill_Modifier@GAME@@QAE@ABV01@@Z+0x220
+   0x000bb752  lea eax, [edi + 0x4d8]                                in ??0Skill_Modifier@GAME@@QAE@ABV01@@Z+0x232
+   0x000bb97a  lea ecx, [esi + 0x4d8]                                in ??4Skill_Modifier@GAME@@QAEAAV01@ABV01@@Z+0x10a
+   0x000bb986  lea eax, [edi + 0x4d8]                                in ??4Skill_Modifier@GAME@@QAEAAV01@ABV01@@Z+0x116
+   0x000c30a6  mov eax, dword ptr [edi + 0x4d8]                      in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x186
+   0x000c30ac  mov dword ptr [esi + 0x4d8], eax                      in ??0Skill_AttackSpellBeam@GAME@@QAE@ABV01@@Z+0x18c
+   0x000c327c  mov eax, dword ptr [edi + 0x4d8]                      in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0xec
+   0x000c3282  mov dword ptr [esi + 0x4d8], eax                      in ??4Skill_AttackSpellBeam@GAME@@QAEAAV01@ABV01@@Z+0xf2
+   0x000c3816  mov eax, dword ptr [edi + 0x4d8]                      in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x186
+   0x000c381c  mov dword ptr [esi + 0x4d8], eax                      in ??0Skill_AttackSpellDrain@GAME@@QAE@ABV01@@Z+0x18c
+   0x000c39dc  mov eax, dword ptr [edi + 0x4d8]                      in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0xec
+   0x000c39e2  mov dword ptr [esi + 0x4d8], eax                      in ??4Skill_AttackSpellDrain@GAME@@QAEAAV01@ABV01@@Z+0xf2
+   0x000c40d3  movups xmm0, xmmword ptr [edi + 0x4d8]                in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x1a3
+   0x000c40de  movups xmmword ptr [esi + 0x4d8], xmm0                in ??0Skill_AttackRadiusGrow@GAME@@QAE@ABV01@@Z+0x1ae
+   0x000c4278  movups xmm0, xmmword ptr [edi + 0x4d8]                in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0x118
+   0x000c427f  movups xmmword ptr [esi + 0x4d8], xmm0                in ??4Skill_AttackRadiusGrow@GAME@@QAEAAV01@ABV01@@Z+0x11f
+   0x000f5a9f  mov dword ptr [ebx + 0x4d8], 0x1000000                in ??0ControllerMonster@GAME@@QAE@XZ+0x5af
+   0x000f6455  cmp byte ptr [edi + 0x4d8], 0                         in ?Update@ControllerMonster@GAME@@UAEXH@Z+0x255
+   0x000fb6da  mov byte ptr [esi + 0x4d8], 1                         in ?FindEnemy@ControllerMonster@GAME@@MAEXXZ+0x6a
+   0x001f383c  mov edx, dword ptr [esi + 0x4d8]                      in ??1Destructible@GAME@@UAE@XZ+0x19c
+   0x001f3865  mov dword ptr [esi + 0x4d8], 0                        in ??1Destructible@GAME@@UAE@XZ+0x1c5
+   0x001f94e1  lea ecx, [edi + 0x4d8]                                in ?RequestToUse@DynamicDoor@GAME@@UAEXI@Z+0x31
+   0x001f9e8d  mov edi, dword ptr [ebx + 0x4d8]                      in ?Load@DynamicDoor@GAME@@UAEXABVLoadTable@2@@Z+0x8bd
+   0x001f9ea0  lea ecx, [ebx + 0x4d8]                                in ?Load@DynamicDoor@GAME@@UAEXABVLoadTable@2@@Z+0x8d0
+   0x001f9eb5  lea ecx, [ebx + 0x4d8]                                in ?Load@DynamicDoor@GAME@@UAEXABVLoadTable@2@@Z+0x8e5
+   0x001fba31  lea ecx, [edi + 0x4d8]                                in ?IsOpen@FixedDoor@GAME@@UBE_NXZ+0x1d1
+   0x001fed3b  mov dword ptr [esi + 0x4d8], eax                      in ?Update@EndlessDungeon_Generator@GAME@@QAEXH@Z+0x65b
+   0x0022ef2c  lea esi, [edi + 0x4d8]                                in ??0FixedDoor@GAME@@QAE@XZ+0x25c
+   0x0022efcf  lea ecx, [esi + 0x4d8]                                in ??1FixedDoor@GAME@@UAE@XZ+0x3f
+   0x0022f6c9  lea ecx, [edi + 0x4d8]                                in ?RequestToUse@FixedDoor@GAME@@UAEXI@Z+0x19
+   0x0022fd37  lea esi, [edi + 0x4d8]                                in ?Load@FixedDoor@GAME@@UAEXABVLoadTable@2@@Z+0x587
+   0x002dddcc  cmp dword ptr [edi + 0x4d8], 0                        in ?ParentIsMonster@SkillManager@GAME@@QAEXXZ+0x2dc
+   0x002de239  mov dword ptr [esi + 0x4d8], 0                        in ?ParentIsMonster@SkillManager@GAME@@QAEXXZ+0x749
+   0x00344842  mov dword ptr [ebx + 0x4d8], 0                        in ??0ProjectileBase@GAME@@QAE@XZ+0x212
+   0x00344b02  mov eax, dword ptr [edi + 0x4d8]                      in ??1ProjectileBase@GAME@@UAE@XZ+0xa2
+   0x003452c2  mov dword ptr [ebx + 0x4d8], ecx                      in ?Load@ProjectileBase@GAME@@UAEXABVLoadTable@2@@Z+0x3f2
+   0x00346c19  mov ecx, dword ptr [esi + 0x4d8]                      in ?PreLoad@ProjectileBase@GAME@@UAE_N_N@Z+0x79
+   0x003541f3  mov dword ptr [esi + 0x4d8], 0                        in ??0ProxyAmbush@GAME@@QAE@XZ+0x43
+   0x003543b1  mov edx, dword ptr [edi + 0x4d8]                      in ??1ProxyAmbush@GAME@@UAE@XZ+0x151
+   0x003543da  mov dword ptr [edi + 0x4d8], 0                        in ??1ProxyAmbush@GAME@@UAE@XZ+0x17a
+   0x003553f5  mov dword ptr [esi + 0x4d8], 0                        in ??0ProxyEndless@GAME@@QAE@XZ+0x65
+   0x00356335  mov dword ptr [ecx + 0x4d8], eax                      in ?SetActive@ProxyEndless@GAME@@QAEX_N@Z+0x25
+   0x00356418  mov eax, dword ptr [edi + 0x4d8]                      in ?SaveState@ProxyEndless@GAME@@UBEXAAVBinaryWriter@2@@Z+0x58
+   0x003564c1  mov dword ptr [edi + 0x4d8], ecx                      in ?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0x51
+   0x00356523  mov eax, dword ptr [edi + 0x4d8]                      in ?RestoreState@ProxyEndless@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z+0xb3
+   0x003568b3  mov dword ptr [esi + 0x4d8], 0                        in ??0ProxyMenu@GAME@@QAE@XZ+0x43
+   0x00356a71  mov eax, dword ptr [edi + 0x4d8]                      in ??1ProxyMenu@GAME@@UAE@XZ+0x171
+   0x00356ae2  mov dword ptr [edi + 0x4d8], 0                        in ??1ProxyMenu@GAME@@UAE@XZ+0x1e2
+   0x003db58a  cmp dword ptr [edi + 0x4d8], 0                        in ??1Skill_AttackLineFan@GAME@@UAE@XZ+0xaa
+   0x003e841e  lea ecx, [esi + 0x4d8]                                in ??0Skill_AttackRadiusGrow@GAME@@QAE@XZ+0x11e
+   0x003ef820  fstp dword ptr [ebx + 0x4d8]                          in ?Load@Skill_AttackSpellDrain@GAME@@UAEXABVLoadTable@2@@Z+0x140
+   0x003efa7d  mov eax, dword ptr [esi + 0x4d8]                      in ?ActivateNow@Skill_AttackSpellDrain@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0xad
+   0x003f7198  fstp dword ptr [ebx + 0x4d8]                          in ?Load@Skill_AttackSpellBeam@GAME@@UAEXABVLoadTable@2@@Z+0x118
+   0x003f7b13  mov eax, dword ptr [edi + 0x4d8]                      in ?ActivateNow@Skill_AttackSpellBeam@GAME@@UAEXAAVCharacter@2@ABVName@2@IABVWorldVec3@2@@Z+0x753
+   0x003fcd53  lea eax, [edi + 0x4d8]                                in ??0Skill_AttackWave@GAME@@QAE@XZ+0x113
+   0x003fce34  lea esi, [edi + 0x4d8]                                in ??1Skill_AttackWave@GAME@@UAE@XZ+0x4
+   0x003fcf94  lea eax, [edi + 0x4d8]                                in ?OnDestroy@Skill_AttackWave@GAME@@UAEXXZ+0x44
+   0x003fd2f1  lea esi, [ebx + 0x4d8]                                in ?Load@Skill_AttackWave@GAME@@UAEXABVLoadTable@2@@Z+0x2a1
+   0x003ff308  lea eax, [edi + 0x4d8]                                in ?TargetResult@Skill_AttackWave@GAME@@UAEXAAVCharacter@2@ABV?$vector@I@mem@@ABUAttackInfo@2@@Z+0x8a8
+   0x00411675  mov dword ptr [esi + 0x4d8], 0                        in ??0Skill_Modifier@GAME@@QAE@XZ+0x165
+   0x00411857  lea ecx, [esi + 0x4d8]                                in ??1Skill_Modifier@GAME@@UAE@XZ+0xc7
+   0x00411c60  lea eax, [edi + 0x4d8]                                in ?Load@Skill_Modifier@GAME@@UAEXABVLoadTable@2@@Z+0x230
+   0x004130c9  sub edx, dword ptr [edi + 0x4d8]                      in ?GetModifierSpawnObject1@Skill_Modifier@GAME@@UBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z+0x19
+   0x004130e8  sub ecx, dword ptr [edi + 0x4d8]                      in ?GetModifierSpawnObject1@Skill_Modifier@GAME@@UBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z+0x38
+   0x00413104  mov eax, dword ptr [edi + 0x4d8]                      in ?GetModifierSpawnObject1@Skill_Modifier@GAME@@UBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z+0x54
+   0x0041a7c1  mov edx, dword ptr [esi + 0x4d8]                      in ??1Skill_Shapeshift@GAME@@UAE@XZ+0xc1
+

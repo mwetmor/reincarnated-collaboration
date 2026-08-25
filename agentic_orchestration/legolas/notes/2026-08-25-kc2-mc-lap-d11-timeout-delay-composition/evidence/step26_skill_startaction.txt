@@ -1,0 +1,30 @@
+=== 0x3cf10  @ RVA 0x0003cf10  (nearest=??4ItemSet@GAME@@QAEAAV01@ABV01@@Z+0x3c0)
+  0x0003cf10  push     ebp
+  0x0003cf11  mov      ebp, esp
+  0x0003cf13  push     esi
+  0x0003cf14  mov      esi, ecx
+  0x0003cf16  call     0x102bd0d0   ; -> ?SetAsItemSkill@Skill@GAME@@QAEXXZ+0x10
+  0x0003cf1b  test     byte ptr [ebp + 8], 1
+  0x0003cf1f  je       0x1003cf2c
+  0x0003cf21  push     0x24
+  0x0003cf23  push     esi
+  0x0003cf24  call     0x104be818   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x36b68
+  0x0003cf29  add      esp, 8
+  0x0003cf2c  mov      eax, esi
+  0x0003cf2e  pop      esi
+  0x0003cf2f  pop      ebp
+  0x0003cf30  ret      4
+  0x0003cf33  int3     
+  0x0003cf34  int3     
+  0x0003cf35  int3     
+  0x0003cf36  int3     
+  0x0003cf37  int3     
+  0x0003cf38  int3     
+  0x0003cf39  int3     
+  0x0003cf3a  int3     
+  0x0003cf3b  int3     
+  0x0003cf3c  int3     
+  0x0003cf3d  int3     
+  0x0003cf3e  int3     
+  0x0003cf3f  int3     
+

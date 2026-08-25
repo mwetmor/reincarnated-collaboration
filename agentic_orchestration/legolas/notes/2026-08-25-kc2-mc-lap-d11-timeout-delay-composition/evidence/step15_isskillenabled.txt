@@ -1,0 +1,28 @@
+=== 0x3be680  @ RVA 0x003be680  (nearest=?IsSkillEnabled@Skill@GAME@@UBE?B_NXZ)
+  0x003be680  push     esi
+  0x003be681  mov      esi, ecx
+  0x003be683  cmp      byte ptr [esi + 0x9c], 0
+  0x003be68a  je       0x103be69e
+  0x003be68c  cmp      byte ptr [esi + 0x9d], 0
+  0x003be693  jne      0x103be69e
+  0x003be695  cmp      dword ptr [esi + 0x98], 0
+  0x003be69c  jg       0x103be6b6
+  0x003be69e  mov      eax, dword ptr [esi]
+  0x003be6a0  mov      eax, dword ptr [eax + 0x2b0]
+  0x003be6a6  call     eax
+  0x003be6a8  test     al, al
+  0x003be6aa  jne      0x103be6b6
+  0x003be6ac  cmp      byte ptr [esi + 0xcd], al
+  0x003be6b2  jne      0x103be6b6
+  0x003be6b4  pop      esi
+  0x003be6b5  ret      
+  0x003be6b6  mov      al, 1
+  0x003be6b8  pop      esi
+  0x003be6b9  ret      
+  0x003be6ba  int3     
+  0x003be6bb  int3     
+  0x003be6bc  int3     
+  0x003be6bd  int3     
+  0x003be6be  int3     
+  0x003be6bf  int3     
+

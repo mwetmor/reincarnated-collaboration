@@ -1,0 +1,142 @@
+=== 0x3b29a0  @ RVA 0x003b29a0  (nearest=?Update@Skill@GAME@@UAEXAAVCharacter@2@H@Z)
+  0x003b29a0  push     ebp
+  0x003b29a1  mov      ebp, esp
+  0x003b29a3  push     ebx
+  0x003b29a4  push     esi
+  0x003b29a5  mov      esi, dword ptr [ebp + 0xc]
+  0x003b29a8  push     edi
+  0x003b29a9  mov      edi, ecx
+  0x003b29ab  mov      eax, dword ptr [edi + 0x150]
+  0x003b29b1  test     eax, eax
+  0x003b29b3  jle      0x103b29e9
+  0x003b29b5  sub      eax, esi
+  0x003b29b7  mov      dword ptr [edi + 0x150], eax
+  0x003b29bd  test     eax, eax
+  0x003b29bf  jg       0x103b29e9
+  0x003b29c1  cmp      dword ptr [edi + 0x15c], 0
+  0x003b29c8  jg       0x103b29e9
+  0x003b29ca  mov      eax, dword ptr [edi]
+  0x003b29cc  inc      dword ptr [edi + 0x158]
+  0x003b29d2  call     dword ptr [eax + 0x2e8]
+  0x003b29d8  mov      ecx, dword ptr [edi + 0x158]
+  0x003b29de  cmp      ecx, eax
+  0x003b29e0  cmovl    eax, ecx
+  0x003b29e3  mov      dword ptr [edi + 0x158], eax
+  0x003b29e9  mov      eax, dword ptr [edi + 0x15c]
+  0x003b29ef  test     eax, eax
+  0x003b29f1  jle      0x103b2a20
+  0x003b29f3  sub      eax, esi
+  0x003b29f5  mov      dword ptr [edi + 0x15c], eax
+  0x003b29fb  test     eax, eax
+  0x003b29fd  jg       0x103b2a20
+  0x003b29ff  mov      eax, dword ptr [edi]
+  0x003b2a01  mov      ecx, edi
+  0x003b2a03  inc      dword ptr [edi + 0x158]
+  0x003b2a09  call     dword ptr [eax + 0x2e8]
+  0x003b2a0f  mov      ecx, dword ptr [edi + 0x158]
+  0x003b2a15  cmp      ecx, eax
+  0x003b2a17  cmovl    eax, ecx
+  0x003b2a1a  mov      dword ptr [edi + 0x158], eax
+  0x003b2a20  mov      esi, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003b2a26  mov      ecx, dword ptr [esi + 0x27f0]
+  0x003b2a2c  mov      eax, dword ptr [ecx]
+  0x003b2a2e  call     dword ptr [eax + 0xc]
+  0x003b2a31  cmp      dword ptr [eax + 8], 0
+  0x003b2a35  je       0x103b2a56
+  0x003b2a37  mov      ecx, dword ptr [esi + 0x27f0]
+  0x003b2a3d  mov      eax, dword ptr [ecx]
+  0x003b2a3f  call     dword ptr [eax + 0xc]
+  0x003b2a42  push     dword ptr [eax + 8]
+  0x003b2a45  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x003b2a4b  mov      ecx, eax
+  0x003b2a4d  call     0x1000b260   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+  0x003b2a52  mov      esi, eax
+  0x003b2a54  jmp      0x103b2a58   ; -> ?Update@Skill@GAME@@UAEXAAVCharacter@2@H@Z+0xb8
+  0x003b2a56  xor      esi, esi
+  0x003b2a58  xor      bl, bl
+  0x003b2a5a  test     esi, esi
+  0x003b2a5c  je       0x103b2a81
+  0x003b2a5e  mov      ecx, dword ptr [edi + 0x24]
+  0x003b2a61  test     ecx, ecx
+  0x003b2a63  jne      0x103b2a71
+  0x003b2a65  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003b2a6b  add      ecx, 0x29094
+  0x003b2a71  mov      eax, dword ptr [ecx]
+  0x003b2a73  mov      esi, dword ptr [esi + 0x33e4]
+  0x003b2a79  call     dword ptr [eax + 8]
+  0x003b2a7c  cmp      eax, esi
+  0x003b2a7e  sete     bl
+  0x003b2a81  mov      ecx, dword ptr [edi + 0x24]
+  0x003b2a84  test     ecx, ecx
+  0x003b2a86  jne      0x103b2a94
+  0x003b2a88  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003b2a8e  add      ecx, 0x29094
+  0x003b2a94  mov      eax, dword ptr [ecx]
+  0x003b2a96  call     dword ptr [eax + 4]
+  0x003b2a99  test     eax, eax
+  0x003b2a9b  jne      0x103b2aa1
+  0x003b2a9d  test     bl, bl
+  0x003b2a9f  je       0x103b2afd
+  0x003b2aa1  mov      eax, dword ptr [edi]
+  0x003b2aa3  mov      ecx, edi
+  0x003b2aa5  call     dword ptr [eax + 0x338]
+  0x003b2aab  movzx    eax, byte ptr [edi + 0x164]
+  0x003b2ab2  mov      ecx, edi
+  0x003b2ab4  mov      edx, dword ptr [edi]
+  0x003b2ab6  push     0
+  0x003b2ab8  push     eax
+  0x003b2ab9  push     dword ptr [ebp + 8]
+  0x003b2abc  mov      eax, dword ptr [edx + 0x148]
+  0x003b2ac2  call     eax
+  0x003b2ac4  cmp      al, byte ptr [edi + 0x9c]
+  0x003b2aca  je       0x103b2afd
+  0x003b2acc  mov      ecx, dword ptr [edi + 0x24]
+  0x003b2acf  mov      byte ptr [edi + 0x9c], al
+  0x003b2ad5  test     ecx, ecx
+  0x003b2ad7  jne      0x103b2ae5
+  0x003b2ad9  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003b2adf  add      ecx, 0x29094
+  0x003b2ae5  mov      eax, dword ptr [ecx]
+  0x003b2ae7  call     dword ptr [eax + 4]
+  0x003b2aea  test     eax, eax
+  0x003b2aec  je       0x103b2afd
+  0x003b2aee  mov      edx, dword ptr [eax]
+  0x003b2af0  lea      ecx, [edi + 0x98]
+  0x003b2af6  push     ecx
+  0x003b2af7  push     edi
+  0x003b2af8  mov      ecx, eax
+  0x003b2afa  call     dword ptr [edx + 0x14]
+  0x003b2afd  mov      esi, dword ptr [edi + 0xd0]
+  0x003b2b03  cmp      esi, dword ptr [edi + 0xd4]
+  0x003b2b09  je       0x103b2b4e
+  0x003b2b0b  lea      ebx, [esi + 4]
+  0x003b2b0e  nop      
+  0x003b2b10  push     dword ptr [esi]
+  0x003b2b12  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x003b2b18  mov      ecx, eax
+  0x003b2b1a  call     0x100fd240   ; -> ?GetDyingSkillCallback@ControllerMonster@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x6a0
+  0x003b2b1f  test     eax, eax
+  0x003b2b21  jne      0x103b2b40
+  0x003b2b23  mov      eax, dword ptr [edi + 0xd4]
+  0x003b2b29  sub      eax, ebx
+  0x003b2b2b  push     eax
+  0x003b2b2c  push     ebx
+  0x003b2b2d  push     esi
+  0x003b2b2e  call     dword ptr [0x104e63e4]   ; f32=1.17327e-38 i32=8372762 f64=2.82655e-306
+  0x003b2b34  add      esp, 0xc
+  0x003b2b37  add      dword ptr [edi + 0xd4], -4
+  0x003b2b3e  jmp      0x103b2b46   ; -> ?Update@Skill@GAME@@UAEXAAVCharacter@2@H@Z+0x1a6
+  0x003b2b40  add      esi, 4
+  0x003b2b43  add      ebx, 4
+  0x003b2b46  cmp      esi, dword ptr [edi + 0xd4]
+  0x003b2b4c  jne      0x103b2b10
+  0x003b2b4e  push     dword ptr [ebp + 8]
+  0x003b2b51  mov      ecx, edi
+  0x003b2b53  call     0x103c87c0   ; -> ?UpdateFxVisibility@Skill@GAME@@IAEXAAVCharacter@2@@Z
+  0x003b2b58  pop      edi
+  0x003b2b59  pop      esi
+  0x003b2b5a  pop      ebx
+  0x003b2b5b  pop      ebp
+  0x003b2b5c  ret      8
+  0x003b2b5f  int3     
+

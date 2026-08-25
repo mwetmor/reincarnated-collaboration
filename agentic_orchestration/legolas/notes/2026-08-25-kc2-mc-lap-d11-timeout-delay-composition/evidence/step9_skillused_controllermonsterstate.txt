@@ -1,0 +1,39 @@
+=== 0xd14d0  @ RVA 0x000d14d0  (nearest=?SkillUsed@?$ControllerMonsterState@VControllerSpirit@GAME@@VMonster@2@@GAME@@MAEXI@Z)
+  0x000d14d0  push     ebp
+  0x000d14d1  mov      ebp, esp
+  0x000d14d3  mov      edx, dword ptr [ebp + 8]
+  0x000d14d6  test     edx, edx
+  0x000d14d8  je       0x100d1510
+  0x000d14da  push     esi
+  0x000d14db  mov      esi, dword ptr [ecx + 4]
+  0x000d14de  xor      eax, eax
+  0x000d14e0  lea      ecx, [esi + 0x3ec]
+  0x000d14e6  cmp      edx, dword ptr [ecx]
+  0x000d14e8  je       0x100d14f8
+  0x000d14ea  inc      eax
+  0x000d14eb  add      ecx, 0x1c
+  0x000d14ee  cmp      eax, 8
+  0x000d14f1  jl       0x100d14e6
+  0x000d14f3  pop      esi
+  0x000d14f4  pop      ebp
+  0x000d14f5  ret      4
+  0x000d14f8  lea      ecx, [eax*8]
+  0x000d14ff  sub      ecx, eax
+  0x000d1501  mov      eax, dword ptr [esi + ecx*4 + 0x3f4]
+  0x000d1508  mov      dword ptr [esi + ecx*4 + 0x3f8], eax
+  0x000d150f  pop      esi
+  0x000d1510  pop      ebp
+  0x000d1511  ret      4
+  0x000d1514  int3     
+  0x000d1515  int3     
+  0x000d1516  int3     
+  0x000d1517  int3     
+  0x000d1518  int3     
+  0x000d1519  int3     
+  0x000d151a  int3     
+  0x000d151b  int3     
+  0x000d151c  int3     
+  0x000d151d  int3     
+  0x000d151e  int3     
+  0x000d151f  int3     
+

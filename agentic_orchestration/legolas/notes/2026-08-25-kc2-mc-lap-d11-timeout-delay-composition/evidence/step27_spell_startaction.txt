@@ -1,0 +1,65 @@
+=== 0x42b310  @ RVA 0x0042b310  (nearest=?StartAction@SkillActivatedSpell@GAME@@UAE_NAAVCharacter@2@IABVWorldVec3@2@IABUTargetLeadingData@2@@Z)
+  0x0042b310  push     ebp
+  0x0042b311  mov      ebp, esp
+  0x0042b313  push     esi
+  0x0042b314  mov      esi, ecx
+  0x0042b316  mov      eax, dword ptr [esi]
+  0x0042b318  mov      eax, dword ptr [eax + 0xf4]
+  0x0042b31e  call     eax
+  0x0042b320  test     al, al
+  0x0042b322  je       0x1042b39f
+  0x0042b324  mov      eax, dword ptr [ebp + 0x18]
+  0x0042b327  mov      ecx, dword ptr [esi + 0x24]
+  0x0042b32a  movups   xmm0, xmmword ptr [eax]
+  0x0042b32d  movups   xmmword ptr [esi + 0x428], xmm0
+  0x0042b334  mov      eax, dword ptr [eax + 0x10]
+  0x0042b337  mov      dword ptr [esi + 0x438], eax
+  0x0042b33d  test     ecx, ecx
+  0x0042b33f  jne      0x1042b34d
+  0x0042b341  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x0042b347  add      ecx, 0x29094
+  0x0042b34d  mov      eax, dword ptr [ecx]
+  0x0042b34f  mov      eax, dword ptr [eax + 0x5c]
+  0x0042b352  call     eax
+  0x0042b354  push     0
+  0x0042b356  push     ecx
+  0x0042b357  fstp     dword ptr [ebp + 0x18]
+  0x0042b35a  movss    xmm0, dword ptr [ebp + 0x18]
+  0x0042b35f  mov      ecx, esi
+  0x0042b361  movss    dword ptr [esp], xmm0
+  0x0042b366  push     dword ptr [ebp + 8]
+  0x0042b369  call     0x103c1880   ; -> ?StartSpecialAnimation@Skill@GAME@@QAE?B_NAAVCharacter@2@M_N@Z
+  0x0042b36e  test     al, al
+  0x0042b370  jne      0x1042b398
+  0x0042b372  movss    xmm0, dword ptr [ebp + 0x18]
+  0x0042b377  push     0
+  0x0042b379  push     0
+  0x0042b37b  push     ecx
+  0x0042b37c  movss    dword ptr [esp], xmm0
+  0x0042b381  mov      ecx, esi
+  0x0042b383  push     dword ptr [0x104e52b0]   ; f32=1.16458e-38 i32=8310708 f64=2.74234e-306
+  0x0042b389  push     0x10
+  0x0042b38b  push     dword ptr [ebp + 8]
+  0x0042b38e  call     0x103c1ab0   ; -> ?StartNormalAnimation@Skill@GAME@@QAE?B_NAAVCharacter@2@W4AnimationSet_Type@2@ABVName@2@M_NI@Z
+  0x0042b393  pop      esi
+  0x0042b394  pop      ebp
+  0x0042b395  ret      0x14
+  0x0042b398  mov      al, 1
+  0x0042b39a  pop      esi
+  0x0042b39b  pop      ebp
+  0x0042b39c  ret      0x14
+  0x0042b39f  xor      al, al
+  0x0042b3a1  pop      esi
+  0x0042b3a2  pop      ebp
+  0x0042b3a3  ret      0x14
+  0x0042b3a6  int3     
+  0x0042b3a7  int3     
+  0x0042b3a8  int3     
+  0x0042b3a9  int3     
+  0x0042b3aa  int3     
+  0x0042b3ab  int3     
+  0x0042b3ac  int3     
+  0x0042b3ad  int3     
+  0x0042b3ae  int3     
+  0x0042b3af  int3     
+

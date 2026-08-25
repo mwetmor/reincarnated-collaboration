@@ -1,0 +1,64 @@
+0x003be680  n= 150  ?IsSkillEnabled@Skill@GAME@@UBE?B_NXZ
+      e.g. Skill, SkillActivated, SkillActivatedBuffOther, SkillActivatedBuffSelf, SkillActivatedSpell, SkillActivatedWeapon, SkillActivatedWeaponPool, SkillActivated_Suicide
+0x003be3f0  n=  31  ?GetSkillLevel@Skill@GAME@@QBE?BIXZ
+      e.g. SkillBuff, SkillBuff_BuffImmobilize, SkillBuff_Contageous, SkillBuff_Debuf, SkillBuff_DebufFreeze, SkillBuff_DebufProjectile, SkillBuff_DebufRadius, SkillBuff_DebufTrap
+0x00411d60  n=  10  ?IsSkillEnabled@Skill_Modifier@GAME@@UBE?B_NXZ
+      e.g. Skill_MeleeModifier, Skill_MeleeModifierRadius, Skill_Modifier, Skill_PotionContainer, Skill_PotionModifier, Skill_ProjectileModifier, Skill_ProjectileTransmuter, Skill_RefreshCooldownModifier
+0x0042dcb0  n=   5  ?AddJitter@SkillAttribute@GAME@@UAEXMPAVRandomUniform@2@@Z
+      e.g. SkillAttributeMod_CooldownReduction, SkillAttributeMod_ManaCostReduction, SkillAttributeVal, SkillAttributeVal_ComboChargeSpendReduction, SkillAttributeVal_CooldownReduction
+0x004bfc48  n=   3  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x37f98
+      e.g. SkillManager, SkillManagerBase
+0x00430860  n=   2  ?Load@SkillAttributeStore_Max@GAME@@UAEXABVLoadTable@2@PBV32@11_NM@Z+0xfe0
+      e.g. SkillAttributeAccumulator, SkillAttributeVal_ProjectileSpeedModifier
+0x000a98a0  n=   1  ?Execute@SkillTargetResultConfigCmd@GAME@@UAEXXZ
+      e.g. SkillActiveStateUpdateConfigCmd
+0x002e39a0  n=   1  ?GetPacketDescription@ReleaseStunConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
+      e.g. SkillActiveStateUpdateConfigCmdPacket
+0x001a6180  n=   1  ?MaxJitter@DefenseAttribute_Typical@GAME@@UAEXM@Z
+      e.g. SkillAttribute
+0x001a5920  n=   1  ?MergeDefense@DefenseAttribute_Typical@GAME@@UAE_NPAVDefenseAttribute@2@@Z
+      e.g. SkillAttributeMod
+0x000dd630  n=   1  ?AddGlobalAndAttribute@DamageAttributeStore@GAME@@UAEXPAVDamageAttribute@2@@Z
+      e.g. SkillAttributeStore
+0x004be182  n=   1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x364d2
+      e.g. SkillAttributeStore_Equipment
+0x001b08a0  n=   1  ?CreateText@DefenseAttributeStore@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0I_N@Z
+      e.g. SkillAttributeStore_Max
+0x00097b30  n=   1  ?CreateNextText@CharAttributeStore@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@0II@Z
+      e.g. SkillAttributeStore_Min
+0x0042eb40  n=   1  ?CreateText@SkillAttributeStore@GAME@@UBEXAAV?$vector@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@mem@@I_N@Z
+      e.g. SkillAttributeStore_Skill
+0x00430900  n=   1  ?Load@SkillAttributeStore_Max@GAME@@UAEXABVLoadTable@2@PBV32@11_NM@Z+0x1080
+      e.g. SkillAttributeVal_ManaCostReduction
+0x000a9a80  n=   1  ?Execute@IncrementBaseStrengthConfigCmd@GAME@@UAEXXZ
+      e.g. SkillAugmentUpdateConfigCmd
+0x002e3ac0  n=   1  ?GetPacketDescription@ReleaseKnockdownConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
+      e.g. SkillAugmentUpdateConfigCmdPacket
+0x0029a530  n=   1  ?ShouldSaveState@Item@GAME@@UBE_NXZ
+      e.g. SkillAutoCastController
+0x000a9be0  n=   1  ?Execute@DecrementBaseStrengthConfigCmd@GAME@@UAEXXZ
+      e.g. SkillComboChargeUpdateConfigCmd
+0x002e3be0  n=   1  ?GetPacketDescription@ReleaseSleepConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
+      e.g. SkillComboChargeUpdateConfigCmdPacket
+0x0029a6f0  n=   1  ?WriteReplicationData@Item@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z
+      e.g. SkillLocation
+0x00231990  n=   1  ?WriteReplicationData@FixedItem@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z
+      e.g. SkillLocation
+0x004be398  n=   1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x366e8
+      e.g. SkillLocation
+0x0044c450  n=   1  ?LoadProfile@SkillProfile@GAME@@UAEXABVLoadTable@2@@Z
+      e.g. SkillManagerLite
+0x004be1ee  n=   1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x3653e
+      e.g. SkillProfile
+0x0045c9b0  n=   1  ?CalculateAllocatedMemory@SkillServices_Character@GAME@@UBEIXZ
+      e.g. SkillServicesBase
+0x000084d0  n=   1  ?AddTimeToLive@Skill@GAME@@UAEXH@Z
+      e.g. SkillServices_Character
+0x000a9710  n=   1  ?Execute@RemovePetConfigCmd@GAME@@UAEXXZ
+      e.g. SkillStateUpdateConfigCmd
+0x002e3880  n=   1  ?GetPacketDescription@ReleaseTrapConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
+      e.g. SkillStateUpdateConfigCmdPacket
+0x004be17c  n=   1  ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x364cc
+      e.g. SkillTargetResultConfigCmd
+0x002e05b0  n=   1  ?GetPacketDescription@ReleasePetConfigCmdPacket@GAME@@UAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
+      e.g. SkillTargetResultConfigCmdPacket

@@ -1,0 +1,66 @@
+=== 0x5e070  @ RVA 0x0005e070  (nearest=?GetValidTarget@Skill_Move@GAME@@UBE?B_NABVCharacter@2@AAIABVWorldVec3@2@_NM@Z)
+  0x0005e070  xor      al, al
+  0x0005e072  ret      0x14
+  0x0005e075  int3     
+  0x0005e076  int3     
+  0x0005e077  int3     
+  0x0005e078  int3     
+  0x0005e079  int3     
+  0x0005e07a  int3     
+  0x0005e07b  int3     
+  0x0005e07c  int3     
+  0x0005e07d  int3     
+  0x0005e07e  int3     
+  0x0005e07f  int3     
+
+=== 0x3e7bb0  @ RVA 0x003e7bb0  (nearest=?WarmUpStart@Skill_AttackRadius@GAME@@UAE_NAAVCharacter@2@@Z)
+  0x003e7bb0  push     ebp
+  0x003e7bb1  mov      ebp, esp
+  0x003e7bb3  push     ecx
+  0x003e7bb4  push     esi
+  0x003e7bb5  mov      esi, ecx
+  0x003e7bb7  mov      eax, dword ptr [esi]
+  0x003e7bb9  mov      eax, dword ptr [eax + 0xf4]
+  0x003e7bbf  call     eax
+  0x003e7bc1  test     al, al
+  0x003e7bc3  je       0x103e7c0b
+  0x003e7bc5  mov      ecx, esi
+  0x003e7bc7  call     0x103bf6b0   ; -> ?GetManaCost@Skill@GAME@@QBE?BMXZ
+  0x003e7bcc  mov      ecx, dword ptr [esi + 0x24]
+  0x003e7bcf  fstp     dword ptr [ebp - 4]
+  0x003e7bd2  test     ecx, ecx
+  0x003e7bd4  jne      0x103e7be2
+  0x003e7bd6  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x003e7bdc  add      ecx, 0x29094
+  0x003e7be2  mov      eax, dword ptr [ecx]
+  0x003e7be4  movss    xmm0, dword ptr [ebp - 4]
+  0x003e7be9  push     ecx
+  0x003e7bea  movss    dword ptr [esp], xmm0
+  0x003e7bef  call     dword ptr [eax + 0x20]
+  0x003e7bf2  push     0
+  0x003e7bf4  mov      ecx, esi
+  0x003e7bf6  call     0x103beda0   ; -> ?StartCooldown@Skill@GAME@@QAEX_N@Z
+  0x003e7bfb  mov      byte ptr [esi + 0x448], 1
+  0x003e7c02  mov      al, 1
+  0x003e7c04  pop      esi
+  0x003e7c05  mov      esp, ebp
+  0x003e7c07  pop      ebp
+  0x003e7c08  ret      4
+  0x003e7c0b  xor      al, al
+  0x003e7c0d  pop      esi
+  0x003e7c0e  mov      esp, ebp
+  0x003e7c10  pop      ebp
+  0x003e7c11  ret      4
+  0x003e7c14  int3     
+  0x003e7c15  int3     
+  0x003e7c16  int3     
+  0x003e7c17  int3     
+  0x003e7c18  int3     
+  0x003e7c19  int3     
+  0x003e7c1a  int3     
+  0x003e7c1b  int3     
+  0x003e7c1c  int3     
+  0x003e7c1d  int3     
+  0x003e7c1e  int3     
+  0x003e7c1f  int3     
+

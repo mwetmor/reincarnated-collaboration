@@ -1,0 +1,64 @@
+=== 0xfb670  @ RVA 0x000fb670  (nearest=?FindEnemy@ControllerMonster@GAME@@MAEXXZ)
+  0x000fb670  push     ebp
+  0x000fb671  mov      ebp, esp
+  0x000fb673  sub      esp, 8
+  0x000fb676  push     esi
+  0x000fb677  mov      esi, ecx
+  0x000fb679  push     edi
+  0x000fb67a  lea      ecx, [esi + 0x2b8]
+  0x000fb680  call     0x1000fb70   ; -> ?HasOnlyPetTargets@AngerManager@GAME@@QBE_NXZ
+  0x000fb685  test     al, al
+  0x000fb687  je       0x100fb68f
+  0x000fb689  mov      byte ptr [ebp - 4], 0
+  0x000fb68d  jmp      0x100fb698   ; -> ?FindEnemy@ControllerMonster@GAME@@MAEXXZ+0x28
+  0x000fb68f  mov      al, byte ptr [esi + 0x578]
+  0x000fb695  mov      byte ptr [ebp - 4], al
+  0x000fb698  mov      al, byte ptr [esi + 0x4d9]
+  0x000fb69e  movss    xmm0, dword ptr [esi + 0x294]
+  0x000fb6a6  mov      byte ptr [ebp - 8], al
+  0x000fb6a9  movzx    eax, byte ptr [esi + 0x585]
+  0x000fb6b0  push     eax
+  0x000fb6b1  movzx    eax, byte ptr [esi + 0x584]
+  0x000fb6b8  push     eax
+  0x000fb6b9  push     dword ptr [esi + 0x580]
+  0x000fb6bf  push     dword ptr [ebp - 4]
+  0x000fb6c2  push     dword ptr [ebp - 8]
+  0x000fb6c5  push     ecx
+  0x000fb6c6  lea      ecx, [esi + 0x2b8]
+  0x000fb6cc  movss    dword ptr [esp], xmm0
+  0x000fb6d1  call     0x1000f850   ; -> ?GetNewTarget@AngerManager@GAME@@QAEPAVCharacter@2@M_N0H00@Z
+  0x000fb6d6  test     eax, eax
+  0x000fb6d8  je       0x100fb70d
+  0x000fb6da  mov      byte ptr [esi + 0x4d8], 1
+  0x000fb6e1  cmp      dword ptr [esi + 0x214], 0
+  0x000fb6e8  je       0x100fb6f7
+  0x000fb6ea  mov      ecx, dword ptr [esi + 0x210]
+  0x000fb6f0  mov      ecx, dword ptr [ecx]
+  0x000fb6f2  mov      edi, dword ptr [ecx + 8]
+  0x000fb6f5  jmp      0x100fb6fd   ; -> ?FindEnemy@ControllerMonster@GAME@@MAEXXZ+0x8d
+  0x000fb6f7  mov      edi, dword ptr [esi + 0x1e4]
+  0x000fb6fd  mov      esi, dword ptr [edi]
+  0x000fb6ff  mov      ecx, eax
+  0x000fb701  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000fb707  push     eax
+  0x000fb708  mov      ecx, edi
+  0x000fb70a  call     dword ptr [esi + 0x18]
+  0x000fb70d  pop      edi
+  0x000fb70e  pop      esi
+  0x000fb70f  mov      esp, ebp
+  0x000fb711  pop      ebp
+  0x000fb712  ret      
+  0x000fb713  int3     
+  0x000fb714  int3     
+  0x000fb715  int3     
+  0x000fb716  int3     
+  0x000fb717  int3     
+  0x000fb718  int3     
+  0x000fb719  int3     
+  0x000fb71a  int3     
+  0x000fb71b  int3     
+  0x000fb71c  int3     
+  0x000fb71d  int3     
+  0x000fb71e  int3     
+  0x000fb71f  int3     
+

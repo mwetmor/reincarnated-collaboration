@@ -1,0 +1,87 @@
+=== 0x3bf880  @ RVA 0x003bf880  (nearest=?SetAvailability@Skill@GAME@@UAE_NAAVCharacter@2@_N1@Z)
+  0x003bf880  push     ebp
+  0x003bf881  mov      ebp, esp
+  0x003bf883  push     esi
+  0x003bf884  mov      esi, ecx
+  0x003bf886  call     0x103bf780   ; -> ?IsManaAvailable@Skill@GAME@@QBE_NXZ
+  0x003bf88b  test     al, al
+  0x003bf88d  mov      ecx, esi
+  0x003bf88f  sete     al
+  0x003bf892  cmp      dword ptr [esi + 0x150], 0
+  0x003bf899  mov      byte ptr [esi + 0x85], al
+  0x003bf89f  setg     al
+  0x003bf8a2  mov      byte ptr [esi + 0x86], al
+  0x003bf8a8  call     0x103beb90   ; -> ?QualifyingWeapon@Skill@GAME@@QBE?B_NXZ
+  0x003bf8ad  test     al, al
+  0x003bf8af  mov      ecx, esi
+  0x003bf8b1  sete     al
+  0x003bf8b4  mov      byte ptr [esi + 0x87], al
+  0x003bf8ba  call     0x103bec70   ; -> ?QualifyingHandState@Skill@GAME@@QBE?B_NXZ
+  0x003bf8bf  test     al, al
+  0x003bf8c1  mov      ecx, esi
+  0x003bf8c3  sete     al
+  0x003bf8c6  mov      byte ptr [esi + 0x88], al
+  0x003bf8cc  mov      eax, dword ptr [esi]
+  0x003bf8ce  call     dword ptr [eax + 0x2e4]
+  0x003bf8d4  cmp      eax, 1
+  0x003bf8d7  setl     al
+  0x003bf8da  cmp      byte ptr [ebp + 0xc], 0
+  0x003bf8de  mov      byte ptr [esi + 0x89], al
+  0x003bf8e4  jne      0x103bf900
+  0x003bf8e6  cmp      byte ptr [esi + 0x85], 0
+  0x003bf8ed  je       0x103bf900
+  0x003bf8ef  mov      dword ptr [esi + 0x80], 2
+  0x003bf8f9  xor      al, al
+  0x003bf8fb  pop      esi
+  0x003bf8fc  pop      ebp
+  0x003bf8fd  ret      0xc
+  0x003bf900  cmp      byte ptr [ebp + 0x10], 0
+  0x003bf904  jne      0x103bf924
+  0x003bf906  cmp      byte ptr [esi + 0x86], 0
+  0x003bf90d  jne      0x103bf913
+  0x003bf90f  test     al, al
+  0x003bf911  je       0x103bf924
+  0x003bf913  mov      dword ptr [esi + 0x80], 1
+  0x003bf91d  xor      al, al
+  0x003bf91f  pop      esi
+  0x003bf920  pop      ebp
+  0x003bf921  ret      0xc
+  0x003bf924  cmp      byte ptr [esi + 0x87], 0
+  0x003bf92b  jne      0x103bf936
+  0x003bf92d  cmp      byte ptr [esi + 0x88], 0
+  0x003bf934  je       0x103bf947
+  0x003bf936  mov      dword ptr [esi + 0x80], 4
+  0x003bf940  xor      al, al
+  0x003bf942  pop      esi
+  0x003bf943  pop      ebp
+  0x003bf944  ret      0xc
+  0x003bf947  mov      eax, dword ptr [esi]
+  0x003bf949  mov      ecx, esi
+  0x003bf94b  call     dword ptr [eax + 0xe4]
+  0x003bf951  test     eax, eax
+  0x003bf953  jne      0x103bf966
+  0x003bf955  mov      dword ptr [esi + 0x80], 5
+  0x003bf95f  xor      al, al
+  0x003bf961  pop      esi
+  0x003bf962  pop      ebp
+  0x003bf963  ret      0xc
+  0x003bf966  mov      ecx, dword ptr [esi + 0x140]
+  0x003bf96c  test     ecx, ecx
+  0x003bf96e  je       0x103bf98c
+  0x003bf970  mov      eax, dword ptr [ebp + 8]
+  0x003bf973  cmp      dword ptr [eax + 0x86c], ecx
+  0x003bf979  je       0x103bf98c
+  0x003bf97b  mov      dword ptr [esi + 0x80], 7
+  0x003bf985  xor      al, al
+  0x003bf987  pop      esi
+  0x003bf988  pop      ebp
+  0x003bf989  ret      0xc
+  0x003bf98c  mov      dword ptr [esi + 0x80], 0
+  0x003bf996  mov      al, 1
+  0x003bf998  pop      esi
+  0x003bf999  pop      ebp
+  0x003bf99a  ret      0xc
+  0x003bf99d  int3     
+  0x003bf99e  int3     
+  0x003bf99f  int3     
+

@@ -1,0 +1,23 @@
+=== ??_7Skill@GAME@@6B@ @ 0x00590ed4
+  +0x0f4 (slot   61) -> 0x003be680  ?IsSkillEnabled@Skill@GAME@@UBE?B_NXZ
+        esi
+        esi, ecx
+        byte ptr [esi + 0x9c], 0
+        0x103be69e
+        byte ptr [esi + 0x9d], 0
+        0x103be69e
+  +0x0f0 (slot   60) -> 0x00009470  ?GetChanceWeight@Skill@GAME@@UBE?BI_N@Z
+        eax, eax
+        4
+          0x00009475  int3     
+          0x00009476  int3     
+          0x00009477  int3     
+          0x00009478  int3     
+  +0x0f8 (slot   62) -> 0x0000c3e0  ?IsActive@Skill@GAME@@UBE_NXZ
+        al, al
+          0x0000c3e2  ret      
+          0x0000c3e3  int3     
+          0x0000c3e4  int3     
+          0x0000c3e5  int3     
+          0x0000c3e6  int3     
+

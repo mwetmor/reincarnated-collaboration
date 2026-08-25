@@ -1,0 +1,141 @@
+=== 0x6d440  @ RVA 0x0006d440  (nearest=?Execute@AttackAction@GAME@@UAEXXZ)
+  0x0006d440  push     ebp
+  0x0006d441  mov      ebp, esp
+  0x0006d443  sub      esp, 8
+  0x0006d446  push     ebx
+  0x0006d447  mov      ebx, dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0006d44d  push     esi
+  0x0006d44e  mov      esi, ecx
+  0x0006d450  push     edi
+  0x0006d451  push     dword ptr [esi + 4]
+  0x0006d454  call     ebx
+  0x0006d456  mov      ecx, eax
+  0x0006d458  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0006d45d  mov      edi, eax
+  0x0006d45f  test     edi, edi
+  0x0006d461  je       0x1006d5bf
+  0x0006d467  mov      eax, dword ptr [edi]
+  0x0006d469  mov      ecx, edi
+  0x0006d46b  mov      eax, dword ptr [eax + 0x22c]
+  0x0006d471  call     eax
+  0x0006d473  mov      ecx, esi
+  0x0006d475  test     al, al
+  0x0006d477  je       0x1006d5c1
+  0x0006d47d  call     0x1006d3d0   ; -> ?GetTargetIsValid@AttackAction@GAME@@IBE_NXZ
+  0x0006d482  test     al, al
+  0x0006d484  je       0x1006d5bf
+  0x0006d48a  mov      ecx, dword ptr [esi + 0x48]
+  0x0006d48d  mov      dword ptr [ebp - 4], ecx
+  0x0006d490  push     ecx
+  0x0006d491  lea      ecx, [edi + 0x600]
+  0x0006d497  call     0x1043c8b0   ; -> ?GetSkillIdFromReference@SkillManager@GAME@@QBE?BII@Z
+  0x0006d49c  push     eax
+  0x0006d49d  call     ebx
+  0x0006d49f  mov      ecx, eax
+  0x0006d4a1  call     0x100629c0   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x8d0
+  0x0006d4a6  mov      ecx, eax
+  0x0006d4a8  test     ecx, ecx
+  0x0006d4aa  je       0x1006d4fa
+  0x0006d4ac  mov      eax, dword ptr [ecx]
+  0x0006d4ae  mov      eax, dword ptr [eax + 0x360]
+  0x0006d4b4  call     eax
+  0x0006d4b6  test     al, al
+  0x0006d4b8  je       0x1006d4fa
+  0x0006d4ba  push     dword ptr [ebp - 4]
+  0x0006d4bd  lea      ecx, [edi + 0x600]
+  0x0006d4c3  call     0x1043c8b0   ; -> ?GetSkillIdFromReference@SkillManager@GAME@@QBE?BII@Z
+  0x0006d4c8  push     eax
+  0x0006d4c9  call     ebx
+  0x0006d4cb  mov      ecx, eax
+  0x0006d4cd  call     0x100629c0   ; -> ?GetSkillUseTolerance@?$ControllerAIStateT@VControllerNpc2@GAME@@VNpc@2@@GAME@@MBEMI@Z+0x8d0
+  0x0006d4d2  mov      ecx, eax
+  0x0006d4d4  test     ecx, ecx
+  0x0006d4d6  je       0x1006d4fa
+  0x0006d4d8  mov      eax, dword ptr [ecx]
+  0x0006d4da  push     dword ptr [edi + 0x60c]
+  0x0006d4e0  mov      eax, dword ptr [eax + 0x358]
+  0x0006d4e6  call     eax
+  0x0006d4e8  test     al, al
+  0x0006d4ea  je       0x1006d4fa
+  0x0006d4ec  mov      ecx, edi
+  0x0006d4ee  mov      byte ptr [edi + 0x1cbb], 1
+  0x0006d4f5  call     0x10054470   ; -> ?ForceSpeedUpdate@Character@GAME@@QAEXXZ
+  0x0006d4fa  xor      eax, eax
+  0x0006d4fc  cmp      byte ptr [edi + 0x1cb8], al
+  0x0006d502  sete     al
+  0x0006d505  mov      byte ptr [edi + 0x1cb4], al
+  0x0006d50b  cmp      byte ptr [edi + 0x1111], 0
+  0x0006d512  mov      eax, dword ptr [esi + 0x34]
+  0x0006d515  mov      edx, dword ptr [esi + 0x4c]
+  0x0006d518  mov      dword ptr [ebp - 4], eax
+  0x0006d51b  mov      eax, dword ptr [esi + 0x48]
+  0x0006d51e  mov      dword ptr [ebp - 8], eax
+  0x0006d521  je       0x1006d52a
+  0x0006d523  mov      byte ptr [edi + 0x10f8], 1
+  0x0006d52a  lea      eax, [esi + 0x50]
+  0x0006d52d  push     eax
+  0x0006d52e  push     edx
+  0x0006d52f  lea      ecx, [esi + 0x38]
+  0x0006d532  push     ecx
+  0x0006d533  push     dword ptr [ebp - 4]
+  0x0006d536  lea      ecx, [edi + 0x600]
+  0x0006d53c  push     dword ptr [ebp - 8]
+  0x0006d53f  call     0x1043da20   ; -> ?StartSkill@SkillManager@GAME@@QAE?B_NIIABVWorldVec3@2@IABUTargetLeadingData@2@@Z
+  0x0006d544  test     al, al
+  0x0006d546  je       0x1006d5a5
+  0x0006d548  mov      eax, dword ptr [edi]
+  0x0006d54a  mov      ecx, edi
+  0x0006d54c  push     7
+  0x0006d54e  call     dword ptr [eax + 0x224]
+  0x0006d554  push     dword ptr [esi + 0x48]
+  0x0006d557  lea      eax, [esi + 0x38]
+  0x0006d55a  mov      ecx, edi
+  0x0006d55c  push     eax
+  0x0006d55d  push     dword ptr [esi + 0x34]
+  0x0006d560  call     0x10049770   ; -> ?SetCurrentAttackTarget@Character@GAME@@QAEXIABVWorldVec3@2@H@Z
+  0x0006d565  push     dword ptr [esi + 0x48]
+  0x0006d568  lea      ecx, [edi + 0x600]
+  0x0006d56e  call     0x1043c8b0   ; -> ?GetSkillIdFromReference@SkillManager@GAME@@QBE?BII@Z
+  0x0006d573  push     eax
+  0x0006d574  call     ebx
+  0x0006d576  mov      ecx, eax
+  0x0006d578  call     0x1000d4f0   ; -> ?CreateUISummaryText@AmbientCharacter@GAME@@UBEXW4GameTextClass@2@AAV?$vector@UGameTextLine@GAME@@@mem@@@Z+0x7e0
+  0x0006d57d  mov      edi, eax
+  0x0006d57f  mov      ecx, edi
+  0x0006d581  mov      edx, dword ptr [edi]
+  0x0006d583  mov      edx, dword ptr [edx + 0x2d0]
+  0x0006d589  call     edx
+  0x0006d58b  test     al, al
+  0x0006d58d  je       0x1006d5c6
+  0x0006d58f  mov      eax, dword ptr [edi]
+  0x0006d591  mov      ecx, edi
+  0x0006d593  mov      eax, dword ptr [eax + 0x2d8]
+  0x0006d599  call     eax
+  0x0006d59b  or       byte ptr [esi + 0x64], al
+  0x0006d59e  pop      edi
+  0x0006d59f  pop      esi
+  0x0006d5a0  pop      ebx
+  0x0006d5a1  mov      esp, ebp
+  0x0006d5a3  pop      ebp
+  0x0006d5a4  ret      
+  0x0006d5a5  push     dword ptr [edi + 0x1120]
+  0x0006d5ab  call     ebx
+  0x0006d5ad  mov      ecx, eax
+  0x0006d5af  call     0x10071360   ; -> ?GetNetPacket@RotateAction@GAME@@UAEPAVNetPacket@2@XZ+0x1e0
+  0x0006d5b4  test     eax, eax
+  0x0006d5b6  je       0x1006d5bf
+  0x0006d5b8  mov      ecx, eax
+  0x0006d5ba  call     0x100fc510   ; -> ?SkillFailed@ControllerMonster@GAME@@QAEXXZ
+  0x0006d5bf  mov      ecx, esi
+  0x0006d5c1  mov      eax, dword ptr [esi]
+  0x0006d5c3  call     dword ptr [eax + 0xc]
+  0x0006d5c6  pop      edi
+  0x0006d5c7  pop      esi
+  0x0006d5c8  pop      ebx
+  0x0006d5c9  mov      esp, ebp
+  0x0006d5cb  pop      ebp
+  0x0006d5cc  ret      
+  0x0006d5cd  int3     
+  0x0006d5ce  int3     
+  0x0006d5cf  int3     
+

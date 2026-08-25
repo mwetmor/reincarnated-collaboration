@@ -1,0 +1,68 @@
+=== [reg+0x148]  (66 distinct sites)
+   0x00020074  mov eax, dword ptr [esi + 0x148]                      in ??0UseItemOnConfigCmd@GAME@@QAE@ABV01@@Z+0x64
+   0x0002007a  mov dword ptr [edi + 0x148], eax                      in ??0UseItemOnConfigCmd@GAME@@QAE@ABV01@@Z+0x6a
+   0x0002eb9c  mov eax, dword ptr [edi + 0x148]                      in ??4AttributePak@GAME@@QAEAAV01@ABV01@@Z+0xfc
+   0x0002eba8  mov dword ptr [esi + 0x148], eax                      in ??4AttributePak@GAME@@QAEAAV01@ABV01@@Z+0x108
+   0x0002fb5c  mov eax, dword ptr [ebx + 0x148]                      in ??0AttributePak@GAME@@QAE@ABV01@@Z+0x20c
+   0x00031805  mov dword ptr [edi + 0x148], 0                        in ??0AttributePak@GAME@@QAE@XZ+0x195
+   0x00033ab6  mov dword ptr [edi + 0x148], 0x1058e7d0               in ??0AttributeRange@GAME@@QAE@XZ+0xd6
+   0x00033bfa  lea ecx, [esi + 0x148]                                in ??1AttributeRange@GAME@@QAE@XZ+0x3a
+   0x00033d4a  lea esi, [ebx + 0x148]                                in ??0AttributeRange@GAME@@QAE@ABV01@@Z+0xfa
+   0x000340c0  mov eax, dword ptr [edi + 0x148]                      in ?LoadAffix@AttributeRange@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0xe0
+   0x000340c6  lea ecx, [edi + 0x148]                                in ?LoadAffix@AttributeRange@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0xe6
+   0x00069188  mov eax, dword ptr [edi + 0x148]                      in ??4Skill@GAME@@QAEAAV01@ABV01@@Z+0x2c8
+   0x0006918e  mov dword ptr [esi + 0x148], eax                      in ??4Skill@GAME@@QAEAAV01@ABV01@@Z+0x2ce
+   0x00069d3a  mov eax, dword ptr [edi + 0x148]                      in ??0Skill@GAME@@QAE@ABV01@@Z+0x39a
+   0x00069d40  mov dword ptr [esi + 0x148], eax                      in ??0Skill@GAME@@QAE@ABV01@@Z+0x3a0
+   0x000a8f86  mov eax, dword ptr [ebp + 0x148]                      in ??0UseItemOnConfigCmd@GAME@@QAE@IIUItemReplicaInfo@1@IW4ItemSource@1@II_N@Z+0x66
+   0x000a8f8c  mov dword ptr [esi + 0x148], eax                      in ??0UseItemOnConfigCmd@GAME@@QAE@IIUItemReplicaInfo@1@IW4ItemSource@1@II_N@Z+0x6c
+   0x000a9032  push dword ptr [esi + 0x148]                          in ?Execute@UseItemOnConfigCmd@GAME@@UAEXXZ+0x42
+   0x000a906f  push dword ptr [esi + 0x148]                          in ?Execute@UseItemOnConfigCmd@GAME@@UAEXXZ+0x7f
+   0x000a9166  mov eax, dword ptr [esi + 0x148]                      in ?GetNetPacket@UseItemOnConfigCmd@GAME@@UAEPAVNetPacket@2@XZ+0xb6
+   0x000b1434  sub ecx, dword ptr [ebx + 0x148]                      in ?CalculateAllocatedMemory@CharFxPak@GAME@@QBEIXZ+0x4d4
+   0x000b1451  mov ecx, dword ptr [ebx + 0x148]                      in ?CalculateAllocatedMemory@CharFxPak@GAME@@QBEIXZ+0x4f1
+   0x000b146f  sub esi, dword ptr [ebx + 0x148]                      in ?CalculateAllocatedMemory@CharFxPak@GAME@@QBEIXZ+0x50f
+   0x000b148e  mov eax, dword ptr [ebx + 0x148]                      in ?CalculateAllocatedMemory@CharFxPak@GAME@@QBEIXZ+0x52e
+   0x000b149b  mov ecx, dword ptr [ebx + 0x148]                      in ?CalculateAllocatedMemory@CharFxPak@GAME@@QBEIXZ+0x53b
+   0x000e3e5a  mov ecx, dword ptr [ebx + 0x148]                      in ?ResolveEquationVariable@CombatManager@GAME@@UBE_NPBDAAM@Z+0x1ea
+   0x000e4b14  movss dword ptr [esi + 0x148], xmm2                   in ?DesignerCalculateShieldBlockDamageReduction@CombatManager@GAME@@QBEMMMM@Z+0x24
+   0x001fd7c3  cmp dword ptr [ebx + 0x148], 5                        in ?PickFloors@EndlessDungeon_Generator@GAME@@AAEXXZ+0x173
+   0x0026ef0c  jmp dword ptr [eax + 0x148]                           in ?MonsterUseController@GameEngine@GAME@@QAEXIW4ControllerType@Monster@2@@Z+0xc
+   0x0026f787  fld dword ptr [eax + 0x148]                           in ?GetFactionLevelValue@GameEngine@GAME@@QAE?BMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z+0xe7
+   0x002cbff0  mov dword ptr [ebx + 0x148], 0                        in ?GetTableName@MarketMisc_Used@GAME@@MBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x310
+   0x002f49a1  lea eax, [esi + 0x148]                                in ?PrepareOutBuffer@ShrineRewardPacket@GAME@@UAEIXZ+0x101
+   0x002f4ae8  mov dword ptr [esi + 0x148], eax                      in ?CopyInbound@ShrineRewardPacket@GAME@@UAEXPAEH@Z+0xe8
+   0x002ff348  mov ecx, dword ptr [esi + 0x148]                      in ?PrepareOutBuffer@SinglePlayerHeartbeatPacket@GAME@@UAEIXZ+0xc8
+   0x002ff374  mov ecx, dword ptr [esi + 0x148]                      in ?PrepareOutBuffer@SinglePlayerHeartbeatPacket@GAME@@UAEIXZ+0xf4
+   0x002ff3b2  mov ecx, dword ptr [esi + 0x148]                      in ?PrepareOutBuffer@SinglePlayerHeartbeatPacket@GAME@@UAEIXZ+0x132
+   0x003011a2  sub ecx, dword ptr [ebx + 0x148]                      in ?PrepareOutBuffer@SinglePlayerBasicInfoPacket@GAME@@UAEIXZ+0x102
+   0x003011d0  mov eax, dword ptr [ebx + 0x148]                      in ?PrepareOutBuffer@SinglePlayerBasicInfoPacket@GAME@@UAEIXZ+0x130
+   0x00301310  lea eax, [edi + 0x148]                                in ?CopyInbound@SinglePlayerBasicInfoPacket@GAME@@UAEXPAEH@Z+0xf0
+   0x0032c8ad  call dword ptr [edx + 0x148]                          in ?PostPetSpawn@Player@GAME@@UAEXABVWorldVec3@2@III_N@Z+0x3cd
+   0x0033eb80  mov dword ptr [esi + 0x148], 0                        in ??0PlayStats@GAME@@QAE@XZ+0x2c0
+   0x0033fc76  add dword ptr [ecx + 0x148], eax                      in ?GainExperience@PlayStats@GAME@@QAEXI@Z+0x6
+   0x0034287f  push dword ptr [ebx + 0x148]                          in ?UpdateStrings@PlayStats@GAME@@AAEXXZ+0x85f
+   0x003428a1  mov eax, dword ptr [ebx + 0x148]                      in ?UpdateStrings@PlayStats@GAME@@AAEXXZ+0x881
+   0x003b11ce  mov dword ptr [esi + 0x148], 0                        in ??0Skill@GAME@@QAE@XZ+0x1ce
+   0x003b1e20  mov eax, dword ptr [ecx + 0x148]                      in ?GetSubSkillChildIndex@Skill@GAME@@QBEIXZ
+   0x003b1e36  mov dword ptr [ecx + 0x148], eax                      in ?SetSubSkillChildIndex@Skill@GAME@@QAEXI@Z+0x6
+   0x003b2abc  mov eax, dword ptr [edx + 0x148]                      in ?Update@Skill@GAME@@UAEXAAVCharacter@2@H@Z+0x11c
+   0x0041d320  mov eax, dword ptr [edx + 0x148]                      in ?PreLoadPet@Skill_SpawnPetTransmuter@GAME@@UAEXXZ+0x40
+   0x00442d08  mov dword ptr [ebx + 0x148], eax                      in ?AddSubSkills@SkillManager@GAME@@QAEXPAVSkill@2@ABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z+0x168
+   0x00442f40  mov eax, dword ptr [ebx + 0x148]                      in ?AddSubSkills@SkillManager@GAME@@QAEXPAVSkill@2@ABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z+0x3a0
+   0x00442f48  cmp eax, dword ptr [ecx + 0x148]                      in ?AddSubSkills@SkillManager@GAME@@QAEXPAVSkill@2@ABV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z+0x3a8
+   0x0044af93  mov dword ptr [edi + 0x148], 0                        in ??0SkillProfile@GAME@@QAE@XZ+0x293
+   0x0046a8db  mov eax, dword ptr [esi + 0x148]                      in ??0PlayStats@GAME@@QAE@ABV01@@Z+0x32b
+   0x0046a8e1  mov dword ptr [edi + 0x148], eax                      in ??0PlayStats@GAME@@QAE@ABV01@@Z+0x331
+   0x0046ad10  mov eax, dword ptr [edi + 0x148]                      in ??4PlayStats@GAME@@QAEAAV01@ABV01@@Z+0x340
+   0x0046ad1c  mov dword ptr [esi + 0x148], eax                      in ??4PlayStats@GAME@@QAEAAV01@ABV01@@Z+0x34c
+   0x0046b816  mov eax, dword ptr [ebx + 0x148]                      in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x176
+   0x0046b81c  mov dword ptr [edi + 0x148], eax                      in ??0AnimationSet@GAME@@QAE@ABV01@@Z+0x17c
+   0x0046c934  mov eax, dword ptr [edi + 0x148]                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x134
+   0x0046c93a  mov dword ptr [esi + 0x148], eax                      in ??4AnimationSet@GAME@@QAEAAV01@ABV01@@Z+0x13a
+   0x00471671  movzx eax, byte ptr [edi + 0x148]                     in ??4QuestMoveCompletedConfigCmdPacket@GAME@@QAEAAV01@ABV01@@Z+0x61
+   0x00471678  mov byte ptr [esi + 0x148], al                        in ??4QuestMoveCompletedConfigCmdPacket@GAME@@QAEAAV01@ABV01@@Z+0x68
+   0x004727e6  lea eax, [edi + 0x148]                                in ??0SkillProfile@GAME@@QAE@ABV01@@Z+0x326
+   0x00473972  lea ecx, [esi + 0x148]                                in ??4SkillProfile@GAME@@QAEAAV01@ABV01@@Z+0x1e2
+   0x0047397e  lea eax, [edi + 0x148]                                in ??4SkillProfile@GAME@@QAEAAV01@ABV01@@Z+0x1ee
+

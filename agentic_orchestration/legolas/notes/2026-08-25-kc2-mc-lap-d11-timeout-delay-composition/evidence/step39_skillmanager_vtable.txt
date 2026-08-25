@@ -1,0 +1,46 @@
+=== ??_7SkillManager@GAME@@6BEquationAlgebraResolver@1@@ @ 0x005ef59c
+  +0x004 (slot    1) -> 0x0001cd50  ?GetArmorClass@Armor@GAME@@QBE?BV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x3f0
+        ebp
+        ebp, esp
+        eax, dword ptr [0x104e5028]   ; f32=1.16329e-38 i32=8301522 f64=2.72987e-306
+        dword ptr [ebp + 8]
+        0x1058a304
+        eax, dword ptr [eax]
+  +0x008 (slot    2) -> 0x0044a5b0  ?IsStaticSkill@Skill@GAME@@QBE_NXZ+0x160
+        ebp
+        ebp, esp
+        eax, dword ptr fs:[0]
+        -1
+        0x104c00f0
+        eax
+  +0x00c (slot    3) -> 0x00437a30  ?GetSkillServices@SkillManager@GAME@@UAEPAVSkillServicesBase@2@XZ
+        eax, dword ptr [ecx + 0x210]
+          0x00437a36  ret      
+          0x00437a37  int3     
+          0x00437a38  int3     
+          0x00437a39  int3     
+          0x00437a3a  int3     
+
+=== ??_7SkillManager@GAME@@6BSkillManagerBase@1@@ @ 0x005ef5a4
+  +0x004 (slot    1) -> 0x00437a30  ?GetSkillServices@SkillManager@GAME@@UAEPAVSkillServicesBase@2@XZ
+        eax, dword ptr [ecx + 0x210]
+          0x00437a36  ret      
+          0x00437a37  int3     
+          0x00437a38  int3     
+          0x00437a39  int3     
+          0x00437a3a  int3     
+  +0x008 (slot    2) -> 0x00131590  ?GetParent@ConversationStep@GAME@@QBEPAV12@XZ
+        eax, dword ptr [ecx + 0xc]
+          0x00131593  ret      
+          0x00131594  int3     
+          0x00131595  int3     
+          0x00131596  int3     
+          0x00131597  int3     
+  +0x00c (slot    3) -> 0x0044a650  ?IsMonsterSkill@SkillManager@GAME@@UBE_NXZ
+        al, byte ptr [ecx + 0x214]
+          0x0044a656  ret      
+          0x0044a657  int3     
+          0x0044a658  int3     
+          0x0044a659  int3     
+          0x0044a65a  int3     
+
