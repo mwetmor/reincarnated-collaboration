@@ -75,23 +75,30 @@ describe('fleet node tolerance', () => {
   });
 
   it('renders an empty tape honestly, with both vendor lanes still present', () => {
+    // An empty bucket: EVERY axis null (WARN-7 — unmeasured is not zero) and every
+    // denominator 0. This fixture is the honest-null contract written out longhand.
+    const emptyBucket = {
+      units: 0,
+      tokens: { input: null, cached_input: null, cache_write: null, output: null,
+        reasoning: null },
+      n_tokens: 0,
+      n_tokens_by_axis: { input: 0, cached_input: 0, cache_write: 0, output: 0, reasoning: 0 },
+      rc_zero: 0, rc_total: 0, verdicts: {}, cost_usd: 0, n_cost: 0,
+      median_wall_s: null, currencies: [],
+    };
     const empty = {
       source: 'agentic_orchestration/flight',
       tape_files: [], rows_on_disk: 0, rows_after_corrections: 0, unparseable_lines: 0,
       schema_versions: [], coverage: { first_ts: null, last_ts: null },
       units_total: 0, units_sealed: 0,
-      workstreams: [], scorecards: [], months: [],
+      workstreams: [], scorecards: [], providers: [], months: [],
       lanes: [
         { lane: 'codex-serial', provider: 'openai', on_tape: false, spellings_seen: [],
-          pins: [], units: 0, tokens: { input: 0, cached_input: 0, cache_write: 0, output: 0,
-            reasoning: 0 }, n_tokens: 0, rc_zero: 0, rc_total: 0, verdicts: {}, cost_usd: 0,
-          n_cost: 0, median_wall_s: null, currencies: [], last_close: null },
+          pins: [], last_close: null, ...emptyBucket },
         { lane: 'grok-serial', provider: 'xai', on_tape: false, spellings_seen: [],
-          pins: [], units: 0, tokens: { input: 0, cached_input: 0, cache_write: 0, output: 0,
-            reasoning: 0 }, n_tokens: 0, rc_zero: 0, rc_total: 0, verdicts: {}, cost_usd: 0,
-          n_cost: 0, median_wall_s: null, currencies: [], last_close: null },
+          pins: [], last_close: null, ...emptyBucket },
       ],
-      claude: { units: 0, closes: 0, with_tokens: 0 },
+      claude: { ...emptyBucket, closes: 0, with_tokens: 0, lanes: [] },
       verdicts: { totals: {}, recent: [] },
       snapshots: [],
     };
@@ -168,9 +175,114 @@ describe('display helpers', () => {
   it('returns null for a cache rate with no denominator, never 0%', () => {
     expect(cacheRate({ input: 0, cached_input: 0, cache_write: 0, output: 0, reasoning: 0 }))
       .toBeNull();
+    expect(cacheRate({ input: null, cached_input: null, cache_write: null, output: null,
+      reasoning: null })).toBeNull();
     const r = cacheRate({ input: 72375471, cached_input: 67431424, cache_write: 0,
       output: 0, reasoning: 0 });
     expect(r).not.toBeNull();
     expect(r!.toFixed(1)).toBe('93.2');
+  });
+
+  it('returns null for a cache rate whose NUMERATOR was never measured', () => {
+    // The mirror of the denominator guard, and the one that bit on the Python side first: a
+    // lane that reports input and never reports caching must not render `0.0% cache`, which
+    // reads as "we measured caching and it was none".
+    expect(cacheRate({ input: 500, cached_input: null, cache_write: null, output: 25,
+      reasoning: null })).toBeNull();
+  });
+});
+
+// ------------------------------------------------- U11 post-seal: WARN-7 + claude + provider
+//
+// RUN U11-BUILD landed 27 claude-agent session CLOSEs carrying full token axes. The card
+// rendered COUNTS and no figures, and the data layer summed unmeasured axes to a clean zero.
+// Both are the same class: a surface that answers about the tape without deriving from it.
+describe('token axes are measured one at a time', () => {
+  const closes = [
+    { tokens_input: 1000, tokens_cached_input: 900, tokens_output: 40 },
+    { tokens_input: 3000, tokens_cached_input: 2700, tokens_output: 60 },
+  ];
+  const rows = closes.map((c, i) => ({
+    row_id: `r${i}`, ts: `2026-08-01T0${i}:00:00Z`, event: 'CLOSE', unit_id: `s/${i}`,
+    unit_kind: 'session', lane: 'claude-agent', provider: 'anthropic', rc: 0, ...c,
+  }));
+
+  it('emits null — never 0 — for an axis no row carried (WARN-7)', () => {
+    const [u] = fold([rows[0]]);
+    // `tokens_reasoning` is absent on every row. The old accumulator made it a `0` that read
+    // as a measurement; there is no honest way to tell those apart downstream.
+    expect(u.close!.tokens_reasoning).toBeUndefined();
+  });
+
+  it('keeps a MEASURED zero as zero', () => {
+    // The mirror clause: an honest-null rule that erased measured zeros would be worse than
+    // the defect it replaced.
+    const measured = [{ row_id: 'z', ts: '2026-08-01T00:00:00Z', event: 'CLOSE',
+      unit_id: 'z/1', lane: 'claude-agent', tokens_input: 0, tokens_reasoning: 0 }];
+    const [u] = fold(measured);
+    expect(u.close!.tokens_reasoning).toBe(0);
+  });
+
+  it('renders the claude rollup, and drops the F-7 note, once the tape carries tokens', () => {
+    const claude = {
+      units: 2, closes: 2, with_tokens: 2, lanes: ['claude-agent'],
+      tokens: { input: 4000, cached_input: 3600, cache_write: null, output: 100,
+        reasoning: null },
+      n_tokens: 2,
+      n_tokens_by_axis: { input: 2, cached_input: 2, cache_write: 0, output: 2, reasoning: 0 },
+      rc_zero: 2, rc_total: 2, verdicts: {}, cost_usd: 0, n_cost: 0,
+      median_wall_s: null, currencies: [],
+    };
+    const html = renderToStaticMarkup(createElement(
+      FleetPage as never,
+      { fleet: { source: 's', tape_files: [], rows_on_disk: 2, rows_after_corrections: 2,
+        unparseable_lines: 0, schema_versions: [1], coverage: { first_ts: null, last_ts: null },
+        units_total: 2, units_sealed: 2, workstreams: [], scorecards: [], providers: [],
+        lanes: [], claude, months: [], verdicts: { totals: {}, recent: [] }, snapshots: [] },
+      } as never));
+    // DERIVED expectation: the same formatter the cell uses, on the same numbers.
+    expect(html).toContain(`${fmtTokens(claude.tokens.input)} in`);
+    expect(html).toContain(`${cacheRate(claude.tokens)!.toFixed(1)}% cache`);
+    expect(html).not.toContain('F-7');
+  });
+
+  it('keeps the F-7 note for a claude lane that genuinely reports no tokens', () => {
+    const fleet = buildFleet(new URL('../../../../agentic_orchestration/flight',
+      import.meta.url).pathname);
+    if (!fleet) return;
+    const bare = { ...fleet, claude: { ...fleet.claude, n_tokens: 0, with_tokens: 0,
+      tokens: { input: null, cached_input: null, cache_write: null, output: null,
+        reasoning: null } } };
+    expect(render(bare)).toContain('F-7');
+  });
+
+  it('folds a per-provider line so anthropic can be read beside openai', () => {
+    const fleet = buildFleet(new URL('../../../../agentic_orchestration/flight',
+      import.meta.url).pathname);
+    if (!fleet) return;
+    expect(fleet.providers!.length).toBeGreaterThan(0);
+    const html = render(fleet);
+    for (const p of fleet.providers!) {
+      expect(html).toContain(p.provider);
+      // the provider line is a ROLLUP, not a count: its own units total must be reachable
+      expect(p.units).toBeGreaterThan(0);
+    }
+    // and the fold is over units, never over already-derived scorecard rows
+    expect(fleet.providers!.reduce((n, p) => n + p.units, 0)).toBe(fleet.units_sealed);
+  });
+
+  it('never sums an unmeasured axis to zero anywhere in the payload', () => {
+    const fleet = buildFleet(new URL('../../../../agentic_orchestration/flight',
+      import.meta.url).pathname);
+    if (!fleet) return;
+    const buckets = [...fleet.workstreams, ...fleet.scorecards, ...fleet.lanes,
+      ...(fleet.providers ?? []), fleet.claude];
+    for (const b of buckets) {
+      for (const [axis, n] of Object.entries(b.n_tokens_by_axis)) {
+        const total = b.tokens[axis as keyof typeof b.tokens];
+        if (n === 0) expect(total).toBeNull();
+        else expect(total).not.toBeNull();
+      }
+    }
   });
 });

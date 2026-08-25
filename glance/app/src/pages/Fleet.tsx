@@ -20,7 +20,8 @@
 // same committed tape the local board folds). Nobody rules from this page.
 
 import type {
-  Fleet, FleetBucket, FleetLane, FleetMonth, FleetScorecard, FleetWorkstream,
+  Fleet, FleetBucket, FleetClaude, FleetLane, FleetMonth, FleetProvider, FleetScorecard,
+  FleetWorkstream,
 } from '../state';
 import { cacheRate, fmtSpan, fmtTokens } from '../state';
 
@@ -39,15 +40,23 @@ function Denom({ n, of, unit }: { n: number; of: number; unit: string }) {
   );
 }
 
+/**
+ * EVERY AXIS ASKS ABOUT ITSELF (WARN-7 / G-U11 BLOCK-3). `tok-out` used to ride on
+ * `n_tokens` — the `tokens_input` denominator — so a bucket with input and no output would
+ * have printed a sibling's coverage over its own absence. Each half now carries its own
+ * count, and `cacheRate` returns null unless BOTH sides of the ratio were measured.
+ */
 function TokenCell({ b }: { b: FleetBucket }) {
   if (!b.n_tokens) return <Null>tokens null on {b.units}/{b.units} units</Null>;
   const rate = cacheRate(b.tokens);
+  const nOut = b.n_tokens_by_axis?.output ?? b.n_tokens;
   return (
     <span className="tabular-nums">
       {fmtTokens(b.tokens.input)} in
       <Denom n={b.n_tokens} of={b.units} unit="units" />
       {rate != null && <> · <span className="text-emerald-400">{rate.toFixed(1)}% cache</span></>}
       {' '}· {fmtTokens(b.tokens.output)} out
+      {nOut !== b.n_tokens && <Denom n={nOut} of={b.units} unit="units" />}
     </span>
   );
 }
@@ -171,7 +180,7 @@ export function FleetPage({ fleet }: { fleet: Fleet | null }) {
         </Card>
       )}
 
-      <LaneCards lanes={fleet.lanes} claude={fleet.claude} />
+      <LaneCards lanes={fleet.lanes} claude={fleet.claude} providers={fleet.providers} />
       <WorkstreamCard rows={fleet.workstreams} />
       <ScorecardCard rows={fleet.scorecards} />
       <MonthCard rows={fleet.months} />
@@ -185,8 +194,39 @@ export function FleetPage({ fleet }: { fleet: Fleet | null }) {
 // Vendor lanes — AM-1 parity: grok renders wherever codex does, and says
 // "no rows on tape" honestly rather than vanishing when it has done nothing yet.
 // ---------------------------------------------------------------------------
-function LaneCards({ lanes, claude }: {
-  lanes: FleetLane[]; claude: { units: number; closes: number; with_tokens: number };
+/**
+ * The per-provider strip: one compact line per vendor, above the lane cards.
+ *
+ * WHY IT EXISTS (U11 post-seal): the scorecard is keyed on (provider, pin) — right, because
+ * every banked statistic is measured AT a pin — and the lane cards are keyed on lane. Neither
+ * answers "what has anthropic cost us next to openai" without the reader adding rows up in
+ * their head, and the claude card could answer it for nobody because it carried only counts.
+ * This strip is that one line, folded through the same `bucket()` as every other rollup.
+ */
+function ProviderStrip({ rows }: { rows: FleetProvider[] }) {
+  if (!rows.length) return null;
+  return (
+    <div className="mb-3 rounded border border-slate-800 bg-slate-950/50 p-2">
+      <div className="mb-1 text-[0.65rem] uppercase tracking-wider text-slate-500">
+        per provider — every sealed unit on the tape, folded by vendor
+      </div>
+      <ul className="grid gap-1 sm:grid-cols-2">
+        {rows.map((p) => (
+          <li key={p.provider} className="flex flex-wrap items-baseline gap-x-2 text-[0.7rem]">
+            <b className="text-slate-200">{p.provider}</b>
+            <span className="text-slate-500">
+              {p.lanes.length ? p.lanes.join(' / ') : <Null>no lane recorded</Null>}
+            </span>
+            <span className="text-slate-400"><TokenCell b={p} /></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function LaneCards({ lanes, claude, providers }: {
+  lanes: FleetLane[]; claude: FleetClaude; providers?: FleetProvider[];
 }) {
   return (
     <Card
@@ -199,6 +239,7 @@ function LaneCards({ lanes, claude }: {
         </>
       }
     >
+      <ProviderStrip rows={providers ?? []} />
       <div className="grid gap-3 sm:grid-cols-2">
         {lanes.map((l) => (
           <div key={l.lane} className="rounded border border-slate-800 bg-slate-950/50 p-2">
@@ -270,19 +311,33 @@ function LaneCards({ lanes, claude }: {
           <h3 className="text-xs font-semibold text-slate-200">
             claude lanes <span className="font-normal text-slate-500">· summarised</span>
           </h3>
+          {/*
+            U11 POST-SEAL. This cell used to render a COUNT — "27 unit(s) report tokens" —
+            beside a standing F-7 caption, on a node that carried no token totals at all. So
+            the tape could say 8.4G in at 97.6% cache and this card could only say that 27
+            rows had SOMETHING. It is the same rollup as every other bucket now, and the
+            honest-null branch below is chosen by `n_tokens` — by the DATA — rather than by a
+            belief about what this lane is capable of reporting.
+          */}
           <dl className="mt-1.5 grid grid-cols-[5.5rem_1fr] gap-x-2 gap-y-1 text-[0.7rem]">
             <dt className="text-slate-500">sealed units</dt>
             <dd className="tabular-nums">{claude.units} ({claude.closes} CLOSE)</dd>
+            <dt className="text-slate-500">lanes</dt>
+            <dd>{claude.lanes.length
+              ? <code>{claude.lanes.join(', ')}</code>
+              : <Null>no claude lane on the tape</Null>}</dd>
             <dt className="text-slate-500">tokens</dt>
             <dd>
-              {claude.with_tokens > 0
-                ? <span className="tabular-nums">{claude.with_tokens} unit(s) report tokens</span>
+              {claude.n_tokens > 0
+                ? <TokenCell b={claude} />
                 : <Null>
                     F-7: interactive sessions surface no per-turn usage, so token fields stay
                     null until hooks + SNAPSHOT brackets deepen. A null is a fact; an estimate
                     in a truth-of-record stream is a fabrication
                   </Null>}
             </dd>
+            <dt className="text-slate-500">reported cost</dt>
+            <dd><CostCell b={claude} /></dd>
           </dl>
         </div>
       </div>
@@ -385,7 +440,7 @@ function ScorecardCard({ rows }: { rows: FleetScorecard[] }) {
                   </td>
                   <td className={TD}><TokenCell b={r} /></td>
                   <td className={TD}>
-                    {r.n_tokens && r.artifacts
+                    {r.tokens.input != null && r.artifacts
                       ? <span className="tabular-nums">
                           {fmtTokens(Math.round(r.tokens.input / r.artifacts))}
                         </span>

@@ -129,16 +129,39 @@ export function fold(rows) {
   return units;
 }
 
-const ZERO_TOKENS = {
-  input: 0, cached_input: 0, cache_write: 0, output: 0, reasoning: 0,
-};
+// The five optional numeric token axes, `state.json` name → tape field. ONE list, so an axis
+// added to the schema is added here once rather than in five `acc.x += ...` lines.
+const TOKEN_AXES = [
+  ['input', 'tokens_input'],
+  ['cached_input', 'tokens_cached_input'],
+  ['cache_write', 'tokens_cache_write'],
+  ['output', 'tokens_output'],
+  ['reasoning', 'tokens_reasoning'],
+];
 
-function addTokens(acc, close) {
-  acc.input += close.tokens_input || 0;
-  acc.cached_input += close.tokens_cached_input || 0;
-  acc.cache_write += close.tokens_cache_write || 0;
-  acc.output += close.tokens_output || 0;
-  acc.reasoning += close.tokens_reasoning || 0;
+/**
+ * Per-axis totals, each with ITS OWN denominator (WARN-7, U11 post-seal).
+ *
+ * This function replaces `acc.reasoning += close.tokens_reasoning || 0`, and the `|| 0` is
+ * exactly the defect: an axis NOTHING measured summed to a clean `0`, indistinguishable in
+ * the payload from an axis measured as zero. The Python side killed the same `or 0` template
+ * during RUN U11-BUILD (G-U11 BLOCK-3); this is that fix crossing the seam, so both windows
+ * on one tape answer "unmeasured" the same way.
+ *
+ * An axis no row carried is `null` — a declared absence. `n_by_axis` says how many CLOSEs
+ * carried each, so a partial sum can never be read as a total. A MEASURED zero survives as
+ * `0`, which is the mirror clause and the reason presence is tested with `!= null` rather
+ * than with truthiness.
+ */
+function tokensOf(closes) {
+  const tokens = {};
+  const n_by_axis = {};
+  for (const [key, field] of TOKEN_AXES) {
+    const present = closes.filter((c) => c && c[field] != null);
+    tokens[key] = present.length ? present.reduce((s, c) => s + c[field], 0) : null;
+    n_by_axis[key] = present.length;
+  }
+  return { tokens, n_by_axis };
 }
 
 /**
@@ -156,13 +179,11 @@ function costOf(closes) {
 }
 
 function bucket(closes, units) {
-  const tokens = { ...ZERO_TOKENS };
-  let n_tokens = 0;
-  for (const c of closes) {
-    if (!c) continue;
-    if (c.tokens_input != null) n_tokens += 1;
-    addTokens(tokens, c);
-  }
+  const { tokens, n_by_axis } = tokensOf(closes);
+  // `n_tokens` is retained under its old name and its old meaning — "how many CLOSEs carry
+  // `tokens_input`" — because that is what the card's tokens cell is keyed on. The per-axis
+  // counts ride beside it rather than replacing it, so no cell silently changes denominator.
+  const n_tokens = n_by_axis.input;
   const rcs = closes.filter((c) => c && c.rc != null).map((c) => c.rc);
   const verdicts = {};
   for (const c of closes) {
@@ -173,6 +194,7 @@ function bucket(closes, units) {
     units: units.length,
     tokens,
     n_tokens,
+    n_tokens_by_axis: n_by_axis,
     rc_zero: rcs.filter((r) => r === 0).length,
     rc_total: rcs.length,
     verdicts,
@@ -252,6 +274,24 @@ export function buildFleet(flightDir, { repoRelative = 'agentic_orchestration/fl
     };
   }).sort((a, b) => (a.provider + a.pin).localeCompare(b.provider + b.pin));
 
+  // ---- per PROVIDER — the one line that answers "what has each vendor cost us in tokens"
+  // without the reader having to add up pins. The scorecard is keyed on (provider, pin)
+  // because every banked statistic is measured AT a pin; that is right, and it means a
+  // provider whose work spans several pins has no single row. This node is that row, folded
+  // through the SAME `bucket()` the scorecard uses — not a sum of scorecard rows, which would
+  // be a second arithmetic over an already-derived surface.
+  const provMap = new Map();
+  for (const u of sealed) {
+    const key = u.ident.provider || '(no provider recorded)';
+    if (!provMap.has(key)) provMap.set(key, []);
+    provMap.get(key).push(u);
+  }
+  const providers = [...provMap.entries()].map(([provider, us]) => ({
+    provider,
+    lanes: [...new Set(us.map((u) => u.ident.lane).filter(Boolean))].sort(),
+    ...bucket(us.map((u) => u.close), us),
+  })).sort((a, b) => a.provider.localeCompare(b.provider));
+
   // ---- per vendor lane — AM-1 parity: both cards ALWAYS present, honest when empty
   const lanes = VENDOR_LANES.map(({ lane, provider, aliases }) => {
     const us = sealed.filter((u) => aliases.includes(u.ident.lane));
@@ -276,14 +316,21 @@ export function buildFleet(flightDir, { repoRelative = 'agentic_orchestration/fl
       } : null,
     };
   });
-  // Claude lanes summarised — F-7 says their token fields are null by design, so they get a
-  // count and an honest caption rather than a scorecard row pretending to depth.
+  // Claude lanes summarised — no serial lock and no vendor busy-CLI, so no liveness legs.
+  //
+  // U11 POST-SEAL: this node used to carry three COUNTS and nothing else, because F-7 held
+  // that Claude token fields were null by design. RUN U11-BUILD landed 27 session CLOSEs
+  // carrying full token axes and F-7 stopped being true of this tape, at which point a card
+  // that could only ever render a count had no way to show them. It is a full `bucket()` now
+  // — the same fold as every other rollup — so the card's honest-null branch is decided by
+  // the DATA (`n_tokens === 0`) instead of by a standing belief about the lane.
   const claudeUnits = sealed.filter((u) => ['claude-agent', 'claude-subagent']
     .includes(u.ident.lane));
   const claude = {
-    units: claudeUnits.length,
+    ...bucket(claudeUnits.map((u) => u.close), claudeUnits),
     closes: claudeUnits.filter((u) => u.close).length,
     with_tokens: claudeUnits.filter((u) => u.close && u.close.tokens_input != null).length,
+    lanes: [...new Set(claudeUnits.map((u) => u.ident.lane).filter(Boolean))].sort(),
   };
 
   // ---- month trend (the cost-over-time series; window-burn's coarse sibling)
@@ -331,6 +378,7 @@ export function buildFleet(flightDir, { repoRelative = 'agentic_orchestration/fl
     units_sealed: sealed.length,
     workstreams,
     scorecards,
+    providers,
     lanes,
     claude,
     months,

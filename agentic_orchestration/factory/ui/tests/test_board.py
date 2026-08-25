@@ -267,3 +267,187 @@ def test_v11_fields_are_read_defensively(field):
     assert field in src
     # `cost_usd` must never be read with [] on a row that may not carry it.
     assert 'r["cost_usd"]' not in src
+
+
+# ------------------------------------------------------- U11 post-seal: derived, not narrated
+# RUN U11-BUILD landed 27 claude-agent session CLOSEs carrying full token axes, and TWO cells
+# failed to surface them. Both failures were the same failure wearing different clothes: a cell
+# that DESCRIBES the tape without being DERIVED from it.
+#
+#   DEFECT 1 — the claude lane card's token cell was the hand-maintained F-7 sentence, printed
+#     unconditionally. The tape falsified it and the board went on printing it. A hand-written
+#     cell cannot be falsified by the data it claims to describe.
+#   DEFECT 2 — the SEALED rollup labelled those 27 units `▣ (no workstream)`: honest, and
+#     unfindable, because nothing on the page carried the word claude.
+#
+# Every expectation below is COMPUTED FROM THE FOLD inside the test (R-L47-2: no live-tape
+# literals), using the same `flight_report` primitives the board calls — so a change to those
+# primitives moves the board and this file together instead of breaking one against a constant.
+
+def _claude_close(unit_id, **extra):
+    """A claude-agent session CLOSE. Workstream is an HONEST NULL by default, which is the
+    exact shape the 27 U11 rows have — and the shape DEFECT 2 made unfindable."""
+    row = dict(v=1, row_id=unit_id + "-close", ts="2026-08-24T12:00:00Z", event="CLOSE",
+               unit_id=unit_id, unit_kind="session", operator="drax",
+               provider="anthropic", lane="claude-agent", rc=0)
+    row.update(extra)
+    return row
+
+
+def _fold(tmp_path, *rows):
+    """The board's own load path: `tape.load` (corrections applied) then `schema.fold`."""
+    import schema
+    import tape as tapemod
+    d = _tape(tmp_path, *rows)
+    loaded, _ = tapemod.load(d)
+    return d, loaded, schema.fold(loaded, corrections_applied=True)
+
+
+def _claude_card(tmp_path, *rows):
+    _, loaded, units = _fold(tmp_path, *rows)
+    return board.claude_card(board.load_flight_report(), loaded, units)
+
+
+def test_claude_token_cell_renders_the_ROLLUP_when_the_tape_carries_tokens(tmp_path):
+    """DEFECT 1. The figures come out of the fold, so the tape can falsify the cell."""
+    fr = board.load_flight_report()
+    rows = (_claude_close("s/1", tokens_input=1000, tokens_cached_input=900, tokens_output=40),
+            _claude_close("s/2", tokens_input=3000, tokens_cached_input=2700,
+                          tokens_output=60))
+    _, loaded, units = _fold(tmp_path, *rows)
+    html = board.claude_card(fr, loaded, units)
+
+    closes = fr.close_rows(list(units.values()))
+    n = len(units)
+    tin, n_in, _ = fr.axis(closes, "tokens_input")
+    tcache, n_cache, _ = fr.axis(closes, "tokens_cached_input")
+    tout, n_out, _ = fr.axis(closes, "tokens_output")
+    assert fr.axis_cell(tin, n_in, n) in html
+    assert fr.share_cell(tcache, n_cache, tin, n_in) in html
+    assert fr.axis_cell(tout, n_out, n) in html
+    assert "F-7:" not in html, "the falsified sentence is back on a token-bearing lane"
+
+
+def test_claude_token_cell_still_renders_the_F7_NULL_when_nothing_carries_tokens(tmp_path):
+    """The mirror clause. A repair that erased the honest null would be the worse bug: the
+    F-7 note's SPIRIT survives this fix, only its unconditional SPELLING dies."""
+    html = _claude_card(tmp_path, _claude_close("s/1"), _claude_close("s/2"))
+    assert "F-7:" in html
+    assert 'class="null"' in html
+
+
+def test_a_MEASURED_zero_on_the_claude_lane_is_still_a_measurement(tmp_path):
+    """`tokens_input=0` is a reading, not an absence, and must not fall to the null branch."""
+    html = _claude_card(tmp_path, _claude_close("s/1", tokens_input=0, tokens_output=0))
+    assert "F-7:" not in html
+
+
+def test_the_F7_sentence_has_exactly_one_home():
+    """It went stale because it was hand-maintained. A second copy is a second thing to
+    forget — so the note lives in one constant, spelled once, on one condition."""
+    src = open(os.path.join(UI_DIR, "board.py"), encoding="utf-8").read()
+    assert src.count("F-7: interactive sessions") == 1
+
+
+def test_the_claude_card_counts_UNITS_by_the_FOLDED_identity(tmp_path):
+    """THE ROOT CAUSE of the miss, pinned.
+
+    The card counted RAW ROWS filtered on the row-grain `lane` field and printed a constant
+    beside them — so there was no arithmetic for a new row to enter, and a CLOSE that does not
+    repeat `lane` was invisible to it even though the fold puts the unit on the lane.
+    """
+    fr = board.load_flight_report()
+    start = dict(v=1, row_id="s/1-start", ts="2026-08-24T11:00:00Z", event="START",
+                 unit_id="s/1", unit_kind="session", operator="drax", provider="anthropic",
+                 lane="claude-agent")
+    close = dict(v=1, row_id="s/1-close", ts="2026-08-24T12:00:00Z", event="CLOSE",
+                 unit_id="s/1", unit_kind="session", rc=0, tokens_input=500,
+                 tokens_output=25)          # NB: no `lane` on the CLOSE row
+    _, loaded, units = _fold(tmp_path, start, close)
+    assert fr.unit_identity(units["s/1"]).get("lane") == "claude-agent"
+
+    html = board.claude_card(fr, loaded, units)
+    assert "1 unit(s) folded to this card" in html
+    # The two grains, rendered as DIFFERENT facts: only the START carries `lane`, so the row
+    # count is 1 — while the unit, and its CLOSE's tokens, land on the card anyway. The old
+    # cell could only ever see the row grain, which is exactly why it saw nothing.
+    assert "1 lifecycle row(s) carrying a claude lane" in html
+    closes = fr.close_rows(list(units.values()))
+    tin, n_in, _ = fr.axis(closes, "tokens_input")
+    assert fr.axis_cell(tin, n_in, 1) in html
+
+
+def test_the_claude_token_cell_adds_no_arithmetic_of_its_own():
+    """THE LAW, one data path: the cell is assembled from star-lord's axis primitives, never
+    from a board-local sum. A `sum(...)` reappearing in this function is the divergence that
+    made two windows disagree the last three times."""
+    import ast
+    src = open(os.path.join(UI_DIR, "board.py"), encoding="utf-8").read()
+    fn = next(n for n in ast.walk(ast.parse(src))
+              if isinstance(n, ast.FunctionDef) and n.name == "claude_card")
+    called = {n.func.attr for n in ast.walk(fn)
+              if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)}
+    assert {"axis", "axis_cell", "share_cell", "close_rows", "lane_units"} <= called
+    assert "sum" not in {n.func.id for n in ast.walk(fn)
+                         if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)}
+
+
+# ------------------------------------------------------------------ DEFECT 2: findability
+def test_an_honest_null_workstream_says_what_its_rows_DO_carry(tmp_path):
+    """`(no workstream)` is CORRECT and was UNFINDABLE. The fix is not to invent a workstream
+    — a fabricated grouping key is a worse defect than an unfindable honest one — but to
+    qualify the group with what every unit in it actually folds to."""
+    d = _tape(tmp_path, _claude_close("s/1"), _claude_close("s/2"), _claude_close("s/3"))
+    html = board.render_html(d, REPO_ROOT, NOW, run_probes=False, lane_probes=False)
+    assert "(no workstream)" in html, "the honest null was overwritten"
+    assert "claude-agent sessions" in html, "the group is still unfindable"
+
+
+def test_the_qualifier_is_DERIVED_from_the_units(tmp_path):
+    fr = board.load_flight_report()
+    _, _, units = _fold(tmp_path, _close("j/1"))          # grok-serial job, workstream "T"
+    sealed = [u for u in units.values() if u["state"] == "SEALED"]
+    assert board.group_qualifiers(fr, sealed)["T"] == "grok-serial jobs"
+
+
+@pytest.mark.parametrize("second,want", [
+    (dict(lane="codex-serial"), "sessions"),              # lanes disagree → kind only
+    (dict(unit_kind="run"), "claude-agent"),              # kinds disagree → lane only
+    (dict(lane="codex-serial", unit_kind="job"), ""),     # neither agrees → nothing
+])
+def test_a_qualifier_is_emitted_only_on_UNANIMITY(tmp_path, second, want):
+    """A majority label would be a summary wearing a fact's clothes. Unanimity is the point:
+    `claude-agent sessions` must be true of every unit in the group or it is not said."""
+    fr = board.load_flight_report()
+    _, _, units = _fold(tmp_path,
+                        _claude_close("a/1", workstream="W"),
+                        _claude_close("a/2", workstream="W", ts="2026-08-24T13:00:00Z",
+                                      **second))
+    sealed = [u for u in units.values() if u["state"] == "SEALED"]
+    assert board.group_qualifiers(fr, sealed)["W"] == want
+
+
+def test_the_mirrored_group_key_FAILS_SILENT_rather_than_wrong(tmp_path):
+    """`group_qualifiers` mirrors star-lord's grouping key (his rollup returns aggregates, not
+    the units behind them). The renderer looks the qualifier up BY HIS `ws` string, so a
+    drifted mirror loses a label and can never attach the wrong one. Asserted, not asserted-about."""
+    fr = board.load_flight_report()
+    _, loaded, units = _fold(tmp_path, _claude_close("s/1"), _close("j/1"))
+    sealed = [u for u in units.values() if u["state"] == "SEALED"]
+    quals = board.group_qualifiers(fr, sealed)
+    for g in fr.sealed_by_workstream(loaded, sealed):
+        assert g["ws"] in quals, "the board's group key no longer matches flight_report's"
+
+
+def test_an_UNMEASURED_cache_axis_never_renders_a_zero_percent_rate(tmp_path):
+    """Found by running the new cell, not by reading it.
+
+    `share_cell` guards its denominator but not its numerator, so `tokens_input` present with
+    `tokens_cached_input` absent produced `0.0% of 500 ⚠ mixed denominators` — a lane that
+    never reported caching, rendered as one measured at zero. Discipline #74 verbatim: absence
+    of a measurement never renders as a measured negative.
+    """
+    html = _claude_card(tmp_path, _claude_close("s/1", tokens_input=500, tokens_output=25))
+    assert "0.0%" not in html and "mixed denominators" not in html
+    assert "null on 1/1 units" in html          # the cache axis, declared absent
+    assert "500 (1/1 units) in" in html         # and the axes that WERE measured, measured

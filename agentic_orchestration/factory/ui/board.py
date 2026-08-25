@@ -176,6 +176,47 @@ def scorecard(fr, sealed):
     return fr.model_scorecard(sealed)
 
 
+def group_qualifiers(fr, sealed):
+    """`workstream -> a DERIVED qualifier`, for groups whose units agree on what they are.
+
+    U11 post-seal repair (2026-08-25). The 27 Claude sessions carry an HONEST NULL workstream,
+    so the SEALED rollup labelled them `▣ (no workstream)` — correct, and unfindable. Matt read
+    the board looking for "the Claude details" and there was no row on the page with the word
+    Claude in it. The fix is NOT to invent a workstream: a fabricated grouping key would be a
+    worse defect than an unfindable honest one. It is to say what the rows DO carry.
+
+    A qualifier is emitted ONLY on unanimity — every unit in the group folding to the same
+    `lane`, and/or the same `unit_kind`. A mixed group gets whichever half is unanimous, or
+    nothing. Unanimity is the whole point: `▣ (no workstream) · claude-agent sessions` is a
+    fact about all 27 rows, whereas a majority label would be a summary wearing a fact's
+    clothes.
+
+    RE-EXPRESSED, not imported, for the same reason as `pin_drift` above: star-lord's
+    `sealed_by_workstream` returns aggregates and not the units behind them, so the grouping
+    KEY is mirrored here. The CONVERGENCE POINT is his carrying `lanes` / `kinds` on each
+    group, at which point this helper deletes. The mirror is deliberately FAIL-SILENT: the
+    renderer looks the qualifier up BY his group's own `ws` string, so if that key expression
+    ever changes, the lookup misses and no qualifier renders. A drifted mirror loses a label;
+    it can never attach the wrong one.
+    """
+    groups = {}
+    for u in sealed:
+        groups.setdefault(fr.unit_identity(u).get("workstream") or "(no workstream)",
+                          []).append(u)
+    out = {}
+    for ws, us in groups.items():
+        lanes = {fr.unit_identity(u).get("lane") for u in us}
+        kinds = {fr.unit_identity(u).get("unit_kind") or u["latest"].get("unit_kind")
+                 for u in us}
+        bits = []
+        if len(lanes) == 1 and None not in lanes:
+            bits.append(next(iter(lanes)))
+        if len(kinds) == 1 and None not in kinds:
+            bits.append("%ss" % next(iter(kinds)))
+        out[ws] = " ".join(bits)
+    return out
+
+
 def latest_snapshots(rows):
     """Latest SNAPSHOT per currency — the window meters, as the meter reported them."""
     out = {}
@@ -491,6 +532,7 @@ def col_sealed(fr, rows, sealed):
          % len(sealed)]
     if not sealed:
         L.append("<div class='empty'>no terminal unit on the tape yet</div>")
+    quals = group_qualifiers(fr, sealed)
     for g in sealed_by_workstream(fr, rows, sealed):
         rc_cell = ("%d/%d rc=0" % (len([r for r in g["rcs"] if r == 0]), len(g["rcs"]))
                    if g["rcs"] else "no rc on %d/%d units" % (g["n"], g["n"]))
@@ -505,10 +547,13 @@ def col_sealed(fr, rows, sealed):
             fr.axis_cell(g["tout"], g["n_out"], g["n"]))
         usd = ("$%.5f over %d/%d CLOSE rows" % (g["usd"], g["n_usd"], g["n"])
                if g["n_usd"] else "no cost_usd on any CLOSE row")
-        L.append("<div class='card'><div class='t'>▣ %s</div>"
+        qual = quals.get(g["ws"]) or ""
+        L.append("<div class='card'><div class='t'>▣ %s%s</div>"
                  "<div class='m'>%d unit(s) · %s · %s</div>"
                  "<div class='m'>%s</div><div class='m'>%s · %s · %s</div></div>"
-                 % (E(g["ws"]), g["n"], E(rc_cell), E(verdicts), E(tok), E(usd),
+                 % (E(g["ws"]),
+                    (" <span class='null'>· %s</span>" % E(qual)) if qual else "",
+                    g["n"], E(rc_cell), E(verdicts), E(tok), E(usd),
                     E("/".join(g["currencies"]) or "no currency recorded"),
                     E(fr.fmt_span(g["span"]) if g["span"] is not None
                       else "no START→CLOSE span")))
@@ -680,14 +725,62 @@ def vendor_card(p, fr, rows, units, cfg):
     return "".join(L)
 
 
+# The F-7 note, kept as a CONSTANT so it has exactly one home and one condition. It is a true
+# sentence about a tape that carries no Claude token axis, and a false one about a tape that
+# does — which is precisely why it may never be printed unconditionally again.
+F7_NOTE = ("F-7: interactive sessions surface no per-turn usage; token fields stay null until "
+           "hooks + SNAPSHOT brackets deepen. A null is a fact; an estimate in a "
+           "truth-of-record stream is a fabrication")
+
+
 def claude_card(fr, rows, units):
     """The Claude lanes, SUMMARISED per § 13.1 — they have no serial lock, no vendor CLI
-    busy state, and (F-7) lifecycle rows only. Rendering them with the same five legs
-    would dress a structural null as a measurement."""
+    busy state, and no probe-readable auth. Rendering them with the same five legs would
+    dress a structural null as a measurement, so liveness and auth stay declared nulls.
+
+    THE TOKEN CELL IS DERIVED (U11 post-seal repair, 2026-08-25). It used to be the F-7
+    sentence, hand-maintained and printed UNCONDITIONALLY. RUN U11-BUILD then landed 27
+    session CLOSEs carrying full token axes, and the tape FALSIFIED the sentence while this
+    board went on printing it — Matt stood at the board asking where the Claude figures were
+    while the cell told him they did not exist. A hand-written cell cannot be falsified by
+    the data it claims to describe; a derived one is falsified the moment the fold disagrees.
+    So the note now renders ONLY when the lane genuinely carries no token-bearing CLOSE. Its
+    honest-null SPIRIT survives; its unconditional SPELLING does not.
+
+    ROOT CAUSE OF THE MISS, named so it is not re-made: this card never RAN a rollup. It
+    counted raw rows filtered on the row-grain `lane` field and printed a constant beside
+    them, so there was no arithmetic for 27 new token-bearing rows to enter — the rows did
+    not fail a filter, they had nothing to fall into. Both halves are repaired here:
+
+      * MEMBERSHIP is `flight_report.lane_units()` — the FOLDED identity, so a CLOSE row that
+        does not repeat `lane` still lands on this card, and the unit count agrees with the
+        SEALED table rather than with a row count.
+      * EVERY FIGURE is `flight_report.axis` / `axis_cell` / `share_cell`: the same primitives
+        the SEALED table and the scorecard use, so this cell cannot drift from those. No
+        board-local arithmetic is added (THE LAW, one data path).
+
+    The row count stays on the card beside the unit count, because they answer different
+    questions and their disagreement (rows > units, corrections superseded) is a fact a reader
+    of a flight recorder should be able to see.
+    """
+    # Kept FUNCTION-LOCAL, deliberately: a module-level collection here would be a new
+    # `factory` vocabulary, and JR20 requires every one of those to be classified PINNED or
+    # COVERED in the vocabulary-governance file. This is a render-local filter, not a
+    # vocabulary the factory rules on — so it does not go and ask to be governed.
     lanes = ("claude-agent", "claude-subagent")
-    closes = [r for r in rows if r.get("event") == "CLOSE" and r.get("lane") in lanes]
-    starts = [r for r in rows if r.get("event") in ("START", "ENQUEUE")
-              and r.get("lane") in lanes]
+    lifecycle_events = ("ENQUEUE", "START", "CLOSE")
+
+    per_lane = [(lane, fr.lane_units(units, lane)) for lane in lanes]
+    lane_us = [u for _, us in per_lane for u in us]
+    closes = fr.close_rows(lane_us)
+    n = len(lane_us)
+    lifecycle = [r for r in rows if r.get("event") in lifecycle_events
+                 and r.get("lane") in lanes]
+
+    tin, n_in, _ = fr.axis(closes, "tokens_input")
+    tcache, n_cache, _ = fr.axis(closes, "tokens_cached_input")
+    tout, n_out, _ = fr.axis(closes, "tokens_output")
+
     L = ["<div class='vcard'><h3>claude <span class='state s-unknown'>summarised</span></h3>"
          "<div class='rows'><div class='kv'>"]
     L.append("<div class='k'>state</div><div>%s</div>"
@@ -695,12 +788,34 @@ def claude_card(fr, rows, units):
                     "derivable the way it is for codex/grok"))
     L.append("<div class='k'>auth</div><div>%s</div>"
              % NULL("Claude Code auth is session-held, not probe-readable from here"))
-    L.append("<div class='k'>tape rows</div><div>%d lifecycle row(s) · %d CLOSE</div>"
-             % (len(starts) + len(closes), len(closes)))
-    L.append("<div class='k'>tokens</div><div>%s</div>"
-             % NULL("F-7: interactive sessions surface no per-turn usage; token fields stay "
-                    "null until hooks + SNAPSHOT brackets deepen. A null is a fact; an "
-                    "estimate in a truth-of-record stream is a fabrication"))
+    L.append("<div class='k'>units</div><div>%d unit(s) folded to this card · %d CLOSE "
+             "<span class='null'>(%s)</span></div>"
+             % (n, len(closes),
+                E(" · ".join("%s %d" % (lane, len(us)) for lane, us in per_lane))))
+    L.append("<div class='k'>tape rows</div><div>%d lifecycle row(s) carrying a claude lane "
+             "<span class='null'>(row grain, before corrections are folded away)</span></div>"
+             % len(lifecycle))
+    if n_in or n_out or n_cache:
+        # EVERY AXIS ASKS ABOUT ITSELF (G-U11 BLOCK-3, applied here rather than assumed).
+        # `share_cell` guards its DENOMINATOR — it refuses a rate with no whole — but not its
+        # NUMERATOR: given `tokens_input` present and `tokens_cached_input` absent it renders
+        # `0.0% of 500 ⚠ mixed denominators (0 vs 1 units)`, a measured-looking zero cache-rate
+        # for a lane that never reported caching. Caught by the test below on the first run of
+        # this cell. The guard belongs at the CALL SITE while `share_cell` is star-lord's to
+        # change: an unmeasured cache axis renders as the null it is, in the same vocabulary.
+        cache_cell = (fr.share_cell(tcache, n_cache, tin, n_in) if n_cache
+                      else fr.axis_cell(tcache, n_cache, n))
+        cell = ("%s in · %s cache · %s out"
+                % (fr.axis_cell(tin, n_in, n), cache_cell, fr.axis_cell(tout, n_out, n)))
+        # The uncovered units are DERIVED and stated, not narrated: partial coverage on this
+        # lane is exactly what F-7 described, and it is now a counted residue rather than a
+        # blanket claim over the whole lane.
+        residue = ("" if n_in >= n else
+                   "<br><span class='null'>%d of %d unit(s) carry no token axis — the F-7 "
+                   "residue, counted rather than asserted</span>" % (n - n_in, n))
+        L.append("<div class='k'>tokens</div><div>%s%s</div>" % (E(cell), residue))
+    else:
+        L.append("<div class='k'>tokens</div><div>%s</div>" % NULL(F7_NOTE))
     L.append("</div></div></div>")
     return "".join(L)
 
@@ -833,10 +948,13 @@ def section_rollups(fr, rows, sealed):
                  "<th>judged verdicts</th><th>curation</th><th>tok-in</th><th>cache</th>"
                  "<th>tok-out</th><th>reasoning</th><th>reported cost</th><th>currency</th>"
                  "<th>first-start→last-close</th></tr>")
+        quals = group_qualifiers(fr, sealed)
         for g in groups:
+            qual = quals.get(g["ws"]) or ""
             L.append("<tr><td>%s</td><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
                      "<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
-                     % (E(g["ws"]), g["n"],
+                     % (E(g["ws"]) + ((" <span class='null'>· %s</span>" % E(qual))
+                                      if qual else ""), g["n"],
                         E("%d/%d rc=0" % (len([r for r in g["rcs"] if r == 0]), len(g["rcs"])))
                         if g["rcs"] else NULL("no rc on %d/%d units" % (g["n"], g["n"])),
                         E(" · ".join("%d %s" % (v, k) for k, v in

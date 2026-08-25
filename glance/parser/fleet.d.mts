@@ -85,19 +85,27 @@ export interface TapeRead {
   present: boolean;
 }
 
+/** `null` when NO row carried the axis; a number (including `0`) when one did. WARN-7 — the
+ *  old `+= x || 0` accumulator summed an unmeasured axis to a clean zero, which downstream is
+ *  indistinguishable from a measurement of zero. */
 export interface FleetTokens {
-  input: number;
-  cached_input: number;
-  cache_write: number;
-  output: number;
-  reasoning: number;
+  input: number | null;
+  cached_input: number | null;
+  cache_write: number | null;
+  output: number | null;
+  reasoning: number | null;
 }
+
+export type FleetTokenCounts = Record<keyof FleetTokens, number>;
 
 /** Every aggregate carries its own denominator: unmeasured is never zero. */
 export interface FleetBucket {
   units: number;
   tokens: FleetTokens;
+  /** how many CLOSE rows carried `tokens_input` */
   n_tokens: number;
+  /** the same question asked of EVERY axis, so no axis is gated on a sibling */
+  n_tokens_by_axis: FleetTokenCounts;
   rc_zero: number;
   rc_total: number;
   verdicts: Record<string, number>;
@@ -146,6 +154,21 @@ export interface FleetMonth extends FleetBucket {
   month: string;
 }
 
+/** One row per PROVIDER — the scorecard folded up one level, so anthropic can be read
+ *  beside openai without the reader summing pins by hand. */
+export interface FleetProvider extends FleetBucket {
+  provider: string;
+  lanes: string[];
+}
+
+/** The claude lanes, summarised. A full bucket since U11 post-seal: the lane carries token
+ *  axes now, so the card's honest-null branch is decided by `n_tokens`, not by F-7. */
+export interface FleetClaude extends FleetBucket {
+  closes: number;
+  with_tokens: number;
+  lanes: string[];
+}
+
 export interface FleetVerdictRow {
   ts: string;
   event: string;
@@ -176,8 +199,9 @@ export interface Fleet {
   units_sealed: number;
   workstreams: FleetWorkstream[];
   scorecards: FleetScorecard[];
+  providers: FleetProvider[];
   lanes: FleetLane[];
-  claude: { units: number; closes: number; with_tokens: number };
+  claude: FleetClaude;
   months: FleetMonth[];
   verdicts: { totals: Record<string, number>; recent: FleetVerdictRow[] };
   snapshots: FleetSnapshot[];

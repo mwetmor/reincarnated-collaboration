@@ -213,20 +213,31 @@ export interface State {
 // are not state lanes.
 // ---------------------------------------------------------------------------
 
+/**
+ * Each axis is `null` when NO row carried it, and a number when at least one did (WARN-7).
+ * `0` therefore means measured-as-zero and nothing else — the distinction the old
+ * `acc.x += close.tokens_x || 0` accumulator erased by summing an unmeasured axis to a clean
+ * zero. Same class as the `or 0` template killed on the Python side during RUN U11-BUILD.
+ */
 export interface FleetTokens {
-  input: number;
-  cached_input: number;
-  cache_write: number;
-  output: number;
-  reasoning: number;
+  input: number | null;
+  cached_input: number | null;
+  cache_write: number | null;
+  output: number | null;
+  reasoning: number | null;
 }
+
+/** Per-axis denominators: how many CLOSE rows carried each axis. */
+export type FleetTokenCounts = Record<keyof FleetTokens, number>;
 
 /** Every aggregate carries its own denominator: unmeasured is never zero. */
 export interface FleetBucket {
   units: number;
   tokens: FleetTokens;
-  /** how many CLOSE rows actually reported tokens — the tokens' denominator */
+  /** how many CLOSE rows carried `tokens_input` — the tokens cell's denominator */
   n_tokens: number;
+  /** the same question asked of EVERY axis, so no axis is ever gated on a sibling */
+  n_tokens_by_axis: FleetTokenCounts;
   rc_zero: number;
   rc_total: number;
   verdicts: Record<string, number>;
@@ -252,6 +263,16 @@ export interface FleetScorecard extends FleetBucket {
   provider: string;
   pin: string | null;
   artifacts: number;
+}
+
+/**
+ * One row per PROVIDER — the scorecard folded up one level. The scorecard is keyed on
+ * (provider, pin) because every banked statistic is measured AT a pin; this node exists so a
+ * reader can compare vendors without adding pins up in their head.
+ */
+export interface FleetProvider extends FleetBucket {
+  provider: string;
+  lanes: string[];
 }
 
 export interface FleetLaneClose {
@@ -296,6 +317,17 @@ export interface FleetMonth extends FleetBucket {
   month: string;
 }
 
+/**
+ * The claude lanes, summarised. A full `FleetBucket` since U11 post-seal: F-7's "token fields
+ * are null by design" stopped being true of the tape when 27 session CLOSEs landed carrying
+ * them, so the card's honest-null branch is now decided by `n_tokens`, not by a belief.
+ */
+export interface FleetClaude extends FleetBucket {
+  closes: number;
+  with_tokens: number;
+  lanes: string[];
+}
+
 export interface Fleet {
   source: string;
   tape_files: string[];
@@ -308,8 +340,11 @@ export interface Fleet {
   units_sealed: number;
   workstreams: FleetWorkstream[];
   scorecards: FleetScorecard[];
+  /** OPTIONAL: a state.json built before this node existed still type-checks. */
+  providers?: FleetProvider[];
   lanes: FleetLane[];
-  claude: { units: number; closes: number; with_tokens: number };
+  /** A full bucket since U11 post-seal — the claude lanes carry token axes now. */
+  claude: FleetClaude;
   months: FleetMonth[];
   verdicts: { totals: Record<string, number>; recent: FleetVerdictRow[] };
   snapshots: FleetSnapshot[];
@@ -331,9 +366,16 @@ export function fmtSpan(s: number | null | undefined): string {
   return `${(s / 86400).toFixed(1)}d`;
 }
 
-/** Cache hit-rate is DERIVED, never stored — and null when there is no denominator. */
+/**
+ * Cache hit-rate is DERIVED, never stored — and null when there is no denominator.
+ *
+ * Both sides are now nullable (WARN-7), and both are checked: a rate over an unmeasured
+ * numerator would read as `0.0% cache` on a lane that never reported caching at all, which is
+ * the same manufactured-zero the axis nulls exist to prevent, one division downstream.
+ */
 export function cacheRate(t: FleetTokens): number | null {
-  return t.input > 0 ? (100 * t.cached_input) / t.input : null;
+  if (t.input == null || t.cached_input == null || t.input <= 0) return null;
+  return (100 * t.cached_input) / t.input;
 }
 
 // ---- shared display helpers ----
