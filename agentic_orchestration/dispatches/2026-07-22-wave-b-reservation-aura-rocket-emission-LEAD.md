@@ -1,6 +1,6 @@
 # Dispatch — rocket — Wave-B Reservation/Aura MVP: emission LEAD
 
-**Status:** PENDING
+**Status:** **COMPLETE** (2026-07-22; header reconciled 2026-08-24 by knight-rider) — tag `rocket/v2.13-wave-b-reservation-aura-emission-1` @ `e8bccae9`, on `origin`; completion record + `EMISSION-READY` go-token present below. *(Residual, non-blocking: `MIGRATION.md:41` carries a tag typo — `v2.12` should read `v2.13`.)*
 **Seam:** rocket (generation / config / emission)
 **Conductor:** knight-rider (Wave-B Reservation/Aura build lane; run-state `agentic_orchestration/knight-rider/wave-b-reservation-aura-run-state.md`)
 **Date authored:** 2026-07-22

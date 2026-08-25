@@ -1,5 +1,6 @@
 # Dispatch — 2026-07-22 — star-lord — Emission demo-critical: end-to-end bundle + flavor-fill
 
+**Status:** **COMPLETE — one acceptance item open, and it is Matt-gated, not star-lord-gated** (2026-07-22; header added 2026-08-24 by knight-rider — this dispatch carried *no* `Status` line at all, which is why it read as indeterminate for a month). Tag `star-lord/v-emission-demo-critical-1` @ `a3671d42`; delta bundle `one_realm_demo_bundle_w3_flavor.json` present with the reserved `encounters` key and `schema_status: DRAFT-pending-drax-handshake`; the LOCKED baseline is untouched (`Jul 3 01:36`, still `LOCKED`). jack-ryan Gate-2 **PASS-WITH-CONDITIONS**. ⚠ **Verified rather than assumed: the flavor fill has NOT fired — 0/648 skills and 0/40 monsters non-null.** That is the credential gate parked as `canonical/matt_to_do/` **T3** (~838 LLM calls ≈ $1.86). jack-ryan closes the Gate-2 condition once it runs.
 **From:** knight-rider
 **To:** star-lord
 **Approved by:** Matt — fire-word on gandalf brief `agentic_orchestration/gandalf/briefs/2026-07-22-parallel-kr-lanes-emission-sim.md` §2 (Lane-1 EMISSION DEMO-CRITICAL, star-lord seam)

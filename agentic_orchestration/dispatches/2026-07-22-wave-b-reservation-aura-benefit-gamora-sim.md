@@ -1,6 +1,6 @@
 # Dispatch — gamora — Wave-B Reservation/Aura BENEFIT round: sim wiring + S6 cert
 
-**Status:** PENDING (BLOCKED until rocket go-token)
+**Status:** **COMPLETE** (2026-07-22; header reconciled 2026-08-24 by knight-rider) — tag `gamora/v1.13-wave-b-reservation-aura-benefit-sim-1` @ `a0cb754d`; **S6 cert GREEN 8/8**. Verified live at HEAD rather than taken from the record: `aura_benefit_mod` at `spatial_engine.py:1615`, `_emit_aura_pulses` at `:4632`, called from the fight loop at `:7616` — **the previously-unwired benefit path is wired.** ⚠ **One open question, routed to Matt:** the milestone tag `v2.3-wave-b-reservation-aura` (prefix dropped) exists locally **and on `origin`**, but this dispatch's run-state line 115 says Matt approval is required for a prefix drop and shows no approval line. **Settling evidence: a Matt-approval record for that tag.**
 **Seam:** gamora (simulation / balance / cert)
 **Conductor:** knight-rider (Wave-B Reservation/Aura build lane; run-state `agentic_orchestration/knight-rider/wave-b-reservation-aura-run-state.md`)
 **Date authored:** 2026-07-22

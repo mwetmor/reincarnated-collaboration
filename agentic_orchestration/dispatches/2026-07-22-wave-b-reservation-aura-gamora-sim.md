@@ -1,6 +1,6 @@
 # Dispatch — gamora — Wave-B Reservation/Aura MVP: sim consumers + banner + cert
 
-**Status:** PENDING (starts AFTER rocket LEAD pushes — read the go-token `EMISSION-READY` in `2026-07-22-wave-b-reservation-aura-rocket-emission-LEAD.md`)
+**Status:** **COMPLETE** (2026-07-22; header reconciled 2026-08-24 by knight-rider) — tags `gamora/v1.12-…-sim-1` / `-banner-2` / `-s6cert-3` all on `origin`. Slices 1+2 delivered; **Slice 3 raised a fork HALT (benefit side computed but unwired) and that HALT was correct** — it surfaced the design fork Matt then ruled **R2 = (B) benefit-bearing**, which spawned the successor benefit round. Discharged there. Nothing owed.
 **Seam:** gamora (simulation / resolution / calibration)
 **Conductor:** knight-rider (Wave-B Reservation/Aura build lane; run-state `agentic_orchestration/knight-rider/wave-b-reservation-aura-run-state.md`)
 **Date authored:** 2026-07-22

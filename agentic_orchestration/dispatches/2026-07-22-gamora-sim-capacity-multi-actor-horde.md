@@ -1,6 +1,6 @@
 # Dispatch — 2026-07-22 — gamora — SIM CAPACITY: multi-actor / horde (spec-frozen two-step wave)
 
-**Status:** PENDING — FIREABLE. Open a gamora session; it picks this up at session start.
+**Status:** **COMPLETE** (2026-07-22; header reconciled 2026-08-24 by knight-rider). Spec on disk (`simulation/spec/sim-capacity-extension-spec-2026-07-22.md`); tags `gamora/v1.14-sim-capacity-1/2/3` all present; band-baseline artifact `output/sim-capacity-horde-band-baseline-71000301.json` present; jack-ryan Gate-2 **PASS-WITH-AMENDMENTS**, no BLOCK. The completion record went to gamora's `AGENT_STATE.md` rather than to this file — **the dispatch was done; only this line was stale, for a month.** Three non-blocking residuals stay open: the viability-probe artifact, two decisions-log entries owed by jack-ryan, and the ≥50 defensive-axis re-fit deferred to Lane-3.
 **Gates cleared:** jack-ryan Gate-1 (DESIGN-MODE, dispatch review) **PASS-WITH-AMENDMENTS** 2026-07-22 — all 5 amendments folded (W2-red-flag lifecycle timing · A3 formation-necessity boundary · #1.1 named host-bounds threshold · Disc #18 baseline-before-prereg · checkable band-refit provenance). NOTE: this cleared the *dispatch*; gamora's step-(a) *spec* gets its own separate jack-ryan Gate-1 (the internal gate below).
 **From:** knight-rider (Lane-2 conductor; run-state `agentic_orchestration/knight-rider/sim-capacity-lane2-run-state.md`)
 **To:** gamora (simulation / spatial gauntlet / calibration)

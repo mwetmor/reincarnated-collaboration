@@ -1,6 +1,6 @@
 # Dispatch — rocket — Wave-B Reservation/Aura BENEFIT round: emission LEAD
 
-**Status:** PENDING
+**Status:** **COMPLETE** (2026-07-22; header reconciled 2026-08-24 by knight-rider) — tag `rocket/v2.14-wave-b-reservation-aura-benefit-emission-1` @ `138999ff`, on `origin`; completion record + benefit go-token present below. Nothing owed.
 **Seam:** rocket (generation / config / emission)
 **Conductor:** knight-rider (Wave-B Reservation/Aura build lane; run-state `agentic_orchestration/knight-rider/wave-b-reservation-aura-run-state.md`)
 **Date authored:** 2026-07-22

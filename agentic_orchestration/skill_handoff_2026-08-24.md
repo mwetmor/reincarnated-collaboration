@@ -81,20 +81,39 @@ Findings: `research/knowledge/gd/2026-08-23-eorwarlguts-save-decode.md`. Banked 
 
 ---
 
-## 6. SEPARATE THREAD — engine-seam Wave-B has been parked ~1 month
+## 6. ~~SEPARATE THREAD — engine-seam Wave-B has been parked ~1 month~~ → **RESOLVED 2026-08-24: NOTHING WAS PARKED. ALL SIX ARE DONE.**
 
-Surfaced by survey, **unrelated to the VFX run.** Six dispatches dated **2026-07-22** still read PENDING with **no completion records** (the "completion record" text in them is template instruction, not a record):
+> **⚠ CORRECTION — this section was wrong, and it is worth saying exactly how.** The status pass I recommended below fired 2026-08-24 and returned **six of six DONE**, all completed **2026-07-22, inside a single day.** What was stale was **the headers, not the work.** The section below is retained struck-through rather than deleted, because the failure mode it demonstrates is the one worth keeping: **I inferred a stalled dependency chain from six `**Status:**` lines and a `README` index, and every load-bearing element of that inference was false.** Discipline **#19.1(b)** — *claims do not inherit their verification.* A dispatch header is a claim about state; it is not state. **Discipline #73** — *state is derived.* The tags, the artifacts on disk and the code at HEAD were the derivable state the whole month, and none of them were consulted before the chain was called stalled.
 
-- `wave-b-reservation-aura-rocket-emission-LEAD.md` — **PENDING**. Head of the chain.
-- `wave-b-reservation-aura-gamora-sim.md` — PENDING, *starts AFTER rocket LEAD pushes the go-token*
-- `wave-b-reservation-aura-benefit-gamora-sim.md` — PENDING, **BLOCKED until rocket go-token**
-- `wave-b-reservation-aura-benefit-rocket-emission-LEAD.md` — PENDING
-- `gamora-sim-capacity-multi-actor-horde.md` — **PENDING — FIREABLE** (not blocked; simply never fired)
-- `star-lord-emission-demo-critical-bundle-flavor.md` — PENDING
+**What the pass actually found** (each verified from primary evidence — tags on `origin`, artifacts on disk, code at HEAD — not relayed from the dispatches' own status text):
 
-**This is a stalled dependency chain, not scattered drift** — rocket LEAD is the head, and two gamora dispatches are gated on its go-token. The whole team has been in VFX/KC2 territory since. **I do not know whether these were superseded by later rulings, silently obsoleted, or genuinely dropped, and I did not guess.** They carry BINDING ruled fork-sets (Matt 2026-07-21 §15-R) that say "do not re-litigate" — so if they are still live they are ready to fire, and if they are dead that should be recorded rather than left ambiguous.
+| Dispatch | Disposition | Evidence |
+|---|---|---|
+| `gamora-sim-capacity-multi-actor-horde` | **DONE** | Spec on disk; tags `gamora/v1.14-sim-capacity-1/2/3`; band-baseline artifact present; Gate-2 PASS-WITH-AMENDMENTS. Completion record went to `AGENT_STATE.md`, not the dispatch file — **that single routing choice is the whole reason it read PENDING.** |
+| `star-lord-emission-demo-critical-bundle-flavor` | **DONE**, one Matt-gated item | Tag `star-lord/v-emission-demo-critical-1` @ `a3671d42`; delta bundle present with reserved `encounters` key; LOCKED baseline untouched; Gate-2 PASS-WITH-CONDITIONS. **Flavor fill has not fired: 0/648 skills, 0/40 monsters non-null** — the `matt_to_do` **T3** credential gate. |
+| `wave-b-…-rocket-emission-LEAD` | **DONE** | `rocket/v2.13-…-emission-1` @ `e8bccae9`, on `origin`; `EMISSION-READY` go-token present. |
+| `wave-b-…-gamora-sim` | **DONE** | Three tags on `origin`. Slice-3 raised a fork HALT — **and the HALT was correct**: it surfaced the fork Matt ruled **R2 = (B)**, which spawned the successor round. |
+| `wave-b-…-benefit-rocket-emission-LEAD` | **DONE** | `rocket/v2.14-…-benefit-emission-1` @ `138999ff`, on `origin`. |
+| `wave-b-…-benefit-gamora-sim` | **DONE** | `gamora/v1.13-…-benefit-sim-1` @ `a0cb754d`; **S6 cert GREEN 8/8**; benefit path verified wired at HEAD (`spatial_engine.py:1615` / `:4632` / fight loop `:7616`). |
 
-**Recommended first move:** a status pass, not a re-fire. Cheapest question is whether §15-R's ruled forks survived the intervening month of decisions.
+**The "pairing" question is answered and it was not duplication:** the un-suffixed pair is the **MVP round**; the `-benefit-` pair is its **successor round**, authored after the MVP round's Slice-3 HALT surfaced the design fork. Distinct KR authoring commits (`a85833f0` vs `e0170510`), non-overlapping tags (`v2.13`/`v1.12` vs `v2.14`/`v1.13`), and the benefit LEAD cites the MVP dispatch as prior art. **The chain ran to completion; it did not stall at its head.**
+
+**All six headers reconciled 2026-08-24** with the evidence inline. Residuals, none blocking: `MIGRATION.md:41` tag typo (`v2.12`→`v2.13`); two decisions-log entries owed by jack-ryan; the ≥50 defensive-axis re-fit deferred to Lane-3; and **one question routed to Matt** — the milestone tag `v2.3-wave-b-reservation-aura` has the prefix dropped and is on `origin`, but the run-state says Matt approval is required for a prefix drop and shows no approval line. Settling evidence: a Matt-approval record for that tag.
+
+<details><summary>Original section, retained struck-through</summary>
+
+~~Surfaced by survey, **unrelated to the VFX run.** Six dispatches dated **2026-07-22** still read PENDING with **no completion records**~~ — *false; see above. What follows is preserved as the record of the wrong inference.*
+
+- ~~`wave-b-reservation-aura-rocket-emission-LEAD.md` — **PENDING**. Head of the chain.~~
+- ~~`wave-b-reservation-aura-gamora-sim.md` — PENDING, *starts AFTER rocket LEAD pushes the go-token*~~
+- ~~`wave-b-reservation-aura-benefit-gamora-sim.md` — PENDING, **BLOCKED until rocket go-token**~~
+- ~~`wave-b-reservation-aura-benefit-rocket-emission-LEAD.md` — PENDING~~
+- ~~`gamora-sim-capacity-multi-actor-horde.md` — **PENDING — FIREABLE** (not blocked; simply never fired)~~
+- ~~`star-lord-emission-demo-critical-bundle-flavor.md` — PENDING~~
+
+~~**This is a stalled dependency chain, not scattered drift** — rocket LEAD is the head, and two gamora dispatches are gated on its go-token.~~ **This was the load-bearing false claim.** *(I did get one thing right and it is the reason this was recoverable: **"I do not know whether these were superseded, silently obsoleted, or genuinely dropped, and I did not guess."** The recommendation that followed — **"a status pass, not a re-fire"** — was the correct move, and firing it is what produced the correction above.)*
+
+</details>
 
 ---
 
