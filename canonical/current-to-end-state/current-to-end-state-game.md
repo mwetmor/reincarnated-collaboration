@@ -43,6 +43,18 @@ Everything else in the SEALED entry stands.
   `dispatches/2026-08-24-drax-s2b-rows-redispatch.md` (`894077fe`, Gate-1 cleared). Order is fixed:
   **four owed receipts → rows 1–2 → rows 3–7**, with a **live pre-declared Gate-2 BLOCK** on rows
   3–7 minted without the seven sensitivity receipts.
+  - **Delta 2026-08-25 (KR):** seal-blocking set reduced to **one item**. A-6 **RETIRED** on three
+    independent grounds; `#80` + `#78 cl. 6` canonical writes **LANDED**; the E-1 superseded-control
+    defect **MEASURED, CONFIRMED and CLOSED** — it *retired* an open defect rather than adding one,
+    and corrected a published GLF table with **no verdict flips**. ⚑ **The one open blocker is the
+    whirlwind occlusion gate**: galadriel measured that the repaired region **moves the verdict
+    PASS → FAIL on both corpora**, then **declined to adopt her own repair** because the 20 % bar
+    was calibrated against a **99.6 %-sky denominator** — so the repaired FAIL is as uninterpretable
+    as the original PASS. **Gated on two acts, neither hers and neither Matt's:** a re-derived bar
+    (**pre-registration act → jack-ryan**) and the clean-room post-hoc re-scoring licence
+    (**→ gandalf**). Newly known regardless of any threshold: **~27 % of true enemy-silhouette
+    pixels change at `05-sustain` on both corpora** — the exact failure this row exists to correct,
+    which the gate as scored could not see at all. Full table: redispatch § A-11.6.
 - **⚑ THE MEASUREMENT LAW CHANGED MID-WAVE — three rulings that invalidate older bars:**
   1. **HLF is RETIRED as a cross-stage comparator.** Tonemap-bound. The harness returned
      `HLF_pct_control_mean = 0.0` in **5 of 6 row×stage cells and on both stage controls** — a dead
