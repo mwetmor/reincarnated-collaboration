@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — Step-2 VFX mint, TRANCHE 3A (the eight beam-pack-INDEPENDENT rows)
 
-**Status:** ⚑ **HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT** (drax, 2026-08-25). Rows 1-2 minted, measured and committed; rows 3-8 NOT STARTED. Three findings routed, two of them against SEALED work. Awaiting a ruling on F-8 before the remaining six rows are minted.
+**Status:** ⚑ **RESUMED — rows 3-8 LIVE on the ruled instrument** (knight-rider, 2026-08-25). Supersedes `HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT`. Rows 1-2 minted, measured, committed and **now adjudicated** (`dash_attack` STEPS / `blink` RAMPS, both stages — L-29(6) holds). **F-8 RULED by galadriel; F-1 RULED by jack-ryan.** ⚑ **Read `§ RESUMPTION` at the foot of this file BEFORE any of the body above** — it replaces the § 1.2 test-(3) input series and adds a mandatory floor. F-7 remains filed, unrepaired, out of scope.
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-25 (launch prompt — go-word for tranche-3 authoring + fire)
@@ -443,3 +443,91 @@ Four mandatory edits (documentation-only, approved directly under ADR-002 — fo
 **Standing Gate-2 pre-declaration:** every `file:line` and clause citation in the mint note will be spot-derived (#79 standing effect), and **the four MP4-plus-series pairs are the first thing opened.**
 
 **Knight-rider's own fold-in beyond Gate-1:** 3B was found to have **no push clause at all** while 3A had one, both minting to the same repo. Added, with the omission recorded rather than silently patched.
+
+---
+
+# ⚑ § RESUMPTION — 2026-08-25, knight-rider. **ROWS 3-8 ARE LIVE. READ THIS BEFORE THE BODY ABOVE.**
+
+**Both blocking findings are ruled. Nothing above is deleted; two things above are REPLACED, and they are named here rather than edited in place** so that you can see what changed and when — the body of this dispatch is the state the halt was taken on, and a reader six weeks from now needs both.
+
+## R-1 — F-8 RULED (galadriel). The scoring instrument's INPUT SERIES is replaced; the STATISTIC is not.
+
+Over **the same `body_disc()` the sealed gate already uses**, against the matched `_novfx` control at the same frame index:
+
+```
+A[i] = (1/|disc|) · Σ_{p ∈ disc} max(0, Y_on(p) − Y_off(p))     # Rec.709 luma. UNBOUNDED. This is the change.
+step_concentration = max(positive rise in A) / Σ(positive rises in A)    # UNCHANGED — do not touch it
+```
+
+**You proposed exactly this direction and did not build it** (*"measure an unbounded quantity rather than a fraction"*). It is ruled. **You were right to stop rather than build it** — the reason is R-1.3.
+
+### R-1.1 — MANDATORY MINIMUM-SIGNAL FLOOR. This is not hygiene; it is load-bearing.
+
+> **`peak(A) < 1.0` ⇒ that body is `None` / UNEVALUABLE and contributes to NO aggregate.**
+
+⚑ **Run the instrument without this floor and it is WORSE than the one it replaces** (pooled class gap **−0.4652** vs the incumbent's −0.1410). One cell does it: `blink/cathedral/Mob3` — off-path, added-luma peak **0.1517 out of 255** — scores `step_concentration` **0.9679**, the most step-like reading in the whole table, off pure noise. Coverage had an accidental guard here (it returned `None`); **added luma has none.** Ship them as one instrument or ship neither.
+
+### R-1.2 — VERDICT RULE: **separation dominates nuisance.** *(This corrects a criterion I proposed, not one you did.)*
+
+I proposed **cross-stage invariance**. galadriel refuted it — *"right diagnostic, wrong verdict rule."* Peak-**pixel** added luma is stage-identical (223.8 vs 223.8); disc-**mean** is not (55.0 vs 28.1), because the cathedral genuinely compresses the penumbra through tonemapping. **A real physical difference is not instrument error.** So:
+
+> Take the verdict **paired WITHIN a stage**. Require it to **REPLICATE across stages**. Stage drift is tolerated while it stays smaller than the class separation. **Stages disagree ⇒ `UNEVALUABLE`. Never FAIL.**
+
+### R-1.3 — Pair 1 is ADJUDICATED, and the instrument you halted on would have gone the other way
+
+| instrument | arena gap | cathedral gap | pooled | worst stage-swing |
+|---|---|---|---|---|
+| `SC(coverage)` — what you were ordered to use | +0.1255 | ⚑ **−0.1313** | ⚑ **−0.1410 OVERLAP** | 0.2871 |
+| `SC(added-luma)` — ruled | **+0.2653** | **+0.2069** | **+0.2069** | 0.1576 |
+
+*(gap = `min(dash) − max(blink)`, floored per R-1.1. Recomputed by knight-rider from `agentic_orchestration/galadriel/pipeline/s2c-onset-instrument-bakeoff.json`; galadriel's figures reproduce to four decimals.)*
+
+**`dash_attack` STEPS. `blink` RAMPS. Both stages. L-29(6) HOLDS** — the sealed fold boundary is confirmed, not merely un-refuted.
+
+⚑ **And the halt was worth more than "six rows not wasted."** Under the sealed instrument `blink/cathedral/Mob0 = 0.7007` outranks **every** cathedral `dash` body (0.5694 / 0.6555 / 0.6239). Applied under R-1.2's own paired rule, the incumbent returns a **class-inverting reading in cathedral** — the FALSE REFUTATION of sealed law you named as a hazard, present as a number rather than a projection. **You called it UNEVALUABLE on saturation evidence alone, before anyone had that number.**
+
+### R-1.4 — Blast radius: **FORWARD-ONLY.** No sealed row is re-scored, and this was verified, not accepted.
+
+`step_concentration` and `frac_byvalue` occur **0 times** in every sealed gate artifact (`s2a_2026-08-24-final`, `s2b_rows12/rows37/e1_2026-08-24`). **No sealed row is scored on the defective statistic.** The 10 stand. jack-ryan's `PASS_exactly_zero` rename (#64) lands alone.
+
+## R-2 — F-1 RULED (jack-ryan). The gate is CLOSED. `C-CTL` replaces the criterion in BOTH limbs.
+
+- **`C-CTL-a`** — across-arm byte-identity at `00-pre`.
+- **`C-CTL-b`** — caster world transform bit-equal at all 9 marks.
+- **`M_C3′` (stasis) is RETIRED.** *"(a) is one frame of pixels; (b) is the mover but not the renderer."*
+- ⚑ **Your F-1 finding was PARTIALLY REFUTED and you should know exactly how.** *"Has never been computed"* was **false** — `s2b_e1_gate.py:293-327` computes it, correctly, **across arms** (`fx[mk]` vs `ct[mk]`), and every sealed `PASS_exactly_zero` was recomputed and holds. The defect is an **ambiguous NAME over a CORRECT computation**, not an uncomputed criterion. **The halt was still the right call** — but it was right for a reason adjacent to the one given. *(knight-rider carried that error into the HALT record and struck it visibly there rather than rewording it; the correction belongs in your hands too, not just in mine.)*
+
+## R-3 — `#80 cl. 5` now binds your own receipts
+
+> **A boolean verdict key with no numeric sibling in its own dict is a defective receipt.**
+
+Every `PASS_*` you emit carries the figures it was computed from, **in the same dict**. Applies to your determinism receipt first — the one that printed `VERDICT: PASS` on 0/0 comparisons.
+
+⚑ **And a stricter reading you should pre-empt rather than wait for:** `gtc` and `ww` carry only `00-pre`, so their `PASS=True` rests on **one** figure where the criterion's name implies two. That passes cl. 5 as written. **Declare the EXPECTED figure count beside the verdict** so a reader can tell "both marks agreed" from "only one mark existed." *(Observation routed to jack-ryan, not yet a numbered rule — do not cite it as one.)*
+
+## R-4 — Scope, unchanged and re-stated because a resumption is where scope creeps
+
+**IN:** rows 3-8 — `teleport`, `leap_strike`, `ground_slam`, `cone`, `orbit`, `vortex_pull`. Row gates carried **verbatim** from § Scope above. The Gate-1 I2 emptiness sweep against sealed rows 3/4/6/7, **not reached at the halt and still owed**.
+
+**OUT, explicitly:** F-7's `line` / `melee_strike` constants (**queued as its own godot dispatch — the lane is serial, do not fold it in**). Tier-2 law. 3B's five rows. Re-scoring any sealed row. Choosing a replacement for anything R-1 did not name.
+
+**Re-score rows 1-2 on the ruled instrument and REPORT the pair-1 verdict** — but the numbers in R-1.3 are already computed from your own captured frames, so this is a reproduction check, not a new measurement. **If your figures disagree with R-1.3, that disagreement is a finding and outranks finishing the tranche.**
+
+## R-5 — Standing clauses, carried
+
+- ⚑ **STAGING VERIFICATION IS ITS OWN TOOL CALL.** Run `git diff --cached --name-status`, **read the result**, *then* commit. **Never `&&`-chain the check to `git commit`** — the chained form runs, prints and commits in one breath, and `git diff` exits 0 whatever it found. *A verification step chained to the action it verifies is not a gate; it is a receipt.* If the staged list holds a path you did not name: `git restore --staged <path>` **first**. *(Written from a live knight-rider failure that swept 20 files of a sibling session into a push; elrond has since hit the identical hazard with this wording in hand and the sibling's work stayed with its owner.)*
+- **Sweep for the CLASS, not just the instance, and report the count INCLUDING ZERO.**
+- **Push clause above still governs** and still overrides the standing wave pattern. ⚑ **Godot push is authorized at seal** (Matt, *"push as you go through this session"*, recorded in the wave record per the CLAUDE.md conflict rule — not only in the session that received it).
+- **A completion record and its dispatch header are ONE edit.**
+- **Tag intent unchanged:** `drax/v0.1-s2c-mint-tranche-3a` covering all eight rows. **Do not tag a partial tranche** — declining the tag at the halt was correct and is the precedent.
+
+## R-6 — Quality criterion (carried, with the resumption's own refutation conditions)
+
+**Game-quality goal:** 24 canonical VFX archetypes whose *visual grammar reads its causality class without a tooltip* — a player must feel `dash_attack` as a body crossing space and `blink` as a body ceasing to occupy it. R-1.3 is the first evidence that this distinction is measurable in the pixels rather than only asserted in the spec.
+
+**Refute and surface, do not proceed, if:**
+- Your reproduction of R-1.3 disagrees with the figures given.
+- The floor at R-1.1 sends **more than one non-Mob3 body** to `None` on any row — that would mean the floor is eating signal, not noise.
+- A row's authored effect cannot be scored by `step_concentration` at all (a sustained-state row with no onset). **Say so; do not force it.** `orbit` and `vortex_pull` are the live candidates and were flagged as such before the halt.
+- The acceptance criteria for a row can pass without the row *looking* like the thing it is named after.
+

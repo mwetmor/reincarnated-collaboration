@@ -4,6 +4,10 @@
 
 **Conductor:** knight-rider. **Builder:** drax (session closed). **Wave record:** `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md`.
 
+> ⚑ **STATUS SUPERSEDED WITHIN THE SAME DAY — `HALTED` → `RESUMED`.** Both blocking findings ruled: **F-8 by galadriel (§ 2.1)** and **F-1 by jack-ryan (§ 3)**. Rows 3-8 re-dispatched on the ruled instrument. **The header is updated in the same edit as the body, per the candidate discipline this wave filed at `qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`** — a record whose own status field lags its content is the exact defect that filing exists to name, and it would be a poor showing for it to appear here first.
+>
+> **Nothing below is rewritten.** The halt was correct when taken and the reasoning that took it is left standing, including the parts of it that were subsequently corrected.
+
 ---
 
 ## 1 — State, precisely
@@ -54,6 +58,71 @@ No causality class changed between those runs. **Stage brightness** changed. A s
 **Owner of the unblock:** **galadriel** — the instrument is hers, and the replacement sets how all 24 rows are scored. **Dispatched 2026-08-25** with four questions: rule the replacement; demonstrate it on the existing rows-1-2 series; rule the floor guard; and ⚑ **rule the blast radius** — whether the replacement requires re-scoring the **10 sealed rows**, applies forward only, or applies forward with a named audit. That last one is jack-ryan's problem the moment she says so, and he should receive a scoped question rather than a rumour.
 
 **Not delegated to her:** L-29(6) itself. The fold boundary is sealed law. The question is whether the instrument can test it, not whether it is right.
+
+---
+
+## 2.1 — ⚑ F-8 RULED (galadriel, 2026-08-25). **THE HALT IS DISCHARGED. Rows 3-8 are RESUMABLE.**
+
+**Every figure below was recomputed by me from `agentic_orchestration/galadriel/pipeline/s2c-onset-instrument-bakeoff.json` before being written here** — the discipline this record was twice corrected for not applying (§ 3 F-1; and the second addendum at `qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`). Her figures reproduce **exactly**. Where I add something she did not claim, it is marked as mine.
+
+### The ruled instrument — input series replaced, statistic unchanged
+
+Over the **same `body_disc()` the sealed gate already uses**, against the matched `_novfx` control at the same frame index:
+
+```
+A[i] = (1/|disc|) · Σ_{p ∈ disc} max(0, Y_on(p) − Y_off(p))        # Rec.709 luma, UNBOUNDED
+step_concentration = max(positive frame-to-frame rise in A) / Σ(positive rises in A)    # UNCHANGED
+```
+
+**Only the input series changes.** `step_concentration`, `body_disc()`, the mark scheme and the § 1.2 anti-tamper inversion all stand. That is why the blast radius is small — and why she could rule it **without a single new capture**, on the rows-1-2 frames already on disk. Her pipeline reproduces the sealed gate **byte-exact** where the two overlap (worst `step_concentration` delta 0.0 across 12/12 bodies).
+
+### The verdict rule — and my framing was corrected
+
+I proposed **cross-stage invariance** (§ 2(b)). She refuted it: *"right diagnostic, wrong verdict rule."* Peak-**pixel** added luma IS stage-identical (223.8 vs 223.8), but disc-**mean** is not (55.0 vs 28.1) — because the cathedral genuinely compresses the penumbra through tonemapping. **A real physical difference is not instrument error, and a criterion that forbids it would reject a correct instrument.** The ruled form:
+
+> **SEPARATION DOMINATES NUISANCE.** The verdict is taken **paired within a stage**, and must **replicate across stages**. Stage-to-stage drift is tolerated so long as it is smaller than the class separation it must not swamp. **Disagreement between stages ⇒ `UNEVALUABLE`, never FAIL.**
+
+> **MINIMUM-SIGNAL FLOOR: `peak(A) < 1.0` ⇒ the body is `None`/UNEVALUABLE and contributes to no aggregate.**
+
+### The headline outruns the halt — ⚑ the sealed instrument could never have adjudicated pair 1
+
+| instrument | arena within-stage gap | cathedral within-stage gap | pooled class gap | worst stage-swing |
+|---|---|---|---|---|
+| `SC(coverage)` — **the sealed one** | +0.1255 | ⚑ **−0.1313** | ⚑ **−0.1410 OVERLAP** | 0.2871 |
+| `SC(added-luma)` — **ruled** | **+0.2653** | **+0.2069** | **+0.2069 CLEAN** | 0.1576 |
+
+*(gap = `min(dash) − max(blink)`; both floored per the ruling. Recomputed by me; both of her headline figures — **−0.1410** and **+0.2069 / 0.1576** — land to four decimals.)*
+
+Under the sealed instrument, `blink@arena/Mob0 = 0.7104` reads **more physical** than `dash@cathedral/Mob0 = 0.5694`. ⚑ **My addition, which her return does not state:** the pooled overlap understates it — **the sealed instrument fails within the cathedral stage on its own, −0.1313**, where `blink/cathedral/Mob0 = 0.7007` outranks **every** cathedral `dash` body (0.5694 / 0.6555 / 0.6239). So the defect is not "pooling hid a stage effect." Applied under her own paired-within-stage rule, the sealed instrument would have returned a **class-inverting reading in cathedral** — the FALSE REFUTATION of L-29(6) named in § 2 as a hazard, present as an actual number rather than a projection.
+
+**Pair 1 on the ruled instrument: `dash_attack` STEPS, `blink` RAMPS, in BOTH stages. L-29(6) HOLDS.** The pair the halt could not adjudicate is now adjudicated, and it adjudicates in favour of the sealed law.
+
+### ⚑ My addition — the floor is LOAD-BEARING to the ruling, not hygiene attached to it
+
+I ran added-luma **without** the floor. Pooled class gap: **−0.4652** — **worse than the instrument it replaces (−0.1410).**
+
+The reason is one cell. `blink/cathedral/Mob3`, the off-path body, added-luma peak **0.1517** out of 255, scores `step_concentration` = **0.9679** — and **1.0000 on coverage**. It is the most step-like reading in the entire 16-cell table and it is pure noise. `dash/Mob3` under coverage returns `None` (coverage's own guard fires); **added luma has no intrinsic guard at all**, which is exactly why the floor must be stated rather than assumed.
+
+> **The replacement instrument is not better than the sealed one unless the floor is applied.** Ship them as one instrument or ship neither. Recorded here because a downstream reader adopting "use added luma" and treating the floor as an optional refinement would adopt something measurably worse than what they left.
+
+*(This also corrects my own § 2(c) count: I named one noise verdict converted to `None`. There are **two** — `dash/arena/Mob3` and `dash/cathedral/Mob3`.)*
+
+### Blast radius — **(b) FORWARD-ONLY. No sealed row is re-scored.** Verified independently.
+
+She ruled forward-only; the claim is mechanically checkable, so I checked it rather than recording it. `step_concentration` and `frac_byvalue` occurrences across every sealed gate artifact:
+
+```
+s2a_2026-08-24-final:    step_conc=0  frac_byvalue=0
+s2b_rows12_2026-08-24:   step_conc=0  frac_byvalue=0
+s2b_rows37_2026-08-24:   step_conc=0  frac_byvalue=0
+s2b_e1_2026-08-24:       step_conc=0  frac_byvalue=0
+```
+
+**No sealed row is scored on the defective statistic.** Nothing is owed to the 10. jack-ryan's one-line `PASS_exactly_zero` rename (#64) therefore **lands alone** rather than riding inside a re-score amendment.
+
+### What is NOT ruled, and is routed rather than assumed
+
+**→ jack-ryan, as a scoped question, not a rumour:** `/aura/_readthrough/retention = 0.9980`. It is **not** ceiling-bounded by construction — but its inputs are thresholded counts, which is the family F-8 came from. Counter-evidence against alarm: `peak_with_aura` = 202, `peak_without` = 216, **both under 255**, so nothing is clipping. The region-fill fraction is not recorded in the artifact, **so it cannot be closed from the artifact alone** — it needs either one recomputation or a ruling that the counter-evidence suffices. Filed as a question with its own counter-evidence attached, per #79.
 
 ---
 
@@ -161,14 +230,20 @@ The two rows were **not** wasted; pricing the instrument on the first two rows i
 
 | # | Blocker | Owner | State |
 |---|---|---|---|
-| **F-8** | Saturating scoring instrument; replacement + floor guard + **blast radius over 10 sealed rows** | **galadriel** | **DISPATCHED 2026-08-25** |
-| **F-1** | Malformed `00-pre`/`08-post` criterion; what it means for tranche 2's seal | **jack-ryan** | 3B **frozen**; criterion **suspended**; awaiting ruling |
-| **F-7** | Declared vs realized `trail_span_s` on two **sealed** rows | **jack-ryan** | Filed, not re-opened |
-| **3A rows 3-8** | Cannot resume until F-8 rules the instrument | **knight-rider** (re-dispatch) | Blocked on F-8 |
-| **3B** | Held on **both** F-1 and P-BEAM | **knight-rider** (release) | Blocked on F-1 |
+| **F-8** | Saturating scoring instrument; replacement + floor guard + **blast radius over 10 sealed rows** | **galadriel** | ⚑ **RULED 2026-08-25 — see § 2.1.** Added-luma series + floor; **forward-only**, no re-score. Verified by me at source. |
+| **F-1** | Malformed `00-pre`/`08-post` criterion; what it means for tranche 2's seal | **jack-ryan** | ⚑ **RULED — see § 3.** `C-CTL` both limbs substituted; `M_C3′` retired; **gate CLOSED** |
+| **F-7** | Declared vs realized `trail_span_s` on two **sealed** rows | **jack-ryan** | Filed, not re-opened. Fix form known (`s2c_dash_attack.gd:128`); **queued, not fired** — the godot lane is serial |
+| **3A rows 3-8** | ~~Cannot resume until F-8 rules the instrument~~ | **knight-rider** (re-dispatch) | ⚑ **UNBLOCKED. Criterion satisfied. Resumption dispatched 2026-08-25.** |
+| **3B** | Held on ~~both F-1 and~~ **P-BEAM alone** | **knight-rider** (release) | F-1 discharged; **still held on P-BEAM** — an availability fact, not a defect |
 | **godot push** | Untagged halted tranche | **knight-rider** | Held; releases at seal |
+| **aura retention 0.9980** | Thresholded-count inputs; artifact insufficient to close | **jack-ryan** | ⚑ **NEW — routed with its counter-evidence attached** (§ 2.1) |
+| **`PASS_exactly_zero` rename (#64)** | Name does not determine referent | **jack-ryan** | Lands **alone** — forward-only ruling means no amendment to ride inside |
 
 **Empirical criterion gating resumption of 3A** — stated as evidence, not as elapsed time: **a replacement instrument ruled by galadriel and demonstrated on the already-captured rows-1-2 series**, showing cross-stage agreement on `dash_attack` (or her named substitute invariant) and an explicit minimum-signal floor. Until that exists, re-firing rows 3-8 would produce six more rows requiring re-scoring.
+
+> ⚑ **CRITERION SATISFIED, 2026-08-25 — and satisfied in the form it was written, which is the point of writing it in that form.** galadriel ruled the instrument, demonstrated it on the existing rows-1-2 series **with no new capture**, named her substitute invariant (*separation-dominates-nuisance*, correcting my cross-stage-invariance framing rather than accepting it), and set the floor at `peak(A) < 1.0 ⇒ None`. The clause *"or her named substitute invariant"* is the clause that made this criterion closeable by her rather than only by me — **a criterion that pre-specifies its own answer can only be satisfied by agreement, and this one was satisfied by correction.** Recorded because the next such criterion should carry the same clause.
+>
+> **Resumption is therefore NOT a reversal of the halt — it is the halt working.** Six rows were not minted on an instrument that has since been shown to invert its own class ordering in one stage.
 
 ---
 
