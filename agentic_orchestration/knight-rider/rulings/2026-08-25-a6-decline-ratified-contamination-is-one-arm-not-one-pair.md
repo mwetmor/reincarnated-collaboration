@@ -174,3 +174,76 @@ He wrote: *"The 7.41× (1.29 vs 9.56) is not in `xrow.json`… No arm carries 9.
 - **galadriel sequencing constraint, recorded because I cannot deliver it to her mid-flight** (`SendMessage` does not exist in this harness — confirmed a sixth time): **D3's pre-registration must land before or parallel to her descriptor repair, never after**, or § 7.3's residual will read as *"the leftover after the fix"* and be mis-scoped as instrument residue. **Controllable at integration** because I instructed her to *propose and stop*, not to score — but it is now the binding constraint on the order in which D1 and D3 land.
 
 *Amended by knight-rider, 2026-08-25. § 7.1's #72 cl. 9(b) quotation verified against `engineering-disciplines.md:3449`. § 7.5's figures read directly from `gate.json` at the paths given.*
+
+---
+
+# § 8 — galadriel's instrument ruling landed. **My floor mechanism was BACKWARDS. And putting her row-4 finding next to the receipt shows the descriptor is INVERTED on the axis it was retained for.**
+
+**Source:** `agentic_orchestration/galadriel/notes/2026-08-25-xrow-significant-components-instrument-ruling.md`, commit `a8ca5f58`. She disclosed her own contamination (she read the sweep in my prompt before ruling) unprompted, and argued why it survives rather than assuming it away. **She makes no floor recommendation, deliberately.**
+
+## 8.1 — ⚑ **My floor mechanism was inverted, and (c) would have made things WORSE**
+
+I wrote, twice, that floor 2 is *"the most fragmentation-prone setting available."* **Population Σ`significant_components` across her sweep: 61 (f2) → 88 → 103 → 133 → 165 → 187 → 230 → 274 (f24). Monotone increasing. Floor 2 is the LEAST-fragmented rung of eight.**
+
+**My mechanism was backwards.** I reasoned that a low floor admits more faint pixels and therefore more flecks. What actually happens is that a low floor admits the faint **connecting halo, which MERGES the blob** — and raising the floor **erodes the connections and splits it**. Raising toward 16 makes population fragmentation **3.8× worse** while lowering `null_max` on the one pair that spiked. Her sentence for that: **"the defect learning to hide."**
+
+**So fork (c) had three independent disqualifications and I found none of them.** Illegal by #72 cl. 9(b) (jack-ryan). Ineffective — the residual carries 0.0 % of the descriptor (jack-ryan). **And inverted in direction** (galadriel). I proposed it on a mechanism claim that was simply false, and my only hedge was procedural.
+
+**Her curve also refutes my § 3 framing** — the arena is not clean, it fragments at *different rungs*. `single_target/water`, floors 1→48: cathedral `1,3,1,1,1,1,1,1,1,1,1,1` — **a one-rung spike**; arena `1,1,2,3,3,2,1,1,1,1,1,1`. **The cross-stage control in § 3 still proves the descriptor is not reporting a stable shape property. It does NOT prove the arena is a clean reference**, and I implied it was.
+
+## 8.2 — Her root cause, which nobody had named and which is the best finding of the three returns
+
+**`authored_px` was excluded from the distance as non-portable — and it walks straight back in through the 1 % significance gate.** The gate is `0.01·n`: `single_target`'s is **14–27 px**; `circle`'s is **1,207–1,317 px**. **Noise immunity is proportional to mask size.** No mask above 2,699 px exceeds `sig = 2` anywhere in 48 arms.
+
+drax excluded `authored_px` with an explicit reason — *"including it lets two rows separate by being different sizes on this screen — the error class that produced ~12 %, ~20 % and 9.35 %"* — and it re-entered through a **gate definition**, not through the descriptor list. **The exclusion was defeated by a percentage sign.**
+
+**And she corrected her own first draft in flight:** she initially wrote that the two fragmenting arms were the two smallest masks; verification showed three smaller masks read 1. **Smallness is necessary, not sufficient** — the gate scales with `n`, so whether a fleck clears it is luck. She recorded the correction rather than the conclusion.
+
+**My § 3 hypothesis was also wrong.** I guessed thin translucent edges fall below the floor and split the blob. **The blob never splits.** The extra components are detached islands of the effect's **own faint halo** at Δ 2–3, quantised by 8-bit encoding, counted "significant" by a race between fleck size and a gate that is 1 % of a *shrinking* total. Flecks verified 100 % positive and blue-dominant — the water effect itself. The stage is only a **modulator** of where the halo quantises (cathedral local luma σ 13.39 vs arena 6.50). She also recorded that on the crops the **arena** is the visually busier substrate and her Sobel operator misses its soft tile shading — **a declared limit of her own instrument, against her own argument.**
+
+## 8.3 — ⚑ **MY FINDING: the descriptor is not merely useless on the count axis. It is INVERTED.** And it sits on both sides of A-6's criterion.
+
+galadriel established that `significant_components` reads **1 on all ten `multi_projectile` arms — the five-projectile fan row** — and concluded drax's retention reason is false: *"it is not carrying the count axis; it is carrying nothing."* **Verified.** Then I put it next to the count-1 arm, which she did not, and it is worse than nothing:
+
+| row | projectiles | `significant_components` |
+|---|---:|---|
+| `multi_projectile` (10 arms) | **5** | **1 on every arm, both stages** |
+| `multi_projectile_count1` @cathedral | **1** | **4** |
+| `multi_projectile_count1` @arena | **1** | 1 |
+| `line` (8 arms) | — | **2 on every arm, both stages** (row-characteristic) |
+
+**The five-projectile row reads ONE component. The one-projectile arm reads FOUR.** The descriptor retained *because it carries the payload-count axis* orders that axis **backwards**.
+
+**And Q2 is the question that axis exists to answer** — § 3.1.9: *"a `multi_projectile` arm with count = 1 must be distinguishable from `single_target`, or the fold boundary is carried by COUNT ALONE."* Re-deriving Q2 under drax's exact operator (**reproduced to 4 dp: my sanity pair returns 3.6678 at share 0.8165, and both Q2 minima match the receipt**):
+
+| | min cross-row | without `significant_components` | `sig` share of the min pair |
+|---|---:|---:|---:|
+| **Q2 @cathedral** | **6.7253** | 6.5179 | **0.061** |
+| **Q2 @arena** | **0.4907** | 0.4907 | **0.000** |
+
+**Two things fall out, and neither is in any of the three returns:**
+
+1. **Q2's headline is NOT descriptor-driven** — dropping it moves the cathedral minimum by 3 %. But the reason is an accident: **the minimising pair is `count1` (sig = 4) against `single_target/water` (sig = 3)**, and the two contaminated arms nearly cancel. **The contaminated arm sets the null max AND the cross-row min. It is on both sides of A-6's criterion at once** — inflating the noise and deflating the signal, in the same direction, toward declaring no separation.
+2. **Q2 is 13.7× stage-split — 6.7253 vs 0.4907 — with the descriptor contributing 0.000 at arena.** At arena, `count1` (10,601 px) and `single_target/fire` (2,548 px) are **0.49 apart on scale-free shape**: a 4× size difference and essentially the same shape. **That is the honest arena answer to § 3.1.9, and it is "yes — the fold boundary IS carried by count alone."** galadriel warned in advance that this must be a reachable answer. **It was reached, at one stage, and the cathedral figure that looks like a pass is driven by cathedral-specific fragmentation on both arms.**
+
+**Consequence for the repair, and it goes the opposite way from drax's constraint:** he refused option (a) because dropping the descriptor *"makes Q2 unaskable."* **Q2 is already unasked** — it is being answered by an inverted signal at one stage and by nothing at the other. galadriel's version is right and mine sharpens it: **a replacement must SUPPLY the count signal, not preserve it.** Her three proposals — R-1 `N_eff = 1/Σfᵢ²` (exact 1.0 for one blob, exact k for k, fleck perturbation O(f²)), R-2 persistence-weighted count, R-3 angular dispersion about the caster→impact axis — **are proposed and stopped, not scored.** Correct ordering; **they do not get run against this corpus.**
+
+## 8.4 — Where she and jack-ryan disagree, and my disposition
+
+She argues **four defects**, with **D1 (the null-leg premise false by spec) primary and under-weighted by everyone including drax**, routing to **gandalf as dispatch design, not to drax as code**. jack-ryan argues **three**, with the same item as D3 and **his own**, gated at tranche-2 close.
+
+**They agree on the substance and differ on the count and the owner.** My disposition:
+
+- **The item is ONE and it is jack-ryan's**, because A-6 is his Gate-1 criterion and a criterion's population is part of the criterion. **Its repair is pre-registered by him; gandalf is consulted if the spec-predicate turns out to encode a design intent rather than a mechanical fact.** That is the narrow version of galadriel's routing and I think it is the right one — but I am recording her position rather than absorbing it, because she may be right that this is a *dispatch-design* failure with a broader blast radius than one criterion.
+- **⚑ She reached her conclusion partly through my struck "1.41."** Her argument — *drop `single_target`'s max and the other eleven still average 1.41 against `circle`'s max of 0.3187, so motif swap does not explain the pattern; mask size does* — used a figure jack-ryan had already shown to be a mixture. **Re-derived on the corrected number the conclusion holds and holds harder**: `single_target`'s nine clean pairs average **0.9608** against `circle`'s row mean **0.2330** — **4.1×**, and `circle` is the *declared* motif-swapper. **Motif swap does not explain the pattern. Mask size does.** Her finding survives my error; it should not have had to.
+
+## 8.5 — What she found in her OWN instrument, which I did not ask for in this form and which is the most consequential thing in the return
+
+I asked whether S-A3 still carries the exposure she named. Two answers:
+
+1. **S-A3 is already dead on a different axis** — `HLF_arm = 0.0` in **5 of 6 cells** of `s2b_e1/gate.json`. Zero denominator. She adopts the prior HLF-zero finding rather than superseding it.
+2. **⚑ And on the axis she never swept: the bar cannot be failed by the artifact that defines it.** Stage-carried moves **0.3955 → 0.1491** under the threshold she had not varied — **and the 0.12 bar is defined as HALF THE ANCHOR'S OWN READING, so both move together and the anchor cannot fail its own bar.** She withdraws the number and keeps the method.
+
+**That is Matt's "criterion nobody can fail," reopened one axis over**, and it is the same family as the register-2 bloom gate already parked with gandalf (a gate the cathedral clears with the hero VFX switched off). **Routed to gandalf as a second instance of one class, not as a second incident** — filed separately; **not folded into the A-6 disposition, because it is not about A-6 and burying it there is how it would be lost.**
+
+*Amended by knight-rider, 2026-08-25. § 8.3's operator is drax's, reproduced to 4 dp against two published values before any new number was derived from it. Row-level `significant_components` figures in § 8.3 are read directly from `xrow.json`'s `arms` array (48 arms, enumerated in full).*

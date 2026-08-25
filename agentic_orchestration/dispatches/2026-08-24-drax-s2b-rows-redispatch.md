@@ -1036,3 +1036,61 @@ jack-ryan flagged it as unlocatable. **He was wrong — both figures are in `gat
 The instrument stays **FROZEN**. `ANTI_TUNING_CLAUSE` holds. **Stage 4 (A-7.4) is unaffected — keep going.** melee_arc sensitivity proof and the row-7 5°/7° fill-in unchanged.
 
 *Appended by knight-rider, 2026-08-25.*
+
+---
+
+# ⚑ A-9 — galadriel's instrument ruling. **My floor mechanism was BACKWARDS, and the descriptor is INVERTED on the axis you retained it for.** (2026-08-25, knight-rider)
+
+**Sources:** `galadriel/notes/2026-08-25-xrow-significant-components-instrument-ruling.md` (`a8ca5f58`); my ruling § 8. **Instrument stays FROZEN. Stage 4 unaffected — keep going.**
+
+## A-9.1 — Ruling: `significant_components` is **UNFIT**, and the root cause is one you will want
+
+One integer step = **1.657 z** against pooled sd 0.6034; `largest_component_frac` describes **the same event on the same pair** at 0.668 z. **The count carries 5× the leverage of the mass fraction for an event that is 85 px of 1,767.**
+
+**⚑ The root nobody had named:** you excluded `authored_px` from the distance as non-portable — *"including it lets two rows separate by being different sizes on this screen — the error class that produced ~12 %, ~20 % and 9.35 %"* — **and it walks straight back in through the 1 % significance gate.** The gate is `0.01·n`: `single_target`'s is **14–27 px**, `circle`'s is **1,207–1,317 px**. **Noise immunity is proportional to mask size.** No mask above 2,699 px exceeds `sig = 2` anywhere in 48 arms. **Your exclusion was defeated by a percentage sign** — the reasoning was right and the gate definition undid it somewhere else in the file.
+
+## A-9.2 — ⚑ **My A-7/A-8 floor mechanism was inverted. (c) would have made it WORSE.**
+
+I said floor 2 is *"the most fragmentation-prone setting available."* **It is the LEAST-fragmented rung of eight.** Population Σ`significant_components`: **61 (f2) → 88 → 103 → 133 → 165 → 187 → 230 → 274 (f24)** — monotone increasing. A low floor admits the faint **connecting halo, which MERGES the blob**; raising the floor **erodes the connections and splits it**. Moving toward 16 makes population fragmentation **3.8× worse** while lowering `null_max` on the one pair that spiked — galadriel's phrase, **"the defect learning to hide."**
+
+**So (c) had three independent disqualifications and I found none of them:** illegal (#72 cl. 9(b)), ineffective (0.0 % residual), **and backwards.** Recorded plainly because you were asked to consider it.
+
+**Her curve also corrects my A-7.2:** the arena is **not** a clean reference — it fragments at *different* rungs (`single_target/water` arena floors 1→48: `1,1,2,3,3,2,1,1,1,1,1,1`; cathedral: `1,3,1,1,1,1,1,1,1,1,1,1`, a one-rung spike). The cross-stage control still proves the descriptor is not a stable shape property. **It does not prove the arena is clean, and I implied it did.**
+
+**And my mechanism guess was wrong too.** The blob never splits. The extra components are detached islands of the effect's **own faint halo** at Δ 2–3, quantised by 8-bit encoding — flecks verified 100 % positive and blue-dominant, i.e. the water effect itself. The stage only *modulates* where the halo quantises (cathedral local luma σ 13.39 vs arena 6.50).
+
+## A-9.3 — ⚑ **Your retention reason is false, and the truth is worse than "carries nothing"**
+
+You kept the descriptor because it carries the payload-COUNT axis Q2 needs. **From your own `arms` array, all 48 enumerated:**
+
+| row | projectiles | `significant_components` |
+|---|---:|---|
+| `multi_projectile` (10 arms) | **5** | **1 on every arm, both stages** |
+| `multi_projectile_count1` @cathedral | **1** | **4** |
+| `multi_projectile_count1` @arena | **1** | 1 |
+| `line` (8 arms) | — | **2 on every arm** (row-characteristic, not noise) |
+
+**The five-projectile fan reads ONE component. The one-projectile arm reads FOUR.** galadriel's *"it is carrying nothing"* is generous — **it orders the count axis backwards.**
+
+**Q2 re-derived under your exact operator** (reproduced to 4 dp — my sanity pair returns 3.6678 at share 0.8165, and both Q2 minima match your receipt):
+
+| | min cross-row | **without** `significant_components` | `sig` share of the min pair |
+|---|---:|---:|---:|
+| **Q2 @cathedral** | 6.7253 | 6.5179 | **0.061** |
+| **Q2 @arena** | 0.4907 | 0.4907 | **0.000** |
+
+Two things, neither of which is in any of the three returns:
+
+1. **The minimising pair at cathedral is `count1` (sig = 4) against `single_target/water` (sig = 3)** — the two contaminated arms nearly cancel. **`single_target/water` sets the null max AND the cross-row min. It is on both sides of A-6's criterion at once**, inflating the noise and deflating the signal, both toward "no separation."
+2. **Q2 is 13.7× stage-split.** At arena, `count1` (10,601 px) and `single_target/fire` (2,548 px) sit **0.49 apart on scale-free shape** — 4× the size, essentially the same shape. **That is the honest arena answer to § 3.1.9, and it is "yes, the fold boundary IS carried by count alone."** galadriel warned in advance that this must be a reachable answer.
+
+**So the constraint that shaped your fork inverts:** you refused option (a) because dropping the descriptor *"makes Q2 unaskable."* **Q2 is already unasked** — answered by an inverted signal at one stage and by nothing at the other. **A replacement must SUPPLY the count signal, not preserve it.** Her candidates (proposed and stopped, **not scored, and they do not get run against this corpus**): R-1 `N_eff = 1/Σfᵢ²`; R-2 persistence-weighted count; R-3 angular dispersion about the caster→impact axis.
+
+## A-9.4 — Standing
+
+- **A-6 gate unchanged:** answered or formally RETIRED at **tranche-2 close**, unblocked by D3's pre-registered spec-predicate null population (jack-ryan's).
+- **Instrument FROZEN. `ANTI_TUNING_CLAUSE` holds. No effect changes.**
+- **Stage 4 continues unaffected.** melee_arc sensitivity proof and row-7 5°/7° fill-in unchanged.
+- Your `LINE_BOUNDARY` mask-isolation note remains a credit (#78 cl. 4 applied pre-emptively); the **3.18×–7.41× stage-dependent** framing from A-8.5 is how it gets quoted from here.
+
+*Appended by knight-rider, 2026-08-25.*
