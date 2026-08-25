@@ -1,0 +1,161 @@
+{
+ "source": "../captures/2026-08-25-md-b4app-2c-culprit/work/s2c-attrib.json",
+ "window": [
+  682.1,
+  864.75
+ ],
+ "n_casts": 54,
+ "per_slot_casts_as_filed": {
+  "2": 22,
+  "3": 19,
+  "L": 13
+ },
+ "W_primary_s": 0.35,
+ "definition": "ACTIVE(cast) := lag_into_gap_s <= W (last drain tick before the cast)",
+ "by_W": {
+  "0.35": {
+   "per_slot": {
+    "2": {
+     "n_cast": 22,
+     "n_channel_active": 21,
+     "P_channel_active_given_cast": 0.9545,
+     "n_interrupt_all": 3,
+     "n_interrupt_among_active": 3,
+     "rate_unconditional": 0.1364,
+     "rate_among_active": 0.1429
+    },
+    "3": {
+     "n_cast": 19,
+     "n_channel_active": 19,
+     "P_channel_active_given_cast": 1.0,
+     "n_interrupt_all": 0,
+     "n_interrupt_among_active": 0,
+     "rate_unconditional": 0.0,
+     "rate_among_active": 0.0
+    },
+    "L": {
+     "n_cast": 13,
+     "n_channel_active": 11,
+     "P_channel_active_given_cast": 0.8462,
+     "n_interrupt_all": 5,
+     "n_interrupt_among_active": 5,
+     "rate_unconditional": 0.3846,
+     "rate_among_active": 0.4545
+    }
+   },
+   "n_casts_total": 54,
+   "n_casts_channel_active": 51,
+   "P_channel_active_pooled": 0.9444,
+   "mix_unconditional": {
+    "2": 0.4074,
+    "3": 0.3519,
+    "L": 0.2407
+   },
+   "mix_channel_active": {
+    "2": 0.4118,
+    "3": 0.3725,
+    "L": 0.2157
+   },
+   "sum_mix_x_publishedrate_unconditional": 0.1481,
+   "sum_mix_x_publishedrate_activeMix": 0.139,
+   "sum_activeMix_x_activeRate": 0.1569,
+   "incumbent_uniform": 0.15
+  },
+  "0.25": {
+   "per_slot": {
+    "2": {
+     "n_cast": 22,
+     "n_channel_active": 21,
+     "P_channel_active_given_cast": 0.9545,
+     "n_interrupt_all": 3,
+     "n_interrupt_among_active": 3,
+     "rate_unconditional": 0.1364,
+     "rate_among_active": 0.1429
+    },
+    "3": {
+     "n_cast": 19,
+     "n_channel_active": 19,
+     "P_channel_active_given_cast": 1.0,
+     "n_interrupt_all": 0,
+     "n_interrupt_among_active": 0,
+     "rate_unconditional": 0.0,
+     "rate_among_active": 0.0
+    },
+    "L": {
+     "n_cast": 13,
+     "n_channel_active": 11,
+     "P_channel_active_given_cast": 0.8462,
+     "n_interrupt_all": 5,
+     "n_interrupt_among_active": 5,
+     "rate_unconditional": 0.3846,
+     "rate_among_active": 0.4545
+    }
+   },
+   "n_casts_total": 54,
+   "n_casts_channel_active": 51,
+   "P_channel_active_pooled": 0.9444,
+   "mix_unconditional": {
+    "2": 0.4074,
+    "3": 0.3519,
+    "L": 0.2407
+   },
+   "mix_channel_active": {
+    "2": 0.4118,
+    "3": 0.3725,
+    "L": 0.2157
+   },
+   "sum_mix_x_publishedrate_unconditional": 0.1481,
+   "sum_mix_x_publishedrate_activeMix": 0.139,
+   "sum_activeMix_x_activeRate": 0.1569,
+   "incumbent_uniform": 0.15
+  },
+  "0.5": {
+   "per_slot": {
+    "2": {
+     "n_cast": 22,
+     "n_channel_active": 21,
+     "P_channel_active_given_cast": 0.9545,
+     "n_interrupt_all": 3,
+     "n_interrupt_among_active": 3,
+     "rate_unconditional": 0.1364,
+     "rate_among_active": 0.1429
+    },
+    "3": {
+     "n_cast": 19,
+     "n_channel_active": 19,
+     "P_channel_active_given_cast": 1.0,
+     "n_interrupt_all": 0,
+     "n_interrupt_among_active": 0,
+     "rate_unconditional": 0.0,
+     "rate_among_active": 0.0
+    },
+    "L": {
+     "n_cast": 13,
+     "n_channel_active": 11,
+     "P_channel_active_given_cast": 0.8462,
+     "n_interrupt_all": 5,
+     "n_interrupt_among_active": 5,
+     "rate_unconditional": 0.3846,
+     "rate_among_active": 0.4545
+    }
+   },
+   "n_casts_total": 54,
+   "n_casts_channel_active": 51,
+   "P_channel_active_pooled": 0.9444,
+   "mix_unconditional": {
+    "2": 0.4074,
+    "3": 0.3519,
+    "L": 0.2407
+   },
+   "mix_channel_active": {
+    "2": 0.4118,
+    "3": 0.3725,
+    "L": 0.2157
+   },
+   "sum_mix_x_publishedrate_unconditional": 0.1481,
+   "sum_mix_x_publishedrate_activeMix": 0.139,
+   "sum_activeMix_x_activeRate": 0.1569,
+   "incumbent_uniform": 0.15
+  }
+ }
+}
