@@ -122,4 +122,39 @@ gandalf listed five blind spots in his § 9 and Grok says the biggest one is not
 
 ⚑ **So the wave does not stall on this.** The contested items are 2 and 5 of the order; **item 1 is uncontested and is the one with the highest player-facing return.**
 
-**Cross-references:** `gandalf/findings/2026-08-25-vfx-depth-design-ruling.md` (`b8d8cae9`) · `galadriel/notes/2026-08-25-vfx-depth-frame-forensics-…md` · `canonical/matt_decision_needed/2026-08-25-vfx-depth-four-questions-…md` · `knight-rider/rulings/2026-08-25-i-made-the-same-mistake-four-times-…md` (instances six and seven, § 0) · raw response retained at `/tmp/grok_second_opinion/response.txt`.
+---
+
+# ⚑ 9. THE COMMISSION RETURNED — and HIT 5's evidence base did not survive it
+
+**Appended 2026-08-25 by knight-rider.** legolas Mode A, `research/2026-08-25-arpg-screen-space-distortion-tier-precedent.md` (`34e330a1`).
+
+**§ 8's quarantine was right and it paid for itself.** I put the genre-history claims in a ⛔ *do-not-act* row and called them *"a research commission, not a finding."* **Every load-bearing item in that row is now refuted or unverifiable:**
+
+| Grok's counterexample (§ 6, line 92) | legolas verdict |
+|---|---|
+| PoE **Cyclone** at gem level 1 — ⚑ **their Whirlwind analogue, the one item load-bearing for the analogy** | ⛔ **REFUTED — L28, Act 3** |
+| Flame Dash / Lightning Warp early | ✅ CONFIRMED (both L10, Act 1) |
+| …but that those three **distort** | ⚑ **UNVERIFIABLE — no source at any rung.** "Lightning Warp" is locomotion, not optics |
+| D3 **Whirlwind motion blur** = refraction | ⛔ **REFUTED** — a *glowing weapon trail*; JangaFX's technical analysis says D3 used layered alpha/blend *"rather than advanced shader distortion"* |
+| *"D4's **VFX bible** treats refraction as material, not a tier gate"* | ⛔ **REFUTED — no public VFX bible exists**, and the nearest first-party doc says the opposite |
+| D3 launch failure fixed by density-slider + desaturation | ⛔ **REFUTED AND INVERTED** — launch failure was **Error 37**; Blizzard **refused** to desaturate (*"you can't do that when your world is gray and your creatures are gray"*) |
+| D4 ships screen-space distortion at all | ✅ ⚑ **CONFIRMED** — in-game tooltip, *"Controls whether screen space distortion is applied."* **Grok's best evidence anywhere, and it is real** |
+
+⚑ **And the part nobody commissioned.** D4's Lead VFX Artist published the philosophy in Dec 2021 and it runs **both** axes — continuous scaling with skill points and items (**Grok's rule, genuinely shipped**) *and*:
+
+> *"we **reserve** visually loud FX for powerful skills, like **ultimate abilities**."*
+> *"Several **ultimates** in our game will even allow you to **change the weather and lighting of the environment** for a limited duration."*
+
+**Environmental response is an ultimate-tier gesture in the exact title cited to prove that altitude does not exist.** Briggs's four named escalation channels — **spawn rate, velocity, emissivity, colour** — do not include refraction.
+
+## What this does and does not license
+
+**It does NOT make Grok's HIT 5 worthless.** Its two *internal* points were quarantined separately in § 8 for a reason and **both still stand on their own**: camera shake is already spent at T1, and *"using the channel is not spending it"* is a real design argument that needs no history behind it. **The readability warning — don't hide telegraphs behind persistent full-screen warp — is sound advice from any source.**
+
+**It DOES mean the counterexample list cannot move a build**, which is exactly what § 8 said before anyone checked. ⚑ **A confident, specific, internally-coherent list of six games' skill trees, produced with web search disabled, was wrong on the item that mattered most** — Cyclone, the direct Whirlwind analogue, off by eighteen levels and two acts. **That is the strongest argument this session has produced for gandalf's § 7.2 rule**, and it arrived as data rather than doctrine.
+
+**Two holes legolas named rather than papered over:** he cannot verify video, so no visual claim was settled by watching anything; and the Julian Love GDC 2013 D3 VFX talk sits on archive.org **with no transcript**, located and cited as unconsumed. **PoE-side prevalence remains unverifiable in both directions.**
+
+**Routed to gandalf** to dispose of his own [A-5] `RULING → PROVISIONAL` downgrade, which he made *"pending legolas Mode A"* and which is now the only thing waiting on this. ⚑ **I did not restore it for him.** He flagged his own premise unprompted; that is the behaviour to reinforce, not to short-circuit — and the honest shape is *supported, not proven*, with the PoE half of his original sentence needing narrowing rather than restoration.
+
+**Cross-references:** `gandalf/findings/2026-08-25-vfx-depth-design-ruling.md` (`b8d8cae9`, § 4.1 [A-5]) · `research/2026-08-25-arpg-screen-space-distortion-tier-precedent.md` (`34e330a1`) · `galadriel/notes/2026-08-25-vfx-depth-frame-forensics-…md` · `canonical/matt_decision_needed/2026-08-25-vfx-depth-four-questions-…md` · `knight-rider/rulings/2026-08-25-i-made-the-same-mistake-four-times-…md` (instances six and seven, § 0) · raw response retained at `/tmp/grok_second_opinion/response.txt`.

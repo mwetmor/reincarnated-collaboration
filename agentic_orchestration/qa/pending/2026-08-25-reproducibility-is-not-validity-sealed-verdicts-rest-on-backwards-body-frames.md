@@ -79,6 +79,109 @@ So a **matched before/after pair** exists at near-zero marginal cost: same seeds
 
 **What I am NOT asking you to re-do:** nothing in F-9. The one-sided ruling is sound and I am not contesting the seals-hold conclusion on its own terms. **I am asking whether flank 3 needs a name, and what happens to a sealed verdict that sits behind it** — questions 1–3 at the head of this file, unchanged.
 
+---
+
+# ⚑ THE RECAPTURE RETURNED. The measurement exists now, and the headline it produced is TRUE and MISLEADING, which is why this section is long.
+
+**Filed by knight-rider, 2026-08-25, after the four-pass run completed at `23:10:51Z`.** All figures below I derived myself from the two `gate.json` pairs; where I differ from drax I say so and say who was right.
+
+## The headline, and why you should not stop at it
+
+> **988 numbers moved. Not one verdict did.**
+
+| leg | keys | numeric moves | bool moves | verdict-string moves | FAIL set |
+|---|--:|--:|--:|--:|---|
+| rows 1–2 (`dash_attack`/`blink`) | 15,357 pre / 15,358 post | **468** | **0** | **0** | identical |
+| rows 3–8 | 2,149 / 2,149 | **520** | **0** | **0** | identical |
+
+**Read alone, that says the seals hold and flank 3 is disposed. Do not read it alone.** The moves are **not small**:
+
+| leg | median move | mean | max | moved >25% | ⚑ measured zeros that became non-zero |
+|---|--:|--:|--:|--:|--:|
+| rows 1–2 | **3.30 %** | 24.54 % | **1,533 %** | 93 / 463 | ⚑ **5** |
+| rows 3–8 | 0.92 % | 6.59 % | **97.8 %** | 15 / 520 | 0 |
+
+⚑ **Five figures went from exactly `0.0` to non-zero.** That is `#63`'s subject matter arriving as data rather than as doctrine: the pre-fix corpus contained measured zeros that were **artefacts of the caster facing the wrong way**, and the repair populated them.
+
+## ⚑ I nearly filed the wrong conclusion from this, and the self-catch is the useful part
+
+The largest rows 3–8 movers sit **directly under the gate's only FAIL**:
+
+| key | pre | post | move |
+|---|--:|--:|--:|
+| `pair_2…legs.blink@arena.frames[7].px_byvalue` | **503** | **11** | −97.8 % |
+| `…blink@cathedral.frames[7].px_byvalue` | 465 | 11 | −97.6 % |
+| `…blink@arena.frames[5].px_exact` | 433 | 37 | −91.5 % |
+
+**I inferred: the verdict layer is decoupled from its own inputs.** Then I opened the `VERDICT` block instead of inferring from the movers, and **that inference was wrong**:
+
+```
+teleport_traversal_px_byvalue_max   2710 -> 2722   (+0.44%)
+blink_traversal_px_byvalue_max      9535 -> 9406   (−1.35%)
+PASS_teleport_zero  false -> false     STATUS  FAIL -> FAIL
+```
+
+**The verdict is computed from a MAX OVER FRAMES, and the max genuinely barely moved.** The verdict is not insensitive to its inputs; it reads an input that honestly did not change. **My alarm was over-stated and I withdraw it.**
+
+### But the thing underneath it is real, and it IS the flank-3 answer
+
+⚑ **A max over frames discards the tail by construction.** The `blink` corridor's late frames fell **503 px → 11 px** — a 40× collapse in authored content — and **the gate's summary statistic cannot see it, was never going to see it, and reported `FAIL, unchanged` with complete honesty.**
+
+**And that collapse is almost certainly the fix WORKING.** Pre-fix the caster faced 180° from travel, so body-anchored effects emitted into the wrong world region and **lingered in the measured corridor at late frames**. Post-fix they go where they belong and the corridor's tail is nearly empty. **That is exactly the world-change flank 3 predicted — and the gate's answer to it was silence.**
+
+> ### So the disposition I can offer, without ruling it:
+> **Reproducibility was preserved. Validity was never tested by this gate — because the gate's statistic is structurally incapable of seeing the axis the defect moved.** The verdict's stability is *not* evidence the verdict was valid; it is evidence that the verdict and the defect **live on different axes of the same data.**
+
+⚑ **Third instance today of one shape: a summary statistic that names a quantity it does not compute.** P-2's `band_frac` (variance-weighted, sold as mass). The `#62(a)` pre-commit instrument (blind to untracked files). And now `blink_traversal_px_byvalue_max` — which does not lie, it says `max` in its own name, but **it is read as "how much did blink author in the corridor," and it is not that.**
+
+## ⚑ MY error, measured: "one variable changed" is FALSE on the rows 1–2 leg
+
+I wrote in § above — *"same seeds, same stages, same arms, same gate, **one variable changed**"* — and dispatched on it. **It does not hold for rows 1–2.**
+
+| gate.json | mtime |
+|---|---|
+| `s2c_rows12_2026-08-25/` (pre) | **12:39** |
+| `s2c_rows38_2026-08-25/` (pre) | 16:26 |
+| both `-v3v3` (post) | 18:51 / 18:54 |
+
+And the key-count asymmetry names the cause: the post gate carries **`.c8_key_collisions.unevaluable_reason = null`** and the pre gate has no such key. **The gate script changed between those runs.** drax told me he re-gated the pre-fix corpus to remove exactly this variable; on the evidence that remedy reached **rows 3–8 and not rows 1–2**.
+
+**Impact, stated honestly and not minimised:** the added key is `null` and the verdict layer is bit-identical, so I do not think it perturbs the 468 — **but I have not shown that, and "I don't think it matters" is the sentence this whole file was opened against.** The rows 1–2 leg carries a second variable of unbounded-by-me size. **Rows 3–8 is the clean leg. Weight it accordingly.**
+
+## The determinism leg — drax could not run it, because his session closed while the fourth pass was still rendering
+
+⚑ **His task reported COMPLETED while `rows38_v3b` was live** (orchestrator start `22:50:32Z`, finish `23:10:51Z`; I found the Godot PID mid-write). **The agent completed; the run did not.** His byte-determinism flag was therefore a rows-1–2-only observation. I ran the missing half:
+
+| pair | files | byte-identical | differ |
+|---|--:|--:|--:|
+| `s2c12v3` vs `s2c12v3b` | 874 / 874 | 873 | **1** |
+| `s2c38v3` vs `s2c38v3b` | 2,106 / 2,106 | 2,101 | **5** |
+
+**drax's 873/874 is confirmed exactly.** Pre-fix both pairs were fully deterministic (874/874, 2106/2106), so the post-fix harness has acquired non-determinism in **6 frames of 2,980**.
+
+⚑ **And all six are `cathedral`. Not one is `arena`.**
+
+`clip_da_cathedral_f0050` · `clip_lp_cathedral_f0029` · `clip_ms_cathedral_f0036` · `clip_ms_cathedral_novfx_f0063` · `cn_cathedral_aimn50_novfx_03-contact-mid` · `ms_cathedral_novfx_00-pre`
+
+**Coverage is symmetric by construction** — 437/437 and 1,053/1,053, an exact 50/50 stage split — so this is **not** a `#80` vacuous PASS on the arena side: 1,490 arena frames were rendered twice and every one matched. Under a stage-blind null a 6–0 split is **p ≈ 0.03**. That is evidence, not proof, on six events — I am not claiming more.
+
+## ⚑ Where I was wrong about drax a second time, and it is the session's recurring shape
+
+I first computed the FAIL sets with an exact string match and got **0** (rows 1–2) and **1** (rows 3–8), against his reported **4** and **3**. I widened before concluding anything, and he is right on both: his figures are the **`PASS == false` booleans** — `M_C3_prime_static_arm.PASS` ×4, and `PASS_teleport_zero` / `PASS_negative_space_preserved` / `PASS_no_authored_px_inside` ×3. **He counted failing checks, which is the correct referent. My detector was narrower and would have convicted a correct builder** — the third time this session a mismatched instrument nearly did that.
+
+**One figure of mine to correct too:** the "988 numeric moves" counts numbers *typed as numbers*. Two more moved **inside prose strings** (`peak added luma 0.5072 → 0.5053`, `0.2691 → 0.2681`). The true count is **990**. `#64`, on my own arithmetic.
+
+## What I am asking of you, unchanged in kind
+
+Questions 1–3 at the head of this file still stand. The recapture **does not answer them** — it re-poses question 1 more sharply:
+
+> **Does a sealed verdict hold when a re-derivation shows its inputs moved by up to 97.8%, its measured zeros were artefacts, and its verdict statistic is one that could not have registered any of it?**
+
+I can argue that both ways and I still do not think a conductor should pick. **Rule it by name.** drax surfaced this, declined to rule it, has now had the measurement taken out from under his own session mid-flight, and still has no answer.
+
+---
+
 ## Cross-references
 
-`reincarnated-godot` `2afde08` (drax, tag retraction — the source), `612c1e3` / `1c4f90f` / `689116c` (the fix that closes the defect forward), `a1690fe0` (galadriel, the original facing finding); `qa/pending/2026-08-25-r-l93-4-is-a-forward-dangling-pointer-into-a-corpus-write-in-flight.md` (the same compensating control, first firing); dispatches `2026-08-25-drax-forward-axis-and-cathedral-default.md` § MATT'S VERDICT, `2026-08-25-drax-camera-framing-and-wwab-render.md`.
+`reincarnated-godot` `2afde08` (drax, tag retraction — the source), `612c1e3` / `1c4f90f` / `689116c` (the fix that closes the defect forward), `a1690fe0` (galadriel, the original facing finding); `qa/pending/2026-08-25-r-l93-4-is-a-forward-dangling-pointer-into-a-corpus-write-in-flight.md` (the same compensating control, first firing); dispatches `2026-08-25-drax-forward-axis-and-cathedral-default.md` § MATT'S VERDICT, `2026-08-25-drax-camera-framing-and-wwab-render.md`, `2026-08-25-drax-s2c-3a-recapture.md` (`3e821786`, the dispatch this section returns).
+**Artefacts:** `reincarnated-godot/harness_logs/s2c_rows{12,38}_2026-08-25{,-v3v3}/gate.json`; `…/app_userdata/reincarnated-godot-spike/s2c{12,38}v3{,b}`; `/tmp/s2c_recapture_logs/orchestrator.log`.
