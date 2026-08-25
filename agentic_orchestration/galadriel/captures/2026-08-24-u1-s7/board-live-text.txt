@@ -1,0 +1,157 @@
+FLEET BOARDSHOP-ONLYVIEW ONLYTIER-2
+rendered 2026-08-25T00:27:45Z · tape: records-2026-08.jsonl (73 rows on disk; 67 after corrections) · schema v1.1 (rows stamped v:1) · probes 15/15 ran · board u1-b3-1
+THE LAW (U-1): this board is a VIEW. Zero authority, zero write verbs, never in the data path. Every figure is derived from rows at render time and stored nowhere; every probe is a read. Rule from the ledgers, dispatches and queues — never from this page. Refresh re-folds the tape and re-runs the probes; closing the window loses nothing, because the board owns nothing.
+COVERAGE: tape begins 2026-08-24T03:29:39Z. Every unit that started before the recorder existed is structurally invisible here — including the six 2026-07-22 engine-seam dispatches this lane was created for. A lane count is a count of RECORDED units, never a census of the fleet.
+⏸ AWAITING MATT (32)
+DECISIONS — 21 open / 38 struck
+canonical/matt_decision_needed/README.md · strike rule is mechanical: a row counts CLOSED only when its # cell is struck
+Q60
+Fun-proof placement — does a named GATE-FUN get pulled forward inside the full-emission architecture? Born fro
+Q57
+W-4 "the wall gets its own wall" — mutation self-test scope for gamora's assert-walls. The KC2-PM4 wall-of-wal
+Q49
+primaryattack is present in only 7 of 10 emitted kits — three kits appear to have no basic attack. Found incid
+Q50
+Two HUD constants a tool-capability cell had to invent to finish its work — both currently drax-set, both reve
+Q47
+⟶ DEFERRED-EMPIRICAL by Matt ruling 2026-07-25 ("begin building the key into testable blocks which we can judg
+Q46
+Murzak's COMPILED-IN default is Cloud, and it transmits before any tool call. Not the same finding as Q45 and
+Q44
+⏸ DEFERRED TO THE STORY SESSION 2026-07-24 (Matt: "I'm still not sure. We need to flesh the story out further
+Q43
+Persistence contract — two boundaries × five surfaces. ⟶ PARTIALLY RULED 2026-07-22: R1 RATIFIED verbatim (B-R
+… 13 more open in canonical/matt_decision_needed/README.md
+ACTIONS — 11 open / 8 struck
+canonical/matt_to_do/README.md · strike rule is mechanical: a row counts CLOSED only when its # cell is struck
+T20
+Reclaim disk headroom on the Mac data volume — 22 GiB free of 460 (96% used), RED. Surfaced by the U-1 flight
+T18
+Synty license clarification letter — DEFERRED-BY-RULING to a named trigger; ALL inputs answered, pure parked l
+T17
+Obtain conversations/npcevent01.cnv (Grim Dawn conversation file) — either a fuller depot pull (the file is in
+T14
+ONE screenshot — Eye of Reckoning tooltip on the EoRWarlGuts Warlord: skill window (S) → hover EoR → screensho
+T1
+Run Claude Code Remote Control on the Mac — in a spare terminal (kept alive; the Mac Mini's no-sleep config su
+T2
+Provide GTX-1650/RTX-3050-class min-spec hardware — a cheap GTX-1650 or RTX-3050 Windows box, OR a Steam Deck
+T3
+Fire the W3 demo-bundle flavor run with the API key present (host/credential — ANTHROPICAPIKEY is intentionall
+T9
+✓ DONE — BOTH ROUNDS 2026-07-25. Round 2 (Matt PC sitting #2): synthesis at agenticorchestration/gandalf/notes
+… 3 more open in canonical/matt_to_do/README.md
+HALTS / OPEN VETO WINDOWS (from tape)
+none
+The board RENDERS the two queue files; it never becomes them. The markdown stays the truth you rule in.
+▶ IN-FLIGHT (1 of 34 units on tape)
+run:U1-BUILD
+run · claude-agent · owner gandalf · last actor jack-ryan
+🟢 67m · last event GATE · amber@48h · red@7d
+queued (ENQUEUE seen, no START yet): 0
+🚧 AT GATE (1 · overlay)
+run:U1-BUILD
+G-1-schema-law-ratification · gatekeeper jack-ryan · verdict so far PASS-WITH-FINDINGS
+waiting 67m
+An OVERLAY, not a partition lane: every unit here also appears in exactly one of IN-FLIGHT / QUEUED / SEALED / UNBOUND. Do not add this count to those.
+✓ SEALED (32)
+▣ U-4
+1 unit(s) · no rc on 1/1 units · 0/1 judged
+tokens null on 1/1 units
+$0.00286 over 1/1 CLOSE rows · grok-sub · 0m
+▣ U1-BUILD
+1 unit(s) · 1/1 rc=0 · 0/1 judged
+tokens null on 1/1 units
+no cost_usd on any CLOSE row · anthropic-max · 23m
+▣ VFX-AB
+30 unit(s) · 30/30 rc=0 · 0/30 judged
+72.4M in · 93.2% cache · 259K out
+no cost_usd on any CLOSE row · chatgpt-sub · 10.6h
+rollups + scorecards render in full below
+🛣 LANES — vendor lane cards, per vendor (AM-1 § 13.1) · glance HERE before opening a vendor TUI
+probe: degraded — D-2 CLI pending — the D-2 factory lane subcommand, which will answer all three legs under one pinned contract, does not exist yet (other workstream). Until it lands each card is a DEGRADED composite of the legs reachable today, and every leg says what it saw. Union rule: busy if ANY leg says busy; ambiguity renders busy, never open.
+Q62 instrument caveat, verbatim: “liveness-NOW is the § 3 CLI check's answer; the board is a VIEW (THE LAW) and may lag its refresh.”
+codex open lane codex-serial · provider openai
+why
+every reachable leg reads idle
+auth
+ok — Logged in using ChatGPT
+CLI
+/opt/homebrew/bin/codex
+leg 1 · lock
+FREE — codex-7b80b031a89d.lock; acquired: yes
+leg 2 · procs
+scanned 421 process(es); argv[0]-anchored match on `codex`
+leg 3 · run-log
+_run-log.tsv: 30 rows, last `rc=0` terminal (backlog NOT derivable: 4-column pre-queue format carries no ENQUEUE marker)
+pin
+gpt-5.6-sol@xhigh (derived from this lane's own rows, never asserted here)
+last tape activity
+unit vfx-p2/30-ma_video_companion · rc 0 · 1.6M in / 7K out · cost_usd absent on this row · 2026-08-24T14:03:40Z
+30 CLOSE row(s) across 30 unit(s) on this lane
+lane note
+serial law P-1 is a VERIFIED vendor precondition (one job stream per credential).
+grok open lane grok-serial · provider xai
+why
+every reachable leg reads idle
+COVERAGE — this answer rests on 1 of 3 legs; leg 1 — no lane lock exists for this vendor (D-6 gated) · leg 3 — no run-log exists for this lane (D-8, born with the queue). Not a full-coverage green: it is the honest reach of the surfaces that exist today (#70).
+advisory
+interactive-grok-present (PID 77015) — ADVISORY only (Q62 ruling: drains proceed)
+auth
+ok — You are logged in with grok.com.
+CLI
+/Users/admin/.grok/bin/grok (installed, NOT on PATH — invoke by absolute path)
+leg 1 · lock
+— not applicable — no lane lock exists for this vendor. `GrokHarness` is build-delta D-6 and stays gated behind U-8 judge-pilot authorisation, so nothing takes a Grok lock today. Declared unreachable, not green
+leg 2 · procs
+scanned 421 process(es); argv[0]-anchored match on `grok`
+leg 3 · run-log
+— none exists for this lane — a Grok run-log is build-delta D-8 and is born with the queue. Backlog is UNMEASURED, which is not zero
+pin
+— no row on this lane carries a pin — the pin of record lives in the harness/lane-spec, not on the tape yet
+last tape activity
+unit grok-probe/2026-08-24-capability · rc null · tokens null · $0.00286 · 2026-08-24T23:24:56Z
+1 CLOSE row(s) across 1 unit(s) on this lane
+lane note
+serial-BY-CHOICE (no verified xAI precondition — lane spec § 9.3); leader mode FORBIDDEN in lane invocations, and a live `leader.sock` reads busy.
+claude summarised
+state
+— no serial lock and no vendor busy-CLI for this lane — liveness is not derivable the way it is for codex/grok
+auth
+— Claude Code auth is session-held, not probe-readable from here
+tape rows
+4 lifecycle row(s) · 1 CLOSE
+tokens
+— F-7: interactive sessions surface no per-turn usage; token fields stay null until hooks + SNAPSHOT brackets deepen. A null is a fact; an estimate in a truth-of-record stream is a fabrication
+⚙ HEALTH — read-only probes, run at render time
+probe	reading
+vendor auth	see the LANES cards above — codex login status · grok models, each vendor's own check of record, probed once per render and rendered on its own card
+ENABLE_PROMPT_CACHING_1H	🔴 NOT SET — the U-3 lever is off in this render's environment. (An env var is per-process: this reads the board process's own environment, which is the shell that launched it.)
+git · reincarnated-collaboration	main · ahead 0 · behind 0 · dirty 168
+git · reincarnated-engine	main · ahead 2 · behind 0 · dirty 445
+git · reincarnated-demo	main · ahead 0 · behind 0 · dirty 5
+git · reincarnated-loadout	main · ahead 0 · behind 0 · dirty 10
+git · reincarnated-godot	main · ahead 0 · behind 0 · dirty 306
+disk	23 GB free of 494 GB (5%)
+unswept requests/	gandalf 27
+window meters	— no SNAPSHOT row on the tape — window burn is not derivable yet
+pin drift	none — no row carries a `model_echo` that disagrees with its `pin`
+Everything on this strip is a LOCAL, pre-push fact — which is exactly what Glance can never see (§ 12.1). The rear-view half of this board lives on Glance; the windshield stays here.
+✓ SEALED — rollups + per-model scorecard (derived at render time, stored nowhere)
+workstream	units	rc	judged verdicts	curation	tok-in	cache	tok-out	reported cost	currency	first-start→last-close
+U-4	1	— no rc on 1/1 units	— 0/1 judged — no gatekeeper at this grain	— no curation row	— null on 1/1 units	— no denominator	— null	$0.00286 (1/1 CLOSE rows carry cost_usd)	grok-sub	0m
+U1-BUILD	1	1/1 rc=0	— 0/1 judged — no gatekeeper at this grain	— no curation row	— null on 1/1 units	— no denominator	— null	— no cost_usd on this workstream's CLOSE rows	anthropic-max	23m
+VFX-AB	30	30/30 rc=0	— 0/30 judged — no gatekeeper at this grain	6 WARN across 1 curation row(s)	72.4M (30/30 units)	93.2%	259K	— no cost_usd on this workstream's CLOSE rows	chatgpt-sub	10.6h
+first-start→last-close is a RUN DURATION, not enqueue→seal: the founding corpus records no ENQUEUE events, so enqueue→seal is not derivable for it.
+Per-model scorecard — one row per (provider, pin)
+provider / pin	units	first-pass rc=0	tok-in	cache	tok-out	tok-in/artifact	reported cost	med wall
+anthropic / (no pin recorded)	1	100% (1/1 rc=0)	— null, declared	— no denominator	— null	— no artifact rows	— no cost_usd	23m
+openai / gpt-5.6-sol@xhigh	30	100% (30/30 rc=0)	72.4M	93.2%	259K	2.4M	— no cost_usd	4m
+xai / (no pin recorded)	1	— no rc recorded	— null, declared	— no denominator	— null	— no artifact rows	$0.00286 (1/1)	— no START→CLOSE pair
+WARN / fabrication-check columns are OMITTED rather than zero-filled: a CURATION row binds to a unit_id, so a per-model WARN rate is derivable only when the curated unit is itself a lane unit.
+◻ UNBOUND + probe residue — the parts that make the lanes add up
+A unit folds here when the tape carries a judgement or a note about it but no ENQUEUE/START/CLOSE of its own: never flown under the recorder, so not IN-FLIGHT, and never closed under it, so not SEALED. It is rendered rather than dropped — the lanes must partition the tape.
+unit	state	latest event	age
+run:VFX-AB	OPEN	CURATION	10h
+all 15 probes ran
+`agentic_orchestration/factory/ui/board.py` · Tier-2 · SHOP-ONLY · F-1 ONE local board (the Spec B factory surface, extended to fleet scope). This page is disposable: close it and it rebuilds identically from the tape. Tier-1 sibling: flight/report.md (same fold, same helpers, regenerated by flight/bin/flight_report).

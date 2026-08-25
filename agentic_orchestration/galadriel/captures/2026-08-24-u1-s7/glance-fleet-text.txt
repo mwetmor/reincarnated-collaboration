@@ -1,0 +1,107 @@
+Glance
+the true state, derived from canon
+built 35s ago
+17
+Your move
+matt_decision_needed
+9
+Matt to-do
+human-action queue
+✓13 / 20
+Surfaces agreed
+demo gate (GATE1)
+3m ago
+Last commit
+@mwetmor
+16
+Dangling
+gates + flow-refs
+Overview
+Engine
+Story
+Game
+Content Emission
+Kits
+Minigames
+Coordinates
+Atlas
+Mechanics
+Corpus
+Fleet
+▸ surface ledger✓13/20
+FLEET — rear-view mirror
+SHOP-ONLY VIEW ONLY history folded from agentic_orchestration/flight/records-*.jsonl — records-2026-08.jsonl · 73 rows on disk, 67 after corrections · rows stamped v1
+
+This is the rear-view mirror, not the windshield. Everything here is HISTORY, folded from the tape as of the last push. Live lanes, auth health, unpushed commits and staleness are structurally invisible to a static build and live on the local fleet board instead (agentic_orchestration/factory/ui/board.py). Nothing on this page is authority: rule from the ledgers, dispatches and queues.
+
+COVERAGE: the tape begins 2026-08-24T03:29:39Z and ends 2026-08-24T23:38:14Z. Every unit that ran before the recorder existed is invisible here — a count is a count of RECORDED units, never a census of the fleet. Denominators: 32 sealed of 34 units on tape (denominators for the rollups — not lanes; this page renders no live state).
+
+Vendor lanes — historical rollup per lane
+One card per vendor lane, always rendered (AM-1 §13.1 parity). This is what the lane HAS DONE. What the lane is doing RIGHT NOW is a local-only fact: the busy check is the truth and the local board renders it.
+codex-serial · openai
+30 sealed unit(s)
+rc
+30/30 rc=0
+tokens
+72.4M in (30/30 units) · 93.2% cache · 259K out
+reported cost
+— no vendor-reported cost on these rows
+median wall
+4m
+pin
+gpt-5.6-sol@xhigh
+currency
+chatgpt-sub
+last close
+vfx-p2/30-ma_video_companion · 2026-08-24T14:03:40Z
+grok-serial · xai
+1 sealed unit(s)
+rc
+— no exit code recorded
+tokens
+— tokens null on 1/1 units
+reported cost
+$0.00286 (1/1 rows report one)
+median wall
+— no START→CLOSE pair on this lane
+pin
+— no row on this lane carries a pin
+currency
+grok-sub
+last close
+grok-probe/2026-08-24-capability · 2026-08-24T23:24:56Z · $0.00286
+claude lanes · summarised
+sealed units
+1 (1 CLOSE)
+tokens
+— F-7: interactive sessions surface no per-turn usage, so token fields stay null until hooks + SNAPSHOT brackets deepen. A null is a fact; an estimate in a truth-of-record stream is a fabrication
+Run cost card — per workstream
+What each run cost, in each currency. span is first-start → last-close, a RUN DURATION — not enqueue→seal, which the founding corpus cannot derive (it records no ENQUEUE events).
+workstream	units	rc	curation	tokens	reported cost	currency	span
+U-4	1	— no exit code recorded	— no curation row	— tokens null on 1/1 units	$0.00286 (1/1 rows report one)	grok-sub	0m
+U1-BUILD	1	1/1 rc=0	— no curation row	— tokens null on 1/1 units	— no vendor-reported cost on these rows	anthropic-max	23m
+VFX-AB	30	30/30 rc=0	6 WARN / 1 row(s)	72.4M in (30/30 units) · 93.2% cache · 259K out	— no vendor-reported cost on these rows	chatgpt-sub	10.6h
+Per-model scorecard — one row per (provider, pin)
+The U-4 A/B template as a query: every banked lane statistic is measured AT A PIN, so the pin is the row key. WARN / fabrication-check columns are omitted rather than zero-filled — a CURATION row binds to a unit, so a per-model WARN rate is derivable only when the curated unit is itself a lane unit.
+provider / pin	units	first-pass	tokens	tok-in / artifact	reported cost	median wall
+anthropic / — no pin recorded	1	100% (1/1 rc=0)	— tokens null on 1/1 units	— no artifact rows	— no vendor-reported cost on these rows	23m
+openai / gpt-5.6-sol@xhigh	30	100% (30/30 rc=0)	72.4M in (30/30 units) · 93.2% cache · 259K out	2.4M	— no vendor-reported cost on these rows	4m
+xai / — no pin recorded	1	— no exit code recorded	— tokens null on 1/1 units	— no artifact rows	$0.00286 (1/1 rows report one)	— no START→CLOSE pair
+Cost trend — by month of close
+The series that answers 'is this getting cheaper or more expensive over time'. One month is not a trend; it is the first point of one.
+month	units	tokens	reported cost	currencies
+2026-08	32	72.4M in (30/32 units) · 93.2% cache · 259K out	$0.00286 (1/32 rows report one)	anthropic-max / chatgpt-sub / grok-sub
+Verdict history
+Verdicts enter the tape only from NAMED gatekeepers and curators (GATE / CURATION rows) — never from the executing lane's self-assessment. The filer is carried, never inferred.
+PASS-WITH-FINDINGS 1
+PASS 1
+when	event	unit	verdict	gate / gatekeeper
+2026-08-24T23:20:54Z	GATE	run:U1-BUILD	PASS-WITH-FINDINGS	G-1-schema-law-ratification · jack-ryan
+2026-08-24T14:03:40Z	CURATION	run:VFX-AB	PASS	— no gate id · elrond
+Window-meter history
+SNAPSHOT rows: the subscription meters as the meters themselves reported them. The recorder MEASURES windows, it does not model them — so the vocabulary below is the vendor's, preserved raw.
+
+— no SNAPSHOT row on the tape — window burn is not derivable yet, which is a gap in capture, not a reading of zero
+
+Glance — derived from canon, authored by no one. badfd79
+No DB · no server · no LLM in the truth path. Parser reads canonical/** only.
