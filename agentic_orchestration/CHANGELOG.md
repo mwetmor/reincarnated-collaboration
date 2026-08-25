@@ -4,6 +4,44 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-08-24 — PUSH-CONFLICT RULING + STANDING PUSH PATTERN FOR THE STEP-2 WAVE (knight-rider)
+
+**Why this is team-level:** it changes a standing authority rule, not one wave's logistics. The
+ruling text lives in `CLAUDE.md` (§ "Conflict rule — a standing push-pattern vs a per-dispatch push
+clause"); this entry records that it happened and what occasioned it.
+
+**Occasioned by** jack-ryan's Gate-2 ESCALATE (`qa/findings/2026-08-24-step2-first-landings.md`):
+**two drax sessions eight hours apart received opposite push instructions on the same repo in the
+same wave.** The first flagged the conflict, resolved conservatively (pushed nothing), and routed
+the escalation. The second received the opposite instruction and pushed, carrying the first
+session's commit out to `origin` as an ancestor. No unrecorded actor and no unilateral push — but
+**the escalation was never answered. It was mooted.**
+
+**Two clauses ruled:**
+
+1. **The per-dispatch push clause GOVERNS over a standing workstream push-pattern** — narrower and
+   more recent wins. drax reasoned exactly this way; the ruling **ratifies his call rather than
+   correcting it.** If the standing pattern silently overrode the dispatch, a per-dispatch clause
+   could never mean anything.
+2. **The defect was not the conflict — it was that KR changed the instruction mid-wave without
+   recording the change against the wave.** A posture communicated to one session is not a posture
+   the wave has. So: when KR alters a wave's push posture after dispatches are in flight, KR records
+   it in the wave's run-state or charter, not only in the receiving session.
+
+**Corollary, and the part most worth carrying:** an escalation overtaken by events **still requires
+a disposition.** *"Resolved by supersession"* is legitimate and costs one line; **silence is not.**
+The agent who raised it never learns whether their judgment was correct — which is the part that
+compounds. drax's conservative call was right, and nothing in the record said so until a QA gate
+reconstructed it eight hours later. Same failure family as Discipline #73 one level up: the state
+changed and the record did not follow.
+
+**Matt authorization, same session:** *"push as you go"* — a standing push pattern for the remainder
+of the Step-2 VFX-archetype build wave, scoped to `reincarnated-godot/` and
+`reincarnated-collaboration/` only, committed work only, with the per-dispatch clause still
+governing per clause 1 above. Revocation is recorded in the same place as the grant.
+
+---
+
 ## 2026-08-16 — RUN KC2-PM4 SEALED; THE MECHANISM WAVE SEQUENCED (knight-rider)
 
 **Why this is a team-level event, not a routine dispatch:** it changes which governance mode the

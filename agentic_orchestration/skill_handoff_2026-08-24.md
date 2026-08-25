@@ -151,3 +151,95 @@ same two-claim distinction, so the record is convergent. Carve-out #2 timing agr
 run seal per L-5, and the run is at P4 (spec authoring in flight).
 
 *Appended by gandalf (RUN-CONDUCTOR), 2026-08-24.*
+
+---
+
+## 9. STEP-2 BUILD WAVE — entered (knight-rider, post-seal, second sitting)
+
+The VFX archetype-binding run **SEALED** (`20942056`). KR carve-out #2 came due and the Step-2
+build wave is now **in flight**. This section is the current state; §§ 1–8 above are the pre-seal
+record and are now history.
+
+### 9.1 What is running right now
+
+**drax is firing on `dispatches/2026-08-24-drax-s2b-rows-redispatch.md`** (committed + pushed
+`894077fe`, Gate-1 cleared). Tranche 2 = the seven remaining T1 rows — `self_buff`, `totem`,
+`circle`⊕`ring`, `single_target`, `melee_arc`, `multi_projectile`, `line` — **605 of T-K's 1,134
+bound kit-skills**, the largest remaining block. 4 of 24 rows are already minted.
+
+**Execution order is fixed and not negotiable:** four owed receipts → rows 1–2 → rows 3–7.
+jack-ryan's disposition, verbatim: *"No reason to start 1–2. You are not missing one."*
+**A pre-declared Gate-2 BLOCK is live:** rows 3–7 minted without the seven sensitivity receipts
+will be blocked.
+
+### 9.2 Three rulings that changed the wave mid-flight — read these before reading any older bar
+
+1. **⚑ HLF is RETIRED as a cross-stage comparator.** It is tonemap-bound. drax's harness returned
+   `HLF_pct_control_mean = 0.0` in **5 of 6 row×stage cells and on both stage controls** — a dead
+   instrument on this substrate, not a comparability problem. The distinction decides what can
+   replace it: a non-comparable metric might be rescued by normalisation; one that reads zero
+   cannot.
+2. **GLF as drax defined it was REJECTED by galadriel** (no chance baseline). **GLF-enrichment is
+   adopted** — denominator is the control frame's dilated-structure coverage. Transferable lesson,
+   banked: *the sensitivity check you invent to convict an instrument is owed to the instrument you
+   propose to replace it.*
+3. **There is no stage of record yet.** My ruling is **"not yet,"** not "cathedral." Rows capture on
+   **two** recipes (cathedral + arena), not three — Gate-1 cut the bare stage because it cannot
+   satisfy S-A1. 14 arms, not 21.
+
+**All bars in this run are SOBEL-denominated.** The bare-stage calibration target is **0.304 %**,
+not 0.218 % — those are two operators on the same frame, not a discrepancy. I pointed drax at the
+wrong one; galadriel caught it; fixed at four sites (Amendment G-4).
+
+### 9.3 The finding that defeats a decision of mine
+
+`qa/findings/2026-08-24-kr-hlf-zero-cathedral-frame-mismatch.md`. drax's HLF reproduces galadriel's
+anchors **to 0.06 pp** on her footage and returns **0.0** on the cathedral that anchor allegedly
+describes. Those are not the same scene. `Demo_Cathedral_01.tscn` is a **six-section showcase
+diorama, not a room**; its ritual circle sits on an outdoor terrace where terrain occludes 81 % of
+`melee_strike`'s authored pixels.
+
+**`9.35 %` never described the stage we ordered.** It described one framing of one section of a
+diorama — and I ordered the cathedral stage *specifically because* 9.35 % was measured on that
+geometry. Candidate **seventh instance of #64 FRAME FORM**; third confirmation of jack-ryan's
+adoption argument, *on the same scalar, on a new axis*. Verdict is galadriel's, routed, not
+back-dated.
+
+### 9.4 Recent Matt-decisions
+
+| decision | where it landed |
+|---|---|
+| **"push as you go"** — standing push pattern for the Step-2 wave | `CLAUDE.md` § ACTIVE PUSH PATTERN. Scoped to `reincarnated-godot/` + `reincarnated-collaboration/` **only**; per-dispatch push clauses still GOVERN over it; committed work only (#62(a) binds); revocation gets recorded in the same place. |
+
+### 9.5 Awaiting Matt
+
+- **star-lord T3 flavor fill** — ~838 calls ≈ **$1.86**. Currently **0/648 skills, 0/40 monsters**
+  non-null. Cost-gated, not technically blocked.
+- **`ENABLE_PROMPT_CACHING_1H` is still unset in env.** U-3's before/after measurement depends on
+  it. Host-level; parked in `canonical/matt_to_do/`.
+
+### 9.6 Not blocking, but owed by others
+
+- **jack-ryan** owes the **#72 clause 7 amendment** — widen *population* to the defect class
+  including sibling files; widen trigger to any defect repair. ADR-002 process-tier; Matt-veto open.
+- **gandalf** (queue, do NOT interrupt his KC2 run): the **register-2 1.5 % bloom gate is itself
+  tonemap-bound** — galadriel's routing. Style-register item.
+- **elrond**'s offered § 5 tie-break ratification needs gandalf. Non-blocking — no tranche row
+  consumes the quarantined docs.
+
+### 9.7 Next-session pickup, concrete
+
+**Read drax's completion record appended to the re-dispatch — from the receipt files, not from his
+summary** (#19.1(b)). The four owed receipts land first; **if any of them refutes a premise in § 5,
+he is instructed to HALT rather than mint around it.** That instruction has already paid for itself
+twice this run.
+
+### 9.8 Two operational hazards that already bit, recorded so they don't bite again
+
+- **`Bash` working directory persists between calls.** A `cd ~/Games/reincarnated-engine` from an
+  earlier call survived into an announced "push meta-repo" — which pushed the engine repo. Caught by
+  reading push output against the repo I believed I was in. **Use `git -C <path>` for every git
+  operation.** Recorded in `CLAUDE.md`.
+- **`corpus.db` is git-ignored.** The X-4 view exists **on this host only** and will not travel.
+
+*Appended by knight-rider, 2026-08-24 (second sitting).*

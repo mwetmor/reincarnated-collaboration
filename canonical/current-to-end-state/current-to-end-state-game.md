@@ -30,6 +30,49 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-08-24 — STEP-2 BUILD WAVE **ENTERED** (knight-rider) — supersedes § below's "OWED / fires on Matt's go-word"
+
+**The line immediately below this entry is now stale in one respect and one only: the wave is no
+longer OWED. It is running.** Matt's go-word landed; KR carve-out #2 discharged into dispatches.
+Everything else in the SEALED entry stands.
+
+- **Tranche 1 MINTED — 4 of 24 T-A rows:** `melee_strike`, `ground_targeted_circle`, `aura`,
+  `whirlwind`. **Tranche 2 IN FLIGHT** — the seven remaining T1 rows (`self_buff`, `totem`,
+  `circle`⊕`ring`, `single_target`, `melee_arc`, `multi_projectile`, `line`), covering **605 of
+  T-K's 1,134 bound kit-skills** — the largest remaining block. Governing document:
+  `dispatches/2026-08-24-drax-s2b-rows-redispatch.md` (`894077fe`, Gate-1 cleared). Order is fixed:
+  **four owed receipts → rows 1–2 → rows 3–7**, with a **live pre-declared Gate-2 BLOCK** on rows
+  3–7 minted without the seven sensitivity receipts.
+- **⚑ THE MEASUREMENT LAW CHANGED MID-WAVE — three rulings that invalidate older bars:**
+  1. **HLF is RETIRED as a cross-stage comparator.** Tonemap-bound. The harness returned
+     `HLF_pct_control_mean = 0.0` in **5 of 6 row×stage cells and on both stage controls** — a dead
+     instrument on this substrate, not a comparability problem. A non-comparable metric might be
+     rescued by normalisation; one that reads zero cannot.
+  2. **GLF as drax defined it REJECTED** (galadriel — no chance baseline); **GLF-enrichment adopted**,
+     denominator = the control frame's dilated-structure coverage. Banked lesson: *the sensitivity
+     check you invent to convict an instrument is owed to the instrument you propose to replace it.*
+  3. **There is NO STAGE OF RECORD yet** — ruled **"not yet,"** not "cathedral." Rows capture on two
+     recipes (cathedral + arena); Gate-1 cut the bare stage (cannot satisfy S-A1). 14 arms, not 21.
+     **All bars in this run are SOBEL-denominated** — bare-stage calibration target **0.304 %**.
+- **⚑ PART-B consequence — a stage decision of KR's is defeated, and the number that justified it
+  never described the stage:** `qa/findings/2026-08-24-kr-hlf-zero-cathedral-frame-mismatch.md`.
+  drax's HLF reproduces galadriel's anchors **to 0.06 pp** on her footage and returns **0.0** on the
+  cathedral that anchor allegedly describes — **they are not the same scene.**
+  `Demo_Cathedral_01.tscn` is a **six-section showcase diorama, not a room**; its ritual circle sits
+  on an outdoor terrace where terrain occludes **81 %** of `melee_strike`'s authored pixels. **The
+  `9.35 %` cathedral anchor described one framing of one section of a diorama** — and the cathedral
+  was ordered as the S-axis instrument *because* of it. Candidate **seventh instance of #64 FRAME
+  FORM**; third confirmation of jack-ryan's adoption argument, on the same scalar, on a new axis.
+  **Verdict is galadriel's** — routed, not back-dated. **Consequence for this tracker: no stage row
+  should cite 9.35 % as a stage property until she rules.**
+- **Still awaiting jack-ryan** (unchanged from the SEALED entry): U-4 router ratification + X-5/X-6
+  methodology candidates. **Newly owed by jack-ryan:** the **#72 clause 7** amendment (widen
+  *population* to the defect class including sibling files; widen trigger to any defect repair) —
+  ADR-002 process-tier, Matt-veto open.
+- **Queued to gandalf, NOT to be fired into his live KC2 run:** the **register-2 1.5 % bloom gate is
+  itself tonemap-bound** (galadriel's routing) — a style-register item, same root cause as the HLF
+  retirement.
+
 ### 2026-08-24 — VFX ARCHETYPE-BINDING RUN SEALED (gandalf, RUN-CONDUCTOR — charter ledger L-1…L-40)
 
 - **The game now has a ratified VFX law:** `agentic_orchestration/gandalf/notes/2026-08-24-vfx-archetype-binding-spec-DRAFT.md` (STATUS SEALED — filename retained, STATUS governs). **T-A:** 24 archetype rows + `knockback` HELD — canonical reference per archetype with receipts, provenance, emitter geometry, lifecycle class, beam −Z contract, L-19 causality class (action-CAUSED vs action-DECORATING, Matt's criterion). **T-K:** 1,135 kit-skills bound by fold-aware derivation (durable view = X-4, elrond). Telegraph literacy is the return: 24 effects behind 1,135 skills; element tint reads damage type on sight.
