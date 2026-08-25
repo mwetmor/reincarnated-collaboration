@@ -517,3 +517,52 @@ star-lord measured it: **`grok --prompt-json` takes ACP content blocks and `imag
 ## 20. Filing caution star-lord raised, and it is mine to honour
 
 `AUTH-BLOCKED.md` was telling you to run `grok login` **for a flag a CLI update had removed.** Fixed — but the marker is still named `AUTH-BLOCKED` for non-auth blocks, deliberately, because renaming it would move the file out from under the two things that watch it. ⚑ **Consequence for me: read the row before filing it. A row saying `NOT MATT-ONLY` is a seam-owner engineering task, and filing it to `matt_to_do/` is now the error that file exists to prevent.**
+
+---
+
+## 21. ⚑ THE RECAPTURE LANDED — 990 numbers moved, zero verdicts moved, and the reassuring reading of that is the wrong one
+
+**Your `L-29(6)` / `R-1.3` seal survives, but not for the reason the headline suggests, and the difference matters.**
+
+Both legs: FAIL sets identical, **zero** boolean moves, **zero** verdict moves. But the underlying numbers moved hard — rows 1–2 **median 3.30 %, max 1,533 %, with FIVE measured zeros becoming non-zero**; rows 3–8 median 0.92 %, max **97.8 %**.
+
+⚑ **I nearly filed "the verdict layer is decoupled from its inputs" off those movers.** Then I opened the `VERDICT` block instead of inferring from them, and it was wrong: the verdict reads a **max over frames**, and the max moved **1.35 %**. Withdrawn.
+
+**The finding that survives is sharper.** A max over frames discards the tail by construction. The `blink` corridor's late frames collapsed **503 px → 11 px** — almost certainly **the yaw fix WORKING**, effects no longer lingering in the wrong world region — and the gate reported *"FAIL, unchanged"* with complete honesty.
+
+> **Reproducibility was preserved. Validity was never tested — the verdict statistic and the defect live on different axes of the same data.** Third instance today of a summary statistic naming a quantity it does not compute (cf. P-2's `band_frac`, the `#62(a)` instrument).
+
+**Filed to jack-ryan for disposition; I did not rule it.** Questions 1–3 stand, re-posed sharper.
+
+## 22. `[A-5R]` — your distortion question got its research back, and gandalf restored his own downgrade
+
+legolas verified Grok's genre history. **Cyclone is L28 Act 3, not level 1** — the one item load-bearing for the Whirlwind analogy. **The "D4 VFX bible" does not exist.** D3's launch failure was **Error 37**, and Blizzard *refused* to desaturate. Meanwhile D4's Lead VFX Artist, in writing: *"we reserve visually loud FX for powerful skills, like **ultimate abilities**"* and *"several **ultimates** … change the weather and lighting of the environment."*
+
+gandalf restored R-3 **PROVISIONAL → RULING** — but on better grounds than I handed him: ⚑ ***"I downgraded a RULING when what failed was a CORROBORATION."*** The unsourceable genre sentence is **withdrawn, not restored.**
+
+⚑ **M-2 is now WIDENED and it is the better question:** not only *which tier earns the reserved gesture*, but **is refraction the right carrier at all** — or is it **environmental state** (weather, light, the world answering the ability)? D4 assigns weather/lighting change to ultimates **by name**, and its refraction pass is a **checkbox players can switch off**. *A signifier they can turn off is a poor carrier for the payload of the whole climb.* **That argument came out of a finding I had left on the floor.**
+
+## 23. ⛔ TWO THINGS FOR YOU, one of which is a risk to your own work
+
+1. ⚑ **`matt_to_do/2026-08-25-three-of-your-design-notes-exist-on-one-disk-only.md`.** Running the `#62(c)` inventory for the first time found **695 aged dirty entries** — and three of them are **your** notes in `matt_notes_handoff_docs/`, uncommitted for **34–36 days**, plus a 38-day mobile-session doc. **Uncommitted → unpushed → unbacked: there is no second copy anywhere**, and the host is already flagged red on disk space. Commit, `.gitignore`, or move — **any of the three closes it.** I did not touch them and did not read them.
+2. **M-2 above**, now two questions instead of one.
+
+**The inventory's first act was to vindicate the finding that prompted it:** exactly **one** tracked-file modification exists across all five repos, and it is `census.json` — the file that finding is about.
+
+## 24. Where I was wrong this segment — the trigger fired three more times, and once against a colleague's deliberate precision
+
+- ⛔ ⚑ **I collapsed UNVERIFIABLE into REFUTED.** legolas carefully marked the distortion attributions *unverifiable*; I summarized them to gandalf as *refuted*, and wrote that "every specific counter-claim failed." **They did not** — Grok's *availability* claims largely held; only Cyclone and the VFX bible broke outright. ⚑ **This is `#63` with my name on it** — *unverified ≠ refuted* is the exact analogue of *unmeasured ≠ measured zero*, committed in a document whose subject is the first.
+- ⛔ **I omitted the strongest datum against the position I was routing** — **D3 Slow Time**, L16, Defensive, *"a bubble of warped time and space."* legolas surfaced it **against his own commissioner's interest**; I dropped it from the brief. **It is precisely what I asked gandalf to watch me for, and he caught it.**
+- **I omitted the off-switch finding** — which cut against gandalf's remedy, not mine, and became the sharpest argument in the thread (§ 22).
+- **"One variable changed" was false** on the rows 1–2 recapture leg, and I dispatched on it. Its pre-gate is **12:39** vs 16:26 for rows 3–8, and the post gate carries a key the pre gate lacks. **Rows 3–8 is the clean leg.**
+- **Twice I nearly convicted drax on a narrower instrument than his.** His FAIL counts of 4 and 3 are `PASS == false` **booleans** and are **correct**; my exact-string detector saw 0 and 1.
+- **My own "988" undercounted** — two more numbers moved *inside prose strings*. **990.**
+
+⚑ **The pattern holds and I will not pretend otherwise: every one of these was caught by opening the thing, and none by reading a summary of it.**
+
+## 25. State at seal
+
+- ⚑ **Capture COMPLETE** — `23:10:51Z`, all four passes `rc=0`, **874/874/2106/2106**. The sentinel arrived while I was mid-check; **drax's task reported COMPLETED while the fourth pass was still rendering**, so I ran the determinism half he could not: **873/874** confirmed exactly, rows38 **2,101/2,106**. ⚑ **All six non-deterministic frames are `cathedral`; zero of 1,490 `arena` frames**, on an exact 50/50 coverage split. *p ≈ 0.03 under a stage-blind null — evidence, not proof, on six events.*
+- **`reincarnated-collaboration` pushed through `2a7af49a`.** One push failed transiently (concurrent ref lock) and succeeded on retry.
+- **In flight:** star-lord wiring the Grok image lane (`resource_link` probe first — if that door opens, the byte budget is **deleted**, not budgeted).
+- **Still open, unowned:** the `census.json` quarantine write + named owner (jack-ryan's (a) PARK ruling), and the `run_*.sh` defect-class sweep — **one of those scripts wipes the pre-fix capture the seal rests on.**

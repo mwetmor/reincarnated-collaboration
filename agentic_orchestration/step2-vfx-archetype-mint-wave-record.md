@@ -339,3 +339,24 @@ elrond, closing his follow-up: *"two sibling-staged gandalf notes sat in the ind
 Weigh this at Gate-2 for what it is: **one instance, self-reported, not an audit.** It is the cheapest possible evidence that the corrected wording is executable as written — which is precisely what the original M3 wording was not.
 
 **Recorded by:** knight-rider, 2026-08-25.
+
+---
+
+## § 8 — Closing entries (2026-08-25, autonomous run)
+
+**12. The S2C 3A recapture returned INVARIANCE, and the invariance is not the reassurance it reads as.**
+990 numbers moved across the two `gate.json` pairs; **zero** verdicts did. Rows 1–2 median **3.30 %** / max **1,533 %**, with **five measured zeros becoming non-zero**; rows 3–8 median 0.92 % / max **97.8 %**. The gate's only FAIL (`pair_2_blink_vs_teleport`) held — **because its statistic is a max over frames and the max moved 1.35 %**, while the `blink` corridor's tail frames collapsed **503 px → 11 px**. ⚑ **That collapse is almost certainly the yaw fix working**; the gate could not report it. **Reproducibility preserved, validity untested** — the verdict statistic and the defect occupy different axes of the same data. Filed to jack-ryan; **not ruled here.** ⚑ **Third in-wave instance of a summary statistic naming a quantity it does not compute** (P-2 `band_frac`; the `#62(a)` pre-commit instrument; this).
+
+**13. Post-fix harness non-determinism is STAGE-LOCALIZED, and nobody had measured it.**
+drax's task reported COMPLETED while `rows38_v3b` was still rendering, so his `873/874` flag covered rows 1–2 only. Conductor ran the other half: rows38 is **2,101/2,106**. ⚑ **All six differing frames are `cathedral`. Zero of 1,490 `arena` frames differ**, on an exact 50/50 coverage split — so this is **not** a `#80` vacuous PASS. *p ≈ 0.03 under a stage-blind null; evidence, not proof, on six events.* Pre-fix both pairs were fully deterministic. **Open: nobody owns the cathedral non-determinism.**
+
+**14. `[A-5R]` — the only in-wave downgrade an agent made against himself has been adjudicated and RESTORED.**
+legolas Mode A refuted Grok's two load-bearing genre claims (**Cyclone L28 Act 3**, not level 1; **the D4 "VFX bible" does not exist**) and left the distortion attributions **UNVERIFIABLE**. gandalf restored R-3 **PROVISIONAL → RULING** on re-grounded evidence, **withdrawing** the unsourceable genre sentence rather than restoring it: *"I downgraded a RULING when what failed was a CORROBORATION."* ⚑ **The reserved set GREW** (transient weather/lighting change joins viewport refraction) and **M-2 WIDENED** to ask whether refraction is the right carrier at all, given D4 ships it as a **player-disableable checkbox**. **No track order changed.** § 7's build order is untouched.
+
+**15. The ruled `#62(c)` inventory has been RUN ONCE — 695 aged dirty entries across five repos.**
+Its first act was to **vindicate** the finding that prompted it: **exactly one** tracked-file modification exists anywhere, and it is `census.json`. The unexpected result is a **durability** finding rather than a hygiene one — three of Matt's own design notes have been uncommitted (**therefore unbacked, single-disk-resident**) for 34–36 days, on a host already flagged red for space. Routed to `matt_to_do/`; **not touched.** Two orphaned jack-ryan Gate-2 verdicts from 2026-07-22 were committed verbatim with attribution (finished record, **zero git history for the path**, no live owner).
+
+**16. Conductor errors this segment, recorded because the wave record is where they compound if unrecorded.**
+⛔ **UNVERIFIABLE collapsed into REFUTED** in a brief to gandalf — ⚑ *unverified ≠ refuted*, the exact analogue of `#63`, committed by the agent auditing `#63`. ⛔ **The strongest counter-datum omitted from that same brief** (D3 Slow Time, L16, Defensive) — surfaced by legolas **against his own commissioner's interest** and dropped one hop downstream. ⛔ **"One variable changed" is false on the rows 1–2 leg** (pre-gate 12:39 vs 16:26; the post gate carries a key the pre gate lacks) — **and the dispatch was written on it.** **Twice nearly convicted drax on a narrower instrument than his** (his FAIL counts are `PASS == false` booleans and are correct). **All caught by opening the artifact; none by reading a summary of it.**
+
+**Recorded by:** knight-rider, 2026-08-25 (autonomous run, Matt away).
