@@ -42,6 +42,103 @@ def run_bin(name, *args):
     return p
 
 
+# --- G-2c gate auditors ------------------------------------------------------
+#
+# jack-ryan, micro-sitting G-2c. These replace two hand-written literals that lived inside
+# gate-discharge tests and went red on the run's first LEGAL append (the CLOSE row + the
+# INFO-2 correction row). Neither function was wrong; both ENUMERATIONS were stale. A test
+# that hand-lists an exhaustive row set over an append-only tape is red-by-construction on
+# the next append — the R-L47-2 derived-summary defect class, which was living inside the
+# gate that exists to catch it. Re-derived by the gate OWNER as properties over the tape.
+#
+# Ruling G-2c-R1 (`backfill` semantics) is recorded in
+# `agentic_orchestration/qa/findings/2026-08-24-u1-schema-law-ratification.md#G-2c`:
+# `backfill: true` asserts RETROSPECTIVE AUTHORSHIP — the row was assembled after the event
+# it records. Its ABSENCE asserts nothing (honest-null, the `LANE_REPORTS_COST` precedent);
+# in particular it does NOT assert instrumented capture. The provenance axis
+# (instrumented vs authored) is UNMODELED and is a named v1.2 candidate.
+
+
+def retrospection_audit(disk_rows, fold_ids):
+    """Which fold rows are PROVABLY retrospective from the tape alone, and are they declared?
+
+    Returns `(caught, violations)`. Two clauses, both SOUND (never a false positive) and
+    both derived from the file itself — no git, no clock, no heuristic, no row_id list:
+
+      (a) **correction** — a row carrying `corrects` restates an event whose original was
+          already on the tape when it was written. Retrospective by construction.
+      (b) **overtaken arrival** — the tape is append-only, so file order IS arrival order.
+          A row that arrives carrying a `ts` EARLIER than one already recorded is recording
+          an event that had already been overtaken. It cannot have been written as it
+          happened.
+
+    Deliberately INCOMPLETE, and this is stated rather than papered over: a retrospective
+    row that arrives in ts order and corrects nothing is not provable from the tape (the
+    schema carries no `recorded_at`). The residual is named at G-2c INFO-1. What the
+    auditor claims, it proves; it never guesses.
+    """
+    seen_max = ""
+    caught, violations = [], []
+    for r in disk_rows:
+        why = None
+        if r.get("corrects"):
+            why = "it corrects %s, which was already on the tape" % r["corrects"]
+        elif seen_max and r["ts"] < seen_max:
+            why = "it arrived after a row already carrying the later ts %s" % seen_max
+        if r["ts"] > seen_max:
+            seen_max = r["ts"]
+        if why is None or r["row_id"] not in fold_ids:
+            continue
+        caught.append(r)
+        if r.get("backfill") is not True:
+            violations.append("%s %s: provably retrospective (%s) but undeclared"
+                              % (r["event"], r["row_id"], why))
+    return caught, violations
+
+
+def correction_integrity_audit(disk_rows):
+    """Corrections SUPERSEDE; they never rewrite. Every target must survive on disk.
+
+    Derived over every `corrects` edge on the tape, in both directions: the target must
+    still be present, and it must still sit EARLIER in the file than the row correcting it.
+    """
+    order = {r["row_id"]: i for i, r in enumerate(disk_rows)}
+    errs = []
+    for i, r in enumerate(disk_rows):
+        tgt = r.get("corrects")
+        if not tgt:
+            continue
+        if tgt not in order:
+            errs.append("%s corrects %s, which is GONE from disk — a rewrite, not a "
+                        "correction" % (r["row_id"], tgt))
+        elif order[tgt] > i:
+            errs.append("%s corrects %s, which sits LATER in the file — arrival order is "
+                        "not append order" % (r["row_id"], tgt))
+    return errs
+
+
+def load_frozen_schema(rev):
+    """Import a historical `schema.py` straight out of git, as an INDEPENDENT oracle.
+
+    `row_min_revision` answering "what can a v1.0 reader read?" cannot be graded against the
+    same maps it consults — that grades the function against itself. The genuine v1.0
+    validator is a real artifact at `a4f7a569`, so the gate loads it and asks IT.
+
+    Never skipped on error: a missing oracle would silently turn the strongest test in this
+    file into the cannot-fail class (B4-P14).
+    """
+    p = subprocess.run(["git", "show", "%s:agentic_orchestration/flight/schema.py" % rev],
+                       capture_output=True, text=True, cwd=REPO_ROOT)
+    if p.returncode != 0 or not p.stdout.strip():
+        raise AssertionError("the frozen v1.0 oracle at %s is unreachable — this test must "
+                             "FAIL rather than skip: %s" % (rev, p.stderr.strip()))
+    import types
+    m = types.ModuleType("schema_frozen_%s" % rev)
+    m.__file__ = schema.__file__          # the module resolves paths from its own location
+    exec(compile(p.stdout, "schema@%s.py" % rev, "exec"), m.__dict__)
+    return m
+
+
 class TestSchema(unittest.TestCase):
     """Rows here are synthetic; `check_paths=False` where a source path is not a real file."""
 
@@ -403,25 +500,83 @@ class TestG2Findings(unittest.TestCase):
         self.assertNotIn("render check FAILED", p.stdout)
         self.assertIn("%d unit(s) on tape = " % len(units), p.stdout)
 
-    def test_FINDING1_every_u1_build_row_in_the_fold_declares_itself_backfill(self):
-        """The U1-BUILD rows are reconstruction, and the tape must SAY so.
+    def test_FINDING1_every_provably_retrospective_row_in_the_fold_declares_itself(self):
+        """G-2c re-derivation of FINDING-1 — reconstruction must DECLARE itself.
 
-        Corrections, never rewrites: the undeclared originals stay on disk untouched and are
-        superseded by rows carrying `backfill: true`.
+        The retired form asserted `backfill is True` of every `workstream=U1-BUILD` row. That
+        held over the closed population of six reconstructed rows and became false the moment
+        the run recorded a LIVE event — the CLOSE row `2db25f31acc4d680`, which constitutes
+        its event rather than reconstructing one and correctly carries no `backfill`
+        (ruling G-2c-R1). The finding's INTENT never named U1-BUILD; it named reconstruction.
+        So the property is asked of the tape, and the U1-BUILD rows satisfy it as members of
+        a class rather than as a list.
         """
+        disk = schema.read_tape(tape.tape_files(FLIGHT_DIR))
         rows, raw = tape.load(FLIGHT_DIR)               # post-correction fold
-        live = [r for r in rows if r.get("workstream") == "U1-BUILD"]
-        self.assertTrue(live, "precondition: U1-BUILD rows are on the tape")
-        for r in live:
-            self.assertIs(r.get("backfill"), True,
-                          "undeclared backfill survives the fold: %s %s"
-                          % (r["event"], r["row_id"]))
-        on_disk = schema.read_tape(tape.tape_files(FLIGHT_DIR))
-        self.assertTrue(any(r.get("workstream") == "U1-BUILD" and not r.get("backfill")
-                            for r in on_disk),
-                        "the superseded originals must REMAIN on disk — the tape does not lie "
-                        "about what was believed at the time")
-        self.assertGreater(raw, len(rows))
+        caught, violations = retrospection_audit(disk, {r["row_id"] for r in rows})
+
+        self.assertEqual(violations, [],
+                         "undeclared reconstruction survives the fold:\n  - %s"
+                         % "\n  - ".join(violations))
+        # NON-VACUITY: an auditor that convicts nothing proves nothing. The class FINDING-1
+        # was raised about must still be inside the net — as a class, not as row_ids.
+        self.assertTrue(caught, "the auditor caught nothing — it has gone vacuous")
+        self.assertTrue(any(r.get("workstream") == "U1-BUILD" for r in caught),
+                        "the U1-BUILD reconstruction FINDING-1 was raised about must still "
+                        "be provably retrospective on this tape")
+        # …and the honest counterpart: rows that are NOT provably retrospective are not
+        # thereby asserted to be live captures. Absence of `backfill` asserts nothing.
+        self.assertGreater(raw, len(rows), "corrections are on the tape and folding")
+
+    def test_FINDING1_the_auditor_convicts_BOTH_retrospection_shapes(self):
+        """The falsifier. Both clauses must bite on a synthetic tape, independently."""
+        base = dict(v=1, event="START", unit_id="u/1", unit_kind="job", ts="", row_id="")
+
+        def row(rid, ts, **kw):
+            r = dict(base, row_id=rid, ts=ts)
+            r.update(kw)
+            return r
+
+        # (a) overtaken arrival: r2's event predates r1's, but arrives after it, undeclared.
+        disk = [row("r1", "2026-08-24T02:00:00Z"), row("r2", "2026-08-24T01:00:00Z")]
+        _, v = retrospection_audit(disk, {"r1", "r2"})
+        self.assertEqual(len(v), 1, v)
+        self.assertIn("r2", v[0])
+        self.assertIn("already carrying the later ts", v[0])
+        disk[1]["backfill"] = True
+        self.assertEqual(retrospection_audit(disk, {"r1", "r2"})[1], [])
+
+        # (b) correction: retrospective by construction even in perfect ts order.
+        disk = [row("r1", "2026-08-24T01:00:00Z"),
+                row("r3", "2026-08-24T01:00:00Z", corrects="r1")]
+        _, v = retrospection_audit(disk, {"r3"})
+        self.assertEqual(len(v), 1, v)
+        self.assertIn("it corrects r1", v[0])
+        disk[1]["backfill"] = True
+        self.assertEqual(retrospection_audit(disk, {"r3"})[1], [])
+
+        # …and a SUPERSEDED undeclared original is not convicted — the tape is allowed to
+        # keep what was believed at the time. Conviction is a property of the FOLD.
+        disk = [row("r1", "2026-08-24T02:00:00Z"), row("r2", "2026-08-24T01:00:00Z")]
+        self.assertEqual(retrospection_audit(disk, {"r1"})[1], [])
+
+        # a live-authored row that overtakes nothing is NOT convicted — the CLOSE-row shape.
+        self.assertEqual(retrospection_audit(
+            [row("r1", "2026-08-24T01:00:00Z"), row("r2", "2026-08-24T02:00:00Z")],
+            {"r1", "r2"})[1], [])
+
+    def test_FINDING1_corrections_supersede_and_never_rewrite(self):
+        """The other half of FINDING-1's remedy, likewise derived over every edge."""
+        disk = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        self.assertEqual(correction_integrity_audit(disk), [])
+        self.assertTrue([r for r in disk if r.get("corrects")],
+                        "non-vacuity: correction edges exist on this tape")
+        # the auditor must catch a rewrite (target deleted) and a mis-ordered correction
+        kept = [r for r in disk if r.get("corrects")][0]
+        self.assertTrue(any("GONE from disk" in e for e in correction_integrity_audit(
+            [r for r in disk if r["row_id"] != kept["corrects"]])))
+        self.assertTrue(any("sits LATER in the file" in e for e in
+                            correction_integrity_audit(list(reversed(disk)))))
 
 
 class TestAM1SchemaV11(unittest.TestCase):
@@ -539,13 +694,72 @@ class TestAM1SchemaV11(unittest.TestCase):
         self.assertEqual(schema.VALUE_SINCE["lane"]["grok-serial"], "1.1")
         self.assertEqual(schema.VALUE_SINCE["currency"]["grok-sub"], "1.1")
 
-    def test_BLOCK2_no_pre_amendment_row_on_the_live_tape_is_over_reported(self):
-        """The fix must not push the 67 pre-AM-1 rows into a revision they never needed."""
+    def test_BLOCK2_row_min_revision_agrees_with_the_GENUINE_v1_0_VALIDATOR_on_every_row(self):
+        """G-2c re-derivation of BLOCK-2 — no over-reporting AND no under-reporting, proven
+        against an oracle that is not this schema.
+
+        The retired form pinned the answer to the literal `["dfbe28b17c2520f0"]`. The function
+        was RIGHT and the enumeration was STALE: the INFO-2 correction row legitimately carries
+        `grok-serial` + `grok-sub` + `cost_usd`, so a second row correctly answers "1.1" and a
+        hand-listed set went red on a legal append. That is R-L47-2 living inside the gate test
+        raised to catch it. Re-derived here as the property the finding actually protects.
+
+        `row_min_revision(r) == "1.0"` must mean EXACTLY "a genuine v1.0 reader can read this
+        row" — so the genuine v1.0 reader, loaded out of `a4f7a569`, is asked directly. Both
+        failure directions are convicted by one biconditional:
+          * UNDER-report — says 1.0, the real v1.0 validator REJECTS it (the original BLOCK-2)
+          * OVER-report  — says 1.1, the real v1.0 validator ACCEPTS it fine (pushing the
+                           pre-amendment rows into a revision they never needed)
+        No row_id appears anywhere. The set may grow to every row on the tape without this
+        test moving.
+        """
+        v10 = load_frozen_schema("a4f7a569")
+        self.assertEqual(getattr(v10, "SCHEMA_REVISIONS", None), None,
+                         "precondition: the oracle predates the revision machinery it grades")
+        self.assertNotIn("cost_usd", v10.ALL_FIELDS)
+        self.assertIn("grok-judge", v10.LANES)
+
         rows = schema.read_tape(tape.tape_files(FLIGHT_DIR))
-        needs_11 = [r for r in rows if schema.row_min_revision(r) == "1.1"]
-        self.assertEqual([r["row_id"] for r in needs_11], ["dfbe28b17c2520f0"],
-                         "exactly one row on the tape needs revision 1.1 — the founding grok "
-                         "row, which needs it on ALL THREE axes (lane, currency, cost_usd)")
+        over, under = [], []
+        for r in rows:
+            readable_by_v10 = not v10.validate(dict(r), check_paths=False)
+            says_v10 = schema.row_min_revision(r) == "1.0"
+            if says_v10 and not readable_by_v10:
+                under.append("%s: answered 1.0, but the real v1.0 validator refuses it (%s)"
+                             % (r["row_id"], v10.validate(dict(r), check_paths=False)[0]))
+            elif readable_by_v10 and not says_v10:
+                over.append("%s: answered %s, but the real v1.0 validator reads it fine"
+                            % (r["row_id"], schema.row_min_revision(r)))
+        self.assertEqual(under, [], "UNDER-report:\n  - %s" % "\n  - ".join(under))
+        self.assertEqual(over, [], "OVER-report:\n  - %s" % "\n  - ".join(over))
+
+        # NON-VACUITY: both branches must be exercised by the live tape, or the biconditional
+        # is being satisfied by an empty side and proves nothing.
+        needs = [r for r in rows if schema.row_min_revision(r) != "1.0"]
+        self.assertTrue(needs, "no row on the tape needs 1.1 — the 1.1 branch is untested")
+        self.assertTrue(len(needs) < len(rows), "every row needs 1.1 — the 1.0 branch is "
+                        "untested, and AM-1 was supposed to be backward-compatible")
+
+    def test_BLOCK2_row_min_revision_answers_from_the_DECLARED_maps_and_nothing_else(self):
+        """The second, git-free direction: the function may not invent, and may not miss.
+
+        The oracle above grades the MAPS (a wrong `VALUE_SINCE` entry would disagree with the
+        real v1.0 validator). This grades the FUNCTION against the maps: for every row on the
+        tape the answer must be exactly the highest revision its own keys and values declare.
+        An inlined special case, or a forgotten axis, shows up here.
+        """
+        rows = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        for r in rows:
+            expected = "1.0"
+            for k, v in r.items():
+                for since in (schema.FIELD_SINCE.get(k),
+                              schema.VALUE_SINCE.get(k, {}).get(v)
+                              if isinstance(v, str) else None):
+                    if since and schema._revision_tuple(since) > schema._revision_tuple(
+                            expected):
+                        expected = since
+            self.assertEqual(schema.row_min_revision(r), expected,
+                             "%s: answer disagrees with the declared maps" % r["row_id"])
 
     def test_WARN1_a_lane_declared_to_report_no_cost_may_not_carry_one(self):
         """G-2b WARN-1 — prose in § 3 becomes a parse error on the lane where it is banked."""

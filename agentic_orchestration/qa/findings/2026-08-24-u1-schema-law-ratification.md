@@ -468,3 +468,111 @@ Why it gates rather than rides: `flight/MIGRATION.md` is a **cross-seam surface*
 - `agentic_orchestration/factory/ui/board.py` — `_lane_tape_activity`, `_STATE_CLASS` (INFO-1, WARN-2)
 
 **Signed:** jack-ryan, 2026-08-24. Two rulings I was invited to overrule, I upheld — and the two sentences written to defend them, I falsified. A mechanism is not a claim about a mechanism.
+
+---
+---
+
+# G-2c micro-sitting — 2026-08-24 — the `backfill` ruling + gate-owner re-derivation · RUN U1-BUILD
+
+**Reviewer:** jack-ryan (DEV-MODE, gatekeeper, BLOCK authority) · **Conductor:** gandalf (RUN-CONDUCTOR) · **Custodian:** star-lord (S8)
+**Target:** `ca3ec471` — the S8 terminal tape-touch (CLOSE row `2db25f31acc4d680` + INFO-2 correction row `920fc1ef46884db6`), and the two red tests it exposed **inside my own gate**.
+**Scope:** one schema ruling + two test re-derivations. **Nothing in G-2 or G-2b is reopened.**
+**Principles applied:** REVIEW_PROCESS #4 (law of record is truth), #5 (severity matters) · ADR-002 · Disciplines #9 · #12 · #60 · #63 · #70 · #73 · **R-L47-2** (derive, don't hand-list)
+
+## VERDICT: **CLEAR — suite green at 79/79. No correction row is owed. No BLOCK.**
+
+The two red tests were **mine**, and they were red for the right reason: both were hand-written literals over a growing population, and the run's first legal live append killed them. Star-lord's refusal to edit them was **correct** — the custodian editing a gate test to fit his own results is the G2-T2 move one level up, and he identified it as such without being told. This sitting is **gate-owner re-derivation**, not results-fitting: I am not softening an assertion to make a result pass, I am replacing an enumeration with the property the enumeration was a lossy summary of, and I have **mutation-proved each replacement convicts** before accepting green.
+
+---
+
+## 1 · RULING **G-2c-R1** — what `backfill` means
+
+**`backfill: true` asserts RETROSPECTIVE AUTHORSHIP: the row was assembled after the event it records, from artifacts, rather than written as the event occurred. Its ABSENCE asserts NOTHING — and specifically does not assert instrumented capture.**
+
+The conductor is right that the flag straddles two axes — **temporal** (the row postdates its event) and **provenance** (reconstructed-from-artifact vs emitted-by-an-instrumented-stream). They coincided on all 61 founding rows and all six U1-BUILD rows, so one boolean carried both. The CLOSE row separates them: temporally live, provenance authored. I rule the **temporal** axis, and I rule the provenance axis **explicitly unmodeled** rather than silently inferable.
+
+**Why not the provenance reading** (which I worked first and rejected). It is the more interesting axis and the CLOSE row would owe a correction under it — but it breaks on its own generalisation. A verdict has no instrument: no emitter anywhere will ever *measure* `PASS-WITH-FINDINGS`. Under a provenance reading every GATE and every verdict-bearing CLOSE carries `backfill: true` **forever**, including rows written at the exact instant of the gate — and a flag whose name says "filled in later" sitting on a row that was not filled in later is a **new overclaim minted to close an old one**. I have spent two gates on this run refusing unmeasured assertions in the render layer; I am not going to install one in the schema layer to win an argument about naming.
+
+**Why absence-asserts-nothing is the load-bearing half of the ruling.** The obvious objection to the temporal reading is that a reader now sees the CLOSE row as forward-captured when it is testimony — the exact false-green class drax spent B-3b killing. That objection is answered not by overloading the flag but by **declaring the gap**, which is this tape's own established discipline and one I ratified at G-2b: *"a lane absent from `LANE_REPORTS_COST` is UNDECLARED, not reports-none."* Honest-null applied to the map itself. The same move applies here: **absence of `backfill` is UNDECLARED, not "captured live."** The recorder does not get to infer an unmeasured axis from the absence of a flag that measures a different one.
+
+**Consequences, stated so nobody has to reconstruct them:**
+
+1. **The CLOSE row `2db25f31acc4d680` is CORRECT AS WRITTEN.** Star-lord's lean is upheld; the conductor's provisional support is ratified. **No correction row is owed, and none may be written on this ruling.** It constitutes its event rather than reconstructing one.
+2. **The provenance split is DEFERRED with a NAMED TRIGGER**, not vaguely to "a future revision": a `sourcing: instrumented | authored` field becomes a **revision 1.2 candidate the moment the first instrumented emitter appends** (the codex durable queue; the same milestone as FINDING-4's first live `curator`). Before that row exists the field would carry **one value across 100% of the tape** — an unexercised distinction, the FINDING-4 class, and modelling a population of zero mid-seal is the heavier and worse trade.
+3. **Standing constraint (WARN-1 below):** no view may render `backfill`-absence as a capture claim.
+4. **`SCHEMA.md` § 8.1's sentence** *"the tape currently contains no forward-captured workflow at all"* remains **true**, but it is now **prose, not a tape-derivable fact** — under this ruling `backfill` cannot answer it. One clause is owed saying so (INFO-2 below).
+
+---
+
+## 2 · The two re-derivations
+
+Both retired forms failed the same way and it is worth naming once: **a test that hand-lists an exhaustive set over an append-only tape is red-by-construction on the next legal append.** That is R-L47-2's derived-summary defect class, and this run has now found it **living inside the gate that exists to catch it**. I am not exempt from my own findings; the ledger should carry that plainly.
+
+### 2a · FINDING-1 — `test_FINDING1_every_provably_retrospective_row_in_the_fold_declares_itself`
+
+**Retired form:** every `workstream == "U1-BUILD"` row carries `backfill: true`. FINDING-1's intent never mentioned U1-BUILD — it said *reconstruction must declare itself*; U1-BUILD was merely where I found it.
+
+**Derived property (one sentence):** *every row live in the fold that is **provably retrospective from the tape alone** must carry `backfill: true`* — provable by either of two **sound** clauses, (a) the row carries `corrects`, so its target was necessarily already on the tape, or (b) the row arrived after a row already carrying a **later** `ts`, and the tape is append-only so file order **is** arrival order.
+
+No git, no clock, no path heuristic, no row_id. It catches **6 rows** on the live tape, **5 of them the U1-BUILD reconstruction FINDING-1 was raised about** — asserted as a *class* (`any(workstream == "U1-BUILD")`), never as a list — and correctly does **not** catch the CLOSE row.
+
+**Honestly incomplete, and the residual is named rather than papered over (INFO-1).**
+
+Two companion tests: a **falsifier** proving both clauses convict independently, that a *superseded* undeclared original is **not** convicted (the tape keeps what was believed at the time), and that a live-authored row overtaking nothing is **not** convicted (the CLOSE-row shape); and `..._corrections_supersede_and_never_rewrite`, which re-derives the old `any(...)` assertion as a property over **every** `corrects` edge in both directions (target present, target earlier).
+
+### 2b · BLOCK-2 — `test_BLOCK2_row_min_revision_agrees_with_the_GENUINE_v1_0_VALIDATOR_on_every_row`
+
+**Retired form:** the v1.1-needing set equals the literal `["dfbe28b17c2520f0"]`. **The function was RIGHT and the enumeration was STALE** — the INFO-2 correction row legitimately carries `grok-serial` + `grok-sub` + `cost_usd`, so a second row correctly answers "1.1".
+
+**Derived property (one sentence):** for **every** row on disk, `row_min_revision(r) == "1.0"` **if and only if** the **genuine v1.0 validator, loaded straight out of `a4f7a569` via `git show`**, accepts the row — one biconditional convicting **both** directions, under-report (says 1.0, the real v1.0 reader refuses it — the original BLOCK-2) and over-report (says 1.1, the real v1.0 reader reads it fine).
+
+This is deliberately **not** graded against the maps the function consults — that grades the function against itself. The oracle is an independent historical artifact. It **never skips** on a missing oracle: a skip would silently convert the strongest test in the file into the cannot-fail class (B4-P14). A second, git-free test grades the **function against the maps** (an inlined special case or a forgotten axis shows up there), so map defects and function defects are each covered by the test that can see them.
+
+### Mutation proofs — executed, not asserted
+
+| mutation | expected | result |
+|---|---|---|
+| `FIELD_SINCE` **and** both `VALUE_SINCE` maps emptied | UNDER-report convicted | **RED** ✓ |
+| `codex-serial` (a v1.0 lane) marked `"1.1"` | OVER-report convicted | **RED** ✓ |
+| `backfill` stripped from each of the 6 caught rows, one at a time, in memory | each convicted individually | **6/6 convicted** ✓ |
+| baseline, unmutated | green | **79/79** ✓ |
+
+**A finding against my own new test, disclosed unprompted (INFO-3).** Knocking out *only* the value axis — the original BLOCK-2 defect, exactly — leaves the live-tape oracle **GREEN**. Both `grok-serial` rows also carry `cost_usd`, so every 1.1 row on this tape is **over-determined on all three axes** and no single-axis knockout can move the answer. That is the *same* "only by luck" property I convicted at G-2b, now sitting in my own live-tape test. It is not a hole in the gate — `test_BLOCK2_row_min_revision_asks_VALUES_not_only_keys` (synthetic, star-lord's proof case) went **RED** on that mutation and is the test that convicts it — but the coverage is **distributed across two tests**, and anyone reading the live-tape test alone would over-read its strength. The gap closes on its own the first time a `grok-serial` row lands without `cost_usd`.
+
+---
+
+## 3 · Findings
+
+**WARN-1 — the report's cost cell asserts an unmeasured negative.** `bin/flight_report:995` renders `— (this vendor's stream reports no dollar cost)` whenever a CLOSE row lacks `cost_usd`. Star-lord flagged it; the conductor filed it INFO. **I rate it WARN, one notch up, and the reason is that it is worse than reported:** the cell does not consult `LANE_REPORTS_COST` **at all**. It branches on the ROW. So the claim is asserted for undeclared lanes (claude-*: nothing probed, nothing knowable), and it is asserted even for **`grok-serial`** — the one lane the spec § 9.1 measured as *reporting* a cost — the moment a `grok-serial` CLOSE lands without one. A document of record stating a negative about a vendor stream nobody measured is the exact class WARN-1 (G-2b) put into the map and B-3b killed at the colour layer; the prose layer still has it. **Not blocking, does not gate the seal** — render-side, same handling as G-2 FINDING-2/3. *Action (star-lord):* three-way branch off `LANE_REPORTS_COST` — `False` → "this lane's stream reports no dollar cost (declared, § 3)"; `True` → "not recorded on this row"; **absent** → "not declared for this lane". Also add the standing constraint from ruling G-2c-R1 § 1.3: **no view may render `backfill`-absence as "captured live"**. No consumer reads `backfill` today, so nothing is broken now; the constraint is banked so the first renderer to reach for it reads the rule before it ships.
+
+**INFO-1 — the retrospection auditor is sound but incomplete, by construction.** A retrospective row that arrives in `ts` order and corrects nothing is **not provable from the tape**: schema v1 carries no `recorded_at`, so 61 of the 68 fold rows are genuinely retrospective while only 6 are *provably* so. I considered and rejected two completions: git commit-author time (commit lag ~20 min vs the FINDING-1 reconstruction gap ~40 min — the signal does not clear the noise), and classifying `derived_from` paths as prose-vs-stream (a heuristic, and heuristics do not belong in a gate, still less in a validator). **What the auditor claims, it proves; it never guesses.** The residual closes for free if `recorded_at` ever lands — which is the same 1.2 conversation as the provenance split, and should be considered alongside it rather than separately.
+
+**INFO-2 — one clause owed in `SCHEMA.md`.** § 8.1's *"the tape currently contains no forward-captured workflow at all"* is true but is now **prose, not tape-derivable**. *Action (star-lord, doc-only, no tape touch):* record ruling G-2c-R1 in one sentence at § 8.1 (`backfill` = retrospective authorship; **absence asserts nothing**; provenance is a named 1.2 candidate triggered by the first instrumented emitter), and refresh the two § 12 traceability rows whose test names this sitting changed — FINDING-1's row and BLOCK-2's second name. **That table is itself a hand-maintained summary of a derived thing** (the suite), which is R-L47-2 again at one more remove; worth a governance look at run close, not worth a block now.
+
+**INFO-3 — my own new test is single-axis-blind on today's population.** Disclosed in full above rather than left for the next gate to find.
+
+**INFO-4 — the defect class landed inside the gate.** Both red tests were mine, both were the enumeration-over-a-growing-population shape, and neither was caught by review — they were caught by **the tape growing**. This is the fifth summary-count-class defect this run and the first one **inside the gate layer**. It belongs in R-L47-2's evidence for the run-close governance candidate, and it is stronger evidence than the four before it precisely because it is mine.
+
+---
+
+## THE SENTENCE
+
+> **G-2c CLEARS. The suite is green at 79/79 (76 → 79: one test became three, one became two), the tape is BYTE-UNTOUCHED by this sitting (`check_append_only`: 0 appended, 0 deleted or modified), and NO correction row is owed — the CLOSE row is correct as written.** `backfill` means **retrospective authorship**, and its **absence means nothing at all**; the provenance axis is unmodeled by ruling, deferred to revision 1.2, and triggered by the first instrumented emitter. Both gate assertions are now **properties over the tape** that cannot go red on a legal append — only on an illegal one — and each was **mutation-proved to convict before I accepted the green**. **The seal is unblocked from my side.**
+
+## Action
+
+- [x] **jack-ryan:** ruling G-2c-R1 issued; both tests re-derived by the gate owner; four mutation proofs executed; 79/79 green. **No ESCALATE filed.**
+- [ ] **star-lord — INFO, may ride, doc-only:** INFO-2 (`SCHEMA.md` § 8.1 clause + two § 12 test-name refreshes). **Explicitly NOT owed: a correction row on `2db25f31acc4d680`.**
+- [ ] **star-lord — WARN, does not gate the seal:** WARN-1 (three-way cost-cell branch off `LANE_REPORTS_COST`; bank the `backfill`-absence render constraint).
+- [ ] **gandalf (conductor):** fold; carry INFO-4 to R-L47-2's evidence and INFO-1/§ 1.2 to the 1.2 trigger list.
+- [ ] **Matt:** nothing required by this gate.
+
+## References
+
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/flight/tests/test_flight.py` — `retrospection_audit`, `correction_integrity_audit`, `load_frozen_schema`; `TestFindings`, `TestAM1SchemaV11`
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/flight/records-2026-08.jsonl` — rows `2db25f31acc4d680`, `920fc1ef46884db6`, `dfbe28b17c2520f0` (read-only)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/flight/SCHEMA.md` — § 4, § 8.1, § 12 · `bin/flight_report:995`
+- Commits `ca3ec471` (S8) · `a4f7a569` (the v1.0 oracle, now loaded by the suite rather than reconstructed by hand)
+- `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-08-24-u1-build-run-ledger.md` — L-27, L-28, L-29, L-30
+
+**Signed:** jack-ryan, 2026-08-24. The two tests that failed were mine, and they failed the way I have twice convicted others for failing. A gate that cannot survive its own standard is not a gate.
