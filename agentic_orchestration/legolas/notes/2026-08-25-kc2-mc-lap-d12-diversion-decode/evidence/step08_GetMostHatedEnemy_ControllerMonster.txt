@@ -1,0 +1,43 @@
+  0x000fb9c0  push     ebp
+  0x000fb9c1  mov      ebp, esp
+  0x000fb9c3  sub      esp, 8
+  0x000fb9c6  push     esi
+  0x000fb9c7  mov      esi, ecx
+  0x000fb9c9  push     edi
+  0x000fb9ca  lea      ecx, [esi + 0x2b8]
+  0x000fb9d0  call     0x1000fb70   ; -> ?HasOnlyPetTargets@AngerManager@GAME@@QBE_NXZ
+  0x000fb9d5  test     al, al
+  0x000fb9d7  je       0x100fb9df
+  0x000fb9d9  mov      byte ptr [ebp - 4], 0
+  0x000fb9dd  jmp      0x100fb9e8   ; -> ?GetMostHatedEnemy@ControllerMonster@GAME@@UAEIXZ+0x28
+  0x000fb9df  mov      al, byte ptr [esi + 0x578]
+  0x000fb9e5  mov      byte ptr [ebp - 4], al
+  0x000fb9e8  mov      al, byte ptr [esi + 0x4d9]
+  0x000fb9ee  movss    xmm0, dword ptr [esi + 0x294]
+  0x000fb9f6  mov      byte ptr [ebp - 8], al
+  0x000fb9f9  movzx    eax, byte ptr [esi + 0x585]
+  0x000fba00  push     eax
+  0x000fba01  movzx    eax, byte ptr [esi + 0x584]
+  0x000fba08  push     eax
+  0x000fba09  push     dword ptr [esi + 0x580]
+  0x000fba0f  push     dword ptr [ebp - 4]
+  0x000fba12  push     dword ptr [ebp - 8]
+  0x000fba15  push     ecx
+  0x000fba16  lea      ecx, [esi + 0x2b8]
+  0x000fba1c  movss    dword ptr [esp], xmm0
+  0x000fba21  call     0x1000f850   ; -> ?GetNewTarget@AngerManager@GAME@@QAEPAVCharacter@2@M_N0H00@Z
+  0x000fba26  pop      edi
+  0x000fba27  pop      esi
+  0x000fba28  test     eax, eax
+  0x000fba2a  je       0x100fba38
+  0x000fba2c  mov      ecx, eax
+  0x000fba2e  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000fba34  mov      esp, ebp
+  0x000fba36  pop      ebp
+  0x000fba37  ret      
+  0x000fba38  xor      eax, eax
+  0x000fba3a  mov      esp, ebp
+  0x000fba3c  pop      ebp
+  0x000fba3d  ret      
+  0x000fba3e  int3     
+  0x000fba3f  int3     

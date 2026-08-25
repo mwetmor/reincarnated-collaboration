@@ -1,0 +1,14 @@
+  0x000fb650  push     esi
+  0x000fb651  mov      esi, ecx
+  0x000fb653  lea      ecx, [esi + 0x2b8]
+  0x000fb659  call     0x1000fb70   ; -> ?HasOnlyPetTargets@AngerManager@GAME@@QBE_NXZ
+  0x000fb65e  test     al, al
+  0x000fb660  je       0x100fb666
+  0x000fb662  xor      al, al
+  0x000fb664  pop      esi
+  0x000fb665  ret      
+  0x000fb666  mov      al, byte ptr [esi + 0x578]
+  0x000fb66c  pop      esi
+  0x000fb66d  ret      
+  0x000fb66e  int3     
+  0x000fb66f  int3     

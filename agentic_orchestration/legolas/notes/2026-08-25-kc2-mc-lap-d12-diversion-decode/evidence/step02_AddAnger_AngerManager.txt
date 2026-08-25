@@ -1,0 +1,67 @@
+  0x0000f6a0  push     ebp
+  0x0000f6a1  mov      ebp, esp
+  0x0000f6a3  sub      esp, 8
+  0x0000f6a6  push     esi
+  0x0000f6a7  push     dword ptr [ebp + 0x10]
+  0x0000f6aa  mov      esi, ecx
+  0x0000f6ac  push     dword ptr [ebp + 8]
+  0x0000f6af  call     0x1000fff0   ; -> ?ShouldRemoveEnemy@AngerManager@GAME@@AAE_NI_N@Z
+  0x0000f6b4  test     al, al
+  0x0000f6b6  jne      0x1000f776
+  0x0000f6bc  push     edi
+  0x0000f6bd  push     dword ptr [ebp + 8]
+  0x0000f6c0  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0000f6c6  mov      ecx, eax
+  0x0000f6c8  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0000f6cd  lea      ecx, [esi + 4]
+  0x0000f6d0  movss    xmm0, dword ptr [eax + 0x1958]
+  0x0000f6d8  lea      eax, [ebp + 8]
+  0x0000f6db  mulss    xmm0, dword ptr [ebp + 0xc]
+  0x0000f6e0  push     eax
+  0x0000f6e1  lea      eax, [ebp - 8]
+  0x0000f6e4  push     eax
+  0x0000f6e5  movss    dword ptr [ebp + 0x10], xmm0
+  0x0000f6ea  call     0x10010510   ; -> ?ShouldRemoveEnemy@AngerManager@GAME@@AAE_NI_N@Z+0x520
+  0x0000f6ef  mov      eax, dword ptr [ebp - 8]
+  0x0000f6f2  movss    xmm1, dword ptr [ebp + 0x10]
+  0x0000f6f7  movss    xmm0, dword ptr [eax + 0x14]
+  0x0000f6fc  addss    xmm0, xmm1
+  0x0000f700  comiss   xmm0, dword ptr [0x105f58e8]   ; f32=100 i32=1120403456 f64=1.54811e+15
+  0x0000f707  movss    dword ptr [eax + 0x14], xmm0
+  0x0000f70c  jbe      0x1000f715
+  0x0000f70e  mov      dword ptr [eax + 0x14], 0x42c80000
+  0x0000f715  mov      eax, dword ptr [esi + 8]
+  0x0000f718  cmp      eax, 1
+  0x0000f71b  jbe      0x1000f775
+  0x0000f71d  movd     xmm0, eax
+  0x0000f721  cvtdq2pd xmm0, xmm0
+  0x0000f725  shr      eax, 0x1f
+  0x0000f728  mov      esi, dword ptr [esi + 4]
+  0x0000f72b  addsd    xmm0, qword ptr [eax*8 + 0x105f5ae0]
+  0x0000f734  mov      eax, dword ptr [esi]
+  0x0000f736  mov      dword ptr [ebp + 0x10], eax
+  0x0000f739  cvtpd2ps xmm0, xmm0
+  0x0000f73d  divss    xmm1, xmm0
+  0x0000f741  mulss    xmm1, dword ptr [0x105f57ec]   ; f32=0.7 i32=1060320051 f64=0.000488281
+  0x0000f749  cmp      eax, esi
+  0x0000f74b  je       0x1000f775
+  0x0000f74d  nop      dword ptr [eax]
+  0x0000f750  mov      ecx, dword ptr [eax + 0x10]
+  0x0000f753  cmp      ecx, dword ptr [ebp + 8]
+  0x0000f756  je       0x1000f766
+  0x0000f758  movss    xmm0, dword ptr [eax + 0x14]
+  0x0000f75d  subss    xmm0, xmm1
+  0x0000f761  movss    dword ptr [eax + 0x14], xmm0
+  0x0000f766  lea      ecx, [ebp + 0x10]
+  0x0000f769  call     0x1000af80   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xbc0
+  0x0000f76e  mov      eax, dword ptr [ebp + 0x10]
+  0x0000f771  cmp      eax, esi
+  0x0000f773  jne      0x1000f750
+  0x0000f775  pop      edi
+  0x0000f776  pop      esi
+  0x0000f777  mov      esp, ebp
+  0x0000f779  pop      ebp
+  0x0000f77a  ret      0xc
+  0x0000f77d  int3     
+  0x0000f77e  int3     
+  0x0000f77f  int3     

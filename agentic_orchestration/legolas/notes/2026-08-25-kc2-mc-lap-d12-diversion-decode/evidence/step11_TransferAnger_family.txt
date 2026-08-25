@@ -1,0 +1,21 @@
+  0x0000fe20  push     ebp
+  0x0000fe21  mov      ebp, esp
+  0x0000fe23  mov      edx, dword ptr [ebp + 8]
+  0x0000fe26  mov      eax, dword ptr [ecx + 0xc]
+  0x0000fe29  push     esi
+  0x0000fe2a  push     edi
+  0x0000fe2b  lea      edi, [ecx + 4]
+  0x0000fe2e  mov      dword ptr [edx + 0xc], eax
+  0x0000fe31  lea      esi, [edx + 4]
+  0x0000fe34  cmp      esi, edi
+  0x0000fe36  je       0x1000fe4a
+  0x0000fe38  mov      ecx, esi
+  0x0000fe3a  call     0x1000a940   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0x580
+  0x0000fe3f  push     dword ptr [ebp + 8]
+  0x0000fe42  mov      ecx, esi
+  0x0000fe44  push     edi
+  0x0000fe45  call     0x10010410   ; -> ?ShouldRemoveEnemy@AngerManager@GAME@@AAE_NI_N@Z+0x420
+  0x0000fe4a  pop      edi
+  0x0000fe4b  pop      esi
+  0x0000fe4c  pop      ebp
+  0x0000fe4d  ret      4

@@ -1,0 +1,27 @@
+  0x00010180  push     ebp
+  0x00010181  mov      ebp, esp
+  0x00010183  mov      eax, dword ptr [ebp + 8]
+  0x00010186  mov      ecx, dword ptr [eax + 4]
+  0x00010189  mov      eax, dword ptr [ebp + 0xc]
+  0x0001018c  mov      eax, dword ptr [eax + 4]
+  0x0001018f  movss    xmm0, dword ptr [eax + 0xc]
+  0x00010194  xor      eax, eax
+  0x00010196  comiss   xmm0, dword ptr [ecx + 0xc]
+  0x0001019a  seta     al
+  0x0001019d  pop      ebp
+  0x0001019e  ret      8
+  0x000101a1  int3     
+  0x000101a2  int3     
+  0x000101a3  int3     
+  0x000101a4  int3     
+  0x000101a5  int3     
+  0x000101a6  int3     
+  0x000101a7  int3     
+  0x000101a8  int3     
+  0x000101a9  int3     
+  0x000101aa  int3     
+  0x000101ab  int3     
+  0x000101ac  int3     
+  0x000101ad  int3     
+  0x000101ae  int3     
+  0x000101af  int3     

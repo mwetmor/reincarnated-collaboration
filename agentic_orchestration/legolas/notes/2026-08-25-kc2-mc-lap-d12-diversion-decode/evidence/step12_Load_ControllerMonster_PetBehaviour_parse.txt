@@ -1,0 +1,60 @@
+  0x000f79e0  sub      al, 0xff
+  0x000f79e2  ror      byte ptr [eax + 0x4d987], 1
+  0x000f79e8  add      byte ptr [ebx + 0x6a068bce], cl
+  0x000f79ee  push     0x1052bffc
+  0x000f79f4  call     dword ptr [eax + 0x1c]
+  0x000f79f7  mov      dword ptr [edi + 0x514], eax
+  0x000f79fd  mov      ecx, esi
+  0x000f79ff  mov      eax, dword ptr [esi]
+  0x000f7a01  push     0x1388
+  0x000f7a06  push     0x1052bfe8
+  0x000f7a0b  call     dword ptr [eax + 0x1c]
+  0x000f7a0e  mov      dword ptr [edi + 0x518], eax
+  0x000f7a14  mov      ecx, esi
+  0x000f7a16  mov      eax, dword ptr [esi]
+  0x000f7a18  push     0x2710
+  0x000f7a1d  push     0x1052c024
+  0x000f7a22  call     dword ptr [eax + 0x1c]
+  0x000f7a25  mov      dword ptr [edi + 0x51c], eax
+  0x000f7a2b  mov      ecx, esi
+  0x000f7a2d  mov      eax, dword ptr [esi]
+  0x000f7a2f  push     0
+  0x000f7a31  push     0x1052c010
+  0x000f7a36  call     dword ptr [eax + 0x1c]
+  0x000f7a39  mov      dword ptr [edi + 0x56c], eax
+  0x000f7a3f  mov      ecx, esi
+  0x000f7a41  mov      eax, dword ptr [esi]
+  0x000f7a43  push     0x1388
+  0x000f7a48  push     0x1052c050
+  0x000f7a4d  call     dword ptr [eax + 0x1c]
+  0x000f7a50  mov      dword ptr [edi + 0x570], eax
+  0x000f7a56  mov      ecx, esi
+  0x000f7a58  mov      eax, dword ptr [esi]
+  0x000f7a5a  push     0
+  0x000f7a5c  push     0x1052c038
+  0x000f7a61  call     dword ptr [eax + 0x1c]
+  0x000f7a64  push     0x3e8
+  0x000f7a69  push     0x1052c07c
+  0x000f7a6e  mov      ecx, esi
+  0x000f7a70  movd     xmm0, eax
+  0x000f7a74  cvtdq2ps xmm0, xmm0
+  0x000f7a77  mulss    xmm0, dword ptr [0x105f5780]   ; f32=0.01 i32=1008981770 f64=5.37372e-17
+  0x000f7a7f  movss    dword ptr [edi + 0x57c], xmm0
+  0x000f7a87  mov      eax, dword ptr [esi]
+  0x000f7a89  call     dword ptr [eax + 0x1c]
+  0x000f7a8c  mov      dword ptr [edi + 0x580], eax
+  0x000f7a92  mov      ecx, esi
+  0x000f7a94  mov      eax, dword ptr [esi]
+  0x000f7a96  push     0
+  0x000f7a98  push     0x1052c064
+  0x000f7a9d  mov      eax, dword ptr [eax + 0x2c]
+  0x000f7aa0  call     eax
+  0x000f7aa2  mov      byte ptr [edi + 0x584], al
+  0x000f7aa8  mov      ecx, esi
+  0x000f7aaa  mov      eax, dword ptr [esi]
+  0x000f7aac  push     0
+  0x000f7aae  push     0x1052c090
+  0x000f7ab3  mov      eax, dword ptr [eax + 0x2c]
+  0x000f7ab6  call     eax
+  0x000f7ab8  mov      byte ptr [edi + 0x585], al
+  0x000f7abe  mov      ecx, esi

@@ -1,0 +1,102 @@
+  0x0000fff0  push     ebp
+  0x0000fff1  mov      ebp, esp
+  0x0000fff3  sub      esp, 8
+  0x0000fff6  lea      eax, [ebp + 8]
+  0x0000fff9  push     esi
+  0x0000fffa  push     edi
+  0x0000fffb  mov      edi, ecx
+  0x0000fffd  push     eax
+  0x0000fffe  lea      eax, [ebp - 8]
+  0x00010001  push     eax
+  0x00010002  lea      ecx, [edi + 4]
+  0x00010005  call     0x10010510   ; -> ?ShouldRemoveEnemy@AngerManager@GAME@@AAE_NI_N@Z+0x520
+  0x0001000a  push     dword ptr [ebp + 8]
+  0x0001000d  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x00010013  mov      ecx, eax
+  0x00010015  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0001001a  mov      esi, eax
+  0x0001001c  test     esi, esi
+  0x0001001e  je       0x100100d8
+  0x00010024  mov      edx, dword ptr [esi]
+  0x00010026  mov      ecx, esi
+  0x00010028  mov      edx, dword ptr [edx + 0x428]
+  0x0001002e  call     edx
+  0x00010030  test     al, al
+  0x00010032  je       0x100100d8
+  0x00010038  mov      eax, dword ptr [esi]
+  0x0001003a  mov      ecx, esi
+  0x0001003c  mov      eax, dword ptr [eax + 0x22c]
+  0x00010042  call     eax
+  0x00010044  test     al, al
+  0x00010046  je       0x100100d8
+  0x0001004c  cmp      byte ptr [ebp + 0xc], 0
+  0x00010050  je       0x10010077
+  0x00010052  mov      eax, dword ptr [esi]
+  0x00010054  mov      ecx, esi
+  0x00010056  push     0x107ff5a0
+  0x0001005b  call     dword ptr [eax]
+  0x0001005d  mov      ecx, eax
+  0x0001005f  call     0x1048a620   ; -> ?GetLeftHandType@WeaponArmor_Offhand@GAME@@UBE?AW4EquipmentHandTypes@2@XZ+0x2970
+  0x00010064  test     al, al
+  0x00010066  jne      0x10010077
+  0x00010068  mov      eax, dword ptr [esi]
+  0x0001006a  mov      ecx, esi
+  0x0001006c  call     dword ptr [eax + 0x228]
+  0x00010072  cmp      eax, 0xb
+  0x00010075  je       0x100100d8
+  0x00010077  push     dword ptr [edi]
+  0x00010079  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0001007f  mov      ecx, eax
+  0x00010081  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x00010086  mov      edi, eax
+  0x00010088  test     edi, edi
+  0x0001008a  je       0x100100ce
+  0x0001008c  mov      ecx, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+  0x00010092  push     esi
+  0x00010093  push     edi
+  0x00010094  mov      ecx, dword ptr [ecx + 0x94]
+  0x0001009a  call     0x10219910   ; -> ?IsFriend@FactionManager@GAME@@QAE_NABVCharacter@2@0@Z
+  0x0001009f  test     al, al
+  0x000100a1  jne      0x100100d8
+  0x000100a3  mov      eax, dword ptr [edi]
+  0x000100a5  mov      ecx, edi
+  0x000100a7  mov      eax, dword ptr [eax + 0x30]
+  0x000100aa  call     eax
+  0x000100ac  test     al, al
+  0x000100ae  je       0x100100d8
+  0x000100b0  mov      eax, dword ptr [esi]
+  0x000100b2  mov      ecx, esi
+  0x000100b4  mov      eax, dword ptr [eax + 0x30]
+  0x000100b7  call     eax
+  0x000100b9  test     al, al
+  0x000100bb  je       0x100100d8
+  0x000100bd  mov      eax, dword ptr [ebp - 8]
+  0x000100c0  movss    xmm0, dword ptr [eax + 0x20]
+  0x000100c5  comiss   xmm0, dword ptr [0x105f58f4]   ; f32=200 i32=1128792064 f64=1.17094e+17
+  0x000100cc  ja       0x100100d8
+  0x000100ce  pop      edi
+  0x000100cf  xor      al, al
+  0x000100d1  pop      esi
+  0x000100d2  mov      esp, ebp
+  0x000100d4  pop      ebp
+  0x000100d5  ret      8
+  0x000100d8  pop      edi
+  0x000100d9  mov      al, 1
+  0x000100db  pop      esi
+  0x000100dc  mov      esp, ebp
+  0x000100de  pop      ebp
+  0x000100df  ret      8
+  0x000100e2  int3     
+  0x000100e3  int3     
+  0x000100e4  int3     
+  0x000100e5  int3     
+  0x000100e6  int3     
+  0x000100e7  int3     
+  0x000100e8  int3     
+  0x000100e9  int3     
+  0x000100ea  int3     
+  0x000100eb  int3     
+  0x000100ec  int3     
+  0x000100ed  int3     
+  0x000100ee  int3     
+  0x000100ef  int3     

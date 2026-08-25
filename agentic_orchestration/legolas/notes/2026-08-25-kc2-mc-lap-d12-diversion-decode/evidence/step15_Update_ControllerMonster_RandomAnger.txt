@@ -1,0 +1,56 @@
+  0x000f6660  call     dword ptr [eax + 0x88]
+  0x000f6666  mov      eax, dword ptr [edi + 0x3d0]
+  0x000f666c  test     eax, eax
+  0x000f666e  jle      0x100f668f
+  0x000f6670  sub      eax, ebx
+  0x000f6672  mov      dword ptr [edi + 0x3d0], eax
+  0x000f6678  test     eax, eax
+  0x000f667a  jg       0x100f668f
+  0x000f667c  mov      ecx, edi
+  0x000f667e  call     0x100fc670   ; -> ?TryToHealAlly@ControllerMonster@GAME@@IAEXXZ
+  0x000f6683  mov      eax, dword ptr [edi + 0x3cc]
+  0x000f6689  mov      dword ptr [edi + 0x3d0], eax
+  0x000f668f  mov      eax, dword ptr [edi + 0x534]
+  0x000f6695  test     eax, eax
+  0x000f6697  jle      0x100f66a1
+  0x000f6699  sub      eax, ebx
+  0x000f669b  mov      dword ptr [edi + 0x534], eax
+  0x000f66a1  cmp      byte ptr [edi + 0x508], 0
+  0x000f66a8  jne      0x100f6710
+  0x000f66aa  sub      dword ptr [edi + 0x500], ebx
+  0x000f66b0  jns      0x100f6710
+  0x000f66b2  mov      eax, dword ptr [edi + 0x504]
+  0x000f66b8  mov      dword ptr [edi + 0x500], eax
+  0x000f66be  call     dword ptr [0x104e650c]   ; f32=1.17333e-38 i32=8373140 f64=4.13688e-317
+  0x000f66c4  cdq      
+  0x000f66c5  mov      ecx, 0x64
+  0x000f66ca  idiv     ecx
+  0x000f66cc  cmp      edx, dword ptr [edi + 0x390]
+  0x000f66d2  jae      0x100f6710
+  0x000f66d4  mov      ecx, edi
+  0x000f66d6  call     0x100e84e0   ; -> ?GetCurrentStateData@ControllerAI@GAME@@IBEABVControllerAIStateData@2@XZ
+  0x000f66db  cmp      dword ptr [eax], 0
+  0x000f66de  jne      0x100f6710
+  0x000f66e0  mov      ecx, edi
+  0x000f66e2  call     0x100fc550   ; -> ?PickRandomEnemyInView@ControllerMonster@GAME@@IBEPAVCharacter@2@XZ
+  0x000f66e7  test     eax, eax
+  0x000f66e9  je       0x100f6710
+  0x000f66eb  push     1
+  0x000f66ed  push     ecx
+  0x000f66ee  mov      ecx, eax
+  0x000f66f0  mov      dword ptr [esp], 0x42c80000
+  0x000f66f7  call     dword ptr [0x104e5090]   ; f32=1.16349e-38 i32=8302926 f64=2.73178e-306
+  0x000f66fd  push     eax
+  0x000f66fe  lea      ecx, [edi + 0x2b8]
+  0x000f6704  call     0x1000f6a0   ; -> ?AddAnger@AngerManager@GAME@@QAEXIM_N@Z
+  0x000f6709  mov      byte ptr [edi + 0x508], 1
+  0x000f6710  push     dword ptr [edi + 0x24]
+  0x000f6713  call     esi
+  0x000f6715  mov      ecx, eax
+  0x000f6717  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f671c  xorps    xmm1, xmm1
+  0x000f671f  movss    xmm0, dword ptr [eax + 0x37b4]
+  0x000f6727  ucomiss  xmm0, xmm1
+  0x000f672a  lahf     
+  0x000f672b  test     ah, 0x44
+  0x000f672e  jnp      0x100f6764

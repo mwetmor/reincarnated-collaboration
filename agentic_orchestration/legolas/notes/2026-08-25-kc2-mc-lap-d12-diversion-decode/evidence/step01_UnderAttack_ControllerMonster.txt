@@ -1,0 +1,109 @@
+  0x000fc350  push     ebp
+  0x000fc351  mov      ebp, esp
+  0x000fc353  and      esp, 0xfffffff8
+  0x000fc356  sub      esp, 0xc
+  0x000fc359  push     ebx
+  0x000fc35a  mov      ebx, dword ptr [ebp + 8]
+  0x000fc35d  push     esi
+  0x000fc35e  push     edi
+  0x000fc35f  push     ebx
+  0x000fc360  mov      edi, ecx
+  0x000fc362  mov      dword ptr [esp + 0x14], ebx
+  0x000fc366  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x000fc36c  mov      ecx, eax
+  0x000fc36e  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000fc373  mov      esi, eax
+  0x000fc375  test     esi, esi
+  0x000fc377  je       0x100fc3bb
+  0x000fc379  mov      eax, dword ptr [esi]
+  0x000fc37b  mov      ecx, esi
+  0x000fc37d  call     dword ptr [eax + 0x464]
+  0x000fc383  test     eax, eax
+  0x000fc385  je       0x100fc3bb
+  0x000fc387  lea      ecx, [edi + 0x2b8]
+  0x000fc38d  call     0x1000fb70   ; -> ?HasOnlyPetTargets@AngerManager@GAME@@QBE_NXZ
+  0x000fc392  test     al, al
+  0x000fc394  jne      0x100fc3a9
+  0x000fc396  mov      al, byte ptr [edi + 0x578]
+  0x000fc39c  test     al, al
+  0x000fc39e  je       0x100fc3a9
+  0x000fc3a0  cmp      byte ptr [esi + 0x1924], 0
+  0x000fc3a7  je       0x100fc3bb
+  0x000fc3a9  mov      eax, dword ptr [esi]
+  0x000fc3ab  mov      ecx, esi
+  0x000fc3ad  call     dword ptr [eax + 0x464]
+  0x000fc3b3  mov      esi, eax
+  0x000fc3b5  mov      dword ptr [esp + 0x10], esi
+  0x000fc3b9  jmp      0x100fc3bd   ; -> ?UnderAttack@ControllerMonster@GAME@@UAEXI@Z+0x6d
+  0x000fc3bb  mov      esi, ebx
+  0x000fc3bd  push     ebx
+  0x000fc3be  mov      ecx, edi
+  0x000fc3c0  call     0x100fb7a0   ; -> ?InPursuitRange@ControllerMonster@GAME@@QBE_NI@Z
+  0x000fc3c5  test     al, al
+  0x000fc3c7  jne      0x100fc3d9
+  0x000fc3c9  push     esi
+  0x000fc3ca  mov      ecx, edi
+  0x000fc3cc  call     0x100fb7a0   ; -> ?InPursuitRange@ControllerMonster@GAME@@QBE_NI@Z
+  0x000fc3d1  test     al, al
+  0x000fc3d3  je       0x100fc47c
+  0x000fc3d9  cmp      dword ptr [edi + 0x534], 0
+  0x000fc3e0  movss    xmm2, dword ptr [edi + 0x298]
+  0x000fc3e8  movss    xmm1, dword ptr [edi + 0x57c]
+  0x000fc3f0  movaps   xmm0, xmm2
+  0x000fc3f3  mulss    xmm0, xmm1
+  0x000fc3f7  movss    dword ptr [esp + 0x14], xmm0
+  0x000fc3fd  jg       0x100fc44d
+  0x000fc3ff  movss    xmm0, dword ptr [0x105f5808]   ; f32=1 i32=1065353216 f64=5.26354e-315
+  0x000fc407  mov      eax, dword ptr [edi + 0x538]
+  0x000fc40d  subss    xmm0, xmm1
+  0x000fc411  push     1
+  0x000fc413  push     ecx
+  0x000fc414  lea      ecx, [edi + 0x2b8]
+  0x000fc41a  mov      dword ptr [edi + 0x534], eax
+  0x000fc420  mulss    xmm0, xmm2
+  0x000fc424  movss    dword ptr [esp], xmm0
+  0x000fc429  push     ebx
+  0x000fc42a  call     0x1000f6a0   ; -> ?AddAnger@AngerManager@GAME@@QAEXIM_N@Z
+  0x000fc42f  movss    xmm0, dword ptr [esp + 0x14]
+  0x000fc435  mov      eax, dword ptr [esp + 0x10]
+  0x000fc439  push     1
+  0x000fc43b  push     ecx
+  0x000fc43c  movss    dword ptr [esp], xmm0
+  0x000fc441  lea      ecx, [edi + 0x2b8]
+  0x000fc447  push     eax
+  0x000fc448  call     0x1000f6a0   ; -> ?AddAnger@AngerManager@GAME@@QAEXIM_N@Z
+  0x000fc44d  cmp      dword ptr [edi + 0x214], 0
+  0x000fc454  je       0x100fc470
+  0x000fc456  mov      eax, dword ptr [edi + 0x210]
+  0x000fc45c  push     ebx
+  0x000fc45d  mov      eax, dword ptr [eax]
+  0x000fc45f  mov      ecx, dword ptr [eax + 8]
+  0x000fc462  mov      eax, dword ptr [ecx]
+  0x000fc464  call     dword ptr [eax + 0x20]
+  0x000fc467  pop      edi
+  0x000fc468  pop      esi
+  0x000fc469  pop      ebx
+  0x000fc46a  mov      esp, ebp
+  0x000fc46c  pop      ebp
+  0x000fc46d  ret      4
+  0x000fc470  mov      ecx, dword ptr [edi + 0x1e4]
+  0x000fc476  push     ebx
+  0x000fc477  mov      eax, dword ptr [ecx]
+  0x000fc479  call     dword ptr [eax + 0x20]
+  0x000fc47c  pop      edi
+  0x000fc47d  pop      esi
+  0x000fc47e  pop      ebx
+  0x000fc47f  mov      esp, ebp
+  0x000fc481  pop      ebp
+  0x000fc482  ret      4
+  0x000fc485  int3     
+  0x000fc486  int3     
+  0x000fc487  int3     
+  0x000fc488  int3     
+  0x000fc489  int3     
+  0x000fc48a  int3     
+  0x000fc48b  int3     
+  0x000fc48c  int3     
+  0x000fc48d  int3     
+  0x000fc48e  int3     
+  0x000fc48f  int3     

@@ -1,0 +1,88 @@
+  0x0000fb70  push     ebp
+  0x0000fb71  mov      ebp, esp
+  0x0000fb73  push     ecx
+  0x0000fb74  push     ebx
+  0x0000fb75  mov      ebx, ecx
+  0x0000fb77  mov      cl, 1
+  0x0000fb79  push     esi
+  0x0000fb7a  mov      byte ptr [ebp - 1], cl
+  0x0000fb7d  mov      eax, dword ptr [ebx + 4]
+  0x0000fb80  mov      esi, dword ptr [eax]
+  0x0000fb82  cmp      esi, eax
+  0x0000fb84  je       0x1000fc1f
+  0x0000fb8a  push     edi
+  0x0000fb8b  nop      dword ptr [eax + eax]
+  0x0000fb90  push     dword ptr [esi + 0x10]
+  0x0000fb93  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+  0x0000fb99  mov      ecx, eax
+  0x0000fb9b  call     0x1000b150   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd90
+  0x0000fba0  mov      edi, eax
+  0x0000fba2  test     edi, edi
+  0x0000fba4  je       0x1000fbc4
+  0x0000fba6  mov      eax, dword ptr [edi]
+  0x0000fba8  mov      ecx, edi
+  0x0000fbaa  mov      eax, dword ptr [eax + 0x22c]
+  0x0000fbb0  call     eax
+  0x0000fbb2  test     al, al
+  0x0000fbb4  je       0x1000fbc4
+  0x0000fbb6  mov      eax, dword ptr [edi]
+  0x0000fbb8  mov      ecx, edi
+  0x0000fbba  call     dword ptr [eax + 0x464]
+  0x0000fbc0  test     eax, eax
+  0x0000fbc2  je       0x1000fc16
+  0x0000fbc4  cmp      byte ptr [esi + 0xd], 0
+  0x0000fbc8  jne      0x1000fc07
+  0x0000fbca  mov      eax, dword ptr [esi + 8]
+  0x0000fbcd  cmp      byte ptr [eax + 0xd], 0
+  0x0000fbd1  jne      0x1000fbec
+  0x0000fbd3  mov      esi, eax
+  0x0000fbd5  mov      eax, dword ptr [esi]
+  0x0000fbd7  cmp      byte ptr [eax + 0xd], 0
+  0x0000fbdb  jne      0x1000fc07
+  0x0000fbdd  nop      dword ptr [eax]
+  0x0000fbe0  mov      esi, eax
+  0x0000fbe2  mov      eax, dword ptr [esi]
+  0x0000fbe4  cmp      byte ptr [eax + 0xd], 0
+  0x0000fbe8  je       0x1000fbe0
+  0x0000fbea  jmp      0x1000fc07   ; -> ?HasOnlyPetTargets@AngerManager@GAME@@QBE_NXZ+0x97
+  0x0000fbec  mov      eax, dword ptr [esi + 4]
+  0x0000fbef  cmp      byte ptr [eax + 0xd], 0
+  0x0000fbf3  jne      0x1000fc05
+  0x0000fbf5  cmp      esi, dword ptr [eax + 8]
+  0x0000fbf8  jne      0x1000fc05
+  0x0000fbfa  mov      esi, eax
+  0x0000fbfc  mov      eax, dword ptr [eax + 4]
+  0x0000fbff  cmp      byte ptr [eax + 0xd], 0
+  0x0000fc03  je       0x1000fbf5
+  0x0000fc05  mov      esi, eax
+  0x0000fc07  cmp      esi, dword ptr [ebx + 4]
+  0x0000fc0a  jne      0x1000fb90
+  0x0000fc0c  mov      al, byte ptr [ebp - 1]
+  0x0000fc0f  pop      edi
+  0x0000fc10  pop      esi
+  0x0000fc11  pop      ebx
+  0x0000fc12  mov      esp, ebp
+  0x0000fc14  pop      ebp
+  0x0000fc15  ret      
+  0x0000fc16  pop      edi
+  0x0000fc17  pop      esi
+  0x0000fc18  xor      al, al
+  0x0000fc1a  pop      ebx
+  0x0000fc1b  mov      esp, ebp
+  0x0000fc1d  pop      ebp
+  0x0000fc1e  ret      
+  0x0000fc1f  pop      esi
+  0x0000fc20  mov      al, cl
+  0x0000fc22  pop      ebx
+  0x0000fc23  mov      esp, ebp
+  0x0000fc25  pop      ebp
+  0x0000fc26  ret      
+  0x0000fc27  int3     
+  0x0000fc28  int3     
+  0x0000fc29  int3     
+  0x0000fc2a  int3     
+  0x0000fc2b  int3     
+  0x0000fc2c  int3     
+  0x0000fc2d  int3     
+  0x0000fc2e  int3     
+  0x0000fc2f  int3     

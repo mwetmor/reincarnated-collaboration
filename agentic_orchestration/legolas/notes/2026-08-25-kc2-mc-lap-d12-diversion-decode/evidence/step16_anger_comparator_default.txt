@@ -1,0 +1,51 @@
+  0x00010110  push     ebp
+  0x00010111  mov      ebp, esp
+  0x00010113  mov      eax, dword ptr [ebp + 8]
+  0x00010116  push     edi
+  0x00010117  mov      edi, ecx
+  0x00010119  mov      edx, dword ptr [eax + 4]
+  0x0001011c  mov      eax, dword ptr [ebp + 0xc]
+  0x0001011f  cmp      byte ptr [edi + 4], 0
+  0x00010123  mov      eax, dword ptr [eax + 4]
+  0x00010126  je       0x10010139
+  0x00010128  mov      ecx, dword ptr [eax + 0x14]
+  0x0001012b  cmp      dword ptr [edx + 0x14], ecx
+  0x0001012e  jge      0x10010137
+  0x00010130  mov      al, 1
+  0x00010132  pop      edi
+  0x00010133  pop      ebp
+  0x00010134  ret      8
+  0x00010137  jg       0x1001016a
+  0x00010139  cmp      byte ptr [edi + 5], 0
+  0x0001013d  je       0x10010153
+  0x0001013f  movss    xmm0, dword ptr [edx + 0x18]
+  0x00010144  movss    xmm1, dword ptr [eax + 0x18]
+  0x00010149  comiss   xmm0, xmm1
+  0x0001014c  ja       0x10010130
+  0x0001014e  comiss   xmm1, xmm0
+  0x00010151  ja       0x1001016a
+  0x00010153  movss    xmm1, dword ptr [edx + 8]
+  0x00010158  movss    xmm0, dword ptr [eax + 8]
+  0x0001015d  mulss    xmm1, dword ptr [edx]
+  0x00010161  mulss    xmm0, dword ptr [eax]
+  0x00010165  comiss   xmm1, xmm0
+  0x00010168  ja       0x10010130
+  0x0001016a  xor      al, al
+  0x0001016c  pop      edi
+  0x0001016d  pop      ebp
+  0x0001016e  ret      8
+  0x00010171  int3     
+  0x00010172  int3     
+  0x00010173  int3     
+  0x00010174  int3     
+  0x00010175  int3     
+  0x00010176  int3     
+  0x00010177  int3     
+  0x00010178  int3     
+  0x00010179  int3     
+  0x0001017a  int3     
+  0x0001017b  int3     
+  0x0001017c  int3     
+  0x0001017d  int3     
+  0x0001017e  int3     
+  0x0001017f  int3     

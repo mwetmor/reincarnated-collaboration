@@ -1,0 +1,32 @@
+  0x000f6330  jb       0x100f6340
+  0x000f6332  mov      ecx, dword ptr [ebp - 0x60]
+  0x000f6335  inc      edx
+  0x000f6336  push     1
+  0x000f6338  call     0x10008d00   ; -> ??1AuraContainer@GAME@@QAE@XZ+0x40
+  0x000f633d  add      esp, 4
+  0x000f6340  cmp      byte ptr [ebp - 0x11], 0
+  0x000f6344  mov      ebx, dword ptr [ebp + 8]
+  0x000f6347  je       0x100f69ad
+  0x000f634d  sub      dword ptr [edi + 0x574], ebx
+  0x000f6353  cmp      dword ptr [edi + 0x574], 0
+  0x000f635a  jg       0x100f6385
+  0x000f635c  mov      eax, dword ptr [edi + 0x570]
+  0x000f6362  mov      dword ptr [edi + 0x574], eax
+  0x000f6368  call     dword ptr [0x104e650c]   ; f32=1.17333e-38 i32=8373140 f64=4.13688e-317
+  0x000f636e  cdq      
+  0x000f636f  mov      ecx, 0x65
+  0x000f6374  idiv     ecx
+  0x000f6376  cmp      edx, dword ptr [edi + 0x56c]
+  0x000f637c  setl     al
+  0x000f637f  mov      byte ptr [edi + 0x578], al
+  0x000f6385  cmp      dword ptr [edi + 0x2f8], 0
+  0x000f638c  jle      0x100f63b3
+  0x000f638e  push     dword ptr [edi + 0x24]
+  0x000f6391  call     esi
+  0x000f6393  mov      ecx, eax
+  0x000f6395  call     0x1000b0c0   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xd00
+  0x000f639a  test     eax, eax
+  0x000f639c  je       0x100f63b3
+  0x000f639e  mov      edx, dword ptr [eax]
+  0x000f63a0  mov      ecx, eax
+  0x000f63a2  call     dword ptr [edx + 0x228]

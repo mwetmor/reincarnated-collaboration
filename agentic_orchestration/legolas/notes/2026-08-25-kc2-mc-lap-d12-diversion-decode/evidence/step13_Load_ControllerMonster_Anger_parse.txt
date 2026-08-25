@@ -1,0 +1,36 @@
+  0x000f7770  into     
+  0x000f7771  mov      eax, dword ptr [esi]
+  0x000f7773  push     0x7d0
+  0x000f7778  push     0x1052be94
+  0x000f777d  call     dword ptr [eax + 0x1c]
+  0x000f7780  mov      dword ptr [edi + 0x380], eax
+  0x000f7786  mov      ecx, esi
+  0x000f7788  mov      eax, dword ptr [esi]
+  0x000f778a  push     0x1388
+  0x000f778f  push     0x1052be80
+  0x000f7794  call     dword ptr [eax + 0x1c]
+  0x000f7797  mov      dword ptr [edi + 0x384], eax
+  0x000f779d  mov      eax, dword ptr [esi]
+  0x000f779f  push     ecx
+  0x000f77a0  mov      dword ptr [esp], 0x41200000
+  0x000f77a7  mov      ecx, esi
+  0x000f77a9  push     0x1052beb8
+  0x000f77ae  mov      eax, dword ptr [eax + 0x24]
+  0x000f77b1  call     eax
+  0x000f77b3  fstp     dword ptr [edi + 0x294]
+  0x000f77b9  mov      eax, dword ptr [esi]
+  0x000f77bb  push     ecx
+  0x000f77bc  mov      dword ptr [esp], 0x42c80000
+  0x000f77c3  mov      ecx, esi
+  0x000f77c5  push     0x1052bea8
+  0x000f77ca  mov      eax, dword ptr [eax + 0x24]
+  0x000f77cd  call     eax
+  0x000f77cf  fstp     dword ptr [edi + 0x298]
+  0x000f77d5  mov      eax, dword ptr [esi]
+  0x000f77d7  push     ecx
+  0x000f77d8  mov      dword ptr [esp], 0x3f800000
+  0x000f77df  mov      ecx, esi
+  0x000f77e1  push     0x1052bed8
+  0x000f77e6  mov      eax, dword ptr [eax + 0x24]
+  0x000f77e9  call     eax
+  0x000f77eb  fstp     dword ptr [edi + 0x29c]

@@ -1,0 +1,32 @@
+  0x000f9c80  push     ebp
+  0x000f9c81  mov      ebp, esp
+  0x000f9c83  push     esi
+  0x000f9c84  push     dword ptr [ebp + 0xc]
+  0x000f9c87  mov      esi, ecx
+  0x000f9c89  call     0x100fb7a0   ; -> ?InPursuitRange@ControllerMonster@GAME@@QBE_NI@Z
+  0x000f9c8e  test     al, al
+  0x000f9c90  je       0x100f9cad
+  0x000f9c92  movss    xmm0, dword ptr [ebp + 8]
+  0x000f9c97  push     1
+  0x000f9c99  push     ecx
+  0x000f9c9a  movss    dword ptr [esp], xmm0
+  0x000f9c9f  lea      ecx, [esi + 0x2b8]
+  0x000f9ca5  push     dword ptr [ebp + 0xc]
+  0x000f9ca8  call     0x1000f6a0   ; -> ?AddAnger@AngerManager@GAME@@QAEXIM_N@Z
+  0x000f9cad  pop      esi
+  0x000f9cae  pop      ebp
+  0x000f9caf  ret      8
+  0x000f9cb2  int3     
+  0x000f9cb3  int3     
+  0x000f9cb4  int3     
+  0x000f9cb5  int3     
+  0x000f9cb6  int3     
+  0x000f9cb7  int3     
+  0x000f9cb8  int3     
+  0x000f9cb9  int3     
+  0x000f9cba  int3     
+  0x000f9cbb  int3     
+  0x000f9cbc  int3     
+  0x000f9cbd  int3     
+  0x000f9cbe  int3     
+  0x000f9cbf  int3     
