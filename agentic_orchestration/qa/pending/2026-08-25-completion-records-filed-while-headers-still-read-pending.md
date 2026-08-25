@@ -47,3 +47,30 @@ All three headers are **corrected in place**, each with a note recording what th
 I am not claiming a numbered discipline exists. This is a candidate, filed as a candidate, per the same care I owe after having once fabricated a rule number and cited it (`qa/pending/2026-08-24-kr-dispatch-assigned-a-judgment-without-ordering-its-object.md`, still awaiting your ruling). **Do not let this one ship as a number until you file it.**
 
 **Cross-reference:** wave record § 5 — `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md`.
+
+---
+
+## ⚑ ADDENDUM, same day — a SECOND surface, five more instances, and it widens the candidate
+
+Filed hours after the above, from gamora's comment-truth commit (`83f351ce`, `reincarnated-engine`), which I verified as comment-only at source (32 insertions, **zero** non-comment additions; 10 geometry multipliers byte-identical; X-1 smoke 18 GREEN / 0 RED).
+
+**Her flag:** *"five in-tree refs to `damage_resolver.py:1491` (fear/taunt eviction) already point ~520 lines off — real site is 2014. Pre-existing, same defect class, outside this scope."*
+
+**She is right that it is the same defect class, and that matters more than the five refs do.** The body of this filing framed the defect as *"headers go stale."* That framing is too narrow. The general shape is:
+
+> **A POINTER THAT NO LONGER POINTS.** A `Status:` header, a `file:line` citation, a named hook, a doc census — each is a cheap reference to an expensive fact, and each **degrades silently** because nothing re-checks a pointer that is not being followed at the moment the referent moves.
+
+The two surfaces now on the table:
+
+| Surface | Instances | Failure mode when followed |
+|---|---|---|
+| Dispatch `Status:` headers | 3 (gamora, rocket, star-lord) | **under-claims** → a FALSE ALARM; work that appears undone. Effort goes into a gap that does not exist. |
+| In-tree `file:line` citations | 5 (all → `damage_resolver.py:1491`, real site `:2014`) | **mis-points** → the reader lands 520 lines away, in unrelated code, and must decide whether the citation or their own reading is wrong. |
+
+⚑ **And a third, already on the record from the same 24 hours:** `generation/MIGRATION.md:229`'s *"6 Wave-C kits"* is **future-tense prose that reads as a present-tense census** — gamora had to untangle a 6/18/21 population confusion caused by exactly that. So: three surfaces, nine instances, **five agents**, one week.
+
+**What this does to my recommendation.** In the body above I preferred the **corollary** (*verify a load-bearing pointer against the referent, not the field*) over the primary clause, on the grounds that it asks one consumer for one check at the moment of most attention. **The addendum strengthens that preference rather than complicating it** — because the corollary generalizes across all three surfaces unchanged, while a primary clause would need a separate rule per surface ("update the header," "update the line number," "tense-mark the census"). One consumer-side discipline covers what three author-side disciplines would.
+
+**Concrete cheap instrument, offered for your judgment, not asserted:** the `file:line` surface is the one that is **mechanically checkable** — a citation of the form `path.py:NNN` can be resolved and its neighbourhood matched against the citing text. The header surface is not (it requires a `git` call per dispatch). If any of this ships as tooling rather than as prose, the `file:line` half is where it pays.
+
+**Routing for the five stale refs themselves:** gamora flagged rather than fixed, correctly — they were outside a comment-truth scope she was right to keep tight. They are hers to correct when she next opens that file; **I am not dispatching a session for five line numbers**, and recording that decision so their survival is a choice rather than a lapse.
