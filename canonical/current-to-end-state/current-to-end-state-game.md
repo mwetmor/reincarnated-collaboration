@@ -30,6 +30,28 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-08-25 (later) — ⚑ **TRANCHE 3A IS BUILT AND UNSEALABLE.** The delta figure below is stale in the direction that flatters us (knight-rider)
+
+**Corrected build-vs-spec delta: 10 of 24 T-A rows SEALED · 8 BUILT-BUT-UNSEALED · 6 QUEUED.** The entry below says *"8 FIRING."* **They are no longer firing; they are finished and cannot seal**, and those are very different states to leave in a tracker — the first reads as progress in motion, the second as work parked behind a blocker. **The sealed count does not move: still 10.**
+
+**What happened.** All eight 3A rows were authored, captured across **128 arms × 2 independent passes**, gated (79 verdict keys) and cut to MP4. Then galadriel found that **the caster faces 180° from travel on every S2A/S2C row, including at rest** — the yaw was applied against the wrong axis, and the deeper cause is that the caster's rest yaw was **never set at all**, which asserts yaw 0 and fronts him at world `+Z` while every world-framed row authors its payload along world `−Z`. jack-ryan widened the blast radius to **every row in which a body appears**, on a reason that kills the tempting common-mode defence: **body-anchored effects emit along body-forward, so a 180° body rotates the effect region into different world space.** A measurement of an authored region taken on a backwards body is a measurement of a *different region* — not a degraded reading of the intended one.
+
+**drax tagged the tranche, then read the seal-block forbidding it, and retracted the tag from `origin` and locally.** Every archetype verdict is **PENDING-RECAPTURE**. What *does* seal, and is not re-done: the determinism receipt (2,106/2,106 byte-identical — reproducibility is pose-orthogonal), the harness/disk fix, the `#80` cl. 5(b) count, the Gate-1 I2 emptiness sweep, and the finding that `max(ms)==0` was **unsatisfiable by construction** (an apparatus defect, true whatever pose the bodies held).
+
+**The fix has landed and Matt verified it by eye** — *"I confirmed that the _v3 mp4s from drax now have the character facing the correct way (forwards)"* — so **recapture is unblocked and dispatched** (`dispatches/2026-08-25-drax-s2c-3a-recapture.md`). The godot lane is serial, so it queues behind the camera-framing / WW-AB dispatch rather than running beside it.
+
+⚑ **The game-layer consequence, which is the reason this belongs in THIS tracker and not only in the wave record.** These archetype numbers are what decide **which skills read as distinct to a player and which get merged** — inherited design substrate per Discipline #25. One of them, R-5's fold test, has **already reversed once** (its criterion could not return one of its two verdicts, so *"CONVERGED — FOLD"* was a constant wearing a comparison), and **`FOLD` is the destructive direction**: it routes to gandalf as evidence to *merge two archetypes*. **A wrong fold here permanently collapses a distinction the player would have felt.** The recapture dispatch orders a halt rather than a route if the corrected data drifts toward FOLD.
+
+⚑ **And it reaches a SEALED verdict.** drax's reproduction is byte-exact against R-1.3 — and R-1.3 was computed from the same backwards-body frames, as was the **sealed L-29(6) adjudication** (`dash_attack` STEPS / `blink` RAMPS). His sentence for it: **"Reproducibility is not validity."** His `PENDING-RECAPTURE` protected the *un*-sealed work; **sealing is precisely the act of ceasing to re-examine**, so the defect propagated backwards into the material hardest to revisit. Filed for Tier-A disposition (`qa/pending/2026-08-25-reproducibility-is-not-validity-…`). **It is now measurable rather than arguable** — the pre-fix frames survive on disk (2,106 + 2,106 + 874 PNGs, counted), so the recapture yields a matched before/after pair at near-zero marginal cost.
+
+**jack-ryan ruled F-9 in the same window and NO SEAL DEMOTES:** byte-identity is a **one-sided** instrument — reporting *identity* is noise-immune (noise can only break identity, never manufacture it); reporting a *difference* is exposed. Every seal in this wave rests on a PASS. ⚑ **That hardens the instrument and does not touch the subject**, which is why the item above survives it: F-9 has just certified as noise-immune the exact receipt class that is defenceless against a wrong-pose scene.
+
+**MP4 status correction:** the entry below announces *"FOUR MP4s"* as a new deliverable class. **Eight were cut. They are footage of the bug** and are explicitly not to be shown to Matt as the judging object — retained as the before-half of the fix's evidence, re-cut after recapture.
+
+**Push posture — supersedes the last line of the entry below:** Matt authorized *"push as you go through this session"*, **all repos including `reincarnated-godot`, THIS SESSION ONLY.** ⚑ **It expires at the session boundary and godot reverts to commit-only.** A conductor picking this wave up must not inherit it.
+
+---
+
 ### 2026-08-25 — STEP-2 **TRANCHE 3 FIRING (8+5)** · two stale figures in the entry below corrected (knight-rider)
 
 **Build-vs-spec delta: 10 of 24 T-A rows SEALED · 8 FIRING · 6 QUEUED.** Wave record (new, and the wave's first): `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md` — it holds the push posture, the row ledger and the in-wave rulings, per the CLAUDE.md conflict rule's requirement that a posture be recorded *against the wave* rather than only in the session that hears it.
