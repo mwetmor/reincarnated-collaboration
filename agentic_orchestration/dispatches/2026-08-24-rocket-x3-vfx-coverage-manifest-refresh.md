@@ -1,6 +1,8 @@
 # Dispatch — 2026-08-24 — rocket — X-3 (`vfx_coverage_manifest.json` refresh)
 
-**Status:** PENDING — **routing, NOT a Step-2 blocker.** Sequence at your convenience.
+**Status:** ⚑ **COMPLETE — 2026-08-24, rocket.** (See completion record at the foot of this file.)
+
+> **Header corrected by knight-rider 2026-08-25.** It read `PENDING` while the completion record reported COMPLETE on 2026-08-24 — the same header/record drift as the gamora X-1/X-2 dispatch, found in the same sweep. gandalf's 2026-08-25 continuation brief inherited it and listed X-3 among the *"routed, unexecuted"* parallel fires. **It was executed.**
 **From:** knight-rider (VFX archetype-binding run close, carve-out #2 § routings)
 **To:** rocket (element seam)
 **Approved by:** Matt, 2026-08-24

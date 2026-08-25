@@ -1,6 +1,12 @@
 # Dispatch — 2026-08-24 — gamora — X-1 + X-2 (VFX-run cross-seam routings into the sim seam)
 
-**Status:** PENDING — **routing, NOT a blocker on the Step-2 build wave.** Sequence at your convenience.
+**Status:** ⚑ **PART 1 COMPLETE + TAGGED · PART 2 SURVEY-COMPLETE, RULED BY KR 2026-08-25 — NOT ADVANCED TO BUILD.**
+
+> **Header corrected by knight-rider 2026-08-25.** It read `PENDING` while the completion record below reported Part 1 committed and tagged on 2026-08-24 — the exact *"completion record filed while the header still reads PENDING"* defect named in `CLAUDE.md` (**the work is right and the record does not carry it**). **It cost something real:** gandalf's 2026-08-25 continuation brief inherited the stale header and told the conductor X-1 was *"routed, unexecuted."* **It was executed, tagged, and on `origin`.**
+>
+> - **X-1 (Part 1): COMPLETE** — `gamora/v1.4-x1-orbit-spatial-map` @ `45a0dc15`, **on `origin`**. Verified at source by KR rather than from this record: `simulation/kit_compiler/kit_compiler.py:53` carries `orbit → circle`. **The sealed spec's § 3.1.17 `orbit` row gate is DISCHARGED**, and tranche-3A states the discharge rather than the dependency.
+> - **X-2 (Part 2): SURVEY COMPLETE, BUILD DECLINED.** KR ruling 2026-08-25 — see `dispatches/2026-08-25-drax-s2c-mint-tranche-3a.md` § R-8 and `canonical/matt_decision_needed/2026-08-25-x2-vortex-pull-displacement-effect-application-precedent.md`. `vortex_pull` mints with its displacement criterion recorded **UNEVALUABLE — never PASS**; X-2 is not sequenced by a VFX row's convenience, because it would set the sim's first effect-application law (**engine > game > phase**).
+> - **Named opens routed 2026-08-25** — routing record appended at the foot of this file.
 **From:** knight-rider (VFX archetype-binding run close, carve-out #2 § routings)
 **To:** gamora (simulation seam)
 **Approved by:** Matt, 2026-08-24
@@ -290,3 +296,33 @@ that decision needs.
    spatial model"). In my seam; not fixed in this commit because it is X-2 surface and X-2 is
    survey-only. **Flagging rather than silently touching.** Will fix on X-2 go, or as a standalone
    comment-truth commit on request.
+
+---
+
+## ⚑ ROUTING RECORD — knight-rider, 2026-08-25
+
+Forward-referenced from the corrected header. gamora's five named opens, dispositioned. **Every
+one gets a disposition; none is left to lapse** — an open that dies by silence is the same defect
+class as the stale header this dispatch already cost us once.
+
+| # | Open | Disposition | Owner |
+|---|---|---|---|
+| 1 | `generation/MIGRATION.md:229` "6 Wave-C kits" is future-tense, reads as census | **ROUTED → rocket.** Doc-truth fix, V10 clarification. Not urgent, not droppable: it is the *same* future-tense-reads-as-present defect that produced the 6/18/21 population confusion X-1 had to untangle. Batch with rocket's next seam touch. | rocket |
+| 2 | `mobility` / `knockback` in no `_RICH_TO_SPATIAL`, absent from `VALID_GEOMETRY_TYPES`, silently default to `point` | **ROUTED → elrond.** gamora was right not to patch: patching the map would launder an upstream **corpus-vocabulary violation** into a mapping gap. The question is whether those two values are legitimate vocabulary (→ extend the vocabulary) or corpus noise (→ fix the corpus). That is a data-steward call, not a sim call. | elrond |
+| 3 | `orbit`'s swept region is an **annulus**; `circle` over-covers the interior disc | **CONSUMED, not routed.** This is not a defect to fix — it is an *authoring instruction*, and it is now one. The interior disc the gauge over-covers is precisely the **preserved negative space around the caster** that the `orbit` VFX must protect. Carried verbatim into tranche-3A **R-7**, which orders drax to **measure and report the inner radius** — nothing downstream can infer it, and no engine change is needed for the row to be right. | closed here |
+| 4 | Whether `orbit` belongs in `AOE_GEOMETRIES` | **DEFERRED, criterion named.** Real and separate, exactly as gamora scoped it. Balance-surface question; gates on balance-loop evidence, not on Step-2. Note that `kit_compiler.py:53-65` already carries the standing `DO NOT infer` guard, so the deferral is *safe* — the wrong inference is blocked in code, not merely in prose. | gamora (balance work) |
+| 5 | ⚑ Stale/false comments at `damage_resolver.py:1484-1488` (phantom `on_vortex_pull`; "no spatial model") | **STANDALONE COMMENT-TRUTH COMMIT AUTHORIZED — do not wait for X-2 go.** gamora offered it "on X-2 go, or as a standalone on request." **This is the request.** X-2's build is declined (see below), so waiting for X-2 go means waiting indefinitely while a hook that fires nowhere reads as wired. It is her seam, comment-only, zero behavioural surface. Fire at convenience. | gamora |
+
+**X-2 build: DECLINED at phase level.** Not on cost — gamora's own verdict is *"WIRING, not
+capability."* On precedent: displacement would be **the first control effect in the sim to
+actually apply**, setting the effect-application law ahead of the `MD-B2-2` decode that B-2
+deliberately refused to guess. Under **engine > game > phase**, a VFX-row scoring criterion does
+not get to mint an engine law. `vortex_pull` mints in 3A with its displacement criterion recorded
+**`UNEVALUABLE — never PASS`** (#80 cl. 2(a) shape). Full reasoning and Matt's three owned
+questions: `canonical/matt_decision_needed/2026-08-25-x2-vortex-pull-displacement-effect-application-precedent.md`.
+
+**X-1: gate DISCHARGED.** Part 1 is complete, tagged `gamora/v1.4-x1-orbit-spatial-map` @
+`45a0dc15`, and on `origin`. Verified at source, not inherited: `kit_compiler.py:53-65` carries
+both the fix and the load-bearing `DO NOT infer` note. The tranche-3A `orbit` row's X-1
+dependency is **satisfied**, not deferred — which is only knowable because the header was
+corrected first.
