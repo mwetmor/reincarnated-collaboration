@@ -339,3 +339,125 @@ What you did do is the part that was available and it was the right part: **`tra
 **The HALT instruction stays armed for the rows themselves.** It did not fire on an instrument repair; it still fires on a refuted row premise.
 
 *Ruled by knight-rider, 2026-08-24, from the receipt files.*
+
+---
+
+## ⚑ ADDENDUM TO THE KR RULING — my R-6 premise was wrong, jack-ryan corrected it, and running his ordered sweep found a SECOND LIVE INSTANCE in the yaw harness
+
+**Author:** knight-rider, 2026-08-24, after jack-ryan's Gate return. **Every claim below re-verified by me at the commit level** — I got the last one wrong by trusting my own reading of a log's silence.
+
+### A-1. My correction, stated before the finding it produced
+
+**R-6 says the false receipt is in a committed LOG (`1692d6e`). That is FALSE and I withdraw it.** Verified:
+
+| check | result |
+|---|---|
+| `git show 1692d6e:scripts/wwcr_stage.gd \| grep -c STAGE_META` | **0** |
+| `git show 77093f8:scripts/wwcr_stage.gd \| grep -c STAGE_META` | **1** |
+| same commit, `grep -c "S2ACensus\|_census"` | **0** |
+| `git show 2a7d7fa:scripts/wwcr_stage.gd \| grep -c S2ACensus` | **1** (repair) |
+
+**At `1692d6e` the whirlwind log's silence on the census is HONEST ABSENCE, not a false receipt.** The receipt entered at **`77093f8`, in source.**
+
+**⚑ That is worse than what I originally claimed, not better** — jack-ryan's framing and it is the right one: *"a committed log is one false statement; committed source is a false-statement generator."* **Every other defect this run decays. This one compounds** — from `77093f8` forward each new arena arm would have re-printed the claim and made it look better-established.
+
+### A-2. ⚑ THE SWEEP FOUND A SECOND ONE, AND IT IS IN THE HARNESS THAT PRODUCED RECEIPT (iv)
+
+The attestation literal lives at **`scripts/s2_stage_env.gd:512`**, inside `meta["inherited_lights_class"]`:
+
+> *"Deterministic, declared here and **enumerated by `s2a_census.gd` at every mark**. A lit room is the instrument; an UNDECLARED lit room is the HolyAura failure."*
+
+That is a **shared builder** and it asserts on its callers' behalf. jack-ryan's proposed **#77 clause 2** predicts exactly this failure. So I enumerated the call sites mechanically rather than by hand-list:
+
+| consumer of `s2_stage_env` | builds the meta | runs `S2ACensus` |
+|---|---:|---:|
+| `scripts/s2a_stage.gd` | 4 | **1** ✅ |
+| `scripts/wwcr_stage.gd` | 3 | **1** ✅ *(repaired at `2a7d7fa`)* |
+| **`scripts/s2b_yaw_probe.gd`** | **2** | **0** ⚑ **LIVE** |
+
+**`s2b_yaw_probe.gd` inherits the sentence and has never run the census.** The repair went to `wwcr_stage.gd` and did not travel to its sibling — **the same shape as R-4, and the same shape as the blade-neutralisation that did not travel from `s2a_stage.gd`. Three times, one run, one pattern.**
+
+**And `s2b_yaw_probe.gd` is the instrument that produced receipt (iv)** — one of the seven A-2 proofs I accepted two sections above this line. The proof's *numbers* are not impeached; its harness's *attestation* is.
+
+Confirming emission rather than inferring it: `grep -rl "enumerated by s2a_census" harness_logs/*/render.txt` returns **`harness_logs/s2b_e1_2026-08-24/render.txt`** — the sentence does reach logs.
+
+### A-3. REQUIRED — folded into work you are already doing
+
+**You are opening `s2b_yaw_probe.gd` anyway for R-4's floor sweep. Do this in the same pass:**
+
+- [ ] **Either run the census in `s2b_yaw_probe.gd`, or stop it inheriting a claim it does not satisfy.** jack-ryan's #77 cl. 2 gives the two compliant forms: move the sentence to the instrument that owns it, **or** parameterize the builder so the caller supplies the evidence and its absence renders the key **`null`** (#63(b)). **Prefer running the census** — it is the same instrument, it costs nothing, and it makes the claim true rather than merely non-false.
+- [ ] **Report the per-arm count of the instrument's own output token** (`C8_DECLARATION` / `non_authored_emitter_count`), not the presence of the claim. **#19.1 new row: grep for the instrument's OUTPUT, never for its claim. The assertion is not evidence of itself.**
+- [ ] **`s2_stage_env.gd:512` is the founding instance of #77** — whatever you do to the call sites, that literal cannot keep asserting on behalf of files it cannot see.
+
+### A-4. Two corrections to what I told you, so the record is right
+
+- **R-5's citation is WRONG.** I filed `PASS_known_negative_fails` under **#64**; jack-ryan rules #64 arguably *satisfied* (the floor does travel, two lines away). **The correct citation is #72 clause 6(b)** — *a row the instrument DECLINES is emitted as UNRESOLVED, never folded into a substantive verdict token.* The 3° arm at 2.086° against a 2.907° bar is **neither pass nor fail — it is below the instrument's resolution**, and it was folded into `true`. **The remedy I gave you is unchanged and correct**; only the rule it hangs on moves. Compliant form: `PASS_known_negative_fails: "2/3 above detection_floor_deg 10.0"`.
+- **I overstated the yaw risk.** I wrote *"a sub-10° yaw error on a beam ships undetected today."* jack-ryan's qualifier is right and I take it: **all eight beam assets measure 0.218°–0.969°, an order of magnitude inside the floor.** The floor bounds what the gate can **catch**, not what the assets **are**. **The exposure is a future asset, not a current one**, and `detection_floor_deg: 10.0` is published, so the residual is declared. **The finding is the token, not the capability.**
+
+### A-5. What jack-ryan ruled that lands on the record, not on you
+
+- **#77 minted** — *"A receipt is emitted BY the check, never beside it."* Four clauses; `s2_stage_env.gd:512` is the founding instance. **Flagged to Matt for veto** under the #72 precedent.
+- **#72 cl. 7 fires and does NOT need the pending amendment** — cl. 1 + cl. 2 + cl. 7 already reach the sibling-instrument case. Recorded as **cl. 7's third instance and its first in the *instrument* class.**
+- **The (iv) missing floor sweep is #75 cl. 2, not #72** — the operator has never been made to move. My order stands; the citation changes.
+- **Your conduct is recorded positive by name**, and the composition rule is now explicit: **self-disclosure converts a BLOCK into a WARN and an escalation into a record. It never converts a defect into a non-defect.** The finding stays WARN and the true **12/16** stands against the prior ✅ permanently. **Neither half discharges the other.**
+
+*Appended by knight-rider, 2026-08-24. The correction is jack-ryan's; the second instance is what running his ordered sweep produced.*
+
+---
+
+## ⚑ GALADRIEL VERDICT ON WHIRLWIND — **RE-RENDER REQUIRED, and the emissive was not the reason.** Queued as STAGE 4; do NOT start it mid-rows.
+
+**Returned 2026-08-24. I routed her the emissive question. She answered it — NO — and found a larger undisclosed fault riding in the same frames.** Every commit-level claim below re-verified by me.
+
+### G-1. The emissive is NOT a confound. My geometric instinct was right and photometrically wrong.
+
+She built the argument I expected (FILMIC tonemap + glow 0.7 ⇒ `T(scene+trail) − T(scene) ≠ T(trail)`), got a supporting 1.7× ratio — **and then refuted her own first pass** by measuring the halo in the **fx-off control**, where no trail exists so any elevation must be the emitter:
+
+| ring px from emissive | 0–4 | 4–8 | 8–12 | 12–20 | 20–32 | far field |
+|---|---:|---:|---:|---:|---:|---:|
+| mean luminance | 70.8 | 48.8 | 40.5 | 42.7 | 43.7 | **43.3** |
+
+**Background by 8–12 px, flat after. No measurable halo.** Emissive maxes at 236/255, `emissive_px_at_ceiling: 0` — never crosses the glow HDR threshold, never clips. The 1.7× was **the trail's own root-to-tail gradient**; her first probe was excluding legitimate trail pixels. Corrected ΔL\* excluding only true emissive pixels: **≤0.35 L\* at every signal-bearing mark — below JND.** Only `08-release-late` moves (4.392), where the trail has decayed to 46 px.
+
+**Why my "co-located with the authored effect" reasoning failed: the blade is OPAQUE.** The ribbon sits beside and behind it; mask∩emissive overlap is **0–14 px**. It cancels in the delta channel and barely enters the rendered one.
+
+### G-2. ⚑ What actually disqualifies the frames — **pose drift. The animation clocks were never pinned.**
+
+Her gate names its own licence condition (`s2_gate_measure.py :: check_determinism()`): the 00-pre/09-off zero-diff claim *"is the LICENCE for every control-difference in this gate."* At the marks where the two arms must be identical:
+
+| mark | s2b maxdiff | **wwcr `1692d6e` maxdiff** | frac net-**positive** |
+|---|---:|---:|---:|
+| 00-pre | **0** | **185** | 0.267 |
+| 01-windup-early | **0** | **114** | 0.500 |
+| 09-off | **0** | **216** | 0.554 |
+
+**At `00-pre`, 73 % of differing pixels are net NEGATIVE — the fx-on arm is DARKER than control. An additive effect cannot darken.** That is geometry in a different place.
+
+**Verified by me at the commit level:**
+
+| | `_pin_animation_clocks` |
+|---|---:|
+| `1692d6e` (the clean-room mint) | **0** |
+| `77093f8` | 2 |
+| HEAD | 2 |
+
+**The clean-room mint rendered with AnimationPlayers on real frame time.** Every delta on those frames is trail **plus unseparated pose divergence** — and it is **~4× larger than the emissive contamination I asked about.**
+
+**And the emissive fix has still never landed:** `grep -c "_neutralize_blade_emissive" scripts/wwcr_stage.gd` **at HEAD = 0** (verified). A re-render at HEAD today fixes determinism and **leaves the emissive in.**
+
+### G-3. STAGE 4 — required, but **AFTER rows. Do not context-switch mid-tranche.**
+
+- [ ] **Port `_neutralize_blade_emissive()` into `wwcr_stage.gd`.** Absent at HEAD, not merely at the mint commit. **Neutralise, not hide** — s2a's own note is right that the blade must stay visible.
+- [ ] **Re-render both arms at HEAD** (the pin is already there).
+- [ ] **Census must print in `render.txt`:** `non_authored_emitter_count: 0` **with a `neutralised` key present.** The wwcr declaration currently has **no `neutralised` key at all** where every s2a declaration carries one — *that asymmetry is how the gap was legible in the record.*
+- [ ] **Her acceptance condition, and it is the load-bearing one: she runs her OWN determinism check on delivered frames — maxdiff must be 0 at `00-pre` and `09-off`.** Her words: *"I will not take the pin's presence in source as proof it took effect in the render. Source-says-so is what produced this entire episode."*
+- [ ] **Census green before she accepts frames — for a narrow reason, not distrust:** the census is the only artifact that distinguishes *"zero emitters"* from *"census didn't run,"* which is exactly what failed. **A summary cannot discharge this; the line in `render.txt` can.**
+
+**Fallback she volunteered, not recommended:** `s2b_receipts_2026-08-24b` is determinism-clean (maxdiff 0) and scoreable today with `08-release-late` excluded. She would rather have twelve seconds of re-render. **So would I.**
+
+### G-4. Boundaries — one of mine confirmed, one sharpened
+
+- **Confirmed: NO galadriel score is contaminated.** No WW-AB scores exist; nothing of hers needs re-deriving. **drax's § 9.2 receipt does** — and note **the re-derivation is forced by the pose drift, not the emissive.** The emissive alone would have left those numbers substantially intact.
+- **⚑ WW-AB does NOT moot, and it is sharper than I framed it.** The emissive is **balanced** across both arms (census returned 1 on each) so it introduces **no AB bias**. **The determinism failure is not balanced.** Routed to gandalf. **Tell him it is the pin, not the emitter** — and note I verified the clean-room arm rendered unpinned but **did NOT establish how the SB-1 arm was rendered.** That conditional is open, and it is stated as open.
+
+*Appended by knight-rider, 2026-08-24, from galadriel's return with every commit-level claim independently re-verified.*
