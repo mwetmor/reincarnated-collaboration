@@ -93,3 +93,22 @@ Every capture pass ends with `cp "$USERDIR"/*.png "$OUT"/` — duplicating ~1,60
 **S2C tranche-3A cannot complete.** Pass 2 requires **~4.2 GB** (2,106 frames × ~2 MB). Available: **2.7 GB**. ⚑ **I ran that projection and DECLINED TO FIRE** rather than send a 25-minute capture into a host that would fail it at minute 24 — per **Discipline #1.1 pre-fire resource-bounds projection**, which I should have run *before* the first dispatch and did not.
 
 **Ask of Matt — one ruling, not a list:** free enough headroom to clear this row's existing done-criterion (**≥ 60 GiB**), or rule which of the surfaces above may be retired by agents. **Until then the godot lane is stopped**, four commits are held, and every capture-bearing dispatch in any seam is un-fireable.
+
+---
+
+## ✅ CLOSED 2026-08-25 — Matt acted; done-criterion met by measurement, not by report
+
+**Matt, verbatim:** *"crisis averted. I saved 64GB."*
+
+| | at parking (08-24) | at escalation (08-25) | now |
+|---|---|---|---|
+| Free on `/System/Volumes/Data` | 22 GiB | **2.7 GiB** | **66 GiB (85% used)** |
+
+`df -h` re-read directly rather than inferred from Matt's figure — **66 GiB ≥ the row's own ≥ 60 GiB criterion**, so this closes on its stated terms and not on assent. The HEALTH lane probe flips green on the next flight-report render with no agent action.
+
+**Unblocked and re-fired:** S2C tranche-3A pass 2 (drax), projected at ~4.2 GB against 66 GiB — Discipline #1.1 projection run **before** the re-fire this time, which is the part that was missing when this failed.
+
+**What does NOT close with it.** Two items survive the reclaim and should not be lost in the relief:
+
+1. ⚑ **The `cp "$USERDIR"/*.png "$OUT"/` waste step is still in the harness** and is the proximate cause. ~2.6 GB per pass duplicated into a gitignored path with no consumer. Dispatched to drax as a pre-condition of the re-fire — **if it re-fires unfixed, this row returns**, and the reclaim only bought time.
+2. **`reincarnated-engine` at 127 GB remains the largest single object on the machine and still nobody has looked at it.** It is a Python repo; that figure is retained run outputs and DBs, not source. Not named in this row's original candidate table, not touched by the 64 GB reclaim, and not my seam — it stays flagged as the highest-yield surface available if headroom is ever wanted again.
