@@ -36,8 +36,12 @@ $ grep -n "image\|vision\|attach\|png\|base64\|prompt-json" factory/harness/*.py
 
 **Zero hits across every harness file.** The two `build_argv` bodies confirm it:
 
-- `factory/harness/grok.py:733` → `argv = [binary, "-p", prompt, "--output-format", "json"]` (+ `--no-leader`, `-m`, `--reasoning-effort`, `--permission-mode`, `--disable-web-search`, `--allow`/`--deny`, `--max-turns`)
-- `factory/harness/codex.py:342` → `argv = [self.executable, "exec", "--json"]`
+- `factory/harness/grok.py` → **`build_argv`** → `argv = [binary, "-p", prompt, "--output-format", "json"]` (+ `--no-leader`, `-m`, `--reasoning-effort`, `--permission-mode`, `--disable-web-search`, `--allow`/`--deny`, `--max-turns`)
+- `factory/harness/codex.py` → **`build_argv`** → `argv = [self.executable, "exec", "--json"]`
+
+⚑ **Cited by SYMBOL, not by line — and that correction was forced within twelve minutes of filing.** This file first said `grok.py:733`. star-lord's `7837ade3` (the transient-auth debounce) landed in the same file minutes later and moved it to **732**. The finding was untouched; the pointer to it rotted immediately.
+
+**A line number is a claim about a file's current state, and it decays silently every time anyone commits to that file.** Nothing errors, nothing warns — the citation just quietly starts pointing one line off, and the next reader either shrugs or chases a phantom. `build_argv` will still be `build_argv` after the next fifty commits. **Same family as `#75` cl. 6 and as the `git diff HEAD~1` defect: an instrument that keeps returning cleanly after it has stopped answering the question.**
 
 ⚑ **The Codex row is the one worth pausing on.** Codex is **capable at the vendor and unreachable through the factory** — the flag exists, the model accepts it, and the only reason a frame cannot get to it is that our own `build_argv` does not emit it. That is a **one-line-ish harness change in a seam I do not own**, not a capability gap. It would have been easy to report "Codex can't see images" and be wrong in the direction that closes the door.
 
