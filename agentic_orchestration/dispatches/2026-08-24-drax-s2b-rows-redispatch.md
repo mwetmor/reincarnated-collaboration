@@ -133,4 +133,113 @@ I routed this to galadriel expecting a possible unseal request to gandalf. **My 
 
 ## Completion record
 
-*(to be appended by drax)*
+### STAGE 1 of 3 — THE FOUR OWED RECEIPTS: **COMPLETE.** Appended by drax, 2026-08-24.
+
+Godot `2a7d7fa`, tag `drax/v0.1-s2b-receipts-a2-complete`, **pushed** (standing pattern).
+Receipts: `reincarnated-godot/harness_logs/s2b_receipts_2026-08-24/{sensitivity,yaw,xrow,c8key,probedelta_fixb}.json`
+A-7 disposition: `reincarnated-godot/data/s2b_a7_optin_disposition.md`
+
+**ALL SEVEN A-2 sensitivity receipts are banked. Rows 3–7 are ungated on A-2/A-3.**
+Rows 1–2 and 3–7: **NOT STARTED** — stages 2 and 3 remain.
+
+| receipt | verdict | the number |
+|---|---|---|
+| **(iv)** C-2 yaw assert | **PASS**, both legs | correct arms 0.034–0.969°, bar 2.907°; known-negatives 10°/45° FAIL; **detection floor 10°** |
+| **(v)** cross-row separation | **PASS**, both legs, *after the instrument was found wrong* | null 0.155 mean / 0.350 max; separation 2.905; **8.30×** |
+| **(fix a)** `C8_DECLARATION` key | **PASS**, both legs | same log: **10 → 0**; pre-fix corpora 20 in collision |
+| **(fix b)** `vfx_probe_delta.py` | **PASS** | ALL-FRAME **54** vs SAMPLED **14** (25.9 %), separable on the record |
+
+### ⚑ THE ONE THAT MATTERS: receipt (v) refutes A-6's null leg as I first built it
+
+Reported here rather than only in the commit, because **it changes how rows 4/6/7 will be judged.**
+
+I built the separation instrument at `LIT = 12`, ported from `sa_gate.py:51` — a **pre-registered
+bar for the SLASH-ARC DETERMINISM question.** In a *shape* instrument that value is not a detection
+threshold; it is a **tint-dependent erosion operator.** Measured, on the three `gtc` element arms at
+`03-impact`, which are the same geometry by construction:
+
+| floor | gtc fire / water / earth authored px | min cross-row ÷ max within-row null |
+|---|---|---|
+| 8 | 82,362 / 82,320 / 82,280 | 4.70× |
+| **12 (as I shipped it)** | **82,174 / 56,472 / 41,543** | **0.78×** |
+
+The earth mask is a **perfect subset** of the fire mask (41,542 of 41,543 px). Same shape, eroded.
+
+**At 0.78× the instrument rates `melee_strike` vs `ground_targeted_circle` — two minted,
+unambiguously distinct rows — as LESS separated than two element arms of one row.** A-6's criterion
+is *"cross-row separation exceeds the within-row null,"* so the contaminated floor **biases rows
+4/6/7 toward FAILING**, which fires the anti-tuning clause and routes a **spurious fold finding to
+gandalf about L-29.** That is a false verdict in the most expensive direction available.
+
+⚑ **And my first run printed `PASS = True` at 1.40 ×** — it passed because the positive control came
+from the arena cohort and the null from the bare one, and those two straddled the cliff. **A
+plausible number first, inside the instrument built to police exactly that.**
+
+**Fixed, not tuned:** the floor is now derived by **minimising the within-row null** — the quantity
+P-axis geometric invariance says must be ~0 — **computed from the null leg ALONE**, so the cross-row
+leg cannot participate in setting its own bar. That selection rule can only make the instrument
+*less* likely to declare rows distinct, which is the safe direction. **`sa_gate.py` is untouched;
+its bar is correct for its own question.** This is **#64 FRAME FORM on a threshold instead of on a
+percentage** — same class, new axis.
+
+**Not halted, and stating why so it can be overruled:** A-6 instructs *"do not invent one — derive
+it."* Deriving it correctly is executing the amendment, not amending it. Proceeding at `LIT = 12`
+would have been minting around it. **If KR reads this as a § 5 premise refutation requiring a HALT
+rather than a repair, say so and rows stop.**
+
+### Two self-disclosed defects in my own landed work
+
+1. **`wwcr_stage.gd` had NEVER run the C-8 census** — and printed a `STAGE_META` string claiming it
+   did (*"declared here and enumerated by `s2a_census.gd` at every mark"*). **E-1's acceptance line
+   "C-8 census at every mark on BOTH stages" was met on 12 of 16 arms**; I marked it ✅. Same family
+   as the clock pin — instrument built on one stage, sibling left alone — except **this sibling
+   advertised the instrument it did not have,** which is why it read as satisfied.
+2. ⚑ **Its first-ever census returns `non_authored_emitter_count: 1` at every mark, on both arms:**
+   the **emissive greatsword blade**, which `s2a_stage.gd` neutralises and `wwcr_stage.gd` does not.
+   `stock_vfx_enabled` does not govern it — it is a pack material, not a stock VFX node. **The
+   landed `whirlwind` mint (`1692d6e`) was scored with an undeclared inherited emitter sitting on
+   the very blade the trail is generated from** — the surface an L-19 *"the arc IS the weapon's own
+   path"* judgement is made against. It differences out of the ON/OFF diff; it does **not**
+   difference out of a frame galadriel scores. **ROUTED to galadriel + KR. Not ruled on — the repair
+   reaches inside a minted effect, which E-1 forbids.**
+
+### Answering KR's two direct asks
+
+- **⚑ FRAME-RETENTION INSURANCE — one constraint KR should know:** `transfer_function` now travels
+  in `stage_meta` on **every** arm, read off the live `Environment`. The tonemap is *what retired
+  HLF* (luma 242 bare vs 195 lift, either side of the 204 cut) and **no record said so** — `stage_meta`
+  carried module counts and omitted the one property that decided the measurement. **But harness
+  PNGs are `.gitignore`d under the Synty licence rule.** Frame retention is therefore **on-disk plus
+  committed per-arm metadata; the repo cannot hold frames.** If the insurance is meant to survive a
+  machine loss, that needs a decision that is not mine.
+- **MEASURED ARM COST** (`harness_logs/s2b_receipts_2026-08-24*/arm_cost.txt`): **`s2a` 4.39 s/arm
+  (n = 8)**, `wwcr` 5.72 (n = 2), `yaw` 1.10 (n = 6). **14 arms ≈ 60 s of render.** Capture is **not**
+  the cost of a row — authoring is. **The second stage should not be cut on cost grounds**, and the
+  asymmetry KR wanted evidence for holds for the reason he named: a re-mint costs authoring, and the
+  cross-run drift of 144–1,028 px is why a recapture is not free either.
+
+### One premise CONFIRMED rather than refuted
+
+**C-2 holds across the whole population row 7 may mount.** I wrote it from a probe of one asset;
+all **eight** `laser_vfx_0*` scenes were tested, worst error **0.435°** against a 2.907° bar. Row 7's
+`aim-vector → yaw` contract is safe on any of them.
+
+### A-7 gap closed, and the derivation broke while I was closing it
+
+Per-site verdict for all seven default-takers in `data/s2b_a7_optin_disposition.md`. Five carry a
+substantive confound argument; **two are transform-only reads where the flag is inert and I say so**,
+rather than writing seven confident lines of which two are thin.
+
+⚠ **The mechanical derivation changed its own answer mid-write.** The default-taker bucket was a bare
+substring test, so adding the payload *key* `stock_vfx_enabled_default_now_false` to
+`wwcr_stage.gd` — **a label change with no behavioural content** — dropped that file from the
+population, and 15 sites reported as **7 + 1 + 6**. The derivation ordered as the *cure* for a
+hand-list was keyed on a predicate that matches text it did not mean. **Mechanical is necessary and
+not sufficient.** Buckets are now assigned once each and the script **refuses unless they sum**:
+**15 = 7 + 1 + 7.**
+
+### Next
+
+**Stage 2 — rows 1–2.** Nothing blocks them: A-2 is discharged, A-4/A-5/A-6 are folded, and the
+separation instrument is now sound. Stage 3 — rows 3–7 — follows, with the Gate-2 BLOCK condition
+satisfied in advance.
