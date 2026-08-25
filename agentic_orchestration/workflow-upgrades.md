@@ -123,6 +123,16 @@ Verdict of record: the Codex research doc's architecture is a good general-purpo
 **Seam:** star-lord + KR concurrence REQUIRED before this advances (their surfaces); gandalf drafts on their nod.
 **Status:** OPEN — candidate, gated on seam-owner concurrence.
 
+## U-11 — Claude-lane usage emitter (transcript → flight rows; the Claude half of factory health)
+
+**Lever:** COST + model-efficiency (makes U-3's criterion measurable per lane; ends the Claude-lane honest-null on the board).
+**The gap (born of Matt's question, 2026-08-25):** the U-1 board renders Codex with full token/cache columns (native `codex exec --json` emission) and Grok with vendor-reported `cost_usd`, but every Claude lane renders declared-null tokens — nothing feeds Claude usage into the recorder, and the rows refuse to fake it. Factory health for the fleet's PRIMARY economy is therefore the thinnest column on the board.
+**Evidence (substrate verified on disk, 2026-08-25 conductor check):** every Claude Code session transcript at `~/.claude/projects/**/*.jsonl` carries a per-message `usage` block — `input_tokens`, `cache_creation_input_tokens`, `cache_read_input_tokens`, `output_tokens` — plus `sessionId`, `timestamp`, `cwd`, and resolved model id (412 usage-bearing messages in the U1-BUILD conductor session's transcript alone). The exact axes the Codex lane records, sitting unread.
+**What:** a read-only star-lord emitter that folds per-session transcript usage into flight rows (schema unchanged — the token fields already exist; `derived_from` pins the transcript path; sessions map to workstreams via the custody ledger + dispatch records where derivable, honest-null where not). Rear-view capture, one data path, zero write verbs against the transcripts — THE LAW as-is. Composes with G-2c-R1: these rows are retrospective-authored (provenance axis lands with rev 1.2's first instrumented emitter — this may BE that trigger; jack-ryan rules).
+**Empirical criterion:** Claude lanes render token + cache-hit% columns beside Codex's on the same board; U-3's before/after cache-fix comparison becomes a per-lane query over rows (the 93.2% Codex figure gains its Claude counterpart).
+**Seam:** star-lord (emitter) · jack-ryan (rev-1.2 provenance ruling + gate) · gandalf specs.
+**Status:** OPEN — proposed by gandalf; Matt rules adoption; KR sequences behind the Step-2 wave.
+
 ---
 
 ## Adoption protocol
