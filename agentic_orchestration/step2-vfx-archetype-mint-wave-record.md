@@ -57,9 +57,26 @@
 | 2 | `self_buff` · `totem` · `circle⊕ring` · `single_target` · `melee_arc` · `multi_projectile` · `line` | ✅ SEALED (7) — `drax/v0.1-s2b-mint-tranche-2` @ `f119bd8`, **on origin** (verified twice: KR + jack-ryan Gate-1) |
 | **3A** | `dash_attack` · `blink` · `teleport` · `leap_strike` · `ground_slam` · `cone` · `orbit` · `vortex_pull` | ⚑ **FIRING** — drax session live, 2026-08-25 |
 | **3B** | `beam_channel` · `chain` · `placed_lane` · `ricochet_bounce` · `fork` | **QUEUED** behind the P-BEAM determinism probe |
-| WW-AB | `whirlwind` | **AUTHORED, un-run** — clean-room, quarantine binding |
+| WW-AB | `whirlwind` | ⚑ **MINTED + LINEAGE-AUDITED — but NOT COMPARABLE.** See correction immediately below. |
 
 **10 / 24 sealed. 8 in flight. 6 queued.**
+
+#### ⚑ CORRECTION 2026-08-25 (knight-rider) — this row read `AUTHORED, un-run` for a full day after it ran
+
+**It ran.** `drax/v0.1-s2-whirlwind-cleanroom-1` = `1692d6e`, **2026-08-24 18:52**, 1,858 insertions across 12 `wwcr_*` files. gandalf's DRIFT-CRITIC lineage audit (`gandalf/notes/2026-08-25-s2-wwab-cleanroom-lineage-audit.md`) returned **LINEAGE CLEAN (with findings)** — *"the datum is VALID."* Neither fact reached this ledger. **Same failure family as a completion record filed while the dispatch header still reads PENDING: the work is right and the record does not carry it** — the shape this wave has now hit four times, and the conductor is the one who owns this file.
+
+**But the row still cannot close, for a reason that is NOT a bookkeeping miss** — and it is the same defect Matt named unprompted:
+
+| Arm | Artifact | Class |
+|---|---|---|
+| **HITL** (adopted SB-1 cut-pattern lineage) | `galadriel/captures/2026-08-16-sb1-gate2-clip/ww7-gate2-cadence-ab-plk0665-1920x1080.mp4` — 12,749,012 B, sha256 `7e9764e3…` | **MOTION** |
+| **Clean-room** (`wwcr_*`) | `harness_logs/wwcr_2026-08-2*` — 10-pose PNG ladders | **STILLS ONLY** |
+
+`find` for any `ww*.mp4` in `reincarnated-godot` returns **zero**. **The A/B cannot be shown to Matt, because only one arm has an object his eye can judge.**
+
+⚑ **And the standard was already written down — about this exact comparison, nine days earlier, and then applied to only one side.** The WW-7 v2 receipt (2026-08-16) states: *"GATE 2 (article FEEL — density, palette knee, cadence read, FX draw) is judged on **MOTION**, and a still cannot carry it."* That is § 3 ruling 4 of this very document, arrived at independently. **The clean-room arm was gated on `occlusion 1.78% over noise floor` + `tint TRAIL-BOUNDED` — a coverage fraction and a colour BOUND. Neither term can observe cadence, intermittency, a colour CYCLE, scrape timing, smoke or wind.** So the gate did not weigh depth and pass it; **depth was never in the gate's domain**, and an effect with none would have passed identically. Matt's *"basic representations… lack ALOT of the depth"* is not a disagreement with the machine grade — it is the region the machine grade does not cover.
+
+**Row closes when:** the clean-room arm is cut to MP4 under the *same* camera and cadence grammar as `ww7-gate2-cadence-ab-plk0665` (so the only variable is the build), and Matt picks. **Queued behind 3A** per § 3 ruling 5 — the godot lane is serial and drax is live.
 
 ### The 8+5 sequencing ruling (knight-rider, 2026-08-25; Gate-1 SOUND)
 
