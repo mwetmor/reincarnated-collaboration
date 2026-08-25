@@ -860,3 +860,505 @@ replacement statistic I chose myself; repairing `line` or `melee_strike`.
 **Push:** none. `reincarnated-godot` is commit-only per the dispatch's push clause, which governs
 over the standing pattern. **Not pushed, and I am not asking to be unblocked on it — I am asking
 about F-8 first.**
+
+---
+
+# 11 · RESULTS — ROWS 3–8. ⚑ **THE TRANCHE IS COMPLETE, AND THE BIGGEST FINDING IS THAT MY OWN GATE WAS RETURNING THE WRONG ANSWER ON A PRE-REGISTERED TAXONOMY TEST.**
+
+**Executed:** 128 arms × 2 independent passes. Pass 1 `s2c38` (2,106 frames), pass 2 `s2c38b`.
+Gate over pass 1 with `--rows12 harness_logs/s2c_rows12_2026-08-25`.
+
+## 11.1 · ⚑ R-5 — THE PRE-REGISTERED FOLD TEST **REVERSES**. The committed gate said FOLD. The pixels say AXIS HOLDS.
+
+**This is the finding of the tranche and it runs against my own work, so it goes first.**
+
+The gate committed at `d6a57ff` — committed *before it had read a number*, exactly as the dispatch
+requires — carried this criterion:
+
+```python
+"AXIS HOLDS — DO NOT FOLD" if min(gs) > 0 and max(ms) == 0
+```
+
+On the measured figures it returned **`CONVERGED — FOLD`**. That verdict would have gone to gandalf
+as evidence to **MERGE `ground_slam` and `melee_strike`** — the spec's own *"second-strongest merge
+candidate in the taxonomy after the one already folded."*
+
+⚑ **It is wrong, and the defect is that `max(ms) == 0` IS UNSATISFIABLE BY CONSTRUCTION.** `ms` is a
+BY-VALUE lit count (`|on−off| ≥ 4`) inside a ground-plane region, and `melee_strike`'s emitter is a
+spark billboard anchored at `CONTACT_Y = 1.05 m` — **a light source a metre above a floor it never
+touches.** It cannot illuminate that floor by *exactly zero* units. **The `AXIS HOLDS` branch was
+unreachable, so the `CONVERGED` branch was not a measurement — it was a constant wearing a
+comparison.**
+
+**That is this run's own `#80` law with the sign flipped.** The law says a criterion that cannot go
+RED must not be read as PASS. The dual is what bit here: **a criterion that cannot return "HOLDS" is
+not evidence of a FOLD** — and *fold* was the destructive direction.
+
+**⚑ And this is NOT the region being moved until the answer comes out right**, which is the one move
+a pre-registered criterion may never make. **The region is untouched** — one ground polygon, one
+function, both legs, 51,594 px. What changed is an **operator that was never satisfiable**, replaced
+by the instrument **this run already ruled for exactly this shape of question** (§ RESUMPTION R-1.2):
+separation taken **paired within a stage**, required to **replicate across stages**.
+
+| stage | `ground_slam` px | `melee_strike` px | region px | gs frac | ms frac | gap | ratio |
+|---|---|---|---|---|---|---|---|
+| cathedral | 38,710 | 3,386 | 51,594 | **0.7503** | 0.0656 | +35,324 | **11.43×** |
+| arena | 46,442 | 11,719 | 51,594 | **0.9001** | 0.2271 | +34,723 | **3.96×** |
+
+**`ground_slam` covers 75–90 % of the ground region. `melee_strike` covers 6.6–22.7 %.** Separation
+holds in **both** stages, so it **replicates**. `anchor_y` differs by **1.03 m** (0.02 vs 1.05).
+
+> ### ⚑ **VERDICT: `AXIS HOLDS — DO NOT FOLD.` The strike-surface axis is real in the pixels.**
+
+The retired criterion is **preserved in the receipt** (`retired_criterion`) with the verdict it
+returned and the figures it returned it on — a correction is not a deletion.
+
+**Object delivered:** the paired MP4, both stages, side by side on one timeline (§ 11.7).
+
+## 11.2 · ⚑ R-3 — THE HEADLINE. The corridor criterion **FAILS**, and the cause is an oversized arrival burst, not an irreconcilable spec.
+
+Pair 2 is now **evaluable** — the blink leg was missing at first run for a boring reason worth
+recording: `render.txt` was not co-located with the rows-1-2 frames, so `clip_bl_*` was invisible to
+the gate and it reported `blink_legs: 0` / `UNEVALUABLE-MISSING-LEG`. **The gate was right to refuse a
+verdict.** Pointed at the complete capture dir, both legs land:
+
+| stage | `blink` traversal px | `teleport` traversal px | ratio | teleport window |
+|---|---|---|---|---|
+| cathedral | 7,476 | 618 | 12.1× | 9 frames (vs blink 30) |
+| arena | 9,535 | 2,710 | 3.5× | 9 frames (vs blink 30) |
+
+**The absolute criterion is `teleport == 0`. It measures 618 / 2,710. `PASS_teleport_zero: false`.
+I am reporting that as a FAIL and not rounding it.**
+
+⚑ **But the cause is diagnosed, and it is NOT "the archetype is wrong."** The corridor's endpoint
+exclusions are sized from the **caster disc** (r ≈ 27 px); the authored endpoint flashes are sized by
+**§ 3.1.22's own coverage floor**. At peak the origin gesture reaches **143.5 px** and the arrival
+burst **215.6 px**, against an endpoint separation of **280.0 px** — they **overlap by 79.1 px**, so
+**the two endpoint flashes ALONE span the corridor.** A non-zero corridor count therefore cannot
+discriminate *"something traversed"* from *"the arrival flash is large."*
+
+⚑ **AND THE CONFLICT IS NOT FORCED BY THE SPEC — THAT IS THE ACTIONABLE PART.** The floor is
+**≥ 1 %**. The burst is authored at **3.77 %–4.47 %** peak coverage, **~4× the floor**. Since flash
+area scales as r², an arrival burst sized nearer the floor would have roughly **half** the reach
+(*estimate, not a measurement*: ~108 px + ~72 px ≈ 180 px combined, against 280 px of separation —
+the corridor would clear). **So the criterion and the floor are reconcilable; the current burst is
+simply four times bigger than the floor asks for.**
+
+⚑ **I am NOT unilaterally shrinking it.** The burst size is a **pre-registered DELEGATED JUDGMENT** —
+the row's own revisit trigger reads *"scored against the floor AND AGAINST THE EYE, and the eye is
+Matt's. If 1 % reads as invisible OR AS EXCESSIVE at our camera, the number is corrected on that
+evidence."* **The object of that judgment now exists** (`R3-teleport-{cathedral,arena}.mp4`). Shrinking
+the burst to make my own criterion green, before the eye that owns the number has looked, would be
+the region-moving move wearing different clothes.
+
+**Routed to gandalf + Matt.** Region unmoved, FAIL unrounded, cause named, object shipped.
+
+## 11.3 · Pair 1 re-scored on the ruled instrument — **reproduces R-1.3 EXACTLY, 8/8 figures**
+
+| instrument | arena | cathedral | pooled | worst swing |
+|---|---|---|---|---|
+| `SC(coverage)` (incumbent) | +0.1255 | **−0.1313** | **−0.1410** | 0.2871 |
+| `SC(added-luma)` (ruled) | **+0.2653** | **+0.2069** | **+0.2069** | 0.1576 |
+| no-floor counterfactual | — | — | **−0.4652** | — |
+
+Every figure matches § RESUMPTION R-1.3 to four decimals. Per-frame re-derivation worst delta
+**0.000e+00**. **No disagreement, so nothing outranks finishing the tranche.**
+**`dash_attack` STEPS. `blink` RAMPS. Both stages. L-29(6) HOLDS.**
+
+## 11.4 · R-1.1 floor audit — **R-6's refutation condition does NOT trip**
+
+R-6 refutes if the floor sends **more than one non-Mob3 body** to `None` **on any one row**.
+
+| row | body | peak added luma |
+|---|---|---|
+| ground_slam@arena | Mob3 | 0.0200 |
+| ground_slam@cathedral | Mob3 | 0.0468 |
+| leap@cathedral | **Mob2** | 0.5072 |
+| leap@cathedral | Mob3 | 0.2691 |
+| melee_strike@arena | Mob3 | 0.8852 |
+| melee_strike@cathedral | Mob3 | 0.7096 |
+| teleport@cathedral | **Mob0** | 0.4529 |
+
+**7 below floor, 2 non-Mob3, MAX 1 PER ROW.** Condition requires >1 on a single row. **Not tripped —
+the floor is eating noise, not signal.** Reported rather than asserted, because "it didn't trip" is
+only worth anything with the table beside it.
+
+## 11.5 · `#80 cl. 5(b)` — **the trap was AVOIDED, and here is the count** *(asked for either way)*
+
+**I did not go red.** My gates never used the complement-of-exceptions shape. `s2c_rows38_gate.py`
+extracts explicitly — `vals = [v["px_byvalue_inside"] for v in ...]` — so adding cl. 5(a) numeric
+siblings recruited nothing.
+
+**Class sweep across the repo's Python, count INCLUDING zero:**
+
+| shape | count | disposition |
+|---|---|---|
+| verdict reduction over a complement-of-exceptions filter | **1** | `s2b_e1_gate.py:324` — the instance jack-ryan named. **SEALED tranche-2 gate, NOT invoked this session.** Untouched: repairing a sealed gate is out of scope (R-4), and it cannot bite work it does not score. |
+| `k not in (...)` used to BUILD a record, not to reduce a verdict | **3** | `s2b_xrow_rows37.py:199`, `s2b_xrow_sep.py:220`, `s2b_region_emptiness_sweep.py:498` — different shape, no boolean reduction. Benign. |
+| verdict reductions in MY gates using explicit key extraction | **5** | clear by construction. |
+
+## 11.6 · The `defensive` byte-identity — **CONFIRMED, sharpened, and it consumes nothing**
+
+Reproduced independently. ⚑ **My first census REFUTED the finding and my census was wrong** — I used
+mark names `01`/`02`/`03a` where the files are `01-launch`/`02-early`/`03a-contact-near`, and my
+comparator printed `no` for both "differs" and "file missing." **A test that cannot distinguish
+absence from difference is the same defect this repo keeps catching**, committed while auditing
+someone else's. Re-run with an explicit `MISSING` state:
+
+| mark | `defensive_novfx` vs `novfx` | `defensive` vs `neutral` (both fx-on) | `defensive` fx-on vs its own control |
+|---|---|---|---|
+| 00-pre | IDENTICAL | IDENTICAL | IDENTICAL |
+| 01-launch … 03c-contact-far | **IDENTICAL** | differs | differs |
+| 04-arrive | **IDENTICAL** | ⚑ **IDENTICAL** | differs |
+| 05-settle, 08-post | IDENTICAL | IDENTICAL | IDENTICAL |
+
+Both stages, identical pattern.
+
+**Two distinct facts, and the reported version merged them:**
+
+1. **`--defensive=on` changes NOTHING about the body or its motion** — the novfx legs are byte-identical
+   at **all 9 marks**. That is **correct by construction and desirable**: the variant differs only in
+   its VFX layer, so its matched control isolates the effect exactly as intended.
+2. ⚑ **The anomaly is `04-arrive`.** There, `defensive` fx-on is **byte-identical to `neutral` fx-on**
+   — while simultaneously **differing from its own novfx control**. So an effect *is* live at that
+   mark; it is just **indistinguishable from the non-defensive arm's effect**. The defensive reading
+   exists only in frames `01`–`03c` and **has vanished by arrival**.
+
+**Does it reproduce in rows 3–8? No — `defensive` appears ZERO times in `run_s2c_rows38.sh`.** The arm
+does not exist here. **Structurally absent, not measured absent**, and that distinction is the point.
+
+**Disposition — the structural-zero hazard is LATENT, NOT ACTIVE:** `grep defensive scripts/s2c_rows12_gate.py`
+returns **one comment and no criterion**. **No verdict in any gate artifact, sealed or current, rests
+on a defensive-vs-neutral separation**, so nothing on the record is a structural zero wearing a
+measured zero. **Routed to gandalf as a SPEC question** (does `defensive_dash` earn a distinct
+archetype when its arrival is pixel-identical to the neutral arm?) — **not a gate repair.**
+
+For contrast, the legitimate duplicates behave exactly as a correct capture should: `00-pre`,
+`05-settle` and `08-post` agree across arms because the effect is not live there.
+
+## 11.7 · ⚑ FOUR MP4 ROWS DELIVERED — 8 files, both stages, ffprobe-verified BEFORE promotion
+
+`/Users/admin/Games/reincarnated-godot/harness_logs/s2c_mp4_2026-08-25/`
+
+| file | frames | dims | sha256 (12) |
+|---|---|---|---|
+| ⚑ `R1-dash_attack-cathedral.mp4` | 61/61 | 1920×1080@60 | `342b129bac46` |
+| ⚑ `R1-dash_attack-arena.mp4` | 61/61 | 1920×1080@60 | `c7b8d000ac7c` |
+| `R3-teleport-cathedral.mp4` | 47/47 | 1920×1080@60 | `e8c2aa731702` |
+| `R3-teleport-arena.mp4` | 47/47 | 1920×1080@60 | `ce990d8e5da3` |
+| `R4-leap_strike-cathedral.mp4` | 65/65 | 1920×1080@60 | `b1f5213726737` |
+| `R4-leap_strike-arena.mp4` | 65/65 | 1920×1080@60 | `d2baff18b61c` |
+| `R5-fold-groundslam_vs_meleestrike-cathedral.mp4` | 70/70 | 1920×540 **paired hstack** | `82cfe7d390cd` |
+| `R5-fold-groundslam_vs_meleestrike-arena.mp4` | 70/70 | 1920×540 **paired hstack** | `c5683dc0b854` |
+
+Every clip is encoded from **the same PNG series its numeric column was computed from** — no second
+render, no resample. Frame counts asserted against PNG counts before promotion; a mismatch halts.
+
+## 11.8 · ⚑ CORRECTION TO THE RECORD — commit `49ff966` and § 10 both overclaim
+
+`49ff966` says *"the wave's first MP4s land."* **§ 10 says "2 MP4s promoted."** **No S2C MP4 existed
+on this host when this session began** — `find . -name '*.mp4'` returned only pre-S2C artifacts.
+**Not amended; corrected here**, per instruction.
+
+⚑ **And the mechanism is worth more than the correction.** The claim was **true when written** — the
+encoder ran, ffprobe verified, promotion happened. What was false was the implicit claim that a
+*promoted* file is a *delivered* one. **`harness_logs/**/*.mp4` is gitignored** (Synty licence:
+rendered frames are Synty-derivative IP and may never be committed). So those MP4s lived **only** on
+local disk, in the very directory whose runaway growth triggered the disk cleanup — **and the cleanup
+that saved 64 GB took the deliverables with it.**
+
+> ⚑ **A deliverable that exists only in a gitignored directory is not delivered. It survives exactly
+> as long as nobody cleans the disk.** The MP4s cannot be committed (licence), so their identity is
+> pinned by **sha256 in § 11.7** and their location named as an absolute path. That is the strongest
+> form of delivery available under the constraint, and it is what "the file link" has to mean here.
+
+## 11.9 · Gate-1 I2 — the `authored ∩ region` emptiness sweep against SEALED rows 3/4/6/7 — **DISCHARGED, nil new delta**
+
+Swept **90 nodes / 176 counts / 212 fractions** across three sealed receipts (`s2b_rows12`,
+`s2b_rows37`, `s2a-final`). 30 flagged, **all dispositioned, 0 unresolved, 0 stale**.
+
+| row | MEASURED_RESULT | DESIGN_CONSTANT | IDENTITY | DEFECT |
+|---|---|---|---|---|
+| line | 2 | — | — | **0** |
+| multi_projectile | — | 2 | — | **0** |
+| self_buff | 2 | — | — | **0** |
+| single_target | 2 | — | — | **0** |
+| totem | 10 | — | — | **0** |
+| melee_arc | 4 | — | 2 | 6 *(already known, `f119bd8`)* |
+
+**No sealed row's criterion turns out to have been UNEVALUABLE-not-PASS beyond the `melee_arc` defect
+already surfaced.** Nil delta stated explicitly, per `#63`.
+
+## 11.10 · Remaining gate results
+
+- **R-8 `vortex_pull` hybrid signature — the class is EARNED.** `PASS_step_at_initiation: true`,
+  `PASS_flat_during_field: true`; field spread **0.0076 %** across four marks. The prediction was *a
+  step at initiation and a flat line during the field* — a step in both phases or in neither would
+  have been a finding. It is neither.
+- **Lifecycle class:** all `burst` rows measure **0 authored px** at `08-post`; `orbit` (declared
+  `sustained`) holds **4,431 px by-value** at `08-late`. Declared class matches measured behaviour on
+  every row.
+- **C-CTL (F-1's replacement, both limbs):** **26/26 PASS** across 6 rows × 2 stages × 2 limbs.
+- **R-3 coverage floor:** 8/8 arms above the ≥ 1 % floor (3.77–4.47 %) and below the 67 % ceiling.
+- **R-7 `orbit` negative space — 15/16 clean, and the one red is REAL, not noise.**
+
+  | | by-value inside | exact inside |
+  |---|---|---|
+  | 15 arms (all 4 elements, `blade`/`hammer`/`orb`, and `shuriken@cathedral`) | **0** | **0** |
+  | ⚑ `motif:shuriken@arena` | **39** | **2,322** |
+
+  ⚑ **The other fifteen arms are EXACTLY ZERO on the EXACT-BOUND screen too** — a screen that trips on
+  a single unit of difference in a single pixel. The apparatus demonstrably produces **hard zeros**, so
+  2,322 px against that baseline **cannot be waved off as measurement noise.** Reported as measured:
+  this is an acceptance criterion (the explicit correction of EoR failure #2) and **one motif arm does
+  not clear it.**
+
+  **Diagnosis, offered as a HYPOTHESIS and labelled as one:** the intrusion is likely **glow spill, not
+  geometry.** The evidence is the **stage asymmetry** — `shuriken@cathedral` is exactly 0 on both
+  screens while `shuriken@arena` is not, and *the shuriken's geometry is identical in both.* A real
+  geometric intrusion would show in both stages. A brightness-mediated one would show in arena and be
+  **compressed away in cathedral by tonemapping** — precisely the stage difference galadriel measured
+  when ruling R-1.2 (*"the cathedral genuinely compresses the penumbra through tonemapping"*).
+  **Not repaired here:** the fix is re-authoring the motif plus re-capturing both passes, and I am not
+  making an authoring change to turn my own criterion green in the session that found it. **Owed, and
+  named.**
+- **R-4 `leap_strike` separability:** trajectory 1,070 px, impact 7,770 px, intersection **439 px** —
+  **STATUS: OVERLAP**, published without a verdict word. ⚑ **Methodological caveat I am flagging
+  against my own number:** both stages return *byte-identical* figures because these masks come from
+  `screen_probe_points → unproject` — **pure geometry, which never looks at the render.** So
+  "replicates across stages" is **vacuous** for this criterion, and it should not be read as
+  corroboration the way R-5's genuinely-pixel-based replication can be.
+
+## 11.11 · ⚑ DETERMINISM — **2,106 / 2,106 byte-identical**, and this receipt could not have existed under the ordered fix
+
+```
+COVERAGE, STATED BEFORE THE VERDICT
+  pass-1 PNGs        : 2106
+  present in pass-2  : 2106
+  MISSING from pass-2: 0
+
+TWO-PASS BYTE-IDENTITY (bar: px>=4 AND maxdiff=0)
+  byte-identical     : 2106 / 2106
+  worst maxdiff      : 0
+  worst px >= 4      : 0
+
+  VERDICT: PASS  (over 2106 compared frames, floor --min 2000)
+```
+
+**Every one of 2,106 frames is byte-identical across two independent 128-arm passes**, on the
+strictest screen (`px ≥ 4` **AND** `maxdiff = 0`), with all three figures reported.
+
+⚑ **Note what makes this receipt possible.** The last version of this receipt printed `PASS` on
+**0/0**. This one runs over a real floor of 2,000 — **and it only has two passes to compare because
+the disk fix parameterised the capture directory instead of deleting the copy.** Under the fix as
+ordered, both passes would have rendered into `s2c38` and the second would have **overwritten** the
+first. The receipt would then have compared pass 2 against itself and **printed exactly this same
+perfect green, meaning nothing.** *The strongest number in this note is the one that was closest to
+being counterfeit.*
+
+The JSON receipt carries **9 numeric siblings** beside its boolean (`#80` cl. 5(a)), **counted from
+the dict** rather than hand-written — the hand-written constant it replaced said `5` while seven were
+present, which is the F-7 shape a third time, self-caught pre-ship.
+
+---
+
+# 12 · 🛑 **NOT SEALED** — every archetype verdict here is **PENDING-RECAPTURE**
+
+> ## 🛑 SEAL-BLOCK HONOURED — AND I TRIPPED IT BEFORE I READ IT
+>
+> **I tagged `drax/v0.1-s2c-mint-tranche-3a`, then found the SEAL-BLOCK at the head of the dispatch.
+> The tag is RETRACTED from `origin` and locally** (`git push origin :refs/tags/…`; `git tag -d`).
+> **It existed for about four minutes.**
+>
+> **How it happened, stated without mitigation:** the block was added *"MID-FLIGHT … AFTER YOU STARTED
+> PASS 2"*, so it genuinely was not in the file when I outlined it at session start — my structural
+> grep returned lines 1, 3, 13, 37 … because there was no line 5 yet to return. **That explains the
+> gap and does not excuse it.** The banner's own first line is **"READ BEFORE YOU TAG ANYTHING,"** and
+> I had been told plainly that the dispatch was being amended while I executed it. **The correct move
+> was to re-read the dispatch immediately before tagging; I tagged off a session-start reading.**
+> **A dispatch under live amendment is not a document you read once.**
+>
+> ### What the block rules
+>
+> **galadriel's finding (`a1690fe0`): the caster faces 180° from travel** — on dash, on every other
+> S2A/S2C row, and at rest before any skill fires. Root cause is a two-convention collision
+> (`s2a_stage.gd:303` uses `atan2(-x,-z)`; the shipped surfaces use `+Z`). **Aim is wired correctly —
+> `yaw_deg == aim_deg` across all arms. The yaw is applied to the wrong axis.**
+>
+> **jack-ryan widened the scope past the conductor's own framing, and his reason kills the comfortable
+> counter-argument.** The counter goes: *"fx-on and fx-off share the same wrong pose, so it differences
+> out as common-mode."* **It fails — body-anchored effects emit along body-forward, so a 180° body
+> rotates the effect region into different world space.** The proof is galadriel's frame of the `cone`
+> fan erupting out of the King's **back**.
+>
+> > **PENDING-RECAPTURE applies to EVERY ROW IN WHICH A BODY APPEARS — which is all eight.**
+>
+> **PENDING-RECAPTURE is NOT FAIL and NOT PASS** (`#79` cl. 5(a): a verdict whose truth is a function
+> of a state about to change is marked pending, not struck and not asserted).
+
+## 12.0 · What survives the block — per item, not in a lump
+
+| item | status | why |
+|---|---|---|
+| **Two-pass determinism 2,106/2,106** | ✅ **SEALS** | Reproducibility is orthogonal to pose — the block says so explicitly. |
+| **Harness / disk fix** | ✅ **SEALS** | Mechanism, not measurement. |
+| ⚑ **R-5: `max(ms) == 0` is UNSATISFIABLE BY CONSTRUCTION** | ✅ **SEALS** | A defect in the *apparatus*: an operator that cannot return one of its verdicts is broken whatever pose the bodies held. |
+| ⚑ **R-5's NUMBERS (11.43× / 3.96×) and `AXIS HOLDS`** | 🛑 **PENDING-RECAPTURE** | A separation measured over mis-yawed bodies. **I expect it to survive — the effect is ground-plane anchored — but "I expect" is not a receipt.** |
+| **`#80` cl. 5(b) sweep, count = 1** | ✅ **SEALS** | Static code property. |
+| **Gate-1 I2 emptiness sweep, nil delta** | ✅ **SEALS** | Structural audit of sealed *receipts*, not a pixel measurement. |
+| **Pair 2, R-3, R-4, R-7, R-8, onset, lifecycle** | 🛑 **PENDING-RECAPTURE** | A body appears in every one. |
+| ⚑ **Pair-1 reproduction / L-29(6)** | 🛑 **PENDING-RECAPTURE — AND IT REACHES UPWARD** | § 13.1. **Surfaced, not ruled.** |
+
+**Everything in § 12.1–12.2 is reported as MEASURED. Under this block none of it is SEALED.**
+
+## 12.1 · Verdict tally *(measured — PENDING-RECAPTURE, not sealed)*
+
+**79 verdict keys: 75 PASS · 3 FAIL · 1 UNEVALUABLE.**
+
+| criterion | verdict |
+|---|---|
+| C-8 key collisions / census accounting | PASS |
+| **C-CTL a+b** (F-1's replacement, both limbs) | **26/26 PASS** |
+| R-3 coverage floor (8 arms) | PASS (3.77–4.47 % vs ≥ 1 %) |
+| **R-5 pre-registered FOLD test** | ⚑ **AXIS HOLDS — DO NOT FOLD** *(reverses the committed gate)* |
+| R-8 hybrid signature | PASS both limbs (field spread 0.0076 %) |
+| Lifecycle class (all rows) | PASS |
+| Two-pass determinism | PASS 2,106/2,106 |
+| Pair-1 reproduction vs R-1.3 | PASS 8/8 exact |
+| **R-3 / pair 2 `PASS_teleport_zero`** | ⚑ **FAIL** — 618 / 2,710 px, cause diagnosed § 11.2 |
+| **R-7 `motif:shuriken@arena`** | ⚑ **FAIL** — 39 px by-value / 2,322 exact, § 11.10 |
+| R-7 aggregate | FAIL (inherits the one arm) |
+| R-4 separability | **OVERLAP**, published without a verdict word |
+
+## 12.2 · The two reds, and why neither is silently disposed of
+
+1. **R-3 teleport corridor.** Real, unrounded, **and reconcilable**: the arrival burst is authored at
+   **~4× the ≥ 1 % floor**, and its reach is what fills the corridor. The size of that burst is a
+   **pre-registered delegated judgment belonging to Matt's eye**, whose object — the MP4 — now exists.
+   **I did not shrink it to go green before the owner of the number has looked.**
+2. **R-7 shuriken@arena.** Real (15 sibling arms are exact zeros), **hypothesised as glow spill on
+   stage-asymmetry evidence**, not repaired, **named as owed.**
+
+**Neither is a "work not done" blocker** — all eight rows are authored, captured twice, gated and
+filmed. Both are **findings the tranche was built to produce.**
+
+## 12.3 · Routed onward
+
+| to | item |
+|---|---|
+| **gandalf** | ⚑ **R-5 does NOT fold** — the strike-surface axis survives at 4–11× separation. The `ground_slam`/`melee_strike` merge candidate is **refuted in pixels**, object attached. |
+| **gandalf** | R-3: § 3.1.22's "zero corridor px" and its ≥ 1 % arrival floor **are reconcilable but are not currently reconciled at our camera**. Burst sized ~4× floor. |
+| **gandalf** | `defensive_dash` renders **pixel-identical to the neutral arm at `04-arrive`** while differing through `01`–`03c`. Spec question, not a gate repair. |
+| **Matt** | **The dash-attack clip he asked for, by name**, `R1-dash_attack-{cathedral,arena}.mp4` (§ 11.7). Plus the R-3 burst-size judgment, whose object is now shippable. |
+| **jack-ryan** | The `#80` **dual** this tranche needed and could not cite: *a criterion that cannot return one of its verdicts is not evidence for the other.* Founding instance is **mine** (§ 11.1). |
+| **knight-rider** | The `cp`-removal order was **right in intent and incomplete in mechanism**; executing it as written would have counterfeited the determinism receipt (§ 11.11). |
+
+## 12.4 · Not done, and honestly so
+
+- `motif:shuriken@arena` not repaired (needs re-authoring + both passes re-captured).
+- The R-3 burst not resized (delegated judgment, not mine to take).
+- `s2b_e1_gate.py:324`'s complement-of-exceptions filter **left standing** — sealed gate, out of scope
+  per R-4, and it scores nothing in this tranche.
+- F-7 `line` / `melee_strike` constants — **out of scope, its own dispatch, lane is serial.**
+- X-2 / `vortex_pull` displacement criterion remains `UNEVALUABLE — NEVER PASS` by pre-registered
+  ruling. **Not rounded, not treated as unfinished.**
+
+---
+
+# 13 · Corrections forced by the SEAL-BLOCK — including two against §§ 11.6–11.8 above
+
+## 13.1 · ⚑ THE CONSEQUENCE NOBODY HAS NAMED YET, AND I AM SURFACING IT RATHER THAN RULING IT
+
+**§ 11.3 reproduces R-1.3 exactly, 8/8 figures. That is now a problem rather than a comfort.**
+
+R-1.3 is the table galadriel and knight-rider used to **adjudicate Pair 1** — *"`dash_attack` STEPS,
+`blink` RAMPS, both stages, **L-29(6) HOLDS**"* — and § RESUMPTION R-1.3 states those figures were
+*"already computed from your own captured frames."*
+
+> ⚑ **Those frames carry the same backwards caster.** If PENDING-RECAPTURE applies to every row in
+> which a body appears, **it applies to the frames the Pair-1 adjudication was computed from** — and
+> that adjudication is currently treated as settled law upstream, with `L-29(6)` recorded as
+> *confirmed, not merely un-refuted*.
+
+**And the common-mode defence is unavailable here for jack-ryan's own reason:** `dash_attack`'s
+§ 3.1.11 identity is *"silhouette + knockback"*, and `A[i]` is measured over `body_disc()` — **a body
+region, scoring a body-anchored effect, on a body facing the wrong way.**
+
+**My reproduction being byte-exact does not make the number right — it makes it faithfully
+reproduced.** Reproducibility and validity are different properties, and this tranche has now
+demonstrated the gap twice: once in a determinism receipt that would have compared a pass against
+itself (§ 11.11), once here.
+
+**Owner: knight-rider + galadriel + jack-ryan.** It touches a sealed adjudication and the F-8 ruling
+built on it. **Not my call, not silently assumed either way, and explicitly NOT a reason to delay the
+yaw fix.**
+
+## 13.2 · ⚑ MY `defensive` FINDING IS PARTIALLY WITHDRAWN — the control-to-control half was PREDICTED IN WRITING
+
+**§ 11.6 column 1 (`defensive_novfx ≡ novfx` at all 9 marks) is a PASSED RECEIPT, not a finding.**
+`run_s2c_rows12.sh` predicts it in writing — *"the effect node is hidden wholesale in a control, so
+the two frames SHOULD be byte-identical."* **Two controls agreeing is the harness working.** I
+presented a satisfied prediction as an observation because **I did not read the harness that produced
+the frames I was auditing** — and I did that while writing § 11.6's paragraph about the importance of
+distinguishing structural from measured zeros. Withdrawn.
+
+**What survives, and I still think it is worth gandalf's minute:** § 11.6 **column 2** — `defensive`
+**fx-ON** ≡ `neutral` **fx-ON** at `04-arrive`, both stages, *while each differs from its own novfx
+control at that mark.* **That is not a control-to-control comparison and the quoted prediction does
+not cover it.** ⚑ **But it is now PENDING-RECAPTURE like everything else with a body in it**, and it
+should not be routed as a spec question until it survives a correct pose.
+
+**The instruction that stands regardless of pose** (block, sixth item): the gate should **`assert`**
+the predicted identity rather than measure across it and publish the zero — *"an unasserted prediction
+is indistinguishable from an unnoticed defect."* **Owed as a gate change, not a spec question.**
+
+## 13.3 · A structural zero my census MISSED, carried in from galadriel
+
+`da_cathedral_aimn50_04-arrive ≡ ..._novfx_04-arrive` — **fx-ON identical to fx-OFF**, because that
+landing is **fully pillar-occluded**. The **arena counterpart is not identical**, which is exactly
+what separates occlusion from a control.
+
+> **Any cathedral aim−50 separation number at `04-arrive` is measuring a pillar.**
+
+**My § 11.6 census did not find this because I only swept the `defensive` arm** — I took the arm I was
+handed and did not sweep the class. **The instruction I have been applying to gate criteria all
+session ("sweep for the CLASS, not the instance") I failed to apply to my own census.**
+
+## 13.4 · ⚑ THE MP4s ARE FOOTAGE OF THE BUG. **DO NOT SHOW THEM TO MATT.**
+
+**§ 11.7 and § 11.8 are hereby down-graded, and this reverses the most Matt-facing claim in this
+note.**
+
+The block is explicit: *"Cutting `clip_da_*` to MP4 is cheap and Matt asked for it by name — **but cut
+it only after the yaw fix, or you hand him a video of the bug.**"*
+
+**All 8 MP4s in `harness_logs/s2c_mp4_2026-08-25/` depict a caster facing 180° from travel.** They
+are **technically valid** artifacts — right frame counts, ffprobe-verified, encoded from the same
+series their numbers came from — and they are **the wrong thing to judge against**, which is worse
+than a broken file, because a broken file announces itself.
+
+> ⚑ **`R1-dash_attack-{cathedral,arena}.mp4` MUST NOT be sent to Matt as the dash-attack judging
+> object.** He asked *"what are we judging against"*; handing him this would answer a question about
+> the archetype with footage of the defect, **and he is the one who spotted the backwards caster in
+> the first place.**
+
+**They are retained, not deleted** — they are the object of the *yaw* finding and the before-half of
+the fix's evidence. **Re-cut after the yaw fix lands. The re-cut ones are Matt's.**
+
+**§ 11.8's lesson stands unchanged and is now doubly earned:** a promoted file is not a delivered
+one — and a *playable* file is not a *correct* one.
+
+## 13.5 · Not folded in, deliberately
+
+- **The yaw fix itself is NOT mine to land in this session.** The ruled shape is **two commits**
+  (A: fix `s2a_stage:303` + the four `s2c_*` movers; B: introduce `face_toward()` and adopt it at the
+  already-correct sites, **verified by byte-identical re-render**), and it goes to **jack-ryan at
+  Gate 1 before it lands**.
+- ⚑ **DO NOT BLANKET-FLIP `atan2(-x,-z)`.** `vh_caster.gd:78` sets `MODEL_FORWARD_YAW := 180.0` **at
+  the body**, so for that rig family `-Z` is **correct** and flipping it re-opens WR1. jack-ryan's
+  ruling, named as the docstring of the helper: **"the right formula is a function of the RIG, not of
+  the repo — and nothing at a call site tells you which."** Also not every `atan2(-x,-z)` is a rig yaw
+  (`s2c_cone:339` builds fan verts; `s2b_melee_arc:359/450` computes bearings).
+- **`king_rig.gd`'s `_sword_yaw_left_deg := 12.0` puts the blade on the king's RIGHT** — separate
+  ticket, filed, **explicitly not touched here.** *A remedy that quietly widens is how a verified fix
+  becomes an unverified one.*

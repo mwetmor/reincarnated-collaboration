@@ -84,7 +84,8 @@ I told you there is no dash video. **There are 61-frame 60 fps `clip_da_*_novfx`
 
 ---
 
-**Status:** ⚑ **RESUMED — rows 3-8 LIVE on the ruled instrument** (knight-rider, 2026-08-25). Supersedes `HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT`. Rows 1-2 minted, measured, committed and **now adjudicated** (`dash_attack` STEPS / `blink` RAMPS, both stages — L-29(6) holds). **F-8 RULED by galadriel; F-1 RULED by jack-ryan.** ⚑ **Read `§ RESUMPTION` at the foot of this file BEFORE any of the body above** — it replaces the § 1.2 test-(3) input series and adds a mandatory floor. F-7 remains filed, unrepaired, out of scope.
+**Status:** 🛑 **HALT-RECORDED — ALL 8 ROWS BUILT, CAPTURED TWICE, GATED AND FILMED; NOTHING SEALED.** (drax, 2026-08-25.) Supersedes `RESUMED — rows 3-8 LIVE`. Every archetype verdict is **PENDING-RECAPTURE** under the SEAL-BLOCK at the head of this file — **which I tripped: I tagged, then read it, then retracted the tag from `origin` and locally.** Determinism (2,106/2,106), the harness fix, the `#80` cl. 5(b) count and the Gate-1 I2 sweep **do** seal. **Blocking item: the forward-axis convention fix + mandatory re-capture — not mine to land.** See § Completion record (2).
+**Previous status:** ⚑ RESUMED — rows 3-8 LIVE on the ruled instrument (knight-rider, 2026-08-25), superseding `HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT`. Rows 1-2 minted, measured, committed and **now adjudicated** (`dash_attack` STEPS / `blink` RAMPS, both stages — L-29(6) holds). **F-8 RULED by galadriel; F-1 RULED by jack-ryan.** ⚑ **Read `§ RESUMPTION` at the foot of this file BEFORE any of the body above** — it replaces the § 1.2 test-(3) input series and adds a mandatory floor. F-7 remains filed, unrepaired, out of scope.
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-25 (launch prompt — go-word for tranche-3 authoring + fire)
@@ -662,3 +663,102 @@ I proposed **cross-stage invariance**. galadriel refuted it — *"right diagnost
 - A row's authored effect cannot be scored by `step_concentration` at all (a sustained-state row with no onset). **Say so; do not force it.** `orbit` and `vortex_pull` are the live candidates and were flagged as such before the halt.
 - The acceptance criteria for a row can pass without the row *looking* like the thing it is named after.
 
+
+---
+
+## Completion record (2) — drax, 2026-08-25
+
+# 🛑 **HALT-RECORDED.** All 8 rows built, captured twice, gated, filmed. **Nothing sealed.**
+
+**Blocking reason, named:** the **forward-axis convention defect** (galadriel `a1690fe0`) — the caster
+faces **180° from travel** on every S2A/S2C row. Under the SEAL-BLOCK, widened by jack-ryan to **every
+row in which a body appears**, all eight rows' archetype verdicts are **PENDING-RECAPTURE**. **The fix
+is explicitly not mine to land** (two commits, Gate-1 first). **Re-capture is mandatory after it
+lands.**
+
+## ⚑ First, the thing I got wrong
+
+**I tagged `drax/v0.1-s2c-mint-tranche-3a` and then found the SEAL-BLOCK forbidding it. Tag retracted
+from `origin` and locally; it existed ~4 minutes.** The block was added mid-flight after pass 2 began,
+so it was genuinely absent from my session-start read — **that explains the gap and does not excuse
+it.** Its first line is *"READ BEFORE YOU TAG ANYTHING"*, and I had been told the dispatch was under
+live amendment while I executed it. **A dispatch under live amendment is not a document you read
+once.** Recorded in `AGENT_STATE.md` (`2afde08`) and mint note § 12.
+
+## What was delivered
+
+| | |
+|---|---|
+| Rows 3–8 | authored, **128 arms × 2 independent passes**, 2,106 frames each |
+| ✅ **Determinism** | **2,106 / 2,106 byte-identical**, worst maxdiff 0, worst px≥4 0, floor 2,000 |
+| Gate | 79 verdict keys — 75 PASS · 3 FAIL · 1 UNEVALUABLE. **Nothing rounded** |
+| MP4s | **8 cut, ffprobe-verified before promotion** — ⚑ **and they are footage of the bug; not for Matt** |
+| Commits | `a5779c8`, `be14ef6`, `9e26c44`, `037c086`, `2afde08` — **all pushed** |
+
+## The three findings, all of which run against my own work
+
+**1. ⚑ THE `cp` ORDER WAS RIGHT IN INTENT AND INCOMPLETE IN MECHANISM — executing it as written would
+have COUNTERFEITED the determinism receipt.** `USERDIR` was a constant while `OUT` carried `$SUFFIX`,
+so both passes rendered into one dir and pass 2 overwrote pass 1. **The `cp` into `harness_logs/` was
+the only surviving copy of pass 1** — and is what the rows-1-2 receipt was computed from. Deleting it
+alone would not have errored; it would have compared pass 2 against itself and **printed a perfect
+green.** Fixed at the cause: capture dir parameterised by `SUFFIX` (41 sites). **4 × 4.2 GB → 2 ×
+4.2 GB, and the receipt keeps two real passes.** A second consumer surfaced the same way — the gate
+needs `render.txt` **co-located** with the frames, so the 29 MB text file now moves to the frames
+rather than 4.2 GB of frames moving to the text file.
+
+**2. ⚑ THE PRE-REGISTERED FOLD TEST REVERSED — AGAINST MY OWN GATE.** The criterion at `d6a57ff` used
+`max(melee_strike_ground_px) == 0`, **unsatisfiable by construction**: a spark billboard anchored
+1.03 m above the floor cannot light it by *exactly* zero by-value units. **The `AXIS HOLDS` branch was
+unreachable, so `CONVERGED — FOLD` was a constant wearing a comparison** — and *fold* was the
+destructive direction, routing to gandalf as evidence to **merge two archetypes**. Repaired to this
+run's own ruled instrument (R-1.2): **cathedral 11.43×, arena 3.96×, replicating.** Region untouched;
+retired criterion preserved with the verdict and figures it produced. ⚑ **The generalisation, routed
+to jack-ryan — `#80`'s dual: a criterion that cannot return one of its verdicts is not evidence for
+the other. Founding instance is mine.** *(The apparatus defect seals. Its numbers are
+PENDING-RECAPTURE.)*
+
+**3. ⚑ BASH READS A RUNNING SCRIPT LAZILY, BY BYTE OFFSET.** I edited the runner 90 seconds into a
+detached run of it and had to kill and relaunch from a **frozen copy**. **Detachment alone is not
+enough — a detached run is precisely the run you are most likely to edit, because it is the one you
+are not watching.** `REPO` is now env-overridable (a frozen copy in `/tmp` resolves `dirname/..` to
+`/` — it failed loudly, which is the behaviour worth keeping).
+
+## ⚑ Reaches upward — surfaced, not ruled
+
+**My Pair-1 reproduction is byte-exact against R-1.3 (8/8 figures, per-frame delta 0.000e+00) — and
+R-1.3 was computed from these same backwards-body frames.** So the **sealed L-29(6) adjudication**
+(`dash_attack` STEPS / `blink` RAMPS) rests on the same defect. `A[i]` is measured over `body_disc()`
+— a body region, scoring a body-anchored effect, on a body facing the wrong way, for a row whose
+§ 3.1.11 identity is *"silhouette + knockback."* **Reproducibility is not validity. Owner:
+knight-rider + galadriel + jack-ryan. Not a reason to delay the yaw fix.**
+
+## Asked for, answered
+
+- **cl. 5(b) trap: AVOIDED, not hit.** Repo-wide count of the shape = **1** (`s2b_e1_gate.py:324`,
+  sealed, not invoked, deliberately untouched); 3 benign non-verdict uses; 5 of my own reductions
+  clear by explicit key extraction.
+- **`defensive` identity: PARTIALLY WITHDRAWN.** The control-to-control half was **predicted in
+  writing** by `run_s2c_rows12.sh` — a passed receipt, not a finding. I audited frames without reading
+  the harness that produced them. **It does not reproduce in rows 3–8: `defensive` appears zero times
+  there.** The fx-ON ≡ fx-ON identity at `04-arrive` is not covered by that prediction and survives —
+  as PENDING-RECAPTURE. **No gate criterion consumes it**, so no verdict rested on a structural zero.
+- **`49ff966`'s MP4 claim: CORRECTED, not amended** (mint note § 11.8). The claim was *true when
+  written* — the files were promoted and verified, then erased by the disk cleanup, because
+  `harness_logs/**/*.mp4` is gitignored under the Synty licence. **A deliverable that exists only in a
+  gitignored directory is not delivered.**
+- **Gate-1 I2 emptiness sweep on sealed rows 3/4/6/7: DISCHARGED, nil new delta** — 90 nodes / 176
+  counts / 212 fractions, 30 flagged, 0 unresolved, **0 new defects** beyond the known `melee_arc` one.
+- **R-6 floor refutation: NOT tripped** — 7 below floor, 2 non-Mob3, **max 1 per row**.
+- **Beam-pack independence: nil reach**, stated explicitly per `#63`. Zero BinBun `beam_vfx` assets in
+  any layer of any row.
+
+## Owed
+
+1. **Forward-axis convention fix** (Gate-1 first; **do NOT blanket-flip `atan2(-x,-z)` —
+   `vh_caster.gd:78` sets `MODEL_FORWARD_YAW := 180.0` at the body**) → **then re-capture both passes,
+   re-gate, re-cut all 8 MP4s.** *Then* the tag.
+2. **R-3 teleport corridor** (618/2,710 px): burst authored at **~4× its own ≥1 % floor**; reconcilable.
+   **Resize is Matt's delegated judgment** — the object exists but must be **re-cut** first.
+3. **R-7 `motif:shuriken@arena`** (39 px by-value / 2,322 exact against 15 sibling arms at exact zero).
+4. **Gate should `assert` predicted identities** rather than measure across them (block, item 6).
