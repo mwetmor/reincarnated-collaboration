@@ -125,3 +125,36 @@ His ground was that the yaw defect is a **pure sink** with one bounded on-path r
 - **Per-mob breakdown** — required by `dispatches/2026-08-25-drax-consume-the-3a-recapture-…md` § 2. **Without it the decisive limb of the pre-registration cannot be scored**, and it is a re-analysis over frames already captured, not a re-capture.
 - **Rows 3–8**, ~45 min, with the full gate diff.
 - **jack-ryan's disposition** on the second limb, and on whether the seal's status changes now or waits.
+
+---
+
+## ⚑ CORRECTION TO § 0 ABOVE, AND THE RESOURCE PROJECTION, BOTH MEASURED
+
+**§ 0 says *"`s2c38v3` and `s2c38v3b` already exist."* That is true and it is MISLEADING, which is worse.** They exist as **EMPTY DIRECTORIES — 0 PNGs each.** They were created ahead of the passes that fill them. My sentence invites the reading *"those two passes are done,"* and **they have not started.**
+
+⚑ **Fourth instance this session of my one recurring defect: inferring an artifact's state from its listing instead of opening it.** The HITL arm, the deletion claim, the receipt, and now this — **and this one I wrote into a committed record while writing up the previous three.** The log settles it in one read:
+
+```
+--- rows12_v3  start 22:13:14Z ---
+--- rows12_v3  rc=0 elapsed=505s 22:21:39Z ---
+--- rows12_v3b start 22:21:39Z ---          ← current
+```
+
+**Actual order is rows12 FIRST, then rows38.** Only `orchestrator.log`, `rows12_v3.log`, `rows12_v3b.log` exist. **Rows 3–8 have not begun.**
+
+### Pre-fire resource projection — discharged here so the next session does not re-derive it
+
+**Measured, not assumed:** `s2c12v3` = 874 frames = **1.7 GB → 1.99 MB/frame.**
+
+| Remaining | Frames | Projected |
+|---|---|---|
+| `rows12_v3b` (496/874 done) | 378 | **0.74 GB** |
+| `rows38_v3` | 2,106 | **4.10 GB** |
+| `rows38_v3b` | 2,106 | **4.10 GB** |
+| **TOTAL** | | **8.93 GB** |
+
+**Free on `/System/Volumes/Data`: 55 GB. Margin: 46 GB — 6.2× headroom. ✅ PROJECTION PASSES.**
+
+⚑ **This matters because the tranche has HALTED TWICE on host resources** — free space was **2.7 GB** at HALT #2, and a `matt_to_do` red-disk warning predicted that failure by name a day before it happened and was not read. **There is no HALT #3 coming from disk.** The check cost one command; the two prior halts cost a tranche each.
+
+**Timing, from the same measurement:** 505 s for 874 frames → **20.3 min per rows38 pass, ~44 min total.** **drax's "~45 min" is accurate to within a minute** — recorded because an estimate that survives independent derivation is worth more than one that is merely repeated.
