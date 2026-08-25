@@ -26,6 +26,21 @@ sys.path.insert(0, FLIGHT_DIR)
 import schema  # noqa: E402
 import tape  # noqa: E402
 
+
+def load_flight_report():
+    """`bin/flight_report` as a module — it is extension-less, so import by loader."""
+    import importlib.machinery
+    import importlib.util
+    path = os.path.join(BIN, "flight_report")
+    spec = importlib.util.spec_from_loader(
+        "flight_report", importlib.machinery.SourceFileLoader("flight_report", path))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+flight_report = load_flight_report()
+
 # The spec § 1 aggregate, carried here as a CROSS-CHECK, not as an authority.
 # If the raw files disagree, the raw files win and this test reports the delta.
 SPEC_SUMS = {
@@ -1276,14 +1291,30 @@ class FixtureSubstrate(object):
     block shape that makes naive line-summing double-count on the real substrate — so the
     dedupe path is exercised by construction rather than by hope.
 
+    PROGRESSIVE OUTPUT (G-U11 BLOCK-1). The B-1 fixture wrote the SAME usage object on every
+    repeat line, which is exactly why the suite was green while the emitter under-reported the
+    live lane by 62 %: the fixture could not tell a first-line selector from a terminal-line
+    one, because on that substrate they were the same selector. It now writes what the real
+    transcripts write — a PLACEHOLDER `output_tokens` on the non-terminal content-block lines
+    and the message's complete count, with a non-null `stop_reason`, only on its terminal line.
+    The three input axes still repeat identically, because on the real substrate they do.
+
+    `progressive=False` reconstructs the old shape, so a test can prove the emitter is right
+    on BOTH substrates rather than merely right on the new one.
+
     The project directory NAME is computed with the emitter's own encoding rule rather than
     typed out, so the scope test cannot pass by accident against a hand-copied string.
     """
 
     MODEL = "claude-fixture-4-1"
     VERSION = "9.9.9-fixture"
+    #: What a non-terminal content-block line carries in `output_tokens`. On the live
+    #: substrate this is 1; the value is named here so a test can assert against the fixture's
+    #: own constant rather than a typed literal.
+    PLACEHOLDER_OUTPUT = 1
 
-    def __init__(self, root, repo="reincarnated-collaboration"):
+    def __init__(self, root, repo="reincarnated-collaboration", progressive=True):
+        self.progressive = progressive
         self.root = root
         self.games = os.path.join(root, "Games")
         self.projects = os.path.join(root, "claude-projects")
@@ -1320,12 +1351,24 @@ class FixtureSubstrate(object):
                 usage = {k: m[k] for k in ("input_tokens", "cache_creation_input_tokens",
                                            "cache_read_input_tokens", "output_tokens")}
                 for k in range(m["repeat"]):
+                    terminal = (k == m["repeat"] - 1)
+                    line_usage = dict(usage)
+                    stop_reason = None
+                    if self.progressive:
+                        # Non-terminal content-block lines carry a placeholder output count
+                        # and no stop_reason; the terminal line carries both truths.
+                        if terminal:
+                            stop_reason = m.get("stop_reason", "end_turn")
+                        else:
+                            line_usage["output_tokens"] = min(self.PLACEHOLDER_OUTPUT,
+                                                              usage["output_tokens"])
                     fh.write(json.dumps({
                         "type": "assistant", "sessionId": session_id, "cwd": self.games,
                         "timestamp": m["ts"].replace("Z", ".123Z"),
                         "version": self.VERSION, "uuid": "u-%s-%d" % (m["id"], k),
                         "requestId": "req_" + m["id"],
-                        "message": {"id": m["id"], "model": self.MODEL, "usage": usage},
+                        "message": {"id": m["id"], "model": self.MODEL,
+                                    "stop_reason": stop_reason, "usage": line_usage},
                     }) + "\n")
 
     def session(self, session_id, msgs, subagents=(), mtime_ts=None):
@@ -1750,6 +1793,444 @@ class TestU11RowsOnTheLiveTape(unittest.TestCase):
                              "the Claude lane still renders a declared-null token cell — "
                              "U-11's whole reason for existing")
             self.assertIn("%", l, "no cache-hit%% cell on the anthropic row")
+
+
+class TestTerminalUsageSelector(unittest.TestCase):
+    """G-U11 BLOCK-1 falsifier — the test the B-1 suite could not have failed.
+
+    The shipped emitter kept the FIRST usage line per `message.id`. On the live substrate
+    22,907 of 49,590 messages write `output_tokens` PROGRESSIVELY, so the first line carries a
+    placeholder and the message's real cost appears only on its terminal line. The suite was
+    green because every fixture wrote the SAME usage on every line: on that substrate a
+    first-line selector and a terminal-line selector are indistinguishable.
+
+    So these tests build a substrate on which they DIFFER, and pin the terminal one. Every
+    expected figure is re-derived from the fixture spec by a second path; nothing is typed in.
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="u11-sel-")
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _write(self, lines):
+        p = os.path.join(self.tmp, "t.jsonl")
+        with open(p, "w", encoding="utf-8") as fh:
+            for ln in lines:
+                fh.write(json.dumps(ln) + "\n")
+        return p
+
+    @staticmethod
+    def _line(mid, out, stop=None, ts="2026-08-10T00:00:00.000Z"):
+        return {"type": "assistant", "sessionId": "s", "timestamp": ts,
+                "message": {"id": mid, "model": "m", "stop_reason": stop,
+                            "usage": {"input_tokens": 7, "cache_creation_input_tokens": 11,
+                                      "cache_read_input_tokens": 13, "output_tokens": out}}}
+
+    def test_a_message_is_valued_at_its_TERMINAL_line_not_its_first(self):
+        """The exact shape jack-ryan read out of the substrate: 1, 1, 1, then the real count."""
+        placeholders, real = [1, 1, 1], 401
+        p = self._write([self._line("m1", o) for o in placeholders]
+                        + [self._line("m1", real, stop="tool_use")])
+        agg = claude_usage.aggregate_session([p])
+
+        self.assertEqual(agg["output"], real,
+                         "the emitter valued the message at a non-terminal placeholder")
+        self.assertNotEqual(agg["output"], placeholders[0],
+                            "first-line selection would pass this test only if the fixture "
+                            "were blind — it is not")
+        # NON-VACUITY: the two selectors must actually disagree on this fixture.
+        self.assertNotEqual(placeholders[0], real)
+        # one message, however many lines
+        self.assertEqual(agg["calls"], 1)
+        self.assertEqual(agg["lines"], len(placeholders) + 1)
+        self.assertEqual(agg["progressive_messages"], 1)
+
+    def test_the_INPUT_axes_are_unmoved_by_the_selector(self):
+        """BLOCK-1 is one axis wide. A fix that moved the others would be a second defect."""
+        p = self._write([self._line("m1", 1), self._line("m1", 900, stop="end_turn")])
+        agg = claude_usage.aggregate_session([p])
+        self.assertEqual((agg["input"], agg["cache_write"], agg["cache_read"]), (7, 11, 13))
+
+    def test_the_selector_is_SEMANTIC_not_positional(self):
+        """A terminal line followed by a stray placeholder still values at the terminal one.
+
+        This is the whole reason `stop_reason` was chosen over "take the last line": a
+        positional rule is silent if line order ever changes, and it would fail here.
+        """
+        p = self._write([self._line("m1", 5, stop="end_turn"), self._line("m1", 1)])
+        self.assertEqual(claude_usage.aggregate_session([p])["output"], 5)
+
+    def test_a_message_with_no_stop_reason_anywhere_falls_back_to_last_seen(self):
+        """1,534 live messages carry no stop_reason. They must still be valued, not dropped."""
+        p = self._write([self._line("m1", 2), self._line("m1", 9)])
+        agg = claude_usage.aggregate_session([p])
+        self.assertEqual(agg["output"], 9)
+        self.assertEqual(agg["calls"], 1)
+
+    def test_a_non_progressive_substrate_is_unaffected(self):
+        """The old shape — identical usage on every line — must still value identically."""
+        p = self._write([self._line("m1", 42), self._line("m1", 42)])
+        agg = claude_usage.aggregate_session([p])
+        self.assertEqual(agg["output"], 42)
+        self.assertEqual(agg["progressive_messages"], 0)
+
+    def test_the_progressive_fixture_would_fail_a_first_line_selector(self):
+        """Proves the SUITE's fixture is now a falsifier, not just this class's hand-built one.
+
+        Re-implements the shipped (defective) selector here and asserts it DISAGREES with the
+        emitter on the shared fixture. If someone flattens `FixtureSubstrate` back to
+        identical-usage lines, this test goes red and says why.
+        """
+        fx = FixtureSubstrate(self.tmp)
+        sid = "bbbbbbbb-0000-0000-0000-000000000001"
+        files = fx.session(sid, fx.messages("prog", 30, "2026-08-05T01:00:00Z"))
+        first_line_total, seen = 0, set()
+        for f in files:
+            for mid, usage, _env in claude_usage.iter_usage(f):
+                if mid in seen:
+                    continue
+                seen.add(mid)
+                first_line_total += usage.get("output_tokens") or 0
+        agg = claude_usage.aggregate_session(files)
+        want = fx.expect(sid)["output_tokens"]
+        self.assertEqual(agg["output"], want)
+        self.assertLess(first_line_total, agg["output"],
+                        "the shared fixture no longer distinguishes the two selectors — the "
+                        "exact blindness that let BLOCK-1 ship")
+
+
+class TestCorrectionSupersession(unittest.TestCase):
+    """G-U11 BLOCK-2 falsifier — a correction on the tape MUST change the derived unit.
+
+    jack-ryan proved the failure live: an original CLOSE plus a legal correction, run through
+    the real `schema.fold` and the real `unit_event`, rendered the ORIGINAL under both ts
+    orderings while `correction_errors` returned `[]`. The correction was valid, accepted,
+    on-tape and invisible — the tape's only amendment path could not reach the view.
+
+    R-8 (conductor, RUN U11-BUILD L-4): correction-supersession is FOLD-LEVEL law — a property
+    of the tape contract, not of any one view. So the property is asserted at `schema.fold`,
+    where every consumer meets it, and then again end-to-end through the report.
+    """
+
+    UNIT = "test/correction-supersession"
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="u11-corr-")
+        self.records = os.path.join(self.tmp, "records")
+        os.makedirs(self.records)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _close(self, ts, out, corrects=None, unit=None):
+        return schema.make_row(
+            "CLOSE", ts=ts, unit_id=unit or self.UNIT, unit_kind="job",
+            provider="anthropic", lane="claude-agent", currency="anthropic-max",
+            tokens_input=1000, tokens_cached_input=500, tokens_output=out,
+            corrects=corrects, backfill=True if corrects else None,
+            derived_from=["agentic_orchestration/flight/schema.py"])
+
+    def _fold_via(self, loader):
+        rows = loader()
+        return schema.fold(rows)[self.UNIT]
+
+    def test_a_correction_changes_the_derived_unit_under_BOTH_ts_orderings(self):
+        for label, corr_ts in (("same-ts", "2026-08-01T00:00:00Z"),
+                               ("later-ts", "2026-08-01T05:00:00Z")):
+            with self.subTest(ordering=label):
+                shutil.rmtree(self.records, ignore_errors=True)
+                os.makedirs(self.records)
+                orig = self._close("2026-08-01T00:00:00Z", 10)
+                tape.append_row(orig, self.records)
+                corr = self._close(corr_ts, 999, corrects=orig["row_id"])
+                tape.append_row(corr, self.records)
+
+                # the correction is LEGAL — this is not a test about a malformed row
+                raw = schema.read_tape(tape.tape_files(self.records))
+                self.assertEqual(schema.correction_errors(raw), [])
+
+                # (a) fold over RAW rows — the path jack-ryan exercised, and the one that lied
+                unit = schema.fold(raw)[self.UNIT]
+                self.assertEqual(len(unit["rows"]), 1,
+                                 "the superseded original is still in the fold")
+                self.assertEqual(unit["rows"][0]["tokens_output"], 999)
+
+                # (b) fold via tape.load — the production path
+                unit2 = schema.fold(tape.load(self.records)[0])[self.UNIT]
+                self.assertEqual(unit2["rows"][0]["tokens_output"], 999)
+
+    def test_the_pair_contributes_ONCE_to_every_summed_cell_not_twice(self):
+        orig = self._close("2026-08-01T00:00:00Z", 10)
+        tape.append_row(orig, self.records)
+        tape.append_row(self._close("2026-08-01T05:00:00Z", 999, corrects=orig["row_id"]),
+                        self.records)
+        rows = schema.read_tape(tape.tape_files(self.records))
+        sealed = list(schema.fold(rows).values())
+        [g] = flight_report.sealed_by_workstream(rows, sealed)
+        self.assertEqual(g["n"], 1, "the correction was counted as a second unit")
+        self.assertEqual(g["tout"], 999)
+        self.assertEqual(g["tin"], 1000, "input was double-counted across the pair")
+        [s] = flight_report.model_scorecard(sealed)
+        self.assertEqual((s["n"], s["tout"], s["tin"]), (1, 999, 1000))
+
+    def test_latest_in_chain_wins_over_a_correction_of_a_correction(self):
+        a = self._close("2026-08-01T00:00:00Z", 10)
+        tape.append_row(a, self.records)
+        b = self._close("2026-08-01T01:00:00Z", 50, corrects=a["row_id"])
+        tape.append_row(b, self.records)
+        c = self._close("2026-08-01T02:00:00Z", 77, corrects=b["row_id"])
+        tape.append_row(c, self.records)
+        unit = schema.fold(schema.read_tape(tape.tape_files(self.records)))[self.UNIT]
+        self.assertEqual([r["tokens_output"] for r in unit["rows"]], [77])
+
+    def test_the_python_fold_and_the_glance_parser_state_the_SAME_rule(self):
+        """R-8 names Glance's `applyCorrections` the reference consumer. One rule, two runtimes.
+
+        Asserted as a PROPERTY over a shared fixture rather than by reading the JS: the
+        Python side must drop exactly the row_ids named by a `corrects` edge — which is the
+        JS one-liner's semantics, restated independently here.
+        """
+        a = self._close("2026-08-01T00:00:00Z", 10)
+        b = self._close("2026-08-01T01:00:00Z", 50, corrects=a["row_id"])
+        other = self._close("2026-08-01T02:00:00Z", 3, unit="test/untouched")
+        rows = [a, b, other]
+        named = {r["corrects"] for r in rows if r.get("corrects")}
+        survivors = {r["row_id"] for r in schema.apply_corrections(rows)}
+        self.assertEqual(survivors, {r["row_id"] for r in rows} - named)
+
+    def test_a_consumer_that_folds_raw_rows_cannot_opt_out_by_accident(self):
+        """`fold` supersedes by DEFAULT. The escape hatch must be spelled, never inherited."""
+        import inspect
+        sig = inspect.signature(schema.fold)
+        self.assertIs(sig.parameters["corrections_applied"].default, False)
+
+
+class TestHonestNullRender(unittest.TestCase):
+    """G-U11 BLOCK-3 falsifier — an axis nothing measured NEVER renders as a numeral.
+
+    The board published `reasoning | 0` for a group whose 27/27 rows carry no reasoning axis,
+    two rows above a `154K` that is a real measurement: `sum(c.get(f) or 0 for c in closes)`
+    manufactures a measured zero out of an absence. Discipline #74, verbatim — *absence of a
+    measurement never renders as a measured negative.*
+
+    The defect is a TEMPLATE, so the class property is asserted over EVERY optional numeric
+    axis, not only the cell that was caught.
+    """
+
+    OPTIONAL_AXES = ("tokens_input", "tokens_cached_input", "tokens_cache_write",
+                     "tokens_output", "tokens_reasoning")
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="u11-null-")
+        self.records = os.path.join(self.tmp, "records")
+        os.makedirs(self.records)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _lane_row(self, unit, **axes):
+        return schema.make_row(
+            "CLOSE", ts="2026-08-01T00:00:00Z", unit_id=unit, unit_kind="job",
+            workstream="null-probe", provider="anthropic", lane="claude-agent",
+            currency="anthropic-max",
+            derived_from=["agentic_orchestration/flight/schema.py"], **axes)
+
+    def test_an_axis_absent_on_every_row_never_renders_a_numeral(self):
+        tape.append_row(self._lane_row("test/null-1", tokens_input=100, tokens_output=7),
+                        self.records)
+        rows = schema.read_tape(tape.tape_files(self.records))
+        sealed = list(schema.fold(rows).values())
+        [g] = flight_report.sealed_by_workstream(rows, sealed)
+        self.assertEqual(g["n_reason"], 0)
+        cell = flight_report.axis_cell(g["treason"], g["n_reason"], g["n"])
+        self.assertNotIn("0", cell.replace("0/", "").replace("/0", ""))
+        self.assertIn("null on 1/1 units", cell)
+
+    def test_a_MEASURED_zero_still_renders_as_zero(self):
+        """The mirror clause. An honest-null rule that erased measured zeros would be worse."""
+        tape.append_row(self._lane_row("test/zero-1", tokens_input=0, tokens_output=0,
+                                       tokens_reasoning=0), self.records)
+        rows = schema.read_tape(tape.tape_files(self.records))
+        [g] = flight_report.sealed_by_workstream(rows, list(schema.fold(rows).values()))
+        self.assertEqual(g["n_reason"], 1)
+        self.assertIn("0", flight_report.axis_cell(g["treason"], g["n_reason"], g["n"]))
+
+    def test_each_axis_is_gated_on_ITSELF_not_on_a_sibling(self):
+        """The precise shape of the shipped defect: `tok-out` gated on `tokens_input`."""
+        tape.append_row(self._lane_row("test/mix-1", tokens_input=100), self.records)
+        tape.append_row(self._lane_row("test/mix-2", tokens_output=55), self.records)
+        rows = schema.read_tape(tape.tape_files(self.records))
+        [g] = flight_report.sealed_by_workstream(rows, list(schema.fold(rows).values()))
+        self.assertEqual((g["n_in"], g["n_out"], g["n"]), (1, 1, 2))
+        self.assertIn("1/2 units", flight_report.axis_cell(g["tin"], g["n_in"], g["n"]))
+        self.assertIn("1/2 units", flight_report.axis_cell(g["tout"], g["n_out"], g["n"]))
+
+    def test_no_summed_cell_in_either_renderer_uses_the_or_zero_TEMPLATE(self):
+        """The defect is a template, so it is banned at the source, not patched per-cell.
+
+        Greps both render surfaces for `sum(... or 0 ...)` over a field this schema declares
+        OPTIONAL. `warn_count` is exempt and named: it is summed over rows SELECTED for
+        carrying a curation, so its absence is not a population question.
+        """
+        import re as _re
+        offenders = []
+        for path in (os.path.join(BIN, "flight_report"),
+                     os.path.join(AO_DIR, "factory", "ui", "board.py")):
+            with open(path, "r", encoding="utf-8") as fh:
+                for n, line in enumerate(fh.readlines(), 1):
+                    if line.lstrip().startswith("#"):
+                        continue      # the ban is on CODE; naming the pattern is how it stays banned
+                    if "or 0" not in line or "sum(" not in line:
+                        continue
+                    for f in schema.TOKEN_FIELDS + ("cost_usd",):
+                        if _re.search(r'get\("%s"\)\s+or 0' % f, line):
+                            offenders.append("%s:%d %s" % (os.path.basename(path), n,
+                                                           line.strip()))
+        self.assertEqual(offenders, [], "the `or 0` template is back on an optional axis")
+
+    def test_the_live_report_renders_no_manufactured_zero_for_reasoning(self):
+        """End-to-end on the real tape — the cell the gate caught, asserted on the render."""
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--no-probes", "--now", "2026-08-26T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        rows = [l for l in p.stdout.split("\n")
+                if l.startswith("| ") and " | 27 | " in l]
+        self.assertTrue(rows, "no 27-unit group on the tape — this assertion would be vacuous")
+        for line in rows:
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            self.assertNotIn("0", [c for c in cells if c in ("0",)],
+                             "a bare `0` cell survives on a group with unmeasured axes")
+
+
+class TestBoardSharesTheDerivation(unittest.TestCase):
+    """One data path, asserted rather than asserted-about (G-U11 BLOCK-3 convergence).
+
+    `factory/ui/board.py` used to keep its OWN copy of the SEALED-table and scorecard
+    arithmetic. Both copies carried the same defect. The board now forwards to
+    `flight_report`, and this test fails if a second copy is ever reintroduced.
+    """
+
+    BOARD = os.path.join(AO_DIR, "factory", "ui", "board.py")
+
+    def test_the_board_forwards_to_the_report_rather_than_recomputing(self):
+        import ast
+        with open(self.BOARD, "r", encoding="utf-8") as fh:
+            tree = ast.parse(fh.read())
+        for name in ("sealed_by_workstream", "scorecard"):
+            fn = next(n for n in ast.walk(tree)
+                      if isinstance(n, ast.FunctionDef) and n.name == name)
+            body = [s for s in fn.body if not isinstance(s, ast.Expr)]
+            self.assertEqual(len(body), 1,
+                             "%s has a body again — the duplicate derivation is back" % name)
+            self.assertIsInstance(body[0], ast.Return)
+
+    def test_both_surfaces_agree_on_the_live_tape(self):
+        rows, _ = tape.load(FLIGHT_DIR)
+        units = schema.fold(rows)
+        sealed = [u for u in units.values() if u["state"] == "SEALED"]
+        import importlib.machinery
+        import importlib.util
+        spec = importlib.util.spec_from_loader(
+            "board_under_test",
+            importlib.machinery.SourceFileLoader("board_under_test", self.BOARD))
+        board = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(board)
+        self.assertEqual(board.sealed_by_workstream(flight_report, rows, sealed),
+                         flight_report.sealed_by_workstream(rows, sealed))
+        self.assertEqual(board.scorecard(flight_report, sealed),
+                         flight_report.model_scorecard(sealed))
+
+
+class TestHostLocalAbsoluteSources(unittest.TestCase):
+    """G-U11 WARN-2 / F-4 — absolute `derived_from` resolves AS-IS, by declaration not accident.
+
+    27 rows on the tape carry absolute transcript paths. They validated only because
+    `os.path.join(root, "/abs")` happens to return `"/abs"`, and nothing pinned it: a refactor
+    of `resolve_path` to `repo_root + "/" + rel` would silently fail every one of them, and the
+    failure would look like tape corruption rather than like a refactor.
+    """
+
+    def test_an_absolute_source_ignores_the_repo_root_entirely(self):
+        abs_path = os.path.abspath(__file__)
+        for repo, root in (("reincarnated-collaboration", None),
+                           ("reincarnated-engine", None),
+                           ("reincarnated-collaboration", "/nonexistent/root")):
+            with self.subTest(repo=repo, root=root):
+                self.assertEqual(schema.resolve_path(abs_path, repo, root), abs_path)
+
+    def test_a_relative_source_still_resolves_against_the_repo_root(self):
+        """The mirror clause — absolute-handling must not have loosened the general rule."""
+        self.assertEqual(
+            schema.resolve_path("agentic_orchestration/flight/schema.py",
+                                "reincarnated-collaboration", REPO_ROOT),
+            os.path.join(REPO_ROOT, "agentic_orchestration/flight/schema.py"))
+
+    def test_the_live_tape_carries_host_local_rows_and_SCHEMA_declares_them(self):
+        rows = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        absolute = [r for r in rows
+                    if any(str(s).startswith("/") for s in (r.get("derived_from") or ()))]
+        self.assertTrue(absolute, "no host-local row on the tape — this clause is vacuous")
+        with open(os.path.join(FLIGHT_DIR, "SCHEMA.md"), "r", encoding="utf-8") as fh:
+            text = fh.read()
+        self.assertIn("HOST-LOCAL ABSOLUTE SOURCES", text,
+                      "the tape carries absolute sources and the normative doc does not say so")
+
+
+class TestU11CorrectionsOnTheLiveTape(unittest.TestCase):
+    """Class properties over whatever U-11 rows the tape carries. No literals, no counts."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.raw = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        cls.u11 = claude_usage.u11_rows(cls.raw)
+        cls.current = claude_usage.u11_rows(schema.apply_corrections(cls.raw))
+
+    def test_non_vacuity(self):
+        self.assertTrue(self.u11, "no U-11 rows on the tape — every property here is vacuous")
+
+    def test_every_u11_correction_targets_a_u11_row_and_is_declared_retrospective(self):
+        by_id = {r["row_id"]: r for r in self.raw}
+        seen = 0
+        for r in self.u11:
+            if not r.get("corrects"):
+                continue
+            seen += 1
+            self.assertIn(r["corrects"], by_id)
+            self.assertTrue(r.get("backfill"), "a correction is retrospective by construction")
+            self.assertEqual(by_id[r["corrects"]]["unit_id"], r["unit_id"])
+        self.assertGreater(seen, 0, "no U-11 correction on the tape")
+
+    def test_one_CURRENT_row_per_session_after_supersession(self):
+        uids = [r["unit_id"] for r in self.current]
+        self.assertEqual(len(uids), len(set(uids)),
+                         "a session has two current rows — supersession did not resolve")
+
+    def test_no_current_u11_row_understates_its_own_transcripts(self):
+        """The class property BLOCK-1 asked for: re-derive each row from its OWN sources.
+
+        Not a pinned total — the substrate grows. The assertion is that no row's recorded
+        output is BELOW what its named transcripts terminally report, which is the exact
+        direction the shipped defect failed in.
+        """
+        checked = 0
+        for r in self.current:
+            measured = claude_usage.measured_axes(r)
+            checked += 1
+            self.assertGreaterEqual(
+                r["tokens_output"], measured["tokens_output"],
+                "%s records %d output but its transcripts terminally report %d"
+                % (r["unit_id"], r["tokens_output"], measured["tokens_output"]))
+            self.assertEqual(r["tokens_input"], measured["tokens_input"],
+                             "%s: input drifted from its own sources" % r["unit_id"])
+        self.assertGreater(checked, 0)
+
+    def test_the_correction_pass_is_idempotent_against_the_live_tape(self):
+        """A dry-run correction pass over an already-corrected tape must propose nothing."""
+        rep = claude_usage.correct(FLIGHT_DIR, repo_root=REPO_ROOT, dry_run=True)
+        self.assertEqual(rep["corrected"], [],
+                         "the correction pass would append again: %r" % (rep["deltas"],))
 
 
 if __name__ == "__main__":

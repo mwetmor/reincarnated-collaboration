@@ -77,13 +77,41 @@ recoverable from the row itself as `tokens_input - tokens_cached_input - tokens_
 Anthropic stream on this substrate emits no reasoning axis at all, and a measured zero and an
 unmeasured axis are different facts. Declaring 0 would assert Claude did no reasoning.
 
-DOUBLE-COUNT HAZARD, measured and closed: Claude Code writes ONE transcript line per assistant
-content block, and every line of a multi-block message repeats the SAME `usage` object. Summing
-lines double-counts. Aggregation therefore dedupes by `message.id` within the session tree.
-Measured on the live substrate at build time: 51,842 repeated lines across the August
-population — roughly a third of all usage-bearing lines. Verified before relying on the key:
-every usage-bearing line carries a `message.id`, and zero ids appear in more than one file
-within a session.
+DOUBLE-COUNT HAZARD and PROGRESSIVE-OUTPUT HAZARD — two defects, one dedupe key, and the
+second one shipped. Stated here with its correction rather than quietly replaced, because the
+sentence that carried the false premise is the sentence a future reader would trust:
+
+  Claude Code writes ONE transcript line per assistant content block. Summing lines
+  double-counts, so aggregation dedupes by `message.id` within the session tree. That much
+  was right, and it was verified before the key was relied on: every usage-bearing line
+  carries a `message.id`, and zero ids appear in more than one file within a session.
+
+  **The B-1 build then asserted that every line of a multi-block message repeats the SAME
+  `usage` object, and kept the FIRST line. That premise is FALSE.** The three INPUT axes do
+  repeat identically. `output_tokens` does not — it is written PROGRESSIVELY: the non-terminal
+  content-block lines carry a placeholder and the message's complete output count appears only
+  on its terminal line. Keeping the first line recorded 1 where a measured message cost 401.
+
+  Measured over the 27-session August population that this module emitted rows for — every
+  figure below re-derived from those rows' own `derived_from`, denominators named (G-U11):
+
+      92,185 usage-bearing lines · 49,590 distinct messages · 42,595 repeated lines (46.2 %)
+      22,907 of 49,590 messages (46.2 %) carry DIFFERING `output_tokens` across their lines
+      `output_tokens` non-decreasing across a message's lines: 22,907 of 22,907 — 0 exceptions
+      first-line selector: 19,327,247 output   ·   terminal selector: 50,878,369 output
+      the shipped column was short by 31,551,122 — 62.0 % of the true figure
+
+  The three input axes are byte-IDENTICAL under both selectors (fresh 359,469 · cache-write
+  204,120,185 · cache-read 8,238,067,996 · `tokens_input` 8,442,547,650), which is why the
+  correction touches one axis and only one.
+
+  So `aggregate_session` takes the message's TERMINAL usage payload: the line whose
+  `message.stop_reason` is non-null, falling back to the last-seen line for the messages that
+  carry none. The selector is SEMANTIC rather than positional on purpose — a positional rule
+  ("take the last line") is silent if line order ever changes, whereas `stop_reason` is the
+  vendor's own statement that the message finished. Positional-last, semantic, and per-axis
+  maximum all agree exactly on this population, so the choice is safe today; the semantic one
+  stays safe.
 
 Python 3 stdlib only. No network. No LLM. Ever.
 """
@@ -233,16 +261,45 @@ def _norm_ts(raw: str):
     return (m.group(1) + "Z") if m else None
 
 
+def terminal_rank(env: dict) -> int:
+    """How authoritative this line's `usage` is for its message. Higher wins.
+
+    2 = the vendor said the message FINISHED here (`message.stop_reason` non-null).
+    1 = a non-terminal content-block line, whose `output_tokens` is a placeholder.
+
+    This is the whole of the semantic selector, isolated so a test can address it directly
+    and so the rule is greppable rather than buried in an aggregation loop.
+    """
+    msg = env.get("message")
+    if isinstance(msg, dict) and msg.get("stop_reason") is not None:
+        return 2
+    return 1
+
+
 def aggregate_session(files: list) -> dict:
     """Sum one session's economy across its transcript tree. Nothing is written.
 
-    Returns a dict of exact vendor-reported sums plus the identity axes observed. Dedupe is
-    by `message.id` (see the module docstring's double-count note); `lines` and `calls` are
-    both returned so the discarded repeats stay visible rather than silently vanishing.
+    Returns a dict of exact vendor-reported sums plus the identity axes observed.
+
+    TWO passes over one iteration, because a message's lines answer two different questions:
+
+      * WHICH MESSAGES exist, and WHEN / on what model they were recorded — answered by the
+        message's FIRST-SEEN line, deduped by `message.id`. `lines` and `calls` are both
+        returned so the discarded repeats stay visible rather than silently vanishing.
+      * WHAT THE MESSAGE COST — answered by its TERMINAL usage payload (see the module
+        docstring's PROGRESSIVE-OUTPUT note). Every line of the message is offered to the
+        selector, including the repeats the dedupe discards for counting purposes, because
+        the repeat IS where the true output count lives.
+
+    The token sums are therefore taken AFTER the scan, from one usage payload per message —
+    never accumulated line-by-line, which is what made the first-line selector look correct.
     """
     seen = set()
+    usage_by_message = {}     # message.id -> (rank, usage) — the terminal payload
+    progressive = set()       # message.ids whose lines disagree about `output_tokens`
     agg = {"input": 0, "cache_write": 0, "cache_read": 0, "output": 0,
            "calls": 0, "lines": 0, "repeated_lines": 0, "unidentified_lines": 0,
+           "progressive_messages": 0,
            "first_ts": None, "last_ts": None, "models": set(), "versions": set(),
            "session_ids": set(), "bad_ts": 0}
     for path in files:
@@ -255,28 +312,47 @@ def aggregate_session(files: list) -> dict:
                 continue
             if mid in seen:
                 agg["repeated_lines"] += 1
-                continue
-            seen.add(mid)
-            agg["calls"] += 1
-            agg["input"] += usage.get("input_tokens") or 0
-            agg["cache_write"] += usage.get("cache_creation_input_tokens") or 0
-            agg["cache_read"] += usage.get("cache_read_input_tokens") or 0
-            agg["output"] += usage.get("output_tokens") or 0
-            ts = _norm_ts(env.get("timestamp"))
-            if ts is None:
-                agg["bad_ts"] += 1
             else:
-                if agg["first_ts"] is None or ts < agg["first_ts"]:
-                    agg["first_ts"] = ts
-                if agg["last_ts"] is None or ts > agg["last_ts"]:
-                    agg["last_ts"] = ts
-            model = (env.get("message") or {}).get("model")
-            if model:
-                agg["models"].add(model)
-            if env.get("version"):
-                agg["versions"].add(env["version"])
-            if env.get("sessionId"):
-                agg["session_ids"].add(env["sessionId"])
+                seen.add(mid)
+                agg["calls"] += 1
+                ts = _norm_ts(env.get("timestamp"))
+                if ts is None:
+                    agg["bad_ts"] += 1
+                else:
+                    if agg["first_ts"] is None or ts < agg["first_ts"]:
+                        agg["first_ts"] = ts
+                    if agg["last_ts"] is None or ts > agg["last_ts"]:
+                        agg["last_ts"] = ts
+                model = (env.get("message") or {}).get("model")
+                if model:
+                    agg["models"].add(model)
+                if env.get("version"):
+                    agg["versions"].add(env["version"])
+                if env.get("sessionId"):
+                    agg["session_ids"].add(env["sessionId"])
+
+            # --- the terminal-usage selector, offered EVERY line of the message ---------
+            rank = terminal_rank(env)
+            held = usage_by_message.get(mid)
+            if held is None:
+                usage_by_message[mid] = (rank, usage)
+            else:
+                if (held[1].get("output_tokens") or 0) != (usage.get("output_tokens") or 0):
+                    # Counted, not assumed: the population where the two selectors DIVERGE
+                    # is the population BLOCK-1 was about, and a coverage figure for it is
+                    # cheaper than trusting the docstring again.
+                    progressive.add(mid)
+                if rank >= held[0]:
+                    # `>=` so that, at equal rank, the LAST line seen wins — the positional
+                    # fallback for the messages that carry no `stop_reason` at all.
+                    usage_by_message[mid] = (rank, usage)
+
+    for _rank, usage in usage_by_message.values():
+        agg["input"] += usage.get("input_tokens") or 0
+        agg["cache_write"] += usage.get("cache_creation_input_tokens") or 0
+        agg["cache_read"] += usage.get("cache_read_input_tokens") or 0
+        agg["output"] += usage.get("output_tokens") or 0
+    agg["progressive_messages"] = len(progressive)
     return agg
 
 
@@ -541,7 +617,143 @@ def summarize(report: dict) -> dict:
                                         for a in report["aggregates"].values()),
         "unidentified_lines": sum(a["unidentified_lines"]
                                   for a in report["aggregates"].values()),
+        "progressive_messages": sum(a.get("progressive_messages", 0)
+                                    for a in report["aggregates"].values()),
     }
+
+
+# --- the correction pass (G-U11 BLOCK-1 discharge) ----------------------------
+#
+# The tape is APPEND-ONLY and nothing on it may be edited, so a row that recorded a wrong
+# number is repaired by appending a `corrects:` row beside it — the schema's only amendment
+# path. This pass re-derives every U-11 row from ITS OWN `derived_from` and appends a
+# correction wherever a measured axis disagrees with what was shipped.
+#
+# It re-derives from the ROW rather than re-running discovery on purpose: the substrate grows,
+# and a correction must be a statement about the sources the original row named, not about
+# whatever those sessions have become since.
+
+#: The gate that measured the defect. Named on every correction row so the amendment carries
+#: its own provenance and a reader can find out WHY the number moved without a git log.
+GATE_FINDINGS = "agentic_orchestration/qa/findings/2026-08-25-u11-gate.md"
+
+#: The axes a correction may restate. Identity, timestamps and attribution are NOT re-derived:
+#: this pass repairs a measurement, and silently moving a row's `ts` under cover of a token
+#: correction would be a second, undeclared amendment.
+CORRECTABLE_AXES = ("tokens_input", "tokens_cached_input", "tokens_cache_write",
+                    "tokens_output")
+
+
+def u11_rows(rows) -> list:
+    """Every row this module authored, identified by its own `unit_id` namespace."""
+    return [r for r in rows
+            if str(r.get("unit_id") or "").startswith(UNIT_PREFIX) and r.get("event") == "CLOSE"]
+
+
+def superseded_ids(rows) -> set:
+    """row_ids already named by a `corrects` edge — do not correct a correction's target."""
+    return {r["corrects"] for r in rows if r.get("corrects")}
+
+
+def files_for_row(row: dict) -> list:
+    """Re-expand a row's `derived_from` into the transcript files it names.
+
+    A `derived_from` entry is either the session's main transcript or its `subagents` DIR
+    (R-1). A directory is expanded to the tapes inside it; a path that no longer exists is
+    NOT silently dropped — `IngestError` fires, because a correction derived from a partial
+    read would be a worse number than the one it replaces.
+    """
+    out = []
+    for p in row.get("derived_from") or ():
+        if p == CUSTODY_TSV or not p.endswith((".jsonl", "subagents")):
+            continue
+        if os.path.isdir(p):
+            out.extend(glob.glob(os.path.join(p, "*.jsonl")))
+        elif os.path.isfile(p):
+            out.append(p)
+        else:
+            raise IngestError("row %s names a source that is gone: %s"
+                              % (row.get("row_id"), p))
+    if not out:
+        raise IngestError("row %s names no readable transcript" % row.get("row_id"))
+    return sorted(set(out))
+
+
+def measured_axes(row: dict) -> dict:
+    """Re-derive the four token axes for one row, from the sources the row itself names."""
+    agg = aggregate_session(files_for_row(row))
+    return {"tokens_input": tokens_total_input(agg),
+            "tokens_cached_input": agg["cache_read"],
+            "tokens_cache_write": agg["cache_write"],
+            "tokens_output": agg["output"]}
+
+
+def build_correction_row(original: dict, measured: dict, repo_root: str = None,
+                         findings: str = GATE_FINDINGS) -> dict:
+    """One `corrects:` row restating the measured axes. Every other field is carried across.
+
+    `backfill` is True for the same reason every U-11 row's is (R-4 / G-2c-R1): the row is
+    assembled after the event it records. A correction is, by construction, retrospective.
+    """
+    fields = {k: v for k, v in original.items()
+              if k not in ("v", "row_id", "event", "ts", "corrects")}
+    fields.update({k: measured[k] for k in CORRECTABLE_AXES if k in measured})
+    fields["corrects"] = original["row_id"]
+    fields["backfill"] = True
+    df = list(original.get("derived_from") or [])
+    if findings and findings not in df:
+        df.append(findings)
+    fields["derived_from"] = df
+    return schema.make_row("CLOSE", ts=original["ts"], repo_root=repo_root, **fields)
+
+
+def correct(records_dir: str, repo_root: str = None, dry_run: bool = False,
+            findings: str = GATE_FINDINGS, emit_unchanged: bool = False) -> dict:
+    """Append a correction for every U-11 row whose measured axes have moved.
+
+    Idempotent by construction and in two independent ways: a row already named by a
+    `corrects` edge is skipped, and a row whose re-derivation AGREES with what is on the tape
+    produces no correction at all. Running this twice appends nothing the second time.
+
+    `emit_unchanged=True` corrects EVERY row, delta or not. It exists because G-U11's
+    discharge condition reads "emit `corrects:` correction rows for all 27 rows", and the
+    measured population is smaller than 27 — see the note below. It is OFF by default and the
+    default is the deliberate call, not an oversight:
+
+      The gate's own per-row claim ("under-reported on 27/27 rows") is a LANE-grain finding
+      stated at ROW grain. Re-derived per row from each row's own `derived_from`, the two
+      selectors disagree on SOME of the rows and agree byte-for-byte on the rest — the
+      agreeing ones are the sessions with no multi-block message (the four synthetic-probe
+      zero rows among them). Appending a `corrects:` row that restates identical values would
+      put an amendment on an append-only tape asserting a change that did not happen, and a
+      later reader counting corrections would over-count the defect's blast radius. The
+      recorder refuses to manufacture a measurement; it should equally refuse to manufacture
+      an AMENDMENT. Both populations are reported, so the ruling is re-derivable either way
+      and costs one flag.
+    """
+    repo_root = repo_root or schema.META_REPO_ROOT
+    rows = schema.read_tape(tape.tape_files(records_dir))
+    already = superseded_ids(rows)
+    report = {"examined": 0, "unchanged": [], "already_corrected": [], "corrected": [],
+              "deltas": {}, "rows": []}
+    for row in sorted(u11_rows(rows), key=lambda r: (r.get("unit_id"), r.get("ts"))):
+        if row["row_id"] in already:
+            report["already_corrected"].append(row["row_id"])
+            continue
+        report["examined"] += 1
+        measured = measured_axes(row)
+        delta = {k: (row.get(k), measured[k]) for k in CORRECTABLE_AXES
+                 if row.get(k) != measured[k]}
+        if not delta:
+            report["unchanged"].append(row["row_id"])
+            if not emit_unchanged:
+                continue
+        corr = build_correction_row(row, measured, repo_root=repo_root, findings=findings)
+        tape.append_row(corr, records_dir, dry_run=dry_run, repo_root=repo_root)
+        report["corrected"].append((row["unit_id"], row["row_id"], corr["row_id"]))
+        report["deltas"][row["row_id"]] = delta
+        report["rows"].append(corr)
+    return report
 
 
 def utc(epoch: float) -> str:

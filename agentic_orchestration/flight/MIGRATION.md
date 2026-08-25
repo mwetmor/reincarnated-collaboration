@@ -8,6 +8,130 @@ Append-only, like the tape. Newest revision first.
 
 ---
 
+## Revision 1.1a — U-11 GATE REPAIR — 2026-08-25 (RUN U11-BUILD, block B-2)
+
+**Still no schema change.** `SCHEMA_VERSION` 1, `SCHEMA_REVISION` "1.1", field set untouched,
+`row_min_revision` still "1.0" for every U-11 row. Corrections use the existing `corrects:`
+mechanics. This entry exists because **a published number moved by 163 %**, a fold-level
+CONTRACT was clarified, and two normative SCHEMA.md clauses now say something they did not.
+
+Discharges jack-ryan's G-U11 BLOCK ×3 + WARN-1/2/3/4 + INFO-5
+(`qa/findings/2026-08-25-u11-gate.md`), under conductor ruling R-8 (run ledger L-4).
+
+### 1 · `tokens_output` on the Claude lane was 62 % LOW. 16 correction rows are on the tape.
+
+The B-1 ingester deduped a message's transcript lines by `message.id` and kept the **first**.
+Anthropic writes `output_tokens` **progressively** — a placeholder on each non-terminal content
+block, the complete count only on the line carrying a non-null `stop_reason`. The three INPUT
+axes do repeat identically; output does not.
+
+| axis | shipped (B-1) | corrected (B-2) | moved? |
+|---|---|---|---|
+| `tokens_input` | 8,442,547,650 | 8,442,547,650 | **no — byte-exact** |
+| `tokens_cached_input` | 8,238,067,996 | 8,238,067,996 | **no — byte-exact** |
+| `tokens_cache_write` | 204,120,185 | 204,120,185 | **no — byte-exact** |
+| `tokens_output` | 19,327,247 | **50,878,369** | **+31,551,122 (+163 %)** |
+
+**Cache-hit 97.578 % is unchanged and was always correct**, so anything baselined on the cache
+criterion is unaffected. **Anything that quoted `19.3M`, or a cost/efficiency figure derived from
+it, is stale** — re-derive, do not adjust.
+
+**What to do as a reader:** nothing, if you fold corrections (you must — see § 2). The tape now
+carries **118 raw rows / 95 after supersession**; the U-11 population is still **27 current rows,
+one per session**. If you cached a raw row count, re-derive it.
+
+**16, not 27.** The gate's discharge condition read "emit correction rows for all 27". Re-derived
+per row from each row's own `derived_from`, **the two selectors disagree on 16 rows and agree
+byte-for-byte on 11** — the agreeing 11 are sessions with no multi-block message (the four
+synthetic-probe zero rows among them). The 62 % is a LANE-grain fact stated at row grain in the
+finding. A `corrects:` row restating identical values would assert an amendment that did not
+happen, on an append-only tape, and inflate any later count of the defect's blast radius. Both
+populations are reported by the pass, and `--correct-unchanged` emits all 27 if the conductor
+rules that way. **Flagged for jack-ryan at re-gate.**
+
+### 2 · CORRECTION-SUPERSESSION IS NOW FOLD-LEVEL LAW — `schema.fold` applies it (**R-8**)
+
+**This is the change most likely to affect you.** Before: supersession lived only in
+`tape.load()`. A consumer holding raw rows — `schema.read_tape` and `tape.audit` both hand you
+those — and folding them saw the **superseded original** as current. jack-ryan proved it live: a
+valid, accepted, on-tape correction was **invisible** to `unit_event` under both ts orderings
+while `correction_errors` returned `[]`.
+
+- `schema.fold(rows)` now calls `apply_corrections` **first**, by default.
+- New kwarg `fold(rows, corrections_applied=False)` — an assertion that the caller already
+  applied them, **not** a switch that turns the law off. Leaving it alone is always safe;
+  `apply_corrections` is idempotent, so `tape.load` → `fold` double-applies harmlessly.
+- Semantics are **identical to Glance's `applyCorrections`** (`glance/parser/fleet.mjs`), which
+  R-8 names the reference consumer: drop every `row_id` named by a `corrects` edge.
+  Latest-in-chain wins, chains included, with no ordering pass.
+- **Action for any Python consumer that folds raw rows: none — you inherit it.** Action for a
+  consumer that hand-rolled its own supersession: delete it and use `fold`.
+
+### 3 · Two normative SCHEMA.md clauses changed meaning
+
+- **§ 3 line 141 said the token fields are "copied verbatim from the vendor stream". That was
+  false as a general instruction** and is replaced by **new § 3.1**: the token fields are
+  **semantic axes**, `tokens_input` means *total input presented, cached portion included*, a
+  vendor reporting disjoint components sums them exactly, and fresh input is a derivation
+  (`tokens_input − tokens_cached_input − tokens_cache_write`). Ratified as **R-G-U11-1**.
+  **A third-lane emitter that followed the old wording on the Anthropic stream would publish a
+  cache-hit rate of several thousand percent.** Read § 3.1 before mapping any new vendor.
+- **§ 4 now DECLARES host-local absolute `derived_from`** (F-4). 27 rows name transcripts under
+  `~/.claude/projects/`, which live in no repo. They validated by accident of
+  `os.path.join(root, "/abs")`; the behaviour is now declared and pinned by a test.
+  **Consequence: those rows are NOT reproducible off this host**, and on them `repo` is
+  identity-only — it resolves nothing.
+
+### 4 · Render contract — `flight_report` exports, and `board.py`'s duplicate is DELETED
+
+The Tier-2 board kept its **own copy** of the SEALED-table and scorecard arithmetic, under a
+comment naming the convergence point as *"star-lord exposing them as functions"*. Both copies
+carried the same defect. That convergence has happened.
+
+| new export | contract |
+|---|---|
+| `axis(closes, field)` | `(total, n_present, n_total)` for one **optional** numeric axis. Absence is COUNTED, never summed as zero |
+| `axis_cell(total, n_present, n_total, fmt=human_n, noun="units")` | renders one axis; **an axis nothing carried never renders a numeral** — returns `— null on N/N units` |
+| `share_cell(num, n_num, den, n_den)` | a rate; renders `—` over a missing denominator and tags mixed ones |
+| `ratio_cell(...)` | quotients whose two sides have different populations (WARN-4: `tok-in/artifact`) |
+| `close_rows(units)` · `sealed_by_workstream(rows, sealed)` · `model_scorecard(sealed)` | **the one home** for both tables' arithmetic. Returns per-axis coverage (`n_in`, `n_cache`, `n_cw`, `n_out`, `n_reason`, `n_artifact_rows`, `n_started`) alongside the totals |
+
+- `n_tok` is retained under its old name and still means *"how many units carry `tokens_input`"*
+  — **which is precisely the confusion BLOCK-3 was**: it was being used to gate OTHER axes.
+  **If you gate a token cell, gate it on that axis's own `n_*`.**
+- `sealed_by_workstream(...)["span"]` **may now be `None`** (no START→CLOSE pair). It was
+  previously computed unconditionally. Guard it.
+- Both tables gained a **`reasoning`** column, and every token cell now names its denominator.
+- `board.NULL(label)` no longer doubles a leading em-dash, so `axis_cell` output flows through it.
+
+### 5 · Behaviour changes inside the ingester
+
+- `claude_usage.aggregate_session` selects the **terminal** usage payload per message
+  (`stop_reason` non-null, falling back to last-seen). New key `progressive_messages` reports how
+  many messages disagreed with themselves.
+- New: `claude_usage.correct(records_dir, ...)` and `bin/ingest_claude_usage --correct`
+  (`--correct-unchanged`, `--dry-run`, `--json`). **Append-only, idempotent twice over**: a row
+  already named by a `corrects` edge is skipped, and a row whose re-derivation agrees produces
+  nothing.
+- New helpers: `u11_rows`, `superseded_ids`, `files_for_row`, `measured_axes`,
+  `build_correction_row`, `terminal_rank`.
+- The module docstring's stale literal is corrected (WARN-3): **42,595 repeated lines of 92,185
+  usage-bearing lines (46.2 %)**, denominators named, re-derived — not `51,842 / "roughly a
+  third"`.
+
+### 6 · What did NOT change
+
+- **Schema v1.1 is UNAMENDED.** No field, no enum value, no validation rule.
+- **No row was edited or deleted.** `check_append_only`: 16 appended, 0 deleted or modified.
+- The Claude lane's **cache-hit criterion (T3)** and every input/cache figure. Untouched, and
+  verified byte-exact under the new selector before the correction was written.
+- Attribution (R-3) — still honest-null on 27/27. F-5 remains a governance candidate.
+
+**Suite:** 130 passed (flight) + 18 passed (factory board). Whole-tape validator CLEAN (118 rows),
+`correction_errors` `[]`, `retrospection_audit` 0 violations, `check_append_only` 16/0.
+
+---
+
 ## Revision 1.1 — U-11 CLAUDE-LANE INGESTER — 2026-08-25 (RUN U11-BUILD, block B-1)
 
 **No schema change. `SCHEMA_VERSION` 1, `SCHEMA_REVISION` "1.1", both untouched** — no field

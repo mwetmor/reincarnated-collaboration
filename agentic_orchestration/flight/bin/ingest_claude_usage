@@ -3,6 +3,13 @@
 
     agentic_orchestration/flight/bin/ingest_claude_usage --dry-run     # show, write nothing
     agentic_orchestration/flight/bin/ingest_claude_usage               # append
+    agentic_orchestration/flight/bin/ingest_claude_usage --correct     # amend existing rows
+
+`--correct` re-derives every U-11 row already on the tape from the sources that row itself
+names, and appends a `corrects:` row wherever a measured axis has moved. It NEVER edits a row:
+the tape is append-only and a correction is the schema's only amendment path. It is idempotent
+in two independent ways — a row already named by a `corrects` edge is skipped, and a row whose
+re-derivation agrees with the tape produces nothing.
 
 Read-only against `~/.claude/projects/**` — this program opens transcripts for READING and
 nothing else. It writes exactly one thing: appended rows, through `tape.append_row`, which is
@@ -42,6 +49,45 @@ def human(n):
     return str(n)
 
 
+def run_correction(args) -> int:
+    """The `--correct` pass (G-U11 BLOCK-1 discharge). Appends only; never edits."""
+    try:
+        rep = claude_usage.correct(records_dir=args.records_dir, repo_root=args.repo_root,
+                                   dry_run=args.dry_run,
+                                   emit_unchanged=args.correct_unchanged)
+    except (claude_usage.IngestError, schema.SchemaError) as exc:
+        sys.stderr.write("ingest_claude_usage --correct: HALT — %s\n" % exc)
+        return 1
+
+    if args.json:
+        print(json.dumps(rep, indent=2, default=str))
+        return 0
+
+    mode = "DRY-RUN (nothing written)" if args.dry_run else "APPENDED"
+    print("ingest_claude_usage --correct — %s · examined %d U-11 row(s) · %s %d correction(s)"
+          % (claude_usage.utc(time.time()), rep["examined"], mode, len(rep["corrected"])))
+    print("")
+    print("| session | corrects | axis | on tape | re-derived | delta |")
+    print("|---|---|---|---|---|---|")
+    before = after = 0
+    for unit_id, orig_id, _new_id in rep["corrected"]:
+        for ax, (was, now) in sorted(rep["deltas"][orig_id].items()):
+            print("| %s | %s | %s | %s | %s | %+d |"
+                  % (unit_id[len(claude_usage.UNIT_PREFIX):][:8], orig_id, ax,
+                     human(was or 0), human(now), (now - (was or 0))))
+            if ax == "tokens_output":
+                before += was or 0
+                after += now
+    print("")
+    print("tokens_output across the corrected rows: %s -> %s (%+d)"
+          % (human(before), human(after), after - before))
+    print("rows whose re-derivation AGREED with the tape (no correction emitted%s): %d"
+          % (" — overridden by --correct-unchanged" if args.correct_unchanged else "",
+             len(rep["unchanged"])))
+    print("rows already named by a `corrects` edge (skipped): %d" % len(rep["already_corrected"]))
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="ingest_claude_usage", description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -59,7 +105,17 @@ def main(argv=None) -> int:
     ap.add_argument("--dry-run", action="store_true",
                     help="build + validate every row, write none")
     ap.add_argument("--json", action="store_true", help="machine-readable summary on stdout")
+    ap.add_argument("--correct", action="store_true",
+                    help="re-derive the U-11 rows already on the tape and append a `corrects:` "
+                         "row wherever a measured axis has moved (G-U11 BLOCK-1)")
+    ap.add_argument("--correct-unchanged", action="store_true",
+                    help="with --correct: also emit a correction for rows whose re-derivation "
+                         "AGREES with the tape (default: no — an amendment that changes "
+                         "nothing is an amendment that did not happen)")
     args = ap.parse_args(argv)
+
+    if args.correct:
+        return run_correction(args)
 
     now_epoch = time.time()
     if args.now:

@@ -78,6 +78,12 @@ def load(records_dir: str, apply_corrections: bool = True):
 
     `raw_count` is the honest on-disk row count (corrections included); `rows` is the
     fold-eligible set after superseded rows are dropped from the VIEW (never from disk).
+
+    This is NOT the only place supersession happens, and after R-8 it is no longer the
+    load-bearing one: `schema.fold` applies it too, so a consumer that reads raw rows and
+    folds them still gets the tape contract. Applying it here as well is harmless
+    (`apply_corrections` is idempotent) and it matters for the callers who use `rows`
+    DIRECTLY without folding — the report scans CURATION rows that way.
     """
     files = tape_files(records_dir)
     rows = schema.read_tape(files)

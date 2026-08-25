@@ -718,6 +718,153 @@ def staleness(age_s, lane, med_n):
     return GREEN, "amber@2×med (med %s, n=%d)" % (fmt_age(med), n)
 
 
+# ------------------------------------------------- optional-axis aggregation (G-U11 BLOCK-3)
+#
+# `sum(c.get("tokens_reasoning") or 0 for c in closes)` MANUFACTURES A MEASURED ZERO out of an
+# absence, and the board published one: `reasoning | 0` for a lane whose 27/27 rows carry no
+# reasoning axis at all, two rows above a `154K` that is a real measurement. Discipline #74,
+# verbatim: *absence of a measurement never renders as a measured negative.*
+#
+# The defect is a TEMPLATE, not a site — `or 0` inside a sum over an OPTIONAL field appears on
+# every token axis in both tables. So the sum and the cell are single functions, here, and no
+# caller is allowed to write the pattern again: `axis` refuses to fold absence into the total
+# and reports the covered population beside it, and `axis_cell` refuses to print a numeral for
+# an axis nothing carried.
+#
+# These are also the ONE HOME for the two tables' arithmetic. `factory/ui/board.py` used to
+# re-express the same formulas over the same primitives, with a comment naming the convergence
+# point as "star-lord exposing them as functions" — this is that. The board now imports
+# `sealed_by_workstream` / `model_scorecard` instead of keeping a second copy, so a fix here
+# cannot land on one surface and miss the other.
+
+def axis(closes, field):
+    """`(total, n_present, n_total)` for ONE optional numeric axis over a group of CLOSEs.
+
+    Absence is COUNTED, never summed as zero. The n_present figure is the whole point: it is
+    what lets a cell say "over 8 of 29 units" instead of quietly presenting a partial sum as
+    a total (INFO-4, the mixed-denominator defect).
+    """
+    vals = [c.get(field) for c in closes if c is not None]
+    present = [v for v in vals if v is not None]
+    return sum(present), len(present), len(vals)
+
+
+def axis_cell(total, n_present, n_total, fmt=human_n, noun="units"):
+    """Render one optional axis. An axis nothing carried NEVER renders as a numeral.
+
+    The null vocabulary is the renderer's existing one (`— null on N/N units`) — it was
+    already in use one cell to the left of the false zero; it simply was not applied.
+    """
+    if not n_present:
+        return "— null on %d/%d %s" % (n_total, n_total, noun)
+    return "%s (%d/%d %s)" % (fmt(total), n_present, n_total, noun)
+
+
+def share_cell(num, n_num, den, n_den, noun="units"):
+    """A RATE needs its whole. Renders `—` rather than a ratio over a missing denominator."""
+    if not n_den or not den:
+        return "— no denominator (%d %s carry it)" % (n_den, noun)
+    txt = "%.1f%% of %s" % (100.0 * num / den, human_n(den))
+    if n_num != n_den:
+        txt += " ⚠ mixed denominators (%d vs %d %s)" % (n_num, n_den, noun)
+    return txt
+
+
+def ratio_cell(num, n_num, den_count, n_den_rows, n_total, noun="units"):
+    """`tok-in per artifact` and friends: a quotient whose two sides have DIFFERENT populations.
+
+    WARN-4, routed with BLOCK-3 by the gate because it is the same cell class: the board
+    published `tok-in/artifact 1055.3M` over 8 artifacts drawn from a different subset of
+    units than the token total. It is a partial denominator rather than a false measurement,
+    so it is NAMED rather than suppressed.
+    """
+    if not n_num or not den_count:
+        return "— (%d/%d %s carry an artifact list)" % (n_den_rows, n_total, noun)
+    txt = human_n(int(num / den_count))
+    txt += " (%d tok-bearing / %d artifact(s) on %d/%d %s)" % (n_num, den_count,
+                                                               n_den_rows, n_total, noun)
+    return txt
+
+
+def close_rows(units):
+    """The one CLOSE per unit that the two rollups aggregate. Corrections already folded."""
+    return [c for c in (unit_event(u, "CLOSE") for u in units) if c is not None]
+
+
+def sealed_by_workstream(rows, sealed):
+    """SEALED units grouped by workstream, with EVERY optional axis carrying its coverage.
+
+    Returns plain dicts so a markdown renderer and an HTML renderer can share the arithmetic
+    without sharing an escaping convention. Nothing here is stored.
+    """
+    groups = {}
+    for u in sealed:
+        groups.setdefault(unit_identity(u).get("workstream") or "(no workstream)", []).append(u)
+    out = []
+    for ws, us in sorted(groups.items()):
+        closes = close_rows(us)
+        n = len(us)
+        rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+        vcount = {}
+        for c in closes:
+            if c.get("verdict"):
+                vcount[c["verdict"]] = vcount.get(c["verdict"], 0) + 1
+        cur_rows = [r for r in rows if r["event"] == "CURATION" and r.get("workstream") == ws]
+        tin, n_in, _ = axis(closes, "tokens_input")
+        tcache, n_cache, _ = axis(closes, "tokens_cached_input")
+        tcw, n_cw, _ = axis(closes, "tokens_cache_write")
+        tout, n_out, _ = axis(closes, "tokens_output")
+        treason, n_reason, _ = axis(closes, "tokens_reasoning")
+        usd_rows = [c for c in closes if c.get("cost_usd") is not None]
+        n_started = len([u for u in us if unit_event(u, "START")])
+        firsts = [parse_ts(u["rows"][0]["ts"]) for u in us]
+        lasts = [parse_ts(c["ts"]) for c in closes]
+        out.append(dict(
+            ws=ws, n=n, rcs=rcs, verdicts=vcount,
+            curation_rows=len(cur_rows),
+            warns=sum(r.get("warn_count") or 0 for r in cur_rows),
+            tin=tin, tcache=tcache, tcw=tcw, tout=tout, treason=treason,
+            n_in=n_in, n_cache=n_cache, n_cw=n_cw, n_out=n_out, n_reason=n_reason,
+            # `n_tok` is retained under its old name for callers that predate the per-axis
+            # counts. It means, and always meant, "how many units carry tokens_input" — which
+            # is exactly the confusion BLOCK-3 was: it was being used to gate OTHER axes.
+            n_tok=n_in,
+            usd=sum(c["cost_usd"] for c in usd_rows), n_usd=len(usd_rows),
+            currencies=sorted({c.get("currency") for c in closes if c.get("currency")}),
+            n_started=n_started,
+            span=((max(lasts) - min(firsts)).total_seconds() if lasts and firsts else None)))
+    return out
+
+
+def model_scorecard(sealed):
+    """One row per (provider, pin), with per-axis coverage. Derived at render time, stored nowhere."""
+    groups = {}
+    for u in sealed:
+        ident = unit_identity(u)
+        groups.setdefault((ident.get("provider") or "—",
+                           ident.get("pin") or "(no pin recorded)"), []).append(u)
+    out = []
+    for (prov, pin), us in sorted(groups.items()):
+        closes = close_rows(us)
+        rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+        tin, n_in, _ = axis(closes, "tokens_input")
+        tcache, n_cache, _ = axis(closes, "tokens_cached_input")
+        tout, n_out, _ = axis(closes, "tokens_output")
+        treason, n_reason, _ = axis(closes, "tokens_reasoning")
+        usd_rows = [c for c in closes if c.get("cost_usd") is not None]
+        art_rows = [c for c in closes if c.get("artifacts") is not None]
+        out.append(dict(
+            provider=prov, pin=pin, n=len(us), rcs=rcs,
+            tin=tin, tcache=tcache, tout=tout, treason=treason,
+            n_in=n_in, n_cache=n_cache, n_out=n_out, n_reason=n_reason,
+            have_tokens=bool(n_in),
+            artifacts=sum(len(c.get("artifacts") or []) for c in art_rows),
+            n_artifact_rows=len(art_rows),
+            durs=[d for d in (unit_duration(u) for u in us) if d is not None],
+            usd=sum(c["cost_usd"] for c in usd_rows), n_usd=len(usd_rows)))
+    return out
+
+
 # ---------------------------------------------------------------- the renderer
 def render(records_dir, repo_root, now, run_probes=True):
     rows, raw_count = tapemod.load(records_dir)
@@ -1004,10 +1151,21 @@ def render(records_dir, repo_root, now, run_probes=True):
                     if (unit_identity(u).get("lane") or "").startswith("claude-")]
     A("### claude lanes (summarised — `claude-agent` · `claude-subagent`)")
     A("")
+    claude_closes = close_rows(claude_units)
+    ctin, c_n_in, c_n = axis(claude_closes, "tokens_input")
+    ctout, c_n_out, _ = axis(claude_closes, "tokens_output")
     A("- %d unit(s) on tape. **No lane instrument to probe:** an interactive Claude Code session "
       "takes no flock, writes no run-log, and exposes no CLI status verb, so state here is "
-      "TAPE-DERIVED ONLY (fold-of-events) and liveness is not answerable at all. Token cells stay "
-      "null by F-7 — a null is a fact." % len(claude_units))
+      "TAPE-DERIVED ONLY (fold-of-events) and liveness is not answerable at all."
+      % len(claude_units))
+    # INFO-5: this card used to assert "token cells stay null by F-7 — a null is a fact"
+    # DIRECTLY ABOVE a table publishing billions of Claude tokens. U-11 read the transcripts
+    # and F-7 stopped being true; the copy is now DERIVED from the same rows the table sums,
+    # so it cannot go stale again while the tape changes underneath it.
+    A("- tokens: %s in · %s out, from the session transcripts U-11 folded onto the tape "
+      "(`claude_usage.py`). F-7's null is retired for the units that carry these axes; the "
+      "units that do not are still counted, not zero-filled."
+      % (axis_cell(ctin, c_n_in, c_n), axis_cell(ctout, c_n_out, c_n)))
     A("")
 
     # ---- lane 4: HEALTH
@@ -1116,62 +1274,41 @@ def render(records_dir, repo_root, now, run_probes=True):
     membership["SEALED"] = [u["latest"]["unit_id"] for u in sealed]
     A("## ✓ SEALED — %d unit(s) on the tape" % len(sealed))
     A("")
-    ws_groups = {}
-    for u in sealed:
-        ws_groups.setdefault(unit_identity(u).get("workstream") or "(no workstream)", []).append(u)
+    ws_groups = sealed_by_workstream(rows, sealed)
     if ws_groups:
         A("Every cell names its denominator (INFO-4). `rc` is a mechanical exit code; a "
-          "**verdict** appears only where a named gatekeeper filed one (B-2).")
+          "**verdict** appears only where a named gatekeeper filed one (B-2). Each token axis "
+          "is asked SEPARATELY whether anything measured it (G-U11 BLOCK-3): a `—` here means "
+          "no CLOSE in the group carries that axis, which is not the same fact as zero.")
         A("")
         A("| workstream | units | rc | judged verdicts | curation | tok-in | cache | tok-out | reasoning | cost (vendor-reported) | currency | first-start→last-close |")
         A("|---|---|---|---|---|---|---|---|---|---|---|---|")
-        for ws, us in sorted(ws_groups.items()):
-            closes = [unit_event(u, "CLOSE") for u in us]
-            n = len(us)
-            rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+        for g in ws_groups:
+            n, rcs = g["n"], g["rcs"]
             rc_cell = ("%d/%d rc=0" % (len([r for r in rcs if r == 0]), len(rcs))
                        if rcs else "— no rc on %d/%d units" % (n, n))
-            vcount = {}
-            for c in closes:
-                if c.get("verdict"):
-                    vcount[c["verdict"]] = vcount.get(c["verdict"], 0) + 1
-            judged = (" · ".join("%d %s" % (k, v) for v, k in sorted(vcount.items(),
+            judged = (" · ".join("%d %s" % (k, v) for v, k in sorted(g["verdicts"].items(),
                                                                     key=lambda kv: -kv[1]))
-                      if vcount else "0/%d judged (verdict null — no gatekeeper at this grain)" % n)
-            cur_rows = [r for r in rows if r["event"] == "CURATION" and r.get("workstream") == ws]
-            warns = sum(r.get("warn_count") or 0 for r in cur_rows)
-            cur_cell = ("%d WARN across %d curation row(s)" % (warns, len(cur_rows))
-                        if cur_rows else "no curation row")
-            tin = sum(c.get("tokens_input") or 0 for c in closes)
-            tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
-            tout = sum(c.get("tokens_output") or 0 for c in closes)
-            treason = sum(c.get("tokens_reasoning") or 0 for c in closes)
-            n_tok = len([c for c in closes if c.get("tokens_input") is not None])
+                      if g["verdicts"]
+                      else "0/%d judged (verdict null — no gatekeeper at this grain)" % n)
+            cur_cell = ("%d WARN across %d curation row(s)" % (g["warns"], g["curation_rows"])
+                        if g["curation_rows"] else "no curation row")
             # AM-1: `cost_usd` is a vendor-REPORTED primitive. It is summed, never synthesised —
             # and the cell names how many units actually reported one, because a total over a
             # partial population is the mixed-denominator defect (INFO-4) wearing a dollar sign.
-            costed = [c.get("cost_usd") for c in closes if c.get("cost_usd") is not None]
-            cost_cell = ("$%.5f (%d/%d units report one)" % (sum(costed), len(costed), n)
-                         if costed else "— (0/%d units report one — this vendor's stream carries "
-                                        "no dollar figure)" % n)
-            n_started = len([u for u in us if unit_event(u, "START")])
-            if n_started:
-                firsts, lasts = [], []
-                for u in us:
-                    firsts.append(parse_ts(u["rows"][0]["ts"]))
-                    lasts.append(parse_ts(unit_event(u, "CLOSE")["ts"]))
-                span = fmt_span((max(lasts) - min(firsts)).total_seconds())
-            else:
-                span = "— (no START row on %d/%d units; a span would be 0 by construction)" % (n, n)
-            currencies = sorted({c.get("currency") for c in closes if c.get("currency")})
+            cost_cell = ("$%.5f (%d/%d units report one)" % (g["usd"], g["n_usd"], n)
+                         if g["n_usd"] else "— (0/%d units report one — this vendor's stream "
+                                            "carries no dollar figure)" % n)
+            span = (fmt_span(g["span"]) if g["n_started"] and g["span"] is not None
+                    else "— (no START row on %d/%d units; a span would be 0 by construction)"
+                         % (n, n))
             A("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"
-              % (ws, n, rc_cell, judged, cur_cell,
-                 "%s (%d/%d units)" % (human_n(tin), n_tok, n) if n_tok
-                 else "— null on %d/%d units" % (n, n),
-                 ("%.1f%% of %s" % (100.0 * tcache / tin, human_n(tin))) if n_tok and tin else "—",
-                 human_n(tout) if n_tok else "—",
-                 human_n(treason) if n_tok else "—",
-                 cost_cell, "/".join(currencies) or "—", span))
+              % (g["ws"], n, rc_cell, judged, cur_cell,
+                 axis_cell(g["tin"], g["n_in"], n),
+                 share_cell(g["tcache"], g["n_cache"], g["tin"], g["n_in"]),
+                 axis_cell(g["tout"], g["n_out"], n),
+                 axis_cell(g["treason"], g["n_reason"], n),
+                 cost_cell, "/".join(g["currencies"]) or "—", span))
         A("")
         A("_`first-start→last-close` is a RUN DURATION, not `enqueue→seal` (INFO-3): the "
           "founding corpus records no ENQUEUE events, so enqueue→seal is not derivable for it._")
@@ -1181,36 +1318,27 @@ def render(records_dir, repo_root, now, run_probes=True):
 
     A("### Per-model scorecard — derived at render time from CLOSE rows (never stored)")
     A("")
-    groups = {}
-    for u in sealed:
-        ident = unit_identity(u)
-        key = (ident.get("provider") or "—", ident.get("pin") or "(no pin recorded)")
-        groups.setdefault(key, []).append(u)
+    groups = model_scorecard(sealed)
     if groups:
-        A("| provider / pin | units | first-pass rc=0 | tok-in | cache | tok-out | cost | tok-in/artifact | med wall |")
-        A("|---|---|---|---|---|---|---|---|---|")
-        for (prov, pin), us in sorted(groups.items()):
-            closes = [unit_event(u, "CLOSE") for u in us]
-            have_tokens = any(c.get("tokens_input") is not None for c in closes)
-            costed = [c.get("cost_usd") for c in closes if c.get("cost_usd") is not None]
-            tin = sum(c.get("tokens_input") or 0 for c in closes)
-            tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
-            tout = sum(c.get("tokens_output") or 0 for c in closes)
-            rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
+        A("| provider / pin | units | first-pass rc=0 | tok-in | cache | tok-out | reasoning | cost | tok-in/artifact | med wall |")
+        A("|---|---|---|---|---|---|---|---|---|---|")
+        for g in groups:
+            n, rcs = g["n"], g["rcs"]
             firstpass = ("%.0f%% (%d/%d rc=0)"
                          % (100.0 * len([r for r in rcs if r == 0]) / len(rcs),
                             len([r for r in rcs if r == 0]), len(rcs))) if rcs else "— (no rc)"
-            arts = sum(len(c.get("artifacts") or []) for c in closes)
-            durs = [d for d in (unit_duration(u) for u in us) if d is not None]
-            A("| %s / %s | %d | %s | %s | %s | %s | %s | %s | %s |"
-              % (prov, pin, len(us), firstpass,
-                 human_n(tin) if have_tokens else "— (null, declared)",
-                 ("%.1f%%" % (100.0 * tcache / tin)) if have_tokens and tin else "—",
-                 human_n(tout) if have_tokens else "—",
-                 ("$%.5f (%d/%d)" % (sum(costed), len(costed), len(us))) if costed
-                 else "— (%d/%d report one)" % (0, len(us)),
-                 human_n(int(tin / arts)) if have_tokens and arts else "—",
-                 fmt_age(median(durs)) if durs else "—"))
+            A("| %s / %s | %d | %s | %s | %s | %s | %s | %s | %s | %s |"
+              % (g["provider"], g["pin"], n, firstpass,
+                 axis_cell(g["tin"], g["n_in"], n),
+                 share_cell(g["tcache"], g["n_cache"], g["tin"], g["n_in"]),
+                 axis_cell(g["tout"], g["n_out"], n),
+                 axis_cell(g["treason"], g["n_reason"], n),
+                 ("$%.5f (%d/%d)" % (g["usd"], g["n_usd"], n)) if g["n_usd"]
+                 else "— (0/%d report one)" % n,
+                 ratio_cell(g["tin"], g["n_in"], g["artifacts"], g["n_artifact_rows"], n),
+                 ("%s (median over %d/%d units with a START→CLOSE pair)"
+                  % (fmt_age(median(g["durs"])), len(g["durs"]), n)) if g["durs"]
+                 else "— (no START→CLOSE pair on %d/%d units)" % (n, n)))
         A("")
         A("_WARN / fabrication-check columns are omitted rather than zero-filled: in schema v1 a "
           "CURATION row binds to a `unit_id`, so a per-model WARN rate is only derivable when the "

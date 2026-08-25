@@ -559,19 +559,43 @@ def correction_errors(rows) -> list:
 
 
 def apply_corrections(rows):
-    """Drop rows superseded by a later row carrying `corrects`. Disk is untouched."""
+    """Drop rows superseded by a later row carrying `corrects`. Disk is untouched.
+
+    Set-drop, deliberately, and IDENTICAL to the Glance parser's `applyCorrections`
+    (`glance/parser/fleet.mjs`) line for line — that consumer is the reference semantics, and
+    two spellings of one supersession rule is the WARN-2 divergence class from G-2b. Chains
+    fall out of it for free: with A corrected by B and B corrected by C, both A and B are
+    named by a `corrects` edge and only C survives, so LATEST-IN-CHAIN WINS without an
+    ordering pass. Idempotent — running it over an already-folded list is a no-op.
+    """
     corrected = {r["corrects"] for r in rows if r.get("corrects")}
     return [r for r in rows if r.get("row_id") not in corrected]
 
 
-def fold(rows):
+def fold(rows, corrections_applied: bool = False):
     """Group rows by unit_id. State is DERIVED, never stored.
 
       SEALED    — a terminal event is present
       IN-FLIGHT — START seen, no terminal event
       QUEUED    — ENQUEUE seen, no START
       OPEN      — anything else (a bare GATE/HALT on a unit never started under the recorder)
+
+    CORRECTION-SUPERSESSION IS FOLD-LEVEL LAW (R-8, RUN U11-BUILD L-4, on jack-ryan's G-U11
+    BLOCK-2 escalate). Superseded rows are dropped HERE, before any grouping, so that every
+    consumer that reaches `fold` inherits the tape contract whether or not it came through
+    `tape.load`. Before this, supersession lived only in `tape.load`, and a consumer holding
+    raw rows — which is a legal thing to hold; `read_tape` and `audit` both produce them —
+    folded a superseded row as if it were current. jack-ryan proved that live: an original
+    CLOSE and its valid correction, run through the real `fold` and the real `unit_event`,
+    rendered the ORIGINAL under both ts orderings while `correction_errors` returned `[]`.
+    The correction was valid, accepted, on-tape and invisible.
+
+    `corrections_applied=True` is for a caller that has already applied them and wants to say
+    so; it is an assertion of fact, not a switch that turns the law off. Leaving it False is
+    always safe because `apply_corrections` is idempotent.
     """
+    if not corrections_applied:
+        rows = apply_corrections(rows)
     units = {}
     for r in rows:
         uid = r.get("unit_id")

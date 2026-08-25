@@ -138,12 +138,39 @@ before the freeze, for that reason and no other.
 | `currency` | enum: `anthropic-max · chatgpt-sub · api-metered · grok-sub` (**AM-1 1.1-b**) |
 | `verdict` | `PASS · PASS-WITH-FINDINGS · BLOCK · REFUSAL · HALT · FALLBACK-TAKEN · FAILED · SKIP` |
 | `curator` | **B-6** (U-4 R-B). REQUIRED non-null on `ENQUEUE` when `lane` ∈ {`codex-serial`, `grok-serial`, `cross-vendor-judge`}. *A job whose curator field is empty is a refusal to fire.* |
-| `tokens_input · tokens_cached_input · tokens_cache_write · tokens_output · tokens_reasoning` | copied verbatim from the vendor stream (Codex `turn.completed.usage` maps 1:1). Reasoning is a **share of output**, never a fifth addend |
+| `tokens_input · tokens_cached_input · tokens_cache_write · tokens_output · tokens_reasoning` | **SEMANTIC AXES, not vendor field names** — see **§ 3.1** below before mapping a new lane. Reasoning is a **share of output**, never a fifth addend |
 | `cost_usd` | **AM-1 1.1-c.** CLOSE-only, optional, non-negative number. The **vendor's own reported** dollar cost, copied verbatim (Grok emits `costUSD` per call; Codex's stream reports none, so the field is simply absent on that lane). A **reported primitive**, not a derivation — it is measured by the vendor and transcribed, exactly like a token count, and it owes a `derived_from` for the same reason. **Never computed here** from tokens × a price list: a computed cost is a derivation wearing a primitive's clothes, and the derived-not-stored rule would catch it one release later, wrong |
 | `artifacts` | `[{path, bytes}]` — bytes MEASURED from disk or copied from the harness's own measurement; paths validated to exist |
 | `derived_from` | **B-5.** A **LIST** of artifact paths. `path#anchor` is legal (`workflow-upgrades.md#§ U-4`); the anchor is stripped for the disk check |
 | `meter_raw` | object, in the meter's **own** vocabulary, unnormalized |
-| `seam` / `repo` | **two separate fields** (INFO-5). `seam` = the seam touched; `repo` = the repo, and also the root that `artifacts[].path` and `derived_from` resolve against |
+| `seam` / `repo` | **two separate fields** (INFO-5). `seam` = the seam touched; `repo` = the repo, and also the root that `artifacts[].path` and `derived_from` resolve against — **except where `derived_from` is absolute, in which case `repo` is IDENTITY-ONLY and resolves nothing. See § 4, host-local sources.** |
+
+### 3.1 · The token axes are SEMANTIC (ruling **R-G-U11-1**, jack-ryan, 2026-08-25)
+
+This clause replaces "copied verbatim from the vendor stream", which was true of the founding
+Codex corpus and **false as a general instruction**. A third-lane emitter that followed it on the
+Anthropic stream would render a cache-hit rate of several thousand percent — a number wrong in
+precisely the way this recorder exists to prevent.
+
+- **`tokens_input` is TOTAL INPUT PRESENTED to the model, cached portion INCLUDED.** It is a
+  semantic axis, not a field name.
+  - A vendor reporting the whole directly is **copied 1:1** (Codex: `input_tokens`, with
+    `cached_input_tokens` reported as a **subset** of it — 750,336 of 845,782 on one measured turn).
+  - A vendor reporting it as **disjoint components sums them exactly** (Anthropic:
+    `input_tokens + cache_creation_input_tokens + cache_read_input_tokens`). The sum is **exact,
+    not an estimate** — every addend is a vendor-reported integer and nothing is scaled.
+- **Fresh input is a DERIVATION, never a stored axis:**
+  `tokens_input − tokens_cached_input − tokens_cache_write`.
+- **Why it must be the whole:** every cache cell the board renders is
+  `tokens_cached_input / tokens_input`. That expression is a **rate** only if the denominator is
+  the whole. A denominator holding fresh-input alone makes the heading a lie.
+- **A vendor may write ONE axis PROGRESSIVELY across several stream records** (Anthropic writes
+  `output_tokens` per content block: a placeholder on the non-terminal lines, the complete count
+  only on the line carrying a non-null `stop_reason`). **Take the message's TERMINAL payload, and
+  prove which one it is against the substrate rather than assuming.** Measured on the Claude lane:
+  46 % of messages disagree across their own lines, and a first-line selector under-reported the
+  lane's output by 62 % (G-U11 BLOCK-1). Whichever selector a lane needs, **verify that the axes
+  you are NOT correcting reproduce byte-exact under it.**
 
 ## 4 · Sourcing rules (amendment **B-5**)
 
@@ -167,6 +194,17 @@ before the freeze, for that reason and no other.
   unsourced claim about the past.
 - **Paths are repo-root-relative** within the repo named by `repo` (default
   `reincarnated-collaboration`; sibling repos resolve under `~/Games/<repo>`).
+- **HOST-LOCAL ABSOLUTE SOURCES are legal, and they are a different kind of row** (F-4, WARN-2 at
+  G-U11). A `derived_from` entry beginning with `/` is taken **as-is**; `repo` is not joined to
+  it. This is not an accident of `os.path.join` — it is declared here, and pinned by a test.
+  - The case it exists for: **the U-11 Claude-lane rows**, whose sources are session transcripts
+    under `~/.claude/projects/`. Those files **live in no repo**, so no repo-relative path can
+    name them.
+  - **Consequence for consumers, stated loudly: such a row is NOT REPRODUCIBLE OFF ITS HOST.** Its
+    numbers are re-derivable only where those transcripts exist. A consumer re-deriving a row on
+    another machine will find the source missing — that is the honest outcome, not corruption.
+  - **On these rows `repo` is IDENTITY-ONLY** — it names the session's launch repo, and resolves
+    nothing. One field, two meanings, and which one applies is decided by the path, not the row.
 
 ## 5 · Closed field set (amendment **B-4**)
 

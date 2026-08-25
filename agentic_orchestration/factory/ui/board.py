@@ -87,8 +87,15 @@ def E(s):
 
 
 def NULL(label="null"):
-    """A declared null. Never a zero, never an empty cell."""
-    return '<span class="null">— %s</span>' % E(label)
+    """A declared null. Never a zero, never an empty cell.
+
+    The em-dash is supplied here, so a label that already carries one is not doubled —
+    `flight_report.axis_cell` returns cells like `— null on 27/27 units` and those flow
+    straight through.
+    """
+    label = str(label)
+    body = label[1:].strip() if label.startswith("—") else label
+    return '<span class="null">— %s</span>' % E(body)
 
 
 CSS = """
@@ -151,71 +158,22 @@ white-space:pre-wrap;font-size:12px}
 
 
 # ---------------------------------------------------------------- rollups
-# The formulas below are the SAME ones `flight_report` renders in its SEALED table and
-# per-model scorecard, expressed over the same imported primitives (`unit_event`,
-# `unit_identity`, `unit_duration`, `human_n`, `fmt_span`, `median`). They are re-expressed
-# rather than imported because star-lord computes them inline inside `render()`; the
-# CONVERGENCE POINT is his exposing them as functions, at which point these three
-# helpers delete. Any divergence is a render bug and shows up as a number that disagrees
-# with `flight/report.md` for the same tape — which is the check galadriel can run.
+# CONVERGED (G-U11 BLOCK-3, 2026-08-25). These two helpers USED to re-express `flight_report`'s
+# SEALED-table and scorecard arithmetic, under a comment naming the convergence point as
+# "star-lord exposing them as functions". He has: `fr.sealed_by_workstream` and
+# `fr.model_scorecard` are now the ONE HOME for both surfaces, and these are one-line
+# forwarders kept only so this module's call sites read as before.
+#
+# The convergence is not cosmetic. Both copies carried the SAME defect — a token axis gated on
+# whether a DIFFERENT axis was present, so an unmeasured axis rendered as a measured zero — and
+# a fix landing on one surface would silently have missed the other. One derivation, two
+# renderers; the only thing each renderer still owns is its escaping.
 def sealed_by_workstream(fr, rows, sealed):
-    out = []
-    groups = {}
-    for u in sealed:
-        groups.setdefault(fr.unit_identity(u).get("workstream") or "(no workstream)",
-                          []).append(u)
-    for ws, us in sorted(groups.items()):
-        closes = [fr.unit_event(u, "CLOSE") for u in us]
-        n = len(us)
-        rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
-        vcount = {}
-        for c in closes:
-            if c.get("verdict"):
-                vcount[c["verdict"]] = vcount.get(c["verdict"], 0) + 1
-        cur_rows = [r for r in rows if r["event"] == "CURATION" and r.get("workstream") == ws]
-        tin = sum(c.get("tokens_input") or 0 for c in closes)
-        tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
-        tout = sum(c.get("tokens_output") or 0 for c in closes)
-        n_tok = len([c for c in closes if c.get("tokens_input") is not None])
-        # v1.1 tolerance: `cost_usd` is CLOSE-only + optional. Sum only over rows that
-        # carry it, and ALWAYS report the denominator, so a partial sum can never read
-        # as a run total.
-        usd_rows = [c for c in closes if c.get("cost_usd") is not None]
-        firsts = [fr.parse_ts(u["rows"][0]["ts"]) for u in us]
-        lasts = [fr.parse_ts(fr.unit_event(u, "CLOSE")["ts"]) for u in us]
-        out.append(dict(
-            ws=ws, n=n, rcs=rcs, verdicts=vcount,
-            curation_rows=len(cur_rows),
-            warns=sum(r.get("warn_count") or 0 for r in cur_rows),
-            tin=tin, tcache=tcache, tout=tout, n_tok=n_tok,
-            usd=sum(c["cost_usd"] for c in usd_rows), n_usd=len(usd_rows),
-            currencies=sorted({c.get("currency") for c in closes if c.get("currency")}),
-            span=(max(lasts) - min(firsts)).total_seconds()))
-    return out
+    return fr.sealed_by_workstream(rows, sealed)
 
 
 def scorecard(fr, sealed):
-    groups = {}
-    for u in sealed:
-        ident = fr.unit_identity(u)
-        groups.setdefault((ident.get("provider") or "—",
-                           ident.get("pin") or "(no pin recorded)"), []).append(u)
-    out = []
-    for (prov, pin), us in sorted(groups.items()):
-        closes = [fr.unit_event(u, "CLOSE") for u in us]
-        rcs = [c.get("rc") for c in closes if c.get("rc") is not None]
-        tin = sum(c.get("tokens_input") or 0 for c in closes)
-        usd_rows = [c for c in closes if c.get("cost_usd") is not None]
-        out.append(dict(
-            provider=prov, pin=pin, n=len(us),
-            have_tokens=any(c.get("tokens_input") is not None for c in closes),
-            rcs=rcs, tin=tin,
-            tcache=sum(c.get("tokens_cached_input") or 0 for c in closes),
-            tout=sum(c.get("tokens_output") or 0 for c in closes),
-            artifacts=sum(len(c.get("artifacts") or []) for c in closes),
-            durs=[d for d in (fr.unit_duration(u) for u in us) if d is not None],
-            usd=sum(c["cost_usd"] for c in usd_rows), n_usd=len(usd_rows)))
-    return out
+    return fr.model_scorecard(sealed)
 
 
 def latest_snapshots(rows):
@@ -539,10 +497,12 @@ def col_sealed(fr, rows, sealed):
         verdicts = (" · ".join("%d %s" % (v, k) for k, v in
                                sorted(g["verdicts"].items(), key=lambda kv: -kv[1]))
                     if g["verdicts"] else "0/%d judged" % g["n"])
-        tok = ("%s in · %.1f%% cache · %s out" % (fr.human_n(g["tin"]),
-                                                  100.0 * g["tcache"] / g["tin"],
-                                                  fr.human_n(g["tout"]))
-               if g["n_tok"] and g["tin"] else "tokens null on %d/%d units" % (g["n"], g["n"]))
+        # G-U11 BLOCK-3: each axis asks about ITSELF. `tok-out` used to be gated on whether
+        # `tokens_input` was present, which prints an unmeasured axis as a measured number.
+        tok = "%s in · %s cache · %s out" % (
+            fr.axis_cell(g["tin"], g["n_in"], g["n"]),
+            fr.share_cell(g["tcache"], g["n_cache"], g["tin"], g["n_in"]),
+            fr.axis_cell(g["tout"], g["n_out"], g["n"]))
         usd = ("$%.5f over %d/%d CLOSE rows" % (g["usd"], g["n_usd"], g["n"])
                if g["n_usd"] else "no cost_usd on any CLOSE row")
         L.append("<div class='card'><div class='t'>▣ %s</div>"
@@ -550,7 +510,8 @@ def col_sealed(fr, rows, sealed):
                  "<div class='m'>%s</div><div class='m'>%s · %s · %s</div></div>"
                  % (E(g["ws"]), g["n"], E(rc_cell), E(verdicts), E(tok), E(usd),
                     E("/".join(g["currencies"]) or "no currency recorded"),
-                    E(fr.fmt_span(g["span"]))))
+                    E(fr.fmt_span(g["span"]) if g["span"] is not None
+                      else "no START→CLOSE span")))
     L.append("</div><div class='empty'>rollups + scorecards render in full below</div></div>")
     return "".join(L)
 
@@ -870,11 +831,11 @@ def section_rollups(fr, rows, sealed):
     else:
         L.append("<table><tr><th>workstream</th><th>units</th><th>rc</th>"
                  "<th>judged verdicts</th><th>curation</th><th>tok-in</th><th>cache</th>"
-                 "<th>tok-out</th><th>reported cost</th><th>currency</th>"
+                 "<th>tok-out</th><th>reasoning</th><th>reported cost</th><th>currency</th>"
                  "<th>first-start→last-close</th></tr>")
         for g in groups:
             L.append("<tr><td>%s</td><td>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
-                     "<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
+                     "<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
                      % (E(g["ws"]), g["n"],
                         E("%d/%d rc=0" % (len([r for r in g["rcs"] if r == 0]), len(g["rcs"])))
                         if g["rcs"] else NULL("no rc on %d/%d units" % (g["n"], g["n"])),
@@ -884,16 +845,21 @@ def section_rollups(fr, rows, sealed):
                                                    % g["n"]),
                         E("%d WARN across %d curation row(s)" % (g["warns"], g["curation_rows"]))
                         if g["curation_rows"] else NULL("no curation row"),
-                        E("%s (%d/%d units)" % (fr.human_n(g["tin"]), g["n_tok"], g["n"]))
-                        if g["n_tok"] else NULL("null on %d/%d units" % (g["n"], g["n"])),
-                        E("%.1f%%" % (100.0 * g["tcache"] / g["tin"]))
-                        if g["n_tok"] and g["tin"] else NULL("no denominator"),
-                        E(fr.human_n(g["tout"])) if g["n_tok"] else NULL("null"),
+                        # Every token cell below asks about ITS OWN axis (G-U11 BLOCK-3).
+                        E(fr.axis_cell(g["tin"], g["n_in"], g["n"])) if g["n_in"]
+                        else NULL(fr.axis_cell(g["tin"], g["n_in"], g["n"])),
+                        E(fr.share_cell(g["tcache"], g["n_cache"], g["tin"], g["n_in"]))
+                        if g["n_cache"] and g["tin"] else NULL("no denominator"),
+                        E(fr.axis_cell(g["tout"], g["n_out"], g["n"])) if g["n_out"]
+                        else NULL(fr.axis_cell(g["tout"], g["n_out"], g["n"])),
+                        E(fr.axis_cell(g["treason"], g["n_reason"], g["n"])) if g["n_reason"]
+                        else NULL(fr.axis_cell(g["treason"], g["n_reason"], g["n"])),
                         E("$%.5f (%d/%d CLOSE rows carry cost_usd)"
                           % (g["usd"], g["n_usd"], g["n"])) if g["n_usd"]
                         else NULL("no cost_usd on this workstream's CLOSE rows"),
                         E("/".join(g["currencies"])) if g["currencies"] else NULL("none"),
-                        E(fr.fmt_span(g["span"]))))
+                        E(fr.fmt_span(g["span"])) if g["span"] is not None
+                        else NULL("no START→CLOSE span")))
         L.append("</table>")
         L.append("<div class='note'><code>first-start→last-close</code> is a RUN DURATION, "
                  "not <code>enqueue→seal</code>: the founding corpus records no ENQUEUE "
@@ -906,28 +872,34 @@ def section_rollups(fr, rows, sealed):
         L.append("<div class='empty'>no sealed units to score</div>")
     else:
         L.append("<table><tr><th>provider / pin</th><th>units</th><th>first-pass rc=0</th>"
-                 "<th>tok-in</th><th>cache</th><th>tok-out</th><th>tok-in/artifact</th>"
-                 "<th>reported cost</th><th>med wall</th></tr>")
+                 "<th>tok-in</th><th>cache</th><th>tok-out</th><th>reasoning</th>"
+                 "<th>tok-in/artifact</th><th>reported cost</th><th>med wall</th></tr>")
         for g in sc:
             rcs = g["rcs"]
             L.append("<tr><td>%s / %s</td><td>%d</td><td>%s</td><td>%s</td><td>%s</td>"
-                     "<td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
+                     "<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
                      % (E(g["provider"]), E(g["pin"]), g["n"],
                         E("%.0f%% (%d/%d rc=0)"
                           % (100.0 * len([r for r in rcs if r == 0]) / len(rcs),
                              len([r for r in rcs if r == 0]), len(rcs))) if rcs
                         else NULL("no rc recorded"),
-                        E(fr.human_n(g["tin"])) if g["have_tokens"]
-                        else NULL("null, declared"),
-                        E("%.1f%%" % (100.0 * g["tcache"] / g["tin"]))
-                        if g["have_tokens"] and g["tin"] else NULL("no denominator"),
-                        E(fr.human_n(g["tout"])) if g["have_tokens"] else NULL("null"),
-                        E(fr.human_n(int(g["tin"] / g["artifacts"])))
-                        if g["have_tokens"] and g["artifacts"] else NULL("no artifact rows"),
+                        E(fr.axis_cell(g["tin"], g["n_in"], g["n"])) if g["n_in"]
+                        else NULL(fr.axis_cell(g["tin"], g["n_in"], g["n"])),
+                        E(fr.share_cell(g["tcache"], g["n_cache"], g["tin"], g["n_in"]))
+                        if g["n_cache"] and g["tin"] else NULL("no denominator"),
+                        E(fr.axis_cell(g["tout"], g["n_out"], g["n"])) if g["n_out"]
+                        else NULL(fr.axis_cell(g["tout"], g["n_out"], g["n"])),
+                        E(fr.axis_cell(g["treason"], g["n_reason"], g["n"])) if g["n_reason"]
+                        else NULL(fr.axis_cell(g["treason"], g["n_reason"], g["n"])),
+                        E(fr.ratio_cell(g["tin"], g["n_in"], g["artifacts"],
+                                        g["n_artifact_rows"], g["n"])) if g["artifacts"]
+                        else NULL(fr.ratio_cell(g["tin"], g["n_in"], g["artifacts"],
+                                                g["n_artifact_rows"], g["n"])),
                         E("$%.5f (%d/%d)" % (g["usd"], g["n_usd"], g["n"])) if g["n_usd"]
                         else NULL("no cost_usd"),
-                        E(fr.fmt_age(fr.median(g["durs"]))) if g["durs"]
-                        else NULL("no START→CLOSE pair")))
+                        E("%s (over %d/%d units with a START→CLOSE pair)"
+                          % (fr.fmt_age(fr.median(g["durs"])), len(g["durs"]), g["n"]))
+                        if g["durs"] else NULL("no START→CLOSE pair")))
         L.append("</table>")
         L.append("<div class='note'>WARN / fabrication-check columns are OMITTED rather than "
                  "zero-filled: a CURATION row binds to a <code>unit_id</code>, so a per-model "
