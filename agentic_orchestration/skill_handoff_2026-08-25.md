@@ -232,7 +232,24 @@ Matt's ruling, in substance: pushes are **not** to be de-authorized per autonomo
 | **1** | **X-2 `vortex_pull` displacement** — whether the sim's first *applied* control effect sets effect-application law ahead of the `MD-B2-2` decode B-2 deliberately refused | **Unchanged, still yours.** Row mints `UNEVALUABLE — never PASS` either way, so **nothing waits on it.** `canonical/matt_decision_needed/2026-08-25-x2-…md` |
 | **2** | **`factory/` ownership** — the tree keeps growing under no owner | **Unchanged.** Not urgent, compounding. |
 | **3** | **`ENABLE_PROMPT_CACHING_1H`** | **Unchanged.** Check closed; the *"largest cost lever"* headline is **unevidenced** against your Max-subscription auth path — the vendor scopes that var to API-key/Bedrock/Vertex/Foundry. Likely a **no-op.** |
-| **4** | ⚑ **NEW — the VFX second opinion you asked for** (*"we should probably try calling Codex and Grok"*) | **Probably moot; do not answer yet.** It was gated on a Grok auth defect that hands the whole pending queue to Claude on a single transient reading. **star-lord is fixing that right now.** If the fix lands, this dispatches without a decision from you. |
+| **4** | ⚑ **NEW — the VFX second opinion you asked for** (*"we should probably try calling Codex and Grok"*) | ⚑ **CORRECTED BELOW — I first wrote "probably moot." It is not moot, and my reason was wrong.** Still **no decision needed from you**, but for a different reason than I gave. See the correction immediately under this table. |
+
+### ⚑ Correction to item 4 — auth was never the only gate, and the two lanes are not the same shape
+
+I wrote that this was gated on the Grok auth defect star-lord is fixing, so the fix would dissolve it. **Auth and vision are independent failures, and repairing the first does nothing for the second: a fully-working auth lane still cannot show either model a frame.**
+
+Measured first-hand rather than recalled — `grep` for `image|vision|attach|png|base64` across every `factory/harness/*.py` returns **zero hits**; both `build_argv` bodies emit **text on argv only**.
+
+| Lane | Image door at the vendor | Reachable from our factory |
+|---|---|---|
+| **Codex** | ✅ `-i, --image <FILE>...` | ❌ `build_argv` never emits it |
+| **Grok** | ❌ **no `--image` flag exists at all** | ❌ |
+
+**You named them in one breath as two second opinions. One of them has no door for an image.** Grok's only candidate is `--prompt-json` ("JSON content blocks") — **plausible, untested, and I am not claiming it works.** Codex is the opposite case: **capable at the vendor, blocked only by our own harness**, which is a small change in star-lord's seam, not a capability gap.
+
+**Why you still have nothing to decide:** it is queued behind a one-call probe, not behind a judgment. Full finding + route at `knight-rider/rulings/2026-08-25-codex-and-grok-are-not-symmetric-for-vfx-second-opinions-….md`.
+
+**What this does NOT hold:** your depth critique itself — that the VFX are basic representations missing the originals' internal detail (metal-scrape timing, intermittent lasers cycling a colour range, smoke, wind, cavitation/gravity distortion). That needs no external model. It routes to gandalf and drax on its own merits. **Corroboration being unavailable is not a reason to park the observation.**
 
 ⚑ **The one thing that expires without you:** the godot push extension. Your words were *"push as you go through **this session**"* — narrower than the "remainder of the wave" option you were offered. **It dies at the session boundary and `reincarnated-godot` reverts to commit-only.** A conductor picking this wave up must not inherit it.
 
@@ -282,6 +299,7 @@ I checked whether the pre-fix frames still existed rather than assuming. **They 
 - **I told you Codex/Grok work was gated behind a ratification that had already closed** — seven minutes after the commit message I was quoting. The message was true when written; the spec body carried the update. I read the assertion, not the derivation.
 - **My dispatch ordered drax to fix two sites that were not defects.** He measured one at six bearings and **refused the edit.** jack-ryan has since confirmed the error was his clause and mine, **not drax's** — and banked a third instance against himself.
 - **I wrote in a filing that I had "folded" something into a dispatch before I actually had.** Caught it on re-read and made it true rather than softening the sentence.
+- ⚑ **I wrote "probably moot" over the Codex/Grok item on an inherited premise I never checked** (see the correction under decision 4). I assumed the auth fix was the only gate because that is the gate someone had told me about, and **an in-flight fix is a comfortable thing to attribute a blocker to** — it makes the problem someone else's and already-solving. Reading both CLIs' help took two minutes and showed Grok has no image flag at all. **Fifth correction this session, and the only one where the error was in a line I wrote *to you* about what you did not need to think about.** Telling you an item is moot is the one claim that guarantees nobody re-checks it.
 
 ## 5. Next-session pickup
 
