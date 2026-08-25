@@ -131,7 +131,7 @@ Verdict of record: the Codex research doc's architecture is a good general-purpo
 **What:** a read-only star-lord emitter that folds per-session transcript usage into flight rows (schema unchanged — the token fields already exist; `derived_from` pins the transcript path; sessions map to workstreams via the custody ledger + dispatch records where derivable, honest-null where not). Rear-view capture, one data path, zero write verbs against the transcripts — THE LAW as-is. Composes with G-2c-R1: these rows are retrospective-authored (provenance axis lands with rev 1.2's first instrumented emitter — this may BE that trigger; jack-ryan rules).
 **Empirical criterion:** Claude lanes render token + cache-hit% columns beside Codex's on the same board; U-3's before/after cache-fix comparison becomes a per-lane query over rows (the 93.2% Codex figure gains its Claude counterpart).
 **Seam:** star-lord (emitter) · jack-ryan (rev-1.2 provenance ruling + gate) · gandalf specs.
-**Status:** OPEN — proposed by gandalf; Matt rules adoption; KR sequences behind the Step-2 wave.
+**Status:** ✅ **ADOPTED** (Matt 2026-08-25, verbatim: *"yes, let's adopt U-11. Please run it here."*) — **RUN U11-BUILD** conducted by gandalf (RUN-CONDUCTOR) under the desirable-run pattern; run instrument `agentic_orchestration/gandalf/notes/2026-08-25-u11-build-run-ledger.md`. Substrate re-verified at launch: 26 session transcripts + 647 nested sub-agent tapes (collaboration dir) + 4 (factory dir) + 5 (probe dir).
 
 ---
 
