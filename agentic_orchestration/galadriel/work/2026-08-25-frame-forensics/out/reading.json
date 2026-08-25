@@ -1,0 +1,1425 @@
+{
+  "generated": "2026-08-25T17:41:52",
+  "primary_raster": [
+    1280,
+    720
+  ],
+  "legs": {
+    "R_reference_d3_whirlwind": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/work/2026-08-25-frame-forensics/media/whirlwind_d3_2012.flv",
+        "codec": "vp6f",
+        "src_w": 1280,
+        "src_h": 720,
+        "src_fps": 29.97002997002997,
+        "duration_s": 12.479,
+        "bytes": 6872672,
+        "label": "R_reference_d3_whirlwind",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 29.97002997002997,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 375
+      },
+      "derived": {
+        "noise_mad_luma": 1.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 6.0,
+        "tau_novelty_k_sweep": {
+          "2": 2.0,
+          "4": 4.0,
+          "6": 6.0,
+          "8": 8.0,
+          "12": 12.0
+        },
+        "tau_spec": 160.53720092773438,
+        "tau_spec_sweep": {
+          "plate_q99.0": 133.79039001464844,
+          "plate_q99.5": 138.73660278320312,
+          "plate_q99.9": 149.03460693359375,
+          "plate_q99.95": 160.53720092773438,
+          "plate_q99.99": 202.72291564941406
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 72.4751968383789,
+          "p90": 105.7904052734375,
+          "p99": 133.79039001464844,
+          "p99.9": 149.03460693359375
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.65624,
+          0.22392,
+          0.0665,
+          0.01631,
+          0.00322,
+          0.00059,
+          0.00052
+        ],
+        "band_frac_mean_active_frames": [
+          0.65734,
+          0.2433,
+          0.07557,
+          0.0187,
+          0.00374,
+          0.00068,
+          0.00067
+        ],
+        "fine_share_b0b1_active": 0.90064,
+        "band_total_mean": 13.359497,
+        "n_active_frames": 183
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.47271,
+        "hue_circmean_std": 0.10321,
+        "hue_circvar_mean": 0.51351,
+        "sat_mean": 0.37942,
+        "val_mean": 0.41321,
+        "spectrum_hue": {
+          "dominant_hz": 0.2532678589016617,
+          "dominant_period_s": 3.948388888888889,
+          "peak_over_median": 92.98267117182411,
+          "spectrum_median_floor": 0.1517488237241934
+        },
+        "spectrum_sat": {
+          "dominant_hz": 0.2532678589016617,
+          "dominant_period_s": 3.948388888888889,
+          "peak_over_median": 568.6797965332222,
+          "spectrum_median_floor": 0.009363151744180028
+        },
+        "spectrum_val": {
+          "dominant_hz": 0.2532678589016617,
+          "dominant_period_s": 3.948388888888889,
+          "peak_over_median": 98.5084774667093,
+          "spectrum_median_floor": 0.04654144096843066
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 0.24498662100841934,
+          "dominant_period_s": 4.081855555555556,
+          "peak_over_median": 52.16955041854649,
+          "spectrum_median_floor": 0.12113629362316103
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0033907,
+        "spec_frac_max": 0.0252897,
+        "spec_mass_mean": 0.1069805,
+        "peaks_spec_mass": {
+          "n_events": 22,
+          "prominence_bar": 0.011935662478208542,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.2336,
+            0.1001,
+            0.3337,
+            0.1668,
+            0.9676,
+            0.1668,
+            0.2336,
+            0.1001,
+            0.1335,
+            0.2002,
+            0.2336,
+            0.0667,
+            0.4004,
+            0.2669,
+            0.4671,
+            0.367,
+            0.5339,
+            1.1345,
+            0.3337,
+            0.1335,
+            2.0687
+          ],
+          "mean_interval_s": 0.41152222222222223,
+          "cv_interval": 1.107024613896984,
+          "events_per_s": 1.796568554061742
+        },
+        "peaks_novel_frac": {
+          "n_events": 33,
+          "prominence_bar": 0.02942382812499998,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.1335,
+            0.6673,
+            0.3337,
+            0.1668,
+            0.1335,
+            0.1668,
+            0.2669,
+            0.1335,
+            0.5005,
+            0.4671,
+            0.1001,
+            0.4338,
+            0.3337,
+            0.7007,
+            0.4338,
+            0.2002,
+            0.1668,
+            0.1335,
+            0.1668,
+            0.2336,
+            0.2002,
+            0.1001,
+            0.4671,
+            0.0667,
+            0.4004,
+            0.2336,
+            0.2002,
+            1.9686,
+            0.6006,
+            0.4671,
+            0.3337,
+            0.2669
+          ],
+          "mean_interval_s": 0.3493072916666667,
+          "cv_interval": 0.9632452387967473,
+          "events_per_s": 2.694852831092613
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 0.6532976560224516,
+          "dominant_period_s": 1.5306958333333336,
+          "peak_over_median": 81.86247063376791,
+          "spectrum_median_floor": 0.12571339079289082
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 5.9772,
+        "camera_translation_p95_px_per_frame": 10.75256,
+        "camera_divergence_median": -4.7e-05,
+        "camera_divergence_p95": 0.00733,
+        "tiles_evaluable_mean": 0.9038,
+        "resid_bg_median_px": 1.7329,
+        "resid_bg_p95_px": 5.89371,
+        "resid_near_median_px": 1.4292,
+        "resid_near_over_bg": 0.8248,
+        "radial_coh_near_mean": -0.0051,
+        "radial_coh_near_sem": 0.0109,
+        "radial_coh_far_mean": -0.01,
+        "radial_coh_far_sem": 0.0167,
+        "n_frames_radial_near_evaluable": 317,
+        "n_frames_radial_far_evaluable": 313
+      }
+    },
+    "O_ours_melee_combo_cathedral": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/06_melee_combo_CATHEDRAL.mp4",
+        "codec": "h264",
+        "src_w": 1920,
+        "src_h": 1080,
+        "src_fps": 60.0,
+        "duration_s": 7.0,
+        "bytes": 11497593,
+        "label": "O_ours_melee_combo_cathedral",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 30.0,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 210
+      },
+      "derived": {
+        "noise_mad_luma": 0.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 3.0,
+        "tau_novelty_k_sweep": {
+          "2": 1.0,
+          "4": 2.0,
+          "6": 3.0,
+          "8": 4.0,
+          "12": 6.0
+        },
+        "tau_spec": 131.72360229492188,
+        "tau_spec_sweep": {
+          "plate_q99.0": 102.6635971069336,
+          "plate_q99.5": 113.1115951538086,
+          "plate_q99.9": 123.53960418701172,
+          "plate_q99.95": 131.72360229492188,
+          "plate_q99.99": 146.57562255859375
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 30.340599060058594,
+          "p90": 65.93260192871094,
+          "p99": 102.6635971069336,
+          "p99.9": 123.53960418701172
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.67925,
+          0.22618,
+          0.06997,
+          0.02003,
+          0.00383,
+          0.00063,
+          0.0001
+        ],
+        "band_frac_mean_active_frames": [
+          0.62615,
+          0.24031,
+          0.09497,
+          0.03093,
+          0.00637,
+          0.0011,
+          0.00018
+        ],
+        "fine_share_b0b1_active": 0.86645,
+        "band_total_mean": 0.466017,
+        "n_active_frames": 101
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.37602,
+        "hue_circmean_std": 0.44269,
+        "hue_circvar_mean": 0.17731,
+        "sat_mean": 0.48802,
+        "val_mean": 0.55014,
+        "spectrum_hue": {
+          "dominant_hz": 2.5247524752475248,
+          "dominant_period_s": 0.396078431372549,
+          "peak_over_median": 151.85049925069694,
+          "spectrum_median_floor": 2.5284357389798497
+        },
+        "spectrum_sat": {
+          "dominant_hz": 2.5247524752475248,
+          "dominant_period_s": 0.396078431372549,
+          "peak_over_median": 2342.4789738825043,
+          "spectrum_median_floor": 0.07973403645311022
+        },
+        "spectrum_val": {
+          "dominant_hz": 2.5247524752475248,
+          "dominant_period_s": 0.396078431372549,
+          "peak_over_median": 166.2033217735312,
+          "spectrum_median_floor": 0.011475785846888716
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 2.5247524752475248,
+          "dominant_period_s": 0.396078431372549,
+          "peak_over_median": 1154.8308167208522,
+          "spectrum_median_floor": 6.940301212980166e-07
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0006416,
+        "spec_frac_max": 0.0008908,
+        "spec_mass_mean": 0.0102296,
+        "peaks_spec_mass": {
+          "n_events": 17,
+          "prominence_bar": 0.0028251372277736664,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4333,
+            0.4,
+            0.3333,
+            0.4333,
+            0.4,
+            0.3667,
+            0.4,
+            0.4,
+            0.3333,
+            0.4333,
+            0.4333,
+            0.3,
+            0.4333,
+            0.4,
+            0.3667,
+            0.4
+          ],
+          "mean_interval_s": 0.3916666666666667,
+          "cv_interval": 0.10203896858112171,
+          "events_per_s": 2.5247524752475248
+        },
+        "peaks_novel_frac": {
+          "n_events": 17,
+          "prominence_bar": 0.0005957031249999998,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4,
+            0.4333,
+            0.3333,
+            0.4,
+            0.4333,
+            0.3333,
+            0.3667,
+            0.4667,
+            0.3333,
+            0.4,
+            0.4333,
+            0.3333,
+            0.4,
+            0.4333,
+            0.3333,
+            0.3667
+          ],
+          "mean_interval_s": 0.3875,
+          "cv_interval": 0.11328659949304025,
+          "events_per_s": 2.5247524752475248
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 2.5247524752475248,
+          "dominant_period_s": 0.396078431372549,
+          "peak_over_median": 2147.845188126218,
+          "spectrum_median_floor": 3.0693286527650096e-05
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 0.0,
+        "camera_translation_p95_px_per_frame": 0.0,
+        "camera_divergence_median": 0.0,
+        "camera_divergence_p95": 0.0,
+        "tiles_evaluable_mean": 0.9375,
+        "resid_bg_median_px": 0.0,
+        "resid_bg_p95_px": 0.0,
+        "resid_near_median_px": 0.0,
+        "resid_near_over_bg": null,
+        "radial_coh_near_mean": 0.0055,
+        "radial_coh_near_sem": 0.0005,
+        "radial_coh_far_mean": 0.2081,
+        "radial_coh_far_sem": 0.0119,
+        "n_frames_radial_near_evaluable": 5,
+        "n_frames_radial_far_evaluable": 5
+      }
+    },
+    "Oprime_transcode_null": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/work/2026-08-25-frame-forensics/media/ours_melee_transcode_null_1280x720.mp4",
+        "codec": "h264",
+        "src_w": 1280,
+        "src_h": 720,
+        "src_fps": 29.97002997002997,
+        "duration_s": 7.007,
+        "bytes": 2807761,
+        "label": "Oprime_transcode_null",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 29.97002997002997,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 210
+      },
+      "derived": {
+        "noise_mad_luma": 0.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 3.0,
+        "tau_novelty_k_sweep": {
+          "2": 1.0,
+          "4": 2.0,
+          "6": 3.0,
+          "8": 4.0,
+          "12": 6.0
+        },
+        "tau_spec": 132.1488037109375,
+        "tau_spec_sweep": {
+          "plate_q99.0": 103.18299865722656,
+          "plate_q99.5": 113.55000305175781,
+          "plate_q99.9": 124.09659576416016,
+          "plate_q99.95": 132.1488037109375,
+          "plate_q99.99": 148.27352905273438
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 31.065200805664062,
+          "p90": 66.92860412597656,
+          "p99": 103.18299865722656,
+          "p99.9": 124.09659576416016
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.68074,
+          0.2198,
+          0.07381,
+          0.02077,
+          0.00416,
+          0.00061,
+          0.00011
+        ],
+        "band_frac_mean_active_frames": [
+          0.61157,
+          0.24411,
+          0.10213,
+          0.03403,
+          0.00688,
+          0.00108,
+          0.00019
+        ],
+        "fine_share_b0b1_active": 0.85568,
+        "band_total_mean": 0.471343,
+        "n_active_frames": 101
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.36666,
+        "hue_circmean_std": 0.44284,
+        "hue_circvar_mean": 0.16349,
+        "sat_mean": 0.4754,
+        "val_mean": 0.55593,
+        "spectrum_hue": {
+          "dominant_hz": 2.522230245002522,
+          "dominant_period_s": 0.3964745098039216,
+          "peak_over_median": 491.4594176829952,
+          "spectrum_median_floor": 0.8211951849361498
+        },
+        "spectrum_sat": {
+          "dominant_hz": 2.522230245002522,
+          "dominant_period_s": 0.3964745098039216,
+          "peak_over_median": 3769.8262720371604,
+          "spectrum_median_floor": 0.04842844137557495
+        },
+        "spectrum_val": {
+          "dominant_hz": 5.192826975005192,
+          "dominant_period_s": 0.19257333333333335,
+          "peak_over_median": 90.72997908228052,
+          "spectrum_median_floor": 0.01755879098950459
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 2.522230245002522,
+          "dominant_period_s": 0.3964745098039216,
+          "peak_over_median": 1239.7869988613409,
+          "spectrum_median_floor": 6.719129402394712e-07
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0006629,
+        "spec_frac_max": 0.0009364,
+        "spec_mass_mean": 0.0108013,
+        "peaks_spec_mass": {
+          "n_events": 17,
+          "prominence_bar": 0.0032199262641370296,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4671,
+            0.4004,
+            0.367,
+            0.4004,
+            0.4004,
+            0.3003,
+            0.4671,
+            0.4004,
+            0.3003,
+            0.4671,
+            0.4004,
+            0.3003,
+            0.4671,
+            0.4004,
+            0.3003,
+            0.4671
+          ],
+          "mean_interval_s": 0.39414375,
+          "cv_interval": 0.15899448890282245,
+          "events_per_s": 2.5222302450025222
+        },
+        "peaks_novel_frac": {
+          "n_events": 17,
+          "prominence_bar": 0.0005240885416666663,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4004,
+            0.4338,
+            0.3337,
+            0.4338,
+            0.4004,
+            0.3337,
+            0.4004,
+            0.4671,
+            0.3337,
+            0.367,
+            0.4338,
+            0.367,
+            0.4004,
+            0.4004,
+            0.3337,
+            0.4004
+          ],
+          "mean_interval_s": 0.38997291666666667,
+          "cv_interval": 0.10355570444404862,
+          "events_per_s": 2.5222302450025222
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 2.522230245002522,
+          "dominant_period_s": 0.3964745098039216,
+          "peak_over_median": 2233.970776805946,
+          "spectrum_median_floor": 3.084560521747672e-05
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 0.0,
+        "camera_translation_p95_px_per_frame": 0.0,
+        "camera_divergence_median": 0.0,
+        "camera_divergence_p95": 0.0,
+        "tiles_evaluable_mean": 0.9375,
+        "resid_bg_median_px": 0.0,
+        "resid_bg_p95_px": 0.0,
+        "resid_near_median_px": 0.0,
+        "resid_near_over_bg": null,
+        "radial_coh_near_mean": NaN,
+        "radial_coh_near_sem": NaN,
+        "radial_coh_far_mean": NaN,
+        "radial_coh_far_sem": NaN,
+        "n_frames_radial_near_evaluable": 0,
+        "n_frames_radial_far_evaluable": 0
+      }
+    },
+    "O60_ours_melee_combo_60fps": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/06_melee_combo_CATHEDRAL.mp4",
+        "codec": "h264",
+        "src_w": 1920,
+        "src_h": 1080,
+        "src_fps": 60.0,
+        "duration_s": 7.0,
+        "bytes": 11497593,
+        "label": "O60_ours_melee_combo_60fps",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 60.0,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 420
+      },
+      "derived": {
+        "noise_mad_luma": 0.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 3.0,
+        "tau_novelty_k_sweep": {
+          "2": 1.0,
+          "4": 2.0,
+          "6": 3.0,
+          "8": 4.0,
+          "12": 6.0
+        },
+        "tau_spec": 131.8042449951172,
+        "tau_spec_sweep": {
+          "plate_q99.0": 102.6748046875,
+          "plate_q99.5": 113.1115951538086,
+          "plate_q99.9": 123.70278930664062,
+          "plate_q99.95": 131.8042449951172,
+          "plate_q99.99": 148.77879333496094
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 30.34859848022461,
+          "p90": 65.93260192871094,
+          "p99": 102.6748046875,
+          "p99.9": 123.70278930664062
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.6996,
+          0.21317,
+          0.0649,
+          0.01827,
+          0.00341,
+          0.00055,
+          8e-05
+        ],
+        "band_frac_mean_active_frames": [
+          0.65202,
+          0.22494,
+          0.08602,
+          0.03013,
+          0.00576,
+          0.00097,
+          0.00015
+        ],
+        "fine_share_b0b1_active": 0.87697,
+        "band_total_mean": 0.327237,
+        "n_active_frames": 206
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.37279,
+        "hue_circmean_std": 0.4387,
+        "hue_circvar_mean": 0.21063,
+        "sat_mean": 0.46277,
+        "val_mean": 0.56459,
+        "spectrum_hue": {
+          "dominant_hz": 2.621359223300971,
+          "dominant_period_s": 0.3814814814814815,
+          "peak_over_median": 569.7521241090489,
+          "spectrum_median_floor": 2.806093260851696
+        },
+        "spectrum_sat": {
+          "dominant_hz": 2.621359223300971,
+          "dominant_period_s": 0.3814814814814815,
+          "peak_over_median": 11075.82152800204,
+          "spectrum_median_floor": 0.06414955730212413
+        },
+        "spectrum_val": {
+          "dominant_hz": 9.46601941747573,
+          "dominant_period_s": 0.10564102564102562,
+          "peak_over_median": 347.54241187959514,
+          "spectrum_median_floor": 0.03039033932561108
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 2.621359223300971,
+          "dominant_period_s": 0.3814814814814815,
+          "peak_over_median": 2790.888841699159,
+          "spectrum_median_floor": 7.758209613129991e-07
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0006405,
+        "spec_frac_max": 0.0009125,
+        "spec_mass_mean": 0.0103252,
+        "peaks_spec_mass": {
+          "n_events": 17,
+          "prominence_bar": 0.0019180853851139545,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.45,
+            0.4,
+            0.3167,
+            0.45,
+            0.4,
+            0.35,
+            0.4167,
+            0.4,
+            0.3167,
+            0.45,
+            0.4,
+            0.3167,
+            0.45,
+            0.4,
+            0.35,
+            0.4167
+          ],
+          "mean_interval_s": 0.3927083333333333,
+          "cv_interval": 0.1200100374096936,
+          "events_per_s": 2.475728155339806
+        },
+        "peaks_novel_frac": {
+          "n_events": 17,
+          "prominence_bar": 0.000302734375,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4333,
+            0.45,
+            0.2833,
+            0.4167,
+            0.4667,
+            0.2833,
+            0.4167,
+            0.4667,
+            0.2833,
+            0.4333,
+            0.45,
+            0.2833,
+            0.4167,
+            0.4667,
+            0.2833,
+            0.4167
+          ],
+          "mean_interval_s": 0.390625,
+          "cv_interval": 0.19019522134433933,
+          "events_per_s": 2.475728155339806
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 2.621359223300971,
+          "dominant_period_s": 0.3814814814814815,
+          "peak_over_median": 10731.378888700385,
+          "spectrum_median_floor": 2.5103685707979628e-05
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 0.0,
+        "camera_translation_p95_px_per_frame": 0.13194,
+        "camera_divergence_median": 0.0,
+        "camera_divergence_p95": 0.0,
+        "tiles_evaluable_mean": 0.9375,
+        "resid_bg_median_px": 0.0,
+        "resid_bg_p95_px": 0.07939,
+        "resid_near_median_px": 0.0,
+        "resid_near_over_bg": null,
+        "radial_coh_near_mean": -0.0004,
+        "radial_coh_near_sem": 0.0051,
+        "radial_coh_far_mean": 0.1419,
+        "radial_coh_far_sem": 0.0375,
+        "n_frames_radial_near_evaluable": 21,
+        "n_frames_radial_far_evaluable": 21
+      }
+    },
+    "W_ww7_arena_cadence": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-16-sb1-gate2-clip/ww7-gate2-cadence-ab-plk0665-1920x1080.mp4",
+        "codec": "h264",
+        "src_w": 1920,
+        "src_h": 1080,
+        "src_fps": 30.0,
+        "duration_s": 21.933333,
+        "bytes": 12749012,
+        "label": "W_ww7_arena_cadence",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 30.0,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 658
+      },
+      "derived": {
+        "noise_mad_luma": 0.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 3.0,
+        "tau_novelty_k_sweep": {
+          "2": 1.0,
+          "4": 2.0,
+          "6": 3.0,
+          "8": 4.0,
+          "12": 6.0
+        },
+        "tau_spec": 159.96560668945312,
+        "tau_spec_sweep": {
+          "plate_q99.0": 131.33580017089844,
+          "plate_q99.5": 132.33580017089844,
+          "plate_q99.9": 145.72528076171875,
+          "plate_q99.95": 159.96560668945312,
+          "plate_q99.99": 177.27622985839844
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 104.98280334472656,
+          "p90": 128.54840087890625,
+          "p99": 131.33580017089844,
+          "p99.9": 145.72528076171875
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.67314,
+          0.21389,
+          0.06271,
+          0.01591,
+          0.00401,
+          0.00084,
+          0.00027
+        ],
+        "band_frac_mean_active_frames": [
+          0.71171,
+          0.20862,
+          0.05936,
+          0.01533,
+          0.00381,
+          0.00086,
+          0.0003
+        ],
+        "fine_share_b0b1_active": 0.92034,
+        "band_total_mean": 3.391723,
+        "n_active_frames": 325
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.41877,
+        "hue_circmean_std": 0.46011,
+        "hue_circvar_mean": 0.45153,
+        "sat_mean": 0.17296,
+        "val_mean": 0.54834,
+        "spectrum_hue": {
+          "dominant_hz": 0.14263074484944532,
+          "dominant_period_s": 7.011111111111111,
+          "peak_over_median": 20.938569739100014,
+          "spectrum_median_floor": 22.83393985100404
+        },
+        "spectrum_sat": {
+          "dominant_hz": 0.1901743264659271,
+          "dominant_period_s": 5.258333333333333,
+          "peak_over_median": 68.75377209976078,
+          "spectrum_median_floor": 0.06214447153579274
+        },
+        "spectrum_val": {
+          "dominant_hz": 0.14263074484944532,
+          "dominant_period_s": 7.011111111111111,
+          "peak_over_median": 328.2820225134239,
+          "spectrum_median_floor": 0.4263647308368053
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 0.5076923076923077,
+          "dominant_period_s": 1.9696969696969697,
+          "peak_over_median": 19.667115415607917,
+          "spectrum_median_floor": 0.5146122437159043
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0022366,
+        "spec_frac_max": 0.0044803,
+        "spec_mass_mean": 0.0570069,
+        "peaks_spec_mass": {
+          "n_events": 55,
+          "prominence_bar": 0.03603503108024597,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.3333,
+            0.3667,
+            0.4,
+            0.3,
+            0.4,
+            0.3667,
+            0.3333,
+            0.3333,
+            0.3333,
+            0.0667,
+            0.4333,
+            0.4333,
+            0.2667,
+            0.3,
+            0.3,
+            0.4333,
+            0.4,
+            0.3667,
+            0.3333,
+            0.4,
+            0.3667,
+            0.3333,
+            0.4,
+            0.3,
+            0.4,
+            0.3,
+            0.3667,
+            0.2667,
+            1.6333,
+            0.3667,
+            0.3333,
+            0.3333,
+            0.1,
+            0.7,
+            0.3,
+            0.4333,
+            0.2333,
+            0.5,
+            0.2667,
+            0.8,
+            0.3333,
+            0.4,
+            0.2333,
+            0.2333,
+            0.6,
+            0.3333,
+            0.7,
+            0.3667,
+            0.4333,
+            0.3333,
+            0.3333,
+            0.2667,
+            0.5,
+            0.2667
+          ],
+          "mean_interval_s": 0.38827160493827156,
+          "cv_interval": 0.5445122021901758,
+          "events_per_s": 2.5384615384615383
+        },
+        "peaks_novel_frac": {
+          "n_events": 75,
+          "prominence_bar": 0.0045475260416666646,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.2333,
+            0.0667,
+            0.2,
+            0.0667,
+            0.1,
+            0.3,
+            0.2333,
+            0.5333,
+            0.2333,
+            0.1667,
+            0.0667,
+            0.2,
+            0.3667,
+            0.3,
+            0.3,
+            0.0667,
+            0.4333,
+            0.5,
+            0.8667,
+            0.3,
+            0.1,
+            1.0,
+            0.3667,
+            0.4,
+            0.4667,
+            0.3667,
+            0.2667,
+            0.4,
+            0.0667,
+            0.2,
+            0.1,
+            0.1,
+            0.1667,
+            0.0667,
+            0.3333,
+            0.1,
+            1.4,
+            0.1667,
+            0.1667,
+            0.1333,
+            0.3333,
+            0.1,
+            0.0667,
+            0.1667,
+            0.1,
+            0.3667,
+            0.2,
+            0.1333,
+            0.1,
+            0.1667,
+            0.3667,
+            0.0667,
+            0.2,
+            0.0667,
+            0.0667,
+            0.4333,
+            0.2667,
+            0.3667,
+            0.5667,
+            0.8333,
+            1.0,
+            0.1667,
+            0.3333,
+            0.2667,
+            0.1,
+            0.3667,
+            0.7,
+            0.0667,
+            0.3333,
+            0.2,
+            0.1333,
+            0.3333,
+            0.2333,
+            0.2
+          ],
+          "mean_interval_s": 0.28783783783783784,
+          "cv_interval": 0.8555786129251239,
+          "events_per_s": 3.4615384615384612
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 0.1846153846153846,
+          "dominant_period_s": 5.416666666666667,
+          "peak_over_median": 186.76881285038877,
+          "spectrum_median_floor": 0.04184239254966546
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 0.2577,
+        "camera_translation_p95_px_per_frame": 0.76094,
+        "camera_divergence_median": 4e-06,
+        "camera_divergence_p95": 0.00067,
+        "tiles_evaluable_mean": 0.9998,
+        "resid_bg_median_px": 0.2577,
+        "resid_bg_p95_px": 0.77183,
+        "resid_near_median_px": 0.2782,
+        "resid_near_over_bg": 1.0796,
+        "radial_coh_near_mean": -0.0401,
+        "radial_coh_near_sem": 0.0057,
+        "radial_coh_far_mean": -0.1149,
+        "radial_coh_far_sem": 0.0119,
+        "n_frames_radial_near_evaluable": 459,
+        "n_frames_radial_far_evaluable": 459
+      }
+    },
+    "O_ours_dash_attack_cathedral": {
+      "meta": {
+        "path": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/01_dash_attack_CATHEDRAL.mp4",
+        "codec": "h264",
+        "src_w": 1920,
+        "src_h": 1080,
+        "src_fps": 60.0,
+        "duration_s": 6.1,
+        "bytes": 11120433,
+        "label": "O_ours_dash_attack_cathedral",
+        "analysis_w": 1280,
+        "analysis_h": 720,
+        "analysis_fps": 30.0,
+        "tile_grid": 8,
+        "plate": "motion-compensated local median, +/-4 frames",
+        "n_frames_analysed": 183
+      },
+      "derived": {
+        "noise_mad_luma": 0.0,
+        "noise_derivation": "median over sampled frames of the FRAME-WIDE MEDIAN of |frame - motion-compensated local plate|. The median pixel of a frame is background, so its residual is this clip's own temporal + compression noise, measured rather than assumed.",
+        "tau_novelty": 3.0,
+        "tau_novelty_k_sweep": {
+          "2": 1.0,
+          "4": 2.0,
+          "6": 3.0,
+          "8": 4.0,
+          "12": 6.0
+        },
+        "tau_spec": 137.76063537597656,
+        "tau_spec_sweep": {
+          "plate_q99.0": 106.19300842285156,
+          "plate_q99.5": 115.11160278320312,
+          "plate_q99.9": 127.71659851074219,
+          "plate_q99.95": 137.76063537597656,
+          "plate_q99.99": 155.84498596191406
+        },
+        "spec_derivation": "99.95th percentile of the pooled LOCAL PLATES, i.e. the luma level this scene reaches only in its brightest 0.05% of pixels when nothing transient is happening. 'Specular' therefore means 'brighter than this scene ever is at rest' -- a property of the corpus. The dispatch's asserted 99th-percentile-luma literal is NOT used; see notes for why it would have been a moving bar.",
+        "plate_pool_quantiles": {
+          "p50": 31.412799835205078,
+          "p90": 72.0481948852539,
+          "p99": 106.19300842285156,
+          "p99.9": 127.71659851074219
+        }
+      },
+      "D1_detail_energy": {
+        "band_labels": [
+          "b0_finest_1px",
+          "b1_2px",
+          "b2_4px",
+          "b3_8px",
+          "b4_16px",
+          "b5_32px",
+          "b6_residual_coarse"
+        ],
+        "band_frac_mean_all_frames": [
+          0.82824,
+          0.13686,
+          0.02789,
+          0.00534,
+          0.00139,
+          0.00023,
+          5e-05
+        ],
+        "band_frac_mean_active_frames": [
+          0.76834,
+          0.17755,
+          0.04235,
+          0.00888,
+          0.00238,
+          0.00041,
+          9e-05
+        ],
+        "fine_share_b0b1_active": 0.94589,
+        "band_total_mean": 0.38424,
+        "n_active_frames": 87
+      },
+      "D2_colour": {
+        "hue_circmean_mean": 0.15398,
+        "hue_circmean_std": 0.33409,
+        "hue_circvar_mean": 0.11386,
+        "sat_mean": 0.72128,
+        "val_mean": 0.48258,
+        "spectrum_hue": {
+          "dominant_hz": 1.0285714285714285,
+          "dominant_period_s": 0.9722222222222223,
+          "peak_over_median": 48.14975294923662,
+          "spectrum_median_floor": 1.6589808256277476
+        },
+        "spectrum_sat": {
+          "dominant_hz": 1.0285714285714285,
+          "dominant_period_s": 0.9722222222222223,
+          "peak_over_median": 62.02455754724623,
+          "spectrum_median_floor": 0.0603927534627877
+        },
+        "spectrum_val": {
+          "dominant_hz": 1.0285714285714285,
+          "dominant_period_s": 0.9722222222222223,
+          "peak_over_median": 22.142319537068545,
+          "spectrum_median_floor": 0.015263581015399943
+        },
+        "spectrum_novelfrac": {
+          "dominant_hz": 1.0285714285714285,
+          "dominant_period_s": 0.9722222222222223,
+          "peak_over_median": 12.157840762584573,
+          "spectrum_median_floor": 0.0013413658963069956
+        }
+      },
+      "D3_intermittency": {
+        "spec_frac_mean": 0.0004969,
+        "spec_frac_max": 0.0006434,
+        "spec_mass_mean": 0.0047979,
+        "peaks_spec_mass": {
+          "n_events": 20,
+          "prominence_bar": 0.0001550103770568967,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.1333,
+            0.1,
+            0.5333,
+            0.3,
+            0.1333,
+            0.0667,
+            0.7667,
+            0.1333,
+            0.1,
+            0.8333,
+            0.1333,
+            0.0667,
+            0.5667,
+            0.2,
+            0.1333,
+            0.1,
+            0.8333,
+            0.1333,
+            0.0667
+          ],
+          "mean_interval_s": 0.2807017543859649,
+          "cv_interval": 0.954921462739214,
+          "events_per_s": 3.428571428571429
+        },
+        "peaks_novel_frac": {
+          "n_events": 9,
+          "prominence_bar": 0.0009016927083333331,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.1667,
+            0.9,
+            0.1333,
+            1.0333,
+            0.8667,
+            0.1333,
+            1.0,
+            0.9
+          ],
+          "mean_interval_s": 0.6416666666666666,
+          "cv_interval": 0.6056739644862867,
+          "events_per_s": 1.542857142857143
+        },
+        "spectrum_spec_mass": {
+          "dominant_hz": 1.0285714285714285,
+          "dominant_period_s": 0.9722222222222223,
+          "peak_over_median": 252.37280374233075,
+          "spectrum_median_floor": 1.5695488381396174e-05
+        }
+      },
+      "D4_flow": {
+        "camera_translation_median_px_per_frame": 0.0,
+        "camera_translation_p95_px_per_frame": 0.29012,
+        "camera_divergence_median": 0.0,
+        "camera_divergence_p95": 0.00014,
+        "tiles_evaluable_mean": 0.9219,
+        "resid_bg_median_px": 0.0,
+        "resid_bg_p95_px": 0.18755,
+        "resid_near_median_px": 0.0,
+        "resid_near_over_bg": null,
+        "radial_coh_near_mean": 0.0771,
+        "radial_coh_near_sem": 0.0072,
+        "radial_coh_far_mean": -0.0276,
+        "radial_coh_far_sem": 0.0416,
+        "n_frames_radial_near_evaluable": 45,
+        "n_frames_radial_far_evaluable": 45
+      }
+    }
+  },
+  "resolution_ladder": {
+    "R_reference_d3_whirlwind": {
+      "320x180": {
+        "D1_fine_share_b0b1_active": 0.96314,
+        "D1_band_frac_active": [
+          0.79388,
+          0.16927,
+          0.03043,
+          0.00518,
+          0.00093,
+          0.00019,
+          0.00013
+        ],
+        "D3_spec_frac_mean": 0.0029462,
+        "D3_events_per_s": 1.959892968067355,
+        "D2_hue_circmean": 0.46197,
+        "D2_sat_mean": 0.38947,
+        "D4_resid_bg_median_px": 0.6091,
+        "D4_radial_coh_far": -0.0114,
+        "D4_tiles_evaluable": 0.9035,
+        "derived_tau_spec": 156.56134033203125,
+        "derived_noise_mad": 1.0
+      },
+      "640x360": {
+        "D1_fine_share_b0b1_active": 0.93987,
+        "D1_band_frac_active": [
+          0.73099,
+          0.20888,
+          0.04845,
+          0.00937,
+          0.00167,
+          0.00032,
+          0.00031
+        ],
+        "D3_spec_frac_mean": 0.0032284,
+        "D3_events_per_s": 1.8782307610645486,
+        "D2_hue_circmean": 0.46501,
+        "D2_sat_mean": 0.38851,
+        "D4_resid_bg_median_px": 0.9152,
+        "D4_radial_coh_far": -0.039,
+        "D4_tiles_evaluable": 0.9082,
+        "derived_tau_spec": 158.6769256591797,
+        "derived_noise_mad": 1.0
+      },
+      "960x540": {
+        "D1_fine_share_b0b1_active": 0.918,
+        "D1_band_frac_active": [
+          0.6837,
+          0.23431,
+          0.06447,
+          0.01399,
+          0.00257,
+          0.00048,
+          0.00049
+        ],
+        "D3_spec_frac_mean": 0.0032571,
+        "D3_events_per_s": 1.7149063470589356,
+        "D2_hue_circmean": 0.46142,
+        "D2_sat_mean": 0.38802,
+        "D4_resid_bg_median_px": 1.4514,
+        "D4_radial_coh_far": -0.0203,
+        "D4_tiles_evaluable": 0.9093,
+        "derived_tau_spec": 159.91128540039062,
+        "derived_noise_mad": 1.0
+      },
+      "1280x720": {
+        "D1_fine_share_b0b1_active": 0.90064,
+        "D1_band_frac_active": [
+          0.65734,
+          0.2433,
+          0.07557,
+          0.0187,
+          0.00374,
+          0.00068,
+          0.00067
+        ],
+        "D3_spec_frac_mean": 0.0033907,
+        "D3_events_per_s": 1.796568554061742,
+        "D2_hue_circmean": 0.47271,
+        "D2_sat_mean": 0.37942,
+        "D4_resid_bg_median_px": 1.7329,
+        "D4_radial_coh_far": -0.01,
+        "D4_tiles_evaluable": 0.9038,
+        "derived_tau_spec": 160.53720092773438,
+        "derived_noise_mad": 1.0
+      }
+    },
+    "O_ours_melee_combo_cathedral": {
+      "320x180": {
+        "D1_fine_share_b0b1_active": 0.94426,
+        "D1_band_frac_active": [
+          0.71032,
+          0.23394,
+          0.04697,
+          0.00779,
+          0.00092,
+          5e-05,
+          1e-05
+        ],
+        "D3_spec_frac_mean": 0.0008949,
+        "D3_events_per_s": 2.5247524752475248,
+        "D2_hue_circmean": 0.365,
+        "D2_sat_mean": 0.50489,
+        "D4_resid_bg_median_px": 0.0,
+        "D4_radial_coh_far": 0.0441,
+        "D4_tiles_evaluable": 0.9375,
+        "derived_tau_spec": 117.78759765625,
+        "derived_noise_mad": 0.0
+      },
+      "640x360": {
+        "D1_fine_share_b0b1_active": 0.90001,
+        "D1_band_frac_active": [
+          0.64613,
+          0.25388,
+          0.08055,
+          0.01628,
+          0.00279,
+          0.00033,
+          3e-05
+        ],
+        "D3_spec_frac_mean": 0.0010467,
+        "D3_events_per_s": 2.5247524752475248,
+        "D2_hue_circmean": 0.38102,
+        "D2_sat_mean": 0.48731,
+        "D4_resid_bg_median_px": 0.0,
+        "D4_radial_coh_far": 0.2111,
+        "D4_tiles_evaluable": 0.9375,
+        "derived_tau_spec": 120.68119812011719,
+        "derived_noise_mad": 0.0
+      },
+      "960x540": {
+        "D1_fine_share_b0b1_active": 0.88501,
+        "D1_band_frac_active": [
+          0.64492,
+          0.24009,
+          0.08402,
+          0.02633,
+          0.00393,
+          0.0006,
+          0.0001
+        ],
+        "D3_spec_frac_mean": 0.0007373,
+        "D3_events_per_s": 2.5247524752475248,
+        "D2_hue_circmean": 0.37501,
+        "D2_sat_mean": 0.48711,
+        "D4_resid_bg_median_px": 0.0,
+        "D4_radial_coh_far": 0.1718,
+        "D4_tiles_evaluable": 0.9375,
+        "derived_tau_spec": 128.38719177246094,
+        "derived_noise_mad": 0.0
+      },
+      "1280x720": {
+        "D1_fine_share_b0b1_active": 0.86645,
+        "D1_band_frac_active": [
+          0.62615,
+          0.24031,
+          0.09497,
+          0.03093,
+          0.00637,
+          0.0011,
+          0.00018
+        ],
+        "D3_spec_frac_mean": 0.0006416,
+        "D3_events_per_s": 2.5247524752475248,
+        "D2_hue_circmean": 0.37602,
+        "D2_sat_mean": 0.48802,
+        "D4_resid_bg_median_px": 0.0,
+        "D4_radial_coh_far": 0.2081,
+        "D4_tiles_evaluable": 0.9375,
+        "derived_tau_spec": 131.72360229492188,
+        "derived_noise_mad": 0.0
+      }
+    }
+  },
+  "wall_s": 930.2,
+  "peak_rss_mb": 885.8
+}

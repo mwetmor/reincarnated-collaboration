@@ -1,0 +1,222 @@
+[leg] R_reference_d3_whirlwind @ (1280, 720) 29.970fps
+       frames=375 rss=886MB
+[leg] O_ours_melee_combo_cathedral @ (1280, 720) 30.000fps
+       frames=210 rss=886MB
+[leg] Oprime_transcode_null @ (1280, 720) 29.970fps
+/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/pipeline/frame_forensics_run.py:147: RuntimeWarning: Mean of empty slice
+  "radial_coh_near_mean": round(float(np.nanmean(rcn)), 4),
+/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/pipeline/frame_forensics_run.py:150: RuntimeWarning: Mean of empty slice
+  "radial_coh_far_mean": round(float(np.nanmean(rcf)), 4),
+       frames=210 rss=886MB
+[leg] O60_ours_melee_combo_60fps @ (1280, 720) 60.000fps
+       frames=420 rss=886MB
+[leg] W_ww7_arena_cadence @ (1280, 720) 30.000fps
+       frames=658 rss=886MB
+[leg] O_ours_dash_attack_cathedral @ (1280, 720) 30.000fps
+       frames=183 rss=886MB
+[ladder] running resolution ladder
+       R_reference_d3_whirlwind 320x180 done
+       R_reference_d3_whirlwind 640x360 done
+       R_reference_d3_whirlwind 960x540 done
+       R_reference_d3_whirlwind 1280x720 done
+       O_ours_melee_combo_cathedral 320x180 done
+       O_ours_melee_combo_cathedral 640x360 done
+       O_ours_melee_combo_cathedral 960x540 done
+       O_ours_melee_combo_cathedral 1280x720 done
+{
+  "R_reference_d3_whirlwind": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.65624,
+      0.22392,
+      0.0665,
+      0.01631,
+      0.00322,
+      0.00059,
+      0.00052
+    ],
+    "band_frac_mean_active_frames": [
+      0.65734,
+      0.2433,
+      0.07557,
+      0.0187,
+      0.00374,
+      0.00068,
+      0.00067
+    ],
+    "fine_share_b0b1_active": 0.90064,
+    "band_total_mean": 13.359497,
+    "n_active_frames": 183
+  },
+  "O_ours_melee_combo_cathedral": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.67925,
+      0.22618,
+      0.06997,
+      0.02003,
+      0.00383,
+      0.00063,
+      0.0001
+    ],
+    "band_frac_mean_active_frames": [
+      0.62615,
+      0.24031,
+      0.09497,
+      0.03093,
+      0.00637,
+      0.0011,
+      0.00018
+    ],
+    "fine_share_b0b1_active": 0.86645,
+    "band_total_mean": 0.466017,
+    "n_active_frames": 101
+  },
+  "Oprime_transcode_null": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.68074,
+      0.2198,
+      0.07381,
+      0.02077,
+      0.00416,
+      0.00061,
+      0.00011
+    ],
+    "band_frac_mean_active_frames": [
+      0.61157,
+      0.24411,
+      0.10213,
+      0.03403,
+      0.00688,
+      0.00108,
+      0.00019
+    ],
+    "fine_share_b0b1_active": 0.85568,
+    "band_total_mean": 0.471343,
+    "n_active_frames": 101
+  },
+  "O60_ours_melee_combo_60fps": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.6996,
+      0.21317,
+      0.0649,
+      0.01827,
+      0.00341,
+      0.00055,
+      8e-05
+    ],
+    "band_frac_mean_active_frames": [
+      0.65202,
+      0.22494,
+      0.08602,
+      0.03013,
+      0.00576,
+      0.00097,
+      0.00015
+    ],
+    "fine_share_b0b1_active": 0.87697,
+    "band_total_mean": 0.327237,
+    "n_active_frames": 206
+  },
+  "W_ww7_arena_cadence": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.67314,
+      0.21389,
+      0.06271,
+      0.01591,
+      0.00401,
+      0.00084,
+      0.00027
+    ],
+    "band_frac_mean_active_frames": [
+      0.71171,
+      0.20862,
+      0.05936,
+      0.01533,
+      0.00381,
+      0.00086,
+      0.0003
+    ],
+    "fine_share_b0b1_active": 0.92034,
+    "band_total_mean": 3.391723,
+    "n_active_frames": 325
+  },
+  "O_ours_dash_attack_cathedral": {
+    "band_labels": [
+      "b0_finest_1px",
+      "b1_2px",
+      "b2_4px",
+      "b3_8px",
+      "b4_16px",
+      "b5_32px",
+      "b6_residual_coarse"
+    ],
+    "band_frac_mean_all_frames": [
+      0.82824,
+      0.13686,
+      0.02789,
+      0.00534,
+      0.00139,
+      0.00023,
+      5e-05
+    ],
+    "band_frac_mean_active_frames": [
+      0.76834,
+      0.17755,
+      0.04235,
+      0.00888,
+      0.00238,
+      0.00041,
+      9e-05
+    ],
+    "fine_share_b0b1_active": 0.94589,
+    "band_total_mean": 0.38424,
+    "n_active_frames": 87
+  }
+}
+wall 930.2 rss_mb 885.8

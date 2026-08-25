@@ -186,14 +186,51 @@ verification section; it is a longer projection wearing one** — the same shape
 a gate that "returns cleanly and returns an answer to a different question"
 (dispatch § 0), and the fourth instance of that shape in this run had I shipped it.
 
-| item | projected | actual |
-|---|--:|--:|
-| reference `.flv` | 6,872,672 B | *pending* |
-| transcode-null `O′` | ~4.0 MiB | *pending* |
-| decoded frames on disk | 0 | *pending* |
-| series JSON | ~6 MiB | *pending* |
-| evidence PNGs | ~25 MiB | *pending* |
-| **total new on disk** | ≈ 42 MiB | *pending* |
-| peak RSS | ~200 MiB | *pending* |
-| wall | ~6 min | *pending* |
-| `df` free, end of run | — | *pending* |
+| item | projected | **actual** | |
+|---|--:|--:|---|
+| reference `.flv` | 6,872,672 B | **6,872,672 B** | exact — `Content-Length` held, sha matched RT-4 |
+| transcode-null `O′` | ~4.0 MiB | **2.68 MiB** | under |
+| **pan-null** | **not projected** | **2.20 MiB** | ⚑ **an artifact the projection did not foresee** — see (c) |
+| decoded frames on disk | 0 | **0** | held |
+| series JSON | ~6 MiB | **1.9 MiB** | under |
+| evidence PNGs | ~25 MiB | **9.9 MiB** | under |
+| **total new on disk** | ≈ 42 MiB | **≈ 23.2 MiB** | **1.8× conservative** ✅ |
+| **peak RSS** | **~200 MiB** | **886 MiB** | ⚑ **4.4× OVER — see (a)** |
+| **wall** | **~6 min** | **~33 min** | ⚑ **5.5× OVER — see (b)** |
+| `df` free, end of run | — | **57 GiB** (from 60) | see (d) |
+
+**The disk arithmetic — the thing § 3 of the dispatch actually asked for — was
+right, and conservative. The two axes I bolted on myself were both badly wrong.**
+That asymmetry is the honest lesson and it is worth more than the passing grade.
+
+**(a) RAM: 886 MiB against a 200 MiB projection, and my own halt bound was 1 GiB.
+The run finished at 0.886 of the number that would have stopped it — a 12 %
+margin on a bound I set myself and then nearly hit.** The projection's *algorithm*
+was right (two-pass, ring buffer, ~200 MiB of live data); the *implementation*
+recomputed nine luma planes on every frame, ~33 MiB of float32 churn per frame
+that the allocator never returned. I found it only because I sampled RSS against
+the pre-registered bound instead of assuming, fixed it mid-run (`ring` now carries
+`(rgb, luma)` pairs), **verified the fix produced byte-identical series**, and
+relaunched. **The fix recovered less than I hoped — 886 MiB is post-fix.** A
+projection that models the algorithm and not the code is a projection of a
+program nobody ran.
+
+**(b) Wall: ~33 min against ~6 min.** The resolution ladder — which I correctly
+identified as the primary product, § 4(c) — is 8 additional full analyses, and I
+costed it as though it were free. It was not; it was most of the run. **No halt
+condition covered wall time, which is a gap in my own halt list**: nothing here
+would have stopped a runaway, and on a shared host with drax's serial godot lane
+live, that is the resource I should have bounded and did not.
+
+**(c) An unprojected artifact.** The pan-null did not exist when this file was
+written — it was invented *during* the run, when the reference's camera turned
+out to pan at 5.98 px/frame and ours at exactly 0.000. It then produced the
+single most important result of the session (it refuted the headline). **A
+projection cannot enumerate the experiments a measurement will force you to
+invent, and one that pretended to would have been a worse document.** The bound
+absorbed it with room to spare, which is the argument for setting a bound well
+under the headroom rather than at it.
+
+**(d) `df` fell 60 → 57 GiB. My entire footprint is 23 MiB.** The other ~3 GiB
+came from other lanes while I worked — precisely the moving floor § 0 said to
+budget for. **No halt condition fired** (nearest approach: RAM, at 89 % of bound).

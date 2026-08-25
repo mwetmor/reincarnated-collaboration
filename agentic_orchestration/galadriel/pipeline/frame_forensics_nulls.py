@@ -60,9 +60,19 @@ def make_pan_null(src, dst, rate=PAN_RATE_PX_PER_FRAME, amp=PAN_AMPLITUDE_PX):
         return dst
     period = 4.0 * amp / rate
     x_expr = f"320+(abs(mod(n*{rate},{2*2*amp})-{2*amp})-{amp})"
+    # ⚑ fps=30 MUST PRECEDE crop. The crop filter's `n` counts the frames it is
+    #   HANDED, and the source is 60 fps. With `crop,fps` the pan advanced by
+    #   n*rate on every SOURCE frame and the decimated output moved 2*rate --
+    #   MEASURED at 11.999 px/frame against a 5.977 target, exactly 2x.
+    #   A null that is twice as strong as the thing it is nulling is not a
+    #   conservative null, it is a broken one: it would have "proved" the
+    #   artefact dominates by inflating the artefact. Caught because the
+    #   instrument REPORTS the camera translation it fitted rather than trusting
+    #   the value that was requested -- the same NOTE-97 discipline drax applies
+    #   to render dimensions (name what you GOT, never what you ASKED FOR).
     subprocess.run(
         ["ffmpeg", "-v", "error", "-y", "-i", src,
-         "-vf", f"crop=1280:720:x='{x_expr}':y=180,fps=30",
+         "-vf", f"fps=30,crop=1280:720:x='{x_expr}':y=180",
          "-c:v", "libx264", "-crf", "12", "-preset", "medium",
          "-pix_fmt", "yuv420p", "-an", dst], check=True)
     print(f"[pan-null] rate={rate} px/frame, amplitude=+/-{amp} px, "
