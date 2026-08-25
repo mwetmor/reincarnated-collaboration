@@ -655,6 +655,23 @@ against a declared 0.45. Three samples now span the window.
 - **S scored QUALITATIVELY** (galadriel § 1.9). **No S bar proposed or implied.**
 - **R-6 untouched** as instructed. **R-7 no workaround.**
 
+### ⚑ One more disclosed near-miss — the class registration MUTATED THE CAPTURE ENVIRONMENT
+
+The two new `class_name`s required a `--headless --import` to register. **That import
+silently stripped `[rendering] mesh_lod/lod_change/threshold_pixels=1.0` from
+`project.godot`, and all 34 arms were captured afterwards.** An undeclared change to the
+capture environment is the exact class this run exists to catch — **and the 258/258
+two-pass determinism check could not have caught it, because both passes were
+post-import.** A determinism receipt proves reproducibility *within* an environment; it
+says nothing about whether the environment moved.
+
+**Tested rather than assumed:** restored the line, re-rendered a `totem` arm, compared
+against the committed corpus — **11/11 byte-identical**, because the value equals Godot's
+own default and the editor drops redundant overrides. **No effect on any capture**, and
+`project.godot` is back to its tracked state. Recorded because **the receipt is what makes
+it a non-issue**; without it, this is an unremarked environment mutation sitting under a
+whole tranche.
+
 ### Next
 
 **Stage 3 — rows 3–7.** Unblocked: all seven A-2 receipts plus R-3/R-4/R-5 banked, Gate-2
