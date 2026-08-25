@@ -41,3 +41,55 @@ video capture work (galadriel), and clearing the standing RED on every flight re
 
 **Done-criterion:** free space ≥ 60 GiB (≥13%) on `/System/Volumes/Data` — the next flight report
 render flips the probe green automatically; no agent action needed after Matt acts.
+
+---
+
+## ⚑ ESCALATION 2026-08-25 (knight-rider) — THE PREDICTED FAILURE HAPPENED, AND IT HAPPENED TO ME
+
+**Severity raised: RED → BLOCKING.** This row is no longer a hygiene item. It **halted a live build wave mid-tranche.**
+
+### The measurement, one day later
+
+| | 2026-08-24 (this row) | 2026-08-25 (now) |
+|---|---|---|
+| Free on `/System/Volumes/Data` | **22 GiB** | ⚑ **2.7 GiB** (0.6%) |
+| Container free space | — | 2.9 GB, and **APFS local snapshots = 0** — so this is **real, not purgeable**. I checked, because "phantom full from snapshots" is the cheap explanation and it is not the one. |
+
+**~19 GiB consumed in a single day**, essentially all by the Step-2 VFX wave.
+
+### What it did
+
+drax's S2C tranche-3A capture **completed all 128 arms** and then **the host ran out of disk during the copy step**, taking pass 2 with it. He halted correctly and **refused to commit** — writing git objects onto a zero-byte volume risks a corrupt object store. Four commits are held un-pushed. Then **my own shell began failing `ENOSPC`**, intermittently, mid-diagnosis. This row's line *"start failing in confusing ways"* is exactly right, and I want it on the record that **the prediction was already written down before the failure.**
+
+### ⚑ The proximate cause is PURE WASTE and it is fixable in one line
+
+Every capture pass ends with `cp "$USERDIR"/*.png "$OUT"/` — duplicating ~1,600 1080p PNGs (**2.6 GB per pass**) into `harness_logs/`. **`harness_logs/**/*.png` is gitignored**, so the copy is *never committed*, and the gate can read the userdir directly. **The harness has been doubling its own disk footprint at the end of every pass, for no consumer.** At 2 MB/frame across the wave's passes, this alone plausibly accounts for the bulk of the 19 GiB. **Fix belongs to drax (his seam, his diagnosis).**
+
+### What I reclaimed — and the bound I respected
+
+**Freed 2.6 GB**: `harness_logs/s2c_rows38_2026-08-25/*.png`, the current run's duplicate copy. **Gated on a machine-checked predicate, not on my reading of output** — authority-set count (2106) ≥ copy count (1592) **and** `git ls-files` = 0 tracked. It refused-by-construction if the authority was not provably a superset.
+
+**I deleted NOTHING from this row's candidate table.** That table says *"agents CANNOT delete any of these"* and I read it as binding. I also declined to touch the remaining large pools — `harness_logs/s2c_rows12_*` (1.7 GB ×2), `s2b_rows37_*` (1.2 GB ×2), userdir `s2c12` (1.7 GB) — because **those are the frames behind SEALED verdicts**, and retiring sealed evidence is not an orchestrator's call even when it is technically regenerable.
+
+⚑ **One correction against a relayed figure, recorded because I nearly acted on it:** drax's halt named `tmp/vfxtruth1/` as *"~7.7 GB, gitignored, regenerable"* — the next reclaim candidate. **Measured: 84 MB, and NOT ignored by pattern, with 464 tracked files under `tmp/`.** Deleting on that recommendation would have been a mistake against tracked work. `#79` cl. 6 (mechanism claims carry an empirical-test obligation before relay) earned its keep the same day it was minted.
+
+### Host-level picture, so the ruling has numbers under it
+
+```
+~/Games                      244 G   ← of which:
+  reincarnated-engine        127 G
+  reincarnated-godot          43 G   (harness_logs 9.7 G · tmp 4.7 G)
+  reincarnated-collaboration  22 G
+  reincarnated-demo           15 G
+  vendor                      14 G
+  synty-corpus                14 G
+~/Library                     47 G   (Godot userdata alone: 9.2 G)
+```
+
+**`reincarnated-engine` at 127 GB is the largest single object on the machine and nobody has looked at it.** It is a Python repo; that figure is almost certainly retained run outputs and DBs rather than source. **Not my seam and not my call** — flagging it as the highest-yield surface Matt has, and one this row's original table never named.
+
+### What is blocked RIGHT NOW
+
+**S2C tranche-3A cannot complete.** Pass 2 requires **~4.2 GB** (2,106 frames × ~2 MB). Available: **2.7 GB**. ⚑ **I ran that projection and DECLINED TO FIRE** rather than send a 25-minute capture into a host that would fail it at minute 24 — per **Discipline #1.1 pre-fire resource-bounds projection**, which I should have run *before* the first dispatch and did not.
+
+**Ask of Matt — one ruling, not a list:** free enough headroom to clear this row's existing done-criterion (**≥ 60 GiB**), or rule which of the surfaces above may be retired by agents. **Until then the godot lane is stopped**, four commits are held, and every capture-bearing dispatch in any seam is un-fireable.
