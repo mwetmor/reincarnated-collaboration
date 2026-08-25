@@ -1,6 +1,6 @@
 # reincarnated-canonical-doc-format — Canonical Doc Format + Lifecycle (Cross-cutting Reference)
 
-> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3. **Amended 2026-07-06 — the parse contract (§ 7) ratified by jack-ryan from gandalf's Glance contract-spec § 2 proposal (proposer→ratifier per § 6.7); old §§ 7–8 shifted to §§ 8–9. Mirrored as Discipline #60 (CI-fail-loud). Amended 2026-07-10 — shape #6 FLOW declaration (§ 7.8) folded via delta-ratification (§ 7.9); shape count 5 → 6; MALFORMED enumeration re-closed at six conditions; Discipline #60 amended in the same commit (twin-sync).**
+> **STATUS:** CURRENT (load-bearing). First authored 2026-05-23 (Stream 3 cross-cutting reference skill). **Amended 2026-06-30 — doc-lifecycle governance added (§ 6): propagation + pruning system, ratified by Matt 2026-06-30 after a 14-scenario stress-test.** The pre-amendment "demote to `canonical/historical/` subfolder" model is RETIRED (the reorg went git-is-archive); reconciled in § 1 + § 3. **Amended 2026-07-06 — the parse contract (§ 7) ratified by jack-ryan from gandalf's Glance contract-spec § 2 proposal (proposer→ratifier per § 6.7); old §§ 7–8 shifted to §§ 8–9. Mirrored as Discipline #60 (CI-fail-loud). Amended 2026-07-10 — shape #6 FLOW declaration (§ 7.8) folded via delta-ratification (§ 7.9); shape count 5 → 6; MALFORMED enumeration re-closed at six conditions; Discipline #60 amended in the same commit (twin-sync).** **Amended 2026-08-24 — § 6.3 prune-safe predicate widened: predicate 4 re-derived over the whole tracked corpus (code + data + binaries count as prune BLOCKERS), plus new clauses 4a (a code citation is never auto-prunable) and 5 (liveness is per-clause; a demotion must adjudicate the gap). gandalf proposed `bdec6e1e`; jack-ryan RATIFIED-WITH-AMENDMENT M per § 6.7 proposer→ratifier. Predicate count 4 → 5. The § 6.6 auto-prune HOLD is discharged. Skill twin synced in the same commit (§ 6.8).**
 
 **Authored:** 2026-05-23 · **Amended:** 2026-06-30 (lifecycle governance)
 **Author:** gandalf (cross-cutting reference owner + primary canonical-doc author)
@@ -156,13 +156,44 @@ Ratified by Matt 2026-06-30 after a 14-scenario stress-test (lineage: `agentic_o
 
 Honest ceiling first: **fully-blind auto-delete is unsafe** — a superseded-*looking* doc can carry un-promoted load-bearing content or be cited by a live doc. So "auto" = **event-triggered + reference-verified**, never a timer that deletes on sight.
 
-**A doc/note AUTO-prunes (git-rm; git is the archive) only if ALL four hold:**
+**A doc/note AUTO-prunes (git-rm; git is the archive) only if ALL four hold** *(predicate 4 REPLACED and 4a + 5 ADDED 2026-08-24 — gandalf proposed `bdec6e1e`, jack-ryan RATIFIED-WITH-AMENDMENT M; see the ratification block below)***:**
 1. **Markdown design artifact** — not data / code / binary (those are seam-owner lifecycle, out of scope)
 2. **Not a never-prune class** (below)
 3. **Either TOTALLY superseded (§ 6.4) OR a working-memory note whose workstream closed**
-4. **Zero live references across BOTH repos** — the reference check greps `decisions-log` + `engineering-disciplines` + all OPs + all skills + `canonical/` + the trackers, in **both** the collab meta-repo and `reincarnated-engine/` (decisions-log lives there and cites collab-repo notes)
+4. **Zero live references across BOTH repos.** The reference check greps for the candidate's basename across **every tracked file in both repos** (`git grep` over `git ls-files`), **excluding only the candidate itself and other files in the same prune batch — and that exclusion set is enumerated in the sweep record** (Amendment M(c)). It is a **derivation over the tracked corpus**, not a walk of a named list of surfaces (Discipline #76 clause 1). In particular it **must** cover source, config, data and test files (`.py` `.json` `.yaml` `.jsonl` `.sh` `.gd` `.ts` `.tscn`, and binaries — `git grep` reports these as *"Binary file … matches"* and that **counts as a citation**) — **predicate 1 excludes code as a prune TARGET and that exclusion does not transfer to code as a prune BLOCKER.** A citation from running code is the strongest possible evidence a doc is live, because something executes against it.
 
-If 1–2 hold but 3–4 are ambiguous → **surface for ratification**, never auto-fire. **"Became irrelevant" has no detectable event — it is ALWAYS surface-for-ratification, never auto-pruned.**
+   > **Declared coverage boundary of this predicate (Amendment M(a); Discipline #70).** Basename grep sees a citation **only if the citing file writes the basename.** It is structurally blind to: a doc cited by *title* rather than filename; a doc cited by a stale path whose basename was later changed by a `git mv`; and a cross-document *section* reference that names no file. **A clean predicate-4 result is therefore "no basename citation found," never "no citation exists."** It is a safety predicate, not a completeness proof, and the sweep record states it in those words.
+
+4a. **A code or data citation is never auto-prunable — it is always judgment-tier.** Where predicate 4 finds a citation from a non-markdown tracked file, the candidate does **not** auto-prune under any circumstances; it surfaces for ratification with the citing `file:line` listed. Rationale: a markdown citation can be lineage; **a code citation is a runtime dependency on a claim.**
+
+5. **Liveness is a per-clause property; STATUS is a per-document stamp. A demotion must adjudicate the gap.** Before stamping a doc `HISTORICAL` / `DEAD` — and therefore before it can ever enter a bulk sweep — the demoting agent asserts, **in the stamp**, that no clause in the doc carries an unmet exit condition. The check is mechanical enough to be cheap: grep the doc for `until … ships/lands` · `exit condition` · `standing` · `in effect from` · `MUST NOT` · `remains operative`, and for each hit either (a) show the condition is met, (b) show the clause is restated in a never-prune surface, or (c) **do not demote.**
+
+   A doc that is 90 % historical and 10 % live is **not** a historical doc. It is a **partial supersession (§ 6.4)** and the existing rule already governs it: *never `git rm` a partially-superseded doc — that amputates load-bearing structure.* **§ 7 of `substrate-expansion-decision-2026-05-17.md` was an amputation, and § 6.4 already forbade it; what was missing was any obligation to look before stamping.** Clause 5 supplies the look.
+
+   > **Amendment M(b) — the keyword list is illustrative, not the population (Discipline #76 clause 1, applied to clause 5's own text).** The six patterns above are a **starting net**, explicitly labelled as such. A live clause phrased without them passes through, and gandalf's own Tranche-1b adjudication declared exactly this residual (9 of 23 read; 14 uncovered). **Where the demoting agent cannot establish per-clause liveness mechanically, the correct output is (c) do not demote** — not a clean grep reported as an assertion. This clause obliges a *look*, and a look that found nothing says so in those terms.
+
+If 1–2 hold but 3–5 are ambiguous → **surface for ratification**, never auto-fire. **"Became irrelevant" has no detectable event — it is ALWAYS surface-for-ratification, never auto-pruned.**
+
+---
+
+> #### ⚖ RATIFICATION — § 6.3 clauses 4 / 4a / 5 (2026-08-24)
+>
+> **Proposer:** gandalf (`CANON-STEWARD`), commit `bdec6e1e`, from the stranded-live-clause audit (`gandalf/notes/2026-08-24-stranded-live-clause-audit-and-section-7-relocation.md`).
+> **Ratifier:** jack-ryan, per § 6.7 proposer→ratifier and the `⚠ SWITCH: CANON-STEWARD → jack-ryan` conflict seam (*proposer ≠ sole-ratifier-on-self*).
+> **Verdict: RATIFIED-WITH-AMENDMENT M** (three parts, folded above: M(a) coverage boundary on predicate 4; M(b) keyword list declared illustrative in clause 5; M(c) prune-batch exclusion set enumerated in the sweep record).
+> **Authority:** ADR-002 tiered approval — documentation-class governance amendment. **Not escalated to Matt.** See the non-conflict finding below.
+>
+> **Why this does NOT re-open Matt's 2026-06-30 markdown-only-scope ruling.** This document's authority line names *"markdown-only scope"* as one of four Matt rulings, and clause 4 makes the predicate read non-markdown files. Those are different objects and gandalf drew the distinction correctly: **predicate 1 governs what may be prune-TARGETED (markdown only — unchanged); predicate 4 governs what counts as EVIDENCE that a target is live.** The ruling's scope is untouched.
+>
+> **The decisive argument is monotonicity, and it is why this needed no Matt gate.** All three clauses are **strictly retention-increasing**. Clause 4 widens the evidence that *blocks* a prune. Clause 4a converts a class of auto-prunes into judgment-tier. Clause 5 adds a precondition on *demotion*. **None of them can cause a file to be deleted that would otherwise have survived.** A change that can only make a destructive automation fire *less* often cannot breach a ceiling ruling whose purpose is to bound that automation. Matt's auto-prune-ceiling ruling is honoured a fortiori, not eroded.
+>
+> **Predicate 4 was verified, not accepted (Discipline #19.1(b)).** The proposal's claim that `movement-speed-baseline.md` is cited by ~10 engine files was re-derived at ratification: **18 tracked citers, 11 of them non-markdown** — `export/schemas.py`, `generation/class_schema.py`, `generation/monster_generator.py`, `generation/monster_schema.py`, `generation/season_generation_pipeline.py`, `simulation/combatant.py`, `telemetry/migrations.py`, `telemetry/telemetry_seed.db`, and three test modules. The claim reproduces and the binary hit is what motivated M(a)'s binary clause.
+>
+> **Clause 5 is correctly identified by its proposer as the load-bearing half, and I concur.** Clause 4 would have retained § 7 *by accident* — for a reason unrelated to why it was live. Clause 5 catches the case clause 4 structurally cannot see: **a live-claused doc cited by nothing at all.**
+>
+> **Declined, with reasons.** gandalf offered a general discipline form — *"a document's STATUS is an assertion about every clause it contains"* — and explicitly left the number to me. **No new discipline number.** It is a doc-lifecycle rule with exactly one corpus (`canonical/` + `agentic_orchestration/` markdown) and one enforcement point (the demotion stamp), and clause 5 is where a reader meets it. Minting a number would create the #58-DECLINED hazard in reverse: a general rule nobody triggers, cited from the specific rule that already works. **Revisit only if a second corpus acquires per-clause liveness semantics.**
+>
+> **HOLD DISCHARGED.** `agentic_orchestration/HOLD-2026-08-24-hygiene-routine-auto-prune.md` lifts on this ratification per its own step 1, and is deleted in the same commit per its step 2. § 6.6 step 3 (auto-prune tier) resumes **under the amended predicate**, and the step-4 `CODE SURFACES NOT GREPPED` declaration requirement — knight-rider's amendment, correct while it stood — **lapses with it**, because clause 4 now greps them. The 14 unopened Tranche-1b cases remain owed to gandalf and are unaffected by this ratification.
 
 **Never-prune class:** `decisions-log.md`, `CHANGELOG.md` (append-only ledgers); the two trackers (LIVING — § 6.5); `00-ground-state.md` (router); `AGENTS.md` / `GOVERNANCE.md` / `REVIEW_PROCESS.md`; all OPs + skills; the spec-folder `00-index.md` fold-worklists.
 
@@ -190,9 +221,9 @@ Tracker rows are **resolved**, not deleted — because reopening is common (e.g.
 
 A standing scheduled Routine fires into a gandalf session on a fixed cadence and:
 1. finds total-superseded / workstream-closed / orphaned markdown design-artifacts the first two triggers missed;
-2. runs the cross-repo reference check (§ 6.3 predicate 4);
-3. **auto-prunes the four-predicate-safe tier** (git-rm; in-scope auto-commit);
-4. **surfaces the judgment tier** (ambiguous / "became irrelevant") as a prune-list for Matt's ratification;
+2. runs the cross-repo reference check (§ 6.3 predicate 4 — **a derivation over `git ls-files` in both repos, code and data included**, as amended 2026-08-24);
+3. **auto-prunes the predicate-safe tier** (git-rm; in-scope auto-commit) — **predicates 1, 2, 3, 4 AND 5, with clause 4a excluding any candidate carrying a code or data citation from this tier entirely**;
+4. **surfaces the judgment tier** (ambiguous / "became irrelevant" / **any 4a code-citation candidate**) as a prune-list for Matt's ratification;
 5. flags canonical commits missing a `Tracker-delta:` footer (§ 6.2 enforcement);
 6. collapses resolved-and-aged tracker rows into the CLOSED appendix (§ 6.5);
 7. runs the reorg-integrity **tripwires** (dead-home regression · OP↔skill twin drift, § 6.8 · Matt-queue sync) — flag-only, never auto-fix (ratified jack-ryan 2026-07-02).
@@ -330,4 +361,4 @@ Authored / maintained by **gandalf** (cross-cutting reference owner + primary ca
 ---
 
 **Signed:** gandalf (§ 1–6, 8–9); jack-ryan (§ 7 parse-contract ratification, 2026-07-06; § 7.8/§ 7.9 shape #6 FLOW delta-ratification, 2026-07-10)
-**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5); the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the four-predicate prune-safe rule, three note-classes, total-vs-partial supersession, and the hygiene Routine; and (§ 7) the parse contract — the six legislated shapes (STATUS · SESSION-DELTA · queue rows · `gates-on:` · Matt queues · FLOW) + the CI severity split (mirrored as Discipline #60). Canon-home truth remains `canonical/00-ground-state.md`.
+**For:** the universal **format + lifecycle** spec for canonical docs. Header + STATUS + cross-reference rules (§ 1–5); the authoring → propagation → pruning system (§ 6): the `Tracker-delta:` convention, the five-predicate prune-safe rule (amended 2026-08-24), three note-classes, total-vs-partial supersession, and the hygiene Routine; and (§ 7) the parse contract — the six legislated shapes (STATUS · SESSION-DELTA · queue rows · `gates-on:` · Matt queues · FLOW) + the CI severity split (mirrored as Discipline #60). Canon-home truth remains `canonical/00-ground-state.md`.
