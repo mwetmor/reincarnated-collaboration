@@ -291,3 +291,180 @@ G-1 attributed the corpus's one judged verdict to *galadriel's* run-level select
 - `/Users/admin/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` — #9, #60, #70, #73, #74
 
 **Signed:** jack-ryan, 2026-08-24. The goalposts were pinned before the field existed, and they did not move. The schema held.
+
+---
+---
+
+# G-2b micro-gate — 2026-08-24 — schema **v1.1** custodian amendment (AM-1) · RUN U1-BUILD
+
+**Reviewer:** jack-ryan (DEV-MODE, gatekeeper, BLOCK authority) · **Conductor:** gandalf (RUN-CONDUCTOR) · **Custodian/Developer:** star-lord (B-1b)
+**Target:** `e4e931da` — schema revision **1.1**, the founding grok row `dfbe28b17c2520f0`, and the three custodian declarations routed by ledger **L-14**.
+**Scope:** the v1.1 amendment ONLY. This is **not** a re-ratification of schema v1 — v1 was frozen at `a4f7a569` and ruled PASS at G-2, and nothing here reopens it.
+**Principles applied:** REVIEW_PROCESS #1 (math-before-code), #4 (law of record is truth), #5 (severity matters) · ADR-002 · ADR-004 (cross-seam) · Disciplines #9 · #12 · #60 · #63 · #64 · #70 · #73 · #74 · R-L47-2
+
+## VERDICT: **RATIFY-WITH-AMENDMENT** — 5 of 7 items clean · **2 BLOCK · 3 WARN · 4 INFO**
+
+All seven routed items are **substantively correct**, including both custodian declarations flagged as mine to overrule — I decline to overrule either. The two BLOCKs are **not** disagreements with the rulings; they are **two false load-bearing claims made in support of a ruling I am otherwise ratifying**, each proven by mutation, each ~6–10 lines to discharge, each severable from everything else in the block.
+
+---
+
+## Per-item rulings
+
+### 1 · Lane rename `grok-judge` → `grok-serial` — **RATIFY**
+
+Tape-safety **verified independently and more broadly than claimed**. star-lord grepped HEAD before the edit; I checked **every historical version of the tape** — `a4f7a569`, `49d717d5`, `e4e931da` — and `grok` occurs **0 times** at all three. I additionally reconstructed the **v1.0 validator** from `a4f7a569` and confirmed `grok-judge` was the only legal spelling then and that no row ever spent it. The old spelling is now refused at `make_row`, not merely at `validate` (mutation M9). `test_11a_the_rename_was_TAPE_SAFE` re-checks the property mechanically at every suite run, which is the right shape: the rename's legality is a standing invariant, not a one-time observation.
+
+The **reasoning** is the durable part and I endorse it: `grok-judge` named a *workload class* (the U-8 judge door) in a field whose job is to name an *execution stream*. The vindication arrived 48 minutes later — **AM-2 widened admission to a general vendor lane** (`91de6444`), which would have made a policy-encoding lane name wrong on the day it landed. A lane enum that encodes admission policy cannot survive the policy changing.
+
+### 2 · `grok-sub` currency — **RATIFY**
+
+Additive enum value. It satisfies the distinction I **pre-registered before `flight/` held a file** (G2-T2, verbatim): *"adding a value to an existing enum PASSES."* Sourced to § 9.1's verified `grok models` output (*"You are logged in with grok.com"*). Near-miss spellings refused (`grok-subscription` → `SchemaError`). No finding.
+
+### 3 · `cost_usd` — **RATIFY-WITH-AMENDMENT**
+
+**Derived-not-stored HOLDS.** I ran 11 mutations rather than read the code:
+
+| mutation | result |
+|---|---|
+| `cost_usd` on START / GATE / SNAPSHOT | **REFUSED at `make_row`** — `B-3: cost_usd is FORBIDDEN on <event>` (all six non-CLOSE events) |
+| negative / string / bool `True` | **REFUSED**, with the rule quoted in the error text |
+| `cost_usd` with **no** `derived_from` | **REFUSED** — B-5 clause fires on the new field exactly as on a token primitive |
+| `derived_from` naming a path that does not resolve | **REFUSED** |
+| `cost_usd: 0.0` | **accepted** — correct; a measured zero is a fact, per the `tokens_cache_write` precedent |
+
+Per-event matrix update is **normative in both directions** (F on six events, O on CLOSE) — this is B-3 working, not asserted. The field name spends **no** metric-name exception; I verified `METRIC_NAME_EXCEPTIONS == ("warn_count",)` still holds, so AM-1 did not spend the FINDING-C grandfather.
+
+**The closed field set is where it does not hold** → see **BLOCK-1**. And see **WARN-1**: "reported, never computed" is currently prose with no parse-time consequence, and it is mechanizable today.
+
+### 4 · Founding grok row `dfbe28b17c2520f0` — **RATIFY. Honest-null discipline is HOLDING, not drifting.**
+
+Every populated field traces to lane-spec § 9.1: `cost_usd 0.00286` (vendor `costUSD`), `harness/harness_version grok-cli/1.0.5`, `model_echo grok-4.6-build` (headless resolution), `provider xai` (`auth.x.ai` credential), `currency grok-sub`, `workstream U-4` (§ 9.1: *"it is the U-4 first step, executed"*).
+
+**I verified the declared imprecision rather than accepting it.** The row's `ts` `2026-08-24T23:24:56Z` is claimed to be the commit that banked the measurement. Commit `368f7a70` has committer time `2026-08-24T19:24:56-04:00` = **`23:24:56Z` exactly**. The "sourced upper bound" is machine-true, not rhetorical.
+
+The **absences** are the strongest part of this row, and they are absent for the *right kind* of reason:
+- `rc` — § 9.1 records `rc=0` for the **auth check** (`grok models`), never for the headless probe. Most builds would have blurred those two.
+- `verdict` — `PROBE-OK` is the lane's own self-report (B-2) and is not in the § 3.5 enum.
+- all five token primitives — § 9.1 records that the envelope *carries* a `usage` object and records **no numbers from it**.
+- `pin` — the probe took the vendor default; the provisional `grok-4.6` is protocol in § 9.3, and **a protocol constant is not a measurement of this call**.
+- the **~4.3 s wall** — refusing to emit a fabricated `START` to encode a real measurement is the single cleanest instance of this discipline I have gated. Two invented timestamps to carry one measured number is exactly the trade the recorder exists to refuse.
+
+The consequence is carried through to the render rather than smoothed: pin drift reports **`NO COMPARISON POSSIBLE — 1/34 unit(s) carry a model_echo but none carries a pin`** — the echo-without-pin population is counted separately instead of being scored as "matches its pin." That is the INFO-2 disposition honored under a *new* lane, which is where it would have been easiest to fudge.
+
+### 5 · The versioning ruling — **RATIFY the ruling. I DECLINE to overrule.** (Two BLOCKs on the *substitute mechanism*, not on the ruling.)
+
+`SCHEMA_VERSION` stays **1**; `SCHEMA_REVISION` is **"1.1"**. The custodian is right, and he is right using my own argument: a per-row revision stamp would be a **hand-written summary of the row's own key set**, which is the R-L47-2 defect the derived-not-stored rule exists to prevent. I add the sharper form of it — AM-1 removes nothing, retypes nothing and tightens nothing, so a validator accepting `v ∈ {1,2}` would apply **one identical rule set to two values**: a discriminator that discriminates nothing, which is worse than no stamp because it *looks* load-bearing. And **G2-T3 (one validator, zero exceptions) is a HARD gate property**; I will not trade it for a cosmetic stamp.
+
+**My B-4 specified a COST, not a mechanism.** The cost was: a red suite, a signed note, a deliberate act. `SCHEMA_REVISION` + `SCHEMA_REVISIONS` + `FIELD_SINCE` is a legitimate carrier for that cost. **It does not currently carry it**, in two independent ways, both proven below.
+
+### 6 · `busy-unknown`, declared outside the § 3 enum — **RATIFY**
+
+Correct, and correctly justified. § 3's vocabulary assumes all three legs answer; a D-2-pending degraded card **cannot promise that**, and rendering `open` on a lane whose lock could not be read is **false-open — the one direction G-2's FALSE-BUSY ruling forbids**. Declaring a new label in-band beats silently coercing an unreachable leg into an existing one, which is the semantic-shift failure (#12). `STATE_PRECEDENCE` places `busy-unknown` **above** `auth-expired`/`cli-missing`, so ambiguity outranks a credential state — right ordering. Tested at both leg-1 and leg-2 unreachability; unexercised on today's live render (every leg answered), which is a fact and not a gap. Carry-forward condition at **WARN-3**.
+
+### 7 · UNREACHABLE ≠ NOT-APPLICABLE — **RATIFY. Q62-compatible today.** (Carry-forward at WARN-3.)
+
+I ran the render rather than read the intent. The grok card produces:
+
+> **state: 🟡 `open`** · COVERAGE — this answer rests on **1 of 3 legs**; leg 1 — no lane lock exists for this vendor (D-6 gated) · leg 3 — no run-log exists for this lane (D-8, born with the queue). **Not a full-coverage green.**
+
+and per-leg: *"NOT APPLICABLE (the surface does not exist), which is a different fact from a probe that failed"*, and *"Backlog is unmeasured, which is not zero (#63)."*
+
+This is **#70 honored structurally**, not in prose: an `open` on reduced coverage **cannot** reach green in the marker logic. The inverse design — probes that structurally cannot emit painting permanent red — is the same defect wearing the opposite sign: **a red that means nothing is an instrument nobody reads**, and it would have made the grok card useless on the day it was born. Distinguishing "no signal can travel here" from "the signal failed" is exactly the referent-binding declaration #64 asks for.
+
+Q62 is honored on its own terms and **live-exercised**: Matt's real interactive grok TUI (PID 77015) rendered `interactive-grok-present … ADVISORY only` and did **not** move the state off `open`. The pin line refuses to assert: *"none recorded on any row of this lane — declared null. The pin OF RECORD lives in the lane spec; this view renders what the tape measured."* That is Discipline #74 at the sentence level.
+
+---
+
+## BLOCK findings
+
+### **BLOCK-1 — the closed field set has no literal, and the custodian's "red test" claim is false. Proven by a one-line mutation.**
+
+star-lord's versioning ruling rests on this sentence, verbatim: *"The substance B-4 asked for is delivered in full — a version bump, a custodian-signed note, **a red test unless the literal is amended deliberately**."* There is no literal pinned at the field-set level, so there is no red test.
+
+**Falsifier, executed.** I added one field to `COST_FIELDS` — which reaches `ALL_FIELDS` **and** `FIELD_MATRIX` (as `CLOSE: O`) in a **single line** — and chose the name `cost_estimate`, because an estimated cost is precisely what HARD RULE #2 (*"Never estimate. Absent is absent."*) exists to forbid:
+
+```
+SCHEMA_REVISION : 1.1 (unchanged)      FIELD_SINCE : {'cost_usd': '1.1'} (unchanged)
+ROW ACCEPTED    : {'v': 1, 'cost_estimate': 1.23}
+validate        : CLEAN
+derived_from    : NOT REQUIRED (not a REPORTED_COST_FIELD — an ESTIMATE owes no source)
+row_min_revision: 1.0
+Ran 70 tests in 9.664s — OK
+```
+
+No revision bump. No signed note. No `derived_from`. **70/70 green.** This is *accretion-by-one-reasonable-field* (R-L47-2) arriving at the exact surface B-4 was written to seal, and the field it admits is a fabrication primitive.
+
+*Fairness, stated plainly:* B-4's literal `v:2` would **not** have caught this either — nothing pinned `ALL_FIELDS` under v1.0 and nothing pins it now. The defect is not that star-lord chose `SCHEMA_REVISION`; it is that he **asserted a cost his mechanism does not impose**, and v1.1 is the first field ever added post-freeze, so this is the first moment the claim was testable. See **INFO-4** — this door is one I left open at G-2.
+
+**Discharge (star-lord, ~6 lines, tape untouched):** pin the field set **by equality** in `test_B4`, the FINDING-C pattern applied one level up — `assert schema.FIELD_ORDER == (<literal tuple>)`. Adding a field then costs what FINDING-C made a second metric exception cost: a **red suite**, a deliberate literal edit, a `FIELD_SINCE` entry, and a `SCHEMA_REVISIONS` row. Cite: B-4 · FINDING-C · Discipline #60 · R-L47-2.
+
+### **BLOCK-2 — `row_min_revision()` under-reports on 2 of the 3 amendments it was written to cover. Proven against a real v1.0 validator.**
+
+This function is **the mechanism offered in place of the `v:2` stamp**. Its docstring claims *"the lowest custodian revision that can READ this row"*, and `SCHEMA.md` § 0.0 states it to a reader as fact. It asks only `FIELD_SINCE` — i.e. only **keys**. But 1.1-a and 1.1-b introduced no key; their requirement lives in a **value**.
+
+**Falsifier, executed.** I reconstructed the genuine v1.0 validator from `a4f7a569` and asked it about rows the function calls 1.0-readable:
+
+| row | `row_min_revision()` says | the **real v1.0 validator** says |
+|---|---|---|
+| `{lane: "grok-serial"}` | **`1.0`** | **REJECTS** — `lane must be one of [… 'grok-judge' …]` |
+| `{currency: "grok-sub"}` | **`1.0`** | **REJECTS** — `currency must be one of ['anthropic-max','chatgpt-sub','api-metered']` |
+| `{cost_usd: 0.01}` | `1.1` | correct (the one axis implemented) |
+
+The live grok row returns `1.1` **only by luck** — it happens to carry `cost_usd`. A future `grok-serial` START row (no cost field, CLOSE-only) will report `1.0` and be unreadable by a 1.0 reader.
+
+`test_row_min_revision_is_derived_from_keys_never_stamped` exercises **only the field axis**, which is the only axis implemented — so it **cannot fail on this defect**. Same cannot-fail class as B4-P14.
+
+Why it gates rather than rides: `flight/MIGRATION.md` is a **cross-seam surface** (ADR-004) and `SCHEMA.md` is the schema of record. A document of record currently states a property that is false for two-thirds of the revision it documents, and it is the property standing in for the stamp I asked for. No consumer is harmed today; the harm is latent and the fix is ~10 lines.
+
+**Discharge (star-lord, tape untouched):** add a value-axis map (e.g. `VALUE_SINCE = {"lane": {"grok-serial": "1.1"}, "currency": {"grok-sub": "1.1"}}`), fold it into `row_min_revision`, add the test that **fails today** (`row_min_revision({lane:"grok-serial"}) == "1.1"`), and correct the docstring + `SCHEMA.md` § 0.0 from *"its own key set"* to **keys and values**. Cite: B-4 · Discipline #60 · #64 · ADR-004.
+
+**Both discharges land INSIDE revision 1.1**, on the precedent I set at G-1: gate amendments ship *as part of* the version they gate (B-1…B-6 shipped as part of v1). Neither touches the tape, neither touches a frozen v1 rule, neither can trip G2-T2.
+
+---
+
+## WARN findings
+
+**WARN-1 — "reported, never computed" is prose, and it is mechanizable today.** The validator enforces *type*, *event placement* and *a named source* for `cost_usd`; it cannot distinguish a vendor-reported dollar figure from one computed as tokens × a price list, and `derived_from` only proves a path **exists**, never that it contains the number. That inherited softness is B-5's, not AM-1's — **but the custodian has already documented the fact that makes one case decidable**: `SCHEMA.md` § 3 states *"Codex's stream reports none, so the field is simply absent on that lane."* I verified a `codex-serial` CLOSE carrying `cost_usd: 12.50` alongside a token count **validates CLEAN** — a cost that is, by the schema's own documented fact, necessarily computed. *Recommend:* a lane→reports-cost map, refusing `cost_usd` on a lane declared not to report one. Converts the prose into a parse error on the one lane where the answer is already banked. Discipline #60.
+
+**WARN-2 — the LANE CARD diverges from Amendment H on `queue-pending`, and the divergence changes a colour Matt acts on.** My Amendment H (folded `9fb86ef9`) binds the vocabulary: ***"Open" = `open` OR `queue-pending`*** — backlog is not occupancy; a P-9 HELD job never closes a lane; and *"consumers bind to the pinned safe-to-fire predicate, never to a leg's raw reading."* The card is a consumer. `STATE_PRECEDENCE` ranks `queue-pending` **above** `open`, so an idle-with-backlog lane folds to state `queue-pending` and the marker renders **AMBER** (`AMBER if ans["state"] != "open"`); `factory/ui/board.py` `_STATE_CLASS` maps it to `s-warn`. Per ratified law that lane is **OPEN and first-choice**. The card also renders no **safe-to-fire predicate** line at all.
+*Not chargeable to star-lord:* `e4e931da` (20:18:05) **predates** my re-ratification `58d22432` (20:18:53) and the Amendment A–I fold `9fb86ef9`. This is a forward obligation created by a later ratification, and G-2b is the first gate that sees both. *Action:* render the safe-to-fire predicate; colour `queue-pending` as fire-safe with the backlog named. Cross-seam — both `flight_report` and drax's `board.py`. Discipline #64, #12.
+
+**WARN-3 — the busy-check DERIVATION now lives in a RENDERER, and Q62 forbids that the day D-2 lands.** Q62 ruled the card **renders the check's output** — *"a view of the derivation, never a second truth source."* Today there is no check to render (D-2 unbuilt), the card performs the derivation itself, and it **declares it** (`probe: degraded — D-2 CLI pending`), which spec § 13.1 sanctions. Fine now. But the semantics invented here — `busy-unknown`, the UNREACHABLE/NOT-APPLICABLE split, the fail-closed union, the coverage clause — are **derivation logic**, and nothing records that they must **migrate into D-2's contract** rather than be duplicated beside it. On the day D-2 ships, a board holding its own copy **is** the second truth source Q62 forbids, and the two will drift. *Recommend:* name the migration now, in `flight/MIGRATION.md` and in the D-2 build delta — D-2 owns the answer states; the card renders `--json`. Cite: Q62 · Discipline #74 (one data path) · ADR-004.
+
+---
+
+## INFO findings
+
+**INFO-1 — a consumer is keeping the retired lane spelling alive (cross-seam, drax).** `factory/ui/board.py` § `_lane_tape_activity` carries a *"v1.1 tolerance"* aliasing `grok-serial` ≡ `grok-judge`. `flight/MIGRATION.md` § 1.1-a states the rename matters *"only for a WRITER that hardcoded the old string"* and that **no historical row carries the old value, so no reader can encounter it**. The alias is unreachable code that re-admits the vocabulary the rename retired — the workload/stream conflation surviving in the consumer after the schema removed it. Harmless today; delete it rather than let it become the reason someone believes the old spelling is still legal.
+
+**INFO-2 — the grok row's identity claims do not name their own source.** `derived_from` lists § 9.1 only, but `lane: grok-serial` derives from § 9.3 + the AM-1 rename, and `operator`/`workstream` from the surrounding record. B-5(b) made `derived_from` a **LIST** precisely so *"identity claims can name their own source"* independently of a cost claim. One extra list entry (`…SPEC.md#§ 9.3`) closes it. Not a fabrication — a sourcing claim narrower than the row it covers.
+
+**INFO-3 — L-15's stale wording confirmed live, and the split is worth stating.** The grok card renders *"`GrokHarness` is build-delta D-6 and stays gated behind U-8 judge-pilot authorisation."* Post-AM-2 the **rationale** is stale — `91de6444` moved D-6's gate from the U-8 pilot to AM-2 re-ratification. The **fact** (no lock exists, so leg 1 is NOT-APPLICABLE) remains true and the card's state logic is unaffected. Rides the next render with WARN-2. Non-blocking, as the ledger recorded.
+
+**INFO-4 — my own G-2 gap, recorded rather than quietly repaired.** At G-2 I ruled FINDING-C and closed the accretion door on `METRIC_NAME_EXCEPTIONS` — the **inner** door. I did not close the **outer** one: the field set itself was never pinned by a literal either, and my own B-4 language (`v:2`) would not have closed it. BLOCK-1 is a door I should have closed at G-2 with the same sentence I used on the exception list. The standard I hold others to (#9) is not waived for the gatekeeper — same disposition as G-2 FINDING-6.
+
+---
+
+## THE SENTENCE
+
+> **Schema revision 1.1 is RATIFIED-WITH-AMENDMENT.** All three amendments (1.1-a rename, 1.1-b currency, 1.1-c `cost_usd`), the founding grok row, and all three custodian declarations — the `SCHEMA_REVISION`-not-`v:2` ruling, the `busy-unknown` label, and the UNREACHABLE ≠ NOT-APPLICABLE semantics — **stand as landed**. **BLOCK-1 and BLOCK-2 must be discharged before seal**; they are ~16 lines total, touch no row on the tape and no frozen v1 rule, and land inside revision 1.1 on the G-1 precedent. **This gate is not waivable by the conductor.**
+
+## Action
+
+- [ ] **star-lord (custodian) — BLOCKING, before seal:** BLOCK-1 (pin the field set by equality in `test_B4`) · BLOCK-2 (`VALUE_SINCE` axis in `row_min_revision`, the test that fails today, docstring + `SCHEMA.md` § 0.0 correction).
+- [ ] **star-lord — WARN, may ride:** WARN-1 lane→reports-cost map · INFO-2 add § 9.3 to the grok row's `derived_from` **by correction row, never by rewrite**.
+- [ ] **star-lord + drax (cross-seam):** WARN-2 Amendment H `queue-pending` = open + render the safe-to-fire predicate · WARN-3 name the D-2 migration in `flight/MIGRATION.md` · INFO-3 stale D-6 rationale.
+- [ ] **drax:** INFO-1 remove the `grok-judge` alias from `factory/ui/board.py`.
+- [x] **jack-ryan:** G-2b ruled. Both custodian declarations upheld; overrule declined on the versioning ruling. **No ESCALATE filed** — every finding is seam-executable within ADR-002.
+- [ ] **Matt:** nothing required by this gate.
+
+## References
+
+- `agentic_orchestration/flight/` — `schema.py`, `SCHEMA.md` (§ 0.0, § 3, § 5, § 8.2), `MIGRATION.md`, `bin/flight_report` (`lane_answer`, `STATE_PRECEDENCE`), `records-2026-08.jsonl` (row `dfbe28b17c2520f0`), `tests/test_flight.py` (`TestAM1SchemaV11`)
+- Commits `e4e931da` (v1.1) · `a4f7a569` (v1.0 validator, reconstructed for BLOCK-2) · `368f7a70` (grok row `ts` source, verified) · `91de6444` / `58d22432` / `9fb86ef9` (AM-2 + re-ratification + Amendment A–I fold)
+- `agentic_orchestration/gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md` § 13 (AM-1)
+- `agentic_orchestration/gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` § 3, § 8 (Q62), § 9.1, § 9.3, § 10.3 (Amendment H)
+- `agentic_orchestration/gandalf/notes/2026-08-24-u1-build-run-ledger.md` — L-13, L-14, L-15, L-16
+- `agentic_orchestration/factory/ui/board.py` — `_lane_tape_activity`, `_STATE_CLASS` (INFO-1, WARN-2)
+
+**Signed:** jack-ryan, 2026-08-24. Two rulings I was invited to overrule, I upheld — and the two sentences written to defend them, I falsified. A mechanism is not a claim about a mechanism.
