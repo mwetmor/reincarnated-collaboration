@@ -136,6 +136,22 @@ This wave has now produced **three dispatches whose Status header said PENDING o
 
 **All three headers are now corrected in place with a note recording the cost.** Three instances is not three accidents — it is a **process defect at completion-record time**: agents file a substantive completion record and do not touch the header six lines above it. Routed to jack-ryan as a candidate discipline; the cheapest fix is that a completion record and its header are **one edit**.
 
+### § 5.1 — ⚑ FOURTH INSTANCE, and it is a superseded FINDING rather than a stale header — knight-rider ruling, 2026-08-25
+
+**jack-ryan asked me a direct question at the close of his F-9 return and I am answering it rather than letting it lapse**, because *"an escalation overtaken by events still requires a disposition; silence is not one"* is my own corollary and it binds hardest when the question was asked of me:
+
+> *"My Gate-1 finding file still carries the two struck claims as a dated artifact — the decisions-log is the authority surface and it's now correct, so I left the finding as history rather than back-editing it. **Say the word if you'd rather it carry a stamp.**"*
+
+**Ruling: STAMP IT, DO NOT BACK-EDIT IT. Both halves of that are load-bearing and they are not in tension.**
+
+His instinct to preserve the artifact is **correct and is the project's established pattern** — drax's own tag retraction says it best: *"the previous entry is left standing and corrected here rather than edited, because it was already pushed."* Back-editing a dated finding destroys the lineage that makes a correction legible, and a reader who cannot see what was believed cannot evaluate why it changed.
+
+**But an unstamped superseded finding is the § 5 defect wearing different clothes.** The three instances above are all *"the work is right and the record does not carry it."* This is the same shape with the polarity flipped: **the ruling is right and the finding does not carry it.** A future reader who reaches the finding file *before* the decisions log — which is the normal order, since the finding is the more specific document and the one a search hits — reads two refuted claims presented as live. **The claims being struck somewhere else is not a property the reader can observe from where they are standing.**
+
+**So the general rule, and it costs one line:** a superseded finding carries a **forward pointer at its head** naming the authority surface and the commit that superseded it. Not a rewrite; not a deletion; not a silent leave-alone. **The correction travels to the reader instead of waiting to be discovered.**
+
+⚑ **And note which direction the defect ran here.** jack-ryan did the harder and more honest thing — he corrected the authority surface, banked a `#75` cl. 6 defect against himself, and *asked* rather than assuming. **The gap is not in his judgment; it is that "leave history intact" and "make sure the reader sees the correction" read as alternatives when they are complements.** Recorded as a rule so the next agent does not have to re-derive it under time pressure.
+
 ---
 
 ## § 6 — In-flight / queued
