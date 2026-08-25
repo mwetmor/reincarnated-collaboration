@@ -32,6 +32,47 @@ Root cause is a **two-convention collision in one repo**, and it is **not** in t
 
 galadriel's recommendation, which I am ratifying as this dispatch's instruction: **settle the rig's forward axis in ONE place and reconcile the `king_rig.gd:191` contradiction.** Five scattered sign flips would make the captures right and leave the repo holding two conventions and no statement of which is true. That is a convention decision spanning `playshell` / boss-arena / descent-scene surfaces, so it goes to **jack-ryan at Gate 1 before it lands** — I am routing it. **Re-capture is mandatory after it lands.**
 
+---
+
+### ⚑⚑ GATE-1 RETURNED — `qa/findings/2026-08-25-godot-forward-axis-convention.md` + decisions-log. THIS SUPERSEDES THE PARAGRAPH ABOVE IN TWO PLACES.
+
+**First — this repo already measured the answer twice, and wrote it only into GDScript comments. Both probes are yours.**
+- `wr1_facing_probe.gd` (you, 2026-07-29, WR1-ROOMS Block A fix 1) — bone-rest readings, one reading reported DEAD rather than dropped → **+Z forward**. *Same symptom as now: Matt's eye said "backwards" and the 0.0000° retarget metric could not see it.*
+- `mobcast_stride_probe.gd:264-283` — re-derived from the cross product, cross-checked against seven Synty clip labels → `right = (0,0,1)×(0,1,0) = (−1,0,0)`, so **local +X is the body's LEFT**.
+
+So `king_rig.gd:191` is not merely self-inconsistent — **it contradicts two independent measurements taken in this repo.**
+
+**Second — 🛑 CONDITIONAL BLOCK. DO NOT BLANKET-FLIP EVERY `atan2(-x,-z)`. This is the part that would have bitten you.**
+
+`vh_caster.gd:78` sets `MODEL_FORWARD_YAW := 180.0` **at the body**, deliberately, *"so callers need no change."* **For that rig family the `-Z` formula is CORRECT, and flipping it re-opens WR1.**
+
+> **The right formula is a function of the RIG, not of the repo — and nothing at a call site tells you which.**
+
+That sentence is jack-ryan's ruling and he names it as the **docstring of the helper you are about to write**. It is the actual deliverable; the sign flips are incidental to it.
+
+Second reason the blanket flip is wrong: **not every `atan2(-x,-z)` is a rig yaw.** `s2c_cone:339` builds fan verts; `s2b_melee_arc:359/450` computes bearings; there are camera/shader azimuths and sim-heading conversions besides. A mechanical sweep hits all of them.
+
+`s2a_stage` **is** safe to flip — `KingRig` + `rig_mob_d2_skeleton.tscn`, neither body-corrected. jack-ryan checked that rather than assuming it.
+
+**Third — the ruled shape is TWO COMMITS, and the second one is provably safe:**
+
+| | Content | Verification |
+|---|---|---|
+| **Commit A** | Fix the genuinely wrong sites (`s2a_stage:303` + the four `s2c_*` movers) | Re-capture shows correct facing |
+| **Commit B** | Introduce `face_toward()` and adopt it at the **already-correct** sites | Those already compute `atan2(d.x,d.z)`, so **adoption is provably a no-op — verify by byte-identical re-render.** |
+
+My regression fear (that centralizing would break player-facing code which is currently correct) is **legitimate and refuted by B's byte check** — and jack-ryan was explicit that it does not argue for five scattered flips.
+
+**Fourth — 🛑 SCOPE AMENDMENT TO THE SEAL-BLOCK ABOVE, and it is wider than I wrote it.**
+
+I limited PENDING-RECAPTURE to silhouette-scored rows. **jack-ryan widened it: PENDING-RECAPTURE applies to EVERY ROW IN WHICH A BODY APPEARS**, because `s2a_stage:303` mis-yaws **every staged mob on every row**, not just the mover rows.
+
+His reason is stronger than mine and kills the tempting counter-argument. The counter goes: *"both the fx-on and fx-off frames share the same wrong pose, so it differences out as common-mode."* **It fails** — body-anchored effects emit along body-forward, so a 180° body rotates the **effect region into different world space**. galadriel's frame of the `cone` fan erupting out of the King's **back** is the proof.
+
+**Fifth — a SEPARATE live defect, and it is NOT yours to fold into this fix.** `king_rig.gd`'s `_sword_yaw_left_deg := 12.0` is built *"toward the body's LEFT (−X)"* — but the measurement says `+X` is left, so **the blade sits on the king's RIGHT.** Matt's CHANGE 1 of 2026-06-22 asked for left. **Separate ticket, filed. Do not touch it in this landing** — a remedy that quietly widens is how a verified fix becomes an unverified one.
+
+**Sixth — the `defensive` residue, restated as an instruction:** the gate should **`assert`** the predicted identity, not measure across it and publish the zero. jack-ryan's reason: *"an unasserted prediction is indistinguishable from an unnoticed defect."*
+
 ### Two corrections to what I sent you at launch
 
 1. ⚑ **My `defensive ≡ control` finding was a false alarm and you should not spend a minute on it.** galadriel confirmed the identity reproduces (159 unique / 234) but `run_s2c_rows12.sh` **predicted it in writing** — *"the effect node is hidden wholesale in a control, so the two frames SHOULD be byte-identical."* It is a **passed receipt between two controls.** The only thing owed is that the gate should **assert** the predicted identity rather than measure across it. I relayed a mechanism claim without testing it against the harness that produces it — `#79` cl. 6, and I am the one who filed that clause.
