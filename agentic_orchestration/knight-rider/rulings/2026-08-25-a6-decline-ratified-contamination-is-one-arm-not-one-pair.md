@@ -10,7 +10,7 @@
 
 1. **The DECLINE STANDS and is RATIFIED.** A-6 is emitted `UNRESOLVED`, not `FAILED`. **No row is convicted of failing to separate.** Nothing routes to gandalf as an L-29 fold finding. The `ANTI_TUNING_CLAUSE` holds in full: **no effect is changed on the strength of this number, by anyone, in any tranche.**
 2. **drax's refusal to repair the instrument in-session is CORRECT and is ratified as-reasoned.** Inventing a continuous descriptor after seeing the number it would move is #75.5 cl. 5.6 inverted. He named the hazard and stopped at it. That is the conduct the clause exists to produce.
-3. **His CHARACTERIZATION of the contamination is wrong, and the correction changes the repair.** It is not *"ONE PAIR of ONE ROW."* It is **one ARM** — `single_target/water` — contaminating **every pair it enters**. § 2 below.
+3. ~~**His CHARACTERIZATION of the contamination is wrong, and the correction changes the repair.** It is not *"ONE PAIR of ONE ROW."* It is **one ARM** — `single_target/water` — contaminating **every pair it enters**.~~ **⚑ HALF-STRUCK. "Not one pair" survives; "one arm" does not.** Pairing is **within-stage** (verified at source, `s2b_xrow_rows37.py:207`), so the arm enters **3 of 12** pairs, not every pair. **And no arm and no descriptor explains the row: delete BOTH the contaminating descriptor AND the most influential arm and `single_target`'s null still reads 3.46× `circle`'s. The mechanism is neither — it is PAYLOAD SIZE.** § 2 as corrected, and **§ 9, which is the load-bearing one.**
 4. ~~**The repair fork he enumerated is incomplete.** He offered (a) drop the descriptor / (b) invent a continuous one, and correctly refused (b). **There is a (c) he did not enumerate**, and it is the one his own R-4 check points at. § 4.~~ **⚑ STRUCK — (c) IS FORBIDDEN BY NAME (#72 cl. 9(b)) AND I DID NOT CHECK. See § 7.1.** The fork *is* incomplete, but the missing option is **(d)** — repair A-6's own null population — **not (c)**. See § 7.3.
 
 ---
@@ -247,3 +247,110 @@ I asked whether S-A3 still carries the exposure she named. Two answers:
 **That is Matt's "criterion nobody can fail," reopened one axis over**, and it is the same family as the register-2 bloom gate already parked with gandalf (a gate the cathedral clears with the hero VFX switched off). **Routed to gandalf as a second instance of one class, not as a second incident** — filed separately; **not folded into the A-6 disposition, because it is not about A-6 and burying it there is how it would be lost.**
 
 *Amended by knight-rider, 2026-08-25. § 8.3's operator is drax's, reproduced to 4 dp against two published values before any new number was derived from it. Row-level `significant_components` figures in § 8.3 are read directly from `xrow.json`'s `arms` array (48 arms, enumerated in full).*
+
+---
+
+# § 9 — AMENDMENT 3 (drax stage-4 return). **My own Correction #1 is half-wrong, and killing it exposes the mechanism all three of us missed: it is not an arm and not a descriptor. It is PAYLOAD SIZE.**
+
+**Occasioned by:** drax's stage-4 completion record (`f29f12b` godot / `35bc58e8` meta), routed finding #2. **He refuted a correction I had issued against him, from source, and he was right.**
+
+## 9.1 — The refutation, verified at source rather than accepted
+
+He claimed my *"every pair it enters"* is false because cohorts are never pooled. **I read the operator rather than his description of it** — `reincarnated-godot/scripts/s2b_xrow_rows37.py:207`:
+
+```python
+    for i, j in itertools.combinations(range(len(arms)), 2):
+        ai, aj = arms[i], arms[j]
+        if ai["stage"] != aj["stage"]:
+            continue                       # ⚑ COHORTS ARE NEVER POOLED
+```
+
+**Confirmed. Pairing is WITHIN-STAGE.** `single_target/water@cathedral` enters **3 of 12** row pairs, not 7 of 12 and not "every pair." His counterfactual is also correct and I reproduce it: bound all three contaminated pairs at the row max and the remaining nine still sit at mean ≥ 0.9090. **The one-arm story predicts a row mean of 1.14–1.23 against an observed 1.5987 — it undershoots by ~29 %, which is exactly how the one-pair story failed.** I replaced a story that undershot with a story that undershoots less.
+
+**What survives of Correction #1:** *"not one pair"* — that part was right and drax accepts it. **What does not:** *"one arm."* **I did to him what jack-ryan had already caught me doing on the 1.41: I read a summary statistic and inferred a mechanism without opening the operator that produced it.** Third time this run. It is not a lapse, it is my failure mode.
+
+## 9.2 — Then I deleted the descriptor and the arm TOGETHER, which nobody had done
+
+Every argument so far — mine, drax's, jack-ryan's, galadriel's — has attacked **one** of the two suspects. The decisive test attacks both at once. Operator reproduced exactly (all five row means reproduce the receipt to 4 dp before anything new is derived):
+
+**Per-row within-stage null, with `significant_components` DELETED, rows ordered by median payload:**
+
+| row | median `authored_px` | null mean (9 desc) | **null mean (8 desc, no sig)** | null max (no sig) |
+|---|---:|---:|---:|---:|
+| **single_target** | **1,740** | 1.5987 | **1.0020** | 1.7043 |
+| multi_projectile | 5,446 | 0.3447 | **0.3447** | 1.0262 |
+| line | 11,475 | 0.4114 | **0.4114** | 0.7554 |
+| melee_arc | 22,117 | 0.2426 | **0.2426** | 0.6011 |
+| circle | 127,746 | 0.2330 | **0.2330** | 0.3187 |
+
+**Four of five rows are UNCHANGED to 4 dp.** They are constant on the descriptor within-stage, so it contributes exactly zero. **The descriptor's entire footprint on the null is one row** — which is jack-ryan's 0.0 % finding generalised, and it means **option (a) "drop the descriptor" cannot rescue A-6: it moves `single_target` from 1.5987 to 1.0020 and leaves it 4.3× `circle`.**
+
+**Then leave-one-arm-out on the no-sig row**, all eight arms:
+
+| arm dropped | remaining mean | | arm dropped | remaining mean |
+|---|---:|---|---|---:|
+| `water@arena` | 1.1295 | | `fire@arena` | 0.9488 |
+| `wind@arena` | 1.1211 | | **`water@cathedral`** *(the contaminated one)* | **0.9608** |
+| `earth@arena` | 1.0764 | | **`fire@cathedral`** *(most influential)* | **0.8056** |
+| `earth@cathedral` | 0.9993 | | `wind@cathedral` | 0.9741 |
+
+**⚑ Delete the descriptor AND the single most influential arm and the row still reads 0.8056 — 3.46× `circle`'s 0.2330.** And the most influential arm is **not** the contaminated one: it is `fire@cathedral`, which reads `sig = 1` and is the **largest** payload in the row (2,699 px). **The row's top pair after both deletions is `fire@cathedral` × `wind@cathedral` at 1.7043 — neither arm contaminated, neither fragmenting.**
+
+**There is no arm-level story. There is no descriptor-level story. Both suspects can be removed simultaneously and the anomaly is still 3.5×.**
+
+## 9.3 — The mechanism, stated so it can be refuted
+
+**`single_target` reads anomalous because its descriptors are computed on masks ~70× smaller than `circle`'s** (1,446–2,699 px vs 120,720–131,669 px), and eight of nine descriptors are **ratios of pixel counts**. At ~1,700 px a single-digit pixel change moves `fill_of_bbox`, `inner_core_frac` and `outer_shell_frac` by amounts that are structural at `circle`'s scale. **The z-score then amplifies it**: the descriptors are standardised across all 48 arms, so a quantisation wobble on a tiny mask is measured in units set by the corpus's large masks.
+
+This is **drax's** sentence, promoted from a routing note to the mechanism of record — *"raising a mask floor does not add resolution to a 1,700 px mask; it removes pixels from it"* — converged with **galadriel's** `0.01·n` gate root cause. **They are one mechanism seen from two ends.** Neither of them stated it as the row-level explanation; both supplied the half they owned.
+
+**⚑ What I am NOT claiming, because the table does not support it.** The rank order is monotone in payload for four rows and **inverts once**: `line` (11,475 px) reads 0.4114 against `multi_projectile` (5,446 px) at 0.3447. **Payload size is not a sufficient statistic.** `line` is also the only row reading `sig = 2` on every arm — a row-characteristic value, not fragmentation — and it carries the corpus's most extreme aspect ratios. **One inversion in five is not a law and I am not going to dress it as one.**
+
+**Cheapest refuting test, per #19.1, and it does not need a re-mint:** recompute the eight descriptors on **downsampled `circle` masks** decimated to ~1,700 px and re-run the within-stage null. **If `circle`'s null rises toward `single_target`'s, payload size is the mechanism. If it does not, the mechanism is something about `single_target`'s shape and I am wrong.** The masks are retained; this is arithmetic on existing PNGs, not a render. **It belongs to galadriel's seam and I am filing it as a proposal, not ordering it.**
+
+## 9.4 — What this does to the repair fork, and it narrows it
+
+| option | status after § 9.2 |
+|---|---|
+| **(a) drop `significant_components`** | **Insufficient, now demonstrated rather than argued.** Zero footprint on four rows; leaves `single_target` at 4.3×. It remains *correct* — the descriptor is inverted on the count axis (§ 8.3) — but it is a separate repair that does not touch A-6. |
+| **(b) invent a continuous replacement** | Still refused, still correctly (#75.5 cl. 5.6). galadriel's R-1/R-2/R-3 remain **proposed and unscored.** |
+| ~~(c) re-open floor selection~~ | **Struck three times over** (§ 7.1). § 9.2 adds a fourth: the floor cannot fix a row whose anomaly survives deleting the descriptor the floor governs. |
+| **(d) repair A-6's null population** | **Confirmed as the live one, and § 9 strengthens it.** If the within-row null is elevated by payload scale rather than by element variation, then **the null is not measuring what A-6's premise says it measures on small-payload rows, at any floor and with any descriptor set.** |
+
+**The consequence for A-6 is now sharper than "UNRESOLVED."** Its null leg assumed element arms of one row are the same shape, so the null runs to ~0. **On four of five rows it approximately does** (0.23–0.41). **On the fifth it reads 1.0–1.6 for reasons that have nothing to do with element and nothing to do with the descriptor anyone has blamed.** The criterion is not merely unpopulated — **it is unpopulated in a way that is a function of row payload, which means the same criterion is stricter on some rows than others by construction.** That is the same family as the S-A3 finding routed to gandalf in § 8.5 and the register-2 bloom gate: **a bar whose difficulty is set by the thing it measures.** I am naming the resemblance and **not** merging the items — three instances of one shape is gandalf's to rule on, and I have filed the second instance separately for exactly that reason.
+
+## 9.5 — Stage 4 itself: the acceptance condition is MET, and by a different cause than either of us expected
+
+galadriel's condition — **cross-arm maxdiff 0 at `00-pre`, `01-windup-early`, `09-off`** — is **MET**, against her G-2 readings of 185 / 114 / 216 at `1692d6e`. 60 PNGs with `sha256.txt`; determinism 60/60 over two passes plus a third 20/20 proving comment edits inert; census green; **positive control retained at `wwcr_2026-08-25-PROBE-noneutralise/` returning `count: 1`** — drax's reason for building it is the one I want on the record: ***"'fixed' and 'blind' print the same zero."*** A gate that cannot fail is a gate nobody has tested; he tested his.
+
+**⚑ And the neutraliser is NOT what met the condition — the CLOCK PIN is.** The probe corpus with emissive still in also returns 0; the emissive cancels exactly (158 px, ΔLum 116.62 in **both** arms). **galadriel's G-4 was asserted and is now measured, and it holds exactly.** The correct disposition is that the neutraliser is **not vindicated by this result** — it is untested by it. Recorded as such rather than banked as a win.
+
+**Quarantine held.** No clip; SB-1 harness neither touched nor read; capture plan parameterised (`--capture=seq`, `--seq-from/-to/-every`, ffmpeg in the runner) **so the motion artifact the WW-AB experiment actually needs is a re-invocation, not a re-authoring** — which is the non-foreclosure constraint A-7 imposed, met.
+
+## 9.6 — Two further defects in his return, both self-reported, both against himself
+
+1. **⚑ Fourth "VERBATIM"-sentence instance.** `wwcr_stage.gd` asserts its E-0 extraction is verbatim; the ground plane diverges `60×60 no-subdiv` → `80×80 subdiv 24` (`s2a_stage.gd`'s value since `c6eede0`). **~62,048 px are void at mint and ground at HEAD.** His framing is the finding: ***"in three of four, the sibling carried a sentence asserting the parity it did not have."*** → **his discipline candidate #6, *a fix ported in prose is a fix that reads as adopted*, routes to jack-ryan.** I endorse it and add the sharpening: **the sentence is not merely wrong, it is load-bearing in the wrong direction — it is the reason nobody looked.** An unasserted parity gets checked; an asserted one does not.
+2. **⚑ Third gate measuring the wrong region.** `wwcr_occlusion_gate.py`'s `enemies` region: 62,301 px of which **62,048 (99.6 %) is sky**. **Not repaired — same call as A-6, and the same call is correct.** The row's real claim is untouched (lower-body excess 1.78 % → 1.73 %) but the noise floor collapsed 2.87 % → 0.00 %: ***"the noise floor WAS the pose drift."*** → **galadriel** (instrument seam) with me.
+
+**Three wrong-region gates and two unfalsifiable bars in one run.** I am not proposing a discipline for it here — jack-ryan holds four candidates already and this is the kind of pattern that should be minted once, from the whole set, at tranche-2 close.
+
+## 9.7 — Disposition and routing
+
+| item | to | when |
+|---|---|---|
+| **§ 9.2's two-deletion result + the payload mechanism** | **galadriel** (instrument) + **jack-ryan** (A-6's owner) | **now**, as A-10 on the dispatch |
+| **§ 9.3's decimation test** — proposed, NOT ordered; refutes or confirms the mechanism without a re-mint | **galadriel** | her sequencing, after D3 pre-registration |
+| **(d) — repair A-6's null population**, now with the added finding that the null's floor is row-dependent | **jack-ryan**, pre-registered before results | tranche-2 close |
+| **Candidate: *a fix ported in prose is a fix that reads as adopted*** | **jack-ryan** | with the other four |
+| **`wwcr_occlusion_gate.py` region split** | **galadriel** | tranche-2 close |
+| **`run_s2b_e1.sh` superseded `_fxoff_` frames in the E-1 corpus** | **me** | tranche-2 close; no scored artifact consumed them |
+| **Three-wrong-region / two-unfalsifiable-bar pattern** | **jack-ryan** (mint once from the whole set), **gandalf** (the bar half) | tranche-2 close |
+
+## 9.8 — ⚑ Flags on this amendment
+
+- **§ 9.2's numbers are mine and are newly derived.** The operator is drax's, reproduced to 4 dp against all five published row means before anything new was computed from it. **The two-deletion result and the leave-one-arm-out table appear in no agent's return, including his.** They should be re-derived by galadriel rather than adopted from me — **I have been wrong three times this run on exactly this move** (reading a statistic, inferring a mechanism), and § 9.2 is that move performed more carefully, not a different move.
+- **The mechanism in § 9.3 is a hypothesis with one inversion already against it**, and I have named the test that kills it. It is not a finding.
+- **`multi_projectile_count1` and `melee_strike` are singleton rows** (n=1 and n=2 arms) and contribute no within-stage null. They are excluded from § 9.2's table for that reason, not because they are clean.
+- **Push:** `f29f12b` is in **`reincarnated-godot`**, which the live "push as you go" pattern **does not cover**. It stays local pending a fresh ask. `35bc58e8` and this amendment are covered and go out.
+
+*Amended by knight-rider, 2026-08-25. drax's refutation of my Correction #1 was verified at source (`s2b_xrow_rows37.py:207`) before being accepted; his stage-4 acceptance result was verified from `sha256.txt` and the probe corpus, not from his summary.*
