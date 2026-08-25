@@ -1,12 +1,13 @@
 # S2 MINTED GATE — standing procedure + tranche-1 scorecard
 
-**STATUS:** COMPLETE — verdicts rendered
+**STATUS:** COMPLETE — verdicts rendered. **AMENDED 2026-08-24: § 1.9a adds the DERIVED stage-adequacy criterion (S-A1/S-A2/S-A3) answering Matt's "a criterion nobody can fail" flag on E-0. Verdicts and scores UNCHANGED.**
 **Date:** 2026-08-24
 **Author:** galadriel (visual perception + UX-similarity steward)
 **Authority:** dispatch `2026-08-24-galadriel-s2-minted-gate.md` (Matt-approved; jack-ryan Gate-1 PASS-WITH-FINDINGS, amendments applied)
 **Judge-From:** `reincarnated-godot/harness_logs/s2a_2026-08-24-final/` — 156 PNG @ 1920×1080, ratified camera, godot `c6eede0`
 **Judge-To:** P3 selection-gate corpus (`galadriel/notes/2026-08-24-vfx-p3-selection-gate.md` + delta), `framesets.json` v2
-**Receipts:** `galadriel/reports/s2-gate-2026-08-24/*.json` · instruments `galadriel/pipeline/s2_gate_measure.py`, `s2_gate_colour.py`
+**Receipts:** `galadriel/reports/s2-gate-2026-08-24/*.json` · instruments `galadriel/pipeline/s2_gate_measure.py`, `s2_gate_colour.py`, **`stage_adequacy.py`** (§ 1.9a)
+**§ 1.9a evidence:** `reincarnated-godot/harness_logs/12_cathedral_capture_{01,26}.png` (the 2026-06-15 register-2 anchor capture, re-measured — not re-rendered) · `.../s2a_2026-08-24-final/melee_ctl_03-s1-contact.png` · receipts `galadriel/reports/s2-gate-2026-08-24/m-stage-adequacy.json`
 
 ---
 
@@ -190,6 +191,110 @@ against register-A properties** — do not silently compare it to the register-2
 the remaining 21 rows: stage at least one arm per row on curated environment geometry** (the
 `dark_fantasy_cathedral` recipe already exists and is the register-2 baseline) so the S axis has a
 comparable instrument.
+
+### 1.9a ⚑ AMENDMENT (2026-08-24, same day) — the stage-adequacy criterion, DERIVED. And the anchor number does not transfer.
+
+**Why this amendment exists.** § 1.9 routed to knight-rider/drax; knight-rider ruled the fix goes in **before**
+tranche 2 (E-0/E-1 of `2026-08-24-drax-s2b-mint-tranche-2.md`) and ordered drax to *derive* the cathedral
+stage's structured-content fraction, with the standing instruction that *"if the cathedral stage also comes
+back near-bare, that is a finding and the S axis stays non-comparable."* **Matt then flagged the defect
+himself: "near-bare" is a qualitative test with no number — a criterion nobody can fail.** He is right, and
+the fix is not for me to assert a number either. **The bar is derived from the already-ratified register-2
+anchor capture, which is on disk and which nobody had to re-render.**
+
+**Instrument of record for stage adequacy:** `galadriel/pipeline/stage_adequacy.py` — Sobel gradient
+magnitude on Rec.709 luma, structured ⇔ **∇ > 10**; HLF ⇔ **luma/255 > 0.80**, the byte-identical definition
+`pipeline/register-metrics.mjs` used to produce the 14.4 % / 9.35 % anchors. *(This is a stricter operator
+than the forward-difference used inline for § 2.0's 0.218 %; on the s2a stage it reads 0.304 %. **Both stages
+below are measured on the Sobel instrument** — the comparison is what matters, and it must be one instrument.)*
+
+| | **s2a bare stage** `melee_ctl_03-s1-contact` | **cathedral fr 01** — *no hero VFX* | **cathedral fr 26** — HLF peak |
+|---|---:|---:|---:|
+| native | 1920×1080 | 1152×648 | 1152×648 |
+| **structured content ∇ > 10** | **0.304 %** | **44.570 %** | 53.912 % |
+| near-uniform floor | **99.696 %** | 55.430 % | 46.088 % |
+| **HLF with NO hero VFX** | **0.0018 %** | **1.759 %** | — |
+| HLF | 0.0018 % | 1.759 % | **9.343 %** |
+| luma spread p25→p75 | **1.07** | 34.60 | 133.06 |
+
+> **Instrument calibrated against the anchor of record:** my 9.343 % at frame 26 reproduces the 2026-06-15
+> cathedral scorecard's **9.354 %** to within **0.011 pp**. I am measuring the same quantity the anchor is.
+
+#### (i) THE ANCHOR IS A SCENE NUMBER, NOT AN EFFECT NUMBER — score **ΔHLF**, never HLF
+
+**9.343 % = 1.759 % stage + 7.584 % effect. 18.8 % of the register-2 anchor is the cathedral itself with
+zero hero VFX** — braziers burning from frame 0, fog, lit stone. The 2026-06-15 scorecard records this
+plainly and nobody has to re-litigate it: **HLF floor 1.749 % at frame 1** *(my re-derivation: 1.759 %)*,
+which **already clears the 1.5 % bloom threshold before any effect exists.**
+
+**Therefore: comparing a mint's absolute HLF against 9.35 % compares an effect against an effect-plus-scene,
+and that is the C-3 error class through a fifth door.** The comparable quantity is
+
+> **ΔHLF = HLF(fx-on) − HLF(fx-off), on the SAME stage, at the SAME mark.**
+
+Cathedral anchor **ΔHLF = 7.584 pp.** s2a bare stage ΔHLF ≈ **0.13 pp** (nominal arms 0.126–0.141 % against
+a 0.0018 % floor). **The bare stage delivers 1.7 % of the anchor's delta.**
+
+**Consequence for E-1, and it is stronger than the dispatch claims.** E-1 is scoped as *"re-capture control
+arms so the scorecard becomes comparable."* It is more load-bearing than that: **the fx-off control arm is
+the only thing that converts HLF from a statement about a stage into a statement about an effect.** Without
+it there is no S axis on *any* stage — including the cathedral. E-1 is not backfill; it is the instrument.
+
+#### (ii) The bars — two screens and a decider
+
+**S-A1 · receptive-surface screen (necessary, not sufficient).** Structured content **∇ > 10 ≥ 15 %** of
+frame on the Sobel instrument. *Derivation: one third of the ratified anchor's 44.570 %, which leaves the
+candidate stage two thirds of headroom below the anchor while sitting ~50× above the s2a floor of 0.304 %.
+The one-third safety fraction is mine and I name it as a choice, not a measurement — but the quantity it is
+a fraction OF is measured, on the stage the register-2 rubric was ratified against.*
+
+**S-A2 · locality screen.** A global fraction is gameable and s2a is the exhibit: its structured pixels sit
+in **one island, 59×94 px at native**, 36.6 % of all structured content in a single blob far from most of
+the frame. **Light falls locally.** Require the same **≥ 15 %** structured density *within the effect's own
+r99 bbox dilated 2×*. A stage with cathedral arches in the corners and bare floor under the effect passes
+S-A1 and fails what S-A1 was for.
+
+**S-A3 · stage-carried light fraction — THE DECIDER, and it is the one I would put in the dispatch.**
+
+Of the pixels that **newly cross the HLF threshold** when the effect turns on, what share lies **outside the
+emitter's own contiguous core**? On a bare stage this is **≈ 0 by construction** — every bright pixel *is*
+the emitter, because there is nothing else for light to land on. On a stage that participates it is not.
+
+**Derived on the ratified anchor** (fr 26 vs fr 01, static scene, 4-connectivity):
+
+| | value |
+|---|---:|
+| newly-crossing HLF pixels | 59,656 px (**7.99 % of frame**) |
+| connected components | **447** |
+| largest component (emitter core + its bloom) | 45,294 px = **75.93 %** |
+| **STAGE-CARRIED FRACTION** | **0.241** |
+
+**Roughly a quarter of the light the hero effect adds to the frame lands on something that is not the
+effect** — the dais, the railings, the near-wall, which is precisely what the 2026-06-15 scorecard described
+in words (*"dais, railings, near-wall all warmly re-lit"*) and which nobody had reduced to a number until now.
+
+> **BAR: stage-carried fraction ≥ 0.12** — half the ratified register-2 anchor. Below it, the S axis stays
+> **non-comparable** and is scored qualitatively per § 1.9, no matter how much geometry the frame contains.
+
+This is a criterion the cathedral **can** fail. If E-0's wiring stages the effect in a bare nave, or at a
+camera framing that puts the arches outside the frustum, S-A3 will read near zero on structured geometry and
+say so — which is exactly the failure Matt asked to be catchable.
+
+#### (iii) Two things E-0 must not inherit by accident
+
+1. **The 9.35 % figure is NOT camera-portable, for the same reason § 1.6's ≈ 20 % is not.** HLF is a
+   *fraction of frame*. The anchor was measured at **1152×648, top-down Movie Maker, 960w inside-fit**; the
+   s2 harness renders **1920×1080 on the ratified gameplay camera**. Different framing photographs a
+   different amount of wall. **Do not compare a tranche-2 arm's HLF to 9.35 %.** What transfers is the
+   *method* (ΔHLF, S-A3), not the *number*. The cathedral's anchor must be **re-derived on our ratified
+   camera** before it anchors anything.
+2. **The anchor capture carries no HUD** (2026-06-15 § 8 caveat 4) and is a **single environment**
+   (caveat 1). Neither blocks E-0 — the S axis needs *a* stage with receptive lit surface, not biome
+   generality — but neither should be quietly upgraded into more than it is.
+
+**Standing, and it binds the remaining 21 rows.** Both cohorts are reported per row: bare-stage arms remain
+the clean surface for coverage, perimeter definition and contact tests, where structured background is a
+confound rather than an instrument (§ 2.0). **Adding a stage, not replacing one.**
 
 ---
 

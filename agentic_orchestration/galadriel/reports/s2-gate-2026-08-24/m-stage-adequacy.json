@@ -1,0 +1,66 @@
+{
+  "cell": "S2-GATE \u00a7 1.9a \u2014 stage adequacy criterion (DERIVED)",
+  "date": "2026-08-24",
+  "author": "galadriel",
+  "instrument": "pipeline/stage_adequacy.py \u2014 Sobel |grad| on Rec.709 luma, structured := grad>10; HLF := luma/255>0.80 (register-metrics.mjs definition)",
+  "calibration_note": "HLF at cathedral frame 26 reproduces the 2026-06-15 scorecard-of-record 9.354% to within 0.011 pp.",
+  "stages": {
+    "s2a_bare": {
+      "file": "melee_ctl_03-s1-contact.png",
+      "native": "1920x1080",
+      "measured_at": "1920x1080",
+      "structured_px": 6304,
+      "structured_frac_pct": 0.304,
+      "near_uniform_floor_pct": 99.696,
+      "hlf_pct": 0.0018,
+      "luma_p25_p75_spread": 1.0722,
+      "largest_island_px": 2305,
+      "largest_island_share_pct": 36.56,
+      "largest_island_bbox": "y512-605 x947-1005 (59x94)"
+    },
+    "cathedral_fr01_no_hero_vfx": {
+      "file": "12_cathedral_capture_01.png",
+      "native": "1152x648",
+      "measured_at": "1152x648",
+      "structured_px": 332710,
+      "structured_frac_pct": 44.5696,
+      "near_uniform_floor_pct": 55.4304,
+      "hlf_pct": 1.7588,
+      "luma_p25_p75_spread": 34.6033
+    },
+    "cathedral_fr26_hlf_peak": {
+      "file": "12_cathedral_capture_26.png",
+      "native": "1152x648",
+      "measured_at": "1152x648",
+      "structured_px": 402453,
+      "structured_frac_pct": 53.9123,
+      "near_uniform_floor_pct": 46.0877,
+      "hlf_pct": 9.3426,
+      "luma_p25_p75_spread": 133.0635
+    }
+  },
+  "anchor_decomposition": {
+    "cathedral_hlf_peak_pct": 9.3426,
+    "cathedral_hlf_stage_only_pct": 1.7588,
+    "cathedral_delta_hlf_pp": 7.5838,
+    "s2a_delta_hlf_pp_approx": 0.13,
+    "note": "18.8% of the 9.35% register-2 anchor is the stage with zero hero VFX. Score dHLF, never HLF."
+  },
+  "stage_carried_light_fraction": {
+    "newly_crossing_px": 59656,
+    "newly_crossing_pct_of_frame": 7.9915,
+    "components": 447,
+    "largest_component_px": 45294,
+    "largest_component_share": 0.7593,
+    "STAGE_CARRIED_FRACTION": 0.2407
+  },
+  "bars": {
+    "S-A1_structured_frac_min_pct": 15.0,
+    "S-A1_derivation": "one third of the ratified anchor's 44.570%; ~50x the s2a stage's 0.304%. Safety fraction is a stated choice; the quantity it is a fraction of is measured.",
+    "S-A2_local_structured_frac_min_pct": 15.0,
+    "S-A2_derivation": "same density required inside the effect's r99 bbox dilated 2x. s2a exhibit: structured content confined to one 59x94 px island.",
+    "S-A3_stage_carried_fraction_min": 0.12,
+    "S-A3_derivation": "half the ratified register-2 anchor's measured 0.2407.",
+    "verdict_if_below": "S axis stays NON-COMPARABLE; score qualitatively per 1.9."
+  }
+}

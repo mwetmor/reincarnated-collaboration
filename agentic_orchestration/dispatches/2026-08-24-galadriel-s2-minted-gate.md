@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — galadriel — Step-2 MINTED GATE (standing procedure + tranche-1 scoring)
 
-**Status:** PENDING — **blocked until drax lands `drax/v<X.Y>-s2a-mint-tranche-1`**
+**Status:** ✅ **COMPLETE — 2026-08-24.** Block cleared (drax landed tranche 1); gate executed and verdict delivered at **`5a8b738f`** → `agentic_orchestration/galadriel/notes/2026-08-24-s2-minted-gate-procedure.md`. **Disposition: 3 × PASS-WITH-FINDINGS** (`melee_strike` · `ground_targeted_circle` · `aura`); no REWORK, no HALT — all six pre-stated HALT conditions held and none fired. Standing procedure authored (§ 1, reusable for the remaining 21 rows). **9 routed items** (7 substantive + 2 support). All seven § Acceptance criteria met. Committed, not pushed. **See § Completion record.**
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** galadriel (visual perception + UX-similarity steward)
 **Approved by:** Matt, 2026-08-24
@@ -173,3 +173,71 @@ RT-2's trigger is defined **only for `TRAIL-BOUNDED`**, so the question is preci
 - jack-ryan Gate-1 DESIGN-MODE: **PASS-WITH-FINDINGS → **amendments applied 2026-08-24**** — Gate-1 batch review, 2026-08-24.
   RT-2 acceptance line corrected: RT-2's trigger is defined only for `TRAIL-BOUNDED`, so the other classes get an explicit `n/a` rather than an invented verdict.
   Amendments approved by jack-ryan directly under **ADR-002** (dispatch documents are documentation-only). **Nothing in this batch escalated to Matt.**
+
+---
+
+## Completion record
+
+**Closed 2026-08-24 by galadriel.** Appended per jack-ryan Gate-2 **INFO-5** (three of four same-day dispatch headers stale, *inside the wave that adopted Discipline #73 — state is derived*). The routing gap this closes is the one that made six 2026-07-22 dispatches read as "stalled" for a month when they were done: **the verdict lived only in the notes file and the dispatch never learned it.**
+
+### Where the work landed
+
+| | |
+|---|---|
+| **Verdict artifact** | `agentic_orchestration/galadriel/notes/2026-08-24-s2-minted-gate-procedure.md` — **STATUS: COMPLETE** |
+| **Commit** | `5a8b738f` — *"galadriel(S2-GATE): VERDICT — tranche 1 all three PASS-WITH-FINDINGS; standing procedure authored"* |
+| **Judge-From** | `reincarnated-godot/harness_logs/s2a_2026-08-24-final/` — 156 PNG @ 1920×1080, ratified camera, godot `c6eede0` |
+| **Judge-To** | P3 selection-gate corpus + `framesets.json` v2 |
+| **Receipts** | `galadriel/reports/s2-gate-2026-08-24/*.json`; instruments `pipeline/s2_gate_measure.py`, `pipeline/s2_gate_colour.py` |
+| **Push** | **Not pushed**, per § Acceptance criteria |
+
+### (A) Standing procedure — delivered
+
+Authored as § 1 of the verdict artifact, covering all eight § (A) items and reusable for the remaining 21 rows without rewriting: three-axis rubric (§ 1.1) · L-19 causality *per declared class*, with the failure mode decomposed into three measurables (§ 1.2) · RT-2 + **the CIEDE2000 instrument correction** (§ 1.3) · RT-6 `vortex_pull` pre-baked (§ 1.4) · C-3 albedo **verified not declared** (§ 1.5) · C-5 floor **and** ceiling, with the ≈20 % figure ruled non-portable (§ 1.6) · `frame-external` vs `effect-internal` kept uncollapsed (§ 1.7) · **six HALT conditions stated in advance** (§ 1.8) · **§ 1.9 stage adequacy, a procedure item the tranche discovered.**
+
+### (B) Tranche-1 disposition — per row
+
+| Row | Surface class | L-19 (vs **declared** class) | RT-2 | R | P | S | **Verdict** |
+|---|---|---|---|:--:|:--:|:--:|---|
+| `melee_strike` | TRAIL-BOUNDED | `physical-cause` — **PASS** on a **0.2 % → 34.1 %** body-illumination step change at contact | **HELD** — palette indicted, surface class exonerated | 4 | 5 | 4 | **PASS-WITH-FINDINGS** |
+| `ground_targeted_circle` | PAYLOAD-CARRIED | `hybrid` — **PASS**, both halves witnessed (and the physical half is witnessed where its own canonical's is not) | `n/a — class not TRAIL-BOUNDED` | 4 | 3 | 4 | **PASS-WITH-FINDINGS** |
+| `aura` | FIELD-CARRIED | `magical-cause` — **PASS**; the rubric **declines to penalize correct decoration**, and the anti-tamper check confirms no physical tells were smuggled in (0.8 % total variation; **no contact spike**) | `n/a — class not TRAIL-BOUNDED` | 4 | 4 | 4 | **PASS-WITH-FINDINGS** |
+
+**No row is REWORK, and the one place REWORK was considered and declined is stated with its reason** (§ 2.2.4) rather than left as an unexplained absence. **Every R capped at 4** by the § 2.0 stage ceiling — 99.78 % bare floor is the flattering condition, and this row's own canonical was docked for exactly that (ASC R=5 in a void vs Meteor R=4 under a crowd). Three PASS-WITH-FINDINGS is not three PASSes.
+
+### The nine routed items, and where each went
+
+*(Reconciling the three counts in circulation, because they are all derivable and none is wrong: **9 routed rows** = **7 substantive** (#1–#7, the count carried into the tranche-2 dispatch) + **2 support** (#8–#9). The verdict artifact's § 3 "six substantive findings" counts the six that bear on **tranche-1 measurements**, excluding #7, which is about the stage rather than any row. Recorded explicitly so no downstream summary has to guess which "n findings" it inherited.)*
+
+| # | Item | Routed to | Class | Status at close |
+|---|---|---|---|---|
+| 1 | **RT-2 must not be adjudicated on hue-angle** — hue is undefined at zero chroma (`neutral` renders at C\* = 2.83); use **CIEDE2000 on rendered pixels**, report added light alongside; decide the surface/palette fork on **transfer function** (§ 1.3) | gandalf / all future gates | **Instrument correction — STANDING** | **Bound into the tranche-2 dispatch as standing.** drax's 3.0° finding must be re-measured on this instrument before being carried forward |
+| 2 | **Palette defect is wider than reported** — `fire\|earth` **ΔE 7.38** is the true minimum, tighter than `neutral\|wind` (9.58), and two saturated element-bearing tints cannot be excused as pastels; it is also **absent from the mint note's matrix entirely** | **rocket (X-3)** | WARN | Open — routed |
+| 3 | **A tier upgrade can DOWNGRADE a confound register** — adopted from drax. Empty registers on `DOSSIER-TEXT` rows are **open questions, not clean bills**; re-derive on every tier upgrade (§ 1.7) | gandalf | **Corpus-level correction — STANDING** | Binds the remaining 21 rows |
+| 4 | **`telegraph_precedence_ok` is scene-graph truth, not render truth** — telegraph frames **byte-identical** across `payload_vector` while the gate reports 10 vs 0 visible-payload frames; `erupt`'s `false` is a **false alarm**, `descend`'s `true` is a true statement reached by a route that does not support it (§ 2.2.4) | drax / jack-ryan | WARN | Open — routed |
+| 5 | **RT-8 `payload_vector` is near-inert** — byte-identical PNGs at **7 of 8** capture marks; `erupt` payload 5.0× deficit (§ 2.2.4) | next lap (RT-8's own clause) | FINDING | Deferred by RT-8 routing |
+| 6 | **`aura` element-dependent effective opacity 1.84×** (fire→wind) — a threshold sweep to 96 **refutes** the "threshold artifact" explanation (ratio *rises* to 1.548); **read-through was tested only on `fire`, the element that obscures least** (§ 2.3.4) | drax | FINDING — cheap to close | Open — re-run the 2×2 on the `wind` arm |
+| 7 | **S axis unscoreable on a bare stage** — recommend one environment-geometry arm per row (§ 1.9) | knight-rider / drax | **Procedure item** | ▶ **ACTED ON.** knight-rider ruled it goes in **before** the next seven rows; drax executing as **E-0** (wire `dark_fantasy_cathedral` into the s2 harness, bare stage retained as a second cohort) + **E-1** (re-capture *control arms only*, **no re-mint**, for the four already-minted rows). See `dispatches/2026-08-24-drax-s2b-mint-tranche-2.md`. **Criterion derived at § 1.9a of the verdict artifact** |
+| 8 | **Endorse drax's discipline candidate** — *"inspect the artifact that ships, not the one you authored"*; § 2.2.4 supplied its **fourth** exhibit, in the one place he did not re-check after his own fix | jack-ryan | Support | Routed |
+| 9 | **`zone_valence` convention** (*valence outranks element on the zone layers*) flagged `SCAFFOLD-WITH-PENDING-DECISION` — **endorse routing for ratification**, do not let a palette rule binding ~7 skills be inherited by default | gandalf / Matt | Support | Routed |
+
+**Not escalated to Matt.** No § 1 design-law ruling required reopening; no sealed binding moved; T-K untouched at 1,134.
+
+### Acceptance criteria — all met
+
+- [x] Standing procedure authored, all eight § (A) items, reusable for the remaining 21 rows
+- [x] Three rows scored on the § 3.2 three-axis rubric with receipts (every score carries its measurement)
+- [x] L-19 applied **per row against its declared class** — `aura` demonstrates the rubric declining to penalize correct decoration, **and** the anti-tamper inversion confirms the calibrating row was not flattered
+- [x] RT-2 recorded per `TRAIL-BOUNDED` row (**HELD**, palette indicted); explicit **`n/a — class not TRAIL-BOUNDED`** on the other two — **not omitted, not invented**
+- [x] Judge-From albedo verified — floor luminance **42.794 in all 21 arms, spread 0.000**; no re-render request. *(Honest limit recorded: this attests **uniformity**, not the absolute 0.085.)*
+- [x] Per-row verdict rendered — 3 × `PASS-WITH-FINDINGS`
+- [x] Round-trip: **not applicable** (no cross-seam contract change)
+- [x] Receipts committed; **not pushed**
+
+### Adjudications since close
+
+- **jack-ryan** ruled on **three contradictions** between this gate and drax's mint note and found **galadriel right in all three** — with the note that **drax was wrong on none of his own evidence**: all three resolved as a *rendered* claim adjudicated on an *authoring-side* instrument. (§ 2.1.3 RT-2 minimum pair · § 2.2.4 `payload_vector` byte-identity · § 2.3.4 the aura threshold-artifact explanation.)
+- **§ 1.3 CIEDE2000 instrument correction** is bound into `2026-08-24-drax-s2b-mint-tranche-2.md` as **standing**.
+- **§ 1.9** became **E-0/E-1** of that dispatch (see #7).
+
+*Completion record authored by galadriel, 2026-08-24. Dispatch closed.*
