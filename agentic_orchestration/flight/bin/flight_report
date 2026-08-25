@@ -98,6 +98,75 @@ LANE_CARDS = (
 STATE_PRECEDENCE = ("busy-lock", "busy-out-of-band", "busy-unknown",
                     "auth-expired", "cli-missing", "queue-pending", "open")
 
+# --- Amendment H (jack-ryan, folded `9fb86ef9`) — the SAFE-TO-FIRE predicate, pinned BY STATE
+# NAME, per lane spec § 3 (*"consumers — router Q3 included — bind to the pinned safe-to-fire
+# predicate, never to a leg's raw reading"*) and § 10.3 clause 6:
+#
+#   "Open"     = `open` OR `queue-pending` — BACKLOG IS NOT OCCUPANCY. A P-9 HELD job never
+#                closes a lane; the next drain takes it. This lane is FIRST-CHOICE.
+#   "Occupied" = `busy-*` — the lane exists and works. ENQUEUE behind it; occupied ≠ closed.
+#   "Closed"   = `auth-expired` / `cli-missing` — closed on a MATT-ONLY action (P-4).
+#
+# G-2b WARN-2: `queue-pending` outranks `open` in STATE_PRECEDENCE (correct — the backlog is the
+# more specific fact and deserves to be the one named), and the card then coloured every
+# not-`open` state AMBER. Under ratified law that lane is OPEN and first-choice, so amber told
+# Matt to look elsewhere at a lane he should have fired into. The precedence is unchanged; the
+# COLOUR is now derived from the predicate, not from string equality with `open`.
+SAFE_TO_FIRE_STATES = ("open", "queue-pending")
+OCCUPIED_STATES = ("busy-lock", "busy-out-of-band", "busy-unknown")
+CLOSED_STATES = ("auth-expired", "cli-missing")
+
+
+def safe_to_fire(ans) -> bool:
+    """Amendment H's predicate. THE answer consumers bind to — one derivation, exported."""
+    return ans["state"] in SAFE_TO_FIRE_STATES
+
+
+def state_marker(ans) -> str:
+    """The glance colour for a lane answer. ONE derivation, exported for both tiers.
+
+    Ordering is deliberate:
+      * `busy-unknown` / closed states are RED — an unreadable leg and a dead credential are
+        both things Matt must act on, and `busy-unknown` is fail-closed ambiguity (G-2).
+      * occupied is AMBER — the lane works; the answer is "enqueue", not "look elsewhere".
+      * fire-safe on REDUCED COVERAGE is AMBER, never green: a green that quietly means "one
+        third of the instrument" is the reassuring-instrument failure (#70). Unchanged by
+        WARN-2 — the coverage rule and the predicate are independent gates.
+      * fire-safe at full coverage is GREEN — `open` and `queue-pending` alike.
+    """
+    if ans["state"] in CLOSED_STATES or ans["state"] == "busy-unknown":
+        return RED
+    if not safe_to_fire(ans):
+        return AMBER
+    return AMBER if ans["na"] else GREEN
+
+
+def safe_to_fire_line(ans) -> str:
+    """The predicate, RENDERED — WARN-2's second half: the card never showed it at all.
+
+    A colour is a summary; the router binds to the predicate. Saying it in words means a human
+    and a consumer read the same sentence, and that a colour change can never silently mean a
+    predicate change.
+    """
+    st = ans["state"]
+    if st == "queue-pending":
+        verdict = ("**safe to fire: YES — OPEN (first-choice)**. Amendment H: backlog is not "
+                   "occupancy. A P-9 HELD job never closes a lane — the next drain takes it, "
+                   "and `queue-pending` counts OPEN for the § 10.3 selection law.")
+    elif st == "open":
+        verdict = "**safe to fire: YES — OPEN (first-choice)**."
+    elif st in OCCUPIED_STATES:
+        verdict = ("**safe to fire: NO — OCCUPIED**. The lane exists and works: ENQUEUE behind "
+                   "it. Occupied is not closed, and it never routes Claude-ward on its own "
+                   "(§ 10.3 step 4 needs BOTH lanes occupied plus a schedule-critical R-A note).")
+    else:
+        verdict = ("**safe to fire: NO — CLOSED**. This one closes on a MATT-ONLY action; a "
+                   "retry is not the fix (P-4).")
+    if ans["na"] and safe_to_fire(ans):
+        verdict += (" Rendered AMBER rather than green: fire-safe, but on reduced leg coverage "
+                    "(#70) — the predicate and the coverage gate are independent.")
+    return verdict
+
 
 # ---------------------------------------------------------------- time helpers
 def parse_ts(ts: str) -> datetime.datetime:
@@ -413,6 +482,27 @@ def lane_answer(cfg, lock, procs, runlogs, auth):
         leg 2 DOES see. Counting that as ambiguity would paint a permanent red that means
         nothing, and a permanently red instrument is one nobody reads. The card declares the
         reduced coverage instead (#70): loud, and true.
+
+    ── MIGRATION, NAMED NOW (G-2b WARN-3) · THIS DERIVATION IS ON LOAN TO A RENDERER ──
+    Q62 ruled that the card **renders the check's output** — *"a view of the derivation, never a
+    second truth source."* Today there is no check to render: D-2 (`factory lane`) is unbuilt, so
+    this renderer performs the derivation itself and DECLARES it (`probe: degraded`, spec § 13.1).
+    That is sanctioned while D-2 is pending — and it expires the day D-2 lands.
+
+    The semantics invented here are DERIVATION LOGIC, not presentation: `busy-unknown`, the
+    UNREACHABLE/NOT-APPLICABLE split, the fail-closed union, the coverage clause, and the
+    Amendment-H safe-to-fire predicate. On the day D-2 ships, a renderer still holding its own
+    copy **IS** the second truth source Q62 forbids, and the two WILL drift — WARN-2 is the
+    proof-of-concept: one consumer's colour map diverged from ratified law inside 48 minutes.
+
+    **D-2's definition of done therefore includes the DELETION of this function**, not a second
+    implementation beside it:
+      1. D-2 owns the answer states and the predicate, behind its pinned `--json` contract;
+      2. `lane_answer` / `state_marker` / `safe_to_fire` here become thin adapters over that
+         JSON, or disappear entirely;
+      3. `factory/ui/board.py` renders the same `--json`;
+      4. `PROBE_MODE` stops saying `degraded`.
+    D-2 is NOT done while two copies of this logic exist. Pinned in `flight/MIGRATION.md`.
     """
     signals, advisories, unreachable, na = [], [], [], []
 
@@ -680,7 +770,8 @@ def render(records_dir, repo_root, now, run_probes=True):
     A("")
     A("tape: %s (%d rows on disk; %d after corrections) · probes: %d/%d ran · schema **v%s** "
       "(rows stamped `v:%d` — the row FORMAT is unchanged; v%s is the custodian-amendment "
-      "marker, and a row's minimum revision is derived from its keys, never stamped)"
+      "marker, and a row's minimum revision is derived from its keys AND its values, never "
+      "stamped — G-2b BLOCK-2: two of AM-1's three amendments live in values)"
       % (", ".join(tape_names) or "(none)", raw_count, len(rows), p.ran, p.total,
          schema.SCHEMA_REVISION, schema.SCHEMA_VERSION, schema.SCHEMA_REVISION))
     A("")
@@ -830,14 +921,14 @@ def render(records_dir, repo_root, now, run_probes=True):
         rls = p.results.get("runlog:" + key)
         auth = p.results.get("auth:" + key)
         ans = lane_answer(cfg, lock, procs, rls, auth)
-        # An `open` answer earns a GREEN only at full leg coverage. Open-on-one-leg is AMBER:
-        # the colour is what Matt reads at a glance before opening a TUI, and a green that
-        # quietly means "one third of the instrument" is the reassuring-instrument failure.
-        mark = (RED if ans["state"] in ("busy-unknown", "auth-expired", "cli-missing")
-                else AMBER if (ans["na"] or ans["state"] != "open") else GREEN)
+        # Colour + predicate are DERIVED (`state_marker` / `safe_to_fire_line`), never inlined
+        # here: the Tier-2 board renders the same two answers, and a derivation living at the
+        # render site is a derivation the second renderer has to re-invent — which is how the
+        # WARN-2 divergence became possible in the first place.
+        mark = state_marker(ans)
         A("### %s · lane `%s` (provider `%s`)" % (vendor, key, cfg["provider"]))
         A("")
-        A("- **state: %s `%s`**" % (mark, ans["state"]))
+        A("- **state: %s `%s`** — %s" % (mark, ans["state"], safe_to_fire_line(ans)))
         for why in ans["reasons"]:
             A("  - %s" % why)
         for adv in ans["advisories"]:

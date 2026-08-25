@@ -264,6 +264,38 @@ class TestG1Amendments(unittest.TestCase):
                 continue
             for tok in schema.METRIC_NAME_TOKENS:
                 self.assertNotIn(tok, f.lower(), "field %r is named for a metric" % f)
+        # --- G-2b BLOCK-1: the CLOSED FIELD SET itself, pinned by equality -------------
+        # jack-ryan proved the outer door was open: he added `cost_estimate` to COST_FIELDS —
+        # one line, reaching ALL_FIELDS and FIELD_MATRIX together — and the row validated CLEAN,
+        # owed no derived_from (an estimate names no source), left SCHEMA_REVISION untouched and
+        # kept the suite at 70/70 green. An ESTIMATE primitive is precisely what HARD RULE #2
+        # ("Never estimate. Absent is absent.") exists to forbid, and it was admitted silently.
+        # FINDING-C pinned the EXCEPTION list; nothing pinned the FIELD list, so accretion-by-
+        # one-reasonable-field (R-L47-2) simply moved one level up. It is pinned here now.
+        # This literal is the schema's field set of record. Adding, removing OR renaming any
+        # field turns this test RED — which is the entire cost B-4 asked for and the custodian's
+        # v1.1 note claimed to be paying. Amend it DELIBERATELY, alongside a FIELD_SINCE entry
+        # and a SCHEMA_REVISIONS row — never as a side effect of making a red test go green.
+        self.assertEqual(
+            schema.FIELD_ORDER,
+            ("v", "row_id", "ts", "event", "unit_id", "unit_kind", "parent_id",
+             "workstream", "operator", "seam", "repo", "backfill", "corrects", "derived_from",
+             "provider", "lane", "pin", "model_echo", "harness", "harness_version",
+             "currency", "curator",
+             "verdict", "gate_id", "gatekeeper", "warn_count", "fabrication_check",
+             "tokens_input", "tokens_cached_input", "tokens_cache_write", "tokens_output",
+             "tokens_reasoning", "cost_usd", "rc", "attempt", "retry_of", "artifacts",
+             "meter_raw"),
+            "B-4 + G-2b BLOCK-1: FIELD_ORDER is the CLOSED FIELD SET, pinned by equality. If "
+            "this test is red, a field was added, removed or renamed. That is a schema change: "
+            "amend this literal deliberately, add the FIELD_SINCE entry, sign a SCHEMA_REVISIONS "
+            "row — and ask first whether the field is a MEASUREMENT or a DERIVATION.")
+        # ALL_FIELDS is the frozen twin the validator actually consults; a pin on one that the
+        # other can drift away from is not a pin. Held equal here, and length-checked so a
+        # duplicated entry (which frozenset would silently swallow) cannot hide.
+        self.assertEqual(schema.ALL_FIELDS, frozenset(schema.FIELD_ORDER))
+        self.assertEqual(len(schema.FIELD_ORDER), len(schema.ALL_FIELDS),
+                         "a duplicated field name would be invisible in ALL_FIELDS")
 
     def test_B5_derived_from_is_a_list_whose_paths_must_exist(self):
         with self.assertRaises(schema.SchemaError):   # tokens with no source
@@ -467,6 +499,71 @@ class TestAM1SchemaV11(unittest.TestCase):
         self.assertEqual(schema.row_min_revision(pre), "1.0")
         self.assertEqual(schema.row_min_revision(post), "1.1")
         self.assertNotIn("revision", post, "a per-row revision stamp is a stored summary")
+
+    def test_BLOCK2_row_min_revision_asks_VALUES_not_only_keys(self):
+        """G-2b BLOCK-2 — the test that FAILED against the pre-fix function, on his proof case.
+
+        `row_min_revision` was the mechanism offered in place of B-4's `v:2` stamp, and it asked
+        only `FIELD_SINCE` — i.e. only KEYS. But 2 of AM-1's 3 amendments introduced NO key: the
+        1.1-a lane rename and the 1.1-b currency live in VALUES. jack-ryan reconstructed the
+        genuine v1.0 validator from `a4f7a569` and proved the gap: it REJECTS `lane:
+        "grok-serial"` (`lane must be one of [… 'grok-judge' …]`) and REJECTS `currency:
+        "grok-sub"`, while the function called both rows 1.0-readable.
+
+        The live grok row answered "1.1" only BY LUCK — it happens to carry `cost_usd`. A
+        `grok-serial` START row cannot carry one (cost is CLOSE-only), so it would have reported
+        "1.0" and been unreadable by the 1.0 reader it named.
+
+        The previous test exercised only the field axis — the only axis implemented — so it
+        structurally could not fail on this defect (the B4-P14 cannot-fail class). This one can.
+        """
+        # 1.1-a — his exact proof case: a lane value, on an event that CANNOT carry cost_usd.
+        start = self.row("START", unit_id="u/1", unit_kind="job", lane="grok-serial")
+        self.assertNotIn("cost_usd", start, "the proof case must not answer via the key axis")
+        self.assertEqual(schema.row_min_revision(start), "1.1",
+                         "a `grok-serial` row is unreadable by a v1.0 validator — the rename is "
+                         "an amendment that lives in a VALUE, and a revision answer derived from "
+                         "keys alone cannot see it")
+        # 1.1-b — same shape, the currency axis, again with no 1.1 KEY anywhere on the row.
+        cur = self.row("SNAPSHOT", currency="grok-sub", meter_raw={"seen": 1})
+        self.assertEqual(schema.row_min_revision(cur), "1.1")
+        # and the pre-1.1 values on those same fields still answer 1.0 — the map is per-VALUE,
+        # not per-field: widening it to "any row naming a lane needs 1.1" would be the opposite
+        # defect, over-reporting every one of the 67 pre-amendment rows into a revision they
+        # never needed.
+        self.assertEqual(schema.row_min_revision(
+            self.row("START", unit_id="u/1", unit_kind="job", lane="codex-serial")), "1.0")
+        self.assertEqual(schema.row_min_revision(
+            self.row("SNAPSHOT", currency="chatgpt-sub", meter_raw={"seen": 1})), "1.0")
+        # the map is DECLARED in schema, greppable (G2-T6), never inlined in the function
+        self.assertEqual(schema.VALUE_SINCE["lane"]["grok-serial"], "1.1")
+        self.assertEqual(schema.VALUE_SINCE["currency"]["grok-sub"], "1.1")
+
+    def test_BLOCK2_no_pre_amendment_row_on_the_live_tape_is_over_reported(self):
+        """The fix must not push the 67 pre-AM-1 rows into a revision they never needed."""
+        rows = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        needs_11 = [r for r in rows if schema.row_min_revision(r) == "1.1"]
+        self.assertEqual([r["row_id"] for r in needs_11], ["dfbe28b17c2520f0"],
+                         "exactly one row on the tape needs revision 1.1 — the founding grok "
+                         "row, which needs it on ALL THREE axes (lane, currency, cost_usd)")
+
+    def test_WARN1_a_lane_declared_to_report_no_cost_may_not_carry_one(self):
+        """G-2b WARN-1 — prose in § 3 becomes a parse error on the lane where it is banked."""
+        with self.assertRaises(schema.SchemaError):
+            self.row("CLOSE", unit_id="u/1", unit_kind="job", lane="codex-serial",
+                     cost_usd=12.50, tokens_input=100, derived_from=SRC)
+        # the lane that DOES report one is untouched
+        ok = self.row("CLOSE", unit_id="u/1", unit_kind="job", lane="grok-serial",
+                      cost_usd=0.00286, derived_from=SRC)
+        self.assertEqual(ok["cost_usd"], 0.00286)
+        # a lane with no banked measurement of its stream is UNDECLARED, not "reports none":
+        # asserting the negative for a lane nobody probed would be the unmeasured claim this
+        # recorder refuses. Absence from the map is permissive, deliberately.
+        self.assertNotIn("claude-agent", schema.LANE_REPORTS_COST)
+        self.row("CLOSE", unit_id="u/1", unit_kind="job", lane="claude-agent",
+                 cost_usd=0.01, derived_from=SRC)
+        # and it did not disturb the tape: no existing row is retro-invalidated
+        self.assertEqual(tape.audit(FLIGHT_DIR), [])
 
     def test_pre_amendment_rows_remain_valid_untouched(self):
         """Backward compatibility is the whole reason `v` did not move."""
@@ -691,6 +788,56 @@ class TestLanesSection(unittest.TestCase):
         weird = [dict(path="a/_run-log.tsv", present=True, rows=1, cols=6, marker="DONE",
                       terminal=False, enqueued=0, backlog_derivable=True)]
         self.assertEqual(fr.lane_answer(cfg, free, [], weird, ok_auth)["state"], "busy-lock")
+
+    def test_WARN2_queue_pending_is_OPEN_per_Amendment_H_and_colours_fire_safe(self):
+        """G-2b WARN-2 — backlog is not occupancy, and the colour must say so.
+
+        Amendment H binds the § 10.3 selection law to the § 3 vocabulary: **"Open" = `open` OR
+        `queue-pending`**. `STATE_PRECEDENCE` correctly ranks `queue-pending` above `open` (the
+        backlog is the more specific fact and deserves to be the one named), but the card then
+        coloured every non-`open` state AMBER — so a lane that is OPEN and first-choice under
+        ratified law told Matt, at a glance, to look elsewhere.
+        """
+        fr = self._fr()
+        cfg = self._cfg(fr, "codex-serial")
+        ok_auth = dict(state="ok", rc=0, text="Logged in", cli="/x/codex", on_path=True)
+        free = dict(free=True, path="/tmp/l.lock", acquired=False, why=None)
+        backlog = [dict(path="a/_run-log.tsv", present=True, rows=3, cols=6, marker="rc=0",
+                        terminal=True, enqueued=2, backlog_derivable=True)]
+        ans = fr.lane_answer(cfg, free, [], backlog, ok_auth)
+        self.assertEqual(ans["state"], "queue-pending", "precedence is unchanged by WARN-2")
+        self.assertTrue(fr.safe_to_fire(ans))
+        self.assertEqual(fr.state_marker(ans), fr.GREEN,
+                         "Amendment H: `queue-pending` is OPEN and first-choice. Amber here tells "
+                         "Matt to look elsewhere at a lane he should fire into — a colour he acts "
+                         "on, diverging from ratified law")
+        self.assertIn("safe to fire: YES", fr.safe_to_fire_line(ans))
+        self.assertIn("backlog is not occupancy", fr.safe_to_fire_line(ans))
+        # the predicate is pinned BY STATE NAME (lane spec § 3) and exported, so a consumer
+        # binds to it rather than re-deriving a colour of its own
+        self.assertEqual(fr.SAFE_TO_FIRE_STATES, ("open", "queue-pending"))
+
+    def test_WARN2_the_other_state_classes_keep_their_colours(self):
+        """The fix is scoped: occupied stays amber, closed stays red, coverage still caps green."""
+        fr = self._fr()
+        mk = lambda st, na=(): fr.state_marker(dict(state=st, na=list(na)))
+        self.assertEqual(mk("open"), fr.GREEN)
+        for st in fr.OCCUPIED_STATES:
+            if st == "busy-unknown":
+                continue
+            self.assertEqual(mk(st), fr.AMBER, "%s: occupied is not closed — ENQUEUE behind it" % st)
+        for st in fr.CLOSED_STATES + ("busy-unknown",):
+            self.assertEqual(mk(st), fr.RED)
+        # #70 is independent of the predicate: fire-safe on reduced coverage is NOT a full green
+        self.assertEqual(mk("open", na=["leg 1"]), fr.AMBER)
+        self.assertEqual(mk("queue-pending", na=["leg 1"]), fr.AMBER)
+
+    def test_WARN2_the_card_renders_the_safe_to_fire_predicate_at_all(self):
+        """The second half of WARN-2: the card showed no predicate line whatsoever."""
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--now", "2026-08-25T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("safe to fire:", p.stdout)
 
     def test_a_leg_that_does_not_exist_is_not_ambiguity_but_is_declared_as_coverage(self):
         """NOT-APPLICABLE ≠ UNREACHABLE. Grok has no lock and no run-log by construction."""

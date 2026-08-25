@@ -33,17 +33,28 @@ record; gandalf's spec § 3 is thereafter a historical record.
 | `schema.SCHEMA_VERSION` — the **row-format** version stamped in every row's `v` | `1` | a row written under it stops being valid: a REMOVAL, a TYPE CHANGE, or a tightened requirement |
 | `schema.SCHEMA_REVISION` — the **custodian-amendment** marker | `"1.1"` | any additive amendment: new field, new enum value, new rule |
 
-**Custodian ruling (declared for G-2b).** jack-ryan's B-4 says *"adding a field is a version bump
-(`v:2`) with a custodian-signed note"*; gandalf's AM-1 says *"versioned custodian amendment
-(v1.1)"*. Both are satisfied in **substance** — there is a version bump, a signed note, and a
-red test unless the literal is amended deliberately — with the marker placed where it does not
-break the tape. Stamping `v:2` on new rows would force the validator to branch per version to
-keep the 67 pre-amendment rows legal, and **"ONE validator, zero exceptions" (G2-T3) is a HARD
-gate property I will not trade for a stamp.** Which revision a given row *needs* stays
-**derivable** from its own key set (`schema.row_min_revision`) and is never stored — a per-row
-revision stamp would be a hand-written summary of the row's own contents, which is the R-L47-2
-defect the derived-not-stored rule exists to prevent. If jack-ryan prefers `v:2`, the cost is the
-validator fork, and it is his call to make with that price named.
+**Custodian ruling — RATIFIED at G-2b (jack-ryan, 2026-08-24; overrule declined).** jack-ryan's
+B-4 says *"adding a field is a version bump (`v:2`) with a custodian-signed note"*; gandalf's AM-1
+says *"versioned custodian amendment (v1.1)"*. Both are satisfied in **substance** — there is a
+version bump, a signed note, and a red test unless the literal is amended deliberately — with the
+marker placed where it does not break the tape. Stamping `v:2` on new rows would force the
+validator to branch per version to keep the 67 pre-amendment rows legal, and **"ONE validator,
+zero exceptions" (G2-T3) is a HARD gate property I will not trade for a stamp.** Which revision a
+given row *needs* stays **derivable from the row itself** (`schema.row_min_revision`) and is never
+stored — a per-row revision stamp would be a hand-written summary of the row's own contents, which
+is the R-L47-2 defect the derived-not-stored rule exists to prevent.
+
+**The ruling stood; the two sentences defending it did not** (G-2b BLOCK-1 + BLOCK-2, both proven
+by mutation, both discharged inside revision 1.1 on the G-1 precedent that gate amendments ship as
+part of the version they gate). Recorded here rather than quietly repaired, because a document of
+record that once stated a false property should say so:
+
+| the claim as written | what was true | discharge |
+|---|---|---|
+| *"a red test unless the literal is amended deliberately"* | **FALSE.** No literal was pinned at the field-set level. Adding `cost_estimate` to `COST_FIELDS` — one line, reaching `ALL_FIELDS` and `FIELD_MATRIX` together — validated CLEAN, owed no `derived_from` (an estimate names no source), left `SCHEMA_REVISION` untouched and kept the suite 70/70 green. An **estimate primitive**, admitted silently, past HARD RULE 2. | `FIELD_ORDER` is now pinned **by equality** in `test_B4` — the FINDING-C pattern applied one level up. Add / remove / rename any field ⇒ RED (all three mutation classes verified). The red test exists now. |
+| *"derivable from its own **key set**"* | **FALSE for 2 of AM-1's 3 amendments.** The 1.1-a lane rename and the 1.1-b currency introduce no key — they live in **values** — and a genuine v1.0 validator REJECTS both rows while `row_min_revision` called them 1.0-readable. The live grok row answered `"1.1"` only by luck: it happens to carry `cost_usd`. | `VALUE_SINCE` added; `row_min_revision` asks **keys AND values**. A `grok-serial` START row (which cannot carry a cost — CLOSE-only) now correctly reports `"1.1"`. |
+
+A mechanism is not a claim about a mechanism. Both are now mechanisms.
 
 **Backward compatibility:** every pre-1.1 row remains valid, unedited, under the 1.1 validator
 (`tape.audit()` returns 0 errors across all 73 on-disk rows). AM-1 removes nothing, retypes
@@ -141,6 +152,15 @@ before the freeze, for that reason and no other.
 - A row carrying **any token primitive**, **any vendor-reported cost** (`cost_usd`, AM-1) or
   **any verdict** MUST carry a non-empty `derived_from`, and **every named path must exist on
   disk**. Validator-enforced.
+- **A lane DECLARED to report no dollar cost may not carry one** (G-2b WARN-1). `derived_from`
+  proves a path *exists*; it never proves the path *contains* the number, so "reported, never
+  computed" was prose with no parse-time consequence. It is decidable wherever a lane's stream has
+  been measured, and `schema.LANE_REPORTS_COST` declares exactly those: `codex-serial: False`
+  (§ 3, banked — the stream reports none), `grok-serial: True` (spec § 9.1, measured `costUSD`).
+  A `codex-serial` CLOSE carrying `cost_usd` is now a **validation error**, because by the
+  schema's own documented fact that number can only have been computed. **A lane absent from the
+  map is UNDECLARED, not "reports none"** — honest-null discipline applied to the map itself; no
+  probe of the Claude lanes' streams has been banked, so nothing is asserted about them.
 - **Any identity field with no nameable source on a backfill row is `null`.** This is why the
   founding rows carry no `harness_version`: zero `model*`, `version`, `cli_version` or
   `rate_limit*` keys exist across all 30 VFX streams, so a version on those rows would be an
@@ -168,6 +188,15 @@ before the freeze, for that reason and no other.
   a second exception now costs what adding a field costs: a red suite, a revision bump, and a
   signed note. **AM-1 did not spend it** — `cost_usd` carries no metric token and needed no
   exception.
+- **The FIELD SET ITSELF is PINNED BY EQUALITY too** (jack-ryan's G-2b BLOCK-1): `test_B4` asserts
+  `schema.FIELD_ORDER == (<the 38-name literal>)`. FINDING-C closed the *inner* door (the
+  exception list) and left the *outer* one open — the field list was never pinned by anything, so
+  accretion-by-one-reasonable-field simply moved up a level. Proven live: adding `cost_estimate`
+  to `COST_FIELDS` reached `ALL_FIELDS` **and** `FIELD_MATRIX` in one line and the row validated
+  clean at 70/70 green — an **estimate** primitive walking past HARD RULE 2. Adding, removing OR
+  renaming any field now turns the suite red (all three mutation classes verified). `ALL_FIELDS`
+  is held equal to `FIELD_ORDER` in the same test, and the lengths are compared, so a duplicated
+  name cannot hide inside the frozenset.
 
 **Derived-not-stored.** Cache hit-rate, wall-time, time-to-seal, first-pass rate, rework-chain
 length, per-model scorecards, window burn: all are queries over rows, computed by `flight_report`
@@ -326,6 +355,11 @@ and Grok workload admission is unchanged.
 | **AM-1 1.1-b** `grok-sub` | `schema.CURRENCIES` | `test_11b_grok_sub_currency` |
 | **AM-1 1.1-c** `cost_usd` | `schema.COST_FIELDS`, `REPORTED_COST_FIELDS`, `FIELD_SINCE` | `test_11c_…` ×3, `test_row_min_revision_…` |
 | **AM-1 § 13.1** LANE CARDS | `flight_report.LANE_CARDS` / `lane_answer` / the three leg probes | `TestLanesSection` (10 tests, incl. `test_the_lane_probes_write_NOTHING`) |
+| **BLOCK-1** (G-2b) field set pinned by equality | `test_B4` (the 38-name literal) + `ALL_FIELDS` equality + length check | `test_B4_…` (verified red on add / rename / remove) |
+| **BLOCK-2** (G-2b) revision derived from keys **and values** | `schema.VALUE_SINCE`, `schema.row_min_revision` | `test_BLOCK2_row_min_revision_asks_VALUES_not_only_keys` (verified red pre-fix), `test_BLOCK2_no_pre_amendment_row_on_the_live_tape_is_over_reported` |
+| **WARN-1** (G-2b) a lane declared to report no cost may not carry one | `schema.LANE_REPORTS_COST`, `schema.validate` | `test_WARN1_a_lane_declared_to_report_no_cost_may_not_carry_one` |
+| **WARN-2** (G-2b) Amendment H — `queue-pending` is OPEN; predicate rendered | `flight_report.SAFE_TO_FIRE_STATES` / `safe_to_fire` / `state_marker` / `safe_to_fire_line` | `test_WARN2_…` ×3 |
+| **WARN-3** (G-2b) D-2 migration named | `lane_answer` docstring · `MIGRATION.md` § *"The busy-check derivation is on loan"* | (documentary — enforced at D-2's DoD) |
 
 ---
 

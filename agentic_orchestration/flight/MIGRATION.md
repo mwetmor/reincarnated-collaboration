@@ -8,6 +8,95 @@ Append-only, like the tape. Newest revision first.
 
 ---
 
+## Revision 1.1 — G-2b DISCHARGE — 2026-08-24 (block B-1c)
+
+Still **revision 1.1**, deliberately: gate amendments ship *as part of* the version they gate
+(the G-1 precedent — B-1…B-6 shipped as part of v1.0). No row on the tape was written or edited
+by this block; no frozen v1 rule was touched; the validator stays single-path.
+
+### The SAFE-TO-FIRE predicate — **pinned here, by state name** (Amendment H · WARN-2)
+
+Lane spec § 3 requires this predicate to be pinned in MIGRATION.md, and § 10.3 clause 6 requires
+consumers — **router Q3 included** — to bind to it and **never to a leg's raw reading**. It is
+pinned here and exported from `flight/bin/flight_report`:
+
+| class | states | means |
+|---|---|---|
+| **OPEN — fire** | `open` · `queue-pending` | **Backlog is not occupancy.** A P-9 HELD job never closes a lane; the next drain takes it. `queue-pending` is a *first-choice* lane. |
+| **OCCUPIED — enqueue** | `busy-lock` · `busy-out-of-band` · `busy-unknown` | The lane exists and works. ENQUEUE behind it. Occupied is **not** closed and never routes Claude-ward on its own. |
+| **CLOSED — Matt** | `auth-expired` · `cli-missing` | Closes on a Matt-only action; a retry is not the fix (P-4). |
+
+```python
+flight_report.SAFE_TO_FIRE_STATES   # ("open", "queue-pending")
+flight_report.safe_to_fire(ans)     # the predicate — bind to THIS
+flight_report.state_marker(ans)     # the glance colour, derived from the predicate
+flight_report.safe_to_fire_line(ans)  # the predicate rendered in words
+```
+
+**What changed for a reader:** `queue-pending` used to render **amber** in the Tier-1 card. It now
+renders **green** (fire-safe) with the backlog still named in the `why` list, and every card
+carries a `safe to fire:` line it previously did not render at all. `STATE_PRECEDENCE` is
+**unchanged** — `queue-pending` still outranks `open`, because the backlog is the more specific
+fact and deserves to be the one named. Only the *colour* moved, and it now derives from the
+predicate instead of from string equality with `"open"`.
+
+> **⚠ drax — cross-seam (ADR-004).** As of this block's HEAD, `factory/ui/board.py` holds its
+> **own** `_STATE_CLASS` map (`"queue-pending": "s-warn"`). It does **not** import this
+> derivation, so it did **not** inherit the correction and still paints a fire-safe lane as a
+> warning. Two colour maps for one predicate is the WARN-2 defect wearing a second hat.
+> `factory/` was deliberately **untouched** by this block (out of seam) — the fix is drax's.
+> Shape: import `state_marker` / `safe_to_fire` and derive the CSS class from the returned
+> severity, rather than keying a literal per state name.
+>
+> *Measured at write time, not assumed:* an uncommitted working-tree change in a **concurrent**
+> drax session already replaces `_STATE_CLASS` with a map keyed off `fr.state_marker(ans)`. If
+> that lands, this item is discharged board-side and the derivation has exactly one home. Stated
+> as an observation of a working tree, not as a claim that it shipped.
+
+### `row_min_revision` now asks KEYS **and** VALUES (BLOCK-2)
+
+Correction to a statement this document and `SCHEMA.md § 0.0` both made: *"which revision a row
+needs is derived from its own **key set**"*. That was true for **1 of AM-1's 3 amendments**. The
+lane rename (1.1-a) and the currency (1.1-b) introduce no key — they live in **values** — and a
+genuine v1.0 validator REJECTS both rows while the function reported `"1.0"`. If you consult
+`row_min_revision`, re-read it: it now returns `"1.1"` for any row carrying `lane: "grok-serial"`
+or `currency: "grok-sub"`, as well as for `cost_usd`. `schema.VALUE_SINCE` is the declared map.
+No row on the tape changed classification except by becoming *correct*: exactly one row
+(`dfbe28b17c2520f0`) needs 1.1, and it needs it on all three axes.
+
+### `cost_usd` now refused on a lane declared to report none (WARN-1)
+
+`schema.LANE_REPORTS_COST` — `codex-serial: False` (SCHEMA.md § 3, banked), `grok-serial: True`
+(spec § 9.1, measured). **A writer emitting `cost_usd` on a `codex-serial` CLOSE now gets a
+validation refusal**, because by the schema's own documented fact that number can only have been
+computed from tokens × a price list. A lane **absent** from the map is UNDECLARED, not
+"reports none" — nothing is asserted about the Claude lanes, whose streams have not been probed.
+Zero existing rows affected (the only `cost_usd` on the tape is the `grok-serial` row).
+
+### The busy-check derivation is **ON LOAN** to a renderer — D-2 must take it back (WARN-3)
+
+Q62 ruled the card **renders the check's output**: *"a view of the derivation, never a second
+truth source."* D-2 (`factory lane`) is unbuilt, so `flight_report.lane_answer` performs the
+derivation itself and declares it (`probe: degraded — D-2 CLI pending`, sanctioned by spec
+§ 13.1). **That sanction expires the day D-2 lands.**
+
+The semantics invented in this renderer are **derivation logic**, not presentation: `busy-unknown`,
+the UNREACHABLE/NOT-APPLICABLE split, the fail-closed union, the coverage clause, and the
+Amendment-H predicate above. WARN-2 is the proof of what happens when two consumers hold their own
+copies: one diverged from ratified law within the hour.
+
+**Therefore, entered into D-2's DEFINITION OF DONE — D-2 is not done while two copies exist:**
+
+1. D-2 owns the answer states, the coverage semantics and the safe-to-fire predicate, behind its
+   pinned `--json` contract (exit codes pinned here, `0` = fire-safe);
+2. `lane_answer` / `state_marker` / `safe_to_fire` / `safe_to_fire_line` in `flight_report` are
+   **deleted** or reduced to thin adapters over that JSON — **deletion is part of D-2's DoD**, not
+   a follow-up;
+3. `factory/ui/board.py` renders the same `--json`;
+4. `PROBE_MODE` stops saying `degraded`.
+
+---
+
 ## Revision 1.1 — AMENDMENT AM-1 — 2026-08-24 (block B-1b)
 
 **Authority:** Matt mid-run directive → spec § 13.2 (`gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md`)

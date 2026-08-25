@@ -67,12 +67,24 @@ import re
 # version bump (v:2) with a custodian-signed note"): stamping v:2 would fork the validator into
 # per-version branches to keep the 67 existing rows legal, and "ONE validator, zero exceptions"
 # (G2-T3) is a HARD gate property I will not trade for a stamp. The substance B-4 asked for is
-# delivered in full — a version bump, a custodian-signed note, a red test unless the literal is
-# amended deliberately — with the marker placed where it does not break the tape. Which revision
-# a given row NEEDS stays DERIVABLE from its own key set (`row_min_revision`), never stored:
-# a stamp would be a hand-written summary of the row's own contents, which is the R-L47-2 defect.
-# Declared for G-2b; jack-ryan rules. If he prefers `v:2`, the cost is the validator fork and I
-# will say so again before building it.
+# delivered in full — a version bump, a custodian-signed note, and a red test unless the literal
+# is amended deliberately — with the marker placed where it does not break the tape. Which
+# revision a given row NEEDS stays DERIVABLE from the row itself (`row_min_revision`), never
+# stored: a stamp would be a hand-written summary of the row's own contents, which is the R-L47-2
+# defect.
+#
+# G-2b RULED (jack-ryan, 2026-08-24): ruling UPHELD, overrule DECLINED — and the two sentences
+# written to defend it FALSIFIED. Both are now repaired in code, and this comment names the
+# mechanism instead of asserting it:
+#   BLOCK-1  "a red test unless the literal is amended deliberately" was FALSE — no literal was
+#            pinned at the field-set level, so adding `cost_estimate` to COST_FIELDS validated
+#            CLEAN at 70/70 green. `FIELD_ORDER` is now pinned BY EQUALITY in `test_B4`
+#            (the FINDING-C pattern applied one level up). Adding/removing/renaming ANY field
+#            now costs a red suite, a deliberate literal edit, a FIELD_SINCE entry and a
+#            SCHEMA_REVISIONS row. THAT is the red test; it exists now.
+#   BLOCK-2  "derivable from its own KEY SET" was FALSE for 2 of AM-1's 3 amendments — the lane
+#            rename and the currency live in VALUES, not keys. `row_min_revision` now asks both
+#            axes (`FIELD_SINCE` + `VALUE_SINCE`).
 SCHEMA_VERSION = 1
 SCHEMA_REVISION = "1.1"
 
@@ -85,8 +97,24 @@ SCHEMA_REVISIONS = (
      "currency grok-sub added; cost_usd added CLOSE-only optional as a vendor-REPORTED primitive"),
 )
 
-#: Which revision a field was introduced in. A row's minimum revision is DERIVED from its keys.
+#: Which revision a FIELD was introduced in. (The key axis.)
 FIELD_SINCE = {"cost_usd": "1.1"}
+
+#: Which revision a VALUE was introduced in, per field. (The value axis — G-2b BLOCK-2.)
+#
+# An amendment does not have to introduce a key to make a row unreadable by an older reader.
+# Two of AM-1's three changes introduced no field at all: the 1.1-a lane rename and the 1.1-b
+# currency addition live entirely in VALUES, and the genuine v1.0 validator REJECTS a row
+# carrying either of them (`lane must be one of [… 'grok-judge' …]`). Asking only FIELD_SINCE
+# therefore under-reports on 2 of the 3 amendments it was written to cover — proven by
+# jack-ryan at G-2b against a v1.0 validator reconstructed from `a4f7a569`. The live grok row
+# returned "1.1" only by luck: it happens to carry `cost_usd`. A `grok-serial` START row
+# (no cost field — cost is CLOSE-only) would have reported "1.0" and been unreadable by a
+# 1.0 reader.
+VALUE_SINCE = {
+    "lane": {"grok-serial": "1.1"},          # 1.1-a — the rename; `grok-judge` was the v1.0 name
+    "currency": {"grok-sub": "1.1"},         # 1.1-b — the third economy
+}
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 META_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))   # …/reincarnated-collaboration
@@ -146,6 +174,24 @@ TOKEN_FIELDS = ("tokens_input", "tokens_cached_input", "tokens_cache_write",
 # token primitives in owing a `derived_from` — a dollar figure with no named artifact is exactly
 # the unsourced claim B-5 exists to refuse.
 REPORTED_COST_FIELDS = ("cost_usd",)
+
+# G-2b WARN-1: "reported, never computed" was prose with no parse-time consequence. `derived_from`
+# proves a path EXISTS; it never proves the path CONTAINS the number. That softness is inherited
+# from B-5 and cannot be closed in general — but it IS decidable on any lane whose stream we have
+# measured, and SCHEMA.md § 3 already banks one: *"Codex's stream reports none, so the field is
+# simply absent on that lane."* A `codex-serial` CLOSE carrying `cost_usd` is therefore, by the
+# schema's own documented fact, NECESSARILY computed — and that case becomes a parse error here.
+#
+# The map declares ONLY what has been measured. A lane absent from this table is UNDECLARED, not
+# "reports cost": honest-null discipline applied to the table itself. Writing `claude-agent: False`
+# on the grounds that a subscription emits no dollar figure would be exactly the unmeasured
+# assertion this recorder exists to refuse — no probe of that lane's stream has been banked.
+# Verified tape-safe before landing: zero rows on the tape carry `cost_usd` on a declared-False
+# lane (the only `cost_usd` row on the tape is `grok-serial`).
+LANE_REPORTS_COST = {
+    "codex-serial": False,   # SCHEMA.md § 3, banked: the stream reports no dollar figure
+    "grok-serial": True,     # spec § 9.1, measured: `costUSD` per call
+}
 
 # Serialization order — readability only; hashing always uses sorted keys.
 FIELD_ORDER = COMMON_FIELDS + IDENTITY_FIELDS + OUTCOME_FIELDS + COST_FIELDS + SNAPSHOT_FIELDS
@@ -252,17 +298,27 @@ def compute_row_id(row: dict) -> str:
 
 
 def row_min_revision(row: dict) -> str:
-    """The lowest custodian revision that can READ this row — DERIVED from its own key set.
+    """The lowest custodian revision that can READ this row — DERIVED from its own KEYS AND VALUES.
 
     Nothing is stamped: a per-row revision string would be a hand-written summary of the row's
     own contents, and a hand-written summary is a defect waiting to disagree with the thing it
-    summarises (R-L47-2). Ask the keys instead.
+    summarises (R-L47-2). Ask the row instead — on BOTH axes:
+
+      * the KEY axis (`FIELD_SINCE`) — a field that did not exist in an earlier revision
+      * the VALUE axis (`VALUE_SINCE`) — an enum value an earlier validator would REJECT
+
+    The value axis is not decoration: it carries 2 of AM-1's 3 amendments (G-2b BLOCK-2). A
+    version answer derived from keys alone silently calls a `grok-serial` row 1.0-readable while
+    a real 1.0 validator refuses it.
     """
     best = "1.0"
-    for k in row:
+    for k, v in row.items():
         since = FIELD_SINCE.get(k)
         if since and _revision_tuple(since) > _revision_tuple(best):
             best = since
+        vsince = VALUE_SINCE.get(k, {}).get(v) if isinstance(v, str) else None
+        if vsince and _revision_tuple(vsince) > _revision_tuple(best):
+            best = vsince
     return best
 
 
@@ -415,6 +471,15 @@ def validate(row: dict, repo_root: str = None, check_paths: bool = True) -> list
         errs.append("B-5: this row carries %s and MUST name its source in derived_from — "
                     "every number and every judgement is reproducible from a named artifact"
                     % " and ".join(needs_source))
+
+    # --- WARN-1: a lane that reports no cost may not carry one ---------------
+    if LANE_REPORTS_COST.get(row.get("lane")) is False:
+        for f in REPORTED_COST_FIELDS:
+            if row.get(f) is not None:
+                errs.append("WARN-1: lane %r is DECLARED to report no dollar cost (SCHEMA.md § 3), "
+                            "so a %s on it cannot be vendor-reported — it can only have been "
+                            "computed from tokens and a price list, which HARD RULE 'a cost is "
+                            "NEVER computed here' forbids" % (row["lane"], f))
 
     # --- B-2: a verdict never self-reports -----------------------------------
     if row.get("verdict") is not None and not row.get("gatekeeper"):
