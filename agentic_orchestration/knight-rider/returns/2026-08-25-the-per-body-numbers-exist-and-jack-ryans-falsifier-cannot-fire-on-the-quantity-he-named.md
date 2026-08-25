@@ -86,3 +86,58 @@ His framing is the part worth keeping: ***"byte-determinism degrades and measure
 **Still outstanding, all rows 3–8 (~40 min):** R-5 fold test (§ 3.2 halt-and-surface criterion), R-3 corridor, R-7 shuriken, the full 8-row gate diff, 8 MP4 re-cuts.
 
 **Source:** `harness_logs/s2c_rows12_2026-08-25-v3v3/pair1_reproduction.json` — `floor_audit`, `per_body`, `table`, `VERDICT`.
+
+---
+
+# ⚑⚑ AMENDMENT, 20 MINUTES LATER — **I stopped one step too early. Limb 1 IS testable, and it is CONFIRMED DECISIVELY.**
+
+**§ 2 above says limb 1 is "UNTESTABLE." That is correct about `SC` and it is INCOMPLETE**, and I found the completion only because I went back to verify a phrase I had written without earning — *"`SC = None` … **in both corpora**"* — having opened **one** file. **The claim held. The check paid for something better.**
+
+`peak` is measured at Mob3 in **both** corpora. **So the pre→post delta at Mob3 exists, and it is exactly the quantity his falsifier was reaching for.** Pasted, all 16 cells:
+
+| cell | pre peak | post peak | **Δ peak** |
+|---|---|---|---|
+| `dash_attack`/arena/Mob0 | 55.007488 | 54.518925 | **−0.488562** |
+| `dash_attack`/arena/Mob1 | 47.805800 | 48.091183 | **+0.285383** |
+| `dash_attack`/arena/Mob2 | 39.242199 | 49.124035 | **+9.881835** |
+| ⚑ `dash_attack`/arena/**Mob3** | 0.017934 | 0.017209 | **−0.000725** |
+| `dash_attack`/cathedral/Mob0 | 28.056078 | 27.361610 | **−0.694467** |
+| `dash_attack`/cathedral/Mob1 | 33.406782 | 26.633812 | **−6.772970** |
+| `dash_attack`/cathedral/Mob2 | 26.445320 | 26.104470 | **−0.340849** |
+| ⚑ `dash_attack`/cathedral/**Mob3** | 0.001742 | 0.000869 | **−0.000873** |
+| `blink`/arena/Mob0 | 93.108363 | 85.562500 | **−7.545863** |
+| `blink`/arena/Mob1 | 92.960987 | 84.744087 | **−8.216900** |
+| `blink`/arena/Mob2 | 98.847609 | 92.225150 | **−6.622459** |
+| ⚑ `blink`/arena/**Mob3** | 0.254429 | 0.254233 | **−0.000195** |
+| `blink`/cathedral/Mob0 | 74.254281 | 70.932481 | **−3.321800** |
+| `blink`/cathedral/Mob1 | 78.765689 | 75.220393 | **−3.545296** |
+| `blink`/cathedral/Mob2 | 72.584335 | 72.119463 | **−0.464872** |
+| ⚑ `blink`/cathedral/**Mob3** | 0.151726 | 0.151726 | **0.000000** |
+
+## The separation is not marginal
+
+- **Largest Mob3 movement: `0.000873`.**
+- **Smallest non-Mob3 movement: `0.285383`.**
+- **Ratio: 327×.** Even the *quietest* on-path body moved **327 times** more than the *loudest* off-path one. The loudest on-path body moved **11,300×** more.
+- ⚑ **`blink`/cathedral/Mob3 moved by EXACTLY `0.000000`** — bit-identical across the repair.
+
+**His limb 1 — *"large on Mob0/1/2, near-zero on Mob3"* — is CONFIRMED, quantitatively, with a 327× floor on the separation.** The repair reached **every** body on the caster's world −Z travel path and reached **none** of the body at `x=+2.9` off it. **That is what off-path looks like when it is real**, and the geometry he derived from the shipping code predicted it before the numbers existed.
+
+## ⚑ The methodological finding, which is the durable part
+
+**He pre-registered his falsifier against `step_concentration` — a quantity that is FLOORED TO `None` at precisely the cell his prediction was about.** Mob3's peak (0.0009–0.25) sits below the instrument's `peak(A) < 1.0` floor in **both** corpora, so `SC` never had a value there to move.
+
+> **A falsifier registered against a quantity that is unevaluable exactly at the cell the prediction concerns is a falsifier that cannot fire.**
+
+**The prediction was right AND the test as specified was void. Both are true, and they are independent facts.** Had anyone scored it lazily, the two available readings were both wrong: *"Mob3 didn't move → confirmed"* (**`#63`** — an unmeasured zero promoted, in the predictor's favour) or *"untestable → inconclusive"* (**abandoning a decisive result that was sitting one file away**). ⚑ **I filed the second of those 20 minutes ago.**
+
+**The correct move was neither: find the adjacent quantity that IS measured at the floored cell.** `peak` was right there — it is the very quantity the floor is computed *from*.
+
+## Revised asks to jack-ryan (superseding § 5 items 1–2)
+
+1. **Limb 1 → CONFIRMED on `peak`, 327× separation, one cell at exactly zero.** Not "untestable," and emphatically not "confirmed because nothing moved."
+2. **Limb 2 → scope failure, not analysis failure** — unchanged. `blink` = −0.0019 on `SC` is the clean test of the mechanism he actually traced, and it passes by three orders of magnitude. `dash_attack`'s trail-bounding carries the entire pooled movement.
+3. **The `SC`-floor / pre-registration interaction** is worth a clause of its own if you agree it generalises — **and it is yours to number or decline, not mine.** I have already been told once this wave to mint nothing.
+4. Items 3–4 of § 5 stand (trail-bounding as a possible third entry point; byte-determinism degradation needs its own disposition).
+
+**Sources:** `harness_logs/s2c_rows12_2026-08-25/pair1_repro.json` (pre-fix) · `harness_logs/s2c_rows12_2026-08-25-v3v3/pair1_reproduction.json` (post-fix) — `per_body/*/*/*/ADDLUM/peak`, `floor_audit`.
