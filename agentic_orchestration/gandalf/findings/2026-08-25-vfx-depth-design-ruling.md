@@ -3,6 +3,23 @@
 ## Depth is six layers. We are short of four. None of the four is an item on Matt's list — and Matt named two of the four anyway, in his own words, in the first eight syllables.
 
 **STATUS:** RULING — issued autonomously, Matt away. Three rulings, one refusal ratified, four questions parked for Matt.
+⚑ **AMENDED 2026-08-25 following adversarial review.** This document was fired at Grok, pointed at the ruling rather than at the frames, per its own § 7.2. **The review broke four claims and I have amended them AT SOURCE rather than in a footnote.** Amended passages carry an **[A-n]** tag pointing at **§ 12**, which holds the full disposition ledger — what was conceded, what was refuted, and the arithmetic that settled each. **R-4's core survived the attack in the attacker's own words.** § 7's build order CHANGED: item 3 was promoted and the serial dependency was narrowed to one class of layer.
+> ## ⛔ CONDUCTOR'S BANNER — **NOT gandalf's text. § 12 DOES NOT EXIST. This document is INCOMPLETE and its amendments are LOAD-BEARING ANYWAY.**
+>
+> *(knight-rider, 2026-08-25, appended when committing this work on gandalf's behalf.)*
+>
+> **gandalf's amendment session died on an API stream-idle timeout after 29 tool calls and ~15 minutes. The return message was lost. The FILE EDITS SURVIVED, uncommitted and unattended, and I found them by checking the working tree rather than believing the failure status.** *(A status field is not the contents. Ninth instance of that trigger this session, and the first where the status field said FAILURE and the truth was mostly-success.)*
+>
+> **What is here and sound:** amendments **[A-1] through [A-11]**, inline, each self-contained enough to act on. **They carry their own conclusions and, in most cases, their own arithmetic.**
+>
+> ⛔ **What is MISSING: § 12, the disposition ledger every amendment tag points at. It was never written. FIVE references dangle** — including the header line directly above, which promises it. **The [A-n] tags are therefore an index into nothing.**
+>
+> ⚑ **Do not read the absence of § 12 as the absence of a disposition.** Each amendment states its own verdict in place. What is lost is the *consolidated* record — the side-by-side of what was conceded versus refuted, and the arithmetic backing **A-1's 155 ms bound**, **A-6's owed magnitude clause**, and **A-11's Fano-factor refutation.** ⚑ **A-11 is the one I would most want the working shown for**, because it refuses an instrument the reviewer proposed, and a refusal without its arithmetic is the weakest thing in this document.
+>
+> **Also stale in the header above:** *"four questions parked for Matt"* — **there are FIVE** (M-5 was added after the adversarial review). And **R-8's gate has since CLOSED AGAINST P-2**: galadriel ruled the band operator **NOT-FIT** (`03213dd5`), independently confirming A-4's ground (i) *and* adding grounds A-4 did not have. **A-4's own ground (ii) — that no reference value exists for the matched quantity — is gandalf's alone and survives on its own legs.**
+>
+> **Nothing downstream waits on § 12.** Track A-1 (author the missing windup) is uncontested by every hit and by galadriel's floor-free re-measurement. **Re-dispatched to gandalf; this banner comes out when he lands it.**
+
 **Date:** 2026-08-25
 **Author:** gandalf (SPEC-AUTHOR)
 **Occasioned by:** Matt's VFX-depth critique, 2026-08-25, verbatim in § 1.
@@ -95,10 +112,10 @@ Depth is not a quantity of effects. **Depth is six independent layers**, and an 
 
 | # | Layer | What it is | **Our state** | Evidence |
 |---|---|---|---|---|
-| **L1** | **CADENCE** | *When* things fire — the inter-event interval **distribution**, not the rate. | ⚑ **BROKEN on `melee_combo`** (CV 0.102, one tone at 2,148×). **Sound on `dash_attack`** (0.955). Per-row. | `reading.json`, robust to both nulls at 13× combined |
+| **L1** | **CADENCE** | *When* things fire — the inter-event interval **distribution**, not the rate. | **[A-1]** ⚑ **FLAGGED on `melee_combo` — this capture has NO PHRASE STRUCTURE.** *Amended from "BROKEN": that was an archetype-level word on capture-level evidence, and § 5.1(2) forbids it.* The replacement claim needs no reference arm and no assumption about what an event is: at CV 0.102 over **16 intervals**, **the single longest pause anywhere in 7 seconds exceeds the mean gap by AT MOST 155 ms** — and that is the arithmetic ceiling with *all* variance concentrated in one interval. **Sound on `dash_attack`** (0.955). Per-row. | `reading.json`, robust to both nulls at 13× combined; the 155 ms bound is § 12 A-1 |
 | **L2** | **LIFECYCLE COVERAGE** | Whether the effect *exists* across the whole ability envelope — anticipation, strike, aftermath. | ⚑ **BROKEN.** `01-windup-early` and `02-windup-late` author **exactly zero pixels**; fx-on and fx-off are byte-identical. **The whirlwind has no windup.** | `cleanroom_stills.json`, matched fx-off control |
 | **L3** | **MULTIPLICITY** | How many distinguishable elements are co-present. | **THIN.** N_eff 2.66 at peak whirlwind, 1.84–1.85 on the element arms. One crescent, one line, two dots. *(Weak on the video legs — galadriel's § 5.5 gives only 2.4–3.4× margin — but the clean-room stills carry a matched control and are strong.)* | same |
-| **L4** | **SCALE COMPOSITION** | The *mix* of fine and coarse authored mass. Line vs. volume. | ⚑ **BROKEN, and nobody had named this layer.** 86–96 % in the two finest bands at **every** mark; coarse mass never above 5.3 %. **Everything we author is a thin bright line.** | § 0 F-2 table |
+| **L4** | **SCALE COMPOSITION** | The *mix* of fine and coarse authored mass. Line vs. volume. | **[A-4]** ⚑ **UNPOPULATED — and the word is deliberately weaker than "BROKEN."** The *absolute* claim is sound and needs no reference: the entire authored delta at peak is **2,284 px**, of which coarse bands hold **≤ 5.3 % — about 121 pixels.** There is no smoke, dust or volume in 121 pixels. **The COMPARATIVE claim is withdrawn:** on the one instrument where a reference value exists, our `melee_combo` reads fine-share **0.866 against the reference's 0.901** — we are marginally *coarser*, not finer. **No reference value exists for the matched quantity (authored-delta band-share), so no bar can be set.** § 12 A-4. | § 0 F-2 table; `reading.json` D1 |
 | **L5** | **ENVIRONMENTAL RESPONSE** | Whether the *world* changes — light spill, scorch, debris, displacement, distortion. | ⚑ **ZERO, and it is a clean zero.** fx-on ≡ fx-off byte-identical at `01`/`02`; at active marks the *entire* fx-on/fx-off delta is 2,284 px of thin crescent, leaving no budget for any world change. | same |
 | **L6** | **MATERIAL IDENTITY** | Whether variants differ in more than tint. | ⚑ **ABSENT.** Four element arms: authored_px within **0.26 %**, band_frac identical to **3dp**, N_eff identical. Only hue differs. | `cleanroom_stills.json` `elements` |
 | **(L7)** | *Surface inventory* | The actual assets — lasers, scrape sparks, smoke puffs. | Partially present as *capability*; absent from these rows. | — |
@@ -111,11 +128,25 @@ This is the load-bearing design claim in this document, and it is why "add more 
 
 `melee_combo` fires an event every 0.392 s with a standard deviation of 0.040 s, driving a single spectral tone **2,148× above its own median** — and its *saturation* channel is even more tonal, at **2,342×**. Every channel is modulated by one carrier.
 
-**A visual system locks to a strict periodic carrier within roughly three cycles — here, about 1.2 seconds.** After that lock, temporal grouping (common fate) does its work: **any additional layer sharing that exact period is not perceived as a separate event. It is perceived as texture on the event already predicted.**
+**A visual system locks to a strict periodic carrier within roughly three cycles — here, about 1.2 seconds.** After that lock, temporal grouping (common fate) does its work.
 
-> **Player consequence, stated concretely:** author the metal-scrape spark at the combo's own beat and the player does not see a scrape. **They see "that hit was slightly whiter."** The scrape is present in the framebuffer and absent from the experience. You will have paid for an asset, a material, an emitter and a review cycle, and moved the player-facing needle by nothing.
+### ⚑ [A-2] THE MECHANISM, CORRECTED. Period alone is NOT sufficient for fusion. Onset AND envelope are.
+
+**The sentence that stood here claimed that "any additional layer sharing that exact period" fuses. That is false and the adversarial review was right to break it.** Common fate binds elements that share a *trajectory through time* — onset **and** envelope **and** decay. A layer that fires on the carrier but **outlives it by 5–20×** does not fuse, because after the carrier's event has ended the layer is still there, alone, and a thing that persists into the silence is *by construction* the most separable event in the sequence. **My own L2 says this** — aftermath decaying at a different rate *is* the rhythm — and the paragraph that stood here did not carry it.
+
+**So the design rule is not one rule. Emitters fall into two functional classes and the cadence requirement is OPPOSITE for each:**
+
+| class | members | **onset** | **lifetime** | fuses? |
+|---|---|---|---|---|
+| ⚑ **CONTACT-BOUND** *(impact)* | scrape sparks, hit flash, impact ring, decal spawn | ⚑ **MUST be 1:1 with contact. Sync is the design — off-beat impact is the bug.** | ⚑ **MUST be independent — per-particle decay, ejection, trail.** | **No**, provided lifetime is free. Fuses only if it *also* shares the envelope. |
+| **AMBIENT / AFTERMATH** *(volume)* | smoke, dust, wind, embers, mist, light spill | free — must NOT ride the carrier | long, 5–20× the strike | **No.** Its whole job is to occupy the silences. |
+| **CARRIER-CLASS** *(the real hazard)* | extra crescents, hue ramps on the strike, same-envelope flashes, a fifth copy of the arc | on the carrier | **same envelope as the carrier** | ⚑ **YES. This is the class § 7 item 5 was actually about.** |
+
+> **Player consequence, restated correctly:** author the metal-scrape spark at the combo's beat **with the combo's own envelope** and the player does not see a scrape — **they see "that hit was slightly whiter."** Author it at the combo's beat **with an independent 3-to-8-frame decay and an ejection trajectory** and they see a scrape, because the sparks are still in the air when the blade has moved on. **The beat was never the problem. The shared envelope was.**
 
 *(The grouping mechanism is well-established in perception; the magnitude of the fusion in this specific case is not measured and I am not claiming a number for it. What I am claiming is the direction, and the direction is not in doubt.)*
+
+**One consequence I owe out loud, because it reverses my own dispatch:** if long-lifetime volume cannot fuse, then **smoke was never hostage to the metronome**, and § 7's deferral of coarse mass behind the cadence work was wrong. It is corrected in § 7. **My own closing paragraph argues that we are short of everything that happens between the events — and my build order then put the one layer that lives between the events in third place.**
 
 **Genre corroboration, because this failure has a canonical instance.** The durable community critique of Diablo III's launch-era combat readability was never that it had too *few* effects — it conspicuously had more than Diablo II. It was that they could not be parsed. Path of Exile has spent the better part of a decade addressing the same class of problem by *subtracting* and desaturating self-and-ally effects rather than adding. **Inventory added on top of a cadence defect is the known way to make the defect worse.** Grim Dawn reads harder-hitting melee than either on a fraction of the particle budget, and it does it with hit-stop and off-beat impact placement — **the timing layer, at almost no asset cost.**
 
@@ -129,8 +160,8 @@ Per KR's request: **(a)** genuinely missing · **(b)** present-or-cheap but unre
 
 | Matt's item | Layer | **Verdict** | Reasoning |
 |---|---|---|---|
-| **"claw and sword metal scraping TIMING"** | **L1** | **(b) — and the noun is his** | Matt did not say "scrape sparks." He said scraping *timing*. **He named the diagnosed layer, first item, before any measurement existed.** Whether the scrape *asset* exists is a build question; the *timing* is the named thing and it is on the clock. Authoring the asset without fixing L1 buys a whiter hit. |
-| **"intermittent laser effects"** | **L1** | **(b)** | "Intermittent" is a timing word, not an inventory word. galadriel: *"Intermittency is not a rate. It is an interval DISTRIBUTION, and ours barely has one."* Same fusion mechanism as above. |
+| **"claw and sword metal scraping TIMING"** | **L1** | **[A-3] (b), re-grounded — and it is now UNBLOCKED for build** | *Amended.* The review argues "timing" is domain-jargon for **sync-to-contact**, and that my parse inverted the asset. **Half-conceded.** The *onset* is contact-bound and I had that wrong. But **"fires on contact" is the genre default, not an addition** — nobody lists it among the *"TONs of internal VFX"* that gave a run depth. **Prefer the reading that makes the witness's statement non-trivial:** what is praiseworthy in a scrape is the *grind* — sustained emission across the contact window with independent per-particle decay. ⚑ **Both parses converge on the same asset spec** (contact-synced onset + free lifetime), so the parse question does NOT gate the build. Matt settles it at **M-5**; the build does not wait for him. |
+| **"intermittent laser effects"** | **L1** | **[A-3] (b) → (a)/(b) split, and I concede more ground here** | *Amended.* "Intermittent" as **"pulsed, not a continuous beam"** is a real and probably better domain reading than mine, and unlike the scrape it *is* a non-trivial authoring choice worth listing. So the asset may simply be **(a) missing**. What survives from my reading: a pulsed laser authored **on the carrier with the carrier's envelope** is carrier-class per § 2.1 and will fuse. **Verdict: build it; give the pulses their own period and decay.** |
 | **"alternating through a specific color range"** | L1 + colour | **(a) on our side** | Ruled in § 6. Our hue swings 12.2° with H/S/V co-peaking — **pulsing, not cycling.** 12.2° does not leave a single named colour. |
 | **"smoke"** | **L4** | **(a) — genuinely missing from these rows** | Corrects the framing (§ 0 F-2). **Capability exists; authoring does not.** 86–96 % fine-band at every mark; there is no coarse mass anywhere in this ability's life. |
 | **"wind"** | **L4** | **(a), by the same argument** | Not measured directly, and I flag that. But wind-as-visible-effect is coarse-and-mid-band motion mass, and the band spectrum leaves under 5.3 % for all coarse content combined. It cannot be hiding in there. |
@@ -152,7 +183,19 @@ Per KR's request: **(a)** genuinely missing · **(b)** present-or-cheap but unre
 
 ### 4.1 Should we build it? — **NOT at Step-2 archetype tier. And this is a ruling, not a deferral.**
 
-**Screen-space distortion is a POWER-TIER SIGNIFIER, not a depth signifier.** Its entire communicative value is scarcity: it says *the world itself is being bent.* Both Diablo and PoE spend it sparingly and reserve it for high-investment or boss-scale effects, and they are right to. **Put refraction on a tier-1 melee combo and you have spent the signifier before you own anything worth spending it on.** The player learns in the tutorial that world-bending is ambient, and no later ability can take it back.
+> ### ⚑ **[A-5] AMENDED — I collapsed two different things into one and then reserved the inflated version. Splitting them un-parks the only L5 member Matt named.**
+>
+> | | **LOCAL MATERIAL DISTORTION** | **GLOBAL / SCREEN-SPACE REFRACTION** |
+> |---|---|---|
+> | example | 8–24 px heat-ripple along a blade edge; **cavitation along the swing arc**; ice shimmer; a fire weapon's air-warp | viewport-scale warp, persistent full-screen bend, boss-arena lensing |
+> | reads as | ⚑ **"this material is hot / fast / cold"** — a property of the *thing* | **"the world is being bent"** — a property of the *world* |
+> | **disposition** | ⚑ **NOT RESERVED. It is a MATERIAL property and it belongs with L6**, where it would do real work separating fire from wind from water. | **RESERVED**, pending M-2. |
+>
+> **Matt said cavitation. Cavitation is by definition a LOCAL, along-the-edge phenomenon** — vapour cavities shed by a fast edge. **I read his local effect as a global one and then reserved the global one, which parked his item under a ruling that was never about it.** That is a parse error of the same family as [A-3], in the same document, and the review was right to call it a sleight even though it was not intended as one.
+>
+> **What remains reserved, and why:** **screen-space distortion at VIEWPORT scale is a POWER-TIER SIGNIFIER, not a depth signifier.** Its communicative value is scarcity: it says *the world itself is being bent.* **Put viewport refraction on a tier-1 melee combo and you have spent the signifier before you own anything worth spending it on.** The player learns in the tutorial that world-bending is ambient, and no later ability can take it back.
+>
+> ⛔ **PREMISE FLAGGED, and this downgrades the ruling.** My claim that "both Diablo and PoE spend it sparingly" is **a genre-prevalence assertion I did not verify.** The review asserts the opposite from its own memory (PoE Cyclone / Flame Dash / Lightning Warp at gem level 1; D4 core Sorc heat-haze; *"D4's VFX bible treats refraction as material, not a tier gate"*) — **with web search disabled, which makes it a fourth prior, not evidence, and my own § 7.2 argument applies to it.** ⚑ **But it applies to MY assertion too, and mine was stated as a ruling.** **R-3's mechanism-reservation is therefore downgraded RULING → PROVISIONAL**, pending legolas Mode A. **Operationally inert:** nobody builds viewport refraction at Step-2 under either outcome, and M-2 already holds the tier question for Matt.
 
 There is a second reason, and it is ours specifically. Reincarnated's ascension arc — the seasonal descent and the return, the form library accumulating across lives — **needs a visual vocabulary that escalates.** Escalation requires reserving the top of the register. An engine that bends space at T1 has no gesture left for the thing the whole journey is climbing toward.
 
@@ -164,9 +207,10 @@ There is a second reason, and it is ours specifically. Reincarnated's ascension 
 | Impact decal / scorch / gouge with a decay | low | the world **remembers** — the single strongest "this mattered" signal in ARPG melee |
 | Camera shake on contact, magnitude-scaled | very low | weight |
 | Debris / dust kick displaced by the swing | medium | the effect **occupies volume** (and simultaneously fixes L4) |
-| **Screen-space distortion / cavitation** | **high** | **the world is being BENT** — reserve it |
+| ⚑ **[A-5] LOCAL edge cavitation / heat-ripple** *(added on amendment)* | medium | ⚑ **the blade is moving fast enough to tear the air** — a MATERIAL claim, not a world claim. **ROUTED, not reserved.** Doubles as an L6 element differentiator. |
+| **VIEWPORT-scale screen-space refraction** | **high** | **the world is being BENT** — reserve it *(premise now provisional — § 4.1 [A-5])* |
 
-> ### **RULING:** the **layer** is ADOPTED as a build gap. The **mechanism** (screen-space distortion) is **RESERVED** to a named high-tier gate that does not yet exist. Route the four cheap members now; they buy most of what Matt saw missing, at a fraction of the cost, without spending the signifier.
+> ### **RULING [A-5, amended]:** the **layer** is ADOPTED as a build gap. The **LOCAL** mechanism is **ROUTED**; only the **VIEWPORT-scale** mechanism is **RESERVED** to a named high-tier gate that does not yet exist — and that reservation is now **PROVISIONAL** on an unverified genre premise. Route the five cheap-and-medium members now; they buy most of what Matt saw missing, at a fraction of the cost, without spending the signifier.
 >
 > **Which tier earns distortion is Matt's call, not mine** — it is a question about the ascension arc's shape, and he owns that. § 8, M-2.
 
@@ -202,12 +246,18 @@ This is the reference's own signature, incidentally: CV 1.107 with a **broad** s
 
 | # | Property | Definition | Instrument | Why it survives | Current reading |
 |---|---|---|---|---|---|
-| **P-1** | ⚑ **LIFECYCLE COVERAGE** | Every archetype declares marks across anticipation / strike / aftermath. **Every declared in-ability mark must author non-zero mass against a matched fx-off control.** | `cleanroom_stills` — already built | **Matched control. Immune to camera, actor count, locomotion, raster.** Binary per mark; ungameable. | ⚑ **whirlwind FAILS 2 of 8** — both windup marks author **exactly zero** |
-| **P-2** | **SCALE COMPOSITION** | Band-share distribution of authored mass. Not a target — a **required minimum coarse fraction** for rows whose fiction implies volume (smoke, dust, wind, mist). | same stills, band_frac | **Stable to 3dp across the full floor sweep** (2/4/6/8/12) — more parameter-robust than N_eff on this evidence. Same matched control. | ⚑ **86–96 % fine-band at every mark**; coarse never above 5.3 % |
-| **P-3** | **EMITTER INDEPENDENCE** | Count of emitters in a row bound to the animation's beat vs. carrying an independent clock/lifetime/decay. | **build inspection** — read the Godot scene | **No capture at all.** No camera, no encode, no raster, no actor count, no nulls needed. Causal, not correlational. | unknown — § 7 routes it |
-| **P-4** | **VARIANT DIFFERENTIATION** | Whether element/variant arms differ on any axis other than hue. | same stills | matched control, ungameable by tinting | ⚑ **ZERO** — px within 0.26 %, band_frac to 3dp, N_eff identical |
+| **P-1** | ⚑ **LIFECYCLE COVERAGE** | Every archetype declares marks across anticipation / strike / aftermath. **Every declared in-ability mark must author non-zero mass against a matched fx-off control.** | `cleanroom_stills` — already built | **[A-6]** ⛔ **I called this "binary per mark; ungameable." IT IS THE MOST GAMEABLE BAR IN THE DOCUMENT — one pixel at windup passes it.** Conceded without qualification. **It is a ZERO-DETECTOR, not a coverage grade**, and it is minted as that and nothing more. Magnitude clause owed — § 12 A-6. | ⚑ **whirlwind FAILS 2 of 8** — both windup marks author **exactly zero**. *(The zero-detector catches exactly the failure we actually have, which is why the defective spec still found the right thing.)* |
+| **P-2** | **SCALE COMPOSITION** | Band-share distribution of authored mass. Not a target — a **required minimum coarse fraction** for rows whose fiction implies volume (smoke, dust, wind, mist). | same stills, band_frac | **[A-4]** ⛔ **NOT MINTABLE YET, on TWO grounds — and the second is mine, not the reviewer's.** (i) operator fitness unconfirmed (R-8, galadriel's, in flight); (ii) ⚑ **there is no reference value for the matched quantity.** No fx-off control exists for the reference, so nobody knows what authored-delta coarse-fraction a *good* effect has. **A minimum you cannot source is not a specification.** | ⚑ **86–96 % fine-band at every mark**; coarse never above 5.3 % — **absolutely** informative, **comparatively** unanchored |
+| **P-3** | ⚑ **[A-7] EMITTER INCOMMENSURABILITY** *(was: independence)* | ~~Emitters carrying an independent clock~~ → **for each emitter period `p` and the row's carrier period `T`, the ratio `T/p` must not fall within tolerance of a small-integer ratio (1:1, 2:1, 3:1, 3:2, 4:1).** ⚑ **CONTACT-BOUND emitters (§ 2.1) are EXEMPT on onset and bound on LIFETIME instead** — their onset must be 1:1 and their decay must be free. | **build inspection** — read the Godot scene | ⛔ **"Independent" was the wrong predicate and the reviewer is right for the reason MY OWN § 2.1 gives.** A second timer at **1.2625 Hz against a 2.525 Hz carrier is not unlocked — it locks HARDER**, because a 2:1 subharmonic creates strong-beat/weak-beat and makes the meter *more* salient. ⚑ **The fix costs the build nothing** — reading a period out of a scene file and checking a ratio is the same read as the original property. | unknown — § 7 routes it |
+| **P-4** | **VARIANT DIFFERENTIATION** | **[A-8]** ~~Whether arms differ on any axis other than hue~~ → **whether each arm CONFORMS TO ITS DECLARED BAND PROFILE** (earth coarse-heavy · fire coarse-plus-bright-core · wind mid-band streak · water fine-with-coarse-mist-floor, per § 5.3). | same stills | **[A-8]** ⛔ **"Differs on any axis" is a delta, and a delta is passed by nudging one band 0.01. Conceded — same magnitude defect as P-1.** ⚑ **A profile-SHAPE requirement is not passed by a nudge**, because the shape is declared in advance and a 0.01 move does not produce it. *Inherits P-2's blocker: it cannot be minted before the operator is confirmed.* | ⚑ **ZERO** — px within 0.26 %, band_frac to 3dp, N_eff identical |
 
-**CV's disposition: a one-sided DIAGNOSTIC FLAG, never a score.** *"CV < 0.25 with a single spectral tone above 1000× its own median → this row is running on the animation clock; inspect it."* **A flag you can only trip, never pass.** It cannot be gamed because hitting a number does not clear it — only the inspection does. That is the correct instrument shape for a statistic whose confounds are real but whose signal, in the extreme, is unmistakable. `melee_combo` at 0.102 / 2,148× trips it by an order of magnitude on both terms, and no plausible confound closes that.
+**CV's disposition: a one-sided DIAGNOSTIC FLAG, never a score.** *"CV < 0.25 with a single spectral tone above 1000× its own median → this row is running on the animation clock; inspect it."* **A flag you can only trip, never pass.** `melee_combo` at 0.102 / 2,148× trips it by an order of magnitude on both terms, and no plausible confound closes that.
+
+> ### ⚑ **[A-9] ENFORCEMENT CLAUSE — added on amendment, because without it the flag IS the hole the review named.**
+>
+> The review's sharpest structural point: *"a jittered metronome at CV 0.35 / 300× passes every minted property."* **It would — if the flag's remedy were the statistic.** So the remedy is specified, not implied:
+>
+> ⛔ **THE FLAG DOES NOT CLEAR WHEN THE NUMBER MOVES. It clears when the INSPECTION'S STRUCTURAL FINDING IS REMEDIATED AND RE-INSPECTED.** A dispatch that reads *"raise CV until the flag stops tripping"* is **malformed and must be refused.** The flag's only legal output is *"go read the scene."* **I wrote "hitting a number does not clear it" and then left the clearing condition unwritten, which is how a flag becomes a bar by drift.**
 
 ### 5.3 ⚑ RULING on P-4 — the four elements are one crescent in four colours
 
@@ -278,9 +328,22 @@ galadriel worried (§ 5.2) that the reference's apparent hue diversity is **scen
 
 KR asked whether this reorders Step-2 substantially. **It does — and NOT in the direction his framing was heading.** "Jitter the timing" is the wrong dispatch, for the reason in § 5.1(1).
 
-### The order, and the reason for each position
+### ⚑ [A-10] THE ORDER, AMENDED. It is no longer a serial chain — it is three tracks, and the dependency that serialised them was too broad.
 
-| | Work | Layer | Why here |
+**The § 2.1 correction ([A-2]) dissolves most of this document's own sequencing.** Fusion requires shared onset **and** shared envelope. **Only CARRIER-CLASS layers were ever gated on the cadence work.** Everything else was serialised by a mechanism that does not apply to it.
+
+| track | Work | Layer | Gate |
+|---|---|---|---|
+| **A-1** | ⚑ **Author the missing windup.** Two marks render **exactly zero pixels.** | **L2** | ⚑ **NONE. UNCONTESTED BY EVERY HIT IN THE ADVERSARIAL REVIEW.** Fire it. |
+| **A-2** | ⚑ **Coarse-band mass** — dust, smoke volume, mist floor. **PROMOTED from position 3.** | **L4 + L6** | ⚑ **NONE — the deferral was WRONG.** Long-lifetime volume cannot fuse with the carrier ([A-2]); it is the layer that *lives in the silences*, which is the thing this document says we are short of. Per-element band profile fixes L6 in the same pass. |
+| **B** | **Inspect emitter period ratios + hit-stop on `melee_combo`.** (P-3 as amended, and the § 2.1 hypothesis.) | **L1** | **None — it is a read, not a build.** Cheap, parallel, and its finding gates Track C. **`melee_combo` only** — do not touch `dash_attack` (CV 0.955, N_eff 8.64). |
+| **C-1** | **Contact-class inventory** — scrape sparks, impact flash, pulsed lasers. | **L7** | ⚑ **NOT gated on B — provided it ships with the § 2.1 contact-class spec: onset 1:1 with contact, per-particle lifetime FREE.** The requirement travels *with* the asset instead of preceding it. |
+| **C-2** | **Cheap + local L5** — light spill, decal/scorch, contact camera-shake, **local edge cavitation.** | **L5** | None. Honours Matt's environmental instinct, and [A-5] un-parks the one member he actually named. |
+| **D** | ⛔ **CARRIER-CLASS layers** — extra crescents, hue ramps on the strike, same-envelope flashes. | L7 | ⚑ **GATED ON B. This is the only class the "inventory LAST" ruling was ever really about, and it is the class that arrives as a brightness change to an event the player has already predicted.** |
+
+*Original serial order retained below for lineage; superseded by the table above.*
+
+| | Work | Layer | Why here *(superseded)* |
 |---|---|---|---|
 | **1** | **Author the missing windup.** `01-windup-early` and `02-windup-late` currently render **nothing.** | **L2** | **An absence is unambiguous, bounded and ungameable.** No confound, no bar to argue about, no experiment needed — two marks render zero and must not. **And it is the highest player-facing return of anything on this list**: an ability with no anticipation cannot be read, cannot be reacted to, and cannot feel like it has weight. Diablo II's Whirlwind had an unmistakable wind-up; PoE telegraphs nearly everything because it is otherwise unplayable. ⚑ **This also fixes L1 for free** — a windup is by construction a *long interval followed by a short one*, which is structured irregularity rather than jitter. |
 | **2** | **Inspect emitter independence + hit-stop on `melee_combo`.** (P-3, and the § 2.1 hypothesis.) | **L1** | **Build inspection, not an experiment.** No capture, no nulls, no confounds. It is the causal handle CV was a shadow of, and it costs a read of the scene. **`melee_combo` is the named, isolated defective row** — do not touch `dash_attack`, which is already sound at CV 0.955. |
@@ -295,8 +358,10 @@ KR asked whether this reorders Step-2 substantially. **It does — and NOT in th
 
 - ⛔ **Do not dispatch a build-wide or renderer-wide cadence fix.** `dash_attack` reads CV 0.955 in the same build, same hour (§ 0 F-1). This is one row.
 - ⛔ **Do not dispatch a CV target.** § 5.1. It rewards noise and cannot see rhythm.
-- ⛔ **Do not dispatch "add smoke/lasers/scrapes" ahead of items 1–2.** § 2.1.
-- ⛔ **Do not dispatch screen-space distortion at T1.** § 4.1.
+- ⚑ **[A-10] AMENDED — this bullet said "do not dispatch add-smoke/lasers/scrapes ahead of items 1–2." IT WAS TOO BROAD AND IT IS WITHDRAWN IN THAT FORM.** The replacement: ⛔ **do not dispatch any CARRIER-CLASS layer** (§ 2.1 row 3 — shared onset *and* shared envelope) ahead of Track B. **Smoke, scrape sparks and pulsed lasers are NOT carrier-class** and are not held. *"Do not hold smoke hostage to a combo metronome"* is the reviewer's line and it is correct.
+- ⛔ **[A-5] Do not dispatch VIEWPORT-scale screen-space refraction at T1** — and note the premise is provisional. **Local edge cavitation / heat-ripple is ROUTED, not blocked.** § 4.1.
+- ⛔ **[A-9] Do not dispatch "raise CV until the flag clears."** The flag's only legal output is an inspection. § 5.2.
+- ⛔ **[A-11] Do not dispatch a Fano-factor / spectral-entropy cadence BAR either.** § 12 A-11: it cannot be estimated on 17–22 events, it cannot resolve below the 30 fps analysis floor where the review wants it to live, and **it is a marginal statistic on the same interval sequence — so it inherits CV's disqualification whole.**
 - ⛔ **Do not spend galadriel's hour on the reference colour annotation.** § 6.2.
 
 ### 7.2 On the second opinions — a recommendation, flagged as recommendation not ruling
