@@ -54,6 +54,24 @@ The 2026-08-23 VFX archetype vote was substrate-led on this exact field, so `kno
 - **F003** **UNRESOLVED** — `skill_geometry_band(le-frost-wall-rm,1)` carries `delivery_class='motion'` + `motion_signature='straight_line'` at `band_conf=0.75`, `derivation='dossier-prose'`, whose `source_anchor` is **the same prose now struck from `geometry_value`.** `delivery_class='motion'` is defensible at low confidence from the utility sentence; **`motion_signature='straight_line'` is a PATH claim the anchor does not make.** NOT corrected — correcting it requires a re-band, and re-extraction was explicitly out of scope for a two-row ruling. **Carried, not buried:** next kit-mapping lap.
 - **F004** INFO — **observed, not fixed, adjacent:** 49 kits now holding `kit_mapping` rows have no `vfx_archetype_member` row under `vfx-archetype-vote-2026-08-23` (574 kits now vs 531 in the vote snapshot). Expected for a snapshot vote, but any future census reading archetype membership as if it covered the universe will under-count. Named so it is not rediscovered.
 
+#### F004 — reconciliation addendum (2026-08-25, on knight-rider query)
+
+**As filed, `49` and `(574 vs 531)` do not close by subtraction, and the parenthetical was the weaker half.** The two sets are **not nested**. Measured:
+
+| set | n |
+|---|---|
+| `kit_mapping` | **574** |
+| vote snapshot `vfx-archetype-vote-2026-08-23`, distinct `kit_id` | **531** (1,158 member rows) |
+| **intersection** | **525** |
+| `kit_mapping \ vote` | **49** ← the filed figure |
+| `vote \ kit_mapping` | **6** |
+
+**The 6 are sentinels, not orphans.** All six carry `skill_ordinal = -1`, `archetype_id IS NULL`, `assignment_basis = 'none'`, and `unassignable_reason = "kit is in the active combat universe but carries no kit_mapping row — no skill entries exist to vote"`. They are: `chr-crown-proc-engine`, `di-druid-pvp-cc-stack-2026`, `la-destroyer-gravity-{compression,force,impact}`, `la-destroyer-vortex-gravity`. All 6 are in `v_combat_kits`; none has a `kit_mapping` row **today**. The vote did not rule on kits it lacked a referent for — it **recorded the absence in-band**, which is the schema's `-1` convention working as designed. **The gap is a mapping gap, not a vote defect,** and unlike the 49 it will **not** close on a vote refresh — it closes only when those 6 kits are mapped.
+
+- **F003 — disposition (2026-08-25).** **(a) Class, not a row, but small.** The anchor string itself is unique to `le-frost-wall-rm/1`. The *pattern* — `delivery_class='motion'` + a `motion_signature` PATH claim resting on a generic build-utility sentence with no path-attesting token — holds for **8 of the 47 motion-class band rows**, of which ~6 are genuinely path-unattested (`le-frost-wall-rm/1`, `le-bomb-lance-falconer/4`, `le-shadow-bladedancer/1`, `le-shift-bladedancer/0`, `d2-nova-sorc/2`, `d2-frozen-orb-sorc/1`; the two `d2-teleport-sorc`-family rows are defensible from the named skill). All 47 motion rows sit at `band_conf=0.75 / derivation='dossier-prose'`, so **confidence does not discriminate the defect** — only anchor re-read does. **(b) Trigger, not a date:** the next **band pass over the motion basin** (or a datamine lane populating `exact_json` for these kits, whichever fires first). Not a standalone dispatch. **(c) Currently inert.** `le-frost-wall-rm` has **0** rows in `vfx_archetype_member` (it is one of the 49), so no archetype was minted from it; no view and no engine source reads `skill_geometry_band.motion_signature`. **Owed, not urgent.**
+
+- **F005** INFO — **token collision, presentation vs vocabulary.** `knockback` now means two different things in the Step-2 wave. As a **`geometry_value`** it is **struck: zero corpus members, no T-A row, nothing to mint** (F001). As ordinary English in the tranche-3A dispatch (*"silhouette + knockback with a brief trail"*, *"enemy launch + knockback"*) it is a **presentation-layer contact response drax is instructed to build**, and is **entirely unaffected by this ruling.** Neither document is wrong; the hazard is a reader carrying *"zero corpus, nothing to mint"* across the two senses. **Struck: the geometry vocabulary value. Live: the contact-response build instruction.**
+
 ### Reversibility + provenance
 
 **No silent transformation.** Each corrected skill carries a bracketed `[STEWARD AUDIT 2026-08-25: …]` block appended to `delivery_notes` naming the **pre-correction value verbatim** and its evidence — the established 34-kit convention. **Raw is preserved in-band; the correction is reversible from the annotation alone**, and independently from the timestamped backup `corpus.db.pre-geomvocab-20260825T162203Z-backup`.
