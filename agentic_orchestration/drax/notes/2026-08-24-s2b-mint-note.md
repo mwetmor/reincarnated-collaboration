@@ -1349,3 +1349,210 @@ the load-bearing question:
   **R-8 stands** — capture is not the cost of a row.
 - **S scored QUALITATIVELY** (galadriel § 1.9). **No S bar proposed or implied.**
 - **R-6 untouched.** Stage 4 not started.
+
+---
+
+## 10 · STAGE 4 — R-6, THE WHIRLWIND RE-RENDER
+
+**Godot `scripts/wwcr_stage.gd` + `run_wwcr_stage.sh` + `wwcr_occlusion_gate.py`.
+Corpus: `harness_logs/wwcr_2026-08-25/` (60 PNG, 6 arms). Receipt:
+`harness_logs/wwcr_2026-08-25/stage4_receipt.json`.**
+
+### 10.1 galadriel's acceptance condition — MET
+
+Her condition was **her own** determinism check on delivered frames, maxdiff 0 at
+`00-pre` and `09-off`. Delivered, cross-arm (`combat_fxon` vs `combat_fxctl`):
+
+| mark | her G-2 reading @ `1692d6e` | **delivered @ HEAD** |
+|---|---:|---:|
+| `00-pre` | 185 (73 % net **negative**) | **0** |
+| `01-windup-early` | 114 | **0** |
+| `09-off` | 216 | **0** |
+
+Every in-channel mark is now **100 % net positive** (`frac_net_pos` = 1.000 at
+marks 03–08, against 0.267 / 0.500 / 0.554 before). Her argument was *"an
+additive effect cannot darken."* It no longer darkens anywhere.
+
+Two-pass determinism **60/60 byte-identical**; a **third** pass after the
+source-comment edits in this commit is **20/20** on the gate arms, so the
+comments are *proven* inert rather than assumed to be. `sha256.txt` pins the
+delivered bytes (PNGs are gitignored — Synty licence).
+
+### 10.2 Census green, **and a positive control that it is not merely blind**
+
+All six arms: `non_authored_emitter_count: 0`, **zero** `INHERITED@` lines,
+`neutralised` key present, `neutralised_material_count: 2`, `neutraliser_ran: true`.
+
+⚑ **`count: 0` after a fix and `count: 0` from an instrument that cannot see the
+thing are the same string.** So I rendered a throwaway arm at identical HEAD
+with the one call disabled (`harness_logs/wwcr_2026-08-25-PROBE-noneutralise/`).
+It returns **`count: 1`**, naming
+`King/…/Greatsword/SF_Wep_Elven_Sweihander_01 :: MeshInstance3D[emissive]` — **on
+both arms.** The census sees it. The zero is a fix, not a blind spot. No
+permanent disable-flag was added; a footgun is not a receipt.
+
+### 10.3 ⚑ THE NEUTRALISER IS NOT WHAT DISCHARGES HER CONDITION, AND I EXPECTED IT WOULD
+
+The probe corpus — **emissive still in** — *also* returns maxdiff **0** at
+`00-pre` / `01` / `09-off`. Same-arm probe-vs-neutralised deltas:
+
+| mark | `fxon` changed px / mean ΔLum | `fxctl` changed px / mean ΔLum |
+|---|---:|---:|
+| `00-pre` | 158 / 116.62 | **158 / 116.62** |
+| `09-off` | 174 / 113.72 | **174 / 113.72** |
+
+**Identical to the pixel in both arms.** The emissive cancels exactly in the
+cross-arm difference. So what discharges galadriel's acceptance condition is the
+**clock pin**, already at HEAD — the neutraliser discharges the **separate** C-8
+census condition. This is her G-4 (*"balanced across both arms ⇒ no AB bias"*)
+**asserted there and measured here.** It holds exactly.
+
+### 10.4 § 3.3 — MY OWN FINDING, WITHDRAWN
+
+§ 3.3 reported the `wwcr` control diffing **83 px** at `00-pre`, *"the whirlwind
+re-seating the blade at bind time,"* and shipped it as a failing receipt. At HEAD
+it is **0** — on `bare`, and on the E-1 `arena` and `cathedral` arms, against the
+`novfx` control, in every case.
+
+The mechanism I named is **real**: rendering an `--fx=off` arm at HEAD and
+diffing it against `fx=on` reproduces it exactly — caster-tight (bbox 76×56 px),
+net **negative**, 1,814 px at `01` and 2,535 px at `09-off`. But it appears only
+against the **`--fx=off`** baseline — the *"no whirlwind at all"* control this
+same tranche identified as invalid and replaced with `novfx`. **Right mechanism,
+wrong baseline, and I filed it as an open defect of the delivered gate pair.**
+It is not one. Withdrawn.
+
+### 10.5 ⚑ THE E-0 "VERBATIM" CLAIM IS FALSE, IN THE FILE THAT MAKES IT
+
+`wwcr_stage.gd` carried: *"moved to `s2_stage_env.gd` (E-0), **VERBATIM** for the
+bare recipe — the clean-room corpus was gated against those exact values."*
+
+**Never checkable until now**: the bare stage has not been re-rendered since E-0
+(the E-1 pass ran the *structured* recipes). Stage 4 is the first time the
+sentence met a frame.
+
+The **environment** half is verbatim line-for-line — background, ambient,
+FILMIC + exposure, glow, fog, both DirectionalLights, and the albedo formula.
+**Exactly one assignment diverges:**
+
+| | ground plane |
+|---|---|
+| `1692d6e:wwcr_stage.gd` | `PlaneMesh 60×60`, **no subdivision** |
+| `s2_stage_env.gd` @ HEAD | `PlaneMesh 80×80`, `subdivide 24×24` |
+| `c6eede0:s2a_stage.gd` | **already 80×80 subdiv 24** |
+
+**The shared builder was made verbatim to S2A, and `wwcr` was migrated onto
+S2A's recipe while a sentence in the `wwcr` file asserted its own was preserved.**
+
+Measured: at pitch −55 / dist 34 the 60×60 far edge **was in frame**. ~62,048 px
+— the two upper corners, mean RGB [13,15,18] — were **void** at the mint and are
+**ground** at HEAD. Arguably a better frame; still a change to a minted corpus
+that no receipt covered. Comment corrected in source.
+
+**Fourth instance of one pattern** — clock pin, C-8 census, emissive neutraliser,
+ground recipe: each built or validated on `s2a_stage.gd`, each applied to the
+sibling without checking, and in **three of four** the sibling carried a
+**sentence asserting the parity it did not have.** The failure is not *"forgot to
+port."* It is that **the prose kept porting when the code did not**, so the gap
+read as closed in the only place anyone looks.
+
+### 10.6 ⚑ A THIRD GATE OF MINE MEASURING THE WRONG REGION — SURFACED, NOT REPAIRED
+
+`wwcr_occlusion_gate.py` splits actors by a 260×260 box at frame centre:
+`caster = actor & win`, `enemies = actor & ~win`. **Both halves are wrong, in
+opposite directions**, and the re-render made it legible:
+
+- **Mint corpus:** `enemies` = 62,301 px. Largest components **35,478 px at
+  (128,60)** and **26,570 px at (1812,54)**, mean RGB **[13,15,18]** — the void
+  above the 60×60 plane's far edge. **62,048 of 62,301 px (99.6 %) were SKY.**
+  *"enemies remain readable: PASS"* was a coverage fraction over an almost-empty
+  denominator. **It could not have failed.**
+- **HEAD corpus:** void out of frame, `enemies` collapses to **247 px**. Also not
+  four silhouettes — the mobs sit at 2.0–2.6 m and land *inside* the window
+  (largest real components 1295 / 634 / 625 / 538 / 472 px at 100/87/100/100/65 %
+  inside). **They are being counted as CASTER**, so `hip_row` is derived from a
+  pooled caster+mob bbox.
+
+**Not repaired.** This gate is the clean-room arm's headline scored receipt in a
+live A/B whose other arm came from a different process. Re-cutting a scored
+instrument after seeing which way a new corpus moves it is **#75.5 cl. 5.6** —
+the hazard the A-6 decline was ratified for refusing, three hours earlier, on the
+same reasoning. The **defect** is arithmetic; the **repair** moves a number in a
+live experiment, and whether this arm may re-score itself post-hoc is the
+licence-asymmetry question already open with gandalf. Routed.
+
+**What this does NOT touch:** the row's actual claim. `caster LOWER BODY` excess
+over noise floor **1.78 % → 1.73 %**, PASS both. What collapsed is the **noise
+floor, 2.87 % → 0.00 %** — *the noise floor was the pose drift.* G-2 confirmed
+from the other side.
+
+### 10.7 A-7.2 — Correction #2 CONFIRMED and strengthened; Correction #1 INCOMPLETE
+
+Read from published `xrow.json` fields only. **Nothing re-cut, re-floored or
+re-scored; fork (c) not taken.**
+
+**Correction #2 (the cross-stage control) is exactly right** and is the strongest
+thing in the return, as ruled. `single_target/water`: cathedral `sig_comp = 3` @
+1767 px, arena `sig_comp = 1` @ 1813 px. ⚑ **And there is a SECOND instance KR did
+not have:** `multi_projectile_count1` cathedral `sig_comp = 4` @ **1757 px**,
+arena `sig_comp = 1` @ 10,601 px. **These are the only two arms in all 48 with
+`sig_comp ≥ 3`, and their payloads are 1757 and 1767 px** — within 10 px of each
+other. (Weaker as a control than his: those payloads are **not** matched
+across stages, 6×, so it corroborates a *small-payload* reading as much as a
+*stage* one. Stated as the weaker thing it is.) Meanwhile `line` reads
+`sig_comp = 2` on **all eight** arms, both stages, at 8,718–15,131 px — **the
+descriptor is stable where the mask is large.**
+
+**Correction #1 is right to refute "one pair" and does not survive as
+"one arm explains the row."** Pairing is **within-stage** (`s2b_xrow_rows37.py:210`),
+4 arms/stage ⇒ C(4,2) = 6 per stage ⇒ 12. **The contaminated arm enters exactly
+3 of the 12 pairs. Nine contain no fragmenting arm at all.**
+
+| | |
+|---|---:|
+| row sum (12 × 1.5987) | 19.1844 |
+| 3 contaminated pairs, each at the **row max** (upper bound) | ≤ 11.0034 |
+| ⇒ **9 clean pairs, mean ≥** | **0.9090** |
+| vs `line` 0.4114 / `multi_projectile` 0.3447 / `melee_arc` 0.2426 / `circle` 0.2330 | **2.21× – 3.90×** |
+
+**In his own counterfactual form:** if the nine clean pairs sat at a sibling-like
+0.30–0.41 and all three contaminated pairs sat at the maximum, the predicted row
+mean is **1.14–1.23**. Observed **1.5987**. The one-arm story **undershoots by
+~29 %**, the same way the one-pair story undershot.
+
+**So there is a third mechanism in `single_target` that neither of us named**, and
+it bears on fork (c): `single_target` has by far the **smallest payloads in the
+corpus** (1,446–2,699 px against `multi_projectile` 4,892–5,820 and `circle`
+~125,000). **Raising the mask floor does not add resolution to a 1,700 px mask —
+it removes pixels from it.** (c) may fix the fragmentation *symptom* while
+leaving, or worsening, the small-payload noise that the bound above says is
+carrying most of the row. **Routing input for galadriel + jack-ryan. Not a
+repair, not a proposal, and I am not taking (c).**
+
+### 10.8 Not done, and why
+
+- **No motion clip. SB-1 harness not touched and not read** — quarantine holds.
+  The capture plan is now **parameterised** (`--capture=seq`, `--seq-from/-to/-every`,
+  ffmpeg assembly in the runner) so a licensed motion artifact is a
+  **re-invocation**. `marks` is the default and its code path is a sibling of the
+  seq branch, not a rewrite — proven by the 20/20 post-edit pass.
+- **Cross-row instrument FROZEN.** Not re-cut, not re-floored, not re-scored.
+- **Occlusion gate not repaired** (§ 10.6).
+- **`melee_arc` sensitivity proof + row-7 5°/7° fill-in** — still owed, per A-6.1.
+
+### 10.9 One defect of mine fixed on the way, because it had already bitten
+
+`run_wwcr_stage.sh` ended with `cp "$USERDIR"/*.png "$OUT"/` and **never wiped
+`$USERDIR`**. A failed arm would ship the **stale PNG from a previous build**
+under the correct filename. Same ambiguity family as *"census didn't run"* vs
+*"zero emitters."* Now wiped up front, with a **frame-count assertion** that
+fails the run rather than delivering a short corpus.
+
+⚑ **It had already bitten, in the sibling script.** `harness_logs/s2b_e1_2026-08-24/`
+holds **152 PNG, of which 20 carry the superseded `_fxoff_` tag** — frames from
+the first E-1 pass that used the invalid *"no whirlwind at all"* control, which
+`run_s2b_e1.sh` itself documents as replaced. They shipped into the delivered
+corpus because that script does not wipe either. **No scored artifact consumed
+them** (the gates read `_fxctl_`), but they are in the corpus a later reader
+would take as the E-1 record. **`run_s2b_e1.sh` not modified** — it is a landed
+tranche's harness; flagged for tranche close.

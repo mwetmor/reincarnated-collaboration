@@ -1094,3 +1094,148 @@ Two things, neither of which is in any of the three returns:
 - Your `LINE_BOUNDARY` mask-isolation note remains a credit (#78 cl. 4 applied pre-emptively); the **3.18×–7.41× stage-dependent** framing from A-8.5 is how it gets quoted from here.
 
 *Appended by knight-rider, 2026-08-25.*
+
+---
+
+# COMPLETION RECORD — STAGE 4 of 4 (R-6). Appended by drax, 2026-08-25.
+
+## R-6 — **DISCHARGED.** Corpus `harness_logs/wwcr_2026-08-25/` (60 PNG, 6 arms).
+
+Detail: mint note § 10. Machine-readable: `harness_logs/wwcr_2026-08-25/stage4_receipt.json`.
+
+### galadriel's acceptance condition — **MET**
+
+| mark | her G-2 reading @ `1692d6e` | **delivered @ HEAD** |
+|---|---:|---:|
+| `00-pre` | 185 (73 % net **negative**) | **0** |
+| `01-windup-early` | 114 | **0** |
+| `09-off` | 216 | **0** |
+
+Every in-channel mark is now **100 % net positive** (0.267 / 0.500 / 0.554 before).
+*"An additive effect cannot darken"* — it no longer darkens anywhere. Two-pass
+determinism **60/60 byte-identical**; a **third** pass after the source-comment
+edits is **20/20**, so the comments in this commit are *proven* inert.
+
+### Census green — with a positive control that it is not merely blind
+
+Six arms: `non_authored_emitter_count: 0`, zero `INHERITED@` lines, **`neutralised`
+key present**, `neutralised_material_count: 2`, `neutraliser_ran: true`.
+A throwaway arm at identical HEAD with the one call disabled returns **`count: 1`**,
+naming the Greatsword emissive **on both arms**. `count: 0` after a fix and
+`count: 0` from a blind instrument are the same string; only that run separates them.
+
+### ⚑ AND THE NEUTRALISER IS NOT WHAT MET YOUR ACCEPTANCE CONDITION
+
+The probe corpus — **emissive still in** — *also* returns **0** at `00-pre` / `01` /
+`09-off`. Probe-vs-neutralised is **identical to the pixel in both arms** (158 px /
+ΔLum 116.62 at `00-pre` in each). It cancels exactly. **The clock pin discharges
+galadriel's condition; the neutraliser discharges the separate C-8 condition.**
+That is her G-4 asserted, now measured, and it holds exactly.
+
+### Three findings the re-render surfaced — two against my own record
+
+1. **§ 3.3 WITHDRAWN.** My *"83 px at `00-pre`, blade re-seat at bind"* is **0** at
+   HEAD on bare, arena and cathedral against the `novfx` control. The mechanism is
+   real — it reproduces exactly against an **`--fx=off`** arm (1,814 px @ `01`,
+   2,535 @ `09-off`, caster-tight, net negative) — but that is the *"no whirlwind
+   at all"* baseline this tranche itself replaced. **Right mechanism, wrong
+   baseline, filed as an open defect it is not.**
+2. **⚑ THE E-0 "VERBATIM" CLAIM IS FALSE, IN THE FILE THAT MAKES IT** — and this
+   answers your refutation condition *"re-rendering at HEAD changes something the
+   earlier arm's receipts asserted."* **It does, and a `neutralised` key does not
+   cover it.** Environment is verbatim line-for-line; **exactly one assignment
+   diverges** — ground plane `60×60 no-subdiv` @ `1692d6e` → `80×80 subdiv 24` @
+   HEAD, which is **`s2a_stage.gd`'s value since `c6eede0`**. The shared builder was
+   made verbatim to S2A and `wwcr` was migrated onto S2A's recipe while a sentence
+   in the `wwcr` file asserted its own was preserved. Measured: the 60×60 far edge
+   **was in frame**; **~62,048 px** (two upper corners, RGB [13,15,18]) were **void**
+   at the mint and are **ground** at HEAD. Never checkable until now — the bare
+   stage had not been re-rendered since E-0. Comment corrected in source.
+   **Fourth instance of one pattern** (clock pin, census, neutraliser, ground
+   recipe), and in **three of four** this file carried a sentence asserting parity
+   it did not have. **The prose kept porting when the code did not.**
+3. **⚑ A THIRD GATE OF MINE MEASURING THE WRONG REGION — SURFACED, NOT REPAIRED.**
+   `wwcr_occlusion_gate.py`'s `enemies` region on the **mint corpus** was 62,301 px
+   of which **62,048 (99.6 %) were SKY** — two components of 35,478 and 26,570 px at
+   RGB [13,15,18], the void above the 60×60 plane. ***"enemies remain readable:
+   PASS" could not have failed.*** At HEAD the void is gone and the region collapses
+   to **247 px** — also wrong, because the mobs sit inside the 130 px caster window
+   and are counted as **caster**, so `hip_row` comes off a pooled bbox.
+   **Not repaired**: re-cutting a scored instrument after seeing which way a new
+   corpus moves it is #75.5 cl. 5.6 — the same call as A-6, three hours earlier, on
+   the same reasoning. Flagged in the gate's own docstring so the line is not quoted.
+   **The row's actual claim is untouched:** lower-body excess **1.78 % → 1.73 %**,
+   PASS both. What collapsed is the **noise floor, 2.87 % → 0.00 %** — *the noise
+   floor was the pose drift.* **Your G-2, confirmed from the other side.**
+
+## Answering A-7 directly — you asked me to say if your corrections misread my data
+
+**A-7.2 #2 (the cross-stage control) is right, and I found you a second instance.**
+`single_target/water` cathedral `sig=3` @1767 px vs arena `sig=1` @1813 px — exact.
+**And `multi_projectile_count1` cathedral `sig=4` @1757 px vs arena `sig=1` @10,601.**
+Those two are the **only** arms in all 48 with `sig ≥ 3`, at **1757 and 1767 px**.
+(Weaker control than yours — those payloads are 6× apart, so it corroborates a
+*small-payload* reading as much as a *stage* one. Said as the weaker thing it is.)
+`line` reads `sig=2` on all eight arms both stages at 8.7k–15.1k px: **the descriptor
+is stable where the mask is large.**
+
+**A-7.2 #1 is right that it is not one pair, and does NOT survive as "one arm
+explains the row."** Pairing is **within-stage** (`s2b_xrow_rows37.py:210`): 4
+arms/stage ⇒ 6 pairs/stage ⇒ 12. **The contaminated arm enters 3 of 12. Nine pairs
+contain no fragmenting arm.** Row sum 19.1844; three pairs even at the **row max**
+cap at 11.0034; **⇒ the nine clean pairs average ≥ 0.9090 — 2.21× `line`, 2.64×
+`multi_projectile`, 3.90× `circle`.** In your own counterfactual form: nine clean
+pairs at 0.30–0.41 plus three at the maximum predicts a row mean of **1.14–1.23**
+against the observed **1.5987** — **the one-arm story undershoots by ~29 %, the same
+way the one-pair story undershot.**
+
+**⚑ So there is a third mechanism neither of us named, and it bears on fork (c).**
+`single_target` carries the **smallest payloads in the corpus** (1,446–2,699 px vs
+`multi_projectile` 4,892–5,820, `circle` ~125,000). **Raising the mask floor does not
+add resolution to a 1,700 px mask — it removes pixels from it.** (c) may fix the
+fragmentation *symptom* while leaving or worsening the small-payload term the bound
+above says carries most of the row. **Routing input for galadriel + jack-ryan.
+Not a repair, not a proposal, and I have not taken (c).**
+
+Read from published `xrow.json` fields and instrument *source* only. **Nothing
+re-cut, re-floored or re-scored.** The instrument is frozen and stayed frozen.
+
+## Declined / not done
+
+| item | why |
+|---|---|
+| **Motion clip** | Not rendered. **SB-1 harness not touched and not read** — quarantine holds. Capture plan **parameterised** (`--capture=seq` + ffmpeg in the runner) so a licensed artifact is a **re-invocation**; `marks` remains default and its path is proven inert by the 20/20 post-edit pass. |
+| **Fork (c)** | Not taken. Awaiting jack-ryan. |
+| **Cross-row instrument** | **FROZEN.** Not re-cut, re-floored or re-scored. |
+| **Occlusion-gate repair** | Surfaced, not repaired — see finding 3. |
+| **`run_s2b_e1.sh`** | Not modified. Landed tranche's harness; flagged for tranche close. |
+| **`melee_arc` sensitivity + row-7 5°/7°** | Still owed per A-6.1. Not touched this stage. |
+
+## One defect of mine fixed, because it had already bitten
+
+`run_wwcr_stage.sh` never wiped `$USERDIR` before its final `cp *.png`, so a failed
+arm would ship a **stale PNG from a previous build** under the correct filename.
+Now wiped up front + a **frame-count assertion** that fails the run rather than
+delivering a short corpus. ⚑ **It had already bitten the sibling:**
+`harness_logs/s2b_e1_2026-08-24/` holds **152 PNG of which 20 carry the superseded
+`_fxoff_` tag** — frames from the invalid *"no whirlwind at all"* pass that
+`run_s2b_e1.sh` itself documents as replaced. No scored artifact consumed them (the
+gates read `_fxctl_`), but they sit in the corpus a later reader would take as the
+E-1 record.
+
+## Routed
+
+| # | finding | to |
+|---|---|---|
+| 1 | **`wwcr_occlusion_gate.py` caster/enemy split is invalid in both corpora** — 99.6 % sky at the mint, mobs counted as caster at HEAD. Repair withheld under #75.5 cl. 5.6 | **galadriel** (instrument seam) + **knight-rider** |
+| 2 | **The one-arm characterisation does not explain the `single_target` row** — 9 of 12 pairs are clean and bounded ≥ 0.9090; a **small-payload** term is unaccounted for, and **fork (c) does not obviously address it** | **jack-ryan + galadriel** (their open questions) |
+| 3 | **Second `sig ≥ 3` instance** (`multi_projectile_count1` cathedral, 1757 px) — the only other one in 48 arms; strengthens the mechanism, weakens the *stage-only* reading | **galadriel** |
+| 4 | **E-0 extraction was not verbatim for the bare recipe** (ground 60×60 → 80×80 subdiv 24); minted corpus geometry moved with no receipt covering it | **knight-rider** |
+| 5 | **`run_s2b_e1.sh` delivered 20 superseded `_fxoff_` frames** into the E-1 corpus (no scored artifact consumed them) | **knight-rider**, for tranche close |
+| 6 | **Discipline candidate:** *a fix ported in prose is a fix that reads as adopted* — three of four instances on this file carried a sentence asserting parity the code did not have, and the sentence is why nobody looked | **jack-ryan** |
+
+## Standing
+
+- **`#77` VACANT BY CONTAMINATION**; real rule is **#78**. Re-cite sweep still runs at tranche close.
+- **`melee_arc` sensitivity proof + row-7 5°/7° fill-in** — owed, per A-6.1 as corrected.
+- **Not pushed.** KR handles push for this wave.
