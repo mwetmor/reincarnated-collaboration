@@ -1285,3 +1285,55 @@ Every argument so far attacked **one** suspect. Deleting **both** — the descri
 **`35bc58e8` (meta) goes out** under the live wave pattern. **`f29f12b` is in `reincarnated-godot`, which the pattern does NOT cover — it stays local pending a fresh Matt ask.** Your *"KR handles push for this wave"* is correct and this is what handling it looks like.
 
 **Still owed from you, unchanged:** `melee_arc` sensitivity proof + row-7 5°/7° fill-in (A-6.1 as corrected). **Not now — at my call, after tranche-2 close.** No action on this dispatch until then.
+
+---
+
+# A-11 — **A-6 is RETIRED. The named gate at line 1006 is DISCHARGED. Tranche 2 may seal without a cross-row number.**
+
+**Appended by knight-rider, 2026-08-25**, on jack-ryan's D3 return (`f527995b`, `qa/findings/2026-08-25-a6-d3-retire-and-null-replication.md`). **Full reasoning: the A-6 ruling § 10.** Figures re-derived from `xrow.json` before acceptance.
+
+## A-11.1 — Disposition of the named gate
+
+Line 1006 required A-6 **answered or formally RETIRED at tranche-2 close**, unblocked by D3. **It is RETIRED, with reason, by refutation rather than by timeout** — which is the better of the two dispositions that gate allowed, because the reason is now known and recorded.
+
+**The reason:** the corpus carries a control nobody used — **the two stages are independent cohorts measuring the same element pairs, so every within-row null pair is a two-fold replicate.** The null does not reproduce on any row, and **`melee_arc` — the one spec-clean row, the row A-4 designates, the row the receipt calls "the tightest invariance in the whole gate" — replicates WORST at 76.4 %** (`fire`/`water` = 0.6011 cathedral vs 0.1610 arena). D3 required a **spec-predicate-selected** population; the predicate selects that row. **A criterion whose null leg has no valid population is mis-specified, not suspended.**
+
+**`ANTI_TUNING_CLAUSE` survives retirement in full. No effect changes on the strength of any of this. Q1–Q5 remain open — only the null-referenced criterion dies.**
+
+## A-11.2 — drax: your original account was right, and two later ones — including mine — were not
+
+You wrote the contamination up as **motif-swap-by-spec.** I corrected it to *one arm*; then to *payload scale*. **Both corrections are now refuted and yours stands.**
+
+The decisive evidence is that `single_target/fire` reads `radial_mean` **0.4855 @cathedral / 0.4559 @arena** while its three siblings cluster **0.3733–0.4067 at both stages.** **Fire is genuinely a different shape and it REPLICATES across cohorts. Noise does not reproduce; signal does.** My payload mechanism predicted the *smallest* mask would dominate — the largest does, and dropping any of the three smaller arms *raises* the row mean. It also predicted quantisation-sensitive descriptors would drive the residual; the two **all-pixel moments** (`radial_mean` + `radial_std`) carry **51.3 %**.
+
+**You were right first, on the record, and it took two wrong corrections and a replicate test to get back to where your receipt started.**
+
+## A-11.3 — What this changes for you: **nothing, and less than nothing**
+
+- **`melee_arc` sensitivity proof + row-7 5°/7° fill-in — STILL OWED, and now more interesting**, because `melee_arc` is the worst-replicating row in the corpus and A-5 re-anchored it. **Not now. At my call after the seal.**
+- **No re-mint. No re-render. No instrument repair.** Your decline is ratified for the third time and is now vindicated by the outcome: had you repaired the descriptor in-session, the repair would have targeted a mechanism that does not exist.
+- **`f29f12b` still local** — `reincarnated-godot` remains outside the live push pattern.
+
+## A-11.4 — New binding precedent, from the sequencing question I routed rather than answered
+
+> ***A diagnostic that recomputes a term of the criterion never qualifies as pre-registration-safe. Synthesise the input, or run it after disposition.***
+
+The test is not *"is this structural"* but ***"could the outcome change which criterion I choose."*** Applies to any future blind or clean-room comparison in this factory.
+
+## A-11.5 — **#80**, minted once from all five candidates
+
+> **A gate's green is not evidence until that gate has been shown to go red, on this population, in this configuration.**
+> cl. 1 the region · cl. 2 the bar (*convicts A-6's own null leg by name*) · cl. 3 **drax's title verbatim** — *a fix ported in prose is a fix that reads as adopted*.
+
+**#75 cl. 2 holds the mirror** (can it return the positive?); all five candidates were the missing **negative** control. **Founding positive instance is drax's `PROBE-noneutralise` corpus. #80 is his sentence generalised: *"'fixed' and 'blind' print the same zero."*** Canonical write lands with #78 cl. 6 in one edit.
+
+## A-11.6 — Remaining to tranche-2 seal
+
+| item | owner | status |
+|---|---|---|
+| **A-6** | jack-ryan | **DISCHARGED — RETIRED** |
+| `wwcr_occlusion_gate.py` region repair + sibling-gate sweep | galadriel | **in flight** |
+| `#80` + `#78 cl. 6` canonical write | jack-ryan | queued, one edit |
+| `run_s2b_e1.sh` superseded `_fxoff_` frames | knight-rider | queued |
+| `melee_arc` sensitivity + row-7 fill-in | drax | **post-seal, at KR's call** |
+| `reincarnated-godot` push | **Matt** | fresh ask owed |

@@ -354,3 +354,71 @@ galadriel's condition — **cross-arm maxdiff 0 at `00-pre`, `01-windup-early`, 
 - **Push:** `f29f12b` is in **`reincarnated-godot`**, which the live "push as you go" pattern **does not cover**. It stays local pending a fresh ask. `35bc58e8` and this amendment are covered and go out.
 
 *Amended by knight-rider, 2026-08-25. drax's refutation of my Correction #1 was verified at source (`s2b_xrow_rows37.py:207`) before being accepted; his stage-4 acceptance result was verified from `sha256.txt` and the probe corpus, not from his summary.*
+
+---
+
+# § 10 — AMENDMENT 4 (jack-ryan D3 return, `f527995b`). **A-6 is RETIRED — refuted, not defaulted. And my § 9.3 payload mechanism is REFUTED. I verified both against the artifact rather than adopting them.**
+
+## 10.1 — The retirement, and the test that produced it
+
+**He found a control the corpus had been carrying the whole time and none of the four of us used: the two stages are two independent cohorts measuring the same element pairs. Every within-row null pair is a TWO-FOLD REPLICATE.** Nobody had asked whether the null reproduces.
+
+**It does not, on any row.** Re-derived by me from `xrow.json`, not adopted:
+
+| row | median `authored_px` | **cross-stage median relative \|Δ\|** |
+|---|---:|---:|
+| `line` | 11,475 | **19.2 %** |
+| `circle` | 127,746 | **25.7 %** |
+| `single_target` | 1,740 | **49.4 %** |
+| `multi_projectile` | 5,446 | **56.8 %** |
+| **`melee_arc`** | **22,117** | **76.4 %** |
+
+**⚑ `melee_arc` — the one spec-clean row, which A-4 designates and which drax's receipt calls "the tightest invariance in the whole gate" — replicates WORST in the corpus.** Its `fire`/`water` null is **0.6011 at cathedral and 0.1610 at arena** (verified). **3.7×, on a row whose arms are specified to be the same shape.** Its stage shift dwarfs its element spread.
+
+**That is what kills A-6, and it kills it on its own terms.** D3 required a **spec-predicate-selected** null population. The spec predicate selects `melee_arc`. **A bar carrying ~76 % relative uncertainty from a single row, consumed as a global `null_max`, is not a bar.** jack-ryan's clause and I ratify it verbatim: ***"a criterion whose null leg has no valid population is mis-specified, not suspended."***
+
+**A-6 is RETIRED with reason recorded. Tranche 2 seals without a cross-row number rather than with a suspended one** — the disposition the dispatch pre-authorised at line 1006, reached by refutation rather than by timeout. **This is the better of the two outcomes that gate allowed**, because the reason is now known. `ANTI_TUNING_CLAUSE` survives retirement **in full**: no effect changes on the strength of any of this, and Q1–Q5 remain open — only the null-referenced criterion dies.
+
+## 10.2 — My payload mechanism is REFUTED. Three predictions, all backwards, all verified by me.
+
+§ 9.3 said the anomaly was mask-scale quantisation. **It is wrong, and the way it is wrong is instructive.**
+
+1. **Leave-one-out points the opposite way.** Dropping the element across both cohorts: **`fire` → 0.6277** *(his 0.6206; 1.1 % apart, immaterial, flagged in § 10.4)*, against `water` 1.1315 / `earth` 1.1097 / `wind` 1.1390. **`fire` is the LARGEST payload in the row (2,699 / 2,548 px vs 1,446–1,813) and it is the sole driver. Dropping any of the three smaller arms RAISES the mean.** Quantisation-on-small-masks predicts the smallest dominates. The smallest are the quiet ones.
+2. **The drivers are the quantisation-ROBUST descriptors.** Share of total squared distance across the twelve pairs: **`radial_mean` 28.35 % + `radial_std` 22.91 % = 51.3 %.** Those are **moments over all *n* mask pixels** — averaging suppresses per-pixel quantisation as ~1/√n. The extremum-normalised descriptors I indicted by name total **29.6 %**, and the single largest of them (`fill_of_bbox`, 16.58 %) is also an all-pixel ratio.
+3. **A second inversion I had not found.** `melee_arc` (22,117 px) carries 3–4× `multi_projectile`'s (5,446 px) within-row coefficient of variation on four descriptors. **4× the payload, more variation.** I named one inversion against my own hypothesis and stopped looking; there were two.
+
+**And his positive account is better than my negative one.** `single_target/fire` has `radial_mean` **0.4855 @cathedral / 0.4559 @arena** while the other three cluster **0.3733–0.4067 at both stages.** **Fire is genuinely a different shape, and it REPLICATES.** ***Noise does not reproduce across independent cohorts; signal does.*** **drax's original motif-swap-by-spec account was right and did not need replacing — mine included.** The rank order is still roughly payload-ordered, so the correlation may well be real; **payload is not its cause.**
+
+**⚑ On my own conduct here.** § 9.8 flagged that § 9 was *"that move performed more carefully, not a different move"* — reading a statistic and inferring a mechanism. **It was the same move and it failed the same way.** The flag was accurate and did not save me, which is the point worth keeping: **naming a failure mode is not a control on it. The control was the replicate cohort, and it was sitting in the artifact the whole time.** **Fourth premise error of the run, and the first one I flagged in advance and committed anyway.**
+
+## 10.3 — Sequencing: ruled, and the ruling is general
+
+**Ruled against running the `circle`-decimation test on the scored corpus.** His test is sharper than the one I posed — not *"is it structural"* but ***"could the outcome change which criterion I choose."*** The decimation variant recomputes **the within-stage null — a term of A-6's own criterion — in corpus units.** Not structural. **Correctly withheld.**
+
+**New binding precedent, which I ratify and route to canonical:** ***a diagnostic that recomputes a term of the criterion never qualifies as pre-registration-safe. Synthesise the input, or run it after disposition.***
+
+**The synthetic-mask variant is authorised at any time** and he records my offering it as the right instinct. **It is also now MOOTED** — `radial_*` are scale-normalised by construction and carry 51 % of the residual, so it would very likely return "no rise," which is § 10.2's conclusion reached more expensively.
+
+## 10.4 — ⚑ Two flags against the return, neither material
+
+1. **His `single_target` replication figure (49.4 %) is the 8-descriptor no-sig basis; so are the other four rows.** The table is internally consistent — **but it is not labelled as no-sig, and the 9-descriptor figure for that row is 100.8 %.** A reader taking the table at face value gets the right conclusion from a basis the table does not state. **#64 FRAME FORM in miniature: the operator travelled, the descriptor set did not.** Worth one line in his canonical write; changes nothing.
+2. **`drop fire` = 0.6277 by my derivation, 0.6206 by his** — 1.1 % apart, same rank, same conclusion. Not chased further; recorded so the next reader is not surprised by it.
+
+**He also self-reported that his FIRST reading of the leave-one-out table was wrong** — cathedral/arena matching to 4 dp looked like perfect replication and is an averaging artifact; checking directly found the opposite. **That is the return's most valuable single act and it is against himself.**
+
+## 10.5 — #80, minted once from all five candidates
+
+He declined to mint five disciplines and minted one, and I think he is right that they are one:
+
+> **#80 — a gate's green is not evidence until that gate has been shown to go red, on this population, in this configuration.**
+> **cl. 1 — the region** (99.6 % sky in a region named `enemies`).
+> **cl. 2 — the bar** — *which convicts A-6's own null leg by name.* S-A3 and the register-2 bloom gate are **named and left to gandalf, not merged.**
+> **cl. 3 — drax's title verbatim**, *"a fix ported in prose is a fix that reads as adopted,"* with my sharpening as the operative half: **an asserted parity does not get checked — the sentence is a negative control that prints green by construction.**
+
+**#75 cl. 2 already holds its mirror** (can the instrument return the *positive*?); all five candidates were the missing **negative** control. **Founding positive instance is drax's `PROBE-noneutralise` corpus, and #80 is his sentence generalised: *"'fixed' and 'blind' print the same zero."*** Canonical write lands with my #78 cl. 6 write in one edit.
+
+## 10.6 — ⚑ Harness note: galadriel could not be amended mid-flight, and part of her task is now dead
+
+She was dispatched in parallel with Item 1 = *specify the decimation test, do not run it.* **jack-ryan's § 2 moots that item and his § 3 authorises the synthetic variant she was being asked to rule on.** `SendMessage` does not exist in this harness (confirmed seven times against the tool surface, despite the agent-launch output advertising it), **so a running agent cannot be told that its task has been overtaken.** Her Item 2 — the `wwcr_occlusion_gate.py` region repair and the sibling-gate sweep — is untouched and is the more valuable half. **Recorded as an orchestration cost, not as a defect of hers: I fired two agents in parallel on questions that turned out to be sequential, and the parallelism is what made them unfixable mid-flight.**
+
+*Amended by knight-rider, 2026-08-25. Every figure in §§ 10.1–10.2 was re-derived from `xrow.json` before being accepted; the two that did not reproduce are flagged in § 10.4 rather than smoothed.*
