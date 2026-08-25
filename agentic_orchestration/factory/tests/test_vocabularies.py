@@ -136,6 +136,16 @@ NOT_A_VOCABULARY: dict[str, str] = {
         "is exercised by `test_grok_harness.py::"
         "test_an_OVERSIZE_prompt_is_refused_HERE_not_as_an_E2BIG`."
     ),
+    # --- the image lane (2026-08-25, MIGRATION.md § 14) --------------------
+    "harness/grok.py:MAX_PROMPT_JSON_ARGV_BYTES": (
+        "a scalar ceiling, not a collection — the SECOND one, for the `--prompt-json` "
+        "path that DISPLACES `-p` and therefore is not bounded by the constant above. "
+        "No members, so neither guarded direction exists for it. The refusal it drives "
+        "is exercised by `test_grok_harness.py::test_the_CEILING_IS_ENFORCED_AGAINST_"
+        "THE_PAYLOAD_THAT_ACTUALLY_TRAVELS`, which pins BOTH directions: over the `-p` "
+        "ceiling but under this one is ACCEPTED, and over this one is REFUSED naming "
+        "the file, its encoded size and the limit."
+    ),
     # --- the preflight remedy (2026-08-25, MIGRATION.md § 13.4) -------------
     "harness/grok.py:PREFLIGHT_REFUTED_REMEDY": (
         "a scalar sentence, not a collection — the operator-facing remedy text that "
@@ -347,6 +357,19 @@ VOCABULARY_PINS: dict[str, object] = {
     #: member deletes the case that would have caught it and the suite gets GREENER —
     #: rule 44's exact subject. The equality pin here is what closes that.
     "FORBIDDEN_PERMISSION_MODES": frozenset({"bypassPermissions", "dontAsk"}),
+    #: The image formats the Grok lane will encode into an inline ACP `image` block, and
+    #: **every member was FIRED AT THE LIVE VENDOR on this host** (2026-08-25: PNG, JPEG
+    #: and WEBP each returned the planted decoy token and both shapes in their correct
+    #: corners). ADDITION is the fail-open direction and it is the expensive one: an
+    #: unprobed suffix mints a `mimeType` nobody verified the vendor honours, on a lane
+    #: whose ENTIRE PURPOSE is to look at the picture — and the failure mode is not an
+    #: error, it is a fluent confident answer about an image that was never seen. GIF is
+    #: absent deliberately: it is plausible and it was not probed, which is exactly the
+    #: distinction this pin exists to keep. Widening it is a probe plus a record.
+    "IMAGE_MIME_BY_SUFFIX": {
+        ".png": "image/png", ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg", ".webp": "image/webp",
+    },
     # --- agent-level seam custody (2026-08-24, D-9/D-10, spec § 11) --------
     #: **THE WIDEST-BLAST-RADIUS PIN ON THE SECOND AXIS**, and the exact counterpart of
     #: `SAFE_TO_FIRE_STATES` one level up. § 11.3's rule — *occupied seam, DO NOT

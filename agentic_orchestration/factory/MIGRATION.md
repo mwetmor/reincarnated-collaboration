@@ -1321,7 +1321,9 @@ Error: --prompt-json: Invalid ACP content blocks: unknown variant `image_url`,
 
 The accepted shape is ACP's: `{"type": "image", "data": "<base64>", "mimeType": "image/png"}` in an array alongside a `text` block. **That rejection cost $0.00** — it fails at argv parse, before any model call.
 
-**NOTHING IS WIRED FOR GROK. That was the dispatch's boundary and it is kept.** `harness/grok.py` `build_argv` is untouched by this section; the lane still emits `-p <prompt>` on argv only. The probe establishes the door exists and what shape fits it. **Wiring it is a separate dispatch with its own tests**, and it is not a small one: `--prompt-json` replaces `-p`, so the prompt stops travelling on argv, and `MAX_PROMPT_ARGV_BYTES` — the ceiling `build_argv` refuses against — is measuring the wrong thing the moment a base64 image joins it. A 640×300 PNG is 11.8 KB of JSON; **a real VFX frame is not.**
+**NOTHING IS WIRED FOR GROK AS OF THIS SECTION. That was the dispatch's boundary and it is kept.** `harness/grok.py` `build_argv` is untouched by *this* section; the lane still emits `-p <prompt>` on argv only. The probe establishes the door exists and what shape fits it. **Wiring it is a separate dispatch with its own tests**, and it is not a small one: `--prompt-json` replaces `-p`, so the prompt stops travelling on argv, and `MAX_PROMPT_ARGV_BYTES` — the ceiling `build_argv` refuses against — is measuring the wrong thing the moment a base64 image joins it. A 640×300 PNG is 11.8 KB of JSON; **a real VFX frame is not.**
+
+> ⚑ **SUPERSEDED, SAME DAY — § 14 BELOW IS THE CURRENT STATE.** That dispatch was authored (`2026-08-25-star-lord-wire-the-grok-image-lane.md`) and executed. **`config["images"]` is now wired on the Grok lane**, `build_argv` emits `--prompt-json` with inline ACP `image` blocks, and both ceilings named in the paragraph above are enforced. **Every prediction in that paragraph held.** The line is left standing rather than rewritten because a stale *"NOTHING IS WIRED"* was this wave's most-repeated defect class and the correction is more useful to a later reader than a clean sentence would be. **Read § 14.**
 
 ⚑ **AND THE 2000px WALL APPLIES TO WHOEVER WIRES IT.** A 20-minute drax run died at `400 invalid_request` — *image dimensions exceed 2000px for many-image requests* — at ~128 accumulated image blocks (knight-rider ruling, 2026-08-25). **These probes used ONE small synthetic image on purpose**, and deliberately answer only the plumbing question. Nothing here establishes what happens at frame scale or at frame count, and a wiring dispatch must not read this section as though it did.
 
@@ -1412,10 +1414,155 @@ Codex terminal sites after the close: **`cli_missing`** (a deterministic filesys
 |---|---|
 | a job author enqueuing Codex work | **nothing.** Argv is byte-identical without `images`. |
 | a job author who wants Codex to LOOK at something | pass `images: [<path>, ...]`. Non-existent paths are refused at argv, before launch. |
-| a job author enqueuing Grok work | **nothing**, and **do not expect images** — the Grok door is probed, not wired. See § 13.1. |
+| a job author enqueuing Grok work | ~~**nothing**, and **do not expect images** — the Grok door is probed, not wired.~~ **SUPERSEDED same day: images ARE wired. See § 14.** |
 | matching on `lane_state` | handle **`preflight_unknown`** alongside `preflight_failed`. Matching only the latter now silently drops the unanswerable half. |
 | consuming the telemetry stream | `lane_blocked`'s **`outcome`** is now `auth_blocked` **or** `lane_blocked`. Key on `event`, not on `outcome`, if you want every confirmed closure. |
 | knight-rider, filing `AUTH-BLOCKED.md` | **read the row before filing it.** It is no longer always a re-auth. A row saying `NOT MATT-ONLY` is a seam-owner engineering task and filing it to `matt_to_do/` is now the error the file is designed to prevent. |
 | gamora / drax / jack-ryan, reading `DrainReport` | unchanged from § 12.7 — plus `lane_state` may now be `preflight_unknown`, which means **stopped, nothing handed off**. |
 | writing a NEW vendor harness | `jobqueue` reads `terminal`, `remedy` and `matt_only` by `getattr` with safe defaults (`False`, `""`, `True`). A harness with no opinion stops drains, never hands work off, and escalates with the credential remedy. |
 | jack-ryan, at Gate 2 | **RED-proof recorded, detached worktree at `9508b867`.** Grok preflight: 4 new rows fail pre-fix; headline `assert 'preflight_failed' == 'preflight_unknown'`, and the escalation row failing on the literal text *"grok lane re-authentication — `~/.grok/bin/grok login` on the mac"* filed for a refuted flag. Codex: 4 rows fail pre-fix; headline `01-a.json` in `fallback/` after a 60 s timeout. Images: 3 rows fail pre-fix, identity row green both sides **by design**. Full suite **856 passed** (845 baseline + 12 new − 1 replaced pin). **Two pre-existing gates fired during the run and neither was silenced:** `test_JR24` refused `PREFLIGHT_REFUTED_REMEDY` as an unplaceable public UPPERCASE name — correct, it is a scalar sentence, now named in `NOT_A_VOCABULARY` with its reason *and* with the row that asserts its content; `test_C2` failed **collaterally** in the same run (4/4 green in isolation) because a suite-wide assert-reach audit cannot see past a red row. |
+
+---
+
+## image-lane v1 — the GROK image door is WIRED, and the door that looked cheaper is the one that cannot refuse (2026-08-25)
+
+**Shipped:** 2026-08-25. **Author:** star-lord.
+**Authority:** knight-rider dispatch `2026-08-25-star-lord-wire-the-grok-image-lane.md`.
+**Blast radius:** **the Grok lane's argv, additively.** `codex.py` untouched (out of scope by name). Model pin, effort pin, `--no-leader` and the banking-window rules all untouched — **the 10-job window is in flight and nothing here perturbs a job that sends no images** (§ 14.2, pinned against a literal). `_run-log.tsv`, `receipts.db`, `_custody.tsv`, telemetry vocabulary: all unchanged. **No new `lane_state`, no new event, no new outcome.**
+**No breaking change for job authors.** Every existing Grok call produces a **byte-identical** argv.
+
+---
+
+### 14.1 ⚑ THE § 1 PROBE — `resource_link` **WORKS**, and it is **NOT** the door. The refutation is the finding.
+
+The dispatch's § 1 hypothesis: *if `--prompt-json` accepts a `file://` URI in a `resource_link` block, the entire base64/argv budgeting problem disappears — the bytes never touch argv.* It said a clean REFUTED was worth as much as a confirm. **It landed in between, and the in-between is more useful than either.**
+
+**`resource_link` works. Both `file://` and a plain absolute path returned correct image comprehension off a decoy PNG built so a hallucination would be visible** (planted token `KZR-9082` / `ELEVEN LANTERNS`, green triangle lower-left, orange square upper-right — all read back correctly). The bytes genuinely do not travel on argv.
+
+**And it is still the wrong door, for a reason the § 1 framing could not have seen from a rejection message:**
+
+| door | turns | cost, identical answer | input tokens | a path that DOES NOT EXIST |
+|---|--:|--:|--:|---|
+| inline `image` — **WIRED** | **1** | **$0.0045** | **11,544** | refused at `build_argv`, **$0.00**, before a process exists |
+| `resource_link` + `file://` | 2 | $0.0075 | 17,496 | ⛔ **`rc=0`, $0.0061, 28 s** |
+| `resource_link` + plain path | 2 | $0.0112 | 31,895 | ⛔ same |
+
+⚑ **`resource_link` IS NOT AN ATTACHMENT. It is a POINTER THAT THE MODEL RESOLVES WITH ITS OWN FILE-READ TOOL.** Three independent pieces of evidence, and the third is decisive:
+
+1. `num_turns: 2` against inline's `1` — an agentic round trip, not a content block.
+2. The model's own `thought` field: *"Let me read the image first."*
+3. ⛔ **A `resource_link` naming a file that does not exist returned `rc=0`.** The CLI never looked at the path. A full model call was launched and paid for, and the **model** discovered at runtime that the file was missing. It reported `NOIMAGE` **only because the probe prompt instructed it to**. Absent that instruction it answers fluently, confidently, and about nothing — *in the exact register of an answer about something.* **That is the precise failure `codex.py:_image_argv` refuses at the boundary to prevent, and this door structurally cannot make that refusal.**
+
+**It does not even buy the budget it was supposed to buy.** The image still enters the model's context — 17.5 K / 31.9 K input tokens against inline's 11.5 K. The bytes leave argv and arrive somewhere more expensive. And it makes correctness depend on the agent's **tool fence** and **`cwd`** — surfaces this lane deliberately does not control (`validate_tools` refuses `--tools` on exactly this ground) — plus it interacts with `max_turns`: a job class declaring `max_turns: 1` cannot complete a `resource_link` read at all.
+
+**Verdict: inline `image` blocks wired; `resource_link` never emitted, and a test pins that it never is.**
+
+⚑ **What in the § 1 framing turned out wrong, stated plainly, because the dispatch asked:** the framing was *"if it accepts a URI the byte problem disappears."* It accepts a URI **and the byte problem does not disappear** — it relocates into the context window, gets more expensive, and takes the boundary refusal with it on the way out. The half that was right (*the CLI's rejection message is a reliable map of the vocabulary*) is the half that found the door in the first place, twice now.
+
+### 14.2 ADDITIVE — `grok.py` `build_argv` emits `--prompt-json`
+
+```python
+config["images"] = [path, ...]   # a LIST. Absent/empty = the pre-image argv, byte for byte.
+```
+
+| You pass | You get |
+|---|---|
+| nothing, or `images: []` | **byte-identical argv to before this change** — pinned in `test_NO_IMAGES_leaves_the_grok_argv_BYTE_IDENTICAL_to_the_pre_image_build` against a hand-written literal, not against a re-derivation of the builder |
+| `images: [p1, p2]` | `--prompt-json '[{"type":"text",...},{"type":"image","data":"<b64>","mimeType":"image/png"},...]'` **and no `-p`** |
+| `images: "one.png"` (bare string) | **`ValueError`** — a string would iterate per character and emit one image block per letter |
+| `images: [<path that does not exist>]` | **`ValueError` at argv, before launch** |
+| `images: [<foo.gif>]` | **`ValueError`** — `IMAGE_MIME_BY_SUFFIX` is CLOSED (§ 14.4) |
+
+⚑ **`--prompt-json` DISPLACES `-p`, and that displacement is the whole hazard.** The prompt stops being its own argv string. Anything bounding the `-p` payload is, on this path, measuring a string that is no longer there.
+
+**`images` being a LIST is load-bearing, not decorative.** Per the image-lane ruling, the characteristic job is *"here are four crops of the same mark; are they the same effect in four colours?"* — verified live below, with ordering intact.
+
+### 14.3 ⚑ THE CEILING — **two policy bounds and one physics bound**, because there are now two paths and an OS
+
+**The defect being closed is not that `MAX_PROMPT_ARGV_BYTES` is wrong. It is correct where it stands and its value is untouched.** The defect is that it covered one path and there are now two — *an instrument returning cleanly after it stopped answering the question.*
+
+| bound | kind | value | governs |
+|---|---|--:|---|
+| `MAX_PROMPT_ARGV_BYTES` | policy | 256 KiB | the `-p` payload. **Unchanged, unmoved.** |
+| `MAX_PROMPT_JSON_ARGV_BYTES` | policy | **512 KiB** | the whole `--prompt-json` payload (text block + every image) |
+| `argv_exec_cost(argv) > host_arg_max()` | **physics** | measured at call time | **the entire invocation plus the entire inherited environment**, on both paths |
+
+**Why 512 KiB, and why that is sized for the job rather than for the frame that broke.** Per the 2000px-wall ruling — *crop at native resolution, never downscale* — galadriel's real working crops are **2.7 KB – 48 KB** raw, i.e. 3.6 KB – 64 KB base64. 512 KiB holds **eight worst-case crops plus the brief** and still leaves half of this host's `ARG_MAX` for the environment. **The frame that does not fit is the one nobody should be sending:** `zoom_ww7_full.png` is 1,959,839 B raw / **2,613,120 B base64 — 2.49× this host's entire `ARG_MAX` and 4.98× this ceiling.** It is now a **named refusal**, not a surprise: the message carries **the file name, its encoded size, the limit, and the remedy (crop at native resolution, several small crops, never downscale)**. With several images it names the **largest contributor** — four crops over the ceiling together is not four equal suspects.
+
+#### ⚑ The physics bound, and the design question the dispatch asked me to surface rather than answer silently
+
+The dispatch flagged: *"the ceiling cannot be enforced without knowing the environ size at call time → surface the design question rather than picking a conservative constant silently."*
+
+**It can be enforced, exactly, and no constant is needed. `ARG_MAX` bounds argv AND environ together — and the environ is knowable at call time** (`subprocess.run` with no `env=` inherits `os.environ`). Measured on this host by binary-searching the largest single argument `/usr/bin/true` accepts under three different environments and comparing each against `argv_exec_cost`:
+
+| environment | largest arg accepted | formula's predicted total | `ARG_MAX` | delta |
+|---|--:|--:|--:|--:|
+| this session's own (2,550 B) | 1,045,591 | 1,048,576 | 1,048,576 | **0** |
+| same, plus a 100 KB variable | 945,569 | 1,048,576 | 1,048,576 | **0** |
+| `{"PATH": "/usr/bin"}` only | 1,048,507 | 1,048,576 | 1,048,576 | **0** |
+
+**Three for three, exact, across a 100 KB environment swing.** `argv_exec_cost = Σ(len(arg)+1) + Σ(len(k)+len(v)+2) + 8·(len(argv)+len(env)+2)`. A row in the suite asserts it **against the operating system at the boundary** — an invocation costing exactly `ARG_MAX` must execute, one byte more must raise `OSError` — which pins the formula *and* the comparison operator, in the two directions that would otherwise reject legal jobs or let `E2BIG` through.
+
+**The physics check is applied on BOTH paths, and on the `-p` path it is expected to be INERT** (256 KiB cannot reach 1 MiB under any environment this host has had). It is there anyway, and a test pins the inertness: *"cannot reach it today"* is a fact about the environment, not about the code — and **shipping a bound that covers one path when there are two is the exact defect this section exists to correct.**
+
+### 14.4 The mime vocabulary is CLOSED, and every member was fired at the live vendor
+
+`IMAGE_MIME_BY_SUFFIX` = `.png` / `.jpg` / `.jpeg` / `.webp`. **PNG, JPEG and WEBP were each sent to the live vendor on this host and each returned the planted decoy token and both shapes in their correct corners.** GIF is plausible, was **not** probed, and is therefore **refused by name** with a message saying how to widen the set (a probe plus a record). This file already declines to say `--sandbox` and refuses `--tools` on exactly this ground: **declaring a vocabulary nobody enumerated is how a caller reads as supported while not being** — and here the failure mode is not an error, it is a confident answer about an image that was never seen.
+
+### 14.5 ⚑ THE 2000px WALL IS AN **ANTHROPIC** CONSTRAINT AND DOES **NOT** BIND xAI — measured, and NOT ported
+
+The wall that killed the 20-minute drax run is an **Anthropic API** error (`messages.1.content.128.image.source.base64.data: … max allowed size for many-image requests: 2000 pixels`). Porting a dimension refusal into `grok.py` on the strength of it would widen a verified constraint into an unverified one — **the same error § 13.6 named, arriving from the opposite direction.**
+
+**So it was measured instead.** A **2400 × 1400** PNG — both dimensions over the Anthropic wall — was sent inline to `grok-4.6` and returned `rc=0` with both planted strings and both shapes correct, in one turn, for $0.0067. **`grok.py` therefore enforces NO dimension limit, deliberately.**
+
+⛔ **THE LIMIT OF THAT CLAIM, STATED BECAUSE IT MATTERS.** The Anthropic error is a **many-image** error and it fired at ~**128** accumulated blocks. **My probe was a ONE-image request.** It refutes the single-image case on xAI at n=1 and says **nothing** about xAI's behaviour at frame *count*. A later reader must not cite § 14.5 as licence to send 128 blocks to Grok. The image-count budget remains a **dispatch-level** decision per the wall ruling's standing method (*well under 100, and say so in the brief*).
+
+### 14.6 Verification — RED-proof and a LIVE end-to-end
+
+**Live end-to-end through `GrokHarness.run()` itself** — the real binary, the real seam+slot semaphore, the real argv, not a hand-built call. Three 320×200 crops, each with a **different** planted token and a **different** shape and colour, so a dropped, duplicated or reordered image is visible:
+
+```
+ALPHA-7731 | circle | red
+BETA-2204 | square | blue
+GAMMA-9915 | triangle | green
+```
+
+**All three tokens, all three shapes, all three colours, in the submitted order.** `num_turns: 1`, 7,108-byte payload, **$0.0033**. ⚑ **The acceptance bar was the planted token, never a plausible description** — a model calling a red circle "a red circle" proves nothing.
+
+**RED-proof, detached worktree at `1a9c5948`.** The constants and helpers were ported into the pre-fix tree and **only the `build_argv` wiring reverted**, so the rows fail on *behaviour* rather than on `ImportError` — a collection error proves nothing about a builder. **9 of 12 new rows fail pre-fix**; headline `ValueError: '--prompt-json' is not in list`. **The 3 that pass are green on BOTH sides by design and would be worthless otherwise:** the byte-identity pin (its entire job is to be green before and after), the `argv_exec_cost`-vs-OS row (it asserts against the operating system, which the fix did not change), and the physics-inertness row.
+
+⚑ **ONE OF MY OWN ROWS WAS GREEN FOR THE WRONG REASON AND THE RED-PROOF CAUGHT IT.** `test_a_FAT_ENVIRONMENT_SHRINKS_THE_ARGV_BUDGET_and_the_check_SEES_IT` originally matched the refusal on `ARG_MAX` — and **passed against pre-fix source**, because the *old* `-p` ceiling's message also contains that token. It was testing nothing. It now drives the failure through the **image** path with a payload legal on both policy ceilings and matches on the physics refusal's own words (`inherited environment`), so only the new check can satisfy it. **The RED-proof is not a formality; it is the only thing that distinguishes a test from a sentence.**
+
+**SUITE COUNT: 868 rows** (856 baseline + 12 new). **867 pass.** The one failure is the pre-existing flake below — and ⚑ **this line says "867 pass" rather than "green" deliberately.** An earlier draft of this paragraph said *"full suite green"*: a claim written about a run I had not finished reading. In a section whose entire subject is instruments that return cleanly after they stop answering the question, that sentence was the same defect in the document describing the fix.
+
+**A PRE-EXISTING FLAKE, FLAGGED AND NOT TOUCHED.** `test_BOTH_lock_fds_are_INHERITED_by_the_child` is timing-sensitive (a watcher thread sleeps 0.2 s and spawns a fresh interpreter; the child sleeps 0.5 s) and **fails intermittently on BOTH sides of this change**. Measured: **3/5 failures against unmodified `1a9c5948`**; **1/5 post-change on an idle host**; and it fired in the full-suite run above, which had a second suite running concurrently. ⚑ **Its failure direction is a FALSE ALARM** — it reports *"the per-seam lock did not travel to the child"* when the lock travelled correctly: **a correct mechanism accused by a mis-timed instrument**, on a row guarding P-3 exclusivity. The cost is someone hunting a concurrency bug that does not exist. Not in this dispatch's scope, **not silenced**, **routed to knight-rider for a dispatch** rather than picked up autonomously.
+
+**Two pre-existing vocabulary gates fired and neither was silenced:** `test_JR20` required `IMAGE_MIME_BY_SUFFIX` be pinned to a literal with its fail-open direction named, and `test_JR24` required `MAX_PROMPT_JSON_ARGV_BYTES` be adjudicated as a scalar. Both are now registered in `test_vocabularies.py` with the row that covers them.
+
+### 14.7 What a consumer must do
+
+| You are | Do |
+|---|---|
+| a job author enqueuing Grok work with no images | **nothing.** Argv is byte-identical. |
+| a job author who wants Grok to LOOK at something | pass `images: [<path>, ...]` — a **LIST**, `.png`/`.jpg`/`.jpeg`/`.webp`. Non-existent paths, bare strings and unprobed suffixes are refused at argv, before launch. |
+| deciding WHAT to send | **crops at native resolution, several of them — never a downscaled frame.** A full analysis frame is now a named refusal (4.98× the ceiling). Downscaling would erase the 1–3 px detail these jobs exist to find and return a **false null indistinguishable from a real one.** |
+| deciding HOW MANY to send | **a dispatch-level budget, well under 100.** § 14.5 refutes the 2000px *dimension* wall for xAI at n=1, single-image. It establishes **nothing** about frame count on this vendor. |
+| deciding WHAT TO ASK | the lane is for **verifying premises**, not collecting opinions — *"is there smoke in this frame," "are these two frames identical"* — never *"which looks better."* The test is whether the next reader can check the answer against the frame. |
+| reading `usage` / cost | an image job is a **normal single-turn job**: `num_turns: 1`, envelope shape unchanged, `from_grok_envelope` unchanged. Three small crops cost **$0.0033**. |
+| tempted by `resource_link` because it looks cheaper | **it is 1.7×–2.5× more expensive, takes 2 turns, uses MORE context, and cannot refuse a missing file.** § 14.1. A test pins that this lane never emits it. |
+| jack-ryan, at Gate 2 | RED-proof at `1a9c5948`, **9/12 red pre-fix**, headline `ValueError: '--prompt-json' is not in list`; 3 green-both-sides by design and named. Live E2E through `run()` with three distinctly-planted crops, all read back in order. **One of my own rows was green for the wrong reason and is fixed** (§ 14.6). One pre-existing flake flagged to knight-rider, not silenced. |
+
+### 14.8 Live-call ledger for this dispatch
+
+**8 live vendor calls, ~$0.048 total**, all at the lane pin (`grok-4.6` @ `xhigh`), all under the seam+slot semaphore. **None of them is a banking-window job** — every one was a direct `build_argv`/`run()` invocation and **none wrote a `_run-log.tsv` row**, so the 10-job window is untouched and still stands at **1 banked**.
+
+| probe | result | cost |
+|---|---|--:|
+| `resource_link` + `file://` | works, 2 turns | $0.0075 |
+| `resource_link` + plain path | works, 2 turns | $0.0112 |
+| `resource_link` + **nonexistent** path | ⛔ **`rc=0`, nobody refused it** | $0.0061 |
+| inline `image` block | works, **1 turn** | $0.0045 |
+| 2400×1400 inline (the 2000px question) | works, 1 turn | $0.0067 |
+| JPEG / WEBP mime verification | both work | ~$0.0090 |
+| **live E2E through `run()`, 3 crops** | **all tokens, in order** | $0.0033 |
+

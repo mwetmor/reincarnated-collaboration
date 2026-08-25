@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — star-lord — **wire the Grok image lane, and test the door that deletes the byte problem BEFORE budgeting for it**
 
-**Status:** PENDING
+**Status:** COMPLETE (2026-08-25, star-lord — see Completion record)
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** star-lord (`factory/harness/` — your seam)
 **Pattern:** B — code + tests in one seam
@@ -129,3 +129,64 @@ I took the exact frame galadriel's P-2 ruling rests on, `galadriel/work/2026-08-
 ---
 
 *Authored by knight-rider, 2026-08-25. The capability finding that made this dispatch possible is star-lord's, and it corrected mine.*
+
+---
+
+## Completion record
+
+**Completed:** 2026-08-25 — star-lord. **Full write-up:** `factory/MIGRATION.md` § 14 (image-lane v1).
+**Commit:** see `factory/harness/grok.py`, `factory/tests/test_grok_harness.py`, `factory/tests/test_vocabularies.py`, `factory/MIGRATION.md`.
+**Not pushed** (per § 4). **No VFX job fired** (per § 4). **`codex.py` untouched** (per § 4). **Pins, `--no-leader` and banking-window rules untouched** — the window is still at **1 banked job** and none of my 8 live calls wrote a `_run-log.tsv` row.
+
+### ⚑ § 1 first, as instructed — and it neither confirmed nor cleanly refuted
+
+**`resource_link` WORKS.** Both `file://` and a plain absolute path returned correct comprehension of a decoy PNG (planted `KZR-9082` / `ELEVEN LANTERNS`, green triangle lower-left, orange square upper-right — all read back correctly). The bytes really do leave argv.
+
+**And I wired the inline `image` block instead.** The reason is one probe you did not ask for and I would not have run if § 1 hadn't told me to record the argv and response either way:
+
+> ⛔ **A `resource_link` naming a file that DOES NOT EXIST returned `rc=0`.** The CLI never looked at the path. A full model call was launched and **paid for — $0.0061, 28 seconds** — and the *model* discovered at runtime that the file was missing. It replied `NOIMAGE` **only because my probe prompt instructed it to.** Without that instruction it answers fluently and confidently about nothing.
+
+**`resource_link` is not an attachment. It is a pointer the model resolves with its own file-read tool** (`num_turns: 2` vs `1`; the model's own `thought`: *"Let me read the image first"*; and the rc=0 above). Consequences: **1.7×–2.5× the cost** for an identical answer ($0.0075–$0.0112 vs **$0.0045**), **more** context not less (17.5 K / 31.9 K input tokens vs 11.5 K), correctness dependent on the agent's tool fence and `cwd` — surfaces this lane deliberately does not control — and it breaks under `max_turns: 1`. Inline is one turn, cheapest, deterministic, and **refusable at the boundary for free.**
+
+**What in your § 1 framing turned out wrong — you asked, so plainly:** the framing was *"if it accepts a URI, the byte problem disappears."* It accepts a URI **and the byte problem does not disappear.** It relocates into the context window, gets more expensive, and **takes the boundary refusal with it on the way out.** The half that was right is the half that found the door twice now: **the CLI's rejection message is a reliable map of its vocabulary.** Trust that habit; don't trust that a named block type means what its name suggests.
+
+**Literal vendor responses and every argv are recorded in § 14.1 and § 14.8.**
+
+### Acceptance criteria
+
+| # | | |
+|---|---|---|
+| 1 | probe RUN + RECORDED | ✅ § 14.1 — four `resource_link` variants, argv + literal responses + the rc=0 |
+| 2 | `build_argv` emits an image payload, `images` a validated list | ✅ § 14.2 — `--prompt-json` + inline ACP `image` blocks |
+| 3 | ceiling against the payload that actually travels, naming file/size/limit | ✅ § 14.3 — **and size DID end up mattering** |
+| 4 | no-images argv pinned byte-for-byte | ✅ against a hand-written literal, not a re-derivation |
+| 5 | live E2E with the argv the harness actually produces | ✅ § 14.6 — through `GrokHarness.run()` itself, 3 planted crops, read back **in order** |
+| 6 | `MIGRATION.md:1324` updated | ✅ superseded in place + § 13.7 row struck; the stale line is left visible with its correction |
+| 7 | completion record + header flipped | ✅ |
+
+**On criterion 3 — the size ceiling ended up mattering, and more than one way.** `MAX_PROMPT_ARGV_BYTES` is untouched (correct where it stands, per § 4). A **second** policy ceiling `MAX_PROMPT_JSON_ARGV_BYTES = 512 KiB` now bounds the `--prompt-json` payload, sized for **eight worst-case crops**, so `zoom_ww7_full.png` is a **named refusal** carrying the file, the encoded size, the limit and the crop-don't-downscale remedy.
+
+⚑ **And your refutation condition about the environment has a better answer than a conservative constant.** `ARG_MAX` bounds argv **and environ together**, and the environ **is** knowable at call time. I binary-searched this host's real limit under three environments and checked it against a formula: **exact, 3/3, across a 100 KB environment swing** (§ 14.3 table). A suite row asserts it **against the operating system** at the boundary — exactly `ARG_MAX` must execute, one byte more must raise. So the physics bound is enforced precisely, on **both** paths, and is deliberately inert on the `-p` path with a test pinning the inertness.
+
+### Two things I got wrong, both caught by verification rather than by report
+
+1. ⚑ **One of my own test rows was green for the wrong reason.** `test_a_FAT_ENVIRONMENT…` matched the refusal on `ARG_MAX` — and **passed against pre-fix source**, because the *old* `-p` ceiling's message contains that token too. It was testing nothing. The RED-proof caught it; it now fires through the image path and matches the physics refusal's own words. **This is your "instrument returning cleanly after it stopped answering the question" wearing a test's clothing** — I was one careless `match=` from shipping the very shape you warned me about, inside the fix for it.
+2. **I briefly believed I had broken `test_BOTH_lock_fds_are_INHERITED_by_the_child`.** I had not — see below.
+
+### ⚑ Flagged, NOT picked up — a dispatch request
+
+**`test_BOTH_lock_fds_are_INHERITED_by_the_child` is a pre-existing timing flake.** Measured **3/5 failures against unmodified `1a9c5948`** and **1/5 post-change on an idle host** — it fires on both sides, independent of this change. A watcher thread sleeps 0.2 s and spawns a fresh interpreter while the child sleeps 0.5 s; under load the probe lands after the child has exited.
+
+⚑ **Its failure direction is a FALSE ALARM: it reports *"the per-seam lock did not travel to the child"* when the lock travelled correctly** — a correct mechanism accused by a mis-timed instrument. **Same shape as the `git diff HEAD~1` near-miss**, and on a row guarding P-3 exclusivity, a false alarm here would send someone hunting a concurrency bug that does not exist.
+
+**In my seam, small, well-grounded — and I am not touching it without a dispatch.** Requesting one.
+
+### Cost
+
+**8 live vendor calls, ~$0.048**, all at the lane pin, all under the seam+slot semaphore. Per-call ledger in § 14.8. **Well inside normal; no anomaly.**
+
+### Suite
+
+**868 rows** (856 baseline + 12 new), **867 pass**; the single failure is the pre-existing flake above. ⚑ **I am reporting a count rather than "green" on purpose** — I first drafted *"full suite green"* about a run I had not finished reading, which in a dispatch about instruments that stop answering their question is not an irony I get to keep.
+
+RED-proof at `1a9c5948` with the wiring reverted and the helpers retained: **9 of 12 new rows red pre-fix**, headline `ValueError: '--prompt-json' is not in list`. The 3 green-both-sides are green **by design** and named in § 14.6. Two pre-existing vocabulary gates (`JR20`, `JR24`) fired and were **satisfied, not silenced**.

@@ -94,6 +94,7 @@ BE VISIBLE, not a silent substitution.
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import subprocess
@@ -249,6 +250,110 @@ AUTH_CONFIRM_BACKOFF_BASE_S = 1.0
 #: the door if a job class ever needs to go past this; taking that door is a job-class
 #: decision with its own record, not a silent widening of this constant.
 MAX_PROMPT_ARGV_BYTES = 256 * 1024
+
+#: **THE IMAGE DOOR: inline ACP `image` blocks carried by `--prompt-json`.**
+#:
+#: This lane publishes no `--image` flag (verified at `grok --help`, v1.0.5). The door is
+#: the ACP content-block vocabulary, which the CLI enumerates in its own rejection of a
+#: wrong guess: *"unknown variant `image_url`, expected one of `text`, `image`, `audio`,
+#: `resource_link`, `resource`"*. Two of those five carry an image and BOTH WERE PROBED
+#: LIVE on this host, 2026-08-25, against a decoy PNG built so a hallucination would be
+#: visible (planted token + a shape in a named corner). **Both worked. They are not
+#: equivalent, and this lane wires the first one:**
+#:
+#: | door | turns | cost, same answer | a path that DOES NOT EXIST |
+#: |---|---|---|---|
+#: | inline `image` (**wired**) | 1 | **$0.0045** | refused HERE, free, before a process exists |
+#: | `resource_link` + `file://` (probed, **not** wired) | 2 | $0.0075 – $0.0112 | **rc=0, $0.0061, 28 s** — nobody refused it |
+#:
+#: **`resource_link` IS NOT AN ATTACHMENT — it is a POINTER THE MODEL RESOLVES WITH ITS
+#: OWN FILE-READ TOOL**, and that is the whole reason it is not the door. The evidence is
+#: `num_turns: 2`, the model's own `thought` (*"Let me read the image first"*), and the
+#: decisive one: **a `resource_link` naming a nonexistent file returned `rc=0`.** The CLI
+#: never looked. A full model call was launched and paid for, and the MODEL discovered at
+#: runtime that the file was missing. It said so only because the probe prompt instructed
+#: it to; **absent that instruction it would have answered fluently about nothing** — the
+#: exact failure `codex.py:_image_argv` refuses at the boundary to prevent. It also does
+#: not save context (17.5 K / 31.9 K input tokens against 11.5 K inline), so it buys no
+#: budget either, and it makes correctness depend on the agent's tool fence and `cwd` —
+#: surfaces this lane deliberately does not control (see `validate_tools`).
+#:
+#: Inline puts bytes WE control in front of the model in one turn, and is refusable here.
+GROK_IMAGE_BLOCK_TYPE = "image"
+
+#: Suffix -> `mimeType`. **CLOSED, and every member was fired at the live vendor**
+#: (2026-08-25: PNG, JPEG and WEBP each returned the planted token and both shapes).
+#: GIF and the rest are refused BY NAME rather than guessed: this file already refuses
+#: `--tools` and `--sandbox` for declaring vocabularies nobody enumerated, and a
+#: mimeType the vendor silently mishandles is the same defect on a lane whose entire
+#: purpose is to look at the picture.
+IMAGE_MIME_BY_SUFFIX = {
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".webp": "image/webp",
+}
+
+#: **THE CEILING FOR THE `--prompt-json` PATH, WHICH IS A DIFFERENT PATH.**
+#:
+#: `--prompt-json` DISPLACES `-p`, so on an image job the prompt stops travelling as its
+#: own argv string and `MAX_PROMPT_ARGV_BYTES` — enforced against the `-p` payload — is
+#: measuring a string that is no longer there. That constant is CORRECT where it stands
+#: and is not touched; the defect was that it covered one path and there are now two.
+#:
+#: **Sized for the job this lane is FOR, not for the frame that broke.** The characteristic
+#: job is N small crops of one mark, cropped at native resolution per the 2000px-wall
+#: ruling; galadriel's real working crops measure **2.7 KB – 48 KB** raw, i.e. 3.6 KB –
+#: 64 KB base64. 512 KiB holds eight worst-case crops plus the brief and still leaves half
+#: of this host's 1 MiB `ARG_MAX` for the environment. A FULL analysis frame is the thing
+#: that does not fit and should not be sent: `zoom_ww7_full.png` is 1,959,839 bytes raw /
+#: 2,613,120 base64 — **2.49x this host's whole `ARG_MAX` and 4.98x this ceiling.**
+MAX_PROMPT_JSON_ARGV_BYTES = 512 * 1024
+
+#: `execve` charges for the argv/envp POINTER ARRAYS as well as the bytes, and on a
+#: 64-bit host a pointer is 8 bytes. Named because `argv_exec_cost` is exact only with it.
+ARGV_POINTER_BYTES = 8
+
+
+def host_arg_max() -> int:
+    """This host's `ARG_MAX`, read at call time. 1,048,576 on this Mac (verified)."""
+    try:
+        value = os.sysconf("SC_ARG_MAX")
+    except (ValueError, OSError):  # pragma: no cover - POSIX everywhere we run
+        return 0
+    return int(value) if value and value > 0 else 0
+
+
+def argv_exec_cost(argv: list[str], environ: dict[str, str] | None = None) -> int:
+    """The bytes `execve` will actually charge for this invocation — **argv AND environ.**
+
+    ⚑ **THE ENVIRONMENT COUNTS, AND IT IS THE HALF EVERYONE FORGETS.** `ARG_MAX` bounds
+    the two together, so the usable argv budget is not a constant: it shrinks by exactly
+    the size of the environment the child inherits, and `subprocess.run` with no `env=`
+    inherits ours.
+
+    **This is MEASURED, not modelled.** Binary-searched the largest single argument
+    `/usr/bin/true` accepts on this host under three different environments, and compared
+    each against this formula (star-lord, 2026-08-25, macOS 24.6.0, `ARG_MAX` 1,048,576):
+
+    | environment | largest arg accepted | this formula's total | delta |
+    |---|--:|--:|--:|
+    | this session's own (2,550 B) | 1,045,591 | 1,048,576 | **0** |
+    | same, plus a 100 KB variable | 945,569 | 1,048,576 | **0** |
+    | `{"PATH": "/usr/bin"}` only | 1,048,507 | 1,048,576 | **0** |
+
+    **Three for three, exact, across a 100 KB swing.** So the question *"can the ceiling
+    be enforced without knowing the environ size at call time"* has a better answer than
+    a conservative constant: **the environ IS knowable at call time, and the accounting
+    closes to the byte.** The declared ceiling above is policy; this is physics, and the
+    builder refuses at whichever binds first.
+    """
+    env = os.environ if environ is None else environ
+    return (
+        sum(len(a.encode("utf-8")) + 1 for a in argv)
+        + sum(len(k.encode("utf-8")) + len(v.encode("utf-8")) + 2 for k, v in env.items())
+        + ARGV_POINTER_BYTES * (len(argv) + len(env) + 2)
+    )
 
 
 def resolve_grok_home() -> Path:
@@ -816,6 +921,88 @@ class GrokHarness:
         )
 
     # -- argv ---------------------------------------------------------------
+    @staticmethod
+    def _image_blocks(config: dict[str, Any]) -> list[tuple[Path, dict[str, str]]]:
+        """`config["images"]` -> `(path, ACP image content block)` pairs, or `[]`. **Validated HERE.**
+
+        The path travels back out alongside its block so an oversize refusal can NAME THE
+        FILE rather than an index into a payload where four crops look alike.
+
+        **`images` IS A LIST AND THE LIST IS LOAD-BEARING**, not decorative. The job class
+        this door exists for is *"here are four crops of the same mark; are they the same
+        effect in four colours"* — premise-checking against several small crops at once,
+        per the image-lane ruling. A bare string is refused rather than iterated: Python
+        would walk it character by character and emit one image block per LETTER.
+
+        **A NAMED IMAGE THAT DOES NOT EXIST IS REFUSED, NOT DROPPED** (discipline #8, at
+        the last boundary that can still see it). This is the same refusal `codex.py`
+        makes and for the same reason — a vision job whose image silently went missing
+        returns a fluent, confident answer about nothing, in the exact register of an
+        answer about something — and it is ALSO the precise thing the `resource_link`
+        door cannot do: that path took a nonexistent file, exited **rc=0**, and spent
+        $0.0061 letting the model find out. Free and certain here; paid and probabilistic
+        there.
+        """
+        raw = config.get("images") or []
+        if isinstance(raw, (str, Path)):
+            raise ValueError(
+                f"grok harness: `images` is {raw!r}, a single path. It must be a LIST of "
+                "paths — a bare string would iterate character by character and emit one "
+                "image content block per letter, which the CLI would reject in a way that "
+                "names neither the config key nor the mistake."
+            )
+        blocks: list[tuple[Path, dict[str, str]]] = []
+        for entry in raw:
+            path = Path(entry).expanduser()
+            if not path.is_file():
+                raise ValueError(
+                    f"grok harness: image {str(path)!r} does not exist (or is not a file). "
+                    "REFUSED rather than dropped: a vision job silently missing its image "
+                    "still returns a confident answer, and that answer is about nothing "
+                    "while reading exactly like an answer about something."
+                )
+            mime = IMAGE_MIME_BY_SUFFIX.get(path.suffix.lower())
+            if mime is None:
+                raise ValueError(
+                    f"grok harness: image {str(path)!r} has suffix {path.suffix!r}, which is "
+                    f"not one of {sorted(IMAGE_MIME_BY_SUFFIX)} — the CLOSED set whose every "
+                    "member was fired at the live vendor on this host. Widening it is a probe "
+                    "plus a record, not a guess: a mimeType the vendor mishandles fails on a "
+                    "lane whose entire purpose is to look at the picture."
+                )
+            blocks.append((path, {
+                "type": GROK_IMAGE_BLOCK_TYPE,
+                "data": base64.b64encode(path.read_bytes()).decode("ascii"),
+                "mimeType": mime,
+            }))
+        return blocks
+
+    @staticmethod
+    def _refuse_oversize_prompt_json(
+        payload: str, blocks: list[tuple[Path, dict[str, str]]]
+    ) -> None:
+        """The `--prompt-json` ceiling — **enforced against the thing that actually travels.**
+
+        The refusal NAMES THE FILE, its encoded size and the limit, because the caller's
+        next action is to crop something and they need to know which something.
+        """
+        encoded = len(payload.encode("utf-8"))
+        if encoded <= MAX_PROMPT_JSON_ARGV_BYTES:
+            return
+        sized = sorted(((len(b["data"]), p) for p, b in blocks), reverse=True)
+        worst_bytes, worst_path = sized[0]
+        manifest = "; ".join(f"{p.name} {n} B base64" for n, p in sized)
+        raise ValueError(
+            f"grok harness: the `--prompt-json` payload is {encoded} bytes and the ceiling "
+            f"declared for this path is {MAX_PROMPT_JSON_ARGV_BYTES}. LARGEST IMAGE: "
+            f"{str(worst_path)!r} at {worst_bytes} bytes base64. All images: {manifest}. "
+            "This lane sends CROPS, not frames: crop the region of interest at NATIVE "
+            "resolution (never downscale — that erases the 1-3 px detail these jobs exist "
+            "to look for) and send several small crops instead of one large one. Refused "
+            "here, before a process exists, rather than as an E2BIG from the OS or a "
+            "truncated image at the vendor."
+        )
+
     def build_argv(self, prompt: str, config: dict[str, Any]) -> list[str]:
         """The invocation of record, assembled with every pin SAID rather than assumed."""
         binary = self.executable
@@ -863,18 +1050,32 @@ class GrokHarness:
                 "nothing."
             )
 
-        encoded = len(prompt.encode("utf-8"))
-        if encoded > MAX_PROMPT_ARGV_BYTES:
-            raise ValueError(
-                f"grok harness: the prompt is {encoded} bytes and the argv ceiling "
-                f"declared for this lane is {MAX_PROMPT_ARGV_BYTES}. The invocation of "
-                "record puts the prompt on argv (`-p`), and `ARG_MAX` is not a limit to "
-                "discover as an E2BIG in production. `grok --prompt-file <PATH>` is the "
-                "door past this, and taking it is a job-class decision with its own "
-                "record."
+        # **TWO PATHS NOW, AND EACH IS BOUNDED AGAINST WHAT IT ACTUALLY PUTS ON ARGV.**
+        # No images -> `-p <prompt>`, byte-identical to every job banked before this
+        # change. Images -> `--prompt-json <blocks>`, which DISPLACES `-p` and therefore
+        # needs its own ceiling; `MAX_PROMPT_ARGV_BYTES` would be measuring a string that
+        # is no longer there.
+        blocks = self._image_blocks(config)
+        if blocks:
+            payload = json.dumps(
+                [{"type": "text", "text": prompt}, *(b for _, b in blocks)]
             )
+            self._refuse_oversize_prompt_json(payload, blocks)
+            prompt_argv = ["--prompt-json", payload]
+        else:
+            encoded = len(prompt.encode("utf-8"))
+            if encoded > MAX_PROMPT_ARGV_BYTES:
+                raise ValueError(
+                    f"grok harness: the prompt is {encoded} bytes and the argv ceiling "
+                    f"declared for this lane is {MAX_PROMPT_ARGV_BYTES}. The invocation of "
+                    "record puts the prompt on argv (`-p`), and `ARG_MAX` is not a limit to "
+                    "discover as an E2BIG in production. `grok --prompt-file <PATH>` is the "
+                    "door past this, and taking it is a job-class decision with its own "
+                    "record."
+                )
+            prompt_argv = ["-p", prompt]
 
-        argv = [binary, "-p", prompt, "--output-format", "json"]
+        argv = [binary, *prompt_argv, "--output-format", "json"]
         # AMENDMENT E: said on EVERY argv, and asserted at preflight. Leader mode is a
         # shared backend multiplexing clients — the concurrency door around the lock.
         argv.append(NO_LEADER_FLAG)
@@ -894,6 +1095,33 @@ class GrokHarness:
             argv += ["--deny", str(rule)]
         if config.get("max_turns"):
             argv += ["--max-turns", str(int(config["max_turns"]))]
+
+        # **THE PHYSICS CHECK, AND IT IS LAST BECAUSE THIS IS THE FIRST MOMENT IT CAN BE
+        # ASKED.** Both ceilings above are POLICY, and both bound ONE argv string. What
+        # `execve` refuses is the WHOLE invocation plus the WHOLE environment, and neither
+        # is knowable until the argv is assembled. A payload that clears its declared
+        # ceiling can still be E2BIG behind a fat environment — and E2BIG arrives as an
+        # `OSError` from `subprocess.run` with no file named in it.
+        #
+        # Bounded on BOTH paths deliberately. `MAX_PROMPT_ARGV_BYTES` is 256 KiB and the
+        # `-p` path cannot reach `ARG_MAX` under any environment this host has ever had —
+        # so on that path this check is expected to be INERT, and it is here anyway,
+        # because "cannot reach it today" is a fact about the environment and not about
+        # the code, and it is exactly the kind of fact that stops being true quietly.
+        limit = host_arg_max()
+        if limit:
+            cost = argv_exec_cost(argv)
+            if cost > limit:
+                raise ValueError(
+                    f"grok harness: this invocation would charge {cost} bytes against "
+                    f"ARG_MAX ({limit}) once the inherited environment "
+                    f"({len(os.environ)} variables) is counted, and `execve` counts argv "
+                    "and environ TOGETHER. Images on this call: "
+                    + (", ".join(f"{p.name} {len(b['data'])} B base64" for p, b in blocks)
+                       or "none")
+                    + ". Refused here, where the files have names, rather than as an "
+                    "E2BIG OSError from subprocess that names nothing at all."
+                )
         return argv
 
     # -- run ----------------------------------------------------------------

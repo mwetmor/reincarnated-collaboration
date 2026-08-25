@@ -22,7 +22,9 @@ mock replaces exactly that.
 
 from __future__ import annotations
 
+import base64
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -30,14 +32,19 @@ import pytest
 from factory.harness.grok import (
     AUTH_CONFIRM_READINGS,
     FORBIDDEN_PERMISSION_MODES,
+    IMAGE_MIME_BY_SUFFIX,
     LANE_STATE_PREFLIGHT_FAILED,
     LANE_STATE_PREFLIGHT_UNKNOWN,
+    MAX_PROMPT_ARGV_BYTES,
+    MAX_PROMPT_JSON_ARGV_BYTES,
     MODEL_PIN,
     NO_LEADER_FLAG,
     REASONING_EFFORT_PIN,
     REASONING_EFFORTS,
     GrokHarness,
     LaneAvailability,
+    argv_exec_cost,
+    host_arg_max,
     parse_envelope,
     resolved_model_ids,
 )
@@ -1101,3 +1108,273 @@ def test_D12_an_UNREADABLE_SEMAPHORE_stops_the_drain_but_does_not_move_ownership
     assert report.lane_state == "auth_unknown"
     assert _handed_off(queue) == []
     assert not (queue.root / "AUTH-BLOCKED.md").exists()
+
+
+# ===========================================================================
+# 13 — THE IMAGE LANE: `--prompt-json` + inline ACP `image` blocks
+#
+# `grok` publishes NO `--image` flag, and knight-rider's first ruling read that flag
+# surface and concluded the lane had no image door at all. It has one; it is just not a
+# flag. The CLI enumerates the door in its own rejection of a wrong guess — *"unknown
+# variant `image_url`, expected one of `text`, `image`, `audio`, `resource_link`,
+# `resource`"* — and TWO of those five carry an image. Both were probed live. The
+# rows below pin the one that was wired and the reasons the other was not.
+#
+# THE RISK HERE WAS NEVER THAT IMAGES BREAK. It is that adding an image parameter
+# perturbs the argv of every job that sends NONE — mid-banking-window, where the
+# baseline is being measured. The identity row is the one that actually matters.
+# ===========================================================================
+def test_NO_IMAGES_leaves_the_grok_argv_BYTE_IDENTICAL_to_the_pre_image_build():
+    """The pin. Compared against a LITERAL, not against a re-derivation of the builder.
+
+    A row asserting `build_argv(...) == build_argv(...)` would pass no matter what the
+    builder did to every call. This is the argv as it stood before `--prompt-json`
+    existed, written out by hand.
+
+    ⚑ **This lane is inside its 10-job banking window** (Amendment I), so an argv
+    perturbation here does not merely change future jobs — it corrupts the baseline
+    while the baseline is being measured, and the corruption would be invisible.
+    """
+    expected = [
+        "/bin/grok", "-p", "hello", "--output-format", "json",
+        NO_LEADER_FLAG,
+        "-m", MODEL_PIN,
+        "--reasoning-effort", REASONING_EFFORT_PIN,
+        "--permission-mode", "default",
+        "--disable-web-search",
+    ]
+    harness = GrokHarness(executable="/bin/grok", lock_path=None)
+    assert harness.build_argv("hello", _cfg()) == expected
+    assert harness.build_argv("hello", _cfg(images=[])) == expected, (
+        "an EMPTY list must be indistinguishable from no key at all, or every caller "
+        "that defensively passes `images=[]` gets a different invocation than one that "
+        "does not"
+    )
+    assert "--prompt-json" not in harness.build_argv("hello", _cfg())
+
+
+def _png(path: Path, payload: bytes = b"\x89PNG\r\n\x1a\n") -> Path:
+    path.write_bytes(payload)
+    return path
+
+
+def _blocks_from(argv: list[str]) -> list[dict]:
+    return json.loads(argv[argv.index("--prompt-json") + 1])
+
+
+def test_IMAGES_DISPLACE_the_p_flag_and_travel_as_INLINE_ACP_CONTENT_BLOCKS(tmp_path):
+    """`--prompt-json` REPLACES `-p`. That displacement is the whole hazard of this path.
+
+    The prompt stops being its own argv string, so anything bounding the `-p` payload is
+    measuring a string that is no longer there.
+    """
+    one = _png(tmp_path / "a.png")
+    two = _png(tmp_path / "b.png", b"\x89PNG-two")
+    argv = GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+        "look at these", _cfg(images=[one, str(two)]))
+
+    assert "-p" not in argv, "`-p` survived alongside `--prompt-json`; they are exclusive"
+    blocks = _blocks_from(argv)
+    assert blocks[0] == {"type": "text", "text": "look at these"}
+    assert [b["type"] for b in blocks[1:]] == ["image", "image"]
+    assert all(b["mimeType"] == "image/png" for b in blocks[1:])
+    # base64 of the real bytes, not a path reference.
+    assert base64.b64decode(blocks[1]["data"]) == one.read_bytes()
+    assert base64.b64decode(blocks[2]["data"]) == two.read_bytes()
+    # Every pin still said, on the path that displaced the prompt.
+    assert argv[argv.index("-m") + 1] == MODEL_PIN
+    assert NO_LEADER_FLAG in argv
+
+
+def test_the_IMAGE_LIST_IS_LOAD_BEARING_and_N_crops_all_arrive(tmp_path):
+    """*"Here are four crops of the same mark; are they the same effect in four colours?"*
+
+    That is the characteristic job of this lane per the image-lane ruling — premise-checks
+    against SEVERAL small crops at once. A door that carried one image would satisfy the
+    flag surface and miss the use case.
+    """
+    crops = [_png(tmp_path / f"crop-{i}.png", b"\x89PNG" + bytes([i])) for i in range(4)]
+    argv = GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+        "same effect?", _cfg(images=crops))
+    blocks = _blocks_from(argv)
+    assert len(blocks) == 5, "one text block plus four images"
+    assert [base64.b64decode(b["data"]) for b in blocks[1:]] == [c.read_bytes() for c in crops]
+
+
+def test_a_NAMED_IMAGE_THAT_DOES_NOT_EXIST_is_REFUSED_at_argv_not_dropped(tmp_path):
+    """⚑ **This is the row `resource_link` could not have.**
+
+    Probed live, 2026-08-25: a `resource_link` block naming a nonexistent file returned
+    **rc=0**. The CLI never looked at the path; a whole model call was launched and paid
+    for ($0.0061, 28 s) and the MODEL discovered at runtime the file was missing. It said
+    so only because the probe prompt told it to — absent that instruction it answers
+    fluently about nothing, in the exact register of an answer about something.
+
+    Inline blocks are refusable here: free, certain, and before a process exists.
+    """
+    with pytest.raises(ValueError, match="does not exist"):
+        GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+            "x", _cfg(images=[tmp_path / "nope.png"]))
+
+
+def test_a_BARE_STRING_in_images_is_REFUSED_rather_than_iterated_per_character(tmp_path):
+    png = _png(tmp_path / "a.png")
+    with pytest.raises(ValueError, match="must be a LIST"):
+        GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+            "x", _cfg(images=str(png)))
+
+
+def test_an_UNPROBED_IMAGE_FORMAT_is_REFUSED_BY_NAME_rather_than_guessed(tmp_path):
+    """PNG / JPEG / WEBP were each FIRED AT THE LIVE VENDOR. GIF was not.
+
+    This file already refuses `--tools` and declines to say `--sandbox` on exactly this
+    ground: declaring a vocabulary nobody enumerated is how a caller reads as supported
+    while not being. A mimeType the vendor mishandles fails on a lane whose entire
+    purpose is to look at the picture.
+    """
+    gif = _png(tmp_path / "a.gif", b"GIF89a")
+    with pytest.raises(ValueError, match="CLOSED set"):
+        GrokHarness(executable="/bin/grok", lock_path=None).build_argv("x", _cfg(images=[gif]))
+    for suffix in (".png", ".jpg", ".jpeg", ".webp"):
+        assert suffix in IMAGE_MIME_BY_SUFFIX
+
+
+def test_the_CEILING_IS_ENFORCED_AGAINST_THE_PAYLOAD_THAT_ACTUALLY_TRAVELS(tmp_path):
+    """⚑ **The instrument that returned cleanly after it stopped answering the question.**
+
+    `MAX_PROMPT_ARGV_BYTES` is enforced against the `-p` payload. `--prompt-json`
+    DISPLACES `-p`. So on an image job the old ceiling measures a string that is not
+    there, and a payload of any size would have sailed past it into an `E2BIG` from the
+    OS — which names no file and no reason.
+
+    Both directions are pinned: a payload OVER the `-p` ceiling but under this path's own
+    is ACCEPTED (proving the wrong ceiling is not being misapplied to the new path), and
+    a payload over this path's ceiling is REFUSED **naming the file, its encoded size and
+    the limit**, because the caller's next action is to crop something and they need to
+    know which something.
+    """
+    harness = GrokHarness(executable="/bin/grok", lock_path=None)
+
+    # 300 KB raw -> 400 KB base64: over MAX_PROMPT_ARGV_BYTES (256 KiB), under
+    # MAX_PROMPT_JSON_ARGV_BYTES (512 KiB). Accepted.
+    big = _png(tmp_path / "big.png", b"\x89PNG" + b"\x00" * 300_000)
+    argv = harness.build_argv("x", _cfg(images=[big]))
+    payload = argv[argv.index("--prompt-json") + 1]
+    assert len(payload.encode()) > MAX_PROMPT_ARGV_BYTES
+    assert len(payload.encode()) <= MAX_PROMPT_JSON_ARGV_BYTES
+
+    # A FULL ANALYSIS FRAME. `zoom_ww7_full.png` — the frame galadriel's P-2 ruling rests
+    # on — is 1,959,839 bytes raw / 2,613,120 base64: 2.49x this host's ENTIRE ARG_MAX.
+    # The frame that fails is the one nobody should be sending.
+    frame = _png(tmp_path / "zoom_ww7_full.png", b"\x89PNG" + b"\x00" * 1_959_835)
+    with pytest.raises(ValueError) as exc:
+        harness.build_argv("x", _cfg(images=[frame]))
+    message = str(exc.value)
+    assert "zoom_ww7_full.png" in message, "the refusal must NAME THE FILE"
+    assert str(MAX_PROMPT_JSON_ARGV_BYTES) in message, "the refusal must name the LIMIT"
+    assert "2613120" in message.replace(",", "") or "base64" in message, (
+        "the refusal must name the ENCODED size, not the raw one — the encoded size is "
+        "what travels")
+    assert "NATIVE" in message, (
+        "the remedy must say CROP, not downscale: downscaling erases the 1-3 px detail "
+        "these jobs exist to look for, and would return a false null")
+
+
+def test_the_LARGEST_image_is_NAMED_when_several_crops_share_the_blame(tmp_path):
+    """Four crops over the ceiling together is not four equal suspects."""
+    small = _png(tmp_path / "small.png", b"\x89PNG" + b"\x00" * 1_000)
+    huge = _png(tmp_path / "huge.png", b"\x89PNG" + b"\x00" * 500_000)
+    with pytest.raises(ValueError, match="LARGEST IMAGE.*huge.png"):
+        GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+            "x", _cfg(images=[small, huge, small]))
+
+
+# ---------------------------------------------------------------------------
+# The PHYSICS check — `execve` charges for argv AND environ, together
+# ---------------------------------------------------------------------------
+def test_the_ARGV_EXEC_COST_FORMULA_IS_EXACT_AGAINST_THIS_HOST():
+    """⚑ Asserted against **the operating system**, not against our own arithmetic.
+
+    The declared ceilings are POLICY. `ARG_MAX` is PHYSICS, and it bounds argv and the
+    inherited ENVIRONMENT together — so the usable argv budget is not a constant, it
+    shrinks by exactly the size of the environment the child inherits.
+
+    This row pins the formula AND the comparison operator at the boundary: an invocation
+    costing exactly `ARG_MAX` must EXECUTE, and one costing a single byte more must
+    raise `OSError`. If either half flips, `build_argv`'s refusal is off by one in a
+    direction that either rejects legal jobs or lets `E2BIG` through.
+    """
+    limit = host_arg_max()
+    assert limit > 0
+    env = {"PATH": "/usr/bin"}
+    fixed = argv_exec_cost(["/usr/bin/true", ""], env)
+    at_limit = "x" * (limit - fixed)
+
+    subprocess.run(["/usr/bin/true", at_limit], env=env, capture_output=True, timeout=30)
+    assert argv_exec_cost(["/usr/bin/true", at_limit], env) == limit
+
+    with pytest.raises(OSError):
+        subprocess.run(["/usr/bin/true", at_limit + "x"], env=env, capture_output=True,
+                       timeout=30)
+
+
+def test_a_FAT_ENVIRONMENT_SHRINKS_THE_ARGV_BUDGET_and_the_check_SEES_IT(tmp_path, monkeypatch):
+    """The half everyone forgets. Measured: a 100 KB variable cost 100,022 argv bytes.
+
+    ⚑ **A payload can clear EVERY declared ceiling and still be `E2BIG`** — and `E2BIG`
+    arrives as a bare `OSError` from `subprocess` naming no file, no size and no reason.
+    The images below are legal on both policy ceilings; only the environment makes this
+    invocation impossible, and only the physics check can see that.
+
+    **This row is matched on the PHYSICS refusal's own words, not on `ARG_MAX`.** An
+    earlier draft matched `ARG_MAX` and passed against pre-fix source — because the
+    `-p` ceiling's message ALSO contains that token. It was green for the wrong reason,
+    which is the defect this whole section is about wearing a test's clothing.
+    """
+    lean = argv_exec_cost(["/bin/grok", "hello"], {"PATH": "/usr/bin"})
+    monkeypatch.setenv("SL_PROBE_PAD", "P" * 100_000)
+    fat = argv_exec_cost(["/bin/grok", "hello"])
+    assert fat - lean > 100_000
+
+    # ~400 KB base64: under MAX_PROMPT_JSON_ARGV_BYTES, so the policy ceiling passes it.
+    crop = _png(tmp_path / "crop.png", b"\x89PNG" + b"\x00" * 300_000)
+    harness = GrokHarness(executable="/bin/grok", lock_path=None)
+    assert harness.build_argv("x", _cfg(images=[crop])), "legal before the environment grows"
+
+    monkeypatch.setenv("SL_PROBE_PAD2", "P" * (host_arg_max() - 200_000))
+    with pytest.raises(ValueError, match="inherited environment"):
+        harness.build_argv("x", _cfg(images=[crop]))
+
+
+def test_the_PHYSICS_CHECK_IS_INERT_on_the_p_path_under_a_normal_environment():
+    """It is here anyway, and the docstring says why.
+
+    `MAX_PROMPT_ARGV_BYTES` is 256 KiB and the `-p` path cannot reach `ARG_MAX` under any
+    environment this host has had. But *"cannot reach it today"* is a fact about the
+    ENVIRONMENT, not about the code — exactly the kind of fact that stops being true
+    quietly. A bound that covers one path when there are two is what this whole section
+    exists to correct; adding a second uncovered path would repeat it.
+    """
+    harness = GrokHarness(executable="/bin/grok", lock_path=None)
+    argv = harness.build_argv("x" * MAX_PROMPT_ARGV_BYTES, _cfg())
+    assert argv_exec_cost(argv) < host_arg_max()
+
+
+def test_RESOURCE_LINK_IS_NEVER_EMITTED_even_though_it_WORKS(tmp_path):
+    """It was probed, it returned correct image comprehension, and it is NOT the door.
+
+    | door | turns | cost, same answer | nonexistent path |
+    |---|---|---|---|
+    | inline `image` | 1 | $0.0045 | refused here, free |
+    | `resource_link` | 2 | $0.0075 - $0.0112 | **rc=0, $0.0061, 28 s** |
+
+    It is a POINTER THE MODEL RESOLVES WITH ITS OWN FILE-READ TOOL, not an attachment:
+    `num_turns: 2`, the model's own *"Let me read the image first"*, and a nonexistent
+    path that nobody refused. It also does not save context (17.5 K / 31.9 K input tokens
+    against 11.5 K inline), so it buys no budget either — and it makes correctness depend
+    on the agent's tool fence and `cwd`, surfaces this lane deliberately does not control.
+    """
+    argv = GrokHarness(executable="/bin/grok", lock_path=None).build_argv(
+        "x", _cfg(images=[_png(tmp_path / "a.png")]))
+    assert "resource_link" not in json.dumps(_blocks_from(argv))
+    assert {b["type"] for b in _blocks_from(argv)} == {"text", "image"}
