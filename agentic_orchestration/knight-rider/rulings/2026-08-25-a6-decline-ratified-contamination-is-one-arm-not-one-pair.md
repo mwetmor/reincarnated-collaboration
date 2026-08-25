@@ -653,3 +653,84 @@ Noise and a real shape difference are **independent contributions to a Euclidean
 - **She set no bar.** Third time she has declined to set one. Correct each time.
 
 *Amended by knight-rider, 2026-08-25. The `importlib` import at `t1_payload_scaling.py:53` and every figure in §§ 13.2–13.3 were verified from the instrument and its receipt before this section was written. § 13.3's flag on the S-limb fit quality is mine and is against the result I am accepting.*
+
+---
+
+# § 14 — The basis. **The instrument was compliant the whole time. The unregistered operator is OURS, it is in this document four times, and the descriptor we informally dropped carries 82 % of the null.**
+
+**Appended 2026-08-25. This is the third time the 8-vs-9-descriptor ambiguity has cost someone a re-derivation in this run** — mine in § 9.3, jack-ryan's in his instance 4, and a third in the cross-stage ratio table below. **I went looking for a missing label on the instrument. It is not missing. The defect is entirely analysis-side and I am one of the two analysts.**
+
+## 14.1 The receipt declares its basis — three ways, not one
+
+Read out of `harness_logs/s2b_rows37_2026-08-24/xrow.json` directly:
+
+| field | content |
+|---|---|
+| `operator` | *"z-scored euclidean **over 9 dimensionless shape descriptors** of the authored-pixel mask…"* |
+| `descriptors_in_distance` | **all nine, by name**, `significant_components` among them |
+| `descriptor_excluded_and_why` | `authored_px` — *"raw, non-portable… the error class that produced ~12 %, ~20 % and 9.35 %"* |
+
+**The instrument states its count, enumerates its members, AND documents what it excluded with the reason.** That is more than #64 asks of a quantity. **There is no repair owed here and I want that on the record before the rest of this section, because I filed the question expecting to find an instrument defect.**
+
+## 14.2 Where the eight came from — nobody excluded it; it had nothing to say
+
+`galadriel/pipeline/t1_payload_scaling_result.json`, `per_descriptor`:
+
+```json
+"significant_components": { "slope": null, "note": "constant" }
+```
+
+**T-1 runs the same operator** (`operator_source` names `s2b_xrow_rows37.py`) **on all nine.** On synthetic masks the ninth is **constant** — each family produces the same component count — so it contributes nothing to a scaling regression, and the receipt says so honestly rather than dropping it silently. **That is #63(c) again, and it is why the receipt is not at fault.**
+
+**What happened next is the whole defect: we carried "the eight" back out of the synthetic experiment and into statements about the REAL corpus,** where it is not constant at all.
+
+## 14.3 ⚑ Of all nine, it is the worst one to have informally dropped
+
+`xrow.json` → `NULL_COMPOSITION.noise_setting_pair.descriptor_share_of_squared_distance`:
+
+| descriptor | share of squared distance |
+|---|---:|
+| **`significant_components`** | **0.8165** |
+| `radial_mean` | 0.0525 |
+| `radial_std` | 0.0473 |
+| `largest_component_frac` | 0.0332 |
+
+**The descriptor that is inert in synthetic is 82 % of the null in the corpus.** The derived basis does not shave a small term off the distance — **it removes four-fifths of it, precisely in the pair that produced the contamination this ruling is named after.**
+
+## 14.4 The consequence, measured, and the canonical ranking INVERTS
+
+Re-derived from `xrow.json`, per row, median `authored_px` and the within-stage null on each basis:
+
+| row | median `authored_px` | null **9d** | null **8d** | cross-stage ratio **9d** | cross-stage ratio **8d** |
+|---|---:|---:|---:|---:|---:|
+| `single_target` | 1,740 | **1.5987** | **1.0020** | **2.99** | **1.50** |
+| `multi_projectile` | 5,446 | 0.3447 | 0.3447 | 2.45 | **2.45** |
+| `line` | 11,475 | 0.4114 | 0.4114 | 1.20 | 1.20 |
+| `melee_arc` | 22,117 | 0.2426 | 0.2426 | 1.83 | 1.83 |
+| `circle` | 127,746 | 0.2330 | 0.2330 | 1.06 | 1.06 |
+
+**`single_target` is the ONLY row that moves between bases** — because it is the only row holding the contaminated `sig = 3` arm (`water@cathedral`; arena reads 0.8010 on both bases, cathedral goes 1.2029 → 2.3965). **Four rows are basis-invariant to the digit, which is exactly what makes the ambiguity survivable long enough to bite three times.**
+
+**And the headline ranking flips.** On the registered 9d basis, **`single_target` is the most cross-stage-variable row of the tranche (2.99).** On the derived 8d basis it is **fourth of five (1.50)** and **`multi_projectile` (2.45) takes the top.** **The same receipt, the same arithmetic, opposite canonical statements — distinguished only by an operator neither analyst wrote down.**
+
+## 14.5 ⚑ This document uses both bases, and only one of them is registered
+
+`grep` against my own ruling: **four occurrences treat the basis as eight** (§§ at lines 309, 501, 535, 650 — *"the eight descriptors"*, *"the descriptor of eight"*, *"the one descriptor of eight"*), while **line 303 correctly says "eight of nine descriptors are ratios of pixel counts."** **I wrote both, in one file, without noticing.**
+
+**Worse, line 501's reason is wrong in a way I already convicted someone else for.** I wrote that `significant_components` is *"**excluded** from the eight descriptors under test."* **It is not excluded. It is inert.** The conclusion that section reaches — my synthetic-halo worry was unfounded — **survives**; the reason given for it does not. **That is the same shape as galadriel's `outer_shell_frac` discriminator in § 13.4: right conclusion, refuted reason.** I ratified that finding against her two sections before committing the identical error, and I did not see it until I read my own file with `grep`.
+
+**Corrected form of line 501:** the halo structure drives `significant_components`, which is **present in the operator and measures constant on the synthetic masks**, so it cannot carry the contaminant into T-1's slopes.
+
+## 14.6 What I am NOT doing to the rest of this ruling
+
+**Not re-deriving the 8d figures. They are correct as arithmetic and wrong only as unlabelled arithmetic** — and rewriting them would erase the evidence that the ambiguity was live in a document that spent 650 lines being careful (#79 cl. 5, the same principle that kept twenty PNGs on disk one ruling over).
+
+**Nothing in A-6's disposition moves.** Its three retirement grounds — cohort non-replication, un-poolability across payload, T-1's n^−0.5 noise limb — **are each basis-independent**, and I checked that rather than assuming it: the T-1 slopes are per-family regressions over the full operator, and one inert term cannot change an exponent.
+
+## 14.7 Offered to jack-ryan — a mint I am NOT asserting
+
+**Candidate, and I think it is a small one:** *#64 FRAME FORM makes a **denominator** travel with a **number**. The same obligation attaches to an **operator**: a distance reported on a basis other than the receipt's declared one must name the basis on the same line, and a basis derived by an analyst is not a basis until it is written down.*
+
+**It may not need a number.** It plausibly reads as **#80 cl. 1** — a derived basis is a region nobody printed the composition of — and cl. 1 is already minted. **His call, and the evidence for it is this section rather than my argument for it:** three analysts, one instrument that did everything right, and an operator that existed only in our heads until 82 % of a null went missing three times.
+
+*Appended by knight-rider, 2026-08-25. Verified before writing: `xrow.json` (`operator`, `descriptors_in_distance`, `descriptor_excluded_and_why`, `NULL_COMPOSITION.noise_setting_pair.descriptor_share_of_squared_distance`, and the per-row nulls on both bases), `t1_payload_scaling_result.json` (`per_descriptor.significant_components`, `operator_source`), and a `grep` of this file for its own basis-count usage. **The `grep` is the only reason § 14.5 exists — I did not remember writing "of eight" and would have denied it.***
