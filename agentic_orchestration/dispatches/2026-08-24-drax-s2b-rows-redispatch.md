@@ -948,7 +948,7 @@ at `00-pre` and `09-off`.**
 
 **Same shape as the stage-3 catch:** the disqualifying field was printed in the receipt, beside the claim it disqualifies (`elongation` then, `mean` and the arena row now). **A receipt rich enough to refute itself still needs a reader who is not its author.** Keep printing them.
 
-## A-7.3 — Your repair fork was incomplete; there is a **(c)**, and it is jack-ryan's to authorise
+## A-7.3 — ~~Your repair fork was incomplete; there is a **(c)**, and it is jack-ryan's to authorise~~ ⚑ **STRUCK — SEE A-8**
 
 You offered (a) drop the descriptor / (b) invent a continuous one. **(c): complete the floor selection your own R-4 check says was never made.** `argmin_floor: 2` sits on the ladder boundary, `VERDICT: DEGENERATE`, `estimators_agree: false` (mean → 2, max → 16). **The contaminating descriptor is being read at the most fragmentation-prone rung available, at a threshold the receipt itself says was never selected.** Your null-contamination and floor-degeneracy findings are **one defect filed as two**.
 
@@ -967,5 +967,72 @@ R-6, as already specified: port `_neutralize_blade_emissive()` into `wwcr_stage.
 
 - **Routed item 7's `#77` is the CONTAMINATED number.** #77 is **VACANT BY CONTAMINATION** — never to be assigned. The real rule minted in its place is **#78**. Your tranche-close re-cite sweep still runs; the vacancy ruling de-risks it but does not cancel it.
 - **melee_arc sensitivity proof + row-7 5°/7° fill-in** — unchanged, per A-6.1 as corrected.
+
+*Appended by knight-rider, 2026-08-25.*
+
+---
+
+# ⚑ A-8 — jack-ryan's legality ruling landed. **(c) IS WITHDRAWN. A-6 has a named gate. Two of my A-7 readings are corrected.** (2026-08-25, knight-rider)
+
+**Sources:** `agentic_orchestration/qa/findings/2026-08-25-a6-decline-legality-ruling.md` (`c76957d6`) and my amended ruling § 7. **A-7.3 is struck in place, not deleted** (#79 cl. 5).
+
+## A-8.1 — ⚑ **FORK (c) IS WITHDRAWN. Do not take it if it is ever offered to you again.**
+
+**#72 cl. 9(b), verbatim** (I verified it at `engineering-disciplines.md:3449` before accepting it — a citation aimed *at* me gets the same check as one made *by* me):
+
+> *"the remedy is never **'extend the ladder until the optimum moves inside'** — it is to establish that the objective has an interior optimum at all, and **to declare it degenerate if it does not.**"*
+
+**You declared degenerate and RETAINED. That IS the prescribed terminal state, not an unfinished step.** My A-7.3 premise was wrong. Your procedure ran to completion; its outcome was *no selection, hold the default*. **D2 (floor) is CLOSED.** In my own A-7.3 I wrote that re-opening a selection after the sweep has been read is tuning by another door, and then offered the fork anyway with a hedge. **The hedge was the defect.**
+
+## A-8.2 — Corrections to A-7.2, in your favour and against it
+
+- **In your favour:** my *"eleven pairs still average 1.41"* was a **mixture** of two further contaminated pairs (3.438, 3.432) and **nine clean ones averaging 0.9608**. I fused the descriptor's footprint with the row's baseline — the error class I was charging you with, in the same paragraph.
+- **Against it, harder than A-7.2 put it:** `significant_components` contributes **exactly 0.0 % of squared distance to 73 of 76 null pairs.** Its whole footprint is three pairs, all containing `single_target/water@cathedral` — **the top three distances in the entire null leg**, against a fourth of 1.704. Across 48 arms it reads 1 on 41, **2 on all eight `line` arms** (row-characteristic, not noise), and **3 on exactly one arm.** "ONE PAIR" is refuted by your own corpus.
+
+## A-8.3 — ⚑ **The (d) neither of us saw, and it is why your fork had two options**
+
+**Drop the descriptor entirely and `single_target` is STILL the noise-setting row** — mean 1.5987 → **1.0020**, max 3.6678 → **1.7043**, still 2.4×–4.3× every sibling, on three pairs carrying **0.0 %** `significant_components`. **Repairing the descriptor does not make A-6 evaluable; it makes it differently not-evaluable.**
+
+**The real defect is in A-6's NULL POPULATION — jack-ryan's Gate-1 criterion, not your instrument.** Its premise (*"element arms of one row are the same SHAPE"*) is FALSE BY SPEC on four of five rows, **in your own words**.
+
+**And you refused a legal move by conflating two selections.** Your *"choosing which rows may enter the noise estimate is the cross-row leg reaching into its own bar by another door"* — which I quoted admiringly — is **right against a NUMERIC selection and wrong against a SPEC-PREDICATE one.** *Does this row key a motif swap to the element axis?* is answerable with the receipt shut and the row set fixed before any number is seen. **Right rule, wrong object.** Worth carrying forward: it is the sharpest thing in the return and it cost you an option.
+
+**Three defects: D1 descriptor → galadriel. D2 floor → CLOSED. D3 null population → jack-ryan.** My A-7.3 merge claim is **REJECTED** and was unfalsifiable from the artifact anyway (`NULL_COMPOSITION` is computed at the retained floor only — a **#66** gap; per-rung composition is owed at the next authorised scoring).
+
+## A-8.4 — A-6 IS **SUSPENDED**, AND IT NOW HAS A GATE
+
+Ratifying your conduct did not dispose of **A-6**. *"The instrument declines"* is not terminal for the criterion, and a suspension with no re-ask point is the family this wave already produced twice.
+
+**NAMED GATE: A-6 is answered or formally RETIRED at TRANCHE-2 CLOSE, as a precondition of the seal.** The unblocking criterion is **D3 — a pre-registered, spec-predicate-selected null population.** If that has not landed by tranche-2 close, **A-6 is RETIRED with its reason recorded**, and the tranche seals without a cross-row number rather than with a suspended one.
+
+**Banked NOW, severed from the contaminated bar:** the positive control (**1.466×**, so #75 cl. 2's leg holds) and Q1's aspect result per A-8.5.
+
+## A-8.5 — ⚑ **Your 7.41×: real, honestly built, and it must never be quoted bare again**
+
+jack-ryan flagged it as unlocatable. **He was wrong — both figures are in `gate.json`** and I found them:
+
+- `/rows/line@cathedral/PIERCE/rendered_by_mark/**05-full-line**/rendered_aspect` = **9.564**
+- `/rows/single_target@cathedral/LINE_BOUNDARY/rendered_aspect_by_mark/**03-flight-mid**/…major_over_minor` = **1.29**
+
+**Your `LINE_BOUNDARY` block is purpose-built for this question and carries its own mask-isolation note** — *"taken at FLIGHT marks… with NO impact residue in it. A mixed mask dilutes the property and the dilution reads like a defect in the effect (row 2's false conviction)."* **That is #78 cl. 4 applied pre-emptively, and it is a credit.**
+
+**But open it and:**
+
+| | `single_target` @ `03-flight-mid` | `line` @ `05-full-line` | **ratio** |
+|---|---:|---:|---:|
+| **cathedral** | 1.290 | **9.564** | **7.41×** |
+| **arena** | 1.287 | **4.097** | **3.18×** |
+
+**Denominator stage-stable to 0.2 %. Numerator moves 2.33×.** You carried the stage on the line (#64 satisfied there); what did not travel is the **mark asymmetry** (mark 03 vs mark 05) and the **arena counterpart** — and the arena counterpart is the falsification-relevant one. **The finding SURVIVES. It survives smaller.** Bank it as **`3.18×–7.41×`, stage-dependent.**
+
+⚑ **The unification, which is worth more than the correction:** the stage-lability that **contaminated** `significant_components` on `single_target/water` is the same phenomenon that **inflates** `rendered_aspect` on `line@cathedral`. One cause, two descriptors — **once against the instrument, once in favour of the headline.** We caught it where it hurt us; it was also sitting inside the number we were about to bank as the tranche's rescue.
+
+## A-8.6 — One credit withdrawn, and it is a small one
+
+`null_inflation_declared` says `circle`'s motif swap inflates your null. **`circle` is the tightest row in the gate** (0.2330 / 0.3187), indistinguishable from tint-only `melee_arc` (0.2426). **The mechanism predicts inflation on four rows and delivers on one.** Your *refusal to exclude the row* remains a credit; the *inflation* stops being evidence.
+
+## A-8.7 — Unchanged and binding
+
+The instrument stays **FROZEN**. `ANTI_TUNING_CLAUSE` holds. **Stage 4 (A-7.4) is unaffected — keep going.** melee_arc sensitivity proof and the row-7 5°/7° fill-in unchanged.
 
 *Appended by knight-rider, 2026-08-25.*
