@@ -1,0 +1,268 @@
+{
+ "melee_trail_stats": {
+  "neutral": {
+   "n": 2050,
+   "added_rgb": [
+    142.67,
+    140.54,
+    136.66
+   ],
+   "rendered_rgb": [
+    181.71,
+    183.57,
+    188.68
+   ],
+   "lab_added": [
+    58.53,
+    0.04,
+    2.35
+   ],
+   "lab_rendered": [
+    74.62,
+    0.32,
+    -2.81
+   ],
+   "chroma_added": 2.35,
+   "chroma_rendered": 2.83,
+   "L_rendered": 74.62
+  },
+  "fire": {
+   "n": 2036,
+   "added_rgb": [
+    151.11,
+    114.12,
+    54.82
+   ],
+   "rendered_rgb": [
+    190.14,
+    157.15,
+    106.84
+   ],
+   "lab_added": [
+    50.6,
+    7.82,
+    37.81
+   ],
+   "lab_rendered": [
+    66.66,
+    5.45,
+    30.85
+   ],
+   "chroma_added": 38.61,
+   "chroma_rendered": 31.33,
+   "L_rendered": 66.66
+  },
+  "water": {
+   "n": 2040,
+   "added_rgb": [
+    93.79,
+    127.12,
+    139.88
+   ],
+   "rendered_rgb": [
+    132.83,
+    170.14,
+    191.9
+   ],
+   "lab_added": [
+    51.23,
+    -8.49,
+    -10.7
+   ],
+   "lab_rendered": [
+    67.71,
+    -7.45,
+    -15.24
+   ],
+   "chroma_added": 13.66,
+   "chroma_rendered": 16.96,
+   "L_rendered": 67.71
+  },
+  "earth": {
+   "n": 2036,
+   "added_rgb": [
+    141.82,
+    124.33,
+    79.93
+   ],
+   "rendered_rgb": [
+    180.85,
+    167.35,
+    131.94
+   ],
+   "lab_added": [
+    52.74,
+    0.19,
+    26.67
+   ],
+   "lab_rendered": [
+    68.92,
+    -0.75,
+    20.11
+   ],
+   "chroma_added": 26.67,
+   "chroma_rendered": 20.12,
+   "L_rendered": 68.92
+  },
+  "wind": {
+   "n": 2047,
+   "added_rgb": [
+    130.73,
+    143.18,
+    127.8
+   ],
+   "rendered_rgb": [
+    169.77,
+    186.21,
+    179.82
+   ],
+   "lab_added": [
+    58.09,
+    -7.55,
+    6.65
+   ],
+   "lab_rendered": [
+    74.2,
+    -6.9,
+    1.29
+   ],
+   "chroma_added": 10.06,
+   "chroma_rendered": 7.02,
+   "L_rendered": 74.2
+  }
+ },
+ "melee_dE2000_added": {
+  "fire|earth": 7.33,
+  "neutral|wind": 9.43,
+  "neutral|water": 15.46,
+  "neutral|earth": 15.68,
+  "water|wind": 15.7,
+  "earth|wind": 16.11,
+  "neutral|fire": 20.55,
+  "fire|wind": 22.68,
+  "water|earth": 27.12,
+  "fire|water": 31.73
+ },
+ "melee_dE2000_rendered": {
+  "fire|earth": 7.38,
+  "neutral|wind": 9.58,
+  "neutral|water": 12.99,
+  "water|wind": 13.52,
+  "earth|wind": 15.78,
+  "neutral|earth": 17.47,
+  "neutral|fire": 22.17,
+  "fire|wind": 22.64,
+  "water|earth": 27.16,
+  "fire|water": 32.32
+ },
+ "aura_stats": {
+  "fire": {
+   "n": 28775,
+   "added_rgb": [
+    139.13,
+    102.52,
+    49.62
+   ],
+   "rendered_rgb": [
+    177.23,
+    144.4,
+    100.45
+   ],
+   "lab_rendered": [
+    61.97,
+    6.37,
+    27.98
+   ],
+   "chroma_rendered": 28.69,
+   "lab_added": [
+    46.09,
+    8.69,
+    35.01
+   ],
+   "chroma_added": 36.07
+  },
+  "water": {
+   "n": 29907,
+   "added_rgb": [
+    84.08,
+    115.08,
+    129.15
+   ],
+   "rendered_rgb": [
+    122.18,
+    156.96,
+    179.97
+   ],
+   "lab_rendered": [
+    62.96,
+    -6.35,
+    -15.81
+   ],
+   "chroma_rendered": 17.04,
+   "lab_added": [
+    46.65,
+    -7.42,
+    -11.32
+   ],
+   "chroma_added": 13.54
+  },
+  "earth": {
+   "n": 28230,
+   "added_rgb": [
+    133.36,
+    115.93,
+    74.95
+   ],
+   "rendered_rgb": [
+    171.47,
+    157.83,
+    125.8
+   ],
+   "lab_rendered": [
+    65.44,
+    -0.16,
+    18.58
+   ],
+   "chroma_rendered": 18.58,
+   "lab_added": [
+    49.49,
+    0.71,
+    25.12
+   ],
+   "chroma_added": 25.13
+  },
+  "wind": {
+   "n": 32868,
+   "added_rgb": [
+    111.86,
+    125.13,
+    110.91
+   ],
+   "rendered_rgb": [
+    149.9,
+    166.96,
+    161.67
+   ],
+   "lab_rendered": [
+    67.05,
+    -7.03,
+    0.7
+   ],
+   "chroma_rendered": 7.07,
+   "lab_added": [
+    51.01,
+    -7.82,
+    6.1
+   ],
+   "chroma_added": 9.92
+  }
+ },
+ "aura_dE2000_rendered": {
+  "fire|earth": 7.81,
+  "water|wind": 12.99,
+  "earth|wind": 15.46,
+  "fire|wind": 22.54,
+  "water|earth": 26.87,
+  "fire|water": 31.63
+ }
+}
