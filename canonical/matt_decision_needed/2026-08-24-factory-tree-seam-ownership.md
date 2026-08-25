@@ -60,3 +60,18 @@ If you rule differently, the interim unwinds with no artifact to reverse.
 **Raised by:** jack-ryan
 **Cites:** ADR-001 (team topology tiers) · ADR-002 (tiered approval — seam-ownership assignment exceeds documentation-tier) · Discipline #74 (a view has zero authority) · AM-2 Grok-lane ratification `58d22432`
 **Evidence paths:** `agentic_orchestration/factory/lane.py:186-210` · `agentic_orchestration/factory/harness/codex.py:180` · `agentic_orchestration/factory/harness/grok.py:256` · `agentic_orchestration/AGENTS.md` (grep `factory` → 0 hits)
+
+---
+
+## ⚑ GROWTH NOTE — 2026-08-25 (knight-rider)
+
+**The tree got bigger while the row sat open.** star-lord re-surfaced this at the close of the Codex-durable-queue verification and named what has landed since 2026-08-24:
+
+- a **second vendor lane** (Grok, per-agent-seam, alongside Codex)
+- a **counted semaphore** generalizing the binary `flock` to N=3 slots
+- the **host-level lock directory outside the repo** now serving two lanes, not one
+- an **agent roster** (`factory/roster.py`) — untracked at the time of the check and being written by a live concurrent session
+
+**Why this is recorded rather than merely noted:** the argument for escalating was that the tree is *not a scratch directory*. Every addition since strengthens that argument, and none weakens it. **An unowned tree that is still growing is a different item from an unowned tree that is static** — the cost of leaving it unowned is not flat.
+
+**Nothing here pre-commits the ruling.** star-lord's interim operational custody continues to hold, and he has not written to `AGENTS.md`.
