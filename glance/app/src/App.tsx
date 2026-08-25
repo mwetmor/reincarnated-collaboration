@@ -23,6 +23,12 @@ import { AtlasInstrument } from './pages/AtlasInstrument';
 // route is `corpus` (NOT `kits` — that name is taken by the PART-F serial roster page).
 import { CorpusIndex } from './pages/CorpusIndex';
 import { CorpusKit } from './pages/CorpusKit';
+// U-1 §12.4 (Matt 2026-08-24, "stage it in") — the fleet REAR-VIEW page: historical cost,
+// per-model scorecards, per-lane rollups, verdict + window-meter history, folded from the
+// committed flight-recorder tape by parser/fleet.mjs. Live lanes / IN-FLIGHT / HEALTH are
+// STRUCTURALLY absent here and live on the local board instead (a Vercel build sees only
+// pushed state). Same law as every other Glance surface: derived, never authored; no LLM.
+import { FleetPage } from './pages/Fleet';
 
 // ---------------------------------------------------------------------------
 // Routing — hash-based, zero dependency (§7.4). The SPA rewrite in vercel.json
@@ -32,15 +38,18 @@ import { CorpusKit } from './pages/CorpusKit';
 //   #/engine #/story #/game #/content-emission #/kits #/minigames  → six domain pages
 //   #/corpus               → the browsable per-kit corpus index (single-source-of-truth)
 //   #/corpus/<kit_id>      → the full per-kit detail (10 sections)
+//   #/fleet                → the U-1 fleet REAR-VIEW (history from the flight tape, §12.4)
 // ---------------------------------------------------------------------------
 type Route =
   | { kind: 'landing' }
   | { kind: 'page'; page: PageId }
   | { kind: 'corpus' }
-  | { kind: 'corpus-kit'; id: string };
+  | { kind: 'corpus-kit'; id: string }
+  | { kind: 'fleet' };
 
 function parseHash(): Route {
   const h = window.location.hash.replace(/^#\/?/, '').trim();
+  if (h === 'fleet') return { kind: 'fleet' };
   // per-kit detail: #/corpus/<kit_id> (id may contain hyphens; decode it once).
   if (h === 'corpus') return { kind: 'corpus' };
   if (h.startsWith('corpus/')) {
@@ -150,6 +159,8 @@ export default function App() {
           <CorpusIndex />
         ) : route.kind === 'corpus-kit' ? (
           <CorpusKit id={route.id} />
+        ) : route.kind === 'fleet' ? (
+          <FleetPage fleet={state.fleet ?? null} />
         ) : (
           <DomainPage state={state} page={route.page} />
         )}
@@ -273,6 +284,23 @@ function HeaderStrip({ state, route, fluid = false }: { state: State; route: Rou
               active={isCorpusRoute}
               onClick={() => {
                 window.location.hash = '#/corpus';
+              }}
+            />
+          </span>
+          {/* U-1 §12.4 — the fleet rear-view. Its own tab, seated last behind a divider:
+              a distinct kind again (operational history folded from the flight tape, not a
+              canon doc page). SHOP-ONLY, and the page says so on its own header. */}
+          <span className="flex items-center gap-1">
+            <span
+              aria-hidden
+              title="fleet flight-recorder (shop-only)"
+              className="mx-1 hidden h-4 w-px bg-slate-700 sm:inline-block"
+            />
+            <TabButton
+              label="Fleet"
+              active={route.kind === 'fleet'}
+              onClick={() => {
+                window.location.hash = '#/fleet';
               }}
             />
           </span>

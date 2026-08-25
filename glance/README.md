@@ -14,10 +14,10 @@ RATIFIED jack-ryan 2026-07-06) + engineering-disciplines Discipline #60 (CI-fail
 ## Architecture (boring on purpose)
 
 ```
-push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, deterministic)
-                                            ├── app/public/state.json  (§ 3 contract)
-                                            ├── MALFORMED shape  → CI FAIL (file+line)  [Discipline #60]
-                                            └── dangling gates-on → warning badge (not a failure)
+push to canonical/**   →  GitHub Action  →  parser (parser/parse.mjs, deterministic)
+  or flight/records-*                        ├── app/public/state.json  (§ 3 contract)
+                                             ├── MALFORMED shape  → CI FAIL (file+line)  [Discipline #60]
+                                             └── dangling gates-on → warning badge (not a failure)
                           →  static deploy (Vercel — the loadout stack)
 ```
 
@@ -27,11 +27,38 @@ push to canonical/**  →  GitHub Action  →  parser (parser/parse.mjs, determi
   MATT-FACING product-pipeline docs (`pipeline-*.md`, §7.5/§7.6) + the three
   kit-design reference docs (`substrate-coordinates.md` · `mechanical-reality.md` ·
   `projection-atlas.md`, §7.7 v1.9) + `canonical/matt_decision_needed/README.md` +
-  `canonical/matt_to_do/README.md`. **Never touches the engine tree.**
+  `canonical/matt_to_do/README.md` + `agentic_orchestration/flight/records-*.jsonl`
+  (v1.13, below). **Never touches the engine tree.**
   - `node parser/parse.mjs` — write state.json; exit 1 on any MALFORMED.
   - `node parser/parse.mjs --report` — list ALL malformed findings in one pass
     (the reconciliation surface), then exit non-zero.
 - **`app/`** — Vite + React 18 + Tailwind static SPA. Renders Tiers 0–2.
+
+## v1.13 — the fleet REAR-VIEW card on `#/fleet` (U-1 § 12.4, CURRENT)
+
+The U-1 flight-recorder tape is **committed** (spec fork F-8), so it already lives in the
+tree the Action reads on every push. The fleet card is therefore a **parser extension, not a
+new pipeline** — no new data path, no new truth, no sync job, still no LLM anywhere.
+
+- **`parser/fleet.mjs`** — folds `agentic_orchestration/flight/records-*.jsonl` into a
+  **pre-aggregated `fleet` node** on `state.json` (rollups, NOT raw rows: per-workstream cost,
+  per-model scorecards, per-lane rollups, month trend, verdict history, window meters). Fold
+  semantics mirror `flight/schema.py` — corrections drop superseded rows from the VIEW only,
+  identity folds from ENQUEUE/START with CLOSE filling nulls, SEALED means a terminal event
+  exists. Where the two disagree, the Python is right and this is the bug.
+- **`app/src/pages/Fleet.tsx`** — the card. **REAR-VIEW SCOPE ONLY:** history, which does not
+  stale, so a push-fresh render of it is honest. **No live lanes, no IN-FLIGHT, no HEALTH** —
+  a Vercel build can only see PUSHED state, and rendering lane liveness from a tape snapshot
+  would be a green pixel over an unknown exit code. Those facts are Mac-local and live on the
+  **local fleet board** (`agentic_orchestration/factory/ui/board.py`), which reads the disk it
+  runs on. One tape, two windows: Glance is the rear-view mirror, the local board is the
+  windshield.
+- **Absence is legal, twice:** no `flight/` directory → `fleet: null` → the card says so; a
+  tape with zero rows → every rollup renders empty and honest. Glance never breaks on a repo
+  without a recorder.
+- **Vendor-lane parity (AM-1):** `grok-serial` renders wherever `codex-serial` does, including
+  when it has no rows — "this lane has done nothing yet" is a different fact from "this lane
+  does not exist". The v1 `grok-judge` spelling folds onto the same card.
 
 ## The parse contract — the five legislated shapes (canonical-doc-format § 7)
 

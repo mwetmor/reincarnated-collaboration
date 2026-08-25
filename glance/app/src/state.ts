@@ -197,6 +197,143 @@ export interface State {
   dangling_gates: DanglingGate[];
   // §2.7 — FLOW section-refs that resolve to no `##` heading (visible debt, not a failure).
   dangling_flow_refs: DanglingFlowRef[];
+  // U-1 §12.4 — the flight-recorder tape, pre-aggregated by parser/fleet.mjs.
+  // `null` = this repo has no agentic_orchestration/flight/ at all (absence is legal, and
+  // OPTIONAL here so a state.json produced before this field existed still type-checks).
+  fleet?: Fleet | null;
+}
+
+// ---------------------------------------------------------------------------
+// U-1 fleet flight-recorder — the REAR-VIEW node (§12.4)
+//
+// History only, by construction. There is no in-flight list, no lane liveness and no
+// health here, because a Vercel build can only ever see PUSHED state — those facts live
+// on the local board (factory/ui/board.py), which can read the disk it runs on.
+// `units_total` / `units_sealed` are DENOMINATORS so no rollup reads as a census; they
+// are not state lanes.
+// ---------------------------------------------------------------------------
+
+export interface FleetTokens {
+  input: number;
+  cached_input: number;
+  cache_write: number;
+  output: number;
+  reasoning: number;
+}
+
+/** Every aggregate carries its own denominator: unmeasured is never zero. */
+export interface FleetBucket {
+  units: number;
+  tokens: FleetTokens;
+  /** how many CLOSE rows actually reported tokens — the tokens' denominator */
+  n_tokens: number;
+  rc_zero: number;
+  rc_total: number;
+  verdicts: Record<string, number>;
+  /** v1.1 CLOSE-only optional field: vendor-REPORTED dollars, summed only where present */
+  cost_usd: number;
+  /** how many CLOSE rows carried cost_usd — the cost's denominator */
+  n_cost: number;
+  median_wall_s: number | null;
+  currencies: string[];
+}
+
+export interface FleetWorkstream extends FleetBucket {
+  workstream: string;
+  curation_rows: number;
+  warns: number;
+  first_ts: string | null;
+  last_ts: string | null;
+  /** first-start → last-close: a RUN DURATION, not enqueue→seal */
+  span_s: number | null;
+}
+
+export interface FleetScorecard extends FleetBucket {
+  provider: string;
+  pin: string | null;
+  artifacts: number;
+}
+
+export interface FleetLaneClose {
+  unit_id: string;
+  ts: string;
+  rc: number | null;
+  tokens_input: number | null;
+  tokens_output: number | null;
+  cost_usd: number | null;
+  workstream: string | null;
+}
+
+export interface FleetLane extends FleetBucket {
+  lane: string;
+  provider: string;
+  /** AM-1 parity: the card renders whether or not this is true; false says so honestly */
+  on_tape: boolean;
+  /** which spellings of this lane the tape actually carries (v1 `grok-judge` → v1.1 `grok-serial`) */
+  spellings_seen: string[];
+  pins: string[];
+  last_close: FleetLaneClose | null;
+}
+
+export interface FleetVerdictRow {
+  ts: string;
+  event: string;
+  unit_id: string | null;
+  workstream: string | null;
+  verdict: string;
+  gate_id: string | null;
+  gatekeeper: string | null;
+}
+
+export interface FleetSnapshot {
+  ts: string;
+  currency: string | null;
+  /** the meter's own vocabulary, preserved RAW (§5) — never normalised into a percentage */
+  meter_raw: unknown;
+}
+
+export interface FleetMonth extends FleetBucket {
+  month: string;
+}
+
+export interface Fleet {
+  source: string;
+  tape_files: string[];
+  rows_on_disk: number;
+  rows_after_corrections: number;
+  unparseable_lines: number;
+  schema_versions: number[];
+  coverage: { first_ts: string | null; last_ts: string | null };
+  units_total: number;
+  units_sealed: number;
+  workstreams: FleetWorkstream[];
+  scorecards: FleetScorecard[];
+  lanes: FleetLane[];
+  claude: { units: number; closes: number; with_tokens: number };
+  months: FleetMonth[];
+  verdicts: { totals: Record<string, number>; recent: FleetVerdictRow[] };
+  snapshots: FleetSnapshot[];
+}
+
+// ---- fleet display helpers (pure, no state) ----
+
+export function fmtTokens(n: number | null | undefined): string {
+  if (n == null) return '—';
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${Math.round(n / 1000)}K`;
+  return String(n);
+}
+
+export function fmtSpan(s: number | null | undefined): string {
+  if (s == null) return '—';
+  if (s < 5400) return `${Math.round(s / 60)}m`;
+  if (s < 172800) return `${(s / 3600).toFixed(1)}h`;
+  return `${(s / 86400).toFixed(1)}d`;
+}
+
+/** Cache hit-rate is DERIVED, never stored — and null when there is no denominator. */
+export function cacheRate(t: FleetTokens): number | null {
+  return t.input > 0 ? (100 * t.cached_input) / t.input : null;
 }
 
 // ---- shared display helpers ----

@@ -5,6 +5,42 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
+## v1.16 — the U-1 fleet REAR-VIEW card on `#/fleet` (BUILT, local; NOT deployed) — 2026-08-24
+
+Run: U1-BUILD Block B-3 (conductor gandalf; jack-ryan's ≥2-workflow schema gate G-2 PASSED).
+Spec: `agentic_orchestration/gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md`
+§ 12.4 (Matt: *"stage it in"*) + § 13 AM-1 (vendor lane parity — grok alongside codex).
+
+**What landed**
+- `glance/parser/fleet.mjs` — folds the COMMITTED U-1 tape
+  (`agentic_orchestration/flight/records-*.jsonl`) into a pre-aggregated `fleet` node on
+  `state.json`: per-workstream cost, per-model scorecards, per-lane rollups, month trend,
+  verdict history, window meters. Rollups, NOT raw rows. Fold semantics mirror
+  `flight/schema.py` (corrections drop from the VIEW only; identity from ENQUEUE/START with
+  CLOSE filling nulls; SEALED = terminal event present).
+- `glance/app/src/pages/Fleet.tsx` + `#/fleet` route + its own nav tab (seated last, behind a
+  divider, like Corpus). `state.ts` grew the `Fleet*` types + `fmtTokens`/`fmtSpan`/`cacheRate`.
+- `.github/workflows/glance.yml` — `agentic_orchestration/flight/records-*.jsonl` added to the
+  push/PR path filters, so a tape-only push rebuilds the card instead of leaving it stale.
+- 12 tests in `app/src/__tests__/fleet-card.test.ts` (fold semantics + render contract via
+  `react-dom/server` — no new devDependency). Full suite 128 passed.
+
+**Scope law carried (do not relax without a ruling):** REAR-VIEW ONLY. No live lanes, no
+IN-FLIGHT, no HEALTH on Glance — a Vercel build sees only PUSHED state, so those facts stay on
+the local fleet board (`agentic_orchestration/factory/ui/board.py`, drax, same block). One tape,
+two windows: Glance = rear-view mirror, local board = windshield. A test asserts the `fleet`
+NODE contains no lane-state vocabulary at all, so the boundary is enforced in the data rather
+than in prose.
+
+**Tolerance pinned:** `fleet: null` when there is no `flight/` directory (absence is never an
+error); empty tape renders honest zeroes; `cost_usd` (v1.1, CLOSE-only, optional) is summed only
+over rows that carry it and always with its denominator; `grok-judge` (v1) and `grok-serial`
+(v1.1) fold onto one card.
+
+**NOT deployed.** Local build + dev server green (`npm run build`, `vite` → `/` 200,
+`/state.json` carries the node, `Fleet.tsx` transforms). The conductor pushes at fold; Glance
+deploys on that push. Production deploy remains Matt-authorised.
+
 ## GLANCE-RESTORE Lane A — stale sidecar refresh · prod unfreeze (2026-07-23)
 
 Charter: `agentic_orchestration/gandalf/notes/2026-07-23-glance-restore-run-charter.md` (RATIFIED,

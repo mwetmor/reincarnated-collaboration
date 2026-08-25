@@ -14,6 +14,7 @@
  *   canonical/current-to-end-state/surface-ledger.md  (the 5th Tier-0 card — Glance contract v1.3 §7.2)
  *   canonical/matt_decision_needed/README.md
  *   canonical/matt_to_do/README.md
+ *   agentic_orchestration/flight/records-*.jsonl  (the U-1 tape — spec §12.4, rear-view only)
  * It NEVER touches the engine tree.
  *
  * Severity split (Discipline #60 / § 7.6) — closed, enumerated MALFORMED set (exactly 3):
@@ -34,11 +35,18 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+// §12.4 (Matt 2026-08-24, "stage it in") — the U-1 flight-recorder tape is COMMITTED (F-8),
+// so it already lives in the tree this Action reads on every push. The fleet card is
+// therefore a PARSER EXTENSION, not a new pipeline: no new data path, no new truth, no sync
+// job, no LLM. REAR-VIEW SCOPE ONLY — history (cost, scorecards, verdicts, window meters).
+// Live lanes / IN-FLIGHT / HEALTH stay on the local board, where pre-push facts live.
+import { buildFleet } from './fleet.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 // repo root = two levels up from glance/parser/
 const REPO_ROOT = resolve(__dirname, '..', '..');
 const CANON = join(REPO_ROOT, 'canonical');
+const FLIGHT_DIR = join(REPO_ROOT, 'agentic_orchestration', 'flight');
 
 const REPORT_MODE = process.argv.includes('--report');
 // The GitHub blob base for deep-links (§6). Overridable via env for forks.
@@ -1240,11 +1248,18 @@ function main() {
     if (r._dangling_flow_refs) dangling_flow_refs.push(...r._dangling_flow_refs);
     delete r._dangling_flow_refs;
   }
+  // §12.4 — the U-1 tape, pre-aggregated. `null` when there is no flight/ directory at all:
+  // ABSENCE IS NEVER AN ERROR, and Glance must render fine in a repo that has no recorder.
+  // The card reads `fleet == null` as "no tape in this repo" and `units_total === 0` as
+  // "a tape exists and nothing has flown yet" — two different facts, never merged.
+  const fleet = buildFleet(FLIGHT_DIR);
+
   const state = {
     generated_at: generatedAt,
     repo_sha: repoSha(),
     gh_blob_base: GH_BLOB_BASE,
     last_commit: lastCommit(generatedAt),
+    fleet,
     trackers,
     pipelines,
     references,
@@ -1276,6 +1291,9 @@ function main() {
   console.log(`  matt_decision    : ${matt_decision_needed.length} (open ${matt_decision_needed.filter((x) => !x.resolved).length})`);
   console.log(`  matt_to_do       : ${matt_to_do.length} (open ${matt_to_do.filter((x) => !x.resolved).length})`);
   console.log(`  surfaces agreed  : ${surfaces_agreed ? `✓${surfaces_agreed.agreed} / ${surfaces_agreed.total}` : '—'}`);
+  console.log(`  fleet tape       : ${fleet
+    ? `${fleet.rows_on_disk} rows / ${fleet.units_sealed} sealed of ${fleet.units_total} units · lanes ${fleet.lanes.map((l) => `${l.lane}:${l.on_tape ? l.units : 'no rows'}`).join(', ')}`
+    : '— (no agentic_orchestration/flight/ — absence is legal)'}`);
   console.log(`  dangling gates   : ${dangling.length}  (warnings, not failures)`);
   console.log(`  dangling flow-refs: ${dangling_flow_refs.length}  (warnings, not failures)`);
   console.log(`  MALFORMED        : ${malformedFindings.length}`);

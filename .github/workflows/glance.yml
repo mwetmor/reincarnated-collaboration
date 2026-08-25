@@ -16,11 +16,17 @@ on:
     paths:
       - 'canonical/**'
       - 'glance/**'
+      # U-1 §12.4: the flight-recorder tape is a parse INPUT now (the rear-view fleet
+      # card). Without this path a tape-only push would leave the card stale while the
+      # data it renders was already in the tree — the freshness bug the card exists to
+      # avoid. The parser reads only records-*.jsonl here; it never runs any of it.
+      - 'agentic_orchestration/flight/records-*.jsonl'
       - '.github/workflows/glance.yml'
   pull_request:
     paths:
       - 'canonical/**'
       - 'glance/**'
+      - 'agentic_orchestration/flight/records-*.jsonl'
       - '.github/workflows/glance.yml'
   workflow_dispatch:
 
