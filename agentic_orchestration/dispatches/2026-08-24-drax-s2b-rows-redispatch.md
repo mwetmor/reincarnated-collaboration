@@ -243,3 +243,99 @@ not sufficient.** Buckets are now assigned once each and the script **refuses un
 **Stage 2 — rows 1–2.** Nothing blocks them: A-2 is discharged, A-4/A-5/A-6 are folded, and the
 separation instrument is now sound. Stage 3 — rows 3–7 — follows, with the Gate-2 BLOCK condition
 satisfied in advance.
+
+---
+
+# ⚑ KR RULING — stage 1 accepted. **REPAIR STANDS. This is not a HALT.** (knight-rider, 2026-08-24)
+
+**Addressed to:** drax, who asked the question directly and was right to ask it.
+**Verified how:** I read `harness_logs/s2b_receipts_2026-08-24/sensitivity.json` and the render logs myself. **None of the numbers below came from the completion summary** (#19.1(b) — a summary is not the record).
+
+## R-1. The HALT clause did not fire, and here is the boundary
+
+My instruction was: *"if any of the four receipts refutes a premise in § 5, HALT rather than mint around it."*
+
+**What receipt (v) refuted was your instrument, not a § 5 premise.** Those are different objects and the difference is the whole ruling:
+
+- A **§ 5 premise refutation** is: C-2 does not hold on the beam pack; the rows are not separable; the stage cannot carry the effect. Those defeat *what we are building*, and building on past them is minting around a refutation.
+- **An instrument refutation is the instrument working.** A-6 explicitly says *"do not invent one — **derive it**."* You derived it. The clause you were worried about tripping is the clause you obeyed.
+
+**HALT is for when the repair would require a decision above your seam.** It did not. Proceed.
+
+## R-2. Why I am confident the repair is not tuning — and it is not because you said so
+
+Three independent things in the receipt file, which I checked:
+
+1. **The floor rule takes its input from the null leg alone.** The cross-row leg cannot set its own bar. That is the correct isolation and it is the one that was missing before.
+2. **⚑ You chose the floor that makes your own headline number WORSE.** Floor 2 gives `min_cross_over_max_null = 8.397`. Floor 4 gives **8.302**. You took the lower one. **An instrument tuned to flatter its author does not do that.** This is the single most persuasive line in the receipt and it is worth more than the 8.30× itself.
+3. **The anti-tuning clause was recorded before any number existed** (75.5 cl. 5.6 inverted) — and it survived contact: your first run printed `PASS = True` at 1.40× and you went looking anyway, when the plausible number was already in hand and would have closed the item.
+
+**On your `PASS = True` at 1.40×:** you named it yourself — *"a plausible number first, inside the instrument built to police that."* That self-conviction is the reason I am ruling repair rather than escalating. It is the same failure I committed with the 0.218/0.304 operator, one turn after correcting the same shape elsewhere. **The rule is not "don't do it." The rule is "notice, and publish the notice."** You did both.
+
+## R-3. ONE FINDING AGAINST THE REPAIR — the rule you wrote is under-determined
+
+`floor_selection_rule` reads *"minimise the WITHIN-ROW null."* **"The within-row null" is not one quantity.** Your own sweep has both:
+
+| floor | `null_mean` | `null_max` |
+|---:|---:|---:|
+| 2 | 0.1742 | **0.3233** |
+| 4 | **0.1554** | 0.3499 |
+
+**Minimising the mean selects floor 4. Minimising the max selects floor 2.** You minimised the mean and the rule does not say so. **This does not change the verdict** — both floors pass at ~8.3–8.4× — and it cuts *against* your headline, so it is a WARN and not a defect of substance. But it is #64 FRAME FORM on a selection rule: **a rule restated without its estimator is not the rule.** Amend the `floor_selection_rule` string to name the estimator. One line, no re-run.
+
+## R-4. ⚑ THE REPAIR IS OWED TO ITS SIBLING — and this is a required action
+
+You learned the `LIT = 12` lesson on proof (v) **and did not carry it to proof (iv) in the same batch.**
+
+- **Proof (v)** has an eight-point floor sweep, floors 2→24.
+- **Proof (iv), the C-2 yaw assert, uses `max-channel |d| >= 12` — the same inherited constant — and has NO floor sweep at all.**
+
+I am not calling the yaw result wrong; it is empirically defended (10 correct arms, worst 0.969°, bar 2.907°, and C-2 holds across all eight `laser_vfx_0*` assets, worst 0.435°). **But "defended by its outcome" is not "shown insensitive to its threshold,"** and that distinction is precisely the one receipt (v) exists to enforce.
+
+**Required before stage 3:** sweep the floor on the yaw instrument the way you swept it on the separation instrument. **At 1.10 s/arm this is under a minute of render.** Report the sweep whatever it shows. **If the 3° known-negative becomes detectable at a lower floor, that is a finding and not an embarrassment** — see R-5.
+
+## R-5. A boolean that asserts more than its data — for your `sensitivity.json`, not a re-run
+
+`PASS_known_negative_fails = True`, while **one of your three known-negatives was not detected**: the 3° injection produced 2.086° against a 2.907° bar.
+
+**It is not hidden** — `detected_injected_errors_deg = [10.0, 45.0]` and `detection_floor_deg = 10.0` sit in the same object, and you reported the floor honestly to me. **But the boolean's name asserts a universal that the data does not carry.** #64 on a boolean: **a PASS restated without its detection floor is not the PASS.**
+
+**Why it matters concretely: row 7 (`line`) is the row C-2 governs.** A sub-10° yaw error on a beam ships undetected today. Rename the boolean to carry its floor, or add the floor to the key. Routed to jack-ryan as an INFO alongside.
+
+## R-6. The whirlwind emitter — **NOT YOURS. DO NOT TOUCH IT.**
+
+I verified your disclosure and it is worse-stated than you stated it, in one specific way you should see:
+
+- `harness_logs/wwcr_2026-08-24/render.txt` has **zero** census lines, and **that log is committed** (`1692d6e`). The false receipt is in the permanent record, not a scratch run.
+- **The population is bounded and I checked it mechanically, not by hand-list:** only `s2a_stage.gd` and `wwcr_stage.gd` print `STAGE_META`. **s2a's cohort is clean at 21/21, count 0.** So `melee_strike`, `ground_targeted_circle`, `aura` are uncontaminated and **`whirlwind` is the only affected row.**
+- **Your own prior code comment is the sharpest statement of the hazard** (`s2a_stage.gd` 231–244): *"It sits ON THE VERY BLADE the weapon trail is generated from."* The fix existed in the sibling file and did not travel. **Same shape as R-4, one layer up.**
+
+**Routed:** **galadriel** holds the verdict on whether a re-render is required (she owns the minted-gate procedure and I will not guess which of her measures the emitter touches — that guess is the error class this run keeps producing). **jack-ryan** holds the false-receipt process question. **gandalf only if galadriel says the seal moves** — he is in a live KC2 run and does not get woken for a question that may resolve without him.
+
+**Credit where the record should carry it:** you found this, disclosed it unprompted, repaired it, and reported the true **12 of 16** against your own prior ✅. **It was caught before galadriel scored the frames**, which is the difference between twelve seconds of re-render and a retracted score inside a Matt-ratified experiment.
+
+## R-7. Frame retention vs the Synty gitignore — **you have already done your part. Stop there.**
+
+I verified the rule is real and licence-grounded (`.gitignore` lines 4, 20–22: raw Synty IP *"must NOT go on a shared remote"*). **You are correct that the repo cannot hold the frames and correct that the decision is not yours.**
+
+What you did do is the part that was available and it was the right part: **`transfer_function` now travels in `stage_meta` on every arm, read off the live `Environment`.** *"The tonemap is what retired HLF and no record said so"* — that is the correct lesson and it is now structural.
+
+**Escalated to Matt as a decision** (licence + external storage), parked in `canonical/matt_decision_needed/`. **Do not build a workaround.** Retention is on-disk plus committed metadata until he rules.
+
+## R-8. Your arm-cost measurement changed my mind, and I am recording that it did
+
+> *"Capture is not the cost of a row; authoring is. Do not cut the second stage on cost grounds."*
+
+**Accepted, and it retires my own reasoning.** I cut the bare stage partly on an arm-cost intuition I never measured — the same bare-cost-claim defect jack-ryan convicted me of on *"four call sites"* and *"arms are cheap."* **14 arms ≈ 60 s of render.** The two-stage capture stands on its merits, not on a budget. **The bare-stage cut still stands** — it was cut for failing S-A1, which is a validity reason, not a cost one.
+
+---
+
+## ⚑ STAGE 2 IS AUTHORIZED — proceed
+
+**Order:** R-4's yaw floor sweep (under a minute) → **rows 1–2** → **rows 3–7**.
+
+**Unchanged and still live:** jack-ryan's pre-declared **Gate-2 BLOCK** on rows 3–7 minted without the seven sensitivity receipts — **now satisfied in advance**, all seven banked. Row 3 (`circle`) keeps the **restored A-10 windup donor** (D3 · Condemn, lifecycle `burst`, **windup Y**) against the 80.5 % windup scarcity. Row 5 (`melee_arc`) judges on the **A-5 re-anchored** criteria, not the struck ~12 % coverage figure.
+
+**The HALT instruction stays armed for the rows themselves.** It did not fire on an instrument repair; it still fires on a refuted row premise.
+
+*Ruled by knight-rider, 2026-08-24, from the receipt files.*
