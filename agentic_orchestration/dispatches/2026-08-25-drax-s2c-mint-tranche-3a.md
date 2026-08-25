@@ -326,7 +326,9 @@ Does this dispatch add, modify, rename or remove any field on a telemetry schema
 If parallel — or if the WW-AB session is live in this tree — **#62(a) binds:**
 
 - **Stage by explicit pathspec. Never `git add -A` or `git add .`**
-- **Verify `git diff --cached --name-status` against the paths you named, before every commit**
+- ⚑ **Verify `git diff --cached --name-status` against the paths you named, IN ITS OWN TOOL CALL, READING THE RESULT, BEFORE the call that commits.** **Never `&&`-chain the check to `git commit`.** If the staged list holds a path you did not name, **`git restore --staged <path>` FIRST** — do not commit and explain.
+  ⚠ **This wording is corrected from a LIVE FAILURE, mine, 2026-08-25.** I wrote the original form into this dispatch and then broke it myself within the hour: `git add <one file> && git diff --cached --name-status && git commit && git push` **ran the check, printed 20 files belonging to a concurrent session, and committed and pushed them in the same breath** — I read the evidence in the same tool result as the push confirmation. **`git diff` exits 0 whether it lists one file or a thousand, so `&&` cannot act on what it found. A verification chained to the action it verifies is not a gate; it is a receipt.** The original instruction was satisfiable without doing anything — the exact failure signature this dispatch enforces against everywhere else.
+  ⚑ **It is worse on your side than it was on mine, because you TAG.** Mine produced a mis-attributed commit. Yours would produce a **defective seal** — *"a tag that carries a sibling session's work is a defective seal even when every file in it is correct."* Incident record: `qa/pending/2026-08-25-kr-swept-a-concurrent-sessions-staged-work-into-a-push.md`.
 - **Tag only commits whose full contents you authored**
 
 ⚠ **A tag that carries a sibling session's work — committed or uncommitted — is a DEFECTIVE SEAL even when every file in it is correct.** The seal's claim is not "these files are good"; it is "this is what I made." Also: the WW-AB quarantine is only a quarantine if it does not arrive as a staged file.
