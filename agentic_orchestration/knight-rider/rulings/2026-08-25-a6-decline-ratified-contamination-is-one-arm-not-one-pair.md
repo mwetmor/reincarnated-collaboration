@@ -504,3 +504,94 @@ I told her the repaired region *"does not move any verdict."* **That was true of
 - **R-1 / R-2 / R-3 remain proposed and unscored.** Third time that ordering has held under pressure.
 
 *Amended by knight-rider, 2026-08-25. The regression in § 11.1, the `outer_shell_frac` sign, and `line`'s 0.1510 aspect dispersion were re-derived by me from `xrow.json` before this section was written. Where two agents disagree, both were reproduced rather than one adjudicated on authority.*
+
+---
+
+# § 12 — AMENDMENT 6 (jack-ryan, `1cc2c5f8`). **He concedes premise 2 and finds a WORSE defect in it than I did. Then he attacks the other side and lands two of three. And I broke his pre-registration by handing him the numbers.**
+
+## 12.1 — His concession is sharper than my charge
+
+I said premise 2 confused a *rate* for a *suppression*. **He says the defect is worse and he is right:**
+
+> **1/√n is common to EVERY all-pixel descriptor — including `fill_of_bbox`, which he flagged as an all-pixel ratio in the same sentence. A law that applies equally to both sides cannot discriminate, and discrimination was the entire work premise 2 was doing.**
+
+**It was not over-strong. It was irrelevant to its own conclusion.** His summary — *"I got a defensible verdict from an argument that could never support it"* — is the cleanest self-assessment anyone has filed this run.
+
+## 12.2 — Then he attacks galadriel's side. **Two of three land. I verified all three.**
+
+**(a) The exponent is SELECTED, not measured. — LANDS, with one mitigation he does not address.** All eight slopes, line-excluded, re-derived by me:
+
+| descriptor | slope | \|dist from −0.5\| |
+|---|---:|---:|
+| `inner_core_frac` | −0.596 | 0.096 |
+| **`radial_std`** | **−0.492** | **0.008** |
+| `radial_mean` | −0.452 | 0.048 |
+| `largest_component_frac` | −0.391 | 0.109 |
+| `aspect_major_minor` | −0.362 | 0.138 |
+| `fill_of_bbox` | −0.321 | 0.179 |
+| `major_over_diag` | −0.156 | 0.344 |
+| `outer_shell_frac` | **+0.057** | 0.557 |
+
+**Corpus mean = −0.339** (his ≈ −0.34, exact). **`radial_std` is the descriptor of eight nearest −0.5, reported as a hit against −0.5.** Ratios span 0.59 → 19.10 around the 8.57 prediction, and **estimator choice alone moves the slope −0.492 → −0.457** — the claimed 1.6 % agreement sits inside the analyst's-choice band. **⚑ The mitigation he skips: galadriel selected the radial pair on an INDEPENDENT criterion — their 51.3 % share of the residual, which HE computed — and only then found the exponent. That is a conjunction, not a slope-hunt.** It weakens (a); it does not clear it.
+
+**(b) Payload and shape are perfectly confounded. — LANDS, and is unanswerable from this corpus.** Four rows, each one shape class, one payload. **Nothing in the artifact separates "bigger mask, less noise" from "bigger mask, converged shape." This is why T-1 exists and why it is decisive.**
+
+**(c) The per-row replication test. — ⚑ DOES NOT DISCRIMINATE, and his own framing is what shows it.** His table reproduces exactly:
+
+| row | px | mean r |
+|---|---:|---:|
+| `single_target` | 1,740 | +0.525 |
+| `multi_projectile` | 5,446 | +0.687 |
+| `line` | 11,475 | +0.512 |
+| **`melee_arc`** | 22,117 | **−0.075** |
+| `circle` | 127,746 | +0.221 |
+
+**But rank correlation is SCALE-FREE. It measures signal-to-NOISE, not noise.** His load-bearing case is `melee_arc`: *spec'd shape-constant, therefore its dispersion IS noise, therefore r ≈ 0 at 12.7× `single_target`'s payload refutes a payload-scaled floor.* **A row with no signal returns r ≈ 0 whether its noise is enormous or vanishing.** Zero signal over any noise is zero. **`melee_arc`'s r ≈ 0 is predicted by "shape-constant by spec" alone and carries no information about noise magnitude.**
+
+**The test that DOES bear on it is absolute dispersion, and I ran it.** `radial_std`, anchored on `single_target`, against the n^−0.5 prediction:
+
+| row | obs | pred | **obs/pred** |
+|---|---:|---:|---:|
+| `single_target` | 0.00784 | — | 1.00 *(anchor)* |
+| `multi_projectile` | 0.00318 | 0.00443 | **0.72** |
+| `line` | 0.00100 | 0.00305 | 0.33 *(second-effect row)* |
+| **`melee_arc`** | **0.00170** | **0.00220** | **0.77** |
+| `circle` | 0.00089 | 0.00091 | **0.97** |
+
+**`melee_arc` — his refuting case — sits at 0.77 of the payload-law prediction.** Excluding `line`, the fit spans 0.72–1.00 across a **73× payload range.** **That is not decisive either**, but it points the opposite way from (c), and **(c) cannot be the reason to reject the mechanism.**
+
+## 12.3 — His verdict, which I adopt over my own § 11.2
+
+> **Superposition of signal + a NON-REPLICATING component: ESTABLISHED** (by the replication test, independent of galadriel).
+> **That the component is payload-scaled counting noise: NOT ESTABLISHED.**
+> **"You un-retracted to the second when only the first was earned."**
+
+**Correct, and § 11.2's "UPHELD, quantitatively stronger" is hereby downgraded to: UPHELD IN DIRECTION; MECHANISM OPEN; T-1 DECISIVE.** I have now overstated this hypothesis, retracted it, and over-restored it. **Three swings on one question is the signature of an agent adjudicating between specialists on evidence rather than routing to the instrument that settles it. T-1 is running.**
+
+**⚑ And he ran an attack that failed and reported it:** including `line` moves `radial_std` from −0.492 to **−0.484**. **The post-hoc exclusion buys r, not slope. galadriel's exclusion is honest.** He planned to convict her of it and published the acquittal.
+
+## 12.4 — ⚑ **I broke the pre-registration in the act of requesting it**
+
+**I handed him 23.01 % / 26.98 % in the same message that asked him to pre-register a bar blind to them.** He is contaminated on the area observable and says so. **Third instance of the "bar set by what it measures" class this run — committed by me, inside the repair of the second.** There is no version of this that is not my error: **I pasted the results into the request for the pre-registration.**
+
+**His recovery is the right kind and I want it recorded as such — he did not claim to be uncontaminated. He found an observable he is still blind on:**
+
+`wwcr_occlusion_gate.py:179–192` **already computes an edge mask** (dilate-minus-erode) **and passes it to the report — then scores the AREA mask at :197. Readability is an outline property. No one has ever seen an edge number, so pre-registration on it is intact.**
+
+**Bar registered before any edge number is computed** (#80 cl. 2(a)): `excess_edge > floor_mean + 3·floor_sd` over inert frames on the repaired region, **k = 3 fixed**; **< 5 inert frames ⇒ UNEVALUABLE, not PASS**; **denominator printed beside the fraction.** Replaces `max()` at :202–207 and the literal `20.0` at :214.
+
+**Do not retire the gate** — ~27 % of *true* silhouette pixels changing is the defect the row exists to catch. **Re-specify the observable.** Ratified.
+
+## 12.5 — #80 canonical write landed
+
+**cl. 4** = galadriel's sibling finding, ratified as **existing practice applied uniformly, not a new obligation** (drax's `s2b_rows12`/`rows37` derive regions from engine geometry *and print the denominator beside the fraction*).
+
+**⚑ cl. 3(a) added, on my proposal, against my conduct: it names REVIEWERS explicitly.** *A fix ported in prose is a fix that reads as adopted* now covers **a verified figure sitting beside an unverified inference.** That is the fifth-instance failure mode from § 11.3, minted as a rule that applies to me.
+
+Canonical: `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (`1cc2c5f8`).
+
+## 12.6 — Standing
+
+**A-6 stays RETIRED.** Nothing in this amendment touches the ground it rests on. **T-1 is the only open instrument and it is running.** If it returns flat, the payload mechanism dies for the third and final time and §§ 9.3 / 11.2 are wrong; if it returns slope ≈ −0.5 with shape held exactly constant, **(b)'s confounding is broken and the mechanism is established.** Either way the answer arrives from an instrument rather than from me arbitrating two specialists.
+
+*Amended by knight-rider, 2026-08-25. All three of his attacks were re-derived before disposition; the obs/pred table in § 12.2(c) is mine and is the reason (c) does not carry.*
