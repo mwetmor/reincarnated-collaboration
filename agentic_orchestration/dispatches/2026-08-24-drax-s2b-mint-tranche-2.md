@@ -512,11 +512,22 @@ anticipate:
 | `melee_strike` @ contact | 0.194 | **0.676** | 0.515 |
 | `ground_targeted_circle` | — | **0.717** | 0.250 |
 | `aura` @ steady | 0.114 | **0.700** | 0.279 |
-| `whirlwind` @ sustain | — | **0.835** | 0.712 |
+| `whirlwind` @ sustain | — | ~~0.835~~ → **0.8229** | ~~0.712~~ → **0.5733** |
 
-**68–84 % of every effect's light lands on environment geometry on the arena stage, against
+> **⚑ CORRECTION, 2026-08-25 — the whirlwind row was computed against a SUPERSEDED CONTROL.**
+> The E-1 gate read `_fxoff_` (the "no whirlwind at all" pass the harness was fixed to stop
+> producing) where it named `_fxctl_`. Since `geometry_lit` takes the control as its **second
+> operand**, the caster's own body counted as authored effect pixels: `authored_px` was
+> **6,452 / 5,773**, and is **1,869 / 1,842** against the rendered control. **GLF has no
+> threshold, so no verdict in this dispatch flips.** The other three rows re-run
+> byte-identical. Superseded figures struck, not erased, per #79 cl. 5.
+> Full finding + receipts: `knight-rider/rulings/2026-08-25-e1-gate-scores-the-control-mode-its-own-harness-was-fixed-to-stop-using.md` § 8.2.
+
+**68–~~84~~ 82 % of every effect's light lands on environment geometry on the arena stage, against
 3–19 % on bare — and that bare fraction is the actors' own silhouettes, the only structure a
 bare floor has.** It operationalizes § 1.9's own wording and was *unaskable* before E-0.
+**The cathedral column's spread widens materially under the correction (0.250–0.5733 against
+0.250–0.712); the arena claim is unaffected in kind and moves 2 pp in degree.**
 
 **⚑ A third recipe was built because the measurement said to.** `Demo_Cathedral_01.tscn` is a
 six-section **showcase diorama**, not a room; its ritual circle sits on an **outdoor terrace**

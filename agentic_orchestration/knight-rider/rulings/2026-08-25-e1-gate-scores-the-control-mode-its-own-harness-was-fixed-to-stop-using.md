@@ -2,7 +2,7 @@
 
 **By:** knight-rider, 2026-08-25
 **Occasioned by:** disposing of drax stage-4 routed finding **#5** — *"`run_s2b_e1.sh` delivered 20 superseded `_fxoff_` frames into the E-1 corpus"* — which sat in the remaining-to-seal table (`dispatches/2026-08-24-drax-s2b-rows-redispatch.md:1337`) as a **knight-rider cleanup item.**
-**Status:** measurement dispatched to drax (Pattern A, pre-registration before re-run). **No verdict retired or moved on this finding yet.**
+**Status:** ~~measurement dispatched to drax (Pattern A, pre-registration before re-run). **No verdict retired or moved on this finding yet.**~~ → **MEASURED AND CONFIRMED, 2026-08-25** (drax `0c38b79` prereg → `0d26021` result). **Branch A fired: arena `00-pre` 83 → 0, cathedral 265 → 0, `PASS_exactly_zero` false → true on both.** The open "control not pose-matched" defect is **RETIRED**. **See § 8, which also records the two consequences NOBODY pre-registered — one of them larger than the finding.** Original text below is preserved unedited per #79 cl. 5.
 **Everything below is derived from source and receipts. Nothing is taken from an agent summary, including drax's — his assessment of this item is the thing that turned out not to hold.**
 
 ---
@@ -72,3 +72,65 @@ Pattern A to drax, 2026-08-25, sequenced as: **pre-register the predicted `00-pr
 - **The gate's own note surfaced the anomaly to me by name** and refused to report a false negative — `det["PASS_exactly_zero"] = "N/A — no effect-off mark exists"` where no mark exists, rather than `false`. **The instrument was honest about a reading taken from the wrong files.** That is #63(c) complied with, and it is the reason the anomaly was visible at all.
 
 *Filed by knight-rider, 2026-08-25. Source reads: `wwcr_stage.gd:521`, `run_s2b_e1.sh:76-83`, `s2b_e1_gate.py:132/157/186/189`, `harness_logs/s2b_e1_2026-08-24/{gate.json,render.txt}` and a file-count of the corpus directory (152 PNG · 20 `_fxoff_` · 20 `_fxctl_` · 20 `_fxon_`).*
+
+---
+
+# § 8 — MEASURED. Confirmed on the pre-registered branch, and the two largest consequences were not on anyone's list.
+
+**Appended 2026-08-25 after drax's return. Every figure below I re-read out of `gate.json` and `s2b_e1_gate.py` myself; none is taken from his summary — which is the discipline that produced §§ 1–7 and would be hollow to abandon at the payoff.**
+
+## 8.1 The primary reading
+
+| | before | after | pre-registered branch |
+|---|---:|---:|---|
+| arena `00-pre` | 83 | **0** | **A — CONFIRMED** |
+| cathedral `00-pre` | 265 | **0** | **A — CONFIRMED** |
+| `PASS_exactly_zero` | false | **true** | both stages |
+
+**The "wwcr novfx control is not pose-matched before T_BEGIN" defect is RETIRED.** It was an `--fx=off` property attributed to `novfx` by a gate that named one arm and read the other. § 4's prediction — that the anomaly carried the broken mode's own signature — held: drax's localiser puts the 83 px on a **201×208 mixed-sign residual on the caster**, which is a real pose mismatch, on an arm that renders no whirlwind at all.
+
+**This finding retired an open defect rather than adding one.** § 4 said explicitly that I was not asserting that, and that it was measured or it was nothing. It measured.
+
+## 8.2 ⚑ The consequence I missed, and it is bigger than the one I found
+
+§ 3 listed four consumption sites and I put determinism first. **I described site 1 as "drives `determinism` and `geometry_lit`" and did not notice what that second word costs** — `geometry_lit` takes the control as its **second operand**, so a wrong control does not merely mis-score a comparison, it **inflates the numerator of every ratio built on it.**
+
+| | before | after | move |
+|---|---:|---:|---|
+| arena `authored_px` | 6,452 | **1,869** | **3.5×** |
+| cathedral `authored_px` | 5,773 | **1,842** | **3.1×** |
+| arena `GLF` | 0.8345 | 0.8229 | small |
+| cathedral `GLF` | 0.7116 | **0.5733** | **large** |
+| cathedral `mean_added_luma_on_structure` | −0.10 | **+57.04** | sign and magnitude |
+
+**The caster's own body was being counted as authored effect pixels**, and cathedral's near-zero added-luma was a silhouette averaging against itself. **A reading of −0.10 that looks like a clean null was the most corrupted number in the receipt.**
+
+**This is mine to carry, in two ways.** First, the miss: I had the site in my own table and stopped one step short of asking what the operand *was*. Second, the repair: **the published E-0 GLF table in `dispatches/2026-08-24-drax-s2b-mint-tranche-2.md` § E-0 is MY file**, its whirlwind row was computed against the superseded control, and I have struck-and-corrected it in place rather than overwriting it (#79 cl. 5). GLF carries no threshold, so **no verdict flips**; the other three rows are byte-identical.
+
+## 8.3 The `post` mark — a second reason-on-record that does not reproduce
+
+The `ROWS` header's stated reason for leaving ww's `post` unscored is a **neutral never-tinted scuff layer persisting through `09-off`, cited at 3,973 px.** Against the rendered control, `09-off` **diffs to exactly 0 on both stages.** The reason does not reproduce; it was a property of the superseded arm too.
+
+**drax did not switch `post` on.** His words: turning an N/A into a PASS **moves favourably and was not pre-registered.** He reported it, flagged it in the receipt's own note, and left it for its own registration. **That is the correct call and I am ratifying it rather than collecting the free green** — a verdict improvement discovered mid-run is exactly the thing #80 exists to make you pay for in advance.
+
+## 8.4 ⚑ The conduct finding — his own falsifier convicted him, and it is the most instructive line in the return
+
+drax pre-registered **(a) "I predict C-3 spread DECREASES"**, with the falsifier *"if spread is UNCHANGED, they contributed nothing."*
+
+**Measured: ww `n` 30 → 20; spread `0.8716 → 0.8716` and `2.4192 → 2.4192`. Unmoved to the digit.** The falsifier fired against its author. `std` fell only from dropping ten in-range samples.
+
+**His own sentence is the finding:** *"Had I measured first, 'spread fell, because std fell' is a sentence I could have written without noticing."* **A true sentence, about a real number, that would have been a false explanation** — and nothing downstream would have caught it, because nothing downstream reads `std`'s provenance. **Pre-registration did not merely discipline the claim; it was the only instrument in the run capable of detecting that particular error.** I offer this to jack-ryan as the cleanest live instance of #80 cl. 2 available, found by a developer against himself.
+
+## 8.5 The frames — disposition executed, and better than I specified
+
+I instructed **MOVE or EXCLUDE BY PATTERN, never delete.** He excluded by pattern **and emitted the exclusion into `gate.json` as `superseded_excluded`, carrying the pattern, both pool counts, and all twenty filenames.** Verified present; **40 `_fxoff_` and 40 `_fxctl_` PNGs still on disk across the corpus, nothing moved, nothing deleted.**
+
+**That is strictly better than moving them.** A moved file is silent about why it moved; **an exclusion that publishes its own membership list is a receipt that cannot drift from the directory it describes.** The next reader does not have to reconstruct this ruling to know what was dropped.
+
+**And § 5 is now demonstrated rather than predicted.** The re-run cost **zero renders** — both arms were on disk. The evidence and the defect being the same 20 files is not a hazard I argued for; it is the reason this finding was recoverable at all, and the reason confirming it was free. **That is a concrete input to Matt's open frame-retention fork** (`canonical/matt_decision_needed/2026-08-24-vfx-frame-retention-vs-synty-licence.md`): a retention policy that had discarded this corpus would have made the defect permanent AND the confirmation expensive.
+
+## 8.6 § 4's secondary item, closed — and I checked it the hard way
+
+The cathedral note is no longer a copy of arena's. **Both stages now emit identical note text, which by itself proves nothing — an identical output is exactly what a re-introduced copy would look like when both residuals are zero.** So I read the code: `s2b_e1_gate.py:312-318` builds `note` from the stage-independent `why`, then appends `PRE_RESIDUAL_NOTE` **only when that stage's own `pre` mark measures a non-zero residual**, formatted with that stage's number. **Derived, not copied. The receipt could not have told me; the source could.**
+
+*Appended by knight-rider, 2026-08-25, from `gate.json` (`rows.ww.{arena,cathedral}.{determinism,geometry_lit}`, `stages.*.superseded_excluded`), `s2b_e1_gate.py:127-151/244-257/307-324`, `git log` on `reincarnated-godot` (`0c38b79` prereg strictly precedes `0d26021` result), and a live file-count of the corpus. **`reincarnated-godot` is unpushed and outside the standing push pattern — that ask is owed to Matt and is not taken here.***
