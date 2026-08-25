@@ -1,0 +1,43 @@
+=== permission returned by CBC::CheckAction (0xea260) on the MONSTER limb ===
+    (as-Player downcast NULL => 0xea28c always taken => matrix at 0xea310 unreachable)
+
+     lifeState |                   new action |   cur action | permission
+-------------------------------------------------------------------------
+         Alive |               4 MoveToAction | 19 SpawnAction | 0 REPLACE    [ea378: Alive + non-Die action -> unconditional REPLACE]
+         Alive |               4 MoveToAction |       <none> | 0 REPLACE    [ea378: Alive + non-Die action -> unconditional REPLACE]
+         Alive |       18 PlayAnimationAction | 4 MoveToAction | 0 REPLACE    [ea378: Alive + non-Die action -> unconditional REPLACE]
+         Alive |       18 PlayAnimationAction | 19 SpawnAction | 0 REPLACE    [ea378: Alive + non-Die action -> unconditional REPLACE]
+         Alive |                 15 DieAction | 4 MoveToAction | 0 REPLACE    [ea397: Alive + DieAction over non-Die current action]
+         Alive |                 15 DieAction | 15 DieAction | 2 REJECT    [ea397->ea39d: DieAction over a DieAction]
+         Alive |             20 RespawnAction | 19 SpawnAction | 0 REPLACE    [ea378: Alive + non-Die action -> unconditional REPLACE]
+  Initializing |               4 MoveToAction | 19 SpawnAction | 0 REPLACE    [ea378: Initializing + non-Die action -> unconditional REPLACE]
+  Initializing |               4 MoveToAction |       <none> | 0 REPLACE    [ea378: Initializing + non-Die action -> unconditional REPLACE]
+  Initializing |       18 PlayAnimationAction | 4 MoveToAction | 0 REPLACE    [ea378: Initializing + non-Die action -> unconditional REPLACE]
+  Initializing |       18 PlayAnimationAction | 19 SpawnAction | 0 REPLACE    [ea378: Initializing + non-Die action -> unconditional REPLACE]
+  Initializing |                 15 DieAction | 4 MoveToAction | 0 REPLACE    [ea397: Initializing + DieAction over non-Die current action]
+  Initializing |                 15 DieAction | 15 DieAction | 2 REJECT    [ea397->ea39d: DieAction over a DieAction]
+  Initializing |             20 RespawnAction | 19 SpawnAction | 0 REPLACE    [ea378: Initializing + non-Die action -> unconditional REPLACE]
+         Dying |               4 MoveToAction | 19 SpawnAction | 2 REJECT    [ea3b5: Dying and new-action is not DieAction(15)]
+         Dying |               4 MoveToAction |       <none> | 2 REJECT    [ea3b5: Dying and new-action is not DieAction(15)]
+         Dying |       18 PlayAnimationAction | 4 MoveToAction | 2 REJECT    [ea3b5: Dying and new-action is not DieAction(15)]
+         Dying |       18 PlayAnimationAction | 19 SpawnAction | 2 REJECT    [ea3b5: Dying and new-action is not DieAction(15)]
+         Dying |                 15 DieAction | 4 MoveToAction | 0 REPLACE    [ea397: Dying + DieAction over non-Die current action]
+         Dying |                 15 DieAction | 15 DieAction | 2 REJECT    [ea397->ea39d: DieAction over a DieAction]
+         Dying |             20 RespawnAction | 19 SpawnAction | 2 REJECT    [ea3b5: Dying and new-action is not DieAction(15)]
+          Dead |               4 MoveToAction | 19 SpawnAction | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |               4 MoveToAction |       <none> | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |       18 PlayAnimationAction | 4 MoveToAction | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |       18 PlayAnimationAction | 19 SpawnAction | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |                 15 DieAction | 4 MoveToAction | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |                 15 DieAction | 15 DieAction | 2 REJECT    [ea373: Dead and new-action is not RespawnAction(20)]
+          Dead |             20 RespawnAction | 19 SpawnAction | 0 REPLACE    [ea378: Dead + RespawnAction(20)]
+
+=== THE TWO CELLS THIS LAP WAS COMMISSIONED ON ===
+  lifeState=     Unknown:  pursue MoveTo(4) over SpawnAction(19) -> 0 REPLACE   |  alert PlayAnimation(18) over MoveTo(4) -> 0 REPLACE
+  lifeState=Initializing:  pursue MoveTo(4) over SpawnAction(19) -> 0 REPLACE   |  alert PlayAnimation(18) over MoveTo(4) -> 0 REPLACE
+  lifeState=       Alive:  pursue MoveTo(4) over SpawnAction(19) -> 0 REPLACE   |  alert PlayAnimation(18) over MoveTo(4) -> 0 REPLACE
+  lifeState=  Respawning:  pursue MoveTo(4) over SpawnAction(19) -> 0 REPLACE   |  alert PlayAnimation(18) over MoveTo(4) -> 0 REPLACE
+
+  INVARIANT over all four non-terminal lifeStates.  Dying(3)/Dead(4) are excluded by the
+  measurement itself: the closures fired and the bodies pursued, which a Dying/Dead body
+  cannot do (both would REJECT the MoveTo outright).

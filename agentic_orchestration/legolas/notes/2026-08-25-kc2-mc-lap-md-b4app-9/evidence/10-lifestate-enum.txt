@@ -1,0 +1,8 @@
+=== (a) GetLifeStateAsText jump table @ RVA 0x00046f58, 6 entries (cmp eax,5; ja default) ===
+  index 0 -> 0x00046ea2   Life: Unknown
+  index 1 -> 0x00046eb9   Life: Initializing
+  index 2 -> 0x00046ed0   Life: Alive
+  index 3 -> 0x00046ee7   Life: Dying
+  index 4 -> 0x00046efe   Life: Dead
+  index 5 -> 0x00046f15   Life: Respawning
+  default (>5) -> 0x00046f2c   "Life: Illegal"

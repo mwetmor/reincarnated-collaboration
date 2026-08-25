@@ -1,0 +1,43 @@
+=== CBC::CheckAction  (0x000ea260)  — 26 .rdata slot(s) image-wide
+   slot @ 0x005899d0   +0x068 of  ??_7ControllerStooge@GAME@@6B@
+   slot @ 0x00589ac0   +0x068 of  ??_7ControllerBaseCharacter@GAME@@6B@
+   slot @ 0x00589b2c   +0x068 of  ??_7ControllerCharacter@GAME@@6B@
+   slot @ 0x00589ba8   +0x068 of  ??_7ControllerCombat@GAME@@6B@
+   slot @ 0x00591538   +0x068 of  ??_7ControllerAI@GAME@@6B@
+   slot @ 0x005929a4   +0x068 of  ??_7ControllerMonster@GAME@@6BControllerAI@1@@
+   slot @ 0x005b3d20   +0x068 of  ??_7ControllerPet@GAME@@6BControllerAI@1@@
+   slot @ 0x005b3e58   +0x068 of  ??_7ControllerOrmenos@GAME@@6BControllerAI@1@@
+   slot @ 0x005b3f90   +0x068 of  ??_7ControllerNpc2@GAME@@6B@
+   slot @ 0x005b40a0   +0x068 of  ??_7ControllerMonsterSynergy@GAME@@6BControllerAI@1@@
+   slot @ 0x005b7884   +0x068 of  ??_7ControllerHades@GAME@@6BControllerAI@1@@
+   slot @ 0x005b79bc   +0x068 of  ??_7ControllerGraeae@GAME@@6BControllerAI@1@@
+   slot @ 0x005b7af4   +0x068 of  ??_7ControllerCerberus@GAME@@6BControllerAI@1@@
+   slot @ 0x005b7c2c   +0x068 of  ??_7ControllerAlly@GAME@@6BControllerAI@1@@
+   slot @ 0x005ba7e8   +0x074 of  ??_7CombatManager@GAME@@6B@
+   slot @ 0x005bab0c   +0x254 of  ??_7BandariTeleportPoint@GAME@@6BObject@1@@
+   slot @ 0x005bc9b8   +0xb1c of  ??_7ControllerGraeaeStateIdle@GAME@@6B@
+   slot @ 0x005bd934   +0x198 of  ??_7?$ControllerAIStateT@VControllerSpirit@GAME@@VMonster@2@@GAME@@6B@
+   slot @ 0x005bdf2c   +0x198 of  ??_7?$ControllerAIStateT@VControllerMonsterSynergy@GAME@@VMonster@2@@GAME@@6B@
+   slot @ 0x005be040   +0x2ac of  ??_7?$ControllerAIStateT@VControllerMonsterSynergy@GAME@@VMonster@2@@GAME@@6B@
+   slot @ 0x005c2504   +0x074 of  ??_7ControllerPet@GAME@@6BILootContainer@1@@
+   slot @ 0x005c2b18   +0x688 of  ??_7ControllerPet@GAME@@6BILootContainer@1@@
+   slot @ 0x005c3120   +0x1a8 of  ??_7ControllerSpiritHostState@GAME@@6B@
+   slot @ 0x005c3848   +0x3f8 of  ??_7?$ControllerAIStateT@VControllerStationaryMonster@GAME@@VMonster@2@@GAME@@6B@
+   slot @ 0x005c3e40   +0x198 of  ??_7ControllerTerracottaStateStartup@GAME@@6B@
+   slot @ 0x005c462c   +0x984 of  ??_7ControllerTerracottaStateStartup@GAME@@6B@
+   -> distinct displacements: +0x68 (14 classes), +0x74 (2 classes), +0x198 (3 classes), +0x1a8 (1 classes), +0x254 (1 classes), +0x2ac (1 classes), +0x3f8 (1 classes), +0x688 (1 classes), +0x984 (1 classes), +0xb1c (1 classes)
+
+=== ControllerPlayer::CheckAction  (0x0011b430)  — 1 .rdata slot(s) image-wide
+   slot @ 0x0058f79c   +0x068 of  ??_7ControllerPlayer@GAME@@6B@
+   -> distinct displacements: +0x68 (1 classes)
+
+=== the three Pursue::OnBegin MoveTo sites and their terminal permission gate ===
+   0x000ff1ee  ControllerMonsterStatePursue::OnBegin+0x3ae  -> call 0x000e6cd0 ControllerAI::MoveTo
+   0x000ff264  ControllerMonsterStatePursue::OnBegin+0x424  -> call 0x000e6cd0 ControllerAI::MoveTo
+   0x000ff2ca  ControllerMonsterStatePursue::OnBegin+0x48a  -> call 0x000e6cd0 ControllerAI::MoveTo
+   0x000e6dbb  [action+8] := 4          (MoveToAction type literal)
+   0x000e6dcd  -> call 0x000ea480 ControllerBaseCharacter::HandleAction   (SOLE exit)
+   0x000ea4c2 / 0x000ea4d2  -> call 0x000ea4e0 LocalHandleAction          (both branches)
+   0x000ea537  -> call [this_vtbl + 0x68]  ==  0x000ea260 CBC::CheckAction (ControllerMonster)
+   0x000ea5d9 / 0x000ea5f2  -> call 0x000724f0 CharacterActionHandler::Execute
+       ... both DOMINATED by 0x000ea537.  No edge reaches Execute without CheckAction.

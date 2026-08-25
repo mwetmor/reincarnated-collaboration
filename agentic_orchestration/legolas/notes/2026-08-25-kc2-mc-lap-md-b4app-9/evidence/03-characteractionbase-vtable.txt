@@ -1,0 +1,37 @@
+=== ??_7CharacterActionBase@GAME@@6B@ @ 0x005921d4
+  +0x000 (slot    0) -> 0x000715b0  ?ToString@RotateAction@GAME@@UBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ+0x40
+        ebp
+        ebp, esp
+        eax, dword ptr fs:[0]
+        -1
+        0x104c00f0
+        eax
+  +0x018 (slot    6) -> 0x0006b580  ?GetIsAlternate@EquipmentCtrl@GAME@@QBE_NXZ
+        al, byte ptr [ecx + 0xd]
+          0x0006b583  ret      
+          0x0006b584  int3     
+          0x0006b585  int3     
+          0x0006b586  int3     
+          0x0006b587  int3     
+  +0x028 (slot   10) -> 0x0005e060  ?GetDebug@FactionManager@GAME@@QBE_NXZ
+        al, byte ptr [ecx + 0xc]
+          0x0005e063  ret      
+          0x0005e064  int3     
+          0x0005e065  int3     
+          0x0005e066  int3     
+          0x0005e067  int3     
+  +0x02c (slot   11) -> 0x00008ef0  ?GetId@Conversation@GAME@@QBEIXZ
+        eax, dword ptr [ecx + 8]
+          0x00008ef3  ret      
+          0x00008ef4  int3     
+          0x00008ef5  int3     
+          0x00008ef6  int3     
+          0x00008ef7  int3     
+  +0x030 (slot   12) -> 0x0006b590  ?GetPreAction@CharacterActionBase@GAME@@UAEPAVCharacterAction@2@XZ
+        ebp
+        ebp, esp
+        -1
+        0x104c3b28
+        eax, dword ptr fs:[0]
+        eax
+

@@ -1,0 +1,58 @@
+=== base chain from ?classInfo@Monster@GAME@@1VRTTI_ClassInfo@2@B @ 0x007ff600
+    0x007ff600  ?classInfo@Monster@GAME@@1VRTTI_ClassInfo@2@B
+    0x007ff618  ?classInfo@Character@GAME@@1VRTTI_ClassInfo@2@B
+
+=== base chain from ?classInfo@Player@GAME@@1VRTTI_ClassInfo@2@B @ 0x007ff5a0
+    0x007ff5a0  ?classInfo@Player@GAME@@1VRTTI_ClassInfo@2@B
+    0x007ff618  ?classInfo@Character@GAME@@1VRTTI_ClassInfo@2@B
+
+=== ?GetLocalPlayer@AreaTrigger@GAME@@IBEPAVPlayer@2@XZ  (helper-A identity witness) ===
+     0x00017d70  push     esi
+     0x00017d71  mov      esi, dword ptr [0x108080a4]   ; [?gGameEngine@GAME@@3PAVGameEngine@1@A] f32=0 i32=0 f64=0
+     0x00017d77  mov      ecx, dword ptr [esi + 0x27f0]
+     0x00017d7d  mov      eax, dword ptr [ecx]
+     0x00017d7f  call     dword ptr [eax + 0xc]
+     0x00017d82  cmp      dword ptr [eax + 8], 0
+     0x00017d86  je       0x10017da5
+     0x00017d88  mov      ecx, dword ptr [esi + 0x27f0]
+     0x00017d8e  mov      eax, dword ptr [ecx]
+     0x00017d90  call     dword ptr [eax + 0xc]
+     0x00017d93  push     dword ptr [eax + 8]
+     0x00017d96  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+     0x00017d9c  mov      ecx, eax
+     0x00017d9e  call     0x1000b260   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+     0x00017da3  pop      esi
+     0x00017da4  ret      
+     0x00017da5  xor      eax, eax
+     0x00017da7  pop      esi
+     0x00017da8  ret      
+     0x00017da9  int3     
+     0x00017daa  int3     
+     0x00017dab  int3     
+     0x00017dac  int3     
+     0x00017dad  int3     
+     0x00017dae  int3     
+     0x00017daf  int3     
+
+=== ?RequestMove@ControllerMonsterStateStartup@GAME@@UAEXIABVWorldVec3@2@@Z  (monster-side null idiom) ===
+     0x000fe990  push     ebp
+     0x000fe991  mov      ebp, esp
+     0x000fe993  push     edi
+     0x000fe994  push     dword ptr [ebp + 8]
+     0x000fe997  mov      edi, ecx
+     0x000fe999  call     dword ptr [0x104e504c]   ; f32=1.16338e-38 i32=8302122 f64=2.73074e-306
+     0x000fe99f  mov      ecx, eax
+     0x000fe9a1  call     0x1000b260   ; -> ?Reset@AchievementManager@GAME@@QAEXXZ+0xea0
+     0x000fe9a6  test     eax, eax
+     0x000fe9a8  jne      0x100fe9b7
+     0x000fe9aa  push     dword ptr [ebp + 0xc]
+     0x000fe9ad  mov      ecx, edi
+     0x000fe9af  push     dword ptr [ebp + 8]
+     0x000fe9b2  call     0x1010b0f0   ; -> ?DefaultRequestMoveResponse@?$ControllerMonsterState@VControllerMonster@GAME@@VMonster@2@@GAME@@IAEXIABVWorldVec3@2@@Z
+     0x000fe9b7  pop      edi
+     0x000fe9b8  pop      ebp
+     0x000fe9b9  ret      8
+     0x000fe9bc  int3     
+     0x000fe9bd  int3     
+     0x000fe9be  int3     
+     0x000fe9bf  int3     

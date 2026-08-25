@@ -1,0 +1,198 @@
+[
+ {
+  "lifeState": "Alive",
+  "new": "4 MoveToAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Alive + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "4 MoveToAction",
+  "cur": "<none>",
+  "permission": "0 REPLACE",
+  "why": "ea378: Alive + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "18 PlayAnimationAction",
+  "cur": "4 MoveToAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Alive + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "18 PlayAnimationAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Alive + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "15 DieAction",
+  "cur": "4 MoveToAction",
+  "permission": "0 REPLACE",
+  "why": "ea397: Alive + DieAction over non-Die current action"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "15 DieAction",
+  "cur": "15 DieAction",
+  "permission": "2 REJECT",
+  "why": "ea397->ea39d: DieAction over a DieAction"
+ },
+ {
+  "lifeState": "Alive",
+  "new": "20 RespawnAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Alive + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "4 MoveToAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Initializing + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "4 MoveToAction",
+  "cur": "<none>",
+  "permission": "0 REPLACE",
+  "why": "ea378: Initializing + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "18 PlayAnimationAction",
+  "cur": "4 MoveToAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Initializing + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "18 PlayAnimationAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Initializing + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "15 DieAction",
+  "cur": "4 MoveToAction",
+  "permission": "0 REPLACE",
+  "why": "ea397: Initializing + DieAction over non-Die current action"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "15 DieAction",
+  "cur": "15 DieAction",
+  "permission": "2 REJECT",
+  "why": "ea397->ea39d: DieAction over a DieAction"
+ },
+ {
+  "lifeState": "Initializing",
+  "new": "20 RespawnAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Initializing + non-Die action -> unconditional REPLACE"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "4 MoveToAction",
+  "cur": "19 SpawnAction",
+  "permission": "2 REJECT",
+  "why": "ea3b5: Dying and new-action is not DieAction(15)"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "4 MoveToAction",
+  "cur": "<none>",
+  "permission": "2 REJECT",
+  "why": "ea3b5: Dying and new-action is not DieAction(15)"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "18 PlayAnimationAction",
+  "cur": "4 MoveToAction",
+  "permission": "2 REJECT",
+  "why": "ea3b5: Dying and new-action is not DieAction(15)"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "18 PlayAnimationAction",
+  "cur": "19 SpawnAction",
+  "permission": "2 REJECT",
+  "why": "ea3b5: Dying and new-action is not DieAction(15)"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "15 DieAction",
+  "cur": "4 MoveToAction",
+  "permission": "0 REPLACE",
+  "why": "ea397: Dying + DieAction over non-Die current action"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "15 DieAction",
+  "cur": "15 DieAction",
+  "permission": "2 REJECT",
+  "why": "ea397->ea39d: DieAction over a DieAction"
+ },
+ {
+  "lifeState": "Dying",
+  "new": "20 RespawnAction",
+  "cur": "19 SpawnAction",
+  "permission": "2 REJECT",
+  "why": "ea3b5: Dying and new-action is not DieAction(15)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "4 MoveToAction",
+  "cur": "19 SpawnAction",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "4 MoveToAction",
+  "cur": "<none>",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "18 PlayAnimationAction",
+  "cur": "4 MoveToAction",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "18 PlayAnimationAction",
+  "cur": "19 SpawnAction",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "15 DieAction",
+  "cur": "4 MoveToAction",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "15 DieAction",
+  "cur": "15 DieAction",
+  "permission": "2 REJECT",
+  "why": "ea373: Dead and new-action is not RespawnAction(20)"
+ },
+ {
+  "lifeState": "Dead",
+  "new": "20 RespawnAction",
+  "cur": "19 SpawnAction",
+  "permission": "0 REPLACE",
+  "why": "ea378: Dead + RespawnAction(20)"
+ }
+]
