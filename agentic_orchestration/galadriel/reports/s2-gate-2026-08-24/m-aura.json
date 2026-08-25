@@ -1,0 +1,93 @@
+{
+ "aura": {
+  "fire": {
+   "lit": 28775,
+   "cov_pct": 1.3877,
+   "hue": 26.64,
+   "conc": 0.983,
+   "r_p50": 71.8,
+   "r_p95": 140.05,
+   "r_p99": 145.71,
+   "opaque_px": 6288,
+   "opaque_pct_of_screen": 0.3032
+  },
+  "water": {
+   "lit": 29907,
+   "cov_pct": 1.4423,
+   "hue": 206.04,
+   "conc": 0.991,
+   "r_p50": 73.06,
+   "r_p95": 139.84,
+   "r_p99": 145.52,
+   "opaque_px": 7288,
+   "opaque_pct_of_screen": 0.3515
+  },
+  "earth": {
+   "lit": 28230,
+   "cov_pct": 1.3614,
+   "hue": 36.79,
+   "conc": 0.994,
+   "r_p50": 71.18,
+   "r_p95": 140.2,
+   "r_p99": 145.82,
+   "opaque_px": 6280,
+   "opaque_pct_of_screen": 0.3029
+  },
+  "wind": {
+   "lit": 32868,
+   "cov_pct": 1.5851,
+   "hue": 123.35,
+   "conc": 0.988,
+   "r_p50": 76.21,
+   "r_p95": 139.16,
+   "r_p99": 145.27,
+   "opaque_px": 10013,
+   "opaque_pct_of_screen": 0.4829
+  }
+ },
+ "aura_pairs": {
+  "fire|earth": 10.15,
+  "water|wind": 82.69,
+  "earth|wind": 86.56,
+  "fire|wind": 96.71,
+  "water|earth": 169.25,
+  "fire|water": 179.4
+ },
+ "aura_readthrough": {
+  "02-rt-swing": {
+   "trail_inside_lit": 1837,
+   "trail_outside_lit": 1840,
+   "retention_lit": 0.9984,
+   "peak_inside": 586,
+   "peak_outside": 631,
+   "energy_inside": 579926,
+   "energy_outside": 639798,
+   "retention_energy": 0.9064,
+   "iou": 0.9984
+  },
+  "03-rt-contact": {
+   "trail_inside_lit": 14084,
+   "trail_outside_lit": 14307,
+   "retention_lit": 0.9844,
+   "peak_inside": 658,
+   "peak_outside": 740,
+   "energy_inside": 1248154,
+   "energy_outside": 1381760,
+   "retention_energy": 0.9033,
+   "iou": 0.9786
+  }
+ },
+ "aura_causality": {
+  "steady_vs_steady2_maxdiff": 217,
+  "steady_vs_late_maxdiff": 217,
+  "steady_lit": 28775,
+  "lit_per_mark": {
+   "00-steady": 28775,
+   "01-rt-windup": 28934,
+   "02-rt-swing": 29002,
+   "03-rt-contact": 28904,
+   "04-steady2": 28925,
+   "05-late": 28846
+  }
+ }
+}
