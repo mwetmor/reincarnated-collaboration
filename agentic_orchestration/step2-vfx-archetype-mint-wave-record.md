@@ -104,8 +104,8 @@ This wave has now produced **three dispatches whose Status header said PENDING o
 
 ## § 6 — In-flight / queued
 
-- ⚑ **3A — FIRING** (drax, 2026-08-25). Next gate: galadriel per her standing procedure → KR requests Gate-2 → jack-ryan seals.
-- **3B — queued** behind 3A (serial lane) and its own P-BEAM probe.
+- ⚑ **3A — HALTED at 2 of 8 rows.** `dash_attack` + `blink` minted, measured, committed. **No tag taken.** Blocked by **F-8**: `galadriel § 1.2 test (3)` measures a **fraction bounded at 1** and saturates — `blink` pins 5-6 frames at ≥ 0.99 — which inflates the step-vs-ramp statistic toward "step" and pushes the `magical-cause` leg toward a **false refutation of sealed L-29(6)**. Pair 1 **UNEVALUABLE, never FAIL**. **Full dated record: `step2-tranche-3a-HALT-RECORD-2026-08-25.md`.** Unblock owner: **galadriel** (dispatched). **This is the session's § 0 terminal act — HALT-RECORDED, not SEAL-REQUESTED.**
+- ⚑ **3B — HELD, DO NOT FIRE.** Now blocked on **two** gates, not one. **F-1**: it carried the `00-pre`/`08-post` **diff-to-zero** criterion, which drax proved **malformed for every row and never computed** — sealed tranche-2 controls diff 1,135-3,861 px; even a deliberately static arm diffs 3,733. **The criterion confuses STASIS with CONTROL.** Clause **SUSPENDED in place** with the evidence, header moved PENDING → HELD **in the same edit**, and drax explicitly forbidden from substituting his own. **I did not author the replacement** — it is an acceptance criterion impugning a sealed gate, so it is jack-ryan's, not the conductor's. P-BEAM (§ 0) unchanged and **fires as written** — I verified its citation at `drax/notes/2026-08-24-s2b-mint-note.md:1125-1142` and it resolves.
 - **WW-AB clean-room whirlwind — AUTHORED, un-run.** *"The run's thesis under empirical test — it should not trail the tranche by much."* Quarantine list BINDING: SB-1 A2-series cells, the CPB shaders, all `vfxbo_*` scripts. **Must not leak to the builder.**
 - **A-1/A-3 body pipeline — queue condition satisfied, fireable**, behind the serial lane.
 - **X-2 — declined at phase level**, routed to Matt.

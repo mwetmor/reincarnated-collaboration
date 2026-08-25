@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — Step-2 VFX mint, TRANCHE 3B (the five linear/beam rows) + the P-BEAM fork
 
-**Status:** PENDING — **GATED on P-BEAM (§ 0) resolving. P-BEAM is IN THIS DISPATCH; it is not a separate errand.**
+**Status:** ⚑ **HELD — DO NOT FIRE.** Two independent gates, both open. (1) **F-1**: an acceptance criterion in this dispatch is **malformed and has never been computable**; it is SUSPENDED below and awaits a jack-ryan ruling. (2) P-BEAM (§ 0), unchanged — P-BEAM is IN THIS DISPATCH; it is not a separate errand. **This header was PENDING and is now HELD in the same edit that suspended the criterion** — per the candidate discipline this wave filed after three headers went stale (`qa/pending/2026-08-25-completion-records-filed-while-headers-still-read-pending.md`).
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-25 (launch prompt — go-word for tranche-3 authoring + fire)
@@ -120,7 +120,17 @@ Run the **self-identity determinism probe** first: **three renders of one identi
 - [ ] ⚑ **§ 0 P-BEAM resolved FIRST**, with the three-pass self-identity probe receipt filed and the fork ruling recorded **before any row capture**. **A demotion to author-native HALTS to knight-rider before authoring.**
 - [ ] **All five rows minted**, "must NOT" clauses **measured, not asserted**.
 - [ ] **C-2 asserted on every row**: realized yaw vs aim vector in `gate.json`, **captured at ≥ 3 distinct aim vectors.** *(Per segment on `chain`.)*
-- [ ] **E-1 fx-off control arms on every row × every stage; `00-pre`/`08-post` diff exactly 0.**
+- [ ] **E-1 fx-off control arms on every row × every stage.** ⚑ **The `00-pre`/`08-post` diff-exactly-0 clause is SUSPENDED — DO NOT ATTEMPT IT, and do not substitute your own.** *(knight-rider, 2026-08-25, on drax's **F-1**, raised against himself from the 3A build.)*
+
+  > **The criterion is malformed for EVERY row and has never been computed.** Sealed tranche-2 control arms diff by **1,135–3,861 px** on this comparison; even a **deliberately static** arm diffs `px_exact = 3733 / px_byvalue = 1436 / maxdiff = 232` (`harness_logs/s2c_rows12_2026-08-25/gate.json` → `mover_control_law.dash_attack@cathedral.M_C3_prime_static_arm`, `PASS: false`). The residual is the rigs' idle `AnimationPlayer`s advanced by the stage clock, and it is **deterministic** — 606/606 byte-identical across passes — **not drift.**
+  >
+  > **The criterion confuses STASIS with CONTROL.** A control arm's job is to hold the *effect* out, not to hold the *world* still. drax's mint note first called it inapplicable to **mover** rows; he then corrected himself — **right defect, wrong reason.** It is inapplicable everywhere, and the reason nobody noticed is that **it was never evaluated**: it sat in gates that reported PASS without computing it.
+
+  ⚑ **ONE TOKEN, TWO REFERENTS — and both are in THIS dispatch, which is how it survived.** § 0 above justifies the P-BEAM byte-identity bar with *"the matched **control** frames on this same rig were ALREADY byte-identical."* **That is true and it is a different measurement:** the SAME frame compared ACROSS PASSES (determinism → 0). This clause compares **`00-pre` vs `08-post` WITHIN one pass** (stasis → thousands of px). Both call their subject "the control." I verified § 0's citation at its referent (`drax/notes/2026-08-24-s2b-mint-note.md:1125-1142`) — **it resolves and it stands.** But a reader who carries § 0's *"the controls were byte-identical"* down to this line reads it as licence for diff-exactly-0, and that is precisely the confusion F-1 names. **§ 0's bar is UNAFFECTED. Fire P-BEAM as written.**
+
+  **What replaces this clause is NOT mine to author** — it is an acceptance criterion, it impugns a **sealed** tranche's gate, and inventing it here would be the conductor deciding inside QA's seam. Routed to **jack-ryan**. drax's own 3A substitutes are on the table as candidates and **both PASSED**: `M_C1` (`00-pre` fx-on **byte-identical to `00-pre` fx-off** — compares ACROSS arms, which is the claim actually being made) and `M_C2` (the caster's world transform **bit-equal** between fx-on and its matched fx-off control at all 9 marks — *"the control controls everything that moves," stated on the thing that moves*). Note that his third, `M_C3′`, is the ordered check on a static arm and it **FAILED** — so the stasis form does not survive even on the arm built to satisfy it.
+
+  **Until jack-ryan rules: this dispatch does not fire.** The other E-1 requirements are untouched.
 - [ ] **E-0 two-stage law; per-stage cohorts never pooled; stage-adequacy reported.**
 - [ ] **Both screens — exact-bound AND by-value — on every criterion.**
 - [ ] **`authored ∩ region` emptiness sweep as PRE-FLIGHT across all five rows**; disjoint regions return **UNEVALUABLE, never PASS.**
