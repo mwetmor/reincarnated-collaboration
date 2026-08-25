@@ -6,7 +6,7 @@
 **Approved by:** Matt, 2026-08-24 (launch word covering the whole carve-out #2 agenda)
 **Pattern:** B (dedicated session)
 **Gates:** jack-ryan Gate-1 DESIGN-MODE — **RETURNED 2026-08-24: PASS-WITH-FINDINGS, ten amendments BINDING. Read § Gate record before Row 1.** A-1 fires before the first cathedral capture; A-2's seven sensitivity receipts gate rows 3–7; A-7 removes `stock_vfx_enabled` from this dispatch's scope.
-**⚑⚑ ALSO READ `§ AMENDMENT G` (in the E-0 block, above Required reading) BEFORE YOUR FIRST CATHEDRAL CAPTURE.** galadriel verified E-0's instrument choice and returned *"right instrument, wrong number."* **9.35 % is a scene number, not an effect number; the comparable quantity is ΔHLF against a matched fx-off control, which makes E-1 the instrument rather than backfill; and S-A1/S-A2/S-A3 are the derived pass thresholds that A-1 requires you to pre-register.** A-5's `melee_arc` re-anchor and A-10's `circle` windup donor are folded into their row bodies; the struck text is left visible in both.
+**⚑⚑ ALSO READ `§ AMENDMENT G` (in the E-0 block, above Required reading) BEFORE YOUR FIRST CATHEDRAL CAPTURE.** galadriel verified E-0's instrument choice and returned *"right instrument, wrong number."* **9.35 % is a scene number, not an effect number; the comparable quantity is ΔHLF against a matched fx-off control, which makes E-1 the instrument rather than backfill; and S-A1/S-A2/S-A3 are the derived pass thresholds that A-1 requires you to pre-register — verbatim, WITH THE OPERATOR NAMED.** ⚑ **G-4 corrects a number I got wrong in Amendment G's own first draft: your bare-stage calibration target is `0.304 %` on the SOBEL operator, NOT the `0.218 %` that both my E-0 bullet and jack-ryan's A-2(ii) row originally carried.** A-5's `melee_arc` re-anchor and A-10's `circle` windup donor are folded into their row bodies; the struck text is left visible in both.
 **Position in wave:** tranche 1 minted (3 rows) + WW-AB minted (`whirlwind`) → **galadriel's minted gate returned with 7 findings** → **you mint tranche 2** → galadriel re-gates → gandalf DRIFT-CRITIC.
 
 ---
@@ -35,7 +35,7 @@ galadriel's § 1.9, verbatim:
 
 - [ ] **Wire the `dark_fantasy_cathedral` recipe into the s2 capture harness as a selectable stage.** It already exists and it **is** the register-2 baseline anchor (9.35 %) — that is precisely why it is the right instrument: the S axis becomes a comparison against a number measured on the same geometry.
 - [ ] **Every row in this tranche gets at minimum ONE arm staged on it**, in addition to its bare-stage arms. Bare-stage arms are **not** retired — they remain the clean measurement surface for coverage, perimeter definition and contact tests, where a busy background is a confound rather than an instrument. **You are adding a stage, not replacing one.**
-- [ ] **Derive the stage's structured-content fraction the way you derived the emitter census** — do not declare it. galadriel measured the s2a stage at **99.78 % bare floor / 0.218 % structured content (∇ > 10)**. Report the same two numbers for the cathedral stage so she can state what her instrument is standing on. If the cathedral stage also comes back near-bare, **that is a finding and the S axis stays non-comparable** — say so rather than shipping a stage that does not fix the thing it was built to fix.
+- [ ] **Derive the stage's structured-content fraction the way you derived the emitter census** — do not declare it. ⚑ **CORRECTED 2026-08-24 (Amendment G-4): the number you calibrate against is `99.696 % floor / 0.304 % structured, SOBEL |∇| > 10, § 1.9a` — NOT the `99.78 % / 0.218 %` this bullet originally carried.** Both are real measurements of the same frame (`melee_ctl_03-s1-contact.png`) by two different operators — forward-difference vs Sobel. **Never average them, and never mix them.** All three stage-adequacy bars below are denominated in Sobel. Report the same two numbers for the cathedral stage, **naming the operator**, so galadriel can state what her instrument is standing on. If the cathedral stage also comes back near-bare, **that is a finding and the S axis stays non-comparable** — say so rather than shipping a stage that does not fix the thing it was built to fix.
 - [ ] **C-3 uniformity check extends to the new stage.** galadriel's method: sample a ground band away from caster and effect in **every** arm; floor luminance must be consistent within a stage. Tranche 1 returned spread **0.000** across 21 arms. Two stages means **two** uniformity cohorts — do not pool them, and do not let a cathedral arm read as a divergent-albedo outlier against bare-stage arms.
 
 ### E-1 — backfill the four minted rows (cheap, and it makes the whole gate comparable)
@@ -65,7 +65,7 @@ Her measured floor, both stages, effect-off:
 
 | | s2a bare | cathedral (no hero VFX) |
 |---|---:|---:|
-| structured content ∇ > 10 | **0.304 %** | **44.570 %** |
+| structured content — **Sobel \|∇\| > 10** (⚑ name the operator, always) | **0.304 %** | **44.570 %** |
 | HLF with no VFX | **0.0018 %** | **1.759 %** |
 | luma spread p25→p75 | **1.07** | **34.60** |
 
@@ -75,11 +75,24 @@ Her measured floor, both stages, effect-off:
 
 #### How this composes with jack-ryan's A-1 — it interlocks, it does not conflict
 
-A-1 requires you to pre-register, before the first cathedral capture, *"the expected structured-content fraction for the cathedral stage, the margin below which E-0's refutation condition fires, and the two-cohort C-3 partition."* **S-A1 / S-A2 / S-A3 ARE those pre-registration values, and they were derived independently of your capture, which is what makes them a legitimate pre-registration rather than a post-hoc fit.** Pre-register them verbatim with their source, then measure. A-2 item (ii) still stands on top: your derivation must reproduce galadriel's **0.218 %** on the bare stage — note that her § 2.0 figure (0.218 %) and her § 1.9a figure (0.304 %) are **two different measurements, not a discrepancy to average**; reproduce the one whose method you are running and say which.
+A-1 requires you to pre-register, before the first cathedral capture, *"the expected structured-content fraction for the cathedral stage, the margin below which E-0's refutation condition fires, and the two-cohort C-3 partition."* **S-A1 / S-A2 / S-A3 ARE those pre-registration values, and they were derived independently of your capture, which is what makes them a legitimate pre-registration rather than a post-hoc fit.** Pre-register them **verbatim, with the instrument named** — galadriel's constraint, and it is the whole point: *"a bar restated without its operator is not the bar."* Then measure.
+
+**G-4 — ⚑ I GOT THIS WRONG IN THE FIRST DRAFT OF AMENDMENT G AND GALADRIEL CAUGHT IT. THE CORRECTION IS THE MOST IMPORTANT LINE IN THIS BLOCK.**
+I originally told you A-2 item (ii) meant reproducing galadriel's **0.218 %**. **It does not. A-2(ii) is checked against 0.304 %, on the Sobel instrument (`galadriel/pipeline/stage_adequacy.py`).** Her ruling, verbatim:
+
+> *"0.218 % and 0.304 % are two operators on the same frame, not a discrepancy. Forward-difference vs Sobel |∇| > 10, both at ∇ > 10, both on `melee_ctl_03-s1-contact.png`. Confirmed by the floors: 100 − 0.218 = 99.782 (§ 2.0's 99.78), 100 − 0.304 = 99.696 (§ 1.9a). Never average them. … Calibrating drax's derivation on the forward-difference number and then judging its cathedral output against a Sobel-derived bar is a cross-instrument comparison: **C-3 through a sixth door, inside the amendment written to close the fifth.**"*
+
+**All three bars are denominated in Sobel** — S-A1's 15 % is one third of the *Sobel*-measured 44.570 %. § 2.0's 0.218 % is a scorecard-narrative figure with **no cathedral counterpart**, so it cannot found the instrument. Keep it only as a provenance note. **This is the fifth and sixth instance in this run of a real measurement compared against the wrong reference frame** — that error class is now the dominant defect mode of this whole tranche, and it keeps arriving *inside* the corrections written to close its previous instance. Assume it is present in anything you are about to compare.
+
+**G-5 — the cathedral's Sobel numbers already exist, and you must NOT expect to match them.** galadriel has 44.570 % structured / 55.430 % bare at the anchor framing (fr01). That framing is 1152×648 top-down Movie Maker; **you render 1920×1080 on the ratified camera. Expecting your cathedral figure to match hers is the § 1.9a(iii) camera-portability trap** — the same trap as 9.35 %, as GTC's ≈ 20 %, as `melee_arc`'s ≈ 12 %. **Only the BARE-STAGE reproduction is the calibration.** The cathedral figure is judged against S-A1's 15 % bar, whose one-third safety fraction exists precisely to absorb the camera difference.
 
 #### One thing that is now KR's, not yours
 
-galadriel has been notified of the two-cohort C-3 partition (A-1 / jack-ryan's disposition item 1). **You do not carry that notification.** Her HALT condition 3 is re-scoped on her side before she re-gates.
+galadriel has been notified of the two-cohort C-3 partition (A-1 / jack-ryan's disposition item 1). **You do not carry that notification.** It is discharged, and she did better than accept it — **she ACCEPTED it and re-stated HALT-3 generally**, so it survives every future multi-stage tranche rather than being patched for this one. Her amended § 1.8 condition 3, which is what you will actually be gated against:
+
+> *"Captures were not rendered at the ratified albedo, **or arms diverge within a (row × stage) cohort.** Albedo uniformity is evaluated per stage cohort and **never pooled across stages** — a cross-stage difference is a scene property, not a divergence. **A tranche spanning N stages returns N spreads, each reported separately.**"*
+
+**Practical consequence for you: report two spreads, not one, and do not reconcile them.** Tranche 1's 0.000 across 21 arms was a single-cohort result and remains valid on the amended wording.
 
 ---
 
@@ -379,7 +392,7 @@ The split holds. A dispatch is not indivisible, and executing a **landed** gate 
 | # | Instrument | Known-negative that must move it |
 |---|---|---|
 | i | cathedral stage | structured-content fraction measured **effect-off** must equal the effect-on value (the stage number must not depend on the effect) **and** differ from the bare stage by the A-1 margin |
-| ii | structured-content derivation | run it on the **bare** stage and reproduce galadriel's **0.218 %** (§ 2.0). A derivation that cannot reproduce a known value is not yet an instrument |
+| ii | structured-content derivation | ⚑ **NUMBER CORRECTED BY GALADRIEL 2026-08-24 (Amendment G-4) — jack-ryan's row as authored said "reproduce galadriel's **0.218 %** (§ 2.0)"; the correct target is **0.304 %, Sobel \|∇\| > 10, § 1.9a**.** Both figures are real and measure the same frame with different operators; § 2.0's is forward-difference and has no cathedral counterpart, so it cannot found the instrument while the bars are Sobel-denominated. Run the derivation on the **bare** stage and reproduce **0.304 %**, naming the operator. A derivation that cannot reproduce a known value is not yet an instrument — *and a known value restated without its operator is not a known value* |
 | iii | CIEDE2000 | a **known-identical** pair (one element, two arms) → ≈ 0, **and** a **known-different** pair (`fire`\|`water`, tranche-1 hue sep 31.2°) → large. Both legs, or the metric change is unproven on this harness |
 | iv | C-2 yaw assert | one arm with a **deliberately wrong** yaw; the assertion must **fail**. A yaw assert that has only ever passed is #75 cl. 2 verbatim |
 | v | cross-row separation | the positive control in A-6 |
