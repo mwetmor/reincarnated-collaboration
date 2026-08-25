@@ -792,3 +792,228 @@ Two things a consumer **should** do:
    `schema_version` and a `passthrough` object on every record precisely so that a
    recorder can normalise later against U-1 axes that are Matt's F-1…F-8 to rule and
    are not ours to fix.
+
+---
+
+## custody v0 — the SECOND AXIS becomes a tool (§ 11 · D-9/D-10, 2026-08-24)
+
+**Nothing here is breaking.** New module, new subcommand, new surface. `receipts.db` is
+untouched at v3; the vendor lane (§ 1–§ 11 above) is unchanged in every particular.
+
+### C1. What this axis is, and what it is NOT
+
+The vendor lane's `flock` serialises **vendor invocations**. It does not serialise
+**agents**. On the day the busy check shipped, a RUN-CONDUCTOR session dispatched a
+star-lord sub-agent to build the Grok lane; twenty-eight minutes later knight-rider —
+whose knowledge was true when formed and false by mtime — dispatched a second star-lord
+sub-agent for the same build. Neither dispatcher could see the other; KR stood his down.
+The lane lock did its job perfectly and was never the problem.
+
+`factory custody` is Matt's original question — *is an agent in use, across all
+sessions?* — asked one level up. It governs **dispatch concurrency only**. It does not
+replace KR's sequencing authority (it is how two live routers see each other, not a
+third router), it does not gate Matt's own sessions, and it does not touch the vendor
+lane law.
+
+### C2. NEW SURFACE — `agentic_orchestration/lanes/agents/_custody.tsv`
+
+Append-only, **6 columns**, tab-separated, no header:
+
+| # | Column | Content |
+|---|---|---|
+| 1 | `ts` | UTC, `%Y-%m-%dT%H:%M:%SZ` |
+| 2 | `seam` | the agent name — **one row per seam, never a wildcard** (Amendment L) |
+| 3 | `holder` | the **SESSION that must be alive**, e.g. `gandalf-session-85515` |
+| 4 | `event` | `CLAIM` · `RELEASE` · `OVERRIDE` — a CLOSED vocabulary |
+| 5 | `intent` | what the sub-agent is doing, **`; RELEASE on <condition>`** appended |
+| 6 | `detail` | free-form `k=v; k=v` — `holder_started=`, `completion=`, `note=`, `cleared_holder=`, `claimed_by=`, `spec=` |
+
+The column order **is** the schema: the file is read positionally, so a reordered column
+silently re-reads every historical row (holders become events) and nothing about the
+file would look wrong. Pinned as `custody.LEDGER_COLUMNS` and by literal in
+`test_vocabularies.py`.
+
+**A row is an EVENT, not a STATUS (#73).** *At time T, dispatcher D spawned into seam S*
+is a statement about the past, and a past event cannot become false by the passage of
+time — which is exactly the property a status header lacks and the founding incident was
+made of. Occupancy is never read off a row; it is derived, every time.
+
+**Malformed rows fail CLOSED over the whole ledger.** A row the parser cannot read may
+be the CLAIM that closes the seam being asked about, so every seam reads
+`custody-unknown` until the line is fixed. Loud, and it is fixed by editing one line of
+a TSV. Blank lines and `#` comments are ignored, not malformed.
+
+### C3. NEW CLI — `factory custody check | claim | release | override`
+
+```
+factory custody check [--seam <name>] [--json] [--safe-to-spawn]
+factory custody claim    --seam S --holder H --intent I --release-on C [--detail D]
+factory custody release  --seam S --holder H --evidence E
+factory custody override --seam S --holder H --note N
+```
+
+`--ledger <path>` overrides the ledger of record on every verb.
+
+**`check` is a DIFFERENT KIND OF COMMAND**, exactly as `factory lane` is: it locks
+nothing, creates nothing, and writes nothing — **not even the ledger file, if it does
+not exist yet**. It also does not run `ps` when no seam has an open claim: a seam nobody
+claimed cannot be held by anybody, and that answer is free. Held by
+`test_custody.py::test_THE_LAW_*` behaviourally (tree fingerprint) **and** structurally
+over the call graph reachable from `custody_check` — the file-wide AST scan that guards
+`lane_status.py` would be a test that cannot fail here, because this module holds three
+write verbs on purpose.
+
+### C4. THE STATE VOCABULARY AND THE EXIT-CODE BAND — pinned
+
+| State | Exit | Meaning | What clears it |
+|---|---|---|---|
+| `free` | **0** | no open CLAIM | — |
+| `held` | **20** | open CLAIM, holder session ALIVE | the holder's `release` |
+| `stale` | **21** | open CLAIM, holder session DEAD | `override` **with a note** |
+| `custody-unknown` | **22** | leg 2 unreadable, or the holder names no PID | making leg 2 answerable |
+| *(refused write — bad arguments)* | **40** | Amendment L, wildcard seam, missing note/evidence | fix the arguments |
+| *(refused write — ledger contended)* | **41** | the ledger lock was held past its budget | retry, or find the writer |
+
+> **THE PREDICATE, BY STATE NAME: `custody.SAFE_TO_SPAWN_STATES == {"free"}`.**
+> **THE BAND: `[ $? -lt 20 ]` is safe to spawn.**
+
+The banding is deliberate and matches § 2's exactly, for the same reason: a shell caller
+binds to the *predicate* without knowing the vocabulary, and a future fifth state cannot
+be handed a number that reads spawn-safe to a band-checker. `custody_exit_code()`
+returns **22 for any state nobody named**, so the vocabulary can grow wrong without the
+exit code going spawn-safe. Both refusal codes sit inside the occupied band, because a
+refused claim is the one case where a spawn-safe answer is catastrophic.
+
+`check --seam X` exits with X's code. `check` with no seam exits with the **worst**
+seam's code under fail-closed precedence, so a caller reading only the exit code is
+never told *free* while a seam is occupied. `--safe-to-spawn` collapses to 0/1.
+
+**Named separately from the vendor lane's `SAFE_TO_FIRE_STATES` on purpose.** They
+answer different questions — *may I spend this CREDENTIAL* vs *may I spawn into this
+SEAM* — and one name for two questions is how a consumer binds to the wrong one. (It is
+also load-bearing for `test_vocabularies.py`, whose pin table is keyed by bare name;
+that resolver is now guarded by a row of its own.)
+
+### C5. THE TWO LEGS, and what each cannot see
+
+| Leg | Surface | Sees | Cannot see |
+|---|---|---|---|
+| 1 — the ledger | `last CLAIM without RELEASE, per seam` | every dispatch that wrote a row | a spawn nobody recorded; a crashed holder |
+| 2 — holder liveness | `ps -axo pid=,lstart=` | a holder that died mid-flight | anything on another machine |
+
+Leg 2 is kernel state in the same sense `flock` is: sessions ARE host processes, `ps` is
+the kernel's answer, and nobody writes it.
+
+**Liveness compares PID *and* START TIME.** PIDs recycle; a dead session whose PID was
+reassigned would read *alive*, which fails in the false-BUSY direction and is therefore
+safe — but an `override` refused by a recycled PID looks wrong to the operator at the
+moment the ledger most needs to make sense. `claim` records `holder_started=` from the
+process table at the one moment it can. A row written **without** a start time (every
+hand-appended row from the interim era) gets PID-only liveness and **says so in its
+reason** — degrading loudly is the whole difference between a weaker answer and a wrong
+one.
+
+**A holder id that names no PID is `custody-unknown`, not `held` and not `free`.** The
+trailing-integer parse is anchored at a separator, so `gandalf-session-85515` yields
+85515 and `gandalf-session-53631d11` yields **nothing**. Both spellings exist in the live
+ledger today. Convicting an unrelated process of being the holder is worse than admitting
+we cannot tell: the wrong answer is confidently `held`, the honest one is
+`custody-unknown`, and both are do-not-spawn.
+
+### C6. `claim` IS ATOMIC (Amendment K), and the loser is told WHO holds the seam
+
+§ 11.3's rule is *check, then claim*, which is a TOCTOU race: two dispatchers can both
+read free, both append, and both spawn — **the founding incident, unprevented by the
+mechanism built to prevent it**. In the hand-append era the ledger buys **visibility, not
+mutual exclusion**, and the exclusion is a dispatcher discipline resting on it.
+
+`claim` has the exclusion: check-and-append happens **under an `flock` on the ledger file
+itself**, reusing `lane.SerialLaneLock` unchanged. The exclusion is **not** "whoever got
+the lock first" — both claimants serialise through the lock and **re-derive the answer
+under it**, so the second sees the first's row and is told who holds the seam. That is a
+test-and-set, and it is why a loser gets a name instead of a retry.
+
+**The one difference from the vendor lane, and why it is not a lock break.** The vendor
+lock **never waits**: it is held across a model call, so a wait on it is unbounded and a
+"short" wait is a guess. The ledger lock is held across a read and one appended line of a
+small TSV — no subprocess, no spawn — so its wait is **bounded by construction**
+(`LEDGER_LOCK_ATTEMPTS × LEDGER_LOCK_DELAY_S`, ~2 s). On exhaustion `claim` **refuses**
+(exit 41). It never breaks the lock and never blocks forever.
+
+### C7. `claim` REFUSES a claim that names no release condition (Amendment L)
+
+`--release-on` is **REQUIRED**, at the argparse layer *and* in
+`custody.refuse_reason_for_claim_arguments`. Both, on purpose: a governance line enforced
+only by the CLI is one an API caller walks straight past, and a flag that DEFAULTS is a
+flag that gets left off. Same lesson as U-4 R-B's `--curator`.
+
+**Why it is a separate argument rather than a phrase inside `--intent`.** Nothing here
+can read English, and a claim naming its release condition in prose could only be checked
+by looking for a magic word — which the next author satisfies by typing the magic word.
+Making the field STRUCTURAL means the requirement cannot be met accidentally. A small
+closed set of null answers (`tbd`, `n/a`, `none`, `?`, …) is refused as vacuous; vague
+answers are **not** refused, because this module is not equipped to have opinions about
+English and would fail in the direction that annoys people into working around it.
+
+**One row per seam — no wildcards, no blanket rows.** `*`, comma-lists and whitespace in a
+seam name are refused. A run-scoped conductor charter claims its seams **one row at a
+time**, so a dispatcher checking seam X finds a row *about* seam X and a partial release
+stays expressible. That is what keeps *custody ≠ ownership* checkable rather than merely
+asserted.
+
+Argument refusals are evaluated **before the lock is taken**, so a refused claim never
+holds the ledger — the same shape as the Grok harness's Amendment-E preflight.
+
+### C8. RELEASE authorship — who writes it (jack-ryan's Gate-2 INFO, answered here)
+
+**The `holder` column names the SESSION THAT MUST BE ALIVE, not the agent.** § 11.2 says
+the dispatcher writes the CLAIM and did not say who writes the RELEASE. It is the
+**dispatcher**, normally, when its sub-agent's completion lands — and that is a different
+string from the sub-agent.
+
+So a `release` written by a different session is **ACCEPTED and RECORDED**
+(`claimed_by=<the claim's holder>` plus a note in the detail column), not refused.
+Refusing would strand every claim whose sub-agent wrote the completion and push routine
+closures through `override`, which must stay rare to stay meaningful.
+
+`release` **refuses** two things: an empty `--evidence` (the claim was written before the
+work existed; the release is the half that says it is done, and an uncited release is an
+assertion with nothing behind it), and a release over a seam with no open claim (a row
+that closes nothing teaches a false history to everyone who reads the ledger afterwards).
+
+**The dead-dispatcher case** — a crashed sub-agent whose dispatcher also died — clears
+only via `override`, and leg 2 covers it: the holder reads dead, the seam reads `stale`,
+and `override` is available.
+
+### C9. STALE IS NOT FREE, AND THERE IS NO TTL — EVER
+
+A CLAIM whose holder is dead is **`stale`**, and clearing it takes an explicit `override`
+with a **mandatory note**. It does not auto-expire. **A TTL is a timeout-based lock break
+wearing a different word**: it would silently free a claim whose holder is alive and
+mid-flight, which is the false-open direction G-2 forbids. Age carries **no** weight in
+this derivation — the only things that free a seam are a RELEASE row, an OVERRIDE row, or
+the holder's process ending. `test_custody.py` asserts an ancient claim with a live holder
+is still `held`, and asserts by name that no expire/ttl/reap/gc verb exists on the module.
+
+`override` refuses three ways, and each is a different mistake:
+
+* over a **live** holder — that is not an override, it is evicting somebody who is
+  working. **There is deliberately no `--force`**: inventing one here would grant an
+  authority nobody ratified. Coordinate, or let them release.
+* over **`custody-unknown`** — we cannot *show* the holder dead, and an override on a leg
+  we could not read is a lock break with extra steps.
+* over a **free** seam — there is nothing to override.
+
+### C10. What a consumer must do
+
+**Nothing, today.** No existing caller reads custody; this is a new surface.
+
+Two things a consumer **should** do:
+
+1. **Bind to `custody.SAFE_TO_SPAWN_STATES` by name, or to the band `$? -lt 20`** — never
+   to "is there a CLAIM row". Amendment J is what happens when a ratified predicate
+   acquires a second derivation; the eventual fleet-board SEAMS card is a **VIEW** and
+   binds to this predicate rather than re-deriving it.
+2. **Claim before spawn, release on completion, override only over a dead holder with a
+   note.** Occupied seam → **DO NOT SPAWN**: coordinate, wait, or escalate. Standing down
+   is the honourable path and it gets a ledger row, not a shrug.

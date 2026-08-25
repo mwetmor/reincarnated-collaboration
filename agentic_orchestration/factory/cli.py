@@ -12,6 +12,11 @@
     factory lane-enqueue <queue-dir>  add one job (--curator is REQUIRED; U-4 R-B)
     factory lane-drain <queue-dir>    drain the queue serially; safe to re-fire
 
+    factory custody check             THE agent-level seam check (read-only)
+    factory custody claim             ATOMIC check-and-append; --release-on REQUIRED
+    factory custody release           close a claim, citing its completion evidence
+    factory custody override          clear a STALE claim — loud, manual, never a TTL
+
 The `lane-*` commands are the uptime half of U-4: hand-fired scripts were the bridge,
 the queue is the uptime. `lane-drain` is idempotent and crash-safe, so the correct
 response to "did that finish?" is to run it again.
@@ -21,6 +26,13 @@ other three: it acquires nothing, writes nothing, and answers *"is a vendor agen
 use right now?"* across every session on this host. Run it before firing anything at a
 vendor lane; run it before opening a vendor TUI. The one predicate every consumer
 binds to is `lane_status.SAFE_TO_FIRE_STATES` — see `MIGRATION.md`.
+
+`factory custody` is the SECOND AXIS (spec § 11). The lane lock serialises vendor
+INVOCATIONS; custody serialises AGENTS. Run `custody check` before dispatching a
+sub-agent into a named seam — occupied seam means DO NOT SPAWN. `custody check` holds
+the same emits-nothing discipline as `factory lane`; the other three verbs append to
+the ledger under an `flock` on it. The predicate is `custody.SAFE_TO_SPAWN_STATES`,
+named separately from the lane's because they answer different questions.
 """
 
 from __future__ import annotations
@@ -302,6 +314,70 @@ def _cmd_lane_drain(args: argparse.Namespace) -> int:
     return 0 if report.handed_to_claude == 0 else 1
 
 
+def _cmd_custody(args: argparse.Namespace) -> int:
+    """**D-9 — agent-level seam custody.** `check` is read-only and emits nothing.
+
+    Four verbs, one ledger:
+
+        factory custody check [--seam <name>]   is a sub-agent mid-flight here?
+        factory custody claim --seam ... --holder ... --intent ... --release-on ...
+        factory custody release --seam ... --holder ... --evidence ...
+        factory custody override --seam ... --holder ... --note ...
+
+    `check` answers WHICH state — `free` · `held` · `stale` · `custody-unknown` — with
+    exit codes BANDED exactly like `factory lane`'s, so a shell caller can bind to the
+    predicate without knowing the vocabulary: **`[ $? -lt 20 ]` is safe to spawn.**
+    Pinned in `MIGRATION.md`.
+
+    `check` is a DIFFERENT KIND OF COMMAND from the other three, in the same way
+    `factory lane` is: it locks nothing, creates nothing, and writes nothing — not even
+    the ledger file, if it does not exist yet.
+    """
+    from . import custody as cu
+
+    ledger = Path(args.ledger) if args.ledger else None
+
+    if args.custody_cmd == "check":
+        answers = cu.custody_check(args.seam, ledger=ledger)
+        if args.json:
+            import json as _json
+
+            print(_json.dumps({
+                "seams": [a.to_dict() for a in answers],
+                "safe_to_spawn_states": sorted(cu.SAFE_TO_SPAWN_STATES),
+                "exit_codes": cu.CUSTODY_EXIT_CODES,
+            }, indent=2))
+        elif not answers:
+            print("no open CLAIM in the ledger — every seam is free.")
+        else:
+            for answer in answers:
+                print(answer.one_line())
+        if args.safe_to_spawn:
+            # ONE BIT, for the caller whose question is only "may I spawn here?".
+            return 0 if all(a.safe_to_spawn for a in answers) else 1
+        return answers[0].exit_code if args.seam else cu.worst_exit_code(answers)
+
+    verbs = {
+        "claim": lambda: cu.claim(
+            seam=args.seam, holder=args.holder, intent=args.intent,
+            release_on=args.release_on, detail=args.detail, ledger=ledger),
+        "release": lambda: cu.release(
+            seam=args.seam, holder=args.holder, evidence=args.evidence, ledger=ledger),
+        "override": lambda: cu.override(
+            seam=args.seam, holder=args.holder, note=args.note, ledger=ledger),
+    }
+    result = verbs[args.custody_cmd]()
+    if args.json:
+        import json as _json
+
+        print(_json.dumps(result.to_dict(), indent=2))
+    else:
+        print(("OK      " if result.ok else "REFUSED ") + result.reason)
+        if result.row is not None:
+            print(f"  row: {result.row.to_line()}")
+    return result.exit_code
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="factory", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -388,6 +464,49 @@ def build_parser() -> argparse.ArgumentParser:
     p_ld.add_argument("--lane", default="codex", choices=["codex", "grok"])
     p_ld.add_argument("--limit", type=int, default=None)
     p_ld.set_defaults(func=_cmd_lane_drain)
+
+    # --- D-9: agent-level seam custody (spec § 11, Amendments K + L) -------
+    p_cu = sub.add_parser(
+        "custody", help="agent-level SEAM custody: who is mid-flight in this seam?")
+    p_cu.add_argument("--ledger", default=None,
+                      help="ledger path (default: lanes/agents/_custody.tsv)")
+    p_cu.add_argument("--json", action="store_true", help="machine-readable answer")
+    p_cu.set_defaults(func=_cmd_custody)
+    cu_sub = p_cu.add_subparsers(dest="custody_cmd", required=True)
+
+    p_cu_check = cu_sub.add_parser(
+        "check", help="READ-ONLY: is a sub-agent mid-flight in this seam?")
+    p_cu_check.add_argument("--seam", default=None,
+                            help="one seam by name (default: every seam with an open claim)")
+    p_cu_check.add_argument("--safe-to-spawn", dest="safe_to_spawn", action="store_true",
+                            help="collapse the exit code to 0 (spawn) / 1 (do not)")
+
+    p_cu_claim = cu_sub.add_parser(
+        "claim", help="ATOMIC check-and-append: take the seam, or be told who holds it")
+    p_cu_claim.add_argument("--seam", required=True)
+    p_cu_claim.add_argument("--holder", required=True,
+                            help="the SESSION that must be alive, e.g. gandalf-session-85515")
+    p_cu_claim.add_argument("--intent", required=True, help="what the sub-agent is being sent to do")
+    # AMENDMENT L, at the argparse layer AND in `custody.refuse_reason_for_claim_arguments`.
+    # Required in both places on purpose: a governance line enforced only by the CLI is a
+    # governance line an API caller walks straight past, and a flag that DEFAULTS is a
+    # flag that gets left off. Same lesson as U-4 R-B's `--curator`.
+    p_cu_claim.add_argument("--release-on", dest="release_on", required=True,
+                            help="the CONDITION whose satisfaction produces the RELEASE (REQUIRED)")
+    p_cu_claim.add_argument("--detail", default="", help="extra `k=v` tokens for the detail column")
+
+    p_cu_release = cu_sub.add_parser("release", help="close a claim, citing its completion evidence")
+    p_cu_release.add_argument("--seam", required=True)
+    p_cu_release.add_argument("--holder", required=True, help="the session writing the RELEASE")
+    p_cu_release.add_argument("--evidence", required=True,
+                              help="the completion record / commit this release rests on (REQUIRED)")
+
+    p_cu_override = cu_sub.add_parser(
+        "override", help="clear a STALE claim — loud, manual, never a TTL")
+    p_cu_override.add_argument("--seam", required=True)
+    p_cu_override.add_argument("--holder", required=True, help="the session performing the override")
+    p_cu_override.add_argument("--note", required=True,
+                               help="WHY the stale claim is being cleared (REQUIRED)")
 
     return parser
 

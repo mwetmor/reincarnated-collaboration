@@ -164,3 +164,73 @@ Claude lane. **The queue does not file it — knight-rider does.** An automated 
 a curated human queue produces a row with no author in the accountability graph, and
 re-authentication is a Matt-only action either way. Idle work is the failure; a filed
 row plus a fallback is the success.
+
+---
+
+## The OTHER axis: `lanes/agents/_custody.tsv` — who is mid-flight in a SEAM?
+
+The lock above serialises **vendor invocations**. It does not serialise **agents**. On
+the day the busy check shipped, two dispatchers sent a star-lord sub-agent at the same
+build twenty-eight minutes apart, and neither could see the other; the lane lock did its
+job perfectly and was never the problem.
+
+Seam custody is that question one level up (lane spec § 11, ratified with Amendments K
+and L). The ledger lives at `lanes/agents/_custody.tsv` — 6 columns, append-only:
+`ts · seam · holder · event · intent · detail`.
+
+### Before you dispatch a sub-agent into a named seam
+
+```
+cd agentic_orchestration && python3 -m factory custody check --seam star-lord
+```
+
+```
+star-lord    held            holder=gandalf-session-85515  — PID 85515 is alive. …
+```
+
+| State | Exit | What you do |
+|---|---|---|
+| `free` | **0** | claim it, then spawn |
+| `held` | **20** | **DO NOT SPAWN.** Coordinate with the holder, wait, or escalate |
+| `stale` | **21** | holder is dead. **Not free** — clear it with `override --note …` |
+| `custody-unknown` | **22** | a leg could not be read. Treated as occupied, fail-closed |
+
+**`[ $? -lt 20 ]` is the whole predicate** — bind to the band, not to the vocabulary.
+`--safe-to-spawn` collapses it to one bit; `--json` gives a machine the same answer with
+both legs' raw readings. `check` writes nothing and **does not create the ledger** if it
+is absent, so it is safe from any session at any time.
+
+### The three write verbs
+
+```
+python3 -m factory custody claim    --seam star-lord --holder <your-session-id> \
+                                    --intent "what the sub-agent will do" \
+                                    --release-on "the condition that ends this claim"
+python3 -m factory custody release  --seam star-lord --holder <session> --evidence <commit-or-record>
+python3 -m factory custody override --seam star-lord --holder <session> --note "why the stale claim is cleared"
+```
+
+* **`--release-on` is REQUIRED.** Every CLAIM names the condition whose satisfaction
+  produces the RELEASE (Amendment L). A claim whose end cannot be stated is a claim that
+  should not be written — an unbounded live claim is indistinguishable from owning the
+  seam, and custody is dispatch exclusivity, never seam ownership.
+* **One row per seam.** A run-scoped conductor charter claims its seams one row at a
+  time; wildcards and comma-lists are refused, so a partial release stays expressible.
+* **`claim` is atomic.** Check-and-append happens under an `flock` on the ledger itself,
+  so two dispatchers racing cannot both win — and the loser is told **who** holds it.
+* **`release` cites its evidence** — the completion record or commit the claim rested on.
+  The `holder` column names the **session that must be alive**, not the agent, so the
+  dispatcher normally writes the RELEASE; a release by a different session is recorded
+  (`claimed_by=`), not refused.
+* **There is no TTL and there never will be.** A stale claim clears only by an explicit
+  `override` with a note. A TTL is a timeout-based lock break wearing a different word,
+  and the case it gets wrong is a holder who is alive and mid-flight.
+
+### The routing rule (fleet law, § 11.3)
+
+> **Before dispatching a sub-agent into a named seam, check seam custody. Occupied seam
+> → DO NOT SPAWN.** Claim before spawn; release on completion; override only over a dead
+> holder, with a note. Standing down is the honourable path and it gets a ledger row,
+> not a shrug.
+
+Full contract, exit codes and the design reasoning: `factory/MIGRATION.md` § custody v0.

@@ -138,6 +138,8 @@ NOT_A_VOCABULARY: dict[str, str] = {
     ),
     "lane_status.py:REPO_ROOT": "a Path expression, not a collection",
     "lane_status.py:GROK_LANE_ROOT": "a Path expression, not a collection",
+    # --- agent-level seam custody (2026-08-24, D-9) ------------------------
+    "custody.py:DEFAULT_LEDGER": "a Path expression, not a collection",
     # --- drax's fleet board (landed 2026-08-24, commit 5ac47680) -----------
     # ADJUDICATED HERE, NOT AUTHORED HERE. `factory/ui/` is drax's work-product living
     # under star-lord's seam directory, and it landed carrying eleven public UPPERCASE
@@ -335,6 +337,61 @@ VOCABULARY_PINS: dict[str, object] = {
     #: member deletes the case that would have caught it and the suite gets GREENER —
     #: rule 44's exact subject. The equality pin here is what closes that.
     "FORBIDDEN_PERMISSION_MODES": frozenset({"bypassPermissions", "dontAsk"}),
+    # --- agent-level seam custody (2026-08-24, D-9/D-10, spec § 11) --------
+    #: **THE WIDEST-BLAST-RADIUS PIN ON THE SECOND AXIS**, and the exact counterpart of
+    #: `SAFE_TO_FIRE_STATES` one level up. § 11.3's rule — *occupied seam, DO NOT
+    #: SPAWN* — IS this set. ADDITION is the direction that costs: put `stale` in here
+    #: and a dead holder's seam reads spawnable, which is the auto-free that
+    #: Amendment-§ 11.2 refuses; put `custody-unknown` in and an unreadable leg 2 turns
+    #: into permission, which is false-open — the one direction G-2 forbids and the one
+    #: that re-creates the founding incident (two dispatchers, two star-lord spawns,
+    #: one build, neither visible to the other).
+    "SAFE_TO_SPAWN_STATES": frozenset({"free"}),
+    #: OCCUPIED = somebody is mid-flight, or we cannot prove otherwise. Three states and
+    #: not one because they differ in WHAT CLEARS THEM: `held` clears when the holder
+    #: finishes, `stale` clears by an OVERRIDE with a note, `custody-unknown` clears by
+    #: making leg 2 answerable. Moving one out of here is moving it into spawn-safe.
+    "OCCUPIED_SEAM_STATES": frozenset({"held", "stale", "custody-unknown"}),
+    #: The denominator. `test_custody.py` asserts the two dispositions PARTITION it and
+    #: that the exit-code table and the precedence cover it exactly, so a state added to
+    #: one collection and not the others reds a row rather than falling out of the set.
+    "CUSTODY_STATES": frozenset({"free", "held", "stale", "custody-unknown"}),
+    #: The exit codes the `factory custody` contract publishes and `MIGRATION.md` pins,
+    #: BANDED identically to the vendor lane's (`< 20` is safe-to-spawn) so a shell
+    #: caller binds to the predicate without knowing the vocabulary. A silent renumber
+    #: re-rules the spawn decision for every shell caller at once.
+    "CUSTODY_EXIT_CODES": {"free": 0, "held": 20, "stale": 21, "custody-unknown": 22},
+    #: COLUMN 4 of `_custody.tsv` — the events a row may carry. A CLOSED accept
+    #: vocabulary, and ADDITION is fail-open: a new event name that `open_claims` does
+    #: not fold falls through the CLAIM/RELEASE walk, and a seam's occupancy is then
+    #: decided by an event nobody adjudicated. Anything outside it reds the row as
+    #: MALFORMED, which reads every seam occupied until a human fixes the line.
+    "CUSTODY_EVENTS": frozenset({"CLAIM", "RELEASE", "OVERRIDE"}),
+    #: The ledger's SCHEMA, and it is read POSITIONALLY. A reordered column silently
+    #: re-reads every historical row — holders become events, intents become holders —
+    #: and nothing about the file would look wrong. The ledger is hand-appended by
+    #: humans in the interim era, so this is the one collection here whose members are
+    #: typed by people rather than by code.
+    "LEDGER_COLUMNS": ("ts", "seam", "holder", "event", "intent", "detail"),
+    #: What leg 2 may answer, and the seam state each answer produces. Spent as
+    #: `LIVENESS_TO_SEAM_STATE[answer]`, so a fourth answer raises rather than choosing
+    #: a state silently. The load-bearing member is `unknown -> custody-unknown`:
+    #: re-pointing it at `stale` would let an UNREADABLE process table unlock
+    #: `override`, handing out the seam-clearing verb on a broken instrument. Pinned as
+    #: a whole mapping because the DIRECTION of the danger is in the values, not the
+    #: keys.
+    "LIVENESS_TO_SEAM_STATE": {
+        "alive": "held", "dead": "stale", "unknown": "custody-unknown"},
+    #: Release conditions that assert NOTHING — Amendment L's refusal set. DELETION is
+    #: the fail-open direction: remove a spelling and a vacuous claim is admitted, and a
+    #: claim with no evaluable end condition is the unbounded live claim L exists to
+    #: close, with a word in front of it. Addition is fail-CLOSED (it refuses more, at
+    #: the moment of writing, while the author is present to say something better).
+    #: Deliberately SMALL — it catches the null answer, not the vague one; refusing
+    #: "when the work is done" would be this module having an opinion about English.
+    "VACUOUS_RELEASE_CONDITIONS": frozenset({
+        "", "-", "?", "??", "tbd", "n/a", "na", "none", "nothing", "unknown", "unclear",
+    }),
 }
 
 #: `INVOCATION_ONLY_TOOLS` is a dict; its keys are the record and its values are
@@ -413,6 +470,17 @@ VOCABULARY_COVERED: dict[str, str] = {
         "Covered by `test_an_ABSENT_run_log_is_NOT_an_error` (the absent branch) and "
         "by `test_a_run_log_is_read_ONCE_even_when_named_twice` (the dedupe), and the "
         "paths themselves are asserted by the live CLI round-trip in the same file",
+    # --- agent-level seam custody (2026-08-24, D-9/D-10) -------------------
+    "CUSTODY_STATE_PRECEDENCE":
+        "the fail-closed ordering used to summarise several seams into ONE exit code. "
+        "Covered by `test_custody.py::"
+        "test_the_PRECEDENCE_puts_AMBIGUITY_above_a_STATE_A_HUMAN_MUST_CLEAR`, which "
+        "asserts the three orderings that carry meaning rather than the whole sequence, "
+        "and by `test_the_three_dispositions_PARTITION_the_answer_vocabulary`, which "
+        "asserts its MEMBERSHIP equals `CUSTODY_STATES` — so a state cannot be added to "
+        "the vocabulary and left out of the precedence. Following the same split the "
+        "vendor lane's `STATE_PRECEDENCE` already carries: order is behaviour, and "
+        "pinning the whole tuple would red on a cosmetic move",
 }
 
 
@@ -632,6 +700,57 @@ def test_JR20_no_pinned_vocabulary_can_be_ADDED_TO_or_DELETED_FROM_silently():
             "textually becomes a `str`, and every membership test in the suite keeps "
             "passing because `in` on a `str` is a substring test."
         )
+
+
+def test_a_PINNED_NAME_declared_by_TWO_MODULES_cannot_SHADOW_its_own_pin():
+    """The pin table is keyed by BARE NAME, and the resolver above is last-writer-wins.
+
+    Found while building D-9 (agent-level seam custody), which wanted four collections
+    whose natural names were `SAFE_TO_FIRE_STATES`, `OCCUPIED_STATES`, `EXIT_CODES` and
+    `STATE_PRECEDENCE` — every one of them already declared by `lane_status.py`. Had
+    they been spelled that way, this file's resolver would have walked the package in
+    sorted order, kept whichever module came LAST, and pinned exactly one of each pair.
+    The other would have been adjudicated by a literal it never touched, and
+    `test_JR20_no_pinned_vocabulary...` would have gone green over a collection nobody
+    was checking — an exemption granted by ALPHABETICAL ORDER.
+
+    That is this file's own defect shape (rule 49: establish the denominator before
+    reasoning over the set) standing inside the resolver. It was avoided by NAMING —
+    `SAFE_TO_SPAWN_STATES`, `OCCUPIED_SEAM_STATES`, `CUSTODY_EXIT_CODES`,
+    `CUSTODY_STATE_PRECEDENCE` — which is also the right call on its own merits, because
+    the two axes answer different questions and one name for two questions is how a
+    consumer binds to the wrong one. But naming is a convention, and this row is the
+    mechanism.
+
+    **Shared VALUES are fine and are not flagged.** A module that imports a pinned name
+    from its owner exposes the same object, and the pin is then unambiguous however the
+    walk orders it. What must not happen is two DIFFERENT objects answering to one
+    pinned name.
+    """
+    from collections import defaultdict
+
+    sightings: dict[str, list[tuple[str, object]]] = defaultdict(list)
+    for relpath in ADJUDICATED_MODULES:
+        module = importlib.import_module(
+            "factory." + relpath[: -len(".py")].replace("/", ".")
+        )
+        for name in VOCABULARY_PINS:
+            if hasattr(module, name):
+                sightings[name].append((relpath, getattr(module, name)))
+
+    shadowed = {
+        name: [where for where, _ in seen]
+        for name, seen in sightings.items()
+        if len({id(value) for _, value in seen}) > 1
+    }
+    assert not shadowed, (
+        f"a pinned vocabulary name resolves to DIFFERENT objects in different modules: "
+        f"{shadowed}. The resolver keeps whichever module the sorted walk reaches last, "
+        "so exactly one of them is pinned and the other is adjudicated by a literal it "
+        "never touched — silently, and in the growth direction. Give the newer "
+        "collection its own name (that is what `SAFE_TO_SPAWN_STATES` is), or key the "
+        "pin by `module:NAME` as `NOT_A_VOCABULARY` already does."
+    )
 
 
 # ===========================================================================
