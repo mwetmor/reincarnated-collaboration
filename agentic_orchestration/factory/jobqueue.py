@@ -634,6 +634,24 @@ class JobQueue:
                 resolved = (result.extra or {}).get("resolved_model")
                 if resolved:
                     detail += f" resolved_model={resolved}"
+                # AMENDMENT D, on the row — GATE-2 FINDING G2-1, fixed here. The effort
+                # pin was argv-said and telemetry-recorded but ABSENT from the run-log
+                # row, while `MIGRATION.md` § 5 asserted *"every row carries curator +
+                # resolved model id + declared effort + per-call cost_usd"*. A document
+                # asserting a property the artifact does not carry is #73 arriving in
+                # the doc that pins #73's own build constraint.
+                #
+                # Struck the claim, or carry the field? Carry it. The surface Amendment I
+                # names for the banking window is the RUN-LOG, and effort is one of the
+                # three things the window must attribute against — a cost column read
+                # beside a resolved model but not beside its effort level attributes an
+                # effort change to the model (#10). Read from `extra` rather than from
+                # the module pin, so a job that overrides the pin records what it ASKED
+                # FOR and not what the constant says; the vendor-refused case never
+                # reaches this branch, because an unknown effort is refused at build_argv.
+                effort = (result.extra or {}).get("reasoning_effort")
+                if effort:
+                    detail += f" effort={effort}"
                 # AMENDMENT I's per-row cost. Only where the vendor reports one —
                 # absent is absent, and a zero here would read as a free call.
                 if result.usage is not None and result.usage.dollars is not None:

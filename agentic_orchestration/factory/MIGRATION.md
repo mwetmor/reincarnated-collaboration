@@ -603,7 +603,11 @@ did, and was renamed rather than relaxed).
 
 **The pin is DECLARED, not BANKED.** Zero lane statistics exist at any Grok config; the
 first 10 production jobs are the banking window (Amendment I), and every row carries
-curator + resolved model id + declared effort + per-call `cost_usd`.
+curator + resolved model id + declared effort + per-call `cost_usd`. *(This sentence
+was false when first written — the effort was on the argv and in the telemetry but not
+on the row. Gate-2 finding **G2-1**; the field was added rather than the claim struck,
+see § 7. And every one of those rows carries the per-job input floor of § 10.1 inside
+its token and cost figures — read the window against it, not against zero.)*
 
 **Amendment E is a hard preflight.** `--no-leader` is accepted by the CLI but is
 **absent from `grok --help`** (documented only under `grok agent`). The harness asserts
@@ -642,16 +646,36 @@ invocation, the state table, and the pure-shell degraded fallback).
 
 ---
 
-### 7. Run-log DETAIL column — new tokens (D-3, C, I). No schema change.
+### 7. Run-log DETAIL column — new tokens (D-3, C, D, I). No schema change.
 
-Column 4 is free-form `k=v`, and it gains three conventions. The column COUNT is
+Column 4 is free-form `k=v`, and it gains four conventions. The column COUNT is
 unchanged at 6 and every existing reader is unaffected.
 
 | Token | Row | Meaning |
 |---|---|---|
 | `router=Q3-NO` | enqueue | the four-question router cleared the job but answered NO to (3) *lane open?* — so it queued. Makes lane contention countable: `grep -c "router=Q3-NO"` |
 | `resolved_model=<id>` | finish | Amendment C — the model the vendor actually billed, not the declared pin |
+| `effort=<level>` | finish | Amendment D — the DECLARED reasoning effort the invocation asked for. **Added at Gate-2 (finding G2-1)**; see below |
 | `cost_usd=<n>` | finish | Amendment I — per-call cost where the vendor reports one; **absent when it does not**, never zero-filled |
+
+**`effort=` — why it exists, and what its absence means (G2-1).** Amendment D reads
+*"the pilot declares its effort value explicitly on the argv **and records it in the
+run-log row**."* Through `dddd232d` it was honoured on the argv (`--reasoning-effort
+xhigh`) and in `telemetry.jsonl` (`reasoning_effort`) but **not on the row** — while
+§ 5 of this document asserted that every row carried it. jack-ryan ruled the gap WARN
+and named the choice: carry the field, or strike the claim. **The field is carried**,
+because the surface Amendment I names for the banking window is the run-log, and a cost
+column read beside a resolved model but *not* beside its effort level attributes an
+effort change to the model (#10 — change one thing, measure one thing).
+
+The value is read from the harness result's `extra`, not from the module's pin
+constant, so a job that overrides the pin records **what it asked for** rather than
+what the constant says. **Absent is absent**, exactly as for `cost_usd=`: a harness
+that reports no effort writes no token, and no default is substituted. A banked row
+stating an effort level nobody measured is worse than one stating none, because the gap
+is detectable and the default is not — that is G2-1's own defect rebuilt on the other
+side, and `test_grok_harness.py::test_G2_1_a_harness_that_reports_NO_EFFORT_gets_no_FABRICATED_one`
+holds the line.
 
 The Codex fence still reads `sandbox=<mode>`; the Grok fence reads
 `permission_mode=<mode> web_search=on|off`. A Grok job declaring a `sandbox:` value is
@@ -707,6 +731,51 @@ reading would have given 28,213, which matches nothing the vendor reported.
 credential is a **grok.com subscription**, so the figure is a list-price imputation and
 no downstream report may present it as money billed. Reasoning tokens remain a **share
 of output**, never a fifth addend.
+
+#### 10.1 · `GROK_CLI_INPUT_FLOOR_TOKENS` — a NAMED MEASURED QUANTITY (Gate-2 finding G2-2)
+
+> **`GROK_CLI_INPUT_FLOOR_TOKENS = 28_170`** — the fixed, CLI-injected input context
+> billed on **every** Grok-lane job, independent of the prompt.
+> **Measurement of record:** job `smoke-grok-lane-2026-08-24`, `lanes/grok/_run-log.tsv`
+> + `lanes/grok/telemetry.jsonl` — a **one-line prompt** that reported
+> `input 28,170 · cache_read 2,432 · cache_creation 0 · output 43`, `total 30,645`,
+> `total_cost_usd 0.00983`. Declared in code at
+> `factory/harness/grok.py::GROK_CLI_INPUT_FLOOR_TOKENS` so a consumer binds to the
+> number rather than re-typing it.
+
+The arithmetic above settles what the fields *mean*. This settles what the measurement
+*costs*, which is a different question and the one Amendment I's banking window turns on.
+**28,170 input tokens on a one-line prompt is not the prompt** — it is a fixed context the
+CLI injects on every call, and it is therefore a **per-job floor** rather than per-job
+model spend.
+
+**The rule this imposes on the Amendment-I window (BINDING, per discipline #10 — change
+one thing, measure one thing).** The window compares Grok's first ten *production* jobs
+against Codex's banked baseline. Every one of those ten rows carries this floor inside its
+`tokens=` and `cost_usd=` figures. So:
+
+1. **Attribute the floor as FIXED OVERHEAD, never as per-job model spend.** The per-job
+   marginal figure is `tokens − 28,170 − cache_read`, and a comparison against Codex that
+   skips this subtraction is measuring *the CLI's context injection* while reporting *the
+   model's cost*.
+2. **`$0.00983` for 43 output tokens is the number that will mislead.** Read alone it says
+   this lane is expensive; read beside the floor it says ~99.9 % of that call was fixed
+   overhead. Anyone meeting the figure without the floor beside it draws the wrong
+   conclusion, and the whole point of recording it here is that they cannot.
+3. **A cost anomaly is measured against the floor, not against zero.** Star-lord's standing
+   >2× rule applies to the marginal component; a job whose *total* is 2× the floor may be
+   entirely ordinary.
+
+**What this quantity is NOT (stated so the number is not over-trusted).** It is **n = 1**.
+It was measured once, on one prompt shape, at one CLI version (`~/.grok/bin/grok` v1.0.5)
+and one model pin (`grok-4.6` → resolved `grok-4.6-build`). The prompt's own tokens are
+*inside* the 28,170, so the figure is an **upper bound on the fixed component**, not an
+exact split — with a one-line prompt the difference is small but it is not zero. Nothing
+here establishes that the floor is constant across prompt sizes, efforts, or CLI versions;
+the ten banking jobs are the first evidence that could, and a floor that moves is itself a
+finding worth the row. **A CLI version bump invalidates this measurement and requires a
+re-probe** — which is exactly the reason it is written down with its provenance instead of
+carried as a remembered number.
 
 ---
 

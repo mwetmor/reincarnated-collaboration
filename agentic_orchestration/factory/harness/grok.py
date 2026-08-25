@@ -109,6 +109,25 @@ FORBIDDEN_PERMISSION_MODES = frozenset({"bypassPermissions", "dontAsk"})
 PERMISSION_MODES = frozenset({"default", "acceptEdits", "auto", "plan"})
 DEFAULT_PERMISSION_MODE = "default"
 
+#: **A MEASURED QUANTITY, not a policy** (Gate-2 finding G2-2). The fixed input context
+#: this CLI injects on EVERY call, independent of the prompt: job
+#: `smoke-grok-lane-2026-08-24` sent a ONE-LINE prompt and the vendor reported
+#: `input 28,170 · cache_read 2,432 · cache_creation 0 · output 43` for `$0.00983`.
+#: 28,170 input tokens on one line is not the prompt — it is a per-job FLOOR.
+#:
+#: Declared here so Amendment I's ten-job banking window binds to the number instead of
+#: re-typing it, and so the marginal per-job figure (`tokens - floor - cache_read`) has
+#: ONE derivation. Attributing this floor to the MODEL, or to the effort pin, defeats
+#: discipline #10 before the window opens: the comparison against Codex's banked
+#: baseline would be measuring the CLI's context injection and reporting model spend.
+#:
+#: **n = 1.** One prompt shape, CLI v1.0.5, model pin `grok-4.6`. The prompt's own tokens
+#: are INSIDE this figure, so it is an upper bound on the fixed component and not an
+#: exact split. Nothing establishes it is constant across prompt sizes or CLI versions —
+#: a version bump invalidates it and requires a re-probe. Full provenance and the
+#: attribution rule: `factory/MIGRATION.md` § 10.1.
+GROK_CLI_INPUT_FLOOR_TOKENS = 28_170
+
 #: The prohibition of record. Said on EVERY argv, and preflight-asserted (Amendment E).
 NO_LEADER_FLAG = "--no-leader"
 

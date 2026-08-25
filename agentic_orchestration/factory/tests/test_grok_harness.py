@@ -429,6 +429,43 @@ def test_the_USAGE_MAPPING_reproduces_the_VENDORS_OWN_TOTAL_EXACTLY():
     assert usage.input_tokens == 28170, "NOT reduced by the cache read — siblings, not subset"
 
 
+def test_G2_2_the_PER_JOB_INPUT_FLOOR_is_bound_to_its_MEASUREMENT_OF_RECORD():
+    """The named quantity and the envelope it was measured from cannot drift apart.
+
+    G2-2's finding was that the arithmetic survived and the *operational fact* did not:
+    28,170 input tokens on a ONE-LINE prompt is a fixed context the CLI injects on every
+    call, and Amendment I's banking window must attribute it as overhead rather than as
+    per-job model spend. A number written only into prose is a number the next reader
+    re-derives or re-types; this row makes the constant answerable to the artifact.
+
+    `LIVE_SMOKE_ENVELOPE` is the real envelope from `smoke-grok-lane-2026-08-24`, so if
+    a future re-probe replaces it with a new measurement, the constant must move in the
+    same commit — which is what "a CLI version bump requires a re-probe" means when it
+    is a mechanism rather than a sentence.
+    """
+    from factory.harness.grok import GROK_CLI_INPUT_FLOOR_TOKENS
+
+    usage = UsageBreakdown.from_grok_envelope(LIVE_SMOKE_ENVELOPE)
+    assert GROK_CLI_INPUT_FLOOR_TOKENS == usage.input_tokens, (
+        f"the declared per-job input floor ({GROK_CLI_INPUT_FLOOR_TOKENS:,}) no longer "
+        f"matches its measurement of record ({usage.input_tokens:,}). One of the two "
+        "moved alone — and the banking window reads the constant."
+    )
+    # The reading that makes the floor MATTER, asserted rather than left to the prose:
+    # this call's cost was overwhelmingly fixed overhead, not model spend.
+    marginal = usage.billable_token_total() - GROK_CLI_INPUT_FLOOR_TOKENS - usage.cache_read_tokens
+    assert marginal == 43, (
+        "the marginal (non-floor, non-cache) token count for the smoke job is not the "
+        f"43 output tokens the vendor reported: got {marginal}. That subtraction IS the "
+        "per-job figure the Amendment-I window compares against Codex."
+    )
+    assert marginal / usage.billable_token_total() < 0.01, (
+        "the smoke job's marginal share is no longer under 1% — the sentence '$0.00983 "
+        "for 43 output tokens is ~99.9% fixed overhead' would now be false in MIGRATION "
+        "§ 10.1 while still being written there."
+    )
+
+
 def test_REASONING_TOKENS_are_a_SHARE_OF_OUTPUT_never_a_fifth_addend():
     usage = UsageBreakdown.from_grok_envelope(LIVE_SMOKE_ENVELOPE)
     assert usage.reasoning_tokens == 23
@@ -535,8 +572,51 @@ def test_ROUND_TRIP_enqueue_drain_and_the_row_carries_C_and_I(tmp_path, fake_gro
     finish = [r for r in queue.runlog.rows() if r[2].startswith("rc=")][0]
     assert "resolved_model=grok-4.6-build" in finish[3], "Amendment C, on the row"
     assert "cost_usd=" in finish[3], "Amendment I, on the row"
+    # GATE-2 G2-1. This assertion did not exist while the docstring above already
+    # claimed the row carried all four: the effort check below reads the TELEMETRY, and
+    # the ROW was never asked. The claim and the check were about different surfaces —
+    # inside the one test written to hold the row to the claim.
+    assert "effort=xhigh" in finish[3], "Amendment D, ON THE ROW (G2-1)"
     assert finish[4] == "curator=galadriel", "R-B, on the row"
 
     events = [e for e in queue.telemetry.events() if e["event"] == "finish"]
     assert events[0]["reasoning_effort"] == "xhigh", "Amendment D, in the telemetry"
     assert events[0]["usage"]["dollars"] == pytest.approx(0.00982838)
+
+
+def test_G2_1_a_harness_that_reports_NO_EFFORT_gets_no_FABRICATED_one(
+    tmp_path, fake_grok, lock_path
+):
+    """Absent is absent — the same discipline `cost_usd=` and `router=` already hold.
+
+    The fix for G2-1 reads the effort out of the harness's `extra`, and the tempting
+    shorter spelling was to fall back to the module's `REASONING_EFFORT_PIN` when it is
+    missing. That would write a value nobody measured onto the surface Amendment I's
+    banking window reads — a row asserting an effort level the invocation may never
+    have carried, which is the finding G2-1 IS, rebuilt on the other side.
+
+    So a harness whose result declares no effort writes no `effort=` token, and the
+    window sees a gap it can ask about rather than a default it cannot detect.
+    """
+    queue = JobQueue(tmp_path / "q", lane="grok")
+    queue.enqueue(job_id="j1", prompt="do it", curator="galadriel", sandbox="n/a")
+
+    inner = _harness(fake_grok, lock_path)
+
+    class _SaysNothingAboutEffort:
+        def availability(self):
+            return inner.availability()
+
+        def run(self, prompt, cwd, config):
+            result = inner.run(prompt, cwd, config)
+            result.extra.pop("reasoning_effort", None)
+            return result
+
+    assert queue.drain(_SaysNothingAboutEffort()).fired == 1
+    finish = [r for r in queue.runlog.rows() if r[2].startswith("rc=")][0]
+    assert "effort=" not in finish[3], (
+        f"a defaulted effort landed on the run-log row: {finish[3]!r}. A banking-window "
+        "row that states an effort level nobody measured is worse than one that states "
+        "none, because the gap is detectable and the default is not."
+    )
+    assert "resolved_model=" in finish[3], "the rest of the row is untouched"
