@@ -1669,6 +1669,53 @@ class TestU11Ingester(unittest.TestCase):
                          "non-version string in a version field")
         self.assertEqual(row["harness"], claude_usage.HARNESS)
 
+    # -- R-9 (SCHEMA § 0 rule 1, emitter clause) ------------------------------
+    def test_R9_a_correction_is_emitted_IFF_a_measured_value_moved(self):
+        """R-9 falsifier — the iff, proved in both directions on one fixture.
+
+        Standing tape law (conductor L-5, RATIFIED at G-U11b): *a correction row is emitted if
+        and only if a measured value moved.* A `corrects:` row restating byte-identical values
+        asserts an amendment that did not happen — the false-positive twin of G-2c-R1.
+
+        The fixture is built so re-derivation MUST agree: the row is ingested from these files
+        and immediately re-derived from the same files. So the pass has every opportunity to
+        emit and must decline. The second half proves the decline is a REFUSAL and not an
+        inability — under the override the same pass builds the row, and the row it would have
+        appended restates all four axes byte-for-byte.
+        """
+        import inspect
+        sid = "ffffffff-0000-0000-0000-00000000000a"
+        self.fx.session(sid, self.fx.messages("r9", 5, "2026-08-19T01:00:00Z"),
+                        mtime_ts="2026-08-19T09:00:00Z")
+        original = self.ingest()["rows"][0]
+        before = len(self.rows_on_tape())
+
+        rep = claude_usage.correct(self.records, repo_root=self.repo_root, findings=None)
+        self.assertEqual(rep["examined"], 1, "the pass did not look at the row at all")
+        self.assertEqual(rep["unchanged"], [original["row_id"]])
+        self.assertEqual(rep["corrected"], [], "a correction was emitted where nothing moved")
+        self.assertEqual(rep["deltas"], {})
+        self.assertEqual(len(self.rows_on_tape()), before,
+                         "an amendment that did not happen reached an append-only tape")
+
+        forced = claude_usage.correct(self.records, repo_root=self.repo_root,
+                                      dry_run=True, findings=None, emit_unchanged=True)
+        self.assertEqual(len(forced["rows"]), 1,
+                         "NON-VACUITY: the pass cannot build a correction for this row at "
+                         "all, so the default proves nothing")
+        would = forced["rows"][0]
+        self.assertEqual(would["corrects"], original["row_id"])
+        for axis in claude_usage.CORRECTABLE_AXES:
+            self.assertEqual(would[axis], original[axis],
+                             "%s moved — the fixture no longer isolates the unchanged case, "
+                             "which is the only case R-9 governs" % axis)
+
+        # The default IS the law, pinned by equality (the FINDING-C pattern). Flipping it —
+        # or deleting the `if not emit_unchanged: continue` guard — goes red here and says why.
+        self.assertIs(inspect.signature(claude_usage.correct)
+                      .parameters["emit_unchanged"].default, False,
+                      "`--correct-unchanged` is Matt's veto lever, never the default")
+
     # -- THE LAW --------------------------------------------------------------
     SOURCES = ("claude_usage.py", "bin/ingest_claude_usage")
 

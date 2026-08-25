@@ -79,6 +79,28 @@ nothing, and tightens nothing.
    > it has not folded is deriving from superseded facts. Proved live at G-U11: a valid, accepted,
    > on-tape correction was invisible while `correction_errors` returned `[]`.
 
+   **Emitter clause — R-9, conductor-ruled (RUN U11-BUILD, ledger L-5/L-6), RATIFIED at G-U11b
+   (jack-ryan, 2026-08-25).** R-8 binds the reader; this binds the **writer**, and it is the
+   false-positive twin of G-2c-R1's flag-absence-asserts-nothing. jack-ryan's wording, verbatim
+   (G-U11b § R-9 — *"carried forward as standing tape law, not left as a run-local ruling"*):
+
+   > *A correction row is emitted if and only if a measured value moved.*
+   >
+   > On an append-only tape a `corrects:` row is not a no-op — it is an **assertion that an
+   > amendment occurred**. […] G-2c-R1 held that an absent flag asserts nothing; R-9 holds that
+   > a **present** correction asserts something, so it must not be emitted where nothing happened.
+
+   **The obligation this puts on every emitter's `--correct` pass:** re-derive, diff against what
+   is on the tape, and append **only** where an axis differs. A `corrects:` row restating
+   byte-identical values is a fabricated amendment — the same class of offence as rule 2's
+   fabricated measurement, and it inflates `already_corrected` and the defect's apparent blast
+   radius for every future auditor. Verified at its strongest form at G-U11b (16 corrected / 11
+   omitted; 44 re-derived comparisons, 0 stale) — and it is what stopped 11 false amendments from
+   landing when the gate's own row-grain count was over-stated. `claude_usage.correct()` is the
+   reference implementation: `emit_unchanged=False` is the law, pinned by test; the
+   `--correct-unchanged` override exists solely as Matt's veto lever and is **not** a licence for
+   an emitter to default to it.
+
 2. **Never estimate.** Absent is absent. `make_row()` drops `None` rather than storing a null,
    and there is no zero default anywhere. *A null is a fact; an estimate in a truth-of-record
    stream is a fabrication.*
