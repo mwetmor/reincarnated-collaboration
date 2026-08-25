@@ -44,13 +44,31 @@ reuses star-lord's helpers verbatim — `schema.fold`, `unit_identity` (owner fr
 never from the latest row), `last_actor`, `sla_class` / `class_medians` / `staleness`,
 `partition_audit`, every `probe_*`, and the whole AM-1 lane composite (`LANE_CARDS`,
 `probe_lane_lock` / `probe_process_table` / `probe_vendor_auth` / `probe_runlogs`,
-`lane_answer`, `PROBE_MODE`, `Q62_CAVEAT`). If that import fails the board renders RED and
-renders nothing else: a view that cannot reach its one derivation must not show a partial
-green. `flight/` is star-lord's seam and is read/imported only — never modified.
+`lane_answer`, `state_marker`, `PROBE_MODE`, `Q62_CAVEAT`). If that import fails the board
+renders RED and renders nothing else: a view that cannot reach its one derivation must not
+show a partial green. `flight/` is star-lord's seam and is read/imported only — never modified.
 
 Consequence you can check by eye: for the same tape, this board and `flight/report.md` carry
 the same counts. AT GATE and the tape-side HALT list are **overlays**, not partition lanes —
 exactly as Tier-1 renders them — so IN-FLIGHT never disagrees between the two windows.
+
+## Colour is a claim (B-3b)
+
+The same rule binds COLOUR, which galadriel's S7 verification found this board holding by hand
+in three places and getting wrong in one:
+
+* **`pin drift` is green only when a comparison actually happened.** A unit that echoes a
+  model but pinned none is NOT COMPARABLE — not a match, not a miss. A zero comparable
+  population renders `NO COMPARISON POSSIBLE … Determinate, not green` as a declared null
+  carrying its denominator, exactly as Tier-1 does on the same tape. *The absence of a
+  disagreement is not the presence of an agreement.*
+* **The lane chip's colour is `flight_report.state_marker()`,** not a local table. So
+  `queue-pending` colours WITH `open` (Amendment H: backlog is not occupancy — the lane is
+  first-choice), and a fire-safe answer resting on reduced leg coverage colours amber with the
+  count in the chip itself: `open · 1 of 3 legs`.
+* **The HEALTH strip carries Tier-1's severity** on Tier-1's thresholds — disk 🔴 below 5 %
+  free, git 🟡 when ahead-of-remote or dirty. A health strip calmer than the Matt queue printed
+  beside it is an instrument nobody reads twice.
 
 ## No auto-refresh, deliberately
 

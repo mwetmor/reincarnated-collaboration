@@ -16,7 +16,8 @@ THE LAW (U-1 / engineering Discipline #74), enforced by construction here:
   * ONE DATA PATH. The tape is read through star-lord's `flight/tape.py` + `schema.py`,
     and every fold helper (identity-from-ENQUEUE/START, SLA class medians, staleness,
     the lane-partition audit, the probes) AND THE WHOLE AM-1 § 13.1 LANE COMPOSITE
-    (`LANE_CARDS`, the three legs, `lane_answer`, `PROBE_MODE`, `Q62_CAVEAT`) is
+    (`LANE_CARDS`, the three legs, `lane_answer`, `state_marker` — the chip COLOUR,
+    Amendment H's predicate included — `PROBE_MODE`, `Q62_CAVEAT`) is
     IMPORTED from `flight/bin/flight_report` — not reimplemented. If that import fails,
     this board renders RED and renders nothing else: a view that cannot reach its one
     derivation must not show a partial green.
@@ -65,7 +66,7 @@ FLIGHT_DIR = os.path.join(AO_DIR, "flight")
 sys.path.insert(0, HERE)
 sys.path.insert(0, FLIGHT_DIR)
 
-BOARD_VERSION = "u1-b3-1"
+BOARD_VERSION = "u1-b3b-1"
 
 
 def load_flight_report():
@@ -229,14 +230,40 @@ def latest_snapshots(rows):
     return out
 
 
-def pin_drift(rows):
-    """`model_echo` ≠ `pin` incidents. A vendor version-change tripwire, not an opinion."""
-    hits = []
-    for r in rows:
-        pin, echo = r.get("pin"), r.get("model_echo")
-        if pin and echo and pin.split("@")[0] != echo:
-            hits.append(dict(unit=r.get("unit_id"), ts=r["ts"], pin=pin, echo=echo))
-    return hits
+def pin_drift(fr, units):
+    """The `model_echo` ≠ `pin` tripwire, as THREE COUNTED POPULATIONS: mismatching,
+    comparable-and-matching, and echo-without-pin.
+
+    A unit that echoes a model but pinned nothing is NOT COMPARABLE — not a match and not a
+    miss. Folding it into "none disagree" manufactures a green out of a unit that pinned
+    nothing, which is exactly what S7/D1 caught this cell doing (galadriel; ruled FALSE-GREEN
+    and BLOCKING at L-25). The absence of a disagreement is not the presence of an agreement,
+    and on a board read at a glance, green is read faster than the sentence beside it.
+
+    GRAIN AND COMPARISON ARE TIER-1'S, verbatim — per UNIT via `unit_identity` rather than per
+    raw row, and `model_echo != pin` whole rather than `pin.split("@")[0] != echo`. Both were
+    board-local divergences before this fix: two windows comparing two different things under
+    one name is the desync class the Tier-2 gate exists to prevent.
+
+    RE-EXPRESSED rather than imported for the same reason as the rollup helpers above —
+    star-lord computes it inline inside `flight_report.render()`. The CONVERGENCE POINT is his
+    exposing it as a function (as B-1c just did for `state_marker`), at which point this helper
+    deletes. Any divergence shows up as a `pin drift` cell that disagrees with
+    `flight/report.md` on the same tape, which is the check galadriel can run.
+    """
+    drift, comparable, echo_only = [], 0, 0
+    for u in units.values():
+        ident = fr.unit_identity(u)
+        if not ident.get("model_echo"):
+            continue
+        if not ident.get("pin"):
+            echo_only += 1
+            continue
+        comparable += 1
+        if ident["model_echo"] != ident["pin"]:
+            drift.append(dict(unit=u["latest"]["unit_id"], pin=ident["pin"],
+                              echo=ident["model_echo"]))
+    return dict(drift=drift, comparable=comparable, echo_only=echo_only, total=len(units))
 
 
 # ---------------------------------------------------------------- the render
@@ -375,7 +402,7 @@ def render_html(records_dir, repo_root, now, run_probes=True, lane_probes=True):
     A(section_lanes(p, fr, rows, units))
 
     # ---- HEALTH
-    A(section_health(p, fr, rows, now))
+    A(section_health(p, fr, rows, units, now))
 
     # ---- SEALED rollups + scorecards
     A(section_rollups(fr, rows, sealed))
@@ -533,9 +560,30 @@ def col_sealed(fr, rows, sealed):
 # `LANE_CARDS` (the vendor descriptors), the three leg probes, and `lane_answer()` (the
 # fail-closed union). This board CONTRIBUTES NO LANE DERIVATION OF ITS OWN: it renders
 # the check's output as a card, which is exactly what Q62 ruled the board may do.
-_STATE_CLASS = {"open": "s-open", "busy-lock": "s-busy", "busy-out-of-band": "s-busy",
-                "busy-unknown": "s-warn", "queue-pending": "s-warn",
-                "auth-expired": "s-busy", "cli-missing": "s-busy"}
+#
+# THE CHIP COLOUR IS NOT THE BOARD'S RULE. It is star-lord's exported `state_marker()`, which
+# B-1c made a function precisely so both tiers colour one predicate one way. The board maps his
+# three markers onto its three chip classes and contributes no rule of its own — no string
+# equality with `"open"`, no local severity table.
+#
+# What that buys, in the two directions the run ruled on:
+#   * Amendment H (jack-ryan): `queue-pending` is SAFE-TO-FIRE — backlog is not occupancy — so
+#     it colours WITH `open`, not against it. The retired local table hardcoded it amber, which
+#     told Matt to look elsewhere at a lane he should have fired into.
+#   * S7/D2 (galadriel): fire-safe on REDUCED LEG COVERAGE is amber, never green. grok wore the
+#     same full-green chip as codex while its own card body declared 1-of-3-leg coverage — the
+#     distinction Tier-1 drew in 🟡 vs 🟢 and this board lost at a glance, on a surface whose
+#     stated use is "glance HERE before opening a vendor TUI". The leg count now rides inside
+#     the chip so the reduction is legible without reading the card body.
+_MARKER_CLASS_BY_SEVERITY = ("s-open", "s-warn", "s-busy")   # GREEN, AMBER, RED
+
+
+def lane_chip(fr, ans):
+    """The lane-state chip: star-lord's marker, this board's CSS, nothing in between."""
+    cls = dict(zip((fr.GREEN, fr.AMBER, fr.RED),
+                   _MARKER_CLASS_BY_SEVERITY)).get(fr.state_marker(ans), "s-unknown")
+    legs = "" if not ans["na"] else " · %d of 3 legs" % (3 - len(ans["na"]))
+    return "<span class='state %s'>%s%s</span>" % (cls, E(ans["state"]), E(legs))
 
 
 def _lane_tape_activity(fr, rows, units, lane_key):
@@ -589,12 +637,10 @@ def vendor_card(p, fr, rows, units, cfg):
     rls = p.results.get("runlog:" + key)
     auth = p.results.get("auth:" + key)
     ans = fr.lane_answer(cfg, lock, procs, rls, auth)
-    st = ans["state"]
 
-    L = ["<div class='vcard'><h3>%s <span class='state %s'>%s</span> "
+    L = ["<div class='vcard'><h3>%s %s "
          "<span class='null'>lane <code>%s</code> · provider <code>%s</code></span></h3>"
-         "<div class='rows'>" % (E(vendor), _STATE_CLASS.get(st, "s-unknown"), E(st),
-                                 E(key), E(cfg["provider"]))]
+         "<div class='rows'>" % (E(vendor), lane_chip(fr, ans), E(key), E(cfg["provider"]))]
     kv = []
     kv.append(("why", "<br>".join(E(w) for w in ans["reasons"])))
     if ans["advisories"]:
@@ -699,7 +745,32 @@ def claude_card(fr, rows, units):
 
 
 # ---------------------------------------------------------------- HEALTH
-def section_health(p, fr, rows, now):
+# Tier-1 severity thresholds, RE-EXPRESSED (star-lord evaluates them inline inside
+# `flight_report.render()` — same convergence point as the rollup helpers above: when he
+# exposes them, these two constants import instead).
+#
+# S7/D3: the board rendered `23 GB free of 494 GB (5%)` in plain white while Tier-1 rendered
+# the identical reading 🔴 — and while the board's own AWAITING MATT column carried T20 saying
+# RED. A health strip calmer than the queue printed beside it is an instrument nobody reads
+# twice. The five `git ·` rows dropped Tier-1's 🟡 the same way.
+DISK_RED_PCT_FREE = 5.0                 # Tier-1: `GREEN if d["pct_free"] > 5 else RED`
+# Tier-1: `GREEN if (g["ahead"] == 0 and g["dirty"] == 0) else AMBER` — `behind` is reported
+# but deliberately does not raise severity (a behind-remote checkout is not local risk).
+
+
+def SEV(level, text):
+    """A severity-marked health cell. Glyph AND colour on the loud states, so a Tier-1 🔴/🟡
+    and a Tier-2 red/amber are the same claim. Green carries colour only, matching the cells
+    already on this strip (`<span class='ok'>none</span>`) — the glyph is reserved for the
+    states that want the eye."""
+    if level == "red":
+        return "<span class='fail'>🔴 %s</span>" % text
+    if level == "amber":
+        return "<span class='degraded'>🟡 %s</span>" % text
+    return "<span class='ok'>%s</span>" % text
+
+
+def section_health(p, fr, rows, units, now):
     L = ["<section><h2>⚙ HEALTH — read-only probes, run at render time</h2><div class='body'>"]
     L.append("<table><tr><th>probe</th><th>reading</th></tr>")
 
@@ -724,10 +795,21 @@ def section_health(p, fr, rows, now):
         key = "git:" + name
         if p.status(key) == "not-run":
             continue
-        row("git · " + name, E(p.line(key, lambda r: "%s · ahead %d · behind %d · dirty %d"
-                                      % (r["branch"], r["ahead"], r["behind"], r["dirty"]))))
-    row("disk", E(p.line("disk", lambda r: "%.0f GB free of %.0f GB (%.0f%%)"
-                         % (r["free_gb"], r["total_gb"], r["pct_free"]))))
+        g = p.get(key)
+        if g is None:                       # probe FAILED — loud, and never coloured green
+            row("git · " + name, E(p.line(key, lambda r: "")))
+            continue
+        row("git · " + name,
+            SEV("green" if (g["ahead"] == 0 and g["dirty"] == 0) else "amber",
+                E("%s · ahead %d · behind %d · dirty %d"
+                  % (g["branch"], g["ahead"], g["behind"], g["dirty"]))))
+    dk = p.get("disk")
+    if dk is None:
+        row("disk", E(p.line("disk", lambda r: "")))
+    else:
+        row("disk", SEV("green" if dk["pct_free"] > DISK_RED_PCT_FREE else "red",
+                        E("%.0f GB free of %.0f GB (%.0f%%)"
+                          % (dk["free_gb"], dk["total_gb"], dk["pct_free"]))))
     reqs = p.get("requests-dirs")
     if reqs is None:
         row("unswept requests/", E(p.line("requests-dirs", lambda _: "")))
@@ -744,12 +826,32 @@ def section_health(p, fr, rows, now):
     else:
         row("window meters", NULL("no SNAPSHOT row on the tape — window burn is not "
                                   "derivable yet"))
-    drift = pin_drift(rows)
-    row("pin drift", ("<span class='ok'>none</span> — no row carries a `model_echo` that "
-                      "disagrees with its `pin`" if not drift
-                      else "<span class='fail'>%d incident(s)</span>: %s"
-                      % (len(drift), E("; ".join("%s %s≠%s" % (d["unit"], d["pin"], d["echo"])
-                                                 for d in drift)))))
+    # pin drift — the tripwire, with its DENOMINATOR. Green is earned by comparisons that
+    # happened, never by comparisons that were impossible (S7/D1, BLOCKING at L-25).
+    d = pin_drift(fr, units)
+    echo_note = ("; %d unit(s) echo a model but pinned none — NOT COMPARABLE, excluded from "
+                 "the denominator" % d["echo_only"]) if d["echo_only"] else ""
+    if d["drift"]:
+        row("pin drift", "<span class='fail'>🔴 %d of %d comparable unit(s)</span> where "
+                         "<code>model_echo</code> ≠ <code>pin</code>%s: %s"
+            % (len(d["drift"]), d["comparable"], E(echo_note),
+               E("; ".join("%s %s≠%s" % (x["unit"], x["pin"], x["echo"])
+                           for x in d["drift"][:5]))))
+    elif d["comparable"]:
+        row("pin drift", "<span class='ok'>none</span> — %d/%d unit(s) carry BOTH a "
+                         "<code>pin</code> and a <code>model_echo</code>, and all match%s"
+            % (d["comparable"], d["total"], E(echo_note)))
+    elif d["echo_only"]:
+        row("pin drift", NULL(
+            "NO COMPARISON POSSIBLE — %d/%d unit(s) carry a `model_echo` but none of them "
+            "carries a `pin`, so nothing can be compared. Determinate, not green "
+            "(%d/%d model_echo · 0/%d comparable)"
+            % (d["echo_only"], d["total"], d["echo_only"], d["total"], d["total"])))
+    else:
+        row("pin drift", NULL(
+            "NO SIGNAL — `model_echo` is null on %d/%d unit(s), so the tripwire cannot fire "
+            "on any lane currently captured. A determinate answer, not a clean bill of health"
+            % (d["total"], d["total"])))
     L.append("</table>")
     L.append("<div class='note'>Everything on this strip is a LOCAL, pre-push fact — which "
              "is exactly what Glance can never see (§ 12.1). The rear-view half of this "
