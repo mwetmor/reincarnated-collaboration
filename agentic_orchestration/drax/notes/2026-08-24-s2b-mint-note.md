@@ -1132,14 +1132,35 @@ renders of one identical `laser_vfx_01` arm produced **three different frames**:
 | pass 1 vs pass 2 | 214 | 2,292 | 6,084 |
 | pass 2 vs pass 3 | 214 | 2,680 | 6,972 |
 
-against ~39,800 authored px — **~6.7 % of the authored mask drifting**, while
-the matched **control** frames were byte-identical. The asset ships **2
+against ~39,800 authored px — **~6.7 % of the authored mask drifting**. ~~while
+the matched **control** frames were byte-identical.~~ The asset ships **2
 `GPUParticles3D`** (which cannot be pinned to the stage clock) and **7
 `ShaderMaterial`s** (which the C-8 census can only classify as `shader?` —
 UNKNOWN, not assumed-innocent, and an uninspectable second tint channel that
 Tier-1 survivability would then be measured *through*). Every Tier-1 claim on
 this row is a comparison between element arms of one geometry; **a payload that
 differs from ITSELF by 2,680 px cannot support one.**
+
+> ⚑ **RETIRED 2026-08-25 — the struck clause above, and only it.** jack-ryan's
+> F-9 return: *"the matched control frames were byte-identical"* is **falsified
+> as stated.** It was a **SAMPLE**, not a **PROPERTY** — a handful of control
+> frames observed identical across those particular passes, written as though
+> the control arm were byte-stable by nature. The repeat that would license the
+> general claim was never run, and under F-9 the direction it was asserted in
+> is the one that needs it: reporting **identity** is noise-immune, but
+> reporting identity *as a property of an arm* is a claim about all its future
+> frames, which no finite sample delivers.
+>
+> **THE VERDICT IS UNTOUCHED, AND IT RE-ANCHORS TO THE 6,084 px FIGURE.** The
+> beam pack stays unmounted on the strength of the drift measurement alone:
+> three populations at **1× / 338× / 656×** with no overlap between them. The
+> control was never load-bearing — it was corroboration for a gap that is two
+> orders of magnitude wide without it. Striking the sentence changes nothing
+> downstream, which is exactly why it can be struck cleanly rather than
+> argued about.
+>
+> Same shape as F-1: **premise refuted, verdict stands, one line of prose owed.**
+> Paid here. *(Discharges § 2.3 item 2 of `2026-08-25-drax-s2c-3a-recapture.md`.)*
 
 **Effect on banked receipt (iv):** the yaw ANGLE moves only in the fourth
 decimal — **0.2686 / 0.2761 / 0.2826°** at the shipped floor against a 2.907°
