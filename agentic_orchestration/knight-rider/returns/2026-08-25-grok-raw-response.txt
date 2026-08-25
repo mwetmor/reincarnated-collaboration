@@ -1,0 +1,63 @@
+I'll read the full prompt and the ruling first, then attack the three claims in cost order.**Refusal to mint CV as a graded target survives.** The replacement set, and the claim that no better cadence spec exists, do not.
+
+## (1) CV refusal
+
+Jitter-to-pass is real. Poisson-vs-rhythm is real. CV cannot tell them apart. Do not bar `CV ≥ 0.8`.
+
+He then says that settles cadence as a property. It doesn’t. **CV is a timescale-blind scalar.** The thing that distinguishes rhythm from noise is the **shape across timescales**, and he had the ingredients:
+
+- **Fano factor \(F(T)\)** (count variance/mean in windows of length \(T\)): periodic \(\rightarrow F\to 0\) near the period; Poisson \(\rightarrow F\approx 1\) at all \(T\); burst/rhythm \(\rightarrow F<1\) inside the strike, \(F>1\) at phrase scale. Jittered metronome cannot fake that curve.
+- **Event-train spectrum**, which he already computed. A jittered clock stays **tonal** (peak broadens, remains a peak). Poisson is flat. Phrase rhythm is **broad with related secondary peaks**. He wrote “broad, not random” and “flatten the spectrum is the right instruction,” then **refused to mint the statistic that implements it.**
+
+So the gameable-proof target he missed is not a CV number. It is **\(F(T)\) + peak/median (or spectral entropy) as a two-sided envelope**, plus P-3 with an **incommensurability** rule (not “has a second timer”).
+
+The four replacements **move the loophole**, and three of them are not cadence at all:
+
+| Mint | Actual layer | Cheap pass |
+|---|---|---|
+| P-1 non-zero mass at declared marks | L2 | **one pixel** at windup. He called this ungameable. It is the most gameable bar in the document. |
+| P-2 min coarse fraction | L4 | Blur, bloom, or one unread fog card. Operator **not even validated** (his R-8). |
+| P-3 independent emitter | L1 (only real cadence handle) | Phase-offset clones of the **same** clock, or a harmonic (\(2.525\) and \(1.2625\) Hz **lock harder**). Independent \(\neq\) unlocked. |
+| P-4 “any axis but hue” | L6 | Nudge a band \(0.01\). |
+
+Cadence after this ruling is protected only by a **trip-only flag** at `CV < 0.25` **and** peak \(>1000\times\). A jittered metronome at CV \(0.35\) / \(300\times\) **passes every minted property.** That is the expensive hole.
+
+Worse: **a light-attack string is supposed to be periodic.** \(0.392\,\mathrm{s} \pm 40\,\mathrm{ms}\) is what a tight 3-hit combo *is*. He used the cross-row pairing to refuse a CV target, then used the same pairing to mark `melee_combo` L1-BROKEN. If the pairing cannot support a bar, it cannot support that verdict either. Dash vs combo already shows CV tracking **ability class** (locomotion/recovery vs locked string), which is his §5.1(2) confound eating his L1 call.
+
+## (2) Same-beat fusion
+
+Direction is half-right: extra layers that share **onset, envelope, decay, and spatial support** will not read as new events. Magnitude and dispatch do not survive.
+
+He conflates **flicker fusion** (\(\mathrm{CFF}\sim 50{-}90\,\mathrm{Hz}\)) with **onset binding**. \(2.525\,\mathrm{Hz}\) is not flicker. Each hit is a discrete event. Binding-to-the-beat is real (attentional entrainment, \(\sim\)2–3 cycles in the lab) and, for a **scrape, is the point**. Matt said scraping *timing*: sparks on the contact frame, ejected along the grind, 3–8 frame independent decay. That is a compound impact, which is how every fighting game and every ARPG hit-spark works. **Off-beat scrape is the bug.** His concrete sentence inverts the asset.
+
+Shared onset \(\neq\) lost identity when **trajectory, spatial frequency, chroma, or lifetime** differ. Smoke and wind persist \(5{-}20\times\) longer than the slash; they cannot collapse to “slightly whiter.” That contradicts his own L2 (aftermath at a different rate *is* the rhythm).
+
+“Buys nothing” is already falsified **inside the receipts**: `dash_attack` is cadence-healthy (CV \(0.955\)) and still L3-thin / L4-broken / L5-zero. Timing was not the blocker there.
+
+The 1.2 s lock is a **clean-room** claim. ww7 (~344 actors) is what play looks like; scene clocks destroy the carrier. Optimising dispatch for the isolation condition that play will not have is the wrong expensive order.
+
+**History is pattern-match.** D3 launch was luminance/overdraw/self-occlusion (“can’t see the ground”), fixed with density sliders and desaturation, not beat surgery. PoE’s decade of subtraction is MTX and ally clutter, same axis. Grim Dawn hits hard with **coarse sprites + debris + hit-stop**, not timing in isolation. Hit-stop, which he recommends as an L1 irregularity generator, **increases** same-frame binding. He is using it for the opposite of the fusion diagnosis.
+
+Inventory-last is right for a fifth copy of the crescent. It is wrong for long-decay volume. Do not hold smoke hostage to a combo metronome.
+
+## (3) Distortion as reserved power-tier signifier
+
+**Invented as a categorical reserve.** The real rules: don’t **max** the channel on a spam skill; don’t run **persistent full-screen** warps that hide telegraphs (readability, not prestige).
+
+Escalation lives in **amplitude, duration, and extent**. T1: local 8 px heat-ripple on the blade. Endgame: viewport refraction, 400 ms. Using the channel is not spending it. He already spends **camera shake** at T1 — the more exhausted signifier of the two.
+
+Counterexamples (T1 / core, not ultimates):
+
+- **PoE Cyclone, Flame Dash, Lightning Warp** — warp/distort at gem level 1. Cyclone is their Whirlwind analogue.
+- **D3** Wizard Teleport, Disintegrate; WW motion blur.
+- **D4** core Sorc (Incinerate heat-haze, Teleport, Frost Nova shimmer), Druid Hurricane, Barb WW dust/blur. D4’s VFX bible treats refraction as **material** (heat, ice, holy), not a tier gate.
+
+A 24 px cavitation along a sword is air-speed, not “the world is being bent.” Collapsing local material distortion into full-screen cosmic bend is the sleight. It parks the only L5 member the director named.
+
+## Unlisted blind spot (bigger than §9)
+
+**Director-parse inversion, then cited as confirmation.**
+
+“Timing” / “intermittent” were turned into independent clocks and off-beat authorship. In combat VFX those words mean **sync to contact** and **not a continuous beam**. If that parse is right, §2.1 tells the team to delay the thing Matt asked for until they break the beat it belongs on. He put this in the strength column (R-2), not in §9.
+
+Zero-frames is real and smaller: it hides whether the scrape would actually read. The parse error decides **what they will refuse to build**.
