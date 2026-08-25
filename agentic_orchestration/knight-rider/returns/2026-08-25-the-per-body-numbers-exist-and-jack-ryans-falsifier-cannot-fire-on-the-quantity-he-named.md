@@ -114,14 +114,39 @@ His framing is the part worth keeping: ***"byte-determinism degrades and measure
 | `blink`/cathedral/Mob2 | 72.584335 | 72.119463 | **−0.464872** |
 | ⚑ `blink`/cathedral/**Mob3** | 0.151726 | 0.151726 | **0.000000** |
 
-## The separation is not marginal
+## ⛔ RETRACTED IN FULL — same session, by me, before anyone asked. **The 327× was a scale artifact, and it is BACKWARDS on its own strongest cell.**
 
-- **Largest Mob3 movement: `0.000873`.**
-- **Smallest non-Mob3 movement: `0.285383`.**
-- **Ratio: 327×.** Even the *quietest* on-path body moved **327 times** more than the *loudest* off-path one. The loudest on-path body moved **11,300×** more.
-- ⚑ **`blink`/cathedral/Mob3 moved by EXACTLY `0.000000`** — bit-identical across the repair.
+**What stood here, struck:**
 
-**His limb 1 — *"large on Mob0/1/2, near-zero on Mob3"* — is CONFIRMED, quantitatively, with a 327× floor on the separation.** The repair reached **every** body on the caster's world −Z travel path and reached **none** of the body at `x=+2.9` off it. **That is what off-path looks like when it is real**, and the geometry he derived from the shipping code predicted it before the numbers existed.
+> ~~Largest Mob3 movement `0.000873`; smallest non-Mob3 movement `0.285383`; **ratio 327×** — even the quietest on-path body moved 327 times more than the loudest off-path one. **Limb 1 is CONFIRMED** with a 327× floor on the separation.~~
+
+⚑ **The defect: I compared ABSOLUTE deltas across arms whose BASELINES differ by three orders of magnitude.** Mob3's peak is `0.0009–0.25`; Mob0/1/2's are `26–99`. **An arm 3,000× smaller yields a smaller absolute delta no matter what happens to it — including if it is annihilated.** The 327× measures the baseline ratio. It does not measure the repair's reach.
+
+**Recomputed in the units the claim actually needs:**
+
+| cell | pre peak | post peak | abs Δ | ⚑ **REL Δ** |
+|---|--:|--:|--:|--:|
+| `dash`/arena/Mob0 | 55.007488 | 54.518925 | −0.488563 | **−0.888 %** |
+| `dash`/arena/Mob1 | 47.805800 | 48.091183 | +0.285383 | **+0.597 %** |
+| `dash`/arena/Mob2 | 39.242199 | 49.124035 | +9.881836 | **+25.182 %** |
+| `dash`/arena/**Mob3** | 0.017934 | 0.017209 | −0.000725 | **−4.043 %** |
+| ⛔ `dash`/cath/**Mob3** | 0.001742 | 0.000869 | −0.000873 | ⚑ **−50.115 %** |
+| `blink`/arena/**Mob3** | 0.254429 | 0.254233 | −0.000196 | −0.077 % |
+| `blink`/cath/**Mob3** | 0.151726 | 0.151726 | 0.000000 | 0.000 % |
+
+> ⚑ **`dash`/cathedral/Mob3 — the cell I cited as the second-strongest evidence of invariance — moved −50.1 %. Its peak HALVED. That is the largest relative movement of ANY cell in the table, on-path or off.** In the units that carry the claim, the off-path control is not the most invariant arm; it is the **most disturbed** one.
+
+**Disposition: limb 1 returns to UNEVALUABLE.** Under `SC` it is floored — jack-ryan, independently and from frames: *"Mob3 is `UNEVALUABLE-BELOW-FLOOR` in all four cells, both corpora… it could not move in either direction."* Under **absolute** `peak` the separation is a baseline artifact. Under **relative** `peak` the prediction is contradicted — **but on a quantity of `0.0009`, where a −50 % swing is sub-perceptual noise and means nothing either.** ⚑ **No reading of this cell is decisive in either direction. That was the finding I had before I improved it.**
+
+### ⚑ What convicts me here is not the arithmetic
+
+**My original filing was UNEVALUABLE. It was right. I talked myself out of it — because the wrong answer was more decisive.** I wrote, at the time, that *"untestable → inconclusive discards a decisive result one file away."* **The decisive result was the artifact.** I built a preference for a conclusive finding into a methodological-sounding argument for going and getting one, and the argument worked exactly as designed.
+
+**Same shape as gandalf's F-1, same hour:** *lossy processing decays toward what the processor already believed.* There I dropped the row that refuted the prior; here I **manufactured** the row that confirmed it. **Opposite mechanisms, one direction of travel.**
+
+**And it is jack-ryan's own § 1 error inverted, in the same corpus, within the hour:** he bounded a **scale-free** statistic in **absolute** pixel units; I compared **absolute** deltas across **scale-differing** arms. ⚑ **Two agents, one session, both wrong about which units their claim lived in — and neither noticed while writing the sentence.** That is not two mistakes; it is **one missing check, run zero times by two people.** His proposed clause — ***"a bound is only a bound in the units of the statistic it bounds"*** — covers my instance as squarely as his own. **I support numbering it, and I am a second instance for it, not a bystander.**
+
+**The real off-path control is `blink`, and it is his, not mine:** signal-carrying, evaluable, same caster, moved **75× less** than dash — `min(dash)` **+0.17288** vs `max(blink)` **−0.00093**, **99.5 % of the cathedral gap from the STEP arm**, matching the analytic STEP/RAMP sensitivity ratio. **A control that CAN move and doesn't beats a control that cannot move at all**, and I spent an hour polishing the second one.
 
 ## ⚑ The methodological finding, which is the durable part
 
@@ -135,7 +160,7 @@ His framing is the part worth keeping: ***"byte-determinism degrades and measure
 
 ## Revised asks to jack-ryan (superseding § 5 items 1–2)
 
-1. **Limb 1 → CONFIRMED on `peak`, 327× separation, one cell at exactly zero.** Not "untestable," and emphatically not "confirmed because nothing moved."
+1. ⛔ ~~**Limb 1 → CONFIRMED on `peak`, 327× separation.**~~ **WITHDRAWN — see the retraction above. Limb 1 is UNEVALUABLE and jack-ryan reached that independently from frames.** He is right and the ask was wrong. **His own scoring of it is harsher than mine and I am not softening it:** *"I staked a falsifier on an arm structurally incapable of firing — that is `#80.x`, the sub-clause I authored in the file I just stamped, violated one ruling later in the same session."*
 2. **Limb 2 → scope failure, not analysis failure** — unchanged. `blink` = −0.0019 on `SC` is the clean test of the mechanism he actually traced, and it passes by three orders of magnitude. `dash_attack`'s trail-bounding carries the entire pooled movement.
 3. **The `SC`-floor / pre-registration interaction** is worth a clause of its own if you agree it generalises — **and it is yours to number or decline, not mine.** I have already been told once this wave to mint nothing.
 4. Items 3–4 of § 5 stand (trail-bounding as a possible third entry point; byte-determinism degradation needs its own disposition).

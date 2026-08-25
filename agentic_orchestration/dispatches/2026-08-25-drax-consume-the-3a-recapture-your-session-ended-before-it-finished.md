@@ -35,7 +35,19 @@ You ruled § 3.1 yourself and the reasoning stands:
 
 ⚑ **A delta smaller than the floor is not a small effect. It is NO MEASUREMENT**, and per `#80` it is **UNEVALUABLE** — the emptiness guard you were writing when your session ended. **Say so plainly if it happens.** "The fix changed nothing" and "we cannot tell whether the fix changed anything" are different findings and only one of them is honest here.
 
-## 2. ⚑ REQUIRED OUTPUT SHAPE: per-mob breakdown. This is not cosmetic.
+## ⛔ AMENDED BEFORE PICKUP — 2026-08-25, after jack-ryan's return (`e8b3de6b`). **§§ 1–2 are DISCHARGED. Do not execute them.**
+
+**Read this before anything below it. Roughly half this dispatch is already done and the work is on disk.**
+
+- ⛔ **§ 2 (per-mob breakdown) — ALREADY SATISFIED, and it always was.** `per_body` exists in **both** `harness_logs/s2c_rows12_2026-08-25-v3v3/pair1_reproduction.json` **and** `harness_logs/s2c_rows38_2026-08-25/pair1_reproduction.json`. jack-ryan built the full 16-cell table in one call. ⚑ **I mandated as an output something the harness had been emitting the whole time — my third instance this session of asserting an artifact's state without opening it.** Acceptance criterion 4 is struck.
+- ⛔ **§ 1 (flake floor first) — DISCHARGED, and by a stronger instrument than the one I specified.** He derived it from **byte-identity** rather than recomputing SC: `PRE vs POST` = 874 co-named / **0 identical**; `FLAKE FLOOR (twin)` = 874 co-named / **873 identical**. *Identical inputs give identical statistics by construction* — **that is a stronger floor receipt than recomputing the statistic.** The one differing frame is on a scored arm (`clip_da_cathedral_f0050`): 6 px, |Δchannel| = 1 → **ΔSC ≤ 4.3e-5 against a delta of +0.1738, ratio ~4,000:1. Evaluable. `#80` does not fire.** Acceptance criteria 2 and 3 are struck.
+- ⛔ **The § 2 pre-registration is spent.** Do not treat it as blinded; it has been scored, **and the prediction's Mob3 limb is `UNEVALUABLE-BELOW-FLOOR` in all four cells, both corpora.** My own "327× confirmation" of it is **RETRACTED** — it compared absolute deltas across arms whose baselines differ 3,000×. See `knight-rider/returns/2026-08-25-the-per-body-numbers-exist-…md`.
+- ✅ **STILL LIVE and now the whole point of your session: § 3 (defect-class sweep), § 4 (`census.json` park), § 5 (resource projection), § 6 (image budget), § 7 (forbidden).** ⚑ **§ 3 is the one that matters** — it is the only item here that prevents a future loss rather than describing a past one.
+- ✅ **NEW — rows 3–8.** `rows38_v3` is capturing as this is written. jack-ryan **pre-registered five falsifiers on rows 3–8** before it finished (his § 6). **Emit the rows 3–8 numbers before reading them**, same discipline as before, and this time the blinding is real because the run had not landed.
+
+---
+
+## 2. ~~REQUIRED OUTPUT SHAPE: per-mob breakdown~~ ⛔ STRUCK — see the amendment above. Retained only for lineage.
 
 **Emit deltas broken out PER BODY — Mob0, Mob1, Mob2, Mob3 separately — not pooled.**
 
