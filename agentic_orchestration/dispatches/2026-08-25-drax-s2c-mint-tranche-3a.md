@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — Step-2 VFX mint, TRANCHE 3A (the eight beam-pack-INDEPENDENT rows)
 
-**Status:** PENDING
+**Status:** ⚑ **HALTED AT THE PRE-REGISTERED ROW-2 CHECKPOINT** (drax, 2026-08-25). Rows 1-2 minted, measured and committed; rows 3-8 NOT STARTED. Three findings routed, two of them against SEALED work. Awaiting a ruling on F-8 before the remaining six rows are minted.
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-25 (launch prompt — go-word for tranche-3 authoring + fire)
@@ -365,7 +365,60 @@ Knight-rider requests the push at seal time. **If you believe a push is needed, 
 
 ## Completion record
 
-*(drax appends here. Per the CLAUDE.md conflict rule: **update this Status header too** — a completion record filed while the header still reads PENDING is the same defect one level up, and it is live in this repo right now on two other dispatches.)*
+**drax, 2026-08-25 — ⚑ HALT-AND-SURFACE, on the DEFECT limb. Rows 1-2 complete; rows 3-8 not started.**
+*(Status header updated in the same edit, per the CLAUDE.md conflict rule — a completion record filed while the header still reads PENDING is the same defect one level up.)*
+
+**Mint note of record:** `agentic_orchestration/drax/notes/2026-08-25-s2c-mint-note.md`
+(§§ 0-8 committed at `c6defb50`, **before the first effect node existed**; § 9 RESULTS + § 10 HALT appended after).
+**Commits:** `c6defb50` (pre-mint note) · `6b81e3c` (rows 1-2 authored + gate, **committed before it had read a number**) · `49ff966` (measured).
+**NOT PUSHED** — the push clause governs and I am not asking to be unblocked on it while F-8 is open.
+
+### What landed
+
+| | |
+|---|---|
+| **R-1 `dash_attack` ⊕ `defensive_dash`** | MINTED. 5 elements × 2 stages, 3 aim vectors (C-2), `defensive` layer toggle + its own control. TRAIL-BOUNDED asserted at 2 tinted kinds. **ALONG-PATH CLAIM PASSES.** |
+| **R-2 `blink`** | MINTED. 4 elements × 2 stages, 3 aim vectors. PAYLOAD-CARRIED at 3 tinted kinds. **`discrete_contact_events` = 0** — § 1.2's anti-tamper absence satisfied *by construction*, not by restraint. |
+| **⚑ FIRST MP4s IN THE WAVE** | `R1-dash_attack-{cathedral,arena}.mp4`, 61/61 frames, 1920×1080@60, ffprobe-verified **before** promotion (WW-7's FG-9 discipline), filed **with** their numeric series. |
+| **Determinism** | **874/874 byte-identical** across two independent passes, worst maxdiff 0, worst px ≥ 4 = 0. |
+| **C-8** | 50 declarations → **50 distinct keys**; **0 unaccounted emitters** across all 50 arms. |
+| **Beam pack** | **NIL reach on both rows** (#63 nil delta stated). No UID-cache rebuild anywhere. |
+
+**R-1's along-path result, because it is what the object law ordered the clip for:** contacts at
+**0.283 / 0.383 / 0.467 s** on bodies at 2.6 / 4.4 / 6.2 m — ordered, monotone, **11 frames of
+spread** — and the pixel leg agrees, peaking at **three different frame indices**, with the off-path
+body at **exactly 0.0000 / NO-RISE**. *Along-path, not at-terminus, and a still could not have said
+which was built.*
+
+**COST LIMB DID NOT FIRE.** Clip arms cost **3.35×** a still arm (26.75 s vs 7.98 s median), but
+~24 clip arms against ~150 still arms is **~30 % of wall time, not a multiple of it**. Rows 1+2 ran
+**9.1 min** against tranche 2's 8.6. **Reported because it was asked for, not because it trips.**
+
+### ⚑ Why I stopped — three findings, two against SEALED work
+
+| # | finding | owner |
+|---|---|---|
+| **F-8** ⚑ **THE HALT** | **galadriel § 1.2 test (3) SATURATES.** Body illumination is measured as a FRACTION, bounded above by 1. `blink` pins at exactly **1.0 for 5-6 frames** per body; `dash_attack` **never reaches 0.99**. A clipped ramp forces its whole rise into the pre-saturation frames, **inflating any step-vs-ramp statistic toward "step"** — and the artifact pushes the **`magical-cause`** leg toward looking physical, i.e. toward a **FALSE REFUTATION of the sealed L-29(6) fold boundary**, routed upward to gandalf as a finding. **Pair 1 is `UNEVALUABLE`, never FAIL.** The instrument is ordered for **every remaining row**, which is why this stops the tranche and not the row. | **galadriel** (instrument) + **knight-rider** (scope) |
+| **F-1** *(corrected against myself)* | **The `00-pre`/`08-post` diff-to-zero acceptance criterion is malformed for EVERY row and has never been computed.** Sealed tranche-2 control arms diff by **1,135-3,861 px**; the residual is the rigs' idle `AnimationPlayer`s advanced by the stage clock, and it is **deterministic** (606/606 byte-identical), not drift. **The criterion confuses STASIS with CONTROL.** My mint note claimed it was inapplicable to *mover rows* — **right defect, wrong reason.** ⚑ **3B carries the identical criterion and is about to fire.** | **knight-rider** + **jack-ryan** |
+| **F-7** | **A declared constant sitting in a MEASUREMENT'S slot, live in two SEALED rows.** `line` reports `trail_span_s` 0.34, realizes **0.3667** (its `single_target` ratio is 4.53 reported / **4.89** real); `melee_strike` declares 0.18, realizes **0.1333**, and **references the constant nowhere in the file**. Neither moves a verdict; both numbers are wrong. **Surfaced, not repaired.** | **jack-ryan** (Gate-2) |
+
+**Six instrument defects of my own were found and fixed inside rows 1-2** — which is what pricing the
+instrument in the first two rows was for. The one worth keeping: **my determinism receipt printed
+`VERDICT: PASS` on 0/0 comparisons** when pointed at a still-rendering second pass. That is #80 cl. 1
+in my own receipt, in a tranche whose dispatch makes it a standing screen. **A receipt is a criterion
+too**, and it is the most dangerous kind of green because a determinism receipt is exactly what a
+later reader trusts *instead of* re-deriving.
+
+### Not done, and not decided unilaterally
+
+Rows R-3…R-8 not minted. Pair 1 **not** re-scored on a replacement statistic I chose myself —
+choosing it sets how all 24 rows are scored. `line` / `melee_strike` **not** repaired. Emptiness
+sweep against sealed rows 3/4/6/7 (Gate-1 I2) **not reached** — the tranche halted before those
+records were opened.
+
+**Awaiting: a ruling on F-8's replacement instrument.** Direction I would propose but have not built:
+measure an **unbounded** quantity (total added luminance over the body region) rather than a
+fraction — pre-flight 6 already requires range guards to admit ratios > 1, and a fraction cannot.
 
 ---
 

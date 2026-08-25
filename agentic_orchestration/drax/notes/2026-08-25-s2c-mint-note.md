@@ -575,7 +575,16 @@ the stage clock; every moving thing in these eight rows is stepped by the stage.
 | **F-3** | gandalf | pending | **Confound-register re-audit, BOTH directions**, for the four rows carrying `Confound register: none named` (`ground_slam`, `orbit`, `vortex_pull`, `leap_strike`). ⚑ Tranche-1 WARN #1 has teeth: *a `DOSSIER-TEXT` row carries "no confound named" for the trivial reason that NOBODY LOOKED.* **A register that stays empty AFTER inspection is worth strictly more than one that stayed empty because nobody opened the file.** **Which side of galadriel's comparison each confound lands on is named** — a confound she cannot see is a false verdict in either direction. **Spec NOT patched; routed via this note**, as at tranche 1. |
 | **F-4** | gandalf | pending | **`vortex_pull`'s `PAYLOAD-CARRIED` axis** — spec-flagged PROVISIONAL. Outcome of authoring reported either way. |
 | **F-5** | knight-rider | pending | **Beam-pack reach report, NIL DELTA STATED (#63)** — whether or not any row's authoring reached for the Binbun `beam_vfx` pack. |
-| **F-6** | jack-ryan | pending | **Emptiness-sweep result against tranche-2 SEALED rows 3/4/6/7** (Gate-1 I2 free fold-in). Surfaced, not repaired. |
+| **F-6** | jack-ryan | NOT REACHED | **Emptiness-sweep against tranche-2 SEALED rows 3/4/6/7** (Gate-1 I2 free fold-in). Not run — the tranche halted at the row-2 checkpoint before rows 3-8 opened those records. |
+| **F-7** | **jack-ryan** | ⚑ **RAISED** | **A declared constant sitting in a MEASUREMENT'S slot, live in TWO SEALED ROWS.** `line` reports `trail_span_s` 0.34 and realizes 0.3667 (its `single_target` ratio is 4.53 reported / 4.89 real); `melee_strike` declares 0.18, realizes 0.1333, and **references the constant nowhere in the file**. Neither moves a verdict; both numbers are wrong. § 9.6. **Surfaced, not repaired.** |
+| **F-8** | **galadriel + knight-rider** | ⚑⚑ **RAISED — THIS IS THE HALT** | **galadriel § 1.2 test (3) SATURATES.** Body-illumination FRACTION is bounded above by 1; when the signal pins at 1.0 the ramp is clipped and its rise is forced into the pre-saturation frames, **inflating any step-vs-ramp statistic toward "step"**. `blink` pins at 1.0 for 5-6 frames; `dash_attack` never reaches 0.99. ⚑ **The artifact pushes the `magical-cause` leg toward looking physical — i.e. toward a FALSE REFUTATION of a sealed L-29 fold boundary.** Pair 1 is **UNEVALUABLE, never FAIL**. § 9.3. The instrument is ordered for **every remaining row in the wave**, which is why this stops the tranche and not just the row. |
+
+⚑ **F-1 IS CORRECTED IN § 9.4, AND THE CORRECTION RUNS AGAINST ME.** As authored above it claimed the
+`00-pre`/`08-post` criterion is inapplicable to MOVER ROWS. **It is inapplicable to EVERY row and
+always has been** — the sealed tranche-2 control arms diff by 1,135-3,861 px and the criterion has
+never been computed in any tranche. **Right defect, wrong reason.** M-C3's swept-corridor replacement
+was wrong too and is superseded by the two-pass determinism receipt, which is the property that was
+actually being reached for.
 
 **Not patched, not opened, not reached for:** sealed spec § 5 / L-36 / L-37 / Tier-2 law ·
 `whirlwind` (§ 3.1.12) as row, donor or comparison · `AOE_GEOMETRIES` / `_RICH_TO_SPATIAL` / any
@@ -583,6 +592,271 @@ engine edit · a UID-cache rebuild · the five 3B rows · X-2.
 
 ---
 
-## 9 · RESULTS
+## 9 · RESULTS — ROWS 1 AND 2 ONLY. ⚑ **THE TRANCHE IS HALTED AT THE CHECKPOINT.**
 
-*(appended after execution — nothing above this line is a result)*
+**Captures:** `reincarnated-godot/harness_logs/s2c_rows12_2026-08-25/` (50 arms, 838 PNGs)
+**Gate:** `scripts/s2c_rows12_gate.py` → `harness_logs/s2c_rows12_2026-08-25/gate.json`
+**Clips:** `galadriel/captures/2026-08-25-s2c-tranche-3a/clips/`
+
+---
+
+### 9.0 ⚑ THE CHECKPOINT FIRED. HALT-AND-SURFACE, ON ITS DEFECT LIMB.
+
+The dispatch pre-registered it: *"if any NEW instrument defect of this class appears in rows
+R-1/R-2 — a measurement that produced a plausible number before it produced a correct one — stop,
+surface to knight-rider, do not carry the remaining six on an instrument you have just found to be
+wrong."*
+
+**One did, and it is not my instrument. It is galadriel § 1.2 test (3), the standing L-19 instrument
+ordered for every remaining row in the wave.** § 9.3 has it.
+
+**The cost limb did NOT fire.** § 9.1.
+
+---
+
+### 9.1 COST — MEASURED, AND IT DOES NOT TRIP THE CHECKPOINT
+
+| | n | median | min | max | total |
+|---|---:|---:|---:|---:|---:|
+| **still arms** | 42 | **7.98 s** | 7.20 | 9.52 | 339.6 s |
+| **clip arms** | 8 | **26.75 s** | 15.15 | 39.36 | 203.6 s |
+
+**A clip arm costs 3.35× a still arm.** Tranche-2 baseline was a 6.81 s still median; this tranche's
+still median is 7.98 s (the mover rows carry a longer mark table).
+
+**Why this is not "materially more expensive per row" in the sense that would force a re-sequence:**
+the whole tranche carries ~24 clip arms against ~150 still arms, so **clips are ~30 % of total wall
+time, not a multiple of it.** Rows 1+2 took **9.1 min** end to end against tranche 2's 8.6 min for a
+comparable arm count. The exposure the checkpoint was written against — *"a three-row overrun
+discovered at row 8"* — does not exist at 27 s per clip arm. **Reported because it was asked for, not
+because it trips.**
+
+**The clip pipeline works end to end.** `scripts/s2c_clip_encode.sh`, carrying WW-7's FG-9 discipline
+(temporary name → ffprobe verify → promote; a file that exists is not a file that plays):
+
+| clip | frames | PNGs | dims | sha256 |
+|---|---:|---:|---|---|
+| `R1-dash_attack-cathedral.mp4` | 61 | 61 | 1920×1080 @60 | `342b129b…4c13cad6` |
+| `R1-dash_attack-arena.mp4` | 61 | 61 | 1920×1080 @60 | `c7b8d000…92d67568` |
+
+**These are the first MP4s produced anywhere in this wave.**
+
+---
+
+### 9.2 ⚑ R-1's ALONG-PATH CLAIM — **PASS**, AND IT IS THE THING THE MP4 WAS ORDERED FOR
+
+**Contact times (effect-local), one render, `neutral`, aim 0:**
+
+| body | path dist | contact t | frame |
+|---|---:|---:|---:|
+| Mob0 | 2.60 m | 0.2833 s | 17 |
+| Mob1 | 4.40 m | 0.3833 s | 23 |
+| Mob2 | 6.20 m | 0.4667 s | 28 |
+| Mob3 | **2.9 m OFF the path** | **never** | — |
+
+**Spread 0.1834 s = 11 frames, ordered and monotone in path distance.** And the pixel leg agrees —
+**`body_lit_frac` peaks at three DIFFERENT frame indices**, 23 / 28 / 34 (cathedral) and 20 / 28 / 31
+(arena), with **Mob3 at exactly 0.0000, `NO-RISE`**. *The miss is part of the receipt and it is clean.*
+
+⚑ **This is along-path, not at-terminus, and a still could not have said so.** It is exactly the
+discriminator the object law ordered the clip for.
+
+---
+
+### 9.3 ⚑⚑ THE HALT — galadriel § 1.2 TEST (3) SATURATES, AND THE ARTIFACT PUSHES IN THE WORST DIRECTION
+
+**Pair 1 (L-29(6)) is the hardest distinctness pair in T-A, held distinct on causality class alone.
+The instrument ordered for it is § 1.2 test (3): body-illumination FRACTION, physical must step,
+magical must not. I built the two rows to differ in that curve's shape, and measured it as
+`step_concentration` = largest single-frame rise / total rise.**
+
+| stage | row | Mob0 | Mob1 | Mob2 |
+|---|---|---:|---:|---:|
+| cathedral | `dash_attack` | 0.569 | 0.655 | 0.624 |
+| cathedral | `blink` | **0.701** | 0.525 | 0.545 |
+| arena | `dash_attack` | 0.856 | 0.836 | 0.891 |
+| arena | `blink` | 0.710 | 0.447 | 0.487 |
+
+**At cathedral the distributions OVERLAP AND INVERT** — `blink`'s Mob0 (0.701) is above every
+`dash_attack` body. Read naively that says *the fold boundary is carried by nothing*, which is a
+finding for gandalf against a sealed design ruling.
+
+**It is not a result. It is an artifact, and here is the arithmetic:**
+
+| stage | row | body | peak | **frames pinned ≥ 0.99** | frames ≥ 0.90 |
+|---|---|---|---:|---:|---:|
+| cathedral | `blink` | Mob2 | **1.0000** | **4** | 5 |
+| arena | `blink` | Mob0 | **1.0000** | **6** | 16 |
+| arena | `blink` | Mob1 | **1.0000** | **6** | 18 |
+| arena | `dash_attack` | Mob1 | 0.9561 | **0** | 3 |
+| cathedral | `dash_attack` | Mob1 | 0.6562 | **0** | 0 |
+
+> **`blink` SATURATES. `dash_attack` NEVER REACHES 0.99 ANYWHERE.**
+
+**A fraction-of-region is bounded above by 1.** When the signal saturates, the part of the ramp that
+would have continued is **clipped**, and the whole rise is forced into the pre-saturation frames —
+which **inflates `step_concentration` toward a step.**
+
+⚑ **AND THE DIRECTION OF THE ARTIFACT IS THE WORST ONE AVAILABLE.** It pushes **`blink` — the
+`magical-cause` leg, which must NOT step — toward looking like a step.** That is the exact direction
+that manufactures *"the two rows are not distinguishable"*, i.e. **a false refutation of a sealed
+L-29 fold boundary, routed upward to gandalf as a finding.** A correct pair would have been convicted
+on a bounded statistic.
+
+**VERDICT: Pair 1 is `UNEVALUABLE` on this instrument. NOT `FAIL`, and it must never round to one.**
+Under-scoring the pair here would be scoring it for a reason that is not the effects' fault — the
+same shape as RT-6, arriving through a different door.
+
+**Why this is a NEW defect class and not one of the standing four.** It is not sampled at the wrong
+time (defect A), not the wrong region (E/F), not a declaration in a measurement's slot (C). It is
+**a BOUNDED statistic applied to a SATURATING signal, where the bound itself manufactures the shape
+being measured.** Nothing in the standing pre-flight list screens for it.
+
+**Why it stops the tranche rather than just this row.** § 1.2 test (3) is **galadriel's standing
+instrument, ordered for EVERY remaining row in the wave**, and it is the L-19 scoring axis. Any row
+whose effect brightly covers a body will saturate it — which is most of the six remaining, and
+`cone`, `ground_slam` and `vortex_pull` in particular. **Minting six more rows scored on it is six
+more rows to re-score.**
+
+⚑ **NOTE WHAT SURVIVES, BECAUSE IT IS NOT NOTHING.** § 9.2's along-path result comes off the **same
+frames** and is **robust to saturation** — a clipped peak still *occurs at the right frame*. **Peak
+TIMING survives; peak SHAPE does not.** Two claims, one dataset, different robustness, and the
+difference is worth stating because it is what lets R-1 pass while Pair 1 cannot.
+
+**Direction of a fix (NOT built — it is a redesign and it is not mine to choose alone):** measure on
+an **unbounded** quantity — total added luminance over the body region rather than fraction of pixels
+lit. Pre-flight 6 already says range guards must admit ratios > 1; a fraction cannot. **Routed as
+F-8 to knight-rider and galadriel.**
+
+---
+
+### 9.4 ⚑ F-1 CORRECTED — I FOUND THE RIGHT DEFECT FOR THE WRONG REASON
+
+**My § 2 said the `00-pre`/`08-post` diff-to-zero criterion does not apply to MOVER ROWS. That was
+wrong. It does not apply to ANY ROW, and it never has.**
+
+Tested against the **SEALED tranche-2 corpus** (606 PNGs on disk), on its own `novfx` control arms:
+
+| sealed arm | `00-pre` vs last mark | px ≥ 4 | maxdiff |
+|---|---:|---:|---:|
+| `br_arena_novfx` | 1,135 | 316 | 232 |
+| `br_cathedral_novfx` | 1,428 | 338 | 233 |
+| `ln_arena_novfx` | 2,742 | 1,222 | 232 |
+| `ln_cathedral_novfx` | 3,607 | — | — |
+| `ma_arena_novfx` | 3,861 | — | — |
+
+> **The criterion has never been satisfied by any arm in any tranche, and it has never been
+> computed. It was carried forward as TEXT through three dispatches.**
+
+**What it is:** the rigs' idle `AnimationPlayer`s, which the stage clock **advances**. Hypothesis
+tested with its own falsifier — **606/606 byte-identical across two independent passes** — so the
+residual is **deterministic, not drift**, and it is identical within a row and differs between rows
+exactly as differing mark-table end times predict.
+
+⚑ **THE CRITERION CONFUSES STASIS WITH CONTROL.** What licenses the measurement is not that the stage
+holds still; it is that **both arms reach the same mark with identical non-effect content** — which
+is **REPRODUCIBILITY**, and which tranche 2 actually measured (606/606) while reporting a different
+criterion in its acceptance list.
+
+**Replacement, and all three are satisfiable AND meaningful:**
+
+| | check | result |
+|---|---|---|
+| **M-C1** | `00-pre` fx-on ≡ `00-pre` fx-off, byte-identical **across the arms** | **PASS** — maxdiff 0, 0 px, all 4 row×stage cohorts |
+| **M-C2** | caster world transform **bit-equal** between arms at every mark | **PASS** — 9 marks, worst delta 0.0, all 4 cohorts |
+| **M-C3″** | **two-pass byte-identity** — the same arm rendered twice is identical at every mark | **PASS — 874/874 byte-identical, worst maxdiff 0, worst px ≥ 4 = 0, over 874 compared frames** |
+
+⚑ **AND THE SIXTH DEFECT IS IN THAT RECEIPT, WHICH IS WHY THE COVERAGE FIGURE IS QUOTED WITH THE
+VERDICT.** My first version of it, pointed at a second pass that was still mid-render, matched zero
+files and printed **`0/0 byte-identical … VERDICT: PASS`**. That is **#80 cl. 1 — the empty-region
+shape — inside my own receipt**, in a tranche whose dispatch makes that screen a standing pre-flight.
+**I had applied it dutifully to the rows' criteria and not at all to my own receipts. A receipt is a
+criterion too** — and it is the most dangerous kind of green, because a determinism receipt is
+precisely the artifact a later reader trusts *instead of* re-deriving. `s2c_determinism.py` now
+refuses to return PASS unless it has actually compared something, and **states its coverage before
+its verdict rather than beside it.**
+
+**M-C3 as authored in § 2 was ALSO wrong and is superseded in place rather than edited away.** It
+required the fx-off diff to be confined to the caster's **swept screen corridor**, and it FAILED on
+correct effects — 33,664 px outside a 0.91 %-of-frame corridor — because the region missed **the
+knocked BODIES** (which move, by the control law's own rule) and **the caster's SHADOW** (which is
+not inside the caster's disc). ⚑ **The response was not to grow the region until it passed. That is
+tuning an instrument against the answer, and I would have had to grow it twice.**
+
+---
+
+### 9.5 FIVE MORE DEFECTS, ALL MINE, ALL CAUGHT BEFORE THEY SHIPPED A VERDICT
+
+| | defect | would have produced |
+|---|---|---|
+| **A** | drawn-AABB read at `_finish()`, after a `burst` has legitimately cleared | `(0,0,0)` ⇒ **FAIL on a trail that had drawn 36 verts** |
+| **B** | ease-**out** on the dash: peak 33 m/s, all three contacts bunched into 0.33 s | compressed the very along-path spread the row exists to show |
+| **C** | `TRAIL_SPAN_S` **governed nothing** — declared 0.09 s, code used 7 samples (0.1167 s) | a **30 % overstatement of restraint** reported in a field a gate reads as a result |
+| **D** | contact marks derived from the **bodies' distances**, not from `dist − CONTACT_REACH` | all three marks **0.045 s late**; "derived, not eyeballed" against the wrong quantity |
+| **E** | census criterion `non_authored_emitter_count == 0` | **red on 50 of 50 arms** — correct only on `bare` |
+
+**On E:** the sealed tranche-2 corpus carries **12 (arena) / 457 (cathedral)** non-authored emitters
+and was sealed on them. A structured stage **is** a population of emitters and E-0 declares them
+INHERITED-BY-DESIGN. galadriel HALT 1 is *"an emitter appears in frame **that the mint note does not
+declare**"* — not *"an emitter appears in frame."* **The criterion is ACCOUNTING, not absence**, and
+it is now derived by **ancestry against the declared stage root** (#76), never a hand-list. **PASS,
+0 unaccounted across all 50 arms.** C-8 key collisions: **50 declarations → 50 distinct keys**, with
+`defensive`, `clip` and `motion` added at the same commit as the axes and **checked rather than
+trusted**.
+
+---
+
+### 9.6 ⚑ F-7 — DEFECT **C** IS LIVE IN TWO SEALED ROWS
+
+| sealed row | declared | realized | consequence |
+|---|---:|---:|---|
+| `line` § 3.1.10 (tranche 2) | 0.34 s | **0.3667 s** (22 samples @ 60 Hz) | 7.8 % overstatement; its `trail_span_ratio_vs_single_target` is **4.53 reported, 4.89 real** |
+| `melee_strike` § 3.1.2 (tranche 1) | 0.18 s | **0.1333 s** (8 samples) | 26 % overstatement; **the constant is referenced NOWHERE in the file** |
+
+`s2b_line.gd:229` names `TRAIL_SPAN_S` as *"this row's identity and the `single_target` boundary"* —
+**a constant that governs nothing, named as the row's identity.**
+
+**Neither moves a verdict.** Both realized spans still prove their boundaries comfortably. **Both
+reported numbers are wrong**, and the mechanism is identical: a declaration sitting in a
+measurement's slot. **Surfaced, NOT repaired — sealed work is not mine to patch.**
+
+---
+
+### 9.7 What rows 1 and 2 have banked
+
+- **R-1 `dash_attack`** minted, 5 elements × 2 stages, 3 aim vectors (C-2), `defensive` layer toggle
+  with its own control. TRAIL-BOUNDED asserted at 2 tinted kinds; span realized 0.0833 s vs `line`'s
+  realized 0.3667 s (**4.4×** shorter); trail width 0.30 ≤ body girth 0.36; `burst` clears to 0 verts;
+  **along-path PASS**; **MP4 × 2 delivered with their series**.
+- **R-2 `blink`** minted, 4 elements × 2 stages, 3 aim vectors. PAYLOAD-CARRIED at 3 tinted kinds;
+  **`discrete_contact_events` = 0**, no spark pool, no impact billboard, no per-body hit dict — the
+  § 1.2 anti-tamper absence satisfied **by construction**, not by restraint; frame series captured
+  across the full traversal (Gate-1 W3).
+- **Pair 1** — `UNEVALUABLE` on the ordered instrument (§ 9.3), **not FAIL**.
+- **Beam pack: NIL reach on both rows** (#63 nil delta stated). No UID-cache rebuild anywhere.
+
+**Rows 3–8 NOT STARTED.** See § 10.
+
+---
+
+## 10 · ⚑ HALT — what blocked, and who owns each unblock
+
+**I am not carrying six more rows on an instrument I have just found to be wrong, and two of the
+three findings land on work that is already sealed.**
+
+| # | finding | owner | why it cannot be resolved in this seam |
+|---|---|---|---|
+| **F-8** | **§ 1.2 test (3) saturates; step-vs-ramp is unreadable off a bounded statistic, and the artifact falsely pushes `magical-cause` toward "step"** | **galadriel** (instrument owner) + **knight-rider** (it is ordered for every remaining row) | It is the wave's standing L-19 scoring axis. Redesigning it is not a presentation-seam call, and choosing the replacement statistic sets how **all 24 rows** are scored. |
+| **F-1** | **the `00-pre`/`08-post` diff-to-zero acceptance criterion is malformed for EVERY row, has never been satisfied, and has never been computed** | **knight-rider** (dispatch author) + **jack-ryan** (it is in the acceptance list of a sealed tranche) | ⚑ **3B carries the identical criterion and is about to fire.** Working around it silently here would let 3B ship it too. |
+| **F-7** | `TRAIL_SPAN_S` declaration-in-a-measurement-slot, **live in two SEALED rows** | **jack-ryan** (Gate-2, sealed work) | The dispatch is explicit: a defect found in a sealed row is *"a finding about sealed work: surface it, do not repair it here."* |
+
+**Not blocked on:** cost (§ 9.1 — measured, does not trip), the clip pipeline (working, verified,
+2 MP4s promoted), my own five instrument defects (found and fixed inside rows 1–2, which is what
+pricing the instrument in the first two rows was for).
+
+**What I have NOT done, and am not doing without a ruling:** minting R-3…R-8; re-scoring Pair 1 on a
+replacement statistic I chose myself; repairing `line` or `melee_strike`.
+
+**Push:** none. `reincarnated-godot` is commit-only per the dispatch's push clause, which governs
+over the standing pattern. **Not pushed, and I am not asking to be unblocked on it — I am asking
+about F-8 first.**
