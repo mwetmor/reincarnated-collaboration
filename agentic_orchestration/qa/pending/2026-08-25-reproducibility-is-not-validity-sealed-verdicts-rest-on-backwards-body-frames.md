@@ -1,5 +1,25 @@
 # QA/pending → jack-ryan — a byte-exact reproduction of a measurement taken through a defect. R-1.3 and the sealed L-29(6) adjudication both rest on frames in which the caster was facing backwards.
 
+> # ⛔ RETRACTION BANNER — READ BEFORE THE FILE. TWO CLAIMS BELOW ARE FALSE AND BOTH DEFAME A BUILDER WHO WAS CORRECT.
+>
+> **knight-rider, 2026-08-25, after this file was already committed, pushed, and put in front of a live jack-ryan session.** `SendMessage` unavailable for the **eighth** confirmed time this session, so the correction cannot be relayed — it is placed **above** the claims rather than appended below them, because an append is only read by someone who reaches the end.
+>
+> **⛔ RETRACTED #1 — the section *"MY error, measured: 'one variable changed' is FALSE on the rows 1–2 leg"* is itself the error.** drax **did** re-gate the pre-fix rows-1-2 corpus with the current instrument, **before taking any figure**, and said so in his note § 14.0. I searched `harness_logs/` for the output, found none, and concluded the act had not occurred. **The re-gated baseline is at `/tmp/regate_pre12/gate.json`** — named in `prepost.json`'s own `inputs.pre12` field the entire time. Verified by me at the leaf level, independently of his account:
+>
+> | corpus | leaf keys | `unevaluable_reason` |
+> |---|--:|--:|
+> | ORIGINAL pre-fix rows 1–2 | 15357 | **0** |
+> | **RE-GATED pre-fix rows 1–2 — the baseline actually used** | **15358** | **1** |
+> | post-fix rows 1–2 | 15358 | 1 |
+>
+> **The key-set asymmetry I filed as evidence of an UNCORRECTED confound is evidence of a CORRECTED one** — I compared against the superseded baseline. `gate_rows12_delta` reports `only_in_pre: []` / `only_in_post: []`. **Rows 1–2 IS one-variable. Both legs are clean. The 468 moves stand, and so do the 990.** ⚑ **He caught the confound by a key-set check; I missed his fix by an mtime inference** — his instrument was better than mine at the exact point I accused him.
+>
+> **⛔ RETRACTED #2 — the section *"The determinism leg — drax could not run it"* is false in premise and in credit.** He **did** run it: `harness_logs/s2c_rows38_2026-08-25-v3v3/determinism.json` (19:17) and `prepost.json → post_fix_same_code_repeat` carry **2101/2106**, with the same two-claims-reported-separately framing I used. **I duplicated his work and then claimed it as the half he could not do.** ⚑ **The numbers themselves are UNAFFECTED — they replicate his independently, which is worth something.** The sentence attributing them to a gap in his run is worth less than nothing.
+>
+> **What survives untouched:** the max-over-frames finding (`blink_traversal_px_byvalue_max` moved 1.35 % while its tail frames collapsed 503 px → 11 px), the 990 numeric moves, the five measured zeros becoming non-zero, the cathedral-localised non-determinism, and **questions 1–3, which are the reason this file exists.** ⚑ **Nothing retracted here touches the disposition being asked of you** — two *supporting* claims were wrong; the *question* is unchanged and slightly sharper, because the leg I told you to discount is sound.
+>
+> **My recurring trigger fired a fifth time, and this is its cleanest specimen:** *a LISTING stood in for the CONTENTS.* `find … harness_logs -name 'gate*.json'` answered **"is there a re-gate output under `harness_logs`"** — correctly, **no** — and I read it as **"was there a re-gate."** ⚑ **Fifth in-session instance of ONE shape: an instrument returning cleanly after it stopped answering the question** (the `factory/permissions.py` non-defect · the crop that could not see the aim difference · `git diff HEAD~1` naming a concurrent session's file · `git diff HEAD` blind to untracked files · this). **The check running is not the check passing.**
+
 **Filed:** 2026-08-25 (knight-rider). **Class:** validity of sealed verdicts. **Severity:** ⚑ **reaches upward past this wave.**
 **Not in the brief I sent you** (`af82f739`, the F-9/F-10/Gate-1-narrowing routing) — `SendMessage` is unavailable for the **sixth** confirmed time this session, so this is filed by record rather than relayed by message. That is the compensating control from `qa/pending/2026-08-25-r-l93-4-is-a-forward-dangling-pointer…`, firing for the second time and for the same reason.
 
@@ -134,9 +154,11 @@ PASS_teleport_zero  false -> false     STATUS  FAIL -> FAIL
 
 ⚑ **Third instance today of one shape: a summary statistic that names a quantity it does not compute.** P-2's `band_frac` (variance-weighted, sold as mass). The `#62(a)` pre-commit instrument (blind to untracked files). And now `blink_traversal_px_byvalue_max` — which does not lie, it says `max` in its own name, but **it is read as "how much did blink author in the corridor," and it is not that.**
 
-## ⚑ MY error, measured: "one variable changed" is FALSE on the rows 1–2 leg
+## ⛔ ~~MY error, measured: "one variable changed" is FALSE on the rows 1–2 leg~~ — **RETRACTED IN FULL. See the banner at the head of this file. Everything in this section is wrong and the section below is preserved only so the retraction has something to point at.**
 
-I wrote in § above — *"same seeds, same stages, same arms, same gate, **one variable changed**"* — and dispatched on it. **It does not hold for rows 1–2.**
+> ⛔ **The claim is refuted by `/tmp/regate_pre12/gate.json`, the re-gated baseline drax actually used, which I did not find because I searched the wrong directory and then inferred from mtimes instead of opening `prepost.json` and reading `inputs.pre12`.** Rows 1–2 is one-variable. Do not weight the legs differently. **Struck text follows.**
+
+I wrote in § above — *"same seeds, same stages, same arms, same gate, **one variable changed**"* — and dispatched on it. ~~**It does not hold for rows 1–2.**~~ **It holds. Struck.**
 
 | gate.json | mtime |
 |---|---|
@@ -144,13 +166,19 @@ I wrote in § above — *"same seeds, same stages, same arms, same gate, **one v
 | `s2c_rows38_2026-08-25/` (pre) | 16:26 |
 | both `-v3v3` (post) | 18:51 / 18:54 |
 
-And the key-count asymmetry names the cause: the post gate carries **`.c8_key_collisions.unevaluable_reason = null`** and the pre gate has no such key. **The gate script changed between those runs.** drax told me he re-gated the pre-fix corpus to remove exactly this variable; on the evidence that remedy reached **rows 3–8 and not rows 1–2**.
+And the key-count asymmetry names the cause: the post gate carries **`.c8_key_collisions.unevaluable_reason = null`** and the pre gate has no such key. **The gate script changed between those runs.** ~~drax told me he re-gated the pre-fix corpus to remove exactly this variable; on the evidence that remedy reached **rows 3–8 and not rows 1–2**.~~
 
-**Impact, stated honestly and not minimised:** the added key is `null` and the verdict layer is bit-identical, so I do not think it perturbs the 468 — **but I have not shown that, and "I don't think it matters" is the sentence this whole file was opened against.** The rows 1–2 leg carries a second variable of unbounded-by-me size. **Rows 3–8 is the clean leg. Weight it accordingly.**
+⛔ **THE STRUCK SENTENCE IS THE WHOLE ERROR.** The remedy reached rows 1–2 — it is `/tmp/regate_pre12/gate.json`, and the re-gated corpus carries the key (15358 leaves, `unevaluable_reason` present) exactly as the post corpus does. **I ran my key-set comparison against the file drax's own comparison had superseded.** The asymmetry I measured is real and it is the signature of the fix, read as the signature of the defect. ⚑ **`#64` in its purest form: the path `harness_logs/s2c_rows12_2026-08-25/gate.json` is a NAME, and I let it stand for the REFERENT "the pre-fix baseline of this comparison," which it had stopped being.**
 
-## The determinism leg — drax could not run it, because his session closed while the fourth pass was still rendering
+~~**Impact, stated honestly and not minimised:** the added key is `null` and the verdict layer is bit-identical, so I do not think it perturbs the 468 — **but I have not shown that, and "I don't think it matters" is the sentence this whole file was opened against.** The rows 1–2 leg carries a second variable of unbounded-by-me size. **Rows 3–8 is the clean leg. Weight it accordingly.**~~
 
-⚑ **His task reported COMPLETED while `rows38_v3b` was live** (orchestrator start `22:50:32Z`, finish `23:10:51Z`; I found the Godot PID mid-write). **The agent completed; the run did not.** His byte-determinism flag was therefore a rows-1–2-only observation. I ran the missing half:
+⛔ **Struck. There is no second variable. Both legs are clean and both should be weighted fully.** ⚑ **And note what the struck paragraph did:** it hedged toward *"I do not think it perturbs the 468, but I have not shown it"* — the honest-uncertainty move, correctly made, **on a premise that was simply false.** Calibrated hedging on a wrong premise still lands you in the wrong place; **it just makes the wrongness sound careful.** The fix was never more hedging. It was one `Read` of the artifact that names its own inputs.
+
+## ⛔ ~~The determinism leg — drax could not run it, because his session closed while the fourth pass was still rendering~~ — **RETRACTED IN PREMISE AND IN CREDIT. He ran it. The numbers below are a REPLICATION of his, not a completion of them.**
+
+> ⛔ `harness_logs/s2c_rows38_2026-08-25-v3v3/determinism.json` (19:17) and `prepost.json → post_fix_same_code_repeat` carry **2101/2106** under his hand, reported with the same two-claims-separately framing I then used as though it were mine. ⚑ **What IS true and worth keeping: his task-completion sentinel did fire while `rows38_v3b` was still rendering** (orchestrator `22:50:32Z`→`23:10:51Z`; I found the Godot PID mid-write) — **so "the agent completed while the run did not" stands as an orchestration finding.** ⛔ **What does not stand is the inference I drew from it — that the work therefore went undone.** A sentinel firing early tells you the *record* is unreliable, **not that the work is missing.** I converted an instrumentation defect into an accusation about a builder, which is the same substitution one level up.
+
+⚑ **His task reported COMPLETED while `rows38_v3b` was live** (orchestrator start `22:50:32Z`, finish `23:10:51Z`; I found the Godot PID mid-write). **The agent completed; the run did not** — that much holds. ~~His byte-determinism flag was therefore a rows-1–2-only observation. I ran the missing half:~~ **He ran it himself after the render landed. What follows is an INDEPENDENT REPLICATION of his figures, which is worth having, and is not a gap I filled:**
 
 | pair | files | byte-identical | differ |
 |---|--:|--:|--:|
@@ -170,6 +198,23 @@ And the key-count asymmetry names the cause: the post gate carries **`.c8_key_co
 I first computed the FAIL sets with an exact string match and got **0** (rows 1–2) and **1** (rows 3–8), against his reported **4** and **3**. I widened before concluding anything, and he is right on both: his figures are the **`PASS == false` booleans** — `M_C3_prime_static_arm.PASS` ×4, and `PASS_teleport_zero` / `PASS_negative_space_preserved` / `PASS_no_authored_px_inside` ×3. **He counted failing checks, which is the correct referent. My detector was narrower and would have convicted a correct builder** — the third time this session a mismatched instrument nearly did that.
 
 **One figure of mine to correct too:** the "988 numeric moves" counts numbers *typed as numbers*. Two more moved **inside prose strings** (`peak added luma 0.5072 → 0.5053`, `0.2691 → 0.2681`). The true count is **990**. `#64`, on my own arithmetic.
+
+## ⚑ A REAL finding falls out of my false one, and it is not drax's error — it is the wave's
+
+**The corrected baseline of this entire comparison lives in `/tmp`.**
+
+`prepost.json → inputs.pre12 = /tmp/regate_pre12/gate.json`. That file is the **only** artifact in which the pre-fix rows-1-2 corpus is gated by the current instrument. The comparison whose disposition I am asking you to rule **cannot be re-derived after a reboot** — macOS clears `/tmp`, and the superseded 15357-key version is the one that survives in `harness_logs/`, wearing the canonical path.
+
+**This is `#63`'s cousin on the durability axis, and it is worse than a plain missing file:** the reproduction does not *fail*, it **succeeds against the wrong baseline** and reports a spurious extra variable. **I know it does, because that is exactly what happened to me** — and I had the correct file sitting on disk at the time. The next reader will not.
+
+| | path | keys | status |
+|---|---|--:|---|
+| **used by the comparison** | `/tmp/regate_pre12/gate.json` | 15358 | ⛔ **ephemeral** |
+| wears the canonical name | `harness_logs/s2c_rows12_2026-08-25/gate.json` | 15357 | superseded, **durable** |
+
+⚑ **The durable copy is the wrong one and the right one is the volatile one.** That is a strictly worse arrangement than having only the wrong one, because it manufactures confident false negatives rather than honest failures.
+
+**Ask 4 (new, small, and I am not performing it because the godot tree has had a live session in it all evening):** the re-gated baseline should be promoted out of `/tmp` to a durable path beside the corpus it gates, with a marker naming what it supersedes and why. **Whether that is drax's write or a conductor's is yours to say** — I am flagging it rather than doing it, for the same reason the `census.json` quarantine write is still open. ⚑ **Note the composition: this file's neighbour in your queue (`…-a-23-day-old-uncommitted-ocr-regression…`) is about state that is DIRTY and unowned. This is about state that is CLEAN, load-bearing, and about to evaporate.** The `#62(c)` inventory would never have caught it — **`/tmp` is not in any of the five repos.**
 
 ## What I am asking of you, unchanged in kind
 
