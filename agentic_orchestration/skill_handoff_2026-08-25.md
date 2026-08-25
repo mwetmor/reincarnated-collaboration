@@ -380,3 +380,71 @@ I checked whether the pre-fix frames still existed rather than assuming. **They 
 - **Tranche 3A seals** when the recapture's re-gate is clean **and** its fold test does not drift toward `FOLD` (the destructive direction — it routes to gandalf as evidence to *merge two archetypes*).
 - **The sealed-verdict question closes** on jack-ryan's disposition **plus** the recapture's before/after delta. Three outcomes are pre-registered, and *"the seal holds, with a receipt instead of an argument"* is the most likely one.
 - **WW-AB closes** when the clean-room arm exists as **motion** under the same camera and cadence grammar as the HITL arm — so the only variable is the build — **and you pick.**
+
+---
+
+# ⚑ SESSION 3 — SEGMENT 2. **Read this before § 5 and § 6 above; both are now stale.** Self-contained.
+
+## ⚑ 7. NEW DECISION OWED BY YOU — jack-ryan escalated three corpus amendments. Nothing waits on them.
+
+He ruled four items and then, **under his own authority**, split them: the *dispositions* land now (process-tier); the three that **amend the disciplines corpus** are yours per ADR-002, veto open.
+
+| Amendment | What it says, in one line |
+|---|---|
+| **`#75` cl. 7** | **A verdict does not survive its subject's repair by default.** When a landing repairs the *artifact* (not the instrument), every verdict from pre-repair captures is dispositioned by **deriving whether the defect lies on the causal path** — OFF-PATH (holds) · ON-PATH-INVARIANT (holds conditionally) · ON-PATH-UNPROVEN (**→ PROVISIONAL**). |
+| **`#75` cl. 2 mandate-limb** | *A receipt is ordered only after the command that produces it has been run once, on this repo, at this ref, and shown to emit.* **This one convicts him, not me** — five sites, four impossible. |
+| **`#62` cl. (c)** | Standing dirty-tree inventory: `git status --porcelain` + mtime at session start/close; **anything dirty past one session boundary is named with an owner or handed back.** |
+
+⚑ **The sentence inside cl. 7 that is worth your eye, because it inverts the default we have been running on:**
+
+> **Sealing is not a disposition.** It records that examination ceased and creates **no presumption in the seal's favour**; the burden is on the party asserting the seal holds. **The default for an untraced verdict is PROVISIONAL.**
+
+It carries drax's founding sentence into the corpus: ***"Reproducibility is not validity"*** — a byte-exact reproduction certifies that the procedure repeated itself, **and a procedure repeating itself is not evidence the subject was right.**
+
+**He also flags himself:** three rulings into `#75` in two days. *"If a fourth arrives, the right move is to ask whether #75 has become a container rather than a rule."*
+
+## 8. The sealed verdict: **HOLDS** — and he threw out my reasoning to get there
+
+`L-29(6)` / `R-1.3` **stand, un-re-derived.** Not by seal-inertia, and **explicitly not by the common-mode argument I offered him.** His ground is stronger: **the yaw defect is not on the causal path — it is a pure sink, written, rendered, never read.** The scored regions are Mob0–Mob3 discs (a disc carries no orientation term); the payload is world-framed from `aim_deg`; the facing write is never read back. **The body was 180° wrong and nothing downstream asked it anything.**
+
+⚑ **I reached a correct disposition through reasoning he had to replace. That is a near-miss, not a win** — common-mode holds only while both arms stay symmetric, and nothing guaranteed that.
+
+**One residual he refuses to paper over:** the caster occludes payload pixels where it crosses Mob0/1/2, and a 180°-rotated humanoid has a different silhouette — **that does not cancel.** Bounded at tens of pixels against a class gap of **+0.2069**. Hence:
+
+**He pre-registered a falsifier for his own ruling, while the recapture was still running** *(verified: it was mid-analysis when he filed)*: deltas **large on Mob0/1/2, near-zero on Mob3** — because **Mob3 sits off the travel path.** His words: ***"If Mob3 moves materially, my trace is wrong and the seal reverts to PROVISIONAL."*** **The recapture's role has changed: it is now the known-negative run for his own trace, not a re-derivation of the verdict.**
+
+He also **corrected his own F-9 narrowing**: *"Authoring frame is a property of the ROW. Exposure is a property of the CLAIM."*
+
+## 9. ⚑ The near-miss that matters most this segment — and the instruction was mine
+
+drax found that **`run_s2c_rows12.sh` wipes `s2c12` on EVERY invocation, with ANY argument** (hardcoded `USERDIR`, `--out=user://s2c12/` baked into 24 arm invocations, unconditional `rm -f`). **`s2c12` is the pre-fix capture the sealed adjudication rests on.**
+
+**My dispatch told him to capture under a fresh suffix so the pre-fix sets stayed untouched. That is correct in `run_s2c_rows38.sh`. In its sibling it was the command that deletes the evidence.** He caught it by **printing what the real scripts resolved to** rather than reading the parameterisation and believing it. His diagnosis: *"I fixed the runner that had bitten me and did not sweep its sibling."*
+
+He `chmod a-w`'d all five pre-fix directories before anything ran. **A sweep of the whole defect class — hit table including zero — is now dispatched.**
+
+## 10. State — the capture OUTLIVED the agent that fired it
+
+drax returned **with no result**: *"Post-chain is ready and syntax-checked. Waiting for the capture to finish."* **I checked the host rather than the report: the capture is still running** (Godot at 98.3% CPU, fourth pass). **An agent returning is not a dispatch completing.** This session has now seen a `completed` status that was a lie *and* a `completed` status that was true and still meant no result — **only the host distinguishes them.**
+
+A sentinel watch is attached, and **`dispatches/2026-08-25-drax-consume-the-3a-recapture-…md`** is authored, committed and gated on the `COMPLETE` file, because otherwise the frames get captured and never read.
+
+**Live now:** gandalf (your depth critique, § 11) · star-lord (image lane) · the capture. **All three repos pushed to zero.**
+
+## 11. Your depth critique is being ruled, not just measured
+
+Fired to gandalf with galadriel's measurement as substrate and **four things to rule**: what "depth" *decomposes into* (the irregularity finding suggests several of your named features are symptoms of one structural cause, not independent items); **cavitation** — you proposed it, galadriel says the originals don't do it, and **both can be true** if you meant it as an addition rather than a description; the **colour question**, ruled or given a specific closing measurement rather than left "unresolved"; and whether **inter-event timing structure is mintable as an archetype property** — because if the gap is *cadence* rather than *effect inventory*, the Step-2 build reorders substantially.
+
+⚑ **He was also told to check my summary of galadriel against her actual return rather than trusting it.** See § 12 for why.
+
+## 12. Where I was wrong this segment
+
+- ⚑ **`#79` cl. 1 convicted me a SECOND time, in a document I wrote AFTER being ruled against under it.** My WW-AB dispatch § 4 states the `harness_logs` rows-1-2 PNGs were **deleted**. drax measured: **they are triplicated** — 874 each, md5 agreeing. I asserted a deletion as measured fact and never measured it. It errs safe and it was still false, in an *operative* dispatch. **Corrected at the source, not in a note.**
+- **The fresh-suffix instruction** (§ 9) — safe in one script, evidence-destroying in its sibling, and I never checked the sibling.
+- **Three premise failures in one session, all the same shape:** asserting a property of an artifact without opening it. The HITL arm, the deletion claim, the receipt. **gandalf and jack-ryan corrected the same brief from opposite directions and neither needed me to arbitrate.**
+
+## 13. Still unlanded — tracked so it does not become `#73` in a week
+
+- **jack-ryan owes a forward-pointer stamp** on `qa/findings/2026-08-25-godot-forward-axis-convention.md` (Q2 narrowing **corrected, not superseded**). **He wrote no files this invocation** — his four dispositions exist only because they were captured to `knight-rider/returns/`.
+- **`census.json` ruled: PARK** — quarantine path + `UNEXPLAINED-REGRESSION` marker; **do not commit** (that is `#63` — an unmeasured zero promoted to a measured one on the authority surface); **do not discard.** Carried in the new drax dispatch. **Still needs a named BR2-WATCH owner** — that absence is why it survived 23 days.
+- **The HITL Whirlwind run** (§ 5 above) — still the only item genuinely blocking, and still yours.
