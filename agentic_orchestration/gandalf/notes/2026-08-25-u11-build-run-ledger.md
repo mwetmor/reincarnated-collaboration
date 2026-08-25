@@ -107,3 +107,13 @@ Custody: star-lord RELEASED; jack-ryan CLAIMED for G-U11b (discharge verificatio
 - Counts: suite 130 · board 18 · validator 0/118 (non-vacuity probed) · append-only 16/0 · retrospection 0 · `--correct` idempotent · LAW AST clean.
 
 **Remaining to seal:** T5 lifecycle rows (`run:U11-BUILD` OPEN/CLOSE, verdict PASS-WITH-FINDINGS, gatekeeper jack-ryan) + WARN-5 SCHEMA.md § 0 clause → **B-3** (star-lord closeout block); then seal report + deployed-surface verification (data-presence + WARN-6 correction-check). Custody: jack-ryan RELEASED; star-lord CLAIMED for B-3.
+
+## L-7 — B-3 + B-3b FOLDED (star-lord `57e78e0c` + `e197e03c`): **T5 ✓ — SEAL PREDICATE COMPLETE**
+
+- **T5:** lifecycle rows on tape — START `6947081163daa341` (backfilled to launch 14:10Z, `backfill:true`) + CLOSE `3a6b27b3a61f4b4e` (verdict PASS-WITH-FINDINGS, gatekeeper jack-ryan, gate commits pinned as `#anchor` suffixes on the findings doc — bare shas are not legal `derived_from` sources; token axes honest-null, the conductor's own non-quiescent session NOT folded in per R-6). Report renders U11-BUILD in the SEALED card; partition holds 62 = 61 SEALED + 1 UNBOUND.
+- **WARN-5 + R-9 clauses LANDED** in SCHEMA.md § 0 rule 1 — R-8 consumer clause + R-9 emitter clause, both jack-ryan-verbatim in blockquotes, both now beside the tape's first rule. R-9 enforcement upgraded behavioural → **pinned** (new derived falsifier: correction emitted IFF a measured value moved; both mutation classes RED; `--correct-unchanged` documented as Matt's veto lever, not a default).
+- **WARN-6 reconnaissance (conductor):** Glance's LIVE pipeline is correct — `buildFleet` applies corrections before fold (`fleet.mjs:194`); the blindness is only the exported `fold`'s standalone default. **LATENT, not live-wrong** → confirmed post-run drax backlog, no in-run scope growth (R-7 held to the end).
+- Star-lord's B-3 flag discipline noted with approval: two undispatched-but-owed items surfaced instead of silently absorbed or dropped — the inbound-request failure mode (U1 governance candidate #3) handled right.
+- Final state: flight **131/131** · board 18 · glance 128/128 · validator 0/120 · retrospection 33 caught/0 violations · append-only clean across all fold ranges.
+
+**SEAL predicate S = T1✓ T2✓ T3✓ T4✓ T5✓ + folds pushed → run SEALS this fold.** Custody: star-lord RELEASED. Seal report: `gandalf/notes/2026-08-25-u11-build-run-SEAL.md`. Deployed-surface data-presence check (120 rows) rides this push.
