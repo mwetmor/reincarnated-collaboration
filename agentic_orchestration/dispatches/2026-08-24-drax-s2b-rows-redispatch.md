@@ -702,16 +702,28 @@ C-2 assert as shipped.
 
 **This is jack-ryan's finding, not mine, and he rates it above the floor question. So do I.**
 
-`c2_population.claim` is *"beam-class assets are authored along −Z."* Its evidence is **8 laser assets with `elongation` 3.57–12.05.** The operator is a **PCA major axis** — and a PCA major axis is only meaningful on a mask that is actually elongated.
+`c2_population.claim` is *"beam-class assets are authored along −Z."* Its evidence is **8 laser assets whose elongation runs 10.95–13.92.** The operator is a **PCA major axis** — and a PCA major axis is only meaningful on a mask that is actually elongated.
+
+> **⛑ Figure corrected, and the correction makes the hazard WORSE, not milder.** I first relayed this range as **3.57–12.05**. That was a hand-read across the 13-entry `arms` array, which folds in `laser_vfx_01`'s own **injection legs** and its 215° rotated pose — not eight assets at all. Derived over `c2_population.tested_assets`, **every one of the eight is ≥ 10.95.** **There is no evidence for this operator ANYWHERE below ~10.9.** The gap between the gate's evidence base and a wide swept arc is larger than my original figure implied. *(jack-ryan's correction; I verified it against `yaw.json` before recording it.)*
+
+> **⛑⛑ AND ELONGATION IS NOT AN INTRINSIC PROPERTY OF THE ASSET — IT IS POSE-DEPENDENT, AND IT COLLAPSES UNDER THE VERY ERROR THE OPERATOR EXISTS TO DETECT.** One asset, `laser_vfx_01`, across its injection ladder:
+>
+> | injected yaw | 0° | 3° | 10° | 45° |
+> |---|---:|---:|---:|---:|
+> | `elongation` | 10.95 | 10.43 | **5.89** | **3.57** |
+> | measured err | 0.326 | 2.086 | 10.047 | 50.148 |
+>
+> **Rotating a beam off-axis foreshortens it on screen and destroys the elongation the PCA needs. The instrument's precondition is a FUNCTION OF THE DEFECT.** So a once-per-row elongation reading is taken on the *correct* arm and tells you nothing about the *injected* arm — which is the only place the gate has to work.
 
 **`melee_arc` is a wide swept arc. Low elongation. On a low-elongation mask a PCA major axis is unstable to meaningless** — it will return *a* number, confidently, and that number will be noise wearing the costume of an orientation.
 
 **REQUIRED, before any C-2 yaw verdict is taken on a low-elongation row:**
 
-- [ ] **Measure the elongation of the row's own mask** and state it. Do not infer it from the beam-class range.
-- [ ] **State whether a PCA major axis is meaningful on that mask.** This is the transfer question and it is answered with a measurement, not an argument.
+- [ ] **Measure the elongation of the row's own mask** and state it. Do not infer it from the beam-class range. **Report it as context, NOT as the pass/fail predicate** — see the superseded checkbox below for why a threshold on it is refuted.
+- [ ] **⛑ SUPERSEDED — DO NOT SET AN ELONGATION THRESHOLD.** I originally wrote *"state whether a PCA major axis is meaningful on that mask,"* which invites a cutoff. **jack-ryan refuted that predicate on the receipt's own data:** `yaw_a215_e0` has elongation **4.99** and returns `screen_axis_err_deg` **0.034** — **low elongation did not break the operator there.** A cutoff would be a constant selected at a rung nobody probed: **#72 cl. 9 committed inside the remedy for #75.5 cl. 4(b).**
+- [ ] **✅ THE PREDICATE IS A PER-ROW SENSITIVITY PROOF (#75 cl. 2), NOT A THRESHOLD.** **Inject a known yaw error into `melee_arc`'s OWN geometry and require the measured error to move proportionally.** Moves → **C-2 transfers, and elongation is irrelevant.** Does not move → **token it under #75.5 cl. 5.** **Cost is one extra arm on the row — not an operator commission, not a threshold, not a judgment call.** This is now the operative form, written into **#75.5 cl. 4(b)**.
 - [ ] **If the operator does not transfer, the correct output is a DECLARED NON-APPLICABILITY TOKEN (#75.5 cl. 5) — NOT a verdict, and NOT a pass.** A gate that cannot see a row must say so in the row's own record. **Do not let C-2 return green on a row it cannot measure**; that is the same defect family as the attestation you self-disclosed, one level up — a claim that is true of the instrument's *design* and false of *this* application.
-- [ ] **Per #72 cl. 8 this is a RE-DERIVATION against this row's objective, not a transplant of the beam-class rule.** You established that clause; this is its first application to a row rather than to an instrument.
+- [ ] **Per #72 cl. 9 this is a RE-DERIVATION against this row's objective, not a transplant of the beam-class rule.** You established that clause; this is its first application to a row rather than to an instrument. *(Corrected from `cl. 8` — I asserted the wrong clause number. **cl. 8 is "grade the work class before pricing the discharge"**; the re-derivation rule is **cl. 9**, and it did not exist in #72 when I cited it. jack-ryan logged the slip as **#79 founding instance 5** — a clause number asserted rather than derived, inside the message authorizing the mint of the rule against exactly that. It is the instance that makes #79 a class rather than one agent's bad run.)*
 
 **⚠ Do NOT invent a replacement operator for low-elongation geometry.** If C-2 does not transfer, that is an **instrument commission for galadriel**, not a mid-tranche authoring decision. Inventing an operator mid-tranche is how this run has produced defects before. **Token it, record it, move on; the operator question is being routed separately.**
 
@@ -739,7 +751,8 @@ I proposed moving the mask floor to ≥24. **jack-ryan refuted it and I withdraw
 - **Floor 24 detects the 3° injection by 0.028°** (2.32 vs bar 2.292) — a **1.2 % margin**. Selecting 24 because it is the first rung where the boolean flips **is the identical ladder-boundary defect that refuted your own pre-registered rule.** I proposed the refuted method with a different objective function.
 - **My "the bar sits 3.44× below the detection floor" was a frame violation** — `bar_deg` is in measured **screen-space** PCA degrees, `detection_floor_deg` in injected **world-yaw** degrees, and the transfer is non-identity (3° injected → 2.086 measured; 45° → 50.148). **#64 FRAME FORM, committed by me in the message claiming a gate was decorative.**
 - **`detection_floor_deg = 10.0` is itself a ladder-boundary artifact** — the injection ladder is `{3, 10, 45}` and **nothing between 3 and 10 was ever injected.** 10.0 is not the instrument's floor; it is the smallest rung that happened to be caught. **This is your `argmin_is_at_ladder_boundary` clause finding its second live instance, in the sibling field of the same receipt.**
-- **A 5° / 7° injection probe at the SHIPPED floor 12** is the cheapest refuting test and is **queued behind A-6.1**, because the transfer question may moot it. **Not ordered yet. Do not start it.**
+- **⛑ The 5° / 7° injection probe is NOT a separate workstream — it IS the row-7 instance of A-6.1's transfer question.** I framed it as *queued behind* A-6.1; jack-ryan corrected that and he is right. **Once the predicate is a sensitivity ladder rather than an elongation reading, A-6.1 and the probe are ONE PROCEDURE APPLIED AT TWO ROWS:** inject known errors into the row's own geometry, require proportional movement. **Row 7 already has arms at `{3, 10, 45}`; the 5°/7° pair just fills the hole below 10. Row 5 (`melee_arc`) has none at all.**
+- **Sequencing, ruled:** **row 5's sensitivity proof FIRST** — it is HALT-class and you are authoring the row now — **then row 7's fill-in at tranche close, as the same instrument's second application.** **It rides. Do not open it as its own task.**
 
 **Nothing in A-6.3 requires action from you.** It is here so that when you next open `yaw.json` you do not re-derive a limitation that is already declared in it — which is exactly the error I made.
 
