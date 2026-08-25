@@ -89,3 +89,25 @@ His own framing, which I am recording because it caught me twice in one section:
 > **When a remedy changes the mechanism of an operation, the instrument that verifies it is re-derived in the same landing. A remedy does not inherit its predecessor's instrument.**
 
 Live instance: my dispatches mandated `git commit --only` as the staging remedy **and** `git diff --cached --name-status` as its check, in adjacent bullets. `--only` ships the **worktree**; `--cached` reads the **index**. The check could show v2 while the commit landed v3. **Two sites in each of two live dispatches, now amended to `git diff HEAD --name-status -- <paths>`.** I verified my own two `--only` commits (`820efeb2`, `75817428`) against `git show --stat` — both shipped exactly the files named, so no drift landed; the instrument was wrong without having yet been wrong *about* anything.
+
+**RULED IN as `#75` cl. 6** (jack-ryan, `a62fd836`) — the *temporal* half of `#75`, where cl. 1–4 are the static half. His reason for one number rather than two: *split across two numbers, a landing satisfies one and violates the other while believing itself compliant.* The clause carries a **`#72` sweep obligation**, because a corpus amendment does not reach dispatches already quoting the old instrument at builders who will not re-read the corpus before acting.
+
+---
+
+## § 5 — Discharging `#75` cl. 6's sweep obligation. Count including zero, and the interesting number is what I did NOT change.
+
+Swept `diff --cached` across all three repos. **40 sites: collaboration 28, engine 12, godot 0.**
+
+**Amended — 5 sites, all of them live instructions a builder executes:** `CLAUDE.md:143` (standing team law — it prescribed the retired check for `#62(a)` itself); `dispatches/…-3a.md` ×2; `dispatches/…-3b.md` ×2.
+
+**Left standing deliberately — ~33 sites.** Incident records, QA findings, notes, run-states and charters. Per `#64`'s ruling on the rename: *a finding whose subject is an instrument cannot have the instrument removed from it.* A find-and-replace here would have been mechanically perfect and destroyed the record. `engineering-disciplines.md` ×8 is jack-ryan's seam and he has just amended it — **routed, not touched.**
+
+### ⚑ The one I nearly got wrong, and it is the same failure I was corrected for earlier today
+
+`factory/permissions.py:1144,1168` (star-lord's seam) runs `git diff --cached --name-only HEAD -- <rel>` under a docstring reading *"the question is asked of GIT, about the TREE."* Tree vs index, live enforcement code, retired instrument — it looked like the highest-value hit in the sweep.
+
+**Before relaying it I tested it** — `#79` cl. 6, landed by jack-ryan minutes earlier, and its *first live application*. The measurement is real and reproduces (git 2.39.5, scratch repo): a tracked file modified in the worktree and **never staged** returns **empty** from that exact command, and `git commit --only <file>` then ships it, **exit 0**, content landed.
+
+**Then I read the call site, and the finding dissolved.** `permissions.py:1855` is not asking *"what will a commit contain."* It is asking *"does the index differ from HEAD here, because `git checkout --` reads the INDEX and would write the phase's own content back under a receipt saying `restored`."* **That question is about the index, and `--cached` is the correct instrument for it.** Docstring "TREE" means *asked of the repository rather than of a label* — not worktree-versus-index.
+
+**NOT A DEFECT. Do not amend it.** Recorded because the near-miss is the point: I had a verified measurement, a plausible mechanism, and the wrong conclusion, and only reading the **caller** separated them. Same shape as the aura WARN earlier — *"the instinct earned its keep; the diagnosis did not."* **A retired instrument is only retired relative to a question.** `#75` cl. 6 says an instrument does not inherit its predecessor's binding; the corollary the sweep taught is that **it does not inherit its predecessor's condemnation either** — every site must be re-read against *its own* question, which is exactly why the mechanical sweep's default action is wrong.
