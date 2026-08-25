@@ -461,3 +461,204 @@ Her gate names its own licence condition (`s2_gate_measure.py :: check_determini
 - **⚑ WW-AB does NOT moot, and it is sharper than I framed it.** The emissive is **balanced** across both arms (census returned 1 on each) so it introduces **no AB bias**. **The determinism failure is not balanced.** Routed to gandalf. **Tell him it is the pin, not the emitter** — and note I verified the clean-room arm rendered unpinned but **did NOT establish how the SB-1 arm was rendered.** That conditional is open, and it is stated as open.
 
 *Appended by knight-rider, 2026-08-24, from galadriel's return with every commit-level claim independently re-verified.*
+
+---
+
+# COMPLETION RECORD — STAGE 2 of 3. Appended by drax, 2026-08-24.
+
+## R-3 / R-4 / R-5 — **DISCHARGED.** Godot `6a51556`, pushed.
+
+**No banked verdict moved: 439 shared numeric leaves across `sensitivity.json`, 0 changed.**
+Receipts: `harness_logs/s2b_receipts_2026-08-24/{yaw,xrow,sensitivity}.json`.
+
+### ⚑ R-4 RETURNED TWO FINDINGS, AND THE FIRST ONE IS THAT **THE REPAIR YOU ORDERED DOES NOT TRANSPLANT**
+
+I pre-registered the rule before running, by analogy with receipt (v): *"C-2 requires a
+correct arm's error to be ~0, exactly as P-axis invariance requires the within-row null to
+be ~0 — so minimise the correct-arm error, estimator **MAX** (named per R-3, and equal to
+the estimator the published bar is keyed on), from the **correct-arm leg alone**."* I also
+recorded, before running, that unlike (v) this rule **tightens** the bar and therefore
+**flatters** leg 2, so the protection would have to be the isolation, not the direction.
+
+**The objective is MONOTONE across the entire resolvable range.**
+
+| floor | 2 | 12 | 24 | 48 | 192 | 224 |
+|---|---:|---:|---:|---:|---:|---|
+| `correct_max` | 1.871 | **0.969** | 0.764 | 0.527 | 0.074 | **mask empty** |
+
+**There is no interior optimum. `argmin` is wherever I stop the ladder** — the eight-point
+ladder "selects" 24, the fifteen-point ladder "selects" 192. **A rule whose optimum sits on
+the boundary of its own sweep has not selected anything; it has saturated.** Applying it
+would have shipped a floor chosen by a ladder endpoint — **the same defect class as a floor
+inherited from another question, one lap later.**
+
+Receipt (v)'s rule is **not** degenerate: its null has a real interior minimum at floor 4,
+because erosion there destroys the extended **shape** its descriptors measure. Here erosion
+strips the dim off-axis halo and leaves the beam's axial **core**, which monotonically
+*improves* a PCA fit until the mask dies. **Same constant, same batch, opposite behaviour.**
+
+⚑ **So the generalisation runs the other way from the one your R-4 implies: a repair owed
+to a sibling instrument is owed as an INVESTIGATION, not as a transplant.** I did not apply
+the rule. **No floor is selected; the receipt is published SWEPT and the floor is RETAINED
+at 12**, which is what makes the amendment provably label-and-sweep only.
+
+### The substantive result — leg 1 insensitive, leg 2 not, exactly as you predicted
+
+- **LEG 1 passes at EVERY resolvable floor, 2 → 192** (worst 1.871° against its own 5.613°
+  bar). **The C-2 orientation verdict is not a property of the inherited constant.**
+- ⚑ **LEG 2 IS floor-sensitive. At the shipped floor 12 the 3° injection escapes (2.086°
+  vs 2.907°); at floor ≥ 24 it is DETECTED and the detection floor drops 10° → 3°.** The
+  banked `detection_floor_deg = 10` is **a property of `sa_gate.py:51`, not of the
+  instrument.**
+- ⚑ **MECHANISM, checked against ground truth rather than argued:** the measured error of a
+  **known** 3° injection is monotone in the floor — **1.188° → 2.937°**, converging on the
+  injected 3. The 10° arm likewise (9.948 → 10.011). **The dim off-axis halo is a
+  systematic ATTENUATOR of measured yaw error — a BIAS, not a noise term — and every floor
+  in the shipped range UNDER-REPORTS the truth.**
+
+**The scalar carried forward is the WORST detection floor over the sweep, never the best:**
+*"a detection you can only claim at one end of the sweep is not a detection claim."* That
+is the maximum — the one direction a tuner would never take — and it returns **10°**,
+exactly what the banked receipt already disclosed.
+
+### R-5 — done, and it is carried to row 7 rather than closed
+
+`PASS_known_negative_fails` **retired as a key name**. Replaced by
+`PASS_known_negative_fails_above_detection_floor` (True) and
+`..._UNIVERSALLY` (False), with `detection_floor_deg` and
+`undetected_injected_errors_deg` beside them. **Row 7 (`line`) is the row C-2 governs: a
+sub-10° yaw error on a beam ships undetected.** R-4 shows that is recoverable at mask floor
+≥ 24 — **but recovering it means selecting a floor, and the rule that would select one is
+refuted above. Carried to row 7 as a KNOWN LIMIT, not closed here.**
+
+### R-3 — done
+
+`floor_selection_rule` now names its estimator: **`null_mean`, not `null_max`.** The two
+select different floors (4 vs 2) and the disagreement is published as a value. **The
+estimator I used returns the LOWER headline ratio, so this names a choice that already cut
+against me.** Named anyway — *"it did not matter this time" is not a property of the rule.*
+
+**Also:** `sensitivity.json` had been **hand-assembled** from its parts, which is the
+#76 cl. 1 hazard **inside the file that polices it**. Now `scripts/s2b_receipts_merge.py`,
+a splice that **asserts** each proof block is byte-identical to its source.
+
+---
+
+## ROWS 1–2 — **MINTED.** Godot `7960304`, tag `drax/v0.1-s2b-rows-1-2`, pushed.
+
+Mint note § 6. Receipts: `harness_logs/s2b_rows12_2026-08-24/{gate.json,selfbuff_vs_aura.json,render.txt,arm_cost.txt}`.
+34 arms × 2 recipes (cathedral + arena, **not three**).
+
+### ⚑ A-1 done properly: the bars were pushed to `origin` at `6dbe19f` BEFORE a number was read
+
+§ 1's pre-registration was PARTIAL and I said so. **This time the effect code, the capture
+script and the gate — with every bar in it and no output — were committed and pushed before
+the scored corpus existed. Pre-registration you can check with `git log` beats
+pre-registration you assert.**
+
+### Determinism: **258 / 258 PNG byte-identical across two independent full passes**
+
+Tranche-1's *"`00-pre`/`08-post` diff exactly 0"* pre-flight **does not apply to `totem`** —
+the delegate manifests and its arm moves in the `novfx` arm too, because a control that
+deleted the body would measure the body. **Said, rather than faked.** Substituted the
+stronger check: the whole corpus captured twice, 108/108 row 1 and 150/150 row 2.
+
+### Row 1 — `self_buff` · FIELD-CARRIED · `magical-cause` · `sustained` · windup N
+
+| measurement | cathedral | arena |
+|---|---:|---:|
+| ⚑ **read-through retention** (the governing property) | **1.0126** | **0.9978** |
+| C-5 coverage | 0.219 % | 0.220 % |
+| Tier-1 coverage spread / min Jaccard | 0.0789 / 0.8984 | 0.0689 / 0.9330 |
+| Tier-1 min hue separation | 15.77° | 14.24° |
+| **inverted** contact step (must NOT spike) | 0.0009 | 0.0085 |
+
+**112 skills, the largest occlusion risk in T-A, and a tranche-1 `melee_strike` staged ON
+TOP is as readable inside the buff as outside it — on both stages, four matched arms.**
+
+⚑ **Row 1's floor sweep reproduces receipt (v) independently.** Invariance is best at floor
+4 and degrades monotonically above it (min Jaccard 0.8984 → 0.7923 by 16); **at the
+inherited 12 this row reports spread 0.1765 — a worse invariance manufactured by the
+threshold.** Second instrument, new row, arrived at without looking for it. **And its
+objective has a genuine INTERIOR optimum where the yaw instrument's was monotone —
+three instruments, two with real optima, one degenerate. The transferable lesson is not
+"erosion is bad," it is that the sweep has to be LOOKED AT.**
+
+**Cross-row, unasked-for and owed anyway:** `self_buff` vs `aura` — both caster-centred
+sustained fields, adjacent in L-29 — **separate at 4.20× (cathedral) / 2.56× (arena)**,
+within-cohort only, never pooled. Anti-tuning clause committed at `6dbe19f` before the
+number existed; separators **designed** (1.15 m footprint vs 3.40 m field; interrupted ring
+vs continuous radius), not adjusted after measuring.
+
+### Row 2 — `totem` · PAYLOAD-CARRIED (attack only) · two-layered · composite
+
+- ⚑ **P = 4 CEILING PROVEN, NOT ASSERTED.** Manifestation mask **byte-identical** across
+  fire/water/earth — 8,657 px cathedral, 8,402 arena, **Jaccard 1.0, hue separation
+  0.000°**. Tier-1 provably cannot reach what the totem IS. **And the attack does tint:
+  16.9–17.1°.**
+- ⚑ **ANTICIPATION BEAT legible 0.40 s before the strike — 2.2× `gtc`'s 0.183 s telegraph**
+  (lower bound: already legible at the first mark inside the window). **It needed a PIXEL
+  leg**: the beat lives on a non-emissive scaffold body, so it produces **zero** authored
+  pixels in the `fx`/`novfx` diff every other row is measured by — **the standard
+  instrument cannot see this row's selected property**, and a transform readback re-reads
+  the value it just wrote.
+- **L-19 run twice, opposite answers, both correct:** slam **appears at contact from zero**
+  (0 → 3,345 px); manifestation **exactly flat**, 8,657 → 8,657, step **0.000000**.
+- **Slam discriminates 4/4** — two of four bodies per slam, by construction.
+- **Delegate body = declared #40 scaffold**, primitives, **deliberately non-emissive**. A
+  Synty rig would have looked better and **misrepresented the ceiling**; a glowing
+  placeholder would have entered the C-8 census as an emitter this row does not own — **the
+  whirlwind-blade defect pre-empted rather than repeated.**
+
+### ⚑ FOUR DEFECTS IN MY OWN INSTRUMENTS — and the first is a NEW failure direction
+
+1. ⚑ **MY GATE CONVICTED A CORRECTLY-AUTHORED EFFECT AND I WAS ONE STEP FROM ACTING ON IT.**
+   Attack hue separation first read **4.5–4.8°**, which reads exactly like the failure mode
+   this dispatch names by hand (*"highly readable AND had lost its element tint … nothing in
+   the frame complains"*). I had the diagnosis and the fix in hand. **It was not that —
+   zero authored pixels were clipped.** The mask was **~80 % manifestation**, which is
+   **untinted BY DESIGN because it is the P = 4 ceiling**: the separation was being
+   **diluted by the very invariance the row is built on.** Isolated by set difference, the
+   same frames give **17°**.
+   **This is the mirror image of every defect this run has caught.** All the others were
+   plausible numbers that **flattered**. This one **convicted** — and the damage would have
+   been permanent and invisible: **a correct effect detuned until a broken instrument
+   approved of it, with a commit message explaining how diligent I was being.** ⚑ **A gate
+   is not safe merely because it is strict.** Offered as a discipline candidate.
+2. **A ratio with a zero denominator printed as a finite number** (`step_frac = 3345.0`
+   from `(3345 − 0) / max(0,1)`). #64 on a degenerate case. Now *"appears at contact from
+   zero,"* which is the stronger claim anyway.
+3. **The manifestation leg's control did not control the arm** — `03-anticipation` (arm
+   raised) vs `04-slam-contact` (arm at rest) measured the arm occluding the column. It
+   returned +0.0765, **PASSED the 0.10 bar**, and would have shipped as "flat enough." The
+   arm-matched pair returns **exactly 0**. Tranche 1's un-pinned-clock class — *a control
+   that failed to control something that moves* — **except this one passed, which is worse.**
+4. **Two of twenty mechanical `str.replace` edits silently no-op'd on an indentation
+   mismatch and reported success** — the A-7 predicate defect one lap later. **Both were in
+   the `C8_DECLARATION` key, and `layer` is an axis the totem run VARIES**, so fix-a's own
+   rule would have been breached **inside the instrument fix-a exists to be.** Caught by
+   verifying **all twenty** against the file rather than the one I noticed.
+
+**Plus a mark-placement defect that forced a second capture pass:** my first mark table
+sampled the anticipation window **once**, 0.167 s before the strike, so the derived lead
+time would have been **0.167 s — a property of where I put the mark, not of the beat** —
+against a declared 0.45. Three samples now span the window.
+
+### Standing items
+
+- **Frame retention:** `transfer_function`, camera, seed, module counts in `STAGE_META` on
+  all 34 arms. **PNGs not committed (Synty licence). No workaround built** — R-7 stands,
+  parked with Matt.
+- **Measured arm cost on STRUCTURED stages: 8.58 s/arm** (n = 34, 7.49–10.37) vs 4.39 bare;
+  34 arms = 292 s. **R-8 stands** — structured stages roughly double an arm and do not
+  change the conclusion.
+- **S scored QUALITATIVELY** (galadriel § 1.9). **No S bar proposed or implied.**
+- **R-6 untouched** as instructed. **R-7 no workaround.**
+
+### Next
+
+**Stage 3 — rows 3–7.** Unblocked: all seven A-2 receipts plus R-3/R-4/R-5 banked, Gate-2
+BLOCK satisfied in advance. **Row 3 carries the restored A-10 windup donor** (D3 · Condemn,
+`burst`, windup **Y**); **row 5 judges on the A-5 re-anchored criteria**, not the struck
+≈ 12 %; **row 7 inherits R-5's known limit** — a sub-10° yaw error ships undetected by the
+C-2 assert as shipped.

@@ -7,9 +7,9 @@
 **Gate procedure of record:** `galadriel/notes/2026-08-24-s2-minted-gate-procedure.md` (§§ 1.2, 1.3, 1.5, 1.9)
 **Receipts:** `reincarnated-godot/harness_logs/s2b_e1_2026-08-24/gate.json` · 152 PNG · godot working tree
 
-> **STATE OF THIS NOTE.** §§ 0–5 are **E-0 + E-1 + the two unblocked C-8 items**, all
-> executed and all reporting measured numbers. **§§ 6–7 are the rows, and they are NOT
-> STARTED.**
+> **STATE OF THIS NOTE.** §§ 0–5 are **E-0 + E-1 + the two unblocked C-8 items**. **§ 6 is
+> ROWS 1 AND 2, MINTED** (tag `drax/v0.1-s2b-rows-1-2`, `7960304`). **Rows 3–7 are NOT
+> STARTED** — § 6.9. § 7 records why the rows originally halted and is retained as history.
 >
 > ### ⚑ A-1 COMPLIANCE — THIS PRE-REGISTRATION IS **PARTIAL**, AND IT IS NOT BACK-DATED
 >
@@ -523,13 +523,266 @@ handful"* condition decidable for the first time.
 
 ---
 
-## 6 · The seven rows — NOT STARTED
+## 6 · ROWS 1 AND 2 — MINTED
 
-Nothing is minted. No effect node for any tranche-2 row exists. The per-row layer
-decompositions, tint/must-NOT clauses, lifecycle classes and element-variant sets that
-Math-before-code requires are **deliberately not written yet**, because Gate-1 may amend
-the rows and authoring seven plans against an unreviewed scope is speculative work that
-would then need re-doing. Stated rather than silently omitted.
+**Tag:** `drax/v0.1-s2b-rows-1-2` (`7960304`). **Receipts:**
+`harness_logs/s2b_rows12_2026-08-24/{gate.json,selfbuff_vs_aura.json,render.txt,arm_cost.txt}`.
+**Rows 3–7 remain NOT STARTED** — see § 6.9.
+
+> ### ⚑ A-1, DONE PROPERLY THIS TIME
+> § 1's pre-registration was **PARTIAL** and I said so: the E-0 adequacy verdict was
+> authored after its result was known. That is not repairable retroactively. It **is**
+> avoidable prospectively, so **every bar rows 1–2 are judged against was committed at
+> `6dbe19f` before a single frame of the scored corpus had been read** — the effect
+> code, the capture script and the gate, with no output. **Pre-registration you can check
+> with `git log` beats pre-registration you assert.**
+
+### 6.0 Determinism — and a pre-flight that does NOT apply, said rather than faked
+
+Tranche-1's third pre-flight is *"`00-pre`/`08-post` must diff to exactly 0 with the
+effect disabled."* **It does not apply to `totem`.** The delegate **manifests** and its
+**arm moves** in the `novfx` arm too, because a control that deleted the body would
+measure the body — the defect the whirlwind gate hit from the other direction. A
+`00-pre`/`08-post` zero is impossible here and claiming one would be false.
+
+**Substituted the stronger check I happened to have.** The corpus was captured **twice**
+end-to-end (the first pass exposed a mark-placement defect, § 6.4). Comparing the two:
+
+| cohort | frames | byte-identical |
+|---|---:|---:|
+| row 1 `self_buff`, marks unchanged | 108 | **108** |
+| row 2 `totem`, marks changed between passes | 150 | **150** |
+| **total** | **258** | **258** |
+
+Two independent full runs, both stages, both rows, **zero drift**.
+
+---
+
+### 6.1 ROW 1 — `self_buff` (§ 3.1.3) · FIELD-CARRIED · `magical-cause` · `sustained`
+
+**Scope:** `buff-decal` sub-shape **only**. `transformation` is out **by ruling** —
+L-29(8) leaves the split deliberately unexecuted, and the two sub-shapes make **opposite
+demands on one property**: a transformation *replaces* the silhouette, a decal *must not
+touch it*. Matt's deserving list § 5 Class-A item 2.
+
+| item | value |
+|---|---|
+| **Layers → nodes** | (a) floor decal = `Decal` (soft-radial plane) + `DecalRing` (`ImmediateMesh`); (b) body-adjacent emitters = `MotePool`, 9 billboards |
+| **Takes the tint** | decal · ring · motes — **3 kinds, hue only** |
+| **Must NOT move** | radius, alpha, count, size. `set_element()` re-applies the alpha **constants** rather than reading alpha off the incoming colour, so a palette entry cannot leak an opacity change in through the tint path |
+| **Lifecycle** | `sustained`, constant intensity. **Windup N is spec-faithful** (3 of 4 candidates, a coherent `motion_signature_attested = NULL`) — **not invented** |
+| **Elements** | fire / water / earth / wind. `neutral` deliberately absent — § 4.2.3's element-agnosticism argument is about *physical weapon strikes*; a `self_buff` is a magical state and its pool carries element |
+| **RT-2** | **n/a** (A-4) |
+
+**⚑ THE GOVERNING PROPERTY — *does not obscure the character* — MEASURED AT UNITY.**
+
+| stage | trail px inside buff | trail px without buff | **retention** |
+|---|---:|---:|---:|
+| cathedral | 3,467 | 3,424 | **1.0126** |
+| arena | 16,376 | 16,412 | **0.9978** |
+
+Four matched arms (`on` / `trailoff` / `control` / `ctrloff`), because a retention ratio
+has a numerator **and** a denominator and each needs its own control — the two-arm
+version of this measurement returned **6.38** on `aura` and was wrong. **112 skills, the
+largest occlusion risk in T-A, and a tranche-1 `melee_strike` staged on top is as
+readable inside the buff as outside it on both stages.**
+
+**C-5:** 4,191–4,567 px = **0.22 % coverage**, above our own 535 px `p_trail` floor and
+far below the 67 % `x_attr` ceiling. A `sustained` effect lives closest to the ceiling
+*because it is on during everything else*; 0.22 % is the ceiling solve.
+
+**Tier-1 — the pass shape is coverage HELD and hue MOVED, and both halves are measured:**
+
+| stage | coverage spread | min mask Jaccard | min hue sep |
+|---|---:|---:|---:|
+| cathedral | 0.0789 | 0.8984 | **15.77°** |
+| arena | 0.0689 | 0.9330 | **14.24°** |
+
+Jaccard as well as area, because **equal area is not equal coverage** — two masks of the
+same size over different pixels would pass an area test and fail the claim.
+
+**The INVERTED contact test (anti-tamper):** step **0.0009** / **0.0085** against a 0.05
+bar. `magical-cause` is correct here and adding a contact response would score better on
+a criterion that does not live on this row — **in the direction that looks like
+diligence**, on the row the rubric calibrates against.
+
+### 6.2 ⚑ Row 1's sweep reproduces receipt (v) — independently, on a new instrument
+
+Coverage invariance vs mask floor, cathedral:
+
+| floor | 2 | **4** | 6 | 8 | 12 | 16 |
+|---|---:|---:|---:|---:|---:|---:|
+| spread | 0.1311 | **0.0789** | 0.0834 | 0.1096 | **0.1765** | 0.2241 |
+| min Jaccard | 0.8194 | **0.8984** | 0.8775 | 0.8608 | **0.8275** | 0.7923 |
+
+**At `sa_gate.py`'s inherited 12 this row reports a materially worse invariance —
+manufactured by the threshold.** Same finding as receipt (v), second instrument, new row,
+arrived at without looking for it.
+
+⚑ **And note the shape, because it is the counterpart to R-4's result:** this objective
+has a **genuine interior optimum** at floor 4. The yaw instrument's was **monotone** and
+its argmin was wherever the ladder stopped. **Three instruments now: two with real
+optima, one degenerate. The transferable lesson is not "erosion is bad" — it is that the
+sweep has to be LOOKED AT, because the same constant behaves in opposite ways in
+instruments built in the same batch.**
+
+### 6.3 Cross-row: `self_buff` vs `aura` — asked for by nobody, owed anyway
+
+Both are caster-centred sustained fields, adjacent in L-29, and `aura` is already minted.
+That is the rows-4/6/7 fold-boundary risk **one tranche earlier**, on an instrument that
+already exists at zero capture cost. Not measuring it because § 5 did not name it would
+be *"the register that stayed empty because nobody opened the file,"* on my own row.
+
+| cohort | separation (min cross-row) | noise (max within-row) | **ratio** |
+|---|---:|---:|---:|
+| cathedral | 7.2236 | 1.7201 | **4.20×** |
+| arena | 7.0557 | 2.7610 | **2.56×** |
+
+**Within-cohort only, never pooled** — receipt (v)'s first run printed `PASS = True` at
+1.40× precisely because its two legs straddled the bare/arena cliff. The floor is read
+off `xrow.json`'s `floor_chosen`, **not re-picked for this question**; a floor re-chosen
+per question is a floor nobody derived. **The anti-tuning clause was committed at
+`6dbe19f` before the number existed**, and the separators are **designed** — 1.15 m
+footprint vs 3.40 m field, interrupted ring vs continuous radius declaration — **not
+adjusted after measuring**.
+
+---
+
+### 6.4 ROW 2 — `totem` (§ 3.1.4) · PAYLOAD-CARRIED (attack only) · two-layered · composite
+
+| item | value |
+|---|---|
+| **Phases** | `summon` 0.30–0.75 → `delegate-active` → `anticipation` 1.05–1.50 → `impact` 1.50–1.80, repeated at 2.10/2.55. Three disjoint windows, one mark each; the delegate **persists** between them |
+| **Layers → nodes** | manifestation (`magical-cause`) = `ManifestSigil` + `ManifestColumn`; delegate = `DelegateScaffold` (**#40 scaffold**); attack (`physical-cause`) = `SlamPayload` + per-body `SlamImpact` |
+| **Takes the tint** | `slam_payload` + `slam_impact` — **the attack, and only the attack** |
+| **Must NOT take it** | manifest sigil, manifest column, delegate body — **that set IS the P = 4 ceiling** |
+| **Lifecycle** | `sustained` presence with `burst` sub-events |
+| **Elements** | fire / water / earth on the attack; the **same three** on the manifestation, so the untinted claim **can fail** |
+| **RT-2** | **n/a** (A-4) |
+
+**⚑ THE P = 4 CEILING IS PROVEN, NOT ASSERTED.** L-30 says Tier-1 recolours what the
+totem *throws*, never what it *is*, and that "P = 4 is that ceiling, not a mark-down."
+Rendered as a code invariant **and** as a falsifiable measurement:
+
+| stage | manifest px fire / water / earth | Jaccard | hue sep |
+|---|---|---:|---:|
+| cathedral | 8,657 / 8,657 / 8,657 | **1.0** | **0.000°** |
+| arena | 8,402 / 8,402 / 8,402 | **1.0** | **0.000°** |
+
+**Byte-identical masks.** The Tier-1 path provably cannot reach the manifestation. And
+the attack **does** tint: **16.9°–17.1°** minimum separation.
+
+**⚑ THE ANTICIPATION BEAT — the row's selected property, and the only thing in the pool
+that teaches it.** Legible at the gameplay camera **0.40 s before the strike**, which is
+**2.2× `ground_targeted_circle`'s 0.183 s telegraph**:
+
+| mark | t | to strike | arm raised | changed px | legible |
+|---|---:|---:|---:|---:|---|
+| `03a-antic-early` | 1.100 | **0.400** | 0.33 | 2,274 | **yes** |
+| `03b-antic-mid` | 1.233 | 0.267 | 0.875 | 3,705 | yes |
+| `03-anticipation` | 1.333 | 0.167 | 0.998 | 4,140 | yes |
+
+Reported as a **lower bound**: it is already legible at the first mark inside the window.
+
+**It needed a PIXEL leg, and that is the reason the number exists at all.** The beat
+lives on the delegate's **body**, a non-emissive scaffold, so it produces **zero authored
+pixels** in the `fx`/`novfx` diff every other row is measured by — **the standard
+instrument cannot see this row's selected property.** An arm angle read back from the
+transform *re-reads the value it just wrote*, which is exactly the defect the C-2 yaw
+assert was built on pixels to avoid. Both legs are reported.
+
+**L-19 two-layered, run twice, expecting opposite answers — both correct:**
+
+| layer | 03-anticipation | 04-slam-contact | verdict |
+|---|---:|---:|---|
+| slam (`physical-cause`) | **0 px** | 3,345 px | **appears at contact from zero** |
+| manifestation (`magical-cause`), arm-matched | 8,657 px | 8,657 px | **step exactly 0.000000** |
+
+**Slam discrimination: 4/4 contacts** — two of four bodies per slam, by construction,
+because *an archetype whose hit response fires on everything nearby is not a delegate
+strike, it is a nova*.
+
+**Discipline #40 — the delegate body is a declared scaffold.** Primitives, shaded,
+**deliberately non-emissive**. A Synty rig would have looked better and **misrepresented
+the ceiling** — a plausible-looking delegate is how a model-pipeline dependency gets
+quietly marked solved — and a *glowing* placeholder would have entered the C-8 census as
+an emitter this row does not own, which is the whirlwind-blade defect pre-empted rather
+than repeated. Routes to spec § 5 Class-A item 3, **conditional**, model pipeline.
+
+---
+
+### 6.5 ⚑ THREE DEFECTS IN MY OWN GATE — and the first one is a new failure direction
+
+**1. THE GATE CONVICTED A CORRECTLY-AUTHORED EFFECT, AND I WAS ONE STEP FROM ACTING.**
+
+Attack hue separation first read **4.5–4.8°** for `fire|earth`. That reads exactly like
+the failure mode this dispatch names by hand — *"highly readable AND had lost its element
+tint — additive blown to cream … more dangerous because nothing in the frame
+complains."* I had the diagnosis, the prior, and the fix (drop the payload emission).
+
+**It was not that. Zero authored pixels were clipped.** The mask I was measuring at
+`04-slam-contact` is **~80 % manifestation** (8,402 of 10,561 px on arena) — **and the
+manifestation is untinted BY DESIGN, because it is the P = 4 ceiling.** The separation
+was being **diluted by the very invariance the row is built on**. Isolated by set
+difference against the per-element manifest arms that already existed, the same frames
+give **17°**.
+
+⚑ **This is the mirror image of every other defect this run has caught.** Every one so
+far was a plausible number that **flattered**. This was a plausible number that
+**convicted** — and the damage would have been permanent and invisible: **a correct
+effect detuned until a broken instrument approved of it, with a commit message
+explaining how diligent I was being.** A gate is not safe merely because it is strict.
+
+**2. A ratio with a zero denominator, printed as a finite number.** The slam leg reported
+`step_frac = 3345.0`, i.e. `(3345 − 0) / max(0, 1)`. **#64 FRAME FORM: a quantity whose
+denominator is zero is not a fraction.** Now stated as *"appears at contact from zero,"*
+which is the stronger claim anyway.
+
+**3. The manifestation leg's control did not control the arm.** Comparing
+`03-anticipation` (arm **raised**) against `04-slam-contact` (arm **at rest**) measures
+the arm occluding the column, not the manifestation's response to contact. It returned
+**+0.0765**, **passed** the 0.10 bar, and would have shipped as "flat enough." The
+arm-matched pair returns **exactly 0**. Same class as tranche 1's un-pinned animation
+clock — *a control that failed to control something that moves* — **except this one
+passed, which is worse.**
+
+**And a fourth, in the stage wiring rather than the gate:** two of twenty mechanical
+`str.replace` edits **silently no-op'd on an indentation mismatch and reported success**
+— the A-7 predicate defect one lap later. Both were in the `C8_DECLARATION` key, and
+`layer` is an axis the totem run **varies**, so fix-a's own rule would have been breached
+**inside the instrument fix-a exists to be.** Caught by verifying **all twenty** edits
+against the file instead of the one I happened to notice.
+
+### 6.6 The mark-placement defect that forced the second capture pass
+
+My first mark table sampled the anticipation window **once**, at 0.167 s before the
+strike. The lead time derived from it would have been **0.167 s** — **not a property of
+the beat, a property of where I put the mark**, against a declared 0.45 s. It would have
+been read as the measurement. Three samples now span the window and the headline is the
+**earliest mark at which the raise is legible at the camera**, which is what *"the player
+must read that the totem is about to act"* actually asks.
+
+### 6.7 Frame-retention insurance
+
+`transfer_function`, camera, seed and module counts travel in `STAGE_META` on **all 34
+arms**. **PNGs are not committed** — Synty licence — so retention is **on-disk plus
+committed per-arm metadata**. Whether that must survive a machine loss is **Matt's**, at
+`canonical/matt_decision_needed/2026-08-24-vfx-frame-retention-vs-synty-licence.md`. **No
+workaround built** (KR R-7).
+
+### 6.8 Measured arm cost on STRUCTURED stages
+
+**8.58 s/arm** (n = 34, range 7.49–10.37), vs **4.39** on bare. 34 arms = **292 s**.
+**Capture is still not the cost of a row; authoring is** — R-8 stands, and structured
+stages roughly double an arm without changing the conclusion.
+
+### 6.9 Rows 3–7 — NOT STARTED
+
+Stage 3. Nothing blocks them: A-2 is discharged (all seven receipts, plus R-3/R-4/R-5),
+A-4/A-5/A-6 are folded, the separation instrument is sound, and jack-ryan's pre-declared
+Gate-2 BLOCK is satisfied in advance. **Row 3 (`circle`) carries the restored A-10 windup
+donor** (D3 · Condemn, `burst`, windup **Y**) and **row 5 (`melee_arc`) judges on the A-5
+re-anchored criteria**, not the struck ≈ 12 % figure.
 
 ---
 
