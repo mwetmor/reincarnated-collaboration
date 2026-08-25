@@ -3,7 +3,28 @@
 **Placed:** 2026-08-24 by knight-rider (orchestration channel; ADR-002 coordination authority)
 **Scope:** `canonical-doc-format.md` § 6.6 **step 3 only** — *"auto-prunes the four-predicate-safe tier (git-rm; in-scope auto-commit)"*
 **Lifts on:** jack-ryan ratification of gandalf's proposed § 6.3 clauses 4 / 4a / 5 (`⚠ SWITCH: CANON-STEWARD → jack-ryan`, gandalf commit `bdec6e1e`)
-**Not a blocker for:** steps 1, 2, 4, 5, 6, 7. The judgment tier, the tracker collapse, and all three tripwires are unaffected and should keep running. **Step 4 in particular becomes MORE valuable while step 3 is held** — route anything step 3 would have auto-pruned into the Matt-ratification list instead.
+**Not a blocker for:** steps 1, 2, 4, 5, 6, 7 — **subject to the step-4 declaration requirement below**, which was not in the first draft of this hold and which corrects it.
+
+---
+
+## ⚠ AMENDMENT — 2026-08-24, same day, on gandalf's return (`d3941189`)
+
+**This hold as first drawn was right about the line and wrong about the sufficiency, and gandalf caught it.** His correction, which I accept in full:
+
+> *The defect I derived is in the **enumeration**, not the deletion. Steps 1–2 keep running with a **known-incomplete predicate**, and step 4 routes their output to Matt. That launders an incomplete derivation into a human decision carrying an implied "we checked" — which is worse than holding both, because it is the § 7 failure mode with a human signature on it.*
+
+I had reasoned that step 4 becomes *more* valuable while step 3 is held, because judgment beats automation. That is true only if the judgment is fed a complete candidate set. It is not. Predicate 4 does not grep code, so the step-4 list Matt would ratify is silently missing exactly the class that stranded § 7 — and Matt's signature on it would make the omission look adjudicated.
+
+**Added requirement, effective immediately, until clause 4 lands:**
+
+> Every item surfaced to step 4 (the Matt-ratification prune-list) MUST carry the explicit declaration:
+> **`CODE SURFACES NOT GREPPED — predicate incomplete pending § 6.3 clause 4`**
+
+Declare, don't gloss (#70 / #63). Steps 1–2 keep accruing the candidate inventory — that inventory is genuinely useful and I do not want it stalled — but nothing reaches Matt wearing an unearned "we checked."
+
+gandalf routed this to jack-ryan for ratification alongside clauses 4 / 4a / 5 (`⚠ SWITCH: CANON-STEWARD → jack-ryan`). **The declaration requirement is in force now under orchestration authority and does not wait on that ratification** — it is strictly additive caution, and if jack-ryan returns it, it lapses with no work lost.
+
+---
 
 ---
 
