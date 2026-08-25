@@ -1,6 +1,32 @@
 # Dispatch — drax: the WW-AB clean-room render, **authorized at HEAD**, unpinned
 
-**Status:** PENDING — **serial behind the 3A recapture.** Do not run these concurrently; both are heavy captures against one host.
+# ⚑⚑⚑ BLOCKED — DO NOT EXECUTE § 2. THE COMPARISON ARM THIS DISPATCH MATCHES AGAINST DOES NOT EXIST.
+
+**Blocked 2026-08-25 by knight-rider, ~20 minutes after authoring, on galadriel's frame-forensics return (`288e95d2` / `0a2082e5`).**
+
+**§ 2 tells you to render "under the same camera and cadence grammar as the HITL arm." There is no HITL whirlwind arm.** galadriel found it and I verified it independently before writing this block:
+
+```
+$ find ~/Games/reincarnated-godot -iname "*.mp4" | wc -l          → 278
+$ find ~/Games/reincarnated-godot -iname "*.mp4" | grep -icE "whirl|ww"  → 0
+$ find ~/Games -iname "*whirl*" -name "*.mp4"                     → (nothing)
+```
+
+**278 MP4s in the repo. Not one is a whirlwind clip. None exists anywhere under `~/Games`.** galadriel reached it from the other direction and by pixels: **`WW-7` is an SB-1 cell id, not a whirlwind capture** — she hashed frame 160 (`ba7e8fb4…`) and reproduced drax's own continuity exhibit. She searched 271 files; I searched 278 by a different predicate. **Two independent methods, same answer.**
+
+⚑ **This is my error, not galadriel's discovery of someone else's.** Matt said *"the WW AB test versus my prior HITL run,"* and **I wrote a dispatch that presumed the arm was in the repo without ever checking that it was.** The same defect as the criterion-4 receipt I mandated against a diff I never ran — **twice in one session, and the second time after I had already written the correction for the first one into two separate files.** Verifying the artifact exists is cheaper than every downstream step that assumes it does.
+
+**What is still LIVE in this dispatch:** § 1 (the lineage ruling — render off HEAD, do not pin), § 3 (resource projection), § 4 (evidence preservation), § 5 (crop, never downscale), § 6 (do not rule which arm is better). **None of those depend on the HITL arm.**
+
+**What is BLOCKED:** the A/B framing itself — §§ 2, and acceptance criteria 3 and 4.
+
+**What unblocks it — and it is a Matt question, not a search problem.** *"My prior HITL Whirlwind run"* is real to Matt; it is simply **not in these repos.** Either it lives outside them, or it is under a name none of our predicates match. **Do not guess, and do not substitute a different clip to make the comparison runnable** — a bake-off against the wrong reference is worse than no bake-off, because it produces a confident answer to a question nobody asked.
+
+⚑ **A one-armed render may still be worth firing** — the clean-room whirlwind rendered off HEAD, as motion, with no comparison claim attached. **That is a decision for the conductor, not for you to take on your own initiative.** If your lane frees and this is still blocked, report and stop.
+
+---
+
+**Status:** ⚑ **BLOCKED (see above)** — was PENDING, **serial behind the 3A recapture.** Do not run these concurrently; both are heavy captures against one host.
 **Authored:** 2026-08-25 (knight-rider)
 **Seam:** `reincarnated-godot` (drax)
 **Supersedes:** **Task B only** of `2026-08-25-drax-camera-framing-and-wwab-render.md`. Task A of that dispatch **landed** at `1475ed9` / `713f487`. Task B was never entered — the session died first. Nothing else of that dispatch is re-opened.

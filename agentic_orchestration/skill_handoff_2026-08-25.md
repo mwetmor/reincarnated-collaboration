@@ -234,6 +234,44 @@ Matt's ruling, in substance: pushes are **not** to be de-authorized per autonomo
 | **3** | **`ENABLE_PROMPT_CACHING_1H`** | **Unchanged.** Check closed; the *"largest cost lever"* headline is **unevidenced** against your Max-subscription auth path — the vendor scopes that var to API-key/Bedrock/Vertex/Foundry. Likely a **no-op.** |
 | **4** | ⚑ **NEW — the VFX second opinion you asked for** (*"we should probably try calling Codex and Grok"*) | ⚑ **CORRECTED BELOW — I first wrote "probably moot." It is not moot, and my reason was wrong.** Still **no decision needed from you**, but for a different reason than I gave. See the correction immediately under this table. |
 
+### ⚑ 5 — NEW, AND THIS ONE **DOES** BLOCK: where is your HITL Whirlwind run?
+
+**It is not in any of these repos.** You said *"the WW AB test versus my prior HITL run."* I authored the render dispatch presuming that arm was in the tree, **without checking** — and it is not:
+
+```
+278 .mp4 in reincarnated-godot · 0 matching whirl|ww · nothing under ~/Games named *whirl*.mp4
+```
+
+galadriel reached the same place independently and **by pixels**: `WW-7` is an **SB-1 cell id**, not a whirlwind capture — she hashed frame 160 and reproduced drax's own continuity exhibit. **Two methods, 271 and 278 files, same answer.**
+
+**It is real to you; it is simply somewhere we cannot see.** Point us at it, or tell us it lives outside the repos and how to get it. ⚑ **Nobody will substitute a different clip to make the bake-off runnable** — a comparison against the wrong reference produces a confident answer to a question you didn't ask. The render dispatch is **BLOCKED at the A/B framing** and everything else in it stays live.
+
+**A one-armed render** — clean-room whirlwind off HEAD, as motion, no comparison claim — is available if you'd rather see something than wait. Say the word and it fires.
+
+### ⚑ 6 — Your depth critique got a measurement, and it is NOT the one anyone expected
+
+galadriel built the instrument and **then killed her own headline with her own control.** Worth reading because it changes what to build.
+
+**The obvious finding died.** Transient-content mass read **183×** in the reference's favour — confirming your read, the dispatch's suspicion, and her own prior, *"which is exactly when a number should be held longest."* The reference camera **pans at 5.98 px/frame; ours at exactly 0.000.** She panned our clip at the reference's rate with **content unchanged** — it read **64% *above* the reference.** The pan artefact is **1.65× larger than the entire gap it was meant to explain.** That series measures the camera. **Withdrawn.**
+
+⚑ **What survived is the opposite of what we assumed:**
+
+| | reference | melee_combo | dash_attack |
+|---|--:|--:|--:|
+| events/s | 1.80 | **2.52** | **3.43** |
+| **CV of interval** | **1.107** | **0.102** | 0.955 |
+| elements (N_eff) | 4.81 | 3.16 | **8.64** |
+
+**We are not short of events. We fire MORE than the reference does. We are short of *irregularity*.** `melee_combo` fires every 0.392 s ± 0.040 s — one tone standing **2,148× above its own spectral median.** That is a metronome. The reference is bursty, Poisson-like.
+
+**And there is no capability ceiling.** `dash_attack` — same build, same hour — reads CV 0.955 and **more elements than the reference**. Our two rows differ from each other by more than one differs from the reference. **This is per-row authoring variance, not an engine limit.**
+
+⚑ **Cavitation: NO.** You floated *"cavitation or gravity appearance effects."* Reference radial coherence is **−0.023** against a validated lens signature of **0.51–0.99** (positive control ships with the instrument). **The originals are not doing it.** Adding it would be **an invention, not a recovery** — which may still be what you want, but it is a design choice, not a gap-closure. Routed to gandalf.
+
+⚑ **Smoke: we already have it.** Our engine renders substantial smoke, visible in the ww7 clip. **Not the missing piece.**
+
+**Colour (your "alternating through a specific color range") is UNRESOLVED and she issued no verdict** — hue, saturation and value all peak at the same frequency in both legs, which is the effect *pulsing*, not a colour cycle. Two defensible refinements disagree in direction, **and the one that favours the reference is the one scene-contamination would manufacture.** She refused to call it.
+
 ### ⚑ Correction to item 4 — auth was never the only gate, and the two lanes are not the same shape
 
 I wrote that this was gated on the Grok auth defect star-lord is fixing, so the fix would dissolve it. **Auth and vision are independent failures, and repairing the first does nothing for the second: a fully-working auth lane still cannot show either model a frame.**
