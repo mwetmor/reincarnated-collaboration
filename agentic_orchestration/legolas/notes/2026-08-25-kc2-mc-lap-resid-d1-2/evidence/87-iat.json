@@ -1,0 +1,5342 @@
+{
+ "0x104e5000": [
+  "Engine.dll",
+  "?GetNumCreationData@GraphicsMesh@GAME@@QBEHXZ"
+ ],
+ "0x104e5004": [
+  "Engine.dll",
+  "?RegisterParticleModifier@WeatherManager@GAME@@QAEXIABUParticleModifier@2@@Z"
+ ],
+ "0x104e5008": [
+  "Engine.dll",
+  "?GetWindDirection@WeatherManager@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e500c": [
+  "Engine.dll",
+  "?GetNormalizedWindStrength@WeatherManager@GAME@@QBEMXZ"
+ ],
+ "0x104e5010": [
+  "Engine.dll",
+  "?IsUpdating@Region@GAME@@QBE_NXZ"
+ ],
+ "0x104e5014": [
+  "Engine.dll",
+  "?IsActive@TrailEffect@GAME@@QBE_NXZ"
+ ],
+ "0x104e5018": [
+  "Engine.dll",
+  "?StopExternalStream@SoundManager@GAME@@QAEXW4ExtStreamSource@12@@Z"
+ ],
+ "0x104e501c": [
+  "Engine.dll",
+  "?AchievementIsUnlocked@Steamworks@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5020": [
+  "Engine.dll",
+  "?Get@Steamworks@GAME@@SAPAV12@XZ"
+ ],
+ "0x104e5024": [
+  "Engine.dll",
+  "?ShowCinematicText@Engine@GAME@@QAEXABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@0W4CinematicTextType@2@ABVColor@2@_N@Z"
+ ],
+ "0x104e5028": [
+  "Engine.dll",
+  "?gEngine@GAME@@3PAVEngine@1@A"
+ ],
+ "0x104e502c": [
+  "Engine.dll",
+  "?LocalizeWithoutParams@LocalizationManager@GAME@@QAEPBGPBD@Z"
+ ],
+ "0x104e5030": [
+  "Engine.dll",
+  "?Instance@LocalizationManager@GAME@@SAAAV12@XZ"
+ ],
+ "0x104e5034": [
+  "Engine.dll",
+  "?AchievementUnlock@Steamworks@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5038": [
+  "Engine.dll",
+  "?Send@EventManager@GAME@@QAEXPBUGameEvent@2@I@Z"
+ ],
+ "0x104e503c": [
+  "Engine.dll",
+  "?Get@?$Singleton@VEventManager@GAME@@@GAME@@SAPAVEventManager@2@XZ"
+ ],
+ "0x104e5040": [
+  "Engine.dll",
+  "??0GameTimer@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5044": [
+  "Engine.dll",
+  "?UnRegister@EventManager@GAME@@QAEXIPAVEventHandlerInterface@2@@Z"
+ ],
+ "0x104e5048": [
+  "Engine.dll",
+  "?LoadTableFile@ObjectManager@GAME@@QAEPBVLoadTable@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e504c": [
+  "Engine.dll",
+  "?Get@?$Singleton@VObjectManager@GAME@@@GAME@@SAPAVObjectManager@2@XZ"
+ ],
+ "0x104e5050": [
+  "Engine.dll",
+  "?AchievementReset@Steamworks@GAME@@QAEXXZ"
+ ],
+ "0x104e5054": [
+  "Engine.dll",
+  "?StatsCommit@Steamworks@GAME@@QAEXXZ"
+ ],
+ "0x104e5058": [
+  "Engine.dll",
+  "?Register@EventManager@GAME@@QAEXIPAVEventHandlerInterface@2@@Z"
+ ],
+ "0x104e505c": [
+  "Engine.dll",
+  "?Exit@CriticalSection@GAME@@QAEXXZ"
+ ],
+ "0x104e5060": [
+  "Engine.dll",
+  "?Enter@CriticalSection@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5064": [
+  "Engine.dll",
+  "?GetOpacity@GraphicsRenderable@GAME@@UBEMHABVName@2@@Z"
+ ],
+ "0x104e5068": [
+  "Engine.dll",
+  "?GetCastsShadows@GraphicsRenderable@GAME@@UBE_NI@Z"
+ ],
+ "0x104e506c": [
+  "Engine.dll",
+  "?GetLightGroup@GraphicsRenderable@GAME@@UBEIXZ"
+ ],
+ "0x104e5070": [
+  "Engine.dll",
+  "??0GraphicsRenderable@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5074": [
+  "Engine.dll",
+  "?CalculateAllocatedMemory@Object@GAME@@UBEIXZ"
+ ],
+ "0x104e5078": [
+  "Engine.dll",
+  "?CalculateMemoryUsage@Object@GAME@@UBEIXZ"
+ ],
+ "0x104e507c": [
+  "Engine.dll",
+  "?Load@Object@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e5080": [
+  "Engine.dll",
+  "??1Object@GAME@@MAE@XZ"
+ ],
+ "0x104e5084": [
+  "Engine.dll",
+  "??0Object@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5088": [
+  "Engine.dll",
+  "?DestroyObjectEx@ObjectManager@GAME@@QAEXPAVObject@2@PBDH@Z"
+ ],
+ "0x104e508c": [
+  "Engine.dll",
+  "?IsNetworkClient@Engine@GAME@@QAE_NXZ"
+ ],
+ "0x104e5090": [
+  "Engine.dll",
+  "?GetObjectId@Object@GAME@@QBEIXZ"
+ ],
+ "0x104e5094": [
+  "Engine.dll",
+  "?Localize@LocalizationManager@GAME@@QAAPBGPBDZZ"
+ ],
+ "0x104e5098": [
+  "Engine.dll",
+  "?CreateObjectFromFile@ObjectManager@GAME@@QAEPAVObject@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I_N@Z"
+ ],
+ "0x104e509c": [
+  "Engine.dll",
+  "?classInfo@Object@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e50a0": [
+  "Engine.dll",
+  "?CreateObjectID@ObjectManager@GAME@@QAEIXZ"
+ ],
+ "0x104e50a4": [
+  "Engine.dll",
+  "?SetObjectId@Object@GAME@@QAEXI@Z"
+ ],
+ "0x104e50a8": [
+  "Engine.dll",
+  "?GetObjectNameHash@Object@GAME@@QBEIXZ"
+ ],
+ "0x104e50ac": [
+  "Engine.dll",
+  "?Read@Actor@GAME@@UAEXAAVBinaryReader@2@@Z"
+ ],
+ "0x104e50b0": [
+  "Engine.dll",
+  "?Write@Actor@GAME@@UBEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e50b4": [
+  "Engine.dll",
+  "?IsSavedByEditor@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e50b8": [
+  "Engine.dll",
+  "?CanBePlacedInEditor@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e50bc": [
+  "Engine.dll",
+  "?LoadWithoutScripts@Entity@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e50c0": [
+  "Engine.dll",
+  "?AppendDetailMapData@Actor@GAME@@UAEXAAV?$vector@UMinimapGameNugget@GAME@@@mem@@@Z"
+ ],
+ "0x104e50c4": [
+  "Engine.dll",
+  "?IsInWorld@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e50c8": [
+  "Engine.dll",
+  "?OnUnload@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e50cc": [
+  "Engine.dll",
+  "?OnRemoveFromLevel@Actor@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e50d0": [
+  "Engine.dll",
+  "?ForcedUpdate@Entity@GAME@@UAEXH@Z"
+ ],
+ "0x104e50d4": [
+  "Engine.dll",
+  "?AddForcedEntitiesToScene@Entity@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e50d8": [
+  "Engine.dll",
+  "?GetPhysicsMesh@Actor@GAME@@UBEPBVPhysicsMeshBase@2@XZ"
+ ],
+ "0x104e50dc": [
+  "Engine.dll",
+  "?SetDynamicObstacle@Entity@GAME@@UAEX_N@Z"
+ ],
+ "0x104e50e0": [
+  "Engine.dll",
+  "?UpdateBoundingBox@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e50e4": [
+  "Engine.dll",
+  "?DynamicPathingOccluder@Entity@GAME@@UBE?AW4DynamicOccluderType@12@XZ"
+ ],
+ "0x104e50e8": [
+  "Engine.dll",
+  "?GetNumHitBoxes@Actor@GAME@@UBEIXZ"
+ ],
+ "0x104e50ec": [
+  "Engine.dll",
+  "?GetHitBox@Actor@GAME@@UBE?AUHitBox@GraphicsMesh@2@HABVSkeletalPose@2@@Z"
+ ],
+ "0x104e50f0": [
+  "Engine.dll",
+  "?GetHitBox@Actor@GAME@@UBE?AVOBBox@2@H@Z"
+ ],
+ "0x104e50f4": [
+  "Engine.dll",
+  "?GetCenterOfMass@Actor@GAME@@UBE?AVVec3@2@XZ"
+ ],
+ "0x104e50f8": [
+  "Engine.dll",
+  "?CrowdAgentUpdate@Entity@GAME@@UAEXHAAUCrowdAgentParams@CROWD@@@Z"
+ ],
+ "0x104e50fc": [
+  "Engine.dll",
+  "?CrowdAgentMoved@Entity@GAME@@UAEXABUCrowdAgentData@CROWD@@@Z"
+ ],
+ "0x104e5100": [
+  "Engine.dll",
+  "?GetIntersection@Actor@GAME@@UBEXABVRay@2@AAVIntersection@2@W4PhysicsSurface@2@_N@Z"
+ ],
+ "0x104e5104": [
+  "Engine.dll",
+  "?GetIntersection@Entity@GAME@@UBEXABVRay@2@MAAVIntersection@2@W4PhysicsSurface@2@@Z"
+ ],
+ "0x104e5108": [
+  "Engine.dll",
+  "?CheckLOS@Actor@GAME@@UBE_NABVRay@2@M@Z"
+ ],
+ "0x104e510c": [
+  "Engine.dll",
+  "?SetTransparency@Actor@GAME@@UAEXABVFrustum@2@@Z"
+ ],
+ "0x104e5110": [
+  "Engine.dll",
+  "?SetTransparent@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e5114": [
+  "Engine.dll",
+  "?IsStatic@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5118": [
+  "Engine.dll",
+  "?Attach@Actor@GAME@@UAEXPAVEntity@2@ABVCoords@2@ABVName@2@_N333@Z"
+ ],
+ "0x104e511c": [
+  "Engine.dll",
+  "?Attach@Actor@GAME@@UAEXPAVEntity@2@ABVCoords@2@PBD_N333@Z"
+ ],
+ "0x104e5120": [
+  "Engine.dll",
+  "?GetAttachedCoords@Actor@GAME@@UBE?AVWorldCoords@2@ABVName@2@@Z"
+ ],
+ "0x104e5124": [
+  "Engine.dll",
+  "?GetAttachedCoordsInRegion@Actor@GAME@@UBE?AVWorldCoords@2@ABVName@2@_N@Z"
+ ],
+ "0x104e5128": [
+  "Engine.dll",
+  "?GetBoneCoordsInRegion@Actor@GAME@@UBE?AVWorldCoords@2@ABVName@2@_N@Z"
+ ],
+ "0x104e512c": [
+  "Engine.dll",
+  "?CreateSpawnNetPacket@Entity@GAME@@UAEPAVNetPacket@2@XZ"
+ ],
+ "0x104e5130": [
+  "Engine.dll",
+  "?WriteReplicationData@Entity@GAME@@UAEXAAVNetPacketOutBuffer@2@@Z"
+ ],
+ "0x104e5134": [
+  "Engine.dll",
+  "?ReadReplicationData@Entity@GAME@@UAEXAAVNetPacketInBuffer@2@@Z"
+ ],
+ "0x104e5138": [
+  "Engine.dll",
+  "?ApplyReplicationData@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e513c": [
+  "Engine.dll",
+  "?GetRadius@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e5140": [
+  "Engine.dll",
+  "?ShouldSaveState@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5144": [
+  "Engine.dll",
+  "?SetSaveState@Entity@GAME@@UAEX_N@Z"
+ ],
+ "0x104e5148": [
+  "Engine.dll",
+  "?RegisterAnimationCallback@Actor@GAME@@UAEXABVName@2@@Z"
+ ],
+ "0x104e514c": [
+  "Engine.dll",
+  "?SetVisibility@Actor@GAME@@UAEX_N@Z"
+ ],
+ "0x104e5150": [
+  "Engine.dll",
+  "?SetVisibility@Actor@GAME@@UAEXW4Visibility@2@@Z"
+ ],
+ "0x104e5154": [
+  "Engine.dll",
+  "?GetVisibility@Actor@GAME@@UBE?AW4Visibility@2@XZ"
+ ],
+ "0x104e5158": [
+  "Engine.dll",
+  "?HasParentsUniqueID@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e515c": [
+  "Engine.dll",
+  "?LogInfo@Entity@GAME@@UBEXXZ"
+ ],
+ "0x104e5160": [
+  "Engine.dll",
+  "?IncludeInMinimap@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5164": [
+  "Engine.dll",
+  "?UseExistingObjectForRestore@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5168": [
+  "Engine.dll",
+  "?GetCollisionShape@Actor@GAME@@UBE?AW4PhysicsShape@2@XZ"
+ ],
+ "0x104e516c": [
+  "Engine.dll",
+  "?GetCollisionType@Entity@GAME@@UBE?AW4CollisionType@12@XZ"
+ ],
+ "0x104e5170": [
+  "Engine.dll",
+  "?GetPhysicsMass@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e5174": [
+  "Engine.dll",
+  "?GetPhysicsFriction@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e5178": [
+  "Engine.dll",
+  "?GetPhysicsRestitution@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e517c": [
+  "Engine.dll",
+  "?GetIsPartOfLevel@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5180": [
+  "Engine.dll",
+  "?BillboardPunctuation@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5184": [
+  "Engine.dll",
+  "?WriteSimulationInformation@Entity@GAME@@UBEXXZ"
+ ],
+ "0x104e5188": [
+  "Engine.dll",
+  "?FastUpdate@Actor@GAME@@UAEXH@Z"
+ ],
+ "0x104e518c": [
+  "Engine.dll",
+  "?OnMoved@Entity@GAME@@UAEXABVVec3@2@00@Z"
+ ],
+ "0x104e5190": [
+  "Engine.dll",
+  "?OnReachedMovementGoal@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5194": [
+  "Engine.dll",
+  "?OnPathFailed@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5198": [
+  "Engine.dll",
+  "?IsCopy@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e519c": [
+  "Engine.dll",
+  "?ExecuteEventHook@Entity@GAME@@UAEXIII@Z"
+ ],
+ "0x104e51a0": [
+  "Engine.dll",
+  "?UseStoredOrientation@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e51a4": [
+  "Engine.dll",
+  "?GetStoredOrientation@Entity@GAME@@UAE?AVCoords@2@XZ"
+ ],
+ "0x104e51a8": [
+  "Engine.dll",
+  "?PlaySyncedAnimation@Entity@GAME@@UAEXW4AnimationSet_Type@2@W4EquipManager_HandState@2@_NH@Z"
+ ],
+ "0x104e51ac": [
+  "Engine.dll",
+  "?GetUICloseDistance@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e51b0": [
+  "Engine.dll",
+  "?CreatePathObstacles@Actor@GAME@@MAEXXZ"
+ ],
+ "0x104e51b4": [
+  "Engine.dll",
+  "?RemovePathObstacles@Actor@GAME@@MAEXXZ"
+ ],
+ "0x104e51b8": [
+  "Engine.dll",
+  "?PlayAnimation@Actor@GAME@@UAEXHPBVGraphicsAnim@2@_NMH@Z"
+ ],
+ "0x104e51bc": [
+  "Engine.dll",
+  "?GetAlternateMeshName@Actor@GAME@@UBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e51c0": [
+  "Engine.dll",
+  "?SetScale@Actor@GAME@@UAEXABVVec3@2@@Z"
+ ],
+ "0x104e51c4": [
+  "Engine.dll",
+  "?SetScale@Actor@GAME@@UAEXM@Z"
+ ],
+ "0x104e51c8": [
+  "Engine.dll",
+  "?SetHighlight@Actor@GAME@@UAEX_N@Z"
+ ],
+ "0x104e51cc": [
+  "Engine.dll",
+  "?LoadLite@Actor@GAME@@UAEXABVLoadTable@2@_N@Z"
+ ],
+ "0x104e51d0": [
+  "Engine.dll",
+  "?GetNormal@Actor@GAME@@UBEXABVRay@2@AAVVec3@2@@Z"
+ ],
+ "0x104e51d4": [
+  "Engine.dll",
+  "?EnableOutline@Actor@GAME@@UAEX_N@Z"
+ ],
+ "0x104e51d8": [
+  "Engine.dll",
+  "?GetGameDescription@Actor@GAME@@UBE?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@_N0@Z"
+ ],
+ "0x104e51dc": [
+  "Engine.dll",
+  "?IsDescriptionVisible@Actor@GAME@@UBE_NXZ"
+ ],
+ "0x104e51e0": [
+  "Engine.dll",
+  "?Enqueue@Actor@GAME@@UAE_NPAVActorConfigCommand@2@@Z"
+ ],
+ "0x104e51e4": [
+  "Engine.dll",
+  "?LocalEnqueue@Actor@GAME@@UAE_NPAVActorConfigCommand@2@@Z"
+ ],
+ "0x104e51e8": [
+  "Engine.dll",
+  "?GetPose@Actor@GAME@@UAEXAAVSkeletalPose@2@@Z"
+ ],
+ "0x104e51ec": [
+  "Engine.dll",
+  "?SetPose@Actor@GAME@@UAEXABVSkeletalPose@2@@Z"
+ ],
+ "0x104e51f0": [
+  "Engine.dll",
+  "?SendCameraShakeEvent@Actor@GAME@@UAEXHM@Z"
+ ],
+ "0x104e51f4": [
+  "Engine.dll",
+  "?ShouldCastShadows@Actor@GAME@@UBE_NXZ"
+ ],
+ "0x104e51f8": [
+  "Engine.dll",
+  "?GeometryBusStop@Actor@GAME@@UAEXABVABBox@2@AAV?$vector@UVertex@GeometryBusAdvanced@GAME@@@mem@@AAV?$vector@UFace@GeometryBusAdvanced@GAME@@@5@M@Z"
+ ],
+ "0x104e51fc": [
+  "Engine.dll",
+  "?GeometryBusStop@Actor@GAME@@UAEXABVABBox@2@AAV?$vector@USimpleFace@GeometryBus@GAME@@@mem@@@Z"
+ ],
+ "0x104e5200": [
+  "Engine.dll",
+  "?Detach@Actor@GAME@@UAEXPAVEntity@2@@Z"
+ ],
+ "0x104e5204": [
+  "Engine.dll",
+  "?SetParentLevel@Actor@GAME@@UAEXI@Z"
+ ],
+ "0x104e5208": [
+  "Engine.dll",
+  "?UseAlternateMesh@Actor@GAME@@UBE_N_N@Z"
+ ],
+ "0x104e520c": [
+  "Engine.dll",
+  "?ForcePoseUpdate@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e5210": [
+  "Engine.dll",
+  "?PhysicsTest@Entity@GAME@@UAE_NPAVPhysicsSystem2@2@PAVPhysicsObject2@2@@Z"
+ ],
+ "0x104e5214": [
+  "Engine.dll",
+  "?PhysicsCollision@Entity@GAME@@UAEXPAVPhysicsSystem2@2@ABUPhysicsCollision2@2@@Z"
+ ],
+ "0x104e5218": [
+  "Engine.dll",
+  "?PhysicsGetSurfaceType@IPhysics2@GAME@@UAE?AW4PhysicsSurface@2@H@Z"
+ ],
+ "0x104e521c": [
+  "Engine.dll",
+  "?GetGraphicsEngine@Engine@GAME@@QBEPAVGraphicsEngine@2@XZ"
+ ],
+ "0x104e5220": [
+  "Engine.dll",
+  "?GetRenderDevice@GraphicsEngine@GAME@@QAEPAVRenderDevice@2@XZ"
+ ],
+ "0x104e5224": [
+  "Engine.dll",
+  "??0WorldCoords@GAME@@QAE@XZ"
+ ],
+ "0x104e5228": [
+  "Engine.dll",
+  "?LoadShader2@GraphicsEngine@GAME@@QAEPBVGraphicsShader2@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e522c": [
+  "Engine.dll",
+  "?EnqueueResource@ResourceLoader@GAME@@QAEXPBVResource@2@W4ResourcePriority@2@_N2@Z"
+ ],
+ "0x104e5230": [
+  "Engine.dll",
+  "?GetResourceLoader@Engine@GAME@@QAEPAVResourceLoader@2@XZ"
+ ],
+ "0x104e5234": [
+  "Engine.dll",
+  "?LoadTexture@GraphicsEngine@GAME@@QAEPBVGraphicsTexture@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5238": [
+  "Engine.dll",
+  "?UnloadShader2@GraphicsEngine@GAME@@QAEXPBVGraphicsShader2@2@@Z"
+ ],
+ "0x104e523c": [
+  "Engine.dll",
+  "?UnloadTexture@GraphicsEngine@GAME@@QAEXPBVGraphicsTexture@2@@Z"
+ ],
+ "0x104e5240": [
+  "Engine.dll",
+  "?GetNightLightScale@AmbianceManager@GAME@@QBEMW4Environment@12@@Z"
+ ],
+ "0x104e5244": [
+  "Engine.dll",
+  "?GetRegionPosition@WorldVec3@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e5248": [
+  "Engine.dll",
+  "?AddRenderable@GraphicsScene@GAME@@QAEXPAVGraphicsRenderable@2@PAVRegion@2@@Z"
+ ],
+ "0x104e524c": [
+  "Engine.dll",
+  "?GetRegion@WorldVec3@GAME@@QBEPAVRegion@2@XZ"
+ ],
+ "0x104e5250": [
+  "Engine.dll",
+  "?FindStyleByName@GraphicsShader2@GAME@@QBEIABVName@2@@Z"
+ ],
+ "0x104e5254": [
+  "Engine.dll",
+  "?GetSortOrder@GraphicsShader2@GAME@@QBEHI@Z"
+ ],
+ "0x104e5258": [
+  "Engine.dll",
+  "?Create@Name@GAME@@SA?AV12@PBD@Z"
+ ],
+ "0x104e525c": [
+  "Engine.dll",
+  "?GetDynamicVertexBuffer@GraphicsCanvas@GAME@@QAEPAVRenderDynamicVertexBuffer@2@XZ"
+ ],
+ "0x104e5260": [
+  "Engine.dll",
+  "?GetRegionCoords@WorldCoords@GAME@@QBE?AVCoords@2@XZ"
+ ],
+ "0x104e5264": [
+  "Engine.dll",
+  "?GetQuadIndexBuffer@GraphicsCanvas@GAME@@QAEPAVRenderIndexBuffer@2@XZ"
+ ],
+ "0x104e5268": [
+  "Engine.dll",
+  "?Begin@GraphicsShader2@GAME@@QBEXXZ"
+ ],
+ "0x104e526c": [
+  "Engine.dll",
+  "?SetFloat4x4@GraphicsShader2@GAME@@QBE_NABVName@2@IABVMat4@2@@Z"
+ ],
+ "0x104e5270": [
+  "Engine.dll",
+  "?SetTexture@GraphicsShader2@GAME@@QBE_NABVName@2@IPBVRenderTexture@2@@Z"
+ ],
+ "0x104e5274": [
+  "Engine.dll",
+  "?GetTexture@GraphicsTexture@GAME@@QBEPBVRenderTexture@2@XZ"
+ ],
+ "0x104e5278": [
+  "Engine.dll",
+  "?Render@GraphicsShader2@GAME@@QBE_NPBDPAVRenderDevice@2@W4RenderPrimitiveType@2@HHHHH@Z"
+ ],
+ "0x104e527c": [
+  "Engine.dll",
+  "?End@GraphicsShader2@GAME@@QBEXXZ"
+ ],
+ "0x104e5280": [
+  "Engine.dll",
+  "??0GraphicsRenderable@GAME@@QAE@XZ"
+ ],
+ "0x104e5284": [
+  "Engine.dll",
+  "?GetDistance@World@GAME@@QBEMABVWorldVec3@2@0@Z"
+ ],
+ "0x104e5288": [
+  "Engine.dll",
+  "?GetCoords@Entity@GAME@@QBE?AVWorldCoords@2@XZ"
+ ],
+ "0x104e528c": [
+  "Engine.dll",
+  "?GetObjectName@Object@GAME@@QBEPBDXZ"
+ ],
+ "0x104e5290": [
+  "Engine.dll",
+  "?AddStatisticGraph@Engine@GAME@@QAEXPBDMABVColor@2@@Z"
+ ],
+ "0x104e5294": [
+  "Engine.dll",
+  "?GetRegion@Entity@GAME@@QBEPAVRegion@2@XZ"
+ ],
+ "0x104e5298": [
+  "Engine.dll",
+  "?GetRelativePosition@Region@GAME@@QBE?AVVec3@2@ABVWorldVec3@2@@Z"
+ ],
+ "0x104e529c": [
+  "Engine.dll",
+  "?RenderLine@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVVec3@2@1ABVColor@2@PBVGraphicsShader2@2@@Z"
+ ],
+ "0x104e52a0": [
+  "Engine.dll",
+  "?Get@?$Singleton@VDebugRenderManager@GAME@@@GAME@@SAPAVDebugRenderManager@2@XZ"
+ ],
+ "0x104e52a4": [
+  "Engine.dll",
+  "?GetBasicShader@GraphicsEngine@GAME@@QBEPBVGraphicsShader2@2@XZ"
+ ],
+ "0x104e52a8": [
+  "Engine.dll",
+  "?UnloadAnimation@GraphicsEngine@GAME@@QAEXPBVGraphicsAnim@2@@Z"
+ ],
+ "0x104e52ac": [
+  "Engine.dll",
+  "?LoadAnimation@GraphicsEngine@GAME@@QAEPBVGraphicsAnim@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e52b0": [
+  "Engine.dll",
+  "?noName@Name@GAME@@2V12@B"
+ ],
+ "0x104e52b4": [
+  "Engine.dll",
+  "?GetNumCallbackPoints@GraphicsAnim@GAME@@QBEIXZ"
+ ],
+ "0x104e52b8": [
+  "Engine.dll",
+  "?GetCallbackPoint@GraphicsAnim@GAME@@QBEABUCallbackPoint@12@I@Z"
+ ],
+ "0x104e52bc": [
+  "Engine.dll",
+  "?GetLength@GraphicsAnim@GAME@@QBEIXZ"
+ ],
+ "0x104e52c0": [
+  "Engine.dll",
+  "?GetFrameRate@GraphicsAnim@GAME@@QBEHXZ"
+ ],
+ "0x104e52c4": [
+  "Engine.dll",
+  "??0SkeletalPose@GAME@@QAE@XZ"
+ ],
+ "0x104e52c8": [
+  "Engine.dll",
+  "??1SkeletalPose@GAME@@QAE@XZ"
+ ],
+ "0x104e52cc": [
+  "Engine.dll",
+  "?GetFramePose@GraphicsAnim@GAME@@QBEXAAVSkeletalPose@2@M_N@Z"
+ ],
+ "0x104e52d0": [
+  "Engine.dll",
+  "?GetAnimSpeed@GraphicsAnim@GAME@@QBEMXZ"
+ ],
+ "0x104e52d4": [
+  "Engine.dll",
+  "?SetAnimationSpeedMultiplier@Actor@GAME@@QAEXHM@Z"
+ ],
+ "0x104e52d8": [
+  "Engine.dll",
+  "??0Name@GAME@@QAE@XZ"
+ ],
+ "0x104e52dc": [
+  "Engine.dll",
+  "?PreLoad@SoundPak@GAME@@QAEXW4ResourcePriority@2@@Z"
+ ],
+ "0x104e52e0": [
+  "Engine.dll",
+  "?classInfo@SoundPak@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e52e4": [
+  "Engine.dll",
+  "?CalculateMemoryUsage@Actor@GAME@@MBEIXZ"
+ ],
+ "0x104e52e8": [
+  "Engine.dll",
+  "?CalculateAllocatedMemory@Actor@GAME@@MBEIXZ"
+ ],
+ "0x104e52ec": [
+  "Engine.dll",
+  "?OnAddToWorld@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e52f0": [
+  "Engine.dll",
+  "?OnRemoveFromWorld@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e52f4": [
+  "Engine.dll",
+  "?OnAddToLevel@Actor@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e52f8": [
+  "Engine.dll",
+  "?OnMoveInLevel@Actor@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e52fc": [
+  "Engine.dll",
+  "?OnDestroy@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e5300": [
+  "Engine.dll",
+  "?AddAttachedEntitiesToScene@Entity@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5304": [
+  "Engine.dll",
+  "?AddToScene@Actor@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5308": [
+  "Engine.dll",
+  "?GetCollisionBox@Actor@GAME@@UBE_NAAVOBBox@2@@Z"
+ ],
+ "0x104e530c": [
+  "Engine.dll",
+  "?OccludesPathing@Actor@GAME@@UBE_NXZ"
+ ],
+ "0x104e5310": [
+  "Engine.dll",
+  "?SetPhysicsSimulation@Entity@GAME@@UAEXW4PhysicsSimulation@2@@Z"
+ ],
+ "0x104e5314": [
+  "Engine.dll",
+  "?CollisionCallback@Actor@GAME@@UAEXABUCollisionData@2@@Z"
+ ],
+ "0x104e5318": [
+  "Engine.dll",
+  "?DeleteOnEnteringUnloadedLevel@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e531c": [
+  "Engine.dll",
+  "?ShouldServerSpawn@Entity@GAME@@UBE_NH@Z"
+ ],
+ "0x104e5320": [
+  "Engine.dll",
+  "?GetExtents@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e5324": [
+  "Engine.dll",
+  "?SaveState@Actor@GAME@@UBEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e5328": [
+  "Engine.dll",
+  "?RestoreState@Actor@GAME@@UAEXAAVBinaryReader@2@W4Restoration@Entity@2@@Z"
+ ],
+ "0x104e532c": [
+  "Engine.dll",
+  "?GetShouldRenderAcrossPortals@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5330": [
+  "Engine.dll",
+  "?UpdatePunctuation@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5334": [
+  "Engine.dll",
+  "?IsCharacter@Actor@GAME@@UAE_NXZ"
+ ],
+ "0x104e5338": [
+  "Engine.dll",
+  "?TweakPose@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e533c": [
+  "Engine.dll",
+  "?GetMeshInstance@Actor@GAME@@UBEPAVGraphicsMeshInstance@2@XZ"
+ ],
+ "0x104e5340": [
+  "Engine.dll",
+  "?GetAmbientHighlight@Actor@GAME@@UBEMXZ"
+ ],
+ "0x104e5344": [
+  "Engine.dll",
+  "?OnTeleported@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e5348": [
+  "Engine.dll",
+  "?PreAnimationUpdate@Actor@GAME@@MAEXH@Z"
+ ],
+ "0x104e534c": [
+  "Engine.dll",
+  "?ShouldRenderForScene@Actor@GAME@@MBE_NABVGraphicsScene@2@@Z"
+ ],
+ "0x104e5350": [
+  "Engine.dll",
+  "?PhysicsSetup@Actor@GAME@@UAE_NPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e5354": [
+  "Engine.dll",
+  "?PhysicsPost@Actor@GAME@@UAEXPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e5358": [
+  "Engine.dll",
+  "?PhysicsSync@IPhysics2@GAME@@UAEXPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e535c": [
+  "Engine.dll",
+  "?PhysicsUpdate@Actor@GAME@@UAEXPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e5360": [
+  "Engine.dll",
+  "?PhysicsResponse@Entity@GAME@@UAE_NPAVPhysicsSystem2@2@PAVPhysicsObject2@2@@Z"
+ ],
+ "0x104e5364": [
+  "Engine.dll",
+  "?CrowdAgentCreated@Entity@GAME@@UAEXAAVVec3@2@0AAUCrowdAgentParams@CROWD@@@Z"
+ ],
+ "0x104e5368": [
+  "Engine.dll",
+  "?CrowdAgentDestroyed@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e536c": [
+  "Engine.dll",
+  "?CrowdAgentStopped@Entity@GAME@@UAEXABUCrowdAgentData@CROWD@@@Z"
+ ],
+ "0x104e5370": [
+  "Engine.dll",
+  "?CrowdAgentReachedGoal@Entity@GAME@@UAEXABUCrowdAgentData@CROWD@@@Z"
+ ],
+ "0x104e5374": [
+  "Engine.dll",
+  "?CrowdAgentError@Entity@GAME@@UAEXABUCrowdAgentData@CROWD@@W4CrowdError@4@@Z"
+ ],
+ "0x104e5378": [
+  "Engine.dll",
+  "??0Actor@GAME@@QAE@XZ"
+ ],
+ "0x104e537c": [
+  "Engine.dll",
+  "??1Actor@GAME@@UAE@XZ"
+ ],
+ "0x104e5380": [
+  "Engine.dll",
+  "?Load@Actor@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e5384": [
+  "Engine.dll",
+  "?SetTintColor@Actor@GAME@@QAEXABVColor@2@@Z"
+ ],
+ "0x104e5388": [
+  "Engine.dll",
+  "??0WorldVec3@GAME@@QAE@XZ"
+ ],
+ "0x104e538c": [
+  "Engine.dll",
+  "?InitialUpdate@Actor@GAME@@UAEXXZ"
+ ],
+ "0x104e5390": [
+  "Engine.dll",
+  "?PreLoad@Actor@GAME@@UAE_N_N@Z"
+ ],
+ "0x104e5394": [
+  "Engine.dll",
+  "?UpdateSelf@Actor@GAME@@UAEXH@Z"
+ ],
+ "0x104e5398": [
+  "Engine.dll",
+  "?AnimationCallback@Actor@GAME@@MAE_NABVName@2@@Z"
+ ],
+ "0x104e539c": [
+  "Engine.dll",
+  "??0HookPack@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e53a0": [
+  "Engine.dll",
+  "??1HookPack@GAME@@UAE@XZ"
+ ],
+ "0x104e53a4": [
+  "Engine.dll",
+  "?IsHooked@HookPack@GAME@@QBE_NI@Z"
+ ],
+ "0x104e53a8": [
+  "Engine.dll",
+  "??0Entity@GAME@@QAE@XZ"
+ ],
+ "0x104e53ac": [
+  "Engine.dll",
+  "??1Entity@GAME@@UAE@XZ"
+ ],
+ "0x104e53b0": [
+  "Engine.dll",
+  "?Load@Entity@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e53b4": [
+  "Engine.dll",
+  "?LoadFromTable@HookPack@GAME@@UAEXIABVLoadTable@2@@Z"
+ ],
+ "0x104e53b8": [
+  "Engine.dll",
+  "??0GraphicsMeshInstance@GAME@@QAE@XZ"
+ ],
+ "0x104e53bc": [
+  "Engine.dll",
+  "?SetMesh@GraphicsMeshInstance@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e53c0": [
+  "Engine.dll",
+  "?SetScale@GraphicsMeshInstance@GAME@@QAEXABVVec3@2@@Z"
+ ],
+ "0x104e53c4": [
+  "Engine.dll",
+  "?SetDiffuseColor@GraphicsMeshInstance@GAME@@QAEXABVColor@2@@Z"
+ ],
+ "0x104e53c8": [
+  "Engine.dll",
+  "?PreLoad@Entity@GAME@@UAE_N_N@Z"
+ ],
+ "0x104e53cc": [
+  "Engine.dll",
+  "?PreLoad@GraphicsMeshInstance@GAME@@QAEX_N@Z"
+ ],
+ "0x104e53d0": [
+  "Engine.dll",
+  "?IsRenderFlagSet@GraphicsScene@GAME@@QBE_NW4RenderFlag@2@@Z"
+ ],
+ "0x104e53d4": [
+  "Engine.dll",
+  "?SetObjectToRegionCoords@GraphicsMeshInstance@GAME@@QAEXABVCoords@2@@Z"
+ ],
+ "0x104e53d8": [
+  "Engine.dll",
+  "?PrepareForRendering@GraphicsMeshInstance@GAME@@QAEXXZ"
+ ],
+ "0x104e53dc": [
+  "Engine.dll",
+  "?UpdateSelf@Entity@GAME@@MAEXH@Z"
+ ],
+ "0x104e53e0": [
+  "Engine.dll",
+  "?RemoveEntity@World@GAME@@QAEXPAVEntity@2@_N@Z"
+ ],
+ "0x104e53e4": [
+  "Engine.dll",
+  "?GetObjectSpaceBoundingBox@GraphicsMeshInstance@GAME@@QBEABVABBox@2@XZ"
+ ],
+ "0x104e53e8": [
+  "Engine.dll",
+  "?SetRegionBoundingBox@Entity@GAME@@QAEXABVABBox@2@_N@Z"
+ ],
+ "0x104e53ec": [
+  "Engine.dll",
+  "?GetIntersection@GraphicsMeshInstance@GAME@@QBEXABVRay@2@AAVIntersection@2@W4PhysicsSurface@2@@Z"
+ ],
+ "0x104e53f0": [
+  "Engine.dll",
+  "??0CriticalSection@GAME@@QAE@XZ"
+ ],
+ "0x104e53f4": [
+  "Engine.dll",
+  "?Initialize@HookPack@GAME@@IAEXXZ"
+ ],
+ "0x104e53f8": [
+  "Engine.dll",
+  "?LoadFromFile@HookPack@GAME@@UAEXIABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e53fc": [
+  "Engine.dll",
+  "?CalculateMemoryUsage@Entity@GAME@@UBEIXZ"
+ ],
+ "0x104e5400": [
+  "Engine.dll",
+  "?CalculateAllocatedMemory@Entity@GAME@@UBEIXZ"
+ ],
+ "0x104e5404": [
+  "Engine.dll",
+  "?Read@Entity@GAME@@UAEXAAVBinaryReader@2@@Z"
+ ],
+ "0x104e5408": [
+  "Engine.dll",
+  "?Write@Entity@GAME@@UBEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e540c": [
+  "Engine.dll",
+  "?AppendDetailMapData@Entity@GAME@@UAEXAAV?$vector@UMinimapGameNugget@GAME@@@mem@@@Z"
+ ],
+ "0x104e5410": [
+  "Engine.dll",
+  "?OnAddToLevel@Entity@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e5414": [
+  "Engine.dll",
+  "?OnRemoveFromLevel@Entity@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e5418": [
+  "Engine.dll",
+  "?OnMoveInLevel@Entity@GAME@@UAEXPAVLevel@2@@Z"
+ ],
+ "0x104e541c": [
+  "Engine.dll",
+  "?OnDestroy@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5420": [
+  "Engine.dll",
+  "?GetPhysicsMesh@Entity@GAME@@UBEPBVPhysicsMeshBase@2@XZ"
+ ],
+ "0x104e5424": [
+  "Engine.dll",
+  "?GetCollisionBox@Entity@GAME@@UBE_NAAVOBBox@2@@Z"
+ ],
+ "0x104e5428": [
+  "Engine.dll",
+  "?OccludesPathing@Entity@GAME@@UBE_NXZ"
+ ],
+ "0x104e542c": [
+  "Engine.dll",
+  "?GetNumHitBoxes@Entity@GAME@@UBEIXZ"
+ ],
+ "0x104e5430": [
+  "Engine.dll",
+  "?GetHitBox@Entity@GAME@@UBE?AUHitBox@GraphicsMesh@2@HABVSkeletalPose@2@@Z"
+ ],
+ "0x104e5434": [
+  "Engine.dll",
+  "?GetHitBox@Entity@GAME@@UBE?AVOBBox@2@H@Z"
+ ],
+ "0x104e5438": [
+  "Engine.dll",
+  "?GetCenterOfMass@Entity@GAME@@UBE?AVVec3@2@XZ"
+ ],
+ "0x104e543c": [
+  "Engine.dll",
+  "?CollisionCallback@Entity@GAME@@UAEXABUCollisionData@2@@Z"
+ ],
+ "0x104e5440": [
+  "Engine.dll",
+  "?CheckLOS@Entity@GAME@@UBE_NABVRay@2@M@Z"
+ ],
+ "0x104e5444": [
+  "Engine.dll",
+  "?InitialUpdate@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5448": [
+  "Engine.dll",
+  "?SetTransparency@Entity@GAME@@UAEXABVFrustum@2@@Z"
+ ],
+ "0x104e544c": [
+  "Engine.dll",
+  "?SetTransparent@Entity@GAME@@UAEXXZ"
+ ],
+ "0x104e5450": [
+  "Engine.dll",
+  "?Attach@Entity@GAME@@UAEXPAV12@ABVCoords@2@ABVName@2@_N333@Z"
+ ],
+ "0x104e5454": [
+  "Engine.dll",
+  "?Attach@Entity@GAME@@UAEXPAV12@ABVCoords@2@PBD_N333@Z"
+ ],
+ "0x104e5458": [
+  "Engine.dll",
+  "?GetAttachedCoords@Entity@GAME@@UBE?AVWorldCoords@2@ABVName@2@@Z"
+ ],
+ "0x104e545c": [
+  "Engine.dll",
+  "?GetAttachedCoordsInRegion@Entity@GAME@@UBE?AVWorldCoords@2@ABVName@2@_N@Z"
+ ],
+ "0x104e5460": [
+  "Engine.dll",
+  "?GetBoneCoordsInRegion@Entity@GAME@@UBE?AVWorldCoords@2@ABVName@2@_N@Z"
+ ],
+ "0x104e5464": [
+  "Engine.dll",
+  "?GetExtents@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e5468": [
+  "Engine.dll",
+  "?GetRadius@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e546c": [
+  "Engine.dll",
+  "?SaveState@Entity@GAME@@UBEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e5470": [
+  "Engine.dll",
+  "?RestoreState@Entity@GAME@@UAEXAAVBinaryReader@2@W4Restoration@12@@Z"
+ ],
+ "0x104e5474": [
+  "Engine.dll",
+  "?RegisterAnimationCallback@Entity@GAME@@UAEXABVName@2@@Z"
+ ],
+ "0x104e5478": [
+  "Engine.dll",
+  "?SetVisibility@Entity@GAME@@UAEX_N@Z"
+ ],
+ "0x104e547c": [
+  "Engine.dll",
+  "?SetVisibility@Entity@GAME@@UAEXW4Visibility@2@@Z"
+ ],
+ "0x104e5480": [
+  "Engine.dll",
+  "?GetVisibility@Entity@GAME@@UBE?AW4Visibility@2@XZ"
+ ],
+ "0x104e5484": [
+  "Engine.dll",
+  "?GetCollisionShape@Entity@GAME@@UBE?AW4PhysicsShape@2@XZ"
+ ],
+ "0x104e5488": [
+  "Engine.dll",
+  "?GetPhysicsMass@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e548c": [
+  "Engine.dll",
+  "?GetPhysicsFriction@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e5490": [
+  "Engine.dll",
+  "?GetPhysicsRestitution@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e5494": [
+  "Engine.dll",
+  "?FastUpdate@Entity@GAME@@UAEXH@Z"
+ ],
+ "0x104e5498": [
+  "Engine.dll",
+  "?GetUICloseDistance@Entity@GAME@@UBEMXZ"
+ ],
+ "0x104e549c": [
+  "Engine.dll",
+  "?CreatePathObstacles@Entity@GAME@@MAEXXZ"
+ ],
+ "0x104e54a0": [
+  "Engine.dll",
+  "?RemovePathObstacles@Entity@GAME@@MAEXXZ"
+ ],
+ "0x104e54a4": [
+  "Engine.dll",
+  "?PhysicsSetup@Entity@GAME@@UAE_NPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e54a8": [
+  "Engine.dll",
+  "?PhysicsPost@Entity@GAME@@UAEXPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e54ac": [
+  "Engine.dll",
+  "?PhysicsUpdate@Entity@GAME@@UAEXPAVPhysicsSystem2@2@@Z"
+ ],
+ "0x104e54b0": [
+  "Engine.dll",
+  "?LoadHooks@HookPack@GAME@@MAE_NIABVLoadTable@2@@Z"
+ ],
+ "0x104e54b4": [
+  "Engine.dll",
+  "?LoadEventHook@HookPack@GAME@@IAEXABVLoadTable@2@IABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e54b8": [
+  "Engine.dll",
+  "??0HookPack@GAME@@QAE@I@Z"
+ ],
+ "0x104e54bc": [
+  "Engine.dll",
+  "?GetParent@Entity@GAME@@QBEPAV12@XZ"
+ ],
+ "0x104e54c0": [
+  "Engine.dll",
+  "?SetMesh@Actor@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e54c4": [
+  "Engine.dll",
+  "?SetBaseTexture@Actor@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e54c8": [
+  "Engine.dll",
+  "?SetBumpTexture@Actor@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e54cc": [
+  "Engine.dll",
+  "?RestoreMesh@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e54d0": [
+  "Engine.dll",
+  "?RemoveAttachmentsFromMesh@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e54d4": [
+  "Engine.dll",
+  "?ResetCreateAttachments@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e54d8": [
+  "Engine.dll",
+  "?GetFileName@Resource@GAME@@QBEPBDXZ"
+ ],
+ "0x104e54dc": [
+  "Engine.dll",
+  "?GetMesh@GraphicsMeshInstance@GAME@@QBEPBVGraphicsMesh@2@XZ"
+ ],
+ "0x104e54e0": [
+  "Engine.dll",
+  "?GetMeshFileName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e54e4": [
+  "Engine.dll",
+  "?classInfo@EffectEntity@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e54e8": [
+  "Engine.dll",
+  "??1ActorConfigCommand@GAME@@UAE@XZ"
+ ],
+ "0x104e54ec": [
+  "Engine.dll",
+  "?Release@ObjectManager@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e54f0": [
+  "Engine.dll",
+  "?SetDescriptionVisible@Actor@GAME@@QAEX_N@Z"
+ ],
+ "0x104e54f4": [
+  "Engine.dll",
+  "?CacheObjectEx@ObjectManager@GAME@@QAEPAVObject@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBDH@Z"
+ ],
+ "0x104e54f8": [
+  "Engine.dll",
+  "?IsComplete@EffectEntity@GAME@@QAE_NXZ"
+ ],
+ "0x104e54fc": [
+  "Engine.dll",
+  "?IsPlaying@SoundPak@GAME@@QAE_NXZ"
+ ],
+ "0x104e5500": [
+  "Engine.dll",
+  "?GetDistanceSquared@World@GAME@@QBEMABVWorldVec3@2@0@Z"
+ ],
+ "0x104e5504": [
+  "Engine.dll",
+  "?GetEarsPosition@SoundManager@GAME@@QAE?AVWorldVec3@2@XZ"
+ ],
+ "0x104e5508": [
+  "Engine.dll",
+  "?GetFalloff@SoundPak@GAME@@QBEMXZ"
+ ],
+ "0x104e550c": [
+  "Engine.dll",
+  "?FadeLastPlayedSound@SoundPak@GAME@@QAEXH_N@Z"
+ ],
+ "0x104e5510": [
+  "Engine.dll",
+  "?IsExpansion3Loaded@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e5514": [
+  "Engine.dll",
+  "?IsNetworkEnabled@Engine@GAME@@QAE_NXZ"
+ ],
+ "0x104e5518": [
+  "Engine.dll",
+  "?IsNetworkServer@Engine@GAME@@QAE_NXZ"
+ ],
+ "0x104e551c": [
+  "Engine.dll",
+  "??GWorldVec3@GAME@@QBE?AVVec3@1@ABV01@@Z"
+ ],
+ "0x104e5520": [
+  "Engine.dll",
+  "?TranslateToFloor@WorldVec3@GAME@@QAE_NABVVec3@2@@Z"
+ ],
+ "0x104e5524": [
+  "Engine.dll",
+  "?StopEmitting@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e5528": [
+  "Engine.dll",
+  "?StartEmitting@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e552c": [
+  "Engine.dll",
+  "?AddEntity@World@GAME@@QAE_NPAVEntity@2@ABVWorldCoords@2@_N@Z"
+ ],
+ "0x104e5530": [
+  "Engine.dll",
+  "?HasUniqueID@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e5534": [
+  "Engine.dll",
+  "?GetUniqueID@Entity@GAME@@QAEABVUniqueId@2@XZ"
+ ],
+ "0x104e5538": [
+  "Engine.dll",
+  "?SetUniqueID@Entity@GAME@@QAEXABVUniqueId@2@_N@Z"
+ ],
+ "0x104e553c": [
+  "Engine.dll",
+  "??0ActorConfigCommand@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5540": [
+  "Engine.dll",
+  "?GetLoadTable@ObjectManager@GAME@@QBEABVLoadTable@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5544": [
+  "Engine.dll",
+  "?IGenerate@RandomUniformLocked@GAME@@QAEHHH@Z"
+ ],
+ "0x104e5548": [
+  "Engine.dll",
+  "?GetLevelPtr@Region@GAME@@QBEPAVLevel@2@XZ"
+ ],
+ "0x104e554c": [
+  "Engine.dll",
+  "?GetSectorLayers@Level@GAME@@QAEPAVSectorLayers@2@XZ"
+ ],
+ "0x104e5550": [
+  "Engine.dll",
+  "?GetTargetId@SectorLayers@GAME@@QAE?AVUniqueId@2@HHH@Z"
+ ],
+ "0x104e5554": [
+  "Engine.dll",
+  "?GetSectorData@SectorDataManager@GAME@@QBEPAVSectorData@2@IABVUniqueId@2@@Z"
+ ],
+ "0x104e5558": [
+  "Engine.dll",
+  "?FGenerate@RandomUniformLocked@GAME@@QAEMMM@Z"
+ ],
+ "0x104e555c": [
+  "Engine.dll",
+  "?SetOwner@Entity@GAME@@QAEXI@Z"
+ ],
+ "0x104e5560": [
+  "Engine.dll",
+  "?GetBool@Options@GAME@@QBE_NW4BoolName@12@@Z"
+ ],
+ "0x104e5564": [
+  "Engine.dll",
+  "?GetOptions@Engine@GAME@@QAEPAVOptions@2@XZ"
+ ],
+ "0x104e5568": [
+  "Engine.dll",
+  "?MakeSelfDeletingChild@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e556c": [
+  "Engine.dll",
+  "?empty@Names@GAME@@2VName@2@B"
+ ],
+ "0x104e5570": [
+  "Engine.dll",
+  "?classInfo@Entity@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e5574": [
+  "Engine.dll",
+  "?GetEntitiesInSphere@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@PAVRegion@2@ABVSphere@2@_NW4EntityListType@2@@Z"
+ ],
+ "0x104e5578": [
+  "Engine.dll",
+  "?StopEventMusic@Jukebox@GAME@@QAEXXZ"
+ ],
+ "0x104e557c": [
+  "Engine.dll",
+  "?Get@?$Singleton@VJukebox@GAME@@@GAME@@SAPAVJukebox@2@XZ"
+ ],
+ "0x104e5580": [
+  "Engine.dll",
+  "?GetOffsetFromWorld@Region@GAME@@QBEABVIntVec3@2@XZ"
+ ],
+ "0x104e5584": [
+  "Engine.dll",
+  "?MakeRelative@WorldVec3@GAME@@QAEAAV12@PAVRegion@2@@Z"
+ ],
+ "0x104e5588": [
+  "Engine.dll",
+  "?RenderBox@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVOBBox@2@ABVColor@2@@Z"
+ ],
+ "0x104e558c": [
+  "Engine.dll",
+  "??4Object@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e5590": [
+  "Engine.dll",
+  "??0GameTimer@GAME@@QAE@XZ"
+ ],
+ "0x104e5594": [
+  "Engine.dll",
+  "?Reset@Timer@GAME@@QAEXXZ"
+ ],
+ "0x104e5598": [
+  "Engine.dll",
+  "?Update@Timer@GAME@@QAEX_N@Z"
+ ],
+ "0x104e559c": [
+  "Engine.dll",
+  "?AttachPunctuation@Entity@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e55a0": [
+  "Engine.dll",
+  "?IsDedicatedServer@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e55a4": [
+  "Engine.dll",
+  "??0LightRig@GAME@@QAE@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e55a8": [
+  "Engine.dll",
+  "?UnregisterForForcedUpdates@Engine@GAME@@QAEXI@Z"
+ ],
+ "0x104e55ac": [
+  "Engine.dll",
+  "?GetBoneCoords@Actor@GAME@@QBE?AVWorldCoords@2@ABVName@2@@Z"
+ ],
+ "0x104e55b0": [
+  "Engine.dll",
+  "?TranslateInRegion@WorldVec3@GAME@@QAEXABVVec3@2@@Z"
+ ],
+ "0x104e55b4": [
+  "Engine.dll",
+  "?GetSurfaceTypeBelow@World@GAME@@QBE?AW4PhysicsSurface@2@PAVEntity@2@@Z"
+ ],
+ "0x104e55b8": [
+  "Engine.dll",
+  "?Track@SoundPak@GAME@@QAEXH@Z"
+ ],
+ "0x104e55bc": [
+  "Engine.dll",
+  "?GetBoundingBox@Region@GAME@@QBEABVABBox@2@XZ"
+ ],
+ "0x104e55c0": [
+  "Engine.dll",
+  "?GetLevel@Region@GAME@@QBEPAVLevel@2@_N@Z"
+ ],
+ "0x104e55c4": [
+  "Engine.dll",
+  "?GetGroundNormal@Level@GAME@@QBE?AVVec3@2@MM@Z"
+ ],
+ "0x104e55c8": [
+  "Engine.dll",
+  "?PlaceDecal@World@GAME@@QAEXABVWorldCoords@2@PBVDecalType@2@I@Z"
+ ],
+ "0x104e55cc": [
+  "Engine.dll",
+  "??0WorldCoords@GAME@@QAE@ABVWorldVec3@1@ABVVec3@1@11@Z"
+ ],
+ "0x104e55d0": [
+  "Engine.dll",
+  "?PutOnFloor@WorldVec3@GAME@@QAE_NXZ"
+ ],
+ "0x104e55d4": [
+  "Engine.dll",
+  "?SetCoords@World@GAME@@QAEXPAVEntity@2@ABVWorldCoords@2@@Z"
+ ],
+ "0x104e55d8": [
+  "Engine.dll",
+  "?StopAnimations@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e55dc": [
+  "Engine.dll",
+  "?DisableCreateAttachements@Actor@GAME@@IAEXXZ"
+ ],
+ "0x104e55e0": [
+  "Engine.dll",
+  "?IsVisible@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e55e4": [
+  "Engine.dll",
+  "?BeginDissolve@GraphicsMeshInstance@GAME@@QAEXHHHMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z"
+ ],
+ "0x104e55e8": [
+  "Engine.dll",
+  "?ClearRotation@WorldCoords@GAME@@QAEXXZ"
+ ],
+ "0x104e55ec": [
+  "Engine.dll",
+  "?GetCoordsUnparented@Entity@GAME@@QBEABVWorldCoords@2@XZ"
+ ],
+ "0x104e55f0": [
+  "Engine.dll",
+  "?GetAnimationSpeedMultiplier@Actor@GAME@@QBEMH@Z"
+ ],
+ "0x104e55f4": [
+  "Engine.dll",
+  "?GetNetworkShim@Engine@GAME@@QAEPAVNetworkShim@2@XZ"
+ ],
+ "0x104e55f8": [
+  "Engine.dll",
+  "?Translate@WorldVec3@GAME@@QAE_NABVVec3@2@_N@Z"
+ ],
+ "0x104e55fc": [
+  "Engine.dll",
+  "?FindStraightMovePointOnSlopes@NavManager@GAME@@QAEXABVWorldVec3@2@0AAV32@_N@Z"
+ ],
+ "0x104e5600": [
+  "Engine.dll",
+  "?Get@?$Singleton@VNavManager@GAME@@@GAME@@SAPAVNavManager@2@XZ"
+ ],
+ "0x104e5604": [
+  "Engine.dll",
+  "?FindStraightMovePoint@NavManager@GAME@@QAE?AW4NavResult@2@ABVWorldVec3@2@0AAV42@@Z"
+ ],
+ "0x104e5608": [
+  "Engine.dll",
+  "?GetEntitiesInBox@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@ABVABBox@2@PAVRegion@2@_N3W4EntityListType@2@@Z"
+ ],
+ "0x104e560c": [
+  "Engine.dll",
+  "?GetElapsedTime@Timer@GAME@@QBEHXZ"
+ ],
+ "0x104e5610": [
+  "Engine.dll",
+  "?GetDirection@World@GAME@@QBE?AVVec3@2@ABVWorldVec3@2@0@Z"
+ ],
+ "0x104e5614": [
+  "Engine.dll",
+  "?IsCharacterCommandLogEnabled@Engine@GAME@@QAE_NXZ"
+ ],
+ "0x104e5618": [
+  "Engine.dll",
+  "?GetDebug@NavManager@GAME@@QBE_NXZ"
+ ],
+ "0x104e561c": [
+  "Engine.dll",
+  "?GetIsDay@AmbianceManager@GAME@@QBE_NXZ"
+ ],
+ "0x104e5620": [
+  "Engine.dll",
+  "?GetAllAttachedPoints@GraphicsMeshInstance@GAME@@QAEXAAV?$vector@VName@GAME@@@mem@@@Z"
+ ],
+ "0x104e5624": [
+  "Engine.dll",
+  "?GetNumAttachedEntities@Entity@GAME@@QAEHXZ"
+ ],
+ "0x104e5628": [
+  "Engine.dll",
+  "?GetAttachedEntity@Entity@GAME@@QAEPAV12@H@Z"
+ ],
+ "0x104e562c": [
+  "Engine.dll",
+  "?RenderText@DebugRenderManager@GAME@@QAEXPBDPAVRegion@2@ABVVec3@2@ABVColor@2@@Z"
+ ],
+ "0x104e5630": [
+  "Engine.dll",
+  "?GetSkeletalPose@GraphicsMeshInstance@GAME@@QAEAAVSkeletalPose@2@XZ"
+ ],
+ "0x104e5634": [
+  "Engine.dll",
+  "?SetBoneCoords@SkeletalPose@GAME@@QAEXABVName@2@ABVCoords@2@@Z"
+ ],
+ "0x104e5638": [
+  "Engine.dll",
+  "?GetBoneCoords@SkeletalPose@GAME@@QBEABVCoords@2@ABVName@2@@Z"
+ ],
+ "0x104e563c": [
+  "Engine.dll",
+  "?GetBoundingBox@GraphicsMesh@GAME@@QBEABVABBox@2@XZ"
+ ],
+ "0x104e5640": [
+  "Engine.dll",
+  "?GetQuality@Options@GAME@@QBE?AW4Quality@12@W4QualityName@12@@Z"
+ ],
+ "0x104e5644": [
+  "Engine.dll",
+  "?IsUnderground@Region@GAME@@QBE_NXZ"
+ ],
+ "0x104e5648": [
+  "Engine.dll",
+  "?GetSkyAmbientColor@AmbianceManager@GAME@@QBE?AVColor@2@W4Environment@12@@Z"
+ ],
+ "0x104e564c": [
+  "Engine.dll",
+  "?GetUserdata@PhysicsRigidBody2@GAME@@QBEPAXXZ"
+ ],
+ "0x104e5650": [
+  "Engine.dll",
+  "?GetGameTime@GAME@@YAHXZ"
+ ],
+ "0x104e5654": [
+  "Engine.dll",
+  "?CreatePointDisturbance@World@GAME@@QAEXABVWorldVec3@2@MM_NW4SplashType@2@@Z"
+ ],
+ "0x104e5658": [
+  "Engine.dll",
+  "?GetMachineTime@GAME@@YAHXZ"
+ ],
+ "0x104e565c": [
+  "Engine.dll",
+  "?GetPhysicsSimulation@Entity@GAME@@QBE?AW4PhysicsSimulation@2@XZ"
+ ],
+ "0x104e5660": [
+  "Engine.dll",
+  "?SetUserData@PhysicsSystem2@GAME@@QAEXPAX@Z"
+ ],
+ "0x104e5664": [
+  "Engine.dll",
+  "?GetScale@GraphicsMeshInstance@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e5668": [
+  "Engine.dll",
+  "?GetMIFData@GraphicsMesh@GAME@@QBEPBUMIFData@12@_N@Z"
+ ],
+ "0x104e566c": [
+  "Engine.dll",
+  "?GetAbsCoords@GraphicsMesh@GAME@@QBE?AVCoords@2@ABVSkeletalPose@2@ABVName@2@@Z"
+ ],
+ "0x104e5670": [
+  "Engine.dll",
+  "?CalculateRigidBodyCoords@PhysicsUtil@GAME@@SAXAAVCoords@2@ABV32@1M@Z"
+ ],
+ "0x104e5674": [
+  "Engine.dll",
+  "?CalculateJointCoords@PhysicsUtil@GAME@@SAXABUJointDescription@2@ABURigidBodyDescription@2@ABVCoords@2@12AAV52@@Z"
+ ],
+ "0x104e5678": [
+  "Engine.dll",
+  "?ChangeConetwistBasis@PhysicsUtil@GAME@@SAXW4JointAxis@2@ABVCoords@2@AAV42@@Z"
+ ],
+ "0x104e567c": [
+  "Engine.dll",
+  "?GetMotion@Entity@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e5680": [
+  "Engine.dll",
+  "?SetMotion@Entity@GAME@@QAEXABVVec3@2@@Z"
+ ],
+ "0x104e5684": [
+  "Engine.dll",
+  "?GetCurrentFrame@AnimChannel@GAME@@QBEHXZ"
+ ],
+ "0x104e5688": [
+  "Engine.dll",
+  "?GetAnimChannel@GraphicsMeshInstance@GAME@@QAEPAUAnimChannel@2@H@Z"
+ ],
+ "0x104e568c": [
+  "Engine.dll",
+  "?GetName@PhysicsRigidBody2@GAME@@QBEABVName@2@XZ"
+ ],
+ "0x104e5690": [
+  "Engine.dll",
+  "?GetUserdata@PhysicsSystem2@GAME@@QBEPAXXZ"
+ ],
+ "0x104e5694": [
+  "Engine.dll",
+  "?GetRigidBodyDescription@GraphicsMesh@GAME@@QBEPBURigidBodyDescription@2@I@Z"
+ ],
+ "0x104e5698": [
+  "Engine.dll",
+  "?SetPoseFromObjectSpace@GraphicsMeshInstance@GAME@@QAEXABVSkeletalPose@2@@Z"
+ ],
+ "0x104e569c": [
+  "Engine.dll",
+  "?GetRootMotionBone@GraphicsMesh@GAME@@QBEABVName@2@XZ"
+ ],
+ "0x104e56a0": [
+  "Engine.dll",
+  "?GetBoneIndex@GraphicsMesh@GAME@@QBEHABVName@2@@Z"
+ ],
+ "0x104e56a4": [
+  "Engine.dll",
+  "?GetBone@GraphicsMesh@GAME@@QBEABUBone@12@I@Z"
+ ],
+ "0x104e56a8": [
+  "Engine.dll",
+  "?GetCurrentScale@Actor@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e56ac": [
+  "Engine.dll",
+  "?GetNumBones@GraphicsMesh@GAME@@QBEIXZ"
+ ],
+ "0x104e56b0": [
+  "Engine.dll",
+  "?SetPoseFromObjectSpace@GraphicsMeshInstance@GAME@@QAEXABVSkeletalPose@2@ABVCoords@2@@Z"
+ ],
+ "0x104e56b4": [
+  "Engine.dll",
+  "?IsActive@PhysicsSystem2@GAME@@QBE_NXZ"
+ ],
+ "0x104e56b8": [
+  "Engine.dll",
+  "?GetStepsCompleted@PhysicsSystem2@GAME@@QBEIXZ"
+ ],
+ "0x104e56bc": [
+  "Engine.dll",
+  "?SetFellFaceDown@Actor@GAME@@QAEX_N@Z"
+ ],
+ "0x104e56c0": [
+  "Engine.dll",
+  "?GetOwner@PhysicsObject2@GAME@@QBEPAVIPhysics2@2@XZ"
+ ],
+ "0x104e56c4": [
+  "Engine.dll",
+  "?GetWorldPosition@WorldVec3@GAME@@QBE?AVVec3@2@XZ"
+ ],
+ "0x104e56c8": [
+  "Engine.dll",
+  "?GetHeight@Actor@GAME@@QBEMXZ"
+ ],
+ "0x104e56cc": [
+  "Engine.dll",
+  "?GetLastFrameUpdated@Entity@GAME@@QBEIXZ"
+ ],
+ "0x104e56d0": [
+  "Engine.dll",
+  "?GetFrameCount@Engine@GAME@@QBEIXZ"
+ ],
+ "0x104e56d4": [
+  "Engine.dll",
+  "?IsGameTimePaused@GAME@@YA_NXZ"
+ ],
+ "0x104e56d8": [
+  "Engine.dll",
+  "?SetFromWorldPosition@WorldVec3@GAME@@QAE_NABVVec3@2@PAVRegion@2@@Z"
+ ],
+ "0x104e56dc": [
+  "Engine.dll",
+  "?ExecuteEventHook@HookPack@GAME@@QBEXI@Z"
+ ],
+ "0x104e56e0": [
+  "Engine.dll",
+  "?DetachPunctuation@Entity@GAME@@QAEXXZ"
+ ],
+ "0x104e56e4": [
+  "Engine.dll",
+  "?GetBoneCoords@GraphicsAnim@GAME@@QBEXABVName@2@AAVVec3@2@_N@Z"
+ ],
+ "0x104e56e8": [
+  "Engine.dll",
+  "?GetRemainingAnimationTime@AnimChannel@GAME@@QBEHXZ"
+ ],
+ "0x104e56ec": [
+  "Engine.dll",
+  "?GetNumAnimChannels@GraphicsMeshInstance@GAME@@QBEHXZ"
+ ],
+ "0x104e56f0": [
+  "Engine.dll",
+  "?SetEntity@AnimChannel@GAME@@QAEXHPAVEntity@2@@Z"
+ ],
+ "0x104e56f4": [
+  "Engine.dll",
+  "?SetOutlineThickness@GraphicsMeshInstance@GAME@@QAEXM@Z"
+ ],
+ "0x104e56f8": [
+  "Engine.dll",
+  "?SetCastsShadows@GraphicsMeshInstance@GAME@@QAEX_N@Z"
+ ],
+ "0x104e56fc": [
+  "Engine.dll",
+  "?SetPointSetIndex@WeaponTrail@GAME@@QAEXH@Z"
+ ],
+ "0x104e5700": [
+  "Engine.dll",
+  "?SetBBox@TrailEffect@GAME@@QAEXABVABBox@2@@Z"
+ ],
+ "0x104e5704": [
+  "Engine.dll",
+  "?GetEffectEnum@PhysicsUtil@GAME@@SA?AW4Type@PhysicsMotion@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5708": [
+  "Engine.dll",
+  "?InRenderPreLoadFrustum@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e570c": [
+  "Engine.dll",
+  "?HasRigidBodyData@Actor@GAME@@QBE_NXZ"
+ ],
+ "0x104e5710": [
+  "Engine.dll",
+  "?SetSelfRemove@EffectEntity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5714": [
+  "Engine.dll",
+  "?SetScale@EffectEntity@GAME@@QAEXM@Z"
+ ],
+ "0x104e5718": [
+  "Engine.dll",
+  "?DisableLooping@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e571c": [
+  "Engine.dll",
+  "?SetVolume@SoundPak@GAME@@QAEXM_N@Z"
+ ],
+ "0x104e5720": [
+  "Engine.dll",
+  "?GetSceneType@GraphicsScene@GAME@@QBE?AW4SceneType@12@XZ"
+ ],
+ "0x104e5724": [
+  "Engine.dll",
+  "?ShouldRender@LightRig@GAME@@QBE_NXZ"
+ ],
+ "0x104e5728": [
+  "Engine.dll",
+  "?AssignLightGroup@LightRig@GAME@@QAEXAAVGraphicsScene@2@@Z"
+ ],
+ "0x104e572c": [
+  "Engine.dll",
+  "?SetLightGroup@GraphicsMeshInstance@GAME@@QAEXI@Z"
+ ],
+ "0x104e5730": [
+  "Engine.dll",
+  "?GetLightGroup@LightRig@GAME@@QBEIXZ"
+ ],
+ "0x104e5734": [
+  "Engine.dll",
+  "?GetSceneRenderablesList@LightRig@GAME@@QAEAAV?$vector@PBVGraphicsRenderable@GAME@@@mem@@XZ"
+ ],
+ "0x104e5738": [
+  "Engine.dll",
+  "?RenderBox@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVABBox@2@ABVColor@2@@Z"
+ ],
+ "0x104e573c": [
+  "Engine.dll",
+  "?AddToScene@LightRig@GAME@@QAEXAAVGraphicsScene@2@ABVWorldCoords@2@ABV?$vector@PBVGraphicsRenderable@GAME@@@mem@@@Z"
+ ],
+ "0x104e5740": [
+  "Engine.dll",
+  "?GetNumHitBoxes@GraphicsMesh@GAME@@QBEIXZ"
+ ],
+ "0x104e5744": [
+  "Engine.dll",
+  "?RegisterForForcedUpdates@Engine@GAME@@QAEXI@Z"
+ ],
+ "0x104e5748": [
+  "Engine.dll",
+  "?GetEntity@UniqueIdMap@GAME@@QBEPAVEntity@2@ABVUniqueId@2@@Z"
+ ],
+ "0x104e574c": [
+  "Engine.dll",
+  "?Get@UniqueIdMap@GAME@@SAPAV12@XZ"
+ ],
+ "0x104e5750": [
+  "Engine.dll",
+  "?classInfo@Actor@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e5754": [
+  "Engine.dll",
+  "?classInfo@WeaponTrail@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e5758": [
+  "Engine.dll",
+  "??1LightRig@GAME@@QAE@XZ"
+ ],
+ "0x104e575c": [
+  "Engine.dll",
+  "??0GMIEffectListener@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5760": [
+  "Engine.dll",
+  "??0CharacterAction@GAME@@QAE@I@Z"
+ ],
+ "0x104e5764": [
+  "Engine.dll",
+  "??1CharacterAction@GAME@@UAE@XZ"
+ ],
+ "0x104e5768": [
+  "Engine.dll",
+  "?QueryActionPermission@CharacterAction@GAME@@UBE?AW4CharacterActionPermission@2@PAV12@0@Z"
+ ],
+ "0x104e576c": [
+  "Engine.dll",
+  "??4SmartObjectId@GAME@@QAEAAIABI@Z"
+ ],
+ "0x104e5770": [
+  "Engine.dll",
+  "?GetTotalElapsedTime@Timer@GAME@@QBEHXZ"
+ ],
+ "0x104e5774": [
+  "Engine.dll",
+  "?LookAtNoLean@WorldCoords@GAME@@SA?AV12@ABVWorldVec3@2@0ABVVec3@2@@Z"
+ ],
+ "0x104e5778": [
+  "Engine.dll",
+  "?GetCoords@WorldCamera@GAME@@QBE?AVWorldCoords@2@XZ"
+ ],
+ "0x104e577c": [
+  "Engine.dll",
+  "?MoveObject@NavManager@GAME@@QAE_NPAVEntity@2@ABVVec3@2@@Z"
+ ],
+ "0x104e5780": [
+  "Engine.dll",
+  "?GetNumPortals@Region@GAME@@QBEHXZ"
+ ],
+ "0x104e5784": [
+  "Engine.dll",
+  "?GetPortal@Region@GAME@@QBEPAVPortal@2@H@Z"
+ ],
+ "0x104e5788": [
+  "Engine.dll",
+  "?GetIsOpen@Portal@GAME@@QBE_NXZ"
+ ],
+ "0x104e578c": [
+  "Engine.dll",
+  "?GetConnectedRegion@Portal@GAME@@QBEPAVRegion@2@XZ"
+ ],
+ "0x104e5790": [
+  "Engine.dll",
+  "?GetChokePoint@Portal@GAME@@QBE?AVWorldCoords@2@XZ"
+ ],
+ "0x104e5794": [
+  "Engine.dll",
+  "?FindPath@NavManager@GAME@@QAE_NABVWorldVec3@2@0MPAV32@PAIPAMPAV?$vector@VWorldVec3@GAME@@@mem@@PAVVec3@2@_N@Z"
+ ],
+ "0x104e5798": [
+  "Engine.dll",
+  "?GetConnectedPortal@Portal@GAME@@QBEPAV12@XZ"
+ ],
+ "0x104e579c": [
+  "Engine.dll",
+  "?GetFrontToBackCoords@Portal@GAME@@QBE_NAAVCoords@2@AAPAVRegion@2@@Z"
+ ],
+ "0x104e57a0": [
+  "Engine.dll",
+  "?StopObject@NavManager@GAME@@QAEXPAVEntity@2@@Z"
+ ],
+ "0x104e57a4": [
+  "Engine.dll",
+  "?AddObject@NavManager@GAME@@QAEXPAVEntity@2@@Z"
+ ],
+ "0x104e57a8": [
+  "Engine.dll",
+  "?RemoveObject@NavManager@GAME@@QAEXPAVEntity@2@@Z"
+ ],
+ "0x104e57ac": [
+  "Engine.dll",
+  "?ResetObject@NavManager@GAME@@QAEXPAVEntity@2@@Z"
+ ],
+ "0x104e57b0": [
+  "Engine.dll",
+  "?RenderCircle@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVVec3@2@1MABVColor@2@@Z"
+ ],
+ "0x104e57b4": [
+  "Engine.dll",
+  "??0ActorConfigCommand@GAME@@QAE@I@Z"
+ ],
+ "0x104e57b8": [
+  "Engine.dll",
+  "??4SmartObjectIdListNullable@GAME@@QAEABV?$vector@I@mem@@ABV23@@Z"
+ ],
+ "0x104e57bc": [
+  "Engine.dll",
+  "??4SmartObjectIdNullable@GAME@@QAEAAIABI@Z"
+ ],
+ "0x104e57c0": [
+  "Engine.dll",
+  "?StopTracking@SoundPak@GAME@@QAEXXZ"
+ ],
+ "0x104e57c4": [
+  "Engine.dll",
+  "?Stop@SoundPak@GAME@@QAEXXZ"
+ ],
+ "0x104e57c8": [
+  "Engine.dll",
+  "?GetTintColor@Actor@GAME@@QBEABVColor@2@XZ"
+ ],
+ "0x104e57cc": [
+  "Engine.dll",
+  "??0Object@GAME@@QAE@XZ"
+ ],
+ "0x104e57d0": [
+  "Engine.dll",
+  "?classInfo@Light@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e57d4": [
+  "Engine.dll",
+  "?classInfo@LineEffect@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e57d8": [
+  "Engine.dll",
+  "?classInfo@LineEffect2@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e57dc": [
+  "Engine.dll",
+  "?classInfo@ChaosBeam@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e57e0": [
+  "Engine.dll",
+  "??1LineEffect2@GAME@@UAE@XZ"
+ ],
+ "0x104e57e4": [
+  "Engine.dll",
+  "??0Light@GAME@@QAE@XZ"
+ ],
+ "0x104e57e8": [
+  "Engine.dll",
+  "??1Light@GAME@@UAE@XZ"
+ ],
+ "0x104e57ec": [
+  "Engine.dll",
+  "?Load@Light@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e57f0": [
+  "Engine.dll",
+  "?AddToScene@Light@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e57f4": [
+  "Engine.dll",
+  "?UpdateBoundingBox@Light@GAME@@UAEXXZ"
+ ],
+ "0x104e57f8": [
+  "Engine.dll",
+  "?GetIntersection@Light@GAME@@UBEXABVRay@2@AAVIntersection@2@W4PhysicsSurface@2@_N@Z"
+ ],
+ "0x104e57fc": [
+  "Engine.dll",
+  "?GetRadius@Light@GAME@@UBEMXZ"
+ ],
+ "0x104e5800": [
+  "Engine.dll",
+  "?GetShouldRenderAcrossPortals@Light@GAME@@UBE_NXZ"
+ ],
+ "0x104e5804": [
+  "Engine.dll",
+  "?IncludeInMinimap@Light@GAME@@UAE_NXZ"
+ ],
+ "0x104e5808": [
+  "Engine.dll",
+  "?Enable@Light@GAME@@UAEXXZ"
+ ],
+ "0x104e580c": [
+  "Engine.dll",
+  "?Disable@Light@GAME@@UAEXXZ"
+ ],
+ "0x104e5810": [
+  "Engine.dll",
+  "?GetDescriptionTag@Actor@GAME@@QBEPBDXZ"
+ ],
+ "0x104e5814": [
+  "Engine.dll",
+  "?ToChar@LocalizationManager@GAME@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@4@@Z"
+ ],
+ "0x104e5818": [
+  "Engine.dll",
+  "?GetGroupsThatContain@InstanceGroupManager@GAME@@QBEXABVUniqueId@2@AAV?$vector@H@mem@@@Z"
+ ],
+ "0x104e581c": [
+  "Engine.dll",
+  "?Get@InstanceGroupManager@GAME@@SAPAV12@XZ"
+ ],
+ "0x104e5820": [
+  "Engine.dll",
+  "?GetGroup@InstanceGroupManager@GAME@@QAEPAVInstanceGroup@2@H@Z"
+ ],
+ "0x104e5824": [
+  "Engine.dll",
+  "?GetTypeString@InstanceGroup@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5828": [
+  "Engine.dll",
+  "?GetNumChildren@InstanceGroup@GAME@@QBEIXZ"
+ ],
+ "0x104e582c": [
+  "Engine.dll",
+  "?GetGroup@InstanceGroupManager@GAME@@QAEPAVInstanceGroup@2@ABVUniqueId@2@@Z"
+ ],
+ "0x104e5830": [
+  "Engine.dll",
+  "?GetChildId@InstanceGroup@GAME@@QBEABVUniqueId@2@I@Z"
+ ],
+ "0x104e5834": [
+  "Engine.dll",
+  "?FillIdList@InstanceGroup@GAME@@QAEXAAV?$vector@VUniqueId@GAME@@@mem@@@Z"
+ ],
+ "0x104e5838": [
+  "Engine.dll",
+  "?RemoveFilterObject@EditorFilter@GAME@@QAEXI@Z"
+ ],
+ "0x104e583c": [
+  "Engine.dll",
+  "?Get@EditorFilter@GAME@@SAPAV12@XZ"
+ ],
+ "0x104e5840": [
+  "Engine.dll",
+  "?AddFilterObject@EditorFilter@GAME@@QAEXIW4EditorFilterType@12@@Z"
+ ],
+ "0x104e5844": [
+  "Engine.dll",
+  "?IsCharacterDataLogEnabled@Engine@GAME@@QAE_NXZ"
+ ],
+ "0x104e5848": [
+  "Engine.dll",
+  "?GetLocalHostID@ConnectionManager@GAME@@QAEHXZ"
+ ],
+ "0x104e584c": [
+  "Engine.dll",
+  "?GetNetworkConnectionManager@Engine@GAME@@QAEPAVConnectionManager@2@XZ"
+ ],
+ "0x104e5850": [
+  "Engine.dll",
+  "??DGAME@@YA?AVWorldCoords@0@ABV10@ABVCoords@0@@Z"
+ ],
+ "0x104e5854": [
+  "Engine.dll",
+  "??4GameTimer@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e5858": [
+  "Engine.dll",
+  "?IsExpansion1Loaded@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e585c": [
+  "Engine.dll",
+  "?GetId@Region@GAME@@QAEAAVRegionId@2@XZ"
+ ],
+ "0x104e5860": [
+  "Engine.dll",
+  "??8GAME@@YA_NABVWorldVec3@0@0@Z"
+ ],
+ "0x104e5864": [
+  "Engine.dll",
+  "?BeginUnDissolve@GraphicsMeshInstance@GAME@@QAEXHHHMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z"
+ ],
+ "0x104e5868": [
+  "Engine.dll",
+  "?IsLevelLoaded@Region@GAME@@QBE_NXZ"
+ ],
+ "0x104e586c": [
+  "Engine.dll",
+  "?FindRandomPointInRadius@NavManager@GAME@@QAE?AW4NavResult@2@ABVWorldVec3@2@MAAV42@@Z"
+ ],
+ "0x104e5870": [
+  "Engine.dll",
+  "?PhysicsIsSimulated@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e5874": [
+  "Engine.dll",
+  "?StorePose@AnimChannel@GAME@@QAEXABVSkeletalPose@2@@Z"
+ ],
+ "0x104e5878": [
+  "Engine.dll",
+  "?GetFellFaceDown@Actor@GAME@@QBE_NXZ"
+ ],
+ "0x104e587c": [
+  "Engine.dll",
+  "?FindClosestPointOnPathMesh@NavManager@GAME@@QAE?AW4NavResult@2@ABVWorldVec3@2@AAV42@M@Z"
+ ],
+ "0x104e5880": [
+  "Engine.dll",
+  "?SetNumBeams@ChaosBeam@GAME@@QAEXH@Z"
+ ],
+ "0x104e5884": [
+  "Engine.dll",
+  "?SetEndPoints@ChaosBeam@GAME@@QAEXABVWorldVec3@2@0@Z"
+ ],
+ "0x104e5888": [
+  "Engine.dll",
+  "?SetTopBottomPercent@LineEffect@GAME@@QAEXMM@Z"
+ ],
+ "0x104e588c": [
+  "Engine.dll",
+  "?Liberate@ChaosBeam@GAME@@QAEXXZ"
+ ],
+ "0x104e5890": [
+  "Engine.dll",
+  "?GetCameraDistance@WorldCamera@GAME@@QBEMXZ"
+ ],
+ "0x104e5894": [
+  "Engine.dll",
+  "?GetCameraYaw@WorldCamera@GAME@@QBEMXZ"
+ ],
+ "0x104e5898": [
+  "Engine.dll",
+  "?GenderizeText@LocalizationManager@GAME@@QBE?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@_NABV34@0@Z"
+ ],
+ "0x104e589c": [
+  "Engine.dll",
+  "?GetInt@Options@GAME@@QBEHW4IntName@12@@Z"
+ ],
+ "0x104e58a0": [
+  "Engine.dll",
+  "?LookIn@WorldCoords@GAME@@SA?AV12@ABVWorldVec3@2@ABVVec3@2@1@Z"
+ ],
+ "0x104e58a4": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPB_N@Z"
+ ],
+ "0x104e58a8": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPA_N@Z"
+ ],
+ "0x104e58ac": [
+  "Engine.dll",
+  "?EnsureAvailable@Resource@GAME@@QBEXXZ"
+ ],
+ "0x104e58b0": [
+  "Engine.dll",
+  "?IsAvailable@Resource@GAME@@QBE_NXZ"
+ ],
+ "0x104e58b4": [
+  "Engine.dll",
+  "?GetData@ConversationResource@GAME@@QBEPAXXZ"
+ ],
+ "0x104e58b8": [
+  "Engine.dll",
+  "?GetDataSize@ConversationResource@GAME@@QBEIXZ"
+ ],
+ "0x104e58bc": [
+  "Engine.dll",
+  "?GetConversationResourceManager@Engine@GAME@@QAEPAV?$ResourceManager@VConversationResource@GAME@@@2@XZ"
+ ],
+ "0x104e58c0": [
+  "Engine.dll",
+  "?UnloadResource@BaseResourceManager@GAME@@QAEXPBVResource@2@@Z"
+ ],
+ "0x104e58c4": [
+  "Engine.dll",
+  "?GetHash@ConversationResource@GAME@@QBEABVMD5Digest@2@XZ"
+ ],
+ "0x104e58c8": [
+  "Engine.dll",
+  "??0PortableLocalization@GAME@@QAE@XZ"
+ ],
+ "0x104e58cc": [
+  "Engine.dll",
+  "?IsEnglish@LocalizationManager@GAME@@QBE_NXZ"
+ ],
+ "0x104e58d0": [
+  "Engine.dll",
+  "?Read@PortableLocalization@GAME@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z"
+ ],
+ "0x104e58d4": [
+  "Engine.dll",
+  "?GetLocalizationPath@LocalizationManager@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e58d8": [
+  "Engine.dll",
+  "?Read@PortableLocalization@GAME@@QAE_NAAVBinaryReader@2@W4Language@2@@Z"
+ ],
+ "0x104e58dc": [
+  "Engine.dll",
+  "?GetText@PortableLocalization@GAME@@QBEABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@H@Z"
+ ],
+ "0x104e58e0": [
+  "Engine.dll",
+  "??1PortableLocalization@GAME@@QAE@XZ"
+ ],
+ "0x104e58e4": [
+  "Engine.dll",
+  "??0SoundDescriptor@GAME@@QAE@XZ"
+ ],
+ "0x104e58e8": [
+  "Engine.dll",
+  "??1SoundDescriptor@GAME@@QAE@XZ"
+ ],
+ "0x104e58ec": [
+  "Engine.dll",
+  "?Unload@SoundManager@GAME@@QAEXAAVSoundDescriptor@2@@Z"
+ ],
+ "0x104e58f0": [
+  "Engine.dll",
+  "?Load@SoundManager@GAME@@QAE_NPBDAAVSoundDescriptor@2@@Z"
+ ],
+ "0x104e58f4": [
+  "Engine.dll",
+  "?Play2D@SoundManager@GAME@@QAE_NABVSoundDescriptor@2@_N@Z"
+ ],
+ "0x104e58f8": [
+  "Engine.dll",
+  "?StopPlaying@SoundManager@GAME@@QAEXABVSoundDescriptor@2@@Z"
+ ],
+ "0x104e58fc": [
+  "Engine.dll",
+  "?GetWidth@GraphicsTexture@GAME@@QBEHXZ"
+ ],
+ "0x104e5900": [
+  "Engine.dll",
+  "?GetHeight@GraphicsTexture@GAME@@QBEHXZ"
+ ],
+ "0x104e5904": [
+  "Engine.dll",
+  "?RenderRect@GraphicsCanvas@GAME@@QAEXABVRect@2@0PBVRenderTexture@2@ABVColor@2@@Z"
+ ],
+ "0x104e5908": [
+  "Engine.dll",
+  "?IsUIScalingEnabled@GraphicsEngine@GAME@@QBE_NXZ"
+ ],
+ "0x104e590c": [
+  "Engine.dll",
+  "?GetUIScaledRect@GraphicsEngine@GAME@@QBEXABVRect@2@AAV32@@Z"
+ ],
+ "0x104e5910": [
+  "Engine.dll",
+  "?IsSelfDeleting@EffectEntity@GAME@@QBE_NXZ"
+ ],
+ "0x104e5914": [
+  "Engine.dll",
+  "?IsAttachedFromMesh@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e5918": [
+  "Engine.dll",
+  "?AddToWorld@SoundEntity@GAME@@QAEXABVWorldCoords@2@_N@Z"
+ ],
+ "0x104e591c": [
+  "Engine.dll",
+  "?SetSelfRemove@SoundEntity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5920": [
+  "Engine.dll",
+  "?StartPlaying@SoundEntity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5924": [
+  "Engine.dll",
+  "?GetFloat@Options@GAME@@QBEMW4FloatName@12@@Z"
+ ],
+ "0x104e5928": [
+  "Engine.dll",
+  "?GetIsDissolved@Actor@GAME@@QBE_NXZ"
+ ],
+ "0x104e592c": [
+  "Engine.dll",
+  "?SetRadius@Light@GAME@@QAEXM@Z"
+ ],
+ "0x104e5930": [
+  "Engine.dll",
+  "?SetColor@Light@GAME@@QAEXABVColor@2@@Z"
+ ],
+ "0x104e5934": [
+  "Engine.dll",
+  "?SetGlobalBlendAlphaMultiplier@GraphicsMeshInstance@GAME@@QAEXM@Z"
+ ],
+ "0x104e5938": [
+  "Engine.dll",
+  "?FillPointSet@NavManager@GAME@@QAE_NAAV?$vector@VWorldVec3@GAME@@@mem@@ABVWorldVec3@2@MABV?$vector@M@4@_N3@Z"
+ ],
+ "0x104e593c": [
+  "Engine.dll",
+  "?LoadAnimation@LoadTable@GAME@@QBEPBVGraphicsAnim@2@PBDI@Z"
+ ],
+ "0x104e5940": [
+  "Engine.dll",
+  "?SetMeshInstance@Actor@GAME@@QAEXPAVGraphicsMeshInstance@2@@Z"
+ ],
+ "0x104e5944": [
+  "Engine.dll",
+  "?SetSavedByEditor@EffectEntity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5948": [
+  "Engine.dll",
+  "?SetBoneTransparancies@GraphicsMeshInstance@GAME@@QAEXABV?$vector@M@mem@@@Z"
+ ],
+ "0x104e594c": [
+  "Engine.dll",
+  "?SetCastsShadows@Actor@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5950": [
+  "Engine.dll",
+  "?GetHitBox@GraphicsMesh@GAME@@QBEPBUHitBox@12@ABVName@2@@Z"
+ ],
+ "0x104e5954": [
+  "Engine.dll",
+  "??0WorldCoords@GAME@@QAE@PAVRegion@1@ABVCoords@1@@Z"
+ ],
+ "0x104e5958": [
+  "Engine.dll",
+  "?TransformVector@WorldCoords@GAME@@QBE?AVVec3@2@ABV32@@Z"
+ ],
+ "0x104e595c": [
+  "Engine.dll",
+  "?BeginFade@GraphicsMeshInstance@GAME@@QAEXHHHM@Z"
+ ],
+ "0x104e5960": [
+  "Engine.dll",
+  "?SetShadowBias@GraphicsMeshInstance@GAME@@QAEXM@Z"
+ ],
+ "0x104e5964": [
+  "Engine.dll",
+  "?GetShadowBias@GraphicsMeshInstance@GAME@@QBEMXZ"
+ ],
+ "0x104e5968": [
+  "Engine.dll",
+  "?GetBaseTexture@GraphicsMeshInstance@GAME@@QAEPBVGraphicsTexture@2@XZ"
+ ],
+ "0x104e596c": [
+  "Engine.dll",
+  "?SetBaseTexture@GraphicsMeshInstance@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5970": [
+  "Engine.dll",
+  "?GetBumpTexture@GraphicsMeshInstance@GAME@@QAEPBVGraphicsTexture@2@XZ"
+ ],
+ "0x104e5974": [
+  "Engine.dll",
+  "?SetBumpTexture@GraphicsMeshInstance@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5978": [
+  "Engine.dll",
+  "?GetSpecTexture@GraphicsMeshInstance@GAME@@QAEPBVGraphicsTexture@2@XZ"
+ ],
+ "0x104e597c": [
+  "Engine.dll",
+  "?SetSpecTexture@GraphicsMeshInstance@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5980": [
+  "Engine.dll",
+  "??0WorldVec3@GAME@@QAE@PAVRegion@1@ABVVec3@1@@Z"
+ ],
+ "0x104e5984": [
+  "Engine.dll",
+  "?SaveState@GraphicsMeshInstance@GAME@@QAEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e5988": [
+  "Engine.dll",
+  "?RestoreState@GraphicsMeshInstance@GAME@@QAEXAAVBinaryReader@2@@Z"
+ ],
+ "0x104e598c": [
+  "Engine.dll",
+  "?Reset@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e5990": [
+  "Engine.dll",
+  "?GetPlayerLevel@GameInfo@GAME@@QBEIXZ"
+ ],
+ "0x104e5994": [
+  "Engine.dll",
+  "?GetGameInfo@Engine@GAME@@QAEPAVGameInfo@2@XZ"
+ ],
+ "0x104e5998": [
+  "Engine.dll",
+  "?GetAttachPoint@GraphicsMesh@GAME@@QBEPBUAttachPoint@2@ABVName@2@@Z"
+ ],
+ "0x104e599c": [
+  "Engine.dll",
+  "?WriteReplicationData@GraphicsMeshInstance@GAME@@QAEXAAVNetPacketOutBuffer@2@@Z"
+ ],
+ "0x104e59a0": [
+  "Engine.dll",
+  "?ReadReplicationData@GraphicsMeshInstance@GAME@@QAEXAAVNetPacketInBuffer@2@@Z"
+ ],
+ "0x104e59a4": [
+  "Engine.dll",
+  "?Play3D@SoundManager@GAME@@QAE_NABVSoundDescriptor@2@_N@Z"
+ ],
+ "0x104e59a8": [
+  "Engine.dll",
+  "?IsPlaying@SoundManager@GAME@@QAE_NABVSoundDescriptor@2@@Z"
+ ],
+ "0x104e59ac": [
+  "Engine.dll",
+  "?PreLoad@SoundDescriptor@GAME@@QAEXW4ResourcePriority@2@@Z"
+ ],
+ "0x104e59b0": [
+  "Engine.dll",
+  "??0SoundDescriptor@GAME@@QAE@$$QAV01@@Z"
+ ],
+ "0x104e59b4": [
+  "Engine.dll",
+  "?RemoveDynamicObstacle@NavManager@GAME@@QAEXI@Z"
+ ],
+ "0x104e59b8": [
+  "Engine.dll",
+  "??0RegionId@GAME@@QAE@XZ"
+ ],
+ "0x104e59bc": [
+  "Engine.dll",
+  "??1RegionId@GAME@@QAE@XZ"
+ ],
+ "0x104e59c0": [
+  "Engine.dll",
+  "?GetRegionById@World@GAME@@QAEPAVRegion@2@ABVRegionId@2@@Z"
+ ],
+ "0x104e59c4": [
+  "Engine.dll",
+  "?GetGamePlusChallengeDifficulty@GameInfo@GAME@@QBEIXZ"
+ ],
+ "0x104e59c8": [
+  "Engine.dll",
+  "??0RegionId@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e59cc": [
+  "Engine.dll",
+  "?LockGroupList@InstanceGroupManager@GAME@@QAEXXZ"
+ ],
+ "0x104e59d0": [
+  "Engine.dll",
+  "?GetGroupsOfType@InstanceGroupManager@GAME@@QBEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAV?$vector@H@mem@@@Z"
+ ],
+ "0x104e59d4": [
+  "Engine.dll",
+  "?GetEntityData@InstanceGroup@GAME@@QAEPBUEntityData@12@ABVUniqueId@2@@Z"
+ ],
+ "0x104e59d8": [
+  "Engine.dll",
+  "?GetConnectedRegionSet@World@GAME@@QAEXPBVRegion@2@AAV?$set@PAVRegion@GAME@@U?$less@PAVRegion@GAME@@@std@@@mem@@H@Z"
+ ],
+ "0x104e59dc": [
+  "Engine.dll",
+  "?UnlockGroupList@InstanceGroupManager@GAME@@QAEXXZ"
+ ],
+ "0x104e59e0": [
+  "Engine.dll",
+  "??4RegionId@GAME@@QAEABV01@ABV01@@Z"
+ ],
+ "0x104e59e4": [
+  "Engine.dll",
+  "?IsNavDataLoaded@NavManager@GAME@@QBE_NPBVRegion@2@@Z"
+ ],
+ "0x104e59e8": [
+  "Engine.dll",
+  "?GetEntities@Level@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@W4EntityListType@2@@Z"
+ ],
+ "0x104e59ec": [
+  "Engine.dll",
+  "??MRegionId@GAME@@QBE_NABV01@@Z"
+ ],
+ "0x104e59f0": [
+  "Engine.dll",
+  "?LoadDecalType@DecalTypeMgr@GAME@@QAEPBVDecalType@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e59f4": [
+  "Engine.dll",
+  "?Get@DecalTypeMgr@GAME@@SAAAV12@XZ"
+ ],
+ "0x104e59f8": [
+  "Engine.dll",
+  "?UnloadDecalType@DecalTypeMgr@GAME@@QAEXPBVDecalType@2@@Z"
+ ],
+ "0x104e59fc": [
+  "Engine.dll",
+  "?AddBinding@SteamControllerDevice@GAME@@QAEHIABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4EventType@12@HM@Z"
+ ],
+ "0x104e5a00": [
+  "Engine.dll",
+  "?ControllerGetDevice@Steamworks@GAME@@QBEPAVSteamControllerDevice@2@XZ"
+ ],
+ "0x104e5a04": [
+  "Engine.dll",
+  "?AddActionSet@SteamControllerDevice@GAME@@QAEIABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5a08": [
+  "Engine.dll",
+  "?SetActionSet@SteamControllerDevice@GAME@@QAEXI@Z"
+ ],
+ "0x104e5a0c": [
+  "Engine.dll",
+  "?GetGlyphs@SteamControllerDevice@GAME@@QBEXHI_NAAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@mem@@@Z"
+ ],
+ "0x104e5a10": [
+  "Engine.dll",
+  "?GetControllerDebugging@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e5a14": [
+  "Engine.dll",
+  "?GetType@InstanceGroup@GAME@@QBEPBDXZ"
+ ],
+ "0x104e5a18": [
+  "Engine.dll",
+  "?RenderCircleXZ@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVVec3@2@MABVColor@2@@Z"
+ ],
+ "0x104e5a1c": [
+  "Engine.dll",
+  "?GetGroupIndex@InstanceGroupManager@GAME@@QAEHABVUniqueId@2@@Z"
+ ],
+ "0x104e5a20": [
+  "Engine.dll",
+  "?classInfo@PointDisturbance@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e5a24": [
+  "Engine.dll",
+  "?StopPlaying@SoundEntity@GAME@@QAEXH@Z"
+ ],
+ "0x104e5a28": [
+  "Engine.dll",
+  "?MakeSelfDeletingChild@SoundEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e5a2c": [
+  "Engine.dll",
+  "?SetSoundPak@SoundEntity@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5a30": [
+  "Engine.dll",
+  "?GetNumID@InstanceGroup@GAME@@QAEHXZ"
+ ],
+ "0x104e5a34": [
+  "Engine.dll",
+  "??1CriticalSection@GAME@@UAE@XZ"
+ ],
+ "0x104e5a38": [
+  "Engine.dll",
+  "?GetJoinedGameIsPvP@GameInfo@GAME@@QAE_NXZ"
+ ],
+ "0x104e5a3c": [
+  "Engine.dll",
+  "??0NetPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5a40": [
+  "Engine.dll",
+  "??1NetPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5a44": [
+  "Engine.dll",
+  "??4NetPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e5a48": [
+  "Engine.dll",
+  "??0TriggerToken@GAME@@QAE@ABU01@@Z"
+ ],
+ "0x104e5a4c": [
+  "Engine.dll",
+  "?FinishObjectProcessing@NetPacket@GAME@@UAEXXZ"
+ ],
+ "0x104e5a50": [
+  "Engine.dll",
+  "?CheckObjects@NetPacket@GAME@@UAE_NH@Z"
+ ],
+ "0x104e5a54": [
+  "Engine.dll",
+  "?GetOutBufferSize@NetPacket@GAME@@UAEIXZ"
+ ],
+ "0x104e5a58": [
+  "Engine.dll",
+  "?GetOutBuffer@NetPacket@GAME@@UAEPADXZ"
+ ],
+ "0x104e5a5c": [
+  "Engine.dll",
+  "??1ChatPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5a60": [
+  "Engine.dll",
+  "??1VoiceChatPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5a64": [
+  "Engine.dll",
+  "??4VoiceChatPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e5a68": [
+  "Engine.dll",
+  "??4ChatPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e5a6c": [
+  "Engine.dll",
+  "??0VoiceChatPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5a70": [
+  "Engine.dll",
+  "??0ChatPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e5a74": [
+  "Engine.dll",
+  "?AddDynamicObstacle@NavManager@GAME@@QAEIPBVRegion@2@ABVOBBox@2@@Z"
+ ],
+ "0x104e5a78": [
+  "Engine.dll",
+  "??4SmartObjectIdList@GAME@@QAEABV?$vector@I@mem@@ABV23@@Z"
+ ],
+ "0x104e5a7c": [
+  "Engine.dll",
+  "?RenderSphere@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVSphere@2@ABVColor@2@@Z"
+ ],
+ "0x104e5a80": [
+  "Engine.dll",
+  "?GetID@InstanceGroup@GAME@@QAEABVUniqueId@2@H@Z"
+ ],
+ "0x104e5a84": [
+  "Engine.dll",
+  "?GetEntityData@InstanceGroup@GAME@@QAEABUEntityData@12@H@Z"
+ ],
+ "0x104e5a88": [
+  "Engine.dll",
+  "??0LineEffect2@GAME@@QAE@XZ"
+ ],
+ "0x104e5a8c": [
+  "Engine.dll",
+  "?GetDynamicIndexBuffer@GraphicsCanvas@GAME@@QAEPAVRenderDynamicIndexBuffer@2@XZ"
+ ],
+ "0x104e5a90": [
+  "Engine.dll",
+  "?GetCoords@Camera@GAME@@QBEABVCoords@2@XZ"
+ ],
+ "0x104e5a94": [
+  "Engine.dll",
+  "?GetCamera@GraphicsScene@GAME@@QBEABVCamera@2@XZ"
+ ],
+ "0x104e5a98": [
+  "Engine.dll",
+  "?Load@LineEffect2@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e5a9c": [
+  "Engine.dll",
+  "?PreLoad@LineEffect2@GAME@@UAE_N_N@Z"
+ ],
+ "0x104e5aa0": [
+  "Engine.dll",
+  "?AddToScene@LineEffect2@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5aa4": [
+  "Engine.dll",
+  "?UpdateBoundingBox@LineEffect2@GAME@@UAEXXZ"
+ ],
+ "0x104e5aa8": [
+  "Engine.dll",
+  "?GetIntersection@Entity@GAME@@UBEXABVRay@2@AAVIntersection@2@W4PhysicsSurface@2@_N@Z"
+ ],
+ "0x104e5aac": [
+  "Engine.dll",
+  "?LogInfo@LineEffect2@GAME@@UBEXXZ"
+ ],
+ "0x104e5ab0": [
+  "Engine.dll",
+  "?UpdateSelf@LineEffect2@GAME@@UAEXH@Z"
+ ],
+ "0x104e5ab4": [
+  "Engine.dll",
+  "?SetColor@LineEffect2@GAME@@UAEXABVColor@2@@Z"
+ ],
+ "0x104e5ab8": [
+  "Engine.dll",
+  "?SetStart@LineEffect2@GAME@@UAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e5abc": [
+  "Engine.dll",
+  "?SetEnd@LineEffect2@GAME@@UAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e5ac0": [
+  "Engine.dll",
+  "?GetStart@LineEffect2@GAME@@UBEABVWorldVec3@2@XZ"
+ ],
+ "0x104e5ac4": [
+  "Engine.dll",
+  "?GetDirection@LineEffect2@GAME@@UBE?AVVec3@2@XZ"
+ ],
+ "0x104e5ac8": [
+  "Engine.dll",
+  "?GetLength@LineEffect2@GAME@@UBEMXZ"
+ ],
+ "0x104e5acc": [
+  "Engine.dll",
+  "?Generate@LineEffect2@GAME@@UAEXXZ"
+ ],
+ "0x104e5ad0": [
+  "Engine.dll",
+  "?GetNumRenderPasses@LineEffect2@GAME@@UBEHABVName@2@W4RenderGenerationId@2@@Z"
+ ],
+ "0x104e5ad4": [
+  "Engine.dll",
+  "?GetRenderPassBoundingBox@LineEffect2@GAME@@UBEABVABBox@2@XZ"
+ ],
+ "0x104e5ad8": [
+  "Engine.dll",
+  "?GetRenderPassSortOrder@LineEffect2@GAME@@UBEHHABVName@2@IW4RenderGenerationId@2@@Z"
+ ],
+ "0x104e5adc": [
+  "Engine.dll",
+  "?GetShader2@LineEffect2@GAME@@UBEPBVGraphicsShader2@2@HABVName@2@@Z"
+ ],
+ "0x104e5ae0": [
+  "Engine.dll",
+  "?GetShaderStyle@LineEffect2@GAME@@UBEABVName@2@HABV32@W4RenderGenerationId@2@PBVGraphicsLight@2@@Z"
+ ],
+ "0x104e5ae4": [
+  "Engine.dll",
+  "?GetTexture@LineEffect2@GAME@@UBEPBVGraphicsTexture@2@HABVName@2@@Z"
+ ],
+ "0x104e5ae8": [
+  "Engine.dll",
+  "?Translate@WorldCoords@GAME@@QAEXABVVec3@2@@Z"
+ ],
+ "0x104e5aec": [
+  "Engine.dll",
+  "?AddToScene@Entity@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5af0": [
+  "Engine.dll",
+  "?GetCapturedAudioData@SoundManager@GAME@@QAEIPAE@Z"
+ ],
+ "0x104e5af4": [
+  "Engine.dll",
+  "?GetCreationData@GraphicsMesh@GAME@@QBE_NHAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z"
+ ],
+ "0x104e5af8": [
+  "Engine.dll",
+  "?GetLoadedState@Resource@GAME@@QBE?AW4LoadState@12@XZ"
+ ],
+ "0x104e5afc": [
+  "Engine.dll",
+  "?UpdateBoundingBox@GraphicsMeshInstance@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5b00": [
+  "Engine.dll",
+  "?Update@GraphicsMeshInstance@GAME@@QAEXHAAVVec3@2@_N@Z"
+ ],
+ "0x104e5b04": [
+  "Engine.dll",
+  "?UpdatePose@GraphicsMeshInstance@GAME@@QAEXPBV12@_N@Z"
+ ],
+ "0x104e5b08": [
+  "Engine.dll",
+  "?PlayAnimation@AnimChannel@GAME@@QAEXPBVGraphicsAnim@2@_NMH@Z"
+ ],
+ "0x104e5b0c": [
+  "Engine.dll",
+  "?GetAttachedCoords@GraphicsMesh@GAME@@QBEXABVSkeletalPose@2@ABVName@2@AAVCoords@2@@Z"
+ ],
+ "0x104e5b10": [
+  "Engine.dll",
+  "?GetIsPlayingAnimation@GraphicsMeshInstance@GAME@@QBE_NXZ"
+ ],
+ "0x104e5b14": [
+  "Engine.dll",
+  "?StopAnimation@AnimChannel@GAME@@QAEXXZ"
+ ],
+ "0x104e5b18": [
+  "Engine.dll",
+  "?PlaceDecalOnGround@World@GAME@@QAEXABVWorldCoords@2@PBVDecalType@2@I@Z"
+ ],
+ "0x104e5b1c": [
+  "Engine.dll",
+  "?classInfo@GridRegion@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e5b20": [
+  "Engine.dll",
+  "??0WorldCamera@GAME@@QAE@XZ"
+ ],
+ "0x104e5b24": [
+  "Engine.dll",
+  "??0WorldFrustum@GAME@@QAE@XZ"
+ ],
+ "0x104e5b28": [
+  "Engine.dll",
+  "?GetZoomTimer@WorldCamera@GAME@@IAEAAVSystemTimer@2@XZ"
+ ],
+ "0x104e5b2c": [
+  "Engine.dll",
+  "?GetInputDevice@Engine@GAME@@QAEPAVInputDevice@2@XZ"
+ ],
+ "0x104e5b30": [
+  "Engine.dll",
+  "?SetCameraDistance@WorldCamera@GAME@@UAEXM@Z"
+ ],
+ "0x104e5b34": [
+  "Engine.dll",
+  "?SetCameraPitch@WorldCamera@GAME@@QAEXM@Z"
+ ],
+ "0x104e5b38": [
+  "Engine.dll",
+  "?GetCameraPitch@WorldCamera@GAME@@QBEMXZ"
+ ],
+ "0x104e5b3c": [
+  "Engine.dll",
+  "?GetCameraOffset@WorldCamera@GAME@@IBEABVVec3@2@XZ"
+ ],
+ "0x104e5b40": [
+  "Engine.dll",
+  "?GetRegion@WorldCamera@GAME@@QBEPAVRegion@2@XZ"
+ ],
+ "0x104e5b44": [
+  "Engine.dll",
+  "?GetRegionFrustum@WorldCamera@GAME@@QBE?AVFrustum@2@ABVViewport@2@@Z"
+ ],
+ "0x104e5b48": [
+  "Engine.dll",
+  "?GetCameraDistanceDefault@WorldCamera@GAME@@QBEMXZ"
+ ],
+ "0x104e5b4c": [
+  "Engine.dll",
+  "?SetCameraFOV@WorldCamera@GAME@@QAEXM@Z"
+ ],
+ "0x104e5b50": [
+  "Engine.dll",
+  "?GetGrid@Level@GAME@@QAEPAVGridBase@2@XZ"
+ ],
+ "0x104e5b54": [
+  "Engine.dll",
+  "?UpdateTransparency@GridRegion@GAME@@QAEXABVFrustum@2@@Z"
+ ],
+ "0x104e5b58": [
+  "Engine.dll",
+  "?RenderFrustum@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVFrustum@2@ABVColor@2@@Z"
+ ],
+ "0x104e5b5c": [
+  "Engine.dll",
+  "??0WorldFrustum@GAME@@QAE@PAVRegion@1@ABVFrustum@1@@Z"
+ ],
+ "0x104e5b60": [
+  "Engine.dll",
+  "?Update@WorldCamera@GAME@@UAEXXZ"
+ ],
+ "0x104e5b64": [
+  "Engine.dll",
+  "?GetCameraOffset@WorldCamera@GAME@@IAEAAVVec3@2@XZ"
+ ],
+ "0x104e5b68": [
+  "Engine.dll",
+  "?SetCameraYaw@WorldCamera@GAME@@UAEXM@Z"
+ ],
+ "0x104e5b6c": [
+  "Engine.dll",
+  "?GetLatticeValue@GridRegion@GAME@@QBECHHH@Z"
+ ],
+ "0x104e5b70": [
+  "Engine.dll",
+  "?SetDepthFogClamp@AmbianceManager@GAME@@QAEXM@Z"
+ ],
+ "0x104e5b74": [
+  "Engine.dll",
+  "?CalculateViewPosition@WorldCamera@GAME@@MBE?AVWorldVec3@2@ABV32@@Z"
+ ],
+ "0x104e5b78": [
+  "Engine.dll",
+  "??0RandomUniformLocked@GAME@@QAE@XZ"
+ ],
+ "0x104e5b7c": [
+  "Engine.dll",
+  "?Seed@RandomUniformLocked@GAME@@QAEXI@Z"
+ ],
+ "0x104e5b80": [
+  "Engine.dll",
+  "?Destroy@InstanceGroupManager@GAME@@SAXXZ"
+ ],
+ "0x104e5b84": [
+  "Engine.dll",
+  "?GetModName@GameInfo@GAME@@QAEXAAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z"
+ ],
+ "0x104e5b88": [
+  "Engine.dll",
+  "?GetLevelName@GameInfo@GAME@@QAEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5b8c": [
+  "Engine.dll",
+  "?ToWChar@LocalizationManager@GAME@@SA?AV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@@Z"
+ ],
+ "0x104e5b90": [
+  "Engine.dll",
+  "?Reset@AmbianceManager@GAME@@QAEXXZ"
+ ],
+ "0x104e5b94": [
+  "Engine.dll",
+  "?SetEventInProgress@GameInfo@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5b98": [
+  "Engine.dll",
+  "?IsPointOnPathMesh@NavManager@GAME@@QAE_NABVWorldVec3@2@@Z"
+ ],
+ "0x104e5b9c": [
+  "Engine.dll",
+  "?GetAreaNameTag@Engine@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5ba0": [
+  "Engine.dll",
+  "?GetActFromRegion@ZoneManager@GAME@@QBE?AW4ZonePage@2@PBVRegion@2@@Z"
+ ],
+ "0x104e5ba4": [
+  "Engine.dll",
+  "?Get@ZoneManager@GAME@@SAPAV12@XZ"
+ ],
+ "0x104e5ba8": [
+  "Engine.dll",
+  "?GetModName@GameInfo@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5bac": [
+  "Engine.dll",
+  "?ToWChar@LocalizationManager@GAME@@SAPAGPBDPAGI@Z"
+ ],
+ "0x104e5bb0": [
+  "Engine.dll",
+  "?SetCameraDistanceDefault@WorldCamera@GAME@@QAEXM@Z"
+ ],
+ "0x104e5bb4": [
+  "Engine.dll",
+  "?SetCameraPitchDefault@WorldCamera@GAME@@QAEXM@Z"
+ ],
+ "0x104e5bb8": [
+  "Engine.dll",
+  "?GetStyle@StyleManager@GAME@@QAEPAUFontStyle@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5bbc": [
+  "Engine.dll",
+  "?Get@?$Singleton@VStyleManager@GAME@@@GAME@@SAPAVStyleManager@2@XZ"
+ ],
+ "0x104e5bc0": [
+  "Engine.dll",
+  "?SetPanicThresholdAndRate@ObjectManager@GAME@@QAEXII@Z"
+ ],
+ "0x104e5bc4": [
+  "Engine.dll",
+  "?SetLightingTransformAngle@AmbianceManager@GAME@@QAEXM@Z"
+ ],
+ "0x104e5bc8": [
+  "Engine.dll",
+  "?GetNumClients@NetworkEntityList@GAME@@QBEIXZ"
+ ],
+ "0x104e5bcc": [
+  "Engine.dll",
+  "?GetNetworkEntityList@Engine@GAME@@QAEPAVNetworkEntityList@2@XZ"
+ ],
+ "0x104e5bd0": [
+  "Engine.dll",
+  "?GetClientByIndex@NetworkEntityList@GAME@@QBEPAUFrustumEntry@2@I@Z"
+ ],
+ "0x104e5bd4": [
+  "Engine.dll",
+  "?GetNetworkController@Engine@GAME@@QAEPAVNetworkControllerBase@2@XZ"
+ ],
+ "0x104e5bd8": [
+  "Engine.dll",
+  "?GetChallenge@GameInfo@GAME@@QBEIXZ"
+ ],
+ "0x104e5bdc": [
+  "Engine.dll",
+  "?GetRegion@WorldFrustum@GAME@@QBEPAVRegion@2@XZ"
+ ],
+ "0x104e5be0": [
+  "Engine.dll",
+  "?GetEntitiesInFrustum@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@ABVWorldFrustum@2@_NW4EntityListType@2@22@Z"
+ ],
+ "0x104e5be4": [
+  "Engine.dll",
+  "?DebugRender@NavManager@GAME@@QAEXPAVRegion@2@@Z"
+ ],
+ "0x104e5be8": [
+  "Engine.dll",
+  "?GetTrackedPlayer@Jukebox@GAME@@QBEIXZ"
+ ],
+ "0x104e5bec": [
+  "Engine.dll",
+  "?SetTrackedPlayerDead@Jukebox@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5bf0": [
+  "Engine.dll",
+  "?GetTrackedBosses@Jukebox@GAME@@QBEABV?$vector@I@mem@@XZ"
+ ],
+ "0x104e5bf4": [
+  "Engine.dll",
+  "?TrackBossDeathSpawner@Jukebox@GAME@@QBE_NXZ"
+ ],
+ "0x104e5bf8": [
+  "Engine.dll",
+  "?RemoveTrackedBoss@Jukebox@GAME@@QAEXI@Z"
+ ],
+ "0x104e5bfc": [
+  "Engine.dll",
+  "?SetTrackedBossesDead@Jukebox@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5c00": [
+  "Engine.dll",
+  "?SetTarget@AmbianceManager@GAME@@QAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e5c04": [
+  "Engine.dll",
+  "?SetPlayerLevel@GameInfo@GAME@@QAEXI@Z"
+ ],
+ "0x104e5c08": [
+  "Engine.dll",
+  "?AddStatisticText@Engine@GAME@@QAAXPBDZZ"
+ ],
+ "0x104e5c0c": [
+  "Engine.dll",
+  "?SetLuaGlueLogging@Engine@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5c10": [
+  "Engine.dll",
+  "?AddGroupAffiliation@InstanceGroupManager@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBVRTTI_ClassInfo@2@@Z"
+ ],
+ "0x104e5c14": [
+  "Engine.dll",
+  "?GetMode@GameInfo@GAME@@QBEIXZ"
+ ],
+ "0x104e5c18": [
+  "Engine.dll",
+  "?SetMode@GameInfo@GAME@@QAEXI@Z"
+ ],
+ "0x104e5c1c": [
+  "Engine.dll",
+  "?GetDifficulty@GameInfo@GAME@@QBEIXZ"
+ ],
+ "0x104e5c20": [
+  "Engine.dll",
+  "?SetDifficulty@GameInfo@GAME@@QAEXI@Z"
+ ],
+ "0x104e5c24": [
+  "Engine.dll",
+  "??0Viewport@GAME@@QAE@HHHH@Z"
+ ],
+ "0x104e5c28": [
+  "Engine.dll",
+  "?GetFrustum@WorldCamera@GAME@@QBE?AVWorldFrustum@2@ABVViewport@2@M@Z"
+ ],
+ "0x104e5c2c": [
+  "Engine.dll",
+  "?GetHeight@GraphicsEngine@GAME@@QBEHXZ"
+ ],
+ "0x104e5c30": [
+  "Engine.dll",
+  "?GetWidth@GraphicsEngine@GAME@@QBEHXZ"
+ ],
+ "0x104e5c34": [
+  "Engine.dll",
+  "?GetLoadSphereInflation@Engine@GAME@@SAMXZ"
+ ],
+ "0x104e5c38": [
+  "Engine.dll",
+  "?GenerateSeed@RandomUniformLocked@GAME@@QAEIXZ"
+ ],
+ "0x104e5c3c": [
+  "Engine.dll",
+  "??0CriticalSectionLock@GAME@@QAE@PBDAAVCriticalSection@1@_N@Z"
+ ],
+ "0x104e5c40": [
+  "Engine.dll",
+  "??1CriticalSectionLock@GAME@@QAE@XZ"
+ ],
+ "0x104e5c44": [
+  "Engine.dll",
+  "?DirectWrite@SaveManager@GAME@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBXI_N22@Z"
+ ],
+ "0x104e5c48": [
+  "Engine.dll",
+  "?GetSaveManager@Engine@GAME@@QAEAAVSaveManager@2@XZ"
+ ],
+ "0x104e5c4c": [
+  "Engine.dll",
+  "?GetAtomicCommit@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e5c50": [
+  "Engine.dll",
+  "??0IOStreamWrite@GAME@@QAE@PBDW4IOStreamType@IOStream@1@H@Z"
+ ],
+ "0x104e5c54": [
+  "Engine.dll",
+  "??1IOStreamWrite@GAME@@UAE@XZ"
+ ],
+ "0x104e5c58": [
+  "Engine.dll",
+  "?IsValid@IOStreamWrite@GAME@@UBE_NXZ"
+ ],
+ "0x104e5c5c": [
+  "Engine.dll",
+  "?GetFileLength@IOStreamWrite@GAME@@QBEIXZ"
+ ],
+ "0x104e5c60": [
+  "Engine.dll",
+  "?GetFileBuffer@IOStreamWrite@GAME@@QBEPBDXZ"
+ ],
+ "0x104e5c64": [
+  "Engine.dll",
+  "?Shutdown@IOStreamWrite@GAME@@UAE_NXZ"
+ ],
+ "0x104e5c68": [
+  "Engine.dll",
+  "?DirectRead@SaveManager@GAME@@QAE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAPAXAAI_N3@Z"
+ ],
+ "0x104e5c6c": [
+  "Engine.dll",
+  "?IsExpansion2Loaded@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e5c70": [
+  "Engine.dll",
+  "?CloudFileExists@Steamworks@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5c74": [
+  "Engine.dll",
+  "?CloudCopy@Steamworks@GAME@@QBE_NABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0_N@Z"
+ ],
+ "0x104e5c78": [
+  "Engine.dll",
+  "??0IOStreamRead@GAME@@QAE@PBXI@Z"
+ ],
+ "0x104e5c7c": [
+  "Engine.dll",
+  "??1IOStreamRead@GAME@@UAE@XZ"
+ ],
+ "0x104e5c80": [
+  "Engine.dll",
+  "?IsValid@IOStreamRead@GAME@@UBE_NXZ"
+ ],
+ "0x104e5c84": [
+  "Engine.dll",
+  "?Shutdown@IOStreamRead@GAME@@UAE_NXZ"
+ ],
+ "0x104e5c88": [
+  "Engine.dll",
+  "?IsExpansionSet@Engine@GAME@@QAE_NEW4ExpansionState@2@@Z"
+ ],
+ "0x104e5c8c": [
+  "Engine.dll",
+  "?SetExpansionFlag@Engine@GAME@@QAEXAAEW4ExpansionState@2@@Z"
+ ],
+ "0x104e5c90": [
+  "Engine.dll",
+  "?GetBaseDataPathFromOptions@Engine@GAME@@QAEXAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z"
+ ],
+ "0x104e5c94": [
+  "Engine.dll",
+  "?GetName@InstanceGroup@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5c98": [
+  "Engine.dll",
+  "?GetAllIntersections@World@GAME@@QBEXABVWorldRay@2@AAV?$vector@PAVEntity@GAME@@@mem@@_NM@Z"
+ ],
+ "0x104e5c9c": [
+  "Engine.dll",
+  "?GetEntitiesAroundRay@World@GAME@@QBEXABVWorldRay@2@AAV?$vector@PAVEntity@GAME@@@mem@@_NMM@Z"
+ ],
+ "0x104e5ca0": [
+  "Engine.dll",
+  "?RenderThickLine@DebugRenderManager@GAME@@QAEXPAVRegion@2@ABVVec3@2@1MABVColor@2@PBVGraphicsShader2@2@@Z"
+ ],
+ "0x104e5ca4": [
+  "Engine.dll",
+  "?GetEntitiesInCone@World@GAME@@QAEXAAV?$vector@PAVEntity@GAME@@@mem@@ABVWorldVec3@2@ABVVec3@2@MM_NW4EntityListType@2@@Z"
+ ],
+ "0x104e5ca8": [
+  "Engine.dll",
+  "?GetRegionFrustum@WorldFrustum@GAME@@QBEABVFrustum@2@XZ"
+ ],
+ "0x104e5cac": [
+  "Engine.dll",
+  "?BlockPoint@NavManager@GAME@@QAE_NABVWorldVec3@2@M@Z"
+ ],
+ "0x104e5cb0": [
+  "Engine.dll",
+  "?RequestAndBlockRandomPointOnRadius@NavManager@GAME@@QAE_NABVWorldVec3@2@MAAV32@M_NH@Z"
+ ],
+ "0x104e5cb4": [
+  "Engine.dll",
+  "?ClearRequestPointData@NavManager@GAME@@QAEXXZ"
+ ],
+ "0x104e5cb8": [
+  "Engine.dll",
+  "?GetUnscaledStyle@StyleManager@GAME@@QAEPAUFontStyle@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5cbc": [
+  "Engine.dll",
+  "?GetIsPlayingAtLeastThisDifficulty@GameInfo@GAME@@QBE_NW4DisplayedDifficulty@12@@Z"
+ ],
+ "0x104e5cc0": [
+  "Engine.dll",
+  "?GetHardcore@GameInfo@GAME@@QBE_NXZ"
+ ],
+ "0x104e5cc4": [
+  "Engine.dll",
+  "?SetCameraFarPlane@WorldCamera@GAME@@QAEXM@Z"
+ ],
+ "0x104e5cc8": [
+  "Engine.dll",
+  "?GetNumGroups@InstanceGroupManager@GAME@@QBEHXZ"
+ ],
+ "0x104e5ccc": [
+  "Engine.dll",
+  "?GetInstancedLoot@GameInfo@GAME@@QBE_NXZ"
+ ],
+ "0x104e5cd0": [
+  "Engine.dll",
+  "?GetState@LuaManager@GAME@@QAEAAVLuaState@LUAGLUE@@XZ"
+ ],
+ "0x104e5cd4": [
+  "Engine.dll",
+  "?GetEntities@World@GAME@@QBEXAAV?$vector@PAVEntity@GAME@@@mem@@W4EntityListType@2@@Z"
+ ],
+ "0x104e5cd8": [
+  "Engine.dll",
+  "?UnloadWorld@Engine@GAME@@QAEXXZ"
+ ],
+ "0x104e5cdc": [
+  "Engine.dll",
+  "?DestroyPendingObjects@ObjectManager@GAME@@QAEXI@Z"
+ ],
+ "0x104e5ce0": [
+  "Engine.dll",
+  "?Initialize@RouterServices@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5ce4": [
+  "Engine.dll",
+  "?Get@?$Singleton@VRouterServices@GAME@@@GAME@@SAPAVRouterServices@2@XZ"
+ ],
+ "0x104e5ce8": [
+  "Engine.dll",
+  "?ServicesAvailable@RouterServices@GAME@@QAE_NXZ"
+ ],
+ "0x104e5cec": [
+  "Engine.dll",
+  "?ServicesEnabled@RouterServices@GAME@@QAE_NXZ"
+ ],
+ "0x104e5cf0": [
+  "Engine.dll",
+  "?GetRouterStatus@RouterServices@GAME@@QAE?AURouterStatus@UPnP@2@XZ"
+ ],
+ "0x104e5cf4": [
+  "Engine.dll",
+  "?GetRouterConnectionType@RouterServices@GAME@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5cf8": [
+  "Engine.dll",
+  "?GetPublicIP@RouterServices@GAME@@QBEABVIPVNetworkAddress@2@XZ"
+ ],
+ "0x104e5cfc": [
+  "Engine.dll",
+  "??0ChatPacket@GAME@@QAE@XZ"
+ ],
+ "0x104e5d00": [
+  "Engine.dll",
+  "??0VoiceChatPacket@GAME@@QAE@XZ"
+ ],
+ "0x104e5d04": [
+  "Engine.dll",
+  "??0TriggerToken@GAME@@QAE@XZ"
+ ],
+ "0x104e5d08": [
+  "Engine.dll",
+  "??1TriggerToken@GAME@@UAE@XZ"
+ ],
+ "0x104e5d0c": [
+  "Engine.dll",
+  "?GetGlobalMaxPlayers@ConnectionManager@GAME@@QAEIXZ"
+ ],
+ "0x104e5d10": [
+  "Engine.dll",
+  "?GetUIScaleFactor@GraphicsEngine@GAME@@QBEMXZ"
+ ],
+ "0x104e5d14": [
+  "Engine.dll",
+  "?LocalizerFormatStrip@LocalizationManager@GAME@@QBEXABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AAV34@@Z"
+ ],
+ "0x104e5d18": [
+  "Engine.dll",
+  "?ProcessCharacter@GraphicsFont2@GAME@@ABEIGGAAW4FontStyleFlag@2@AAVColor@2@1@Z"
+ ],
+ "0x104e5d1c": [
+  "Engine.dll",
+  "?GetStyle@GraphicsFont2@GAME@@QBEPBUStyle@12@IW4FontStyleFlag@2@@Z"
+ ],
+ "0x104e5d20": [
+  "Engine.dll",
+  "?GetMetric@GraphicsFont2@GAME@@QBEPBUFNTMetric@12@PBUStyle@12@G@Z"
+ ],
+ "0x104e5d24": [
+  "Engine.dll",
+  "?ResetDynamicTexture@GraphicsFont2@GAME@@ABEXXZ"
+ ],
+ "0x104e5d28": [
+  "Engine.dll",
+  "?GetKerningAmount@GraphicsFont2@GAME@@QBEHPBUStyle@12@GG@Z"
+ ],
+ "0x104e5d2c": [
+  "Engine.dll",
+  "?RemoveListener@GMIEffectIcey@GAME@@UAEXXZ"
+ ],
+ "0x104e5d30": [
+  "Engine.dll",
+  "?IsCompatible@GMIEffectIcey@GAME@@SA_NPAVGraphicsMeshInstance@2@@Z"
+ ],
+ "0x104e5d34": [
+  "Engine.dll",
+  "??0GMIEffectIcey@GAME@@QAE@PAVGraphicsMeshInstance@1@PAVGMIEffectListener@1@HMMMABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5d38": [
+  "Engine.dll",
+  "?SetUniformScaleFactor@GMIEffectIcey@GAME@@QAEXM@Z"
+ ],
+ "0x104e5d3c": [
+  "Engine.dll",
+  "?InstallGMIEffect@GraphicsMeshInstance@GAME@@QAEXPAVGMIEffect@2@@Z"
+ ],
+ "0x104e5d40": [
+  "Engine.dll",
+  "??1GMIEffectIcey@GAME@@UAE@XZ"
+ ],
+ "0x104e5d44": [
+  "Engine.dll",
+  "?SetDeflateRate@GMIEffectIcey@GAME@@QAEXM@Z"
+ ],
+ "0x104e5d48": [
+  "Engine.dll",
+  "?BeginFinishing@GMIEffectIcey@GAME@@UAEXXZ"
+ ],
+ "0x104e5d4c": [
+  "Engine.dll",
+  "?Update@GMIEffectIcey@GAME@@UAEXH@Z"
+ ],
+ "0x104e5d50": [
+  "Engine.dll",
+  "?SetShaderParameters@GMIEffectIcey@GAME@@UBEXPBVGraphicsShader2@2@@Z"
+ ],
+ "0x104e5d54": [
+  "Engine.dll",
+  "?CleanParent@GMIEffectIcey@GAME@@UAEXXZ"
+ ],
+ "0x104e5d58": [
+  "Engine.dll",
+  "?GetRTTIClassInfo@Actor@GAME@@UBEABVRTTI_ClassInfo@2@XZ"
+ ],
+ "0x104e5d5c": [
+  "Engine.dll",
+  "??0GMIEffectListener@GAME@@QAE@XZ"
+ ],
+ "0x104e5d60": [
+  "Engine.dll",
+  "??0NetPacket@GAME@@QAE@W4PACKET_TYPE@1@@Z"
+ ],
+ "0x104e5d64": [
+  "Engine.dll",
+  "??0NetPacketOutBuffer@GAME@@QAE@PAVNetPacket@1@@Z"
+ ],
+ "0x104e5d68": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5d6c": [
+  "Engine.dll",
+  "?Done@NetPacketOutBuffer@GAME@@QAEI_N@Z"
+ ],
+ "0x104e5d70": [
+  "Engine.dll",
+  "??0NetPacketInBuffer@GAME@@QAE@PAVNetPacketHeader@1@PAEH@Z"
+ ],
+ "0x104e5d74": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5d78": [
+  "Engine.dll",
+  "??0NetPacketDescriber@GAME@@QAE@PAVNetPacket@1@_N@Z"
+ ],
+ "0x104e5d7c": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@IH@Z"
+ ],
+ "0x104e5d80": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV34@H@Z"
+ ],
+ "0x104e5d84": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@MH@Z"
+ ],
+ "0x104e5d88": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_NH@Z"
+ ],
+ "0x104e5d8c": [
+  "Engine.dll",
+  "?GetDescription@NetPacketDescriber@GAME@@QAE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5d90": [
+  "Engine.dll",
+  "??1NetPacketDescriber@GAME@@QAE@XZ"
+ ],
+ "0x104e5d94": [
+  "Engine.dll",
+  "??1NetPacketOutBuffer@GAME@@QAE@XZ"
+ ],
+ "0x104e5d98": [
+  "Engine.dll",
+  "?SetAttachOffset@Entity@GAME@@QAEXABVCoords@2@@Z"
+ ],
+ "0x104e5d9c": [
+  "Engine.dll",
+  "?GetGroundHeight@Level@GAME@@QBEMMM@Z"
+ ],
+ "0x104e5da0": [
+  "Engine.dll",
+  "?StopAnimation@Actor@GAME@@QAEXH@Z"
+ ],
+ "0x104e5da4": [
+  "Engine.dll",
+  "?Write@WorldVec3@GAME@@QAEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e5da8": [
+  "Engine.dll",
+  "?Read@WorldVec3@GAME@@QAEXAAVBinaryReader@2@@Z"
+ ],
+ "0x104e5dac": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPBVWorldVec3@2@@Z"
+ ],
+ "0x104e5db0": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPAVWorldVec3@2@@Z"
+ ],
+ "0x104e5db4": [
+  "Engine.dll",
+  "?GetBaseTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5db8": [
+  "Engine.dll",
+  "?GetBumpTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5dbc": [
+  "Engine.dll",
+  "?OwnsDLC@Steamworks@GAME@@QBE_NI@Z"
+ ],
+ "0x104e5dc0": [
+  "Engine.dll",
+  "?GetLocale@LocalizationManager@GAME@@QBEQAU__crt_locale_pointers@@XZ"
+ ],
+ "0x104e5dc4": [
+  "Engine.dll",
+  "?LocalizeStripColorTags@LocalizationManager@GAME@@QAA?BV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PBDZZ"
+ ],
+ "0x104e5dc8": [
+  "Engine.dll",
+  "?HasSurvivalDLC@Engine@GAME@@QBE_NXZ"
+ ],
+ "0x104e5dcc": [
+  "Engine.dll",
+  "?HasAttachPoint@Actor@GAME@@QBE_NABVName@2@@Z"
+ ],
+ "0x104e5dd0": [
+  "Engine.dll",
+  "?GetBaseTexturesSize@Actor@GAME@@QBEIXZ"
+ ],
+ "0x104e5dd4": [
+  "Engine.dll",
+  "?GetBaseTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5dd8": [
+  "Engine.dll",
+  "?GetBumpTexturesSize@Actor@GAME@@QBEIXZ"
+ ],
+ "0x104e5ddc": [
+  "Engine.dll",
+  "?GetBumpTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5de0": [
+  "Engine.dll",
+  "?GetSpecTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5de4": [
+  "Engine.dll",
+  "?GetSpecTexturesSize@Actor@GAME@@QBEIXZ"
+ ],
+ "0x104e5de8": [
+  "Engine.dll",
+  "?GetSpecTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5dec": [
+  "Engine.dll",
+  "?GetGlowTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5df0": [
+  "Engine.dll",
+  "?GetGlowTexturesSize@Actor@GAME@@QBEIXZ"
+ ],
+ "0x104e5df4": [
+  "Engine.dll",
+  "?GetGlowTextureName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5df8": [
+  "Engine.dll",
+  "?GetDbrShaderName@Actor@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5dfc": [
+  "Engine.dll",
+  "?GetBaseTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5e00": [
+  "Engine.dll",
+  "?ClearBaseTextures@GraphicsMeshInstance@GAME@@QAEXXZ"
+ ],
+ "0x104e5e04": [
+  "Engine.dll",
+  "?GetBaseTexturesSize@GraphicsMeshInstance@GAME@@QBEIXZ"
+ ],
+ "0x104e5e08": [
+  "Engine.dll",
+  "?SetBaseTexture@GraphicsMeshInstance@GAME@@QAEXPBDI@Z"
+ ],
+ "0x104e5e0c": [
+  "Engine.dll",
+  "?GetBaseTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5e10": [
+  "Engine.dll",
+  "?GetBumpTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5e14": [
+  "Engine.dll",
+  "?ClearBumpTextures@GraphicsMeshInstance@GAME@@QAEXXZ"
+ ],
+ "0x104e5e18": [
+  "Engine.dll",
+  "?GetBumpTexturesSize@GraphicsMeshInstance@GAME@@QBEIXZ"
+ ],
+ "0x104e5e1c": [
+  "Engine.dll",
+  "?SetBumpTexture@GraphicsMeshInstance@GAME@@QAEXPBDI@Z"
+ ],
+ "0x104e5e20": [
+  "Engine.dll",
+  "?GetBumpTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5e24": [
+  "Engine.dll",
+  "?GetSpecTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5e28": [
+  "Engine.dll",
+  "?ClearSpecTextures@GraphicsMeshInstance@GAME@@QAEXXZ"
+ ],
+ "0x104e5e2c": [
+  "Engine.dll",
+  "?GetSpecTexturesSize@GraphicsMeshInstance@GAME@@QBEIXZ"
+ ],
+ "0x104e5e30": [
+  "Engine.dll",
+  "?SetSpecTexture@GraphicsMeshInstance@GAME@@QAEXPBDI@Z"
+ ],
+ "0x104e5e34": [
+  "Engine.dll",
+  "?GetSpecTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5e38": [
+  "Engine.dll",
+  "?GetGlowTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5e3c": [
+  "Engine.dll",
+  "?SetGlowTexture@GraphicsMeshInstance@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5e40": [
+  "Engine.dll",
+  "?ClearGlowTextures@GraphicsMeshInstance@GAME@@QAEXXZ"
+ ],
+ "0x104e5e44": [
+  "Engine.dll",
+  "?GetGlowTexturesSize@GraphicsMeshInstance@GAME@@QBEIXZ"
+ ],
+ "0x104e5e48": [
+  "Engine.dll",
+  "?SetGlowTexture@GraphicsMeshInstance@GAME@@QAEXPBDI@Z"
+ ],
+ "0x104e5e4c": [
+  "Engine.dll",
+  "?GetGlowTextureName@GraphicsMeshInstance@GAME@@QBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e5e50": [
+  "Engine.dll",
+  "?GetDbrShaderName@GraphicsMeshInstance@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e5e54": [
+  "Engine.dll",
+  "?SetDbrOverrideShader@GraphicsMeshInstance@GAME@@QAEPBVGraphicsShader2@2@PBD@Z"
+ ],
+ "0x104e5e58": [
+  "Engine.dll",
+  "?DisableDbrShader@GraphicsMeshInstance@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5e5c": [
+  "Engine.dll",
+  "?SetSpecTexture@Actor@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5e60": [
+  "Engine.dll",
+  "?SetGlowTexture@Actor@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5e64": [
+  "Engine.dll",
+  "?RestoreBaseTextures@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e5e68": [
+  "Engine.dll",
+  "?RestoreBumpTextures@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e5e6c": [
+  "Engine.dll",
+  "?RestoreSpecTextures@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e5e70": [
+  "Engine.dll",
+  "?RestoreGlowTextures@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e5e74": [
+  "Engine.dll",
+  "?GetSentenceSeperators@LocalizationManager@GAME@@QBEABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@XZ"
+ ],
+ "0x104e5e78": [
+  "Engine.dll",
+  "?SetType@Light@GAME@@QAEXW4Type@12@@Z"
+ ],
+ "0x104e5e7c": [
+  "Engine.dll",
+  "?InitialUpdate@Light@GAME@@UAEXXZ"
+ ],
+ "0x104e5e80": [
+  "Engine.dll",
+  "??0LineEffect@GAME@@QAE@XZ"
+ ],
+ "0x104e5e84": [
+  "Engine.dll",
+  "??1LineEffect@GAME@@UAE@XZ"
+ ],
+ "0x104e5e88": [
+  "Engine.dll",
+  "?SetTexture@LineEffect@GAME@@QAEXPBD@Z"
+ ],
+ "0x104e5e8c": [
+  "Engine.dll",
+  "?UpdateBoundingBox@LineEffect@GAME@@UAEXXZ"
+ ],
+ "0x104e5e90": [
+  "Engine.dll",
+  "?UpdateSelf@LineEffect@GAME@@UAEXH@Z"
+ ],
+ "0x104e5e94": [
+  "Engine.dll",
+  "?AddToScene@LineEffect@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5e98": [
+  "Engine.dll",
+  "?LogInfo@LineEffect@GAME@@UBEXXZ"
+ ],
+ "0x104e5e9c": [
+  "Engine.dll",
+  "?GetNumRenderPasses@LineEffect@GAME@@UBEHABVName@2@W4RenderGenerationId@2@@Z"
+ ],
+ "0x104e5ea0": [
+  "Engine.dll",
+  "?GetRenderPassBoundingBox@LineEffect@GAME@@UBEABVABBox@2@XZ"
+ ],
+ "0x104e5ea4": [
+  "Engine.dll",
+  "?GetRenderPassSortOrder@LineEffect@GAME@@UBEHHABVName@2@IW4RenderGenerationId@2@@Z"
+ ],
+ "0x104e5ea8": [
+  "Engine.dll",
+  "?GetShader2@LineEffect@GAME@@UBEPBVGraphicsShader2@2@HABVName@2@@Z"
+ ],
+ "0x104e5eac": [
+  "Engine.dll",
+  "?GetShaderStyle@LineEffect@GAME@@UBEABVName@2@HABV32@W4RenderGenerationId@2@PBVGraphicsLight@2@@Z"
+ ],
+ "0x104e5eb0": [
+  "Engine.dll",
+  "?GetTexture@LineEffect@GAME@@UBEPBVGraphicsTexture@2@HABVName@2@@Z"
+ ],
+ "0x104e5eb4": [
+  "Engine.dll",
+  "?RenderPass@LineEffect@GAME@@UBEXABURenderablePass@2@ABVName@2@AAVGraphicsCanvas@2@ABVGraphicsScene@2@@Z"
+ ],
+ "0x104e5eb8": [
+  "Engine.dll",
+  "?AddJob@AsyncWorker@GAME@@QAEXPAVIAsyncJob@2@@Z"
+ ],
+ "0x104e5ebc": [
+  "Engine.dll",
+  "?Get@?$Singleton@VAsyncWorker@GAME@@@GAME@@SAPAVAsyncWorker@2@XZ"
+ ],
+ "0x104e5ec0": [
+  "Engine.dll",
+  "?CancelJob@AsyncWorker@GAME@@QAE_NPAVIAsyncJob@2@@Z"
+ ],
+ "0x104e5ec4": [
+  "Engine.dll",
+  "??0EffectEntity@GAME@@QAE@XZ"
+ ],
+ "0x104e5ec8": [
+  "Engine.dll",
+  "??1EffectEntity@GAME@@UAE@XZ"
+ ],
+ "0x104e5ecc": [
+  "Engine.dll",
+  "?Load@EffectEntity@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e5ed0": [
+  "Engine.dll",
+  "?PreLoad@EffectEntity@GAME@@UAE_N_N@Z"
+ ],
+ "0x104e5ed4": [
+  "Engine.dll",
+  "?InitialUpdate@EffectEntity@GAME@@UAEXXZ"
+ ],
+ "0x104e5ed8": [
+  "Engine.dll",
+  "?CalculateMemoryUsage@EffectEntity@GAME@@UBEIXZ"
+ ],
+ "0x104e5edc": [
+  "Engine.dll",
+  "?CalculateAllocatedMemory@EffectEntity@GAME@@UBEIXZ"
+ ],
+ "0x104e5ee0": [
+  "Engine.dll",
+  "?IsSavedByEditor@EffectEntity@GAME@@UBE_NXZ"
+ ],
+ "0x104e5ee4": [
+  "Engine.dll",
+  "?AddToScene@EffectEntity@GAME@@UAEXAAVGraphicsScene@2@PBVFrustum@2@@Z"
+ ],
+ "0x104e5ee8": [
+  "Engine.dll",
+  "?UpdateBoundingBox@EffectEntity@GAME@@UAEXXZ"
+ ],
+ "0x104e5eec": [
+  "Engine.dll",
+  "?GetIntersection@EffectEntity@GAME@@UBEXABVRay@2@AAVIntersection@2@W4PhysicsSurface@2@_N@Z"
+ ],
+ "0x104e5ef0": [
+  "Engine.dll",
+  "?UpdateSelf@EffectEntity@GAME@@UAEXH@Z"
+ ],
+ "0x104e5ef4": [
+  "Engine.dll",
+  "?AddToWorld@EffectEntity@GAME@@UAEXABVWorldCoords@2@_N@Z"
+ ],
+ "0x104e5ef8": [
+  "Engine.dll",
+  "?AddFileName@NetPacketOutBuffer@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5efc": [
+  "Engine.dll",
+  "?IsRestored@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e5f00": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z"
+ ],
+ "0x104e5f04": [
+  "Engine.dll",
+  "??0ObjectInteractionPacket@GAME@@QAE@W4PACKET_TYPE@1@@Z"
+ ],
+ "0x104e5f08": [
+  "Engine.dll",
+  "??1ObjectInteractionPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5f0c": [
+  "Engine.dll",
+  "?FinishObjectProcessing@ObjectInteractionPacket@GAME@@UAEXXZ"
+ ],
+ "0x104e5f10": [
+  "Engine.dll",
+  "?CheckObjects@ObjectInteractionPacket@GAME@@UAE_NH@Z"
+ ],
+ "0x104e5f14": [
+  "Engine.dll",
+  "??0SmartObjectId@GAME@@QAE@PAVObjectInteractionPacket@1@@Z"
+ ],
+ "0x104e5f18": [
+  "Engine.dll",
+  "??1SmartObjectId@GAME@@UAE@XZ"
+ ],
+ "0x104e5f1c": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPBVSmartObjectId@2@@Z"
+ ],
+ "0x104e5f20": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPAVSmartObjectId@2@@Z"
+ ],
+ "0x104e5f24": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVSmartObjectId@2@H@Z"
+ ],
+ "0x104e5f28": [
+  "Engine.dll",
+  "??0ObjectContainerPacket@GAME@@QAE@W4PACKET_TYPE@1@@Z"
+ ],
+ "0x104e5f2c": [
+  "Engine.dll",
+  "??1ObjectContainerPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5f30": [
+  "Engine.dll",
+  "?CheckObjects@ObjectContainerPacket@GAME@@UAE_NH@Z"
+ ],
+ "0x104e5f34": [
+  "Engine.dll",
+  "??0SmartObjectIdListNullable@GAME@@QAE@PAVObjectInteractionPacket@1@@Z"
+ ],
+ "0x104e5f38": [
+  "Engine.dll",
+  "??1SmartObjectIdListNullable@GAME@@UAE@XZ"
+ ],
+ "0x104e5f3c": [
+  "Engine.dll",
+  "??1SmartObjectIdList@GAME@@UAE@XZ"
+ ],
+ "0x104e5f40": [
+  "Engine.dll",
+  "?Size@SmartObjectIdList@GAME@@QBE?BIXZ"
+ ],
+ "0x104e5f44": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPBVWorldCoords@2@@Z"
+ ],
+ "0x104e5f48": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXABVSmartObjectIdListNullable@2@@Z"
+ ],
+ "0x104e5f4c": [
+  "Engine.dll",
+  "??ASmartObjectIdList@GAME@@QBEPAVSmartObjectId@1@I@Z"
+ ],
+ "0x104e5f50": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPAVWorldCoords@2@@Z"
+ ],
+ "0x104e5f54": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXAAVSmartObjectIdListNullable@2@@Z"
+ ],
+ "0x104e5f58": [
+  "Engine.dll",
+  "?AddId@SmartObjectIdList@GAME@@QAEXPAVSmartObjectId@2@@Z"
+ ],
+ "0x104e5f5c": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAVWorldCoords@2@H@Z"
+ ],
+ "0x104e5f60": [
+  "Engine.dll",
+  "?Heading@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z"
+ ],
+ "0x104e5f64": [
+  "Engine.dll",
+  "?GetIdList@SmartObjectIdList@GAME@@QAE?AV?$vector@I@mem@@XZ"
+ ],
+ "0x104e5f68": [
+  "Engine.dll",
+  "??0SmartObjectIdNullable@GAME@@QAE@PAVObjectInteractionPacket@1@@Z"
+ ],
+ "0x104e5f6c": [
+  "Engine.dll",
+  "??1SmartObjectIdNullable@GAME@@UAE@XZ"
+ ],
+ "0x104e5f70": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPBVSmartObjectIdNullable@2@@Z"
+ ],
+ "0x104e5f74": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPAVSmartObjectIdNullable@2@@Z"
+ ],
+ "0x104e5f78": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AAVWorldVec3@2@H@Z"
+ ],
+ "0x104e5f7c": [
+  "Engine.dll",
+  "??0SmartObjectIdList@GAME@@QAE@PAVObjectInteractionPacket@1@@Z"
+ ],
+ "0x104e5f80": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXABVSmartObjectIdList@2@@Z"
+ ],
+ "0x104e5f84": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXAAVSmartObjectIdList@2@@Z"
+ ],
+ "0x104e5f88": [
+  "Engine.dll",
+  "?GetId@SmartObjectId@GAME@@QBEIXZ"
+ ],
+ "0x104e5f8c": [
+  "Engine.dll",
+  "?AddRaw@NetPacketOutBuffer@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5f90": [
+  "Engine.dll",
+  "?RemoveRaw@NetPacketInBuffer@GAME@@QAEXAAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5f94": [
+  "Engine.dll",
+  "?MarkForReplication@SmartObjectId@GAME@@QAEX_N@Z"
+ ],
+ "0x104e5f98": [
+  "Engine.dll",
+  "??0CharacterActionPacket@GAME@@QAE@W4PACKET_TYPE@1@@Z"
+ ],
+ "0x104e5f9c": [
+  "Engine.dll",
+  "??1CharacterActionPacket@GAME@@UAE@XZ"
+ ],
+ "0x104e5fa0": [
+  "Engine.dll",
+  "?CopyInbound@CharacterActionPacket@GAME@@UAEXPAEH@Z"
+ ],
+ "0x104e5fa4": [
+  "Engine.dll",
+  "?PrepareOutBuffer@CharacterActionPacket@GAME@@UAEIXZ"
+ ],
+ "0x104e5fa8": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXPBVName@2@@Z"
+ ],
+ "0x104e5fac": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXPAVName@2@@Z"
+ ],
+ "0x104e5fb0": [
+  "Engine.dll",
+  "?Add@NetPacketOutBuffer@GAME@@QAEXABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z"
+ ],
+ "0x104e5fb4": [
+  "Engine.dll",
+  "?Remove@NetPacketInBuffer@GAME@@QAEXAAV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@Z"
+ ],
+ "0x104e5fb8": [
+  "Engine.dll",
+  "?Describe@NetPacketDescriber@GAME@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@4@H@Z"
+ ],
+ "0x104e5fbc": [
+  "Engine.dll",
+  "?GetRegionFrustum@WorldFrustum@GAME@@QAEAAVFrustum@2@XZ"
+ ],
+ "0x104e5fc0": [
+  "Engine.dll",
+  "?GetLevelLoadInflation@Engine@GAME@@SAMXZ"
+ ],
+ "0x104e5fc4": [
+  "Engine.dll",
+  "?GetRegionsInFrustum@World@GAME@@QBEXAAV?$vector@PAVRegion@GAME@@@mem@@PAVRegion@2@ABVFrustum@2@_N@Z"
+ ],
+ "0x104e5fc8": [
+  "Engine.dll",
+  "??0RegionLoader@GAME@@QAE@PAVResourceLoader@1@ABV?$vector@PAVRegion@GAME@@@mem@@_N@Z"
+ ],
+ "0x104e5fcc": [
+  "Engine.dll",
+  "?SetFrustum@RegionLoader@GAME@@QAEXABVWorldFrustum@2@@Z"
+ ],
+ "0x104e5fd0": [
+  "Engine.dll",
+  "?Update@RegionLoader@GAME@@QAEXH@Z"
+ ],
+ "0x104e5fd4": [
+  "Engine.dll",
+  "?GetIsDone@RegionLoader@GAME@@QBE_NXZ"
+ ],
+ "0x104e5fd8": [
+  "Engine.dll",
+  "?GetRegionContainingPoint@World@GAME@@QBEPAVRegion@2@ABVIntVec3@2@@Z"
+ ],
+ "0x104e5fdc": [
+  "Engine.dll",
+  "?Update@Entity@GAME@@QAEXH@Z"
+ ],
+ "0x104e5fe0": [
+  "Engine.dll",
+  "?GetBaseScale@Actor@GAME@@QBEABVVec3@2@XZ"
+ ],
+ "0x104e5fe4": [
+  "Engine.dll",
+  "??0Region@GAME@@QAE@ABVABBox@1@@Z"
+ ],
+ "0x104e5fe8": [
+  "Engine.dll",
+  "?SetName@Region@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e5fec": [
+  "Engine.dll",
+  "?AddEntity@Region@GAME@@QAE_NPAVEntity@2@ABVWorldCoords@2@_N_N@Z"
+ ],
+ "0x104e5ff0": [
+  "Engine.dll",
+  "?RemoveEntity@Region@GAME@@QAEXPAVEntity@2@_N@Z"
+ ],
+ "0x104e5ff4": [
+  "Engine.dll",
+  "?HasActiveParticles@EffectEntity@GAME@@QAE_NXZ"
+ ],
+ "0x104e5ff8": [
+  "Engine.dll",
+  "?ResetDecal@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e5ffc": [
+  "Engine.dll",
+  "?DisableCameraShake@EffectEntity@GAME@@QAEXXZ"
+ ],
+ "0x104e6000": [
+  "Engine.dll",
+  "?GetIsFaded@GraphicsMeshInstance@GAME@@QBE_NXZ"
+ ],
+ "0x104e6004": [
+  "Engine.dll",
+  "?AddTrackedBoss@Jukebox@GAME@@QAEXI@Z"
+ ],
+ "0x104e6008": [
+  "Engine.dll",
+  "?SetTrackedPlayer@Jukebox@GAME@@QAEXI@Z"
+ ],
+ "0x104e600c": [
+  "Engine.dll",
+  "?IsTrackedBoss@Jukebox@GAME@@QAE_NI@Z"
+ ],
+ "0x104e6010": [
+  "Engine.dll",
+  "?StopBossMusic@Jukebox@GAME@@QAEXXZ"
+ ],
+ "0x104e6014": [
+  "Engine.dll",
+  "?AddFOWVisibility@World@GAME@@QAEXABVWorldVec3@2@H@Z"
+ ],
+ "0x104e6018": [
+  "Engine.dll",
+  "?SetRegionOfNote@Engine@GAME@@QAEXPAVRegion@2@@Z"
+ ],
+ "0x104e601c": [
+  "Engine.dll",
+  "?Update@WeatherManager@GAME@@QAEXABVWorldVec3@2@H@Z"
+ ],
+ "0x104e6020": [
+  "Engine.dll",
+  "?SetLocalRegion@DebugRenderManager@GAME@@QAEXPAVRegion@2@@Z"
+ ],
+ "0x104e6024": [
+  "Engine.dll",
+  "?SetShadowPriority@Light@GAME@@QAEXH@Z"
+ ],
+ "0x104e6028": [
+  "Engine.dll",
+  "?TargetIsInBossMusicZone@AmbianceManager@GAME@@QBE_NXZ"
+ ],
+ "0x104e602c": [
+  "Engine.dll",
+  "?PlayBossMusic@Jukebox@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e6030": [
+  "Engine.dll",
+  "?IsPlayingBossMusic@Jukebox@GAME@@QBE_NXZ"
+ ],
+ "0x104e6034": [
+  "Engine.dll",
+  "?ToChar@LocalizationManager@GAME@@SAPADPBGPADI@Z"
+ ],
+ "0x104e6038": [
+  "Engine.dll",
+  "??8TriggerToken@GAME@@QAE_NABU01@@Z"
+ ],
+ "0x104e603c": [
+  "Engine.dll",
+  "?ReadProperties@TriggerToken@GAME@@QAEXAAVCheckedReader@2@@Z"
+ ],
+ "0x104e6040": [
+  "Engine.dll",
+  "?WriteProperties@TriggerToken@GAME@@QBEXAAVCheckedWriter@2@@Z"
+ ],
+ "0x104e6044": [
+  "Engine.dll",
+  "?GetPlayerSpawnPoint@World@GAME@@QBE?AVWorldCoords@2@I@Z"
+ ],
+ "0x104e6048": [
+  "Engine.dll",
+  "?HasBone@Actor@GAME@@QBE_NABVName@2@@Z"
+ ],
+ "0x104e604c": [
+  "Engine.dll",
+  "?GetFOWManager@World@GAME@@QAEAAVFOWManager@2@XZ"
+ ],
+ "0x104e6050": [
+  "Engine.dll",
+  "?IsDirty@FOWManager@GAME@@QBE_NXZ"
+ ],
+ "0x104e6054": [
+  "Engine.dll",
+  "?Write@FOWManager@GAME@@QBEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z"
+ ],
+ "0x104e6058": [
+  "Engine.dll",
+  "?ClearPlayerList@GameInfo@GAME@@QAEXXZ"
+ ],
+ "0x104e605c": [
+  "Engine.dll",
+  "?AddPlayer@GameInfo@GAME@@QAEXABV?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@ABV?$vector@VGameInfoAttachedInventoryItem@GAME@@@mem@@H11ABV?$vector@I@7@I_NH1@Z"
+ ],
+ "0x104e6060": [
+  "Engine.dll",
+  "?SetNumOfPlayers@GameInfo@GAME@@QAEXI@Z"
+ ],
+ "0x104e6064": [
+  "Engine.dll",
+  "?GetPingForHost@ConnectionManager@GAME@@QAEIH@Z"
+ ],
+ "0x104e6068": [
+  "Engine.dll",
+  "?GetAutoParty@GameInfo@GAME@@QBE_NXZ"
+ ],
+ "0x104e606c": [
+  "Engine.dll",
+  "?AddJob@SaveManager@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PBXI_N2@Z"
+ ],
+ "0x104e6070": [
+  "Engine.dll",
+  "?SetGravityEnabled@Entity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e6074": [
+  "Engine.dll",
+  "?Start@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e6078": [
+  "Engine.dll",
+  "?Stop@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e607c": [
+  "Engine.dll",
+  "?LookAt@WorldCoords@GAME@@SA?AV12@ABVWorldVec3@2@0ABVVec3@2@@Z"
+ ],
+ "0x104e6080": [
+  "Engine.dll",
+  "?SetOrigin@WorldCoords@GAME@@QAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e6084": [
+  "Engine.dll",
+  "?Orthonormalize@WorldCoords@GAME@@QAEXXZ"
+ ],
+ "0x104e6088": [
+  "Engine.dll",
+  "?GetOwner@Entity@GAME@@QBEIXZ"
+ ],
+ "0x104e608c": [
+  "Engine.dll",
+  "?GetGravityEnabled@Entity@GAME@@QBE_NXZ"
+ ],
+ "0x104e6090": [
+  "Engine.dll",
+  "??9GAME@@YA_NABVWorldVec3@0@0@Z"
+ ],
+ "0x104e6094": [
+  "Engine.dll",
+  "?GetNearestFloorHeight@World@GAME@@QBEMABVWorldVec3@2@@Z"
+ ],
+ "0x104e6098": [
+  "Engine.dll",
+  "?kGravity@PhysicsEngine2@GAME@@2MB"
+ ],
+ "0x104e609c": [
+  "Engine.dll",
+  "?LoadObjectData@ObjectManager@GAME@@QAE_NPAVObject@2@@Z"
+ ],
+ "0x104e60a0": [
+  "Engine.dll",
+  "?GetFileSystem@Engine@GAME@@QAEPAVFileSystem@2@XZ"
+ ],
+ "0x104e60a4": [
+  "Engine.dll",
+  "?GetNumQuestFiles@World@GAME@@QBEIXZ"
+ ],
+ "0x104e60a8": [
+  "Engine.dll",
+  "?GetQuestFile@World@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z"
+ ],
+ "0x104e60ac": [
+  "Engine.dll",
+  "??0PieOmatic@GAME@@QAE@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z"
+ ],
+ "0x104e60b0": [
+  "Engine.dll",
+  "??1PieOmatic@GAME@@QAE@XZ"
+ ],
+ "0x104e60b4": [
+  "Engine.dll",
+  "?FadeIn@PieOmatic@GAME@@QAEXXZ"
+ ],
+ "0x104e60b8": [
+  "Engine.dll",
+  "?FadeOut@PieOmatic@GAME@@QAEXXZ"
+ ],
+ "0x104e60bc": [
+  "Engine.dll",
+  "?GetHeight@GraphicsCanvas@GAME@@QBEHXZ"
+ ],
+ "0x104e60c0": [
+  "Engine.dll",
+  "?GetWidth@GraphicsCanvas@GAME@@QBEHXZ"
+ ],
+ "0x104e60c4": [
+  "Engine.dll",
+  "?RenderRect@GraphicsCanvas@GAME@@QAEXABVRect@2@ABVColor@2@@Z"
+ ],
+ "0x104e60c8": [
+  "Engine.dll",
+  "?GraphicsAlign@GAME@@YAXIIW4GraphicsXAlign@1@W4GraphicsYAlign@1@AAM2@Z"
+ ],
+ "0x104e60cc": [
+  "Engine.dll",
+  "?Render@PieOmatic@GAME@@QBEXAAVGraphicsCanvas@2@ABVVec2@2@M@Z"
+ ],
+ "0x104e60d0": [
+  "Engine.dll",
+  "?Update@PieOmatic@GAME@@QAEXH@Z"
+ ],
+ "0x104e60d4": [
+  "Engine.dll",
+  "?SetTeleportMode@Engine@GAME@@QAEX_N@Z"
+ ],
+ "0x104e60d8": [
+  "Engine.dll",
+  "?IsHostConnected@ConnectionManager@GAME@@QAE_NABH@Z"
+ ],
+ "0x104e60dc": [
+  "Engine.dll",
+  "?UpdateFrustum@Engine@GAME@@QAEXHABVWorldFrustum@2@ABVSphere@2@@Z"
+ ],
+ "0x104e60e0": [
+  "Engine.dll",
+  "?GetIsDissolved@GraphicsMeshInstance@GAME@@QBE_NXZ"
+ ],
+ "0x104e60e4": [
+  "Engine.dll",
+  "?GetSystemTime@GAME@@YAHXZ"
+ ],
+ "0x104e60e8": [
+  "Engine.dll",
+  "?GetPhysicsMesh@GraphicsMesh@GAME@@QBEPBVPhysicsMeshBase@2@XZ"
+ ],
+ "0x104e60ec": [
+  "Engine.dll",
+  "?GetHitBox@GraphicsMesh@GAME@@QBE?AUHitBox@12@IABVSkeletalPose@2@@Z"
+ ],
+ "0x104e60f0": [
+  "Engine.dll",
+  "?SetShouldServerSpawn@Entity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e60f4": [
+  "Engine.dll",
+  "?RequestAndBlockRandomPointInRadius@NavManager@GAME@@QAE_NABVWorldVec3@2@MAAV32@M@Z"
+ ],
+ "0x104e60f8": [
+  "Engine.dll",
+  "?RequestAndBlockNearPoint@NavManager@GAME@@QAE_NABVWorldVec3@2@MAAV32@M@Z"
+ ],
+ "0x104e60fc": [
+  "Engine.dll",
+  "?Detach@Entity@GAME@@QAEXPAV12@@Z"
+ ],
+ "0x104e6100": [
+  "Engine.dll",
+  "?CheckLOS@World@GAME@@QBE_NABVWorldRay@2@M@Z"
+ ],
+ "0x104e6104": [
+  "Engine.dll",
+  "?GetDirectionVec@PhysicsUtil@GAME@@SA?AVVec3@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVWorldVec3@2@1@Z"
+ ],
+ "0x104e6108": [
+  "Engine.dll",
+  "?GetPushVec@PhysicsUtil@GAME@@SA?AVVec3@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVWorldCoords@2@@Z"
+ ],
+ "0x104e610c": [
+  "Engine.dll",
+  "?GetElevationVec@PhysicsUtil@GAME@@SA?AVVec3@2@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e6110": [
+  "Engine.dll",
+  "?GetRagDollEffectType@GraphicsAnim@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e6114": [
+  "Engine.dll",
+  "?GetRagDollDirection@GraphicsAnim@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e6118": [
+  "Engine.dll",
+  "?GetRagDollPush@GraphicsAnim@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e611c": [
+  "Engine.dll",
+  "?GetRagDollElevation@GraphicsAnim@GAME@@QBEABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ"
+ ],
+ "0x104e6120": [
+  "Engine.dll",
+  "??0Intersection@GAME@@QAE@XZ"
+ ],
+ "0x104e6124": [
+  "Engine.dll",
+  "?GetIntersection@World@GAME@@QBEXABVWorldRay@2@AAVWorldIntersection@2@W4PhysicsSurface@2@_NM3@Z"
+ ],
+ "0x104e6128": [
+  "Engine.dll",
+  "?Translation@WorldCoords@GAME@@SA?AV12@ABVWorldVec3@2@@Z"
+ ],
+ "0x104e612c": [
+  "Engine.dll",
+  "?Liberate@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e6130": [
+  "Engine.dll",
+  "?SetLowEfficiencyMode@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e6134": [
+  "Engine.dll",
+  "?classInfo@TrailEffect@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e6138": [
+  "Engine.dll",
+  "?SetAnchorPoints@TrailEffect@GAME@@QAEXABVWorldVec3@2@0@Z"
+ ],
+ "0x104e613c": [
+  "Engine.dll",
+  "?StartPulse@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e6140": [
+  "Engine.dll",
+  "?StartFade@TrailEffect@GAME@@QAEXXZ"
+ ],
+ "0x104e6144": [
+  "Engine.dll",
+  "?classInfo@Lightning2@GAME@@1VRTTI_ClassInfo@2@B"
+ ],
+ "0x104e6148": [
+  "Engine.dll",
+  "?IsFinished@Lightning2@GAME@@QBE_NXZ"
+ ],
+ "0x104e614c": [
+  "Engine.dll",
+  "?SetEnd@Lightning2@GAME@@QAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e6150": [
+  "Engine.dll",
+  "?SetFromSky@Lightning2@GAME@@QAEX_N@Z"
+ ],
+ "0x104e6154": [
+  "Engine.dll",
+  "?CreateName@LoadTable@GAME@@QBE?AVName@2@PBD@Z"
+ ],
+ "0x104e6158": [
+  "Engine.dll",
+  "?Lerp@GAME@@YA?AVWorldCoords@1@ABV21@0M@Z"
+ ],
+ "0x104e615c": [
+  "Engine.dll",
+  "?CreateLineDisturbance@World@GAME@@QAEXABVWorldVec3@2@0MW4SplashType@2@@Z"
+ ],
+ "0x104e6160": [
+  "Engine.dll",
+  "?SetAnchor1@EffectEntity@GAME@@QAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e6164": [
+  "Engine.dll",
+  "?SetAnchor2@EffectEntity@GAME@@QAEXABVWorldVec3@2@@Z"
+ ],
+ "0x104e6168": [
+  "Engine.dll",
+  "?RotateAroundPoint@WorldCoords@GAME@@SA?AV12@ABV12@ABVWorldVec3@2@ABVVec3@2@M@Z"
+ ],
+ "0x104e616c": [
+  "Engine.dll",
+  "?SetAnchored@EffectEntity@GAME@@QAEX_N@Z"
+ ],
+ "0x104e6170": [
+  "Engine.dll",
+  "?ForceDefaultMeshFile@Actor@GAME@@QAEXABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z"
+ ],
+ "0x104e6174": [
+  "Engine.dll",
+  "??0ChaosBeam@GAME@@QAE@XZ"
+ ],
+ "0x104e6178": [
+  "Engine.dll",
+  "??1ChaosBeam@GAME@@UAE@XZ"
+ ],
+ "0x104e617c": [
+  "Engine.dll",
+  "?Load@ChaosBeam@GAME@@UAEXABVLoadTable@2@@Z"
+ ],
+ "0x104e6180": [
+  "Engine.dll",
+  "?UpdateSelf@ChaosBeam@GAME@@UAEXH@Z"
+ ],
+ "0x104e6184": [
+  "Engine.dll",
+  "?GetFadeMultiplier@LineEffect@GAME@@UBEMH@Z"
+ ],
+ "0x104e6188": [
+  "Engine.dll",
+  "?ClearAnimationCallbacks@Actor@GAME@@QAEXXZ"
+ ],
+ "0x104e618c": [
+  "Engine.dll",
+  "?SetPause@LineEffect@GAME@@QAEX_N@Z"
+ ],
+ "0x104e6190": [
+  "Engine.dll",
+  "?GetPlayLocation@SoundPak@GAME@@QBE?AVWorldVec3@2@ABV32@@Z"
+ ],
+ "0x104e6194": [
+  "Engine.dll",
+  "?SetMaxGlobalBlendAlphaMultiplier@GraphicsMeshInstance@GAME@@QAEXM@Z"
+ ],
+ "0x104e6198": [
+  "Engine.dll",
+  "?SetEffectScale@EffectEntity@GAME@@QAEXM@Z"
+ ],
+ "0x104e619c": [
+  "Engine.dll",
+  "?GetScale@EffectEntity@GAME@@QBEMXZ"
+ ],
+ "0x104e61a0": [
+  "Engine.dll",
+  "??4CharacterActionPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61a4": [
+  "Engine.dll",
+  "??0CharacterActionPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61a8": [
+  "Engine.dll",
+  "??0CharacterAction@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61ac": [
+  "Engine.dll",
+  "??0SmartObjectIdNullable@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61b0": [
+  "Engine.dll",
+  "??4SmartObjectIdList@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61b4": [
+  "Engine.dll",
+  "??0SmartObjectIdList@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61b8": [
+  "Engine.dll",
+  "??4SmartObjectIdListNullable@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61bc": [
+  "Engine.dll",
+  "??0SmartObjectIdListNullable@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61c0": [
+  "Engine.dll",
+  "??4ObjectContainerPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61c4": [
+  "Engine.dll",
+  "??0ObjectContainerPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61c8": [
+  "Engine.dll",
+  "??4SmartObjectId@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61cc": [
+  "Engine.dll",
+  "??4ObjectInteractionPacket@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61d0": [
+  "Engine.dll",
+  "??0SmartObjectId@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61d4": [
+  "Engine.dll",
+  "??0ObjectInteractionPacket@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61d8": [
+  "Engine.dll",
+  "??4SoundDescriptor@GAME@@QAEAAV01@ABV01@@Z"
+ ],
+ "0x104e61dc": [
+  "Engine.dll",
+  "??0SoundDescriptor@GAME@@QAE@ABV01@@Z"
+ ],
+ "0x104e61e0": [
+  "Engine.dll",
+  "?RenderText2d@GraphicsCanvas@GAME@@QAEXHHABVColor@2@PBGPBVGraphicsFont2@2@HW4GraphicsXAlign@2@W4GraphicsYAlign@2@W4FontStyleFlag@2@W4FontLayout@2@@Z"
+ ],
+ "0x104e61e4": [
+  "Engine.dll",
+  "?UpdateClientEntities@Engine@GAME@@AAEXH@Z"
+ ],
+ "0x104e61e8": [
+  "Engine.dll",
+  "??0ResetObject@GAME@@QAE@XZ"
+ ],
+ "0x104e61ec": [
+  "Engine.dll",
+  "??1ResetObject@GAME@@UAE@XZ"
+ ],
+ "0x104e61f0": [
+  "Engine.dll",
+  "?RegisterResetObject@Engine@GAME@@QAEXPAVResetObject@2@@Z"
+ ],
+ "0x104e61f4": [
+  "Engine.dll",
+  "?UnregisterResetObject@Engine@GAME@@QAEXPAVResetObject@2@@Z"
+ ],
+ "0x104e61f8": [
+  "Engine.dll",
+  "?CreateGeometry@TerrainPatch@GAME@@QAE_NABVVec3@2@PAVGraphicsMeshInstance@2@0_N@Z"
+ ],
+ "0x104e61fc": [
+  "Engine.dll",
+  "??0TerrainPatch@GAME@@QAE@PAVActor@1@M@Z"
+ ],
+ "0x104e6200": [
+  "Engine.dll",
+  "?SetCoords@TerrainPatch@GAME@@QAEXABVWorldCoords@2@@Z"
+ ],
+ "0x104e6204": [
+  "Engine.dll",
+  "??1TerrainPatch@GAME@@UAE@XZ"
+ ],
+ "0x104e6208": [
+  "Engine.dll",
+  "??0TerrainPatchRT@GAME@@QAE@PAVActor@1@M@Z"
+ ],
+ "0x104e620c": [
+  "Engine.dll",
+  "?Read@TerrainPatch@GAME@@QAE_NAAVBinaryReader@2@@Z"
+ ],
+ "0x104e6210": [
+  "Engine.dll",
+  "?HasData@TerrainPatch@GAME@@QBE_NXZ"
+ ],
+ "0x104e6214": [
+  "Engine.dll",
+  "?Write@TerrainPatch@GAME@@QBEXAAVBinaryWriter@2@@Z"
+ ],
+ "0x104e6218": [
+  "Engine.dll",
+  "?AddToScene@TerrainPatch@GAME@@QAEXAAVGraphicsScene@2@@Z"
+ ],
+ "0x104e621c": [
+  "Engine.dll",
+  "?GetOpacity@TerrainPatch@GAME@@QAEXHHHHHPAE@Z"
+ ],
+ "0x104e6220": [
+  "Engine.dll",
+  "?SetOpacity@TerrainPatch@GAME@@QAEXHHHHHPAE@Z"
+ ],
+ "0x104e6224": [
+  "Engine.dll",
+  "?GetWidth@TerrainPatch@GAME@@QBEHXZ"
+ ],
+ "0x104e6228": [
+  "Engine.dll",
+  "?GetDepth@TerrainPatch@GAME@@QBEHXZ"
+ ],
+ "0x104e622c": [
+  "Engine.dll",
+  "?GetPatchIntersection@TerrainPatch@GAME@@QAE_NHHAAVVec3@2@0@Z"
+ ],
+ "0x104e6230": [
+  "Engine.dll",
+  "?PreDeviceReset@TerrainPatch@GAME@@QAEXXZ"
+ ],
+ "0x104e6234": [
+  "Engine.dll",
+  "?PostDeviceReset@TerrainPatch@GAME@@QAEXABVVec3@2@PAVGraphicsMeshInstance@2@0@Z"
+ ],
+ "0x104e6238": [
+  "Engine.dll",
+  "?CreateGrassBuffers@GrassObject@GAME@@EAEXPAVTerrainBase@2@ABV?$vector@I@mem@@HHHHPAVTerrainPatch@2@@Z"
+ ],
+ "0x104e623c": [
+  "Engine.dll",
+  "?CreateGrass@GrassObject@GAME@@MAEXPAVTerrainBase@2@ABV?$vector@I@mem@@HHHHPAVTerrainPatch@2@@Z"
+ ],
+ "0x104e6240": [
+  "Engine.dll",
+  "?DestroyGrass@GrassObject@GAME@@MAEXPAVTerrainBase@2@@Z"
+ ],
+ "0x104e6244": [
+  "Engine.dll",
+  "?DestroyGrass@GrassObject@GAME@@MAEXXZ"
+ ],
+ "0x104e6248": [
+  "Engine.dll",
+  "?SetupGrassGeometry@GrassObject@GAME@@MAEXPAVTerrainBase@2@ABV?$vector@I@mem@@HHHHPAVTerrainPatch@2@@Z"
+ ],
+ "0x104e624c": [
+  "Engine.dll",
+  "?UpdateOffsetField@GrassObject@GAME@@MAEXAAVTerrainBase@2@ABV?$vector@I@mem@@HHH@Z"
+ ],
+ "0x104e6250": [
+  "Engine.dll",
+  "?AddWind@GrassObject@GAME@@UAEXHHHHABVVec3@2@0MM_N@Z"
+ ],
+ "0x104e6254": [
+  "Engine.dll",
+  "?AddDisturbance@GrassObject@GAME@@UAEXHHHHABVVec3@2@0MM_N@Z"
+ ],
+ "0x104e6258": [
+  "Engine.dll",
+  "?AddDisturbance@GrassObject@GAME@@UAEXHHHHABVVec3@2@MM_N@Z"
+ ],
+ "0x104e625c": [
+  "Engine.dll",
+  "??1TerrainPatchRT@GAME@@UAE@XZ"
+ ],
+ "0x104e6260": [
+  "Engine.dll",
+  "?GetEntityData@InstanceGroupManager@GAME@@QAEPBUEntityData@InstanceGroup@2@AAVUniqueId@2@@Z"
+ ],
+ "0x104e6264": [
+  "Engine.dll",
+  "?PlayExternalStream@SoundManager@GAME@@QAEXW4ExtStreamSource@12@PBEIHH@Z"
+ ],
+ "0x104e6268": [
+  "Engine.dll",
+  "?SetCaptureEnabled@SoundManager@GAME@@QAEX_N@Z"
+ ],
+ "0x104e6270": [
+  "KERNEL32.dll",
+  "CloseHandle"
+ ],
+ "0x104e6274": [
+  "KERNEL32.dll",
+  "GetProcAddress"
+ ],
+ "0x104e6278": [
+  "KERNEL32.dll",
+  "GetModuleHandleA"
+ ],
+ "0x104e627c": [
+  "KERNEL32.dll",
+  "Sleep"
+ ],
+ "0x104e6280": [
+  "KERNEL32.dll",
+  "InitializeSListHead"
+ ],
+ "0x104e6284": [
+  "KERNEL32.dll",
+  "EnterCriticalSection"
+ ],
+ "0x104e6288": [
+  "KERNEL32.dll",
+  "LeaveCriticalSection"
+ ],
+ "0x104e628c": [
+  "KERNEL32.dll",
+  "DeleteCriticalSection"
+ ],
+ "0x104e6290": [
+  "KERNEL32.dll",
+  "SetEvent"
+ ],
+ "0x104e6294": [
+  "KERNEL32.dll",
+  "ResetEvent"
+ ],
+ "0x104e6298": [
+  "KERNEL32.dll",
+  "WaitForSingleObjectEx"
+ ],
+ "0x104e629c": [
+  "KERNEL32.dll",
+  "GetCurrentThreadId"
+ ],
+ "0x104e62a0": [
+  "KERNEL32.dll",
+  "CreateEventW"
+ ],
+ "0x104e62a4": [
+  "KERNEL32.dll",
+  "GetModuleHandleW"
+ ],
+ "0x104e62a8": [
+  "KERNEL32.dll",
+  "UnhandledExceptionFilter"
+ ],
+ "0x104e62ac": [
+  "KERNEL32.dll",
+  "SetUnhandledExceptionFilter"
+ ],
+ "0x104e62b0": [
+  "KERNEL32.dll",
+  "GetCurrentProcess"
+ ],
+ "0x104e62b4": [
+  "KERNEL32.dll",
+  "TerminateProcess"
+ ],
+ "0x104e62b8": [
+  "KERNEL32.dll",
+  "IsProcessorFeaturePresent"
+ ],
+ "0x104e62bc": [
+  "KERNEL32.dll",
+  "IsDebuggerPresent"
+ ],
+ "0x104e62c0": [
+  "KERNEL32.dll",
+  "QueryPerformanceCounter"
+ ],
+ "0x104e62c4": [
+  "KERNEL32.dll",
+  "GetCurrentProcessId"
+ ],
+ "0x104e62c8": [
+  "KERNEL32.dll",
+  "GetSystemTimeAsFileTime"
+ ],
+ "0x104e62cc": [
+  "KERNEL32.dll",
+  "DisableThreadLibraryCalls"
+ ],
+ "0x104e62d0": [
+  "KERNEL32.dll",
+  "CreateDirectoryA"
+ ],
+ "0x104e62d4": [
+  "KERNEL32.dll",
+  "FindFirstFileExA"
+ ],
+ "0x104e62d8": [
+  "KERNEL32.dll",
+  "FindClose"
+ ],
+ "0x104e62dc": [
+  "KERNEL32.dll",
+  "GetFileAttributesExA"
+ ],
+ "0x104e62e4": [
+  "MSVCP140.dll",
+  "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z"
+ ],
+ "0x104e62e8": [
+  "MSVCP140.dll",
+  "?uncaught_exception@std@@YA_NXZ"
+ ],
+ "0x104e62ec": [
+  "MSVCP140.dll",
+  "?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAEHD@Z"
+ ],
+ "0x104e62f0": [
+  "MSVCP140.dll",
+  "?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ"
+ ],
+ "0x104e62f4": [
+  "MSVCP140.dll",
+  "?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAEXXZ"
+ ],
+ "0x104e62f8": [
+  "MSVCP140.dll",
+  "?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ"
+ ],
+ "0x104e62fc": [
+  "MSVCP140.dll",
+  "?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEHXZ"
+ ],
+ "0x104e6300": [
+  "MSVCP140.dll",
+  "?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEPAV12@PAD_J@Z"
+ ],
+ "0x104e6304": [
+  "MSVCP140.dll",
+  "?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAEXABVlocale@2@@Z"
+ ],
+ "0x104e6308": [
+  "MSVCP140.dll",
+  "?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QAE_JPBD_J@Z"
+ ],
+ "0x104e630c": [
+  "MSVCP140.dll",
+  "?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEXXZ"
+ ],
+ "0x104e6310": [
+  "MSVCP140.dll",
+  "?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@XZ"
+ ],
+ "0x104e6314": [
+  "MSVCP140.dll",
+  "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z"
+ ],
+ "0x104e6318": [
+  "MSVCP140.dll",
+  "?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z"
+ ],
+ "0x104e631c": [
+  "MSVCP140.dll",
+  "?out@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PBD1AAPBDPAD3AAPAD@Z"
+ ],
+ "0x104e6320": [
+  "MSVCP140.dll",
+  "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z"
+ ],
+ "0x104e6324": [
+  "MSVCP140.dll",
+  "??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@H@Z"
+ ],
+ "0x104e6328": [
+  "MSVCP140.dll",
+  "?_Xbad_alloc@std@@YAXXZ"
+ ],
+ "0x104e632c": [
+  "MSVCP140.dll",
+  "?_Xlength_error@std@@YAXPBD@Z"
+ ],
+ "0x104e6330": [
+  "MSVCP140.dll",
+  "?_Xout_of_range@std@@YAXPBD@Z"
+ ],
+ "0x104e6334": [
+  "MSVCP140.dll",
+  "??1?$basic_ios@DU?$char_traits@D@std@@@std@@UAE@XZ"
+ ],
+ "0x104e6338": [
+  "MSVCP140.dll",
+  "??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UAE@XZ"
+ ],
+ "0x104e633c": [
+  "MSVCP140.dll",
+  "??1?$basic_istream@DU?$char_traits@D@std@@@std@@UAE@XZ"
+ ],
+ "0x104e6340": [
+  "MSVCP140.dll",
+  "?_BADOFF@std@@3_JB"
+ ],
+ "0x104e6344": [
+  "MSVCP140.dll",
+  "??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UAE@XZ"
+ ],
+ "0x104e6348": [
+  "MSVCP140.dll",
+  "?always_noconv@codecvt_base@std@@QBE_NXZ"
+ ],
+ "0x104e634c": [
+  "MSVCP140.dll",
+  "?_Fiopen@std@@YAPAU_iobuf@@PBDHH@Z"
+ ],
+ "0x104e6350": [
+  "MSVCP140.dll",
+  "??1_Lockit@std@@QAE@XZ"
+ ],
+ "0x104e6354": [
+  "MSVCP140.dll",
+  "??0_Lockit@std@@QAE@H@Z"
+ ],
+ "0x104e6358": [
+  "MSVCP140.dll",
+  "?_Getgloballocale@locale@std@@CAPAV_Locimp@12@XZ"
+ ],
+ "0x104e635c": [
+  "MSVCP140.dll",
+  "??Bid@locale@std@@QAEIXZ"
+ ],
+ "0x104e6360": [
+  "MSVCP140.dll",
+  "?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A"
+ ],
+ "0x104e6364": [
+  "MSVCP140.dll",
+  "?in@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PBD1AAPBDPAD3AAPAD@Z"
+ ],
+ "0x104e6368": [
+  "MSVCP140.dll",
+  "??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z"
+ ],
+ "0x104e636c": [
+  "MSVCP140.dll",
+  "??0?$basic_istream@DU?$char_traits@D@std@@@std@@QAE@PAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z"
+ ],
+ "0x104e6370": [
+  "MSVCP140.dll",
+  "?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JXZ"
+ ],
+ "0x104e6374": [
+  "MSVCP140.dll",
+  "?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPAD_J@Z"
+ ],
+ "0x104e6378": [
+  "MSVCP140.dll",
+  "?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MAE_JPBD_J@Z"
+ ],
+ "0x104e637c": [
+  "MSVCP140.dll",
+  "?_Getcat@?$codecvt@DDU_Mbstatet@@@std@@SAIPAPBVfacet@locale@2@PBV42@@Z"
+ ],
+ "0x104e6380": [
+  "MSVCP140.dll",
+  "??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAE@XZ"
+ ],
+ "0x104e6384": [
+  "MSVCP140.dll",
+  "?getloc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QBE?AVlocale@2@XZ"
+ ],
+ "0x104e6388": [
+  "MSVCP140.dll",
+  "?_Init@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IAEXXZ"
+ ],
+ "0x104e638c": [
+  "MSVCP140.dll",
+  "?unshift@?$codecvt@DDU_Mbstatet@@@std@@QBEHAAU_Mbstatet@@PAD1AAPAD@Z"
+ ],
+ "0x104e6390": [
+  "MSVCP140.dll",
+  "??0?$basic_ios@DU?$char_traits@D@std@@@std@@IAE@XZ"
+ ],
+ "0x104e6394": [
+  "MSVCP140.dll",
+  "?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z"
+ ],
+ "0x104e6398": [
+  "MSVCP140.dll",
+  "?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z"
+ ],
+ "0x104e63a0": [
+  "SHELL32.dll",
+  "SHGetSpecialFolderPathA"
+ ],
+ "0x104e63a8": [
+  "USER32.dll",
+  "GetAsyncKeyState"
+ ],
+ "0x104e63b0": [
+  "VCRUNTIME140.dll",
+  "__vcrt_InitializeCriticalSectionEx"
+ ],
+ "0x104e63b4": [
+  "VCRUNTIME140.dll",
+  "__std_type_info_destroy_list"
+ ],
+ "0x104e63b8": [
+  "VCRUNTIME140.dll",
+  "_except_handler4_common"
+ ],
+ "0x104e63bc": [
+  "VCRUNTIME140.dll",
+  "strchr"
+ ],
+ "0x104e63c0": [
+  "VCRUNTIME140.dll",
+  "memcpy"
+ ],
+ "0x104e63c4": [
+  "VCRUNTIME140.dll",
+  "memset"
+ ],
+ "0x104e63c8": [
+  "VCRUNTIME140.dll",
+  "strrchr"
+ ],
+ "0x104e63cc": [
+  "VCRUNTIME140.dll",
+  "strstr"
+ ],
+ "0x104e63d0": [
+  "VCRUNTIME140.dll",
+  "__std_exception_destroy"
+ ],
+ "0x104e63d4": [
+  "VCRUNTIME140.dll",
+  "__std_exception_copy"
+ ],
+ "0x104e63d8": [
+  "VCRUNTIME140.dll",
+  "memchr"
+ ],
+ "0x104e63dc": [
+  "VCRUNTIME140.dll",
+  "_purecall"
+ ],
+ "0x104e63e0": [
+  "VCRUNTIME140.dll",
+  "__std_type_info_name"
+ ],
+ "0x104e63e4": [
+  "VCRUNTIME140.dll",
+  "memmove"
+ ],
+ "0x104e63e8": [
+  "VCRUNTIME140.dll",
+  "__std_terminate"
+ ],
+ "0x104e63ec": [
+  "VCRUNTIME140.dll",
+  "_CxxThrowException"
+ ],
+ "0x104e63f0": [
+  "VCRUNTIME140.dll",
+  "__CxxFrameHandler3"
+ ],
+ "0x104e63f8": [
+  "WINMM.dll",
+  "timeGetTime"
+ ],
+ "0x104e6400": [
+  "api-ms-win-crt-convert-l1-1-0.dll",
+  "_itoa_s"
+ ],
+ "0x104e6404": [
+  "api-ms-win-crt-convert-l1-1-0.dll",
+  "atoi"
+ ],
+ "0x104e6408": [
+  "api-ms-win-crt-convert-l1-1-0.dll",
+  "atof"
+ ],
+ "0x104e6410": [
+  "api-ms-win-crt-filesystem-l1-1-0.dll",
+  "_unlock_file"
+ ],
+ "0x104e6414": [
+  "api-ms-win-crt-filesystem-l1-1-0.dll",
+  "_lock_file"
+ ],
+ "0x104e641c": [
+  "api-ms-win-crt-heap-l1-1-0.dll",
+  "malloc"
+ ],
+ "0x104e6420": [
+  "api-ms-win-crt-heap-l1-1-0.dll",
+  "_callnewh"
+ ],
+ "0x104e6424": [
+  "api-ms-win-crt-heap-l1-1-0.dll",
+  "realloc"
+ ],
+ "0x104e6428": [
+  "api-ms-win-crt-heap-l1-1-0.dll",
+  "free"
+ ],
+ "0x104e6430": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "truncf"
+ ],
+ "0x104e6434": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "floor"
+ ],
+ "0x104e6438": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "_CIpow"
+ ],
+ "0x104e643c": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "_finite"
+ ],
+ "0x104e6440": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "_CIfmod"
+ ],
+ "0x104e6444": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "__libm_sse2_acosf"
+ ],
+ "0x104e6448": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "__libm_sse2_cosf"
+ ],
+ "0x104e644c": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "__libm_sse2_powf"
+ ],
+ "0x104e6450": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "__libm_sse2_sinf"
+ ],
+ "0x104e6454": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "__libm_sse2_tanf"
+ ],
+ "0x104e6458": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "ceil"
+ ],
+ "0x104e645c": [
+  "api-ms-win-crt-math-l1-1-0.dll",
+  "_except1"
+ ],
+ "0x104e6464": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_invalid_parameter_noinfo"
+ ],
+ "0x104e6468": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "terminate"
+ ],
+ "0x104e646c": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_invalid_parameter_noinfo_noreturn"
+ ],
+ "0x104e6470": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_errno"
+ ],
+ "0x104e6474": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_initterm_e"
+ ],
+ "0x104e6478": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_initterm"
+ ],
+ "0x104e647c": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_cexit"
+ ],
+ "0x104e6480": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_crt_atexit"
+ ],
+ "0x104e6484": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_execute_onexit_table"
+ ],
+ "0x104e6488": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_register_onexit_function"
+ ],
+ "0x104e648c": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_initialize_onexit_table"
+ ],
+ "0x104e6490": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_initialize_narrow_environment"
+ ],
+ "0x104e6494": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_configure_narrow_argv"
+ ],
+ "0x104e6498": [
+  "api-ms-win-crt-runtime-l1-1-0.dll",
+  "_seh_filter_dll"
+ ],
+ "0x104e64a0": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "setvbuf"
+ ],
+ "0x104e64a4": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "_fseeki64"
+ ],
+ "0x104e64a8": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fread"
+ ],
+ "0x104e64ac": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "ftell"
+ ],
+ "0x104e64b0": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fseek"
+ ],
+ "0x104e64b4": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fgetpos"
+ ],
+ "0x104e64b8": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fgetc"
+ ],
+ "0x104e64bc": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "__stdio_common_vsprintf"
+ ],
+ "0x104e64c0": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fopen"
+ ],
+ "0x104e64c4": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fflush"
+ ],
+ "0x104e64c8": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "__stdio_common_vswprintf"
+ ],
+ "0x104e64cc": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "ungetc"
+ ],
+ "0x104e64d0": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "_get_stream_buffer_pointers"
+ ],
+ "0x104e64d4": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fwrite"
+ ],
+ "0x104e64d8": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fputc"
+ ],
+ "0x104e64dc": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fsetpos"
+ ],
+ "0x104e64e0": [
+  "api-ms-win-crt-stdio-l1-1-0.dll",
+  "fclose"
+ ],
+ "0x104e64e8": [
+  "api-ms-win-crt-string-l1-1-0.dll",
+  "_strdup"
+ ],
+ "0x104e64ec": [
+  "api-ms-win-crt-string-l1-1-0.dll",
+  "_wcsicmp"
+ ],
+ "0x104e64f0": [
+  "api-ms-win-crt-string-l1-1-0.dll",
+  "tolower"
+ ],
+ "0x104e64f4": [
+  "api-ms-win-crt-string-l1-1-0.dll",
+  "_towlower_l"
+ ],
+ "0x104e64f8": [
+  "api-ms-win-crt-string-l1-1-0.dll",
+  "_stricmp"
+ ],
+ "0x104e6500": [
+  "api-ms-win-crt-time-l1-1-0.dll",
+  "_time64"
+ ],
+ "0x104e6508": [
+  "api-ms-win-crt-utility-l1-1-0.dll",
+  "srand"
+ ],
+ "0x104e650c": [
+  "api-ms-win-crt-utility-l1-1-0.dll",
+  "rand"
+ ],
+ "0x104e6514": [
+  "lua51.dll",
+  "lua_newstate"
+ ],
+ "0x104e651c": [
+  "ole32.dll",
+  "CoCreateGuid"
+ ]
+}

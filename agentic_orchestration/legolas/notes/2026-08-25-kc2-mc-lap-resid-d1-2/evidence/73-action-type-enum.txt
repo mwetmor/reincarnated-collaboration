@@ -1,0 +1,29 @@
+CharacterActionType enum — decoded from each *Action ctor's `[this+8] = <literal>` store
+(index space of the GameEngine+0x2802c permission matrix)
+
+  type  0 (0x00) : CharacterActionBase, ScriptableActionCollection, ScriptableAction_BeginQuestTask, ScriptableAction_CastSkill, ScriptableAction_GenerateRandomValue, ScriptableAction_GiveAttribPoint, ScriptableAction_GiveDevotion, ScriptableAction_GiveExperience, ScriptableAction_GiveItem, ScriptableAction_GiveLevel, ScriptableAction_GiveMoney, ScriptableAction_GiveRandomItem, ScriptableAction_GiveSkillPoint, ScriptableAction_GiveTribute, ScriptableAction_PlayVideo, ScriptableAction_UnlockTutorial
+  type  1 (0x01) : IdleAction
+  type  3 (0x03) : LongIdleAction
+  type  4 (0x04) : MoveToAction, RotateAction
+  type  5 (0x05) : WalkAction
+  type  6 (0x06) : PickUpAction
+  type  7 (0x07) : UseAction
+  type  8 (0x08) : AttackAction
+  type  9 (0x09) : TakeStunAction
+  type 10 (0x0a) : TakeKnockdownAction
+  type 11 (0x0b) : TakeHitAction
+  type 12 (0x0c) : TakeSleepAction
+  type 13 (0x0d) : ImmobilizeAction
+  type 14 (0x0e) : TakeTrapAction
+  type 15 (0x0f) : DieAction
+  type 16 (0x10) : ChatAction
+  type 17 (0x11) : LookAtAction
+  type 18 (0x12) : PlayAnimationAction, WakeUpAction
+  type 19 (0x13) : SpawnAction
+  type 20 (0x14) : RespawnAction
+  type 23 (0x17) : EngageNpcAction
+  type 24 (0x18) : EvadeAction
+  type 25 (0x19) : MenuIdleAction
+
+UNRESOLVED (ctor stores no literal type; copy-ctors and base ctors): 46
+  AttackAction, CharacterActionBase, ChatAction, DieAction, EngageNpcAction, EvadeAction, FilterCharacterAction, FilterMountAction, FilterMountedCharacterAction, IdleAction, ImmobilizeAction, JumpAttackAction, LongIdleAction, LookAtAction, MenuIdleAction, MoveAttackAction, MoveToAction, PickUpAction, PlayAnimationAction, RespawnAction, RotateAction, ScriptableAction, ScriptableActionCollection, ScriptableAction_BeginQuestTask, ScriptableAction_CastSkill, ScriptableAction_GenerateRandomValue, ScriptableAction_GiveAttribPoint, ScriptableAction_GiveDevotion, ScriptableAction_GiveExperience, ScriptableAction_GiveItem, ScriptableAction_GiveLevel, ScriptableAction_GiveMoney, ScriptableAction_GiveRandomItem, ScriptableAction_GiveSkillPoint, ScriptableAction_GiveTribute, ScriptableAction_PlayVideo, ScriptableAction_UnlockTutorial, SpawnAction, TakeHitAction, TakeKnockdownAction, TakeSleepAction, TakeStunAction, TakeTrapAction, UseAction, WakeUpAction, WalkAction

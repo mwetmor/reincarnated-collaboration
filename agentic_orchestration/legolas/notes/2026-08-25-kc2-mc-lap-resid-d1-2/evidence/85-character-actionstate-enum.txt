@@ -1,0 +1,27 @@
+Character_ActionState — decoded from Character::GetActionStateAsText jump table @ 0x100471a8 (22 entries)
+
+val hex  name                          in CMM::Update gate?
+  0 0x00  Action State: Unknown         -   (case 0x00046fef, str 0x104f5020)
+  1 0x01  Action State: Forced Stop     -   (case 0x00047004, str 0x104f5038)
+  2 0x02  Action State: Play Animation  -   (case 0x00047019, str 0x104f5054)
+  3 0x03  Action State: Idle            -   (case 0x0004702e, str 0x104f5074)
+  4 0x04  Action State: Fidget          -   (case 0x00047043, str 0x104f5088)
+  5 0x05  Action State: Move            YES   (case 0x00047058, str 0x104f50a0)
+  6 0x06  Action State: Walk            YES   (case 0x0004706d, str 0x104f50b4)
+  7 0x07  Action State: Attack          -   (case 0x00047082, str 0x104f50c8)
+  8 0x08  Action State: Stun            -   (case 0x00047097, str 0x104f50e0)
+  9 0x09  Action State: Knockdown       -   (case 0x0004712a, str 0x104f5180)
+ 10 0x0a  Action State: TakeHit         -   (case 0x0004713f, str 0x104f5198)
+ 11 0x0b  Illegal                       -   (case 0x0004717e, str 0x104f51d8)
+ 12 0x0c  Action State: Immobilize      -   (case 0x000470ac, str 0x104f50f4)
+ 13 0x0d  Action State: Trap            -   (case 0x000470c1, str 0x104f5110)
+ 14 0x0e  Action State: Pickup          -   (case 0x000470d6, str 0x104f5124)
+ 15 0x0f  Action State: Chatting        -   (case 0x000470eb, str 0x104f513c)
+ 16 0x10  Illegal                       -   (case 0x0004717e, str 0x104f51d8)
+ 17 0x11  Action State: Fallen          -   (case 0x00047100, str 0x104f5154)
+ 18 0x12  Action State: Dying           -   (case 0x00047115, str 0x104f516c)
+ 19 0x13  Action State: Jump            YES   (case 0x00047154, str 0x104f51b0)
+ 20 0x14  Illegal                       YES   (case 0x0004717e, str 0x104f51d8)
+ 21 0x15  Action State: Evade           YES   (case 0x00047169, str 0x104f51c4)
+
+CharacterMovementManager::Update (RVA 0x781a0) runs its body IFF Character::GetActionState() is one of: 5=Action State: Move, 6=Action State: Walk, 19=Action State: Jump, 20=Illegal, 21=Action State: Evade
