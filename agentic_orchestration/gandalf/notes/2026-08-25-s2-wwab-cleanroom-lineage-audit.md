@@ -4,8 +4,24 @@
 **Author:** gandalf — **DRIFT-CRITIC** (named sub-agent)
 **Class:** verdict note
 **Status:** CURRENT
-**Audits:** `drax/v0.1-s2-whirlwind-cleanroom-1` (`reincarnated-godot` `1692d6e`)
+**Audits:** the clean-room source set `scripts/wwcr_*` + `scenes/wwcr_*` + `run_wwcr_stage.sh`, as minted at
+`reincarnated-godot` `1692d6e` (`drax/v0.1-s2-whirlwind-cleanroom-1`)
 **Against:** the adopted SB-1 cut-pattern-blade lineage (`a337d30` et seq.)
+
+⚑ **SCOPE + DEFEAT CONDITION** (added 2026-08-25 on re-ruling; see § Post-audit drift). This verdict
+certifies a **provenance claim over a named artifact set** — that no quarantined content entered it. It
+does **not** certify a tree hash. `1692d6e` names *where the set stood when audited*, not the subject.
+
+**This verdict is DEFEATED if and only if:** a post-audit change to the named set introduces content
+originating in the quarantined lineage. Test it — do not assume it from the presence of drift:
+```
+git diff <audited-commit>..HEAD -- 'scripts/wwcr_*' 'scenes/wwcr_*' 'run_wwcr_stage.sh' | grep '^+' \
+  | grep -Ei 'vfxbo|cpb|kc2|a337d30|sb1|etch|claw|cut_|rig_poe1|cyclone|run_ww[0-9]|PAL_|decay_gamma|sheath'
+```
+plus a float-literal intersection of the added lines against the quarantined files (method: § Q2).
+**A non-empty `git diff` is NOT a defeat.** Comment fixes, harness work and instrument repair move the
+tree without touching provenance. Requiring an empty diff makes this certificate expire on contact with
+ordinary work — which is how a certificate stops answering while still returning cleanly.
 **Authority:** dispatch `2026-08-24-drax-s2-whirlwind-cleanroom-wwab.md` § "gandalf DRIFT-CRITIC audits the lineage"; charter ruling **L-37** (*"ADOPT but hide"*)
 
 ---
@@ -264,6 +280,70 @@ agent reach from spec alone?"* A single verdict across two different bodies, two
 two different colour models cannot answer that cleanly — and the run has been unusually disciplined
 about not letting a number mean more than it measures. It would be a shame to spend that discipline
 here.
+
+---
+
+## POST-AUDIT DRIFT — re-ruled 2026-08-25. **VERDICT HOLDS, AND IT HOLDS AT HEAD** (disposition **a**)
+
+knight-rider raised four post-audit commits (`77093f8`, `2a7d7fa`, `f29f12b` — drax S2B; `7dc58d3` —
+galadriel) moving `scripts/wwcr_*` by 572 lines, and asked whether the verdict survives, survives only
+pinned, or is void. **It survives, unpinned.** Reasoning, in the order that decided it:
+
+**1. The certified artifact did not move.** `scripts/wwcr_whirlwind.gd` — the authored effect, the thing
+in the bake-off — is **byte-identical** at HEAD. The drift is in the **harness** (`wwcr_stage.gd`:
+sequence-capture mode, census, stage-env hook — all additive, defaults `_stage="bare"` /
+`_capture_mode="marks"` preserved), the **instrument** (`wwcr_occlusion_gate.py`), a **new audit script**
+(`wwcr_occlusion_region_audit.py`), and the **rig** (`king_rig.gd`). Q1 and Q3 are untouched by
+construction — a declaration and a channel set are historical facts.
+
+**2. The defeat condition was tested, not assumed.** Contamination grep over the added lines: **nothing**.
+Float-literal intersection of the 23 new-line floats against the 339 in `kc2_player_channel.gd` +
+`kc2_etch.gdshader` + `kc2_cpb_clip.gd`: 11 shared, **5 non-trivial, all acquitted** — and two are not
+quantities at all:
+
+| Value | Clean-room (new lines) | Adopted | Adjudication |
+|---|---|---|---|
+| `0.4912` | `hip = int(bot - (bot-top) * 0.4912)` | a cadence-silence rev fraction | as § Q2 — derived hip fraction, unrelated quantity |
+| `5.6` | **a clause number in prose** (`#75.5 cl. 5.6`) | camera eye `.y` | not a numeric literal |
+| `7.0` | **a printf field width** (`%7.0f`) | stance yaw / camera `.z` | not a numeric literal |
+| `0.20` | capture-window start (s); prose naming the **rejected** floor albedo | trail lifetime; haft stations | different domains; the clean-room *rejects* 0.20 for 0.085 (C-3, permitted) |
+| `2.6` | prose: mob radius 2.0–2.6 m | `edge_sharpness` / `scale_max` | different domains |
+
+Same result as the original pass: **not one clean-room occurrence occupies the adopted role.**
+
+**3. The rig change strengthens the audited condition rather than disturbing it.** `king_rig.gd` flips
+`stock_vfx_enabled` default `true → false`; the stage's `_hide_named(_king, "HolyAura")` strip that Q3
+observed is **still present at HEAD**. Belt and braces, same rendered result.
+
+**4. The decisive point — pinning would render through a KNOWN-DEFECTIVE capture path.** `f29f12b`
+records that cross-arm maxdiff at `1692d6e` was **185 / 114 / 216** at three marks and is **0** at HEAD:
+a clock-pin repair, with determinism re-proved 60/60 byte-identical and a positive control run because
+*"fixed" and "blind" print the same zero*. **Disposition (b) would deliberately reproduce a repaired
+capture defect in order to match a certificate** — the L-29(6) failure committed on purpose. A verdict
+is not served by staging its subject through a fault it never certified.
+
+**What Matt sees does change** — HEAD's captures are cleaner than `1692d6e`'s. That is fidelity of
+capture, not of authorship. **The § F-3 confounds are entirely unaffected** and remain the thing to
+weigh at the side-by-side.
+
+### The general form — and it is mine before it is anyone's
+
+My header named a **commit** and stated no scope. So the only check it taught a downstream consumer to
+run was *"is the hash still true"* — and knight-rider's criterion-4 receipt (`git diff … is empty`)
+is exactly that check, faithfully derived from a certificate that offered no better one. **A certificate
+that names only a hash teaches its consumers to check the hash.** The unsatisfiable receipt is
+downstream of my defect, not independent of it.
+
+**Proposed rule, routed to jack-ryan to number and ratify — I do not mint the number:**
+
+> **A verdict, receipt, or pointer must state the predicate under which it stops being true.** Absent a
+> defeat condition, a certification cannot be distinguished from an expired one: both keep returning
+> cleanly. Scope + defeat condition are part of the artifact, not commentary on it.
+
+It generalizes the session's four instances: L-29(6) frames with no defeat condition on the capture path;
+`git diff HEAD~1` with no statement of what it compares; `grok.py:733` — a line pointer with no content
+anchor; and this verdict — a hash with no scope. **All four returned cleanly after they stopped
+answering.** The remedy is one line per artifact, written by whoever issues it, at issue time.
 
 ---
 
