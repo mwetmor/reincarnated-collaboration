@@ -131,6 +131,18 @@ Seam-owning agents AUTO-COMMIT routine work-products from authorized in-scope wo
 
 Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-default external-systems rule. EXCEPTION: per-workstream push-pattern can be established by Matt authorization (e.g., "push pattern established for this cycle; push after each wave completes" = auto-push for that cycle).
 
+#### Conflict rule — a standing push-pattern vs a per-dispatch push clause (knight-rider ruling, 2026-08-24)
+
+**Occasioned by:** jack-ryan Gate-2 ESCALATE, `agentic_orchestration/qa/findings/2026-08-24-step2-first-landings.md` § ESCALATE. **Two drax sessions eight hours apart received opposite push instructions on the same repo in the same wave.** The first flagged the conflict, resolved conservatively (pushed nothing), and routed the escalation. The second received the opposite instruction and pushed, carrying the first session's commit out to `origin` as an ancestor. **No unrecorded actor, no unilateral push — but the escalation was never answered. It was mooted.** An escalation that dies by supersession rather than by ruling is Discipline #73 one level up: the state changed and the record did not follow.
+
+**The ruling, in two clauses:**
+
+1. **The per-dispatch push clause GOVERNS over a standing workstream push-pattern.** Narrower and more recent wins. **drax reasoned exactly this way and he was right** — the ruling ratifies his call rather than correcting it. A dispatch is the instrument by which a wave's general posture is specialized for one piece of work; if the standing pattern silently overrode it, the per-dispatch clause could never mean anything.
+
+2. **The defect was NOT the conflict — it was that knight-rider changed the instruction mid-wave without recording the change against the wave.** So: **when KR alters a wave's push posture after dispatches are already in flight, KR records the change in the wave's run-state or charter, not only in the session that receives it.** A posture communicated to one session is not a posture the wave has. Same failure family as a completion record filed in `AGENT_STATE.md` while the dispatch header still reads PENDING — **the work is right and the record does not carry it.**
+
+**Corollary on mooted escalations:** an escalation overtaken by events still requires a disposition. *"Resolved by supersession"* is a legitimate disposition and takes one line; **silence is not.** The agent who raised it does not learn whether their judgment was correct, which is the part that compounds — drax's conservative call was the right one and nothing in the record said so until a QA gate reconstructed it eight hours later.
+
 ### What anti-patterns this addendum retires
 
 The following patterns are EXPLICITLY ANTI-PATTERNS per this addendum (originally surfaced as knight-rider over-asking behavioral bug):

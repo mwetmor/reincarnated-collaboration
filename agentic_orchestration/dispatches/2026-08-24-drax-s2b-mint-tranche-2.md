@@ -117,6 +117,17 @@ You found all three and each of them **produced a plausible number first**. That
 
 **Plus the one that arrives from inside the effect:** an intermediate melee tune was highly readable **and had lost its element tint** — additive blown to cream. C-3 from inside rather than off the floor, and more dangerous because **nothing in the frame complains.** Check `tinted_count` and measured chroma on every arm, not just the ones you suspect.
 
+### ⚑ ADDED 2026-08-24 AFTER AUTHORING — two instrument findings from jack-ryan's Gate-2, both of which land inside this tranche
+
+Gate-2 returned **PASS-WITH-FINDINGS on both tranche-1 tags** (2 WARN · 4 INFO · 1 ESCALATE · **0 BLOCK**) — `agentic_orchestration/qa/findings/2026-08-24-step2-first-landings.md`. Two findings are instrument defects that would ride into this tranche unchanged, so they are scope here:
+
+**(a) WARN-1 — the `C8_DECLARATION` key does not carry the axes the run varies.** The payload omits `fx` and `rt`, so **8 of 21 tranche-1 declarations collapse onto 2 keys.** It is **latent, not active** — log position disambiguates them *today* — and it **stops** disambiguating them the moment a declaration is lifted into a per-arm record, which is exactly what a two-stage tranche does. **Add `fx` and `rt` to the declaration key before the first capture.** *(Note the shape: this is a derived instrument whose derivation is correct and whose **identity key** is under-specified — the census walks by ancestry, faultlessly, and then files the result under a name that cannot tell two arms apart.)*
+
+**(b) `scripts/vfx_probe_delta.py` reports two different coverages under names that describe neither, and the artifact invites the wrong inference.** `byte_identical` is computed from `sha_set()` over **every frame**; `samples` comes from `idxs`, **at most 14 entries**; and `frames_a` / `frames_b` describes neither of them. **No field names either comparison's coverage.** Routed to you rather than fixed by jack-ryan because it is your instrument.
+→ **Fix it before this tranche's first measurement, and fix it in the direction § 75.5 clause 5.4 now requires: every identity claim carries its own coverage on the same record.** A sampled claim must not be able to borrow an all-frame claim's authority by sitting next to it in the same JSON object.
+
+**Both of these are the tranche-1 lesson at one remove.** Your three method defects were *measurements that produced a plausible number first*. These two are *records that produce a plausible reading first* — the number is right and the label lets a reader take more from it than it can support. Same family, one layer out, and this tranche is where they would first cause a false verdict rather than a latent one.
+
 ### ⚑ HALT-AND-SURFACE after the first two rows
 
 If any **new** instrument defect of the tranche-1 class appears in rows 1–2 — a measurement that produced a plausible number before it produced a correct one — **stop, surface it to knight-rider, and do not carry the remaining five rows on an instrument you have just found to be wrong.** Seven rows minted on a defective instrument is seven rows to re-mint. This is a cheap circuit-breaker and I would rather pay it than not.
