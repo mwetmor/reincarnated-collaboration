@@ -303,13 +303,39 @@ I checked whether the pre-fix frames still existed rather than assuming. **They 
 
 ## 5. Next-session pickup
 
-**First action:** read the three background returns (galadriel frame-forensics; star-lord Grok auth; drax camera + WW-AB). **Verify each against the tree before relaying** — three of this session's four corrections came from doing that and one came from not.
+⚑ **UPDATED — two of the three background returns have landed and been verified. This supersedes the "read the three returns" instruction that stood here.**
+
+| Agent | Outcome | Verified how |
+|---|---|---|
+| **star-lord** — Grok auth | ✅ **Landed + pushed `7837ade3`.** A token **auto-refresh looked identical to a logout**, and one reading of it handed the whole queue to Claude permanently. Now debounced: 3 consecutive readings required, and `check_auth` is the only site that may mint terminal. | Read the code, not the report — `AUTH_CONFIRM_READINGS`, the `probe_auth_once`/`check_auth` split, `terminal` defaults, both named tests. All present. |
+| **drax** — camera + WW-AB | ⚑ **DIED, then RECOVERED.** Reported `completed`; the "result" was a **400 error string**. Work survived uncommitted; a recovery dispatch committed it at **`1475ed9` + `713f487`**. | Read the diff before believing either the failure or the recovery. |
+| **galadriel** — frame forensics | **Still running.** No error signature in its output. | — |
+| **gandalf** — WW-AB lineage | **Newly fired** (see item 1 below). | — |
+
+⚑ **The drax case is the one to take forward: the status said `completed` and the run had failed.** Had I relayed the status I would have reported a success that did not happen. **A status field is not a result.** Two of this segment's findings exist only because the tree was checked against the claim.
 
 **Then, in order:**
+0. ⚑ **WW-AB is BLOCKED on a lineage question, not on capacity.** gandalf's `LINEAGE CLEAN` verdict describes `1692d6e`; the `wwcr_*` scripts have moved **572 insertions / 62 deletions across 4 commits** since. A render off `HEAD` would not be the audited artifact. **Routed to gandalf** (a/b/c: verdict holds · holds-only-pinned · voided). drax surfaced it and correctly declined to rule it. **It surfaced because I wrote an acceptance criterion that could not be satisfied** — I told him to receipt that diff as empty without checking whether it was.
 1. **Fire the 3A recapture** (`dispatches/2026-08-25-drax-s2c-3a-recapture.md`, authored + Gate-ready). It discharges the tranche AND produces the number that disposes the sealed-verdict question. **Lane is serial** — it goes behind the camera/WW-AB dispatch, never beside it.
 2. **jack-ryan owes his own finding file a stamp** (wave record § 5.1) — forward pointer at the head, no back-editing.
 3. **F-7** godot dispatch — fix form already exists in-repo; the dead constant gets **deleted**, not corrected.
 4. **3B** (behind the P-BEAM byte-identity probe) → **A-1/A-3** body pipeline.
+5. **star-lord dispatch is authored and PENDING** — `dispatches/2026-08-25-star-lord-image-lane-and-the-two-you-flagged.md`. Leads with the **image lane**, because that is what unblocks your second-opinion request. Also carries the two items star-lord flagged back (`preflight_failed`; the `terminal` word collision) and forces a **written disposition** on the Codex one-reading hazard he left declared-but-open.
+6. **`census.json` needs an owner** — `qa/pending/2026-08-25-a-23-day-old-uncommitted-ocr-regression-nobody-owns.md`.
+
+## ⚑ 5b. The two rulings I filed this segment, and why they are not bookkeeping
+
+**`knight-rider/rulings/2026-08-25-codex-and-grok-are-not-symmetric-…md`** — your second-opinion request is **not executable as framed**, and no decision from you is needed to unblock it. You named Codex and Grok in one breath as two lanes. **Grok has no image flag at all.** Codex has one the vendor supports and our own harness never emits — capable at the vendor, blocked by us. Grok's only candidate door (`--prompt-json` content blocks) is **plausible and untested**, and I am not claiming it works; one call settles it, and that call is star-lord's.
+
+**`knight-rider/rulings/2026-08-25-the-2000px-wall-…md`** — ⚑ **this one bears directly on what you asked for.** You said *"zoom in and pause more on each individual frame"* and *"statistically pick each clip apart."* Both push toward **more images at higher detail**, and the API constrains **exactly those two axes at once** (>2000px on any image in a many-image request). That is what killed drax at ~128 image blocks.
+
+**The reflexive fix — downscale — is worse than the crash, and this is the part worth your attention.** The features you are asking about (metal-scrape sparks, thin laser filaments, smoke wisps, cavitation edges) are **1–3 pixels**. Downscaling averages them out of existence — **in the originals and in ours at the same rate.** The comparison would come back *"no meaningful difference,"* and that null would be **manufactured by the instrument and indistinguishable from a real one.** It would look like your thesis was wrong.
+
+**Standing method: CROP at native resolution, never downscale.** Tight crops *are* zooming in — the one direction where the constraint and your instruction agree.
+
+⚑ **I got this wrong first and caught it.** The recovery brief I sent drax says to downscale. Harmless there (it needed almost no images and had to not die), **but I wrote it as a general rule without asking what it costs.** Same move as "probably moot" an hour earlier: taking the first remedy that resolves the visible symptom.
+
+**Your depth critique is not held by any of this.** It needs no external model. Corroboration being unavailable is not a reason to park the observation.
 
 ## 6. What gates re-engagement — criteria, not calendar
 
