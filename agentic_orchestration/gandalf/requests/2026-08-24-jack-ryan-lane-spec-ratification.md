@@ -169,3 +169,75 @@ Ruled: **two harm-instances plus one nomenclature-instance reaches the bar of th
 ---
 
 **jack-ryan**, 2026-08-24 — DEV-MODE ratification. **RATIFIED-WITH-AMENDMENTS A–F.** No sealed clause reopened; no BLOCK issued.
+
+---
+
+# ADDENDUM — 2026-08-24 (later same day) — RE-RATIFICATION of the U-4 Grok clause under AM-2
+
+**Reviewer:** jack-ryan (DEV-MODE, ratification authority) · **Artifact:** spec § 10 (AM-2), commit `91de6444`
+**Trigger:** Matt exercised the AM-1 § 13.3 release valve and ruled the selection order verbatim. AM-2 supersedes **my own ratified U-4 text**, so only a re-ratification moves it.
+**Verdict: RATIFIED-WITH-AMENDMENTS (G, H, I)** — sequence continues A–F, which remain binding. **No BLOCK. D-6…D-8 are build-authorized on star-lord as of this addendum.**
+
+## 1 · What is being waived — stated plainly, because a ratification that hides its own reversal is worthless
+
+My clause read *"Not a general research lane unless the judge pilot proves out."* AM-2 grants general admission **and the pilot has not run**. The proves-out condition is **waived by directive, not satisfied by evidence**. Matt owns that call — the scope of a vendor lane is his surface, not mine, and the clause named the valve itself. What I rule is whether the waiver is carried honestly and mitigated adequately.
+
+**It is carried honestly.** § 10.4(1)'s *"this pin is declared, not banked"* is the sentence I would have required had it been absent. § 10.3(2) grounds Codex primacy on the banked-vs-banking asymmetry rather than on preference. § 10.6 fences what AM-2 does not do. Nothing borrows authority it does not have — the same standard § 9.3 met on serial-by-choice.
+
+**The mitigation is adequate but incomplete.** Codex-primary deterministic order means Grok takes spillover only, so exposure is bounded by Codex's occupancy rather than by an untested judgment. Every early Grok job doubling as a banking measurement is the right instinct. What is missing is the *close*: a waived proof condition replaced by a banking practice with **no named point at which anyone asks whether the widening proved out**. U-4's router got an empirical criterion; this widening got none. → **Amendment I.**
+
+**Independently verified this session (#19.1(b), zero cost, no model call):** the effort vocabulary claim — `grok --reasoning-effort bogusvalue` returns *"unknown effort level 'bogusvalue'; use one of: xhigh, high, medium, low"*. Vocabulary is **CONFIRMED identical to Codex's** from the CLI's own error surface, not inherited from the spec. `grok 1.0.5 (5115b46bc909) [stable]` unchanged since my first pass.
+
+## 2 · R-A consistency — § 10.3 opens no door R-A closed. CONFIRMED.
+
+I read § 10.3 specifically hunting for the reverse-direction override. It is not there. Step 5 states vendor-first applies **only past the gate**; step 1's parenthetical preserves the Claude-ward override as the one named exception; step 4's Claude-now branch is R-A operating exactly as written (schedule-critical, ledger note, never silent). **No step routes work toward a vendor over a router NO**, and the deterministic order is a choice *between* vendors made after all four questions are YES. R-B is untouched and vendor-generic: no curator, no fire, either lane.
+
+**INFO — the one pressure AM-2 creates, named so it can be watched.** Making vendor-first mandatory gives the dispatcher a standing incentive to answer the four questions YES, because YES is now the cheap path. R-D's standing caution was written for the mirror case (too few NOs = the covered set is too narrow); it generalizes here. The gate's answers are findings about the world and must not be shaped by the lane's cost. Not an amendment — a thing to notice at Gate if the NO rate goes to zero after AM-2.
+
+## 3 · Amendments A–F — survival check, one by one
+
+| # | Status under AM-2 |
+|---|---|
+| **A** (execution-occupancy union; `queue-pending` ≠ busy) | **SURVIVES, and becomes load-bearing on Matt's floor** — see G and H. |
+| **B** (blast radius per-VENDOR) | **SURVIVES, cited by name** at § 10.4(2). Correct. But the § 4 G-3 body still carries the superseded per-host text — see G. |
+| **C** (capture the resolved model id) | **HONORED** — § 10.4(1) captures `modelUsage`'s resolved id per call; `grok-4.6` → `grok-4.6-build` recorded as the known resolution. |
+| **D** (effort said on the argv) | **HONORED, and improved** — `xhigh` is argv-said from the **first** job, not merely from the pilot. Consistent with P-5's Posture-2 lean. |
+| **E** (`--no-leader` asserted, not assumed) | **SURVIVES UNAMENDED — and is now an active build constraint.** § 10.5 says *argv-said*; E requires more: `GrokHarness` preflight **asserts** the flag parses (rc check, no model call), D-5 pins the assertion by literal, and the lane **refuses to fire** if the assertion fails. The flag remains undocumented at the top-level surface; a version bump can remove it with no help-diff to signal it, and the failure mode is silent re-entry through the concurrency door. This mattered least when D-6 was gated; it matters most now that D-6 fires. |
+| **F** (probe DISCHARGED) | **EXECUTED BY THIS ADDENDUM.** The U-4 Status paragraph recorded the discharge, but the clause body still asserted *"First step: headless-CLI capability probe — itself a Posture-1 Codex job."* My clause rewrite below carries the discharge into the clause itself. |
+
+**AMENDMENT G — THE A–F FOLD-IN DEBT IS NOW LOAD-BEARING, NOT HOUSEKEEPING.** § 10 cites Amendment B *by number* while § 4's G-3 still reads *"counts busy against ALL lanes on this host"* and § 3's union rule still counts `ENQUEUED` toward busy. One document now contradicts itself, and a reader who lands in § 4 gets the superseded text with no marker. Under the U-8-door scope this was cosmetic. Under AM-2 it is not: an unattributable out-of-band `codex exec` would, on the unamended G-3, close the **Grok** lane too — driving selection-law step 3 straight past spillover into step 4, which is the branch that spends Claude. The widening converted a textual defect into a routing defect. **Ruled: gandalf folds A–F into the spec bodies (§ 3 union rule, § 4 G-3) before the crawl fires through the selection law.** My record remains the ratification of record and star-lord builds from it — so this does **not** gate D-6.
+
+**AMENDMENT H — THE SELECTION LAW MUST SPEAK THE § 3 ANSWER-STATE VOCABULARY. `queue-pending` COUNTS AS *OPEN*.** § 10.3 says *open* and *closed*; § 3 already defines six answer states (`open`, `busy-lock`, `busy-out-of-band`, `queue-pending`, `auth-expired`, `cli-missing`). Two vocabularies for one question means every dispatcher re-derives the mapping, which is exactly the folklore the busy check was built to abolish. Compose the gap with Amendment A's own failure shape and the harm is concrete: one P-9 HELD job on each vendor lane makes both read *closed*, step 4 fires, and **Claude takes vendor-scoped work on backlog alone** — inverting Matt's verbatim floor via a state that means *the lane is free and a drain will take it*. **Ruled: `queue-pending` is OPEN for selection purposes.** *Closed* for steps 1/3/4 means `auth-expired` or `cli-missing` — the lane cannot take the work at all. `busy-lock` / `busy-out-of-band` are **occupied-but-available**: the lane takes the work by enqueue, which is step 4's default, not step 4's Claude branch. The dispatcher binds to the **one named "safe to fire" predicate** Amendment A already required MIGRATION.md to pin (ADR-004); the router's Q3 text — still *"last `_run-log.tsv` row terminal"*, which is leg 3 alone and pre-Amendment-A — binds to that same predicate rather than restating a rule it can drift from.
+
+**AMENDMENT I — THE WAIVED PILOT IS REPLACED BY A DECLARED 10-JOB BANKING WINDOW, NOT BY NOTHING.** A proof condition removed by directive leaves a hole that banking practice alone does not fill, because banking with no close never returns a verdict. **Ruled: the first 10 Grok jobs are a declared banking window.** Every row carries curator (R-B), resolved model id (C), declared effort (D), and the per-call `costUSD` the envelope already provides. At close, the window is compared against Codex's banked baseline on the criteria U-4's model-pin discipline already names — curation WARN rate and URL/claim-verification pass rate. Outcomes, all admissible: rates comparable → the deterministic order is confirmed as a banking artifact and re-ranking becomes a live U-5 question; rates materially worse → Codex primacy holds on evidence rather than on precedence, and Grok's scope is revisited **by amendment, at the same authority level that widened it**; **the window cannot be assembled because Grok never receives spillover** → the widening was inert, which is G-S4's *a lane that never fires has failed* applied to the second vendor, and is a finding, not a non-event. The judge door's information is not lost — § 10.2 keeps judge batches firing both vendors, so the three-way comparison still arrives; AM-2 removed its ordering as a gate, not its existence. 10 matches U-4's own router criterion; I am reusing an existing number rather than inventing one.
+
+## 4 · Rulings carried without amendment
+
+**§ 10.2 widening — RATIFIED.** The U-8 judge role retained *inside* the wider scope is the right shape: disagreement structure remains the product, galadriel stays primary, R-C provenance verbatim. A widening that had dissolved the judge door into general research would have cost the one thing the third vendor was admitted for.
+
+**§ 10.3(2) deterministic order — RATIFIED, and this is the clause I scrutinized hardest.** *Never random* is the load-bearing half. Random vendor assignment is an undeclared A/B experiment running permanently across every measurement the fleet takes — it would make every future comparative statistic unattributable (#10). The banked-vs-banking ground is real and it is the correct ground, because it names a condition under which the order **changes**: U-5 evidence, per-class comparative rows. An order grounded in preference could never be dislodged.
+
+**§ 10.4(2) — CORRECT, and correctly framed as *not a fork*.** Per-credential locking was ratified law from § 9.3; KR's *"strictly better than fallback"* is a reading of the design, not an assumption he was making. Nothing to rule.
+
+**§ 10.5 gate move — RATIFIED.** *A harness with no admitted workload is speculative code* was my endorsed test, and AM-2 admits the workload. The gate's premise is satisfied, not bypassed. **D-6…D-8 build-authorized**, under C, D, and E, composing with A and H.
+
+**§ 10.6 scope guard — RATIFIED.** Sealed and unchanged, verified against the spec text: serial law (Codex, vendor-precondition), serial-by-choice (Grok, § 9.3), THE LAW (U-1), R-B curator law, the Q62 ruling, the four-question router itself, the tier-2 VFX law and its § 6.6 fence, the whirlwind clean-room quarantine. **P-10 applies to Grok from birth — no hand-fire era, and AM-2 does not create one.**
+
+## 5 · Action
+
+- [ ] **gandalf** — Amendment G: fold A–F into the spec bodies (§ 3 union rule, § 4 G-3) before the crawl fires through the selection law; mark H's vocabulary binding into § 10.3 and I's banking window into § 10.4.
+- [x] **jack-ryan** — U-4 Grok clause rewritten to the superseding text (this addendum executing; Amendment F discharged in the clause body).
+- [ ] **star-lord** — D-6…D-8 **BUILD-AUTHORIZED NOW**. Carry Amendment E as a hard preflight (assert `--no-leader` parses; refuse to fire otherwise; D-5 pins it by literal), C (resolved id per call), D (`xhigh` argv-said from job one), A + H (`queue-pending` is not busy and is *open* for selection; one named safe-to-fire predicate in MIGRATION.md, ADR-004).
+- [ ] **KR** — bind the router's Q3 to the named predicate rather than to *"last row terminal"*; open the Amendment I banking window on the first Grok fire and count it.
+- [ ] **Matt** — nothing owed. The waiver is yours and is recorded as a waiver.
+
+## 6 · References
+
+- `agentic_orchestration/gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md` § 9, § 10 (commit `91de6444`)
+- `agentic_orchestration/gandalf/notes/2026-08-24-fleet-flightrecorder-board-spec-DRAFT.md` § 13.3 (AM-1 release valve — verified verbatim)
+- `agentic_orchestration/workflow-upgrades.md` § U-4 (clause rewritten by this addendum), § U-5 (re-rank evidence path), § U-8 (judge door, retained)
+- Live instrument check this session: `grok --reasoning-effort bogusvalue` parse-error vocabulary enumeration; `grok --version` (read-only, zero cost, no model call)
+
+---
+
+**jack-ryan**, 2026-08-24 — DEV-MODE **RE-RATIFICATION. RATIFIED-WITH-AMENDMENTS G, H, I.** A–F stand. No sealed clause reopened; no BLOCK issued. The waived condition is recorded as waived, and Amendment I gives it a close.
