@@ -1,6 +1,6 @@
 # KC2 LIFT RUN — charter + ruling ledger (desirable-run pattern)
 
-> **STATUS:** CHARTERED 2026-08-25 — awaiting Matt's launch word in a fresh session. Successor to the **KC2 MODEL-COMPLETION RUN** (`2026-08-24-kc2-model-completion-run-charter.md`, RUN CLOSED at L-95). Conductor: gandalf `RUN-CONDUCTOR` (charter's author conducts — intent residency, desirable-run-pattern § 2 element 3).
+> **STATUS:** LAUNCHED 2026-08-25 (Matt's launch word; ledger L-1) — RUN IN FLIGHT. Successor to the **KC2 MODEL-COMPLETION RUN** (`2026-08-24-kc2-model-completion-run-charter.md`, RUN CLOSED at L-95). Conductor: gandalf `RUN-CONDUCTOR` (charter's author conducts — intent residency, desirable-run-pattern § 2 element 3).
 > **Pattern authority:** `agentic_orchestration/operating-procedures/desirable-run-pattern.md`. **Fit test § 3: all four YES** (evaluated at § 3 below).
 
 ---
@@ -81,6 +81,7 @@ D-CP2-1 (Matt verbatim: *"live walls for both, dot ticks in spawn pools for both
 | Row | Date | Event / ruling | Boundary class |
 |---|---|---|---|
 | L-0 | 2026-08-25 | Charter authored at KC2-MC run close (L-95). Substrate frozen: 9 registry rows (pins above) + W1/W2. Launch awaits Matt's word in a fresh session. | commitment (launch is Matt's) |
+| L-1 | 2026-08-25 | **RUN LAUNCHED — Matt's word received in a fresh session ("This message is my LAUNCH WORD for the KC2 LIFT RUN… Begin with Wave-1. Push as you go").** Launch-state verification (slate-freshness, OP § 4.10 g-3; digests derived-not-retyped): **8/8 pinned substrate files re-hash OK** against § 1 pins; pack pair located at `src/reincarnated/output/`; receipt (`kc2-baton-v2-cut-receipt-20260825_163811.json`) digests match charter pins — model `302620c7…a875d` (10 members) / reference `b1034c77…44a6ed` (6 members); `provenance.json` `blocks_playability` = **9 rows, IDs = B1–B9 exactly**; both Matt queues glanced — no open row gates this run (charter ARCHITECT note holds). `ENABLE_PROMPT_CACHING_1H=1` confirmed live per Matt's launch-prompt ask. Push posture at launch word: per-fold conductor releases STAND (Matt did not narrow). **WAVE-1 FIRES per § 4:** legolas B1 target-selection decode lap (save/DBR/telemetry substrate FIRST; galadriel footage lap only on UNDECODABLE, routed via conductor) ∥ elrond B2–B8 curation pass (per-table schema, join keys, thin-row absences named; DR-1/DR-2/DR-3 lift shapes proposed) ∥ gamora W1 walls+pools sibling **prereg ALONE** (D4; D-CP2-1 verbatim carried; K-7 sealed digests `ad61ad2a…`/`20b05cb4…` named untouchable). Seats commit per R-L80-2 + the L-93 `-m`-eats-first-pathspec caution; seats never push — conductor releases per-fold. | reasoning (launch mechanics; the launch itself is Matt's word above) |
 
 ---
 
