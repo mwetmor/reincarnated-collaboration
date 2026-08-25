@@ -156,7 +156,49 @@ His instinct to preserve the artifact is **correct and is the project's establis
 
 ## § 6 — In-flight / queued
 
-### ⚑ § 6.0 — CURRENT FIRING STATE (2026-08-25, third session, ~18:10). **Read this before the HALT record below it — that HALT is RESOLVED.**
+### ⚑⚑ § 6.-1 — CURRENT FIRING STATE (~18:30). **Supersedes § 6.0 below, which is now stale in its agent roster.** § 6.0's *disk* figures still corroborate — see the re-projection.
+
+⚑ **THE HEADLINE: the capture OUTLIVED the agent that fired it, and rows 1–2 are FINAL.**
+
+drax returned **twice**. The first return carried **no result** — *"Post-chain is ready and syntax-checked. Waiting for the capture to finish."* **I checked the host rather than the report and found the capture still running.** This session has now seen a `completed` status that was **a lie** (an agent that died) and a `completed` status that was **true and still meant no result.** Same word, opposite meanings; **only the host distinguishes them. A dispatch is not complete because its agent returned.**
+
+**Rows 1–2 FINAL — 874/874 frames, 54/54 arms matched. Byte-identity: 0 identical, 874 differing → the fix reached these rows, outcome 0 refuted.**
+
+| cell | pre-fix | post-fix | Δ | rel | sign |
+|---|---|---|---|---|---|
+| arena | +0.2653 | +0.4955 | +0.2302 | +86.7% | preserved |
+| cathedral | +0.2069 | +0.3807 | +0.1738 | +84.0% | preserved |
+| **pooled** | **+0.2069** | **+0.3807** | **+0.1738** | **+84.0%** | **preserved** |
+
+⚑ **The gap WIDENED. The defect was SUPPRESSING the distinction, not manufacturing it** — the pessimistic reading everyone braced for (*"the class gap was an artefact of a broken capture path"*) is the one outcome the data rules out. **Pre-registered outcome 2.** drax attached no disposition: *"it is jack-ryan's."*
+
+⚑ **And jack-ryan pre-registered a falsifier for his own ruling WHILE THE CAPTURE WAS STILL EXECUTING.** Scored honestly: **direction HOLDS** · **the "gaps move « 0.2069" limb is a PRIMA FACIE FAILURE** (they moved +0.1738 — 84% of the gap) · **the decisive per-mob limb is UNTESTED** because drax reported per-cell, and **Mob3 is the off-path control the falsifier turns on.** The Commit-A by-design confound may explain it and is **named without being granted** — routed back to him, not ruled by me.
+
+**Two results that vindicate prior rulings by measurement, not argument:** drax built a **control arm for his own tool change** (without `--cap`, per-frame re-derivation delta **`0.000e+00`** → the post-fix `False (0/8)` is a **corpus** property, not his edit); and **`SC(coverage)` — the instrument R-1.1 explicitly REJECTED — inverts sign** on cathedral (−0.1313 → +0.0500) and collapses pooled to −0.0013, where the ruled instrument holds sign everywhere. **The rejected instrument is the pose-fragile one. R-1.1's floor was chosen before anyone could know that.**
+
+⚑ **NEAR-MISS, and the instruction was mine.** `run_s2c_rows12.sh` **wipes `s2c12` on every invocation with any argument** — and `s2c12` is the pre-fix capture the sealed adjudication rests on. **My "fresh suffix" instruction is safe in `run_s2c_rows38.sh` and is, in its sibling, the command that deletes the evidence.** drax caught it by **printing what the real scripts resolved to.** His diagnosis: *"I fixed the runner that had bitten me and did not sweep its sibling."* All five pre-fix dirs `chmod a-w`; **class sweep with a hit table including zero is dispatched.**
+
+**Re-projection, measured (`#1.1` discharged again, mid-run):** `s2c12v3` = 874 frames = **1.7 GB → 1.99 MB/frame.** Remaining **8.93 GB** (0.74 + 4.10 + 4.10) against **55 GB free → 6.2× margin. PASSES.** Timing 505 s/874 frames → **~44 min**, against drax's *"~45 min."*
+
+⚑ **Correction to my own record:** I wrote that `s2c38v3`/`s2c38v3b` *"already exist"* — **true and misleading.** They are **EMPTY**, created ahead of the passes that fill them. **Rows 3–8 have NOT started;** the orchestrator log shows rows12 first. **Fourth instance of my one recurring defect** (listing/name/status substituting for contents) — trigger + check filed at `knight-rider/rulings/2026-08-25-i-made-the-same-mistake-four-times-…md`.
+
+| Seam | Work | State |
+|---|---|---|
+| **the capture** | rows12_v3b (496/874), then 2× rows38 | **running unattended**; sentinel watch attached |
+| **drax** | post-chain — **per-mob breakdown REQUIRED**, flake floor first, class sweep, `census.json` park | **dispatched, gated on `COMPLETE`** |
+| **jack-ryan** | his own falsifier's disposition; the forward-pointer stamp he still owes | **re-fired** |
+| **gandalf** | Matt's VFX-depth critique — decompose "depth", rule cavitation, close the colour question, is irregularity mintable | **re-fired** |
+| **star-lord** | image lane + `preflight_failed` + `terminal` collision | **running** |
+
+**`census.json` RULED (jack-ryan): PARK** — quarantine path + `UNEXPLAINED-REGRESSION` marker. **Do not commit** (that is `#63` — an unmeasured zero promoted to a measured one on the authority surface); **do not discard.** **drax ratified by name** for refusing to dispose of a stranger's work.
+
+**Escalated to Matt (ADR-002, veto open):** `#75` cl. 7 · `#75` cl. 2 mandate-limb · `#62` cl. (c). ⚑ **`#75` cl. 7 inverts a default we had been running on: *"Sealing is not a disposition… the default for an untraced verdict is PROVISIONAL."***
+
+**WW-AB remains BLOCKED** — the HITL comparison arm **does not exist in any repo** (278 MP4s, zero matching `whirl|ww`; galadriel reached it by pixels, I reached it by a different predicate). **Matt question, not a search problem.**
+
+---
+
+### § 6.0 — CURRENT FIRING STATE (2026-08-25, third session, ~18:10). ⚑ **SUPERSEDED by § 6.-1 above as to the agent roster; disk figures still corroborate.** **Read this before the HALT record below it — that HALT is RESOLVED.**
 
 **Five agents concurrent.** The disk exhaustion that caused HALT #2 is cleared: **58 GiB free**, verified pre-fire, against a **~8.4 GB** projection — **~7× margin.** `#1.1` discharged properly this time, before firing rather than after.
 
