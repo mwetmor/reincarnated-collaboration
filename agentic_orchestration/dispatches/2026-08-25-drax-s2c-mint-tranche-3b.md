@@ -197,8 +197,19 @@ Run the **self-identity determinism probe** first: **three renders of one identi
 If parallel — or if the WW-AB session is live in this tree — **#62(a) binds:**
 
 - ⚑ **COMMIT WITH `git commit --only <named paths> -m "…"`. THIS IS THE LOAD-BEARING CLAUSE AND IT IS NEW (jack-ryan ruling, 2026-08-25).** A pathspec commit ignores other sessions' staged entries **by construction** — it removes the judgment rather than asking you to exercise it correctly at the moment of least attention. **The behavioural rule below is necessary and NOT sufficient**, and the evidence is brutal: **five instances, four agents, one day** (`2b289251`, `d7835900`, `a7bcd4ee`, `447d2d1d`, plus jack-ryan's own driver re-run self-staging into the shared engine index) — including **gandalf sweeping 24 foreign staged files one turn after ratifying the rule against it**, and the QA gatekeeper convicting himself in the act of auditing it. *Vigilance-based compliance failed twice in one hour, once by the ratifier.*
-  ⚠ **ARGUMENT ORDER IS A FOOTGUN: `--only` must precede `-m`.** Getting it wrong fails to match **and empties the index.**
-  ⚠ **Known-unverified edge:** pathspec commit interacts differently with **untracked** files (galadriel, L-77). **Nobody has run this at the git level**, so `--only` ships as **strong practice, not a guarantee** — if your paths are untracked, verify by the rule below rather than trusting the mechanism. Recorded as unverified rather than asserted, because a mechanical guarantee that is only believed is worse than a behavioural rule that is followed.
+  ⚑ **CORRECTED — I shipped a relayed footgun claim that is FALSE. Verified empirically on git 2.39.5 in a scratch repo:**
+
+  | form | actual behaviour |
+  |---|---|
+  | `git add <paths>` → `git commit --only <paths> -m "msg"` | ✅ **THE GUARANTEE HOLDS.** Carries exactly those paths; **sibling staged entries survive for their owner.** |
+  | `git commit -m "msg" --only <paths>` | ✅ Also fine. **Order does not matter.** |
+  | ⚑ `git commit --only -m <path1> <path2>` | ⚑ **THE REAL FOOTGUN. `-m` SILENTLY EATS THE FIRST PATHSPEC AS THE MESSAGE.** Commit succeeds, exit 0, message is literally `path1`, and `path1` is **not in the commit.** Wrong success, not a refusal. |
+  | `--only <never-added path>` | ✅ **Refuses safely**, index intact. |
+  | `--only` with no paths | ✅ Refuses safely. |
+
+  **What was wrong:** *"`--only` must precede `-m`; getting it wrong empties the index."* ⚑ **The index was NEVER emptied in any test**, and the order-rule is **backwards from its own source** — gandalf's L-90 names *pathspec-before-`-m`* as the footgun, which is the form that works. The claim **inverted across two hops** and arrived as an executable imperative: `#79` cl. 2 live, *"each hop launders it further from an authority that never existed."*
+
+  ⚑ **The only rule you need: `git add` your paths, then `git commit --only <same paths> -m "msg"`, and never put a pathspec immediately after `-m`.** galadriel's untracked caveat (L-77) is **real as behaviour, harmless as a hazard** — that case *refuses*. **`--only` is a VERIFIED guarantee, not strong practice.**
 - **Stage by explicit pathspec. Never `git add -A` or `git add .`**
 - ⚑ **Verify `git diff --cached --name-status` against the paths you named, IN ITS OWN TOOL CALL, READING THE RESULT, BEFORE the call that commits.** **Never `&&`-chain the check to `git commit`.** If the staged list holds a path you did not name, **`git restore --staged <path>` FIRST** — do not commit and explain.
   ⚠ **This wording is corrected from a LIVE FAILURE, mine, 2026-08-25.** I wrote the original form into this dispatch and then broke it myself within the hour: `git add <one file> && git diff --cached --name-status && git commit && git push` **ran the check, printed 20 files belonging to a concurrent session, and committed and pushed them in the same breath** — I read the evidence in the same tool result as the push confirmation. **`git diff` exits 0 whether it lists one file or a thousand, so `&&` cannot act on what it found. A verification chained to the action it verifies is not a gate; it is a receipt.** The original instruction was satisfiable without doing anything — the exact failure signature this dispatch enforces against everywhere else.
