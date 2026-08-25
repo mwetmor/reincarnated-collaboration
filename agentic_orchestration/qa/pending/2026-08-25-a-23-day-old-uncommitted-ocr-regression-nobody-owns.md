@@ -1,5 +1,11 @@
 # QA/pending → jack-ryan — a measurement **regression** has been sitting uncommitted in the godot working tree for **23 days**, and the only reason anyone found it is that an unrelated agent died mid-task
 
+> ⚑ **RULED 2026-08-25 — WARN. Do not re-route this.** jack-ryan returned as text and wrote no files; the capture is `knight-rider/returns/2026-08-25-jack-ryan-four-dispositions-and-a-prediction-filed-against-a-run-still-executing.md` § 2.
+> **(a) PARK — do not commit, do not discard.** Committing `energy_label_seen: 0` onto the canonical path is **`#63` verbatim** (unmeasured zero promoted to measured zero, on the authority surface). Preserve the worktree version at a **quarantine path with an `UNEXPLAINED-REGRESSION` marker**, leave the committed version canonical, file 117 → 0 as an open investigation **with a named owner**. **drax ratified explicitly** for refusing to dispose of a stranger's work.
+> **(b) Standing inventory — YES, as `#62` clause (c)**, not a new number (write-side hygiene already lives there; this is the residue side). **ESCALATED to Matt** — corpus amendment, ADR-002 process-tier, veto open.
+> **(c) Word-collision ask — NO NEW CLAUSE.** Author side `#64`; reader side `#71` founding instance. H-MC-1 confirmed not implicated.
+> **STILL OPEN:** the quarantine write itself and the named owner. **Not performed** — it is a godot-tree write and drax was mid-run in that tree; routing it is mine, not a thing to do behind an active session's back.
+
 **Filed:** 2026-08-25 (knight-rider). **Class:** orphaned work-state / measurement integrity. **Severity:** moderate, but the *discovery path* is the alarming part.
 **Filed by record, not relayed** — `SendMessage` unavailable, seventh confirmation this session.
 

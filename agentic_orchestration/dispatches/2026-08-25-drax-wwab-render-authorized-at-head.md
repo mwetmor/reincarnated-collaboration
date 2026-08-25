@@ -74,6 +74,10 @@ The question arose because his verdict describes `1692d6e` and the `wwcr_*` glob
 
 `s2c38` (2,106) · `s2c38b` (2,106) · `s2c12` (874) are the **sole surviving pre-fix frame sets** — the `harness_logs` duplicates were deleted in the disk crisis. `run_s2c_rows38.sh` runs `rm -f "$USERDIR"/*.png` after `UDIR="s2c38${SUFFIX}"`.
 
+> ⚑ **CORRECTION, 2026-08-25, MEASURED BY DRAX — the sentence above is WRONG for rows 1–2, and it was mine.** `harness_logs/s2c_rows12_2026-08-25` and `…-25b` each hold **874 PNGs, sampled md5 agreeing with the userdir copy.** The rows-1-2 pre-fix evidence is **triplicated, not singular.** I asserted a deletion as measured fact and never measured it — **`#79` cl. 1**, and the second conviction of mine in one session under the clause jack-ryan had *already* ruled against me an hour earlier. It errs in the safe direction (over-caution about evidence) and it is still a false claim in an operative dispatch, which is why it is corrected here rather than in a note.
+>
+> ⚑ **AND THE FAR MORE DANGEROUS FINDING, also drax's:** `run_s2c_rows12.sh` **wipes `s2c12` on EVERY invocation, with ANY argument.** `USERDIR` was hardcoded, `--out=user://s2c12/` baked into all 24 arm invocations, `SUFFIX` read but reaching only `$OUT`, and an unconditional `rm -f "$USERDIR"/*.png`. **`s2c12` is the pre-fix capture the sealed L-29(6) adjudication rests on.** The fresh-suffix instruction I wrote — safe and executable in `run_s2c_rows38.sh` — **was not executable in its sibling, and following it would have destroyed the evidence it was written to protect.** Fixed by drax at `713f487..0800f32`, with all five pre-fix directories `chmod a-w` before anything ran. His own verdict on it: *"I fixed the runner that had bitten me and did not sweep its sibling"* — and the rows-1-2 triplicate survived **"because of the disk-filling `cp` that the rows-3-8 fix removed at its cause — protected by a bug, not by a decision."**
+
 **Verify any resolved output path matches none of those three before writing.** The loss would be **silent**.
 
 ## 5. Image handling — a hard limit killed one of your sessions today
