@@ -109,6 +109,49 @@ DEFAULT_TIMEOUT_S = 3600
 #: fallback-metadata run is counted as a run at the pin.
 _MODEL_MISS_MARKER = "Model metadata for"
 
+#: **CONSECUTIVE `auth_expired` READINGS REQUIRED BEFORE THIS LANE MAY MINT TERMINAL.**
+#: Ported from the Grok lane on 2026-08-25, and the reason is recorded because the
+#: reason is the only thing anyone should carry between vendors here.
+#:
+#: **THE PREMISE I ORIGINALLY SAID WAS MISSING WAS THE WRONG PREMISE.** I held this fix
+#: on the ground that nobody has observed a ChatGPT-auth token refresh presenting as a
+#: failed `codex login status` — true, still true, and NOT what the debounce is a remedy
+#: for. The debounce is a remedy for minting an IRREVERSIBLE verdict from ONE sample of a
+#: network-backed credential check. That is a reading-discipline argument and it is
+#: vendor-independent; xAI's refresh timing is a vendor fact and does not travel. I
+#: conflated the two, and knight-rider's dispatch was right to make me decide rather than
+#: inherit.
+#:
+#: **AND ONE HALF OF THE HAZARD WAS LIVE AND NEEDED NO VENDOR PREMISE AT ALL.** MEASURED
+#: against pre-fix source: with `terminal` defaulting `True`, an **`auth_unknown`** — the
+#: 60 s `codex login status` timeout — handed the whole pending queue to the Claude
+#: fallback through P-7's one-way door. *"The CLI did not answer in 60 seconds"* is not a
+#: positive finding about anything, and it was spending the irreversible outcome. That is
+#: a host hiccup emptying a queue, and no claim about OpenAI's token behaviour is
+#: required to see it.
+#:
+#: ⚑ **A CLAIM I MADE HERE AND HAD TO WITHDRAW, KEPT because the withdrawal is the useful
+#: part.** I first wrote that `busy` was terminal too and was handing queues away on lane
+#: contention. **It was not.** `JobQueue.drain` guards with `if not state.ok and
+#: state.state != "busy"`, so `busy` never reached `_stop_on_closed_lane`. My own test
+#: went GREEN against pre-fix source and refuted me. What is true is narrower and still
+#: worth recording: `busy` DID carry `terminal=True` — a field asserting it may move
+#: ownership — and was saved only by a SEPARATE string comparison elsewhere. Two
+#: mechanisms answered one question, by field and by name, and they disagreed. Latent,
+#: not live. **The distinction is the whole discipline: an argument dressed as a
+#: measurement is exactly what the honest-labelling of this constant exists to prevent.**
+#:
+#: **NOTHING HERE IS EVIDENCE THAT CODEX HAS THE REFRESH DEFECT.** It does not exist. The
+#: `auth_expired` debounce is insurance chosen on cost asymmetry (~1-3 s and $0.00 against
+#: the whole queue plus a false Matt escalation), exactly as on the Grok lane, and a later
+#: reader must not mistake a ruling about reading discipline for a measurement.
+AUTH_CONFIRM_READINGS = 3
+
+#: `BASE * 2**(n-1)` -> 1 s, then 2 s. Same shape and same reasoning as the Grok lane's:
+#: exponential so the two extra samples ask "did a fast refresh land" and "did a slow
+#: one", rather than asking one question twice.
+AUTH_CONFIRM_BACKOFF_BASE_S = 1.0
+
 
 @dataclass(frozen=True)
 class LaneAvailability:
@@ -124,28 +167,34 @@ class LaneAvailability:
     ok: bool
     state: str
     reason: str
-    #: **A DECLARATION OF TODAY'S BEHAVIOUR, NOT A FIX. READ THE DEFAULT AS THE DEFECT.**
+    #: **CAN THIS STATE MOVE OWNERSHIP?** `False` means *stop the drain and change
+    #: nothing*; `True` means *this lane is confirmed unable to take the work, so
+    #: `jobqueue` may file the condition and hand pending jobs to the Claude fallback.*
     #:
-    #: `jobqueue._stop_on_closed_lane` now moves ownership to the Claude fallback only
-    #: for a state that says `terminal=True`, defaulting to `False` for a harness with
-    #: no opinion (stopping a drain is reversible; a `FALLBACK-CLAUDE` row is not).
-    #: Defaulting to `True` HERE reproduces this lane's current behaviour byte for byte:
-    #: every not-ok state Codex can report — `cli_missing`, `auth_expired`, AND
-    #: `auth_unknown` — empties the pending queue Claude-ward on ONE reading, exactly as
-    #: it did before this field existed.
+    #: **DEFAULT FLIPPED `True` -> `False` ON 2026-08-25.** It shipped `True` as an
+    #: honest declaration of an unfixed hazard, pinned by a green-on-purpose test. The
+    #: hazard is now CLOSED, and the disposition is recorded at `AUTH_CONFIRM_READINGS`
+    #: above rather than here because the reason is the interesting part.
     #:
-    #: **THE GROK LANE'S DEFECT ALMOST CERTAINLY LIVES HERE TOO, AND IS LEFT UNFIXED ON
-    #: PURPOSE** (star-lord, 2026-08-25). `check_auth` below takes ONE reading of
-    #: `codex login status`, has no re-probe and no debounce, and routes both a
-    #: one-shot `auth_expired` and a 60 s `auth_unknown` timeout to the same one-way
-    #: door. What is NOT established is the premise: nobody has observed a ChatGPT-auth
-    #: token auto-refresh presenting as a failed `codex login status` on this host, and
-    #: the Grok evidence does not travel to OpenAI any more than xAI's concurrency
-    #: evidence did (see this lane's serial law). Fixing it in the same commit as the
-    #: MEASURED Grok defect would widen a verified remedy into an unverified one.
-    #: **Flipping this default to `False` and porting the debounce is the whole of that
-    #: fix, when it is dispatched and measured.**
-    terminal: bool = True
+    #: The short form: `True` made an **`auth_unknown` 60 s TIMEOUT terminal**, and that
+    #: was measured against pre-fix source, not argued — a host hiccup handed the pending
+    #: queue to Claude through a door that does not open again. No claim about OpenAI's
+    #: token behaviour is needed to see it.
+    #:
+    #: Every construction site below now says `terminal=True` EXPLICITLY or means `False`
+    #: when it stays silent, and `jobqueue` reads it by `getattr(state, "terminal",
+    #: False)` so a harness with no opinion lands on the reversible outcome.
+    terminal: bool = False
+    #: What actually re-opens this lane, for the escalation artifact. Empty means the
+    #: credential remedy (`codex login`), which is what every terminal state on this lane
+    #: means today. Present for parity with the Grok lane so that `jobqueue` has ONE
+    #: contract to read rather than a per-vendor special case; no Codex state sets it yet,
+    #: and inventing a use for it here would be a field written to be exercised rather
+    #: than a field written to be needed.
+    remedy: str = ""
+    #: Whether that remedy is a MATT-ONLY action. `True` for every current Codex terminal
+    #: state: `cli_missing` and a confirmed `auth_expired` are both host-level.
+    matt_only: bool = True
 
 
 class CodexHarness:
@@ -156,6 +205,7 @@ class CodexHarness:
         executable: str = "codex",
         lock_path: Path | None = None,
         auth_probe: Any = None,
+        sleep: Any = time.sleep,
     ):
         self.executable = executable
         self.lock_path = lock_path
@@ -163,10 +213,20 @@ class CodexHarness:
         #: and without a Matt-only logout. Gate-2 C3's lesson: a verdict that can only
         #: be checked by spending money is a verdict nobody checks.
         self._auth_probe = auth_probe
+        #: Injected for the same reason, one level down: the DEBOUNCE is now the thing
+        #: under test, and a test that had to spend 3 real seconds to exercise it is a
+        #: test that gets deleted the first time the suite feels slow.
+        self._sleep = sleep
 
     # -- availability -------------------------------------------------------
-    def check_auth(self) -> LaneAvailability:
-        """`codex login status` — the check of record.
+    def probe_auth_once(self) -> LaneAvailability:
+        """ONE reading of `codex login status`. No re-probe, NEVER terminal-by-auth.
+
+        The raw instrument. It answers *"what did the CLI say just now"* and deliberately
+        nothing else; `check_auth` is what turns readings into a VERDICT. The split is
+        the remedy itself — while one method answered both questions, a reading and a
+        verdict were the same object, and a single bad reading was a terminal verdict by
+        construction.
 
         MEASURED (2026-08-24, codex-cli 0.147.0): logged in -> **rc=0, STDOUT EMPTY,
         and `Logged in using ChatGPT\\n` on STDERR.**
@@ -195,6 +255,11 @@ class CodexHarness:
         It fails CLOSED — a non-zero exit, an unrecognised answer, or a missing binary
         all read as "not authenticated". Given the above, treat that untested branch as
         genuinely untested rather than as covered by symmetry.
+
+        **AND THE DOWNSTREAM OF THAT DISCLOSURE IS NOW FOLLOWED**, which it was not while
+        this method was also the verdict: the untested negative branch went straight to
+        `jobqueue._stop_on_closed_lane`, which is terminal by design. No caller gets the
+        raw reading unless it asks for it by this name.
         """
         if self._auth_probe is not None:
             return self._auth_probe()
@@ -208,12 +273,22 @@ class CodexHarness:
                 False, "cli_missing",
                 f"{self.executable!r} is not on PATH; the Codex lane cannot be reached "
                 "from this process at all",
+                # TERMINAL on a DIFFERENT footing from the credential readings: this is a
+                # filesystem fact, deterministic, with no refresh window to race. One
+                # reading IS the confirmation and re-probing would spend wall time
+                # re-learning a constant.
+                terminal=True,
             )
         except subprocess.TimeoutExpired:
             return LaneAvailability(
                 False, "auth_unknown",
                 "`codex login status` did not answer within 60s. Absence of an answer "
-                "is not a pass — the lane is treated as closed.",
+                "is not a pass — the lane is treated as closed for THIS DRAIN, and "
+                "nothing more.",
+                # **NEVER TERMINAL, AT ANY READING COUNT.** A timeout is the absence of an
+                # answer, not an answer of "expired". Fire-unsafe, which stops the drain;
+                # not ownership-transferring, which would need a positive finding.
+                terminal=False,
             )
         # BOTH streams. The vendor puts the answer on stderr; reading one stream is
         # how this method spent a build reporting a healthy lane as expired.
@@ -226,11 +301,65 @@ class CodexHarness:
         return LaneAvailability(
             False, "auth_expired",
             "Codex auth is not healthy (`codex login status` exited "
-            f"{proc.returncode}: {answer[:300] or 'no output on either stream'}). "
-            "THIS IS NOT A JOB FAILURE AND MUST NOT BE RETRIED: re-authentication is a "
-            "MATT-ONLY action. The queue stops taking Codex jobs, files the condition, "
-            "and hands pending work to the named Claude curator's lane — idle work is "
-            "the failure, a filed row plus a fallback is the success.",
+            f"{proc.returncode}: {answer[:300] or 'no output on either stream'}).",
+            # UNCONFIRMED — one reading. The MATT-ONLY claim and the fallback are NOT made
+            # here any more; `check_auth` adds them after the readings agree.
+            terminal=False,
+        )
+
+    def check_auth(self) -> LaneAvailability:
+        """THE VERDICT. Debounced, and the ONLY thing on this lane that may mint terminal.
+
+        Mirrors the Grok lane's, and the placement is the same deliberate one: at the
+        narrowest waist every consumer already goes through, so that `factory lane-status`
+        — the surface a HUMAN reads a lane verdict off — cannot report a blip as a
+        closure. Putting it at the drain boundary would have been the easier write.
+
+        **`auth_unknown` DOES NOT ENTER THE LOOP.** No count of timeouts is a positive
+        finding, so re-probing one buys only wall time on the way to the same verdict, and
+        would push a `lane-status` worst case from 60 s to 180 s to answer a question it
+        already answered.
+
+        The raw single reading is still available, by the name `probe_auth_once`, so a
+        caller that genuinely wants an undebounced instrument reading must say so and
+        cannot get one by accident.
+        """
+        reading = self.probe_auth_once()
+        if reading.ok or reading.state != "auth_expired":
+            return reading
+
+        readings = 1
+        started = time.monotonic()
+        while readings < AUTH_CONFIRM_READINGS:
+            self._sleep(AUTH_CONFIRM_BACKOFF_BASE_S * (2 ** (readings - 1)))
+            reading = self.probe_auth_once()
+            readings += 1
+            if reading.ok:
+                # THE TRANSIENT, ABSORBED — and SAID rather than swallowed, so that "this
+                # lane blipped and recovered" is a visible lane event and not a silence
+                # identical to a lane that never blipped.
+                return LaneAvailability(
+                    True, "open",
+                    f"{reading.reason}  [auth reading 1 said not-authenticated and "
+                    f"reading {readings} said logged-in after "
+                    f"{time.monotonic() - started:.1f}s — TRANSIENT, absorbed]",
+                )
+            if reading.state != "auth_expired":
+                # The confirmation could not be COMPLETED. Not a confirmed expiry — a
+                # different unresolved state, travelling on its own `terminal` value
+                # rather than inheriting a verdict from reading 1.
+                return reading
+
+        return LaneAvailability(
+            False, "auth_expired",
+            f"{reading.reason} CONFIRMED by {readings} consecutive readings over "
+            f"{time.monotonic() - started:.1f}s. THIS IS NOT A JOB FAILURE AND MUST NOT "
+            "BE RETRIED: re-authentication is a MATT-ONLY action. The queue stops taking "
+            "Codex jobs, files the condition, and hands pending work to the named Claude "
+            "curator's lane — idle work is the failure, a filed row plus a fallback is "
+            "the success.",
+            # The ONE site on this lane that mints terminal from a credential reading.
+            terminal=True,
         )
 
     def availability(self) -> LaneAvailability:
@@ -244,6 +373,21 @@ class CodexHarness:
                 "another `codex exec` holds the serial lane. ONE `codex exec` at a "
                 "time, one `auth.json`, one job stream — queue behind it or fire the "
                 "Claude lane, NEVER parallel.",
+                # **SAID EXPLICITLY, AND UNTIL 2026-08-25 THE FIELD SAID THE OPPOSITE.**
+                # `busy` is OCCUPIED, not CLOSED — it clears by itself when the holder
+                # finishes, and a drainer's answer to it is to queue behind, never to hand
+                # work over.
+                #
+                # It carried `terminal=True` by default, and was saved only by a SEPARATE
+                # guard in `JobQueue.drain` (`state.state != "busy"`, keyed on the state's
+                # NAME). Two mechanisms answered one question — one by field, one by
+                # string — and they DISAGREED; inert only because the string one runs
+                # first. Renaming this state, or reaching `_stop_on_closed_lane` from any
+                # other caller, would have let the field's answer win. **Latent, never
+                # live** (a test written on the assumption it WAS live went green against
+                # pre-fix source and refuted the assumption). Said here so the two
+                # mechanisms now agree rather than merely not colliding.
+                terminal=False,
             )
         return LaneAvailability(True, "open", auth.reason)
 
@@ -313,6 +457,58 @@ class CodexHarness:
         )
 
     # -- argv ---------------------------------------------------------------
+    @staticmethod
+    def _image_argv(config: dict[str, Any]) -> list[str]:
+        """`-i/--image` — the vendor's image door, which this harness never opened.
+
+        **THE SITUATION THIS CLOSES.** Matt asked for Codex and Grok second opinions on
+        VFX frames. `codex exec` publishes `-i, --image <FILE>...` (*"Optional image(s) to
+        attach to the initial prompt"*, verified on this host at the CLI's own `--help`),
+        and `build_argv` emitted no such flag at any call site — `grep image|vision|
+        attach|png|base64` across `factory/harness/*.py` returned zero hits. The lane was
+        capable at the vendor and blocked by us.
+
+        **NO IMAGES MEANS NO ARGV, BYTE FOR BYTE.** Every existing Codex call must be
+        unchanged, and the risk here was never that images break — it is that adding a
+        parameter silently perturbs 34 banked jobs' invocation shape. `[]` in, `[]` out,
+        pinned by a test that compares a no-images argv against the literal current one.
+
+        **ONE `-i` PER FILE, NOT ONE `-i` WITH MANY VALUES.** `<FILE>...` is a greedy
+        multi-value option, and this lane's argv ENDS in a bare `-` (the stdin marker for
+        the prompt). `-i a.png b.png -` would let the greedy list reach for that `-` and
+        eat the prompt door. Repeating the flag terminates each occurrence at the next
+        flag-shaped token and never approaches the tail. It is also why the images are
+        emitted HERE — before `-m`, mid-argv — rather than adjacent to the `-` where they
+        read more naturally.
+
+        **PATHS ARE VALIDATED AT THE BOUNDARY** (discipline #8). A named image that does
+        not exist is refused at argv construction, where the caller learns which path and
+        why, instead of at the vendor, where it costs a launched process to learn that a
+        typo was a typo. It is refused rather than dropped: an image the caller asked for
+        and did not get, on a job whose whole purpose is to LOOK AT the image, produces an
+        answer about nothing that reads exactly like an answer about something.
+        """
+        raw = config.get("images") or []
+        if isinstance(raw, (str, Path)):
+            raise ValueError(
+                f"codex harness: `images` is {raw!r}, a single path. It must be a LIST of "
+                "paths — a bare string would iterate character by character and emit one "
+                "`-i` per letter, which the CLI would reject in a way that names neither "
+                "the config key nor the mistake."
+            )
+        argv: list[str] = []
+        for entry in raw:
+            path = Path(entry).expanduser()
+            if not path.is_file():
+                raise ValueError(
+                    f"codex harness: image {str(path)!r} does not exist (or is not a "
+                    "file). REFUSED rather than dropped: a vision job silently missing "
+                    "its image still returns a confident answer, and that answer is "
+                    "about nothing while reading exactly like an answer about something."
+                )
+            argv += ["-i", str(path)]
+        return argv
+
     def build_argv(self, config: dict[str, Any]) -> list[str]:
         sandbox = str(config.get("sandbox", DEFAULT_SANDBOX))
         if sandbox not in SANDBOX_MODES:
@@ -345,6 +541,7 @@ class CodexHarness:
         if config.get("skip_git_repo_check", True):
             argv.append("--skip-git-repo-check")
         argv += ["-s", sandbox]
+        argv += self._image_argv(config)
         # H1 on the second vendor: the pin is said ON THE ARGV, not left to
         # `~/.codex/config.toml`, which is ambient host state no file here controls.
         argv += ["-m", model]

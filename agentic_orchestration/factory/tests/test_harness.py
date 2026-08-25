@@ -344,6 +344,76 @@ def test_an_unenumerated_sandbox_is_REFUSED():
         CodexHarness().build_argv({"sandbox": "read_only"})  # underscore, not hyphen
 
 
+# ---------------------------------------------------------------------------
+# `-i/--image` — the vendor's image door, which this harness never opened
+#
+# Matt asked for Codex and Grok second opinions on VFX frames. `codex exec` publishes
+# `-i, --image <FILE>...` and `build_argv` emitted no such flag anywhere: the lane was
+# capable at the vendor and blocked by us. The RISK in closing that is not that images
+# break — it is that adding a parameter silently perturbs the argv shape of 34 banked
+# jobs, so the identity row below is the one that actually matters.
+# ---------------------------------------------------------------------------
+def test_NO_IMAGES_leaves_the_argv_BYTE_IDENTICAL_to_the_pre_image_build():
+    """The pin. Compared against a LITERAL, not against a re-derivation of the builder.
+
+    A row that asserted `build_argv(cfg) == build_argv(cfg)` would pass no matter what
+    the builder did to every call. This is the argv as it stood before `-i` existed,
+    written out by hand from the shape `test_the_model_pin_is_ON_THE_ARGV...` pins.
+    """
+    expected = [
+        "codex", "exec", "--json", "--ephemeral", "--skip-git-repo-check",
+        "-s", "read-only",
+        "-m", MODEL_PIN,
+        "-c", f'model_reasoning_effort="{MODEL_REASONING_EFFORT_PIN}"',
+        "-",
+    ]
+    assert CodexHarness().build_argv({}) == expected
+    assert CodexHarness().build_argv({"images": []}) == expected, (
+        "an EMPTY list must be indistinguishable from no key at all, or every caller "
+        "that defensively passes `images=[]` gets a different invocation than one that "
+        "does not"
+    )
+    assert "-i" not in CodexHarness().build_argv({})
+
+
+def test_IMAGES_are_emitted_ONE_FLAG_PER_FILE_and_never_reach_the_stdin_marker(tmp_path):
+    """`<FILE>...` is GREEDY, and this lane's argv ends in a bare `-`.
+
+    `-i a.png b.png -` would let the multi-value list reach for the stdin marker and eat
+    the prompt door. Repeating the flag terminates each occurrence at the next
+    flag-shaped token, which is also why the images sit mid-argv rather than beside the
+    `-` where they would read more naturally.
+    """
+    one, two = tmp_path / "a.png", tmp_path / "b.png"
+    one.write_bytes(b"\x89PNG")
+    two.write_bytes(b"\x89PNG")
+    argv = CodexHarness().build_argv({"images": [one, str(two)]})
+
+    assert argv.count("-i") == 2
+    assert argv[argv.index("-i") + 1] == str(one)
+    assert argv[-1] == "-", "the stdin marker survived the greedy option"
+    assert argv[-2] != str(two), "an image is adjacent to the prompt door"
+    assert argv.index("-i") < argv.index("-m")
+
+
+def test_a_NAMED_IMAGE_THAT_DOES_NOT_EXIST_is_REFUSED_at_argv_not_dropped(tmp_path):
+    """Refused, not silently skipped — discipline #8, at the boundary that can see it.
+
+    A vision job whose image quietly went missing still returns a fluent, confident
+    answer. That answer is about nothing and reads exactly like an answer about
+    something, which is the worst failure mode available on this lane.
+    """
+    with pytest.raises(ValueError, match="does not exist"):
+        CodexHarness().build_argv({"images": [tmp_path / "nope.png"]})
+
+
+def test_a_BARE_STRING_in_images_is_REFUSED_rather_than_iterated_per_character(tmp_path):
+    png = tmp_path / "a.png"
+    png.write_bytes(b"\x89PNG")
+    with pytest.raises(ValueError, match="must be a LIST"):
+        CodexHarness().build_argv({"images": str(png)})
+
+
 def test_the_codex_lane_REFUSES_a_tool_allowlist_it_cannot_enforce():
     """`codex exec` has no `--tools`. Accepting a list would be the fail-open."""
     with pytest.raises(ValueError, match="no tool allowlist"):

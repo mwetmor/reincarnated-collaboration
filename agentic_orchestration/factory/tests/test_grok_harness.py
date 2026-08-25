@@ -30,6 +30,8 @@ import pytest
 from factory.harness.grok import (
     AUTH_CONFIRM_READINGS,
     FORBIDDEN_PERMISSION_MODES,
+    LANE_STATE_PREFLIGHT_FAILED,
+    LANE_STATE_PREFLIGHT_UNKNOWN,
     MODEL_PIN,
     NO_LEADER_FLAG,
     REASONING_EFFORT_PIN,
@@ -140,6 +142,21 @@ def _harness(fake_grok: Path, lock_path: Path, **kw) -> GrokHarness:
     )
 
 
+def _vanished_binary_harness(lock_path: Path) -> GrokHarness:
+    """A harness whose CLI is NOT THERE, with auth pre-answered `open`.
+
+    Built by hand rather than through `_harness` because the executable is the variable
+    under test. Auth is injected open so that `availability()` reaches the PREFLIGHT —
+    otherwise `check_auth`'s own `cli_missing` (a different, correctly-terminal state)
+    answers first and the row would silently stop testing what it names.
+    """
+    return GrokHarness(
+        executable="/nonexistent/grok-binary", lock_path=lock_path,
+        auth_probe=lambda: LaneAvailability(True, "open", "logged in"),
+        sleep=lambda _s: None,
+    )
+
+
 def _argv(tmp_path: Path) -> list[str]:
     return json.loads((tmp_path / "argv.json").read_text(encoding="utf-8"))
 
@@ -172,9 +189,9 @@ def test_AMENDMENT_E_no_leader_is_on_EVERY_argv(fake_grok, lock_path, tmp_path):
 
 
 def test_AMENDMENT_E_the_PREFLIGHT_ASSERTS_the_flag_rather_than_assuming_it(fake_grok, lock_path):
-    ok, why = _harness(fake_grok, lock_path).assert_no_leader_parses()
-    assert ok is True
-    assert NO_LEADER_FLAG in why
+    verdict = _harness(fake_grok, lock_path).assert_no_leader_parses()
+    assert verdict.ok is True
+    assert NO_LEADER_FLAG in verdict.reason
 
 
 def test_AMENDMENT_E_a_REJECTED_flag_REFUSES_THE_FIRE(fake_grok, lock_path, tmp_path, monkeypatch):
@@ -186,14 +203,14 @@ def test_AMENDMENT_E_a_REJECTED_flag_REFUSES_THE_FIRE(fake_grok, lock_path, tmp_
     """
     monkeypatch.setenv("FAKE_GROK_REJECT_NO_LEADER", "1")
     harness = _harness(fake_grok, lock_path)
-    ok, why = harness.assert_no_leader_parses()
-    assert ok is False
-    assert "REFUSES TO FIRE" in why
+    verdict = harness.assert_no_leader_parses()
+    assert verdict.ok is False
+    assert "REFUSES TO FIRE" in verdict.reason
 
     result = harness.run("hello", tmp_path, _cfg())
     assert result.ok is False
     assert "PREFLIGHT REFUSED" in (result.error or "")
-    assert (result.extra or {}).get("lane_state") == "preflight_failed"
+    assert (result.extra or {}).get("lane_state") == LANE_STATE_PREFLIGHT_FAILED
     assert not (tmp_path / "argv.json").exists(), (
         "the refused lane still launched the CLI. A refusal that runs the process "
         "anyway is not a refusal."
@@ -210,16 +227,128 @@ def test_AMENDMENT_E_the_assertion_checks_rc_AND_the_rejection_sentence(fake_gro
         fake_grok, lock_path,
         preflight_probe=lambda: (False, "rc=0 but stderr said: unexpected argument"),
     )
-    assert warn_and_continue.assert_no_leader_parses()[0] is False
+    assert warn_and_continue.assert_no_leader_parses().ok is False
 
 
 def test_AMENDMENT_E_a_FAILED_preflight_closes_availability_BEFORE_the_busy_probe(
         fake_grok, lock_path):
-    """A caller must never see `open` on a lane the harness will then refuse to fire."""
+    """A caller must never see `open` on a lane the harness will then refuse to fire.
+
+    The injected probe returns a LEGACY 2-TUPLE on purpose: `_as_preflight_verdict`
+    coerces it, and it lands on `refuted=False` — the non-terminal side — because a probe
+    written before that field existed never claimed a refutation and does not get
+    credited with one.
+    """
     harness = _harness(fake_grok, lock_path, preflight_probe=lambda: (False, "flag gone"))
     state = harness.availability()
     assert state.ok is False
-    assert state.state == "preflight_failed"
+    assert state.state == LANE_STATE_PREFLIGHT_UNKNOWN
+    assert state.terminal is False
+
+
+# ===========================================================================
+# 1b — PREFLIGHT: **REFUTED** vs **UNANSWERABLE**, told apart
+#
+# The auth defect wearing different clothes. `assert_no_leader_parses` folded "the CLI
+# REJECTED the flag" (a positive, permanent finding) and "the assertion could not be
+# MADE" (a timeout, a vanished binary) into one `False`, and that `False` minted
+# `terminal=True` — P-7's one-way door. The second harm the auth case did not have: the
+# escalation named `grok login`, a remedy that CANNOT work for a flag a CLI update
+# removed. Matt runs it, it succeeds, the lane stays shut, and the next escalation is
+# read with less trust than this one.
+# ===========================================================================
+def test_PREFLIGHT_an_UNANSWERABLE_assertion_is_NOT_terminal(fake_grok, lock_path):
+    """The binary is gone, so `--no-leader` was NEITHER accepted NOR rejected.
+
+    Driven through the REAL subprocess path with a path that does not exist, rather than
+    through an injected probe: the thing under test is what the harness concludes from a
+    `FileNotFoundError`, and an injected verdict would be me asserting my own answer.
+
+    Fire-unsafe (the drain stops) but NOT ownership-transferring. Identical footing to
+    `auth_unknown`: absence of an answer is not an answer.
+    """
+    harness = _vanished_binary_harness(lock_path)
+    verdict = harness.assert_no_leader_parses()
+    assert verdict.ok is False
+    assert verdict.refuted is False, (
+        "no `grok` was reached, so no `grok` rejected anything. Crediting this with a "
+        "refutation is how a sick host empties a queue."
+    )
+
+    state = harness.availability()
+    assert state.state == LANE_STATE_PREFLIGHT_UNKNOWN
+    assert state.terminal is False, (
+        "an assertion that could not be MADE just minted the one-way door. Stopping a "
+        "drain is reversible; a FALLBACK-CLAUDE row is not."
+    )
+
+
+def test_PREFLIGHT_a_REFUTED_flag_IS_terminal_and_carries_its_OWN_remedy(
+        fake_grok, lock_path, monkeypatch):
+    """The CLI answered and said no. Positive, permanent — and NOT a credential problem."""
+    monkeypatch.setenv("FAKE_GROK_REJECT_NO_LEADER", "1")
+    harness = _harness(fake_grok, lock_path)
+    verdict = harness.assert_no_leader_parses()
+    assert verdict.ok is False
+    assert verdict.refuted is True
+
+    state = harness.availability()
+    assert state.state == LANE_STATE_PREFLIGHT_FAILED
+    assert state.terminal is True
+    assert NO_LEADER_FLAG in state.remedy, (
+        "a terminal non-credential state that names no remedy of its own inherits the "
+        "lane's credential remedy, which is the whole defect this row is about"
+    )
+    assert "WILL NOT FIX IT" in state.remedy, (
+        "the remedy names `grok login` exactly once and only to REFUSE it — the reader "
+        "reaches for it first, so the refusal has to arrive before he does"
+    )
+    assert state.matt_only is False, (
+        "amending `NO_LEADER_FLAG` and `build_argv` is the seam owner's work. Queueing "
+        "it to the one person who cannot perform it is how an escalation surface earns "
+        "the right to be ignored."
+    )
+
+
+def test_PREFLIGHT_the_two_branches_are_DISTINGUISHABLE_on_the_run_log(
+        fake_grok, lock_path, tmp_path, monkeypatch):
+    """`run()` refuses either way — and records WHICH, or nobody can count them apart."""
+    monkeypatch.setenv("FAKE_GROK_REJECT_NO_LEADER", "1")
+    refuted = _harness(fake_grok, lock_path).run("hello", tmp_path, _cfg())
+    assert (refuted.extra or {}).get("lane_state") == LANE_STATE_PREFLIGHT_FAILED
+
+    monkeypatch.delenv("FAKE_GROK_REJECT_NO_LEADER")
+    unknown = _vanished_binary_harness(lock_path).run("hello", tmp_path, _cfg())
+    assert (unknown.extra or {}).get("lane_state") == LANE_STATE_PREFLIGHT_UNKNOWN
+    assert unknown.ok is False, "unverifiable is still fire-unsafe; only the LABEL differs"
+
+
+def test_PREFLIGHT_the_ESCALATION_ARTIFACT_does_NOT_tell_Matt_to_re_authenticate(
+        fake_grok, lock_path, tmp_path, monkeypatch):
+    """The second harm, and the one the auth case did not have.
+
+    `AUTH-BLOCKED.md` used to say *"grok lane re-authentication — `~/.grok/bin/grok
+    login` on the Mac"* for EVERY terminal state, including a `--no-leader` flag a CLI
+    update removed. That remedy SUCCEEDS and changes nothing. The cost is not the wasted
+    minute: it is that the escalation surface has now spent its credibility, and the next
+    row Matt reads on it is one he has been trained to discount.
+    """
+    monkeypatch.setenv("FAKE_GROK_REJECT_NO_LEADER", "1")
+    root = tmp_path / "queue"
+    queue = JobQueue(root, lane="grok")
+    queue.enqueue(job_id="01-a", prompt="x", curator="elrond", seam=SEAM, sandbox="n/a")
+    report = queue.drain(_harness(fake_grok, lock_path))
+
+    assert report.lane_state == LANE_STATE_PREFLIGHT_FAILED
+    note = (root / "AUTH-BLOCKED.md").read_text(encoding="utf-8")
+    assert "re-authentication" not in note.lower()
+    assert "NOT MATT-ONLY" in note
+    assert NO_LEADER_FLAG in note and "star-lord" in note, (
+        "the note must name the real remedy and its real owner, or it is an escalation "
+        "that tells its reader nothing they can act on"
+    )
+    blocked = [e for e in queue.telemetry.events() if e["event"] == "lane_blocked"]
+    assert blocked[0]["passthrough"]["matt_only_action"] is False
 
 
 # ===========================================================================

@@ -1277,3 +1277,145 @@ It is **not silent**: `DrainReport.stopped_reason` leads with `DRAIN STOPPED, NO
 | knight-rider, watching for `AUTH-BLOCKED.md` | the file is now written **only** for a confirmed terminal state. Its absence after a stopped drain is now informative rather than ambiguous. |
 | writing a NEW vendor harness | `jobqueue` reads `getattr(state, "terminal", False)` — **absent means NOT terminal.** A harness with no opinion lands on the reversible outcome and will stop drains without ever handing work off. Declare `terminal=True` deliberately, or not at all. |
 | jack-ryan, at Gate 2 | the RED-proof is recorded: 10 of the 12 new Grok rows fail against pre-fix source in a detached worktree at `4adb7ce0`; the headline is `test_D12_a_TRANSIENT_reading_hands_ZERO_JOBS_TO_CLAUDE` failing `assert ['j0.json','j1.json','j2.json'] == []`. Full suite **845 passed** (832 baseline + 13). |
+
+---
+
+## lane-availability v4 — the IMAGE LANE opens, and the three items v3 flagged are dispositioned (2026-08-25)
+
+**Shipped:** 2026-08-25. **Author:** star-lord.
+**Authority:** knight-rider dispatch `2026-08-25-star-lord-image-lane-and-the-two-you-flagged.md`. §§ 2–4 discharge the three items v3 named and declined to fix (§ 12.5, § 12.6, and the display-word collision), each of which was flagged back to knight-rider for a dispatch rather than picked up autonomously.
+**Blast radius:** **the Codex lane's argv (additively), the Grok lane's preflight verdict type, and the escalation artifact's text.** `_run-log.tsv` unchanged, still six columns, no new markers. `receipts.db` untouched. `_custody.tsv` untouched. **One `factory` CLI display string renamed** (§ 13.5). One `lane_state` token added (§ 13.3). One telemetry `outcome` value now varies (§ 13.4).
+**No breaking change for job authors.** Every existing Codex call produces a **byte-identical** argv (§ 13.2, pinned against a literal).
+
+---
+
+### 13.1 ⚑ THE IMAGE PROBE — **BOTH LANES CAN SEE AN IMAGE. Matt's request is executable.**
+
+Matt asked for **Codex and Grok second opinions on the VFX frames**. knight-rider's ruling found the request *not executable as framed*: Codex has `-i/--image` that our `build_argv` never emitted, and **Grok "has no `--image` flag at all."** The second half is true of the flag surface and **false of the capability**, and the difference was one call.
+
+**Both probes ran on this host, 2026-08-25. Both returned real image comprehension.**
+
+| Lane | Door | Verified how |
+|---|---|---|
+| **Grok** | `--prompt-json` with an **ACP `image` content block** | live call, `grok-4.6-build`, $0.0032 |
+| **Codex** | `-i/--image <FILE>` | live call, `gpt-5.6-sol` @ `xhigh`, via the argv `build_argv` now emits |
+
+**THE PROBE WAS DESIGNED SO A HALLUCINATION WOULD BE VISIBLE.** A model describing `red_square.png` as "a red square" proves nothing. The probe image was a 640×300 PNG named `probe-01.png` whose content is unguessable from its name: a blue square upper-left, a red circle lower-right, and two text strings, `VXQ-7413` and `SEVEN SPOONS`.
+
+Both models returned **both strings verbatim and both shapes in their correct corners.**
+
+```
+Grok  : "A white graphic with a blue square on the left, the labels VXQ-7413 and
+         SEVEN SPOONS beside it, and a red circle in the lower-right corner."
+Codex : "A blue square appears at the upper left and a red circle at the lower right
+         beside the text "VXQ-7413" and "SEVEN SPOONS"."
+```
+
+**The Grok content-block vocabulary is the CLI's own, and the CLI names it in its rejection.** The OpenAI-style `image_url` block — the obvious first guess — is refused, and the refusal is the documentation:
+
+```
+$ grok --prompt-json '[{"type":"text",...},{"type":"image_url",...}]'
+Error: --prompt-json: Invalid ACP content blocks: unknown variant `image_url`,
+       expected one of `text`, `image`, `audio`, `resource_link`, `resource`
+```
+
+The accepted shape is ACP's: `{"type": "image", "data": "<base64>", "mimeType": "image/png"}` in an array alongside a `text` block. **That rejection cost $0.00** — it fails at argv parse, before any model call.
+
+**NOTHING IS WIRED FOR GROK. That was the dispatch's boundary and it is kept.** `harness/grok.py` `build_argv` is untouched by this section; the lane still emits `-p <prompt>` on argv only. The probe establishes the door exists and what shape fits it. **Wiring it is a separate dispatch with its own tests**, and it is not a small one: `--prompt-json` replaces `-p`, so the prompt stops travelling on argv, and `MAX_PROMPT_ARGV_BYTES` — the ceiling `build_argv` refuses against — is measuring the wrong thing the moment a base64 image joins it. A 640×300 PNG is 11.8 KB of JSON; **a real VFX frame is not.**
+
+⚑ **AND THE 2000px WALL APPLIES TO WHOEVER WIRES IT.** A 20-minute drax run died at `400 invalid_request` — *image dimensions exceed 2000px for many-image requests* — at ~128 accumulated image blocks (knight-rider ruling, 2026-08-25). **These probes used ONE small synthetic image on purpose**, and deliberately answer only the plumbing question. Nothing here establishes what happens at frame scale or at frame count, and a wiring dispatch must not read this section as though it did.
+
+### 13.2 ADDITIVE — `codex.py` `build_argv` emits `-i/--image`
+
+```python
+argv += self._image_argv(config)   # after `-s <sandbox>`, before `-m <model>`
+```
+
+`config["images"]` is a **list of paths**, default absent/empty.
+
+| You pass | You get |
+|---|---|
+| nothing, or `images: []` | **byte-identical argv to before this change**, pinned in `test_NO_IMAGES_leaves_the_argv_BYTE_IDENTICAL_to_the_pre_image_build` against a hand-written literal — not against a re-derivation of the builder, which would pass no matter what the builder did |
+| `images: [p1, p2]` | `-i <p1> -i <p2>` |
+| `images: "one.png"` (a bare string) | **`ValueError`** — a string would iterate per character and emit one `-i` per letter |
+| `images: [<path that does not exist>]` | **`ValueError` at argv, before launch** |
+
+**ONE `-i` PER FILE, NOT ONE `-i` WITH MANY VALUES, and the position is load-bearing.** `<FILE>...` is a greedy multi-value option and this lane's argv **ends in a bare `-`** (the stdin marker the prompt arrives through). `-i a.png b.png -` would let the greedy list reach for that `-`. Repeating the flag terminates each occurrence at the next flag-shaped token; emitting mid-argv keeps the tail out of reach entirely.
+
+**A missing image is REFUSED, not dropped** (discipline #8, at the boundary that can still see it). A vision job whose image silently went missing returns a fluent, confident answer — **about nothing, in the exact register of an answer about something.** That is the worst failure available on a lane whose whole purpose is to look at a picture.
+
+### 13.3 `preflight_failed` — **REFUTED and UNANSWERABLE are separated** (§ 12.6 discharged)
+
+`assert_no_leader_parses` returned `tuple[bool, str]`, which cannot express the difference between *the CLI REJECTED the flag* and *the assertion could not be MADE*. Both were one `False`, and that `False` minted `terminal=True`.
+
+**It returns `PreflightVerdict(ok, reason, refuted=False)` now.** `refuted` is `True` at exactly one site: the CLI ran, exited, and said no.
+
+| Condition | `refuted` | `LaneAvailability.state` | `terminal` |
+|---|---|---|---|
+| rc≠0, or the rejection sentence on rc=0 | `True` | `preflight_failed` | **`True`** |
+| 30 s timeout on `grok --no-leader --version` | `False` | **`preflight_unknown`** *(new token)* | `False` |
+| binary vanished / never resolved | `False` | **`preflight_unknown`** | `False` |
+
+**`preflight_unknown` is a NEW `lane_state` token**, on both `LaneAvailability.state` and `RawResult.extra["lane_state"]`. A consumer matching `preflight_failed` will now miss the unanswerable half — **which is the point**: a host hiccup and a CLI that removed a flag were being counted as one thing and could not be told apart afterwards.
+
+**Injected `preflight_probe`s may still return a 2-tuple.** `_as_preflight_verdict` coerces it with `refuted=False` — the non-terminal side. A probe written before the field existed never claimed a refutation and does not get credited with one.
+
+### 13.4 ⚑ THE ESCALATION NAMES THE **RIGHT REMEDY** — additive `remedy` + `matt_only`
+
+**This is the half of § 12.6 that was not about the queue at all.** `AUTH-BLOCKED.md` said, for **every** terminal state:
+
+> **grok lane re-authentication** — `~/.grok/bin/grok login` on the Mac.
+
+For a `--no-leader` flag a CLI update removed, **that remedy succeeds and changes nothing.** Matt runs it, it works, the lane stays shut. The cost is not the wasted minute — it is that the escalation surface has spent its credibility, and the next row he reads on it is one he has been trained to discount.
+
+Two additive fields on `LaneAvailability`, read by `jobqueue` defensively:
+
+```python
+remedy: str = ""        # getattr(state, "remedy", "")     — empty = the credential remedy
+matt_only: bool = True  # getattr(state, "matt_only", True)
+```
+
+**Every existing site and every harness with no opinion produces byte-identical escalation text.** Only `preflight_failed` sets them today: `remedy` names the real fix (re-read `grok --help`, amend `NO_LEADER_FLAG` / `build_argv`, or pin the CLI back) and **names `grok login` exactly once, to refuse it by name** — the reader reaches for it first, so the refusal has to arrive before he does. `matt_only=False`, because it is the seam owner's work.
+
+**`AUTH-BLOCKED.md` KEEPS ITS NAME, and that was a decision, not an oversight.** The name is now wider than its content — a terminal state need not be a credential state. Renaming per cause was **REFUSED**: `cli.py`'s `lane-status` tail and knight-rider's filing habit both watch that exact filename, and **a block landing under a name nobody watches is a worse defect than a name that reads slightly wide.** The heading and the row inside say what it actually is.
+
+Telemetry: `event` stays **`lane_blocked`** (its meaning — confirmed closure, ownership moved, note written — did not change). `outcome` is now derived: **`auth_blocked`** when the harness named no remedy, **`lane_blocked`** when it did. `passthrough` gains `remedy` and carries the real `matt_only_action`.
+
+### 13.5 The word collision — the **display string** renamed, not the field
+
+`factory lane-status` printed `terminal : True`, meaning *"the last run-log row is a completion marker"* — a fact about the **job ledger**. `LaneAvailability.terminal` means *"this state may move ownership through P-7's one-way door"*. Two fields, one word, **read side by side during an incident.**
+
+```
+- terminal  : True   (leg 3 raw; NOT the fire predicate)
++ log idle  : True   (leg 3 raw: last run-log row is a completion marker; NOT the fire predicate)
+```
+
+**The display string was renamed and the field was not**, because the string has no consumers beyond human eyes while `LaneAvailability.terminal` is a contract with § 12.2 behind it. Anything scraping this line by the token `terminal` breaks; nothing in this repo does.
+
+### 13.6 ⚑ THE CODEX HAZARD — **DISPOSITION: CLOSED** (§ 12.5 discharged)
+
+`LaneAvailability.terminal` defaulted `True` in `harness/codex.py` as an honest declaration of an unfixed hazard, pinned by a green-on-purpose test. **It is now `False`, the debounce is ported (`probe_auth_once` / `check_auth`, `AUTH_CONFIRM_READINGS = 3`), and the pinning test has been replaced by four rows asserting the fixed behaviour.**
+
+**THE REASON I HELD IT WAS THE WRONG PREMISE, and knight-rider was right to make me decide rather than inherit.** I held on the ground that nobody has observed a ChatGPT-auth token refresh presenting as a failed `codex login status`. That is **still true and still unobserved** — and it is not the premise the debounce needs. The premise it needs is that **one sample of a network-backed credential check is a bad instrument for an irreversible verdict**, which is reading discipline and does not belong to a vendor. I had conflated the two.
+
+**AND HALF THE HAZARD WAS LIVE, MEASURED, AND NEEDED NO VENDOR CLAIM.** Against pre-fix source, `test_a_CODEX_auth_TIMEOUT_is_NEVER_terminal_at_any_reading_count` fails with `01-a.json` sitting in `fallback/`: **a 60 s `codex login status` timeout — a host hiccup — handed the pending queue to Claude through a door that does not open again.**
+
+⚑ **A CLAIM I MADE IN THIS SECTION AND WITHDREW. The withdrawal is recorded because it is the useful part.** I first wrote that `busy` was terminal too and was handing queues away on lane contention. **It was not.** `JobQueue.drain` guards with `if not state.ok and state.state != "busy"`, so `busy` never reached `_stop_on_closed_lane`. **A test written to prove that live defect went GREEN against pre-fix source and refuted me** — before the reasoning reached this file dressed as a measurement. What is true is narrower and is now pinned: `busy` **carried** `terminal=True` while a *separate* comparison against the state's **name** was the only thing stopping it. Two mechanisms, one question, disagreeing; inert only because the string-keyed one runs first. **Latent, never live.**
+
+**NOTHING IN THIS SECTION IS EVIDENCE THAT CODEX HAS THE REFRESH DEFECT.** No such evidence exists. The `auth_expired` debounce is insurance on cost asymmetry (~1–3 s and $0.00, against the whole queue plus a false Matt escalation), exactly as on the Grok lane. **A later reader must not read a ruling about reading discipline as a measurement of OpenAI's token behaviour** — that inversion is precisely what `AUTH_CONFIRM_READINGS`' own comment was written to prevent, on both lanes.
+
+Codex terminal sites after the close: **`cli_missing`** (a deterministic filesystem fact — one reading IS the confirmation) and **`auth_expired` confirmed by 3 consecutive readings**. `auth_unknown` and `busy` are never terminal at any count.
+
+### 13.7 What a consumer must do
+
+| You are | Do |
+|---|---|
+| a job author enqueuing Codex work | **nothing.** Argv is byte-identical without `images`. |
+| a job author who wants Codex to LOOK at something | pass `images: [<path>, ...]`. Non-existent paths are refused at argv, before launch. |
+| a job author enqueuing Grok work | **nothing**, and **do not expect images** — the Grok door is probed, not wired. See § 13.1. |
+| matching on `lane_state` | handle **`preflight_unknown`** alongside `preflight_failed`. Matching only the latter now silently drops the unanswerable half. |
+| consuming the telemetry stream | `lane_blocked`'s **`outcome`** is now `auth_blocked` **or** `lane_blocked`. Key on `event`, not on `outcome`, if you want every confirmed closure. |
+| knight-rider, filing `AUTH-BLOCKED.md` | **read the row before filing it.** It is no longer always a re-auth. A row saying `NOT MATT-ONLY` is a seam-owner engineering task and filing it to `matt_to_do/` is now the error the file is designed to prevent. |
+| gamora / drax / jack-ryan, reading `DrainReport` | unchanged from § 12.7 — plus `lane_state` may now be `preflight_unknown`, which means **stopped, nothing handed off**. |
+| writing a NEW vendor harness | `jobqueue` reads `terminal`, `remedy` and `matt_only` by `getattr` with safe defaults (`False`, `""`, `True`). A harness with no opinion stops drains, never hands work off, and escalates with the credential remedy. |
+| jack-ryan, at Gate 2 | **RED-proof recorded, detached worktree at `9508b867`.** Grok preflight: 4 new rows fail pre-fix; headline `assert 'preflight_failed' == 'preflight_unknown'`, and the escalation row failing on the literal text *"grok lane re-authentication — `~/.grok/bin/grok login` on the mac"* filed for a refuted flag. Codex: 4 rows fail pre-fix; headline `01-a.json` in `fallback/` after a 60 s timeout. Images: 3 rows fail pre-fix, identity row green both sides **by design**. Full suite **856 passed** (845 baseline + 12 new − 1 replaced pin). **Two pre-existing gates fired during the run and neither was silenced:** `test_JR24` refused `PREFLIGHT_REFUTED_REMEDY` as an unplaceable public UPPERCASE name — correct, it is a scalar sentence, now named in `NOT_A_VOCABULARY` with its reason *and* with the row that asserts its content; `test_C2` failed **collaterally** in the same run (4/4 green in isolation) because a suite-wide assert-reach audit cannot see past a red row. |

@@ -1029,8 +1029,36 @@ class JobQueue:
         # VENDOR-GENERIC. The filename is unchanged because knight-rider's filing habit
         # and the `lane-status` check both look for it by name; the CONTENT names which
         # lane and which state, so a Grok block never reads as a Codex one.
+        #
+        # **AND THE FILENAME IS NOW ALSO WIDER THAN ITS CONTENT, DELIBERATELY.** A
+        # terminal state no longer has to be a CREDENTIAL state — a refuted `--no-leader`
+        # preflight is terminal and is not an auth problem — so `AUTH-BLOCKED.md` is now
+        # the name of a CHANNEL rather than a claim about the cause. Renaming it per cause
+        # was considered and REFUSED: `cli.py`'s `lane-status` tail and knight-rider's
+        # filing habit both watch this exact name, and a block that lands under a name
+        # nobody watches is a worse defect than a name that reads slightly wide. The
+        # HEADING and the row inside say what it actually is.
         relogin = {"codex": "codex login", "grok": "~/.grok/bin/grok login"}.get(
             self.lane, f"re-authenticate the {self.lane} CLI"
+        )
+        # **THE REMEDY IS THE HARNESS'S TO NAME**, read defensively so that every existing
+        # site and every harness with no opinion produces byte-identical text to before.
+        # An empty remedy means the credential one, which is what every terminal state
+        # meant when re-authentication was the only way a lane could be terminal.
+        remedy = str(getattr(state, "remedy", "") or "").strip()
+        matt_only = bool(getattr(state, "matt_only", True))
+        if remedy:
+            headline = f"**{self.lane} lane BLOCKED — `{state.state}`**"
+            action = remedy
+        else:
+            headline = f"**{self.lane} lane re-authentication**"
+            action = f"`{relogin}` on the Mac."
+        owner = (
+            "**MATT-ONLY.** Nobody else can perform this."
+            if matt_only else
+            "**NOT MATT-ONLY — DO NOT FILE THIS AS A MATT ACTION.** The remedy above is "
+            "an engineering change on the owning seam. It is surfaced here because the "
+            "queue stopped and work moved, not because a human credential is missing."
         )
         _atomic_write(note, (
             f"# {self.lane} lane BLOCKED — {utcnow()}\n\n"
@@ -1038,9 +1066,10 @@ class JobQueue:
             f"**Detected by:** `factory.jobqueue.JobQueue({self.root}, lane={self.lane!r}).drain`\n\n"
             f"{state.reason}\n\n"
             "## Ready-to-file `canonical/matt_to_do/` row\n\n"
-            f"> **{self.lane} lane re-authentication** — `{relogin}` on the Mac. "
+            f"> {headline} — {action} "
             f"Blocks: the serialized {self.lane} worker lane (U-4). "
             f"Currently blocking **{len(pending)}** enqueued job(s) in `{self.root}`. "
+            f"{owner} "
             "Pending work has been handed to the named Claude curators via "
             "`fallback/` manifests, so nothing is idle — but every fallback job is "
             f"Claude-lane tokens spent where subscription-native {self.lane} capacity "
@@ -1056,12 +1085,18 @@ class JobQueue:
             curator="knight-rider", event="finish",
         )
         self.telemetry.emit(
-            "lane_blocked", lane=self.lane, outcome="auth_blocked",
+            # `outcome` is DERIVED from whether the harness named its own remedy, so a
+            # consumer counting auth blocks stops counting preflight refutations among
+            # them. `event` stays `lane_blocked` — the event's meaning (confirmed closure,
+            # ownership moved, note written) did not change and consumers bind to it.
+            "lane_blocked", lane=self.lane,
+            outcome="auth_blocked" if not remedy else "lane_blocked",
             lane_state=state.state, error=state.reason,
             pending_jobs=len(pending),
             passthrough={
                 "matt_to_do_draft": str(note),
-                "matt_only_action": True,
+                "matt_only_action": matt_only,
+                "remedy": remedy or relogin,
                 "response": "file the row, fall back to the Claude lane, do not retry",
             },
         )

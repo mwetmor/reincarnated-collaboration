@@ -33,7 +33,7 @@ from pathlib import Path
 
 import pytest
 
-from factory.harness.codex import CodexHarness, LaneAvailability
+from factory.harness.codex import AUTH_CONFIRM_READINGS, CodexHarness, LaneAvailability
 from factory.jobqueue import JobQueue
 from factory.lane import (
     BUSY_MARKERS,
@@ -111,11 +111,18 @@ def lock_path(tmp_path: Path) -> Path:
     return tmp_path / "lane.lock"
 
 
-def _harness(fake_codex: Path, lock_path: Path) -> CodexHarness:
+def _harness(fake_codex: Path, lock_path: Path, **kw) -> CodexHarness:
     return CodexHarness(
         executable=str(fake_codex),
         lock_path=lock_path,
-        auth_probe=lambda: LaneAvailability(True, "open", "Logged in using ChatGPT"),
+        auth_probe=kw.pop(
+            "auth_probe",
+            lambda: LaneAvailability(True, "open", "Logged in using ChatGPT"),
+        ),
+        # The auth debounce sleeps between confirmation readings. A no-op by default so
+        # that no existing row pays 3 s of real wall for a path it is not about.
+        sleep=kw.pop("sleep", lambda _s: None),
+        **kw,
     )
 
 
@@ -453,8 +460,11 @@ def test_EXPIRED_AUTH_stops_the_queue_surfaces_it_and_does_NOT_retry(
     _enqueue(queue, "01-a", curator="elrond")
     _enqueue(queue, "02-b", curator="galadriel")
 
-    expired = CodexHarness(
-        executable=str(fake_codex), lock_path=lock_path,
+    # THREE consecutive readings, because since 2026-08-25 this lane debounces. The probe
+    # answers `auth_expired` every time, which is what a REAL expiry looks like from the
+    # outside and is exactly the thing the debounce is meant to let through.
+    expired = _harness(
+        fake_codex, lock_path,
         auth_probe=lambda: LaneAvailability(
             False, "auth_expired",
             "re-authentication is a MATT-ONLY action and must not be retried",
@@ -486,54 +496,156 @@ def test_EXPIRED_AUTH_stops_the_queue_surfaces_it_and_does_NOT_retry(
     assert handoffs["02-b"]["job"]["curator"] == "galadriel"
 
 
-def test_the_CODEX_lane_STILL_hands_off_on_ONE_reading_and_this_row_is_the_OPEN_DEFECT(
+# ===========================================================================
+# 4b — THE CODEX HAZARD, CLOSED (2026-08-25)
+#
+# The row that used to live here was GREEN ON PURPOSE: it pinned an unfixed hazard
+# (`LaneAvailability.terminal` defaulting `True`, one reading of `codex login status`
+# routed straight to P-7's one-way door) and was written to go RED when the hazard
+# closed. It has closed. These rows are its replacement.
+#
+# **THE DECIDING ARGUMENT WAS NOT THE ONE I ORIGINALLY WEIGHED.** I held the fix because
+# nobody had observed a ChatGPT-auth token refresh presenting as a failed `codex login
+# status` — still true, still unobserved, and NOT the premise the debounce needs. The
+# premise it needs is that one sample of a network-backed credential check is a bad
+# instrument for an irreversible verdict, which is reading discipline and does not belong
+# to a vendor.
+#
+# **AND HALF THE HAZARD WAS LIVE** — the `auth_unknown` row below fails against pre-fix
+# source with `01-a.json` sitting in `fallback/`: a 60 s CLI timeout, a host hiccup,
+# emptying a queue through a one-way door. No vendor premise required to see that.
+# ===========================================================================
+def test_a_BUSY_codex_lane_is_NOT_TERMINAL_BY_FIELD_and_not_only_by_drains_guard(
     tmp_path, fake_codex, lock_path
 ):
-    """**A PIN ON AN UNFIXED HAZARD, deliberately GREEN. Read it as a queued item.**
+    """⚑ **THIS ROW WAS WRITTEN TO PROVE A LIVE DEFECT AND IT PROVED THERE WASN'T ONE.**
 
-    On 2026-08-25 star-lord fixed the Grok lane's transient-auth defect: a token
-    auto-refresh presents as a not-authenticated reading (MEASURED by jack-ryan — six
-    probes seconds later all said logged-in), and one such reading used to hand the whole
-    pending queue to Claude permanently under P-7's one-way door. Grok now requires
-    `AUTH_CONFIRM_READINGS` consecutive readings before a state may be `terminal`, and
-    `_stop_on_closed_lane` moves ownership only for a `terminal` one.
+    It first read *"a busy lane hands its queue to Claude"*, on the reasoning that
+    `terminal` defaulted `True` and `busy` is not-ok. Run against PRE-FIX source it went
+    **GREEN** — because `JobQueue.drain` guards with `if not state.ok and state.state !=
+    "busy"`, so `busy` never reached `_stop_on_closed_lane` at all. **The claim was
+    wrong and the test is what caught it**, before the reasoning reached a MIGRATION
+    entry as though it were a measurement.
 
-    **THIS LANE WAS NOT FIXED, AND THIS ROW ASSERTS THAT ON PURPOSE.** `CodexHarness`
-    takes ONE reading of `codex login status`, has no re-probe, and routes both a
-    one-shot `auth_expired` and a 60 s `auth_unknown` to the same door;
-    `LaneAvailability.terminal` defaults `True` here precisely to preserve that.
-
-    What is NOT established is the PREMISE: nobody has observed a ChatGPT-auth token
-    refresh presenting as a failed `codex login status` on this host. Porting the remedy
-    on the strength of xAI evidence would widen a verified fix into an unverified one —
-    the same error this lane's own serial law refuses in the other direction (OpenAI's
-    vendor precondition does not travel to xAI, and xAI's concurrency probe does not
-    travel to OpenAI).
-
-    **So when the Codex hazard is dispatched and measured, THIS ROW GOES RED, and that
-    is the intended signal — not a regression.** Flip `terminal`'s default to `False`,
-    port the debounce, and rewrite this row to assert the fixed behaviour.
+    What is true is narrower, and is what this row now asserts: `busy` CARRIED a field
+    saying it could move ownership, and was saved only by a separate comparison against
+    the state's NAME somewhere else. Two mechanisms, one question, disagreeing — inert
+    only because the string-keyed one runs first. Rename the state, or reach
+    `_stop_on_closed_lane` from any other caller, and the field's answer wins.
     """
+    assert LaneAvailability(False, "busy", "x").terminal is False
+
     root = tmp_path / "queue"
     queue = JobQueue(root)
     _enqueue(queue, "01-a", curator="elrond")
 
-    one_reading = CodexHarness(
-        executable=str(fake_codex), lock_path=lock_path,
-        auth_probe=lambda: LaneAvailability(False, "auth_unknown", "no answer in 60s"),
+    holder = SerialLaneLock(lock_path).acquire()    # somebody else holds the lane
+    try:
+        state = _harness(fake_codex, lock_path).availability()
+        report = queue.drain(_harness(fake_codex, lock_path))
+    finally:
+        holder.release()
+
+    assert state.state == "busy"
+    assert state.terminal is False, (
+        "the FIELD says a merely-occupied lane may spend the one-way door. Today "
+        "`drain`'s name-check gets there first; that is a coincidence of ordering, not "
+        "a guarantee, and it is not what a reader of this field would conclude."
     )
-    report = queue.drain(one_reading)
+    assert report.lane_state == "busy"
+    assert not (root / "fallback" / "01-a.json").exists()
+    assert not (root / "AUTH-BLOCKED.md").exists()
+
+
+def test_a_TRANSIENT_codex_auth_reading_is_ABSORBED_and_hands_off_NOTHING(
+    tmp_path, fake_codex, lock_path
+):
+    """Reading 1 says not-authenticated; reading 2 says logged in. The lane is OPEN.
+
+    This is the shape jack-ryan MEASURED on the Grok lane (six probes seconds after a
+    false `auth_expired`, all logged-in). Whether OpenAI's tokens do the same is still
+    unobserved — the row asserts the harness's READING DISCIPLINE, not a vendor claim.
+    """
+    taken: list[int] = []
+
+    def probe() -> LaneAvailability:
+        """Reading 1 is the blip; every reading after it is healthy.
+
+        A one-shot iterator was tried and was WRONG for this row: it made the second
+        `drain` below raise `StopIteration` instead of exercising the lane, so the row
+        would have "passed" on an exception rather than on the behaviour it names.
+        """
+        taken.append(1)
+        if len(taken) == 1:
+            return LaneAvailability(False, "auth_expired", "not logged in")
+        return LaneAvailability(True, "open", "Logged in using ChatGPT")
+
+    slept: list[float] = []
+    harness = _harness(fake_codex, lock_path, auth_probe=probe, sleep=slept.append)
+
+    state = harness.check_auth()
+    assert state.ok is True
+    assert "TRANSIENT, absorbed" in state.reason, (
+        "a debounce nobody can see is indistinguishable from a bug — the absorption has "
+        "to reach `factory lane-status`, which is where a human read the false verdict"
+    )
+    assert slept == [1.0], "one backoff, then the second reading resolved it"
+
+    root = tmp_path / "queue"
+    queue = JobQueue(root)
+    _enqueue(queue, "01-a", curator="elrond")
+    queue.drain(harness)
+    assert not (root / "fallback" / "01-a.json").exists(), (
+        "the blip moved ownership. This is the exact incident jack-ryan caught on the "
+        "Grok lane, arriving on the second vendor."
+    )
+
+
+def test_a_CODEX_auth_TIMEOUT_is_NEVER_terminal_at_any_reading_count(
+    tmp_path, fake_codex, lock_path
+):
+    """`auth_unknown` does not enter the loop and is not a positive finding at any count.
+
+    Absence of an answer is fire-UNSAFE, which stops the drain, and it is not
+    OWNERSHIP-TRANSFERRING, which would need somebody to have actually established
+    something. Re-probing it would also push a `lane-status` worst case from 60 s to
+    180 s to re-answer a question it already answered.
+    """
+    probes = []
+    harness = _harness(
+        fake_codex, lock_path,
+        auth_probe=lambda: (probes.append(1)
+                            or LaneAvailability(False, "auth_unknown", "no answer in 60s")),
+    )
+    root = tmp_path / "queue"
+    queue = JobQueue(root)
+    _enqueue(queue, "01-a", curator="elrond")
+    report = queue.drain(harness)
 
     assert report.lane_state == "auth_unknown"
-    assert (root / "fallback" / "01-a.json").exists(), (
-        "the Codex lane's one-reading handoff changed. If that was deliberate, this row "
-        "is the place the change gets recorded; if it was not, ownership just started "
-        "moving on a different trigger than anyone ruled."
+    assert len(probes) == 1, "a timeout was re-probed; no count of silence is an answer"
+    assert not (root / "fallback" / "01-a.json").exists()
+    assert not (root / "AUTH-BLOCKED.md").exists()
+    assert "NOTHING HANDED OFF" in (report.stopped_reason or "")
+
+
+def test_the_CODEX_default_now_fails_toward_the_REVERSIBLE_outcome(fake_codex, lock_path):
+    """The inverse of the row this replaces, asserting the same field for the opposite reason.
+
+    A harness state that has not positively established it is terminal does not get to
+    spend the one-way door — and `jobqueue` reads the field by `getattr(state,
+    "terminal", False)`, so a future vendor adapter that has no opinion lands here too.
+    """
+    assert LaneAvailability(False, "auth_unknown", "x").terminal is False
+    assert LaneAvailability(False, "auth_expired", "x").terminal is False, (
+        "an UNCONFIRMED expiry reading is not a verdict. Only `check_auth` mints one."
     )
-    assert LaneAvailability(False, "auth_unknown", "x").terminal is True, (
-        "the Codex default is the DECLARATION of the unfixed hazard. If it is now False, "
-        "the debounce was ported and this row should have been rewritten with it."
-    )
+    confirmed = _harness(
+        fake_codex, lock_path,
+        auth_probe=lambda: LaneAvailability(False, "auth_expired", "not logged in"),
+    ).check_auth()
+    assert confirmed.terminal is True
+    assert f"{AUTH_CONFIRM_READINGS} consecutive readings" in confirmed.reason
 
 
 def test_a_FAILED_job_is_handed_to_the_named_curator_not_retried_forever(

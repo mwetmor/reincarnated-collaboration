@@ -160,6 +160,37 @@ GROK_CLI_INPUT_FLOOR_TOKENS = 28_170
 #: The prohibition of record. Said on EVERY argv, and preflight-asserted (Amendment E).
 NO_LEADER_FLAG = "--no-leader"
 
+#: The CLI answered and its answer was **NO**. A positive finding, permanent until the
+#: code or the CLI changes, and therefore TERMINAL — but terminal on a NON-CREDENTIAL
+#: ground, which is the distinction `PREFLIGHT_REFUTED_REMEDY` exists to carry.
+LANE_STATE_PREFLIGHT_FAILED = "preflight_failed"
+
+#: **The assertion could not be MADE.** A 30 s timeout, a vanished binary, a binary that
+#: never resolved. Its own state name rather than a share of `preflight_failed`, for the
+#: reason `auth_unknown` is not `auth_expired`: an operator reading `lane-status` during
+#: an incident must not have "we could not ask" rendered in the vocabulary of "we asked
+#: and the answer was no". NEVER terminal, at any count.
+LANE_STATE_PREFLIGHT_UNKNOWN = "preflight_unknown"
+
+#: The remedy that rides the escalation artifact when the flag is REFUTED. Said in full
+#: here rather than assembled at the call site so that the sentence a human reads during
+#: an incident is reviewable in the same diff as the decision to escalate.
+#:
+#: **It leads by naming the wrong remedy and refusing it.** The failure this replaces was
+#: not that the note said too little — it was that the note said something confident and
+#: false, and confident-and-false costs more reviewer trust than silence does.
+PREFLIGHT_REFUTED_REMEDY = (
+    "**THIS IS NOT AN AUTH PROBLEM AND `grok login` WILL NOT FIX IT.** Running it will "
+    f"SUCCEED and the lane will stay shut. The installed grok CLI REJECTED `{NO_LEADER_FLAG}` "
+    "— the flag was renamed or removed by a CLI update, or the binary was replaced. The "
+    "lane refuses to fire without it because leader mode multiplexes clients onto one "
+    "backend through `~/.grok/leader.sock`, which is a concurrency door around the serial "
+    "lock. THE FIX IS AN ENGINE CHANGE, NOT A HUMAN ONE: re-read `grok --help` for the "
+    "current flag surface and amend `NO_LEADER_FLAG` and `build_argv` in "
+    "`factory/harness/grok.py`, or pin the CLI back to a version that accepts it. Owner: "
+    "star-lord (factory harness seam)."
+)
+
 #: `~/.grok/bin/grok`, and the environment variable that relocates it. The binary is
 #: **NOT ON PATH** on this host — `shutil.which("grok")` returns None — so it is
 #: resolved EXPLICITLY. A harness that shelled out to a bare `grok` would report
@@ -291,6 +322,72 @@ class LaneAvailability:
     #: it when it stays silent. `jobqueue` reads this by `getattr(state, "terminal",
     #: False)`, so the same safe default covers a harness that has no opinion at all.
     terminal: bool = False
+    #: **WHAT ACTUALLY RE-OPENS THIS LANE**, in the operator's words, for the escalation
+    #: artifact `jobqueue._stop_on_closed_lane` writes.
+    #:
+    #: Empty means *"this lane's credential remedy"* — re-authentication — which is what
+    #: every terminal state on this lane meant before a NON-CREDENTIAL one could be
+    #: terminal. `jobqueue` reads it by `getattr(state, "remedy", "")`, so every existing
+    #: site and every harness with no opinion produces byte-identical escalation text.
+    #:
+    #: It exists because `preflight_failed` was being escalated as an auth problem. A
+    #: `--no-leader` flag removed by a CLI update is not fixed by `grok login`: Matt runs
+    #: it, it SUCCEEDS, the lane stays shut, and the credibility of the next escalation is
+    #: spent. **An escalation naming a remedy that cannot work is worse than no
+    #: escalation, because it consumes the one reviewer and teaches him to discount the
+    #: surface.**
+    remedy: str = ""
+    #: Whether that remedy is a MATT-ONLY action. Default `True` preserves today's
+    #: posture for every credential state. A preflight refutation sets it `False` — the
+    #: fix is an engine change in this file or a CLI version pin, which is the seam
+    #: owner's work and must not be queued to the one person who cannot do it.
+    matt_only: bool = True
+
+
+@dataclass(frozen=True)
+class PreflightVerdict:
+    """AMENDMENT E's answer, with **REFUTED and UNESTABLISHED told apart**.
+
+    `assert_no_leader_parses` used to return `tuple[bool, str]`, and that shape cannot
+    express the difference between:
+
+      * *the CLI REJECTED `--no-leader`* — a real, permanent, positive finding. The lane
+        cannot be fired safely and will not become firable by waiting;
+      * *the assertion could not be MADE* — a 30 s timeout, a binary that vanished
+        between resolution and invocation, a binary that never resolved. **Nothing about
+        the flag was learned at all.**
+
+    Both were one `False`, and downstream that `False` minted `terminal=True` — the
+    one-way door. **This is the same defect `check_auth` was split to fix, wearing
+    different clothes:** a reading that cannot distinguish two states, collapsed into a
+    verdict that treats them identically, with the irreversible outcome on the wrong one.
+
+    `refuted` defaults `False` for the same reason `LaneAvailability.terminal` does —
+    **fail toward the reversible outcome.** A verdict that has not positively established
+    a refusal does not get to spend the door, and a legacy 2-tuple coerced in by
+    `_as_preflight_verdict` lands on the safe side rather than inheriting a claim it
+    never made.
+    """
+
+    ok: bool
+    reason: str
+    #: `True` ONLY when the CLI positively refuted the flag: it answered, and its answer
+    #: was a rejection. Never set by a timeout, a missing binary or an exception.
+    refuted: bool = False
+
+
+def _as_preflight_verdict(result: Any) -> PreflightVerdict:
+    """Accept a `PreflightVerdict` OR a legacy `(ok, reason)` tuple from an injected probe.
+
+    The tuple form is coerced with `refuted=False` — the NON-terminal side. A probe that
+    predates this type never claimed a refutation, so it does not get credited with one;
+    the cost is a drain that stops instead of handing off, which is the recoverable
+    direction.
+    """
+    if isinstance(result, PreflightVerdict):
+        return result
+    ok, reason = result  # a 2-tuple; anything else is a programming error, loudly
+    return PreflightVerdict(bool(ok), str(reason))
 
 
 class GrokPreflightFailed(RuntimeError):
@@ -329,7 +426,7 @@ class GrokHarness:
         #: nobody checks.
         self._auth_probe = auth_probe
         self._preflight_probe = preflight_probe
-        self._preflight_result: tuple[bool, str] | None = None
+        self._preflight_result: PreflightVerdict | None = None
 
     # -- resolution ---------------------------------------------------------
     @property
@@ -353,7 +450,7 @@ class GrokHarness:
         return probe_slots(self.lock_path, self.ceiling)
 
     # -- Amendment E: the preflight assertion -------------------------------
-    def assert_no_leader_parses(self, force: bool = False) -> tuple[bool, str]:
+    def assert_no_leader_parses(self, force: bool = False) -> PreflightVerdict:
         """AMENDMENT E. Assert `--no-leader` is ACCEPTED. Refuse the lane if it is not.
 
         The test is the cheapest one that can distinguish acceptance from rejection:
@@ -373,16 +470,33 @@ class GrokHarness:
         Cached per instance after the first success: the fact does not change inside
         one process, and re-running it per job would spend a subprocess per job to
         re-learn a constant.
+
+        **RETURNS A `PreflightVerdict`, NOT A 2-TUPLE, AND THAT IS THE WHOLE POINT.**
+        Every negative below sets `refuted` DELIBERATELY. Exactly one path sets it
+        `True`: the CLI answered and its answer was a rejection. A timeout, a vanished
+        binary and an unresolvable binary are all `refuted=False` — the lane still
+        refuses to fire (absence of an answer is fire-UNSAFE) but nothing has been
+        established about the flag, so nothing may move ownership on it.
         """
         if self._preflight_result is not None and not force:
             return self._preflight_result
         if self._preflight_probe is not None:
-            result = self._preflight_probe()
+            result = _as_preflight_verdict(self._preflight_probe())
             self._preflight_result = result
             return result
         binary = self.executable
         if binary is None:
-            result = (False, "the grok binary could not be resolved; nothing to assert against")
+            # NOT refuted. No `grok` was reached, so no `grok` rejected anything. This is
+            # the same class of non-answer as `cli_missing` on the auth side, and it is
+            # NOT the same class as the auth side's terminal `cli_missing`: that one is a
+            # deterministic filesystem fact about the CREDENTIAL LANE, whereas this is a
+            # question about a FLAG that simply never got asked.
+            result = PreflightVerdict(
+                False,
+                "the grok binary could not be resolved; nothing to assert against — "
+                f"`{NO_LEADER_FLAG}` was NEITHER accepted NOR rejected, and the lane is "
+                "refused for want of an answer rather than on one",
+            )
             self._preflight_result = result
             return result
         try:
@@ -391,25 +505,45 @@ class GrokHarness:
                 capture_output=True, text=True, timeout=30, stdin=subprocess.DEVNULL,
             )
         except FileNotFoundError:
-            result = (False, f"{binary!r} vanished between resolution and invocation")
+            result = PreflightVerdict(
+                False,
+                f"{binary!r} vanished between resolution and invocation — "
+                f"`{NO_LEADER_FLAG}` was NEITHER accepted NOR rejected",
+            )
             self._preflight_result = result
             return result
         except subprocess.TimeoutExpired:
-            result = (False, f"`{binary} {NO_LEADER_FLAG} --version` did not answer in 30s")
+            result = PreflightVerdict(
+                False,
+                f"`{binary} {NO_LEADER_FLAG} --version` did not answer in 30s. "
+                "UNANSWERABLE IS NOT REFUTED: `--version` makes no model call, so a "
+                "timeout here is a sick host or a wedged binary, not a CLI that removed "
+                "the flag. The lane is refused for this drain and nothing more.",
+            )
             self._preflight_result = result
             return result
         combined = f"{proc.stdout or ''}\n{proc.stderr or ''}"
         rejected = "unexpected argument" in combined
         ok = proc.returncode == 0 and not rejected
-        result = (
-            ok,
-            f"`{NO_LEADER_FLAG}` accepted (rc=0, no rejection sentence): {(proc.stdout or '').strip()[:80]}"
-            if ok else
-            f"`{NO_LEADER_FLAG}` was NOT accepted (rc={proc.returncode}): "
-            f"{combined.strip()[:200]}. Leader mode multiplexes clients onto ONE backend "
-            "through `~/.grok/leader.sock` — a concurrency door AROUND the serial lock. "
-            "The lane REFUSES TO FIRE rather than firing with an ignored flag.",
-        )
+        if ok:
+            result = PreflightVerdict(
+                True,
+                f"`{NO_LEADER_FLAG}` accepted (rc=0, no rejection sentence): "
+                f"{(proc.stdout or '').strip()[:80]}",
+            )
+        else:
+            # **THE ONE SITE THAT MAY SET `refuted`.** The CLI ran, exited, and said no —
+            # either by a non-zero status or by the rejection sentence on a zero one.
+            # That is a positive finding about the flag and it is permanent until
+            # somebody changes the code or the CLI.
+            result = PreflightVerdict(
+                False,
+                f"`{NO_LEADER_FLAG}` was NOT accepted (rc={proc.returncode}): "
+                f"{combined.strip()[:200]}. Leader mode multiplexes clients onto ONE backend "
+                "through `~/.grok/leader.sock` — a concurrency door AROUND the serial lock. "
+                "The lane REFUSES TO FIRE rather than firing with an ignored flag.",
+                refuted=True,
+            )
         self._preflight_result = result
         return result
 
@@ -583,19 +717,30 @@ class GrokHarness:
         auth = self.check_auth()
         if not auth.ok:
             return auth
-        ok, why = self.assert_no_leader_parses()
-        if not ok:
-            # **DELIBERATELY LEFT TERMINAL — behaviour byte-preserved, and FLAGGED.**
-            # This branch has the same shape as the auth defect and it is NOT fixed here:
-            # `assert_no_leader_parses` folds "the flag was REJECTED" (a real, permanent
-            # refusal) together with "the assertion could not be MADE" (a 30 s timeout,
-            # a vanished binary) into one `False`, and the `AUTH-BLOCKED.md` this then
-            # files tells Matt to run `grok login` — the wrong remedy for a flag that a
-            # CLI update removed. Fixing it needs a third value out of that method, which
-            # is a signature change with its own tests. Shipping it inside THIS commit
-            # would convert a fix with a RED-proven gate into two changes with one gate.
-            # Named here so it is a queued item and not a discovery. See the report.
-            return LaneAvailability(False, "preflight_failed", why, terminal=True)
+        preflight = self.assert_no_leader_parses()
+        if not preflight.ok:
+            if not preflight.refuted:
+                # **UNANSWERABLE, NOT REFUTED.** Nothing about the flag was learned, so
+                # this is fire-unsafe (the drain stops) and NOT ownership-transferring
+                # (nothing moves). Identical footing to `auth_unknown`, and it gets its
+                # own state NAME rather than borrowing `preflight_failed`: a state that
+                # means "we could not ask" must not read on `lane-status` as the state
+                # that means "we asked and the answer was no".
+                return LaneAvailability(
+                    False, LANE_STATE_PREFLIGHT_UNKNOWN, preflight.reason, terminal=False,
+                )
+            # REFUTED — a positive finding, permanent until code or CLI changes. Terminal,
+            # and it carries its OWN remedy, because it is not a credential problem and
+            # the escalation surface used to say it was.
+            return LaneAvailability(
+                False, LANE_STATE_PREFLIGHT_FAILED, preflight.reason, terminal=True,
+                remedy=PREFLIGHT_REFUTED_REMEDY,
+                # NOT Matt's. `grok login` would succeed and change nothing; the fix is a
+                # code change in this file or a CLI version pin, both of which are the
+                # seam owner's work. Queueing it to the one person who cannot perform it
+                # is how an escalation surface earns the right to be ignored.
+                matt_only=False,
+            )
         slots = self.slot_occupancy()
         if slots.all_unreadable:
             # Fail-closed (Q.1). No slot could be read at all: that is ambiguity, not
@@ -772,13 +917,21 @@ class GrokHarness:
 
         # AMENDMENT E, at the gate: refuse to fire rather than fire with an ignored
         # flag. Checked BEFORE the lock so a refused lane never takes it.
-        preflight_ok, preflight_why = self.assert_no_leader_parses()
-        if not preflight_ok:
+        preflight = self.assert_no_leader_parses()
+        if not preflight.ok:
+            # **THE REFUSAL IS THE SAME EITHER WAY, AND THE LABEL IS NOT.** Firing is
+            # unsafe whether the flag was rejected or merely unverifiable, so `run` stops
+            # in both cases — but the `lane_state` a consumer records must say WHICH, or
+            # the run log will report a host hiccup and a removed CLI flag under one
+            # token and nobody will be able to count them apart afterwards.
             return RawResult(
                 ok=False, harness=self.name,
-                error=f"PREFLIGHT REFUSED (lane spec Amendment E): {preflight_why}",
+                error=f"PREFLIGHT REFUSED (lane spec Amendment E): {preflight.reason}",
                 usage=UsageBreakdown.absent("harness never launched: preflight assertion failed"),
-                extra={"lane_state": "preflight_failed"},
+                extra={"lane_state": (
+                    LANE_STATE_PREFLIGHT_FAILED if preflight.refuted
+                    else LANE_STATE_PREFLIGHT_UNKNOWN
+                )},
             )
 
         try:

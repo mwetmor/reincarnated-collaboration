@@ -263,7 +263,17 @@ def _cmd_lane_status(args: argparse.Namespace) -> int:
     print(f"lane      : {lane}")
     print(f"auth/lane : {state.state} — {state.reason}")
     print(f"last row  : {'  '.join(row) if row else '(none — nothing has ever run)'}")
-    print(f"terminal  : {queue.runlog.is_idle()}   (leg 3 raw; NOT the fire predicate)")
+    # **RENAMED FROM `terminal` (2026-08-25).** This line is leg 3's raw reading — *"the
+    # last run-log row is a completion marker, so nothing is executing"* — and it is about
+    # a JOB LEDGER. `LaneAvailability.terminal` now also exists and means something
+    # unrelated and far heavier: *"this lane state may move ownership through P-7's
+    # one-way door."* Two fields, one word, and the person reading them side by side is
+    # reading them DURING AN INCIDENT, which is the worst possible moment to have to work
+    # out which `terminal` is on screen. The display string is renamed rather than the
+    # field because this string has no consumers beyond human eyes, whereas
+    # `LaneAvailability.terminal` is a contract with a MIGRATION.md entry behind it.
+    print(f"log idle  : {queue.runlog.is_idle()}   (leg 3 raw: last run-log row is a "
+          f"completion marker; NOT the fire predicate)")
     print(f"pending   : {len(pending)} job(s)" + (
         "  [" + ", ".join(f"{j.job_id}->{j.curator}" for j in pending[:8]) + "]"
         if pending else ""

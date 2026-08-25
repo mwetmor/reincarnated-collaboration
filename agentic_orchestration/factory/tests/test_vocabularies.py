@@ -136,6 +136,16 @@ NOT_A_VOCABULARY: dict[str, str] = {
         "is exercised by `test_grok_harness.py::"
         "test_an_OVERSIZE_prompt_is_refused_HERE_not_as_an_E2BIG`."
     ),
+    # --- the preflight remedy (2026-08-25, MIGRATION.md § 13.4) -------------
+    "harness/grok.py:PREFLIGHT_REFUTED_REMEDY": (
+        "a scalar sentence, not a collection — the operator-facing remedy text that "
+        "rides `LaneAvailability.remedy` into `AUTH-BLOCKED.md` when the `--no-leader` "
+        "preflight is REFUTED. No members, so neither the addition nor the deletion "
+        "direction this file guards exists for it. Its CONTENT is asserted where that "
+        "matters, by `test_grok_harness.py::test_PREFLIGHT_the_ESCALATION_ARTIFACT_"
+        "does_NOT_tell_Matt_to_re_authenticate`, which reds if the sentence ever goes "
+        "back to prescribing a re-auth for a flag a CLI update removed."
+    ),
     "lane_status.py:REPO_ROOT": "a Path expression, not a collection",
     "lane_status.py:GROK_LANE_ROOT": "a Path expression, not a collection",
     # --- agent-level seam custody (2026-08-24, D-9) ------------------------
