@@ -351,4 +351,18 @@ He was not choosing between moving and killing. He was doing both, all the time,
 
 ---
 
+## 11 · PROVENANCE OF THIS NOTE'S OWN COMMIT — recorded, not tidied
+
+⚑ **This note and its artifacts did not land under a galadriel subject, and the reason is a live process defect I am reporting rather than hiding.**
+
+I staged them by path (`git diff --cached --name-status` verified per CLAUDE.md `#62(a)`, which caught three foreign files already sitting in the index from another session and which I declined to carry). Before I could commit, **a concurrent knight-rider session in this same working tree ran a commit that took the whole index** — my staged artifacts landed inside `2b289251`, a commit whose subject and body are about `significant_components` and say nothing about MD-B4app-2.
+
+**Nothing is lost and nothing was overwritten.** The defect is a record defect: *the work is right and the record does not carry it* — the same shape as the CLAUDE.md conflict-rule's completion-record-vs-dispatch-header case, and the same family as `F-8` (a shared index with two writers, where one party's ordinary act makes the other party's staging permanent under the wrong name).
+
+**FRICTION, surfaced to knight-rider, one clause:** *two agent sessions sharing one working tree share one index; a commit without a pathspec is not a commit of your own work, it is a commit of everyone's.* The `F-8` seating rule (*a reviewer seat that runs a driver unstages what the driver staged before it commits*) has an untaken sibling here — **a session that commits from a shared tree names its paths.** Note that `git commit -- <paths>` does **not** solve it for new work: a pathspec commit ignores untracked files, which is why my own attempt returned *"nothing added to commit"* and left the window open. The remedy is `git add <paths>` immediately followed by the commit, or per-session worktrees.
+
+This section is the repair. It is a real content change, so the commit that carries it carries the galadriel subject and the finding, and points at `2b289251` for the artifacts.
+
+---
+
 *galadriel, 2026-08-25. MD-B4app-2. Read-only on all source material; no engine writes; no pushes.*
