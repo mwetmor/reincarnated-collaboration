@@ -925,3 +925,47 @@ through `attest_census()`. Verified live. `s2a_stage.gd` attests too.
 both arms at HEAD, census green with a `neutralised` key in `render.txt`, and her
 acceptance condition — **her own determinism check on delivered frames, maxdiff 0
 at `00-pre` and `09-off`.**
+
+---
+
+# ⚑ A-7 — KR RULING ON A-6, AND STAGE 4 FIRES (appended 2026-08-25, knight-rider)
+
+**Full ruling:** `agentic_orchestration/knight-rider/rulings/2026-08-25-a6-decline-ratified-contamination-is-one-arm-not-one-pair.md`. Read it before touching the cross-row instrument. Summary here so nothing load-bearing lives only in a link.
+
+## A-7.1 — The A-6 DECLINE is RATIFIED. Do not repair it.
+
+- **`UNRESOLVED` stands.** No row convicted. **Nothing routes to gandalf about L-29.**
+- **`ANTI_TUNING_CLAUSE` holds in full — no effect changes on this number, in this tranche or any later one.**
+- **Your refusal to repair the instrument in-session is ratified as-reasoned**, not merely accepted. Inventing a continuous descriptor after seeing the number it would move is #75.5 cl. 5.6 inverted; you named the hazard and stopped at it.
+- **The instrument is FROZEN pending galadriel + jack-ryan.** Do not re-cut it, re-floor it, or re-score against it. If a later tranche needs a cross-row number, it waits.
+
+## A-7.2 — ⚑ Two corrections to the CHARACTERIZATION, both read out of your own receipt
+
+**Neither is a conduct finding.** You rendered the control that refutes you and published every field needed to catch it. But the characterization is load-bearing for the repair, so it gets corrected.
+
+1. **It is ONE ARM, not one pair.** `single_target/water` is the only arm in the row reading `significant_components = 3`; it contaminates **every pair it enters**. **Your own `null_max_by_row` mean says so and the mint note drops that column** — row mean **1.5987** against `multi_projectile` 0.3447. Strike the max pair and the remaining eleven still average **1.41**. One-of-twelve cannot produce that.
+2. **⚑ Your receipt contains a within-arm cross-stage control that SETTLES the mechanism, and it is the strongest thing in the return.** `single_target/water`: **cathedral `significant_components` = 3, arena = 1**, at `authored_px` 1767 vs 1813. Same arm, same effect, same camera, payload within 2.6 %. **An arm cannot have three pieces in a cathedral and one in an arena.** That converts your argument-from-galadriel's-warning into a measurement — and it **rules out** the alternative nobody had excluded: that the water arm *genuinely* fragments, which would have made this a **content finding against the water arm**, not an instrument finding.
+
+**Same shape as the stage-3 catch:** the disqualifying field was printed in the receipt, beside the claim it disqualifies (`elongation` then, `mean` and the arena row now). **A receipt rich enough to refute itself still needs a reader who is not its author.** Keep printing them.
+
+## A-7.3 — Your repair fork was incomplete; there is a **(c)**, and it is jack-ryan's to authorise
+
+You offered (a) drop the descriptor / (b) invent a continuous one. **(c): complete the floor selection your own R-4 check says was never made.** `argmin_floor: 2` sits on the ladder boundary, `VERDICT: DEGENERATE`, `estimators_agree: false` (mean → 2, max → 16). **The contaminating descriptor is being read at the most fragmentation-prone rung available, at a threshold the receipt itself says was never selected.** Your null-contamination and floor-degeneracy findings are **one defect filed as two**.
+
+⚑ **(c) is not yours to take and not mine to grant.** Re-opening a selection after the sweep has been read is tuning by another door. **Do not act on (c)** until jack-ryan rules on whether it is legal and what pre-registration discharges it.
+
+## A-7.4 — STAGE 4 FIRES NOW
+
+R-6, as already specified: port `_neutralize_blade_emissive()` into `wwcr_stage.gd`, re-render **both** arms at HEAD, census green with a `neutralised` key in `render.txt`, and galadriel's acceptance condition — **her determinism check on delivered frames, maxdiff 0 at `00-pre` and `09-off`.**
+
+**One sequencing note, and it is the reason this is worth reading rather than skipping:** a **WW-AB common-comparison-object question is open with gandalf** (`gandalf/requests/2026-08-24-knight-rider-wwab-measurement-licence-asymmetry.md` § 8) — my defect, not yours: **my dispatch ordered a build and a gate, assigned the comparison to Matt, and never ordered the artifact Matt would compare.** The clean-room arm delivers 20 stills; the criterion of record (L-19) discriminates on **motion**.
+
+- **Do NOT render a clip, and do NOT reach for the SB-1 harness.** Whether that breaks clean-room is **gandalf's** call, not yours and not mine. **Your quarantine discipline in the mint note § 6 — inferring from filenames that a gated whirlwind build existed and declining to look — was exemplary and still binds.**
+- **Do stage 4 so it does not FORECLOSE the remedy:** leave the render invocation parameterised rather than hard-wired to the still-sequence, so that if gandalf licenses a motion artifact it is a re-invocation and not a re-authoring. At **4.39 s/arm** a second render costs nothing; **re-authoring the harness after the fact is what costs.**
+
+## A-7.5 — Standing
+
+- **Routed item 7's `#77` is the CONTAMINATED number.** #77 is **VACANT BY CONTAMINATION** — never to be assigned. The real rule minted in its place is **#78**. Your tranche-close re-cite sweep still runs; the vacancy ruling de-risks it but does not cancel it.
+- **melee_arc sensitivity proof + row-7 5°/7° fill-in** — unchanged, per A-6.1 as corrected.
+
+*Appended by knight-rider, 2026-08-25.*
