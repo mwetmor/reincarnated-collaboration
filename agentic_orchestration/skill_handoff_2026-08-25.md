@@ -162,3 +162,51 @@ Matt's ruling, in substance: pushes are **not** to be de-authorized per autonomo
 **First action:** check whether 3A returned. If sealed → request Gate-2 at `qa/pending/`. If it HALTed → the halt record names the owner. Then 3B (P-BEAM probe first), then WW-AB.
 
 **Standing:** `reincarnated-collaboration` + `reincarnated-engine` push-as-you-go. **`reincarnated-godot` commit-only.**
+
+---
+
+# ⚑ SESSION 2 — UPDATE, same date. **Read this before § 1 and § 5 above; both are now stale.**
+
+**Why an update instead of an edit above:** § 5 told the next session *"check whether 3A returned; if it HALTed → the halt record names the owner."* It halted, the halt is now discharged, and 3A is firing again. Rewriting § 5 in place would erase the fact that a halt happened — which on the day this wave filed three findings about records outrunning their referents would be the wrong kind of tidy.
+
+## A. What settled since § 1 was written
+
+| § 1 item | Now |
+|---|---|
+| **1 — the unfilled godot push bracket** | ⚑ **RESOLVED.** Matt: *"push as you go through this session."* Recorded in the **wave record § 1.1 BEFORE being acted on**, per the conflict rule, with my reading of its scope stated so it can be corrected cheaply — **all repos including godot, but THIS SESSION ONLY.** He was offered *"for the remainder of the Step-2 wave"* as an explicit option and took something narrower. ⚑ **It EXPIRES at the next session boundary and godot reverts to commit-only.** A conductor picking this wave up must not inherit it. |
+| **2 — X-2 displacement** | Unchanged. Still yours. Row mints `UNEVALUABLE — never PASS`. |
+| **3 — `ENABLE_PROMPT_CACHING_1H`** | Unchanged. Premise re-based on the row; the *"largest cost lever"* headline is unevidenced against Max-subscription auth. |
+| **4 — `factory/` ownership** | Unchanged, and **the tree keeps growing** under no owner. |
+
+## B. 3A HALTED, then the halt DISCHARGED — both inside one session
+
+**It halted at the pre-registered row-2 checkpoint**, 2 of 8 rows, **no tag taken**. drax found the scoring instrument he had been ordered to use — `galadriel § 1.2 test (3)` — measures a **fraction bounded at 1** and saturates. Full dated record: `step2-tranche-3a-HALT-RECORD-2026-08-25.md`. **That record was this session's § 0 terminal act.** It is now superseded, in place, with nothing rewritten.
+
+**Both blockers ruled, by their owners, without reaching you:**
+
+- **F-8 → galadriel.** Replace the **input series only** — unbounded mean added Rec.709 luma over the same body disc — keeping `step_concentration` and the disc untouched. Ruled **on already-captured frames, zero new capture**; reproduces the sealed gate **byte-exact**. Blast radius **forward-only**; I verified it mechanically rather than accepting it (the defective statistic appears **0 times** in all four sealed artifacts), so **no sealed row is re-scored.**
+- **F-1 → jack-ryan.** The criterion was **computed all along, correctly, across arms** — the defect is an **ambiguous NAME over a CORRECT computation.** Tranche 2's seal **stands**; one rename owed. `C-CTL` substituted in both limbs; the stasis form retired.
+
+⚑ **The headline is that the halt paid for itself twice over.** Pair 1 is now adjudicated and it **confirms sealed law** — `dash_attack` STEPS, `blink` RAMPS, both stages, gap **+0.2069**. And the instrument drax was ordered to use has a class gap of **−0.1410 pooled, −0.1313 within cathedral alone**, where a `blink` body outranks *every* `dash` body. **Under the ruled verdict rule the incumbent returns a class-INVERTING reading — the false refutation of sealed law, as a measured number rather than a projected hazard.** The instrument could never have adjudicated the pair it was ordered to adjudicate, and drax stopped before anyone had that number, on saturation evidence alone.
+
+**One thing I added that neither ruling carries:** the minimum-signal floor is **load-bearing, not hygiene.** Without it the replacement scores **−0.4652 — worse than the instrument it replaces** — because one off-path body at 0.15/255 of signal reads as the most step-like cell in the table. **Ship them as one instrument or ship neither.**
+
+## C. Firing now
+
+- **3A rows 3-8 — LIVE** (drax), on the ruled instrument, with a mandatory reproduction check against the pair-1 figures **and instructions that a disagreement outranks finishing the tranche.**
+- **jack-ryan — four items routed**: the new `/aura/_readthrough/retention = 0.9980` question (filed **with its counter-evidence attached**, and with the honest note that it **cannot be closed from the artifact alone**); a candidate refinement to his own `#80 cl. 5`; and the two `qa/pending/` filings from earlier today, both still awaiting his ruling.
+
+**Row ledger: 10 / 24 sealed · 2 minted-unsealed · 6 firing · 6 queued (3B) · WW-AB authored un-run.**
+
+## D. Where I was wrong this session
+
+- ⚑ **I dispatched a fix for a defect that had been repaired and pushed 18 hours earlier** — acting on a routed finding without resolving its pointer at source, having written the rule against exactly that, in that same file, hours earlier. The dispatch paid for itself anyway, **through its sweep clause and not its premise**, which is an accident I intend to keep having on purpose.
+- ⚑ **I swept 20 files of a live sibling session into my own commit and pushed it, while running the check meant to prevent it** — because I `&&`-chained the check to the commit. *A verification step chained to the action it verifies is not a gate; it is a receipt.* Worse: **I had shipped that same defective wording into two live dispatches** as a mandatory Gate-1 check. Corrected wording is now live in four places and has since caught two real discrepancies in the field.
+- **My HALT record claimed every claim was verified at its referent while carrying one that was not.** Struck visibly rather than reworded.
+- **My cross-stage-invariance criterion was the right diagnostic with the wrong verdict rule**, and galadriel corrected rather than accepted it. The resumption criterion I wrote said *"or her named substitute invariant"* — **that clause is why it was closeable by her.** A criterion that pre-specifies its own answer can only be satisfied by agreement; this one was satisfied by correction. Worth carrying forward.
+
+## E. Next-session pickup
+
+**First action:** read the two background returns (drax 3A rows 3-8; jack-ryan's four rulings). If 3A seals → verify the tag's contents against the eight rows the dispatch names **before** requesting Gate-2, then push godot **only if still inside an authorized window — the extension in § A EXPIRED at this session's boundary.**
+
+**Then, in order:** F-7's godot dispatch (fix form already exists in-repo at `s2c_dash_attack.gd:128`; the dead `s2a_melee_strike.gd:56` constant gets **deleted**, not corrected) → 3B (P-BEAM byte-identity probe first; it is now held on **that alone**) → WW-AB clean-room whirlwind (**quarantine list BINDING**) → A-1/A-3 body pipeline. The drax lane is **serial** — one working tree, and clean-room contamination is not a recoverable error.
