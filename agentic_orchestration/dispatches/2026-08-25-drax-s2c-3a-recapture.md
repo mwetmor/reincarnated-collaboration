@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — TRANCHE 3A RECAPTURE: the yaw fix landed, and the re-run command as written would destroy the only evidence that can answer what the defect cost
 
-**Status:** PENDING
+**Status:** ✅ **COMPLETE** — 10/10 acceptance criteria discharged. **§ 2 outcome 2.** Fold test does **NOT** move toward FOLD. ⚑ **Two findings the dispatch did not ask for, one of which is a § 8 refutation condition firing** — see § Completion record (C) and (D).
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Pattern:** B — dedicated session
@@ -217,3 +217,158 @@ I ran this before authoring, which is the part that was missing when this tranch
 - `reincarnated-godot` `2afde08` (tag retraction) · `612c1e3` / `1c4f90f` / `689116c` (the fix) · `a1690fe0` (galadriel, the original facing finding)
 - `step2-vfx-archetype-mint-wave-record.md` § 3 ruling 5 (serial lane)
 - `canonical/matt_to_do/2026-08-24-mac-disk-space-red.md` — the disk lineage and the `cp` correction
+
+---
+
+## Completion record — drax, 2026-08-25
+
+**Status: COMPLETE. 10/10 acceptance criteria discharged.** Full numbers:
+`agentic_orchestration/drax/notes/2026-08-25-s2c-mint-note.md` **§ 14**.
+
+### The answer to the question this dispatch existed to ask
+
+**OUTCOME 2 — the gap survives, same sign, and the margin moves materially.**
+
+| `SC(added-luma)` (the sealed instrument) | pre-fix | post-fix | Δ | sign |
+|---|---:|---:|---:|---|
+| **pooled** | **+0.2069** | **+0.3807** | **+0.1738 (+84.0 %)** | **preserved** |
+| arena | +0.2653 | +0.4955 | +0.2302 (+86.7 %) | preserved |
+| cathedral | +0.2069 | +0.3807 | +0.1738 (+84.0 %) | preserved |
+
+⚑ **THE GAP WIDENED. The defect was SUPPRESSING the distinction, not manufacturing it.** Mechanism
+is per-body and unambiguous: `dash_attack` rose on all 6 evaluable bodies (mean **+0.1483**, +13.2 %
+to +42.7 %); `blink` moved **−0.0019**, every body within ±3.6 %. Trail-bounded mover-row is
+pose-sensitive; payload-carried row is not — the spec's own taxonomy falling out of a measurement.
+
+⚑ **I AM NOT RULING WHAT THIS MEANS.** Whether a sealed verdict may carry corrected figures is
+jack-ryan's at Tier A, filed at `qa/pending/2026-08-25-reproducibility-is-not-validity-…md`. The
+instrument (`scripts/s2c_prepost_compare.py`, committed at **`0800f32` — before the after-half
+existed**, so its thresholds cannot have been chosen to fit) contains no branch that can write "the
+seal holds" or "the seal falls."
+
+### (A) § 1's catastrophe was REAL, and worse in a place the dispatch did not look
+
+`run_s2c_rows38.sh` is suffix-parameterised, so the fresh-suffix order was executable there.
+**`run_s2c_rows12.sh` was not** — `USERDIR` a constant (`s2c12`), `--out=user://s2c12/` hardcoded in
+**all 24 arm invocations**, and an unconditional `rm -f "$USERDIR"/*.png`. `SUFFIX` was read and
+reached `$OUT` only. **Every invocation, with any argument, wipes `s2c12`** — the pre-fix capture of
+`dash_attack` + `blink`, the exact pair the sealed L-29(6) adjudication is about. Same defect I
+removed from the rows-3-8 runner at `a5779c8`; I fixed the runner that bit me and did not sweep its
+sibling. Fixed at `ce71ff8`.
+
+⚑ **CORRECTION TO § 1'S TABLE, MEASURED:** the rows-1-2 `harness_logs` PNGs were **not** deleted —
+874 in each of `s2c_rows12_2026-08-25{,b}`, sampled md5 agreeing with the userdir. So the rows-1-2
+pre-fix evidence was **triplicated, not singular**. But it survived *because of the disk-filling `cp`
+that the rows-3-8 fix removed at its cause* — **protected by a bug, not by a decision.** That is why
+it was fixed rather than noted.
+
+**Guards taken BEFORE anything ran:** all five pre-fix directories `chmod a-w`; all four resolved
+`USERDIR` values printed **by the real scripts** (`ONLY=none`, stamp `PATHPROBE`) and checked against
+the protected names; frame counts re-verified after. **Acceptance 1: `s2c38` 2106, `s2c38b` 2106,
+`s2c12` 874 — intact, re-counted, not assumed.**
+
+### (B) § 3.1 RULED BY ME: TWO PASSES — and the ruling paid for itself
+
+Reason, stated before firing: under **F-9** a before/after delta is structurally a claim that two
+captures **DIFFER**, the noise-**exposed** direction, so a same-code repeat is its *precondition*.
+The sealed receipt proves the **old** harness was deterministic; Commit A changed render output by
+design, so the property does not transfer. **A one-pass recapture would have shipped (C) invisibly.**
+
+### (C) ⚑ A § 8 REFUTATION CONDITION FIRED — the do-not-re-derive list retired something the FIX ITSELF INVALIDATED
+
+The dispatch predicted this exact shape and said it could not be caught from outside. § 3 retired the
+determinism receipt as *"a property claim about the harness (pose-orthogonal)."* **The corrected
+harness is no longer byte-deterministic:**
+
+| corpus | pre-fix (sealed) | post-fix | worst maxdiff | worst px ≥ 4 |
+|---|---:|---:|---:|---:|
+| rows 3–8 | **2106 / 2106** | **2101 / 2106** | 29 | 15 |
+| rows 1–2 | **874 / 874** | **873 / 874** | 1 | 0 |
+
+The seal remains true of the **old** harness; what is refuted is that it **carries forward**.
+"Pose-orthogonal" was the wrong axis to retire it on — Commit A did not only change pose, it changed
+render output.
+
+⚑ **BYTE-DETERMINISM AND MEASUREMENT-DETERMINISM ARE TWO CLAIMS AND ONLY ONE MOVED.** Gate run
+independently on both post-fix passes: **17,507 leaves, 0 verdicts flipped, 0 figures moved** —
+bit-identical. On the one rows-1-2 flake frame, noise is maxdiff 1 / 6 px / **0 px ≥ 4**, while the
+pre-vs-post signal on that same frame is maxdiff 236 / 10,337 px / **4,873 px ≥ 4**. The by-value
+screen sees the signal and does not see the noise at all. **Reported as two claims rather than
+letting the measurement's green cover the byte receipt's red.**
+
+**This is surfaced, not disposed of.** It is a new defect in the shipped harness, discovered by a
+receipt the dispatch had retired.
+
+### (D) ⚑ A CONFOUND IN THE BEFORE-HALF, caught by a key-set check
+
+The rows-1-2 pre-fix `gate.json` was written by an **older gate script**
+(`c8_key_collisions.unevaluable_reason` present post, absent pre). The comparison as filed would have
+moved **two** variables. The pre-fix rows-1-2 corpus was **re-gated with the current instrument**
+before any figure was taken. Conclusion unchanged; now genuinely one-variable.
+
+### (E) § 3.2 — the fold test does NOT move toward FOLD. Nothing routed to gandalf.
+
+| | pre-fix | post-fix |
+|---|---|---|
+| **FOLD** | AXIS HOLDS — DO NOT FOLD | ⚑ **AXIS HOLDS — DO NOT FOLD** |
+| cathedral ratio | 11.43× | **11.43×** |
+| arena ratio | 3.96× | **3.92×** |
+| `melee_strike_px` both stages | 3,386 / 11,719 | **3,386 / 11,719 — IDENTICAL** |
+
+The mint note recorded *"I expect it to survive — but 'I expect' is not a receipt."* **It is a receipt
+now.** `ground_slam` is floor-anchored (0.02), `melee_strike` body-anchored (1.05) — neither leg
+emits along body-forward, so the discriminator was pose-invariant all along.
+
+### (F) Acceptance 7 — NEITHER OWED ITEM DISSOLVED. Said plainly, as instructed.
+
+- **R-3 teleport corridor: 2,710 → 2,722 px (+0.44 %). STILL FAIL, real, not pose-caused.** The
+  delegated judgment remains Matt's and its object (the re-cut MP4) exists.
+- **R-7 `motif:shuriken@arena`: 39 / 2,322 px → 39 / 2,322 px — EXACTLY IDENTICAL. STILL FAIL.**
+  ⚑ On a row that is **144/144 byte-identical** across the fix. Under F-9 that identity is
+  noise-immune, so **body pose is eliminated as a cause by measurement** — the item does not
+  dissolve, it gets **smaller and sharper**.
+
+### (G) ⚑ A byte receipt for the edit I REFUSED to make
+
+Per-row byte-identity across the fix shows **`melee_strike` at 35/36 and `clip_ms` at 315/316**
+(the single differing frame in each is (C)'s flake, not the fix) — and **R-7 `orbit` at 144/144**.
+Everything that emits along body-forward changed 100 %; everything anchored elsewhere changed 0 %.
+
+jack-ryan ratified my refusal to flip `s2a_stage:303` on the *argument* (*"he checked the rig and
+never checked the argument"*; `melee` was swept into the site list by a scope amendment and was never
+in the finding). **Had I made that edit, these 35 frames would have moved — and the fold test's
+control leg would have moved with them.** The refusal was measured at six bearings then; it is
+measured at 35 frames now.
+
+### Acceptance criteria — all ten
+
+| # | criterion | status |
+|---|---|---|
+| 1 | Both passes, fresh suffixes; pre-fix **re-counted** intact | ✅ `s2c38` 2106 · `s2c38b` 2106 · `s2c12` 874 |
+| 2 | All 8 rows re-gated; verdict keys re-emitted; nothing rounded | ✅ 2,149 + 15,358 keys · **0 flips** · 988 figures moved |
+| 3 | 8 MP4s re-cut, ffprobe-verified; pre-fix retained | ✅ frame-count parity on all 8; before-half retained |
+| 4 | § 2 comparison emitted — absolute, differential, outcome, **no ruling** | ✅ **outcome 2**, no disposition attached |
+| 5 | § 3.1 ruled by me with reason | ✅ **two passes** (B) |
+| 6 | Fold test re-run; halt if toward FOLD | ✅ **does not move toward FOLD** (E) |
+| 7 | Owed 2 + 3 re-checked; say so if they dissolve | ✅ **neither dissolved** (F) |
+| 8 | § 2.3's three owed items | ✅ 1 already at `713f487` · 2 at `8866b77a` · 3 standing, honoured throughout |
+| 9 | Tag only if 4 and 6 clean | ✅ both clean — **tag taken, with (C) named in its annotation** |
+| 10 | Completion record + `Status:` in one edit | ✅ this |
+
+### ⚑ What I did NOT do
+
+- **Did not rule the sealed-verdict question.** Measured it. jack-ryan disposes.
+- **Did not route the fold test anywhere** — it did not move toward FOLD.
+- **Did not touch `king_rig.gd` / `_sword_yaw_left_deg`, F-7, tranche 3B, or any further
+  forward-axis site.** No remedy quietly widened.
+- **Did not touch `tmp/br2watch/measure/census.json`** — not mine, still dirty, untouched.
+- **Did not delete a single pre-fix frame or MP4.**
+
+### Owed forward
+
+1. ⚑ **(C) the byte-determinism regression in the corrected harness** — surfaced, unrepaired,
+   **not mine to dispose of**. Measurement-determinism is intact (0/17,507), so nothing downstream is
+   blocked, but the tranche's byte-reproducibility claim is weaker than it was and the tag says so.
+2. **R-3 corridor** — still FAIL, still Matt's delegated judgment, object now exists as a corrected MP4.
+3. **R-7 `motif:shuriken@arena`** — still FAIL, now proven pose-independent; glow-spill hypothesis
+   unrepaired.

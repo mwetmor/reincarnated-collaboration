@@ -1362,3 +1362,228 @@ one — and a *playable* file is not a *correct* one.
 - **`king_rig.gd`'s `_sword_yaw_left_deg := 12.0` puts the blade on the king's RIGHT** — separate
   ticket, filed, **explicitly not touched here.** *A remedy that quietly widens is how a verified fix
   becomes an unverified one.*
+
+---
+
+# 14 · THE RECAPTURE — what the backwards-body defect actually cost, measured
+
+*Dispatch `2026-08-25-drax-s2c-3a-recapture.md`. All eight rows re-captured on corrected bodies
+(`612c1e3` / `1c4f90f` / `689116c`), two passes, fresh suffixes `v3` / `v3b`. The pre-fix corpora
+survived on disk and were `chmod a-w` before anything ran, so **the before-half is a measurement and
+not a recollection.** Same seeds, same stages, same arms, same gate — one variable changed.*
+
+## 14.0 · The arm-match premise, tested rather than assumed
+
+The dispatch named this as its own load-bearing assumption and said it had not verified it beyond
+frame counts. Verified here by comparing **arm invocation strings**, normalised only for the userdir
+name (the one thing that is *supposed* to differ):
+
+| set | pre arms | post arms | only in pre | only in post |
+|---|---|---|---|---|
+| rows 1–2 | 54 | 54 | **0** | **0** |
+| rows 3–8 | 128 | 128 | **0** | **0** |
+
+⚑ **And one confound found in the before-half.** The rows-1-2 pre-fix `gate.json` was written by an
+**older gate script** — `c8_key_collisions.unevaluable_reason` exists in the post output and not the
+pre. So the comparison as filed would have moved **two** variables. The pre-fix rows-1-2 corpus was
+**re-gated with the current instrument** before any figure below was taken. Conclusion unchanged;
+now actually one-variable. Caught by a key-set check, not by reading the numbers.
+
+## 14.1 · § 2.1 DIFFERENTIAL — the class gap, computed WITHIN each corpus
+
+**`SC(added-luma)` — THE RULED AND SEALED INSTRUMENT (§ RESUMPTION R-1):**
+
+| cell | pre-fix | post-fix | Δ | rel | sign |
+|---|---:|---:|---:|---:|---|
+| arena | +0.2653 | **+0.4955** | +0.2302 | +86.7 % | preserved |
+| cathedral | +0.2069 | **+0.3807** | +0.1738 | +84.0 % | preserved |
+| **pooled** | **+0.2069** | **+0.3807** | **+0.1738** | **+84.0 %** | **preserved** |
+| worst_stage_swing | +0.1576 | +0.1590 | +0.0013 | +0.9 % | — |
+
+**`SC(coverage)` — the instrument R-1.1 REJECTED as worse:**
+
+| cell | pre-fix | post-fix | Δ | sign |
+|---|---:|---:|---:|---|
+| arena | +0.1255 | +0.1480 | +0.0225 | preserved |
+| cathedral | **−0.1313** | **+0.0500** | +0.1813 | ⚑ **INVERTED** |
+| pooled | −0.1410 | −0.0013 | +0.1397 | collapsed toward zero |
+
+⚑ **A by-product worth banking: the REJECTED instrument is the pose-fragile one.** R-1.1 ruled the
+floored added-luma instrument superior to coverage on a pooled-gap argument. Under a 180° body error
+the coverage instrument **inverts its sign at cathedral** and collapses pooled to −0.0013, while the
+ruled instrument holds sign at every cell and moves only in magnitude. That is a robustness argument
+R-1.1 never made and did not need — obtained free, and it is evidence *for* the floor.
+
+## 14.2 · § 2.1 ABSOLUTE — A[i] per body, and the mechanism is unambiguous
+
+`step_concentration`, per body, per arm. Mob3 is below the R-1.1 floor on every arm in both corpora
+(unchanged) and enters no aggregate.
+
+| arm/body | SC pre | SC post | Δ | rel |
+|---|---:|---:|---:|---:|
+| dash_attack@cathedral/Mob0 | 0.6353 | 0.7194 | +0.0840 | +13.2 % |
+| dash_attack@cathedral/Mob1 | 0.5027 | 0.6755 | +0.1729 | +34.4 % |
+| dash_attack@cathedral/Mob2 | 0.5862 | 0.7413 | +0.1551 | +26.5 % |
+| dash_attack@arena/Mob0 | 0.6513 | 0.7500 | +0.0987 | +15.2 % |
+| dash_attack@arena/Mob1 | 0.5213 | 0.7442 | +0.2228 | +42.7 % |
+| dash_attack@arena/Mob2 | 0.7438 | 0.9002 | +0.1564 | +21.0 % |
+| **dash_attack mean (6 bodies)** | | | **+0.1483** | |
+| blink@cathedral/Mob0 | 0.2958 | 0.2949 | −0.0009 | −0.3 % |
+| blink@cathedral/Mob1 | 0.2722 | 0.2710 | −0.0013 | −0.5 % |
+| blink@cathedral/Mob2 | 0.2325 | 0.2277 | −0.0048 | −2.1 % |
+| blink@arena/Mob0 | 0.2560 | 0.2487 | −0.0073 | −2.9 % |
+| blink@arena/Mob1 | 0.2274 | 0.2231 | −0.0043 | −1.9 % |
+| blink@arena/Mob2 | 0.2080 | 0.2154 | +0.0074 | +3.6 % |
+| **blink mean (6 bodies)** | | | **−0.0019** | |
+
+**THE ENTIRE GAP MOVEMENT IS `dash_attack`. `blink` IS INERT TO THE FIX.** That is the spec's own
+taxonomy falling out of a measurement: `dash_attack` is **TRAIL-BOUNDED and mover-bound**, so its
+contact signature is emitted along body-forward and a 180° body smears it; `blink` is
+**PAYLOAD-CARRIED**, its flash illuminates the bodies *from the payload*, and body yaw does not
+reach it. The defect was **suppressing** the distinction, not manufacturing it.
+
+## 14.3 · § 2.1 VERDICT — which pre-registered outcome, and no ruling attached
+
+**OUTCOME 2 — the gap survives, same sign, and the margin moves materially.**
+
+Emitted by `scripts/s2c_prepost_compare.py`, whose thresholds were **committed at `0800f32`, before
+the after-half existed**. ⚑ **The disposition is NOT MINE.** Whether a sealed verdict may carry
+corrected figures is jack-ryan's at Tier A, filed at
+`qa/pending/2026-08-25-reproducibility-is-not-validity-…md`. I surfaced this question and declined
+to rule it; the instrument I wrote to measure it contains no branch that can rule it either.
+
+## 14.4 · § 3.1 RULED BY ME: TWO PASSES — and the ruling paid for itself
+
+**Ruled: two.** Reason stated before firing: under **F-9** a before/after delta is structurally a
+claim that two captures **DIFFER**, which is the noise-**exposed** direction, so a same-code repeat
+is its precondition. The sealed receipt proves the **old** harness was deterministic; Commit A
+changed render output by design, so that property does not transfer.
+
+⚑ **IT WAS NOT REDUNDANT, AND A ONE-PASS RECAPTURE WOULD HAVE SHIPPED THE DEFECT BELOW INVISIBLY.**
+
+## 14.5 · ⚑ THE REFUTATION CONDITION THAT FIRED — the do-not-re-derive list retired something the FIX ITSELF INVALIDATED
+
+The dispatch's § 8 named this and said plainly it could not be caught from outside. It fired.
+
+§ 3 retired the determinism receipt from re-derivation as *"a property claim about the harness
+(pose-orthogonal)."* **The corrected harness is no longer byte-deterministic:**
+
+| corpus | pre-fix (sealed) | post-fix | worst maxdiff | worst px ≥ 4 |
+|---|---:|---:|---:|---:|
+| rows 3–8 | **2106 / 2106** | **2101 / 2106** | 29 | 15 |
+| rows 1–2 | **874 / 874** | **873 / 874** | 1 | 0 |
+
+Offenders are 6 frames, concentrated in `novfx` control arms. **The seal remains true of the OLD
+harness. What is refuted is that it carries forward** — and "pose-orthogonal" was the wrong axis to
+retire it on, because Commit A did not only change pose, it changed render output.
+
+⚑ **BUT BYTE-DETERMINISM AND MEASUREMENT-DETERMINISM ARE TWO CLAIMS, AND ONLY ONE MOVED.** The gate
+was run independently on both post-fix passes:
+
+| set | gate keys | verdicts flipped | **figures moved** |
+|---|---:|---:|---:|
+| rows 3–8 | 2,149 | 0 | **0** |
+| rows 1–2 | 15,358 | 0 | **0** |
+
+**17,507 gate leaves, bit-identical across passes.** The flake is real, sub-threshold, and invisible
+to every instrument that consumes the frames. Under F-9 that identity is a **PASS** and therefore
+noise-immune: it needs no further repeat. *Reported as two separate claims rather than letting the
+measurement's green cover the byte receipt's red.*
+
+**Signal vs noise, measured on the ONE frame that flakes, so both are read off the same object:**
+
+| comparison | maxdiff | px any | px ≥ 4 | px ≥ 12 |
+|---|---:|---:|---:|---:|
+| **noise** (same code, v3 vs v3b) | 1 | 6 | **0** | 0 |
+| **signal** (pre-fix vs post-fix) | 236 | 10,337 | **4,873** | 4,041 |
+
+The by-value screen sees 4,873 px of signal and **zero** px of noise.
+
+## 14.6 · § 3.2 THE FOLD TEST — it does NOT move toward FOLD
+
+| | pre-fix | post-fix |
+|---|---|---|
+| **FOLD verdict** | AXIS HOLDS — DO NOT FOLD | ⚑ **AXIS HOLDS — DO NOT FOLD** |
+| cathedral ratio | 11.43× | **11.43×** |
+| arena ratio | 3.96× | **3.92×** |
+| cathedral `melee_strike_px` | 3,386 | **3,386** *(identical)* |
+| arena `melee_strike_px` | 11,719 | **11,719** *(identical)* |
+| pooled gap px | 26,991 | 26,979 |
+
+**Nothing is routed to gandalf. The destructive direction is not taken.** § 12.0 recorded *"I expect
+it to survive — the effect is ground-plane anchored — but 'I expect' is not a receipt."* **It is a
+receipt now**, and the mechanism is visible in the numbers: `ground_slam` is floor-anchored
+(`anchor_y` 0.02), `melee_strike` is body-anchored at 1.05 — **neither leg emits along body-forward**,
+so the discriminator was pose-invariant all along.
+
+## 14.7 · ⚑ WHICH SEALED NUMBERS WERE NEVER WRONG — the partition, by byte
+
+Per-row byte-identity, pre-fix vs post-fix, rows 3–8. **A byte-identical row is one the defect never
+touched**, and under F-9 that identity is noise-immune.
+
+| row | identical | differing | % identical |
+|---|---:|---:|---:|
+| **R-7 `orbit`** | **144** | **0** | **100.0 %** |
+| `clip_ms` (melee leg) | 315 | 1 | 99.7 % |
+| **R-5 `melee_strike`** | **35** | **1** | **97.2 %** |
+| R-3 `teleport` | 0 | 160 | 0.0 % |
+| R-4 `leap_strike` | 0 | 198 | 0.0 % |
+| R-5 `ground_slam` | 0 | 126 | 0.0 % |
+| R-6 `cone` | 0 | 198 | 0.0 % |
+| R-8 `vortex_pull` | 0 | 96 | 0.0 % |
+| clip arms (tp/lp/gs) | 0 | 832 | 0.0 % |
+
+*(The single differing frame in each melee row is the flake of § 14.5, not the fix.)*
+
+**Two things fall straight out of this table.**
+
+1. ⚑ **R-7's `motif:shuriken@arena` FAIL WAS NEVER A POSE ARTEFACT — 39 px by-value and 2,322 exact,
+   IDENTICAL across the fix, on a row that is 144/144 byte-identical.** Body yaw is *eliminated* as a
+   cause by measurement, which narrows the open hypothesis to the stated glow-spill-on-stage-asymmetry
+   account. The owed item does not dissolve; it gets **smaller and sharper**.
+2. ⚑ **`melee_strike` IS BYTE-IDENTICAL ACROSS THE FIX, AND THAT IS THE RECEIPT FOR THE EDIT I
+   REFUSED TO MAKE.** jack-ryan ratified my refusal to flip `s2a_stage:303` on the argument
+   (*"he checked the rig and never checked the argument"*); `melee` was swept into the site list by a
+   scope amendment and was never in the finding. **Had I made that edit, these 35 frames would have
+   moved and the fold test's control leg would have moved with them.** The refusal was measured at
+   six bearings then; it is measured at 35 frames now.
+
+## 14.8 · Acceptance 7 — the two owed items, RE-CHECKED. NEITHER DISSOLVED.
+
+*Said plainly, per the dispatch's instruction not to delete them silently if they survived.*
+
+| owed | pre-fix | post-fix | disposition |
+|---|---|---|---|
+| **R-3 teleport corridor** | 2,710 px | **2,722 px** *(+12, +0.44 %)* | ⚑ **STILL FAIL — real, not pose-caused.** The delegated judgment is still Matt's, and its object (the re-cut MP4) exists. |
+| **R-7 `motif:shuriken@arena`** | 39 / 2,322 px | **39 / 2,322 px** *(identical)* | ⚑ **STILL FAIL — and now proven pose-independent.** 15 sibling arms remain exact zeros. |
+
+## 14.9 · Verdict-key census, both gates, same instrument on both halves
+
+| set | keys | **verdicts flipped** | numeric figures moved | FAIL set |
+|---|---:|---:|---:|---|
+| rows 3–8 | 2,149 | **0** | 520 | identical (3) |
+| rows 1–2 | 15,358 | **0** | 468 | identical (4) |
+
+**988 figures moved. Not one verdict did.** The rows-3-8 FAIL set is exactly § 12.1's three reds
+(`PASS_teleport_zero`, `r7` aggregate, `r7 shuriken@arena`), unchanged in membership.
+
+## 14.10 · Deliverables
+
+- **8 MP4s re-cut**, ffprobe-verified, **frame-count parity with the before-half on all 8**
+  (61/61, 47/47, 65/65, 70/70 ×2 stages) — `harness_logs/s2c_mp4_2026-08-25-v3/`.
+  **The pre-fix set is RETAINED** at `harness_logs/s2c_mp4_2026-08-25/` as the before-half.
+- Pre-fix frame corpora **retained and re-counted after the run, not assumed**: `s2c38` 2106,
+  `s2c38b` 2106, `s2c12` 874 — intact, and still `chmod a-w`.
+
+## 14.11 · What § 12.0's survival table now reads
+
+| item | was | now |
+|---|---|---|
+| Two-pass determinism 2,106/2,106 | ✅ SEALS | ⚑ **TRUE OF THE OLD HARNESS ONLY.** Post-fix: 2101/2106 + 873/874. See § 14.5. |
+| Harness / disk `SUFFIX` fix | ✅ SEALS | ✅ — and **extended to the rows-1-2 runner**, which had never received it |
+| R-5 `max(ms)==0` unsatisfiable | ✅ SEALS | ✅ unchanged |
+| R-5 numbers + `AXIS HOLDS` | 🛑 PENDING-RECAPTURE | ✅ **RE-DERIVED — verdict and both ratios hold** (§ 14.6) |
+| `#80` cl. 5(b) sweep | ✅ SEALS | ✅ unchanged |
+| Gate-1 I2 emptiness sweep | ✅ SEALS | ✅ unchanged |
+| Pair 2, R-3, R-4, R-7, R-8, onset, lifecycle | 🛑 PENDING-RECAPTURE | ✅ **RE-DERIVED — 0 verdict flips** (§ 14.9) |
+| Pair-1 reproduction / L-29(6) | 🛑 PENDING-RECAPTURE, REACHES UPWARD | ⚑ **MEASURED — outcome 2. DISPOSITION IS JACK-RYAN'S** (§ 14.3) |
