@@ -33,6 +33,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FLIGHT_DIR = os.path.dirname(HERE)
 AO_DIR = os.path.dirname(FLIGHT_DIR)
 REPO_ROOT = os.path.dirname(AO_DIR)
+FACTORY_DIR = os.path.join(AO_DIR, "factory")
 sys.path.insert(0, FLIGHT_DIR)
 
 import schema  # noqa: E402
@@ -51,6 +52,51 @@ SCRIPTED_AMBER_MULT = 2
 SCRIPTED_RED_MULT = 5
 
 GREEN, AMBER, RED = "\U0001F7E2", "\U0001F7E1", "\U0001F534"
+
+# ---------------------------------------------------------------- AM-1 § 13.1: vendor LANES
+# Matt's ask, verbatim: see the codex/grok lane status on the fleet board BEFORE engaging the
+# vendor TUI. Q62's instrument caveat is carried verbatim onto the card, because a glance that
+# forgets it is exactly how a VIEW acquires authority.
+Q62_CAVEAT = ("liveness-NOW is the § 3 CLI check's answer; the board is a VIEW (THE LAW) and "
+              "may lag its refresh.")
+
+# The three legs of the ratified busy check (lane spec § 3), unioned FAIL-CLOSED: busy if ANY
+# leg says busy. The D-2 `factory lane` subcommand — which would answer all three in one
+# pinned contract — DOES NOT EXIST YET (other workstream, not built here). Until it lands this
+# card renders a DEGRADED composite of the legs reachable today, and SAYS SO.
+PROBE_MODE = "degraded — D-2 CLI pending"
+
+# argv patterns are ANCHORED at argv[0]: the process's own executable must be the vendor CLI.
+# An unanchored match would convict any shell whose command line merely mentions the vendor —
+# including this report's own invocation — and a busy answer nobody can act on is noise, not
+# safety. `leader.sock` is matched unanchored on purpose: the shared-leader backend is a
+# concurrency door around the serial lock (lane spec § 9.3) and counts busy wherever it appears.
+LANE_CARDS = (
+    dict(key="codex-serial", vendor="codex", provider="openai",
+         cli_names=("codex",), cli_paths=(),
+         auth_cmd_hint="codex login status",
+         exec_re=re.compile(r"^(?:\S*/)?codex\b.*\bexec\b"),
+         tui_re=re.compile(r"^(?:\S*/)?codex\b"),
+         extra_busy_re=None,
+         has_lane_lock=True,
+         runlogs=("agentic_orchestration/research/vfx-p2-dossiers/usage/_run-log.tsv",),
+         note="serial law P-1 is a VERIFIED vendor precondition (one job stream per credential)."),
+    dict(key="grok-serial", vendor="grok", provider="xai",
+         cli_names=("grok",), cli_paths=("~/.grok/bin/grok",),
+         auth_cmd_hint="grok models",
+         exec_re=re.compile(r"^(?:\S*/)?grok\b.*(?:\s-p\b|\bagent\b)"),
+         tui_re=re.compile(r"^(?:\S*/)?grok\b"),
+         extra_busy_re=re.compile(r"leader\.sock"),
+         has_lane_lock=False,
+         runlogs=(),
+         note="serial-BY-CHOICE (no verified xAI precondition — lane spec § 9.3); leader mode "
+              "FORBIDDEN in lane invocations, and a live `leader.sock` reads busy."),
+)
+
+# Precedence when the legs disagree. A running process is a FACT and outranks a credential
+# state; ambiguity outranks `open`, always (G-2's FALSE-BUSY ruling, applied to the render).
+STATE_PRECEDENCE = ("busy-lock", "busy-out-of-band", "busy-unknown",
+                    "auth-expired", "cli-missing", "queue-pending", "open")
 
 
 # ---------------------------------------------------------------- time helpers
@@ -164,15 +210,6 @@ def probe_git(repo_path):
     return fn
 
 
-def probe_codex_login():
-    def fn():
-        if shutil.which("codex") is None:
-            raise RuntimeError("codex CLI not on PATH")
-        rc, out, err = _sh(["codex", "login", "status"], timeout=30)
-        return dict(rc=rc, text=(out or err).split("\n")[0][:120])
-    return fn
-
-
 def probe_env_cache1h():
     def fn():
         val = os.environ.get("ENABLE_PROMPT_CACHING_1H")
@@ -236,6 +273,218 @@ def probe_requests(ao_dir):
     return fn
 
 
+def which_cli(cfg):
+    """CLI presence: PATH first, then the vendor's known install path (grok is NOT on PATH)."""
+    for name in cfg["cli_names"]:
+        found = shutil.which(name)
+        if found:
+            return dict(path=found, on_path=True)
+    for cand in cfg["cli_paths"]:
+        cand = os.path.expanduser(cand)
+        if os.path.exists(cand):
+            return dict(path=cand, on_path=False)
+    return None
+
+
+def probe_lane_lock():
+    """LEG 1 — the kernel lock, through `factory/lane.py`'s OWN advisory probe.
+
+    Read-only import; the busy check's derivation is REUSED, never re-implemented (Q62: the card
+    renders the check's output, it is not a second truth source).
+
+    Two honesty notes carried onto the card rather than buried here:
+      * if the lock FILE does not exist, nothing can be holding it — answered free WITHOUT
+        opening anything, so this view creates no file that outlives it.
+      * when the file does exist, `lane_is_free()` acquires and releases in the same breath.
+        That is the ratified leg-1 mechanism (lane spec § 3) and it is the one place this
+        read-only view touches a kernel object. Bounded, declared, and non-persistent.
+    """
+    def fn():
+        lane_py = os.path.join(FACTORY_DIR, "lane.py")
+        if not os.path.isfile(lane_py):
+            raise RuntimeError("factory/lane.py is not on disk — leg 1 unreachable")
+        if FACTORY_DIR not in sys.path:
+            sys.path.insert(0, FACTORY_DIR)
+        import lane as lanemod  # noqa: E402  (read-only: constants + probe functions)
+        path = str(lanemod.default_lock_path())
+        if not os.path.exists(path):
+            return dict(free=True, path=path, acquired=False,
+                        why="no lock file exists — nothing has ever taken this lane")
+        return dict(free=bool(lanemod.lane_is_free()), path=path, acquired=True, why=None)
+    return fn
+
+
+def probe_process_table():
+    """LEG 2 — the process table. The ONLY leg that can see an out-of-band vendor invocation."""
+    def fn():
+        rc, out, err = _sh(["ps", "-axo", "pid=,args="], timeout=20)
+        if rc != 0:
+            raise RuntimeError(err or "ps exited %d" % rc)
+        me = os.getpid()
+        procs = []
+        for line in out.split("\n"):
+            line = line.strip()
+            if not line:
+                continue
+            pid, _, args = line.partition(" ")
+            if not pid.isdigit() or int(pid) == me:
+                continue
+            if "flight_report" in args:
+                continue          # never convict the instrument of being the thing it watches
+            procs.append((int(pid), args.strip()))
+        return procs
+    return fn
+
+
+def probe_vendor_auth(cfg):
+    """Auth health — the vendor's OWN check of record (lane spec P-4 / § 9.3), read-only.
+
+    FINDING-5 class, accepted as designed and re-declared here: this is a status query, bounded
+    by a timeout, rendered LOUDLY on failure. The first probe that is not a status query is a
+    new decision, not a precedent already set.
+    """
+    def fn():
+        cli = which_cli(cfg)
+        if cli is None:
+            return dict(state="cli-missing", text="CLI not found on PATH or at %s"
+                        % (", ".join(cfg["cli_paths"]) or "(no known install path)"))
+        argv = ([cli["path"], "login", "status"] if cfg["vendor"] == "codex"
+                else [cli["path"], "models"])
+        rc, out, err = _sh(argv, timeout=30)
+        text = (out or err).split("\n")[0][:120]
+        return dict(state="ok" if rc == 0 else "auth-expired", rc=rc, text=text,
+                    cli=cli["path"], on_path=cli["on_path"])
+    return fn
+
+
+def probe_runlogs(cfg, repo_root):
+    """LEG 3 — the run-log's last row, plus queue backlog WHERE a run-log exists."""
+    def fn():
+        out = []
+        for rel in cfg["runlogs"]:
+            path = os.path.join(repo_root, rel)
+            if not os.path.exists(path):
+                out.append(dict(path=rel, present=False))
+                continue
+            with open(path, "r", encoding="utf-8") as fh:
+                lines = [l for l in fh.read().split("\n") if l.strip()]
+            last = lines[-1].split("\t") if lines else []
+            marker = last[2].strip() if len(last) > 2 else None
+            cols = len(last)
+            # A marker this reader does not RECOGNISE reads NON-terminal (fail-closed, G-2).
+            terminal = bool(marker) and (marker.startswith("rc=") or marker in (
+                "SKIP-EXISTS", "FALLBACK-CLAUDE", "AUTH-BLOCKED", "ENQUEUE-REFUSED"))
+            enqueued = len([l for l in lines if "\tENQUEUED\t" in l])
+            out.append(dict(path=rel, present=True, rows=len(lines), cols=cols,
+                            last_ts=last[0] if last else None, last_job=last[1] if cols > 1 else None,
+                            marker=marker, terminal=terminal, enqueued=enqueued,
+                            backlog_derivable=cols >= 6))
+        return out
+    return fn
+
+
+def lane_units(units, lane_key):
+    """The units whose FOLDED identity puts them on `lane_key`, oldest event first.
+
+    Module-level on purpose: the Tier-2 board renders the same cards and must reach the same
+    membership answer by IMPORT, not by re-implementation — two renderers deriving lane
+    membership two ways is two truths wearing one name.
+    """
+    out = [u for u in units.values() if unit_identity(u).get("lane") == lane_key]
+    return sorted(out, key=lambda u: u["latest"]["ts"])
+
+
+def lane_answer(cfg, lock, procs, runlogs, auth):
+    """The § 3 answer state, unioned FAIL-CLOSED across whichever legs were reachable.
+
+    Vocabulary is lane spec § 3 (`open · busy-lock · busy-out-of-band · queue-pending ·
+    auth-expired · cli-missing` + the `interactive-<vendor>-present` advisory) plus ONE label
+    this degraded card needs and that enum does not have: **`busy-unknown`**, for the case where
+    a leg is unreachable and no reachable leg reports busy. The § 3 vocabulary assumes all three
+    legs answer; a D-2-pending card cannot promise that, and rendering `open` on a lane whose
+    lock we could not read would be false-open — the one direction G-2 ruled against.
+
+    UNREACHABLE and NOT-APPLICABLE are held apart, and the distinction is load-bearing:
+      * UNREACHABLE — the surface exists and the probe FAILED. A real coverage gap ⇒ ambiguity
+        ⇒ `busy-unknown`.
+      * NOT-APPLICABLE — the surface does not exist at all, so no signal can travel through it.
+        The Grok lane has no lock (no harness can take one: D-6 gated) and no run-log (no queue
+        writes one: D-8), so its only possible occupant today is an out-of-band process — which
+        leg 2 DOES see. Counting that as ambiguity would paint a permanent red that means
+        nothing, and a permanently red instrument is one nobody reads. The card declares the
+        reduced coverage instead (#70): loud, and true.
+    """
+    signals, advisories, unreachable, na = [], [], [], []
+
+    if not cfg["has_lane_lock"]:
+        na.append("leg 1 — no lane lock exists for this vendor (D-6 gated)")
+    elif lock is None:
+        unreachable.append("leg 1 (kernel lock)")
+    elif not lock["free"]:
+        signals.append(("busy-lock", "the kernel lock is HELD (`%s`) — `ps` names the holder"
+                        % os.path.basename(lock["path"])))
+
+    if procs is None:
+        unreachable.append("leg 2 (process table)")
+    else:
+        for pid, args in procs:
+            if cfg["exec_re"].search(args):
+                signals.append(("busy-out-of-band",
+                                "PID %d is a live `%s` invocation: `%s`"
+                                % (pid, cfg["vendor"], args[:90])))
+            elif cfg["extra_busy_re"] is not None and cfg["extra_busy_re"].search(args):
+                signals.append(("busy-out-of-band",
+                                "PID %d holds a shared-leader backend (`leader.sock`), the "
+                                "concurrency door the serial law forbids: `%s`" % (pid, args[:90])))
+            elif cfg["tui_re"].search(args):
+                advisories.append("interactive-%s-present (PID %d) — ADVISORY only "
+                                  "(Q62 ruling: drains proceed)" % (cfg["vendor"], pid))
+
+    if not cfg["runlogs"]:
+        na.append("leg 3 — no run-log exists for this lane (D-8, born with the queue)")
+    elif runlogs is None:
+        unreachable.append("leg 3 (run-log)")
+    else:
+        for rl in runlogs:
+            if not rl.get("present"):
+                continue
+            if not rl["terminal"]:
+                signals.append(("busy-lock", "run-log `%s` ends on a NON-terminal marker %r"
+                                % (os.path.basename(rl["path"]), rl["marker"])))
+            if rl.get("backlog_derivable") and rl.get("enqueued"):
+                signals.append(("queue-pending", "%d ENQUEUED row(s) in `%s`"
+                                % (rl["enqueued"], os.path.basename(rl["path"]))))
+
+    if auth is None:
+        unreachable.append("auth probe")
+    elif auth["state"] == "cli-missing":
+        signals.append(("cli-missing", auth["text"]))
+    elif auth["state"] == "auth-expired":
+        signals.append(("auth-expired", "the vendor's own check failed (rc=%s): %s — re-auth is "
+                                        "a MATT-ONLY action, never a retry (P-4)"
+                        % (auth["rc"], auth["text"])))
+
+    if unreachable and not signals:
+        signals.append(("busy-unknown",
+                        "%s unreachable and no reachable leg reports busy — rendered BUSY, not "
+                        "open: FALSE-BUSY is the chosen failure direction (G-2)"
+                        % " + ".join(unreachable)))
+
+    if not signals:
+        state, reasons = "open", ["every reachable leg reads idle"]
+    else:
+        state = sorted({s for s, _ in signals},
+                       key=lambda s: STATE_PRECEDENCE.index(s)
+                       if s in STATE_PRECEDENCE else 99)[0]
+        reasons = [why for _, why in signals]
+    if na:
+        reasons = reasons + ["COVERAGE — this answer rests on %d of 3 legs; %s. Not a full-"
+                             "coverage green: it is the honest reach of the surfaces that exist "
+                             "today (#70)." % (3 - len(na), " · ".join(na))]
+    return dict(state=state, reasons=reasons, advisories=advisories,
+                unreachable=unreachable, na=na)
+
+
 def probe_disk(path):
     def fn():
         st = os.statvfs(path)
@@ -247,15 +496,70 @@ def probe_disk(path):
 
 
 # ---------------------------------------------------------------- fold helpers
+# B-3 places the identity axes on ENQUEUE / START / CLOSE only: those are the events at which
+# a unit says what it IS. GATE / CURATION / HALT rows carry a JUDGEMENT about the unit, filed
+# by someone who is not its owner.
+#
+# G-2 FINDING-3: taking the operator off the LATEST row rendered `run:U1-BUILD` as owned by
+# jack-ryan, because his GATE row was the most recent event — a gatekeeper who judged one
+# event shown as the owner of the run (Discipline #9, attribution clarity). Owner and
+# last-actor are different questions and are answered by different rows.
+OWNER_EVENTS = ("ENQUEUE", "START")
+IDENTITY_EVENTS = OWNER_EVENTS + ("CLOSE",)
+OWNER_FIELDS = ("operator", "seam", "repo", "workstream")
+
+
 def unit_identity(unit):
-    """Resolve a unit's lane identity from its own START/CLOSE rows (render-time join)."""
+    """Fold a unit's own identity from its identity-bearing rows (FINDING-3).
+
+    ENQUEUE/START win; CLOSE fills only what they left null (the founding corpus has no
+    ENQUEUE, and B-3's denormalize-identity lean makes its CLOSE rows self-describing).
+    GATE/CURATION/HALT contribute NOTHING here — their verdict and gatekeeper are read off
+    those rows directly, where they belong.
+    """
     ident = {}
-    for r in unit["rows"]:
-        if r["event"] in ("START", "CLOSE"):
-            for f in schema.IDENTITY_FIELDS:
-                if r.get(f) is not None and f not in ident:
+    fields = tuple(schema.IDENTITY_FIELDS) + OWNER_FIELDS
+    for events in (OWNER_EVENTS, ("CLOSE",)):
+        for r in unit["rows"]:               # already sorted by ts in schema.fold
+            if r["event"] not in events:
+                continue
+            for f in fields:
+                if f not in ident and r.get(f) is not None:
                     ident[f] = r[f]
     return ident
+
+
+def last_actor(unit):
+    """Who touched the unit most recently — rendered as its OWN column, never fused with owner."""
+    latest = unit["latest"]
+    return latest.get("operator") or latest.get("gatekeeper")
+
+
+def partition_audit(units, membership):
+    """FINDING-2: the rendered lanes must PARTITION the tape's own units.
+
+    `membership` maps lane label -> the unit_ids that lane actually rendered, so a filter that
+    silently drops a unit is caught by the render itself. A unit in NO lane (or in two) is a
+    render bug, and it is surfaced with the same loudness as a failed probe — never as a
+    quietly smaller number that a reader has to add up to notice.
+    """
+    problems = []
+    where = {}
+    for lane, ids in membership.items():
+        for uid in ids:
+            where.setdefault(uid, []).append(lane)
+    for uid in sorted(units):
+        lanes = where.get(uid, [])
+        if not lanes:
+            problems.append("unit `%s` (folds to %s) falls in NO lane"
+                            % (uid, units[uid]["state"]))
+        elif len(lanes) > 1:
+            problems.append("unit `%s` renders in %d lanes at once: %s"
+                            % (uid, len(lanes), ", ".join(sorted(lanes))))
+    for uid in sorted(set(where) - set(units)):
+        problems.append("lane(s) %s render `%s`, which is not a unit on the tape"
+                        % (", ".join(sorted(where[uid])), uid))
+    return problems
 
 
 def unit_event(unit, event):
@@ -330,6 +634,20 @@ def render(records_dir, repo_root, now, run_probes=True):
     units = schema.fold(rows)
     tape_names = [os.path.basename(p) for p in tapemod.tape_files(records_dir)]
 
+    # FINDING-2: the four state lanes are built ONCE, here, from `fold()`'s own vocabulary, and
+    # `membership` below is assembled from the lists each lane actually renders. Any fold state
+    # this renderer forgets to give a home to lands in UNBOUND and is counted, not dropped.
+    by_state = {}
+    for u in units.values():
+        by_state.setdefault(u["state"], []).append(u)
+    inflight = sorted(by_state.get("IN-FLIGHT", []), key=lambda u: u["latest"]["ts"])
+    queued = sorted(by_state.get("QUEUED", []), key=lambda u: u["latest"]["ts"])
+    sealed = by_state.get("SEALED", [])
+    unbound = sorted([u for st, us in by_state.items()
+                      if st not in ("IN-FLIGHT", "QUEUED", "SEALED") for u in us],
+                     key=lambda u: u["latest"]["ts"])
+    membership = {}
+
     p = Probes(repo_root)
     if run_probes:
         games = os.path.dirname(repo_root)
@@ -337,7 +655,6 @@ def render(records_dir, repo_root, now, run_probes=True):
             path = os.path.join(games, name)
             if os.path.isdir(os.path.join(path, ".git")):
                 p.run("git:" + name, probe_git(path))
-        p.run("codex-login", probe_codex_login())
         p.run("env:ENABLE_PROMPT_CACHING_1H", probe_env_cache1h())
         p.run("matt_decision_needed",
               probe_matt_queue(os.path.join(repo_root, "canonical/matt_decision_needed/README.md")))
@@ -345,6 +662,14 @@ def render(records_dir, repo_root, now, run_probes=True):
               probe_matt_queue(os.path.join(repo_root, "canonical/matt_to_do/README.md")))
         p.run("requests-dirs", probe_requests(os.path.join(repo_root, "agentic_orchestration")))
         p.run("disk", probe_disk(repo_root))
+        # AM-1 § 13.1 lane legs. `lane-lock` and `proc-scan` are shared across cards; the auth
+        # and run-log probes are per-lane so one vendor's failure never masks the other's state.
+        p.run("lane-lock", probe_lane_lock())
+        p.run("proc-scan", probe_process_table())
+        for cfg in LANE_CARDS:
+            p.run("auth:" + cfg["key"], probe_vendor_auth(cfg))
+            if cfg["runlogs"]:
+                p.run("runlog:" + cfg["key"], probe_runlogs(cfg, repo_root))
 
     L = []
     A = L.append
@@ -353,9 +678,11 @@ def render(records_dir, repo_root, now, run_probes=True):
     A("# FLEET — regenerated %s · VIEW ONLY (THE LAW: zero authority; disk is truth)"
       % now.strftime("%Y-%m-%dT%H:%M:%SZ"))
     A("")
-    A("tape: %s (%d rows on disk; %d after corrections) · probes: %d/%d ran · schema v%d"
+    A("tape: %s (%d rows on disk; %d after corrections) · probes: %d/%d ran · schema **v%s** "
+      "(rows stamped `v:%d` — the row FORMAT is unchanged; v%s is the custodian-amendment "
+      "marker, and a row's minimum revision is derived from its keys, never stamped)"
       % (", ".join(tape_names) or "(none)", raw_count, len(rows), p.ran, p.total,
-         schema.SCHEMA_VERSION))
+         schema.SCHEMA_REVISION, schema.SCHEMA_VERSION, schema.SCHEMA_REVISION))
     A("")
     A("> Generated by `flight/bin/flight_report` — deterministic, no LLM in the path. "
       "Every figure is derived from rows at render time and stored nowhere. "
@@ -425,26 +752,30 @@ def render(records_dir, repo_root, now, run_probes=True):
 
     # ---- lane 2: IN-FLIGHT
     meds = class_medians(units)
-    inflight = sorted([u for u in units.values() if u["state"] == "IN-FLIGHT"],
-                      key=lambda u: u["latest"]["ts"])
-    queued = [u for u in units.values() if u["state"] == "QUEUED"]
+    membership["IN-FLIGHT"] = [u["latest"]["unit_id"] for u in inflight]
+    membership["QUEUED"] = [u["latest"]["unit_id"] for u in queued]
     A("## ▶ IN-FLIGHT — %d of %d units on tape   (staleness per F-2 SLA)"
       % (len(inflight), len(units)))
     A("")
     A("_%s_" % cov_line)
     A("")
     if inflight:
-        A("| unit | kind | operator | lane | last event | age | SLA |")
-        A("|---|---|---|---|---|---|---|")
+        A("_`owner` is folded from the unit's own ENQUEUE/START rows; `last actor` is whoever "
+          "filed the most recent event. They are different questions (FINDING-3): a gatekeeper "
+          "who judged one event does not thereby own the run._")
+        A("")
+        A("| unit | kind | owner | lane | last event | last actor | age | SLA |")
+        A("|---|---|---|---|---|---|---|---|")
         for u in inflight:
             ident = unit_identity(u)
             lane = ident.get("lane") or "—"
             latest = u["latest"]
             age = (now - parse_ts(latest["ts"])).total_seconds()
             mark, rule = staleness(age, lane, meds.get(sla_class(u)))
-            A("| `%s` | %s | %s | %s | %s | %s | %s %s |"
+            A("| `%s` | %s | %s | %s | %s | %s | %s | %s %s |"
               % (latest["unit_id"], latest.get("unit_kind") or "—",
-                 latest.get("operator") or "—", lane, latest["event"], fmt_age(age), mark, rule))
+                 ident.get("operator") or "—", lane, latest["event"],
+                 last_actor(u) or "—", fmt_age(age), mark, rule))
     else:
         A("_none_")
     A("")
@@ -465,6 +796,9 @@ def render(records_dir, repo_root, now, run_probes=True):
             open_gates.append(g)
     A("## \U0001f6a7 AT GATE — %d" % len(open_gates))
     A("")
+    A("_An OVERLAY, not a partition lane: every unit listed here also appears in exactly one of "
+      "IN-FLIGHT / QUEUED / SEALED / UNBOUND. Do not add this count to those (FINDING-2)._")
+    A("")
     if open_gates:
         A("| unit | gate | gatekeeper | verdict so far | waiting |")
         A("|---|---|---|---|---|")
@@ -479,12 +813,119 @@ def render(records_dir, repo_root, now, run_probes=True):
           "what was recorded; that is the honest limit of a flight recorder, not a claim of none.)")
     A("")
 
+    # ---- lane 3.5: LANES — the vendor lane cards (AM-1 § 13.1)
+    A("## \U0001f6e3 LANES — vendor lane cards   (probe: **%s**)" % PROBE_MODE)
+    A("")
+    A("_%s_" % Q62_CAVEAT)
+    A("")
+    A("_The D-2 `factory lane` subcommand — which will answer all three legs under one pinned "
+      "contract — **does not exist yet** (other workstream). Until it lands, each card is a "
+      "DEGRADED composite of the legs reachable today, and every leg says what it saw. Union "
+      "rule: **busy if ANY leg says busy**; ambiguity renders busy, never open._")
+    A("")
+    for cfg in LANE_CARDS:
+        key, vendor = cfg["key"], cfg["vendor"]
+        lock = p.results.get("lane-lock") if cfg["has_lane_lock"] else None
+        procs = p.results.get("proc-scan")
+        rls = p.results.get("runlog:" + key)
+        auth = p.results.get("auth:" + key)
+        ans = lane_answer(cfg, lock, procs, rls, auth)
+        # An `open` answer earns a GREEN only at full leg coverage. Open-on-one-leg is AMBER:
+        # the colour is what Matt reads at a glance before opening a TUI, and a green that
+        # quietly means "one third of the instrument" is the reassuring-instrument failure.
+        mark = (RED if ans["state"] in ("busy-unknown", "auth-expired", "cli-missing")
+                else AMBER if (ans["na"] or ans["state"] != "open") else GREEN)
+        A("### %s · lane `%s` (provider `%s`)" % (vendor, key, cfg["provider"]))
+        A("")
+        A("- **state: %s `%s`**" % (mark, ans["state"]))
+        for why in ans["reasons"]:
+            A("  - %s" % why)
+        for adv in ans["advisories"]:
+            A("  - %s" % adv)
+        A("- auth health (`%s`, the check of record): %s"
+          % (cfg["auth_cmd_hint"], p.line(
+              "auth:" + key,
+              lambda a: "%s %s" % (GREEN if a["state"] == "ok" else RED, a["text"]))))
+        A("- CLI: " + p.line(
+            "auth:" + key,
+            lambda a: ("not found — %s" % a["text"] if a["state"] == "cli-missing"
+                       else "`%s`%s" % (a["cli"], "" if a["on_path"] else " (installed, NOT on "
+                                        "PATH — invoke by absolute path)"))))
+        if cfg["has_lane_lock"]:
+            A("- leg 1 (kernel lock): " + p.line(
+                "lane-lock",
+                lambda lk: "%s%s" % ("FREE" if lk["free"] else "HELD",
+                                     " — %s" % lk["why"] if lk["why"] else
+                                     " (`%s`; probed by acquire+release, nothing persisted)"
+                                     % os.path.basename(lk["path"]))))
+        else:
+            A("- leg 1 (kernel lock): **not applicable** — no lane lock exists for this vendor. "
+              "`GrokHarness` is build-delta D-6 and stays gated behind U-8 judge-pilot "
+              "authorisation, so nothing takes a Grok lock today. NOT APPLICABLE (the surface "
+              "does not exist), which is a different fact from a probe that failed — and it is "
+              "declared on the state line as reduced coverage rather than hidden.")
+        A("- leg 2 (process table): " + p.line(
+            "proc-scan",
+            lambda ps: "scanned %d process(es); argv[0]-anchored match on `%s`" % (len(ps), vendor)))
+        if cfg["runlogs"]:
+            A("- leg 3 (run-log): " + p.line(
+                "runlog:" + key,
+                lambda rl: " · ".join(
+                    ("`%s` absent" % os.path.basename(r["path"])) if not r["present"]
+                    else "`%s` %d rows, last `%s` %s (%s)"
+                    % (os.path.basename(r["path"]), r["rows"], r["marker"],
+                       "terminal" if r["terminal"] else "**NON-TERMINAL**",
+                       "backlog %d ENQUEUED" % r["enqueued"] if r["backlog_derivable"]
+                       else "backlog NOT derivable: %d-column pre-queue format carries no "
+                            "ENQUEUE marker" % r["cols"])
+                    for r in rl)))
+        else:
+            A("- leg 3 (run-log): **none exists for this lane** — a Grok run-log is build-delta "
+              "D-8 and is born with the queue. Backlog is unmeasured, which is not zero (#63).")
+        lus = lane_units(units, key)
+        pins = sorted({unit_identity(u).get("pin") for u in lus
+                       if unit_identity(u).get("pin")})
+        A("- pin (DERIVED from this lane's own rows, never asserted here): %s"
+          % (", ".join("`%s`" % x for x in pins) if pins else
+             "**none recorded on any row of this lane** — declared null. The pin OF RECORD lives "
+             "in the lane spec (§ 2 P-5 / § 9.3); this view renders what the tape measured."))
+        closes = [(unit_event(u, "CLOSE"), unit_identity(u)) for u in lus
+                  if unit_event(u, "CLOSE")]
+        closes.sort(key=lambda t: t[0]["ts"])
+        if closes:
+            c, ident = closes[-1]
+            tin = c.get("tokens_input")
+            A("- last tape activity: **%d unit(s)** on this lane; last CLOSE `%s` at %s — "
+              "rc %s · tok-in %s · cost %s"
+              % (len(lus), c["unit_id"], c["ts"],
+                 c["rc"] if c.get("rc") is not None else "— (not recorded)",
+                 human_n(tin) if tin is not None else "— (null, declared)",
+                 ("$%.5f (vendor-reported)" % c["cost_usd"]) if c.get("cost_usd") is not None
+                 else "— (this vendor's stream reports no dollar cost)"))
+        elif lus:
+            A("- last tape activity: %d unit(s) on this lane, **no CLOSE row yet**" % len(lus))
+        else:
+            A("- last tape activity: **no rows on tape for this lane** — the honest state until "
+              "admitted work fires (AM-1 § 13.3: admission is unchanged by this card).")
+        A("- lane law: %s" % cfg["note"])
+        A("")
+    claude_units = [u for u in units.values()
+                    if (unit_identity(u).get("lane") or "").startswith("claude-")]
+    A("### claude lanes (summarised — `claude-agent` · `claude-subagent`)")
+    A("")
+    A("- %d unit(s) on tape. **No lane instrument to probe:** an interactive Claude Code session "
+      "takes no flock, writes no run-log, and exposes no CLI status verb, so state here is "
+      "TAPE-DERIVED ONLY (fold-of-events) and liveness is not answerable at all. Token cells stay "
+      "null by F-7 — a null is a fact." % len(claude_units))
+    A("")
+
     # ---- lane 4: HEALTH
     A("## ⚙ HEALTH   (read-only probes, run at render time)")
     A("")
-    A("- codex auth: " + p.line(
-        "codex-login",
-        lambda r: "%s %s" % (GREEN if r["rc"] == 0 else RED, r["text"])))
+    # Vendor auth is probed ONCE, in the LANES section, and referenced here: a read-only view
+    # that spawns the same vendor binary twice per render is a view with a footprint.
+    A("- vendor auth: see the LANES cards above (`codex login status` · `grok models` — each "
+      "vendor's own check of record, run once per render)")
     A("- `ENABLE_PROMPT_CACHING_1H`: " + p.line(
         "env:ENABLE_PROMPT_CACHING_1H",
         lambda e: ("%s set (`%s`)" % (GREEN, e["value"]) if e["present"]
@@ -523,21 +964,34 @@ def render(records_dir, repo_root, now, run_probes=True):
         A("- window meters: no SNAPSHOT rows on the tape (declared null, not zero)")
 
     # pin drift — model_echo vs pin
-    drift = []
-    echoes = 0
+    # The tripwire compares `model_echo` against `pin`. A unit with an echo but NO pin is not a
+    # match and not a miss — it is NOT COMPARABLE, and folding it into "all match their pin"
+    # would manufacture a green from a unit that pinned nothing. Three populations, counted.
+    drift, comparable, echo_only = [], 0, 0
     for u in units.values():
         ident = unit_identity(u)
-        if ident.get("model_echo"):
-            echoes += 1
-            if ident.get("pin") and ident["model_echo"] != ident["pin"]:
-                drift.append((u["latest"]["unit_id"], ident["pin"], ident["model_echo"]))
+        if not ident.get("model_echo"):
+            continue
+        if not ident.get("pin"):
+            echo_only += 1
+            continue
+        comparable += 1
+        if ident["model_echo"] != ident["pin"]:
+            drift.append((u["latest"]["unit_id"], ident["pin"], ident["model_echo"]))
+    echo_note = ("; %d unit(s) echo a model but pinned none — NOT COMPARABLE, excluded from the "
+                 "denominator" % echo_only) if echo_only else ""
     if drift:
-        A("- pin drift: %s %d unit(s) where model_echo ≠ pin" % (RED, len(drift)))
+        A("- pin drift: %s %d of %d comparable unit(s) where model_echo ≠ pin%s"
+          % (RED, len(drift), comparable, echo_note))
         for uid, pin, echo in drift[:5]:
             A("  - `%s` pin `%s` → echo `%s`" % (uid, pin, echo))
-    elif echoes:
-        A("- pin drift: %s none — %d/%d units carry a `model_echo` and all match their pin"
-          % (GREEN, echoes, len(units)))
+    elif comparable:
+        A("- pin drift: %s none — %d/%d unit(s) carry BOTH a `pin` and a `model_echo`, and all "
+          "match%s" % (GREEN, comparable, len(units), echo_note))
+    elif echo_only:
+        A("- pin drift: **NO COMPARISON POSSIBLE** — %d/%d unit(s) carry a `model_echo` but "
+          "none of them carries a `pin`, so nothing can be compared. Determinate, not green%s."
+          % (echo_only, len(units), ""))
     else:
         A("- pin drift: **NO SIGNAL** — `model_echo` is null on %d/%d units, so the tripwire "
           "cannot fire on any lane currently captured (INFO-2). This is a determinate answer, "
@@ -555,8 +1009,12 @@ def render(records_dir, repo_root, now, run_probes=True):
         A("- harness version: %s MIXED within %s (a silent CLI update is the same class of "
           "confound as a silent model change)" % (AMBER, ", ".join(mixed)))
     elif harnesses:
-        A("- harness version: %s stable per workstream (%s)"
-          % (GREEN, "; ".join("%s: %s" % (k, list(v)[0]) for k, v in sorted(harnesses.items()))))
+        n_hv = len([u for u in units.values() if unit_identity(u).get("harness_version")])
+        A("- harness version: %s stable WHERE RECORDED (%s) — but only %d/%d unit(s) record one "
+          "at all; the rest are declared null, which is not the same fact as stable"
+          % (AMBER if n_hv < len(units) else GREEN,
+             "; ".join("%s: %s" % (k, list(v)[0]) for k, v in sorted(harnesses.items())),
+             n_hv, len(units)))
     else:
         A("- harness version: **not recorded on any unit** — declared null, not stable. "
           "Backfill rows carry no version because no vendor stream in the corpus emits one "
@@ -564,19 +1022,18 @@ def render(records_dir, repo_root, now, run_probes=True):
     A("")
 
     # ---- lane 5: SEALED
-    sealed = [u for u in units.values() if u["state"] == "SEALED"]
+    membership["SEALED"] = [u["latest"]["unit_id"] for u in sealed]
     A("## ✓ SEALED — %d unit(s) on the tape" % len(sealed))
     A("")
     ws_groups = {}
     for u in sealed:
-        c = unit_event(u, "CLOSE")
-        ws_groups.setdefault(c.get("workstream") or "(no workstream)", []).append(u)
+        ws_groups.setdefault(unit_identity(u).get("workstream") or "(no workstream)", []).append(u)
     if ws_groups:
         A("Every cell names its denominator (INFO-4). `rc` is a mechanical exit code; a "
           "**verdict** appears only where a named gatekeeper filed one (B-2).")
         A("")
-        A("| workstream | units | rc | judged verdicts | curation | tok-in | cache | tok-out | reasoning | currency | first-start→last-close |")
-        A("|---|---|---|---|---|---|---|---|---|---|---|")
+        A("| workstream | units | rc | judged verdicts | curation | tok-in | cache | tok-out | reasoning | cost (vendor-reported) | currency | first-start→last-close |")
+        A("|---|---|---|---|---|---|---|---|---|---|---|---|")
         for ws, us in sorted(ws_groups.items()):
             closes = [unit_event(u, "CLOSE") for u in us]
             n = len(us)
@@ -599,20 +1056,31 @@ def render(records_dir, repo_root, now, run_probes=True):
             tout = sum(c.get("tokens_output") or 0 for c in closes)
             treason = sum(c.get("tokens_reasoning") or 0 for c in closes)
             n_tok = len([c for c in closes if c.get("tokens_input") is not None])
-            firsts, lasts = [], []
-            for u in us:
-                firsts.append(parse_ts(u["rows"][0]["ts"]))
-                lasts.append(parse_ts(unit_event(u, "CLOSE")["ts"]))
-            span = fmt_span((max(lasts) - min(firsts)).total_seconds())
+            # AM-1: `cost_usd` is a vendor-REPORTED primitive. It is summed, never synthesised —
+            # and the cell names how many units actually reported one, because a total over a
+            # partial population is the mixed-denominator defect (INFO-4) wearing a dollar sign.
+            costed = [c.get("cost_usd") for c in closes if c.get("cost_usd") is not None]
+            cost_cell = ("$%.5f (%d/%d units report one)" % (sum(costed), len(costed), n)
+                         if costed else "— (0/%d units report one — this vendor's stream carries "
+                                        "no dollar figure)" % n)
+            n_started = len([u for u in us if unit_event(u, "START")])
+            if n_started:
+                firsts, lasts = [], []
+                for u in us:
+                    firsts.append(parse_ts(u["rows"][0]["ts"]))
+                    lasts.append(parse_ts(unit_event(u, "CLOSE")["ts"]))
+                span = fmt_span((max(lasts) - min(firsts)).total_seconds())
+            else:
+                span = "— (no START row on %d/%d units; a span would be 0 by construction)" % (n, n)
             currencies = sorted({c.get("currency") for c in closes if c.get("currency")})
-            A("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s | %s |"
+            A("| %s | %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |"
               % (ws, n, rc_cell, judged, cur_cell,
                  "%s (%d/%d units)" % (human_n(tin), n_tok, n) if n_tok
                  else "— null on %d/%d units" % (n, n),
                  ("%.1f%% of %s" % (100.0 * tcache / tin, human_n(tin))) if n_tok and tin else "—",
                  human_n(tout) if n_tok else "—",
                  human_n(treason) if n_tok else "—",
-                 "/".join(currencies) or "—", span))
+                 cost_cell, "/".join(currencies) or "—", span))
         A("")
         A("_`first-start→last-close` is a RUN DURATION, not `enqueue→seal` (INFO-3): the "
           "founding corpus records no ENQUEUE events, so enqueue→seal is not derivable for it._")
@@ -628,11 +1096,12 @@ def render(records_dir, repo_root, now, run_probes=True):
         key = (ident.get("provider") or "—", ident.get("pin") or "(no pin recorded)")
         groups.setdefault(key, []).append(u)
     if groups:
-        A("| provider / pin | units | first-pass rc=0 | tok-in | cache | tok-out | tok-in/artifact | med wall |")
-        A("|---|---|---|---|---|---|---|---|")
+        A("| provider / pin | units | first-pass rc=0 | tok-in | cache | tok-out | cost | tok-in/artifact | med wall |")
+        A("|---|---|---|---|---|---|---|---|---|")
         for (prov, pin), us in sorted(groups.items()):
             closes = [unit_event(u, "CLOSE") for u in us]
             have_tokens = any(c.get("tokens_input") is not None for c in closes)
+            costed = [c.get("cost_usd") for c in closes if c.get("cost_usd") is not None]
             tin = sum(c.get("tokens_input") or 0 for c in closes)
             tcache = sum(c.get("tokens_cached_input") or 0 for c in closes)
             tout = sum(c.get("tokens_output") or 0 for c in closes)
@@ -642,11 +1111,13 @@ def render(records_dir, repo_root, now, run_probes=True):
                             len([r for r in rcs if r == 0]), len(rcs))) if rcs else "— (no rc)"
             arts = sum(len(c.get("artifacts") or []) for c in closes)
             durs = [d for d in (unit_duration(u) for u in us) if d is not None]
-            A("| %s / %s | %d | %s | %s | %s | %s | %s | %s |"
+            A("| %s / %s | %d | %s | %s | %s | %s | %s | %s | %s |"
               % (prov, pin, len(us), firstpass,
                  human_n(tin) if have_tokens else "— (null, declared)",
                  ("%.1f%%" % (100.0 * tcache / tin)) if have_tokens and tin else "—",
                  human_n(tout) if have_tokens else "—",
+                 ("$%.5f (%d/%d)" % (sum(costed), len(costed), len(us))) if costed
+                 else "— (%d/%d report one)" % (0, len(us)),
                  human_n(int(tin / arts)) if have_tokens and arts else "—",
                  fmt_age(median(durs)) if durs else "—"))
         A("")
@@ -657,7 +1128,47 @@ def render(records_dir, repo_root, now, run_probes=True):
         A("_no sealed units to score_")
     A("")
 
-    if p.failures:
+    # ---- lane 6: UNBOUND — the residue that makes the lanes add up (FINDING-2)
+    membership["UNBOUND"] = [u["latest"]["unit_id"] for u in unbound]
+    A("## ◻ UNBOUND — %d unit(s) the live lanes have no home for" % len(unbound))
+    A("")
+    A("_A unit folds here when the tape carries a judgement or a note about it but no "
+      "ENQUEUE/START/CLOSE of its own: never flown under the recorder, so not IN-FLIGHT, and "
+      "never closed under it, so not SEALED. It is rendered rather than dropped — the lanes "
+      "must partition the tape (FINDING-2), and the unit carrying the corpus's only judged "
+      "verdict was the one that went missing when they did not._")
+    A("")
+    if unbound:
+        A("| unit | kind | owner | folds to | events on tape | last event | age |")
+        A("|---|---|---|---|---|---|---|")
+        for u in unbound:
+            ident = unit_identity(u)
+            latest = u["latest"]
+            A("| `%s` | %s | %s | %s | %s | %s | %s |"
+              % (latest["unit_id"], latest.get("unit_kind") or "—",
+                 ident.get("operator") or last_actor(u) or "—", u["state"],
+                 ", ".join(r["event"] for r in u["rows"]), latest["event"],
+                 fmt_age((now - parse_ts(latest["ts"])).total_seconds())))
+    else:
+        A("_none — every unit on the tape lands in a live lane_")
+    A("")
+
+    # ---- the partition check itself: render-time, loud on failure, never silent
+    part_problems = partition_audit(units, membership)
+    counts = " + ".join("%d %s" % (len(membership[k]), k)
+                        for k in ("SEALED", "IN-FLIGHT", "QUEUED", "UNBOUND"))
+    if part_problems:
+        A("**render check FAILED: lane-partition (%d)** — the lanes below do not partition the "
+          "tape. This is a bug in this renderer, not a fact about the fleet:" % len(part_problems))
+        for prob in part_problems:
+            A("- render check failed: lane-partition — %s" % prob)
+    else:
+        A("**PARTITION ✓** — %d unit(s) on tape = %s. Every unit renders in exactly one lane; "
+          "AT GATE and AWAITING MATT are overlays over these (FINDING-2)."
+          % (len(units), counts))
+    A("")
+
+    if p.failures or part_problems:
         A("---")
         A("")
         A("**PROBE FAILURES (%d):**" % len(p.failures))

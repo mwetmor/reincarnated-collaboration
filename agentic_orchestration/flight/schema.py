@@ -1,4 +1,4 @@
-"""U-1 fleet flight-recorder — record schema v1 (FROZEN).
+"""U-1 fleet flight-recorder — record schema v1.1 (v1 FROZEN + AM-1 custodian amendment).
 
 Truth-of-record: append-only JSONL at `agentic_orchestration/flight/records-YYYY-MM.jsonl`.
 
@@ -22,9 +22,22 @@ THE SIX AMENDMENTS, and where each lives in this file:
        source, and every named path MUST exist on disk.                   -> validate
   B-6  `curator` exists and is REQUIRED on ENQUEUE for vendor lanes.      -> FIELD_MATRIX
 
+AMENDMENT AM-1 (revision 1.1, 2026-08-24) — Matt mid-run directive, spec § 13.2, custodian
+star-lord, micro-gate G-2b (jack-ryan). Three changes, ALL ADDITIVE-OR-RENAME, no field removed,
+no type changed, no rule weakened:
+  1.1-a  lane `grok-judge` -> `grok-serial` (workload-class vs execution-stream conflation;
+         mirrors `codex-serial`). TAPE-SAFE: verified zero `grok` rows on the tape before the
+         rename (`grep -c grok records-2026-08.jsonl` = 0).
+  1.1-b  currency `grok-sub` ADDED (grok.com subscription — the third economy).
+  1.1-c  field `cost_usd` ADDED, CLOSE-only, OPTIONAL — the vendor's OWN reported dollar cost,
+         copied verbatim (Grok emits `costUSD` per call). A REPORTED PRIMITIVE, not a
+         derivation: derived-not-stored is untouched, and it owes `derived_from` exactly like a
+         token count does.
+
 HARD RULES:
   * a row is NEVER rewritten — corrections are new rows carrying `corrects: <row_id>`
   * a token count is NEVER estimated — absent is absent (no zero-filling, no defaults)
+  * a cost is NEVER computed here — only a vendor-reported dollar figure is stored
   * a verdict NEVER self-reports — it names its judge and its artifact
   * telemetry only — identifiers, counts, timestamps, enums, paths. Never work-product bodies.
 
@@ -38,7 +51,42 @@ import json
 import os
 import re
 
+# --- versioning -------------------------------------------------------------
+# TWO markers, deliberately, and the distinction is the custodian's AM-1 ruling:
+#
+#   SCHEMA_VERSION   the ROW-FORMAT version stamped in every row's `v`. It changes only when a
+#                    row written under it stops being readable/valid under the validator — i.e.
+#                    on a REMOVAL, a TYPE CHANGE, or a tightened requirement. AM-1 does none of
+#                    those, so it stays 1 and all 67 pre-AM-1 rows remain valid untouched.
+#   SCHEMA_REVISION  the CUSTODIAN-AMENDMENT marker (`"1.1"`). It changes on any additive
+#                    amendment — new field, new enum value, new rule — and it is what SCHEMA.md,
+#                    the report header, and a reader's "which revision do I need" question
+#                    resolve against.
+#
+# WHY NOT `v:2` on new rows, which is the letter of jack-ryan's B-4 ("adding a field is a
+# version bump (v:2) with a custodian-signed note"): stamping v:2 would fork the validator into
+# per-version branches to keep the 67 existing rows legal, and "ONE validator, zero exceptions"
+# (G2-T3) is a HARD gate property I will not trade for a stamp. The substance B-4 asked for is
+# delivered in full — a version bump, a custodian-signed note, a red test unless the literal is
+# amended deliberately — with the marker placed where it does not break the tape. Which revision
+# a given row NEEDS stays DERIVABLE from its own key set (`row_min_revision`), never stored:
+# a stamp would be a hand-written summary of the row's own contents, which is the R-L47-2 defect.
+# Declared for G-2b; jack-ryan rules. If he prefers `v:2`, the cost is the validator fork and I
+# will say so again before building it.
 SCHEMA_VERSION = 1
+SCHEMA_REVISION = "1.1"
+
+#: Custodian amendment lineage — append-only, like the tape it governs.
+SCHEMA_REVISIONS = (
+    ("1.0", "2026-08-24", "star-lord",
+     "FREEZE at a4f7a569 — spec § 3 + jack-ryan's G-1 amendments B-1…B-6 (G-2 PASS)"),
+    ("1.1", "2026-08-24", "star-lord",
+     "AM-1 (Matt directive, spec § 13.2): lane grok-judge->grok-serial (tape-safe, 0 grok rows); "
+     "currency grok-sub added; cost_usd added CLOSE-only optional as a vendor-REPORTED primitive"),
+)
+
+#: Which revision a field was introduced in. A row's minimum revision is DERIVED from its keys.
+FIELD_SINCE = {"cost_usd": "1.1"}
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 META_REPO_ROOT = os.path.dirname(os.path.dirname(_HERE))   # …/reincarnated-collaboration
@@ -54,13 +102,17 @@ UNIT_KINDS = ("job", "dispatch", "run", "wave", "session")
 VERDICTS = ("PASS", "PASS-WITH-FINDINGS", "BLOCK", "REFUSAL", "HALT",
             "FALLBACK-TAKEN", "FAILED", "SKIP")
 
+# AM-1 1.1-a: `grok-serial` mirrors `codex-serial`. The v1 name `grok-judge` named a WORKLOAD
+# CLASS (the U-8 judge door) in a field whose job is to name an EXECUTION STREAM — the two are
+# orthogonal, and a lane enum that encodes admission policy cannot survive the policy changing.
 LANES = ("claude-agent", "claude-subagent", "codex-serial",
-         "grok-judge", "cross-vendor-judge")
+         "grok-serial", "cross-vendor-judge")
 
 # B-6: lanes that spend a vendor's economy and therefore owe a named curator at enqueue.
-VENDOR_LANES = ("codex-serial", "grok-judge", "cross-vendor-judge")
+VENDOR_LANES = ("codex-serial", "grok-serial", "cross-vendor-judge")
 
-CURRENCIES = ("anthropic-max", "chatgpt-sub", "api-metered")
+# AM-1 1.1-b: `grok-sub` is the grok.com subscription — the third economy.
+CURRENCIES = ("anthropic-max", "chatgpt-sub", "api-metered", "grok-sub")
 
 FABRICATION_CHECKS = ("pass", "fail", "not-run")
 
@@ -80,7 +132,8 @@ IDENTITY_FIELDS = ("provider", "lane", "pin", "model_echo", "harness", "harness_
                    "currency", "curator")
 
 COST_FIELDS = ("tokens_input", "tokens_cached_input", "tokens_cache_write",
-               "tokens_output", "tokens_reasoning", "rc", "attempt", "retry_of", "artifacts")
+               "tokens_output", "tokens_reasoning", "cost_usd",
+               "rc", "attempt", "retry_of", "artifacts")
 
 OUTCOME_FIELDS = ("verdict", "gate_id", "gatekeeper", "warn_count", "fabrication_check")
 
@@ -88,6 +141,11 @@ SNAPSHOT_FIELDS = ("meter_raw",)
 
 TOKEN_FIELDS = ("tokens_input", "tokens_cached_input", "tokens_cache_write",
                 "tokens_output", "tokens_reasoning")
+
+# AM-1 1.1-c: numbers the VENDOR reported about what a call cost, copied verbatim. They join the
+# token primitives in owing a `derived_from` — a dollar figure with no named artifact is exactly
+# the unsourced claim B-5 exists to refuse.
+REPORTED_COST_FIELDS = ("cost_usd",)
 
 # Serialization order — readability only; hashing always uses sorted keys.
 FIELD_ORDER = COMMON_FIELDS + IDENTITY_FIELDS + OUTCOME_FIELDS + COST_FIELDS + SNAPSHOT_FIELDS
@@ -193,6 +251,25 @@ def compute_row_id(row: dict) -> str:
     return hashlib.sha256(canonical_json(payload).encode("utf-8")).hexdigest()[:16]
 
 
+def row_min_revision(row: dict) -> str:
+    """The lowest custodian revision that can READ this row — DERIVED from its own key set.
+
+    Nothing is stamped: a per-row revision string would be a hand-written summary of the row's
+    own contents, and a hand-written summary is a defect waiting to disagree with the thing it
+    summarises (R-L47-2). Ask the keys instead.
+    """
+    best = "1.0"
+    for k in row:
+        since = FIELD_SINCE.get(k)
+        if since and _revision_tuple(since) > _revision_tuple(best):
+            best = since
+    return best
+
+
+def _revision_tuple(rev: str):
+    return tuple(int(x) for x in rev.split("."))
+
+
 def serialize(row: dict) -> str:
     ordered = {}
     for k in FIELD_ORDER:
@@ -291,6 +368,12 @@ def validate(row: dict, repo_root: str = None, check_paths: bool = True) -> list
     for f in ("rc", "attempt", "warn_count"):
         if row.get(f) is not None and not _is_int(row[f]):
             errs.append("%s must be an int, got %r" % (f, row[f]))
+    for f in REPORTED_COST_FIELDS:
+        v = row.get(f)
+        if v is not None and (isinstance(v, bool) or not isinstance(v, (int, float)) or v < 0):
+            errs.append("%s must be a non-negative number the VENDOR reported, copied verbatim "
+                        "(absent when the stream did not report one — NEVER computed from a "
+                        "token count and a price list), got %r" % (f, v))
     if row.get("meter_raw") is not None and not isinstance(row["meter_raw"], dict):
         errs.append("meter_raw must be an object carrying the meter's own vocabulary")
     if row.get("corrects") is not None and not isinstance(row["corrects"], str):
@@ -324,6 +407,8 @@ def validate(row: dict, repo_root: str = None, check_paths: bool = True) -> list
     needs_source = []
     if any(row.get(f) is not None for f in TOKEN_FIELDS):
         needs_source.append("a token primitive")
+    if any(row.get(f) is not None for f in REPORTED_COST_FIELDS):
+        needs_source.append("a vendor-reported cost")
     if row.get("verdict") is not None:
         needs_source.append("a verdict")
     if needs_source and not df:

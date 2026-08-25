@@ -18,6 +18,9 @@ HARD RULES (enforced here and in schema.py):
   * append-only — this tool has no edit and no delete verb. A wrong row is corrected by a
     NEW row carrying `--corrects <row_id>`; the tape never lies about what was believed.
   * never estimate — omit a token flag and the field is absent. There is no zero default.
+  * `--cost-usd` is the VENDOR's own reported dollar figure, copied verbatim (AM-1). It is
+    never computed here from a token count and a price list; a computed cost is a derivation
+    wearing a primitive's clothes.
   * a verdict NEVER comes from `rc` (amendment B-2): `--verdict` requires `--gatekeeper`
     AND `--derived-from`. An exit code is a mechanical fact; a verdict is a judgement.
   * telemetry only — no work-product bodies, no prose, no model in the loop.
@@ -123,6 +126,9 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument("--tokens-cache-write", type=int)
     g.add_argument("--tokens-output", type=int)
     g.add_argument("--tokens-reasoning", type=int)
+    g.add_argument("--cost-usd", type=float,
+                   help="AM-1: the VENDOR's own reported dollar cost, copied verbatim "
+                        "(Grok's `costUSD`). Never computed here from tokens and a price list.")
     g.add_argument("--rc", type=int)
     g.add_argument("--attempt", type=int)
     g.add_argument("--retry-of")
@@ -183,6 +189,7 @@ def main(argv=None) -> int:
         tokens_cache_write=args.tokens_cache_write,
         tokens_output=args.tokens_output,
         tokens_reasoning=args.tokens_reasoning,
+        cost_usd=args.cost_usd,
         rc=args.rc,
         attempt=args.attempt,
         retry_of=args.retry_of,

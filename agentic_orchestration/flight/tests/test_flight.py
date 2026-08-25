@@ -248,6 +248,17 @@ class TestG1Amendments(unittest.TestCase):
     def test_B4_field_set_is_closed_and_no_field_is_named_for_a_metric(self):
         with self.assertRaises(schema.SchemaError):
             self.row("CLOSE", unit_id="u/1", unit_kind="job", cache_hit_rate=0.93)
+        # FINDING-C (G-2, ACCEPT-WITH-CONDITION): the exception LIST is pinned by equality,
+        # not iterated around. Iteration alone let a future custodian discharge a B-4 failure
+        # by appending one identifier and keeping the suite green — accretion-by-one-
+        # reasonable-field (R-L47-2) relocated from the field list to the exception list.
+        # Adding a second exception now costs exactly what adding a field costs: a red suite,
+        # a v:2 bump, and a custodian-signed note. The grandfather stands; the gate closes.
+        self.assertEqual(
+            schema.METRIC_NAME_EXCEPTIONS, ("warn_count",),
+            "METRIC_NAME_EXCEPTIONS is PINNED to exactly ('warn_count',) by jack-ryan's G-2 "
+            "condition. Growing it is a schema change: bump v, sign a custodian note, and "
+            "amend this literal deliberately — never as a side effect of a red test.")
         for f in schema.FIELD_ORDER:
             if f in schema.METRIC_NAME_EXCEPTIONS:
                 continue
@@ -285,6 +296,204 @@ class TestG1Amendments(unittest.TestCase):
     def test_WARN1_sla_class_key_and_min_n_are_declared_in_schema(self):
         self.assertEqual(schema.SLA_CLASS_KEY, ("lane", "unit_kind"))
         self.assertGreaterEqual(schema.SLA_MIN_N, 2)
+
+
+class TestG2Findings(unittest.TestCase):
+    """jack-ryan's G-2 render findings, each with a test that fails without the fix."""
+
+    @staticmethod
+    def _fr():
+        """Load `bin/flight_report` as a module (it is extension-less, so import by loader)."""
+        import importlib.util
+        import importlib.machinery
+        path = os.path.join(BIN, "flight_report")
+        spec = importlib.util.spec_from_loader(
+            "flight_report", importlib.machinery.SourceFileLoader("flight_report", path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    def test_FINDING3_owner_comes_from_enqueue_start_never_from_a_later_gate(self):
+        """A gatekeeper who judged ONE event is not thereby the owner of the run (#9).
+
+        Reproduces the exact shape that mis-rendered: gandalf ENQUEUEs and STARTs `run:X`,
+        jack-ryan files the LATEST row (a GATE). Folding operator off `latest` returns
+        jack-ryan; folding it off the unit's own identity-bearing rows returns gandalf.
+        """
+        fr = self._fr()
+        rows = [
+            schema.make_row("ENQUEUE", "2026-08-24T22:59:53Z", unit_id="run:X", unit_kind="run",
+                            operator="gandalf", lane="claude-agent"),
+            schema.make_row("START", "2026-08-24T23:10:24Z", unit_id="run:X", unit_kind="run",
+                            operator="gandalf", lane="claude-agent"),
+            schema.make_row("GATE", "2026-08-24T23:20:54Z", unit_id="run:X", unit_kind="run",
+                            operator="jack-ryan", gate_id="G-1", gatekeeper="jack-ryan",
+                            verdict="PASS-WITH-FINDINGS", derived_from=SRC),
+        ]
+        unit = schema.fold(rows)["run:X"]
+        self.assertEqual(unit["latest"]["event"], "GATE")
+        self.assertEqual(unit["latest"]["operator"], "jack-ryan",
+                         "precondition: the LATEST row really is the gatekeeper's")
+        self.assertEqual(fr.unit_identity(unit)["operator"], "gandalf",
+                         "FINDING-3: owner folds from ENQUEUE/START, never from a later GATE")
+        self.assertEqual(fr.last_actor(unit), "jack-ryan",
+                         "last-actor stays available as its OWN answer, in its own column")
+
+    def test_FINDING3_holds_on_the_live_tape_for_the_run_that_exposed_it(self):
+        rows, _ = tape.load(FLIGHT_DIR)
+        units = schema.fold(rows)
+        u = units.get("run:U1-BUILD")
+        self.assertIsNotNone(u, "the unit that exposed FINDING-3 must still be on the tape")
+        fr = self._fr()
+        self.assertEqual(fr.unit_identity(u).get("operator"), "gandalf")
+
+    def test_FINDING2_rendered_lanes_partition_the_tape(self):
+        """Every unit in exactly one lane: none dropped, none doubled, none invented."""
+        fr = self._fr()
+        rows, _ = tape.load(FLIGHT_DIR)
+        units = schema.fold(rows)
+
+        # the auditor itself must be able to CATCH all three failure shapes
+        uids = sorted(units)
+        self.assertEqual(fr.partition_audit(units, {"A": uids}), [])
+        self.assertTrue(any("falls in NO lane" in x
+                            for x in fr.partition_audit(units, {"A": uids[1:]})))
+        self.assertTrue(any("renders in 2 lanes" in x
+                            for x in fr.partition_audit(units, {"A": uids, "B": uids[:1]})))
+        self.assertTrue(any("not a unit on the tape" in x
+                            for x in fr.partition_audit(units, {"A": uids + ["ghost/1"]})))
+
+        # …and the report it guards must actually pass it, loudly, in its own output
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--no-probes", "--now", "2026-08-25T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("PARTITION ✓", p.stdout)
+        self.assertNotIn("render check FAILED", p.stdout)
+        self.assertIn("%d unit(s) on tape = " % len(units), p.stdout)
+
+    def test_FINDING1_every_u1_build_row_in_the_fold_declares_itself_backfill(self):
+        """The U1-BUILD rows are reconstruction, and the tape must SAY so.
+
+        Corrections, never rewrites: the undeclared originals stay on disk untouched and are
+        superseded by rows carrying `backfill: true`.
+        """
+        rows, raw = tape.load(FLIGHT_DIR)               # post-correction fold
+        live = [r for r in rows if r.get("workstream") == "U1-BUILD"]
+        self.assertTrue(live, "precondition: U1-BUILD rows are on the tape")
+        for r in live:
+            self.assertIs(r.get("backfill"), True,
+                          "undeclared backfill survives the fold: %s %s"
+                          % (r["event"], r["row_id"]))
+        on_disk = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        self.assertTrue(any(r.get("workstream") == "U1-BUILD" and not r.get("backfill")
+                            for r in on_disk),
+                        "the superseded originals must REMAIN on disk — the tape does not lie "
+                        "about what was believed at the time")
+        self.assertGreater(raw, len(rows))
+
+
+class TestAM1SchemaV11(unittest.TestCase):
+    """AMENDMENT AM-1 (revision 1.1) — the custodian amendment, and its blast radius."""
+
+    @staticmethod
+    def row(event, ts="2026-08-24T00:00:00Z", **kw):
+        return schema.make_row(event, ts, **kw)
+
+    def test_revision_marker_and_lineage_are_declared(self):
+        self.assertEqual(schema.SCHEMA_REVISION, "1.1")
+        self.assertEqual(schema.SCHEMA_VERSION, 1,
+                         "the ROW-FORMAT version does not move on a purely additive amendment: "
+                         "bumping it would fork the validator to keep 67 legal rows legal, and "
+                         "ONE validator with zero exceptions is a HARD gate property (G2-T3)")
+        self.assertEqual([r[0] for r in schema.SCHEMA_REVISIONS], ["1.0", "1.1"])
+        for rev, date, who, why in schema.SCHEMA_REVISIONS:
+            self.assertTrue(date and who and why, "every revision signs itself")
+
+    def test_11a_grok_serial_replaces_grok_judge_in_the_lane_enum(self):
+        self.assertIn("grok-serial", schema.LANES)
+        self.assertNotIn("grok-judge", schema.LANES)
+        self.assertIn("grok-serial", schema.VENDOR_LANES)
+        with self.assertRaises(schema.SchemaError):
+            self.row("START", unit_id="u/1", unit_kind="job", lane="grok-judge")
+
+    def test_11a_the_rename_was_TAPE_SAFE(self):
+        """The rename is only legal because no row spent the old name. Re-checked here."""
+        rows = schema.read_tape(tape.tape_files(FLIGHT_DIR))
+        self.assertEqual([r for r in rows if r.get("lane") == "grok-judge"], [],
+                         "a `grok-judge` row exists — the rename is no longer tape-safe and "
+                         "needs a correction pass, not an enum edit")
+
+    def test_11a_grok_serial_is_a_vendor_lane_and_owes_a_curator_at_enqueue(self):
+        with self.assertRaises(schema.SchemaError):
+            self.row("ENQUEUE", unit_id="u/1", unit_kind="job", lane="grok-serial")
+        ok = self.row("ENQUEUE", unit_id="u/1", unit_kind="job", lane="grok-serial",
+                      curator="galadriel")
+        self.assertEqual(ok["curator"], "galadriel")
+
+    def test_11b_grok_sub_currency(self):
+        self.assertIn("grok-sub", schema.CURRENCIES)
+        ok = self.row("CLOSE", unit_id="u/1", unit_kind="job", currency="grok-sub", rc=0)
+        self.assertEqual(ok["currency"], "grok-sub")
+        with self.assertRaises(schema.SchemaError):
+            self.row("CLOSE", unit_id="u/1", unit_kind="job", currency="grok-subscription")
+
+    def test_11c_cost_usd_is_close_only(self):
+        ok = self.row("CLOSE", unit_id="u/1", unit_kind="job", cost_usd=0.00286,
+                      derived_from=SRC)
+        self.assertEqual(ok["cost_usd"], 0.00286)
+        for ev in ("START", "ENQUEUE", "GATE", "CURATION", "HALT"):
+            with self.assertRaises(schema.SchemaError):
+                self.row(ev, unit_id="u/1", unit_kind="job", cost_usd=0.001,
+                         derived_from=SRC, gate_id="g", gatekeeper="x", verdict="PASS")
+
+    def test_11c_cost_usd_must_name_its_source_and_be_a_non_negative_number(self):
+        with self.assertRaises(schema.SchemaError):    # reported cost with no named artifact
+            self.row("CLOSE", unit_id="u/1", unit_kind="job", cost_usd=0.00286)
+        with self.assertRaises(schema.SchemaError):
+            self.row("CLOSE", unit_id="u/1", unit_kind="job", cost_usd=-1, derived_from=SRC)
+        with self.assertRaises(schema.SchemaError):
+            self.row("CLOSE", unit_id="u/1", unit_kind="job", cost_usd="0.003",
+                     derived_from=SRC)
+
+    def test_11c_cost_usd_survives_the_no_metric_name_rule_without_a_new_exception(self):
+        """The exception list is still exactly one name — AM-1 did not widen the door."""
+        self.assertEqual(schema.METRIC_NAME_EXCEPTIONS, ("warn_count",))
+        self.assertIn("cost_usd", schema.ALL_FIELDS)
+
+    def test_row_min_revision_is_derived_from_keys_never_stamped(self):
+        pre = self.row("CLOSE", unit_id="u/1", unit_kind="job", rc=0)
+        post = self.row("CLOSE", unit_id="u/1", unit_kind="job", cost_usd=0.5,
+                        derived_from=SRC)
+        self.assertEqual(schema.row_min_revision(pre), "1.0")
+        self.assertEqual(schema.row_min_revision(post), "1.1")
+        self.assertNotIn("revision", post, "a per-row revision stamp is a stored summary")
+
+    def test_pre_amendment_rows_remain_valid_untouched(self):
+        """Backward compatibility is the whole reason `v` did not move."""
+        self.assertEqual(tape.audit(FLIGHT_DIR), [])
+
+    def test_the_founding_grok_row_says_only_what_section_9_1_measured(self):
+        rows, _ = tape.load(FLIGHT_DIR)
+        gk = [r for r in rows if r.get("lane") == "grok-serial"]
+        self.assertEqual(len(gk), 1, "exactly one founding grok row")
+        r = gk[0]
+        self.assertEqual(r["event"], "CLOSE")
+        self.assertIs(r.get("backfill"), True)
+        self.assertEqual(r["provider"], "xai")
+        self.assertEqual(r["currency"], "grok-sub")
+        self.assertEqual(r["cost_usd"], 0.00286)
+        self.assertEqual(r["harness_version"], "1.0.5")
+        self.assertEqual(r["model_echo"], "grok-4.6-build")
+        self.assertTrue(any("codex-lane-protocol-and-busy-check-SPEC.md" in s
+                            for s in r["derived_from"]))
+        # NOT in the § 9.1 record ⇒ NOT on the row. A null is a fact.
+        for absent in ("tokens_input", "tokens_cached_input", "tokens_cache_write",
+                       "tokens_output", "tokens_reasoning", "rc", "verdict", "pin",
+                       "gatekeeper", "artifacts"):
+            self.assertNotIn(absent, r,
+                             "%s is not in the § 9.1 measurement record and must not be on the "
+                             "row — PROBE-OK is the lane's own self-report, and a verdict never "
+                             "self-reports (B-2)" % absent)
 
 
 class TestFoundingNormalization(unittest.TestCase):
@@ -424,13 +633,170 @@ class TestReport(unittest.TestCase):
             self.assertIn("probe failed:", p.stdout)
 
 
+class TestLanesSection(unittest.TestCase):
+    """AM-1 § 13.1 — the vendor LANE CARDS, and the honesty rules they must not break."""
+
+    @staticmethod
+    def _fr():
+        import importlib.util
+        import importlib.machinery
+        path = os.path.join(BIN, "flight_report")
+        spec = importlib.util.spec_from_loader(
+            "flight_report", importlib.machinery.SourceFileLoader("flight_report", path))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    @staticmethod
+    def _cfg(fr, key):
+        return [c for c in fr.LANE_CARDS if c["key"] == key][0]
+
+    def test_the_section_renders_both_vendor_lanes_with_the_degraded_tag_and_Q62_verbatim(self):
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--now", "2026-08-25T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        out = p.stdout
+        self.assertIn("LANES", out)
+        self.assertIn("`codex-serial`", out)
+        self.assertIn("`grok-serial`", out)
+        self.assertIn("degraded — D-2 CLI pending", out)
+        self.assertIn("liveness-NOW is the § 3 CLI check's answer; the board is a VIEW "
+                      "(THE LAW) and may lag its refresh.", out)
+        self.assertIn("claude lanes (summarised", out)
+
+    def test_every_answer_state_is_lane_spec_vocabulary(self):
+        fr = self._fr()
+        allowed = {"open", "busy-lock", "busy-out-of-band", "queue-pending",
+                   "auth-expired", "cli-missing", "busy-unknown"}
+        self.assertEqual(set(fr.STATE_PRECEDENCE), allowed)
+
+    def test_union_is_fail_closed_false_busy_over_false_open(self):
+        fr = self._fr()
+        cfg = self._cfg(fr, "codex-serial")
+        ok_auth = dict(state="ok", rc=0, text="Logged in", cli="/x/codex", on_path=True)
+        free = dict(free=True, path="/tmp/l.lock", acquired=False, why="no lock file")
+        rl = [dict(path="a/_run-log.tsv", present=True, rows=1, cols=4, marker="rc=0",
+                   terminal=True, enqueued=0, backlog_derivable=False)]
+
+        self.assertEqual(fr.lane_answer(cfg, free, [], rl, ok_auth)["state"], "open")
+        held = dict(free=False, path="/tmp/l.lock", acquired=True, why=None)
+        self.assertEqual(fr.lane_answer(cfg, held, [], rl, ok_auth)["state"], "busy-lock")
+        oob = [(4242, "/opt/homebrew/bin/codex exec --json 'go'")]
+        self.assertEqual(fr.lane_answer(cfg, free, oob, rl, ok_auth)["state"],
+                         "busy-out-of-band")
+        # a leg that FAILED is ambiguity, and ambiguity renders busy — never open
+        self.assertEqual(fr.lane_answer(cfg, None, [], rl, ok_auth)["state"], "busy-unknown")
+        self.assertEqual(fr.lane_answer(cfg, free, None, rl, ok_auth)["state"], "busy-unknown")
+        # an unrecognised run-log marker reads NON-terminal (fail-closed)
+        weird = [dict(path="a/_run-log.tsv", present=True, rows=1, cols=6, marker="DONE",
+                      terminal=False, enqueued=0, backlog_derivable=True)]
+        self.assertEqual(fr.lane_answer(cfg, free, [], weird, ok_auth)["state"], "busy-lock")
+
+    def test_a_leg_that_does_not_exist_is_not_ambiguity_but_is_declared_as_coverage(self):
+        """NOT-APPLICABLE ≠ UNREACHABLE. Grok has no lock and no run-log by construction."""
+        fr = self._fr()
+        cfg = self._cfg(fr, "grok-serial")
+        auth = dict(state="ok", rc=0, text="logged in", cli="/x/grok", on_path=False)
+        ans = fr.lane_answer(cfg, None, [], None, auth)
+        self.assertEqual(ans["state"], "open")
+        self.assertEqual(len(ans["na"]), 2)
+        self.assertTrue(any("COVERAGE" in r and "1 of 3 legs" in r for r in ans["reasons"]),
+                        "a one-leg answer must declare its coverage, never read as a full green")
+
+    def test_argv_match_is_anchored_so_the_instrument_never_convicts_itself(self):
+        fr = self._fr()
+        cfg = self._cfg(fr, "codex-serial")
+        free = dict(free=True, path="/tmp/l.lock", acquired=False, why="none")
+        auth = dict(state="ok", rc=0, text="ok", cli="/x/codex", on_path=True)
+        mentions = [(1, "/bin/zsh -c 'grep codex exec ~/notes.md'"),
+                    (2, "python3 flight/bin/some_tool --lane codex-serial")]
+        ans = fr.lane_answer(cfg, free, mentions, [], auth)
+        self.assertEqual(ans["state"], "open")
+        self.assertEqual(ans["advisories"], [])
+
+    def test_interactive_tui_is_ADVISORY_and_never_moves_the_state(self):
+        """Q62 RULED advise-only, vendor-generic: a TUI does not close the lane."""
+        fr = self._fr()
+        for key, argv in (("codex-serial", "codex"), ("grok-serial", "grok")):
+            cfg = self._cfg(fr, key)
+            free = dict(free=True, path="/tmp/l.lock", acquired=False, why="none")
+            auth = dict(state="ok", rc=0, text="ok", cli="/x/" + argv, on_path=True)
+            ans = fr.lane_answer(cfg, free, [(99, argv)], [] if cfg["runlogs"] else None, auth)
+            self.assertEqual(ans["state"], "open")
+            self.assertTrue(any("interactive-%s-present" % cfg["vendor"] in a
+                                for a in ans["advisories"]))
+
+    def test_leader_sock_reads_busy_for_grok(self):
+        """The shared-leader backend is the concurrency door the serial law forbids."""
+        fr = self._fr()
+        cfg = self._cfg(fr, "grok-serial")
+        auth = dict(state="ok", rc=0, text="ok", cli="/x/grok", on_path=False)
+        ans = fr.lane_answer(cfg, None, [(7, "/usr/bin/node /x/leader.sock-host")], None, auth)
+        self.assertEqual(ans["state"], "busy-out-of-band")
+
+    def test_auth_and_cli_states_are_carried_not_invented(self):
+        fr = self._fr()
+        cfg = self._cfg(fr, "codex-serial")
+        free = dict(free=True, path="/tmp/l.lock", acquired=False, why="none")
+        expired = dict(state="auth-expired", rc=1, text="not logged in",
+                       cli="/x/codex", on_path=True)
+        self.assertEqual(fr.lane_answer(cfg, free, [], [], expired)["state"], "auth-expired")
+        missing = dict(state="cli-missing", text="CLI not found")
+        self.assertEqual(fr.lane_answer(cfg, free, [], [], missing)["state"], "cli-missing")
+
+    def test_lane_units_membership_is_shared_not_reimplemented(self):
+        fr = self._fr()
+        rows, _ = tape.load(FLIGHT_DIR)
+        units = schema.fold(rows)
+        self.assertEqual(len(fr.lane_units(units, "grok-serial")), 1)
+        self.assertEqual(len(fr.lane_units(units, "codex-serial")), 30)
+
+    def test_the_lane_probes_write_NOTHING(self):
+        """THE LAW, made mechanical for the new probes: a view with a footprint is not a view.
+
+        Snapshots every file under `flight/` and under the lane-lock dir, renders with ALL
+        probes live (including the leg-1 acquire and both vendor auth CLIs), and requires the
+        byte-for-byte state to be identical afterwards.
+        """
+        import hashlib
+
+        def snap():
+            out = {}
+            roots = [FLIGHT_DIR, os.path.expanduser("~/.reincarnated/lane-locks")]
+            for root in roots:
+                if not os.path.isdir(root):
+                    out[root] = "(absent)"
+                    continue
+                for dirpath, dirnames, filenames in os.walk(root):
+                    dirnames[:] = [d for d in dirnames if d != "__pycache__"]
+                    for f in sorted(filenames):
+                        fp = os.path.join(dirpath, f)
+                        with open(fp, "rb") as fh:
+                            out[fp] = hashlib.sha256(fh.read()).hexdigest()
+            return out
+
+        before = snap()
+        p = run_bin("flight_report", "--records-dir", FLIGHT_DIR, "--repo-root", REPO_ROOT,
+                    "--stdout", "--now", "2026-08-25T00:00:00Z")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        after = snap()
+        self.assertEqual(before, after,
+                         "a probe changed disk state. The check derives; it never emits — a "
+                         "probe that writes walks the checker into the data path, which is "
+                         "THE LAW's failure mode arriving through the instrument.")
+
+
 class TestTheLaw(unittest.TestCase):
     """Structural checks that the constitution holds in the source, not just in the prose."""
 
     def test_no_llm_or_network_imports_anywhere(self):
         banned = ("anthropic", "openai", "urllib.request", "requests", "http.client", "socket")
         files = [os.path.join(FLIGHT_DIR, f) for f in ("schema.py", "tape.py")]
-        files += [os.path.join(BIN, f) for f in os.listdir(BIN)]
+        # Files only: a `__pycache__/` directory appears in `bin/` as soon as another seam
+        # imports `flight_report` as a module (the Tier-2 board does exactly that), and the
+        # import ban is a property of SOURCE, not of whatever the interpreter caches beside it.
+        files += [os.path.join(BIN, f) for f in os.listdir(BIN)
+                  if os.path.isfile(os.path.join(BIN, f))]
         files += [os.path.join(FLIGHT_DIR, "tests", "test_flight.py")]
         for path in files:
             with open(path, encoding="utf-8") as fh:

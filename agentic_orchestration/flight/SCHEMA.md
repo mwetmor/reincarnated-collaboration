@@ -1,8 +1,10 @@
-# U-1 fleet flight-recorder — record schema **v1** (FROZEN)
+# U-1 fleet flight-recorder — record schema **v1.1**
 
-**Status:** **FROZEN 2026-08-24** (RUN U1-BUILD, block B-1), carrying jack-ryan's six G-1
-amendments B-1…B-6. This document + `flight/schema.py` are the schema of record; gandalf's spec
-§ 3 is thereafter a historical record.
+**Status:** **v1 FROZEN 2026-08-24** at `a4f7a569` (RUN U1-BUILD, block B-1), carrying jack-ryan's
+six G-1 amendments B-1…B-6, **G-2 PASS-WITH-FINDINGS**. **Revision 1.1 landed 2026-08-24** (block
+B-1b) under **AMENDMENT AM-1** — a versioned custodian amendment outside G-2's v1-stability claim,
+verified by micro-gate **G-2b** (jack-ryan). This document + `flight/schema.py` are the schema of
+record; gandalf's spec § 3 is thereafter a historical record.
 **Custodian:** star-lord (custody transferred on G-1 ratification — software-factory § 8:
 *one schema, one custodian, many readers*).
 **Founding version:** spec § 3
@@ -11,7 +13,41 @@ amendments B-1…B-6. This document + `flight/schema.py` are the schema of recor
 **Implementation:** `flight/schema.py` (enums, matrix, validator) · `flight/tape.py` (append/read/audit)
 · `flight/bin/flight_record` (appender) · `flight/bin/normalize_vfx_corpus` (founding backfill)
 · `flight/bin/flight_report` (Tier-1 view) · `flight/bin/check_append_only` (WARN-6 gate)
-· `flight/tests/test_flight.py` (45 tests).
+· `flight/tests/test_flight.py` (70 tests).
+**Cross-seam handoff:** `flight/MIGRATION.md` (what a reader of the tape or an importer of
+`flight_report` must change, and what is safe to ignore).
+
+---
+
+## 0.0 · Revision lineage (append-only, like the tape it governs)
+
+| revision | date | custodian | what changed |
+|---|---|---|---|
+| **1.0** | 2026-08-24 | star-lord | FREEZE at `a4f7a569` — spec § 3 + G-1 amendments B-1…B-6. G-2 **PASS** (T1/T2/T3/T7 HARD all pass) |
+| **1.1** | 2026-08-24 | star-lord | **AM-1**: lane `grok-judge` → `grok-serial` (tape-safe) · currency `grok-sub` added · field `cost_usd` added, CLOSE-only optional, vendor-REPORTED primitive |
+
+### Two version markers, and why they are not the same number
+
+| marker | value | moves when |
+|---|---|---|
+| `schema.SCHEMA_VERSION` — the **row-format** version stamped in every row's `v` | `1` | a row written under it stops being valid: a REMOVAL, a TYPE CHANGE, or a tightened requirement |
+| `schema.SCHEMA_REVISION` — the **custodian-amendment** marker | `"1.1"` | any additive amendment: new field, new enum value, new rule |
+
+**Custodian ruling (declared for G-2b).** jack-ryan's B-4 says *"adding a field is a version bump
+(`v:2`) with a custodian-signed note"*; gandalf's AM-1 says *"versioned custodian amendment
+(v1.1)"*. Both are satisfied in **substance** — there is a version bump, a signed note, and a
+red test unless the literal is amended deliberately — with the marker placed where it does not
+break the tape. Stamping `v:2` on new rows would force the validator to branch per version to
+keep the 67 pre-amendment rows legal, and **"ONE validator, zero exceptions" (G2-T3) is a HARD
+gate property I will not trade for a stamp.** Which revision a given row *needs* stays
+**derivable** from its own key set (`schema.row_min_revision`) and is never stored — a per-row
+revision stamp would be a hand-written summary of the row's own contents, which is the R-L47-2
+defect the derived-not-stored rule exists to prevent. If jack-ryan prefers `v:2`, the cost is the
+validator fork, and it is his call to make with that price named.
+
+**Backward compatibility:** every pre-1.1 row remains valid, unedited, under the 1.1 validator
+(`tape.audit()` returns 0 errors across all 73 on-disk rows). AM-1 removes nothing, retypes
+nothing, and tightens nothing.
 
 ---
 
@@ -67,7 +103,7 @@ disagree, the code is the schema and this table is the bug.
 | `gate_id` | F | F | **R** | F | F | F | F |
 | `gatekeeper` | F | F | **R** | F | **R** | F | O |
 | `warn_count` `fabrication_check` | F | F | F | F | O | F | F |
-| `tokens_*` `rc` `attempt` `retry_of` `artifacts` | F | F | F | F | F | F | O |
+| `tokens_*` `cost_usd` `rc` `attempt` `retry_of` `artifacts` | F | F | F | F | F | F | O |
 | `meter_raw` | F | F | F | F | F | **R** | F |
 
 **Ruling on B-3's lean — ADOPTED, explicitly.** Identity is **denormalized onto `CLOSE`**. A CLOSE
@@ -87,11 +123,12 @@ before the freeze, for that reason and no other.
 | `row_id` | **B-1.** `sha256(canonical_json(row − row_id))[:16]`, canonical = `sort_keys, separators=(",",":")` |
 | `corrects` | **B-1.** MUST reference a `row_id` present on the tape, with the **same `unit_id` and `event`**. Enforced in `tape.append_row` and `schema.correction_errors` |
 | `provider` `pin` `harness` `operator` `curator` `seam` `repo` `workstream` | open strings — a closed enum here would make the recorder refuse to record reality |
-| `lane` | enum: `claude-agent · claude-subagent · codex-serial · grok-judge · cross-vendor-judge`. U-8 adds an enum **value**, never a schema |
-| `currency` | enum: `anthropic-max · chatgpt-sub · api-metered` |
+| `lane` | enum: `claude-agent · claude-subagent · codex-serial · grok-serial · cross-vendor-judge` (**AM-1 1.1-a** renamed `grok-judge` → `grok-serial`). U-8 adds an enum **value**, never a schema |
+| `currency` | enum: `anthropic-max · chatgpt-sub · api-metered · grok-sub` (**AM-1 1.1-b**) |
 | `verdict` | `PASS · PASS-WITH-FINDINGS · BLOCK · REFUSAL · HALT · FALLBACK-TAKEN · FAILED · SKIP` |
-| `curator` | **B-6** (U-4 R-B). REQUIRED non-null on `ENQUEUE` when `lane` ∈ {`codex-serial`, `grok-judge`, `cross-vendor-judge`}. *A job whose curator field is empty is a refusal to fire.* |
+| `curator` | **B-6** (U-4 R-B). REQUIRED non-null on `ENQUEUE` when `lane` ∈ {`codex-serial`, `grok-serial`, `cross-vendor-judge`}. *A job whose curator field is empty is a refusal to fire.* |
 | `tokens_input · tokens_cached_input · tokens_cache_write · tokens_output · tokens_reasoning` | copied verbatim from the vendor stream (Codex `turn.completed.usage` maps 1:1). Reasoning is a **share of output**, never a fifth addend |
+| `cost_usd` | **AM-1 1.1-c.** CLOSE-only, optional, non-negative number. The **vendor's own reported** dollar cost, copied verbatim (Grok emits `costUSD` per call; Codex's stream reports none, so the field is simply absent on that lane). A **reported primitive**, not a derivation — it is measured by the vendor and transcribed, exactly like a token count, and it owes a `derived_from` for the same reason. **Never computed here** from tokens × a price list: a computed cost is a derivation wearing a primitive's clothes, and the derived-not-stored rule would catch it one release later, wrong |
 | `artifacts` | `[{path, bytes}]` — bytes MEASURED from disk or copied from the harness's own measurement; paths validated to exist |
 | `derived_from` | **B-5.** A **LIST** of artifact paths. `path#anchor` is legal (`workflow-upgrades.md#§ U-4`); the anchor is stripped for the disk check |
 | `meter_raw` | object, in the meter's **own** vocabulary, unnormalized |
@@ -101,8 +138,9 @@ before the freeze, for that reason and no other.
 
 - `derived_from` is a **list**, so an identity claim can name its own source independently of a
   cost claim.
-- A row carrying **any token primitive** or **any verdict** MUST carry a non-empty
-  `derived_from`, and **every named path must exist on disk**. Validator-enforced.
+- A row carrying **any token primitive**, **any vendor-reported cost** (`cost_usd`, AM-1) or
+  **any verdict** MUST carry a non-empty `derived_from`, and **every named path must exist on
+  disk**. Validator-enforced.
 - **Any identity field with no nameable source on a backfill row is `null`.** This is why the
   founding rows carry no `harness_version`: zero `model*`, `version`, `cli_version` or
   `rate_limit*` keys exist across all 30 VFX streams, so a version on those rows would be an
@@ -122,6 +160,14 @@ before the freeze, for that reason and no other.
   token count, never computed from other rows. Renaming a spec field would have broken the
   fork-fidelity mapping jack-ryan verified at G-1; declaring the exception keeps G2-T6 greppable
   and the deviation visible. It lives in `schema.METRIC_NAME_EXCEPTIONS` — one line, one name.
+- **The exception list is PINNED BY EQUALITY, not iterated around** (jack-ryan's G-2
+  ACCEPT-WITH-CONDITION, FINDING-C): `test_B4` asserts
+  `schema.METRIC_NAME_EXCEPTIONS == ("warn_count",)` exactly. Before this, a future custodian
+  could discharge a B-4 failure by appending one identifier and keeping the suite green — which
+  relocated accretion-by-one-reasonable-field from the field list to the exception list. Adding
+  a second exception now costs what adding a field costs: a red suite, a revision bump, and a
+  signed note. **AM-1 did not spend it** — `cost_usd` carries no metric token and needed no
+  exception.
 
 **Derived-not-stored.** Cache hit-rate, wall-time, time-to-seal, first-pass rate, rework-chain
 length, per-model scorecards, window burn: all are queries over rows, computed by `flight_report`
@@ -195,6 +241,67 @@ carrying a run-level verdict in the § 3.5 vocabulary, filed by a named verifier
 Each CLOSE row's `derived_from` lists the raw usage stream, **its `.err` sidecar** (INFO-7 — free
 evidence, and what keeps B-2's argument auditable), the run log, and the identity sources.
 
+### 8.1 · The U1-BUILD rows are backfill too, and now say so (G-2 FINDING-1)
+
+Workflow #2 — this run's own six rows, written at `49d717d5` — carry event timestamps that
+**predate the appender's existence** and derive from **authored artifacts** (the request doc, the
+run ledger, the dispatch file, jack-ryan's finding), not from an instrumented stream. That is
+reconstruction, which is exactly what `backfill: true` exists to declare, and `--backfill` was not
+passed. jack-ryan caught it at G-2.
+
+**Discharged by CORRECTION, never by rewrite.** Five superseding rows (`corrects: <row_id>`,
+`backfill: true`) were appended for the five rows still live in the fold; the sixth was already
+superseded by an earlier correction and needed none. The undeclared originals **remain on disk,
+byte for byte** — the flight-recorder property is that the tape does not lie about what was
+believed at the time. `backfill` is OPTIONAL on every event, so this touched no schema and could
+not have tripped G2-T2.
+
+Consequence to read honestly: **the tape currently contains no forward-captured workflow at all.**
+Both workflows are backfill. Forward capture begins when the codex durable queue emits its own
+rows (FINDING-4's first live `curator` is the same milestone).
+
+### 8.2 · The founding Grok row (AM-1, 2026-08-24)
+
+One `CLOSE` row, `backfill: true`, lane `grok-serial`, unit `grok-probe/2026-08-24-capability`,
+sourced **only** to the lane spec's § 9.1 measurement record
+(`gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md#§ 9.1`). It is real
+credential spend and the first `cost_usd` on the tape.
+
+| on the row | value | why |
+|---|---|---|
+| `cost_usd` | `0.00286` | § 9.1, vendor-reported (`costUSD`) |
+| `harness` / `harness_version` | `grok-cli` / `1.0.5` | § 9.1 measured the binary |
+| `model_echo` | `grok-4.6-build` | § 9.1: headless RESOLVES to this — a vendor-side resolution, which is what `model_echo` is for |
+| `provider` / `currency` | `xai` / `grok-sub` | § 9.1 |
+
+What is **deliberately absent**, each because § 9.1 does not record it:
+
+- **`verdict`** — `PROBE-OK` is the string the probe's own output returned. That is the executing
+  lane's **self-assessment**, and a verdict never self-reports (B-2); it is also not in the § 3.5
+  enum. `rc` is absent for the same reason in reverse: § 9.1 records `rc=0` for the *auth* check
+  (`grok models`), never for the headless probe.
+- **All five token primitives** — § 9.1 records that the envelope *carries* a `usage` object; it
+  records no numbers from it. A null is a fact.
+- **`pin`** — the probe took the vendor default; nothing was said on the argv. The provisional
+  pin `grok-4.6` lives in the lane spec § 9.3 as protocol, and a protocol constant is not a
+  measurement of this call.
+- **The ~4.3 s wall time** — duration is DERIVED from `START`→`CLOSE`, and § 9.1 records no
+  absolute start clock. Emitting a `START` four seconds before the `CLOSE` would assert two
+  timestamps nobody measured in order to encode one that was. The measurement stays in the spec;
+  the tape stays honest. (Closing this needs a `START` row at fire time — which the lane gets for
+  free the day a harness fires it.)
+- **`curator`** — B-6 binds at ENQUEUE on vendor lanes; there is no ENQUEUE row, and no curator
+  was named for a probe.
+
+**One declared imprecision, flagged rather than smoothed:** § 9.1 records the probe's **date**
+but no clock time. The row's `ts` (`2026-08-24T23:24:56Z`) is the commit that banked the
+measurement record (`368f7a70`) — a **sourced upper bound**, not a measured event time. Every
+other number on the row is § 9.1's own.
+
+**Scope guard (AM-1 § 13.3):** this row is fleet-management parity only. No `GrokHarness` was
+built (D-6 stays gated behind U-8 judge-pilot authorisation), `factory/harness/` was not touched,
+and Grok workload admission is unchanged.
+
 ## 9 · Amendment traceability (for the G-1 discharge read)
 
 | Amendment | Where it lives | Test that fails without it |
@@ -211,6 +318,14 @@ evidence, and what keeps B-2's argument auditable), the run log, and the identit
 | **INFO-3** relabel `enqueue→seal` | report SEALED table column | rendered `first-start→last-close` |
 | **INFO-4** denominators on every cell | report SEALED + scorecard tables | rendered `30/30 rc=0`, `93.2% of 72.4M` |
 | **INFO-5** `seam` / `repo` named as two fields | § 3 table above | schema field list |
+| **FINDING-C** (G-2) exception list pinned by equality | `test_B4` | `test_B4_…` (asserts the literal `("warn_count",)`) |
+| **FINDING-1** (G-2) U1-BUILD backfill declared | 5 correction rows on the tape; § 8.1 | `test_FINDING1_every_u1_build_row_in_the_fold_declares_itself_backfill` |
+| **FINDING-2** (G-2) lanes partition the tape | `flight_report.partition_audit`, UNBOUND lane, in-band `PARTITION ✓` line | `test_FINDING2_rendered_lanes_partition_the_tape` |
+| **FINDING-3** (G-2) owner ≠ last actor | `flight_report.unit_identity` (ENQUEUE/START only), `last_actor` | `test_FINDING3_owner_comes_from_enqueue_start_never_from_a_later_gate`, `…_holds_on_the_live_tape_…` |
+| **AM-1 1.1-a** `grok-serial` | `schema.LANES`, `schema.VENDOR_LANES` | `test_11a_…` ×3 (incl. the tape-safety re-check) |
+| **AM-1 1.1-b** `grok-sub` | `schema.CURRENCIES` | `test_11b_grok_sub_currency` |
+| **AM-1 1.1-c** `cost_usd` | `schema.COST_FIELDS`, `REPORTED_COST_FIELDS`, `FIELD_SINCE` | `test_11c_…` ×3, `test_row_min_revision_…` |
+| **AM-1 § 13.1** LANE CARDS | `flight_report.LANE_CARDS` / `lane_answer` / the three leg probes | `TestLanesSection` (10 tests, incl. `test_the_lane_probes_write_NOTHING`) |
 
 ---
 
