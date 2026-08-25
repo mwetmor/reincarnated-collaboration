@@ -60,6 +60,52 @@ The shared working tree accumulates orphaned dirty state, and **nothing inventor
 2. **Does orphaned uncommitted state in a shared tree need a standing inventory?** Multiple agent sessions write to one working tree concurrently. There is no instrument that answers *"what is dirty, whose is it, and how old?"* — and this file shows the answer can be "three weeks old and a regression."
 3. **Is the shared-name-over-unrelated-things pattern worth a clause?** Two instances in one session. I am **not** proposing a number — two clause numbers have already been mis-cited in this wave in opposite directions.
 
+---
+
+# ⚑ APPENDED — the ruled `#62(c)` inventory has now been RUN ONCE, and its first firing found a durability problem, not a hygiene one
+
+**knight-rider, 2026-08-25.** jack-ryan ruled **(b) YES — standing inventory as `#62` clause (c)**, and escalated it to Matt as a corpus amendment with veto open. **That escalation is still pending and nothing below pre-empts it.** But an amendment Matt is being asked to ratify should come with evidence of what it catches, and it had none — so I ran the instrument once. One shell loop, all five repos, aged by mtime, scratch/capture directories excluded.
+
+**I found the two extra instances by accident during an unrelated pre-commit check, before I ran anything.** That is the argument for the clause, more than the numbers are.
+
+## **695 aged dirty entries.**
+
+| repo | entries | | age bucket | entries |
+|---|--:|---|---|--:|
+| `reincarnated-engine` | 387 | | **>30 d** | **54** |
+| `reincarnated-godot` | 215 | | >14 d | 180 |
+| `reincarnated-collaboration` | 85 | | >7 d | 256 |
+| `reincarnated-loadout` | 8 | | 1–7 d | 205 |
+
+## ⚑ The instrument's first act was to vindicate this file's original catch
+
+**Exactly ONE tracked-file modification exists across all five repos**, and it is `tmp/br2watch/measure/census.json` — **the file this finding is about.** Everything else in 695 rows is untracked. The original catch was **not one of many; it was the only one of its kind.** The instrument built to test whether that catch was cherry-picked returned the opposite.
+
+## ⛔ But three of the six substantive orphans are MATT'S OWN NOTES, and this is a DURABILITY problem, not the staleness one
+
+Untracked `.md`/`.py`, older than 14 days, excluding scratch:
+
+| age | repo | path |
+|--:|---|---|
+| **38 d** | collaboration | `claude-mobile-session-docs/ARPG-canonical-kit-research/rdr-verify-1-recommendation.md` |
+| ⛔ **36 d** | collaboration | **`matt_notes_handoff_docs/rdr-archive-frame-narrative-spine.md`** |
+| ⛔ **35 d** | collaboration | **`matt_notes_handoff_docs/rdr-vdm2-field-delta-spec.md`** |
+| **34 d** | collaboration | `agentic_orchestration/qa/pending/2026-07-22-gamora-sim-capacity-gate2.md` |
+| **34 d** | collaboration | `agentic_orchestration/qa/pending/2026-07-22-star-lord-emission-demo-critical-gate2.md` |
+| ⛔ **34 d** | collaboration | **`matt_notes_handoff_docs/rdr-d2-itemization-design-digest.md`** |
+
+⚑ **Uncommitted means unpushed means unbacked.** These are single-disk-resident with no second copy anywhere and have been for over a month. **`census.json` is a CORRECTNESS problem; this is a DURABILITY one** — a disk failure loses three of Matt's design documents outright, and there is no version to recover. **The `#62(c)` escalation was argued on measurement integrity. Its first run says the sharper case is backup.**
+
+**I have not touched Matt's three.** They are his, and *"commit the owner's notes without asking"* is not a conductor's call. **Routed to `matt_to_do/`** — commit, `.gitignore`, or move off the shared tree; any of the three, and only he can pick.
+
+**I have committed jack-ryan's two Gate-2 verdicts verbatim with attribution** — same reasoning as the (a) PARK ruling's respect for a stranger's work, applied to the opposite fact pattern: these are **finished, PASS-grade team record with zero git history for the path**, so no live session owns them and nothing is being disposed of. `gamora/v1.14-sim-capacity` and `star-lord/v-emission-demo-critical-1` have had verdicts for a month that nobody could read from the repo.
+
+## What this does NOT touch
+
+- **(a) PARK stands.** `census.json` is not to be committed or discarded. ⚑ **The quarantine write and the named owner are STILL OPEN** — unchanged by anything here, and still the one item in this file with no owner.
+- **(b)** remains Matt's to ratify. This is evidence for the escalation, **not** a claim the clause is already in force.
+- **(c)** unchanged.
+
 ## Cross-references
 
-`reincarnated-godot` `1c55f88` (last clean commit of the file), `1475ed9` / `713f487` (the recovery commits that surfaced it); `galadriel/pipeline/eor_release.py`; star-lord's `terminal` word-collision flag in the `7837ade3` return; `knight-rider/rulings/2026-08-25-the-2000px-wall-…md` (the death that occasioned the inventory).
+`reincarnated-godot` `1c55f88` (last clean commit of the file), `1475ed9` / `713f487` (the recovery commits that surfaced it); `galadriel/pipeline/eor_release.py`; star-lord's `terminal` word-collision flag in the `7837ade3` return; `knight-rider/rulings/2026-08-25-the-2000px-wall-…md` (the death that occasioned the inventory); `knight-rider/returns/2026-08-25-jack-ryan-four-dispositions-and-a-prediction-filed-against-a-run-still-executing.md` § 2 (the ruling this appends to).
