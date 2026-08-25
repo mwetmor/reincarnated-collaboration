@@ -7,6 +7,63 @@
 
 ---
 
+## geometry-vocab-leak-ruling-2026-08-25 — the two out-of-vocabulary `geometry_value`s ruled **CORPUS NOISE**, corrected; sweep now reads **exactly zero** — 2026-08-25 — **APPLIED**
+
+**Raised by:** gamora, X-1 spatial-vocabulary work (`reincarnated-engine/src/reincarnated/simulation/MIGRATION.md:643-646`, 2026-08-24) — corpus `kit_mapping` carries `geometry_value` values `mobility` (1) and `knockback` (1) present in no `_RICH_TO_SPATIAL` site and absent from `VALID_GEOMETRY_TYPES`; they silently default to `point` at compile time. **Gamora declined to patch them into the sim map** on the grounds that doing so would launder an upstream corpus-vocabulary violation into a mapping gap. **She was right, and the ruling ratifies her call rather than merely acting on it:** the sim's map is not incomplete; the corpus was carrying values the vocabulary never admitted. Routed to elrond by knight-rider as a curation judgment, not a patch order.
+
+**RULING: (B) CORPUS NOISE — both rows.** Not (A). **No vocabulary extension is proposed, and therefore no ADR-004 cross-seam change is owed.** `VALID_GEOMETRY_TYPES` stays at 26; `_RICH_TO_SPATIAL` and everything under `simulation/` and `generation/` were **read and not written**.
+
+**Neither row was a field SWAP.** The routing brief's hypothesis — an effect noun displacing a geometry, leaving two holes — is **refuted in both cases, by different mechanisms.** There is no second hole to fill.
+
+### The two rows, traced to origin
+
+| kit / ordinal | skill | was | now | mechanism |
+|---|---|---|---|---|
+| `d3-zbarb` [2] | Ancient Spear (Rage Flip rune) | `knockback` | **`vortex_pull`** | authoring transcription failure |
+| `le-frost-wall-rm` [1] | Glacier | `mobility` | **NULL** (struck) | mapper gloss, never fetched |
+
+Both authored at the **same lap**: vdm1 stage-2 mapping, `mapping_provenance='authored-vdm1'`, `authored_date=2026-07-18`. Present with these values in the origin artifacts — `vdm1/stage2/basin3/mapping-batch-09.jsonl` and `vdm1/stage2/basin2/mapping-batch-05.jsonl` — so the defect is **at authoring, not at apply**. Nothing downstream introduced it.
+
+**1. `d3-zbarb` [2] — the row adjudicated itself and the verdict never reached the field.** Its own `delivery_notes` run the contest and terminate in: *"map per anchor: vortex_pull OR knockback contested; dominant loop from skill_loop anchor: 'Ancient Spear Rage Flip pulls enemies' → vortex_pull"*. The mapper concluded `vortex_pull` and wrote **the losing candidate**. Corroborated by the dossier anchor (*"unparalleled capacity to pull and gather monsters through Ancient Spear Rage Flip"*) and by the kit's own shape — ordinal 1 (Ground Stomp Wrenching Smash) is already `vortex_pull`, and zBarb is *literally* a double-pull gather build, so two `vortex_pull` skills is the attested reading, not a duplication artifact. **No new evidence was sought; the row is corrected to the value it already reached.**
+
+**2. `le-frost-wall-rm` [1] — role noun in a geometry slot, and the geometry was never attested at all.** The sole fetched anchor is a **joint build-utility sentence** (`kit_dossier` id 1164): *"Glacier and Frost Wall offer multiple buffs, mobility, and even cast Lightning Blast for additional damage output."* That attests **no delivery geometry for Glacier**, and no `skill_geometry` dossier section exists for it. The mapper compressed the skill_loop **summary** (*"Glacier provides mobility"*) into the geometry field. **Struck to NULL** — the honest value, and the corpus's own admitted state: 15 skills already carried NULL geometry with notes of the form *"no placement language fetched → null geometry is honest"*; `kit_compiler/kit_reader.py:37` types the field `Optional[str]`. NULL count 15 → **16**.
+
+  **Exact precedent, same defect class, same correction:** `gd-trozan-druid` [1], `[STEWARD AUDIT 2026-07-18: totem projection STRUCK -> null geometry per the two-lane convention — dossier attests 'persistent summons' with NO placement language; 'placed at position' was mapper gloss, not fetched.]` This ruling is that convention applied a second time, not a new one invented.
+
+  **Why it is not a swap:** the traversal claim is **not displaced and not lost** — it is already correctly housed one grain over, at `skill_geometry_band(le-frost-wall-rm, 1).delivery_class = 'motion'`. `geometry_value` held a **redundant mis-slotted copy**, so striking it destroys no information.
+
+### Out-of-vocabulary sweep — the general question, asked once
+
+Full census over `kit_mapping.mapping_json → skills[].geometry_value`, all 574 kits / **1,224 kit-skills**, checked against the 26-member `VALID_GEOMETRY_TYPES`:
+
+- **PRE:** 2 distinct out-of-vocabulary values, 2 occurrences — `mobility` (1), `knockback` (1). **Exactly these two and nothing else.** The brief asked for a stated result rather than silence: it is stated.
+- **POST:** **0 distinct, 0 occurrences.** Sweep clean.
+- **NULL** (admitted no-geometry, not a violation): 15 → 16.
+- **26 / 26 vocabulary values are attested in the corpus** — the sweep also finds **no dead vocabulary** in the other direction. No `chain_lightning` read-compat alias survives anywhere.
+
+### Downstream: the P1 vote already flagged this, and its disposition is now discharged
+
+The 2026-08-23 VFX archetype vote was substrate-led on this exact field, so `knockback` was **minted as an archetype of one** — and correctly quarantined at the time: `vfx_archetype('knockback').vocab_flag` reads *"probable vocabulary leak: an effect noun occupying a geometry slot (n=1)"*, `fold_status='held'`, `folded_into` NULL by intent, excluded from `v_vfx_kit_skill_binding`. Its `fold_note` proposed the disposition *"re-band the single member at the next kit-mapping lap; if it survives re-banding it earns a P2 dossier job and a T-A row."* **It did not survive.** The archetype has zero remaining members and **must not be minted as a T-A row.**
+
+**The vote-run rows are NOT retro-edited** (Law 2 — never retro-edit persisted artifacts). `vfx_archetype_member.geometry_value_raw` preserves what was measured on 2026-08-23; the run is a snapshot of a measurement, not a live table. The disposition is recorded **beside** it, in `vfx_curation_finding`.
+
+### Findings logged (`vfx_curation_finding`, run `geometry-vocab-leak-ruling-2026-08-25`)
+
+- **F001** INFO — `knockback` ruled + corrected; the P1 `fold_note` disposition discharged; no T-A row.
+- **F002** INFO — `mobility` ruled + struck; minted no archetype (its kit is outside the vote snapshot, see F004), so no vote-run artifact needs disposition.
+- **F003** **UNRESOLVED** — `skill_geometry_band(le-frost-wall-rm,1)` carries `delivery_class='motion'` + `motion_signature='straight_line'` at `band_conf=0.75`, `derivation='dossier-prose'`, whose `source_anchor` is **the same prose now struck from `geometry_value`.** `delivery_class='motion'` is defensible at low confidence from the utility sentence; **`motion_signature='straight_line'` is a PATH claim the anchor does not make.** NOT corrected — correcting it requires a re-band, and re-extraction was explicitly out of scope for a two-row ruling. **Carried, not buried:** next kit-mapping lap.
+- **F004** INFO — **observed, not fixed, adjacent:** 49 kits now holding `kit_mapping` rows have no `vfx_archetype_member` row under `vfx-archetype-vote-2026-08-23` (574 kits now vs 531 in the vote snapshot). Expected for a snapshot vote, but any future census reading archetype membership as if it covered the universe will under-count. Named so it is not rediscovered.
+
+### Reversibility + provenance
+
+**No silent transformation.** Each corrected skill carries a bracketed `[STEWARD AUDIT 2026-08-25: …]` block appended to `delivery_notes` naming the **pre-correction value verbatim** and its evidence — the established 34-kit convention. **Raw is preserved in-band; the correction is reversible from the annotation alone**, and independently from the timestamped backup `corpus.db.pre-geomvocab-20260825T162203Z-backup`.
+
+Script `../scripts/corpus_geometry_vocab_leak_ruling_2026_08_25.py` — transactional (single commit, rollback on any assert), **idempotent** (re-run detects the STEWARD AUDIT marker and no-ops; verified), and **premise-guarded**: it asserts the PRE out-of-vocabulary set is *exactly* `{mobility:1, knockback:1}` and halts if the premise moved under it. POST asserts: sweep empty, `d3-zbarb[2]='vortex_pull'`, `le-frost-wall-rm[1] IS NULL`. `PRAGMA integrity_check` = ok. Differential check against the backup confirms the edit is **surgically scoped** — exactly 2 skill-objects, exactly 2 fields each (`geometry_value` + `delivery_notes`); every other skill, every other field, and all non-`skills` mapping sections byte-identical.
+
+**Scope:** DATA-ONLY, two rows, one field. `corpus_schema_meta` version `geometry-vocab-leak-ruling-2026-08-25`. **No engine write of any kind.**
+
+---
+
 ## vfx-x4-materialization-2026-08-24 — T-K view materialized + fold bridge closes DB-27/spec-24 + `aura` anchor finding — 2026-08-24 — **APPLIED** (dedicated note: `MIGRATION-vfx-x4-materialization-2026-08-24.md`)
 
 Cross-seam routing **X-4** of the VFX archetype-binding run (commissioned L-35, expanded L-38,
