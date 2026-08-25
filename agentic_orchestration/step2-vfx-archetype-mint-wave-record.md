@@ -156,6 +156,24 @@ His instinct to preserve the artifact is **correct and is the project's establis
 
 ## § 6 — In-flight / queued
 
+### ⚑ § 6.0 — CURRENT FIRING STATE (2026-08-25, third session, ~18:10). **Read this before the HALT record below it — that HALT is RESOLVED.**
+
+**Five agents concurrent.** The disk exhaustion that caused HALT #2 is cleared: **58 GiB free**, verified pre-fire, against a **~8.4 GB** projection — **~7× margin.** `#1.1` discharged properly this time, before firing rather than after.
+
+| Seam | Work | Repo |
+|---|---|---|
+| **drax** | **3A recapture** — the matched before/after pair that makes the sealed-verdict question measurable | `reincarnated-godot` |
+| **jack-ryan** | sealed-verdict disposition (flank 3), `census.json`, word-collision clause, unwritable-receipt discipline | engine + `qa/` |
+| **star-lord** | image lane (Codex `-i`, Grok `--prompt-json` probe) + `preflight_failed` + `terminal` collision | `factory/` |
+| **gandalf** | WW-AB **lineage ruling** — does `LINEAGE CLEAN` survive 572 insertions of drift | `reincarnated-godot` (read) |
+| **galadriel** | frame forensics | — |
+
+**Pre-fix evidence verified intact before firing** — `s2c38` **2,106** · `s2c38b` **2,106** · `s2c12` **874**. The default re-run command would have wiped the first two (`rm -f "$USERDIR"/*.png` after `UDIR="s2c38${SUFFIX}"`); fresh `v3`/`v3b` suffixes ordered plus a pre-fire resolved-path check. **The loss would have been silent** — nothing errors, the recapture succeeds, and the comparison simply becomes impossible.
+
+⚑ **Concurrency hazard, named because I documented it an hour ago and then created five instances of it.** `qa/pending/2026-08-25-a-23-day-old-uncommitted-ocr-regression-nobody-owns.md` records that the shared working tree **accumulates orphaned dirty state that no instrument inventories.** Five concurrent sessions is the highest-exposure configuration this wave has run. Every brief carries the `git commit --only` + `git show --stat HEAD` pathspec discipline and an explicit *do-not-stage-untracked* clause, and drax is told by name to leave `census.json` alone. **That is mitigation, not prevention.** If a stray file appears in a commit from this window, this is where to start.
+
+### § 6.1 — the superseded HALT (resolved by § 6.0)
+
 - ⚑⚑⚑ **3A — HALT #2, DISK EXHAUSTION. The tranche is BLOCKED ON MATT, and the warning was already in my own session-start read list.**
 
   **Terminal state of this session: HALT-RECORDED** (§ 0 contract satisfied — not SEAL-REQUESTED). **Pass 1 completed ALL 128 arms**; the frames survive in the Godot userdir. The host then ran out of disk **during the copy step**, taking pass 2 with it. **drax halted correctly and refused to commit** — writing git objects onto a zero-byte volume risks a corrupt object store — and refused to append `AGENT_STATE.md` for the same reason: *"a half-written state file is exactly the lying receipt I spent the session guarding against."* **That judgment is ratified.** Four commits held (`d6a57ff`, `e86f61e`, `49ff966`, `6b81e3c`), no tag, no push.
