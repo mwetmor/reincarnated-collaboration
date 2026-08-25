@@ -86,6 +86,16 @@
 !agentic_orchestration/research/curated/kits-export
 !agentic_orchestration/research/curated/kits-export/**
 
+# U-1 FLEET TAPE (gandalf deploy-lane, 2026-08-25; RUN U1-BUILD post-seal L-34): the § 12.4
+# Glance fleet card's parser extension reads the committed flight-recorder tape
+# (records-YYYY-MM.jsonl, F-8 ruling). Same D7 lesson AGAIN — this file is inert locally
+# (local build carried rows_on_disk 75), so the gap only surfaced on the deployed
+# state.json (fleet node honest-nulled to zeros: readTape's absence-is-never-an-error
+# clause working as designed, masking the context gap). Glob keeps future monthly tapes
+# in the context automatically. Nothing else under flight/ is a build input.
+!agentic_orchestration/flight
+!agentic_orchestration/flight/records-*.jsonl
+
 # Within the two kept trees, still drop derived/heavy artifacts:
 glance/app/node_modules
 glance/app/dist
