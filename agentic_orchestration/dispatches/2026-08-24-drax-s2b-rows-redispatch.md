@@ -792,7 +792,7 @@ BEFORE the first arm** (md5 `f1f25805…`, recorded beside the result).
 |---|---|
 | **3 `circle`⊕`ring`** | ⚑ **A-10 windup lead 0.383 s — 2.09× gtc's 0.183 s, and a LOWER BOUND.** Contact response on overtaken bodies **2/4, 0 off-body**. `annulus` shares the base emitter **PROVEN** (`ring_hash` identical, peak radius 4.2→6.0, `outer_shell_frac` 0.29→0.70 — the open interior is real in pixels). Shared control **byte-identical**. |
 | **4 `single_target`** | ⚑ **The `line` boundary at 7.41×** on rendered aspect (1.29 vs 9.56). Terminates: px@post = 0. ⚠ **Thinnest coverage in T-A: 709 px against our own 535 px floor — 1.32×.** Passes, and it is the Javelin low-contrast risk in our own pixels. |
-| **5 `melee_arc`** | ⚑ **All three A-5 re-anchored criteria met**; the struck ≈12 % used nowhere. Caster retention **1.0000 / 0.9993 with ZERO authored px in the caster region** — and that **closes a limit row 1 had to declare**. Background retention 0.562/0.698. |
+| **5 `melee_arc`** | ~~⚑ **All three A-5 re-anchored criteria met**; the struck ≈12 % used nowhere. Caster retention **1.0000 / 0.9993 with ZERO authored px in the caster region** — and that **closes a limit row 1 had to declare**. Background retention 0.562/0.698.~~ **⚑ AMENDED 2026-08-25 per jack-ryan Gate-2 C1 — struck, not deleted (#79 cl. 5). Row 5 seals on TWO MEASURED A-5 criteria PLUS ONE CONSTRUCTION ARGUMENT, not three measured criteria.** The struck ≈12 % is still used nowhere. **Measured:** background retention **0.5618 cathedral / 0.6982 arena** (real dynamic range across stages, which is what makes it non-degenerate) and **C5**. **By construction:** caster legibility — `INNER_R` 2.34–2.62 m per motif (`s2b_melee_arc.gd:113-116`) against `BODY_R` 0.34 m (`:100`), so the crescent cannot overlap the caster footprint. **Its PIXEL leg returns UNEVALUABLE on this population** per **#80 cl. 2(a)**: `authored ∩ caster_region = ∅` (`authored_px_inside_caster_region: 0`, both corpora), so `retention_frac` 1.0000 / 0.9993 is forced independent of the artifact — it reads green because nothing was there to occlude, not because occlusion was measured and found absent. **The design claim is undamaged and rests on stronger evidence than the pixels; the record over-claimed and now does not.** Emptiness sweep: `reincarnated-godot/harness_logs/s2b_c1_sweep_2026-08-25/region_emptiness_sweep.json`. |
 | **6 `multi_projectile`** | Engine/Tier-1 wall as a **receipt**: hash identical across five element arms, **and differs on count=1** — both directions. 3 contacts, 2 clean misses. |
 | **7 `line`** | ⚑ **C-2 LIVE and PASSING**: worst **1.185° / 0.935°** vs the banked 2.907° bar, three aim vectors — **carrying its declared 10° floor, not reading as unconditional.** `travelling burst` proven (px@post = 0). Pierce: 2 targets, 6.97 m of travel past first contact. |
 
@@ -1338,3 +1338,113 @@ The test is not *"is this structural"* but ***"could the outcome change which cr
 | ww `post` mark re-registration | **drax**, needs a prereg | **NEW.** The reason on record for leaving ww's `post` unscored — a 3,973 px neutral scuff layer persisting through `09-off` — **does not reproduce**: against the rendered control `09-off` diffs to **exactly 0** on both stages. drax **declined to switch `post` on**, because turning an N/A into a PASS moves favourably and was not pre-registered. **Ratified. It gets its own registration or it stays N/A.** |
 | `melee_arc` sensitivity + row-7 fill-in | drax | **post-seal, at KR's call** |
 | `reincarnated-godot` push | **Matt** | fresh ask owed — now covering `f29f12b`, `7dc58d3`, `0c38b79`, `0d26021`. Outside the standing Step-2 push pattern by its own scope boundary. |
+
+---
+
+### ⚑ GATE-2 **C1 DISCHARGED** — row-5 claim amended + `authored ∩ region` emptiness sweep. Appended by drax, 2026-08-25.
+
+**KR Pattern-A dispatch. Zero renders, zero re-captures, zero re-mints** — that was an
+acceptance criterion and it held. Godot `scripts/s2b_region_emptiness_sweep.py`,
+`harness_logs/s2b_c1_sweep_2026-08-25/region_emptiness_sweep.json`. **Committed in
+`reincarnated-godot`, NOT pushed** (outside the standing pattern; Matt decision owed).
+
+#### Leg 1 — the claim
+Amended at **§ The rows, row 5** above, **struck not deleted (#79 cl. 5)**. That is the only
+prose site in the corpus that stated it as three measured criteria — jack-ryan's own C1 leg
+found none in Matt-facing docs and discharged vacuously, and my grep agrees with his.
+
+> **Row 5 seals on TWO MEASURED A-5 criteria plus ONE CONSTRUCTION ARGUMENT — not three
+> measured criteria.** Measured: background retention **0.5618 / 0.6982** and C5. By
+> construction: caster legibility, `INNER_R` 2.34–2.62 m per motif
+> (`s2b_melee_arc.gd:113-116`) against `BODY_R` 0.34 m (`:100`). Its pixel leg returns
+> **UNEVALUABLE on this population** per **#80 cl. 2(a)** — `authored ∩ caster_region = ∅`.
+
+**Refutation condition 1 checked at source and does NOT fire:** the construction argument
+holds. Inner radius exceeds the body radius by ~7×; the disjointness the pixels report is the
+geometry doing what it was built to do. **The artifact is fine. The record over-claimed, and
+now does not.**
+
+`s2b_rows37_gate.py` carries a source note at the criterion so the next author cannot quote
+the number without meeting the ruling. **Its emitted fields are deliberately UNCHANGED** —
+the receipt was honest, and hand-editing generated output to insert a verdict the run did not
+compute would be its own defect.
+
+#### Leg 2 — the sweep. **Result: `melee_arc` ONLY.**
+
+**90 criterion nodes · 176 pixel counts · 212 fractions · 3 receipts** (rows 1–2, rows 3–7,
+and tranche 1, because the defect class is not tranche-specific). **30 items flagged, all
+dispositioned, 6 DEFECT nodes — every one of them `melee_arc/A5_CASTER_RETENTION`, on both
+corpora.**
+
+| disposition | n | what it means |
+|---|---:|---|
+| **DEFECT** | **6** | region empty of the artifact → UNEVALUABLE per #80 cl. 2(a) |
+| MEASURED_RESULT | 20 | the zero/bound IS the finding; **non-degeneracy witness named for each** |
+| IDENTITY | 2 | region ⊆ artifact by construction; cannot be empty |
+| DESIGN_CONSTANT | 2 | an authored parameter, not a gate verdict |
+
+**Rows 3 / 4 / 6 / 7 and rows 1 / 2 are clean of this defect class — and now on evidence,
+rather than on the absence of a look.** Per acceptance criterion 3: **"`melee_arc` only."**
+No additional rows. Nothing for you to re-route.
+
+The script is **re-runnable and verified byte-identical across two runs**, and it **exits
+non-zero** if a flagged item lacks a disposition *or* if a disposition goes stale. So a future
+row that introduces a forced criterion cannot pass it silently, and a disposition cannot
+outlive the number it describes.
+
+#### ⚑ The part worth your attention: the sweep caught itself three times
+
+Reported here rather than buried in the commit, because **all three are the same failure the
+sweep exists to police, committed by the sweep.**
+
+1. **My first version ACQUITTED `self_buff/READ_THROUGH` on a field name.**
+   `trail_px_inside_buff` carries an artifact token and a region token and reads 16,376 — so
+   the classifier called it MEASURED. **That field is not an intersection.** It is the trail's
+   own mask measured while the buff is on; the buff∩trail overlap is published nowhere in the
+   receipt. **The instrument written to catch "a number that does not measure what its name
+   says" was acquitted by a field name.** The rule the file now enforces, in its header:
+   **A NAME MAY CONVICT. ONLY ARITHMETIC OR PIXELS MAY ACQUIT.**
+2. **An exact-bound screen is insufficient, and this is the one that matters to you.**
+   `READ_THROUGH` reads **1.0126 / 0.9978** — forced *toward* 1.0 but never landing on it,
+   because its two ends come from different arm pairs and never cancel to the digit. I added
+   **Screen 2**, which asks whether either end of a derived ratio *is* the row's authored mask,
+   matched **by value, not by name**. It paid for itself immediately: **Screen 2 independently
+   convicted the ARENA leg of C1 — `retention_frac` 0.9993 — which the exact-bound screen
+   walked straight past.** ⚑ **A one-pixel difference (1340 of 1341) was the whole margin
+   between the arena leg being caught and being invisible.** jack-ryan found C1 on the
+   cathedral leg, where it lands on exactly 1.0. Had the tranche shipped only the arena stage,
+   an exact-bound audit would have found nothing.
+3. **A range guard silently ate a case.** My fraction collector required `0 ≤ v ≤ 1`, so
+   cathedral's `retention_ratio` of **1.0126 was dropped entirely** — the one criterion Screen 2
+   exists to catch went unscreened on one of its two corpora, and the sweep would have reported
+   "clean" for it. **A retention ratio may exceed one**; that is what "slightly more visible
+   inside the field" looks like, and it is a reading, not an impossibility.
+
+**`READ_THROUGH` resolves MEASURED, by pixel recomputation from already-committed frames:**
+buff ∩ trail = **687 px of the 3,424 px trail region (20.06 %)** cathedral, **2,576 of 16,412
+(15.70 %)** arena. The ratio can move. **Not the C1 defect** — but it was one screen and one
+range guard away from never having been asked.
+
+#### Surfaced rather than executed
+- **Nothing met a refutation condition.** The construction argument holds; the sweep was
+  writable against the schema (with the caveat above, which is a finding about *my* screen and
+  not about the schema); the amendment makes no other published statement false; I see no
+  reason the seal should not proceed.
+- **`A5_CASTER_RETENTION` could become MEASURED only on a population where the artifact
+  actually enters the caster region.** That is a **capture-design** question, not a threshold
+  question. **Not proposed, not scoped, not costed** — flagged so it is not mistaken for
+  something a bar change could fix.
+- **No bar was touched, re-tuned or proposed.** Where the sweep's `reading` field could have
+  been read as bar commentary it says so explicitly: a clean sweep does **not** mean the gates
+  are well-calibrated, that is a different question, and it is jack-ryan's.
+
+#### Acceptance criteria
+| # | criterion | status |
+|---|---|---|
+| 1 | row-5 claim amended everywhere stated, struck not deleted | ✅ one site; struck in place |
+| 2 | sweep script exists, committed, output in the run's receipts, re-runnable | ✅ + byte-identical re-run + fails-loud ratchet |
+| 3 | result reported as "melee_arc only" or a named list | ✅ **`melee_arc` only** |
+| 4 | zero renders | ✅ **0** |
+| 5 | completion record appended | ✅ this record |
+
+**The tranche-2 tag is yours to drop. C1 is discharged.**
