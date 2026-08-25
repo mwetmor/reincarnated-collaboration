@@ -55,11 +55,23 @@
 |---|---|---|
 | 1 | `ground_targeted_circle` · `melee_strike` · `aura` | ✅ SEALED (3) |
 | 2 | `self_buff` · `totem` · `circle⊕ring` · `single_target` · `melee_arc` · `multi_projectile` · `line` | ✅ SEALED (7) — `drax/v0.1-s2b-mint-tranche-2` @ `f119bd8`, **on origin** (verified twice: KR + jack-ryan Gate-1) |
-| **3A** | `dash_attack` · `blink` · `teleport` · `leap_strike` · `ground_slam` · `cone` · `orbit` · `vortex_pull` | ⚑ **FIRING** — drax session live, 2026-08-25 |
+| **3A** | `dash_attack` · `blink` · `teleport` · `leap_strike` · `ground_slam` · `cone` · `orbit` · `vortex_pull` | 🛑 **BUILT, CAPTURED TWICE, GATED, FILMED — NOTHING SEALED.** All 8 rows PENDING-RECAPTURE. Tag was taken and **retracted** (`2afde08`). ⚑ **RECAPTURE DISPATCH AUTHORED** — see below. |
 | **3B** | `beam_channel` · `chain` · `placed_lane` · `ricochet_bounce` · `fork` | **QUEUED** behind the P-BEAM determinism probe |
 | WW-AB | `whirlwind` | ⚑ **MINTED + LINEAGE-AUDITED — but NOT COMPARABLE.** See correction immediately below. |
 
-**10 / 24 sealed. 8 in flight. 6 queued.**
+**10 / 24 sealed. 8 built-but-unsealed (3A). 6 queued.**
+
+#### ⚑ 3A RECAPTURE — dispatch authored 2026-08-25 (knight-rider), `dispatches/2026-08-25-drax-s2c-3a-recapture.md`
+
+**Unblocked by:** the forward-axis fix landing (`612c1e3` / `1c4f90f` / `689116c`) **and Matt verifying it by eye** — *"I confirmed that the _v3 mp4s from drax now have the character facing the correct way (forwards)."* That discharges the precondition on `Owed` item 1 (*"the fix is explicitly not mine to land"*).
+
+**Lane:** SERIAL behind the camera-framing / WW-AB dispatch per § 3 ruling 5. Not fired concurrently.
+
+⚑ **The finding that governs the dispatch, verified by reading the runner rather than recalling it:** `run_s2c_rows38.sh:126` sets `UDIR="s2c38${SUFFIX}"` and `:145` runs `rm -f "$USERDIR"/*.png`. **So the default re-run command deletes `s2c38/`, and the pass-2 form deletes `s2c38b/`** — which hold **2,106 pre-fix frames each, and are the sole surviving copy**, because the `harness_logs` duplicates were deleted in the disk crisis (by me). The dispatch orders fresh suffixes (`v3` / `v3b`) and a pre-fire check that the resolved `USERDIR` matches neither. **This is the same shape as the `USERDIR`-constant defect drax already fixed in this tranche, re-pointed at the pre-fix frames instead of at pass 1** — and this time the loss would be silent: nothing errors, the recapture succeeds, and the comparison below simply becomes impossible with no message saying so.
+
+⚑ **Why the recapture is worth more than the work it discharges.** The pre-fix frames surviving makes a **matched before/after pair** available at near-zero marginal cost — same seeds, same stages, same arms, same gate, **one variable changed.** That measures the question I filed to jack-ryan by record (`qa/pending/2026-08-25-reproducibility-is-not-validity-…`, `82aedca6`) and admitted in filing that I could not answer from outside: **whether L-29(6) and R-1.3 are differential claims that survive a common-mode defect, or absolute ones that do not.** Neither a conductor nor a QA gate can rule that from the armchair; the recapture *measures* it. **drax emits the number and is explicitly forbidden from ruling it** — Tier-A disposition stays with jack-ryan, whose queue already holds the item.
+
+**Also carried:** § 3.2 flags that **R-5's own `AXIS HOLDS` verdict is itself PENDING-RECAPTURE**, that its criterion has already reversed once, and that **`FOLD` is the destructive direction** (it routes to gandalf as evidence to merge two archetypes) — so a recaptured drift toward FOLD halts rather than routes. Discipline #1.1 projection recorded in-dispatch: ~8.4 GB against 59 GiB free, ~6× margin, with the caveat that a concurrent drax session shares the pool and `df -h` is re-run at fire time.
 
 #### ⚑ CORRECTION 2026-08-25 (knight-rider) — this row read `AUTHORED, un-run` for a full day after it ran
 
