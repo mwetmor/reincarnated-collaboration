@@ -142,6 +142,29 @@ Push to remote remains Matt-explicit-authorization per ADR-006 read-only-by-defa
 - **The per-dispatch push clause still governs over it** per the conflict rule immediately below. A standing pattern is the wave's *default*, not an override of a narrower instruction.
 - It authorizes pushing **already-committed** work. It does not authorize staging untracked files (`git add -A`, capture directories, `.lock` files) into a push — **#62(a)** still binds: verify ~~`git diff --cached --name-status`~~ **`git diff HEAD --name-status -- <the paths you named>`** against what you named.
   ⚑ **INSTRUMENT AMENDED 2026-08-25** per `#62(a)`'s third amendment + **`#75` cl. 6** (jack-ryan, engine `3c2009de` / `a62fd836`). `#62(a)` now mandates `git commit --only <paths>` as the primary staging clause — and **`--only` ships the WORKTREE, not the index.** So `--cached` can report a staged v2 while the commit lands the worktree's v3, and **a tracked path never staged at all is committed anyway, exit 0** (verified by hand, git 2.39.5, scratch repo). The two commands answer **different questions**; only the `HEAD` form answers *"what will this commit contain."* Run both if you like — the `HEAD` form is the one that binds. This line is the standing-law instance of `#75` cl. 6: *a remedy does not inherit its predecessor's instrument.* `#62(a)` changed the mechanism of committing; this check was left pointing at the old one.
+
+  ⚑ **THIRD AMENDMENT, 2026-08-25, ONE HOUR AFTER THE SECOND — the amendment above fixed the PRE-commit check and left the POST-commit check broken. It produced a false alarm within the hour.**
+
+  **`git diff HEAD~1 --name-status` DOES NOT ANSWER *"what did that commit contain."*** With only one commit named, `git diff` compares that commit to the **WORKING TREE** — so it reports every *other* agent's uncommitted edits as though they had ridden along in your commit. On a shared working tree with concurrent agent sessions, that is not an edge case; **it is the normal state.**
+
+  **Verified, scratch repo, git 2.39.5** — `other.txt` dirty and never staged, then `git commit --only mine.txt`:
+
+  | Instrument | Output | Correct? |
+  |---|---|---|
+  | `git diff HEAD~1 --name-status` | `M mine.txt` · **`M other.txt`** | ❌ names a file the commit does not contain |
+  | `git diff HEAD~1 HEAD --name-status` | `M mine.txt` | ✅ |
+  | `git show --stat HEAD` | `mine.txt \| 2 +-` · `1 file changed` | ✅ |
+
+  **`git commit --only` is sound and did nothing wrong. The instrument was the defect.**
+
+  **Standing rule — two questions, two commands, neither substitutes for the other:**
+  - **BEFORE committing** — *"what WILL this commit contain?"* → `git diff HEAD --name-status -- <the paths you named>`
+  - **AFTER committing** — *"what DID this commit contain?"* → **`git show --stat HEAD`** (or `git diff HEAD~1 HEAD --name-status`, with **both** commits named)
+
+  **Occasioned by:** KR ran the post-commit form, saw a third file — a live drax session's uncommitted note — and read it as evidence he had swept a concurrent session's work into a push **for the second time in one session**. He had not. `git show --stat HEAD` showed exactly the two files named; the note was still unstaged and untouched. **The near-miss is the finding**: an incident report was minutes from being filed against a correct commit and against a builder who had done nothing.
+
+  **Third instance in one session of one shape** — a mis-matched instrument answering a question it does not address, **returning cleanly, and returning the wrong answer** (cf. the `factory/permissions.py` non-defect; the crop that could not see the aim difference). **The check running is not the check passing.** And the reflexive sting: the defect was in the instrument mandated by *this very line*, one amendment earlier. `#75` cl. 6 says a remedy does not inherit its predecessor's instrument — and the remedy that established cl. 6 then shipped with half of its own instrument un-derived.
+
 - ⚑ **REVOKED BY MATT, 2026-08-25 (recorded per this section's own revocation mandate).** A "third-boundary" rule authored unilaterally by knight-rider on 2026-08-25 (staged into `a7bcd4ee`, refined at `aa973115`; never Matt-ratified) stood here: it forbade any push that would carry another workstream's commits, converting Matt's standing push authorization into a per-workstream veto — in practice letting any autonomous run's unpushed commits hold the shared `main` hostage (jack-ryan's #78/#80 mints sat un-releasable under 17 KC2-run commits for a day). **Matt's ruling (verbatim intent): pushes are NOT to be de-authorized per autonomous run; the rule is deleted completely.** The posture now in force: **a Matt push authorization (standing pattern or explicit word) covers the BRANCH state being pushed — sealed, committed work from any seam rides along as ancestors; autonomous runs do not acquire a push veto over `main` by committing to it.** A conductor who genuinely needs commits withheld from `origin` must use a branch, not an embargo on the shared trunk. (Full deleted text in git history at `aa973115` if lineage is ever needed.)
 
 ⚠ **Operational note, recorded because it nearly bit:** `Bash` working directory **persists between calls**. A `cd ~/Games/reincarnated-engine` in one call silently retargets a later bare `git push origin main`. **Use `git -C <path>` for every cross-repo git operation** rather than relying on inherited cwd. Caught 2026-08-24 by verifying the push output against the repo I believed I was in; the push was authorized either way, but the label was wrong, and a wrong label on a correct action is how the next one becomes a wrong action.
