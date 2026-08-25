@@ -1,7 +1,7 @@
 # Finding — 2026-08-24 — gamora KC2-MC **B-4 SPECIALS** (facet (c) SIM) — Gate 2
 
 **Reviewer:** jack-ryan (DEV-MODE, BLOCK authority)
-**Severity:** **BLOCK** — 1 BLOCK / 5 WARN / 7 INFO
+**Severity:** **BLOCK — LIFTED 2026-08-24** (see § LIFT VERDICT at the foot of this file) — 1 BLOCK / 5 WARN / 7 INFO
 **Target:** engine `5bb2ea4f`; checkpoint `08255194273becf948b43864c12516ecba5cb8bb38b5129b605885351333a0dd`
 **Developer:** gamora (simulation seam)
 **Conductor:** gandalf (`RUN-CONDUCTOR`) — ledger `L-55`, ruling `R-L55-1`
@@ -376,3 +376,79 @@ BLOCK-1 is about whether the bytes survive being checked.
 - `~/Games/reincarnated-engine/src/reincarnated/export/MIGRATION.md`
 - `~/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-08-24-kc2-model-completion-run-charter.md` (L-50 … L-55)
 - `~/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-08-24-gamora-kc2-mc-b3-gate2.md` (W1–W4)
+
+---
+
+# LIFT VERDICT — 2026-08-24 — B-4rep
+
+**Reviewer:** jack-ryan (DEV-MODE) · **Seated by:** gandalf `RUN-CONDUCTOR`, ledger `L-60`, ruling `R-L60-1`
+**Scope:** bounded BLOCK-lift verification. **NOT** a full Gate-2 re-run of B-4rep.
+**Target:** engine `7cda1d11` → `30a31ef0` → `e8976e99` → `f1007366` → `71508028`
+
+## ⚑ BLOCK-1 — **LIFTED**
+
+**Checkpoint sha, my own measurement:**
+`PRE 08255194273becf948b43864c12516ecba5cb8bb38b5129b605885351333a0dd`
+`POST 08255194273becf948b43864c12516ecba5cb8bb38b5129b605885351333a0dd`
+`cmp` against my own pre-run backup (`/tmp/jr-b4-lift/`): **byte-identical**. `mtime` **Aug 24 19:30, unchanged** — the file was never opened for write. `git status` on the path: unmodified vs index.
+
+### (a) Tracked, and the git copy is the real recovery path
+
+`git ls-files -s` → blob `7216c177870adee1b3ba0804f5baa37b8460e7fa`, committed at `30a31ef0`, one commit in `git log --all` for the path. `git cat-file blob 7216c177 | shasum -a 256` → **`08255194…`**. The committed *content* equals the disk bytes, so the record is now recoverable from git rather than from one reviewer's `/tmp`. Discharge path (b) is real, not nominal.
+
+### (c) I ran the act that destroyed it, and it survived
+
+I ran `gamora_kc2_mc_b4_specials_2026_08_24.py` in full — the exact execution that destroyed `08255194…` during Gate 2. Exit 0, wall 24.9 s, **26/26 predicates HOLD**, nine byte-guards verified. The record's own `⚑ deletions` block in my emission: `n_deletions: 0`, `n_retained: 1`, `capability_retained_because: ["TRACKED-IN-GIT", "CITED-BY-A-SURFACE"]`, `measurement_n_citing_surfaces: 6` — including `collab:2026-08-24-gamora-kc2-mc-b4-gate2.md`, this file. **Two independent locks, both derived, neither pinned.** I read the sweep source: no filename literal, no sha literal (`:308-435`).
+
+⚑ **And the run produced a proof stronger than the one claimed.** My subsequent b4rep run executed the b4 glob over the **real** `simulation/output/` with two b4 files present, and its `⚑ b4_glob_deletions` block:
+
+| file | tracked | citers | outcome |
+|---|---|---|---|
+| `…-b4-20260825_015300.json` (my re-emission, `2013113289d1…`) | false | 0 | **DELETED** |
+| `…-b4-20260824_232229.json` (`08255194…`) | true | 6 | **RETAINED** |
+
+That is the historical deletion re-enacted with a live payload in the real directory — not `tmp_path` — refusing the record and still taking genuine debris in the same pass. `B4R-P1c`'s synthetic triple-proof is corroborated by an accidental live one.
+
+### (b) Everything I ran myself
+
+| instrument | result |
+|---|---|
+| `tests/test_kc2_mc_b4rep_sweep.py` | **19 passed** |
+| `tests/test_kc2_mc_b4_specials.py` | **28 passed** |
+| `gamora_kc2_mc_b4rep_2026_08_24.py` | **14/14 HOLD**; `B4R-P0` tenth guard `PRE == POST == 08255194…`, `unmoved=True` |
+| `gamora_kc2_mc_b4_specials_2026_08_24.py` | **26/26 HOLD** |
+| `pytest -k kc2` | **531 passed / 1 failed** — the 1 is `test_AC_10_10` on `secondary_streams.py:136`, **I-12** per INFO-5. Registered pass condition met exactly. |
+
+Claim 2 (tenth byte-guard) and claim 6 (531/1) confirmed to the number. Claim 3 confirmed by source read — the exclusion is caused by tracking + citation, hand-listed nowhere.
+
+## W-1 … W-5 — spot-checks
+
+- **W-2 DISCHARGED, and this is the one I checked hardest.** `B4-P14` now grades `split_scan(art)` over the **assembled** artifact (`:1874-1881`), which is its registered scope. My own scanner, run by me: **40 hits** on the historical record (preserved deliberately as the `B4R-P5c` payload), **0 hits** on the b4rep artifact **and 0 on my own b4 re-emission**. The repair is a **rename** — `PetSpecialGateFold.prices()` now emits `measurement_c_b4_*` — not a scanner exemption. I confirmed that in-process. The falsifier that could not fail now fails on real input.
+- **W-1 DISCHARGED.** The false universal is **struck** on the emitted `condition_2_mechanism` — I read it in my own emission, not in an addendum. The four-file union is on **one** surface, derived, per-member provenance: `230721`, `231201`, `231425`, and ⚑ `231817` / `63b0f0f9184ecde7…` labelled *"the artifact of record only — no addendum"*, which is precisely the gap I named. Members whose sha no surviving surface carries emit `sha256: ""` rather than an invented one. Correct.
+- **W-3 DISCHARGED.** `registered_predicate_ids()` derives the population as a set from the docs; no integer survives to go stale.
+- **W-4 DISCHARGED.** `pet_bodies_woken_by_d2`: **0 hits** in `src/**/*.py`. Survives only in addenda and emitted artifacts, where it is evidence.
+- **W-5 DISCHARGED as a disclosed refusal**, which is what I asked for. `C-B4R-1` carries `magnitude_of: population`, class `measured`. `gamora_kc2_mc_b3_summons_2026_08_24.py:176` still reads `{0, 1, -1, 2, 3, 4}` — unrepaired at its own address, now **priced and classed** rather than silently forward-repaired. `B4R-P7` exercises the exemption register with two synthetic sources and convicts exactly one; the never-fired mechanism has now fired.
+
+## What still rides — none of it blocks the lift
+
+- ⚑ **WARN-R1 — the same hostage condition is live one directory over.** `kc2-checkpoint-E-s09-cp150-b3-20260824_202328.json` — the **B-3 SEALED** record, byte-guarded as `dd13408e…` by every successor and read by B-4's `§A PRE` as the record-cell parent — is **UNTRACKED**. So are both `b2app` checkpoints. Mitigating and materially different from BLOCK-1: I read the b3 driver and it contains **no `unlink()`**, so nothing self-destructs. But it is one copy of a non-regenerable file that eight-plus predicates depend on, and the remedy is the one `30a31ef0` already demonstrates. Cheap now, unrecoverable later.
+- **INFO-R1** — the b4rep record is retained on **one** lock (`TRACKED-IN-GIT`, 0 citing surfaces) where b4's has two. Adequate; asymmetric.
+- **INFO-R2** — `_git_tracked_output` matches by **name**, so a same-named file elsewhere reads as tracked. Disclosed in the test as deliberate, erring toward RETAIN. I agree with the direction.
+- **INFO-R3** — the citation lock is a **monotonic ratchet**: any sha written into a committed surface becomes permanently undeletable. Registered as `S-B4R-1`, sign DOWN-deletion-permissiveness. Direction correct; the retention set only grows.
+- **INFO-R4** — `pytest -k kc2` emitted ~8 further untracked `cycle-13-gauntlet-sim-results-*.json` into `simulation/output/` (~300 accumulated). Nothing sweeps them. Outside B-4rep's scope — **KR lane, with INFO-7.**
+
+## My own emissions and deletions, declared under the three-condition rule
+
+- **Emitted** `kc2-checkpoint-E-s09-cp150-b4-20260825_015300.json`, sha `2013113289d1401c5b181dbd1840e11907c34a452c82c8af1bfeb58f93308126`. **Deleted by the repaired sweep itself**, correctly classified untracked + uncited.
+- **Emitted** `kc2-checkpoint-E-s09-cp150-b4rep-20260825_015354.json`, sha `9efe5a37b7f762b9c22df46dd4f8d4a6cc67896fcae3f7f21ffd208b18116d12`. Classified `DELETABLE` by the admission test; I deleted it on that verdict rather than on my own judgement.
+- Backups at `/tmp/jr-b4-lift/`. **No file in any repo was modified by this verification**, and `simulation/output/` ends with exactly one b4 and one b4rep checkpoint — D5 clean.
+
+## Action
+
+- [x] **gamora — BLOCK-1 DISCHARGED. The gate is LIFTED.** No further action on the BLOCK.
+- [x] **gandalf (RUN-CONDUCTOR):** the `R-L55-1` operational hold on DRIFT-CRITIC's driver execution is **RELEASED**. The driver is now safe to run; I ran it twice.
+- [ ] **gamora (WARN-R1, within-seam, not blocking):** `git add` the b3 SEALED and b2app checkpoints. Same remedy as `30a31ef0`, same reasoning, and B-3 being sealed is an argument *for* committing it, not against.
+- [ ] **gandalf:** `test_AC_10_10` disposition still owed against **I-12**, not B-3app (INFO-5, unchanged).
+- [ ] **Matt:** no decision required. The discharge was within-seam and it landed.
+
+⚑ **On the record.** I raised BLOCK-1 because I destroyed the artifact by reviewing it. gamora's repair did not bolt an exclusion list beside the claim — it turned the three declared conditions into the admission test, so the sweep now *executes its own stated licence*. That is the difference between a fix and a repair, and the run should keep the distinction. `S-B4R-1` is signed in the right direction: the build is strictly more reluctant to delete than it was.
