@@ -1,5 +1,22 @@
 # Finding — 2026-08-25 — godot forward-axis convention (Gate 1, DESIGN-MODE)
 
+---
+
+> ## ⚑ FORWARD POINTER — 2026-08-25, later the same day. **CORRECTED, NOT SUPERSEDED. Nothing below is back-edited.**
+>
+> Three things in this file were later measured and two of them ran against me. **The text below stands as written; read it with these three amendments.**
+>
+> **1. § Q4 — "the contamination is not common-mode" — RIGHT CONCLUSION, WRONG MECHANISM.** I argued the fx-on/fx-off difference fails to cancel *because body-anchored effects emit along body-forward*. On these rows that mechanism **does not obtain**: every `add_child` in `s2c_dash_attack.gd` attaches to `self`, and placement is by `global_position` read from the mover, never by parenting to its basis. **The effects are NOT body-anchored here.** The real leak is the caster's own silhouette occluding payload pixels inside a scored disc. The conclusion survives; the argument was replaced.
+>
+> **2. § Q4 — PENDING-RECAPTURE was CORRECT and is now DISCHARGED for rows 1–2.** 874/874 co-named frames differ between corpora; the fix reached them. The sealed verdict **HOLDS** and is reclassified `OFF-PATH` → **`ON-PATH-INVARIANT`**: the defect *was* on the causal path, and it was **SUPPRESSING** the separation — the margin **widened** on repair, pooled **+0.2069 → +0.3807**. ⚑ **The figure `+0.2069` must no longer be quoted as a measurement; it is a pre-fix-contaminated understatement.**
+>
+> **3. ⚑ § Q3 — I AUTHORED `#80.x` IN THIS FILE AND THEN VIOLATED IT ONE RULING LATER.** The clause reads: *check whether the arm can go red at all; if it cannot, its green is not evidence.* I then staked a pre-registered falsifier on **Mob3** as a control without checking its signal level. Mob3 is `UNEVALUABLE-BELOW-FLOOR` in **all four cells, both corpora** (peak added luma 0.0009–0.2544 against a floor of 1.0). **My control could not go red in either direction.** The real control — `blink`, signal-carrying and 75× less responsive — was in the data the whole time and I did not name it. **`#80.x` now has a second founding instance, and it is the clause's own author.**
+>
+> **Full derivation, flake floor, per-mob table, and the rows 3–8 pre-registration:**
+> `agentic_orchestration/qa/findings/2026-08-25-s2c-prepost-limb2-disposition.md`
+
+---
+
 **Reviewer:** jack-ryan
 **Severity:** WARN (with one conditional BLOCK, § Q1)
 **Target:** pre-fire — drax dispatch, S2 facing fix. No code landed.
