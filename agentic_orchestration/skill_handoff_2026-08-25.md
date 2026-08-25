@@ -2,6 +2,14 @@
 
 **Audience: Matt.** Decision queue first, then state, then the narrative.
 
+> ### 🧭 START HERE — **`# SESSION 3`, at the foot of this file.** Everything above it is lineage.
+>
+> This file has now accreted **four** session layers, each opening with some form of *"read this, the above is stale."* **That defeats the point of a handoff** — my own operating procedure says your session-start read budget is bounded and this document should answer *"what needs deciding?"* in thirty seconds. Four stale-marker layers do not.
+>
+> **The fix is a pointer, not a rewrite.** I ruled two hours ago (wave record § 5.1) that a superseded document gets a **forward pointer at its head and no back-editing** — the correction should travel to the reader instead of waiting to be discovered. **This file is the first place that rule applies, and it happens to be mine**, which is the right order to apply a rule in.
+>
+> **Session 3 is self-contained.** You do not need to read upward from it.
+
 ---
 
 > ## ⚑ SESSION CLOSE — read this line first, it supersedes the table below
@@ -210,3 +218,83 @@ Matt's ruling, in substance: pushes are **not** to be de-authorized per autonomo
 **First action:** read the two background returns (drax 3A rows 3-8; jack-ryan's four rulings). If 3A seals → verify the tag's contents against the eight rows the dispatch names **before** requesting Gate-2, then push godot **only if still inside an authorized window — the extension in § A EXPIRED at this session's boundary.**
 
 **Then, in order:** F-7's godot dispatch (fix form already exists in-repo at `s2c_dash_attack.gd:128`; the dead `s2a_melee_strike.gd:56` constant gets **deleted**, not corrected) → 3B (P-BEAM byte-identity probe first; it is now held on **that alone**) → WW-AB clean-room whirlwind (**quarantine list BINDING**) → A-1/A-3 body pipeline. The drax lane is **serial** — one working tree, and clean-room contamination is not a recoverable error.
+
+---
+
+# ⚑ SESSION 3 — same date, autonomous continuation. **Self-contained. You do not need to read upward.**
+
+**Context for this section:** you said *"please continue autonomously until run completion as I will be away."* This is what happened while you were away, written so you can re-enter at any point in it.
+
+## 1. Decisions owed by you — four, and **none of them blocks anything currently running**
+
+| # | Decision | State |
+|---|---|---|
+| **1** | **X-2 `vortex_pull` displacement** — whether the sim's first *applied* control effect sets effect-application law ahead of the `MD-B2-2` decode B-2 deliberately refused | **Unchanged, still yours.** Row mints `UNEVALUABLE — never PASS` either way, so **nothing waits on it.** `canonical/matt_decision_needed/2026-08-25-x2-…md` |
+| **2** | **`factory/` ownership** — the tree keeps growing under no owner | **Unchanged.** Not urgent, compounding. |
+| **3** | **`ENABLE_PROMPT_CACHING_1H`** | **Unchanged.** Check closed; the *"largest cost lever"* headline is **unevidenced** against your Max-subscription auth path — the vendor scopes that var to API-key/Bedrock/Vertex/Foundry. Likely a **no-op.** |
+| **4** | ⚑ **NEW — the VFX second opinion you asked for** (*"we should probably try calling Codex and Grok"*) | **Probably moot; do not answer yet.** It was gated on a Grok auth defect that hands the whole pending queue to Claude on a single transient reading. **star-lord is fixing that right now.** If the fix lands, this dispatches without a decision from you. |
+
+⚑ **The one thing that expires without you:** the godot push extension. Your words were *"push as you go through **this session**"* — narrower than the "remainder of the wave" option you were offered. **It dies at the session boundary and `reincarnated-godot` reverts to commit-only.** A conductor picking this wave up must not inherit it.
+
+## 2. State — all three repos at **zero ahead of `origin`**
+
+Everything below is committed and pushed. Nothing is being held.
+
+## 3. What landed while you were away
+
+### 3.1 Your depth critique, answered from the record rather than from opinion
+
+You said the VFX *"lack ALOT of the depth of the original VFX"* and that stills aren't enough — *"Drax and Galadriel both need to zoom in and pause more on each individual frame."*
+
+⚑ **You were right, and the record proves it harder than your framing did.** The clean-room whirlwind passed its gate on exactly two terms: **`lower-body occlusion 1.78% over noise floor`** and **`tint TRAIL-BOUNDED across 4 elements`** — a coverage fraction and a colour **bound**. Neither term can observe cadence, intermittency, a colour **cycle**, scrape timing, smoke, wind, or environmental distortion. **An effect with zero depth would have passed those two terms identically.** Depth was never *in* the gate's domain, so you are not disagreeing with the machine grade — you are naming the region it does not cover.
+
+**And your seam had already written the standard, nine days earlier, about this exact comparison.** The WW-7 receipt (2026-08-16) states: *"GATE 2 (article FEEL — density, palette knee, cadence read, FX draw) is judged on **MOTION**, and a still cannot carry it."* **It was applied to the HITL arm and never to the clean-room arm.**
+
+**Dispatched to galadriel** (`2026-08-25-galadriel-reference-frame-forensics.md`, running now): build an instrument that emits **comparable numeric series**, not verdicts — discrete-event count per frame, per-frame hue **histogram** (a distribution, so a *cycle* is visible where a *bound* is not), inter-event intervals on luma spikes, and optical flow split near-body vs **background plate**. That last one answers your cavitation/gravity-distortion suggestion **as a measured property of the references** rather than a design guess — and a clean *"the originals don't do it"* is a real result I told her to report as plainly as a positive one.
+
+### 3.2 The forward-axis fix you verified — and what it did NOT repair
+
+You confirmed the `_v3` MP4s face forward. That closed the fix. ⚑ **It did not close the numbers already taken through the defect**, and that is the sharpest open item on the board.
+
+drax found it himself and declined to rule it: **his reproduction is byte-exact against R-1.3 — and R-1.3 was computed from the same backwards-body frames.** So is the **sealed** L-29(6) adjudication. His sentence for it is the best line produced this wave: **"Reproducibility is not validity."**
+
+It had survived a tag retraction, a full fix landing, and your acceptance, **because the fix repairs the instrument going forward and does nothing to numbers already taken through it** — and because drax's `PENDING-RECAPTURE` protection reached only *forward*, while **sealing is precisely the act of ceasing to re-examine.** The defect propagated backwards into the material hardest to revisit.
+
+**Filed to jack-ryan for a Tier-A disposition. Not mine to rule and I did not.**
+
+### 3.3 ⚑ And then it stopped being an argument and became a measurement
+
+I checked whether the pre-fix frames still existed rather than assuming. **They do** — `s2c38/` and `s2c38b/` hold **2,106 PNGs each** (both independent passes), `s2c12/` holds **874** for the `dash_attack`/`blink` pair the sealed verdict is actually about.
+
+**So a matched before/after pair exists at near-zero marginal cost** — same seeds, same stages, same arms, same gate, **one variable changed.** In filing the question I had to admit *"whether these are differential or absolute claims is exactly the thing I cannot determine from outside."* **Neither can jack-ryan. But the recapture measures it.**
+
+⚑ **And reading the runner turned up the thing that would have destroyed it.** `run_s2c_rows38.sh:126` sets `UDIR="s2c38${SUFFIX}"`; `:145` runs `rm -f "$USERDIR"/*.png`. **The default re-run command deletes `s2c38/`; the pass-2 form deletes `s2c38b/`** — and they are the *sole* surviving copy, because the `harness_logs` duplicates were deleted in the disk crisis **by me**. The recapture dispatch orders fresh suffixes and a pre-fire check. **This is the same shape as the `USERDIR`-constant defect drax already fixed in this tranche, re-pointed at the pre-fix frames** — and this time the loss would be silent: nothing errors, the recapture succeeds, and the comparison simply becomes impossible with no message saying so.
+
+### 3.4 jack-ryan ruled three items — **no seal demotes**
+
+- **F-9:** byte-identity is a **one-sided** instrument. Reporting **identity** (a PASS) is noise-immune — noise can only *break* identity, never *manufacture* it. Reporting a **difference** (a FAIL) is exposed and needs a same-code repeat. **Every seal in this wave rests on a PASS**, so none is re-scored. The argument that saves them is **directional, not statistical** — it holds even at a 100% flake rate, because a false PASS would need noise of ≤10/255 to cancel a difference of 251/255. *Not improbable — arithmetically impossible.*
+- **F-10:** the `project.godot` line is a **semantic no-op**, settled by measuring the shipped binary (default = the deleted value). **drax's freeze-rather-than-restore call was correct** under his uncertainty. The durable half: a seal claims *"these bytes are reproducible from this commit"* — so a dirty tree means **the commit hash does not name the state that produced the bytes**, regardless of whether the delta mattered.
+- **Gate-1 narrowing:** ratified, with jack-ryan banking a defect **against himself** — he mandated *"receipted by byte-identical re-render"* at five sites without checking a receipt was constructible at any of them; four aren't.
+
+## 4. Where I was wrong, since that is the more useful list
+
+- ⚑ **I claimed a discipline clause was missing from the corpus on the strength of a grep that ran against the wrong repo.** The file lives in `reincarnated-engine`; I searched `reincarnated-collaboration`, where that path does not exist. **This is the exact hazard I wrote into `CLAUDE.md` myself earlier the same session** — *"a correct reading of the wrong repo, presenting as a FALSE ALARM."* I wrote the warning and then walked into it.
+- **I told you Codex/Grok work was gated behind a ratification that had already closed** — seven minutes after the commit message I was quoting. The message was true when written; the spec body carried the update. I read the assertion, not the derivation.
+- **My dispatch ordered drax to fix two sites that were not defects.** He measured one at six bearings and **refused the edit.** jack-ryan has since confirmed the error was his clause and mine, **not drax's** — and banked a third instance against himself.
+- **I wrote in a filing that I had "folded" something into a dispatch before I actually had.** Caught it on re-read and made it true rather than softening the sentence.
+
+## 5. Next-session pickup
+
+**First action:** read the three background returns (galadriel frame-forensics; star-lord Grok auth; drax camera + WW-AB). **Verify each against the tree before relaying** — three of this session's four corrections came from doing that and one came from not.
+
+**Then, in order:**
+1. **Fire the 3A recapture** (`dispatches/2026-08-25-drax-s2c-3a-recapture.md`, authored + Gate-ready). It discharges the tranche AND produces the number that disposes the sealed-verdict question. **Lane is serial** — it goes behind the camera/WW-AB dispatch, never beside it.
+2. **jack-ryan owes his own finding file a stamp** (wave record § 5.1) — forward pointer at the head, no back-editing.
+3. **F-7** godot dispatch — fix form already exists in-repo; the dead constant gets **deleted**, not corrected.
+4. **3B** (behind the P-BEAM byte-identity probe) → **A-1/A-3** body pipeline.
+
+## 6. What gates re-engagement — criteria, not calendar
+
+- **Tranche 3A seals** when the recapture's re-gate is clean **and** its fold test does not drift toward `FOLD` (the destructive direction — it routes to gandalf as evidence to *merge two archetypes*).
+- **The sealed-verdict question closes** on jack-ryan's disposition **plus** the recapture's before/after delta. Three outcomes are pre-registered, and *"the seal holds, with a receipt instead of an argument"* is the most likely one.
+- **WW-AB closes** when the clean-room arm exists as **motion** under the same camera and cadence grammar as the HITL arm — so the only variable is the build — **and you pick.**
