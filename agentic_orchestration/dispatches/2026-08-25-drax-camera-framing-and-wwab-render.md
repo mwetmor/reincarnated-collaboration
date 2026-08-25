@@ -74,6 +74,20 @@ Modelling apparent subject height as `h · (px/m) · cos(depression)`, ~1.8 m fi
 
 `--audience=measure` capture parameters (**the measurement corpus must not move** — every prior differential depends on it), the `bare` default, `vh_caster.gd:78`, `king_rig.gd` sword side (**Matt ruled: leave it**), and any forward-axis site (**sealed and Matt-verified — do not re-touch**).
 
+## A.7 ⚑ ADDED AFTER AUTHORING — galadriel supplied the MECHANISM behind A.6's guard, and it is sharper than the reason I gave
+
+**A.6 already forbids moving `--audience=measure`, on the general grounds that "every prior differential depends on it." That guard is correct and it stays. Here is the specific reason, measured this session** (`galadriel/notes/2026-08-25-p2-scale-composition-instrument-ruling.md`, `03213dd5`):
+
+> **Our multiscale band statistics index bands in PIXELS, not in WORLD UNITS.** ⚑ **Double the camera stand-off and an identical authored effect halves in apparent size and slides one full octave finer** — with not one line of VFX authoring touched. The fx-off control subtracts the *scene*; **it does not subtract the PROJECTION.**
+>
+> Measured on the same field at four rasters: `0.0261 · 0.0443 · 0.0345 · 0.0113` — **a 3.9× spread, and NON-MONOTONE.**
+
+**What this means for you, concretely and it is one sentence:** ⚑ **clips rendered on either side of your framing change are not band-comparable, and NOTHING in the filenames will say so.** So:
+
+- **A.6's quarantine is now load-bearing rather than cautious.** If the `measure` audience moves, every figure in galadriel's reference-vs-ours table silently becomes an apples-to-oranges comparison **that still returns a clean number.** *(That is this session's dominant failure shape: an instrument that keeps answering after it stopped answering the question.)*
+- **Task A is a `review`-audience change only.** That is already what it says; this is why it matters.
+- ⚑ **Nothing is being asked of you beyond A.6.** This paragraph exists so that if you find yourself reasoning *"the measure camera is close enough, I'll align both for consistency"* — **consistency across the boundary is exactly the thing that destroys the corpus.** Leave it inconsistent. That is the point.
+
 ---
 
 # TASK B — render the clean-room whirlwind to MOTION, so the WW-AB comparison can actually happen
