@@ -160,23 +160,55 @@ class LaneBusy(RuntimeError):
         )
 
 
-def default_lock_path(codex_home: str | os.PathLike[str] | None = None) -> Path:
+#: Where every vendor lane's credential home lives, and the environment variable that
+#: relocates it. Keyed by VENDOR because P-3's granularity is per-CREDENTIAL and a
+#: credential belongs to exactly one vendor: `~/.codex/auth.json` and
+#: `~/.grok/auth.json` are two tokens, two lanes, and — per Amendment B — two blast
+#: radii that never cross.
+VENDOR_HOMES: dict[str, tuple[str, str]] = {
+    # vendor -> (env var that overrides the home, default home relative to ~)
+    "codex": ("CODEX_HOME", ".codex"),
+    "grok": ("GROK_HOME", ".grok"),
+}
+
+
+def default_lock_path(
+    home: str | os.PathLike[str] | None = None,
+    vendor: str = "codex",
+) -> Path:
     """The lock is keyed to the `auth.json` it serialises, not to a queue directory.
 
-    Two different queue directories sharing one `CODEX_HOME` share one auth token and
-    MUST share one lock; two different `CODEX_HOME`s are two different tokens and
-    must NOT block each other. Keying on the queue directory would have got both of
-    those backwards, which is why the key is the resolved `CODEX_HOME` path.
+    Two different queue directories sharing one credential home share one auth token
+    and MUST share one lock; two different homes are two different tokens and must NOT
+    block each other. Keying on the queue directory would have got both of those
+    backwards, which is why the key is the resolved credential-home path.
 
-    The lock lives OUTSIDE `CODEX_HOME` (under `~/.reincarnated/lane-locks/`) so that
-    nothing we create is ever walked, cached or session-scanned by the vendor CLI
+    The lock lives OUTSIDE the credential home (under `~/.reincarnated/lane-locks/`) so
+    that nothing we create is ever walked, cached or session-scanned by the vendor CLI
     whose home it names.
+
+    **`vendor` is part of the FILENAME, not merely of the digest**, and that is
+    deliberate: an operator running `ls ~/.reincarnated/lane-locks/` must be able to
+    see WHICH vendor holds a lane without resolving a sha256 back to a path. The digest
+    still keys the credential home, so two `CODEX_HOME`s remain two locks.
+
+    The signature keeps `codex` as the default vendor and the same digest computation,
+    so `default_lock_path()` with no arguments returns the same path it always did —
+    the fleet board calls it that way (`flight/bin/flight_report::probe_lane_lock`) and
+    a rename here would have silently pointed that view at a lock nobody takes.
     """
-    home = codex_home or os.environ.get("CODEX_HOME") or (Path.home() / ".codex")
+    if vendor not in VENDOR_HOMES:
+        raise ValueError(
+            f"lane lock: vendor {vendor!r} has no declared credential home. Known: "
+            f"{sorted(VENDOR_HOMES)}. A lane whose credential home nobody named cannot "
+            "be serialised per-credential, which is the one granularity P-3 rules."
+        )
+    env_var, default_dirname = VENDOR_HOMES[vendor]
+    home = home or os.environ.get(env_var) or (Path.home() / default_dirname)
     resolved = str(Path(home).expanduser().resolve())
     digest = hashlib.sha256(resolved.encode("utf-8")).hexdigest()[:12]
     root = Path(os.environ.get("REINCARNATED_LANE_LOCK_DIR", Path.home() / ".reincarnated" / "lane-locks"))
-    return root / f"codex-{digest}.lock"
+    return root / f"{vendor}-{digest}.lock"
 
 
 class SerialLaneLock:

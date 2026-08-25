@@ -6,9 +6,16 @@ reads `receipts.db` — the CLI `status` / `report` surfaces, a future Tier-1/2 
 jack-ryan's Gate-2 queries — reads this file first.
 
 **As of 2026-08-24 this file also covers the VENDOR-LANE surfaces** (`_run-log.tsv`,
-`telemetry.jsonl`, `jobs/*.job.json`) — the surfaces the U-1 flight recorder, a future
-board, and knight-rider's session-start liveness check will build against. See the
-**codex-lane v0** entry at the bottom.
+`telemetry.jsonl`, `jobs/*.job.json`) — the surfaces the U-1 flight recorder, the fleet
+board, and knight-rider's session-start liveness check build against. See the
+**codex-lane v0** and **vendor-lane v1** entries at the bottom.
+
+> **If you read one thing in this file, read THE SAFE-TO-FIRE PREDICATE.** A vendor
+> lane is safe to fire when its answer state is **`open` or `queue-pending`** —
+> `factory.lane_status.SAFE_TO_FIRE_STATES`. Bind to that name. Do NOT re-derive it
+> from *"last `_run-log.tsv` row terminal"*: that reading is leg 3 alone, it is
+> pre-Amendment-A, and it reports **busy on backlog**, which wedges a lane holding a
+> deliberately parked job. Full contract in **vendor-lane v1 § 1**.
 
 **Standing rule:** the DB is *evidence*. Migrations are **additive only**. `ADD COLUMN`
 cannot destroy a row. Anything that rewrites or drops is not a migration this module
@@ -433,3 +440,286 @@ There is no coordination window. `receipts.db` is untouched at v3. The `_run-log
 extension is additive and every pre-existing reader keeps working. The one thing a
 consumer MUST do before building on the telemetry stream is read § 3 above and not
 freeze the shape.
+
+---
+
+## vendor-lane v1 — the cross-session busy check + the Grok lane (2026-08-24)
+
+**Shipped:** 2026-08-24. **Author:** star-lord.
+**Authority:** lane spec `gandalf/notes/2026-08-24-codex-lane-protocol-and-busy-check-SPEC.md`, **ratified by jack-ryan 2026-08-24 with Amendments A–I** (`gandalf/requests/2026-08-24-jack-ryan-lane-spec-ratification.md`, both passes). Build items **D-1…D-8**.
+**Blast radius:** additive at every durable surface. `receipts.db` untouched at v3. The `_run-log.tsv` column count is unchanged at 6. One BEHAVIOURAL change to an existing exit code is named in § 3 below and it is a **correction of a defect**, not a widening.
+
+Consumers this file is written for: the U-1 flight recorder, drax's fleet board
+(`flight/bin/flight_report`, `factory/ui/board.py`), knight-rider's dispatch router
+(U-4 question 3 and the § 10.3 selection law), and any session asking *"may I fire at a
+vendor lane?"*.
+
+---
+
+### 1. THE SAFE-TO-FIRE PREDICATE — pinned by state name (Amendment H)
+
+> **A vendor lane is SAFE TO FIRE when its answer state is `open` or `queue-pending`.**
+
+That is the whole predicate. It has one home in code —
+`factory.lane_status.SAFE_TO_FIRE_STATES` — and it is pinned by equality in
+`tests/test_vocabularies.py`.
+
+**Bind to this. Do not re-derive it.** In particular, do **not** bind to *"last
+`_run-log.tsv` row terminal"*, which is what U-4's question (3) said before Amendment
+A. That reading is leg 3 alone and it reports **busy on backlog**: `ENQUEUED` is a
+member of `BUSY_MARKERS`, so `RunLog.is_idle()` returns False whenever a job is
+enqueued and undrained. Compose that with P-9 — *an ENQUEUED-but-not-drained job IS the
+held state*, and a hold persists as long as its named condition takes to resolve — and
+one deliberately held job renders the lane permanently unusable to every other job and
+every other session. `is_idle()` is still exported and still correct about what it
+measures; it is simply not the fire predicate and never was.
+
+The three routing dispositions **partition** the answer vocabulary:
+
+| Disposition | States | What a dispatcher does |
+|---|---|---|
+| **SAFE TO FIRE** | `open`, `queue-pending` | fire now |
+| **OCCUPIED** | `busy-lock`, `busy-out-of-band`, `busy-unknown` | **enqueue** behind it — the lane exists and works |
+| **CLOSED** | `auth-expired`, `cli-missing` | the lane cannot take the work at all |
+
+§ 10.3's Claude branch is reachable only when **both vendor lanes are CLOSED** (or both
+are OCCUPIED and the run is schedule-critical, under the R-A ledger note). *Occupied is
+not closed*, and *`queue-pending` is not occupied* — those two sentences are Matt's
+verbatim floor expressed in this vocabulary.
+
+---
+
+### 2. THE EXIT-CODE TABLE — pinned
+
+`factory lane` exits per state. `0` = `open` is the only value the spec imposed; the
+rest are chosen here and pinned so no consumer discovers them by experiment.
+
+| Exit | State | Band |
+|---|---|---|
+| `0` | `open` | fire |
+| `10` | `queue-pending` | fire |
+| `20` | `busy-lock` | occupied |
+| `21` | `busy-out-of-band` | occupied |
+| `22` | `busy-unknown` | occupied |
+| `30` | `auth-expired` | closed |
+| `31` | `cli-missing` | closed |
+| `2` | argparse usage error | — (argparse's own convention, not ours) |
+
+**The band is part of the contract:** every fire-safe state is `< 20`; every occupied
+or closed state is `>= 20`. A shell caller may rely on `[ $? -lt 20 ]`. An unknown
+state exits `22`, never `0`.
+
+`--safe-to-fire` collapses the answer to one bit — `0` = fire, `1` = do not — for
+callers whose only question is *"may I fire?"*. Amendment A required `open` and
+`queue-pending` to be **separately identifiable by exit code** while the spec required
+`0` = safe-to-fire; those pull in opposite directions, and the resolution is two
+questions rather than one collapsed answer.
+
+For `--lane all` (the default) the exit code is the **worst lane's** code under the
+fail-closed precedence, so a caller reading only the exit code is never told "open"
+while a lane is occupied. `--safe-to-fire` at that scope answers the **selection law's**
+question instead: is there *any* vendor lane I may fire? The per-lane answers are always
+on stdout and in `--json`.
+
+---
+
+### 3. BEHAVIOURAL CHANGE — `factory lane-status`'s exit code
+
+**Before:** `return 0 if (state.ok and queue.runlog.is_idle()) else 1` — exit `1` ("do
+not fire") for a lane on which nothing was executing, whenever any job sat enqueued.
+
+**Now:** the command returns the busy check's per-state exit code (§ 2), computed from
+the same named predicate every other consumer uses.
+
+**Consumer impact:** a caller that tested `rc == 0` still gets *"open, nothing
+queued"*. A caller that tested `rc != 0` as *"do not fire"* now correctly gets a
+fire-safe `10` on backlog. If you consume this command from a script, move to
+`factory lane --safe-to-fire`, which is the surface built for that question. Two new
+flags: `--lane codex|grok` and the printed `CHECK :` line carrying the composite.
+
+---
+
+### 4. NEW MODULE — `factory/lane_status.py` (D-1, D-2, D-7)
+
+Three legs, unioned fail-closed over **execution occupancy only**:
+
+| Leg | Surface | Sees | Blind to |
+|---|---|---|---|
+| 1 | kernel `flock` probe | every lock-taking invocation, zero staleness | an invocation that never took the lock |
+| 2 | `ps -axo pid=,args=` | **out-of-band invocations** — hand-fires, a live agent session, Matt's terminal | another machine |
+| 3 | run-log last row per job | in-flight `START`-without-finish; backlog | hand-fires that wrote no row |
+
+Public surface a consumer may bind to: `lane_status()`, `all_lane_status()`,
+`select_lane()`, `safe_to_fire()`, `exit_code_for()`, `scan_process_table()`,
+`SAFE_TO_FIRE_STATES` / `CLOSED_STATES` / `OCCUPIED_STATES` / `EXIT_CODES` /
+`VENDOR_ORDER` / `LANES`.
+
+**THE LAW — this module writes nothing.** No row, no telemetry event, no surviving
+file touch. Two consequences are structural rather than aspirational: it never imports
+`RunLog` or `Telemetry` (asserted over the AST), and leg 1 is only probed when the lock
+file **already exists**, because `lane_is_free()` opens with `O_CREAT` and asking
+blindly would make a read-only status call create a file that outlives it.
+
+**Blast radius is PER-VENDOR (Amendment B).** An unattributable out-of-band process
+counts busy against every lane of *that vendor* and never crosses vendors. Leg 2's
+attribution failure is *which credential home*, not *which vendor* — the vendor is
+legible from the argv that matched. Two tests hold this in both directions.
+
+**One declared extension to the spec's six answer states:** `busy-unknown`, for a leg
+that was UNREACHABLE when no reachable leg reported occupancy. The § 3 vocabulary
+assumes all three legs answer; reporting `open` on a lane whose lock we could not read
+would be false-open, the one direction G-2 ruled against. The spelling is taken from
+drax's fleet-board card deliberately — one question must not have two vocabularies.
+
+**Note for drax:** `flight/bin/flight_report` currently carries `PROBE_MODE =
+"degraded — D-2 CLI pending"` and reimplements the three legs. The CLI now exists.
+Rendering `factory lane --json` (or importing `factory.lane_status`) would make the
+card a view of the check's own derivation rather than a second implementation of it —
+which is what Q62's instrument caveat asks for. The vocabularies already agree,
+including `busy-unknown` and the `STATE_PRECEDENCE` ordering. No coordination window;
+the current card keeps working.
+
+---
+
+### 5. NEW LANE — `grok` (D-6)
+
+Registered as `grok` in `factory.harness`. `available_harnesses()` now returns
+**three** names; a consumer asserting a set of two will fail (one test in this repo
+did, and was renamed rather than relaxed).
+
+| Fact | Value |
+|---|---|
+| Binary | `~/.grok/bin/grok` — **NOT on PATH**, resolved explicitly |
+| Binary override | `$REINCARNATED_GROK_BIN` |
+| Credential home | `~/.grok`, override `$GROK_HOME` |
+| Model pin | `grok-4.6`, argv-said (`-m`) |
+| Effort pin | `xhigh`, argv-said (`--reasoning-effort`), from job one (Amendment D) |
+| **Resolved** model | `grok-4.6-build` — captured per call from `modelUsage` (Amendment C) |
+| Invocation of record | `grok -p "<prompt>" --output-format json --no-leader --permission-mode default --disable-web-search` |
+| Auth check of record | `grok models` → rc=0 + a "logged in" line |
+| Lock | `SerialLaneLock` keyed to `~/.grok`, `pass_fds` lifetime discipline identical to Codex |
+| Fence | `--permission-mode` (from `{default, acceptEdits, auto, plan}`) + `--disable-web-search`; `bypassPermissions` and `dontAsk` refused BY NAME |
+| Prompt transport | argv (`-p`), with a declared ceiling of 256 KB and `--prompt-file` named as the door past it |
+
+**The pin is DECLARED, not BANKED.** Zero lane statistics exist at any Grok config; the
+first 10 production jobs are the banking window (Amendment I), and every row carries
+curator + resolved model id + declared effort + per-call `cost_usd`.
+
+**Amendment E is a hard preflight.** `--no-leader` is accepted by the CLI but is
+**absent from `grok --help`** (documented only under `grok agent`). The harness asserts
+the flag parses — `grok --no-leader --version`, rc check plus the absence of the
+`unexpected argument` sentence, no model call, no cost — and **refuses to fire** on
+failure. A version bump could remove the flag with no help-diff to signal it, and the
+failure would be silent re-entry through the concurrency door the lock exists to close.
+
+**Serial-by-CHOICE, not by law.** The Codex serial rule is a verified vendor
+precondition. No equivalent xAI statement has been verified, so the Grok lane is
+serialised as *our policy*. Same primitive, two kinds of rule; a reader who cannot tell
+them apart will defend the policy as if it were the law.
+
+**Cross-vendor parallel is LEGAL.** Different credentials, different locks, different
+lock filenames (`codex-<digest>.lock` / `grok-<digest>.lock`). A busy Codex lane does
+not close the Grok lane.
+
+---
+
+### 6. Per-lane run-log locations (D-8)
+
+| Lane | Path | Format |
+|---|---|---|
+| `codex` | `agentic_orchestration/lanes/codex/_run-log.tsv` | 6-column |
+| `codex` (historical) | `agentic_orchestration/research/vfx-p2-dossiers/usage/_run-log.tsv` | 4-column, written at close; read without complaint |
+| `grok` | `agentic_orchestration/lanes/grok/_run-log.tsv` | 6-column **from its first row** |
+
+The Grok log is **born with the curator column and with enqueue-time rows** — that lane
+never has a rows-at-close era, because P-10 applies to it from birth and it has no
+hand-fire era at all. Both paths are declared in `lane_status.LANES` and
+`lane_status.CODEX_RUNLOGS`; leg 3 reads them, and an absent file is *"no queue claim"*
+rather than an error.
+
+Queue-root documentation: `agentic_orchestration/lanes/README.md` (the check
+invocation, the state table, and the pure-shell degraded fallback).
+
+---
+
+### 7. Run-log DETAIL column — new tokens (D-3, C, I). No schema change.
+
+Column 4 is free-form `k=v`, and it gains three conventions. The column COUNT is
+unchanged at 6 and every existing reader is unaffected.
+
+| Token | Row | Meaning |
+|---|---|---|
+| `router=Q3-NO` | enqueue | the four-question router cleared the job but answered NO to (3) *lane open?* — so it queued. Makes lane contention countable: `grep -c "router=Q3-NO"` |
+| `resolved_model=<id>` | finish | Amendment C — the model the vendor actually billed, not the declared pin |
+| `cost_usd=<n>` | finish | Amendment I — per-call cost where the vendor reports one; **absent when it does not**, never zero-filled |
+
+The Codex fence still reads `sandbox=<mode>`; the Grok fence reads
+`permission_mode=<mode> web_search=on|off`. A Grok job declaring a `sandbox:` value is
+**refused** — accepting it would let a job record read as fenced while the invocation
+was not.
+
+---
+
+### 8. `AUTH-BLOCKED.md` is now vendor-generic
+
+Same filename (knight-rider's filing habit and the `lane-status` check both look for it
+by name), but the content names **which lane** and **which state**: heading
+`# <lane> lane BLOCKED`, and the re-login command is the right one per vendor. A Grok
+block no longer reads as a Codex one. Still not filed by the queue — knight-rider files
+it.
+
+---
+
+### 9. Signature change — `lane.default_lock_path`
+
+```python
+default_lock_path(home=None, vendor="codex") -> Path
+```
+
+The first parameter was `codex_home`; it is now `home`, and `vendor` is new with a
+backward-compatible default. **`default_lock_path()` with no arguments returns exactly
+the path it always did**, which matters because `flight/bin/flight_report` calls it
+that way and a rename would have pointed that view at a lock nobody takes. Callers
+passing the old keyword `codex_home=` by name must switch to `home=`; no caller in this
+repo did.
+
+The vendor is part of the FILENAME, not merely of the digest, so
+`ls ~/.reincarnated/lane-locks/` names the holder without resolving a sha256. An
+undeclared vendor **raises** rather than defaulting a credential home.
+
+---
+
+### 10. `UsageBreakdown.from_grok_envelope` — and the containment question, settled
+
+The Grok envelope is the **Anthropic wire shape**, not Codex's:
+`cache_read_input_tokens` / `cache_creation_input_tokens` / `total_cost_usd` /
+`modelUsage` / `num_turns`. Cache tokens are therefore **siblings** of `input_tokens`,
+not a subset of them — the opposite of the Codex mapping, where passing input through
+unchanged would double-count the cache.
+
+This is settled by **the vendor's own arithmetic**, not by inference. The live smoke job
+of 2026-08-24 reported `input 28,170 · cache_read 2,432 · cache_creation 0 · output 43`
+and `total_tokens 30,645`, and `28170 + 2432 + 0 + 43 = 30,645` exactly. The subset
+reading would have given 28,213, which matches nothing the vendor reported.
+`billable_token_total()` reproduces `total_tokens` exactly on this lane.
+
+`total_cost_usd` is recorded with `dollars_source = "harness_reported_imputed"`: the
+credential is a **grok.com subscription**, so the figure is a list-price imputation and
+no downstream report may present it as money billed. Reasoning tokens remain a **share
+of output**, never a fifth addend.
+
+---
+
+### 11. What a consumer must do
+
+**Nothing is breaking.** No coordination window; `receipts.db` is at v3, untouched.
+
+Two things a consumer **should** do:
+
+1. **Bind to the predicate**, not to a leg (§ 1). If you currently ask *"is the last
+   run-log row terminal?"*, you are asking a pre-Amendment-A question that reports busy
+   on backlog.
+2. **Do not freeze the telemetry shape.** `telemetry.jsonl` carries
+   `schema_version` and a `passthrough` object on every record precisely so that a
+   recorder can normalise later against U-1 axes that are Matt's F-1…F-8 to rule and
+   are not ours to fix.

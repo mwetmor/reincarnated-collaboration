@@ -1,0 +1,28 @@
+{
+  "text": "SMOKE-OK grok-lane 2026-08-24.",
+  "stopReason": "end_turn",
+  "sessionId": "01a03658-aac7-7bd2-9c99-2119f3a6c57c",
+  "requestId": "48db8df8-91e0-471b-8ccd-d82e9b4733d5",
+  "thought": "The user wants me to reply with exactly one line and nothing else. This is a straightforward request.",
+  "usage": {
+    "input_tokens": 28170,
+    "cache_read_input_tokens": 2432,
+    "cache_creation_input_tokens": 0,
+    "output_tokens": 43,
+    "reasoning_tokens": 23,
+    "total_tokens": 30645
+  },
+  "num_turns": 1,
+  "total_cost_usd": 0.00982838,
+  "total_cost_usd_ticks": 98283800,
+  "modelUsage": {
+    "grok-4.6-build": {
+      "inputTokens": 28170,
+      "outputTokens": 43,
+      "cacheReadInputTokens": 2432,
+      "cacheCreationInputTokens": 0,
+      "modelCalls": 1,
+      "costUSD": 0.00982838
+    }
+  }
+}

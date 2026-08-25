@@ -164,6 +164,86 @@ class DrainReport:
         return sum(1 for o in self.outcomes if o.marker == "ENQUEUED")
 
 
+#: **THE PER-LANE FENCE, dispatched by vendor.** The two lanes do not have the same
+#: pre-hoc containment and the difference is not cosmetic:
+#:
+#:   * **codex** — the fence IS the sandbox mode (`-s read-only`), because `codex exec`
+#:     exposes no tool allowlist at all. Validated against the closed `SANDBOX_MODES`.
+#:   * **grok** — there is no sandbox triad on that CLI's headless surface that has
+#:     been enumerated on this host; the declared fence is `permission_mode` plus
+#:     `--disable-web-search`. A Grok job carrying a `sandbox:` value would be naming a
+#:     fence its lane does not hold, so the field is REFUSED there rather than accepted
+#:     and ignored — accepting it is the fail-open direction, where the job record
+#:     reads as fenced and the invocation is not.
+#:
+#: Written as a dispatch rather than as an `if lane == "codex"` inside `enqueue`
+#: because the next lane is a table row, not another branch in a governance check.
+def _validate_fence(lane: str, sandbox: str, extra: dict[str, Any]) -> str:
+    """Refuse a job whose declared fence its lane cannot hold. Returns the fence, for the row."""
+    if lane == "codex":
+        if sandbox not in SANDBOX_MODES:
+            raise ValueError(
+                f"lane job refused: sandbox {sandbox!r} is not one of "
+                f"{sorted(SANDBOX_MODES)}. The sandbox is this lane's pre-hoc "
+                "containment and is declared per job class, never guessed."
+            )
+        return f"sandbox={sandbox}"
+    if lane == "grok":
+        from .harness.grok import (
+            DEFAULT_PERMISSION_MODE,
+            FORBIDDEN_PERMISSION_MODES,
+            PERMISSION_MODES,
+        )
+
+        if sandbox and sandbox != _NO_FENCE_FIELD:
+            raise ValueError(
+                f"lane job refused: the grok lane holds no sandbox fence, so "
+                f"sandbox={sandbox!r} would name a containment this lane cannot enforce "
+                "— and a job record that reads as fenced while the invocation is not is "
+                f"the fail-open direction. Pass sandbox={_NO_FENCE_FIELD!r} and declare "
+                f"`permission_mode` (one of {sorted(PERMISSION_MODES)}) instead."
+            )
+        mode = str(extra.get("permission_mode") or DEFAULT_PERMISSION_MODE)
+        if mode in FORBIDDEN_PERMISSION_MODES:
+            raise ValueError(
+                f"lane job refused: permission mode {mode!r} is REFUSED BY NAME. "
+                "`bypassPermissions` removes the fence and `dontAsk` auto-answers it."
+            )
+        if mode not in PERMISSION_MODES:
+            raise ValueError(
+                f"lane job refused: permission mode {mode!r} is not one of "
+                f"{sorted(PERMISSION_MODES)}."
+            )
+        extra["permission_mode"] = mode
+        web = "on" if extra.get("web_search") else "off"
+        return f"permission_mode={mode} web_search={web}"
+    raise ValueError(
+        f"lane job refused: no fence is declared for lane {lane!r}. A lane with no "
+        "declared pre-hoc containment does not take jobs — that is the whole of U-4's "
+        "fence discipline, and defaulting one here would invent a posture nobody ruled."
+    )
+
+
+#: The value a job on a lane WITHOUT a sandbox fence carries in the `sandbox` field.
+#: Spelled rather than left empty so that a reader of the job record sees a positive
+#: statement — *this lane holds no sandbox fence* — instead of a blank they must
+#: interpret.
+_NO_FENCE_FIELD = "n/a"
+
+
+#: **D-3 — the Q3-NO router token.** A convention, not a schema change: the enqueue
+#: row's free-form `detail` column carries `router=<verdict>`, so lane contention
+#: becomes countable for the first time::
+#:
+#:     grep -c "router=Q3-NO" _run-log.tsv
+#:
+#: `Q3-NO` means the four-question router cleared the job but answered NO to question
+#: (3) *"lane open?"* — i.e. the job was enqueued BECAUSE the lane was occupied, which
+#: is the default routing under § 10.3 step 4 and not a failure. R-D compliance without
+#: touching the column count.
+ROUTER_Q3_NO = "Q3-NO"
+
+
 def _atomic_write(path: Path, text: str) -> None:
     """Write-then-rename. A crash leaves the old file or the new one, never half of one."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -227,6 +307,7 @@ class JobQueue:
         max_attempts: int = DEFAULT_MAX_ATTEMPTS,
         timeout_s: int = 3600,
         enqueued_by: str = "",
+        router: str = "",
         extra: dict[str, Any] | None = None,
     ) -> Job:
         """Accept a job, or REFUSE IT. Nothing is written when the refusal fires.
@@ -273,12 +354,10 @@ class JobQueue:
                 f"lane job refused: empty {', '.join(missing)}. Required fields are "
                 f"{sorted(REQUIRED_JOB_FIELDS)}."
             )
-        if sandbox not in SANDBOX_MODES:
-            raise ValueError(
-                f"lane job refused: sandbox {sandbox!r} is not one of "
-                f"{sorted(SANDBOX_MODES)}. The sandbox is this lane's pre-hoc "
-                "containment and is declared per job class, never guessed."
-            )
+        job_extra = dict(extra or {})
+        if web_search:
+            job_extra.setdefault("web_search", True)
+        fence = _validate_fence(self.lane, sandbox, job_extra)
         attempts = max(1, min(int(max_attempts), MAX_ATTEMPTS_CEILING))
 
         job = Job(
@@ -296,7 +375,7 @@ class JobQueue:
             timeout_s=int(timeout_s),
             enqueued_at=utcnow(),
             enqueued_by=enqueued_by,
-            extra=dict(extra or {}),
+            extra=job_extra,
         )
 
         existing = self.load(job.job_id)
@@ -319,10 +398,16 @@ class JobQueue:
 
         _atomic_write(self.prompt_path(job.job_id), prompt)
         _atomic_write(self.job_path(job.job_id), json.dumps(asdict(job), indent=2) + "\n")
+        detail = f"job_class={job.job_class} {fence}"
+        if router:
+            # D-3. The token rides the free-form column; no schema change, and
+            # `grep -c "router=Q3-NO"` counts lane contention from the surface that
+            # already exists.
+            detail += f" router={router}"
         self.runlog.append(
             job_id=job.job_id,
             marker="ENQUEUED",
-            detail=f"job_class={job.job_class} sandbox={job.sandbox}",
+            detail=detail,
             curator=job.curator,
             event="enqueue",
         )
@@ -332,7 +417,8 @@ class JobQueue:
             job_id=job.job_id,
             curator=job.curator,
             job_class=job.job_class,
-            sandbox=job.sandbox,
+            fence=fence,
+            router=router or None,
             enqueued_by=job.enqueued_by or None,
             job_schema_version=job.schema_version,
             passthrough={"output_path": job.output_path, "max_attempts": job.max_attempts},
@@ -536,12 +622,25 @@ class JobQueue:
                 passthrough={"harness_extra": result.extra or {}},
             )
             if ok:
+                detail = (
+                    f"attempt={attempt} elapsed_s={elapsed:.1f} "
+                    f"tokens={result.usage.billable_token_total() if result.usage else 'NULL'}"
+                )
+                # AMENDMENT C, on the row a human reads: the RESOLVED model id, not the
+                # declared pin. A pin whose resolved target is chosen by a vendor-side
+                # rule is a request; recording only the request would let a resolution
+                # change under an unchanged pin pass silently, and every banked lane
+                # statistic is a statistic ABOUT the resolved config.
+                resolved = (result.extra or {}).get("resolved_model")
+                if resolved:
+                    detail += f" resolved_model={resolved}"
+                # AMENDMENT I's per-row cost. Only where the vendor reports one —
+                # absent is absent, and a zero here would read as a free call.
+                if result.usage is not None and result.usage.dollars is not None:
+                    detail += f" cost_usd={result.usage.dollars:.5f}"
                 self.runlog.append(
                     job_id=job.job_id, marker=f"rc={result.exit_code if result.exit_code is not None else 0}",
-                    detail=(
-                        f"attempt={attempt} elapsed_s={elapsed:.1f} "
-                        f"tokens={result.usage.billable_token_total() if result.usage else 'NULL'}"
-                    ),
+                    detail=detail,
                     curator=job.curator, event="finish",
                 )
                 return JobOutcome(
@@ -627,19 +726,25 @@ class JobQueue:
         """
         pending = self.pending()
         note = self.root / "AUTH-BLOCKED.md"
+        # VENDOR-GENERIC. The filename is unchanged because knight-rider's filing habit
+        # and the `lane-status` check both look for it by name; the CONTENT names which
+        # lane and which state, so a Grok block never reads as a Codex one.
+        relogin = {"codex": "codex login", "grok": "~/.grok/bin/grok login"}.get(
+            self.lane, f"re-authenticate the {self.lane} CLI"
+        )
         _atomic_write(note, (
-            f"# Codex lane AUTH-BLOCKED — {utcnow()}\n\n"
+            f"# {self.lane} lane BLOCKED — {utcnow()}\n\n"
             f"**State:** `{state.state}`\n\n"
-            f"**Detected by:** `factory.jobqueue.JobQueue({self.root}).drain`\n\n"
+            f"**Detected by:** `factory.jobqueue.JobQueue({self.root}, lane={self.lane!r}).drain`\n\n"
             f"{state.reason}\n\n"
             "## Ready-to-file `canonical/matt_to_do/` row\n\n"
-            "> **Codex lane re-authentication** — `codex login` on the Mac. "
-            "Blocks: the serialized Codex worker lane (U-4). "
+            f"> **{self.lane} lane re-authentication** — `{relogin}` on the Mac. "
+            f"Blocks: the serialized {self.lane} worker lane (U-4). "
             f"Currently blocking **{len(pending)}** enqueued job(s) in `{self.root}`. "
             "Pending work has been handed to the named Claude curators via "
             "`fallback/` manifests, so nothing is idle — but every fallback job is "
-            "Claude-lane tokens spent where subscription-native Codex capacity was "
-            "meant to absorb them.\n\n"
+            f"Claude-lane tokens spent where subscription-native {self.lane} capacity "
+            "was meant to absorb them.\n\n"
             "**This file was written by the queue. It is NOT filed. "
             "knight-rider files it.** The queue deliberately does not write into "
             "`canonical/matt_to_do/`: an unattributable automated row in a curated "

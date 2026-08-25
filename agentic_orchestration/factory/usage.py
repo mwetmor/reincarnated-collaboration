@@ -155,6 +155,96 @@ class UsageBreakdown:
             ),
         )
 
+    @classmethod
+    def from_grok_envelope(cls, envelope: dict[str, Any]) -> "UsageBreakdown":
+        """Parse the `grok -p --output-format json` envelope.
+
+        The envelope's own vocabulary, measured on grok 1.0.5::
+
+            {"text": "...", "stopReason": "end_turn", "sessionId": "...",
+             "num_turns": 1, "total_cost_usd": 0.00555,
+             "usage": {"input_tokens": N, "output_tokens": N,
+                       "cache_read_input_tokens": N, "cache_creation_input_tokens": N,
+                       "reasoning_tokens": N},
+             "modelUsage": {"grok-4.6-build": {..., "costUSD": 0.00555}}}
+
+        **THE CONTAINMENT QUESTION, AND HOW IT IS SETTLED HERE.** The one thing that
+        could silently corrupt every number downstream is whether
+        `cache_read_input_tokens` is a SUBSET of `input_tokens` (the Codex reading) or
+        a SIBLING of it (the Claude reading). The two mappings differ by the whole
+        cache volume, and on a cache-heavy lane that is a ~93 % error in one direction.
+
+        **SETTLED BY THE VENDOR'S OWN ARITHMETIC, not by inference.** The envelope
+        carries a `total_tokens` field the other two lanes do not, and the smoke job of
+        2026-08-24 (`lanes/grok/usage/smoke-grok-lane-2026-08-24.jsonl`) reported::
+
+            input 28,170 · cache_read 2,432 · cache_creation 0 · output 43
+            total_tokens 30,645        and 28170 + 2432 + 0 + 43 = 30,645
+
+        The sum is EXACT, so `cache_read_input_tokens` is a SIBLING of `input_tokens`
+        on this lane and NOT a subset of it. Had the subset reading been right, the
+        vendor's own total would have been 28,213. `billable_token_total()`'s four
+        addends therefore reproduce the vendor's `total_tokens` exactly, and the first
+        cached turn was enough to prove it because the cache read was non-zero.
+
+        The key spellings agree independently: this envelope uses
+        `cache_read_input_tokens` / `cache_creation_input_tokens` / `total_cost_usd` /
+        `modelUsage` / `num_turns` — the Anthropic wire vocabulary character for
+        character, NOT Codex's `cached_input_tokens` / `cache_write_input_tokens` — and
+        the CLI publishes `--output-format streaming-messages-json`, described in its
+        own help as *"NDJSON in the Anthropic Messages API wire format"*. Two
+        independent lines of evidence, one conclusion. The raw envelope is still
+        written to `usage/<id>.jsonl` on every call, so a future contradiction has the
+        untouched numbers to work from.
+
+        `reasoning_tokens` maps straight across and stays what this module already
+        defines it to be: a SHARE OF OUTPUT, never a fifth addend.
+
+        `total_cost_usd` IS populated on this lane, and it is recorded as a
+        HARNESS-IMPUTED list price rather than as money spent — the credential is a
+        grok.com SUBSCRIPTION (verified: `grok models` prints *"You are logged in with
+        grok.com"*), so the flat-rate caveat that applies to the Claude lane applies
+        here for the same reason. `dollars_source` carries that so no downstream report
+        can claim it was billed.
+        """
+        usage = envelope.get("usage") or {}
+        if not usage:
+            return cls.absent("grok envelope carried no usage object")
+
+        def _int(value: Any) -> int | None:
+            return int(value) if isinstance(value, (int, float)) else None
+
+        dollars = envelope.get("total_cost_usd")
+        if not isinstance(dollars, (int, float)):
+            # Fall back to summing `modelUsage`'s per-model `costUSD`, which is the
+            # same figure decomposed. Summed rather than first-taken: a multi-model
+            # turn's cost is the sum, and taking one entry would under-report it.
+            model_usage = envelope.get("modelUsage")
+            if isinstance(model_usage, dict):
+                per_model = [
+                    entry.get("costUSD") for entry in model_usage.values()
+                    if isinstance(entry, dict) and isinstance(entry.get("costUSD"), (int, float))
+                ]
+                dollars = sum(per_model) if per_model else None
+            else:
+                dollars = None
+        dollars = float(dollars) if isinstance(dollars, (int, float)) else None
+
+        reasoning = _int(usage.get("reasoning_tokens"))
+        return cls(
+            input_tokens=_int(usage.get("input_tokens")),
+            output_tokens=_int(usage.get("output_tokens")),
+            cache_read_tokens=_int(usage.get("cache_read_input_tokens")),
+            cache_write_tokens=_int(usage.get("cache_creation_input_tokens")),
+            reasoning_tokens=reasoning,
+            dollars=dollars,
+            dollars_source=DOLLARS_HARNESS_IMPUTED if dollars is not None else None,
+            absent_reason=(
+                None if reasoning is not None
+                else "grok reported no reasoning_tokens field on this turn"
+            ),
+        )
+
     # -- arithmetic --------------------------------------------------------
     def billable_token_total(self) -> int | None:
         """input + output + cache_read + cache_write.

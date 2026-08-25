@@ -157,10 +157,16 @@ def test_the_result_frame_carries_what_the_spine_needs():
 
 
 # ---------------------------------------------------------------------------
-# the registry and the second lane
+# the registry and the vendor lanes
 # ---------------------------------------------------------------------------
-def test_both_lanes_are_registered():
-    assert set(available_harnesses()) == {"claude_code", "codex"}
+def test_all_THREE_lanes_are_registered():
+    """Renamed from `test_both_lanes_are_registered` when the third lane landed.
+
+    The NAME is part of the assertion here. A row called *both* asserting a set of
+    three is a row whose title stopped being true, and the next lane would arrive
+    against a header nobody trusts. Grok registers 2026-08-24 under D-6.
+    """
+    assert set(available_harnesses()) == {"claude_code", "codex", "grok"}
 
 
 def test_an_unknown_harness_name_raises_at_lookup():

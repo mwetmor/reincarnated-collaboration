@@ -1,4 +1,29 @@
 #!/bin/bash
+# ============================================================================
+# RETIRED AS AN INSTRUMENT — 2026-08-24 (lane spec P-10 / build item D-4).
+#
+# THIS SCRIPT IS LINEAGE, NOT AN INSTRUMENT. It proved the mechanics — 30/30 jobs
+# rc=0, strict serialization, idempotent re-entry — and those semantics now live in
+# `agentic_orchestration/factory/jobqueue.py`, which generalises them past this one
+# job class. Kept in-tree as the proven-pattern reference: git would have kept the
+# text, but a reader comparing the queue's choices against the runner's needs them
+# side by side, and `usage/_run-log.tsv` below is still a live leg-3 surface that the
+# cross-session busy check reads.
+#
+# WHAT REPLACED IT:
+#     factory lane                          # is a vendor lane free RIGHT NOW? (read-only)
+#     factory lane-enqueue <root> <id> <prompt-file> --curator <agent>
+#     factory lane-drain   <root>           # idempotent; safe to re-fire
+#
+# DO NOT RUN THIS. A `codex exec` reached other than through the harness lock is a
+# PROTOCOL VIOLATION (P-10), with exactly one standing exception: Matt's personal
+# terminal use, which the busy check SEES and does not govern. This script takes no
+# lock and writes no row until a job FINISHES, so no other session can tell it is
+# running — which is precisely the failure the busy check was built to end.
+#
+# The retirement takes effect from the queue's first production drain. In the bridge
+# window before then, any hand-fire REQUIRES `factory lane --lane codex` first.
+# ============================================================================
 # VFX archetype-binding run — P2 serial Codex dossier lane (ledger L-6 mechanics; R-2 first live workload).
 # LAW: strictly serial — ONE codex exec at a time, NEVER parallel (one-auth.json serialization, U-4).
 # Usage: ./run_p2_serial.sh <start_index> <end_index>   (1-based, inclusive, over jobs/NN-*.prompt.md)

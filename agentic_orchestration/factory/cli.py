@@ -7,13 +7,20 @@
     factory determinism <workflow>    run twice, compare gate verdicts (R-BR-51)
     factory probe-agent <seam>        one live headless call; verifies the lane
 
-    factory lane-status <queue-dir>   auth + serial-lane + last-row liveness, one screen
+    factory lane                      THE cross-session busy check (read-only)
+    factory lane-status <queue-dir>   one queue's auth + serial-lane + backlog screen
     factory lane-enqueue <queue-dir>  add one job (--curator is REQUIRED; U-4 R-B)
     factory lane-drain <queue-dir>    drain the queue serially; safe to re-fire
 
-The three `lane-*` commands are the uptime half of U-4: hand-fired scripts were the
-bridge, the queue is the uptime. `lane-drain` is idempotent and crash-safe, so the
-correct response to "did that finish?" is to run it again.
+The `lane-*` commands are the uptime half of U-4: hand-fired scripts were the bridge,
+the queue is the uptime. `lane-drain` is idempotent and crash-safe, so the correct
+response to "did that finish?" is to run it again.
+
+`factory lane` is the D-2 busy check and it is a DIFFERENT KIND OF COMMAND from the
+other three: it acquires nothing, writes nothing, and answers *"is a vendor agent in
+use right now?"* across every session on this host. Run it before firing anything at a
+vendor lane; run it before opening a vendor TUI. The one predicate every consumer
+binds to is `lane_status.SAFE_TO_FIRE_STATES` — see `MIGRATION.md`.
 """
 
 from __future__ import annotations
@@ -129,34 +136,133 @@ def _cmd_probe_agent(args: argparse.Namespace) -> int:
 
 
 def _lane_pieces(args: argparse.Namespace):
-    from .harness.codex import CodexHarness
     from .jobqueue import JobQueue
 
-    return JobQueue(Path(args.queue_dir)), CodexHarness()
+    lane = getattr(args, "lane", None) or "codex"
+    if lane == "grok":
+        from .harness.grok import GrokHarness
+
+        return JobQueue(Path(args.queue_dir), lane="grok"), GrokHarness()
+    from .harness.codex import CodexHarness
+
+    return JobQueue(Path(args.queue_dir), lane="codex"), CodexHarness()
+
+
+def _cmd_lane(args: argparse.Namespace) -> int:
+    """**D-2 — the cross-session busy check.** Read-only, acquires nothing, emits nothing.
+
+    Three legs (kernel lock · process table · run-log last row), unioned FAIL-CLOSED
+    over EXECUTION OCCUPANCY ONLY. Answers WHICH state, never a bare bool:
+
+        open · queue-pending · busy-lock · busy-out-of-band · busy-unknown ·
+        auth-expired · cli-missing        (+ the interactive-<vendor>-present advisory)
+
+    Exit codes are per-state and pinned in `MIGRATION.md`; `--safe-to-fire` collapses
+    them to 0/1 for a caller whose only question is *"may I fire?"*. THE safe-to-fire
+    predicate is `lane_status.SAFE_TO_FIRE_STATES` — one name, one place; consumers
+    bind to it and never to a leg's raw reading (Amendment H).
+    """
+    from . import lane_status as ls
+
+    lanes = list(ls.VENDOR_ORDER) if args.lane_sel == "all" else [args.lane_sel]
+    extra = [Path(args.queue_dir) / "_run-log.tsv"] if args.queue_dir else []
+    if args.lane_sel == "all":
+        statuses = ls.all_lane_status(lanes, check_auth=not args.no_auth)
+    else:
+        procs, error = None, None
+        try:
+            procs = ls.scan_process_table()
+        except Exception as exc:  # noqa: BLE001 — any failure is "could not look"
+            error = f"{type(exc).__name__}: {exc}"
+        statuses = [ls.lane_status(
+            lanes[0], procs=procs, procs_error=error,
+            extra_runlogs=extra, check_auth=not args.no_auth,
+        )]
+
+    chosen = ls.select_lane(statuses)
+
+    if args.json:
+        import json as _json
+
+        print(_json.dumps({
+            "lanes": {s.lane: s.to_dict() for s in statuses},
+            "select": chosen.lane if chosen else None,
+            "safe_to_fire_states": sorted(ls.SAFE_TO_FIRE_STATES),
+            "exit_codes": ls.EXIT_CODES,
+        }, indent=2))
+    else:
+        for status in statuses:
+            print(status.one_line())
+        if args.lane_sel == "all":
+            print(
+                f"SELECT   : {chosen.lane if chosen else '(none — enqueue, or Claude only under the R-A ledger note)'}"
+                "   [§ 10.3 deterministic order: " + " -> ".join(ls.VENDOR_ORDER) + "]"
+            )
+
+    if args.shell_fallback:
+        print()
+        print(ls.shell_fallback_doc(lanes[0]))
+
+    if args.safe_to_fire:
+        # ONE BIT, for the caller whose question is only "may I fire?". For `all` the
+        # bit is the SELECTION LAW's answer — is there any vendor lane I may fire —
+        # which is the question a dispatcher actually asks at that scope.
+        return 0 if (chosen is not None if args.lane_sel == "all" else statuses[0].safe_to_fire) else 1
+
+    if args.lane_sel != "all":
+        return statuses[0].exit_code
+    # `all` exits FAIL-CLOSED across lanes: the worst state present wins, so a caller
+    # who reads only the exit code is never told "open" while a lane is occupied. The
+    # per-lane answers are on stdout and in `--json`, and `--safe-to-fire` answers the
+    # selection-law question instead.
+    rank = {state: i for i, state in enumerate(ls.STATE_PRECEDENCE)}
+    worst = min(statuses, key=lambda s: rank.get(s.state, 0))
+    return worst.exit_code
 
 
 def _cmd_lane_status(args: argparse.Namespace) -> int:
-    """The U-4 router's question (3), answered in one place instead of two habits.
+    """One QUEUE's view: auth + serial lane + backlog, with the busy check's verdict.
 
-    *"Lane open?"* is `last _run-log.tsv row terminal` AND `auth valid`, and until now
-    those were a `tail -1` and a `codex login status` that a dispatcher had to remember
-    to run in the right order. Exit code is the answer: 0 = fire, 1 = do not.
+    **AMENDMENT A CHANGED THIS COMMAND'S PREDICATE.** It used to return
+    `0 if (state.ok and queue.runlog.is_idle()) else 1`, and `is_idle()` is False
+    whenever the last row is an `ENQUEUED` row — so a lane on which NOTHING was
+    executing reported *"do not fire"* on backlog alone. Composed with P-9 (an
+    ENQUEUED-but-undrained job IS the held state, and a hold may persist for as long
+    as its named condition takes), one deliberately HELD job would have rendered the
+    lane permanently unusable to every other job and every other session: *uptime is
+    not utilization*, re-created through the instrument built to abolish it.
+
+    The predicate is now `lane_status.safe_to_fire`, which is the SAME named predicate
+    every other consumer binds to. `is_idle()` is still PRINTED, because an operator
+    reading the screen wants the raw leg — but it no longer decides.
     """
+    from . import lane_status as ls
+
     queue, harness = _lane_pieces(args)
     state = harness.availability()
     row = queue.runlog.last_row()
     pending = queue.pending()
+    lane = getattr(args, "lane", None) or "codex"
+    status = ls.lane_status(
+        lane,
+        auth_probe=lambda: state,
+        extra_runlogs=[queue.runlog.path],
+    )
+    print(f"lane      : {lane}")
     print(f"auth/lane : {state.state} — {state.reason}")
     print(f"last row  : {'  '.join(row) if row else '(none — nothing has ever run)'}")
-    print(f"terminal  : {queue.runlog.is_idle()}")
+    print(f"terminal  : {queue.runlog.is_idle()}   (leg 3 raw; NOT the fire predicate)")
     print(f"pending   : {len(pending)} job(s)" + (
         "  [" + ", ".join(f"{j.job_id}->{j.curator}" for j in pending[:8]) + "]"
         if pending else ""
     ))
+    print(f"CHECK     : {status.state} — {status.reason}")
+    for advisory in status.advisories:
+        print(f"advisory  : {advisory}")
     blocked = queue.root / "AUTH-BLOCKED.md"
     if blocked.exists():
         print(f"\n!! {blocked} exists — an unfiled matt_to_do row is waiting")
-    return 0 if (state.ok and queue.runlog.is_idle()) else 1
+    return status.exit_code
 
 
 def _cmd_lane_enqueue(args: argparse.Namespace) -> int:
@@ -173,6 +279,7 @@ def _cmd_lane_enqueue(args: argparse.Namespace) -> int:
             web_search=args.web_search,
             min_output_bytes=args.min_output_bytes,
             enqueued_by=args.enqueued_by or "",
+            router=args.router,
         )
     except ValueError as exc:
         print(f"REFUSED: {exc}", file=sys.stderr)
@@ -230,14 +337,38 @@ def build_parser() -> argparse.ArgumentParser:
     p_probe.add_argument("--timeout-s", dest="timeout_s", type=int, default=300)
     p_probe.set_defaults(func=_cmd_probe_agent)
 
-    p_ls = sub.add_parser("lane-status", help="auth + serial lane + last-row liveness")
+    p_lane = sub.add_parser(
+        "lane", help="THE cross-session busy check (read-only; acquires and writes nothing)")
+    p_lane.add_argument("--lane", dest="lane_sel", default="all",
+                        choices=["codex", "grok", "all"],
+                        help="which vendor lane to answer for (default: all, fail-closed)")
+    p_lane.add_argument("--json", action="store_true", help="machine-readable answer")
+    p_lane.add_argument("--safe-to-fire", dest="safe_to_fire", action="store_true",
+                        help="collapse the exit code to 0 (fire) / 1 (do not)")
+    p_lane.add_argument("--queue-dir", dest="queue_dir", default=None,
+                        help="also read this queue root's _run-log.tsv as a leg-3 surface")
+    p_lane.add_argument("--no-auth", dest="no_auth", action="store_true",
+                        help="skip the auth probe (legs 1-3 only; faster, and strictly weaker)")
+    p_lane.add_argument("--shell-fallback", dest="shell_fallback", action="store_true",
+                        help="print the pure-shell degraded recipe for a python-less session")
+    p_lane.set_defaults(func=_cmd_lane)
+
+    p_ls = sub.add_parser("lane-status", help="one queue's auth + serial lane + backlog")
     p_ls.add_argument("queue_dir")
+    p_ls.add_argument("--lane", default="codex", choices=["codex", "grok"])
     p_ls.set_defaults(func=_cmd_lane_status)
 
     p_le = sub.add_parser("lane-enqueue", help="add one job to a vendor-lane queue")
     p_le.add_argument("queue_dir")
     p_le.add_argument("job_id")
     p_le.add_argument("prompt_file")
+    p_le.add_argument("--lane", default="codex", choices=["codex", "grok"])
+    # D-3. A convention with a door: `router=Q3-NO` in the enqueue row's free-form
+    # detail column makes lane contention countable (`grep -c "router=Q3-NO"`) without
+    # touching the column count. Optional on purpose — a job enqueued on an OPEN lane
+    # has no router verdict to record, and a defaulted token would fabricate one.
+    p_le.add_argument("--router", default="",
+                      help="router verdict token for the detail column, e.g. Q3-NO")
     # REQUIRED at the argparse layer as well as at the queue layer. U-4 R-B makes an
     # unnamed curator a refusal to fire, and a flag that DEFAULTS is a flag that gets
     # left off — the governance line would then be enforced by whoever typed the
@@ -254,6 +385,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_ld = sub.add_parser("lane-drain", help="drain a vendor-lane queue serially")
     p_ld.add_argument("queue_dir")
+    p_ld.add_argument("--lane", default="codex", choices=["codex", "grok"])
     p_ld.add_argument("--limit", type=int, default=None)
     p_ld.set_defaults(func=_cmd_lane_drain)
 

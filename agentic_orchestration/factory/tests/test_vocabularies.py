@@ -128,6 +128,38 @@ NOT_A_VOCABULARY: dict[str, str] = {
     "cli.py:FACTORY_DIR": "a Path expression, not a collection",
     "harness/claude_code.py:HARNESS": "the object returned by `register_harness(...)`",
     "harness/codex.py:HARNESS": "the object returned by `register_harness(...)`",
+    # --- the third lane (2026-08-24, D-6) ----------------------------------
+    "harness/grok.py:HARNESS": "the object returned by `register_harness(...)`",
+    "harness/grok.py:MAX_PROMPT_ARGV_BYTES": (
+        "a scalar ceiling, not a collection — no members, so neither the addition nor "
+        "the deletion direction this file guards exists for it. The refusal it drives "
+        "is exercised by `test_grok_harness.py::"
+        "test_an_OVERSIZE_prompt_is_refused_HERE_not_as_an_E2BIG`."
+    ),
+    "lane_status.py:REPO_ROOT": "a Path expression, not a collection",
+    "lane_status.py:GROK_LANE_ROOT": "a Path expression, not a collection",
+    # --- drax's fleet board (landed 2026-08-24, commit 5ac47680) -----------
+    # ADJUDICATED HERE, NOT AUTHORED HERE. `factory/ui/` is drax's work-product living
+    # under star-lord's seam directory, and it landed carrying eleven public UPPERCASE
+    # names the classifier could not place — which left `test_JR24` RED AT HEAD before
+    # any of the lane-spec build touched this tree. Verified against a clean HEAD
+    # worktree rather than inferred from a failure that appeared during my own work
+    # (#19.1(b): the cheapest refuting test for "did I break this?" is to run it
+    # without my changes). Each name below is a directory Path or a clock reading;
+    # none is a collection, so none has a direction to guard. Classified rather than
+    # left red, because a suite that is red for a reason nobody wrote down is a suite
+    # people learn to scroll past.
+    "ui/board.py:HERE": "a Path expression, not a collection",
+    "ui/board.py:FACTORY_DIR": "a Path expression, not a collection",
+    "ui/board.py:AO_DIR": "a Path expression, not a collection",
+    "ui/board.py:FLIGHT_DIR": "a Path expression, not a collection",
+    "ui/board.py:REPO_ROOT": "a Path expression, not a collection",
+    "ui/tests/test_board.py:UI_DIR": "a Path expression, not a collection",
+    "ui/tests/test_board.py:FACTORY_DIR": "a Path expression, not a collection",
+    "ui/tests/test_board.py:AO_DIR": "a Path expression, not a collection",
+    "ui/tests/test_board.py:FLIGHT_DIR": "a Path expression, not a collection",
+    "ui/tests/test_board.py:REPO_ROOT": "a Path expression, not a collection",
+    "ui/tests/test_board.py:NOW": "a fixed clock reading for the render fixtures",
 }
 
 
@@ -234,6 +266,75 @@ VOCABULARY_PINS: dict[str, object] = {
     #: nobody adjudicated. The three members are the CLI's own values, enumerated from
     #: `codex exec --help` on this host rather than copied from documentation.
     "SANDBOX_MODES": frozenset({"read-only", "workspace-write", "danger-full-access"}),
+    # --- the cross-session busy check (2026-08-24, D-1/D-2) -----------------
+    #: **THE WIDEST-BLAST-RADIUS PIN IN THIS PACKAGE.** Every consumer of the busy
+    #: check binds to this set BY NAME (lane spec Amendment H) — the § 10.3 vendor
+    #: selection law and the U-4 router's question (3) included. DELETION is fail-open
+    #: in the direction that spends money: remove `queue-pending` and one P-9 HELD job
+    #: on each vendor lane makes both lanes read closed, § 10.3 step 4 fires, and
+    #: Claude takes vendor-scoped work on BACKLOG ALONE — inverting Matt's verbatim
+    #: floor through a state that means *the lane is free and a drain will take it*.
+    #: ADDITION is worse still: a `busy-*` state added here fires a second job stream
+    #: at an occupied credential, which is the vendor-precondition violation the whole
+    #: lane exists to prevent.
+    "SAFE_TO_FIRE_STATES": frozenset({"open", "queue-pending"}),
+    #: CLOSED = the lane cannot take the work AT ALL, so § 10.3 step 4's Claude branch
+    #: is reachable. Moving a state OUT of here routes work to a lane that cannot run
+    #: it; moving one IN fires Claude on a lane that could have taken the job.
+    "CLOSED_STATES": frozenset({"auth-expired", "cli-missing"}),
+    #: OCCUPIED = the lane exists and works and something is executing on it, so the
+    #: disposition is ENQUEUE — never the Claude branch. This distinction is the whole
+    #: of Amendment H, and `test_lane_status.py` asserts that these three sets
+    #: PARTITION the answer vocabulary, so a state deleted from one and not added to
+    #: another reds the row instead of falling out of the denominator.
+    "OCCUPIED_STATES": frozenset({"busy-lock", "busy-out-of-band", "busy-unknown"}),
+    #: The per-state exit codes the CLI contract publishes and `MIGRATION.md` pins.
+    #: Consumers bind to these NUMBERS; a silent renumber re-rules the fire decision
+    #: for every shell caller at once. `0` = open is the one value the lane spec
+    #: imposes. The banding (safe-to-fire < 20 <= occupied/closed) is asserted
+    #: separately in `test_lane_status.py`, so a new state cannot be handed a number
+    #: that reads fire-safe to a caller who only checks the band.
+    "EXIT_CODES": {
+        "open": 0,
+        "queue-pending": 10,
+        "busy-lock": 20,
+        "busy-out-of-band": 21,
+        "busy-unknown": 22,
+        "auth-expired": 30,
+        "cli-missing": 31,
+    },
+    #: § 10.3(2)'s DETERMINISTIC vendor order, **never random**. Codex is first
+    #: because it has banked statistics (30/30 jobs at its pin) and Grok has zero
+    #: rows, so every early Grok job is ALSO a banking measurement (Amendment I).
+    #: Random assignment would be an undeclared A/B experiment running permanently
+    #: across every measurement the fleet takes, making future comparatives
+    #: unattributable (#10). Re-ranking is a U-5 EVIDENCE EVENT, not an edit — and
+    #: this pin is what makes the edit visible.
+    "VENDOR_ORDER": ("codex", "grok"),
+    #: The credential homes the per-lane locks are keyed to (P-3). Deleting a row does
+    #: NOT fail open — `default_lock_path` RAISES on a vendor with no declared home
+    #: rather than defaulting one — but a CHANGED row silently re-keys a live lock,
+    #: which would let two job streams run on one `auth.json` while both hold "a lock".
+    "VENDOR_HOMES": {"codex": ("CODEX_HOME", ".codex"), "grok": ("GROK_HOME", ".grok")},
+    # --- the Grok lane (2026-08-24, D-6) -----------------------------------
+    #: The CLI's OWN effort vocabulary, enumerated from its rejection message
+    #: (`--reasoning-effort bogusvalue` -> "use one of: xhigh, high, medium, low") and
+    #: not copied from documentation. ADDITION is the fail-open direction: a value the
+    #: CLI does not know would be passed through and refused at the vendor, spending a
+    #: round trip to learn what this set already knows.
+    "REASONING_EFFORTS": frozenset({"xhigh", "high", "medium", "low"}),
+    #: The Grok lane's declared fence. `codex exec` has no tool allowlist and the Grok
+    #: CLI's `--tools` vocabulary has not been enumerated on this host, so THIS is the
+    #: pre-hoc containment. Adding a member admits a posture nobody adjudicated.
+    "PERMISSION_MODES": frozenset({"default", "acceptEdits", "auto", "plan"}),
+    #: The two modes refused BY NAME, checked FIRST and separately from the membership
+    #: test above — that ordering is what makes the pair safe, because adding
+    #: `bypassPermissions` to `PERMISSION_MODES` would still not open the door.
+    #: DELETION is the fail-open direction, and the covering scenario row is
+    #: PARAMETRISED over this collection (`for mode in sorted(...)`), so deleting a
+    #: member deletes the case that would have caught it and the suite gets GREENER —
+    #: rule 44's exact subject. The equality pin here is what closes that.
+    "FORBIDDEN_PERMISSION_MODES": frozenset({"bypassPermissions", "dontAsk"}),
 }
 
 #: `INVOCATION_ONLY_TOOLS` is a dict; its keys are the record and its values are
@@ -291,6 +392,27 @@ VOCABULARY_COVERED: dict[str, str] = {
         "`test_the_OTHER_required_fields_are_refused_from_the_same_closed_set`. "
         "ADDITION is fail-CLOSED here: a new required field refuses jobs that used to "
         "enqueue, loudly",
+    # --- the busy check + the third lane (2026-08-24, D-1…D-8) -------------
+    "STATE_PRECEDENCE":
+        "the fail-closed ordering. Covered by `test_lane_status.py::"
+        "test_the_STATE_PRECEDENCE_puts_a_RUNNING_PROCESS_above_a_CREDENTIAL_STATE`, "
+        "which asserts the two orderings that carry meaning (busy above auth; "
+        "busy-unknown above open) rather than the whole sequence — the rest of the "
+        "order is presentation, and pinning it would red on a cosmetic move",
+    "LANES":
+        "the per-vendor argv patterns and run-log locations. ADDITION is fail-closed "
+        "(a new lane nobody fires); the fail-open direction is a LOOSENED pattern, "
+        "and that is covered by "
+        "`test_the_argv_patterns_are_ANCHORED_and_do_not_convict_a_MENTION` plus the "
+        "two per-vendor Amendment-B rows, which fail if either pattern stops being "
+        "anchored at argv[0] or starts matching the other vendor",
+    "CODEX_RUNLOGS":
+        "leg 3's surfaces. DELETION is fail-open — a run-log nobody reads is an "
+        "in-flight job nobody sees — and `read_runlog` treats an ABSENT file as 'no "
+        "queue claim' rather than as an error, so a wrong path fails silently. "
+        "Covered by `test_an_ABSENT_run_log_is_NOT_an_error` (the absent branch) and "
+        "by `test_a_run_log_is_read_ONCE_even_when_named_twice` (the dedupe), and the "
+        "paths themselves are asserted by the live CLI round-trip in the same file",
 }
 
 
