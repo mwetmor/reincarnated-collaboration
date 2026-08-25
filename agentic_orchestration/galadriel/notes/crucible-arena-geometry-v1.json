@@ -1,0 +1,2218 @@
+{
+ "$schema_note": "galadriel arena-boundary trace, KC2 (h-a') baton row, conductor ruling R-L64-1.",
+ "referent": "Grim Dawn - Crucible of the Dead (Matt's perimeter walk, 21 captures 2026-08-24 22:48:38-22:50:49 local)",
+ "capture_set": "agentic_orchestration/galadriel/captures/2026-08-24-crucible-arena-perimeter/",
+ "authored": "2026-08-24",
+ "author": "galadriel",
+ "version": 1,
+ "frame": {
+  "origin": "shot 612 player position (the north gate, in front of the Master of the Crucible's red door)",
+  "axes": "+x = EAST, +y = SOUTH (minimap is north-up; the frame is the minimap's own frame, not screen space)",
+  "handedness_note": "+y points SOUTH. Godot import must flip or rotate to its own convention; no flip is applied here.",
+  "native_units": "minimap pixels at Grim Dawn's fixed HUD minimap zoom, 1920x1080",
+  "metres_per_native_unit": 0.1981,
+  "arena_centroid_native": [
+   4.0,
+   60.0
+  ]
+ },
+ "scale": {
+  "value_m_per_minimap_px": 0.1981,
+  "band_m_per_minimap_px": [
+   0.094,
+   0.3663
+  ],
+  "provenance": "DERIVED-WEAK",
+  "why_not_measured": "the screen<->arena ground map M could not be recovered from this capture set (see findings note, 'what the shots cannot support'); without M the character-height anchor cannot be converted to arena units except through a chain of four separately-uncertain terms.",
+  "chain": {
+   "s_screen_px_per_minimap_px": 14.6,
+   "s_source": "north-gate displacement between shots 612 and 627 (same landmark, minimap delta (25,6) px, screen delta (366,90) px); eye-measured, parallax-contaminated",
+   "character_pixel_height": 70.0,
+   "character_height_m_ASSUMED": 1.9,
+   "character_height_assumption_note": "1.9 m stated as an ASSUMPTION. Corroborating (not importing): the D-5b decode of NavManager::SetDefaultConfig reports an agent height of 2.0, consistent with a ~1.8-2.0 m player model.",
+   "cos_camera_pitch": 0.5,
+   "cos_camera_pitch_note": "theta ~60 deg assumed; bracketed 50-70 deg by two weak independent reads"
+  },
+  "consequence": "Every metre figure in this file inherits a ~1.7x uncertainty factor. The NATIVE minimap-px geometry does NOT. Consumers who need metric truth should pin the scale by registering this footprint against the sim-side derived occupancy hull (which carries real metric extents) - deliberately NOT done here."
+ },
+ "hard_boundary": {
+  "provenance": "MEASURED-APPROXIMATE-FROM-REFERENCE",
+  "method": "21 player-centred minimap discs registered by masked normalised cross-correlation; per-shot terrain classification then per-pixel vote (p>0.65, obs>=3); connected component containing the player track; Moore-neighbour contour walk; Douglas-Peucker eps=1.5 px",
+  "uncertainty_m": 0.495,
+  "uncertainty_native_px": 2.5,
+  "uncertainty_basis": "registration residual +-1 px (1-sigma, from 3-4-anchor cross-checks, spread <=0.7 px) convolved with minimap edge softness +-2 px",
+  "outer_ring": {
+   "vertices_native": [
+    [
+     0.0,
+     -101.0
+    ],
+    [
+     5.0,
+     -99.0
+    ],
+    [
+     6.0,
+     -96.0
+    ],
+    [
+     13.0,
+     -100.0
+    ],
+    [
+     20.0,
+     -96.0
+    ],
+    [
+     25.0,
+     -101.0
+    ],
+    [
+     34.0,
+     -96.0
+    ],
+    [
+     35.0,
+     -93.0
+    ],
+    [
+     32.0,
+     -71.0
+    ],
+    [
+     33.0,
+     -56.0
+    ],
+    [
+     26.0,
+     -57.0
+    ],
+    [
+     17.0,
+     -51.0
+    ],
+    [
+     17.0,
+     -44.0
+    ],
+    [
+     21.0,
+     -40.0
+    ],
+    [
+     22.0,
+     -34.0
+    ],
+    [
+     21.0,
+     -20.0
+    ],
+    [
+     17.0,
+     -16.0
+    ],
+    [
+     17.0,
+     -6.0
+    ],
+    [
+     23.0,
+     -1.0
+    ],
+    [
+     37.0,
+     -4.0
+    ],
+    [
+     48.0,
+     5.0
+    ],
+    [
+     56.0,
+     -1.0
+    ],
+    [
+     48.0,
+     -12.0
+    ],
+    [
+     42.0,
+     -16.0
+    ],
+    [
+     37.0,
+     -15.0
+    ],
+    [
+     34.0,
+     -18.0
+    ],
+    [
+     37.0,
+     -22.0
+    ],
+    [
+     31.0,
+     -25.0
+    ],
+    [
+     32.0,
+     -39.0
+    ],
+    [
+     36.0,
+     -43.0
+    ],
+    [
+     49.0,
+     -42.0
+    ],
+    [
+     56.0,
+     -34.0
+    ],
+    [
+     64.0,
+     -33.0
+    ],
+    [
+     72.0,
+     -23.0
+    ],
+    [
+     79.0,
+     -20.0
+    ],
+    [
+     96.0,
+     0.0
+    ],
+    [
+     97.0,
+     9.0
+    ],
+    [
+     103.0,
+     14.0
+    ],
+    [
+     103.0,
+     18.0
+    ],
+    [
+     99.0,
+     21.0
+    ],
+    [
+     86.0,
+     23.0
+    ],
+    [
+     78.0,
+     27.0
+    ],
+    [
+     74.0,
+     23.0
+    ],
+    [
+     75.0,
+     19.0
+    ],
+    [
+     70.0,
+     15.0
+    ],
+    [
+     62.0,
+     21.0
+    ],
+    [
+     63.0,
+     27.0
+    ],
+    [
+     67.0,
+     30.0
+    ],
+    [
+     66.0,
+     35.0
+    ],
+    [
+     68.0,
+     39.0
+    ],
+    [
+     77.0,
+     41.0
+    ],
+    [
+     75.0,
+     50.0
+    ],
+    [
+     80.0,
+     49.0
+    ],
+    [
+     82.0,
+     51.0
+    ],
+    [
+     77.0,
+     54.0
+    ],
+    [
+     78.0,
+     57.0
+    ],
+    [
+     73.0,
+     59.0
+    ],
+    [
+     74.0,
+     61.0
+    ],
+    [
+     81.0,
+     60.0
+    ],
+    [
+     82.0,
+     69.0
+    ],
+    [
+     77.0,
+     79.0
+    ],
+    [
+     74.0,
+     80.0
+    ],
+    [
+     71.0,
+     90.0
+    ],
+    [
+     64.0,
+     94.0
+    ],
+    [
+     56.0,
+     104.0
+    ],
+    [
+     56.0,
+     107.0
+    ],
+    [
+     62.0,
+     112.0
+    ],
+    [
+     74.0,
+     105.0
+    ],
+    [
+     92.0,
+     111.0
+    ],
+    [
+     95.0,
+     117.0
+    ],
+    [
+     81.0,
+     130.0
+    ],
+    [
+     82.0,
+     132.0
+    ],
+    [
+     77.0,
+     137.0
+    ],
+    [
+     69.0,
+     141.0
+    ],
+    [
+     59.0,
+     152.0
+    ],
+    [
+     50.0,
+     154.0
+    ],
+    [
+     42.0,
+     159.0
+    ],
+    [
+     34.0,
+     155.0
+    ],
+    [
+     29.0,
+     137.0
+    ],
+    [
+     32.0,
+     133.0
+    ],
+    [
+     38.0,
+     132.0
+    ],
+    [
+     46.0,
+     126.0
+    ],
+    [
+     39.0,
+     120.0
+    ],
+    [
+     34.0,
+     124.0
+    ],
+    [
+     20.0,
+     127.0
+    ],
+    [
+     15.0,
+     132.0
+    ],
+    [
+     20.0,
+     138.0
+    ],
+    [
+     28.0,
+     159.0
+    ],
+    [
+     22.0,
+     165.0
+    ],
+    [
+     15.0,
+     162.0
+    ],
+    [
+     9.0,
+     167.0
+    ],
+    [
+     3.0,
+     168.0
+    ],
+    [
+     -3.0,
+     164.0
+    ],
+    [
+     -9.0,
+     167.0
+    ],
+    [
+     -11.0,
+     165.0
+    ],
+    [
+     -17.0,
+     166.0
+    ],
+    [
+     -20.0,
+     163.0
+    ],
+    [
+     -31.0,
+     162.0
+    ],
+    [
+     -43.0,
+     152.0
+    ],
+    [
+     -36.0,
+     135.0
+    ],
+    [
+     -29.0,
+     132.0
+    ],
+    [
+     -26.0,
+     126.0
+    ],
+    [
+     -27.0,
+     122.0
+    ],
+    [
+     -37.0,
+     120.0
+    ],
+    [
+     -44.0,
+     112.0
+    ],
+    [
+     -49.0,
+     115.0
+    ],
+    [
+     -52.0,
+     119.0
+    ],
+    [
+     -49.0,
+     124.0
+    ],
+    [
+     -46.0,
+     123.0
+    ],
+    [
+     -44.0,
+     125.0
+    ],
+    [
+     -44.0,
+     130.0
+    ],
+    [
+     -41.0,
+     131.0
+    ],
+    [
+     -46.0,
+     143.0
+    ],
+    [
+     -51.0,
+     148.0
+    ],
+    [
+     -57.0,
+     148.0
+    ],
+    [
+     -65.0,
+     139.0
+    ],
+    [
+     -77.0,
+     131.0
+    ],
+    [
+     -82.0,
+     122.0
+    ],
+    [
+     -88.0,
+     118.0
+    ],
+    [
+     -98.0,
+     104.0
+    ],
+    [
+     -98.0,
+     101.0
+    ],
+    [
+     -95.0,
+     99.0
+    ],
+    [
+     -85.0,
+     98.0
+    ],
+    [
+     -76.0,
+     94.0
+    ],
+    [
+     -66.0,
+     102.0
+    ],
+    [
+     -58.0,
+     96.0
+    ],
+    [
+     -62.0,
+     91.0
+    ],
+    [
+     -61.0,
+     88.0
+    ],
+    [
+     -65.0,
+     81.0
+    ],
+    [
+     -77.0,
+     71.0
+    ],
+    [
+     -76.0,
+     62.0
+    ],
+    [
+     -80.0,
+     58.0
+    ],
+    [
+     -75.0,
+     53.0
+    ],
+    [
+     -69.0,
+     51.0
+    ],
+    [
+     -72.0,
+     44.0
+    ],
+    [
+     -75.0,
+     44.0
+    ],
+    [
+     -78.0,
+     49.0
+    ],
+    [
+     -79.0,
+     47.0
+    ],
+    [
+     -71.0,
+     37.0
+    ],
+    [
+     -72.0,
+     34.0
+    ],
+    [
+     -63.0,
+     31.0
+    ],
+    [
+     -53.0,
+     12.0
+    ],
+    [
+     -58.0,
+     6.0
+    ],
+    [
+     -64.0,
+     11.0
+    ],
+    [
+     -66.0,
+     16.0
+    ],
+    [
+     -69.0,
+     16.0
+    ],
+    [
+     -82.0,
+     12.0
+    ],
+    [
+     -91.0,
+     6.0
+    ],
+    [
+     -92.0,
+     4.0
+    ],
+    [
+     -78.0,
+     -10.0
+    ],
+    [
+     -78.0,
+     -15.0
+    ],
+    [
+     -63.0,
+     -28.0
+    ],
+    [
+     -52.0,
+     -33.0
+    ],
+    [
+     -41.0,
+     -42.0
+    ],
+    [
+     -38.0,
+     -41.0
+    ],
+    [
+     -23.0,
+     -48.0
+    ],
+    [
+     -16.0,
+     -48.0
+    ],
+    [
+     -13.0,
+     -44.0
+    ],
+    [
+     -14.0,
+     -24.0
+    ],
+    [
+     -31.0,
+     -17.0
+    ],
+    [
+     -43.0,
+     -5.0
+    ],
+    [
+     -39.0,
+     0.0
+    ],
+    [
+     -36.0,
+     0.0
+    ],
+    [
+     -20.0,
+     -10.0
+    ],
+    [
+     -10.0,
+     -4.0
+    ],
+    [
+     -5.0,
+     -5.0
+    ],
+    [
+     -3.0,
+     -10.0
+    ],
+    [
+     2.0,
+     -13.0
+    ],
+    [
+     -5.0,
+     -26.0
+    ],
+    [
+     -4.0,
+     -36.0
+    ],
+    [
+     5.0,
+     -52.0
+    ],
+    [
+     2.0,
+     -56.0
+    ],
+    [
+     -4.0,
+     -56.0
+    ],
+    [
+     -9.0,
+     -59.0
+    ],
+    [
+     -11.0,
+     -71.0
+    ],
+    [
+     -8.0,
+     -95.0
+    ],
+    [
+     0.0,
+     -101.0
+    ]
+   ],
+   "vertices_m": [
+    [
+     0.0,
+     -20.012
+    ],
+    [
+     0.991,
+     -19.616
+    ],
+    [
+     1.189,
+     -19.022
+    ],
+    [
+     2.576,
+     -19.814
+    ],
+    [
+     3.963,
+     -19.022
+    ],
+    [
+     4.954,
+     -20.012
+    ],
+    [
+     6.737,
+     -19.022
+    ],
+    [
+     6.935,
+     -18.427
+    ],
+    [
+     6.341,
+     -14.068
+    ],
+    [
+     6.539,
+     -11.096
+    ],
+    [
+     5.152,
+     -11.294
+    ],
+    [
+     3.368,
+     -10.105
+    ],
+    [
+     3.368,
+     -8.718
+    ],
+    [
+     4.161,
+     -7.926
+    ],
+    [
+     4.359,
+     -6.737
+    ],
+    [
+     4.161,
+     -3.963
+    ],
+    [
+     3.368,
+     -3.17
+    ],
+    [
+     3.368,
+     -1.189
+    ],
+    [
+     4.557,
+     -0.198
+    ],
+    [
+     7.331,
+     -0.793
+    ],
+    [
+     9.511,
+     0.991
+    ],
+    [
+     11.096,
+     -0.198
+    ],
+    [
+     9.511,
+     -2.378
+    ],
+    [
+     8.322,
+     -3.17
+    ],
+    [
+     7.331,
+     -2.972
+    ],
+    [
+     6.737,
+     -3.567
+    ],
+    [
+     7.331,
+     -4.359
+    ],
+    [
+     6.142,
+     -4.954
+    ],
+    [
+     6.341,
+     -7.728
+    ],
+    [
+     7.133,
+     -8.52
+    ],
+    [
+     9.709,
+     -8.322
+    ],
+    [
+     11.096,
+     -6.737
+    ],
+    [
+     12.681,
+     -6.539
+    ],
+    [
+     14.266,
+     -4.557
+    ],
+    [
+     15.653,
+     -3.963
+    ],
+    [
+     19.022,
+     0.0
+    ],
+    [
+     19.22,
+     1.783
+    ],
+    [
+     20.409,
+     2.774
+    ],
+    [
+     20.409,
+     3.567
+    ],
+    [
+     19.616,
+     4.161
+    ],
+    [
+     17.04,
+     4.557
+    ],
+    [
+     15.455,
+     5.35
+    ],
+    [
+     14.663,
+     4.557
+    ],
+    [
+     14.861,
+     3.765
+    ],
+    [
+     13.87,
+     2.972
+    ],
+    [
+     12.285,
+     4.161
+    ],
+    [
+     12.483,
+     5.35
+    ],
+    [
+     13.276,
+     5.944
+    ],
+    [
+     13.077,
+     6.935
+    ],
+    [
+     13.474,
+     7.728
+    ],
+    [
+     15.257,
+     8.124
+    ],
+    [
+     14.861,
+     9.907
+    ],
+    [
+     15.851,
+     9.709
+    ],
+    [
+     16.248,
+     10.105
+    ],
+    [
+     15.257,
+     10.7
+    ],
+    [
+     15.455,
+     11.294
+    ],
+    [
+     14.464,
+     11.69
+    ],
+    [
+     14.663,
+     12.087
+    ],
+    [
+     16.05,
+     11.889
+    ],
+    [
+     16.248,
+     13.672
+    ],
+    [
+     15.257,
+     15.653
+    ],
+    [
+     14.663,
+     15.851
+    ],
+    [
+     14.068,
+     17.833
+    ],
+    [
+     12.681,
+     18.625
+    ],
+    [
+     11.096,
+     20.607
+    ],
+    [
+     11.096,
+     21.201
+    ],
+    [
+     12.285,
+     22.192
+    ],
+    [
+     14.663,
+     20.805
+    ],
+    [
+     18.229,
+     21.994
+    ],
+    [
+     18.824,
+     23.183
+    ],
+    [
+     16.05,
+     25.759
+    ],
+    [
+     16.248,
+     26.155
+    ],
+    [
+     15.257,
+     27.146
+    ],
+    [
+     13.672,
+     27.938
+    ],
+    [
+     11.69,
+     30.118
+    ],
+    [
+     9.907,
+     30.514
+    ],
+    [
+     8.322,
+     31.505
+    ],
+    [
+     6.737,
+     30.712
+    ],
+    [
+     5.746,
+     27.146
+    ],
+    [
+     6.341,
+     26.353
+    ],
+    [
+     7.529,
+     26.155
+    ],
+    [
+     9.115,
+     24.966
+    ],
+    [
+     7.728,
+     23.777
+    ],
+    [
+     6.737,
+     24.57
+    ],
+    [
+     3.963,
+     25.164
+    ],
+    [
+     2.972,
+     26.155
+    ],
+    [
+     3.963,
+     27.344
+    ],
+    [
+     5.548,
+     31.505
+    ],
+    [
+     4.359,
+     32.694
+    ],
+    [
+     2.972,
+     32.099
+    ],
+    [
+     1.783,
+     33.09
+    ],
+    [
+     0.594,
+     33.288
+    ],
+    [
+     -0.594,
+     32.495
+    ],
+    [
+     -1.783,
+     33.09
+    ],
+    [
+     -2.18,
+     32.694
+    ],
+    [
+     -3.368,
+     32.892
+    ],
+    [
+     -3.963,
+     32.297
+    ],
+    [
+     -6.142,
+     32.099
+    ],
+    [
+     -8.52,
+     30.118
+    ],
+    [
+     -7.133,
+     26.749
+    ],
+    [
+     -5.746,
+     26.155
+    ],
+    [
+     -5.152,
+     24.966
+    ],
+    [
+     -5.35,
+     24.173
+    ],
+    [
+     -7.331,
+     23.777
+    ],
+    [
+     -8.718,
+     22.192
+    ],
+    [
+     -9.709,
+     22.786
+    ],
+    [
+     -10.303,
+     23.579
+    ],
+    [
+     -9.709,
+     24.57
+    ],
+    [
+     -9.115,
+     24.372
+    ],
+    [
+     -8.718,
+     24.768
+    ],
+    [
+     -8.718,
+     25.759
+    ],
+    [
+     -8.124,
+     25.957
+    ],
+    [
+     -9.115,
+     28.334
+    ],
+    [
+     -10.105,
+     29.325
+    ],
+    [
+     -11.294,
+     29.325
+    ],
+    [
+     -12.879,
+     27.542
+    ],
+    [
+     -15.257,
+     25.957
+    ],
+    [
+     -16.248,
+     24.173
+    ],
+    [
+     -17.437,
+     23.381
+    ],
+    [
+     -19.418,
+     20.607
+    ],
+    [
+     -19.418,
+     20.012
+    ],
+    [
+     -18.824,
+     19.616
+    ],
+    [
+     -16.842,
+     19.418
+    ],
+    [
+     -15.059,
+     18.625
+    ],
+    [
+     -13.077,
+     20.211
+    ],
+    [
+     -11.492,
+     19.022
+    ],
+    [
+     -12.285,
+     18.031
+    ],
+    [
+     -12.087,
+     17.437
+    ],
+    [
+     -12.879,
+     16.05
+    ],
+    [
+     -15.257,
+     14.068
+    ],
+    [
+     -15.059,
+     12.285
+    ],
+    [
+     -15.851,
+     11.492
+    ],
+    [
+     -14.861,
+     10.502
+    ],
+    [
+     -13.672,
+     10.105
+    ],
+    [
+     -14.266,
+     8.718
+    ],
+    [
+     -14.861,
+     8.718
+    ],
+    [
+     -15.455,
+     9.709
+    ],
+    [
+     -15.653,
+     9.313
+    ],
+    [
+     -14.068,
+     7.331
+    ],
+    [
+     -14.266,
+     6.737
+    ],
+    [
+     -12.483,
+     6.142
+    ],
+    [
+     -10.502,
+     2.378
+    ],
+    [
+     -11.492,
+     1.189
+    ],
+    [
+     -12.681,
+     2.18
+    ],
+    [
+     -13.077,
+     3.17
+    ],
+    [
+     -13.672,
+     3.17
+    ],
+    [
+     -16.248,
+     2.378
+    ],
+    [
+     -18.031,
+     1.189
+    ],
+    [
+     -18.229,
+     0.793
+    ],
+    [
+     -15.455,
+     -1.981
+    ],
+    [
+     -15.455,
+     -2.972
+    ],
+    [
+     -12.483,
+     -5.548
+    ],
+    [
+     -10.303,
+     -6.539
+    ],
+    [
+     -8.124,
+     -8.322
+    ],
+    [
+     -7.529,
+     -8.124
+    ],
+    [
+     -4.557,
+     -9.511
+    ],
+    [
+     -3.17,
+     -9.511
+    ],
+    [
+     -2.576,
+     -8.718
+    ],
+    [
+     -2.774,
+     -4.755
+    ],
+    [
+     -6.142,
+     -3.368
+    ],
+    [
+     -8.52,
+     -0.991
+    ],
+    [
+     -7.728,
+     0.0
+    ],
+    [
+     -7.133,
+     0.0
+    ],
+    [
+     -3.963,
+     -1.981
+    ],
+    [
+     -1.981,
+     -0.793
+    ],
+    [
+     -0.991,
+     -0.991
+    ],
+    [
+     -0.594,
+     -1.981
+    ],
+    [
+     0.396,
+     -2.576
+    ],
+    [
+     -0.991,
+     -5.152
+    ],
+    [
+     -0.793,
+     -7.133
+    ],
+    [
+     0.991,
+     -10.303
+    ],
+    [
+     0.396,
+     -11.096
+    ],
+    [
+     -0.793,
+     -11.096
+    ],
+    [
+     -1.783,
+     -11.69
+    ],
+    [
+     -2.18,
+     -14.068
+    ],
+    [
+     -1.585,
+     -18.824
+    ],
+    [
+     0.0,
+     -20.012
+    ]
+   ],
+   "n": 177,
+   "closed": true
+  },
+  "interior_obstructions": [
+   {
+    "id": "OB-1",
+    "area_native_px2": 309,
+    "note": "unmapped island inside the arena floor: Grim Dawn's minimap paints walkable floor only, so an enclosed unpainted island is impassable geometry (inner wall arc or pillar block)",
+    "vertices_native": [
+     [
+      -51.0,
+      35.0
+     ],
+     [
+      -47.0,
+      36.0
+     ],
+     [
+      -49.0,
+      40.0
+     ],
+     [
+      -47.0,
+      44.0
+     ],
+     [
+      -51.0,
+      49.0
+     ],
+     [
+      -50.0,
+      53.0
+     ],
+     [
+      -53.0,
+      63.0
+     ],
+     [
+      -49.0,
+      69.0
+     ],
+     [
+      -48.0,
+      78.0
+     ],
+     [
+      -54.0,
+      79.0
+     ],
+     [
+      -57.0,
+      69.0
+     ],
+     [
+      -57.0,
+      47.0
+     ],
+     [
+      -51.0,
+      35.0
+     ]
+    ],
+    "vertices_m": [
+     [
+      -10.105,
+      6.935
+     ],
+     [
+      -9.313,
+      7.133
+     ],
+     [
+      -9.709,
+      7.926
+     ],
+     [
+      -9.313,
+      8.718
+     ],
+     [
+      -10.105,
+      9.709
+     ],
+     [
+      -9.907,
+      10.502
+     ],
+     [
+      -10.502,
+      12.483
+     ],
+     [
+      -9.709,
+      13.672
+     ],
+     [
+      -9.511,
+      15.455
+     ],
+     [
+      -10.7,
+      15.653
+     ],
+     [
+      -11.294,
+      13.672
+     ],
+     [
+      -11.294,
+      9.313
+     ],
+     [
+      -10.105,
+      6.935
+     ]
+    ]
+   },
+   {
+    "id": "OB-2",
+    "area_native_px2": 284,
+    "note": "unmapped island inside the arena floor: Grim Dawn's minimap paints walkable floor only, so an enclosed unpainted island is impassable geometry (inner wall arc or pillar block)",
+    "vertices_native": [
+     [
+      53.0,
+      40.0
+     ],
+     [
+      57.0,
+      41.0
+     ],
+     [
+      60.0,
+      59.0
+     ],
+     [
+      56.0,
+      82.0
+     ],
+     [
+      51.0,
+      85.0
+     ],
+     [
+      49.0,
+      81.0
+     ],
+     [
+      55.0,
+      70.0
+     ],
+     [
+      54.0,
+      51.0
+     ],
+     [
+      51.0,
+      46.0
+     ],
+     [
+      53.0,
+      40.0
+     ]
+    ],
+    "vertices_m": [
+     [
+      10.502,
+      7.926
+     ],
+     [
+      11.294,
+      8.124
+     ],
+     [
+      11.889,
+      11.69
+     ],
+     [
+      11.096,
+      16.248
+     ],
+     [
+      10.105,
+      16.842
+     ],
+     [
+      9.709,
+      16.05
+     ],
+     [
+      10.898,
+      13.87
+     ],
+     [
+      10.7,
+      10.105
+     ],
+     [
+      10.105,
+      9.115
+     ],
+     [
+      10.502,
+      7.926
+     ]
+    ]
+   },
+   {
+    "id": "OB-3",
+    "area_native_px2": 67,
+    "note": "unmapped island inside the arena floor: Grim Dawn's minimap paints walkable floor only, so an enclosed unpainted island is impassable geometry (inner wall arc or pillar block)",
+    "vertices_native": [
+     [
+      3.0,
+      132.0
+     ],
+     [
+      9.0,
+      132.0
+     ],
+     [
+      9.0,
+      137.0
+     ],
+     [
+      1.0,
+      139.0
+     ],
+     [
+      0.0,
+      134.0
+     ],
+     [
+      3.0,
+      132.0
+     ]
+    ],
+    "vertices_m": [
+     [
+      0.594,
+      26.155
+     ],
+     [
+      1.783,
+      26.155
+     ],
+     [
+      1.783,
+      27.146
+     ],
+     [
+      0.198,
+      27.542
+     ],
+     [
+      0.0,
+      26.551
+     ],
+     [
+      0.594,
+      26.155
+     ]
+    ]
+   },
+   {
+    "id": "OB-4",
+    "area_native_px2": 62,
+    "note": "unmapped island inside the arena floor: Grim Dawn's minimap paints walkable floor only, so an enclosed unpainted island is impassable geometry (inner wall arc or pillar block)",
+    "vertices_native": [
+     [
+      -15.0,
+      127.0
+     ],
+     [
+      -12.0,
+      128.0
+     ],
+     [
+      -12.0,
+      135.0
+     ],
+     [
+      -14.0,
+      137.0
+     ],
+     [
+      -19.0,
+      133.0
+     ],
+     [
+      -15.0,
+      127.0
+     ]
+    ],
+    "vertices_m": [
+     [
+      -2.972,
+      25.164
+     ],
+     [
+      -2.378,
+      25.362
+     ],
+     [
+      -2.378,
+      26.749
+     ],
+     [
+      -2.774,
+      27.146
+     ],
+     [
+      -3.765,
+      26.353
+     ],
+     [
+      -2.972,
+      25.164
+     ]
+    ]
+   }
+  ],
+  "floor_area_native_px2": 29455,
+  "floor_area_m2": 1156.4,
+  "bbox_native": [
+   -98.0,
+   -101.0,
+   103.0,
+   168.0
+  ],
+  "extent_native": [
+   201.0,
+   269.0
+  ],
+  "extent_m": [
+   39.8,
+   53.3
+  ],
+  "interpolated_segments": [],
+  "interpolated_segments_note": "NONE. Every outer-ring vertex was painted by at least 3 independent minimap observations (min 3, median 13), and 0 of 1755 boundary pixels abut an unobserved region of the mosaic canvas. The perimeter walk fully enclosed the arena in minimap coverage, so no arc of the boundary had to be bridged.",
+  "unwalked_arcs": [
+   {
+    "vertex_index_from": 0,
+    "vertex_index_to": 8,
+    "n_vertices": 9,
+    "min_minimap_observations": 3,
+    "max_distance_to_nearest_station_native": 104.0,
+    "provenance": "MEASURED-APPROXIMATE-FROM-REFERENCE",
+    "caveat": "mapped but never walked: the minimap painted this arc from a distance, so its shape is measured but its WALKABILITY was never demonstrated by the player's own body. Both runs lie on the north corridor and its terminal chamber, which Matt approached but did not enter."
+   },
+   {
+    "vertex_index_from": 174,
+    "vertex_index_to": 176,
+    "n_vertices": 3,
+    "min_minimap_observations": 3,
+    "max_distance_to_nearest_station_native": 101.0,
+    "provenance": "MEASURED-APPROXIMATE-FROM-REFERENCE",
+    "caveat": "mapped but never walked: the minimap painted this arc from a distance, so its shape is measured but its WALKABILITY was never demonstrated by the player's own body. Both runs lie on the north corridor and its terminal chamber, which Matt approached but did not enter."
+   }
+  ]
+ },
+ "green_zones": {
+  "class_note": "ENTERABLE DAMAGE FIELDS, NOT WALLS. The Godot arena must NOT collide-block these. Matt attestation (L-64): the character can enter but takes a severe and immediate DoT tick; element suspected poison (Matt's own hedge).",
+  "dot_mechanic": {
+   "provenance": "ATTESTED-UNMEASURED",
+   "magnitude": null,
+   "element": "suspected-poison",
+   "note": "no number is derived here; see the findings note for the two named decode paths."
+  },
+  "geometry_provenance": "INTERIOR-POINT-MEASURED / EXTENT-UNMEASURED",
+  "polygons": null,
+  "why_no_polygons": "tracing a zone outline requires projecting the world-view green mask onto the arena floor, which requires the ground map M. M is not recoverable from these 21 stations (all world-view registration attempts returned noise-level NCC 0.04-0.27). Rather than invent an outline, each zone ships as a measured interior point with a measured upper bound on its radius.",
+  "count_demonstrated": 6,
+  "count_note": "six mutually distinct zones are DEMONSTRATED (each pair separated either by an intervening zone-free station or by more than one member's own radius bound). Matt attests he entered all of them; whether six is the total is NOT established by these shots - a zone entered between two exposures leaves no evidence.",
+  "zones": [
+   {
+    "id": "Z-614",
+    "witness_shot": 614,
+    "interior_point_minimap_px": [
+     -65.0,
+     -15.0
+    ],
+    "radius_upper_bound_px": 41.2,
+    "bounding_clean_shot": 613
+   },
+   {
+    "id": "Z-618",
+    "witness_shot": 618,
+    "interior_point_minimap_px": [
+     -67.0,
+     127.0
+    ],
+    "radius_upper_bound_px": 44.0,
+    "bounding_clean_shot": 617
+   },
+   {
+    "id": "Z-620",
+    "witness_shot": 620,
+    "interior_point_minimap_px": [
+     -7.0,
+     152.0
+    ],
+    "radius_upper_bound_px": 47.8,
+    "bounding_clean_shot": 619
+   },
+   {
+    "id": "Z-622",
+    "witness_shot": 622,
+    "interior_point_minimap_px": [
+     49.0,
+     99.0
+    ],
+    "radius_upper_bound_px": 23.3,
+    "bounding_clean_shot": 621
+   },
+   {
+    "id": "Z-623",
+    "witness_shot": 623,
+    "interior_point_minimap_px": [
+     67.0,
+     135.0
+    ],
+    "radius_upper_bound_px": 52.0,
+    "bounding_clean_shot": 621
+   },
+   {
+    "id": "Z-626",
+    "witness_shot": 626,
+    "interior_point_minimap_px": [
+     74.0,
+     -7.0
+    ],
+    "radius_upper_bound_px": 36.2,
+    "bounding_clean_shot": 625
+   }
+  ]
+ },
+ "stations": [
+  {
+   "shot": 612,
+   "clock_local": "22:48:38",
+   "arena_native": [
+    -0.0,
+    -0.0
+   ],
+   "arena_m": [
+    -0.0,
+    -0.0
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 613,
+   "clock_local": "22:48:42",
+   "arena_native": [
+    -29.0,
+    5.0
+   ],
+   "arena_m": [
+    -5.746,
+    0.991
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 614,
+   "clock_local": "22:48:53",
+   "arena_native": [
+    -65.0,
+    -15.0
+   ],
+   "arena_m": [
+    -12.879,
+    -2.972
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.589,
+   "green_fraction_r140": 0.386
+  },
+  {
+   "shot": 615,
+   "clock_local": "22:49:01",
+   "arena_native": [
+    -63.0,
+    35.0
+   ],
+   "arena_m": [
+    -12.483,
+    6.935
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 616,
+   "clock_local": "22:49:27",
+   "arena_native": [
+    -61.0,
+    55.0
+   ],
+   "arena_m": [
+    -12.087,
+    10.898
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 617,
+   "clock_local": "22:49:31",
+   "arena_native": [
+    -54.0,
+    85.0
+   ],
+   "arena_m": [
+    -10.7,
+    16.842
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.001
+  },
+  {
+   "shot": 618,
+   "clock_local": "22:49:36",
+   "arena_native": [
+    -67.0,
+    127.0
+   ],
+   "arena_m": [
+    -13.276,
+    25.164
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.768,
+   "green_fraction_r140": 0.449
+  },
+  {
+   "shot": 619,
+   "clock_local": "22:49:42",
+   "arena_native": [
+    -23.0,
+    107.0
+   ],
+   "arena_m": [
+    -4.557,
+    21.201
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.001
+  },
+  {
+   "shot": 620,
+   "clock_local": "22:49:47",
+   "arena_native": [
+    -7.0,
+    152.0
+   ],
+   "arena_m": [
+    -1.387,
+    30.118
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.623,
+   "green_fraction_r140": 0.335
+  },
+  {
+   "shot": 621,
+   "clock_local": "22:49:58",
+   "arena_native": [
+    26.0,
+    103.0
+   ],
+   "arena_m": [
+    5.152,
+    20.409
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 622,
+   "clock_local": "22:50:02",
+   "arena_native": [
+    49.0,
+    99.0
+   ],
+   "arena_m": [
+    9.709,
+    19.616
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.321,
+   "green_fraction_r140": 0.287
+  },
+  {
+   "shot": 623,
+   "clock_local": "22:50:05",
+   "arena_native": [
+    67.0,
+    135.0
+   ],
+   "arena_m": [
+    13.276,
+    26.749
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.676,
+   "green_fraction_r140": 0.485
+  },
+  {
+   "shot": 624,
+   "clock_local": "22:50:10",
+   "arena_native": [
+    67.0,
+    60.0
+   ],
+   "arena_m": [
+    13.276,
+    11.889
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 625,
+   "clock_local": "22:50:14",
+   "arena_native": [
+    59.0,
+    26.0
+   ],
+   "arena_m": [
+    11.69,
+    5.152
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.005
+  },
+  {
+   "shot": 626,
+   "clock_local": "22:50:18",
+   "arena_native": [
+    74.0,
+    -7.0
+   ],
+   "arena_m": [
+    14.663,
+    -1.387
+   ],
+   "in_green_zone": true,
+   "green_fraction_r60": 0.249,
+   "green_fraction_r140": 0.403
+  },
+  {
+   "shot": 627,
+   "clock_local": "22:50:23",
+   "arena_native": [
+    25.0,
+    6.0
+   ],
+   "arena_m": [
+    4.954,
+    1.189
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 628,
+   "clock_local": "22:50:28",
+   "arena_native": [
+    16.0,
+    39.0
+   ],
+   "arena_m": [
+    3.17,
+    7.728
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 629,
+   "clock_local": "22:50:37",
+   "arena_native": [
+    -19.0,
+    35.0
+   ],
+   "arena_m": [
+    -3.765,
+    6.935
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.001
+  },
+  {
+   "shot": 630,
+   "clock_local": "22:50:41",
+   "arena_native": [
+    -19.0,
+    85.0
+   ],
+   "arena_m": [
+    -3.765,
+    16.842
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 631,
+   "clock_local": "22:50:45",
+   "arena_native": [
+    21.0,
+    84.0
+   ],
+   "arena_m": [
+    4.161,
+    16.644
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  },
+  {
+   "shot": 632,
+   "clock_local": "22:50:49",
+   "arena_native": [
+    1.0,
+    65.0
+   ],
+   "arena_m": [
+    0.198,
+    12.879
+   ],
+   "in_green_zone": false,
+   "green_fraction_r60": 0.0,
+   "green_fraction_r140": 0.0
+  }
+ ]
+}
