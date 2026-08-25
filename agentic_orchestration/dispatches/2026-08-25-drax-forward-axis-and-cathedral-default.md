@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — forward-axis fix + cathedral-as-default + re-capture
 
-**Status:** PENDING
+**Status:** DONE (drax, 2026-08-25) — see § Completion record
 **From:** knight-rider (Step-2 VFX build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Pattern:** B (multi-step; capture passes are ~25 min each)
@@ -242,3 +242,102 @@ archetypes. Matt has now seen it in twelve consecutive files.
 - The dash-attack black-frame report reproduces against `mp4_review_2026-08-25_v2/`, meaning my
   keyframe diagnosis is wrong and the cause is upstream in the capture
 - The reference-URL wiring would require a schema change rather than a comment
+
+
+---
+
+# Completion record — drax, 2026-08-25
+
+**Commits (all pushed, `reincarnated-godot` main at `689116c`):**
+`612c1e3` Commit A (the fix) · `1c4f90f` Commit B (`face_toward()`, byte-verified) ·
+`689116c` Commit C (review path + reference wiring)
+
+**Deliverable:** `/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/`
+— 7 MP4s, cathedral, gitignored under the Synty licence so the absolute path is the handover.
+
+## ⚑ REFUTATION CONDITION 1 FIRED. Two of the five ordered sites were not defects.
+
+Matt is right and jack-ryan's root cause is right — every rig fronts on local **+Z**. But the
+180° error is **not uniform across rows**:
+
+1. **`s2a_stage.gd:303` (the MOB yaw) was already correct and was NOT changed.**
+   `atan2(-p.x, -p.z)` looks like the -Z formula and is not — it aligns local +Z with the
+   direction *from p toward the origin*, so on a +Z-fronted body it points the mob **at** the
+   caster. `scripts/s2_forward_axis_probe.gd` (new, Commit A) evaluates it at six bearings
+   including one BEHIND the caster: **AT CASTER (dot = +1.000) at every one**; the flip reads
+   AWAY at every one. Flipping it would have turned every staged body around.
+2. **`melee` / `meleearc` / `aura` must NOT be rotated**, though Gate-1 scoped `melee` in.
+   ⚑ **The repo holds TWO independent facts, not one: the RIG's forward axis, and THE FRAME
+   EACH ROW AUTHORS ITS PAYLOAD IN.** Those rows author in the *rig's own frame*
+   (`_rig.global_transform.basis * Vector3(sin b, 0, cos b)` — bearing 0 IS local +Z) and
+   stage their bodies on +Z bearings to match. **Receipt: a full 79-frame `clip_ms_cathedral`
+   arm re-rendered post-fix is byte-identical to the sealed pre-fix capture, 79/79**, with
+   `hits_fired=3 / hits_off_body=0 / hit_body_err_max_m=0.0` unmoved.
+
+So the ruled rule generalizes: *the right formula is a function of the RIG* — **and of the
+ROW** — *and nothing at a call site tells you either.* Commit A therefore fixes the four
+movers plus the caster's **rest yaw, which was never set at all** (`_caster_rest_yaw()`, a
+per-row table). "Never set" is not neutral: it asserts yaw 0, i.e. the caster fronts on world
++Z while every world-framed row authors its payload along world -Z.
+
+## Acceptance criteria
+
+| # | Criterion | Result |
+|---|---|---|
+| 1 | Caster faces travel on all six rows, confirmed against a render | **MET.** Emitted yaw -3.14159 on dash/blink/teleport/leap/slam, -2.531 (= -145°, exactly aim 35) on the off-default arm, 0.0 on melee. Visual plates at 5x show cape-and-back on the five turned rows and the King's FRONT on melee, strokes toward his own staged bodies. |
+| 2 | Commit B introduced; re-render byte-identical | **MET, and stronger than one comparison.** 472-frame pass at Commit A vs Commit B2: **472/472 byte-identical.** |
+| 3 | Measurement keeps `bare`; review defaults `cathedral` | **MET.** `--audience=review\|measure`; global default untouched; explicit `--stage=` wins in either argument order (six-case table verified). |
+| 4 | Six re-cut MP4s at an absolute path, dense keyframes + faststart | **MET (7 delivered).** 15-28 keyframes/file, faststart, ffprobe-gated promotion. |
+| 5 | Reference URLs at each archetype definition site | **MET.** 18 files wired; the repo-wide `grep -rIn "youtube\|dossier"` goes from **1 hit** (a third-party addon's comment) to **51**. |
+| 6 | Foreground wall-height note parked, not actioned | **MET.** `reincarnated-godot/AGENT_STATE.md`. |
+
+## Refutation conditions
+
+- **1 — the 180° error is not uniform: ⚑ FIRED.** Above. The dispatch was aimed at five sites;
+  three were defects.
+- **2 — Commit B cannot be made byte-identical: did not fire.** 472/472.
+- **3 — the audience split requires touching the measurement path: did not fire.** Every
+  measurement runner passes `--stage=` explicitly on every arm, so the flag cannot move them.
+- **4 — the black-frame report reproduces against v2: NOT REPRODUCIBLE BY ME; OPEN ON MATT'S
+  EYE.** KR's keyframe diagnosis is structurally confirmed (v1 = **6** keyframes / 366 frames,
+  v2 = 25). On v3 I ran `blackdetect` (0 black runs on all 7) **and a cold-keyframe-seek scrub
+  test at 12 timestamps per file** — the actual failure mode — with minimum decoded luma
+  35.6-37.5 everywhere. If Matt still sees black on v3, the cause is upstream of the encode and
+  I want to know rather than work around it.
+- **5 — reference wiring needs a schema change: did not fire.** Comments only.
+
+## Two findings surfaced, neither repaired
+
+- **F-9 — the determinism receipt has counterexamples, and md5 is a knife-edge here.**
+  `clip_tp_cathedral_f0032` differs between two runs of **identical code**; three further
+  re-runs reproduced the other value. `clip_tp_cathedral_f0030` differs across identical-code
+  runs by **exactly one pixel at maxdiff 2/255**. The sealed two-pass receipts (874/874,
+  2106/2106) are not wrong — those two passes agreed — but **a single differing frame in an A/B
+  comparison is not evidence of a behaviour change**, and I was one step from reporting one as
+  if it were. The A/B differing frame measured 18 px at maxdiff 10, against the fix's own
+  11,813 px at maxdiff 251 on that same frame. **Any future byte-identity claim on this corpus
+  needs a same-code repeat to establish the flake set first.** Owners: drax, jack-ryan.
+- **F-10 — `project.godot` carries an uncommitted rendering-setting deletion.** The working
+  tree has dropped `[rendering] mesh_lod/lod_change/threshold_pixels=1.0` (committed at
+  `aa8b0ae`). Mtime **12:09 on 2026-08-25, i.e. BEFORE the 14:12 sealed tranche-3A captures** —
+  so the sealed corpus and everything captured today ran without it, consistently.
+  **Deliberately not touched**: restoring it mid-dispatch would change pixels and break
+  comparability with the sealed corpus. Owner: knight-rider (scope) — it wants a decision.
+
+## Narrowing of the Gate-1 ruling, made on evidence
+
+jack-ryan asked Commit B to adopt the helper at the already-correct **player-facing** sites,
+receipted by byte-identical re-render. **Those sites cannot carry that receipt**:
+`render_arena_room.gd` (9 GPUParticles3D refs), `render_boss_arena.gd` (10),
+`render_descent_scene.gd` (40 refs + 63 `rand()` call sites) are non-byte-reproducible by
+construction, and `playshell.gd` is the interactive played surface with no deterministic
+capture at all. **The S2 harness is the only byte-reproducible surface in this repo** —
+deliberately, because it was built that way. So those five files get a pointer comment naming
+the convention and no code change: the convention reaches every yaw site, only the receiptable
+ones were rewired. Routing back to jack-ryan for ratification or correction.
+
+## Out of scope, honoured
+
+`vh_caster.gd:78` MODEL_FORWARD_YAW (body-corrected rig; flipping re-opens WR1) ·
+`king_rig.gd` sword side (Matt: leave it) · `s2c_cone:339`, `s2b_melee_arc:359/450`,
+`s2b_line:425`, all camera/shader azimuths and sim-heading conversions (not rig yaws).
