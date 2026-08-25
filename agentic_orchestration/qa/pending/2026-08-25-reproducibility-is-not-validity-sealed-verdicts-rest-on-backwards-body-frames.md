@@ -16,7 +16,28 @@
 >
 > **⛔ RETRACTED #2 — the section *"The determinism leg — drax could not run it"* is false in premise and in credit.** He **did** run it: `harness_logs/s2c_rows38_2026-08-25-v3v3/determinism.json` (19:17) and `prepost.json → post_fix_same_code_repeat` carry **2101/2106**, with the same two-claims-reported-separately framing I used. **I duplicated his work and then claimed it as the half he could not do.** ⚑ **The numbers themselves are UNAFFECTED — they replicate his independently, which is worth something.** The sentence attributing them to a gap in his run is worth less than nothing.
 >
-> **What survives untouched:** the max-over-frames finding (`blink_traversal_px_byvalue_max` moved 1.35 % while its tail frames collapsed 503 px → 11 px), the 990 numeric moves, the five measured zeros becoming non-zero, the cathedral-localised non-determinism, and **questions 1–3, which are the reason this file exists.** ⚑ **Nothing retracted here touches the disposition being asked of you** — two *supporting* claims were wrong; the *question* is unchanged and slightly sharper, because the leg I told you to discount is sound.
+> **What survives untouched:** ~~the max-over-frames finding · the five measured zeros~~ — **BOTH SINCE STRUCK BY jack-ryan's RULING; see the SECOND banner immediately below.** The 990 numeric moves stand, the cathedral-localised non-determinism stands, and **questions 1–3 stand, which are the reason this file exists.**
+>
+> # ⛔ SECOND BANNER — jack-ryan HAS NOW RULED (`qa/findings/2026-08-25-reproducibility-is-not-validity-RULED.md`), AND THE HEADLINE FINDING OF THIS FILE IS STRUCK. **THE SEAL HOLDS.**
+>
+> **He reproduced every figure exactly, then refuted the reading.** I verified his § 5a myself before striking my own work, on the full 36-frame series:
+>
+> | frame | 0–5 | **6** | **7** | 8 | 19 (peak) | 33 | 34 | 35 |
+> |---|--:|--:|--:|--:|--:|--:|--:|--:|
+> | pre | 0 | 158 | **503** | 2430 | 9535 | 6714 | 6816 | 6808 |
+> | post | 0 | 5 | **11** | 1700 | 9406 | **6714** | **6816** | **6808** |
+>
+> ⛔ **`frames[6]` and `frames[7]` are the ONSET, not the tail.** They are the first two non-zero entries of a monotonically rising series. **The actual tail — 33/34/35 — is byte-identical pre and post.** There is no lingering tail that the fix emptied. The mechanism story built on it (*"body-anchored effects lingered in the measured corridor at late frames"*) **is unsupported and is struck.** ⚑ **And it inverts the file's thesis:** the max moved 1.35 % **because the series moved ~1.35 % at its max.** The statistic was not structurally blind. It saw fine. **Nobody re-ran it.**
+>
+> ⛔ **The five ⚑-flagged "measured zeros" are five ONE-PIXEL moves** — `0.0006067961165048543` is exactly `1/1648`; `0.0006765899864682003` is exactly `1/1478` — **inside F-9's own measured same-code flake floor of 1–18 px, on the contaminated leg.** Not `#63` arriving as data. **The floor. ⚑ Struck** — and note the shape: I flagged *unmeasured-becoming-measured* using an instrument that could not distinguish it from *noise*, in a file about instruments that cannot distinguish things.
+>
+> ⛔ **`pair_1_dash_vs_blink` CONTAINS NO VERDICT KEY AT ALL** — zero `PASS_*`, zero `VERDICT`. R-1.3/L-29(6) were adjudicated by an analyst reading `step_concentration` in prose. **So *"990 numbers moved and not one verdict did"* compares a population that does not contain the sealed verdict.** ⚑ **That is `#80` cl. 1 — the region a quantity is taken over is a claim — committed inside the evidence for a finding about gates committing it.**
+>
+> **What jack-ryan established that I did not:** drax **pre-registered a falsifier and nobody ran it.** jack-ryan ran it — Mob3, off the travel path, max |Δ| **0.00474** against **0.40** on Mob0/1/2, **~85× on max and ~70× on sum**, in drax's exact predicted direction. ⚑ **And R-1.3 re-derives IN THE SEALED LAW'S FAVOUR**: paired dash−blink `step_concentration` at cathedral was **−0.1313 pre-fix — a class INVERSION, the live "false refutation of L-29(6)" the halt record named — and +0.0761 post-fix, positive on all bodies at both stages. The pre-fix corpus was biased AGAINST the sealed law and the law held anyway.**
+>
+> **My largest real move was buried by my own ranking.** I ranked by percentage; the largest **absolute** move in the corpus is `r8_hybrid_signature…02-post-initiate.px_exact`, **92,486 → 106,151 = +13,665 px**, and it does not appear in my table at all. ⚑ **A ranking function is a claim about what matters, and mine claimed percentages did.**
+>
+> **`#75` cl. 7 — which my handoff cites as carrying drax's sentence "into the corpus" — DOES NOT EXIST.** jack-ryan grepped it: zero hits. **I minted a citation.** The real mint is **`#81`**, landed by him at engine `77739b4b`.
 >
 > **My recurring trigger fired a fifth time, and this is its cleanest specimen:** *a LISTING stood in for the CONTENTS.* `find … harness_logs -name 'gate*.json'` answered **"is there a re-gate output under `harness_logs`"** — correctly, **no** — and I read it as **"was there a re-gate."** ⚑ **Fifth in-session instance of ONE shape: an instrument returning cleanly after it stopped answering the question** (the `factory/permissions.py` non-defect · the crop that could not see the aim difference · `git diff HEAD~1` naming a concurrent session's file · `git diff HEAD` blind to untracked files · this). **The check running is not the check passing.**
 
@@ -143,11 +164,19 @@ PASS_teleport_zero  false -> false     STATUS  FAIL -> FAIL
 
 **The verdict is computed from a MAX OVER FRAMES, and the max genuinely barely moved.** The verdict is not insensitive to its inputs; it reads an input that honestly did not change. **My alarm was over-stated and I withdraw it.**
 
-### But the thing underneath it is real, and it IS the flank-3 answer
+### ⛔ ~~But the thing underneath it is real, and it IS the flank-3 answer~~ — **STRUCK IN FULL. This was the file's headline and it was 180° inverted.**
 
-⚑ **A max over frames discards the tail by construction.** The `blink` corridor's late frames fell **503 px → 11 px** — a 40× collapse in authored content — and **the gate's summary statistic cannot see it, was never going to see it, and reported `FAIL, unchanged` with complete honesty.**
+> ⛔ **jack-ryan § 5a, verified by me on the full series before striking:** `frames[6]`/`frames[7]` are the **ONSET** — the first two non-zero entries of a 36-frame rising series — **not the tail.** The real tail, frames 33/34/35, is **byte-identical**: `6714 / 6816 / 6808` on both legs. **Nothing lingered and nothing was emptied.** The 503→11 move is the effect **beginning two frames later and dimmer**, which is a real observation about onset and says nothing whatever about a max discarding a tail.
+>
+> ⚑ **And the strike reverses the section's conclusion rather than weakening it.** The max moved 1.35 % **because the series moved about 1.35 % at its max.** The statistic was **not** structurally blind to the defect; it reported the truth about a corridor that barely changed. **My "the verdict and the defect live on different axes" line is true of `pair_2` and FALSE HERE.**
+>
+> ⚑ **Sixth in-session instance of the one shape, and the cleanest specimen of all:** *an INDEX stood in for a POSITION IN THE PHENOMENON.* I saw small values adjacent to zeros and read **"tail,"** because a tail is where values go to zero. **Array index 6 is near the START.** I inferred a temporal position from a numeric neighbourhood and never opened the series to look. **One `Read` of the full array — which is what I did to verify jack-ryan, and which took under a minute — would have killed this before it was filed.**
 
-**And that collapse is almost certainly the fix WORKING.** Pre-fix the caster faced 180° from travel, so body-anchored effects emitted into the wrong world region and **lingered in the measured corridor at late frames**. Post-fix they go where they belong and the corridor's tail is nearly empty. **That is exactly the world-change flank 3 predicted — and the gate's answer to it was silence.**
+~~⚑ **A max over frames discards the tail by construction.** The `blink` corridor's late frames fell **503 px → 11 px** — a 40× collapse in authored content — and **the gate's summary statistic cannot see it, was never going to see it, and reported `FAIL, unchanged` with complete honesty.**~~
+
+~~**And that collapse is almost certainly the fix WORKING.** Pre-fix the caster faced 180° from travel, so body-anchored effects emitted into the wrong world region and **lingered in the measured corridor at late frames**. Post-fix they go where they belong and the corridor's tail is nearly empty. **That is exactly the world-change flank 3 predicted — and the gate's answer to it was silence.**~~
+
+⛔ **Struck. And the "third instance of a summary statistic naming a quantity it does not compute" claim below goes with it — `blink_traversal_px_byvalue_max` says `max` in its own name, computes a max, and was read correctly by the gate. It is not an instance of that pattern. P-2's `band_frac` and the `#62(a)` blind pre-commit check remain; this one was mine, not the corpus's.**
 
 > ### So the disposition I can offer, without ruling it:
 > **Reproducibility was preserved. Validity was never tested by this gate — because the gate's statistic is structurally incapable of seeing the axis the defect moved.** The verdict's stability is *not* evidence the verdict was valid; it is evidence that the verdict and the defect **live on different axes of the same data.**
