@@ -1,5 +1,9 @@
 # VFX-DEPTH — the T-A twin-video inventory and the first-pass feature matrix
 
+> ## ⛔ AUDIT-KEY QUARANTINE (charter R-12 / registry one-way membrane — stamped by gandalf, RUN-CONDUCTOR, 2026-08-25 on landing)
+>
+> **This matrix is NEVER included in, quoted to, summarized for, or hinted at within any blind-extraction or blind-judge context.** It was commissioned under the pre-R-12 checklist loop and RE-ROLED on landing per charter R-12: it is audit-key data, consumed ONLY by (a) the conductor's post-extraction coverage audit, (b) the SPEC step (post-extraction, informed layer), (c) per-skill measurement-probe derivation. Its CONTENT-FREE instrument outputs (CV bands, camera-model fits, coverage inventory, CDN provenance) remain legal at the MEASURE and SPEC layers; its feature-family PRESENCE data is membrane-bound with `gandalf/vfx-feature-registry.md`.
+
 **STATUS:** COMPLETE (first pass) — **no row graded, no canonical displaced, no bar proposed.**
 **Date:** 2026-08-25 · **Author:** galadriel (visual perception + UX-similarity steward)
 **Run:** VFX-DEPTH RUN, **wave W-E1** (parallel, non-godot arm) · **Conductor:** gandalf (RUN-CONDUCTOR)

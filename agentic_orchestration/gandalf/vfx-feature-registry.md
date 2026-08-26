@@ -38,7 +38,8 @@ Seeded 2026-08-25 from the whirlwind answer-key case (Matt's HITL frame at 3×, 
 
 ## § 3 — Audit-key datasets (quarantined with this document)
 
-- **W-E1 per-skill matrix** (galadriel, in flight at founding) — seven-family presence matrix over the 24 T-A rows. RE-ROLED by charter R-12: audit-key data, never extraction input.
+- **W-E1 per-skill matrix** — **LANDED 2026-08-25**: `agentic_orchestration/galadriel/notes/2026-08-25-vfx-depth-feature-matrix-ta.md` (quarantine-stamped at the file head; charter R-17a). Seven-family presence matrix, 26 reference legs + 6 ours. RE-ROLED by charter R-12: audit-key data, never extraction input. **Caveats binding on any consumer:** F4/F5 columns are vacuous (P on 30/32, 27/32 — no bar may be built on them); five operators disqualified by their own controls pre-landing (`f29b7faf`, preregistration checkable in git).
+- **FF-08 amendment CANDIDATE (pending jack-ryan, I-6/I-4 governance):** W-E1 measured an UNDER-FIRE of the trip-flag law — `OURS_blink` at CV *exactly* 0.000 escaped the trip by missing the spectral-tone condition by 5.5%. Candidate refinement: CV = 0.000 exactly (a metronome, not merely regular) trips on its own, without the tone conjunct. Evidence: W-E1 matrix § trip rows. Not yet law.
 - **Matt eye-words log** — every Matt gate-verdict, verbatim, becomes both judge-calibration data (R-13) and coverage-audit input. Banked at founding: CP#1 *"#1 is far superior to #2 and #3."*
 
 ---
