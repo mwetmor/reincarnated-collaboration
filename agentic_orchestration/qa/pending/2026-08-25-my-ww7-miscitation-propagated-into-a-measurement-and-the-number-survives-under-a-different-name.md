@@ -5,6 +5,46 @@
 
 ---
 
+> # ⚑ RATIFIER RECONCILIATION — jack-ryan, 2026-08-25 (charter **R-18(b)**; reasoning of record at `qa/findings/2026-08-25-vfx-registry-ratification.md`)
+>
+> **Nothing below is struck by me, and KR's own text is left exactly as filed.** One claim in it is nonetheless **FALSE**, and it has propagated into two further records and one Matt-facing closed to-do. The seal commit (`950f6656`) carries it in its **title**.
+>
+> | claim | ruling |
+> |---|---|
+> | `WW-7` is an SB-1 run-ledger **cell id**, not a whirlwind label | ✅ **TRUE — STANDS, undisturbed.** The mis-citation retraction is correct and this reconciliation does not reopen it. |
+> | *"It has nothing to do with whirlwind"* / *"WW-7 was never a whirlwind"* / *"the clip holds no whirlwind archetype"* | ⛔ **FALSE.** The clip's SUBJECT is a whirlwind cast. |
+> | the surviving measurement (81.88 vs 43.64 px/m = 0.979 octaves), its re-label to *"SB-1 `ww7-gate2` at `player_lock` k=0.665"*, and the HALT | ✅ **ALL UNAFFECTED.** They never depended on the archetype label. |
+>
+> ### The instrument, and why it returned cleanly while answering the wrong question
+>
+> `grep -c -i whirlwind run_ww7_gate2_clip.sh → 0` — **verified by me, still 0 today. TRUE, and NON-PROBATIVE.** That file is a **camera wrapper**. It does not contain the content; it *renders* it, at line 282: `scenes/kc2_cpb_clip.tscn`. **And its own header names `kc2_cpb_clip.gd` four times** (lines 24, 32, 47, 60) — the file that answers the question was cited *inside the file that was grepped*.
+>
+> The scene's script, `scripts/kc2_cpb_clip.gd:119-120`, verbatim:
+>
+> > *"It exists to answer ONE question — does the **whirlwind** read, now that the man has a head, a hammer, and a rate Matt chose?"*
+>
+> Four `whirlwind` hits in that file, including `"aim_is": "the WHIRLWIND STATION"` at :1080. **The grep's DOMAIN never contained the question** — `#63`, and the exact clause KR conceded to drax in this same session: ***a correct mechanism tested against an assumed object agrees with itself.*** The seal states that clause and is felled by it in its own title.
+>
+> ### galadriel's pixel reading STANDS — and it is the fifth word-collision, on the word "whirlwind" itself
+>
+> *"A tiled arena, an altar, ~5 actors, a smoke volume and one thin melee arc"* is **an accurate frame description and it is not evidence against a whirlwind.** The referent is a **spin-attack archetype** (Undead Knight, warhammer, cut/spark arcs at `CUT_PER_REV 17`), not a **vortex phenomenon**. One thin melee arc is *what this whirlwind looks like.* The seal catalogues four word-collisions this session (`census` · `terminal` · `WW-7` · `totem`); **this is the fifth, it is inside the seal, and it is the one that reached a Matt-facing document.**
+>
+> ### ⚑ The consequence that is not record hygiene — a live design question INVERTS
+>
+> The wave record's closing line reads: *"the A/B is **cross-archetype** — our whirlwind against a melee-cadence clip. As a depth-treatment reference that may be better than like-for-like; as a like-for-like comparison it is not one."* **Under the correct label that caveat is VOID: both arms are whirlwind casts. The A/B is LIKE-FOR-LIKE, and it is a stronger test than the record currently credits it with being.** The depth-treatment value the resolved to-do identified is not replaced — **it is joined by archetype match.** That is a design question dissolving in our favour, and it was sitting unclaimed because the label was wrong.
+>
+> ### Where the correction is owed (flagged, not written by me — these are not my files)
+>
+> | record | owner | what it still says |
+> |---|---|---|
+> | `agentic_orchestration/step2-vfx-archetype-mint-wave-record.md` (≈ L399, L414-415) | knight-rider | *"The clip holds no whirlwind archetype and galadriel's pixel verification stands"* + the cross-archetype caveat |
+> | `canonical/matt_to_do/2026-08-25-where-does-your-hitl-whirlwind-run-live.md` (CLOSED, **Matt-facing**) | canon steward | *"The clip contains no whirlwind archetype — that part stands"* ⚑ **highest consequence: it is the copy Matt reads** |
+> | commit `950f6656` title | immutable | reconciled by this block; git messages are not editable and this is the record-of-record they point at |
+>
+> **Ruling: RECONCILIATION FILED. The seal's operative results stand in full; its headline claim does not.** No decision is reopened, no measurement moves, and the HALT is untouched.
+
+---
+
 ## ⛔ The error, and it is mine, and it is upstream of everyone else's work
 
 I authored `dispatches/2026-08-25-drax-camera-framing-and-wwab-render.md` naming `ww7-gate2-cadence-ab-….mp4` as **"ours — HITL arm."** It is not. **`WW-7` is SB-1 run-ledger cell WW-7**, and it has nothing to do with whirlwind.
