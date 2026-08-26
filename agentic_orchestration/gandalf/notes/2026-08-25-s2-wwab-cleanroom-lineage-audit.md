@@ -15,8 +15,18 @@ does **not** certify a tree hash. `1692d6e` names *where the set stood when audi
 **This verdict is DEFEATED if and only if:** a post-audit change to the named set introduces content
 originating in the quarantined lineage. Test it — do not assume it from the presence of drift:
 ```
-git diff <audited-commit>..HEAD -- 'scripts/wwcr_*' 'scenes/wwcr_*' 'run_wwcr_stage.sh' | grep '^+' \
+git diff <audited-commit>..HEAD -- 'scripts/wwcr_*' 'scenes/wwcr_*' 'scripts/run_wwcr_stage.sh' | grep '^+' \
   | grep -Ei 'vfxbo|cpb|kc2|a337d30|sb1|etch|claw|cut_|rig_poe1|cyclone|run_ww[0-9]|PAL_|decay_gamma|sheath'
+```
+⚑ **PATH AMENDED 2026-08-25 (W1 finding F-1, drax; instrument defect MINE).** As first published, the
+third pathspec read bare `run_wwcr_stage.sh` — but the runner lives at `scripts/run_wwcr_stage.sh`, and
+`scripts/wwcr_*` does not match it (the filename starts with `run_`). **146 added harness lines were
+invisible to the test, exit 0** — including to this section's own POST-AUDIT DRIFT re-test. Fifth
+instance of the session's shape: *an instrument returning cleanly after it stopped answering the
+question* — this time in the instrument this note itself published as the verdict's defeat condition.
+Corrected test re-run over the full set same day (output in the W1 conductor ruling, charter R-11):
+**clean**.
+```
 ```
 plus a float-literal intersection of the added lines against the quarantined files (method: § Q2).
 **A non-empty `git diff` is NOT a defeat.** Comment fixes, harness work and instrument repair move the
