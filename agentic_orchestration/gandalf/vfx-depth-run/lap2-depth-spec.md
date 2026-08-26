@@ -66,10 +66,10 @@ Current wind is `Color(0.72, 0.95, 0.82)` — HSV S ≈ 0.24, a **pastel**, unif
 **Guard note — TRAIL-BOUNDED.** `set_element()` asserts exactly two tinted surfaces (`wwcr_whirlwind.gd:307`). This spec adds tinted families (core/body split, shed quanta, recipient residue), so the assert **must be amended, not deleted or bypassed**. Amend it to a **named allow-list of five** — `TrailRibbonCore`, `TrailRibbonBody`, `ContactSpark`, `ShedQuantum`, `RecipientResidue` — each entry carrying a one-line justification, **and restate the clause the count was standing proxy for:** *no tinted surface may be CONTINUOUS or PERSISTENT at or beyond `R_ENGAGE`.* Scuffs stay neutral (`SCUFF_COLOR` untouched, R-9 hue-vs-value ruling intact); shed quanta are discrete and brief; residue is actor-attached and ≤ 1.6 s. That keeps the guard a guard — it still fails loudly on the Eye-of-Reckoning failure it was written to catch. **Flagged as a reasoning-boundary call, veto-open: if the conductor or Matt reads a five-entry allow-list as the guard's dissolution, T-3 halts rather than proceeds.**
 
 **Acceptance criteria.**
-- **(a) Luminance dominance.** Brightest 1% of effect-region pixels ≥ **2.2×** the median luminance of an annular scene sample (Cathedral floor + walls, effect region excluded). *Currently < 1.0 — the arc is dimmer than the room.*
+- **(a) Luminance dominance — ⚑ RE-CUT 2026-08-25 after FAILING its negative control** (galadriel `809409a8`: the lap-1 render reads **4.07×** against the 2.2× bar, its median arc pixel already 2.43× the annulus median, tau-stable, not the sparks — the original statistic measured ratio-to-a-dark-floor while the perceptual claim is salience against the room's BRIGHT sources; the "*currently < 1.0*" premise was false). **Re-cut to frame-luminance ownership:** during sustain, the effect region owns ≥ **75%** of the frame's top-0.5% luminance pixels (UI excluded) — "plainly the brightest thing in the room" means outshining the braziers, not the floor. **Pre-registered expectation: FAILS on the lap-1 render (the scene's own hot sources should own its top pixels). galadriel negative-controls this re-cut BEFORE it certifies any build; if lap-1 passes it too, T-3(a) returns to the conductor for a second re-cut — it does not ship on a second false premise.**
 - **(b) Internal range.** Within the effect region, P95 luminance ÷ P20 luminance ≥ **4.0**.
 - **(c) Saturation.** Effect-region mid-band HSV S ≥ **0.55** (currently ≈ 0.24).
-- **(d) Apex rides the leading edge.** Intensity-field peak sits within the leading **25%** of the arc's angular extent on **≥ 80%** of sustain frames.
+- **(d) Apex rides the leading edge.** Intensity-field peak sits within the leading **25%** of the arc's angular extent on **≥ 80%** of sustain frames. *⚑ Baseline note (`809409a8`): a fading trail passes this by construction — it is a GUARD (necessary), not a lift demonstration (sufficient); it may confirm placement, never carry the T-3 verdict alone.*
 - **(e) Cast light (FF-12).** At least one non-effect surface — floor within 1.5 m of the arc, or a mob's near flank — shows **≥ 8%** luminance lift correlated with arc proximity, differenced against the vfx-off control.
 
 ---
@@ -102,7 +102,7 @@ Current wind is `Color(0.72, 0.95, 0.82)` — HSV S ≈ 0.24, a **pastel**, unif
 
 **Acceptance criteria.**
 - **(a) Census.** Mean **≥ 6** distinct connected components per frame during sustain (currently 1–2), with component-area spread **IQR/median ≥ 0.5**.
-- **(b) Non-repetition.** Arc width profile at matched rotational phase across consecutive revolutions differs by **≥ 8% RMS**. *Currently ≈ 0 — X-2 cites cf_100 vs cf_115 as identical.*
+- **(b) Non-repetition.** Arc width profile at matched rotational phase across consecutive revolutions differs by **≥ 8% RMS**. *Currently ≈ 0 — X-2 cites cf_100 vs cf_115 as identical.* ⚑ **I-7: INSPECT-ONLY** — galadriel's estimators read 0.163 on the lap-1 render across three estimators and a sweep (noise floor above the bar); this criterion MAY NOT CARRY A BAR until the estimator is repaired. Non-repetition is judged by frame inspection at the lap gate instead.
 
 ---
 
