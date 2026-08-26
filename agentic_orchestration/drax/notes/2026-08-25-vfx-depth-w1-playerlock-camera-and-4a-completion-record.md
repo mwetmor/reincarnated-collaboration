@@ -34,11 +34,42 @@ one respect, and the control says so mechanically rather than on my word.
 
 ### ⚑ Clip 1's LABEL, corrected in the record
 
-It is **the SB-1 `ww7-gate2` ratified-camera reference — Matt's own HITL treatment footage.** It is
-**NOT a whirlwind** and it is **NOT "the HITL arm"** of a whirlwind A/B; `WW-7` is an SB-1 run-ledger
+> ⚑ **RETRACTED IN PART, 2026-08-25 (W2b, drax). The struck sentence below is MY OWN OVER-CORRECTION
+> AND IT IS FALSE.** Authority: charter **R-18(b)** (conductor accepted W2 F-2). The original text is
+> struck rather than rewritten, because a note that silently changes its mind teaches nothing.
+
+It is **the SB-1 `ww7-gate2` ratified-camera reference — Matt's own HITL treatment footage.** ~~It is
+**NOT a whirlwind** and it is **NOT "the HITL arm"** of a whirlwind A/B;~~ `WW-7` is an SB-1 run-ledger
 cell id. See `qa/pending/2026-08-25-my-ww7-miscitation-propagated-into-a-measurement-and-the-number-survives-under-a-different-name.md`.
 My own prior completion record called it "the HITL object" of WW-AB. **That was wrong and I am
 carrying the correction rather than leaving it to be re-derived.**
+
+#### ⚑ THE RETRACTION, and what the source actually says
+
+**The clip's subject IS a whirlwind cast.** `scripts/kc2_cpb_clip.gd:111-112`, verbatim:
+
+> *"It exists to answer ONE question — does the **whirlwind** read, now that the man has a head, a
+> hammer, and a rate Matt chose?"*
+
+The Undead Knight spins a warhammer and throws cut/spark arcs at `CUT_PER_REV 17`. I read my own note
+instead of the source, and the source settles it.
+
+**BOTH THINGS ARE TRUE, AND CONFLATING THEM IS WHAT WENT WRONG TWICE:**
+
+| claim | standing |
+|---|---|
+| `WW-7` is an SB-1 run-ledger **cell id**, not a whirlwind label | **TRUE — stands.** knight-rider's retraction of that mis-citation is correct and is not disturbed. |
+| Therefore *"the clip is not a whirlwind"* | ⛔ **FALSE — retracted here.** A correct NARROW correction was generalised into a BROAD claim the source refutes. |
+
+⚑ **The shape worth carrying out of this, and it is the whole reason the strike is visible rather than
+edited away: the wrong claim arrived dressed as a CORRECTION, so it carried more authority than the
+error it replaced.** A note that says *"actually, no"* is read as the settled version. Mine was read
+that way, by me, in the very next wave — which is how it reached a dispatch.
+
+⚑ **NOT THIS WAVE'S WRITE, and named so it is not mistaken for an omission:** the adjacent
+knight-rider seal (collab `950f6656`, *"WW-7 was never a whirlwind"*) may need a reconciliation line
+of its own. **R-18(b) flags that to jack-ryan — record-truth is his territory.** I have not touched
+it and will not.
 
 ---
 
