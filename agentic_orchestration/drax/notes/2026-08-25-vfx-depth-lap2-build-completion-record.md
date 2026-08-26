@@ -480,6 +480,45 @@ stream.
 
 **Total reclaimed 2.972 GiB. Free disk 47 GiB at wave open and 47 GiB at wave close — net zero.**
 
+### ⚑ A MEASUREMENT-METHODOLOGY FINDING FOR GALADRIEL, HANDED OVER BEFORE IT COSTS HER A FALSE FAILURE
+
+**Differencing the two delivered MP4s has a noise floor, and it is larger than some of the criteria.**
+
+I checked the clip-end frame (n = 287, t = 4.98 s, i.e. IDLE + 1.58 s) expecting T-2's residue to be gone — by
+construction the last quantum dies at 4.67 s — and found **2,034 brightened pixels**. That reads as live residue
+and would be reported as T-2 failing its *"zero residue pixels"* leg.
+
+**It is not residue. It is h264.** The two arms are **separately encoded streams**, so I measured the floor
+directly, against a frame where the two arms are **identical by construction**: frame 3 (t = 0.25 s), before
+`T_BEGIN` = 0.30 s, when the effect has not begun and nothing but the codec can differ.
+
+| threshold | frame 3 (**content identical**) | frame 287 (clip end) |
+|---|---|---|
+| \|ΔL\| > 0.02 | **3,850 px** (1,825 bright / 2,025 dark) | 2,034 bright |
+| \|ΔL\| > 0.04 | 170 px | 478 |
+| \|ΔL\| > 0.08 | 16 px | 34 |
+| \|ΔL\| > 0.15 | 3 px | **0** |
+| max \|ΔL\| | **0.1764** | 0.1451 |
+
+**The clip-end figure is at or below the floor on every threshold, and its spatial signature is the floor's**:
+scattered across 358 rows spanning x ∈ [37, 1916], not localised on three mob ROIs. **T-2's residue is gone.**
+
+**Consequences for the measurement pass, stated as options rather than as a preference:**
+
+1. **A criterion phrased as "zero pixels" cannot be evaluated at \|ΔL\| > 0.02 on these artifacts.** Either raise
+   the threshold above the floor (> 0.15 leaves 3 px on identical content) or add a **spatial-coherence** test —
+   residue is localised and contiguous on mob ROIs; codec noise is frame-wide and isolated.
+2. **T-6 is safely clear of this** and I checked rather than assumed: it marks **50,103 px** at clip end with a
+   coherent annular/path signature, 13× the floor's count, at mean 6.3/255. But note its bar (6/255 = 0.0235) sits
+   *near* the per-pixel floor, so the **area + coherence** legs are what carry it, not any single pixel.
+3. **If lossless differencing is wanted, the ladder is regeneratable, not lost.** Encode-then-prune is law
+   (R-18c) and the PNGs are gone by design — but the prune receipt carries the literal command, and
+   **`PRUNE=0`** on that invocation keeps the ladder. That is a ~1.5 GiB re-render against 47 GiB free, and it is
+   galadriel's call whether any criterion needs it.
+
+This is the run's recurring shape one more time: *the check ran, and the check was not the check.* The instrument
+was differencing two lossy encodes and reporting the encoder's disagreement as the effect's behaviour.
+
 ### What is committed and what is not
 
 `REPRODUCTION_MANIFEST.md`, `prune_receipts.txt` and `render_receipts.txt` (1.3 MB) are **committed**. The mp4s
@@ -505,5 +544,6 @@ be mistaken for a complete one.
 | 8 | **N = 3**, Mob0 never contacted (misses the pass cone by 3.4°) | measured fact | Not fixed — T-4 forbids touching contact ticks. Repurposed as an in-frame negative control. |
 | 9 | Criteria T-3(b) and T-3(c) short **on my own instrument** | open, for galadriel | Did not push body alpha past 0.85: that trades a measured criterion against the occlusion gate. |
 | 10 | `_seq_to` **default left at 3.70** | deliberate | Spec frames B-1 as a re-invocation, not a re-authoring; changing the default would move every prior corpus's reproduction baseline. The extended window is in the invocation and in the manifest. |
+| 11 | **MP4-vs-MP4 differencing noise floor** (3,850 px at \|ΔL\| > 0.02 on *identical* content) | measurement hand-off | § 8. T-2's "zero residue pixels" leg cannot be evaluated at that threshold on lossy encodes. Raise the threshold, add a spatial-coherence test, or re-render with `PRUNE=0` for a lossless ladder. **galadriel's call.** |
 
 **Nothing PARKED. Nothing part-landed. T-3's split and its guard amendment shipped together.**
