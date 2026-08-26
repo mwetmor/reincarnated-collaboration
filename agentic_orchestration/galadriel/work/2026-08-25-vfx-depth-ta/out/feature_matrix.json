@@ -1,0 +1,1634 @@
+{
+  "whirlwind": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.48 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.48 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.48 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.428",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "UNCERTAIN",
+      "why": "halo/core area 0.82"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.717 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.317 / far +0.040 (clip med -0.011)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 11.37 px, 32 spike frames \u2014 camera pans 5.04 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 1.107024613896984,
+      "events_per_s": 1.798365122615804,
+      "n_events": 22,
+      "mean_interval_s": 0.4111111111111111,
+      "peak_over_median": 81.86247063376791,
+      "dominant_hz": 0.6539509536784741,
+      "trip_flag": false
+    },
+    "_impact_t": 3.1333333333333333,
+    "_impact_frame": 94,
+    "_media": "media/barbarian_whirlwind.flv",
+    "_frames": 375,
+    "_noise_mad": 1.0
+  },
+  "melee_strike_CANON": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.65 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.65 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.65 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.362",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "UNCERTAIN",
+      "why": "halo/core area 0.60"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.527 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.305 / far +0.174 (clip med +0.018)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 11.89 px, 27 spike frames \u2014 camera pans 1.16 px/fr and spikes are NOT impact-concentrated (enrichment 0.5x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.037037037037037035,
+      "impact_enrichment": 0.48366013071895425
+    },
+    "CV": {
+      "cv": 0.8386357440764157,
+      "events_per_s": 3.243243243243243,
+      "n_events": 24,
+      "mean_interval_s": 0.3014492753623189,
+      "peak_over_median": 131.73862626578045,
+      "dominant_hz": 0.8108108108108109,
+      "trip_flag": false
+    },
+    "_impact_t": 1.4,
+    "_impact_frame": 42,
+    "_media": "media/le-rive.mp4",
+    "_frames": 230,
+    "_noise_mad": 0.0
+  },
+  "cone": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.413",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.09"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.810 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.232 / far -0.754 (clip med +0.020)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 7.80 px, 51 spike frames \u2014 camera pans 3.61 px/fr and spikes are NOT impact-concentrated (enrichment 1.9x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0784313725490196,
+      "impact_enrichment": 1.8731257208765861
+    },
+    "CV": {
+      "cv": 0.6289433820128628,
+      "events_per_s": 2.0763723150357993,
+      "n_events": 29,
+      "mean_interval_s": 0.44642857142857145,
+      "peak_over_median": 93.89914822714658,
+      "dominant_hz": 0.8591885441527447,
+      "trip_flag": false
+    },
+    "_impact_t": 3.6,
+    "_impact_frame": 108,
+    "_media": "media/barbarian_seismic-slam.flv",
+    "_frames": 427,
+    "_noise_mad": 0.9999942779541016
+  },
+  "dash_attack": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.433",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.58"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.685 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.189 / far +0.120 (clip med -0.010)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 11.47 px, 82 spike frames \u2014 camera pans 4.29 px/fr and spikes are NOT impact-concentrated (enrichment 2.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.08536585365853659,
+      "impact_enrichment": 1.9533715925394548
+    },
+    "CV": {
+      "cv": 0.6451064527275004,
+      "events_per_s": 2.0843672456575684,
+      "n_events": 28,
+      "mean_interval_s": 0.3925925925925925,
+      "peak_over_median": 472.2055037844543,
+      "dominant_hz": 0.5955334987593052,
+      "trip_flag": false
+    },
+    "_impact_t": 6.833333333333333,
+    "_impact_frame": 205,
+    "_media": "media/barbarian_furious-charge.flv",
+    "_frames": 411,
+    "_noise_mad": 1.4344024658203125
+  },
+  "ground_targeted_circle": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.68 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.68 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.68 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.472",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.34"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.640 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.244 / far -0.244 (clip med -0.013) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 11.27 px, 4 spike frames \u2014 camera pans 6.14 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.9429764288965795,
+      "events_per_s": 3.103448275862069,
+      "n_events": 36,
+      "mean_interval_s": 0.2514285714285714,
+      "peak_over_median": 286.00675092610214,
+      "dominant_hz": 0.25862068965517243,
+      "trip_flag": false
+    },
+    "_impact_t": 6.966666666666667,
+    "_impact_frame": 209,
+    "_media": "media/wizard_meteor.flv",
+    "_frames": 356,
+    "_noise_mad": 1.2212004661560059
+  },
+  "single_target": {
+    "F1 hot head": {
+      "call": "UNCERTAIN",
+      "why": "head_white 0.140 between bars"
+    },
+    "F2 gradient": {
+      "call": "ABSENT",
+      "why": "val_slope +0.024, dsat -0.003"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 0.991 (constant)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.318",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "UNCERTAIN",
+      "why": "halo/core area 0.66"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.820 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.329 / far -0.047 (clip med +0.002)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 7.08 px, 43 spike frames \u2014 camera pans 2.89 px/fr and spikes are NOT impact-concentrated (enrichment 1.8x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.13953488372093023,
+      "impact_enrichment": 1.7729138166894667
+    },
+    "CV": {
+      "cv": 0.7547080012168168,
+      "events_per_s": 2.9166666666666665,
+      "n_events": 21,
+      "mean_interval_s": 0.3183333333333333,
+      "peak_over_median": 27.973253303879655,
+      "dominant_hz": 0.4166666666666667,
+      "trip_flag": false
+    },
+    "_impact_t": 5.633333333333334,
+    "_impact_frame": 169,
+    "_media": "media/le-javelin.mp4",
+    "_frames": 224,
+    "_noise_mad": 1.0000057220458984
+  },
+  "ground_slam": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.405",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.26"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.206 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.296 / far +0.227 (clip med -0.003)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 9.53 px, 62 spike frames \u2014 camera pans 3.34 px/fr and spikes are NOT impact-concentrated (enrichment 1.7x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.06451612903225806,
+      "impact_enrichment": 1.7495256166982924
+    },
+    "CV": {
+      "cv": 0.7844406741522116,
+      "events_per_s": 2.463157894736842,
+      "n_events": 39,
+      "mean_interval_s": 0.3254385964912281,
+      "peak_over_median": 381.43688726323734,
+      "dominant_hz": 0.5052631578947369,
+      "trip_flag": false
+    },
+    "_impact_t": 8.233333333333333,
+    "_impact_frame": 247,
+    "_media": "media/barbarian_hammer-of-the-ancients.flv",
+    "_frames": 483,
+    "_noise_mad": 0.0
+  },
+  "leap_strike": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.78 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.78 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.78 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.428",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.45"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.732 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "PRESENT",
+      "why": "near +0.387 / far -0.559 (clip med +0.016) \u2014 lens-consistent (validated sig 0.51-0.99)"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 8.97 px, 73 spike frames",
+      "localisation": 0.1780821917808219,
+      "impact_enrichment": 3.6454472199838843
+    },
+    "CV": {
+      "cv": 0.6457268771360398,
+      "events_per_s": 1.8232044198895028,
+      "n_events": 22,
+      "mean_interval_s": 0.473015873015873,
+      "peak_over_median": 50.5829268249876,
+      "dominant_hz": 0.6629834254143646,
+      "trip_flag": false
+    },
+    "_impact_t": 2.8333333333333335,
+    "_impact_frame": 85,
+    "_media": "media/barbarian_leap.flv",
+    "_frames": 370,
+    "_noise_mad": 0.06759989261627197
+  },
+  "melee_arc": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.84 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.84 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.84 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.388",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.41"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.277 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.285 / far -0.331 (clip med -0.005) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 6.56 px, 63 spike frames \u2014 camera pans 2.05 px/fr and spikes are NOT impact-concentrated (enrichment 0.5x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.015873015873015872,
+      "impact_enrichment": 0.4873949579831932
+    },
+    "CV": {
+      "cv": 0.8879685536889886,
+      "events_per_s": 1.787709497206704,
+      "n_events": 32,
+      "mean_interval_s": 0.4827956989247312,
+      "peak_over_median": 18.549650769273885,
+      "dominant_hz": 0.111731843575419,
+      "trip_flag": false
+    },
+    "_impact_t": 7.7,
+    "_impact_frame": 231,
+    "_media": "media/barbarian_cleave.flv",
+    "_frames": 545,
+    "_noise_mad": 0.0
+  },
+  "melee_strike": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.87 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.87 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.87 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.368",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.16"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.782 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.306 / far -0.335 (clip med -0.016)"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 7.69 px, 87 spike frames",
+      "localisation": 0.13793103448275862,
+      "impact_enrichment": 4.0
+    },
+    "CV": {
+      "cv": 1.1265934484758944,
+      "events_per_s": 2.4852071005917162,
+      "n_events": 42,
+      "mean_interval_s": 0.34471544715447155,
+      "peak_over_median": 96.67111105705526,
+      "dominant_hz": 0.1775147928994083,
+      "trip_flag": false
+    },
+    "_impact_t": 2.6666666666666665,
+    "_impact_frame": 80,
+    "_media": "media/monk_way-of-the-hundred-fists.flv",
+    "_frames": 515,
+    "_noise_mad": 0.0
+  },
+  "circle_ring": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.91 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.91 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.91 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.390",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.32"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.489 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.339 / far +0.265 (clip med -0.020)"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 7.60 px, 84 spike frames",
+      "localisation": 0.08333333333333333,
+      "impact_enrichment": 2.3823529411764706
+    },
+    "CV": {
+      "cv": 0.7449000154771451,
+      "events_per_s": 1.44,
+      "n_events": 24,
+      "mean_interval_s": 0.6376811594202899,
+      "peak_over_median": 756.548869859869,
+      "dominant_hz": 0.18,
+      "trip_flag": false
+    },
+    "_impact_t": 2.533333333333333,
+    "_impact_frame": 76,
+    "_media": "media/demon-hunter_fan-of-knives.flv",
+    "_frames": 508,
+    "_noise_mad": 1.796600341796875
+  },
+  "circle_ring_alt": {
+    "F1 hot head": {
+      "call": "ABSENT",
+      "why": "head_white 0.000 (null=0.000)"
+    },
+    "F2 gradient": {
+      "call": "UNCERTAIN",
+      "why": "val_slope -0.032, dsat -0.012"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 1.005 (constant)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.339",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.48"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.292 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.446 / far +0.938 (clip med +0.049) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 2.94 px, 43 spike frames",
+      "localisation": 0.11627906976744186,
+      "impact_enrichment": 2.9480164158686732
+    },
+    "CV": {
+      "cv": 0.6893552497775336,
+      "events_per_s": 1.9550561797752808,
+      "n_events": 29,
+      "mean_interval_s": 0.4499999999999999,
+      "peak_over_median": 117.46662382854565,
+      "dominant_hz": 0.6741573033707865,
+      "trip_flag": false
+    },
+    "_impact_t": 5.633333333333334,
+    "_impact_frame": 169,
+    "_media": "media/wizard_wave-of-force.flv",
+    "_frames": 453,
+    "_noise_mad": 2.2223987579345703
+  },
+  "vortex_pull": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.71 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.71 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.71 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.403",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.49"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.808 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.460 / far -0.456 (clip med +0.011) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 7.16 px, 57 spike frames \u2014 camera pans 2.35 px/fr and spikes are NOT impact-concentrated (enrichment 1.7x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.12280701754385964,
+      "impact_enrichment": 1.719298245614035
+    },
+    "CV": {
+      "cv": 0.4485347611419462,
+      "events_per_s": 1.6666666666666665,
+      "n_events": 14,
+      "mean_interval_s": 0.4333333333333333,
+      "peak_over_median": 398.0295507682485,
+      "dominant_hz": 0.3571428571428571,
+      "trip_flag": false
+    },
+    "_impact_t": 2.7,
+    "_impact_frame": 81,
+    "_media": "media/monk_cyclone-strike.flv",
+    "_frames": 260,
+    "_noise_mad": 0.0
+  },
+  "beam_channel": {
+    "F1 hot head": {
+      "call": "UNCERTAIN",
+      "why": "head_white 0.078 between bars"
+    },
+    "F2 gradient": {
+      "call": "ABSENT",
+      "why": "val_slope +0.001, dsat -0.009"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 0.996 (constant)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.328",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "UNCERTAIN",
+      "why": "halo/core area 0.71"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.386 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.109 / far -0.288 (clip med +0.041)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 3.51 px, 28 spike frames \u2014 camera pans 1.98 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.5294142120874082,
+      "events_per_s": 1.9211822660098523,
+      "n_events": 26,
+      "mean_interval_s": 0.36133333333333334,
+      "peak_over_median": 2278.1218387031527,
+      "dominant_hz": 0.22167487684729065,
+      "trip_flag": false
+    },
+    "_impact_t": 10.8,
+    "_impact_frame": 324,
+    "_media": "media/wizard_disintegrate.flv",
+    "_frames": 414,
+    "_noise_mad": 0.0
+  },
+  "chain": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.69 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.69 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.69 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.374",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.12"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.296 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.254 / far -0.102 (clip med +0.057)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 3.26 px, 13 spike frames \u2014 camera pans 1.97 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.6073257984985119,
+      "events_per_s": 3.409090909090909,
+      "n_events": 45,
+      "mean_interval_s": 0.2136363636363636,
+      "peak_over_median": 41.807643041211065,
+      "dominant_hz": 5.757575757575758,
+      "trip_flag": false
+    },
+    "_impact_t": 10.9,
+    "_impact_frame": 327,
+    "_media": "media/wizard_electrocute.flv",
+    "_frames": 404,
+    "_noise_mad": 0.0
+  },
+  "teleport": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.89 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.89 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.89 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.365",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.60"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.176 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.242 / far +0.030 (clip med -0.001) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 8.41 px, 70 spike frames \u2014 camera pans 4.96 px/fr and spikes are NOT impact-concentrated (enrichment 0.3x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.014285714285714285,
+      "impact_enrichment": 0.33781512605042013
+    },
+    "CV": {
+      "cv": 0.701091608776906,
+      "events_per_s": 2.5961538461538463,
+      "n_events": 36,
+      "mean_interval_s": 0.3552380952380952,
+      "peak_over_median": 186.4392435443269,
+      "dominant_hz": 0.28846153846153844,
+      "trip_flag": false
+    },
+    "_impact_t": 8.6,
+    "_impact_frame": 258,
+    "_media": "media/wizard_teleport.flv",
+    "_frames": 424,
+    "_noise_mad": 3.2126007080078125
+  },
+  "blink": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.60 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.60 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.60 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.439",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.52"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.841 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "PRESENT",
+      "why": "near +0.370 / far -0.052 (clip med -0.007) \u2014 lens-consistent (validated sig 0.51-0.99)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 8.16 px, 63 spike frames \u2014 camera pans 2.97 px/fr and spikes are NOT impact-concentrated (enrichment 0.4x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.015873015873015872,
+      "impact_enrichment": 0.36134453781512604
+    },
+    "CV": {
+      "cv": 0.8479666682296619,
+      "events_per_s": 2.08955223880597,
+      "n_events": 28,
+      "mean_interval_s": 0.4419753086419753,
+      "peak_over_median": 460.7812997562063,
+      "dominant_hz": 0.4477611940298507,
+      "trip_flag": false
+    },
+    "_impact_t": 4.666666666666667,
+    "_impact_frame": 140,
+    "_media": "media/monk_dashing-strike.flv",
+    "_frames": 410,
+    "_noise_mad": 0.0
+  },
+  "multi_projectile": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.72 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.390",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.12"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.852 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.331 / far +0.350 (clip med -0.036) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 7.99 px, 54 spike frames \u2014 camera pans 3.97 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.5631315685916912,
+      "events_per_s": 1.7920353982300885,
+      "n_events": 27,
+      "mean_interval_s": 0.5051282051282051,
+      "peak_over_median": 19.620083811744884,
+      "dominant_hz": 1.9247787610619471,
+      "trip_flag": false
+    },
+    "_impact_t": 5.166666666666667,
+    "_impact_frame": 155,
+    "_media": "media/demon-hunter_multishot.flv",
+    "_frames": 460,
+    "_noise_mad": 1.290008544921875
+  },
+  "orbit": {
+    "F1 hot head": {
+      "call": "ABSENT",
+      "why": "head_white 0.018 (null=0.000)"
+    },
+    "F2 gradient": {
+      "call": "ABSENT",
+      "why": "val_slope +0.011, dsat +0.000"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 0.951 (constant)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.433",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.14"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.339 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.265 / far -0.036 (clip med -0.006) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 11.18 px, 91 spike frames \u2014 camera pans 4.75 px/fr and spikes are NOT impact-concentrated (enrichment 1.9x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.06593406593406594,
+      "impact_enrichment": 1.850032320620556
+    },
+    "CV": {
+      "cv": 0.7507698406657874,
+      "events_per_s": 2.3217922606924644,
+      "n_events": 38,
+      "mean_interval_s": 0.3801801801801802,
+      "peak_over_median": 461.6195224686703,
+      "dominant_hz": 0.24439918533604887,
+      "trip_flag": false
+    },
+    "_impact_t": 5.366666666666666,
+    "_impact_frame": 161,
+    "_media": "media/monk_sweeping-wind.flv",
+    "_frames": 499,
+    "_noise_mad": 2.327503204345703
+  },
+  "ricochet_bounce": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.53 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.53 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.53 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.370",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.35"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.449 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.108 / far -0.110 (clip med +0.015)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 6.35 px, 62 spike frames \u2014 camera pans 5.10 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.6682567458886889,
+      "events_per_s": 2.0593692022263452,
+      "n_events": 37,
+      "mean_interval_s": 0.43703703703703706,
+      "peak_over_median": 294.3566637082296,
+      "dominant_hz": 0.11131725417439704,
+      "trip_flag": false
+    },
+    "_impact_t": 6.666666666666667,
+    "_impact_frame": 200,
+    "_media": "media/demon-hunter_chakram.flv",
+    "_frames": 547,
+    "_noise_mad": 3.0630035400390625
+  },
+  "fork": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.86 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.86 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.86 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.434",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.07"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.752 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.250 / far -0.842 (clip med +0.052) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 5.02 px, 38 spike frames",
+      "localisation": 0.10526315789473684,
+      "impact_enrichment": 2.4705882352941178
+    },
+    "CV": {
+      "cv": 0.8114354943013627,
+      "events_per_s": 1.162227602905569,
+      "n_events": 16,
+      "mean_interval_s": 0.7844444444444446,
+      "peak_over_median": 109.48687450448332,
+      "dominant_hz": 0.2905569007263923,
+      "trip_flag": false
+    },
+    "_impact_t": 6.8,
+    "_impact_frame": 204,
+    "_media": "media/demon-hunter_cluster-arrow.flv",
+    "_frames": 421,
+    "_noise_mad": 0.5025997161865234
+  },
+  "placed_lane": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.75 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.462",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.03"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.756 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.105 / far +0.197 (clip med +0.068)"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 8.18 px, 52 spike frames",
+      "localisation": 0.17307692307692307,
+      "impact_enrichment": 3.6447963800904977
+    },
+    "CV": {
+      "cv": 0.7270866322249598,
+      "events_per_s": 1.6129032258064515,
+      "n_events": 20,
+      "mean_interval_s": 0.5,
+      "peak_over_median": 22.496756949155,
+      "dominant_hz": 0.24193548387096775,
+      "trip_flag": false
+    },
+    "_impact_t": 8.133333333333333,
+    "_impact_frame": 244,
+    "_media": "media/witch-doctor_wall-of-zombies.flv",
+    "_frames": 380,
+    "_noise_mad": 0.0
+  },
+  "totem": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.432",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.23"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.708 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near +0.441 / far +0.149 (clip med +0.037) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 7.10 px, 85 spike frames",
+      "localisation": 0.07058823529411765,
+      "impact_enrichment": 2.055363321799308
+    },
+    "CV": {
+      "cv": 0.6535530787075888,
+      "events_per_s": 2.421259842519685,
+      "n_events": 41,
+      "mean_interval_s": 0.37583333333333335,
+      "peak_over_median": 18.846250094447598,
+      "dominant_hz": 1.1220472440944882,
+      "trip_flag": false
+    },
+    "_impact_t": 10.433333333333334,
+    "_impact_frame": 313,
+    "_media": "media/demon-hunter_sentry.flv",
+    "_frames": 516,
+    "_noise_mad": 1.3916969299316406
+  },
+  "self_buff": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.62 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.469",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.19"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.186 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.169 / far +0.403 (clip med +0.018)"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 10.93 px, 97 spike frames",
+      "localisation": 0.13402061855670103,
+      "impact_enrichment": 4.9193450576106725
+    },
+    "CV": {
+      "cv": 0.8273842125529827,
+      "events_per_s": 1.9936708860759493,
+      "n_events": 42,
+      "mean_interval_s": 0.4609756097560975,
+      "peak_over_median": 171.02016807296786,
+      "dominant_hz": 0.189873417721519,
+      "trip_flag": false
+    },
+    "_impact_t": 6.7,
+    "_impact_frame": 201,
+    "_media": "media/barbarian_wrath-of-the-berserker.flv",
+    "_frames": 640,
+    "_noise_mad": 0.9999980926513672
+  },
+  "aura": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.83 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "199 satellites, massfrac 0.377",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.30"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "impact + 1.0 s lies outside the clip"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "near -0.429 / far -0.264 (clip med -0.034) \u2014 SIGNS AGREE: cannot separate a lens from a camera push"
+    },
+    "F7 shake": {
+      "call": "PRESENT",
+      "why": "hf_p99 3.46 px, 33 spike frames",
+      "localisation": 0.21212121212121213,
+      "impact_enrichment": 3.93048128342246
+    },
+    "CV": {
+      "cv": 0.8798380623160208,
+      "events_per_s": 2.0972644376899696,
+      "n_events": 23,
+      "mean_interval_s": 0.44393939393939397,
+      "peak_over_median": 103.99798244701607,
+      "dominant_hz": 0.2735562310030395,
+      "trip_flag": false
+    },
+    "_impact_t": 1.1333333333333333,
+    "_impact_frame": 34,
+    "_media": "media/monk_mantra-of-conviction.flv",
+    "_frames": 337,
+    "_noise_mad": 0.0
+  },
+  "line_weak": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.70 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.70 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.70 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "400 satellites, massfrac 0.382",
+      "capped": true
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.57"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "NOT EVALUABLE: pre-event control 0.342 (pan residue swamps the baseline)"
+    },
+    "F6b impact-distort": {
+      "call": "PRESENT",
+      "why": "near +0.480 / far -0.230 (clip med +0.050) \u2014 lens-consistent (validated sig 0.51-0.99)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 4.42 px, 113 spike frames \u2014 camera pans 1.69 px/fr and spikes are NOT impact-concentrated (enrichment 1.7x); rigid pan-null cannot model a 3D tracking camera",
+      "localisation": 0.07079646017699115,
+      "impact_enrichment": 1.7241020301926082
+    },
+    "CV": {
+      "cv": 1.1485818770634144,
+      "events_per_s": 1.8969555035128807,
+      "n_events": 27,
+      "mean_interval_s": 0.4858974358974359,
+      "peak_over_median": 43.4547317219156,
+      "dominant_hz": 1.1943793911007028,
+      "trip_flag": false
+    },
+    "_impact_t": 8.0,
+    "_impact_frame": 240,
+    "_media": "media/wizard_arcane-orb.flv",
+    "_frames": 435,
+    "_noise_mad": 0.0
+  },
+  "OURS_dash_attack": {
+    "F1 hot head": {
+      "call": "ABSENT",
+      "why": "head_white 0.000 (null=0.000)"
+    },
+    "F2 gradient": {
+      "call": "UNCERTAIN",
+      "why": "val_slope -0.044, dsat -0.031"
+    },
+    "F3 var width": {
+      "call": "PRESENT",
+      "why": "head/tail width 0.804 (taper)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "24 satellites, massfrac 0.223",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.38"
+    },
+    "F6a scar": {
+      "call": "PRESENT",
+      "why": "scar 0.3315 of disc, 9384x control"
+    },
+    "F6b impact-distort": {
+      "call": "ABSENT",
+      "why": "near +0.074 / far +0.023 (clip med +0.093)"
+    },
+    "F7 shake": {
+      "call": "ABSENT",
+      "why": "hf_p99 0.19 px (pan-null=0.00)",
+      "localisation": 0.0,
+      "impact_enrichment": NaN
+    },
+    "CV": {
+      "cv": 0.954921462739214,
+      "events_per_s": 3.428571428571429,
+      "n_events": 20,
+      "mean_interval_s": 0.2807017543859649,
+      "peak_over_median": 252.37280374233075,
+      "dominant_hz": 1.0285714285714285,
+      "trip_flag": false
+    },
+    "_impact_t": 2.5,
+    "_impact_frame": 75,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/01_dash_attack_CATHEDRAL.mp4",
+    "_frames": 183,
+    "_noise_mad": 0.0
+  },
+  "OURS_blink": {
+    "F1 hot head": {
+      "call": "UNCERTAIN",
+      "why": "head_white 0.045 between bars"
+    },
+    "F2 gradient": {
+      "call": "UNCERTAIN",
+      "why": "val_slope -0.109, dsat -0.323"
+    },
+    "F3 var width": {
+      "call": "PRESENT",
+      "why": "head/tail width 1.395 (taper)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "28 satellites, massfrac 0.151",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "UNCERTAIN",
+      "why": "halo/core area 0.67"
+    },
+    "F6a scar": {
+      "call": "n/e",
+      "why": "impact + 1.0 s lies outside the clip"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "radial refused at impact (zero-magnitude residual)"
+    },
+    "F7 shake": {
+      "call": "ABSENT",
+      "why": "hf_p99 0.15 px (pan-null=0.00)",
+      "localisation": 0.0,
+      "impact_enrichment": NaN
+    },
+    "CV": {
+      "cv": 0.0,
+      "events_per_s": 1.5,
+      "n_events": 5,
+      "mean_interval_s": 0.6,
+      "peak_over_median": 945.016189163177,
+      "dominant_hz": 1.7999999999999998,
+      "trip_flag": false
+    },
+    "_impact_t": 0.5333333333333333,
+    "_impact_frame": 16,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/02_blink_CATHEDRAL.mp4",
+    "_frames": 108,
+    "_noise_mad": 0.0
+  },
+  "OURS_teleport": {
+    "F1 hot head": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.39 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F2 gradient": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.39 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F3 var width": {
+      "call": "n/e",
+      "why": "core is near-round (elongation 1.39 < 2.0): principal axis ill-conditioned, head/tail split arbitrary"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "19 satellites, massfrac 0.194",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.09"
+    },
+    "F6a scar": {
+      "call": "UNCERTAIN",
+      "why": "scar 0.0313, 1.0x control"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "radial refused at impact (zero-magnitude residual)"
+    },
+    "F7 shake": {
+      "call": "ABSENT",
+      "why": "hf_p99 0.00 px (pan-null=0.00)",
+      "localisation": 0.0,
+      "impact_enrichment": NaN
+    },
+    "CV": {
+      "cv": 0.020758387650704896,
+      "events_per_s": 1.3533834586466165,
+      "n_events": 6,
+      "mean_interval_s": 0.7866666666666667,
+      "peak_over_median": 473.0599999508919,
+      "dominant_hz": 1.3533834586466165,
+      "trip_flag": false
+    },
+    "_impact_t": 3.5,
+    "_impact_frame": 105,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/03_teleport_CATHEDRAL.mp4",
+    "_frames": 141,
+    "_noise_mad": 0.0
+  },
+  "OURS_leap_strike": {
+    "F1 hot head": {
+      "call": "ABSENT",
+      "why": "head_white 0.000 (null=0.000)"
+    },
+    "F2 gradient": {
+      "call": "UNCERTAIN",
+      "why": "val_slope -0.055, dsat -0.238"
+    },
+    "F3 var width": {
+      "call": "PRESENT",
+      "why": "head/tail width 1.240 (taper)"
+    },
+    "F4 sparks": {
+      "call": "PRESENT",
+      "why": "19 satellites, massfrac 0.144",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.19"
+    },
+    "F6a scar": {
+      "call": "PRESENT",
+      "why": "scar 0.0062 of disc, 4x control"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "radial refused at impact (zero-magnitude residual)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 0.56 px, 3 spikes",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.6679841794873413,
+      "events_per_s": 1.9251336898395721,
+      "n_events": 12,
+      "mean_interval_s": 0.5121212121212122,
+      "peak_over_median": 1954.5684629011475,
+      "dominant_hz": 0.9625668449197862,
+      "trip_flag": false
+    },
+    "_impact_t": 3.8,
+    "_impact_frame": 114,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/04_leap_strike_CATHEDRAL.mp4",
+    "_frames": 195,
+    "_noise_mad": 0.0
+  },
+  "OURS_ground_slam": {
+    "F1 hot head": {
+      "call": "ABSENT",
+      "why": "head_white 0.001 (null=0.000)"
+    },
+    "F2 gradient": {
+      "call": "UNCERTAIN",
+      "why": "val_slope +0.032, dsat +0.007"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 0.991 (constant)"
+    },
+    "F4 sparks": {
+      "call": "UNCERTAIN",
+      "why": "0 satellites, massfrac 0.154",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 2.50"
+    },
+    "F6a scar": {
+      "call": "UNCERTAIN",
+      "why": "scar 0.0132, 1.0x control"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "radial refused at impact (zero-magnitude residual)"
+    },
+    "F7 shake": {
+      "call": "ABSENT",
+      "why": "hf_p99 0.00 px (pan-null=0.00)",
+      "localisation": 0.0,
+      "impact_enrichment": NaN
+    },
+    "CV": {
+      "cv": 0.0,
+      "events_per_s": 0.8910891089108911,
+      "n_events": 6,
+      "mean_interval_s": 1.1666666666666667,
+      "peak_over_median": 6387.325080127454,
+      "dominant_hz": 0.891089108910891,
+      "trip_flag": true
+    },
+    "_impact_t": 1.7666666666666666,
+    "_impact_frame": 53,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/05_ground_slam_CATHEDRAL.mp4",
+    "_frames": 210,
+    "_noise_mad": 0.0
+  },
+  "OURS_melee_combo": {
+    "F1 hot head": {
+      "call": "UNCERTAIN",
+      "why": "head_white 0.071 between bars"
+    },
+    "F2 gradient": {
+      "call": "PRESENT",
+      "why": "val_slope +0.214, dsat -0.111"
+    },
+    "F3 var width": {
+      "call": "ABSENT",
+      "why": "head/tail width 0.931 (constant)"
+    },
+    "F4 sparks": {
+      "call": "UNCERTAIN",
+      "why": "14 satellites, massfrac 0.174",
+      "capped": false
+    },
+    "F5 smoke vol": {
+      "call": "PRESENT",
+      "why": "halo/core area 1.08"
+    },
+    "F6a scar": {
+      "call": "UNCERTAIN",
+      "why": "scar 0.0023, 1.0x control"
+    },
+    "F6b impact-distort": {
+      "call": "UNCERTAIN",
+      "why": "radial refused at impact (zero-magnitude residual)"
+    },
+    "F7 shake": {
+      "call": "UNCERTAIN",
+      "why": "hf_p99 0.64 px, 5 spikes",
+      "localisation": 0.0,
+      "impact_enrichment": 0.0
+    },
+    "CV": {
+      "cv": 0.10203896858112171,
+      "events_per_s": 2.5247524752475248,
+      "n_events": 17,
+      "mean_interval_s": 0.3916666666666667,
+      "peak_over_median": 2147.845188126218,
+      "dominant_hz": 2.5247524752475248,
+      "trip_flag": true
+    },
+    "_impact_t": 4.2,
+    "_impact_frame": 126,
+    "_media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/06_melee_combo_CATHEDRAL.mp4",
+    "_frames": 210,
+    "_noise_mad": 0.0
+  }
+}
