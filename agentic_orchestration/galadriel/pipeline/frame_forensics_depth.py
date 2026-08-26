@@ -202,6 +202,70 @@ def shape_features(mask, adelta, val, sat, lead_vec):
 
 
 # ===========================================================================
+# F1r / F2r -- the RADIAL variant of head and gradient
+# ===========================================================================
+
+def radial_shape_features(mask, adelta, val, sat):
+    """Hot CORE vs cool PERIPHERY, for payloads that are bursts rather than streaks.
+
+    ⚑ WHY THIS EXISTS. F1/F2 as first written ask "is the LEADING END of an
+      elongated form hotter than the trailing end." That question is not merely
+      unanswered for a meteor, a nova, an aura or a ground slam -- it is
+      ILL-POSED, because those payloads have no leading end. The axis-conditioning
+      gate correctly refuses them, but it refuses them with the SAME `n/e` it
+      gives to a clip whose core is round only because scene contamination made
+      it round. Two different causes, one indistinguishable output.
+
+      Measured against that: at the D3 Meteor and D3 Hammer-of-the-Ancients
+      impact frames the eye sees an unmistakable hot bright core with a cooler
+      periphery, while the matrix says `n/e`. The instrument was not seeing an
+      absence; it was asking the wrong question in the wrong coordinate.
+
+    Same code path as shape_features, one coordinate changed: distance from the
+    mass centroid instead of position along the principal axis. Requires NO
+    direction of travel, so it is evaluable on stationary effects -- which is
+    exactly the class the axial operator cannot reach.
+    """
+    lab, k = ndimage.label(mask)
+    if k == 0:
+        return None
+    sizes = np.bincount(lab.ravel())[1:]
+    core = (lab == int(np.argmax(sizes)) + 1)
+    if core.sum() < CORE_MIN_PX:
+        return None
+    ys, xs = np.nonzero(core)
+    wgt = adelta[core].astype(np.float64)
+    tot = float(wgt.sum())
+    cx = float((wgt * xs).sum() / tot)
+    cy = float((wgt * ys).sum() / tot)
+    r = np.hypot(xs - cx, ys - cy)
+    rmax = float(r.max())
+    if rmax < 4:
+        return None
+    rn = r / rmax
+    q = np.quantile(rn, [0.20, 0.80])
+    inner = rn <= q[0]
+    outer = rn >= q[1]
+    if inner.sum() < 8 or outer.sum() < 8:
+        return None
+    v, s_ = val[core], sat[core]
+    wi, wo = wgt[inner], wgt[outer]
+    return {
+        "r_core_val": float((wi * v[inner]).sum() / wi.sum()),
+        "r_edge_val": float((wo * v[outer]).sum() / wo.sum()),
+        "r_core_sat": float((wi * s_[inner]).sum() / wi.sum()),
+        "r_edge_sat": float((wo * s_[outer]).sum() / wo.sum()),
+        # "hot WHITE core": bright AND desaturated, the same predicate F1 uses
+        "r_core_white_frac": float(((v[inner] > 0.80) & (s_[inner] < 0.30)).mean()),
+        "r_edge_white_frac": float(((v[outer] > 0.80) & (s_[outer] < 0.30)).mean()),
+        # negative slope = bright at the centre, dim at the rim
+        "r_val_slope": weighted_slope(rn, v, wgt),
+        "r_sat_slope": weighted_slope(rn, s_, wgt),
+        "r_extent_px": rmax,
+    }
+
+
+# ===========================================================================
 # F4 -- spark shedding
 # ===========================================================================
 
@@ -454,7 +518,9 @@ def analyse_depth(path, label, w=1280, h=720, fps=30.0, grid=8):
         "sat_count", "sat_massfrac", "sat_mean_dist_norm",
         "halo_area_ratio", "halo_sat", "halo_softness",
         "cam_tx", "cam_ty", "cam_div", "radial_coh_near", "radial_coh_far",
-        "resid_near", "resid_bg", "lead_known", "centroid_x", "centroid_y")}
+        "resid_near", "resid_bg", "lead_known", "centroid_x", "centroid_y",
+        "r_core_white_frac", "r_edge_white_frac", "r_val_slope", "r_sat_slope",
+        "r_core_sat", "r_edge_sat")}
 
     ring, ringsh, idxs = [], [], []
     prev_cen = None
@@ -509,6 +575,11 @@ def analyse_depth(path, label, w=1280, h=720, fps=30.0, grid=8):
                       "head_tail_width_ratio"):
                 S[k].append(float("nan"))
             S["lead_known"].append(False)
+
+        rs = radial_shape_features(m, adelta, vv, ss) if m.any() else None
+        for k in ("r_core_white_frac", "r_edge_white_frac", "r_val_slope",
+                  "r_sat_slope", "r_core_sat", "r_edge_sat"):
+            S[k].append(rs.get(k, float("nan")) if rs else float("nan"))
 
         sat = satellite_features(m, adelta) if m.any() else None
         for k in ("sat_count", "sat_massfrac", "sat_mean_dist_norm"):
@@ -610,6 +681,14 @@ def analyse_depth(path, label, w=1280, h=720, fps=30.0, grid=8):
             "cv_width_p90": q("cv_width", 0.90),
             "head_tail_width_ratio_med": q("head_tail_width_ratio", 0.50),
             "elongation_med": q("elongation", 0.50),
+        },
+        "F1r_radial_core": {
+            "core_white_frac_p90": q("r_core_white_frac", 0.90),
+            "edge_white_frac_p90": q("r_edge_white_frac", 0.90),
+            "val_slope_med": q("r_val_slope", 0.50),
+            "sat_slope_med": q("r_sat_slope", 0.50),
+            "core_sat_med": q("r_core_sat", 0.50),
+            "edge_sat_med": q("r_edge_sat", 0.50),
         },
         "F4_sparks": {
             "sat_count_med": q("sat_count", 0.50),
