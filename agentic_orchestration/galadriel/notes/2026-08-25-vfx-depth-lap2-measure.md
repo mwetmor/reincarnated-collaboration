@@ -253,3 +253,274 @@ The one that will stay with me is Mob3. Eleven pixels from rest, a second after 
 **Signed:** galadriel, 2026-08-25.
 **To the conductor:** § 7 — ten items, four requiring a ruling (A-1..3, B-4), two spec-internal defects, three seam-internal dispositions, one for Matt's eye.
 **To drax:** § 6 — six disagreements, all legible as instrument differences; one of them (T-6) I concede to his instrument, one (T-4b) is his record against his own artifact, and one (T-1 image-space magnitude) is worth knowing before any lap-3 tuning.
+
+---
+
+# Reference-anchor measurements (R-25 A-1)
+
+**Author:** galadriel · **Date:** 2026-08-26 · **Class:** evidentiary note · **Status:** CURRENT
+**Ordered by:** charter R-25 (A-1) — *"galadriel measures the reference clip's own P95/P20 + mid-band S with the same instruments and the bars re-anchor to measured reference values."*
+**Instrument:** `pipeline/vfx_ref_anchor.py` (new sibling; imports `luma` / `sat_val` from the battery so "the same statistic" is a fact about the call graph)
+**Results of record:** `work/2026-08-25-vfx-refanchor/ref-anchor.json` · **Evidence:** `captures/2026-08-25-vfx-refanchor/evidence/`
+
+**Artifact, hash verified this pass:**
+`/private/tmp/vfx-lap1-seats/extract/reference_video.flv` `855bb3d9c7edca8b372869e667682eda6de85ea813628377e567522d9e998637` ✓
+1280×720 · VP6F · yuv420p · 29.97 fps · 374 frames · 12.49 s.
+Paired re-measurement of our own arm on `plk06650_cathedral_fxon.mp4` `cc815bcf…` + `fxctl` `fd1b9f65…` (hashes re-verified; § R6).
+
+---
+
+## R0. Headline — and the pre-registered honesty clause fires in BOTH directions
+
+> **T-3(b) P95/P20 — the reference measures `3.236`. The bar is `4.0`. The reference itself clears the bar on `0` of its own 125 action frames. RE-ANCHOR DOWN.**
+>
+> **T-3(c) mid-band S — the reference measures `0.7302`. The bar is `0.55`. The reference clears it on `125` of 125 frames, at 1.33× the bar. RE-ANCHOR UP.**
+>
+> **T-3(a) ownership — the reference measures `0.7485` against an a-priori `0.75`. HOLDS (diagnostic only, venue-coupled).**
+
+The clause pre-registered in the dispatch was that I report numbers and not protect the existing bars in either direction. **Both bars were wrong, and they were wrong in opposite directions** — (b) was over-cut by ~24%, (c) was under-cut by ~25%. Neither error was recoverable by inspecting the spec; both required the reference to be measured, which is what R-25 ordered and what the a-priori authorship (R-24 #3/4's defect family) omitted.
+
+**And the third number is the one that should change what lap-3 builds.** Measured in the only currency the Tier-1 law lets cross a venue — **lift over the effect's own scene floor** —
+
+| | reference | ours (lap-2) | ratio |
+|---|---:|---:|---:|
+| **P95/P20, effect ÷ its own scene floor** | **1.562×** | **1.060×** | 0.68 |
+| **mid-band S, effect ÷ its own scene floor** | **1.914×** | **0.466×** | 0.24 |
+
+**Our arc is LESS saturated than the room it is cast in.** The reference's fire is nearly twice its room's saturation; ours is under half of ours. That is not a magnitude shortfall, it is a **sign inversion** — and it is X-1's "pastel decal" verdict expressed as a measurement. § R6.
+
+---
+
+## R1. Segmentation — derived, stated, and limited
+
+**The battery's segmentation is unavailable here and no substitute is asserted.** The battery differences a treatment arm against a `set_vfx_visible(false)` control. The reference is captured gameplay of a shipped title: there is no control arm and there cannot be one. A temporal-median background is also unavailable — **the reference camera pans**: the frame's lower-right quadrant holds entirely different world content at f300 than at f30 (`corner-f30-120-200-300.png` — bare ground at f30, monsters and two loot beams at f300). So the segmentation is appearance-based, and its governing hazard is **circularity**.
+
+**What was refused, and why:**
+
+| candidate | circular for | disposition |
+|---|---|---|
+| luminance threshold | T-3(a): ownership becomes 1.0 by construction | **refused** |
+| saturation threshold | T-3(c): mid-band S ≥ the threshold by construction | **refused as the primary axis; swept where it survives as a floor** |
+| **hue sector** | **neither (a) nor (b)** — hue angle says nothing about internal luminance spread, nor about being the frame's brightest | **adopted** |
+
+The reference's scene is teal and its effect is fire; the L-weighted hue histogram is sharply bimodal (scene mode 190–210°, effect mode 0–30°) and the two are near-opposite. A hue-sector mask is well-posed **here** in a way it would not be in an arbitrary venue — and specifically **would not be well-posed on our own teal-on-teal wind arc in a warm-lit cathedral**, which is why § R6 segments our side by the battery's control-differencing instead. *Each side is segmented by the instrument that is well-posed for it; only the STATISTICS are held identical.* That asymmetry is deliberate and is the main thing a reader should attack if they want to attack this pass.
+
+**Three segmentations, reported together as at lap-2, never one instead of another:**
+
+- **REF-TIGHT** (primary) — hue ∈ [330°,360°)∪[0°,60°), S > 0.35, L > 0.02; then **the battery's own 3×3 opening and ≥12 px component filter**, so the spatial-coherence discipline is identical on both sides.
+- **REF-SUPPORT** — morphological closing (9 px) + hole-fill of REF-TIGHT, measuring **every pixel inside the effect's footprint regardless of its own hue or saturation**. This is the decisive circularity control for (c): the region is defined by where the effect *is*, not by what colour each pixel *is*. Intent-analogue of the battery's ribbon-torus.
+- **REF-LARGEST-COMPONENT** — the single largest component, i.e. the fire mass with the clip's non-fire warm content excluded by construction (§ R5 shows that content is ~8.4 kpx arriving as its own medium components).
+
+**The residual circularity is swept, not argued away.**
+
+| S floor | 0.05 | 0.10 | 0.20 | 0.30 | **0.35** | 0.45 | 0.55 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| P95/P20 | 3.457 | 3.453 | 3.400 | 3.280 | **3.224** | 3.130 | 2.931 |
+| mid-band S | 0.632 | 0.644 | 0.678 | 0.713 | **0.728** | 0.766 | 0.795 |
+
+**At S > 0.05 — a chroma test so permissive it is nearly vacuous — mid-band S still reads `0.632`, above the 0.55 bar.** The (c) conclusion is threshold-invariant across an 11× sweep of the very knob that could have manufactured it. The L floor is **inert** below 0.10 (3.224 at every value 0.00/0.02/0.05; the hue+chroma test already excludes dark pixels) and the closing radius moves the ratio by <1% across 3→25 px.
+
+**Sanity-checked by looking, not only by sweeping.** `mask-overlay-zoom-f60.png` — the mask boundary tracks the flame envelope tightly; the frame's top-0.5% pixels all fall inside it, in the flame cores. Two things the picture shows that no statistic reported: the mask boundary is **blocky at 2×2**, which is the VP6 4:2:0 chroma grid surfacing through a hue test, and a **red monster eye-glow is caught** as its own small component — the contamination § R5 then bounds.
+
+### Limits of this segmentation, stated
+
+1. **It cannot separate an effect element that overlaps the effect mass.** Connectivity is the only separator available; a spark emitted *inside* the flame envelope is absorbed into the largest component. § R4's number therefore bounds *detached, spatially separated* discrete elements — not "discrete elements".
+2. **It cannot see the effect's dark smoke.** A hue+chroma mask excludes desaturated dark tails. § R4's dilation ladder bounds what that costs: nothing that changes a verdict.
+3. **It has no onset.** The clip fades in from black with the effect already at full area (49.6 kpx at f20, mid-ramp). **The reference's onset is not in this footage** — so this pass says nothing about T-4(a), and should not be cited on it.
+
+---
+
+## R2. Phases — and the phase detector's first version was a null that was not null
+
+Phases are derived from the clip's own curves (whole-frame mean luma; warm-mask area), not asserted:
+
+| phase | frames | s @29.97fps | character |
+|---|---|---:|---|
+| fade-in | 0–21 | 0.73 | global multiplicative ramp — **excluded** |
+| **ACTION / spin** | **22–146** | **4.17** | warm area 28–63 kpx, plateau |
+| decay | 147–285 | 4.64 | 26 → 8 kpx |
+| **NULL (no fire)** | **286–353** | **2.27** | flat 8.4 kpx floor — **in-clip negative control** |
+| fade-out | 354–374 | 0.70 | global ramp — **excluded** |
+
+⚑ **The first fade detector returned cleanly and was wrong, and it made the eighth instance of this lap's one shape.** It found "full brightness" by LEVEL — mean luma within 1.5% of its median. But **the effect supplies a large share of this frame's own light**: as the fire dies, mean luma slides 0.318 → 0.276 and crosses any level threshold set from the plateau. The detector therefore stamped `fade_out` at f246, **109 frames early**, and — the part that mattered — handed back a `null_no_effect` window **that still contained fire** (13.3 kpx of warm mask against the true floor's 8.4). A null that is not null is worse than no null, and it would have inflated the instrument's reported floor by 59%.
+
+**Caught by disagreeing with the curve I had already read by hand during recon** — not by reading the function. The repair is shape, not level: **the fade ramps at 0.0260 luma/frame and the effect's decay at 0.00019 luma/frame — 136× apart**, so a slope gate at 0.010 has two orders of magnitude of headroom on both sides. Both slopes are recorded in the output rather than asserted here.
+
+**Why this belongs in the record and not just in the diff:** it is the same family as § 5's seven — *the check ran and the check was not the check* — and it is the second time this run that **a statistic was confounded by the effect's own contribution to the frame** (the first being T-3(a)'s original ratio-to-a-dark-floor, re-cut at `809409a8`). The venue is not a constant when the effect is a light source.
+
+---
+
+## R3. The three measurements — per-phase medians and ranges
+
+**All operands are medians over the phase's frames; IQR and full range given because R-25 asked for ranges, not single frames.**
+
+### T-3(b) · P95/P20 luminance ratio within the effect region — **bar 4.0**
+
+| segmentation | ACTION median | IQR | range | frames ≥ 4.0 |
+|---|---:|---|---|---:|
+| **REF-TIGHT (primary)** | **3.236** | 3.094 – 3.425 | 2.852 – 3.820 | **0 / 125** |
+| REF-SUPPORT | 3.354 | 3.122 – 3.499 | 2.890 – 4.054 | 3 / 125 |
+| REF-LARGEST-COMPONENT (fire mass only) | 3.059 | 2.951 – 3.282 | 2.210 – 3.752 | — |
+| *decay phase* | 2.700 | 2.288 – 3.167 | 2.080 – 3.967 | — |
+
+**Bounding test — does excluding the fire's dark smoky surround under-report the reference?** It does, slightly, and the ladder bounds it:
+
+| region | tight | support | +5 px | +10 px | **+20 px** | +40 px |
+|---|---:|---:|---:|---:|---:|---:|
+| P95/P20 | 3.224 | 3.321 | 3.384 | 3.465 | **3.482** | 3.320 |
+
+The ratio peaks at **3.482** and then falls as dilation admits pure scene. **On no region I can construct does the reference reach 4.0.** Reported because the honesty clause cuts against me here: this is the direction that would have let me keep the bar, and it does not reach.
+
+### T-3(c) · mid-band (35th–65th L-percentile) HSV saturation — **bar 0.55**
+
+| segmentation | ACTION median | IQR | range | frames ≥ 0.55 |
+|---|---:|---|---|---:|
+| **REF-TIGHT (primary)** | **0.7302** | 0.699 – 0.756 | 0.554 – 0.804 | **125 / 125** |
+| REF-SUPPORT (no pixel-wise chroma selection) | 0.7176 | 0.676 – 0.740 | 0.534 – 0.796 | — |
+| REF-LARGEST-COMPONENT (fire mass only) | **0.7399** | 0.711 – 0.767 | 0.506 – 0.826 | — |
+| most-permissive chroma floor (S > 0.05) | 0.632 | — | — | — |
+| *decay phase* | 0.611 | 0.598 – 0.654 | 0.493 – 0.697 | — |
+
+⚑ **The existing 0.55 bar is almost exactly the reference's per-frame MINIMUM (0.5538), not its central value.** So the a-priori number was not absurd — it was the reference's worst frame mistaken for its typical one. That is a more precise diagnosis than "authored without measurement", and it is worth the conductor's attention because the same authorship habit would produce the same class of error again.
+
+### T-3(a) · frame-luminance ownership — **⚑ DIAGNOSTIC ONLY per R-25 (venue-coupled, not portable)**
+
+| | ACTION median | IQR | range | frames ≥ 0.75 |
+|---|---:|---|---|---:|
+| **REF-TIGHT** | **0.7485** | 0.644 – 0.791 | 0.341 – 0.896 | **61 / 125 (48.8%)** |
+| exact-rank corroborator | 0.7485 | — | — | — |
+| REF-LARGEST-COMPONENT | 0.5942 | 0.520 – 0.672 | — | — |
+| *null phase (no fire)* | **0.0015** | — | — | — |
+
+**The a-priori 75% lands within 0.2 percentage points of the reference's measured median.** I did not expect that and I record it as the pass's one genuine corroboration of a number authored a priori. It changes nothing about the classification: R-25 already ruled ownership venue-coupled and diagnostic-only, the reference is an outdoor dusk scene with no braziers, and **the agreement is worth exactly as much as a coincidence between two different rooms can be worth.** The conductor should not read it as portability.
+
+Ancillary: **the reference's cores are not clipped** — the fraction of the effect region above L 0.95 is `0.0002`. Its top tail is earned by graded flame, not by blown-out white.
+
+---
+
+## R4. Discrete elements vs continuous form — **R-25's route hypothesis is REFUTED by this reference**
+
+R-25's A-2 route correction states: *"our discrete quanta contributed 0.0 because they are pale soft blobs that never reach top-tail luminance, **where the reference's shed elements are HOT sparks**."* The dispatch asked for the number that confirms or refutes it directly. **It refutes it.**
+
+| discrete bucket (component area) | n | area share of effect | **top-tail share of effect** | frames > 1% |
+|---|---:|---:|---:|---:|
+| < 100 px | 4 | 0.0023 | **0.00000** (mean 0.00042) | 3 / 125 |
+| < 200 px | 4 | 0.0036 | **0.00000** (mean 0.00054) | 4 / 125 |
+| < 500 px | 5 | 0.0042 | **0.00000** (mean 0.00064) | 4 / 125 |
+| < 1000 px | 6 | 0.0144 | **0.00000** (mean 0.00119) | 7 / 125 |
+| **largest component (continuous mass)** | 1 | 0.760 | **0.8688** | — |
+
+**Threshold-invariant across a 10× sweep: the reference's separable discrete elements supply ~0.06% of its own top-tail pixels. Ours supply 0.0%. The two are the same answer.** The hypothesised difference between "HOT sparks" and "pale blobs" **is not the difference between these two artifacts** — on this statistic, in this footage, there is no difference to find.
+
+**What the reference's top tail actually is** — and this is the part with a build consequence. `ref-toptail-f60.png` marks the frame's top-0.5% pixels green inside the effect, magenta outside. They are **dense thin filaments inside the flame cores of a continuous mass**, not detached particles. `ours-toptail-f100.png`, same treatment: ours is a thin sliver along the arc, with magenta spread across the architecture to the right.
+
+**And the share-of-self statistic says our effect is not short of bright pixels at all:**
+
+| | top-tail px inside effect | effect area | **share of its own area in the frame's top tail** |
+|---|---:|---:|---:|
+| reference | 3,449 | 51,430 | **6.67%** |
+| ours (lap-2) | 4,165 | 44,794 | **9.30%** |
+
+**Our effect already devotes a LARGER fraction of itself to the frame's brightest tail than the reference does.** What it lacks is not internal brightness — it is that the cathedral holds far more competing hot pixels than the reference's dusk field does. That is the venue coupling R-23/A-2 identified, now with the effect-side term measured and eliminated as the suspect.
+
+**Limits on this refutation, stated so it is not over-read:**
+1. **Connectivity cannot separate an overlapping spark.** If the reference sheds embers *within* the flame envelope they are absorbed into the largest component and counted as continuous. The measurement bounds *detached* elements.
+2. **VP6F 4:2:0 at 720p cannot resolve a small spark's chroma.** Sub-4 px elements have no independent hue and fail the sector test before the 12 px component filter ever sees them. **This is the measurement in this pass most degraded by the codec**, and the degradation runs against the finding — i.e. it could hide sparks that exist.
+3. **This clip may simply not be a spark-shedding effect.** What the frames show is a sustained mass-burn on a monster pack, not an emitter throwing embers. A different reference could answer differently; **this one cannot be made to say that its top tail lives in discrete elements, because it does not.**
+
+---
+
+## R5. Floors — three negative controls, all in-clip
+
+| control | what it is | P95/P20 | mid-band S | ownership |
+|---|---|---:|---:|---:|
+| **1. SPATIAL** — non-effect region, action phase (frame minus 25 px dilation of the effect support: sky, ground, distant monsters) | the "what does a non-effect region score" floor the dispatch asked for | **2.104** | **0.3771** | **0.0807** |
+| **2. TEMPORAL NULL** — the identical instrument over f286–353, where the fire is out | the floor of the *chroma-selected instrument* on non-fire warm content (eye-glows, loot beams) | 2.307 | 0.6295 | **0.0015** |
+| **3. FADE GUARD** — f0–21 and f354–374 excluded | global multiplicative dims; recorded rather than assumed | — | — | — |
+
+**The temporal null is the one that earns its keep, twice.** Its ownership reading of **0.0015** against the action phase's 0.7485 is a **500× separation** — the ownership instrument claims essentially none of the top tail when there is no fire to claim it with. But its **mid-band S of 0.6295 is the honest limit on § R3's (c) number**: pointed at a fire-free frame, the chroma-selected instrument still reports 0.63, because this clip's *non-fire* warm content (monster eyes) is saturated too. **So the action phase's 0.7302 carries only +0.10 above the instrument's own selection floor.** That is the strongest available argument against the (c) re-anchor and I am recording it rather than leaving it for someone else to find.
+
+**It does not overturn the (c) conclusion, and the reason is the spatial floor.** Control 1 is *not* chroma-selected — it is a region — and it reads **0.3771**. The reference's effect is **1.914× its own scene's saturation**. That comparison is immune to the selection bias in control 2, because neither of its terms is chroma-selected on the effect side.
+
+⚑ **Note the polarity flip in control 1's ownership between phases**: 0.0807 during action, **0.9584 during the null**. The non-effect region owns almost the whole top tail once the fire is out. Correct, and the sign is the check: the instrument is measuring figure-ground and not a fixed property of the region.
+
+---
+
+## R6. The venue-portable currency — and our own render's floor, which lap-2 never measured
+
+**Why this section exists.** The absolutes in § R3 are venue-, codec- and art-style-coupled. Per the Tier-1 law the RELATIONSHIP transfers and the instance does not — and P95/P20 and mid-band S were chosen precisely because they are relationship-class *within a region*. But a bar stated as an absolute still silently imports the reference's venue. **The lift over the effect's own scene floor is the same claim in a form that crosses venues** — and lap-2 has no denominator for it, because the battery measured the effect and never measured the room. So I measured ours, with the same instrument, this pass.
+
+Our side is segmented by **the battery's own control-differenced mask** (|ΔL| > τ = 0.076470539, 3×3 opened, ≥12 px), sustain frames 62–143, n = 82 — *not* by the hue mask, which would be ill-posed on a teal arc in a warm-lit room.
+
+| | reference (action) | **ours (lap-2 sustain)** |
+|---|---:|---:|
+| effect P95/P20 | 3.236 | **2.352** |
+| **scene-floor P95/P20** | 2.104 | **2.257** |
+| **LIFT** | **1.562×** | **1.060×** |
+| effect mid-band S | 0.7302 | **0.2906** |
+| **scene-floor mid-band S** | 0.3771 | **0.6225** |
+| **LIFT** | **1.914×** | **0.466×** |
+| effect ownership | 0.7485 | **0.4017** |
+| scene-floor ownership | 0.0807 | **0.4367** |
+| **LIFT** | **9.27×** | **0.92×** |
+
+**Corroboration first:** our effect's ownership here reads **0.4017** against the certified battery's **0.4020** — two different masks, three-decimal agreement. The re-measurement is sound.
+
+**Three findings, in ascending order of consequence:**
+
+1. **P95/P20 lift: ours is 1.060×.** Our arc's internal luminance range is **statistically indistinguishable from the ambient structure of the room it is standing in**. The reference's fire is 1.562× its room.
+2. **Ownership lift: ours is 0.92× — below 1.0.** In our render **the non-effect region owns MORE of the frame's top tail than the effect does** (0.4367 vs 0.4017). The reference's fire owns 9.27× what its scene owns. This is figure-ground stated as a ratio, and it is the cleanest single number I have for why the arc does not read as the brightest thing in the room: *it isn't.*
+3. **Mid-band S lift: ours is 0.466× — a SIGN INVERSION, not a shortfall.** Our effect is **less than half as saturated as its own venue.** Verified at the pixel, because a number this shaped deserves a look before it is reported: our cathedral floor samples RGB (85,35,36) / (84,34,42) / (92,37,56) — **S ≈ 0.59, a strongly saturated maroon tile**; the reference's ground samples (67,98,113) / (70,106,122) — S ≈ 0.41, a moderate blue-grey. `ours-f100.png` shows it plainly: **a pale washed teal-white ribbon lying on a strongly chromatic maroon floor.** The venue out-saturates the effect.
+
+⚑ **And this immediately bounds what the conductor can do with the (c) re-anchor.** A lift-form bar of 1.914× applied in *our* venue would demand mid-band S of 0.6225 × 1.914 = **1.19, which is impossible — S is bounded at 1.0.** **The relationship currency is UNUSABLE for T-3(c) in the cathedral**, because the cathedral's own saturation is high enough that no effect can be twice it. The absolute currency remains usable. For T-3(b) the lift form *is* usable and yields 2.257 × 1.562 = **3.52**.
+
+I am flagging this rather than quietly proposing the absolute form, because *"the portable currency does not exist for this criterion in this venue"* is a finding about the criterion, not a detail of arithmetic — and it means **T-3(c) cannot be phrased as a relationship without also constraining the venue.** Whether that is a bar problem or a venue problem is not mine to rule.
+
+---
+
+## R7. Caveats — mapped to the specific measurements each one touches
+
+Stated per-measurement rather than as a preamble, because a caveat that applies to everything constrains nothing.
+
+| caveat | touches | does NOT touch | severity |
+|---|---|---|---|
+| **Fire-instance vs wind-element** (Tier-1: relationship transfers, instance does not) | the reference's absolute **hue** and palette — reported as description only, never as an anchor | **P95/P20 and mid-band S**, which are relationship-class *within a region* — this is exactly why R-25 chose them | low, by construction |
+| **Different venue** (outdoor dusk field vs brazier-lit cathedral) | **T-3(a) ownership** — already stamped DIAGNOSTIC ONLY per R-25 and not proposed as a bar here. Also **every lift figure in § R6**, whose denominators are two different rooms | (b) and (c) as absolutes | **high on (a); the reason (a) is diagnostic** |
+| **Venue saturation asymmetry** (our floor S 0.6225 vs reference's 0.3771) | **the availability of a lift-form bar for T-3(c)** — § R6 shows it would require S > 1.0 | the absolute form of (c) | **high — it removes an option the conductor might otherwise assume he has** |
+| **Codec** (VP6F 4:2:0 720p vs our H.264 1080p) | the **discrete-element census** (§ R4) most of all — sub-4 px sparks have no independent chroma; also the mask boundary, which quantises to the 2×2 chroma grid, and the saturation of thin features | **P95/P20**, a luma statistic over ~51 kpx | **moderate on § R4 — and it runs AGAINST that section's finding** |
+| **Art style** (painterly hand-authored vs low-poly Godot) + **resolution** (720p vs 1080p) | absolute component counts and areas in § R4 | the percentile statistics, which are scale-invariant over regions this large (51 kpx vs 45 kpx — comparable) | low |
+| **No onset in the clip** (fades in with the effect already at full area) | **anything cited on T-4(a)** — this pass must not be | (b), (c), (a) during sustain | absolute — do not cite this pass on onset |
+| **No control arm; appearance-based segmentation** | every number here, via the hue mask | — mitigated by: the 11× chroma sweep (§ R1), the chroma-free SUPPORT segmentation, the in-clip temporal null (§ R5), and looking at the mask (`mask-overlay-zoom-f60.png`) | **the pass's central methodological exposure; four independent controls, all agreeing** |
+
+---
+
+## R8. PROPOSED re-anchored bars — ⚑ INPUT TO THE CONDUCTOR'S RE-CUT, **NOT A RE-CUT**
+
+**This table is evidence arranged for a decision. It is not a decision.** R-25 gives the re-cut to the conductor and § 7's standing position holds: *a second unilateral re-cut from me would be worse than the problem.* I have deliberately given two currencies for (b) and only one for (c), with the reason, rather than choosing.
+
+| criterion | current bar | **reference's measured value** | direction | candidate re-anchor | note for the conductor |
+|---|---:|---:|---|---:|---|
+| **T-3(b)** P95/P20 | **4.0** | **3.236** (tight) · 3.354 (support) · 3.059 (fire-mass) · **3.482 max over any region constructed** | ⬇ **DOWN** | **absolute ≈ 3.25**, or **lift-form 1.56× floor → 3.52 in our venue** | The two currencies bracket 3.25–3.52 and **both sit below 4.0.** Reference clears 4.0 on 0/125 frames. Ours: 2.352, i.e. **68% of the reference's relationship**, not 59% of the bar — the gap is real but ~a third smaller than the bar implied |
+| **T-3(c)** mid-band S | **0.55** | **0.7302** (tight) · 0.7399 (fire-mass) · 0.7176 (chroma-free support) · **0.632 at the most permissive chroma floor** | ⬆ **UP** | **absolute ≈ 0.73**; conservative floor **0.63**. **Lift-form unavailable** (§ R6) | 0.55 is the reference's per-frame *minimum* (0.5538), reached on its worst frame. Ours: 0.2906 — **and 0.466× its own venue, a sign inversion.** ⚑ Raising this bar widens a gap drax already stopped in front of; the occlusion-gate tension R-24 #8 routed to Matt's eye gets **worse**, not better, and that is the honest consequence of the measurement |
+| **T-3(a)** ownership | **0.75** | **0.7485** | **HOLDS** | unchanged — **and still DIAGNOSTIC ONLY** | Agreement to 0.2 pp is a coincidence between two rooms, not evidence of portability. Ours: 0.4017, **lift 0.92× vs reference's 9.27×** |
+| **R-25 A-2 route correction** ("spark-class quanta") | — | **discrete elements = 0.0006 of the reference's own top tail** | ⚑ **REFUTED as stated** | route to be re-derived by the conductor | Ours contribute 0.0; theirs 0.0006; **there is no difference to close on this statistic.** The reference's top tail is thin filaments inside a continuous mass, and our effect already puts a *larger* share of itself (9.30% vs 6.67%) into the frame's top tail. The deficit is competing hot pixels in the venue, not dim quanta |
+
+**One thing I would put in front of Matt's eye before either (b) or (c) moves.** The falsifier R-25 named is X-1's own words — *does the arc read as a "pastel decal", or as a hot-headed graded form?* The measurement that answers that most directly is not (b) or (c) as absolutes. It is **§ R6's mid-band-S lift of 0.466×**: the arc is a *desaturating* presence in its own room. **"Pastel decal" is not a metaphor here — it is a measured relationship with the correct sign.** A bar re-cut in absolutes will not name that, and a lap-3 that chases 0.73 without knowing the venue sits at 0.62 will be tuning against a floor nobody told it about.
+
+---
+
+## R9. The Mirror
+
+I was sent to ask a plain question: what does the reference actually measure, so that two numbers invented at a desk could be replaced by two numbers taken from the world. The answer is that both invented numbers were wrong, in opposite directions, by about a quarter each — which is roughly what invention gets you, and is the whole argument for the errand.
+
+But the picture had something else in it, and it was not in the errand. Our arc is a pale thing on a loud floor. The reference's fire is a loud thing on a quiet field. **The reference did not win by being brighter; it won by being the most saturated object in its own frame — and ours is not even the most saturated object in ours.** The cathedral's maroon tile out-colours the effect that is supposed to be the event. We have been measuring how bright the arc is, against a bar, in a room we never measured.
+
+Three of the five instruments I have built in this run have now failed in the same way, and the newest failed today: **a statistic confounded by the effect's own contribution to the scene.** T-3(a)'s first cut measured the arc against a floor the arc was lighting. Today's fade detector found "full brightness" in a frame whose brightness the fire was supplying, and handed me a null with fire still in it. *The venue is not a constant when the effect is a light source* — and every one of these was caught by a curve or a crop, never by reading the code.
+
+The Mirror shows things that are. What it showed today is a room, and a thing in the room that is quieter than the room. **That is the finding. The bars are the conductor's.**
+
+---
+
+**Signed:** galadriel, 2026-08-26.
+**To the conductor:** § R8 — three bars, two directions, one refuted route hypothesis, and one currency (§ R6) that does not exist for (c) in this venue. Input, not a re-cut.
+**To drax:** § R4's share-of-self number (9.30% vs the reference's 6.67%) and § R6's three lifts. **Do not tune the quanta's brightness on R-25's spark hypothesis — it is refuted.** The saturation sign inversion is the live defect and it is a *venue-relative* one.
