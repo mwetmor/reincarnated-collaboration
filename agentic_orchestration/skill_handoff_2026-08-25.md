@@ -573,3 +573,74 @@ gandalf restored R-3 **PROVISIONAL → RULING** — but on better grounds than I
 - ⛔ **I left your top priority unfired for 45 minutes.** `dispatches/2026-08-25-drax-camera-framing-and-wwab-render.md` — **Task B is the WW-AB clean-room render**, your priority (a) — was authored at 18:58, still read `Status: PENDING`, and **no agent had been invoked.** That is § 3.10 wave-entry-fire-discipline, the one you personally had to prompt me out of on 2026-05-27. **Fired now.** Caught by listing the directory for an unrelated reason, not by any instrument — ⚑ **nothing in the system watches for an authored-but-unfired dispatch**, and `#62(c)` cannot see it either, because the file is committed and clean.
 - **In flight (2):** **drax** — WW-AB render + camera framing (your `level-18-ice-golem-simulation.mp4` zoom reference) + the two durability fixes, now that his prior session closed and the godot tree is free. **star-lord** — Grok image lane (`resource_link` probe first — if that door opens, the byte budget is **deleted**, not budgeted).
 - **Still open, unowned:** the `census.json` quarantine write + named owner (jack-ryan's (a) PARK ruling), and the `run_*.sh` defect-class sweep — **one of those scripts wipes the pre-fix capture the seal rests on.**
+
+
+---
+
+## 26. ⚑ SEAL — the last hour was almost entirely me correcting myself, and the correcting produced the session's most useful result
+
+**Read this section first if you read only one.** Three of my own findings from § 24–25 turned out to be wrong, and **retracting them is what surfaced a competing explanation for your priority (a).**
+
+### ⛔ RETRACTED: the `chmod` finding (§ 25, last bullet) — it is INVERTED
+
+**The corpus was never at risk.** The `chmod a-w` was applied to the **DIRECTORY**, not the files — `dr-xr-xr-x@ 877 …/s2c12`, **874 frames intact** — and a read-only directory defeats both `rm -f` and `rm -rf`. drax refuted it; I verified at source before accepting.
+
+⚑ **How I got it wrong matters more than that I did.** I wrote *"verified by hand, this host, just now — not recalled,"* and **every word was true.** I built a scratch directory, set a FILE read-only, ran `rm -f`, watched it vanish. **The test was real — and it tested my MODEL of drax's protection, never drax's protection.** The reconstruction behaved exactly as predicted, so **the agreement felt like confirmation. It was self-agreement.** One unrun command would have caught it: `ls -ld`.
+
+✅ **What survives is worse than what I claimed, and drax found it.** `2>/dev/null || true` swallows the wipe's refusal; the runner then counts frames with `ls | wc -l` and finds the **banked** ones — so the zero-frame halt never fires and a re-run writes **`COMPLETE frames=874` naming a corpus it did not produce.** ⚑ **My version was LOUD — the corpus disappears and you notice. The real one is SILENT — the corpus survives and a fresh receipt is manufactured pointing at it.** Both my asks were adopted: the `/tmp` gate.json is promoted byte-identical, **tracked**, with a `BASELINE.md` naming the supersession; and a namespace guard (`banked_corpus_guard.sh`, exit 5) now makes *aiming* at banked evidence the error. **A third defect fell out**: `run_s2b_rows37.sh` had the same unpropagated suffix bug — **two runs that looked independent by log path shared one corpus by capture path.**
+
+### ⛔ RETRACTED: "the status field is wrong 91 % of the time" — it is 71 %, and TWO dispatches were genuinely unfired, not one
+
+My own audit instrument had two defects, **both inflating**. It substring-matched `PENDING` inside prose describing a *previous* status — so **the four best-maintained headers in the corpus were scored as the four worst.** And ⛔ **it reported `s2-body-pipeline-a1-a3` complete when it is genuinely unfired**, on the strength of a file named `s2b_totem.gd` — which is **row 2 of the tranche-2 VFX mint, not the A-3 totem delegate body.**
+
+⚑ **A filing arguing *"a field that says COMPLETE on unfired work is worse than no field"* itself said COMPLETE on unfired work** — and that **refutes my own proposed remedy**: computing the field doesn't escape the problem, it **industrialises** it. Revised: derive only where the work-product test is real; otherwise **fail loudly to `UNKNOWN`.**
+✅ **Reconciled regardless — six headers flipped against verified evidence. Exactly one plain `PENDING` remains and it is the true one.**
+
+### ⛔ MY MIS-CITATION REACHED A COLLEAGUE'S MEASUREMENT — `WW-7` IS NOT "WHIRLWIND"
+
+I named `ww7-gate2-cadence-ab-….mp4` as *"ours — HITL arm"* in the dispatch on your priority (a). **It is SB-1 run-ledger cell WW-7** — the script's own header says *"THE A/B CADENCE CLIP,"* and `grep -c -i whirlwind` returns **0**. galadriel caught it from **pixels**; drax had already measured against it and labelled it `HITL` **because my dispatch told him to.** ⚑ **Fourth word-collision this session, second that is mine, and the only one that travelled into another agent's numbers on its way to a third's ruling.**
+
+### ⚑ AND HERE IS THE PART THAT IS ACTUALLY ABOUT YOUR PRIORITY (a)
+
+**You said: *"the VFX thus far are basic representations but they lack ALOT of the depth of the original."*** Four independent measurements now point somewhere else:
+
+| measured | by |
+|---|---|
+| the whirlwind at peak authors **2,284 px — 0.11 % of a 1920×1080 frame — as ONE smooth crescent, and BOTH gate terms PASS on it** | galadriel |
+| at the judging camera the **entire subject is a 249×254 px island = 3.05 % of frame area** — *barely judgeable* | drax |
+| on event **RATE we are slightly AHEAD** of the references; what separates the legs by an order of magnitude is **timing REGULARITY** | galadriel |
+| **we already render a substantial smoke volume** — smoke capability is not the missing piece | galadriel |
+| we render for judgement at **0.979 OCTAVES** — within 2 % of exactly half — the apparent scale of **the camera YOU ratified at R-CPB-18** as the gate-2 viewing pose | drax |
+
+⚑ **Competing explanation, offered as a hypothesis and NOT as a finding: we may be looking at adequate VFX from twice too far away, with metronomic timing.** If that is right, the repair is a **camera and a cadence jitter**, not the large internal-VFX build you described. **It is not established** — three supporting measurements, no test.
+**The test is cheap and blocked:** re-render the same two arms at the ratified `player_lock` camera. **`wwcr_stage.gd` has no such camera, and adding one means touching a file the clean-room § B.3 quarantine seals — which is gandalf's call, not mine.** Routed to him.
+
+### ✅ DELIVERED THIS SESSION — the first clean-room whirlwind MOTION artifact that has ever existed
+
+`harness_logs/wwcr_2026-08-25-wwab-motion/combat_{fxon,fxctl}.mp4` — 1920×1080 h264 60 fps, 210 frames, both arms, rendered through the mint's **own unmodified** `CAPTURE=seq` path from a frozen copy, plus a **2× magnified pair** (caveat in the filename, because the filename is the only thing that travels with a gitignored artifact). **Gitignored, so the path is the deliverable.**
+
+---
+
+## 27. ⚑ FOR YOU — decisions and one question only you can answer
+
+1. ⚑ **Where does your HITL Whirlwind run live?** **271 MP4s in `reincarnated-godot` searched; none is a whirlwind.** I am **explicitly not** concluding it doesn't exist — your artifacts have lived on your Desktop before, and I collapsed *"unverified"* into *"refuted"* once already tonight. A path, a machine, **or *"it was never captured to file"*** all close it — the last one is a complete answer and converts the A/B into a single-arm depth study. Filed at `canonical/matt_to_do/2026-08-25-where-does-your-hitl-whirlwind-run-live.md`.
+2. **gandalf holds the § B.3 quarantine question** — lifting it unblocks the camera test above. Design-side call; not mine, not drax's.
+3. **`s2-body-pipeline-a1-a3` is the next fireable dispatch** — A-1 `transformation` + A-3 totem delegate body, your tier-2 rulings L-36/L-37. **Its gate is open** (tranche 1 landed); it waited only because one host cannot run two heavy captures.
+4. **Still open, unowned:** the `census.json` quarantine write + named owner (jack-ryan's PARK ruling).
+5. **Queued by star-lord, needs a dispatch:** a pre-existing timing flake in `test_BOTH_lock_fds_are_INHERITED_by_the_child` (3/5 pre-fix, 1/5 post-fix, **false-alarm direction**) guarding P-3 exclusivity. He declined to touch it without one — correctly.
+
+## 28. Where I was wrong this segment — **eleven instances, ONE trigger, and drax named it better than I did**
+
+I proposed the distinguishing property was *"does the control's REFUSAL have a channel to reach anyone."* **drax proposed *"was the control's DOMAIN ever derived,"* and I concede his over mine** — domain covers all five instrument instances, channel only four (`git diff HEAD~1` **had** a channel, **used** it, and still answered wrongly).
+
+⚑ **His formulation is the exact diagnosis of my own `chmod` error, reached independently by the person I had wrongly accused with it:**
+
+> **A correct mechanism tested against an assumed object AGREES WITH ITSELF.**
+
+**That is the whole session in one line.** Every one of my eleven errors was a correct mechanism — a real `rm -f` test, a real grep, a real leaf-count, a real sweep — pointed at an object I had assumed rather than opened. **Not one was killed by more reasoning. Every single one was killed by opening the artifact.**
+
+⚑ **And drax self-reported one of his own, unprompted**: `git commit --only` shipped my staged text under his commit; his pre-commit check reported it correctly as `M` **in column 1** (staged by someone else) and **he read the letter, not the column.** Recorded, not amended.
+
+**Push posture note:** your *"push as you go through this session"* covered **all repos including `reincarnated-godot`** and **expires at this session boundary.** Both repos are pushed and at zero divergence.
+
+**SEAL-REQUESTED.**
