@@ -449,7 +449,25 @@ def shake_features(tx, ty, div, fps, med_win=9):
     # shake on a still camera. Half a pixel of camera displacement is not a
     # quake at any raster we work at, so the bar is floored there. The derived
     # term still governs whenever the clip has real camera noise.
+    #
+    # ⚑ RULED 2026-08-25 (galadriel) on drax's G-5 flag -- his six camnull legs
+    # returned shake_bar_px == 0.5000 on ALL SIX, i.e. entirely floor-governed,
+    # with N3-high at 88% of the bar. Ruling, in four clauses:
+    #   1. The VALUE STANDS at 0.5. Downward is refuted (mad collapsed to the
+    #      1e-9 fallback on 7/7 measured legs); upward is unsupported by any
+    #      datum, since nothing on the ladder crossed it.
+    #   2. Its ROLE is a DEGENERACY GUARD, not a parallax-rejection bar, and it
+    #      now says so in the output rather than leaving it to be inferred from
+    #      behaviour. `bar_is_floor_governed` reports when the guard is acting
+    #      as the operative bar -- a job no measurement gave it.
+    #   3. Its DOMAIN is relief- and speed-conditional. The ladder validates
+    #      relief <= 10 m and pan <= ~4.6 px/frame; the residual roughly doubles
+    #      per relief rung (0.097/0.126/0.232/0.423), so 88% is about one rung
+    #      of headroom. OUTSIDE the envelope F7 reports INDETERMINATE, never
+    #      ABSENT (#63: an unmeasured zero must not wear a verdict).
+    #   4. `hf_to_pan_ratio` is PROMOTED to primary discriminant -- see below.
     bar = max(base + 6.0 * mad, 0.5)
+    floor_governed = bool(base + 6.0 * mad <= 0.5)
     spikes = np.nonzero(hp >= bar)[0]
     dv = np.asarray(div, float)
     dv = dv[np.isfinite(dv)]
@@ -460,11 +478,35 @@ def shake_features(tx, ty, div, fps, med_win=9):
         "hf_p99_px": float(np.quantile(hp, 0.99)),
         "hf_max_px": float(hp.max()),
         "shake_bar_px": float(bar),
+        "shake_bar_role": "DEGENERACY GUARD (clause 2); corroborating, not primary",
+        "bar_is_floor_governed": floor_governed,
         "n_shake_frames": int(len(spikes)),
         "shake_frame_frac": float(len(spikes) / len(hp)),
         "hf_to_pan_ratio": float(np.quantile(hp, 0.99) /
                                  max(np.hypot(sm_x, sm_y).mean(), 1e-6)),
     }
+    # ⚑ CLAUSE 4 -- PRIMARY F7 DISCRIMINANT. The absolute residual is a function
+    # of whatever pan rate a clip happens to have, and the G-5 ladder swept ONE
+    # speed; so an absolute-px bar cannot travel to a reference clip with its own
+    # camera speed and its own pose. This ratio is dimensionless in pan rate and
+    # therefore does travel. Bar MEASURED, not chosen:
+    #   nulls  0.026 0.034 0.060 0.076 0.093 (G-5 ladder) + 0.095 (cathedral
+    #          static-cam, galadriel's 7th null, 2026-08-25)
+    #   P1-shake, 3.0 px authored                                        1.034
+    # Empty band 0.095 -> 1.034 with nothing in it; geometric centre 0.313.
+    # Bar 0.30 = 3.2x above the loudest null, 3.4x below the positive.
+    # ⚑ PROVISIONAL ON THE POSITIVE SIDE: n = 1 amplitude, at 6x the floor.
+    #   Sensitivity between 0.5 px and 3.0 px authored is UNMEASURED.
+    # ⚑ ENVELOPE (clause 3): validated for pan <= 4.6 px/frame at player_lock
+    #   k=0.665 with relief <= 10 m. Outside it, INDETERMINATE, never ABSENT.
+    out["f7_primary_bar"] = 0.30
+    out["f7_call"] = ("PRESENT" if out["hf_to_pan_ratio"] >= 0.30 else
+                      ("ABSENT" if out["pan_mean_px"] <= 4.6 else "INDETERMINATE"))
+    out["f7_envelope"] = {"validated_pan_px_per_frame_max": 4.6,
+                          "validated_relief_m_max": 10.0,
+                          "validated_pose": "player_lock k=0.665",
+                          "pose_transfer": "CONDITIONAL -- re-render the null near "
+                                           "the reference pose before transferring"}
     if dv.size:
         dmed = float(np.median(dv))
         dmad = float(np.median(np.abs(dv - dmed))) or 1e-9
@@ -705,12 +747,38 @@ def analyse_depth(path, label, w=1280, h=720, fps=30.0, grid=8):
         "F6a_scar": scar,
         "F6b_impact_distortion": impact,
         "F7_shake": shake,
-        "CV_timing": {"events": ev, "spectrum": sp,
-                      "trip_flag": bool(
-                          ev.get("cv_interval") is not None
-                          and ev["cv_interval"] < 0.25
-                          and sp is not None
-                          and sp["peak_over_median"] > 1000.0)},
+        # ⚑ TRIP LAW AMENDED 2026-08-25 at registry ratification (jack-ryan,
+        # qa/findings/2026-08-25-vfx-registry-ratification.md sec 1(b)).
+        # WAS: CV < 0.25 AND dominant tone > 1000x median -- a CONJUNCT.
+        # NOW: CV < 0.25 TRIPS ALONE. The spectral tone is DEMOTED to a recorded
+        # diagnostic. The conjunct never once added a trip across the measured
+        # matrix; its entire observed effect was to suppress two calls
+        # (OURS_blink at 945x, OURS_teleport at 473x) that this instrument's own
+        # operator then made by hand. A condition whose only effect is to veto
+        # its owner's correct calls is not a gate.
+        #
+        # ⚑ MINIMUM-INTERVAL RULE, set here by galadriel per the ratification's
+        # explicit remit ("the threshold itself is galadriel's to set"). Derived,
+        # not chosen: SE(CV)/CV ~ 1/sqrt(2n). To separate the 0.25 bar from the
+        # reference corpus floor of 0.449 at 2 sigma needs relative SE <=
+        # (0.449-0.25)/2/0.449 = 0.222, hence n >= 10 intervals. Below that the
+        # row is INDETERMINATE and is NEVER a PASS (Discipline #63). Recorded
+        # consequence: OURS_ground_slam's six events fall below this line, which
+        # is consistent with its having been inspected rather than passed.
+        "CV_timing": {
+            "events": ev, "spectrum": sp,
+            "n_intervals": max(0, int(ev.get("n_events") or 0) - 1),
+            "min_intervals_rule": 10,
+            "indeterminate": bool(max(0, int(ev.get("n_events") or 0) - 1) < 10
+                                  or ev.get("cv_interval") is None),
+            "trip_flag": bool(ev.get("cv_interval") is not None
+                              and max(0, int(ev.get("n_events") or 0) - 1) >= 10
+                              and ev["cv_interval"] < 0.25),
+            "spectral_tone_diagnostic": (None if sp is None
+                                         else sp.get("peak_over_median")),
+            "trip_law": "CV < 0.25 SOLE-TRIP; tone diagnostic only; "
+                        "n_intervals < 10 -> INDETERMINATE",
+        },
     }
     return {"meta": meta, "derived": derived, "summary": summary, "series": S}
 
