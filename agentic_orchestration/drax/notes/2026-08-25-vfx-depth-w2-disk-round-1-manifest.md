@@ -170,6 +170,40 @@ Freed-space receipt is appended to this file after the deletion fires.
 
 ---
 
-## 5. FREED-SPACE RECEIPT (appended post-deletion)
+## 5. FREED-SPACE RECEIPT — deletion fired, `rm` exit 0
 
-*(pending — appended below after `rm` returns)*
+```
+BEFORE  /dev/disk3s5   482797652 409578200  49157600    90%
+AFTER   /dev/disk3s5   482797652 406022320  52713480    89%
+                                            ^^^^^^^^
+FREED = 52,713,480 - 49,157,600 = 3,555,880 KiB = 3.39 GiB
+FREE  = 52,713,480 KiB = 50.3 GiB
+```
+
+**Manifest projected ~3,472 MB; actual freed 3,556 MB (3.39 GiB).** The 84 MB surplus is directory
+overhead plus the non-PNG receipt files inside the deleted scratch dirs. Projection and outcome agree to
+2.4 %.
+
+### The check that matters more than the number — the banked corpora, RE-COUNTED after the `rm`
+
+Not assumed from the fact that I did not name them. Counted:
+
+| corpus | PNG after | `BANKED` marker |
+|---|---|---|
+| `s2c38` | **2106** | YES |
+| `s2c38b` | **2106** | YES |
+| `s2c38v3` | **2106** | YES |
+| `s2c38v3b` | **2106** | YES |
+| `s2c12` | **874** | YES |
+| `s2c12v3` | **874** | YES |
+| `s2c12v3b` | **874** | YES |
+
+Every count matches the figure recorded in its own `BANKED` marker at banking time. `wwcr` (28 MB, the
+live W2 stage dir) also survives, as intended.
+
+### Status against the tripwire
+
+**50.3 GiB free — still under the 60 GB tripwire.** Round-1 did not clear it and could not have: the only
+Class B mass large enough to clear it is `.godot` (17 GB), and dropping an import cache while holding the
+serial godot lane in a capture wave is the wrong trade. **Round-2 is owed at lap close** with `.godot` as
+its primary candidate and `tmp/` non-`br2watch` (~3.7 GB) routed to its owners for why-safe certification.
