@@ -644,3 +644,80 @@ I proposed the distinguishing property was *"does the control's REFUSAL have a c
 **Push posture note:** your *"push as you go through this session"* covered **all repos including `reincarnated-godot`** and **expires at this session boundary.** Both repos are pushed and at zero divergence.
 
 **SEAL-REQUESTED.**
+
+---
+
+## 29. ⚑ TRANCHE-3 — **the seal reopened three times by your own word, and each time you were right and I was not**
+
+**Occasioned by three messages from you after `SEAL-REQUESTED`.** Each one dissolved something I had just filed as settled. Recording them in the order they landed, because the order is the finding.
+
+### 29.1 ✅ You found the reference — **and it is the file I had struck two hours earlier**
+
+> *"I believe this is it: `…/galadriel/captures/2026-08-16-sb1-gate2-clip/ww7-gate2-cadence-ab-plk0665-1920x1080.mp4`"*
+
+**Verified at the artifact, not from its name:** 1920×1080, 30 fps, **658 frames / 21.933 s** — an **exact match** to the figures drax measured. Two cadence arms joined by a fade seam at ~f340. sha256 `7e9764e3…`, 12,749,012 bytes.
+
+**Two of my own claims die on it, and they die in different ways:**
+
+| my claim | verdict |
+|---|---|
+| *"271 MP4s searched, no whirlwind"* | ⛔ **TRUE AND IRRELEVANT.** galadriel searched **`reincarnated-godot`**. ⚑ **The file is in `reincarnated-collaboration`.** Correct mechanism; its **DOMAIN never contained the question.** `#63`. |
+| *"WW-7 is not a whirlwind, therefore it is not the reference"* | ⛔ **THE WRONG QUESTION.** The clip holds no whirlwind archetype — that part stands, and galadriel's pixel work stands with it. **But you never claimed it did.** You said *"in my HITL Whirlwind run **we added TONs of internal VFX**"* — ⚑ **the reference value is the DEPTH TREATMENT, not the archetype.** |
+
+⚑ **I struck the right file, for a correct reason, against a question nobody had asked.** `matt_to_do/…-where-does-your-hitl-whirlwind-run-live.md` is **CLOSED** with both strikes recorded in it.
+
+### 29.2 ⛔ AND IT REFUTED THE DRIFT I HAD JUST TALKED MYSELF INTO
+
+§ 26 above floated *"we may be looking at adequate VFX from twice too far away, with metronomic timing"* — offered as hypothesis, and I was **drifting toward believing it.** ⚑ **Magnifying your frame 3× refuted the drift.** Present in the reference arc, absent from ours:
+
+1. a **hot white-yellow leading head** at the tip
+2. a **colour gradient along the arc's length**, head → deep red tail
+3. **variable width** — thin tail, swelling head
+4. **spark shedding** into the surrounding volume
+5. the whole arc **embedded inside a thick, layered, structured smoke volume**
+
+**Against galadriel's measurement of ours: `2,284 px, 0.11 % of frame, as ONE SMOOTH CRESCENT.`** ⚑ **Same shape. Ours has none of the five.**
+
+⚑ **The synthesis, and it is the one thing from this segment I most want on the record:** the camera finding and the content finding **COMPOSE, they do not compete.** **The five features are absent from our arc, AND at 3.05 % of frame they would be invisible even if we had them.** That is *why* both gate terms pass on a crescent that plainly fails your eye — **the terms cannot see what is not resolvable at that camera. Fixing either alone leaves the other in place.**
+
+**And the octave figure under its corrected name is stronger, not weaker:** ⚑ ***we render our VFX for judgement at half the apparent scale of the camera YOU ratified at R-CPB-18 as the gate-2 viewing pose.*** drax's § A.7 rules why that decides rather than degrades: **band statistics index in PIXELS, not world units.**
+
+### 29.3 ✅ Your cyclone direction — decomposed against the REAL source, not an assumed one
+
+> *"the whirlwind isn't perfect.. I would like to continue to tweak it by making the smoke m[o]re into a dark gust of wind or vague cyclone which follows the direction of the spin."*
+
+**Three changes with very different costs. It is not one edit:**
+
+| # | ask | cost | collides? |
+|---|---|---|---|
+| **4a** | *"follows the direction of the spin"* | ⚑ **CHEAP** — `_spin` and `OMEGA_DEG` **already exist and already carry sign** | **No** — motion only, not colour |
+| **4b** | *"vague cyclone"* | MODERATE — vertical extent, radial taper, longer life; touches `MAX_SCUFFS` (16), `SCUFF_LIFE` (0.22 s) | **No** — shape, not colour |
+| **4c** | *"dark gust of wind"* | ⚑ **CONTESTED** | **Possibly not** — below |
+
+⚑ **The finding: `## NEVER TINTED` constrains HUE. You asked for VALUE.** `Color(0.62, 0.60, 0.56)` is a neutral warm grey; darkening to `Color(0.30, 0.29, 0.27)` preserves **hue and saturation exactly** and changes only lightness. **A darker neutral is still neutral.** The constraint's own stated reason is *"what stops the outer radius from summing into a **tinted** ring"* — **a hue argument, which does not obviously extend to value.**
+
+⚑ **Two things I did NOT resolve, and I am naming them UNREAD rather than guessing** — given how this session went, that is the only honest move: whether the *"ring"* concern has a **value** component as well as a hue one (a dark ring is still a ring), and what `_tinted_nodes  # asserted == 2 kinds` enforces **at runtime.** I did not open the assertion. **The cheapest refuting test is reading it, and it belongs to whoever builds.**
+
+**My recommendation is a SEQUENCING one, not a design one: fire 4a alone first.** Cheap, collides with nothing, and **rotational legibility comes from motion coherence far more than from colour** — spin-following dust may deliver most of *"cyclone"* before any colour question is opened. **Then judge 4b/4c against a moving reference instead of a still**, which honours your own instruction that gate-2 is judged on **motion**.
+
+### 29.4 ✅ CONDUCTOR HANDOFF — **AUTHORIZED AND PUBLISHED**
+
+> *"would it make more sense to hand this off to Gandalf to Conduct as an Autonomous RUN, now that we have established all of the digital twins and require designing/architecting iteratively throughout?"* → *"yes, please author the hand-off for gandalf"*
+
+**`dispatches/2026-08-25-gandalf-vfx-depth-run-conductor-handoff.md` — PENDING, AUTHORIZED, fireable now.**
+
+**Why it is the right call, stated plainly:** the work changed shape. With the twins established the loop is **design → architect → iterate**, not *execute-defined-dispatch*. That is generative-side steering. My value is highest at routing and record integrity and **lowest at *what should this feel like*.** ⚑ **And the honest part: I was wrong eleven times in this session, clustered exactly where a conductor must be strong — reading returns and forming claims about them.**
+
+**The brief carries:** § 1 the **§ B.3 quarantine as the single gate on all three VFX work items** (camera test · five-feature build · your cyclone tweak) and gandalf's **first ruling** — with drax's unweighed fact that the tree is **667/74 from the mint**, so the question may be narrower than *lift-or-hold*: **what does the LINEAGE CLEAN verdict attach to.** § 2 the reference + both corrections + the **cross-archetype** design question. § 3 the five-feature list + the composition synthesis. § 4 your cyclone direction decomposed. § 5 what remains owed by you. § 6 ⚑ **the rest of the board, so it is not lost at the boundary** — `s2-body-pipeline-a1-a3` (unfired, gate open, **hidden twice**), the unowned `census.json` park, star-lord's P-3 flake, four unreviewed `qa/pending` filings.
+
+**Boundaries that survive the handoff:** ⚑ **jack-ryan keeps Gate 2 and BLOCK authority, independent of the conductor — the critique pair does not collapse into the run.** Seam ownership unchanged: **drax builds**, galadriel measures, gandalf rules and sequences.
+
+**⚑ THE ONE LIVE GATE ON YOU:** **a fresh push posture.** Your *"push as you go through this session"* was **THIS SESSION ONLY** and expires at the boundary — which is where the conductor's run begins. **Commits auto-fire** per `CLAUDE.md`; **push does not.** If the answer doesn't come, **the run continues and lands on the branch** — an unpushed commit is not a blocked build.
+
+### 29.5 Where I was wrong this segment — **the count goes to thirteen, and the trigger never changed**
+
+Two more, both the same shape: *"271 MP4s, no whirlwind"* (**correct search, wrong repo**) and *"WW-7 is not the reference"* (**correct verification, wrong question**). ⚑ **Thirteen instances, one trigger, and it is drax's formulation both times: a correct mechanism tested against an assumed object AGREES WITH ITSELF.**
+
+⚑ **What is different about these two, and it is worth more than the count:** the first eleven were killed by **me opening the artifact.** ⚑ **These two were killed by YOU handing me the artifact I had already declared absent.** That is not a better instrument — **it is the absence of one.** The searcher who concludes *"not found"* has no instrument that can distinguish *not there* from *not looked there*, and **`#63` names the trap without supplying the exit.**
+
+**SEAL-REQUESTED (tranche-3).** Handoff published; steering transfers to gandalf on his next invocation.
