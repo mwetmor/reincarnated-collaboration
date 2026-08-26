@@ -1,0 +1,586 @@
+{
+  "R_ground_targeted_circle": {
+    "media": "media/wizard_meteor.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.5823079025907034,
+        "head_tail_val_ratio_med": 0.9558602204915734,
+        "head_white_frac_p90": 0.005682387802107859,
+        "tail_white_frac_p90": 0.00568259838355356,
+        "lead_known_frac": 0.9540229885057471
+      },
+      "F2_gradient": {
+        "val_slope_med": -0.01440129026279715,
+        "val_slope_p10": -0.4118933455387348,
+        "val_slope_p90": 0.4093502510329132,
+        "head_sat_med": 0.4277664252759675,
+        "tail_sat_med": 0.42843650028730806
+      },
+      "F3_width": {
+        "cv_width_med": 0.290626906123364,
+        "cv_width_p90": 0.43140286046171505,
+        "head_tail_width_ratio_med": 0.9870625542033094,
+        "elongation_med": 1.6818653056441977
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.015564829124151164,
+        "edge_white_frac_p90": 0.0025940362087449194,
+        "val_slope_med": -0.26538259541311626,
+        "sat_slope_med": -0.07267994642795203,
+        "core_sat_med": 0.4763863622490653,
+        "edge_sat_med": 0.40549736452340324
+      },
+      "F4_sparks": {
+        "sat_count_med": 400.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.4719727961091038,
+        "sat_dist_norm_p90": 6.963132379325851
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 1.3357491945232676,
+        "halo_area_ratio_p90": 1.9092756769645027,
+        "halo_sat_med": 0.637203574180603,
+        "halo_softness_med": 2.6284402212574904
+      },
+      "F6a_scar": {
+        "impact_idx": 209,
+        "scar_frac": 0.6041310297639412,
+        "control_frac": 0.6397823033707866,
+        "scar_over_control": 0.9442759303922421,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 209,
+        "impact_t_s": 6.966666666666667,
+        "radial_near_at_impact": 0.243872161413154,
+        "radial_far_at_impact": 0.41910694231638795,
+        "radial_near_clip_absmax": 0.6664297881585131,
+        "radial_near_clip_median": -0.012848224172487635,
+        "resid_near_at_impact": 3.8258896567995233,
+        "resid_near_clip_median": 1.2957011811718646,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 6.143270610712763,
+        "hf_median_px": 2.0209395630662472,
+        "hf_mad_px": 1.5333707797491618,
+        "hf_p99_px": 11.266395484558073,
+        "hf_max_px": 11.747020118969889,
+        "shake_bar_px": 11.221164241561219,
+        "n_shake_frames": 4,
+        "shake_frame_frac": 0.011976047904191617,
+        "hf_to_pan_ratio": 1.8339409409885832,
+        "div_median": 0.0005581772197195938,
+        "div_max_z": 4.273087457553136
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 36,
+          "prominence_bar": 3.695383634294558e-05,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.2,
+            0.4333,
+            0.1333,
+            0.1333,
+            0.1,
+            0.1667,
+            0.1333,
+            0.1,
+            0.3333,
+            1.1667,
+            0.4667,
+            0.1667,
+            0.4,
+            0.1667,
+            0.2,
+            0.1,
+            0.2333,
+            0.1,
+            0.0667,
+            0.3333,
+            0.0667,
+            0.1,
+            0.2333,
+            0.3,
+            0.3667,
+            0.2667,
+            0.0667,
+            0.0667,
+            0.1667,
+            0.4333,
+            1.0,
+            0.0667,
+            0.1667,
+            0.0667,
+            0.3
+          ],
+          "mean_interval_s": 0.2514285714285714,
+          "cv_interval": 0.9429764288965795,
+          "events_per_s": 3.103448275862069
+        },
+        "spectrum": {
+          "dominant_hz": 0.25862068965517243,
+          "dominant_period_s": 3.8666666666666663,
+          "peak_over_median": 286.00675092610214,
+          "spectrum_median_floor": 0.0016142487713612357
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 1.2212004661560059,
+      "tau_novelty": 7.327202796936035,
+      "tau_spec": 239.79139709472656
+    },
+    "meta": {
+      "path": "media/wizard_meteor.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 11.845,
+      "bytes": 5210598,
+      "label": "R_ground_targeted_circle",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 356
+    }
+  },
+  "R_ground_slam": {
+    "media": "media/barbarian_hammer-of-the-ancients.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.689568437019057,
+        "head_tail_val_ratio_med": 1.0110954382485073,
+        "head_white_frac_p90": 0.020799361326267155,
+        "tail_white_frac_p90": 0.02785944843389534,
+        "lead_known_frac": 0.9663157894736842
+      },
+      "F2_gradient": {
+        "val_slope_med": 0.013608407274327187,
+        "val_slope_p10": -0.3297534180939517,
+        "val_slope_p90": 0.3635373949980809,
+        "head_sat_med": 0.6759598504766539,
+        "tail_sat_med": 0.6763665884527676
+      },
+      "F3_width": {
+        "cv_width_med": 0.32073322290057577,
+        "cv_width_p90": 0.4519824275591757,
+        "head_tail_width_ratio_med": 1.0026798512169934,
+        "elongation_med": 1.719881481282025
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.07394133798812844,
+        "edge_white_frac_p90": 0.0027332156894200738,
+        "val_slope_med": -0.27575738768057756,
+        "sat_slope_med": 0.08724678957681638,
+        "core_sat_med": 0.6330896386969476,
+        "edge_sat_med": 0.7013317673696355
+      },
+      "F4_sparks": {
+        "sat_count_med": 400.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.4046633130224522,
+        "sat_dist_norm_p90": 7.942194455894301
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 1.2649776453055142,
+        "halo_area_ratio_p90": 3.1062148001691807,
+        "halo_sat_med": 0.8096469640731812,
+        "halo_softness_med": 4.5993711225607194
+      },
+      "F6a_scar": {
+        "impact_idx": 247,
+        "scar_frac": 0.17717829128683485,
+        "control_frac": 0.20602784255529644,
+        "scar_over_control": 0.8599725604527525,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 247,
+        "impact_t_s": 8.233333333333333,
+        "radial_near_at_impact": 0.2963031730371546,
+        "radial_far_at_impact": 0.38737276735737025,
+        "radial_near_clip_absmax": 0.6420417658221845,
+        "radial_near_clip_median": -0.0038835249139765656,
+        "resid_near_at_impact": 1.2935696283951565,
+        "resid_near_clip_median": 0.6876118574528413,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 3.343813402736995,
+        "hf_median_px": 0.5168785812386589,
+        "hf_mad_px": 0.48027965298109254,
+        "hf_p99_px": 9.53223495277809,
+        "hf_max_px": 13.20520215656221,
+        "shake_bar_px": 3.398556499125214,
+        "n_shake_frames": 62,
+        "shake_frame_frac": 0.13449023861171366,
+        "hf_to_pan_ratio": 2.850707801151738,
+        "div_median": 6.61210647532882e-05,
+        "div_max_z": 40.90811986065275
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 39,
+          "prominence_bar": 0.0001500176113040652,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.1667,
+            0.1,
+            0.7,
+            0.1667,
+            0.1,
+            0.2,
+            0.1,
+            0.2,
+            1.1,
+            0.3667,
+            0.6333,
+            0.3,
+            0.1,
+            0.1333,
+            0.1,
+            0.4333,
+            0.1,
+            0.3,
+            0.6,
+            0.2667,
+            0.2333,
+            0.2333,
+            0.1667,
+            0.2,
+            0.1333,
+            0.8333,
+            0.2667,
+            0.2333,
+            0.6,
+            0.2,
+            0.7,
+            0.2333,
+            0.2333,
+            0.9667,
+            0.4333,
+            0.1,
+            0.3,
+            0.1333
+          ],
+          "mean_interval_s": 0.3254385964912281,
+          "cv_interval": 0.7844406741522116,
+          "events_per_s": 2.463157894736842
+        },
+        "spectrum": {
+          "dominant_hz": 0.5052631578947369,
+          "dominant_period_s": 1.9791666666666665,
+          "peak_over_median": 381.43688726323734,
+          "spectrum_median_floor": 0.042155236267898
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 0.0,
+      "tau_novelty": 3.0,
+      "tau_spec": 233.77456665039062
+    },
+    "meta": {
+      "path": "media/barbarian_hammer-of-the-ancients.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 16.082,
+      "bytes": 8308657,
+      "label": "R_ground_slam",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 483
+    }
+  },
+  "R_circle_ring": {
+    "media": "media/demon-hunter_fan-of-knives.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.787830855128681,
+        "head_tail_val_ratio_med": 1.0580948801104928,
+        "head_white_frac_p90": 0.14585219223991985,
+        "tail_white_frac_p90": 0.12149530468571978,
+        "lead_known_frac": 0.966
+      },
+      "F2_gradient": {
+        "val_slope_med": 0.028901932380125766,
+        "val_slope_p10": -0.48651257394463293,
+        "val_slope_p90": 0.46711213447357336,
+        "head_sat_med": 0.6654888790523467,
+        "tail_sat_med": 0.6905597594943628
+      },
+      "F3_width": {
+        "cv_width_med": 0.2996334688294682,
+        "cv_width_p90": 0.44526023318152513,
+        "head_tail_width_ratio_med": 1.0335453128813845,
+        "elongation_med": 1.9076509356570925
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.19987454286042278,
+        "edge_white_frac_p90": 0.031144781144781145,
+        "val_slope_med": -0.4522473455103619,
+        "sat_slope_med": 0.005481470358677789,
+        "core_sat_med": 0.6002555032498051,
+        "edge_sat_med": 0.6934153976184612
+      },
+      "F4_sparks": {
+        "sat_count_med": 400.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.39007459386703436,
+        "sat_dist_norm_p90": 15.095785122873403
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 2.3224904544894693,
+        "halo_area_ratio_p90": 2.845163747647556,
+        "halo_sat_med": 0.7437496781349182,
+        "halo_softness_med": 2.220779762228127
+      },
+      "F6a_scar": {
+        "impact_idx": 76,
+        "scar_frac": 0.5285696881091618,
+        "control_frac": 0.48902123995407576,
+        "scar_over_control": 1.0808726593527922,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 76,
+        "impact_t_s": 2.533333333333333,
+        "radial_near_at_impact": 0.3389435171770048,
+        "radial_far_at_impact": 0.5209233568749437,
+        "radial_near_clip_absmax": 0.6337217675987409,
+        "radial_near_clip_median": -0.02074330599158658,
+        "resid_near_at_impact": 1.9140654760129863,
+        "resid_near_clip_median": 0.6522322345026779,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 6.465829553475721,
+        "hf_median_px": 0.22174607917927308,
+        "hf_mad_px": 0.20216104585911432,
+        "hf_p99_px": 7.599754683628229,
+        "hf_max_px": 9.288400103761111,
+        "shake_bar_px": 1.434712354333959,
+        "n_shake_frames": 84,
+        "shake_frame_frac": 0.1728395061728395,
+        "hf_to_pan_ratio": 1.1753719489161238,
+        "div_median": -0.00028670524636894077,
+        "div_max_z": 10.107712295479152
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 24,
+          "prominence_bar": 0.014076456427574158,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.8,
+            0.2667,
+            0.0667,
+            0.0667,
+            0.0667,
+            0.3,
+            0.4667,
+            0.3333,
+            1.7667,
+            0.7333,
+            0.6333,
+            0.3333,
+            1.5333,
+            0.2333,
+            0.4,
+            1.3,
+            0.9667,
+            1.3333,
+            1.0,
+            0.5,
+            0.2667,
+            0.4333,
+            0.8667
+          ],
+          "mean_interval_s": 0.6376811594202899,
+          "cv_interval": 0.7449000154771451,
+          "events_per_s": 1.44
+        },
+        "spectrum": {
+          "dominant_hz": 0.18,
+          "dominant_period_s": 5.555555555555555,
+          "peak_over_median": 756.548869859869,
+          "spectrum_median_floor": 0.04580564882646353
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 1.796600341796875,
+      "tau_novelty": 10.77960205078125,
+      "tau_spec": 103.78340148925781
+    },
+    "meta": {
+      "path": "media/demon-hunter_fan-of-knives.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 16.916,
+      "bytes": 9354799,
+      "label": "R_circle_ring",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 508
+    }
+  },
+  "R_aura": {
+    "media": "media/monk_mantra-of-conviction.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 2.2442536812978338,
+        "head_tail_val_ratio_med": 1.041717441005052,
+        "head_white_frac_p90": 0.0061815682384459775,
+        "tail_white_frac_p90": 0.010484550250476558,
+        "lead_known_frac": 0.939209726443769
+      },
+      "F2_gradient": {
+        "val_slope_med": 0.031843563317250065,
+        "val_slope_p10": -0.3065244335174581,
+        "val_slope_p90": 0.35962609882291996,
+        "head_sat_med": 0.46838384971490643,
+        "tail_sat_med": 0.46393268489357775
+      },
+      "F3_width": {
+        "cv_width_med": 0.29806503544207563,
+        "cv_width_p90": 0.4349340060685597,
+        "head_tail_width_ratio_med": 0.9477762322822076,
+        "elongation_med": 1.825436109917762
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.04154312005977432,
+        "edge_white_frac_p90": 0.0045057362635660125,
+        "val_slope_med": -0.15371130045015008,
+        "sat_slope_med": -0.04719715761532143,
+        "core_sat_med": 0.4965087745780927,
+        "edge_sat_med": 0.4598655815704727
+      },
+      "F4_sparks": {
+        "sat_count_med": 199.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.37737645853649177,
+        "sat_dist_norm_p90": 4.738686902828331
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 1.299934817022069,
+        "halo_area_ratio_p90": 3.335793351972176,
+        "halo_sat_med": 0.5010736584663391,
+        "halo_softness_med": 6.0733273568886785
+      },
+      "F6a_scar": null,
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 34,
+        "impact_t_s": 1.1333333333333333,
+        "radial_near_at_impact": 0.428505046837463,
+        "radial_far_at_impact": 0.26444010644544536,
+        "radial_near_clip_absmax": 0.5166592064641533,
+        "radial_near_clip_median": -0.03526424629335648,
+        "resid_near_at_impact": 2.5161687585251045,
+        "resid_near_clip_median": 0.019738548397787478,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 2.0428543057494424,
+        "hf_median_px": 0.01578763010408336,
+        "hf_mad_px": 0.01578763010408336,
+        "hf_p99_px": 3.456238330433153,
+        "hf_max_px": 6.984566519111444,
+        "shake_bar_px": 0.5,
+        "n_shake_frames": 33,
+        "shake_frame_frac": 0.10476190476190476,
+        "hf_to_pan_ratio": 1.6918672666503234,
+        "div_median": 0.0,
+        "div_max_z": 1908.882944233774
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 23,
+          "prominence_bar": 0.004398511257022619,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.4,
+            0.5667,
+            0.5,
+            0.2,
+            0.9333,
+            0.3333,
+            0.0667,
+            0.3,
+            0.4667,
+            0.1,
+            0.5667,
+            0.4667,
+            0.3667,
+            0.4,
+            0.0667,
+            0.2,
+            0.2667,
+            0.2,
+            0.1333,
+            0.3333,
+            1.0667,
+            1.8333
+          ],
+          "mean_interval_s": 0.44393939393939397,
+          "cv_interval": 0.8798380623160208,
+          "events_per_s": 2.0972644376899696
+        },
+        "spectrum": {
+          "dominant_hz": 0.2735562310030395,
+          "dominant_period_s": 3.655555555555556,
+          "peak_over_median": 103.99798244701607,
+          "spectrum_median_floor": 0.048208170585946494
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 0.0,
+      "tau_novelty": 3.0,
+      "tau_spec": 134.81381225585938
+    },
+    "meta": {
+      "path": "media/monk_mantra-of-conviction.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 11.211,
+      "bytes": 4919972,
+      "label": "R_aura",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 337
+    }
+  }
+}
