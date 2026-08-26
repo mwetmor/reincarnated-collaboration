@@ -1,0 +1,44 @@
+[vost#0:0/rawvideo @ 0x1430048d0] Error submitting a packet to the muxer: Broken pipe
+    Last message repeated 1 times
+[out#0/rawvideo @ 0x6000024d80c0] Error muxing a packet
+[out#0/rawvideo @ 0x6000024d80c0] Task finished with error code: -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000024d80c0] Terminating thread with return code -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000024d80c0] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x6000024d80c0] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x15a004e70] Error submitting a packet to the muxer: Broken pipe
+    Last message repeated 1 times
+[out#0/rawvideo @ 0x60000189c180] Error muxing a packet
+[out#0/rawvideo @ 0x60000189c180] Task finished with error code: -32 (Broken pipe)
+[out#0/rawvideo @ 0x60000189c180] Terminating thread with return code -32 (Broken pipe)
+[out#0/rawvideo @ 0x60000189c180] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x60000189c180] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x142f05b50] Error submitting a packet to the muxer: Broken pipe
+    Last message repeated 1 times
+[out#0/rawvideo @ 0x6000033d0240] Error muxing a packet
+[out#0/rawvideo @ 0x6000033d0240] Task finished with error code: -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000033d0240] Terminating thread with return code -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000033d0240] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x6000033d0240] Error closing file: Broken pipe
+[vost#0:0/rawvideo @ 0x12e7052b0] Error submitting a packet to the muxer: Broken pipe
+    Last message repeated 1 times
+[out#0/rawvideo @ 0x6000000d0240] Error muxing a packet
+[out#0/rawvideo @ 0x6000000d0240] Task finished with error code: -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000000d0240] Terminating thread with return code -32 (Broken pipe)
+[out#0/rawvideo @ 0x6000000d0240] Error writing trailer: Broken pipe
+[out#0/rawvideo @ 0x6000000d0240] Error closing file: Broken pipe
+== negctl-lap1-barm-REPAIRED == 210 frames 1920x1080 @60.000 fps
+  T-1   recipient state response                   FAIL           {"N_mobs": 4, "responded": 0, "per_mob": {"M1": {"first_contact_frame": null, "max_disp_px": null}, "M2": {"first_contact_frame": 52, "max_disp_px": n
+  T-2   attached wind-residue persistence          FAIL           {"mobs_with_residue_at_+0.5s": 0, "N": 4, "max_simultaneous": 2, "clear_at_end+2.0s_measurable": false, "per_mob": {"M1": {"residue_at_contact_plus_0.
+  T-3a  frame-luminance ownership (RE-CUT)         FAIL           {"sustain_frames": [62, 143], "n_frames_measured": 82, "ownership_inclusive_median": 0.1461, "ownership_inclusive_mean": 0.15936197165403349, "ownersh
+  T-3b  internal luminance range                   FAIL           {"ribbon_only_median_P95_over_P20": 1.8573, "composed_median_P95_over_P20": 2.1781, "drax_own_instrument": "2.2 - 3.5 (his mask includes cast-lit floo
+  T-3c  mid-band saturation                        FAIL           {"ribbon_only_median_midband_HSV_S": 0.2102, "composed_median_midband_HSV_S": 0.2068, "drax_own_instrument": "0.38 - 0.42 (same mask difference)"}
+  T-3d  apex rides the leading edge                FAIL           {"frames_with_apex_in_leading_25pct": 43, "frames_tested": 75, "operand_domain_ok": true, "authored_arc_span_deg": 150.0, "domain_note": null, "fracti
+  T-3e  cast light on non-effect surfaces          FAIL           {"floor_zone_P90_lift_median_over_sustain": 0.05227, "mob_flank_P90_lift_median_over_sustain": 0.06475, "floor_zone_fraction_over_8pct": 0.0621, "drax
+  T-4a  onset accent                               FAIL           {"composed_effect_region": {"peak_over_sustain_mean": 0.052, "frames_over_1.6x": 0, "sustain_mean_area_px2": 4272.7, "passes": false}, "authored_lumin
+  T-4b  temporal texture (FF-08)                   INDETERMINATE  {"cv_interval": 0.14433756729740646, "n_intervals": 8, "operand_source": "frame_forensics_depth CV_timing (authoritative)", "battery_corroborator": {"
+  T-4c  decay breaks up rather than switching off  FAIL           {"worst_frame_to_frame_drop": 1.0, "post_effect_luminous_frames": 0, "post_effect_tail_s": 0.0}
+  T-4d  phase structure                            FAIL           {"segmentable_regimes_composed": 1, "segmentable_regimes_authored_luminous": 1}
+  T-5a  component census + size spread             FAIL           {"mean_components_per_frame": 5.634, "mean_area_IQR_over_median": 5.9872}
+  T-5b  non-repetition of width profile            INSPECT        {"median_revolution_matched_width_RMS": 0.20231, "revolution_frames": 24, "pairs_compared": 46, "negative_control_floor": 0.163, "floor_tau_sweep": {"
+  T-6   environment aftermath                      FAIL           {"marked_area_at_clip_end_px2": 0, "mean_abs_dL_at_clip_end": 0.0, "min_sustain_delta": -36.0, "settle_frac": 0.0, "aftermath_frames_in_window": 18}
+  tally: {'FAIL': 12, 'INDETERMINATE': 1, 'INSPECT': 1}
