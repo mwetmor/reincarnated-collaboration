@@ -49,8 +49,22 @@ reading files:
 
 ## 3. Codex-lane standing provisions (durable home — previously per-session prompt text)
 
-- **Serial law** — Codex-lane work runs serially; no parallel Codex fan-out inside this
-  project's lanes unless a dispatch says otherwise.
+- **Concurrency law (Matt ruling 2026-08-25 — SUPERSEDES the original serial law):**
+  **one Codex session per available named agent seam, plus at most one open Codex lane.**
+  Parallel Codex sessions are permitted provided EACH wears a distinct named seam (role file +
+  OP read per § 2 — the seam's discipline stack loads with the name); the open lane covers
+  unseamed general work. Never two Codex sessions in the same seam concurrently. This matches
+  the grok-lane constraint. *Basis:* legolas Mode A findings
+  (`agentic_orchestration/legolas/notes/2026-08-25-codex-parallel-fanout-personal-account-risk.md`)
+  — compliance risk LOW, economics risk HIGH; the constraint is an **economics + attribution
+  discipline, not a terms requirement.** The superseded serial law's compliance justification
+  is evidentially dead and is recorded as such.
+- **Internal subagent trees stay OFF (hard guard):** never raise
+  `agents.max_concurrent_threads_per_session` or enable Codex's internal recursive subagents.
+  Every severe quota incident on record (openai/codex #35463) traces to recursive internal
+  trees under this project's exact model pin; **flat external `codex exec` fan-out is the only
+  permitted parallel shape.** A quota-exhausted personal account fails hard, taking ordinary
+  ChatGPT usage with it.
 - **`codex login status` at session start** — verify auth before taking work.
 - **Model pin** — `gpt-5.6-sol` @ `xhigh` effort, per Matt's standing agenda.
 - **Fault-fallback** — on Codex-lane fault, the work falls back to the **named Claude agent**

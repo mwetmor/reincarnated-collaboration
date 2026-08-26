@@ -101,6 +101,11 @@ UNEVALUABLE.
 - Codex-lane HIGH-UPTIME provisions carry unchanged from Matt's original agenda (serial law ·
   `codex login status` at session start · `gpt-5.6-sol` @ xhigh pin · fault-fallback to the
   named Claude agent).
+  ⚑ **SERIAL LAW SUPERSEDED mid-wave (Matt ruling 2026-08-25, recorded here per the CLAUDE.md
+  conflict rule):** new concurrency law is **one Codex session per available named agent seam
+  + at most one open Codex lane** (grok-equivalent); internal recursive subagents stay OFF.
+  Authoritative text + evidentiary basis (legolas Mode A, compliance-LOW/economics-HIGH):
+  root `AGENTS.md` § 3 in both repos. The other three provisions carry unchanged.
 
 ## § 5 — Boundaries (unchanged, restated because they bind harder now)
 
