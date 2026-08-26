@@ -68,7 +68,14 @@ BARS = {
     "T2_life_min_s": 0.6,
     "T2_life_max_s": 1.6,
     "T2_clear_after_s": 2.0,
-    "T3a_dominance": 2.2,
+    # ⚑ T3a_dominance is SUPERSEDED. Kept named for lineage only; no row reads it.
+    # It was the ratio-to-an-annular-floor statistic that read 4.07x on the render
+    # its own spec line called "currently < 1.0" (galadriel 809409a8, sec 3.1 of the
+    # notes). gandalf re-cut the criterion 2026-08-25 (spec 168dbe44) to FRAME-
+    # LUMINANCE OWNERSHIP, below.
+    "T3a_dominance_SUPERSEDED": 2.2,
+    "T3a_ownership": 0.75,      # effect region owns >= 75% of frame top-0.5% L pixels
+    "T3a_top_frac": 0.005,      # "top-0.5% luminance pixels", UI excluded
     "T3b_p95_p20": 4.0,
     "T3c_sat": 0.55,
     "T3d_leading_frac": 0.25,
@@ -93,6 +100,7 @@ BARS = {
 
 ANG_BINS = 180          # 2 deg per bin around the caster
 MIN_COMPONENT_PX = 12   # below this a component is decoder speckle, not content
+MIN_UI_COMPONENT_PX = 64  # a HUD element is contiguous; a 1-px static speck is not
 FAR_FIELD_MULT = 2.5    # far field starts here, in units of the arc's outer radius
 TAU_SAFETY = 1.5        # safety multiple on the measured far-field P99.9
 # Engagement reach in image space. R_ENGAGE = 3.515 m and the 4a block measured
@@ -470,6 +478,317 @@ def centroid_axis(sil):
 
 
 # ===========================================================================
+# 3b. T-3a RE-CUT -- FRAME-LUMINANCE OWNERSHIP
+#
+# Spec (168dbe44), sec 1 T-3 criterion (a), as amended 2026-08-25:
+#
+#   "during sustain, the effect region owns >= 75% of the frame's top-0.5%
+#    luminance pixels (UI excluded) -- 'plainly the brightest thing in the
+#    room' means outshining the braziers, not the floor."
+#
+# WHY THIS REPLACED THE OLD ROUTE. The superseded statistic was P99(effect L)
+# / median(annular scene L): a ratio against a DARK FLOOR. It read 4.07x on
+# the lap-1 render whose spec line asserted "currently < 1.0". The instrument
+# was sound and sweep-stable; the PREMISE was false, because the perceptual
+# claim ("brightest thing in the room") is salience against the room's BRIGHT
+# sources, and a floor-referenced ratio cannot see them. Ownership of the
+# frame's own top tail is referenced to the braziers by construction: the
+# braziers ARE the top tail until something outshines them.
+#
+# THIS ROUTE MUST ITSELF MEET A NEGATIVE CONTROL BEFORE IT CERTIFIES ANYTHING
+# -- the spec says so in the criterion's own text, and it is the second time
+# of asking for this criterion. See `--t3a-only` and sec 10 of the notes.
+# ===========================================================================
+
+def derive_ui_mask(ctl_path, w, h, n, sample=None):
+    """UI exclusion, DERIVED from the footage, never asserted from a config.
+
+    The discriminant is EXACT temporal constancy in the CONTROL arm. A HUD
+    overlay is composited after the 3D pass and does not move; world pixels
+    under a moving camera do. That discriminant is only valid if the camera
+    ACTUALLY MOVES, so the camera-motion fraction is measured and reported
+    beside the mask -- if a future clip is shot from a locked camera this
+    route silently starts calling the whole room "UI", and the reported
+    motion fraction is what makes that visible instead of silent.
+
+    ⚑ COHERENCE FILTER, added after the raw discriminant OVER-FIRED on the
+    lap-1 pair: constancy alone returned 16,652 px in 3,104 components of
+    MEDIAN SIZE 1 -- coincidentally-static dark world pixels, not a HUD. A HUD
+    element is CONTIGUOUS; 1-px specks are not. Components < 64 px are dropped
+    and the raw count is reported beside the filtered one so the over-fire
+    stays visible rather than being quietly absorbed.
+
+    Measured on the lap-1 cathedral pair: motion fraction 0.634, raw constant
+    16,652 px, filtered 6,559 px, all of it dark (median L 0.20, max 0.497)
+    and NONE of it inside the frame's top-0.5% set. That venue has no HUD
+    (confirmed by eye on frame 120), so the exclusion is inert here -- and
+    `t3a_ownership` proves it inert per-frame rather than asserting it, by
+    computing ownership with the exclusion ON and OFF in the same pass.
+    """
+    idx = sample or sorted({0, n // 4, n // 2, (3 * n) // 4, n - 1})
+    S = Stream(ctl_path, w, h)
+    frames, i = {}, 0
+    while True:
+        f = S.read()
+        if f is None:
+            break
+        if i in idx:
+            frames[i] = f.copy()
+        i += 1
+    S.close()
+    ks = sorted(frames)
+    base = frames[ks[0]]
+    const = np.ones((h, w), bool)
+    motion = np.zeros((h, w), bool)
+    for k in ks[1:]:
+        d = np.abs(luma(frames[k]) - luma(base))
+        const &= (frames[k] == base).all(2)
+        motion |= d > 0.02
+    raw_px = int(const.sum())
+    lab, k = ndimage.label(const)
+    if k:
+        sz = ndimage.sum(const, lab, range(1, k + 1))
+        keep = np.nonzero(sz >= MIN_UI_COMPONENT_PX)[0] + 1
+        const = np.isin(lab, keep) if keep.size else np.zeros_like(const)
+    ys, xs = np.nonzero(const)
+    return const, {
+        "ui_mask_px": int(const.sum()),
+        "ui_mask_frac": round(float(const.mean()), 6),
+        "ui_mask_px_raw_before_coherence_filter": raw_px,
+        "ui_mask_components_raw": int(k),
+        "ui_min_component_px": MIN_UI_COMPONENT_PX,
+        "ui_mask_bbox": None if not const.any() else
+            [int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())],
+        "camera_motion_frac": round(float(motion.mean()), 4),
+        "frames_sampled": ks,
+        "discriminant": "exact temporal constancy in the control arm, then a >=%d px "
+                        "coherence filter; valid only under a moving camera -- motion "
+                        "fraction reported beside it" % MIN_UI_COMPONENT_PX,
+        "caveat": "on the lap-1 cathedral this returns dark static WORLD pixels, not a "
+                  "HUD (that venue has none). Inert by measurement: see the "
+                  "ownership_inclusive_noUI_median sensitivity field, not by assertion.",
+    }
+
+
+def t3a_ownership(on_path, ctl_path, w, h, n, sustain, tau, ui_mask):
+    """Per-sustain-frame ownership of the frame's top-0.5% luminance pixels.
+
+    OPERATIONAL CHOICES, each named because each could have gone otherwise:
+
+    1. SUSTAIN WINDOW. Frames [sustain[0], sustain[1]] inclusive, taken from
+       the harness state timeline (`state=SUSTAIN`) when a log is supplied,
+       else derived from the area curve and stamped DERIVED. The criterion
+       says "during the effect's sustain window"; the harness knows where
+       that is and the pixels do not have to be asked.
+
+    2. EFFECT REGION. The SAME control-differenced mask the rest of the T-3
+       family uses -- |L_on - L_ctl| > tau, 3x3 opened, components >= 12 px --
+       so "the effect region" means one thing across T-3a/b/c/d. tau is the
+       far-field false-positive null from `seed_geometry`, not a MAD.
+
+    3. THE INCLUSIVE/STRICT SPLIT, and why both are reported. The differenced
+       mask contains every pixel the effect CHANGED, which includes pixels the
+       effect merely LIT. A lap-2 build with the specified apex OmniLight can
+       brighten a brazier by a few percent, put that brazier into the
+       differenced mask, and then be credited with owning top pixels that are
+       the brazier's. That is precisely the misattribution this negative
+       control exists to catch. So:
+         - INCLUSIVE  = ownership by the full differenced region.
+         - STRICT     = ownership by pixels where the effect supplies the
+                        MAJORITY of the pixel's own luminance, (L_on - L_ctl)
+                        >= 0.5 * L_on. An arc pixel on a dark floor passes
+                        trivially; a brazier lifted 7% does not.
+       INCLUSIVE is primary because it is the plain reading of "the effect
+       region". STRICT is a WITHHOLDING guard and can only ever subtract a
+       pass, never grant one: if INCLUSIVE clears the bar while STRICT does
+       not, the pass is being carried by pixels the effect lit rather than
+       pixels the effect IS, and the call is INDETERMINATE-MISATTRIBUTION
+       rather than PASS. It cannot manufacture a FAIL into a PASS.
+
+    4. TOP-0.5% SELECTION. Threshold-based: T = P99.5 of L_on over non-UI
+       pixels, set = {L_on >= T}. NOT exact-rank, because exact-rank breaks
+       ties arbitrarily and a build that clips its core to white creates
+       enormous tie mass -- the arbitrary tie-break would then decide the
+       criterion. The threshold set's actual size is reported every frame so
+       tie inflation is VISIBLE (target 0.500%); an exact-rank ownership is
+       computed alongside as a corroborator. Measured on lap-1: 0.500-0.508%,
+       max L = 0.83, one pixel at max -- no clipping, the two agree.
+
+    5. UI EXCLUSION applies to the DENOMINATOR SET (which pixels are eligible
+       to be "the frame's top pixels") and to the effect mask alike -- AND the
+       same ownership is computed a second time with NO exclusion at all, in
+       the same pass, so that a reader who distrusts my UI mask can see
+       whether the mask decided anything. On lap-1 it decides nothing (both
+       read 0.146). A derived mask that could have been wrong and provably was
+       not load-bearing is worth more than a mask asserted to be right.
+
+    6. DEGENERATE REGION. If the effect mask is empty the frame reports
+       ownership 0.0, flagged, and is NOT dropped. Dropping empty frames would
+       let a build that flickers off during sustain be scored only on the
+       frames where it was on.
+    """
+    lo, hi = int(sustain[0]), int(sustain[1])
+    valid = ~ui_mask
+    n_valid = int(valid.sum())
+    k_target = int(round(BARS["T3a_top_frac"] * n_valid))
+
+    A, B = Stream(on_path, w, h), Stream(ctl_path, w, h)
+    per = []
+    for i in range(n):
+        fa, fb = A.read(), B.read()
+        if fa is None or fb is None:
+            break
+        if i < lo:
+            continue
+        if i > hi:
+            break
+        La, Lb = luma(fa), luma(fb)
+        d = La - Lb
+
+        E = ndimage.binary_opening(np.abs(d) > tau, np.ones((3, 3))) & valid
+        lab, k = ndimage.label(E)
+        if k:
+            sz = ndimage.sum(E, lab, range(1, k + 1))
+            keep = np.nonzero(sz >= MIN_COMPONENT_PX)[0] + 1
+            E = np.isin(lab, keep) if keep.size else np.zeros_like(E)
+        strict = E & (d >= 0.5 * np.maximum(La, 1e-6))
+
+        Lv = La[valid]
+        thr = float(np.percentile(Lv, 100.0 * (1.0 - BARS["T3a_top_frac"])))
+        top = valid & (La >= thr)
+        ktop = int(top.sum())
+        # exact-rank corroborator: the k_target brightest eligible pixels
+        flat = np.where(valid, La, -1.0).ravel()
+        rank_idx = np.argpartition(flat, -k_target)[-k_target:]
+        top_rank = np.zeros(flat.size, bool)
+        top_rank[rank_idx] = True
+        top_rank = top_rank.reshape(La.shape)
+
+        # sensitivity: the same statistic with NO UI exclusion whatsoever
+        thr_all = float(np.percentile(La, 100.0 * (1.0 - BARS["T3a_top_frac"])))
+        top_all = La >= thr_all
+        E_all = ndimage.binary_opening(np.abs(d) > tau, np.ones((3, 3)))
+
+        per.append({
+            "frame": i,
+            "own_inclusive": float((top & E).sum()) / max(ktop, 1),
+            "own_inclusive_noUI": float((top_all & E_all).sum()) / max(int(top_all.sum()), 1),
+            "own_strict": float((top & strict).sum()) / max(ktop, 1),
+            "own_rank_corroborator": float((top_rank & E).sum()) / max(k_target, 1),
+            "top_thr_L": round(thr, 5),
+            "top_px": ktop,
+            "top_frac_actual": round(ktop / n_valid, 6),
+            "effect_px": int(E.sum()),
+            "effect_px_strict": int(strict.sum()),
+            "effect_max_L": None if not E.any() else round(float(La[E].max()), 5),
+            "frame_max_L": round(float(Lv.max()), 5),
+            "degenerate_effect_region": bool(E.sum() == 0),
+        })
+    A.close()
+    B.close()
+    if not per:
+        return {"error": "no sustain frames decoded", "sustain": [lo, hi]}
+
+    inc = np.array([p["own_inclusive"] for p in per])
+    st = np.array([p["own_strict"] for p in per])
+    rk = np.array([p["own_rank_corroborator"] for p in per])
+    tf = np.array([p["top_frac_actual"] for p in per])
+    return {
+        "sustain_frames": [lo, hi], "n_frames_measured": len(per),
+        "ownership_inclusive_median": float(np.median(inc)),
+        "ownership_inclusive_mean": float(inc.mean()),
+        "ownership_inclusive_max": float(inc.max()),
+        "ownership_strict_median": float(np.median(st)),
+        "ownership_rank_corroborator_median": float(np.median(rk)),
+        "ownership_inclusive_noUI_median": float(np.median(
+            [p["own_inclusive_noUI"] for p in per])),
+        "frames_over_bar_inclusive": int((inc >= BARS["T3a_ownership"]).sum()),
+        "top_set_frac_actual_median": float(np.median(tf)),
+        "tie_inflation_flag": bool(np.median(tf) > 1.5 * BARS["T3a_top_frac"]),
+        "degenerate_frames": int(sum(p["degenerate_effect_region"] for p in per)),
+        "effect_max_L_median": float(np.median(
+            [p["effect_max_L"] for p in per if p["effect_max_L"] is not None])
+            ) if any(p["effect_max_L"] is not None for p in per) else None,
+        "frame_max_L_median": float(np.median([p["frame_max_L"] for p in per])),
+        "top_thr_L_median": float(np.median([p["top_thr_L"] for p in per])),
+        "tau": tau,
+        "per_frame": per,
+    }
+
+
+def t3a_scene_hot_persistence(on_path, ctl_path, w, h, sustain, ui_mask):
+    """Instrument sanity check the conductor actually needs: WHO owns the top
+    pixels when the effect is off, and does turning it on displace them?
+
+    Computes each arm's own top-0.5% set on the same frames and reports the
+    overlap. If the ON arm's top set is ~the control's top set, the scene's
+    hot sources still own the frame and the effect has not entered the tail at
+    all -- which is a different statement from "the effect owns < 75%", and a
+    stronger one.
+    """
+    lo, hi = int(sustain[0]), int(sustain[1])
+    valid = ~ui_mask
+    q = 100.0 * (1.0 - BARS["T3a_top_frac"])
+    A, B = Stream(on_path, w, h), Stream(ctl_path, w, h)
+    keep, i = [], 0
+    while True:
+        fa, fb = A.read(), B.read()
+        if fa is None or fb is None:
+            break
+        if lo <= i <= hi:
+            La, Lb = luma(fa), luma(fb)
+            ta = valid & (La >= np.percentile(La[valid], q))
+            tb = valid & (Lb >= np.percentile(Lb[valid], q))
+            keep.append(float((ta & tb).sum()) / max(int(ta.sum()), 1))
+        i += 1
+        if i > hi:
+            break
+    A.close()
+    B.close()
+    return {"median_on_top_set_also_top_in_control": float(np.median(keep)) if keep else None,
+            "n_frames": len(keep),
+            "reading": "fraction of the ON arm's top-0.5% pixels that are ALSO top-0.5% "
+                       "with the effect hidden -- i.e. how much of the frame's bright "
+                       "tail is the room rather than the effect"}
+
+
+def t3a_row(t3a, scene=None):
+    """The scorecard row. Three-valued, with the misattribution guard wired in."""
+    if "error" in t3a:
+        return _row("T-3a", "frame-luminance ownership (RE-CUT)", "INDETERMINATE",
+                    t3a, ">= %.0f%%" % (100 * BARS["T3a_ownership"]),
+                    "no measurable sustain window")
+    inc = t3a["ownership_inclusive_median"]
+    st = t3a["ownership_strict_median"]
+    bar = BARS["T3a_ownership"]
+    if inc >= bar and st < bar:
+        call = "INDETERMINATE"
+        note = ("MISATTRIBUTION GUARD FIRED: the inclusive region clears the bar and the "
+                "emissive-core region does not, so the pass is carried by pixels the effect "
+                "LIT (brazier lift entering the differenced mask), not pixels the effect IS. "
+                "Not a PASS. Re-measure with the region question settled.")
+    else:
+        call = "PASS" if inc >= bar else "FAIL"
+        note = ("median over sustain frames of |top-0.5%% set INTERSECT effect| / |top-0.5%% set|, "
+                "UI excluded. Strict (emissive-core) corroborator %.4f; exact-rank "
+                "corroborator %.4f; top-set actual size %.4f%% of eligible px (target %.3f%%)."
+                % (st, t3a["ownership_rank_corroborator_median"],
+                   100 * t3a["top_set_frac_actual_median"], 100 * BARS["T3a_top_frac"]))
+    if scene:
+        note += (" Scene-hot persistence: %.4f of the ON arm's top pixels are top with the "
+                 "effect hidden." % (scene["median_on_top_set_also_top_in_control"] or float("nan")))
+    if t3a["tie_inflation_flag"]:
+        note += " ⚑ TIE INFLATION: top set is >1.5x its target size; luminance is clipping."
+    operand = {k: v for k, v in t3a.items() if k != "per_frame"}
+    operand["ownership_inclusive_median"] = round(inc, 4)
+    operand["ownership_strict_median"] = round(st, 4)
+    if scene:
+        operand["scene_hot_persistence"] = scene
+    return _row("T-3a", "frame-luminance ownership (RE-CUT)", call, operand,
+                ">= %.0f%% of frame top-0.5%% luminance pixels" % (100 * bar), note)
+
+
+# ===========================================================================
 # 4. SCORING -- one row per sec-1 criterion
 # ===========================================================================
 
@@ -486,7 +805,7 @@ def nanmed(x):
     return float(np.median(x)) if x.size else float("nan")
 
 
-def score(S, per_mob, wp, geo, phases, fps, contacts, ff08=None):
+def score(S, per_mob, wp, geo, phases, fps, contacts, ff08=None, t3a=None, scene=None):
     rows = []
     n = len(S["area"])
     sus = phases["sustain"]
@@ -560,18 +879,20 @@ def score(S, per_mob, wp, geo, phases, fps, contacts, ff08=None):
                      "unmeasurable windows report INDETERMINATE, never PASS"))
 
     # ---------------- T-3 a/b/c -------------------------------------------
+    # T-3a is the RE-CUT ownership route (sec 3b), computed in its own pass.
+    # The superseded floor-referenced ratio is retained ONLY as a recorded
+    # diagnostic beside it, because it is the number that caused the re-cut and
+    # a reader comparing laps must be able to see both.
     dom = nanmed(np.array(S["p99_on"]) / np.array(S["scene_med"]))
-    rows.append(_row("T-3a", "luminance dominance",
-                     "PASS" if dom >= BARS["T3a_dominance"] else "FAIL",
-                     {"median_P99_effect_over_scene_median": round(dom, 4),
-                      "median_effect_L_over_scene_median": round(nanmed(
-                          np.array(S["p50_on"]) / np.array(S["scene_med"])), 4)},
-                     ">= %.1f" % BARS["T3a_dominance"],
-                     "annular scene sample, effect region and mob ROIs excluded. "
-                     "⚑ CRITERION FLAGGED: reads 4.11 on the negative control, whose own "
-                     "spec line says 'Currently < 1.0'. Tau-stable at 4.11 +/- 0.02 across "
-                     "a 3.3x sweep; 61% of arc pixels already clear 2.2x. Instrument sound, "
-                     "premise false -- gandalf's to re-cut, not mine."))
+    if t3a is not None:
+        r = t3a_row(t3a, scene)
+        r["operand"]["SUPERSEDED_floor_referenced_ratio"] = round(dom, 4)
+        rows.append(r)
+    else:
+        rows.append(_row("T-3a", "frame-luminance ownership (RE-CUT)", "INDETERMINATE",
+                         {"SUPERSEDED_floor_referenced_ratio": round(dom, 4)},
+                         ">= %.0f%%" % (100 * BARS["T3a_ownership"]),
+                         "ownership pass not run"))
     rng = nanmed(np.array(S["p95_on"]) / np.maximum(np.array(S["p20_on"]), 1e-6))
     rows.append(_row("T-3b", "internal luminance range",
                      "PASS" if rng >= BARS["T3b_p95_p20"] else "FAIL",
@@ -881,6 +1202,15 @@ def main():
     ap.add_argument("--label", default="unnamed")
     ap.add_argument("--ff08", action="store_true",
                     help="run frame_forensics_depth and use its CV_timing for T-4b (sec 3)")
+    ap.add_argument("--t3a-only", action="store_true",
+                    help="run ONLY the re-cut T-3a ownership pass (sec 3b). Survives a "
+                         "degenerate pair (identical arms) instead of raising at seeding, "
+                         "which is what makes the fxctl-vs-fxctl sanity check runnable.")
+    ap.add_argument("--tau", type=float, default=None,
+                    help="override the far-field-derived tau; required with --t3a-only "
+                         "on a degenerate pair, where no far field can be sampled")
+    ap.add_argument("--sustain", default=None, metavar="LO,HI",
+                    help="explicit sustain frame range; overrides the log/derived window")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
 
@@ -890,6 +1220,33 @@ def main():
         raise SystemExit("arms differ in raster: %dx%d vs %dx%d" % (w, h, w2, h2))
     n = min(_count(a.on), _count(a.control))
     rev = max(2, int(round(360.0 / a.omega_deg_s * fps)))
+    ui, ui_meta = derive_ui_mask(a.control, w, h, n)
+
+    # ---- standalone re-cut pass (negative control / sanity check) ----------
+    if a.t3a_only:
+        if a.sustain:
+            sus = [int(x) for x in a.sustain.split(",")]
+        else:
+            ph = phases_from_log(a.log, a.on_prefix or "", n)
+            if not ph:
+                raise SystemExit("--t3a-only needs --sustain or a readable --log")
+            sus = list(ph["sustain"])
+        if a.tau is None:
+            raise SystemExit("--t3a-only requires --tau (state the null you are using)")
+        t3a = t3a_ownership(a.on, a.control, w, h, n, sus, a.tau, ui)
+        scene = t3a_scene_hot_persistence(a.on, a.control, w, h, sus, ui)
+        row = t3a_row(t3a, scene)
+        res = {"label": a.label, "mode": "t3a-only", "on": a.on, "control": a.control,
+               "raster": [w, h], "fps": fps, "frames": n, "ui": ui_meta,
+               "sustain": sus, "tau": a.tau, "scorecard": [row], "detail": t3a}
+        with open(a.out, "w") as fh:
+            json.dump(res, fh, indent=1, default=float)
+        print("== %s == T-3a RE-CUT ownership, sustain %s, tau %.5f" % (a.label, sus, a.tau))
+        print("  ui: %s" % json.dumps(ui_meta, default=float))
+        print("  call: %s" % row["call"])
+        print("  operand: %s" % json.dumps(row["operand"], indent=1, default=float))
+        print("  note: %s" % row["note"])
+        return
 
     geo = seed_geometry(a.on, a.control, w, h, fps, n, rev)
     S, per_mob, wp = measure(a.on, a.control, geo, w, h, fps, n)
@@ -899,10 +1256,15 @@ def main():
     if a.ff08:
         from frame_forensics_depth import analyse_depth
         ff08 = analyse_depth(a.on, a.label)["summary"]["CV_timing"]
-    rows = score(S, per_mob, wp, geo, ph, fps, contacts, ff08)
+    sus = [int(x) for x in a.sustain.split(",")] if a.sustain else list(ph["sustain"])
+    t3a = t3a_ownership(a.on, a.control, w, h, n, sus, geo["tau"], ui)
+    scene = t3a_scene_hot_persistence(a.on, a.control, w, h, sus, ui)
+    rows = score(S, per_mob, wp, geo, ph, fps, contacts, ff08, t3a, scene)
 
     res = {"label": a.label, "on": a.on, "control": a.control,
            "raster": [w, h], "fps": fps, "frames": n, "revolution_frames": rev,
+           "ui": ui_meta,
+           "t3a_detail": t3a,
            "geometry": {k: v for k, v in geo.items() if k != "mean_abs_diff_series"},
            "phases": {k: v for k, v in ph.items() if k != "contact_counts"},
            "contact_attribution": contacts,

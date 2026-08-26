@@ -238,3 +238,132 @@ And the glass turned on the one holding it. The defect that let four criteria th
 **Flagged to gandalf (SPEC-AUTHOR):** T-3a criterion defect (§ 3.1) · T-5b route disqualification (§ 3.2) · T-3d guard-vs-lift labelling (§ 3.3) · T-4b window dependency (§ 3.4).
 **Flagged to drax (builder):** § 7, all five.
 **Ruled (my seam, Task 2):** § 5 — floor stands, role narrowed, domain conditional, discriminant changed.
+
+---
+
+# T-3(a) re-cut negative control
+
+**Date:** 2026-08-26 · **galadriel** (instrument steward) · **Run:** VFX-DEPTH, conductor gandalf, ledger R-22.
+**Criterion under test:** T-3(a) as **re-cut** by the conductor in `agentic_orchestration/gandalf/vfx-depth-run/lap2-depth-spec.md` § 1 T-3, committed `168dbe44`, after the original failed its negative control at `809409a8` (§ 3.1 above).
+**Instrument:** `pipeline/vfx_lap2_battery.py` § 3b (`derive_ui_mask`, `t3a_ownership`, `t3a_scene_hot_persistence`, `t3a_row`), new this pass.
+**Artifacts:** `work/2026-08-25-vfx-lap2/t3a-recut-negctl-fxon.json` · `…-sanity-fxctl-self.json` · `…-sanity-swapped.json` · full-battery regression `…/negctl-lap1-barm-t3a-recut.json`.
+
+## 10. Disposition
+
+> ## **(a) — lap-1 FAILS. The re-cut is CERTIFIED.**
+>
+> **Measured ownership on the lap-1 B-arm: `0.1461` — 14.6% against a 75% bar.**
+> The pre-registered expectation is **met**. T-3(a) enters the battery and may judge the incoming lap-2 build.
+
+The criterion the conductor re-cut now behaves the way an acceptance criterion is supposed to behave on the render it was written to indict: **it fails, by a wide margin, for the reason the perceptual claim named.** The braziers own the room's bright tail. The arc does not.
+
+## 11. The measurement
+
+Sustain window frames **62–143** (82 frames, harness `state=SUSTAIN`), 1920×1080 @ 60 fps, tau `0.07396` (far-field P99.9 null, carried unchanged from the baseline pass).
+
+| statistic | value | reading |
+|---|---:|---|
+| **ownership, inclusive (PRIMARY)** | **0.1461** | median over sustain frames of \|top-0.5% ∩ effect\| / \|top-0.5%\| |
+| ownership, strict / emissive-core | 0.1407 | misattribution guard; see § 12.3 |
+| ownership, exact-rank corroborator | 0.1475 | tie-break-free cross-check |
+| ownership, **no UI exclusion at all** | 0.1461 | sensitivity: my UI mask decides nothing |
+| frames over the 75% bar | **0 / 82** | not a marginal miss |
+| per-frame range | 0.110 → 0.236 | the best frame is a third of the way to the bar |
+| **scene-hot persistence** | **0.8293** | 83% of the ON arm's top pixels are *still* top pixels with the effect hidden |
+
+**Four independent estimates land within 0.007 of each other.** The call does not rest on any operational choice I made.
+
+**The scene-hot persistence number is the one to read aloud.** It says the room's bright tail is 83% unchanged by turning the effect on — the arc is not competing with the braziers, it is beside them.
+
+## 12. Operational choices, each one named because each could have gone otherwise
+
+**12.1 Sustain window.** Harness state timeline (`state=SUSTAIN` in `render.txt`), not an inference from the pixels. The spec says *"during the effect's sustain window"*; the harness knows where that is and does not have to be asked. `--sustain LO,HI` overrides for clips without a log.
+
+**12.2 Effect region.** The **same** control-differenced mask the rest of the T-3 family uses — `|L_on − L_ctl| > tau`, 3×3 opened, components ≥ 12 px. *"The effect region"* now means one thing across T-3a/b/c/d. Deliberately **not** a new bespoke mask: a criterion family that means four different things by one phrase is how a scorecard stops being comparable.
+
+**12.3 The inclusive/strict split — the misattribution guard, wired in before it was needed.** The differenced mask contains every pixel the effect **changed**, which includes pixels the effect merely **lit**. The lap-2 spec adds an apex `OmniLight3D` (T-3b). That light can brighten a brazier by a few percent, put the brazier into the differenced mask, and **credit the effect with owning top pixels that are the brazier's** — the exact misattribution the task named as outcome (c). So the pass computes two regions:
+
+- **inclusive** — the full differenced region. **Primary**, because it is the plain reading of *"the effect region."*
+- **strict** — pixels where the effect supplies the **majority of the pixel's own luminance**, `(L_on − L_ctl) ≥ 0.5·L_on`. An arc pixel on a dark floor passes trivially; a brazier lifted 7% does not; floor genuinely lifted 0.20 → 0.55 by cast light **does** pass (d/L = 0.64), so the guard discriminates *lit-by* from *near*, not merely *bright* from *dim*.
+
+**If inclusive clears the bar while strict does not, the call is `INDETERMINATE` — not `PASS`.** The guard can only ever **withhold** a pass; it cannot manufacture one. Stated here in advance of any build that could trip it, which is the only time such a rule is worth anything.
+
+**12.4 Top-0.5% selection.** Threshold-based: `T = P99.5(L_on over eligible px)`, set = `{L_on ≥ T}`. **Not exact-rank** — exact-rank breaks ties arbitrarily, and a build that clips its core to white creates enormous tie mass, at which point *an arbitrary tie-break decides the criterion*. The threshold set's true size is reported every frame (**measured 0.5004%** against a 0.500% target; frame max L = 0.835, one pixel at max, **no clipping**) and a `tie_inflation_flag` fires if it exceeds 1.5× target. Exact-rank runs alongside as a corroborator and agrees to 0.001.
+
+**12.5 UI exclusion — derived, over-fired, hardened, and then proved inert.** The discriminant is exact temporal constancy in the **control** arm (a HUD is composited after the 3D pass and does not move; world pixels under a moving camera do). Its validity depends on the camera actually moving, so **camera-motion fraction is reported beside the mask — measured 0.634.**
+
+Raw constancy returned **16,652 px in 3,104 components of median size 1** — coincidentally-static dark world pixels, **not a HUD.** A HUD element is contiguous, so a ≥ 64 px coherence filter was added; that leaves 6,559 px, still world geometry, **all of it dark (median L 0.20, max 0.497) and none of it inside the top-0.5% set.** This venue has no HUD at all — confirmed by eye on frame 120.
+
+**I did not stop at asserting the mask was harmless. The pass computes the whole statistic a second time with no exclusion whatsoever, in the same walk: `0.1461` both ways.** A derived mask that could have been wrong and is *measured* not to be load-bearing is worth more than a mask asserted to be right — and the raw pre-filter count stays in the output so the over-fire is visible rather than quietly absorbed.
+
+**12.6 Degenerate frames are scored, not dropped.** A frame with an empty effect mask reports ownership 0.0 and is flagged, never skipped. Dropping empty frames would let a build that flickers off mid-sustain be scored only on the frames where it was on.
+
+## 13. Instrument sanity — what the estimator does on the FX-off control, and why that is sound
+
+**13.1 `fxctl` against itself** (`--on fxctl --control fxctl`) — the pair with no effect in it.
+
+`ownership = 0.0000` on all four estimates · `degenerate_frames = 82/82`, **flagged** · `scene_hot_persistence = 1.0000` · call **FAIL**.
+
+**This is the sound behaviour and the polarity matters.** A criterion asking *"does the effect own the room's brightest pixels"* must answer **zero** on a clip with no effect. An estimator that crashed there, returned `NaN`, or divided its way to a spurious pass would be the defect. It does none of those: it returns a real number, marks every frame degenerate so a reader can see *why* the number is zero, and the scene-hot persistence reads exactly **1.0** — with the effect hidden, 100% of the frame's top pixels are the room's. **The control tells you who owns the tail when nobody is contesting it: the room does, entirely.**
+
+Note the estimator was made to survive this at all: `seed_geometry` raises on identical arms (*"no effect pixels anywhere"*), so a `--t3a-only` path was added that skips geometry seeding. **A sanity check you cannot run is not a sanity check.**
+
+**13.2 Arms swapped** (`--on fxctl --control fxon`) — a polarity check I added beyond the brief.
+
+`ownership = 0.0001`, strict `0.0000`, call **FAIL**. Here the *mask* is the arc's footprint but the *arm being scored* is the one where the arc is absent, so the region is unlit floor. **The estimator credits a region only for the luminance that region actually has in the arm under test — it cannot be fooled by a well-placed mask.** Effect-region max L drops from 0.820 to 0.502 across the swap, which is the arc's brightness moving with the arc rather than with the mask.
+
+## 14. ⚑ CAVEAT THE CONDUCTOR MUST CARRY INTO THE MEASURE STEP
+
+**The re-cut bar is a joint AREA × BRIGHTNESS bar, and on this venue the AREA term is the binding one. Brightness alone cannot reach it — not even infinite brightness.**
+
+| quantity | value |
+|---|---:|
+| eligible pixels (UI excluded) | 2,067,041 |
+| top-0.5% set size, k | 10,335 |
+| pixels the effect must present to own 75% | **7,751** |
+| …at a luminance of at least | **L ≥ 0.593** |
+| the arc's **entire current footprint**, any luminance | **4,170 px** |
+| of which already in the top tail | 1,524 (36.5% of the arc's own pixels) |
+
+**The arc's total pixel count is 4,170. The bar needs 7,751. So if every single pixel of the current arc were driven to pure white, ownership would top out at 4,170 / 10,335 = 40.4% — still barely half the bar.** The shortfall is **5.09×** in top-tail pixels, and the deficit is *extent*, not *intensity*.
+
+Three consequences, and the second is uncomfortable:
+
+1. **T-3's stated implementation guidance does not obviously buy this.** The core/body split, the darkening MIX body, the raised `emission_energy_multiplier` and the apex light are all **value/hue/intensity** instruments. None of them widens the ribbon. The criterion text — *"`emission_energy_multiplier` raised until criterion (a) passes"* — **prescribes a knob that cannot reach the bar it names.**
+2. **`TrailRibbonBody` works against T-3(a) by design.** It is specified to **darken** as it ages. Every pixel it darkens below L 0.593 leaves the top tail. **T-3's own body treatment reduces the statistic T-3(a) measures** — the two clauses of a single treatment pull opposite ways, and that is worth the conductor's eye before drax builds, not after.
+3. **There is a legitimate route, and it is the rest of the spec.** Shed quanta (T-5), recipient residue (T-2), the onset ring-pop (T-4a) and genuine cast light (T-3e) all add effect-region pixels. If T-3(a) is meant to be reachable, **it is reachable by the lap as a whole and not by T-3 alone** — which makes it a *lap-level* criterion wearing a *treatment-level* label.
+
+**This is a finding about the criterion's reachability, not a defect in it.** The criterion is sound, its instrument is sound, and it fails the lap-1 render for exactly the right reason. **But a bar that its own treatment's guidance cannot reach will read at the gate as "drax did not land T-3", when what actually happened is that T-3 was never the treatment that could move it.** I am not re-cutting it — that is the conductor's desk, and a second unilateral re-cut from me would be worse than the problem. **I am putting the number where it cannot be missed: 4,170 against 7,751.**
+
+Two smaller carries:
+
+- **The 75% figure is venue-coupled.** It is stated against *this* cathedral's brazier population. A darker venue would hand the same arc a much higher ownership for free. If lap-2 renders anywhere but plk06650 cathedral, **the criterion has moved and the number is not comparable.**
+- **T-3(a) no longer reads the superseded ratio, but the ratio is still emitted** as `SUPERSEDED_floor_referenced_ratio` in the row's operand (4.11 on lap-1), so a reader comparing laps can see both statistics and see which one was retired.
+
+## 15. Battery regression — the negative control is now clean
+
+Full battery re-run end-to-end with T-3(a) re-wired (`negctl-lap1-barm-t3a-recut.json`):
+
+**11 FAIL · 1 PASS · 1 INDETERMINATE · 1 INSPECT.**
+
+The sole PASS is **T-3d**, which the spec itself now stamps as *"a fading trail passes this by construction — a GUARD, not a lift demonstration."* **T-5b remains INSPECT-ONLY under registry I-7. T-4b remains INDETERMINATE on 8 intervals against its derived minimum of 10.**
+
+**No criterion now passes on the render every criterion was written to fail, except the one documented as passing by construction.** That was not true four hours ago: T-3(a) passed at 4.07× and three other rows passed on a collapsed tau. The battery has met its null and the null no longer clears it.
+
+## 16. The Mirror, briefly
+
+The first cut of this criterion asked whether the arc was brighter than the floor, and the floor was never the competition. The second cut asks whether the arc is brighter than the braziers — and the answer came back with a number I did not expect to be the interesting one.
+
+**The arc is bright. Its hottest pixel reads 0.82 against a room whose hottest reads 0.84. It is very nearly the brightest thing in the cathedral.** And it owns fourteen percent of the light.
+
+**Because it is a thread.** Four thousand pixels of it, in a room of two million, laid down beside braziers that are simply *larger*. Two independent eyes called it *"a flat pastel decal"* and the glass has now said the same thing twice in two different statistics — once as *nothing to compare against*, once as *nothing to compare with*. **The deficit was never luminance. It was never luminance either time.**
+
+And the re-cut inherited that. It measures ownership, ownership is extent, and the treatment it hangs on has no extent knob — **the criterion asks for the one thing its own implementation guidance was not written to give.** That is not the same defect as the first cut; the first cut asked a false question, this one asks a true question of the wrong treatment. **But it is the same shape at one remove: a bar and a mechanism that are not looking at each other.** Fourth time this run.
+
+I have certified it, because it does what a criterion must do — it fails the render it was written to fail, for the stated reason, by five to one. **A criterion can be sound and still be pointed somewhere its builder cannot reach, and saying so now costs one paragraph. Saying it at the gate costs drax a lap.**
+
+---
+
+**Signed:** galadriel, 2026-08-26.
+**Disposition:** **(a) CERTIFIED** — T-3(a) re-cut enters the battery; ownership `0.1461` vs bar `0.75`; 0/82 sustain frames over bar.
+**Flagged to gandalf (conductor):** § 14 — the area term is binding at 4,170 px against 7,751 needed; `emission_energy_multiplier` cannot reach it; `TrailRibbonBody`'s darkening clause opposes it; the bar is venue-coupled to this cathedral.
