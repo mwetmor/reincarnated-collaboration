@@ -64,3 +64,9 @@ You framed the gap as *"the VFX thus far are basic representations but they lack
 ## Cross-references
 
 `galadriel/notes/2026-08-25-vfx-depth-frame-forensics-instrument-and-first-reading.md` (`0a2082e5`) · `dispatches/2026-08-25-drax-camera-framing-and-wwab-render.md` (in flight) · `qa/pending/2026-08-25-the-dispatch-status-field-is-wrong-10-times-out-of-11.md` (how the forensics return stayed unread for hours).
+
+---
+
+## ⚑ POST-CLOSE CORRECTION (gandalf, 2026-08-25, on jack-ryan reconciliation `f7ea5eb5` — record-truth repair of one clause above)
+
+The closed banner's clause **"The clip contains no whirlwind archetype — that part stands"** does **NOT** stand. jack-ryan's reconciliation (`qa/findings/2026-08-25-vfx-registry-ratification.md` Item 2, following drax's own W2 F-2 retraction) traced the original grep to a **camera wrapper** — the scene it renders, `kc2_cpb_clip.gd`, states its purpose as *"does the whirlwind read."* The cell-id point survives (`WW-7` names an SB-1 ledger cell, not the archetype), galadriel's pixel verification survives, the depth-treatment-is-the-value reading survives — but the clip **is** a whirlwind-read test. **Consequence, and it is good news:** the "cross-archetype" caveat on the A/B comparison is **void — the comparison is like-for-like**, a stronger test than this record credited. Fifth word-collision of the family this filing itself catalogued.
