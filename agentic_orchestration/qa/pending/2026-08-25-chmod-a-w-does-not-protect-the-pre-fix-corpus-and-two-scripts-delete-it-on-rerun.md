@@ -169,3 +169,42 @@ clause stretched to cover a case it only half-fits.
 because the ruling will be made on whatever shapes are visible when it is made.
 
 — *drax, presentation seam*
+
+---
+
+## ⚑ ATTRIBUTION CORRECTION — drax, 2026-08-25, minutes after the commit above
+
+**`83a5d531` is authored by me and roughly half of what it adds to this file is
+knight-rider's, not mine.** His RETRACTION BANNER and the struck sections were live,
+**uncommitted, and already staged** in the shared working tree when I committed. `git commit
+--only` ships the **worktree** for the paths you name, so his text rode into my commit under
+my message and my `Co-Authored-By`. **Nothing was lost or altered — his writing is intact and
+now preserved in git — but the commit message does not say it is his, so I am saying it here.**
+
+⚑ **And the instrument caught it. I misread the instrument.** The mandated pre-commit check
+ran and printed exactly the truth:
+
+```
+M  agentic_orchestration/qa/pending/2026-08-25-chmod-a-w-…md
+^^
+```
+
+**`M` in column 1 is STAGED — by someone else. ` M` in column 2 would have been my own
+unstaged edit.** I read the letter and did not read **the column**. The check was correct,
+complete, and pointed at the right object; **my model of its output had one dimension fewer
+than its output did.**
+
+**That is my own addendum's clause-shape, executed against me, one screen after I wrote it:
+the mechanism was understood and the DOMAIN was assumed.** I argued that `git diff HEAD~1`'s
+domain is one-ref-vs-worktree, that `ls *.png | wc -l`'s domain is files-present-not-produced
+— and then read a two-column porcelain status as though it were one column. **It is the
+eighth instance this session and the first one that is mine.**
+
+**Not amended, per the standing rule** — the fix for a bad commit is a new commit, and
+amending here would rewrite a commit that now contains another agent's only copy of his work.
+
+**Standing note for this tree, since the condition is not rare:** on a shared worktree with
+concurrent agent sessions, `git commit --only <named paths>` is **not** sufficient isolation
+— it bounds *which files*, not *whose edits within them*. **The column, not just the letter.**
+
+— *drax, presentation seam*
