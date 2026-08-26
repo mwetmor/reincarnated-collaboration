@@ -1,0 +1,437 @@
+{
+  "comet": {
+    "F1_head": {
+      "head_tail_val_ratio_p90": 2.138235133317392,
+      "head_tail_val_ratio_med": 1.869003035540839,
+      "head_white_frac_p90": 0.5392362054906225,
+      "tail_white_frac_p90": 0.02127996951575532,
+      "lead_known_frac": 0.5487804878048781
+    },
+    "F2_gradient": {
+      "val_slope_med": 0.3928154513628846,
+      "val_slope_p10": 0.3039085328611062,
+      "val_slope_p90": 0.4773000875053657,
+      "head_sat_med": 0.07321624952148316,
+      "tail_sat_med": 0.41786405167656426
+    },
+    "F3_width": {
+      "cv_width_med": 0.2827197601362371,
+      "cv_width_p90": 0.3485780804763906,
+      "head_tail_width_ratio_med": 0.7456139996447767,
+      "elongation_med": 2.4928147880442
+    },
+    "F4_sparks": {
+      "sat_count_med": 155.0,
+      "sat_count_p90": 191.5,
+      "sat_massfrac_p90": 0.22950965894446296,
+      "sat_dist_norm_p90": 1.7924899800396212
+    },
+    "F5_smoke": {
+      "halo_area_ratio_med": 0.23875213380649946,
+      "halo_area_ratio_p90": 0.27664303843001525,
+      "halo_sat_med": 0.36206625401973724,
+      "halo_softness_med": 8.77351397423503
+    },
+    "F6a_scar": null,
+    "F6b_impact_distortion": {
+      "impact_frame_idx": 23,
+      "impact_t_s": 0.7666666666666667,
+      "radial_near_at_impact": NaN,
+      "radial_far_at_impact": NaN,
+      "radial_near_clip_absmax": NaN,
+      "radial_near_clip_median": NaN,
+      "resid_near_at_impact": 0.0,
+      "resid_near_clip_median": 0.0,
+      "validated_lens_signature": [
+        0.51,
+        0.99
+      ]
+    },
+    "F7_shake": {
+      "pan_mean_px": 0.0,
+      "hf_median_px": 0.0,
+      "hf_mad_px": 1e-09,
+      "hf_p99_px": 0.0,
+      "hf_max_px": 0.0,
+      "shake_bar_px": 0.5,
+      "n_shake_frames": 0,
+      "shake_frame_frac": 0.0,
+      "hf_to_pan_ratio": 0.0,
+      "div_median": 0.0,
+      "div_max_z": 0.0
+    },
+    "CV_timing": {
+      "events": {
+        "n_events": 8,
+        "prominence_bar": 0.0044922977685928345,
+        "derivation": "prominence = 3.0 x MAD(diff(series))",
+        "intervals_s": [
+          0.1,
+          0.2333,
+          0.1,
+          0.1333,
+          0.1,
+          0.2,
+          0.2333
+        ],
+        "mean_interval_s": 0.15714285714285717,
+        "cv_interval": 0.3711348095126027,
+        "events_per_s": 2.926829268292683
+      },
+      "spectrum": {
+        "dominant_hz": 1.0975609756097562,
+        "dominant_period_s": 0.9111111111111111,
+        "peak_over_median": 386.7123182133867,
+        "spectrum_median_floor": 0.002304486071263335
+      },
+      "trip_flag": false
+    }
+  },
+  "bar": {
+    "F1_head": {
+      "head_tail_val_ratio_p90": 1.10227410730328,
+      "head_tail_val_ratio_med": 0.987893977440278,
+      "head_white_frac_p90": 0.0,
+      "tail_white_frac_p90": 0.0,
+      "lead_known_frac": 0.5365853658536586
+    },
+    "F2_gradient": {
+      "val_slope_med": 0.014689645109885786,
+      "val_slope_p10": -0.17341597470930728,
+      "val_slope_p90": 0.09225461498030328,
+      "head_sat_med": 0.605664718310248,
+      "tail_sat_med": 0.6266062618301711
+    },
+    "F3_width": {
+      "cv_width_med": 0.30491849821259004,
+      "cv_width_p90": 0.4177230007546367,
+      "head_tail_width_ratio_med": 0.943763957456589,
+      "elongation_med": 2.4504535631127142
+    },
+    "F4_sparks": {
+      "sat_count_med": 98.0,
+      "sat_count_p90": 136.0,
+      "sat_massfrac_p90": 0.0931926238708188,
+      "sat_dist_norm_p90": 4.315353176833728
+    },
+    "F5_smoke": {
+      "halo_area_ratio_med": 0.47719434024447593,
+      "halo_area_ratio_p90": 0.5715303451512397,
+      "halo_sat_med": 0.4701736718416214,
+      "halo_softness_med": 3.499082880148447
+    },
+    "F6a_scar": null,
+    "F6b_impact_distortion": {
+      "impact_frame_idx": 29,
+      "impact_t_s": 0.9666666666666667,
+      "radial_near_at_impact": NaN,
+      "radial_far_at_impact": NaN,
+      "radial_near_clip_absmax": NaN,
+      "radial_near_clip_median": NaN,
+      "resid_near_at_impact": 0.0,
+      "resid_near_clip_median": 0.0,
+      "validated_lens_signature": [
+        0.51,
+        0.99
+      ]
+    },
+    "F7_shake": {
+      "pan_mean_px": 0.0,
+      "hf_median_px": 0.0,
+      "hf_mad_px": 1e-09,
+      "hf_p99_px": 0.0,
+      "hf_max_px": 0.0,
+      "shake_bar_px": 0.5,
+      "n_shake_frames": 0,
+      "shake_frame_frac": 0.0,
+      "hf_to_pan_ratio": 0.0,
+      "div_median": 0.0,
+      "div_max_z": 0.0
+    },
+    "CV_timing": {
+      "events": {
+        "n_events": 7,
+        "prominence_bar": 0.000201281625777483,
+        "derivation": "prominence = 3.0 x MAD(diff(series))",
+        "intervals_s": [
+          0.2,
+          0.1333,
+          0.1,
+          0.2667,
+          0.4,
+          0.1
+        ],
+        "mean_interval_s": 0.20000000000000004,
+        "cv_interval": 0.5357583756107196,
+        "events_per_s": 2.5609756097560976
+      },
+      "spectrum": {
+        "dominant_hz": 1.8292682926829267,
+        "dominant_period_s": 0.5466666666666667,
+        "peak_over_median": 150.92128532385954,
+        "spectrum_median_floor": 1.5377093563997887e-06
+      },
+      "trip_flag": false
+    }
+  },
+  "smoke": {
+    "F1_head": {
+      "head_tail_val_ratio_p90": 1.1911917951001783,
+      "head_tail_val_ratio_med": 1.0855533050481339,
+      "head_white_frac_p90": 0.003233199682579465,
+      "tail_white_frac_p90": 0.0,
+      "lead_known_frac": 0.5365853658536586
+    },
+    "F2_gradient": {
+      "val_slope_med": 0.13326249180820085,
+      "val_slope_p10": 0.0271066951740607,
+      "val_slope_p90": 0.19645763805457508,
+      "head_sat_med": 0.4825919817836777,
+      "tail_sat_med": 0.4650046106638088
+    },
+    "F3_width": {
+      "cv_width_med": 0.26061714834134436,
+      "cv_width_p90": 0.3099334765344304,
+      "head_tail_width_ratio_med": 0.7906975223144117,
+      "elongation_med": 2.5661828013536905
+    },
+    "F4_sparks": {
+      "sat_count_med": 299.0,
+      "sat_count_p90": 391.59999999999997,
+      "sat_massfrac_p90": 0.14691162943603708,
+      "sat_dist_norm_p90": 2.379671413854309
+    },
+    "F5_smoke": {
+      "halo_area_ratio_med": 1.443986961743009,
+      "halo_area_ratio_p90": 1.5744969759948804,
+      "halo_sat_med": 0.30687278509140015,
+      "halo_softness_med": 4.140417739875074
+    },
+    "F6a_scar": null,
+    "F6b_impact_distortion": {
+      "impact_frame_idx": 8,
+      "impact_t_s": 0.26666666666666666,
+      "radial_near_at_impact": NaN,
+      "radial_far_at_impact": NaN,
+      "radial_near_clip_absmax": NaN,
+      "radial_near_clip_median": NaN,
+      "resid_near_at_impact": 0.0,
+      "resid_near_clip_median": 0.0,
+      "validated_lens_signature": [
+        0.51,
+        0.99
+      ]
+    },
+    "F7_shake": {
+      "pan_mean_px": 0.0,
+      "hf_median_px": 0.0,
+      "hf_mad_px": 1e-09,
+      "hf_p99_px": 0.0,
+      "hf_max_px": 0.0,
+      "shake_bar_px": 0.5,
+      "n_shake_frames": 0,
+      "shake_frame_frac": 0.0,
+      "hf_to_pan_ratio": 0.0,
+      "div_median": 0.0,
+      "div_max_z": 0.0
+    },
+    "CV_timing": {
+      "events": {
+        "n_events": 6,
+        "prominence_bar": 0.0001875848975032568,
+        "derivation": "prominence = 3.0 x MAD(diff(series))",
+        "intervals_s": [
+          0.2,
+          0.1667,
+          0.3333,
+          0.4,
+          0.1
+        ],
+        "mean_interval_s": 0.24000000000000005,
+        "cv_interval": 0.45980403770130124,
+        "events_per_s": 2.1951219512195124
+      },
+      "spectrum": {
+        "dominant_hz": 1.8292682926829267,
+        "dominant_period_s": 0.5466666666666667,
+        "peak_over_median": 92.67065706366427,
+        "spectrum_median_floor": 2.0499896062979308e-06
+      },
+      "trip_flag": false
+    }
+  },
+  "scar": {
+    "F1_head": {
+      "head_tail_val_ratio_p90": 0.9517281500581954,
+      "head_tail_val_ratio_med": 0.9190905703768067,
+      "head_white_frac_p90": 0.0,
+      "tail_white_frac_p90": 0.0,
+      "lead_known_frac": 0.036585365853658534
+    },
+    "F2_gradient": {
+      "val_slope_med": -0.040726892635392344,
+      "val_slope_p10": -0.05558247157632581,
+      "val_slope_p90": -0.02678843619228363,
+      "head_sat_med": 0.2287378892362009,
+      "tail_sat_med": 0.3721212604661095
+    },
+    "F3_width": {
+      "cv_width_med": 0.17887054857792897,
+      "cv_width_p90": 0.18430353329972457,
+      "head_tail_width_ratio_med": 1.0016122288702547,
+      "elongation_med": 1.006888490875225
+    },
+    "F4_sparks": {
+      "sat_count_med": 0.0,
+      "sat_count_p90": 1141.4,
+      "sat_massfrac_p90": 0.07008363819763512,
+      "sat_dist_norm_p90": 1.1328746223488508
+    },
+    "F5_smoke": {
+      "halo_area_ratio_med": 5.142857142857143,
+      "halo_area_ratio_p90": 40.666666666666664,
+      "halo_sat_med": 0.3739871084690094,
+      "halo_softness_med": 1.368831321139612
+    },
+    "F6a_scar": {
+      "impact_idx": 45,
+      "scar_frac": 0.013885944456222175,
+      "control_frac": 0.0,
+      "scar_over_control": 13885.944456222176,
+      "lag_s": 1.0
+    },
+    "F6b_impact_distortion": {
+      "impact_frame_idx": 45,
+      "impact_t_s": 1.5,
+      "radial_near_at_impact": NaN,
+      "radial_far_at_impact": NaN,
+      "radial_near_clip_absmax": NaN,
+      "radial_near_clip_median": NaN,
+      "resid_near_at_impact": 0.0,
+      "resid_near_clip_median": 0.0,
+      "validated_lens_signature": [
+        0.51,
+        0.99
+      ]
+    },
+    "F7_shake": {
+      "pan_mean_px": 0.0,
+      "hf_median_px": 0.0,
+      "hf_mad_px": 1e-09,
+      "hf_p99_px": 0.0,
+      "hf_max_px": 0.0,
+      "shake_bar_px": 0.5,
+      "n_shake_frames": 0,
+      "shake_frame_frac": 0.0,
+      "hf_to_pan_ratio": 0.0,
+      "div_median": 0.0,
+      "div_max_z": 0.0
+    },
+    "CV_timing": {
+      "events": {
+        "n_events": 1,
+        "prominence_bar": 3e-12,
+        "intervals_s": [],
+        "mean_interval_s": null,
+        "cv_interval": null,
+        "events_per_s": 0.36585365853658536
+      },
+      "spectrum": {
+        "dominant_hz": 1.0975609756097562,
+        "dominant_period_s": 0.9111111111111111,
+        "peak_over_median": 1.6426488290857546,
+        "spectrum_median_floor": 0.15886642193835623
+      },
+      "trip_flag": false
+    }
+  },
+  "scarnull": {
+    "F1_head": {
+      "head_tail_val_ratio_p90": 1.0403597492343442,
+      "head_tail_val_ratio_med": 0.9809199652532674,
+      "head_white_frac_p90": 0.0,
+      "tail_white_frac_p90": 0.0,
+      "lead_known_frac": 0.024390243902439025
+    },
+    "F2_gradient": {
+      "val_slope_med": 0.029748493468961554,
+      "val_slope_p10": 0.012453039422621836,
+      "val_slope_p90": 0.047043947515301276,
+      "head_sat_med": 0.27914147423300034,
+      "tail_sat_med": 0.29470900855756055
+    },
+    "F3_width": {
+      "cv_width_med": 0.1689688638577819,
+      "cv_width_p90": 0.18473982826139437,
+      "head_tail_width_ratio_med": 0.9992576175438611,
+      "elongation_med": 1.0075282703846304
+    },
+    "F4_sparks": {
+      "sat_count_med": 298.0,
+      "sat_count_p90": 501.2,
+      "sat_massfrac_p90": 0.013277381022612568,
+      "sat_dist_norm_p90": 1.0558961058878327
+    },
+    "F5_smoke": {
+      "halo_area_ratio_med": 0.3214201801331419,
+      "halo_area_ratio_p90": 7.518367346938776,
+      "halo_sat_med": 0.39109794795513153,
+      "halo_softness_med": 2.337409434385467
+    },
+    "F6a_scar": {
+      "impact_idx": 45,
+      "scar_frac": 0.0,
+      "control_frac": 0.0,
+      "scar_over_control": 0.0,
+      "lag_s": 1.0
+    },
+    "F6b_impact_distortion": {
+      "impact_frame_idx": 45,
+      "impact_t_s": 1.5,
+      "radial_near_at_impact": NaN,
+      "radial_far_at_impact": NaN,
+      "radial_near_clip_absmax": NaN,
+      "radial_near_clip_median": NaN,
+      "resid_near_at_impact": 0.0,
+      "resid_near_clip_median": 0.0,
+      "validated_lens_signature": [
+        0.51,
+        0.99
+      ]
+    },
+    "F7_shake": {
+      "pan_mean_px": 0.0,
+      "hf_median_px": 0.0,
+      "hf_mad_px": 1e-09,
+      "hf_p99_px": 0.0,
+      "hf_max_px": 0.0,
+      "shake_bar_px": 0.5,
+      "n_shake_frames": 0,
+      "shake_frame_frac": 0.0,
+      "hf_to_pan_ratio": 0.0,
+      "div_median": 0.0,
+      "div_max_z": 0.0
+    },
+    "CV_timing": {
+      "events": {
+        "n_events": 3,
+        "prominence_bar": 3e-12,
+        "derivation": "prominence = 3.0 x MAD(diff(series))",
+        "intervals_s": [
+          0.2667,
+          0.0667
+        ],
+        "mean_interval_s": 0.16666666666666666,
+        "cv_interval": 0.6000000000000001,
+        "events_per_s": 1.0975609756097562
+      },
+      "spectrum": {
+        "dominant_hz": 1.0975609756097562,
+        "dominant_period_s": 0.9111111111111111,
+        "peak_over_median": 3.3177533904196745,
+        "spectrum_median_floor": 2.676481990906727
+      },
+      "trip_flag": false
+    }
+  }
+}

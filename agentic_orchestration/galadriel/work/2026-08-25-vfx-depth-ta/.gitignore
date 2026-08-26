@@ -1,0 +1,5 @@
+# Class-E: decoded/downloaded media is NOT tracked. The text is bridged to the
+# bytes by media/SHA256SUMS.txt + cdn_probe.tsv (URL, byte count, Last-Modified),
+# from which every file here is re-fetchable with one curl.
+media/
+synth/
