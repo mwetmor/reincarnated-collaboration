@@ -1,5 +1,13 @@
 # Class-E: decoded/downloaded media is NOT tracked. The text is bridged to the
-# bytes by media/SHA256SUMS.txt + cdn_probe.tsv (URL, byte count, Last-Modified),
-# from which every file here is re-fetchable with one curl.
+# bytes by MEDIA-SHA256SUMS.txt + cdn_probe.tsv (URL, byte count, Last-Modified),
+# from which every source file is re-fetchable with one curl.
 media/
 synth/
+# Impact frames are EVIDENCE but they are also fully DERIVED: out/impact_frames.json
+# carries the row, the measured time and the frame index for every leg, and
+#     python3 impact_frames.py
+# regenerates all of them from the committed series + the re-fetchable media.
+# Committing ~8 MB of PNG that one command reproduces is not provenance, it is bulk.
+sheet/
+sheet2/
+*.png
