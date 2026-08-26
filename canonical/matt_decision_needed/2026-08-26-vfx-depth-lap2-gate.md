@@ -1,5 +1,7 @@
 # VFX-Depth Run — LAP-2 GATE PACKET (CP#2, Matt's eye)
 
+> ⛔ **SUSPENDED 2026-08-26, hours after filing — SUBSTRATE MIS-ANCHOR (found by Matt at the gate).** Every reference-side claim in this packet was measured/judged against `855bb3d9…` = the **D3 Whirlwind, Blizzard 2012 master**, not Matt's named referent **`youtube.com/watch?v=KaMPoPywM40`** ("The Whirlwind Barbarian Is Smashing Everything In Diablo 4 Season 14!", Cliptis). Matt's ruling: the KaMPoPywM40 video IS the reference. **Do not rule G-1..G-5 from this packet.** What survives vs dies is triaged at charter ledger **R-28**; a re-anchored packet supersedes this one after fresh blind seats (X-5/X-6) run against the true referent. Preserved unedited below as the lineage record of what the wrong referent produced.
+
 **Filed:** 2026-08-26 · **Conductor:** gandalf (RUN-CONDUCTOR) · **Queue row:** Q67
 **What this gates:** lap-2 → lap-3 of the whirlwind twin loop. The run is HALTED at this commitment boundary until the rulings below land. Evidence pointers at the bottom; decisions first.
 
