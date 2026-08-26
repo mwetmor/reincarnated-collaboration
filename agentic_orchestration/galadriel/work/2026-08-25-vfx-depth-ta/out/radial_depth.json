@@ -582,5 +582,398 @@
       "tile_grid": 8,
       "n_frames_analysed": 337
     }
+  },
+  "R_whirlwind": {
+    "media": "media/barbarian_whirlwind.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.5375003750635348,
+        "head_tail_val_ratio_med": 0.9999948674436785,
+        "head_white_frac_p90": 0.012250873175054189,
+        "tail_white_frac_p90": 0.012142800674401093,
+        "lead_known_frac": 0.9427792915531336
+      },
+      "F2_gradient": {
+        "val_slope_med": -0.013006387442990016,
+        "val_slope_p10": -0.3040730523645757,
+        "val_slope_p90": 0.32459370732407156,
+        "head_sat_med": 0.3540388571267289,
+        "tail_sat_med": 0.35452309004146876
+      },
+      "F3_width": {
+        "cv_width_med": 0.29373191531665066,
+        "cv_width_p90": 0.4063575374874448,
+        "head_tail_width_ratio_med": 0.9937496998782752,
+        "elongation_med": 1.4762365417387782
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.015602123980790156,
+        "edge_white_frac_p90": 0.007286950078568267,
+        "val_slope_med": -0.16406979249447295,
+        "sat_slope_med": -0.014378251534421146,
+        "core_sat_med": 0.35679007422335973,
+        "edge_sat_med": 0.3448728760005035
+      },
+      "F4_sparks": {
+        "sat_count_med": 400.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.42778982497801543,
+        "sat_dist_norm_p90": 9.088096700053491
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 0.8246863071482529,
+        "halo_area_ratio_p90": 1.4075171524849812,
+        "halo_sat_med": 0.3714868426322937,
+        "halo_softness_med": 3.305596742490293
+      },
+      "F6a_scar": {
+        "impact_idx": 94,
+        "scar_frac": 0.86353668261563,
+        "control_frac": 0.7169916310541311,
+        "scar_over_control": 1.2043887895121541,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 94,
+        "impact_t_s": 3.1333333333333333,
+        "radial_near_at_impact": 0.31736460683610695,
+        "radial_far_at_impact": 0.6704363146932534,
+        "radial_near_clip_absmax": 0.6091444722441063,
+        "radial_near_clip_median": -0.011116321231262397,
+        "resid_near_at_impact": 2.263055643572196,
+        "resid_near_clip_median": 1.4292191807304393,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 5.035958457843145,
+        "hf_median_px": 1.1639257163244234,
+        "hf_mad_px": 1.0895954891840625,
+        "hf_p99_px": 11.36966893470821,
+        "hf_max_px": 12.538594456922464,
+        "shake_bar_px": 7.701498651428799,
+        "n_shake_frames": 32,
+        "shake_frame_frac": 0.09014084507042254,
+        "hf_to_pan_ratio": 2.2576971255592397,
+        "div_median": -4.6998922941349255e-05,
+        "div_max_z": 13.354964464175511
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 22,
+          "prominence_bar": 0.011935662478208542,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.2333,
+            0.1,
+            0.3333,
+            0.1667,
+            0.9667,
+            0.1667,
+            0.2333,
+            0.1,
+            0.1333,
+            0.2,
+            0.2333,
+            0.0667,
+            0.4,
+            0.2667,
+            0.4667,
+            0.3667,
+            0.5333,
+            1.1333,
+            0.3333,
+            0.1333,
+            2.0667
+          ],
+          "mean_interval_s": 0.4111111111111111,
+          "cv_interval": 1.107024613896984,
+          "events_per_s": 1.798365122615804
+        },
+        "spectrum": {
+          "dominant_hz": 0.6539509536784741,
+          "dominant_period_s": 1.5291666666666666,
+          "peak_over_median": 81.86247063376791,
+          "spectrum_median_floor": 0.12571339079289082
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 1.0,
+      "tau_novelty": 6.0,
+      "tau_spec": 160.53720092773438
+    },
+    "meta": {
+      "path": "media/barbarian_whirlwind.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 12.479,
+      "bytes": 6872672,
+      "label": "R_whirlwind",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 375
+    }
+  },
+  "R_vortex_pull": {
+    "media": "media/monk_cyclone-strike.flv",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.4460230866698507,
+        "head_tail_val_ratio_med": 0.9997179052840519,
+        "head_white_frac_p90": 0.03576600978072318,
+        "tail_white_frac_p90": 0.04328031106398022,
+        "lead_known_frac": 0.9285714285714286
+      },
+      "F2_gradient": {
+        "val_slope_med": -0.0033805588137902328,
+        "val_slope_p10": -0.2904451650653317,
+        "val_slope_p90": 0.30857070040283424,
+        "head_sat_med": 0.5484977073322241,
+        "tail_sat_med": 0.5651230698754452
+      },
+      "F3_width": {
+        "cv_width_med": 0.2684478619762492,
+        "cv_width_p90": 0.3934714822198546,
+        "head_tail_width_ratio_med": 0.9688274762822425,
+        "elongation_med": 1.7098283502543836
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.20102153927103034,
+        "edge_white_frac_p90": 0.029493706090106063,
+        "val_slope_med": -0.13412179188609524,
+        "sat_slope_med": 0.0736788543233599,
+        "core_sat_med": 0.4975354168350138,
+        "edge_sat_med": 0.5661811129478997
+      },
+      "F4_sparks": {
+        "sat_count_med": 400.0,
+        "sat_count_p90": 400.0,
+        "sat_massfrac_p90": 0.402600291478786,
+        "sat_dist_norm_p90": 5.531116916748252
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 1.4874714417528898,
+        "halo_area_ratio_p90": 3.570911669273571,
+        "halo_sat_med": 0.5026701986789703,
+        "halo_softness_med": 4.545184017225818
+      },
+      "F6a_scar": {
+        "impact_idx": 81,
+        "scar_frac": 0.5784486478711163,
+        "control_frac": 0.8080128205128205,
+        "scar_over_control": 0.7158904329067365,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 81,
+        "impact_t_s": 2.7,
+        "radial_near_at_impact": 0.45999123377750156,
+        "radial_far_at_impact": 0.6593336336414504,
+        "radial_near_clip_absmax": 0.5977243281783395,
+        "radial_near_clip_median": 0.0113651959558531,
+        "resid_near_at_impact": 1.0836554846263742,
+        "resid_near_clip_median": 0.2422677251877267,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 2.354171619538274,
+        "hf_median_px": 0.06808419251655351,
+        "hf_mad_px": 0.06808419251655351,
+        "hf_p99_px": 7.160780556622425,
+        "hf_max_px": 10.187500000000004,
+        "shake_bar_px": 0.5,
+        "n_shake_frames": 57,
+        "shake_frame_frac": 0.23949579831932774,
+        "hf_to_pan_ratio": 3.041741093636528,
+        "div_median": 4.650297619047618e-06,
+        "div_max_z": 49.56367970135243
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 14,
+          "prominence_bar": 0.0008107249159365892,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            0.1667,
+            0.7,
+            0.2333,
+            0.6,
+            0.2667,
+            0.5,
+            0.5333,
+            0.5667,
+            0.4333,
+            0.2667,
+            0.3667,
+            0.2,
+            0.8
+          ],
+          "mean_interval_s": 0.4333333333333333,
+          "cv_interval": 0.4485347611419462,
+          "events_per_s": 1.6666666666666665
+        },
+        "spectrum": {
+          "dominant_hz": 0.3571428571428571,
+          "dominant_period_s": 2.8000000000000003,
+          "peak_over_median": 398.0295507682485,
+          "spectrum_median_floor": 0.003821853411422965
+        },
+        "trip_flag": false
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 0.0,
+      "tau_novelty": 3.0,
+      "tau_spec": 233.7832489013672
+    },
+    "meta": {
+      "path": "media/monk_cyclone-strike.flv",
+      "codec": "vp6f",
+      "src_w": 1280,
+      "src_h": 720,
+      "src_fps": 29.97002997002997,
+      "duration_s": 8.641,
+      "bytes": 4175267,
+      "label": "R_vortex_pull",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 260
+    }
+  },
+  "R_OURS_ground_slam": {
+    "media": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/05_ground_slam_CATHEDRAL.mp4",
+    "summary": {
+      "F1_head": {
+        "head_tail_val_ratio_p90": 1.4119853781387357,
+        "head_tail_val_ratio_med": 1.0679201269310235,
+        "head_white_frac_p90": 0.0005099439061703213,
+        "tail_white_frac_p90": 0.0,
+        "lead_known_frac": 0.5495049504950495
+      },
+      "F2_gradient": {
+        "val_slope_med": 0.032258902670358525,
+        "val_slope_p10": -0.08519321956222298,
+        "val_slope_p90": 0.17598620897969455,
+        "head_sat_med": 0.6118874412561148,
+        "tail_sat_med": 0.6193748191974191
+      },
+      "F3_width": {
+        "cv_width_med": 0.22571627030267222,
+        "cv_width_p90": 0.44509851803082034,
+        "head_tail_width_ratio_med": 0.9906094342564113,
+        "elongation_med": 2.2768631003595035
+      },
+      "F1r_radial_core": {
+        "core_white_frac_p90": 0.06448716169047634,
+        "edge_white_frac_p90": 0.0,
+        "val_slope_med": -0.004313624263147053,
+        "sat_slope_med": 0.05661819558045135,
+        "core_sat_med": 0.5608853856321081,
+        "edge_sat_med": 0.4838850384355956
+      },
+      "F4_sparks": {
+        "sat_count_med": 0.0,
+        "sat_count_p90": 25.0,
+        "sat_massfrac_p90": 0.15415549597855227,
+        "sat_dist_norm_p90": 12.82156312081853
+      },
+      "F5_smoke": {
+        "halo_area_ratio_med": 2.503118503118503,
+        "halo_area_ratio_p90": 3.5685881140501547,
+        "halo_sat_med": 0.7903816998004913,
+        "halo_softness_med": 2.711526438130519
+      },
+      "F6a_scar": {
+        "impact_idx": 53,
+        "scar_frac": 0.013196947212211152,
+        "control_frac": 0.013143947424210304,
+        "scar_over_control": 1.0040322580645162,
+        "lag_s": 1.0
+      },
+      "F6b_impact_distortion": {
+        "impact_frame_idx": 53,
+        "impact_t_s": 1.7666666666666666,
+        "radial_near_at_impact": NaN,
+        "radial_far_at_impact": NaN,
+        "radial_near_clip_absmax": 0.1453326378562197,
+        "radial_near_clip_median": -0.1431902015837142,
+        "resid_near_at_impact": 0.0,
+        "resid_near_clip_median": 0.0,
+        "validated_lens_signature": [
+          0.51,
+          0.99
+        ]
+      },
+      "F7_shake": {
+        "pan_mean_px": 0.0,
+        "hf_median_px": 0.0,
+        "hf_mad_px": 1e-09,
+        "hf_p99_px": 0.0,
+        "hf_max_px": 0.17379247747863152,
+        "shake_bar_px": 0.5,
+        "n_shake_frames": 0,
+        "shake_frame_frac": 0.0,
+        "hf_to_pan_ratio": 0.0,
+        "div_median": 0.0,
+        "div_max_z": 82545.18022638929
+      },
+      "CV_timing": {
+        "events": {
+          "n_events": 6,
+          "prominence_bar": 2.888480776164215e-05,
+          "derivation": "prominence = 3.0 x MAD(diff(series))",
+          "intervals_s": [
+            1.1667,
+            1.1667,
+            1.1667,
+            1.1667,
+            1.1667
+          ],
+          "mean_interval_s": 1.1666666666666667,
+          "cv_interval": 0.0,
+          "events_per_s": 0.8910891089108911
+        },
+        "spectrum": {
+          "dominant_hz": 0.891089108910891,
+          "dominant_period_s": 1.1222222222222225,
+          "peak_over_median": 6387.325080127454,
+          "spectrum_median_floor": 6.30961380515402e-05
+        },
+        "trip_flag": true
+      }
+    },
+    "derived": {
+      "noise_mad_luma": 0.0,
+      "tau_novelty": 3.0,
+      "tau_spec": 178.0577850341797
+    },
+    "meta": {
+      "path": "/Users/admin/Games/reincarnated-godot/harness_logs/mp4_review_2026-08-25_v3/05_ground_slam_CATHEDRAL.mp4",
+      "codec": "h264",
+      "src_w": 1920,
+      "src_h": 1080,
+      "src_fps": 60.0,
+      "duration_s": 7.0,
+      "bytes": 11462271,
+      "label": "R_OURS_ground_slam",
+      "analysis_w": 1280,
+      "analysis_h": 720,
+      "analysis_fps": 30.0,
+      "tile_grid": 8,
+      "n_frames_analysed": 210
+    }
   }
 }

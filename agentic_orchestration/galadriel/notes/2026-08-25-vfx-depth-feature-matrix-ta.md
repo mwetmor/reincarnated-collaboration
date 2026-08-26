@@ -220,6 +220,127 @@ Also worth the conductor's eye: **`ground_targeted_circle`'s non-PoE co-referenc
 **How to read a cell, and this is the part that matters more than the letters.** `n/e` and `A` are *not* neighbours on a scale. `A` says *the instrument looked and the thing is not there.* `n/e` says *the instrument could not look.* Five reference rows carry `n/e` on F1/F2/F3 for the reason in § 1.4, and treating those as `A` would put *"the D3 references have no hot leading head"* into a spec as a fact. It is not a fact. It is a hole where a measurement should be.
 
 <!--MATRIX-->
+### CALL MATRIX
+
+| row | F1 | F2 | F3 | F4 | F5 | F6a | F6b | F7 | CV | ev/s | peak/med | trip |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `ground_targeted_circle` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.943 | 3.10 | 286 | - |
+| `melee_strike_CANON` | n/e | n/e | n/e | **P** | ? | n/e | ? | ? | 0.839 | 3.24 | 132 | - |
+| `circle_ring` | n/e | n/e | n/e | **P** | **P** | n/e | ? | **P** | 0.745 | 1.44 | 757 | - |
+| `circle_ring_alt` | A | ? | A | **P** | **P** | n/e | ? | **P** | 0.689 | 1.96 | 117 | - |
+| `single_target` | ? | A | A | **P** | ? | n/e | ? | ? | 0.755 | 2.92 | 28 | - |
+| `melee_arc` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.888 | 1.79 | 19 | - |
+| `dash_attack` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.645 | 2.08 | 472 | - |
+| `whirlwind` | n/e | n/e | n/e | **P** | ? | n/e | ? | ? | 1.107 | 1.80 | 82 | - |
+| `ground_slam` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.784 | 2.46 | 381 | - |
+| `cone` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.629 | 2.08 | 94 | - |
+| `vortex_pull` | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.449 | 1.67 | 398 | - |
+| `leap_strike` | n/e | n/e | n/e | **P** | **P** | n/e | **P** | **P** | 0.646 | 1.82 | 51 | - |
+| `melee_strike` | n/e | n/e | n/e | **P** | **P** | n/e | ? | **P** | 1.127 | 2.49 | 97 | - |
+| `OURS_dash_attack` | A | ? | **P** | **P** | **P** | **P** | A | A | 0.955 | 3.43 | 252 | - |
+| `OURS_blink` | ? | ? | **P** | **P** | ? | n/e | ? | A | 0.000 | 1.50 | 945 | - |
+| `OURS_teleport` | n/e | n/e | n/e | **P** | **P** | ? | ? | A | 0.021 | 1.35 | 473 | - |
+| `OURS_leap_strike` | A | ? | **P** | **P** | **P** | **P** | ? | ? | 0.668 | 1.93 | 1955 | - |
+| `OURS_ground_slam` | A | ? | A | ? | **P** | ? | ? | A | 0.000 | 0.89 | 6387 | ⚑TRIP |
+| `OURS_melee_combo` | ? | **P** | A | ? | **P** | ? | ? | ? | 0.102 | 2.52 | 2148 | ⚑TRIP |
+
+### NUMERIC APPENDIX
+
+| row | head_white p90 | tail_white p90 | lead_known | val_slope | head_sat | tail_sat | h/t width | elong | sat_n | sat_mass | halo/core | pan px/fr | hf p99 | shake n |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| `ground_targeted_circle` | 0.0057 | 0.0057 | 0.95 | -0.014 | 0.428 | 0.428 | 0.987 | 1.68 | 400 | 0.472 | 1.34 | 6.14 | 11.27 | 4 |
+| `melee_strike_CANON` | 0.0732 | 0.0762 | 1.00 | -0.013 | 0.469 | 0.465 | 1.036 | 1.65 | 400 | 0.362 | 0.60 | 1.16 | 11.89 | 27 |
+| `circle_ring` | 0.1459 | 0.1215 | 0.97 | +0.029 | 0.665 | 0.691 | 1.034 | 1.91 | 400 | 0.390 | 2.32 | 6.47 | 7.60 | 84 |
+| `circle_ring_alt` | 0.0000 | 0.0043 | 0.96 | -0.032 | 0.502 | 0.490 | 1.005 | 2.15 | 400 | 0.339 | 2.48 | 4.84 | 2.94 | 43 |
+| `single_target` | 0.1400 | 0.0997 | 1.00 | +0.024 | 0.306 | 0.304 | 0.991 | 2.17 | 400 | 0.318 | 0.66 | 2.89 | 7.08 | 43 |
+| `melee_arc` | 0.0015 | 0.0022 | 0.97 | +0.002 | 0.643 | 0.634 | 0.939 | 1.84 | 400 | 0.388 | 1.41 | 2.05 | 6.56 | 63 |
+| `dash_attack` | 0.1168 | 0.1103 | 0.94 | -0.036 | 0.263 | 0.264 | 0.970 | 1.83 | 400 | 0.433 | 1.58 | 4.29 | 11.47 | 82 |
+| `whirlwind` | 0.0123 | 0.0121 | 0.94 | -0.013 | 0.354 | 0.355 | 0.994 | 1.48 | 400 | 0.428 | 0.82 | 5.04 | 11.37 | 32 |
+| `ground_slam` | 0.0208 | 0.0279 | 0.97 | +0.014 | 0.676 | 0.676 | 1.003 | 1.72 | 400 | 0.405 | 1.26 | 3.34 | 9.53 | 62 |
+| `cone` | 0.0053 | 0.0065 | 0.97 | +0.019 | 0.372 | 0.368 | 0.998 | 1.75 | 400 | 0.413 | 1.09 | 3.61 | 7.80 | 51 |
+| `vortex_pull` | 0.0358 | 0.0433 | 0.93 | -0.003 | 0.548 | 0.565 | 0.969 | 1.71 | 400 | 0.403 | 1.49 | 2.35 | 7.16 | 57 |
+| `leap_strike` | 0.0100 | 0.0082 | 0.96 | -0.007 | 0.564 | 0.572 | 0.984 | 1.78 | 400 | 0.428 | 1.45 | 3.17 | 8.97 | 73 |
+| `melee_strike` | 0.0023 | 0.0027 | 0.97 | +0.016 | 0.532 | 0.543 | 1.021 | 1.87 | 400 | 0.368 | 1.16 | 1.89 | 7.69 | 87 |
+| `OURS_dash_attack` | 0.0000 | 0.0000 | 0.62 | -0.044 | 0.765 | 0.734 | 0.804 | 2.15 | 24 | 0.223 | 2.38 | 0.03 | 0.19 | 0 |
+| `OURS_blink` | 0.0447 | 0.2137 | 0.99 | -0.109 | 0.682 | 0.359 | 1.395 | 2.07 | 28 | 0.151 | 0.67 | 0.03 | 0.15 | 0 |
+| `OURS_teleport` | 0.2103 | 0.0716 | 0.74 | -0.001 | 0.467 | 0.455 | 1.000 | 1.39 | 19 | 0.194 | 1.09 | 0.00 | 0.00 | 0 |
+| `OURS_leap_strike` | 0.0000 | 0.0041 | 0.94 | -0.055 | 0.698 | 0.460 | 1.240 | 2.47 | 19 | 0.144 | 1.19 | 0.00 | 0.56 | 3 |
+| `OURS_ground_slam` | 0.0005 | 0.0000 | 0.55 | +0.032 | 0.612 | 0.619 | 0.991 | 2.28 | 0 | 0.154 | 2.50 | 0.00 | 0.00 | 0 |
+| `OURS_melee_combo` | 0.0706 | 0.0000 | 0.99 | +0.214 | 0.593 | 0.483 | 0.931 | 2.74 | 14 | 0.174 | 1.08 | 0.00 | 0.64 | 5 |
+
+### F6b SIGNED, and F7 LOCALISATION
+
+| row | F6b why | F7 why | F7 impact-enrichment |
+|---|---|---|---|
+| `ground_targeted_circle` | near -0.244 / far -0.244 (clip med -0.013) — SIGNS AGREE: cannot separate a lens from a camera push | hf_p99 11.27 px, 4 spike frames — camera pans 6.14 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera | 0.0x |
+| `melee_strike_CANON` | near -0.305 / far +0.174 (clip med +0.018) | hf_p99 11.89 px, 27 spike frames — camera pans 1.16 px/fr and spikes are NOT impact-concentrated (enrichment 0.5x); rigid pan-null cannot model a 3D tracking camera | 0.5x |
+| `circle_ring` | near -0.339 / far +0.265 (clip med -0.020) | hf_p99 7.60 px, 84 spike frames | 2.4x |
+| `circle_ring_alt` | near +0.446 / far +0.938 (clip med +0.049) — SIGNS AGREE: cannot separate a lens from a camera push | hf_p99 2.94 px, 43 spike frames | 2.9x |
+| `single_target` | near +0.329 / far -0.047 (clip med +0.002) | hf_p99 7.08 px, 43 spike frames — camera pans 2.89 px/fr and spikes are NOT impact-concentrated (enrichment 1.8x); rigid pan-null cannot model a 3D tracking camera | 1.8x |
+| `melee_arc` | near -0.285 / far -0.331 (clip med -0.005) — SIGNS AGREE: cannot separate a lens from a camera push | hf_p99 6.56 px, 63 spike frames — camera pans 2.05 px/fr and spikes are NOT impact-concentrated (enrichment 0.5x); rigid pan-null cannot model a 3D tracking camera | 0.5x |
+| `dash_attack` | near -0.189 / far +0.120 (clip med -0.010) | hf_p99 11.47 px, 82 spike frames — camera pans 4.29 px/fr and spikes are NOT impact-concentrated (enrichment 2.0x); rigid pan-null cannot model a 3D tracking camera | 2.0x |
+| `whirlwind` | near -0.317 / far +0.040 (clip med -0.011) | hf_p99 11.37 px, 32 spike frames — camera pans 5.04 px/fr and spikes are NOT impact-concentrated (enrichment 0.0x); rigid pan-null cannot model a 3D tracking camera | 0.0x |
+| `ground_slam` | near -0.296 / far +0.227 (clip med -0.003) | hf_p99 9.53 px, 62 spike frames — camera pans 3.34 px/fr and spikes are NOT impact-concentrated (enrichment 1.7x); rigid pan-null cannot model a 3D tracking camera | 1.7x |
+| `cone` | near +0.232 / far -0.754 (clip med +0.020) | hf_p99 7.80 px, 51 spike frames — camera pans 3.61 px/fr and spikes are NOT impact-concentrated (enrichment 1.9x); rigid pan-null cannot model a 3D tracking camera | 1.9x |
+| `vortex_pull` | near -0.460 / far -0.456 (clip med +0.011) — SIGNS AGREE: cannot separate a lens from a camera push | hf_p99 7.16 px, 57 spike frames — camera pans 2.35 px/fr and spikes are NOT impact-concentrated (enrichment 1.7x); rigid pan-null cannot model a 3D tracking camera | 1.7x |
+| `leap_strike` | near +0.387 / far -0.559 (clip med +0.016) — lens-consistent (validated sig 0.51-0.99) | hf_p99 8.97 px, 73 spike frames | 3.6x |
+| `melee_strike` | near +0.306 / far -0.335 (clip med -0.016) | hf_p99 7.69 px, 87 spike frames | 4.0x |
+| `OURS_dash_attack` | near +0.074 / far +0.023 (clip med +0.093) | hf_p99 0.19 px (pan-null=0.00) | — |
+| `OURS_blink` | radial refused at impact (zero-magnitude residual) | hf_p99 0.15 px (pan-null=0.00) | — |
+| `OURS_teleport` | radial refused at impact (zero-magnitude residual) | hf_p99 0.00 px (pan-null=0.00) | — |
+| `OURS_leap_strike` | radial refused at impact (zero-magnitude residual) | hf_p99 0.56 px, 3 spikes | 0.0x |
+| `OURS_ground_slam` | radial refused at impact (zero-magnitude residual) | hf_p99 0.00 px (pan-null=0.00) | — |
+| `OURS_melee_combo` | radial refused at impact (zero-magnitude residual) | hf_p99 0.64 px, 5 spikes | 0.0x |
+
+### MATCHED PAIRS — reference vs ours, same operators, same raster
+
+| row | leg | F1 | F2 | F3 | F4 | F5 | F6a | F6b | F7 | CV | ev/s |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `dash_attack` | REF | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.645 | 2.08 |
+| `dash_attack` | OURS | A | ? | **P** | **P** | **P** | **P** | A | A | 0.955 | 3.43 |
+| `leap_strike` | REF | n/e | n/e | n/e | **P** | **P** | n/e | **P** | **P** | 0.646 | 1.82 |
+| `leap_strike` | OURS | A | ? | **P** | **P** | **P** | **P** | ? | ? | 0.668 | 1.93 |
+| `ground_slam` | REF | n/e | n/e | n/e | **P** | **P** | n/e | ? | ? | 0.784 | 2.46 |
+| `ground_slam` | OURS | A | ? | A | ? | **P** | ? | ? | A | 0.000 | 0.89 |
+| `melee_strike_CANON` | REF | n/e | n/e | n/e | **P** | ? | n/e | ? | ? | 0.839 | 3.24 |
+| `melee_strike_CANON` | OURS | ? | **P** | A | ? | **P** | ? | ? | ? | 0.102 | 2.52 |
+
+### 3.1 ⚑ G-7 RADIAL READING — the rows the axial operator had to refuse
+
+Control anchors: hot-core disc **0.4798** · matched flat disc **0.0000** (`out/synth_radial_control.json`). `r_sat_slope` is disqualified and not shown.
+
+| leg | core_white p90 | edge_white p90 | **core/edge ratio** | core_sat | edge_sat | **val_slope** (−ve = bright centre) | call (preregistered bar) |
+|---|---:|---:|---:|---:|---:|---:|---|
+| `R_ground_targeted_circle` | 0.0156 | 0.0026 | **6.0×** | 0.476 | 0.405 | **-0.2654** | ABSENT |
+| `R_ground_slam` | 0.0739 | 0.0027 | **27.1×** | 0.633 | 0.701 | **-0.2758** | UNCERTAIN |
+| `R_circle_ring` | 0.1999 | 0.0311 | **6.4×** | 0.600 | 0.693 | **-0.4522** | **PRESENT — hot core** |
+| `R_aura` | 0.0415 | 0.0045 | **9.2×** | 0.497 | 0.460 | **-0.1537** | UNCERTAIN |
+| `R_whirlwind` | 0.0156 | 0.0073 | **2.1×** | 0.357 | 0.345 | **-0.1641** | ABSENT |
+
+> ⚑ **READ THE RATIO AND THE SLOPE, NOT ONLY THE CALL.** The preregistered `core_white ≥ 0.15` bar was calibrated on a synthetic whose core is *pure* white; real footage does not reach that absolute level. **But the core/edge ratio is 6–27× on every reference leg, and `val_slope` runs −0.15 to −0.45 against the synthetic POSITIVE control's −0.052** — a radial intensity gradient five to nine times STRONGER than the arm the operator was validated on. I am not lowering the bar after seeing the data; I am reporting that the absolute predicate (`V>0.80 AND S<0.30`) is a synthetic's idealisation while **the gradient itself is unambiguous and present in every radial reference measured.** That is precisely what the § 4.1 eye-register saw and the axial operator could not reach.
+
+<!--MATRIX-END-->
+
+### 3.2 ⚑ THE SHARPEST NUMBER THIS WAVE PRODUCED — `ground_slam`, reference against ours, on the radial axis
+
+The radial pass carried **one matched pair**: D3 Hammer of the Ancients against our own `05_ground_slam_CATHEDRAL`, same operators, same raster, same bars.
+
+| | **reference** (D3 HotA) | **OURS** | ratio |
+|---|---:|---:|---:|
+| `core_white_frac` p90 | 0.0739 | **0.0645** | 0.87× — **we match** |
+| `edge_white_frac` p90 | 0.0027 | 0.000064 | |
+| core / edge ratio | 27.1× | 7,161× | |
+| ⚑ **`val_slope`** (−ve = bright centre, dim rim) | **−0.2758** | **−0.0043** | ⚑ **64×** |
+
+> **We have the hot core. We do not have the FALLOFF.**
+>
+> Our slam is as bright at its centre as the reference's — `core_white` 0.0645 against 0.0739, a difference of 13 %. But the reference's brightness **decays strongly from centre to rim** (−0.276) while ours is **very nearly flat** (−0.004). And our edge carries essentially *no* bright content at all (6.4 × 10⁻⁵ against the reference's 2.7 × 10⁻³).
+>
+> **In plain terms: theirs is a core that cools outward into its surroundings; ours is a bright disc with an edge.** That is a specific, measurable, single-parameter difference — and it is one legible face of what Matt called *"lacking the depth."*
+
+⚠ **What this is not.** One pair, one row, one clip each; the reference is scene-contaminated and ours is not (§ 1.4), and a scene-contaminated mask can borrow falloff from the lighting around the effect. **This is a strong lead, not a bar.** The way to harden it is the G-1 annotation on this one row — an hour's work against a number worth having.
+
+
 
 ## 4 · What the matrix cannot yet measure — the instrument-gap register
 

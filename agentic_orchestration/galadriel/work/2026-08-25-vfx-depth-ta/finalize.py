@@ -56,7 +56,12 @@ except OSError:
     pass
 
 s = open(NOTE).read()
-assert "<!--MATRIX-->" in s, "anchor missing"
-s = s.replace("<!--MATRIX-->", tables + (rad or ""))
+A, B = "<!--MATRIX-->", "<!--MATRIX-END-->"
+assert A in s and B in s, "anchors missing"
+# idempotent: replace BETWEEN the markers, never consume them, so this can be
+# re-run every time another row lands without corrupting the note.
+pre, rest = s.split(A, 1)
+_, post = rest.split(B, 1)
+s = pre + A + "\n" + tables + (rad or "") + "\n" + B + post
 open(NOTE, "w").write(s)
 print("injected %d chars of tables%s" % (len(tables), " + radial" if rad else ""))
