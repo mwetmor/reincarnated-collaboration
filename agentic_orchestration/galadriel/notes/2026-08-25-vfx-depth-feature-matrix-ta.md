@@ -40,14 +40,24 @@ Signed near/far radial coherence, at each clip's **own measured impact frame** (
 
 | leg | near | far | reading |
 |---|---:|---:|---|
-| **`cone` — D3 Seismic Slam** | **+0.232** | **−0.754** | ⚑ **LENS-DIRECTION, and the far field is deep inside the validated band 0.51–0.99** |
-| `single_target` — LE Javelin | **+0.329** | −0.047 | lens-direction, near field just under bar |
+| ⚑ **`leap_strike` — D3 Leap (touchdown)** | **+0.387** | **−0.559** | ⚑ **LENS-CONSISTENT and it clears the preregistered PRESENT bar. The only full `P` on F6b in the corpus.** |
+| **`cone` — D3 Seismic Slam** | +0.232 | **−0.754** | lens-direction; far field **deepest in the validated band 0.51–0.99** of any row |
+| `melee_strike` — D3 Hundred Fists | +0.306 | −0.335 | lens-direction, near field just under bar |
+| `single_target` — LE Javelin | +0.329 | −0.047 | lens-direction, near field just under bar |
 | `whirlwind` — D3 2012 | −0.317 | +0.040 | **camera-push direction — NOT a lens** |
-| `melee_strike` — LE Rive | −0.305 | +0.174 | camera-push direction |
+| `melee_strike` — LE Rive *(canonical)* | −0.305 | +0.174 | camera-push direction |
+| `ground_slam` — D3 Hammer of the Ancients | −0.296 | +0.227 | camera-push direction |
 | `dash_attack` — D3 Furious Charge | −0.189 | +0.120 | camera-push direction |
 | `ground_targeted_circle` — D3 Meteor | −0.244 | −0.244 | signs agree — cannot separate lens from push |
+| `vortex_pull` — D3 Cyclone Strike | −0.460 | −0.456 | signs agree — ambiguous |
 
-> **So: `whirlwind` genuinely has no impact distortion — my original answer survives on its own clip. And `cone` genuinely does.** The error was never the whirlwind measurement; it was generalising one clip's answer to a corpus. **That is exactly what Matt said, and the instrument now agrees with him against me on the general claim while agreeing with me on the specific one.**
+> ### ▶ ⚑ **MATT NAMED THE LEAP TOUCHDOWN. THE LEAP TOUCHDOWN IS THE ROW THAT MEASURES PRESENT.**
+>
+> R-8's second addendum cites *"Demonic Leap touchdown — Matt's eye confirms it on re-review"* as the reason the family had to include the brief impact-moment distortion field. **Of nineteen legs measured, `leap_strike` is the one that clears the bar** — `near +0.387 / far −0.559`, the validated lens sign pattern, far field inside the band the operator was proven on.
+>
+> **The operator was built and controlled before it was pointed at this row, and it had to be repaired mid-wave (§ 1.3) before it could see a sign at all.** It then agreed with the owner's eye, on the owner's named skill, against my own prior.
+
+> **And `whirlwind` genuinely has NONE — my original answer survives on its own clip.** The error was never the whirlwind measurement; it was generalising one clip's answer to a corpus. **That is exactly what R-8's amendment said, and the instrument now agrees with Matt against me on the general claim while agreeing with me on the specific one.** Four legs read lens-direction, five read camera-push, three are sign-ambiguous. **Per-skill governs, and it governs because the skills genuinely differ.**
 
 ⚠ **And it took catching a defect in my own summary code to see any of this.** My first summary reported the radial coherence as an **absolute maximum** — which destroys the sign, i.e. destroys the one term that separates a distortion field from a camera push, inside a statistic written to answer *"is there a distortion field."* Unsigned, `whirlwind` read `+0.317` and would have been reported as the vindicating row. Signed, it is `−0.317` and is a camera push. **A magnitude where a sign was load-bearing is the § 2.3 forgery arriving one level up — in the AGGREGATION rather than in the operator** (§ 1.3).
 
