@@ -1,0 +1,80 @@
+VFX-DEPTH G-5 — 3-D TRACKING-CAMERA NULL LADDER
+drax, presentation seam, 2026-08-26T04:24:44Z
+
+WHAT THIS IS: a synthetic 3-D scene with depth, traversed by a follow-cam,
+rendered so galadriel's F7 operator can be given a null that HAS parallax in
+it. Her present null (synth_pan.mp4) is np.roll of a flat image and has none.
+
+NO SHAKE IS AUTHORED IN ANY N-LEG. P1-shake is the matched positive control,
+3.0 analysis-px peak at the subject's depth (6x the operator's 0.5 px floor).
+
+encode: libx264 crf 12 preset slow, yuv420p, 30 fps, near-lossless so the
+floor is not an h264 artefact.
+render: 1920x1080 · 150 clip frames after 60 pruned preroll frames
+path speed 2.0 m/s · seed 20260825
+
+leg N0-flat
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-N0-flat-1920x1080.mp4
+  sha256   d1ee0ef3e60a67d48adaab3fc65dce642bd59c5d83b2fbe45cdc5c92cd2b4bda
+  bytes    3213083   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-N0-flat.json
+  msha256  bfd1f23a08228282b33755b0ef3d31826079094d1093cecabe336d9e3a5a967d
+leg N1-low
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-N1-low-1920x1080.mp4
+  sha256   e18a0b2303de6016f3b9becf68f13a060ccc2702857b45c6bc63f0002ce82fb7
+  bytes    3666365   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-N1-low.json
+  msha256  19bf94fad05e12cf89626f27f8dc8f5ae4003e462384065959be6db1f8cefcfe
+leg N2-mid
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-N2-mid-1920x1080.mp4
+  sha256   36726a787d6e21d80896219aab5c11800ad2ea70779f3879ff94e03fa267d4cb
+  bytes    3950679   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-N2-mid.json
+  msha256  959547b54c3ab923c68dc4b14085f8985dda864fa25b0499ffaadafe97bb63a4
+leg N3-high
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-N3-high-1920x1080.mp4
+  sha256   60b7200a7518ddf3eb1d4e862cd7be0671edcbb27631058cfb84529cca5bb8ed
+  bytes    4567005   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-N3-high.json
+  msha256  bf5de72438157d97afa30cb8e231482bef73a95bbc28caf2c773b0b6ce1e6a1a
+leg N4-high-spring
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-N4-high-spring-1920x1080.mp4
+  sha256   79b662bb69fd70f4b2b02c1b58f8555a4c99358c06dd982bd78bd5f2e48c7191
+  bytes    4568552   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-N4-high-spring.json
+  msha256  6a794c3d8c4115dca31d2437440022a3fc30f2f4891b3e1a0b819af96938fdc7
+leg P1-shake
+  clip     /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/g5-camnull-P1-shake-1920x1080.mp4
+  sha256   c805a20e68ed7a6da7702c0ad98916eed20e32e6e83c16f8b536f9c40dfb72b9
+  bytes    4572000   frames 150 (counted, not read from the header)   1920x1080 @ 30/1
+  manifest /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/captures/2026-08-25-vfx-depth-g5-camnull/evidence/g5-manifest-P1-shake.json
+  msha256  b0b98d1b188d9f4f683e96e4c9b2e0d4d8ec11e333a5b635b4c1f00bdb92acdb
+
+--- the pose lock lines these renders printed, verbatim ---
+[g5] ⚑ NULL LEG — NO SHAKE IS AUTHORED ANYWHERE IN THIS CLIP. Every pixel of high-frequency camera motion an operator finds here is parallax the global affine fit could not absorb.
+[g5] ⚑ POSITIVE CONTROL — authored shake 3.0000 analysis-px peak at the subject = 0.054959 m of camera displacement (stand-off 23.1627 m). Impulse-decay at t = 1.500 s and 3.400 s, tau 0.150 s, 18.0 Hz.
+[g5] GROUND TRUTH (analysis px, 1280x720): parallax spread mean 4.4406 px, max 4.6915 px
+[g5] GROUND TRUTH (analysis px, 1280x720): parallax spread mean 4.4823 px, max 9.2265 px
+[g5] GROUND TRUTH (analysis px, 1280x720): parallax spread mean 4.5833 px, max 4.6916 px
+[g5] player_lock offset at k=0.665000 = (9.7929262400, 18.8840121841, 9.1654362440) m  stand-off 23.1627407073975 m
+[g5] player_lock PIN vs tmp/br2watch/m6/pl_audit.json: offset delta 0.000000000000 m, z_player delta 0.000000000000 m, tol 0.000010000000 m — MATCH
+[g5] player_lock ported offset (k=1) = (14.7262048721, 28.3970108032, 13.7826108932) m  |offset| 34.8311882019 m
+[g5] player_lock: pitch 52.9535 deg  fov_v 31.7861 deg  yaw 47.0 deg  k 0.665000
+[g5] world: relief 'flat' (h 0.00-0.00 m, fill 0.00) — 0 boxes placed, seed 20260825
+[g5] world: relief 'high' (h 1.00-10.00 m, fill 0.30) — 750 boxes placed, seed 20260825
+[g5] world: relief 'low' (h 0.30-1.50 m, fill 0.30) — 750 boxes placed, seed 20260825
+[g5] world: relief 'mid' (h 0.50-4.00 m, fill 0.30) — 750 boxes placed, seed 20260825
+
+--- R-18c prune receipts ---
+R-18c pruned 150 frames (.228 G) from /tmp/g5_camnull/frames-N0-flat (leg N0-flat)
+  regenerate: LEGS="N0-flat" bash scripts/run_g5_camnull.sh
+R-18c pruned 150 frames (.232 G) from /tmp/g5_camnull/frames-N1-low (leg N1-low)
+  regenerate: LEGS="N1-low" bash scripts/run_g5_camnull.sh
+R-18c pruned 150 frames (.235 G) from /tmp/g5_camnull/frames-N2-mid (leg N2-mid)
+  regenerate: LEGS="N2-mid" bash scripts/run_g5_camnull.sh
+R-18c pruned 150 frames (.233 G) from /tmp/g5_camnull/frames-N3-high (leg N3-high)
+  regenerate: LEGS="N3-high" bash scripts/run_g5_camnull.sh
+R-18c pruned 150 frames (.233 G) from /tmp/g5_camnull/frames-N4-high-spring (leg N4-high-spring)
+  regenerate: LEGS="N4-high-spring" bash scripts/run_g5_camnull.sh
+R-18c pruned 150 frames (.233 G) from /tmp/g5_camnull/frames-P1-shake (leg P1-shake)
+  regenerate: LEGS="P1-shake" bash scripts/run_g5_camnull.sh
