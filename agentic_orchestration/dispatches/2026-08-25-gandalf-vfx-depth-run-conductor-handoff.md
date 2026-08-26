@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — gandalf — **RUN CONDUCTOR: VFX depth.** Three items are stacked behind ONE ruling that is already yours
 
-**Status:** ⚑ **PENDING — AUTHORIZED BY MATT, 2026-08-25.** *(was: PENDING — awaiting Matt's word on the conductor handoff itself.)* **Fireable now.**
+**Status:** ✅ **RUN LIVE — CONDUCTED, 2026-08-25.** gandalf (RUN-CONDUCTOR) elicited the charter from Matt (Q1–Q5 + two Q5 addenda), ruled the stacked quarantine question (charter R-1: freeze dissolved, defeat-condition test per landing), and fired Wave 1 (drax) + Wave E-1 (galadriel). **Charter of record:** `agentic_orchestration/gandalf/notes/2026-08-25-vfx-depth-run-charter.md` (R-1..R-10, veto-open). *(was: PENDING — AUTHORIZED BY MATT, 2026-08-25; before that: PENDING — awaiting Matt's word on the conductor handoff itself.)*
 **Matt, verbatim:** *"yes, please author the hand-off for gandalf and document everything you've done during this traunche-3 session."*
 **From:** knight-rider (orchestrator, handing steering over)
 **To:** gandalf (design steward → RUN CONDUCTOR)
