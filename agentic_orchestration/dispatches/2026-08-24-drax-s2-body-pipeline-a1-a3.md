@@ -1,6 +1,8 @@
 # Dispatch — 2026-08-24 — drax — A-1 / A-3 body pipeline (transformation + totem delegate)
 
-**Status:** PENDING — **QUEUED behind `drax/v<X.Y>-s2a-mint-tranche-1`.** Do not start until tranche 1 lands.
+**Status:** ⚑ **PENDING — GENUINELY UNFIRED, AND THE GATE IS NOW OPEN.** ~~QUEUED behind `drax/v<X.Y>-s2a-mint-tranche-1`; do not start until tranche 1 lands.~~ **Tranche 1 landed; the queue condition is DISCHARGED.**
+**Not fireable this instant for a resource reason only:** drax is mid-render on Matt's priority (a) and **one host cannot run two heavy captures concurrently** — the same constraint that serialised the 3A recapture ahead of the WW-AB render. **This is the next fireable item when that render returns.**
+⚑ **This dispatch was wrongly reported COMPLETE by knight-rider's own header-audit sweep** — it matched a Gate-1 record and the file `s2b_totem.gd`, which is **row 2 of the tranche-2 VFX mint, not the A-3 totem DELEGATE BODY** (this dispatch's own § A-3: *tier-1 can recolour what a totem throws; it cannot recolour what a totem **is***). See the self-correction banner at `qa/pending/2026-08-25-the-dispatch-status-field-is-wrong-10-times-out-of-11.md`. **Do not re-derive this dispatch's state from filename matches.**
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 — tier-2 rulings **L-36 / L-37**

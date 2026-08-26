@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — galadriel — REFERENCE FRAME-FORENSICS: build the instrument that can see depth
 
-**Status:** PENDING
+**Status:** ✅ **COMPLETE** — galadriel, `0a2082e5`: five pipeline modules + first reading at `galadriel/notes/2026-08-25-vfx-depth-frame-forensics-instrument-and-first-reading.md`. ⚑ **This header read `PENDING` for hours while the return sat unread — and the return CORRECTS knight-rider's own WW-AB dispatch** (`WW-7` is not "whirlwind"; the headline is timing REGULARITY, not event density; our engine already renders substantial smoke). *Header flipped by knight-rider in the stale-header reconciliation.*
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** galadriel (visual-perception seam)
 **Pattern:** B — needs its own session; this is instrument construction, not a measurement pass

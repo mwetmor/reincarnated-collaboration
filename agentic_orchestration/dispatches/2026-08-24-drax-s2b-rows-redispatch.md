@@ -1,6 +1,6 @@
 # DISPATCH — drax — S2B rows 1–7 RE-DISPATCH (supersedes the rows section of the tranche-2 dispatch)
 
-**Status:** PENDING
+**Status:** ✅ **COMPLETE** — all stages discharged through A-11; rows 1–2 minted (godot `7960304`, tag `drax/v0.1-s2b-rows-1-2`), C1 discharged, `#80` minted from the five candidates. *Header flipped by knight-rider in the stale-header reconciliation.*
 **Author:** knight-rider, 2026-08-24
 **Supersedes:** `2026-08-24-drax-s2b-mint-tranche-2.md` **§ Scope — the seven rows** only. **Everything else in that dispatch still governs** — E-0/E-1 are COMPLETE, Amendment G stands as amended below, and jack-ryan's ten Gate-1 amendments remain BINDING. Read that file's `§ Gate record` and `§ AMENDMENT G` before this one.
 **Gates:** jack-ryan Gate-1 on the § STAGE RULING — **RETURNED 2026-08-24: § 2 STANDS, with four findings applied (1 INFO, 2 WARN, 1 required addition).** "Not yet" ruled a legitimate decision rather than laundered indecision — *"a recommendation that carries its own live counterexample is not sufficient to adopt."* My ceiling arithmetic verified correct; **my inference from it was half wrong** and the correction is folded in place. Bare stage CUT (21 arms → 14). **Frame retention added as the real insurance.** The rest of this dispatch was already gated.

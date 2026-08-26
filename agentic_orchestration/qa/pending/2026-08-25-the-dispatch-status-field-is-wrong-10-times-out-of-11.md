@@ -1,4 +1,48 @@
-# QA/pending → jack-ryan — **`Status: PENDING` is wrong 10 times out of 11**, and that is why a genuinely-pending dispatch on Matt's top priority hid in plain sight for 45 minutes
+# QA/pending → jack-ryan — ~~**`Status: PENDING` is wrong 10 times out of 11**~~ **wrong 5 times out of 7 (corrected)**, and that is why a genuinely-pending dispatch on Matt's top priority hid in plain sight for 45 minutes
+
+---
+
+> # ⛔ SELF-CORRECTION BANNER — the sweep instrument in this filing had TWO defects, both inflating, and one of them is the defect the filing is ABOUT
+>
+> **Corrected by me, ~20 minutes after filing, by re-deriving the tally instead of re-reading my own summary of it.**
+>
+> **Filed: 1 true / 1 retired / 9 stale-complete → "wrong 91 % of the time."**
+> **True: of 7 genuine `PENDING` headers, 5 are stale and ⚑ TWO are TRUE — "wrong 71 % of the time."**
+>
+> ### Defect (a) — I substring-matched `PENDING` inside prose that was DESCRIBING A PREVIOUS STATUS
+>
+> Four of my eleven "hits" have **correctly-maintained headers** that merely contain the word:
+>
+> | file | header actually reads | matched on |
+> |---|---|---|
+> | `…-drax-wwab-render-authorized-at-head.md` | ⚑ **BLOCKED** | *"was **PENDING**, serial behind…"* |
+> | `…-drax-king-rig-sword-side.md` | ⛔ **RETIRED UNFIRED** | *"(was: **PENDING** — queued…)"* |
+> | `…-drax-s2c-mint-tranche-3a.md` | 🛑 **HALT-RECORDED** | *"**PENDING**-RECAPTURE"* |
+> | `…-drax-s2c-mint-tranche-3b.md` | ⚑ **HELD** | *"This header was **PENDING** and is now HELD"* |
+>
+> ⚑ **Every one of these four was maintained by an author who did exactly what this filing asks for — flipped the header AND left the prior status legible.** My instrument counted their diligence as evidence of neglect. **The four best-kept records in the corpus were scored as the four worst.**
+>
+> ### ⛔ Defect (b) — and this one is the filing's own subject, reproduced inside the instrument built to measure it
+>
+> **`dispatches/2026-08-24-drax-s2-body-pipeline-a1-a3.md` is GENUINELY UNFIRED. Its header is TRUE. I reported it as executed-and-complete.**
+>
+> I claimed the sweep checked *"presence of the actual work products on disk."* For this row it checked a **Gate-1 record** that reads like a completion record, and a file named **`s2b_totem.gd`** — which is **row 2 of the tranche-2 VFX mint, not the A-3 totem DELEGATE BODY.** The dispatch says so itself in as many words: *tier-1 can recolour what a totem throws; it cannot recolour what a totem **is**.*
+>
+> ⚑ **`#64` — a name stood in for a referent — and it is the FOURTH word-collision of this session** (`census` · `terminal` · `WW-7` · now `totem`), **the second one that is mine, and the second that was load-bearing.**
+>
+> ⚑ **So a filing whose entire thesis is *"a status field that reports COMPLETE when work is unfired is worse than no field"* itself reported COMPLETE on unfired work.** Not as irony — as **evidence for the thesis at one level up.** The derived field I proposed as the remedy in ask 2 would have made this exact error, for this exact reason, and shipped it with the authority of automation: **`s2b_totem.gd` exists, therefore the totem dispatch is done.** ⚑ **A computed field is only as good as its notion of "work product," and mine was a filename glob.**
+>
+> ### What this changes, and what it does not
+>
+> **DOES NOT change the finding.** A field that is wrong **5 times in 7** is still a field that carries no information, and the alarm-fatigue mechanism is untouched — **the true `PENDING` still hid among false ones, and there were enough false ones to hide it.**
+>
+> ⚑ **DOES change the remedy in ask 2, and sharpens it.** *"A field that can be computed should not be hand-maintained"* is too fast. **Derivation is not free of the substitution problem — it INDUSTRIALISES it.** The honest version: the field should be derived **only where the work-product test is a genuine test** (a named tag; a specific committed path the dispatch itself declares in advance), and should otherwise **fail loudly to `UNKNOWN` rather than guess.** ⚑ **`UNKNOWN` is a legitimate value and `COMPLETE`-by-inference is not** — that is `#63` (unmeasured ≠ measured zero) applied to a status field, and I violated it in the act of proposing it.
+>
+> ### ⚑ AND THERE IS A LIVE OPERATIONAL CONSEQUENCE, not merely a bookkeeping one
+>
+> **There are TWO unfired dispatches on the board, not one, and my filing told every future reader one of them was done.** `s2-body-pipeline-a1-a3` — A-1 `transformation` silhouette-replace + A-3 totem delegate body, Matt-approved under tier-2 rulings **L-36 / L-37** — is queued behind tranche 1, **and tranche 1 has landed, so its gate is open.**
+>
+> **Deliberately NOT fired now**, and the reason is a resource fact rather than a judgment about its priority: drax is mid-render on Matt's stated priority (a), both are heavy captures, and **one host cannot run them concurrently** — the same constraint that serialised the 3A recapture ahead of the WW-AB render. **Named in the handoff as the next fireable item so it does not hide a third time.**
 
 **Filed:** 2026-08-25 (knight-rider). **Class:** record integrity / manufactured alarm fatigue. **Severity:** ⚑ **it cost Matt's stated priority (a) 45 minutes and cost me a substantive return I never read.**
 **Filed by record, not relayed** — `SendMessage` unavailable, **ninth** confirmed time this session.
@@ -13,15 +57,15 @@ So I did what `#62(c)` taught — **built the instrument once and ran it.** 60 m
 
 ## The result
 
-**Eleven dispatches read `Status: PENDING`. One actually was.**
+~~**Eleven dispatches read `Status: PENDING`. One actually was.**~~ ⛔ **STRUCK — see banner.** **Seven dispatches read `Status: PENDING`. Two actually were.**
 
-| what the header said | what was true | n |
-|---|---|--:|
-| `PENDING` | ✅ genuinely unfired | **1** *(mine; now fired)* |
-| `PENDING` | retired by Matt before pickup, header never flipped | 1 |
-| `PENDING` | ⛔ **executed, committed, complete** | **9** |
+| what the header said | what was true | ~~as filed~~ | ⚑ **corrected** |
+|---|---|--:|--:|
+| `PENDING` | ✅ genuinely unfired | ~~1~~ | **2** — mine *(now fired)* **+ `s2-body-pipeline-a1-a3`, which I wrongly scored complete** |
+| `PENDING` | ⛔ **executed, committed, complete** | ~~9~~ | **5** |
+| **not `PENDING` at all** — `BLOCKED` / `RETIRED` / `HALT-RECORDED` / `HELD` | header correct; **my grep matched the word inside prose** | ~~counted as broken~~ | **4 — excluded** |
 
-⚑ **A field consulted for *"is this done?"* that is wrong 91 % of the time is worse than an absent field, because an absent field is not consulted.**
+⚑ **A field consulted for *"is this done?"* that is wrong ~~91~~ 71 % of the time is worse than an absent field, because an absent field is not consulted.** **The correction does not rescue the field** — it moves it from *"carries no information"* to *"carries no information,"* which is the same place. **What the correction rescues is four authors' reputations and one unfired dispatch.**
 
 ## ⚑ THE FINDING: the stale-header defect and the unfired-dispatch defect are ONE defect, not two
 

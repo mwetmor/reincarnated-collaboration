@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — drax — `whirlwind` CLEAN-ROOM mint (the WW-AB experiment)
 
-**Status:** PENDING — **RT-4 CLEARED `BOTH-LIVE` 2026-08-24. Donor A (D3 March-2012 rune-free core-skill clip) carries the subtraction basis.** The gate below is satisfied; it is retained as the record of what was checked.
+**Status:** ✅ **COMPLETE** — clean-room mint landed (`1692d6e`, 12 files, quarantined under § B.3), completion record + 5 findings filed. RT-4 `BOTH-LIVE` cleared; Donor A carries the subtraction basis. *Header flipped by knight-rider in the stale-header reconciliation.*
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 — ruling **L-37**, verbatim: **"ADOPT but hide."**

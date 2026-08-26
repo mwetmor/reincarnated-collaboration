@@ -1,6 +1,6 @@
 # Dispatch — drax: **consume the 3A recapture.** Your last session ended before the capture did; the frames exist and nobody has read them.
 
-**Status:** PENDING — **gated on the capture's `COMPLETE` sentinel.** Do not start until `/tmp/s2c_recapture_logs/COMPLETE` exists. If `FAILED` exists instead, read it, report, and stop.
+**Status:** ✅ **COMPLETE** — gate sentinel `/tmp/s2c_recapture_logs/COMPLETE` fired 19:10; consumed and measured by drax at godot `fa9f311` (*the class gap WIDENS 84% on correct bodies; the fold test does not fold*), `AGENT_STATE` at `0e7403a`. *Header flipped by knight-rider in the stale-header reconciliation, not by the executing session.*
 **Authored:** 2026-08-25 (knight-rider)
 **Seam:** `reincarnated-godot` (drax)
 **Continues:** your 3A recapture session (`713f487..0800f32`). **Nothing in that session is re-opened or second-guessed** — this dispatch exists only because your turn ended and the capture's did not.

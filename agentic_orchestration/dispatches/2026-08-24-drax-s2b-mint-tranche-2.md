@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-24 — drax — Step-2 VFX mint, TRANCHE 2 (the seven remaining T1 rows + the stage fix)
 
-**Status:** PENDING — FIREABLE
+**Status:** ✅ **COMPLETE (in part) + SUPERSEDED (in part).** E-0/E-1 complete, receipts landed, 8 findings routed, **tranche-2 seal STANDS** (jack-ryan F-1 ruling, 2026-08-25). **The seven rows moved out of this dispatch** to `2026-08-24-drax-s2b-rows-redispatch.md`, which is itself complete — they are not owed here. Gate-1 amendments remain BINDING on downstream work. *Header flipped by knight-rider in the stale-header reconciliation.*
 **From:** knight-rider (Step-2 build wave, carve-out #2)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Approved by:** Matt, 2026-08-24 (launch word covering the whole carve-out #2 agenda)
