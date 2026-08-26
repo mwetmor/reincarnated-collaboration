@@ -1,6 +1,6 @@
 # Dispatch — 2026-08-25 — drax — CAMERA FRAMING (re-issued) + the WW-AB clean-room RENDER
 
-**Status:** PENDING
+**Status:** ⚑ **IN FLIGHT** — fired 2026-08-25 (drax, background `a286040977c40802a`). *Was `PENDING` for ~45 min after authoring: an OP § 3.10 wave-entry-fire-discipline violation by knight-rider, on Matt's stated priority (a). See `qa/pending/2026-08-25-the-dispatch-status-field-is-wrong-10-times-out-of-11.md`.* ⚑ **Task B's named calibration reference is WRONG** — `WW-7` is an SB-1 run-ledger cell, not "whirlwind" (galadriel, verified from pixels). The B-side artifact is a `matt_to_do/` locate question; the clean-room render leg proceeds regardless.
 **From:** knight-rider (Step-2 build wave, conductor)
 **To:** drax (presentation seam — `reincarnated-godot/`)
 **Pattern:** B — two tasks, one serial godot session
@@ -159,3 +159,184 @@ The clean-room quarantine bound you **during the mint**. The mint is complete, t
 - The pitch change moves any *measurement-corpus* capture → it must not; review and measure audiences are separate by construction (`--audience`)
 - Either task requires touching a forward-axis site → **HALT**; that landing is sealed and Matt-verified
 - Acceptance criteria can pass while Matt still cannot tell the two whirlwind arms apart — in which case say so plainly, because that result *is* the datum
+
+---
+
+# ✅⛔ Completion record — drax, 2026-08-25
+
+**Status: CLOSED.** Commits `9cd6c5e` (evidence durability) · `e3a6b06` (WW-AB) in
+`reincarnated-godot`. Task A required no work. **Task B HALTS per § B.3 and is routed.**
+
+## TASK A — no work required. It landed 25 minutes AFTER this dispatch was authored.
+
+`1475ed9`, 18:03. This file was authored 17:38. The authoring session was killed by a
+harness API 400 before it could commit, which is why the tree looked untouched.
+
+⚑ **§ 0's verification is literally true and does not answer its own question.** It reads
+*"`s2a_stage.gd` still reads `CAM_PITCH := -55.0` / `CAM_DIST := 34.0`."* Both still do —
+**deliberately.** `CAM_PITCH` is the **measurement** pitch; moving it would silently re-pose
+every landed S2A/S2B/S2C differential (the C-3 error class through a sixth door). The review
+camera moved through a **new** constant, `CAM_PITCH_REVIEW := -41.0`, read via `_cam_pitch()`
+so no receipt can quote a const the camera did not use. **A grep for the constant is the one
+instrument guaranteed to miss a change whose entire design was to avoid touching it** —
+seventh instance this session of an instrument returning cleanly after it stopped answering
+the question. Nothing about that is a criticism of the caution; it is the *right* caution
+pointed one symbol to the left.
+
+**Verified from artifacts, not from the commit message:**
+`harness_logs/mp4_review_2026-08-25_v4/` — 7 clips, all `h264 1920×1080 60/1`, ffprobed.
+`harness_logs/s2_review_2026-08-25-v4/render.txt` — `CAMERA fov=40.0 pitch=-41.0 yaw=47.0
+dist=34.0 (measure pitch -55.0 / review pitch -41.0)`, `audience=review` × 7.
+
+**Acceptance criteria 1 and 2, answered as asked:**
+- Apparent size, measured on both sides: reference **5.47 %** of frame height for a 1.8 m
+  figure; this stage **4.17 %** at −55°, **5.49 %** at −41°. **The pitch change alone lands
+  within 0.4 % of the reference**, so `CAM_DIST` was **held at 34.0 m** — moving closer
+  would have overshot the thing Matt asked to fix.
+- **Verdict on § A.4: NEITHER hypothesis. The citation itself was wrong.** The reference is
+  **not** `arena_full`. Two ground rings in the reference frame project at minor/major
+  **0.784** and **0.818**; a flat ground circle projects at `sin(depression)` — **0.656** at
+  −41°, **0.798** at −52.95°. The reference sits at ~**53°**, which is `player_lock`'s pose
+  (34.816 m, fov_v 31.786), not `arena_full`'s. Two independent confirmations: `arena_full`
+  at 58 m / fov 40 would hold the whole 36×36 floor in frame **with margin** (its stated
+  purpose), and in the reference **the floor runs off all four edges**. § A.4's model was
+  not refuted by measurement so much as **fed the wrong camera** — which is why its
+  conclusion inverted. Your instruction to put the model on trial rather than Matt's eye was
+  the correct call and it is what found this.
+
+## TASK B — ⛔ HALT AND ROUTE. Criterion 3's refutation condition fired, measured.
+
+**`wwcr_stage.gd` has no `player_lock` camera and no `--plk`.** Exactly two modes exist:
+`combat` (fov 40 / pitch −55 / dist 34) and everything-else → `inspect` (fov 34 / dist 15).
+Rendering under the HITL camera **requires a camera hook in a `wwcr_*` file** — the case
+§ B.3 names *by example*. **Not made.** Over-obeyed as instructed.
+
+**The gap is one octave, not a rounding error.** Against the counterpart's own declared
+values (`run_ww7_gate2_clip.sh` header):
+
+| | HITL `ww7-gate2` (`player_lock` k=0.665) | clean-room `combat` |
+|---|---|---|
+| stand-off | **23.1627407073975 m** | 34.0 m |
+| fov_v | **31.7861018306101°** | 40.0° |
+| pitch | 52.9535411256029° | 55.0° |
+| **px/m @1080** | **81.88** | **43.64** |
+| 1.8 m figure | **8.22 %** of frame | **4.17 %** |
+
+**Apparent-height ratio 1.971× = 0.979 octaves** — within 2 % of exactly one. **§ A.7's own
+warning is what rules this**: band statistics index in **pixels**, not world units. A
+one-octave scale variable inside a comparison judged on *density / palette knee / cadence
+read / FX draw* does not degrade that comparison — **it decides it, and it returns a clean
+number while doing so.**
+
+**And the arms are further apart than the camera.** The HITL object is **30 fps / 21.933 s /
+658 frames — an A/B cadence clip with a seam and a concat** (sha256 verified against § B.1:
+`7e9764e3…c828ca`, byte-intact). The clean-room harness has **no concept of shot id, cadence
+booleans, preroll, seam or concat**; it renders one continuous window of one cast. **Matching
+§ B.2's list is not a camera hook, it is a second harness.** Named per criterion 3 rather
+than worked around.
+
+**Routing:** gandalf owns whether a `player_lock` hook in `wwcr_stage.gd` voids his LINEAGE
+CLEAN audit. **Until he rules, WW-AB cannot be matched, and the wave's calibration datum
+stays unavailable.** That is the § "Quality criterion" outcome you pre-registered — twelve
+rows queued against a standard nobody can look at — and it is now measured rather than
+suspected.
+
+### ⚑ Acceptance criterion 4 was unsatisfiable as written, before I started
+
+It asks for *"zero `wwcr_*` bytes changed … against `1692d6e`."* **The tree is 667
+insertions / 74 deletions from the mint** across 4 files, via **four post-mint commits — one
+of them galadriel's**: `7dc58d3`, `f29f12b`, `2a7d7fa`, `77093f8` (the Stage-4 / R-6 work,
+documented in `run_wwcr_stage.sh`'s own header).
+
+**The mint COMMIT is intact in git and gandalf's verdict describes IT. The WORKING TREE is
+not that artifact and has not been since Stage-4.** Nothing I could have done would have
+made that diff empty — so the criterion as written could only ever have reported a failure
+that had already happened, attributed to whoever ran last. **Same shape as § 0's grep: the
+right question, aimed at the wrong ref.** The instrument that answers what criterion 4 is
+*asking* is session-start `HEAD`:
+
+```
+git diff --stat 0e7403a HEAD -- 'scripts/wwcr_*' 'scenes/wwcr_*' 'scripts/run_wwcr_stage.sh'
+    ->  EMPTY.  Zero bytes changed by this session.
+git status --porcelain on the same paths
+    ->  five .uid files, dated Aug 24 18:41 — ELEVEN MINUTES BEFORE the mint
+        commit and a full day before this render. Not mine.
+frozen runner sha256 == original       ->  8f1edfaa301751c3…  both.
+```
+
+### What WAS delivered — the first clean-room whirlwind MOTION artifact that has ever existed
+
+§ B.1 was right that `find` returned zero `ww*.mp4`. It no longer does. Rendered through the
+mint's **own unmodified `CAPTURE=seq` path** (`ARMS=gate CAPTURE=seq` — both pre-existing
+parameters the mint authored *for exactly this question*), from a **frozen copy** per § B.5,
+into a **fresh stamp**:
+
+⚑ `wwcr_2026-08-24` holds the mint's **committed** `render.txt` and the runner opens with
+`: > "$LOG"`. **Using the mint's stamp would have truncated an audited artifact** — caught by
+reading the runner before invoking it, not by recovering afterwards.
+
+**The deliverable paths (gitignored under the Synty licence, so the path IS the deliverable):**
+
+```
+/Users/admin/Games/reincarnated-godot/harness_logs/wwcr_2026-08-25-wwab-motion/combat_fxon.mp4
+/Users/admin/Games/reincarnated-godot/harness_logs/wwcr_2026-08-25-wwab-motion/combat_fxctl.mp4
+```
+
+`1920×1080 h264 yuv420p, 60 fps, 210 frames, 3.500 s`, both arms. Census clean on both:
+`non_authored_emitter_count: 0`, `rendered=delivered=420`.
+sha256 `70627c1a2c8d1e20…` (fxon) · `a09a89c39425881690…` (fxctl).
+**This is the clean-room arm at the CLEAN-ROOM camera. It is NOT the AB-matched arm.**
+
+⚑ **And I looked at it, which is why there is a second pair.** At `combat` the effect is
+barely judgeable: measured across 11 sampled frames, the **entire** subject — caster, four
+skeletons, trail and spark — occupies a **249 × 254 px island, 3.05 % of frame area.** So:
+
+```
+…/combat_fxon_MAGNIFIED-2x-APPROX-NOT-A-RENDER.mp4     (1280×720, 60 fps, 210 f)
+…/combat_fxctl_MAGNIFIED-2x-APPROX-NOT-A-RENDER.mp4
+```
+
+`crop 640×360 @ (655,376)` → `scale 1280×720` ≈ 2×, ≈ the 1.971× gap. **The caveat is in the
+filename because the filename is the only thing that travels with a gitignored artifact.**
+These are an **encoder** approximation of the camera match, **not** the match — a true render
+at the HITL camera carries 2× the linear detail these do not have.
+
+⚑ **Your § A.4 composition hypothesis, which the Task-A measurement did not need, is
+independently confirmed HERE.** 97 % empty plane around a 3 % subject island is exactly the
+"reads far away because the frame is empty" effect — on a stage with no rock and no terrain
+at all. **The hypothesis was right about a mechanism; it was attached to the wrong task.**
+
+### Criterion 5 — pre-fire disk projection, recorded BEFORE the capture
+
+`422 frames × 40,843 B` (**measured** on this exact stage+camera, not assumed) + `cp`
+duplicate + sidecars + MP4 budget = **66.8 MB projected**, against **46 GiB** available.
+**Actual: 18 MB.** ⚑ Note `df` read **46 GiB / 90 % used**, not the 60 GiB / 87 % this
+dispatch measured earlier today — the trend is the wrong way and `harness_logs/` alone holds
+**1.7 GB** in the rows-1-2 directory.
+
+## Two side-findings this dispatch did not ask for
+
+1. **The `chmod a-w` QA item is INVERTED — the protection HOLDS.** The mechanism (POSIX
+   unlinks by the *directory's* write bit) is right; the premise about this tree is not. The
+   `chmod` was applied to the **directory**, not the files. Measured: read-only DIR defeats
+   both `rm -f DIR/*.png` **and** `rm -rf DIR` on a non-empty corpus. **The real defect is
+   that nothing ABORTS** — the wipe fails silently, writes fail silently, and `N_PNG` then
+   counts the *banked* frames, so the zero-frame halt never fires and the run writes
+   `COMPLETE frames=874` naming a corpus it did not produce. Fixed as a **namespace**
+   property per the item's own second recommendation. Detail in `9cd6c5e` and
+   `reincarnated-godot/AGENT_STATE.md` § 2.
+2. **`run_s2b_rows37.sh` still carried the unpropagated SUFFIX bug** `ce71ff8` fixed in its
+   two siblings — plus 19 hardcoded `--out=user://s2b37/` arms that would have made a
+   half-propagated fix worse than none. Fixed in the same commit.
+
+## Refutation conditions — which fired
+
+| condition | fired? |
+|---|---|
+| clean-room cannot render under `player_lock/--plk 0.665` without a `wwcr_*` change | ⛔ **YES — HALTED AND ROUTED, not worked around** |
+| arms cannot be matched on a parameter that materially affects the read | ⛔ **YES — camera (0.979 octaves), fps, duration, cadence/seam/concat grammar. All named.** |
+| Task A measurement refutes both your hypotheses | ✅ **YES — and it refuted the citation instead: the reference is `player_lock`, not `arena_full`** |
+| pitch change moves a *measurement-corpus* capture | ✅ no — `--audience` separates them by construction; `CAM_PITCH` byte-untouched |
+| either task requires touching a forward-axis site | ✅ no — sealed and not re-touched |
+| criteria pass while Matt still cannot tell the arms apart | ⚑ **PRE-EMPTED. There is no second arm to tell apart yet, and that IS the datum.** |
+
