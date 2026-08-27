@@ -5,7 +5,7 @@
 ## Substrate (the ONLY reference inputs — FINAL, re-cut 2026-08-26 to pure-combat cores)
 
 - `agentic_orchestration/gandalf/vfx-depth-run/reference/seatsafe-A-src837-863.mp4` — clip A, 26 s (source t 837–863), verified tooltip-free at 1 s resolution
-- `agentic_orchestration/gandalf/vfx-depth-run/reference/seatsafe-B-src1056-1081.mp4` — clip B, 25 s (source t 1056–1081), verified tooltip-free at 1 s resolution
+- `agentic_orchestration/gandalf/vfx-depth-run/reference/seatsafe-B-src1056-1081.mp4` — clip B, 25 s (source t 1056–1081), verified tooltip-free at 1 s resolution. ⚠ **Superseded for SEATS by `seatsafe-B-v2-src1056.2-1081.mp4`** (galadriel's battery caught a 167 ms character-sheet leak at frames 0–9 — invisible to a 1 s grid; v2 starts at frame 11, head-25 verified frame-by-frame). Galadriel's constants are unaffected (leak frames fall between her NULL ceiling and BURST floor). **X-5/X-6 receive A + B-v2 ONLY.**
 - (Intermediates `seatsafe-primary-t820-915.mp4` / `seatsafe-tail-t1040-1100.mp4` retained host-side but carry tooltip/menu interludes — NOT seat or measure substrate.)
 - Provenance: `reference/provenance-card.md` (Matt-CONFIRMED 2026-08-26). Source `KaMPoPywM40`, D4 S14 Whirlwind Barbarian (Cliptis). h264 1080p60, audio stripped, three fixed-position black masks (facecam x0 y760 400×320 · branding x0 y0 240×160 · watermark x1540 y900 380×180).
 - ⛔ Never touch `lap2-gate-evidence/WRONG-REFERENT-d3-2012-master.mp4` or any `855bb3d9…` artifact as a reference input.
