@@ -1,0 +1,747 @@
+{
+ "pass": "R-29 reference re-anchor, TRUE REFERENT",
+ "date": "2026-08-26",
+ "author": "galadriel",
+ "supersedes": {
+  "pass": "R-27 / R-25 A-1",
+  "reason": "charter R-28 -- referent identity defect",
+  "wrong_referent_sha256": "855bb3d9c7edca8b372869e667682eda6de85ea813628377e567522d9e998637"
+ },
+ "substrate": [
+  {
+   "clip": "seatsafe-A-src837-863.mp4",
+   "sha256": "e7077ba8a0117c9c3388c76461e7cada198fa9c6a60c32cb3e3563a7b0cb8920",
+   "sampled": 260,
+   "burst_frames": 93,
+   "null_frames": 58
+  },
+  {
+   "clip": "seatsafe-B-src1056-1081.mp4",
+   "sha256": "c98347de69940e1157d4fc6485257ac1797bb90fe688644d2746287ac89b79dd",
+   "sampled": 250,
+   "burst_frames": 67,
+   "null_frames": 71
+  }
+ ],
+ "instrument": {
+  "hue_sector_deg": [
+   340.0,
+   20.0
+  ],
+  "chroma_floor": 0.35,
+  "l_floor": 0.05,
+  "close_radius": 9,
+  "min_component_px": 12,
+  "top_frac": 0.005,
+  "midband_percentiles": [
+   35,
+   65
+  ],
+  "burst_px": 2000,
+  "null_px": 100,
+  "stride": 6,
+  "statistics_imported_from": "vfx_ref_anchor <- vfx_lap2_battery"
+ },
+ "reference_burst_ui_masked": {
+  "tight_ratio": {
+   "A": 1.4843,
+   "B": 1.5629,
+   "pooled": 1.5236
+  },
+  "supp_ratio": {
+   "A": 1.4996,
+   "B": 1.5682,
+   "pooled": 1.5339
+  },
+  "tight_midS": {
+   "A": 0.6952,
+   "B": 0.662,
+   "pooled": 0.6786
+  },
+  "supp_midS": {
+   "A": 0.6943,
+   "B": 0.6614,
+   "pooled": 0.6779
+  },
+  "own": {
+   "A": 0.0619,
+   "B": 0.0607,
+   "pooled": 0.0613
+  },
+  "own_rank": {
+   "A": 0.0619,
+   "B": 0.0607,
+   "pooled": 0.0613
+  },
+  "floor_ratio": {
+   "A": 3.7075,
+   "B": 4.137,
+   "pooled": 3.9223
+  },
+  "floor_midS": {
+   "A": 0.2618,
+   "B": 0.2639,
+   "pooled": 0.2628
+  },
+  "floor_own": {
+   "A": 0.8447,
+   "B": 0.8833,
+   "pooled": 0.864
+  },
+  "lift_ratio": {
+   "A": 0.3954,
+   "B": 0.3708,
+   "pooled": 0.3831
+  },
+  "lift_midS": {
+   "A": 2.662,
+   "B": 2.4893,
+   "pooled": 2.5756
+  },
+  "lift_own": {
+   "A": 0.0749,
+   "B": 0.0687,
+   "pooled": 0.0718
+  },
+  "share_of_self": {
+   "A": 0.0603,
+   "B": 0.0612,
+   "pooled": 0.0608
+  },
+  "core_ratio": {
+   "A": 1.4521,
+   "B": 1.4822,
+   "pooled": 1.4672
+  },
+  "core_midS": {
+   "A": 0.6929,
+   "B": 0.6641,
+   "pooled": 0.6785
+  },
+  "aux_share": {
+   "A": 0.1389,
+   "B": 0.1548,
+   "pooled": 0.1468
+  },
+  "core_to_runner_up": {
+   "A": 11.033,
+   "B": 12.7636,
+   "pooled": 11.8983
+  },
+  "n_components": {
+   "A": 7.0,
+   "B": 7.0,
+   "pooled": 7.0
+  },
+  "tight_area": {
+   "A": 5828.0,
+   "B": 5714.0,
+   "pooled": 5771.0
+  },
+  "clutter_px": {
+   "A": 172075.0,
+   "B": 182501.0,
+   "pooled": 177288.0
+  }
+ },
+ "reference_null_ui_masked_SELECTION_FLOOR": {
+  "tight_ratio": {
+   "A": 1.3117,
+   "B": 1.4101,
+   "pooled": 1.3609
+  },
+  "tight_midS": {
+   "A": 0.6861,
+   "B": 0.6641,
+   "pooled": 0.6751
+  },
+  "floor_ratio": {
+   "A": 3.5809,
+   "B": 4.047,
+   "pooled": 3.814
+  },
+  "floor_midS": {
+   "A": 0.2471,
+   "B": 0.2452,
+   "pooled": 0.2462
+  },
+  "own": {
+   "A": 0.0,
+   "B": 0.0,
+   "pooled": 0.0
+  },
+  "lift_ratio": {
+   "A": 0.3514,
+   "B": 0.2499,
+   "pooled": 0.3007
+  },
+  "lift_midS": {
+   "A": 2.6993,
+   "B": 2.3101,
+   "pooled": 2.5047
+  }
+ },
+ "reference_burst_raw_no_ui_masking": {
+  "tight_ratio": {
+   "A": 2.925,
+   "B": 2.6847,
+   "pooled": 2.8049
+  },
+  "tight_midS": {
+   "A": 0.7605,
+   "B": 0.7147,
+   "pooled": 0.7376
+  },
+  "own": {
+   "A": 0.0,
+   "B": 0.0,
+   "pooled": 0.0
+  },
+  "floor_ratio": {
+   "A": 4.0127,
+   "B": 4.5133,
+   "pooled": 4.263
+  },
+  "floor_midS": {
+   "A": 0.2802,
+   "B": 0.2863,
+   "pooled": 0.2832
+  },
+  "lift_ratio": {
+   "A": 0.7228,
+   "B": 0.5444,
+   "pooled": 0.6336
+  },
+  "lift_midS": {
+   "A": 2.7029,
+   "B": 2.5299,
+   "pooled": 2.6164
+  }
+ },
+ "ours_lap2_remeasured": {
+  "eff_ratio": 2.352,
+  "sup_ratio": 2.4936,
+  "eff_midS": 0.2906,
+  "sup_midS": 0.3021,
+  "eff_own": 0.4017,
+  "floor_ratio": 2.257,
+  "floor_midS": 0.6225,
+  "floor_own": 0.4367,
+  "lift_ratio": 1.0602,
+  "lift_midS": 0.4664,
+  "lift_own": 0.9066,
+  "share_of_self": 0.0937
+ },
+ "ours_regression_vs_R27": {
+  "eff_ratio": {
+   "r27": 2.352,
+   "now": 2.352,
+   "delta": 3e-05
+  },
+  "floor_ratio": {
+   "r27": 2.257,
+   "now": 2.257,
+   "delta": -4e-05
+  },
+  "eff_midS": {
+   "r27": 0.2906,
+   "now": 0.2906,
+   "delta": -4e-05
+  },
+  "floor_midS": {
+   "r27": 0.6225,
+   "now": 0.6225,
+   "delta": 3e-05
+  },
+  "eff_own": {
+   "r27": 0.4017,
+   "now": 0.4017,
+   "delta": 5e-05
+  },
+  "floor_own": {
+   "r27": 0.4367,
+   "now": 0.4367,
+   "delta": 1e-05
+  }
+ },
+ "segmentation_forms": {
+  "A": {
+   "n_frames": 10,
+   "forms": {
+    "chroma_035_adopted": {
+     "area_median": 6968.5,
+     "ratio_median": 1.439438826246786,
+     "midS_median": 0.6909745633602142
+    },
+    "chroma_020": {
+     "area_median": 22221.5,
+     "ratio_median": 1.5623789494317062,
+     "midS_median": 0.5972737967967987
+    },
+    "R27form_S035": {
+     "area_median": 59735.0,
+     "ratio_median": 1.836016933106312,
+     "midS_median": 0.4863370954990387
+    },
+    "R27form_S035_hue30": {
+     "area_median": 369431.5,
+     "ratio_median": 2.2078451079403316,
+     "midS_median": 0.5087242722511292
+    }
+   },
+   "dilation_ladder_ratio": {
+    "support+0": 1.438772044124061,
+    "support+5": 1.4739944656103614,
+    "support+10": 1.5280103327449641,
+    "support+20": 1.6453228260083375,
+    "support+40": 1.9261798524604177
+   },
+   "scene_floor": {
+    "ratio_median": 4.039739528341089,
+    "midS_median": 0.26257483661174774
+   },
+   "note": "R27form_S035_hue30 selects ~300-400 kpx (a third of the frame) on this referent and is reported as INADMISSIBLE, not as an estimate."
+  },
+  "B": {
+   "n_frames": 10,
+   "forms": {
+    "chroma_035_adopted": {
+     "area_median": 3677.5,
+     "ratio_median": 1.5507579645083136,
+     "midS_median": 0.6466497480869293
+    },
+    "chroma_020": {
+     "area_median": 27770.5,
+     "ratio_median": 1.5847940252121122,
+     "midS_median": 0.5486419796943665
+    },
+    "R27form_S035": {
+     "area_median": 74839.5,
+     "ratio_median": 2.2182727620158404,
+     "midS_median": 0.4822583943605423
+    },
+    "R27form_S035_hue30": {
+     "area_median": 345627.5,
+     "ratio_median": 2.456015066200137,
+     "midS_median": 0.49335382878780365
+    }
+   },
+   "dilation_ladder_ratio": {
+    "support+0": 1.557667561855128,
+    "support+5": 1.614517430279407,
+    "support+10": 1.6721622328111465,
+    "support+20": 1.7686232767178522,
+    "support+40": 1.9996461024278829
+   },
+   "scene_floor": {
+    "ratio_median": 4.256601872396693,
+    "midS_median": 0.280449703335762
+   },
+   "note": "R27form_S035_hue30 selects ~300-400 kpx (a third of the frame) on this referent and is reported as INADMISSIBLE, not as an estimate."
+  }
+ },
+ "sweeps": {
+  "A": {
+   "chroma_floor": [
+    {
+     "c_floor": 0.15,
+     "ratio": 1.6137836999247839,
+     "midS": 0.5304104089736938,
+     "area": 37870.0,
+     "own": 0.11049362320089029
+    },
+    {
+     "c_floor": 0.2,
+     "ratio": 1.5858217024726367,
+     "midS": 0.5928258001804352,
+     "area": 23289.5,
+     "own": 0.10214631164691267
+    },
+    {
+     "c_floor": 0.25,
+     "ratio": 1.5541169922817981,
+     "midS": 0.6602516770362854,
+     "area": 14319.0,
+     "own": 0.07944087288202795
+    },
+    {
+     "c_floor": 0.3,
+     "ratio": 1.543780849868203,
+     "midS": 0.693612664937973,
+     "area": 11195.5,
+     "own": 0.07549247339793061
+    },
+    {
+     "c_floor": 0.35,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6592.5,
+     "own": 0.07023880406252142
+    },
+    {
+     "c_floor": 0.45,
+     "ratio": 1.5572887764372474,
+     "midS": 0.7507538199424744,
+     "area": 1921.5,
+     "own": 0.039929033176459613
+    },
+    {
+     "c_floor": 0.55,
+     "ratio": 1.3835290675175287,
+     "midS": 0.724489688873291,
+     "area": 21.0,
+     "own": 0.0
+    }
+   ],
+   "hue_hi": [
+    {
+     "hue_hi": 12.0,
+     "ratio": 1.42499038736274,
+     "midS": 0.7496960759162903,
+     "area": 642.5
+    },
+    {
+     "hue_hi": 16.0,
+     "ratio": 1.3939535588499594,
+     "midS": 0.7160817384719849,
+     "area": 3298.0
+    },
+    {
+     "hue_hi": 20.0,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6592.5
+    },
+    {
+     "hue_hi": 25.0,
+     "ratio": 1.5433984219465846,
+     "midS": 0.6858115792274475,
+     "area": 10795.0
+    },
+    {
+     "hue_hi": 30.0,
+     "ratio": 1.5000836424755746,
+     "midS": 0.6510805189609528,
+     "area": 16823.0
+    },
+    {
+     "hue_hi": 40.0,
+     "ratio": 1.515523232143554,
+     "midS": 0.6503930389881134,
+     "area": 18421.0
+    }
+   ],
+   "l_floor": [
+    {
+     "l_floor": 0.0,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6592.5
+    },
+    {
+     "l_floor": 0.05,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6592.5
+    },
+    {
+     "l_floor": 0.1,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6592.5
+    },
+    {
+     "l_floor": 0.15,
+     "ratio": 1.4646875185294639,
+     "midS": 0.711060643196106,
+     "area": 6591.0
+    },
+    {
+     "l_floor": 0.2,
+     "ratio": 1.4644514208874722,
+     "midS": 0.7061327397823334,
+     "area": 6411.5
+    }
+   ],
+   "close_radius": [
+    {
+     "close_radius": 3,
+     "supp_ratio": 1.4692199965556976,
+     "supp_midS": 0.7108869552612305
+    },
+    {
+     "close_radius": 5,
+     "supp_ratio": 1.469528792787841,
+     "supp_midS": 0.7108456790447235
+    },
+    {
+     "close_radius": 9,
+     "supp_ratio": 1.4751973811497454,
+     "supp_midS": 0.7100962102413177
+    },
+    {
+     "close_radius": 15,
+     "supp_ratio": 1.4808650435178907,
+     "supp_midS": 0.7082427144050598
+    },
+    {
+     "close_radius": 25,
+     "supp_ratio": 1.5704223757155167,
+     "supp_midS": 0.7078076601028442
+    }
+   ]
+  },
+  "B": {
+   "chroma_floor": [
+    {
+     "c_floor": 0.15,
+     "ratio": 1.6406140625173604,
+     "midS": 0.541655570268631,
+     "area": 43798.0,
+     "own": 0.10703721267553787
+    },
+    {
+     "c_floor": 0.2,
+     "ratio": 1.5942981985038869,
+     "midS": 0.583382248878479,
+     "area": 27790.0,
+     "own": 0.09452323952054346
+    },
+    {
+     "c_floor": 0.25,
+     "ratio": 1.5660916464296049,
+     "midS": 0.6207003891468048,
+     "area": 17389.0,
+     "own": 0.09104294930820524
+    },
+    {
+     "c_floor": 0.3,
+     "ratio": 1.524152431803656,
+     "midS": 0.653016209602356,
+     "area": 11791.5,
+     "own": 0.08008245998163929
+    },
+    {
+     "c_floor": 0.35,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0,
+     "own": 0.06541347375736206
+    },
+    {
+     "c_floor": 0.45,
+     "ratio": 1.481383448476289,
+     "midS": 0.6885896921157837,
+     "area": 1180.0,
+     "own": 0.025582351055346418
+    },
+    {
+     "c_floor": 0.55,
+     "ratio": 1.3808147378050588,
+     "midS": 0.737972229719162,
+     "area": 0.0,
+     "own": 0.0
+    }
+   ],
+   "hue_hi": [
+    {
+     "hue_hi": 12.0,
+     "ratio": 1.4203574118344433,
+     "midS": 0.71204674243927,
+     "area": 980.5
+    },
+    {
+     "hue_hi": 16.0,
+     "ratio": 1.4545239719310437,
+     "midS": 0.6782632768154144,
+     "area": 4287.5
+    },
+    {
+     "hue_hi": 20.0,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0
+    },
+    {
+     "hue_hi": 25.0,
+     "ratio": 1.6222077724904596,
+     "midS": 0.6586924493312836,
+     "area": 10604.0
+    },
+    {
+     "hue_hi": 30.0,
+     "ratio": 1.4925809606883904,
+     "midS": 0.6515991687774658,
+     "area": 20221.0
+    },
+    {
+     "hue_hi": 40.0,
+     "ratio": 1.5525346696774682,
+     "midS": 0.647508442401886,
+     "area": 22075.5
+    }
+   ],
+   "l_floor": [
+    {
+     "l_floor": 0.0,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0
+    },
+    {
+     "l_floor": 0.05,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0
+    },
+    {
+     "l_floor": 0.1,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0
+    },
+    {
+     "l_floor": 0.15,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6617107391357422,
+     "area": 7334.0
+    },
+    {
+     "l_floor": 0.2,
+     "ratio": 1.5156187061678938,
+     "midS": 0.6615734398365021,
+     "area": 7334.0
+    }
+   ],
+   "close_radius": [
+    {
+     "close_radius": 3,
+     "supp_ratio": 1.5257998519482427,
+     "supp_midS": 0.6616465151309967
+    },
+    {
+     "close_radius": 5,
+     "supp_ratio": 1.5257998519482427,
+     "supp_midS": 0.6613742411136627
+    },
+    {
+     "close_radius": 9,
+     "supp_ratio": 1.5278388576752917,
+     "supp_midS": 0.6615724563598633
+    },
+    {
+     "close_radius": 15,
+     "supp_ratio": 1.5428881755134563,
+     "supp_midS": 0.6602109372615814
+    },
+    {
+     "close_radius": 25,
+     "supp_ratio": 1.5770058837702643,
+     "supp_midS": 0.6629157364368439
+    }
+   ]
+  }
+ },
+ "palette_DESCRIPTIVE_ONLY": {
+  "A": {
+   "hue_p10_median": 14.194,
+   "hue_p50_median": 19.07,
+   "hue_p90_median": 27.447,
+   "S_p50_median": 0.671,
+   "L_p50_median": 0.391
+  },
+  "B": {
+   "hue_p10_median": 11.234,
+   "hue_p50_median": 15.957,
+   "hue_p90_median": 21.765,
+   "S_p50_median": 0.654,
+   "L_p50_median": 0.394
+  },
+  "selection": "chroma-only (hue FREE) restricted to components overlapping the tight mask",
+  "venue_hue_mode_deg": 25.0
+ },
+ "DERIVED_CONSTANTS": {
+  "T3b_LIFT_FORM": {
+   "reference_lift_over_own_scene_floor": 0.3831,
+   "cathedral_floor_P95_P20": 2.257,
+   "derived_cathedral_bar": 0.8647,
+   "statistic_mathematical_minimum": 1.0,
+   "VERDICT": "VACUOUS -- derived bar 0.865 lies BELOW the statistic's floor of 1.0; no render can fail it. The form survives R-28; the constant it yields does not bind.",
+   "ours_lap2": {
+    "absolute": 2.352,
+    "lift": 1.0602
+   }
+  },
+  "T3b_ABSOLUTE_FORM": {
+   "reference_primary": 1.5236,
+   "reference_max_over_any_admissible_region": 2.0,
+   "reference_under_R27_own_S035_form": 2.027,
+   "ours_lap2": 2.352,
+   "VERDICT": "Ours ALREADY EXCEEDS the reference on every admissible construction. Bar lineage 4.0 (a priori) -> 3.25 (R-27, wrong referent) -> ~1.5-2.0 (true referent)."
+  },
+  "T3c_SIGN_FORM": {
+   "reference_lift_over_own_scene_floor": 2.5756,
+   "cathedral_floor_midband_S": 0.6225,
+   "required_cathedral_midband_S": 1.6033,
+   "S_upper_bound": 1.0,
+   "max_feasible_lift_in_cathedral": 1.6064,
+   "KILL_1_negative_control": {
+    "burst_midS": 0.6786,
+    "null_midS": 0.6751,
+    "headroom": 0.0035,
+    "burst_lift": 2.5756,
+    "null_lift": 2.5047,
+    "note": "the in-clip NULL reproduces the entire lift; on clip A the null's lift (2.699x) EXCEEDS the burst's (2.662x). The statistic is measuring the chroma threshold."
+   },
+   "KILL_2_feasibility": "2.58 x 0.6225 = 1.606 > 1.0. Infeasible even at face value, and infeasible (1.07) under the most conservative admissible mask.",
+   "VERDICT": "NOT DERIVABLE on this referent. Two independent kills.",
+   "ours_lap2": {
+    "absolute": 0.2906,
+    "lift": 0.4664
+   }
+  },
+  "T3a_OWNERSHIP_DIAGNOSTIC_ONLY": {
+   "reference_ui_masked": 0.0613,
+   "reference_raw": 0.0,
+   "reference_scene_floor": 0.864,
+   "reference_lift": 0.0718,
+   "ours_lap2": {
+    "effect": 0.4017,
+    "floor": 0.4367,
+    "lift": 0.9066
+   },
+   "R27_wrong_referent_reading": {
+    "own": 0.7485,
+    "lift": 9.27
+   },
+   "VERDICT": "INVERTED vs R-27. The a-priori 0.75 bar's apparent corroboration was a coincidence with the wrong video. On the true referent the reference's own whirlwind owns 6% of its frame's top tail (0% before UI masking -- the damage-number text owns it) against our 40%."
+  },
+  "SHARE_OF_SELF": {
+   "reference": 0.0608,
+   "ours": 0.0937,
+   "VERDICT": "R-27's finding SURVIVES the referent swap and strengthens: our effect devotes a LARGER fraction of itself to the frame's top tail (1.5x) than the reference does."
+  },
+  "DUST_DEVIL_SEPARABILITY": {
+   "dust_devil_hue_deg": 11.7,
+   "dust_devil_chroma": [
+    0.104,
+    0.157
+   ],
+   "core_disc_chroma": 0.573,
+   "adopted_chroma_floor": 0.35,
+   "aux_share_of_effect": 0.1468,
+   "core_to_runner_up_dominance": 11.8983,
+   "VERDICT": "SEPARABLE WITHOUT SUBTRACTION. Dust Devils sit in the SAME red hue sector as the core disc (11.7 deg) but at 0.10-0.16 chroma against the disc's 0.573 -- excluded by the C>0.35 floor with 2.2-3.5x margin, verified visually unmasked at B t=14.00. Stronger than legolas RT-4's subtractability claim required. LIMIT: below C~0.20 they begin to enter, which is part of what the chroma sweep's low end shows."
+  }
+ },
+ "SUBSTRATE_DEFECT": {
+  "clip": "seatsafe-B-src1056-1081.mp4",
+  "frames": "0-9 (t 0.000-0.150 s)",
+  "what": "full Diablo IV CHARACTER SHEET / inventory panel with an item tooltip, on screen",
+  "brief_claim": "'verified tooltip-free at 1 s resolution'",
+  "measurement_impact": "NONE on the constants -- frames 0 and 6 register 1,751 px of red, below the 2,000 px BURST floor and above the 100 px NULL ceiling, so they fall in NEITHER window the constants are taken from.",
+  "blind_hygiene_impact": "seats X-5/X-6 would see a 167 ms flash of build/menu content at the head of clip B. Conductor's call.",
+  "clip_A": "head verified clean, frames 0-25",
+  "evidence": "captures/2026-08-26-vfx-refanchor-true/evidence/B-head-frames-0to25-MENU-LEAK.jpg"
+ }
+}
