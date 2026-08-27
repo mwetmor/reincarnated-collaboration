@@ -2,7 +2,7 @@
 
 > **Law being applied (minted at charter ledger R-28, 2026-08-26):** *REFERENT IDENTITY IS A PRE-REGISTERED FACT — the skill's step 0 is a provenance card (source URL + title + hash) shown to Matt at charter time, BEFORE any seat fires.* This card is that fact. No blind seat (X-5/X-6), no galadriel re-anchor, no bar re-derivation fires until Matt confirms this card.
 
-**Filed:** 2026-08-26 · **Conductor:** gandalf (RUN-CONDUCTOR) · **Status:** ⏳ AWAITING MATT ONE-LINE CONFIRM
+**Filed:** 2026-08-26 · **Conductor:** gandalf (RUN-CONDUCTOR) · **Status:** ✅ **CONFIRMED by Matt 2026-08-26, verbatim: "yes, that's it"** — full-card confirm, no windows amended, § 4 ruling stands (this video alone IS the reference). Referent identity is now a pre-registered fact; seats may fire.
 
 ---
 
