@@ -8,6 +8,14 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT.parent/'run_02'))
 from pipeline import extract,registration,measure
 
+def frame_contacts(im,relative_file):
+    annotations=ROOT/'output_contact_regions.json'
+    entry=json.loads(annotations.read_text()).get(str(relative_file)) if annotations.exists() else None
+    if entry:
+        from turnaround import contacts
+        return contacts(im,entry['regions'])['points']
+    return front_contacts(im,exclude_thin_staff=True)
+
 
 def front_contacts(im,exclude_thin_staff=False):
     a=np.array(im)[...,3]>=128;ys,xs=np.where(a)
@@ -21,7 +29,7 @@ def front_contacts(im,exclude_thin_staff=False):
         components,n=ndimage.label(lower);feet=[]
         for k in range(1,n+1):
             yy,xx=np.where(edge&(components==k))
-            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.025:
+            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.035:
                 bottom=yy.max();feet.append([float(np.median(xx[yy>=bottom-1])),float(bottom)])
         feet.sort(key=lambda p:p[1],reverse=True)
         if len(feet)>=2:return sorted(feet[:2],key=lambda p:p[0])
@@ -30,7 +38,7 @@ def front_contacts(im,exclude_thin_staff=False):
         candidates=[]
         for k in range(1,n+1):
             yy,xx=np.where(edge&(labels==k))
-            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.025:
+            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.035:
                 bottom=yy.max();candidates.append([float(np.median(xx[yy>=bottom-1])),float(bottom)])
         candidates.sort(key=lambda p:p[1],reverse=True)
         selected=[]

@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS",
+  "status": "FRAMES_COMPLETE_ACCEPTANCE_PENDING",
   "directions": [
     "S",
     "SW",
@@ -27,13 +27,13 @@
       "count": 8,
       "available": {
         "S": 8,
-        "SW": 1,
-        "W": 1,
-        "NW": 1,
-        "N": 1,
-        "NE": 1,
+        "SW": 8,
+        "W": 8,
+        "NW": 8,
+        "N": 8,
+        "NE": 8,
         "E": 8,
-        "SE": 1
+        "SE": 8
       },
       "frames": [
         {
@@ -136,6 +136,83 @@
           "file": "frames/idle/SW/idle_SW_00.png"
         },
         {
+          "direction": "SW",
+          "index": 1,
+          "rect": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_01.png"
+        },
+        {
+          "direction": "SW",
+          "index": 2,
+          "rect": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_02.png"
+        },
+        {
+          "direction": "SW",
+          "index": 3,
+          "rect": [
+            1536,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_03.png"
+        },
+        {
+          "direction": "SW",
+          "index": 4,
+          "rect": [
+            2048,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_04.png"
+        },
+        {
+          "direction": "SW",
+          "index": 5,
+          "rect": [
+            2560,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_05.png"
+        },
+        {
+          "direction": "SW",
+          "index": 6,
+          "rect": [
+            3072,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_06.png"
+        },
+        {
+          "direction": "SW",
+          "index": 7,
+          "rect": [
+            3584,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/idle/SW/idle_SW_07.png"
+        },
+        {
           "direction": "W",
           "index": 0,
           "rect": [
@@ -145,6 +222,83 @@
             512
           ],
           "file": "frames/idle/W/idle_W_00.png"
+        },
+        {
+          "direction": "W",
+          "index": 1,
+          "rect": [
+            512,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_01.png"
+        },
+        {
+          "direction": "W",
+          "index": 2,
+          "rect": [
+            1024,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_02.png"
+        },
+        {
+          "direction": "W",
+          "index": 3,
+          "rect": [
+            1536,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_03.png"
+        },
+        {
+          "direction": "W",
+          "index": 4,
+          "rect": [
+            2048,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_04.png"
+        },
+        {
+          "direction": "W",
+          "index": 5,
+          "rect": [
+            2560,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_05.png"
+        },
+        {
+          "direction": "W",
+          "index": 6,
+          "rect": [
+            3072,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_06.png"
+        },
+        {
+          "direction": "W",
+          "index": 7,
+          "rect": [
+            3584,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/idle/W/idle_W_07.png"
         },
         {
           "direction": "NW",
@@ -158,6 +312,83 @@
           "file": "frames/idle/NW/idle_NW_00.png"
         },
         {
+          "direction": "NW",
+          "index": 1,
+          "rect": [
+            512,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_01.png"
+        },
+        {
+          "direction": "NW",
+          "index": 2,
+          "rect": [
+            1024,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_02.png"
+        },
+        {
+          "direction": "NW",
+          "index": 3,
+          "rect": [
+            1536,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_03.png"
+        },
+        {
+          "direction": "NW",
+          "index": 4,
+          "rect": [
+            2048,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_04.png"
+        },
+        {
+          "direction": "NW",
+          "index": 5,
+          "rect": [
+            2560,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_05.png"
+        },
+        {
+          "direction": "NW",
+          "index": 6,
+          "rect": [
+            3072,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_06.png"
+        },
+        {
+          "direction": "NW",
+          "index": 7,
+          "rect": [
+            3584,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/idle/NW/idle_NW_07.png"
+        },
+        {
           "direction": "N",
           "index": 0,
           "rect": [
@@ -169,6 +400,83 @@
           "file": "frames/idle/N/idle_N_00.png"
         },
         {
+          "direction": "N",
+          "index": 1,
+          "rect": [
+            512,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_01.png"
+        },
+        {
+          "direction": "N",
+          "index": 2,
+          "rect": [
+            1024,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_02.png"
+        },
+        {
+          "direction": "N",
+          "index": 3,
+          "rect": [
+            1536,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_03.png"
+        },
+        {
+          "direction": "N",
+          "index": 4,
+          "rect": [
+            2048,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_04.png"
+        },
+        {
+          "direction": "N",
+          "index": 5,
+          "rect": [
+            2560,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_05.png"
+        },
+        {
+          "direction": "N",
+          "index": 6,
+          "rect": [
+            3072,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_06.png"
+        },
+        {
+          "direction": "N",
+          "index": 7,
+          "rect": [
+            3584,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/idle/N/idle_N_07.png"
+        },
+        {
           "direction": "NE",
           "index": 0,
           "rect": [
@@ -178,6 +486,83 @@
             512
           ],
           "file": "frames/idle/NE/idle_NE_00.png"
+        },
+        {
+          "direction": "NE",
+          "index": 1,
+          "rect": [
+            512,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_01.png"
+        },
+        {
+          "direction": "NE",
+          "index": 2,
+          "rect": [
+            1024,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_02.png"
+        },
+        {
+          "direction": "NE",
+          "index": 3,
+          "rect": [
+            1536,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_03.png"
+        },
+        {
+          "direction": "NE",
+          "index": 4,
+          "rect": [
+            2048,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_04.png"
+        },
+        {
+          "direction": "NE",
+          "index": 5,
+          "rect": [
+            2560,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_05.png"
+        },
+        {
+          "direction": "NE",
+          "index": 6,
+          "rect": [
+            3072,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_06.png"
+        },
+        {
+          "direction": "NE",
+          "index": 7,
+          "rect": [
+            3584,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/idle/NE/idle_NE_07.png"
         },
         {
           "direction": "E",
@@ -277,6 +662,83 @@
             512
           ],
           "file": "frames/idle/SE/idle_SE_00.png"
+        },
+        {
+          "direction": "SE",
+          "index": 1,
+          "rect": [
+            512,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_01.png"
+        },
+        {
+          "direction": "SE",
+          "index": 2,
+          "rect": [
+            1024,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_02.png"
+        },
+        {
+          "direction": "SE",
+          "index": 3,
+          "rect": [
+            1536,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_03.png"
+        },
+        {
+          "direction": "SE",
+          "index": 4,
+          "rect": [
+            2048,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_04.png"
+        },
+        {
+          "direction": "SE",
+          "index": 5,
+          "rect": [
+            2560,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_05.png"
+        },
+        {
+          "direction": "SE",
+          "index": 6,
+          "rect": [
+            3072,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_06.png"
+        },
+        {
+          "direction": "SE",
+          "index": 7,
+          "rect": [
+            3584,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/idle/SE/idle_SE_07.png"
         }
       ]
     },
@@ -287,13 +749,13 @@
       "count": 8,
       "available": {
         "S": 8,
-        "SW": 0,
-        "W": 0,
-        "NW": 0,
-        "N": 0,
-        "NE": 0,
+        "SW": 8,
+        "W": 8,
+        "NW": 8,
+        "N": 8,
+        "NE": 8,
         "E": 8,
-        "SE": 0
+        "SE": 8
       },
       "frames": [
         {
@@ -385,6 +847,446 @@
           "file": "frames/walk/S/walk_S_07.png"
         },
         {
+          "direction": "SW",
+          "index": 0,
+          "rect": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_00.png"
+        },
+        {
+          "direction": "SW",
+          "index": 1,
+          "rect": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_01.png"
+        },
+        {
+          "direction": "SW",
+          "index": 2,
+          "rect": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_02.png"
+        },
+        {
+          "direction": "SW",
+          "index": 3,
+          "rect": [
+            1536,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_03.png"
+        },
+        {
+          "direction": "SW",
+          "index": 4,
+          "rect": [
+            2048,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_04.png"
+        },
+        {
+          "direction": "SW",
+          "index": 5,
+          "rect": [
+            2560,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_05.png"
+        },
+        {
+          "direction": "SW",
+          "index": 6,
+          "rect": [
+            3072,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_06.png"
+        },
+        {
+          "direction": "SW",
+          "index": 7,
+          "rect": [
+            3584,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/walk/SW/walk_SW_07.png"
+        },
+        {
+          "direction": "W",
+          "index": 0,
+          "rect": [
+            0,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_00.png"
+        },
+        {
+          "direction": "W",
+          "index": 1,
+          "rect": [
+            512,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_01.png"
+        },
+        {
+          "direction": "W",
+          "index": 2,
+          "rect": [
+            1024,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_02.png"
+        },
+        {
+          "direction": "W",
+          "index": 3,
+          "rect": [
+            1536,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_03.png"
+        },
+        {
+          "direction": "W",
+          "index": 4,
+          "rect": [
+            2048,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_04.png"
+        },
+        {
+          "direction": "W",
+          "index": 5,
+          "rect": [
+            2560,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_05.png"
+        },
+        {
+          "direction": "W",
+          "index": 6,
+          "rect": [
+            3072,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_06.png"
+        },
+        {
+          "direction": "W",
+          "index": 7,
+          "rect": [
+            3584,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/walk/W/walk_W_07.png"
+        },
+        {
+          "direction": "NW",
+          "index": 0,
+          "rect": [
+            0,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_00.png"
+        },
+        {
+          "direction": "NW",
+          "index": 1,
+          "rect": [
+            512,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_01.png"
+        },
+        {
+          "direction": "NW",
+          "index": 2,
+          "rect": [
+            1024,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_02.png"
+        },
+        {
+          "direction": "NW",
+          "index": 3,
+          "rect": [
+            1536,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_03.png"
+        },
+        {
+          "direction": "NW",
+          "index": 4,
+          "rect": [
+            2048,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_04.png"
+        },
+        {
+          "direction": "NW",
+          "index": 5,
+          "rect": [
+            2560,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_05.png"
+        },
+        {
+          "direction": "NW",
+          "index": 6,
+          "rect": [
+            3072,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_06.png"
+        },
+        {
+          "direction": "NW",
+          "index": 7,
+          "rect": [
+            3584,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/walk/NW/walk_NW_07.png"
+        },
+        {
+          "direction": "N",
+          "index": 0,
+          "rect": [
+            0,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_00.png"
+        },
+        {
+          "direction": "N",
+          "index": 1,
+          "rect": [
+            512,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_01.png"
+        },
+        {
+          "direction": "N",
+          "index": 2,
+          "rect": [
+            1024,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_02.png"
+        },
+        {
+          "direction": "N",
+          "index": 3,
+          "rect": [
+            1536,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_03.png"
+        },
+        {
+          "direction": "N",
+          "index": 4,
+          "rect": [
+            2048,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_04.png"
+        },
+        {
+          "direction": "N",
+          "index": 5,
+          "rect": [
+            2560,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_05.png"
+        },
+        {
+          "direction": "N",
+          "index": 6,
+          "rect": [
+            3072,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_06.png"
+        },
+        {
+          "direction": "N",
+          "index": 7,
+          "rect": [
+            3584,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/walk/N/walk_N_07.png"
+        },
+        {
+          "direction": "NE",
+          "index": 0,
+          "rect": [
+            0,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_00.png"
+        },
+        {
+          "direction": "NE",
+          "index": 1,
+          "rect": [
+            512,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_01.png"
+        },
+        {
+          "direction": "NE",
+          "index": 2,
+          "rect": [
+            1024,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_02.png"
+        },
+        {
+          "direction": "NE",
+          "index": 3,
+          "rect": [
+            1536,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_03.png"
+        },
+        {
+          "direction": "NE",
+          "index": 4,
+          "rect": [
+            2048,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_04.png"
+        },
+        {
+          "direction": "NE",
+          "index": 5,
+          "rect": [
+            2560,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_05.png"
+        },
+        {
+          "direction": "NE",
+          "index": 6,
+          "rect": [
+            3072,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_06.png"
+        },
+        {
+          "direction": "NE",
+          "index": 7,
+          "rect": [
+            3584,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/walk/NE/walk_NE_07.png"
+        },
+        {
           "direction": "E",
           "index": 0,
           "rect": [
@@ -471,6 +1373,94 @@
             512
           ],
           "file": "frames/walk/E/walk_E_07.png"
+        },
+        {
+          "direction": "SE",
+          "index": 0,
+          "rect": [
+            0,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_00.png"
+        },
+        {
+          "direction": "SE",
+          "index": 1,
+          "rect": [
+            512,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_01.png"
+        },
+        {
+          "direction": "SE",
+          "index": 2,
+          "rect": [
+            1024,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_02.png"
+        },
+        {
+          "direction": "SE",
+          "index": 3,
+          "rect": [
+            1536,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_03.png"
+        },
+        {
+          "direction": "SE",
+          "index": 4,
+          "rect": [
+            2048,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_04.png"
+        },
+        {
+          "direction": "SE",
+          "index": 5,
+          "rect": [
+            2560,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_05.png"
+        },
+        {
+          "direction": "SE",
+          "index": 6,
+          "rect": [
+            3072,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_06.png"
+        },
+        {
+          "direction": "SE",
+          "index": 7,
+          "rect": [
+            3584,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/walk/SE/walk_SE_07.png"
         }
       ]
     },
@@ -481,13 +1471,13 @@
       "count": 12,
       "available": {
         "S": 12,
-        "SW": 0,
-        "W": 0,
-        "NW": 0,
-        "N": 0,
-        "NE": 0,
+        "SW": 12,
+        "W": 12,
+        "NW": 12,
+        "N": 12,
+        "NE": 12,
         "E": 12,
-        "SE": 0
+        "SE": 12
       },
       "frames": [
         {
@@ -623,6 +1613,666 @@
           "file": "frames/cast/S/cast_S_11.png"
         },
         {
+          "direction": "SW",
+          "index": 0,
+          "rect": [
+            0,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_00.png"
+        },
+        {
+          "direction": "SW",
+          "index": 1,
+          "rect": [
+            512,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_01.png"
+        },
+        {
+          "direction": "SW",
+          "index": 2,
+          "rect": [
+            1024,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_02.png"
+        },
+        {
+          "direction": "SW",
+          "index": 3,
+          "rect": [
+            1536,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_03.png"
+        },
+        {
+          "direction": "SW",
+          "index": 4,
+          "rect": [
+            2048,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_04.png"
+        },
+        {
+          "direction": "SW",
+          "index": 5,
+          "rect": [
+            2560,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_05.png"
+        },
+        {
+          "direction": "SW",
+          "index": 6,
+          "rect": [
+            3072,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_06.png"
+        },
+        {
+          "direction": "SW",
+          "index": 7,
+          "rect": [
+            3584,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_07.png"
+        },
+        {
+          "direction": "SW",
+          "index": 8,
+          "rect": [
+            4096,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_08.png"
+        },
+        {
+          "direction": "SW",
+          "index": 9,
+          "rect": [
+            4608,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_09.png"
+        },
+        {
+          "direction": "SW",
+          "index": 10,
+          "rect": [
+            5120,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_10.png"
+        },
+        {
+          "direction": "SW",
+          "index": 11,
+          "rect": [
+            5632,
+            512,
+            512,
+            512
+          ],
+          "file": "frames/cast/SW/cast_SW_11.png"
+        },
+        {
+          "direction": "W",
+          "index": 0,
+          "rect": [
+            0,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_00.png"
+        },
+        {
+          "direction": "W",
+          "index": 1,
+          "rect": [
+            512,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_01.png"
+        },
+        {
+          "direction": "W",
+          "index": 2,
+          "rect": [
+            1024,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_02.png"
+        },
+        {
+          "direction": "W",
+          "index": 3,
+          "rect": [
+            1536,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_03.png"
+        },
+        {
+          "direction": "W",
+          "index": 4,
+          "rect": [
+            2048,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_04.png"
+        },
+        {
+          "direction": "W",
+          "index": 5,
+          "rect": [
+            2560,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_05.png"
+        },
+        {
+          "direction": "W",
+          "index": 6,
+          "rect": [
+            3072,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_06.png"
+        },
+        {
+          "direction": "W",
+          "index": 7,
+          "rect": [
+            3584,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_07.png"
+        },
+        {
+          "direction": "W",
+          "index": 8,
+          "rect": [
+            4096,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_08.png"
+        },
+        {
+          "direction": "W",
+          "index": 9,
+          "rect": [
+            4608,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_09.png"
+        },
+        {
+          "direction": "W",
+          "index": 10,
+          "rect": [
+            5120,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_10.png"
+        },
+        {
+          "direction": "W",
+          "index": 11,
+          "rect": [
+            5632,
+            1024,
+            512,
+            512
+          ],
+          "file": "frames/cast/W/cast_W_11.png"
+        },
+        {
+          "direction": "NW",
+          "index": 0,
+          "rect": [
+            0,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_00.png"
+        },
+        {
+          "direction": "NW",
+          "index": 1,
+          "rect": [
+            512,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_01.png"
+        },
+        {
+          "direction": "NW",
+          "index": 2,
+          "rect": [
+            1024,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_02.png"
+        },
+        {
+          "direction": "NW",
+          "index": 3,
+          "rect": [
+            1536,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_03.png"
+        },
+        {
+          "direction": "NW",
+          "index": 4,
+          "rect": [
+            2048,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_04.png"
+        },
+        {
+          "direction": "NW",
+          "index": 5,
+          "rect": [
+            2560,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_05.png"
+        },
+        {
+          "direction": "NW",
+          "index": 6,
+          "rect": [
+            3072,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_06.png"
+        },
+        {
+          "direction": "NW",
+          "index": 7,
+          "rect": [
+            3584,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_07.png"
+        },
+        {
+          "direction": "NW",
+          "index": 8,
+          "rect": [
+            4096,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_08.png"
+        },
+        {
+          "direction": "NW",
+          "index": 9,
+          "rect": [
+            4608,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_09.png"
+        },
+        {
+          "direction": "NW",
+          "index": 10,
+          "rect": [
+            5120,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_10.png"
+        },
+        {
+          "direction": "NW",
+          "index": 11,
+          "rect": [
+            5632,
+            1536,
+            512,
+            512
+          ],
+          "file": "frames/cast/NW/cast_NW_11.png"
+        },
+        {
+          "direction": "N",
+          "index": 0,
+          "rect": [
+            0,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_00.png"
+        },
+        {
+          "direction": "N",
+          "index": 1,
+          "rect": [
+            512,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_01.png"
+        },
+        {
+          "direction": "N",
+          "index": 2,
+          "rect": [
+            1024,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_02.png"
+        },
+        {
+          "direction": "N",
+          "index": 3,
+          "rect": [
+            1536,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_03.png"
+        },
+        {
+          "direction": "N",
+          "index": 4,
+          "rect": [
+            2048,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_04.png"
+        },
+        {
+          "direction": "N",
+          "index": 5,
+          "rect": [
+            2560,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_05.png"
+        },
+        {
+          "direction": "N",
+          "index": 6,
+          "rect": [
+            3072,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_06.png"
+        },
+        {
+          "direction": "N",
+          "index": 7,
+          "rect": [
+            3584,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_07.png"
+        },
+        {
+          "direction": "N",
+          "index": 8,
+          "rect": [
+            4096,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_08.png"
+        },
+        {
+          "direction": "N",
+          "index": 9,
+          "rect": [
+            4608,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_09.png"
+        },
+        {
+          "direction": "N",
+          "index": 10,
+          "rect": [
+            5120,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_10.png"
+        },
+        {
+          "direction": "N",
+          "index": 11,
+          "rect": [
+            5632,
+            2048,
+            512,
+            512
+          ],
+          "file": "frames/cast/N/cast_N_11.png"
+        },
+        {
+          "direction": "NE",
+          "index": 0,
+          "rect": [
+            0,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_00.png"
+        },
+        {
+          "direction": "NE",
+          "index": 1,
+          "rect": [
+            512,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_01.png"
+        },
+        {
+          "direction": "NE",
+          "index": 2,
+          "rect": [
+            1024,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_02.png"
+        },
+        {
+          "direction": "NE",
+          "index": 3,
+          "rect": [
+            1536,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_03.png"
+        },
+        {
+          "direction": "NE",
+          "index": 4,
+          "rect": [
+            2048,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_04.png"
+        },
+        {
+          "direction": "NE",
+          "index": 5,
+          "rect": [
+            2560,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_05.png"
+        },
+        {
+          "direction": "NE",
+          "index": 6,
+          "rect": [
+            3072,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_06.png"
+        },
+        {
+          "direction": "NE",
+          "index": 7,
+          "rect": [
+            3584,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_07.png"
+        },
+        {
+          "direction": "NE",
+          "index": 8,
+          "rect": [
+            4096,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_08.png"
+        },
+        {
+          "direction": "NE",
+          "index": 9,
+          "rect": [
+            4608,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_09.png"
+        },
+        {
+          "direction": "NE",
+          "index": 10,
+          "rect": [
+            5120,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_10.png"
+        },
+        {
+          "direction": "NE",
+          "index": 11,
+          "rect": [
+            5632,
+            2560,
+            512,
+            512
+          ],
+          "file": "frames/cast/NE/cast_NE_11.png"
+        },
+        {
           "direction": "E",
           "index": 0,
           "rect": [
@@ -753,10 +2403,142 @@
             512
           ],
           "file": "frames/cast/E/cast_E_11.png"
+        },
+        {
+          "direction": "SE",
+          "index": 0,
+          "rect": [
+            0,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_00.png"
+        },
+        {
+          "direction": "SE",
+          "index": 1,
+          "rect": [
+            512,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_01.png"
+        },
+        {
+          "direction": "SE",
+          "index": 2,
+          "rect": [
+            1024,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_02.png"
+        },
+        {
+          "direction": "SE",
+          "index": 3,
+          "rect": [
+            1536,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_03.png"
+        },
+        {
+          "direction": "SE",
+          "index": 4,
+          "rect": [
+            2048,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_04.png"
+        },
+        {
+          "direction": "SE",
+          "index": 5,
+          "rect": [
+            2560,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_05.png"
+        },
+        {
+          "direction": "SE",
+          "index": 6,
+          "rect": [
+            3072,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_06.png"
+        },
+        {
+          "direction": "SE",
+          "index": 7,
+          "rect": [
+            3584,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_07.png"
+        },
+        {
+          "direction": "SE",
+          "index": 8,
+          "rect": [
+            4096,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_08.png"
+        },
+        {
+          "direction": "SE",
+          "index": 9,
+          "rect": [
+            4608,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_09.png"
+        },
+        {
+          "direction": "SE",
+          "index": 10,
+          "rect": [
+            5120,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_10.png"
+        },
+        {
+          "direction": "SE",
+          "index": 11,
+          "rect": [
+            5632,
+            3584,
+            512,
+            512
+          ],
+          "file": "frames/cast/SE/cast_SE_11.png"
         }
       ]
     }
   },
-  "available_frames": 62,
+  "available_frames": 224,
   "required_frames": 224
 }

@@ -1,3 +1,11 @@
+# ASTRA TEST 01 — campaign router
+
+Current: [run03 report](run_03/REPORT.md) and [complete frame preview](run_03/preview/index.html). All224 character and24 VFX frames exist. CHARACTER remains FAIL; VFX PARTIAL. Read the current report for measured gates and pending work.
+
+The text below is the preserved historical run01 report; it does not describe current inventory. Run02 evidence remains in `run_02/`.
+
+---
+
 # ASTRA TEST 01 — execution report
 
 **Run disposition: STOPPED AT FAILED TURNAROUND CHECKPOINT.** The complete eight-view attempt failed; a targeted SW repair also failed. Generation stopped under §§2 and 6 of the brief. Eight checkpoint frames and one rejected repair exist. No animation or VFX sequence is represented as complete.

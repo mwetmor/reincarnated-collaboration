@@ -1,0 +1,86 @@
+[
+  {
+    "valid": true,
+    "bbox": [
+      202,
+      158,
+      325,
+      419
+    ],
+    "height": 261,
+    "transparent_fraction": 0.9297523498535156,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      251.26642335766422,
+      222.59245742092457
+    ],
+    "silhouette_center": [
+      263.0,
+      288.0
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 822,
+    "partial_alpha_pixels": 5004,
+    "edge_mean_rgb_value": 59.110378363975485,
+    "green_contaminated_pixels": 0,
+    "index": 7,
+    "file": "character/frames/walk/N/walk_N_07.png",
+    "source_cell": 0,
+    "source_contacts": [
+      [
+        284.5,
+        562.0
+      ],
+      [
+        348.0,
+        491.0
+      ]
+    ],
+    "output_contacts": [
+      [
+        240.0,
+        418.0
+      ],
+      [
+        272.0,
+        381.0
+      ]
+    ],
+    "contact_error_xy": [
+      0.0,
+      0.5
+    ],
+    "pivot_pass": true,
+    "registration": {
+      "scale": 0.5103668261562998,
+      "translation": [
+        94.85167464114835,
+        131.29186602870817
+      ],
+      "resampled_green_edge_pixels_despilled": 317,
+      "source_anchor": [
+        315.75,
+        526.5
+      ],
+      "transformed_landmarks": {
+        "registered_anchor": [
+          256.0,
+          400.0
+        ]
+      },
+      "body_height_after_transform": 244.9760765550239,
+      "transform_generated_anchor_is_not_independent_validation": true
+    },
+    "extraction": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 322930,
+      "native_input_alpha": false,
+      "source_border_alpha_max": 0,
+      "source_border_alpha128_pixels": 0,
+      "inherited_registration": {
+        "source": "walk_N_00_03_batch",
+        "index": 0
+      }
+    }
+  }
+]

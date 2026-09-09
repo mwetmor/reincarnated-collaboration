@@ -21,6 +21,7 @@ def package():
             path=ROOT/'character'/folder;path.mkdir(exist_ok=True);im.save(path/f'{anim}.png')
         character['animations'][anim]={'sheet':f'sheets/{anim}.png','fps':{'idle':8,'walk':10,'cast':16}[anim],'loop':anim!='cast','count':count,'available':available,'frames':entries}
     character.update(available_frames=total,required_frames=224)
+    if total==224:character['status']='FRAMES_COMPLETE_ACCEPTANCE_PENDING'
     save(ROOT/'character/atlas.json',character)
     vfx={'status':'FRAMES_COMPLETE_PLAYBACK_UNVERIFIED','fps':20,'modules':{}}
     for module,count in VFX_COUNTS.items():

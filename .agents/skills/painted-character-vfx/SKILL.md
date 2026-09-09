@@ -62,6 +62,12 @@ and walk drift against the fixed cast comparator and report every adjacent diffe
 including the seam. Check cast poses early for light-centroid failures caused by
 spell illumination. Freeze a time-based cast schedule with explicit spawn index.
 
+For a localized closing-pose edit in an unchanged source canvas, inherit the original
+frame's full registration transform. Re-centering on the edited toe can shift the
+entire body. Independently check the output contacts against the original tolerance;
+do not inherit a passing measurement. Inspect actual alternating leg leads and
+source-cell effect margins separately from the loop numbers.
+
 ## VFX animation
 
 First qualify a painted frost sample against the actual character release frame at

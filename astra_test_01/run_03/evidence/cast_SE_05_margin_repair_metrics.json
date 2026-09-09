@@ -1,0 +1,84 @@
+[
+  {
+    "valid": true,
+    "bbox": [
+      130,
+      165,
+      310,
+      415
+    ],
+    "height": 250,
+    "transparent_fraction": 0.93084716796875,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      169.10406091370558,
+      193.95812182741116
+    ],
+    "silhouette_center": [
+      219.5,
+      289.5
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 788,
+    "partial_alpha_pixels": 5501,
+    "edge_mean_rgb_value": 87.78785675331758,
+    "green_contaminated_pixels": 0,
+    "index": 5,
+    "file": "character/frames/cast/SE/cast_SE_05.png",
+    "source_cell": 1,
+    "source_contacts": [
+      [
+        264.5,
+        511.0
+      ],
+      [
+        396.5,
+        568.0
+      ]
+    ],
+    "output_contacts": [
+      [
+        223.0,
+        385.0
+      ],
+      [
+        290.0,
+        414.0
+      ]
+    ],
+    "contact_error_xy": [
+      0.5,
+      0.5
+    ],
+    "pivot_pass": true,
+    "registration": {
+      "scale": 0.5103668261562998,
+      "translation": [
+        87.32376395534291,
+        124.65709728867625
+      ],
+      "resampled_green_edge_pixels_despilled": 205,
+      "source_anchor": [
+        330.5,
+        539.5
+      ],
+      "transformed_landmarks": {
+        "registered_anchor": [
+          256.0,
+          400.0
+        ]
+      },
+      "body_height_after_transform": 244.9760765550239,
+      "transform_generated_anchor_is_not_independent_validation": true
+    },
+    "extraction": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 323959,
+      "native_input_alpha": false,
+      "blue_glow_edge_refinement_pixels": 6837,
+      "foreground_prior": "G=0.55B+0.45R only on partial-alpha blue chroma edges; opaque body unchanged",
+      "source_border_alpha_max": 0,
+      "source_border_alpha128_pixels": 0
+    }
+  }
+]

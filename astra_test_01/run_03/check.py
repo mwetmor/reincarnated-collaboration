@@ -3,7 +3,7 @@ from pathlib import Path
 import json,hashlib
 import numpy as np
 from PIL import Image,ImageDraw
-from animation import ROOT,measure,front_contacts
+from animation import ROOT,measure,front_contacts,frame_contacts
 DIRS=['S','SW','W','NW','N','NE','E','SE'];COUNTS={'idle':8,'walk':8,'cast':12}
 
 def pixels(path):
@@ -21,7 +21,7 @@ def direction(d):
         for f in files:
             im=Image.open(f);r=measure(im);r['file']=str(f.relative_to(ROOT));r['sha256']=hashlib.sha256(f.read_bytes()).hexdigest()
             try:
-                p=front_contacts(im,exclude_thin_staff=True);err=np.abs(np.mean(p,axis=0)-[256,400]);r.update(sole_points=p,sole_midpoint_error=err.tolist(),sole_midpoint_pass=bool((err<=4).all()))
+                p=frame_contacts(im,f.relative_to(ROOT));err=np.abs(np.mean(p,axis=0)-[256,400]);r.update(sole_points=p,sole_midpoint_error=err.tolist(),sole_midpoint_pass=bool((err<=4).all()))
             except ValueError as e:r.update(sole_midpoint_pass=False,contact_error=str(e))
             rows.append(r)
         valid_count=len(files)==count;result['complete'] &= valid_count
