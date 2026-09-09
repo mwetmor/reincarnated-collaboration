@@ -1,0 +1,40 @@
+{
+  "completed_utc": "2026-09-09T00:08:59.930007+00:00",
+  "checks": [
+    {
+      "check": "turnaround_1",
+      "asset_result": "FAIL",
+      "runner_completed": true,
+      "exit_code": 1
+    },
+    {
+      "check": "turnaround_2",
+      "asset_result": "FAIL",
+      "runner_completed": true,
+      "exit_code": 1
+    },
+    {
+      "check": "packaged_atlas_and_pixels",
+      "result": "PASS",
+      "frames": 8,
+      "source_images": 9,
+      "prompts": 9,
+      "vfx_frames": 0,
+      "detail": "Atlas crops and individual pixels equal source downsampling; hashes match measured sources."
+    },
+    {
+      "check": "viewer_javascript_syntax_and_static_links",
+      "result": "PASS"
+    },
+    {
+      "check": "viewer_browser_interaction",
+      "result": "NOT_TESTED",
+      "reason": "Browser skill reported No browser is available; agent.browsers.list() returned []."
+    },
+    {
+      "check": "visual_contact_inspection",
+      "result": "COMPLETE",
+      "detail": "First and repair 64px sheets and first 25% sheet inspected with view_image."
+    }
+  ]
+}

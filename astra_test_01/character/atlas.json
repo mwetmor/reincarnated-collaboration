@@ -1,0 +1,153 @@
+{
+  "status": "REJECTED_CHECKPOINT",
+  "production_ready": false,
+  "selection": "First attempt retained; failed SW repair is evidence only.",
+  "direction_order": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "required_frames": 224,
+  "available_frames": 8,
+  "animations": {
+    "idle": {
+      "status": "INCOMPLETE_REJECTED",
+      "sheet": "sheets/idle.png",
+      "canvas_size": [
+        512,
+        512
+      ],
+      "pivot": [
+        256,
+        400
+      ],
+      "pivot_is_requirement_not_verified": true,
+      "fps": 8,
+      "loop": true,
+      "available_frames_per_direction": 1,
+      "required_frames_per_direction": 8,
+      "frames": {
+        "S": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              512,
+              512
+            ],
+            "file": "frames/idle/S/idle_S_00.png"
+          }
+        ],
+        "SW": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              512,
+              512,
+              512
+            ],
+            "file": "frames/idle/SW/idle_SW_00.png"
+          }
+        ],
+        "W": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              1024,
+              512,
+              512
+            ],
+            "file": "frames/idle/W/idle_W_00.png"
+          }
+        ],
+        "NW": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              1536,
+              512,
+              512
+            ],
+            "file": "frames/idle/NW/idle_NW_00.png"
+          }
+        ],
+        "N": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              2048,
+              512,
+              512
+            ],
+            "file": "frames/idle/N/idle_N_00.png"
+          }
+        ],
+        "NE": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              2560,
+              512,
+              512
+            ],
+            "file": "frames/idle/NE/idle_NE_00.png"
+          }
+        ],
+        "E": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              3072,
+              512,
+              512
+            ],
+            "file": "frames/idle/E/idle_E_00.png"
+          }
+        ],
+        "SE": [
+          {
+            "index": 0,
+            "rect": [
+              0,
+              3584,
+              512,
+              512
+            ],
+            "file": "frames/idle/SE/idle_SE_00.png"
+          }
+        ]
+      }
+    }
+  },
+  "not_generated": {
+    "walk": {
+      "frames_per_direction": 8,
+      "fps": 10,
+      "loop": true
+    },
+    "cast": {
+      "frames_per_direction": 12,
+      "fps": 16,
+      "loop": false,
+      "spawn_frame_index": 5
+    },
+    "sprint": {
+      "optional": true,
+      "frames_per_direction": 8,
+      "fps": 14,
+      "loop": true
+    }
+  }
+}

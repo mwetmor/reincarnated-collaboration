@@ -1,0 +1,35 @@
+{
+  "status": "NOT_TESTED_CHECKPOINT_STOP",
+  "available_frames": 0,
+  "required_frames": 24,
+  "modules": {},
+  "planned": {
+    "cast": {
+      "frame_count": 8,
+      "canvas_size": [
+        256,
+        256
+      ],
+      "fps": 20,
+      "loop": false
+    },
+    "travel": {
+      "frame_count": 6,
+      "canvas_size": [
+        256,
+        128
+      ],
+      "fps": 20,
+      "loop": true
+    },
+    "impact": {
+      "frame_count": 10,
+      "canvas_size": [
+        384,
+        384
+      ],
+      "fps": 20,
+      "loop": false
+    }
+  }
+}
