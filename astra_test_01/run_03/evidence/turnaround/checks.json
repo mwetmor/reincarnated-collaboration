@@ -1,0 +1,667 @@
+{
+  "status": "PASS",
+  "gates": {
+    "height": true,
+    "pivot": true,
+    "light": true,
+    "alpha": true
+  },
+  "directions": {
+    "S": {
+      "valid": true,
+      "bbox": [
+        194,
+        176,
+        305,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9389915466308594,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        230.58474576271186,
+        224.24717514124293
+      ],
+      "silhouette_center": [
+        249.0,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 708,
+      "partial_alpha_pixels": 15266,
+      "edge_mean_rgb_value": 41.07716494170051,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            223.0,
+            384.0
+          ],
+          [
+            283.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          253.25,
+          399.5
+        ]
+      },
+      "translation": [
+        3,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            226.0,
+            384.0
+          ],
+          [
+            286.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          256.25,
+          399.5
+        ]
+      },
+      "contact_error_xy": [
+        0.25,
+        0.5
+      ],
+      "pivot_pass": true,
+      "source_sha256": "f0360641ceaf8246b94aa21e8eff40b679c736fba480e447d88ff00645581099",
+      "output_regions": [
+        [
+          213,
+          350,
+          253,
+          395
+        ],
+        [
+          268,
+          375,
+          308,
+          430
+        ]
+      ]
+    },
+    "SW": {
+      "valid": true,
+      "bbox": [
+        197,
+        178,
+        308,
+        419
+      ],
+      "height": 241,
+      "transparent_fraction": 0.9402008056640625,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        233.43618513323983,
+        238.9242636746143
+      ],
+      "silhouette_center": [
+        252.0,
+        298.0
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 713,
+      "partial_alpha_pixels": 3938,
+      "edge_mean_rgb_value": 58.53351955307262,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            225.0,
+            382.0
+          ],
+          [
+            277.0,
+            418.0
+          ]
+        ],
+        "midpoint": [
+          251.0,
+          400.0
+        ]
+      },
+      "translation": [
+        5,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            230.0,
+            382.0
+          ],
+          [
+            282.0,
+            418.0
+          ]
+        ],
+        "midpoint": [
+          256.0,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.0,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "32ba7fb278f069ab0dca133aab9b2f1f69299de2a9125b66dc7e53b5eae43867",
+      "output_regions": [
+        [
+          221,
+          345,
+          256,
+          391
+        ],
+        [
+          265,
+          380,
+          310,
+          430
+        ]
+      ]
+    },
+    "W": {
+      "valid": true,
+      "bbox": [
+        217,
+        173,
+        296,
+        413
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9526252746582031,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        248.27877697841726,
+        241.76618705035972
+      ],
+      "silhouette_center": [
+        256.0,
+        292.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 556,
+      "partial_alpha_pixels": 3332,
+      "edge_mean_rgb_value": 50.00420168067227,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            253.5,
+            388.0
+          ],
+          [
+            259.0,
+            412.0
+          ]
+        ],
+        "midpoint": [
+          256.25,
+          400.0
+        ]
+      },
+      "translation": [
+        0,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            253.5,
+            388.0
+          ],
+          [
+            259.0,
+            412.0
+          ]
+        ],
+        "midpoint": [
+          256.25,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.25,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "553f7a5af81836315aa73622624702cfea2ef8cf273e688e7cd9aa84b20d5fbf",
+      "output_regions": [
+        [
+          225,
+          370,
+          273,
+          398
+        ],
+        [
+          239,
+          395,
+          291,
+          426
+        ]
+      ]
+    },
+    "NW": {
+      "valid": true,
+      "bbox": [
+        195,
+        166,
+        297,
+        406
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9364967346191406,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        229.12941176470588,
+        227.57777777777778
+      ],
+      "silhouette_center": [
+        245.5,
+        285.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 765,
+      "partial_alpha_pixels": 3799,
+      "edge_mean_rgb_value": 63.58655786610512,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            228.0,
+            405.0
+          ],
+          [
+            280.0,
+            395.0
+          ]
+        ],
+        "midpoint": [
+          254.0,
+          400.0
+        ]
+      },
+      "translation": [
+        2,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            230.0,
+            405.0
+          ],
+          [
+            282.0,
+            395.0
+          ]
+        ],
+        "midpoint": [
+          256.0,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.0,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "b9210f2165a89fc8e05cba7c0cb7ec9340ae364d04d26c430aff78f1192423bf",
+      "output_regions": [
+        [
+          201,
+          370,
+          250,
+          417
+        ],
+        [
+          262,
+          365,
+          306,
+          402
+        ]
+      ]
+    },
+    "N": {
+      "valid": true,
+      "bbox": [
+        206,
+        165,
+        324,
+        405
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9331321716308594,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        252.9349186483104,
+        217.48185231539424
+      ],
+      "silhouette_center": [
+        264.5,
+        284.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 799,
+      "partial_alpha_pixels": 4345,
+      "edge_mean_rgb_value": 56.92911392405063,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            230.5,
+            396.0
+          ],
+          [
+            278.5,
+            404.0
+          ]
+        ],
+        "midpoint": [
+          254.5,
+          400.0
+        ]
+      },
+      "translation": [
+        2,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            232.5,
+            396.0
+          ],
+          [
+            280.5,
+            404.0
+          ]
+        ],
+        "midpoint": [
+          256.5,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.5,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "759f8df3a6a42229bd01a957f3ff505068812fd916ec94a121bf1eb5ce758749",
+      "output_regions": [
+        [
+          212,
+          350,
+          248,
+          401
+        ],
+        [
+          266,
+          360,
+          308,
+          417
+        ]
+      ]
+    },
+    "NE": {
+      "valid": true,
+      "bbox": [
+        215,
+        176,
+        337,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9354095458984375,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        271.59012016021364,
+        234.70894526034712
+      ],
+      "silhouette_center": [
+        275.5,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 749,
+      "partial_alpha_pixels": 5073,
+      "edge_mean_rgb_value": 57.7712070438268,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            235.0,
+            385.0
+          ],
+          [
+            270.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          252.75,
+          400.0
+        ]
+      },
+      "translation": [
+        3,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            238.0,
+            385.0
+          ],
+          [
+            273.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          255.75,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.25,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "34260b9ae43326ab798ae14cf471fa529cd7b10f7bcb2eb41ab35e47a7213305",
+      "output_regions": [
+        [
+          221,
+          350,
+          254,
+          393
+        ],
+        [
+          256,
+          390,
+          308,
+          427
+        ]
+      ]
+    },
+    "E": {
+      "valid": true,
+      "bbox": [
+        221,
+        177,
+        303,
+        417
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9530143737792969,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        255.24137931034483,
+        223.513611615245
+      ],
+      "silhouette_center": [
+        261.5,
+        296.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 551,
+      "partial_alpha_pixels": 3289,
+      "edge_mean_rgb_value": 60.06618019661498,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            248.5,
+            385.0
+          ],
+          [
+            252.5,
+            416.0
+          ]
+        ],
+        "midpoint": [
+          250.5,
+          400.5
+        ]
+      },
+      "translation": [
+        6,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            254.5,
+            385.0
+          ],
+          [
+            258.5,
+            416.0
+          ]
+        ],
+        "midpoint": [
+          256.5,
+          400.5
+        ]
+      },
+      "contact_error_xy": [
+        0.5,
+        0.5
+      ],
+      "pivot_pass": true,
+      "source_sha256": "7f3d8a5895223eced1eecaf6c423517d6ce05ad77dfc72c2829656d5b78aebc5",
+      "output_regions": [
+        [
+          242,
+          365,
+          284,
+          396
+        ],
+        [
+          225,
+          397,
+          295,
+          429
+        ]
+      ]
+    },
+    "SE": {
+      "valid": true,
+      "bbox": [
+        198,
+        176,
+        303,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9381599426269531,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        230.41655172413792,
+        229.87586206896552
+      ],
+      "silhouette_center": [
+        250.0,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 725,
+      "partial_alpha_pixels": 4777,
+      "edge_mean_rgb_value": 56.07522154769381,
+      "green_contaminated_pixels": 0,
+      "input_contacts": {
+        "points": [
+          [
+            222.5,
+            385.0
+          ],
+          [
+            284.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          253.5,
+          400.0
+        ]
+      },
+      "translation": [
+        2,
+        0
+      ],
+      "output_contacts": {
+        "points": [
+          [
+            224.5,
+            385.0
+          ],
+          [
+            286.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          255.5,
+          400.0
+        ]
+      },
+      "contact_error_xy": [
+        0.5,
+        0.0
+      ],
+      "pivot_pass": true,
+      "source_sha256": "0bfe7fd243a155544582955b1cb611c3dd2585838c17f6c68106c52bde743bfa",
+      "output_regions": [
+        [
+          212,
+          350,
+          254,
+          394
+        ],
+        [
+          264,
+          380,
+          312,
+          430
+        ]
+      ]
+    }
+  },
+  "method": "Global lower alpha contour (alpha>=128), reviewed foot region, lowest-two-row median; integer translation only",
+  "visual": {
+    "right_hand": true,
+    "downscale_read": true,
+    "directions_distinct": true,
+    "contact_overlay_review": "PASS: marked points lie on the visible lower boot contours in all eight views; pivot is the two-support midpoint for these static stances.",
+    "review_image": "review.png"
+  }
+}

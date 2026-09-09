@@ -1,0 +1,85 @@
+[
+  {
+    "name": "idle_S_00_03",
+    "prompt": "Create a precision painted animation SPRITE SHEET: exactly TWO columns and TWO rows, four equal square cells, no gutters or borders or text. Reference 1 is the exact character identity and paint. Reference 2 is the exact 2x2 layout and padding; preserve its normalized character scale and placement in EACH cell (body height 47% of cell, two-foot midpoint at cell x50%,y78.125%). Return highest available square resolution. All background uniformly pure #00ff00. Original hooded battle mage, right-hand bone iron fork staff, left hip satchel, leather and chain collar, facing S exactly like reference, same elevated camera and fixed screen-upper-left light. These are four successive subtle breathing IDLE poses in row-major order: 0 neutral same as master; 1 very slight inhale chest expands and rises 1 pixel at 512 cell scale, staff tip moves outward 1 pixel; 2 deeper inhale chest up 2 pixels, staff tip outward 2 pixels; 3 full inhale chest up 3 pixels and staff tip outward 3 pixels. BOTH FEET STAY EXACTLY PLANTED in identical positions. The torso is the only breathing motion, no camera shifts, no head redesign, no coat ornament changes, no floor shadows. Preserve master brush marks as closely as possible. Keep all sprites fully inside their equal cells. No glowing spell. No repeated identical poses; differences should be subtle but real.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/idle_layout.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-157a9f1e-7395-4872-9469-b783b0e1fced.png",
+    "elapsed_seconds": 31.364
+  },
+  {
+    "name": "idle_S_04_07",
+    "prompt": "Create the SECOND HALF of an eight-frame painted idle breathing cycle, as one 2x2 SPRITE SHEET: exactly four equal square cells, two columns/two rows, no gutters/borders/text. Reference 1 is original character identity AND neutral endpoint. Reference 2 shows the first half of this same cycle and the exact sheet framing; match its cell-relative body size (~76% of each cell height), right-hand staff, left-hip satchel, elevated S-facing camera and screen-upper-left light. Four sequential poses row-major: frame4 peak inhale (chest expanded, raised 3px at final240pxbody scale); frame5 exhale chest raised2px; frame6 almost neutral chest raised1px; frame7 just before returning to original reference1 neutral (only the smallest visible chest breathing difference and tiny staff-tip offset, NOT an exact duplicate). BOTH FEET remain planted at exactly the same relative positions in every cell. Preserve clothing geometry and brush marks, no face or coat redesign. No spell, shadows, ground or green reflection. Flat pure RGB #00ff00 background throughout. Paint real subtle pose changes. Each body same overall scale as reference2 first cell; don't gradually grow or shrink.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png",
+      "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-157a9f1e-7395-4872-9469-b783b0e1fced.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-24202ba2-dc64-40e5-8ea1-7557b86ad1c2.png",
+    "elapsed_seconds": 47.577
+  },
+  {
+    "name": "idle_S_07_single",
+    "prompt": "Precision animation edit of the supplied existing painted character. Preserve EXACT framing, body size, body proportions, camera, clothing brush marks, face, feet, staff length and original green background. Do not zoom, crop, relight, rotate or redesign. This is frame 7 just before returning to the neutral master in a subtle breathing idle loop. Only a TINY localized change: the leather at the upper chest just inside the collar is slightly expanded by the last fraction of an exhale, and the right wrist/staff tip displaced outward by about one pixel on this 1024 canvas. All other pixels should remain visually unchanged. Both feet planted in the identical positions. Preserve the original 47%-of-canvas body height and large padding exactly. Keep bone iron staff in anatomical RIGHT hand, satchel LEFT hip. Same fixed screen upper-left light. No spell. Flat pure #00ff00 background. One character, one frame, square image.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-c109b17c-b6e5-4262-aadc-7dbc58fcf5c4.png",
+    "elapsed_seconds": 39.683
+  },
+  {
+    "name": "idle_S_04_single",
+    "prompt": "Edit this exact painted S-facing battle-mage sprite into peak INHALE of a breathing idle animation. Preserve all original character design, camera, face, paint texture, leg length, feet positions, staff length, background and padding. Keep the character at exactly 47% of canvas height. Only the breathing pose changes: chest expands visibly but subtly, shoulders and hood rise about 6 pixels on the supplied1024 canvas, right elbow bends a little and staff tip drifts 7 pixels toward screen left. Both boots remain planted exactly; the coat lower hem remains at the same level. This is gentle breathing, not walking or casting. No added features. Keep fixed upper-left key light and cool dark shadows. Keep anatomical-right staff and left-hip satchel. Flat pure green #00ff00 background, no shadow/ground/text. Single frame, square canvas.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-b03b20b0-6a62-4253-ada6-df052276ad30.png",
+    "elapsed_seconds": 27.985
+  },
+  {
+    "name": "idle_S_05_single",
+    "prompt": "Precision animation edit of this exact painted S-facing battle-mage. Preserve exact canvas framing and 47%-canvas body height, anatomy, feet positions, clothing identity and brushwork, staff length, satchel, face, elevated camera and screen-upper-left light. Pose: beginning to EXHALE after a deep idle breath; chest/shoulders about 4 pixels higher on this1024canvas than neutral reference, right wrist rotates very slightly and staff tip drifts 4pixels screen-left. Left hand relaxes a little. Both feet stay fully planted at identical positions, no steps or body translation. Do not redesign or zoom. Dark oiled leather coat, chain collar, anatomical-right bone iron fork staff, left hip satchel unchanged. No frost/spell. Pure flat #00ff00 background without shadows/text/ground. One single painted frame.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-0a5197cc-a6aa-4660-94ea-01e1b2952e7b.png",
+    "elapsed_seconds": 25.989
+  },
+  {
+    "name": "idle_S_06_single",
+    "prompt": "Precision animation edit of this exact painted S-facing battle-mage sprite: late EXHALE idle pose. Preserve exact original composition, 47%-of-canvas body height and large padding; no zoom/crop/rotation. Both boots stay planted in identical positions. Head and shoulders settle toward neutral, chest remains only2pixels above reference on this1024canvas; right elbow relaxes so staff tip is just2pixels outward screen-left from reference; left fingertips curl slightly inward. No other anatomical or costume changes. Keep original painted leather, chain collar, face, bone iron fork staff in anatomical RIGHT hand, satchel LEFT hip, camera and fixed screen-upper-left lighting. No spell. Pure flat #00ff00 background without floor, shadow or text. One single frame, square.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-59ad8f8d-f955-43e3-98e6-bc3754d47565.png",
+    "elapsed_seconds": 24.822
+  },
+  {
+    "name": "walk_S_00",
+    "prompt": "Edit the supplied approved painted battle-mage sprite into ONE animation frame. Preserve exact character identity, weathered face under pointed hood, dark oiled-leather coat, chainmail collar, anatomical RIGHT-hand bone-and-iron fork staff and small LEFT-hip satchel. Preserve original 47%-canvas standing-body scale, large padding, square canvas and fixed elevated 45-degree camera. Same screen-upper-left key light, cool dark readable shadows, desaturated earth colors. Do not zoom or redesign or rotate the facing direction. No floor, cast shadow, text or extra subjects. Flat pure RGB #00ff00 extraction background with no green reflections. Walk frame0, LEFT heel CONTACT forward and RIGHT foot back with toe contact; ground-root stays centered at original pivot. A measured natural walking stride toward the viewer (S). Left leg (screen right) reaches forward toward screen bottom, right leg (screen left) extends behind. Staff carried in right hand a little forward; left arm swings back. Torso leans slightly forward. Coat tails follow behind. No spell or glow.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-23d78d4b-ec74-4bd0-89b6-8691d97fac91.png",
+    "elapsed_seconds": 24.791
+  },
+  {
+    "name": "walk_S_01",
+    "prompt": "Edit the supplied approved painted battle-mage sprite into ONE animation frame. Preserve exact character identity, weathered face under pointed hood, dark oiled-leather coat, chainmail collar, anatomical RIGHT-hand bone-and-iron fork staff and small LEFT-hip satchel. Preserve original 47%-canvas standing-body scale, large padding, square canvas and fixed elevated 45-degree camera. Same screen-upper-left key light, cool dark readable shadows, desaturated earth colors. Do not zoom or redesign or rotate the facing direction. No floor, cast shadow, text or extra subjects. Flat pure RGB #00ff00 extraction background with no green reflections. Walk frame1, DOWN phase over LEFT supporting foot. Left knee bends subtly absorbing weight; right heel lifts and right toe pushes off behind. Right arm/staff begins swinging gently back, left arm forward. Pelvis descends a few pixels, ground root stays fixed. Advancing toward viewer S, in-place cycle. No spell or glow.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-a8012755-91e5-4eca-98aa-7d4a8773edfa.png",
+    "elapsed_seconds": 24.784
+  },
+  {
+    "name": "walk_S_02",
+    "prompt": "Edit the supplied approved painted battle-mage sprite into ONE animation frame. Preserve exact character identity, weathered face under pointed hood, dark oiled-leather coat, chainmail collar, anatomical RIGHT-hand bone-and-iron fork staff and small LEFT-hip satchel. Preserve original 47%-canvas standing-body scale, large padding, square canvas and fixed elevated 45-degree camera. Same screen-upper-left key light, cool dark readable shadows, desaturated earth colors. Do not zoom or redesign or rotate the facing direction. No floor, cast shadow, text or extra subjects. Flat pure RGB #00ff00 extraction background with no green reflections. Walk frame2, PASSING phase on LEFT support. Left leg nearly straight under body; RIGHT knee bends and its boot swings forward beside left ankle, lifted slightly clear of ground. Narrow foot separation, torso upright. Right staff arm back slightly, left arm forward. Ground root fixed, natural S-facing walking. Keep the hood's head size exactly the same as reference; no spell or glow.",
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/references/S/green.png"
+    ],
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-ab01cd14-6293-4f25-bcf7-e4903f303d6f.png",
+    "elapsed_seconds": 27.53
+  }
+]

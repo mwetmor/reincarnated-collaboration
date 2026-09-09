@@ -47,6 +47,13 @@ reading files:
   `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` (per the
   `CLAUDE.md` where-to-find-things table).
 
+### Painted character, animation and VFX work
+
+For painted sprite characters, directional animation, spell VFX, or ASTRA asset
+tests, read [painted-character-vfx](.agents/skills/painted-character-vfx/SKILL.md).
+That file is the maintained workflow source; its references carry measured lessons
+and active-run state. Keep this entry a pointer rather than copying its procedure.
+
 ## 3. Codex-lane standing provisions (durable home — previously per-session prompt text)
 
 - **Concurrency law (Matt ruling 2026-08-25 — SUPERSEDES the original serial law):**
