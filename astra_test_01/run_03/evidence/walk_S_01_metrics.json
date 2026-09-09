@@ -1,26 +1,26 @@
 {
   "valid": true,
   "bbox": [
-    174,
-    133,
-    316,
-    424
+    187,
+    175,
+    306,
+    420
   ],
-  "height": 291,
-  "transparent_fraction": 0.9139862060546875,
+  "height": 245,
+  "transparent_fraction": 0.9381484985351562,
   "border_alpha_max": 0,
   "light_centroid": [
-    227.86280193236715,
-    194.943961352657
+    232.30327868852459,
+    226.31147540983608
   ],
   "silhouette_center": [
-    244.5,
-    278.0
+    246.0,
+    297.0
   ],
   "light_pass": true,
-  "brightest_5pct_pixels": 1035,
-  "partial_alpha_pixels": 4946,
-  "edge_mean_rgb_value": 56.053578649413666,
+  "brightest_5pct_pixels": 732,
+  "partial_alpha_pixels": 4001,
+  "edge_mean_rgb_value": 53.46829959176873,
   "green_contaminated_pixels": 0,
   "index": 1,
   "source_contacts": [
@@ -35,26 +35,26 @@
   ],
   "output_contacts": [
     [
-      236.5,
-      375.0
+      239.5,
+      379.0
     ],
     [
-      275.0,
-      423.0
+      272.5,
+      419.0
     ]
   ],
   "contact_error_xy": [
-    0.25,
+    0.0,
     1.0
   ],
   "pivot_pass": true,
   "registration": {
-    "scale": 0.4082934609250399,
+    "scale": 0.3437001594896332,
     "translation": [
-      -2.449760765550252,
-      1.3014354066985447
+      38.4377990430622,
+      64.3767942583732
     ],
-    "resampled_green_edge_pixels_despilled": 259,
+    "resampled_green_edge_pixels_despilled": 157,
     "source_anchor": [
       633.0,
       976.5
@@ -65,8 +65,16 @@
         400.0
       ]
     },
-    "body_height_after_transform": 240.0,
+    "body_height_after_transform": 202.03125,
     "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": {
+    "method": "least-squares hood contour width at 9\u201338 output px below hood top; body/feet excluded",
+    "source_hood_top": 322,
+    "reference_hood_top": 176,
+    "scale": 0.34368102073365236,
+    "nominal_canvas_scale": 0.4082934609250399,
+    "hood_width_rmse_px": 1.3618896543074184
   },
   "extraction": {
     "method": "green excess matte + inverse straight-alpha compositing",

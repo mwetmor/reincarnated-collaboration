@@ -3,6 +3,7 @@ from pathlib import Path
 import sys,json
 import numpy as np
 from PIL import Image,ImageDraw
+from scipy import ndimage
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT.parent/'run_02'))
 from pipeline import extract,registration,measure
@@ -12,11 +13,34 @@ def front_contacts(im,exclude_thin_staff=False):
     a=np.array(im)[...,3]>=128;ys,xs=np.where(a)
     cx=(xs.min()+xs.max())/2;floor=ys.min()+.72*(ys.max()-ys.min())
     below=np.zeros_like(a);below[:-1]=a[1:];edge=a&~below
-    y,x=np.where(edge);points=[]
     if exclude_thin_staff:
-        radius=max(4,round(im.width/1254*12));up=max(2,round(im.width/1254*4))
-        broad=np.array([a[max(0,py-up),max(0,px-radius):min(im.width,px+radius+1)].sum()>=radius*1.15 for py,px in zip(y,x)])
-        y=y[broad];x=x[broad]
+        # A complete lower-foot component joins heel and toe naturally. Prefer
+        # these when both feet separate; overlapping side-view boots still need
+        # the global lower-contour fallback below.
+        lower=a.copy();lower[:int(ys.min()+.78*(ys.max()-ys.min()))]=False
+        components,n=ndimage.label(lower);feet=[]
+        for k in range(1,n+1):
+            yy,xx=np.where(edge&(components==k))
+            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.025:
+                bottom=yy.max();feet.append([float(np.median(xx[yy>=bottom-1])),float(bottom)])
+        feet.sort(key=lambda p:p[1],reverse=True)
+        if len(feet)>=2:return sorted(feet[:2],key=lambda p:p[0])
+        edge[:int(ys.min()+.78*(ys.max()-ys.min()))]=False
+        labels,n=ndimage.label(ndimage.binary_dilation(edge,iterations=max(1,round(im.width/1254*2))))
+        candidates=[]
+        for k in range(1,n+1):
+            yy,xx=np.where(edge&(labels==k))
+            if len(xx) and xx.max()-xx.min()>=(ys.max()-ys.min())*.025:
+                bottom=yy.max();candidates.append([float(np.median(xx[yy>=bottom-1])),float(bottom)])
+        candidates.sort(key=lambda p:p[1],reverse=True)
+        selected=[]
+        for candidate in candidates:
+            if all(np.linalg.norm(np.array(candidate)-point)>(ys.max()-ys.min())*.085 for point in selected):
+                selected.append(candidate)
+            if len(selected)==2:break
+        if len(selected)<2:raise ValueError('Cannot separate two visible sole contours')
+        return sorted(selected,key=lambda p:p[0])
+    y,x=np.where(edge);points=[]
     for side in [x<cx,x>=cx]:
         choose=side&(y>floor);xx=x[choose];yy=y[choose]
         if not len(yy):raise ValueError('Cannot identify both front-view feet')
@@ -51,18 +75,25 @@ def loop_metrics(anim,direction):
     return {'frames':[f.name for f in files],'adjacent_plus_seam':differences,'seam_pass':differences[-1]<=min(differences[:-1])}
 
 
-def prepare_single(name,anim,direction,index):
+def prepare_single(name,anim,direction,index,registration_reference=None):
     original=Image.open(ROOT/'source'/f'{name}.png');matte,info=extract(original)
-    points=front_contacts(matte,exclude_thin_staff=anim=='walk');anchor=np.mean(points,axis=0).tolist()
+    if anim=='cast':
+        from character_matte import refine_blue_edges
+        matte,refinement=refine_blue_edges(original,matte);info.update(refinement)
+    points=front_contacts(matte,exclude_thin_staff=True);anchor=np.mean(points,axis=0).tolist()
     # Canvas normalization is fixed, independent of each pose's bbox.
     scale=512/original.width;scale_fit=None
     if anim=='walk':
         from head_registration import fit_scale
         scale,scale_fit=fit_scale(matte,Image.open(ROOT/'character/frames/idle'/direction/f'idle_{direction}_00.png'))
+    if registration_reference:
+        previous=json.loads((ROOT/'evidence'/f'{registration_reference}_metrics.json').read_text())
+        scale=previous['registration']['scale'];anchor=previous['registration']['source_anchor']
+        scale_fit={'method':'Inherited complete transform from a localized edit target with unchanged framing','reference':registration_reference}
     frame,transform=registration(matte,{'body_height':original.height*240/512,'anchor':anchor},locked_scale=scale)
     dest=ROOT/'character/frames'/anim/direction;dest.mkdir(parents=True,exist_ok=True)
     frame.save(dest/f'{anim}_{direction}_{index:02d}.png')
-    outpoints=front_contacts(frame,exclude_thin_staff=anim=='walk');error=np.abs(np.mean(outpoints,axis=0)-[256,400])
+    outpoints=front_contacts(frame,exclude_thin_staff=True);error=np.abs(np.mean(outpoints,axis=0)-[256,400])
     row=measure(frame);row.update(index=index,source_contacts=points,output_contacts=outpoints,contact_error_xy=error.tolist(),pivot_pass=bool((error<=4).all()),registration=transform,scale_fit=scale_fit,extraction=info)
     (ROOT/'evidence'/f'{name}_metrics.json').write_text(json.dumps(row,indent=2)+'\n')
     return row

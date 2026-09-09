@@ -1,32 +1,32 @@
 {
   "valid": true,
   "bbox": [
-    207,
-    172,
-    332,
-    423
+    193,
+    169,
+    320,
+    426
   ],
-  "height": 251,
-  "transparent_fraction": 0.935333251953125,
+  "height": 257,
+  "transparent_fraction": 0.9324188232421875,
   "border_alpha_max": 0,
   "light_centroid": [
-    247.42857142857142,
-    234.7948051948052
+    233.91645885286783,
+    232.73192019950125
   ],
   "silhouette_center": [
-    269.0,
+    256.0,
     297.0
   ],
   "light_pass": true,
-  "brightest_5pct_pixels": 770,
-  "partial_alpha_pixels": 4292,
-  "edge_mean_rgb_value": 54.48400124262193,
+  "brightest_5pct_pixels": 802,
+  "partial_alpha_pixels": 4835,
+  "edge_mean_rgb_value": 61.392554291623576,
   "green_contaminated_pixels": 0,
   "index": 0,
   "source_contacts": [
     [
-      518.5,
-      927.0
+      582.5,
+      916.0
     ],
     [
       654.0,
@@ -35,12 +35,12 @@
   ],
   "output_contacts": [
     [
-      228.0,
-      377.0
+      241.0,
+      374.0
     ],
     [
-      283.5,
-      422.0
+      270.5,
+      425.0
     ]
   ],
   "contact_error_xy": [
@@ -49,15 +49,15 @@
   ],
   "pivot_pass": true,
   "registration": {
-    "scale": 0.4082934609250399,
+    "scale": 0.41706539074960125,
     "translation": [
-      16.637958532695365,
-      -1.3524720893141762
+      -1.850677830940981,
+      -7.681419457735217
     ],
-    "resampled_green_edge_pixels_despilled": 272,
+    "resampled_green_edge_pixels_despilled": 321,
     "source_anchor": [
-      586.25,
-      983.0
+      618.25,
+      977.5
     ],
     "transformed_landmarks": {
       "registered_anchor": [
@@ -65,8 +65,16 @@
         400.0
       ]
     },
-    "body_height_after_transform": 240.0,
+    "body_height_after_transform": 245.15624999999997,
     "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": {
+    "method": "least-squares hood contour width at 9\u201338 output px below hood top; body/feet excluded",
+    "source_hood_top": 425,
+    "reference_hood_top": 176,
+    "scale": 0.41732695374800644,
+    "nominal_canvas_scale": 0.4082934609250399,
+    "hood_width_rmse_px": 2.048102118767912
   },
   "extraction": {
     "method": "green excess matte + inverse straight-alpha compositing",

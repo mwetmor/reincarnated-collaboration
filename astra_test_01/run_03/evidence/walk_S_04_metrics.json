@@ -1,0 +1,84 @@
+{
+  "valid": true,
+  "bbox": [
+    197,
+    188,
+    312,
+    425
+  ],
+  "height": 237,
+  "transparent_fraction": 0.9428863525390625,
+  "border_alpha_max": 0,
+  "light_centroid": [
+    234.52802359882006,
+    238.93215339233038
+  ],
+  "silhouette_center": [
+    254.0,
+    306.0
+  ],
+  "light_pass": true,
+  "brightest_5pct_pixels": 678,
+  "partial_alpha_pixels": 3827,
+  "edge_mean_rgb_value": 52.91115756467207,
+  "green_contaminated_pixels": 0,
+  "index": 4,
+  "source_contacts": [
+    [
+      578.0,
+      1012.0
+    ],
+    [
+      664.5,
+      892.0
+    ]
+  ],
+  "output_contacts": [
+    [
+      238.0,
+      424.0
+    ],
+    [
+      273.5,
+      375.0
+    ]
+  ],
+  "contact_error_xy": [
+    0.25,
+    0.5
+  ],
+  "pivot_pass": true,
+  "registration": {
+    "scale": 0.40669856459330145,
+    "translation": [
+      3.3385167464114716,
+      12.822966507177
+    ],
+    "resampled_green_edge_pixels_despilled": 220,
+    "source_anchor": [
+      621.25,
+      952.0
+    ],
+    "transformed_landmarks": {
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 239.0625,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": {
+    "method": "least-squares hood contour width at 9\u201338 output px below hood top; body/feet excluded",
+    "source_hood_top": 430,
+    "reference_hood_top": 176,
+    "scale": 0.4067113237639554,
+    "nominal_canvas_scale": 0.4082934609250399,
+    "hood_width_rmse_px": 0.4645642141739691
+  },
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1481977,
+    "native_input_alpha": false
+  }
+}

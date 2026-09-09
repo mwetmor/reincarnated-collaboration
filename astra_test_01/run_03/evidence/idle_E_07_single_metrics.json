@@ -1,0 +1,77 @@
+{
+  "valid": true,
+  "bbox": [
+    220,
+    175,
+    300,
+    416
+  ],
+  "height": 241,
+  "transparent_fraction": 0.9530143737792969,
+  "border_alpha_max": 0,
+  "light_centroid": [
+    253.08166969147007,
+    222.92740471869328
+  ],
+  "silhouette_center": [
+    259.5,
+    295.0
+  ],
+  "light_pass": true,
+  "brightest_5pct_pixels": 551,
+  "partial_alpha_pixels": 3492,
+  "edge_mean_rgb_value": 62.24914089347079,
+  "green_contaminated_pixels": 0,
+  "index": 7,
+  "source_contacts": [
+    [
+      621.5,
+      945.0
+    ],
+    [
+      636.5,
+      1022.0
+    ]
+  ],
+  "output_contacts": [
+    [
+      253.5,
+      384.0
+    ],
+    [
+      258.5,
+      415.0
+    ]
+  ],
+  "contact_error_xy": [
+    0.0,
+    0.5
+  ],
+  "pivot_pass": true,
+  "registration": {
+    "scale": 0.4082934609250399,
+    "translation": [
+      -0.816586921850103,
+      -1.556618819776702
+    ],
+    "resampled_green_edge_pixels_despilled": 283,
+    "source_anchor": [
+      629.0,
+      983.5
+    ],
+    "transformed_landmarks": {
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 240.0,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": null,
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1498994,
+    "native_input_alpha": false
+  }
+}

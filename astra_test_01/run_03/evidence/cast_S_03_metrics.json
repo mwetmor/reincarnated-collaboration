@@ -1,0 +1,79 @@
+{
+  "valid": true,
+  "bbox": [
+    132,
+    53,
+    326,
+    416
+  ],
+  "height": 363,
+  "transparent_fraction": 0.9300460815429688,
+  "border_alpha_max": 0,
+  "light_centroid": [
+    180.84873949579833,
+    100.49579831932773
+  ],
+  "silhouette_center": [
+    228.5,
+    234.0
+  ],
+  "light_pass": true,
+  "brightest_5pct_pixels": 833,
+  "partial_alpha_pixels": 4661,
+  "edge_mean_rgb_value": 72.17557033540729,
+  "green_contaminated_pixels": 0,
+  "index": 3,
+  "source_contacts": [
+    [
+      544.5,
+      942.0
+    ],
+    [
+      706.0,
+      1020.0
+    ]
+  ],
+  "output_contacts": [
+    [
+      223.5,
+      383.0
+    ],
+    [
+      289.0,
+      415.0
+    ]
+  ],
+  "contact_error_xy": [
+    0.25,
+    1.0
+  ],
+  "pivot_pass": true,
+  "registration": {
+    "scale": 0.4082934609250399,
+    "translation": [
+      0.7145135566188117,
+      -0.5358851674641301
+    ],
+    "resampled_green_edge_pixels_despilled": 158,
+    "source_anchor": [
+      625.25,
+      981.0
+    ],
+    "transformed_landmarks": {
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 240.0,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": null,
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1462994,
+    "native_input_alpha": false,
+    "blue_glow_edge_refinement_pixels": 3795,
+    "foreground_prior": "G=0.55B+0.45R only on partial-alpha blue chroma edges; opaque body unchanged"
+  }
+}

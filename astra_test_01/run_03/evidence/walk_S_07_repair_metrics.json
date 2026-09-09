@@ -1,0 +1,80 @@
+{
+  "valid": true,
+  "bbox": [
+    193,
+    169,
+    321,
+    426
+  ],
+  "height": 257,
+  "transparent_fraction": 0.9322242736816406,
+  "border_alpha_max": 0,
+  "light_centroid": [
+    235.82630272952855,
+    233.53846153846155
+  ],
+  "silhouette_center": [
+    256.5,
+    297.0
+  ],
+  "light_pass": true,
+  "brightest_5pct_pixels": 806,
+  "partial_alpha_pixels": 4862,
+  "edge_mean_rgb_value": 60.62957630604689,
+  "green_contaminated_pixels": 0,
+  "index": 7,
+  "source_contacts": [
+    [
+      583.0,
+      917.0
+    ],
+    [
+      662.0,
+      1040.0
+    ]
+  ],
+  "output_contacts": [
+    [
+      241.0,
+      374.0
+    ],
+    [
+      273.5,
+      425.0
+    ]
+  ],
+  "contact_error_xy": [
+    1.25,
+    0.5
+  ],
+  "pivot_pass": true,
+  "registration": {
+    "scale": 0.41706539074960125,
+    "translation": [
+      -1.850677830940981,
+      -7.681419457735217
+    ],
+    "resampled_green_edge_pixels_despilled": 363,
+    "source_anchor": [
+      618.25,
+      977.5
+    ],
+    "transformed_landmarks": {
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 245.15624999999997,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": {
+    "method": "Inherited complete transform from a localized edit target with unchanged framing",
+    "reference": "walk_S_00"
+  },
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1470762,
+    "native_input_alpha": false
+  }
+}

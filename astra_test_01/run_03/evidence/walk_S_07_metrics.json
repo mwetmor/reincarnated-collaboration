@@ -1,0 +1,84 @@
+{
+  "valid": true,
+  "bbox": [
+    195,
+    176,
+    316,
+    423
+  ],
+  "height": 247,
+  "transparent_fraction": 0.9371757507324219,
+  "border_alpha_max": 0,
+  "light_centroid": [
+    235.85656836461126,
+    237.37667560321717
+  ],
+  "silhouette_center": [
+    255.0,
+    299.0
+  ],
+  "light_pass": true,
+  "brightest_5pct_pixels": 746,
+  "partial_alpha_pixels": 4298,
+  "edge_mean_rgb_value": 64.41755855436637,
+  "green_contaminated_pixels": 0,
+  "index": 7,
+  "source_contacts": [
+    [
+      588.0,
+      885.0
+    ],
+    [
+      657.5,
+      998.0
+    ]
+  ],
+  "output_contacts": [
+    [
+      242.0,
+      376.0
+    ],
+    [
+      270.5,
+      422.0
+    ]
+  ],
+  "contact_error_xy": [
+    0.25,
+    1.0
+  ],
+  "pivot_pass": true,
+  "registration": {
+    "scale": 0.4098883572567783,
+    "translation": [
+      0.7420255183413076,
+      14.090111642743238
+    ],
+    "resampled_green_edge_pixels_despilled": 281,
+    "source_anchor": [
+      622.75,
+      941.5
+    ],
+    "transformed_landmarks": {
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 240.9375,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "scale_fit": {
+    "method": "least-squares hood contour width at 9\u201338 output px below hood top; body/feet excluded",
+    "source_hood_top": 395,
+    "reference_hood_top": 176,
+    "scale": 0.41002870813397135,
+    "nominal_canvas_scale": 0.4082934609250399,
+    "hood_width_rmse_px": 1.449146672384922
+  },
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1474960,
+    "native_input_alpha": false
+  }
+}

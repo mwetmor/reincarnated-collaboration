@@ -1,11 +1,18 @@
 {
   "status": "IN_PROGRESS",
-  "stage": "S_animation_pilot",
+  "stage": "E_animation_and_VFX_packaging",
   "started_utc": "2026-09-09T01:30:20.196992+00:00",
   "character": "PENDING",
   "vfx": "PENDING",
-  "generated_calls": 9,
+  "generated_calls": 45,
   "prior_run": "../run_02",
   "skill": "../../.agents/skills/painted-character-vfx/SKILL.md",
-  "turnaround": "PASS"
+  "turnaround": "PASS",
+  "S_idle_seam": "PASS",
+  "S_walk_seam": "PASS",
+  "walk_pivot_interpretation": "Fixed ground/root anchor; optional user clarification pending. Visible sole points retained separately.",
+  "S_numeric": "PASS",
+  "E_cast_numeric": "PASS",
+  "vfx_frames": 24,
+  "browser_playback": "UNVERIFIED: runtime browser list empty"
 }

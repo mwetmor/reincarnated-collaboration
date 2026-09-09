@@ -17,12 +17,12 @@ def hood_profile(image):
     return y0,np.array(widths)
 
 
-def fit_scale(source,approved):
+def fit_scale(source,approved,batch=False):
     top,profile=hood_profile(source);ref_top,ref=hood_profile(approved)
     offsets=np.arange(9,39,dtype=float)
     target=np.interp(offsets,np.arange(len(ref)),ref)
     nominal=approved.width/source.width
-    candidates=np.linspace(nominal*.65,min(1,nominal*1.3),401)
+    candidates=np.linspace(nominal*(.25 if batch else .65),min(1,nominal*1.3),801 if batch else 401)
     scores=[]
     for scale in candidates:
         widths=np.interp(offsets/scale,np.arange(len(profile)),profile)*scale
