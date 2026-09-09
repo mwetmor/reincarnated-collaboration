@@ -1,0 +1,129 @@
+{
+  "status": "REJECTED_CHECKPOINT",
+  "production_ready": false,
+  "directions": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "canvas": [
+    512,
+    512
+  ],
+  "pivot": [
+    256,
+    400
+  ],
+  "required_character_frames": 224,
+  "available_character_frames": 8,
+  "animations": {
+    "idle": {
+      "sheet": "sheets/idle.png",
+      "fps": 8,
+      "required_frames_per_direction": 8,
+      "available_frames_per_direction": 1,
+      "loop": false,
+      "intended_loop": true,
+      "frames": [
+        {
+          "direction": "S",
+          "index": 0,
+          "file": "frames/idle/S/idle_S_00.png",
+          "rect": [
+            0,
+            0,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "SW",
+          "index": 0,
+          "file": "frames/idle/SW/idle_SW_00.png",
+          "rect": [
+            0,
+            512,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "W",
+          "index": 0,
+          "file": "frames/idle/W/idle_W_00.png",
+          "rect": [
+            0,
+            1024,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "NW",
+          "index": 0,
+          "file": "frames/idle/NW/idle_NW_00.png",
+          "rect": [
+            0,
+            1536,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "N",
+          "index": 0,
+          "file": "frames/idle/N/idle_N_00.png",
+          "rect": [
+            0,
+            2048,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "NE",
+          "index": 0,
+          "file": "frames/idle/NE/idle_NE_00.png",
+          "rect": [
+            0,
+            2560,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "E",
+          "index": 0,
+          "file": "frames/idle/E/idle_E_00.png",
+          "rect": [
+            0,
+            3072,
+            512,
+            512
+          ]
+        },
+        {
+          "direction": "SE",
+          "index": 0,
+          "file": "frames/idle/SE/idle_SE_00.png",
+          "rect": [
+            0,
+            3584,
+            512,
+            512
+          ]
+        }
+      ]
+    }
+  },
+  "missing_animations": [
+    "walk",
+    "cast"
+  ],
+  "cast_spawn_index": 5
+}

@@ -1,0 +1,102 @@
+{
+  "S": {
+    "points": [
+      [
+        223.0,
+        384.0
+      ],
+      [
+        283.5,
+        415.0
+      ]
+    ],
+    "midpoint": [
+      253.25,
+      399.5
+    ],
+    "error_xy": [
+      2.75,
+      0.5
+    ],
+    "pass": true
+  },
+  "SW": {
+    "points": [
+      [
+        224.5,
+        382.0
+      ],
+      [
+        277.0,
+        418.0
+      ]
+    ],
+    "midpoint": [
+      250.75,
+      400.0
+    ],
+    "error_xy": [
+      5.25,
+      0.0
+    ],
+    "pass": false
+  },
+  "W": {
+    "valid": false,
+    "error": "Sole region clips the contact; review the region"
+  },
+  "NW": {
+    "valid": false,
+    "error": "Sole region clips the contact horizontally"
+  },
+  "N": {
+    "points": [
+      [
+        230.5,
+        396.0
+      ],
+      [
+        278.5,
+        404.0
+      ]
+    ],
+    "midpoint": [
+      254.5,
+      400.0
+    ],
+    "error_xy": [
+      1.5,
+      0.0
+    ],
+    "pass": true
+  },
+  "NE": {
+    "valid": false,
+    "error": "Sole region clips the contact horizontally"
+  },
+  "E": {
+    "valid": false,
+    "error": "Sole region clips the contact horizontally"
+  },
+  "SE": {
+    "points": [
+      [
+        222.0,
+        385.0
+      ],
+      [
+        284.0,
+        415.0
+      ]
+    ],
+    "midpoint": [
+      253.0,
+      400.0
+    ],
+    "error_xy": [
+      3.0,
+      0.0
+    ],
+    "pass": true
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASTRA 01 run 02 — checkpoint evidence</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#11151e;color:#e8e6df;font:16px/1.5 system-ui,sans-serif}main{max-width:1140px;margin:auto;padding:32px 24px}h1{font-size:28px;letter-spacing:-.6px;margin:6px 0}h2{font-size:19px}p{max-width:850px;color:#bfc4ce}.tag{color:#ff9caa;font-size:13px;letter-spacing:1px}a{color:#a9ccff}label{display:inline-flex;gap:8px;align-items:center;margin:8px 20px 8px 0}select,input,button{font:inherit;background:#242b38;border:1px solid #626b7d;border-radius:5px;color:#fff;padding:6px}button:disabled,input:disabled{opacity:.5}.viewer{display:grid;grid-template-columns:minmax(0,512px) 1fr;gap:24px;margin:20px 0}canvas{width:100%;max-width:512px;height:auto;background:#141922;border:1px solid #4b5363}aside{border-top:1px solid #4b5363;padding-top:12px}.strip{overflow:auto;border:1px solid #4b5363;padding:8px}.strip img{display:block;max-width:none;width:2048px;height:256px}#read64{display:block;width:512px;height:64px;max-width:none}.legend{font-size:14px}footer{margin-top:32px;border-top:1px solid #4b5363;padding-top:16px;font-size:14px;color:#a1aabd}@media(max-width:760px){.viewer{grid-template-columns:1fr}}
+</style>
+<main>
+<div class="tag">ASTRA TEST 01 · REJECTED CHECKPOINT</div>
+<h1>Painted battle-mage: turnaround evidence</h1>
+<p>Run 02 substantially improves transparency, height parity and light consistency. Two complete turnaround checks still failed. The final SW pivot error is 5.25 px against a 4 px limit; a stricter audit also flags four other foot measurements as unverified. No animation or spell sequence was produced.</p>
+<p><a href="../REPORT.md">Full report</a> · <a href="../evidence/checkpoint_1/checks.json">First checkpoint measurements</a> · <a href="../evidence/checkpoint_2/checks.json">Repair measurements</a></p>
+<label>Direction <select id="direction"><option>S</option><option>SW</option><option>W</option><option>NW</option><option>N</option><option>NE</option><option>E</option><option>SE</option></select></label>
+<label>Attempt <select id="attempt"><option value="1">1 · original eight views</option><option value="2">2 · SW/NW staff repairs</option></select></label>
+<label>Background <select id="background"><option value="#141922">Dark slate</option><option value="#465976">Blue gray</option><option value="#eeeeee">Light gray</option></select></label>
+<div class="viewer">
+<canvas id="frame" width="512" height="512" aria-label="Selected painted direction, with required pivot marker"></canvas>
+<aside><h2 id="selection">S · idle frame 00</h2><p id="status" role="status">Loading image…</p>
+<p class="legend">Pink cross: required feet pivot (256,400). Frames use documented uniform downscaling and translation. Staff placement was repaired in SW and NW. Pink marks the required pivot; the audit distinguishes measured contacts from registration estimates.</p>
+<label>FPS <input type="number" value="8" min="1" max="60" disabled aria-label="FPS unavailable because animation was not generated"></label>
+<p><button disabled>Play animation</button> <button disabled>Cast + VFX</button></p>
+<p>Playback and combined mode are unavailable because the mandatory turnaround prerequisite failed. All eight final frames have genuine alpha after native-alpha preservation or documented green-plate extraction. Change the background to inspect edges.</p>
+<p><strong>CHARACTER: FAIL</strong><br><strong>VFX: PARTIAL — not tested</strong></p></aside>
+</div>
+<h2>Eight views · S, SW, W, NW, N, NE, E, SE</h2>
+<div class="strip"><img id="turnaround" src="../evidence/checkpoint_1/turnaround.png" alt="Original eight-direction turnaround; scroll horizontally to inspect"></div>
+<h2>64 px canvas-height read</h2>
+<div class="strip"><img id="read64" src="../evidence/checkpoint_1/turnaround_64px.png" alt="Turnaround at exactly 64 pixels canvas height"></div>
+<p><a id="overlay" href="../evidence/checkpoint_1/overlay.png">Open full measurement overlay</a></p>
+<footer>10 generation calls · original generated raster artwork · source files and exact prompts retained · no dependencies or external requests</footer>
+</main>
+<script>
+const measurements=__CHECKPOINT_DATA__;
+const dirs=['S','SW','W','NW','N','NE','E','SE'];
+const direction=document.querySelector('#direction'),attempt=document.querySelector('#attempt');
+const canvas=document.querySelector('#frame'),ctx=canvas.getContext('2d');
+const bg=document.querySelector('#background');let revision=0;
+function render(){
+ const current=++revision,d=direction.value,a=attempt.value;
+ document.querySelector('#selection').textContent=d+' · idle frame 00';
+ document.querySelector('#status').textContent='Loading image…';
+ for(const [id,name] of [['turnaround','turnaround.png'],['read64','turnaround_64px.png']])document.getElementById(id).src='../evidence/checkpoint_'+a+'/'+name;
+ document.querySelector('#overlay').href='../evidence/checkpoint_'+a+'/overlay.png';
+ const image=new Image();image.onload=()=>{if(current!==revision)return;
+  ctx.fillStyle=bg.value;ctx.fillRect(0,0,512,512);
+  const col=dirs.indexOf(d);ctx.drawImage(image,col*512,0,512,512,0,0,512,512);
+  ctx.strokeStyle='#ff5577';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(246,400);ctx.lineTo(266,400);ctx.moveTo(256,390);ctx.lineTo(256,410);ctx.stroke();
+  const m=measurements[a].directions[d];document.querySelector('#status').textContent='Height '+m.height+' px · pivot error '+m.contact.max_error+' px · light '+(m.light_pass?'PASS':'FAIL')+(a==='2'&&['W','NW','NE','E'].includes(d)?' · pivot measurement UNVERIFIED: clipped review region':'');
+ };image.onerror=()=>{if(current===revision)document.querySelector('#status').textContent='Image missing. Keep the preview folder inside the delivered astra_test_01 tree.'};
+ image.src='../evidence/checkpoint_'+a+'/turnaround.png';
+}
+[direction,attempt,bg].forEach(el=>el.addEventListener('change',render));render();
+</script>
+</html>

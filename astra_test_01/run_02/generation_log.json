@@ -1,0 +1,109 @@
+[
+  {
+    "name": "master",
+    "prompt": "prompts/master.txt",
+    "source": "source/master.png",
+    "elapsed_seconds": 36.2,
+    "reference_paths": [],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "E",
+    "prompt": "prompts/E.txt",
+    "source": "source/E.png",
+    "elapsed_seconds": 22.5,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "guides/E.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "N",
+    "prompt": "prompts/N.txt",
+    "source": "source/N.png",
+    "elapsed_seconds": 27.8,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "guides/N.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "W",
+    "prompt": "prompts/W.txt",
+    "source": "source/W.png",
+    "elapsed_seconds": 26.1,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "guides/W.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "SW",
+    "prompt": "prompts/SW.txt",
+    "source": "source/SW.png",
+    "elapsed_seconds": 26.6,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "guides/SW.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "NW",
+    "prompt": "prompts/NW.txt",
+    "source": "source/NW.png",
+    "elapsed_seconds": 25.4,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "prepared/N/reference_green.png",
+      "guides/NW.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "NE",
+    "prompt": "prompts/NE.txt",
+    "source": "source/NE.png",
+    "elapsed_seconds": 26,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "prepared/N/reference_green.png",
+      "guides/NE.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "SE",
+    "prompt": "prompts/SE.txt",
+    "source": "source/SE.png",
+    "elapsed_seconds": 25.9,
+    "reference_paths": [
+      "prepared/S/reference_green.png",
+      "guides/SE.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "SW_repair",
+    "prompt": "Edit the supplied painted sprite with ONE localized change: slide the entire intact bone-and-iron staff DOWN through the existing stationary right-hand grip by about 35 pixels in the supplied 1024x1024 image. Its uppermost fork tip must finish just BELOW the hood's highest pixel (hood top is around y=359; put staff tip at y=375). Keep the staff the SAME LENGTH and shape, moving its lower end down equally. The hand continues to grip the shaft at its present location. Preserve the exact character body, head, face, pose, feet, coat, satchel, camera angle, scale, placement, brushwork and fixed screen-upper-left light. Do not redraw or resize the character. Preserve all empty padding. Pure uniform RGB #00ff00 background, no floor or shadow or text. This is a precision correction of the supplied SW-facing sprite, not a new illustration.",
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-537aade5-6bf8-44ce-af0c-1ea4c1aeb209.png",
+    "elapsed_seconds": 23.103,
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_02/prepared/SW/reference_green.png"
+    ],
+    "tool": "image_gen.imagegen"
+  },
+  {
+    "name": "NW_repair",
+    "prompt": "Edit the supplied painted NW-facing sprite with ONE localized change: slide the entire intact bone-and-iron staff DOWN through the existing stationary right-hand grip by about 65 pixels in this supplied 1024x1024 image. Its uppermost fork tip must finish just BELOW the hood's highest pixel (hood top around y=335; put staff tip at y=350). Keep the staff the SAME LENGTH and shape, moving its lower end down equally. The hand continues gripping the shaft at its present location. Preserve exact body, hood, pose, feet, coat, satchel, camera, scale, placement, brushwork and fixed screen-upper-left light. Preserve all padding. Pure uniform RGB #00ff00 background with no variation, shadow, ground or text. This is a precise staff-placement correction, not a new illustration.",
+    "source": "/Users/admin/.codex/generated_images/01a0836b-69db-72f0-95f8-f9300d284424/exec-83c77e33-1202-4924-a464-acf0ea164ef2.png",
+    "elapsed_seconds": 26.598,
+    "reference_paths": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_02/prepared/NW/reference_green.png"
+    ],
+    "tool": "image_gen.imagegen"
+  }
+]

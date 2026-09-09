@@ -1,0 +1,97 @@
+{
+  "name": "W",
+  "source": "source/W.png",
+  "source_sha256": "5edadfddeee84f5f0e1bc09b294622c0e749d65973bc1c0fde947ec851883fd7",
+  "source_mode": "RGB",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1456178,
+    "native_input_alpha": false
+  },
+  "registration": {
+    "scale": 0.32216905901116427,
+    "translation": [
+      60.76555023923444,
+      71.7097288676236
+    ],
+    "resampled_green_edge_pixels_despilled": 157,
+    "source_anchor": [
+      606.0,
+      1019.0
+    ],
+    "transformed_landmarks": {
+      "hood_top": [
+        263.40988835725676,
+        173.19298245614033
+      ],
+      "far_support": [
+        249.5566188197767,
+        387.75757575757575
+      ],
+      "near_support": [
+        262.44338118022324,
+        412.24242424242425
+      ],
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 240.01594896331738,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "raw_metrics": {
+    "valid": true,
+    "bbox": [
+      483,
+      314,
+      730,
+      1059
+    ],
+    "height": 745,
+    "transparent_fraction": 0.9263486031302702,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      585.1859070464768,
+      545.07440029985
+    ],
+    "silhouette_center": [
+      606.0,
+      686.0
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 5336,
+    "partial_alpha_pixels": 12063,
+    "edge_mean_rgb_value": 101.03791207272928,
+    "green_contaminated_pixels": 0
+  },
+  "registered_metrics": {
+    "valid": true,
+    "bbox": [
+      217,
+      173,
+      296,
+      413
+    ],
+    "height": 240,
+    "transparent_fraction": 0.9526252746582031,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      248.27877697841726,
+      241.76618705035972
+    ],
+    "silhouette_center": [
+      256.0,
+      292.5
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 556,
+    "partial_alpha_pixels": 3332,
+    "edge_mean_rgb_value": 50.00420168067227,
+    "green_contaminated_pixels": 0
+  }
+}

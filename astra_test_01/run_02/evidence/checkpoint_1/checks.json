@@ -1,0 +1,419 @@
+{
+  "attempt": 1,
+  "utc": "2026-09-09T00:52:25.309050+00:00",
+  "status": "FAIL",
+  "gates": {
+    "1_height": false,
+    "2_pivot": false,
+    "3_light": true,
+    "4_right_hand": true,
+    "7_downscale_read": true,
+    "alpha_format": true,
+    "unique_directions": true
+  },
+  "directions": {
+    "S": {
+      "valid": true,
+      "bbox": [
+        191,
+        176,
+        302,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9389915466308594,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        227.58474576271186,
+        224.24717514124293
+      ],
+      "silhouette_center": [
+        246.0,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 708,
+      "partial_alpha_pixels": 15266,
+      "edge_mean_rgb_value": 41.07716494170051,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            223.0,
+            384.0
+          ],
+          [
+            283.5,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          253.25,
+          399.5
+        ],
+        "error_xy": [
+          2.75,
+          0.5
+        ],
+        "max_error": 2.75,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    },
+    "SW": {
+      "valid": true,
+      "bbox": [
+        194,
+        170,
+        305,
+        419
+      ],
+      "height": 249,
+      "transparent_fraction": 0.9404716491699219,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        230.87960339943342,
+        235.76770538243625
+      ],
+      "silhouette_center": [
+        249.0,
+        294.0
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 706,
+      "partial_alpha_pixels": 3970,
+      "edge_mean_rgb_value": 58.210747271200674,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            227.0,
+            382.0
+          ],
+          [
+            279.0,
+            418.0
+          ]
+        ],
+        "midpoint": [
+          253.0,
+          400.0
+        ],
+        "error_xy": [
+          3.0,
+          0.0
+        ],
+        "max_error": 3.0,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 3.750000000000009
+    },
+    "W": {
+      "valid": true,
+      "bbox": [
+        217,
+        173,
+        296,
+        413
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9526252746582031,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        248.27877697841726,
+        241.76618705035972
+      ],
+      "silhouette_center": [
+        256.0,
+        292.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 556,
+      "partial_alpha_pixels": 3332,
+      "edge_mean_rgb_value": 50.00420168067227,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            250.0,
+            386.0
+          ],
+          [
+            258.5,
+            412.0
+          ]
+        ],
+        "midpoint": [
+          254.25,
+          399.0
+        ],
+        "error_xy": [
+          1.75,
+          1.0
+        ],
+        "max_error": 1.75,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    },
+    "NW": {
+      "valid": true,
+      "bbox": [
+        200,
+        142,
+        300,
+        407
+      ],
+      "height": 265,
+      "transparent_fraction": 0.9351005554199219,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        235.4148244473342,
+        220.46423927178154
+      ],
+      "silhouette_center": [
+        249.5,
+        274.0
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 769,
+      "partial_alpha_pixels": 4612,
+      "edge_mean_rgb_value": 56.2601908065915,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            235.0,
+            406.0
+          ],
+          [
+            287.0,
+            396.0
+          ]
+        ],
+        "midpoint": [
+          261.0,
+          401.0
+        ],
+        "error_xy": [
+          5.0,
+          1.0
+        ],
+        "max_error": 5.0,
+        "pass": false,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 10.416666666666675
+    },
+    "N": {
+      "valid": true,
+      "bbox": [
+        204,
+        165,
+        322,
+        405
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9331321716308594,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        250.9349186483104,
+        217.48185231539424
+      ],
+      "silhouette_center": [
+        262.5,
+        284.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 799,
+      "partial_alpha_pixels": 4345,
+      "edge_mean_rgb_value": 56.92911392405063,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            230.5,
+            396.0
+          ],
+          [
+            278.5,
+            404.0
+          ]
+        ],
+        "midpoint": [
+          254.5,
+          400.0
+        ],
+        "error_xy": [
+          1.5,
+          0.0
+        ],
+        "max_error": 1.5,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    },
+    "NE": {
+      "valid": true,
+      "bbox": [
+        212,
+        176,
+        334,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9354095458984375,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        268.59012016021364,
+        234.70894526034712
+      ],
+      "silhouette_center": [
+        272.5,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 749,
+      "partial_alpha_pixels": 5073,
+      "edge_mean_rgb_value": 57.7712070438268,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            235.0,
+            385.0
+          ],
+          [
+            271.0,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          253.0,
+          400.0
+        ],
+        "error_xy": [
+          3.0,
+          0.0
+        ],
+        "max_error": 3.0,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    },
+    "E": {
+      "valid": true,
+      "bbox": [
+        215,
+        177,
+        297,
+        417
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9530143737792969,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        249.24137931034483,
+        223.513611615245
+      ],
+      "silhouette_center": [
+        255.5,
+        296.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 551,
+      "partial_alpha_pixels": 3289,
+      "edge_mean_rgb_value": 60.06618019661498,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            260.5,
+            383.0
+          ],
+          [
+            253.0,
+            416.0
+          ]
+        ],
+        "midpoint": [
+          256.75,
+          399.5
+        ],
+        "error_xy": [
+          0.75,
+          0.5
+        ],
+        "max_error": 0.75,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    },
+    "SE": {
+      "valid": true,
+      "bbox": [
+        196,
+        176,
+        301,
+        416
+      ],
+      "height": 240,
+      "transparent_fraction": 0.9381599426269531,
+      "border_alpha_max": 0,
+      "light_centroid": [
+        228.41655172413792,
+        229.87586206896552
+      ],
+      "silhouette_center": [
+        248.0,
+        295.5
+      ],
+      "light_pass": true,
+      "brightest_5pct_pixels": 725,
+      "partial_alpha_pixels": 4777,
+      "edge_mean_rgb_value": 56.07522154769381,
+      "green_contaminated_pixels": 0,
+      "contact": {
+        "points": [
+          [
+            222.0,
+            385.0
+          ],
+          [
+            284.0,
+            415.0
+          ]
+        ],
+        "midpoint": [
+          253.0,
+          400.0
+        ],
+        "error_xy": [
+          3.0,
+          0.0
+        ],
+        "max_error": 3.0,
+        "pass": true,
+        "method": "Median x of lowest two opaque rows in independent output-space foot ROIs"
+      },
+      "height_deviation_pct": 0.0
+    }
+  },
+  "visual": {
+    "right_hand_pass": true,
+    "downscale_pass": true,
+    "unique_directions_pass": true,
+    "reasoning": {
+      "right_hand": "Front views hold the staff at anatomical right (screen left); rear views hold it at screen right; profile views preserve the corresponding right-arm grip and left-hip satchel. All eight were separately generated without mirroring.",
+      "downscale": "At 64-pixel canvas height, the pointed hood and separate vertical staff remain identifiable in every direction. Facial and chainmail detail does not survive this reduction.",
+      "directions": "S/front, SW/front-left, W/left profile, NW/rear-left, N/rear, NE/rear-right, E/right profile, SE/front-right are distinct. Camera projection is reference-conditioned and visually approximate, not a measured reconstruction."
+    },
+    "reviewer": "Codex visual inspection of full reference images and 25% and 64px turnaround strips"
+  }
+}

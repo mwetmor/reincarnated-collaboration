@@ -1,0 +1,89 @@
+{
+  "name": "NW",
+  "source": "source/NW_repair.png",
+  "source_sha256": "4feb32492f19f4ab2f9aa888ecd5ac355543bc242ce57c86d5d64d927c65ef5f",
+  "source_mode": "RGB",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "extraction": {
+    "method": "green excess matte + inverse straight-alpha compositing",
+    "removed_background_or_detached_alpha_dust_pixels": 1472877,
+    "native_input_alpha": false
+  },
+  "registration": {
+    "scale": 0.4082934609250399,
+    "translation": [
+      -7.349282296650699,
+      -0.9441786283891815
+    ],
+    "resampled_green_edge_pixels_despilled": 252,
+    "source_anchor": [
+      645.0,
+      982.0
+    ],
+    "transformed_landmarks": {
+      "hood_top": [
+        235.99362041467307,
+        166.04784688995213
+      ],
+      "registered_anchor": [
+        256.0,
+        400.0
+      ]
+    },
+    "body_height_after_transform": 239.6682615629984,
+    "transform_generated_anchor_is_not_independent_validation": true
+  },
+  "raw_metrics": {
+    "valid": true,
+    "bbox": [
+      490,
+      408,
+      740,
+      997
+    ],
+    "height": 589,
+    "transparent_fraction": 0.9367663031727499,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      577.3016185476815,
+      569.6377952755905
+    ],
+    "silhouette_center": [
+      614.5,
+      702.0
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 4572,
+    "partial_alpha_pixels": 10873,
+    "edge_mean_rgb_value": 101.82179098071676,
+    "green_contaminated_pixels": 0
+  },
+  "registered_metrics": {
+    "valid": true,
+    "bbox": [
+      193,
+      166,
+      295,
+      406
+    ],
+    "height": 240,
+    "transparent_fraction": 0.9364967346191406,
+    "border_alpha_max": 0,
+    "light_centroid": [
+      227.12941176470588,
+      227.57777777777778
+    ],
+    "silhouette_center": [
+      243.5,
+      285.5
+    ],
+    "light_pass": true,
+    "brightest_5pct_pixels": 765,
+    "partial_alpha_pixels": 3799,
+    "edge_mean_rgb_value": 63.58655786610512,
+    "green_contaminated_pixels": 0
+  }
+}

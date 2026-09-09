@@ -1,0 +1,11 @@
+{
+  "directions": ["S", "SW", "W", "NW", "N", "NE", "E", "SE"],
+  "canvas": [512, 512], "pivot": [256, 400], "master_body_height": 240,
+  "key_background": [0, 255, 0], "alpha_threshold": 128,
+  "height_tolerance_fraction": 0.03, "pivot_tolerance_px": 4,
+  "fps": {"idle": 8, "walk": 10, "cast": 16, "sprint": 14, "vfx": 20},
+  "frames": {"idle": 8, "walk": 8, "cast": 12, "sprint": 8},
+  "cast_spawn_index": 5, "drift_cross_animation": ["cast", 5],
+  "preview_background": [20, 25, 34], "guide_elevation_deg": 45,
+  "guide_vertical_squeeze": 0.7071067811865476
+}

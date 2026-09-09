@@ -1,0 +1,167 @@
+{
+  "SE": {
+    "source": "source/SE.png",
+    "body_height": 734,
+    "anchor": [
+      642,
+      991
+    ],
+    "landmarks": {
+      "hood_top": [
+        621,
+        305
+      ],
+      "far_support": [
+        553,
+        946
+      ],
+      "near_support": [
+        731,
+        1036
+      ]
+    }
+  },
+  "NE": {
+    "source": "source/NE.png",
+    "body_height": 746,
+    "anchor": [
+      616,
+      1014
+    ],
+    "landmarks": {
+      "hood_top": [
+        651,
+        317
+      ],
+      "far_support": [
+        549,
+        967
+      ],
+      "near_support": [
+        683,
+        1061
+      ]
+    }
+  },
+  "NW": {
+    "source": "source/NW_repair.png",
+    "body_height": 587,
+    "locked_scale": 0.4082934609250399,
+    "anchor": [
+      645,
+      982
+    ],
+    "landmarks": {
+      "hood_top": [
+        596,
+        409
+      ]
+    },
+    "note": "Fixed 512/1254 canvas conversion from edited 1024 reference; no independent silhouette scaling. Sole anchors visually annotated on repaired source."
+  },
+  "SW": {
+    "source": "source/SW_repair.png",
+    "body_height": 587,
+    "locked_scale": 0.4082934609250399,
+    "anchor": [
+      633.5,
+      980
+    ],
+    "landmarks": {
+      "hood_top": [
+        633,
+        438
+      ]
+    },
+    "note": "Fixed 512/1254 canvas conversion from edited 1024 reference; no independent silhouette scaling. Sole anchors visually annotated on repaired source."
+  },
+  "W": {
+    "source": "source/W.png",
+    "body_height": 745,
+    "anchor": [
+      606,
+      1019
+    ],
+    "landmarks": {
+      "hood_top": [
+        629,
+        315
+      ],
+      "far_support": [
+        586,
+        981
+      ],
+      "near_support": [
+        626,
+        1057
+      ]
+    }
+  },
+  "N": {
+    "source": "source/N.png",
+    "body_height": 660,
+    "anchor": [
+      622,
+      1000
+    ],
+    "landmarks": {
+      "hood_top": [
+        617,
+        355
+      ],
+      "left_support": [
+        548,
+        989
+      ],
+      "right_support": [
+        696,
+        1011
+      ]
+    }
+  },
+  "E": {
+    "source": "source/E.png",
+    "body_height": 636,
+    "anchor": [
+      630,
+      965
+    ],
+    "landmarks": {
+      "hood_top": [
+        618,
+        375
+      ],
+      "near_support": [
+        610,
+        1008
+      ],
+      "far_support": [
+        650,
+        922
+      ]
+    }
+  },
+  "S": {
+    "source": "source/master.png",
+    "body_height": 1188,
+    "anchor": [
+      640,
+      1146
+    ],
+    "landmarks": {
+      "hood_top": [
+        625,
+        37
+      ],
+      "left_support": [
+        503,
+        1068
+      ],
+      "right_support": [
+        777,
+        1224
+      ]
+    },
+    "annotation_note": "Observed native-resolution source. Independent production-frame contact checks follow; transform equality is not the pass evidence."
+  }
+}
