@@ -1,0 +1,43 @@
+{
+  "experiment": "E07U",
+  "started_at": "2026-09-11T19:04:32.464677+00:00",
+  "status": "PIXEL_EXACT_BATCHING_AND_LOCAL_MOTION_PASS",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "adapter_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "adapter_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 7.408613766666666,
+    "owned_bytes_before_index": 76874663
+  },
+  "dependencies": {
+    "E07T/sim/index.mjs": "d049724a92cefa185ccc38b42852f802e97b0021cf98a8130c672ef991673b66",
+    "E07T/door.json": "9ada1834d08b9bccfaf41d44ea4de6a2cef2f641ada0d415f3364970a851817b",
+    "E07T/pixi-adapter/index.mjs": "61b52d0da7315eb211b52b838e3faaa99adb3f0a4543ede6f5520c7f92c409e5"
+  },
+  "revision2": "V1 per-object grouping changes coplanar tie order:64/64literal all-image threshold fails,6324witnesses pass. V2 preserves global cell order in multi-texture batches, splitting around existing actor draws. No geometry/material/sim change.",
+  "finished_at": "2026-09-11T19:11:56.981503+00:00",
+  "next_action": "E07A integrate qualified E05W/N pilot into E07U chamber with neutral normals/outfits; source-oracle/depth/scene-scale proof before expansion.",
+  "verdicts": {
+    "v1": "FAIL64/64strict images:changedoverlaporder; preservedlosslessly",
+    "v2": "PASS64/64pixel-exactimages/states/trianglecounts;6324panel+1728aperture witnesses",
+    "motion": "PASS27\u201329partialframesperhalfsecond;livebuttonsverified",
+    "full_chamber": "UNQUALIFIED:material/actor/shadow/VFXintegration remains"
+  },
+  "commands": [
+    "node capture.mjs (v1 andv2 in separatebatches)",
+    "python3 compare-source.py (v1FAIL,v2exactPASS)",
+    "python3 analyze.py",
+    "node capture-motion.mjs",
+    "python3 analyze-motion.py",
+    "python3 analyze-light.py",
+    "node review-check.mjs"
+  ]
+}

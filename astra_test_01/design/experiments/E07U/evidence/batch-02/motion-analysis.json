@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "faction": "F01",
+      "opening_samples": 28,
+      "closing_samples": 29,
+      "frame_interval_median_ms": 16.69999999999994,
+      "frame_interval_p95_ms": 16.800000000000004,
+      "composition_median_ms": 14.950000017881393,
+      "composition_p95_ms": 18.275000020861626,
+      "pass": true
+    },
+    {
+      "faction": "F02",
+      "opening_samples": 27,
+      "closing_samples": 29,
+      "frame_interval_median_ms": 16.699999999999818,
+      "frame_interval_p95_ms": 16.800000000000146,
+      "composition_median_ms": 15.800000011920929,
+      "composition_p95_ms": 17.97999999523163,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "twenty_partial_samples_each": true
+  },
+  "scope": "This local Chrome/headless recording only; minimum PC and fullscreen target still undecided."
+}

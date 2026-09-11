@@ -1,0 +1,5 @@
+# E07U · Per-object chamber batching
+
+Godot shipping target; Pixi harness.40active minutes,0generation calls,2adapter builds,3capture batches,80MBowned. Reuse E07T geometry/state, door JSON, source textures and lighting unchanged. Only renderer submission changes: combine existing cell attributes/indices into a mesh per object, retaining precise coordinate/UV/color calculation, depth and part identity. No material/style repair in this comparison.
+
+Capture1same64native/fresh stills, all6324panel/1728aperture witnesses andstalecontrols, plus every pixel against retainedE07T rendered controls. Tolerance2RGB perchannel; report count/locations ifany exceed. Capture2same normal-speed videos and lightcontrol states. Require at least20distinct partial progress samples perhalf-second opening/closing onthismachine; report frame intervals/p95 andcomposition time,without claiming minimumhardware. Keep state input immutable and unchangedby batching. Capture3savedreview. If source images or live motion fail, use atmostone justified adapter revision; preserve failure. Final material/pilot/chamberart remainsopen.

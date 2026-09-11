@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T19:03:33.869367+00:00",
+  "updated": "2026-09-11T19:11:56.981503+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "E07U batch existing geometry cells per object, preserving source pixels/state/materials; compare native/fresh witnesses and timed playback.",
+  "next_action": "E07A integrate qualified E05W/N pilot into E07U chamber with neutral normals/outfits; source-oracle/depth/scene-scale proof before expansion.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -201,7 +201,10 @@
     "experiments/E08N/review.html",
     "experiments/E07T/REPORT.md",
     "experiments/E07T/receipt.json",
-    "experiments/E07T/review.html"
+    "experiments/E07T/review.html",
+    "experiments/E07U/REPORT.md",
+    "experiments/E07U/receipt.json",
+    "experiments/E07U/review.html"
   ],
   "decisions_pending": [
     {
@@ -316,7 +319,8 @@
     "E05L phase-aware stoppreflight FAIL at2source revisionlimit:46/48phasespass, phases23/47 jointstep6.099cm>5cm. Originalkneeflips14phasesrepaired buttimingcontinuityunqualified. No export/raster expansion. E05D timing-factorstudy next; existingqualifiedE05I/Nassets untouched.",
     "E05D .8s baselinepath candidateB passesall48stop-sourcephases(maxjoint4.774cm); .6sC2candidatefails38/48. Selectedexportstopsat35MBnormalguard,8oraclesonly; no completeasset/raster/visualpass. E08N percliplosslesspacking/cache next.",
     "E08N six lossless clips pass294source/1152raster/294frameaudit; selected missing-normal ablation insensitive. Two-chunk cache is accounting, not full residency. Full arbitrary-phase runtime and combat timing unqualified. E07T independent door continuation next.",
-    "E07T continuous panel/collision/pocket passes33sim/6324panel/1728clear witnesses. Smooth motion FAIL3\u20138intermediateframes and>100mscomposition. F01flatdarkpocket artFAIL. New2.5m lintel correctly blocks2.7mmonster; prior no-lintel result insufficient. E07U batching comparison next."
+    "E07T continuous panel/collision/pocket passes33sim/6324panel/1728clear witnesses. Smooth motion FAIL3\u20138intermediateframes and>100mscomposition. F01flatdarkpocket artFAIL. New2.5m lintel correctly blocks2.7mmonster; prior no-lintel result insufficient. E07U batching comparison next.",
+    "E07U v1perobjectbatching fails64strict images;v2orderedmulti-texturebatching passes64pixel-exact/states/triangles and27\u201329partialframes/0.5s. Localonly; E07Tart/heightlimitsremain. OlderE05Jpilot stillin chamber; E07A currentpaintedpilotintegration next."
   ],
   "running_jobs": [
     {
@@ -360,7 +364,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07T/receipt.json",
+  "current_receipt": "experiments/E07U/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -427,5 +431,12 @@
     "author_receipt": "experiments/E05D/evidence/author-b.json",
     "asset": "experiments/E08N/character.asset.json",
     "review": "experiments/E08N/review.html"
+  },
+  "chamber_working_renderer": {
+    "module": "experiments/E07U/pixi-adapter/index.mjs",
+    "sim": "experiments/E07T/sim/index.mjs",
+    "review": "experiments/E07U/review.html",
+    "status": "PIXEL_EXACT_ORDERED_BATCHES_LOCAL_MOTION_PASS",
+    "full_chamber_qualified": false
   }
 }

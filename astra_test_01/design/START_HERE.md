@@ -117,3 +117,5 @@ E05D [timing source comparison](experiments/E05D/review.html): .8s candidatepass
 E08N [lossless transition review](experiments/E08N/review.html):294source and1152raster checks pass; missing-normal visual control insensitive and preserved. Six representative clips play, full locomotion remains open. E07T chamber door continuation next per PROGRESS.json.
 
 E07T [continuous door review](experiments/E07T/review.html): partial collision/geometry pass; live playback and F01 pocket finish fail. Lintel exposes monster-height incompatibility. E07U renderer batching next per PROGRESS.json.
+
+E07U [batched door review](experiments/E07U/review.html):64pixel-exact source images and local smooth motion pass after preserving the first batching failure. E07A current painted-pilot/chamber integration next per PROGRESS.json.
