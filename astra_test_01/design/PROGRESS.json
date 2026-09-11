@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T04:58:26.949857+00:00",
+  "updated": "2026-09-11T05:23:24.150358+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E05P",
+  "active_experiment": "E05K",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Execute E05P registered SE persistent-layer motion/gear probe; preserve full pilot eight-view criteria and visual failures. Continue independent native-motion acquisition and VFX data preparation. Visual-delegation preference is pending, not approved.",
+  "next_action": "Register E05K changed lower-body pose-key drawing method after E05P persistent cutout gait FAIL; retain torso/bag source layers and test actual raster contacts before eight-view expansion. E06D neutral VFX preparation is complete; painted VFX waits for qualified release/socket. Visual choices remain pending, not approved.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -77,7 +77,15 @@
     "experiments/E04L/review.html",
     "experiments/E04L/lighting.json",
     "experiments/E04L/evidence/lighting-validation.json",
-    "experiments/E04L/evidence/batch-03-receivers/receivers.json"
+    "experiments/E04L/evidence/batch-03-receivers/receivers.json",
+    "experiments/E01M/REPORT.md",
+    "experiments/E01M/RECEIPT.json",
+    "experiments/E01M/review.html",
+    "experiments/E05P/REPORT.md",
+    "experiments/E05P/RECEIPT.json",
+    "experiments/E05P/review.html",
+    "experiments/E06D/REPORT.md",
+    "experiments/E06D/RECEIPT.json"
   ],
   "decisions_pending": [
     {
@@ -142,10 +150,12 @@
     "Matt reports Canvas source links open as code; deliver browser HTML. Godot and standalone Chrome GPU captures verified.",
     "E03 generated pillar/mage native alpha failed; manually annotated runtime masks qualify only static contours. New mage anatomical projection and production style remain provisional.",
     "E04 interaction logic and neutral boundary passed scoped checks; no actual serial combat pipeline integration",
-    "Persistent-layer motion, gear reuse, release/attachment animation and reusable VFX remain unproved",
+    "E05P persistent cutout walk FAIL despite numerical mechanism pass; gear reuse, release animation and painted reusable VFX unproved",
     "Godot/Pixi/Phaser completed E03 painted checkpoint; alternative Defold/Cocos/Three not locally qualified",
     "E04 higher-resolution diagnostics invalidate broad current-mask visual acceptance: mage retained background, NPC hand contour damage; shared lighting/material cohesion unqualified",
-    "Floor source 1536x1024 limits fresh 2880x1920 render; final output/aspect ratio and texel-density policy unresolved"
+    "Floor source 1536x1024 limits fresh 2880x1920 render; final output/aspect ratio and texel-density policy unresolved",
+    "E01M recovered native LE/GD promotional motion only; required ordinary HUD segments still missing",
+    "E06D 36/36 JSON VFX boundary checks do not qualify any painted effect"
   ],
   "running_jobs": [
     {
@@ -189,8 +199,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E04L/RECEIPT.json",
-  "generation_calls_this_suite": 8,
+  "current_receipt": "experiments/E05P/RECEIPT.json",
+  "generation_calls_this_suite": 9,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [

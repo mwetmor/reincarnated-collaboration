@@ -1,0 +1,11 @@
+# E05P — numerical mechanism passes; painted walk FAIL
+
+Godot is the shipping target; Pixi is the test harness. **Do not advance H03/H04 or G4 from this test.** The same SE source regions survive deformation, but the walk reads as articulated cutouts: rigid upper body, implausible leg foreshortening and insufficient hip/coat response. Hidden-thigh completion removes one missing-art cause; it does not rescue the gait. Cast arm rotation is only an attachment prototype, not a qualified release animation.
+
+19/19 headless checks pass: fixed world contacts, leg reach/length, alternating support, rigid bag, cycle derivative, JSON clock/release and equipment hiding/incompatibility semantics. These do not measure actual painted sole contacts, advanced gear reuse or gait quality. Detached staff/gear raster controls remain unrun because the representation failed first. No full turnaround or pilot expansion is authorized by these results.
+
+Failures retained: geometry-v1 targets exceed reach by 0.157m; batch-01 missing upper-leg source; batch-02 generated underlayer mask includes magenta; batch-03 fixes that contour but keeps the cutout gait. Batch-05 changes constant crouch to continuous reach-driven pelvis motion: geometry passes, gait still FAIL. Torso/face/bag remain original source regions. The single generated repair is used only inside manually drawn upper-thigh regions; its changed head/body painting is not adopted. No chroma threshold extraction or source repainting in Python occurred.
+
+Inspected neutral, walk phases 0/.2/.5, cast release/end and contact-sheet evidence at fresh 50/150px scales. Normal-speed videos are recorded and codec-probed; no claim that numerical/video inventory proves perceptual playback acceptance. Source pixels remain fixed; visible leg deformation and source-view limitations are the rejected hypothesis.
+
+**Next method:** explicit pose-key drawings for the lower body, retaining immutable torso/bag layers, with source-guided registration and actual raster foot-contact checks. Register E05K before generating. This is a changed authoring method under H03's falsifier, not a restart of original ASTRA TEST 01 or a reset of this experiment's counters. Full eight-view pilot, starter/advanced gear and all VFX release integrations remain required.

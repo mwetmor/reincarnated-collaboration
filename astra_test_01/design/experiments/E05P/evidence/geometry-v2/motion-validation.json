@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-09-11T05:11:41.582Z",
+  "checks": {
+    "planted_feet": true,
+    "leg_reach": true,
+    "bone_lengths": true,
+    "sliding_control_caught": true,
+    "alternating_support": true,
+    "repeated_support_control_caught": true,
+    "bag_rigid": true,
+    "bag_swelling_control_caught": true,
+    "neutral_registration": true,
+    "cast_returns_to_rest": true,
+    "cycle_velocity_continuity": true,
+    "no_early_release": true,
+    "one_release": true,
+    "no_duplicate_release": true,
+    "json_root_speed": true,
+    "cosmetic_hide_keeps_equipment": true,
+    "incompatible_gear_rejected": true,
+    "input_not_mutated": true,
+    "sim_no_render_imports": true
+  },
+  "measurements": {
+    "contact": {
+      "max_stance_drift_m": 0,
+      "max_unreachable_m": 0,
+      "max_bone_residual_m": 1.1657341758564144e-15,
+      "stance_groups": 10
+    },
+    "sliding": {
+      "max_stance_drift_m": 0.040000000000000036,
+      "max_unreachable_m": 0,
+      "max_bone_residual_m": 1.1657341758564144e-15,
+      "stance_groups": 10
+    },
+    "bag_relative_change": 0,
+    "neutral_max_error_source_px": 1.892126076324216e-12,
+    "cycle_velocity_error_logical_px_s": 0.052222681934259614
+  },
+  "passed": 19,
+  "total": 19,
+  "scope": "Numerical mechanism and JSON semantics only; raster, attachment and gait remain separate"
+}

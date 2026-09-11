@@ -59,7 +59,7 @@ continuing motion/gear and VFX; do not treat technical passes as visual approval
 
 Current autonomous continuation: [E04M2 contour repair](experiments/E04M2/review.html)
 and [E04L lighting](experiments/E04L/review.html) have scoped component results.
-[Progress](PROGRESS.json) now routes to E05P. Continue across bounded experiment
+[E05P motion review](experiments/E05P/review.html) rejects the cutout gait despite passing geometry. [E06D](experiments/E06D/REPORT.md) prepares the neutral VFX boundary only; [E01M](experiments/E01M/review.html) recovers native promotional motion without closing ordinary-HUD gates. [Progress](PROGRESS.json) routes to a changed E05K pose-key method. Continue across bounded experiment
 checkpoints while authorized work remains; Matt requested the entire architecture
 be pursued autonomously. Keep all original thresholds and failures, including
 E04L's recorded storage-limit deviation.
@@ -74,7 +74,7 @@ E04L's recorded storage-limit deviation.
 > painted checkpoint. E03/E03M completed in all three; read its report. Pixi.js is
 > the codex-selected-winner. Continue E04 chamber interactions, then separately
 > registered gear and VFX tests there only. E04 logical checkpoint is now complete;
-> first follow its NEXT_TEST.md for contour repair and shared-lighting qualification.
+> E04M2/E04L now have scoped contour/lighting results. E05P cutout gait failed; follow PROGRESS for the changed pose-key test, preserving all failures.
 > Godot is the shipping target; Pixi is the test harness. Other-regime VFX is Matt's later call.
 > Preserve the native-alpha failures and unapproved visual style. Do not repeat
 > exhausted E03 capture batches. Deliver browser HTML, not Canvas source links.

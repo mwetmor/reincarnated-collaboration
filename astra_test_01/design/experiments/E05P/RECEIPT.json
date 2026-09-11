@@ -1,0 +1,32 @@
+{
+  "experiment": "E05P",
+  "status": "FAIL_PAINTED_GAIT; NUMERICAL_MECHANISM_ONLY_PASS",
+  "started_at": "2026-09-11T05:04:33.006370+00:00",
+  "updated_at": "2026-09-11T05:22:32.310487+00:00",
+  "limits": {
+    "active_minutes": 120,
+    "generation_calls": 3,
+    "capture_batches": 6,
+    "disk_bytes": 150000000
+  },
+  "used": {
+    "generation_calls": 1,
+    "capture_batches": 6,
+    "paid_service_usd": 0,
+    "built_in_generation_price": "not exposed"
+  },
+  "headless_result": "evidence/motion-validation.json",
+  "raw_generation": "evidence/source-receipt.json",
+  "failures": [
+    "evidence/geometry-v1/failure.json",
+    "evidence/batch-01",
+    "evidence/batch-02",
+    "evidence/batch-03",
+    "evidence/batch-05"
+  ],
+  "next_action": "E05K explicit lower-body key drawings; no eight-view/roster/VFX expansion on this failed representation",
+  "finished_at": "2026-09-11T05:23:53.644012+00:00",
+  "observed_owned_bytes_before_final_index": 11803597,
+  "review_validation": "evidence/batch-06-review/review.json",
+  "elapsed_wall_minutes": 19.3439607
+}

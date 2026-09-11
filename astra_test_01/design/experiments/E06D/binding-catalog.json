@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "source_path": "agentic_orchestration/gandalf/notes/2026-08-24-vfx-archetype-binding-spec-DRAFT.md",
+  "source_sha256": "33449ab86b27cbd0fec6145d312d080e3a372f851471984b8e0660f8cef0bc7c",
+  "status": "derived semantic reference; no style or art qualification",
+  "active": [
+    {
+      "id": "ground_targeted_circle",
+      "source_section": "3.1.1",
+      "source_constraints": {
+        "Emitter geometry": "world-ground anchored \u00b7 primitive `circle` \u00b7 **two independently swappable layers \u2014 (a) a crisp thin perimeter annulus with a TRANSLUCENT interior (cracked-ground decal, internal detail visible *through* it), (b) a vertical payload descending on the centre axis.** Caster legible at frame-edge, entirely outside the effect. Measured coverage \u2248 20 % \u2014 mid-band against C-5.",
+        "L-19": "`hybrid` \u2014 magical marker, physical strike.",
+        "Lifecycle": "**composite \u2014 `burst` (payload) \u2192 `decaying` (residue).** Basis: the Alabaster frame shows a *previous cast's residue coexisting with a fresh cast* \u2014 a lifecycle state no other reference in the corpus shows.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. **Tint both layers; motif-swap on the descending payload** (bolt \u2192 meteor \u2192 shard \u2192 column). **P = 5 is RECEIPTED on the co-reference, not argued:** five rune variants, five videos, one preserved grammar (circular footprint + vertical payload + persistent residue) across fire / ice / arcane / holy. Same class of evidence that earned `beam_channel` its 5."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "melee_strike",
+      "source_section": "3.1.2",
+      "source_constraints": {
+        "Emitter geometry": "body-anchored (strikes an **enemy body**, not the ground plane) \u00b7 primitive `point` \u00b7 **three explicitly separated authoring layers \u2014 (a) character motion, (b) weapon trail, (c) hit response on the target.** No ground propagation.",
+        "L-19": "`physical-cause` on every axis. **This is the row where L-19 matters most** \u2014 115 skills, and the archetype whose failure mode is precisely \"an energy wave chasing the weapon.\"",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED`. **Tint the weapon trail and the hit-response spark. Do NOT expand the tint into a body-surrounding field** \u2014 70 % of this archetype's referent members carry no element at all (\u00a7 4.2.3), and a field-sized tint on a weapon strike is the EoR conversion in miniature."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "self_buff",
+      "source_section": "3.1.3",
+      "source_constraints": {
+        "Emitter geometry": "caster-centred \u00b7 primitive `none` \u00b7 **two swappable layers \u2014 (a) a floor decal under the caster, (b) local body-adjacent emitters.** Both sit on our two cheapest register levers (lighting + particles).",
+        "L-19": "`magical-cause` \u2014 **and that is CORRECT for this archetype.** A buff has no physical cause; scoring it down for being decorative would apply the criterion where it does not live.",
+        "Lifecycle": "`sustained`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`FIELD-CARRIED`. **The governing property is: does not obscure the character.** 112 skills that will frequently be **active during other skills** \u2014 every other archetype's VFX must remain readable *through* this one. Tint the decal and the local emitters; **cap opacity and radius, and never let a Tier-1 recolour raise coverage.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "totem",
+      "source_section": "3.1.4",
+      "source_constraints": {
+        "Emitter geometry": "**delegate-bound** (the effect is anchored to an autonomous summoned body, not to the caster) \u00b7 primitive `none` \u00b7 **three-phase separation: summon / delegate-active / impact** \u2014 that separation *is* the authoring structure.",
+        "L-19": "**`two-layered`** \u2014 `magical-cause` (the manifestation) + `physical-cause` (the delegate's slam). Both must be authored; collapsing them loses the archetype.",
+        "Lifecycle": "`sustained` (delegate presence) **with `burst` sub-events** (each delegate attack). Composite by construction.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED` \u2014 **but on the delegate's ATTACK only.** \u26a0 **PARAMETERIZATION CEILING, stated here rather than discovered in Step 2 (L-30): a summon-delegate needs a MODEL. Tier-1 can recolour what the totem throws; it cannot recolour what the totem IS.** `P = 4` is that ceiling, not a mark-down. **97 skills sit behind this limit**, and it is a *model-pipeline* dependency, not a VFX one."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "circle",
+      "source_section": "3.1.5",
+      "source_constraints": {
+        "Emitter geometry": "caster-centred, ground-plane \u00b7 primitive `circle` \u00b7 **layers \u2014 (a) a distributed set of solid blade meshes erupting on a literal circumference, (b) hit reactions on adjacent bodies.** Under the `annulus` flag, layer (a) becomes a travelling front with an open interior.",
+        "L-19": "**`physical-cause` \u2014 and this was decisive.** Ring of Steel is the **only action-CAUSED reference in either the `circle` or the `ring` pool**: real blades erupt, distributed on a circumference, with hit reactions on the bodies they reach. Under L-19 that outweighed its subdued 2016 palette \u2014 and the palette is scored against **our** register, where a ring of simple blade meshes lifted by light is register-1 geometry reaching register-2 exactly as the A-holds ruling measured.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. **Motif-swap the erupting element (blades \u2192 shards \u2192 flame tongues \u2192 bolts); tint the front and the contact response. The `annulus` flag switches interior fill OFF** \u2014 that is a Tier-1 layer toggle, not a second effect."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "single_target",
+      "source_section": "3.1.6",
+      "source_constraints": {
+        "Emitter geometry": "projectile \u00b7 primitive `point` \u00b7 **three visibly separated layers on the canonical \u2014 (a) payload body, (b) trail, (c) impact residue on the target.** Javelin's construction is **(a) a solid dark mesh body + (b) a brief luminous wake** \u2014 identity carried by geometry, `P = 5` earned on the same grounds `dash_attack` earned it.",
+        "L-19": "canonical `magical-cause`; **runner-up `physical-cause` with contact WITNESSED** (t \u2248 5.60 s: a white burst on an enemy body with the red streak leading into it). **Cite the runner-up for physical-element parameterizations.**",
+        "Lifecycle": "`burst` (travel + impact).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. **Tint all three layers; motif-swap the payload body (orb \u2192 spear \u2192 shard \u2192 bolt).** The two references between them supply both causality classes on identical delivery geometry \u2014 **the cleanest Tier-1 evidence pair in T-A.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "melee_arc",
+      "source_section": "3.1.7",
+      "source_constraints": {
+        "Emitter geometry": "caster-origin, frontal, ground-plane \u00b7 primitive `cone` \u00b7 **layers \u2014 (a) a broad TRANSLUCENT pale crescent on the ground plane (radius \u2248 2\u00d7 character height), (b) contact response on bodies inside it.** Measured coverage \u2248 12 % \u2014 comfortably mid-band. **Caster legible at the arc's origin and NOT occluded; terrain visible THROUGH the arc \u2014 the explicit correction of EoR failure #2.**",
+        "L-19": "`physical-cause` \u2014 **the purest read available: the arc IS the weapon's own path, not an energy wave chasing it.** Contact WITNESSED in frame (three damage numbers 172k/183k/65k, magenta hit markers, gore spray on two enemies standing inside the arc).",
+        "Lifecycle": "`burst` \u2014 short-lived, so it never occludes.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED`. **Blade-motif swap (scythe \u2192 axe \u2192 claw \u2192 greatsword) is exactly the Tier-1 axis, and it is the cheapest high-yield parameterization in T-A.** Tint the crescent and the contact spark; **do not thicken the crescent into a field** \u2014 79 % of this archetype's referent members are element-agnostic (\u00a7 4.2.3)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "aura",
+      "source_section": "3.1.8",
+      "source_constraints": {
+        "Emitter geometry": "caster-centred field \u00b7 primitive `circle` \u00b7 **layers \u2014 (a) a radius-defining ground ring/falloff, (b) sparse influence particles.** The selected property: it *\"communicates influence without filling the radius with opaque effects\"* \u2014 the coverage-ceiling solve an always-on field needs.",
+        "L-19": "`magical-cause` \u2014 **CORRECT for this archetype** (see \u00a7 3.0).",
+        "Lifecycle": "`sustained`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`FIELD-CARRIED`. Tint the ring and the influence particles. **Radius and opacity are NOT Tier-1 knobs on this archetype** \u2014 they are the archetype's readability contract, and a recolour must not move them."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "multi_projectile",
+      "source_section": "3.1.9",
+      "source_constraints": {
+        "Emitter geometry": "projectile fan from a caster origin \u00b7 primitive `point` \u00b7 **layers \u2014 (a) per-projectile body, (b) per-projectile trail, (c) per-impact response.** The reference makes the three parameter axes **visually explicit \u2014 projectile count, angular spacing, range** \u2014 which is \u00a7 3.3's requirement rendered as a picture.",
+        "L-19": "`physical-cause`.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` (projectile bodies + trails). **Count / spacing / range are ENGINE parameters, not Tier-1 element parameters \u2014 do not conflate them.** A fire multishot and a water multishot differ in tint and motif, not in fan geometry."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "line",
+      "source_section": "3.1.10",
+      "source_constraints": {
+        "Emitter geometry": "travelling linear payload \u00b7 primitive `line` \u00b7 **orientation contract applies (drax C-2): aim-vector \u2192 yaw, explicit.** Layers \u2014 (a) the travelling body, (b) a pierce-persistent trail, (c) per-target contact response.",
+        "L-19": "`physical-cause`.",
+        "Lifecycle": "**`travelling burst` \u2014 explicitly NOT `sustained`.** This is the axis on which L-29(4) separates this row from `beam_channel`; drax C-4 measured the class spread at > 5\u00d7, and **two different lifecycle classes cannot share one VFX selection.**",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. Tint body + trail + contact; motif-swap the body (bone spear \u2192 ice lance \u2192 lightning javelin)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "dash_attack",
+      "source_section": "3.1.11",
+      "source_constraints": {
+        "Emitter geometry": "**mover-bound** (everything attaches to the travelling body) \u00b7 primitive `none` \u00b7 **layers \u2014 (a) silhouette + brief trail, (b) knockback/contact response DISTRIBUTED ALONG THE PATH, (c) [`defensive` flag] a deflection flash bound to the mover.**",
+        "L-19": "`physical-cause`. **Contact response is distributed along the path \u2014 enemies knocked aside as the body passes, not merely at the terminus. The closest thing in the corpus to Matt's \"clashing into flesh, bone and armour\" outside `whirlwind` itself.**",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` \u2014 **and this row has the SMALLEST Tier-1 surface in T-A.** `P = 5` because identity is silhouette + knockback with a brief trail: **zero texture dependency**, the ideal case for a shared-rig low-poly register. **The corollary is a warning: there is very little here for an element tint to occupy, and the temptation to enlarge the trail into an aura is exactly the L-19 conversion.** 69 % of members are element-agnostic. **The `defensive` flag is a Tier-1 LAYER TOGGLE, not a separate effect.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "whirlwind",
+      "source_section": "3.1.12",
+      "source_constraints": {
+        "Emitter geometry": "caster-centred, rigidly player-anchored, **the CHARACTER rotates and the payload is the character's own weapons** \u00b7 primitive `circle` \u00b7 **layers \u2014 (a) weapon-trail highlights synchronized with the weapon animation, (b) localized hit effects on contact.** The reference property, itemized: *\"blade highlights synchronized with the weapon animation\u2026 localized hit effects preserve the rotating silhouette without obscuring nearby enemies.\"*",
+        "L-19": "**`physical-cause` \u2014 this archetype IS the L-19 exemplar.** The criterion of record was articulated *about this move*.",
+        "Lifecycle": "**`sustained` channel with MEASURED ramps** (spin-up 0.70 s / spin-down 0.80 s). Beat model `channel` (framesets v2).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED`. **Tint rides the WEAPON TRAIL and the contact spark. It must NOT expand into a caster-surrounding field.** 82 % of this archetype's referent members are element-agnostic \u2014 the highest in T-A after `leap_strike`. **A tinted weapon-trail stays physical; a tinted field IS Eye of Reckoning.** This row is where the L-19 parameterization consequence is least negotiable."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "ground_slam",
+      "source_section": "3.1.13",
+      "source_constraints": {
+        "Emitter geometry": "**world-ground anchored** \u2014 a radial/fan decal propagating from a floor point \u00b7 primitive `point` \u00b7 **layers \u2014 (a) weapon-meets-ground impact, (b) a compact circular ground burst well inside the coverage band, (c) contact response on bodies in range.**",
+        "L-19": "`physical-cause`, textbook: **a weapon meets the ground and the ground answers.** Same franchise grammar Matt praised.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` (weapon arc + ground-burst decal). 81 % of members are element-agnostic. **Tint the decal and the impact; do not convert the ground burst into a persistent field \u2014 that is `ground_targeted_circle`, a different archetype with a different telegraph.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "beam_channel",
+      "source_section": "3.1.14",
+      "source_constraints": {
+        "Emitter geometry": "caster-to-target sustained beam \u00b7 primitive `line` \u00b7 \u26a0 **ORIENTATION CONTRACT MANDATORY (drax C-2): beam-class assets are authored along \u2212Z. Mounted at identity in front of a camera looking down that axis, a beam is photographed END-ON and reads as a BLOB. T-A requires an explicit aim-vector \u2192 yaw contract on this row \u2014 never a default transform.** Layers \u2014 (a) beam body, (b) origin flare, (c) **persistent contact marker on the target** (burn + smoke that survives on the body).",
+        "L-19": "`hybrid` \u2014 magical body, **physical consequence.** The persistent contact marker is the discriminator over the alternatives: the beam *leaves a mark on the thing it touched.*",
+        "Lifecycle": "**`sustained`** \u2014 the defining property, and the axis on which L-29(4) separates this row from `line` (drax C-4 measured the class spread at > 5\u00d7).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. **This is the ONE archetype with a MEASURED parameterizability receipt rather than an argued one: the identical beam geometry survives two radically different MTX treatments inside this same corpus** \u2014 `Stygian` black-flame and `Shaper` celestial-white. **Identity lives in geometry, not texture. `P = 5` is earned, not asserted.** Tint body + flare + contact marker; motif-swap the beam's internal texture freely."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "blink",
+      "source_section": "3.1.15",
+      "source_constraints": {
+        "Emitter geometry": "mover-bound with a **VISIBLE TRAVERSAL** \u00b7 primitive `none` \u00b7 layers \u2014 (a) a shadow/energy streak along the path, (b) **damage along the path**, (c) arrival resolution.",
+        "L-19": "`magical-cause`.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED` (streak + arrival)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "cone",
+      "source_section": "3.1.16",
+      "source_constraints": {
+        "Emitter geometry": "forward-biased fan from the caster, ground-plane \u00b7 primitive `cone` \u00b7 layers \u2014 (a) the propagating fan, (b) **enemy launch + knockback.**",
+        "L-19": "`physical-cause` \u2014 **the only cone candidate with enemy launch + knockback: contact response on bodies, the exact axis EoR failed.**",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` (the fan is the weapon's consequence, not an independent payload)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "orbit",
+      "source_section": "3.1.17",
+      "source_constraints": {
+        "Emitter geometry": "**the PAYLOAD revolves around a stationary-framed character** (parent transform on the orbit, not on the body) \u00b7 primitive: **absent from the engine map \u2014 see residuals** \u00b7 layers \u2014 (a) solid revolving payloads with legible spacing, (b) contact response, (c) **preserved negative space around the caster.**",
+        "L-19": "`physical-cause` (solid payloads with readable contact).",
+        "Lifecycle": "`sustained`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` \u2014 **motif-swap the orbiting payload (shuriken \u2192 blade \u2192 hammer \u2192 orb) and tint its trail. Payload COUNT and ORBIT RADIUS are engine parameters, not element parameters.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "chain",
+      "source_section": "3.1.18",
+      "source_constraints": {
+        "Emitter geometry": "hop-to-hop discrete segments \u00b7 primitive `line` \u00b7 **orientation contract applies per segment (drax C-2)** \u00b7 **layers \u2014 (a) the inter-target segment, (b) ENDPOINT FLASHES that preserve the hop rhythm.**",
+        "L-19": "`magical-cause`.",
+        "Lifecycle": "`burst` (hop rhythm).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. \u26a0 **Design warning specific to this row: `chain` is the MOST element-committed archetype in the referent corpus \u2014 94 % of its members carry an explicit per-skill element, 12 of 17 lightning (\u00a7 4.2.3). Tier-1 must ship the full live slot set for this archetype or it will read as \"the lightning one,\" and a water or shadow chain will feel like a mistake rather than a variant.** This is the row where Tier-1 buys the most and where skipping it is most visible."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "vortex_pull",
+      "source_section": "3.1.19",
+      "source_constraints": {
+        "Emitter geometry": "ground-anchored attractor field \u00b7 primitive `circle` \u00b7 layers \u2014 (a) a **physical initiation** (a hammer strike triggers the gravitational eruption), (b) the sustained inward field, (c) debris/particle response.",
+        "L-19": "**`hybrid` \u2014 physical initiation \u2192 magical field.** An inward pull is inherently magical; this candidate gives it a *physical cause*, which is the L-19 pattern applied to an archetype that would otherwise have no way to earn it.",
+        "Lifecycle": "`sustained` field.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED` (field + debris). **Provisional \u2014 the effect does not exist yet; see the two flags.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "placed_lane",
+      "source_section": "3.1.20",
+      "source_constraints": {
+        "Emitter geometry": "world-placed lane with vertical extent \u00b7 primitive `line` \u00b7 \u26a0 **orientation contract applies (drax C-2)** \u00b7 **layers \u2014 (a) a bright base along the lane, (b) darker upper wisps, (c) BRIGHT END PILLARS.**",
+        "L-19": "`physical-cause`.",
+        "Lifecycle": "`sustained` (placed, persistent).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`FIELD-CARRIED` at the lane body, `PAYLOAD-CARRIED` at the end pillars. Tint both; **do not raise opacity** (see the constraint below)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "ricochet_bounce",
+      "source_section": "3.1.21",
+      "source_constraints": {
+        "Emitter geometry": "multi-segment travelling path with a **RETURN LEG** \u00b7 primitive `line` \u00b7 layers \u2014 (a) the payload body, (b) per-leg trail, (c) per-bounce contact response.",
+        "L-19": "`physical-cause`.",
+        "Lifecycle": "`burst` (multi-leg).",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED` \u2014 motif-swap the thrown body, tint the leg trails. **Leg COUNT and bounce range are engine parameters.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "teleport",
+      "source_section": "3.1.22",
+      "source_constraints": {
+        "Emitter geometry": "**no traversal** \u00b7 primitive `none` \u00b7 **layers \u2014 (a) a cast gesture at origin, (b) SPATIAL DISCONTINUITY (nothing travels), (c) an arrival flash at destination.** This is the exact match to `motion = blink_translate`, and the literal substrate exemplar (`Teleport`, `Teleport (Enigma runeword)`).",
+        "L-19": "`magical-cause`.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED` (departure + arrival flashes)."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "leap_strike",
+      "source_section": "3.1.23",
+      "source_constraints": {
+        "Emitter geometry": "ballistic arc, caster-bound in flight, ground-anchored at impact \u00b7 primitive `point` \u00b7 layers \u2014 (a) **an anticipation crouch**, (b) the trajectory, (c) a compact impact radius.",
+        "L-19": "`physical-cause` \u2014 mass falls, the ground answers, and the caster stays legible.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`TRAIL-BOUNDED`. \u26a0 **100 % of this archetype's referent members are element-agnostic \u2014 the purest TRAIL-BOUNDED row in T-A (\u00a7 4.2.3).** The element tint has almost nowhere to live except the impact. **Accept the small surface; do not manufacture one.**"
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    },
+    {
+      "id": "fork",
+      "source_section": "3.1.24",
+      "source_constraints": {
+        "Emitter geometry": "forward-biased split \u00b7 primitive `line` \u00b7 layers \u2014 (a) the parent payload, (b) **the branch point**, (c) the child payloads.",
+        "L-19": "`physical-cause` \u2014 *a solid arrow shattering into arrows is a plausible physical manifestation.* Forward bias is correct for `prim = line`.",
+        "Lifecycle": "`burst`.",
+        "Tier-1 element-param axis (SPEC-ASSERTED)": "`PAYLOAD-CARRIED`. Second-most element-committed archetype in the referent corpus (80 %) \u2014 Tier-1 buys a lot here."
+      },
+      "qualification": "NOT_AUTHORED",
+      "frames": []
+    }
+  ],
+  "aliases": {
+    "ring": {
+      "id": "circle",
+      "flags": {
+        "annulus": true
+      }
+    },
+    "defensive_dash": {
+      "id": "dash_attack",
+      "flags": {
+        "defensive": true
+      }
+    }
+  },
+  "held": {
+    "knockback": "No selection; source \u00a73.2",
+    "aura:delegate_carried": "Do not author as aura; source \u00a73.1.8 L-41"
+  },
+  "aura_anchors": [
+    "caster_centred",
+    "world_placed"
+  ],
+  "element_invariants": [
+    "geometry",
+    "count",
+    "radius",
+    "range",
+    "spacing",
+    "opacity_ceiling",
+    "causality_class"
+  ]
+}
