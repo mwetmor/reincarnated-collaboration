@@ -83,3 +83,5 @@ E04L's recorded storage-limit deviation.
 > Treat Godot camera settings and persistent-layer animation as hypotheses for
 > this new suite, not inherited passes. No internal subagents. Update the durable
 > evidence and handoff before ending.
+
+E05A checkpoint: [fitted gear and failed layer transfer](experiments/E05A/review.html), [report](experiments/E05A/REPORT.md).47/96fail; body/actions unchanged. Next: E05O layer source diagnosis; full art still unqualified.

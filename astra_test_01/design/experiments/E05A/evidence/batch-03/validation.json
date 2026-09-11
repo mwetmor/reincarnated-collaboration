@@ -1,0 +1,395 @@
+{
+  "checks": {
+    "native_canvas": true,
+    "helmet_hide_retains_outfit": true,
+    "hair_restored_only_when_hidden": true,
+    "no_browser_errors": true
+  },
+  "errors": [],
+  "records": [
+    {
+      "name": "hidden-dark-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "body",
+        "hair",
+        "armor"
+      ],
+      "mode": "layered",
+      "bg": "dark",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "hidden-dark-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "reference_hidden"
+      ],
+      "mode": "reference",
+      "bg": "dark",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "hidden-light-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "body",
+        "hair",
+        "armor"
+      ],
+      "mode": "layered",
+      "bg": "light",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "hidden-light-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "reference_hidden"
+      ],
+      "mode": "reference",
+      "bg": "light",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "hidden-blue-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "body",
+        "hair",
+        "armor"
+      ],
+      "mode": "layered",
+      "bg": "blue",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "hidden-blue-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": false
+      },
+      "keys": [
+        "reference_hidden"
+      ],
+      "mode": "reference",
+      "bg": "blue",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-dark-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "body",
+        "armor",
+        "head"
+      ],
+      "mode": "layered",
+      "bg": "dark",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-dark-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "reference_head"
+      ],
+      "mode": "reference",
+      "bg": "dark",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-light-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "body",
+        "armor",
+        "head"
+      ],
+      "mode": "layered",
+      "bg": "light",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-light-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "reference_head"
+      ],
+      "mode": "reference",
+      "bg": "light",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-blue-layered",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "body",
+        "armor",
+        "head"
+      ],
+      "mode": "layered",
+      "bg": "blue",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    },
+    {
+      "name": "head-blue-reference",
+      "state": {
+        "outfit": "advanced-fitted-v2",
+        "head_visible": true
+      },
+      "keys": [
+        "reference_head"
+      ],
+      "mode": "reference",
+      "bg": "blue",
+      "bad": 0,
+      "heights": [
+        50,
+        150
+      ],
+      "headings": [
+        0,
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "buffer": [
+        800,
+        460
+      ]
+    }
+  ]
+}

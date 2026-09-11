@@ -162,3 +162,7 @@ The installed Pixi context supplied24 depth bits and passed draw-order/clear con
 ### E09I — preserve the full source contract instead of copying a view projection
 
 The actual Godot copy is LOCKED while current engine W3 is DRAFT. String effects/timing are intentional in the legacy schema. D4 omits timing/cooldown/energy from its presentation projection; do not adopt it as full combat interchange. Lossless neutral ingestion preserved both648-skill snapshots with23 checks, leaving180 large_aoe bindings unresolved instead of inventing radius from range. [Evidence](../../../../astra_test_01/design/experiments/E09I/REPORT.md).
+
+### 2026-09-11 · Eight-view gear/hair transfer exceeds sparse proof (E05A)
+
+Narrower helmet plus explicit hair visibility improved fit, but47/96 actual Pixi composites at50/150px exceeded unchanged E05G pixel limits (worstMAE1.8933, fractionerror>8=.05467). Failures cluster at hair/head and armor boundaries; denoising/shared sample coverage/secondary lighting are not yet isolated. Do not generalize sparse one-view holdout compositing into modular hair/gear qualification. Both bad controls fail as intended. F04 clean style remains unmet by generated swatch albedo over simple plates. [Evidence](../../../../astra_test_01/design/experiments/E05A/REPORT.md).
