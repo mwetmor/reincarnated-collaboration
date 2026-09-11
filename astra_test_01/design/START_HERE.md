@@ -135,3 +135,5 @@ E07E [shared-shadow capability checkpoint](experiments/E07E/review.html): offscr
 E07F [shared-shadow source comparison](experiments/E07F/review.html): compiler gate and864floor/vertical samples pass; two native pilot samples still fail. Strict source guard repair and original failures retained. E07G receiver-plane lookup next; E07C remains the working chamber.
 
 E07G [receiver-plane review](experiments/E07G/review.html): GLSL3 derivative capability passes; corrected lookup exchanges two native failures for two fresh3× armor failures. E07H tests source-diagnosed map density next. E07C remains the working chamber.
+
+E07H [denser raw lookup review](experiments/E07H/review.html): raw mode passes all1,302 source witnesses and controls; receiver-plane mode retains two failures. E07J neutral selection and actual interaction/playback next. Allocation arithmetic230.7MB, production residency unqualified.

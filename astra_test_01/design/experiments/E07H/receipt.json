@@ -1,0 +1,41 @@
+{
+  "experiment": "E07H",
+  "started_at": "2026-09-11T21:28:46.257839+00:00",
+  "status": "PARTIAL_RAW_SOURCE_PASS_CORRECTION_FAIL",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 2,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 2.9021308666666665,
+    "disk_bytes_before_index": 7698019
+  },
+  "prior_shared_shadow_builds": 4,
+  "cumulative_shared_shadow_builds": 5,
+  "dependencies": {
+    "E07G/pixi-adapter/scene-shadow.mjs": "a9a295f9edf27d7a79ed8a8a20f438210d2a67a78adbbfca7740517ed6458335",
+    "E07G/shadow.json": "e4e6cee3d07427f9636344636012c9c60d4a8117f12099e9322497495c71a82b",
+    "E07F/evidence/source-rays-guarded.json": "9926f7815287be23daab7a9dca1f3491b56ae321430c0810b717acd2df765f69"
+  },
+  "ended_at": "2026-09-11T21:31:40.385691+00:00",
+  "results": {
+    "corrected_passed": 1300,
+    "raw_passed": 1302,
+    "total": 1302,
+    "raw_controls": "PASS",
+    "review": "PASS",
+    "working_chamber": "E07C"
+  },
+  "lessons": [
+    "Doubled density with original raw lookup passes all1302 available witnesses; receiver-plane correction retains two armor failures.",
+    "CPU geometric-plane prediction does not establish GPU derivative behavior on curved small triangles.",
+    "Neutral raw-mode selection plus actual interaction/motion proof still required. Buffer format arithmetic230686720bytes is not measured application residency."
+  ]
+}
