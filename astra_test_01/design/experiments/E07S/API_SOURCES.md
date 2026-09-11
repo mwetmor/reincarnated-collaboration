@@ -1,0 +1,3 @@
+# Runtime API references
+
+The installed Pixi8.20.1 source is pinned at ../E02/pixi/vendor/pixi-8.20.1.min.js. Shader/geometry construction was checked against the [official Mesh guide](https://pixijs.com/8.x/guides/components/scene-objects/mesh) and [Geometry API](https://pixijs.download/v8.20.0/docs/rendering.Geometry.html). Material sampling fields were checked in that installed source and the [official TextureStyle options](https://pixijs.download/dev/docs/rendering.TextureStyleOptions.html). Local runtime captures determine whether the actual pin supports the configured behavior; online dev documentation alone is not a capability pass. No dependency was installed or updated.

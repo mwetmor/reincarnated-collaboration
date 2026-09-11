@@ -1,0 +1,246 @@
+{
+  "F01": {
+    "records": [
+      {
+        "state": "open",
+        "witnesses": [
+          {
+            "id": "near-interior",
+            "point": [
+              4.5,
+              -0.3,
+              0
+            ],
+            "source_pixel": [
+              996.2855529785156,
+              645.8191833496094
+            ],
+            "first_object": "interior-soil"
+          },
+          {
+            "id": "near-exterior",
+            "point": [
+              6.2,
+              0,
+              0
+            ],
+            "source_pixel": [
+              1073.1129455566406,
+              735.7789001464844
+            ],
+            "first_object": "east-apron"
+          },
+          {
+            "id": "far-exterior",
+            "point": [
+              -5.7,
+              -0.6,
+              0
+            ],
+            "source_pixel": [
+              573.0967712402344,
+              267.79998779296875
+            ],
+            "first_object": "west-apron"
+          },
+          {
+            "id": "light-receiver",
+            "point": [
+              3,
+              0,
+              0
+            ],
+            "source_pixel": [
+              907.2772521972656,
+              593.8388061523438
+            ],
+            "first_object": "interior-soil"
+          }
+        ],
+        "receiver_light_blocked": false,
+        "light_occluder": null
+      },
+      {
+        "state": "closed",
+        "witnesses": [
+          {
+            "id": "near-interior",
+            "point": [
+              4.5,
+              -0.3,
+              0
+            ],
+            "source_pixel": [
+              996.2855529785156,
+              645.8191833496094
+            ],
+            "first_object": "east-leaf"
+          },
+          {
+            "id": "near-exterior",
+            "point": [
+              6.2,
+              0,
+              0
+            ],
+            "source_pixel": [
+              1073.1129455566406,
+              735.7789001464844
+            ],
+            "first_object": "east-apron"
+          },
+          {
+            "id": "far-exterior",
+            "point": [
+              -5.7,
+              -0.6,
+              0
+            ],
+            "source_pixel": [
+              573.0967712402344,
+              267.79998779296875
+            ],
+            "first_object": "west-leaf"
+          },
+          {
+            "id": "light-receiver",
+            "point": [
+              3,
+              0,
+              0
+            ],
+            "source_pixel": [
+              907.2772521972656,
+              593.8388061523438
+            ],
+            "first_object": "interior-soil"
+          }
+        ],
+        "receiver_light_blocked": true,
+        "light_occluder": "east-leaf"
+      }
+    ]
+  },
+  "F02": {
+    "records": [
+      {
+        "state": "open",
+        "witnesses": [
+          {
+            "id": "near-interior",
+            "point": [
+              4.5,
+              -0.3,
+              0
+            ],
+            "source_pixel": [
+              996.2855529785156,
+              645.8191833496094
+            ],
+            "first_object": "interior-soil"
+          },
+          {
+            "id": "near-exterior",
+            "point": [
+              6.2,
+              0,
+              0
+            ],
+            "source_pixel": [
+              1073.1129455566406,
+              735.7789001464844
+            ],
+            "first_object": "east-apron"
+          },
+          {
+            "id": "far-exterior",
+            "point": [
+              -5.7,
+              -0.6,
+              0
+            ],
+            "source_pixel": [
+              573.0967712402344,
+              267.79998779296875
+            ],
+            "first_object": "west-apron"
+          },
+          {
+            "id": "light-receiver",
+            "point": [
+              3,
+              0,
+              0
+            ],
+            "source_pixel": [
+              907.2772521972656,
+              593.8388061523438
+            ],
+            "first_object": "interior-soil"
+          }
+        ],
+        "receiver_light_blocked": false,
+        "light_occluder": null
+      },
+      {
+        "state": "closed",
+        "witnesses": [
+          {
+            "id": "near-interior",
+            "point": [
+              4.5,
+              -0.3,
+              0
+            ],
+            "source_pixel": [
+              996.2855529785156,
+              645.8191833496094
+            ],
+            "first_object": "east-leaf"
+          },
+          {
+            "id": "near-exterior",
+            "point": [
+              6.2,
+              0,
+              0
+            ],
+            "source_pixel": [
+              1073.1129455566406,
+              735.7789001464844
+            ],
+            "first_object": "east-apron"
+          },
+          {
+            "id": "far-exterior",
+            "point": [
+              -5.7,
+              -0.6,
+              0
+            ],
+            "source_pixel": [
+              573.0967712402344,
+              267.79998779296875
+            ],
+            "first_object": "west-leaf"
+          },
+          {
+            "id": "light-receiver",
+            "point": [
+              3,
+              0,
+              0
+            ],
+            "source_pixel": [
+              907.2772521972656,
+              593.8388061523438
+            ],
+            "first_object": "interior-soil"
+          }
+        ],
+        "receiver_light_blocked": true,
+        "light_occluder": "east-leaf"
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "experiment": "E07S",
+  "status": "MECHANISMS_PASS_FULL_CHAMBER_ART_FAIL",
+  "started_at": "2026-09-11T12:59:16.854600+00:00",
+  "limits": {
+    "active_minutes": 90,
+    "generation_calls": 3,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 78929010
+  },
+  "next_action": "Register E05V eight-view pilot/gear proof; independently continue geometry-owned detail/prop art against E07S controls.",
+  "finished_at": "2026-09-11T13:28:33.937249+00:00",
+  "generation_price": "Built-in imagegen price not exposed; not free",
+  "verdicts": {
+    "headless": "PASS42",
+    "browser_exit_sequences": "PASS4",
+    "native_and_fresh3x_pixels": "PASS6checks per batch including negative controls",
+    "saved_review": "PASS5",
+    "full_chamber_art": "FAIL plain geometry, cube props, mismatched actor response",
+    "full_suite": "INCOMPLETE"
+  },
+  "generated_sources": [
+    {
+      "material": "timber",
+      "raw_file": "exec-9eebc9af-0a92-4513-8b3a-47129a1ce98c.png",
+      "preserved_copy": "art/timber.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "requested_dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "c564be15334bba4fef0f1fb8a445d2d589b177db6f3e47d5d59123e3b8fb1547"
+    },
+    {
+      "material": "rock",
+      "raw_file": "exec-81b323d5-6ffe-4607-8548-bd012a5985ab.png",
+      "preserved_copy": "art/rock.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "requested_dimensions": [
+        1024,
+        1024
+      ],
+      "sha256": "428ea0a4cc66e8f3f8303d23eea90722db3fccaafe38fcf2eae24cf798e71bd0"
+    }
+  ]
+}

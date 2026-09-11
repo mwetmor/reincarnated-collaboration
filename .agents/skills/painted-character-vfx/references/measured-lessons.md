@@ -137,3 +137,8 @@ they do not establish a finished Godot port, shared lighting or animated VFX.
 ## 2026-09-11 — whole-scene guides do not guarantee spatial or semantic fidelity
 
 [E07R](../../../../astra_test_01/design/experiments/E07R/REPORT.md) corrects a specific foreground-doorway inside/outside reversal with explicit region/ray guides. Both initial paintings still enlarge/shift geometry well beyond the3native-pixel overlay tolerance. A changed-conditioning repair follows framing more closely but paints NPC/monster probes as jars and chest/crate probes as stone blocks. Preserve geometric and semantic failures separately; a pleasing scene or a close silhouette is not a typed-layout pass. The three-call branch is closed. Geometry-owned material painting is the registered next alternative, not yet a general production rule.
+
+
+### E07S — surface sampling is separate from painted architecture
+
+Two opaque material plates on exported geometry preserved source-camera exit witnesses, collision and sampled light blocking in native and fresh3× Pixi buffers. Declared mipmapped sampling reduced minification noise without changing source pixels. This did not supply missing architectural or prop detail: typed chest/crate cubes and mismatched actor shading still fail complete art. Preserve that distinction; use geometry-owned detail and separately authored prop states next. [Evidence](../../../../astra_test_01/design/experiments/E07S/REPORT.md).
