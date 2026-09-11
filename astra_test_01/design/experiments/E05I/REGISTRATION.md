@@ -1,0 +1,11 @@
+# E05I · Contact-aware left/right turns
+
+Godot shipping target; Pixi harness.60active minutes,0generation,2source/export/adapter revisions,4capturebatches,100MB. SourceE05Zgait-v1, immutableE05Wart/restmesh andE05Nnormal contract. Add two.6second/36frame source actions: turn_left+45°, turn_right−45°. No geometry/weights/material/UV/oldclip changes. Characterroot fixed; two alternating footsteps reposition feet while body turns. This does not qualify locomotion-to-idle/cast transitions or arbitrary steering.
+
+Everyframe/endpoint: declaredsupport drift<=2cm, solepenetration<=1mm, mid-swinglift>=4cm, bone residual<=1mm, rigidbook variation<=1%, hips>=85%idleheight andexcursion<=12cm. Start exactlyidle andend exactlyidle rotated±45° within1e-5matrixelement; per-frame jointhead displacement<=5cm to detect jumps. Instant rotation of oldplantedfeet is deliberately bad and must exceed2cm. Retain inheritedmotionbytes and provenance. Visually require stablebody/readabletwofootexchange, no implausible legcrossing or severecollapse at50/150nativeaxes, all8views.
+
+Neutralasset72turnframes with fps, duration, heading_delta_deg, socket, contactdata and E05Nsparse normalcorrections; independentBlenderoracles frames0/9/18/27forbothturns. Eightviews/twoscales/threeoutfits/threebackgrounds1152comparisons; unchangedMAE<=1 andfraction>8<=.02; wrongpose and20pxattachment controls. Fullbounds>=5px,10–40mdepth validated. Existingidle/walk/cast inherit previousevidence, not recopiedasnewPASS.
+
+PureJSONsim owns turncommand validation, start/targetheading, duration, singlecompletion event andheadingcommit. Renderer selects relative bakedturn plusstartheading; aftercompletion switchesidle withcommittedheading. Reject concurrentturns untilcompletion; invalid/nonfinite inputs rejected; statein/out no renderingimports. Headless checks completiononce, interrupted/repeatedinvalidcommands, persistence andauthoritativeheading. Visual transition intoandoutofturn must agree withsource endpoints.
+
+Capture1eightposematrix,2normal-speed bothturns all8views and72frameaudit,3reserveddiagnosedrepair/freshboundarycapture,4savedHTMLreview. No turn/style/fullpilotPASS fromnumericalchecks alone; preservefailure andboundedrepair. Then complete locomotion/action transitions and remainingpilot requirements.

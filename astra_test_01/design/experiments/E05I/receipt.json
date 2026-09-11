@@ -1,0 +1,53 @@
+{
+  "experiment": "E05I",
+  "started_at": "2026-09-11T17:52:34.219254+00:00",
+  "status": "IDLE_TURN_CONTACT_AND_JSON_TRANSITION_PASS_FULL_PILOT_OPEN",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 87562312
+  },
+  "dependencies": {
+    "E05Z/inputs/gait-v1.blend": "c72775a8ab711d32c0feaaede6cd8a4218daa0ca78cb856bc58f8e7bb07e4e37",
+    "E05N/character.asset.json": "6c672743dc19ae986198972d9b195118dab4bb8811183e638f01835f8e0cfc22"
+  },
+  "source_v1_failure": "Both rotated-idle endpoints fail0.712158matrixerror despite contacts; V2 preserves leg axial bodyyaw beforeIKrotation.",
+  "capture_allocation": "Batches01matrix,02playback/liveUI,04savedreview; reserved03notneeded. Three actual batches of four maximum.",
+  "finished_at": "2026-09-11T18:07:16.641183+00:00",
+  "next_action": "Register E05L phase-aware locomotion stop/start source preflight: direct clip-switch bad control, contact-preserving transition recipe across all48walk phases and bounded representative native comparisons. Full arbitrary-phase runtime transfer remains a separate gate.",
+  "verdicts": {
+    "source_v1": "FAIL rotated-idle endpoint0.712158; retained",
+    "source_v2": "22/22turn checks andunchangedgeometry/weights/UV/materialPASS",
+    "inherited": "216idle/walk/cast palettebytesexactE05N",
+    "source_export": "74/74samples, coreclearance andnormal residualPASS",
+    "bounds": "1152/1152PASS min42.526px",
+    "headless": "23/23pureJSONchecksPASS",
+    "raster": "1152/1152PASS maxMAE.0065024,maxfraction.00015387",
+    "controls": "instantturn11.715cm vs2cmbar;wrongpose/20pxgearshiftDETECTED",
+    "playback": "72frameaudit;3outfit left/rightsequences, initial/finalpixelidentity; completiononce/liveoverlapchecksPASS",
+    "review": "6/6savedlocalHTMLchecksPASS",
+    "full_pilot": "OPEN locomotion/actiontransitions, arbitrary steering, cloth/fulloutfitfit, worldlighting andproductionstyle"
+  },
+  "commands": [
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python author.py",
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python author-v2.py",
+    "blender -b inputs/turns-v2.blend --python-exit-code 1 --python export.py",
+    "blender -b inputs/turns-v2.blend --python-exit-code 1 --python check-inherited.py",
+    "python3 check-source.py",
+    "node test-sim.mjs",
+    "node capture-matrix.mjs",
+    "python3 analyze-matrix.py",
+    "node capture-playback.mjs",
+    "ffprobe/ffmpeg native video inspection",
+    "node review-check.mjs"
+  ]
+}

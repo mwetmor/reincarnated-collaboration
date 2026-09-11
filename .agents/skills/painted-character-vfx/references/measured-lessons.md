@@ -210,3 +210,7 @@ E05Mstance=.4 was overwritten by an idle-contact Boolean. A1.0second stance-dura
 ### E05N — isolate shading normals before changing geometry or artwork
 
 Sixcast135°representation failures persisted with sourcepositions only, disappeared with sourcenormals only. Sparse engine-neutral deformednormaloverrides pass1296/1296unchangedcomparisons; removingthem reproduces2.1984%failure. Preserve immutablepaint/restmesh/palette hashes and resetoverrides perframe. This pilotmethod costs16.736MB/216frames and1.022MBcurrentattributeupload perpose; neither roster nor productionresidency isqualified. See E05N/REPORT.md and cause/rasterreceipts.
+
+### E05I — foot contacts and final limb orientation are separate turn checks
+
+A shortest-vector IKrotation can keepfeetplanted yet discardlimb axialbodyyaw; E05Iv1ends0.712158awayfromrotated-idle matrices. Composebodyyaw beforeIKalignment; v2enderror1.032e-6, contacts<1µm,1152/1152raster comparisons andJSONheading/endpointplayback pass. Instantturncontrolslides11.715cm. This proves only±45°turns fromidle; walk-to-stop/arbitrarysteering remainunqualified. Source/receipts: E05I/REPORT.md.

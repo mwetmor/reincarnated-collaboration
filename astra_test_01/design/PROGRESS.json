@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T17:49:14.922627+00:00",
+  "updated": "2026-09-11T18:07:16.641183+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05I left/right45degree turn-in-place source/contact and neutral JSON transition test from corrected E05Z source. Preserve E05N sparse-normal contract; full locomotion/action transitions remain separately owed.",
+  "next_action": "Register E05L phase-aware locomotion stop/start source preflight: direct clip-switch bad control, contact-preserving transition recipe across all48walk phases and bounded representative native comparisons. Full arbitrary-phase runtime transfer remains a separate gate.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -186,7 +186,10 @@
     "experiments/E05Z/review.html",
     "experiments/E05N/REPORT.md",
     "experiments/E05N/receipt.json",
-    "experiments/E05N/review.html"
+    "experiments/E05N/review.html",
+    "experiments/E05I/REPORT.md",
+    "experiments/E05I/receipt.json",
+    "experiments/E05I/review.html"
   ],
   "decisions_pending": [
     {
@@ -230,7 +233,8 @@
       "id": "D05",
       "decision": "Runtime hardware/resolution budgets and generation ceilings",
       "owner": "Agent proposes from local evidence; Matt resolves material spending/target choices",
-      "blocks": "performance qualification and paid production"
+      "blocks": "performance qualification and paid production",
+      "question_status": "Asked asynchronously 2026-09-11 during E05I: minimum PC hardware and fullscreen resolution. No answer recorded; art/motion/interaction work continues."
     },
     {
       "id": "D06",
@@ -295,7 +299,8 @@
     "E05W static working turnaround passes Codex F04direction rubric after ivory/navy/leather separation and rounded6component hairstyle;23source hair components explicit,17legacy locks disabled and preserved. Full clip motion/turns/animated gear fit, PBR/selflighting and production style remain unqualified. Latest source E05W/inputs/material-hair-v2.blend.",
     "E05Y complete216frame palettes and219source/contact endpoints/core clearance pass, but walkartFAIL (splitlegs/severeheightchange; E05Mglobalstance overwritten by bool suspected).1290/1296rasterPASS;six startercast135fail unchangedfractionbar. Fullmotion/turns/fullsurfacegearfit unqualified. E05Z sourcegaitcontrol next.",
     "E05Z proves/fixes E05Mstance=.4 overwrittenbyBoolean: oldgait control exact, corrected576/576walkraster/219source/3456bounds pass. Fullgarmentmotion, turns, outfitfit andsixunchangedE05Ycastfailures remainopen. Latest source E05Z/inputs/gait-v1.blend; no rosterexpansion.",
-    "E05N normal-only causalcontrol fixes sixE05Ycastfailures:1296/1296correctedrasterPASS, all216motionpalettebytesunchanged. Sparse neutralnormals16.736MB,1.022MBattributeupload/pose; scale/Godotimporterunqualified. Turns,cloth/fulloutfitfit, worldlighting/fullpilot remainopen."
+    "E05N normal-only causalcontrol fixes sixE05Ycastfailures:1296/1296correctedrasterPASS, all216motionpalettebytesunchanged. Sparse neutralnormals16.736MB,1.022MBattributeupload/pose; scale/Godotimporterunqualified. Turns,cloth/fulloutfitfit, worldlighting/fullpilot remainopen.",
+    "E05I idle\u2194left/right45deg turns pass contacts/endpoints,1152raster,23JSON andlivecompletion checks afterpreservedlegroll endpointfailure. Existing216clipsunchanged. Locomotion/actiontransitions, arbitrarysteering, fullcloth/outfit/worldlighting/pilot remainopen. Latest source E05I/inputs/turns-v2.blend; turnassetseparatefromE05Nbaseclips."
   ],
   "running_jobs": [
     {
@@ -339,7 +344,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05N/receipt.json",
+  "current_receipt": "experiments/E05I/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -394,9 +399,10 @@
   },
   "pilot_working_motion": {
     "status": "CORRECTED_WALK_AND_EXISTING_CLIP_REPRESENTATION_PASS",
-    "source": "experiments/E05Z/inputs/gait-v1.blend",
+    "source": "experiments/E05I/inputs/turns-v2.blend",
     "asset": "experiments/E05N/character.asset.json",
     "review": "experiments/E05N/review.html",
-    "full_pilot_qualified": false
+    "full_pilot_qualified": false,
+    "turn_asset": "experiments/E05I/character.asset.json"
   }
 }
