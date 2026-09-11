@@ -139,3 +139,5 @@ E07G [receiver-plane review](experiments/E07G/review.html): GLSL3 derivative cap
 E07H [denser raw lookup review](experiments/E07H/review.html): raw mode passes all1,302 source witnesses and controls; receiver-plane mode retains two failures. E07J neutral selection and actual interaction/playback next. Allocation arithmetic230.7MB, production residency unqualified.
 
 E07J [selected shared-shadow chamber](experiments/E07J/review.html): all1,302 available source witnesses, actual controls and3outfit walks pass. Working chamber now E07J;21intermediate door states, local compositionp95 20.4ms. Next E07O selective player visibility; full art/self-shadow/performance remain open.
+
+E07O [visibility capability checkpoint](experiments/E07O/review.html): two failed builds preserved. Matching multisample depth fixes mask pixels; custom uColor collision still fails GL. E07P namespace repair and source visibility proof next. E07J remains working chamber.

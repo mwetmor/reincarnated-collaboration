@@ -1,0 +1,139 @@
+{
+  "console": [],
+  "errors": [],
+  "probe": {
+    "pixels": [
+      [
+        0,
+        0,
+        0,
+        255
+      ],
+      [
+        0,
+        0,
+        0,
+        255
+      ],
+      [
+        0,
+        0,
+        0,
+        255
+      ]
+    ],
+    "gl_error": 0,
+    "snapshot": {
+      "pilot_meshes": 1,
+      "world_meshes": 1,
+      "dimensions": [
+        64,
+        64
+      ],
+      "settings": {
+        "enabled": true,
+        "variant": "A",
+        "diagnostic": true,
+        "omitWorld": false,
+        "always": false
+      },
+      "allocation_rgba_depth_bytes_arithmetic": 65536
+    },
+    "trace": [
+      {
+        "name": "clear",
+        "args": [
+          "17664"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as clear] (<anonymous>:2:455)\n    at Gx.clear (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:5414)\n    at Gx.startRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:3476)\n    at Ec.bind (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:12285)\n    at Ec.push (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:13211)\n    at Ec.renderStart (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:10485)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23531)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:92)"
+      },
+      {
+        "name": "drawElements",
+        "args": [
+          "4",
+          "6",
+          "5125",
+          "0"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as drawElements] (<anonymous>:2:455)\n    at fc.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:34881)\n    at _c.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:1913)\n    at kc.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:2093:24999)\n    at su.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1553:15252)\n    at Hs (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:14683)\n    at qu.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:26943)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23559)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)"
+      },
+      {
+        "name": "blitFramebuffer",
+        "args": [
+          "0",
+          "0",
+          "64",
+          "64",
+          "0",
+          "0",
+          "64",
+          "64",
+          "16384",
+          "9728"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as blitFramebuffer] (<anonymous>:2:455)\n    at Gx.finishRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:3753)\n    at Ec.finishRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:10388)\n    at dS._presentBackBuffer (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:543)\n    at dS.renderEnd (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:463)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23590)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:92)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:14)"
+      },
+      {
+        "name": "clear",
+        "args": [
+          "17664"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as clear] (<anonymous>:2:455)\n    at Gx.clear (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:5414)\n    at Gx.startRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:3476)\n    at Ec.bind (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:12285)\n    at Ec.push (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:13211)\n    at Ec.renderStart (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:10485)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23531)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:92)"
+      },
+      {
+        "name": "drawElements",
+        "args": [
+          "4",
+          "6",
+          "5125",
+          "0"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as drawElements] (<anonymous>:2:455)\n    at fc.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:34881)\n    at _c.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:1913)\n    at kc.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:2093:24999)\n    at su.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1553:15252)\n    at Hs (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:14683)\n    at qu.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:26943)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23559)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)"
+      },
+      {
+        "name": "drawElements",
+        "args": [
+          "4",
+          "6",
+          "5125",
+          "0"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as drawElements] (<anonymous>:2:455)\n    at fc.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:34881)\n    at _c.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:1913)\n    at kc.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:2093:24999)\n    at su.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1553:15252)\n    at Hs (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:14683)\n    at qu.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:26943)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23559)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)"
+      },
+      {
+        "name": "blitFramebuffer",
+        "args": [
+          "0",
+          "0",
+          "64",
+          "64",
+          "0",
+          "0",
+          "64",
+          "64",
+          "16384",
+          "9728"
+        ],
+        "error": 1286,
+        "stack": "Error\n    at proto.<computed> [as blitFramebuffer] (<anonymous>:2:455)\n    at Gx.finishRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1970:3753)\n    at Ec.finishRenderPass (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:10388)\n    at dS._presentBackBuffer (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:543)\n    at dS.renderEnd (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:463)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23590)\n    at Object.update (http://127.0.0.1:8770/E07O/pixi-adapter/visibility.mjs:26:17)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:92)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:14)"
+      },
+      {
+        "name": "drawElements",
+        "args": [
+          "4",
+          "6",
+          "5125",
+          "0"
+        ],
+        "error": 1282,
+        "stack": "Error\n    at proto.<computed> [as drawElements] (<anonymous>:2:455)\n    at fc.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:34881)\n    at _c.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:1913)\n    at kc.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:2093:24999)\n    at su.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1553:15252)\n    at Hs (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:14683)\n    at qu.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:26943)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23559)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:159)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "experiment": "E07O",
+  "started_at": "2026-09-11T21:37:31.673088+00:00",
+  "status": "FAIL_CAPABILITY_GL",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 2,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 4.957718633333333,
+    "disk_bytes_before_index": 109622
+  },
+  "dependencies": {
+    "E07J/pixi-adapter/index.mjs": "0d52b31540cf13b7b097005515df8d1711f3691088f69d6961c920ee9b796505",
+    "E07J/pixi-adapter/painted-actor.mjs": "59f4b55342e6930f7a92d64397954bfe3a4c4c2e785c35d9546fe619dab8fadb",
+    "E07J/shadow.json": "5a896833e096cfadee50b3b0d25bbae4ddfa4465f824b1cf68e74fd71d405051"
+  },
+  "ended_at": "2026-09-11T21:42:29.136206+00:00",
+  "results": {
+    "build1": "FAIL multisample depth mismatch",
+    "build2": "7pixel/control checks PASS; GL1282 FAIL",
+    "chamber_expansion": "NOT_RUN",
+    "review": "PASS"
+  },
+  "lessons": [
+    "Multisampled offscreen color requires matching depth renderbuffer; explicit single-sample depth texture produces incomplete framebuffer.",
+    "Custom uColor repeats known E05J Pixi mesh-uniform collision. Require namespace audit in repaired adapter.",
+    "Instrumented getError consumes errors; zero finalGL in diagnostic is not a pass when traces contain failures.",
+    "Mask allocation must include MSAA color/depth plus resolve targets; initial16bytes-per-pixel arithmetic is a lower bound only."
+  ]
+}

@@ -1,0 +1,13 @@
+# E07O — selective player visibility
+
+Godot is the shipping target; Pixi is the test harness. H06/H08 component test. The working E07J chamber can correctly occlude the player completely. Test a selective visibility aid, not a pale outline on every asset.
+
+Method: two depth-tested camera masks from the same rendered pilot geometry: full silhouette and silhouette visible against opaque world geometry. Their difference is the hidden pilot. Compare A restrained amber fill with B thin amber outline plus faint fill. Effects are declared per entity in engine-neutral JSON; only the thin Pixi adapter applies them. Preserve gameplay, collisions, light blockers, shadow casters, source art and C projection.
+
+Limits:45 active minutes, zero generation, two consumer builds, three capture batches,80MB disk. Batch1 proves actual offscreen depth/mask/composite orientation and compiler paths before scene expansion. Batch2 source-selected hidden/visible/outside witnesses for partition, west wall and exposed player, both factions and native/fresh3×; source geometry determines expected visibility. Native/fresh images and A/B/off comparisons; actual movement across the partition. Batch3 saved labelled review.
+
+Acceptance: mask red/green diagnostics within2RGB for at least12 guarded samples per available hidden/visible/outside group; insufficient groups explicitly unavailable. Source-only3×3neighborhood guards, unchanged between candidates. Missing occluder and always-on indicator controls must be detected on source-sensitive samples; visible player and far-background pixels remain unchanged when only the aid is enabled. No page/GL errors. State snapshots identical with/without indicator. Opacity and width in neutral data; one logical pixel remains three physical pixels in fresh3× output. Record local timing/allocation; no minimum-hardware pass.
+
+Capability includes opaque camera geometry only. NPC/monster sprite occluders, translucent surfaces and multi-player indicators remain unqualified. A/B choice is provisional working presentation selected by Codex within the user's autonomous-test scope. No final art acceptance. Do not weaken occlusion or remove physical walls to make the actor visible.
+
+Build1 capability FAIL: explicit single-sample depth texture with multisampled color causes incomplete framebuffers (instrumented GL1286), followed by invalid sampling. Local vendor code shows RenderTarget depth:true with color textures allocates a matching multisample depth renderbuffer. Build2 uses that verified path; retain old module/preflight and all failures. Same mask/composite algorithm.

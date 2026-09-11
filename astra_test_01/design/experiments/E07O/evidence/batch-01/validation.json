@@ -1,0 +1,177 @@
+{
+  "records": [
+    {
+      "label": "diagnostic",
+      "pixels": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 1282,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": false,
+          "always": false
+        },
+        "allocation_rgba_depth_bytes_arithmetic": 65536
+      }
+    },
+    {
+      "label": "material",
+      "pixels": [
+        [
+          0,
+          0,
+          255,
+          255
+        ],
+        [
+          0,
+          0,
+          255,
+          255
+        ],
+        [
+          0,
+          0,
+          255,
+          255
+        ]
+      ],
+      "gl_error": 1282,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": false,
+          "omitWorld": false,
+          "always": false
+        },
+        "allocation_rgba_depth_bytes_arithmetic": 65536
+      }
+    },
+    {
+      "label": "missing-world",
+      "pixels": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 1282,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": true,
+          "always": false
+        },
+        "allocation_rgba_depth_bytes_arithmetic": 65536
+      }
+    },
+    {
+      "label": "always-on",
+      "pixels": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 1282,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": false,
+          "always": true
+        },
+        "allocation_rgba_depth_bytes_arithmetic": 65536
+      }
+    }
+  ],
+  "checks": {
+    "visible_green": false,
+    "hidden_red": false,
+    "outside_black": true,
+    "alpha_composite": false,
+    "visible_unchanged": true,
+    "missing_world_detected": false,
+    "always_on_detected": false,
+    "no_gl": false,
+    "no_errors": true
+  },
+  "errors": [],
+  "console": []
+}

@@ -1,0 +1,56 @@
+{
+  "console": [],
+  "errors": [],
+  "probe": {
+    "pixels": [
+      [
+        0,
+        255,
+        0,
+        255
+      ],
+      [
+        255,
+        0,
+        0,
+        255
+      ],
+      [
+        0,
+        0,
+        0,
+        255
+      ]
+    ],
+    "gl_error": 0,
+    "snapshot": {
+      "pilot_meshes": 1,
+      "world_meshes": 1,
+      "dimensions": [
+        64,
+        64
+      ],
+      "settings": {
+        "enabled": true,
+        "variant": "A",
+        "diagnostic": true,
+        "omitWorld": false,
+        "always": false
+      },
+      "allocation_rgba_depth_bytes_arithmetic": 65536
+    },
+    "trace": [
+      {
+        "name": "drawElements",
+        "args": [
+          "4",
+          "6",
+          "5125",
+          "0"
+        ],
+        "error": 1282,
+        "stack": "Error\n    at proto.<computed> [as drawElements] (<anonymous>:2:455)\n    at fc.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1797:34881)\n    at _c.draw (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1816:1913)\n    at kc.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:2093:24999)\n    at su.execute (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1553:15252)\n    at Hs (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:14683)\n    at qu.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:1795:26943)\n    at No.emit (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:21088)\n    at g0.render (http://127.0.0.1:8770/E02/pixi/vendor/pixi-8.20.1.min.js:120:23559)\n    at window.probe (http://127.0.0.1:8770/E07O/preflight.html:6:159)"
+      }
+    ]
+  }
+}

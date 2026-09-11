@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T21:35:46.958660+00:00",
+  "updated": "2026-09-11T21:42:29.136206+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07O",
+  "active_experiment": "E07P",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07O selective player-visibility proof at partition and west wall using neutral per-entity effects data. Keep simulation, occlusion, geometry and shadow casters unchanged; capability preflight then source-selected visible/hidden controls and labelled comparison.",
+  "next_action": "Register E07P uniform namespace repair of E07O build2; one bounded consumer build, tiny mask gate, then chamber source visibility witnesses and A/B review only after gate passes. E07J remains working chamber.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -228,7 +228,9 @@
     "experiments/E07H/REPORT.md",
     "experiments/E07H/review.html",
     "experiments/E07J/REPORT.md",
-    "experiments/E07J/review.html"
+    "experiments/E07J/review.html",
+    "experiments/E07O/REPORT.md",
+    "experiments/E07O/review.html"
   ],
   "decisions_pending": [
     {
@@ -358,7 +360,8 @@
     "E07F shared shadow compiler gate passes; strict source matrix1300/1302 passes, two native pilot sleeve failures remain. All864floor/vertical samples pass. Some pilot groups lack6positive/6negative samples; fullselfshadow unavailable. E07G receiver-plane lookup next.",
     "E07G receiver-plane correction fixes native sleeve samples but introduces two fresh3x pauldron failures; 1300/1302 still pass. Density diagnosis predicts improvement; no integrated self-shadow pass or working-chamber promotion.",
     "E07H raw2xdensity passes1302source samples plus controls; corrected2xdensity still fails2armor samples. Raw selection not yet default; interactions/motion and full self-shadow/style remain open.",
-    "E07J promotes scoped shared hard-shadow chamber. Some pilot witness groups unavailable, full self-shadow/style unqualified; plain architecture/darkF01pocket/oldNPC-monster/hiddenplayer remain. Next E07O selective visibility."
+    "E07J promotes scoped shared hard-shadow chamber. Some pilot witness groups unavailable, full self-shadow/style unqualified; plain architecture/darkF01pocket/oldNPC-monster/hiddenplayer remain. Next E07O selective visibility.",
+    "E07O two-build capability cap reached: multisample depth repaired, uColor vec3 collides with Pixi mesh uniform4f. No chamber visibility expansion; selective aid unqualified."
   ],
   "running_jobs": [
     {
@@ -402,7 +405,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07J/receipt.json",
+  "current_receipt": "experiments/E07O/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -482,6 +485,17 @@
     "shadow_policy": "experiments/E07J/shadow.json",
     "scope": "1302available source shadows; actual door/chest/crate/raised toggles and3outfit walks; default raw2xdensity. Full art/self-shadow/visibility unqualified.",
     "previous": "E07C",
-    "motion": "E05F"
+    "motion": "E05F",
+    "module": "experiments/E07J/pixi-adapter/index.mjs",
+    "sim": "experiments/E07T/sim/index.mjs",
+    "status": "SCOPED_SHARED_SHADOW_AND_INTERACTIONS_PASS",
+    "full_chamber_qualified": false,
+    "pilot_candidate": {
+      "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
+      "asset": "experiments/E05N/character.asset.json",
+      "motion": "experiments/E05F/motion.asset.json",
+      "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
+      "review": "experiments/E05F/review.html"
+    }
   }
 }
