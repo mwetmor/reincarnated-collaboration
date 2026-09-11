@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T22:21:34.660939+00:00",
+  "updated": "2026-09-11T22:46:54.535391+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07X",
+  "active_experiment": "E07Y \u2014 faction construction differentiation",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07X visible practical-light fixtures and restrained floor/wall glow on E07W. Neutral fixture/light/emissive data; compare neutral/warm/cool and missing/stale controls, geometry-fixed portal. Then outstanding complete pilot motion/gear and VFX proofs.",
+  "next_action": "Register E07Y: geometry-owned F01 timber/stone construction and F02 rock-cut reservoir wall vocabulary, with unchanged doorway, interaction footprints and current actor clearance. First produce source-layout geometry/ID guides and bounded native/fresh3\u00d7 comparisons using existing painted materials; preserve E07X A practical lighting. Do not generate whole-scene paintings or claim full faction/chamber PASS from material swaps.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -238,7 +238,9 @@
     "experiments/E07M/REPORT.md",
     "experiments/E07M/review.html",
     "experiments/E07W/REPORT.md",
-    "experiments/E07W/review.html"
+    "experiments/E07W/review.html",
+    "experiments/E07X/REPORT.md",
+    "experiments/E07X/review.html"
   ],
   "decisions_pending": [
     {
@@ -373,7 +375,8 @@
     "E07P mask capability passes but actor integration fails480/768sourcewitnesses: non-enumerable shader resources were omitted. Named-resource materialization diagnosed, no visibility aid promoted.",
     "E07Q selective B indicator passes768source samples, controls, fullframe-exposed invariance andA/Bcrossings. NPC/monster sprite/translucent occluders, ROIallocation, fullart still unqualified. Current2.5mportal blocks2.7mmonster; E07M layout revision next.",
     "E07M resolves2.7mmonster clearance with3.2mportal and repaired joints; fullsource geometry/shadow/visibility and runtime traverse pass. FlatF01pocket and F02gate material distinction remain art failures; staticmonster animation, fullpilot/VFX/cohesion unqualified.",
-    "E07W selectsAportal finish using existingpaintings;9612sourcepixels and fullIDimages unchanged. Fullrooms still controlledsame layout, broaderfaction construction/detail and strongerfloor-wallglow remain open, alongside fullpilot/monster/VFX/scale."
+    "E07W selectsAportal finish using existingpaintings;9612sourcepixels and fullIDimages unchanged. Fullrooms still controlledsame layout, broaderfaction construction/detail and strongerfloor-wallglow remain open, alongside fullpilot/monster/VFX/scale.",
+    "E07X practical-light response is scoped PASS (1728 equation/768 channel checks); full F03 atmosphere, dynamic VFX light, fixture self/soft shadows and full faction construction remain partial. A selected with ambient.55."
   ],
   "running_jobs": [
     {
@@ -417,7 +420,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07W/receipt.json",
+  "current_receipt": "experiments/E07X/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -491,14 +494,14 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "experiment": "E07W",
-    "adapter": "experiments/E07W/pixi-adapter/index.mjs",
-    "review": "experiments/E07W/review.html",
-    "shadow_policy": "experiments/E07W/shadow.json",
-    "scope": "E07M geometry/state plus selectedAportal materials;9612sourcepixels and fullIDimages unchanged. Full faction art/light, pilot/monster motion andVFX remain partial.",
-    "previous": "E07M",
+    "experiment": "E07X",
+    "adapter": "experiments/E07X/pixi-adapter/index.mjs",
+    "review": "experiments/E07X/review.html",
+    "shadow_policy": "experiments/E07X/shadow.json",
+    "scope": "Working supported practical light with measured floor/wall response; inherited portal/rig/visibility. Full faction art, general shadows, NPC/monster/combat remain partial.",
+    "previous": "E07W",
     "motion": "E05F",
-    "module": "experiments/E07W/pixi-adapter/index.mjs",
+    "module": "experiments/E07X/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
     "status": "SCOPED_PORTAL_GEOMETRY_AND_WORKING_MATERIAL_FINISH_PASS",
     "full_chamber_qualified": false,
@@ -509,9 +512,11 @@
       "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
       "review": "experiments/E05F/review.html"
     },
-    "effects": "experiments/E07W/effects.json",
+    "effects": "experiments/E07X/effects.json",
     "door_data": "experiments/E07M/door.json",
     "portal_materials": "experiments/E07W/portal-materials.json",
-    "portal_finish": "A"
+    "portal_finish": "A",
+    "practical_light": "experiments/E07X/fixture.json",
+    "practical_response": "A"
   }
 }

@@ -1,0 +1,47 @@
+{
+  "experiment": "E07X",
+  "started_at": "2026-09-11T22:23:57.256110+00:00",
+  "status": "PRACTICAL_LIGHT_RESPONSE_SCOPED_PASS",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 22.954654683333334,
+    "disk_bytes_before_index": 25698158
+  },
+  "dependencies": {
+    "E07W/pixi-adapter/index.mjs": "39af92144b5a6a68d4f40dbdfb50bf6923f820e7f73e742a21ca83e2223a2f49",
+    "E07W/portal-materials.json": "3058bc033ab2ebda4341642ca57282a13252d6808f5c0e26774c577d34cfa1be",
+    "E07D/lighting.json": "3cbdd2a4e71b7c4110232358834cfbed7ab6a6dde81f96fb0361baa6f7c0f57f"
+  },
+  "diagnosis": [
+    "Build1 omitted required inherited shadow-policy.mjs module:404 before initialization. Build2 supplies exact unchanged E07W dependency."
+  ],
+  "ended_at": "2026-09-11T22:46:54.535391+00:00",
+  "results": {
+    "selected_response": "A",
+    "equation_samples": 1728,
+    "equation_pass": 1728,
+    "channel_order_checks": 768,
+    "source_fixture_layout": "PASS_AFTER_PRESERVED_V0",
+    "browser_matrix_views": 36,
+    "negative_controls": "PASS",
+    "full_faction_art": "PARTIAL",
+    "full_suite": "PARTIAL"
+  },
+  "lessons": [
+    "A visible emissive core and point illumination must share one neutral position; stale position and missing mesh require separate controls.",
+    "Source support preflight rejected an initially floating bracket before a renderer build.",
+    "Ambient0.55 retained better gameplay clarity than0.4 in both current rooms; richer atmospheric art remains unproved.",
+    "Independent point equation samples require declared interpolation calibration and source boundary guards; successful interior samples do not qualify all shadow boundaries.",
+    "Copying a local adapter must include inherited relative dependencies; build1 missing shadow-policy404 preserved."
+  ]
+}
