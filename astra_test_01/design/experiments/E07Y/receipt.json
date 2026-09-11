@@ -1,0 +1,44 @@
+{
+  "experiment": "E07Y",
+  "started_at": "2026-09-11T22:49:21.364193+00:00",
+  "status": "CONSTRUCTION_GEOMETRY_PASS_SURFACE_ART_PARTIAL",
+  "limits": {
+    "active_minutes": 35,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 5.496250483333333,
+    "disk_bytes_before_index": 33573472
+  },
+  "dependencies": {
+    "experiments/E07X/pixi-adapter/index.mjs": "e0b48c6fae3d632a8c547cd4b92c06bbfc74bd65251c3403c583c79fb0c3acad",
+    "experiments/E07D/inputs/scene.json": "4cd4db08078fda6008cbdcd16c7e1b51f6ef6596d32925388ee8f4dfdde98dc0",
+    "experiments/E07X/fixture.json": "86fac075ea2e15a732e059533e6630080a52d216da85b9dfea948c69cb9e2ab5"
+  },
+  "ended_at": "2026-09-11T22:54:51.139222+00:00",
+  "results": {
+    "selected_construction": "detail",
+    "source_ID_samples": 502,
+    "source_ID_pass": 502,
+    "reverse_order": "PASS",
+    "negative_control": "502/502 detected",
+    "source_collision_and_state": "EXACT",
+    "support": "V1 F02 FAIL; V2 both factions PASS",
+    "faction_construction_distinction": "SCOPED_PASS",
+    "waterline_material": "FAIL_HARD_GREEN_STRIPE",
+    "full_chamber": "PARTIAL"
+  },
+  "lessons": [
+    "Geometry inside unchanged collision envelopes can still invalidate fixture support; check attachment against actual replacement solids.",
+    "F01 diagonal timber/stone and F02 blind rock arches distinguish construction at native scale without whole-scene generation.",
+    "A uniform tinted waterline reads as green skirting; material variation needs a separate data-driven test.",
+    "Camera evidence remains sampled; unavailable hidden or tiny parts are explicitly recorded."
+  ]
+}

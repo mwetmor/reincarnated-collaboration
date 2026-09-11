@@ -1,0 +1,23 @@
+{
+  "status": "SOURCE_V1_FAIL_V2_PASS",
+  "method": "Exact box intersection against actual rectangular backing/trim solids, excluding wedge bounds. New backplate extends x minimum from\u22124.99 to\u22125.03m; no actor or wall footprint change.",
+  "records": [
+    {
+      "faction": "F01",
+      "old_supporting_parts": [
+        "west-wall.001/timber-rail-3"
+      ],
+      "new_supporting_parts": [
+        "west-wall.001/solid-backing-0",
+        "west-wall.001/timber-rail-3"
+      ]
+    },
+    {
+      "faction": "F02",
+      "old_supporting_parts": [],
+      "new_supporting_parts": [
+        "west-wall.001/solid-backing-0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "entities": {
+    "mage": {
+      "occlusion_indicator": {
+        "enabled": true,
+        "trigger": "occluded-by-opaque-world",
+        "selected": "B",
+        "variants": {
+          "A": {
+            "color_srgb": [
+              0.94,
+              0.69,
+              0.32
+            ],
+            "fill_opacity": 0.28,
+            "outline_opacity": 0,
+            "outline_logical_px": 0
+          },
+          "B": {
+            "color_srgb": [
+              0.94,
+              0.69,
+              0.32
+            ],
+            "fill_opacity": 0.1,
+            "outline_opacity": 0.75,
+            "outline_logical_px": 1
+          }
+        }
+      }
+    }
+  },
+  "scope": "Player gameplay visibility only; no persistent edge on visible assets."
+}
