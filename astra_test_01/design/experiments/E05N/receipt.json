@@ -1,0 +1,47 @@
+{
+  "experiment": "E05N",
+  "started_at": "2026-09-11T17:39:46.034240+00:00",
+  "status": "DEFORMATION_NORMAL_REPRESENTATION_PASS_SCALE_UNQUALIFIED",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 76511296
+  },
+  "dependencies": {
+    "E05Z/inputs/gait-v1.blend": "c72775a8ab711d32c0feaaede6cd8a4218daa0ca78cb856bc58f8e7bb07e4e37",
+    "E05Z/character.asset.json": "627ef3175ce7c38cf9116c18959fc1e8e8d9b1de6f571d3ba8fa1bb69e02d957",
+    "E05Y/character.asset.json": "6ad5805636f96b06bfab178fe85943e0e0130ade1ded233a187d4036a2c05035"
+  },
+  "cause": "normal-only sourceoracle48/48PASS; position-only retains6FAIL, baseline6FAIL. Thresholds unchanged.",
+  "finished_at": "2026-09-11T17:49:14.922627+00:00",
+  "next_action": "Register E05I left/right45degree turn-in-place source/contact and neutral JSON transition test from corrected E05Z source. Preserve E05N sparse-normal contract; full locomotion/action transitions remain separately owed.",
+  "verdicts": {
+    "cause": "normal-only48/48PASS;position-only6FAIL;baseline6FAIL",
+    "source_normals": "219/219everyframe+endpoint omittednormal residual<=1e-4; corrected float32uniterror<=1.193e-7",
+    "buffers": "5/5PASS; all216palettebytesexactE05Z; geometry/materials referenced unchanged",
+    "raster": "1296/1296PASS;maxMAE.00723982,maxfraction.000904978",
+    "controls": "missingnormals reproduces2.1984%failure;20pxshift/wrongpose detected",
+    "playback": "216framehashaudit, normal-speed cast eightviews",
+    "review": "6/6localfile deliveryPASS",
+    "scale": "UNQUALIFIED:16,736,368normalstreambytes;1,021,824attributeuploadbytes/pose",
+    "full_pilot": "OPEN turns,cloth/fulloutfitfit/worldlighting andproductionstyle"
+  },
+  "commands": [
+    "node capture-probe.mjs",
+    "python3 analyze-probe.py",
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python export.py",
+    "node capture-matrix.mjs",
+    "python3 analyze-matrix.py",
+    "node capture-playback.mjs",
+    "node review-check.mjs"
+  ]
+}

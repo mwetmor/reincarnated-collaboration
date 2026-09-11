@@ -1,0 +1,1322 @@
+{
+  "summary": {
+    "skin": {
+      "failures": 6,
+      "max_mae": 0.44630777903043967,
+      "max_fraction": 0.021984216459977453
+    },
+    "normal-oracle": {
+      "failures": 0,
+      "max_mae": 0.005747126436781609,
+      "max_fraction": 0.00014092446448703494
+    },
+    "position-oracle": {
+      "failures": 6,
+      "max_mae": 0.442314919203307,
+      "max_fraction": 0.021843291995490417
+    }
+  },
+  "checks": {
+    "normal_only_passes": true,
+    "position_only_retains_failures": true,
+    "skin_reproduces_six": true
+  },
+  "records": [
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.3885696040868455,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.2640915593705293,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.32327166504381694,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.4397590361445783,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.09612251547735419,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.07332101047443007,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.14922870556673373,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.3201550387596899,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.38569864461811454,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.275609756097561,
+      "fraction_gt8": 0.007723577235772358,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.3388907921282022,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.44630777903043967,
+      "fraction_gt8": 0.021984216459977453,
+      "pass": false
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.09271046449950747,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.0666593615311564,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.1553585500394011,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "skin",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.33416114790286977,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.005427841634738187,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.0005722460658082976,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.0003245699448231094,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.00040160642570281126,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.0032583903551645487,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.0,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.0,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.0007751937984496124,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.0013214029523917394,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.0013211382113821138,
+      "fraction_gt8": 0.0001016260162601626,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.0005329070077271516,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.004039834648628335,
+      "fraction_gt8": 0.00014092446448703494,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.00030309918920966885,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.0003652567755131858,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.00019700551615445234,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.0003219278881530537,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.3831417624521073,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.26380543633762515,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.32294709509899383,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.4393574297188755,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.09286412512218964,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.07332101047443007,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.14922870556673373,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.31937984496124033,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.3843772416657228,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.27439024390243905,
+      "fraction_gt8": 0.007621951219512195,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.3382817555479426,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.442314919203307,
+      "fraction_gt8": 0.021843291995490417,
+      "pass": false
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.09240736531029779,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.06633063043319454,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.15516154452324665,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "dark",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.3338392200147167,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.388250319284802,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.2658082975679542,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.3222979552093476,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.43734939759036146,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.09514499837080483,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.07424522489217499,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.1482226693494299,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.31976744186046513,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.3858874164684562,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.2757113821138211,
+      "fraction_gt8": 0.007723577235772358,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.33911918084579956,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.4458850056369786,
+      "fraction_gt8": 0.021984216459977453,
+      "pass": false
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.09282412669546108,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.06680546424136168,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.155397951142632,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "skin",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.33393119941133187,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.005747126436781609,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.0005722460658082976,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.0003245699448231094,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.00040160642570281126,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.002932551319648094,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.00030807147258163895,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.0,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.0015503875968992248,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.0014346660625967455,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.0013211382113821138,
+      "fraction_gt8": 0.0001016260162601626,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.0004948422214609265,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.004039834648628335,
+      "fraction_gt8": 0.00014092446448703494,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.00030309918920966885,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.0003652567755131858,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.00019700551615445234,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.0002759381898454746,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.3825031928480204,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.26552217453505006,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.3219733852645245,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.43694779116465865,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.09221244705115673,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.07393715341959335,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.1482226693494299,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.3182170542635659,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.38445275040585947,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.27449186991869917,
+      "fraction_gt8": 0.007621951219512195,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.33854820905180616,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.4418921458098459,
+      "fraction_gt8": 0.021843291995490417,
+      "pass": false
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.09252102750625142,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.06647673314339982,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.15520094562647754,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "light",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.33365526122148637,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.3885696040868455,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.26494992846924176,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.32294709509899383,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.44016064257028115,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.09710003258390355,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.0736290819470117,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.15090543259557343,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.3182170542635659,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.38566089024804623,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.275609756097561,
+      "fraction_gt8": 0.007723577235772358,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.33854820905180616,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.4462138293874483,
+      "fraction_gt8": 0.021984216459977453,
+      "pass": false
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.09274835189815868,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.06680546424136168,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.15531914893617021,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "skin",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.33374724061810157,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.005427841634738187,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.0005722460658082976,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.0003245699448231094,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.00040160642570281126,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.0032583903551645487,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.0,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.0,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.0003875968992248062,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.0013591573224600749,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.0012872628726287264,
+      "fraction_gt8": 0.0001016260162601626,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.00045677743519470136,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.004039834648628335,
+      "fraction_gt8": 0.00014092446448703494,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.00030309918920966885,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.00040178245306450437,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.00019700551615445234,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "normal-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.0003219278881530537,
+      "fraction_gt8": 0.0,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 0,
+      "mae": 0.3831417624521073,
+      "fraction_gt8": 0.012452107279693486,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 45,
+      "mae": 0.2646638054363376,
+      "fraction_gt8": 0.00944206008583691,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 90,
+      "mae": 0.3226225251541707,
+      "fraction_gt8": 0.011684518013631937,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 135,
+      "mae": 0.4397590361445783,
+      "fraction_gt8": 0.021686746987951807,
+      "pass": false
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 180,
+      "mae": 0.093841642228739,
+      "fraction_gt8": 0.0019550342130987292,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 225,
+      "mae": 0.0736290819470117,
+      "fraction_gt8": 0.0027726432532347504,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 270,
+      "mae": 0.15090543259557343,
+      "fraction_gt8": 0.007042253521126761,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 50,
+      "heading": 315,
+      "mae": 0.3178294573643411,
+      "fraction_gt8": 0.015116279069767442,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 0,
+      "mae": 0.3843017329255861,
+      "fraction_gt8": 0.01143957413070563,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 45,
+      "mae": 0.2743563685636856,
+      "fraction_gt8": 0.007621951219512195,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 90,
+      "mae": 0.33805336683034526,
+      "fraction_gt8": 0.01153363023866621,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 135,
+      "mae": 0.44222096956031565,
+      "fraction_gt8": 0.021843291995490417,
+      "pass": false
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 180,
+      "mae": 0.092445252708949,
+      "fraction_gt8": 0.001932257331211639,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 225,
+      "mae": 0.06644020746584849,
+      "fraction_gt8": 0.0017532325224632918,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 270,
+      "mae": 0.15512214342001576,
+      "fraction_gt8": 0.006619385342789598,
+      "pass": true
+    },
+    {
+      "bg": "blue",
+      "mode": "position-oracle",
+      "height": 150,
+      "heading": 315,
+      "mae": 0.33342531272994846,
+      "fraction_gt8": 0.013107064017660043,
+      "pass": true
+    }
+  ]
+}

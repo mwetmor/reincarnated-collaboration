@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T17:38:05.044164+00:00",
+  "updated": "2026-09-11T17:49:14.922627+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05N isolate six starter cast135deg raster failures with normal-only source oracle, then bounded neutral deformation-normal correction if confirmed. Preserve thresholds, source art, repaired walk and old failures.",
+  "next_action": "Register E05I left/right45degree turn-in-place source/contact and neutral JSON transition test from corrected E05Z source. Preserve E05N sparse-normal contract; full locomotion/action transitions remain separately owed.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -183,7 +183,10 @@
     "experiments/E05Y/review.html",
     "experiments/E05Z/REPORT.md",
     "experiments/E05Z/receipt.json",
-    "experiments/E05Z/review.html"
+    "experiments/E05Z/review.html",
+    "experiments/E05N/REPORT.md",
+    "experiments/E05N/receipt.json",
+    "experiments/E05N/review.html"
   ],
   "decisions_pending": [
     {
@@ -291,7 +294,8 @@
     "E05U part-specific atlas and bracer/greave core fit improve gear;144idle comparisons and48framing checks pass in each revision. Purple shoulder material repaired. Full pilot art FAIL remains: broad smooth coat/material separation and simplified block-like rear hair. No animation/roster expansion. Latest source E05U/inputs/part-painted-gear-v2.blend and v2/character.asset.json.",
     "E05W static working turnaround passes Codex F04direction rubric after ivory/navy/leather separation and rounded6component hairstyle;23source hair components explicit,17legacy locks disabled and preserved. Full clip motion/turns/animated gear fit, PBR/selflighting and production style remain unqualified. Latest source E05W/inputs/material-hair-v2.blend.",
     "E05Y complete216frame palettes and219source/contact endpoints/core clearance pass, but walkartFAIL (splitlegs/severeheightchange; E05Mglobalstance overwritten by bool suspected).1290/1296rasterPASS;six startercast135fail unchangedfractionbar. Fullmotion/turns/fullsurfacegearfit unqualified. E05Z sourcegaitcontrol next.",
-    "E05Z proves/fixes E05Mstance=.4 overwrittenbyBoolean: oldgait control exact, corrected576/576walkraster/219source/3456bounds pass. Fullgarmentmotion, turns, outfitfit andsixunchangedE05Ycastfailures remainopen. Latest source E05Z/inputs/gait-v1.blend; no rosterexpansion."
+    "E05Z proves/fixes E05Mstance=.4 overwrittenbyBoolean: oldgait control exact, corrected576/576walkraster/219source/3456bounds pass. Fullgarmentmotion, turns, outfitfit andsixunchangedE05Ycastfailures remainopen. Latest source E05Z/inputs/gait-v1.blend; no rosterexpansion.",
+    "E05N normal-only causalcontrol fixes sixE05Ycastfailures:1296/1296correctedrasterPASS, all216motionpalettebytesunchanged. Sparse neutralnormals16.736MB,1.022MBattributeupload/pose; scale/Godotimporterunqualified. Turns,cloth/fulloutfitfit, worldlighting/fullpilot remainopen."
   ],
   "running_jobs": [
     {
@@ -335,7 +339,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05Z/receipt.json",
+  "current_receipt": "experiments/E05N/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -389,10 +393,10 @@
     "final_production_style_approval": false
   },
   "pilot_working_motion": {
-    "status": "CORRECTED_WALK_COMPONENT_PASS",
+    "status": "CORRECTED_WALK_AND_EXISTING_CLIP_REPRESENTATION_PASS",
     "source": "experiments/E05Z/inputs/gait-v1.blend",
-    "asset": "experiments/E05Z/character.asset.json",
-    "review": "experiments/E05Z/review.html",
+    "asset": "experiments/E05N/character.asset.json",
+    "review": "experiments/E05N/review.html",
     "full_pilot_qualified": false
   }
 }

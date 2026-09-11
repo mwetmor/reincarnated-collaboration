@@ -105,3 +105,5 @@ E05W [static pilot review](experiments/E05W/review.html) and [report](experiment
 E05Y full existing clips: [review](experiments/E05Y/review.html), [report](experiments/E05Y/REPORT.md). Walk art FAIL despite contact/core mechanisms; six cast raster failures retained. Exact next action is in PROGRESS.json.
 
 E05Z [corrected gait review](experiments/E05Z/review.html): controlled stance-duration bug repair passes; old E05M/E05Y failures retained, cast-normal and complete pilot work open. PROGRESS.json carries exact next action.
+
+E05N [normal agreement review](experiments/E05N/review.html):1296/1296comparisons pass after neutral deformation-normal correction; preserves repairedwalk. Measured16.736MB normaldata requires later scalequalification. Nextturncontacts per PROGRESS.json.

@@ -1,0 +1,9 @@
+# E05N · Deformation normals under unchanged painted geometry
+
+Godot shipping target; Pixi harness.45active minutes,0generation,2export/adapter revisions,4capturebatches,100MB. SourceE05Z/gait-v1.blend, exactcachedE05Wart/restmesh and existingidle/cast palettes immutable. No rig, material, UV, motion, camera, light or pixelthreshold changes.
+
+Hypothesis: sixE05Ystartercast036135° failures arise from blending rest normals across nonrigid skinweights while Blender recalculates deformed surface normals. Capture1: cast036starter all8views/twoscales/threebackgrounds, skin/fulloracle/normal-onlyoracle/position-onlyoracle. Normal-only must meet originalMAE<=1,fraction>8<=.02; position-only retaining skin normals must retain observed failures. Otherwise stop this repair hypothesis. Oracle remains independently Blender-evaluated, no referencepainting changes.
+
+Ifconfirmed, export engine-neutral sparse world-normal correction records perframe fromE05Z; no Pixitypes. Uint32vertexid+float32normalXYZ; immutable vertex/index/material buffers reused. Correct only deviations>1e-4unitnormal from normalized weightedrestnormal, everyframe sourcecheck ensures residual<=1e-4. All216existingframepalette bytes unchanged, include complete normalstream, measuredbytes/uploadcost. Sparse topology-dependent correction hypothesized for thisbody/actions only, no gearfamily/roster generalization. Godot importer remains separately owed. One export/adapter repair maximum after probe. If records exceeddisklimit stop beforelargeoutput.
+
+Capture2: nineoracles idle0/24/72, repairedwalk0/12/36, cast0/18/36; all8views/50and150axis/threeoutfits/threebackgrounds, unchanged1296comparisons andbadnormals/20pxattachment/wrongposecontrols. Capture3 complete216frame correctedplayback audit andnormal-speed startercast video; capture4savedreview. OriginalsixFAIL retained, no thresholdrelaxation or productionPBRclaim. Fullmotion/turn/cloth/lighting tests remain independent.

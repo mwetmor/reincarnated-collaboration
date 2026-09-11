@@ -206,3 +206,7 @@ Complete existing216-frame transfer retains source contacts and paired gear-core
 ### E05Z — keep authored timing constants separate from sampled flags
 
 E05Mstance=.4 was overwritten by an idle-contact Boolean. A1.0second stance-duration control exactly reproduced all49oldwalk palettes and never swung eitherfoot. Immutable stance duration restores supportexchange, meets sourcebars and576/576walk rastercomparisons. This is proven source-authoring causality, not a renderer workaround. Contact/loop tests can pass a visually unusable gait. Keep original failed assets and scope old visual-inference corrections explicitly; see E05M/E05Z_ERRATUM.md and E05Z/REPORT.md.
+
+### E05N — isolate shading normals before changing geometry or artwork
+
+Sixcast135°representation failures persisted with sourcepositions only, disappeared with sourcenormals only. Sparse engine-neutral deformednormaloverrides pass1296/1296unchangedcomparisons; removingthem reproduces2.1984%failure. Preserve immutablepaint/restmesh/palette hashes and resetoverrides perframe. This pilotmethod costs16.736MB/216frames and1.022MBcurrentattributeupload perpose; neither roster nor productionresidency isqualified. See E05N/REPORT.md and cause/rasterreceipts.

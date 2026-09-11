@@ -1,0 +1,5281 @@
+{
+  "schema_version": 1,
+  "asset_id": "E05N-deformation-normals",
+  "coordinate_system": "right handed Blender world metres; C adapter maps worldY to -v",
+  "vertex_buffer": {
+    "path": "../E05W/v2/assets/vertices.bin",
+    "dtype": "float32",
+    "byte_order": "little",
+    "elements": 1021824,
+    "bytes": 4087296,
+    "sha256": "3337fa3fb386d14b180d093977eb95fac0f995a7d7a8a8d9418418a3bb3e9b94"
+  },
+  "vertex_stride_float32": 16,
+  "attributes": {
+    "position": [
+      0,
+      3
+    ],
+    "normal": [
+      3,
+      3
+    ],
+    "uv": [
+      6,
+      2
+    ],
+    "joint_indices": [
+      8,
+      4
+    ],
+    "joint_weights": [
+      12,
+      4
+    ]
+  },
+  "index_buffer": {
+    "path": "../E05W/v2/assets/indices.bin",
+    "dtype": "uint32",
+    "byte_order": "little",
+    "elements": 338388,
+    "bytes": 1353552,
+    "sha256": "6db623f2b11fc0708d9769071d8ffe0be2556a86ee74b3eefc7f3ee1f294e3b0"
+  },
+  "parts": [
+    {
+      "object": "Tailored upper robe",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 0,
+      "index_count": 5760
+    },
+    {
+      "object": "Neck",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 5760,
+      "index_count": 1920
+    },
+    {
+      "object": "High collar",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 7680,
+      "index_count": 3552
+    },
+    {
+      "object": "Collar gold edge",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 11232,
+      "index_count": 600
+    },
+    {
+      "object": "Collar gold edge.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 11832,
+      "index_count": 600
+    },
+    {
+      "object": "Collar gold rim",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 12432,
+      "index_count": 5880
+    },
+    {
+      "object": "Robe sleeve L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 18312,
+      "index_count": 3744
+    },
+    {
+      "object": "Tailored shoulder L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 22056,
+      "index_count": 1584
+    },
+    {
+      "object": "Shoulder gold seam L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 23640,
+      "index_count": 672
+    },
+    {
+      "object": "Shoulder gold seam L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 24312,
+      "index_count": 672
+    },
+    {
+      "object": "Cuff gold piping L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 24984,
+      "index_count": 6240
+    },
+    {
+      "object": "Cuff gold piping L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 31224,
+      "index_count": 6240
+    },
+    {
+      "object": "Leather wrist L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 37464,
+      "index_count": 960
+    },
+    {
+      "object": "Palm L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 38424,
+      "index_count": 960
+    },
+    {
+      "object": "Index finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 39384,
+      "index_count": 600
+    },
+    {
+      "object": "Middle finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 39984,
+      "index_count": 600
+    },
+    {
+      "object": "Ring finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 40584,
+      "index_count": 600
+    },
+    {
+      "object": "Little finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 41184,
+      "index_count": 600
+    },
+    {
+      "object": "Thumb L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 41784,
+      "index_count": 720
+    },
+    {
+      "object": "Trousers L",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "default_visible": true,
+      "index_start": 42504,
+      "index_count": 4992
+    },
+    {
+      "object": "Boot shaft L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 47496,
+      "index_count": 4224
+    },
+    {
+      "object": "Boot foot L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 51720,
+      "index_count": 3456
+    },
+    {
+      "object": "Boot sole L",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "default_visible": true,
+      "index_start": 55176,
+      "index_count": 1920
+    },
+    {
+      "object": "Boot strap L",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 57096,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 63336,
+      "index_count": 564
+    },
+    {
+      "object": "Boot strap L.001",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 63900,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 70140,
+      "index_count": 564
+    },
+    {
+      "object": "Robe sleeve R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 70704,
+      "index_count": 3744
+    },
+    {
+      "object": "Tailored shoulder R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 74448,
+      "index_count": 1584
+    },
+    {
+      "object": "Shoulder gold seam R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 76032,
+      "index_count": 672
+    },
+    {
+      "object": "Shoulder gold seam R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 76704,
+      "index_count": 672
+    },
+    {
+      "object": "Cuff gold piping R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 77376,
+      "index_count": 6240
+    },
+    {
+      "object": "Cuff gold piping R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 83616,
+      "index_count": 6240
+    },
+    {
+      "object": "Leather wrist R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 89856,
+      "index_count": 960
+    },
+    {
+      "object": "Palm R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 90816,
+      "index_count": 960
+    },
+    {
+      "object": "Index finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 91776,
+      "index_count": 600
+    },
+    {
+      "object": "Middle finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 92376,
+      "index_count": 600
+    },
+    {
+      "object": "Ring finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 92976,
+      "index_count": 600
+    },
+    {
+      "object": "Little finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 93576,
+      "index_count": 600
+    },
+    {
+      "object": "Thumb R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 94176,
+      "index_count": 720
+    },
+    {
+      "object": "Trousers R",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "default_visible": true,
+      "index_start": 94896,
+      "index_count": 4992
+    },
+    {
+      "object": "Boot shaft R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 99888,
+      "index_count": 4224
+    },
+    {
+      "object": "Boot foot R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 104112,
+      "index_count": 3456
+    },
+    {
+      "object": "Boot sole R",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "default_visible": true,
+      "index_start": 107568,
+      "index_count": 1920
+    },
+    {
+      "object": "Boot strap R",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 109488,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 115728,
+      "index_count": 564
+    },
+    {
+      "object": "Boot strap R.001",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 116292,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 122532,
+      "index_count": 564
+    },
+    {
+      "object": "Belt",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 123096,
+      "index_count": 2688
+    },
+    {
+      "object": "Belt diamond buckle",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 125784,
+      "index_count": 564
+    },
+    {
+      "object": "Split robe Front.L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 126348,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Front.L0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 136668,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Front.L17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 138876,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Front.L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 141084,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Back.L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 144444,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Back.L0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 154764,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Back.L17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 156972,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Back.L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 159180,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Back.R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 162540,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Back.R0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 172860,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Back.R17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 175068,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Back.R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 177276,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Front.R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 180636,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Front.R0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 190956,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Front.R17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 193164,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Front.R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 195372,
+      "index_count": 3360
+    },
+    {
+      "object": "Central pointed tabard",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 198732,
+      "index_count": 396
+    },
+    {
+      "object": "Tabard edging",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 199128,
+      "index_count": 864
+    },
+    {
+      "object": "Tabard edging.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 199992,
+      "index_count": 864
+    },
+    {
+      "object": "Tome page block",
+      "category": "body",
+      "slot": null,
+      "material": 6,
+      "default_visible": true,
+      "index_start": 200856,
+      "index_count": 564
+    },
+    {
+      "object": "Tome purple cover",
+      "category": "body",
+      "slot": null,
+      "material": 7,
+      "default_visible": true,
+      "index_start": 201420,
+      "index_count": 564
+    },
+    {
+      "object": "Tome purple cover.001",
+      "category": "body",
+      "slot": null,
+      "material": 7,
+      "default_visible": true,
+      "index_start": 201984,
+      "index_count": 564
+    },
+    {
+      "object": "Tome leather spine",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 202548,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 203112,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 203676,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.002",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 204240,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.003",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 204804,
+      "index_count": 564
+    },
+    {
+      "object": "Tome spine binding",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 205368,
+      "index_count": 564
+    },
+    {
+      "object": "Tome spine binding.001",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 205932,
+      "index_count": 564
+    },
+    {
+      "object": "Tome retaining strap",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 206496,
+      "index_count": 564
+    },
+    {
+      "object": "Tome clasp",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 207060,
+      "index_count": 564
+    },
+    {
+      "object": "Tome belt loop",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 207624,
+      "index_count": 600
+    },
+    {
+      "object": "Tome belt loop.001",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208224,
+      "index_count": 600
+    },
+    {
+      "object": "Page edge",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208824,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.001",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208860,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.002",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208896,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.003",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208932,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.004",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 208968,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.005",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209004,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.006",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209040,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.007",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209076,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.008",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209112,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.009",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209148,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.010",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209184,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.011",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209220,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.012",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209256,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.013",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209292,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.014",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209328,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.015",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209364,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.016",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "default_visible": true,
+      "index_start": 209400,
+      "index_count": 36
+    },
+    {
+      "object": "Tome diamond sigil",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "default_visible": true,
+      "index_start": 209436,
+      "index_count": 864
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 8,
+      "default_visible": true,
+      "index_start": 210300,
+      "index_count": 12864
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 223164,
+      "index_count": 18816
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 9,
+      "default_visible": true,
+      "index_start": 241980,
+      "index_count": 12096
+    },
+    {
+      "object": "Nose sculpt",
+      "category": "body",
+      "slot": null,
+      "material": 8,
+      "default_visible": true,
+      "index_start": 254076,
+      "index_count": 264
+    },
+    {
+      "object": "Nose sculpt",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 254340,
+      "index_count": 312
+    },
+    {
+      "object": "Ear",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 254652,
+      "index_count": 1584
+    },
+    {
+      "object": "Ear.001",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "default_visible": true,
+      "index_start": 256236,
+      "index_count": 1584
+    },
+    {
+      "object": "Swept hair mass",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 257820,
+      "index_count": 7488
+    },
+    {
+      "object": "Loose tied hair bun",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 265308,
+      "index_count": 1584
+    },
+    {
+      "object": "Swept hair lock",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 266892,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.001",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 267948,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.002",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 269004,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.003",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 270060,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.004",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 271116,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.005",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 272172,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.006",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 273228,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.007",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 274284,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.008",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 275340,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.009",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 276396,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.010",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 277452,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.011",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 278508,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.012",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 279564,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.013",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 280620,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.014",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 281676,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.015",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 282732,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.016",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": false,
+      "index_start": 283788,
+      "index_count": 1056
+    },
+    {
+      "object": "Temple loose lock",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 284844,
+      "index_count": 840
+    },
+    {
+      "object": "Nape loose lock",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 285684,
+      "index_count": 600
+    },
+    {
+      "object": "Temple loose lock.001",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 286284,
+      "index_count": 840
+    },
+    {
+      "object": "Nape loose lock.001",
+      "category": "hair",
+      "slot": null,
+      "material": 0,
+      "default_visible": true,
+      "index_start": 287124,
+      "index_count": 600
+    },
+    {
+      "object": "GEAR_helmet",
+      "category": "gear",
+      "slot": "head",
+      "material": 10,
+      "default_visible": true,
+      "index_start": 287724,
+      "index_count": 1104
+    },
+    {
+      "object": "GEAR_helmet",
+      "category": "gear",
+      "slot": "head",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 288828,
+      "index_count": 2400
+    },
+    {
+      "object": "GEAR_pauldron-L",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 10,
+      "default_visible": true,
+      "index_start": 291228,
+      "index_count": 1875
+    },
+    {
+      "object": "GEAR_pauldron-L",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 293103,
+      "index_count": 225
+    },
+    {
+      "object": "GEAR_pauldron-R",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 10,
+      "default_visible": true,
+      "index_start": 293328,
+      "index_count": 1875
+    },
+    {
+      "object": "GEAR_pauldron-R",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 295203,
+      "index_count": 225
+    },
+    {
+      "object": "GEAR_cuirass",
+      "category": "gear",
+      "slot": "torso",
+      "material": 10,
+      "default_visible": true,
+      "index_start": 295428,
+      "index_count": 7944
+    },
+    {
+      "object": "GEAR_cuirass",
+      "category": "gear",
+      "slot": "torso",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 303372,
+      "index_count": 6888
+    },
+    {
+      "object": "GEAR_bracer-L",
+      "category": "gear",
+      "slot": "forearm",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 310260,
+      "index_count": 6648
+    },
+    {
+      "object": "GEAR_greave-L",
+      "category": "gear",
+      "slot": "shin",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 316908,
+      "index_count": 7416
+    },
+    {
+      "object": "GEAR_bracer-R",
+      "category": "gear",
+      "slot": "forearm",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 324324,
+      "index_count": 6648
+    },
+    {
+      "object": "GEAR_greave-R",
+      "category": "gear",
+      "slot": "shin",
+      "material": 11,
+      "default_visible": true,
+      "index_start": 330972,
+      "index_count": 7416
+    }
+  ],
+  "materials": [
+    {
+      "id": 0,
+      "name": "E05W painted base materials",
+      "texture_path": "../E05W/v2/assets/fcbf92d654eb5684.png",
+      "uv_layer": "E05WMaterials",
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.7799999713897705,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 1,
+      "name": "Warm fair skin",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.7735730530007222,
+        0.6382254386230457,
+        0.5468542726376465
+      ],
+      "roughness": 0.6399999856948853,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 2,
+      "name": "Antique gold | raised piping",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.7735730530007222,
+        0.626209676390788,
+        0.34064343116362994
+      ],
+      "roughness": 0.5,
+      "metallic": 0.5,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 3,
+      "name": "E05T generated painted cloth",
+      "texture_path": "../E05W/v2/assets/08edafe0c03d6ad5.png",
+      "uv_layer": "E05TProjected",
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.8299999833106995,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 4,
+      "name": "Charcoal trousers",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.26006747994260604,
+        0.24009367041806257,
+        0.22935726095216635
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 5,
+      "name": "Dark brown leather",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.23479508418617517,
+        0.17184408839511128,
+        0.11774103874999695
+      ],
+      "roughness": 0.6200000047683716,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 6,
+      "name": "Ivory parchment",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.8488705716824038,
+        0.7857769270190482,
+        0.6576277105937022
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 7,
+      "name": "Royal plum | woven cloth",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.2209163599788248,
+        0.12835403856590433,
+        0.2891896841446965
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 8,
+      "name": "Reference front | original image atlas",
+      "texture_path": "../E05W/v2/assets/afe5ec8c42a342a5.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 9,
+      "name": "Reference rear | original turnaround atlas",
+      "texture_path": "../E05W/v2/assets/3ec32912072635fa.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 10,
+      "name": "E05U continuous brass edging",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.7220273482492262,
+        0.5657284345101499,
+        0.34064343116362994
+      ],
+      "roughness": 0.47999998927116394,
+      "metallic": 0.6000000238418579,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 11,
+      "name": "E05U painted part atlas",
+      "texture_path": "../E05W/v2/assets/c1f15c9153acaa08.png",
+      "uv_layer": "E05U_parts",
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.6200000047683716,
+      "metallic": 0.20000000298023224,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    }
+  ],
+  "images": [
+    {
+      "path": "../E05W/v2/assets/fcbf92d654eb5684.png",
+      "sha256": "fcbf92d654eb5684a8622566419199bcb3d3367cb6c92263270ab5dc5c8b8c6e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 2641303,
+      "source_name": "materials-v1.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "../E05W/v2/assets/08edafe0c03d6ad5.png",
+      "sha256": "08edafe0c03d6ad5dc131111eccaaeb3fa7a984342c6109f38e840ab9607f581",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1742465,
+      "source_name": "texture-v2.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "../E05W/v2/assets/afe5ec8c42a342a5.png",
+      "sha256": "afe5ec8c42a342a59f54e09723ec18221b3c01cd08d793453055e133ba251117",
+      "dimensions": [
+        1223,
+        1286
+      ],
+      "bytes": 1679916,
+      "source_name": "Codex Image Sep 7, 2026, 08_12_34 PM.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "../E05W/v2/assets/3ec32912072635fa.png",
+      "sha256": "3ec32912072635faf2a3849e125c77e7a941baa0afda96d5455766a27253d527",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 2077029,
+      "source_name": "Codex Image Sep 7, 2026, 08_13_21 PM.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "../E05W/v2/assets/c1f15c9153acaa08.png",
+      "sha256": "c1f15c9153acaa08bdad080a52c2d6d202a26a3d7620ac629842b73be10f22bf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 3468833,
+      "source_name": "atlas-v1.png",
+      "colorspace": "sRGB"
+    }
+  ],
+  "bones": [
+    "Root",
+    "Hips",
+    "Spine",
+    "Chest",
+    "Neck",
+    "Head",
+    "UpperArm.L",
+    "Forearm.L",
+    "Hand.L",
+    "Index.L",
+    "Middle.L",
+    "Ring.L",
+    "Little.L",
+    "Thumb.L",
+    "UpperArm.R",
+    "Forearm.R",
+    "Hand.R",
+    "Index.R",
+    "Middle.R",
+    "Ring.R",
+    "Little.R",
+    "Thumb.R",
+    "Thigh.L",
+    "Shin.L",
+    "Foot.L",
+    "Toe.L",
+    "Coat.Front.L",
+    "Coat.Back.L",
+    "Thigh.R",
+    "Shin.R",
+    "Foot.R",
+    "Toe.R",
+    "Coat.Front.R",
+    "Coat.Back.R",
+    "Tabard",
+    "__static_rig_transform__"
+  ],
+  "poses": [
+    {
+      "id": "idle-000",
+      "clip": "idle",
+      "frame": 0,
+      "time_s": 0.0,
+      "palette_offset_float32": 0,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "normal_corrections": {
+        "byte_offset": 0,
+        "record_count": 3551
+      },
+      "oracle": {
+        "path": "assets/idle-000-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "d422d312669a05fc2fcbb104f1bed34ff43d9302b1d1b9f374713043a31a1851"
+      }
+    },
+    {
+      "id": "idle-001",
+      "clip": "idle",
+      "frame": 1,
+      "time_s": 0.016666666666666666,
+      "palette_offset_float32": 576,
+      "socket_world": [
+        0.0723532885313034,
+        -0.3162693977355957,
+        1.0045979022979736
+      ],
+      "normal_corrections": {
+        "byte_offset": 56816,
+        "record_count": 3514
+      }
+    },
+    {
+      "id": "idle-002",
+      "clip": "idle",
+      "frame": 2,
+      "time_s": 0.03333333333333333,
+      "palette_offset_float32": 1152,
+      "socket_world": [
+        0.07179936021566391,
+        -0.316269189119339,
+        1.0045043230056763
+      ],
+      "normal_corrections": {
+        "byte_offset": 113040,
+        "record_count": 3754
+      }
+    },
+    {
+      "id": "idle-003",
+      "clip": "idle",
+      "frame": 3,
+      "time_s": 0.05,
+      "palette_offset_float32": 1728,
+      "socket_world": [
+        0.07125028967857361,
+        -0.3162692189216614,
+        1.004412293434143
+      ],
+      "normal_corrections": {
+        "byte_offset": 173104,
+        "record_count": 3812
+      }
+    },
+    {
+      "id": "idle-004",
+      "clip": "idle",
+      "frame": 4,
+      "time_s": 0.06666666666666667,
+      "palette_offset_float32": 2304,
+      "socket_world": [
+        0.07070818543434143,
+        -0.31626930832862854,
+        1.0043225288391113
+      ],
+      "normal_corrections": {
+        "byte_offset": 234096,
+        "record_count": 3762
+      }
+    },
+    {
+      "id": "idle-005",
+      "clip": "idle",
+      "frame": 5,
+      "time_s": 0.08333333333333333,
+      "palette_offset_float32": 2880,
+      "socket_world": [
+        0.0701751857995987,
+        -0.31626948714256287,
+        1.0042346715927124
+      ],
+      "normal_corrections": {
+        "byte_offset": 294288,
+        "record_count": 3972
+      }
+    },
+    {
+      "id": "idle-006",
+      "clip": "idle",
+      "frame": 6,
+      "time_s": 0.1,
+      "palette_offset_float32": 3456,
+      "socket_world": [
+        0.06965404748916626,
+        -0.3162693381309509,
+        1.0041499137878418
+      ],
+      "normal_corrections": {
+        "byte_offset": 357840,
+        "record_count": 3792
+      }
+    },
+    {
+      "id": "idle-007",
+      "clip": "idle",
+      "frame": 7,
+      "time_s": 0.11666666666666667,
+      "palette_offset_float32": 4032,
+      "socket_world": [
+        0.06914667785167694,
+        -0.3162692189216614,
+        1.0040675401687622
+      ],
+      "normal_corrections": {
+        "byte_offset": 418512,
+        "record_count": 3881
+      }
+    },
+    {
+      "id": "idle-008",
+      "clip": "idle",
+      "frame": 8,
+      "time_s": 0.13333333333333333,
+      "palette_offset_float32": 4608,
+      "socket_world": [
+        0.06865517795085907,
+        -0.3162693977355957,
+        1.0039892196655273
+      ],
+      "normal_corrections": {
+        "byte_offset": 480608,
+        "record_count": 4044
+      }
+    },
+    {
+      "id": "idle-009",
+      "clip": "idle",
+      "frame": 9,
+      "time_s": 0.15,
+      "palette_offset_float32": 5184,
+      "socket_world": [
+        0.06818204373121262,
+        -0.3162693381309509,
+        1.0039141178131104
+      ],
+      "normal_corrections": {
+        "byte_offset": 545312,
+        "record_count": 3876
+      }
+    },
+    {
+      "id": "idle-010",
+      "clip": "idle",
+      "frame": 10,
+      "time_s": 0.16666666666666666,
+      "palette_offset_float32": 5760,
+      "socket_world": [
+        0.06772905588150024,
+        -0.3162693977355957,
+        1.0038427114486694
+      ],
+      "normal_corrections": {
+        "byte_offset": 607328,
+        "record_count": 3687
+      }
+    },
+    {
+      "id": "idle-011",
+      "clip": "idle",
+      "frame": 11,
+      "time_s": 0.18333333333333332,
+      "palette_offset_float32": 6336,
+      "socket_world": [
+        0.06729815155267715,
+        -0.3162692189216614,
+        1.0037755966186523
+      ],
+      "normal_corrections": {
+        "byte_offset": 666320,
+        "record_count": 3922
+      }
+    },
+    {
+      "id": "idle-012",
+      "clip": "idle",
+      "frame": 12,
+      "time_s": 0.2,
+      "palette_offset_float32": 6912,
+      "socket_world": [
+        0.06689133495092392,
+        -0.31626954674720764,
+        1.0037124156951904
+      ],
+      "normal_corrections": {
+        "byte_offset": 729072,
+        "record_count": 3833
+      }
+    },
+    {
+      "id": "idle-013",
+      "clip": "idle",
+      "frame": 13,
+      "time_s": 0.21666666666666667,
+      "palette_offset_float32": 7488,
+      "socket_world": [
+        0.06650981307029724,
+        -0.31626930832862854,
+        1.0036541223526
+      ],
+      "normal_corrections": {
+        "byte_offset": 790400,
+        "record_count": 3927
+      }
+    },
+    {
+      "id": "idle-014",
+      "clip": "idle",
+      "frame": 14,
+      "time_s": 0.23333333333333334,
+      "palette_offset_float32": 8064,
+      "socket_world": [
+        0.06615627557039261,
+        -0.31626930832862854,
+        1.0036002397537231
+      ],
+      "normal_corrections": {
+        "byte_offset": 853232,
+        "record_count": 4063
+      }
+    },
+    {
+      "id": "idle-015",
+      "clip": "idle",
+      "frame": 15,
+      "time_s": 0.25,
+      "palette_offset_float32": 8640,
+      "socket_world": [
+        0.06583122909069061,
+        -0.31626930832862854,
+        1.00355064868927
+      ],
+      "normal_corrections": {
+        "byte_offset": 918240,
+        "record_count": 4074
+      }
+    },
+    {
+      "id": "idle-016",
+      "clip": "idle",
+      "frame": 16,
+      "time_s": 0.26666666666666666,
+      "palette_offset_float32": 9216,
+      "socket_world": [
+        0.06553670018911362,
+        -0.3162693679332733,
+        1.0035064220428467
+      ],
+      "normal_corrections": {
+        "byte_offset": 983424,
+        "record_count": 4063
+      }
+    },
+    {
+      "id": "idle-017",
+      "clip": "idle",
+      "frame": 17,
+      "time_s": 0.2833333333333333,
+      "palette_offset_float32": 9792,
+      "socket_world": [
+        0.06527375429868698,
+        -0.3162694573402405,
+        1.0034669637680054
+      ],
+      "normal_corrections": {
+        "byte_offset": 1048432,
+        "record_count": 3969
+      }
+    },
+    {
+      "id": "idle-018",
+      "clip": "idle",
+      "frame": 18,
+      "time_s": 0.3,
+      "palette_offset_float32": 10368,
+      "socket_world": [
+        0.06504355370998383,
+        -0.3162693977355957,
+        1.0034325122833252
+      ],
+      "normal_corrections": {
+        "byte_offset": 1111936,
+        "record_count": 3942
+      }
+    },
+    {
+      "id": "idle-019",
+      "clip": "idle",
+      "frame": 19,
+      "time_s": 0.31666666666666665,
+      "palette_offset_float32": 10944,
+      "socket_world": [
+        0.06484688073396683,
+        -0.31626930832862854,
+        1.0034033060073853
+      ],
+      "normal_corrections": {
+        "byte_offset": 1175008,
+        "record_count": 4019
+      }
+    },
+    {
+      "id": "idle-020",
+      "clip": "idle",
+      "frame": 20,
+      "time_s": 0.3333333333333333,
+      "palette_offset_float32": 11520,
+      "socket_world": [
+        0.06468500941991806,
+        -0.3162693679332733,
+        1.003379464149475
+      ],
+      "normal_corrections": {
+        "byte_offset": 1239312,
+        "record_count": 3880
+      }
+    },
+    {
+      "id": "idle-021",
+      "clip": "idle",
+      "frame": 21,
+      "time_s": 0.35,
+      "palette_offset_float32": 12096,
+      "socket_world": [
+        0.06455826014280319,
+        -0.31626954674720764,
+        1.0033605098724365
+      ],
+      "normal_corrections": {
+        "byte_offset": 1301392,
+        "record_count": 3942
+      }
+    },
+    {
+      "id": "idle-022",
+      "clip": "idle",
+      "frame": 22,
+      "time_s": 0.36666666666666664,
+      "palette_offset_float32": 12672,
+      "socket_world": [
+        0.06446738541126251,
+        -0.316269189119339,
+        1.0033469200134277
+      ],
+      "normal_corrections": {
+        "byte_offset": 1364464,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-023",
+      "clip": "idle",
+      "frame": 23,
+      "time_s": 0.38333333333333336,
+      "palette_offset_float32": 13248,
+      "socket_world": [
+        0.06441270560026169,
+        -0.3162694275379181,
+        1.003339171409607
+      ],
+      "normal_corrections": {
+        "byte_offset": 1427760,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-024",
+      "clip": "idle",
+      "frame": 24,
+      "time_s": 0.4,
+      "palette_offset_float32": 13824,
+      "socket_world": [
+        0.06439454108476639,
+        -0.3162691295146942,
+        1.0033363103866577
+      ],
+      "normal_corrections": {
+        "byte_offset": 1491056,
+        "record_count": 3795
+      },
+      "oracle": {
+        "path": "assets/idle-024-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "8e132a2d9a9c4a5711cb02e85282fe8b6a4bb8358cb0175caacfdebd725ecfa8"
+      }
+    },
+    {
+      "id": "idle-025",
+      "clip": "idle",
+      "frame": 25,
+      "time_s": 0.4166666666666667,
+      "palette_offset_float32": 14400,
+      "socket_world": [
+        0.06441270560026169,
+        -0.3162694275379181,
+        1.003339171409607
+      ],
+      "normal_corrections": {
+        "byte_offset": 1551776,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-026",
+      "clip": "idle",
+      "frame": 26,
+      "time_s": 0.43333333333333335,
+      "palette_offset_float32": 14976,
+      "socket_world": [
+        0.06446738541126251,
+        -0.316269189119339,
+        1.0033469200134277
+      ],
+      "normal_corrections": {
+        "byte_offset": 1615072,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-027",
+      "clip": "idle",
+      "frame": 27,
+      "time_s": 0.45,
+      "palette_offset_float32": 15552,
+      "socket_world": [
+        0.06455826014280319,
+        -0.31626954674720764,
+        1.0033605098724365
+      ],
+      "normal_corrections": {
+        "byte_offset": 1678368,
+        "record_count": 3942
+      }
+    },
+    {
+      "id": "idle-028",
+      "clip": "idle",
+      "frame": 28,
+      "time_s": 0.4666666666666667,
+      "palette_offset_float32": 16128,
+      "socket_world": [
+        0.06468500941991806,
+        -0.3162693679332733,
+        1.003379464149475
+      ],
+      "normal_corrections": {
+        "byte_offset": 1741440,
+        "record_count": 3880
+      }
+    },
+    {
+      "id": "idle-029",
+      "clip": "idle",
+      "frame": 29,
+      "time_s": 0.48333333333333334,
+      "palette_offset_float32": 16704,
+      "socket_world": [
+        0.06484688073396683,
+        -0.31626930832862854,
+        1.0034033060073853
+      ],
+      "normal_corrections": {
+        "byte_offset": 1803520,
+        "record_count": 4019
+      }
+    },
+    {
+      "id": "idle-030",
+      "clip": "idle",
+      "frame": 30,
+      "time_s": 0.5,
+      "palette_offset_float32": 17280,
+      "socket_world": [
+        0.06504355370998383,
+        -0.3162693977355957,
+        1.0034325122833252
+      ],
+      "normal_corrections": {
+        "byte_offset": 1867824,
+        "record_count": 3942
+      }
+    },
+    {
+      "id": "idle-031",
+      "clip": "idle",
+      "frame": 31,
+      "time_s": 0.5166666666666667,
+      "palette_offset_float32": 17856,
+      "socket_world": [
+        0.06527375429868698,
+        -0.3162694573402405,
+        1.0034669637680054
+      ],
+      "normal_corrections": {
+        "byte_offset": 1930896,
+        "record_count": 3969
+      }
+    },
+    {
+      "id": "idle-032",
+      "clip": "idle",
+      "frame": 32,
+      "time_s": 0.5333333333333333,
+      "palette_offset_float32": 18432,
+      "socket_world": [
+        0.06553670018911362,
+        -0.3162693679332733,
+        1.0035064220428467
+      ],
+      "normal_corrections": {
+        "byte_offset": 1994400,
+        "record_count": 4063
+      }
+    },
+    {
+      "id": "idle-033",
+      "clip": "idle",
+      "frame": 33,
+      "time_s": 0.55,
+      "palette_offset_float32": 19008,
+      "socket_world": [
+        0.06583122909069061,
+        -0.31626930832862854,
+        1.00355064868927
+      ],
+      "normal_corrections": {
+        "byte_offset": 2059408,
+        "record_count": 4074
+      }
+    },
+    {
+      "id": "idle-034",
+      "clip": "idle",
+      "frame": 34,
+      "time_s": 0.5666666666666667,
+      "palette_offset_float32": 19584,
+      "socket_world": [
+        0.06615627557039261,
+        -0.31626930832862854,
+        1.0036002397537231
+      ],
+      "normal_corrections": {
+        "byte_offset": 2124592,
+        "record_count": 4063
+      }
+    },
+    {
+      "id": "idle-035",
+      "clip": "idle",
+      "frame": 35,
+      "time_s": 0.5833333333333334,
+      "palette_offset_float32": 20160,
+      "socket_world": [
+        0.06650981307029724,
+        -0.31626930832862854,
+        1.0036541223526
+      ],
+      "normal_corrections": {
+        "byte_offset": 2189600,
+        "record_count": 3927
+      }
+    },
+    {
+      "id": "idle-036",
+      "clip": "idle",
+      "frame": 36,
+      "time_s": 0.6,
+      "palette_offset_float32": 20736,
+      "socket_world": [
+        0.06689133495092392,
+        -0.31626954674720764,
+        1.0037124156951904
+      ],
+      "normal_corrections": {
+        "byte_offset": 2252432,
+        "record_count": 3833
+      }
+    },
+    {
+      "id": "idle-037",
+      "clip": "idle",
+      "frame": 37,
+      "time_s": 0.6166666666666667,
+      "palette_offset_float32": 21312,
+      "socket_world": [
+        0.06729815155267715,
+        -0.3162692189216614,
+        1.0037755966186523
+      ],
+      "normal_corrections": {
+        "byte_offset": 2313760,
+        "record_count": 3922
+      }
+    },
+    {
+      "id": "idle-038",
+      "clip": "idle",
+      "frame": 38,
+      "time_s": 0.6333333333333333,
+      "palette_offset_float32": 21888,
+      "socket_world": [
+        0.06772905588150024,
+        -0.3162693977355957,
+        1.0038427114486694
+      ],
+      "normal_corrections": {
+        "byte_offset": 2376512,
+        "record_count": 3687
+      }
+    },
+    {
+      "id": "idle-039",
+      "clip": "idle",
+      "frame": 39,
+      "time_s": 0.65,
+      "palette_offset_float32": 22464,
+      "socket_world": [
+        0.06818204373121262,
+        -0.3162693381309509,
+        1.0039141178131104
+      ],
+      "normal_corrections": {
+        "byte_offset": 2435504,
+        "record_count": 3876
+      }
+    },
+    {
+      "id": "idle-040",
+      "clip": "idle",
+      "frame": 40,
+      "time_s": 0.6666666666666666,
+      "palette_offset_float32": 23040,
+      "socket_world": [
+        0.06865517795085907,
+        -0.3162693977355957,
+        1.0039892196655273
+      ],
+      "normal_corrections": {
+        "byte_offset": 2497520,
+        "record_count": 4044
+      }
+    },
+    {
+      "id": "idle-041",
+      "clip": "idle",
+      "frame": 41,
+      "time_s": 0.6833333333333333,
+      "palette_offset_float32": 23616,
+      "socket_world": [
+        0.06914667785167694,
+        -0.3162692189216614,
+        1.0040675401687622
+      ],
+      "normal_corrections": {
+        "byte_offset": 2562224,
+        "record_count": 3881
+      }
+    },
+    {
+      "id": "idle-042",
+      "clip": "idle",
+      "frame": 42,
+      "time_s": 0.7,
+      "palette_offset_float32": 24192,
+      "socket_world": [
+        0.06965404748916626,
+        -0.3162693381309509,
+        1.0041499137878418
+      ],
+      "normal_corrections": {
+        "byte_offset": 2624320,
+        "record_count": 3792
+      }
+    },
+    {
+      "id": "idle-043",
+      "clip": "idle",
+      "frame": 43,
+      "time_s": 0.7166666666666667,
+      "palette_offset_float32": 24768,
+      "socket_world": [
+        0.0701751857995987,
+        -0.31626948714256287,
+        1.0042346715927124
+      ],
+      "normal_corrections": {
+        "byte_offset": 2684992,
+        "record_count": 3972
+      }
+    },
+    {
+      "id": "idle-044",
+      "clip": "idle",
+      "frame": 44,
+      "time_s": 0.7333333333333333,
+      "palette_offset_float32": 25344,
+      "socket_world": [
+        0.07070818543434143,
+        -0.31626930832862854,
+        1.0043225288391113
+      ],
+      "normal_corrections": {
+        "byte_offset": 2748544,
+        "record_count": 3762
+      }
+    },
+    {
+      "id": "idle-045",
+      "clip": "idle",
+      "frame": 45,
+      "time_s": 0.75,
+      "palette_offset_float32": 25920,
+      "socket_world": [
+        0.07125028967857361,
+        -0.3162692189216614,
+        1.004412293434143
+      ],
+      "normal_corrections": {
+        "byte_offset": 2808736,
+        "record_count": 3812
+      }
+    },
+    {
+      "id": "idle-046",
+      "clip": "idle",
+      "frame": 46,
+      "time_s": 0.7666666666666667,
+      "palette_offset_float32": 26496,
+      "socket_world": [
+        0.07179936021566391,
+        -0.316269189119339,
+        1.0045043230056763
+      ],
+      "normal_corrections": {
+        "byte_offset": 2869728,
+        "record_count": 3754
+      }
+    },
+    {
+      "id": "idle-047",
+      "clip": "idle",
+      "frame": 47,
+      "time_s": 0.7833333333333333,
+      "palette_offset_float32": 27072,
+      "socket_world": [
+        0.0723532885313034,
+        -0.3162693977355957,
+        1.0045979022979736
+      ],
+      "normal_corrections": {
+        "byte_offset": 2929792,
+        "record_count": 3514
+      }
+    },
+    {
+      "id": "idle-048",
+      "clip": "idle",
+      "frame": 48,
+      "time_s": 0.8,
+      "palette_offset_float32": 27648,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "normal_corrections": {
+        "byte_offset": 2986016,
+        "record_count": 3551
+      }
+    },
+    {
+      "id": "idle-049",
+      "clip": "idle",
+      "frame": 49,
+      "time_s": 0.8166666666666667,
+      "palette_offset_float32": 28224,
+      "socket_world": [
+        0.07346528023481369,
+        -0.3162693381309509,
+        1.004788875579834
+      ],
+      "normal_corrections": {
+        "byte_offset": 3042832,
+        "record_count": 3501
+      }
+    },
+    {
+      "id": "idle-050",
+      "clip": "idle",
+      "frame": 50,
+      "time_s": 0.8333333333333334,
+      "palette_offset_float32": 28800,
+      "socket_world": [
+        0.0740184485912323,
+        -0.3162693977355957,
+        1.004884958267212
+      ],
+      "normal_corrections": {
+        "byte_offset": 3098848,
+        "record_count": 3775
+      }
+    },
+    {
+      "id": "idle-051",
+      "clip": "idle",
+      "frame": 51,
+      "time_s": 0.85,
+      "palette_offset_float32": 29376,
+      "socket_world": [
+        0.07456722855567932,
+        -0.3162693679332733,
+        1.0049811601638794
+      ],
+      "normal_corrections": {
+        "byte_offset": 3159248,
+        "record_count": 3882
+      }
+    },
+    {
+      "id": "idle-052",
+      "clip": "idle",
+      "frame": 52,
+      "time_s": 0.8666666666666667,
+      "palette_offset_float32": 29952,
+      "socket_world": [
+        0.075108602643013,
+        -0.3162693381309509,
+        1.0050771236419678
+      ],
+      "normal_corrections": {
+        "byte_offset": 3221360,
+        "record_count": 3732
+      }
+    },
+    {
+      "id": "idle-053",
+      "clip": "idle",
+      "frame": 53,
+      "time_s": 0.8833333333333333,
+      "palette_offset_float32": 30528,
+      "socket_world": [
+        0.07564026862382889,
+        -0.3162693977355957,
+        1.0051721334457397
+      ],
+      "normal_corrections": {
+        "byte_offset": 3281072,
+        "record_count": 3928
+      }
+    },
+    {
+      "id": "idle-054",
+      "clip": "idle",
+      "frame": 54,
+      "time_s": 0.9,
+      "palette_offset_float32": 31104,
+      "socket_world": [
+        0.07616031169891357,
+        -0.3162694275379181,
+        1.0052659511566162
+      ],
+      "normal_corrections": {
+        "byte_offset": 3343920,
+        "record_count": 3817
+      }
+    },
+    {
+      "id": "idle-055",
+      "clip": "idle",
+      "frame": 55,
+      "time_s": 0.9166666666666666,
+      "palette_offset_float32": 31680,
+      "socket_world": [
+        0.07666632533073425,
+        -0.3162694275379181,
+        1.0053577423095703
+      ],
+      "normal_corrections": {
+        "byte_offset": 3404992,
+        "record_count": 3751
+      }
+    },
+    {
+      "id": "idle-056",
+      "clip": "idle",
+      "frame": 56,
+      "time_s": 0.9333333333333333,
+      "palette_offset_float32": 32256,
+      "socket_world": [
+        0.07715602964162827,
+        -0.3162693381309509,
+        1.005447506904602
+      ],
+      "normal_corrections": {
+        "byte_offset": 3465008,
+        "record_count": 3971
+      }
+    },
+    {
+      "id": "idle-057",
+      "clip": "idle",
+      "frame": 57,
+      "time_s": 0.95,
+      "palette_offset_float32": 32832,
+      "socket_world": [
+        0.07762768119573593,
+        -0.31626930832862854,
+        1.0055344104766846
+      ],
+      "normal_corrections": {
+        "byte_offset": 3528544,
+        "record_count": 3887
+      }
+    },
+    {
+      "id": "idle-058",
+      "clip": "idle",
+      "frame": 58,
+      "time_s": 0.9666666666666667,
+      "palette_offset_float32": 33408,
+      "socket_world": [
+        0.07807876914739609,
+        -0.3162693381309509,
+        1.0056179761886597
+      ],
+      "normal_corrections": {
+        "byte_offset": 3590736,
+        "record_count": 3819
+      }
+    },
+    {
+      "id": "idle-059",
+      "clip": "idle",
+      "frame": 59,
+      "time_s": 0.9833333333333333,
+      "palette_offset_float32": 33984,
+      "socket_world": [
+        0.07850789278745651,
+        -0.3162694275379181,
+        1.005698800086975
+      ],
+      "normal_corrections": {
+        "byte_offset": 3651840,
+        "record_count": 3976
+      }
+    },
+    {
+      "id": "idle-060",
+      "clip": "idle",
+      "frame": 60,
+      "time_s": 1.0,
+      "palette_offset_float32": 34560,
+      "socket_world": [
+        0.07891284674406052,
+        -0.31626948714256287,
+        1.0057746171951294
+      ],
+      "normal_corrections": {
+        "byte_offset": 3715456,
+        "record_count": 3960
+      }
+    },
+    {
+      "id": "idle-061",
+      "clip": "idle",
+      "frame": 61,
+      "time_s": 1.0166666666666666,
+      "palette_offset_float32": 35136,
+      "socket_world": [
+        0.07929211109876633,
+        -0.31626948714256287,
+        1.0058467388153076
+      ],
+      "normal_corrections": {
+        "byte_offset": 3778816,
+        "record_count": 4000
+      }
+    },
+    {
+      "id": "idle-062",
+      "clip": "idle",
+      "frame": 62,
+      "time_s": 1.0333333333333334,
+      "palette_offset_float32": 35712,
+      "socket_world": [
+        0.07964382320642471,
+        -0.3162692189216614,
+        1.0059137344360352
+      ],
+      "normal_corrections": {
+        "byte_offset": 3842816,
+        "record_count": 3991
+      }
+    },
+    {
+      "id": "idle-063",
+      "clip": "idle",
+      "frame": 63,
+      "time_s": 1.05,
+      "palette_offset_float32": 36288,
+      "socket_world": [
+        0.0799669697880745,
+        -0.31626957654953003,
+        1.0059752464294434
+      ],
+      "normal_corrections": {
+        "byte_offset": 3906672,
+        "record_count": 4046
+      }
+    },
+    {
+      "id": "idle-064",
+      "clip": "idle",
+      "frame": 64,
+      "time_s": 1.0666666666666667,
+      "palette_offset_float32": 36864,
+      "socket_world": [
+        0.08026000112295151,
+        -0.3162694573402405,
+        1.006032109260559
+      ],
+      "normal_corrections": {
+        "byte_offset": 3971408,
+        "record_count": 4024
+      }
+    },
+    {
+      "id": "idle-065",
+      "clip": "idle",
+      "frame": 65,
+      "time_s": 1.0833333333333333,
+      "palette_offset_float32": 37440,
+      "socket_world": [
+        0.08052140474319458,
+        -0.3162693977355957,
+        1.00608229637146
+      ],
+      "normal_corrections": {
+        "byte_offset": 4035792,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-066",
+      "clip": "idle",
+      "frame": 66,
+      "time_s": 1.1,
+      "palette_offset_float32": 38016,
+      "socket_world": [
+        0.08075006306171417,
+        -0.3162693381309509,
+        1.0061266422271729
+      ],
+      "normal_corrections": {
+        "byte_offset": 4099088,
+        "record_count": 3909
+      }
+    },
+    {
+      "id": "idle-067",
+      "clip": "idle",
+      "frame": 67,
+      "time_s": 1.1166666666666667,
+      "palette_offset_float32": 38592,
+      "socket_world": [
+        0.0809452161192894,
+        -0.3162693381309509,
+        1.0061650276184082
+      ],
+      "normal_corrections": {
+        "byte_offset": 4161632,
+        "record_count": 4044
+      }
+    },
+    {
+      "id": "idle-068",
+      "clip": "idle",
+      "frame": 68,
+      "time_s": 1.1333333333333333,
+      "palette_offset_float32": 39168,
+      "socket_world": [
+        0.0811062827706337,
+        -0.3162693977355957,
+        1.0061962604522705
+      ],
+      "normal_corrections": {
+        "byte_offset": 4226336,
+        "record_count": 3840
+      }
+    },
+    {
+      "id": "idle-069",
+      "clip": "idle",
+      "frame": 69,
+      "time_s": 1.15,
+      "palette_offset_float32": 39744,
+      "socket_world": [
+        0.0812319740653038,
+        -0.3162694573402405,
+        1.0062209367752075
+      ],
+      "normal_corrections": {
+        "byte_offset": 4287776,
+        "record_count": 3794
+      }
+    },
+    {
+      "id": "idle-070",
+      "clip": "idle",
+      "frame": 70,
+      "time_s": 1.1666666666666667,
+      "palette_offset_float32": 40320,
+      "socket_world": [
+        0.08132237195968628,
+        -0.3162693679332733,
+        1.006238579750061
+      ],
+      "normal_corrections": {
+        "byte_offset": 4348480,
+        "record_count": 3909
+      }
+    },
+    {
+      "id": "idle-071",
+      "clip": "idle",
+      "frame": 71,
+      "time_s": 1.1833333333333333,
+      "palette_offset_float32": 40896,
+      "socket_world": [
+        0.08137676119804382,
+        -0.3162693977355957,
+        1.0062494277954102
+      ],
+      "normal_corrections": {
+        "byte_offset": 4411024,
+        "record_count": 3832
+      }
+    },
+    {
+      "id": "idle-072",
+      "clip": "idle",
+      "frame": 72,
+      "time_s": 1.2,
+      "palette_offset_float32": 41472,
+      "socket_world": [
+        0.08139493316411972,
+        -0.3162693679332733,
+        1.006252408027649
+      ],
+      "normal_corrections": {
+        "byte_offset": 4472336,
+        "record_count": 3828
+      },
+      "oracle": {
+        "path": "assets/idle-072-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "aedc45b2990feeae31954764fd4712c4dbcb1658c76599ec7f8bc9f283ed668e"
+      }
+    },
+    {
+      "id": "idle-073",
+      "clip": "idle",
+      "frame": 73,
+      "time_s": 1.2166666666666666,
+      "palette_offset_float32": 42048,
+      "socket_world": [
+        0.08137676119804382,
+        -0.3162693977355957,
+        1.0062494277954102
+      ],
+      "normal_corrections": {
+        "byte_offset": 4533584,
+        "record_count": 3832
+      }
+    },
+    {
+      "id": "idle-074",
+      "clip": "idle",
+      "frame": 74,
+      "time_s": 1.2333333333333334,
+      "palette_offset_float32": 42624,
+      "socket_world": [
+        0.08132237195968628,
+        -0.3162693679332733,
+        1.006238579750061
+      ],
+      "normal_corrections": {
+        "byte_offset": 4594896,
+        "record_count": 3909
+      }
+    },
+    {
+      "id": "idle-075",
+      "clip": "idle",
+      "frame": 75,
+      "time_s": 1.25,
+      "palette_offset_float32": 43200,
+      "socket_world": [
+        0.0812319740653038,
+        -0.3162694573402405,
+        1.0062209367752075
+      ],
+      "normal_corrections": {
+        "byte_offset": 4657440,
+        "record_count": 3794
+      }
+    },
+    {
+      "id": "idle-076",
+      "clip": "idle",
+      "frame": 76,
+      "time_s": 1.2666666666666666,
+      "palette_offset_float32": 43776,
+      "socket_world": [
+        0.0811062827706337,
+        -0.3162693977355957,
+        1.0061962604522705
+      ],
+      "normal_corrections": {
+        "byte_offset": 4718144,
+        "record_count": 3840
+      }
+    },
+    {
+      "id": "idle-077",
+      "clip": "idle",
+      "frame": 77,
+      "time_s": 1.2833333333333334,
+      "palette_offset_float32": 44352,
+      "socket_world": [
+        0.0809452161192894,
+        -0.3162693381309509,
+        1.0061650276184082
+      ],
+      "normal_corrections": {
+        "byte_offset": 4779584,
+        "record_count": 4044
+      }
+    },
+    {
+      "id": "idle-078",
+      "clip": "idle",
+      "frame": 78,
+      "time_s": 1.3,
+      "palette_offset_float32": 44928,
+      "socket_world": [
+        0.08075006306171417,
+        -0.3162693381309509,
+        1.0061266422271729
+      ],
+      "normal_corrections": {
+        "byte_offset": 4844288,
+        "record_count": 3909
+      }
+    },
+    {
+      "id": "idle-079",
+      "clip": "idle",
+      "frame": 79,
+      "time_s": 1.3166666666666667,
+      "palette_offset_float32": 45504,
+      "socket_world": [
+        0.08052140474319458,
+        -0.3162693977355957,
+        1.00608229637146
+      ],
+      "normal_corrections": {
+        "byte_offset": 4906832,
+        "record_count": 3956
+      }
+    },
+    {
+      "id": "idle-080",
+      "clip": "idle",
+      "frame": 80,
+      "time_s": 1.3333333333333333,
+      "palette_offset_float32": 46080,
+      "socket_world": [
+        0.08026000112295151,
+        -0.3162694573402405,
+        1.006032109260559
+      ],
+      "normal_corrections": {
+        "byte_offset": 4970128,
+        "record_count": 4024
+      }
+    },
+    {
+      "id": "idle-081",
+      "clip": "idle",
+      "frame": 81,
+      "time_s": 1.35,
+      "palette_offset_float32": 46656,
+      "socket_world": [
+        0.0799669697880745,
+        -0.31626957654953003,
+        1.0059752464294434
+      ],
+      "normal_corrections": {
+        "byte_offset": 5034512,
+        "record_count": 4046
+      }
+    },
+    {
+      "id": "idle-082",
+      "clip": "idle",
+      "frame": 82,
+      "time_s": 1.3666666666666667,
+      "palette_offset_float32": 47232,
+      "socket_world": [
+        0.07964382320642471,
+        -0.3162692189216614,
+        1.0059137344360352
+      ],
+      "normal_corrections": {
+        "byte_offset": 5099248,
+        "record_count": 3991
+      }
+    },
+    {
+      "id": "idle-083",
+      "clip": "idle",
+      "frame": 83,
+      "time_s": 1.3833333333333333,
+      "palette_offset_float32": 47808,
+      "socket_world": [
+        0.07929211109876633,
+        -0.31626948714256287,
+        1.0058467388153076
+      ],
+      "normal_corrections": {
+        "byte_offset": 5163104,
+        "record_count": 4000
+      }
+    },
+    {
+      "id": "idle-084",
+      "clip": "idle",
+      "frame": 84,
+      "time_s": 1.4,
+      "palette_offset_float32": 48384,
+      "socket_world": [
+        0.07891284674406052,
+        -0.31626948714256287,
+        1.0057746171951294
+      ],
+      "normal_corrections": {
+        "byte_offset": 5227104,
+        "record_count": 3960
+      }
+    },
+    {
+      "id": "idle-085",
+      "clip": "idle",
+      "frame": 85,
+      "time_s": 1.4166666666666667,
+      "palette_offset_float32": 48960,
+      "socket_world": [
+        0.07850789278745651,
+        -0.3162694275379181,
+        1.005698800086975
+      ],
+      "normal_corrections": {
+        "byte_offset": 5290464,
+        "record_count": 3976
+      }
+    },
+    {
+      "id": "idle-086",
+      "clip": "idle",
+      "frame": 86,
+      "time_s": 1.4333333333333333,
+      "palette_offset_float32": 49536,
+      "socket_world": [
+        0.07807876914739609,
+        -0.3162693381309509,
+        1.0056179761886597
+      ],
+      "normal_corrections": {
+        "byte_offset": 5354080,
+        "record_count": 3819
+      }
+    },
+    {
+      "id": "idle-087",
+      "clip": "idle",
+      "frame": 87,
+      "time_s": 1.45,
+      "palette_offset_float32": 50112,
+      "socket_world": [
+        0.07762768119573593,
+        -0.31626930832862854,
+        1.0055344104766846
+      ],
+      "normal_corrections": {
+        "byte_offset": 5415184,
+        "record_count": 3887
+      }
+    },
+    {
+      "id": "idle-088",
+      "clip": "idle",
+      "frame": 88,
+      "time_s": 1.4666666666666666,
+      "palette_offset_float32": 50688,
+      "socket_world": [
+        0.07715602964162827,
+        -0.3162693381309509,
+        1.005447506904602
+      ],
+      "normal_corrections": {
+        "byte_offset": 5477376,
+        "record_count": 3971
+      }
+    },
+    {
+      "id": "idle-089",
+      "clip": "idle",
+      "frame": 89,
+      "time_s": 1.4833333333333334,
+      "palette_offset_float32": 51264,
+      "socket_world": [
+        0.07666632533073425,
+        -0.3162694275379181,
+        1.0053577423095703
+      ],
+      "normal_corrections": {
+        "byte_offset": 5540912,
+        "record_count": 3751
+      }
+    },
+    {
+      "id": "idle-090",
+      "clip": "idle",
+      "frame": 90,
+      "time_s": 1.5,
+      "palette_offset_float32": 51840,
+      "socket_world": [
+        0.07616031169891357,
+        -0.3162694275379181,
+        1.0052659511566162
+      ],
+      "normal_corrections": {
+        "byte_offset": 5600928,
+        "record_count": 3817
+      }
+    },
+    {
+      "id": "idle-091",
+      "clip": "idle",
+      "frame": 91,
+      "time_s": 1.5166666666666666,
+      "palette_offset_float32": 52416,
+      "socket_world": [
+        0.07564026862382889,
+        -0.3162693977355957,
+        1.0051721334457397
+      ],
+      "normal_corrections": {
+        "byte_offset": 5662000,
+        "record_count": 3928
+      }
+    },
+    {
+      "id": "idle-092",
+      "clip": "idle",
+      "frame": 92,
+      "time_s": 1.5333333333333334,
+      "palette_offset_float32": 52992,
+      "socket_world": [
+        0.075108602643013,
+        -0.3162693381309509,
+        1.0050771236419678
+      ],
+      "normal_corrections": {
+        "byte_offset": 5724848,
+        "record_count": 3732
+      }
+    },
+    {
+      "id": "idle-093",
+      "clip": "idle",
+      "frame": 93,
+      "time_s": 1.55,
+      "palette_offset_float32": 53568,
+      "socket_world": [
+        0.07456722855567932,
+        -0.3162693679332733,
+        1.0049811601638794
+      ],
+      "normal_corrections": {
+        "byte_offset": 5784560,
+        "record_count": 3882
+      }
+    },
+    {
+      "id": "idle-094",
+      "clip": "idle",
+      "frame": 94,
+      "time_s": 1.5666666666666667,
+      "palette_offset_float32": 54144,
+      "socket_world": [
+        0.0740184485912323,
+        -0.3162693977355957,
+        1.004884958267212
+      ],
+      "normal_corrections": {
+        "byte_offset": 5846672,
+        "record_count": 3775
+      }
+    },
+    {
+      "id": "idle-095",
+      "clip": "idle",
+      "frame": 95,
+      "time_s": 1.5833333333333333,
+      "palette_offset_float32": 54720,
+      "socket_world": [
+        0.07346528023481369,
+        -0.3162693381309509,
+        1.004788875579834
+      ],
+      "normal_corrections": {
+        "byte_offset": 5907072,
+        "record_count": 3501
+      }
+    },
+    {
+      "id": "walk-000",
+      "clip": "walk",
+      "frame": 0,
+      "time_s": 0.0,
+      "palette_offset_float32": 55296,
+      "socket_world": [
+        0.08146807551383972,
+        -0.3162693977355957,
+        0.8908891081809998
+      ],
+      "normal_corrections": {
+        "byte_offset": 5963088,
+        "record_count": 8117
+      },
+      "oracle": {
+        "path": "assets/walk-000-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "eac2576a81f7cf0549369c5ba2f163bd3d555f3b0aec20eec42cc16aa7d6bf4f"
+      }
+    },
+    {
+      "id": "walk-001",
+      "clip": "walk",
+      "frame": 1,
+      "time_s": 0.016666666666666666,
+      "palette_offset_float32": 55872,
+      "socket_world": [
+        0.10254307836294174,
+        -0.31613805890083313,
+        0.8892053961753845
+      ],
+      "normal_corrections": {
+        "byte_offset": 6092960,
+        "record_count": 8203
+      }
+    },
+    {
+      "id": "walk-002",
+      "clip": "walk",
+      "frame": 2,
+      "time_s": 0.03333333333333333,
+      "palette_offset_float32": 56448,
+      "socket_world": [
+        0.12318214029073715,
+        -0.3159708082675934,
+        0.8952339291572571
+      ],
+      "normal_corrections": {
+        "byte_offset": 6224208,
+        "record_count": 8158
+      }
+    },
+    {
+      "id": "walk-003",
+      "clip": "walk",
+      "frame": 3,
+      "time_s": 0.05,
+      "palette_offset_float32": 57024,
+      "socket_world": [
+        0.14302514493465424,
+        -0.31577348709106445,
+        0.911012589931488
+      ],
+      "normal_corrections": {
+        "byte_offset": 6354736,
+        "record_count": 8171
+      }
+    },
+    {
+      "id": "walk-004",
+      "clip": "walk",
+      "frame": 4,
+      "time_s": 0.06666666666666667,
+      "palette_offset_float32": 57600,
+      "socket_world": [
+        0.16173052787780762,
+        -0.31555411219596863,
+        0.9345527291297913
+      ],
+      "normal_corrections": {
+        "byte_offset": 6485472,
+        "record_count": 8159
+      }
+    },
+    {
+      "id": "walk-005",
+      "clip": "walk",
+      "frame": 5,
+      "time_s": 0.08333333333333333,
+      "palette_offset_float32": 58176,
+      "socket_world": [
+        0.1789856255054474,
+        -0.31532222032546997,
+        0.9604889154434204
+      ],
+      "normal_corrections": {
+        "byte_offset": 6616016,
+        "record_count": 8132
+      }
+    },
+    {
+      "id": "walk-006",
+      "clip": "walk",
+      "frame": 6,
+      "time_s": 0.1,
+      "palette_offset_float32": 58752,
+      "socket_world": [
+        0.19450868666172028,
+        -0.3150896430015564,
+        0.9796550273895264
+      ],
+      "normal_corrections": {
+        "byte_offset": 6746128,
+        "record_count": 8110
+      }
+    },
+    {
+      "id": "walk-007",
+      "clip": "walk",
+      "frame": 7,
+      "time_s": 0.11666666666666667,
+      "palette_offset_float32": 59328,
+      "socket_world": [
+        0.2080552875995636,
+        -0.31486740708351135,
+        0.9912271499633789
+      ],
+      "normal_corrections": {
+        "byte_offset": 6875888,
+        "record_count": 8282
+      }
+    },
+    {
+      "id": "walk-008",
+      "clip": "walk",
+      "frame": 8,
+      "time_s": 0.13333333333333333,
+      "palette_offset_float32": 59904,
+      "socket_world": [
+        0.21941746771335602,
+        -0.31466665863990784,
+        0.9992333650588989
+      ],
+      "normal_corrections": {
+        "byte_offset": 7008400,
+        "record_count": 8155
+      }
+    },
+    {
+      "id": "walk-009",
+      "clip": "walk",
+      "frame": 9,
+      "time_s": 0.15,
+      "palette_offset_float32": 60480,
+      "socket_world": [
+        0.22842718660831451,
+        -0.3144983947277069,
+        1.0050245523452759
+      ],
+      "normal_corrections": {
+        "byte_offset": 7138880,
+        "record_count": 8280
+      }
+    },
+    {
+      "id": "walk-010",
+      "clip": "walk",
+      "frame": 10,
+      "time_s": 0.16666666666666666,
+      "palette_offset_float32": 61056,
+      "socket_world": [
+        0.23495431244373322,
+        -0.3143715560436249,
+        1.008976697921753
+      ],
+      "normal_corrections": {
+        "byte_offset": 7271360,
+        "record_count": 8276
+      }
+    },
+    {
+      "id": "walk-011",
+      "clip": "walk",
+      "frame": 11,
+      "time_s": 0.18333333333333332,
+      "palette_offset_float32": 61632,
+      "socket_world": [
+        0.23890691995620728,
+        -0.31429222226142883,
+        1.0112227201461792
+      ],
+      "normal_corrections": {
+        "byte_offset": 7403776,
+        "record_count": 8224
+      }
+    },
+    {
+      "id": "walk-012",
+      "clip": "walk",
+      "frame": 12,
+      "time_s": 0.2,
+      "palette_offset_float32": 62208,
+      "socket_world": [
+        0.24023032188415527,
+        -0.31426525115966797,
+        1.0118136405944824
+      ],
+      "normal_corrections": {
+        "byte_offset": 7535360,
+        "record_count": 8317
+      },
+      "oracle": {
+        "path": "assets/walk-012-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "819295bdefe3397b9f2de1937bb25ab7fd3793be2671e4a3059594754ac50efc"
+      }
+    },
+    {
+      "id": "walk-013",
+      "clip": "walk",
+      "frame": 13,
+      "time_s": 0.21666666666666667,
+      "palette_offset_float32": 62784,
+      "socket_world": [
+        0.23890693485736847,
+        -0.3142920434474945,
+        1.0107532739639282
+      ],
+      "normal_corrections": {
+        "byte_offset": 7668432,
+        "record_count": 8266
+      }
+    },
+    {
+      "id": "walk-014",
+      "clip": "walk",
+      "frame": 14,
+      "time_s": 0.23333333333333334,
+      "palette_offset_float32": 63360,
+      "socket_world": [
+        0.2349543422460556,
+        -0.3143712878227234,
+        1.0080156326293945
+      ],
+      "normal_corrections": {
+        "byte_offset": 7800688,
+        "record_count": 8292
+      }
+    },
+    {
+      "id": "walk-015",
+      "clip": "walk",
+      "frame": 15,
+      "time_s": 0.25,
+      "palette_offset_float32": 63936,
+      "socket_world": [
+        0.22842712700366974,
+        -0.3144983649253845,
+        1.0035408735275269
+      ],
+      "normal_corrections": {
+        "byte_offset": 7933360,
+        "record_count": 8228
+      }
+    },
+    {
+      "id": "walk-016",
+      "clip": "walk",
+      "frame": 16,
+      "time_s": 0.26666666666666666,
+      "palette_offset_float32": 64512,
+      "socket_world": [
+        0.21941733360290527,
+        -0.3146667182445526,
+        0.9972212314605713
+      ],
+      "normal_corrections": {
+        "byte_offset": 8065008,
+        "record_count": 8256
+      }
+    },
+    {
+      "id": "walk-017",
+      "clip": "walk",
+      "frame": 17,
+      "time_s": 0.2833333333333333,
+      "palette_offset_float32": 65088,
+      "socket_world": [
+        0.2080550640821457,
+        -0.3148673474788666,
+        0.9888296127319336
+      ],
+      "normal_corrections": {
+        "byte_offset": 8197104,
+        "record_count": 8198
+      }
+    },
+    {
+      "id": "walk-018",
+      "clip": "walk",
+      "frame": 18,
+      "time_s": 0.3,
+      "palette_offset_float32": 65664,
+      "socket_world": [
+        0.19450879096984863,
+        -0.31508955359458923,
+        0.9777032732963562
+      ],
+      "normal_corrections": {
+        "byte_offset": 8328272,
+        "record_count": 8056
+      }
+    },
+    {
+      "id": "walk-019",
+      "clip": "walk",
+      "frame": 19,
+      "time_s": 0.31666666666666665,
+      "palette_offset_float32": 66240,
+      "socket_world": [
+        0.17898574471473694,
+        -0.31532230973243713,
+        0.9618622660636902
+      ],
+      "normal_corrections": {
+        "byte_offset": 8457168,
+        "record_count": 8230
+      }
+    },
+    {
+      "id": "walk-020",
+      "clip": "walk",
+      "frame": 20,
+      "time_s": 0.3333333333333333,
+      "palette_offset_float32": 66816,
+      "socket_world": [
+        0.1617305725812912,
+        -0.31555405259132385,
+        0.940001368522644
+      ],
+      "normal_corrections": {
+        "byte_offset": 8588848,
+        "record_count": 8173
+      }
+    },
+    {
+      "id": "walk-021",
+      "clip": "walk",
+      "frame": 21,
+      "time_s": 0.35,
+      "palette_offset_float32": 67392,
+      "socket_world": [
+        0.14302518963813782,
+        -0.31577348709106445,
+        0.9181782007217407
+      ],
+      "normal_corrections": {
+        "byte_offset": 8719616,
+        "record_count": 8156
+      }
+    },
+    {
+      "id": "walk-022",
+      "clip": "walk",
+      "frame": 22,
+      "time_s": 0.36666666666666664,
+      "palette_offset_float32": 67968,
+      "socket_world": [
+        0.1231822595000267,
+        -0.31597068905830383,
+        0.9025829434394836
+      ],
+      "normal_corrections": {
+        "byte_offset": 8850112,
+        "record_count": 8152
+      }
+    },
+    {
+      "id": "walk-023",
+      "clip": "walk",
+      "frame": 23,
+      "time_s": 0.38333333333333336,
+      "palette_offset_float32": 68544,
+      "socket_world": [
+        0.10254297405481339,
+        -0.31613805890083313,
+        0.8950405716896057
+      ],
+      "normal_corrections": {
+        "byte_offset": 8980544,
+        "record_count": 8103
+      }
+    },
+    {
+      "id": "walk-024",
+      "clip": "walk",
+      "frame": 24,
+      "time_s": 0.4,
+      "palette_offset_float32": 69120,
+      "socket_world": [
+        0.08146807551383972,
+        -0.3162693977355957,
+        0.8908891081809998
+      ],
+      "normal_corrections": {
+        "byte_offset": 9110192,
+        "record_count": 8126
+      }
+    },
+    {
+      "id": "walk-025",
+      "clip": "walk",
+      "frame": 25,
+      "time_s": 0.4166666666666667,
+      "palette_offset_float32": 69696,
+      "socket_world": [
+        0.060331497341394424,
+        -0.3163614869117737,
+        0.8850182890892029
+      ],
+      "normal_corrections": {
+        "byte_offset": 9240208,
+        "record_count": 8121
+      }
+    },
+    {
+      "id": "walk-026",
+      "clip": "walk",
+      "frame": 26,
+      "time_s": 0.43333333333333335,
+      "palette_offset_float32": 70272,
+      "socket_world": [
+        0.03951149433851242,
+        -0.3164137899875641,
+        0.8869355320930481
+      ],
+      "normal_corrections": {
+        "byte_offset": 9370144,
+        "record_count": 8127
+      }
+    },
+    {
+      "id": "walk-027",
+      "clip": "walk",
+      "frame": 27,
+      "time_s": 0.45,
+      "palette_offset_float32": 70848,
+      "socket_world": [
+        0.019381867721676826,
+        -0.3164283037185669,
+        0.8987506628036499
+      ],
+      "normal_corrections": {
+        "byte_offset": 9500176,
+        "record_count": 8118
+      }
+    },
+    {
+      "id": "walk-028",
+      "clip": "walk",
+      "frame": 28,
+      "time_s": 0.4666666666666667,
+      "palette_offset_float32": 71424,
+      "socket_world": [
+        0.00030246563255786896,
+        -0.31640952825546265,
+        0.9185447692871094
+      ],
+      "normal_corrections": {
+        "byte_offset": 9630064,
+        "record_count": 8037
+      }
+    },
+    {
+      "id": "walk-029",
+      "clip": "walk",
+      "frame": 29,
+      "time_s": 0.48333333333333334,
+      "palette_offset_float32": 72000,
+      "socket_world": [
+        -0.017387140542268753,
+        -0.3163638114929199,
+        0.9410178065299988
+      ],
+      "normal_corrections": {
+        "byte_offset": 9758656,
+        "record_count": 8200
+      }
+    },
+    {
+      "id": "walk-030",
+      "clip": "walk",
+      "frame": 30,
+      "time_s": 0.5,
+      "palette_offset_float32": 72576,
+      "socket_world": [
+        -0.03337639570236206,
+        -0.31629908084869385,
+        0.9570622444152832
+      ],
+      "normal_corrections": {
+        "byte_offset": 9889856,
+        "record_count": 8224
+      }
+    },
+    {
+      "id": "walk-031",
+      "clip": "walk",
+      "frame": 31,
+      "time_s": 0.5166666666666667,
+      "palette_offset_float32": 73152,
+      "socket_world": [
+        -0.04738858342170715,
+        -0.3162236511707306,
+        0.9659053087234497
+      ],
+      "normal_corrections": {
+        "byte_offset": 10021440,
+        "record_count": 8269
+      }
+    },
+    {
+      "id": "walk-032",
+      "clip": "walk",
+      "frame": 32,
+      "time_s": 0.5333333333333333,
+      "palette_offset_float32": 73728,
+      "socket_world": [
+        -0.05918425694108009,
+        -0.3161472678184509,
+        0.9716187715530396
+      ],
+      "normal_corrections": {
+        "byte_offset": 10153744,
+        "record_count": 8220
+      }
+    },
+    {
+      "id": "walk-033",
+      "clip": "walk",
+      "frame": 33,
+      "time_s": 0.55,
+      "palette_offset_float32": 74304,
+      "socket_world": [
+        -0.06856580078601837,
+        -0.31607747077941895,
+        0.9755903482437134
+      ],
+      "normal_corrections": {
+        "byte_offset": 10285264,
+        "record_count": 8236
+      }
+    },
+    {
+      "id": "walk-034",
+      "clip": "walk",
+      "frame": 34,
+      "time_s": 0.5666666666666667,
+      "palette_offset_float32": 74880,
+      "socket_world": [
+        -0.07537800818681717,
+        -0.316022127866745,
+        0.9782224893569946
+      ],
+      "normal_corrections": {
+        "byte_offset": 10417040,
+        "record_count": 8341
+      }
+    },
+    {
+      "id": "walk-035",
+      "clip": "walk",
+      "frame": 35,
+      "time_s": 0.5833333333333334,
+      "palette_offset_float32": 75456,
+      "socket_world": [
+        -0.07950997352600098,
+        -0.315986305475235,
+        0.9796687960624695
+      ],
+      "normal_corrections": {
+        "byte_offset": 10550496,
+        "record_count": 8251
+      }
+    },
+    {
+      "id": "walk-036",
+      "clip": "walk",
+      "frame": 36,
+      "time_s": 0.6,
+      "palette_offset_float32": 76032,
+      "socket_world": [
+        -0.08089477568864822,
+        -0.3159741163253784,
+        0.9799912571907043
+      ],
+      "normal_corrections": {
+        "byte_offset": 10682512,
+        "record_count": 8179
+      },
+      "oracle": {
+        "path": "assets/walk-036-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "d96d8ea737f5e6f70ec8661a73273e08936a8887c53a370fe5feed239ea0fde0"
+      }
+    },
+    {
+      "id": "walk-037",
+      "clip": "walk",
+      "frame": 37,
+      "time_s": 0.6166666666666667,
+      "palette_offset_float32": 76608,
+      "socket_world": [
+        -0.07951001077890396,
+        -0.3159865140914917,
+        0.9791990518569946
+      ],
+      "normal_corrections": {
+        "byte_offset": 10813376,
+        "record_count": 8204
+      }
+    },
+    {
+      "id": "walk-038",
+      "clip": "walk",
+      "frame": 38,
+      "time_s": 0.6333333333333333,
+      "palette_offset_float32": 77184,
+      "socket_world": [
+        -0.07537800818681717,
+        -0.31602197885513306,
+        0.9772611856460571
+      ],
+      "normal_corrections": {
+        "byte_offset": 10944640,
+        "record_count": 8226
+      }
+    },
+    {
+      "id": "walk-039",
+      "clip": "walk",
+      "frame": 39,
+      "time_s": 0.65,
+      "palette_offset_float32": 77760,
+      "socket_world": [
+        -0.06856581568717957,
+        -0.31607747077941895,
+        0.9741064310073853
+      ],
+      "normal_corrections": {
+        "byte_offset": 11076256,
+        "record_count": 8326
+      }
+    },
+    {
+      "id": "walk-040",
+      "clip": "walk",
+      "frame": 40,
+      "time_s": 0.6666666666666666,
+      "palette_offset_float32": 78336,
+      "socket_world": [
+        -0.05918419361114502,
+        -0.31614717841148376,
+        0.9696069359779358
+      ],
+      "normal_corrections": {
+        "byte_offset": 11209472,
+        "record_count": 8177
+      }
+    },
+    {
+      "id": "walk-041",
+      "clip": "walk",
+      "frame": 41,
+      "time_s": 0.6833333333333333,
+      "palette_offset_float32": 78912,
+      "socket_world": [
+        -0.04738865792751312,
+        -0.31622377038002014,
+        0.9635074734687805
+      ],
+      "normal_corrections": {
+        "byte_offset": 11340304,
+        "record_count": 8225
+      }
+    },
+    {
+      "id": "walk-042",
+      "clip": "walk",
+      "frame": 42,
+      "time_s": 0.7,
+      "palette_offset_float32": 79488,
+      "socket_world": [
+        -0.033376459032297134,
+        -0.3162989616394043,
+        0.9551104307174683
+      ],
+      "normal_corrections": {
+        "byte_offset": 11471904,
+        "record_count": 8211
+      }
+    },
+    {
+      "id": "walk-043",
+      "clip": "walk",
+      "frame": 43,
+      "time_s": 0.7166666666666667,
+      "palette_offset_float32": 80064,
+      "socket_world": [
+        -0.017387088388204575,
+        -0.316363662481308,
+        0.942391574382782
+      ],
+      "normal_corrections": {
+        "byte_offset": 11603280,
+        "record_count": 8171
+      }
+    },
+    {
+      "id": "walk-044",
+      "clip": "walk",
+      "frame": 44,
+      "time_s": 0.7333333333333333,
+      "palette_offset_float32": 80640,
+      "socket_world": [
+        0.0003024823672603816,
+        -0.3164096772670746,
+        0.9239934086799622
+      ],
+      "normal_corrections": {
+        "byte_offset": 11734016,
+        "record_count": 8189
+      }
+    },
+    {
+      "id": "walk-045",
+      "clip": "walk",
+      "frame": 45,
+      "time_s": 0.75,
+      "palette_offset_float32": 81216,
+      "socket_world": [
+        0.019381850957870483,
+        -0.3164283335208893,
+        0.9059162735939026
+      ],
+      "normal_corrections": {
+        "byte_offset": 11865040,
+        "record_count": 8231
+      }
+    },
+    {
+      "id": "walk-046",
+      "clip": "walk",
+      "frame": 46,
+      "time_s": 0.7666666666666667,
+      "palette_offset_float32": 81792,
+      "socket_world": [
+        0.03951135277748108,
+        -0.3164138197898865,
+        0.8942848443984985
+      ],
+      "normal_corrections": {
+        "byte_offset": 11996736,
+        "record_count": 8107
+      }
+    },
+    {
+      "id": "walk-047",
+      "clip": "walk",
+      "frame": 47,
+      "time_s": 0.7833333333333333,
+      "palette_offset_float32": 82368,
+      "socket_world": [
+        0.06033145636320114,
+        -0.31636130809783936,
+        0.8908531069755554
+      ],
+      "normal_corrections": {
+        "byte_offset": 12126448,
+        "record_count": 8108
+      }
+    },
+    {
+      "id": "cast-000",
+      "clip": "cast",
+      "frame": 0,
+      "time_s": 0.0,
+      "palette_offset_float32": 82944,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "normal_corrections": {
+        "byte_offset": 12256176,
+        "record_count": 3551
+      },
+      "oracle": {
+        "path": "assets/cast-000-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "d422d312669a05fc2fcbb104f1bed34ff43d9302b1d1b9f374713043a31a1851"
+      }
+    },
+    {
+      "id": "cast-001",
+      "clip": "cast",
+      "frame": 1,
+      "time_s": 0.016666666666666666,
+      "palette_offset_float32": 83520,
+      "socket_world": [
+        0.074449323117733,
+        -0.3162693977355957,
+        1.0048788785934448
+      ],
+      "normal_corrections": {
+        "byte_offset": 12312992,
+        "record_count": 3504
+      }
+    },
+    {
+      "id": "cast-002",
+      "clip": "cast",
+      "frame": 2,
+      "time_s": 0.03333333333333333,
+      "palette_offset_float32": 84096,
+      "socket_world": [
+        0.078949935734272,
+        -0.3162692189216614,
+        1.0054419040679932
+      ],
+      "normal_corrections": {
+        "byte_offset": 12369056,
+        "record_count": 3529
+      }
+    },
+    {
+      "id": "cast-003",
+      "clip": "cast",
+      "frame": 3,
+      "time_s": 0.05,
+      "palette_offset_float32": 84672,
+      "socket_world": [
+        0.08622932434082031,
+        -0.3162694275379181,
+        1.006418228149414
+      ],
+      "normal_corrections": {
+        "byte_offset": 12425520,
+        "record_count": 3518
+      }
+    },
+    {
+      "id": "cast-004",
+      "clip": "cast",
+      "frame": 4,
+      "time_s": 0.06666666666666667,
+      "palette_offset_float32": 85248,
+      "socket_world": [
+        0.0960991159081459,
+        -0.31626924872398376,
+        1.0078727006912231
+      ],
+      "normal_corrections": {
+        "byte_offset": 12481808,
+        "record_count": 3788
+      }
+    },
+    {
+      "id": "cast-005",
+      "clip": "cast",
+      "frame": 5,
+      "time_s": 0.08333333333333333,
+      "palette_offset_float32": 85824,
+      "socket_world": [
+        0.1083657369017601,
+        -0.3162693679332733,
+        1.0098896026611328
+      ],
+      "normal_corrections": {
+        "byte_offset": 12542416,
+        "record_count": 3892
+      }
+    },
+    {
+      "id": "cast-006",
+      "clip": "cast",
+      "frame": 6,
+      "time_s": 0.1,
+      "palette_offset_float32": 86400,
+      "socket_world": [
+        0.12282866984605789,
+        -0.31626930832862854,
+        1.0125676393508911
+      ],
+      "normal_corrections": {
+        "byte_offset": 12604688,
+        "record_count": 3870
+      }
+    },
+    {
+      "id": "cast-007",
+      "clip": "cast",
+      "frame": 7,
+      "time_s": 0.11666666666666667,
+      "palette_offset_float32": 86976,
+      "socket_world": [
+        0.13927936553955078,
+        -0.3162694573402405,
+        1.0160166025161743
+      ],
+      "normal_corrections": {
+        "byte_offset": 12666608,
+        "record_count": 4009
+      }
+    },
+    {
+      "id": "cast-008",
+      "clip": "cast",
+      "frame": 8,
+      "time_s": 0.13333333333333333,
+      "palette_offset_float32": 87552,
+      "socket_world": [
+        0.15750278532505035,
+        -0.31626948714256287,
+        1.0203440189361572
+      ],
+      "normal_corrections": {
+        "byte_offset": 12730752,
+        "record_count": 3850
+      }
+    },
+    {
+      "id": "cast-009",
+      "clip": "cast",
+      "frame": 9,
+      "time_s": 0.15,
+      "palette_offset_float32": 88128,
+      "socket_world": [
+        0.1772756278514862,
+        -0.3162693381309509,
+        1.0256553888320923
+      ],
+      "normal_corrections": {
+        "byte_offset": 12792352,
+        "record_count": 3911
+      }
+    },
+    {
+      "id": "cast-010",
+      "clip": "cast",
+      "frame": 10,
+      "time_s": 0.16666666666666666,
+      "palette_offset_float32": 88704,
+      "socket_world": [
+        0.19836732745170593,
+        -0.31626924872398376,
+        1.0320448875427246
+      ],
+      "normal_corrections": {
+        "byte_offset": 12854928,
+        "record_count": 3906
+      }
+    },
+    {
+      "id": "cast-011",
+      "clip": "cast",
+      "frame": 11,
+      "time_s": 0.18333333333333332,
+      "palette_offset_float32": 89280,
+      "socket_world": [
+        0.22054240107536316,
+        -0.31626948714256287,
+        1.0395944118499756
+      ],
+      "normal_corrections": {
+        "byte_offset": 12917424,
+        "record_count": 3906
+      }
+    },
+    {
+      "id": "cast-012",
+      "clip": "cast",
+      "frame": 12,
+      "time_s": 0.2,
+      "palette_offset_float32": 89856,
+      "socket_world": [
+        0.24355915188789368,
+        -0.3162694275379181,
+        1.048366665840149
+      ],
+      "normal_corrections": {
+        "byte_offset": 12979920,
+        "record_count": 3922
+      }
+    },
+    {
+      "id": "cast-013",
+      "clip": "cast",
+      "frame": 13,
+      "time_s": 0.21666666666666667,
+      "palette_offset_float32": 90432,
+      "socket_world": [
+        0.2671765685081482,
+        -0.31626954674720764,
+        1.058401346206665
+      ],
+      "normal_corrections": {
+        "byte_offset": 13042672,
+        "record_count": 4000
+      }
+    },
+    {
+      "id": "cast-014",
+      "clip": "cast",
+      "frame": 14,
+      "time_s": 0.23333333333333334,
+      "palette_offset_float32": 91008,
+      "socket_world": [
+        0.291151225566864,
+        -0.3162694573402405,
+        1.069716215133667
+      ],
+      "normal_corrections": {
+        "byte_offset": 13106672,
+        "record_count": 3858
+      }
+    },
+    {
+      "id": "cast-015",
+      "clip": "cast",
+      "frame": 15,
+      "time_s": 0.25,
+      "palette_offset_float32": 91584,
+      "socket_world": [
+        0.3152455985546112,
+        -0.3162693381309509,
+        1.0822995901107788
+      ],
+      "normal_corrections": {
+        "byte_offset": 13168400,
+        "record_count": 3905
+      }
+    },
+    {
+      "id": "cast-016",
+      "clip": "cast",
+      "frame": 16,
+      "time_s": 0.26666666666666666,
+      "palette_offset_float32": 92160,
+      "socket_world": [
+        0.33922815322875977,
+        -0.3162693381309509,
+        1.0961124897003174
+      ],
+      "normal_corrections": {
+        "byte_offset": 13230880,
+        "record_count": 3824
+      }
+    },
+    {
+      "id": "cast-017",
+      "clip": "cast",
+      "frame": 17,
+      "time_s": 0.2833333333333333,
+      "palette_offset_float32": 92736,
+      "socket_world": [
+        0.3628767728805542,
+        -0.3162693977355957,
+        1.1110895872116089
+      ],
+      "normal_corrections": {
+        "byte_offset": 13292064,
+        "record_count": 4078
+      }
+    },
+    {
+      "id": "cast-018",
+      "clip": "cast",
+      "frame": 18,
+      "time_s": 0.3,
+      "palette_offset_float32": 93312,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "normal_corrections": {
+        "byte_offset": 13357312,
+        "record_count": 4071
+      },
+      "oracle": {
+        "path": "assets/cast-018-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "22615064c08c66efc910fdeeb994fdd4d74630ff0c3380ae306bf2f6209231cb"
+      }
+    },
+    {
+      "id": "cast-019",
+      "clip": "cast",
+      "frame": 19,
+      "time_s": 0.31666666666666665,
+      "palette_offset_float32": 93888,
+      "socket_world": [
+        0.40835821628570557,
+        -0.31626957654953003,
+        1.1441283226013184
+      ],
+      "normal_corrections": {
+        "byte_offset": 13422448,
+        "record_count": 3864
+      }
+    },
+    {
+      "id": "cast-020",
+      "clip": "cast",
+      "frame": 20,
+      "time_s": 0.3333333333333333,
+      "palette_offset_float32": 94464,
+      "socket_world": [
+        0.4298284351825714,
+        -0.3162693679332733,
+        1.161921501159668
+      ],
+      "normal_corrections": {
+        "byte_offset": 13484272,
+        "record_count": 3972
+      }
+    },
+    {
+      "id": "cast-021",
+      "clip": "cast",
+      "frame": 21,
+      "time_s": 0.35,
+      "palette_offset_float32": 95040,
+      "socket_world": [
+        0.45024463534355164,
+        -0.3162693977355957,
+        1.180345058441162
+      ],
+      "normal_corrections": {
+        "byte_offset": 13547824,
+        "record_count": 3935
+      }
+    },
+    {
+      "id": "cast-022",
+      "clip": "cast",
+      "frame": 22,
+      "time_s": 0.36666666666666664,
+      "palette_offset_float32": 95616,
+      "socket_world": [
+        0.46948057413101196,
+        -0.3162694275379181,
+        1.1992090940475464
+      ],
+      "normal_corrections": {
+        "byte_offset": 13610784,
+        "record_count": 3923
+      }
+    },
+    {
+      "id": "cast-023",
+      "clip": "cast",
+      "frame": 23,
+      "time_s": 0.38333333333333336,
+      "palette_offset_float32": 96192,
+      "socket_world": [
+        0.4874351918697357,
+        -0.3162692189216614,
+        1.2183079719543457
+      ],
+      "normal_corrections": {
+        "byte_offset": 13673552,
+        "record_count": 3843
+      }
+    },
+    {
+      "id": "cast-024",
+      "clip": "cast",
+      "frame": 24,
+      "time_s": 0.4,
+      "palette_offset_float32": 96768,
+      "socket_world": [
+        0.5040315985679626,
+        -0.31626954674720764,
+        1.2374210357666016
+      ],
+      "normal_corrections": {
+        "byte_offset": 13735040,
+        "record_count": 3955
+      }
+    },
+    {
+      "id": "cast-025",
+      "clip": "cast",
+      "frame": 25,
+      "time_s": 0.4166666666666667,
+      "palette_offset_float32": 97344,
+      "socket_world": [
+        0.519219160079956,
+        -0.31626927852630615,
+        1.2563186883926392
+      ],
+      "normal_corrections": {
+        "byte_offset": 13798320,
+        "record_count": 3949
+      }
+    },
+    {
+      "id": "cast-026",
+      "clip": "cast",
+      "frame": 26,
+      "time_s": 0.43333333333333335,
+      "palette_offset_float32": 97920,
+      "socket_world": [
+        0.5329700708389282,
+        -0.31626927852630615,
+        1.2747641801834106
+      ],
+      "normal_corrections": {
+        "byte_offset": 13861504,
+        "record_count": 4151
+      }
+    },
+    {
+      "id": "cast-027",
+      "clip": "cast",
+      "frame": 27,
+      "time_s": 0.45,
+      "palette_offset_float32": 98496,
+      "socket_world": [
+        0.54527747631073,
+        -0.31626957654953003,
+        1.2925173044204712
+      ],
+      "normal_corrections": {
+        "byte_offset": 13927920,
+        "record_count": 3944
+      }
+    },
+    {
+      "id": "cast-028",
+      "clip": "cast",
+      "frame": 28,
+      "time_s": 0.4666666666666667,
+      "palette_offset_float32": 99072,
+      "socket_world": [
+        0.5561535954475403,
+        -0.3162694275379181,
+        1.309338927268982
+      ],
+      "normal_corrections": {
+        "byte_offset": 13991024,
+        "record_count": 3993
+      }
+    },
+    {
+      "id": "cast-029",
+      "clip": "cast",
+      "frame": 29,
+      "time_s": 0.48333333333333334,
+      "palette_offset_float32": 99648,
+      "socket_world": [
+        0.5656263828277588,
+        -0.31626930832862854,
+        1.324990153312683
+      ],
+      "normal_corrections": {
+        "byte_offset": 14054912,
+        "record_count": 3928
+      }
+    },
+    {
+      "id": "cast-030",
+      "clip": "cast",
+      "frame": 30,
+      "time_s": 0.5,
+      "palette_offset_float32": 100224,
+      "socket_world": [
+        0.5737326741218567,
+        -0.31626924872398376,
+        1.3392373323440552
+      ],
+      "normal_corrections": {
+        "byte_offset": 14117760,
+        "record_count": 3809
+      }
+    },
+    {
+      "id": "cast-031",
+      "clip": "cast",
+      "frame": 31,
+      "time_s": 0.5166666666666667,
+      "palette_offset_float32": 100800,
+      "socket_world": [
+        0.5805178284645081,
+        -0.3162694275379181,
+        1.3518540859222412
+      ],
+      "normal_corrections": {
+        "byte_offset": 14178704,
+        "record_count": 3851
+      }
+    },
+    {
+      "id": "cast-032",
+      "clip": "cast",
+      "frame": 32,
+      "time_s": 0.5333333333333333,
+      "palette_offset_float32": 101376,
+      "socket_world": [
+        0.5860248804092407,
+        -0.31626924872398376,
+        1.3626205921173096
+      ],
+      "normal_corrections": {
+        "byte_offset": 14240320,
+        "record_count": 3996
+      }
+    },
+    {
+      "id": "cast-033",
+      "clip": "cast",
+      "frame": 33,
+      "time_s": 0.55,
+      "palette_offset_float32": 101952,
+      "socket_world": [
+        0.5902934670448303,
+        -0.3162693977355957,
+        1.3713266849517822
+      ],
+      "normal_corrections": {
+        "byte_offset": 14304256,
+        "record_count": 3864
+      }
+    },
+    {
+      "id": "cast-034",
+      "clip": "cast",
+      "frame": 34,
+      "time_s": 0.5666666666666667,
+      "palette_offset_float32": 102528,
+      "socket_world": [
+        0.5933486819267273,
+        -0.31626948714256287,
+        1.3777722120285034
+      ],
+      "normal_corrections": {
+        "byte_offset": 14366080,
+        "record_count": 3834
+      }
+    },
+    {
+      "id": "cast-035",
+      "clip": "cast",
+      "frame": 35,
+      "time_s": 0.5833333333333334,
+      "palette_offset_float32": 103104,
+      "socket_world": [
+        0.5951982140541077,
+        -0.316269189119339,
+        1.3817676305770874
+      ],
+      "normal_corrections": {
+        "byte_offset": 14427424,
+        "record_count": 4013
+      }
+    },
+    {
+      "id": "cast-036",
+      "clip": "cast",
+      "frame": 36,
+      "time_s": 0.6,
+      "palette_offset_float32": 103680,
+      "socket_world": [
+        0.5958245992660522,
+        -0.3162693977355957,
+        1.3831366300582886
+      ],
+      "normal_corrections": {
+        "byte_offset": 14491632,
+        "record_count": 4131
+      },
+      "oracle": {
+        "path": "assets/cast-036-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 383184,
+        "bytes": 1532736,
+        "sha256": "7a321e347ee7c0a147d054d9ba5170aae62d860e434f7f77087e2bb3c044fc32"
+      }
+    },
+    {
+      "id": "cast-037",
+      "clip": "cast",
+      "frame": 37,
+      "time_s": 0.6166666666666667,
+      "palette_offset_float32": 104256,
+      "socket_world": [
+        0.5951982140541077,
+        -0.316269189119339,
+        1.3817676305770874
+      ],
+      "normal_corrections": {
+        "byte_offset": 14557728,
+        "record_count": 4013
+      }
+    },
+    {
+      "id": "cast-038",
+      "clip": "cast",
+      "frame": 38,
+      "time_s": 0.6333333333333333,
+      "palette_offset_float32": 104832,
+      "socket_world": [
+        0.5933486819267273,
+        -0.31626948714256287,
+        1.3777722120285034
+      ],
+      "normal_corrections": {
+        "byte_offset": 14621936,
+        "record_count": 3834
+      }
+    },
+    {
+      "id": "cast-039",
+      "clip": "cast",
+      "frame": 39,
+      "time_s": 0.65,
+      "palette_offset_float32": 105408,
+      "socket_world": [
+        0.5902934670448303,
+        -0.3162693977355957,
+        1.3713266849517822
+      ],
+      "normal_corrections": {
+        "byte_offset": 14683280,
+        "record_count": 3864
+      }
+    },
+    {
+      "id": "cast-040",
+      "clip": "cast",
+      "frame": 40,
+      "time_s": 0.6666666666666666,
+      "palette_offset_float32": 105984,
+      "socket_world": [
+        0.5860248804092407,
+        -0.31626924872398376,
+        1.3626205921173096
+      ],
+      "normal_corrections": {
+        "byte_offset": 14745104,
+        "record_count": 3996
+      }
+    },
+    {
+      "id": "cast-041",
+      "clip": "cast",
+      "frame": 41,
+      "time_s": 0.6833333333333333,
+      "palette_offset_float32": 106560,
+      "socket_world": [
+        0.5805178284645081,
+        -0.3162694275379181,
+        1.3518540859222412
+      ],
+      "normal_corrections": {
+        "byte_offset": 14809040,
+        "record_count": 3851
+      }
+    },
+    {
+      "id": "cast-042",
+      "clip": "cast",
+      "frame": 42,
+      "time_s": 0.7,
+      "palette_offset_float32": 107136,
+      "socket_world": [
+        0.5737326741218567,
+        -0.31626924872398376,
+        1.3392373323440552
+      ],
+      "normal_corrections": {
+        "byte_offset": 14870656,
+        "record_count": 3809
+      }
+    },
+    {
+      "id": "cast-043",
+      "clip": "cast",
+      "frame": 43,
+      "time_s": 0.7166666666666667,
+      "palette_offset_float32": 107712,
+      "socket_world": [
+        0.5656263828277588,
+        -0.31626930832862854,
+        1.324990153312683
+      ],
+      "normal_corrections": {
+        "byte_offset": 14931600,
+        "record_count": 3928
+      }
+    },
+    {
+      "id": "cast-044",
+      "clip": "cast",
+      "frame": 44,
+      "time_s": 0.7333333333333333,
+      "palette_offset_float32": 108288,
+      "socket_world": [
+        0.5561535954475403,
+        -0.3162694275379181,
+        1.309338927268982
+      ],
+      "normal_corrections": {
+        "byte_offset": 14994448,
+        "record_count": 3993
+      }
+    },
+    {
+      "id": "cast-045",
+      "clip": "cast",
+      "frame": 45,
+      "time_s": 0.75,
+      "palette_offset_float32": 108864,
+      "socket_world": [
+        0.54527747631073,
+        -0.31626957654953003,
+        1.2925173044204712
+      ],
+      "normal_corrections": {
+        "byte_offset": 15058336,
+        "record_count": 3944
+      }
+    },
+    {
+      "id": "cast-046",
+      "clip": "cast",
+      "frame": 46,
+      "time_s": 0.7666666666666667,
+      "palette_offset_float32": 109440,
+      "socket_world": [
+        0.5329700708389282,
+        -0.31626927852630615,
+        1.2747641801834106
+      ],
+      "normal_corrections": {
+        "byte_offset": 15121440,
+        "record_count": 4151
+      }
+    },
+    {
+      "id": "cast-047",
+      "clip": "cast",
+      "frame": 47,
+      "time_s": 0.7833333333333333,
+      "palette_offset_float32": 110016,
+      "socket_world": [
+        0.519219160079956,
+        -0.31626927852630615,
+        1.2563186883926392
+      ],
+      "normal_corrections": {
+        "byte_offset": 15187856,
+        "record_count": 3949
+      }
+    },
+    {
+      "id": "cast-048",
+      "clip": "cast",
+      "frame": 48,
+      "time_s": 0.8,
+      "palette_offset_float32": 110592,
+      "socket_world": [
+        0.5040315985679626,
+        -0.31626954674720764,
+        1.2374210357666016
+      ],
+      "normal_corrections": {
+        "byte_offset": 15251040,
+        "record_count": 3955
+      }
+    },
+    {
+      "id": "cast-049",
+      "clip": "cast",
+      "frame": 49,
+      "time_s": 0.8166666666666667,
+      "palette_offset_float32": 111168,
+      "socket_world": [
+        0.4874351918697357,
+        -0.3162692189216614,
+        1.2183079719543457
+      ],
+      "normal_corrections": {
+        "byte_offset": 15314320,
+        "record_count": 3843
+      }
+    },
+    {
+      "id": "cast-050",
+      "clip": "cast",
+      "frame": 50,
+      "time_s": 0.8333333333333334,
+      "palette_offset_float32": 111744,
+      "socket_world": [
+        0.46948057413101196,
+        -0.3162694275379181,
+        1.1992090940475464
+      ],
+      "normal_corrections": {
+        "byte_offset": 15375808,
+        "record_count": 3923
+      }
+    },
+    {
+      "id": "cast-051",
+      "clip": "cast",
+      "frame": 51,
+      "time_s": 0.85,
+      "palette_offset_float32": 112320,
+      "socket_world": [
+        0.45024463534355164,
+        -0.3162693977355957,
+        1.180345058441162
+      ],
+      "normal_corrections": {
+        "byte_offset": 15438576,
+        "record_count": 3935
+      }
+    },
+    {
+      "id": "cast-052",
+      "clip": "cast",
+      "frame": 52,
+      "time_s": 0.8666666666666667,
+      "palette_offset_float32": 112896,
+      "socket_world": [
+        0.4298284351825714,
+        -0.3162693679332733,
+        1.161921501159668
+      ],
+      "normal_corrections": {
+        "byte_offset": 15501536,
+        "record_count": 3972
+      }
+    },
+    {
+      "id": "cast-053",
+      "clip": "cast",
+      "frame": 53,
+      "time_s": 0.8833333333333333,
+      "palette_offset_float32": 113472,
+      "socket_world": [
+        0.40835821628570557,
+        -0.31626957654953003,
+        1.1441283226013184
+      ],
+      "normal_corrections": {
+        "byte_offset": 15565088,
+        "record_count": 3864
+      }
+    },
+    {
+      "id": "cast-054",
+      "clip": "cast",
+      "frame": 54,
+      "time_s": 0.9,
+      "palette_offset_float32": 114048,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "normal_corrections": {
+        "byte_offset": 15626912,
+        "record_count": 4071
+      }
+    },
+    {
+      "id": "cast-055",
+      "clip": "cast",
+      "frame": 55,
+      "time_s": 0.9166666666666666,
+      "palette_offset_float32": 114624,
+      "socket_world": [
+        0.3628767728805542,
+        -0.3162693977355957,
+        1.1110895872116089
+      ],
+      "normal_corrections": {
+        "byte_offset": 15692048,
+        "record_count": 4078
+      }
+    },
+    {
+      "id": "cast-056",
+      "clip": "cast",
+      "frame": 56,
+      "time_s": 0.9333333333333333,
+      "palette_offset_float32": 115200,
+      "socket_world": [
+        0.33922815322875977,
+        -0.3162693381309509,
+        1.0961124897003174
+      ],
+      "normal_corrections": {
+        "byte_offset": 15757296,
+        "record_count": 3824
+      }
+    },
+    {
+      "id": "cast-057",
+      "clip": "cast",
+      "frame": 57,
+      "time_s": 0.95,
+      "palette_offset_float32": 115776,
+      "socket_world": [
+        0.3152455985546112,
+        -0.3162693381309509,
+        1.0822995901107788
+      ],
+      "normal_corrections": {
+        "byte_offset": 15818480,
+        "record_count": 3905
+      }
+    },
+    {
+      "id": "cast-058",
+      "clip": "cast",
+      "frame": 58,
+      "time_s": 0.9666666666666667,
+      "palette_offset_float32": 116352,
+      "socket_world": [
+        0.291151225566864,
+        -0.3162694573402405,
+        1.069716215133667
+      ],
+      "normal_corrections": {
+        "byte_offset": 15880960,
+        "record_count": 3858
+      }
+    },
+    {
+      "id": "cast-059",
+      "clip": "cast",
+      "frame": 59,
+      "time_s": 0.9833333333333333,
+      "palette_offset_float32": 116928,
+      "socket_world": [
+        0.2671765685081482,
+        -0.31626954674720764,
+        1.058401346206665
+      ],
+      "normal_corrections": {
+        "byte_offset": 15942688,
+        "record_count": 4000
+      }
+    },
+    {
+      "id": "cast-060",
+      "clip": "cast",
+      "frame": 60,
+      "time_s": 1.0,
+      "palette_offset_float32": 117504,
+      "socket_world": [
+        0.24355915188789368,
+        -0.3162694275379181,
+        1.048366665840149
+      ],
+      "normal_corrections": {
+        "byte_offset": 16006688,
+        "record_count": 3922
+      }
+    },
+    {
+      "id": "cast-061",
+      "clip": "cast",
+      "frame": 61,
+      "time_s": 1.0166666666666666,
+      "palette_offset_float32": 118080,
+      "socket_world": [
+        0.22054240107536316,
+        -0.31626948714256287,
+        1.0395944118499756
+      ],
+      "normal_corrections": {
+        "byte_offset": 16069440,
+        "record_count": 3906
+      }
+    },
+    {
+      "id": "cast-062",
+      "clip": "cast",
+      "frame": 62,
+      "time_s": 1.0333333333333334,
+      "palette_offset_float32": 118656,
+      "socket_world": [
+        0.19836732745170593,
+        -0.31626924872398376,
+        1.0320448875427246
+      ],
+      "normal_corrections": {
+        "byte_offset": 16131936,
+        "record_count": 3906
+      }
+    },
+    {
+      "id": "cast-063",
+      "clip": "cast",
+      "frame": 63,
+      "time_s": 1.05,
+      "palette_offset_float32": 119232,
+      "socket_world": [
+        0.1772756278514862,
+        -0.3162693381309509,
+        1.0256553888320923
+      ],
+      "normal_corrections": {
+        "byte_offset": 16194432,
+        "record_count": 3911
+      }
+    },
+    {
+      "id": "cast-064",
+      "clip": "cast",
+      "frame": 64,
+      "time_s": 1.0666666666666667,
+      "palette_offset_float32": 119808,
+      "socket_world": [
+        0.15750278532505035,
+        -0.31626948714256287,
+        1.0203440189361572
+      ],
+      "normal_corrections": {
+        "byte_offset": 16257008,
+        "record_count": 3850
+      }
+    },
+    {
+      "id": "cast-065",
+      "clip": "cast",
+      "frame": 65,
+      "time_s": 1.0833333333333333,
+      "palette_offset_float32": 120384,
+      "socket_world": [
+        0.13927936553955078,
+        -0.3162694573402405,
+        1.0160166025161743
+      ],
+      "normal_corrections": {
+        "byte_offset": 16318608,
+        "record_count": 4009
+      }
+    },
+    {
+      "id": "cast-066",
+      "clip": "cast",
+      "frame": 66,
+      "time_s": 1.1,
+      "palette_offset_float32": 120960,
+      "socket_world": [
+        0.12282866984605789,
+        -0.31626930832862854,
+        1.0125676393508911
+      ],
+      "normal_corrections": {
+        "byte_offset": 16382752,
+        "record_count": 3870
+      }
+    },
+    {
+      "id": "cast-067",
+      "clip": "cast",
+      "frame": 67,
+      "time_s": 1.1166666666666667,
+      "palette_offset_float32": 121536,
+      "socket_world": [
+        0.1083657369017601,
+        -0.3162693679332733,
+        1.0098896026611328
+      ],
+      "normal_corrections": {
+        "byte_offset": 16444672,
+        "record_count": 3892
+      }
+    },
+    {
+      "id": "cast-068",
+      "clip": "cast",
+      "frame": 68,
+      "time_s": 1.1333333333333333,
+      "palette_offset_float32": 122112,
+      "socket_world": [
+        0.0960991159081459,
+        -0.31626924872398376,
+        1.0078727006912231
+      ],
+      "normal_corrections": {
+        "byte_offset": 16506944,
+        "record_count": 3788
+      }
+    },
+    {
+      "id": "cast-069",
+      "clip": "cast",
+      "frame": 69,
+      "time_s": 1.15,
+      "palette_offset_float32": 122688,
+      "socket_world": [
+        0.08622932434082031,
+        -0.3162694275379181,
+        1.006418228149414
+      ],
+      "normal_corrections": {
+        "byte_offset": 16567552,
+        "record_count": 3518
+      }
+    },
+    {
+      "id": "cast-070",
+      "clip": "cast",
+      "frame": 70,
+      "time_s": 1.1666666666666667,
+      "palette_offset_float32": 123264,
+      "socket_world": [
+        0.078949935734272,
+        -0.3162692189216614,
+        1.0054419040679932
+      ],
+      "normal_corrections": {
+        "byte_offset": 16623840,
+        "record_count": 3529
+      }
+    },
+    {
+      "id": "cast-071",
+      "clip": "cast",
+      "frame": 71,
+      "time_s": 1.1833333333333333,
+      "palette_offset_float32": 123840,
+      "socket_world": [
+        0.074449323117733,
+        -0.3162693977355957,
+        1.0048788785934448
+      ],
+      "normal_corrections": {
+        "byte_offset": 16680304,
+        "record_count": 3504
+      }
+    }
+  ],
+  "fps": 60,
+  "directions": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ],
+  "anchor_world": [
+    0,
+    0,
+    0
+  ],
+  "hitbox": {
+    "height_m": 2,
+    "radius_m": 0.26
+  },
+  "atlas": null,
+  "visibility": {
+    "head_visible": {
+      "exclude_category": [
+        "hair"
+      ]
+    },
+    "head_hidden": {
+      "exclude_slot": [
+        "head"
+      ]
+    },
+    "default_part_rule": "Exclude any part whose default_visible is false before applying loadout/head visibility. Missing default_visible means true.",
+    "hair_composition": {
+      "source_components": 23,
+      "default_active_components": 6,
+      "legacy_parallel_locks": {
+        "default_visible": false,
+        "count": 17
+      },
+      "reason": "Selected rounded painted cap/bun hairstyle after V1 comb-like outline failure; retained source components are not silently rendered."
+    }
+  },
+  "qualification": "Complete existing clip transfer test; turn transitions and complete outfit surface fit separate.",
+  "clips": {
+    "idle": {
+      "frame_start": 0,
+      "frame_count": 96,
+      "fps": 60,
+      "duration_s": 1.6,
+      "loop": true,
+      "root_motion_mps": [
+        0,
+        0,
+        0
+      ],
+      "contact_drift_m": 0.0,
+      "min_sole_z": -4.377216100692749e-08,
+      "book_size_variation": 0.0,
+      "bone_error_m": 5.723540884943724e-07,
+      "endpoint_matrix_error": 0.0
+    },
+    "walk": {
+      "frame_start": 96,
+      "frame_count": 48,
+      "fps": 60,
+      "duration_s": 0.8,
+      "loop": true,
+      "root_motion_mps": [
+        2,
+        0,
+        0
+      ],
+      "contact_drift_m": 2.397195361350922e-06,
+      "min_sole_z": -3.641471266746521e-07,
+      "book_size_variation": 6.312473479486158e-07,
+      "bone_error_m": 9.063873744023606e-07,
+      "endpoint_matrix_error": 0.0
+    },
+    "cast": {
+      "frame_start": 144,
+      "frame_count": 72,
+      "fps": 60,
+      "duration_s": 1.2,
+      "loop": false,
+      "root_motion_mps": [
+        0,
+        0,
+        0
+      ],
+      "contact_drift_m": 0.0,
+      "min_sole_z": -4.377216100692749e-08,
+      "book_size_variation": 0.0,
+      "bone_error_m": 5.723540884943724e-07,
+      "endpoint_matrix_error": 0.0,
+      "release_s": 0.6,
+      "release_frame": 36,
+      "end_idle_start_error": 0.0
+    }
+  },
+  "palette_buffer": {
+    "path": "assets/palettes.bin",
+    "dtype": "float32",
+    "byte_order": "little",
+    "elements": 124416,
+    "bytes": 497664,
+    "sha256": "1b15b2b5adc8056ca6e6647b4121086589a4ba27d42400b57e10bbeaec95aa3a"
+  },
+  "palette_stride_float32": 576,
+  "deformation_normals": {
+    "path": "assets/normal-corrections.bin",
+    "bytes": 16736368,
+    "sha256": "a9e485e409a9335de7a4540a5433c37201de8df3d07c41a25d0f662f1b06f5b8",
+    "record_stride_bytes": 16,
+    "byte_order": "little",
+    "record": [
+      "uint32vertex_index",
+      "float32world_normal_x",
+      "float32world_normal_y",
+      "float32world_normal_z"
+    ],
+    "coordinate_system": "Same source world frame as bonepalette before instance heading",
+    "policy": "Clear sparse overrides eachframe; normalizeweighted restnormal when nooverride; source normal override for deviation>1e-4",
+    "quantization": "float32",
+    "fields": [
+      {
+        "name": "vertex_index",
+        "byte_offset": 0,
+        "type": "uint32",
+        "components": 1
+      },
+      {
+        "name": "world_normal",
+        "byte_offset": 4,
+        "type": "float32",
+        "components": 3
+      }
+    ],
+    "required_vertex_buffer_sha256": "3337fa3fb386d14b180d093977eb95fac0f995a7d7a8a8d9418418a3bb3e9b94",
+    "required_palette_buffer_sha256": "1b15b2b5adc8056ca6e6647b4121086589a4ba27d42400b57e10bbeaec95aa3a"
+  }
+}
