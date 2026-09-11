@@ -72,3 +72,19 @@ proposed methods as unvalidated until applied successfully.
   change at essentially the same view. It supports an art/state comparison but
   cannot prove traversal, state-transition timing or navigation-cache updates.
   Evidence: E01 GD-04/GD-05; those claims remain unverified in the report.
+
+## Painted-world E02 — perspective and renderer comparison
+
+- Exact ground-following camera motion keeps its followed actor's relative
+  viewpoint constant. This does not protect off-center props/actors or camera
+  lag/clamps. Evidence: [E02 sample analysis](../../../../astra_test_01/design/experiments/E02/evidence/analysis.json)
+  and paired Godot/Pixi runtime validation. Scope: registered C camera and flat ground.
+- A diagnostic close-up redrawn from source at higher resolution is not comparable
+  to an enlarged native render. Initial Pixi/Godot review panes mixed these methods;
+  v2 uses captured render textures in both. Preserve the invalid comparison and
+  judge native gameplay size separately. Evidence: [E02 report](../../../../astra_test_01/design/experiments/E02/REPORT.md).
+- The chosen scale-only upright image differs from a known C-projected cuboid by
+  up to 6.93 px at lateral positions. This detects a geometric approximation; it
+  does not establish hidden painted anatomy or a perceptual failure. The old
+  mage source's depicted camera remains uncalibrated. Do not turn this component
+  result into a rule that perspective is unsuitable for painted art.

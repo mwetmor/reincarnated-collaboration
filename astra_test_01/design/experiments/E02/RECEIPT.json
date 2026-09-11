@@ -1,0 +1,138 @@
+{
+  "experiment": "E02",
+  "status": "COMPONENT_PASS_OVERALL_INDETERMINATE",
+  "updated": "2026-09-11T02:43:05.665182+00:00",
+  "user_decisions": {
+    "projection_test": "C",
+    "renderers": [
+      "Godot",
+      "Pixi.js"
+    ],
+    "alternatives_research": true,
+    "scope": "Agent composition capability with shared combat JSON"
+  },
+  "inputs": "INPUTS.json",
+  "registration": [
+    "REGISTRATION.md",
+    "RENDERER_ADDENDUM.md"
+  ],
+  "results": "REPORT.md",
+  "validation": "evidence/validation.json",
+  "component_checks_passed": 95,
+  "component_checks_total": 95,
+  "max_runtime_reference_error_px": 1.9889060215702625e-05,
+  "tools": {
+    "godot": "4.6.3.stable.official.7d41c59c4",
+    "pixi": "8.20.1",
+    "playwright_core": "1.63.0",
+    "browser": "152.0.7977.83",
+    "godot_gpu": "Apple M2 / OpenGL compatibility over Metal",
+    "pixi_gpu": "Apple M2 / ANGLE Metal / WebGL2",
+    "browser_connector": "UNAVAILABLE; documented recovery checked",
+    "canvas_compilation": "UNVERIFIED"
+  },
+  "generation": {
+    "calls": 0,
+    "repairs": 0,
+    "paid_service_spend_usd": 0,
+    "subscription_token_cost_usd": null,
+    "art_editing": "None; unmodified source bytes loaded and transformed by tested renderers"
+  },
+  "limits": {
+    "render_batches_max": 6,
+    "render_batches_used": 6,
+    "compile_failures": 0,
+    "work_ceiling_minutes_after_user_scope_addition": 75,
+    "owned_disk_ceiling_mb": 200,
+    "initial_captures_preserved": true,
+    "retained_artifact_logical_bytes": 31435767,
+    "all_local_files_logical_bytes_including_tool_cache": 48012805,
+    "first_input_snapshot_time": "2026-09-11T02:16:23.816810+00:00"
+  },
+  "batches": [
+    {
+      "id": 1,
+      "renderer": "Godot",
+      "policy": "fixed",
+      "evidence": "evidence/runtime-fixed.json",
+      "status": "retained first capture; lower-pane clipping"
+    },
+    {
+      "id": 2,
+      "renderer": "Godot",
+      "policy": "tracking",
+      "evidence": "evidence/runtime-tracking.json",
+      "status": "complete native scene; later enriched measurement record"
+    },
+    {
+      "id": 3,
+      "renderer": "Pixi",
+      "policy": "fixed+tracking",
+      "evidence": "evidence/runtime-pixi.json",
+      "status": "native views valid; higher-resolution redraw closeup invalid for sharpness comparison"
+    },
+    {
+      "id": 4,
+      "renderer": "Godot",
+      "policy": "fixed-v2",
+      "evidence": "evidence/runtime-fixed-v2.json",
+      "status": "PASS component"
+    },
+    {
+      "id": 5,
+      "renderer": "Godot",
+      "policy": "tracking-v2",
+      "evidence": "evidence/runtime-tracking-v2.json",
+      "status": "PASS component"
+    },
+    {
+      "id": 6,
+      "renderer": "Pixi",
+      "policy": "fixed+tracking-v2",
+      "evidence": "evidence/runtime-pixi-v2.json",
+      "status": "PASS component; native render texture closeups"
+    }
+  ],
+  "deviations": [
+    "Initial Godot lower review pane clipped; native scene complete. Preserved.",
+    "Initial Pixi closeup redrawn at higher resolution; comparison confound corrected in v2. Preserved.",
+    "Standalone local browser fallback after connector unavailable.",
+    "npm and Python trust-store acquisition failures; system curl succeeded without disabling TLS.",
+    "Godot bad-control caption overlaps position text; evidence retained, no metric depends on text."
+  ],
+  "scope_exclusions": [
+    "No C-qualified newly painted character/floor",
+    "No animation/gait/gear/VFX/state/collision/performance pass",
+    "No third-renderer implementation",
+    "No E01 native motion recovery",
+    "No old-run generation/repairs",
+    "No pushes/messages/subagents"
+  ],
+  "current_renderer_recommendation": "Continue Godot/Pixi; test Phaser4 next; no production winner",
+  "next_action": "Register E03 C-conditioned floor/prop and actor-view control, freeze alpha/art-data/generation tolerances, feed identical accepted inputs to Godot/Pixi and add Phaser foundation under its own limits.",
+  "artifact_manifest": "ARTIFACTS.json",
+  "commands": [
+    "python3 analyze.py",
+    "Godot --editor --headless --import (script import only, not visual proof)",
+    "Godot --path runtime -- --capture",
+    "Godot --path runtime -- --capture --tracking",
+    "python3 -m http.server 8768 --bind 127.0.0.1 --directory E02",
+    "node pixi/capture.mjs",
+    "python3 validate.py",
+    "python3 build_review.py"
+  ],
+  "running_jobs": [],
+  "review_ui": "evidence/review-ui-check.json",
+  "canvas_syntax": "evidence/canvas-syntax.json",
+  "local_server": "Stopped after verification; explicit restart command in REPORT.md",
+  "prior_handoff": "e0d252a6",
+  "parent_at_closeout": "e0d252a662551ed7319504862a79966fb8520a26",
+  "verification": {
+    "authored_whitespace": "PASS",
+    "verbatim_exclusions": [
+      "pixi/vendor/*",
+      "evidence/*.log"
+    ],
+    "reason": "Third-party bytes and raw engine output retained exactly; engine logs end with a blank line."
+  }
+}

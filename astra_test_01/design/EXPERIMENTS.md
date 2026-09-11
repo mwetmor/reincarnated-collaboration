@@ -134,3 +134,13 @@ After two attempts that reproduce the same failure without improvement, stop
 that branch, diagnose and register a changed experiment or alternate method.
 Do not reset attempt counters or regenerate unchanged inputs indefinitely.
 This is a branch-review trigger, not an automatic request for user permission.
+
+## Later experiment records
+
+- [E02 registration](experiments/E02/REGISTRATION.md): user-selected C projection,
+  painted-source transfer and component controls.
+- [E02 renderer addendum](experiments/E02/RENDERER_ADDENDUM.md): user-requested
+  Godot/Pixi comparison and alternatives research, with added limits.
+- [E02 receipt](experiments/E02/RECEIPT.json): actual runs, limitations and next action.
+- [Shared composition benchmark](experiments/E02/RENDERER_BENCHMARK.md): next
+  fixtures and the contract for comparing agent composition capability.

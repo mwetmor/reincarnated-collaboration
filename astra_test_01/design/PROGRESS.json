@@ -1,20 +1,20 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T01:53:29.730262+00:00",
-  "status": "E01_STILL_PACKET_DELIVERED_MOTION_UNVERIFIED",
-  "active_experiment": "E01",
+  "updated": "2026-09-11T02:36:14.955570+00:00",
+  "status": "E02_C_GODOT_PIXI_FOUNDATION_DELIVERED",
+  "active_experiment": "E02",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
-    "G2": "NOT_RUN",
+    "G2": "PARTIAL",
     "G3": "NOT_RUN",
     "G4": "NOT_RUN",
     "G5": "NOT_RUN",
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E02 installed-runtime and alpha/import/attachment capability probes, then implement diagnostic chamber state tests from chamber-layout.draft.json under frozen controls. E01 motion recovery requires a changed registered acquisition method.",
+  "next_action": "Register E03 C-conditioned painted floor/prop and actor-view control under frozen alpha/art-data/generation limits; load identical accepted assets into Godot and Pixi. Phaser 4 is the recommended third foundation adapter. Follow experiments/E02/RENDERER_BENCHMARK.md.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -31,7 +31,17 @@
     "experiments/E01/projection-candidates.json",
     "experiments/E01/chamber-layout.draft.json",
     "experiments/E01/preparation-checks.json",
-    "experiments/E01/RECEIPT.json"
+    "experiments/E01/RECEIPT.json",
+    "experiments/E02/REPORT.md",
+    "experiments/E02/review.html",
+    "experiments/E02/RENDERER_RESEARCH.md",
+    "experiments/E02/RENDERER_BENCHMARK.md",
+    "experiments/E02/INPUTS.json",
+    "experiments/E02/evidence/analysis.json",
+    "experiments/E02/evidence/validation.json",
+    "experiments/E02/runtime/project.godot",
+    "experiments/E02/pixi/index.html",
+    "experiments/E02/RECEIPT.json"
   ],
   "decisions_pending": [
     {
@@ -40,8 +50,11 @@
       "owner": "Matt, after E01 and candidate visuals",
       "blocks": "final art profile",
       "review_packet": "experiments/E01/comparison.html",
-      "recommendation": "B high affine for feasibility probe only; no visual lock",
-      "response": "PENDING \u2014 A/B/C preference requested in session; unanswered is not approval"
+      "recommendation": "Superseded for test priority by Matt choice: C",
+      "response": "Matt: Let's test the problem by using C and see if it's a real issue.",
+      "test_candidate": "C",
+      "test_choice_status": "APPROVED",
+      "final_visual_target_status": "PENDING painted review"
     },
     {
       "id": "D02",
@@ -74,7 +87,10 @@
     "PoE1 quiet traversal and ordinary stronghold/interactable coverage missing",
     "Original Grim Dawn GAL-CAM video remains missing; prior numeric analysis not independently regenerated",
     "No proof of persistent-layer motion, modular gear, painted chamber interaction or projection transfer",
-    "Browser playback/render inspection unavailable; Canvas build status not exposed"
+    "E02 uses legacy fixed-pose art with uncalibrated depicted camera; no C-conditioned painted chamber, animation, gear or VFX pass",
+    "Full G2 schema/import/state/collision/performance qualification remains incomplete; E02 root/socket/projection components only",
+    "Alternatives researched from primary docs; Phaser/Defold/Cocos/Three.js not locally qualified",
+    "Canvas host compilation unverified; Godot and standalone Chrome GPU capture verified"
   ],
   "running_jobs": [],
   "planning_validation": {
@@ -110,7 +126,20 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E01/RECEIPT.json",
+  "current_receipt": "experiments/E02/RECEIPT.json",
   "generation_calls_this_suite": 0,
-  "known_paid_service_spend_usd": 0
+  "known_paid_service_spend_usd": 0,
+  "renderer_comparison": {
+    "required": [
+      "Godot",
+      "Pixi.js"
+    ],
+    "third_recommended": "Phaser 4",
+    "projection": "C",
+    "combat_input": "Shared serial pipeline JSON; E02 does not integrate or change it",
+    "actual_runtime_checks": "experiments/E02/evidence/validation.json",
+    "benchmark": "experiments/E02/RENDERER_BENCHMARK.md",
+    "research": "experiments/E02/RENDERER_RESEARCH.md",
+    "winner": null
+  }
 }

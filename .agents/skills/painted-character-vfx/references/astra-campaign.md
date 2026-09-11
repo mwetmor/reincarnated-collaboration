@@ -2,7 +2,8 @@
 
 Current work: the painted-world suite and its cross-session plan. Read
 [START_HERE](../../../../astra_test_01/design/START_HERE.md), then its progress
-record. The next task is native four-game exemplar research, not old-run repairs.
+record. PROGRESS.json selects the next work unit; retained native references do
+not imply restarting E01 or old-run repairs.
 The camera is provisional for painted 2D; floor production and environment
 interactions are now part of the test suite.
 

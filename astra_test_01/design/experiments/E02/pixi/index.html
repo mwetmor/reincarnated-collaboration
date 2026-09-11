@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASTRA E02 — Pixi.js perspective probe</title>
+<style>
+body{margin:0;background:#11151a;color:#eee;font:15px system-ui}nav{padding:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}button,select{font:inherit;padding:7px;background:#303943;color:#eee;border:1px solid #71808c}canvas{display:block;max-width:100%;height:auto}p{margin:8px 16px}a{color:#e1bd7e}
+</style>
+<nav><strong>Pixi.js 8.20.1</strong><button id="tracking">Following camera: off</button><select id="position" aria-label="Actor position"></select><button id="bad">Bad scale control: off</button><button id="motion">Play translation probe</button><a href="../RENDERER_RESEARCH.md">Renderer research</a></nav>
+<div id="stage"></div><p>Frozen historical pose on diagnostic geometry. Translation is not walking; no art, collision or animation acceptance.</p>
+<script src="vendor/pixi-8.20.1.min.js"></script>
+<script type="module" src="probe.js"></script>
+</html>

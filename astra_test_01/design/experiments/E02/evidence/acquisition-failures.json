@@ -1,0 +1,19 @@
+{
+  "attempts": [
+    {
+      "method": "npm install --save-exact --ignore-scripts --no-package-lock pixi.js@8.20.1 playwright-core@1.63.0",
+      "result": "ETIMEDOUT read, exit196",
+      "changed_method": "Direct pinned publisher CDN and registry artifacts via system curl"
+    },
+    {
+      "method": "Python urllib HTTPS with default trust",
+      "result": "CERTIFICATE_VERIFY_FAILED unable to get local issuer certificate for both URLs",
+      "changed_method": "System curl with TLS verification; no -k/verify=False used"
+    },
+    {
+      "method": "browser connector discovery after documented recovery",
+      "result": "[]",
+      "changed_method": "Fresh isolated standalone Chrome for localhost only"
+    }
+  ]
+}

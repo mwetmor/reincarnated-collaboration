@@ -1,0 +1,710 @@
+{
+  "scope": "Owned artifacts plus six updated routes/state/lesson documents; manifest and its validation excluded to avoid circular hashes",
+  "files": [
+    {
+      "path": ".agents/skills/painted-character-vfx/references/astra-campaign.md",
+      "bytes": 2756,
+      "sha256": "a0a552b098e249a72e00997b5f2272c763bc8d7d0a5e078e4c313edb8ed75f30"
+    },
+    {
+      "path": ".agents/skills/painted-character-vfx/references/measured-lessons.md",
+      "bytes": 9429,
+      "sha256": "71b7f8cd69cfb5e6cd2e37827468ffbfbfd25fdc49db0e0a80d503cd3a79c017"
+    },
+    {
+      "path": "astra_test_01/design/ARCHITECTURE_PLAN.md",
+      "bytes": 19870,
+      "sha256": "851ed1a8618eb4d1951b778dd28e0c74c6ccce83747f90c343593fc6432d58dd"
+    },
+    {
+      "path": "astra_test_01/design/EXPERIMENTS.md",
+      "bytes": 12081,
+      "sha256": "09f5f589b4415692a9fda62286bb4097a787a70b6cb56658338835d4f05a8d56"
+    },
+    {
+      "path": "astra_test_01/design/PROGRESS.json",
+      "bytes": 5819,
+      "sha256": "84cd127b0989869d34343d1135359bd6497c30bbd4085a5dcc1fc3b7c7a4950a"
+    },
+    {
+      "path": "astra_test_01/design/START_HERE.md",
+      "bytes": 3475,
+      "sha256": "5ffdc52edc67b5ece1bb8e7a8475c47113246d0e72467f4769bfb22cbb2ab71b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/.gitignore",
+      "bytes": 98,
+      "sha256": "61445bf491f5abd4171b01c4c1ac15b1b788cffd83a2ec8794d015a253783f72"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/DEPENDENCIES.json",
+      "bytes": 740,
+      "sha256": "d6410f22592671197b209bdaf566dc3df3271edeb87425098175376b65dcb4e8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/INPUTS.json",
+      "bytes": 647,
+      "sha256": "6f87f7b2f34529cec03e0c65a64b23503f2b38b5e66499fa484fad8888474fa9"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/RECEIPT.json",
+      "bytes": 4945,
+      "sha256": "840956122e4a082e0cd3d8a6a35fad1f38394a9d619a2f68911f45373db8d0e5"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/REGISTRATION.md",
+      "bytes": 4570,
+      "sha256": "cb6133f9e12724928b27dcf8f808e14df6c0912a9813688e9ecd8c2827dc601c"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/RENDERER_ADDENDUM.md",
+      "bytes": 2270,
+      "sha256": "4127c6221642c0b86eb902fea7a2b155de8b7b50e42b56acb325d48447853d72"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/RENDERER_BENCHMARK.md",
+      "bytes": 4087,
+      "sha256": "992d95df0d9d2b7e85c9fcb61b1f334ed64a7ba320f600e8967183deece4847b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/RENDERER_RESEARCH.md",
+      "bytes": 7479,
+      "sha256": "aaf9c6752ff162fa5b31817213dd2907773cfa122be498ce3070d63f80419d7d"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/REPORT.md",
+      "bytes": 8231,
+      "sha256": "b6c1c6212404ea68f9ed842516fba78d0b90cfecf48a35072bdfb98fedcd1822"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/analyze.py",
+      "bytes": 5972,
+      "sha256": "e1d3352ded7ce8909ee06eedb4692c2e0e3ae5764b69b369df54bb19af7761b0"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/build_review.py",
+      "bytes": 8261,
+      "sha256": "1e865ae9f512d2d704abed7a61e36cb23df7755e97cc7b1920ca7325256c07d0"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/acquisition-failures.json",
+      "bytes": 729,
+      "sha256": "a3da12828c1fb7c6abd9360fc413f53a7f1b9fda0e749687f6f25d586845afb7"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/analysis.json",
+      "bytes": 8238,
+      "sha256": "5652b837a63239c142eb0cf380c5b7cb26d4a17ef02cdc1f3d7d6c4c7da1759e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/canvas-syntax.json",
+      "bytes": 126,
+      "sha256": "a607cf9c94ec4fdf1df7bd387a4f366390bf10d6b6ee595d9a4f3e9252a9fd2f"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-bad-scale.png",
+      "bytes": 375281,
+      "sha256": "8bc2edbf2ad921aa523e322e793b2d8acf751ffc4548f8a87607bf2d64289b86"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-center.png",
+      "bytes": 360973,
+      "sha256": "afebfffa31cba5d5aa2b1d373355355c0dd21b66758f32ca883e5d6a82c8318b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-far-left.png",
+      "bytes": 337911,
+      "sha256": "202a11a20c3a90b60d90a39cf9de0bd8781ca0d4705b42a04eaaeee1d0e91f30"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-far-right.png",
+      "bytes": 302720,
+      "sha256": "d3496fcfb52c07bef98b58b5f7ffb036ddb9dfb9d78455a95d7c9d6b347d917b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-far.png",
+      "bytes": 300859,
+      "sha256": "b123e8d2a9dc0d63141fe9df330875bcff8babfbb16d25b69c8f31c58f24d6d4"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-left.png",
+      "bytes": 355613,
+      "sha256": "ad9d04758ce43189d8f8b60640b85c3f0206c40ff9be8753f35e0a98515b746b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-near-left.png",
+      "bytes": 373332,
+      "sha256": "3c435bda7977e43f6c2ff7d0cd04c51981f49c8baaa4ac1f474326da601f3290"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-near-right.png",
+      "bytes": 387434,
+      "sha256": "5b8e64b9df8d453e20ba637ea5179e92aed19b298870c80de75215694554294f"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-near.png",
+      "bytes": 393229,
+      "sha256": "168fd939271c369d3183da592848278b6e2c4688b4da3849540ff16405f6b681"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-right.png",
+      "bytes": 331554,
+      "sha256": "59054f1a847b81ee303ecfc08760876511b4fc87ee4ba7b4e93f3310a74d23cb"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-bad-scale.png",
+      "bytes": 386261,
+      "sha256": "a404e5fc886d3731e01b61af07998d7b7ca6d26869634028772dd00c138f3907"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-center.png",
+      "bytes": 372009,
+      "sha256": "55e8ed3d228d7a3766f47dbc6f741cc2c35d9a488b01a01e22152c88d5a43a3b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-far-left.png",
+      "bytes": 348603,
+      "sha256": "afe32776e93548f03e4b2ec992383ed88b9bcb7177fa345196cf8208410c8ad5"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-far-right.png",
+      "bytes": 315240,
+      "sha256": "02e3713cdc4583c488cc9615a76278636d9b60952e70e47777758aaaf4e601ae"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-far.png",
+      "bytes": 312134,
+      "sha256": "37ca66db2acc43aef1752137abba63e82e5fada90ba41618f52dd8d29f5a1968"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-left.png",
+      "bytes": 364699,
+      "sha256": "f29dbde7acd2901e624898f50bf36a205aa8e44a0b36bf58f097be23f222a17e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-near-left.png",
+      "bytes": 381730,
+      "sha256": "7f9968dbc0584a34b5c8a5d88b4ae1dec3550926ad37f7767d6d350d0975e382"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-near-right.png",
+      "bytes": 397915,
+      "sha256": "9501ae1f7c817011ede959477e510d7949c348a6ad56f241d39179b970f35061"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-near.png",
+      "bytes": 404051,
+      "sha256": "76f4e0c83d199ee7768e09d3fc51b024f8fae9c03a22b31357edceb5efab260e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/fixed-v2-right.png",
+      "bytes": 342956,
+      "sha256": "9b35f6e6c0f54a7ee12a54e978183e433a1ff11337d6339494d40facc9fd9cb3"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-fixed-v2-center-native.png",
+      "bytes": 61535,
+      "sha256": "f08d25f6a1440dbdcb4b15e6021dfcfcc2a5dbc4b571d958f39c9fb75bd2f9a4"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-fixed-v2-far-native.png",
+      "bytes": 61323,
+      "sha256": "e97bb3acc3fdad77de3bd319b5fbb0108696528dadb58be0aa142f6e8576c9d4"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-fixed-v2-near-native.png",
+      "bytes": 61542,
+      "sha256": "43b95d95f5581e72a09f14ae5b8d59a828c95369b66b5829c58c5fad9c3c6b3e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-fixed-v2-right-native.png",
+      "bytes": 61306,
+      "sha256": "85d9b358889a85210629b3bdbadc91aa9e1f3215626a50ebd660abd3244bfd30"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-tracking-v2-center-native.png",
+      "bytes": 61535,
+      "sha256": "f08d25f6a1440dbdcb4b15e6021dfcfcc2a5dbc4b571d958f39c9fb75bd2f9a4"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-tracking-v2-far-native.png",
+      "bytes": 54043,
+      "sha256": "48988c558e0829dd2f13d17dc29cd50e43d75cdd5e1a3efa7a1844a83ed491d9"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-tracking-v2-near-native.png",
+      "bytes": 56979,
+      "sha256": "11f014a29e834ca93c7a369c01b67a381193a562b5ab9912d99603477be3a8ee"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/godot-tracking-v2-right-native.png",
+      "bytes": 61971,
+      "sha256": "05dbc14ea73bbd7ec3018304e46ea507a558e2b256ac4a87dc3d733fa035f8bb"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/import.log",
+      "bytes": 1294,
+      "sha256": "88a65891fcfd1b9f913a70de3df0508e5bc3ce83dca9418150bf4d7ac5d341b2"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-bad-control.png",
+      "bytes": 251960,
+      "sha256": "2b488e38b4bd02f21bd30c4af22d3c96150b65965729b7dc222d1256b7654e19"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-capture-v2.log",
+      "bytes": 207,
+      "sha256": "23bd232a2516e380f44276040d0f96fd9b9452d004cde643a03ef6cacf7e4e5a"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-capture.log",
+      "bytes": 207,
+      "sha256": "23bd232a2516e380f44276040d0f96fd9b9452d004cde643a03ef6cacf7e4e5a"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-center.png",
+      "bytes": 227317,
+      "sha256": "d3ec86bffd0c5411d6d98d4849487f7014df2bf760f9629b6311ac16248126fd"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-far-left.png",
+      "bytes": 229010,
+      "sha256": "871f6cca6b0ac2904a0f25545e92807dab06d6f656508bdee496aec5b8b78018"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-far-right.png",
+      "bytes": 212133,
+      "sha256": "53c723f6248f5a79debfb68981a472bba96c08c1e8f30f45ec81a09749c2ee25"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-far.png",
+      "bytes": 215300,
+      "sha256": "d904f3cab8e647fff928308ddbc08c545ace9ed6a2405cfac2a46619cbe045f1"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-left.png",
+      "bytes": 224859,
+      "sha256": "e3890118f99d623095dbd5faff6437e15539ed2b84c2122f9ad7cbbac1c01354"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-near-left.png",
+      "bytes": 233694,
+      "sha256": "8d657e92ef4076294e0702687f171abd5736d0ec040b652ca6010a3539e736ae"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-near-right.png",
+      "bytes": 237660,
+      "sha256": "9a73758604fc26f11ab8c37552075bd458562fcd9568cfa50f2efe661a848c2f"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-near.png",
+      "bytes": 239770,
+      "sha256": "18fc7674856ecf2f82e338523e529d995a2940811f648714dfeadb4baaaed557"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-fixed-right.png",
+      "bytes": 211256,
+      "sha256": "b9e57f127215a1217d2e3109ca388f64898edee8e1499ba043c481aee5c1ff3a"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-center.png",
+      "bytes": 227476,
+      "sha256": "8d338699a82d0928b89864373c5e25ae753bcbbe4757e12ffce8669cc3d83547"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-far-left.png",
+      "bytes": 212413,
+      "sha256": "257450b0e1c50ab30386b3cf181d3cfeb650c4a703b3be3d405608a7e502481d"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-far-right.png",
+      "bytes": 193401,
+      "sha256": "90b4123b6d59c6cd4ca704de2b1971540af0db147b7c58f933962ecd7d0e4a06"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-far.png",
+      "bytes": 193409,
+      "sha256": "0d0c85938b3e7fa0f822592c3feab322ea3455b2956946e5923beb7d6a710bfb"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-left.png",
+      "bytes": 224898,
+      "sha256": "6fa9a64d1c0fd4321dfd2285206ebcb124a99614d6541e90c8d91303175064a4"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-near-left.png",
+      "bytes": 227695,
+      "sha256": "01321321af9b8470063183e90ca6a797c8b338878e26409dbee27faa7b1410c3"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-near-right.png",
+      "bytes": 229137,
+      "sha256": "571f2dbaf0b764fe00cd237c2cdee0b4f595ec6fd2d007804953e2de9df38120"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-near.png",
+      "bytes": 232686,
+      "sha256": "74c3ecd447541a031ed8a7f7afa778c039affd08cea8b801a94d9cf3b19c2c6c"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-tracking-right.png",
+      "bytes": 208874,
+      "sha256": "7130daa1649372a09d65843cfde0b6daed1578c0c2a1c779ba7ac714ae06cf30"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-bad-control.png",
+      "bytes": 270220,
+      "sha256": "4a5e953b1e721b0a15575feff7d9bc4fef81c6c92d4b8e31bdd20672199e3492"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-center.png",
+      "bytes": 248190,
+      "sha256": "d332d5111f46db4b5aa1152817503ac4935838f77f1c215f74324a5eb717a226"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-far-left.png",
+      "bytes": 266616,
+      "sha256": "9717a3250c801967e4331ded1c67ccf0177860b82db7648f8fa708c6f873a2fe"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-far-right.png",
+      "bytes": 245479,
+      "sha256": "aed3a285259a5760e28d4474d17a4e17b37e2f74c97e9c86d9921291627711c0"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-far.png",
+      "bytes": 237603,
+      "sha256": "cbb3c6a9d4b99f9ca7bc94697063415ec066f0ee2d8dc8281ee061ec56ffee8a"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-left.png",
+      "bytes": 272690,
+      "sha256": "e893719a002838cafdbb42e7e11798db88701546f9f7ac5f2d3e766647bf2877"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-near-left.png",
+      "bytes": 276378,
+      "sha256": "7170831f0fe1e86799927588e42325eb7e9178784ddbc1af837fac407b4d694e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-near-right.png",
+      "bytes": 281747,
+      "sha256": "3e16c04b992c3db7015ab79754d81696a7801267c3351c012af175e2dd1ae813"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-near.png",
+      "bytes": 288668,
+      "sha256": "eab7c8ad666ee3b35ba625733162d1f7c06f786927e2cd79381f5e4b0ded1770"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-fixed-right.png",
+      "bytes": 259175,
+      "sha256": "09f99b9eac3e16527ed57d70e3e27ebec811b0c41fd28f055be0749c8e3a2698"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-center.png",
+      "bytes": 248504,
+      "sha256": "cf91c1448d5be18667f1a2efba3ce60e827e39b1f2b4f9d1956cbfaefb68ef9c"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-far-left.png",
+      "bytes": 230183,
+      "sha256": "a6307e3c21f1858cd015220369b3d9da0eee5200a21e49f215bdfa0cad09255d"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-far-right.png",
+      "bytes": 210568,
+      "sha256": "64cbffd6680c0b27d2da4709ae1d2449a0ae2777dde18eb67c4a8f9f5280f911"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-far.png",
+      "bytes": 207108,
+      "sha256": "a810892e0b7dfb4ec844dcae804046cd42358070ca371843a94282e410350710"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-left.png",
+      "bytes": 243421,
+      "sha256": "ccf7280491a5c732b5a93e8a1d24328246e84dd7f744a53116438fd334026236"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-near-left.png",
+      "bytes": 248504,
+      "sha256": "5e223a0a4ed63e6bb42bb3b2d17bc97ea58b440793d868dfc3bd97f5a7843998"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-near-right.png",
+      "bytes": 252119,
+      "sha256": "8d79b677880229f18ba74117e8c26b8c405e605769fe8b3b39387d8e4b82a197"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-near.png",
+      "bytes": 255499,
+      "sha256": "0fe411a5a2529b874b6565c24641336742739035399bcac06f0744c43358a55e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/pixi-v2-tracking-right.png",
+      "bytes": 226986,
+      "sha256": "de887b09f349fc874b2160c86e2992fe3c414a0896b1a1be022cbd17a60c5ac0"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/render-fixed-v2.log",
+      "bytes": 150,
+      "sha256": "46c929339cf447f3a458ae0504053982d5b58d153812072d027acdb50cd16ed8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/render-fixed.log",
+      "bytes": 150,
+      "sha256": "46c929339cf447f3a458ae0504053982d5b58d153812072d027acdb50cd16ed8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/render-tracking-v2.log",
+      "bytes": 150,
+      "sha256": "46c929339cf447f3a458ae0504053982d5b58d153812072d027acdb50cd16ed8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/render-tracking.log",
+      "bytes": 150,
+      "sha256": "46c929339cf447f3a458ae0504053982d5b58d153812072d027acdb50cd16ed8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/review-page.png",
+      "bytes": 263087,
+      "sha256": "c0cb5da28508dc993a5f563d9c58dcc7630590962cffeb086618f19d5072ff66"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/review-ui-check.json",
+      "bytes": 188,
+      "sha256": "af65deffa1331f2190d45a367df3133592073be4ece2a7c095412e5f363a27f9"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-fixed-v2.json",
+      "bytes": 4967,
+      "sha256": "263d4a4c85028d0a744477995ee57d3f1f27f50b472a44ffe04d8514aa93adfd"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-fixed.json",
+      "bytes": 2559,
+      "sha256": "a3398d70664b924c020022a4d04e488fc4f6423b37c18dd2080c9df7ebf76ed3"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-pixi-v2.json",
+      "bytes": 9677,
+      "sha256": "2e86d0de4647f107ddcb6a17fc32f9d8c72c1be063294259213d3a2ec560cefa"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-pixi.json",
+      "bytes": 9677,
+      "sha256": "2e86d0de4647f107ddcb6a17fc32f9d8c72c1be063294259213d3a2ec560cefa"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-tracking-v2.json",
+      "bytes": 4980,
+      "sha256": "fb2c8354dadbc58f4e449fa5c39b044629dc5ed37e49cd306858f1f015fabd8c"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/runtime-tracking.json",
+      "bytes": 2586,
+      "sha256": "24075d2b1482ec021c6531a67e4e17835069d1153c5bdbf37dd2cab987fd24fe"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-bad-scale.png",
+      "bytes": 386396,
+      "sha256": "f626f79064a408e5553a7cfeefab77f53df597f3e8ffde3121253d3e9865862b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-center.png",
+      "bytes": 372167,
+      "sha256": "93fa68446d2b13346ec0f90841a311db3e30003d239c421fb840e821f0192401"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-far-left.png",
+      "bytes": 336331,
+      "sha256": "c8658702d6b5775d81762147c5320c60d81a92dd0f0c5577587cf04e9f967415"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-far-right.png",
+      "bytes": 301083,
+      "sha256": "36ad4e3b36a4264f5e173fc8680f8348358a40f663fb759b2fcd85a41f71fcc7"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-far.png",
+      "bytes": 290787,
+      "sha256": "90a4264eb323f8c741686c1ddd93bf80525b2b2e5eb12463585f0665597c6411"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-left.png",
+      "bytes": 363162,
+      "sha256": "d84f4df865081641c413aa96c721f01e445deef01396fce75128ba87c9c68533"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-near-left.png",
+      "bytes": 379925,
+      "sha256": "c13a16e906925516c4e19448272c225d92d310be5903511aadd6795f3a3cff53"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-near-right.png",
+      "bytes": 391367,
+      "sha256": "70e8dd4b3fca46dfd580d64a8fe5b19480c33bc86d8fab77fb29b5652e5cfb01"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-near.png",
+      "bytes": 401228,
+      "sha256": "7c00f631a8fca47f8515d3fa3a401d898b8186d299eaeeb1e0c0b88154983aa3"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-right.png",
+      "bytes": 338361,
+      "sha256": "b745ea9ec0c89a3afa28a7481bd9d4485095bd83c6e3d4622ff4b917f34451a8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-bad-scale.png",
+      "bytes": 386396,
+      "sha256": "f626f79064a408e5553a7cfeefab77f53df597f3e8ffde3121253d3e9865862b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-center.png",
+      "bytes": 372167,
+      "sha256": "93fa68446d2b13346ec0f90841a311db3e30003d239c421fb840e821f0192401"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-far-left.png",
+      "bytes": 336331,
+      "sha256": "c8658702d6b5775d81762147c5320c60d81a92dd0f0c5577587cf04e9f967415"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-far-right.png",
+      "bytes": 301083,
+      "sha256": "36ad4e3b36a4264f5e173fc8680f8348358a40f663fb759b2fcd85a41f71fcc7"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-far.png",
+      "bytes": 290787,
+      "sha256": "90a4264eb323f8c741686c1ddd93bf80525b2b2e5eb12463585f0665597c6411"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-left.png",
+      "bytes": 363162,
+      "sha256": "d84f4df865081641c413aa96c721f01e445deef01396fce75128ba87c9c68533"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-near-left.png",
+      "bytes": 379925,
+      "sha256": "c13a16e906925516c4e19448272c225d92d310be5903511aadd6795f3a3cff53"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-near-right.png",
+      "bytes": 391367,
+      "sha256": "70e8dd4b3fca46dfd580d64a8fe5b19480c33bc86d8fab77fb29b5652e5cfb01"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-near.png",
+      "bytes": 401228,
+      "sha256": "7c00f631a8fca47f8515d3fa3a401d898b8186d299eaeeb1e0c0b88154983aa3"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/tracking-v2-right.png",
+      "bytes": 338361,
+      "sha256": "b745ea9ec0c89a3afa28a7481bd9d4485095bd83c6e3d4622ff4b917f34451a8"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/evidence/validation.json",
+      "bytes": 12251,
+      "sha256": "0be7871465442865d78a88fadd1575e5680144143e8fd8a2d4e8d2f52c0d581b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/fetch_tools.py",
+      "bytes": 1183,
+      "sha256": "00089ea4e945665d3da9501eb98daace346381411a08b5b51a56146d6b8bae8f"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/inputs/chamber-layout.json",
+      "bytes": 2591,
+      "sha256": "b40586402e9ab80a10ec7405739d10cb50049d5f63e186604ab0ebf05a989fa2"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/inputs/legacy-idle-S.png",
+      "bytes": 48343,
+      "sha256": "8fc39de869c6281e020fe8720ef3ce11ec351cfd3215274055a00a20ce48ce6e"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/inputs/projection-candidates.json",
+      "bytes": 2474,
+      "sha256": "5aeef86916d4be94dc6aa93c401702bb60023e23c3ea1d340bdb7ef849ae3da6"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/pixi/capture.mjs",
+      "bytes": 2507,
+      "sha256": "27dbdaf9fd188499e2f4bd4b932f06aa416dcc8b8b7ddf3738440dbe71fafab2"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/pixi/index.html",
+      "bytes": 1070,
+      "sha256": "19b4a5ab830f7204e8a279a2ab5902cc6c73d1b9ad72636413c77be1e8a396c1"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/pixi/probe.js",
+      "bytes": 8240,
+      "sha256": "0cbabb88dd3552b8e4ba8266550e4c129bacd1e2477ea865c771af52750cdcf2"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/pixi/vendor/PIXI-LICENSE.txt",
+      "bytes": 1092,
+      "sha256": "5ce7447bc57f7349ffc48338782fbcabe613696e00712b20d66bc58e780f9473"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/pixi/vendor/pixi-8.20.1.min.js",
+      "bytes": 818871,
+      "sha256": "9948591083793305468d73915a3ea85032dcf8e32eee7a1328585050d7a14d53"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/renderer-comparison.canvas.tsx",
+      "bytes": 6411201,
+      "sha256": "1e098b7e96d1b61b1f5ea2a0e50ffb32d4bbf42ba6e9e0e6123bf73f64bef63d"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/research-sources.json",
+      "bytes": 1394,
+      "sha256": "c5b695da5e910c3dd28abc472355dccb5d68b2b2538a3a3f5f4f83c44043188d"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/review.html",
+      "bytes": 7027,
+      "sha256": "98d047440f522405a95440dfcb767e388a94739de76ad0d95d196c6211d614e1"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/main.gd",
+      "bytes": 5438,
+      "sha256": "ede6d5146f18b9fcc450c27a632a7d7f5530faff54d4e4562ae6064391a2669b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/main.gd.uid",
+      "bytes": 20,
+      "sha256": "e41a1ef97d61d924f6c5fbb5997cc442348d43729365e51d7633e7551d48f336"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/main.tscn",
+      "bytes": 150,
+      "sha256": "a69334772ed53b6d03073b6752858c72bebec2a2d9a07ddca2c82001e069e85c"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/project.godot",
+      "bytes": 486,
+      "sha256": "3be7e47e1da85b8c9eab7ce5d55a37e9fa7667450929f8d66876a23d46400d6f"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/world.gd",
+      "bytes": 4214,
+      "sha256": "ef0612a1ad254e97fc25ef82adfcca7d419c319f605322e688ae3da4c27da4fe"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/runtime/world.gd.uid",
+      "bytes": 20,
+      "sha256": "444009b384588995474189785113fe605b2c70088613289d5bfe01cd9340d65b"
+    },
+    {
+      "path": "astra_test_01/design/experiments/E02/validate.py",
+      "bytes": 2536,
+      "sha256": "a9ba1364a1aa162329ca4d92c7f521131716b0068e353b888b4d28c4561b4d22"
+    }
+  ]
+}

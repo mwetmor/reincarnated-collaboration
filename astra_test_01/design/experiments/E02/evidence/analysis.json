@@ -1,0 +1,293 @@
+{
+  "experiment": "E02",
+  "coordinate_convention": "positive camera-ground depth is nearer camera",
+  "checks": {
+    "matrix_agreement": true,
+    "samples_inside_chamber": true,
+    "native_alpha": true,
+    "tracking_removes_relative_position": true,
+    "shifted_root_rejected": true,
+    "shifted_socket_rejected": true,
+    "wrong_scale_rejected": true,
+    "frozen_ring_rejected_offcenter": true,
+    "corrupt_projection_rejected": true
+  },
+  "matrix_max_error_px": 1.7288250917028504e-13,
+  "alpha": {
+    "mode": "RGBA",
+    "dimensions": [
+      512,
+      512
+    ],
+    "transparent_pixels": 246151,
+    "opaque_pixels": 727,
+    "partial_pixels": 15266,
+    "border_alpha_max": 0
+  },
+  "samples": [
+    {
+      "id": "center",
+      "camera_ground": [
+        0,
+        0
+      ],
+      "world": [
+        0.0,
+        0.0
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        360.74984436000005,
+        223.12467497699998
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "body_height_px": 38.474999999999994,
+      "uniform_sprite_scale_vs_center": 1.0,
+      "top_axis_horizontal_shift_px": 0.0,
+      "cuboid_corner_max_residual_px": 0.0,
+      "cuboid_corner_mean_residual_px": 0.0,
+      "geometric_review_flag": false,
+      "view_elevation_at_1m_deg": 51.45770241023467,
+      "view_azimuth_delta_deg": 0.0,
+      "frozen_ring_max_error_px": 6.355287432313019e-14
+    },
+    {
+      "id": "far",
+      "camera_ground": [
+        0,
+        -3
+      ],
+      "world": [
+        -2.1940611048575116,
+        -2.0459950801874953
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        360.74984436000005,
+        156.8018872882312
+      ],
+      "top_px": [
+        360.74984436000005,
+        116.81812898740675
+      ],
+      "body_height_px": 39.98375830082445,
+      "uniform_sprite_scale_vs_center": 1.039213990924612,
+      "top_axis_horizontal_shift_px": 0.0,
+      "cuboid_corner_max_residual_px": 1.4275144045141286,
+      "cuboid_corner_mean_residual_px": 1.3508751010317082,
+      "geometric_review_flag": false,
+      "view_elevation_at_1m_deg": 46.08470476462873,
+      "view_azimuth_delta_deg": 0.0,
+      "frozen_ring_max_error_px": 2.3194459636568108
+    },
+    {
+      "id": "near",
+      "camera_ground": [
+        0,
+        3
+      ],
+      "world": [
+        2.1940611048575116,
+        2.0459950801874953
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        360.74984436000005,
+        300.3142454125849
+      ],
+      "top_px": [
+        360.74984436000005,
+        264.4620876449454
+      ],
+      "body_height_px": 35.85215776763948,
+      "uniform_sprite_scale_vs_center": 0.9318299614721115,
+      "top_axis_horizontal_shift_px": 0.0,
+      "cuboid_corner_max_residual_px": 1.958443804679859,
+      "cuboid_corner_mean_residual_px": 1.8500365907149874,
+      "geometric_review_flag": false,
+      "view_elevation_at_1m_deg": 57.770696571273874,
+      "view_azimuth_delta_deg": 0.0,
+      "frozen_ring_max_error_px": 2.9184704411743017
+    },
+    {
+      "id": "left",
+      "camera_ground": [
+        -3,
+        0
+      ],
+      "world": [
+        -2.0459950801874953,
+        2.1940611048575116
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        271.36187643167733,
+        223.12467497699998
+      ],
+      "top_px": [
+        264.95548553982496,
+        184.649674977
+      ],
+      "body_height_px": 38.474999999999994,
+      "uniform_sprite_scale_vs_center": 1.0,
+      "top_axis_horizontal_shift_px": -6.406390891852368,
+      "cuboid_corner_max_residual_px": 6.927438078127125,
+      "cuboid_corner_mean_residual_px": 3.430218784088048,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 50.861550338594846,
+      "view_azimuth_delta_deg": -11.783919809787928,
+      "frozen_ring_max_error_px": 1.606718751007918
+    },
+    {
+      "id": "right",
+      "camera_ground": [
+        3,
+        0
+      ],
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        450.1378122883228,
+        223.12467497699998
+      ],
+      "top_px": [
+        456.54420318017515,
+        184.64967497699996
+      ],
+      "body_height_px": 38.47500000000002,
+      "uniform_sprite_scale_vs_center": 1.0000000000000007,
+      "top_axis_horizontal_shift_px": 6.406390891852368,
+      "cuboid_corner_max_residual_px": 6.927438078127182,
+      "cuboid_corner_mean_residual_px": 3.430218784088055,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 50.861550338594846,
+      "view_azimuth_delta_deg": 11.783919809787928,
+      "frozen_ring_max_error_px": 1.606718751007918
+    },
+    {
+      "id": "far-left",
+      "camera_ground": [
+        -2,
+        -2
+      ],
+      "world": [
+        -2.8267041233633377,
+        0.09871068311334397
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        304.0215187312623,
+        177.84711733323599
+      ],
+      "top_px": [
+        300.16448585150374,
+        138.26823618881093
+      ],
+      "body_height_px": 39.578881144425054,
+      "uniform_sprite_scale_vs_center": 1.0286908679512685,
+      "top_axis_horizontal_shift_px": -3.857032879758549,
+      "cuboid_corner_max_residual_px": 4.983243999734462,
+      "cuboid_corner_mean_residual_px": 2.4150349076998903,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 47.56717004888321,
+      "view_azimuth_delta_deg": -6.961216226664845,
+      "frozen_ring_max_error_px": 1.9649321171333745
+    },
+    {
+      "id": "far-right",
+      "camera_ground": [
+        2,
+        -2
+      ],
+      "world": [
+        -0.09871068311334397,
+        -2.8267041233633377
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        417.4781699887378,
+        177.84711733323599
+      ],
+      "top_px": [
+        421.33520286849637,
+        138.26823618881093
+      ],
+      "body_height_px": 39.578881144425054,
+      "uniform_sprite_scale_vs_center": 1.0286908679512685,
+      "top_axis_horizontal_shift_px": 3.857032879758549,
+      "cuboid_corner_max_residual_px": 4.983243999734462,
+      "cuboid_corner_mean_residual_px": 2.4150349076998885,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 47.56717004888321,
+      "view_azimuth_delta_deg": 6.961216226664845,
+      "frozen_ring_max_error_px": 1.9640947951283854
+    },
+    {
+      "id": "near-left",
+      "camera_ground": [
+        -2,
+        2
+      ],
+      "world": [
+        0.09871068311334397,
+        2.8267041233633377
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        297.9897271560099,
+        273.2164905371885
+      ],
+      "top_px": [
+        293.23449223985006,
+        236.3364067008804
+      ],
+      "body_height_px": 36.88008383630813,
+      "uniform_sprite_scale_vs_center": 0.9585466884030704,
+      "top_axis_horizontal_shift_px": -4.75523491615985,
+      "cuboid_corner_max_residual_px": 6.1470435632875216,
+      "cuboid_corner_mean_residual_px": 2.9769220403251784,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 55.2108327649411,
+      "view_azimuth_delta_deg": -9.176641748047603,
+      "frozen_ring_max_error_px": 2.3133544436004145
+    },
+    {
+      "id": "near-right",
+      "camera_ground": [
+        2,
+        2
+      ],
+      "world": [
+        2.8267041233633377,
+        -0.09871068311334397
+      ],
+      "inside_chamber": true,
+      "root_px": [
+        423.5099615639902,
+        273.2164905371885
+      ],
+      "top_px": [
+        428.26519648015005,
+        236.3364067008804
+      ],
+      "body_height_px": 36.88008383630813,
+      "uniform_sprite_scale_vs_center": 0.9585466884030704,
+      "top_axis_horizontal_shift_px": 4.75523491615985,
+      "cuboid_corner_max_residual_px": 6.1470435632875216,
+      "cuboid_corner_mean_residual_px": 2.976922040325185,
+      "geometric_review_flag": true,
+      "view_elevation_at_1m_deg": 55.2108327649411,
+      "view_azimuth_delta_deg": 9.176641748047603,
+      "frozen_ring_max_error_px": 2.312041182915365
+    }
+  ],
+  "scope": "Static single-source sprite / known-volume diagnostic. No anatomy or gait pass.",
+  "python": "3.12.0",
+  "numpy": "2.4.6"
+}

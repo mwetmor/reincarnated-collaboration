@@ -1,6 +1,6 @@
 # Painted-world architecture and qualification plan
 
-Version: 0.1, 2026-09-10. Status: implementation plan, not implemented or qualified.
+Version: 0.2, 2026-09-11. Status: qualification plan; implementation state is in PROGRESS.
 User direction governs this experiment; production canon is reconciled separately
 if the trial succeeds. Entry and current action: [START_HERE](START_HERE.md).
 
@@ -47,6 +47,15 @@ Start feasibility work with a 2D runtime. Hidden height/depth data is compatible
 with painted artwork. A 2.5D renderer is a research fallback only if documented
 occlusion/perspective tests justify it; production 3D character rigs are not a
 prerequisite. Camera, paint style and runtime representation are separate choices.
+
+Matt selected projection C for the next feasibility tests, then requested the same
+scene/character/VFX composition in **Godot and Pixi.js**, with alternatives researched.
+Compare the agent's ability to assemble, inspect and revise the painted presentation;
+keep combat/content JSON from the serial pipeline as shared input. Do not select a
+renderer for unrelated built-in combat features. The [shared benchmark](experiments/E02/RENDERER_BENCHMARK.md)
+defines the comparison; [primary-source research](experiments/E02/RENDERER_RESEARCH.md)
+recommends Phaser 4 as the third test. No production renderer or final painted target
+is approved by the foundation probe.
 
 ## 3. World data and representation contracts
 

@@ -25,9 +25,15 @@ The [E01 comparison packet](experiments/E01/comparison.html) now contains inspec
 native stills, [findings](experiments/E01/REPORT.md), a three-candidate geometry
 study, and logical chamber preparation. G1 remains incomplete because native
 uncut HUD motion is missing. Follow PROGRESS.json for the precise next action;
-do not repeat the exhausted source searches or infer D01 approval from the packet.
+do not repeat the exhausted source searches. Matt has since selected C for testing;
+final visual approval remains separate.
 
-Latest user direction: Godot's recovered 3D camera is a starting candidate only.
+Latest user direction: use C to test perspective compatibility, and compare agent
+scene/character/VFX composition in Godot, Pixi.js and researched alternatives.
+The [E02 review](experiments/E02/review.html) and
+[renderer research](experiments/E02/RENDERER_RESEARCH.md) contain the first two
+runnable foundation probes; Phaser 4 is the recommended third test.
+Godot's recovered 3D camera remains a starting candidate only.
 Compare native gameplay exemplars from Diablo II, Path of Exile 1, Grim Dawn and
 Last Epoch before selecting painted-world projection and on-screen scale.
 The four faction identities share one eventual visual/spatial contract.
@@ -43,9 +49,10 @@ The feasibility of that pipeline remains to be tested.
 > `/Users/admin/Games/reincarnated-collaboration`. Read `AGENTS.md` and its charter
 > routes, then `.agents/skills/painted-character-vfx/SKILL.md` and
 > `astra_test_01/design/START_HERE.md`. Resume the next action in `PROGRESS.json`.
-> Work autonomously within the recorded scope. Start with the four-game native
-> exemplar comparison and camera/projection research gate, including painted
-> floor and sprite compatibility. Preserve the original ASTRA TEST 01 results.
+> Work autonomously within the recorded scope. Continue projection C and the
+> shared Godot/Pixi composition benchmark; research recommends Phaser 4 third.
+> E02 is a partial capability result, not a painted-chamber pass. Keep E01
+> native-motion gaps open and do not repeat exhausted searches. Preserve the original ASTRA TEST 01 results.
 > Treat Godot camera settings and persistent-layer animation as hypotheses for
 > this new suite, not inherited passes. No internal subagents. Update the durable
 > evidence and handoff before ending.
