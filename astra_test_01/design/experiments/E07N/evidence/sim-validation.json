@@ -1,0 +1,1310 @@
+{
+  "checks": {
+    "F01_mage_locked_blocks": true,
+    "F01_mage_closed_blocks": true,
+    "F01_mage_closed_no_path": true,
+    "F01_mage_opening_blocks": true,
+    "F01_mage_mid_transition_restore": true,
+    "F01_mage_open_path_and_traverse": true,
+    "F01_mage_occupied_close": true,
+    "F01_mage_closing_blocks_and_invalidates": true,
+    "F01_mage_closing_restores_and_commits": true,
+    "F01_mage_reopen_replan": true,
+    "F01_mage_bad_omitted_collision_detected": true,
+    "F01_monster_locked_blocks": true,
+    "F01_monster_closed_blocks": true,
+    "F01_monster_closed_no_path": true,
+    "F01_monster_opening_blocks": true,
+    "F01_monster_mid_transition_restore": true,
+    "F01_monster_open_path_and_traverse": true,
+    "F01_monster_occupied_close": true,
+    "F01_monster_closing_blocks_and_invalidates": true,
+    "F01_monster_closing_restores_and_commits": true,
+    "F01_monster_reopen_replan": true,
+    "F01_monster_bad_omitted_collision_detected": true,
+    "F02_mage_locked_blocks": true,
+    "F02_mage_closed_blocks": true,
+    "F02_mage_closed_no_path": true,
+    "F02_mage_opening_blocks": true,
+    "F02_mage_mid_transition_restore": true,
+    "F02_mage_open_path_and_traverse": true,
+    "F02_mage_occupied_close": true,
+    "F02_mage_closing_blocks_and_invalidates": true,
+    "F02_mage_closing_restores_and_commits": true,
+    "F02_mage_reopen_replan": true,
+    "F02_mage_bad_omitted_collision_detected": true,
+    "F02_monster_locked_blocks": true,
+    "F02_monster_closed_blocks": true,
+    "F02_monster_closed_no_path": true,
+    "F02_monster_opening_blocks": true,
+    "F02_monster_mid_transition_restore": true,
+    "F02_monster_open_path_and_traverse": true,
+    "F02_monster_occupied_close": true,
+    "F02_monster_closing_blocks_and_invalidates": true,
+    "F02_monster_closing_restores_and_commits": true,
+    "F02_monster_reopen_replan": true,
+    "F02_monster_bad_omitted_collision_detected": true,
+    "immutable_boundary": true,
+    "out_of_range_rejected": true,
+    "invalid_dt": true,
+    "invalid_saved_transitions": true,
+    "no_rendering_imports": true,
+    "invalid_props_events_faction": true,
+    "prop_rules_survive_door_wrapper": true
+  },
+  "records": [
+    {
+      "name": "F01_mage",
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              1.3,
+              0
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              3.6,
+              2.7
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": false,
+            "reason": "invalid-state"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "unlock"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                2.15,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": false,
+            "reason": "occupied"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.2
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.3
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 2,
+                "type": "closed",
+                "id": "door"
+              }
+            ],
+            "navVersion": 6
+          },
+          "time": 2,
+          "pending": null
+        }
+      }
+    },
+    {
+      "name": "F01_monster",
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              0,
+              0
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              1.3,
+              0
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "monster",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": false,
+            "reason": "invalid-state"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "unlock"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                2.15,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": false,
+            "reason": "occupied"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.2
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.3
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 2,
+                "type": "closed",
+                "id": "door"
+              }
+            ],
+            "navVersion": 6
+          },
+          "time": 2,
+          "pending": null
+        }
+      }
+    },
+    {
+      "name": "F02_mage",
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              1.3,
+              0
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              3.6,
+              2.7
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": false,
+            "reason": "invalid-state"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "unlock"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                2.15,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": false,
+            "reason": "occupied"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.2
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.3
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "mage",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 2,
+                "type": "closed",
+                "id": "door"
+              }
+            ],
+            "navVersion": 6
+          },
+          "time": 2,
+          "pending": null
+        }
+      }
+    },
+    {
+      "name": "F02_monster",
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              0,
+              0
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              1.3,
+              0
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "monster",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": false,
+            "reason": "invalid-state"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "unlock"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.25
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                2.15,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": false,
+            "reason": "occupied"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                1.3,
+                0
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "monster",
+              "point": [
+                3.3,
+                0
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.2
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.3
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          },
+          {
+            "command": {
+              "type": "internal_door",
+              "actor_id": "monster",
+              "action": "close"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "tick",
+              "dt": 0.5
+            },
+            "accepted": true,
+            "reason": "advanced"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 1,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 1.5,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 2,
+                "type": "closed",
+                "id": "door"
+              }
+            ],
+            "navVersion": 6
+          },
+          "time": 2,
+          "pending": null
+        }
+      }
+    }
+  ],
+  "pass": true
+}

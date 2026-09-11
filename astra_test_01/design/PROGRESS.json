@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T16:04:09.105995+00:00",
+  "updated": "2026-09-11T16:13:34.641721+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07N: connect internal locked/opening/open/closing door state to geometry, navigation, occupancy, light/depth and saved transition time in the E07K chamber. No new source art or animation inventory expansion.",
+  "next_action": "Register E07L geometry-derived pilot contact/cast shadow on floor using shared directional light, exact pose/root transforms and independent ray witnesses; retain all art/animation/serial combat gaps.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -165,7 +165,10 @@
     "experiments/E05Q/review.html",
     "experiments/E07K/REPORT.md",
     "experiments/E07K/RECEIPT.json",
-    "experiments/E07K/review.html"
+    "experiments/E07K/review.html",
+    "experiments/E07N/REPORT.md",
+    "experiments/E07N/RECEIPT.json",
+    "experiments/E07N/review.html"
   ],
   "decisions_pending": [
     {
@@ -267,7 +270,8 @@
     "E05O all3 independent-RGBA composition variants fail full96case matrix (partition57, nativeover34, directover46). Two-view native probe insufficient. Stop branch; investigate depth-bearing geometry without changing Pixi harness or full-art bar. Invalid offscreenY capture preserved separately.",
     "E05J depth-bearing painted geometry in same Pixi harness passes288sparse gear/skin source comparisons and exact reverse ordering after local10\u201340mclip control. Full art remains simple/grainy; native sampling, full animation, lighting, world integration and production residency unqualified. Old RGBA failures retained.",
     "E05Q selects MSAA4/mips/aniso8 after8/8relative-reference improvements. Corrected idle/cast strip has32/32safe bounds; supplementalwalk315wouldstillclip. E05J288counts scoped to captured pixels, shared crop not fullpose proof. Art/style, temporal shimmer, fullworldlighting remain open.",
-    "E07K pilot depth228native/144fresh, point-light controls and38interaction checks pass in both factions. Full art, sprite NPC/monster depth/materials, actor contact/cast shadows, unused internal door and serial combat remain open."
+    "E07K pilot depth228native/144fresh, point-light controls and38interaction checks pass in both factions. Full art, sprite NPC/monster depth/materials, actor contact/cast shadows, unused internal door and serial combat remain open.",
+    "E07N internal door committed state now passes51headless,300pixel,42runtime and6review/UI checks. Smooth panel motion/partial-aperture collision remain unqualified; F01 door visually blends into wall and needs frame/hardware. Full chamber/pilot/VFX/serial combat still open."
   ],
   "running_jobs": [
     {
@@ -311,7 +315,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07K/RECEIPT.json",
+  "current_receipt": "experiments/E07N/RECEIPT.json",
   "generation_calls_this_suite": 28,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

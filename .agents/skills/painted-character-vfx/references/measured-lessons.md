@@ -182,3 +182,7 @@ MSAA4+mips/aniso8 improved8/8scene comparisons against finite3×fresh-geometry r
 ### E07K · Shared depth and light do not establish finished chamber art
 
 A depth-bearing pilot shares chamber camera/light data with372 passing CPU ray witnesses and closed-leaf light controls.38 interaction checks pass. Numeric foot Z is approximately zero, but missing contact/cast shadows still make it appear insufficiently grounded. Earlier NPC/monster sprites and unused internal-door state remain separate gaps. [Evidence](../../../../astra_test_01/design/experiments/E07K/REPORT.md).
+
+### E07N · Committed door state must reach every consumer
+
+Connecting the unused internal door to exact geometry/collision/navigation/light passes51headless and300pixel checks. Save pending time, reject occupied closing for both actor sizes, and invalidate routes by obstacle signature plus version. Stale visual and missing collider controls are detected. Committed-state success does not qualify smooth door motion or readable hardware; F01 panel still blends into wall. [Evidence](../../../../astra_test_01/design/experiments/E07N/REPORT.md).

@@ -1,0 +1,32 @@
+{
+  "experiment": "E07N",
+  "started_at": "2026-09-11T16:05:34.592626+00:00",
+  "status": "INTERNAL_DOOR_COMMITTED_STATE_PASS_ANIMATION_AND_ART_OPEN",
+  "limits": {
+    "active_minutes": 35,
+    "generation_calls": 0,
+    "implementation_revisions": 2,
+    "capture_batches": 3,
+    "disk_bytes": 35000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "implementation_revisions": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 22831534
+  },
+  "visual_scope": "Committed state geometry only; transition panel holds closed under original conservative E04 policy. Smooth motion and partial-aperture collision unqualified.",
+  "revision_2": "Tighten malformed saved prop/event and unknown faction rejection; valid rendering/state behavior unchanged. New headless tests exercise these cases and prop reward regression.",
+  "finished_at": "2026-09-11T16:13:34.641721+00:00",
+  "next_action": "Register E07L geometry-derived pilot floor shadow with independent ray witnesses and omitted/stale-shadow controls.",
+  "verdicts": {
+    "headless": "PASS51/51",
+    "native_and_fresh_geometry": "PASS300/300",
+    "open_stale_controls": "PASS100/100 each",
+    "native_light": "PASS",
+    "runtime": "PASS42/42",
+    "saved_review_and_buttons": "PASS6/6",
+    "smooth_door_animation_full_art": "UNQUALIFIED"
+  }
+}
