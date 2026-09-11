@@ -1,0 +1,309 @@
+{
+  "checks": {
+    "derivative_plane": false,
+    "raw_lookup_control": true,
+    "no_gl": false,
+    "no_browser_errors": false
+  },
+  "errors": [],
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "ERROR: 0:9: 'dFdx' : no matching overloaded function found\nERROR: 0:9: '=' : dimension mismatch\nERROR: 0:9: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'\nERROR: 0:9: 'dFdy' : no matching overloaded function found\nERROR: 0:9: '=' : dimension mismatch\nERROR: 0:9: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'\n\u0000",
+    "PixiJS Error: Could not initialize shader."
+  ],
+  "probe": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "shading_language": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)",
+    "records": [
+      {
+        "pixel": [
+          5,
+          7
+        ],
+        "expected": [
+          64,
+          128,
+          145
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 145,
+        "raw_error": 1.462890625
+      },
+      {
+        "pixel": [
+          5,
+          25
+        ],
+        "expected": [
+          64,
+          128,
+          113
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 5.322265625
+      },
+      {
+        "pixel": [
+          5,
+          42
+        ],
+        "expected": [
+          64,
+          128,
+          81
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 7.189453125
+      },
+      {
+        "pixel": [
+          5,
+          55
+        ],
+        "expected": [
+          64,
+          128,
+          49
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 1.087890625
+      },
+      {
+        "pixel": [
+          18,
+          7
+        ],
+        "expected": [
+          64,
+          128,
+          161
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 161,
+        "raw_error": 4.513671875
+      },
+      {
+        "pixel": [
+          18,
+          25
+        ],
+        "expected": [
+          64,
+          128,
+          129
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 129,
+        "raw_error": 8.373046875
+      },
+      {
+        "pixel": [
+          18,
+          42
+        ],
+        "expected": [
+          64,
+          128,
+          97
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 10.240234375
+      },
+      {
+        "pixel": [
+          18,
+          55
+        ],
+        "expected": [
+          64,
+          128,
+          65
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 4.138671875
+      },
+      {
+        "pixel": [
+          39,
+          7
+        ],
+        "expected": [
+          64,
+          128,
+          177
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 177,
+        "raw_error": 0.404296875
+      },
+      {
+        "pixel": [
+          39,
+          25
+        ],
+        "expected": [
+          64,
+          128,
+          145
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 145,
+        "raw_error": 3.455078125
+      },
+      {
+        "pixel": [
+          39,
+          42
+        ],
+        "expected": [
+          64,
+          128,
+          113
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 5.322265625
+      },
+      {
+        "pixel": [
+          39,
+          55
+        ],
+        "expected": [
+          64,
+          128,
+          81
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 0.779296875
+      },
+      {
+        "pixel": [
+          58,
+          7
+        ],
+        "expected": [
+          64,
+          128,
+          193
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 193,
+        "raw_error": 3.330078125
+      },
+      {
+        "pixel": [
+          58,
+          25
+        ],
+        "expected": [
+          64,
+          128,
+          161
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 161,
+        "raw_error": 0.529296875
+      },
+      {
+        "pixel": [
+          58,
+          42
+        ],
+        "expected": [
+          64,
+          128,
+          129
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 129,
+        "raw_error": 2.396484375
+      },
+      {
+        "pixel": [
+          58,
+          55
+        ],
+        "expected": [
+          64,
+          128,
+          97
+        ],
+        "actual": [
+          0,
+          0,
+          0
+        ],
+        "error": 128,
+        "raw_error": 3.705078125
+      }
+    ],
+    "gl_error": 1282
+  }
+}

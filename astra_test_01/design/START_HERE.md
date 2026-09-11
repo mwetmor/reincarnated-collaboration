@@ -133,3 +133,5 @@ E07C [padded shadow-domain review](experiments/E07C/review.html): preserves 640 
 E07E [shared-shadow capability checkpoint](experiments/E07E/review.html): offscreen depth/encoding passes; two integrated builds fail shader compilation. E07F compiler-gated local repair is authorized by the continuing-campaign protocol. Original counters/failures retained; E07C remains the working chamber.
 
 E07F [shared-shadow source comparison](experiments/E07F/review.html): compiler gate and864floor/vertical samples pass; two native pilot samples still fail. Strict source guard repair and original failures retained. E07G receiver-plane lookup next; E07C remains the working chamber.
+
+E07G [receiver-plane review](experiments/E07G/review.html): GLSL3 derivative capability passes; corrected lookup exchanges two native failures for two fresh3× armor failures. E07H tests source-diagnosed map density next. E07C remains the working chamber.

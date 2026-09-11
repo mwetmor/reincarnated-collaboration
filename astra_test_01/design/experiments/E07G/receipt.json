@@ -1,0 +1,42 @@
+{
+  "experiment": "E07G",
+  "started_at": "2026-09-11T21:21:58.275820+00:00",
+  "status": "PARTIAL_SOURCE_FAIL",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "capability_revisions": 3,
+    "elapsed_minutes": 6.036606333333333,
+    "disk_bytes_before_index": 6078697
+  },
+  "prior_shared_shadow_builds": 3,
+  "cumulative_shared_shadow_builds": 4,
+  "dependencies": {
+    "E07F/pixi-adapter/scene-shadow.mjs": "bae6f7ab8c03923e34d4d2b7358cee7f3e81e52591369d0908bdc0344d1e8758",
+    "E07F/evidence/source-rays-guarded.json": "9926f7815287be23daab7a9dca1f3491b56ae321430c0810b717acd2df765f69"
+  },
+  "ended_at": "2026-09-11T21:28:00.472200+00:00",
+  "results": {
+    "capability": "PASS revision3; original two ESSL1 failures retained",
+    "compiler": "PASS",
+    "witnesses_passed": 1300,
+    "witnesses_total": 1302,
+    "raw_control_failed": 2,
+    "new_plane_failures": 2,
+    "review": "PASS"
+  },
+  "lessons": [
+    "Installed Pixi GLSL1 prefixing invalidates extension placement; explicit GLSL3 path passes actual derivative tests.",
+    "Receiver-plane correction fixes prior sleeve errors but introduces shoulder-armor errors at unchanged map density.",
+    "Independent source map rays agree with GPU depth within0.029mm; doubling density predicts zero of32probe disagreements, still needs full GPU proof."
+  ]
+}

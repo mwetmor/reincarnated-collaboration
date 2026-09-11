@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "opaque-scene-directional-depth-shadow",
+  "profiles": {
+    "A": {
+      "label": "Existing back-side key",
+      "direction": [
+        -1,
+        -1,
+        2
+      ],
+      "basis": {
+        "right": [
+          -0.7071067811865476,
+          0.7071067811865476,
+          0
+        ],
+        "up": [
+          -0.5773502691896258,
+          -0.5773502691896258,
+          -0.5773502691896258
+        ],
+        "toward_light": [
+          -0.4082482904638631,
+          -0.4082482904638631,
+          0.8164965809277261
+        ]
+      },
+      "bounds": {
+        "right": [
+          -11,
+          11
+        ],
+        "up": [
+          -11,
+          9
+        ],
+        "toward_light": [
+          -7,
+          9
+        ]
+      },
+      "map": {
+        "width": 2816,
+        "height": 2560,
+        "texel_pitch_m": 0.0078125,
+        "filter": "nearest",
+        "color_format": "rgba8",
+        "depth_format": "depth24plus-stencil8"
+      },
+      "encoding": "RGB fractional base255; decoded dot(rgb,[1,1/255,1/65025]); depth=(axis_max-dot(world,toward_light))/axis_span",
+      "normal_offset_m": 0.002,
+      "compare_bias_m": 0.005
+    },
+    "B": {
+      "label": "Front-side key comparison",
+      "direction": [
+        1,
+        1,
+        2
+      ],
+      "basis": {
+        "right": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0
+        ],
+        "up": [
+          0.5773502691896258,
+          0.5773502691896258,
+          -0.5773502691896258
+        ],
+        "toward_light": [
+          0.4082482904638631,
+          0.4082482904638631,
+          0.8164965809277261
+        ]
+      },
+      "bounds": {
+        "right": [
+          -11,
+          11
+        ],
+        "up": [
+          -11,
+          9
+        ],
+        "toward_light": [
+          -7,
+          9
+        ]
+      },
+      "map": {
+        "width": 2816,
+        "height": 2560,
+        "texel_pitch_m": 0.0078125,
+        "filter": "nearest",
+        "color_format": "rgba8",
+        "depth_format": "depth24plus-stencil8"
+      },
+      "encoding": "RGB fractional base255; decoded dot(rgb,[1,1/255,1/65025]); depth=(axis_max-dot(world,toward_light))/axis_span",
+      "normal_offset_m": 0.002,
+      "compare_bias_m": 0.005
+    }
+  },
+  "casters": [
+    "opaque chamber geometry",
+    "current E05F pilot visible body/gear/hair"
+  ],
+  "receivers": [
+    "opaque chamber surfaces",
+    "current E05F pilot"
+  ],
+  "not_included": [
+    "sprite NPC/monster",
+    "translucent VFX",
+    "soft shadows",
+    "point-light shadow replacement"
+  ],
+  "caster_envelope": {
+    "radius_m": 0.7568647694907171,
+    "z_min_m": -0.0014976290213968473,
+    "z_max_m": 2.020258211687607,
+    "scope": "All source vertices, including hidden parts, across 216 integer and 312 registered fractional palettes plus 1mm numerical guard. Bounds are enforced at runtime; this is not a proof over every arbitrary future phase/action."
+  },
+  "actor_world_bounds": [
+    [
+      -8.756864769490717,
+      -4.756864769490717,
+      -0.0014976290213968473
+    ],
+    [
+      8.756864769490717,
+      4.756864769490717,
+      2.520258211687607
+    ]
+  ],
+  "scope": "Hard-shadow capability. Source extrema/whole-floor root superset; no production hardware/residency qualification.",
+  "receiver_lookup": {
+    "method": "receiver-plane-at-nearest-texel-center",
+    "degenerate_jacobian": "retain-raw-depth",
+    "abs_determinant_floor": 1e-14,
+    "control": "raw-depth-at-fragment",
+    "shader_language_requirement": "GLSL ES 3.00"
+  }
+}

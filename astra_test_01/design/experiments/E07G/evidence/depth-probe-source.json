@@ -1,0 +1,1353 @@
+{
+  "method": "Independent 4x4 subpixel diagnostic grid, not a claim about driver MSAA sample positions. Source camera rays, source nearest map-texel rays, geometric receiver plane evaluated at the same texel centre. No threshold changes or consumer edits.",
+  "results": [
+    {
+      "name": "F01-cast",
+      "faction": "F01",
+      "phase": "cast",
+      "oracle": "cast-036_5",
+      "clip": "cast",
+      "time_s": 0.6083333333333333,
+      "point": [
+        3.4,
+        0
+      ],
+      "heading": 135,
+      "outfit": "advanced",
+      "head": false,
+      "internal": "open",
+      "probes": [
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1208918836484036,
+            -0.19019785778419163,
+            1.7056724168396968
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4006493900922496,
+          "plane_correction": -0.0003801248198575651,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1205962432073235,
+            -0.19105367575607168,
+            1.7013037088104745
+          ],
+          "normal": [
+            0.6062427251871332,
+            0.7898208653205571,
+            -0.09302020674006434
+          ],
+          "geometric_normal": [
+            -0.6062887885780995,
+            -0.7897879182483778,
+            0.09299972598558663
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4008701633654132,
+          "plane_correction": -0.0003885989907368641,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.1207566922692633,
+            -0.19129310657172027,
+            1.6980036932920441
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40103018881066427,
+          "plane_correction": 0.00019701462007153383,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.120950320091021,
+            -0.1914877976385192,
+            1.694780614994638
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40119469296553084,
+          "plane_correction": 0.00003251046520533059,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1240743479974524,
+            -0.18897686539001946,
+            1.7101553728552226
+          ],
+          "normal": [
+            0.16329286354871644,
+            0.9109149830718932,
+            -0.3789054424644663
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40032231990948874,
+          "plane_correction": -0.00030272147635382644,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1223355149636642,
+            -0.19178461321333629,
+            1.7024012025233866
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4008199754347225,
+          "plane_correction": -0.000550710162331352,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.122090786372577,
+            -0.1925723042585279,
+            1.6981502621169504
+          ],
+          "normal": [
+            0.6062427251871333,
+            0.7898208653205572,
+            -0.09302020674006434
+          ],
+          "geometric_normal": [
+            -0.6062887885780995,
+            -0.7897879182483778,
+            0.09299972598558663
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4010317015679844,
+          "plane_correction": 0.0002996084330186131,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1222616606825877,
+            -0.19279813441484173,
+            1.6948734494367876
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4011899299148768,
+          "plane_correction": 0.00003696079051380731,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1273868429916307,
+            -0.18757840721495178,
+            1.714944921339228
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.39995770187579016,
+          "plane_correction": 0.0000618956475719785,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.125459143988918,
+            -0.19064266881395575,
+            1.7067474536817784
+          ],
+          "normal": [
+            0.16329286354871644,
+            0.9109149830718931,
+            -0.37890544246446634
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4005033996068081,
+          "plane_correction": -0.0024821692068883595,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1237795038854204,
+            -0.19337176170273374,
+            1.6991291778841315
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40099060303343603,
+          "plane_correction": 0.000177448239723218,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1235856789188476,
+            -0.1940912887548354,
+            1.6949960763901508
+          ],
+          "normal": [
+            0.6062427251871333,
+            0.7898208653205571,
+            -0.09302020674006435
+          ],
+          "geometric_normal": [
+            -0.6062716367993846,
+            -0.7897993602247815,
+            0.09301436986359105
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40119327765291934,
+          "plane_correction": 0.000009779644780974248,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.130697520744129,
+            -0.18618070501544715,
+            1.7197318531232213
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.3995932830319761,
+          "plane_correction": -0.001572085723287359,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.128771684914315,
+            -0.18924357697358118,
+            1.7115385559223846
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4001386849430425,
+          "plane_correction": -0.0021174876343553195,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1268443049853802,
+            -0.1923089113109171,
+            1.703338636247853
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40068452703317475,
+          "plane_correction": 0.0005080820194925734,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.125223853596399,
+            -0.19495929927158073,
+            1.6958563497814758
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000178975252969,
+            -0.9035618832898727,
+            0.30588426607159525
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4011612723555593,
+          "plane_correction": 0.0000067805119580250655,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        }
+      ]
+    },
+    {
+      "name": "F02-cast",
+      "faction": "F02",
+      "phase": "cast",
+      "oracle": "cast-036_5",
+      "clip": "cast",
+      "time_s": 0.6083333333333333,
+      "point": [
+        3.4,
+        0
+      ],
+      "heading": 135,
+      "outfit": "advanced",
+      "head": false,
+      "internal": "open",
+      "probes": [
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1208918836484036,
+            -0.19019785778419163,
+            1.7056724168396968
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4006493900922496,
+          "plane_correction": -0.0003801248198575651,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1205962432073235,
+            -0.19105367575607168,
+            1.7013037088104745
+          ],
+          "normal": [
+            0.6062427251871332,
+            0.7898208653205571,
+            -0.09302020674006434
+          ],
+          "geometric_normal": [
+            -0.6062887885780995,
+            -0.7897879182483778,
+            0.09299972598558663
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4008701633654132,
+          "plane_correction": -0.0003885989907368641,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.1207566922692633,
+            -0.19129310657172027,
+            1.6980036932920441
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40103018881066427,
+          "plane_correction": 0.00019701462007153383,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.375,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.120950320091021,
+            -0.1914877976385192,
+            1.694780614994638
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40119469296553084,
+          "plane_correction": 0.00003251046520533059,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1240743479974524,
+            -0.18897686539001946,
+            1.7101553728552226
+          ],
+          "normal": [
+            0.16329286354871644,
+            0.9109149830718932,
+            -0.3789054424644663
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40032231990948874,
+          "plane_correction": -0.00030272147635382644,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1223355149636642,
+            -0.19178461321333629,
+            1.7024012025233866
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4008199754347225,
+          "plane_correction": -0.000550710162331352,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1499
+          ],
+          "world": [
+            3.122090786372577,
+            -0.1925723042585279,
+            1.6981502621169504
+          ],
+          "normal": [
+            0.6062427251871333,
+            0.7898208653205572,
+            -0.09302020674006434
+          ],
+          "geometric_normal": [
+            -0.6062887885780995,
+            -0.7897879182483778,
+            0.09299972598558663
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144379089841853,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4010317015679844,
+          "plane_correction": 0.0002996084330186131,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            -0.125,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1222616606825877,
+            -0.19279813441484173,
+            1.6948734494367876
+          ],
+          "normal": [
+            0.7068454299112802,
+            0.7073679863860897,
+            -0.00026466889961037596
+          ],
+          "geometric_normal": [
+            -0.7068453387089149,
+            -0.7073680774892811,
+            0.00026475384401123867
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4011899299148768,
+          "plane_correction": 0.00003696079051380731,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1707,
+            1498
+          ],
+          "world": [
+            3.1273868429916307,
+            -0.18757840721495178,
+            1.714944921339228
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40073283889351285,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.39995770187579016,
+          "plane_correction": 0.0000618956475719785,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.125459143988918,
+            -0.19064266881395575,
+            1.7067474536817784
+          ],
+          "normal": [
+            0.16329286354871644,
+            0.9109149830718931,
+            -0.37890544246446634
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4005033996068081,
+          "plane_correction": -0.0024821692068883595,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1237795038854204,
+            -0.19337176170273374,
+            1.6991291778841315
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000037345319451,
+            -0.9035637937827544,
+            0.3058925135268959
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40099060303343603,
+          "plane_correction": 0.000177448239723218,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.125,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1235856789188476,
+            -0.1940912887548354,
+            1.6949960763901508
+          ],
+          "normal": [
+            0.6062427251871333,
+            0.7898208653205571,
+            -0.09302020674006435
+          ],
+          "geometric_normal": [
+            -0.6062716367993846,
+            -0.7897993602247815,
+            0.09301436986359105
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40119327765291934,
+          "plane_correction": 0.000009779644780974248,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            -0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.130697520744129,
+            -0.18618070501544715,
+            1.7197318531232213
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.3995932830319761,
+          "plane_correction": -0.001572085723287359,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            -0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1498
+          ],
+          "world": [
+            3.128771684914315,
+            -0.18924357697358118,
+            1.7115385559223846
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.1632929313074602,
+            -0.9109146898441721,
+            0.37890611820227005
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.39718678271093594,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4001386849430425,
+          "plane_correction": -0.0021174876343553195,
+          "raw_source_lookup_shadow": true,
+          "corrected_source_lookup_shadow": true,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            0.125
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.1268443049853802,
+            -0.1923089113109171,
+            1.703338636247853
+          ],
+          "normal": [
+            0.1632928635487165,
+            0.9109149830718932,
+            -0.3789054424644664
+          ],
+          "geometric_normal": [
+            -0.16329422788945708,
+            -0.9109150858248953,
+            0.3789046074602544
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.40068452703317475,
+          "plane_correction": 0.0005080820194925734,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        },
+        {
+          "screen_pixel": [
+            1747,
+            985
+          ],
+          "subpixel": [
+            0.375,
+            0.375
+          ],
+          "resolution": 3,
+          "group": "pilot",
+          "object": "mage:GEAR_pauldron-R",
+          "pixel": [
+            1708,
+            1499
+          ],
+          "world": [
+            3.125223853596399,
+            -0.19495929927158073,
+            1.6958563497814758
+          ],
+          "normal": [
+            0.3000371608223889,
+            0.9035579146219554,
+            -0.3058770946796492
+          ],
+          "geometric_normal": [
+            -0.3000178975252969,
+            -0.9035618832898727,
+            0.30588426607159525
+          ],
+          "expected_shadow": false,
+          "source_stored_depth": 0.40144347817307324,
+          "source_map_hit": "mage:GEAR_pauldron-R",
+          "receiver_depth": 0.4011612723555593,
+          "plane_correction": 0.0000067805119580250655,
+          "raw_source_lookup_shadow": false,
+          "corrected_source_lookup_shadow": false,
+          "depth_span": 16,
+          "profile": "B"
+        }
+      ]
+    }
+  ]
+}
