@@ -1,0 +1,52 @@
+{
+  "experiment": "E08N",
+  "started_at": "2026-09-11T18:38:04.035770+00:00",
+  "status": "SOURCE_CODEC_RASTER_PASS_NORMAL_ABLATION_INSENSITIVE",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "export_adapter_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000,
+    "chunk_decoded_bytes": 12000000,
+    "chunk_encoded_bytes": 8000000,
+    "cached_chunks": 2
+  },
+  "used": {
+    "generation_calls": 0,
+    "export_adapter_builds": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "encoded_normal_bytes": 25966954,
+    "decoded_normal_bytes": 37533920,
+    "owned_bytes_before_index": 87686318,
+    "elapsed_minutes": 16.19739125
+  },
+  "dependencies": {
+    "E05D/inputs/trajectory-b.blend": "7ec53f39948f94548f4946ec8b72eb7baddc208373396746a7c7890fbd600c8f",
+    "E05D/export.py": "0023d1e56a1f08263058911b675f1498beb08cc258f8abffb7d1f0f4eb996013",
+    "E05D/evidence/author-b.json": "da0020b09bcb4b0963b4490b4e8e2d0ddfc2bb5d91b67a3db9f69d36c4e3bd2e"
+  },
+  "finished_at": "2026-09-11T18:54:15.879245+00:00",
+  "verdicts": {
+    "source": "PASS294;4704bounds;288inheritedpalettesexact",
+    "codec": "PASS Node and Chrome exact decode and rejection controls",
+    "raster": "PASS1152/1152; shift/wrong-pose detected",
+    "normal_ablation": "INSENSITIVE: selected pose stays below error bar; preserved",
+    "representative_motion": "SCOPED_PASS eight clips,294frameaudit",
+    "full_pilot": "UNQUALIFIED"
+  },
+  "next_action": "E07T continuous internal-door geometry/collision/light and frame/pocket detail in both factions; full locomotion remains open.",
+  "commands": [
+    "blender -b ../E05D/inputs/trajectory-b.blend --python-exit-code 1 --python export.py",
+    "node test-codec.mjs",
+    "python3 check-source.py",
+    "blender -b ../E05D/inputs/trajectory-b.blend --python-exit-code 1 --python check-inherited.py",
+    "node capture-codec.mjs",
+    "node capture-matrix.mjs",
+    "python3 analyze-matrix.py",
+    "node capture-playback.mjs",
+    "python3 prepare-review.py",
+    "node review-check.mjs"
+  ]
+}

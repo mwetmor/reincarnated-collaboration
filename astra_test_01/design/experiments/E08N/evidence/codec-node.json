@@ -1,0 +1,143 @@
+{
+  "checks": {
+    "header_bindings": true,
+    "six_independent_inflates": true,
+    "all294_pose_records": true,
+    "corrupt_encoded_hash": true,
+    "corrupt_stream": true,
+    "truncated_stream": true,
+    "wrong_decoded_hash": true,
+    "wrong_decoded_size": true,
+    "unsupported_codec": true,
+    "decoded_cap": true,
+    "bad_pose_range": true,
+    "bad_vertex_index": true,
+    "bad_source_binding": true,
+    "missing_chunk": true,
+    "two_chunk_cache_and_reload": true
+  },
+  "rows": [
+    {
+      "id": "stop_00",
+      "encoded_bytes": 4306986,
+      "decoded_bytes": 6232976,
+      "exact": true
+    },
+    {
+      "id": "start_00",
+      "encoded_bytes": 4306921,
+      "decoded_bytes": 6232976,
+      "exact": true
+    },
+    {
+      "id": "stop_12",
+      "encoded_bytes": 4367629,
+      "decoded_bytes": 6295472,
+      "exact": true
+    },
+    {
+      "id": "stop_24",
+      "encoded_bytes": 4308947,
+      "decoded_bytes": 6235232,
+      "exact": true
+    },
+    {
+      "id": "start_24",
+      "encoded_bytes": 4309114,
+      "decoded_bytes": 6235232,
+      "exact": true
+    },
+    {
+      "id": "stop_36",
+      "encoded_bytes": 4367357,
+      "decoded_bytes": 6302032,
+      "exact": true
+    }
+  ],
+  "cache": {
+    "hits": 1,
+    "misses": 12,
+    "evictions": 10,
+    "peak_cached_bytes": 12537264,
+    "loads": [
+      {
+        "id": "stop_00",
+        "encoded_bytes": 4306986,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 36.66929200000004
+      },
+      {
+        "id": "start_00",
+        "encoded_bytes": 4306921,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 30.445124999999962
+      },
+      {
+        "id": "stop_12",
+        "encoded_bytes": 4367629,
+        "decoded_bytes": 6295472,
+        "fetch_decode_hash_ms": 30.369334000000094
+      },
+      {
+        "id": "stop_24",
+        "encoded_bytes": 4308947,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 29.577249999999935
+      },
+      {
+        "id": "start_24",
+        "encoded_bytes": 4309114,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 39.86537499999997
+      },
+      {
+        "id": "stop_36",
+        "encoded_bytes": 4367357,
+        "decoded_bytes": 6302032,
+        "fetch_decode_hash_ms": 33.80725000000007
+      },
+      {
+        "id": "stop_00",
+        "encoded_bytes": 4306986,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 35.44037500000002
+      },
+      {
+        "id": "start_00",
+        "encoded_bytes": 4306921,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 30.369207999999958
+      },
+      {
+        "id": "stop_12",
+        "encoded_bytes": 4367629,
+        "decoded_bytes": 6295472,
+        "fetch_decode_hash_ms": 31.118375000000015
+      },
+      {
+        "id": "stop_24",
+        "encoded_bytes": 4308947,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 28.410834000000023
+      },
+      {
+        "id": "start_24",
+        "encoded_bytes": 4309114,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 28.051041000000055
+      },
+      {
+        "id": "stop_36",
+        "encoded_bytes": 4367357,
+        "decoded_bytes": 6302032,
+        "fetch_decode_hash_ms": 30.942332999999962
+      }
+    ],
+    "cached_ids": [
+      "start_24",
+      "stop_36"
+    ],
+    "cached_decoded_bytes": 12537264
+  },
+  "max_two_chunk_bytes": 12597504
+}

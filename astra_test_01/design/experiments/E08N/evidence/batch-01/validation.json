@@ -1,0 +1,103 @@
+{
+  "checks": {
+    "native_decoder": true,
+    "all294": true,
+    "cache_bounded": true,
+    "bad_hash": true,
+    "corrupt_stream": true,
+    "truncated_stream": true,
+    "wrong_decoded_hash": true,
+    "wrong_decoded_size": true,
+    "unsupported_codec": true,
+    "missing_chunk": true,
+    "queue_recovers": true
+  },
+  "errors": [],
+  "cache": {
+    "hits": 1,
+    "misses": 12,
+    "evictions": 10,
+    "peak_cached_bytes": 12537264,
+    "loads": [
+      {
+        "id": "stop_00",
+        "encoded_bytes": 4306986,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 39.39999997615814
+      },
+      {
+        "id": "start_00",
+        "encoded_bytes": 4306921,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 36.19999998807907
+      },
+      {
+        "id": "stop_12",
+        "encoded_bytes": 4367629,
+        "decoded_bytes": 6295472,
+        "fetch_decode_hash_ms": 34.89999997615814
+      },
+      {
+        "id": "stop_24",
+        "encoded_bytes": 4308947,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 34.89999997615814
+      },
+      {
+        "id": "start_24",
+        "encoded_bytes": 4309114,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 34.5
+      },
+      {
+        "id": "stop_36",
+        "encoded_bytes": 4367357,
+        "decoded_bytes": 6302032,
+        "fetch_decode_hash_ms": 34
+      },
+      {
+        "id": "stop_00",
+        "encoded_bytes": 4306986,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 29.69999998807907
+      },
+      {
+        "id": "start_00",
+        "encoded_bytes": 4306921,
+        "decoded_bytes": 6232976,
+        "fetch_decode_hash_ms": 30.400000035762787
+      },
+      {
+        "id": "stop_12",
+        "encoded_bytes": 4367629,
+        "decoded_bytes": 6295472,
+        "fetch_decode_hash_ms": 30.399999976158142
+      },
+      {
+        "id": "stop_24",
+        "encoded_bytes": 4308947,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 30
+      },
+      {
+        "id": "start_24",
+        "encoded_bytes": 4309114,
+        "decoded_bytes": 6235232,
+        "fetch_decode_hash_ms": 30.400000035762787
+      },
+      {
+        "id": "stop_36",
+        "encoded_bytes": 4367357,
+        "decoded_bytes": 6302032,
+        "fetch_decode_hash_ms": 31.599999964237213
+      }
+    ],
+    "cached_ids": [
+      "start_24",
+      "stop_36"
+    ],
+    "cached_decoded_bytes": 12537264
+  },
+  "max_two_chunk_bytes": 12597504,
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36"
+}

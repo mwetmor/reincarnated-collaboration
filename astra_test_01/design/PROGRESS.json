@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T18:35:28.558961+00:00",
+  "updated": "2026-09-11T18:54:15.879245+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E08N per-clip lossless normal chunks: recover selectedE05D B export with exact encoded/decoded hashes, bounded2chunk browsercache andbadcodec controls, thencomplete representative1152raster/playback tests. No E05Dexportretry or sourcechanges.",
+  "next_action": "E07T continuous internal-door geometry/collision/light and frame/pocket detail in both factions; full locomotion remains open.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -195,7 +195,10 @@
     "experiments/E05L/review.html",
     "experiments/E05D/REPORT.md",
     "experiments/E05D/receipt.json",
-    "experiments/E05D/review.html"
+    "experiments/E05D/review.html",
+    "experiments/E08N/REPORT.md",
+    "experiments/E08N/receipt.json",
+    "experiments/E08N/review.html"
   ],
   "decisions_pending": [
     {
@@ -308,7 +311,8 @@
     "E05N normal-only causalcontrol fixes sixE05Ycastfailures:1296/1296correctedrasterPASS, all216motionpalettebytesunchanged. Sparse neutralnormals16.736MB,1.022MBattributeupload/pose; scale/Godotimporterunqualified. Turns,cloth/fulloutfitfit, worldlighting/fullpilot remainopen.",
     "E05I idle\u2194left/right45deg turns pass contacts/endpoints,1152raster,23JSON andlivecompletion checks afterpreservedlegroll endpointfailure. Existing216clipsunchanged. Locomotion/actiontransitions, arbitrarysteering, fullcloth/outfit/worldlighting/pilot remainopen. Latest source E05I/inputs/turns-v2.blend; turnassetseparatefromE05Nbaseclips.",
     "E05L phase-aware stoppreflight FAIL at2source revisionlimit:46/48phasespass, phases23/47 jointstep6.099cm>5cm. Originalkneeflips14phasesrepaired buttimingcontinuityunqualified. No export/raster expansion. E05D timing-factorstudy next; existingqualifiedE05I/Nassets untouched.",
-    "E05D .8s baselinepath candidateB passesall48stop-sourcephases(maxjoint4.774cm); .6sC2candidatefails38/48. Selectedexportstopsat35MBnormalguard,8oraclesonly; no completeasset/raster/visualpass. E08N percliplosslesspacking/cache next."
+    "E05D .8s baselinepath candidateB passesall48stop-sourcephases(maxjoint4.774cm); .6sC2candidatefails38/48. Selectedexportstopsat35MBnormalguard,8oraclesonly; no completeasset/raster/visualpass. E08N percliplosslesspacking/cache next.",
+    "E08N six lossless clips pass294source/1152raster/294frameaudit; selected missing-normal ablation insensitive. Two-chunk cache is accounting, not full residency. Full arbitrary-phase runtime and combat timing unqualified. E07T independent door continuation next."
   ],
   "running_jobs": [
     {
@@ -352,7 +356,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05D/receipt.json",
+  "current_receipt": "experiments/E08N/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -415,7 +419,9 @@
   },
   "pending_transition_source": {
     "source": "experiments/E05D/inputs/trajectory-b.blend",
-    "status": "ALL48_SOURCE_PHASES_PASS_REPRESENTATION_UNQUALIFIED",
-    "author_receipt": "experiments/E05D/evidence/author-b.json"
+    "status": "SOURCE_AND_REPRESENTATIVE_RENDER_PASS_NORMAL_ABLATION_INSENSITIVE",
+    "author_receipt": "experiments/E05D/evidence/author-b.json",
+    "asset": "experiments/E08N/character.asset.json",
+    "review": "experiments/E08N/review.html"
   }
 }

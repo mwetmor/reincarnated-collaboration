@@ -113,3 +113,5 @@ E05I [planted-foot turns](experiments/E05I/review.html): left/right45° idle tra
 E05L [stop preflight failure](experiments/E05L/review.html):46/48sourcephasespass, two exceedjoint-stepbar; two-revisionlimitheld, no rasterexpansion. Separate timing study next per PROGRESS.json.
 
 E05D [timing source comparison](experiments/E05D/review.html): .8s candidatepasses48/48sourcephases; exporthits35MBnormalguard. Representation/playback remainopen; perclipcodec recovery next in PROGRESS.json.
+
+E08N [lossless transition review](experiments/E08N/review.html):294source and1152raster checks pass; missing-normal visual control insensitive and preserved. Six representative clips play, full locomotion remains open. E07T chamber door continuation next per PROGRESS.json.
