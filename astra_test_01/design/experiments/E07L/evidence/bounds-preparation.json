@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "source": "assets/idle-000-oracle.bin",
+      "sha256": "0507a0b293010b3ce7c9750c4a4beec5a6b251782839a54d07f1c793d9fae39a",
+      "radius_m": 0.3975304516609475,
+      "z_min_m": -4.377216100692749e-08,
+      "z_max_m": 2.0192582607269287
+    },
+    {
+      "source": "assets/walk-012-oracle.bin",
+      "sha256": "4a03d492d48f3b945b24b7143a43bf5d73a8152d2900708c7b89e613495b87f1",
+      "radius_m": 0.8091614391848364,
+      "z_min_m": 8.521601557731628e-07,
+      "z_max_m": 1.8123834133148193
+    },
+    {
+      "source": "assets/cast-036-oracle.bin",
+      "sha256": "46977872961147f89ac55ea9a9567a0e59caae909a3a9fbd70e2821e8055e4cb",
+      "radius_m": 0.7558646097920858,
+      "z_min_m": -4.377216100692749e-08,
+      "z_max_m": 2.0185914039611816
+    }
+  ],
+  "envelope": {
+    "radius_m": 0.8091614391848364,
+    "z_min_m": -4.377216100692749e-08,
+    "z_max_m": 2.0192582607269287,
+    "scope": "Conservative all-source-vertices envelope across three existing sparse poses; invariant to heading; includes hidden hair/gear for safe overestimate. Not animation inventory proof."
+  }
+}

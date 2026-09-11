@@ -1,0 +1,35 @@
+{
+  "experiment": "E07L",
+  "started_at": "2026-09-11T16:15:01.589905+00:00",
+  "status": "PILOT_DIRECTIONAL_FLOOR_SHADOW_COMPONENT_PASS_FULL_ART_OPEN",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "implementation_revisions": 3,
+    "capture_batches": 4,
+    "disk_bytes": 50000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "implementation_revisions": 3,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 29581603
+  },
+  "preflight_issue": "Original clear assertion requires RGBA all0 on a displayed canvas, but RGB clears0 and alpha255. Preserve false assertion; actual context alpha checked in native batch. Red coverage channel is operative.",
+  "revision_2": "Record actual context/mask dimensions; clamp summed light after directional shadow subtraction so saturated point response is not accidentally reduced before shadow calculation.",
+  "preflight_adjudication": "Native runtime confirms context alpha=false. Original clear alpha assertion remains false in batch01; operative red coverage clears0 and all missing-shadow controls pass. No acceptance threshold changed.",
+  "revision_3": "Add conservative runtime mask-bound refusal from all existing sparse source vertices/heading-invariant radius; retain detailed prop bounds for pilot point-light blockers. Final review batch rechecks unchanged native fixture pixels and guard.",
+  "finished_at": "2026-09-11T16:26:54.871809+00:00",
+  "next_action": "Register E05U bounded full-pilot/advanced-gear art repair under F04 clarity, preserving rig and depth representation; inspect eight-view shape/UV/material gaps before any source edits.",
+  "verdicts": {
+    "native_floor_witnesses": "PASS200/200",
+    "fresh_floor_witnesses": "PASS120/120",
+    "missing_and_stale_controls": "DETECTED160/160 each",
+    "runtime": "PASS12/12",
+    "saved_review_and_UI": "PASS9/9",
+    "final_revision_native_rgba": "EXACT",
+    "original_preflight_RGBA_clear": "FAIL displayed alpha assertion; operative red clear verified separately",
+    "full_art_soft_self_vertical_shadows": "UNQUALIFIED"
+  }
+}

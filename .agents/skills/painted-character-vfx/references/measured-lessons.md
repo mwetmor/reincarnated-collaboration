@@ -186,3 +186,7 @@ A depth-bearing pilot shares chamber camera/light data with372 passing CPU ray w
 ### E07N · Committed door state must reach every consumer
 
 Connecting the unused internal door to exact geometry/collision/navigation/light passes51headless and300pixel checks. Save pending time, reject occupied closing for both actor sizes, and invalidate routes by obstacle signature plus version. Stale visual and missing collider controls are detected. Committed-state success does not qualify smooth door motion or readable hardware; F01 panel still blends into wall. [Evidence](../../../../astra_test_01/design/experiments/E07N/REPORT.md).
+
+### E07L · Project source geometry once, then shadow the light contribution
+
+One opaque triangle-union mask from the same skinned pilot produces320passing CPU floor-ray witnesses. It avoids overlap darkening and follows root height/pose; missing and stale masks fail controls. Subtract directional light before final clamping. Displayed alpha255 on an opaque canvas does not disprove zero red mask clear; retain the bad assertion and actual context evidence. Hard floor-only shadow improves grounding without qualifying finished lighting or art. [Evidence](../../../../astra_test_01/design/experiments/E07L/REPORT.md).

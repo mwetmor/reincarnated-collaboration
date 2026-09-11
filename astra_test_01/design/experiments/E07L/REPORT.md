@@ -1,0 +1,17 @@
+# E07L · Geometry-derived pilot floor shadow
+
+The pilot now casts a hard directional shadow onto the painted floor from the same skinned geometry, source pose, heading, gear visibility and root transform used for the visible body.200native and120fresh CPU ray/triangle floor witnesses pass, covering grounded idle, sparse cast, raised idle, translated root and F02transfer. All missing/stale controls are detected. This is a flat-floor opaque-caster mechanism pass, not full lighting art. Godot is the shipping target; Pixi is the test harness.
+
+Projected opaque triangles render white into one union mask; overlapping faces do not repeatedly darken the floor. The floor shader subtracts only the occluded directional-key contribution before final light clamping. Ambient and point light remain. The2048×1024RGBA map spans16×8m (7.8125mmtexels);8MiB is uncompressed arithmetic, not measured VRAM. Source geometry and all tested projected bounds fit. A conservative heading-invariant envelope across the three existing sparse poses refuses off-map casters at runtime. It includes hidden hair/gear as a safe overestimate and does not qualify more animation.
+
+A separate CPU BVH uses Blender-evaluated pose positions, exact scene faces and nine-neighbor pixel guards to choose shadow/lit witnesses before viewing GPU pixels.320/320binary floor samples match within2RGB. Missing and1.5mstale shadow controls each fail all160positive witnesses. At sampled shadow points the floor darkens approximately31–34RGBlevels on average; all sampled lit points remain pixel-exact. The raised0.5mdiagnostic moves the projected silhouette while retaining ground support. This is not implemented jump gameplay.
+
+## Failures, verification and visual assessment
+
+The asymmetric preflight passes orientation, overlap union and GL checks. Its initial RGBA-clear assertion fails because displayed alpha is255. Subsequent actual context attributes confirm alpha=false; the operative red mask channel clears0, and missing-shadow controls verify it. The original false assertion remains intact with a separate adjudication. The first CPU oracle mistakenly guessed a floor-ID prefix and found no witnesses; source-role lookup fixed that preparation error before any witness/capture result.
+
+All12native/fresh runtime checks and9saved-review/live-UI checks pass. A final native capture after adding the bound guard and preserving detailed prop light blockers is RGBA-exact to the earlier matrix image. Fresh grounded/raised views and native grounding were visually inspected: the shadow improves ground attachment, separates appropriately in the raised diagnostic and has hard edges. It does not fix the simple pilot/armor art, plain chamber, wall/prop shadow omissions or mismatched NPC/monster sprites. No area-light softness, self-shadow, vertical receiver, translucent VFX or production performance pass follows.
+
+Three implementation revisions and four capture batches used;0generation,0paid-service spend. Source painting remains unchanged. Next E05U: a bounded pilot/advanced-gear art repair under the selected F04clarity target, using the existing rig and proven depth-bearing representation. Inspect source eight-view shape/UV/material deficiencies and alter the art method concretely; no unchanged RGBA retries or animation/roster expansion before pilot art passes.
+
+[Saved comparison](review.html) · [Receipt](RECEIPT.json) · [Neutral declaration](shadow.json) · [Artifacts](ARTIFACTS.json).

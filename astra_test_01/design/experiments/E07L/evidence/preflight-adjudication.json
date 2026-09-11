@@ -1,0 +1,8 @@
+{
+  "original": "batch-01/validation.json#checks.clear=false",
+  "actual_display_context_alpha": false,
+  "evidence": "batch-02/validation.json records context_attributes.alpha=false",
+  "operative_mask_red_channel_cleared": true,
+  "negative_missing_shadow_pixels": "100/100 native positive shadow witnesses become unshadowed after clear",
+  "scope": "RGBA all-zero was an invalid displayed-canvas alpha assertion; preserve original. Mask uses red coverage, whose zero clear passes."
+}

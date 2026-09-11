@@ -95,3 +95,5 @@ E05Q [native clarity review](experiments/E05Q/review.html) and [report](experime
 E07K [pilot/chamber review](experiments/E07K/review.html) and [report](experiments/E07K/REPORT.md): 372 occlusion witnesses, light controls and 38 interaction checks pass. Full art and contact shadows remain open. Next E07N connects the unused internal door to geometry/state.
 
 E07N [internal-door review](experiments/E07N/review.html) and [report](experiments/E07N/REPORT.md): committed geometry/state, timed persistence, path invalidation and light blocking pass; smooth panel motion/final door art remain open. Next E07L pilot floor shadow.
+
+E07L [floor-shadow review](experiments/E07L/review.html) and [report](experiments/E07L/REPORT.md):320CPU witnesses pass; grounded/raised/translated shadow controls improve attachment. Full character/chamber art and other shadow receivers remain open. Next E05U returns to full pilot/gear art before animation or roster expansion.
