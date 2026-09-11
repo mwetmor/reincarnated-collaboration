@@ -1,0 +1,41 @@
+{
+  "experiment": "E07C",
+  "started_at": "2026-09-11T20:26:51.783306+00:00",
+  "status": "SCOPED_PASS_CAMERA_OCCLUSION_LIMIT_RETAINED",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "source_acquisition_notes": [
+    "Closed-exit source state corrected to match runtime; this was a mismatch, but did not explain the missing west-apron positive witnesses.",
+    "Open-exit source still finds zero visible positive west shadow samples. Captured west-apron floor is hidden by the wall; preserve camera-witness limitation and add independent mask-space source rays at all six boundary cases.",
+    "Initial boundary capture carried a stale diagnostic offset into the next fixture before reset. Preserve 10 completed images and original failure; reset diagnostic state before placement and recover missing cases."
+  ],
+  "completed_at": "2026-09-11T20:38:22.403080+00:00",
+  "active_minutes": 11.510329566666666,
+  "results": {
+    "domain": "288 extrema PASS; pitch/grid preserved; measured max texture 16384",
+    "interior": "640 witnesses PASS; 8 changed crop pixels, max channel difference 1",
+    "boundary_camera": "440 available witnesses PASS; west positive camera control unavailable/occluded",
+    "boundary_mask": "240 independent texture witnesses PASS; missing/stale controls detected in all6 cases",
+    "interaction": "actual buttons/toggles +3 walks PASS, no browser/GL errors",
+    "review": "16 images /3 videos load"
+  },
+  "lessons": [
+    "Allocate projected-shadow support over all valid interaction roots, with caster and diagnostic-height padding.",
+    "Source visibility state must match runtime state; correcting one mismatch does not automatically establish the cause of an observed failure.",
+    "A hidden receiver cannot provide a positive camera witness. Retain that limitation and verify the actual shadow texture independently.",
+    "Reset deliberately wrong controls before placing the next fixture; do not mislabel a leaked diagnostic state as a production failure."
+  ],
+  "next_action": "Register E07E shared directional-shadow capability: opaque chamber and current-pilot casters, vertical receivers, measured texture/depth support and independent source rays.",
+  "owned_disk_bytes": 36383688
+}

@@ -1,0 +1,38 @@
+<!doctype html><meta charset="utf-8"><title>E07C · Padded shadow domain</title><style>body{background:#20272e;color:#eee;font:16px system-ui;margin:30px}a{color:#9ed7ff}.pair{display:flex;gap:16px;overflow:auto}figure{margin:8px 0}img,video{max-width:100%;height:auto}h2{margin-top:35px}</style><h1>E07C · Padded shadow domain</h1><p>Godot is the shipping target; Pixi is the test harness.</p><p><b>Scoped domain and interaction PASS.</b> The crate approach, chest, door, shadow toggle and raised diagnostic now render without errors. Full scene lighting and final art remain incomplete.</p><p>The allocation is derived from floor bounds, caster envelope and the key light: [−9,−5,11,7], 2560 × 1536 pixels, preserving 7.8125 mm texel pitch. The measured device limit is 16384; RGBA8 allocation is 15 MiB arithmetic, not measured residency.</p><p>640 original visible-floor witnesses remain correct; eight changed comparison pixels differ by only one level. New positions pass 440 available camera witnesses and 240 independent shadow-texture witnesses. The west-apron floor shadow is hidden by the wall in this camera view: its positive camera control is unavailable, not passed. Its direct texture witnesses and missing/stale controls pass.</p><p><a href="REPORT.md">Report</a> · <a href="shadow.json">Neutral policy</a> · <a href="evidence/domain.json">Derived bounds</a> · <a href="evidence/batch-02/mask-validation.json">Independent texture witnesses</a> · <a href="evidence/batch-02/playback-validation.json">Actual interaction results</a></p><p>Preserved failures: source visibility initially used closed exits; correcting that mismatch still left zero west-apron positive camera witnesses. An initial capture also carried a stale test offset between cases; the 10 completed images and failure receipt remain, and missing cases were recovered after resetting controls before placement.</p>
+<h2>F01-crate · native raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-crate-off.webp"><img width="960" src="evidence/batch-02/r1/F01-crate-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-crate-on.webp"><img width="960" src="evidence/batch-02/r1/F01-crate-on.webp"></a></figure>
+</div>
+<h2>F01-crate-raised · native raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-crate-raised-off.webp"><img width="960" src="evidence/batch-02/r1/F01-crate-raised-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-crate-raised-on.webp"><img width="960" src="evidence/batch-02/r1/F01-crate-raised-on.webp"></a></figure>
+</div>
+<h2>F01-east · native raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-east-off.webp"><img width="960" src="evidence/batch-02/r1/F01-east-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r1/F01-east-on.webp"><img width="960" src="evidence/batch-02/r1/F01-east-on.webp"></a></figure>
+</div>
+<h2>F02-west · native raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r1/F02-west-off.webp"><img width="960" src="evidence/batch-02/r1/F02-west-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r1/F02-west-on.webp"><img width="960" src="evidence/batch-02/r1/F02-west-on.webp"></a></figure>
+</div>
+<h2>F01-crate · fresh 3× raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-crate-off.webp"><img width="960" src="evidence/batch-02/r3/F01-crate-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-crate-on.webp"><img width="960" src="evidence/batch-02/r3/F01-crate-on.webp"></a></figure>
+</div>
+<h2>F01-crate-raised · fresh 3× raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-crate-raised-off.webp"><img width="960" src="evidence/batch-02/r3/F01-crate-raised-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-crate-raised-on.webp"><img width="960" src="evidence/batch-02/r3/F01-crate-raised-on.webp"></a></figure>
+</div>
+<h2>F01-east · fresh 3× raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-east-off.webp"><img width="960" src="evidence/batch-02/r3/F01-east-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r3/F01-east-on.webp"><img width="960" src="evidence/batch-02/r3/F01-east-on.webp"></a></figure>
+</div>
+<h2>F02-west · fresh 3× raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click for original pixels</figcaption><a href="evidence/batch-02/r3/F02-west-off.webp"><img width="960" src="evidence/batch-02/r3/F02-west-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click for original pixels</figcaption><a href="evidence/batch-02/r3/F02-west-on.webp"><img width="960" src="evidence/batch-02/r3/F02-west-on.webp"></a></figure>
+</div>
+<h2>Normal-speed fractional walks</h2>
+<h3>starter</h3><video width="960" controls loop preload="metadata" src="evidence/batch-02/walk-starter.webm"></video>
+<h3>advanced-head</h3><video width="960" controls loop preload="metadata" src="evidence/batch-02/walk-advanced-head.webm"></video>
+<h3>advanced-hair</h3><video width="960" controls loop preload="metadata" src="evidence/batch-02/walk-advanced-hair.webm"></video>
+<h2>Next action</h2><p>E07E: bounded shared directional-shadow capability proof for opaque chamber geometry and the current pilot, including vertical receivers. Stronger floor/wall lighting, soft shadows, richer faction architecture, actor visibility and the VFX matrix remain separate work.</p>

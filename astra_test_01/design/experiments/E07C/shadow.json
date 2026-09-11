@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "current-pilot-padded-floor-shadow",
+  "light_source": "../E07D/lighting.json#key_direction",
+  "receiver_plane": {
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "offset_m": 0
+  },
+  "mask": {
+    "world_rect": [
+      -9,
+      -5,
+      11,
+      7
+    ],
+    "width": 2560,
+    "height": 1536,
+    "filter": "linear",
+    "format": "rgba8",
+    "coverage": "opaque projected triangle union"
+  },
+  "contribution": "directional key only; ambient and point light retained",
+  "diagnostic_height_m": 0.5,
+  "conservative_caster_bounds": {
+    "radius_m": 0.7568647694907171,
+    "z_min_m": -0.0014976290213968473,
+    "z_max_m": 2.020258211687607,
+    "scope": "All source vertices, including hidden parts, across 216 integer and 312 registered fractional palettes plus 1mm numerical guard. Bounds are enforced at runtime; this is not a proof over every arbitrary future phase/action."
+  },
+  "caster_manifest": "../E05F/motion.asset.json",
+  "caster_manifest_sha256": "aafbbd8da1d1b9d8929094f38544c0cd501d1916127590fce3cf8ca7dc7132a8",
+  "allocation_derivation": {
+    "root_bounds_superset": [
+      [
+        -8.0,
+        -4.0
+      ],
+      [
+        8.0,
+        4.0
+      ]
+    ],
+    "maximum_diagnostic_altitude_m": 0.5,
+    "round_outward_m": 1,
+    "texel_pitch_m": [
+      0.0078125,
+      0.0078125
+    ],
+    "root_source": "../E07D/inputs/scene.json#factions floor bounds",
+    "note": "Full floor bounding rectangle is a conservative superset of valid roots, including corners not reachable by the actor."
+  }
+}

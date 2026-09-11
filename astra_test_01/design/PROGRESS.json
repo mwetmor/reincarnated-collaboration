@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T20:24:56.348671+00:00",
+  "updated": "2026-09-11T20:38:22.403080+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07C",
+  "active_experiment": "E07E",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "E07C data-derived padded shadow domain, unchanged texel pitch and formerly failing interaction proof.",
+  "next_action": "Register E07E shared directional-shadow capability: opaque chamber and current-pilot casters, vertical receivers, measured texture/depth support and independent source rays.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -215,7 +215,10 @@
     "experiments/E05F/REPORT.md",
     "experiments/E05F/motion.asset.json",
     "experiments/E07B/review.html",
-    "experiments/E07B/REPORT.md"
+    "experiments/E07B/REPORT.md",
+    "experiments/E07C/review.html",
+    "experiments/E07C/REPORT.md",
+    "experiments/E07C/shadow.json"
   ],
   "decisions_pending": [
     {
@@ -334,7 +337,7 @@
     "E07U v1perobjectbatching fails64strict images;v2orderedmulti-texturebatching passes64pixel-exact/states/triangles and27\u201329partialframes/0.5s. Localonly; E07Tart/heightlimitsremain. OlderE05Jpilot stillin chamber; E07A currentpaintedpilotintegration next.",
     "E07A currentE05W/Npilot passes864source and6324door/1728aperture witnesses. Capture85MBguard97/108preserved;losslesspacking+11missingcompletion yields108. Runtimecontinuousroot/discretepose causes3.260cmwalkcontactFAIL>2cm; E05E fractionalsamplingpreflight next. Normalablationinsensitive, fullpilot/worldart/lighting/shadows stillopen.",
     "E05E A/B fractional samplers fail source1mmgate;Aalso1.312mmbonelengtherror. B physical/contactpasses. Actual sourceBEZIERbetweenkeys penetratesfloor1.4615mm. Integerproofsunchanged. No consumer/rasterexpansion. E05F explicitinterpolation sourcecopy next.",
-    "E07B: current pilot shadow passes 640 interior source witnesses but crate approach throws projected-caster mask guard. Needs E07C domain padding; do not promote as usable chamber."
+    "Historical E07B: current pilot shadow passes 640 interior source witnesses but crate approach throws projected-caster mask guard. Needs E07C domain padding; do not promote as usable chamber. Resolved for the tested roots by E07C padded-domain proof; original failure retained."
   ],
   "running_jobs": [
     {
@@ -378,7 +381,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07B/receipt.json",
+  "current_receipt": "experiments/E07C/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -452,16 +455,17 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "module": "experiments/E07U/pixi-adapter/index.mjs",
+    "module": "experiments/E07C/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
-    "review": "experiments/E07U/review.html",
-    "status": "PIXEL_EXACT_ORDERED_BATCHES_LOCAL_MOTION_PASS",
+    "review": "experiments/E07C/review.html",
+    "status": "CURRENT_FRACTIONAL_PILOT_PADDED_FLOOR_SHADOW_INTERACTIONS_PASS",
     "full_chamber_qualified": false,
     "pilot_candidate": {
-      "module": "experiments/E07A/pixi-adapter/painted-actor.mjs",
+      "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
       "asset": "experiments/E05N/character.asset.json",
-      "status": "SOURCE_DEPTH_PASS_RUNTIME_CONTACT_FAIL",
-      "review": "experiments/E07A/review.html"
+      "motion": "experiments/E05F/motion.asset.json",
+      "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
+      "review": "experiments/E05F/review.html"
     }
   }
 }

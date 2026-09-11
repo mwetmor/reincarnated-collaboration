@@ -127,3 +127,5 @@ E05E [fractional sampler preflight](experiments/E05E/review.html): both source-a
 E05F [fractional motion review](experiments/E05F/review.html): explicit source interpolation preserves keys and integer poses; 312 source and 864 raster checks pass, recorded walk contact ≤0.507 mm. Normal ablation remains insensitive. E07B current-pilot floor shadow next per PROGRESS.json.
 
 E07B [current-pilot shadow review](experiments/E07B/review.html): 640 source witnesses pass, but the crate approach exceeds the old floor-sized mask and fails rendering. E07C padded allocation domain next; failed UI/encoder receipts retained.
+
+E07C [padded shadow-domain review](experiments/E07C/review.html): preserves 640 interior witnesses; new boundary/mask and actual UI checks pass. West-apron positive camera samples remain unavailable behind the wall; direct mask proof passes. Current working chamber uses E07C with E05F fractional motion. E07E shared scene shadows next.

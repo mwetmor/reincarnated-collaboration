@@ -1,0 +1,7 @@
+{
+  "status": "FAIL_INSUFFICIENT_WITNESSES",
+  "error": "Insufficient shadow/lit witnesses F02-west",
+  "counts": null,
+  "cause": "Source/runtime external-door state mismatch existed, but fixing it did not produce west-apron positive camera witnesses. Initial causal attribution was incomplete; see open-exit partial evidence and mask-space proof.",
+  "repair": "Set both source external doors open through the same neutral state command used by the capture, then regenerate source witnesses. Do not lower the witness count or neighborhood guard."
+}
