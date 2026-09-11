@@ -1,0 +1,88 @@
+{
+  "views": [
+    {
+      "f": "F01",
+      "m": "neutral",
+      "d": "1"
+    },
+    {
+      "f": "F01",
+      "m": "neutral",
+      "d": "3"
+    },
+    {
+      "f": "F01",
+      "m": "warm",
+      "d": "1"
+    },
+    {
+      "f": "F01",
+      "m": "warm",
+      "d": "3"
+    },
+    {
+      "f": "F01",
+      "m": "cool",
+      "d": "1"
+    },
+    {
+      "f": "F01",
+      "m": "cool",
+      "d": "3"
+    },
+    {
+      "f": "F02",
+      "m": "neutral",
+      "d": "1"
+    },
+    {
+      "f": "F02",
+      "m": "neutral",
+      "d": "3"
+    },
+    {
+      "f": "F02",
+      "m": "warm",
+      "d": "1"
+    },
+    {
+      "f": "F02",
+      "m": "warm",
+      "d": "3"
+    },
+    {
+      "f": "F02",
+      "m": "cool",
+      "d": "1"
+    },
+    {
+      "f": "F02",
+      "m": "cool",
+      "d": "3"
+    }
+  ],
+  "collision": [
+    {
+      "overlay": "keep",
+      "faction": "F01",
+      "exact": true
+    },
+    {
+      "overlay": "keep",
+      "faction": "F02",
+      "exact": true
+    },
+    {
+      "overlay": "remove",
+      "faction": "F01",
+      "exact": true
+    },
+    {
+      "overlay": "remove",
+      "faction": "F02",
+      "exact": true
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

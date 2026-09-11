@@ -1,0 +1,40 @@
+{
+  "experiment": "E07AB",
+  "started_at": "2026-09-11T23:04:11.069294+00:00",
+  "status": "REDUNDANT_OVERLAY_REMOVAL_SCOPED_PASS",
+  "limits": {
+    "active_minutes": 25,
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 4.583407233333333,
+    "disk_bytes_before_index": 19895619
+  },
+  "ended_at": "2026-09-11T23:08:46.073728+00:00",
+  "results": {
+    "selected": "remove overlay with E07AA B field",
+    "candidate_mask_checks": 120,
+    "candidate_UV_checks": 120,
+    "backing_ID_checks": 72,
+    "kept_control_detected": 72,
+    "ID_changes_outside_source_regions": 0,
+    "F01_painted_exact": 6,
+    "collision_readbacks": "EXACT",
+    "local_surface": "PASS",
+    "full_chamber": "PARTIAL",
+    "raw_aggregate_control_scope": "false preserved; independent kept-geometry ray reevaluation passes same tolerance"
+  },
+  "lessons": [
+    "A shallow redundant skin caused the remaining edge; removing five meshes preserved continuous staining and removed the line in fresh inspection.",
+    "Source field expectations must use the geometry actually visible in each control; two kept-control errors resolved with independent ray hits, not relaxed thresholds.",
+    "Stable identity colors enable full-image geometry-change localization to independently projected source regions.",
+    "Local material/geometry passes do not qualify unfinished pilot, monster/NPC, VFX or full faction art."
+  ]
+}

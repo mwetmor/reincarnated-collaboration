@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T23:02:15.597782+00:00",
+  "updated": "2026-09-11T23:08:46.073728+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07AB \u2014 remove redundant mineral overlay",
+  "active_experiment": "E05AA \u2014 transition integration source preflight",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07AB: use E07AA B continuous field/UVs, remove only E07Y mineral-waterline overlay meshes from neutral architecture; retain backing, arches, collision envelopes, supported fixture and current light. Compare overlay control vs removed geometry with source camera/ID, field/UV, unchanged state/F01 checks and native/fresh views. Verify whether the thin straight edge disappears before accepting the diagnosis.",
+  "next_action": "Inspect E08N representative start/stop motion, source authoring/export and adapter against E05F fractional local-channel sampling. Register E05AA for source-compatible fractional transition data and contact/root/endpoint proof before arbitrary-phase expansion or full runtime state machine. Preserve all six-clip/full-family distinctions, existing failures and held generation limits.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -244,7 +244,9 @@
     "experiments/E07Y/REPORT.md",
     "experiments/E07Y/review.html",
     "experiments/E07AA/REPORT.md",
-    "experiments/E07AA/review.html"
+    "experiments/E07AA/review.html",
+    "experiments/E07AB/REPORT.md",
+    "experiments/E07AB/review.html"
   ],
   "decisions_pending": [
     {
@@ -382,7 +384,8 @@
     "E07W selectsAportal finish using existingpaintings;9612sourcepixels and fullIDimages unchanged. Fullrooms still controlledsame layout, broaderfaction construction/detail and strongerfloor-wallglow remain open, alongside fullpilot/monster/VFX/scale.",
     "E07X practical-light response is scoped PASS (1728 equation/768 channel checks); full F03 atmosphere, dynamic VFX light, fixture self/soft shadows and full faction construction remain partial. A selected with ambient.55.",
     "E07Y detailed construction passes502 source-ID samples plus order/negative controls and exact collision/state. F02 inherited practical support required4cm backplate extension. Hard green mineral band fails art; full chamber remains partial.",
-    "E07AA B field/UV scopedPASS380+380 checks; F01 exact12 rendered comparisons; full geometry-ID images unchanged. Thin overlay edge still visible, E07AB removal comparison required before surface art pass."
+    "E07AA B field/UV scopedPASS380+380 checks; F01 exact12 rendered comparisons; full geometry-ID images unchanged. Thin overlay edge still visible, E07AB removal comparison required before surface art pass.",
+    "E07AB local mineral surface scopedPASS120mask+120UV+72backing IDs; overlay edge disappears; geometry changes localized, F01 exact, collision unchanged. Full chamber and motion/VFX/transfer remain partial."
   ],
   "running_jobs": [
     {
@@ -426,7 +429,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07AA/receipt.json",
+  "current_receipt": "experiments/E07AB/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -500,14 +503,14 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "experiment": "E07Y",
-    "adapter": "experiments/E07Y/pixi-adapter/index.mjs",
-    "review": "experiments/E07Y/review.html",
-    "shadow_policy": "experiments/E07Y/shadow.json",
-    "scope": "Distinct timber-braced and blind-arch construction with measured source geometry and unchanged collision; F02 hard waterline art fails; full faction/chamber/actors/VFX remain partial.",
-    "previous": "E07X",
+    "experiment": "E07AB",
+    "adapter": "experiments/E07AB/pixi-adapter/index.mjs",
+    "review": "experiments/E07AB/review.html",
+    "shadow_policy": "experiments/E07AB/shadow.json",
+    "scope": "Working distinct construction, supported local light and continuous mineral surface without redundant overlay seam; full chamber art, actor transitions, NPC/monster, VFX and capacity remain partial.",
+    "previous": "E07Y",
     "motion": "E05F",
-    "module": "experiments/E07Y/pixi-adapter/index.mjs",
+    "module": "experiments/E07AB/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
     "status": "SCOPED_PORTAL_GEOMETRY_AND_WORKING_MATERIAL_FINISH_PASS",
     "full_chamber_qualified": false,
@@ -518,13 +521,16 @@
       "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
       "review": "experiments/E05F/review.html"
     },
-    "effects": "experiments/E07Y/effects.json",
+    "effects": "experiments/E07AB/effects.json",
     "door_data": "experiments/E07M/door.json",
     "portal_materials": "experiments/E07W/portal-materials.json",
     "portal_finish": "A",
-    "practical_light": "experiments/E07Y/fixture.json",
+    "practical_light": "experiments/E07AB/fixture.json",
     "practical_response": "A",
-    "architecture": "experiments/E07Y/architecture.json",
-    "construction": "detail"
+    "architecture": "experiments/E07AB/architecture.json",
+    "construction": "detail",
+    "surface": "experiments/E07AB/surface.json",
+    "surface_variant": "B",
+    "overlay": "remove"
   }
 }

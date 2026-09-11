@@ -1,0 +1,84 @@
+{
+  "candidate_mask": true,
+  "candidate_uv": true,
+  "raw_aggregate_mask_flag_preserved": false,
+  "reason": "Raw aggregate compared kept geometry pixels to removed-geometry world hits. Two controls therefore exceeded2RGB. Evaluate their independently ray-cast actual kept geometry below; threshold unchanged. Candidate120mask/120UV all pass.",
+  "control_reprojection": [
+    {
+      "resolution": 1,
+      "pixel": [
+        501,
+        136
+      ],
+      "source_hit": {
+        "id": "far-wall/mineral-waterline-1",
+        "distance": 27.08281821043854,
+        "point": [
+          -3.4969125581582023,
+          -4.050000186920165,
+          0.4754457186678849
+        ]
+      },
+      "actual": [
+        230
+      ],
+      "old_geometry_expected": 229.54285814207154,
+      "error": 0.4571418579284625,
+      "pass": true
+    },
+    {
+      "resolution": 3,
+      "pixel": [
+        1503,
+        409
+      ],
+      "source_hit": {
+        "id": "far-wall/mineral-waterline-1",
+        "distance": 27.09603886041404,
+        "point": [
+          -3.51025900733892,
+          -4.050000186920167,
+          0.4662417458887198
+        ]
+      },
+      "actual": [
+        236
+      ],
+      "old_geometry_expected": 235.781927737447,
+      "error": 0.21807226255299383,
+      "pass": true
+    }
+  ],
+  "F01": [
+    {
+      "resolution": 1,
+      "mode": "warm",
+      "exact_RGBA": true
+    },
+    {
+      "resolution": 1,
+      "mode": "cool",
+      "exact_RGBA": true
+    },
+    {
+      "resolution": 1,
+      "mode": "neutral",
+      "exact_RGBA": true
+    },
+    {
+      "resolution": 3,
+      "mode": "warm",
+      "exact_RGBA": true
+    },
+    {
+      "resolution": 3,
+      "mode": "cool",
+      "exact_RGBA": true
+    },
+    {
+      "resolution": 3,
+      "mode": "neutral",
+      "exact_RGBA": true
+    }
+  ]
+}
