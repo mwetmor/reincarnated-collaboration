@@ -1,0 +1,28 @@
+00:00.441  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05D/inputs/trajectory-b.blend"
+E05Y_FRAME stop_00 0 error 6.151130032703368e-07
+E05Y_FRAME stop_00 24 error 6.143906154658885e-07
+E05Y_FRAME stop_00 48 error 6.447228089804631e-07
+E05Y_FRAME start_00 0 error 6.447228089804631e-07
+E05Y_FRAME start_00 24 error 6.143906154658885e-07
+E05Y_FRAME start_00 48 error 6.151130032703368e-07
+E05Y_FRAME stop_12 0 error 5.401542472956138e-07
+E05Y_FRAME stop_12 24 error 6.105499638077986e-07
+E05Y_FRAME stop_12 48 error 6.447228089804631e-07
+E05Y_FRAME stop_24 0 error 6.151130032703368e-07
+E05Y_FRAME stop_24 24 error 6.143906154658885e-07
+E05Y_FRAME stop_24 48 error 6.447228089804631e-07
+E05Y_FRAME start_24 0 error 6.447228089804631e-07
+E05Y_FRAME start_24 24 error 6.143906154658885e-07
+E05Y_FRAME start_24 48 error 6.151130032703368e-07
+E05Y_FRAME stop_36 0 error 6.02714670185944e-07
+E05Y_FRAME stop_36 24 error 6.064790911963201e-07
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05D/export.py", line 115, in <module>
+    if len(normal_bytes)>35000000:raise RuntimeError('Normal stream35MB guard; stop before larger output')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Normal stream35MB guard; stop before larger output
+
+Error: script failed, file: 'astra_test_01/design/experiments/E05D/export.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

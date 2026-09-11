@@ -111,3 +111,5 @@ E05N [normal agreement review](experiments/E05N/review.html):1296/1296comparison
 E05I [planted-foot turns](experiments/E05I/review.html): left/right45° idle transitions pass; sourcev1endpointfailure preserved and repaired. Locomotion/action transitions remain next per PROGRESS.json.
 
 E05L [stop preflight failure](experiments/E05L/review.html):46/48sourcephasespass, two exceedjoint-stepbar; two-revisionlimitheld, no rasterexpansion. Separate timing study next per PROGRESS.json.
+
+E05D [timing source comparison](experiments/E05D/review.html): .8s candidatepasses48/48sourcephases; exporthits35MBnormalguard. Representation/playback remainopen; perclipcodec recovery next in PROGRESS.json.

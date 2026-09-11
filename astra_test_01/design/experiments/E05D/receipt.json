@@ -1,0 +1,48 @@
+{
+  "experiment": "E05D",
+  "started_at": "2026-09-11T18:22:54.441034+00:00",
+  "status": "TIMING_SOURCE_PASS_EXPORT_GUARD_FAIL_VISUAL_UNQUALIFIED",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "source_candidates": 2,
+    "selected_export_adapter_builds": 1,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_candidates": 2,
+    "selected_export_adapter_builds": 1,
+    "capture_batches": 1,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 45573465
+  },
+  "dependencies": {
+    "E05I/inputs/turns-v2.blend": "28d94a877eef22d211ecc0db0e3c899a0484c8ac84872dfc6cb89638a2b36e4f",
+    "E05L/author-v2.py": "6062213406e4a7127040293b02415cf9e6bc65f201832f4103a2d563a5971a21",
+    "E05L/evidence/author-motion.json": "166756701862eb0462b1c0071be2983f9dd52e0302d6620547d23baac9eaeb0c"
+  },
+  "candidate_a": "FAIL38/48: smoother .6s trajectory raises peak joint motion to.077686m. Original source candidate preserved; now isolate .8s duration with unchanged baseline normalized path.",
+  "selected_candidate": "B: baselineC1 normalized paths at.8s;48/48sourcephasesPASS,maxjoint.04774105m. CandidateA .6s fails38/48.",
+  "export_failure": "Selected build stopped atnormalstream35MBguard; complete manifest/palettes/normals notwritten,8oraclespreserved. No exportretry within1selectedbuildlimit.",
+  "finished_at": "2026-09-11T18:35:28.558961+00:00",
+  "next_action": "Register E08N per-clip lossless normal chunks: recover selectedE05D B export with exact encoded/decoded hashes, bounded2chunk browsercache andbadcodec controls, thencomplete representative1152raster/playback tests. No E05Dexportretry or sourcechanges.",
+  "verdicts": {
+    "A": "FAIL38/48 sourcephases, maxjoint.0776859m",
+    "B": "PASS48/48sourcephases,maxjoint.04774105m; .8s candidate selected amongtestedoptions",
+    "timing_control": "624matchednormalizedfoot/hip/socket samples pass<=1e-5m",
+    "source_art": "unchangedgeometry/weights/UV/materials",
+    "export": "FAIL componentnormalstream>35MBguard;8oraclespersisted, completepalette/normal/manifest absent",
+    "raster_video": "NOT RUN, sourcePASSdoesnotimplyvisualPASS",
+    "review": "5/5savedlocalplot/deliverychecksPASS",
+    "full_pilot": "UNQUALIFIED"
+  },
+  "commands": [
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python author-a.py",
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python author-b.py",
+    "blender -b inputs/trajectory-b.blend --python-exit-code 1 --python export.py (failed35MBguard)",
+    "python3 build-review.py",
+    "node review-check.mjs"
+  ]
+}

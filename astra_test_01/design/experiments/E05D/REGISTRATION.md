@@ -1,0 +1,11 @@
+# E05D · Stop/start trajectory and timing control
+
+Godot shipping target; Pixi harness.60active minutes,0generation,2source candidates total,1selected export/adapter build,4capturebatches,120MB. This changes temporal trajectory/duration after E05L exhausted its two geometric/pole source revisions. Preserve all E05L failures. Same sourceE05I, targets, rig/art/restgeometry, frozen contact/bone/endpoint/joint-step bars. No thirdE05Lrepair or thresholdrelaxation.
+
+BaselineE05L V2: C1 cubic foot/body progression, sin² lift,0.6s;46/48phasePASS, worstjointstep6.099cm>5cm. CandidateA:0.6s quintic position/body progression and sin⁴lift, same endpoints and8cmpeaklift. It changes trajectory smoothness, not sourceart or thresholds. Only if needed, CandidateB: identical baseline C1normalized paths at0.8s (48frames), isolating duration. Evaluate all48walk phases; select fastest candidate passingallsourcechecks andnativevisualrubric. Do not treat slowerduration asapproved productioncombatresponse.
+
+Sourcebars unchanged: supportdrift<=2cm, penetration<=1mm, secondstepswing>=4cm,bones<=1mm,book<=1%,hips>=85%idleheight/excursion<=12cm, savedwalk/idleendpoints<=1e-5matrixelements,jointheads<=5cm/frameat60fps. Directswitch40cmdrift remainsbadcontrol. All288existingclips unchanged. Six representative stop00/12/24/36,start00/24 actions only; all48phase recipe sourcechecks do notqualify complete arbitrary-phase runtime.
+
+Selectedexport: complete representativepalettes +separatelylabelledendpointposes, footcontacts/socket andneutralE05Nnormals; eight independentoracles (stop00/24midpoint,stop12/36start+midpoint,start00/24midpoint). Eightviews/twoscales/threeoutfits/threebackgrounds1152comparisons atunchangedMAE<=1,fraction>8<=.02;wrongpose/20pxshiftcontrols. Native50/150axes,bounds>=5px,depth10–40m. Capture1matrix,2representative normal-speed clips/fullactiveframeaudit,3reservedboundary/visualcontrol,4savedreview. No export ifbothsourcecandidatesfail.
+
+Visualbar: readable controlledfootreposition, stableanatomy, no kneeflip/severejerk or detachedgear ininspectedviews; endpoints canbeheldseparately andreset outsideclip onlywithlabel. Full live walk/action boundary, responsiveness, arbitrary-phase transfer, cloth/wholeoutfit andpilot remainseparate.

@@ -218,3 +218,7 @@ A shortest-vector IKrotation can keepfeetplanted yet discardlimb axialbodyyaw; E
 ### E05L — preserve the failed source gate before expanding transition exports
 
 Contacts/endpoints pass while14/48stop phases suffer knee-plane flips. Interpolating normalized bend directions reducesfailures to2/48, but remaining6.099cmjointstep exceeds5cm/frame. Stop at2source revisions; no renderingexpansion or fulltransitionpass. Directclip switchslides40cm. Nexttest changes timing/trajectoryfactor separately; evidence E05L/REPORT.md andbothsourcefiles.
+
+### E05D — temporal smoothing and storage each need measured gates
+
+C2/.6s stoptrajectory increases peakjoint motion (.077686m,38/48pass); unchangedC1path at.8s passes48/48 (.047741m).624normalizedsamplesverify pathpreservation. Sourcepass stilldoesnotqualify representation: normalstream exceeds35MBguard beforecompleteexport. Preservefailure andchange storage/consumer method separately; exactlosslesschunks/cache are next hypothesis. Evidence E05D/REPORT.md.
