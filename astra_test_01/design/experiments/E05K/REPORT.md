@@ -1,0 +1,11 @@
+# E05K — explicit pose-key method FAIL
+
+Two of two built-in generation calls used. The first full-body sheet improves drawn anatomy but ignores parts of the pose/registration guide and repeats early leg leads. The isolated lower-body correction still fails contact. Both original RGB outputs are preserved; no transparency, matting or runtime pilot pass is claimed.
+
+One uniform scale is derived from median belt width against the original source; per-frame translation uses belt endpoints and the declared pelvis track. No toe fitting, per-frame scale or limb correction. After independent native-pixel annotation, nominal best-assignment stance drift is0.124m for phases0–3 and0.376m for4–7. Considering ±4px annotation uncertainty, scale/translation bounds and either visible boot at every phase, a conservative axis-aligned-bound test still gives **at least0.0739m drift** for the second stance, above the frozen0.02m limit. The first stance uncertainty bound is0: do not call its nominal failure conclusive. Exact anatomical foot identity is not resolved by this generous assignment test.
+
+The annotation overlay exposed an inaccurate cell7 belt point. Version1 annotations/measurements remain; version2 corrects the point within the unchanged uncertainty policy. This strengthens, rather than hides, the failure. Inspect inputs/keys-v2-annotations-v2.json and evidence/contact-measurement.json. Raw coordinates remain conditional on the declared source/rig calibration; they do not recover a native game camera.
+
+Raw-sheet normal-speed playback is a diagnostic. It retains magenta and does not composite rejected art into the chamber. Review batch02 caught a first-animation-frame negative clock index; batch03 clamps elapsed display time to zero and passes delivery checks. This is a review-player fix, not an art repair. Runtime gear, bag/attachment bad controls and final gait acceptance do not run because the source-key contact prerequisite failed. No G4/G5 promotion.
+
+Next: E05R researches a locally available explicit rig/keyframe authoring source. Another prompt-only generation lap would retain the failed control condition and is not authorized by the closed E05K cap. Preserve the original ASTRA TEST01 loop and failures.

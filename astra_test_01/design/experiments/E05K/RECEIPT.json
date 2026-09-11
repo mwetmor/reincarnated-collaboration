@@ -1,0 +1,40 @@
+{
+  "experiment": "E05K",
+  "status": "FAIL_POSE_KEY_CONTACT; GENERATION_CAP_EXHAUSTED",
+  "started_at": "2026-09-11T05:24:45.115060+00:00",
+  "limits": {
+    "generation_calls": 2,
+    "capture_batches": 5,
+    "active_minutes": 60,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_final_index": 7411964
+  },
+  "prompt": "prompts/keys-01.txt",
+  "next_action": "E05R read-only explicit-pose authoring capability research; no new E05K calls",
+  "finished_at": "2026-09-11T05:39:48.739347+00:00",
+  "elapsed_wall_minutes": 15.060404783333333,
+  "actual_outputs": [
+    {
+      "path": "art/keys-v1.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "art/keys-v2.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "measurement": "evidence/contact-measurement.json"
+}
