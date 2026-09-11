@@ -4,6 +4,10 @@ Brief: `codex-3d-modeling/ASTRA TEST 01 painted character vfx.md` at repo root.
 Active work: `astra_test_01/run_03/`; read `STATE.json` and `REPORT.md` there.
 Historical runs 01/02 are immutable evidence, not inputs to overwrite.
 
+Next-suite visual planning: [four-faction key](../../../../astra_test_01/design/FACTION_KEY.md)
+records the user's agreed working labels and subsequent scale/cohesion requirements.
+It does not change the original ASTRA run contract or establish a production renderer.
+
 The user's latest instruction authorizes creating this skill, wiring AGENTS.md,
 updating the process from evidence and running autonomously toward passing all
 character/animation and VFX/animation tests. This authorizes a continuing campaign
