@@ -1,0 +1,106 @@
+{
+  "method": "Manual native-pixel coordinate-grid inspection, no image fitting. Conservative12pixel uncertainty includes observer uncertainty and wall-face/threshold-plane ambiguity. Large lower bounds reject alignment; hidden corners remain indeterminate, never invented. Controls test the same Euclidean/uncertainty instrument.",
+  "uncertainty_px": 12,
+  "candidates": {
+    "F01-v1": {
+      "corners": {
+        "west-0": [
+          578,
+          261
+        ],
+        "west-1": [
+          455,
+          331
+        ],
+        "west-2": [
+          445,
+          216
+        ],
+        "west-3": [
+          548,
+          153
+        ],
+        "east-0": [
+          1145,
+          695
+        ],
+        "east-1": [
+          1017,
+          817
+        ],
+        "east-2": [
+          1024,
+          698
+        ],
+        "east-3": [
+          1150,
+          581
+        ]
+      },
+      "side_semantics": {
+        "foreground_gate": "Visually shows the same earthen interior corridor behind the gate; stone apron lies in front. No outdoor landscape pasted into room.",
+        "far_gate": "Connected apron visible beyond threshold; exact data placement fails.",
+        "semantic_reversal_observed": false
+      }
+    },
+    "F02-v1": {
+      "corners": {
+        "west-0": [
+          614,
+          236
+        ],
+        "west-1": [
+          486,
+          314
+        ],
+        "west-2": [
+          478,
+          198
+        ],
+        "west-3": [
+          605,
+          114
+        ],
+        "east-0": [
+          1147,
+          683
+        ],
+        "east-1": [
+          1014,
+          773
+        ],
+        "east-2": [
+          1020,
+          665
+        ],
+        "east-3": [
+          1150,
+          558
+        ]
+      },
+      "side_semantics": {
+        "foreground_gate": "Visually shows the same earthen interior corridor behind the gate; stone apron lies in front. No outdoor landscape pasted into room.",
+        "far_gate": "Connected apron visible beyond threshold; exact data placement fails.",
+        "semantic_reversal_observed": false
+      }
+    },
+    "F02-v2": {
+      "corners": {
+        "west-1": [
+          518,
+          349
+        ],
+        "west-2": [
+          499,
+          244
+        ]
+      },
+      "side_semantics": {
+        "foreground_gate": "Same interior corridor visible through near gate, exterior apron toward camera; no reversed landscape",
+        "far_gate": "Connected adjoining floor beyond far threshold",
+        "semantic_reversal_observed": false
+      },
+      "fatal_content_failure": "NPC and larger monster are jars; chest/crate are stone blocks. Further ambiguous corner annotation stopped after this decisive semantic failure. Remaining10corners unqualified, not assumed aligned."
+    }
+  }
+}

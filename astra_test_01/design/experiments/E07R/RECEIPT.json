@@ -1,0 +1,31 @@
+{
+  "experiment": "E07R",
+  "status": "FULL_SCENE_LAYOUT_FAIL_BRANCH_CLOSED",
+  "started_at": "2026-09-11T12:35:55.417380+00:00",
+  "limits": {
+    "active_minutes": 90,
+    "generation_calls": 3,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 3,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "next_action": "Register geometry-owned painted surface alternative: timber/rock materials on fixed typed layout, E04S floors, E05M actors; actual doorway state/ray/runtime controls.",
+  "failed_evidence": [
+    "evidence/batch-01/FAILURE.md"
+  ],
+  "finished_at": "2026-09-11T12:53:36.694307+00:00",
+  "verdicts": {
+    "source_portal_rays": "PASS8checks across2guides incl2reversed-side controls",
+    "initial_art_alignment": "FAIL both candidates",
+    "repair_alignment": "INDETERMINATE",
+    "repair_content": "FAIL NPC/monster jars and chest/crate blocks",
+    "doorway_side_semantics": "No reversal observed in candidates; not a geometry pass"
+  },
+  "generation_price": "Built-in price not exposed; not free",
+  "prohibited_next_action": "No fourth full-scene image generation in E07R",
+  "owned_bytes_before_index": 15785237
+}

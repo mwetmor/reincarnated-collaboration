@@ -1,0 +1,470 @@
+{
+  "F01": {
+    "corners": [
+      {
+        "id": "west-0",
+        "world": [
+          -5,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          627.1656646728516,
+          270.60308837890625
+        ]
+      },
+      {
+        "id": "west-1",
+        "world": [
+          -5,
+          1.25,
+          0
+        ],
+        "pixel": [
+          512.9028625488281,
+          343.13177490234375
+        ]
+      },
+      {
+        "id": "west-2",
+        "world": [
+          -5,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          491.1654968261719,
+          234.8990478515625
+        ]
+      },
+      {
+        "id": "west-3",
+        "world": [
+          -5,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          615.6080474853516,
+          161.0062255859375
+        ]
+      },
+      {
+        "id": "east-0",
+        "world": [
+          5,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          1065.4023742675781,
+          629.1084594726562
+        ]
+      },
+      {
+        "id": "east-1",
+        "world": [
+          5,
+          1.25,
+          0
+        ],
+        "pixel": [
+          948.6195373535156,
+          734.1544799804688
+        ]
+      },
+      {
+        "id": "east-2",
+        "world": [
+          5,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          967.2658081054688,
+          641.75634765625
+        ]
+      },
+      {
+        "id": "east-3",
+        "world": [
+          5,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          1094.6444091796875,
+          531.0280456542969
+        ]
+      },
+      {
+        "id": "internal-0",
+        "world": [
+          2.15,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          923.7151794433594,
+          513.199462890625
+        ]
+      },
+      {
+        "id": "internal-1",
+        "world": [
+          2.15,
+          1.25,
+          0
+        ],
+        "pixel": [
+          806.9819641113281,
+          607.0455017089844
+        ]
+      },
+      {
+        "id": "internal-2",
+        "world": [
+          2.15,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          810.6361999511719,
+          507.90655517578125
+        ]
+      },
+      {
+        "id": "internal-3",
+        "world": [
+          2.15,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          938.0582885742188,
+          410.07623291015625
+        ]
+      }
+    ],
+    "witnesses": [
+      {
+        "id": "near-gate-sees-interior",
+        "point": [
+          4.5,
+          -0.3,
+          0
+        ],
+        "expected_object": "interior-soil",
+        "pixel": [
+          996.2855529785156,
+          645.8191833496094
+        ],
+        "actual_object": "interior-soil"
+      },
+      {
+        "id": "east-exterior-on-near-side",
+        "point": [
+          6.2,
+          0,
+          0
+        ],
+        "expected_object": "east-apron",
+        "pixel": [
+          1073.1129455566406,
+          735.7789001464844
+        ],
+        "actual_object": "east-apron"
+      },
+      {
+        "id": "west-exterior-beyond-far-gate",
+        "point": [
+          -5.7,
+          -0.6,
+          0
+        ],
+        "expected_object": "west-apron",
+        "pixel": [
+          573.0967712402344,
+          267.79998779296875
+        ],
+        "actual_object": "west-apron"
+      }
+    ],
+    "bad_control_hit": "incorrect-exterior-inside-room",
+    "checks": {
+      "near-gate-sees-interior": true,
+      "east-exterior-on-near-side": true,
+      "west-exterior-beyond-far-gate": true,
+      "reversed_exterior_control_rejected": true
+    },
+    "profile": {
+      "id": "C",
+      "title": "Godot-informed perspective",
+      "type": "pinhole",
+      "elevation_deg": 52.9535411256,
+      "yaw_deg": 47,
+      "q": 0.7981472596262743,
+      "screen": [
+        720,
+        405
+      ],
+      "anchor": [
+        360.74984436000005,
+        223.12467497699998
+      ],
+      "body_height_fraction": 0.095,
+      "uniform_scale_px_per_m": null,
+      "vertical_fov_deg": 31.7861018306,
+      "distance_m": 23.869291234544452,
+      "probe_heights_far_center_near_px": [
+        39.98375830082445,
+        38.474999999999994,
+        35.85215776763948
+      ],
+      "ground_roundtrip_max_m": 2.2644195468014703e-15,
+      "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+    },
+    "buffer": [
+      1536,
+      1024
+    ],
+    "floor_root": [
+      769.599609375,
+      475.99945068359375
+    ]
+  },
+  "F02": {
+    "corners": [
+      {
+        "id": "west-0",
+        "world": [
+          -5,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          627.1656646728516,
+          270.60308837890625
+        ]
+      },
+      {
+        "id": "west-1",
+        "world": [
+          -5,
+          1.25,
+          0
+        ],
+        "pixel": [
+          512.9028625488281,
+          343.13177490234375
+        ]
+      },
+      {
+        "id": "west-2",
+        "world": [
+          -5,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          491.1654968261719,
+          234.8990478515625
+        ]
+      },
+      {
+        "id": "west-3",
+        "world": [
+          -5,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          615.6080474853516,
+          161.0062255859375
+        ]
+      },
+      {
+        "id": "east-0",
+        "world": [
+          5,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          1065.4023742675781,
+          629.1084594726562
+        ]
+      },
+      {
+        "id": "east-1",
+        "world": [
+          5,
+          1.25,
+          0
+        ],
+        "pixel": [
+          948.6195373535156,
+          734.1544799804688
+        ]
+      },
+      {
+        "id": "east-2",
+        "world": [
+          5,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          967.2658081054688,
+          641.75634765625
+        ]
+      },
+      {
+        "id": "east-3",
+        "world": [
+          5,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          1094.6444091796875,
+          531.0280456542969
+        ]
+      },
+      {
+        "id": "internal-0",
+        "world": [
+          2.15,
+          -1.25,
+          0
+        ],
+        "pixel": [
+          923.7151794433594,
+          513.199462890625
+        ]
+      },
+      {
+        "id": "internal-1",
+        "world": [
+          2.15,
+          1.25,
+          0
+        ],
+        "pixel": [
+          806.9819641113281,
+          607.0455017089844
+        ]
+      },
+      {
+        "id": "internal-2",
+        "world": [
+          2.15,
+          1.25,
+          2.5
+        ],
+        "pixel": [
+          810.6361999511719,
+          507.90655517578125
+        ]
+      },
+      {
+        "id": "internal-3",
+        "world": [
+          2.15,
+          -1.25,
+          2.5
+        ],
+        "pixel": [
+          938.0582885742188,
+          410.07623291015625
+        ]
+      }
+    ],
+    "witnesses": [
+      {
+        "id": "near-gate-sees-interior",
+        "point": [
+          4.5,
+          -0.3,
+          0
+        ],
+        "expected_object": "interior-soil",
+        "pixel": [
+          996.2855529785156,
+          645.8191833496094
+        ],
+        "actual_object": "interior-soil"
+      },
+      {
+        "id": "east-exterior-on-near-side",
+        "point": [
+          6.2,
+          0,
+          0
+        ],
+        "expected_object": "east-apron",
+        "pixel": [
+          1073.1129455566406,
+          735.7789001464844
+        ],
+        "actual_object": "east-apron"
+      },
+      {
+        "id": "west-exterior-beyond-far-gate",
+        "point": [
+          -5.7,
+          -0.6,
+          0
+        ],
+        "expected_object": "west-apron",
+        "pixel": [
+          573.0967712402344,
+          267.79998779296875
+        ],
+        "actual_object": "west-apron"
+      }
+    ],
+    "bad_control_hit": "incorrect-exterior-inside-room",
+    "checks": {
+      "near-gate-sees-interior": true,
+      "east-exterior-on-near-side": true,
+      "west-exterior-beyond-far-gate": true,
+      "reversed_exterior_control_rejected": true
+    },
+    "profile": {
+      "id": "C",
+      "title": "Godot-informed perspective",
+      "type": "pinhole",
+      "elevation_deg": 52.9535411256,
+      "yaw_deg": 47,
+      "q": 0.7981472596262743,
+      "screen": [
+        720,
+        405
+      ],
+      "anchor": [
+        360.74984436000005,
+        223.12467497699998
+      ],
+      "body_height_fraction": 0.095,
+      "uniform_scale_px_per_m": null,
+      "vertical_fov_deg": 31.7861018306,
+      "distance_m": 23.869291234544452,
+      "probe_heights_far_center_near_px": [
+        39.98375830082445,
+        38.474999999999994,
+        35.85215776763948
+      ],
+      "ground_roundtrip_max_m": 2.2644195468014703e-15,
+      "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+    },
+    "buffer": [
+      1536,
+      1024
+    ],
+    "floor_root": [
+      769.599609375,
+      475.99945068359375
+    ]
+  }
+}

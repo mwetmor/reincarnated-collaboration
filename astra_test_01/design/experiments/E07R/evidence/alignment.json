@@ -1,0 +1,753 @@
+{
+  "candidates": {
+    "F01-v1": {
+      "corners": [
+        {
+          "id": "west-0",
+          "expected": [
+            627.1656646728516,
+            270.60308837890625
+          ],
+          "observed": [
+            578,
+            261
+          ],
+          "result": {
+            "error_px": 50.09472915523517,
+            "uncertainty_px": 12,
+            "lower_bound_px": 38.09472915523517,
+            "upper_bound_px": 62.09472915523517,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-1",
+          "expected": [
+            512.9028625488281,
+            343.13177490234375
+          ],
+          "observed": [
+            455,
+            331
+          ],
+          "result": {
+            "error_px": 59.16013398928049,
+            "uncertainty_px": 12,
+            "lower_bound_px": 47.16013398928049,
+            "upper_bound_px": 71.1601339892805,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-2",
+          "expected": [
+            491.1654968261719,
+            234.8990478515625
+          ],
+          "observed": [
+            445,
+            216
+          ],
+          "result": {
+            "error_px": 49.8841368262791,
+            "uncertainty_px": 12,
+            "lower_bound_px": 37.8841368262791,
+            "upper_bound_px": 61.8841368262791,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-3",
+          "expected": [
+            615.6080474853516,
+            161.0062255859375
+          ],
+          "observed": [
+            548,
+            153
+          ],
+          "result": {
+            "error_px": 68.08045044588404,
+            "uncertainty_px": 12,
+            "lower_bound_px": 56.08045044588404,
+            "upper_bound_px": 80.08045044588404,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-0",
+          "expected": [
+            1065.4023742675781,
+            629.1084594726562
+          ],
+          "observed": [
+            1145,
+            695
+          ],
+          "result": {
+            "error_px": 103.33187860145239,
+            "uncertainty_px": 12,
+            "lower_bound_px": 91.33187860145239,
+            "upper_bound_px": 115.33187860145239,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-1",
+          "expected": [
+            948.6195373535156,
+            734.1544799804688
+          ],
+          "observed": [
+            1017,
+            817
+          ],
+          "result": {
+            "error_px": 107.4209842584483,
+            "uncertainty_px": 12,
+            "lower_bound_px": 95.4209842584483,
+            "upper_bound_px": 119.4209842584483,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-2",
+          "expected": [
+            967.2658081054688,
+            641.75634765625
+          ],
+          "observed": [
+            1024,
+            698
+          ],
+          "result": {
+            "error_px": 79.88815280684683,
+            "uncertainty_px": 12,
+            "lower_bound_px": 67.88815280684683,
+            "upper_bound_px": 91.88815280684683,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-3",
+          "expected": [
+            1094.6444091796875,
+            531.0280456542969
+          ],
+          "observed": [
+            1150,
+            581
+          ],
+          "result": {
+            "error_px": 74.57504714175448,
+            "uncertainty_px": 12,
+            "lower_bound_px": 62.57504714175448,
+            "upper_bound_px": 86.57504714175448,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "internal-0",
+          "expected": [
+            923.7151794433594,
+            513.199462890625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-1",
+          "expected": [
+            806.9819641113281,
+            607.0455017089844
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-2",
+          "expected": [
+            810.6361999511719,
+            507.90655517578125
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-3",
+          "expected": [
+            938.0582885742188,
+            410.07623291015625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        }
+      ],
+      "verdict": "FAIL",
+      "side_semantics": {
+        "foreground_gate": "Visually shows the same earthen interior corridor behind the gate; stone apron lies in front. No outdoor landscape pasted into room.",
+        "far_gate": "Connected apron visible beyond threshold; exact data placement fails.",
+        "semantic_reversal_observed": false
+      }
+    },
+    "F02-v1": {
+      "corners": [
+        {
+          "id": "west-0",
+          "expected": [
+            627.1656646728516,
+            270.60308837890625
+          ],
+          "observed": [
+            614,
+            236
+          ],
+          "result": {
+            "error_px": 37.02307998581923,
+            "uncertainty_px": 12,
+            "lower_bound_px": 25.02307998581923,
+            "upper_bound_px": 49.02307998581923,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-1",
+          "expected": [
+            512.9028625488281,
+            343.13177490234375
+          ],
+          "observed": [
+            486,
+            314
+          ],
+          "result": {
+            "error_px": 39.65380589908066,
+            "uncertainty_px": 12,
+            "lower_bound_px": 27.65380589908066,
+            "upper_bound_px": 51.65380589908066,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-2",
+          "expected": [
+            491.1654968261719,
+            234.8990478515625
+          ],
+          "observed": [
+            478,
+            198
+          ],
+          "result": {
+            "error_px": 39.17741746251073,
+            "uncertainty_px": 12,
+            "lower_bound_px": 27.177417462510732,
+            "upper_bound_px": 51.17741746251073,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "west-3",
+          "expected": [
+            615.6080474853516,
+            161.0062255859375
+          ],
+          "observed": [
+            605,
+            114
+          ],
+          "result": {
+            "error_px": 48.18833795938099,
+            "uncertainty_px": 12,
+            "lower_bound_px": 36.18833795938099,
+            "upper_bound_px": 60.18833795938099,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-0",
+          "expected": [
+            1065.4023742675781,
+            629.1084594726562
+          ],
+          "observed": [
+            1147,
+            683
+          ],
+          "result": {
+            "error_px": 97.7878860880975,
+            "uncertainty_px": 12,
+            "lower_bound_px": 85.7878860880975,
+            "upper_bound_px": 109.7878860880975,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-1",
+          "expected": [
+            948.6195373535156,
+            734.1544799804688
+          ],
+          "observed": [
+            1014,
+            773
+          ],
+          "result": {
+            "error_px": 76.04984760968388,
+            "uncertainty_px": 12,
+            "lower_bound_px": 64.04984760968388,
+            "upper_bound_px": 88.04984760968388,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-2",
+          "expected": [
+            967.2658081054688,
+            641.75634765625
+          ],
+          "observed": [
+            1020,
+            665
+          ],
+          "result": {
+            "error_px": 57.6295268854982,
+            "uncertainty_px": 12,
+            "lower_bound_px": 45.6295268854982,
+            "upper_bound_px": 69.6295268854982,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "east-3",
+          "expected": [
+            1094.6444091796875,
+            531.0280456542969
+          ],
+          "observed": [
+            1150,
+            558
+          ],
+          "result": {
+            "error_px": 61.57700671754481,
+            "uncertainty_px": 12,
+            "lower_bound_px": 49.57700671754481,
+            "upper_bound_px": 73.5770067175448,
+            "verdict": "FAIL"
+          }
+        },
+        {
+          "id": "internal-0",
+          "expected": [
+            923.7151794433594,
+            513.199462890625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-1",
+          "expected": [
+            806.9819641113281,
+            607.0455017089844
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-2",
+          "expected": [
+            810.6361999511719,
+            507.90655517578125
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-3",
+          "expected": [
+            938.0582885742188,
+            410.07623291015625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        }
+      ],
+      "verdict": "FAIL",
+      "side_semantics": {
+        "foreground_gate": "Visually shows the same earthen interior corridor behind the gate; stone apron lies in front. No outdoor landscape pasted into room.",
+        "far_gate": "Connected apron visible beyond threshold; exact data placement fails.",
+        "semantic_reversal_observed": false
+      }
+    },
+    "F02-v2": {
+      "corners": [
+        {
+          "id": "west-0",
+          "expected": [
+            627.1656646728516,
+            270.60308837890625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "west-1",
+          "expected": [
+            512.9028625488281,
+            343.13177490234375
+          ],
+          "observed": [
+            518,
+            349
+          ],
+          "result": {
+            "error_px": 7.772829342839171,
+            "uncertainty_px": 12,
+            "lower_bound_px": 0,
+            "upper_bound_px": 19.77282934283917,
+            "verdict": "INDETERMINATE"
+          }
+        },
+        {
+          "id": "west-2",
+          "expected": [
+            491.1654968261719,
+            234.8990478515625
+          ],
+          "observed": [
+            499,
+            244
+          ],
+          "result": {
+            "error_px": 12.008612325696593,
+            "uncertainty_px": 12,
+            "lower_bound_px": 0.008612325696592649,
+            "upper_bound_px": 24.008612325696593,
+            "verdict": "INDETERMINATE"
+          }
+        },
+        {
+          "id": "west-3",
+          "expected": [
+            615.6080474853516,
+            161.0062255859375
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "east-0",
+          "expected": [
+            1065.4023742675781,
+            629.1084594726562
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "east-1",
+          "expected": [
+            948.6195373535156,
+            734.1544799804688
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "east-2",
+          "expected": [
+            967.2658081054688,
+            641.75634765625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "east-3",
+          "expected": [
+            1094.6444091796875,
+            531.0280456542969
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-0",
+          "expected": [
+            923.7151794433594,
+            513.199462890625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-1",
+          "expected": [
+            806.9819641113281,
+            607.0455017089844
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-2",
+          "expected": [
+            810.6361999511719,
+            507.90655517578125
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        },
+        {
+          "id": "internal-3",
+          "expected": [
+            938.0582885742188,
+            410.07623291015625
+          ],
+          "observed": null,
+          "result": {
+            "verdict": "INDETERMINATE",
+            "reason": "Not directly observable with3pixel confidence; do not fit a hidden threshold corner"
+          }
+        }
+      ],
+      "verdict": "INDETERMINATE",
+      "side_semantics": {
+        "foreground_gate": "Same interior corridor visible through near gate, exterior apron toward camera; no reversed landscape",
+        "far_gate": "Connected adjoining floor beyond far threshold",
+        "semantic_reversal_observed": false
+      }
+    }
+  },
+  "controls": {
+    "identity_coordinates": [
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      },
+      {
+        "error_px": 0.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 0,
+        "upper_bound_px": 0.0,
+        "verdict": "PASS"
+      }
+    ],
+    "shifted40px": [
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      },
+      {
+        "error_px": 40.0,
+        "uncertainty_px": 0,
+        "lower_bound_px": 40.0,
+        "upper_bound_px": 40.0,
+        "verdict": "FAIL"
+      }
+    ]
+  },
+  "checks": {
+    "identity_coordinate_instrument": true,
+    "shifted_annotation_detected": true
+  },
+  "method": "Manual native-pixel coordinate-grid inspection, no image fitting. Conservative12pixel uncertainty includes observer uncertainty and wall-face/threshold-plane ambiguity. Large lower bounds reject alignment; hidden corners remain indeterminate, never invented. Controls test the same Euclidean/uncertainty instrument."
+}

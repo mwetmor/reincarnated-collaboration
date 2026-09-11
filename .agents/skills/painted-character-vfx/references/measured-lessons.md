@@ -133,3 +133,7 @@ they do not establish a finished Godot port, shared lighting or animated VFX.
 ## 2026-09-11 — RGB emission plates are a material contract, not native alpha
 
 [E06F](../../../../astra_test_01/design/experiments/E06F/REPORT.md) preserves two generated RGB frost plates and explicitly declares additive emission semantics. Their outer4pixel maximumRGB is1; multi-background on/off comparisons and a wrong-normal-blend control distinguish the material from a transparent sprite. Do not relabel black-backed RGB as native alpha. Additive composition passes the scoped launch/lifecycle checks but loses blue core detail against the light control. Neither border statistics nor timing tests qualify opaque ice, blood, receiver lighting or broad cross-element reuse.
+
+## 2026-09-11 — whole-scene guides do not guarantee spatial or semantic fidelity
+
+[E07R](../../../../astra_test_01/design/experiments/E07R/REPORT.md) corrects a specific foreground-doorway inside/outside reversal with explicit region/ray guides. Both initial paintings still enlarge/shift geometry well beyond the3native-pixel overlay tolerance. A changed-conditioning repair follows framing more closely but paints NPC/monster probes as jars and chest/crate probes as stone blocks. Preserve geometric and semantic failures separately; a pleasing scene or a close silhouette is not a typed-layout pass. The three-call branch is closed. Geometry-owned material painting is the registered next alternative, not yet a general production rule.

@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T12:32:47.599542+00:00",
+  "updated": "2026-09-11T12:54:23.195584+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E06F",
+  "active_experiment": "E07R",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register C-layout-conditioned F01 waystation/F02 reservoir environment comparison, with explicit doorway interior/exterior geometry controls; preserve E06F bright-background/material limitations.",
+  "next_action": "Register E07S geometry-owned painted surfaces: new timber/rock material plates on fixed typed geometry, E04S floors and E05M actors; verify actual doorway states/sides before scaling.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -129,7 +129,10 @@
     "experiments/E05G/review.html",
     "experiments/E06F/REPORT.md",
     "experiments/E06F/RECEIPT.json",
-    "experiments/E06F/review.html"
+    "experiments/E06F/review.html",
+    "experiments/E07R/REPORT.md",
+    "experiments/E07R/RECEIPT.json",
+    "experiments/E07R/review.html"
   ],
   "decisions_pending": [
     {
@@ -217,7 +220,8 @@
     "E04S sampled floor/wall lighting and ground geometry pass; complete faction chamber cohesion and second chamber/chunk remain incomplete.",
     "E05M one-view idle/walk/cast/contact/release-socket mechanisms pass; whole painted pilot, turns/action transitions,8views and modular gear remain incomplete.",
     "E05G 216 geometry samples and36 sparse raster composites pass; full gear frames/views, final advanced-outfit painting and gear lighting remain unqualified.",
-    "E06F first frost sample lifecycle/socket passes; light-background blue detail, opaque materials, effect receiver light/occlusion, otherviews and24archetype transfer remain unqualified."
+    "E06F first frost sample lifecycle/socket passes; light-background blue detail, opaque materials, effect receiver light/occlusion, otherviews and24archetype transfer remain unqualified.",
+    "E07R full-scene painting-to-layout FAIL after3/3calls: initial framing drifts; repair converts required characters/props to jars/blocks. Doorway-side semantics improve, precise art/state agreement unqualified. Stop whole-scene retries; change to geometry-owned surfaces."
   ],
   "running_jobs": [
     {
@@ -261,8 +265,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E06F/RECEIPT.json",
-  "generation_calls_this_suite": 22,
+  "current_receipt": "experiments/E07R/RECEIPT.json",
+  "generation_calls_this_suite": 25,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [

@@ -1,0 +1,12 @@
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07R/guide.py:9: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*rgb,1);m.use_nodes=True;m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(*rgb,1);m.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8;return m
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07R/guide.py:45: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('neutral-dark');world.use_nodes=True;world.node_tree.nodes['Background'].inputs[0].default_value=(.12,.14,.16,1);world.node_tree.nodes['Background'].inputs[1].default_value=.6;scene.world=world
+00:09.507  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07R/evidence/batch-02/F01-guide.png'
+00:18.329  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07R/evidence/batch-02/F02-guide.png'
+Info: Saved as "F01-guide.blend"
+Info: Saved as "F02-guide.blend"
+GUIDES_COMPLETE 17.677902499970514
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit
