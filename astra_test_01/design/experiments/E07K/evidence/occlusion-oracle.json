@@ -1,0 +1,4430 @@
+{
+  "method": "CPU BVH double-sided nearest ray/triangle hits from Blender evaluated actor plus exact chamber faces; nine-neighbor ID guard; no render pixels used to select witnesses",
+  "actor_triangles": 93260,
+  "records": [
+    {
+      "faction": "F01",
+      "position_name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        479.50165475053007,
+        268.95478911524754
+      ],
+      "bounds": [
+        [
+          463.4857315827486,
+          213.3778869685445
+        ],
+        [
+          495.3449889221803,
+          274.67830722309884
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            478,
+            216
+          ],
+          "expected": "mage",
+          "actor_distance": 22.897842514908326,
+          "scene_distance": 24.50055248741293,
+          "world_point": [
+            -0.7138968143472582,
+            -0.58348488870684,
+            2.0157929846697407
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            216
+          ],
+          "expected": "mage",
+          "actor_distance": 22.899828048820932,
+          "scene_distance": 24.572270260965848,
+          "world_point": [
+            -0.6820884669713596,
+            -0.6196148346330119,
+            2.0142593791095678
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            476,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.912484166539585,
+          "scene_distance": 24.486104366535415,
+          "world_point": [
+            -0.7277094505293995,
+            -0.530452510622105,
+            1.9730071475757178
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.881617771126376,
+          "scene_distance": 24.557641048586166,
+          "world_point": [
+            -0.6798488584262703,
+            -0.5517784058817234,
+            1.9958820898466954
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.883221567667487,
+          "scene_distance": 24.629706865411528,
+          "world_point": [
+            -0.6478693515475484,
+            -0.5877140142134625,
+            1.9946301606530383
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            476,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.960597233758516,
+          "scene_distance": 24.543240356710896,
+          "world_point": [
+            -0.7250894221255528,
+            -0.527672621994169,
+            1.9051173725581592
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88823557075302,
+          "scene_distance": 24.615124600482336,
+          "world_point": [
+            -0.6569314532252939,
+            -0.530369640736879,
+            1.9590221119619038
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88865188811488,
+          "scene_distance": 24.687541379055567,
+          "world_point": [
+            -0.6243568823193684,
+            -0.5657815493641039,
+            1.9586545776001252
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            482,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.968430863215286,
+          "scene_distance": 24.760495412820465,
+          "world_point": [
+            -0.6302492464443894,
+            -0.6372381768739199,
+            1.8990970025429412
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.954905567049856,
+          "scene_distance": 24.67300618501235,
+          "world_point": [
+            -0.663189692069972,
+            -0.5359521706881498,
+            1.8772792537781058
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.95625142908171,
+          "scene_distance": 24.74577687491866,
+          "world_point": [
+            -0.6309649751175748,
+            -0.5718923699490066,
+            1.8762153998883875
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            482,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.93993544317559,
+          "scene_distance": 24.81908829644811,
+          "world_point": [
+            -0.5901353787384469,
+            -0.5997782599265946,
+            1.888441375052441
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        479.50165475053007,
+        268.95478911524754
+      ],
+      "bounds": [
+        [
+          463.4857315827486,
+          213.3778869685445
+        ],
+        [
+          495.3449889221803,
+          274.67830722309884
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1435,
+            649
+          ],
+          "expected": "mage",
+          "actor_distance": 22.897842514908326,
+          "scene_distance": 24.50055248741293,
+          "world_point": [
+            -0.7138968143472582,
+            -0.58348488870684,
+            2.0157929846697407
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            649
+          ],
+          "expected": "mage",
+          "actor_distance": 22.899828048820932,
+          "scene_distance": 24.572270260965848,
+          "world_point": [
+            -0.6820884669713596,
+            -0.6196148346330119,
+            2.0142593791095678
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1429,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.912484166539585,
+          "scene_distance": 24.486104366535415,
+          "world_point": [
+            -0.7277094505293995,
+            -0.530452510622105,
+            1.9730071475757178
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1435,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.881617771126376,
+          "scene_distance": 24.557641048586166,
+          "world_point": [
+            -0.6798488584262703,
+            -0.5517784058817234,
+            1.9958820898466954
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.883221567667487,
+          "scene_distance": 24.629706865411528,
+          "world_point": [
+            -0.6478693515475484,
+            -0.5877140142134625,
+            1.9946301606530383
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1447,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.916252240259123,
+          "scene_distance": 24.702306495441242,
+          "world_point": [
+            -0.6311243303436118,
+            -0.6379331926495801,
+            1.9700287981988467
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1429,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.960597233758516,
+          "scene_distance": 24.543240356710896,
+          "world_point": [
+            -0.7250894221255528,
+            -0.527672621994169,
+            1.9051173725581592
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1435,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88823557075302,
+          "scene_distance": 24.615124600482336,
+          "world_point": [
+            -0.6569314532252939,
+            -0.530369640736879,
+            1.9590221119619038
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88865188811488,
+          "scene_distance": 24.687541379055567,
+          "world_point": [
+            -0.6243568823193684,
+            -0.5657815493641039,
+            1.9586545776001252
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1447,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.968430863215286,
+          "scene_distance": 24.760495412820465,
+          "world_point": [
+            -0.6302492464443894,
+            -0.6372381768739199,
+            1.8990970025429412
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1405,
+            667
+          ],
+          "expected": "mage",
+          "actor_distance": 23.16303445612992,
+          "scene_distance": 24.40313948943309,
+          "world_point": [
+            -0.9296797494270308,
+            -0.45079686008152464,
+            1.7230018089683696
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1411,
+            667
+          ],
+          "expected": "mage",
+          "actor_distance": 23.162459328869176,
+          "scene_distance": 24.38723629442438,
+          "world_point": [
+            -0.8964754811307518,
+            -0.48641724516393303,
+            1.7229916837299193
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        485.9914133573135,
+        183.4113440021174
+      ],
+      "bounds": [
+        [
+          471.37226246873115,
+          126.7505271304779
+        ],
+        [
+          500.93251787329075,
+          188.32082554289514
+        ]
+      ],
+      "counts": {
+        "mage": 3,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            486,
+            129
+          ],
+          "expected": "mage",
+          "actor_distance": 25.021421184819115,
+          "scene_distance": 26.810068436314165,
+          "world_point": [
+            -2.7888288711985876,
+            -2.796018305687422,
+            2.0166082942051737
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            488,
+            131
+          ],
+          "expected": "mage",
+          "actor_distance": 25.025594096887417,
+          "scene_distance": 26.676724270234605,
+          "world_point": [
+            -2.7298524848111896,
+            -2.8122080812936066,
+            1.9765463594511274
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            133
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.060327915668775,
+          "scene_distance": 23.473566737148616,
+          "world_point": [
+            -2.7939162885753532,
+            -2.729996778415261,
+            1.9149737570564618
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            135
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.094649656009626,
+          "scene_distance": 23.422415772257466,
+          "world_point": [
+            -2.786387547732268,
+            -2.723190751587099,
+            1.8540304093769535
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            486,
+            135
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.07435869105639,
+          "scene_distance": 23.422643555038665,
+          "world_point": [
+            -2.7399502369816595,
+            -2.751060971917651,
+            1.8681027640892864
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            476,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.231050295883957,
+          "scene_distance": 23.371650664024187,
+          "world_point": [
+            -2.9758106705620637,
+            -2.6135658629579233,
+            1.722999361229185
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            478,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.230875212112466,
+          "scene_distance": 23.371473779168365,
+          "world_point": [
+            -2.9400332058265732,
+            -2.651949414379379,
+            1.722988459406821
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.155688114521766,
+          "scene_distance": 23.371549623087816,
+          "world_point": [
+            -2.7928502357086042,
+            -2.729564527245076,
+            1.774681997335886
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            486,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.132550438073135,
+          "scene_distance": 23.371777069463178,
+          "world_point": [
+            -2.744832558424232,
+            -2.756137109078935,
+            1.7907405611262561
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            488,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.261559927304145,
+          "scene_distance": 23.372105594547484,
+          "world_point": [
+            -2.7768924650912687,
+            -2.858871539426893,
+            1.7023836170176132
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            496,
+            137
+          ],
+          "expected": "mage",
+          "actor_distance": 25.234047487237078,
+          "scene_distance": 26.659615311290924,
+          "world_point": [
+            -2.6179494490180186,
+            -2.9973211287525388,
+            1.7230018813082424
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            474,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.23971218464413,
+          "scene_distance": 23.321345282170412,
+          "world_point": [
+            -2.9900854465754367,
+            -2.554973161619211,
+            1.679659836849293
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            476,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.176443944033664,
+          "scene_distance": 23.321067727695645,
+          "world_point": [
+            -2.920666592820023,
+            -2.562437125920617,
+            1.7229987713330566
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            478,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.177382141653577,
+          "scene_distance": 23.32089110420922,
+          "world_point": [
+            -2.8855467598424767,
+            -2.6012993223611094,
+            1.7222217952159653
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            480,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.22694194267854,
+          "scene_distance": 23.320815414004375,
+          "world_point": [
+            -2.8761797012894377,
+            -2.664148306434978,
+            1.6880546203570148
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        485.9914133573135,
+        183.4113440021174
+      ],
+      "bounds": [
+        [
+          471.37226246873115,
+          126.7505271304779
+        ],
+        [
+          500.93251787329075,
+          188.32082554289514
+        ]
+      ],
+      "counts": {
+        "mage": 9,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1453,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.03326750875252,
+          "scene_distance": 26.747116571862758,
+          "world_point": [
+            -2.8264601780913683,
+            -2.7601282170226646,
+            2.0021294297806413
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.016216258373824,
+          "scene_distance": 26.81864040785494,
+          "world_point": [
+            -2.781808921265183,
+            -2.789443235363951,
+            2.0139076556103106
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.043383477119328,
+          "scene_distance": 26.72558012459773,
+          "world_point": [
+            -2.760593795243924,
+            -2.8409843192901256,
+            1.9956445048902616
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            395
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.018025179247857,
+          "scene_distance": 23.51641116408803,
+          "world_point": [
+            -2.7927906865288854,
+            -2.7286998719571045,
+            1.9750680573997244
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            395
+          ],
+          "expected": "mage",
+          "actor_distance": 25.023769806350487,
+          "scene_distance": 26.66698032168363,
+          "world_point": [
+            -2.7246190601556,
+            -2.8073243002451456,
+            1.97155253028615
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1447,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.145909356163894,
+          "scene_distance": 23.46489502798481,
+          "world_point": [
+            -2.8707916737452255,
+            -2.730658501330266,
+            1.850098714110004
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.06518030121431,
+          "scene_distance": 23.465021735489533,
+          "world_point": [
+            -2.7922106799514292,
+            -2.728437754963064,
+            1.9054141742506552
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.049089754955496,
+          "scene_distance": 23.465249798860462,
+          "world_point": [
+            -2.7480326183573833,
+            -2.758342982362789,
+            1.9165874222352208
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1429,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.27678919455457,
+          "scene_distance": 23.41401950669692,
+          "world_point": [
+            -3.021917995890181,
+            -2.656315862757003,
+            1.7229998551505972
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1435,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.276613940825268,
+          "scene_distance": 23.413842403840462,
+          "world_point": [
+            -2.9860860931815107,
+            -2.6947578888359107,
+            1.7229889282341126
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.101825071561585,
+          "scene_distance": 23.41391834123319,
+          "world_point": [
+            -2.785889874095531,
+            -2.722769639534963,
+            1.8428701270249697
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.074982702203975,
+          "scene_distance": 23.414146067923987,
+          "world_point": [
+            -2.7359811117623476,
+            -2.747376007227885,
+            1.861438871233009
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.112238146670514,
+          "scene_distance": 23.41447499790008,
+          "world_point": [
+            -2.7198792002225964,
+            -2.804035935632358,
+            1.8361408148287524
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1483,
+            407
+          ],
+          "expected": "mage",
+          "actor_distance": 25.279015143164276,
+          "scene_distance": 26.552564563423996,
+          "world_point": [
+            -2.6993612676149716,
+            -3.002229958502543,
+            1.72299063755354
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1489,
+            407
+          ],
+          "expected": "mage",
+          "actor_distance": 25.279791273741264,
+          "scene_distance": 26.61561879884724,
+          "world_point": [
+            -2.6635125263200035,
+            -3.040656026328463,
+            1.7230015553758733
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1423,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.28967525267619,
+          "scene_distance": 23.36347843253855,
+          "world_point": [
+            -3.0385338232475085,
+            -2.5997570571293007,
+            1.6766615865037302
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1429,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.221928036676292,
+          "scene_distance": 23.363200535816155,
+          "world_point": [
+            -2.966606023134773,
+            -2.6050314560525756,
+            1.7229992626250556
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1435,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.221752971376205,
+          "scene_distance": 23.363023694539347,
+          "world_point": [
+            -2.930839417866485,
+            -2.643403326213347,
+            1.7229883764906937
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1489,
+            413
+          ],
+          "expected": "mage",
+          "actor_distance": 25.22492425177186,
+          "scene_distance": 26.668444482654944,
+          "world_point": [
+            -2.6088534531978578,
+            -2.988669956124202,
+            1.7230019463758275
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1495,
+            413
+          ],
+          "expected": "mage",
+          "actor_distance": 25.310343392626915,
+          "scene_distance": 26.742282425672713,
+          "world_point": [
+            -2.6169371614876855,
+            -3.0700357245816168,
+            1.6649437374180351
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1495,
+            419
+          ],
+          "expected": "mage",
+          "actor_distance": 25.258577833233723,
+          "scene_distance": 27.090893176081906,
+          "world_point": [
+            -2.5639032483864224,
+            -3.0195086009331913,
+            1.6628926933733936
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        438.6690943747896,
+        199.13093855237366
+      ],
+      "bounds": [
+        [
+          422.0650674944906,
+          142.61050271753552
+        ],
+        [
+          452.0264579014303,
+          204.18532114341582
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            435,
+            145
+          ],
+          "expected": "mage",
+          "actor_distance": 24.61840403364588,
+          "scene_distance": 27.484004315117424,
+          "world_point": [
+            -3.247757731329216,
+            -1.4356033200856633,
+            2.0162655880837335
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.629244136268333,
+          "scene_distance": 27.467747477688,
+          "world_point": [
+            -3.2619691117577787,
+            -1.3777256959340463,
+            1.974037316732403
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.602857600199904,
+          "scene_distance": 27.473498307656183,
+          "world_point": [
+            -3.2136777022250627,
+            -1.404308794867081,
+            1.9906157047511996
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.611281085528255,
+          "scene_distance": 27.470851371023173,
+          "world_point": [
+            -3.184772214343509,
+            -1.4466860350489448,
+            1.9831301015424856
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.679205605909953,
+          "scene_distance": 27.417833781555235,
+          "world_point": [
+            -3.264392473869064,
+            -1.3760717530102866,
+            1.9029285546764818
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.610099794362895,
+          "scene_distance": 27.41507225331127,
+          "world_point": [
+            -3.19224998472915,
+            -1.3833442475161633,
+            1.949224030833964
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.651518011743445,
+          "scene_distance": 27.41242924050025,
+          "world_point": [
+            -3.1816480780608014,
+            -1.4407900405295262,
+            1.9187901028200969
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            151
+          ],
+          "expected": "mage",
+          "actor_distance": 24.67862423097129,
+          "scene_distance": 27.356972443365816,
+          "world_point": [
+            -3.204807363672124,
+            -1.390108204935812,
+            1.8651834633431221
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            151
+          ],
+          "expected": "mage",
+          "actor_distance": 24.68552094026117,
+          "scene_distance": 27.354333350858695,
+          "world_point": [
+            -3.174908404636165,
+            -1.431913110250651,
+            1.8587221044517044
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            425,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.860567328189674,
+          "scene_distance": 27.314144824074447,
+          "world_point": [
+            -3.449017500216586,
+            -1.2526176622461112,
+            1.711333776877595
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            427,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.840916848794603,
+          "scene_distance": 27.31091920271406,
+          "world_point": [
+            -3.4043553063033833,
+            -1.283004472883606,
+            1.7229933450528705
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.805481825553517,
+          "scene_distance": 27.30195056777548,
+          "world_point": [
+            -3.283365993455023,
+            -1.3841687184822824,
+            1.7420275016901599
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            153
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.819342886532084,
+          "scene_distance": 23.46573740648285,
+          "world_point": [
+            -3.086912985683398,
+            -1.6234162827495169,
+            1.7229956107012825
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            153
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.846749719583126,
+          "scene_distance": 23.38659515113323,
+          "world_point": [
+            -3.067642697690223,
+            -1.6747642697922078,
+            1.702561425476599
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.769080561878692,
+          "scene_distance": 23.59650351912923,
+          "world_point": [
+            -3.067576393535278,
+            -1.5370490787466942,
+            1.7229858057488805
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.767101581368284,
+          "scene_distance": 23.516367005733823,
+          "world_point": [
+            -3.0323601684059582,
+            -1.5747978964692013,
+            1.7229964787691152
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.800633310898544,
+          "scene_distance": 23.436862071103004,
+          "world_point": [
+            -3.016463368906887,
+            -1.6288720701885957,
+            1.698235540342651
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.803225916355856,
+          "scene_distance": 23.647853577601268,
+          "world_point": [
+            -3.0602860597506396,
+            -1.5280201324871872,
+            1.6626271512370323
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.795223286837413,
+          "scene_distance": 23.56734740068109,
+          "world_point": [
+            -3.021723577444728,
+            -1.563072102253665,
+            1.6668583860321782
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.755101486323195,
+          "scene_distance": 23.487476841984893,
+          "world_point": [
+            -2.9656255683770674,
+            -1.5832765986492987,
+            1.693686736194838
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.855968725533895,
+          "scene_distance": 23.699560150412104,
+          "world_point": [
+            -3.0630111517946794,
+            -1.5273406635125593,
+            1.589154684555382
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.832688198257937,
+          "scene_distance": 23.618681294775946,
+          "world_point": [
+            -3.016046218448329,
+            -1.555502162769729,
+            1.604125032336114
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.84306216744249,
+          "scene_distance": 23.538442136422212,
+          "world_point": [
+            -2.987375800079157,
+            -1.5989996516961789,
+            1.595526556180399
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            161
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.911223935549412,
+          "scene_distance": 23.751625998439753,
+          "world_point": [
+            -3.0669215759472497,
+            -1.5276358935722563,
+            1.5138112085289812
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        438.6690943747896,
+        199.13093855237366
+      ],
+      "bounds": [
+        [
+          422.0650674944906,
+          142.61050271753552
+        ],
+        [
+          452.0264579014303,
+          204.18532114341582
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1305,
+            436
+          ],
+          "expected": "mage",
+          "actor_distance": 24.620193014806482,
+          "scene_distance": 27.472839153406856,
+          "world_point": [
+            -3.254352557859832,
+            -1.429992678215335,
+            2.0153082120472234
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            436
+          ],
+          "expected": "mage",
+          "actor_distance": 24.624810921566983,
+          "scene_distance": 27.530034956853918,
+          "world_point": [
+            -3.223334509373906,
+            -1.4706564529931505,
+            2.010459903238683
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.63865353940648,
+          "scene_distance": 27.45661317586,
+          "world_point": [
+            -3.27282318237806,
+            -1.3755578724491127,
+            1.9678068834647746
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.60471484169811,
+          "scene_distance": 27.473951004167592,
+          "world_point": [
+            -3.2203074331685624,
+            -1.398729779982732,
+            1.989608953832139
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.60774987219502,
+          "scene_distance": 27.471284283184385,
+          "world_point": [
+            -3.1884111355524496,
+            -1.4386519887371474,
+            1.985847952769511
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1317,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.6484412906443,
+          "scene_distance": 27.468736282457975,
+          "world_point": [
+            -3.1773625321999788,
+            -1.4958107300121135,
+            1.9560430400829603
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.6481392189575,
+          "scene_distance": 27.41830555610437,
+          "world_point": [
+            -3.252638388068343,
+            -1.355548734221534,
+            1.9248096429878316
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.612412950842668,
+          "scene_distance": 27.415524278728363,
+          "world_point": [
+            -3.199135669369852,
+            -1.3779669712524694,
+            1.9478985812087863
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.612690115366714,
+          "scene_distance": 27.41286151092321,
+          "world_point": [
+            -3.165679667199015,
+            -1.4166510230727845,
+            1.9460446169759642
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1281,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.89396087343484,
+          "scene_distance": 27.358732608926346,
+          "world_point": [
+            -3.4655626229531133,
+            -1.324867117205489,
+            1.7229961909765343
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.68255428253854,
+          "scene_distance": 27.360200950074592,
+          "world_point": [
+            -3.2462603628533433,
+            -1.3467236842513994,
+            1.8644748780752813
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.681260452919187,
+          "scene_distance": 27.357423798290537,
+          "world_point": [
+            -3.2118880750631664,
+            -1.384855532801149,
+            1.8636311892986654
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.821665706207572,
+          "scene_distance": 23.558863664544585,
+          "world_point": [
+            -3.128072542162913,
+            -1.5792968675941292,
+            1.722983086829295
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.819665740256635,
+          "scene_distance": 23.478988629242025,
+          "world_point": [
+            -3.0927929131129144,
+            -1.6171135083866623,
+            1.722993828666798
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.834056159852196,
+          "scene_distance": 23.399742207863586,
+          "world_point": [
+            -3.066419552119328,
+            -1.6624504413563859,
+            1.7116356557728025
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.910462350829388,
+          "scene_distance": 23.32111822086396,
+          "world_point": [
+            -3.073777678998942,
+            -1.736527243137342,
+            1.657047437131471
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.769420837817844,
+          "scene_distance": 23.60992144951946,
+          "world_point": [
+            -3.073445768607824,
+            -1.530757604605295,
+            1.722984026910897
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.767423949539335,
+          "scene_distance": 23.529679062474152,
+          "world_point": [
+            -3.038229536248231,
+            -1.568506430078056,
+            1.7229946999333166
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.787983542534384,
+          "scene_distance": 23.450069298908197,
+          "world_point": [
+            -3.0152688413329543,
+            -1.6166012354402763,
+            1.7072980086830505
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.86412591723981,
+          "scene_distance": 23.371085924474347,
+          "world_point": [
+            -3.022454772846393,
+            -1.6904190923487672,
+            1.6527807780116532
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.809494473314544,
+          "scene_distance": 23.661333515239708,
+          "world_point": [
+            -3.069411484348441,
+            -1.5244255008604028,
+            1.6584698085690057
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.79415495220726,
+          "scene_distance": 23.58072078598361,
+          "world_point": [
+            -3.026841419838723,
+            -1.556133922851192,
+            1.667832028355761
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.7478453614125,
+          "scene_distance": 23.500744728974876,
+          "world_point": [
+            -2.9673747143136833,
+            -1.573508842125177,
+            1.698986181192609
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.818038430010308,
+          "scene_distance": 23.42139905440568,
+          "world_point": [
+            -2.9712907222277014,
+            -1.6444536563351715,
+            1.6485273262627373
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        567.0482690333702,
+        371.1491587734824
+      ],
+      "bounds": [
+        [
+          553.4124555049196,
+          317.9092973194118
+        ],
+        [
+          588.146830481157,
+          377.9271613294303
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            572,
+            322
+          ],
+          "expected": "mage",
+          "actor_distance": 21.037768461041267,
+          "scene_distance": 23.520345980678613,
+          "world_point": [
+            2.993334644612853,
+            0.029503557060930774,
+            2.0108592019686604
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            322
+          ],
+          "expected": "mage",
+          "actor_distance": 21.03934417624637,
+          "scene_distance": 23.525136430422243,
+          "world_point": [
+            3.024409730943881,
+            -0.0015227550419183444,
+            2.013053096190049
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            570,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.056231141639564,
+          "scene_distance": 23.480353888872045,
+          "world_point": [
+            2.98131891899731,
+            0.0759114504425149,
+            1.9668557918032121
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            572,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.032350808039556,
+          "scene_distance": 23.48503413205254,
+          "world_point": [
+            3.02146633812041,
+            0.05660608654992494,
+            1.9896323465263244
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.034818622560078,
+          "scene_distance": 23.48981684212659,
+          "world_point": [
+            3.0522114170045755,
+            0.02517116110445272,
+            1.9911047175314636
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            576,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.064302949969992,
+          "scene_distance": 23.494701956518046,
+          "world_point": [
+            3.0734363686384114,
+            -0.018818578545381826,
+            1.9707438917932905
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            570,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.111735447182376,
+          "scene_distance": 23.445262682995192,
+          "world_point": [
+            2.9877848172561228,
+            0.07497989280645534,
+            1.8961833178557477
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            572,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.046883274767684,
+          "scene_distance": 23.449935355254677,
+          "world_point": [
+            3.0425293062947674,
+            0.0745102386131471,
+            1.9522888938601604
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.049448101056914,
+          "scene_distance": 23.454710328772386,
+          "world_point": [
+            3.073257616573068,
+            0.04300900187922174,
+            1.95368664507523
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            558,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.3282570983297,
+          "scene_distance": 23.3845410865588,
+          "world_point": [
+            2.745456432796682,
+            0.1859718167126001,
+            1.67523906824119
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            560,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.274049570071455,
+          "scene_distance": 23.388592139564214,
+          "world_point": [
+            2.7970287260014484,
+            0.1794047806917476,
+            1.722403512405311
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            562,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.277103713454956,
+          "scene_distance": 23.392745675256553,
+          "world_point": [
+            2.827767608111019,
+            0.14705055577768533,
+            1.7229930408343996
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F01",
+      "position_name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        567.0482690333702,
+        371.1491587734824
+      ],
+      "bounds": [
+        [
+          553.4124555049196,
+          317.9092973194118
+        ],
+        [
+          588.146830481157,
+          377.9271613294303
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1717,
+            962
+          ],
+          "expected": "mage",
+          "actor_distance": 21.061796561712654,
+          "scene_distance": 23.549936018065402,
+          "world_point": [
+            2.9629054890850384,
+            -0.002149115241172339,
+            2.0128320405346294
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            962
+          ],
+          "expected": "mage",
+          "actor_distance": 21.06333076012964,
+          "scene_distance": 23.554732919914507,
+          "world_point": [
+            2.994035822654997,
+            -0.033189245187152494,
+            2.0150610230791486
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1711,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.062038949435948,
+          "scene_distance": 23.50975927821343,
+          "world_point": [
+            2.9573730407612553,
+            0.052705737243030626,
+            1.983518076690686
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1717,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.035593852130063,
+          "scene_distance": 23.51444583281578,
+          "world_point": [
+            2.9984766331485897,
+            0.034609527473342894,
+            2.0083453576515033
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.037426016486663,
+          "scene_distance": 23.519234992398136,
+          "world_point": [
+            3.029456305575968,
+            0.003466569589971158,
+            2.0103316488215306
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1729,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.070307136138013,
+          "scene_distance": 23.52412669429399,
+          "world_point": [
+            3.0494568462569225,
+            -0.0421405887605264,
+            1.9872461498992777
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1711,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.057123434155624,
+          "scene_distance": 23.474490585511536,
+          "world_point": [
+            2.985374532052128,
+            0.07960574662844522,
+            1.9618644162082752
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1717,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.034135442861626,
+          "scene_distance": 23.479169566660918,
+          "world_point": [
+            3.025199295589921,
+            0.05988038076002056,
+            1.9839226818152191
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.03636576044585,
+          "scene_distance": 23.48395098709281,
+          "world_point": [
+            3.0560305845561535,
+            0.02855321470218719,
+            1.98558831406325
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1729,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.06559390823514,
+          "scene_distance": 23.488834784249143,
+          "world_point": [
+            3.07735322078953,
+            -0.015314118632757001,
+            1.9654303736530032
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1675,
+            980
+          ],
+          "expected": "mage",
+          "actor_distance": 21.353866290588012,
+          "scene_distance": 23.413557409290572,
+          "world_point": [
+            2.713868441023978,
+            0.15353289043980922,
+            1.6759352750721526
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1681,
+            980
+          ],
+          "expected": "mage",
+          "actor_distance": 21.300051814785967,
+          "scene_distance": 23.417613939074496,
+          "world_point": [
+            2.7653981808161516,
+            0.14680524402923645,
+            1.7227254461975328
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        479.50165475053007,
+        268.95478911524754
+      ],
+      "bounds": [
+        [
+          463.4857315827486,
+          213.3778869685445
+        ],
+        [
+          495.3449889221803,
+          274.67830722309884
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            478,
+            216
+          ],
+          "expected": "mage",
+          "actor_distance": 22.897842514908326,
+          "scene_distance": 24.50055248741293,
+          "world_point": [
+            -0.7138968143472582,
+            -0.58348488870684,
+            2.0157929846697407
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            216
+          ],
+          "expected": "mage",
+          "actor_distance": 22.899828048820932,
+          "scene_distance": 24.572270260965848,
+          "world_point": [
+            -0.6820884669713596,
+            -0.6196148346330119,
+            2.0142593791095678
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            476,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.912484166539585,
+          "scene_distance": 24.486104366535415,
+          "world_point": [
+            -0.7277094505293995,
+            -0.530452510622105,
+            1.9730071475757178
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.881617771126376,
+          "scene_distance": 24.557641048586166,
+          "world_point": [
+            -0.6798488584262703,
+            -0.5517784058817234,
+            1.9958820898466954
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            218
+          ],
+          "expected": "mage",
+          "actor_distance": 22.883221567667487,
+          "scene_distance": 24.629706865411528,
+          "world_point": [
+            -0.6478693515475484,
+            -0.5877140142134625,
+            1.9946301606530383
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            476,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.960597233758516,
+          "scene_distance": 24.543240356710896,
+          "world_point": [
+            -0.7250894221255528,
+            -0.527672621994169,
+            1.9051173725581592
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88823557075302,
+          "scene_distance": 24.615124600482336,
+          "world_point": [
+            -0.6569314532252939,
+            -0.530369640736879,
+            1.9590221119619038
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88865188811488,
+          "scene_distance": 24.687541379055567,
+          "world_point": [
+            -0.6243568823193684,
+            -0.5657815493641039,
+            1.9586545776001252
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            482,
+            220
+          ],
+          "expected": "mage",
+          "actor_distance": 22.968430863215286,
+          "scene_distance": 24.760495412820465,
+          "world_point": [
+            -0.6302492464443894,
+            -0.6372381768739199,
+            1.8990970025429412
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            478,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.954905567049856,
+          "scene_distance": 24.67300618501235,
+          "world_point": [
+            -0.663189692069972,
+            -0.5359521706881498,
+            1.8772792537781058
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            480,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.95625142908171,
+          "scene_distance": 24.74577687491866,
+          "world_point": [
+            -0.6309649751175748,
+            -0.5718923699490066,
+            1.8762153998883875
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            482,
+            222
+          ],
+          "expected": "mage",
+          "actor_distance": 22.93993544317559,
+          "scene_distance": 24.81908829644811,
+          "world_point": [
+            -0.5901353787384469,
+            -0.5997782599265946,
+            1.888441375052441
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        479.50165475053007,
+        268.95478911524754
+      ],
+      "bounds": [
+        [
+          463.4857315827486,
+          213.3778869685445
+        ],
+        [
+          495.3449889221803,
+          274.67830722309884
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1435,
+            649
+          ],
+          "expected": "mage",
+          "actor_distance": 22.897842514908326,
+          "scene_distance": 24.50055248741293,
+          "world_point": [
+            -0.7138968143472582,
+            -0.58348488870684,
+            2.0157929846697407
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            649
+          ],
+          "expected": "mage",
+          "actor_distance": 22.899828048820932,
+          "scene_distance": 24.572270260965848,
+          "world_point": [
+            -0.6820884669713596,
+            -0.6196148346330119,
+            2.0142593791095678
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1429,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.912484166539585,
+          "scene_distance": 24.486104366535415,
+          "world_point": [
+            -0.7277094505293995,
+            -0.530452510622105,
+            1.9730071475757178
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1435,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.881617771126376,
+          "scene_distance": 24.557641048586166,
+          "world_point": [
+            -0.6798488584262703,
+            -0.5517784058817234,
+            1.9958820898466954
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.883221567667487,
+          "scene_distance": 24.629706865411528,
+          "world_point": [
+            -0.6478693515475484,
+            -0.5877140142134625,
+            1.9946301606530383
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1447,
+            655
+          ],
+          "expected": "mage",
+          "actor_distance": 22.916252240259123,
+          "scene_distance": 24.702306495441242,
+          "world_point": [
+            -0.6311243303436118,
+            -0.6379331926495801,
+            1.9700287981988467
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1429,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.960597233758516,
+          "scene_distance": 24.543240356710896,
+          "world_point": [
+            -0.7250894221255528,
+            -0.527672621994169,
+            1.9051173725581592
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1435,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88823557075302,
+          "scene_distance": 24.615124600482336,
+          "world_point": [
+            -0.6569314532252939,
+            -0.530369640736879,
+            1.9590221119619038
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1441,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.88865188811488,
+          "scene_distance": 24.687541379055567,
+          "world_point": [
+            -0.6243568823193684,
+            -0.5657815493641039,
+            1.9586545776001252
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1447,
+            661
+          ],
+          "expected": "mage",
+          "actor_distance": 22.968430863215286,
+          "scene_distance": 24.760495412820465,
+          "world_point": [
+            -0.6302492464443894,
+            -0.6372381768739199,
+            1.8990970025429412
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1405,
+            667
+          ],
+          "expected": "mage",
+          "actor_distance": 23.16303445612992,
+          "scene_distance": 24.40313948943309,
+          "world_point": [
+            -0.9296797494270308,
+            -0.45079686008152464,
+            1.7230018089683696
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1411,
+            667
+          ],
+          "expected": "mage",
+          "actor_distance": 23.162459328869176,
+          "scene_distance": 24.38723629442438,
+          "world_point": [
+            -0.8964754811307518,
+            -0.48641724516393303,
+            1.7229916837299193
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        485.9914133573135,
+        183.4113440021174
+      ],
+      "bounds": [
+        [
+          471.37226246873115,
+          126.7505271304779
+        ],
+        [
+          500.93251787329075,
+          188.32082554289514
+        ]
+      ],
+      "counts": {
+        "mage": 3,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            486,
+            129
+          ],
+          "expected": "mage",
+          "actor_distance": 25.021421184819115,
+          "scene_distance": 27.312412760132233,
+          "world_point": [
+            -2.7888288711985876,
+            -2.796018305687422,
+            2.0166082942051737
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            488,
+            131
+          ],
+          "expected": "mage",
+          "actor_distance": 25.025594096887417,
+          "scene_distance": 27.281922569249957,
+          "world_point": [
+            -2.7298524848111896,
+            -2.8122080812936066,
+            1.9765463594511274
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            133
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.060327915668775,
+          "scene_distance": 23.473566737148616,
+          "world_point": [
+            -2.7939162885753532,
+            -2.729996778415261,
+            1.9149737570564618
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            135
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.094649656009626,
+          "scene_distance": 23.422415772257466,
+          "world_point": [
+            -2.786387547732268,
+            -2.723190751587099,
+            1.8540304093769535
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            486,
+            135
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.07435869105639,
+          "scene_distance": 23.422643555038665,
+          "world_point": [
+            -2.7399502369816595,
+            -2.751060971917651,
+            1.8681027640892864
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            476,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.231050295883957,
+          "scene_distance": 23.371650664024187,
+          "world_point": [
+            -2.9758106705620637,
+            -2.6135658629579233,
+            1.722999361229185
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            478,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.230875212112466,
+          "scene_distance": 23.371473779168365,
+          "world_point": [
+            -2.9400332058265732,
+            -2.651949414379379,
+            1.722988459406821
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            484,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.155688114521766,
+          "scene_distance": 23.371549623087816,
+          "world_point": [
+            -2.7928502357086042,
+            -2.729564527245076,
+            1.774681997335886
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            486,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.132550438073135,
+          "scene_distance": 23.371777069463178,
+          "world_point": [
+            -2.744832558424232,
+            -2.756137109078935,
+            1.7907405611262561
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            488,
+            137
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.261559927304145,
+          "scene_distance": 23.372105594547484,
+          "world_point": [
+            -2.7768924650912687,
+            -2.858871539426893,
+            1.7023836170176132
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            496,
+            137
+          ],
+          "expected": "mage",
+          "actor_distance": 25.234047487237078,
+          "scene_distance": 27.111479782347672,
+          "world_point": [
+            -2.6179494490180186,
+            -2.9973211287525388,
+            1.7230018813082424
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            474,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.23971218464413,
+          "scene_distance": 23.321345282170412,
+          "world_point": [
+            -2.9900854465754367,
+            -2.554973161619211,
+            1.679659836849293
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            476,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.176443944033664,
+          "scene_distance": 23.321067727695645,
+          "world_point": [
+            -2.920666592820023,
+            -2.562437125920617,
+            1.7229987713330566
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            478,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.177382141653577,
+          "scene_distance": 23.32089110420922,
+          "world_point": [
+            -2.8855467598424767,
+            -2.6012993223611094,
+            1.7222217952159653
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            480,
+            139
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.22694194267854,
+          "scene_distance": 23.320815414004375,
+          "world_point": [
+            -2.8761797012894377,
+            -2.664148306434978,
+            1.6880546203570148
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        485.9914133573135,
+        183.4113440021174
+      ],
+      "bounds": [
+        [
+          471.37226246873115,
+          126.7505271304779
+        ],
+        [
+          500.93251787329075,
+          188.32082554289514
+        ]
+      ],
+      "counts": {
+        "mage": 9,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1453,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.03326750875252,
+          "scene_distance": 27.403379054351557,
+          "world_point": [
+            -2.8264601780913683,
+            -2.7601282170226646,
+            2.0021294297806413
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.016216258373824,
+          "scene_distance": 27.320984361182173,
+          "world_point": [
+            -2.781808921265183,
+            -2.789443235363951,
+            2.0139076556103106
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            389
+          ],
+          "expected": "mage",
+          "actor_distance": 25.043383477119328,
+          "scene_distance": 27.239202729526856,
+          "world_point": [
+            -2.760593795243924,
+            -2.8409843192901256,
+            1.9956445048902616
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            395
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.018025179247857,
+          "scene_distance": 23.51641116408803,
+          "world_point": [
+            -2.7927906865288854,
+            -2.7286998719571045,
+            1.9750680573997244
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            395
+          ],
+          "expected": "mage",
+          "actor_distance": 25.023769806350487,
+          "scene_distance": 27.290495225517297,
+          "world_point": [
+            -2.7246190601556,
+            -2.8073243002451456,
+            1.97155253028615
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1447,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.145909356163894,
+          "scene_distance": 23.46489502798481,
+          "world_point": [
+            -2.8707916737452255,
+            -2.730658501330266,
+            1.850098714110004
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.06518030121431,
+          "scene_distance": 23.465021735489533,
+          "world_point": [
+            -2.7922106799514292,
+            -2.728437754963064,
+            1.9054141742506552
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            401
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.049089754955496,
+          "scene_distance": 23.465249798860462,
+          "world_point": [
+            -2.7480326183573833,
+            -2.758342982362789,
+            1.9165874222352208
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1429,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.27678919455457,
+          "scene_distance": 23.41401950669692,
+          "world_point": [
+            -3.021917995890181,
+            -2.656315862757003,
+            1.7229998551505972
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1435,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.276613940825268,
+          "scene_distance": 23.413842403840462,
+          "world_point": [
+            -2.9860860931815107,
+            -2.6947578888359107,
+            1.7229889282341126
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1453,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.101825071561585,
+          "scene_distance": 23.41391834123319,
+          "world_point": [
+            -2.785889874095531,
+            -2.722769639534963,
+            1.8428701270249697
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1459,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.074982702203975,
+          "scene_distance": 23.414146067923987,
+          "world_point": [
+            -2.7359811117623476,
+            -2.747376007227885,
+            1.861438871233009
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1465,
+            407
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.112238146670514,
+          "scene_distance": 23.41447499790008,
+          "world_point": [
+            -2.7198792002225964,
+            -2.804035935632358,
+            1.8361408148287524
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1483,
+            407
+          ],
+          "expected": "mage",
+          "actor_distance": 25.279015143164276,
+          "scene_distance": 27.149385032770923,
+          "world_point": [
+            -2.6993612676149716,
+            -3.002229958502543,
+            1.72299063755354
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1489,
+            407
+          ],
+          "expected": "mage",
+          "actor_distance": 25.279791273741264,
+          "scene_distance": 27.06901734504128,
+          "world_point": [
+            -2.6635125263200035,
+            -3.040656026328463,
+            1.7230015553758733
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1423,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.28967525267619,
+          "scene_distance": 23.36347843253855,
+          "world_point": [
+            -3.0385338232475085,
+            -2.5997570571293007,
+            1.6766615865037302
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1429,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.221928036676292,
+          "scene_distance": 23.363200535816155,
+          "world_point": [
+            -2.966606023134773,
+            -2.6050314560525756,
+            1.7229992626250556
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1435,
+            413
+          ],
+          "expected": "pillar",
+          "actor_distance": 25.221752971376205,
+          "scene_distance": 23.363023694539347,
+          "world_point": [
+            -2.930839417866485,
+            -2.643403326213347,
+            1.7229883764906937
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1489,
+            413
+          ],
+          "expected": "mage",
+          "actor_distance": 25.22492425177186,
+          "scene_distance": 27.120000720508084,
+          "world_point": [
+            -2.6088534531978578,
+            -2.988669956124202,
+            1.7230019463758275
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1495,
+            413
+          ],
+          "expected": "mage",
+          "actor_distance": 25.310343392626915,
+          "scene_distance": 27.039899491244036,
+          "world_point": [
+            -2.6169371614876855,
+            -3.0700357245816168,
+            1.6649437374180351
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1495,
+            419
+          ],
+          "expected": "mage",
+          "actor_distance": 25.258577833233723,
+          "scene_distance": 27.090893176081906,
+          "world_point": [
+            -2.5639032483864224,
+            -3.0195086009331913,
+            1.6628926933733936
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        438.6690943747896,
+        199.13093855237366
+      ],
+      "bounds": [
+        [
+          422.0650674944906,
+          142.61050271753552
+        ],
+        [
+          452.0264579014303,
+          204.18532114341582
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            435,
+            145
+          ],
+          "expected": "mage",
+          "actor_distance": 24.61840403364588,
+          "scene_distance": 27.484004315117424,
+          "world_point": [
+            -3.247757731329216,
+            -1.4356033200856633,
+            2.0162655880837335
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.629244136268333,
+          "scene_distance": 27.467747477688,
+          "world_point": [
+            -3.2619691117577787,
+            -1.3777256959340463,
+            1.974037316732403
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.602857600199904,
+          "scene_distance": 27.473498307656183,
+          "world_point": [
+            -3.2136777022250627,
+            -1.404308794867081,
+            1.9906157047511996
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            147
+          ],
+          "expected": "mage",
+          "actor_distance": 24.611281085528255,
+          "scene_distance": 27.470851371023173,
+          "world_point": [
+            -3.184772214343509,
+            -1.4466860350489448,
+            1.9831301015424856
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.679205605909953,
+          "scene_distance": 27.417833781555235,
+          "world_point": [
+            -3.264392473869064,
+            -1.3760717530102866,
+            1.9029285546764818
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.610099794362895,
+          "scene_distance": 27.41507225331127,
+          "world_point": [
+            -3.19224998472915,
+            -1.3833442475161633,
+            1.949224030833964
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            149
+          ],
+          "expected": "mage",
+          "actor_distance": 24.651518011743445,
+          "scene_distance": 27.41242924050025,
+          "world_point": [
+            -3.1816480780608014,
+            -1.4407900405295262,
+            1.9187901028200969
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            435,
+            151
+          ],
+          "expected": "mage",
+          "actor_distance": 24.67862423097129,
+          "scene_distance": 27.356972443365816,
+          "world_point": [
+            -3.204807363672124,
+            -1.390108204935812,
+            1.8651834633431221
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            437,
+            151
+          ],
+          "expected": "mage",
+          "actor_distance": 24.68552094026117,
+          "scene_distance": 27.354333350858695,
+          "world_point": [
+            -3.174908404636165,
+            -1.431913110250651,
+            1.8587221044517044
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            425,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.860567328189674,
+          "scene_distance": 27.314144824074447,
+          "world_point": [
+            -3.449017500216586,
+            -1.2526176622461112,
+            1.711333776877595
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            427,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.840916848794603,
+          "scene_distance": 27.31091920271406,
+          "world_point": [
+            -3.4043553063033833,
+            -1.283004472883606,
+            1.7229933450528705
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            433,
+            153
+          ],
+          "expected": "mage",
+          "actor_distance": 24.805481825553517,
+          "scene_distance": 27.30195056777548,
+          "world_point": [
+            -3.283365993455023,
+            -1.3841687184822824,
+            1.7420275016901599
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            153
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.819342886532084,
+          "scene_distance": 23.46573740648285,
+          "world_point": [
+            -3.086912985683398,
+            -1.6234162827495169,
+            1.7229956107012825
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            153
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.846749719583126,
+          "scene_distance": 23.38659515113323,
+          "world_point": [
+            -3.067642697690223,
+            -1.6747642697922078,
+            1.702561425476599
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.769080561878692,
+          "scene_distance": 23.59650351912923,
+          "world_point": [
+            -3.067576393535278,
+            -1.5370490787466942,
+            1.7229858057488805
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.767101581368284,
+          "scene_distance": 23.516367005733823,
+          "world_point": [
+            -3.0323601684059582,
+            -1.5747978964692013,
+            1.7229964787691152
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            155
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.800633310898544,
+          "scene_distance": 23.436862071103004,
+          "world_point": [
+            -3.016463368906887,
+            -1.6288720701885957,
+            1.698235540342651
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.803225916355856,
+          "scene_distance": 23.647853577601268,
+          "world_point": [
+            -3.0602860597506396,
+            -1.5280201324871872,
+            1.6626271512370323
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.795223286837413,
+          "scene_distance": 23.56734740068109,
+          "world_point": [
+            -3.021723577444728,
+            -1.563072102253665,
+            1.6668583860321782
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            157
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.755101486323195,
+          "scene_distance": 23.487476841984893,
+          "world_point": [
+            -2.9656255683770674,
+            -1.5832765986492987,
+            1.693686736194838
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.855968725533895,
+          "scene_distance": 23.699560150412104,
+          "world_point": [
+            -3.0630111517946794,
+            -1.5273406635125593,
+            1.589154684555382
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            445,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.832688198257937,
+          "scene_distance": 23.618681294775946,
+          "world_point": [
+            -3.016046218448329,
+            -1.555502162769729,
+            1.604125032336114
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            447,
+            159
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.84306216744249,
+          "scene_distance": 23.538442136422212,
+          "world_point": [
+            -2.987375800079157,
+            -1.5989996516961789,
+            1.595526556180399
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            443,
+            161
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.911223935549412,
+          "scene_distance": 23.751625998439753,
+          "world_point": [
+            -3.0669215759472497,
+            -1.5276358935722563,
+            1.5138112085289812
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        438.6690943747896,
+        199.13093855237366
+      ],
+      "bounds": [
+        [
+          422.0650674944906,
+          142.61050271753552
+        ],
+        [
+          452.0264579014303,
+          204.18532114341582
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 12
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1305,
+            436
+          ],
+          "expected": "mage",
+          "actor_distance": 24.620193014806482,
+          "scene_distance": 27.472839153406856,
+          "world_point": [
+            -3.254352557859832,
+            -1.429992678215335,
+            2.0153082120472234
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            436
+          ],
+          "expected": "mage",
+          "actor_distance": 24.624810921566983,
+          "scene_distance": 27.530034956853918,
+          "world_point": [
+            -3.223334509373906,
+            -1.4706564529931505,
+            2.010459903238683
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.63865353940648,
+          "scene_distance": 27.45661317586,
+          "world_point": [
+            -3.27282318237806,
+            -1.3755578724491127,
+            1.9678068834647746
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.60471484169811,
+          "scene_distance": 27.473951004167592,
+          "world_point": [
+            -3.2203074331685624,
+            -1.398729779982732,
+            1.989608953832139
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.60774987219502,
+          "scene_distance": 27.471284283184385,
+          "world_point": [
+            -3.1884111355524496,
+            -1.4386519887371474,
+            1.985847952769511
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1317,
+            442
+          ],
+          "expected": "mage",
+          "actor_distance": 24.6484412906443,
+          "scene_distance": 27.468736282457975,
+          "world_point": [
+            -3.1773625321999788,
+            -1.4958107300121135,
+            1.9560430400829603
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.6481392189575,
+          "scene_distance": 27.41830555610437,
+          "world_point": [
+            -3.252638388068343,
+            -1.355548734221534,
+            1.9248096429878316
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.612412950842668,
+          "scene_distance": 27.415524278728363,
+          "world_point": [
+            -3.199135669369852,
+            -1.3779669712524694,
+            1.9478985812087863
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1311,
+            448
+          ],
+          "expected": "mage",
+          "actor_distance": 24.612690115366714,
+          "scene_distance": 27.41286151092321,
+          "world_point": [
+            -3.165679667199015,
+            -1.4166510230727845,
+            1.9460446169759642
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1281,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.89396087343484,
+          "scene_distance": 27.358732608926346,
+          "world_point": [
+            -3.4655626229531133,
+            -1.324867117205489,
+            1.7229961909765343
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1299,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.68255428253854,
+          "scene_distance": 27.360200950074592,
+          "world_point": [
+            -3.2462603628533433,
+            -1.3467236842513994,
+            1.8644748780752813
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1305,
+            454
+          ],
+          "expected": "mage",
+          "actor_distance": 24.681260452919187,
+          "scene_distance": 27.357423798290537,
+          "world_point": [
+            -3.2118880750631664,
+            -1.384855532801149,
+            1.8636311892986654
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.821665706207572,
+          "scene_distance": 23.558863664544585,
+          "world_point": [
+            -3.128072542162913,
+            -1.5792968675941292,
+            1.722983086829295
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.819665740256635,
+          "scene_distance": 23.478988629242025,
+          "world_point": [
+            -3.0927929131129144,
+            -1.6171135083866623,
+            1.722993828666798
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.834056159852196,
+          "scene_distance": 23.399742207863586,
+          "world_point": [
+            -3.066419552119328,
+            -1.6624504413563859,
+            1.7116356557728025
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            460
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.910462350829388,
+          "scene_distance": 23.32111822086396,
+          "world_point": [
+            -3.073777678998942,
+            -1.736527243137342,
+            1.657047437131471
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.769420837817844,
+          "scene_distance": 23.60992144951946,
+          "world_point": [
+            -3.073445768607824,
+            -1.530757604605295,
+            1.722984026910897
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.767423949539335,
+          "scene_distance": 23.529679062474152,
+          "world_point": [
+            -3.038229536248231,
+            -1.568506430078056,
+            1.7229946999333166
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.787983542534384,
+          "scene_distance": 23.450069298908197,
+          "world_point": [
+            -3.0152688413329543,
+            -1.6166012354402763,
+            1.7072980086830505
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            466
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.86412591723981,
+          "scene_distance": 23.371085924474347,
+          "world_point": [
+            -3.022454772846393,
+            -1.6904190923487672,
+            1.6527807780116532
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1329,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.809494473314544,
+          "scene_distance": 23.661333515239708,
+          "world_point": [
+            -3.069411484348441,
+            -1.5244255008604028,
+            1.6584698085690057
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1335,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.79415495220726,
+          "scene_distance": 23.58072078598361,
+          "world_point": [
+            -3.026841419838723,
+            -1.556133922851192,
+            1.667832028355761
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1341,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.7478453614125,
+          "scene_distance": 23.500744728974876,
+          "world_point": [
+            -2.9673747143136833,
+            -1.573508842125177,
+            1.698986181192609
+          ],
+          "lamp_blocked": true
+        },
+        {
+          "pixel": [
+            1347,
+            472
+          ],
+          "expected": "pillar",
+          "actor_distance": 24.818038430010308,
+          "scene_distance": 23.42139905440568,
+          "world_point": [
+            -2.9712907222277014,
+            -1.6444536563351715,
+            1.6485273262627373
+          ],
+          "lamp_blocked": true
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "resolution": 1,
+      "root_pixel": [
+        567.0482690333702,
+        371.1491587734824
+      ],
+      "bounds": [
+        [
+          553.4124555049196,
+          317.9092973194118
+        ],
+        [
+          588.146830481157,
+          377.9271613294303
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            572,
+            322
+          ],
+          "expected": "mage",
+          "actor_distance": 21.037768461041267,
+          "scene_distance": 23.520345980678613,
+          "world_point": [
+            2.993334644612853,
+            0.029503557060930774,
+            2.0108592019686604
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            322
+          ],
+          "expected": "mage",
+          "actor_distance": 21.03934417624637,
+          "scene_distance": 23.525136430422243,
+          "world_point": [
+            3.024409730943881,
+            -0.0015227550419183444,
+            2.013053096190049
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            570,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.056231141639564,
+          "scene_distance": 23.480353888872045,
+          "world_point": [
+            2.98131891899731,
+            0.0759114504425149,
+            1.9668557918032121
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            572,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.032350808039556,
+          "scene_distance": 23.48503413205254,
+          "world_point": [
+            3.02146633812041,
+            0.05660608654992494,
+            1.9896323465263244
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.034818622560078,
+          "scene_distance": 23.48981684212659,
+          "world_point": [
+            3.0522114170045755,
+            0.02517116110445272,
+            1.9911047175314636
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            576,
+            324
+          ],
+          "expected": "mage",
+          "actor_distance": 21.064302949969992,
+          "scene_distance": 23.494701956518046,
+          "world_point": [
+            3.0734363686384114,
+            -0.018818578545381826,
+            1.9707438917932905
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            570,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.111735447182376,
+          "scene_distance": 23.445262682995192,
+          "world_point": [
+            2.9877848172561228,
+            0.07497989280645534,
+            1.8961833178557477
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            572,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.046883274767684,
+          "scene_distance": 23.449935355254677,
+          "world_point": [
+            3.0425293062947674,
+            0.0745102386131471,
+            1.9522888938601604
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            574,
+            326
+          ],
+          "expected": "mage",
+          "actor_distance": 21.049448101056914,
+          "scene_distance": 23.454710328772386,
+          "world_point": [
+            3.073257616573068,
+            0.04300900187922174,
+            1.95368664507523
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            558,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.3282570983297,
+          "scene_distance": 23.3845410865588,
+          "world_point": [
+            2.745456432796682,
+            0.1859718167126001,
+            1.67523906824119
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            560,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.274049570071455,
+          "scene_distance": 23.388592139564214,
+          "world_point": [
+            2.7970287260014484,
+            0.1794047806917476,
+            1.722403512405311
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            562,
+            328
+          ],
+          "expected": "mage",
+          "actor_distance": 21.277103713454956,
+          "scene_distance": 23.392745675256553,
+          "world_point": [
+            2.827767608111019,
+            0.14705055577768533,
+            1.7229930408343996
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "position_name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "resolution": 3,
+      "root_pixel": [
+        567.0482690333702,
+        371.1491587734824
+      ],
+      "bounds": [
+        [
+          553.4124555049196,
+          317.9092973194118
+        ],
+        [
+          588.146830481157,
+          377.9271613294303
+        ]
+      ],
+      "counts": {
+        "mage": 12,
+        "occluded": 0
+      },
+      "witnesses": [
+        {
+          "pixel": [
+            1717,
+            962
+          ],
+          "expected": "mage",
+          "actor_distance": 21.061796561712654,
+          "scene_distance": 23.549936018065402,
+          "world_point": [
+            2.9629054890850384,
+            -0.002149115241172339,
+            2.0128320405346294
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            962
+          ],
+          "expected": "mage",
+          "actor_distance": 21.06333076012964,
+          "scene_distance": 23.554732919914507,
+          "world_point": [
+            2.994035822654997,
+            -0.033189245187152494,
+            2.0150610230791486
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1711,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.062038949435948,
+          "scene_distance": 23.50975927821343,
+          "world_point": [
+            2.9573730407612553,
+            0.052705737243030626,
+            1.983518076690686
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1717,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.035593852130063,
+          "scene_distance": 23.51444583281578,
+          "world_point": [
+            2.9984766331485897,
+            0.034609527473342894,
+            2.0083453576515033
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.037426016486663,
+          "scene_distance": 23.519234992398136,
+          "world_point": [
+            3.029456305575968,
+            0.003466569589971158,
+            2.0103316488215306
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1729,
+            968
+          ],
+          "expected": "mage",
+          "actor_distance": 21.070307136138013,
+          "scene_distance": 23.52412669429399,
+          "world_point": [
+            3.0494568462569225,
+            -0.0421405887605264,
+            1.9872461498992777
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1711,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.057123434155624,
+          "scene_distance": 23.474490585511536,
+          "world_point": [
+            2.985374532052128,
+            0.07960574662844522,
+            1.9618644162082752
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1717,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.034135442861626,
+          "scene_distance": 23.479169566660918,
+          "world_point": [
+            3.025199295589921,
+            0.05988038076002056,
+            1.9839226818152191
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1723,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.03636576044585,
+          "scene_distance": 23.48395098709281,
+          "world_point": [
+            3.0560305845561535,
+            0.02855321470218719,
+            1.98558831406325
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1729,
+            974
+          ],
+          "expected": "mage",
+          "actor_distance": 21.06559390823514,
+          "scene_distance": 23.488834784249143,
+          "world_point": [
+            3.07735322078953,
+            -0.015314118632757001,
+            1.9654303736530032
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1675,
+            980
+          ],
+          "expected": "mage",
+          "actor_distance": 21.353866290588012,
+          "scene_distance": 23.413557409290572,
+          "world_point": [
+            2.713868441023978,
+            0.15353289043980922,
+            1.6759352750721526
+          ],
+          "lamp_blocked": false
+        },
+        {
+          "pixel": [
+            1681,
+            980
+          ],
+          "expected": "mage",
+          "actor_distance": 21.300051814785967,
+          "scene_distance": 23.417613939074496,
+          "world_point": [
+            2.7653981808161516,
+            0.14680524402923645,
+            1.7227254461975328
+          ],
+          "lamp_blocked": false
+        }
+      ]
+    }
+  ]
+}

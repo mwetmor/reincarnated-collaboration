@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "faction": "F01",
+      "name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F01",
+      "name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F01",
+      "name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F01",
+      "name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F02",
+      "name": "front",
+      "point": [
+        -0.7,
+        -0.6
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F02",
+      "name": "behind",
+      "point": [
+        -2.8,
+        -2.8
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F02",
+      "name": "side",
+      "point": [
+        -3.25,
+        -1.45
+      ],
+      "accepted": true,
+      "obstacles": 26
+    },
+    {
+      "faction": "F02",
+      "name": "lamp",
+      "point": [
+        3,
+        0
+      ],
+      "accepted": true,
+      "obstacles": 26
+    }
+  ],
+  "checks": {
+    "all_actor_locations_valid": true,
+    "shader_obstacle_capacity": true
+  }
+}

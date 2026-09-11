@@ -1,0 +1,47 @@
+{
+  "scene_source_vertices": 1352,
+  "camera_depth_minmax": [
+    17.72180788483577,
+    28.051460606091467
+  ],
+  "within10to40": true,
+  "actor_positions_planned": {
+    "front": [
+      -0.7,
+      -0.6
+    ],
+    "behind": [
+      -2.8,
+      -2.8
+    ],
+    "side": [
+      -3.25,
+      -1.45
+    ],
+    "lamp": [
+      3,
+      0
+    ]
+  },
+  "source_manifest": "../E05J/character.asset.json",
+  "limitation": "Actor bounds checked separately by source world depth range plus translated position.",
+  "actor_depth_ranges": {
+    "front": [
+      22.763006810845624,
+      24.89559846482837
+    ],
+    "behind": [
+      24.592226767002302,
+      26.724818420985045
+    ],
+    "side": [
+      24.235816862778478,
+      26.368408516761225
+    ],
+    "lamp": [
+      20.886211274086143,
+      23.01880292806889
+    ]
+  },
+  "actor_clip_pass": true
+}

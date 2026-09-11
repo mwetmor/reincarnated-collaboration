@@ -178,3 +178,7 @@ After failed independent-RGBA reconstruction, unchanged source painting plus res
 ### 2026-09-11 · Native sampling and pose-derived review bounds (E05Q)
 
 MSAA4+mips/aniso8 improved8/8scene comparisons against finite3×fresh-geometry reference and removed observed grain without obvious sampled material bleed. New4320×1380render is not enlarged800pxraster. The old strip clipped a casting hand on BOTH reference/test paths: equality does not prove full coverage. Corrected32idle/cast bounds pass; supplementalwalkstillneedsmorewidth. Derive every review extent from actual tested poses. Full art remains unqualified. [Evidence](../../../../astra_test_01/design/experiments/E05Q/REPORT.md).
+
+### E07K · Shared depth and light do not establish finished chamber art
+
+A depth-bearing pilot shares chamber camera/light data with372 passing CPU ray witnesses and closed-leaf light controls.38 interaction checks pass. Numeric foot Z is approximately zero, but missing contact/cast shadows still make it appear insufficiently grounded. Earlier NPC/monster sprites and unused internal-door state remain separate gaps. [Evidence](../../../../astra_test_01/design/experiments/E07K/REPORT.md).

@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T15:30:31.810486+00:00",
+  "updated": "2026-09-11T16:04:09.105995+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07K integration of depth-bearing pilot with chamber camera/depth/light policy, front/back occlusion and prop states. Derive review bounds from actual poses; no full animation/roster expansion.",
+  "next_action": "Register E07N: connect internal locked/opening/open/closing door state to geometry, navigation, occupancy, light/depth and saved transition time in the E07K chamber. No new source art or animation inventory expansion.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -162,7 +162,10 @@
     "experiments/E05J/review.html",
     "experiments/E05Q/REPORT.md",
     "experiments/E05Q/RECEIPT.json",
-    "experiments/E05Q/review.html"
+    "experiments/E05Q/review.html",
+    "experiments/E07K/REPORT.md",
+    "experiments/E07K/RECEIPT.json",
+    "experiments/E07K/review.html"
   ],
   "decisions_pending": [
     {
@@ -263,7 +266,8 @@
     "E05A improved helmet envelope and explicit hair restoration;47/96 eight-view idle gear composites fail unchanged pixel thresholds. Painted pilot/advanced-gear art still too simple/block-like; no animation expansion. E05O isolate render/coverage causes.",
     "E05O all3 independent-RGBA composition variants fail full96case matrix (partition57, nativeover34, directover46). Two-view native probe insufficient. Stop branch; investigate depth-bearing geometry without changing Pixi harness or full-art bar. Invalid offscreenY capture preserved separately.",
     "E05J depth-bearing painted geometry in same Pixi harness passes288sparse gear/skin source comparisons and exact reverse ordering after local10\u201340mclip control. Full art remains simple/grainy; native sampling, full animation, lighting, world integration and production residency unqualified. Old RGBA failures retained.",
-    "E05Q selects MSAA4/mips/aniso8 after8/8relative-reference improvements. Corrected idle/cast strip has32/32safe bounds; supplementalwalk315wouldstillclip. E05J288counts scoped to captured pixels, shared crop not fullpose proof. Art/style, temporal shimmer, fullworldlighting remain open."
+    "E05Q selects MSAA4/mips/aniso8 after8/8relative-reference improvements. Corrected idle/cast strip has32/32safe bounds; supplementalwalk315wouldstillclip. E05J288counts scoped to captured pixels, shared crop not fullpose proof. Art/style, temporal shimmer, fullworldlighting remain open.",
+    "E07K pilot depth228native/144fresh, point-light controls and38interaction checks pass in both factions. Full art, sprite NPC/monster depth/materials, actor contact/cast shadows, unused internal door and serial combat remain open."
   ],
   "running_jobs": [
     {
@@ -307,7 +311,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05Q/RECEIPT.json",
+  "current_receipt": "experiments/E07K/RECEIPT.json",
   "generation_calls_this_suite": 28,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

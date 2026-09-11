@@ -91,3 +91,5 @@ E05O [coverage review](experiments/E05O/review.html) and [report](experiments/E0
 E05J [shared rig / gear review](experiments/E05J/review.html) and [report](experiments/E05J/REPORT.md): depth-bearing source representation passes288sparse comparisons and corrected exact depth ordering in Pixi. Full art/sampling/animation still open. Next E05Q native sampling/clarity comparison.
 
 E05Q [native clarity review](experiments/E05Q/review.html) and [report](experiments/E05Q/REPORT.md): BMSAA/mips selected8/8; fresh3×reference retained, old clipped strip preserved. Current exact next action: E07K pilot/chamber depth/light integration.
+
+E07K [pilot/chamber review](experiments/E07K/review.html) and [report](experiments/E07K/REPORT.md): 372 occlusion witnesses, light controls and 38 interaction checks pass. Full art and contact shadows remain open. Next E07N connects the unused internal door to geometry/state.

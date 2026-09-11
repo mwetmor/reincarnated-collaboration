@@ -1,0 +1,36 @@
+{
+  "experiment": "E07K",
+  "started_at": "2026-09-11T15:36:00.307701+00:00",
+  "status": "PILOT_DEPTH_LIGHT_INTERACTION_COMPONENTS_PASS_FULL_ART_OPEN",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 65000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "adapter_revisions": 1,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 52025262
+  },
+  "negative_depth_control": "Pilot depth disabled and pilot forced last, representing an always-front actor layer; must fail occluded CPU witnesses.",
+  "interaction_capture": {
+    "pointer_world_tolerance_m": 0.03,
+    "reason": "DOM pointer coordinate rounding; no gameplay physics tolerance changed",
+    "poses": "idle only; no opening/walking animation claim",
+    "sim_source_unchanged": "E07D/sim/index.mjs"
+  },
+  "finished_at": "2026-09-11T16:04:09.105995+00:00",
+  "next_action": "Register E07N internal-door state/geometry/navigation/light integration; preserve old E07D state and failed evidence.",
+  "verdicts": {
+    "native_occlusion": "PASS228/228",
+    "fresh_occlusion": "PASS144/144",
+    "lighting_controls": "PASS",
+    "interactions": "PASS38/38",
+    "saved_review": "PASS5/5",
+    "full_art_internal_door_contact_shadows": "UNQUALIFIED"
+  }
+}
