@@ -1,0 +1,28 @@
+{
+  "experiment": "E04M2",
+  "status": "SCOPED_STILL_CONTOUR_PASS",
+  "started_at": "2026-09-11T04:27:10.609543+00:00",
+  "finished_at": "2026-09-11T04:36:28.888484+00:00",
+  "elapsed_wall_minutes": 9.304649016666668,
+  "active_minutes_upper_bound": 9.304649016666668,
+  "active_minutes_limit": 45,
+  "generation_calls": 0,
+  "known_paid_service_spend_usd": 0,
+  "contour_revisions_used": 2,
+  "contour_revision_limit": 2,
+  "capture_batches_used": 3,
+  "capture_batch_limit": 3,
+  "source_witnesses": {
+    "passed": 36,
+    "total": 36
+  },
+  "bad_controls": "original masks and anatomy-removing contour caught",
+  "current_manifests": [
+    "mage-v3.asset.json",
+    "npc-v3.asset.json"
+  ],
+  "failed_candidate": "v2: initial witnesses passed but wider visual inspection rejected residual mage hand/leg leaks",
+  "native_alpha": "FAIL remains historical",
+  "next_action": "E04L shared lighting/material comparison using v3 contours; continue autonomous campaign through remaining unblocked gates",
+  "artifact_bytes_before_inventory": 7869503
+}

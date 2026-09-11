@@ -1,0 +1,133 @@
+{
+  "started_at": "2026-09-11T04:35:04.162Z",
+  "errors": [],
+  "checks": {
+    "buffer-2880x1920": true,
+    "door-still-locked": true,
+    "standalone-review-images": true,
+    "no-browser-errors": true
+  },
+  "snapshot": {
+    "json_state": {
+      "schema_version": 1,
+      "chamber": {
+        "schema": 1,
+        "state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "time": 0,
+        "pending": null
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "routes": {
+        "mage": [],
+        "monster": [],
+        "npc": []
+      }
+    },
+    "state": {
+      "door": "locked",
+      "crate": "intact",
+      "chest": "closed",
+      "loot": "absent",
+      "rewards": [],
+      "picked": [],
+      "events": [],
+      "navVersion": 0
+    },
+    "rendered_state": {
+      "door": "locked",
+      "crate": "intact",
+      "chest": "closed",
+      "loot": "absent",
+      "rewards": [],
+      "picked": [],
+      "events": [],
+      "navVersion": 0
+    },
+    "actors": {
+      "mage": {
+        "point": [
+          0,
+          0
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      },
+      "monster": {
+        "point": [
+          3.6,
+          2.7
+        ],
+        "radius": 0.65,
+        "height": 2.7,
+        "effects": {}
+      },
+      "npc": {
+        "point": [
+          -3.7,
+          -2.7
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      }
+    },
+    "route": [],
+    "model_time": 0,
+    "pixi": "8.20.1",
+    "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "resolution": 3,
+    "buffer_size": [
+      2880,
+      1920
+    ],
+    "draw_count": 1,
+    "frame_ms": {
+      "p50": 33.30000000000001,
+      "p95": 33.30000000000001
+    },
+    "composition_cpu_ms": {
+      "p50": 30.599999964237213,
+      "p95": 30.599999964237213
+    }
+  },
+  "finished_at": "2026-09-11T04:35:05.327Z"
+}

@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T04:13:44.061856+00:00",
-  "status": "E04_LOGICAL_CHECKPOINT_COMPLETE_VISUAL_DEFECTS_OPEN",
-  "active_experiment": null,
+  "updated": "2026-09-11T04:36:28.888484+00:00",
+  "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
+  "active_experiment": "E04L_PREPARATION",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E04M2 per experiments/E04/NEXT_TEST.md; inspect source/polygon zooms and repair mage coat/NPC hand contours within zero-generation bounds. Then separately test shared light/shadow/material response before visual acceptance; continue pilot motion/gear and reusable VFX in Pixi with their prerequisites.",
+  "next_action": "Register and run E04L shared lighting/material controls using E04M2 v3 contours; continue autonomous campaign through remaining unblocked motion/gear/VFX/transfer/scale tasks.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -66,7 +66,12 @@
     "experiments/E04/evidence/boundary-validation.json",
     "experiments/E04/evidence/manifest-validation.json",
     "experiments/E04/evidence/batch-03/runtime.json",
-    "experiments/E04/evidence/batch-02-resolution/resolution.json"
+    "experiments/E04/evidence/batch-02-resolution/resolution.json",
+    "experiments/E04M2/REPORT.md",
+    "experiments/E04M2/RECEIPT.json",
+    "experiments/E04M2/review.html",
+    "experiments/E04M2/mage-v3.asset.json",
+    "experiments/E04M2/npc-v3.asset.json"
   ],
   "decisions_pending": [
     {
@@ -128,7 +133,14 @@
     "E04 higher-resolution diagnostics invalidate broad current-mask visual acceptance: mage retained background, NPC hand contour damage; shared lighting/material cohesion unqualified",
     "Floor source 1536x1024 limits fresh 2880x1920 render; final output/aspect ratio and texel-density policy unresolved"
   ],
-  "running_jobs": [],
+  "running_jobs": [
+    {
+      "type": "http_server",
+      "port": 8770,
+      "session": 95378,
+      "directory": "astra_test_01/design/experiments"
+    }
+  ],
   "planning_validation": {
     "date": "2026-09-10",
     "local_links_checked": 51,
@@ -149,7 +161,8 @@
     "internal_subagents": false,
     "remote_push": false,
     "external_messages": false,
-    "new_paid_service_budget": null
+    "new_paid_service_budget": null,
+    "entire_architecture_autonomous_continuation": "Matt 2026-09-11: continue through entirety until everything passes; preserve criteria and bounded experiment limits"
   },
   "research_limits": {
     "E01_local_search_passes_used": 1,
@@ -162,7 +175,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E04/RECEIPT.json",
+  "current_receipt": "experiments/E04M2/RECEIPT.json",
   "generation_calls_this_suite": 8,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -194,13 +207,13 @@
     "reason": "Matt: interactive canvases have not opened with anything but code",
     "verified": "experiments/E04/evidence/batch-04-review/review.json",
     "live_probe": "Serve experiments on 127.0.0.1:8770, open /E04/; see E04/NEXT_TEST.md",
-    "server_running": false
+    "server_running": true
   },
   "shipping_target": "Godot",
   "test_harness": "Pixi.js",
   "portability_contract": "experiments/E04/NEUTRAL_CONTRACT.md",
   "visual_feedback": {
     "sharpness": "Matched E04 render: fresh raster visibly improves mage; floor source resolution limits remain",
-    "cohesion": "Confirmed mage retained pale background and NPC hand contour damage; shared lighting unqualified. See E04 review. Do not infer visual approval."
+    "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending."
   }
 }

@@ -1,0 +1,930 @@
+{
+  "revision": "v3",
+  "records": [
+    {
+      "id": "mage",
+      "version": "v1",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            430,
+            860
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            455,
+            880
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            480,
+            918
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            402,
+            817
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            808
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            497,
+            1080
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            516,
+            1123
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            791,
+            995
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            400,
+            710
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            909,
+            185
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            395,
+            690
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            545,
+            922
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            400,
+            866
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            420,
+            892
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            447,
+            918
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            395,
+            854
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            468,
+            1140
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            385,
+            700
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            558,
+            935
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            563,
+            950
+          ],
+          "pass": true
+        }
+      ],
+      "passed": 18,
+      "total": 20
+    },
+    {
+      "id": "mage",
+      "version": "v3",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            430,
+            860
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            455,
+            880
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            480,
+            918
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            402,
+            817
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            808
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            497,
+            1080
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            516,
+            1123
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            791,
+            995
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            400,
+            710
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            909,
+            185
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            395,
+            690
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            545,
+            922
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            400,
+            866
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            420,
+            892
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            447,
+            918
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            395,
+            854
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            468,
+            1140
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            385,
+            700
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            558,
+            935
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            563,
+            950
+          ],
+          "pass": true
+        }
+      ],
+      "passed": 20,
+      "total": 20
+    },
+    {
+      "id": "mage",
+      "version": "bad-anatomy",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            430,
+            860
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            455,
+            880
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            480,
+            918
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            402,
+            817
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            808
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            497,
+            1080
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            516,
+            1123
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            791,
+            995
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            400,
+            710
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            909,
+            185
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            395,
+            690
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            545,
+            922
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            400,
+            866
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            420,
+            892
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            447,
+            918
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            395,
+            854
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            468,
+            1140
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            385,
+            700
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            558,
+            935
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            563,
+            950
+          ],
+          "pass": true
+        }
+      ],
+      "passed": 8,
+      "total": 20
+    },
+    {
+      "id": "mage",
+      "version": "registration",
+      "pass": true
+    },
+    {
+      "id": "npc",
+      "version": "v1",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            426,
+            678
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            438,
+            694
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            448,
+            711
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            425,
+            650
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            759
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            441,
+            795
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            491,
+            840
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            506,
+            1100
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            811,
+            995
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            465,
+            815
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            411,
+            743
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            406,
+            786
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            421,
+            817
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            399,
+            693
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            409,
+            656
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            427,
+            806
+          ],
+          "pass": false
+        }
+      ],
+      "passed": 8,
+      "total": 16
+    },
+    {
+      "id": "npc",
+      "version": "v3",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            426,
+            678
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            438,
+            694
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            448,
+            711
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            425,
+            650
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            759
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            441,
+            795
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            491,
+            840
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            506,
+            1100
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            811,
+            995
+          ],
+          "pass": true
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            465,
+            815
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            411,
+            743
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            406,
+            786
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            421,
+            817
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            399,
+            693
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            409,
+            656
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            427,
+            806
+          ],
+          "pass": true
+        }
+      ],
+      "passed": 16,
+      "total": 16
+    },
+    {
+      "id": "npc",
+      "version": "bad-anatomy",
+      "checks": [
+        {
+          "kind": "foreground",
+          "point": [
+            426,
+            678
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            438,
+            694
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            448,
+            711
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            425,
+            650
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            452,
+            759
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            441,
+            795
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            491,
+            840
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            506,
+            1100
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            811,
+            995
+          ],
+          "pass": false
+        },
+        {
+          "kind": "foreground",
+          "point": [
+            465,
+            815
+          ],
+          "pass": false
+        },
+        {
+          "kind": "background",
+          "point": [
+            411,
+            743
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            406,
+            786
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            421,
+            817
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            399,
+            693
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            409,
+            656
+          ],
+          "pass": true
+        },
+        {
+          "kind": "background",
+          "point": [
+            427,
+            806
+          ],
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "total": 16
+    },
+    {
+      "id": "npc",
+      "version": "registration",
+      "pass": true
+    }
+  ],
+  "controls_caught": true,
+  "candidates_pass": true,
+  "registration_unchanged": true
+}
