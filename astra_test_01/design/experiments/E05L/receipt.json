@@ -1,0 +1,47 @@
+{
+  "experiment": "E05L",
+  "started_at": "2026-09-11T18:11:37.967048+00:00",
+  "status": "SOURCE_PREFLIGHT_FAIL_TWO_PHASES_AT_REVISION_LIMIT",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 2,
+    "capture_batches": 1,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 30163785
+  },
+  "dependencies": {
+    "E05I/inputs/turns-v2.blend": "28d94a877eef22d211ecc0db0e3c899a0484c8ac84872dfc6cb89638a2b36e4f",
+    "E05N/character.asset.json": "6c672743dc19ae986198972d9b195118dab4bb8811183e638f01835f8e0cfc22",
+    "E05I/character.asset.json": "bb953498d18fc227e8c1cf737854d09cc4a72490098a5ca7ba4f43973fd06550"
+  },
+  "v1_failure": "Phases0/24 knee-plane sign flip, maxjointstep.486474m; contacts/endpoints pass. V2 interpolate normalized initial/idle bend directions.",
+  "finished_at": "2026-09-11T18:21:25.105383+00:00",
+  "next_action": "Register E05D timing-factor control: baselineE05L C1/.6s vsC2/.6s and (only if needed) unchangedC1/.8s. Hold feet/geometry/bars fixed; choose fastest all48phase source+visual pass. No third E05L source revision.",
+  "verdicts": {
+    "v1": "34/48phasePASS;14continuityfailures,max.509405m; contacts/endpoints pass",
+    "v2": "46/48phasePASS;phases23/47 frame22 knee step.0609871m>.05m; allotherbars pass",
+    "bad_direct_switch": "plantedfoot.4000018m drift>.02m DETECTED",
+    "source_immutable": "geometry/weights/UV/materials unchanged",
+    "source_limit": "2/2 exhausted; no furtherrepair inE05L",
+    "export_raster_playback": "NOT RUN because sourcepreflightfailed",
+    "review": "5/5savedlocalplot/deliverychecksPASS",
+    "full_pilot": "UNQUALIFIED"
+  },
+  "source_v1_failure_detail": "GlobalV1max.509405m (phase25); focused0/24diagnostic.486474m. Full14failingphases preserved.",
+  "capture_allocation": "Only saved source-failure review captured; no representative raster/playback expansion.",
+  "commands": [
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python author.py",
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python diagnose-pole.py",
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python author-v2.py",
+    "blender -b ../E05I/inputs/turns-v2.blend --python-exit-code 1 --python diagnose-continuity.py",
+    "python3 build-review.py",
+    "node review-check.mjs"
+  ]
+}

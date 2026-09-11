@@ -214,3 +214,7 @@ Sixcast135°representation failures persisted with sourcepositions only, disappe
 ### E05I — foot contacts and final limb orientation are separate turn checks
 
 A shortest-vector IKrotation can keepfeetplanted yet discardlimb axialbodyyaw; E05Iv1ends0.712158awayfromrotated-idle matrices. Composebodyyaw beforeIKalignment; v2enderror1.032e-6, contacts<1µm,1152/1152raster comparisons andJSONheading/endpointplayback pass. Instantturncontrolslides11.715cm. This proves only±45°turns fromidle; walk-to-stop/arbitrarysteering remainunqualified. Source/receipts: E05I/REPORT.md.
+
+### E05L — preserve the failed source gate before expanding transition exports
+
+Contacts/endpoints pass while14/48stop phases suffer knee-plane flips. Interpolating normalized bend directions reducesfailures to2/48, but remaining6.099cmjointstep exceeds5cm/frame. Stop at2source revisions; no renderingexpansion or fulltransitionpass. Directclip switchslides40cm. Nexttest changes timing/trajectoryfactor separately; evidence E05L/REPORT.md andbothsourcefiles.

@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T18:07:16.641183+00:00",
+  "updated": "2026-09-11T18:21:25.105383+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05L phase-aware locomotion stop/start source preflight: direct clip-switch bad control, contact-preserving transition recipe across all48walk phases and bounded representative native comparisons. Full arbitrary-phase runtime transfer remains a separate gate.",
+  "next_action": "Register E05D timing-factor control: baselineE05L C1/.6s vsC2/.6s and (only if needed) unchangedC1/.8s. Hold feet/geometry/bars fixed; choose fastest all48phase source+visual pass. No third E05L source revision.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -189,7 +189,10 @@
     "experiments/E05N/review.html",
     "experiments/E05I/REPORT.md",
     "experiments/E05I/receipt.json",
-    "experiments/E05I/review.html"
+    "experiments/E05I/review.html",
+    "experiments/E05L/REPORT.md",
+    "experiments/E05L/receipt.json",
+    "experiments/E05L/review.html"
   ],
   "decisions_pending": [
     {
@@ -300,7 +303,8 @@
     "E05Y complete216frame palettes and219source/contact endpoints/core clearance pass, but walkartFAIL (splitlegs/severeheightchange; E05Mglobalstance overwritten by bool suspected).1290/1296rasterPASS;six startercast135fail unchangedfractionbar. Fullmotion/turns/fullsurfacegearfit unqualified. E05Z sourcegaitcontrol next.",
     "E05Z proves/fixes E05Mstance=.4 overwrittenbyBoolean: oldgait control exact, corrected576/576walkraster/219source/3456bounds pass. Fullgarmentmotion, turns, outfitfit andsixunchangedE05Ycastfailures remainopen. Latest source E05Z/inputs/gait-v1.blend; no rosterexpansion.",
     "E05N normal-only causalcontrol fixes sixE05Ycastfailures:1296/1296correctedrasterPASS, all216motionpalettebytesunchanged. Sparse neutralnormals16.736MB,1.022MBattributeupload/pose; scale/Godotimporterunqualified. Turns,cloth/fulloutfitfit, worldlighting/fullpilot remainopen.",
-    "E05I idle\u2194left/right45deg turns pass contacts/endpoints,1152raster,23JSON andlivecompletion checks afterpreservedlegroll endpointfailure. Existing216clipsunchanged. Locomotion/actiontransitions, arbitrarysteering, fullcloth/outfit/worldlighting/pilot remainopen. Latest source E05I/inputs/turns-v2.blend; turnassetseparatefromE05Nbaseclips."
+    "E05I idle\u2194left/right45deg turns pass contacts/endpoints,1152raster,23JSON andlivecompletion checks afterpreservedlegroll endpointfailure. Existing216clipsunchanged. Locomotion/actiontransitions, arbitrarysteering, fullcloth/outfit/worldlighting/pilot remainopen. Latest source E05I/inputs/turns-v2.blend; turnassetseparatefromE05Nbaseclips.",
+    "E05L phase-aware stoppreflight FAIL at2source revisionlimit:46/48phasespass, phases23/47 jointstep6.099cm>5cm. Originalkneeflips14phasesrepaired buttimingcontinuityunqualified. No export/raster expansion. E05D timing-factorstudy next; existingqualifiedE05I/Nassets untouched."
   ],
   "running_jobs": [
     {
@@ -344,7 +348,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05I/receipt.json",
+  "current_receipt": "experiments/E05L/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

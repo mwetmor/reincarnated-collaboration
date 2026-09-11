@@ -109,3 +109,5 @@ E05Z [corrected gait review](experiments/E05Z/review.html): controlled stance-du
 E05N [normal agreement review](experiments/E05N/review.html):1296/1296comparisons pass after neutral deformation-normal correction; preserves repairedwalk. Measured16.736MB normaldata requires later scalequalification. Nextturncontacts per PROGRESS.json.
 
 E05I [planted-foot turns](experiments/E05I/review.html): left/right45° idle transitions pass; sourcev1endpointfailure preserved and repaired. Locomotion/action transitions remain next per PROGRESS.json.
+
+E05L [stop preflight failure](experiments/E05L/review.html):46/48sourcephasespass, two exceedjoint-stepbar; two-revisionlimitheld, no rasterexpansion. Separate timing study next per PROGRESS.json.
