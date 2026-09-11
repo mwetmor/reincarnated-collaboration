@@ -1,0 +1,36 @@
+{
+  "starter": {
+    "source": "evidence/batch-03/starter-hidden-light-skin.png",
+    "crop": [
+      252,
+      199,
+      96,
+      179
+    ]
+  },
+  "advanced": {
+    "source": "evidence/batch-03/advanced-hidden-light-skin.png",
+    "crop": [
+      251,
+      199,
+      98,
+      179
+    ]
+  },
+  "reference": {
+    "source": "../E07V/art/F04.png",
+    "starter_crop": [
+      31,
+      49,
+      246,
+      641
+    ],
+    "advanced_crop": [
+      286,
+      51,
+      220,
+      638
+    ],
+    "scope": "Manually inspected concept crop; reference view and anatomy differ. Comparison matches approximate visible figure height, not world units/projection or lighting equality."
+  }
+}

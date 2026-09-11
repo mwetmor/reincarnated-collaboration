@@ -1,0 +1,180 @@
+{
+  "base_sha256_before": "45d64f60bf57e54c1b2b876cacb531c2e19732d8600ec64c9edcb322aa69b603",
+  "base_sha256_after": "45d64f60bf57e54c1b2b876cacb531c2e19732d8600ec64c9edcb322aa69b603",
+  "base_unchanged": true,
+  "actions_unchanged": true,
+  "parts": [
+    {
+      "object": "GEAR_helmet",
+      "tiles": [
+        3
+      ],
+      "vertices": 160,
+      "slot": "head",
+      "bone": "Head"
+    },
+    {
+      "object": "GEAR_pauldron-L",
+      "tiles": [
+        2
+      ],
+      "vertices": 16,
+      "slot": "shoulder",
+      "bone": "UpperArm.L"
+    },
+    {
+      "object": "GEAR_pauldron-R",
+      "tiles": [
+        2
+      ],
+      "vertices": 16,
+      "slot": "shoulder",
+      "bone": "UpperArm.R"
+    },
+    {
+      "object": "GEAR_cuirass",
+      "tiles": [
+        0,
+        1
+      ],
+      "vertices": 962,
+      "slot": "torso",
+      "bone": "Chest"
+    },
+    {
+      "object": "GEAR_bracer-L",
+      "tiles": [
+        4
+      ],
+      "vertices": 106,
+      "slot": "forearm",
+      "bone": "Forearm.L"
+    },
+    {
+      "object": "GEAR_greave-L",
+      "tiles": [
+        5
+      ],
+      "vertices": 279,
+      "slot": "shin",
+      "bone": "Shin.L"
+    },
+    {
+      "object": "GEAR_bracer-R",
+      "tiles": [
+        4
+      ],
+      "vertices": 106,
+      "slot": "forearm",
+      "bone": "Forearm.R"
+    },
+    {
+      "object": "GEAR_greave-R",
+      "tiles": [
+        5
+      ],
+      "vertices": 279,
+      "slot": "shin",
+      "bone": "Shin.R"
+    }
+  ],
+  "fit_checks": [
+    {
+      "pose": "idle",
+      "frame": 0,
+      "object": "GEAR_bracer-L",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.0134629558888264,
+      "pass": true
+    },
+    {
+      "pose": "idle",
+      "frame": 0,
+      "object": "GEAR_greave-L",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.010102947868290357,
+      "pass": true
+    },
+    {
+      "pose": "idle",
+      "frame": 0,
+      "object": "GEAR_bracer-R",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.013462957867886871,
+      "pass": true
+    },
+    {
+      "pose": "idle",
+      "frame": 0,
+      "object": "GEAR_greave-R",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.010102948544954415,
+      "pass": true
+    },
+    {
+      "pose": "walk",
+      "frame": 12,
+      "object": "GEAR_bracer-L",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.013462966799124843,
+      "pass": true
+    },
+    {
+      "pose": "walk",
+      "frame": 12,
+      "object": "GEAR_greave-L",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.01010290147678461,
+      "pass": true
+    },
+    {
+      "pose": "walk",
+      "frame": 12,
+      "object": "GEAR_bracer-R",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.013462975854054093,
+      "pass": true
+    },
+    {
+      "pose": "walk",
+      "frame": 12,
+      "object": "GEAR_greave-R",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.01010293953083874,
+      "pass": true
+    },
+    {
+      "pose": "cast",
+      "frame": 36,
+      "object": "GEAR_bracer-L",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.013433901009875626,
+      "pass": true
+    },
+    {
+      "pose": "cast",
+      "frame": 36,
+      "object": "GEAR_greave-L",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.010102947868290357,
+      "pass": true
+    },
+    {
+      "pose": "cast",
+      "frame": 36,
+      "object": "GEAR_bracer-R",
+      "samples": 106,
+      "minimum_signed_core_clearance_m": 0.01343378362957992,
+      "pass": true
+    },
+    {
+      "pose": "cast",
+      "frame": 36,
+      "object": "GEAR_greave-R",
+      "samples": 279,
+      "minimum_signed_core_clearance_m": 0.010102948544954415,
+      "pass": true
+    }
+  ],
+  "scope": "New fitted bracer/greave core clearance; shell thickness3mm/bevel1.5mm. Existing head/torso/shoulder fit and complete art require visual check. Base geometry/weights/actions unchanged."
+}

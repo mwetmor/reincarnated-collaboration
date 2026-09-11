@@ -190,3 +190,7 @@ Connecting the unused internal door to exact geometry/collision/navigation/light
 ### E07L · Project source geometry once, then shadow the light contribution
 
 One opaque triangle-union mask from the same skinned pilot produces320passing CPU floor-ray witnesses. It avoids overlap darkening and follows root height/pose; missing and stale masks fail controls. Subtract directional light before final clamping. Displayed alpha255 on an opaque canvas does not disprove zero red mask clear; retain the bad assertion and actual context evidence. Hard floor-only shadow improves grounding without qualifying finished lighting or art. [Evidence](../../../../astra_test_01/design/experiments/E07L/REPORT.md).
+
+### E05U · Painted gear detail does not repair base character art
+
+Destination-specific albedo panels plus fitted bracers/greaves pass144idle source comparisons per revision and improve readability. Existing purple shoulders were a separate material omission, repaired without geometry changes. Size-matched F04comparison still exposes a broad smooth coat and simplified rear hair. Hold animation/roster expansion; change base material/silhouette method rather than spending remaining generation on more armor swatches. [Evidence](../../../../astra_test_01/design/experiments/E05U/REPORT.md).

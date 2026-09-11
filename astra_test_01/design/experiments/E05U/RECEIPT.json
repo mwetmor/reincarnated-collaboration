@@ -1,0 +1,50 @@
+{
+  "experiment": "E05U",
+  "started_at": "2026-09-11T16:28:49.203304+00:00",
+  "status": "GEAR_ART_IMPROVED_SOURCE_TRANSFER_PASS_FULL_PILOT_ART_FAIL",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 2,
+    "source_author_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 1,
+    "source_author_revisions": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 73627497
+  },
+  "built_in_generation_price": "Not exposed; zero external paid spend is not a free-generation claim.",
+  "generation": [
+    {
+      "call": 1,
+      "source_path": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-b7de16a7-a5ab-463a-b80f-56e583a8f14e.png",
+      "copied_path": "art/atlas-v1.png",
+      "sha256": "c1f15c9153acaa08bdad080a52c2d6d202a26a3d7620ac629842b73be10f22bf",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "prompt": "prompts/atlas-v1.txt",
+      "reference": "../E07V/art/F04.png",
+      "inspection": "Six filled equal panels and clean celestial motifs; metallic seams have some painted relief and fine scratches. No native alpha claimed. Evaluate at actual gameplay scale after fitting UVs.",
+      "price_usd": null
+    }
+  ],
+  "revision_2": "Idle art retains royal-plum starter shoulder material. Apply existing validated cloth painting/projection to exactly those two meshes; geometry/weights/actions unchanged. No second generation. Batch3 becomes bounded material repair review; motion expansion withheld due full-body shape/hair art failure.",
+  "finished_at": "2026-09-11T16:47:27.579523+00:00",
+  "next_action": "Register E05W base outfit material separation and hair-silhouette repair, preserving rig/actions/gear; revalidate head clearance, source fit and eight views before animation inventory.",
+  "verdicts": {
+    "new_core_fit": "PASS12/12",
+    "source_geometry_oracle": "PASS3poses both exports",
+    "idle_raster": "PASS144/144 each revision",
+    "framing": "PASS48/48 each revision",
+    "bad_attachment": "DETECTED",
+    "runtime": "PASS8/8",
+    "saved_review": "PASS6/6",
+    "full_pilot_art": "FAIL broad smooth coat and simplified rear hair; motion expansion withheld"
+  }
+}
