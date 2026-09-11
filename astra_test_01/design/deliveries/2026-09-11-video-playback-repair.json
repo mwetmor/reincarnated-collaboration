@@ -1,0 +1,392 @@
+{
+  "created_at": "2026-09-11T23:33:36.146614+00:00",
+  "user_report": "Original videos did not work in initial viewer; user subsequently confirmed they work in Chrome. Initial viewer not identified.",
+  "diagnosis": "Source videos are VP9 WebM. Original delivery verification checked metadata loading only, not actual playback; it was insufficient. No claim that Safari or another specific viewer was confirmed as the cause.",
+  "change": "Added9 H.264 MP4 delivery derivatives and direct MP4 links; preserved original source media and copied HTML.",
+  "playback": {
+    "browser": "Chrome152 / local file review",
+    "records": [
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/idle-starter.mp4",
+        "time": 1.928,
+        "duration": 1.928,
+        "ended": true,
+        "decoded_frames": 70,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/walk-starter.mp4",
+        "time": 1.165,
+        "duration": 1.165,
+        "ended": true,
+        "decoded_frames": 35,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/cast-starter.mp4",
+        "time": 1.559,
+        "duration": 1.559,
+        "ended": true,
+        "decoded_frames": 63,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/idle-advanced-head.mp4",
+        "time": 1.949,
+        "duration": 1.949,
+        "ended": true,
+        "decoded_frames": 71,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/walk-advanced-head.mp4",
+        "time": 1.165,
+        "duration": 1.165,
+        "ended": true,
+        "decoded_frames": 37,
+        "dropped_frames": 2,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/cast-advanced-head.mp4",
+        "time": 1.571,
+        "duration": 1.571,
+        "ended": true,
+        "decoded_frames": 56,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/idle-advanced-hair.mp4",
+        "time": 1.963,
+        "duration": 1.963,
+        "ended": true,
+        "decoded_frames": 66,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/walk-advanced-hair.mp4",
+        "time": 1.152,
+        "duration": 1.152,
+        "ended": true,
+        "decoded_frames": 37,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      },
+      {
+        "source": "file:///Users/admin/Desktop/Painted%20World%20Review%20-%202026-09-11/01%20Character%20motion/evidence/batch-02/cast-advanced-hair.mp4",
+        "time": 1.552,
+        "duration": 1.552,
+        "ended": true,
+        "decoded_frames": 59,
+        "dropped_frames": 0,
+        "error": null,
+        "pass": true
+      }
+    ],
+    "errors": [],
+    "pass": true
+  },
+  "decode": {
+    "diagnosis": "Initial null-output check rounded variable-rate timestamps to a coarse output timebase and emitted muxer warnings. Explicit microsecond output timebase yields clean full decode; actual MP4 packet DTS is strictly increasing. No video reconversion needed.",
+    "records": [
+      {
+        "file": "cast-advanced-hair.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 59
+      },
+      {
+        "file": "cast-advanced-head.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 56
+      },
+      {
+        "file": "cast-starter.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 63
+      },
+      {
+        "file": "idle-advanced-hair.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 66
+      },
+      {
+        "file": "idle-advanced-head.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 71
+      },
+      {
+        "file": "idle-starter.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 70
+      },
+      {
+        "file": "walk-advanced-hair.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 37
+      },
+      {
+        "file": "walk-advanced-head.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 37
+      },
+      {
+        "file": "walk-starter.mp4",
+        "complete_decode_no_errors": true,
+        "packet_dts_strictly_increasing": true,
+        "packets": 35
+      }
+    ]
+  },
+  "conversions": [
+    {
+      "source": "01 Character motion/evidence/batch-02/cast-advanced-hair.webm",
+      "source_sha256": "0900d1ed611f964faeaef76384487362420dbd0292ec7e65b9e180e0ab206bb0",
+      "output": "01 Character motion/evidence/batch-02/cast-advanced-hair.mp4",
+      "output_sha256": "2a7f60f6f7e4683391e1ae690a472ac70a0d2e418dbf7e71bdafa74a447782f0",
+      "bytes": 152716,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "59"
+          }
+        ],
+        "format": {
+          "duration": "1.550000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/cast-advanced-head.webm",
+      "source_sha256": "22cb1cf79c2a073a1369c95af12986ed228e459a910314b1abfce94f32c5208a",
+      "output": "01 Character motion/evidence/batch-02/cast-advanced-head.mp4",
+      "output_sha256": "72c06c29538536a7a7d857ed0160d090e890ea2290043cdaa286aa0093f8be11",
+      "bytes": 153952,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "56"
+          }
+        ],
+        "format": {
+          "duration": "1.571000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/cast-starter.webm",
+      "source_sha256": "244c8bc19013443ae9a2786a7ba17e180b8f0b72ae1bad411672e9fec13df2e3",
+      "output": "01 Character motion/evidence/batch-02/cast-starter.mp4",
+      "output_sha256": "413dc7fae4d2e2c161c5844b0041ef8ff99d7b458d69e492bebc0b57b35693d9",
+      "bytes": 146892,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "63"
+          }
+        ],
+        "format": {
+          "duration": "1.559000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/idle-advanced-hair.webm",
+      "source_sha256": "bb4e9aade2eb83637de79c0c31da469184995885ba24a8594095af4ea06a8970",
+      "output": "01 Character motion/evidence/batch-02/idle-advanced-hair.mp4",
+      "output_sha256": "35fc85effc885ed06e2399a3d33c88edd4783da82cd7eabb97e532efe5cf123b",
+      "bytes": 166139,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "66"
+          }
+        ],
+        "format": {
+          "duration": "1.963000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/idle-advanced-head.webm",
+      "source_sha256": "2069811398f5f486e47d113e4a473785d9331f03832df400f2df71a4ca025cdb",
+      "output": "01 Character motion/evidence/batch-02/idle-advanced-head.mp4",
+      "output_sha256": "4cc2c8507c5f00461d9f81dda4b645ace6551d3317277a45aee23c09b6e36a32",
+      "bytes": 155179,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "71"
+          }
+        ],
+        "format": {
+          "duration": "1.948000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/idle-starter.webm",
+      "source_sha256": "c04087c9524d60fb1740696fc28c82f8bca2d88664be1bc65c03e39f2d24c725",
+      "output": "01 Character motion/evidence/batch-02/idle-starter.mp4",
+      "output_sha256": "22ccc0373b33f20be6fb02b2bb2962f7db2ce173231ce77458ac3aebed0b5ca5",
+      "bytes": 162550,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "70"
+          }
+        ],
+        "format": {
+          "duration": "1.928000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/walk-advanced-hair.webm",
+      "source_sha256": "d03cf551bab04e2e9bb99d681c7967c82b6d305d1357bb54293a2bccb28f2868",
+      "output": "01 Character motion/evidence/batch-02/walk-advanced-hair.mp4",
+      "output_sha256": "4a5598ebb0b579c82eac060a4c8619dc82ec9795dc3de4a4fed5b174732acb5d",
+      "bytes": 132529,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "37"
+          }
+        ],
+        "format": {
+          "duration": "1.151000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/walk-advanced-head.webm",
+      "source_sha256": "6b0ba8b9be6aab70a96928c68064cbcc686c4f9ff5f85bf20a212dcdf4423e09",
+      "output": "01 Character motion/evidence/batch-02/walk-advanced-head.mp4",
+      "output_sha256": "b3e1531a15b52beca81b47ec7d15e78f3f4aa5b08252f976b548e7586be436aa",
+      "bytes": 129954,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "37"
+          }
+        ],
+        "format": {
+          "duration": "1.165000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    },
+    {
+      "source": "01 Character motion/evidence/batch-02/walk-starter.webm",
+      "source_sha256": "53e5a5ec0eee05e33fe62ab90dd1c3f1feca680d512d413a89068bd8c53aeeea",
+      "output": "01 Character motion/evidence/batch-02/walk-starter.mp4",
+      "output_sha256": "b35f2ea844b1434f94b9a28b0fd718709c33b02b0c8917130c2f602236b29b90",
+      "bytes": 132519,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 640,
+            "pix_fmt": "yuv420p",
+            "nb_read_frames": "35"
+          }
+        ],
+        "format": {
+          "duration": "1.165000"
+        }
+      },
+      "full_decode": "PASS",
+      "conversion": "H.264 main / yuv420p MP4, CRF18, original timing, faststart; lossy delivery derivative; original VP9 WebM preserved"
+    }
+  ],
+  "production_run": "PAUSED_BY_USER",
+  "scope": "Delivery repair only; no test-suite resumption",
+  "paid_service_usd": 0
+}
