@@ -1,0 +1,87 @@
+{
+  "experiment": "E02P",
+  "started_at": "2026-09-11T03:07:12.083890+00:00",
+  "finished_at": "2026-09-11T03:14:00.809774+00:00",
+  "elapsed_minutes_since_input_registration": 6.812098066666667,
+  "authorization": "Matt: phaser 4 sounds like a good test candidate",
+  "projection": "C; final artistic approval pending",
+  "baseline_commit": "508053a866cd2230205c4adf28c21fc1853932f8",
+  "registration": "REGISTRATION.md",
+  "inputs": "INPUTS.json",
+  "dependencies": "DEPENDENCIES.json",
+  "report": "REPORT.md",
+  "review": "review.html",
+  "costs": {
+    "imagegen_calls": 0,
+    "paid_service_calls": 0,
+    "known_paid_service_spend_usd": 0,
+    "assistant_subscription_cost": "not exposed; not estimated"
+  },
+  "limits": {
+    "work_minutes": 30,
+    "render_batches": 3,
+    "batch_minutes": 5,
+    "owned_artifact_bytes": 50000000
+  },
+  "batches": [
+    {
+      "id": "batch-01",
+      "verdict": "CAPTURE_SIZE_FAIL",
+      "passed": 122,
+      "total": 140,
+      "cause": "Element screenshot fractional CSS rounding: 720x406",
+      "preserved_scripts": [
+        "evidence/batch-01/capture-used.mjs",
+        "evidence/batch-01/probe-used.js"
+      ],
+      "seconds": 7.011
+    },
+    {
+      "id": "batch-02",
+      "verdict": "FOUNDATION_PASS",
+      "passed": 140,
+      "total": 140,
+      "capture": "native rendered canvas buffer, 720x405",
+      "seconds": 3.372
+    },
+    {
+      "id": "batch-03-review",
+      "verdict": "SAVED_REVIEW_PASS",
+      "position_camera_cases": 18,
+      "format": "file:// HTML; all six images loaded each case; detail controls pass",
+      "seconds": 0.642
+    }
+  ],
+  "validation": "evidence/batch-02/validation.json",
+  "scope": "Actual Phaser projection, root/socket hierarchy, scale controls, native captures and basic UI only",
+  "overall_G2": "PARTIAL",
+  "hypotheses": {
+    "C_painted_projection_compatibility": "INDETERMINATE",
+    "persistent_layer_animation": "NOT_RUN",
+    "gear_reuse": "NOT_RUN",
+    "reusable_VFX": "NOT_RUN"
+  },
+  "tools": {
+    "rendering": "Phaser 4.2.1; Chrome 152.0.7977.83; WebGL 1.0; ANGLE Metal Apple M2",
+    "automation": "Playwright-core 1.63.0; isolated Chrome profile; in-app browser unavailable in prior session, documented fallback retained",
+    "download": "system curl with TLS verification; pinned jsDelivr artifact and MIT license",
+    "subagents": 0
+  },
+  "commands": [
+    "curl --fail --location --max-time 60 https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.min.js -o astra_test_01/design/experiments/E02P/vendor/phaser-4.2.1.min.js",
+    "python3 -m http.server 8769 --bind 127.0.0.1 --directory astra_test_01/design/experiments",
+    "node astra_test_01/design/experiments/E02P/capture.mjs batch-01",
+    "python3 astra_test_01/design/experiments/E02P/validate.py batch-01",
+    "node astra_test_01/design/experiments/E02P/capture.mjs batch-02",
+    "python3 astra_test_01/design/experiments/E02P/validate.py batch-02",
+    "node astra_test_01/design/experiments/E02P/review-check.mjs"
+  ],
+  "visual_inspection": [
+    "batch-01 browser and fixed-right (capture failure preserved)",
+    "batch-02 fixed-far and fixed-near at native resolution",
+    "batch-03-review center and right comparison screenshots"
+  ],
+  "running_jobs": [],
+  "remote_push": false,
+  "next_action": "Register E03 C-conditioned painted floor/prop and actor-view controls under bounded imagegen/alpha/art-data rules, then compose identical accepted assets in Godot, Pixi and Phaser. Do not repeat E02P exhausted capture batches."
+}

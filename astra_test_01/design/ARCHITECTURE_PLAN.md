@@ -313,3 +313,7 @@ version during implementation. These APIs support a prototype, not a quality pas
 Navigation does not inherently require a grid; a grid is the initial candidate.
 The note's specific claim about Hades' internal implementation remains unverified
 and is not used as an architectural premise.
+
+### Renderer test update — 2026-09-11
+
+Matt selected Phaser 4 for the third comparison adapter. [E02P](experiments/E02P/REPORT.md) verifies its C projection placement/root/socket/basic UI foundation alongside preserved Godot/Pixi evidence. Carry the same accepted E03 painted assets and layout/state contracts into all three. This does not qualify masks, occlusion, animation, gear, VFX, combat JSON integration or performance. No renderer winner is selected.

@@ -88,3 +88,7 @@ proposed methods as unvalidated until applied successfully.
   does not establish hidden painted anatomy or a perceptual failure. The old
   mage source's depicted camera remains uncalibrated. Do not turn this component
   result into a rule that perspective is unsuitable for painted art.
+
+## 2026-09-11 — browser screenshot dimensions can invalidate renderer comparisons
+
+E02P batch 01 used Playwright element screenshots at a fractional CSS position: all 18 native-size checks failed at 720×406 although engine coordinates passed. Capturing the actual rendered canvas buffer produced 720×405 in batch 02 without changing thresholds or painting bytes. Preserve both batches; inspect native buffer dimensions before interpreting sharpness across renderers. This lesson concerns capture geometry, not Phaser art quality. Evidence: `astra_test_01/design/experiments/E02P/REPORT.md` and its batch-01/batch-02 validation records. User delivery observation: Matt's Canvas links opened as code; the standalone HTML review was verified directly from disk across all 18 position/camera combinations.

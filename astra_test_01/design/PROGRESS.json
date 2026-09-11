@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T02:36:14.955570+00:00",
-  "status": "E02_C_GODOT_PIXI_FOUNDATION_DELIVERED",
-  "active_experiment": "E02",
+  "updated": "2026-09-11T03:13:14.009046+00:00",
+  "status": "E02P_C_GODOT_PIXI_PHASER_FOUNDATION_DELIVERED",
+  "active_experiment": "E02P",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E03 C-conditioned painted floor/prop and actor-view control under frozen alpha/art-data/generation limits; load identical accepted assets into Godot and Pixi. Phaser 4 is the recommended third foundation adapter. Follow experiments/E02/RENDERER_BENCHMARK.md.",
+  "next_action": "Register E03 C-conditioned painted floor/prop and actor-view controls under frozen alpha/art-data/generation limits; compose identical accepted assets in Godot, Pixi.js and Phaser 4.2.1. Follow experiments/E02/RENDERER_BENCHMARK.md and ARCHITECTURE_PLAN.md. E02P capture limit is exhausted; do not rerun it without a new registered extension.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -41,7 +41,16 @@
     "experiments/E02/evidence/validation.json",
     "experiments/E02/runtime/project.godot",
     "experiments/E02/pixi/index.html",
-    "experiments/E02/RECEIPT.json"
+    "experiments/E02/RECEIPT.json",
+    "experiments/E02P/REPORT.md",
+    "experiments/E02P/review.html",
+    "experiments/E02P/index.html",
+    "experiments/E02P/REGISTRATION.md",
+    "experiments/E02P/INPUTS.json",
+    "experiments/E02P/DEPENDENCIES.json",
+    "experiments/E02P/evidence/batch-02/validation.json",
+    "experiments/E02P/evidence/batch-03-review/review-check.json",
+    "experiments/E02P/RECEIPT.json"
   ],
   "decisions_pending": [
     {
@@ -89,8 +98,8 @@
     "No proof of persistent-layer motion, modular gear, painted chamber interaction or projection transfer",
     "E02 uses legacy fixed-pose art with uncalibrated depicted camera; no C-conditioned painted chamber, animation, gear or VFX pass",
     "Full G2 schema/import/state/collision/performance qualification remains incomplete; E02 root/socket/projection components only",
-    "Alternatives researched from primary docs; Phaser/Defold/Cocos/Three.js not locally qualified",
-    "Canvas host compilation unverified; Godot and standalone Chrome GPU capture verified"
+    "Alternatives researched from primary docs; Defold/Cocos/Three.js not locally qualified; Phaser has only the E02P placement/attachment/UI foundation",
+    "Matt reports Canvas source links open as code; deliver browser HTML. Godot and standalone Chrome GPU captures verified."
   ],
   "running_jobs": [],
   "planning_validation": {
@@ -126,13 +135,14 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E02/RECEIPT.json",
+  "current_receipt": "experiments/E02P/RECEIPT.json",
   "generation_calls_this_suite": 0,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [
       "Godot",
-      "Pixi.js"
+      "Pixi.js",
+      "Phaser 4"
     ],
     "third_recommended": "Phaser 4",
     "projection": "C",
@@ -140,6 +150,17 @@
     "actual_runtime_checks": "experiments/E02/evidence/validation.json",
     "benchmark": "experiments/E02/RENDERER_BENCHMARK.md",
     "research": "experiments/E02/RENDERER_RESEARCH.md",
-    "winner": null
+    "winner": null,
+    "third_test_status": "APPROVED by Matt: phaser 4 sounds like a good test candidate",
+    "third_runtime": "Phaser 4.2.1 / WebGL 1.0 / Chrome ANGLE Metal Apple M2",
+    "third_actual_runtime_checks": "experiments/E02P/evidence/batch-02/validation.json",
+    "review": "experiments/E02P/review.html"
+  },
+  "review_delivery": {
+    "primary": "Standalone browser HTML; saved review works via file://",
+    "reason": "Matt: interactive canvases have not opened with anything but code",
+    "verified": "experiments/E02P/evidence/batch-03-review/review-check.json",
+    "live_probe": "Serve experiments on localhost:8769 and open /E02P/; see E02P/REPORT.md",
+    "server_running": false
   }
 }

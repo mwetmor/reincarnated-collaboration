@@ -1,0 +1,704 @@
+{
+  "started_at": "2026-09-11T03:10:09.125Z",
+  "cases": [
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "center",
+      "world": [
+        0,
+        0
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "fixed-center.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "far",
+      "world": [
+        -2.1940611048575116,
+        -2.0459950801874953
+      ],
+      "root_px": [
+        360.7498474121094,
+        156.8018798828125
+      ],
+      "top_px": [
+        360.74984436000005,
+        116.81812898740675
+      ],
+      "source_scale": 0.17889824743098187,
+      "root_error_px": 0.000008009718935304119,
+      "socket_error_px": 0.0000068763141092761674,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052112747,
+        "socket_error_px": 7.999998057889959,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.22362280928872735,
+      "capture": "fixed-far.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "near",
+      "world": [
+        2.1940611048575116,
+        2.0459950801874953
+      ],
+      "root_px": [
+        360.7498474121094,
+        300.3142395019531
+      ],
+      "top_px": [
+        360.74984436000005,
+        264.4620876449454
+      ],
+      "source_scale": 0.16041233900509835,
+      "root_error_px": 0.00000665213795730287,
+      "socket_error_px": 0.0000015740624370835743,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052111504,
+        "socket_error_px": 7.999998434208921,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.20051542375637293,
+      "capture": "fixed-near.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "left",
+      "world": [
+        -2.0459950801874953,
+        2.1940611048575116
+      ],
+      "root_px": [
+        271.36187744140625,
+        223.1246795654297
+      ],
+      "top_px": [
+        264.95548553982496,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.00000469821664425564,
+      "socket_error_px": 0.000008539334608100988,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000001009730235,
+        "socket_error_px": 7.99999330865057,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "fixed-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "root_px": [
+        450.1378173828125,
+        223.1246795654297
+      ],
+      "top_px": [
+        456.54420318017515,
+        184.64967497699996
+      ],
+      "source_scale": 0.1721476510067115,
+      "root_error_px": 0.000006856202496944231,
+      "socket_error_px": 0.000005911037857861327,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000005094491039,
+        "socket_error_px": 7.999997393411373,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838937,
+      "capture": "fixed-right.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "far-left",
+      "world": [
+        -2.8267041233633377,
+        0.09871068311334397
+      ],
+      "root_px": [
+        304.0215148925781,
+        177.8471221923828
+      ],
+      "top_px": [
+        300.16448585150374,
+        138.26823618881093
+      ],
+      "source_scale": 0.17708671652986602,
+      "root_error_px": 0.000006192479633215041,
+      "socket_error_px": 0.000013537021273060437,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 7.999996161317309,
+        "socket_error_px": 7.999993211071047,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.2213583956623325,
+      "capture": "fixed-far-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "far-right",
+      "world": [
+        -0.09871068311334397,
+        -2.8267041233633377
+      ],
+      "root_px": [
+        417.4781799316406,
+        177.8471221923828
+      ],
+      "top_px": [
+        421.33520286849637,
+        138.26823618881093
+      ],
+      "source_scale": 0.17708671652986602,
+      "root_error_px": 0.000011066735025040799,
+      "socket_error_px": 0.000013640323254713207,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000009942904281,
+        "socket_error_px": 8.000006992658019,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.2213583956623325,
+      "capture": "fixed-far-right.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "near-left",
+      "world": [
+        0.09871068311334397,
+        2.8267041233633377
+      ],
+      "root_px": [
+        297.9897155761719,
+        273.21649169921875
+      ],
+      "top_px": [
+        293.23449223985006,
+        236.3364067008804
+      ],
+      "source_scale": 0.1650115607888507,
+      "root_error_px": 0.000011637996523153025,
+      "socket_error_px": 0.000011262583186399901,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 7.999988420162053,
+        "socket_error_px": 7.999988797793348,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.20626445098606339,
+      "capture": "fixed-near-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "near-right",
+      "world": [
+        2.8267041233633377,
+        -0.09871068311334397
+      ],
+      "root_px": [
+        423.50994873046875,
+        273.21649169921875
+      ],
+      "top_px": [
+        428.26519648015005,
+        236.3364067008804
+      ],
+      "source_scale": 0.1650115607888507,
+      "root_error_px": 0.00001288602293695137,
+      "socket_error_px": 0.000012510217580069137,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 7.999987166478631,
+        "socket_error_px": 7.999987544109926,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.20626445098606339,
+      "capture": "fixed-near-right.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "center",
+      "world": [
+        0,
+        0
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-center.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "far",
+      "world": [
+        -2.1940611048575116,
+        -2.0459950801874953
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-far.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "near",
+      "world": [
+        2.1940611048575116,
+        2.0459950801874953
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-near.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "left",
+      "world": [
+        -2.0459950801874953,
+        2.1940611048575116
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "right",
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-right.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "far-left",
+      "world": [
+        -2.8267041233633377,
+        0.09871068311334397
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-far-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "far-right",
+      "world": [
+        -0.09871068311334397,
+        -2.8267041233633377
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-far-right.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "near-left",
+      "world": [
+        0.09871068311334397,
+        2.8267041233633377
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-near-left.png"
+    },
+    {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "near-right",
+      "world": [
+        2.8267041233633377,
+        -0.09871068311334397
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "controls": {
+        "root_error_px": 8.000003052110637,
+        "socket_error_px": 7.999995351030972,
+        "runtime_shifted_root_rejected": true,
+        "runtime_shifted_socket_rejected": true
+      },
+      "bad_scale": 0.21518456375838924,
+      "capture": "tracking-near-right.png"
+    }
+  ],
+  "ui": {
+    "position": {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "root_px": [
+        450.1378173828125,
+        223.1246795654297
+      ],
+      "top_px": [
+        456.54420318017515,
+        184.64967497699996
+      ],
+      "source_scale": 0.1721476510067115,
+      "root_error_px": 0.000006856202496944231,
+      "socket_error_px": 0.000005911037857861327,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "following": {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "right",
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.1721476510067114,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000007054004833929287,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "bad": {
+      "phaser": "4.2.1",
+      "tracking": true,
+      "sample": "right",
+      "world": [
+        2.0459950801874953,
+        -2.1940611048575116
+      ],
+      "root_px": [
+        360.7498474121094,
+        223.1246795654297
+      ],
+      "top_px": [
+        360.74984436000005,
+        184.649674977
+      ],
+      "source_scale": 0.21518456375838924,
+      "root_error_px": 0.000005510812866767026,
+      "socket_error_px": 0.000011388402153062096,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "motion_start": {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        -0.2719538739863214,
+        -0.2536010902258253
+      ],
+      "root_px": [
+        360.7498474121094,
+        214.3637237548828
+      ],
+      "top_px": [
+        360.74984436000005,
+        175.6502116067936
+      ],
+      "source_scale": 0.1732147931875992,
+      "root_error_px": 0.00000661664790787634,
+      "socket_error_px": 0.000013780351320944274,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "motion_end": {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        -0.8210176654769137,
+        -0.765611359042746
+      ],
+      "root_px": [
+        360.7498474121094,
+        197.16307067871094
+      ],
+      "top_px": [
+        360.74984436000005,
+        158.0161245400416
+      ],
+      "source_scale": 0.17515413630711238,
+      "root_error_px": 0.000004514138858182447,
+      "socket_error_px": 0.000010957256430648758,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "pause_start": {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        -0.8565614553494502,
+        -0.7987564793173932
+      ],
+      "root_px": [
+        360.7498474121094,
+        196.0714111328125
+      ],
+      "top_px": [
+        360.74984436000005,
+        156.89850143733818
+      ],
+      "source_scale": 0.17527026685311897,
+      "root_error_px": 0.00000590392142992598,
+      "socket_error_px": 0.000015118311684881863,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    },
+    "pause_end": {
+      "phaser": "4.2.1",
+      "tracking": false,
+      "sample": "right",
+      "world": [
+        -0.8565614553494502,
+        -0.7987564793173932
+      ],
+      "root_px": [
+        360.7498474121094,
+        196.0714111328125
+      ],
+      "top_px": [
+        360.74984436000005,
+        156.89850143733818
+      ],
+      "source_scale": 0.17527026685311897,
+      "root_error_px": 0.00000590392142992598,
+      "socket_error_px": 0.000015118311684881863,
+      "backend": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)"
+    }
+  },
+  "errors": [],
+  "browser": "152.0.7977.83",
+  "finished_at": "2026-09-11T03:10:12.497Z"
+}
