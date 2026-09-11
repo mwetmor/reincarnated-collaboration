@@ -1,0 +1,9 @@
+# E07B — current fractional pilot floor shadow
+
+Godot shipping target; Pixi harness. 45 active minutes, zero generation, two consumer builds, four capture batches, 80 MB owned. Reuse E05F current actor/source and E07T/U chamber. No source art, geometry, rig or simulation changes.
+
+Carry E07L opaque directional floor-shadow projection onto the current shared fractional palette, visible outfit/hair/head selection and root. Retain ordered chamber batching. Declare mask/receiver/light policy in neutral JSON; subtract only the directional contribution before final color clamp. Other receivers, self/soft shadows, NPC/monster/VFX casters and production hardware remain outside this bounded proof.
+
+Eight source-oracle cases cover idle, cast and two fractional walk phases, starter and advanced outfits with/without head gear, rotated, translated and raised diagnostics, and both faction floors. Independent Blender-evaluated source vertices supply CPU ray/triangle witnesses; never pick witnesses from GPU pixels. Per case/resolution require at least six shadow and six lit visible-floor witnesses, nine-neighbor guard, RGB error ≤2; stale root and missing shadow must each fail at least one positive witness. Material shadow darkens while lit witnesses remain within two levels. Conservative all-current integer/fractional source bounds and mask coverage required.
+
+Capture 1 native/fresh 3× matrix with on/off, diagnostic and stale/missing controls; lossless packing with RGBA verification permitted. Capture 2 moving fractional pilot and current door/interaction smoke, selected warm/cool contribution checks and ordered-render control. Capture 3 only justified repair; capture 4 saved review. Preserve all failures, including inadequate witness acquisition. Visual inspection must disclose hard-edge/aliasing limitations. Current floor-shadow mechanism PASS does not close full lighting or art gates.

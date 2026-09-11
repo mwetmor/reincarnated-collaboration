@@ -1,0 +1,38 @@
+<!doctype html><meta charset="utf-8"><title>E07B · Current pilot shadow</title><style>body{background:#20272e;color:#eee;font:16px system-ui;margin:30px}a{color:#9ed7ff}.pair{display:flex;gap:20px;overflow:auto}figure{margin:8px 0}img,video{max-width:100%;height:auto}h2{margin-top:35px}</style><h1>E07B · Current pilot floor shadow</h1><p>Godot is the shipping target; Pixi is the test harness.</p><p><b>PARTIAL — interaction boundary FAIL.</b> All 640 independent source shadow/lit witnesses pass at native and fresh 3× resolution. Missing/stale controls fail correctly. But the crate approach projects the caster beyond the old mask and throws <code>Projected caster outside registered floor mask</code>. This candidate is not a complete usable chamber replacement.</p><p>The same fractional palette, outfit, head/hair selection, heading and root drive the pilot and its opaque projected shadow. The light policy removes directional key contribution before the final clamp; ambient and point light remain. Other actors, vertical receivers, self/soft shadows and full lighting art remain open.</p><p><a href="REPORT.md">Report</a> · <a href="evidence/shadow-oracle.json">Independent CPU witnesses</a> · <a href="evidence/batch-01/playback-validation.json">Retained UI failure and playback</a> · <a href="shadow.json">Neutral shadow policy</a></p><p>Fresh capture packaging stalled after 11 verified images. Its failed receipt is retained. Recovery used file-based lossless encoding for the remaining 29 images; all 40 cases are now present with exact RGBA verification.</p>
+<h2>F01-idle-head · native 960 × 640</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-02/F01-idle-head-off.webp"><img width="960" src="evidence/batch-02/F01-idle-head-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-02/F01-idle-head-on.webp"><img width="960" src="evidence/batch-02/F01-idle-head-on.webp"></a></figure>
+</div>
+<h2>F01-raised · native 960 × 640</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-02/F01-raised-off.webp"><img width="960" src="evidence/batch-02/F01-raised-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-02/F01-raised-on.webp"><img width="960" src="evidence/batch-02/F01-raised-on.webp"></a></figure>
+</div>
+<h2>F01-cast-hair · native 960 × 640</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-02/F01-cast-hair-off.webp"><img width="960" src="evidence/batch-02/F01-cast-hair-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-02/F01-cast-hair-on.webp"><img width="960" src="evidence/batch-02/F01-cast-hair-on.webp"></a></figure>
+</div>
+<h2>F02-idle · native 960 × 640</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-02/F02-idle-off.webp"><img width="960" src="evidence/batch-02/F02-idle-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-02/F02-idle-on.webp"><img width="960" src="evidence/batch-02/F02-idle-on.webp"></a></figure>
+</div>
+<h2>F01-idle-head · fresh 2880 × 1920 raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-03/F01-idle-head-off.webp"><img width="960" src="evidence/batch-03/F01-idle-head-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-03/F01-idle-head-on.webp"><img width="960" src="evidence/batch-03/F01-idle-head-on.webp"></a></figure>
+</div>
+<h2>F01-raised · fresh 2880 × 1920 raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-03/F01-raised-off.webp"><img width="960" src="evidence/batch-03/F01-raised-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-03/F01-raised-on.webp"><img width="960" src="evidence/batch-03/F01-raised-on.webp"></a></figure>
+</div>
+<h2>F01-cast-hair · fresh 2880 × 1920 raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-03/F01-cast-hair-off.webp"><img width="960" src="evidence/batch-03/F01-cast-hair-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-03/F01-cast-hair-on.webp"><img width="960" src="evidence/batch-03/F01-cast-hair-on.webp"></a></figure>
+</div>
+<h2>F02-idle · fresh 2880 × 1920 raster</h2><div class="pair">
+<figure><figcaption>Shadow off; click to open original pixels</figcaption><a href="evidence/batch-03/F02-idle-off.webp"><img width="960" src="evidence/batch-03/F02-idle-off.webp"></a></figure>
+<figure><figcaption>Shadow on; click to open original pixels</figcaption><a href="evidence/batch-03/F02-idle-on.webp"><img width="960" src="evidence/batch-03/F02-idle-on.webp"></a></figure>
+</div>
+<h2>Normal-speed fractional walks</h2>
+<h3>starter</h3><video width="960" controls loop preload="metadata" src="evidence/batch-01/walk-starter.webm"></video>
+<h3>advanced-head</h3><video width="960" controls loop preload="metadata" src="evidence/batch-01/walk-advanced-head.webm"></video>
+<h3>advanced-hair</h3><video width="960" controls loop preload="metadata" src="evidence/batch-01/walk-advanced-hair.webm"></video>
+<h2>Next action</h2><p>E07C: derive mask padding from all valid chamber roots plus the current caster envelope, preserve texel pitch, and verify unchanged interior shadows and formerly failing interaction positions. Keep E07B failure intact. Fuller scene shadows, faction architecture and VFX remain later tests.</p>

@@ -1,0 +1,19 @@
+# E07B — current pilot shadow transfer
+
+PARTIAL: source shadow transfer passes; the interaction boundary fails. Do not use this candidate as a complete chamber replacement. Godot is the shipping target; Pixi is the test harness.
+
+The renderer reuses E05F's actual fractional palette and outfit visibility for the directional floor-shadow pass. It keeps E07U's ordered chamber batching and E07T's simulation. The neutral shadow policy binds the current motion manifest, floor plane, key light, mask and conservative source envelope. Floor light is kept unclamped until directional occlusion is subtracted; ambient and point light remain. Non-floor surfaces retain the prior color calculation.
+
+640 independent Blender-source CPU ray/triangle witnesses pass: eight cases × two resolutions × 20 shadow and 20 lit samples. Cases include fractional idle/cast/walk, starter and advanced/head/hair, raised and translated diagnostics, and both factions. Camera rays exclude hidden floor samples; nine-neighbor guards avoid ambiguous boundaries. Every missing/stale control fails all 20 positive samples. Lit material samples are pixel identical on/off; positive samples darken without negative differences.
+
+The current source envelope covers 216 integer and 312 registered fractional palettes, including hidden geometry for a conservative bound. It does not prove an arbitrary future motion inventory. All six input oracle hashes match their committed source descriptors. Mask is 2048 × 1024 over [−8,−4,8,4], 7.8125 mm texel pitch. Eight MiB RGBA storage is arithmetic, not measured VRAM.
+
+Three native continuous-root walk recordings complete without GL errors. The live door buttons animate through intermediate progress and close successfully. Both factions' geometry-ID images match E05F exactly with shadows disabled, preserving the interior ordering baseline. Warm/cool image-consistency probes retain positive point-light contribution on 447 shadowed pixels while removing the directional contribution; these GPU-difference-selected samples are not additional independent CPU witnesses.
+
+The actual crate button exposes a boundary failure. Its accepted approach point [−1.2,2.8] can project the conservative caster beyond y=4. The old mask bounds equal the floor extent and the inherited guard throws `Projected caster outside registered floor mask`. Subsequent shadow/raised toggles also throw at that position; their checks fail. Five browser errors are retained. Simulation acceptance alone did not establish usable rendering. This is not a reason to disable the guard or waive the test.
+
+Fresh lossless packaging also stalled after 11 verified images while feeding a PNG through a child-process pipe. The owned encoder was terminated; original failure receipt and incomplete twelfth record remain. File-based temporary input with a bounded child timeout recovered the remaining 29 images. The full 40-case fresh set is complete, hash recorded and RGBA exact; the original receipt is not overwritten. Four capture batches were used: native, partial fresh, recovery plus motion/UI/light diagnostics, saved review. No further capture expansion in this experiment.
+
+Visually inspected native and fresh on/off comparisons. Shadows improve contact and respond to the raised/cast cases; hard silhouette edges remain visible. The chamber's flat pocket material, plain geometry, sprite NPC/monster mismatch and missing other-caster/vertical/self/soft shadows remain broader art limitations. The review loads 16 images and three normal-speed videos from file URLs. No generation or paid-service call occurred.
+
+Next: E07C will derive mask padding from valid chamber root regions, current caster bounds and the raised diagnostic, preserving texel pitch. Prove former crate/exterior boundary positions and unchanged interior evidence, then resume the wider lighting/art architecture. Preserve E07B's failure and all earlier evidence.

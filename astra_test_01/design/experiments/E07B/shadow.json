@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "current-fractional-pilot-directional-floor-shadow",
+  "light_source": "../E07D/lighting.json#key_direction",
+  "receiver_plane": {
+    "normal": [
+      0,
+      0,
+      1
+    ],
+    "offset_m": 0
+  },
+  "mask": {
+    "world_rect": [
+      -8,
+      -4,
+      8,
+      4
+    ],
+    "width": 2048,
+    "height": 1024,
+    "filter": "linear",
+    "format": "rgba8",
+    "coverage": "opaque projected triangle union"
+  },
+  "contribution": "directional key only; ambient and point light retained",
+  "diagnostic_height_m": 0.5,
+  "conservative_caster_bounds": {
+    "radius_m": 0.7568647694907171,
+    "z_min_m": -0.0014976290213968473,
+    "z_max_m": 2.020258211687607,
+    "scope": "All source vertices, including hidden parts, across 216 integer and 312 registered fractional palettes plus 1mm numerical guard. Bounds are enforced at runtime; this is not a proof over every arbitrary future phase/action."
+  },
+  "caster_manifest": "../E05F/motion.asset.json",
+  "caster_manifest_sha256": "aafbbd8da1d1b9d8929094f38544c0cd501d1916127590fce3cf8ca7dc7132a8"
+}

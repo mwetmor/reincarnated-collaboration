@@ -125,3 +125,5 @@ E07A [current pilot/chamber review](experiments/E07A/review.html):864source and 
 E05E [fractional sampler preflight](experiments/E05E/review.html): both source-agreement failures retained; actual Bézier source also penetrates between keys. E05F explicit interpolation contract next per PROGRESS.json.
 
 E05F [fractional motion review](experiments/E05F/review.html): explicit source interpolation preserves keys and integer poses; 312 source and 864 raster checks pass, recorded walk contact ≤0.507 mm. Normal ablation remains insensitive. E07B current-pilot floor shadow next per PROGRESS.json.
+
+E07B [current-pilot shadow review](experiments/E07B/review.html): 640 source witnesses pass, but the crate approach exceeds the old floor-sized mask and fails rendering. E07C padded allocation domain next; failed UI/encoder receipts retained.

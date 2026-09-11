@@ -1,0 +1,41 @@
+{
+  "experiment": "E07B",
+  "started_at": "2026-09-11T20:15:21.362359+00:00",
+  "status": "PARTIAL_UI_BOUNDARY_FAIL",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 4,
+    "paid_service_usd": 0
+  },
+  "dependencies": {
+    "E05F/motion.asset.json": "aafbbd8da1d1b9d8929094f38544c0cd501d1916127590fce3cf8ca7dc7132a8",
+    "E05F/pixi-adapter/painted-actor.mjs": "4d12f200fd7897685eae6421266f7590310ed366a9a9aaf39f1a4e4699f55509",
+    "E07L/pixi-adapter/shadow.mjs": "b2d9ce972cd52ddffc096b4077673064392fa2c6b0ea140fc0a9db7f7efb94e1",
+    "E07T/door.json": "9ada1834d08b9bccfaf41d44ea4de6a2cef2f641ada0d415f3364970a851817b"
+  },
+  "completed_at": "2026-09-11T20:24:56.348671+00:00",
+  "active_minutes": 9.5831052,
+  "results": {
+    "source_raster": "640/640 independent witnesses PASS; missing/stale controls detected",
+    "playback": "3 walks and live door PASS; geometry-ID baseline exact in 2 factions",
+    "point_contribution": "warm/cool consistency PASS; 447 GPU-difference-selected shadow pixels",
+    "interaction": "FAIL: accepted crate approach projects outside floor-sized mask; 5 browser errors retained",
+    "packaging": "pipe encoder stall after 11 fresh captures; 29 missing captures recovered with temporary files",
+    "review": "16 images / 3 videos loaded; failure visible"
+  },
+  "lessons": [
+    "The shadow allocation domain must contain projected casters at every valid interaction root, not just equal the receiver floor extent.",
+    "Test the real interaction buttons after a representation change; source witness passes do not prove usable navigation.",
+    "Use bounded file-based encoder input for large image packing; preserve partial receipts before recovery."
+  ],
+  "next_action": "E07C data-derived padded shadow domain, unchanged texel pitch and formerly failing interaction proof.",
+  "owned_disk_bytes": 36318653
+}

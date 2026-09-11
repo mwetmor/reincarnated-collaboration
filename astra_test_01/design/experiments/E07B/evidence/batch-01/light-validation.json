@@ -1,0 +1,42 @@
+{
+  "records": [
+    {
+      "light": "warm",
+      "shadow_pixels": 447,
+      "mean_point_gain_while_shadowed": [
+        50.695749440715886,
+        25.04474272930649,
+        8.58165548098434
+      ],
+      "minimum_point_gain": 2,
+      "mean_directional_darkening": [
+        15.85234899328859,
+        23.154362416107382,
+        17.60178970917226
+      ],
+      "minimum_directional_darkening": 0,
+      "pass": true
+    },
+    {
+      "light": "cool",
+      "shadow_pixels": 447,
+      "mean_point_gain_while_shadowed": [
+        12.767337807606264,
+        22.192393736017898,
+        30.472035794183444
+      ],
+      "minimum_point_gain": 3,
+      "mean_directional_darkening": [
+        29.317673378076062,
+        23.190156599552573,
+        9.48993288590604
+      ],
+      "minimum_directional_darkening": 0,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "point_retained_while_directional_removed": true
+  },
+  "scope": "Image-consistency probe in the point-light pool. Shadow mask is selected from the neutral on/off difference; these are not additional independent CPU witnesses. Independent source witness matrix is recorded separately."
+}
