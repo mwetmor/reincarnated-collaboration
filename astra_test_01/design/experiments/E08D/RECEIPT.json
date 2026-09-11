@@ -1,0 +1,26 @@
+{
+  "experiment": "E08D",
+  "status": "SCENARIO_PREPARATION_COMPLETE; G7_UNQUALIFIED",
+  "started_at": "2026-09-11T06:29:13.020359+00:00",
+  "finished_at": "2026-09-11T06:29:13.020700+00:00",
+  "limits": {
+    "active_minutes": 20,
+    "disk_bytes": 2000000,
+    "generation_calls": 0,
+    "validation_batches": 1
+  },
+  "used": {
+    "generation_calls": 0,
+    "paid_service_usd": 0,
+    "validation_batches": 1,
+    "owned_bytes_before_final_index": 8587
+  },
+  "checks": {
+    "four_scenarios": true,
+    "ensemble_counts": true,
+    "pieces_unknown": true,
+    "hundred_clip_GiB": true,
+    "no_fabricated_price": true
+  },
+  "next_action": "Await visual test baseline, then preregister source garment/material proof. Inventory and target-hardware decisions remain open."
+}

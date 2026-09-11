@@ -1,0 +1,3 @@
+# E08D — inventory and capacity scenario preparation
+
+Independent G7/H11/H12 planning only. Zero generation/paid calls; 20min active, 2MB, one local validation batch. Derive explicit scenarios from the unresolved starter-tier and unique-item/set questions. Separate complete ensembles, authored pieces and runtime combinations. Use observed E05B/E08A texel/frame evidence as labelled arithmetic, not extrapolated production qualification. No 100-concept visual pass, target-hardware pass, model-authoring throughput or paid quote is implied. Validate scenario counts and arithmetic; retain unknowns instead of assigning convenient zero costs.

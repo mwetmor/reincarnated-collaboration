@@ -1,0 +1,2386 @@
+{
+  "schema_version": 1,
+  "id": "controlled-wizard-walk-packed",
+  "asset_type": "character_animation",
+  "path_base": "./",
+  "projection_id": "C",
+  "direction": "world +u / SE candidate",
+  "frames": [
+    {
+      "id": "walk-000",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        71.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 600,
+        "y": 627,
+        "width": 166,
+        "height": 191
+      },
+      "time_s": 0.0,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276108384132385,
+            0.143686905503273,
+            1.2870877981185913e-06
+          ],
+          "stance": true,
+          "min_z": 1.2870877981185913e-06
+        },
+        "R": {
+          "world": [
+            -0.34724074602127075,
+            -0.14368745684623718,
+            1.3783574104309082e-07
+          ],
+          "stance": false,
+          "min_z": 1.3783574104309082e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-000.png",
+        "sha256": "57130eee405ff133a208adad89b32e0f965a9369b2c9dea3e269a993c24e6817",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        184,
+        137
+      ]
+    },
+    {
+      "id": "walk-002",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        73.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 283,
+        "y": 824,
+        "width": 169,
+        "height": 188
+      },
+      "time_s": 0.016666666666666666,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276081562042236,
+            0.1436869502067566,
+            1.4277175068855286e-06
+          ],
+          "stance": true,
+          "min_z": 1.4277175068855286e-06
+        },
+        "R": {
+          "world": [
+            -0.3391391336917877,
+            -0.14368745684623718,
+            0.0023851795122027397
+          ],
+          "stance": false,
+          "min_z": 0.0023851795122027397
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-002.png",
+        "sha256": "ca35f83beb2a997436a0f3ec884c54b369f54509f7c0dd8d54d08b4cacc85298",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        182,
+        137
+      ]
+    },
+    {
+      "id": "walk-004",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        73.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 764,
+        "y": 824,
+        "width": 169,
+        "height": 186
+      },
+      "time_s": 0.03333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527609050273895,
+            0.14368703961372375,
+            1.3755634427070618e-06
+          ],
+          "stance": true,
+          "min_z": 1.3755634427070618e-06
+        },
+        "R": {
+          "world": [
+            -0.31575945019721985,
+            -0.143687441945076,
+            0.009378393180668354
+          ],
+          "stance": false,
+          "min_z": 0.009378393180668354
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-004.png",
+        "sha256": "804b5691096111c5785ee9bbba3d18b741ed20f0027c0722ec30ae6c80b1d675",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        182,
+        137
+      ]
+    },
+    {
+      "id": "walk-006",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        73.99937744000022,
+        157.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 1018,
+        "width": 167,
+        "height": 186
+      },
+      "time_s": 0.05,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527609646320343,
+            0.14368703961372375,
+            1.5273690223693848e-06
+          ],
+          "stance": true,
+          "min_z": 1.5273690223693848e-06
+        },
+        "R": {
+          "world": [
+            -0.2784911096096039,
+            -0.143687441945076,
+            0.02050255611538887
+          ],
+          "stance": false,
+          "min_z": 0.02050255611538887
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-006.png",
+        "sha256": "f0984df0192227e82aee569ee94644617cf8d0299a12de474b132cacbec19d7b",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        182,
+        135
+      ]
+    },
+    {
+      "id": "walk-008",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        73.99937744000022,
+        158.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 632,
+        "y": 1018,
+        "width": 163,
+        "height": 184
+      },
+      "time_s": 0.06666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.452761173248291,
+            0.14368708431720734,
+            1.278705894947052e-06
+          ],
+          "stance": true,
+          "min_z": 1.278705894947052e-06
+        },
+        "R": {
+          "world": [
+            -0.22872237861156464,
+            -0.1436873972415924,
+            0.03499998897314072
+          ],
+          "stance": false,
+          "min_z": 0.03499998897314072
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-008.png",
+        "sha256": "e93108778894ca2998af9f134449baebbb9fef9743ce2e8a727fc95e1ad6aba4",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        182,
+        134
+      ]
+    },
+    {
+      "id": "walk-010",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        72.99937744000022,
+        160.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 799,
+        "y": 1018,
+        "width": 157,
+        "height": 184
+      },
+      "time_s": 0.08333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527609944343567,
+            0.14368711411952972,
+            8.689239621162415e-07
+          ],
+          "stance": true,
+          "min_z": 8.689239621162415e-07
+        },
+        "R": {
+          "world": [
+            -0.16784267127513885,
+            -0.14368747174739838,
+            0.051882531493902206
+          ],
+          "stance": false,
+          "min_z": 0.051882531493902206
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-010.png",
+        "sha256": "a9c01f6d19e46da9878bd950ac0dc762fb21e8d64601ee8a4be80d909fe95fd1",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        183,
+        132
+      ]
+    },
+    {
+      "id": "walk-012",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        70.99937744000022,
+        161.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 158,
+        "y": 1208,
+        "width": 151,
+        "height": 183
+      },
+      "time_s": 0.1,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276111364364624,
+            0.14368705451488495,
+            7.711350917816162e-07
+          ],
+          "stance": true,
+          "min_z": 7.711350917816162e-07
+        },
+        "R": {
+          "world": [
+            -0.09724052250385284,
+            -0.14368748664855957,
+            0.07000010460615158
+          ],
+          "stance": false,
+          "min_z": 0.07000010460615158
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-012.png",
+        "sha256": "4b20b6d00b5f68bff1aceefa1601eb144597062cf18e053bf61686a3493cffff",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        185,
+        131
+      ]
+    },
+    {
+      "id": "walk-014",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        68.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 313,
+        "y": 1208,
+        "width": 146,
+        "height": 181
+      },
+      "time_s": 0.11666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276111364364624,
+            0.14368709921836853,
+            6.081536412239075e-07
+          ],
+          "stance": true,
+          "min_z": 6.081536412239075e-07
+        },
+        "R": {
+          "world": [
+            -0.018304720520973206,
+            -0.14368748664855957,
+            0.08811704814434052
+          ],
+          "stance": false,
+          "min_z": 0.08811704814434052
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-014.png",
+        "sha256": "d42c532e94a92502be40a29df2b98f6668eba4c6d545ebca1e0e781f31bac1fc",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        187,
+        130
+      ]
+    },
+    {
+      "id": "walk-016",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        65.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 173,
+        "y": 1018,
+        "width": 141,
+        "height": 185
+      },
+      "time_s": 0.13333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276105403900146,
+            0.14368709921836853,
+            5.802139639854431e-07
+          ],
+          "stance": true,
+          "min_z": 5.802139639854431e-07
+        },
+        "R": {
+          "world": [
+            0.06757520139217377,
+            -0.14368750154972076,
+            0.10500019788742065
+          ],
+          "stance": false,
+          "min_z": 0.10500019788742065
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-016.png",
+        "sha256": "f180f5e84fd1e86108c806c58ea4eb81e5e714ea748a708764fc48dac12ced51",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        190,
+        130
+      ]
+    },
+    {
+      "id": "walk-018",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        61.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 824,
+        "width": 135,
+        "height": 190
+      },
+      "time_s": 0.15,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527609348297119,
+            0.1436871439218521,
+            4.284083843231201e-07
+          ],
+          "stance": true,
+          "min_z": 4.284083843231201e-07
+        },
+        "R": {
+          "world": [
+            0.15901054441928864,
+            -0.14368748664855957,
+            0.11949827522039413
+          ],
+          "stance": false,
+          "min_z": 0.11949827522039413
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-018.png",
+        "sha256": "0da0a814dbdd0bcfd4f98cd89b1722068002a7ac3fd8d0b1b9a831da25c3f406",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        194,
+        129
+      ]
+    },
+    {
+      "id": "walk-020",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        57.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 627,
+        "width": 129,
+        "height": 193
+      },
+      "time_s": 0.16666666666666666,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527609050273895,
+            0.1436871588230133,
+            4.861503839492798e-07
+          ],
+          "stance": true,
+          "min_z": 4.861503839492798e-07
+        },
+        "R": {
+          "world": [
+            0.25461244583129883,
+            -0.14368750154972076,
+            0.1306230127811432
+          ],
+          "stance": false,
+          "min_z": 0.1306230127811432
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-020.png",
+        "sha256": "4cfe0fde515a67496a7787e34af19ddc630631135cc5fc560ce61ec7a930da3d",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        198,
+        129
+      ]
+    },
+    {
+      "id": "walk-022",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        53.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 350,
+        "y": 426,
+        "width": 123,
+        "height": 195
+      },
+      "time_s": 0.18333333333333332,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527606964111328,
+            0.1436871886253357,
+            6.491318345069885e-07
+          ],
+          "stance": true,
+          "min_z": 6.491318345069885e-07
+        },
+        "R": {
+          "world": [
+            0.3529920279979706,
+            -0.14368747174739838,
+            0.13761626183986664
+          ],
+          "stance": false,
+          "min_z": 0.13761626183986664
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-022.png",
+        "sha256": "d87ca24a3922246ac1fe36c22df29d42e7063cdb57a35e0ff81337a33cb14aa7",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        202,
+        129
+      ]
+    },
+    {
+      "id": "walk-024",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        48.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 840,
+        "y": 219,
+        "width": 115,
+        "height": 197
+      },
+      "time_s": 0.2,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527607262134552,
+            0.14368724822998047,
+            3.427267074584961e-07
+          ],
+          "stance": true,
+          "min_z": 3.427267074584961e-07
+        },
+        "R": {
+          "world": [
+            0.4527604877948761,
+            -0.14368747174739838,
+            0.14000141620635986
+          ],
+          "stance": false,
+          "min_z": 0.14000141620635986
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-024.png",
+        "sha256": "8c68a625d75449449b9dd845d2eb4ab76af26e6131fb66d9f55dbcbc72035e00",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        207,
+        129
+      ]
+    },
+    {
+      "id": "walk-026",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 426,
+        "width": 110,
+        "height": 197
+      },
+      "time_s": 0.21666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527605473995209,
+            0.14368727803230286,
+            3.8277357816696167e-07
+          ],
+          "stance": true,
+          "min_z": 3.8277357816696167e-07
+        },
+        "R": {
+          "world": [
+            0.5525287389755249,
+            -0.14368745684623718,
+            0.13761653006076813
+          ],
+          "stance": false,
+          "min_z": 0.13761653006076813
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-026.png",
+        "sha256": "bcb5041d89f9a241b3fca4d79aa006f3c75fbf1b9361b0e7e782a1a4852ed937",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        129
+      ]
+    },
+    {
+      "id": "walk-028",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 116,
+        "y": 426,
+        "width": 108,
+        "height": 197
+      },
+      "time_s": 0.23333333333333334,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276033878326416,
+            0.14368730783462524,
+            2.5331974029541016e-07
+          ],
+          "stance": true,
+          "min_z": 2.5331974029541016e-07
+        },
+        "R": {
+          "world": [
+            0.6509085893630981,
+            -0.1436873823404312,
+            0.1306237429380417
+          ],
+          "stance": false,
+          "min_z": 0.1306237429380417
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-028.png",
+        "sha256": "2ec0b079900319be81b6eac7cd14b1e68f95150529541faacc19daf0b95f19a3",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        129
+      ]
+    },
+    {
+      "id": "walk-030",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 618,
+        "y": 219,
+        "width": 105,
+        "height": 198
+      },
+      "time_s": 0.25,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527603089809418,
+            0.14368736743927002,
+            2.644956111907959e-07
+          ],
+          "stance": true,
+          "min_z": 2.644956111907959e-07
+        },
+        "R": {
+          "world": [
+            0.7465105652809143,
+            -0.14368732273578644,
+            0.1194990947842598
+          ],
+          "stance": false,
+          "min_z": 0.1194990947842598
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-030.png",
+        "sha256": "16c58eb4fc127ef3ac9fefcdc7e5fe9c0007e4d95d95236fe8f7380623cab45d",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        129
+      ]
+    },
+    {
+      "id": "walk-032",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 511,
+        "y": 219,
+        "width": 103,
+        "height": 199
+      },
+      "time_s": 0.26666666666666666,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527602791786194,
+            0.14368732273578644,
+            1.4808028936386108e-07
+          ],
+          "stance": true,
+          "min_z": 1.4808028936386108e-07
+        },
+        "R": {
+          "world": [
+            0.8379459381103516,
+            -0.14368726313114166,
+            0.10500163584947586
+          ],
+          "stance": false,
+          "min_z": 0.10500163584947586
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-032.png",
+        "sha256": "a8b035f476ec69993be14d8d025280752bfdcf9a374c5cdde82ec4a8096003f2",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        130
+      ]
+    },
+    {
+      "id": "walk-034",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 219,
+        "width": 101,
+        "height": 203
+      },
+      "time_s": 0.2833333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45276010036468506,
+            0.14368736743927002,
+            4.377216100692749e-08
+          ],
+          "stance": true,
+          "min_z": 4.377216100692749e-08
+        },
+        "R": {
+          "world": [
+            0.9238256216049194,
+            -0.14368721842765808,
+            0.08811891078948975
+          ],
+          "stance": false,
+          "min_z": 0.08811891078948975
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-034.png",
+        "sha256": "9338f50a1567e4603856f22a259080402a52fdbf62852db0c8bf9a07a0898ad1",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        130
+      ]
+    },
+    {
+      "id": "walk-036",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        44.99937744000022,
+        161.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 609,
+        "y": 2,
+        "width": 98,
+        "height": 207
+      },
+      "time_s": 0.3,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527599811553955,
+            0.1436874270439148,
+            -2.207234501838684e-07
+          ],
+          "stance": true,
+          "min_z": -2.207234501838684e-07
+        },
+        "R": {
+          "world": [
+            1.0027607679367065,
+            -0.1436871439218521,
+            0.07000128924846649
+          ],
+          "stance": false,
+          "min_z": 0.07000128924846649
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-036.png",
+        "sha256": "322fb672dabf39fca38d857ddb2fe7aaea503789d59aea60c113deadd729187f",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        211,
+        131
+      ]
+    },
+    {
+      "id": "walk-038",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        44.99937744000022,
+        160.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 406,
+        "y": 2,
+        "width": 97,
+        "height": 210
+      },
+      "time_s": 0.31666666666666665,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527599811553955,
+            0.143687441945076,
+            -3.641471266746521e-07
+          ],
+          "stance": true,
+          "min_z": -3.641471266746521e-07
+        },
+        "R": {
+          "world": [
+            1.073363184928894,
+            -0.1436871439218521,
+            0.05188383907079697
+          ],
+          "stance": false,
+          "min_z": 0.05188383907079697
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-038.png",
+        "sha256": "332b739157cf0ec28a2fa0bbc8ec9f11f241898822dd83574f6e084627dbdca1",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        211,
+        132
+      ]
+    },
+    {
+      "id": "walk-040",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        159.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 204,
+        "y": 2,
+        "width": 97,
+        "height": 212
+      },
+      "time_s": 0.3333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527599513530731,
+            0.14368748664855957,
+            -1.2759119272232056e-07
+          ],
+          "stance": true,
+          "min_z": -1.2759119272232056e-07
+        },
+        "R": {
+          "world": [
+            1.1342425346374512,
+            -0.14368700981140137,
+            0.03500119969248772
+          ],
+          "stance": false,
+          "min_z": 0.03500119969248772
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-040.png",
+        "sha256": "766a54e427eebd05160bab231fe2199d4305fc12664dcf0f513926420e89f13f",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        133
+      ]
+    },
+    {
+      "id": "walk-042",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        157.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 305,
+        "y": 2,
+        "width": 97,
+        "height": 212
+      },
+      "time_s": 0.35,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45275983214378357,
+            0.14368753135204315,
+            -7.450580596923828e-08
+          ],
+          "stance": true,
+          "min_z": -7.450580596923828e-08
+        },
+        "R": {
+          "world": [
+            1.1840109825134277,
+            -0.14368700981140137,
+            0.020503655076026917
+          ],
+          "stance": false,
+          "min_z": 0.020503655076026917
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-042.png",
+        "sha256": "03e2744fb08c95f24a47d1969500a28d21e3eeeb50224251d0fa4605d3660596",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        135
+      ]
+    },
+    {
+      "id": "walk-044",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        156.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 2,
+        "width": 97,
+        "height": 213
+      },
+      "time_s": 0.36666666666666664,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4527597427368164,
+            0.14368759095668793,
+            -1.3131648302078247e-07
+          ],
+          "stance": true,
+          "min_z": -1.3131648302078247e-07
+        },
+        "R": {
+          "world": [
+            1.2212796211242676,
+            -0.14368699491024017,
+            0.009379315190017223
+          ],
+          "stance": false,
+          "min_z": 0.009379315190017223
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-044.png",
+        "sha256": "297624192e3b79cfba4f3b1114f358d01161ebaaa02e7873b66d9ccddcdfc2e9",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        136
+      ]
+    },
+    {
+      "id": "walk-046",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        156.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 103,
+        "y": 2,
+        "width": 97,
+        "height": 213
+      },
+      "time_s": 0.38333333333333336,
+      "contacts": {
+        "L": {
+          "world": [
+            0.45275941491127014,
+            0.14368762075901031,
+            -2.0675361156463623e-07
+          ],
+          "stance": true,
+          "min_z": -2.0675361156463623e-07
+        },
+        "R": {
+          "world": [
+            1.244659185409546,
+            -0.14368705451488495,
+            0.00238647498190403
+          ],
+          "stance": false,
+          "min_z": 0.00238647498190403
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-046.png",
+        "sha256": "59f6259225d4cc1415ebf9a5eed1d97730b280a41d664765cd97eedc774d16f4",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        136
+      ]
+    },
+    {
+      "id": "walk-048",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 507,
+        "y": 2,
+        "width": 98,
+        "height": 210
+      },
+      "time_s": 0.4,
+      "contacts": {
+        "L": {
+          "world": [
+            0.452759325504303,
+            0.14368762075901031,
+            1.3783574104309082e-07
+          ],
+          "stance": false,
+          "min_z": 1.3783574104309082e-07
+        },
+        "R": {
+          "world": [
+            1.2527610063552856,
+            -0.14368706941604614,
+            1.2870877981185913e-06
+          ],
+          "stance": true,
+          "min_z": 1.2870877981185913e-06
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-048.png",
+        "sha256": "06c347f7c3c760ef0404968051afb13ee2c9993802fdf24abd01114fdeeb91d8",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        137
+      ]
+    },
+    {
+      "id": "walk-050",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 711,
+        "y": 2,
+        "width": 100,
+        "height": 207
+      },
+      "time_s": 0.4166666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4608609080314636,
+            0.14368762075901031,
+            0.0023851795122027397
+          ],
+          "stance": false,
+          "min_z": 0.0023851795122027397
+        },
+        "R": {
+          "world": [
+            1.2527607679367065,
+            -0.14368708431720734,
+            1.4277175068855286e-06
+          ],
+          "stance": true,
+          "min_z": 1.4277175068855286e-06
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-050.png",
+        "sha256": "e85fcd87cff58deb91be77143c93759cdc027872f98baf81aeebab1bd39cfa26",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        137
+      ]
+    },
+    {
+      "id": "walk-052",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        155.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 815,
+        "y": 2,
+        "width": 99,
+        "height": 205
+      },
+      "time_s": 0.43333333333333335,
+      "contacts": {
+        "L": {
+          "world": [
+            0.4842406213283539,
+            0.14368760585784912,
+            0.009378393180668354
+          ],
+          "stance": false,
+          "min_z": 0.009378393180668354
+        },
+        "R": {
+          "world": [
+            1.252760887145996,
+            -0.1436871737241745,
+            1.3755634427070618e-06
+          ],
+          "stance": true,
+          "min_z": 1.3755634427070618e-06
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-052.png",
+        "sha256": "994060b70452e57898ab4501418e52c502132d3562543314caed33afef8efb56",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        137
+      ]
+    },
+    {
+      "id": "walk-054",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        157.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 918,
+        "y": 2,
+        "width": 97,
+        "height": 204
+      },
+      "time_s": 0.45,
+      "contacts": {
+        "L": {
+          "world": [
+            0.5215089321136475,
+            0.14368760585784912,
+            0.02050255611538887
+          ],
+          "stance": false,
+          "min_z": 0.02050255611538887
+        },
+        "R": {
+          "world": [
+            1.252760887145996,
+            -0.1436871737241745,
+            1.5273690223693848e-06
+          ],
+          "stance": true,
+          "min_z": 1.5273690223693848e-06
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-054.png",
+        "sha256": "b54205f67c46c0df110a3f5ae9e1e82ce36d412b7b4a22f76e4eba10f818c790",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        135
+      ]
+    },
+    {
+      "id": "walk-056",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        158.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 107,
+        "y": 219,
+        "width": 95,
+        "height": 203
+      },
+      "time_s": 0.4666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.5712776780128479,
+            0.14368756115436554,
+            0.03499998897314072
+          ],
+          "stance": false,
+          "min_z": 0.03499998897314072
+        },
+        "R": {
+          "world": [
+            1.2527611255645752,
+            -0.1436871886253357,
+            1.278705894947052e-06
+          ],
+          "stance": true,
+          "min_z": 1.278705894947052e-06
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-056.png",
+        "sha256": "720dce245e2d112cacbef99c0a517b8184ce123fd11f4c984979afd036a0cc89",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        134
+      ]
+    },
+    {
+      "id": "walk-058",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        44.99937744000022,
+        160.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 206,
+        "y": 219,
+        "width": 95,
+        "height": 203
+      },
+      "time_s": 0.48333333333333334,
+      "contacts": {
+        "L": {
+          "world": [
+            0.6321573257446289,
+            0.14368760585784912,
+            0.051882531493902206
+          ],
+          "stance": false,
+          "min_z": 0.051882531493902206
+        },
+        "R": {
+          "world": [
+            1.252760887145996,
+            -0.14368721842765808,
+            8.689239621162415e-07
+          ],
+          "stance": true,
+          "min_z": 8.689239621162415e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-058.png",
+        "sha256": "f1dbb7ad24f032964dd27013eff599337f3851c7850b7ae625889d17bb54b81f",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        211,
+        132
+      ]
+    },
+    {
+      "id": "walk-060",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        161.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 305,
+        "y": 219,
+        "width": 97,
+        "height": 202
+      },
+      "time_s": 0.5,
+      "contacts": {
+        "L": {
+          "world": [
+            0.7027595043182373,
+            0.14368762075901031,
+            0.07000010460615158
+          ],
+          "stance": false,
+          "min_z": 0.07000010460615158
+        },
+        "R": {
+          "world": [
+            1.2527611255645752,
+            -0.14368711411952972,
+            7.711350917816162e-07
+          ],
+          "stance": true,
+          "min_z": 7.711350917816162e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-060.png",
+        "sha256": "50ca4a5b3d80bf03a003d3d75107bacd55847378a928aa4cb983b666ba3ced13",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        131
+      ]
+    },
+    {
+      "id": "walk-062",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 406,
+        "y": 219,
+        "width": 101,
+        "height": 200
+      },
+      "time_s": 0.5166666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            0.7816953063011169,
+            0.14368759095668793,
+            0.08811704814434052
+          ],
+          "stance": false,
+          "min_z": 0.08811704814434052
+        },
+        "R": {
+          "world": [
+            1.2527610063552856,
+            -0.1436871737241745,
+            6.081536412239075e-07
+          ],
+          "stance": true,
+          "min_z": 6.081536412239075e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-062.png",
+        "sha256": "f533fdbd3f132cf8f7d5a1a3d141fc80aa1d31e6e13359445cedd60666795d2e",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        130
+      ]
+    },
+    {
+      "id": "walk-064",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        45.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 727,
+        "y": 219,
+        "width": 109,
+        "height": 198
+      },
+      "time_s": 0.5333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            0.8675752878189087,
+            0.14368760585784912,
+            0.10500019788742065
+          ],
+          "stance": false,
+          "min_z": 0.10500019788742065
+        },
+        "R": {
+          "world": [
+            1.2527610063552856,
+            -0.1436871439218521,
+            5.802139639854431e-07
+          ],
+          "stance": true,
+          "min_z": 5.802139639854431e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-064.png",
+        "sha256": "f2da384be720d20a01d136937a1e96a2ca818ff81a4a93d81b8e6160445a1236",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        210,
+        130
+      ]
+    },
+    {
+      "id": "walk-066",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        46.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 228,
+        "y": 426,
+        "width": 118,
+        "height": 196
+      },
+      "time_s": 0.55,
+      "contacts": {
+        "L": {
+          "world": [
+            0.9590106010437012,
+            0.14368756115436554,
+            0.11949827522039413
+          ],
+          "stance": false,
+          "min_z": 0.11949827522039413
+        },
+        "R": {
+          "world": [
+            1.252760887145996,
+            -0.1436871886253357,
+            4.284083843231201e-07
+          ],
+          "stance": true,
+          "min_z": 4.284083843231201e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-066.png",
+        "sha256": "745f7237c369074bbf170bea1eb533c682970b5dfd05f20e82a126d3f8f57b5a",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        209,
+        129
+      ]
+    },
+    {
+      "id": "walk-068",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        46.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 477,
+        "y": 426,
+        "width": 125,
+        "height": 194
+      },
+      "time_s": 0.5666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            1.0546125173568726,
+            0.14368754625320435,
+            0.1306230127811432
+          ],
+          "stance": false,
+          "min_z": 0.1306230127811432
+        },
+        "R": {
+          "world": [
+            1.252760887145996,
+            -0.1436872035264969,
+            4.861503839492798e-07
+          ],
+          "stance": true,
+          "min_z": 4.861503839492798e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-068.png",
+        "sha256": "1dddb14b58c9aa21c3ef69e8de78b9313f0cc7cf7a29753f7218a11d6caf0397",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        209,
+        129
+      ]
+    },
+    {
+      "id": "walk-070",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        46.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 464,
+        "y": 627,
+        "width": 132,
+        "height": 192
+      },
+      "time_s": 0.5833333333333334,
+      "contacts": {
+        "L": {
+          "world": [
+            1.1529920101165771,
+            0.14368748664855957,
+            0.13761626183986664
+          ],
+          "stance": false,
+          "min_z": 0.13761626183986664
+        },
+        "R": {
+          "world": [
+            1.252760648727417,
+            -0.1436872035264969,
+            6.491318345069885e-07
+          ],
+          "stance": true,
+          "min_z": 6.491318345069885e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-070.png",
+        "sha256": "a7fc53613b7d6de904e80b7ef2c55f0bf392a5688a0fa2beeebc162c0670458b",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        209,
+        129
+      ]
+    },
+    {
+      "id": "walk-072",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        48.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 141,
+        "y": 824,
+        "width": 138,
+        "height": 189
+      },
+      "time_s": 0.6,
+      "contacts": {
+        "L": {
+          "world": [
+            1.2527605295181274,
+            0.14368745684623718,
+            0.14000141620635986
+          ],
+          "stance": false,
+          "min_z": 0.14000141620635986
+        },
+        "R": {
+          "world": [
+            1.252760648727417,
+            -0.14368726313114166,
+            3.427267074584961e-07
+          ],
+          "stance": true,
+          "min_z": 3.427267074584961e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-072.png",
+        "sha256": "f193ae825b95f4489a4c899c44f626c462df8ff7b76a48244b26144bc36776aa",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        207,
+        129
+      ]
+    },
+    {
+      "id": "walk-074",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        50.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 616,
+        "y": 824,
+        "width": 144,
+        "height": 187
+      },
+      "time_s": 0.6166666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            1.3525288105010986,
+            0.1436874121427536,
+            0.13761653006076813
+          ],
+          "stance": false,
+          "min_z": 0.13761653006076813
+        },
+        "R": {
+          "world": [
+            1.2527605295181274,
+            -0.14368726313114166,
+            3.8277357816696167e-07
+          ],
+          "stance": true,
+          "min_z": 3.8277357816696167e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-074.png",
+        "sha256": "a224a91bbc6173aa88e66005154d513cc9ddb3922112dbdcf3d3de73f5ae2db6",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        205,
+        129
+      ]
+    },
+    {
+      "id": "walk-076",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        52.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 318,
+        "y": 1018,
+        "width": 149,
+        "height": 185
+      },
+      "time_s": 0.6333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            1.4509086608886719,
+            0.14368735253810883,
+            0.1306237429380417
+          ],
+          "stance": false,
+          "min_z": 0.1306237429380417
+        },
+        "R": {
+          "world": [
+            1.2527602910995483,
+            -0.14368729293346405,
+            2.5331974029541016e-07
+          ],
+          "stance": true,
+          "min_z": 2.5331974029541016e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-076.png",
+        "sha256": "f20ea7303a2f2af50ef8a5ec544742fab36038cc0205ab0c01d694090c4e77b0",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        203,
+        129
+      ]
+    },
+    {
+      "id": "walk-078",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        54.99937744000022,
+        163.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 2,
+        "y": 1208,
+        "width": 152,
+        "height": 184
+      },
+      "time_s": 0.65,
+      "contacts": {
+        "L": {
+          "world": [
+            1.5465105772018433,
+            0.14368724822998047,
+            0.1194990947842598
+          ],
+          "stance": false,
+          "min_z": 0.1194990947842598
+        },
+        "R": {
+          "world": [
+            1.2527601718902588,
+            -0.14368732273578644,
+            2.644956111907959e-07
+          ],
+          "stance": true,
+          "min_z": 2.644956111907959e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-078.png",
+        "sha256": "c8a3da68524b0e77f2af6f3b515318f08f57255e14b04960f37b4b0d0a8e936b",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        201,
+        129
+      ]
+    },
+    {
+      "id": "walk-080",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        56.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 463,
+        "y": 1208,
+        "width": 155,
+        "height": 181
+      },
+      "time_s": 0.6666666666666666,
+      "contacts": {
+        "L": {
+          "world": [
+            1.6379460096359253,
+            0.1436871588230133,
+            0.10500163584947586
+          ],
+          "stance": false,
+          "min_z": 0.10500163584947586
+        },
+        "R": {
+          "world": [
+            1.2527601718902588,
+            -0.14368727803230286,
+            1.4808028936386108e-07
+          ],
+          "stance": true,
+          "min_z": 1.4808028936386108e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-080.png",
+        "sha256": "d6f7a50aa423eaed7fcc8d9c6fb5ecb79d1202daf47cab5a14d50a998b4efa63",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        199,
+        130
+      ]
+    },
+    {
+      "id": "walk-082",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        59.99937744000022,
+        162.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 471,
+        "y": 1018,
+        "width": 157,
+        "height": 185
+      },
+      "time_s": 0.6833333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            1.7238256931304932,
+            0.14368708431720734,
+            0.08811891078948975
+          ],
+          "stance": false,
+          "min_z": 0.08811891078948975
+        },
+        "R": {
+          "world": [
+            1.2527600526809692,
+            -0.14368732273578644,
+            4.377216100692749e-08
+          ],
+          "stance": true,
+          "min_z": 4.377216100692749e-08
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-082.png",
+        "sha256": "7dc0cf6969a83bec470ba04e755f84a203356ee57b6bb311fb79fd1980c281af",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        196,
+        130
+      ]
+    },
+    {
+      "id": "walk-084",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        60.99937744000022,
+        161.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 456,
+        "y": 824,
+        "width": 156,
+        "height": 188
+      },
+      "time_s": 0.7,
+      "contacts": {
+        "L": {
+          "world": [
+            1.8027608394622803,
+            0.14368702471256256,
+            0.07000128924846649
+          ],
+          "stance": false,
+          "min_z": 0.07000128924846649
+        },
+        "R": {
+          "world": [
+            1.2527599334716797,
+            -0.14368735253810883,
+            -2.207234501838684e-07
+          ],
+          "stance": true,
+          "min_z": -2.207234501838684e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-084.png",
+        "sha256": "a84da1ee3d5ab1737ff1e854139c34ee073bdd5fd38f3669934c51b44eadfd26",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        195,
+        131
+      ]
+    },
+    {
+      "id": "walk-086",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        62.99937744000022,
+        160.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 770,
+        "y": 627,
+        "width": 157,
+        "height": 191
+      },
+      "time_s": 0.7166666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            1.8733631372451782,
+            0.14368698000907898,
+            0.05188383907079697
+          ],
+          "stance": false,
+          "min_z": 0.05188383907079697
+        },
+        "R": {
+          "world": [
+            1.2527598142623901,
+            -0.14368736743927002,
+            -3.641471266746521e-07
+          ],
+          "stance": true,
+          "min_z": -3.641471266746521e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-086.png",
+        "sha256": "4abdfb0278acceda889d1e1650fa2a20a58a2ff3240b00320116eccaccf24918",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        193,
+        132
+      ]
+    },
+    {
+      "id": "walk-088",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        64.99937744000022,
+        159.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 135,
+        "y": 627,
+        "width": 158,
+        "height": 193
+      },
+      "time_s": 0.7333333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            1.934242606163025,
+            0.14368684589862823,
+            0.03500119969248772
+          ],
+          "stance": false,
+          "min_z": 0.03500119969248772
+        },
+        "R": {
+          "world": [
+            1.2527599334716797,
+            -0.1436873823404312,
+            -1.2759119272232056e-07
+          ],
+          "stance": true,
+          "min_z": -1.2759119272232056e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-088.png",
+        "sha256": "dd5925cf4d0d0c0b64c07780fd9ed7985659ffae2c6c5bad322c23ab39336df3",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        191,
+        133
+      ]
+    },
+    {
+      "id": "walk-090",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        67.99937744000022,
+        157.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 606,
+        "y": 426,
+        "width": 161,
+        "height": 194
+      },
+      "time_s": 0.75,
+      "contacts": {
+        "L": {
+          "world": [
+            1.9840110540390015,
+            0.14368684589862823,
+            0.020503655076026917
+          ],
+          "stance": false,
+          "min_z": 0.020503655076026917
+        },
+        "R": {
+          "world": [
+            1.2527598142623901,
+            -0.1436874270439148,
+            -7.450580596923828e-08
+          ],
+          "stance": true,
+          "min_z": -7.450580596923828e-08
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-090.png",
+        "sha256": "b070567a267196c8d61e570f8e9c22639d54a05a209e397d9e31a1c4f1b2e6f2",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        188,
+        135
+      ]
+    },
+    {
+      "id": "walk-092",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        68.99937744000022,
+        156.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 771,
+        "y": 426,
+        "width": 162,
+        "height": 194
+      },
+      "time_s": 0.7666666666666667,
+      "contacts": {
+        "L": {
+          "world": [
+            2.0212795734405518,
+            0.14368683099746704,
+            0.009379315190017223
+          ],
+          "stance": false,
+          "min_z": 0.009379315190017223
+        },
+        "R": {
+          "world": [
+            1.2527596950531006,
+            -0.14368745684623718,
+            -1.3131648302078247e-07
+          ],
+          "stance": true,
+          "min_z": -1.3131648302078247e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-092.png",
+        "sha256": "cee06de4269bb1ace24508cab5664adc0b5d6c0a113435bb3d3dc02cb54753cb",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        187,
+        136
+      ]
+    },
+    {
+      "id": "walk-094",
+      "source_path": "walk-atlas.png",
+      "sha256": "0f9027d264fd650fb2e99306164c9e6f7815d711daf7d7a055e7b2241d75fd1c",
+      "duration_ms": 16.666666666666668,
+      "pivot": [
+        70.99937744000022,
+        156.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 297,
+        "y": 627,
+        "width": 163,
+        "height": 193
+      },
+      "time_s": 0.7833333333333333,
+      "contacts": {
+        "L": {
+          "world": [
+            2.04465913772583,
+            0.14368689060211182,
+            0.00238647498190403
+          ],
+          "stance": false,
+          "min_z": 0.00238647498190403
+        },
+        "R": {
+          "world": [
+            1.2527594566345215,
+            -0.14368748664855957,
+            -2.0675361156463623e-07
+          ],
+          "stance": true,
+          "min_z": -2.0675361156463623e-07
+        }
+      },
+      "source_native_frame": {
+        "path": "../E05B/evidence/batch-03/walk-094.png",
+        "sha256": "780025e184cb7bb1efa0159358e1f93f35b7b7af410bbf6b3aa671c2fa928dab",
+        "size": [
+          512,
+          512
+        ]
+      },
+      "crop_origin": [
+        185,
+        136
+      ]
+    }
+  ],
+  "fps": 60,
+  "loop": true,
+  "duration_s": 0.8,
+  "anchor_space": "source_pixels",
+  "physical_height_m": 2,
+  "source_frame_vertical_body_height_px": 153.89987636063665,
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "conservative_square",
+    "radius": 0.35,
+    "height": 2
+  },
+  "emissive_mask_path": null,
+  "alpha_policy": "native_RGBA_from_Blender_Cycles",
+  "effects": {},
+  "fit_family": "wizard-rig35-v1",
+  "qualification": "E05B mechanism candidate; painted style and gear reuse unqualified",
+  "source_authoring": {
+    "path": "../E05B/inputs/controlled-wizard-v2.blend",
+    "sha256": "bbd286cd6bdcf19bccbb1ce6e6362f34a25a9749df946068a13f617f2c164794"
+  },
+  "packing": "Fully transparent exterior trimmed; original RGBA pixels copied exactly; no resampling or art repair",
+  "original_manifest": "../E05B/walk.asset.json",
+  "archival_hidden_rgb_path": "outside-rgb.json.gz"
+}

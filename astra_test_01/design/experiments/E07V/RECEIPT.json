@@ -1,6 +1,6 @@
 {
   "experiment": "E07V",
-  "status": "RUNNING_F03_IMAGEGEN",
+  "status": "REVIEW_PACKET_READY; G3_SELECTION_PENDING",
   "started_at": "2026-09-11T05:54:23.779637+00:00",
   "limits": {
     "generation_calls": 5,
@@ -9,11 +9,11 @@
     "disk_bytes": 45000000
   },
   "used": {
-    "generation_calls": 3,
-    "review_batches": 0,
-    "paid_service_usd": 0
+    "generation_calls": 5,
+    "review_batches": 1,
+    "paid_service_usd": 0,
+    "owned_bytes_before_final_index": 16596652
   },
-  "pending_tool_cell": "349",
   "art_intake": [
     {
       "faction": "F01",
@@ -28,7 +28,31 @@
       "sha256": "66842fe8f6711e62b5086e6200aa51f0882cd3080881667171e3a6b5de29d0e8",
       "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-a718d41a-c674-4180-8d97-6cb56cd62bf2.png",
       "inspection": "Starter/advanced outcast differentiated and3 effect studies present; sanctuary-like room strongly repeats F01 composition/architecture, so stronghold distinctiveness is only partial."
+    },
+    {
+      "faction": "F03",
+      "path": "art/F03.png",
+      "sha256": "9de27132d49cdebc3da6fcacd7c3d377b30b27562d5d08a10fe331d5531b3444",
+      "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-3a441b08-d71c-435a-84c5-7ce0d59a9b66.png",
+      "inspection": "Distinct industrial foundry; no gameplay-scale figure in room, reducing framing comparability."
+    },
+    {
+      "faction": "F04",
+      "path": "art/F04.png",
+      "sha256": "97ebf066d9679a7e13f1411a3aaf5d55698c763d1851b8b8a508c0200bc81974",
+      "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-c3043d30-778c-4b2d-a368-4151f44d1955.png",
+      "inspection": "Distinct open observatory; exposed-head starter/advanced identity and three effects. Room has no gameplay-scale figure; projection unmeasured."
+    },
+    {
+      "faction": "mixed",
+      "path": "art/mixed.png",
+      "sha256": "4362f8873e8d6f3618b31bb0e4fa68c6d567c07850cf91d9891edb1cbabd1202",
+      "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-43b1df06-d0ce-4199-8ba4-5c1f7bddd39f.png",
+      "inspection": "Four distinct representatives and grounded common courtyard with three readable element treatments. Heads/limb poses and ice/fire silhouettes still distinguishable. Two physical targets rather than requested one; open exits drawn but no data alignment. Single flattened painting, no actual runtime separation."
     }
   ],
-  "next_action": "Persist/inspect F02; then F03,F04 and one mixed scene, within total5call cap; present labelled G3 target for Matt."
+  "next_action": "Read Matt response to E07V labelled visual packet or D07 delegation. Then register E05C garment/material source proof per experiments/E07V/NEXT_TEST.md. Do not reopen exhausted E05P/E05K/E05B/E07V branches or claim full architecture pass.",
+  "finished_at": "2026-09-11T06:29:12.976261+00:00",
+  "elapsed_wall_minutes": 34.81994898333333,
+  "generation_pricing": "Built-in price not exposed; do not assume free"
 }

@@ -1,0 +1,100 @@
+{
+  "created_at": "2026-09-11T06:29:13.020359+00:00",
+  "scope": "Scenario arithmetic only; no production qualification",
+  "assumptions": {
+    "characters": 100,
+    "progression_tiers": 3,
+    "additional_uniques": 50,
+    "slots_per_unique_set": null,
+    "shared_piece_reuse_rate": null,
+    "target_hardware": null,
+    "target_resolution": null,
+    "animation_count": null,
+    "view_count_for_scenario": 8,
+    "clips_identical_to_walk_in_scenario_only": true
+  },
+  "inventory_scenarios": [
+    {
+      "starter_in_three_tiers": true,
+      "unique_unit": "individual_items",
+      "baseline_ensemble_designs": 300,
+      "additional_unique_items": 50,
+      "additional_unique_sets": null,
+      "total_ensemble_designs": 300,
+      "total_authored_pieces": null,
+      "runtime_combinations": null,
+      "note": "Ensembles are design counts, not distinct mesh/sprite-piece counts; sharing/slots unknown."
+    },
+    {
+      "starter_in_three_tiers": true,
+      "unique_unit": "complete_sets",
+      "baseline_ensemble_designs": 300,
+      "additional_unique_items": null,
+      "additional_unique_sets": 50,
+      "total_ensemble_designs": 350,
+      "total_authored_pieces": null,
+      "runtime_combinations": null,
+      "note": "Ensembles are design counts, not distinct mesh/sprite-piece counts; sharing/slots unknown."
+    },
+    {
+      "starter_in_three_tiers": false,
+      "unique_unit": "individual_items",
+      "baseline_ensemble_designs": 400,
+      "additional_unique_items": 50,
+      "additional_unique_sets": null,
+      "total_ensemble_designs": 400,
+      "total_authored_pieces": null,
+      "runtime_combinations": null,
+      "note": "Ensembles are design counts, not distinct mesh/sprite-piece counts; sharing/slots unknown."
+    },
+    {
+      "starter_in_three_tiers": false,
+      "unique_unit": "complete_sets",
+      "baseline_ensemble_designs": 400,
+      "additional_unique_items": null,
+      "additional_unique_sets": 50,
+      "total_ensemble_designs": 450,
+      "total_authored_pieces": null,
+      "runtime_combinations": null,
+      "note": "Ensembles are design counts, not distinct mesh/sprite-piece counts; sharing/slots unknown."
+    }
+  ],
+  "texture_scenarios": {
+    "measured_source": "../E08A/evidence/packing-validation.json",
+    "one_view_one_walk_clip_bytes": 8388608,
+    "eight_views_same_clip_if_each_packs_equally_bytes": 67108864,
+    "ten_characters_eight_views_one_clip_all_resident_bytes": 671088640,
+    "hundred_characters_eight_views_one_clip_all_resident_bytes": 6710886400,
+    "exclusions": [
+      "Mipmaps",
+      "driver overhead",
+      "other clips",
+      "gear layers",
+      "floors/objects",
+      "VFX",
+      "compression/streaming policies"
+    ],
+    "warning": "Not measured GPU residency; packing and clip length will vary. Do not allocate the entire catalog at once."
+  },
+  "observed_costs": {
+    "suite_builtin_imagegen_calls": 16,
+    "builtin_generation_price_usd": null,
+    "known_external_paid_service_usd": 0,
+    "source_rig_authoring_minutes": null,
+    "painted_repair_success_rate": null,
+    "render_sample_count": 48,
+    "render_seconds_p50": 1.0068,
+    "render_seconds_p95": 1.0583,
+    "render_source": "../E05B/RECEIPT.json",
+    "qualification": "One existing rig/clip; not character production throughput or total artist cost."
+  },
+  "blocked_scale_gates": [
+    "Approved shared visual test target",
+    "Painted source gait/garment/material pass",
+    "Complete pilot animations and eight views",
+    "Modular gear on shared base and held-out transfer",
+    "24 painted VFX behaviors and risk matrix",
+    "Second chamber and representative runtime profile",
+    "100 visual concepts plus ten finished characters including two held out"
+  ]
+}

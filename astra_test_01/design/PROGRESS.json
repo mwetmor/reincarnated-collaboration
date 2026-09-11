@@ -1,20 +1,20 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T06:07:51.385292+00:00",
-  "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07V",
+  "updated": "2026-09-11T06:30:13.458123+00:00",
+  "status": "AWAITING_VISUAL_TEST_BASELINE; INDEPENDENT_PACKAGING_AND_SCENARIO_PREPARATION_COMPLETE",
+  "active_experiment": null,
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
     "G2": "PARTIAL",
-    "G3": "NOT_RUN",
+    "G3": "PARTIAL: faction concept packet complete with design omissions; Matt visual selection and art/data proof pending",
     "G4": "PARTIAL: chamber fixture logic only; art/motion/gear not qualified",
     "G5": "NOT_RUN",
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Finish E07V faction packet: F03 imagegen cell349 pending,3/5 calls used; F04 and mixed scene remain. E05B controlled animation is mechanically usable but garment visibility and painted appearance are not qualified.",
+  "next_action": "Read Matt response to E07V labelled visual packet or D07 delegation. Then register E05C garment/material source proof per experiments/E07V/NEXT_TEST.md. Do not reopen exhausted E05P/E05K/E05B/E07V branches or claim full architecture pass.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -94,7 +94,16 @@
     "experiments/E05B/REPORT.md",
     "experiments/E05B/RECEIPT.json",
     "experiments/E05B/review.html",
-    "experiments/E05B/walk.asset.json"
+    "experiments/E05B/walk.asset.json",
+    "experiments/E07V/REPORT.md",
+    "experiments/E07V/RECEIPT.json",
+    "experiments/E07V/review.html",
+    "experiments/E08A/REPORT.md",
+    "experiments/E08A/RECEIPT.json",
+    "experiments/E08A/review.html",
+    "experiments/E08D/REPORT.md",
+    "experiments/E08D/RECEIPT.json",
+    "experiments/E08D/review.html"
   ],
   "decisions_pending": [
     {
@@ -113,7 +122,10 @@
       "id": "D02",
       "decision": "Shared paint/material/lighting response and faction allowances",
       "owner": "Matt, after visual boards",
-      "blocks": "production style lock"
+      "blocks": "production style lock",
+      "review_packet": "experiments/E07V/review.html",
+      "status": "ASKED with completed labelled packet; unanswered is not approval",
+      "recommendation": "Mixed-scene provisional shared target; delegate further test visual selections while retaining production approval; revise F02 stronghold distinction."
     },
     {
       "id": "D03",
@@ -137,17 +149,17 @@
       "id": "D06",
       "decision": "E03 working painted material/character direction",
       "owner": "Matt",
-      "review_packet": "experiments/E03/review.html",
-      "recommendation": "Keep provisionally for pilot; continue independent technical tests",
-      "status": "ASKED; unanswered is not approval"
+      "review_packet": "experiments/E07V/review.html",
+      "recommendation": "Mixed-scene provisional shared target; delegate further test visual selections while retaining production approval; revise F02 stronghold distinction.",
+      "status": "ASKED with completed labelled packet; unanswered is not approval"
     },
     {
       "id": "D07",
       "decision": "Delegate visual test selections to Codex for autonomous campaign or retain Matt review",
-      "status": "ASKED asynchronously; unanswered is not approval",
+      "status": "ASKED with completed labelled packet; unanswered is not approval",
       "source": "EXPERIMENTS.md G3 assigns shared visual selection to Matt",
-      "recommendation": "Delegate test baselines while retaining final production approval",
-      "review_packet": "experiments/E04L/review.html"
+      "recommendation": "Mixed-scene provisional shared target; delegate further test visual selections while retaining production approval; revise F02 stronghold distinction.",
+      "review_packet": "experiments/E07V/review.html"
     }
   ],
   "known_evidence_gaps": [
@@ -166,16 +178,11 @@
     "E01M recovered native LE/GD promotional motion only; required ordinary HUD segments still missing",
     "E06D 36/36 JSON VFX boundary checks do not qualify any painted effect",
     "E05K explicit generated pose keys FAIL contact after2/2 calls; lower bound7.4cm drift vs2cm. E05R researches actual rig/keyframe control.",
-    "E05B actual rig contact/control and native RGBA frames pass; long robe hides support boots and low-poly textured appearance is not the approved painted style. Full pilot and modular advanced gear remain incomplete."
+    "E05B actual rig contact/control and native RGBA frames pass; long robe hides support boots and low-poly textured appearance is not the approved painted style. Full pilot and modular advanced gear remain incomplete.",
+    "E07V concepts do not qualify geometry, reusable gear or effects; F01 missing physical study, F02 room insufficiently distinct, F03/F04 missing room-scale figure.",
+    "E08A neutral atlas passes scoped exact reconstruction and48 GPU comparisons; no production residency/performance pass. E08D costs/inventory remain conditional scenarios."
   ],
-  "running_jobs": [
-    {
-      "type": "http_server",
-      "port": 8770,
-      "session": 95378,
-      "directory": "astra_test_01/design/experiments"
-    }
-  ],
+  "running_jobs": [],
   "planning_validation": {
     "date": "2026-09-10",
     "local_links_checked": 51,
@@ -211,7 +218,7 @@
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
   "current_receipt": "experiments/E07V/RECEIPT.json",
-  "generation_calls_this_suite": 14,
+  "generation_calls_this_suite": 16,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [
@@ -240,9 +247,9 @@
   "review_delivery": {
     "primary": "Standalone browser HTML; saved review works via file://",
     "reason": "Matt: interactive canvases have not opened with anything but code",
-    "verified": "experiments/E04/evidence/batch-04-review/review.json",
-    "live_probe": "Serve experiments on 127.0.0.1:8770, open /E04/; see E04/NEXT_TEST.md",
-    "server_running": true
+    "verified": "experiments/E07V/evidence/batch-01-review/review.json",
+    "live_probe": "python3 -m http.server 8770 --bind 127.0.0.1 --directory astra_test_01/design/experiments; standalone review.html files need no server.",
+    "server_running": false
   },
   "shipping_target": "Godot",
   "test_harness": "Pixi.js",
