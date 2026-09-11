@@ -1,11 +1,6 @@
 {
   "files": [
     {
-      "path": ".DS_Store",
-      "bytes": 6148,
-      "sha256": "462c2c618aa303e8cc8636fe93a9d96346fd97f9acbc7e7cc918c9d459213ca4"
-    },
-    {
       "path": "RECEIPT.json",
       "bytes": 1191,
       "sha256": "0bae4ba8a73b5abdd07ea5829ca6a580f59d5f057525c77f1f49c02c9574e00e"
@@ -44,11 +39,6 @@
       "path": "art/F02-v2.png",
       "bytes": 1964721,
       "sha256": "87cb9f2ce1b98f4445b19e8f3a94ff9de4d6395ddd8cac910a4fa1a81c2a03da"
-    },
-    {
-      "path": "evidence/.DS_Store",
-      "bytes": 6148,
-      "sha256": "da45b073c5e14360f38acfddd8e35edef8378ea96e08518d2afa5f69f0491ca0"
     },
     {
       "path": "evidence/F01-east-coordinate-crop.png",
@@ -235,5 +225,6 @@
       "bytes": 1266,
       "sha256": "5b95cd106ddd6dbc5fd6524b34a339b617e91e27d1645a898acf83a955f8b746"
     }
-  ]
+  ],
+  "excluded": "Local Finder .DS_Store metadata is not experiment evidence and remains untracked"
 }
