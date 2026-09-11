@@ -148,3 +148,7 @@ This is a branch-review trigger, not an automatic request for user permission.
 ## E02P — third renderer foundation (2026-09-11)
 
 Matt approved Phaser 4 as a test candidate. [Registration](experiments/E02P/REGISTRATION.md) and [report](experiments/E02P/REPORT.md) record the three-batch, zero-generation extension using immutable E02 inputs. Phaser 4.2.1 passed projection/root/socket/basic UI controls; batch-01 capture-size failures remain preserved. G2 remains PARTIAL. Next is E03 painted asset/data agreement across Godot, Pixi and Phaser; no renderer winner or style lock.
+
+## E03/E03M — painted checkpoint and selection
+
+[Report](experiments/E03/REPORT.md): all three regimes completed 15 painted scene/control cases. Native alpha failed; static runtime masks were separately registered and tested. Phaser v4 mask repair and invalid earlier mask-instrument coverage are preserved. Pixi.js is the codex-selected-winner for [E04 interactions](experiments/E04/REGISTRATION.md), then bounded gear/VFX tests, as Matt authorized.

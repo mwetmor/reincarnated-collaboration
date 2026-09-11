@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T03:13:14.009046+00:00",
-  "status": "E02P_C_GODOT_PIXI_PHASER_FOUNDATION_DELIVERED",
-  "active_experiment": "E02P",
+  "updated": "2026-09-11T03:36:00.783877+00:00",
+  "status": "E03_COMPLETE_E04_RUNNING",
+  "active_experiment": "E04",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E03 C-conditioned painted floor/prop and actor-view controls under frozen alpha/art-data/generation limits; compose identical accepted assets in Godot, Pixi.js and Phaser 4.2.1. Follow experiments/E02/RENDERER_BENCHMARK.md and ARCHITECTURE_PLAN.md. E02P capture limit is exhausted; do not rerun it without a new registered extension.",
+  "next_action": "Complete shared painted checkpoint in Godot/Pixi/Phaser; choose codex-selected-winner, then run bounded chamber interactions, gear and VFX only in that regime. Other-regime VFX reserved for Matt.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -50,7 +50,11 @@
     "experiments/E02P/DEPENDENCIES.json",
     "experiments/E02P/evidence/batch-02/validation.json",
     "experiments/E02P/evidence/batch-03-review/review-check.json",
-    "experiments/E02P/RECEIPT.json"
+    "experiments/E02P/RECEIPT.json",
+    "experiments/E03/REPORT.md",
+    "experiments/E03/RECEIPT.json",
+    "experiments/E03/review.html",
+    "experiments/E03/evidence/validation.json"
   ],
   "decisions_pending": [
     {
@@ -99,7 +103,8 @@
     "E02 uses legacy fixed-pose art with uncalibrated depicted camera; no C-conditioned painted chamber, animation, gear or VFX pass",
     "Full G2 schema/import/state/collision/performance qualification remains incomplete; E02 root/socket/projection components only",
     "Alternatives researched from primary docs; Defold/Cocos/Three.js not locally qualified; Phaser has only the E02P placement/attachment/UI foundation",
-    "Matt reports Canvas source links open as code; deliver browser HTML. Godot and standalone Chrome GPU captures verified."
+    "Matt reports Canvas source links open as code; deliver browser HTML. Godot and standalone Chrome GPU captures verified.",
+    "E03 generated pillar/mage native alpha failed; manually annotated runtime masks qualify only static contours. New mage anatomical projection and production style remain provisional."
   ],
   "running_jobs": [],
   "planning_validation": {
@@ -135,8 +140,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E02P/RECEIPT.json",
-  "generation_calls_this_suite": 0,
+  "current_receipt": "experiments/E03/RECEIPT.json",
+  "generation_calls_this_suite": 3,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [
@@ -150,11 +155,17 @@
     "actual_runtime_checks": "experiments/E02/evidence/validation.json",
     "benchmark": "experiments/E02/RENDERER_BENCHMARK.md",
     "research": "experiments/E02/RENDERER_RESEARCH.md",
-    "winner": null,
+    "winner": {
+      "label": "codex-selected-winner",
+      "regime": "Pixi.js 8.20.1",
+      "scope": "Subsequent bounded interactions/gear/VFX tests; not production renderer approval",
+      "evidence": "experiments/E03/REPORT.md"
+    },
     "third_test_status": "APPROVED by Matt: phaser 4 sounds like a good test candidate",
     "third_runtime": "Phaser 4.2.1 / WebGL 1.0 / Chrome ANGLE Metal Apple M2",
     "third_actual_runtime_checks": "experiments/E02P/evidence/batch-02/validation.json",
-    "review": "experiments/E02P/review.html"
+    "review": "experiments/E02P/review.html",
+    "post_checkpoint": "Matt authorizes Codex to select one winner and use it for interactions, gear and VFX; do not expand VFX to the other regimes without Matt request."
   },
   "review_delivery": {
     "primary": "Standalone browser HTML; saved review works via file://",

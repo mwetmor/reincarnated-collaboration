@@ -30,12 +30,13 @@ final visual approval remains separate.
 
 Latest user direction: use C to test perspective compatibility, and compare agent
 scene/character/VFX composition in Godot, Pixi.js and researched alternatives.
-The [three-renderer browser review](experiments/E02P/review.html) and
-[E02P report](experiments/E02P/REPORT.md) contain the completed Godot/Pixi/Phaser
-placement foundations. Matt approved Phaser 4 as the third test candidate.
-Use standalone HTML reviews: Matt reports Canvas links open as code. The saved
-review works from disk; the live Phaser probe needs the server in its report.
-[Renderer research](experiments/E02/RENDERER_RESEARCH.md) retains other alternatives.
+The [painted three-renderer checkpoint](experiments/E03/review.html) and
+[E03 report](experiments/E03/REPORT.md) record completed Godot/Pixi/Phaser tests.
+**Codex-selected-winner: Pixi.js 8.20.1**, at Matt's explicit request. Continue
+chamber interactions, then bounded gear and VFX proofs in Pixi only. Matt reserves
+later VFX tests in the other regimes. Native generated alpha failed; a separately
+registered static runtime-mask alternative was tested, without erasing that failure.
+Use standalone browser HTML reviews; Canvas source links opened as code for Matt.
 Godot's recovered 3D camera remains a starting candidate only.
 Compare native gameplay exemplars from Diablo II, Path of Exile 1, Grim Dawn and
 Last Epoch before selecting painted-world projection and on-screen scale.
@@ -53,11 +54,12 @@ The feasibility of that pipeline remains to be tested.
 > routes, then `.agents/skills/painted-character-vfx/SKILL.md` and
 > `astra_test_01/design/START_HERE.md`. Resume the next action in `PROGRESS.json`.
 > Work autonomously within the recorded scope. Continue projection C and the
-> shared Godot/Pixi/Phaser composition benchmark. E02P qualifies Phaser 4.2.1
-> for placement/attachments/basic UI only; all three capture batches are used.
-> Register E03 for C-conditioned painted floor/prop and actor-view controls next.
-> Deliver browser HTML, not Canvas source links. E02/E02P are partial capability
-> results, not painted-chamber passes. Keep E01
+> painted checkpoint. E03/E03M completed in all three; read its report. Pixi.js is
+> the codex-selected-winner. Continue E04 chamber interactions, then separately
+> registered gear and VFX tests there only. Other-regime VFX is Matt's later call.
+> Preserve the native-alpha failures and unapproved visual style. Do not repeat
+> exhausted E03 capture batches. Deliver browser HTML, not Canvas source links.
+> Keep E01
 > native-motion gaps open and do not repeat exhausted searches. Preserve the original ASTRA TEST 01 results.
 > Treat Godot camera settings and persistent-layer animation as hypotheses for
 > this new suite, not inherited passes. No internal subagents. Update the durable

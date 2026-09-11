@@ -1,0 +1,44 @@
+{
+  "source": "art/floor-v1.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "native_view": [
+    960,
+    640
+  ],
+  "corner_annotations_source_px": [
+    [
+      744.0,
+      197.0
+    ],
+    [
+      1182.0,
+      524.0
+    ],
+    [
+      807.0,
+      862.0
+    ],
+    [
+      377.0,
+      429.0
+    ]
+  ],
+  "annotation_uncertainty_source_px": 2,
+  "corner_errors_native_px": [
+    0.5799843174421334,
+    0.15760090381357184,
+    0.43625898605768065,
+    0.8151154513935098
+  ],
+  "outer_edge_samples": 36,
+  "outer_edge_max_native_px": 1.5625,
+  "outer_edge_p95_native_px": 1.328125,
+  "outer_edge_pass": true,
+  "corner_pass": true,
+  "shifted_8px_control_rejected": true,
+  "surface_boundary": "Visually follows projected diagonal; stone joint irregularity and earth feathering require overlay review. Not certified by outer-edge metric.",
+  "extra_obstructions": "No walls/props/pits observed; small gravel is decorative, not collidable."
+}

@@ -1,0 +1,570 @@
+{
+  "scope": "E03 immutable owned files excluding manifest/cache/OS metadata",
+  "files": [
+    {
+      "path": "astra_test_01/design/experiments/E03/INPUTS.json",
+      "sha256": "b0c536e8d31b9bb8456a8e90a5feb74f1e36320c13f5bbfb91a000f264121a1b",
+      "bytes": 635
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/MASK_EXTENSION.md",
+      "sha256": "f643232cce98091fe78908364116c43a06d801becd1f6d676d87ebb8be990757",
+      "bytes": 1796
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/RECEIPT.json",
+      "sha256": "af3a2e1fd8cc3441f35ac579b04c5b836f560b4995a4b7d83d22bcc8a3b052b5",
+      "bytes": 1546
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/REGISTRATION.md",
+      "sha256": "55c57c0766e530f23f9b64674d9dcf454c5d0724221ebd39e1b0829b09149ed9",
+      "bytes": 3555
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/REPORT.md",
+      "sha256": "f977a3ec97be2bd26f1c3512666e5499fd66d625ae359401bbc1f7cf7cc5c281",
+      "bytes": 5298
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/annotations.json",
+      "sha256": "0dc488dc732bb9e85981fc037c9287b17449cd024176f5fcf8adeb444c150311",
+      "bytes": 1988
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/art/floor-v1.png",
+      "sha256": "dfaab958fcfe2fe1acda170b096e20e6d26a8fa92fc238cddac40656f6105710",
+      "bytes": 1462721
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/art/mage-v1.png",
+      "sha256": "1ac45f9fc775f3148c02184ff6922ff54e6f3183907a93bf9ad893a697f7dc3b",
+      "bytes": 1949790
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/art/pillar-v1.png",
+      "sha256": "6f30bd38d0b45caa1da92acd2374f2d80005f0f1fa25b56d0b9086ae5bb9fc95",
+      "bytes": 1892580
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/browser/adapter.js",
+      "sha256": "0cce60cf9b1201bb0dc1219541f33a3628915d634e5fd523c875fd932f0e7327",
+      "bytes": 3785
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/browser/index.html",
+      "sha256": "9c4eaf54a104addb1b4ea97fdcdf4491a14e219d7e178eb6a75bb8d6b304e9d6",
+      "bytes": 493
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/build-scenes.py",
+      "sha256": "5e8624d3a69621c8cfea5b66b94c64219da2a645d4434f124b0f166e45092869",
+      "bytes": 2684
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/capture.mjs",
+      "sha256": "08cd0eaf970edb45dfd6e1262d340052b04f762b91cfb4311a30f81427844c72",
+      "bytes": 1978
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/adapter-before-phaser-mask-fix.js",
+      "sha256": "314b53da097efa0994a188ae6f758927a790c357303a7b87ce716f7a59e2f1bf",
+      "bytes": 3748
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/alpha-intake.json",
+      "sha256": "06ead811365e0abaec6da54d66f7e9391af87dde4fc90edb077037b82a39d2bf",
+      "bytes": 298
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/floor-alignment.json",
+      "sha256": "8d06879c14667061050b1858e34fded9e53235f24a470ca0ba8968feb81d6dc4",
+      "bytes": 950
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-alpha-dark.png",
+      "sha256": "0f653446802475ee551853dcccb98dcc561b2b1d03e1eea09015a93f28932642",
+      "bytes": 24685
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-alpha-light.png",
+      "sha256": "8e74efb15b5bc1b1fbebc9a7aead937fd98289d66db296af2b8a2a3b12774b75",
+      "bytes": 24684
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-bad-floor-shift.png",
+      "sha256": "aa1e35c6c751eb0b9b8a01339c236981135223b3907f4c96ac2664b49146b9f6",
+      "bytes": 598486
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-bad-order.png",
+      "sha256": "e0f8b7156dc6acdaddbcc3e7ff0df29550bbbaa4b48200f776e4aec79ca21e10",
+      "bytes": 590226
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-bad-root-shift.png",
+      "sha256": "cd220513ec9d0ad9b8c03c9b5d09137c00339cd3ebf49bd6274fb8c1de4acb45",
+      "bytes": 590594
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-behind.png",
+      "sha256": "565fe0527702e06fe9bb87f35c3897f69b4c02c8497d7c8612771af3c4e35752",
+      "bytes": 589025
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-center.png",
+      "sha256": "6c727fb9be2d4943bee63ecf54e49128d28f3001d899dfaf8975e5f455862f99",
+      "bytes": 590619
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-far.png",
+      "sha256": "565fe0527702e06fe9bb87f35c3897f69b4c02c8497d7c8612771af3c4e35752",
+      "bytes": 589025
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-floor-only.png",
+      "sha256": "8fe6533cb687a23b564a8318c8d1ad6866213fb7470f1745e3d92256c03b16d4",
+      "bytes": 585318
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-floor-overlay.png",
+      "sha256": "6180ddc5b26dd503846910ef2de6790436f5ee0a77171f810c68178aa73b1da5",
+      "bytes": 595372
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-front.png",
+      "sha256": "449f285ac0f48b98a107dc2dade398a2b27891735ae4a5c862686ff7d4e3a4c3",
+      "bytes": 590330
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-left.png",
+      "sha256": "0eb784bdeab2b80f8ce28eaee787ebad3f0695b3c887d357c3de1e970289e891",
+      "bytes": 590494
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-near.png",
+      "sha256": "120b757f96a8d4f54e6f8a31bf562f7e6651dfe9caabd3c2541515d317fe808f",
+      "bytes": 590759
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-prop-hidden.png",
+      "sha256": "c99f3bb79444bef1c8bcefdca83e4d7b25dc1948db0b683bf2bc55350f79a7f1",
+      "bytes": 587172
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-right.png",
+      "sha256": "8413d9c3d74bcd95c9fbeb7071d38bb2de55458c85c044c8cc36c6e664baab1d",
+      "bytes": 590807
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/godot-runtime.json",
+      "sha256": "bc43aaef5c3f0de5ce0467e530ddece602570b55d177d82aec02ce0585a8e4fe",
+      "bytes": 6209
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-alpha-dark.png",
+      "sha256": "46e62a2c7f708d08748f500f52c53b4f47f8e9abec005c47531cfc22882d7b7d",
+      "bytes": 95643
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-alpha-light.png",
+      "sha256": "ec4796a3688d903d251c94fa579c8a7e8f84319ba7d306c27e7a4ebd2611796f",
+      "bytes": 95316
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-bad-floor-shift.png",
+      "sha256": "dc3d7c6cf28f582b9c370a1b07f2e28792e35e17eae49f60ebf542288340e85a",
+      "bytes": 885038
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-bad-order.png",
+      "sha256": "6bff9b17ddd3763bb81a28123be411366c136993e13426554275898d7d8d72aa",
+      "bytes": 898848
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-bad-root-shift.png",
+      "sha256": "98327f287bc9a0d5869e499b899e70ab6a9d63c3ebe9da2b2868ca628f7c6726",
+      "bytes": 900137
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-behind.png",
+      "sha256": "162c39a508a2a672ad26a6c88b6d6f8d98c6f8b5209b7b4b8f177ee95013d82f",
+      "bytes": 899609
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-center.png",
+      "sha256": "af37c897dc400f3fcd7bc080bb23b90adfb3ff1c071abfc91f5b05302e5ae365",
+      "bytes": 900046
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-far.png",
+      "sha256": "162c39a508a2a672ad26a6c88b6d6f8d98c6f8b5209b7b4b8f177ee95013d82f",
+      "bytes": 899609
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-floor-only.png",
+      "sha256": "47bc78c7e97cf9c4788d1c91543d433259ec16a6b9c5275ca42058fcbd008b9b",
+      "bytes": 874689
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-floor-overlay.png",
+      "sha256": "d045b57aa4c28cac1c2dfeb5de56561b44c85f72930e919a7b5927c656f62f8a",
+      "bytes": 883322
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-front.png",
+      "sha256": "3d8182ec5b07db62fc268c448cf1d21664f0c3df27ef08d0db06c8b70393e148",
+      "bytes": 899283
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-left.png",
+      "sha256": "5bb7b4b9fa2e9cc2ad0c72e90ab0398ede37670d684da3a69d5ad610f057457b",
+      "bytes": 900547
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-near.png",
+      "sha256": "c85d8fb00392ae58efcc456d2c730bb617ad77f7269e341e06a1e37cc0237eb4",
+      "bytes": 902448
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-prop-hidden.png",
+      "sha256": "abf3bffd298173f2fd78fbb6345599c11fa1c68ec77132d129d2fe351a2486f6",
+      "bytes": 876537
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-right.png",
+      "sha256": "3943aa7752adcea240f73cd47ab7767d50646a685b03bc8ad64f0b6a0b49874b",
+      "bytes": 900853
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-runtime.json",
+      "sha256": "8c5048aefa4c96f3557cea929546241a82096fbd48d4e9fd46e8dfe340fc64b2",
+      "bytes": 10018
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-alpha-dark.png",
+      "sha256": "0182bda66e02d172b2a0e8d3e1bdc3e28b38b4074996772d8c701aad23e6f202",
+      "bytes": 37404
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-alpha-light.png",
+      "sha256": "661b64a7ddf4408ab939a229953f2ba2b996bb4b6351fc98a864a8c4e8f277ad",
+      "bytes": 37446
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-bad-floor-shift.png",
+      "sha256": "dc3d7c6cf28f582b9c370a1b07f2e28792e35e17eae49f60ebf542288340e85a",
+      "bytes": 885038
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-bad-order.png",
+      "sha256": "9b99e0055acb589c45773e258196231acbccc4094902537bc84b9655734c2dc5",
+      "bytes": 878492
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-bad-root-shift.png",
+      "sha256": "6208f557188ff3ae1808a8b1a51b3230b8cdf14e1e22fec339c9fed08304fc97",
+      "bytes": 878983
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-behind.png",
+      "sha256": "0319903410cb3e4cc5db4ffdd3998e323d07f8c859149e0d2b9d4115da929405",
+      "bytes": 877665
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-center.png",
+      "sha256": "29cf5fe33016f2af781f7e9231983dddef3ec7f86a1901d823b1f55f86480d1f",
+      "bytes": 879041
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-far.png",
+      "sha256": "0319903410cb3e4cc5db4ffdd3998e323d07f8c859149e0d2b9d4115da929405",
+      "bytes": 877665
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-floor-only.png",
+      "sha256": "47bc78c7e97cf9c4788d1c91543d433259ec16a6b9c5275ca42058fcbd008b9b",
+      "bytes": 874689
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-floor-overlay.png",
+      "sha256": "d045b57aa4c28cac1c2dfeb5de56561b44c85f72930e919a7b5927c656f62f8a",
+      "bytes": 883322
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-front.png",
+      "sha256": "d738ea11aa289813f81b8e366efb2149ce5ef959c2cb04737cbe720454e90f79",
+      "bytes": 878608
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-left.png",
+      "sha256": "a0e74dbb3378d13cc57ef161e66d39de4244575488e05f4060910fd8a005ed95",
+      "bytes": 878729
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-near.png",
+      "sha256": "fed062b9512667843875e4a21aede1fcfdfe7786e5aa037ab0bbcb2f1947aa0b",
+      "bytes": 878944
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-prop-hidden.png",
+      "sha256": "684a9e7c227f63897ae74b5d646f4f6563ee4f26e29109b70cd12e13e2a3958e",
+      "bytes": 875936
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-right.png",
+      "sha256": "c3afc54dac07f3473272d74ea1c48049647881ef245a60acb8bc4a33dbf3b260",
+      "bytes": 878841
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/phaser-v2-runtime.json",
+      "sha256": "257ab0dd7e5a16ed40e6961e0f07e596f7fbcacd7527d7e069b51ee164e459b2",
+      "bytes": 10036
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-alpha-dark.png",
+      "sha256": "3bbf605cadf0ba5b4be0a0dbc7dbf67c6d4809eb39f294d6cc484c22374a77e6",
+      "bytes": 38051
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-alpha-light.png",
+      "sha256": "95afdfe3f63eea78e32043e64f53a52f636d76798e40ec8db8d701c9e81410a0",
+      "bytes": 38120
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-bad-floor-shift.png",
+      "sha256": "ff18280e2894cb0ea9769d528bba9e9aa9b36e7cfe7aafc018c927a05d518ec3",
+      "bytes": 885018
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-bad-order.png",
+      "sha256": "87a0704650bb6353aa784c563d576320ee71cee7e3ae633b3c074fa066a3beef",
+      "bytes": 878677
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-bad-root-shift.png",
+      "sha256": "48845845138f61720133870de05bc5996c647168e69d87c2578989a9946250f4",
+      "bytes": 879089
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-behind.png",
+      "sha256": "57d01f38bb19739a39d4fe8b0fba7eb84155d4f72615e0e281e2311c1571f0bf",
+      "bytes": 877701
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-center.png",
+      "sha256": "09ecaa8bd959262187565bc0e5f407bc7264573a95b34d5f34c7543a1d466f6c",
+      "bytes": 879155
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-far.png",
+      "sha256": "57d01f38bb19739a39d4fe8b0fba7eb84155d4f72615e0e281e2311c1571f0bf",
+      "bytes": 877701
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-floor-only.png",
+      "sha256": "47bc78c7e97cf9c4788d1c91543d433259ec16a6b9c5275ca42058fcbd008b9b",
+      "bytes": 874689
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-floor-overlay.png",
+      "sha256": "af2f13a3a331df0b954c758017647dae05af2e091314bd9da10c5cae1a9963c9",
+      "bytes": 883195
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-front.png",
+      "sha256": "668614b35492a0066e48d87b95291240fa315ace9df1e7d03375f8fd3f9f32de",
+      "bytes": 878727
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-left.png",
+      "sha256": "6d91884bc9ef6fd63b4aea4081f2a53203d2b5e1f5708453eb68d371c7ac3a14",
+      "bytes": 878871
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-near.png",
+      "sha256": "9f32f841794ad04b6afd11d2011ee6b928fcd1ff0438cc99c0c6b466e36d92df",
+      "bytes": 879044
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-prop-hidden.png",
+      "sha256": "558fd70e188e00be896495cd0016eca510657ee9ec599a2a09c0b8127fd2e540",
+      "bytes": 876177
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-right.png",
+      "sha256": "b1e0fb5a5a1598ea0c2f77b723c9ff5d19662d65e2c57f73d8421f46aa19c62e",
+      "bytes": 879037
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/pixi-runtime.json",
+      "sha256": "a0bc1ded1c49e1b4876d6d4f8e0fed9a9c0e75e5e83a46c87dc404fb670126b3",
+      "bytes": 10001
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-behind.png",
+      "sha256": "48aa94509980ab25fed6dcb9d0eb9f98260a809745941887b14a1ab88342dd30",
+      "bytes": 1100450
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-center.png",
+      "sha256": "0b48d2768220dce20c0709a14447de53400325ca1c3f9699f950de2581ef20a2",
+      "bytes": 1120221
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-check.json",
+      "sha256": "67f8c2c07dc34d24633ea0d77dc8500999f610414b4c6361e9c8b6a28ce166b7",
+      "bytes": 34
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-edges.png",
+      "sha256": "4f665f1ed65f961bf926c514a10ad0458f6ba6a6d3c907eb36f1128e2b271df8",
+      "bytes": 322835
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-pillar.png",
+      "sha256": "4ee90701a5c1b92523d4b6b1c3061f54b188f988aee63f0fd4bc5f8fa15b5889",
+      "bytes": 421714
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-v2-behind.png",
+      "sha256": "02c0d1f8223f1a91e63b1ec9382987ad834da428358ee4d1c81b6b3c17aaec47",
+      "bytes": 943373
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-v2-center.png",
+      "sha256": "5cef53119e433cdf28cec3bd71f7a1303109b96ce4633247512e3766a6d75d52",
+      "bytes": 1026384
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-v2-check.json",
+      "sha256": "67f8c2c07dc34d24633ea0d77dc8500999f610414b4c6361e9c8b6a28ce166b7",
+      "bytes": 34
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-v2-edges.png",
+      "sha256": "baeb159d62631152e7f08cfc05faa3337d27b858f1fc428a7747ef3edfed8acf",
+      "bytes": 223284
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/review-v2-pillar.png",
+      "sha256": "1b3c445416ca42530afba8f7d0fe4638f64951573be2fd319d31f5914d99c3db",
+      "bytes": 270520
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/validation-before-mask-instrument.json",
+      "sha256": "e0f95a19eb845e0f0cef4a22bb8475ba4053676413bc2fea2fd59ac42a29bb9b",
+      "bytes": 8404
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/evidence/validation.json",
+      "sha256": "0b6299c1dbee5c73a424c59af6cd8263ff8c6ce1add4ebfde22861d2de93f8b4",
+      "bytes": 8908
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/godot/main.gd",
+      "sha256": "893aae0ce06c28c3f7a39f111b7c002e6c8017e3e1f7ed10ede85eeb2b28404b",
+      "bytes": 2791
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/godot/main.gd.uid",
+      "sha256": "0416664e2cda200841ac22ccb2cb3e9cf7f80ca71b277b1c500b145ad8cdeeb5",
+      "bytes": 20
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/godot/main.tscn",
+      "sha256": "22e73a8d47b15a476ea9dbc1237ada75f2e2faad5995708c4ed393090c9a26e2",
+      "bytes": 148
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/godot/project.godot",
+      "sha256": "1c8c05241d674f13dba2ff620b9ed328bf78df9569d8fd75fb1b04e0422d6b7b",
+      "bytes": 371
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/guides/floor-layout.png",
+      "sha256": "7e50847c79dd2d8dfe1f6fb74e4e8558a80a0c9dbe991b40c3177b7aa772f67a",
+      "bytes": 26197
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/guides/pillar-registration.json",
+      "sha256": "aa436a56a12eae8a1c0f4ed7633c28cac0df3b4495c3dd3f3e8f16e5bef4609a",
+      "bytes": 921
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/guides/pillar-volume.png",
+      "sha256": "2656e005b5ffd7296d5046ad021ec4776ff046385cd1a1a2c0aec607d4aa5bdb",
+      "bytes": 9352
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/guides/surface-labels.png",
+      "sha256": "276e2764677810885d6d242da0d7cf9cfc105253ee39453a6c8bc968251bc954",
+      "bytes": 7648
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/inputs/chamber-layout.json",
+      "sha256": "b40586402e9ab80a10ec7405739d10cb50049d5f63e186604ab0ebf05a989fa2",
+      "bytes": 2591
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/inputs/projection-candidates.json",
+      "sha256": "5aeef86916d4be94dc6aa93c401702bb60023e23c3ea1d340bdb7ef849ae3da6",
+      "bytes": 2474
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/measure-floor.py",
+      "sha256": "3d03fde53c78477036ee0438f05bad165a75e7d370a4f9e23b10c6347a06efee",
+      "bytes": 2832
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/prepare.py",
+      "sha256": "26f6b2516741984c75a3940602cafaa75c7606307a88e383c552ba2e24fc8dc9",
+      "bytes": 1747
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/prompts/01-floor.txt",
+      "sha256": "a20ff89bc4ce0f23b049d1b90e74738a95a5ded45f872580bb97fbdb19604c0e",
+      "bytes": 1330
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/prompts/02-pillar.txt",
+      "sha256": "8dcd77ffeca6b060e13efb8c313aab2983e6a6eafe0618a0708405c44c4e7506",
+      "bytes": 1058
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/prompts/03-actor.txt",
+      "sha256": "eebacc5444c882ed613dd44e7c82c9521a5340d94e98ebb864216ca35e8550c9",
+      "bytes": 1247
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/prop-guide.py",
+      "sha256": "aecec4656635e2f8bc2a630ae56f89fa7c2baeed327f2602848ad2bee512e9c9",
+      "bytes": 914
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/review-check.mjs",
+      "sha256": "855bfe977423785670a9af39f76cc04ee1f507339926a1a9cd7946cdd82bc106",
+      "bytes": 1435
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/review-data.js",
+      "sha256": "891d8efb1640d1263b297fef6d8b5252f9fd3a4e7a8e224a4b286889d7c6ea4f",
+      "bytes": 33168
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/review.html",
+      "sha256": "34571ebfbf711afbb45ec4400e406a1df28da04b959cda1236c49f8ccf8eca8d",
+      "bytes": 3705
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/scenes.json",
+      "sha256": "65b053115cc667ae08cabd185f2a4a3f55607a4abc4a2c43fe18bf0955abb07d",
+      "bytes": 33147
+    },
+    {
+      "path": "astra_test_01/design/experiments/E03/validate.py",
+      "sha256": "bb5d18c8db35e65b4501406b3d700c7baf8497bc03a3d58d6a89274a86f20960",
+      "bytes": 3645
+    }
+  ]
+}

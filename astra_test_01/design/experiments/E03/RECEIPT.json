@@ -1,0 +1,42 @@
+{
+  "experiment": "E03/E03M",
+  "status": "THREE_REGIME_CHECKPOINT_COMPLETED",
+  "updated": "2026-09-11T03:36:00.783877+00:00",
+  "winner": "Pixi.js 8.20.1",
+  "winner_authority": "Matt explicitly asked Codex to select after checkpoint and continue interactions/gear/VFX only there",
+  "native_alpha": "FAIL",
+  "runtime_masks": "Scoped provisional PASS for inspected static contours; no animation/soft-edge qualification",
+  "technical_checks": {
+    "passed": 203,
+    "total": 203,
+    "path": "evidence/validation.json"
+  },
+  "generation_calls": 3,
+  "generation_prompts": [
+    "prompts/01-floor.txt",
+    "prompts/02-pillar.txt",
+    "prompts/03-actor.txt"
+  ],
+  "tool": "built-in imagegen; no seed/explicit mask controls",
+  "known_paid_service_spend_usd": 0,
+  "built_in_cost": "not exposed",
+  "render_batches_used": 6,
+  "render_batch_limit": 6,
+  "generation_call_limit": 4,
+  "failed_evidence": [
+    "art/pillar-v1.png",
+    "art/mage-v1.png",
+    "evidence/phaser-runtime.json",
+    "evidence/validation-before-mask-instrument.json",
+    "evidence/adapter-before-phaser-mask-fix.js"
+  ],
+  "next_action": "E04 Pixi interactions; subsequent gear and VFX require separate registrations and motion prerequisites",
+  "sources": [
+    {
+      "url": "https://cdn.jsdelivr.net/npm/phaser@4.2.1/dist/phaser.js",
+      "fact": "setMask is Canvas-only; FilterList.addMask is WebGL alternative",
+      "local_probe": "/tmp/e03-phaser-4.2.1.js",
+      "sha256": "eb1bef9b0b35cab1f95e00d14ba728a2b14e6ae1dd9ecfa3b60dc16ca04fa259"
+    }
+  ]
+}

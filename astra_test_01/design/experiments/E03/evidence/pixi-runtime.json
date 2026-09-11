@@ -1,0 +1,427 @@
+{
+  "engine": "pixi",
+  "started_at": "2026-09-11T03:28:18.929Z",
+  "cases": [
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "floor-only",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        }
+      ],
+      "order": [
+        "floor"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "floor-overlay",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        }
+      ],
+      "order": [
+        "floor"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "center",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 448.89979248000003,
+          "y": 243.599566636,
+          "scale": 0.05000000000000001
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "near",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 451.08805072379477,
+          "y": 350.19335895635567,
+          "scale": 0.04659149807374581
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "far",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "mage",
+          "x": 447.6410233652149,
+          "y": 153.0555489428399,
+          "scale": 0.05196069954618504
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        }
+      ],
+      "order": [
+        "floor",
+        "mage",
+        "pillar"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "left",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 329.71583524567427,
+          "y": 243.59956664142132,
+          "scale": 0.04999999999985674
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "right",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 568.0837497133265,
+          "y": 243.59956663057864,
+          "scale": 0.050000000000143256
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "behind",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "mage",
+          "x": 437.7538604449756,
+          "y": 139.6632221831437,
+          "scale": 0.052176884681873474
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        }
+      ],
+      "order": [
+        "floor",
+        "mage",
+        "pillar"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "front",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 437.95961739892675,
+          "y": 196.98764916636583,
+          "scale": 0.05111758622043537
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "prop-hidden",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "mage",
+          "x": 437.7538604449756,
+          "y": 139.6632221831437,
+          "scale": 0.052176884681873474
+        }
+      ],
+      "order": [
+        "floor",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "alpha-light",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 448.89979248000003,
+          "y": 243.599566636,
+          "scale": 0.05000000000000001
+        }
+      ],
+      "order": [
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "alpha-dark",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 448.89979248000003,
+          "y": 243.599566636,
+          "scale": 0.05000000000000001
+        }
+      ],
+      "order": [
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "bad-floor-shift",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 8,
+          "y": 0,
+          "scale": 0.625
+        }
+      ],
+      "order": [
+        "floor"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "bad-root-shift",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 456.89979248000003,
+          "y": 243.599566636,
+          "scale": 0.05000000000000001
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    },
+    {
+      "engine": "pixi",
+      "version": "8.20.1",
+      "scene": "bad-order",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "images": [
+        {
+          "id": "floor",
+          "x": 0,
+          "y": 0,
+          "scale": 0.625
+        },
+        {
+          "id": "pillar",
+          "x": 392.95163165437185,
+          "y": 101.35232428981102,
+          "scale": 0.12451078929943013
+        },
+        {
+          "id": "mage",
+          "x": 437.7538604449756,
+          "y": 139.6632221831437,
+          "scale": 0.052176884681873474
+        }
+      ],
+      "order": [
+        "floor",
+        "pillar",
+        "mage"
+      ]
+    }
+  ],
+  "errors": [],
+  "ui_next": true,
+  "browser": "152.0.7977.83",
+  "finished_at": "2026-09-11T03:28:23.300Z"
+}
