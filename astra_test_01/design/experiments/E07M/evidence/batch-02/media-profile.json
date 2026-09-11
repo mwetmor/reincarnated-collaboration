@@ -1,0 +1,48 @@
+{
+  "media": [
+    {
+      "faction": "F01",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "nb_read_frames": "43"
+          }
+        ],
+        "format": {
+          "duration": "1.928173"
+        }
+      },
+      "observations": 88
+    },
+    {
+      "faction": "F02",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.965531"
+        }
+      },
+      "observations": 85
+    }
+  ],
+  "composition_ms": {
+    "median": 21.5,
+    "p95": 24.30000001192093,
+    "max": 43.60000002384186,
+    "samples": 173
+  },
+  "actor_outcomes": 26,
+  "scope": "CPU composition, not totalGPUframe/minimumhardware. Monster remains static sprite fixture; traversal does not qualify monster animation."
+}

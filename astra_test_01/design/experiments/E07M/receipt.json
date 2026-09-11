@@ -1,0 +1,55 @@
+{
+  "experiment": "E07M",
+  "started_at": "2026-09-11T21:57:19.670996+00:00",
+  "status": "PASS_SCOPED_TALL_PORTAL",
+  "limits": {
+    "active_minutes": 35,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 14.76467435,
+    "disk_bytes_before_index": 68963075
+  },
+  "dependencies": {
+    "E07T/door.json": "9ada1834d08b9bccfaf41d44ea4de6a2cef2f641ada0d415f3364970a851817b",
+    "E07T/sim/index.mjs": "d049724a92cefa185ccc38b42852f802e97b0021cf98a8130c672ef991673b66",
+    "E07Q/pixi-adapter/index.mjs": "3f930a1e87d17d852b93bcd6e47cfff02a7d490714a412bf02747f521c4639ae"
+  },
+  "build1": {
+    "door": "door-v1.json",
+    "source_geometry": "evidence/structure-oracle-v1.json",
+    "failures": 240,
+    "structure_samples": 3386,
+    "capture": "evidence/batch-01/structure-validation.json"
+  },
+  "ended_at": "2026-09-11T22:12:05.551457+00:00",
+  "results": {
+    "headless": 35,
+    "source_geometry_locations": 7800,
+    "orders_per_location": 2,
+    "aperture_clear": 2400,
+    "shadow_samples": 1320,
+    "visibility_samples": 672,
+    "runtime_actor_outcomes": 26,
+    "mage_crossings": 2,
+    "composition_p95_ms": 24.3,
+    "build1_structure_failures": 240,
+    "build2_structure_failures": 0,
+    "review": "PASS",
+    "working_chamber": "E07M"
+  },
+  "lessons": [
+    "3.2m clear opening supports2.7mmonster; oldlintel and3.21mactor remain blocked controls.",
+    "Extended source structure witnesses exposed inherited coplanar jamb/lintel and track/pocket overlaps. Separate solid joins instead of weakening part-ID bars.",
+    "Changed geometry requires regenerated shadow/visibility source packets; new1320/672samples pass with original controls.",
+    "Whitespace packing preserves byte-exact originalJSON reconstruction and saves11.42MB without deleting failed evidence.",
+    "Monster traversal is not a monster animation/art pass; flatF01portal finish remains failed."
+  ]
+}

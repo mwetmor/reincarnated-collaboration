@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T21:55:50.004924+00:00",
+  "updated": "2026-09-11T22:12:05.551457+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07M",
+  "active_experiment": "E07W",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07M layout-data portal clearance revision for2.7mmonster versus current2.5mlintel. Derive taller panel/frame/track from a3.2maperture; prove both actor footprints, locked/closed/open/occupied states and source geometry. Then faction portal materials, retaining F01 dark-pocket failure.",
+  "next_action": "Register E07W portal-material comparison with E07M geometry/state fixed: F01 timber/stone waystation construction and F02 distinct reservoir gate treatment. Reuse qualified painted material sources first; keep ID/depth/source-state invariants, native/fresh comparisons, and bounded art rubric. Then broader faction detail/light and full pilot/VFX work.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -234,7 +234,9 @@
     "experiments/E07P/REPORT.md",
     "experiments/E07P/review.html",
     "experiments/E07Q/REPORT.md",
-    "experiments/E07Q/review.html"
+    "experiments/E07Q/review.html",
+    "experiments/E07M/REPORT.md",
+    "experiments/E07M/review.html"
   ],
   "decisions_pending": [
     {
@@ -367,7 +369,8 @@
     "E07J promotes scoped shared hard-shadow chamber. Some pilot witness groups unavailable, full self-shadow/style unqualified; plain architecture/darkF01pocket/oldNPC-monster/hiddenplayer remain. Next E07O selective visibility.",
     "E07O two-build capability cap reached: multisample depth repaired, uColor vec3 collides with Pixi mesh uniform4f. No chamber visibility expansion; selective aid unqualified.",
     "E07P mask capability passes but actor integration fails480/768sourcewitnesses: non-enumerable shader resources were omitted. Named-resource materialization diagnosed, no visibility aid promoted.",
-    "E07Q selective B indicator passes768source samples, controls, fullframe-exposed invariance andA/Bcrossings. NPC/monster sprite/translucent occluders, ROIallocation, fullart still unqualified. Current2.5mportal blocks2.7mmonster; E07M layout revision next."
+    "E07Q selective B indicator passes768source samples, controls, fullframe-exposed invariance andA/Bcrossings. NPC/monster sprite/translucent occluders, ROIallocation, fullart still unqualified. Current2.5mportal blocks2.7mmonster; E07M layout revision next.",
+    "E07M resolves2.7mmonster clearance with3.2mportal and repaired joints; fullsource geometry/shadow/visibility and runtime traverse pass. FlatF01pocket and F02gate material distinction remain art failures; staticmonster animation, fullpilot/VFX/cohesion unqualified."
   ],
   "running_jobs": [
     {
@@ -411,7 +414,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07Q/receipt.json",
+  "current_receipt": "experiments/E07M/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -485,16 +488,16 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "experiment": "E07Q",
-    "adapter": "experiments/E07Q/pixi-adapter/index.mjs",
-    "review": "experiments/E07Q/review.html",
-    "shadow_policy": "experiments/E07Q/shadow.json",
-    "scope": "E07J shadow/interaction proof plus768visibility samples, controls and two actual crossings. Full chamber art/general self-shadow/occluder coverage unqualified.",
-    "previous": "E07J",
+    "experiment": "E07M",
+    "adapter": "experiments/E07M/pixi-adapter/index.mjs",
+    "review": "experiments/E07M/review.html",
+    "shadow_policy": "experiments/E07M/shadow.json",
+    "scope": "3.2mportal supports2.7mmonster;7800geometry/1320shadow/672visibility witnesses and26runtime outcomes. Full art/monster motion/general self-shadow unqualified.",
+    "previous": "E07Q",
     "motion": "E05F",
-    "module": "experiments/E07Q/pixi-adapter/index.mjs",
+    "module": "experiments/E07M/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
-    "status": "SCOPED_SHARED_SHADOW_AND_SELECTIVE_VISIBILITY_PASS",
+    "status": "SCOPED_TALL_PORTAL_SHADOW_VISIBILITY_AND_TRAVERSAL_PASS",
     "full_chamber_qualified": false,
     "pilot_candidate": {
       "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
@@ -503,6 +506,7 @@
       "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
       "review": "experiments/E05F/review.html"
     },
-    "effects": "experiments/E07Q/effects.json"
+    "effects": "experiments/E07M/effects.json",
+    "door_data": "experiments/E07M/door.json"
   }
 }

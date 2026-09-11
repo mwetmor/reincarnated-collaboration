@@ -145,3 +145,5 @@ E07O [visibility capability checkpoint](experiments/E07O/review.html): two faile
 E07P [empty actor-mask failure](experiments/E07P/review.html): namespace/depth capability repaired, but480/768real source witnesses fail. Non-enumerable resource accessors diagnosed; E07Q binding repair and stronger preflight next. E07J remains working chamber.
 
 E07Q [selective visibility review](experiments/E07Q/review.html): B selected after768source witnesses, negative controls and actual crossings. Working chamber E07Q; visible-player images unchanged. Next E07M taller layout-data portal for the2.7mmonster, then faction materials. Full suite remains partial.
+
+E07M [taller portal review](experiments/E07M/review.html): 35headless,7,800geometry,1,320shadow,672visibility and26runtime actor outcomes pass after preserving240overlap failures. Working chamber E07M. Next E07W portal material comparison with qualified geometry fixed; full art remains open.

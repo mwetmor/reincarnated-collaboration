@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "path": "evidence/batch-01/pixel-validation.json",
+      "original_bytes": 1173211,
+      "packed_bytes": 598831,
+      "original_sha256": "eedeb3abe3500f9627226790b1d38f07030e528145a14cb18b418f3697a5f757",
+      "packed_sha256": "705740e3b590f6ea1e0dee7a9fc21b652455a21917e62489a13fb4c55e7d17e4",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "\n",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/batch-01/structure-validation.json",
+      "original_bytes": 1739029,
+      "packed_bytes": 445192,
+      "original_sha256": "4be294913d4e3500d34917738ba3278941eedef596a4732d42205af707d5e404",
+      "packed_sha256": "f64f8004adc2ae5a828a2ed9e909ec86fe4cb5c75654cd0f8f9d3637407078f8",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/batch-01/validation.json",
+      "original_bytes": 2247663,
+      "packed_bytes": 858696,
+      "original_sha256": "77703c94bfa124f19c12d80e635eead24516caa9911659655df3308deed19440",
+      "packed_sha256": "276562016c2883ef7dd9c126edca5659ac0adbc336e69b5f13e4836ba15e3b79",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/batch-02/validation.json",
+      "original_bytes": 5163343,
+      "packed_bytes": 1731592,
+      "original_sha256": "91871ce71145fcb6bb4f4f70d8e6a69a7cf498e214829c1a96e57a48740770ac",
+      "packed_sha256": "a90da967c8a975ca661d055216363a1f82ff1675378a025d8fb8f89489c7e4b0",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/door-oracle-v1.json",
+      "original_bytes": 1248007,
+      "packed_bytes": 384459,
+      "original_sha256": "7c8e866e748f7486e287dafcd0eb9e2cb3960a6f1bff4d29a42552740a6175e2",
+      "packed_sha256": "ebb6bee2200c0552ce3aea42628ee84292e6f00e8eb829cd6c1adf11c3f3f6dd",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/door-oracle.json",
+      "original_bytes": 1248007,
+      "packed_bytes": 384459,
+      "original_sha256": "7c8e866e748f7486e287dafcd0eb9e2cb3960a6f1bff4d29a42552740a6175e2",
+      "packed_sha256": "ebb6bee2200c0552ce3aea42628ee84292e6f00e8eb829cd6c1adf11c3f3f6dd",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/structure-oracle-v1.json",
+      "original_bytes": 2090261,
+      "packed_bytes": 597427,
+      "original_sha256": "1a951e8458dfbbc0defc9ea7e1fb886e856d7f388c10720bbab0f8e440937e9d",
+      "packed_sha256": "3e819acd4f3f4a17f0a2cc06b87f011f17a885d9e676b6b901c8178429870145",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    },
+    {
+      "path": "evidence/structure-oracle.json",
+      "original_bytes": 2122965,
+      "packed_bytes": 607531,
+      "original_sha256": "99d1b5c50534066643940d540da923ca81b18936aa61349267f8b5304fe4e40e",
+      "packed_sha256": "aac36bae625f291986004c0b3fb6385160d97d10408f39efbc53ba47a4338056",
+      "restore": "JSON.stringify(JSON.parse(packed),null,2)+trailing_newline",
+      "trailing_newline": "",
+      "roundtrip_exact": true
+    }
+  ],
+  "saved_bytes": 11424299
+}
