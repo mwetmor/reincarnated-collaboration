@@ -101,3 +101,5 @@ E07L [floor-shadow review](experiments/E07L/review.html) and [report](experiment
 E05U [painted-gear comparison](experiments/E05U/review.html) and [report](experiments/E05U/REPORT.md): fitted part-specific gear and source transfer improve; full pilot art still FAIL against size-matched F04style crops. Next E05W base outfit material separation/hair silhouette, preserving rig/actions/gear.
 
 E05W [static pilot review](experiments/E05W/review.html) and [report](experiments/E05W/REPORT.md): Codex scoped working-turnaround PASS under F04direction after material/hair repair. Full motion/turns/gear fit and production style remain open. Next E05Y complete existing clip palette transfer and eight-view playback.
+
+E05Y full existing clips: [review](experiments/E05Y/review.html), [report](experiments/E05Y/REPORT.md). Walk art FAIL despite contact/core mechanisms; six cast raster failures retained. Exact next action is in PROGRESS.json.

@@ -1,0 +1,55 @@
+{
+  "experiment": "E05Y",
+  "started_at": "2026-09-11T17:17:00.265997+00:00",
+  "started_at_source": "receipt filesystem creation time",
+  "finished_at": "2026-09-11T17:31:17.403926+00:00",
+  "status": "SOURCE_CONTACT_CORE_PASS_RASTER_PARTIAL_WALK_ART_FAIL",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "export_adapter_revisions": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 70414993
+  },
+  "dependencies": {
+    "E05W/inputs/material-hair-v2.blend": "6d3d0a01ef9846b72d91cc7f89a39bc4e117b00d2076ad05db60de6847e03b6d",
+    "E05W/v2/character.asset.json": "e742c6e7d3fa4e3303ec301dd6ae0ab4eaa7763b37bdc37ecad76476e7d17c34",
+    "E05M/author.py": "ab69f4adcee4511e2207690777721bd4afb4fcbef8c303346424203171862feb"
+  },
+  "report": "REPORT.md",
+  "review": "review.html",
+  "verdicts": {
+    "source": "219/219 frames+endpoints;2248911sampled vertices max1.001e-6m",
+    "core": "1095/1095checks,379308samples,min7.523mm; fullsurfacefit unqualified",
+    "bounds": "3456/3456after2400x500native layout; earlierfailurespreserved",
+    "raster": "1290/1296PASS; six startercast036heading135FAILfractionbar",
+    "controls": "20pxshift andwrongposeDETECTED",
+    "playback": "216framehashaudit;9normalwallclockvideos; encodedendpoints may truncate fractionalframe",
+    "review": "5/6; strict2.4svideo-durationcheckFAIL, playablecontrolswork",
+    "walk_art": "FAIL; severeheightchanges/splitlegs",
+    "suite": "INCOMPLETE"
+  },
+  "preparation_failures": [
+    "UV46float roundoff<=1.1921e-7 afterBlenderreload; originalcachedrenderbuffers used",
+    "NumPybool JSON serialization fixedexplicitly",
+    "Originalframing andwidth-only framingfailures preserved",
+    "Case-insensitive RECEIPT/receipt collision corrected beforecommit; fullreceipt retained"
+  ],
+  "commands": [
+    "blender -b ../E05W/inputs/material-hair-v2.blend --python-exit-code 1 --python export.py",
+    "python3 check-source.py",
+    "node capture-matrix.mjs",
+    "python3 analyze-matrix.py",
+    "node capture-playback.mjs",
+    "ffprobe/ffmpeg video metadata and nativeframe extraction",
+    "node review-check.mjs"
+  ],
+  "next_action": "Register E05Z stance-duration variable-shadowing source diagnosis/repair with bad Boolean-duration control, complete source motion and native playback validation. Preserve E05Y six cast normal/raster failures as separately owed."
+}

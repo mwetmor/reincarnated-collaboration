@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T17:10:20.134911+00:00",
+  "updated": "2026-09-11T17:29:19.646984+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05Y complete existing idle/walk/cast neutral palette transfer from E05W v2 source. Validate every-frame source feet/socket/gear fit, representative independent raster oracles and all8view normal-speed playback. Turn transitions remain separately owed. No roster scaling or full-pilot claim.",
+  "next_action": "Register E05Z stance-duration variable-shadowing source diagnosis/repair with bad Boolean-duration control, complete source motion and native playback validation. Preserve E05Y six cast normal/raster failures as separately owed.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -177,7 +177,10 @@
     "experiments/E05U/review.html",
     "experiments/E05W/REPORT.md",
     "experiments/E05W/RECEIPT.json",
-    "experiments/E05W/review.html"
+    "experiments/E05W/review.html",
+    "experiments/E05Y/REPORT.md",
+    "experiments/E05Y/RECEIPT.json",
+    "experiments/E05Y/review.html"
   ],
   "decisions_pending": [
     {
@@ -283,7 +286,8 @@
     "E07N internal door committed state now passes51headless,300pixel,42runtime and6review/UI checks. Smooth panel motion/partial-aperture collision remain unqualified; F01 door visually blends into wall and needs frame/hardware. Full chamber/pilot/VFX/serial combat still open.",
     "E07L geometry-derived directional pilot floor shadow passes320CPU witnesses and missing/stale controls, improving grounding. Hard flat-floor shadow only; self/vertical/area-light shadows, other actors, full character/chamber/gear/VFX art remain open. Original opaque-canvas alpha assertion failure preserved/adjudicated.",
     "E05U part-specific atlas and bracer/greave core fit improve gear;144idle comparisons and48framing checks pass in each revision. Purple shoulder material repaired. Full pilot art FAIL remains: broad smooth coat/material separation and simplified block-like rear hair. No animation/roster expansion. Latest source E05U/inputs/part-painted-gear-v2.blend and v2/character.asset.json.",
-    "E05W static working turnaround passes Codex F04direction rubric after ivory/navy/leather separation and rounded6component hairstyle;23source hair components explicit,17legacy locks disabled and preserved. Full clip motion/turns/animated gear fit, PBR/selflighting and production style remain unqualified. Latest source E05W/inputs/material-hair-v2.blend."
+    "E05W static working turnaround passes Codex F04direction rubric after ivory/navy/leather separation and rounded6component hairstyle;23source hair components explicit,17legacy locks disabled and preserved. Full clip motion/turns/animated gear fit, PBR/selflighting and production style remain unqualified. Latest source E05W/inputs/material-hair-v2.blend.",
+    "E05Y complete216frame palettes and219source/contact endpoints/core clearance pass, but walkartFAIL (splitlegs/severeheightchange; E05Mglobalstance overwritten by bool suspected).1290/1296rasterPASS;six startercast135fail unchangedfractionbar. Fullmotion/turns/fullsurfacegearfit unqualified. E05Z sourcegaitcontrol next."
   ],
   "running_jobs": [
     {
@@ -327,7 +331,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05W/RECEIPT.json",
+  "current_receipt": "experiments/E05Y/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

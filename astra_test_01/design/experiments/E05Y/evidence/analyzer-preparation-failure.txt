@@ -1,0 +1,1 @@
+First source/framing analysis completed computation but failed JSON serialization of numpy.bool_ in per-frame bounds record. Explicit bool conversion fixes serialization; no source/capture rerun or threshold change.
