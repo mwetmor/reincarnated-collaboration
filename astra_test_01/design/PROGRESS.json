@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T13:28:33.937249+00:00",
+  "updated": "2026-09-11T13:43:13.509504+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05V: eight fixed-C source-derived idle/cast views with existing pilot/gear, unchanged pivots/scale/light and E05G composition controls; then geometry-owned faction details and interactive props against E07S doorway/light controls.",
+  "next_action": "Register E07D: recognizable chest/crate geometry and state-dependent art/collision/loot on fixed E07S faction layout; preserve doorway/light controls and use E05H repaired pilot as candidate.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -135,7 +135,13 @@
     "experiments/E07R/review.html",
     "experiments/E07S/REPORT.md",
     "experiments/E07S/RECEIPT.json",
-    "experiments/E07S/review.html"
+    "experiments/E07S/review.html",
+    "experiments/E05V/REPORT.md",
+    "experiments/E05V/RECEIPT.json",
+    "experiments/E05V/review.html",
+    "experiments/E05H/REPORT.md",
+    "experiments/E05H/RECEIPT.json",
+    "experiments/E05H/review.html"
   ],
   "decisions_pending": [
     {
@@ -225,7 +231,9 @@
     "E05G 216 geometry samples and36 sparse raster composites pass; full gear frames/views, final advanced-outfit painting and gear lighting remain unqualified.",
     "E06F first frost sample lifecycle/socket passes; light-background blue detail, opaque materials, effect receiver light/occlusion, otherviews and24archetype transfer remain unqualified.",
     "E07R full-scene painting-to-layout FAIL after3/3calls: initial framing drifts; repair converts required characters/props to jars/blocks. Doorway-side semantics improve, precise art/state agreement unqualified. Stop whole-scene retries; change to geometry-owned surfaces.",
-    "E07S exit/region/ray/light/sampling mechanisms pass on both factions; full chamber art FAIL: plain geometry, cube chest/crate and mismatched actor shading. Material plates do not qualify finished architecture."
+    "E07S exit/region/ray/light/sampling mechanisms pass on both factions; full chamber art FAIL: plain geometry, cube chest/crate and mismatched actor shading. Material plates do not qualify finished architecture.",
+    "E05V eight idle directions expose rear head ambiguity and unpainted rounded gear; turnaround FAIL, 80-frame expansion stopped. Source diagnosis E05H follows.",
+    "E05H repairs hair-shell intersection causing rear scalp holes with6checks; full eight-view painted pilot/advanced-gear art remains unqualified. Repaired source inputs/head-shell-v1.blend, original unchanged."
   ],
   "running_jobs": [
     {
@@ -269,7 +277,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07S/RECEIPT.json",
+  "current_receipt": "experiments/E05H/RECEIPT.json",
   "generation_calls_this_suite": 27,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

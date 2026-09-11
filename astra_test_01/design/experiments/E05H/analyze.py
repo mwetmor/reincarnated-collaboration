@@ -1,0 +1,7 @@
+from pathlib import Path
+from PIL import Image
+import numpy as np,json,hashlib
+r=Path(__file__).parent;rows=[]
+for folder,mode in [('batch-01','ids'),('batch-02/head','ids'),('batch-02/head','bad-hide-hair')]:
+ a=np.array(Image.open(r/'evidence'/folder/f'head-h225-{mode}.png')).astype(int);skin=(a[:,:,1]>a[:,:,0]+30)&(a[:,:,2]>a[:,:,0]+30)&(a[:,:,3]>=250);hair=(a[:,:,0]>a[:,:,1]+30)&(a[:,:,2]>a[:,:,1]+30)&(a[:,:,3]>=250);rows.append({'case':folder+'/'+mode,'skin_pixels_roi':int(skin[75:125,40:137].sum()),'witnesses':[{'pixel':[x,y],'rgba':a[y,x].tolist(),'hair':bool(hair[y,x]),'skin':bool(skin[y,x])}for x,y in[(58,99),(117,101)]]})
+repair=json.loads((r/'evidence/repair-v1.json').read_text());source=r.parent/'E05G/inputs/gear-v1.blend';checks={'original_source_unchanged':hashlib.sha256(source.read_bytes()).hexdigest()==repair['source_sha256'],'non_hair_geometry_unchanged':repair['non_hair_sha256_before']==repair['non_hair_sha256_after'],'original_defect_detected':rows[0]['skin_pixels_roi']==960,'repair_clears_roi':rows[1]['skin_pixels_roi']==0,'repair_witnesses_hair':all(x['hair']for x in rows[1]['witnesses']),'hide_hair_control_rejected':rows[2]['skin_pixels_roi']>0 and all(x['skin']for x in rows[2]['witnesses'])};result={'roi':[40,75,137,125],'rows':rows,'checks':checks,'scope':'Scalp holes only; full painted pilot and gear remain unqualified'};(r/'evidence/pixel-validation.json').write_text(json.dumps(result,indent=2)+'\n');print(checks);assert all(checks.values())

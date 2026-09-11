@@ -1,0 +1,25 @@
+00:00.315  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/inputs/head-shell-v1.blend"
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/render-body.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('E05M neutral authoring world');world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.65,.65,.65,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.5;scene.world=world
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/render-body.py:28: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  hold=bpy.data.materials.new('E05G body holdout');hold.use_nodes=True;nodes=hold.node_tree.nodes;nodes.clear();h=nodes.new('ShaderNodeHoldout');output=nodes.new('ShaderNodeOutputMaterial');hold.node_tree.links.new(h.outputs[0],output.inputs['Surface'])
+00:01.595  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h000-base.png'
+00:02.637  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h000-full-head.png'
+00:03.696  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h045-base.png'
+00:04.748  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h045-full-head.png'
+00:05.792  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h090-base.png'
+00:06.852  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h090-full-head.png'
+00:07.885  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h135-base.png'
+00:08.906  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h135-full-head.png'
+00:09.953  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h180-base.png'
+00:10.983  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h180-full-head.png'
+00:12.060  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h225-base.png'
+00:13.100  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h225-full-head.png'
+00:14.145  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h270-base.png'
+00:15.176  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h270-full-head.png'
+00:16.226  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h315-base.png'
+00:17.252  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05H/evidence/batch-02/body/idle-000-h315-full-head.png'
+VIEW_RENDER_DONE 16 16.955595207982697
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

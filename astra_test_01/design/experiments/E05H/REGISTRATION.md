@@ -1,0 +1,9 @@
+# E05H — source head diagnosis and bounded source repair
+
+E05V exposes ambiguous pale patches on the rear head. Diagnose using actual source geometry and high-native-sampling renders, not enlarged screenshots. Preserve the source .blend, old E05V views, camera C and unmodified body/gear. Godot shipping target; Pixi test harness.
+
+Limits30active minutes,0imagegen/paid calls,2source authoring revisions,4capture batches,50MB. Batch01: four directions (45front/135side/225rear/315side), source head natural materials and flat object-category IDs, newly rendered at4× the old native sampling. Bounds/crop are computed from the union of evaluated head geometry in all four views before capture; no per-view reframing. Identify visible rear skin vs hair/texture ambiguity. Record which pixels/objects support the diagnosis; do not infer a UV defect just from small pixels.
+
+If geometry/material cause is clear and a local repair can preserve identity, one repair plus one bounded refinement may be tested using a new .blend copy. Head/neck/hair geometry only; body, weights outside head, actions, gear and original file remain unchanged. Do not substitute a new character. Before/after compare the same crop/camera/light and full-body eight views, with native50/150px presentation. Preserve any failures and do not call the full pilot qualified; gear and cloth art remain independently failed.
+
+Numerical: unchanged source file hash; same fixed camera projection residual<0.01sourcepx (same original-pixel equivalent); root/scale unchanged; no unintended non-head mesh/weight edits. Material-ID render is a diagnostic, not final artwork. Visual acceptance requires rear to read as coherent hair without skin/face-like holes, front identity and nape silhouette preserved, and no new distracting seam. If anatomy/paint ambiguity is unresolved, stop and specify changed method rather than brute-force repairs.

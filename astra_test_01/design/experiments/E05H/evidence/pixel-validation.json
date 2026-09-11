@@ -1,0 +1,121 @@
+{
+  "roi": [
+    40,
+    75,
+    137,
+    125
+  ],
+  "rows": [
+    {
+      "case": "batch-01/ids",
+      "skin_pixels_roi": 960,
+      "witnesses": [
+        {
+          "pixel": [
+            58,
+            99
+          ],
+          "rgba": [
+            134,
+            198,
+            198,
+            255
+          ],
+          "hair": false,
+          "skin": true
+        },
+        {
+          "pixel": [
+            117,
+            101
+          ],
+          "rgba": [
+            134,
+            197,
+            198,
+            255
+          ],
+          "hair": false,
+          "skin": true
+        }
+      ]
+    },
+    {
+      "case": "batch-02/head/ids",
+      "skin_pixels_roi": 0,
+      "witnesses": [
+        {
+          "pixel": [
+            58,
+            99
+          ],
+          "rgba": [
+            201,
+            117,
+            202,
+            255
+          ],
+          "hair": true,
+          "skin": false
+        },
+        {
+          "pixel": [
+            117,
+            101
+          ],
+          "rgba": [
+            201,
+            116,
+            202,
+            255
+          ],
+          "hair": true,
+          "skin": false
+        }
+      ]
+    },
+    {
+      "case": "batch-02/head/bad-hide-hair",
+      "skin_pixels_roi": 4058,
+      "witnesses": [
+        {
+          "pixel": [
+            58,
+            99
+          ],
+          "rgba": [
+            134,
+            197,
+            198,
+            255
+          ],
+          "hair": false,
+          "skin": true
+        },
+        {
+          "pixel": [
+            117,
+            101
+          ],
+          "rgba": [
+            134,
+            197,
+            198,
+            255
+          ],
+          "hair": false,
+          "skin": true
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "original_source_unchanged": true,
+    "non_hair_geometry_unchanged": true,
+    "original_defect_detected": true,
+    "repair_clears_roi": true,
+    "repair_witnesses_hair": true,
+    "hide_hair_control_rejected": true
+  },
+  "scope": "Scalp holes only; full painted pilot and gear remain unqualified"
+}

@@ -1,0 +1,7 @@
+# Source repair1 — hair shell / scalp clearance
+
+The high-native-sampling category render identifies960 opaque cyan skin pixels on the rear head (heading225°, pixel bounds[48,83]–[128,117]) between hair locks and bun. This is exposed skull through the hair shell, not a lighting illusion or an inferred UV cause. Freeze left/right witness pixels[58,99] and[117,101], plus ROI[40,75,137,125]. Repair passes this defect only if both witnesses become hair and no opaque skin remains within the ROI. Skin classifier on category-ID buffers: alpha≥250, G−R>30 and B−R>30; not a native-alpha extraction. Hide-hair negative control must expose the skull and fail the same criteria.
+
+Change only Swept hair mass vertex radial clearance relative to the actual source skull at each height, using a source mesh BVH ray. Keep hairline vertex heights, weights, actions and all non-hair meshes unchanged. Minimum scalp clearance0.004source meters; no character-scale adjustment. One separate .blend output. Preserve the original file hash and record before/after non-hair geometry hashes and changed hair vertices. Fixed camera/light/crop: reuse original batch01 crop for diagnosis, and original full-body crop for turnaround.
+
+Batch02 is one predeclared group: repaired four-view natural/ID closeups + one hide-hair control, then eight idle base/full-gear full-body views. No adapting within that group. Review before using a second repair revision. Full garment/gear art remains outside this scalp repair.

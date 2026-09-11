@@ -142,3 +142,8 @@ they do not establish a finished Godot port, shared lighting or animated VFX.
 ### E07S — surface sampling is separate from painted architecture
 
 Two opaque material plates on exported geometry preserved source-camera exit witnesses, collision and sampled light blocking in native and fresh3× Pixi buffers. Declared mipmapped sampling reduced minification noise without changing source pixels. This did not supply missing architectural or prop detail: typed chest/crate cubes and mismatched actor shading still fail complete art. Preserve that distinction; use geometry-owned detail and separately authored prop states next. [Evidence](../../../../astra_test_01/design/experiments/E07S/REPORT.md).
+
+
+### E05V/E05H — inspect rear source geometry before blaming texture projection
+
+Eight fixed-camera source views exposed face-like marks on the rear head. New native closeups and category-ID renders proved the hair shell intersected the skull. A347-vertex radial clearance repair removed960 exposed-skin ROI pixels; the hide-hair negative control exposed4058. Original source/non-hair geometry preserved. This repairs scalp coverage, not painted pilot or gear quality. [Evidence](../../../../astra_test_01/design/experiments/E05H/REPORT.md).
