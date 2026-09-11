@@ -1,0 +1,10 @@
+00:00.625  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05AA/inputs/linear-channels-v1.blend"
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05AA/preflight.py", line 134
+    name=f'{clip}-{at:05.1f}'.replace('.','_');path=assets/(name+'-oracle.bin');path.write_bytes(oracle.astype('<f4').tobytes());oracles.append({'id':name,'clip':clip,'frame':at,'pose0':accepted['clips'][clip]['frame_start']+frame,'pose1':accepted['clips'][clip]['frame_start']+frame+1 if frame+1<count elseaccepted['clips'][clip]['endpoint_pose_index'],'alpha':alpha,'oracle':{'path':str(path.relative_to(HERE)),'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}})
+                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression
+
+Error: script failed, file: 'astra_test_01/design/experiments/E05AA/preflight.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

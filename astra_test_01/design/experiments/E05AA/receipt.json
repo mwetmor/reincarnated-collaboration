@@ -1,0 +1,37 @@
+{
+  "experiment": "E05AA",
+  "started_at": "2026-09-11T23:11:01.601603+00:00",
+  "status": "PAUSED_BY_USER_SOURCE_REPORT_SERIALIZATION_FAILED",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "source_revisions": 1,
+    "consumer_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_revisions": 1,
+    "consumer_builds": 0,
+    "capture_batches": 0,
+    "paid_service_usd": 0,
+    "active_minutes_before_pause": 5.9781953833333334
+  },
+  "dependencies": {
+    "experiments/E05D/inputs/trajectory-b.blend": "7ec53f39948f94548f4946ec8b72eb7baddc208373396746a7c7890fbd600c8f",
+    "experiments/E08N/character.asset.json": "b160c8a5af3145f85de336184152ae8013dd7e75840ee540a67cb23eaafbf055",
+    "experiments/E05F/neutral-sampler/index.mjs": "306fb93892bc9a10761a9f3c6103bdc308273a18e8ea52ee3570e01e64b034b4"
+  },
+  "paused_at": "2026-09-11T23:17:00.293326+00:00",
+  "pause_reason": "Matt requested pause and walkthrough; no automatic continuation.",
+  "results": {
+    "source_revision": "102900 key values unchanged; original source unchanged",
+    "endpoint_bindings": "6 source endpoint checks recorded",
+    "fractional_probe_progress": "Log reached864/864; aggregate report did not serialize, so full source gate remains unqualified",
+    "failure": "preflight.py timer variable start was overwritten by endpoint palette ndarray; report seconds becomes ndarray and json.dumps fails",
+    "consumer_builds": 0,
+    "generation_calls": 0
+  },
+  "next_action_on_explicit_resume": "Preserve failed preflight script/log and all partial output hashes. Rename endpoint start/end matrix variables to avoid clobbering timer; compile-check; rerun source evaluation against the unchanged revised blend, writing recovery receipts and checking regenerated buffer bytes against paused artifacts. Obtain full864-sample aggregate before consumer expansion. Exclude paused wall time from60-active-minute budget."
+}

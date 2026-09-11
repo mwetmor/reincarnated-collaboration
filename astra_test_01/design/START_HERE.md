@@ -1,3 +1,6 @@
+> **PAUSED BY MATT — 2026-09-11T23:17:00.293326+00:00**
+> Do not resume automatically. All owned test/server jobs are stopped. Read [pause checkpoint](experiments/E05AA/PAUSED.md); current working chamber is [E07AB](experiments/E07AB/review.html). Older continuation instructions below are historical until Matt resumes.
+
 # Painted-world test suite — start here
 
 This is the continuation entrypoint for the user-authorized painted 2D world

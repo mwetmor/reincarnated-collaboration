@@ -1,0 +1,382 @@
+{
+  "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05D/inputs/trajectory-b.blend",
+  "source_sha256": "7ec53f39948f94548f4946ec8b72eb7baddc208373396746a7c7890fbd600c8f",
+  "new_source_sha256": "52c9abe79d7b48303e101344d372c64cecaf5bbe41d38623d961ad5f1a5befc3",
+  "keys_exact": true,
+  "key_count": 102900,
+  "key_values_sha256": "6c4579077b79842ca9067298504287319b1e7c7f2dd8c2a35521a79697dda84a",
+  "source_unchanged": true,
+  "inventory": [
+    {
+      "clip": "stop_00",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    },
+    {
+      "clip": "start_00",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    },
+    {
+      "clip": "stop_12",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    },
+    {
+      "clip": "stop_24",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    },
+    {
+      "clip": "start_24",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    },
+    {
+      "clip": "stop_36",
+      "old": {
+        "BEZIER": 17150
+      },
+      "new": {
+        "LINEAR": 17150
+      }
+    }
+  ],
+  "bone_conventions": [
+    {
+      "name": "Root",
+      "parent": null,
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Hips",
+      "parent": "Root",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Spine",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Chest",
+      "parent": "Spine",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Neck",
+      "parent": "Chest",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Head",
+      "parent": "Neck",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "UpperArm.L",
+      "parent": "Chest",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Forearm.L",
+      "parent": "UpperArm.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Hand.L",
+      "parent": "Forearm.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Index.L",
+      "parent": "Hand.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Middle.L",
+      "parent": "Hand.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Ring.L",
+      "parent": "Hand.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Little.L",
+      "parent": "Hand.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Thumb.L",
+      "parent": "Hand.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "UpperArm.R",
+      "parent": "Chest",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Forearm.R",
+      "parent": "UpperArm.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Hand.R",
+      "parent": "Forearm.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Index.R",
+      "parent": "Hand.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Middle.R",
+      "parent": "Hand.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Ring.R",
+      "parent": "Hand.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Little.R",
+      "parent": "Hand.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Thumb.R",
+      "parent": "Hand.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Thigh.L",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Shin.L",
+      "parent": "Thigh.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Foot.L",
+      "parent": "Shin.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Toe.L",
+      "parent": "Foot.L",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Coat.Front.L",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Coat.Back.L",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Thigh.R",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Shin.R",
+      "parent": "Thigh.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Foot.R",
+      "parent": "Shin.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Toe.R",
+      "parent": "Foot.R",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Coat.Front.R",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Coat.Back.R",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    },
+    {
+      "name": "Tabard",
+      "parent": "Hips",
+      "inherit_scale": "FULL",
+      "use_inherit_rotation": true,
+      "use_local_location": true,
+      "rotation_mode": "QUATERNION",
+      "constraints": []
+    }
+  ]
+}
