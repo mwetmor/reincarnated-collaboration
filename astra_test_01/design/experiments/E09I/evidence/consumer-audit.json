@@ -1,0 +1,59 @@
+{
+  "method": "Read actual snapshotted D4 skill projection keys; this is a presentation consumer scope comparison, not a claim that all combat consumers were searched",
+  "rows": [
+    {
+      "source": "godot-locked",
+      "skill_fields_retained_by_existing_D4_consumer": [
+        "id",
+        "name",
+        "flavor_text",
+        "role",
+        "canonical_element",
+        "geometry",
+        "range_m",
+        "damage_multiplier",
+        "effect_category",
+        "composition_mode",
+        "effects"
+      ],
+      "present_in_source_but_not_D4_skill_projection": {
+        "timing": 648,
+        "cooldown_seconds": 648,
+        "energy_cost": 648,
+        "triggers": 648,
+        "color_value": 648,
+        "damage_scaling_type": 648,
+        "tier_coefficient": 648
+      },
+      "explicit_footprint_radius_fields": 0,
+      "event_state_stream_keys": []
+    },
+    {
+      "source": "engine-w3-draft",
+      "skill_fields_retained_by_existing_D4_consumer": [
+        "id",
+        "name",
+        "flavor_text",
+        "role",
+        "canonical_element",
+        "geometry",
+        "range_m",
+        "damage_multiplier",
+        "effect_category",
+        "composition_mode",
+        "effects"
+      ],
+      "present_in_source_but_not_D4_skill_projection": {
+        "timing": 648,
+        "cooldown_seconds": 648,
+        "energy_cost": 648,
+        "triggers": 648,
+        "color_value": 648,
+        "damage_scaling_type": 648,
+        "tier_coefficient": 648
+      },
+      "explicit_footprint_radius_fields": 0,
+      "event_state_stream_keys": []
+    }
+  ]
+}

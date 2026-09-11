@@ -157,3 +157,8 @@ Exit/light witnesses passed while crate braces visibly disappeared behind their 
 ### E07Z — prove depth with pixels and an independent source oracle
 
 The installed Pixi context supplied24 depth bits and passed draw-order/clear controls. Homogeneous camera depth plus opaque mesh depth tests repaired21/21 brace/band witnesses in normal and reversed order; painter controls matched12/21 and0/21. Original geometry/materials unchanged. This does not qualify actor sprites or translucent effects. [Evidence](../../../../astra_test_01/design/experiments/E07Z/REPORT.md).
+
+
+### E09I — preserve the full source contract instead of copying a view projection
+
+The actual Godot copy is LOCKED while current engine W3 is DRAFT. String effects/timing are intentional in the legacy schema. D4 omits timing/cooldown/energy from its presentation projection; do not adopt it as full combat interchange. Lossless neutral ingestion preserved both648-skill snapshots with23 checks, leaving180 large_aoe bindings unresolved instead of inventing radius from range. [Evidence](../../../../astra_test_01/design/experiments/E09I/REPORT.md).

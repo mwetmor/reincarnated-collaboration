@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "godot-locked-source-hash": true,
+    "godot-locked-all-fields-preserved": true,
+    "godot-locked-finite-json-roundtrip": true,
+    "godot-locked-no-caller-mutation": true,
+    "godot-locked-unknown-field-preserved": true,
+    "godot-locked-duplicate-kit-rejected": true,
+    "godot-locked-duplicate-skill-rejected": true,
+    "godot-locked-unknown-geometry-unbound": true,
+    "godot-locked-nonfinite-rejected": true,
+    "godot-locked-faction-does-not-alter-mechanics": true,
+    "godot-locked-mechanical-overlay-rejected": true,
+    "engine-w3-draft-source-hash": true,
+    "engine-w3-draft-all-fields-preserved": true,
+    "engine-w3-draft-finite-json-roundtrip": true,
+    "engine-w3-draft-no-caller-mutation": true,
+    "engine-w3-draft-unknown-field-preserved": true,
+    "engine-w3-draft-duplicate-kit-rejected": true,
+    "engine-w3-draft-duplicate-skill-rejected": true,
+    "engine-w3-draft-unknown-geometry-unbound": true,
+    "engine-w3-draft-nonfinite-rejected": true,
+    "engine-w3-draft-faction-does-not-alter-mechanics": true,
+    "engine-w3-draft-mechanical-overlay-rejected": true,
+    "no-rendering-imports": true
+  },
+  "count": 23,
+  "reports": [
+    {
+      "id": "godot-locked",
+      "source_schema_status": "LOCKED",
+      "kits": 54,
+      "skills": 648,
+      "geometries": {
+        "large_aoe": 180,
+        "single_target": 468
+      },
+      "bindings": {
+        "CANDIDATE_SEMANTIC_MATCH": 468,
+        "UNBOUND": 180
+      },
+      "canonical_elements": {
+        "earth": 112,
+        "fire": 64,
+        "holy": 72,
+        "lightning": 68,
+        "physical": 144,
+        "shadow": 68,
+        "water": 52,
+        "wind": 68
+      },
+      "timing_strings": 648,
+      "effect_string_records": 648,
+      "encounters_reserved": false,
+      "gear_scaffold_records": 150,
+      "gear_noncanonical_records": 0
+    },
+    {
+      "id": "engine-w3-draft",
+      "source_schema_status": "DRAFT-pending-drax-handshake",
+      "kits": 54,
+      "skills": 648,
+      "geometries": {
+        "large_aoe": 180,
+        "single_target": 468
+      },
+      "bindings": {
+        "CANDIDATE_SEMANTIC_MATCH": 468,
+        "UNBOUND": 180
+      },
+      "canonical_elements": {
+        "earth": 112,
+        "fire": 64,
+        "holy": 72,
+        "lightning": 68,
+        "physical": 144,
+        "shadow": 68,
+        "water": 52,
+        "wind": 68
+      },
+      "timing_strings": 648,
+      "effect_string_records": 648,
+      "encounters_reserved": true,
+      "gear_scaffold_records": 150,
+      "gear_noncanonical_records": 60
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# E09I — actual content import boundary and consumer audit
+
+Read-only upstream: engine/Godot charters, engine foundation/output docs, locked bundle schema and W3 delta, actual Godot loader/verb realizer were inspected. No Godot scene/transform work, upstream changes, external messages, emission jobs or paid calls. Godot shipping target; Pixi test harness.
+
+Limits20active minutes after registration,0generation/paid calls,2local source-search passes total (already used to locate schema/assembler/consumer),1saved-review capture,15MB. Read routed source files adaptively; do not repeat broad searches. Snapshot the actual LOCKED Godot-consumed bundle and current engine W3 draft for reproducible ingestion. Retain source hashes and original JSON bytes. Do not treat older Phase0 prose or stale document status as current file state.
+
+Implement engine-neutral lossless JSON ingestion, unique kit/skill identifiers, finite JSON validation and candidate visual-binding indexing against E06D's existing catalog. Preserve every original field, including unknown fields, effects/timing strings, scaffold and provisional markers. An exact known geometry may receive a candidate archetype ID; unknown geometry remains UNBOUND. Never guess radius from range, infer combat damage, replace timing with renderer feel, or use a silent white palette fallback. This is a content-data boundary proof, not a new combat engine or evidence that the full combat contract is present.
+
+Headless checks: source byte hashes; deep JSON roundtrip; no caller mutation; duplicate kit/skill rejection; unknown field preservation; unbound geometry remains explicitly unresolved; non-finite data rejected; faction presentation labels cannot alter copied mechanics; no rendering imports. Compare source/current consumer retention for timing, cooldown and energy fields. If authoritative combat state/events or footprint dimensions are absent, record the specific gap and the existing consumer scope rather than reimplementing rules in Pixi.
+
+Review is saved browser HTML. It compares the two actual artifacts and reports exact binding coverage/held fields, without shipping/curation approval claims. E7 shipping curation remains Matt's stage; this is an existing-content test sample.

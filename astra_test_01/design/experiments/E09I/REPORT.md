@@ -1,0 +1,15 @@
+# E09I — lossless pipeline-content intake passes; full combat binding remains open
+
+Scoped content import PASS23 headless checks. The actual Godot-consumed bundle is LOCKED and differs from the engine output currently labelled DRAFT. Both snapshots contain54kits/648skills/40monsters/150gear. Original bytes/hashes and the actual consumer scripts are preserved; no upstream files or pipelines were changed or run.
+
+The locked schema intentionally defines effects as serialized strings and timing as a serialized string. Their presence is not corruption. The neutral intake preserves all raw fields and source status, plus unknown future fields, without evaluating strings. Duplicate identifiers, non-finite values and mechanical fields in faction presentation overlays are rejected. JSON roundtrip and caller-immutability controls pass. It imports no rendering code and supplies no new combat rules.
+
+Candidate semantic binding:468 single_target skills match E06D's existing archetype ID;180 large_aoe skills remain explicitly UNBOUND. Neither match status qualifies artwork or playback. No explicit radius fields or authoritative combat event/state stream are present in these bundle roots/skill rows. Range is preserved as range; it is not invented as AoE radius. Kit theme element and skill canonical element are kept separately; no shadow/dark/water/frost alias or white fallback is introduced.
+
+The existing D4 Godot loader is deliberately a presentation projection. Its skill output retains geometry/range/effects but omits source timing, cooldown and energy cost. The adjacent verb realizer supplies windup from a range-profile presentation table. These are concrete reasons not to adopt that projection as the complete combat contract for the painted harness. This audit did not execute every combat consumer and does not claim the full pipeline lacks richer data elsewhere.
+
+All150 gear records in each snapshot are scaffold-marked; the W3 draft additionally has60 non-canonical gear records and an encounters reserved-marker object. Four keys in that object are metadata, not four encounter records. The snapshot's schema lock is separate from current shipping curation/qualification. This is an existing-content test, not an emission or shipping approval.
+
+Next data action: trace the authoritative combat/state consumer and its event/footprint source under a separately bounded changed source route; do not repeat the exhausted broad schema/consumer searches here. If the painted harness needs structured footprint/release/contact descriptors, define the handoff against that source. Do not reverse-engineer game rules from renderer feel defaults. Independent art/animation/VFX/depth tests remain authorized and unblocked while this full integration gap stays explicit.
+
+[Review](review.html) · [inputs and hashes](INPUTS.json) · [headless checks](evidence/validation.json) · [consumer audit](evidence/consumer-audit.json) · [neutral intake](boundary/ingest.mjs) · [receipt](RECEIPT.json).
