@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-09-11T11:29:51.676Z",
+  "checks": {},
+  "samples": [],
+  "errors": [
+    "[Loader.load] Failed to load http://127.0.0.1:8770/E04/art/stone.png.\nError: [WorkerManager.loadImageBitmap] Failed to fetch http://127.0.0.1:8770/E04/art/stone.png: 404 File not found",
+    "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body[data-ready=true]') to be visible\u001b[22m\n\n    at /Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E04S/capture.mjs:4:181"
+  ],
+  "finished_at": "2026-09-11T11:30:22.250Z",
+  "owned_bytes": 6280698
+}

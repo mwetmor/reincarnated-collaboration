@@ -1,0 +1,45 @@
+{
+  "experiment": "E04S",
+  "status": "SCOPED_SURFACE_AND_RECEIVER_PASS; SCENE_ART_INCOMPLETE",
+  "started_at": "2026-09-11T11:25:09.328621+00:00",
+  "limits": {
+    "active_minutes": 60,
+    "capture_batches": 4,
+    "disk_bytes": 100000000,
+    "generation_calls": 2
+  },
+  "used": {
+    "generation_calls": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_final_index": 15748594
+  },
+  "next_action": "E05M body-motion/idle/cast source pilot. No second chamber or broad roster until full pilot passes.",
+  "preserved_failures": [
+    "batch-01: new surface manifest inherited E04 path_base; sourceURL404 before render. Corrected new surface manifests only."
+  ],
+  "finished_at": "2026-09-11T11:35:15.323440+00:00",
+  "elapsed_wall_minutes": 10.099919283333332,
+  "art_intake": [
+    {
+      "path": "art/stone.png",
+      "raw_source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-3ec3a932-4388-433d-b1f4-072e56c0a058.png",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "97c94e0673a0a53ce3998dd489c6805bf72e9f5ea614c91930ece77bfec56d3b"
+    },
+    {
+      "path": "art/soil.png",
+      "raw_source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-a80b0112-1f1b-4c8a-b96b-b6628eaf809a.png",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "1a1c230af6d44dddda8f2c7e783bcb8a4f8bfd9cdaea54c744e8e1442d20193c"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "experiment": "E05T",
-  "status": "RENDERING_TEXTURE_V2_FULL_CYCLE",
+  "status": "SCOPED_TEXTURE_BOUNDARY_PASS; SOURCE_STYLE_AND_FULL_PILOT_UNQUALIFIED",
   "started_at": "2026-09-11T11:14:57.012895+00:00",
   "limits": {
     "active_minutes": 60,
@@ -10,9 +10,35 @@
   },
   "used": {
     "generation_calls": 2,
-    "capture_batches": 3,
-    "paid_service_usd": 0
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes": 30566178,
+    "owned_bytes_before_final_index": 30566398
   },
-  "next_action": "Render front/back texture guide from actual source geometry, inspect before imagegen.",
-  "failure": "V1 contains108\u2013128 visible magenta pixels in each of four native diagnostic poses. Projection samples background near garment/boot sides; source silhouette preservation alone does not supply side padding."
+  "next_action": "E04S clean chamber material/receiver proof; separately revise character source shape/motion/UV rather than repeat exhausted texture prompts.",
+  "failure": "V1 contains108\u2013128 visible magenta pixels in each of four native diagnostic poses. Projection samples background near garment/boot sides; source silhouette preservation alone does not supply side padding.",
+  "finished_at": "2026-09-11T11:24:27.036812+00:00",
+  "elapsed_wall_minutes": 9.500405283333333,
+  "art_intake": [
+    {
+      "path": "art/texture-v1.png",
+      "raw_source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-03e0f955-5a3a-40bb-a581-dd2b953704d7.png",
+      "mode": "RGB",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "a7f8d575da7ddf8504f81ab9d08cd95d26d517d78b3f1602f48a9436f1c235c2"
+    },
+    {
+      "path": "art/texture-v2.png",
+      "raw_source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-2b5e503a-d1dc-4c1c-860c-07d3be07d740.png",
+      "mode": "RGB",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "08edafe0c03d6ad5dc131111eccaaeb3fa7a984342c6109f38e840ab9607f581"
+    }
+  ]
 }

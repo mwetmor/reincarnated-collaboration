@@ -1,0 +1,1311 @@
+{
+  "started_at": "2026-09-11T11:31:42.489Z",
+  "checks": {
+    "native_dimensions": true,
+    "unique_reward": true,
+    "no_errors": true
+  },
+  "samples": [
+    {
+      "light": "B",
+      "snapshot": {
+        "json_state": {
+          "schema_version": 1,
+          "chamber": {
+            "schema": 1,
+            "state": {
+              "door": "locked",
+              "crate": "intact",
+              "chest": "closed",
+              "loot": "absent",
+              "rewards": [],
+              "picked": [],
+              "events": [],
+              "navVersion": 0
+            },
+            "time": 0,
+            "pending": null
+          },
+          "actors": {
+            "mage": {
+              "point": [
+                0,
+                0
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            },
+            "monster": {
+              "point": [
+                3.6,
+                2.7
+              ],
+              "radius": 0.65,
+              "height": 2.7,
+              "effects": {}
+            },
+            "npc": {
+              "point": [
+                -3.7,
+                -2.7
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            }
+          },
+          "routes": {
+            "mage": [],
+            "monster": [],
+            "npc": []
+          }
+        },
+        "state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "rendered_state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "route": [],
+        "model_time": 0,
+        "pixi": "8.20.1",
+        "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+        "lighting_mode": "B",
+        "surfaces": [
+          {
+            "id": "stone",
+            "world": [
+              [
+                -5,
+                -4,
+                0
+              ],
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ],
+              [
+                -5,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                464.42033401519967,
+                123.1442133949173
+              ],
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ],
+              [
+                235.07197290297864,
+                268.72381067881304
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          },
+          {
+            "id": "soil",
+            "world": [
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                5,
+                -4,
+                0
+              ],
+              [
+                5,
+                4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                738.7346441121247,
+                327.6568510171801
+              ],
+              [
+                503.94943666630667,
+                538.846009124212
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          }
+        ],
+        "point_light": {
+          "position": [
+            0,
+            -0.5,
+            2.4
+          ],
+          "radius_m": 5,
+          "strength": 1.4,
+          "warm": "#ffc075",
+          "cool": "#75bfff"
+        },
+        "shadows": {
+          "owners": [
+            "partition-south",
+            "partition-north",
+            "pillar",
+            "door",
+            "crate",
+            "chest",
+            "lintel",
+            "actor:mage",
+            "actor:monster",
+            "actor:npc"
+          ],
+          "contacts": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "body_anchors": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "mode": "B",
+          "point_light_receiver": "ground sampled; actors use approximate plane without occlusion qualification"
+        },
+        "resolution": 3,
+        "buffer_size": [
+          2880,
+          1920
+        ],
+        "draw_count": 2,
+        "frame_ms": {
+          "p50": 16.69999999999999,
+          "p95": 49.89999999999998
+        },
+        "composition_cpu_ms": {
+          "p50": 58.90000003576279,
+          "p95": 58.90000003576279
+        }
+      }
+    },
+    {
+      "light": "warm",
+      "snapshot": {
+        "json_state": {
+          "schema_version": 1,
+          "chamber": {
+            "schema": 1,
+            "state": {
+              "door": "locked",
+              "crate": "intact",
+              "chest": "closed",
+              "loot": "absent",
+              "rewards": [],
+              "picked": [],
+              "events": [],
+              "navVersion": 0
+            },
+            "time": 0,
+            "pending": null
+          },
+          "actors": {
+            "mage": {
+              "point": [
+                0,
+                0
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            },
+            "monster": {
+              "point": [
+                3.6,
+                2.7
+              ],
+              "radius": 0.65,
+              "height": 2.7,
+              "effects": {}
+            },
+            "npc": {
+              "point": [
+                -3.7,
+                -2.7
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            }
+          },
+          "routes": {
+            "mage": [],
+            "monster": [],
+            "npc": []
+          }
+        },
+        "state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "rendered_state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "route": [],
+        "model_time": 0,
+        "pixi": "8.20.1",
+        "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+        "lighting_mode": "warm",
+        "surfaces": [
+          {
+            "id": "stone",
+            "world": [
+              [
+                -5,
+                -4,
+                0
+              ],
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ],
+              [
+                -5,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                464.42033401519967,
+                123.1442133949173
+              ],
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ],
+              [
+                235.07197290297864,
+                268.72381067881304
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          },
+          {
+            "id": "soil",
+            "world": [
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                5,
+                -4,
+                0
+              ],
+              [
+                5,
+                4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                738.7346441121247,
+                327.6568510171801
+              ],
+              [
+                503.94943666630667,
+                538.846009124212
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          }
+        ],
+        "point_light": {
+          "position": [
+            0,
+            -0.5,
+            2.4
+          ],
+          "radius_m": 5,
+          "strength": 1.4,
+          "warm": "#ffc075",
+          "cool": "#75bfff"
+        },
+        "shadows": {
+          "owners": [
+            "partition-south",
+            "partition-north",
+            "pillar",
+            "door",
+            "crate",
+            "chest",
+            "lintel",
+            "actor:mage",
+            "actor:monster",
+            "actor:npc"
+          ],
+          "contacts": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "body_anchors": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "mode": "warm",
+          "point_light_receiver": "ground sampled; actors use approximate plane without occlusion qualification",
+          "point_light_cells": {
+            "lit": 886,
+            "blocked": 424,
+            "step_m": 0.2
+          }
+        },
+        "resolution": 3,
+        "buffer_size": [
+          2880,
+          1920
+        ],
+        "draw_count": 3,
+        "frame_ms": {
+          "p50": 16.69999999999999,
+          "p95": 50
+        },
+        "composition_cpu_ms": {
+          "p50": 19.30000001192093,
+          "p95": 58.90000003576279
+        }
+      }
+    },
+    {
+      "light": "cool",
+      "snapshot": {
+        "json_state": {
+          "schema_version": 1,
+          "chamber": {
+            "schema": 1,
+            "state": {
+              "door": "locked",
+              "crate": "intact",
+              "chest": "closed",
+              "loot": "absent",
+              "rewards": [],
+              "picked": [],
+              "events": [],
+              "navVersion": 0
+            },
+            "time": 0,
+            "pending": null
+          },
+          "actors": {
+            "mage": {
+              "point": [
+                0,
+                0
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            },
+            "monster": {
+              "point": [
+                3.6,
+                2.7
+              ],
+              "radius": 0.65,
+              "height": 2.7,
+              "effects": {}
+            },
+            "npc": {
+              "point": [
+                -3.7,
+                -2.7
+              ],
+              "radius": 0.35,
+              "height": 2,
+              "effects": {}
+            }
+          },
+          "routes": {
+            "mage": [],
+            "monster": [],
+            "npc": []
+          }
+        },
+        "state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "rendered_state": {
+          "door": "locked",
+          "crate": "intact",
+          "chest": "closed",
+          "loot": "absent",
+          "rewards": [],
+          "picked": [],
+          "events": [],
+          "navVersion": 0
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "route": [],
+        "model_time": 0,
+        "pixi": "8.20.1",
+        "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+        "lighting_mode": "cool",
+        "surfaces": [
+          {
+            "id": "stone",
+            "world": [
+              [
+                -5,
+                -4,
+                0
+              ],
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ],
+              [
+                -5,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                464.42033401519967,
+                123.1442133949173
+              ],
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ],
+              [
+                235.07197290297864,
+                268.72381067881304
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          },
+          {
+            "id": "soil",
+            "world": [
+              [
+                0,
+                -4,
+                0
+              ],
+              [
+                5,
+                -4,
+                0
+              ],
+              [
+                5,
+                4,
+                0
+              ],
+              [
+                0,
+                4,
+                0
+              ]
+            ],
+            "screen": [
+              [
+                589.73378126805,
+                216.5705593196464
+              ],
+              [
+                738.7346441121247,
+                327.6568510171801
+              ],
+              [
+                503.94943666630667,
+                538.846009124212
+              ],
+              [
+                356.1848566063471,
+                390.3973713711757
+              ]
+            ],
+            "source_size": [
+              1254,
+              1254
+            ]
+          }
+        ],
+        "point_light": {
+          "position": [
+            0,
+            -0.5,
+            2.4
+          ],
+          "radius_m": 5,
+          "strength": 1.4,
+          "warm": "#ffc075",
+          "cool": "#75bfff"
+        },
+        "shadows": {
+          "owners": [
+            "partition-south",
+            "partition-north",
+            "pillar",
+            "door",
+            "crate",
+            "chest",
+            "lintel",
+            "actor:mage",
+            "actor:monster",
+            "actor:npc"
+          ],
+          "contacts": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "body_anchors": {
+            "mage": [
+              480.99979248000005,
+              297.49956663599994
+            ],
+            "monster": [
+              502.5210573147706,
+              457.43480703883245
+            ],
+            "npc": [
+              461.44404525624793,
+              168.15290371908077
+            ]
+          },
+          "mode": "cool",
+          "point_light_receiver": "ground sampled; actors use approximate plane without occlusion qualification",
+          "point_light_cells": {
+            "lit": 886,
+            "blocked": 424,
+            "step_m": 0.2
+          }
+        },
+        "resolution": 3,
+        "buffer_size": [
+          2880,
+          1920
+        ],
+        "draw_count": 4,
+        "frame_ms": {
+          "p50": 16.69999999999999,
+          "p95": 50
+        },
+        "composition_cpu_ms": {
+          "p50": 19.30000001192093,
+          "p95": 58.90000003576279
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "demo": {
+    "json_state": {
+      "schema_version": 1,
+      "chamber": {
+        "schema": 1,
+        "state": {
+          "door": "open",
+          "crate": "broken",
+          "chest": "looted",
+          "loot": "picked",
+          "rewards": [
+            "chest:reward:1"
+          ],
+          "picked": [
+            "chest:reward:1"
+          ],
+          "events": [
+            {
+              "time": 0.7834000000000003,
+              "type": "unlocked",
+              "id": "door"
+            },
+            {
+              "time": 1.1999999999999997,
+              "type": "opening",
+              "id": "door"
+            },
+            {
+              "time": 1.6999999999999997,
+              "type": "open",
+              "id": "door"
+            },
+            {
+              "time": 4.199899999999996,
+              "type": "close-rejected-occupied",
+              "id": "door"
+            },
+            {
+              "time": 4.999800000000005,
+              "type": "closing",
+              "id": "door"
+            },
+            {
+              "time": 5.499800000000009,
+              "type": "closed",
+              "id": "door"
+            },
+            {
+              "time": 5.9998000000000165,
+              "type": "opening",
+              "id": "door"
+            },
+            {
+              "time": 6.499800000000023,
+              "type": "open",
+              "id": "door"
+            },
+            {
+              "time": 6.99980000000003,
+              "type": "broken",
+              "id": "crate"
+            },
+            {
+              "time": 7.99970000000004,
+              "type": "reward",
+              "id": "chest:reward:1"
+            },
+            {
+              "time": 9.499700000000015,
+              "type": "pickup",
+              "id": "chest:reward:1"
+            }
+          ],
+          "navVersion": 5
+        },
+        "time": 11.999599999999981,
+        "pending": null
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "routes": {
+        "mage": [],
+        "monster": [],
+        "npc": []
+      }
+    },
+    "state": {
+      "door": "open",
+      "crate": "broken",
+      "chest": "looted",
+      "loot": "picked",
+      "rewards": [
+        "chest:reward:1"
+      ],
+      "picked": [
+        "chest:reward:1"
+      ],
+      "events": [
+        {
+          "time": 0.7834000000000003,
+          "type": "unlocked",
+          "id": "door"
+        },
+        {
+          "time": 1.1999999999999997,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 1.6999999999999997,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 4.199899999999996,
+          "type": "close-rejected-occupied",
+          "id": "door"
+        },
+        {
+          "time": 4.999800000000005,
+          "type": "closing",
+          "id": "door"
+        },
+        {
+          "time": 5.499800000000009,
+          "type": "closed",
+          "id": "door"
+        },
+        {
+          "time": 5.9998000000000165,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 6.499800000000023,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 6.99980000000003,
+          "type": "broken",
+          "id": "crate"
+        },
+        {
+          "time": 7.99970000000004,
+          "type": "reward",
+          "id": "chest:reward:1"
+        },
+        {
+          "time": 9.499700000000015,
+          "type": "pickup",
+          "id": "chest:reward:1"
+        }
+      ],
+      "navVersion": 5
+    },
+    "rendered_state": {
+      "door": "open",
+      "crate": "broken",
+      "chest": "looted",
+      "loot": "picked",
+      "rewards": [
+        "chest:reward:1"
+      ],
+      "picked": [
+        "chest:reward:1"
+      ],
+      "events": [
+        {
+          "time": 0.7834000000000003,
+          "type": "unlocked",
+          "id": "door"
+        },
+        {
+          "time": 1.1999999999999997,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 1.6999999999999997,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 4.199899999999996,
+          "type": "close-rejected-occupied",
+          "id": "door"
+        },
+        {
+          "time": 4.999800000000005,
+          "type": "closing",
+          "id": "door"
+        },
+        {
+          "time": 5.499800000000009,
+          "type": "closed",
+          "id": "door"
+        },
+        {
+          "time": 5.9998000000000165,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 6.499800000000023,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 6.99980000000003,
+          "type": "broken",
+          "id": "crate"
+        },
+        {
+          "time": 7.99970000000004,
+          "type": "reward",
+          "id": "chest:reward:1"
+        },
+        {
+          "time": 9.499700000000015,
+          "type": "pickup",
+          "id": "chest:reward:1"
+        }
+      ],
+      "navVersion": 5
+    },
+    "actors": {
+      "mage": {
+        "point": [
+          3.3,
+          0
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      },
+      "monster": {
+        "point": [
+          3.6,
+          2.7
+        ],
+        "radius": 0.65,
+        "height": 2.7,
+        "effects": {}
+      },
+      "npc": {
+        "point": [
+          -3.7,
+          -2.7
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      }
+    },
+    "route": [],
+    "model_time": 11.999599999999981,
+    "pixi": "8.20.1",
+    "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "lighting_mode": "cool",
+    "surfaces": [
+      {
+        "id": "stone",
+        "world": [
+          [
+            -5,
+            -4,
+            0
+          ],
+          [
+            0,
+            -4,
+            0
+          ],
+          [
+            0,
+            4,
+            0
+          ],
+          [
+            -5,
+            4,
+            0
+          ]
+        ],
+        "screen": [
+          [
+            464.42033401519967,
+            123.1442133949173
+          ],
+          [
+            589.73378126805,
+            216.5705593196464
+          ],
+          [
+            356.1848566063471,
+            390.3973713711757
+          ],
+          [
+            235.07197290297864,
+            268.72381067881304
+          ]
+        ],
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "id": "soil",
+        "world": [
+          [
+            0,
+            -4,
+            0
+          ],
+          [
+            5,
+            -4,
+            0
+          ],
+          [
+            5,
+            4,
+            0
+          ],
+          [
+            0,
+            4,
+            0
+          ]
+        ],
+        "screen": [
+          [
+            589.73378126805,
+            216.5705593196464
+          ],
+          [
+            738.7346441121247,
+            327.6568510171801
+          ],
+          [
+            503.94943666630667,
+            538.846009124212
+          ],
+          [
+            356.1848566063471,
+            390.3973713711757
+          ]
+        ],
+        "source_size": [
+          1254,
+          1254
+        ]
+      }
+    ],
+    "point_light": {
+      "position": [
+        0,
+        -0.5,
+        2.4
+      ],
+      "radius_m": 5,
+      "strength": 1.4,
+      "warm": "#ffc075",
+      "cool": "#75bfff"
+    },
+    "shadows": {
+      "owners": [
+        "partition-south",
+        "partition-north",
+        "pillar",
+        "chest",
+        "lintel",
+        "actor:mage",
+        "actor:monster",
+        "actor:npc"
+      ],
+      "contacts": {
+        "mage": [
+          576.2112919791798,
+          378.99186476592024
+        ],
+        "monster": [
+          502.5210573147706,
+          457.43480703883245
+        ],
+        "npc": [
+          461.44404525624793,
+          168.15290371908077
+        ]
+      },
+      "body_anchors": {
+        "mage": [
+          576.2112919791798,
+          378.99186476592024
+        ],
+        "monster": [
+          502.5210573147706,
+          457.43480703883245
+        ],
+        "npc": [
+          461.44404525624793,
+          168.15290371908077
+        ]
+      },
+      "mode": "cool",
+      "point_light_receiver": "ground sampled; actors use approximate plane without occlusion qualification",
+      "point_light_cells": {
+        "lit": 1082,
+        "blocked": 228,
+        "step_m": 0.2
+      }
+    },
+    "resolution": 3,
+    "buffer_size": [
+      2880,
+      1920
+    ],
+    "draw_count": 737,
+    "frame_ms": {
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000728
+    },
+    "composition_cpu_ms": {
+      "p50": 6.800000011920929,
+      "p95": 8.099999964237213
+    }
+  },
+  "finished_at": "2026-09-11T11:31:56.252Z",
+  "owned_bytes": 15628857
+}

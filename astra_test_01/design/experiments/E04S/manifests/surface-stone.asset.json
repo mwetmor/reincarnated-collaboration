@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "surface-stone",
+  "asset_type": "environment",
+  "path_base": "../",
+  "projection_id": "C",
+  "qualification": "Orthographic plate; geometry/state governs surface",
+  "frames": [
+    {
+      "id": "floor-source",
+      "source_path": "art/stone.png",
+      "sha256": "97c94e0673a0a53ce3998dd489c6805bf72e9f5ea614c91930ece77bfec56d3b",
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "duration_ms": null
+    }
+  ],
+  "fps": null,
+  "timing_mode": "state_or_geometry_driven",
+  "direction": null,
+  "direction_status": "not applicable",
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "layout_owned",
+    "radius": null,
+    "height": 0
+  },
+  "emissive_mask_path": null,
+  "effects": {},
+  "alpha_policy": "opaque_surface",
+  "silhouette_polygon": null,
+  "registration": {
+    "source_axis_height": null,
+    "physical_height_m": 0
+  },
+  "sockets": {},
+  "face_uv_coordinates": null
+}

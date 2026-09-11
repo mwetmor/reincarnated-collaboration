@@ -1,0 +1,13 @@
+# E04S — clean floor material and local receiver proof
+
+[Browser comparison](review.html). Two native1254×1254 opaque generated material plates are projected onto the existing5×8m stone/soil regions. They are top-down surfaces, so authoritative geometry supplies the C view rather than relying on a generated perspective. No screenshot or painting was upscaled. Soil includes more fine pebbles than requested; at gameplay scale it is readable, but this does not qualify a complete F03/F04 environment.
+
+Eight live receiver/geometry/control checks pass. The closed gate's floor witness remains[84,71,59] under neutral and warm light; opening it permits a change from[111,87,66] to[123,96,72]. The ignored-occluder control incorrectly lights the closed-gate witness and is caught. A visible pillar-wall witness changes from[51,50,49] to warm[85,76,64] and cool[67,76,82]. Outside-floor pixels stay unchanged. This proves sampled receiver behavior, not a photometrically calibrated material or normal-map pipeline.
+
+Wall faces are subdivided into≤.25m patches for local light evaluation. Floor light uses the existing sampled additive layer; base floor tint receives neutral key only, avoiding double application of the point source. The light declaration, source position and blockers remain data. Existing actor plane lighting and object paintings remain comparison controls and are not newly style-approved.
+
+Fresh2880×1920 captures and the live chamber demonstration pass three further checks, including unique rewards. Analytical interpolation across2304triangle centroids has maximum0.0342logical-pixel error, below.5px. Maximum source-texel axis extent at the3×buffer is0.864px at sampled cell origins; this is an axis measurement, not complete anisotropic-filtering qualification. It improves the earlier floor-source coverage limitation for these two surface plates. Warm rendering has0.00492% of non-background pixels at≥254 in any channel; material detail remains visible at the inspected witnesses. Readability/whole-scene cohesion still needs a finished actor/prop set.
+
+Failure preserved: first capture stopped on a404 because the new manifests inherited E04's path base. Corrected only those new entries; no threshold or old evidence changed. Four capture slots include initial failure, corrected receivers, high-resolution/demo, final review. Two generation calls/no retries, external paid spend$0; built-in generation prices unknown.
+
+Next: continue the source actor pilot (body motion, idle/cast/transitions and material side coverage), then modular gear and reusable VFX. This chamber remains a fixture room: second chamber/chunk, complete faction architecture detail and representative performance remain unqualified.

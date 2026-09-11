@@ -1,0 +1,165 @@
+{
+  "profile": {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  "camera_projection_checks": [
+    {
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        1442.999267578125,
+        892.4989700317383
+      ],
+      "expected": [
+        1442.9993774400002,
+        892.4986999079999
+      ],
+      "error_px": 0.0002916101261003533
+    },
+    {
+      "world": [
+        0,
+        0,
+        2
+      ],
+      "actual": [
+        1442.999267578125,
+        738.5988235473633
+      ],
+      "expected": [
+        1442.9993774400002,
+        738.598699908
+      ],
+      "error_px": 0.00016539747213654895
+    },
+    {
+      "world": [
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        1525.8112907409668,
+        963.3782958984375
+      ],
+      "expected": [
+        1525.8113003307506,
+        963.378099396747
+      ],
+      "error_px": 0.00019673555432894399
+    },
+    {
+      "world": [
+        0,
+        1,
+        0
+      ],
+      "actual": [
+        1354.3068981170654,
+        958.5112380981445
+      ],
+      "expected": [
+        1354.3070272858017,
+        958.5110290291641
+      ],
+      "error_px": 0.0002457527233165873
+    },
+    {
+      "world": [
+        -1,
+        -1,
+        1
+      ],
+      "actual": [
+        1448.8685417175293,
+        686.707878112793
+      ],
+      "expected": [
+        1448.86862548331,
+        686.7077362797614
+      ],
+      "error_px": 0.00016472193195633185
+    }
+  ],
+  "crop_full_buffer": [
+    1187,
+    600,
+    512,
+    512
+  ],
+  "native_buffer": [
+    2880,
+    1920
+  ],
+  "sprite_root": [
+    255.99937744000022,
+    292.49869990799994
+  ],
+  "physical_height_m": 2,
+  "source_frame_body_height_px": 153.89987636063665,
+  "reserved_bytes": 8000000,
+  "records": [
+    {
+      "frame": 0,
+      "t": 0.0,
+      "file": "walk-000.png",
+      "bytes": 64587,
+      "render_seconds": 1.0883770839427598,
+      "sha256": "6607e382cbb783560f17a3c6a00d641266834908dd344b4d431f649d3b6a9ee7"
+    },
+    {
+      "frame": 24,
+      "t": 0.2,
+      "file": "walk-024.png",
+      "bytes": 61843,
+      "render_seconds": 1.006216083012987,
+      "sha256": "91c43c3eb3bffda97e474741e82eb0e716113e51717f0f458ebf44791249f83d"
+    },
+    {
+      "frame": 48,
+      "t": 0.4,
+      "file": "walk-048.png",
+      "bytes": 62667,
+      "render_seconds": 1.0010412089759484,
+      "sha256": "b8ef860c83e51b18c5bfdea74fbe260ddc01e2d50a0d66047c3c9e04d6e09b5c"
+    },
+    {
+      "frame": 72,
+      "t": 0.6,
+      "file": "walk-072.png",
+      "bytes": 65475,
+      "render_seconds": 1.021493082982488,
+      "sha256": "a3e5ca59f3a3a3a14df2b0d3aa60224df3a46421d2ab9c4ad70244de903de277"
+    }
+  ],
+  "elapsed_seconds": 4.131242000032216,
+  "source": "inputs/painted-texture-v1.blend",
+  "style_status": "UNQUALIFIED; generated material on fixed rig"
+}

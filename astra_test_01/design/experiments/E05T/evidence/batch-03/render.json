@@ -1,0 +1,518 @@
+{
+  "profile": {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  "camera_projection_checks": [
+    {
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        1442.999267578125,
+        892.4989700317383
+      ],
+      "expected": [
+        1442.9993774400002,
+        892.4986999079999
+      ],
+      "error_px": 0.0002916101261003533
+    },
+    {
+      "world": [
+        0,
+        0,
+        2
+      ],
+      "actual": [
+        1442.999267578125,
+        738.5988235473633
+      ],
+      "expected": [
+        1442.9993774400002,
+        738.598699908
+      ],
+      "error_px": 0.00016539747213654895
+    },
+    {
+      "world": [
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        1525.8112907409668,
+        963.3782958984375
+      ],
+      "expected": [
+        1525.8113003307506,
+        963.378099396747
+      ],
+      "error_px": 0.00019673555432894399
+    },
+    {
+      "world": [
+        0,
+        1,
+        0
+      ],
+      "actual": [
+        1354.3068981170654,
+        958.5112380981445
+      ],
+      "expected": [
+        1354.3070272858017,
+        958.5110290291641
+      ],
+      "error_px": 0.0002457527233165873
+    },
+    {
+      "world": [
+        -1,
+        -1,
+        1
+      ],
+      "actual": [
+        1448.8685417175293,
+        686.707878112793
+      ],
+      "expected": [
+        1448.86862548331,
+        686.7077362797614
+      ],
+      "error_px": 0.00016472193195633185
+    }
+  ],
+  "crop_full_buffer": [
+    1187,
+    600,
+    512,
+    512
+  ],
+  "native_buffer": [
+    2880,
+    1920
+  ],
+  "sprite_root": [
+    255.99937744000022,
+    292.49869990799994
+  ],
+  "physical_height_m": 2,
+  "source_frame_body_height_px": 153.89987636063665,
+  "reserved_bytes": 6200352,
+  "records": [
+    {
+      "frame": 0,
+      "t": 0.0,
+      "file": "walk-000.png",
+      "bytes": 64801,
+      "render_seconds": 1.1027425420470536,
+      "sha256": "09219a2c2f2d3dba1da5a0c659810c9f0e0b8c34a7dc7e37d25d77374ba5b08f"
+    },
+    {
+      "frame": 2,
+      "t": 0.016666666666666666,
+      "file": "walk-002.png",
+      "bytes": 64612,
+      "render_seconds": 1.0216262500034645,
+      "sha256": "445109c50c050f102285e782000dc3b7ece0c949bd44c39b16d9d3e8e0ee30b6"
+    },
+    {
+      "frame": 4,
+      "t": 0.03333333333333333,
+      "file": "walk-004.png",
+      "bytes": 64649,
+      "render_seconds": 1.027046834002249,
+      "sha256": "92c529029e0e22ef4811a19e28e5c3ddbc34b7f91c9405d449030458a048a6d2"
+    },
+    {
+      "frame": 6,
+      "t": 0.05,
+      "file": "walk-006.png",
+      "bytes": 64516,
+      "render_seconds": 1.0466717499657534,
+      "sha256": "45c743556a4ce523ec62a3793ab059f553aa3907beee9a404f01a61cd96e6f0d"
+    },
+    {
+      "frame": 8,
+      "t": 0.06666666666666667,
+      "file": "walk-008.png",
+      "bytes": 64410,
+      "render_seconds": 1.0226132500101812,
+      "sha256": "228bce3bb02717dcea230143b85e9bd9ea62b0e834cde8caa472747f40a1d660"
+    },
+    {
+      "frame": 10,
+      "t": 0.08333333333333333,
+      "file": "walk-010.png",
+      "bytes": 64128,
+      "render_seconds": 1.0155471669859253,
+      "sha256": "63364db5e650ab095bf253994e1c231de5dcd5383a5fd613ae29cc2be7e9413b"
+    },
+    {
+      "frame": 12,
+      "t": 0.1,
+      "file": "walk-012.png",
+      "bytes": 64195,
+      "render_seconds": 1.0158433750038967,
+      "sha256": "1b98120e60f1cce6d406a16f1c6584f2b46d78a216ad54f38b6f1be2f80d9fa1"
+    },
+    {
+      "frame": 14,
+      "t": 0.11666666666666667,
+      "file": "walk-014.png",
+      "bytes": 64020,
+      "render_seconds": 1.0127377079916187,
+      "sha256": "0e028525f0d9e30a1b810fc03577d1175f92f215d0d22ec725890d7f0013b99e"
+    },
+    {
+      "frame": 16,
+      "t": 0.13333333333333333,
+      "file": "walk-016.png",
+      "bytes": 63916,
+      "render_seconds": 1.0484561249613762,
+      "sha256": "05b8e49ed3de6093c4b9c1fe56095bcc6aecc0df93ddca3b0b2411a37ab961f0"
+    },
+    {
+      "frame": 18,
+      "t": 0.15,
+      "file": "walk-018.png",
+      "bytes": 63546,
+      "render_seconds": 1.02213766600471,
+      "sha256": "ab76875277dd26d723614cb9c0e91ac1d7806fd2a6b5dc3fcc0846a5b44eb7a8"
+    },
+    {
+      "frame": 20,
+      "t": 0.16666666666666666,
+      "file": "walk-020.png",
+      "bytes": 62938,
+      "render_seconds": 1.0255701250280254,
+      "sha256": "863523414025105126387c09d94764cdfe2a2a795cab53dbdfb9ac44362190ff"
+    },
+    {
+      "frame": 22,
+      "t": 0.18333333333333332,
+      "file": "walk-022.png",
+      "bytes": 62431,
+      "render_seconds": 1.0154640420223586,
+      "sha256": "7f12a91d003336649638992c0c451760cb921e9bf187db075973d9169038277b"
+    },
+    {
+      "frame": 24,
+      "t": 0.2,
+      "file": "walk-024.png",
+      "bytes": 61697,
+      "render_seconds": 1.0202911249944009,
+      "sha256": "a69fc5574fefbaa47a66febe2cb834994d3c6fc90945e11bb0f8df4379bdd8a1"
+    },
+    {
+      "frame": 26,
+      "t": 0.21666666666666667,
+      "file": "walk-026.png",
+      "bytes": 61715,
+      "render_seconds": 1.0559922080137767,
+      "sha256": "82a7650d981afd31de2bf51d5b826fa0661cf827eefb7487afe8bbf0d598709a"
+    },
+    {
+      "frame": 28,
+      "t": 0.23333333333333334,
+      "file": "walk-028.png",
+      "bytes": 61450,
+      "render_seconds": 1.01030449999962,
+      "sha256": "5da34e253d2c1babf49fa348960fb01d3c7a109ed7f254a39dfcfaf96a491d5d"
+    },
+    {
+      "frame": 30,
+      "t": 0.25,
+      "file": "walk-030.png",
+      "bytes": 61899,
+      "render_seconds": 1.0161905420245603,
+      "sha256": "b81d48888f80fd4a81993c98291e33447ea2231c86f9f3673ff413e916bc7b0e"
+    },
+    {
+      "frame": 32,
+      "t": 0.26666666666666666,
+      "file": "walk-032.png",
+      "bytes": 61986,
+      "render_seconds": 1.0070293749449775,
+      "sha256": "f3a6c3d921589b2c7dd018a2af35b3d4f0d28d0f2fc41243bc66aa09bf1fa792"
+    },
+    {
+      "frame": 34,
+      "t": 0.2833333333333333,
+      "file": "walk-034.png",
+      "bytes": 62280,
+      "render_seconds": 1.01450475002639,
+      "sha256": "7a463dce66e119f2e399c5943f41afec90f8720b9d78b172c86d5593ee74829f"
+    },
+    {
+      "frame": 36,
+      "t": 0.3,
+      "file": "walk-036.png",
+      "bytes": 62502,
+      "render_seconds": 1.0591606670059264,
+      "sha256": "b44c53f9ef85aaedabf951f15e483b5d6af6d2486461ceb26b5ae6c048a3a69d"
+    },
+    {
+      "frame": 38,
+      "t": 0.31666666666666665,
+      "file": "walk-038.png",
+      "bytes": 62774,
+      "render_seconds": 1.0113518330035731,
+      "sha256": "59f320ba66d2bc2e034a92e828773b9a2a140a00a7cac637251a61eef425e50f"
+    },
+    {
+      "frame": 40,
+      "t": 0.3333333333333333,
+      "file": "walk-040.png",
+      "bytes": 62741,
+      "render_seconds": 1.012800915981643,
+      "sha256": "8b5081d01d517484e8f847624474b81f8283d3194a30492b7902836167a49a29"
+    },
+    {
+      "frame": 42,
+      "t": 0.35,
+      "file": "walk-042.png",
+      "bytes": 62727,
+      "render_seconds": 1.0160486250533722,
+      "sha256": "24e8ea5da6a3778d41ade2dfc9b07617ae5bdba57d442b5a62e4b9c03d95787b"
+    },
+    {
+      "frame": 44,
+      "t": 0.36666666666666664,
+      "file": "walk-044.png",
+      "bytes": 62959,
+      "render_seconds": 1.0462839580141008,
+      "sha256": "b070576b3c58f6acc148bd69c405f6ede99f34f92f4ea193d3efac9953912b6e"
+    },
+    {
+      "frame": 46,
+      "t": 0.38333333333333336,
+      "file": "walk-046.png",
+      "bytes": 62877,
+      "render_seconds": 1.0364217499736696,
+      "sha256": "dc9a1a0aad0bb2c30408a9fb4262e22a4e9cd075c06b9e5cdca0268e8ac0f29f"
+    },
+    {
+      "frame": 48,
+      "t": 0.4,
+      "file": "walk-048.png",
+      "bytes": 62806,
+      "render_seconds": 1.0120464999927208,
+      "sha256": "f450b9d81b04b06c0c3ce6a7526a3882fce3a12ee63db5a9131e22c9201ceab1"
+    },
+    {
+      "frame": 50,
+      "t": 0.4166666666666667,
+      "file": "walk-050.png",
+      "bytes": 62699,
+      "render_seconds": 1.0100821670494042,
+      "sha256": "52211f751df135164288a384960cd785792382d45014e77cf34f245a43e69c36"
+    },
+    {
+      "frame": 52,
+      "t": 0.43333333333333335,
+      "file": "walk-052.png",
+      "bytes": 62683,
+      "render_seconds": 1.0199181669740938,
+      "sha256": "e9cb8a446a60e9242f89111522bb863c1b8c8c11ffdccd59adbe19d9fe8a8954"
+    },
+    {
+      "frame": 54,
+      "t": 0.45,
+      "file": "walk-054.png",
+      "bytes": 62850,
+      "render_seconds": 1.0911145000136457,
+      "sha256": "89294a3d14255798318011a517480fc2cdec355ad52d035bcdfdb8fff7a947e4"
+    },
+    {
+      "frame": 56,
+      "t": 0.4666666666666667,
+      "file": "walk-056.png",
+      "bytes": 62997,
+      "render_seconds": 1.0313778329873458,
+      "sha256": "fc1fb86e719c4ed181e3d0c44252772d1931fe68eebb5bc8187f41a10a925adf"
+    },
+    {
+      "frame": 58,
+      "t": 0.48333333333333334,
+      "file": "walk-058.png",
+      "bytes": 63215,
+      "render_seconds": 1.0192808750434779,
+      "sha256": "f551ad7cd33e88621789f7806abc5b4b1922bdd8cf157060236909d278602ea5"
+    },
+    {
+      "frame": 60,
+      "t": 0.5,
+      "file": "walk-060.png",
+      "bytes": 63379,
+      "render_seconds": 1.0170582499704324,
+      "sha256": "9b5391ef502e5636a732cb44905ca5e4f6f4c89765e52f3c47fa87d320c7e622"
+    },
+    {
+      "frame": 62,
+      "t": 0.5166666666666667,
+      "file": "walk-062.png",
+      "bytes": 63169,
+      "render_seconds": 1.0193965419894084,
+      "sha256": "176e6997bcda3913f6f4af5c4c3518e7588ca580a4c082b9dc44390e39814355"
+    },
+    {
+      "frame": 64,
+      "t": 0.5333333333333333,
+      "file": "walk-064.png",
+      "bytes": 63125,
+      "render_seconds": 1.0606113329995424,
+      "sha256": "7a3c7a6f34186b41cd3bedf367cce1970f3692554dbfc1c4264ef6d727202df1"
+    },
+    {
+      "frame": 66,
+      "t": 0.55,
+      "file": "walk-066.png",
+      "bytes": 63735,
+      "render_seconds": 1.0234335420536809,
+      "sha256": "1dac6612a6932db23ce0321e30aaefc12e55ad3cd2101072e43a8b18e4639701"
+    },
+    {
+      "frame": 68,
+      "t": 0.5666666666666667,
+      "file": "walk-068.png",
+      "bytes": 64240,
+      "render_seconds": 1.0164143750444055,
+      "sha256": "6da4cdd295343a21f85d19d1c5e2c043063221d118f0ad788c498d35c6f9eb4d"
+    },
+    {
+      "frame": 70,
+      "t": 0.5833333333333334,
+      "file": "walk-070.png",
+      "bytes": 64688,
+      "render_seconds": 1.0263237499748357,
+      "sha256": "95b86147d781629b077ce7bdac4e9f567024bdd98ba3078a551e175604f25324"
+    },
+    {
+      "frame": 72,
+      "t": 0.6,
+      "file": "walk-072.png",
+      "bytes": 65412,
+      "render_seconds": 1.023954208008945,
+      "sha256": "43b728873c58d03abe48d23cb8e938b0a5ccd09c211b2fc449fb06883c83cf24"
+    },
+    {
+      "frame": 74,
+      "t": 0.6166666666666667,
+      "file": "walk-074.png",
+      "bytes": 65539,
+      "render_seconds": 1.0658807500149123,
+      "sha256": "0ab2a986cf570f2fda2a87e34acde3f32c0fca7939afa67acdd8ee509d5b1054"
+    },
+    {
+      "frame": 76,
+      "t": 0.6333333333333333,
+      "file": "walk-076.png",
+      "bytes": 65333,
+      "render_seconds": 1.0210589169873856,
+      "sha256": "ac904eb262da50d9a22ea46ed3892cb161e93d53acab91918242e00474c085ba"
+    },
+    {
+      "frame": 78,
+      "t": 0.65,
+      "file": "walk-078.png",
+      "bytes": 65557,
+      "render_seconds": 1.0206681659910828,
+      "sha256": "90b3bcadd77e0c6b72ef7c8da6df8bd5e461d6b8f52a18f27828b57d1b9a80d1"
+    },
+    {
+      "frame": 80,
+      "t": 0.6666666666666666,
+      "file": "walk-080.png",
+      "bytes": 65358,
+      "render_seconds": 1.0163499159971252,
+      "sha256": "4665a7c58add3a312dc579463e1e06e7f225387ae4f9000e70de8a8b1b69407d"
+    },
+    {
+      "frame": 82,
+      "t": 0.6833333333333333,
+      "file": "walk-082.png",
+      "bytes": 65525,
+      "render_seconds": 1.025988333974965,
+      "sha256": "6f839353d12cfb9ea0a0be496880d6374286221342df79e195ab31e6736b484f"
+    },
+    {
+      "frame": 84,
+      "t": 0.7,
+      "file": "walk-084.png",
+      "bytes": 65686,
+      "render_seconds": 1.0675031659775414,
+      "sha256": "7350c4467f14ce8c35b3dcc92256ee493dca94e83c2adc5305c1a3e13faee33b"
+    },
+    {
+      "frame": 86,
+      "t": 0.7166666666666667,
+      "file": "walk-086.png",
+      "bytes": 65788,
+      "render_seconds": 1.0274581669946201,
+      "sha256": "3e6a82359c3eb05abbdea401681431cfdae8ae44604df0d78a835a2e0fc1db65"
+    },
+    {
+      "frame": 88,
+      "t": 0.7333333333333333,
+      "file": "walk-088.png",
+      "bytes": 65279,
+      "render_seconds": 1.0212835830170661,
+      "sha256": "14f712e33528cc5719026b4a3f9776be5aa09d274f52449d94488cfb72847907"
+    },
+    {
+      "frame": 90,
+      "t": 0.75,
+      "file": "walk-090.png",
+      "bytes": 65270,
+      "render_seconds": 1.0269878749968484,
+      "sha256": "db61eb3f4b6f605c4434d7605404f1a18b9b7add9c1dd41ed53a4f849e67ad0e"
+    },
+    {
+      "frame": 92,
+      "t": 0.7666666666666667,
+      "file": "walk-092.png",
+      "bytes": 65074,
+      "render_seconds": 1.0230755420052446,
+      "sha256": "e557d78ce6e9c149e4d1345262c2a575feb22318c8398ba56933e16a21af95e9"
+    },
+    {
+      "frame": 94,
+      "t": 0.7833333333333333,
+      "file": "walk-094.png",
+      "bytes": 64659,
+      "render_seconds": 1.055177458038088,
+      "sha256": "532b4e08a4e10986180f7724af4b2c5f2fab067ec6950fad403605a38c226302"
+    }
+  ],
+  "elapsed_seconds": 49.561596458021086,
+  "source": "inputs/painted-texture-v2.blend",
+  "style_status": "UNQUALIFIED; generated material on fixed rig",
+  "source_record_correction": "Initial inherited script label namedv1; command loadedv2. Corrected to actual input at receipt assembly."
+}

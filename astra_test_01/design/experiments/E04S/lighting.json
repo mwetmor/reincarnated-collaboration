@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "key_from": [
+    -4,
+    -1,
+    6
+  ],
+  "ambient": 0.55,
+  "key_strength": 0.25,
+  "shadow_alpha": 0.3,
+  "contact_alpha": 0.23,
+  "shadow_color": "#14202b",
+  "floor_tint": 15066332,
+  "point": {
+    "position": [
+      0,
+      -0.5,
+      2.4
+    ],
+    "radius_m": 5,
+    "strength": 1.4,
+    "warm": "#ffc075",
+    "cool": "#75bfff"
+  },
+  "actor_normal_policy": "approximate upright front plane, not a recovered normal map",
+  "receiver": "Ground and subdivided wall surfaces; original actor approximate plane",
+  "shadow_filter": "single union layer; no per-owner cumulative alpha"
+}

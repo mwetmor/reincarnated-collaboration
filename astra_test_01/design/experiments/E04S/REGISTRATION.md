@@ -1,0 +1,9 @@
+# E04S — clean material surfaces and sampled light receivers
+
+Matt selected F04 gameplay clarity and F03 detail/local light spill. This probe replaces the preprojected low-density floor painting with two generated orthographic material plates mapped to authoritative ground geometry, and tests local illumination on floor and wall receivers. It does not change chamber state/collision/navigation rules or faction themes. Godot shipping target; Pixi test harness.
+
+Limits:2built-in imagegen calls total (stone and soil), no retries,60active minutes,4capture batches,100MB,zero external paid calls. No new generator controls or paid-service authorization. Preserve raw plates/hashes; no image upscaling or sharpening. Actual dimensions determine texel coverage. No native-alpha claim for opaque surfaces.
+
+Use one material plate per existing stone/soil surface; no tiling/reuse claim from a single plate. Mesh subdivision governs C projection. Clean joints/material masses, restrained surface detail, no conspicuous brush/pixel texture, no baked object shadows or glow. Keep E04L actor/object art as labelled controls; this does not approve their style or floor-to-prop coherence.
+
+Freeze: authoritative surface corners and dividing line must match projected geometry≤.5logicalpx; no drawn obstacles that conflict with traversal. Pixel color must respond to neutral/warm/cool data at floor and wall samples, with light occlusion by actual state. Closed gate blocks a behind-gate witness; open gate admits light. Wrong ignore-occluder control must be detected. Record mean/max contrast, raw receiver colors and clipping; a bright glow cannot erase base-material detail. Compare native960×640 and fresh2880×1920 buffers without upscaling screenshots. Projection/state invariants remain unchanged. Final aesthetic cohesion and target-hardware performance remain separate.
