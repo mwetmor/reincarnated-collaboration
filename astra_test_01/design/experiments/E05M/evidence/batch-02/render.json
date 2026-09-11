@@ -1,0 +1,4020 @@
+{
+  "profile": {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  "camera_projection_checks": [
+    {
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        1442.999267578125,
+        892.4989700317383
+      ],
+      "expected": [
+        1442.9993774400002,
+        892.4986999079999
+      ],
+      "error_px": 0.0002916101261003533
+    },
+    {
+      "world": [
+        0,
+        0,
+        2
+      ],
+      "actual": [
+        1442.999267578125,
+        738.5988235473633
+      ],
+      "expected": [
+        1442.9993774400002,
+        738.598699908
+      ],
+      "error_px": 0.00016539747213654895
+    },
+    {
+      "world": [
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        1525.8112907409668,
+        963.3782958984375
+      ],
+      "expected": [
+        1525.8113003307506,
+        963.378099396747
+      ],
+      "error_px": 0.00019673555432894399
+    },
+    {
+      "world": [
+        0,
+        1,
+        0
+      ],
+      "actual": [
+        1354.3068981170654,
+        958.5112380981445
+      ],
+      "expected": [
+        1354.3070272858017,
+        958.5110290291641
+      ],
+      "error_px": 0.0002457527233165873
+    },
+    {
+      "world": [
+        -1,
+        -1,
+        1
+      ],
+      "actual": [
+        1448.8685417175293,
+        686.707878112793
+      ],
+      "expected": [
+        1448.86862548331,
+        686.7077362797614
+      ],
+      "error_px": 0.00016472193195633185
+    }
+  ],
+  "crop_full_buffer": [
+    1187,
+    600,
+    512,
+    512
+  ],
+  "native_buffer": [
+    2880,
+    1920
+  ],
+  "sprite_root": [
+    255.99937744000022,
+    292.49869990799994
+  ],
+  "physical_height_m": 2,
+  "source_frame_body_height_px": 153.89987636063665,
+  "reserved_bytes": 27649728,
+  "records": [
+    {
+      "clip": "idle",
+      "frame": 0,
+      "t": 0.0,
+      "file": "idle-000.png",
+      "render_seconds": 1.261835333018098,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "43c6616c661c3f196b491369c882646a3ce471d45c9fc4a29017cc8a65227d5d"
+    },
+    {
+      "clip": "idle",
+      "frame": 1,
+      "t": 0.016666666666666666,
+      "file": "idle-001.png",
+      "render_seconds": 1.0977859999984503,
+      "socket_world": [
+        0.0723532885313034,
+        -0.3162693977355957,
+        1.0045979022979736
+      ],
+      "socket_source_px": [
+        233.40021896362305,
+        243.95713806152344
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "00425b247db0beaa184c3d03cc8223213b137786f81539b045adc7efaa912cca"
+    },
+    {
+      "clip": "idle",
+      "frame": 2,
+      "t": 0.03333333333333333,
+      "file": "idle-002.png",
+      "render_seconds": 1.0447413329966366,
+      "socket_world": [
+        0.07179936021566391,
+        -0.316269189119339,
+        1.0045043230056763
+      ],
+      "socket_source_px": [
+        233.35361289978027,
+        243.9246368408203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "eec63902662b8c987a3a55788809f32a36fd2e751202182d0fdafe4e1f952cde"
+    },
+    {
+      "clip": "idle",
+      "frame": 3,
+      "t": 0.05,
+      "file": "idle-003.png",
+      "render_seconds": 1.0167099999962375,
+      "socket_world": [
+        0.07125028967857361,
+        -0.3162692189216614,
+        1.004412293434143
+      ],
+      "socket_source_px": [
+        233.30743598937988,
+        243.8924789428711
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "078327b2d5ce678fa2ba3f1df207bb56a5c5c8b026bfe3e3ddc6f09146699ad2"
+    },
+    {
+      "clip": "idle",
+      "frame": 4,
+      "t": 0.06666666666666667,
+      "file": "idle-004.png",
+      "render_seconds": 1.0406440420192666,
+      "socket_world": [
+        0.07070818543434143,
+        -0.31626930832862854,
+        1.0043225288391113
+      ],
+      "socket_source_px": [
+        233.26177406311035,
+        243.8605499267578
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8297d2c5980da054c9d935f468e315986c80e26119033a01b659dd03dba0d7ff"
+    },
+    {
+      "clip": "idle",
+      "frame": 5,
+      "t": 0.08333333333333333,
+      "file": "idle-005.png",
+      "render_seconds": 1.0245065000490285,
+      "socket_world": [
+        0.0701751857995987,
+        -0.31626948714256287,
+        1.0042346715927124
+      ],
+      "socket_source_px": [
+        233.2169704437256,
+        243.8290786743164
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "0526e3eef235123aa6f2fe9e8fefac350808463172b128b078eb98e86f5e532b"
+    },
+    {
+      "clip": "idle",
+      "frame": 6,
+      "t": 0.1,
+      "file": "idle-006.png",
+      "render_seconds": 1.0013329170178622,
+      "socket_world": [
+        0.06965404748916626,
+        -0.3162693381309509,
+        1.0041499137878418
+      ],
+      "socket_source_px": [
+        233.17311096191406,
+        243.7982940673828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f082be783ca0b024c7d734cbb2e6b5064f395753494e250f3aa6ac47d8702ede"
+    },
+    {
+      "clip": "idle",
+      "frame": 7,
+      "t": 0.11666666666666667,
+      "file": "idle-007.png",
+      "render_seconds": 1.0058033340028487,
+      "socket_world": [
+        0.06914667785167694,
+        -0.3162692189216614,
+        1.0040675401687622
+      ],
+      "socket_source_px": [
+        233.1304531097412,
+        243.768310546875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "63c68e4ff03c075d4a3fed78676030a2a786be24096fb697681befe6bf00d450"
+    },
+    {
+      "clip": "idle",
+      "frame": 8,
+      "t": 0.13333333333333333,
+      "file": "idle-008.png",
+      "render_seconds": 1.0025434580165893,
+      "socket_world": [
+        0.06865517795085907,
+        -0.3162693977355957,
+        1.0039892196655273
+      ],
+      "socket_source_px": [
+        233.0890827178955,
+        243.73912811279297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fd917410607912c618e84d11e94086dc75606140183daa8891ed32535078cdf4"
+    },
+    {
+      "clip": "idle",
+      "frame": 9,
+      "t": 0.15,
+      "file": "idle-009.png",
+      "render_seconds": 1.07370358298067,
+      "socket_world": [
+        0.06818204373121262,
+        -0.3162693381309509,
+        1.0039141178131104
+      ],
+      "socket_source_px": [
+        233.04934310913086,
+        243.71097564697266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "00ea54c443e6f33c0493b261a5ce3a8c3eb1a121cf66a856c0c9f60588dbf94a"
+    },
+    {
+      "clip": "idle",
+      "frame": 10,
+      "t": 0.16666666666666666,
+      "file": "idle-010.png",
+      "render_seconds": 0.9931789169786498,
+      "socket_world": [
+        0.06772905588150024,
+        -0.3162693977355957,
+        1.0038427114486694
+      ],
+      "socket_source_px": [
+        233.0111484527588,
+        243.68396759033203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b3f33db58db386727e119bc72872cf73539c069559a5961dd1dfe74022dcd6da"
+    },
+    {
+      "clip": "idle",
+      "frame": 11,
+      "t": 0.18333333333333332,
+      "file": "idle-011.png",
+      "render_seconds": 0.9996804170077667,
+      "socket_world": [
+        0.06729815155267715,
+        -0.3162692189216614,
+        1.0037755966186523
+      ],
+      "socket_source_px": [
+        232.97492790222168,
+        243.65833282470703
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e840bbdf33f7312541af922dd5ca5dee3ff1c147fa92757151cd40021415fc4e"
+    },
+    {
+      "clip": "idle",
+      "frame": 12,
+      "t": 0.2,
+      "file": "idle-012.png",
+      "render_seconds": 0.9974062079563737,
+      "socket_world": [
+        0.06689133495092392,
+        -0.31626954674720764,
+        1.0037124156951904
+      ],
+      "socket_source_px": [
+        232.94068145751953,
+        243.63407135009766
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "020ff36db15a5771fafdb683a940c24535e987502adde79f3660cd5033d0f66d"
+    },
+    {
+      "clip": "idle",
+      "frame": 13,
+      "t": 0.21666666666666667,
+      "file": "idle-013.png",
+      "render_seconds": 1.0048757920158096,
+      "socket_world": [
+        0.06650981307029724,
+        -0.31626930832862854,
+        1.0036541223526
+      ],
+      "socket_source_px": [
+        232.9085807800293,
+        243.6111831665039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9389a6828ce2182c1ab38d696d7c6ba52822892d0660a59dbd113b5ab92609af"
+    },
+    {
+      "clip": "idle",
+      "frame": 14,
+      "t": 0.23333333333333334,
+      "file": "idle-014.png",
+      "render_seconds": 1.0331180420471355,
+      "socket_world": [
+        0.06615627557039261,
+        -0.31626930832862854,
+        1.0036002397537231
+      ],
+      "socket_source_px": [
+        232.8788833618164,
+        243.5900115966797
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7756be5b7448bc74499fdc3d50349a8785ac494d2e7ed1a052e36f593b4d59a6"
+    },
+    {
+      "clip": "idle",
+      "frame": 15,
+      "t": 0.25,
+      "file": "idle-015.png",
+      "render_seconds": 1.0267909159883857,
+      "socket_world": [
+        0.06583122909069061,
+        -0.31626930832862854,
+        1.00355064868927
+      ],
+      "socket_source_px": [
+        232.85158920288086,
+        243.570556640625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "df5f1bb3a004486ef6657accb6a17875ed05791a6bd8be3c985d52770bfb0ff7"
+    },
+    {
+      "clip": "idle",
+      "frame": 16,
+      "t": 0.26666666666666666,
+      "file": "idle-016.png",
+      "render_seconds": 1.0066184159950353,
+      "socket_world": [
+        0.06553670018911362,
+        -0.3162693679332733,
+        1.0035064220428467
+      ],
+      "socket_source_px": [
+        232.82678413391113,
+        243.5529327392578
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "36ce06af624573fabb33ceb518d72621941a1a7cd2ad85157cd519311aae5e26"
+    },
+    {
+      "clip": "idle",
+      "frame": 17,
+      "t": 0.2833333333333333,
+      "file": "idle-017.png",
+      "render_seconds": 1.0053030829876661,
+      "socket_world": [
+        0.06527375429868698,
+        -0.3162694573402405,
+        1.0034669637680054
+      ],
+      "socket_source_px": [
+        232.80463981628418,
+        243.53713989257812
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f52468838c6b503aebd871eaf6267a86aa2bdc0a95060d4f0ee69b0fc873b742"
+    },
+    {
+      "clip": "idle",
+      "frame": 18,
+      "t": 0.3,
+      "file": "idle-018.png",
+      "render_seconds": 0.9996283330256119,
+      "socket_world": [
+        0.06504355370998383,
+        -0.3162693977355957,
+        1.0034325122833252
+      ],
+      "socket_source_px": [
+        232.78532791137695,
+        243.5232925415039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ac39a3e181aa3beecfdb5082fa09267857e58e74e42cc0e5cffb15b30418e931"
+    },
+    {
+      "clip": "idle",
+      "frame": 19,
+      "t": 0.31666666666666665,
+      "file": "idle-019.png",
+      "render_seconds": 1.0279719170066528,
+      "socket_world": [
+        0.06484688073396683,
+        -0.31626930832862854,
+        1.0034033060073853
+      ],
+      "socket_source_px": [
+        232.76876258850098,
+        243.51150512695312
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "74ee5cb1019a591561e698691b2de71280e4acac5be0cc81cdf2a2ddc6920fc3"
+    },
+    {
+      "clip": "idle",
+      "frame": 20,
+      "t": 0.3333333333333333,
+      "file": "idle-020.png",
+      "render_seconds": 0.999646375013981,
+      "socket_world": [
+        0.06468500941991806,
+        -0.3162693679332733,
+        1.003379464149475
+      ],
+      "socket_source_px": [
+        232.7551155090332,
+        243.5016632080078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f146355242c9428fba57ce64a130463edff8d0f4f9b5d5fd893c9e175a41c7aa"
+    },
+    {
+      "clip": "idle",
+      "frame": 21,
+      "t": 0.35,
+      "file": "idle-021.png",
+      "render_seconds": 1.0220217499881983,
+      "socket_world": [
+        0.06455826014280319,
+        -0.31626954674720764,
+        1.0033605098724365
+      ],
+      "socket_source_px": [
+        232.74438667297363,
+        243.49411010742188
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "4a728ab20e5d67d0d857b787d3203040bec10b531e0fbb22f078c2ee5ee62153"
+    },
+    {
+      "clip": "idle",
+      "frame": 22,
+      "t": 0.36666666666666664,
+      "file": "idle-022.png",
+      "render_seconds": 1.0010212080087513,
+      "socket_world": [
+        0.06446738541126251,
+        -0.316269189119339,
+        1.0033469200134277
+      ],
+      "socket_source_px": [
+        232.7368335723877,
+        243.48861694335938
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "d72ba3448c2f07c3994afa3ba1f1a1222b394abdc8678d424130cb16739187c4"
+    },
+    {
+      "clip": "idle",
+      "frame": 23,
+      "t": 0.38333333333333336,
+      "file": "idle-023.png",
+      "render_seconds": 1.0191987080033869,
+      "socket_world": [
+        0.06441270560026169,
+        -0.3162694275379181,
+        1.003339171409607
+      ],
+      "socket_source_px": [
+        232.73219871520996,
+        243.48529815673828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "accb773126161967c854da95be8559f88fad8dd4feaa7d2882c0f0e315ea1d5a"
+    },
+    {
+      "clip": "idle",
+      "frame": 24,
+      "t": 0.4,
+      "file": "idle-024.png",
+      "render_seconds": 1.0270268329768442,
+      "socket_world": [
+        0.06439454108476639,
+        -0.3162691295146942,
+        1.0033363103866577
+      ],
+      "socket_source_px": [
+        232.73073959350586,
+        243.48426818847656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "d283fe2fcd35912671b17fc697efe95d24ed97599324db4e333844f25508b594"
+    },
+    {
+      "clip": "idle",
+      "frame": 25,
+      "t": 0.4166666666666667,
+      "file": "idle-025.png",
+      "render_seconds": 1.004266333009582,
+      "socket_world": [
+        0.06441270560026169,
+        -0.3162694275379181,
+        1.003339171409607
+      ],
+      "socket_source_px": [
+        232.73219871520996,
+        243.48529815673828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1921c5fd2f8e7612409e906f416fc1a4363db53e2c572b60857ef74cd3dd4b57"
+    },
+    {
+      "clip": "idle",
+      "frame": 26,
+      "t": 0.43333333333333335,
+      "file": "idle-026.png",
+      "render_seconds": 1.009056959010195,
+      "socket_world": [
+        0.06446738541126251,
+        -0.316269189119339,
+        1.0033469200134277
+      ],
+      "socket_source_px": [
+        232.7368335723877,
+        243.48861694335938
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a9bb449ebe076abdb0b25db93c2380db9ed9ab66f61ffbb754fc0d54c13cc586"
+    },
+    {
+      "clip": "idle",
+      "frame": 27,
+      "t": 0.45,
+      "file": "idle-027.png",
+      "render_seconds": 1.002169249986764,
+      "socket_world": [
+        0.06455826014280319,
+        -0.31626954674720764,
+        1.0033605098724365
+      ],
+      "socket_source_px": [
+        232.74438667297363,
+        243.49411010742188
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3f924d8f4857e57ee77781e62925c7833293bfac00b213c4f26ab27a2222bc61"
+    },
+    {
+      "clip": "idle",
+      "frame": 28,
+      "t": 0.4666666666666667,
+      "file": "idle-028.png",
+      "render_seconds": 1.0140920410049148,
+      "socket_world": [
+        0.06468500941991806,
+        -0.3162693679332733,
+        1.003379464149475
+      ],
+      "socket_source_px": [
+        232.7551155090332,
+        243.5016632080078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "2baadf7abae832b62f25d8afdd0fe1ac6ba0b6c92bef333c538f373bcbec4bc4"
+    },
+    {
+      "clip": "idle",
+      "frame": 29,
+      "t": 0.48333333333333334,
+      "file": "idle-029.png",
+      "render_seconds": 1.065115417004563,
+      "socket_world": [
+        0.06484688073396683,
+        -0.31626930832862854,
+        1.0034033060073853
+      ],
+      "socket_source_px": [
+        232.76876258850098,
+        243.51150512695312
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "74307966dccd29413e88dcf35839cffefc373b849229dbb9c0f24dec4c4f10a9"
+    },
+    {
+      "clip": "idle",
+      "frame": 30,
+      "t": 0.5,
+      "file": "idle-030.png",
+      "render_seconds": 1.016329041973222,
+      "socket_world": [
+        0.06504355370998383,
+        -0.3162693977355957,
+        1.0034325122833252
+      ],
+      "socket_source_px": [
+        232.78532791137695,
+        243.5232925415039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3336315669084bc4acb0c715a37f7d1cb410fb646ea2faa5f844982a4309246b"
+    },
+    {
+      "clip": "idle",
+      "frame": 31,
+      "t": 0.5166666666666667,
+      "file": "idle-031.png",
+      "render_seconds": 1.0051472500199452,
+      "socket_world": [
+        0.06527375429868698,
+        -0.3162694573402405,
+        1.0034669637680054
+      ],
+      "socket_source_px": [
+        232.80463981628418,
+        243.53713989257812
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "58011bdd2034ff54e224adcbb0ce40194c64cbfccf5ae527754ea1836bcad493"
+    },
+    {
+      "clip": "idle",
+      "frame": 32,
+      "t": 0.5333333333333333,
+      "file": "idle-032.png",
+      "render_seconds": 1.0089768329635262,
+      "socket_world": [
+        0.06553670018911362,
+        -0.3162693679332733,
+        1.0035064220428467
+      ],
+      "socket_source_px": [
+        232.82678413391113,
+        243.5529327392578
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1e6eae268319198d3fbb0a9f3022c9e24760a27143577ba7e542d96a1cb4b5b8"
+    },
+    {
+      "clip": "idle",
+      "frame": 33,
+      "t": 0.55,
+      "file": "idle-033.png",
+      "render_seconds": 1.0270808330387808,
+      "socket_world": [
+        0.06583122909069061,
+        -0.31626930832862854,
+        1.00355064868927
+      ],
+      "socket_source_px": [
+        232.85158920288086,
+        243.570556640625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6e983e44c8f101c35c4c03aedaf269f2eb3d299101e16c5a508869e458cd91a7"
+    },
+    {
+      "clip": "idle",
+      "frame": 34,
+      "t": 0.5666666666666667,
+      "file": "idle-034.png",
+      "render_seconds": 1.0104158750036731,
+      "socket_world": [
+        0.06615627557039261,
+        -0.31626930832862854,
+        1.0036002397537231
+      ],
+      "socket_source_px": [
+        232.8788833618164,
+        243.5900115966797
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "04db0bffc1ce0adf027a1c4d997f4cadca71e3416c8e9f80efc97dabdcf94fce"
+    },
+    {
+      "clip": "idle",
+      "frame": 35,
+      "t": 0.5833333333333334,
+      "file": "idle-035.png",
+      "render_seconds": 1.0099684579763561,
+      "socket_world": [
+        0.06650981307029724,
+        -0.31626930832862854,
+        1.0036541223526
+      ],
+      "socket_source_px": [
+        232.9085807800293,
+        243.6111831665039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7ca26ce1d5636c945c7fa918a8cfbb41824065e7928677f338f06c966cbe1962"
+    },
+    {
+      "clip": "idle",
+      "frame": 36,
+      "t": 0.6,
+      "file": "idle-036.png",
+      "render_seconds": 1.0131216669688001,
+      "socket_world": [
+        0.06689133495092392,
+        -0.31626954674720764,
+        1.0037124156951904
+      ],
+      "socket_source_px": [
+        232.94068145751953,
+        243.63407135009766
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b685e4157187839ec14690baeee7d0188442ebb22fd133c6a4e867d842e25b17"
+    },
+    {
+      "clip": "idle",
+      "frame": 37,
+      "t": 0.6166666666666667,
+      "file": "idle-037.png",
+      "render_seconds": 0.9989816249581054,
+      "socket_world": [
+        0.06729815155267715,
+        -0.3162692189216614,
+        1.0037755966186523
+      ],
+      "socket_source_px": [
+        232.97492790222168,
+        243.65833282470703
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "337714b906811785ad0f7ecf7464347abd81ed9c764a117b8d085c0a7801c0e1"
+    },
+    {
+      "clip": "idle",
+      "frame": 38,
+      "t": 0.6333333333333333,
+      "file": "idle-038.png",
+      "render_seconds": 1.050925916992128,
+      "socket_world": [
+        0.06772905588150024,
+        -0.3162693977355957,
+        1.0038427114486694
+      ],
+      "socket_source_px": [
+        233.0111484527588,
+        243.68396759033203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "00836ba3a68b16b9a192645576a182966bb6802a0e0b93758964373e15f27a4e"
+    },
+    {
+      "clip": "idle",
+      "frame": 39,
+      "t": 0.65,
+      "file": "idle-039.png",
+      "render_seconds": 1.011889124987647,
+      "socket_world": [
+        0.06818204373121262,
+        -0.3162693381309509,
+        1.0039141178131104
+      ],
+      "socket_source_px": [
+        233.04934310913086,
+        243.71097564697266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "89fa634f827f2e4154cc9edcbd24ad55e21b20f1175bd73b5c491bc308707405"
+    },
+    {
+      "clip": "idle",
+      "frame": 40,
+      "t": 0.6666666666666666,
+      "file": "idle-040.png",
+      "render_seconds": 1.002437999995891,
+      "socket_world": [
+        0.06865517795085907,
+        -0.3162693977355957,
+        1.0039892196655273
+      ],
+      "socket_source_px": [
+        233.0890827178955,
+        243.73912811279297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e33896613de798b622c869a0a0693e37244472bbcd0aed7e2af1a7fae3146e6c"
+    },
+    {
+      "clip": "idle",
+      "frame": 41,
+      "t": 0.6833333333333333,
+      "file": "idle-041.png",
+      "render_seconds": 1.0072182909934781,
+      "socket_world": [
+        0.06914667785167694,
+        -0.3162692189216614,
+        1.0040675401687622
+      ],
+      "socket_source_px": [
+        233.1304531097412,
+        243.768310546875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "38d3aba50b2d69b48ed3647c74cbcb5784a7b8386216711f4501d7a147f78d0e"
+    },
+    {
+      "clip": "idle",
+      "frame": 42,
+      "t": 0.7,
+      "file": "idle-042.png",
+      "render_seconds": 1.0098887500353158,
+      "socket_world": [
+        0.06965404748916626,
+        -0.3162693381309509,
+        1.0041499137878418
+      ],
+      "socket_source_px": [
+        233.17311096191406,
+        243.7982940673828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "0b881ed0015d7062e0005bf4c99b928f81e316b06a2b36f5a130a26528dc9203"
+    },
+    {
+      "clip": "idle",
+      "frame": 43,
+      "t": 0.7166666666666667,
+      "file": "idle-043.png",
+      "render_seconds": 1.0259941670228727,
+      "socket_world": [
+        0.0701751857995987,
+        -0.31626948714256287,
+        1.0042346715927124
+      ],
+      "socket_source_px": [
+        233.2169704437256,
+        243.8290786743164
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "11d2841727e9e5e40fa8facc128152f2907e6b220e37b02db8ae67d05232350f"
+    },
+    {
+      "clip": "idle",
+      "frame": 44,
+      "t": 0.7333333333333333,
+      "file": "idle-044.png",
+      "render_seconds": 1.0038950419984758,
+      "socket_world": [
+        0.07070818543434143,
+        -0.31626930832862854,
+        1.0043225288391113
+      ],
+      "socket_source_px": [
+        233.26177406311035,
+        243.8605499267578
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "96571ccdcf8ffd23860517671bc4302a9fccfadf504bbca9613604c8f54afd27"
+    },
+    {
+      "clip": "idle",
+      "frame": 45,
+      "t": 0.75,
+      "file": "idle-045.png",
+      "render_seconds": 1.0054974999511614,
+      "socket_world": [
+        0.07125028967857361,
+        -0.3162692189216614,
+        1.004412293434143
+      ],
+      "socket_source_px": [
+        233.30743598937988,
+        243.8924789428711
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8797ad2a360393a74a97bd190746bf91419742a576040182b3c491d2b078810b"
+    },
+    {
+      "clip": "idle",
+      "frame": 46,
+      "t": 0.7666666666666667,
+      "file": "idle-046.png",
+      "render_seconds": 1.004467791004572,
+      "socket_world": [
+        0.07179936021566391,
+        -0.316269189119339,
+        1.0045043230056763
+      ],
+      "socket_source_px": [
+        233.35361289978027,
+        243.9246368408203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f665247587890271a0577e16e69918d3f7a9d961d6164c4ae9cbbe85a9d87b9c"
+    },
+    {
+      "clip": "idle",
+      "frame": 47,
+      "t": 0.7833333333333333,
+      "file": "idle-047.png",
+      "render_seconds": 1.0147353750071488,
+      "socket_world": [
+        0.0723532885313034,
+        -0.3162693977355957,
+        1.0045979022979736
+      ],
+      "socket_source_px": [
+        233.40021896362305,
+        243.95713806152344
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "752e0411509cf47c000168514632911a1e76fdb6cd96028f46dfff13fca8ca8a"
+    },
+    {
+      "clip": "idle",
+      "frame": 48,
+      "t": 0.8,
+      "file": "idle-048.png",
+      "render_seconds": 1.0268398339976557,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ce16cf48c2dc8265e8575116ea3bb4d35b1883ea326c402575fa7ad05bd09b32"
+    },
+    {
+      "clip": "idle",
+      "frame": 49,
+      "t": 0.8166666666666667,
+      "file": "idle-049.png",
+      "render_seconds": 1.0096578749944456,
+      "socket_world": [
+        0.07346528023481369,
+        -0.3162693381309509,
+        1.004788875579834
+      ],
+      "socket_source_px": [
+        233.4937744140625,
+        244.0221405029297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a97809f3ffa59ac0037a94d28065933e438abcd53ab43dd7a69f143f0497b201"
+    },
+    {
+      "clip": "idle",
+      "frame": 50,
+      "t": 0.8333333333333334,
+      "file": "idle-050.png",
+      "render_seconds": 0.9989081670064479,
+      "socket_world": [
+        0.0740184485912323,
+        -0.3162693977355957,
+        1.004884958267212
+      ],
+      "socket_source_px": [
+        233.54038047790527,
+        244.0542984008789
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "81e1d17689951a38e5191364d6e607ceeda489861a94dd738df771c4e6316ba4"
+    },
+    {
+      "clip": "idle",
+      "frame": 51,
+      "t": 0.85,
+      "file": "idle-051.png",
+      "render_seconds": 1.0072147919563577,
+      "socket_world": [
+        0.07456722855567932,
+        -0.3162693679332733,
+        1.0049811601638794
+      ],
+      "socket_source_px": [
+        233.5864715576172,
+        244.0862274169922
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e1d026006d4148c32aaa96c28ded52e804fb204e9989422804189c788c15f1f3"
+    },
+    {
+      "clip": "idle",
+      "frame": 52,
+      "t": 0.8666666666666667,
+      "file": "idle-052.png",
+      "render_seconds": 1.0022802079911344,
+      "socket_world": [
+        0.075108602643013,
+        -0.3162693381309509,
+        1.0050771236419678
+      ],
+      "socket_source_px": [
+        233.63204765319824,
+        244.1176986694336
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8ef830472520d6ae828ba007bf565908b75baf0c443dab5732246b2ce2e3a3f5"
+    },
+    {
+      "clip": "idle",
+      "frame": 53,
+      "t": 0.8833333333333333,
+      "file": "idle-053.png",
+      "render_seconds": 1.0257695829495788,
+      "socket_world": [
+        0.07564026862382889,
+        -0.3162693977355957,
+        1.0051721334457397
+      ],
+      "socket_source_px": [
+        233.67676544189453,
+        244.1484832763672
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5f557e633ab0f0b479c989602b1705c04db7375c7dde37ced4e2e15dda7911f4"
+    },
+    {
+      "clip": "idle",
+      "frame": 54,
+      "t": 0.9,
+      "file": "idle-054.png",
+      "render_seconds": 1.0445022499770857,
+      "socket_world": [
+        0.07616031169891357,
+        -0.3162694275379181,
+        1.0052659511566162
+      ],
+      "socket_source_px": [
+        233.72053909301758,
+        244.178466796875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "399f4d7e1545eaaf2577441587fbc7576216a6c2124ebddb44def5ead97794f7"
+    },
+    {
+      "clip": "idle",
+      "frame": 55,
+      "t": 0.9166666666666666,
+      "file": "idle-055.png",
+      "render_seconds": 1.0289156659855507,
+      "socket_world": [
+        0.07666632533073425,
+        -0.3162694275379181,
+        1.0053577423095703
+      ],
+      "socket_source_px": [
+        233.76311111450195,
+        244.207763671875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "dbda61dc4cf9b622b546036d7b3a07bb44a00a6e90c2b07a29008e4829df484a"
+    },
+    {
+      "clip": "idle",
+      "frame": 56,
+      "t": 0.9333333333333333,
+      "file": "idle-056.png",
+      "render_seconds": 1.0101460000150837,
+      "socket_world": [
+        0.07715602964162827,
+        -0.3162693381309509,
+        1.005447506904602
+      ],
+      "socket_source_px": [
+        233.80439567565918,
+        244.2359161376953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fa77c11ab832e03999e2e521061c97734c769a360126456568974a79843ad5e7"
+    },
+    {
+      "clip": "idle",
+      "frame": 57,
+      "t": 0.95,
+      "file": "idle-057.png",
+      "render_seconds": 1.0069326660013758,
+      "socket_world": [
+        0.07762768119573593,
+        -0.31626930832862854,
+        1.0055344104766846
+      ],
+      "socket_source_px": [
+        233.84396362304688,
+        244.2630386352539
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "116bb7baaeed676fbc7eb4b9c9173f6918fcd3e68360ccc7f37dba26adda689c"
+    },
+    {
+      "clip": "idle",
+      "frame": 58,
+      "t": 0.9666666666666667,
+      "file": "idle-058.png",
+      "render_seconds": 1.0168230829876848,
+      "socket_world": [
+        0.07807876914739609,
+        -0.3162693381309509,
+        1.0056179761886597
+      ],
+      "socket_source_px": [
+        233.881986618042,
+        244.28890228271484
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "58a69bc1344b074ed4fb7ce645cdefedd0eb16de1fbbbaad3c66773fb1a42c22"
+    },
+    {
+      "clip": "idle",
+      "frame": 59,
+      "t": 0.9833333333333333,
+      "file": "idle-059.png",
+      "render_seconds": 1.0024716669577174,
+      "socket_world": [
+        0.07850789278745651,
+        -0.3162694275379181,
+        1.005698800086975
+      ],
+      "socket_source_px": [
+        233.91812133789062,
+        244.31350708007812
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1063a9017614a1bf9e584abd4aed208b55c1daebf2c6dfebba2c0e23aaba9171"
+    },
+    {
+      "clip": "idle",
+      "frame": 60,
+      "t": 1.0,
+      "file": "idle-060.png",
+      "render_seconds": 1.0076784580014646,
+      "socket_world": [
+        0.07891284674406052,
+        -0.31626948714256287,
+        1.0057746171951294
+      ],
+      "socket_source_px": [
+        233.95211029052734,
+        244.3366241455078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6ba21d8ac5decc239f842e09b557db4172437862525fede0e0ea400ac0d7c2ca"
+    },
+    {
+      "clip": "idle",
+      "frame": 61,
+      "t": 1.0166666666666666,
+      "file": "idle-061.png",
+      "render_seconds": 1.0007305839681067,
+      "socket_world": [
+        0.07929211109876633,
+        -0.31626948714256287,
+        1.0058467388153076
+      ],
+      "socket_source_px": [
+        233.98403930664062,
+        244.3582534790039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "2cbb2c429ece983d0a9175fc2b5e8181df00db5579377ac9f26c63899a82dde8"
+    },
+    {
+      "clip": "idle",
+      "frame": 62,
+      "t": 1.0333333333333334,
+      "file": "idle-062.png",
+      "render_seconds": 1.0005974999512546,
+      "socket_world": [
+        0.07964382320642471,
+        -0.3162692189216614,
+        1.0059137344360352
+      ],
+      "socket_source_px": [
+        234.01365089416504,
+        244.37828063964844
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "622467517bd8898a7b9f214fc3ea66247e63f0ea9cd682513c41300344f7a8dd"
+    },
+    {
+      "clip": "idle",
+      "frame": 63,
+      "t": 1.05,
+      "file": "idle-063.png",
+      "render_seconds": 1.031815499998629,
+      "socket_world": [
+        0.0799669697880745,
+        -0.31626957654953003,
+        1.0059752464294434
+      ],
+      "socket_source_px": [
+        234.0408592224121,
+        244.3967056274414
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "bdc40f3efc9943ad56f24d5f0c14f422869f3853f1f341c3fb14bf9e7db3e34f"
+    },
+    {
+      "clip": "idle",
+      "frame": 64,
+      "t": 1.0666666666666667,
+      "file": "idle-064.png",
+      "render_seconds": 1.002784584008623,
+      "socket_world": [
+        0.08026000112295151,
+        -0.3162694573402405,
+        1.006032109260559
+      ],
+      "socket_source_px": [
+        234.06549263000488,
+        244.41341400146484
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c7b3a742750cf23989aee67392c2639ee30273162082800c802aa80b36af9266"
+    },
+    {
+      "clip": "idle",
+      "frame": 65,
+      "t": 1.0833333333333333,
+      "file": "idle-065.png",
+      "render_seconds": 1.0006080829771236,
+      "socket_world": [
+        0.08052140474319458,
+        -0.3162693977355957,
+        1.00608229637146
+      ],
+      "socket_source_px": [
+        234.08755111694336,
+        244.4281768798828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "357b8fd07f9bf783801548426fae49bf0580315f8f1d5e8d77a61ce003c7aa1d"
+    },
+    {
+      "clip": "idle",
+      "frame": 66,
+      "t": 1.1,
+      "file": "idle-066.png",
+      "render_seconds": 1.0011020000092685,
+      "socket_world": [
+        0.08075006306171417,
+        -0.3162693381309509,
+        1.0061266422271729
+      ],
+      "socket_source_px": [
+        234.10669136047363,
+        244.44122314453125
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c3625148a848b09b35e2d70e976572da419d84082362a77df589630702eb0370"
+    },
+    {
+      "clip": "idle",
+      "frame": 67,
+      "t": 1.1166666666666667,
+      "file": "idle-067.png",
+      "render_seconds": 0.9980881249648519,
+      "socket_world": [
+        0.0809452161192894,
+        -0.3162693381309509,
+        1.0061650276184082
+      ],
+      "socket_source_px": [
+        234.1232566833496,
+        244.45220947265625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "62f6175238a04500b2205d492b8369f3a1a116394f5687284d4bc51c14fb1d96"
+    },
+    {
+      "clip": "idle",
+      "frame": 68,
+      "t": 1.1333333333333333,
+      "file": "idle-068.png",
+      "render_seconds": 1.0947721670381725,
+      "socket_world": [
+        0.0811062827706337,
+        -0.3162693977355957,
+        1.0061962604522705
+      ],
+      "socket_source_px": [
+        234.13664627075195,
+        244.46136474609375
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "768fce41b599fefc9697e4f75ab03838a79c7a5ef781682651f79d43095aa5d7"
+    },
+    {
+      "clip": "idle",
+      "frame": 69,
+      "t": 1.15,
+      "file": "idle-069.png",
+      "render_seconds": 1.0182802500203252,
+      "socket_world": [
+        0.0812319740653038,
+        -0.3162694573402405,
+        1.0062209367752075
+      ],
+      "socket_source_px": [
+        234.14728927612305,
+        244.4684600830078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "0e7b736ccf98d2cd7f117f40098619ae06bae277bad77e396e8e00b6ec82329c"
+    },
+    {
+      "clip": "idle",
+      "frame": 70,
+      "t": 1.1666666666666667,
+      "file": "idle-070.png",
+      "render_seconds": 0.9997299999813549,
+      "socket_world": [
+        0.08132237195968628,
+        -0.3162693679332733,
+        1.006238579750061
+      ],
+      "socket_source_px": [
+        234.15492820739746,
+        244.4736099243164
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1b1169fcc3372b9f44af7bc43487a36cb779a98529c8486e0374625bc4f4dfca"
+    },
+    {
+      "clip": "idle",
+      "frame": 71,
+      "t": 1.1833333333333333,
+      "file": "idle-071.png",
+      "render_seconds": 1.0014654999831691,
+      "socket_world": [
+        0.08137676119804382,
+        -0.3162693977355957,
+        1.0062494277954102
+      ],
+      "socket_source_px": [
+        234.15947723388672,
+        244.47669982910156
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3467a4bc0336abd78f4f17088714d818a6388c7be22357ab0ea4a96f96f87e24"
+    },
+    {
+      "clip": "idle",
+      "frame": 72,
+      "t": 1.2,
+      "file": "idle-072.png",
+      "render_seconds": 1.014344917028211,
+      "socket_world": [
+        0.08139493316411972,
+        -0.3162693679332733,
+        1.006252408027649
+      ],
+      "socket_source_px": [
+        234.1610221862793,
+        244.47772979736328
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3be82321c85912627444b24566a48aa0059d4adf16aeb691d4e46094f5651e40"
+    },
+    {
+      "clip": "idle",
+      "frame": 73,
+      "t": 1.2166666666666666,
+      "file": "idle-073.png",
+      "render_seconds": 1.0406824999954551,
+      "socket_world": [
+        0.08137676119804382,
+        -0.3162693977355957,
+        1.0062494277954102
+      ],
+      "socket_source_px": [
+        234.15947723388672,
+        244.47669982910156
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "dfad2a48c351677d98ed3db7e475377a3669f3a13bc5e83768afedb55f00441b"
+    },
+    {
+      "clip": "idle",
+      "frame": 74,
+      "t": 1.2333333333333334,
+      "file": "idle-074.png",
+      "render_seconds": 0.9961227080202661,
+      "socket_world": [
+        0.08132237195968628,
+        -0.3162693679332733,
+        1.006238579750061
+      ],
+      "socket_source_px": [
+        234.15492820739746,
+        244.4736099243164
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c87e7583a7aad4ed803a5a4e5dd690c5440f22e2278ccfaee0051751be5d12d9"
+    },
+    {
+      "clip": "idle",
+      "frame": 75,
+      "t": 1.25,
+      "file": "idle-075.png",
+      "render_seconds": 1.025641959044151,
+      "socket_world": [
+        0.0812319740653038,
+        -0.3162694573402405,
+        1.0062209367752075
+      ],
+      "socket_source_px": [
+        234.14728927612305,
+        244.4684600830078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "d0e406e96cd250cc04a75c9a7abf9bd13285d3bef73a5bdd782acfdf661862a7"
+    },
+    {
+      "clip": "idle",
+      "frame": 76,
+      "t": 1.2666666666666666,
+      "file": "idle-076.png",
+      "render_seconds": 1.0091222090413794,
+      "socket_world": [
+        0.0811062827706337,
+        -0.3162693977355957,
+        1.0061962604522705
+      ],
+      "socket_source_px": [
+        234.13664627075195,
+        244.46136474609375
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "cd054ee7c81d520b5ba9bca3b633fa1c751c1078bf32260979905fbed5a0288c"
+    },
+    {
+      "clip": "idle",
+      "frame": 77,
+      "t": 1.2833333333333334,
+      "file": "idle-077.png",
+      "render_seconds": 1.0255838750163093,
+      "socket_world": [
+        0.0809452161192894,
+        -0.3162693381309509,
+        1.0061650276184082
+      ],
+      "socket_source_px": [
+        234.1232566833496,
+        244.45220947265625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "36be1dced1f2bba93ce6fd9caf08111abb4afd1a597e5a93aa05286fb369443b"
+    },
+    {
+      "clip": "idle",
+      "frame": 78,
+      "t": 1.3,
+      "file": "idle-078.png",
+      "render_seconds": 1.0349483750178479,
+      "socket_world": [
+        0.08075006306171417,
+        -0.3162693381309509,
+        1.0061266422271729
+      ],
+      "socket_source_px": [
+        234.10669136047363,
+        244.44122314453125
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8a0ef8e25d826219c6cd416290b2e5806cf566f60e98abf55730f95441745901"
+    },
+    {
+      "clip": "idle",
+      "frame": 79,
+      "t": 1.3166666666666667,
+      "file": "idle-079.png",
+      "render_seconds": 1.0072633750387467,
+      "socket_world": [
+        0.08052140474319458,
+        -0.3162693977355957,
+        1.00608229637146
+      ],
+      "socket_source_px": [
+        234.08755111694336,
+        244.4281768798828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "84321aba1ee8a60df0bf7bd7c9898a56e1b7c68b8c5931e76406f1bb2a0a1822"
+    },
+    {
+      "clip": "idle",
+      "frame": 80,
+      "t": 1.3333333333333333,
+      "file": "idle-080.png",
+      "render_seconds": 1.0079470420023426,
+      "socket_world": [
+        0.08026000112295151,
+        -0.3162694573402405,
+        1.006032109260559
+      ],
+      "socket_source_px": [
+        234.06549263000488,
+        244.41341400146484
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "bafc4d7a8b03dd6268fbf7467871ed382fdf315800cf2b8c5617c845e9db9159"
+    },
+    {
+      "clip": "idle",
+      "frame": 81,
+      "t": 1.35,
+      "file": "idle-081.png",
+      "render_seconds": 1.0051027089939453,
+      "socket_world": [
+        0.0799669697880745,
+        -0.31626957654953003,
+        1.0059752464294434
+      ],
+      "socket_source_px": [
+        234.0408592224121,
+        244.3967056274414
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "eaa893609edce0237588325cc7c1a9bb4bbb5284195ceff752a142fa1cc02121"
+    },
+    {
+      "clip": "idle",
+      "frame": 82,
+      "t": 1.3666666666666667,
+      "file": "idle-082.png",
+      "render_seconds": 1.024293124966789,
+      "socket_world": [
+        0.07964382320642471,
+        -0.3162692189216614,
+        1.0059137344360352
+      ],
+      "socket_source_px": [
+        234.01365089416504,
+        244.37828063964844
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b812d8fe2ccd3f9d4afcb560a43631ba69198121f3e74247cbdcdae6261ee5d6"
+    },
+    {
+      "clip": "idle",
+      "frame": 83,
+      "t": 1.3833333333333333,
+      "file": "idle-083.png",
+      "render_seconds": 1.0077880840399303,
+      "socket_world": [
+        0.07929211109876633,
+        -0.31626948714256287,
+        1.0058467388153076
+      ],
+      "socket_source_px": [
+        233.98403930664062,
+        244.3582534790039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "dfb3e30e7b4debcf823936fc2c8528b8751c9ab04796e1e5aad19b85f07f058f"
+    },
+    {
+      "clip": "idle",
+      "frame": 84,
+      "t": 1.4,
+      "file": "idle-084.png",
+      "render_seconds": 1.0020183749729767,
+      "socket_world": [
+        0.07891284674406052,
+        -0.31626948714256287,
+        1.0057746171951294
+      ],
+      "socket_source_px": [
+        233.95211029052734,
+        244.3366241455078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9e1d5a9664b4e4881d395934b4d89864799b3ccba391f2f4b8a3e03897f506e5"
+    },
+    {
+      "clip": "idle",
+      "frame": 85,
+      "t": 1.4166666666666667,
+      "file": "idle-085.png",
+      "render_seconds": 1.0073667090036906,
+      "socket_world": [
+        0.07850789278745651,
+        -0.3162694275379181,
+        1.005698800086975
+      ],
+      "socket_source_px": [
+        233.91812133789062,
+        244.31350708007812
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a880bb646d75e3f682980323832515e70c4ea7f4d2bfff08d99e9427adcfa6cb"
+    },
+    {
+      "clip": "idle",
+      "frame": 86,
+      "t": 1.4333333333333333,
+      "file": "idle-086.png",
+      "render_seconds": 1.0059790830127895,
+      "socket_world": [
+        0.07807876914739609,
+        -0.3162693381309509,
+        1.0056179761886597
+      ],
+      "socket_source_px": [
+        233.881986618042,
+        244.28890228271484
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7adcaf0954111b8cd7f7c573752a736deed39e79252b2cc9af4d0fc2d2290c42"
+    },
+    {
+      "clip": "idle",
+      "frame": 87,
+      "t": 1.45,
+      "file": "idle-087.png",
+      "render_seconds": 1.0396791250095703,
+      "socket_world": [
+        0.07762768119573593,
+        -0.31626930832862854,
+        1.0055344104766846
+      ],
+      "socket_source_px": [
+        233.84396362304688,
+        244.2630386352539
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "80f80ae5eb3220edb640cd7463637b457630cefa4edbe25d6cb43f1244a6dd4a"
+    },
+    {
+      "clip": "idle",
+      "frame": 88,
+      "t": 1.4666666666666666,
+      "file": "idle-088.png",
+      "render_seconds": 1.0149289999972098,
+      "socket_world": [
+        0.07715602964162827,
+        -0.3162693381309509,
+        1.005447506904602
+      ],
+      "socket_source_px": [
+        233.80439567565918,
+        244.2359161376953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "77533e9cfd4d4571f62f372b38aeb30e05b2420dc7c8be7308f8e81f70272710"
+    },
+    {
+      "clip": "idle",
+      "frame": 89,
+      "t": 1.4833333333333334,
+      "file": "idle-089.png",
+      "render_seconds": 1.0337937909644097,
+      "socket_world": [
+        0.07666632533073425,
+        -0.3162694275379181,
+        1.0053577423095703
+      ],
+      "socket_source_px": [
+        233.76311111450195,
+        244.207763671875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "94847b90d5456c6b9df9a5e73b52c1ce348d8a1649bbf1573ae04ca175e7121a"
+    },
+    {
+      "clip": "idle",
+      "frame": 90,
+      "t": 1.5,
+      "file": "idle-090.png",
+      "render_seconds": 1.0140509590273723,
+      "socket_world": [
+        0.07616031169891357,
+        -0.3162694275379181,
+        1.0052659511566162
+      ],
+      "socket_source_px": [
+        233.72053909301758,
+        244.178466796875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "699224a40816ad793518dbcb134b9eae630e8ac1b435a96c7028e2e7a3caf1b6"
+    },
+    {
+      "clip": "idle",
+      "frame": 91,
+      "t": 1.5166666666666666,
+      "file": "idle-091.png",
+      "render_seconds": 1.01001324999379,
+      "socket_world": [
+        0.07564026862382889,
+        -0.3162693977355957,
+        1.0051721334457397
+      ],
+      "socket_source_px": [
+        233.67676544189453,
+        244.1484832763672
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9bb086b88e9b6f312f10b62f103ecadf7679f18c325b18b91b6d748fe565c392"
+    },
+    {
+      "clip": "idle",
+      "frame": 92,
+      "t": 1.5333333333333334,
+      "file": "idle-092.png",
+      "render_seconds": 1.0223116250126623,
+      "socket_world": [
+        0.075108602643013,
+        -0.3162693381309509,
+        1.0050771236419678
+      ],
+      "socket_source_px": [
+        233.63204765319824,
+        244.1176986694336
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "51870367955c780fffcb797dcd298814a7021fabd5e49e4ddf390a9a7d46e19c"
+    },
+    {
+      "clip": "idle",
+      "frame": 93,
+      "t": 1.55,
+      "file": "idle-093.png",
+      "render_seconds": 1.0266036249813624,
+      "socket_world": [
+        0.07456722855567932,
+        -0.3162693679332733,
+        1.0049811601638794
+      ],
+      "socket_source_px": [
+        233.5864715576172,
+        244.0862274169922
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "75bd6aa3b9be3f3ef9f5a56d4d0d7bebc8e2c4244b2e8eb852cbbd391a5a4dff"
+    },
+    {
+      "clip": "idle",
+      "frame": 94,
+      "t": 1.5666666666666667,
+      "file": "idle-094.png",
+      "render_seconds": 1.011299790989142,
+      "socket_world": [
+        0.0740184485912323,
+        -0.3162693977355957,
+        1.004884958267212
+      ],
+      "socket_source_px": [
+        233.54038047790527,
+        244.0542984008789
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a9699630d050038c6d9f9ee98c369257cbaaf06b15219b200d00cd17fac982be"
+    },
+    {
+      "clip": "idle",
+      "frame": 95,
+      "t": 1.5833333333333333,
+      "file": "idle-095.png",
+      "render_seconds": 1.0138932499685325,
+      "socket_world": [
+        0.07346528023481369,
+        -0.3162693381309509,
+        1.004788875579834
+      ],
+      "socket_source_px": [
+        233.4937744140625,
+        244.0221405029297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6eb7f1799b9a05c78c1128df3683b836cc82a440cc255db56486a919637caa72"
+    },
+    {
+      "clip": "walk",
+      "frame": 0,
+      "t": 0.0,
+      "file": "walk-000.png",
+      "render_seconds": 1.0085107079939917,
+      "socket_world": [
+        0.0814681127667427,
+        -0.3162693977355957,
+        0.15032003819942474
+      ],
+      "socket_source_px": [
+        234.79960250854492,
+        308.07804107666016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "79f3307485afafa396a0854dac50d189da927beda7c251e2a1d49117904c9293"
+    },
+    {
+      "clip": "walk",
+      "frame": 1,
+      "t": 0.016666666666666666,
+      "file": "walk-001.png",
+      "render_seconds": 1.0447052080417052,
+      "socket_world": [
+        0.10254309326410294,
+        -0.31613796949386597,
+        0.292354553937912
+      ],
+      "socket_source_px": [
+        236.44334602355957,
+        299.26631927490234
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "603729b2a7b2225852c63ace98a9dc4dd8dee93fa5df52dcbd94d5743d7a5e53"
+    },
+    {
+      "clip": "walk",
+      "frame": 2,
+      "t": 0.03333333333333333,
+      "file": "walk-002.png",
+      "render_seconds": 1.0180496249813586,
+      "socket_world": [
+        0.12318223714828491,
+        -0.3159707486629486,
+        0.38534238934516907
+      ],
+      "socket_source_px": [
+        238.1014232635498,
+        293.92810821533203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8602d83703ff2e100e7d9cbe677b2658dfabe5550eb8c8f99b76c74bbaf0b42d"
+    },
+    {
+      "clip": "walk",
+      "frame": 3,
+      "t": 0.05,
+      "file": "walk-003.png",
+      "render_seconds": 1.0107417920371518,
+      "socket_world": [
+        0.14302505552768707,
+        -0.31577345728874207,
+        0.45911866426467896
+      ],
+      "socket_source_px": [
+        239.71881675720215,
+        289.9082565307617
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fda1e8db7bff792896cc32b560130fb9688c616003777385f60b504ab1f4e30a"
+    },
+    {
+      "clip": "walk",
+      "frame": 4,
+      "t": 0.06666666666666667,
+      "file": "walk-004.png",
+      "render_seconds": 1.0147272089961916,
+      "socket_world": [
+        0.16173046827316284,
+        -0.31555405259132385,
+        0.5215779542922974
+      ],
+      "socket_source_px": [
+        241.25861930847168,
+        286.61922454833984
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a800567ac9f2b264794ab9a730f8d06a1a9ff209123bf789a3e25638ea2adb33"
+    },
+    {
+      "clip": "walk",
+      "frame": 5,
+      "t": 0.08333333333333333,
+      "file": "walk-005.png",
+      "render_seconds": 1.0201108749606647,
+      "socket_world": [
+        0.17898567020893097,
+        -0.3153224289417267,
+        0.5761662125587463
+      ],
+      "socket_source_px": [
+        242.68993186950684,
+        283.79322052001953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a796765746aec44c5738956f2a95b2d33b9075c840d08709481215b460d96e3c"
+    },
+    {
+      "clip": "walk",
+      "frame": 6,
+      "t": 0.1,
+      "file": "walk-006.png",
+      "render_seconds": 1.0383938750019297,
+      "socket_world": [
+        0.19450867176055908,
+        -0.3150896430015564,
+        0.6247082948684692
+      ],
+      "socket_source_px": [
+        243.9853744506836,
+        281.28089904785156
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1094409a1cd592f3510f39e35e55e34a7201d8094b1fec1750dcd0763754c81d"
+    },
+    {
+      "clip": "walk",
+      "frame": 7,
+      "t": 0.11666666666666667,
+      "file": "walk-007.png",
+      "render_seconds": 1.0097167079802603,
+      "socket_world": [
+        0.20805510878562927,
+        -0.31486737728118896,
+        0.6682747602462769
+      ],
+      "socket_source_px": [
+        245.12125778198242,
+        278.9891052246094
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "df124fefefe72568de6cbd108ecd1ef93ae711519be1082efa56d5b486ebbf6c"
+    },
+    {
+      "clip": "walk",
+      "frame": 8,
+      "t": 0.13333333333333333,
+      "file": "walk-008.png",
+      "render_seconds": 1.0192244169884361,
+      "socket_world": [
+        0.2194172888994217,
+        -0.3146665692329407,
+        0.7075361013412476
+      ],
+      "socket_source_px": [
+        246.0774974822998,
+        276.8562698364258
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c4b1eb6dfbc4b8a7d928e7c6c6feb1dcde8e5bfc8cc7a1f54dca68b57fd1ab69"
+    },
+    {
+      "clip": "walk",
+      "frame": 9,
+      "t": 0.15,
+      "file": "walk-009.png",
+      "render_seconds": 1.0171762079698965,
+      "socket_world": [
+        0.22842714190483093,
+        -0.31449827551841736,
+        0.7429336905479431
+      ],
+      "socket_source_px": [
+        246.8373565673828,
+        274.8399353027344
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6f722f364292006c3d333fb1b681c789ffd0a4792f7402bd67c1ec37ce7a795f"
+    },
+    {
+      "clip": "walk",
+      "frame": 10,
+      "t": 0.16666666666666666,
+      "file": "walk-010.png",
+      "render_seconds": 1.0168351249885745,
+      "socket_world": [
+        0.23495423793792725,
+        -0.31437137722969055,
+        0.7747781276702881
+      ],
+      "socket_source_px": [
+        247.38770294189453,
+        272.9095458984375
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5f26c7feccff3dfd2e7934177903b0c4e06564a1135725c32891b9c4c00d505d"
+    },
+    {
+      "clip": "walk",
+      "frame": 11,
+      "t": 0.18333333333333332,
+      "file": "walk-011.png",
+      "render_seconds": 1.0373714579618536,
+      "socket_world": [
+        0.23890697956085205,
+        -0.31429195404052734,
+        0.8032994866371155
+      ],
+      "socket_source_px": [
+        247.7192668914795,
+        271.0429000854492
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9bb36a5be4546d83cc7916dd246e0ed8d667c7b5b570c90995cafe283f5e1ef0"
+    },
+    {
+      "clip": "walk",
+      "frame": 12,
+      "t": 0.2,
+      "file": "walk-012.png",
+      "render_seconds": 1.0116915829712525,
+      "socket_world": [
+        0.24023035168647766,
+        -0.3142654597759247,
+        0.82868492603302
+      ],
+      "socket_source_px": [
+        247.82586860656738,
+        269.22340393066406
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "74d387ef3183b5d30c4dfed542c2f3e5e24284c7588b2b59c5896a161fdc1853"
+    },
+    {
+      "clip": "walk",
+      "frame": 13,
+      "t": 0.21666666666666667,
+      "file": "walk-013.png",
+      "render_seconds": 1.0102794580161572,
+      "socket_world": [
+        0.23890674114227295,
+        -0.3142920732498169,
+        0.8510898351669312
+      ],
+      "socket_source_px": [
+        247.70544815063477,
+        267.4390411376953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b8b577ca9157413efb25583c7a35146713fa384a65bc933058e17c6d51cc08f7"
+    },
+    {
+      "clip": "walk",
+      "frame": 14,
+      "t": 0.23333333333333334,
+      "file": "walk-014.png",
+      "render_seconds": 1.0115042089601047,
+      "socket_world": [
+        0.2349543422460556,
+        -0.31437137722969055,
+        0.8706388473510742
+      ],
+      "socket_source_px": [
+        247.35903549194336,
+        265.6827163696289
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "84f42f8debb153b7a16fe2342025cb2a2667fd3821d79c1d51ee7f89edfd4017"
+    },
+    {
+      "clip": "walk",
+      "frame": 15,
+      "t": 0.25,
+      "file": "walk-015.png",
+      "render_seconds": 1.0097977919504046,
+      "socket_world": [
+        0.22842715680599213,
+        -0.3144983947277069,
+        0.8873803615570068
+      ],
+      "socket_source_px": [
+        246.7912654876709,
+        263.9550018310547
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "4dbb7ce0a983af05f0141d4d6b21c9895daa665316cc235e8f7b06a4932455b9"
+    },
+    {
+      "clip": "walk",
+      "frame": 16,
+      "t": 0.26666666666666666,
+      "file": "walk-016.png",
+      "render_seconds": 1.0381223339936696,
+      "socket_world": [
+        0.21941739320755005,
+        -0.31466665863990784,
+        0.9011037349700928
+      ],
+      "socket_source_px": [
+        246.0105495452881,
+        262.2789001464844
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3eb5a91f85f462b6695b187cbcb340c0858ff8d9b3ae4ae0fb9314622534f22b"
+    },
+    {
+      "clip": "walk",
+      "frame": 17,
+      "t": 0.2833333333333333,
+      "file": "walk-017.png",
+      "render_seconds": 1.0464203329756856,
+      "socket_world": [
+        0.20805513858795166,
+        -0.3148673474788666,
+        0.9104354381561279
+      ],
+      "socket_source_px": [
+        245.02959060668945,
+        260.7681655883789
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b7e396d35c6945092b2b3af7ee7e9fc9d6cbeeff1b63d8303c4fa4e72b34f960"
+    },
+    {
+      "clip": "walk",
+      "frame": 18,
+      "t": 0.3,
+      "file": "walk-018.png",
+      "render_seconds": 1.0900993330287747,
+      "socket_world": [
+        0.19450873136520386,
+        -0.31508955359458923,
+        0.9097989201545715
+      ],
+      "socket_source_px": [
+        243.86615562438965,
+        259.8584747314453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "bda03e680c4d39674212b9344153487954a8ed40126e44defe85a5d77c61a264"
+    },
+    {
+      "clip": "walk",
+      "frame": 19,
+      "t": 0.31666666666666665,
+      "file": "walk-019.png",
+      "render_seconds": 1.0232935000094585,
+      "socket_world": [
+        0.17898572981357574,
+        -0.31532222032546997,
+        0.8967598080635071
+      ],
+      "socket_source_px": [
+        242.54153060913086,
+        259.74918365478516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9cdef2fac66d4eba000cde37783ae0a6b2edd876bf04d19cb3c01dd5d35bfcd1"
+    },
+    {
+      "clip": "walk",
+      "frame": 20,
+      "t": 0.3333333333333333,
+      "file": "walk-020.png",
+      "render_seconds": 1.0298259999835864,
+      "socket_world": [
+        0.16173063218593597,
+        -0.3155539929866791,
+        0.8782044649124146
+      ],
+      "socket_source_px": [
+        241.07597160339355,
+        259.9336624145508
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "60150d660320f23c0d1c241a9ff81b750d025e72d09dcaa91b79056e6e95592c"
+    },
+    {
+      "clip": "walk",
+      "frame": 21,
+      "t": 0.35,
+      "file": "walk-021.png",
+      "render_seconds": 1.0162798329838552,
+      "socket_world": [
+        0.1430252194404602,
+        -0.31577351689338684,
+        0.8570279479026794
+      ],
+      "socket_source_px": [
+        239.49394035339355,
+        260.2115249633789
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c294ac47eae4c008c97f8e5e7ccc1538036511f2da4ee199d007d148ac1efb5f"
+    },
+    {
+      "clip": "walk",
+      "frame": 22,
+      "t": 0.36666666666666664,
+      "file": "walk-022.png",
+      "render_seconds": 1.0155977089889348,
+      "socket_world": [
+        0.12318223714828491,
+        -0.3159708082675934,
+        0.8339462280273438
+      ],
+      "socket_source_px": [
+        237.8230743408203,
+        260.54981231689453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "27ffdd1bbcc2a4b0d6e18966270d1874c9939234bcbd5f4eabdc6aa2290342ab"
+    },
+    {
+      "clip": "walk",
+      "frame": 23,
+      "t": 0.38333333333333336,
+      "file": "walk-023.png",
+      "render_seconds": 1.008425832958892,
+      "socket_world": [
+        0.10254302620887756,
+        -0.3161379396915436,
+        0.8091637492179871
+      ],
+      "socket_source_px": [
+        236.09332847595215,
+        260.9568786621094
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7c2e653c183c23c987ac1591c5b6c3842ecb29b68b49cf43e54f2d9df4a9887f"
+    },
+    {
+      "clip": "walk",
+      "frame": 24,
+      "t": 0.4,
+      "file": "walk-024.png",
+      "render_seconds": 1.0105046670068987,
+      "socket_world": [
+        0.0814681127667427,
+        -0.3162693977355957,
+        0.15032003819942474
+      ],
+      "socket_source_px": [
+        234.79960250854492,
+        308.07804107666016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5065196f3f8b0a902e38a07d47a633acfe08d21f3d1e6935f5092194ef6dec7a"
+    },
+    {
+      "clip": "walk",
+      "frame": 25,
+      "t": 0.4166666666666667,
+      "file": "walk-025.png",
+      "render_seconds": 1.033992708020378,
+      "socket_world": [
+        0.06033153086900711,
+        -0.31636133790016174,
+        0.2881675064563751
+      ],
+      "socket_source_px": [
+        232.95415687561035,
+        296.5952682495117
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3c30f1fad2e0e9be7c75d1a81abeb54527ac8d862ee81aa3f717be6cc0896649"
+    },
+    {
+      "clip": "walk",
+      "frame": 26,
+      "t": 0.43333333333333335,
+      "file": "walk-026.png",
+      "render_seconds": 1.0115828340058215,
+      "socket_world": [
+        0.03951144218444824,
+        -0.3164138197898865,
+        0.37704378366470337
+      ],
+      "socket_source_px": [
+        231.1639862060547,
+        288.6294937133789
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "38c1751d5800a9b3b2427bc600f8f0b9e0d810ce4b121e1f06c9b9594e1923ea"
+    },
+    {
+      "clip": "walk",
+      "frame": 27,
+      "t": 0.45,
+      "file": "walk-027.png",
+      "render_seconds": 1.011607666965574,
+      "socket_world": [
+        0.019381796941161156,
+        -0.3164283335208893,
+        0.4468567967414856
+      ],
+      "socket_source_px": [
+        229.4420509338379,
+        282.0736312866211
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7c8b84378fa477ca0f4defcdee0d41cf0ac711e3f724075316dd4f061d8978a3"
+    },
+    {
+      "clip": "walk",
+      "frame": 28,
+      "t": 0.4666666666666667,
+      "file": "walk-028.png",
+      "render_seconds": 1.0124087919830345,
+      "socket_world": [
+        0.0003025576297659427,
+        -0.31640949845314026,
+        0.5055699348449707
+      ],
+      "socket_source_px": [
+        227.81358528137207,
+        276.3852310180664
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "53df71d7f8c38b03465ca1ce2ffc7d231b13f12f45376898d40d93bd4f6b45b2"
+    },
+    {
+      "clip": "walk",
+      "frame": 29,
+      "t": 0.48333333333333334,
+      "file": "walk-029.png",
+      "render_seconds": 1.0151458330219612,
+      "socket_world": [
+        -0.017387067899107933,
+        -0.3163638114929199,
+        0.5566956400871277
+      ],
+      "socket_source_px": [
+        226.305025100708,
+        271.33838653564453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "40cb1a8357f4893ca0ee2e03efe8c3cdc62c443a1697e8c3bb6c2be5af56eb94"
+    },
+    {
+      "clip": "walk",
+      "frame": 30,
+      "t": 0.5,
+      "file": "walk-030.png",
+      "render_seconds": 1.0971731670433655,
+      "socket_world": [
+        -0.03337644040584564,
+        -0.3162989318370819,
+        0.6021154522895813
+      ],
+      "socket_source_px": [
+        224.94066047668457,
+        266.82186126708984
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "90deca17e9b65d6f451ffae4070a438141cd966e7356f1b9e28566567cbace91"
+    },
+    {
+      "clip": "walk",
+      "frame": 31,
+      "t": 0.5166666666666667,
+      "file": "walk-031.png",
+      "render_seconds": 1.0189072920475155,
+      "socket_world": [
+        -0.04738859459757805,
+        -0.31622380018234253,
+        0.642953097820282
+      ],
+      "socket_source_px": [
+        223.7426357269287,
+        262.7760314941406
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9452dd2b109b5caac327177be93727b482e75dc1e993e0d9e8d871cdd2a0d53b"
+    },
+    {
+      "clip": "walk",
+      "frame": 32,
+      "t": 0.5333333333333333,
+      "file": "walk-032.png",
+      "render_seconds": 1.0274019169737585,
+      "socket_world": [
+        -0.05918429046869278,
+        -0.3161472976207733,
+        0.6799214482307434
+      ],
+      "socket_source_px": [
+        222.73026275634766,
+        259.1679382324219
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6ffe8b695fb89365409c275f1af65efb90376abac380369910938677e8f7956c"
+    },
+    {
+      "clip": "walk",
+      "frame": 33,
+      "t": 0.55,
+      "file": "walk-033.png",
+      "render_seconds": 1.0225269170477986,
+      "socket_world": [
+        -0.068565733730793,
+        -0.31607747077941895,
+        0.7134994268417358
+      ],
+      "socket_source_px": [
+        221.91959190368652,
+        255.97869873046875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "60639c571f48513e51afe94f51d679750cce6e77c88dc3fb7f451881b1eb38b6"
+    },
+    {
+      "clip": "walk",
+      "frame": 34,
+      "t": 0.5666666666666667,
+      "file": "walk-034.png",
+      "render_seconds": 1.0137973330565728,
+      "socket_world": [
+        -0.07537797093391418,
+        -0.3160220682621002,
+        0.7440236806869507
+      ],
+      "socket_source_px": [
+        221.32298278808594,
+        253.19629669189453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1d98795ccc38da6edcc74f64487a8029de3f8ecb9fc10ef83729ed4fba85866c"
+    },
+    {
+      "clip": "walk",
+      "frame": 35,
+      "t": 0.5833333333333334,
+      "file": "walk-035.png",
+      "render_seconds": 1.0348228750517592,
+      "socket_world": [
+        -0.07950989156961441,
+        -0.3159862756729126,
+        0.7717455625534058
+      ],
+      "socket_source_px": [
+        220.94970512390137,
+        250.81157684326172
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "683882dac45ad0f64836842c86606b13b87ac35fec783d7586d1edc7a86bfaab"
+    },
+    {
+      "clip": "walk",
+      "frame": 36,
+      "t": 0.6,
+      "file": "walk-036.png",
+      "render_seconds": 1.0116644999943674,
+      "socket_world": [
+        -0.08089475333690643,
+        -0.31597402691841125,
+        0.7968629598617554
+      ],
+      "socket_source_px": [
+        220.80516624450684,
+        248.81595611572266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3d79b18b8c3f1c49689c1ee803b3af588bc0fd78bed4afe7776f8d810251e6f9"
+    },
+    {
+      "clip": "walk",
+      "frame": 37,
+      "t": 0.6166666666666667,
+      "file": "walk-037.png",
+      "render_seconds": 1.0161270829848945,
+      "socket_world": [
+        -0.07951001077890396,
+        -0.3159863352775574,
+        0.8195355534553528
+      ],
+      "socket_source_px": [
+        220.8917694091797,
+        247.20016479492188
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "2aaacac1688f5f05a4cd331a97ff10049c11a3550964d74ae433110bd817ad84"
+    },
+    {
+      "clip": "walk",
+      "frame": 38,
+      "t": 0.6333333333333333,
+      "file": "walk-038.png",
+      "render_seconds": 1.015810834011063,
+      "socket_world": [
+        -0.07537811249494553,
+        -0.31602203845977783,
+        0.8398842215538025
+      ],
+      "socket_source_px": [
+        221.2081413269043,
+        245.95447540283203
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b3883e4b9a96357befbbdc2011205b28f8f6c61be057de29f10b1eb4dfa24d07"
+    },
+    {
+      "clip": "walk",
+      "frame": 39,
+      "t": 0.65,
+      "file": "walk-039.png",
+      "render_seconds": 1.007618583040312,
+      "socket_world": [
+        -0.06856579333543777,
+        -0.31607741117477417,
+        0.8579461574554443
+      ],
+      "socket_source_px": [
+        221.7493896484375,
+        245.07213592529297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7b7ef7d705f74e476c6784859d74ccd5f9a17821615b2de40b93e4c0a50a250c"
+    },
+    {
+      "clip": "walk",
+      "frame": 40,
+      "t": 0.6666666666666666,
+      "file": "walk-040.png",
+      "render_seconds": 1.0310927079990506,
+      "socket_world": [
+        -0.05918426066637039,
+        -0.3161473870277405,
+        0.8734890818595886
+      ],
+      "socket_source_px": [
+        222.50753211975098,
+        244.5633316040039
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "4ebc963a83df6a61f4beb26a20923872744f990577e57b6c195f3984e4867efe"
+    },
+    {
+      "clip": "walk",
+      "frame": 41,
+      "t": 0.6833333333333333,
+      "file": "walk-041.png",
+      "render_seconds": 1.019105541985482,
+      "socket_world": [
+        -0.047388579696416855,
+        -0.31622374057769775,
+        0.8851135969161987
+      ],
+      "socket_source_px": [
+        223.47226905822754,
+        244.52373504638672
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "18b952822b9d1ddcd8e0df68bcf1e46984bf0181ed27a9db1a2d646b7205eab4"
+    },
+    {
+      "clip": "walk",
+      "frame": 42,
+      "t": 0.7,
+      "file": "walk-042.png",
+      "render_seconds": 1.0393073750310577,
+      "socket_world": [
+        -0.03337647765874863,
+        -0.3162989616394043,
+        0.8872061371803284
+      ],
+      "socket_source_px": [
+        224.6339874267578,
+        245.36636352539062
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f1709f6a930f4a442c9e4c062b091c1983e325d60f55f04a6d7b8d1b89f7c610"
+    },
+    {
+      "clip": "walk",
+      "frame": 43,
+      "t": 0.7166666666666667,
+      "file": "walk-043.png",
+      "render_seconds": 1.016597957990598,
+      "socket_world": [
+        -0.01738722436130047,
+        -0.31636372208595276,
+        0.877288818359375
+      ],
+      "socket_source_px": [
+        225.97534942626953,
+        247.26207733154297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e906b4f29fd1db66f93133681c85833848a57f9ba8fcdf278af7487bacca5fee"
+    },
+    {
+      "clip": "walk",
+      "frame": 44,
+      "t": 0.7333333333333333,
+      "file": "walk-044.png",
+      "render_seconds": 1.0073512920062058,
+      "socket_world": [
+        0.0003025304467882961,
+        -0.3164096176624298,
+        0.8621964454650879
+      ],
+      "socket_source_px": [
+        227.4656276702881,
+        249.67002868652344
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5933884095d9c5b9fb1fc8dfb3767ce623246ae69491a500dd91c2860d362bee"
+    },
+    {
+      "clip": "walk",
+      "frame": 45,
+      "t": 0.75,
+      "file": "walk-045.png",
+      "render_seconds": 1.0388917090022005,
+      "socket_world": [
+        0.019381927326321602,
+        -0.3164283335208893,
+        0.844765841960907
+      ],
+      "socket_source_px": [
+        229.07624053955078,
+        252.35137939453125
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c32eb4b2c94a430a082fa03e78ab9ffb76ea435d8fd0a827edf118270ab76a3a"
+    },
+    {
+      "clip": "walk",
+      "frame": 46,
+      "t": 0.7666666666666667,
+      "file": "walk-046.png",
+      "render_seconds": 1.0057887919829227,
+      "socket_world": [
+        0.03951147943735123,
+        -0.3164138197898865,
+        0.8256479501724243
+      ],
+      "socket_source_px": [
+        230.77843475341797,
+        255.23162841796875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "509712da7b6f37de6259c736c61cc62766b12e69a666a5896258949850295a18"
+    },
+    {
+      "clip": "walk",
+      "frame": 47,
+      "t": 0.7833333333333333,
+      "file": "walk-047.png",
+      "render_seconds": 1.0100690419785678,
+      "socket_world": [
+        0.06033148244023323,
+        -0.31636130809783936,
+        0.8049765229225159
+      ],
+      "socket_source_px": [
+        232.54208374023438,
+        258.2743835449219
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3f7f3f2bfdcc2503f1fd8467609358a80c235cf22bf32dbfc7a8206a00ffa788"
+    },
+    {
+      "clip": "cast",
+      "frame": 0,
+      "t": 0.0,
+      "file": "cast-000.png",
+      "render_seconds": 1.0029085419955663,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "96041de148d48fdb7e47432319037b52375e9b795c067928722ef7fc676a9a67"
+    },
+    {
+      "clip": "cast",
+      "frame": 1,
+      "t": 0.016666666666666666,
+      "file": "cast-001.png",
+      "render_seconds": 1.0005774580058642,
+      "socket_world": [
+        0.074449323117733,
+        -0.3162693977355957,
+        1.0048788785934448
+      ],
+      "socket_source_px": [
+        233.57660102844238,
+        244.08565521240234
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "679c6b6c5db37ee5b778f0ade28394cff81205e6254691a4d9d640f9ff0746f4"
+    },
+    {
+      "clip": "cast",
+      "frame": 2,
+      "t": 0.03333333333333333,
+      "file": "cast-002.png",
+      "render_seconds": 1.030496374994982,
+      "socket_world": [
+        0.078949935734272,
+        -0.3162692189216614,
+        1.0054419040679932
+      ],
+      "socket_source_px": [
+        233.9555435180664,
+        244.36466217041016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c0b310e039dbfc9d647472ad173bc4c3c543dc2e955e8a9de535b5035b4a3d8e"
+    },
+    {
+      "clip": "cast",
+      "frame": 3,
+      "t": 0.05,
+      "file": "cast-003.png",
+      "render_seconds": 1.0033375000348315,
+      "socket_world": [
+        0.08622932434082031,
+        -0.3162694275379181,
+        1.006418228149414
+      ],
+      "socket_source_px": [
+        234.56846046447754,
+        244.81121063232422
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e2f05b98d1ea4b929eab80570f9a0c95208c7597c842ae9ed9ea8231657deff8"
+    },
+    {
+      "clip": "cast",
+      "frame": 4,
+      "t": 0.06666666666666667,
+      "file": "cast-004.png",
+      "render_seconds": 0.9958801249740645,
+      "socket_world": [
+        0.0960991159081459,
+        -0.31626924872398376,
+        1.0078727006912231
+      ],
+      "socket_source_px": [
+        235.39981651306152,
+        245.4067611694336
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c091da927a78c0fcc9c704762f9a3bac5835aedebf29cc7bb030d3475dc17141"
+    },
+    {
+      "clip": "cast",
+      "frame": 5,
+      "t": 0.08333333333333333,
+      "file": "cast-005.png",
+      "render_seconds": 1.0058676669723354,
+      "socket_world": [
+        0.1083657369017601,
+        -0.3162693679332733,
+        1.0098896026611328
+      ],
+      "socket_source_px": [
+        236.4333896636963,
+        246.13140106201172
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3439f808a85f62678b98b5ce198f15694787fa48dda540ea799fc6f20d60bdc4"
+    },
+    {
+      "clip": "cast",
+      "frame": 6,
+      "t": 0.1,
+      "file": "cast-006.png",
+      "render_seconds": 1.0064462079899386,
+      "socket_world": [
+        0.12282866984605789,
+        -0.31626930832862854,
+        1.0125676393508911
+      ],
+      "socket_source_px": [
+        237.65270042419434,
+        246.96327209472656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f03fc298f33dc2b34069d34c30b0859e0893c65fd3b0571bf0f25a0fcbe9f606"
+    },
+    {
+      "clip": "cast",
+      "frame": 7,
+      "t": 0.11666666666666667,
+      "file": "cast-007.png",
+      "render_seconds": 1.0414350000210106,
+      "socket_world": [
+        0.13927936553955078,
+        -0.3162694573402405,
+        1.0160166025161743
+      ],
+      "socket_source_px": [
+        239.04049682617188,
+        247.87960052490234
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "85899545925cac258ac4d34a84562af4f07d69f34a6c1dbf83d274eeedf09666"
+    },
+    {
+      "clip": "cast",
+      "frame": 8,
+      "t": 0.13333333333333333,
+      "file": "cast-008.png",
+      "render_seconds": 1.0037351250066422,
+      "socket_world": [
+        0.15750278532505035,
+        -0.31626948714256287,
+        1.0203440189361572
+      ],
+      "socket_source_px": [
+        240.5788402557373,
+        248.85669708251953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c4a2b6813e4a7e6209a62753313b0d0abe697111d04977bb73ba05c30b18929d"
+    },
+    {
+      "clip": "cast",
+      "frame": 9,
+      "t": 0.15,
+      "file": "cast-009.png",
+      "render_seconds": 1.0006197080365382,
+      "socket_world": [
+        0.1772756278514862,
+        -0.3162693381309509,
+        1.0256553888320923
+      ],
+      "socket_source_px": [
+        242.24962043762207,
+        249.8708724975586
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "bb908e36c7e5c0e08bd9f6a1aa90db3e073dbc295c17a8896ef65a23cf1d28d4"
+    },
+    {
+      "clip": "cast",
+      "frame": 10,
+      "t": 0.16666666666666666,
+      "file": "cast-010.png",
+      "render_seconds": 1.0028311670175754,
+      "socket_world": [
+        0.19836732745170593,
+        -0.31626924872398376,
+        1.0320448875427246
+      ],
+      "socket_source_px": [
+        244.03352546691895,
+        250.89855194091797
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b1e0f641dc9198eb7ac66f9d4494b7d41e1ddbf2229dd19b4e9e6d0d18f589c8"
+    },
+    {
+      "clip": "cast",
+      "frame": 11,
+      "t": 0.18333333333333332,
+      "file": "cast-011.png",
+      "render_seconds": 1.01035925000906,
+      "socket_world": [
+        0.22054240107536316,
+        -0.31626948714256287,
+        1.0395944118499756
+      ],
+      "socket_source_px": [
+        245.91115760803223,
+        251.91673278808594
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1f2d7d767317aa72565b6b69d63c19f894c6d7c5e77661bc51badd851c7a7a2e"
+    },
+    {
+      "clip": "cast",
+      "frame": 12,
+      "t": 0.2,
+      "file": "cast-012.png",
+      "render_seconds": 1.0267068750108592,
+      "socket_world": [
+        0.24355915188789368,
+        -0.3162694275379181,
+        1.048366665840149
+      ],
+      "socket_source_px": [
+        247.86260414123535,
+        252.9034423828125
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "abde8716f97ed376a58753e708a7331a3f5c4a8a15c11c0d2e211b4aa87fd3fa"
+    },
+    {
+      "clip": "cast",
+      "frame": 13,
+      "t": 0.21666666666666667,
+      "file": "cast-013.png",
+      "render_seconds": 1.0050139160011895,
+      "socket_world": [
+        0.2671765685081482,
+        -0.31626954674720764,
+        1.058401346206665
+      ],
+      "socket_source_px": [
+        249.86786651611328,
+        253.83831024169922
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f97966912aedc40aa6fefb3d2636b2d8c2c8dda265c564fc3805704fe323b428"
+    },
+    {
+      "clip": "cast",
+      "frame": 14,
+      "t": 0.23333333333333334,
+      "file": "cast-014.png",
+      "render_seconds": 1.0008132500224747,
+      "socket_world": [
+        0.291151225566864,
+        -0.3162694573402405,
+        1.069716215133667
+      ],
+      "socket_source_px": [
+        251.9065170288086,
+        254.7022247314453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fa2c288a89be9201af0ef586fc9f648a7c6f94c62caa8f8ec35d51fdd6f4ad80"
+    },
+    {
+      "clip": "cast",
+      "frame": 15,
+      "t": 0.25,
+      "file": "cast-015.png",
+      "render_seconds": 1.0017147079925053,
+      "socket_world": [
+        0.3152455985546112,
+        -0.3162693381309509,
+        1.0822995901107788
+      ],
+      "socket_source_px": [
+        253.9587287902832,
+        255.47916412353516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f2966feaf430b11387931923ed9bca6b768cadbbb496f455c608fcce89c07931"
+    },
+    {
+      "clip": "cast",
+      "frame": 16,
+      "t": 0.26666666666666666,
+      "file": "cast-016.png",
+      "render_seconds": 1.0614888329873793,
+      "socket_world": [
+        0.33922815322875977,
+        -0.3162693381309509,
+        1.0961124897003174
+      ],
+      "socket_source_px": [
+        256.00527572631836,
+        256.1549377441406
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "03a97c704fb39f8afea9f9293cc24ccb1b23f20fcd6bf4b005ac713e40fbc1c3"
+    },
+    {
+      "clip": "cast",
+      "frame": 17,
+      "t": 0.2833333333333333,
+      "file": "cast-017.png",
+      "render_seconds": 1.021978874981869,
+      "socket_world": [
+        0.3628767728805542,
+        -0.3162693977355957,
+        1.1110895872116089
+      ],
+      "socket_source_px": [
+        258.0272750854492,
+        256.7185592651367
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1e82e5282eda49bb42f0e3dab96cb09a4782d6820a7d1627e4f07de38cc7c9a6"
+    },
+    {
+      "clip": "cast",
+      "frame": 18,
+      "t": 0.3,
+      "file": "cast-018.png",
+      "render_seconds": 1.0039954999811016,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "socket_source_px": [
+        260.00687408447266,
+        257.1617889404297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "27757ede06bfbb7795adfd3ad6874076e9f0422823d9ce2ea290b45fae8a8cb8"
+    },
+    {
+      "clip": "cast",
+      "frame": 19,
+      "t": 0.31666666666666665,
+      "file": "cast-019.png",
+      "render_seconds": 1.0045626249630004,
+      "socket_world": [
+        0.40835821628570557,
+        -0.31626957654953003,
+        1.1441283226013184
+      ],
+      "socket_source_px": [
+        261.9279365539551,
+        257.4799346923828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "473ba2765232126e120191c2f6f713a28c2c174bc38a683fd50cb0b197295022"
+    },
+    {
+      "clip": "cast",
+      "frame": 20,
+      "t": 0.3333333333333333,
+      "file": "cast-020.png",
+      "render_seconds": 1.0047098330105655,
+      "socket_world": [
+        0.4298284351825714,
+        -0.3162693679332733,
+        1.161921501159668
+      ],
+      "socket_source_px": [
+        263.77552795410156,
+        257.67127990722656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3bbefad8bb5d5f8bb95f4f029aceb2ae3a021e8335a3e67951a1584d68b0a1b8"
+    },
+    {
+      "clip": "cast",
+      "frame": 21,
+      "t": 0.35,
+      "file": "cast-021.png",
+      "render_seconds": 1.024849583976902,
+      "socket_world": [
+        0.45024463534355164,
+        -0.3162693977355957,
+        1.180345058441162
+      ],
+      "socket_source_px": [
+        265.5364303588867,
+        257.7377700805664
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "aa82e9811c93908e0745b4e2374806723a614f99bca201d3d7d3549c5171ff8d"
+    },
+    {
+      "clip": "cast",
+      "frame": 22,
+      "t": 0.36666666666666664,
+      "file": "cast-022.png",
+      "render_seconds": 1.005833875038661,
+      "socket_world": [
+        0.46948057413101196,
+        -0.3162694275379181,
+        1.1992090940475464
+      ],
+      "socket_source_px": [
+        267.1994857788086,
+        257.68421173095703
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fad96ac176ff604295d3c666ae6a43dfb054cb908173477a34fa32407269e5c8"
+    },
+    {
+      "clip": "cast",
+      "frame": 23,
+      "t": 0.38333333333333336,
+      "file": "cast-023.png",
+      "render_seconds": 1.00159108301159,
+      "socket_world": [
+        0.4874351918697357,
+        -0.3162692189216614,
+        1.2183079719543457
+      ],
+      "socket_source_px": [
+        268.7557678222656,
+        257.5191879272461
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8b1c1c70a6b0cd5baba270b6cff6587283de6efcfd4a4f3759c9c46d7915166a"
+    },
+    {
+      "clip": "cast",
+      "frame": 24,
+      "t": 0.4,
+      "file": "cast-024.png",
+      "render_seconds": 1.0139935000333935,
+      "socket_world": [
+        0.5040315985679626,
+        -0.31626954674720764,
+        1.2374210357666016
+      ],
+      "socket_source_px": [
+        270.1977233886719,
+        257.25345611572266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9ec1cfe72a7b32c09e90afacf7adb4ccff92a45890a77316fabed617bb53f49d"
+    },
+    {
+      "clip": "cast",
+      "frame": 25,
+      "t": 0.4166666666666667,
+      "file": "cast-025.png",
+      "render_seconds": 1.024572582973633,
+      "socket_world": [
+        0.519219160079956,
+        -0.31626927852630615,
+        1.2563186883926392
+      ],
+      "socket_source_px": [
+        271.52054595947266,
+        256.90074920654297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "000f0c056f8b426d73bd1a0d158cd72727216eccb5de26bf3232a607c4913856"
+    },
+    {
+      "clip": "cast",
+      "frame": 26,
+      "t": 0.43333333333333335,
+      "file": "cast-026.png",
+      "render_seconds": 1.040311082964763,
+      "socket_world": [
+        0.5329700708389282,
+        -0.31626927852630615,
+        1.2747641801834106
+      ],
+      "socket_source_px": [
+        272.72131729125977,
+        256.47754669189453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f88bca6ea31b84664373d16ef144b0c5a77c0aba70cb94df74750c09d3c5008b"
+    },
+    {
+      "clip": "cast",
+      "frame": 27,
+      "t": 0.45,
+      "file": "cast-027.png",
+      "render_seconds": 1.0274257920100354,
+      "socket_world": [
+        0.54527747631073,
+        -0.31626957654953003,
+        1.2925173044204712
+      ],
+      "socket_source_px": [
+        273.79883575439453,
+        256.0015869140625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e02371ff2044c8396848c5a3e49de2db5a38c694cfc609eaa5ba87678efd50c4"
+    },
+    {
+      "clip": "cast",
+      "frame": 28,
+      "t": 0.4666666666666667,
+      "file": "cast-028.png",
+      "render_seconds": 1.012960333027877,
+      "socket_world": [
+        0.5561535954475403,
+        -0.3162694275379181,
+        1.309338927268982
+      ],
+      "socket_source_px": [
+        274.75310134887695,
+        255.4922103881836
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "507ce182145d65b5bec1ba02c3bd675e81b4aca17892187afa81d8f0e6577882"
+    },
+    {
+      "clip": "cast",
+      "frame": 29,
+      "t": 0.48333333333333334,
+      "file": "cast-029.png",
+      "render_seconds": 1.0130226250039414,
+      "socket_world": [
+        0.5656263828277588,
+        -0.31626930832862854,
+        1.324990153312683
+      ],
+      "socket_source_px": [
+        275.5863456726074,
+        254.97013092041016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "65050ca89334b0c25507319e8ac67f9d2be980f47ba1251075674c21c40c6b9f"
+    },
+    {
+      "clip": "cast",
+      "frame": 30,
+      "t": 0.5,
+      "file": "cast-030.png",
+      "render_seconds": 1.0054925410076976,
+      "socket_world": [
+        0.5737326741218567,
+        -0.31626924872398376,
+        1.3392373323440552
+      ],
+      "socket_source_px": [
+        276.3009719848633,
+        254.45629119873047
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6f90db1110226266a8762331864b38b08929f1118c02885eecde54eda70fded4"
+    },
+    {
+      "clip": "cast",
+      "frame": 31,
+      "t": 0.5166666666666667,
+      "file": "cast-031.png",
+      "render_seconds": 1.0331643749959767,
+      "socket_world": [
+        0.5805178284645081,
+        -0.3162694275379181,
+        1.3518540859222412
+      ],
+      "socket_source_px": [
+        276.9004135131836,
+        253.97186279296875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5eb548be54dd80f4066acf0cebda655fbebba317ad0c51889de4dc7d3a455fbf"
+    },
+    {
+      "clip": "cast",
+      "frame": 32,
+      "t": 0.5333333333333333,
+      "file": "cast-032.png",
+      "render_seconds": 1.007018500007689,
+      "socket_world": [
+        0.5860248804092407,
+        -0.31626924872398376,
+        1.3626205921173096
+      ],
+      "socket_source_px": [
+        277.38793182373047,
+        253.5373306274414
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "d958aaee5d49f12736e3237ded21c12a24f318b30e0e0b03c487821a36b9861c"
+    },
+    {
+      "clip": "cast",
+      "frame": 33,
+      "t": 0.55,
+      "file": "cast-033.png",
+      "render_seconds": 1.0101510420208797,
+      "socket_world": [
+        0.5902934670448303,
+        -0.3162693977355957,
+        1.3713266849517822
+      ],
+      "socket_source_px": [
+        277.76627349853516,
+        253.17203521728516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3aa41e661a61c0c96bcbf47d3e7653c68530124b94f3ed6824b3528a3ff5de04"
+    },
+    {
+      "clip": "cast",
+      "frame": 34,
+      "t": 0.5666666666666667,
+      "file": "cast-034.png",
+      "render_seconds": 1.005261124984827,
+      "socket_world": [
+        0.5933486819267273,
+        -0.31626948714256287,
+        1.3777722120285034
+      ],
+      "socket_source_px": [
+        278.0374984741211,
+        252.89371490478516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "8cc7b0868c345df459326b09ef2959c5853f9d8d994a5cecf22de5f9ecbfed5b"
+    },
+    {
+      "clip": "cast",
+      "frame": 35,
+      "t": 0.5833333333333334,
+      "file": "cast-035.png",
+      "render_seconds": 1.0049802499706857,
+      "socket_world": [
+        0.5951982140541077,
+        -0.316269189119339,
+        1.3817676305770874
+      ],
+      "socket_source_px": [
+        278.20177841186523,
+        252.7178192138672
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "86e0001eae4962f09f93297ccbda698f889ed1dbcf5451251c35b2e0bd54bffd"
+    },
+    {
+      "clip": "cast",
+      "frame": 36,
+      "t": 0.6,
+      "file": "cast-036.png",
+      "render_seconds": 1.0210390830179676,
+      "socket_world": [
+        0.5958245992660522,
+        -0.3162693977355957,
+        1.3831366300582886
+      ],
+      "socket_source_px": [
+        278.25739669799805,
+        252.6569366455078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3210f37a23f670d5f08a322ddb389ad128285e80e1a8f2ffd388e7503e503625"
+    },
+    {
+      "clip": "cast",
+      "frame": 37,
+      "t": 0.6166666666666667,
+      "file": "cast-037.png",
+      "render_seconds": 1.0127059170044959,
+      "socket_world": [
+        0.5951982140541077,
+        -0.316269189119339,
+        1.3817676305770874
+      ],
+      "socket_source_px": [
+        278.20177841186523,
+        252.7178192138672
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5b07f872646b77ba65534e6029bb4bcec4cae25ec14229b33a8978cb09997883"
+    },
+    {
+      "clip": "cast",
+      "frame": 38,
+      "t": 0.6333333333333333,
+      "file": "cast-038.png",
+      "render_seconds": 1.0028275420190766,
+      "socket_world": [
+        0.5933486819267273,
+        -0.31626948714256287,
+        1.3777722120285034
+      ],
+      "socket_source_px": [
+        278.0374984741211,
+        252.89371490478516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "492a57ebea49cc769d53bcb93ef6b7688c42f49a129b8e20990e6aa943c1e552"
+    },
+    {
+      "clip": "cast",
+      "frame": 39,
+      "t": 0.65,
+      "file": "cast-039.png",
+      "render_seconds": 1.0096835829899646,
+      "socket_world": [
+        0.5902934670448303,
+        -0.3162693977355957,
+        1.3713266849517822
+      ],
+      "socket_source_px": [
+        277.76627349853516,
+        253.17203521728516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6f264c28291dbfc00e1c74e9d5d0319851b7ac58f484fe2689a8f61c25408545"
+    },
+    {
+      "clip": "cast",
+      "frame": 40,
+      "t": 0.6666666666666666,
+      "file": "cast-040.png",
+      "render_seconds": 1.0045454580103979,
+      "socket_world": [
+        0.5860248804092407,
+        -0.31626924872398376,
+        1.3626205921173096
+      ],
+      "socket_source_px": [
+        277.38793182373047,
+        253.5373306274414
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "bc6ba42d343394cf2ba279fb6322f6077f3b99bc1dcacf8da7a5626c5caabd17"
+    },
+    {
+      "clip": "cast",
+      "frame": 41,
+      "t": 0.6833333333333333,
+      "file": "cast-041.png",
+      "render_seconds": 1.0698233330040239,
+      "socket_world": [
+        0.5805178284645081,
+        -0.3162694275379181,
+        1.3518540859222412
+      ],
+      "socket_source_px": [
+        276.9004135131836,
+        253.97186279296875
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6e2fd880d3d3dbca2ee8e61f4ef2a97668e53d026dd80f0a171297db1d11bf79"
+    },
+    {
+      "clip": "cast",
+      "frame": 42,
+      "t": 0.7,
+      "file": "cast-042.png",
+      "render_seconds": 1.012920540990308,
+      "socket_world": [
+        0.5737326741218567,
+        -0.31626924872398376,
+        1.3392373323440552
+      ],
+      "socket_source_px": [
+        276.3009719848633,
+        254.45629119873047
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f145cec7d4851e7ec3b9545e34747b8dad3827dac776fdfd2cef8bedb5f93385"
+    },
+    {
+      "clip": "cast",
+      "frame": 43,
+      "t": 0.7166666666666667,
+      "file": "cast-043.png",
+      "render_seconds": 1.0138147919788025,
+      "socket_world": [
+        0.5656263828277588,
+        -0.31626930832862854,
+        1.324990153312683
+      ],
+      "socket_source_px": [
+        275.5863456726074,
+        254.97013092041016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "445377a3e2395ed7d066d4eb5caa4ebe45e750560f080a80937c2c5ac849101c"
+    },
+    {
+      "clip": "cast",
+      "frame": 44,
+      "t": 0.7333333333333333,
+      "file": "cast-044.png",
+      "render_seconds": 1.0025791670195758,
+      "socket_world": [
+        0.5561535954475403,
+        -0.3162694275379181,
+        1.309338927268982
+      ],
+      "socket_source_px": [
+        274.75310134887695,
+        255.4922103881836
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "95c9ee8501ff9b73f63bec498c2a32c6494994e55c489aabac159403ff214fac"
+    },
+    {
+      "clip": "cast",
+      "frame": 45,
+      "t": 0.75,
+      "file": "cast-045.png",
+      "render_seconds": 1.004461958014872,
+      "socket_world": [
+        0.54527747631073,
+        -0.31626957654953003,
+        1.2925173044204712
+      ],
+      "socket_source_px": [
+        273.79883575439453,
+        256.0015869140625
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "944513a4be45e0afb22c05dd224f48d15ea66ad7824a486723ec9717d1eab01a"
+    },
+    {
+      "clip": "cast",
+      "frame": 46,
+      "t": 0.7666666666666667,
+      "file": "cast-046.png",
+      "render_seconds": 1.0258700419799425,
+      "socket_world": [
+        0.5329700708389282,
+        -0.31626927852630615,
+        1.2747641801834106
+      ],
+      "socket_source_px": [
+        272.72131729125977,
+        256.47754669189453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e0e00ed53037fdef8859fcde2340808f400f79a1822af9db0e7ba4062d3002d1"
+    },
+    {
+      "clip": "cast",
+      "frame": 47,
+      "t": 0.7833333333333333,
+      "file": "cast-047.png",
+      "render_seconds": 0.9961408749804832,
+      "socket_world": [
+        0.519219160079956,
+        -0.31626927852630615,
+        1.2563186883926392
+      ],
+      "socket_source_px": [
+        271.52054595947266,
+        256.90074920654297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a686c612d2722fe6c937911bda841e913bd60de3d7eb7aba7b33ea4b99b3d3a2"
+    },
+    {
+      "clip": "cast",
+      "frame": 48,
+      "t": 0.8,
+      "file": "cast-048.png",
+      "render_seconds": 1.001573665998876,
+      "socket_world": [
+        0.5040315985679626,
+        -0.31626954674720764,
+        1.2374210357666016
+      ],
+      "socket_source_px": [
+        270.1977233886719,
+        257.25345611572266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e34186c456cfbbf363ba1993c269d69fe708823b339d660e98b93934bbc46e48"
+    },
+    {
+      "clip": "cast",
+      "frame": 49,
+      "t": 0.8166666666666667,
+      "file": "cast-049.png",
+      "render_seconds": 1.0026522079715505,
+      "socket_world": [
+        0.4874351918697357,
+        -0.3162692189216614,
+        1.2183079719543457
+      ],
+      "socket_source_px": [
+        268.7557678222656,
+        257.5191879272461
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5c15b69db4704b7c5ad22a6da783a60ade68fecc2f159f6f05602f560368a0a2"
+    },
+    {
+      "clip": "cast",
+      "frame": 50,
+      "t": 0.8333333333333334,
+      "file": "cast-050.png",
+      "render_seconds": 1.0633064589928836,
+      "socket_world": [
+        0.46948057413101196,
+        -0.3162694275379181,
+        1.1992090940475464
+      ],
+      "socket_source_px": [
+        267.1994857788086,
+        257.68421173095703
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "fa16168178ac1f2167943af2e3e2a2cc47188e85788ec24b04a60be9f9a03564"
+    },
+    {
+      "clip": "cast",
+      "frame": 51,
+      "t": 0.85,
+      "file": "cast-051.png",
+      "render_seconds": 1.048333749989979,
+      "socket_world": [
+        0.45024463534355164,
+        -0.3162693977355957,
+        1.180345058441162
+      ],
+      "socket_source_px": [
+        265.5364303588867,
+        257.7377700805664
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "b3cbdc2bd4ac733d3acf1601b41e13270a3e00a705e7748c26dc1a05300964f4"
+    },
+    {
+      "clip": "cast",
+      "frame": 52,
+      "t": 0.8666666666666667,
+      "file": "cast-052.png",
+      "render_seconds": 1.0092870839871466,
+      "socket_world": [
+        0.4298284351825714,
+        -0.3162693679332733,
+        1.161921501159668
+      ],
+      "socket_source_px": [
+        263.77552795410156,
+        257.67127990722656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c3535db490145b0311d6e0fc932e782567b67902f832ceb9dd9740818e6edb2f"
+    },
+    {
+      "clip": "cast",
+      "frame": 53,
+      "t": 0.8833333333333333,
+      "file": "cast-053.png",
+      "render_seconds": 1.0115492079639807,
+      "socket_world": [
+        0.40835821628570557,
+        -0.31626957654953003,
+        1.1441283226013184
+      ],
+      "socket_source_px": [
+        261.9279365539551,
+        257.4799346923828
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "15468dfc3851f9c3726a32a134096d7d2c644b3d6a589ce59259fd484dccaf11"
+    },
+    {
+      "clip": "cast",
+      "frame": 54,
+      "t": 0.9,
+      "file": "cast-054.png",
+      "render_seconds": 1.008820790972095,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "socket_source_px": [
+        260.00687408447266,
+        257.1617889404297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "f259098856939cdcf74f2c5b2879cf1e3007ff741b0a94acfd63d416578e25e9"
+    },
+    {
+      "clip": "cast",
+      "frame": 55,
+      "t": 0.9166666666666666,
+      "file": "cast-055.png",
+      "render_seconds": 1.0229009999893606,
+      "socket_world": [
+        0.3628767728805542,
+        -0.3162693977355957,
+        1.1110895872116089
+      ],
+      "socket_source_px": [
+        258.0272750854492,
+        256.7185592651367
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "566202a16f8c0099f6b91398153fa144c2954b99586bc7bf97d8015d168dcb20"
+    },
+    {
+      "clip": "cast",
+      "frame": 56,
+      "t": 0.9333333333333333,
+      "file": "cast-056.png",
+      "render_seconds": 1.0346012089867145,
+      "socket_world": [
+        0.33922815322875977,
+        -0.3162693381309509,
+        1.0961124897003174
+      ],
+      "socket_source_px": [
+        256.00527572631836,
+        256.1549377441406
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "a30d2c0b711d6aca6fb17d533aae767b531626bb777a219766e04f3fff07a5ab"
+    },
+    {
+      "clip": "cast",
+      "frame": 57,
+      "t": 0.95,
+      "file": "cast-057.png",
+      "render_seconds": 1.0087936670170166,
+      "socket_world": [
+        0.3152455985546112,
+        -0.3162693381309509,
+        1.0822995901107788
+      ],
+      "socket_source_px": [
+        253.9587287902832,
+        255.47916412353516
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "9ef5596702a49c56af0fb2109299634a5e0496319d6a25b42cd3fca341d1fa1a"
+    },
+    {
+      "clip": "cast",
+      "frame": 58,
+      "t": 0.9666666666666667,
+      "file": "cast-058.png",
+      "render_seconds": 1.008288334007375,
+      "socket_world": [
+        0.291151225566864,
+        -0.3162694573402405,
+        1.069716215133667
+      ],
+      "socket_source_px": [
+        251.9065170288086,
+        254.7022247314453
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "0eef9390c78a1f18297564349303949eda0488e183d415922e47c62c22d353a0"
+    },
+    {
+      "clip": "cast",
+      "frame": 59,
+      "t": 0.9833333333333333,
+      "file": "cast-059.png",
+      "render_seconds": 1.004772291984409,
+      "socket_world": [
+        0.2671765685081482,
+        -0.31626954674720764,
+        1.058401346206665
+      ],
+      "socket_source_px": [
+        249.86786651611328,
+        253.83831024169922
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "eab63e6df7294404a86b8ef70f380ad35a9d84b63d976dbaf9006d8f4e583c60"
+    },
+    {
+      "clip": "cast",
+      "frame": 60,
+      "t": 1.0,
+      "file": "cast-060.png",
+      "render_seconds": 1.0169339580461383,
+      "socket_world": [
+        0.24355915188789368,
+        -0.3162694275379181,
+        1.048366665840149
+      ],
+      "socket_source_px": [
+        247.86260414123535,
+        252.9034423828125
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "aa5f7277e160d912f7876441f66250805f5c5a7db38b39ec4b471f632bc0c727"
+    },
+    {
+      "clip": "cast",
+      "frame": 61,
+      "t": 1.0166666666666666,
+      "file": "cast-061.png",
+      "render_seconds": 1.0205915000406094,
+      "socket_world": [
+        0.22054240107536316,
+        -0.31626948714256287,
+        1.0395944118499756
+      ],
+      "socket_source_px": [
+        245.91115760803223,
+        251.91673278808594
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ffad61ede4de16e54c172c3b1dd780c731785dc227ad50012fe5ecae1a32de30"
+    },
+    {
+      "clip": "cast",
+      "frame": 62,
+      "t": 1.0333333333333334,
+      "file": "cast-062.png",
+      "render_seconds": 1.0074967079563066,
+      "socket_world": [
+        0.19836732745170593,
+        -0.31626924872398376,
+        1.0320448875427246
+      ],
+      "socket_source_px": [
+        244.03352546691895,
+        250.89855194091797
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ccedb2fa73395652f2bfc19bf47bac65861c9a7ed53f437aac2faf107120a8e8"
+    },
+    {
+      "clip": "cast",
+      "frame": 63,
+      "t": 1.05,
+      "file": "cast-063.png",
+      "render_seconds": 1.0089049590169452,
+      "socket_world": [
+        0.1772756278514862,
+        -0.3162693381309509,
+        1.0256553888320923
+      ],
+      "socket_source_px": [
+        242.24962043762207,
+        249.8708724975586
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "e199635433aabe26ddc556ead5c0911a7e25be3df81ade8aa583961ca1a1c999"
+    },
+    {
+      "clip": "cast",
+      "frame": 64,
+      "t": 1.0666666666666667,
+      "file": "cast-064.png",
+      "render_seconds": 1.0026761250337586,
+      "socket_world": [
+        0.15750278532505035,
+        -0.31626948714256287,
+        1.0203440189361572
+      ],
+      "socket_source_px": [
+        240.5788402557373,
+        248.85669708251953
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "804e018695ddacfc1d7ce746bb2ad5f6cf00dc97140ae4d30456919ea2147fe7"
+    },
+    {
+      "clip": "cast",
+      "frame": 65,
+      "t": 1.0833333333333333,
+      "file": "cast-065.png",
+      "render_seconds": 1.027378167025745,
+      "socket_world": [
+        0.13927936553955078,
+        -0.3162694573402405,
+        1.0160166025161743
+      ],
+      "socket_source_px": [
+        239.04049682617188,
+        247.87960052490234
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c1a8a8b8005be4bff2105da5b6cc56436d73d305937c71ba7295adcabb1c0c54"
+    },
+    {
+      "clip": "cast",
+      "frame": 66,
+      "t": 1.1,
+      "file": "cast-066.png",
+      "render_seconds": 1.0368559999624267,
+      "socket_world": [
+        0.12282866984605789,
+        -0.31626930832862854,
+        1.0125676393508911
+      ],
+      "socket_source_px": [
+        237.65270042419434,
+        246.96327209472656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "881812ac7825bb024ac25b1b7863278c735e1c48e78a6cc4e9a455f450f67313"
+    },
+    {
+      "clip": "cast",
+      "frame": 67,
+      "t": 1.1166666666666667,
+      "file": "cast-067.png",
+      "render_seconds": 1.0216699160519056,
+      "socket_world": [
+        0.1083657369017601,
+        -0.3162693679332733,
+        1.0098896026611328
+      ],
+      "socket_source_px": [
+        236.4333896636963,
+        246.13140106201172
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c2ad789749e9527ac697cdaf9d39b9e0e7949d5b26868699c1e916dc529faadf"
+    },
+    {
+      "clip": "cast",
+      "frame": 68,
+      "t": 1.1333333333333333,
+      "file": "cast-068.png",
+      "render_seconds": 1.0583123749820516,
+      "socket_world": [
+        0.0960991159081459,
+        -0.31626924872398376,
+        1.0078727006912231
+      ],
+      "socket_source_px": [
+        235.39981651306152,
+        245.4067611694336
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c24fc9478be4305edc20c0b94828eb1a55093528e25ca355a5046af14b89026d"
+    },
+    {
+      "clip": "cast",
+      "frame": 69,
+      "t": 1.15,
+      "file": "cast-069.png",
+      "render_seconds": 1.1618362499866635,
+      "socket_world": [
+        0.08622932434082031,
+        -0.3162694275379181,
+        1.006418228149414
+      ],
+      "socket_source_px": [
+        234.56846046447754,
+        244.81121063232422
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "59625cb50e06695c42c977b8ceb58573ce6c3e98acde03d3ffdad52f71ff2ec6"
+    },
+    {
+      "clip": "cast",
+      "frame": 70,
+      "t": 1.1666666666666667,
+      "file": "cast-070.png",
+      "render_seconds": 1.6361654590000398,
+      "socket_world": [
+        0.078949935734272,
+        -0.3162692189216614,
+        1.0054419040679932
+      ],
+      "socket_source_px": [
+        233.9555435180664,
+        244.36466217041016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "3e34969b6d75895fcb79bbcf932a3e88b5f1c26b116c59034b2ea7145582cca1"
+    },
+    {
+      "clip": "cast",
+      "frame": 71,
+      "t": 1.1833333333333333,
+      "file": "cast-071.png",
+      "render_seconds": 1.0044445419916883,
+      "socket_world": [
+        0.074449323117733,
+        -0.3162693977355957,
+        1.0048788785934448
+      ],
+      "socket_source_px": [
+        233.57660102844238,
+        244.08565521240234
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7159a744907b653051ee0b0efc0705becafbb6bd2097c9c1d325709770366066"
+    }
+  ],
+  "elapsed_seconds": 222.15881737496238,
+  "source": "inputs/motion-v1.blend"
+}

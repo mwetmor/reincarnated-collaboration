@@ -1,0 +1,348 @@
+{
+  "profile": {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  "camera_projection_checks": [
+    {
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        1442.999267578125,
+        892.4989700317383
+      ],
+      "expected": [
+        1442.9993774400002,
+        892.4986999079999
+      ],
+      "error_px": 0.0002916101261003533
+    },
+    {
+      "world": [
+        0,
+        0,
+        2
+      ],
+      "actual": [
+        1442.999267578125,
+        738.5988235473633
+      ],
+      "expected": [
+        1442.9993774400002,
+        738.598699908
+      ],
+      "error_px": 0.00016539747213654895
+    },
+    {
+      "world": [
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        1525.8112907409668,
+        963.3782958984375
+      ],
+      "expected": [
+        1525.8113003307506,
+        963.378099396747
+      ],
+      "error_px": 0.00019673555432894399
+    },
+    {
+      "world": [
+        0,
+        1,
+        0
+      ],
+      "actual": [
+        1354.3068981170654,
+        958.5112380981445
+      ],
+      "expected": [
+        1354.3070272858017,
+        958.5110290291641
+      ],
+      "error_px": 0.0002457527233165873
+    },
+    {
+      "world": [
+        -1,
+        -1,
+        1
+      ],
+      "actual": [
+        1448.8685417175293,
+        686.707878112793
+      ],
+      "expected": [
+        1448.86862548331,
+        686.7077362797614
+      ],
+      "error_px": 0.00016472193195633185
+    }
+  ],
+  "crop_full_buffer": [
+    1187,
+    600,
+    512,
+    512
+  ],
+  "native_buffer": [
+    2880,
+    1920
+  ],
+  "sprite_root": [
+    255.99937744000022,
+    292.49869990799994
+  ],
+  "physical_height_m": 2,
+  "source_frame_body_height_px": 153.89987636063665,
+  "reserved_bytes": 24000000,
+  "records": [
+    {
+      "clip": "idle",
+      "frame": 0,
+      "t": 0.0,
+      "file": "idle-000.png",
+      "render_seconds": 1.2702218749909662,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ab4e135b4552f7e81fa0c6e4902714465b3fa785a78e2502d9b253d619e89f63"
+    },
+    {
+      "clip": "idle",
+      "frame": 24,
+      "t": 0.4,
+      "file": "idle-024.png",
+      "render_seconds": 1.0311088329763152,
+      "socket_world": [
+        0.06439454108476639,
+        -0.3162691295146942,
+        1.0033363103866577
+      ],
+      "socket_source_px": [
+        232.73073959350586,
+        243.48426818847656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "573062eb527bcc4ba07980d75d64618dd9905143a14477c62bdff43b12973893"
+    },
+    {
+      "clip": "idle",
+      "frame": 48,
+      "t": 0.8,
+      "file": "idle-048.png",
+      "render_seconds": 1.01650220900774,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "cc3030be5e801048b96a2095983e5600fd8b85067b77561c47e695dc0b3b0adf"
+    },
+    {
+      "clip": "idle",
+      "frame": 72,
+      "t": 1.2,
+      "file": "idle-072.png",
+      "render_seconds": 1.0113030829816125,
+      "socket_world": [
+        0.08139493316411972,
+        -0.3162693679332733,
+        1.006252408027649
+      ],
+      "socket_source_px": [
+        234.1610221862793,
+        244.47772979736328
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "6d7386b7acfeefb9d9f166c62a59cb4b89f131c4bd4f71713867d0acc8b43032"
+    },
+    {
+      "clip": "walk",
+      "frame": 0,
+      "t": 0.0,
+      "file": "walk-000.png",
+      "render_seconds": 1.0633079999824986,
+      "socket_world": [
+        0.0814681127667427,
+        -0.3162693977355957,
+        0.15032003819942474
+      ],
+      "socket_source_px": [
+        234.79960250854492,
+        308.07804107666016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "5cf6d56c7a4a89b790d1d555af830f12cc35345a467b8b3958860aef11f6a657"
+    },
+    {
+      "clip": "walk",
+      "frame": 12,
+      "t": 0.2,
+      "file": "walk-012.png",
+      "render_seconds": 1.041118249995634,
+      "socket_world": [
+        0.24023035168647766,
+        -0.3142654597759247,
+        0.82868492603302
+      ],
+      "socket_source_px": [
+        247.82586860656738,
+        269.22340393066406
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "ba4eb92d52eb3fd9259c9d5fe4b5618e2b982f9866e97db23402526160bb337e"
+    },
+    {
+      "clip": "walk",
+      "frame": 24,
+      "t": 0.4,
+      "file": "walk-024.png",
+      "render_seconds": 1.0038777079898864,
+      "socket_world": [
+        0.0814681127667427,
+        -0.3162693977355957,
+        0.15032003819942474
+      ],
+      "socket_source_px": [
+        234.79960250854492,
+        308.07804107666016
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "425f40f9d6468dd00ca1aa6962b9e8054fb7e361bc68b1a2774f6d657978d5cc"
+    },
+    {
+      "clip": "walk",
+      "frame": 36,
+      "t": 0.6,
+      "file": "walk-036.png",
+      "render_seconds": 1.0399812909890898,
+      "socket_world": [
+        -0.08089475333690643,
+        -0.31597402691841125,
+        0.7968629598617554
+      ],
+      "socket_source_px": [
+        220.80516624450684,
+        248.81595611572266
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "7a4b48ae81bfbc04ff0a0b5ccc40cd958bdbb34fe3d82a134771600e95d95350"
+    },
+    {
+      "clip": "cast",
+      "frame": 0,
+      "t": 0.0,
+      "file": "cast-000.png",
+      "render_seconds": 1.0329283329774626,
+      "socket_world": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ],
+      "socket_source_px": [
+        233.44708251953125,
+        243.98963928222656
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "de72b92181718ce00dae4d00affb1510f549ac5eba3fdb0853a517c65ae8d4d9"
+    },
+    {
+      "clip": "cast",
+      "frame": 18,
+      "t": 0.3,
+      "file": "cast-018.png",
+      "render_seconds": 1.0523222910123877,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "socket_source_px": [
+        260.00687408447266,
+        257.1617889404297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "1b99909ea754829dfd15972142afd25d33f72b4ea0a4de5cf815ff792a4674af"
+    },
+    {
+      "clip": "cast",
+      "frame": 36,
+      "t": 0.6,
+      "file": "cast-036.png",
+      "render_seconds": 1.0253131670178846,
+      "socket_world": [
+        0.5958245992660522,
+        -0.3162693977355957,
+        1.3831366300582886
+      ],
+      "socket_source_px": [
+        278.25739669799805,
+        252.6569366455078
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "27f66ba7407554f41f14988d59a5f9975bd53d86cb5b64c1a0060d0dbe535c64"
+    },
+    {
+      "clip": "cast",
+      "frame": 54,
+      "t": 0.9,
+      "file": "cast-054.png",
+      "render_seconds": 1.0060020829550922,
+      "socket_world": [
+        0.3859836757183075,
+        -0.31626951694488525,
+        1.1271355152130127
+      ],
+      "socket_source_px": [
+        260.00687408447266,
+        257.1617889404297
+      ],
+      "socket_saved_replay_error_m": 0.0,
+      "sha256": "c88947e375560876ac04efbfde681bbbc2e0e2247badda325ccfdcd0b9d08fc7"
+    }
+  ],
+  "elapsed_seconds": 12.66995108302217,
+  "source": "inputs/motion-v1.blend"
+}

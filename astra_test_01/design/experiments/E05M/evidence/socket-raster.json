@@ -1,0 +1,61 @@
+{
+  "samples": [
+    {
+      "kind": "good",
+      "height": 50,
+      "raster_centroid": [
+        237.26190476190476,
+        298.1190476190476
+      ],
+      "source_expected": [
+        237.23137838366614,
+        297.0558993686197
+      ],
+      "error_px": 1.063586414992347,
+      "pass": false
+    },
+    {
+      "kind": "good",
+      "height": 150,
+      "raster_centroid": [
+        711.6428571428571,
+        312.3095238095238
+      ],
+      "source_expected": [
+        711.6941351509984,
+        311.1676981058591
+      ],
+      "error_px": 1.1429765402965941,
+      "pass": false
+    },
+    {
+      "kind": "bad",
+      "height": 50,
+      "raster_centroid": [
+        243.73809523809524,
+        298.1190476190476
+      ],
+      "source_expected": [
+        237.23137838366614,
+        297.0558993686197
+      ],
+      "error_px": 6.592999956476539,
+      "pass": true
+    },
+    {
+      "kind": "bad",
+      "height": 150,
+      "raster_centroid": [
+        731.25,
+        312.25
+      ],
+      "source_expected": [
+        711.6941351509984,
+        311.1676981058591
+      ],
+      "error_px": 19.585791466838373,
+      "pass": true
+    }
+  ],
+  "all_pass": false
+}

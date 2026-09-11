@@ -1,0 +1,62 @@
+{
+  "samples": [
+    {
+      "kind": "good",
+      "height": 50,
+      "raster_centroid": [
+        237.26190476190476,
+        297.1190476190476
+      ],
+      "source_expected": [
+        237.23137838366614,
+        297.0558993686197
+      ],
+      "error_px": 0.07013958440475743,
+      "pass": true
+    },
+    {
+      "kind": "good",
+      "height": 150,
+      "raster_centroid": [
+        711.6428571428571,
+        311.3095238095238
+      ],
+      "source_expected": [
+        711.6941351509984,
+        311.1676981058591
+      ],
+      "error_px": 0.15081102194112975,
+      "pass": true
+    },
+    {
+      "kind": "bad",
+      "height": 50,
+      "raster_centroid": [
+        243.73809523809524,
+        297.1190476190476
+      ],
+      "source_expected": [
+        237.23137838366614,
+        297.0558993686197
+      ],
+      "error_px": 6.507023276832797,
+      "pass": true
+    },
+    {
+      "kind": "bad",
+      "height": 150,
+      "raster_centroid": [
+        731.25,
+        311.25
+      ],
+      "source_expected": [
+        711.6941351509984,
+        311.1676981058591
+      ],
+      "error_px": 19.5560380341775,
+      "pass": true
+    }
+  ],
+  "preserved_invalid_measurement": "socket-raster.json / DOM screenshot1000x461 vs canvas1000x460",
+  "all_pass": true
+}

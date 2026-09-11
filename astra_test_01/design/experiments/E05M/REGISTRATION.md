@@ -1,0 +1,9 @@
+# E05M — source torso motion, idle and cast
+
+Preserve E05T geometry/materials and E05C contact solution; change source action authoring. Add bounded torso counter-rotation to the walk, a subtle non-scaling idle, and a cast with an actual hand-release socket at.6s. This is one-view source-animation evidence; turns, all8views, modular advanced gear and complete painted style remain separately owed. Godot shipping target; Pixi test harness.
+
+Limits:60active minutes,2authoring revisions,4capture batches,100MB,zero generation/paid calls. Reuse raw generated textures; no image editing, per-frame repair, independent scaling or recentering. Output native512RGBA frames with unchanged C camera/source crop;60fps clocks for1.6sidle,.8swalk,1.2scast. Runtime reads neutral clip/socket data. Keep game/combat rules behind JSON.
+
+Freeze: walk actual deformed-sole drift≤2cm, no penetration beyond1mm; stationary idle/cast sole drift≤1mm; torso/book invariant distances do not change by>1% (rotation/translation allowed), source bone lengths residual≤1mm. Actual hand socket at release must project within.5logicalpx of the adapter-declared release marker; a deliberately offset socket must fail. Loop endpoint pose matrices for idle/walk agree within1e-5; cast ends at the idle start pose within1e-5. No source geometry/weight changes. Inspect all action sequences at50/150px and normal speed, retaining stiff/cutout/art-style failures. Do not call timed event metadata proof of visible hand-release agreement.
+
+The existing test sim resets root on every action; E05M's separate JSON boundary must preserve world root, advance according to content, emit one release per cast, and reject invalid time/actions. No renderer imports in simulation. Root-preserving action changes and bad duplicate-release controls require headless checks. Actual serial combat pipeline integration remains unqualified.

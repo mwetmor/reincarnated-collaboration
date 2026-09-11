@@ -1,0 +1,31 @@
+{
+  "experiment": "E01Y",
+  "status": "POE1_GD_NATIVE_EXCERPTS_RECOVERED; LE_STATIONARY; G1_INCOMPLETE",
+  "started_at": "2026-09-11T11:42:42.303925+00:00",
+  "limits": {
+    "active_minutes": 20,
+    "metadata_passes": 2,
+    "media_acquisitions": 4,
+    "each_excerpt_bytes": 15000000,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "metadata_passes": 2,
+    "media_acquisitions": 4,
+    "generation_calls": 0,
+    "paid_service_usd": 0,
+    "owned_bytes": 36576394
+  },
+  "exploratory_sources": [
+    "https://github.com/yt-dlp/yt-dlp",
+    "https://www.pathofexile.com/forum/view-thread/1811738"
+  ],
+  "next_action": "Known-source originalD2 acquisition; no more random LE timestamps or exhausted archive searches.",
+  "inspection_so_far": {
+    "PoE1": "Actual HUD-equipped2013 beach traversal/combat, no visible cuts across ten1s samples; quiet traversal category still separate.",
+    "Grim_Dawn": "Actual HUD-equipped2022 dungeon traversal and combat, webcam top-left. Camera angle/zoom not assumed default.",
+    "Last_Epoch": "Actual HUD framing at zone entrance, mostly stationary; input seek decoder warnings and shorter output. No ordinary traversal/combat motion pass."
+  },
+  "finished_at": "2026-09-11T11:55:13.529354+00:00",
+  "elapsed_wall_minutes": 12.5204279
+}

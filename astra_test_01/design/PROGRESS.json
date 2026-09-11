@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T11:35:15.344516+00:00",
+  "updated": "2026-09-11T11:57:55.113027+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05M source body-motion/idle/cast pilot, preserving E05C contacts and E05T texture boundaries. No broad roster or VFX expansion until relevant pilot mechanism passes.",
+  "next_action": "Register E05G modular gear/occlusion proof using E05M action/socket mechanism, and E01D known-source originalDiabloII excerpts from E01Y candidate metadata. Full painted pilot/turns/views remain owed.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -113,7 +113,13 @@
     "experiments/E05T/review.html",
     "experiments/E04S/REPORT.md",
     "experiments/E04S/RECEIPT.json",
-    "experiments/E04S/review.html"
+    "experiments/E04S/review.html",
+    "experiments/E05M/REPORT.md",
+    "experiments/E05M/RECEIPT.json",
+    "experiments/E05M/review.html",
+    "experiments/E01Y/REPORT.md",
+    "experiments/E01Y/RECEIPT.json",
+    "experiments/E01Y/review.html"
   ],
   "decisions_pending": [
     {
@@ -178,7 +184,7 @@
     }
   ],
   "known_evidence_gaps": [
-    "Eight uncut HUD gameplay motion segments missing: quiet traversal and combat for each of four games",
+    "E01Y recovers PoE1/GD native traversal/combat excerpts; separate quiet/combat categories across all4games remain incomplete, originalD2 not yet acquired, LE excerpts stationary at zone entry",
     "Last Epoch ordinary HUD framing missing; publisher promotional images are excluded from that measurement",
     "PoE1 quiet traversal and ordinary stronghold/interactable coverage missing",
     "Original Grim Dawn GAL-CAM video remains missing; prior numeric analysis not independently regenerated",
@@ -197,7 +203,8 @@
     "E07V concepts do not qualify geometry, reusable gear or effects; F01 missing physical study, F02 room insufficiently distinct, F03/F04 missing room-scale figure.",
     "E08A neutral atlas passes scoped exact reconstruction and48 GPU comparisons; no production residency/performance pass. E08D costs/inventory remain conditional scenarios.",
     "E05C shortened garment clears stance boots; E05T painted textures remove observed magenta edges after one repair. Whole character shape/motion/UV transfer still unqualified.",
-    "E04S sampled floor/wall lighting and ground geometry pass; complete faction chamber cohesion and second chamber/chunk remain incomplete."
+    "E04S sampled floor/wall lighting and ground geometry pass; complete faction chamber cohesion and second chamber/chunk remain incomplete.",
+    "E05M one-view idle/walk/cast/contact/release-socket mechanisms pass; whole painted pilot, turns/action transitions,8views and modular gear remain incomplete."
   ],
   "running_jobs": [
     {
@@ -241,7 +248,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E04S/RECEIPT.json",
+  "current_receipt": "experiments/E05M/RECEIPT.json",
   "generation_calls_this_suite": 20,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

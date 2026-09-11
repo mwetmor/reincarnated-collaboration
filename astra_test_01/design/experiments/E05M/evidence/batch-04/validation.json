@@ -1,0 +1,125 @@
+{
+  "started_at": "2026-09-11T11:52:50.039Z",
+  "checks": {
+    "exact_native_size": true,
+    "review_images": true,
+    "videos_decode": true,
+    "no_errors": true
+  },
+  "errors": [],
+  "dom_box": {
+    "x": 24,
+    "y": 173.765625,
+    "width": 1000,
+    "height": 460
+  },
+  "native_size": [
+    1000,
+    460
+  ],
+  "socket_good": {
+    "state": {
+      "action": "cast",
+      "time": 0.6,
+      "root": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "type": "cast_release",
+          "id": "cast-1",
+          "at": 0.6,
+          "socket": "right_hand",
+          "root": [
+            0,
+            0
+          ]
+        }
+      ],
+      "cast_id": 1,
+      "released": true
+    },
+    "index": 36,
+    "positions": [
+      {
+        "height": 50,
+        "actual": [
+          237.23133110446437,
+          297.05594695569147
+        ],
+        "expected": [
+          237.23137838366614,
+          297.0558993686197
+        ],
+        "error": 0.00006708093857342203
+      },
+      {
+        "height": 150,
+        "actual": [
+          711.6939933133931,
+          311.1678408670744
+        ],
+        "expected": [
+          711.6941351509984,
+          311.1676981058591
+        ],
+        "error": 0.0002012428157002342
+      }
+    ],
+    "manifest": "wizard-cast"
+  },
+  "socket_bad": {
+    "state": {
+      "action": "cast",
+      "time": 0.6,
+      "root": [
+        0,
+        0
+      ],
+      "events": [
+        {
+          "type": "cast_release",
+          "id": "cast-1",
+          "at": 0.6,
+          "socket": "right_hand",
+          "root": [
+            0,
+            0
+          ]
+        }
+      ],
+      "cast_id": 1,
+      "released": true
+    },
+    "index": 36,
+    "positions": [
+      {
+        "height": 50,
+        "actual": [
+          243.72906212054835,
+          297.05594695569147
+        ],
+        "expected": [
+          237.23137838366614,
+          297.0558993686197
+        ],
+        "error": 6.497683737056466
+      },
+      {
+        "height": 150,
+        "actual": [
+          731.1871863616451,
+          311.1678408670744
+        ],
+        "expected": [
+          711.6941351509984,
+          311.1676981058591
+        ],
+        "error": 19.49305121116951
+      }
+    ],
+    "manifest": "wizard-cast"
+  },
+  "finished_at": "2026-09-11T11:52:51.723Z"
+}
