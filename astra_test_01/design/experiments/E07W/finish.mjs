@@ -1,0 +1,2 @@
+// Engine-neutral material selection; no rendering imports.
+export function applyFinish(base,manifest,key){if(!Object.hasOwn(manifest.variants,key))throw Error('Unknown portal finish');const door=structuredClone(base),variant=manifest.variants[key];if(variant){door.materials=structuredClone(variant);for(const part of door.fixed_parts)if(part.id.startsWith('pocket-'))part.material='pocket';}return door;}

@@ -1,0 +1,41 @@
+{
+  "experiment": "E07W",
+  "started_at": "2026-09-11T22:14:34.848054+00:00",
+  "status": "PASS_SCOPED_WORKING_PORTAL_FINISH",
+  "limits": {
+    "active_minutes": 30,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 2,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 2,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 6.996881416666667,
+    "disk_bytes_before_index": 55998382
+  },
+  "dependencies": {
+    "E07M/door.json": "41b62428a11ec11347a20394275cee888f6e44a21c5a136dcdcc140f8ca050c2",
+    "E07D/materials.json": "470fa42ba571a4d167045235dd262b52e95af2224f16192254fc4da41fbc4fcc",
+    "E07M/evidence/structure-oracle.json": "aac36bae625f291986004c0b3fb6385160d97d10408f39efbc53ba47a4338056"
+  },
+  "ended_at": "2026-09-11T22:21:34.660939+00:00",
+  "results": {
+    "selected": "A",
+    "source_geometry_pixels": 9612,
+    "views": 24,
+    "whole_ID_images_unchanged": true,
+    "state_geometry_collision_invariants": 10,
+    "review": "PASS",
+    "working_chamber": "E07W"
+  },
+  "lessons": [
+    "Existing painted materials resolve the local flat dark pocket without another generation call.",
+    "F01timber framing/stone pocket andF02rock framing/timber sluice preserve all qualified geometry while reading more coherently than bright stone-frame alternatives.",
+    "Complete ID image equality and source fingerprints verify that finish changes did not move or resize gameplay geometry.",
+    "Local material pass does not establish full waystation/reservoir distinction, faction detail or F03-style lighting."
+  ]
+}

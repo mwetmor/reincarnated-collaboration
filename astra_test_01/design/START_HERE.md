@@ -147,3 +147,5 @@ E07P [empty actor-mask failure](experiments/E07P/review.html): namespace/depth c
 E07Q [selective visibility review](experiments/E07Q/review.html): B selected after768source witnesses, negative controls and actual crossings. Working chamber E07Q; visible-player images unchanged. Next E07M taller layout-data portal for the2.7mmonster, then faction materials. Full suite remains partial.
 
 E07M [taller portal review](experiments/E07M/review.html): 35headless,7,800geometry,1,320shadow,672visibility and26runtime actor outcomes pass after preserving240overlap failures. Working chamber E07M. Next E07W portal material comparison with qualified geometry fixed; full art remains open.
+
+E07W [portal material comparison](experiments/E07W/review.html): A selected, all9,612source pixels and fullIDimages unchanged. Working chamber E07W retains E07Mgeometry. Next E07X visible practical-light fixtures/controlled floor-wall glow, then completepilot/VFX work. Full suite remains partial.

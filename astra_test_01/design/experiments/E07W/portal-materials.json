@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "selected_for_test": "A",
+  "variants": {
+    "control": null,
+    "A": {
+      "F01": {
+        "panel": "timber",
+        "frame": "timber",
+        "pocket": "stone"
+      },
+      "F02": {
+        "panel": "timber",
+        "frame": "rock",
+        "pocket": "rock"
+      }
+    },
+    "B": {
+      "F01": {
+        "panel": "timber",
+        "frame": "stone",
+        "pocket": "timber"
+      },
+      "F02": {
+        "panel": "iron",
+        "frame": "stone",
+        "pocket": "rock"
+      }
+    }
+  },
+  "scope": "Portal surface assignments only; geometry and sim remain source-owned."
+}

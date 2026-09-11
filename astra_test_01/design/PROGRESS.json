@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T22:12:05.551457+00:00",
+  "updated": "2026-09-11T22:21:34.660939+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07W",
+  "active_experiment": "E07X",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07W portal-material comparison with E07M geometry/state fixed: F01 timber/stone waystation construction and F02 distinct reservoir gate treatment. Reuse qualified painted material sources first; keep ID/depth/source-state invariants, native/fresh comparisons, and bounded art rubric. Then broader faction detail/light and full pilot/VFX work.",
+  "next_action": "Register E07X visible practical-light fixtures and restrained floor/wall glow on E07W. Neutral fixture/light/emissive data; compare neutral/warm/cool and missing/stale controls, geometry-fixed portal. Then outstanding complete pilot motion/gear and VFX proofs.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -236,7 +236,9 @@
     "experiments/E07Q/REPORT.md",
     "experiments/E07Q/review.html",
     "experiments/E07M/REPORT.md",
-    "experiments/E07M/review.html"
+    "experiments/E07M/review.html",
+    "experiments/E07W/REPORT.md",
+    "experiments/E07W/review.html"
   ],
   "decisions_pending": [
     {
@@ -370,7 +372,8 @@
     "E07O two-build capability cap reached: multisample depth repaired, uColor vec3 collides with Pixi mesh uniform4f. No chamber visibility expansion; selective aid unqualified.",
     "E07P mask capability passes but actor integration fails480/768sourcewitnesses: non-enumerable shader resources were omitted. Named-resource materialization diagnosed, no visibility aid promoted.",
     "E07Q selective B indicator passes768source samples, controls, fullframe-exposed invariance andA/Bcrossings. NPC/monster sprite/translucent occluders, ROIallocation, fullart still unqualified. Current2.5mportal blocks2.7mmonster; E07M layout revision next.",
-    "E07M resolves2.7mmonster clearance with3.2mportal and repaired joints; fullsource geometry/shadow/visibility and runtime traverse pass. FlatF01pocket and F02gate material distinction remain art failures; staticmonster animation, fullpilot/VFX/cohesion unqualified."
+    "E07M resolves2.7mmonster clearance with3.2mportal and repaired joints; fullsource geometry/shadow/visibility and runtime traverse pass. FlatF01pocket and F02gate material distinction remain art failures; staticmonster animation, fullpilot/VFX/cohesion unqualified.",
+    "E07W selectsAportal finish using existingpaintings;9612sourcepixels and fullIDimages unchanged. Fullrooms still controlledsame layout, broaderfaction construction/detail and strongerfloor-wallglow remain open, alongside fullpilot/monster/VFX/scale."
   ],
   "running_jobs": [
     {
@@ -414,7 +417,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07M/receipt.json",
+  "current_receipt": "experiments/E07W/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -488,16 +491,16 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "experiment": "E07M",
-    "adapter": "experiments/E07M/pixi-adapter/index.mjs",
-    "review": "experiments/E07M/review.html",
-    "shadow_policy": "experiments/E07M/shadow.json",
-    "scope": "3.2mportal supports2.7mmonster;7800geometry/1320shadow/672visibility witnesses and26runtime outcomes. Full art/monster motion/general self-shadow unqualified.",
-    "previous": "E07Q",
+    "experiment": "E07W",
+    "adapter": "experiments/E07W/pixi-adapter/index.mjs",
+    "review": "experiments/E07W/review.html",
+    "shadow_policy": "experiments/E07W/shadow.json",
+    "scope": "E07M geometry/state plus selectedAportal materials;9612sourcepixels and fullIDimages unchanged. Full faction art/light, pilot/monster motion andVFX remain partial.",
+    "previous": "E07M",
     "motion": "E05F",
-    "module": "experiments/E07M/pixi-adapter/index.mjs",
+    "module": "experiments/E07W/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
-    "status": "SCOPED_TALL_PORTAL_SHADOW_VISIBILITY_AND_TRAVERSAL_PASS",
+    "status": "SCOPED_PORTAL_GEOMETRY_AND_WORKING_MATERIAL_FINISH_PASS",
     "full_chamber_qualified": false,
     "pilot_candidate": {
       "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
@@ -506,7 +509,9 @@
       "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
       "review": "experiments/E05F/review.html"
     },
-    "effects": "experiments/E07M/effects.json",
-    "door_data": "experiments/E07M/door.json"
+    "effects": "experiments/E07W/effects.json",
+    "door_data": "experiments/E07M/door.json",
+    "portal_materials": "experiments/E07W/portal-materials.json",
+    "portal_finish": "A"
   }
 }
