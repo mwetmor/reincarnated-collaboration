@@ -1,0 +1,51 @@
+{
+  "records": [
+    {
+      "faction": "F01",
+      "time": 0,
+      "pixels_changed_by_omitting_leaves_gt2": 4102,
+      "lit_pixels_gt2": 50379,
+      "maximum_omission_delta": 30
+    },
+    {
+      "faction": "F01",
+      "time": 0.25,
+      "pixels_changed_by_omitting_leaves_gt2": 3571,
+      "lit_pixels_gt2": 50061,
+      "maximum_omission_delta": 30
+    },
+    {
+      "faction": "F01",
+      "time": 0.5,
+      "pixels_changed_by_omitting_leaves_gt2": 3368,
+      "lit_pixels_gt2": 50007,
+      "maximum_omission_delta": 30
+    },
+    {
+      "faction": "F02",
+      "time": 0,
+      "pixels_changed_by_omitting_leaves_gt2": 4111,
+      "lit_pixels_gt2": 52015,
+      "maximum_omission_delta": 58
+    },
+    {
+      "faction": "F02",
+      "time": 0.25,
+      "pixels_changed_by_omitting_leaves_gt2": 3579,
+      "lit_pixels_gt2": 51746,
+      "maximum_omission_delta": 58
+    },
+    {
+      "faction": "F02",
+      "time": 0.5,
+      "pixels_changed_by_omitting_leaves_gt2": 3374,
+      "lit_pixels_gt2": 51692,
+      "maximum_omission_delta": 58
+    }
+  ],
+  "checks": {
+    "closed_leaf_light_control_detected": true,
+    "warm_changes_scene": true
+  },
+  "scope": "Whole-scene sample counts; includes all leaves. Does not isolate receiver surfaces or establish shadow precision."
+}

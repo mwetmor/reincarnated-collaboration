@@ -1,0 +1,52 @@
+{
+  "experiment": "E07T",
+  "started_at": "2026-09-11T18:56:26.391459+00:00",
+  "status": "GEOMETRY_STATE_PASS_SMOOTH_MOTION_AND_ART_FAIL",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "implementation_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "implementation_revisions": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 7.1246318,
+    "owned_bytes_before_index": 56267612
+  },
+  "dependencies": {
+    "E07N/sim/index.mjs": "e5407d9ebb32687c979c3e2c7e917cf8c993f1c9c7679ab4c87ee3b58e0784da",
+    "E07N/pixi-adapter/index.mjs": "9462bd2d9ac8fea08765377d3ea5171abd5b006817da3e6cfcef87b7674fd205",
+    "E07D/inputs/scene.json": "4cd4db08078fda6008cbdcd16c7e1b51f6ef6596d32925388ee8f4dfdde98dc0"
+  },
+  "diagnostics": [
+    "V1 two strict scalar pause equalities fail by2.22e-16; progress geometry differs<1e-12m. Literal receipt preserved; supplementary tolerance justified as numeric roundoff.",
+    "V2 closing sweep includes attached metal bands in actual geometry union, closing a .01m thickness discrepancy."
+  ],
+  "capture_paths": [
+    "batch-01",
+    "batch-02",
+    "batch-04"
+  ],
+  "finished_at": "2026-09-11T19:03:33.869367+00:00",
+  "next_action": "E07U batch existing geometry cells per object, preserving source pixels/state/materials; compare native/fresh witnesses and timed playback.",
+  "verdicts": {
+    "state": "PASS33 supplementary checks; two original scalar-equality failures preserved",
+    "geometry": "PASS6324panel +1728clear witnesses",
+    "motion": "FAIL:3\u20138partialframes/halfsecond;111.8\u2013125.5mscompositionmax",
+    "door_art": "FAILF01flatdarkpocket; fullchamberunqualified",
+    "height": "2.7m monster correctly blocked by2.5m lintel; earlier no-lintel passage scope insufficient"
+  },
+  "commands": [
+    "node test-sim.mjs (v1fail;v2pass)",
+    "node oracle.mjs",
+    "node capture.mjs",
+    "python3 analyze.py",
+    "node capture-motion.mjs",
+    "python3 analyze-light.py",
+    "node review-check.mjs"
+  ]
+}
