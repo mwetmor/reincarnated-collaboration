@@ -1,0 +1,969 @@
+{
+  "schema_version": 1,
+  "asset_id": "E05O-coverage-idle",
+  "fps": 60,
+  "frame_count_per_direction": 1,
+  "loop": false,
+  "alpha": "straight native RGBA",
+  "source_canvas": [
+    512,
+    512
+  ],
+  "source_frame_vertical_body_height_px": 153.89987636063665,
+  "frames": [
+    {
+      "id": "idle-h000",
+      "direction": {
+        "heading_degrees": 0,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h000-base-nohair.png",
+          "sha256": "4b3b95c67ca6ab9dece4c15d65439b7a4f01790e13fbb89211a566e28c398930",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h000-hair-layer.png",
+          "sha256": "81104f46219f625f84c49c51585d099d4e0d72acedcbd3c56a7449a61645d6a5",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h000-armor-layer.png",
+          "sha256": "afaf57fd4d68bf409752f7ec72b263490e9010fa748ed07f850bd2b112f7607e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h000-head-layer.png",
+          "sha256": "88b54a4c2ec588393b4f24b21966dd91050bd685a32e871ed9fa538bc8dd8e3c",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h000-body-mask-head.png",
+          "sha256": "1b7e963eda4333695f069aff10db66d6c6ea99c71be2c9ca00e772d3887a36fb",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h000-body-mask-hidden.png",
+          "sha256": "68cd1f5e3d580271144044a21d7be30c64d92556caba502c784f9072eddce789",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h000-full-head.png",
+          "sha256": "c0020749494b66c6f1cbb6a52d912c25acffe6836d357d1b83352fd37f85fa90",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h000-full-hidden.png",
+          "sha256": "a02012999dc1ff023ab4513953d768a9311dd2a14fb7f483e5c1263e27e86af7",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h045",
+      "direction": {
+        "heading_degrees": 45,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-01/partition/idle-000-h045-base-nohair.png",
+          "sha256": "d5bfc3746d84909e6104f867e629181dbac80013329d5e3d69bdac9ccff71699",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-01/partition/idle-000-h045-hair-layer.png",
+          "sha256": "1f71f3beff6936ffa317e4910d38cbd739fcb2d9aa733b4965449cdffcc965b8",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-01/partition/idle-000-h045-armor-layer.png",
+          "sha256": "79140971f602b40509991ae28161a43bc9d06a3191a4739663918130f28f045c",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-01/partition/idle-000-h045-head-layer.png",
+          "sha256": "c92dc5b17c488e3f85f1a8e0171cae781c8ca061bf38bfbff6955cd1f274de9e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-01/partition/idle-000-h045-body-mask-head.png",
+          "sha256": "90cae0c15bdf259c687e101b2f9cb17ea5d86171f5fb33284830bac6f9de7265",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-01/partition/idle-000-h045-body-mask-hidden.png",
+          "sha256": "c97436a05c9d6dba2d0b6581e2e522777006ebc93f9ba0551a29da1477f4db97",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-01/partition/idle-000-h045-full-head.png",
+          "sha256": "336d0a93c5ad88692397647b82d05e43aa628f718ba597d6bc9c8365fc50794e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-01/partition/idle-000-h045-full-hidden.png",
+          "sha256": "6bdca1206ceee7f0e9e5290175cc58474f9bc2cee591a6e5b41947ae54a01c7b",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h090",
+      "direction": {
+        "heading_degrees": 90,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h090-base-nohair.png",
+          "sha256": "f5f54109d7b89c00f8ac929fb001430478df5b129e939c8c9150a634b5bdb289",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h090-hair-layer.png",
+          "sha256": "2dd19b311b8283cfe9931c93fae00343db6c8f63ae55cfa5befb0e1ccf386974",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h090-armor-layer.png",
+          "sha256": "38949fd3a347b515c8eadd7fade85693abd7d9f4db9228e68bc6752f6481c2d1",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h090-head-layer.png",
+          "sha256": "9f74f9b5744c9972ebf25895ce4601055d976e67cc6d445c5dcdacc1112fbc43",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h090-body-mask-head.png",
+          "sha256": "5be3f2cdebf7e3fc90c190b1df76a070b7ba7b0b600870084dd61f7e23b5dc58",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h090-body-mask-hidden.png",
+          "sha256": "ff9a3ceaf834951564af9effef71a5a26a1da6023ec28decafc00c8901db0af0",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h090-full-head.png",
+          "sha256": "e7acf7a5fb76e3d8fd462fa928254965a551beaca0cdcc34588c11a6e2834cb3",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h090-full-hidden.png",
+          "sha256": "03245076b4f107654594d60285bb94ac5eca8fd8364f0d85b569f7dfab5a7534",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h135",
+      "direction": {
+        "heading_degrees": 135,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h135-base-nohair.png",
+          "sha256": "d33c4603bf6d9fa73ca450caee46fa3b19e40d43e265592c90239150ccc1fdcf",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h135-hair-layer.png",
+          "sha256": "c9bc007cb5933f5f746c1b3cec35852b1e353acdd3b4a0edd306dbe255be6e07",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h135-armor-layer.png",
+          "sha256": "674a954117ecf602d100055070a32003ba53413465f87f73a5bd8d19adf0563b",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h135-head-layer.png",
+          "sha256": "cac0647d439ce8d8f1845b32b3c7fc737993ffb5fbcd2cc656787f9744daa055",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h135-body-mask-head.png",
+          "sha256": "2c8eee67f9b5d8c10d6df6bb3a018ae6d6bb7e5aa676cc94bb6ffb090aebe5e0",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h135-body-mask-hidden.png",
+          "sha256": "f933272b9f15186cb82776630943675fda6cefe9936e842b197875d5f1c274dd",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h135-full-head.png",
+          "sha256": "9e3eb1a5eba43482d573af6b97bf0355a07f7d9e446ceaea50aecf1949334f20",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h135-full-hidden.png",
+          "sha256": "67d3a4943654d26a9f34c1e1e298c046f4d80c0a4369c69fa67c4fa7f07157f1",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h180",
+      "direction": {
+        "heading_degrees": 180,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h180-base-nohair.png",
+          "sha256": "db7231aea6a8e07527280a871b1786b23252a8de14dde1975d83bee98abcb3b0",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h180-hair-layer.png",
+          "sha256": "c0280bba1bb76d98d63d669516d7f6fe506a6c1b8acc8b7637be45e1129a3478",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h180-armor-layer.png",
+          "sha256": "8bd0442c1dcdac0e552f80fa16c26aa73f08e1f846d92e9680f31a1a8de8f550",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h180-head-layer.png",
+          "sha256": "8465a1c26d1cfffbe178d206de207fb309727dd9cbc33f1d17a2a482bcbdd5cc",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h180-body-mask-head.png",
+          "sha256": "60ac77cadf2e7637e46df70630445b72c6c47c9747786c910e2a407e2d0602c8",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h180-body-mask-hidden.png",
+          "sha256": "a3412b0b92e752974ff5218b2fdf693f4b10095c40f3a40a42ee7dae56766391",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h180-full-head.png",
+          "sha256": "ce007df1cab8e087fd5a9f7278bce1cc364e8d85b717656685dbdc08a3aa2b0e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h180-full-hidden.png",
+          "sha256": "cd66aed431a484f7cd37fc918751ee95281aa8e2cf633d920606c391c7371fe1",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h225",
+      "direction": {
+        "heading_degrees": 225,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-01/partition/idle-000-h225-base-nohair.png",
+          "sha256": "3c9c2edd795f28a1caa4019905406e6c9124dfaed7273d89be03e8b9f1391034",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-01/partition/idle-000-h225-hair-layer.png",
+          "sha256": "d5b6601d889a4fb624564ce2a5767942d3bdb66f9a31951851de139ddb378ff1",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-01/partition/idle-000-h225-armor-layer.png",
+          "sha256": "8f9211bc43db457df1bcf3b8774429a71a9ea5375d3b13365418b1857bdf24b1",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-01/partition/idle-000-h225-head-layer.png",
+          "sha256": "a9b6f33187d30015123e58d45c1f4ab1f0645f51e29b7a18e1e713ce792a8679",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-01/partition/idle-000-h225-body-mask-head.png",
+          "sha256": "50528aeb788c3b9545ec066bec8e7b58144b7cb198511bc0ab59661aefb7266c",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-01/partition/idle-000-h225-body-mask-hidden.png",
+          "sha256": "d8ad18b55d3cd40d21f5a97bf284c73dcc50be51047e36e677c8da3399313787",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-01/partition/idle-000-h225-full-head.png",
+          "sha256": "59ba473b575f4c3ad0ee1a1786633b5e87e051efba9d71e463064a254c9ff88e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-01/partition/idle-000-h225-full-hidden.png",
+          "sha256": "2a3ad2eaf2a23e51c1adfc7cb45b414223a9380bc9237f76cbcdc8fbd7dde70b",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h270",
+      "direction": {
+        "heading_degrees": 270,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h270-base-nohair.png",
+          "sha256": "ad81485742c5395cccc9c8010e6692cc72a6439526e3c53b5a31f0cc27c5f3bc",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h270-hair-layer.png",
+          "sha256": "31988ed8fd41c4a2379084bee550b18df7f01234124b29ef21ffa6188996ae1f",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h270-armor-layer.png",
+          "sha256": "1c471f6d4427abd1109046efb57212b0dbd063b893587cc9bbea64355952639e",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h270-head-layer.png",
+          "sha256": "79f164b944bfe9a1143d22838a11195473379ce3ae51a6140633c3f286e62255",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h270-body-mask-head.png",
+          "sha256": "5d5c7ea0a4a9e167d8c2ffdbe651d46846f06a0b7c211daa4a0469ac8bedbbcc",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h270-body-mask-hidden.png",
+          "sha256": "79d1f872d52921eb7b5344cd9547aec56bb7af7bc56e5f282deba6cb8dad70c8",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h270-full-head.png",
+          "sha256": "4ab9e7833bd820689001f04a0569e157fa418ac181e2bdb6179ba8785c239ac2",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h270-full-hidden.png",
+          "sha256": "d55c671be88804ff10e0eeb0dba317939059cb9bc72902f9fdcbc2996737b6f8",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    },
+    {
+      "id": "idle-h315",
+      "direction": {
+        "heading_degrees": 315,
+        "method": "actual rig rotation"
+      },
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "hitbox": {
+        "space": "world_m",
+        "kind": "capsule",
+        "height": 2,
+        "radius": 0.26
+      },
+      "layers": {
+        "body": {
+          "path": "evidence/batch-02/partition/idle-000-h315-base-nohair.png",
+          "sha256": "70af26e2d4090ce497fb542dd09c5d8a058cc9d81dc7c8c62d70df5c798aea65",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "hair": {
+          "path": "evidence/batch-02/partition/idle-000-h315-hair-layer.png",
+          "sha256": "5d63b6b3195cbae7b2b126cc3180243cd48803bb27c239f60bebcc1490c80b55",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "armor": {
+          "path": "evidence/batch-02/partition/idle-000-h315-armor-layer.png",
+          "sha256": "1d689e85f9950b4ff19f0365d3983f73bfb4060e3e4c36f780015002ce27d872",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "head": {
+          "path": "evidence/batch-02/partition/idle-000-h315-head-layer.png",
+          "sha256": "e68bc1635186b6778d7f4873cbacf576ddb569e9900d828f4388d6c7b8e03b40",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_head": {
+          "path": "evidence/batch-02/partition/idle-000-h315-body-mask-head.png",
+          "sha256": "0ef98e513522363638db156db49f093cd3718ffc25ac520312a6978ce13deb62",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "mask_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h315-body-mask-hidden.png",
+          "sha256": "917edefc15f84c7b2d5f650f759d64da8853cb7be2d942dafdc06018c722d9eb",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_head": {
+          "path": "evidence/batch-02/partition/idle-000-h315-full-head.png",
+          "sha256": "d634ef9defdece90fd1f5addd97cbb693415d15bdba53b3a2680f8899bf13640",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        },
+        "reference_hidden": {
+          "path": "evidence/batch-02/partition/idle-000-h315-full-hidden.png",
+          "sha256": "bdb74dcaa04f8ff67fc6bd421bf9f635a7b923d7b0135ad7a4f33652f5300b9a",
+          "frame_rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "atlas": null,
+          "emissive_mask_path": null
+        }
+      }
+    }
+  ],
+  "visibility": {
+    "head_visible": {
+      "include": [
+        "body",
+        "armor",
+        "head"
+      ],
+      "exclude": [
+        "hair"
+      ]
+    },
+    "head_hidden": {
+      "include": [
+        "body",
+        "hair",
+        "armor"
+      ],
+      "exclude": [
+        "head"
+      ]
+    }
+  },
+  "qualification": "idle eight-view diagnostic; no full motion or lighting pass",
+  "composition": {
+    "space": "premultiplied sRGB image values",
+    "source_canvas": [
+      512,
+      512
+    ],
+    "body_color_reused": true,
+    "gear_dependent_visibility_masks": true,
+    "secondary_hair_rays": false,
+    "full_lighting_qualified": false
+  }
+}

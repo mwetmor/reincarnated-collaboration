@@ -1,0 +1,7 @@
+# E05O · Layer coverage diagnosis
+
+Godot shipping target; Pixi test harness. E05A source and47/96failures frozen. No geometry/painting/action changes.30active minutes,0generation,2source configuration revisions,4capture batches,50MB. Batch1 two fixed headings45/225 diagnostic controls; batch2 conditional eight-view source transfer; batch3 actual Pixi; batch4 saved review. No full pilot art or animation expansion.
+
+Hypotheses: separate denoising and overlapping silhouette coverage contribute to failed layer reconstruction. First compare16sample denoised baseline already cached with128samples denoise off, using unchanged alpha-over. Then independently test joint geometry visibility masks and partitioned premultiplied color accumulation. Body color source remains shared for all outfits; visibility masks may depend on gear/frame, and their cost must be recorded. Hair secondary rays may be disabled as a documented isolation condition; that does not qualify gear/hair lighting.
+
+Source diagnosis measures source RGBA composited on same3 backgrounds. Continue full eight-view source test only if a changed method passes both heading probes with sameMAE≤1/fractionpixelerror>8≤.02. Final GPU acceptance same thresholds at50/150px,8headings,2headstates,3backgrounds. Deliberate20px helmet shift must fail. Wrong mask must fail. No threshold relaxation. Ordinary alpha-over remains a negative method control if new partition scheme passes. Fully painted shape/style gate remains open regardless of this mechanism result.

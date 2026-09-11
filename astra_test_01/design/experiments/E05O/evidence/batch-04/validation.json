@@ -1,0 +1,106 @@
+{
+  "checks": {
+    "saved_review_images": true,
+    "native_canvas": true,
+    "no_browser_errors": true
+  },
+  "errors": [],
+  "records": [
+    {
+      "name": "hidden-dark-partition-native",
+      "mode": "partition-native",
+      "head": false,
+      "bg": "dark",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    },
+    {
+      "name": "hidden-light-partition-native",
+      "mode": "partition-native",
+      "head": false,
+      "bg": "light",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    },
+    {
+      "name": "hidden-blue-partition-native",
+      "mode": "partition-native",
+      "head": false,
+      "bg": "blue",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    },
+    {
+      "name": "head-dark-partition-native",
+      "mode": "partition-native",
+      "head": true,
+      "bg": "dark",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    },
+    {
+      "name": "head-light-partition-native",
+      "mode": "partition-native",
+      "head": true,
+      "bg": "light",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    },
+    {
+      "name": "head-blue-partition-native",
+      "mode": "partition-native",
+      "head": true,
+      "bg": "blue",
+      "bad": 0,
+      "buffer": [
+        800,
+        460
+      ],
+      "cache_entries": 16,
+      "nominal_cache_rgba_bytes": 16777216,
+      "source_alpha_modes": [
+        "premultiply-alpha-on-upload"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "experiment": "E05O",
+  "started_at": "2026-09-11T14:49:39.506606+00:00",
+  "status": "LAYER_REPRESENTATION_FAIL_BRANCH_STOPPED",
+  "limits": {
+    "active_minutes": 30,
+    "generation_calls": 0,
+    "source_configuration_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 50000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_configuration_revisions": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 11414116
+  },
+  "diagnosis_batch1": {
+    "cached16_failures": 8,
+    "raw128_no_denoise_failures": 5,
+    "partition_over_failures": 0,
+    "partition_masks_failures": 0,
+    "interpretation": "128no-denoise alone insufficient; combined hair-secondary-off/joint holdout condition passes both methods. Mask-only causal benefit not established."
+  },
+  "preparation_failure": "Batch3 partition offscreenY inverted; preserved, invalid for mask method. Batch4 repaired matrix plus saved review.",
+  "finished_at": "2026-09-11T14:58:39.970962+00:00",
+  "next_action": "Register E05J depth-bearing painted geometry capability/gear transfer probe in existing Pixi harness, preserving all layer failures. No roster expansion until painted pilot passes.",
+  "verdicts": {
+    "source_manifest_checks": "PASS9",
+    "partition_gpu": "FAIL57/96",
+    "over_native_gpu": "FAIL34/96",
+    "over_direct_gpu": "FAIL46/96",
+    "bad_shift_and_mask": "DETECTED",
+    "full_art": "NOT_QUALIFIED"
+  }
+}

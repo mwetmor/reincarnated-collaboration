@@ -166,3 +166,7 @@ The actual Godot copy is LOCKED while current engine W3 is DRAFT. String effects
 ### 2026-09-11 · Eight-view gear/hair transfer exceeds sparse proof (E05A)
 
 Narrower helmet plus explicit hair visibility improved fit, but47/96 actual Pixi composites at50/150px exceeded unchanged E05G pixel limits (worstMAE1.8933, fractionerror>8=.05467). Failures cluster at hair/head and armor boundaries; denoising/shared sample coverage/secondary lighting are not yet isolated. Do not generalize sparse one-view holdout compositing into modular hair/gear qualification. Both bad controls fail as intended. F04 clean style remains unmet by generated swatch albedo over simple plates. [Evidence](../../../../astra_test_01/design/experiments/E05A/REPORT.md).
+
+### 2026-09-11 · Native two-view success does not establish filtered eight-view transfer (E05O)
+
+128samples/no-denoise plus joint holdouts/hair-secondary-off passed12source comparisons but failed complete GPU transfer: corrected mask accumulation57/96fail, native-over34/96, direct-over46/96. Mask complexity did not buy qualification. Keep the source/body painting and fit tests, stop this unchanged RGBA reconstruction branch, research a depth-bearing or common-sample representation. Custom offscreen shaders require asymmetric orientation preflight; batch3 invertedY was invalid, preserved and corrected in batch4. [Evidence](../../../../astra_test_01/design/experiments/E05O/REPORT.md).

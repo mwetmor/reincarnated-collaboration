@@ -85,3 +85,5 @@ E04L's recorded storage-limit deviation.
 > evidence and handoff before ending.
 
 E05A checkpoint: [fitted gear and failed layer transfer](experiments/E05A/review.html), [report](experiments/E05A/REPORT.md).47/96fail; body/actions unchanged. Next: E05O layer source diagnosis; full art still unqualified.
+
+E05O [coverage review](experiments/E05O/review.html) and [report](experiments/E05O/REPORT.md): all3methods fail full matrix; independent-RGBA branch stopped. Next: E05J depth-bearing geometry capability/gear probe in Pixi. Full painted pilot stays open.
