@@ -202,3 +202,7 @@ A smooth cap alone did not remove the rigid comb outline;17legacy parallel locks
 ### E05Y — full-frame checks expose motion failures hidden by sparse evidence
 
 Complete existing216-frame transfer retains source contacts and paired gear-core clearance, yet visual walk fails with severe body-height changes and split legs. Exact representation and contact metrics are insufficient motion-quality criteria. Full3456pose/view/scale bounds also invalidate the earlier diagnostic sheet size; widen native canvas while preserving scale, and retain failed framing.1290/1296raster comparisons pass; six starter cast135° cases fail the unchanged2%error-fraction bar. Source stance-duration/contact-flag name collision is suspected, not yet proven. Evidence: `astra_test_01/design/experiments/E05Y/REPORT.md` and `review.html`.
+
+### E05Z — keep authored timing constants separate from sampled flags
+
+E05Mstance=.4 was overwritten by an idle-contact Boolean. A1.0second stance-duration control exactly reproduced all49oldwalk palettes and never swung eitherfoot. Immutable stance duration restores supportexchange, meets sourcebars and576/576walk rastercomparisons. This is proven source-authoring causality, not a renderer workaround. Contact/loop tests can pass a visually unusable gait. Keep original failed assets and scope old visual-inference corrections explicitly; see E05M/E05Z_ERRATUM.md and E05Z/REPORT.md.

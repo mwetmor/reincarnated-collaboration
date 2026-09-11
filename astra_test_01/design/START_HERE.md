@@ -103,3 +103,5 @@ E05U [painted-gear comparison](experiments/E05U/review.html) and [report](experi
 E05W [static pilot review](experiments/E05W/review.html) and [report](experiments/E05W/REPORT.md): Codex scoped working-turnaround PASS under F04direction after material/hair repair. Full motion/turns/gear fit and production style remain open. Next E05Y complete existing clip palette transfer and eight-view playback.
 
 E05Y full existing clips: [review](experiments/E05Y/review.html), [report](experiments/E05Y/REPORT.md). Walk art FAIL despite contact/core mechanisms; six cast raster failures retained. Exact next action is in PROGRESS.json.
+
+E05Z [corrected gait review](experiments/E05Z/review.html): controlled stance-duration bug repair passes; old E05M/E05Y failures retained, cast-normal and complete pilot work open. PROGRESS.json carries exact next action.

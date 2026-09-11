@@ -1,0 +1,49 @@
+{
+  "experiment": "E05Z",
+  "started_at": "2026-09-11T17:32:25.703660+00:00",
+  "status": "CONTROLLED_GAIT_REPAIR_PASS_FULL_PILOT_OPEN",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_export_adapter_revisions": 1,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 45383075
+  },
+  "dependencies": {
+    "E05W/inputs/material-hair-v2.blend": "6d3d0a01ef9846b72d91cc7f89a39bc4e117b00d2076ad05db60de6847e03b6d",
+    "E05Y/character.asset.json": "6ad5805636f96b06bfab178fe85943e0e0130ade1ded233a187d4036a2c05035",
+    "E05M/author.py": "ab69f4adcee4511e2207690777721bd4afb4fcbef8c303346424203171862feb"
+  },
+  "finished_at": "2026-09-11T17:38:05.044164+00:00",
+  "next_action": "Register E05N isolate six starter cast135deg raster failures with normal-only source oracle, then bounded neutral deformation-normal correction if confirmed. Preserve thresholds, source art, repaired walk and old failures.",
+  "verdicts": {
+    "cause": "6/6;bad1.0duration exactly reproduces all49oldwalk palettes and never swings",
+    "author": "16/16 original bars; source geometry unchanged",
+    "unchanged_clips": "idle/cast exact cached palettebytes; onlywalkchanges",
+    "source": "219/219 frame+endpoint samples and corechecksPASS",
+    "bounds": "3456/3456PASS native2400x500",
+    "raster": "576/576PASS maxMAE.3178914 maxfraction.00468972",
+    "controls": "20pxshift andwrongpose DETECTED",
+    "playback": "48/48framehashaudit;3normal-speed eightviewvideos, each timeline visitsall48frames",
+    "review": "6/6PASS localfile images/video switches",
+    "gait_visual": "PASS scoped readable supportexchange/bodycollapse repair",
+    "full_pilot": "OPEN:stiffcloth/turns/fulloutfitfit/castsixrasterfailures/lighting"
+  },
+  "commands": [
+    "blender -b ../E05W/inputs/material-hair-v2.blend --python-exit-code 1 --python author.py",
+    "blender -b inputs/gait-v1.blend --python-exit-code 1 --python export.py",
+    "python3 check-source.py",
+    "node capture-matrix.mjs",
+    "python3 analyze-matrix.py",
+    "node capture-playback.mjs",
+    "ffprobe/ffmpeg native video inspection",
+    "node review-check.mjs"
+  ]
+}

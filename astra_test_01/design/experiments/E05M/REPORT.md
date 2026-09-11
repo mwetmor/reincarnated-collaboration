@@ -15,3 +15,5 @@ Normal-speed video and time samples show opposite leg leads, exposed support boo
 Limits used:one source-authoring revision,4/4capture batches,zero imagegen/paid calls. Raw216512RGBA frames imply216MiB base-level texture storage if all uploaded independently; actual GPU residency was not measured. Apply the proven neutral-atlas method before representative-scale profiling.
 
 Next: separately bounded modular gear/occlusion composition proof can use the now-measured action/socket mechanism; complete directional/action transitions and art/UV quality before declaring the full pilot passed. Reusable paintedVFX may begin only on the relevant qualified attachment path, keeping each behavior independently bounded.
+
+Subsequent correction: [E05Z erratum](E05Z_ERRATUM.md) retracts the old usable-gait visual inference after a proven stance-duration variable collision. Original evidence above remains historical.
