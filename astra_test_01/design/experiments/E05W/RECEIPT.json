@@ -1,0 +1,52 @@
+{
+  "experiment": "E05W",
+  "started_at": "2026-09-11T16:50:20.876416+00:00",
+  "status": "STATIC_WORKING_TURNAROUND_PASS_FULL_MOTION_LIGHTING_OPEN",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 2,
+    "source_author_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 1,
+    "source_author_revisions": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 81298249
+  },
+  "built_in_generation_price": "Not exposed; no free-generation claim.",
+  "generation": [
+    {
+      "call": 1,
+      "source_path": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-b614fd16-41f5-4713-bf13-d2101c17449e.png",
+      "copied_path": "art/materials-v1.png",
+      "sha256": "fcbf92d654eb5684a8622566419199bcb3d3367cb6c92263270ab5dc5c8b8c6e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "prompt": "prompts/materials-v1.txt",
+      "reference": "../E07V/art/F04.png",
+      "inspection": "Four filled panels; ivory/navy separation, brown leather and curved hair clumps. Fine textile/leather grain and painted fold lighting may remain too detailed; evaluate at native gameplay scale.",
+      "price_usd": null
+    }
+  ],
+  "revision_2": "Prospective HAIR_REPAIR.md:17legacy comb-like strand components disabled by neutral default_visible metadata, all geometry/weights retained.6active hair parts,23Head-bound source components. No second generation.",
+  "finished_at": "2026-09-11T17:10:20.134911+00:00",
+  "next_action": "Register E05Y complete existing idle/walk/cast neutral palette transfer with framewise source contacts/socket/gear-fit checks and eight-view playback; turn transitions and full pilot remain separately owed.",
+  "verdicts": {
+    "author": "PASS6/6",
+    "hair_surface": "PASS960samples min3.704mm source-local",
+    "visibility": "PASS4/4",
+    "idle_raster": "PASS144/144 per revision",
+    "framing": "PASS48/48 per revision",
+    "bad_attachment": "DETECTED",
+    "runtime": "PASS8/8",
+    "saved_review": "PASS6/6",
+    "static_working_art": "PASS Codex scoped judgment under F04direction",
+    "full_pilot_production_style": "UNQUALIFIED/PENDING"
+  }
+}

@@ -99,3 +99,5 @@ E07N [internal-door review](experiments/E07N/review.html) and [report](experimen
 E07L [floor-shadow review](experiments/E07L/review.html) and [report](experiments/E07L/REPORT.md):320CPU witnesses pass; grounded/raised/translated shadow controls improve attachment. Full character/chamber art and other shadow receivers remain open. Next E05U returns to full pilot/gear art before animation or roster expansion.
 
 E05U [painted-gear comparison](experiments/E05U/review.html) and [report](experiments/E05U/REPORT.md): fitted part-specific gear and source transfer improve; full pilot art still FAIL against size-matched F04style crops. Next E05W base outfit material separation/hair silhouette, preserving rig/actions/gear.
+
+E05W [static pilot review](experiments/E05W/review.html) and [report](experiments/E05W/REPORT.md): Codex scoped working-turnaround PASS under F04direction after material/hair repair. Full motion/turns/gear fit and production style remain open. Next E05Y complete existing clip palette transfer and eight-view playback.

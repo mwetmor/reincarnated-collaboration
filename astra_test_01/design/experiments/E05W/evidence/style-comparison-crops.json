@@ -1,0 +1,36 @@
+{
+  "starter": {
+    "source": "evidence/batch-03/runtime/starter-hidden-light-skin.png",
+    "crop": [
+      252,
+      199,
+      96,
+      179
+    ]
+  },
+  "advanced": {
+    "source": "evidence/batch-03/runtime/advanced-hidden-light-skin.png",
+    "crop": [
+      251,
+      199,
+      98,
+      179
+    ]
+  },
+  "reference": {
+    "source": "../E07V/art/F04.png",
+    "starter_crop": [
+      31,
+      49,
+      246,
+      641
+    ],
+    "advanced_crop": [
+      286,
+      51,
+      220,
+      638
+    ],
+    "scope": "Approximate visible-height style comparison; camera/anatomy/lighting differ. Downscale only."
+  }
+}

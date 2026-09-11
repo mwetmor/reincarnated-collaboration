@@ -194,3 +194,7 @@ One opaque triangle-union mask from the same skinned pilot produces320passing CP
 ### E05U · Painted gear detail does not repair base character art
 
 Destination-specific albedo panels plus fitted bracers/greaves pass144idle source comparisons per revision and improve readability. Existing purple shoulders were a separate material omission, repaired without geometry changes. Size-matched F04comparison still exposes a broad smooth coat and simplified rear hair. Hold animation/roster expansion; change base material/silhouette method rather than spending remaining generation on more armor swatches. [Evidence](../../../../astra_test_01/design/experiments/E05U/REPORT.md).
+
+### E05W · Inspect aggregate hair shape and declare active components
+
+A smooth cap alone did not remove the rigid comb outline;17legacy parallel locks were a second cause. Preserve them as explicit disabled components rather than hiding the decision in rendering code.23Head-bound source components,6active, with960clearance rays and144idle comparisons per revision. Material separation plus selected hair composition passes scoped static working appearance; full motion/lighting/production style remain separate. [Evidence](../../../../astra_test_01/design/experiments/E05W/REPORT.md).
