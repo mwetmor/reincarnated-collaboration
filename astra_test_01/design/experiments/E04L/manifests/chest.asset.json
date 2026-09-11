@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "chest",
+  "asset_type": "object",
+  "path_base": "../../E04/",
+  "projection_id": "C",
+  "qualification": "candidate; original pixels preserved",
+  "frames": [
+    {
+      "id": "chest-source",
+      "source_path": "art/chest-v1.png",
+      "sha256": "a465e31d2339d3b29da2bd16c9583fe4b855465f5dcecaa648ac5de1c0cd1b68",
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "duration_ms": null
+    }
+  ],
+  "fps": null,
+  "timing_mode": "state_or_geometry_driven",
+  "direction": null,
+  "direction_status": "not applicable",
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "layout_owned",
+    "radius": null,
+    "height": 0.8
+  },
+  "emissive_mask_path": null,
+  "effects": {},
+  "alpha_policy": "opaque_surface",
+  "silhouette_polygon": null,
+  "registration": {
+    "source_axis_height": null,
+    "physical_height_m": 0.8
+  },
+  "sockets": {},
+  "face_uv_coordinates": null
+}

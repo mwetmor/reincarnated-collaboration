@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "door",
+  "asset_type": "object",
+  "path_base": "../../E04/",
+  "projection_id": "C",
+  "qualification": "candidate; original pixels preserved",
+  "frames": [
+    {
+      "id": "door-source",
+      "source_path": "art/door-v1.png",
+      "sha256": "088c052dff30b85ac0a4699ed65d62858c5a27c9361b610cacac63faba567afe",
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "duration_ms": null
+    }
+  ],
+  "fps": null,
+  "timing_mode": "state_or_geometry_driven",
+  "direction": null,
+  "direction_status": "not applicable",
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "layout_owned",
+    "radius": null,
+    "height": 2.5
+  },
+  "emissive_mask_path": null,
+  "effects": {},
+  "alpha_policy": "opaque_surface",
+  "silhouette_polygon": null,
+  "registration": {
+    "source_axis_height": null,
+    "physical_height_m": 2.5
+  },
+  "sockets": {},
+  "face_uv_coordinates": null
+}

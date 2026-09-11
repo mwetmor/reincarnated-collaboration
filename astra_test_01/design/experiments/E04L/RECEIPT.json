@@ -1,0 +1,51 @@
+{
+  "experiment": "E04L",
+  "status": "SCOPED_MECHANISM_PASS_WITH_RECORDED_STORAGE_LIMIT_DEVIATION",
+  "started_at": "2026-09-11T04:38:45.014623+00:00",
+  "finished_at": "2026-09-11T04:58:26.949857+00:00",
+  "wall_minutes": 19.69892056666667,
+  "active_minutes_upper_bound": 19.69892056666667,
+  "active_minutes_limit": 60,
+  "generation_calls": 0,
+  "known_paid_service_spend_usd": 0,
+  "capture_batches_used": 4,
+  "capture_batch_limit": 4,
+  "corrective_runtime_revisions_used": 1,
+  "corrective_runtime_revision_limit": 2,
+  "checks": {
+    "geometry": {
+      "passed": 12,
+      "total": 12
+    },
+    "browser": {
+      "passed": 12,
+      "total": 12
+    },
+    "receivers_and_playback": {
+      "passed": 6,
+      "total": 6
+    },
+    "saved_review": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "storage": {
+    "limit_bytes": 100000000,
+    "peak_observed_bytes": 107089050,
+    "historical_limit_exceeded": true,
+    "current_bytes_before_inventory": 66905411,
+    "repair": "Lossless encoding only, decoded pixel equality and encoded lineage verified"
+  },
+  "source_art_edited": false,
+  "recommendation": "B neutral test baseline; warm/cool lights driven by data",
+  "final_visual_target": "Pending delegation/selection response; no Matt approval invented",
+  "unqualified": [
+    "Detailed actor normal/material response",
+    "Wall receiving shadows",
+    "Four-faction cohesion",
+    "Motion and gear/VFX integration",
+    "Shipping performance"
+  ],
+  "next_action": "Continue E05P limited-view persistent-layer motion/gear hypothesis probe and remaining independent architecture preparation"
+}

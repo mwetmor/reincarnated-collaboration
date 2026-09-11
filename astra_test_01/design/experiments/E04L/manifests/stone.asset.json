@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "stone",
+  "asset_type": "environment",
+  "path_base": "../../E04/",
+  "projection_id": "C",
+  "qualification": "candidate; original pixels preserved",
+  "frames": [
+    {
+      "id": "stone-source",
+      "source_path": "../E03/art/pillar-v1.png",
+      "sha256": "6f30bd38d0b45caa1da92acd2374f2d80005f0f1fa25b56d0b9086ae5bb9fc95",
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "duration_ms": null
+    }
+  ],
+  "fps": null,
+  "timing_mode": "state_or_geometry_driven",
+  "direction": null,
+  "direction_status": "not applicable",
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "layout_owned",
+    "radius": null,
+    "height": 3
+  },
+  "emissive_mask_path": null,
+  "effects": {},
+  "alpha_policy": "opaque_surface",
+  "silhouette_polygon": null,
+  "registration": {
+    "source_axis_height": null,
+    "physical_height_m": 3
+  },
+  "sockets": {},
+  "face_uv_coordinates": {
+    "top": [
+      [
+        626,
+        156
+      ],
+      [
+        851,
+        325
+      ],
+      [
+        627,
+        481
+      ],
+      [
+        389,
+        313
+      ]
+    ],
+    "left": [
+      [
+        389,
+        313
+      ],
+      [
+        627,
+        481
+      ],
+      [
+        622,
+        1140
+      ],
+      [
+        414,
+        978
+      ]
+    ],
+    "right": [
+      [
+        627,
+        481
+      ],
+      [
+        851,
+        325
+      ],
+      [
+        839,
+        982
+      ],
+      [
+        622,
+        1140
+      ]
+    ]
+  }
+}

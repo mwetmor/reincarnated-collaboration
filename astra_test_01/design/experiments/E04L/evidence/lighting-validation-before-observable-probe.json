@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "closed-gate-blocks-point-light": true,
+    "open-gate-transmits-point-light": true,
+    "tall-pillar-blocks-ray": true,
+    "ray-above-low-prop-passes": true,
+    "height-gives-declared-shadow-offset": true,
+    "ground-contact-independent-of-height": true,
+    "blocked-receiver-keeps-neutral-tint": true,
+    "unblocked-receiver-colour-changes": false,
+    "lift-is-json-state": true,
+    "lift-does-not-change-blockers": true,
+    "lift-fixture-disabled-outside-test": true,
+    "no-renderer-import-in-sim": true
+  },
+  "passed": 11,
+  "total": 12
+}

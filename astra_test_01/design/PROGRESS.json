@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T04:36:28.888484+00:00",
+  "updated": "2026-09-11T04:58:26.949857+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E04L_PREPARATION",
+  "active_experiment": "E05P",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register and run E04L shared lighting/material controls using E04M2 v3 contours; continue autonomous campaign through remaining unblocked motion/gear/VFX/transfer/scale tasks.",
+  "next_action": "Execute E05P registered SE persistent-layer motion/gear probe; preserve full pilot eight-view criteria and visual failures. Continue independent native-motion acquisition and VFX data preparation. Visual-delegation preference is pending, not approved.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -71,7 +71,13 @@
     "experiments/E04M2/RECEIPT.json",
     "experiments/E04M2/review.html",
     "experiments/E04M2/mage-v3.asset.json",
-    "experiments/E04M2/npc-v3.asset.json"
+    "experiments/E04M2/npc-v3.asset.json",
+    "experiments/E04L/REPORT.md",
+    "experiments/E04L/RECEIPT.json",
+    "experiments/E04L/review.html",
+    "experiments/E04L/lighting.json",
+    "experiments/E04L/evidence/lighting-validation.json",
+    "experiments/E04L/evidence/batch-03-receivers/receivers.json"
   ],
   "decisions_pending": [
     {
@@ -117,6 +123,14 @@
       "review_packet": "experiments/E03/review.html",
       "recommendation": "Keep provisionally for pilot; continue independent technical tests",
       "status": "ASKED; unanswered is not approval"
+    },
+    {
+      "id": "D07",
+      "decision": "Delegate visual test selections to Codex for autonomous campaign or retain Matt review",
+      "status": "ASKED asynchronously; unanswered is not approval",
+      "source": "EXPERIMENTS.md G3 assigns shared visual selection to Matt",
+      "recommendation": "Delegate test baselines while retaining final production approval",
+      "review_packet": "experiments/E04L/review.html"
     }
   ],
   "known_evidence_gaps": [
@@ -175,7 +189,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E04M2/RECEIPT.json",
+  "current_receipt": "experiments/E04L/RECEIPT.json",
   "generation_calls_this_suite": 8,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -214,6 +228,7 @@
   "portability_contract": "experiments/E04/NEUTRAL_CONTRACT.md",
   "visual_feedback": {
     "sharpness": "Matched E04 render: fresh raster visibly improves mage; floor source resolution limits remain",
-    "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending."
+    "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending.",
+    "lighting": "E04L scoped grounding/light receiver checks pass; B recommended, final cohesion/visual target unqualified; historical storage ceiling exceeded then losslessly repacked."
   }
 }

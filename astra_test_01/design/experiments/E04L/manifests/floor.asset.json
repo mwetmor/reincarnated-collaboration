@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "floor",
+  "asset_type": "environment",
+  "path_base": "../../E04/",
+  "projection_id": "C",
+  "qualification": "candidate; original pixels preserved",
+  "frames": [
+    {
+      "id": "floor-source",
+      "source_path": "../E03/art/floor-v1.png",
+      "sha256": "dfaab958fcfe2fe1acda170b096e20e6d26a8fa92fc238cddac40656f6105710",
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 1536,
+        "height": 1024
+      },
+      "pivot": [
+        0,
+        0
+      ],
+      "duration_ms": null
+    }
+  ],
+  "fps": null,
+  "timing_mode": "state_or_geometry_driven",
+  "direction": null,
+  "direction_status": "not applicable",
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "layout_owned",
+    "radius": null,
+    "height": 0
+  },
+  "emissive_mask_path": null,
+  "effects": {},
+  "alpha_policy": "opaque_surface",
+  "silhouette_polygon": null,
+  "registration": {
+    "source_axis_height": null,
+    "physical_height_m": 0
+  },
+  "sockets": {},
+  "face_uv_coordinates": null
+}

@@ -57,6 +57,13 @@ unqualified. **Godot is the shipping target; Pixi is the test harness.** The
 subsequent work. Follow [the exact next test](experiments/E04/NEXT_TEST.md) before
 continuing motion/gear and VFX; do not treat technical passes as visual approval.
 
+Current autonomous continuation: [E04M2 contour repair](experiments/E04M2/review.html)
+and [E04L lighting](experiments/E04L/review.html) have scoped component results.
+[Progress](PROGRESS.json) now routes to E05P. Continue across bounded experiment
+checkpoints while authorized work remains; Matt requested the entire architecture
+be pursued autonomously. Keep all original thresholds and failures, including
+E04L's recorded storage-limit deviation.
+
 ## Prompt for the next session
 
 > Continue the painted-world test suite in

@@ -1,0 +1,7 @@
+# E04L storage-limit deviation and lossless evidence packaging
+
+The initial 2880×1920 browser PNGs use a relatively large encoding (~4.8MB each). After receiver batch 03 the artifact directory reached 107,087,506 bytes, exceeding the registered 100MB ceiling. This is a recorded limit failure; do not claim the run stayed within its original ceiling. No further rendering starts until storage is bounded.
+
+Correction is codec-only packaging of E04L's derived runtime captures: decode and re-encode PNG losslessly, preserving mode, dimensions and every decoded pixel. Record original encoded SHA-256, new encoded SHA-256, canonical decoded-pixel SHA-256 and sizes for each file. Preserve all scenes, failed attempts and controls. Original generated paintings and historical E03/E04/E04M2 files are untouched. This is not matting, colour conversion, resizing, sharpening or painting repair. The earlier encoded bytes are not the acceptance evidence; exact decoded-pixel equality is verified before replacing the encoding. Peak storage remains reported even after final storage falls below the limit.
+
+Subsequent capture packaging must estimate encoded size before committing another batch and use the measured compression policy. Capture count and acceptance thresholds are not reset. The remaining fourth E04L batch, if needed, is only the saved review verification and may add ≤1MB; omit a large screenshot if the remaining budget cannot accommodate it. The historical budget failure remains a deviation rather than being relabelled a PASS.
