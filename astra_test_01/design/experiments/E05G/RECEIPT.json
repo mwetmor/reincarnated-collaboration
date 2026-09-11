@@ -1,0 +1,41 @@
+{
+  "experiment": "E05G",
+  "status": "SCOPED_SPARSE_GEAR_PASS",
+  "started_at": "2026-09-11T12:01:04.359875+00:00",
+  "limits": {
+    "active_minutes": 60,
+    "authoring_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000,
+    "generation_calls": 0
+  },
+  "used": {
+    "authoring_revisions": 1,
+    "capture_batches": 4,
+    "generation_calls": 0,
+    "paid_service_usd": 0
+  },
+  "next_action": "Bounded painted VFX attachment pilot permitted by E05M socket; full gear motion/view/art/light remains owed.",
+  "finished_at": "2026-09-11T12:17:17.511732+00:00",
+  "known_limitations": [
+    "Six raster poses only;216 geometry samples",
+    "One view",
+    "Plain geometry armor, not painted advanced outfit",
+    "Gear indirect/shadow rays disabled",
+    "Approximate alpha compositing, not pixel identity"
+  ],
+  "failed_evidence": [
+    "evidence/batch-01/FAILURE.md",
+    "evidence/render-batch01.py"
+  ],
+  "validation": {
+    "headless_checks": 11,
+    "source_checks": 14,
+    "pixi_cases": 36,
+    "max_mean_abs_rgb": 0.8385708136030995,
+    "max_fraction_pixels_error_gt8": 0.017111493758071458,
+    "bad_shift_rejected": true
+  },
+  "owned_bytes_before_index": 11912292,
+  "closed_at": "2026-09-11T12:18:49.165675+00:00"
+}

@@ -338,3 +338,7 @@ control improves character detail but exceeds the floor source resolution.
 Qualify output resolution and asset texel density together. Preserve failed masks
 and inspect both retained background and lost anatomy, not only outside-mask
 pixels. Follow [next test preparation](experiments/E04/NEXT_TEST.md).
+
+## Doorway side agreement — Matt review, 2026-09-11
+
+The [E07V feedback](experiments/E07V/FEEDBACK_2026-09-11.md) adds an explicit art/data witness: declare interior/exterior regions, threshold outward normal, wall thickness, destination and door-leaf sweep before painting. Check both exits open/closed and traverse both ways; projected aperture/adjacent-floor visibility must agree with those regions. Reject the reversed-exterior control. F01/F02 stronghold construction must also be distinguishable under the shared F04 clarity/F03 light-response target.

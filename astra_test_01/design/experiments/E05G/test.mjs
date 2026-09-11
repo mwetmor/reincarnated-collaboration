@@ -1,0 +1,11 @@
+import assert from'node:assert/strict';import fs from'node:fs';import crypto from'node:crypto';import{createState,step}from'./sim/index.mjs';
+const content=JSON.parse(fs.readFileSync(new URL('./content.json',import.meta.url))),asset=JSON.parse(fs.readFileSync(new URL('./gear.asset.json',import.meta.url))),checks={};
+const s=createState(),equipped=step(s,{type:'equip',id:'advanced-probe'},content),hidden=step(equipped,{type:'head_visibility',visible:false},content);
+checks.starter_unchanged=s.outfit==='starter';checks.hidden_still_equipped=hidden.outfit==='advanced-probe'&&!hidden.head_visible;checks.source_not_mutated=equipped.head_visible;checks.json_round_trip=JSON.stringify(hidden)===JSON.stringify(JSON.parse(JSON.stringify(hidden)));
+assert.throws(()=>step(s,{type:'equip',id:'bad-fit-control'},content),/Incompatible/);checks.wrong_fit_rejected=true;
+assert.throws(()=>step(s,{type:'equip',id:'missing'},content),/Unknown/);checks.unknown_rejected=true;
+assert.throws(()=>step(s,{type:'head_visibility',visible:1},content),/Invalid/);checks.invalid_visibility_rejected=true;
+checks.no_render_imports=!/pixi|canvas|webgl|document|window/i.test(fs.readFileSync(new URL('./sim/index.mjs',import.meta.url),'utf8'));
+checks.base_frames_immutable=asset.frames.every(f=>crypto.createHash('sha256').update(fs.readFileSync(new URL(f.body_path,import.meta.url))).digest('hex')===f.body_sha256);
+checks.samples_complete=asset.frames.length===6;checks.neutral_manifest=!/PIXI|Texture|Sprite/.test(JSON.stringify(asset));
+fs.writeFileSync(new URL('./evidence/headless.json',import.meta.url),JSON.stringify({checks},null,2));assert(Object.values(checks).every(Boolean));console.log(checks);

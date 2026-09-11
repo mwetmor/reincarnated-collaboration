@@ -11,3 +11,7 @@ The user identified a visual texture problem, without diagnosing whether it is b
 References: [F04](experiments/E07V/art/F04.png), [F03](experiments/E07V/art/F03.png), [all boards](experiments/E07V/review.html). Projection C remains the authorized test camera. Godot is the shipping target; Pixi is the test harness.
 
 Scope: shared working scene direction is now selected. Actual painted character/material transfer, runtime light response, layout agreement and final production style remain to be proved. The response does not explicitly delegate every future visual decision (D07). Existing authorization continues bounded technical and art tests under this chosen direction; do not ask again to use it.
+
+Further binding review guidance: [faction separation and reversed doorway evidence](experiments/E07V/FEEDBACK_2026-09-11.md). Differentiate F01/F02 stronghold construction, not just palettes or banners. Subsequent painted exits must prove interior/exterior side agreement with layout data.
+
+Blood impacts: Matt prefers the splatter accompanying F01’s fire VFX. See [the recorded reference and scope](experiments/E07V/FEEDBACK_2026-09-11.md#preferred-blood-hit-reference); element rendering and target blood response remain separate data.

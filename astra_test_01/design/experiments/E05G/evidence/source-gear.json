@@ -1,0 +1,79 @@
+{
+  "base_hash_before": "db26ab2d687e2f0291436858e2ad826e3c9f77b4702df0cf241e03942f2764b0",
+  "base_hash_after": "db26ab2d687e2f0291436858e2ad826e3c9f77b4702df0cf241e03942f2764b0",
+  "unchanged_actions": [
+    "E05B_Walk_2mps",
+    "E05M_cast",
+    "E05M_idle",
+    "E05M_walk",
+    "Idle",
+    "Run",
+    "Walk"
+  ],
+  "gear": [
+    {
+      "name": "GEAR_cuirass",
+      "slot": "torso",
+      "bone": "Chest",
+      "samples": 216,
+      "attachment_drift_m": 2.924504133107118e-07,
+      "radius_variation": 9.512182352899856e-07
+    },
+    {
+      "name": "GEAR_pauldron-upper-L",
+      "slot": "shoulder",
+      "bone": "UpperArm.L",
+      "samples": 216,
+      "attachment_drift_m": 5.010108630445353e-07,
+      "radius_variation": 1.8662626599663668e-06
+    },
+    {
+      "name": "GEAR_pauldron-lower-L",
+      "slot": "shoulder",
+      "bone": "UpperArm.L",
+      "samples": 216,
+      "attachment_drift_m": 5.537979520175166e-07,
+      "radius_variation": 1.4335886315830493e-06
+    },
+    {
+      "name": "GEAR_pauldron-upper-R",
+      "slot": "shoulder",
+      "bone": "UpperArm.R",
+      "samples": 216,
+      "attachment_drift_m": 5.591760806961991e-07,
+      "radius_variation": 1.6490248411216157e-06
+    },
+    {
+      "name": "GEAR_pauldron-lower-R",
+      "slot": "shoulder",
+      "bone": "UpperArm.R",
+      "samples": 216,
+      "attachment_drift_m": 5.46749017625297e-07,
+      "radius_variation": 1.55583245908808e-06
+    },
+    {
+      "name": "GEAR_helmet",
+      "slot": "head",
+      "bone": "Head",
+      "samples": 216,
+      "attachment_drift_m": 1.0669565072021546e-05,
+      "radius_variation": 4.364331757544804e-05
+    }
+  ],
+  "checks": {
+    "GEAR_cuirass_attachment": true,
+    "GEAR_cuirass_rigid": true,
+    "GEAR_pauldron-upper-L_attachment": true,
+    "GEAR_pauldron-upper-L_rigid": true,
+    "GEAR_pauldron-lower-L_attachment": true,
+    "GEAR_pauldron-lower-L_rigid": true,
+    "GEAR_pauldron-upper-R_attachment": true,
+    "GEAR_pauldron-upper-R_rigid": true,
+    "GEAR_pauldron-lower-R_attachment": true,
+    "GEAR_pauldron-lower-R_rigid": true,
+    "GEAR_helmet_attachment": true,
+    "GEAR_helmet_rigid": true,
+    "base_immutable": true,
+    "actions_reused": true
+  }
+}

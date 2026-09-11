@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "path_base": "./",
+  "projection_id": "C",
+  "direction": "world +u / SE candidate",
+  "fps": 60,
+  "anchor_space": "source_pixels",
+  "physical_height_m": 2,
+  "source_frame_vertical_body_height_px": 153.89987636063665,
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "conservative_square",
+    "radius": 0.35,
+    "height": 2
+  },
+  "emissive_mask_path": null,
+  "alpha_policy": "native_RGBA_from_Blender_Cycles",
+  "effects": {},
+  "fit_family": "wizard-rig35-v1",
+  "qualification": "Six source pose samples only; not full gear animation or advanced painted outfit",
+  "id": "wizard-gear-sparse-control",
+  "asset_type": "sparse_gear_composition",
+  "frames": [
+    {
+      "id": "idle-000",
+      "clip": "idle",
+      "frame_index": 0,
+      "time_s": 0.0,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/idle-000.png",
+      "body_sha256": "43c6616c661c3f196b491369c882646a3ce471d45c9fc4a29017cc8a65227d5d",
+      "armor_path": "evidence/batch-02/idle-000-armor-layer.png",
+      "head_path": "evidence/batch-02/idle-000-head-layer.png",
+      "reference_head_path": "evidence/batch-02/idle-000-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/idle-000-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          233.44708251953125,
+          243.98963928222656
+        ]
+      }
+    },
+    {
+      "id": "walk-012",
+      "clip": "walk",
+      "frame_index": 12,
+      "time_s": 0.2,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/walk-012.png",
+      "body_sha256": "74d387ef3183b5d30c4dfed542c2f3e5e24284c7588b2b59c5896a161fdc1853",
+      "armor_path": "evidence/batch-02/walk-012-armor-layer.png",
+      "head_path": "evidence/batch-02/walk-012-head-layer.png",
+      "reference_head_path": "evidence/batch-02/walk-012-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/walk-012-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          247.82586860656738,
+          269.22340393066406
+        ]
+      }
+    },
+    {
+      "id": "walk-024",
+      "clip": "walk",
+      "frame_index": 24,
+      "time_s": 0.4,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/walk-024.png",
+      "body_sha256": "5065196f3f8b0a902e38a07d47a633acfe08d21f3d1e6935f5092194ef6dec7a",
+      "armor_path": "evidence/batch-02/walk-024-armor-layer.png",
+      "head_path": "evidence/batch-02/walk-024-head-layer.png",
+      "reference_head_path": "evidence/batch-02/walk-024-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/walk-024-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          234.79960250854492,
+          308.07804107666016
+        ]
+      }
+    },
+    {
+      "id": "cast-018",
+      "clip": "cast",
+      "frame_index": 18,
+      "time_s": 0.3,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/cast-018.png",
+      "body_sha256": "27757ede06bfbb7795adfd3ad6874076e9f0422823d9ce2ea290b45fae8a8cb8",
+      "armor_path": "evidence/batch-02/cast-018-armor-layer.png",
+      "head_path": "evidence/batch-02/cast-018-head-layer.png",
+      "reference_head_path": "evidence/batch-02/cast-018-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/cast-018-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          260.00687408447266,
+          257.1617889404297
+        ]
+      }
+    },
+    {
+      "id": "cast-036",
+      "clip": "cast",
+      "frame_index": 36,
+      "time_s": 0.6,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/cast-036.png",
+      "body_sha256": "3210f37a23f670d5f08a322ddb389ad128285e80e1a8f2ffd388e7503e503625",
+      "armor_path": "evidence/batch-02/cast-036-armor-layer.png",
+      "head_path": "evidence/batch-02/cast-036-head-layer.png",
+      "reference_head_path": "evidence/batch-02/cast-036-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/cast-036-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          278.25739669799805,
+          252.6569366455078
+        ]
+      }
+    },
+    {
+      "id": "cast-054",
+      "clip": "cast",
+      "frame_index": 54,
+      "time_s": 0.9,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "body_path": "../E05M/evidence/batch-02/cast-054.png",
+      "body_sha256": "f259098856939cdcf74f2c5b2879cf1e3007ff741b0a94acfd63d416578e25e9",
+      "armor_path": "evidence/batch-02/cast-054-armor-layer.png",
+      "head_path": "evidence/batch-02/cast-054-head-layer.png",
+      "reference_head_path": "evidence/batch-02/cast-054-full-head.png",
+      "reference_hidden_path": "evidence/batch-02/cast-054-full-hidden.png",
+      "sockets": {
+        "right_hand": [
+          260.00687408447266,
+          257.1617889404297
+        ]
+      }
+    }
+  ],
+  "loop": false,
+  "source_authoring": {
+    "path": "inputs/gear-v1.blend"
+  },
+  "composition": {
+    "order": [
+      "body",
+      "armor",
+      "head"
+    ],
+    "operation": "normal_alpha_over",
+    "head_visibility": "state.head_visible",
+    "lighting_control": "gear indirect/shadow rays disabled"
+  }
+}

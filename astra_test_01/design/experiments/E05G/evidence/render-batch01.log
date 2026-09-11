@@ -1,0 +1,33 @@
+00:00.662  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/inputs/gear-v1.blend"
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/render.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('E05M neutral authoring world');world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.65,.65,.65,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.5;scene.world=world
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/render.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  hold=bpy.data.materials.new('E05G body holdout');hold.use_nodes=True;nodes=hold.node_tree.nodes;nodes.clear();h=nodes.new('ShaderNodeHoldout');output=nodes.new('ShaderNodeOutputMaterial');hold.node_tree.links.new(h.outputs[0],output.inputs['Surface'])
+00:01.984  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/idle-000-full-head.png'
+00:03.000  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/idle-000-full-hidden.png'
+00:03.925  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/idle-000-armor-layer.png'
+00:04.852  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/idle-000-head-layer.png'
+00:05.906  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-012-full-head.png'
+00:06.931  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-012-full-hidden.png'
+00:07.863  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-012-armor-layer.png'
+00:08.792  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-012-head-layer.png'
+00:09.825  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-024-full-head.png'
+00:10.877  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-024-full-hidden.png'
+00:11.804  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-024-armor-layer.png'
+00:12.725  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/walk-024-head-layer.png'
+00:13.739  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-018-full-head.png'
+00:14.740  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-018-full-hidden.png'
+00:15.699  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-018-armor-layer.png'
+00:16.616  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-018-head-layer.png'
+00:17.626  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-036-full-head.png'
+00:18.633  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-036-full-hidden.png'
+00:19.560  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-036-armor-layer.png'
+00:20.498  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-036-head-layer.png'
+00:21.512  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-054-full-head.png'
+00:22.518  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-054-full-hidden.png'
+00:23.442  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-054-armor-layer.png'
+00:24.362  render           | Saved: '/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05G/evidence/batch-01/cast-054-head-layer.png'
+GEAR_RENDER_DONE 24 23.639210457971785
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T11:57:55.113027+00:00",
+  "updated": "2026-09-11T12:18:49.162979+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": null,
+  "active_experiment": "E05G",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05G modular gear/occlusion proof using E05M action/socket mechanism, and E01D known-source originalDiabloII excerpts from E01Y candidate metadata. Full painted pilot/turns/views remain owed.",
+  "next_action": "Register first painted fire-impact/blood-response VFX pilot using E05M measured cast socket and E06D neutral events; keep full gear motion/view/art/light proof open.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -119,7 +119,14 @@
     "experiments/E05M/review.html",
     "experiments/E01Y/REPORT.md",
     "experiments/E01Y/RECEIPT.json",
-    "experiments/E01Y/review.html"
+    "experiments/E01Y/review.html",
+    "experiments/E01D/REPORT.md",
+    "experiments/E01D/RECEIPT.json",
+    "experiments/E01D/review.html",
+    "experiments/E07V/FEEDBACK_2026-09-11.md",
+    "experiments/E05G/REPORT.md",
+    "experiments/E05G/RECEIPT.json",
+    "experiments/E05G/review.html"
   ],
   "decisions_pending": [
     {
@@ -184,7 +191,7 @@
     }
   ],
   "known_evidence_gaps": [
-    "E01Y recovers PoE1/GD native traversal/combat excerpts; separate quiet/combat categories across all4games remain incomplete, originalD2 not yet acquired, LE excerpts stationary at zone entry",
+    "E01Y/E01D recover original D2 LoD, PoE1 and GD native motion; LE ordinary motion and separate quiet/combat categories remain incomplete. D2 recording is downsampled320x240, unsuitable for sharpness/calibration.",
     "Last Epoch ordinary HUD framing missing; publisher promotional images are excluded from that measurement",
     "PoE1 quiet traversal and ordinary stronghold/interactable coverage missing",
     "Original Grim Dawn GAL-CAM video remains missing; prior numeric analysis not independently regenerated",
@@ -204,7 +211,8 @@
     "E08A neutral atlas passes scoped exact reconstruction and48 GPU comparisons; no production residency/performance pass. E08D costs/inventory remain conditional scenarios.",
     "E05C shortened garment clears stance boots; E05T painted textures remove observed magenta edges after one repair. Whole character shape/motion/UV transfer still unqualified.",
     "E04S sampled floor/wall lighting and ground geometry pass; complete faction chamber cohesion and second chamber/chunk remain incomplete.",
-    "E05M one-view idle/walk/cast/contact/release-socket mechanisms pass; whole painted pilot, turns/action transitions,8views and modular gear remain incomplete."
+    "E05M one-view idle/walk/cast/contact/release-socket mechanisms pass; whole painted pilot, turns/action transitions,8views and modular gear remain incomplete.",
+    "E05G 216 geometry samples and36 sparse raster composites pass; full gear frames/views, final advanced-outfit painting and gear lighting remain unqualified."
   ],
   "running_jobs": [
     {
@@ -248,7 +256,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05M/RECEIPT.json",
+  "current_receipt": "experiments/E05G/RECEIPT.json",
   "generation_calls_this_suite": 20,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -288,6 +296,9 @@
   "visual_feedback": {
     "sharpness": "E04S new top-down material plates on layout geometry improve floor source density at tested2880x1920; original E03 floor stays limited. Other assets require separate qualification.",
     "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending.",
-    "lighting": "E04S actual floor/pillar-wall neutral/warm/cool response and gate occlusion pass; full F03-style architectural scene remains incomplete."
+    "lighting": "E04S actual floor/pillar-wall neutral/warm/cool response and gate occlusion pass; full F03-style architectural scene remains incomplete.",
+    "faction_separation": "Matt: F01/F02 too similar, two cathedral strongholds insufficient. Codex proposes defended timber/stone waystation versus reclaimed rock-cut reservoir; proposed test briefs, not final canon.",
+    "doorway_orientation": "Matt: bottom-right F01/F02 doorways show exterior as interior. Preserve originals; require declared interior/exterior regions and camera-correct aperture/threshold/swing witnesses plus reversed-side control.",
+    "blood_impact": "Matt prefers F01 fire-hit blood splatter; use as blood response reference, separate from element and target eligibility."
   }
 }

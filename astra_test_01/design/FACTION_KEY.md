@@ -117,3 +117,7 @@ before scaling animation or writing production-specific rendering assumptions.
 The ten-character validation batch must represent all four factions. Exact
 roster allocation, gear coverage, monster fixtures, performance targets, and
 acceptance thresholds belong in the forthcoming test-suite architecture.
+
+## Subsequent environment review guidance
+
+Matt identified F01/F02 sanctuary similarity and reversed foreground doorway exteriors. Follow [the preserved feedback and proposed differentiated briefs](experiments/E07V/FEEDBACK_2026-09-11.md). These test refinements do not change faction motives or canon.

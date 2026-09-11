@@ -1,0 +1,41 @@
+{
+  "experiment": "E01D",
+  "status": "SCOPED_NATIVE_TRAVERSAL_COMBAT_RECOVERED",
+  "started_at": "2026-09-11T11:58:32.269557+00:00",
+  "limits": {
+    "active_minutes": 10,
+    "metadata_reads": 1,
+    "media_acquisitions": 2,
+    "each_excerpt_bytes": 15000000,
+    "disk_bytes": 40000000
+  },
+  "used": {
+    "metadata_reads": 1,
+    "media_acquisitions": 2,
+    "generation_calls": 0,
+    "paid_service_usd": 0
+  },
+  "source": "https://archive.org/details/Diablo2LoD_15822",
+  "next_action": "No further E01D acquisition. Broader remaining gaps: LE ordinary traversal/combat and separate PoE1 quiet traversal.",
+  "source_limitations": "2005segmented normal-difficulty Assassin speedrun; original client+LoD, not D2R. Available320x240capture is downsampled, unsuitable for native-pixel sharpness or precise silhouette measurement. Does not establish normal/default movement speed.",
+  "finished_at": "2026-09-11T12:09:51.149366+00:00",
+  "timing_deviation": "Ten-minute acquisition/inspection window crossed during handoff; documentation closeout just afterward, no extra acquisition/search.",
+  "visual_inspection": [
+    "d2-20-contact.png: town/bridge traversal",
+    "d2-60-contact.png: Blood Moor combat"
+  ],
+  "actual_media": {
+    "d2-20": {
+      "duration_s": 10.0,
+      "bytes": 585440,
+      "sha256": "9d8cb12e2b5421a416ed785dc1095f1105fd297f0ec092b3fb40c9dc89e46861"
+    },
+    "d2-60": {
+      "duration_s": 10.0,
+      "bytes": 476685,
+      "sha256": "b941d929a2bf52137544ec61c30dae52ea57b94390c4b00c88e5972736226573"
+    }
+  },
+  "owned_bytes_before_index": 3110555,
+  "closed_at": "2026-09-11T12:18:49.201512+00:00"
+}
