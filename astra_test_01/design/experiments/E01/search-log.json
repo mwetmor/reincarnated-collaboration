@@ -1,0 +1,88 @@
+{
+  "local_pass": {
+    "roots": [
+      "agentic_orchestration/galadriel/reference-images",
+      "agentic_orchestration/galadriel/captures/2026-07-30-gal-cam",
+      "/Users/admin/Desktop",
+      "/Users/admin/Downloads",
+      "/Users/admin/gd-scratch",
+      "/Users/admin/Games"
+    ],
+    "method": "rg --files, targeted game/capture filename globs; existing manifest and report paths",
+    "result": "Original Grim Dawn video not recovered. Four LE and three PoE1 stills verified by exact byte hash against publisher downloads."
+  },
+  "web_passes": [
+    {
+      "number": 1,
+      "queries": [
+        "site.classic.battle.net diablo2 screenshots",
+        "site.pathofexile.com gameplay video hideout",
+        "site.grimdawn.com gameplay video",
+        "site.lastepoch.com gameplay video"
+      ],
+      "useful_leads": [
+        "https://classic.battle.net/diablo-universe.shtml",
+        "https://www.grimdawn.com/media/",
+        "https://www.lastepoch.com/",
+        "https://www.pathofexile.com/forum/view-thread/3926115"
+      ]
+    },
+    {
+      "number": 2,
+      "queries": [
+        "Diablo II gameplay video site.blizzard.com 2000",
+        "site.pathofexile.com \"Gameplay\" \"2013\"",
+        "site.grimdawn.com \"gameplay\" \"2013\"",
+        "site.lastepoch.com \"gameplay\" \"walkthrough\""
+      ],
+      "result": "No acquired qualifying native uncut HUD motion; old D2 preview link failed; unrelated and third-party results not counted as inspected evidence."
+    }
+  ],
+  "direct_source_followups": [
+    "Arreat Summit full cold-skill images, basics and Act I NPC page",
+    "Crate media full-size stills and exploration before/after images",
+    "Publisher Steam appdetails and full screenshots for 238960 and 899770",
+    "Path of Exile official video index"
+  ],
+  "failed_routes": [
+    {
+      "route": "Python urllib HTTPS",
+      "failure": "Host Python CA verification failed; no certificate checks disabled. curl system trust succeeded."
+    },
+    {
+      "route": "Arreat guessed screenshots.shtml/towns.shtml",
+      "failure": "DOCUMENT NOT FOUND HTML, not image evidence."
+    },
+    {
+      "route": "Last Epoch /media/",
+      "failure": "No usable media links in returned page."
+    },
+    {
+      "route": "Browser connection",
+      "failure": "getForUrl: No browser is available; troubleshooting read; browsers.list returned []. Playback inspection unavailable."
+    }
+  ],
+  "motion_leads": [
+    {
+      "game": "D2",
+      "url": "https://www.blizzard.com/diablo2/movies.shtml",
+      "status": "Legacy preview route failed; no video inspected."
+    },
+    {
+      "game": "Grim Dawn",
+      "url": "https://www.youtube.com/watch?v=BfABNZqU-PA",
+      "status": "Publisher gameplay trailer link; playback uninspected; cut trailer not admitted for camera motion."
+    },
+    {
+      "game": "PoE1",
+      "url": "https://www.pathofexile.com/video",
+      "status": "Official embedded videos discovered; uninspected. Steam movies are named trailers; not substituted for requested uncut gameplay."
+    },
+    {
+      "game": "Last Epoch",
+      "url": "https://store.steampowered.com/app/899770/",
+      "status": "HLS manifests accessible, 1920x1080 30fps rendition declared for Become the Mage. Manifest only, not motion inspection. Trailer/marketing source not admitted as ordinary HUD gameplay."
+    }
+  ],
+  "closure": "Two search passes exhausted. Preserve known leads and switch acquisition method only through a new registered recovery work unit; do not cycle thumbnails."
+}

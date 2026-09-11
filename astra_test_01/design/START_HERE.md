@@ -21,6 +21,12 @@ criteria. The working name **ASTRA TEST 02** refers to the new painted-world
 suite; it has no passing production result yet. Its first environment milestone
 is one interactive painted chamber, not a claim that the full suite is complete.
 
+The [E01 comparison packet](experiments/E01/comparison.html) now contains inspected
+native stills, [findings](experiments/E01/REPORT.md), a three-candidate geometry
+study, and logical chamber preparation. G1 remains incomplete because native
+uncut HUD motion is missing. Follow PROGRESS.json for the precise next action;
+do not repeat the exhausted source searches or infer D01 approval from the packet.
+
 Latest user direction: Godot's recovered 3D camera is a starting candidate only.
 Compare native gameplay exemplars from Diablo II, Path of Exile 1, Grim Dawn and
 Last Epoch before selecting painted-world projection and on-screen scale.

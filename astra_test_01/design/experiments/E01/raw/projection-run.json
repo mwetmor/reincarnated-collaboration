@@ -1,0 +1,83 @@
+[
+  {
+    "id": "A",
+    "title": "Low affine / flatter ground",
+    "type": "affine",
+    "elevation_deg": 30,
+    "yaw_deg": 47,
+    "q": 0.49999999999999994,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": 22.21355160707085,
+    "vertical_fov_deg": null,
+    "distance_m": null,
+    "probe_heights_far_center_near_px": [
+      38.474999999999994,
+      38.474999999999994,
+      38.47500000000002
+    ],
+    "ground_roundtrip_max_m": 3.0201331455116262e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  {
+    "id": "B",
+    "title": "High affine / recommended probe",
+    "type": "affine",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": 31.93145294005837,
+    "vertical_fov_deg": null,
+    "distance_m": null,
+    "probe_heights_far_center_near_px": [
+      38.474999999999994,
+      38.474999999999994,
+      38.47500000000002
+    ],
+    "ground_roundtrip_max_m": 2.589462819655575e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  }
+]

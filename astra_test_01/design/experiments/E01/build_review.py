@@ -1,0 +1,57 @@
+"""Build an offline reference packet; originals embedded/displayed without pixel edits."""
+from pathlib import Path
+import json,html,base64,math
+P=Path(__file__).resolve().parent
+sources=json.loads((P/'sources.json').read_text());by={s['id']:s for s in sources};measures=json.loads((P/'measurements.json').read_text())
+games=[{'name':'Original Diablo II','edition':'LoD-era guide • NOT D2R','ids':['D2-06','D2-01','D2-03'],'summary':'Compact HUD gameplay. Dark floor leaves luminous shards legible, but overlapping bodies still hide anatomy. Tall walls and sarcophagi interrupt floor visibility.'},{'name':'Path of Exile 1','edition':'Steam app 238960 • NOT PoE2','ids':[None,'POE-04','POE-02'],'summary':'HUD-equipped combat and large prop silhouettes. Ground detail survives in gaps between thin effects; bright gear and effects prevent reliable tight-body measurement. Quiet traversal and hideout coverage are missing.'},{'name':'Grim Dawn','edition':'Base / AoM / FG rows kept separate','ids':['GD-05','GD-03','GD-04'],'summary':'The repaired/broken bridge pair is concrete art/state evidence. Actor framing varies markedly across promotional captures; one screenshot cannot set a game-wide scale.'},{'name':'Last Epoch','edition':'Steam app 899770 • HUD-hidden caveat','ids':['LE-05','LE-09','LE-07'],'summary':'Monumental floors, raised platforms, railings and foliage. Gold arcs contrast with green floors; busy clusters hide bodies. Ordinary gameplay camera remains unverified because HUD is absent.'}]
+def img(id):
+ if not id:return '<div class="gap">MISSING: quiet HUD gameplay<br>No substitute admitted</div>'
+ s=by[id];return f'<figure><a href="{s["path"]}"><img src="{s["path"]}" alt="{html.escape(id+": "+s["observation"])}"></a><figcaption><b>{id}</b> · {s["dimensions"][0]}×{s["dimensions"][1]} · {s["category"]}</figcaption></figure>'
+css='''body{background:#171a1e;color:#e5e4df;font:16px/1.5 system-ui;margin:32px auto;padding:0 28px;max-width:1600px}h1{font-size:28px;margin-bottom:6px}h2{font-size:21px}h3{font-size:17px}p{max-width:1100px}.muted,figcaption{color:#afb8bf;font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}img{display:block;max-width:100%;height:auto}figure{margin:16px 0}a{color:#bbd9e9}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid #42494e;text-align:left;padding:10px}th{color:#bbd9e9}.gap{height:180px;padding:18px;background:#252c32;display:flex;align-items:center}.lead{border-left:3px solid #d5b174;padding-left:18px}.annotation{position:relative;max-width:100%}.annotation svg{position:absolute;inset:0;width:100%;height:100%}details{border-top:1px solid #42494e;padding:14px 0}summary{cursor:pointer}.wide{width:100%}.legend{display:flex;gap:24px;flex-wrap:wrap}@media(max-width:950px){.grid,.two{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.grid,.two{grid-template-columns:1fr}}'''
+parts=['<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>E01 • Painted-world reference comparison</title><style>'+css+'</style><body>', '<h1>E01 · Four native games, three projection studies</h1><p class="lead"><b>Provisional recommendation: B, high affine, for the first painted feasibility probe.</b> It retains substantial ground visibility with constant scale across the chamber. A tests flatter ground; C tests perspective compatibility. These are engineering candidates, not recovered source-game cameras or approved painted art.</p><p><b>G1 is INDETERMINATE.</b> Native stills are inspected for all four games; the required uncut HUD traversal/combat segments are missing. Last Epoch camera measurements are specifically withheld. Zero generation calls and zero paid-service spend.</p><p class="muted">Full publisher files retained and hashed. Images fit the column without cropping; click for the original. Frame size and HUD changes are disclosed, never normalized into a false match.</p><div class="grid">']
+for g in games:
+ parts.append('<section><h2>'+g['name']+'</h2><p class="muted">'+g['edition']+'</p><p>'+g['summary']+'</p>')
+ for label,id in zip(['Quiet / traversal coverage','Combat / effect readability','Architecture / interaction evidence'],g['ids']):parts.append('<h3>'+label+'</h3>'+img(id))
+ parts.append('</section>')
+parts.append('</div><h2>Project comparison · never native game evidence</h2><div class="two"><div>'+img('REPLICA-01')+'</div><p>The supplied Godot cathedral frame is a <b>PROJECT REPLICA</b>. Warm floor, cool shadows, a tile grid and a broad smoke/trail ring are visible. Prior camera approval belongs to its own workstream. Its animated 3D bodies do not prove persistent painted layers, gear transfer or sprite perspective compatibility.</p></div><h2>Matched chamber geometry</h2><p>Same 10×8 m logical room, same 2 m centre probe (9.5% viewport height), same 47° yaw, same ground anchor, same objects and 9% HUD reserve. Elevation changes between A/B; perspective changes between B/C. C retains the recovered lens/elevation and recalibrates distance to match centre body height. Every floor, prop and body vertex uses its candidate projection.</p><a href="projection-study.png"><img class="wide" src="projection-study.png" alt="A flatter affine, B high affine and C perspective, with matching chamber layout and body scale"></a><p>The diagram shows <b>volumetric diagnostic proxies</b>, not paintings or sprite deformation. Equal logical height can project to different vertical screen spans under perspective; one uniform sprite scale cannot prove view compatibility. No motion, gear or interaction pass is claimed.</p>')
+parts.append('<h2>Manual image measurements · uncertainties retained</h2><p>Body excludes weapons and effects when visible; opaque clothing/armor still bounds the body estimate. Endpoint uncertainty is additive, not statistical confidence. D2 has a separate continuous bottom strip; the modern HUDs overlay the world. Both raster and active-rectangle denominators are reported. No game-wide scale is inferred.</p><table><thead><tr><th>Source</th><th>Body px</th><th>Body / full H</th><th>Body / active H (range)</th><th>Foot x,y / active</th><th>Use</th></tr></thead><tbody>')
+for m in measures:
+ b=m.get('body_height_px');rng=m.get('body_fraction_active_interval');parts.append('<tr>'+''.join('<td>'+html.escape(str(x))+'</td>' for x in [m['id'],b if b else 'indeterminate',f'{100*m["body_height_fraction_full"]:.1f}%' if b else '—',f'{100*m["body_height_fraction_active"]:.1f}% ({100*rng[0]:.1f}–{100*rng[1]:.1f}%)' if b else '—',m['foot_fraction_active'],m['status']])+'</tr>')
+parts.append('</tbody></table><h2>Auditable annotations</h2><p>Gold box: manual body estimate. Cyan cross: estimated support. Full originals remain underneath, unchanged. Overlay endpoints are available in measurements.json.</p><div class="two">')
+for m in measures:
+ s=by[m['id']];w,h=s['dimensions'];bbox=m['body_bbox'];x,y=m['foot'];svg=f'<svg viewBox="0 0 {w} {h}" aria-label="Manual body and foot annotations">'
+ if bbox:
+  a,b,c,d=bbox;svg+=f'<rect x="{a}" y="{b}" width="{c-a}" height="{d-b}" fill="none" stroke="#ffd56b" stroke-width="2"/>'
+ svg+=f'<path d="M{x-12},{y}H{x+12} M{x},{y-12}V{y+12}" stroke="#67e2ed" stroke-width="2"/></svg>'
+ parts.append(f'<section><h3>{m["id"]} · {m["status"]}</h3><div class="annotation"><img src="{s["path"]}" alt="{m["id"]} body measurement">{svg}</div><p class="muted">{m["note"]}</p></section>')
+parts.append('</div><h2>Source ledger · includes rejected intake</h2>')
+for s in sources:
+ page=s['page'];parts.append(f'<details><summary>{s["id"]} · {s["game"]} · {s["category"]}</summary><p>{s["observation"]}</p><p>{s["edition"]}</p><p><a href="{page}">Publisher / provenance page</a> · <a href="{s["path"]}">Full retained file</a></p><p class="muted">SHA-256 {s["sha256"]}</p>{img(s["id"])}</details>')
+parts.append('<p><a href="REPORT.md">Findings and next action</a> · <a href="sources.json">Sources</a> · <a href="measurements.json">Measurements</a> · <a href="chamber-layout.draft.json">Layout data</a> · <a href="RECEIPT.json">Experiment receipt</a></p></body></html>')
+(P/'comparison.html').write_text('\n'.join(parts))
+# Single-file Canvas with inline data and source pixels. No fetch or module dependencies.
+canvas=Path('/Users/admin/.cursor/projects/Users-admin-Games/canvases/astra-E01-native-comparison.canvas.tsx')
+embedded=[]
+for g in games:
+ embedded.append(dict(g,images=[dict(id=id,data='data:image/jpeg;base64,'+base64.b64encode((P/by[id]['path']).read_bytes()).decode(),observation=by[id]['observation'],url=by[id]['url']) if id else None for id in g['ids']]))
+projection='data:image/png;base64,'+base64.b64encode((P/'projection-study.png').read_bytes()).decode()
+code='''import { Stack, Grid, H1, H2, H3, Text, Divider, Table, useHostTheme } from 'cursor/canvas';
+const games = DATA;
+const projection = PROJECTION;
+export default function E01Comparison(){const theme=useHostTheme();return <Stack gap={20}>
+<H1>E01 · Native references and projection shortlist</H1>
+<Text>Recommendation: B, high affine, for the first painted feasibility probe. G1 remains INDETERMINATE: required uncut HUD gameplay motion is missing. No final projection or art approval recorded.</Text>
+<img src={projection} alt="Three matched geometric projection candidates; no painted assets" style={{width:'100%',height:'auto'}}/>
+<Text tone="secondary">Same logical layout, 2 m central body at 9.5% viewport height, 47° yaw and HUD reserve. Geometry studies only. A: flatter ground. B: greater floor visibility and constant scale. C: Godot-informed perspective, centre scale normalized.</Text>
+<Divider/>
+<Grid columns={2} gap={24}>{games.map(g=><section key={g.name}><H2>{g.name}</H2><Text tone="secondary">{g.edition}</Text><Text>{g.summary}</Text>{g.images.map((im,i)=><div key={i} style={{marginTop:16}}><H3>{['Quiet / traversal coverage','Combat / VFX','Architecture / interactions'][i]}</H3>{im?<><a href={im.url}><img src={im.data} alt={im.id+': '+im.observation} style={{width:'100%',height:'auto'}}/></a><Text size="small">{im.id} · {im.observation}</Text></>:<Text tone="secondary">MISSING — no substitute admitted.</Text>}</div>)}</section>)}</Grid>
+<Divider/><H2>Decision and evidence boundary</H2><Table headers={['Candidate','Why test it','Unproven']} rows={[
+['A · Low affine','Flatter ground, more vertical body emphasis','Painted floor/actor agreement at this view'],
+['B · High affine · recommended','Visible floor and constant scale across room','Painted silhouettes, occlusion and gear transfer'],
+['C · Perspective','Compare against recovered project framing','Near/far sprite view, footprints and attachments']
+]}/><Text>Native stills establish visible composition only. Godot replicas are project evidence. Persistent-layer motion, modular gear, painted chamber interactions and performance remain unqualified. Zero generation calls; zero paid-service spend.</Text>
+<Text tone="secondary">The committed comparison.html includes full source ledger, measurements, body/foot overlays and the separately labelled Godot replica. Canvas is a review companion; PROGRESS.json owns current gate state.</Text>
+</Stack>}
+'''.replace('DATA',json.dumps(embedded)).replace('PROJECTION',json.dumps(projection))
+canvas.write_text(code)
+print('Built',P/'comparison.html','and',canvas)

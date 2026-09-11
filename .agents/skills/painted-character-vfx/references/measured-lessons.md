@@ -53,3 +53,22 @@ proposed methods as unvalidated until applied successfully.
 
 - All eight walk seams now pass after generated pre-contact edits using the original first-contact transform. SW improved from 1.630 with re-centered registration to 0.535 with inherited registration, while actual output midpoint remained within tolerance. Evidence: `evidence/walk_SW_07_close_metrics.json`, `evidence/current_checks.json`. This does not repair repeated leg leads or establish a standard gait.
 - A native-alpha idle edit returned a baked checkerboard despite a transparent input. Extraction rejected it before publication. Evidence: `records/idle_N_07_native_edit.json`. Do not infer transparency support from the displayed checkerboard.
+
+## Painted-world E01 — source eligibility and recovery
+
+- A publisher screenshot listing included class/skill menus and HUD-hidden
+  promotional scenes alongside gameplay. File provenance and scene eligibility
+  are separate checks. Exclude menus from camera measurements; retain HUD-hidden
+  scenes for explicitly scoped composition observations. Evidence: [E01 source
+  ledger](../../../../astra_test_01/design/experiments/E01/sources.json), rows
+  LE-01 through LE-11. Confidence: high for these inspected files; no claim that
+  every publisher list behaves this way.
+- Hash comparison recovered exact publisher URLs for four previously retained
+  Last Epoch images and three PoE1 images. Reuse verified bytes rather than
+  substituting visually similar images. Evidence: the same ledger's
+  `byte_identical_existing_files` fields. This verifies provenance recovery,
+  not default camera settings or motion quality.
+- The official Grim Dawn broken/repaired bridge pair shows a visible geometry
+  change at essentially the same view. It supports an art/state comparison but
+  cannot prove traversal, state-transition timing or navigation-cache updates.
+  Evidence: E01 GD-04/GD-05; those claims remain unverified in the report.

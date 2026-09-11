@@ -1,0 +1,86 @@
+{
+  "experiment": "E01",
+  "status": "INDETERMINATE",
+  "recorded_utc": "2026-09-11T01:53:29.730262+00:00",
+  "scope": "Native-still decision packet plus independent logical-layout preparation. Original ASTRA untouched.",
+  "registration": "registration.json",
+  "parent_handoff": "0730fa88f87172be969de437e76567047702c701",
+  "lane": "open Codex lane",
+  "auth": "codex login status: Logged in using ChatGPT",
+  "subagents": 0,
+  "remote_pushes": 0,
+  "external_messages": 0,
+  "paid_service_calls": 0,
+  "generation_calls": 0,
+  "known_incremental_paid_spend_usd": 0,
+  "subscription_token_cost": "Not exposed; no fabricated zero-cost total",
+  "elapsed_minutes_since_registration": 30.8,
+  "pre_registration_charter_search_time": "Not independently metered; elapsed above excludes session-start work",
+  "source_counts": {
+    "project_replica_stills": 1,
+    "native_motion_segments_inspected": 0,
+    "byte_identical_recovered_prior_stills": 7,
+    "publisher_media_files": 27,
+    "native_world_views_including_dialog_and_HUD_hidden": 22,
+    "menu_or_graphic_intake_rejections": 5
+  },
+  "disk_bytes_current": 29376932,
+  "tool_versions": {
+    "python": "3.12.0",
+    "ffmpeg": "ffmpeg version 8.1.2 Copyright (c) 2000-2026 the FFmpeg developers",
+    "curl": "curl 8.7.1 (x86_64-apple-darwin24.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.64.0"
+  },
+  "inspection": {
+    "method": "Each of 28 retained originals opened using view_image, plus four existing LE originals; comparison geometry image visually inspected. No source-image pixels edited. HTML uses separate vector overlays.",
+    "native_sampling": "No uncut motion, no temporal visual acceptance. Last Epoch ordinary HUD framing unavailable.",
+    "browser": "No available browser; getForUrl failed and list returned [] after documented troubleshooting. HTML playback/layout and Canvas compiled rendering are UNVERIFIED.",
+    "annotations": "Manual approximate body and support coordinates with uncertainty; not independently reviewed or calibrated anatomical masks."
+  },
+  "validation": {
+    "logical_preparation": "24/24 assertions pass; 99 ground roundtrip probes per candidate; intentional bad path and shifted inverse rejected",
+    "gates": "G1 INDETERMINATE; G2 NOT_RUN with preparation completed; G3\u2013G7 NOT_RUN",
+    "art_and_runtime": "No passing artwork, animation, gear reuse, chamber runtime or performance result",
+    "packet": "28/28 source hashes, 7/7 prior byte matches, 167 local links and JSON/Python syntax verified",
+    "whitespace": "PASS for authored code/docs/JSON/SVG. Unmodified raw publisher HTML retains source whitespace and is excluded from this style check."
+  },
+  "commands": [
+    "codex login status",
+    "git -C /Users/admin/Games/reincarnated-collaboration show --stat 0730fa88",
+    "rg --files with targeted game/capture paths and globs (search-log.json)",
+    "curl -fLsS --max-time 25 <publisher-media-url> -o <named-media-file>",
+    "python3 astra_test_01/design/experiments/E01/acquire.py (initial pass only)",
+    "Supplementary exact URLs and hashes are in sources.json",
+    "ffmpeg -v error -ss 1 -i <recorded Godot source MP4> -frames:v 1 media/REPLICA-01.png",
+    "python3 astra_test_01/design/experiments/E01/inspect_sources.py",
+    "python3 astra_test_01/design/experiments/E01/build_projection_study.py",
+    "python3 astra_test_01/design/experiments/E01/build_review.py",
+    "python3 astra_test_01/design/experiments/E01/check_preparation.py",
+    "python3 astra_test_01/design/experiments/E01/validate_packet.py"
+  ],
+  "deviations": [
+    "Search packet is still-only; no motion claim or G1 pass.",
+    "Initial Steam menu selections rejected; retained as evidence rather than counted as ordinary gameplay.",
+    "Initial Python URL fetch failed certificate verification; system curl succeeded with verification intact.",
+    "Preparation heredoc delimiter error prevented script creation; repaired before first test execution. No test result existed before repair.",
+    "Initial comparison had A yaw 45 while B/C 47; normalized all to 47 before delivered study.",
+    "Initial prior-image hash matcher searched wrong parent directory; corrected, then seven exact byte matches verified.",
+    "ASTRA .gitignore ignores all PNGs; explicitly force-added only the three named evidence PNGs required by the packet. Raw publisher HTML whitespace retained; generated SVG trailing spaces removed without changing geometry."
+  ],
+  "dependency_hashes": {
+    "sources.json": "dd2c0206f2e38397ecf35a6c649d28e07c22df516fb7baad7f58fedaa1c41b14",
+    "measurements.json": "da83f8fcca27869e6cf9468acca844d9272424f2b66ec14434c05cd4f9d81b72",
+    "chamber-layout.draft.json": "b40586402e9ab80a10ec7405739d10cb50049d5f63e186604ab0ebf05a989fa2",
+    "projection-candidates.json": "5aeef86916d4be94dc6aa93c401702bb60023e23c3ea1d340bdb7ef849ae3da6",
+    "preparation-checks.json": "c6dcb8ebb81dd8fc3a75d38aa05f6a4a841380078fa0e3381f6421a6d98ed8d2",
+    "projection-study.png": "df31fbddd630dd3a4a2c115c4550fa9d2c23a4fa54e001447ecb93102ab4f045"
+  },
+  "pending_choice": "D01: A/B/C test preference requested; no response recorded. Final painted target remains pending at G3.",
+  "next_action": "Register E02 installed-runtime and alpha/import/attachment capability probes, then implement diagnostic chamber state tests from chamber-layout.draft.json under frozen controls. E01 motion recovery requires a changed registered acquisition method.",
+  "canvas_companion": {
+    "repo_path": "native-comparison.canvas.tsx",
+    "managed_path": "/Users/admin/.cursor/projects/Users-admin-Games/canvases/astra-E01-native-comparison.canvas.tsx",
+    "sha256": "fcf1547a9dfdef3bb73228c6aa8f97843c425db2606a75e24b40194349574453",
+    "relationship": "Byte-identical companion discovered and verified; explicitly included in commit inventory. No compiled runtime verdict available."
+  },
+  "closed_utc": "2026-09-11T02:00:28.363257+00:00"
+}

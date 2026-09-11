@@ -1,0 +1,145 @@
+{
+  "scope": "G2 independent preparation only; no runtime/art pass",
+  "checks": [
+    {
+      "name": "closed door forbids east, r=0.35",
+      "pass_": true,
+      "detail": "Partition reaches room bounds; no route around it."
+    },
+    {
+      "name": "open door permits east, r=0.35",
+      "pass_": true,
+      "detail": {
+        "nodes": 35
+      }
+    },
+    {
+      "name": "open approach door [1, 0], r=0.35",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach door [3.3, 0], r=0.35",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach crate [0, 1.3], r=0.35",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach chest [-3.5, 0.5], r=0.35",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "bad straight route caught, r=0.35",
+      "pass_": true,
+      "detail": "Endpoints alone are insufficient; segment crosses partition."
+    },
+    {
+      "name": "closed door forbids east, r=0.65",
+      "pass_": true,
+      "detail": "Partition reaches room bounds; no route around it."
+    },
+    {
+      "name": "open door permits east, r=0.65",
+      "pass_": true,
+      "detail": {
+        "nodes": 35
+      }
+    },
+    {
+      "name": "open approach door [1, 0], r=0.65",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach door [3.3, 0], r=0.65",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach crate [0, 1.3], r=0.65",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "open approach chest [-3.5, 0.5], r=0.65",
+      "pass_": true,
+      "detail": "From west exit approach; grid-snapped declared point."
+    },
+    {
+      "name": "bad straight route caught, r=0.65",
+      "pass_": true,
+      "detail": "Endpoints alone are insufficient; segment crosses partition."
+    },
+    {
+      "name": "blocker ownership survives removal",
+      "pass_": true,
+      "detail": "Removing coincident dynamic owner leaves static pillar."
+    },
+    {
+      "name": "A ground roundtrip",
+      "pass_": true,
+      "detail": {
+        "points": 99,
+        "max_m": 9.930136612989092e-16
+      }
+    },
+    {
+      "name": "A shifted inverse rejected",
+      "pass_": true,
+      "detail": {
+        "min_m": 0.2499999999999991
+      }
+    },
+    {
+      "name": "A projected origin",
+      "pass_": true,
+      "detail": "Origin maps to separately applied registered screen anchor."
+    },
+    {
+      "name": "B ground roundtrip",
+      "pass_": true,
+      "detail": {
+        "points": 99,
+        "max_m": 8.881784197001252e-16
+      }
+    },
+    {
+      "name": "B shifted inverse rejected",
+      "pass_": true,
+      "detail": {
+        "min_m": 0.2499999999999991
+      }
+    },
+    {
+      "name": "B projected origin",
+      "pass_": true,
+      "detail": "Origin maps to separately applied registered screen anchor."
+    },
+    {
+      "name": "C ground roundtrip",
+      "pass_": true,
+      "detail": {
+        "points": 99,
+        "max_m": 1.6011864169946884e-15
+      }
+    },
+    {
+      "name": "C shifted inverse rejected",
+      "pass_": true,
+      "detail": {
+        "min_m": 0.2499999999999991
+      }
+    },
+    {
+      "name": "C projected origin",
+      "pass_": true,
+      "detail": "Origin maps to separately applied registered screen anchor."
+    }
+  ],
+  "all_pass": true
+}

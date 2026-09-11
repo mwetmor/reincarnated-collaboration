@@ -3,6 +3,13 @@
 Recorded 2026-09-10. This is a discovery inventory, not a completed four-game
 comparison. Existence/provenance leads are distinguished from inspected evidence.
 
+E01 follow-up: see the [inspected source manifest](experiments/E01/sources.json),
+[labelled comparison](experiments/E01/comparison.html), and
+[bounded search log](experiments/E01/search-log.json). Seven prior PoE1/LE files
+were matched byte-for-byte to publisher originals. New D2 and Grim Dawn stills
+were acquired and inspected. Motion and normal LE HUD framing remain unverified;
+the discovery inventory below is retained for lineage, not current gate state.
+
 ## Native game evidence
 
 | Game | Local lead | Current status / next action |
