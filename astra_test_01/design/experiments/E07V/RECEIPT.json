@@ -1,0 +1,34 @@
+{
+  "experiment": "E07V",
+  "status": "RUNNING_F03_IMAGEGEN",
+  "started_at": "2026-09-11T05:54:23.779637+00:00",
+  "limits": {
+    "generation_calls": 5,
+    "review_batches": 2,
+    "active_minutes": 75,
+    "disk_bytes": 45000000
+  },
+  "used": {
+    "generation_calls": 3,
+    "review_batches": 0,
+    "paid_service_usd": 0
+  },
+  "pending_tool_cell": "349",
+  "art_intake": [
+    {
+      "faction": "F01",
+      "path": "art/F01.png",
+      "sha256": "0efc8b6cba660c91fc25a1798387816168a4b93b5c9d35a46fafaa217786a588",
+      "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-df9463a8-c66b-4b55-a14f-2c16ddd1b77e.png",
+      "inspection": "Cohesive starter/advanced woman defender and sanctuary; two effect studies rather than requested3; full-height studies do not share the measured gameplay framing. Concept only."
+    },
+    {
+      "faction": "F02",
+      "path": "art/F02.png",
+      "sha256": "66842fe8f6711e62b5086e6200aa51f0882cd3080881667171e3a6b5de29d0e8",
+      "source": "/Users/admin/.codex/generated_images/01a08e0c-a87c-7e61-ae6e-6b6a5abe3e1b/exec-a718d41a-c674-4180-8d97-6cb56cd62bf2.png",
+      "inspection": "Starter/advanced outcast differentiated and3 effect studies present; sanctuary-like room strongly repeats F01 composition/architecture, so stronghold distinctiveness is only partial."
+    }
+  ],
+  "next_action": "Persist/inspect F02; then F03,F04 and one mixed scene, within total5call cap; present labelled G3 target for Matt."
+}

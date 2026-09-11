@@ -1,0 +1,13 @@
+# E05B — controllable source animation and Pixi frames; painted pilot incomplete
+
+Godot is the shipping target; Pixi is the test harness. Blender is an offline authoring tool. This is the existing original project wizard, not native source-game evidence or the approved painted mage.
+
+**Mechanical preflight passes.** Actual deformed sole meshes drift at most0.00000258m while planted; saved-action replay measures0.00000241m. No penetration beyond numerical noise, bone lengths remain fixed, the book is rigid, and saved geometry alternates leg leads. Sliding-root and20% book-swelling controls fail as intended. The first parent-transform implementation failed with1.33m drift and0.115m penetration; source/result retained. Revision2 computes local transforms from explicit desired parent matrices.
+
+Camera C agrees at five known3D points within0.01 high-buffer pixels. The first coordinate mapping mirrored the ground axes and failed before rendering; Blender uses(X=u,Y=-v,Z=height) for the declared logical world. This mapping corrects handedness without changing C or flipping painted sprites.
+
+48 native512×512 RGBA frames cover the0.8s walk at60fps. Full source buffer2880×1920, fixed crop,2m physical character height; no per-frame scaling. One frame rendered in separate batches is decoded-pixel identical despite differing PNG bytes. Median frame render1.01s, p95≈1.06s on this local run; not a production-capacity or runtime-FPS claim. Native alpha composites were visually inspected on light/dark/blue backgrounds in Pixi at50/150px vertical-body reference scale. Runtime6/6 boundary/delivery checks pass; the4s normal-speed video decodes.
+
+**Visual pilot does not pass.** The long robe panels conceal support boots in several sampled phases, and the existing low-poly textured appearance differs from the painted mage target. No full gait/style approval, eight-view coverage, cast/release, modular advanced gear or reusable VFX is claimed. Detached-accessory and full loop-velocity/raster controls remain unrun; do not infer them from source persistence. The frame manifest is engine-neutral, but these whole-character frames are not a modular gear proof.
+
+Source .blend and GLB were read only; the saved rig/action copy is under inputs. Four render/capture attempts are used, including the failed camera preflight. No additional E05B capture lap. Next: resolve the painted visual baseline through E07V, then register garment visibility and material/source authoring against that baseline before expanding the pilot. Exact joint control is available; painterly appearance and economical gear transfer remain separate hypotheses.

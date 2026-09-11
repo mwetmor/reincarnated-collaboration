@@ -1,0 +1,9 @@
+# E07V — four faction visual boards and shared-style decision packet
+
+G3/H08 visual target work that can proceed while animation mechanisms are tested. This is conceptual direction, not roster production or geometry/animation/VFX acceptance. Godot is the shipping target; Pixi is the test harness. Follow FACTION_KEY.md: four factions are cultural/material groups, not elements or builds. Exposed head, starter/advanced outfit, stronghold, interactive object and matching effect vocabulary on each board; a mixed scene tests shared visual intent. No source-game names or copied franchise characters appear in the artwork.
+
+Shared proposed paint target: restrained matte digital painting, worn material edges, visible brush marks at source scale, directional neutral key light, dark but legible ground, C-like elevated gameplay view. Camera wording/reference paintings do not prove measured projection; these boards cannot pass that gate. Faction differences come from silhouette, construction and motifs rather than colour alone. Separate notes identify what is merely drawn, what is a reusable asset, and what remains to be built. Neither these paintings nor the local 3D rig silently replace the production style register.
+
+Limits: five built-in imagegen calls total (four boards + one shared scene), no retries or paid service calls,75min active,≤2 review capture batches,≤45MB. Each board is a new conceptual asset, not a repair of E05P/E05K; their exhausted branches remain closed. Preserve raw dimensions/hash/mode/prompts and failed/partial design responses. Reserve output capacity before continuing. Stop if sources cannot be persisted within the cap.
+
+Acceptance is a concrete labelled comparison and agent recommendation for Matt's G3 selection; unreturned questions do not approve it. No gait, modular gear, native alpha, 24 VFX or100-character claims from the boards. A chosen conceptual baseline still requires measured art/data, motion and transfer proofs.

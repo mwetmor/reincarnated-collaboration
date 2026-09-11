@@ -59,7 +59,7 @@ continuing motion/gear and VFX; do not treat technical passes as visual approval
 
 Current autonomous continuation: [E04M2 contour repair](experiments/E04M2/review.html)
 and [E04L lighting](experiments/E04L/review.html) have scoped component results.
-[E05P motion review](experiments/E05P/review.html) rejects the cutout gait despite passing geometry. [E06D](experiments/E06D/REPORT.md) prepares the neutral VFX boundary only; [E01M](experiments/E01M/review.html) recovers native promotional motion without closing ordinary-HUD gates. [Progress](PROGRESS.json) records E05K pose-key contact failure and routes through E05R to explicit local rig authoring. Both failed animation methods and their exhausted call limits remain frozen. Continue across bounded experiment
+[E05P motion review](experiments/E05P/review.html) rejects the cutout gait despite passing geometry. [E06D](experiments/E06D/REPORT.md) prepares the neutral VFX boundary only; [E01M](experiments/E01M/review.html) recovers native promotional motion without closing ordinary-HUD gates. [Progress](PROGRESS.json) records E05K pose-key contact failure. [E05B](experiments/E05B/review.html) establishes explicit rig/mesh contact control and Pixi frame delivery, with garment/style limits. E07V now prepares the four faction visual-target boards. Both failed animation methods and their exhausted call limits remain frozen. Continue across bounded experiment
 checkpoints while authorized work remains; Matt requested the entire architecture
 be pursued autonomously. Keep all original thresholds and failures, including
 E04L's recorded storage-limit deviation.

@@ -1,0 +1,141 @@
+{
+  "profile": {
+    "id": "C",
+    "title": "Godot-informed perspective",
+    "type": "pinhole",
+    "elevation_deg": 52.9535411256,
+    "yaw_deg": 47,
+    "q": 0.7981472596262743,
+    "screen": [
+      720,
+      405
+    ],
+    "anchor": [
+      360.74984436000005,
+      223.12467497699998
+    ],
+    "body_height_fraction": 0.095,
+    "uniform_scale_px_per_m": null,
+    "vertical_fov_deg": 31.7861018306,
+    "distance_m": 23.869291234544452,
+    "probe_heights_far_center_near_px": [
+      39.98375830082445,
+      38.474999999999994,
+      35.85215776763948
+    ],
+    "ground_roundtrip_max_m": 2.2644195468014703e-15,
+    "note": "C matches recovered angle/lens but recalibrates distance to equal body size; not exact recovered Godot camera. Ground field and all volumetric proxies use same projection; no painted asset is tested."
+  },
+  "camera_projection_checks": [
+    {
+      "world": [
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        1442.999267578125,
+        892.4989700317383
+      ],
+      "expected": [
+        1442.9993774400002,
+        892.4986999079999
+      ],
+      "error_px": 0.0002916101261003533
+    },
+    {
+      "world": [
+        0,
+        0,
+        2
+      ],
+      "actual": [
+        1442.999267578125,
+        738.5988235473633
+      ],
+      "expected": [
+        1442.9993774400002,
+        738.598699908
+      ],
+      "error_px": 0.00016539747213654895
+    },
+    {
+      "world": [
+        1,
+        0,
+        0
+      ],
+      "actual": [
+        1525.8112907409668,
+        963.3782958984375
+      ],
+      "expected": [
+        1525.8113003307506,
+        963.378099396747
+      ],
+      "error_px": 0.00019673555432894399
+    },
+    {
+      "world": [
+        0,
+        1,
+        0
+      ],
+      "actual": [
+        1354.3068981170654,
+        958.5112380981445
+      ],
+      "expected": [
+        1354.3070272858017,
+        958.5110290291641
+      ],
+      "error_px": 0.0002457527233165873
+    },
+    {
+      "world": [
+        -1,
+        -1,
+        1
+      ],
+      "actual": [
+        1448.8685417175293,
+        686.707878112793
+      ],
+      "expected": [
+        1448.86862548331,
+        686.7077362797614
+      ],
+      "error_px": 0.00016472193195633185
+    }
+  ],
+  "crop_full_buffer": [
+    1187,
+    600,
+    512,
+    512
+  ],
+  "native_buffer": [
+    2880,
+    1920
+  ],
+  "sprite_root": [
+    255.99937744000022,
+    292.49869990799994
+  ],
+  "physical_height_m": 2,
+  "source_frame_body_height_px": 153.89987636063665,
+  "reserved_bytes": 2000000,
+  "records": [
+    {
+      "frame": 0,
+      "t": 0.0,
+      "file": "walk-000.png",
+      "bytes": 67635,
+      "render_seconds": 1.2671286250115372,
+      "sha256": "c2b1cfa7794518e2e01f326b7cd1c7ae11370c075ff250d854264b79bbb8e804"
+    }
+  ],
+  "elapsed_seconds": 1.27567145798821,
+  "source": "inputs/controlled-wizard-v2.blend",
+  "style_status": "UNQUALIFIED; original local3D textured wizard, not approved painted mage"
+}

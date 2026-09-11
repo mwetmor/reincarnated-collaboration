@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T05:41:30.390098+00:00",
+  "updated": "2026-09-11T06:07:51.385292+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E05B",
+  "active_experiment": "E07V",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register and execute E05B isolated Blender rig authoring at2m/s and0.8s cycle; verify actual deformed boot contacts and camera-C rendered appearance before any Pixi packaging. E05R finds real pose control; original source gait fails and must not be inherited.",
+  "next_action": "Finish E07V faction packet: F03 imagegen cell349 pending,3/5 calls used; F04 and mixed scene remain. E05B controlled animation is mechanically usable but garment visibility and painted appearance are not qualified.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -90,7 +90,11 @@
     "experiments/E05K/RECEIPT.json",
     "experiments/E05K/review.html",
     "experiments/E05R/REPORT.md",
-    "experiments/E05R/RECEIPT.json"
+    "experiments/E05R/RECEIPT.json",
+    "experiments/E05B/REPORT.md",
+    "experiments/E05B/RECEIPT.json",
+    "experiments/E05B/review.html",
+    "experiments/E05B/walk.asset.json"
   ],
   "decisions_pending": [
     {
@@ -161,7 +165,8 @@
     "Floor source 1536x1024 limits fresh 2880x1920 render; final output/aspect ratio and texel-density policy unresolved",
     "E01M recovered native LE/GD promotional motion only; required ordinary HUD segments still missing",
     "E06D 36/36 JSON VFX boundary checks do not qualify any painted effect",
-    "E05K explicit generated pose keys FAIL contact after2/2 calls; lower bound7.4cm drift vs2cm. E05R researches actual rig/keyframe control."
+    "E05K explicit generated pose keys FAIL contact after2/2 calls; lower bound7.4cm drift vs2cm. E05R researches actual rig/keyframe control.",
+    "E05B actual rig contact/control and native RGBA frames pass; long robe hides support boots and low-poly textured appearance is not the approved painted style. Full pilot and modular advanced gear remain incomplete."
   ],
   "running_jobs": [
     {
@@ -205,8 +210,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05R/RECEIPT.json",
-  "generation_calls_this_suite": 11,
+  "current_receipt": "experiments/E07V/RECEIPT.json",
+  "generation_calls_this_suite": 14,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [

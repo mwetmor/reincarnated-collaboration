@@ -1,0 +1,10 @@
+{
+  "status": "FAIL_PRE_RENDER",
+  "threshold_px": 0.01,
+  "observed": {
+    "root_error_px": 0.0003083375,
+    "u_axis_error_px": 165.623712593,
+    "v_axis_error_px": 177.384695584
+  },
+  "cause": "C logical(u,v,height) orientation differs from Blender right-handed XYZ. Use Blender(X=u,Y=-v,Z=height), including camera location and validation points. No image rendered in this attempt."
+}
