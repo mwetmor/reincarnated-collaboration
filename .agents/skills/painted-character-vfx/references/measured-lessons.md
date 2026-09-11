@@ -96,3 +96,32 @@ E02P batch 01 used Playwright element screenshots at a fractional CSS position: 
 ## 2026-09-11 — Phaser 4 masks and native-alpha failure
 
 E03 pillar and mage requests returned RGB with painted checkerboards. Do not call those native-alpha assets. A separately registered runtime polygon-mask experiment preserved original pixels and tested static contour/background leakage in all three engines. This does not qualify fine hair, translucency or moving gear silhouettes. Phaser 4.2.1 `setMask` was ignored in WebGL; its versioned source identifies the method as Canvas-only. `enableFilters().filters.external.addMask` fixed the tested WebGL path. Coordinate checks alone missed the visual failure: outside-silhouette pixel checks were added, with failed renders retained. Evidence: `astra_test_01/design/experiments/E03/REPORT.md`.
+
+## 2026-09-11 — E04 resolution and contour falsification
+
+Evidence: [E04 report](../../../../astra_test_01/design/experiments/E04/REPORT.md),
+[matched capture](../../../../astra_test_01/design/experiments/E04/evidence/batch-02-resolution/resolution.json),
+[multi-background board](../../../../astra_test_01/design/experiments/E04/evidence/batch-02-resolution/current-mask-backgrounds.png).
+
+A 3× enlargement of an already rasterized ~50px mage looks softer than a fresh
+150px render from the same original source. The same higher buffer cannot recover
+detail absent from the 1536×1024 floor. Compare equal framing and displayed pixel
+coverage before blaming the camera or selecting an engine. Confidence: high for
+this controlled still, not a fullscreen/performance qualification.
+
+A mask can pass exterior-background checks and still retain checkerboard inside
+its boundary or cut away anatomy. Higher-resolution/dark/light/blue inspection
+exposed pale mage coat contamination and an incorrect NPC hand/coat trace.
+The NPC source uses a dark background and pale skin; not every pale patch is
+white-matte leakage. Preserve source-coordinate contours, check both inclusion
+and exclusion, and do not convert user rejection into a pass through a coarse
+native-pixel allowance. E03's historical static-mask result stays recorded;
+its broader visual transfer is falsified by E04. Confidence: high for these
+observed regions; no blanket alpha-removal recipe established.
+
+Headless movement validation caught a tiny floating-point remainder being treated
+as a new zero-distance move and clearing the path. Preserve the failed 16/17
+boundary evidence; stop movement-budget iteration below its numerical epsilon.
+The corrected 17/17 boundary and actual two-size browser traversal support the
+local fix. Typed effect descriptors and headless JSON boundaries were exercised;
+they do not establish a finished Godot port, shared lighting or animated VFX.

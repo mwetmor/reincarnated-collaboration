@@ -1,0 +1,3889 @@
+{
+  "started_at": "2026-09-11T04:07:41.970Z",
+  "checks": {
+    "locked:render-state-synchronized": true,
+    "locked-open-rejected": true,
+    "locked-route-rejected": true,
+    "unlock-only-closes": true,
+    "opening:render-state-synchronized": true,
+    "open:render-state-synchronized": true,
+    "open-event": true,
+    "mage-traversed:render-state-synchronized": true,
+    "mage:actual-traversal": true,
+    "mage:occupied-close-rejected": true,
+    "monster-traversed:render-state-synchronized": true,
+    "monster:actual-traversal": true,
+    "monster:occupied-close-rejected": true,
+    "closed-again:render-state-synchronized": true,
+    "close-event": true,
+    "crate-broken:render-state-synchronized": true,
+    "crate-broken": true,
+    "chest-open:render-state-synchronized": true,
+    "reward-once": true,
+    "loot-picked:render-state-synchronized": true,
+    "pickup-once": true,
+    "reentered:render-state-synchronized": true,
+    "reload-persists": true,
+    "reload-no-duplicate": true,
+    "projection-roundtrip": true,
+    "debug:render-state-synchronized": true,
+    "effect-baseline:render-state-synchronized": true,
+    "effect-flash:render-state-synchronized": true,
+    "flash-before-deadline": true,
+    "effect-expired:render-state-synchronized": true,
+    "flash-expired-at-deadline": true,
+    "effect-tint:render-state-synchronized": true,
+    "idle-effect-clock-expires": true,
+    "unsupported-glow-reported": true,
+    "behind-pillar:render-state-synchronized": true,
+    "front-pillar:render-state-synchronized": true,
+    "demo-end:render-state-synchronized": true,
+    "live-demo-single-reward": true,
+    "no-browser-errors": true
+  },
+  "snapshots": [
+    {
+      "id": "locked",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 1,
+      "frame_ms": {
+        "p50": 16.700000000000017,
+        "p95": 16.700000000000017
+      },
+      "composition_cpu_ms": {
+        "p50": 27.30000001192093,
+        "p95": 27.30000001192093
+      }
+    },
+    {
+      "id": "opening",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "opening",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              }
+            ],
+            "navVersion": 0
+          },
+          "time": 0.25,
+          "pending": {
+            "at": 0.5,
+            "state": "open"
+          }
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "opening",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          }
+        ],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "opening",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          }
+        ],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0.25,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 6,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 33.30000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 1.7000000476837158,
+        "p95": 27.30000001192093
+      }
+    },
+    {
+      "id": "open",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "open",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              }
+            ],
+            "navVersion": 1
+          },
+          "time": 0.5,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "rendered_state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0.5,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 7,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 33.30000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 1.300000011920929,
+        "p95": 27.30000001192093
+      }
+    },
+    {
+      "id": "mage-traversed",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "open",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              }
+            ],
+            "navVersion": 1
+          },
+          "time": 2.9999999999999947,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.2999552629139726,
+              -0.000003578502655310345
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "rendered_state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.2999552629139726,
+            -0.000003578502655310345
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 2.9999999999999947,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 160,
+      "frame_ms": {
+        "p50": 16.699999999999932,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5999999642372131,
+        "p95": 1.199999988079071
+      }
+    },
+    {
+      "id": "monster-traversed",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "open",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              }
+            ],
+            "navVersion": 1
+          },
+          "time": 5.499999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.2999552629139726,
+              -0.000003578502655310345
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "rendered_state": {
+        "door": "open",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          }
+        ],
+        "navVersion": 1
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.2999552629139726,
+            -0.000003578502655310345
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.499999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 316,
+      "frame_ms": {
+        "p50": 16.699999999999932,
+        "p95": 16.700000000000045
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "closed-again",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              }
+            ],
+            "navVersion": 3
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          }
+        ],
+        "navVersion": 3
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          }
+        ],
+        "navVersion": 3
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 321,
+      "frame_ms": {
+        "p50": 16.699999999999932,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "crate-broken",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "broken",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "broken",
+                "id": "crate"
+              }
+            ],
+            "navVersion": 4
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          }
+        ],
+        "navVersion": 4
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          }
+        ],
+        "navVersion": 4
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 322,
+      "frame_ms": {
+        "p50": 16.699999999999932,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "chest-open",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "broken",
+            "chest": "open",
+            "loot": "ground",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "broken",
+                "id": "crate"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "reward",
+                "id": "chest:reward:1"
+              }
+            ],
+            "navVersion": 4
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "open",
+        "loot": "ground",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "open",
+        "loot": "ground",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 324,
+      "frame_ms": {
+        "p50": 16.699999999999932,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "loot-picked",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "broken",
+                "id": "crate"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              }
+            ],
+            "navVersion": 4
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 326,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.700000000000045
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "reentered",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "broken",
+                "id": "crate"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              }
+            ],
+            "navVersion": 4
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 327,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "debug",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "closed",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 0,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 0.5,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 2.9999999999999947,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 5.499999999999986,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "broken",
+                "id": "crate"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 5.999999999999986,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              }
+            ],
+            "navVersion": 4
+          },
+          "time": 5.999999999999986,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              -2
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.3,
+              2
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "rendered_state": {
+        "door": "closed",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 0,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 0.5,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 2.9999999999999947,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 5.499999999999986,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 5.999999999999986,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 4
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            -2
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.3,
+            2
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 5.999999999999986,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 329,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "effect-baseline",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 331,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.8999999761581421
+      }
+    },
+    {
+      "id": "effect-flash",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {
+              "flash": {
+                "color": "#f0c060",
+                "ms": 150,
+                "started_at_ms": 0
+              }
+            }
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {
+            "flash": {
+              "color": "#f0c060",
+              "ms": 150,
+              "started_at_ms": 0
+            }
+          }
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 332,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.800000000000068
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.9000000357627869
+      }
+    },
+    {
+      "id": "effect-expired",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0.15,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0.15,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 334,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 1.0999999642372131
+      }
+    },
+    {
+      "id": "effect-tint",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0.15,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              0,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {
+              "tint": {
+                "color": "#3090ff",
+                "ms": 0,
+                "started_at_ms": 150
+              }
+            }
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            0,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {
+            "tint": {
+              "color": "#3090ff",
+              "ms": 0,
+              "started_at_ms": 150
+            }
+          }
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0.15,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 335,
+      "frame_ms": {
+        "p50": 16.69999999999999,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 1.0999999642372131
+      }
+    },
+    {
+      "id": "behind-pillar",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              -3,
+              -2.5
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            -3,
+            -2.5
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 345,
+      "frame_ms": {
+        "p50": 16.700000000000017,
+        "p95": 16.80000000000001
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 1.0999999642372131
+      }
+    },
+    {
+      "id": "front-pillar",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "intact",
+            "chest": "closed",
+            "loot": "absent",
+            "rewards": [],
+            "picked": [],
+            "events": [],
+            "navVersion": 0
+          },
+          "time": 0,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              -1,
+              -0.5
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "rendered_state": {
+        "door": "locked",
+        "crate": "intact",
+        "chest": "closed",
+        "loot": "absent",
+        "rewards": [],
+        "picked": [],
+        "events": [],
+        "navVersion": 0
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            -1,
+            -0.5
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 0,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 346,
+      "frame_ms": {
+        "p50": 16.700000000000017,
+        "p95": 16.700000000000273
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 1.0999999642372131
+      }
+    },
+    {
+      "id": "demo-end",
+      "json_state": {
+        "schema_version": 1,
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "open",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0.7833999999999997,
+                "type": "unlocked",
+                "id": "door"
+              },
+              {
+                "time": 1.1833,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 1.6999000000000004,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 4.199799999999996,
+                "type": "close-rejected-occupied",
+                "id": "door"
+              },
+              {
+                "time": 4.999800000000005,
+                "type": "closing",
+                "id": "door"
+              },
+              {
+                "time": 5.499800000000011,
+                "type": "closed",
+                "id": "door"
+              },
+              {
+                "time": 5.999800000000016,
+                "type": "opening",
+                "id": "door"
+              },
+              {
+                "time": 6.51650000000002,
+                "type": "open",
+                "id": "door"
+              },
+              {
+                "time": 6.9997000000000265,
+                "type": "broken",
+                "id": "crate"
+              },
+              {
+                "time": 7.999700000000039,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 9.499600000000013,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              }
+            ],
+            "navVersion": 5
+          },
+          "time": 11.999599999999976,
+          "pending": null
+        },
+        "actors": {
+          "mage": {
+            "point": [
+              3.3,
+              0
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          },
+          "monster": {
+            "point": [
+              3.6,
+              2.7
+            ],
+            "radius": 0.65,
+            "height": 2.7,
+            "effects": {}
+          },
+          "npc": {
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "radius": 0.35,
+            "height": 2,
+            "effects": {}
+          }
+        },
+        "routes": {
+          "mage": [],
+          "monster": [],
+          "npc": []
+        }
+      },
+      "state": {
+        "door": "open",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0.7833999999999997,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 1.1833,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 1.6999000000000004,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 4.199799999999996,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 4.999800000000005,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.499800000000011,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999800000000016,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 6.51650000000002,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 6.9997000000000265,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 7.999700000000039,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 9.499600000000013,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 5
+      },
+      "rendered_state": {
+        "door": "open",
+        "crate": "broken",
+        "chest": "looted",
+        "loot": "picked",
+        "rewards": [
+          "chest:reward:1"
+        ],
+        "picked": [
+          "chest:reward:1"
+        ],
+        "events": [
+          {
+            "time": 0.7833999999999997,
+            "type": "unlocked",
+            "id": "door"
+          },
+          {
+            "time": 1.1833,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 1.6999000000000004,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 4.199799999999996,
+            "type": "close-rejected-occupied",
+            "id": "door"
+          },
+          {
+            "time": 4.999800000000005,
+            "type": "closing",
+            "id": "door"
+          },
+          {
+            "time": 5.499800000000011,
+            "type": "closed",
+            "id": "door"
+          },
+          {
+            "time": 5.999800000000016,
+            "type": "opening",
+            "id": "door"
+          },
+          {
+            "time": 6.51650000000002,
+            "type": "open",
+            "id": "door"
+          },
+          {
+            "time": 6.9997000000000265,
+            "type": "broken",
+            "id": "crate"
+          },
+          {
+            "time": 7.999700000000039,
+            "type": "reward",
+            "id": "chest:reward:1"
+          },
+          {
+            "time": 9.499600000000013,
+            "type": "pickup",
+            "id": "chest:reward:1"
+          }
+        ],
+        "navVersion": 5
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "route": [],
+      "model_time": 11.999599999999976,
+      "pixi": "8.20.1",
+      "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+      "resolution": 1,
+      "buffer_size": [
+        960,
+        640
+      ],
+      "draw_count": 1079,
+      "frame_ms": {
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728
+      },
+      "composition_cpu_ms": {
+        "p50": 0.5,
+        "p95": 0.699999988079071
+      }
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "roundtrips": [
+    {
+      "point": [
+        -4,
+        -3
+      ],
+      "result": [
+        -3.9999999999999996,
+        -3
+      ]
+    },
+    {
+      "point": [
+        0,
+        0
+      ],
+      "result": [
+        -8.740510971866015e-16,
+        -8.150658341816815e-16
+      ]
+    },
+    {
+      "point": [
+        4,
+        3
+      ],
+      "result": [
+        3.9999999999999987,
+        2.9999999999999996
+      ]
+    },
+    {
+      "point": [
+        -3,
+        2
+      ],
+      "result": [
+        -2.999999999999999,
+        1.9999999999999993
+      ]
+    },
+    {
+      "point": [
+        2,
+        -2
+      ],
+      "result": [
+        2,
+        -2
+      ]
+    }
+  ],
+  "live_profile": {
+    "json_state": {
+      "schema_version": 1,
+      "chamber": {
+        "schema": 1,
+        "state": {
+          "door": "open",
+          "crate": "broken",
+          "chest": "looted",
+          "loot": "picked",
+          "rewards": [
+            "chest:reward:1"
+          ],
+          "picked": [
+            "chest:reward:1"
+          ],
+          "events": [
+            {
+              "time": 0.7833999999999997,
+              "type": "unlocked",
+              "id": "door"
+            },
+            {
+              "time": 1.1833,
+              "type": "opening",
+              "id": "door"
+            },
+            {
+              "time": 1.6999000000000004,
+              "type": "open",
+              "id": "door"
+            },
+            {
+              "time": 4.199799999999996,
+              "type": "close-rejected-occupied",
+              "id": "door"
+            },
+            {
+              "time": 4.999800000000005,
+              "type": "closing",
+              "id": "door"
+            },
+            {
+              "time": 5.499800000000011,
+              "type": "closed",
+              "id": "door"
+            },
+            {
+              "time": 5.999800000000016,
+              "type": "opening",
+              "id": "door"
+            },
+            {
+              "time": 6.51650000000002,
+              "type": "open",
+              "id": "door"
+            },
+            {
+              "time": 6.9997000000000265,
+              "type": "broken",
+              "id": "crate"
+            },
+            {
+              "time": 7.999700000000039,
+              "type": "reward",
+              "id": "chest:reward:1"
+            },
+            {
+              "time": 9.499600000000013,
+              "type": "pickup",
+              "id": "chest:reward:1"
+            }
+          ],
+          "navVersion": 5
+        },
+        "time": 11.999599999999976,
+        "pending": null
+      },
+      "actors": {
+        "mage": {
+          "point": [
+            3.3,
+            0
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        },
+        "monster": {
+          "point": [
+            3.6,
+            2.7
+          ],
+          "radius": 0.65,
+          "height": 2.7,
+          "effects": {}
+        },
+        "npc": {
+          "point": [
+            -3.7,
+            -2.7
+          ],
+          "radius": 0.35,
+          "height": 2,
+          "effects": {}
+        }
+      },
+      "routes": {
+        "mage": [],
+        "monster": [],
+        "npc": []
+      }
+    },
+    "state": {
+      "door": "open",
+      "crate": "broken",
+      "chest": "looted",
+      "loot": "picked",
+      "rewards": [
+        "chest:reward:1"
+      ],
+      "picked": [
+        "chest:reward:1"
+      ],
+      "events": [
+        {
+          "time": 0.7833999999999997,
+          "type": "unlocked",
+          "id": "door"
+        },
+        {
+          "time": 1.1833,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 1.6999000000000004,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 4.199799999999996,
+          "type": "close-rejected-occupied",
+          "id": "door"
+        },
+        {
+          "time": 4.999800000000005,
+          "type": "closing",
+          "id": "door"
+        },
+        {
+          "time": 5.499800000000011,
+          "type": "closed",
+          "id": "door"
+        },
+        {
+          "time": 5.999800000000016,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 6.51650000000002,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 6.9997000000000265,
+          "type": "broken",
+          "id": "crate"
+        },
+        {
+          "time": 7.999700000000039,
+          "type": "reward",
+          "id": "chest:reward:1"
+        },
+        {
+          "time": 9.499600000000013,
+          "type": "pickup",
+          "id": "chest:reward:1"
+        }
+      ],
+      "navVersion": 5
+    },
+    "rendered_state": {
+      "door": "open",
+      "crate": "broken",
+      "chest": "looted",
+      "loot": "picked",
+      "rewards": [
+        "chest:reward:1"
+      ],
+      "picked": [
+        "chest:reward:1"
+      ],
+      "events": [
+        {
+          "time": 0.7833999999999997,
+          "type": "unlocked",
+          "id": "door"
+        },
+        {
+          "time": 1.1833,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 1.6999000000000004,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 4.199799999999996,
+          "type": "close-rejected-occupied",
+          "id": "door"
+        },
+        {
+          "time": 4.999800000000005,
+          "type": "closing",
+          "id": "door"
+        },
+        {
+          "time": 5.499800000000011,
+          "type": "closed",
+          "id": "door"
+        },
+        {
+          "time": 5.999800000000016,
+          "type": "opening",
+          "id": "door"
+        },
+        {
+          "time": 6.51650000000002,
+          "type": "open",
+          "id": "door"
+        },
+        {
+          "time": 6.9997000000000265,
+          "type": "broken",
+          "id": "crate"
+        },
+        {
+          "time": 7.999700000000039,
+          "type": "reward",
+          "id": "chest:reward:1"
+        },
+        {
+          "time": 9.499600000000013,
+          "type": "pickup",
+          "id": "chest:reward:1"
+        }
+      ],
+      "navVersion": 5
+    },
+    "actors": {
+      "mage": {
+        "point": [
+          3.3,
+          0
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      },
+      "monster": {
+        "point": [
+          3.6,
+          2.7
+        ],
+        "radius": 0.65,
+        "height": 2.7,
+        "effects": {}
+      },
+      "npc": {
+        "point": [
+          -3.7,
+          -2.7
+        ],
+        "radius": 0.35,
+        "height": 2,
+        "effects": {}
+      }
+    },
+    "route": [],
+    "model_time": 11.999599999999976,
+    "pixi": "8.20.1",
+    "backend": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)",
+    "resolution": 1,
+    "buffer_size": [
+      960,
+      640
+    ],
+    "draw_count": 1079,
+    "frame_ms": {
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000728
+    },
+    "composition_cpu_ms": {
+      "p50": 0.5,
+      "p95": 0.699999988079071
+    }
+  },
+  "browser": "152.0.7977.83",
+  "finished_at": "2026-09-11T04:07:57.205Z",
+  "passed": 39,
+  "total": 39
+}

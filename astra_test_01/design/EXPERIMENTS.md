@@ -152,3 +152,16 @@ Matt approved Phaser 4 as a test candidate. [Registration](experiments/E02P/REGI
 ## E03/E03M — painted checkpoint and selection
 
 [Report](experiments/E03/REPORT.md): all three regimes completed 15 painted scene/control cases. Native alpha failed; static runtime masks were separately registered and tested. Phaser v4 mask repair and invalid earlier mask-instrument coverage are preserved. Pixi.js is the codex-selected-winner for [E04 interactions](experiments/E04/REGISTRATION.md), then bounded gear/VFX tests, as Matt authorized.
+
+
+## E04 — scoped interaction proof and newly exposed art defects
+
+[Report](experiments/E04/REPORT.md), [receipt](experiments/E04/RECEIPT.json),
+[browser review](experiments/E04/review.html). The chamber fixture and neutral
+boundary passed their registered numerical checks; high-resolution and
+multi-background inspection rejected broader current-contour acceptance. Shared
+lighting remains unqualified. Godot is the shipping target; Pixi is the test
+harness. [Next test preparation](experiments/E04/NEXT_TEST.md) puts contour and
+light/material qualification ahead of visual acceptance, then resumes separate
+motion/gear and VFX tests with their existing prerequisites. No gate is promoted
+from these technical counts alone.

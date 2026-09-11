@@ -1,0 +1,11 @@
+# Asset contract v1
+
+Godot is the shipping target; Pixi is the test harness. `catalog.json` lists eight source manifests actually consumed by the adapter. This is an explicit still/state-driven fixture contract, not a completed animation catalogue or Godot importer.
+
+Each asset requires: schema version, stable ID/type, projection ID, qualification, path base, nonempty frame list, fps, timing mode, direction, hitbox, emissive mask path, declared effects, alpha policy, silhouette polygon, registration and sockets. Each frame supplies a source path/hash, atlas rectangle (integer pixels within the original PNG), pivot (pixels from that frame's top left), and duration. Null fps/duration explicitly denotes a still or mechanical state-driven surface, not a guessed animation rate. Animated assets must provide timing. Logical hitboxes are in metres and owned by sim content; manifest dimensions describe intended registration, not collision authority. Paths resolve from the manifest's `path_base` directory. Null emissive mask means absent/unqualified, not fully emissive.
+
+Masks are source-coordinate contours, not extracted alpha. Fixed-view candidates carry direction qualification text. Source bytes are immutable. The current masks have visually rejected contour contamination; structural manifest validity cannot qualify them. Future animation, gear or VFX adds real frame records and tested timing rather than inheriting a still's pass.
+
+Mage socket correction: E03's generic `socket_source` [890,489] is at the staff grip, not its top. The first E04 manifest generator accidentally called it `staff_tip`. Source inspection corrected it to `staff_grip` and separately annotated `staff_tip` [917,155] (±6 source px, still pose only). E03 evidence is not rewritten; no release-animation attachment is thereby qualified.
+
+`test-manifests.mjs` validates these records, source hashes/dimensions, atlas bounds, required fields, pivot/mask coordinates, still timing and actor registration. It rejects deliberately corrupt hash, absent pivot, out-of-bounds atlas, absent fps, non-neutral type and absent animated timing controls. This is a focused v1 validator, not a general JSON Schema implementation.

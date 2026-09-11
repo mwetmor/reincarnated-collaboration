@@ -1,20 +1,20 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T03:36:00.783877+00:00",
-  "status": "E03_COMPLETE_E04_RUNNING",
-  "active_experiment": "E04",
+  "updated": "2026-09-11T04:13:44.061856+00:00",
+  "status": "E04_LOGICAL_CHECKPOINT_COMPLETE_VISUAL_DEFECTS_OPEN",
+  "active_experiment": null,
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
     "G2": "PARTIAL",
     "G3": "NOT_RUN",
-    "G4": "NOT_RUN",
+    "G4": "PARTIAL: chamber fixture logic only; art/motion/gear not qualified",
     "G5": "NOT_RUN",
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Complete shared painted checkpoint in Godot/Pixi/Phaser; choose codex-selected-winner, then run bounded chamber interactions, gear and VFX only in that regime. Other-regime VFX reserved for Matt.",
+  "next_action": "Register E04M2 per experiments/E04/NEXT_TEST.md; inspect source/polygon zooms and repair mage coat/NPC hand contours within zero-generation bounds. Then separately test shared light/shadow/material response before visual acceptance; continue pilot motion/gear and reusable VFX in Pixi with their prerequisites.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -54,7 +54,19 @@
     "experiments/E03/REPORT.md",
     "experiments/E03/RECEIPT.json",
     "experiments/E03/review.html",
-    "experiments/E03/evidence/validation.json"
+    "experiments/E03/evidence/validation.json",
+    "experiments/E04/REPORT.md",
+    "experiments/E04/RECEIPT.json",
+    "experiments/E04/review.html",
+    "experiments/E04/NEUTRAL_CONTRACT.md",
+    "experiments/E04/NEXT_TEST.md",
+    "experiments/E04/RESOLUTION_CONTROL.md",
+    "experiments/E04/manifests/catalog.json",
+    "experiments/E04/evidence/model-validation.json",
+    "experiments/E04/evidence/boundary-validation.json",
+    "experiments/E04/evidence/manifest-validation.json",
+    "experiments/E04/evidence/batch-03/runtime.json",
+    "experiments/E04/evidence/batch-02-resolution/resolution.json"
   ],
   "decisions_pending": [
     {
@@ -92,6 +104,14 @@
       "decision": "Runtime hardware/resolution budgets and generation ceilings",
       "owner": "Agent proposes from local evidence; Matt resolves material spending/target choices",
       "blocks": "performance qualification and paid production"
+    },
+    {
+      "id": "D06",
+      "decision": "E03 working painted material/character direction",
+      "owner": "Matt",
+      "review_packet": "experiments/E03/review.html",
+      "recommendation": "Keep provisionally for pilot; continue independent technical tests",
+      "status": "ASKED; unanswered is not approval"
     }
   ],
   "known_evidence_gaps": [
@@ -99,12 +119,14 @@
     "Last Epoch ordinary HUD framing missing; publisher promotional images are excluded from that measurement",
     "PoE1 quiet traversal and ordinary stronghold/interactable coverage missing",
     "Original Grim Dawn GAL-CAM video remains missing; prior numeric analysis not independently regenerated",
-    "No proof of persistent-layer motion, modular gear, painted chamber interaction or projection transfer",
-    "E02 uses legacy fixed-pose art with uncalibrated depicted camera; no C-conditioned painted chamber, animation, gear or VFX pass",
     "Full G2 schema/import/state/collision/performance qualification remains incomplete; E02 root/socket/projection components only",
-    "Alternatives researched from primary docs; Defold/Cocos/Three.js not locally qualified; Phaser has only the E02P placement/attachment/UI foundation",
     "Matt reports Canvas source links open as code; deliver browser HTML. Godot and standalone Chrome GPU captures verified.",
-    "E03 generated pillar/mage native alpha failed; manually annotated runtime masks qualify only static contours. New mage anatomical projection and production style remain provisional."
+    "E03 generated pillar/mage native alpha failed; manually annotated runtime masks qualify only static contours. New mage anatomical projection and production style remain provisional.",
+    "E04 interaction logic and neutral boundary passed scoped checks; no actual serial combat pipeline integration",
+    "Persistent-layer motion, gear reuse, release/attachment animation and reusable VFX remain unproved",
+    "Godot/Pixi/Phaser completed E03 painted checkpoint; alternative Defold/Cocos/Three not locally qualified",
+    "E04 higher-resolution diagnostics invalidate broad current-mask visual acceptance: mage retained background, NPC hand contour damage; shared lighting/material cohesion unqualified",
+    "Floor source 1536x1024 limits fresh 2880x1920 render; final output/aspect ratio and texel-density policy unresolved"
   ],
   "running_jobs": [],
   "planning_validation": {
@@ -140,8 +162,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E03/RECEIPT.json",
-  "generation_calls_this_suite": 3,
+  "current_receipt": "experiments/E04/RECEIPT.json",
+  "generation_calls_this_suite": 8,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [
@@ -158,20 +180,27 @@
     "winner": {
       "label": "codex-selected-winner",
       "regime": "Pixi.js 8.20.1",
-      "scope": "Subsequent bounded interactions/gear/VFX tests; not production renderer approval",
+      "scope": "Pixi test harness; Matt explicitly retains Godot as shipping target",
       "evidence": "experiments/E03/REPORT.md"
     },
     "third_test_status": "APPROVED by Matt: phaser 4 sounds like a good test candidate",
     "third_runtime": "Phaser 4.2.1 / WebGL 1.0 / Chrome ANGLE Metal Apple M2",
     "third_actual_runtime_checks": "experiments/E02P/evidence/batch-02/validation.json",
-    "review": "experiments/E02P/review.html",
+    "review": "experiments/E03/review.html",
     "post_checkpoint": "Matt authorizes Codex to select one winner and use it for interactions, gear and VFX; do not expand VFX to the other regimes without Matt request."
   },
   "review_delivery": {
     "primary": "Standalone browser HTML; saved review works via file://",
     "reason": "Matt: interactive canvases have not opened with anything but code",
-    "verified": "experiments/E02P/evidence/batch-03-review/review-check.json",
-    "live_probe": "Serve experiments on localhost:8769 and open /E02P/; see E02P/REPORT.md",
+    "verified": "experiments/E04/evidence/batch-04-review/review.json",
+    "live_probe": "Serve experiments on 127.0.0.1:8770, open /E04/; see E04/NEXT_TEST.md",
     "server_running": false
+  },
+  "shipping_target": "Godot",
+  "test_harness": "Pixi.js",
+  "portability_contract": "experiments/E04/NEUTRAL_CONTRACT.md",
+  "visual_feedback": {
+    "sharpness": "Matched E04 render: fresh raster visibly improves mage; floor source resolution limits remain",
+    "cohesion": "Confirmed mage retained pale background and NPC hand contour damage; shared lighting unqualified. See E04 review. Do not infer visual approval."
   }
 }

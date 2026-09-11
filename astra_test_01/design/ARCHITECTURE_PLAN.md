@@ -317,3 +317,24 @@ and is not used as an architectural premise.
 ### Renderer test update — 2026-09-11
 
 Matt selected Phaser 4 for the third comparison adapter. [E02P](experiments/E02P/REPORT.md) verifies its C projection placement/root/socket/basic UI foundation alongside preserved Godot/Pixi evidence. Carry the same accepted E03 painted assets and layout/state contracts into all three. This does not qualify masks, occlusion, animation, gear, VFX, combat JSON integration or performance. No renderer winner is selected.
+
+
+## 2026-09-11 — shipping boundary and visual feedback
+
+Matt retains **Godot as the shipping target; Pixi is the test harness**. The E03
+codex-selected-winner is a workflow selection, superseding older no-winner notes
+above only in that scope. E04 implements the [neutral manifest/sim/adapter/effects
+contract](experiments/E04/NEUTRAL_CONTRACT.md): versioned JSON asset records,
+state-in/state-out simulation without view imports, a named replaceable
+`pixi-adapter/` folder and per-entity effect data. The future Godot importer/runtime
+is not already implemented by this structure.
+
+[E04 evidence](experiments/E04/REPORT.md) separates logical interactions from
+visual acceptance. Matt reports pale separating edges and lack of shared
+lighting/shading. Treat contour integrity, material seams, contact/cast shadows,
+shared ambient/key response and coloured illumination as explicit H08/G3 work;
+none follows automatically from animation or VFX. The high-buffer resolution
+control improves character detail but exceeds the floor source resolution.
+Qualify output resolution and asset texel density together. Preserve failed masks
+and inspect both retained background and lost anatomy, not only outside-mask
+pixels. Follow [next test preparation](experiments/E04/NEXT_TEST.md).

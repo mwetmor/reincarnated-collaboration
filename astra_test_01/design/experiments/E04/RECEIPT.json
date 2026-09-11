@@ -1,0 +1,150 @@
+{
+  "experiment": "E04",
+  "updated": "2026-09-11T04:15:00.796635+00:00",
+  "status": "SCOPED_INTERACTION_PASS_VISUAL_INTEGRATION_NOT_ACCEPTED",
+  "shipping_target": "Godot",
+  "test_harness": "Pixi.js 8.20.1",
+  "projection": "C",
+  "technical_checks": {
+    "model": {
+      "path": "evidence/model-validation.json",
+      "passed": 82,
+      "total": 82
+    },
+    "boundary": {
+      "path": "evidence/boundary-validation.json",
+      "passed": 17,
+      "total": 17
+    },
+    "manifest": {
+      "path": "evidence/manifest-validation.json",
+      "passed": 14,
+      "total": 14
+    },
+    "runtime": {
+      "path": "evidence/batch-03/runtime.json",
+      "passed": 39,
+      "total": 39
+    },
+    "resolution": {
+      "path": "evidence/batch-02-resolution/resolution.json",
+      "passed": 4,
+      "total": 4
+    },
+    "review": {
+      "path": "evidence/batch-04-review/review.json",
+      "passed": 25,
+      "total": 25
+    }
+  },
+  "visual_verdicts": {
+    "mage_current_contour": "FAIL pale retained source background",
+    "npc_current_contour": "FAIL inaccurate hand/coat boundary; pale skin is not white matte",
+    "shared_lighting": "NOT_QUALIFIED",
+    "fresh_render_sharpness": "Observed improvement for mage; floor source detail remains limiting",
+    "motion_gear_reusable_vfx": "NOT_RUN"
+  },
+  "generation_calls": 5,
+  "generation_limit": 5,
+  "generation_prompts": [
+    "prompts/01-crate.txt",
+    "prompts/02-door.txt",
+    "prompts/03-chest.txt",
+    "prompts/04-monster.txt",
+    "prompts/05-npc.txt"
+  ],
+  "sources": [
+    {
+      "path": "art/crate-v1.png",
+      "sha256": "0f20da74dedbf733dc7bf05a47b36fe1a22cf54f560ad40021500a950c14711a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "generator_output": "exec-299521a4-2bf8-4b35-9bab-e25c67cfe0f7.png"
+    },
+    {
+      "path": "art/door-v1.png",
+      "sha256": "088c052dff30b85ac0a4699ed65d62858c5a27c9361b610cacac63faba567afe",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "generator_output": "exec-309c4ce5-27bb-40e0-b813-0b62e81cf269.png"
+    },
+    {
+      "path": "art/chest-v1.png",
+      "sha256": "a465e31d2339d3b29da2bd16c9583fe4b855465f5dcecaa648ac5de1c0cd1b68",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "generator_output": "exec-8d71dc3a-66d5-4a18-832c-21573b390ed8.png"
+    },
+    {
+      "path": "art/monster-v1.png",
+      "sha256": "c274e8400c87a3aea8ff4b3b4198a3c370fe0cc3b84a85c5f7cc6f04e185428e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "generator_output": "exec-c4a8d67d-55d9-441d-a88c-8abaa4c8e860.png"
+    },
+    {
+      "path": "art/npc-v1.png",
+      "sha256": "1dadbd73d04156cf90eebd405e9c874730e019a3f8b174c866d4cc4e46b97ebd",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "generator_output": "exec-6d06a068-66d4-47b9-ba5e-b196bf33d3c4.png"
+    }
+  ],
+  "tool": "built-in imagegen only; no seed or explicit edit-mask control exposed",
+  "known_paid_service_spend_usd": 0,
+  "built_in_cost": "not exposed",
+  "capture_batches_used": 4,
+  "capture_batch_limit": 5,
+  "capture_batches": [
+    "batch-01",
+    "batch-02-resolution",
+    "batch-03",
+    "batch-04-review"
+  ],
+  "time_limit_active_minutes": 90,
+  "time_accounting": "Exact active/tool-wait split not instrumented. First E04 generation prompt filesystem birth 2026-09-11T03:36:48Z; closeout timestamp above; preparation overlapped E03 closeout. No invented exact generation duration.",
+  "disk_limit_bytes": 250000000,
+  "failed_evidence": [
+    "evidence/boundary-validation-before-remainder-fix.json",
+    "evidence/sim-before-remainder-fix.mjs",
+    "evidence/adapter-before-resolution-and-idle-clock-fix.mjs",
+    "evidence/batch-02-resolution/current-mask-backgrounds.png"
+  ],
+  "commands": [
+    "node astra_test_01/design/experiments/E04/test-model.mjs",
+    "node astra_test_01/design/experiments/E04/test-boundary.mjs",
+    "python3 astra_test_01/design/experiments/E04/build-manifests.py",
+    "node astra_test_01/design/experiments/E04/test-manifests.mjs",
+    "node astra_test_01/design/experiments/E04/capture.mjs batch-01",
+    "node astra_test_01/design/experiments/E04/capture-resolution.mjs",
+    "node astra_test_01/design/experiments/E04/capture.mjs batch-03",
+    "node astra_test_01/design/experiments/E04/capture-review.mjs"
+  ],
+  "limitations": [
+    "Actual serial combat pipeline not integrated",
+    "Frozen characters, no gait or gear reuse proof",
+    "No native alpha",
+    "No shared lighting or structural shadows qualification",
+    "No target performance budget",
+    "Demo fixture controls include teleports; actor dropdown remains on prior selection while demo internally selects mage; prototype UI label mismatch preserved in recording"
+  ],
+  "next_action": "NEXT_TEST.md: register E04M2 source-coordinate contour repair before edits, then shared light/material proof; subsequently separate pilot motion/gear and reusable VFX tests in Pixi only.",
+  "artifact_bytes_before_inventory": 50394694,
+  "jobs_remaining": [],
+  "server": "Owned local server stopped at closeout; saved HTML is standalone"
+}

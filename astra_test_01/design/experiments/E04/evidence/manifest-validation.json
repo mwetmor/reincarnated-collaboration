@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "floor.asset.json": true,
+    "stone.asset.json": true,
+    "crate.asset.json": true,
+    "door.asset.json": true,
+    "chest.asset.json": true,
+    "mage.asset.json": true,
+    "monster.asset.json": true,
+    "npc.asset.json": true,
+    "reject-bad-hash": true,
+    "reject-missing-pivot": true,
+    "reject-bad-atlas": true,
+    "reject-missing-fps": true,
+    "reject-engine-type": true,
+    "reject-untimed-animation": true
+  },
+  "passed": 14,
+  "total": 14,
+  "scope": "Neutral records and source integrity only; no art, alpha or animation pass"
+}

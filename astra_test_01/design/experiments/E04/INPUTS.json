@@ -1,0 +1,24 @@
+{
+  "experiment": "E04",
+  "dependencies": [
+    {
+      "path": "../E03/inputs/chamber-layout.json",
+      "sha256": "b40586402e9ab80a10ec7405739d10cb50049d5f63e186604ab0ebf05a989fa2"
+    },
+    {
+      "path": "../E03/inputs/projection-candidates.json",
+      "sha256": "5aeef86916d4be94dc6aa93c401702bb60023e23c3ea1d340bdb7ef849ae3da6"
+    },
+    {
+      "path": "../E03/scenes.json",
+      "sha256": "65b053115cc667ae08cabd185f2a4a3f55607a4abc4a2c43fe18bf0955abb07d"
+    },
+    {
+      "path": "../E02/pixi/vendor/pixi-8.20.1.min.js",
+      "sha256": "9948591083793305468d73915a3ea85032dcf8e32eee7a1328585050d7a14d53"
+    }
+  ],
+  "prior_checkpoint_commit": "8d02f4ddd066d288bf9ce779eefccd9d1d809565",
+  "shipping_target": "Godot",
+  "test_harness": "Pixi.js 8.20.1"
+}

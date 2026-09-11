@@ -47,6 +47,16 @@ The preferred hypothesis is layout data → blockout → painting → verified r
 layers. Art is the visual deliverable; authored spatial data governs behavior.
 The feasibility of that pipeline remains to be tested.
 
+Latest completed milestone: [E04 browser review](experiments/E04/review.html) and
+[report](experiments/E04/REPORT.md). Chamber fixture logic, JSON boundary and
+neutral manifests passed scoped checks. Matt's sharpness/edge/lighting feedback
+is now recorded: fresh rasterization improves characters, source floor detail is
+limited, current contours have visible defects, and shared lighting remains
+unqualified. **Godot is the shipping target; Pixi is the test harness.** The
+[four portability constraints](experiments/E04/NEUTRAL_CONTRACT.md) apply to all
+subsequent work. Follow [the exact next test](experiments/E04/NEXT_TEST.md) before
+continuing motion/gear and VFX; do not treat technical passes as visual approval.
+
 ## Prompt for the next session
 
 > Continue the painted-world test suite in
@@ -56,7 +66,9 @@ The feasibility of that pipeline remains to be tested.
 > Work autonomously within the recorded scope. Continue projection C and the
 > painted checkpoint. E03/E03M completed in all three; read its report. Pixi.js is
 > the codex-selected-winner. Continue E04 chamber interactions, then separately
-> registered gear and VFX tests there only. Other-regime VFX is Matt's later call.
+> registered gear and VFX tests there only. E04 logical checkpoint is now complete;
+> first follow its NEXT_TEST.md for contour repair and shared-lighting qualification.
+> Godot is the shipping target; Pixi is the test harness. Other-regime VFX is Matt's later call.
 > Preserve the native-alpha failures and unapproved visual style. Do not repeat
 > exhausted E03 capture batches. Deliver browser HTML, not Canvas source links.
 > Keep E01

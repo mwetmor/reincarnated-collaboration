@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "input-not-mutated": true,
+    "deterministic-identical-json": true,
+    "json-door-open": true,
+    "movement-owned-by-sim": false,
+    "effect-is-json-data": true,
+    "effect-persists-before-deadline": true,
+    "effect-expires-in-sim": true,
+    "state-roundtrip": true,
+    "non-json-number-rejected": true,
+    "fixture-command-not-shipping-rule": true,
+    "sim/index.mjs:no-rendering-imports": true,
+    "sim/index.mjs:no-browser-globals": true,
+    "sim/chamber.mjs:no-rendering-imports": true,
+    "sim/chamber.mjs:no-browser-globals": true,
+    "adapter-consumes-boundary": true,
+    "adapter-does-not-import-sim-internals": true,
+    "adapter-no-movement-budget": true
+  },
+  "passed": 16,
+  "total": 17,
+  "shipping_target": "Godot",
+  "test_harness": "Pixi.js",
+  "scope": "JSON state determinism, boundary closure, sim-owned movement and effect lifetimes; no Godot importer/runtime shipping qualification"
+}
