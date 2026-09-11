@@ -1,0 +1,55 @@
+{
+  "experiment": "E07A",
+  "started_at": "2026-09-11T19:13:16.351184+00:00",
+  "status": "PILOT_SOURCE_DEPTH_PASS_RUNTIME_WALK_CONTACT_FAIL",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "adapter_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "adapter_builds": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 22.580514349999998,
+    "owned_bytes_before_index": 90031229
+  },
+  "dependencies": {
+    "E05N/character.asset.json": "6c672743dc19ae986198972d9b195118dab4bb8811183e638f01835f8e0cfc22",
+    "E07U/pixi-adapter/index.mjs": "1cc00474a94dcecf464400641bc230c4a77b2832b1f19a55dd5e89dc6aab263a",
+    "E07T/sim/index.mjs": "d049724a92cefa185ccc38b42852f802e97b0021cf98a8130c672ef991673b66",
+    "E07T/door.json": "9ada1834d08b9bccfaf41d44ea4de6a2cef2f641ada0d415f3364970a851817b",
+    "E05N/evidence/source-motion.json": "b7a731aefd25d63998f3eb07d7eb2ca011a13a1df4096a665696d78166588954"
+  },
+  "capture2_failure": "Capture byte guard85MB stopped97/108frames,attempt86999472bytes; failedreceipt retained. Losslesspack existing97 then completeonly11missingF02freshframes in nextcapturebatch, no samebatchguardraise.",
+  "adapter2": "Add atomic frame(command,options): sim step then one render, preserving all shader/geometry/light code. Completion tests exact before/after static pixels for nine cases. Playback manifest translation remains explicit fixture commands.",
+  "capture3": "Complete11missingF02fresh captures with immediate losslessWebP packing; then216frameaudit and9representative videos. Originalcapture2guard/error retained.",
+  "finished_at": "2026-09-11T19:35:51.182045+00:00",
+  "next_action": "E05E fractional-pose/continuous-root preflight against independent Blender samples,1mm geometry/2cmcontact, integer endpoints exact. Only after passing source gate adapt runtime and repeat contact/visual checks.",
+  "verdicts": {
+    "representation": "PASS864source comparisons withdeclaredbounds; normalablationINSENSITIVE",
+    "depth": "PASS6324panel/1728clear witnesses; alwaysfront9pixelsdetected\u00d74",
+    "capture2": "FAIL85MBguard97/108;11missing completedinbatch3afterlosslesspacking",
+    "frame_delivery": "PASS216frames/9videos;9atomicstaticcomparisons exact",
+    "runtime_contact": "FAILadvanced-head.032600m>0.02m; sourceintegerframesremainqualified",
+    "full_pilot_chamber": "UNQUALIFIED"
+  },
+  "commands": [
+    "python3 check-bounds.py",
+    "node capture-oracle.mjs",
+    "python3 analyze-oracle.py",
+    "python3 pack-captures.py",
+    "node capture-chamber.mjs (85MBguardFAIL97/108)",
+    "python3 pack-chamber.py",
+    "node capture-completion.mjs",
+    "python3 analyze-chamber.py",
+    "python3 analyze-depth.py",
+    "node capture-playback.mjs",
+    "python3 prepare-review.py",
+    "python3 check-runtime-contact.py (FAIL)",
+    "node review-check.mjs"
+  ]
+}

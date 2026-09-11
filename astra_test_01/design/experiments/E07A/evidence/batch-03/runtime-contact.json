@@ -1,0 +1,80 @@
+{
+  "videos": [
+    {
+      "outfit": "starter",
+      "groups": [
+        {
+          "side_cycle": [
+            "L",
+            0
+          ],
+          "samples": 36,
+          "max_pairwise_drift_m": 0.016466130229076864,
+          "pass": true
+        },
+        {
+          "side_cycle": [
+            "R",
+            1
+          ],
+          "samples": 21,
+          "max_pairwise_drift_m": 0.0002013115453948611,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "outfit": "advanced-head",
+      "groups": [
+        {
+          "side_cycle": [
+            "L",
+            0
+          ],
+          "samples": 35,
+          "max_pairwise_drift_m": 0.03260002987418773,
+          "pass": false
+        },
+        {
+          "side_cycle": [
+            "R",
+            1
+          ],
+          "samples": 20,
+          "max_pairwise_drift_m": 0.0002678588528226617,
+          "pass": true
+        }
+      ],
+      "pass": false
+    },
+    {
+      "outfit": "advanced-hair",
+      "groups": [
+        {
+          "side_cycle": [
+            "L",
+            0
+          ],
+          "samples": 33,
+          "max_pairwise_drift_m": 0.006666696471803434,
+          "pass": true
+        },
+        {
+          "side_cycle": [
+            "R",
+            1
+          ],
+          "samples": 20,
+          "max_pairwise_drift_m": 0.000267381972643824,
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "scope": "Reconstructs stored source frame sole contacts (which include frame-time translation) and actual recorded runtime root; not a new mesh or pixel contact sample. Remove stored frame translation, rotate local contacts, add recorded root. Source source-motion.json hash is inherited E05N evidence.",
+  "checks": {
+    "all_recorded_walk_contacts": false
+  }
+}

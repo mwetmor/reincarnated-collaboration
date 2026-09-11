@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "faction": "F01",
+      "resolution": 1,
+      "forbidden_front_pixels": 9,
+      "detected": true
+    },
+    {
+      "faction": "F01",
+      "resolution": 3,
+      "forbidden_front_pixels": 9,
+      "detected": true
+    },
+    {
+      "faction": "F02",
+      "resolution": 1,
+      "forbidden_front_pixels": 9,
+      "detected": true
+    },
+    {
+      "faction": "F02",
+      "resolution": 3,
+      "forbidden_front_pixels": 9,
+      "detected": true
+    }
+  ],
+  "checks": {
+    "all_depth_controls_detected": true,
+    "complete108_unique_cases": true
+  },
+  "scope": "Current pilot always-front control versus independently ray-guarded door pixels; full character-surface occlusion is not exhaustively sampled."
+}
