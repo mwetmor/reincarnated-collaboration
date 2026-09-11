@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T22:54:51.139222+00:00",
+  "updated": "2026-09-11T23:02:15.597782+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07AA \u2014 mineral transition material test",
+  "active_experiment": "E07AB \u2014 remove redundant mineral overlay",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07AA: retain E07Y geometry and light; replace F02 hard uniform green waterline with neutral surface-treatment data and compare gradual/mottled candidates against the preserved stripe. Source-evaluate mask/tint bounds, validate unchanged geometry-ID image and native/fresh3\u00d7 material response; no whole-scene generation or bloom. Continue pilot/VFX/transfer work after the scoped surface decision.",
+  "next_action": "Register E07AB: use E07AA B continuous field/UVs, remove only E07Y mineral-waterline overlay meshes from neutral architecture; retain backing, arches, collision envelopes, supported fixture and current light. Compare overlay control vs removed geometry with source camera/ID, field/UV, unchanged state/F01 checks and native/fresh views. Verify whether the thin straight edge disappears before accepting the diagnosis.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -242,7 +242,9 @@
     "experiments/E07X/REPORT.md",
     "experiments/E07X/review.html",
     "experiments/E07Y/REPORT.md",
-    "experiments/E07Y/review.html"
+    "experiments/E07Y/review.html",
+    "experiments/E07AA/REPORT.md",
+    "experiments/E07AA/review.html"
   ],
   "decisions_pending": [
     {
@@ -379,7 +381,8 @@
     "E07M resolves2.7mmonster clearance with3.2mportal and repaired joints; fullsource geometry/shadow/visibility and runtime traverse pass. FlatF01pocket and F02gate material distinction remain art failures; staticmonster animation, fullpilot/VFX/cohesion unqualified.",
     "E07W selectsAportal finish using existingpaintings;9612sourcepixels and fullIDimages unchanged. Fullrooms still controlledsame layout, broaderfaction construction/detail and strongerfloor-wallglow remain open, alongside fullpilot/monster/VFX/scale.",
     "E07X practical-light response is scoped PASS (1728 equation/768 channel checks); full F03 atmosphere, dynamic VFX light, fixture self/soft shadows and full faction construction remain partial. A selected with ambient.55.",
-    "E07Y detailed construction passes502 source-ID samples plus order/negative controls and exact collision/state. F02 inherited practical support required4cm backplate extension. Hard green mineral band fails art; full chamber remains partial."
+    "E07Y detailed construction passes502 source-ID samples plus order/negative controls and exact collision/state. F02 inherited practical support required4cm backplate extension. Hard green mineral band fails art; full chamber remains partial.",
+    "E07AA B field/UV scopedPASS380+380 checks; F01 exact12 rendered comparisons; full geometry-ID images unchanged. Thin overlay edge still visible, E07AB removal comparison required before surface art pass."
   ],
   "running_jobs": [
     {
@@ -423,7 +426,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07Y/receipt.json",
+  "current_receipt": "experiments/E07AA/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

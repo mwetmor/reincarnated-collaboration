@@ -1,0 +1,45 @@
+{
+  "experiment": "E07AA",
+  "started_at": "2026-09-11T22:56:06.129405+00:00",
+  "status": "SURFACE_FIELD_UV_PASS_SEAM_PARTIAL",
+  "limits": {
+    "active_minutes": 30,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 6.157806283333333,
+    "disk_bytes_before_index": 28704850
+  },
+  "dependencies": {
+    "experiments/E07Y/pixi-adapter/index.mjs": "3cd0bae9015e13524e1c9cd751267afa526b8811debc609e215aa79966ef076e",
+    "experiments/E07Y/architecture.json": "9d8c546500cb618df3a1b12af3f5881a3bb8e96542d5ee30f5b5f0d7afb078e9",
+    "experiments/E07Y/fixture.json": "e7cb94d97cb339dd2b26c2e77da66bd81f94d7e38f8cb74bf9fbbb393044bc2b"
+  },
+  "diagnosis": "Build1 shader concatenation emitted integer phase0 in float addition; ESSL3 rejects mixed operands. Build2 emits decimal float literals. Failed adapter and shader error preserved. Batch02 stopped at capability before scene matrix.",
+  "ended_at": "2026-09-11T23:02:15.597782+00:00",
+  "results": {
+    "selected_field": "B",
+    "distinct_source_positions": 190,
+    "mask_checks": 380,
+    "uv_checks": 380,
+    "all_source_checks": "PASS",
+    "geometry_ID_images": "EXACT_CONTROL",
+    "F01_painted_RGBA": "EXACT_12_COMPARISONS",
+    "negative_controls": "PASS",
+    "surface_art": "PARTIAL_THIN_OVERLAY_EDGE",
+    "full_chamber": "PARTIAL"
+  },
+  "lessons": [
+    "Tint blending cannot conceal a material UV discontinuity; backing and overlay require one neutral world UV mapping.",
+    "A continuous material field cannot remove a physical overlay edge; remove redundant geometry only in a separately registered source test.",
+    "GLSL data serialization must emit floating-point literals where arithmetic requires floats; compiler-failed build preserved.",
+    "B provides clearer damp-stone response while retaining shared light and source paint; it is a field candidate, not full art approval."
+  ]
+}

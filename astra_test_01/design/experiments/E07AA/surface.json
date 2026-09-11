@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "selected_for_test": "B",
+  "scope": "F02 solid-backing and mineral-waterline parts only",
+  "uv": {
+    "mapping": "parent wall along-axis and world Z",
+    "origin": "parent min along coordinate,0m height",
+    "scale": "parent span and parent maxZ",
+    "reason": "continuous rock texture over backing and thin waterline skin"
+  },
+  "field": {
+    "height_m": 0.58,
+    "transition_m": 0.22,
+    "waves": [
+      {
+        "axis": [
+          3.3,
+          2.7,
+          0
+        ],
+        "amplitude_m": 0.04,
+        "phase": 0
+      },
+      {
+        "axis": [
+          7.1,
+          -4.9,
+          0
+        ],
+        "amplitude_m": 0.018,
+        "phase": 1.2
+      }
+    ]
+  },
+  "candidates": {
+    "A": {
+      "tint": [
+        0.72,
+        0.8,
+        0.74
+      ],
+      "strength": 0.45
+    },
+    "B": {
+      "tint": [
+        0.53,
+        0.65,
+        0.58
+      ],
+      "strength": 0.65
+    }
+  },
+  "original_backing_albedo": [
+    0.79,
+    0.83,
+    0.78
+  ],
+  "selection_scope": "Field/UV candidate only; shallow overlay seam remains for E07AB geometry test."
+}
