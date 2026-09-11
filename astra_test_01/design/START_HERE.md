@@ -89,3 +89,5 @@ E05A checkpoint: [fitted gear and failed layer transfer](experiments/E05A/review
 E05O [coverage review](experiments/E05O/review.html) and [report](experiments/E05O/REPORT.md): all3methods fail full matrix; independent-RGBA branch stopped. Next: E05J depth-bearing geometry capability/gear probe in Pixi. Full painted pilot stays open.
 
 E05J [shared rig / gear review](experiments/E05J/review.html) and [report](experiments/E05J/REPORT.md): depth-bearing source representation passes288sparse comparisons and corrected exact depth ordering in Pixi. Full art/sampling/animation still open. Next E05Q native sampling/clarity comparison.
+
+E05Q [native clarity review](experiments/E05Q/review.html) and [report](experiments/E05Q/REPORT.md): BMSAA/mips selected8/8; fresh3×reference retained, old clipped strip preserved. Current exact next action: E07K pilot/chamber depth/light integration.

@@ -23,3 +23,7 @@ No image generation or paid-service spend. Typed geometry/oracle/palette assets1
 The final16figure comparison collage uses192–256material draw meshes; measured CPU composition plus synchronous GPU finish median.75ms,p95~1.90ms,max~2.90ms on this local run. These are probe observations with cold/warm builds mixed, not a gameplay frame-time or production hardware pass. Source art still looks too simple and its raw minification is visibly grainy/jagged. Material response is diagnostic albedo+diffuse, not final painted lighting. No full G4/G6/G7promotion.
 
 Next: bound E05Q native sampling/sharpness comparison for this representation, holding source art/geometry/camera fixed. Test geometry antialiasing and material minification against the F04 clarity target before further art/detail changes. Full painted pilot and animation inventory remain open.
+
+## Subsequent framing finding (E05Q)
+
+E05Q light-background casting inspection found that the inherited800px strip clips the final casting hand at150px. The288comparisons above describe captured-pixel agreement; they do not prove full-pose coverage, since reference and skin paths share the crop. Preserve counts/images. [E05Q framing correction](../E05Q/FRAMING_CORRECTION.md) widens the review strip with unchanged character scale.

@@ -1,0 +1,878 @@
+{
+  "records": [
+    {
+      "pose": 0,
+      "head": "head",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.587617335848059,
+          "rmse": 11.412231245194162,
+          "fraction_gt8": 0.24938807002607355
+        },
+        "B": {
+          "mae": 2.3523928334230044,
+          "rmse": 4.629662979200394,
+          "fraction_gt8": 0.11018730378332357
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "head",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.557492841109081,
+          "rmse": 16.298470143171283,
+          "fraction_gt8": 0.26963497046772733
+        },
+        "B": {
+          "mae": 3.0064090057172597,
+          "rmse": 6.251050470341097,
+          "fraction_gt8": 0.13918746341722982
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "hidden",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.26877643248276,
+          "rmse": 11.082848744525679,
+          "fraction_gt8": 0.23916169578184918
+        },
+        "B": {
+          "mae": 2.248594541495053,
+          "rmse": 4.51901561199429,
+          "fraction_gt8": 0.1059064763527908
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "hidden",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.630509397339393,
+          "rmse": 16.941155816449328,
+          "fraction_gt8": 0.26407381763953985
+        },
+        "B": {
+          "mae": 3.018643283782292,
+          "rmse": 6.3996529747019935,
+          "fraction_gt8": 0.14171016190881977
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "head",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.590670068516123,
+          "rmse": 11.421905243383081,
+          "fraction_gt8": 0.24904219325306
+        },
+        "B": {
+          "mae": 2.3750179675147334,
+          "rmse": 4.663282347332797,
+          "fraction_gt8": 0.11099363120708529
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "head",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.743983186091854,
+          "rmse": 16.645047750067594,
+          "fraction_gt8": 0.2723032142501741
+        },
+        "B": {
+          "mae": 3.116075673643591,
+          "rmse": 6.457648835806152,
+          "fraction_gt8": 0.1442432082794308
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "hidden",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.291503061870389,
+          "rmse": 11.036910068362763,
+          "fraction_gt8": 0.23976498997971046
+        },
+        "B": {
+          "mae": 2.278434963088361,
+          "rmse": 4.540514870373795,
+          "fraction_gt8": 0.10731045470953608
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "hidden",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.758118924032513,
+          "rmse": 17.009457881286444,
+          "fraction_gt8": 0.26692557601105343
+        },
+        "B": {
+          "mae": 3.1226965666389592,
+          "rmse": 6.572256452068733,
+          "fraction_gt8": 0.1463335698370614
+        }
+      },
+      "B_reduces_mae": true
+    }
+  ],
+  "B_improves_cases": 8,
+  "numerical_pass": true,
+  "reference": "Fresh3xMSAA/no-mips; exact3x3channel mean measurement only",
+  "full_geometry_bounds": [
+    {
+      "pose": "idle-000",
+      "heading": 0,
+      "height": 50,
+      "minimum": [
+        76.6911707578708,
+        47.16622187707324
+      ],
+      "maximum": [
+        103.52273142705138,
+        107.4738888528821
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 0,
+      "height": 150,
+      "minimum": [
+        50.0735122736124,
+        201.49866563121972
+      ],
+      "maximum": [
+        130.56819428115415,
+        382.4216665586463
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 45,
+      "height": 50,
+      "minimum": [
+        254.07182026712354,
+        46.355646273570486
+      ],
+      "maximum": [
+        285.87607879491213,
+        105.85679403396793
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 45,
+      "height": 150,
+      "minimum": [
+        222.21546080137068,
+        199.06693882071144
+      ],
+      "maximum": [
+        317.62823638473634,
+        377.5703821019038
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 90,
+      "height": 50,
+      "minimum": [
+        437.02344832089545,
+        47.32371052654562
+      ],
+      "maximum": [
+        462.8695287974629,
+        107.4568518585841
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 90,
+      "height": 150,
+      "minimum": [
+        411.07034496268636,
+        201.97113157963685
+      ],
+      "maximum": [
+        488.6085863923887,
+        382.3705555757523
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 135,
+      "height": 50,
+      "minimum": [
+        621.5048293645941,
+        47.89013004847016
+      ],
+      "maximum": [
+        638.6555219066813,
+        106.27768240584514
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 135,
+      "height": 150,
+      "minimum": [
+        604.5144880937825,
+        203.6703901454105
+      ],
+      "maximum": [
+        655.9665657200441,
+        378.8330472175354
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 180,
+      "height": 50,
+      "minimum": [
+        796.347253909416,
+        47.96966412590189
+      ],
+      "maximum": [
+        823.2065128030009,
+        105.06307952849113
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 180,
+      "height": 150,
+      "minimum": [
+        769.0417617282483,
+        203.9089923777057
+      ],
+      "maximum": [
+        849.6195384090029,
+        375.1892385854734
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 225,
+      "height": 50,
+      "minimum": [
+        974.1582517222824,
+        48.3561947341534
+      ],
+      "maximum": [
+        1005.9147780022506,
+        102.57342352183001
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 225,
+      "height": 150,
+      "minimum": [
+        942.4747551668473,
+        205.06858420246022
+      ],
+      "maximum": [
+        1037.7443340067518,
+        367.72027056549
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 270,
+      "height": 50,
+      "minimum": [
+        1157.2445583097904,
+        47.920119018538905
+      ],
+      "maximum": [
+        1183.1130243553612,
+        105.20850135134273
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 270,
+      "height": 150,
+      "minimum": [
+        1131.7336749293713,
+        203.76035705561674
+      ],
+      "maximum": [
+        1209.3390730660835,
+        375.62550405402817
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 315,
+      "height": 50,
+      "minimum": [
+        1341.323293562046,
+        47.915738580962994
+      ],
+      "maximum": [
+        1358.4864727800982,
+        106.39273737111186
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "idle-000",
+      "heading": 315,
+      "height": 150,
+      "minimum": [
+        1323.9698806861384,
+        203.74721574288898
+      ],
+      "maximum": [
+        1375.4594183402944,
+        379.1782121133356
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 0,
+      "height": 50,
+      "minimum": [
+        75.1579948317387,
+        53.023607422508185
+      ],
+      "maximum": [
+        115.8857440829276,
+        115.12151840836171
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 0,
+      "height": 150,
+      "minimum": [
+        45.473984495216115,
+        219.07082226752456
+      ],
+      "maximum": [
+        167.6572322487828,
+        405.3645552250851
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 45,
+      "height": 50,
+      "minimum": [
+        254.01029112458505,
+        52.323144625061325
+      ],
+      "maximum": [
+        285.87131259859905,
+        124.86552172579303
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 45,
+      "height": 150,
+      "minimum": [
+        222.03087337375513,
+        216.96943387518397
+      ],
+      "maximum": [
+        317.6139377957972,
+        434.5965651773791
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 90,
+      "height": 50,
+      "minimum": [
+        430.54035157000936,
+        53.09155034332785
+      ],
+      "maximum": [
+        464.37604063295436,
+        120.39908986165628
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 90,
+      "height": 150,
+      "minimum": [
+        391.6210547100281,
+        219.27465102998357
+      ],
+      "maximum": [
+        493.12812189886307,
+        421.19726958496886
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 135,
+      "height": 50,
+      "minimum": [
+        598.9039964357698,
+        53.4351249796203
+      ],
+      "maximum": [
+        642.2606553064738,
+        105.62383344858918
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 135,
+      "height": 150,
+      "minimum": [
+        536.7119893073094,
+        220.3053749388609
+      ],
+      "maximum": [
+        666.7819659194213,
+        376.8715003457676
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 180,
+      "height": 50,
+      "minimum": [
+        784.6946877959685,
+        53.12775538154512
+      ],
+      "maximum": [
+        824.7645221601174,
+        103.51489385071517
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 180,
+      "height": 150,
+      "minimum": [
+        734.0840633879056,
+        219.38326614463537
+      ],
+      "maximum": [
+        854.2935664803522,
+        370.5446815521455
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 225,
+      "height": 50,
+      "minimum": [
+        974.0636752342236,
+        53.36392276147167
+      ],
+      "maximum": [
+        1005.8638128350545,
+        108.8115285096542
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 225,
+      "height": 150,
+      "minimum": [
+        942.1910257026708,
+        220.09176828441502
+      ],
+      "maximum": [
+        1037.5914385051638,
+        386.4345855289626
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 270,
+      "height": 50,
+      "minimum": [
+        1155.750806641431,
+        53.09022792926268
+      ],
+      "maximum": [
+        1188.8590440028483,
+        109.47691923361478
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 270,
+      "height": 150,
+      "minimum": [
+        1127.2524199242926,
+        219.27068378778804
+      ],
+      "maximum": [
+        1226.5771320085453,
+        388.43075770084437
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 315,
+      "height": 50,
+      "minimum": [
+        1337.6990827925717,
+        53.409447553607095
+      ],
+      "maximum": [
+        1380.9146045027035,
+        106.17468019652766
+      ],
+      "required_pose": false,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "walk-012",
+      "heading": 315,
+      "height": 150,
+      "minimum": [
+        1313.0972483777152,
+        220.22834266082128
+      ],
+      "maximum": [
+        1442.7438135081106,
+        378.52404058958297
+      ],
+      "required_pose": false,
+      "margin_at_least5": false
+    },
+    {
+      "pose": "cast-036",
+      "heading": 0,
+      "height": 50,
+      "minimum": [
+        78.1303022526224,
+        47.697342436249265
+      ],
+      "maximum": [
+        110.35612668180516,
+        107.4738888528821
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 0,
+      "height": 150,
+      "minimum": [
+        54.390906757867214,
+        203.0920273087478
+      ],
+      "maximum": [
+        151.0683800454155,
+        382.4216665586463
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 45,
+      "height": 50,
+      "minimum": [
+        253.16005192272397,
+        47.07401914025722
+      ],
+      "maximum": [
+        285.71111514570254,
+        105.85679403396793
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 45,
+      "height": 150,
+      "minimum": [
+        219.48015576817187,
+        201.22205742077165
+      ],
+      "maximum": [
+        317.13334543710766,
+        377.5703821019038
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 90,
+      "height": 50,
+      "minimum": [
+        420.53698565279814,
+        47.82030747450155
+      ],
+      "maximum": [
+        462.107829421789,
+        107.4568518585841
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 90,
+      "height": 150,
+      "minimum": [
+        361.61095695839435,
+        203.46092242350466
+      ],
+      "maximum": [
+        486.3234882653671,
+        382.3705555757523
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 135,
+      "height": 50,
+      "minimum": [
+        602.8470162193968,
+        46.56929545385674
+      ],
+      "maximum": [
+        638.6555219066813,
+        106.27768240584514
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 135,
+      "height": 150,
+      "minimum": [
+        548.5410486581903,
+        199.70788636157022
+      ],
+      "maximum": [
+        655.9665657200441,
+        378.8330472175354
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 180,
+      "height": 50,
+      "minimum": [
+        789.709534681614,
+        43.96701086527969
+      ],
+      "maximum": [
+        821.7739136166746,
+        105.06307952849113
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 180,
+      "height": 150,
+      "minimum": [
+        749.1286040448418,
+        191.90103259583904
+      ],
+      "maximum": [
+        845.3217408500237,
+        375.1892385854734
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 225,
+      "height": 50,
+      "minimum": [
+        974.4795041980635,
+        45.446449835758806
+      ],
+      "maximum": [
+        1006.4628626010102,
+        102.57342352183001
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 225,
+      "height": 150,
+      "minimum": [
+        943.4385125941906,
+        196.3393495072764
+      ],
+      "maximum": [
+        1039.3885878030305,
+        367.72027056549
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 270,
+      "height": 50,
+      "minimum": [
+        1158.010282991524,
+        47.459606778374784
+      ],
+      "maximum": [
+        1199.114266505919,
+        105.20850135134273
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 270,
+      "height": 150,
+      "minimum": [
+        1134.030848974572,
+        202.37882033512435
+      ],
+      "maximum": [
+        1257.3427995177567,
+        375.62550405402817
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 315,
+      "height": 50,
+      "minimum": [
+        1341.323293562046,
+        47.958131463635446
+      ],
+      "maximum": [
+        1377.62205685649,
+        106.39273737111186
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    },
+    {
+      "pose": "cast-036",
+      "heading": 315,
+      "height": 150,
+      "minimum": [
+        1323.9698806861384,
+        203.87439439090633
+      ],
+      "maximum": [
+        1432.8661705694694,
+        379.1782121133356
+      ],
+      "required_pose": true,
+      "margin_at_least5": true
+    }
+  ],
+  "full_geometry_margin_pass": false,
+  "required_pose_margin_pass": true,
+  "supplemental_walk_margin_pass": false,
+  "visual_scope": "No obvious ivory/brass/blue boundary bleed in inspected native controls. Full art/temporal shimmer remain unqualified.",
+  "selected": "B"
+}

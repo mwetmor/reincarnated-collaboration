@@ -1,0 +1,153 @@
+{
+  "records": [
+    {
+      "pose": 0,
+      "head": "head",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.587387246236286,
+          "rmse": 11.411180998489609,
+          "fraction_gt8": 0.24942797850263396
+        },
+        "B": {
+          "mae": 2.352470186889918,
+          "rmse": 4.629239560557237,
+          "fraction_gt8": 0.11017400095780344
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "head",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.557418936522859,
+          "rmse": 16.29884478178284,
+          "fraction_gt8": 0.26967487894428777
+        },
+        "B": {
+          "mae": 3.0066400807235163,
+          "rmse": 6.251098842703058,
+          "fraction_gt8": 0.13918746341722982
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "hidden",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.268653639792328,
+          "rmse": 11.082079912099266,
+          "fraction_gt8": 0.23916169578184918
+        },
+        "B": {
+          "mae": 2.248670485568654,
+          "rmse": 4.518786052984119,
+          "fraction_gt8": 0.10591979122283766
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 0,
+      "head": "hidden",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.6304931236093365,
+          "rmse": 16.94224456060963,
+          "fraction_gt8": 0.26407381763953985
+        },
+        "B": {
+          "mae": 3.0188730885764334,
+          "rmse": 6.399840282408021,
+          "fraction_gt8": 0.14172347677886662
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "head",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.561498169708441,
+          "rmse": 11.38182783812768,
+          "fraction_gt8": 0.24734136384254826
+        },
+        "B": {
+          "mae": 2.361081710711266,
+          "rmse": 4.645025426725918,
+          "fraction_gt8": 0.10981049342271054
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "head",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.676520000672009,
+          "rmse": 16.542374277990053,
+          "fraction_gt8": 0.2703996774356131
+        },
+        "B": {
+          "mae": 3.088399068894004,
+          "rmse": 6.417608134646828,
+          "fraction_gt8": 0.14265914016430623
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "hidden",
+      "bg": "dark",
+      "metrics": {
+        "A": {
+          "mae": 5.258499455715408,
+          "rmse": 10.990716505427333,
+          "fraction_gt8": 0.2379553392427089
+        },
+        "B": {
+          "mae": 2.2636700425854244,
+          "rmse": 4.52144959098818,
+          "fraction_gt8": 0.10614179979573567
+        }
+      },
+      "B_reduces_mae": true
+    },
+    {
+      "pose": 2,
+      "head": "hidden",
+      "bg": "light",
+      "metrics": {
+        "A": {
+          "mae": 7.69077396755214,
+          "rmse": 16.913485417297444,
+          "fraction_gt8": 0.2649384054773103
+        },
+        "B": {
+          "mae": 3.095944461022826,
+          "rmse": 6.537123008503781,
+          "fraction_gt8": 0.14483854291442333
+        }
+      },
+      "B_reduces_mae": true
+    }
+  ],
+  "B_improves_cases": 8,
+  "numerical_pass": true,
+  "reference": "3x fresh MSAA no-mips geometry, exact3x3channel mean for measurement only",
+  "visual_inspection": "B visibly reduces crawling grain/jagged edges in inspected idle-hidden dark and cast-helmet light. Ivory/brass/blue material regions retained; no obvious white alpha fringe on native dark/light controls. Full painted style, finer UV borders and temporal shimmer remain unqualified.",
+  "selection": "B working sampler; C retained as fresh native3x reference"
+}

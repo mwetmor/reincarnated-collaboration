@@ -1,0 +1,29 @@
+{
+  "experiment": "E05Q",
+  "started_at": "2026-09-11T15:19:31.334728+00:00",
+  "status": "SAMPLING_B_SELECTED_REGISTERED_POSE_FRAMING_PASS_FULL_ART_OPEN",
+  "limits": {
+    "active_minutes": 25,
+    "generation_calls": 0,
+    "adapter_revisions": 2,
+    "capture_batches": 3,
+    "disk_bytes": 45000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "adapter_revisions": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 34578061
+  },
+  "framing_failure": "First800px strip clips last casting hand at150px. Preserved. Remaining third actual batch uses1440px/180pxcolumns, fixed character scale and source; includes refreshed review.",
+  "finished_at": "2026-09-11T15:30:31.810486+00:00",
+  "next_action": "Register E07K integration of depth-bearing pilot with chamber camera/depth/light policy, front/back occlusion and prop states. Derive review bounds from actual poses; no full animation/roster expansion.",
+  "verdicts": {
+    "sampling_relative_reference": "PASS8/8",
+    "required_pose_margins": "PASS32/32",
+    "supplemental_walk_margin": "FAIL1/16, not captured",
+    "runtime_controls": "PASS5 final",
+    "full_art_motion_lighting": "UNQUALIFIED"
+  }
+}

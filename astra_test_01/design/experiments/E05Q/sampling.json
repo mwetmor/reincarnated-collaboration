@@ -1,0 +1,33 @@
+{
+  "selected": "B",
+  "scope": "E05J source; eight-view idle0/cast36. World integration and animation shimmer not qualified.",
+  "profiles": {
+    "A": {
+      "render_resolution_multiplier": 1,
+      "geometry_multisample_antialias": false,
+      "material_mip_chain": false,
+      "material_minification": "linear",
+      "anisotropy": 1
+    },
+    "B": {
+      "render_resolution_multiplier": 1,
+      "geometry_multisample_antialias": true,
+      "material_mip_chain": true,
+      "material_minification": "linear mip interpolation",
+      "anisotropy": 8
+    },
+    "C": {
+      "render_resolution_multiplier": 3,
+      "geometry_multisample_antialias": true,
+      "material_mip_chain": false,
+      "material_minification": "linear",
+      "anisotropy": 1
+    }
+  },
+  "source_manifest": "../E05J/character.asset.json",
+  "source_art_resized_or_edited": false,
+  "clipping_range_m": [
+    10,
+    40
+  ]
+}

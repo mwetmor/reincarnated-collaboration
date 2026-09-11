@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T15:17:25.636756+00:00",
+  "updated": "2026-09-11T15:30:31.810486+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E05Q native sampling/sharpness comparison: fixed E05J source art/geometry/C camera, vary antialiasing and material minification. No animation or roster expansion before full painted pilot.",
+  "next_action": "Register E07K integration of depth-bearing pilot with chamber camera/depth/light policy, front/back occlusion and prop states. Derive review bounds from actual poses; no full animation/roster expansion.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -159,7 +159,10 @@
     "experiments/E05O/review.html",
     "experiments/E05J/REPORT.md",
     "experiments/E05J/RECEIPT.json",
-    "experiments/E05J/review.html"
+    "experiments/E05J/review.html",
+    "experiments/E05Q/REPORT.md",
+    "experiments/E05Q/RECEIPT.json",
+    "experiments/E05Q/review.html"
   ],
   "decisions_pending": [
     {
@@ -189,13 +192,15 @@
       "id": "D03",
       "decision": "Starter outfit included in three tiers or additional",
       "owner": "Matt",
-      "blocks": "final gear inventory count"
+      "blocks": "final gear inventory count",
+      "question_status": "Asked asynchronously 2026-09-11 during independent work; no answer recorded yet."
     },
     {
       "id": "D04",
       "decision": "Approximately 50 uniques are items or complete sets",
       "owner": "Matt",
-      "blocks": "final gear inventory count"
+      "blocks": "final gear inventory count",
+      "question_status": "Asked asynchronously 2026-09-11 during independent work; no answer recorded yet."
     },
     {
       "id": "D05",
@@ -257,7 +262,8 @@
     "E09I actual LOCKED Godot content import passes23checks;648skills preserve all fields,468 exact semantic geometry candidates and180 large_aoe unbound. Legacy effects/timing strings intentional; D4 presentation consumer drops timing/cooldown/energy and is not full combat contract. Richer state/event/footprint source still owed.",
     "E05A improved helmet envelope and explicit hair restoration;47/96 eight-view idle gear composites fail unchanged pixel thresholds. Painted pilot/advanced-gear art still too simple/block-like; no animation expansion. E05O isolate render/coverage causes.",
     "E05O all3 independent-RGBA composition variants fail full96case matrix (partition57, nativeover34, directover46). Two-view native probe insufficient. Stop branch; investigate depth-bearing geometry without changing Pixi harness or full-art bar. Invalid offscreenY capture preserved separately.",
-    "E05J depth-bearing painted geometry in same Pixi harness passes288sparse gear/skin source comparisons and exact reverse ordering after local10\u201340mclip control. Full art remains simple/grainy; native sampling, full animation, lighting, world integration and production residency unqualified. Old RGBA failures retained."
+    "E05J depth-bearing painted geometry in same Pixi harness passes288sparse gear/skin source comparisons and exact reverse ordering after local10\u201340mclip control. Full art remains simple/grainy; native sampling, full animation, lighting, world integration and production residency unqualified. Old RGBA failures retained.",
+    "E05Q selects MSAA4/mips/aniso8 after8/8relative-reference improvements. Corrected idle/cast strip has32/32safe bounds; supplementalwalk315wouldstillclip. E05J288counts scoped to captured pixels, shared crop not fullpose proof. Art/style, temporal shimmer, fullworldlighting remain open."
   ],
   "running_jobs": [
     {
@@ -301,7 +307,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05J/RECEIPT.json",
+  "current_receipt": "experiments/E05Q/RECEIPT.json",
   "generation_calls_this_suite": 28,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -339,7 +345,7 @@
   "test_harness": "Pixi.js",
   "portability_contract": "experiments/E04/NEUTRAL_CONTRACT.md",
   "visual_feedback": {
-    "sharpness": "E04S new top-down material plates on layout geometry improve floor source density at tested2880x1920; original E03 floor stays limited. Other assets require separate qualification.",
+    "sharpness": "E05Q B selects actualMSAA4/mips after8/8comparisons; C is fresh4320x1380geometry, not enlarged pixels. Source texels, artwork detail and true fullscreen targets still constrain quality.",
     "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending.",
     "lighting": "E04S actual floor/pillar-wall neutral/warm/cool response and gate occlusion pass; full F03-style architectural scene remains incomplete.",
     "faction_separation": "Matt delegated current environment selections; Codex selects F01 defended timber/stone waystation and F02 reclaimed rock-cut reservoir. Cathedral remains allowed if justified; no further approval required for these briefs.",
