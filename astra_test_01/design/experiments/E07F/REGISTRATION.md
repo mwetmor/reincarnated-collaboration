@@ -1,0 +1,9 @@
+# E07F — compiler-gated shared-shadow repair
+
+Godot shipping target; Pixi harness. 45 active minutes, zero generation, one consumer build, two capture batches, 80 MB owned. This is the diagnosed continuation permitted by EXPERIMENTS.md after E07E's two-build failure checkpoint. Preserve its counters: this allows cumulative shared-shadow build three, not a reset.
+
+Changed method: apply the prepared one-line reserved-identifier rename in an owned copy; compile/render all profile/material shader paths and assert driver/console success BEFORE saving any scene art comparisons. E07E's capability, source geometry, neutral policy, encoding, bias, sampler, light A/B definitions and receiver thresholds remain unchanged. Preserve the original failed E07E files. No generated art or gameplay-rule edits.
+
+Batch 1 contains compiler gate, integrated source/receiver matrix and negative controls. Failure at compiler gate prevents the art matrix. Reuse E07E's measured capability instead of rerunning it. Independent source rays must qualify visible floor/vertical/current-pilot receivers where observable, with the inherited ≥6 lit/≥6 shadow and nine-neighbor guard; diagnostic RGB ≤2. Record unavailable groups explicitly. Missing scene/pilot caster and stale root controls must be detected on source-selected sensitive witnesses; reversed caster order must retain witnessed results. No unobserved self/vertical group may be promoted. Ambient/point contributions remain, with source art and JSON simulation unchanged.
+
+Batch 2 is the standalone labelled review and actual interaction/playback checks if prerequisites pass. One build only; an additional failure requires diagnosis and branch review, with no unchanged retry or counter reset. Working chamber remains E07C until the new result earns a scoped promotion. Full lighting style, soft shadows, NPC/monster casters, VFX, roster and hardware remain open.

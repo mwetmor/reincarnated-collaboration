@@ -1,0 +1,47 @@
+{
+  "experiment": "E07F",
+  "started_at": "2026-09-11T20:57:23.981164+00:00",
+  "status": "PARTIAL_SOURCE_FAIL",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 2,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 2,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 24.017417483333336,
+    "disk_bytes_before_index": 25973694
+  },
+  "prior_shared_shadow_builds": 2,
+  "cumulative_shared_shadow_builds": 3,
+  "authorization": "Continuing campaign; EXPERIMENTS.md branch-review protocol. Earlier E07E permission question withdrawn, not answered or assumed approved.",
+  "dependencies": {
+    "E07E/pixi-adapter/scene-shadow.mjs": "d5f7235ac761a52fe0112b89b61f4cd1aa608aa9f978d20c14e1043d5ef8eebd",
+    "E07E/shadow.json": "876120b9d9b21652f9b6d42a8f2de9cddf9a82caac5e05486559b77ccc849ad3",
+    "E07E/evidence/batch-01/validation.json": "0207d84fc9cd448a608e2ac8a3c17dca544e306fdf1244e9b6ef364b032ef734"
+  },
+  "ended_at": "2026-09-11T21:21:25.026213+00:00",
+  "results": {
+    "compiler_gate": "PASS",
+    "initial_source_witnesses": 1336,
+    "initial_failed": 29,
+    "guarded_source_witnesses": 1302,
+    "guarded_failed": 2,
+    "floor_vertical_passed": 864,
+    "pilot_passed": 436,
+    "pilot_total": 438,
+    "review": "PASS",
+    "working_chamber": "E07C"
+  },
+  "lessons": [
+    "GL and console gates prevent invalid scene evidence after shader failure.",
+    "Source camera witnesses require object and face continuity; group continuity alone admitted edge pixels. Original evidence retained.",
+    "464 depth probes agree with source map-texel rays within 0.049 mm; remaining receiver approximation is not a gross encoding defect.",
+    "Two native sleeve samples remain failed; investigate receiver-plane lookup with unchanged bias and source bars."
+  ]
+}
