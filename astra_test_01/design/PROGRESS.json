@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T21:31:40.385691+00:00",
+  "updated": "2026-09-11T21:35:46.958660+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07J",
+  "active_experiment": "E07O",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07J neutral policy selection for E07H raw lookup; one adapter build, verify default source agreement and actual chamber UI/playback. E07C remains working chamber until scoped promotion.",
+  "next_action": "Register E07O selective player-visibility proof at partition and west wall using neutral per-entity effects data. Keep simulation, occlusion, geometry and shadow casters unchanged; capability preflight then source-selected visible/hidden controls and labelled comparison.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -226,7 +226,9 @@
     "experiments/E07G/REPORT.md",
     "experiments/E07G/review.html",
     "experiments/E07H/REPORT.md",
-    "experiments/E07H/review.html"
+    "experiments/E07H/review.html",
+    "experiments/E07J/REPORT.md",
+    "experiments/E07J/review.html"
   ],
   "decisions_pending": [
     {
@@ -355,7 +357,8 @@
     "Historical E07B: current pilot shadow passes 640 interior source witnesses but crate approach throws projected-caster mask guard. Needs E07C domain padding; do not promote as usable chamber. Resolved for the tested roots by E07C padded-domain proof; original failure retained.",
     "E07F shared shadow compiler gate passes; strict source matrix1300/1302 passes, two native pilot sleeve failures remain. All864floor/vertical samples pass. Some pilot groups lack6positive/6negative samples; fullselfshadow unavailable. E07G receiver-plane lookup next.",
     "E07G receiver-plane correction fixes native sleeve samples but introduces two fresh3x pauldron failures; 1300/1302 still pass. Density diagnosis predicts improvement; no integrated self-shadow pass or working-chamber promotion.",
-    "E07H raw2xdensity passes1302source samples plus controls; corrected2xdensity still fails2armor samples. Raw selection not yet default; interactions/motion and full self-shadow/style remain open."
+    "E07H raw2xdensity passes1302source samples plus controls; corrected2xdensity still fails2armor samples. Raw selection not yet default; interactions/motion and full self-shadow/style remain open.",
+    "E07J promotes scoped shared hard-shadow chamber. Some pilot witness groups unavailable, full self-shadow/style unqualified; plain architecture/darkF01pocket/oldNPC-monster/hiddenplayer remain. Next E07O selective visibility."
   ],
   "running_jobs": [
     {
@@ -399,7 +402,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07H/receipt.json",
+  "current_receipt": "experiments/E07J/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -473,17 +476,12 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "module": "experiments/E07C/pixi-adapter/index.mjs",
-    "sim": "experiments/E07T/sim/index.mjs",
-    "review": "experiments/E07C/review.html",
-    "status": "CURRENT_FRACTIONAL_PILOT_PADDED_FLOOR_SHADOW_INTERACTIONS_PASS",
-    "full_chamber_qualified": false,
-    "pilot_candidate": {
-      "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
-      "asset": "experiments/E05N/character.asset.json",
-      "motion": "experiments/E05F/motion.asset.json",
-      "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
-      "review": "experiments/E05F/review.html"
-    }
+    "experiment": "E07J",
+    "adapter": "experiments/E07J/pixi-adapter/index.mjs",
+    "review": "experiments/E07J/review.html",
+    "shadow_policy": "experiments/E07J/shadow.json",
+    "scope": "1302available source shadows; actual door/chest/crate/raised toggles and3outfit walks; default raw2xdensity. Full art/self-shadow/visibility unqualified.",
+    "previous": "E07C",
+    "motion": "E05F"
   }
 }

@@ -137,3 +137,5 @@ E07F [shared-shadow source comparison](experiments/E07F/review.html): compiler g
 E07G [receiver-plane review](experiments/E07G/review.html): GLSL3 derivative capability passes; corrected lookup exchanges two native failures for two fresh3× armor failures. E07H tests source-diagnosed map density next. E07C remains the working chamber.
 
 E07H [denser raw lookup review](experiments/E07H/review.html): raw mode passes all1,302 source witnesses and controls; receiver-plane mode retains two failures. E07J neutral selection and actual interaction/playback next. Allocation arithmetic230.7MB, production residency unqualified.
+
+E07J [selected shared-shadow chamber](experiments/E07J/review.html): all1,302 available source witnesses, actual controls and3outfit walks pass. Working chamber now E07J;21intermediate door states, local compositionp95 20.4ms. Next E07O selective player visibility; full art/self-shadow/performance remain open.

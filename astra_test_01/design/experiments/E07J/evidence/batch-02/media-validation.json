@@ -1,0 +1,62 @@
+{
+  "records": [
+    {
+      "outfit": "starter",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "1000/1",
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "28"
+          }
+        ],
+        "format": {
+          "duration": "1.121145"
+        }
+      }
+    },
+    {
+      "outfit": "advanced-head",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "1000/1",
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "31"
+          }
+        ],
+        "format": {
+          "duration": "1.155682"
+        }
+      }
+    },
+    {
+      "outfit": "advanced-hair",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "r_frame_rate": "1000/1",
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "31"
+          }
+        ],
+        "format": {
+          "duration": "1.158105"
+        }
+      }
+    }
+  ],
+  "note": "MediaRecorder outputs28/31/31frames, fewer than59/60/61RAF observations. Saved video is qualitative playback, not every-frame coverage or60fps proof. First inspection requested nonexistent frame40 and has a black third tile; retained. v2 uses existing frame5/15/25."
+}
