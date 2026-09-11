@@ -7,6 +7,9 @@ Historical runs 01/02 are immutable evidence, not inputs to overwrite.
 Next-suite visual planning: [four-faction key](../../../../astra_test_01/design/FACTION_KEY.md)
 records the user's agreed working labels and subsequent scale/cohesion requirements.
 It does not change the original ASTRA run contract or establish a production renderer.
+The [Godot camera evidence](../../../../astra_test_01/design/CAMERA_BASELINE.md)
+records the supplied 3D references and a proposed camera for the next suite.
+Preserve its distinction between the original dimetric test and Godot perspective.
 
 The user's latest instruction authorizes creating this skill, wiring AGENTS.md,
 updating the process from evidence and running autonomously toward passing all
