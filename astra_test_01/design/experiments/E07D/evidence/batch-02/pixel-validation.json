@@ -1,0 +1,376 @@
+{
+  "geometry_witnesses": [
+    {
+      "case": "F01-open-ids",
+      "witness": "near-interior",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-open-ids",
+      "witness": "near-exterior",
+      "expected_object": "east-apron",
+      "actual_rgb": [
+        173,
+        89,
+        179
+      ],
+      "expected_rgb": [
+        173,
+        89,
+        179
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-open-ids",
+      "witness": "far-exterior",
+      "expected_object": "west-apron",
+      "actual_rgb": [
+        43,
+        223,
+        181
+      ],
+      "expected_rgb": [
+        43,
+        223,
+        181
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-open-ids",
+      "witness": "light-receiver",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-closed-ids",
+      "witness": "near-interior",
+      "expected_object": "east-leaf",
+      "actual_rgb": [
+        220,
+        172,
+        100
+      ],
+      "expected_rgb": [
+        220,
+        172,
+        100
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-closed-ids",
+      "witness": "near-exterior",
+      "expected_object": "east-apron",
+      "actual_rgb": [
+        173,
+        89,
+        179
+      ],
+      "expected_rgb": [
+        173,
+        89,
+        179
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-closed-ids",
+      "witness": "far-exterior",
+      "expected_object": "west-leaf",
+      "actual_rgb": [
+        90,
+        114,
+        102
+      ],
+      "expected_rgb": [
+        90,
+        114,
+        102
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F01-closed-ids",
+      "witness": "light-receiver",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-open-ids",
+      "witness": "near-interior",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-open-ids",
+      "witness": "near-exterior",
+      "expected_object": "east-apron",
+      "actual_rgb": [
+        173,
+        89,
+        179
+      ],
+      "expected_rgb": [
+        173,
+        89,
+        179
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-open-ids",
+      "witness": "far-exterior",
+      "expected_object": "west-apron",
+      "actual_rgb": [
+        43,
+        223,
+        181
+      ],
+      "expected_rgb": [
+        43,
+        223,
+        181
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-open-ids",
+      "witness": "light-receiver",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-closed-ids",
+      "witness": "near-interior",
+      "expected_object": "east-leaf",
+      "actual_rgb": [
+        220,
+        172,
+        100
+      ],
+      "expected_rgb": [
+        220,
+        172,
+        100
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-closed-ids",
+      "witness": "near-exterior",
+      "expected_object": "east-apron",
+      "actual_rgb": [
+        173,
+        89,
+        179
+      ],
+      "expected_rgb": [
+        173,
+        89,
+        179
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-closed-ids",
+      "witness": "far-exterior",
+      "expected_object": "west-leaf",
+      "actual_rgb": [
+        90,
+        114,
+        102
+      ],
+      "expected_rgb": [
+        90,
+        114,
+        102
+      ],
+      "error": 0,
+      "pass": true
+    },
+    {
+      "case": "F02-closed-ids",
+      "witness": "light-receiver",
+      "expected_object": "interior-soil",
+      "actual_rgb": [
+        161,
+        125,
+        191
+      ],
+      "expected_rgb": [
+        161,
+        125,
+        191
+      ],
+      "error": 0,
+      "pass": true
+    }
+  ],
+  "lights": [
+    {
+      "faction": "F01",
+      "point": [
+        3,
+        0,
+        0
+      ],
+      "samples": {
+        "open-neutral": [
+          114,
+          91,
+          70
+        ],
+        "open-warm": [
+          147,
+          108,
+          76
+        ],
+        "open-cool": [
+          122,
+          106,
+          91
+        ],
+        "closed-neutral": [
+          114,
+          91,
+          70
+        ],
+        "closed-warm": [
+          114,
+          91,
+          70
+        ],
+        "closed-cool": [
+          114,
+          91,
+          70
+        ]
+      },
+      "closed_blocks": true,
+      "open_changes": true
+    },
+    {
+      "faction": "F02",
+      "point": [
+        3,
+        0,
+        0
+      ],
+      "samples": {
+        "open-neutral": [
+          114,
+          91,
+          70
+        ],
+        "open-warm": [
+          147,
+          108,
+          76
+        ],
+        "open-cool": [
+          122,
+          106,
+          91
+        ],
+        "closed-neutral": [
+          114,
+          91,
+          70
+        ],
+        "closed-warm": [
+          114,
+          91,
+          70
+        ],
+        "closed-cool": [
+          114,
+          91,
+          70
+        ]
+      },
+      "closed_blocks": true,
+      "open_changes": true
+    }
+  ],
+  "bad_shift_centroid_source_px": 35.17177271965593,
+  "controls": {
+    "bad_order_detected": true,
+    "ignore_leaf_detected": true,
+    "shift_detected": true
+  },
+  "checks": {
+    "source_gpu_occlusion": true,
+    "closed_light": true,
+    "open_light": true,
+    "bad_order": true,
+    "bad_light": true,
+    "bad_shift": true
+  }
+}

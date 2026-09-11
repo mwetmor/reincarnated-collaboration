@@ -147,3 +147,8 @@ Two opaque material plates on exported geometry preserved source-camera exit wit
 ### E05V/E05H — inspect rear source geometry before blaming texture projection
 
 Eight fixed-camera source views exposed face-like marks on the rear head. New native closeups and category-ID renders proved the hair shell intersected the skull. A347-vertex radial clearance repair removed960 exposed-skin ROI pixels; the hide-hair negative control exposed4058. Original source/non-hair geometry preserved. This repairs scalp coverage, not painted pilot or gear quality. [Evidence](../../../../astra_test_01/design/experiments/E05H/REPORT.md).
+
+
+### E07D — sparse occlusion witnesses do not prove detailed surface ordering
+
+Exit/light witnesses passed while crate braces visibly disappeared behind their own faces under cell-centroid painter sorting. Neutral part IDs and correct state transitions do not prove per-pixel visibility. Test depth handling or source-baked nativeRGBA layers before adding more surface decoration. Lossless browser-evidence archival preserved decoded pixels; capture transport failures stayed failed, with allocation deviation and byte limits recorded. [Evidence](../../../../astra_test_01/design/experiments/E07D/REPORT.md).

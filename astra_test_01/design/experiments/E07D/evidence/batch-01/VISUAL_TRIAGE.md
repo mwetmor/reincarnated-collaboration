@@ -1,0 +1,1 @@
+Native chamber/interaction/light checks pass. Chest reads as open container. Crate diagonal brace was authored only on the far-facing side and is not visible in C; the visible faces still read as a plain banded box. Revision2 adds braces to all side faces within the original footprint; no collision/rules/source-pixel changes. Preserve this version.

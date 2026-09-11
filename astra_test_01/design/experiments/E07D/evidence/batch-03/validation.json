@@ -1,0 +1,1059 @@
+{
+  "records": [
+    {
+      "faction": "F01",
+      "resolution": 1,
+      "open": true,
+      "oneReward": true,
+      "pickup": true,
+      "blocked": true,
+      "traversed": true,
+      "exactRestore": true,
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              1.2,
+              2.8
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              3.6,
+              2.7
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "door",
+              "id": "west",
+              "state": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "door",
+              "id": "east",
+              "state": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                -3.5,
+                0.65
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "chest"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "chest"
+            },
+            "accepted": false,
+            "reason": "already-applied"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "pickup"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                -1.2,
+                2.8
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.2,
+                2.8
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "break"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.2,
+                2.8
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 0,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 0,
+                "type": "broken",
+                "id": "crate"
+              }
+            ],
+            "navVersion": 1
+          },
+          "time": 0,
+          "pending": null
+        }
+      },
+      "visible_parts": [
+        {
+          "id": "chest",
+          "part": "bottom-0",
+          "bounds": [
+            [
+              -4,
+              1.5,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.055
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-1",
+          "bounds": [
+            [
+              -4,
+              1.526,
+              0
+            ],
+            [
+              -3,
+              1.581,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "back-2",
+          "bounds": [
+            [
+              -4,
+              2.244999952316284,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "left-3",
+          "bounds": [
+            [
+              -4,
+              1.5,
+              0
+            ],
+            [
+              -3.945,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "right-4",
+          "bounds": [
+            [
+              -3.055,
+              1.5,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-5",
+          "bounds": [
+            [
+              -4,
+              2.299999952316284,
+              0.6612460087329005
+            ],
+            [
+              -3,
+              2.5452777234949564,
+              1.4678461673714023
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-band-6",
+          "bounds": [
+            [
+              -3.82,
+              1.501,
+              0.025
+            ],
+            [
+              -3.75,
+              1.512,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-band-7",
+          "bounds": [
+            [
+              -3.82,
+              2.4083288051476273,
+              0.6591622306008973
+            ],
+            [
+              -3.75,
+              2.557095416531103,
+              1.44874486782804
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-band-8",
+          "bounds": [
+            [
+              -3.25,
+              1.501,
+              0.025
+            ],
+            [
+              -3.18,
+              1.512,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-band-9",
+          "bounds": [
+            [
+              -3.25,
+              2.4083288051476273,
+              0.6591622306008973
+            ],
+            [
+              -3.18,
+              2.557095416531103,
+              1.44874486782804
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lock-10",
+          "bounds": [
+            [
+              -3.57,
+              1.501,
+              0.5200000119209289
+            ],
+            [
+              -3.43,
+              1.525,
+              0.6550000119209289
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "inside-11",
+          "bounds": [
+            [
+              -3.945,
+              1.555,
+              0.055
+            ],
+            [
+              -3.055,
+              2.244999952316284,
+              0.065
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-12",
+          "bounds": [
+            [
+              -0.5,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              -0.09999999999999998,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-13",
+          "bounds": [
+            [
+              -0.35,
+              2.824999952316284,
+              0.005
+            ],
+            [
+              0.05000000000000002,
+              2.8949999523162844,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-14",
+          "bounds": [
+            [
+              -0.2,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              0.2,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-15",
+          "bounds": [
+            [
+              -0.050000000000000044,
+              2.824999952316284,
+              0.005
+            ],
+            [
+              0.35,
+              2.8949999523162844,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-16",
+          "bounds": [
+            [
+              0.09999999999999998,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              0.5,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "faction": "F02",
+      "resolution": 1,
+      "open": true,
+      "oneReward": true,
+      "pickup": true,
+      "blocked": true,
+      "traversed": true,
+      "exactRestore": true,
+      "state": {
+        "doors": {
+          "west": "open",
+          "east": "open"
+        },
+        "actors": {
+          "mage": {
+            "id": "mage",
+            "point": [
+              1.2,
+              2.8
+            ],
+            "height": 2,
+            "radius": 0.35
+          },
+          "monster": {
+            "id": "monster",
+            "point": [
+              3.6,
+              2.7
+            ],
+            "height": 2.7,
+            "radius": 0.65
+          },
+          "npc": {
+            "id": "npc",
+            "point": [
+              -3.7,
+              -2.7
+            ],
+            "height": 2,
+            "radius": 0.35
+          }
+        },
+        "outcomes": [
+          {
+            "command": {
+              "type": "door",
+              "id": "west",
+              "state": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "door",
+              "id": "east",
+              "state": "open"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                -3.5,
+                0.65
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "chest"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "chest"
+            },
+            "accepted": false,
+            "reason": "already-applied"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "pickup"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "fixture_place",
+              "id": "mage",
+              "point": [
+                -1.2,
+                2.8
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.2,
+                2.8
+              ]
+            },
+            "accepted": false,
+            "reason": "blocked"
+          },
+          {
+            "command": {
+              "type": "prop_action",
+              "actor_id": "mage",
+              "action": "break"
+            },
+            "accepted": true,
+            "reason": "changed"
+          },
+          {
+            "command": {
+              "type": "move",
+              "id": "mage",
+              "point": [
+                1.2,
+                2.8
+              ]
+            },
+            "accepted": true,
+            "reason": "moved"
+          }
+        ],
+        "chamber": {
+          "schema": 1,
+          "state": {
+            "door": "locked",
+            "crate": "broken",
+            "chest": "looted",
+            "loot": "picked",
+            "rewards": [
+              "chest:reward:1"
+            ],
+            "picked": [
+              "chest:reward:1"
+            ],
+            "events": [
+              {
+                "time": 0,
+                "type": "reward",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 0,
+                "type": "pickup",
+                "id": "chest:reward:1"
+              },
+              {
+                "time": 0,
+                "type": "broken",
+                "id": "crate"
+              }
+            ],
+            "navVersion": 1
+          },
+          "time": 0,
+          "pending": null
+        }
+      },
+      "visible_parts": [
+        {
+          "id": "chest",
+          "part": "bottom-0",
+          "bounds": [
+            [
+              -4,
+              1.5,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.055
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-1",
+          "bounds": [
+            [
+              -4,
+              1.526,
+              0
+            ],
+            [
+              -3,
+              1.581,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "back-2",
+          "bounds": [
+            [
+              -4,
+              2.244999952316284,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "left-3",
+          "bounds": [
+            [
+              -4,
+              1.5,
+              0
+            ],
+            [
+              -3.945,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "right-4",
+          "bounds": [
+            [
+              -3.055,
+              1.5,
+              0
+            ],
+            [
+              -3,
+              2.299999952316284,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-5",
+          "bounds": [
+            [
+              -4,
+              2.299999952316284,
+              0.6612460087329005
+            ],
+            [
+              -3,
+              2.5452777234949564,
+              1.4678461673714023
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-band-6",
+          "bounds": [
+            [
+              -3.82,
+              1.501,
+              0.025
+            ],
+            [
+              -3.75,
+              1.512,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-band-7",
+          "bounds": [
+            [
+              -3.82,
+              2.4083288051476273,
+              0.6591622306008973
+            ],
+            [
+              -3.75,
+              2.557095416531103,
+              1.44874486782804
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "front-band-8",
+          "bounds": [
+            [
+              -3.25,
+              1.501,
+              0.025
+            ],
+            [
+              -3.18,
+              1.512,
+              0.680000011920929
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lid-band-9",
+          "bounds": [
+            [
+              -3.25,
+              2.4083288051476273,
+              0.6591622306008973
+            ],
+            [
+              -3.18,
+              2.557095416531103,
+              1.44874486782804
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "lock-10",
+          "bounds": [
+            [
+              -3.57,
+              1.501,
+              0.5200000119209289
+            ],
+            [
+              -3.43,
+              1.525,
+              0.6550000119209289
+            ]
+          ]
+        },
+        {
+          "id": "chest",
+          "part": "inside-11",
+          "bounds": [
+            [
+              -3.945,
+              1.555,
+              0.055
+            ],
+            [
+              -3.055,
+              2.244999952316284,
+              0.065
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-12",
+          "bounds": [
+            [
+              -0.5,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              -0.09999999999999998,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-13",
+          "bounds": [
+            [
+              -0.35,
+              2.824999952316284,
+              0.005
+            ],
+            [
+              0.05000000000000002,
+              2.8949999523162844,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-14",
+          "bounds": [
+            [
+              -0.2,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              0.2,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-15",
+          "bounds": [
+            [
+              -0.050000000000000044,
+              2.824999952316284,
+              0.005
+            ],
+            [
+              0.35,
+              2.8949999523162844,
+              0.035
+            ]
+          ]
+        },
+        {
+          "id": "crate",
+          "part": "broken-board-16",
+          "bounds": [
+            [
+              0.09999999999999998,
+              2.464999952316284,
+              0.005
+            ],
+            [
+              0.5,
+              2.5349999523162845,
+              0.035
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "encodings": [
+    {
+      "file": "F01-intact-r1.webp",
+      "source_png_sha256": "aa7dd1933ab2e2fd004370f8a6253c1b9b3202ab95da22d8ba13e043e152f9f1",
+      "webp_sha256": "2c91726c6603171c86d5387a1388a2dd26485e6bb8b12188bdb9e30f6765a214",
+      "pixels_sha256": "7de899e520dff8aca777e45e8610e222006a7d2168defdb84c8e0e9c8c7acc6d",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F01-chest-open-r1.webp",
+      "source_png_sha256": "88641d959b344570747e17cca5d1f0f5f402d47d6480c3a6c0aa4f1b93658b4e",
+      "webp_sha256": "048517a448eb6554aaeadda83dec67834e2c6d94ff41f189d1313002a326590f",
+      "pixels_sha256": "a3f2fea0466d1817bdfb80441b4cc61d89d0e639a442d26eba6b95afa224b181",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F01-picked-r1.webp",
+      "source_png_sha256": "e74806783b04e7d65fe1be0c1f7bcfcfa2e9b274fe96602abe4b3012c3b1f054",
+      "webp_sha256": "0df632f3bae749e980b4c151db88eed295cd8e88e012b64462ed914212d16e72",
+      "pixels_sha256": "348a36ae0fced612108a076d78342bbe8b780af2c4fbbb48fece6e4acaaf37a1",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F01-crate-broken-r1.webp",
+      "source_png_sha256": "ae37d62caae21f3b96fb356019a772cc050224093c8cec90312d3bdd6085865c",
+      "webp_sha256": "0cfc693d9cea189863bfb54f3df7f45fb7453f7206ef5a6180c40eac76fd5116",
+      "pixels_sha256": "7859cab8822e4557fca01ec3d2f650d1767b405fd3d08f9a2a15eba69fc2f127",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F01-restored-r1.webp",
+      "source_png_sha256": "2ec85b090c05d39165f6cfeae815b8b3e0a5d40218e5e0f3357fa862c8b5e6c9",
+      "webp_sha256": "7a1ec3e6eab2a0a697fdb247bc9ab41fb29ee9949999a878782c822a97a98efe",
+      "pixels_sha256": "616b73d7d7d553dcba0d89578437af04b446853796391b6ed38b1442a809f2e0",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F02-intact-r1.webp",
+      "source_png_sha256": "1a7777912a4c203949acb5004641fa04d7e14f6f37bc9279811a5237f00cae43",
+      "webp_sha256": "a64af57243c23d55e48616a70ff4bd77c4c84399e83acdca17089198a44f4447",
+      "pixels_sha256": "2e7f6278b2ecd7f62cb0cc2a8c210ba257a05bf18530e9e75ec4c36c372b7b85",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F02-chest-open-r1.webp",
+      "source_png_sha256": "0cb7182fc0f6cda920f3dc62aaa940c996f9f4d86579d2010acf81c4d83d748b",
+      "webp_sha256": "9a01b3fccbf39e993797749faccc69e0757a815c7ee874fcd20158a5e3a5673a",
+      "pixels_sha256": "07e2e28a1ef653236a069cc2b34406f85be4a6f285ed8e61a5a38516c4279fe7",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F02-picked-r1.webp",
+      "source_png_sha256": "859cd36ea8f612c755e205fde65efadf0776f2ecb3cdb35a0d3f5ecccf08b12e",
+      "webp_sha256": "cb9962bcf2633b3bc3bd0123cc2e4934725d08a7f19cf355cbc98592afaee52e",
+      "pixels_sha256": "12e76cd2041a03d8527b2461187c5832b0d96936135d43a3048dffa282606119",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F02-crate-broken-r1.webp",
+      "source_png_sha256": "156c30d37d75ab3b60b645f519daeecd1a0cef3fbd196f8bfad1ebc6ffba0e2c",
+      "webp_sha256": "f70f6c95b47b0f3d5021a2c23124a25423d0ce1f510df05ed385ef51ed76d735",
+      "pixels_sha256": "7d887c77c332f0fdbe85fdba87e2c4ee31c0b38ca5d0deaea6650f3dcbe778e9",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F02-restored-r1.webp",
+      "source_png_sha256": "09ec9117576ca9b6bdb3cb558f910cdf0e237a899f727d9df386599e5f455e80",
+      "webp_sha256": "58acf49e7f262d8d3e35ef3bdfb8b9731c3104ba879b88c6f2c7761799dafacf",
+      "pixels_sha256": "4e9f3b6b29f043b655ed29524300f38598138703eced83002390398f0755261d",
+      "dimensions": [
+        960,
+        640
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    },
+    {
+      "file": "F01-chest-open-r3.webp",
+      "source_png_sha256": "927b4e9abac58ab20151d8184c5f7ff43a401be9c8879bd32e2b8ab92faee885",
+      "webp_sha256": "2129d02ba22e5dc333ca013037c09a02c62fc6a3fecf0f282528260e2f454ae3",
+      "pixels_sha256": "4b85029abd33cefccb9296d1d5e791a6d1b4315976cfa26af2ab3aaf211fee62",
+      "dimensions": [
+        2880,
+        1920
+      ],
+      "mode": "RGBA",
+      "exact_pixels": true
+    }
+  ],
+  "errors": [
+    "Error: Lossless encoding \n    at snap (file:///Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07D/capture-remaining.mjs:4:549)\n    at async file:///Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07D/capture-remaining.mjs:4:1585"
+  ],
+  "checks": {},
+  "scope": "Complete missing prop-state coverage; do not repeat full source/door/light matrix"
+}

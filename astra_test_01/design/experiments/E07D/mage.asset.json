@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "E07D-repaired-head-idle-fixture",
+  "asset_type": "character_static_fixture",
+  "path_base": "./",
+  "projection_id": "C",
+  "direction": "world +u / SE candidate",
+  "frames": [
+    {
+      "id": "idle-0",
+      "source_path": "../E05H/evidence/batch-02/body/idle-000-h000-base.png",
+      "sha256": "a2bba454f0027c9709b45f73d14431be3b3bb015ab1ed3cf0bb05aeef6136ff9",
+      "duration_ms": 1000,
+      "pivot": [
+        255.99937744000022,
+        292.49869990799994
+      ],
+      "atlas_coordinates": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 512
+      },
+      "time_s": 0.0,
+      "contacts": {
+        "L": {
+          "world": [
+            0.052760299295186996,
+            0.14368702471256256,
+            -4.377216100692749e-08
+          ],
+          "min_z": -4.377216100692749e-08,
+          "stance": true
+        },
+        "R": {
+          "world": [
+            0.05276023969054222,
+            -0.14368703961372375,
+            -4.377216100692749e-08
+          ],
+          "min_z": -4.377216100692749e-08,
+          "stance": true
+        }
+      },
+      "sockets": {
+        "right_hand": [
+          233.44708251953125,
+          243.98963928222656
+        ]
+      },
+      "socket_world_blender": [
+        0.0729093849658966,
+        -0.316269189119339,
+        1.0046932697296143
+      ]
+    }
+  ],
+  "fps": 1,
+  "loop": false,
+  "duration_s": 1,
+  "anchor_space": "source_pixels",
+  "physical_height_m": 2,
+  "source_frame_vertical_body_height_px": 153.89987636063665,
+  "hitbox": {
+    "space": "logical_world_metres",
+    "shape": "conservative_square",
+    "radius": 0.35,
+    "height": 2
+  },
+  "emissive_mask_path": null,
+  "alpha_policy": "native_RGBA_from_Blender_Cycles",
+  "effects": {},
+  "fit_family": "wizard-rig35-v1",
+  "qualification": "Repaired source-head idle fixture; no motion/art pass",
+  "source_authoring": {
+    "path": "../E05H/inputs/head-shell-v1.blend",
+    "action": "E05M_idle",
+    "frame": 0
+  },
+  "sockets": {
+    "right_hand": {
+      "space": "source_pixels",
+      "values": "frames[].sockets.right_hand",
+      "semantic": "palm end of source Hand.R bone; no spell artwork yet"
+    }
+  }
+}

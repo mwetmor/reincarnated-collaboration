@@ -1,0 +1,19 @@
+{
+  "reason": "Owned Chrome jobs remained in browser.close after final capture receipts were written; terminating only verified capture roots and descendants",
+  "roots": [
+    45790,
+    45865
+  ],
+  "processes": [
+    {
+      "pid": 45790,
+      "ppid": 10433,
+      "command": "node astra_test_01/design/experiments/E07D/capture.mjs batch-01"
+    },
+    {
+      "pid": 45865,
+      "ppid": 10433,
+      "command": "node astra_test_01/design/experiments/E07D/capture.mjs batch-02"
+    }
+  ]
+}
