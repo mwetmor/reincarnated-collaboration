@@ -170,3 +170,7 @@ Narrower helmet plus explicit hair visibility improved fit, but47/96 actual Pixi
 ### 2026-09-11 · Native two-view success does not establish filtered eight-view transfer (E05O)
 
 128samples/no-denoise plus joint holdouts/hair-secondary-off passed12source comparisons but failed complete GPU transfer: corrected mask accumulation57/96fail, native-over34/96, direct-over46/96. Mask complexity did not buy qualification. Keep the source/body painting and fit tests, stop this unchanged RGBA reconstruction branch, research a depth-bearing or common-sample representation. Custom offscreen shaders require asymmetric orientation preflight; batch3 invertedY was invalid, preserved and corrected in batch4. [Evidence](../../../../astra_test_01/design/experiments/E05O/REPORT.md).
+
+### 2026-09-11 · Depth-bearing geometry supports sparse gear reuse in Pixi (E05J)
+
+After failed independent-RGBA reconstruction, unchanged source painting plus rest geometry/bone palettes and separate gear passed288GPU-vs-Blender-evaluated comparisons (MAEmax.314765; fractionerror>8max.012627). Three sparse poses only; not full art/animation qualification. Near.1/far100yielded54order-dependent pixels; range-validated10–40mclip made reverse pixel-exact. Verify depth precision against actual scene range, not a copied near plane. Pixi reserves mesh`uColor`asvec4; customvec3collision emittedGL1282despite correct witness pixels, fixed by a distinct name. [Evidence](../../../../astra_test_01/design/experiments/E05J/REPORT.md).

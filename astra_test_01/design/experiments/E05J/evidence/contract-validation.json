@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "all_asset_hashes": true,
+    "declared_little_endian": true,
+    "neutral_contract": true,
+    "body_and_gear_parts_separate": true,
+    "visibility_rules_explicit": true,
+    "three_sparse_pose_palettes": true,
+    "no_per_outfit_paint_frames": true,
+    "source_oracle": true,
+    "source_file_immutable": true,
+    "all_vertices_inside_diagnostic_clip": true
+  },
+  "camera_depth_range_m": [
+    22.208050608610932,
+    24.34064226259368
+  ],
+  "typed_asset_bytes": 10038136,
+  "texture_source_bytes": 8446727,
+  "sparse_palette_bytes": 6912,
+  "runtime_collage": {
+    "actors_per_image": 16,
+    "draw_meshes": [
+      192,
+      256
+    ],
+    "median_ms": 0.75,
+    "p95_ms": 1.899999976158142,
+    "max_ms": 2.899999976158142,
+    "scope": "composition CPU + synchronous GPU finish, includes cold shader/cache builds; not game frame-time qualification"
+  }
+}

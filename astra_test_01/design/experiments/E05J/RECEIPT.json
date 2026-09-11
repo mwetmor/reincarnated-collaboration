@@ -1,0 +1,37 @@
+{
+  "experiment": "E05J",
+  "started_at": "2026-09-11T15:01:59.864465+00:00",
+  "status": "SPARSE_DEPTH_GEOMETRY_GEAR_TRANSFER_PASS_FULL_ART_OPEN",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "export_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 60000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "export_revisions": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0,
+    "owned_bytes_before_index": 37641867
+  },
+  "scope": "Depth-bearing painted geometry research fallback in Pixi; Godot shipping target unchanged",
+  "preparation_failures": [
+    "Exporterv1 did not parse; no export output. v2syntax fixed and parsed before execution."
+  ],
+  "probe_failure": "Batch1 geometry/depth witnesses pass but GL_INVALID_OPERATION=1282 persists; do not qualify capability until diagnosed.",
+  "probe_resolution": "uColor collides with Pixi reserved vec4 mesh uniform. Rename uProbeColor: all7probe checks pass, GLerror0. Independent geometry oracle passes3poses.",
+  "depth_control": "54pixels change under reverse at near.1/far100. Finalbatch registers near10/far40 with full revalidation.",
+  "finished_at": "2026-09-11T15:17:25.636756+00:00",
+  "next_action": "Register E05Q native sampling/sharpness comparison: fixed E05J source art/geometry/C camera, vary antialiasing and material minification. No animation or roster expansion before full painted pilot.",
+  "verdicts": {
+    "source_geometry": "PASS30351samples",
+    "gpu_sparse_matrix": "PASS288/288",
+    "depth_draw_order": "PASS exact after clip precision control",
+    "negative_controls": "PASS both detected",
+    "contract": "PASS10",
+    "capability": "PASS7 corrected",
+    "full_art_lighting_animation": "UNQUALIFIED"
+  }
+}

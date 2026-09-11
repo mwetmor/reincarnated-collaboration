@@ -1,0 +1,1557 @@
+{
+  "schema_version": 1,
+  "asset_id": "E05J-wizard-depth-probe",
+  "coordinate_system": "right handed Blender world metres; C adapter maps worldY to -v",
+  "vertex_buffer": {
+    "path": "assets/vertices.bin",
+    "dtype": "float32",
+    "byte_order": "little",
+    "elements": 1032784,
+    "bytes": 4131136,
+    "sha256": "87233f5de394edaca1f91438a8401bf5c72cb3a78b229fb7a6ae439c328d6693"
+  },
+  "vertex_stride_float32": 16,
+  "attributes": {
+    "position": [
+      0,
+      3
+    ],
+    "normal": [
+      3,
+      3
+    ],
+    "uv": [
+      6,
+      2
+    ],
+    "joint_indices": [
+      8,
+      4
+    ],
+    "joint_weights": [
+      12,
+      4
+    ]
+  },
+  "index_buffer": {
+    "path": "assets/indices.bin",
+    "dtype": "uint32",
+    "byte_order": "little",
+    "elements": 313140,
+    "bytes": 1252560,
+    "sha256": "23d58e546488fcd7951f04d3b046160d897f356634e5f02cfb2f2ec4c42c7aec"
+  },
+  "parts": [
+    {
+      "object": "Tailored upper robe",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 0,
+      "index_count": 5760
+    },
+    {
+      "object": "Neck",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 5760,
+      "index_count": 1920
+    },
+    {
+      "object": "High collar",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 7680,
+      "index_count": 3552
+    },
+    {
+      "object": "Collar gold edge",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 11232,
+      "index_count": 600
+    },
+    {
+      "object": "Collar gold edge.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 11832,
+      "index_count": 600
+    },
+    {
+      "object": "Collar gold rim",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 12432,
+      "index_count": 5880
+    },
+    {
+      "object": "Robe sleeve L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 18312,
+      "index_count": 3744
+    },
+    {
+      "object": "Tailored shoulder L",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "index_start": 22056,
+      "index_count": 1584
+    },
+    {
+      "object": "Shoulder gold seam L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 23640,
+      "index_count": 672
+    },
+    {
+      "object": "Shoulder gold seam L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 24312,
+      "index_count": 672
+    },
+    {
+      "object": "Cuff gold piping L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 24984,
+      "index_count": 6240
+    },
+    {
+      "object": "Cuff gold piping L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 31224,
+      "index_count": 6240
+    },
+    {
+      "object": "Leather wrist L",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 37464,
+      "index_count": 960
+    },
+    {
+      "object": "Palm L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 38424,
+      "index_count": 960
+    },
+    {
+      "object": "Index finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 39384,
+      "index_count": 600
+    },
+    {
+      "object": "Middle finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 39984,
+      "index_count": 600
+    },
+    {
+      "object": "Ring finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 40584,
+      "index_count": 600
+    },
+    {
+      "object": "Little finger L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 41184,
+      "index_count": 600
+    },
+    {
+      "object": "Thumb L",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 41784,
+      "index_count": 720
+    },
+    {
+      "object": "Trousers L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 42504,
+      "index_count": 4992
+    },
+    {
+      "object": "Boot shaft L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 47496,
+      "index_count": 4224
+    },
+    {
+      "object": "Boot foot L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 51720,
+      "index_count": 3456
+    },
+    {
+      "object": "Boot sole L",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "index_start": 55176,
+      "index_count": 1920
+    },
+    {
+      "object": "Boot strap L",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 57096,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 63336,
+      "index_count": 564
+    },
+    {
+      "object": "Boot strap L.001",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 63900,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle L.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 70140,
+      "index_count": 564
+    },
+    {
+      "object": "Robe sleeve R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 70704,
+      "index_count": 3744
+    },
+    {
+      "object": "Tailored shoulder R",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "index_start": 74448,
+      "index_count": 1584
+    },
+    {
+      "object": "Shoulder gold seam R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 76032,
+      "index_count": 672
+    },
+    {
+      "object": "Shoulder gold seam R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 76704,
+      "index_count": 672
+    },
+    {
+      "object": "Cuff gold piping R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 77376,
+      "index_count": 6240
+    },
+    {
+      "object": "Cuff gold piping R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 83616,
+      "index_count": 6240
+    },
+    {
+      "object": "Leather wrist R",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 89856,
+      "index_count": 960
+    },
+    {
+      "object": "Palm R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 90816,
+      "index_count": 960
+    },
+    {
+      "object": "Index finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 91776,
+      "index_count": 600
+    },
+    {
+      "object": "Middle finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 92376,
+      "index_count": 600
+    },
+    {
+      "object": "Ring finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 92976,
+      "index_count": 600
+    },
+    {
+      "object": "Little finger R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 93576,
+      "index_count": 600
+    },
+    {
+      "object": "Thumb R",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 94176,
+      "index_count": 720
+    },
+    {
+      "object": "Trousers R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 94896,
+      "index_count": 4992
+    },
+    {
+      "object": "Boot shaft R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 99888,
+      "index_count": 4224
+    },
+    {
+      "object": "Boot foot R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 104112,
+      "index_count": 3456
+    },
+    {
+      "object": "Boot sole R",
+      "category": "body",
+      "slot": null,
+      "material": 5,
+      "index_start": 107568,
+      "index_count": 1920
+    },
+    {
+      "object": "Boot strap R",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 109488,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 115728,
+      "index_count": 564
+    },
+    {
+      "object": "Boot strap R.001",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 116292,
+      "index_count": 6240
+    },
+    {
+      "object": "Boot buckle R.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 122532,
+      "index_count": 564
+    },
+    {
+      "object": "Belt",
+      "category": "body",
+      "slot": null,
+      "material": 6,
+      "index_start": 123096,
+      "index_count": 864
+    },
+    {
+      "object": "Belt",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 123960,
+      "index_count": 960
+    },
+    {
+      "object": "Belt",
+      "category": "body",
+      "slot": null,
+      "material": 7,
+      "index_start": 124920,
+      "index_count": 864
+    },
+    {
+      "object": "Belt diamond buckle",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 125784,
+      "index_count": 564
+    },
+    {
+      "object": "Split robe Front.L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 126348,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Front.L0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 136668,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Front.L17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 138876,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Front.L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 141084,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Back.L",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 144444,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Back.L0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 154764,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Back.L17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 156972,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Back.L",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 159180,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Back.R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 162540,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Back.R0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 172860,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Back.R17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 175068,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Back.R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 177276,
+      "index_count": 3360
+    },
+    {
+      "object": "Split robe Front.R",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 180636,
+      "index_count": 10320
+    },
+    {
+      "object": "Panel piping Front.R0",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 190956,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel piping Front.R17",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 193164,
+      "index_count": 2208
+    },
+    {
+      "object": "Panel hem Front.R",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 195372,
+      "index_count": 3360
+    },
+    {
+      "object": "Central pointed tabard",
+      "category": "body",
+      "slot": null,
+      "material": 0,
+      "index_start": 198732,
+      "index_count": 396
+    },
+    {
+      "object": "Tabard edging",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 199128,
+      "index_count": 864
+    },
+    {
+      "object": "Tabard edging.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 199992,
+      "index_count": 864
+    },
+    {
+      "object": "Tome page block",
+      "category": "body",
+      "slot": null,
+      "material": 8,
+      "index_start": 200856,
+      "index_count": 564
+    },
+    {
+      "object": "Tome purple cover",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "index_start": 201420,
+      "index_count": 564
+    },
+    {
+      "object": "Tome purple cover.001",
+      "category": "body",
+      "slot": null,
+      "material": 3,
+      "index_start": 201984,
+      "index_count": 564
+    },
+    {
+      "object": "Tome leather spine",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 202548,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 203112,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 203676,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.002",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 204240,
+      "index_count": 564
+    },
+    {
+      "object": "Tome gold corner.003",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 204804,
+      "index_count": 564
+    },
+    {
+      "object": "Tome spine binding",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 205368,
+      "index_count": 564
+    },
+    {
+      "object": "Tome spine binding.001",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 205932,
+      "index_count": 564
+    },
+    {
+      "object": "Tome retaining strap",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 206496,
+      "index_count": 564
+    },
+    {
+      "object": "Tome clasp",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 207060,
+      "index_count": 564
+    },
+    {
+      "object": "Tome belt loop",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 207624,
+      "index_count": 600
+    },
+    {
+      "object": "Tome belt loop.001",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208224,
+      "index_count": 600
+    },
+    {
+      "object": "Page edge",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208824,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.001",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208860,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.002",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208896,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.003",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208932,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.004",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 208968,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.005",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209004,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.006",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209040,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.007",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209076,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.008",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209112,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.009",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209148,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.010",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209184,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.011",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209220,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.012",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209256,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.013",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209292,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.014",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209328,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.015",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209364,
+      "index_count": 36
+    },
+    {
+      "object": "Page edge.016",
+      "category": "body",
+      "slot": null,
+      "material": 4,
+      "index_start": 209400,
+      "index_count": 36
+    },
+    {
+      "object": "Tome diamond sigil",
+      "category": "body",
+      "slot": null,
+      "material": 2,
+      "index_start": 209436,
+      "index_count": 864
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 6,
+      "index_start": 210300,
+      "index_count": 12864
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 223164,
+      "index_count": 18816
+    },
+    {
+      "object": "Sculpted head",
+      "category": "body",
+      "slot": null,
+      "material": 7,
+      "index_start": 241980,
+      "index_count": 12096
+    },
+    {
+      "object": "Nose sculpt",
+      "category": "body",
+      "slot": null,
+      "material": 6,
+      "index_start": 254076,
+      "index_count": 264
+    },
+    {
+      "object": "Nose sculpt",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 254340,
+      "index_count": 312
+    },
+    {
+      "object": "Ear",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 254652,
+      "index_count": 1584
+    },
+    {
+      "object": "Ear.001",
+      "category": "body",
+      "slot": null,
+      "material": 1,
+      "index_start": 256236,
+      "index_count": 1584
+    },
+    {
+      "object": "Swept hair mass",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 257820,
+      "index_count": 13824
+    },
+    {
+      "object": "Loose tied hair bun",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 271644,
+      "index_count": 1584
+    },
+    {
+      "object": "Swept hair lock",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 273228,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.001",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 274284,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.002",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 275340,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.003",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 276396,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.004",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 277452,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.005",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 278508,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.006",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 279564,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.007",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 280620,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.008",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 281676,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.009",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 282732,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.010",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 283788,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.011",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 284844,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.012",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 285900,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.013",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 286956,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.014",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 288012,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.015",
+      "category": "hair",
+      "slot": null,
+      "material": 10,
+      "index_start": 289068,
+      "index_count": 1056
+    },
+    {
+      "object": "Swept hair lock.016",
+      "category": "hair",
+      "slot": null,
+      "material": 9,
+      "index_start": 290124,
+      "index_count": 1056
+    },
+    {
+      "object": "Temple loose lock",
+      "category": "body",
+      "slot": null,
+      "material": 9,
+      "index_start": 291180,
+      "index_count": 840
+    },
+    {
+      "object": "Nape loose lock",
+      "category": "body",
+      "slot": null,
+      "material": 9,
+      "index_start": 292020,
+      "index_count": 600
+    },
+    {
+      "object": "Temple loose lock.001",
+      "category": "body",
+      "slot": null,
+      "material": 9,
+      "index_start": 292620,
+      "index_count": 840
+    },
+    {
+      "object": "Nape loose lock.001",
+      "category": "body",
+      "slot": null,
+      "material": 9,
+      "index_start": 293460,
+      "index_count": 600
+    },
+    {
+      "object": "GEAR_helmet",
+      "category": "gear",
+      "slot": "head",
+      "material": 11,
+      "index_start": 294060,
+      "index_count": 816
+    },
+    {
+      "object": "GEAR_helmet",
+      "category": "gear",
+      "slot": "head",
+      "material": 12,
+      "index_start": 294876,
+      "index_count": 2016
+    },
+    {
+      "object": "GEAR_pauldron-L",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 11,
+      "index_start": 296892,
+      "index_count": 1062
+    },
+    {
+      "object": "GEAR_pauldron-L",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 12,
+      "index_start": 297954,
+      "index_count": 174
+    },
+    {
+      "object": "GEAR_pauldron-R",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 11,
+      "index_start": 298128,
+      "index_count": 1062
+    },
+    {
+      "object": "GEAR_pauldron-R",
+      "category": "gear",
+      "slot": "shoulder",
+      "material": 12,
+      "index_start": 299190,
+      "index_count": 174
+    },
+    {
+      "object": "GEAR_cuirass",
+      "category": "gear",
+      "slot": "torso",
+      "material": 11,
+      "index_start": 299364,
+      "index_count": 7008
+    },
+    {
+      "object": "GEAR_cuirass",
+      "category": "gear",
+      "slot": "torso",
+      "material": 12,
+      "index_start": 306372,
+      "index_count": 6768
+    }
+  ],
+  "materials": [
+    {
+      "id": 0,
+      "name": "E05T generated painted cloth",
+      "texture_path": "assets/08edafe0c03d6ad5.png",
+      "uv_layer": "E05TProjected",
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.8299999833106995,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 1,
+      "name": "Warm fair skin",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.7735730530007222,
+        0.6382254386230457,
+        0.5468542726376465
+      ],
+      "roughness": 0.6399999856948853,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 2,
+      "name": "Antique gold | raised piping",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.7735730530007222,
+        0.626209676390788,
+        0.34064343116362994
+      ],
+      "roughness": 0.5,
+      "metallic": 0.5,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 3,
+      "name": "Royal plum | woven cloth",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.2209163599788248,
+        0.12835403856590433,
+        0.2891896841446965
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 4,
+      "name": "Dark brown leather",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.23479508418617517,
+        0.17184408839511128,
+        0.11774103874999695
+      ],
+      "roughness": 0.6200000047683716,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 5,
+      "name": "Charcoal trousers",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.26006747994260604,
+        0.24009367041806257,
+        0.22935726095216635
+      ],
+      "roughness": 0.699999988079071,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 6,
+      "name": "Reference front | original image atlas",
+      "texture_path": "assets/afe5ec8c42a342a5.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 7,
+      "name": "Reference rear | original turnaround atlas",
+      "texture_path": "assets/3ec32912072635fa.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.7599999904632568,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 8,
+      "name": "Ivory parchment",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.8488705716824038,
+        0.7857769270190482,
+        0.6576277105937022
+      ],
+      "roughness": 0.8500000238418579,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 9,
+      "name": "Chestnut hair",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.13816992893600605,
+        0.08610420714256253,
+        0.05070871606938731
+      ],
+      "roughness": 0.7200000286102295,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 10,
+      "name": "Chestnut hair ridges",
+      "texture_path": null,
+      "uv_layer": null,
+      "color_srgb": [
+        0.18631535300984847,
+        0.12315819885651544,
+        0.07846784507516008
+      ],
+      "roughness": 0.6800000071525574,
+      "metallic": 0.0,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 11,
+      "name": "E05A antique brass",
+      "texture_path": "assets/ee9ed36ee073ed1c.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.4399999976158142,
+      "metallic": 0.6000000238418579,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    },
+    {
+      "id": 12,
+      "name": "E05A ivory enamel",
+      "texture_path": "assets/ee9ed36ee073ed1c.png",
+      "uv_layer": null,
+      "color_srgb": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.5299999713897705,
+      "metallic": 0.25,
+      "emissive_mask_path": null,
+      "alpha": "opaque geometry; texture alpha not silhouette"
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/08edafe0c03d6ad5.png",
+      "sha256": "08edafe0c03d6ad5dc131111eccaaeb3fa7a984342c6109f38e840ab9607f581",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1742465,
+      "source_name": "texture-v2.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "assets/afe5ec8c42a342a5.png",
+      "sha256": "afe5ec8c42a342a59f54e09723ec18221b3c01cd08d793453055e133ba251117",
+      "dimensions": [
+        1223,
+        1286
+      ],
+      "bytes": 1679916,
+      "source_name": "Codex Image Sep 7, 2026, 08_12_34 PM.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "assets/3ec32912072635fa.png",
+      "sha256": "3ec32912072635faf2a3849e125c77e7a941baa0afda96d5455766a27253d527",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 2077029,
+      "source_name": "Codex Image Sep 7, 2026, 08_13_21 PM.png",
+      "colorspace": "sRGB"
+    },
+    {
+      "path": "assets/ee9ed36ee073ed1c.png",
+      "sha256": "ee9ed36ee073ed1cc01b40b48b630942c471853af4bee55059e4c22486144a67",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 2947317,
+      "source_name": "material-v1.png",
+      "colorspace": "sRGB"
+    }
+  ],
+  "bones": [
+    "Root",
+    "Hips",
+    "Spine",
+    "Chest",
+    "Neck",
+    "Head",
+    "UpperArm.L",
+    "Forearm.L",
+    "Hand.L",
+    "Index.L",
+    "Middle.L",
+    "Ring.L",
+    "Little.L",
+    "Thumb.L",
+    "UpperArm.R",
+    "Forearm.R",
+    "Hand.R",
+    "Index.R",
+    "Middle.R",
+    "Ring.R",
+    "Little.R",
+    "Thumb.R",
+    "Thigh.L",
+    "Shin.L",
+    "Foot.L",
+    "Toe.L",
+    "Coat.Front.L",
+    "Coat.Back.L",
+    "Thigh.R",
+    "Shin.R",
+    "Foot.R",
+    "Toe.R",
+    "Coat.Front.R",
+    "Coat.Back.R",
+    "Tabard",
+    "__static_rig_transform__"
+  ],
+  "poses": [
+    {
+      "id": "idle-000",
+      "clip": "idle",
+      "frame": 0,
+      "time_s": 0.0,
+      "palette": {
+        "path": "assets/idle-000-palette.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 576,
+        "bytes": 2304,
+        "sha256": "a97e816b1797efd2cb236015d6d490c87ce3c838f6d9df8992245fc858be813b"
+      },
+      "oracle": {
+        "path": "assets/idle-000-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 387294,
+        "bytes": 1549176,
+        "sha256": "0507a0b293010b3ce7c9750c4a4beec5a6b251782839a54d07f1c793d9fae39a"
+      }
+    },
+    {
+      "id": "walk-012",
+      "clip": "walk",
+      "frame": 12,
+      "time_s": 0.2,
+      "palette": {
+        "path": "assets/walk-012-palette.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 576,
+        "bytes": 2304,
+        "sha256": "368950105958ad71300a8e1e5d89b37384c817aab5654a509ec49af19009a882"
+      },
+      "oracle": {
+        "path": "assets/walk-012-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 387294,
+        "bytes": 1549176,
+        "sha256": "4a03d492d48f3b945b24b7143a43bf5d73a8152d2900708c7b89e613495b87f1"
+      }
+    },
+    {
+      "id": "cast-036",
+      "clip": "cast",
+      "frame": 36,
+      "time_s": 0.6,
+      "palette": {
+        "path": "assets/cast-036-palette.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 576,
+        "bytes": 2304,
+        "sha256": "52228d959def229bfc4f9006e81e313c54f0ccc77446965bfba1b80fe8b835fc"
+      },
+      "oracle": {
+        "path": "assets/cast-036-oracle.bin",
+        "dtype": "float32",
+        "byte_order": "little",
+        "elements": 387294,
+        "bytes": 1549176,
+        "sha256": "46977872961147f89ac55ea9a9567a0e59caae909a3a9fbd70e2821e8055e4cb"
+      }
+    }
+  ],
+  "fps": 60,
+  "directions": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ],
+  "anchor_world": [
+    0,
+    0,
+    0
+  ],
+  "hitbox": {
+    "height_m": 2,
+    "radius_m": 0.26
+  },
+  "atlas": null,
+  "visibility": {
+    "head_visible": {
+      "exclude_category": [
+        "hair"
+      ]
+    },
+    "head_hidden": {
+      "exclude_slot": [
+        "head"
+      ]
+    }
+  },
+  "qualification": "Sparse source/representation test only; no full painted pilot or production animation qualification"
+}

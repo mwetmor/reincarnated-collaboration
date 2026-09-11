@@ -1,0 +1,43 @@
+{
+  "console": [
+    "PixiJS Warning:  Attribute aUV is not present in the shader, but is present in the geometry. Unable to infer attribute details.",
+    "PixiJS Warning:  Attribute aUV is not present in the shader, but is present in the geometry. Unable to infer attribute details.",
+    "[.WebGL-0x104000dde00] GL_INVALID_OPERATION: glUniform4f: Uniform size does not match uniform method.",
+    "[.WebGL-0x104000dde00] GL_INVALID_OPERATION: glUniform4f: Uniform size does not match uniform method.",
+    "Failed to load resource: the server responded with a status of 404 (File not found)",
+    "PixiJS Warning:  Attribute aUV is not present in the shader, but is present in the geometry. Unable to infer attribute details.",
+    "PixiJS Warning:  Attribute aUV is not present in the shader, but is present in the geometry. Unable to infer attribute details."
+  ],
+  "errors": [],
+  "calls": [
+    {
+      "name": "bindVertexArray",
+      "args": [
+        "[object WebGLVertexArrayObject]"
+      ],
+      "error": 1282
+    },
+    {
+      "name": "bindVertexArray",
+      "args": [
+        "[object WebGLVertexArrayObject]"
+      ],
+      "error": 1282
+    }
+  ],
+  "probe": {
+    "reverse": false,
+    "wrong": false,
+    "depth": true,
+    "pixel": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "depth_bits": 24,
+    "vertex_uniform_vectors": 1024,
+    "max_vertex_attribs": 16,
+    "gl_error": 0
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "records": [
+    {
+      "name": "normal",
+      "reverse": false,
+      "wrong": false,
+      "depth": true,
+      "pixel": [
+        0,
+        255,
+        0,
+        255
+      ],
+      "depth_bits": 24,
+      "vertex_uniform_vectors": 1024,
+      "max_vertex_attribs": 16,
+      "gl_error": 0
+    },
+    {
+      "name": "reverse",
+      "reverse": true,
+      "wrong": false,
+      "depth": true,
+      "pixel": [
+        0,
+        255,
+        0,
+        255
+      ],
+      "depth_bits": 24,
+      "vertex_uniform_vectors": 1024,
+      "max_vertex_attribs": 16,
+      "gl_error": 0
+    },
+    {
+      "name": "wrong-bone",
+      "reverse": false,
+      "wrong": true,
+      "depth": true,
+      "pixel": [
+        24,
+        35,
+        49,
+        255
+      ],
+      "depth_bits": 24,
+      "vertex_uniform_vectors": 1024,
+      "max_vertex_attribs": 16,
+      "gl_error": 0
+    },
+    {
+      "name": "no-depth",
+      "reverse": false,
+      "wrong": false,
+      "depth": false,
+      "pixel": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "depth_bits": 24,
+      "vertex_uniform_vectors": 1024,
+      "max_vertex_attribs": 16,
+      "gl_error": 0
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "matrix_array_and_orientation": true,
+    "depth_order_invariance": true,
+    "wrong_bone_detected": true,
+    "no_depth_detected": true,
+    "palette_capacity": true,
+    "depth_available": true,
+    "no_errors": true
+  }
+}

@@ -1,0 +1,212 @@
+00:00.603  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05A/inputs/fitted-gear-v2.blend"
+/tmp/e05j-intake.py:5: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=m.node_tree.nodes.get('Principled BSDF')if m.use_nodes else None
+/tmp/e05j-intake.py:6: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  rows.append({'name':name,'base_color_links':[(l.from_node.name,l.from_socket.name)for l in bs.inputs['Base Color'].links]if bs else None,'images':[{'node':n.name,'name':n.image.name if n.image else None,'size':list(n.image.size)if n.image else None,'vector_links':[(l.from_node.bl_idname,l.from_node.name,l.from_socket.name)for l in n.inputs['Vector'].links]}for n in m.node_tree.nodes if n.bl_idname=='ShaderNodeTexImage']if m.use_nodes else []})
+{
+  "meshes": 132,
+  "source_vertices": 50521,
+  "materials": [
+    {
+      "name": "E05T generated painted cloth",
+      "base_color_links": [
+        [
+          "Image Texture",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "texture-v2.png",
+          "size": [
+            1536,
+            1024
+          ],
+          "vector_links": [
+            [
+              "ShaderNodeUVMap",
+              "UV Map",
+              "UV"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Warm fair skin",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Antique gold | raised piping",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Royal plum | woven cloth",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Dark brown leather",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Charcoal trousers",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Reference front | original image atlas",
+      "base_color_links": [
+        [
+          "Image Texture.001",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "Codex Image Sep 7, 2026, 08_12_34 PM.png",
+          "size": [
+            1223,
+            1286
+          ],
+          "vector_links": []
+        },
+        {
+          "node": "Image Texture.001",
+          "name": "Codex Image Sep 7, 2026, 08_12_34 PM.png",
+          "size": [
+            1223,
+            1286
+          ],
+          "vector_links": []
+        }
+      ]
+    },
+    {
+      "name": "Reference rear | original turnaround atlas",
+      "base_color_links": [
+        [
+          "Image Texture.001",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "Codex Image Sep 7, 2026, 08_13_21 PM.png",
+          "size": [
+            1536,
+            1024
+          ],
+          "vector_links": []
+        },
+        {
+          "node": "Image Texture.001",
+          "name": "Codex Image Sep 7, 2026, 08_13_21 PM.png",
+          "size": [
+            1536,
+            1024
+          ],
+          "vector_links": []
+        }
+      ]
+    },
+    {
+      "name": "Ivory parchment",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Chestnut hair",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "Chestnut hair ridges",
+      "base_color_links": [],
+      "images": []
+    },
+    {
+      "name": "E05A ivory enamel",
+      "base_color_links": [
+        [
+          "Image Texture",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "material-v1.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "vector_links": []
+        }
+      ]
+    },
+    {
+      "name": "E05A antique brass",
+      "base_color_links": [
+        [
+          "Image Texture",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "material-v1.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "vector_links": []
+        }
+      ]
+    },
+    {
+      "name": "E05A blue steel",
+      "base_color_links": [
+        [
+          "Image Texture",
+          "Color"
+        ]
+      ],
+      "images": [
+        {
+          "node": "Image Texture",
+          "name": "material-v1.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "vector_links": []
+        }
+      ]
+    }
+  ],
+  "armature_preserve_volume": [
+    [
+      "Tailored upper robe",
+      false
+    ],
+    [
+      "Neck",
+      false
+    ],
+    [
+      "High collar",
+      false
+    ]
+  ]
+}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

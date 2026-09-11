@@ -87,3 +87,5 @@ E04L's recorded storage-limit deviation.
 E05A checkpoint: [fitted gear and failed layer transfer](experiments/E05A/review.html), [report](experiments/E05A/REPORT.md).47/96fail; body/actions unchanged. Next: E05O layer source diagnosis; full art still unqualified.
 
 E05O [coverage review](experiments/E05O/review.html) and [report](experiments/E05O/REPORT.md): all3methods fail full matrix; independent-RGBA branch stopped. Next: E05J depth-bearing geometry capability/gear probe in Pixi. Full painted pilot stays open.
+
+E05J [shared rig / gear review](experiments/E05J/review.html) and [report](experiments/E05J/REPORT.md): depth-bearing source representation passes288sparse comparisons and corrected exact depth ordering in Pixi. Full art/sampling/animation still open. Next E05Q native sampling/clarity comparison.
