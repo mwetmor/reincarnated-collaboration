@@ -123,3 +123,5 @@ E07U [batched door review](experiments/E07U/review.html):64pixel-exact source im
 E07A [current pilot/chamber review](experiments/E07A/review.html):864source and sampleddepth checks pass; runtimewalk contact FAIL3.260cm versus2cm. Captureguardfailure preserved andmissingcases recoveredlosslessly. E05E fractional sampling preflight next per PROGRESS.json.
 
 E05E [fractional sampler preflight](experiments/E05E/review.html): both source-agreement failures retained; actual Bézier source also penetrates between keys. E05F explicit interpolation contract next per PROGRESS.json.
+
+E05F [fractional motion review](experiments/E05F/review.html): explicit source interpolation preserves keys and integer poses; 312 source and 864 raster checks pass, recorded walk contact ≤0.507 mm. Normal ablation remains insensitive. E07B current-pilot floor shadow next per PROGRESS.json.

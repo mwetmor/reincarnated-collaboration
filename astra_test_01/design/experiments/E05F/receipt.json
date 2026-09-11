@@ -1,0 +1,42 @@
+{
+  "experiment": "E05F",
+  "started_at": "2026-09-11T19:54:10.278020+00:00",
+  "status": "SCOPED_PASS",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "source_revisions": 2,
+    "consumer_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "source_revisions": 1,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "dependencies": {
+    "E05Z/inputs/gait-v1.blend": "c72775a8ab711d32c0feaaede6cd8a4218daa0ca78cb856bc58f8e7bb07e4e37",
+    "E05N/character.asset.json": "6c672743dc19ae986198972d9b195118dab4bb8811183e638f01835f8e0cfc22",
+    "E05E/preflight-b.py": "d3f118f4ffa74e02fcf07ca8c3635e74964a91b4caa5d4b47707dee0efd5456f"
+  },
+  "source_gate": "PASS312 fractional source/physical samples; maxsource1.45micrometres,maxbone1.03micrometres;216integerpalettes exact,76650key times/values unchanged.",
+  "completed_at": "2026-09-11T20:13:45.622134+00:00",
+  "active_minutes": 19.589068566666665,
+  "results": {
+    "source": "312/312 and exact 216 integer palettes; 76650 key times/values unchanged",
+    "neutral_sampler": "PASS; fractional matrix max 6.557e-7",
+    "raster": "864/864 PASS; normal ablation insensitive",
+    "runtime_contact": "3/3 walks PASS, max 0.507mm; old quantized control 32.668mm FAIL as intended",
+    "review": "18 images / 9 videos loaded; scoped limitations visible"
+  },
+  "lessons": [
+    "Explicit source interpolation is part of the portable asset contract, not an implementation convenience.",
+    "Continuous root motion needs a pose sampled at the same time. Actual recorded root/pose reconstruction detects frame quantization drift.",
+    "A raster pass with insensitive normal ablation does not justify deleting correction data."
+  ],
+  "next_action": "E07B current fractional pilot floor-shadow proof.",
+  "owned_disk_bytes": 29939523
+}

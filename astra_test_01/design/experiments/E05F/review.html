@@ -1,0 +1,49 @@
+<!doctype html><html><meta charset="utf-8"><title>E05F · Fractional motion</title><style>body{background:#192128;color:#eee;font:16px system-ui;margin:32px}a{color:#9ed7ff}.pair{display:flex;gap:16px;overflow:auto}figure{margin:10px 0}img{max-width:100%;height:auto}video{width:960px;max-width:100%}code{color:#bde5d2}h2{margin-top:40px}</style><h1>E05F · Fractional source and runtime motion</h1><p>Godot is the shipping target; Pixi is the test harness.</p><p><b>Scoped PASS:</b> 312 fractional source checks, 864 rendered comparisons, exact 216 integer palettes and all three recorded walk contacts. No final art, full animation state machine, lighting or suite completion claim.</p><p>Original Bézier source and E05E failures remain unchanged. This separate source copy changes only interpolation; all 76,650 key times and values are preserved. The manifest describes raw local channels, normalized quaternion interpolation, bone hierarchy and source hashes without renderer types.</p><p>Maximum render MAE 0.00907; fraction of pixels over 8 error 0.000964. Shift and wrong-pose controls fail as expected. <b>Normal ablation is insensitive</b> under this chamber light policy; it is not evidence that correction data can be removed.</p><p>Recorded walk contact drift: starter 0.354 mm; advanced/head 0.380 mm; advanced/hair 0.507 mm. Continuous timing control 0.506 mm; old quantized-pose control 32.668 mm fails the 20 mm limit.</p><p><a href="REPORT.md">Report</a> · <a href="motion.asset.json">Neutral motion manifest</a> · <a href="evidence/batch-01/validation.json">All raster measurements and hashes</a> · <a href="evidence/batch-02/runtime-contact.json">Actual playback contact</a></p>
+<h2>walk-012_5 · advanced-head · native raster</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-walk-012_5-h135-advanced-head-warm-skin.png"><img src="evidence/batch-01/r1-walk-012_5-h135-advanced-head-warm-skin.png" width="400"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-walk-012_5-h135-advanced-head-warm-oracle.png"><img src="evidence/batch-01/r1-walk-012_5-h135-advanced-head-warm-oracle.png" width="400"></a></figure>
+</div>
+<h2>walk-012_5 · advanced-head · fresh 3× raster, not enlarged native pixels</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-walk-012_5-h135-advanced-head-warm-skin.png"><img src="evidence/batch-01/r3-walk-012_5-h135-advanced-head-warm-skin.png" width="1200"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-walk-012_5-h135-advanced-head-warm-oracle.png"><img src="evidence/batch-01/r3-walk-012_5-h135-advanced-head-warm-oracle.png" width="1200"></a></figure>
+</div>
+<h2>cast-036_5 · advanced-hair · native raster</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-cast-036_5-h135-advanced-hair-warm-skin.png"><img src="evidence/batch-01/r1-cast-036_5-h135-advanced-hair-warm-skin.png" width="400"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-cast-036_5-h135-advanced-hair-warm-oracle.png"><img src="evidence/batch-01/r1-cast-036_5-h135-advanced-hair-warm-oracle.png" width="400"></a></figure>
+</div>
+<h2>cast-036_5 · advanced-hair · fresh 3× raster, not enlarged native pixels</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-cast-036_5-h135-advanced-hair-warm-skin.png"><img src="evidence/batch-01/r3-cast-036_5-h135-advanced-hair-warm-skin.png" width="1200"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-cast-036_5-h135-advanced-hair-warm-oracle.png"><img src="evidence/batch-01/r3-cast-036_5-h135-advanced-hair-warm-oracle.png" width="1200"></a></figure>
+</div>
+<h2>idle-024_5 · starter · native raster</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-idle-024_5-h135-starter-warm-skin.png"><img src="evidence/batch-01/r1-idle-024_5-h135-starter-warm-skin.png" width="400"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 400 × 380 pixels</figcaption><a href="evidence/batch-01/r1-idle-024_5-h135-starter-warm-oracle.png"><img src="evidence/batch-01/r1-idle-024_5-h135-starter-warm-oracle.png" width="400"></a></figure>
+</div>
+<h2>idle-024_5 · starter · fresh 3× raster, not enlarged native pixels</h2><div class="pair">
+<figure><figcaption>skin · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-idle-024_5-h135-starter-warm-skin.png"><img src="evidence/batch-01/r3-idle-024_5-h135-starter-warm-skin.png" width="1200"></a></figure>
+<figure><figcaption>oracle · heading 135° · warm light · 1200 × 1140 pixels</figcaption><a href="evidence/batch-01/r3-idle-024_5-h135-starter-warm-oracle.png"><img src="evidence/batch-01/r3-idle-024_5-h135-starter-warm-oracle.png" width="1200"></a></figure>
+</div>
+<h2>Normal-speed chamber playback</h2><p>Full native 960 × 640 recording, continuous root motion. The partition correctly occludes the later walk; gameplay cutaway/outline remains a separate visibility test. Character floor/contact shadows have not yet been carried onto this source.</p>
+<h3>idle-starter</h3><video controls loop preload="metadata" src="evidence/batch-02/idle-starter.webm"></video>
+<h3>walk-starter</h3><video controls loop preload="metadata" src="evidence/batch-02/walk-starter.webm"></video>
+<h3>cast-starter</h3><video controls loop preload="metadata" src="evidence/batch-02/cast-starter.webm"></video>
+<h3>idle-advanced-head</h3><video controls loop preload="metadata" src="evidence/batch-02/idle-advanced-head.webm"></video>
+<h3>walk-advanced-head</h3><video controls loop preload="metadata" src="evidence/batch-02/walk-advanced-head.webm"></video>
+<h3>cast-advanced-head</h3><video controls loop preload="metadata" src="evidence/batch-02/cast-advanced-head.webm"></video>
+<h3>idle-advanced-hair</h3><video controls loop preload="metadata" src="evidence/batch-02/idle-advanced-hair.webm"></video>
+<h3>walk-advanced-hair</h3><video controls loop preload="metadata" src="evidence/batch-02/walk-advanced-hair.webm"></video>
+<h3>cast-advanced-hair</h3><video controls loop preload="metadata" src="evidence/batch-02/cast-advanced-hair.webm"></video>
+<h2>Retained negative controls</h2>
+<h3>shift</h3><div class="pair">
+<figure><figcaption>skin · native raster</figcaption><img src="evidence/batch-01/r1-control-shift-skin.png" width="400"></figure>
+<figure><figcaption>oracle · native raster</figcaption><img src="evidence/batch-01/r1-control-shift-oracle.png" width="400"></figure>
+</div>
+<h3>wrong-pose</h3><div class="pair">
+<figure><figcaption>skin · native raster</figcaption><img src="evidence/batch-01/r1-control-wrong-pose-skin.png" width="400"></figure>
+<figure><figcaption>oracle · native raster</figcaption><img src="evidence/batch-01/r1-control-wrong-pose-oracle.png" width="400"></figure>
+</div>
+<h3>normals</h3><div class="pair">
+<figure><figcaption>skin · native raster</figcaption><img src="evidence/batch-01/r1-control-normals-skin.png" width="400"></figure>
+<figure><figcaption>oracle · native raster</figcaption><img src="evidence/batch-01/r1-control-normals-oracle.png" width="400"></figure>
+</div>
+<h2>Next action</h2><p>E07B: carry the previously bounded floor-shadow method onto the current fractional pilot and reprove source-derived shadow witnesses, changed pose/outfit/root and stale/missing controls. Full start/stop/steering, cloth, roster, richer faction architecture, reusable VFX, actual combat binding and hardware scale remain open.</p></html>

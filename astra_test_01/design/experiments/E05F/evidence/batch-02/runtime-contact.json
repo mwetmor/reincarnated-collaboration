@@ -1,0 +1,91 @@
+{
+  "videos": [
+    {
+      "outfit": "starter",
+      "groups": [
+        {
+          "side_cycle": "L/0",
+          "samples": 34,
+          "max_pairwise_drift_m": 0.0003542815240525004,
+          "pass": true
+        },
+        {
+          "side_cycle": "R/1",
+          "samples": 20,
+          "max_pairwise_drift_m": 0.0002972286454701669,
+          "pass": true
+        }
+      ],
+      "minimum_sole_z": -0.000348345389111028,
+      "descriptors_match": true,
+      "pass": true
+    },
+    {
+      "outfit": "advanced-head",
+      "groups": [
+        {
+          "side_cycle": "L/0",
+          "samples": 34,
+          "max_pairwise_drift_m": 0.0003798115412487835,
+          "pass": true
+        },
+        {
+          "side_cycle": "R/1",
+          "samples": 19,
+          "max_pairwise_drift_m": 0.00032179907751223594,
+          "pass": true
+        }
+      ],
+      "minimum_sole_z": -0.0003793663714617007,
+      "descriptors_match": true,
+      "pass": true
+    },
+    {
+      "outfit": "advanced-hair",
+      "groups": [
+        {
+          "side_cycle": "L/0",
+          "samples": 32,
+          "max_pairwise_drift_m": 0.000506930053005044,
+          "pass": true
+        },
+        {
+          "side_cycle": "R/1",
+          "samples": 19,
+          "max_pairwise_drift_m": 0.00042538520965438464,
+          "pass": true
+        }
+      ],
+      "minimum_sole_z": -0.0004975932223106709,
+      "descriptors_match": true,
+      "pass": true
+    }
+  ],
+  "controls": [
+    {
+      "quantized": false,
+      "maximum_drift_m": 0.0005064464417014,
+      "pass": true
+    },
+    {
+      "quantized": true,
+      "maximum_drift_m": 0.032668031843291506,
+      "pass": false
+    }
+  ],
+  "sole_unique_vertices": {
+    "L": 322,
+    "R": 322
+  },
+  "checks": {
+    "all_three_recorded_walks": true,
+    "continuous_control_pass": true,
+    "old_quantized_control_detected": true
+  },
+  "scope": "Skins unique neutral sole vertices with the same engine-neutral sampler at actual recorded fractional times. Applies actual accepted root points and heading; lowest source-equivalent sole support plane within 1e-5m. Unique positions plus joint/weight tuple remove duplicated mesh corners without weighting the centroid by triangulation. No source frame contact lookup or root quantization.",
+  "bindings": {
+    "vertices": "3337fa3fb386d14b180d093977eb95fac0f995a7d7a8a8d9418418a3bb3e9b94",
+    "motion_source": "97ba05c49412aa8f3f9e972096f613425f036634cd22b54be4d5b7cc302666b9",
+    "playback_sha256": "fb29e3576bda14b5e0583941b7aa0eb0a8a3a6246cb53c31f5f863ba35b3928b"
+  }
+}
