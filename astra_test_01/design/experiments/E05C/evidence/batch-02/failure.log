@@ -1,0 +1,11 @@
+00:00.629  blend            | Read blend: "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05C/inputs/short-garment-v1.blend"
+/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05C/render.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('E05C neutral authoring world');world.use_nodes=True;world.node_tree.nodes['Background'].inputs['Color'].default_value=(.65,.65,.65,1);world.node_tree.nodes['Background'].inputs['Strength'].default_value=.5;scene.world=world
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E05C/render.py", line 22, in <module>
+    frames=[0,24,48,72]if batch=='batch-01'else list(range(0,96,2));records=[];sample_path=HERE/'evidence/batch-02/walk-000.png';sample_bytes=sample_path.stat().st_size if sample_path.exists()else 1000000;reserved=int(sample_bytes*2*len(frames));existing=sum(p.stat().st_size for p in HERE.rglob('*')if p.is_file());assert existing+reserved<=100000000,('capacity',existing,reserved)
+                                                                                                                                                                                                                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('capacity', 5686123, 96000000)
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:31:22)
+
+Blender quit

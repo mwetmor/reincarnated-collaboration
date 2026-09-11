@@ -1,0 +1,9 @@
+# E05T — painted material projection on controlled geometry
+
+Different hypothesis from E05P cutout movement and E05K generated poses: generate painting only for a fixed front/back source texture guide, then map it onto the controlled E05C geometry. No generated animation or moving-frame repaint. The generated painting may fail UV/side coverage or baked-light compatibility. Do not assume success.
+
+Fixed: E05C garment/soles/rig action, physical reference2m, C gameplay camera, .8s/2mps walk. Guide cameras are orthographic front/back only for texture authoring; they do not replace cameraC in gameplay. Painted art target F04 clarity; F03 room glow remains environment scope. Original face/hair materials remain for identity. Test only clothing material surfaces; this does not authorize replacing the established character or production style.
+
+Limits:2built-in imagegen calls (one candidate, one targeted repair only if identified),60active minutes,4capture batches,100MB,zero external paid calls. Built-in price unknown. Preserve raw guide/painting/hash/pose/camera/UV maps. No API fallback, seeds or masks assumed.
+
+Freeze checks before generation: source silhouette/layout must remain sufficiently aligned that sampled visible clothing does not acquire background pixels. Use deliberately contrasted magenta background for visibility and reject visible magenta leakage; do not key or recolor the image to force a pass. UVs use actual camera projections and per-face front/back assignment, no hidden per-pose recentering. Side stretching, seams, baked-light double shading, white rims, loss of face identity or unreadable cloth planes are failures to inspect at50/150px and normal speed. Actual source contacts/attachments/camera inherit immutable hashes only where geometry is unchanged; verify geometry and action byte-data equality before reusing their verdicts. Qualify one direction before expanding.

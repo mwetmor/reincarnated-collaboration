@@ -1,0 +1,18 @@
+{
+  "experiment": "E05T",
+  "status": "RENDERING_TEXTURE_V2_FULL_CYCLE",
+  "started_at": "2026-09-11T11:14:57.012895+00:00",
+  "limits": {
+    "active_minutes": 60,
+    "capture_batches": 4,
+    "disk_bytes": 100000000,
+    "generation_calls": 2
+  },
+  "used": {
+    "generation_calls": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "next_action": "Render front/back texture guide from actual source geometry, inspect before imagegen.",
+  "failure": "V1 contains108\u2013128 visible magenta pixels in each of four native diagnostic poses. Projection samples background near garment/boot sides; source silhouette preservation alone does not supply side padding."
+}

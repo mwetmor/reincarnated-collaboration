@@ -1,0 +1,27 @@
+{
+  "experiment": "E05C",
+  "status": "SCOPED_GARMENT_VISIBILITY_AND_CONTACT_PASS; PAINTED_STYLE_UNQUALIFIED",
+  "started_at": "2026-09-11T11:07:32.021276+00:00",
+  "limits": {
+    "active_minutes": 90,
+    "garment_revisions": 2,
+    "material_revisions": 2,
+    "capture_batches": 4,
+    "disk_bytes": 100000000,
+    "generation_calls": 0
+  },
+  "used": {
+    "garment_revisions": 1,
+    "material_revisions": 1,
+    "capture_batches": 4,
+    "generation_calls": 0,
+    "paid_service_usd": 0
+  },
+  "visual_target": "../../VISUAL_TARGET.md",
+  "next_action": "E05T guided painted-texture projection onto unchanged controlled rig; preregister before tool use.",
+  "preserved_failures": [
+    "evidence/batch-02/failure.log: reservation used nonexistent batch02 sample and conservative1MB fallback, exceeded capacity before any rendering. Corrected to actual batch01 sample plus10MB ID allowance. No limit increased."
+  ],
+  "finished_at": "2026-09-11T11:14:57.012213+00:00",
+  "elapsed_wall_minutes": 7.416519500000001
+}

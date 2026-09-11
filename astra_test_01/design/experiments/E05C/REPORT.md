@@ -1,0 +1,13 @@
+# E05C — short garment clears support boots; painted style remains unqualified
+
+[Browser review](review.html). Matt selected F04 gameplay clarity with F03 environment detail and local light response; see [visual target](../../VISUAL_TARGET.md). This supersedes the mixed-scene recommendation.
+
+Nine actual rig/control assertions pass. Saved-clip sole drift is0.000002411m, book attachment drift0.000000477m, bone-length residual0.000000934m. Actual detached-book mesh control moves the measured attachment0.150000096m and is rejected. The first verifier used only an arithmetic detached-offset check; that inadequate instrument is retained in evidence/verify-v1.py and replaced with actual mesh mutation/evaluation. No art or source-rig geometry is silently moved to meet contacts.
+
+Across48 sampled poses, the shortened panels leave at least9.28 opaque-equivalent supporting-boot pixels at50px body reference; restored long-panel control reaches0. Both use the exact same camera, depth ordering and action. This pixel floor detects concealment; native color inspection still matters. Color frames and six browser/JSON/video checks pass delivery. The source footage exposes both boots, though the torso is still stiff and the material/silhouette treatment remains simpler than F04. Do not promote it to a finished painted gait or modular gear pass.
+
+Candidate1 raises all split-panel/trim vertices proportionally toward the belt and shortens the front tabard, retaining the original soles/action. Material1 replaces cloth image projections with matte slate cloth while retaining the original face. It demonstrates clearer surfaces, but the plain material appearance lacks the selected painted reference's costume construction and authored detail. No floor/wall light qualification follows from this character test.
+
+Capture batch02 was rejected by its reservation guard before rendering: it looked for a nonexistent batch02 sample and used a conservative1MB fallback, reserving96MB beyond the100MB cap. The corrected batch03 used the actual batch01 sample plus10MB ID allowance; limits were unchanged. All four capture slots are now used. One garment and one material revision were used; zero imagegen or paid calls. Original E05B .blend and old failures remain unchanged.
+
+Next materially different method: separately register an imagegen-painted texture projection onto the verified source rig, with fixed geometry/camera/motion and explicit UV/background-leak inspection. Do not repeat cutout deformation or generated pose keys. Painted textures are a hypothesis: side stretch, baked lighting and pose-independent material consistency may fail. Full animation/gear/VFX expansion still requires a source-art pilot pass.
