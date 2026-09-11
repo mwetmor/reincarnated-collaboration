@@ -1,0 +1,6 @@
+import bpy,json,collections,hashlib
+from pathlib import Path
+p=Path(__file__).resolve().parent;rig=bpy.data.objects['WizardRig'];rows=[]
+for clip in ['idle','walk','cast']:
+ a=bpy.data.actions['E05M_'+clip];curves=[f for layer in a.layers for strip in layer.strips for bag in strip.channelbags for f in bag.fcurves];counts=collections.Counter(k.interpolation for f in curves for k in f.keyframe_points);handles=collections.Counter(k.handle_left_type for f in curves for k in f.keyframe_points);rows.append({'clip':clip,'curves':len(curves),'interpolation':dict(counts),'left_handle_types':dict(handles),'selected_curves':[{'path':f.data_path,'index':f.array_index,'first_two_keys':[{'co':list(k.co),'left':list(k.handle_left),'right':list(k.handle_right),'interpolation':k.interpolation}for k in list(f.keyframe_points)[:2]],'half_value':f.evaluate(.5)}for f in curves if 'Thigh.L'in f.data_path and 'rotation_quaternion'in f.data_path]})
+(p/'evidence/curve-inventory.json').write_text(json.dumps({'actions':rows,'source_unchanged':hashlib.sha256(Path(bpy.data.filepath).read_bytes()).hexdigest()==json.loads((p/'receipt.json').read_text())['dependencies']['E05Z/inputs/gait-v1.blend']},indent=2)+'\n');print([(r['clip'],r['interpolation'])for r in rows])

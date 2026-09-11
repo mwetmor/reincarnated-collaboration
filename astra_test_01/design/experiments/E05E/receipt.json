@@ -1,0 +1,44 @@
+{
+  "experiment": "E05E",
+  "started_at": "2026-09-11T19:40:03.213747+00:00",
+  "status": "BOTH_SAMPLERS_SOURCE_AGREEMENT_FAIL",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "sampler_candidates": 2,
+    "consumer_builds": 2,
+    "capture_batches": 4,
+    "disk_bytes": 120000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "sampler_candidates": 2,
+    "consumer_builds": 0,
+    "capture_batches": 1,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 12.224908866666668,
+    "owned_bytes_before_index": 18972188
+  },
+  "dependencies": {
+    "E05Z/inputs/gait-v1.blend": "c72775a8ab711d32c0feaaede6cd8a4218daa0ca78cb856bc58f8e7bb07e4e37",
+    "E05N/export.py": "cbbdad1f396856c7046e44eabc5f30d5047668ced3856fdc9b575209866a37fb",
+    "E05N/character.asset.json": "6c672743dc19ae986198972d9b195118dab4bb8811183e638f01835f8e0cfc22",
+    "E07A/evidence/batch-03/runtime-contact.json": "ffa78d4e8b0dc6f13c00f27d2a230a3088d8095b2139ecdbada32381a3a1ba14"
+  },
+  "candidate_a": "FAIL116/312source samples;maxshape8.992mm>1mm,maxbone1.312mm>1mm. Contacts2.42micrometresPASS, sourceintegerpalettesexact. PreserveA;BlocalSRT/slerp secondregisteredcandidate.",
+  "finished_at": "2026-09-11T19:52:16.708279+00:00",
+  "next_action": "E05F new source interpolation contract: LINEAR channels/normalized quaternion components; preserve all integerkeys/geometry/timing; samefractional source andphysical gates before runtime.",
+  "verdicts": {
+    "A": "FAIL116/312;source8.992mm,bone1.312mm;contactsPASS",
+    "B": "FAIL136/312source8.985mm; bone12.11micrometres/contact.5073mm PASS",
+    "source_gap": "BEZIER keys; originalbetween-keysole\u22121.4615mm violates1mm despiteintegerPASS",
+    "consumer_raster": "NOT RUN duefailedsourcegate"
+  },
+  "commands": [
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python preflight-a.py",
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python preflight-b.py",
+    "blender -b ../E05Z/inputs/gait-v1.blend --python-exit-code 1 --python inspect-curves.py",
+    "python3 build-review.py",
+    "node review-check.mjs"
+  ]
+}

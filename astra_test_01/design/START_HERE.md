@@ -121,3 +121,5 @@ E07T [continuous door review](experiments/E07T/review.html): partial collision/g
 E07U [batched door review](experiments/E07U/review.html):64pixel-exact source images and local smooth motion pass after preserving the first batching failure. E07A current painted-pilot/chamber integration next per PROGRESS.json.
 
 E07A [current pilot/chamber review](experiments/E07A/review.html):864source and sampleddepth checks pass; runtimewalk contact FAIL3.260cm versus2cm. Captureguardfailure preserved andmissingcases recoveredlosslessly. E05E fractional sampling preflight next per PROGRESS.json.
+
+E05E [fractional sampler preflight](experiments/E05E/review.html): both source-agreement failures retained; actual Bézier source also penetrates between keys. E05F explicit interpolation contract next per PROGRESS.json.
