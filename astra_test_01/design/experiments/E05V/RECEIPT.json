@@ -1,0 +1,31 @@
+{
+  "experiment": "E05V",
+  "status": "TURNAROUND_VISUAL_FAIL_EXPANSION_STOPPED",
+  "started_at": "2026-09-11T13:30:04.662852+00:00",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "source": "../E05G/inputs/gear-v1.blend",
+  "source_sha256": "3dbfab3187d280f179e11c5c49cdb4836ea6014c9e45d5f2bfd144c1cfb86595",
+  "next_action": "Review existing16 idle views at50/150px over3backgrounds; do not render80frame cast/gear expansion. Source-head diagnosis next.",
+  "finished_at": "2026-09-11T13:35:19.602480+00:00",
+  "not_run": [
+    "80-frame cast/gear source expansion",
+    "eight-view layer composition",
+    "gear shift negative control"
+  ],
+  "verdicts": {
+    "eight_idle_source_rotations": "PASS geometry only",
+    "turnaround_art": "FAIL",
+    "source_of_rear_head_marks": "INDETERMINATE pending native close-up",
+    "review_delivery": "PASS3 browser and3 saved-review checks"
+  }
+}
