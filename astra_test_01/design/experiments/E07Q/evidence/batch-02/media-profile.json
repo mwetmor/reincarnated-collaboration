@@ -1,0 +1,47 @@
+{
+  "media": [
+    {
+      "variant": "A",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "nb_read_frames": "46"
+          }
+        ],
+        "format": {
+          "duration": "1.908990"
+        }
+      },
+      "runtime_observations": 91
+    },
+    {
+      "variant": "B",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 960,
+            "height": 640,
+            "nb_read_frames": "45"
+          }
+        ],
+        "format": {
+          "duration": "1.945166"
+        }
+      },
+      "runtime_observations": 90
+    }
+  ],
+  "composition_ms": {
+    "median": 20.399999976158142,
+    "p95": 22.69999998807907,
+    "max": 43.10000002384186,
+    "samples": 181
+  },
+  "scope": "CPU composition observations; not total GPU frame time or minimum hardware. Encoded video omits some observed updates. Inspection uses verified frame5/15/25/35, 200x200physical crop[450,230]."
+}

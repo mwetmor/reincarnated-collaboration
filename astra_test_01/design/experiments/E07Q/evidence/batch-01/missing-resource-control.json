@@ -1,0 +1,219 @@
+{
+  "records": [
+    {
+      "label": "diagnostic",
+      "pixels": [
+        [
+          0,
+          255,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 0,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": false,
+          "always": false
+        },
+        "allocation_rgba_depth_resolve_bytes_arithmetic": 294912
+      }
+    },
+    {
+      "label": "material",
+      "pixels": [
+        [
+          0,
+          0,
+          255,
+          255
+        ],
+        [
+          128,
+          64,
+          128,
+          255
+        ],
+        [
+          0,
+          0,
+          255,
+          255
+        ]
+      ],
+      "gl_error": 0,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": false,
+          "omitWorld": false,
+          "always": false
+        },
+        "allocation_rgba_depth_resolve_bytes_arithmetic": 294912
+      }
+    },
+    {
+      "label": "missing-world",
+      "pixels": [
+        [
+          0,
+          255,
+          0,
+          255
+        ],
+        [
+          0,
+          255,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 0,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": true,
+          "always": false
+        },
+        "allocation_rgba_depth_resolve_bytes_arithmetic": 294912
+      }
+    },
+    {
+      "label": "always-on",
+      "pixels": [
+        [
+          255,
+          255,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 0,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": false,
+          "always": true
+        },
+        "allocation_rgba_depth_resolve_bytes_arithmetic": 294912
+      }
+    },
+    {
+      "label": "world-behind",
+      "pixels": [
+        [
+          0,
+          255,
+          0,
+          255
+        ],
+        [
+          255,
+          0,
+          0,
+          255
+        ],
+        [
+          0,
+          0,
+          0,
+          255
+        ]
+      ],
+      "gl_error": 0,
+      "snapshot": {
+        "pilot_meshes": 1,
+        "world_meshes": 1,
+        "dimensions": [
+          64,
+          64
+        ],
+        "settings": {
+          "enabled": true,
+          "variant": "A",
+          "diagnostic": true,
+          "omitWorld": false,
+          "always": false,
+          "worldDepth": 0.5
+        },
+        "allocation_rgba_depth_resolve_bytes_arithmetic": 294912
+      }
+    }
+  ],
+  "checks": {
+    "visible_green": true,
+    "hidden_red": true,
+    "outside_black": true,
+    "alpha_composite": true,
+    "visible_unchanged": true,
+    "missing_world_detected": true,
+    "always_on_detected": true,
+    "world_depth_reversal": false,
+    "no_gl": true,
+    "no_errors": true
+  },
+  "errors": [],
+  "console": []
+}

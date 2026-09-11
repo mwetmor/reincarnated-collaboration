@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T21:49:40.389853+00:00",
+  "updated": "2026-09-11T21:55:50.004924+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07Q",
+  "active_experiment": "E07M",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07Q named-resource materialization repair; one consumer build, stronger uniform/depth capability, unchanged768source visibility witnesses and negative controls, then A/B actual playback/review if passing. Preserve E07P empty-mask failure; E07J working chamber.",
+  "next_action": "Register E07M layout-data portal clearance revision for2.7mmonster versus current2.5mlintel. Derive taller panel/frame/track from a3.2maperture; prove both actor footprints, locked/closed/open/occupied states and source geometry. Then faction portal materials, retaining F01 dark-pocket failure.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -232,7 +232,9 @@
     "experiments/E07O/REPORT.md",
     "experiments/E07O/review.html",
     "experiments/E07P/REPORT.md",
-    "experiments/E07P/review.html"
+    "experiments/E07P/review.html",
+    "experiments/E07Q/REPORT.md",
+    "experiments/E07Q/review.html"
   ],
   "decisions_pending": [
     {
@@ -364,7 +366,8 @@
     "E07H raw2xdensity passes1302source samples plus controls; corrected2xdensity still fails2armor samples. Raw selection not yet default; interactions/motion and full self-shadow/style remain open.",
     "E07J promotes scoped shared hard-shadow chamber. Some pilot witness groups unavailable, full self-shadow/style unqualified; plain architecture/darkF01pocket/oldNPC-monster/hiddenplayer remain. Next E07O selective visibility.",
     "E07O two-build capability cap reached: multisample depth repaired, uColor vec3 collides with Pixi mesh uniform4f. No chamber visibility expansion; selective aid unqualified.",
-    "E07P mask capability passes but actor integration fails480/768sourcewitnesses: non-enumerable shader resources were omitted. Named-resource materialization diagnosed, no visibility aid promoted."
+    "E07P mask capability passes but actor integration fails480/768sourcewitnesses: non-enumerable shader resources were omitted. Named-resource materialization diagnosed, no visibility aid promoted.",
+    "E07Q selective B indicator passes768source samples, controls, fullframe-exposed invariance andA/Bcrossings. NPC/monster sprite/translucent occluders, ROIallocation, fullart still unqualified. Current2.5mportal blocks2.7mmonster; E07M layout revision next."
   ],
   "running_jobs": [
     {
@@ -408,7 +411,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07P/receipt.json",
+  "current_receipt": "experiments/E07Q/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
@@ -482,16 +485,16 @@
     "review": "experiments/E08N/review.html"
   },
   "chamber_working_renderer": {
-    "experiment": "E07J",
-    "adapter": "experiments/E07J/pixi-adapter/index.mjs",
-    "review": "experiments/E07J/review.html",
-    "shadow_policy": "experiments/E07J/shadow.json",
-    "scope": "1302available source shadows; actual door/chest/crate/raised toggles and3outfit walks; default raw2xdensity. Full art/self-shadow/visibility unqualified.",
-    "previous": "E07C",
+    "experiment": "E07Q",
+    "adapter": "experiments/E07Q/pixi-adapter/index.mjs",
+    "review": "experiments/E07Q/review.html",
+    "shadow_policy": "experiments/E07Q/shadow.json",
+    "scope": "E07J shadow/interaction proof plus768visibility samples, controls and two actual crossings. Full chamber art/general self-shadow/occluder coverage unqualified.",
+    "previous": "E07J",
     "motion": "E05F",
-    "module": "experiments/E07J/pixi-adapter/index.mjs",
+    "module": "experiments/E07Q/pixi-adapter/index.mjs",
     "sim": "experiments/E07T/sim/index.mjs",
-    "status": "SCOPED_SHARED_SHADOW_AND_INTERACTIONS_PASS",
+    "status": "SCOPED_SHARED_SHADOW_AND_SELECTIVE_VISIBILITY_PASS",
     "full_chamber_qualified": false,
     "pilot_candidate": {
       "module": "experiments/E05F/pixi-adapter/painted-actor.mjs",
@@ -499,6 +502,7 @@
       "motion": "experiments/E05F/motion.asset.json",
       "status": "SOURCE_RASTER_RECORDED_CONTACT_PASS",
       "review": "experiments/E05F/review.html"
-    }
+    },
+    "effects": "experiments/E07Q/effects.json"
   }
 }

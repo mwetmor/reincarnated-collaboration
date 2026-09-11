@@ -143,3 +143,5 @@ E07J [selected shared-shadow chamber](experiments/E07J/review.html): all1,302 av
 E07O [visibility capability checkpoint](experiments/E07O/review.html): two failed builds preserved. Matching multisample depth fixes mask pixels; custom uColor collision still fails GL. E07P namespace repair and source visibility proof next. E07J remains working chamber.
 
 E07P [empty actor-mask failure](experiments/E07P/review.html): namespace/depth capability repaired, but480/768real source witnesses fail. Non-enumerable resource accessors diagnosed; E07Q binding repair and stronger preflight next. E07J remains working chamber.
+
+E07Q [selective visibility review](experiments/E07Q/review.html): B selected after768source witnesses, negative controls and actual crossings. Working chamber E07Q; visible-player images unchanged. Next E07M taller layout-data portal for the2.7mmonster, then faction materials. Full suite remains partial.

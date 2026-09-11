@@ -1,0 +1,46 @@
+{
+  "experiment": "E07Q",
+  "started_at": "2026-09-11T21:50:22.896016+00:00",
+  "status": "PASS_SCOPED_PLAYER_VISIBILITY",
+  "limits": {
+    "active_minutes": 40,
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 1,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 5.451815133333333,
+    "disk_bytes_before_index": 73000608
+  },
+  "prior_visibility_builds": 4,
+  "cumulative_visibility_builds": 5,
+  "dependencies": {
+    "E07P/pixi-adapter/visibility.mjs": "952521e8a7beaa75749fd2c633f3de522c959f6172edd60d03e1a99b7c55128e",
+    "E07P/evidence/source-visibility.json": "6059e5de65bd013d53ad36ac06a99eaa48b08905e6fabc031f33a1084dffdddb",
+    "E07P/evidence/batch-02/resource-diagnosis.json": "4b1dca85c188482f3364b78bfd33f73ea68d2cf30a698b6dc27e62ac283681de"
+  },
+  "ended_at": "2026-09-11T21:55:50.004924+00:00",
+  "results": {
+    "capability": "PASS including depth reversal",
+    "missing_binding_control": "DETECTED",
+    "source_passed": 768,
+    "source_total": 768,
+    "exposed_fullframe_exact_comparisons": 8,
+    "crossings": "PASS A/B",
+    "selected": "B thin amber outline/faint fill",
+    "composition_p95_ms": 22.7,
+    "review": "PASS",
+    "working_chamber": "E07Q"
+  },
+  "lessons": [
+    "Materialized shader accessor bindings fix actual rig masks; stronger depth reversal detects old omitted-binding control.",
+    "Same opaque geometry in full/visible camera masks yields selective hidden-player aid with all768source witnesses passing.",
+    "Complete exposed frames are unchanged, avoiding an always-on asset edge; B is clearer than broad A fill in observed crossing.",
+    "FullviewportMSAA masks are costly; native44.24MB/fresh398.13MB arithmetic is not production residency proof."
+  ]
+}
