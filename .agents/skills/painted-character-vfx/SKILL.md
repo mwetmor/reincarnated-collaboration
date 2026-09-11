@@ -1,6 +1,6 @@
 ---
 name: painted-character-vfx
-description: Create consistent painted directional character sprites, character animations and matching animated spell VFX, with measured asset gates and engine-ready packaging. Use for ASTRA sprite tests and related painted raster asset production.
+description: Plan, produce and verify painted game characters, modular gear, animation, VFX and interactive painted environments. Use for ASTRA asset tests and the painted-world suite, with measured gates and engine-ready packaging.
 ---
 
 # Painted characters and animated VFX
@@ -8,6 +8,23 @@ description: Create consistent painted directional character sprites, character 
 Read the user's asset brief and [measured lessons](references/measured-lessons.md).
 For the active ASTRA campaign, also read [campaign](references/astra-campaign.md).
 Keep this skill as the single workflow source; AGENTS.md only routes here.
+
+## Select the workstream before acting
+
+For the painted-world suite, read its
+[continuation entrypoint](../../../astra_test_01/design/START_HERE.md) and current
+progress first. It owns the architecture, hypotheses, research gates and session
+protocol. Treat the recovered Godot camera as a candidate, not a painted-camera
+lock. World behavior comes from explicit spatial/state data aligned with the art;
+generated pixels alone do not establish collision, navigation or occlusion.
+Persistent-layer animation and gear reuse require transfer evidence before scale.
+
+The production guidance below records the original sprite workflow and reusable
+quality checks. Its fixed counts and generation method apply where the original
+brief requires them; do not use them to pre-decide the new suite's research.
+Do not resume run-03 repair generation merely because its historical state exists.
+Record hypotheses in the suite plan; add generalized skill lessons only after
+the documented experiment supports them.
 
 ## Establish the contract
 

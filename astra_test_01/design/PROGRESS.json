@@ -1,0 +1,59 @@
+{
+  "suite": "ASTRA_TEST_02_PAINTED_WORLD",
+  "schema_version": 1,
+  "updated": "2026-09-10",
+  "status": "PLANNING_HANDOFF",
+  "active_experiment": "E01",
+  "gates": {
+    "G0": "PASS",
+    "G1": "NOT_RUN",
+    "G2": "NOT_RUN",
+    "G3": "NOT_RUN",
+    "G4": "NOT_RUN",
+    "G5": "NOT_RUN",
+    "G6": "NOT_RUN",
+    "G7": "NOT_RUN"
+  },
+  "next_action": "Execute E01: locate, provenance-check and inspect native gameplay exemplars from Diablo II, PoE1, Grim Dawn and Last Epoch; produce the labelled camera/projection/floor-interaction comparison and shortlist. Use SOURCE_INTAKE.md for existing leads.",
+  "completed_artifacts": [
+    "START_HERE.md",
+    "ARCHITECTURE_PLAN.md",
+    "EXPERIMENTS.md",
+    "SESSION_PROTOCOL.md",
+    "SOURCE_INTAKE.md",
+    "FACTION_KEY.md",
+    "CAMERA_BASELINE.md"
+  ],
+  "decisions_pending": [
+    {"id": "D01", "decision": "Shared painted projection and gameplay scale", "owner": "Matt, after E01 and candidate visuals", "blocks": "final art profile"},
+    {"id": "D02", "decision": "Shared paint/material/lighting response and faction allowances", "owner": "Matt, after visual boards", "blocks": "production style lock"},
+    {"id": "D03", "decision": "Starter outfit included in three tiers or additional", "owner": "Matt", "blocks": "final gear inventory count"},
+    {"id": "D04", "decision": "Approximately 50 uniques are items or complete sets", "owner": "Matt", "blocks": "final gear inventory count"},
+    {"id": "D05", "decision": "Runtime hardware/resolution budgets and generation ceilings", "owner": "Agent proposes from local evidence; Matt resolves material spending/target choices", "blocks": "performance qualification and paid production"}
+  ],
+  "known_evidence_gaps": [
+    "No complete native four-game reference packet yet",
+    "Original Grim Dawn capture missing at the path named in GAL-CAM; retained evidence may permit recovery",
+    "No production proof of persistent-layer motion, modular gear or painted chamber interactions",
+    "Godot 3D camera approval does not transfer automatically to the painted 2D suite"
+  ],
+  "running_jobs": [],
+  "planning_validation": {
+    "date": "2026-09-10",
+    "local_links_checked": 51,
+    "artifact_paths_checked": 7,
+    "progress_json": "PASS",
+    "skill_quick_validate": "PASS",
+    "diff_whitespace_check": "PASS",
+    "scope": "Document routing and handoff only; no runtime or visual acceptance claimed"
+  },
+  "new_generation_calls_this_planning_stage": 0,
+  "original_suite": {"path": "../run_03/", "status": "HISTORICAL_FAILURES_PRESERVED", "resume_repairs_automatically": false},
+  "authorization": {
+    "planning_research_local_preparation": true,
+    "internal_subagents": false,
+    "remote_push": false,
+    "external_messages": false,
+    "new_paid_service_budget": null
+  }
+}

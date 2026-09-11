@@ -102,9 +102,12 @@ change the literal ASTRA TEST 01 acceptance criteria.
 
 ## Immediate visual proof to prepare
 
+Current architecture and cross-session workflow: [START_HERE](START_HERE.md).
+
 Camera starting point: [recovered Godot camera baseline](CAMERA_BASELINE.md).
 It identifies the approved whirlwind view and separates it from the older
-play-shell and painted-test profiles; shared lighting still needs visual selection.
+play-shell and painted-test profiles. It is a candidate only for a fully painted
+2D world; native four-game comparisons and shared lighting still need review.
 
 One board per faction, pairing representative people, starter clothing, advanced
 gear, a stronghold, and VFX. Then one mixed-faction scene under shared lighting.

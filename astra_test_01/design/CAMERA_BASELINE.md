@@ -7,7 +7,13 @@ Status: recovered settings and a recommendation for the new test suite. No Godot
 settings or canonical camera decisions were changed. The August camera has prior
 owner approval for the named SB-1/VFX work; a new scene still needs visual review.
 
-## Recommended starting profile: player_lock, k = 0.665
+**Subsequent user clarification, 2026-09-10:** treat every recovered 3D setting
+as a starting candidate only. Compare native Diablo II, PoE1, Grim Dawn and Last
+Epoch footage before selecting a projection for painted 2D assets on a painted
+2D floor. The recommendation below is historical advice, not an adopted camera
+lock for the new suite. Current plan: [START_HERE](START_HERE.md).
+
+## Recovered candidate profile: player_lock, k = 0.665
 
 This is the camera used by both supplied whirlwind videos. Gandalf's
 [August 16 handoff](../../agentic_orchestration/gandalf/notes/2026-08-16-sb1-session-handoff.md)

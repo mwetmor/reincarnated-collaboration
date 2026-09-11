@@ -1,7 +1,16 @@
-# Active ASTRA campaign
+# ASTRA workstream routing
+
+Current work: the painted-world suite and its cross-session plan. Read
+[START_HERE](../../../../astra_test_01/design/START_HERE.md), then its progress
+record. The next task is native four-game exemplar research, not old-run repairs.
+The camera is provisional for painted 2D; floor production and environment
+interactions are now part of the test suite.
+
+## Original ASTRA TEST 01 — historical campaign scope
 
 Brief: `codex-3d-modeling/ASTRA TEST 01 painted character vfx.md` at repo root.
-Active work: `astra_test_01/run_03/`; read `STATE.json` and `REPORT.md` there.
+Last production work: `astra_test_01/run_03/`; `STATE.json` and `REPORT.md` there
+record that campaign, not the current suite's next action.
 Historical runs 01/02 are immutable evidence, not inputs to overwrite.
 
 Next-suite visual planning: [four-faction key](../../../../astra_test_01/design/FACTION_KEY.md)
@@ -11,7 +20,7 @@ The [Godot camera evidence](../../../../astra_test_01/design/CAMERA_BASELINE.md)
 records the supplied 3D references and a proposed camera for the next suite.
 Preserve its distinction between the original dimetric test and Godot perspective.
 
-The user's latest instruction authorizes creating this skill, wiring AGENTS.md,
+The user's earlier campaign instruction authorized creating this skill, wiring AGENTS.md,
 updating the process from evidence and running autonomously toward passing all
 character/animation and VFX/animation tests. This authorizes a continuing campaign
 after the prior two-failure stop. Preserve failed attempts; retain every art

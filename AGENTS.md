@@ -49,8 +49,8 @@ reading files:
 
 ### Painted character, animation and VFX work
 
-For painted sprite characters, directional animation, spell VFX, or ASTRA asset
-tests, read [painted-character-vfx](.agents/skills/painted-character-vfx/SKILL.md).
+For painted characters, gear, animation, VFX, floors/environment interactions, or
+ASTRA tests, read [painted-character-vfx](.agents/skills/painted-character-vfx/SKILL.md).
 That file is the maintained workflow source; its references carry measured lessons
 and active-run state. Keep this entry a pointer rather than copying its procedure.
 
