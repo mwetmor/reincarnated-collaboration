@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Authored timing/contact fixture, not actual serial combat pipeline integration",
+  "actor": {
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "height_m": 2,
+    "fit_family": "wizard-rig35-v1"
+  },
+  "target": {
+    "id": "target-fixture",
+    "root": [
+      2.5,
+      0,
+      0
+    ],
+    "contact": [
+      2.5,
+      0,
+      1.3
+    ],
+    "can_bleed": false
+  },
+  "release_s": 0.6,
+  "contact_s": 1,
+  "end_s": 1.5,
+  "release_socket": [
+    0.5958245992660522,
+    0.3162693977355957,
+    1.3831366300582886
+  ],
+  "binding": {
+    "archetype": "single_target",
+    "element": {
+      "id": "ice",
+      "tint": "#a5ddff",
+      "motif": "frost-crystal"
+    },
+    "geometry": {
+      "primitive": "point",
+      "target_id": "target-fixture"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "experiment": "E06F",
+  "status": "SCOPED_FIRST_FROST_MECHANISM_PASS",
+  "started_at": "2026-09-11T12:20:03.272106+00:00",
+  "limits": {
+    "active_minutes": 90,
+    "generation_calls": 3,
+    "capture_batches": 4,
+    "disk_bytes": 100000000
+  },
+  "used": {
+    "generation_calls": 2,
+    "capture_batches": 4,
+    "paid_service_usd": 0
+  },
+  "generation_price": "Built-in price not exposed; not reported as free",
+  "next_action": "Independent F01/F02 layout-conditioned environment proof; VFX normal-material/receiver/occlusion controls remain owed.",
+  "finished_at": "2026-09-11T12:32:14.916927+00:00",
+  "validation": {
+    "headless_checks": 13,
+    "pixel_checks_each_resolution": 5,
+    "browser_checks_each_successful_batch": 5,
+    "release_error_logical_px": [
+      0.07013275109483616,
+      0.033208786545568136
+    ],
+    "maximum_sampled_effect_viewport_fraction": 0.0002898943865740741,
+    "end_buffers_identical": true
+  },
+  "limitations": [
+    "Single view/one fixture; no24archetype qualification",
+    "Light background loses blue core detail",
+    "No VFX receiver light or target occlusion proof",
+    "No serial combat JSON integration",
+    "RGB emission plate material, not native-alpha sprite"
+  ],
+  "failed_evidence": [
+    "evidence/batch-01/FAILURE.md"
+  ],
+  "owned_bytes_before_index": 46218521
+}

@@ -1,0 +1,15 @@
+# E06F — first painted frost release/travel/impact pilot
+
+G5/H09 partial proof using E05M's measured native cast socket and E06D's sealed single_target binding. The maintained painted skill requires a first frost sample, so frost precedes fire/blood production. Matt's F01 blood preference is preserved for later target-response work. Godot is shipping target; Pixi is test harness.
+
+Limits:90active minutes,3built-in imagegen calls total (2distinct source textures plus at most1scoped repair),4capture batches,100MB. No external paid service, no API/CLI fallback, no seed/mask controls assumed. Artwork uses built-in imagegen; geometry/state/timing controls use local code. Do not restart exhausted native-alpha/chroma character branches.
+
+Changed VFX material representation: request clean RGB black-backed emissive frost textures for additive composition. Black is the declared zero-emission material value, not chroma-key removal. Preserve original RGB; do not threshold out checkerboards or synthesize matte edges. This tests luminous magical payload/trail/impact; opaque physical ice and blood require separate normal/multiply material tests. No universal additive rendering claim.
+
+Inputs: immutable E05M cast frame36 and right-hand socket, C camera/physical scale, E06D catalogue/source hash. Fixed JSON event schedule: cast0–1.2s, release0.6s, projectile travel0.6–1.0s, authoritative contact1.0s, impactfade until1.5s. Renderer never creates hits. Three separated layers: payload core, brief wake and target impact; payload/trail freeze launch at release and travel to declared target contact. No actual serial combat pipeline integration claim.
+
+Raster plan: first texture luminous frost payload; second texture broken radial frost impact. Animated composition uses explicit time curves/particles, not a fabricated frame sheet. Declare source frame list/fps/pivot/direction/atlas/hitbox/emissive mask policy and procedural presentation parameters in engine-neutral JSON. No character frame count or old ASTRA criterion changes.
+
+Freeze acceptance: release socket geometric residual≤0.5logicalpx at50/150bodypx; release/contact/finalfade timing within1/60s; no early impact, zero duplicate contact/response, frozen launch unaffected by subsequent caster movement, target eligibility and element cannot change damage geometry. Bad20sourcepx launch offset and100ms early impact must fail. Gameplay effects must not fill more than10%of960x640 viewport; no effect persists after1.5s. Inspect first/mid/final travel/impact and normal-speed playback on dark/light/blue and chamber floors. Additive texture border witness maxRGB≤2 over outer4pixels (or failbox/background control); no resizing-up of source texture. An instrument that accepts its bad control is invalid.
+
+This is a single-view first frost sample/lifecycle test, not24archetypes, cross-element portability, final VFX art approval, dense combat or G5PASS. If generator misses zero-emission boundaries or composition fails, preserve and use only the one scoped repair before stopping the branch.

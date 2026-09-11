@@ -15,3 +15,5 @@ Scope: shared working scene direction is now selected. Actual painted character/
 Further binding review guidance: [faction separation and reversed doorway evidence](experiments/E07V/FEEDBACK_2026-09-11.md). Differentiate F01/F02 stronghold construction, not just palettes or banners. Subsequent painted exits must prove interior/exterior side agreement with layout data.
 
 Blood impacts: Matt prefers the splatter accompanying F01’s fire VFX. See [the recorded reference and scope](experiments/E07V/FEEDBACK_2026-09-11.md#preferred-blood-hit-reference); element rendering and target blood response remain separate data.
+
+Matt delegated the current faction-environment options. Codex selects F01 defended waystation and F02 reclaimed reservoir for testing, with the recorded doorway-side controls. No further confirmation is needed for those briefs.

@@ -125,3 +125,11 @@ boundary evidence; stop movement-budget iteration below its numerical epsilon.
 The corrected 17/17 boundary and actual two-size browser traversal support the
 local fix. Typed effect descriptors and headless JSON boundaries were exercised;
 they do not establish a finished Godot port, shared lighting or animated VFX.
+
+## 2026-09-11 — holdout references must preserve material indices
+
+[E05G](../../../../astra_test_01/design/experiments/E05G/REPORT.md) initially exceeded its frozen gear-composite tolerance even though source geometry and bone bindings passed. Clearing body material slots for holdout renders reset per-polygon material assignments in the reference scene. Restoring those indices removed the face/hair mismatch without changing source pixels, geometry or acceptance limits. The corrected36sparse Pixi comparisons pass; the original capture remains failed evidence. When swapping render materials, preserve both slots and polygon indices. Confidence high for this mechanism, limited to the tested rig/view; final gear lighting and full motion remain unqualified.
+
+## 2026-09-11 — RGB emission plates are a material contract, not native alpha
+
+[E06F](../../../../astra_test_01/design/experiments/E06F/REPORT.md) preserves two generated RGB frost plates and explicitly declares additive emission semantics. Their outer4pixel maximumRGB is1; multi-background on/off comparisons and a wrong-normal-blend control distinguish the material from a transparent sprite. Do not relabel black-backed RGB as native alpha. Additive composition passes the scoped launch/lifecycle checks but loses blue core detail against the light control. Neither border statistics nor timing tests qualify opaque ice, blood, receiver lighting or broad cross-element reuse.

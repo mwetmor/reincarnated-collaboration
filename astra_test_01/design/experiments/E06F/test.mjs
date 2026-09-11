@@ -1,0 +1,11 @@
+import assert from'node:assert/strict';import fs from'node:fs';import{createState,advance}from'./sim/index.mjs';import{sample,resolveBinding}from'../E06D/instances.mjs';
+const read=p=>JSON.parse(fs.readFileSync(new URL(p,import.meta.url))),c=read('./content.json'),cat=read('../E06D/binding-catalog.json'),checks={};
+const s=createState(c),pre=advance(s,.6-1/60,c,cat),release=advance(pre,1/60,c,cat),before=advance(release,.4-1/60,c,cat),hit=advance(before,1/60,c,cat),end=advance(hit,.5,c,cat);
+checks.no_early_release=!pre.release;checks.exact_release=release.release&&release.views.instances[0].started_at===.6;checks.no_early_impact=!before.contact;checks.contact_on_schedule=hit.contact&&hit.views.contacts[0].at===1;checks.contact_unique=advance(hit,0,c,cat).views.contacts.length===1&&hit.hit_response_ids.length===1;checks.end_expired=sample(end.views,1.5,{}).length===0;checks.source_state_immutable=s.time===0&&!s.release;
+const moved=structuredClone(release);moved.caster_root[0]=10;checks.launch_frozen=JSON.stringify(sample(moved.views,.8,{} )[0].origin)===JSON.stringify(c.release_socket);
+const early=structuredClone(c);early.contact_s=.9;checks.early_control_rejected=Math.abs(advance(createState(early),1,early,cat).views.contacts[0].at-c.contact_s)>1/60;
+assert.throws(()=>resolveBinding(cat,{...c.binding,element:{id:'ice',radius:8}}),/Element/);checks.element_geometry_rejected=true;
+assert.throws(()=>advance(s,-1,c,cat),/Invalid/);checks.negative_time_rejected=true;
+checks.no_render_imports=!/PIXI|document|window|canvas|webgl/i.test(fs.readFileSync(new URL('./sim/index.mjs',import.meta.url),'utf8'));checks.no_blood_for_fixture=read('./presentation.json').blood_response===null&&!c.target.can_bleed;
+for(const [name,ok]of Object.entries(checks))assert(ok,name);
+fs.writeFileSync(new URL('./evidence/headless.json',import.meta.url),JSON.stringify({checks},null,2));console.log(checks);

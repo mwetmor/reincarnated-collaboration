@@ -1,0 +1,62 @@
+{
+  "payload": {
+    "schema_version": 1,
+    "id": "frost-payload",
+    "asset_type": "emissive_vfx_plate",
+    "frames": [
+      {
+        "source_path": "art/payload.png",
+        "sha256": "75a60e0c642b3d5d5f432d6c9a43d897a6cc0505f935e0343045fbcdd31b7d49",
+        "pivot": [
+          627.0,
+          627.0
+        ],
+        "atlas_coordinates": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1254
+        }
+      }
+    ],
+    "fps": 1,
+    "direction": "camera_facing_billboard",
+    "hitbox": null,
+    "emissive_mask_path": "art/payload.png",
+    "emission_policy": "RGB radiance, black means zero emission; native source unchanged",
+    "alpha_policy": "opaque RGB additive material, not extracted transparency",
+    "blend": "add",
+    "loop": false,
+    "animation": "neutral temporal composition in presentation.json"
+  },
+  "impact": {
+    "schema_version": 1,
+    "id": "frost-impact",
+    "asset_type": "emissive_vfx_plate",
+    "frames": [
+      {
+        "source_path": "art/impact.png",
+        "sha256": "bede21f3aed103ca61faea2f3487523fc378711443ab500612ca9747abbf2d42",
+        "pivot": [
+          627.0,
+          627.0
+        ],
+        "atlas_coordinates": {
+          "x": 0,
+          "y": 0,
+          "width": 1254,
+          "height": 1254
+        }
+      }
+    ],
+    "fps": 1,
+    "direction": "camera_facing_billboard",
+    "hitbox": null,
+    "emissive_mask_path": "art/impact.png",
+    "emission_policy": "RGB radiance, black means zero emission; native source unchanged",
+    "alpha_policy": "opaque RGB additive material, not extracted transparency",
+    "blend": "add",
+    "loop": false,
+    "animation": "neutral temporal composition in presentation.json"
+  }
+}

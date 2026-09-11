@@ -1,20 +1,20 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T12:18:49.162979+00:00",
+  "updated": "2026-09-11T12:32:47.599542+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E05G",
+  "active_experiment": "E06F",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
     "G2": "PARTIAL",
     "G3": "PARTIAL: Matt selects F04 clarity + F03 environment detail/light; actual art/data and runtime response pending",
     "G4": "PARTIAL: chamber fixture logic only; art/motion/gear not qualified",
-    "G5": "NOT_RUN",
+    "G5": "PARTIAL: E06F one-view frost release/travel/impact mechanism; full24archetype reuse/visual matrix remains unqualified",
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register first painted fire-impact/blood-response VFX pilot using E05M measured cast socket and E06D neutral events; keep full gear motion/view/art/light proof open.",
+  "next_action": "Register C-layout-conditioned F01 waystation/F02 reservoir environment comparison, with explicit doorway interior/exterior geometry controls; preserve E06F bright-background/material limitations.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -126,7 +126,10 @@
     "experiments/E07V/FEEDBACK_2026-09-11.md",
     "experiments/E05G/REPORT.md",
     "experiments/E05G/RECEIPT.json",
-    "experiments/E05G/review.html"
+    "experiments/E05G/review.html",
+    "experiments/E06F/REPORT.md",
+    "experiments/E06F/RECEIPT.json",
+    "experiments/E06F/review.html"
   ],
   "decisions_pending": [
     {
@@ -183,11 +186,12 @@
     {
       "id": "D07",
       "decision": "Delegate visual test selections to Codex for autonomous campaign or retain Matt review",
-      "status": "No blanket delegation stated; current visual baseline resolved without it",
+      "status": "Current faction-environment options explicitly delegated; broader unrelated future visual decisions not implicitly delegated",
       "source": "EXPERIMENTS.md G3 assigns shared visual selection to Matt",
-      "recommendation": "Mixed-scene provisional shared target; delegate further test visual selections while retaining production approval; revise F02 stronghold distinction.",
+      "recommendation": "Codex selects F01 waystation and F02 reclaimed reservoir for next proof.",
       "review_packet": "experiments/E07V/review.html",
-      "blocks": "Future discretionary visual changes only, not tests under selected target"
+      "blocks": "Future discretionary visual changes only, not tests under selected target",
+      "response": "Matt: Use your best judgement and feel free to select the best options yourself; cathedral for one faction permitted."
     }
   ],
   "known_evidence_gaps": [
@@ -212,7 +216,8 @@
     "E05C shortened garment clears stance boots; E05T painted textures remove observed magenta edges after one repair. Whole character shape/motion/UV transfer still unqualified.",
     "E04S sampled floor/wall lighting and ground geometry pass; complete faction chamber cohesion and second chamber/chunk remain incomplete.",
     "E05M one-view idle/walk/cast/contact/release-socket mechanisms pass; whole painted pilot, turns/action transitions,8views and modular gear remain incomplete.",
-    "E05G 216 geometry samples and36 sparse raster composites pass; full gear frames/views, final advanced-outfit painting and gear lighting remain unqualified."
+    "E05G 216 geometry samples and36 sparse raster composites pass; full gear frames/views, final advanced-outfit painting and gear lighting remain unqualified.",
+    "E06F first frost sample lifecycle/socket passes; light-background blue detail, opaque materials, effect receiver light/occlusion, otherviews and24archetype transfer remain unqualified."
   ],
   "running_jobs": [
     {
@@ -256,8 +261,8 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E05G/RECEIPT.json",
-  "generation_calls_this_suite": 20,
+  "current_receipt": "experiments/E06F/RECEIPT.json",
+  "generation_calls_this_suite": 22,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
     "required": [
@@ -297,7 +302,7 @@
     "sharpness": "E04S new top-down material plates on layout geometry improve floor source density at tested2880x1920; original E03 floor stays limited. Other assets require separate qualification.",
     "cohesion": "E04M2 v3 passes scoped still-contour witnesses and 50/150px review; shared lighting and material cohesion still pending.",
     "lighting": "E04S actual floor/pillar-wall neutral/warm/cool response and gate occlusion pass; full F03-style architectural scene remains incomplete.",
-    "faction_separation": "Matt: F01/F02 too similar, two cathedral strongholds insufficient. Codex proposes defended timber/stone waystation versus reclaimed rock-cut reservoir; proposed test briefs, not final canon.",
+    "faction_separation": "Matt delegated current environment selections; Codex selects F01 defended timber/stone waystation and F02 reclaimed rock-cut reservoir. Cathedral remains allowed if justified; no further approval required for these briefs.",
     "doorway_orientation": "Matt: bottom-right F01/F02 doorways show exterior as interior. Preserve originals; require declared interior/exterior regions and camera-correct aperture/threshold/swing witnesses plus reversed-side control.",
     "blood_impact": "Matt prefers F01 fire-hit blood splatter; use as blood response reference, separate from element and target eligibility."
   }

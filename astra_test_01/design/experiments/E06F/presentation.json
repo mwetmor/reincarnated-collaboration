@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "timeline_fps": 60,
+  "payload": {
+    "asset": "payload",
+    "plate_extent_m": 1.2,
+    "alpha": 0.95
+  },
+  "wake": {
+    "asset": "payload",
+    "plate_extent_m": 0.65,
+    "count": 6,
+    "lag_s": 0.018,
+    "alpha": 0.15
+  },
+  "charge": {
+    "asset": "payload",
+    "start_s": 0.42,
+    "end_s": 0.6,
+    "plate_extent_m": 0.65,
+    "alpha": 0.3
+  },
+  "impact": {
+    "asset": "impact",
+    "plate_extent_m": 2,
+    "growth": [
+      0.35,
+      1
+    ],
+    "duration_s": 0.5,
+    "alpha": 0.9
+  },
+  "effects": {},
+  "blood_response": null,
+  "blood_note": "Matt F01 blood preference recorded; target can_bleed=false in this frost isolation fixture"
+}
