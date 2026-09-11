@@ -1,0 +1,21 @@
+{
+  "vendor_sha256": "9948591083793305468d73915a3ea85032dcf8e32eee7a1328585050d7a14d53",
+  "local_mesh_uniform_source_excerpt": "this.localUniforms=new At({uTransformMatrix:{value:new U,type:\"mat3x3<f32>\"},uColor:{value:new Float32Array([1,1,1,1]),type:\"vec4<f32>\"},uRound:{value:0,type:\"f32\"}}),this.localUniformsBindGroup=new Ce({0:this.localUniforms}),this.rend",
+  "reserved": [
+    "uTransformMatrix",
+    "uColor",
+    "uRound"
+  ],
+  "custom_visibility_uniforms": [
+    "uAlways",
+    "uDiagnostic",
+    "uFill",
+    "uFull",
+    "uIndicatorTint",
+    "uOutline",
+    "uVisible",
+    "uWidth"
+  ],
+  "collisions": [],
+  "scope": "Mesh local uniform set from installed vendor; not a claim covering every future Pixi plugin."
+}

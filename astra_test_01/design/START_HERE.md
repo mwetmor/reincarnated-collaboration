@@ -141,3 +141,5 @@ E07H [denser raw lookup review](experiments/E07H/review.html): raw mode passes a
 E07J [selected shared-shadow chamber](experiments/E07J/review.html): all1,302 available source witnesses, actual controls and3outfit walks pass. Working chamber now E07J;21intermediate door states, local compositionp95 20.4ms. Next E07O selective player visibility; full art/self-shadow/performance remain open.
 
 E07O [visibility capability checkpoint](experiments/E07O/review.html): two failed builds preserved. Matching multisample depth fixes mask pixels; custom uColor collision still fails GL. E07P namespace repair and source visibility proof next. E07J remains working chamber.
+
+E07P [empty actor-mask failure](experiments/E07P/review.html): namespace/depth capability repaired, but480/768real source witnesses fail. Non-enumerable resource accessors diagnosed; E07Q binding repair and stronger preflight next. E07J remains working chamber.

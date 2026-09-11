@@ -1,0 +1,42 @@
+{
+  "experiment": "E07P",
+  "started_at": "2026-09-11T21:43:12.488810+00:00",
+  "status": "FAIL_ACTOR_MASK_INTEGRATION",
+  "limits": {
+    "active_minutes": 45,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0,
+    "elapsed_minutes": 6.4650173833333335,
+    "disk_bytes_before_index": 72434337
+  },
+  "prior_visibility_builds": 2,
+  "cumulative_visibility_builds": 4,
+  "dependencies": {
+    "E07O/pixi-adapter/visibility.mjs": "b97637897b70b9a10d7cff4451b3f5d6cfc2c11359865ea9caa809d957c29be8",
+    "E07O/effects.json": "80e6f005e4a3e15ed1fe2ddc3fd048f904e40c5ed1e96684d7bc9cc594b34da9",
+    "E07J/pixi-adapter/index.mjs": "0d52b31540cf13b7b097005515df8d1711f3691088f69d6961c920ee9b796505"
+  },
+  "ended_at": "2026-09-11T21:49:40.389853+00:00",
+  "results": {
+    "namespace_capability": "PASS",
+    "source_passed": 288,
+    "source_total": 768,
+    "source_failed": 480,
+    "actual_actor_masks": "EMPTY",
+    "review": "PASS"
+  },
+  "lessons": [
+    "Pixi Shader.resources uses non-enumerable accessors; direct resource-object clone silently drops uniform groups.",
+    "Materializing Object.getOwnPropertyNames preserves the params group; live introspection confirms retained0.75test value.",
+    "Symmetric rectangles/defaultdepth did not prove uniform transfer; add inverted-depth control before chamber reuse.",
+    "NoGLerrors does not prove geometry was rendered; source-selected witness matrix correctly catches empty masks."
+  ]
+}

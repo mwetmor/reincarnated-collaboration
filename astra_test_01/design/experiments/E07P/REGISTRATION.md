@@ -1,0 +1,9 @@
+# E07P — visibility namespace repair and integration
+
+Continuing campaign; Godot shipping target, Pixi harness. E07O's two failed builds remain. Limits:45 active minutes, zero generation, two consumer builds (one namespace/capability repair plus one chamber integration), three capture batches,80MB disk. This makes cumulative visibility builds at most four. No repeated unchanged retries.
+
+First rename E07O build2's custom uColor to uIndicatorTint and audit custom names against installed Pixi mesh uniforms. Same two depth-tested camera masks, alpha/composite equations and synthetic controls. Count full MSAA+resolve storage correctly. Batch1 capability must pass all pixels/negative controls and GL/browser checks before integration.
+
+Batch2 uses the immutable E07J chamber and E05F source motion. Compare effect OFF, A amber fill and B thin amber outline/faint fill at exposed, partition and west-wall positions, both factions and native/fresh3×. Independent source camera rays determine full/visible/hidden actor witnesses, with frozen source-only3×3guard and2RGB tolerance, at least12samples per available group. Missing world must invalidate hidden samples; always-on control must invalidate visible samples. Background/visible interior samples unchanged for correctly gated effect; all simulation states identical across effect settings. Saved native/fresh comparisons and actual crossing playback, with local profile only.
+
+Batch3 standalone review. Select a scoped working option only after source and visual checks; no final faction/roster/art pass. Collision, light blockers, shadow casters and simulation remain untouched. NPC/monster sprite occluders and translucency remain unqualified. Preserve unavailable groups and any failed preflight/integration rather than weakening a criterion.
