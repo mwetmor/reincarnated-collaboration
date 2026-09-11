@@ -1,0 +1,38 @@
+{
+  "experiment": "E07E",
+  "started_at": "2026-09-11T20:41:03.145520+00:00",
+  "status": "FAIL_INTEGRATED_SHADER_COMPILATION",
+  "limits": {
+    "active_minutes": 60,
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "disk_bytes": 80000000
+  },
+  "used": {
+    "generation_calls": 0,
+    "consumer_builds": 2,
+    "capture_batches": 3,
+    "paid_service_usd": 0
+  },
+  "dependencies": {
+    "E07C/pixi-adapter/index.mjs": "24f5b3608837de895e117ca1000b50011bc17742bc56767504f753ec7f3448d6",
+    "E05F/pixi-adapter/painted-actor.mjs": "4d12f200fd7897685eae6421266f7590310ed366a9a9aaf39f1a4e4699f55509",
+    "E02/pixi/vendor/pixi-8.20.1.min.js": "9948591083793305468d73915a3ea85032dcf8e32eee7a1328585050d7a14d53"
+  },
+  "capability_gate": "PASS: depth24 attachment, order/clear/orientation controls, 64 encodings max 1.559 micrometres over 32m.",
+  "preserved_failures": [
+    "Consumer build1 emitted subtraction of a negative GLSL bound as --11; GLSL parsed decrement and rejected shaders. All8 initial smoke captures and console/GL failures retained. Build2 parenthesizes emitted scalar literals.",
+    "Build2 passes negative-bound parsing but GLSL rejects identifier packed as reserved. Proposed one-line rename is saved, not applied; no third consumer build authorized under this registration."
+  ],
+  "next_action": "E07F one compiler-gated repair build, applying prepared reserved-identifier correction in a new consumer copy; preserve E07E two-build count.",
+  "completed_at": "2026-09-11T20:56:35.022944+00:00",
+  "active_minutes": 15.5312904,
+  "authorization_note": "Earlier permission question withdrawn: EXPERIMENTS.md two-attempt stop is a branch-review trigger permitting a diagnosed changed experiment under continuing-campaign authorization. No answer was treated as approval.",
+  "lessons": [
+    "Compile every actual generated shader/profile before saving art comparisons. A framework ready flag does not prove successful shader linking.",
+    "Parenthesize emitted numeric literals; a negative bound following subtraction can become a decrement token.",
+    "GLSL reserved identifiers differ from JavaScript identifiers. Validate the emitted language with the actual driver."
+  ],
+  "owned_disk_bytes": 1064170
+}

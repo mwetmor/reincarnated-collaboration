@@ -129,3 +129,5 @@ E05F [fractional motion review](experiments/E05F/review.html): explicit source i
 E07B [current-pilot shadow review](experiments/E07B/review.html): 640 source witnesses pass, but the crate approach exceeds the old floor-sized mask and fails rendering. E07C padded allocation domain next; failed UI/encoder receipts retained.
 
 E07C [padded shadow-domain review](experiments/E07C/review.html): preserves 640 interior witnesses; new boundary/mask and actual UI checks pass. West-apron positive camera samples remain unavailable behind the wall; direct mask proof passes. Current working chamber uses E07C with E05F fractional motion. E07E shared scene shadows next.
+
+E07E [shared-shadow capability checkpoint](experiments/E07E/review.html): offscreen depth/encoding passes; two integrated builds fail shader compilation. E07F compiler-gated local repair is authorized by the continuing-campaign protocol. Original counters/failures retained; E07C remains the working chamber.

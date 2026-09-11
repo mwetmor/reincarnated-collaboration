@@ -1,9 +1,9 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T20:38:22.403080+00:00",
+  "updated": "2026-09-11T20:56:35.022944+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
-  "active_experiment": "E07E",
+  "active_experiment": "E07F",
   "gates": {
     "G0": "PASS",
     "G1": "INDETERMINATE",
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07E shared directional-shadow capability: opaque chamber and current-pilot casters, vertical receivers, measured texture/depth support and independent source rays.",
+  "next_action": "E07F one compiler-gated repair build, applying prepared reserved-identifier correction in a new consumer copy; preserve E07E two-build count.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -218,7 +218,9 @@
     "experiments/E07B/REPORT.md",
     "experiments/E07C/review.html",
     "experiments/E07C/REPORT.md",
-    "experiments/E07C/shadow.json"
+    "experiments/E07C/shadow.json",
+    "experiments/E07E/review.html",
+    "experiments/E07E/REPORT.md"
   ],
   "decisions_pending": [
     {
@@ -284,6 +286,13 @@
       "review_packet": "experiments/E07V/review.html",
       "blocks": "Future discretionary visual changes only, not tests under selected target",
       "response": "Matt: Use your best judgement and feel free to select the best options yourself; cathedral for one faction permitted."
+    },
+    {
+      "id": "E07E_LIMIT_REVIEW",
+      "decision": "One further shader repair build",
+      "status": "QUESTION_WITHDRAWN_EXISTING_AUTHORIZATION",
+      "basis": "EXPERIMENTS.md: two-attempt stop is a branch-review trigger, not automatic permission request. Register E07F changed compiler-gated experiment; retain E07E counters and failures.",
+      "response": null
     }
   ],
   "known_evidence_gaps": [
@@ -381,7 +390,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07C/receipt.json",
+  "current_receipt": "experiments/E07E/receipt.json",
   "generation_calls_this_suite": 30,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {
