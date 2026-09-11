@@ -152,3 +152,8 @@ Eight fixed-camera source views exposed face-like marks on the rear head. New na
 ### E07D — sparse occlusion witnesses do not prove detailed surface ordering
 
 Exit/light witnesses passed while crate braces visibly disappeared behind their own faces under cell-centroid painter sorting. Neutral part IDs and correct state transitions do not prove per-pixel visibility. Test depth handling or source-baked nativeRGBA layers before adding more surface decoration. Lossless browser-evidence archival preserved decoded pixels; capture transport failures stayed failed, with allocation deviation and byte limits recorded. [Evidence](../../../../astra_test_01/design/experiments/E07D/REPORT.md).
+
+
+### E07Z — prove depth with pixels and an independent source oracle
+
+The installed Pixi context supplied24 depth bits and passed draw-order/clear controls. Homogeneous camera depth plus opaque mesh depth tests repaired21/21 brace/band witnesses in normal and reversed order; painter controls matched12/21 and0/21. Original geometry/materials unchanged. This does not qualify actor sprites or translucent effects. [Evidence](../../../../astra_test_01/design/experiments/E07Z/REPORT.md).

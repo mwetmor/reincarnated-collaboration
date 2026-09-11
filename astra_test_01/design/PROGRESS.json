@@ -1,7 +1,7 @@
 {
   "suite": "ASTRA_TEST_02_PAINTED_WORLD",
   "schema_version": 1,
-  "updated": "2026-09-11T14:07:05.746656+00:00",
+  "updated": "2026-09-11T14:18:21.527719+00:00",
   "status": "AUTONOMOUS_CAMPAIGN_RUNNING",
   "active_experiment": null,
   "gates": {
@@ -14,7 +14,7 @@
     "G6": "NOT_RUN",
     "G7": "NOT_RUN"
   },
-  "next_action": "Register E07Z: inspect installed Pixi depth capability and test crate brace per-pixel visibility against deliberate wrong-order control; source-baked nativeRGBA prop states are fallback. Then actual pipeline-consumer integration intake.",
+  "next_action": "Register E09I read-only actual serial-content/runtime-consumer integration: read engine charter and inspect declared schema/consumer, use existing exported sample and authoritative state/events, reject unsupported or lossy fields explicitly. Keep richer architecture, pilot/gear art and translucent VFX depth independent.",
   "completed_artifacts": [
     "START_HERE.md",
     "ARCHITECTURE_PLAN.md",
@@ -144,7 +144,10 @@
     "experiments/E05H/review.html",
     "experiments/E07D/REPORT.md",
     "experiments/E07D/RECEIPT.json",
-    "experiments/E07D/review.html"
+    "experiments/E07D/review.html",
+    "experiments/E07Z/REPORT.md",
+    "experiments/E07Z/RECEIPT.json",
+    "experiments/E07Z/review.html"
   ],
   "decisions_pending": [
     {
@@ -237,7 +240,8 @@
     "E07S exit/region/ray/light/sampling mechanisms pass on both factions; full chamber art FAIL: plain geometry, cube chest/crate and mismatched actor shading. Material plates do not qualify finished architecture.",
     "E05V eight idle directions expose rear head ambiguity and unpainted rounded gear; turnaround FAIL, 80-frame expansion stopped. Source diagnosis E05H follows.",
     "E05H repairs hair-shell intersection causing rear scalp holes with6checks; full eight-view painted pilot/advanced-gear art remains unqualified. Repaired source inputs/head-shell-v1.blend, original unchanged.",
-    "E07D61 headless and native/fresh prop-state sequences pass; crate brace segments disappear under centroid painter sorting. Prop art/depth handling FAIL/PARTIAL. Two capture transport failures and final-batch allocation deviation preserved; four-batch/75MB ceilings held."
+    "E07D61 headless and native/fresh prop-state sequences pass; crate brace segments disappear under centroid painter sorting. Prop art/depth handling FAIL/PARTIAL. Two capture transport failures and final-batch allocation deviation preserved; four-batch/75MB ceilings held.",
+    "E07Z opaque per-pixel depth repairs21/21 sampled brace/band witnesses independent of draw order. Actor sprite/translucent VFX depth, all prop states with depth enabled and complete faction art remain unqualified."
   ],
   "running_jobs": [
     {
@@ -281,7 +285,7 @@
     "logical_checks_passed": 24,
     "scope": "Draft geometry, conservative path segments and projection transforms only"
   },
-  "current_receipt": "experiments/E07D/RECEIPT.json",
+  "current_receipt": "experiments/E07Z/RECEIPT.json",
   "generation_calls_this_suite": 27,
   "known_paid_service_spend_usd": 0,
   "renderer_comparison": {

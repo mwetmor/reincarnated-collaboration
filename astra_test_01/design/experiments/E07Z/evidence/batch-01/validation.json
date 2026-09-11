@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "depth_available": true,
+    "order_independent": true,
+    "disabled_control": true,
+    "frame_clear": true,
+    "no_errors": true
+  },
+  "errors": [],
+  "results": {
+    "depthBits": 24,
+    "context": {
+      "alpha": false,
+      "antialias": false,
+      "depth": true,
+      "desynchronized": false,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "default",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": true,
+      "xrCompatible": false
+    },
+    "forward": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "reverse": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "bad": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "clearNear": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "clearFar": [
+      255,
+      0,
+      0,
+      255
+    ]
+  }
+}
