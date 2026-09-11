@@ -1,6 +1,6 @@
-# E07 M — taller portal and source agreement pass
+# E07M — taller portal and source agreement pass
 
-The 3.2 m portal passes both actor sizes, source geometry, shadows and selective visibility after a bounded joint repair. Promote E07 M as the working chamber mechanism. The F01 flat dark finish remains an art failure for the next test. Godot is the shipping target; Pixi is the test harness.
+The 3.2 m portal passes both actor sizes, source geometry, shadows and selective visibility after a bounded joint repair. Promote E07M as the working chamber mechanism. The F01 flat dark finish remains an art failure for the next test. Godot is the shipping target; Pixi is the test harness.
 
 The original2.5 m lintel correctly blocked the2.7 m monster. The selected layout provides3.2 m clear opening,3.15 m panel and3.38 m frame top. The old lintel remains a failing route control, and a3.21 m diagnostic actor still cannot cross. Horizontal passage width, slide travel, timing and simulation code are unchanged.
 
@@ -16,4 +16,4 @@ Actual runtime reports26 correct actor outcomes across both factions: mage/monst
 
 To remain under80 MB, build2 captures all source pixels but saves only eight endpoint art images. Eight large JSON files were whitespace-packed with byte-exact reconstruction checks, retaining original hashes and restore rules in evidence/json-packing.json; no failed image or measurement was discarded. Two consumer builds, three capture batches including review, zero generation/paid-service calls.
 
-Next E07 W: revise portal material assignments while holding this qualified geometry/state fixed. F01 needs painted timber/stone construction instead of a flat dark pocket; F02 needs a distinct reservoir gate treatment. Compare native/fresh views and preserve geometric ID and source-state invariants. This is followed by broader faction construction/light and full pilot/VFX work, not a full-suite completion claim.
+Next E07W: revise portal material assignments while holding this qualified geometry/state fixed. F01 needs painted timber/stone construction instead of a flat dark pocket; F02 needs a distinct reservoir gate treatment. Compare native/fresh views and preserve geometric ID and source-state invariants. This is followed by broader faction construction/light and full pilot/VFX work, not a full-suite completion claim.
