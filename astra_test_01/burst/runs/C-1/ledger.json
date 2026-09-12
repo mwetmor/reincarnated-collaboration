@@ -5589,7 +5589,7 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/02 K2 turnaround/packet-v1/review.html"
     },
     "K3": {
-      "status": "idle-S: registered (seed method; sole-aligned spread 0), G6 + G6b PASS, G11 6/7 pairs pass \u2014 the 3\u21924 chained-sheet boundary drifts 0.503 vs 0.462 (re-rendered seed; composite T0-e closes it); judge 4.2, no pop, mirrored-strip control caught. walk-S: fresh sheets drifted 25 % scale, leads L,R,R,R,L,L,R,L, G6 literal FAIL 3.058 vs 3.009 / G6b PASS \u2264 3.459 (the L5 case), G11 FAIL \u2192 regenerate overnight (walk-E first; seed + numbered-foot guide + composite). MILESTONE: Matt reviewed the loops; idle scope ruled-in-principle = breath only (head/eyes/feet locked, ~2-s cycle); L5 pending",
+      "status": "UNVALIDATED (R-17): idle plausible but unreferenced; walk broken (phases/scale); both wait for the R10 oracle \u2192 T1 gates + prompt guidance \u2192 re-run",
       "bursts": [
         "K3-gen-idle-01",
         "K3-gen-walk-01",
@@ -5636,8 +5636,7 @@
       "id": "K3",
       "name": "first loop \u2014 Matt rules G6b as shipping bar",
       "date": "2026-09-12",
-      "status": "LOOPS REVIEWED BY MATT; idle re-registered; L5 + idle approval pending",
-      "conductor_lean": "G6b as the bar (G6 literal reported); idle approved on the breath-only definition; walk overnight"
+      "status": "NOT APPROVED \u2014 loops unvalidated pending the oracle (R-17); L5 deferred to oracle-tuned gates"
     }
   ],
   "halts": [
@@ -5799,6 +5798,14 @@
       "burst": "K2 v4",
       "ruling": "With the DERIVED facing table (R-15), six of seven directions are correct by a judge instructed to verify handedness from the near side, and the mirrored-E control was caught. SW's body is correct and its head turns the wrong way \u2014 a head-only defect, the same class as K1's chin (local feature vs global geometry). K2 cap 16 spent exactly; the SW head fix is +1 image and a cap raise, Matt's word. Findings for the charter: (1) a screen-side table is derived from the master and handed to the judge as a derivation, never as a claim; (2) the generator resists geometrically impossible instructions (NW kept the true geometry) \u2014 a useful tell that the instruction, not the model, is wrong.",
       "veto": "open to Matt"
+    },
+    {
+      "id": "R-17",
+      "date": "2026-09-12",
+      "boundary": "commitment (Matt) \u2014 HITL run close",
+      "burst": "\u2014",
+      "ruling": "MATT: no overnight autonomous run. 'Right now the idle doesn't look right and the walk motion has issues\u2026 once we decide on an oracle, we will be able to compare our work against the oracle and I suspect that we will not make the claim that it is known that idle and walk loops are solved for\u2026 we will also be able to use the oracle to tune our software checks and our prompt guidance.' Disposition: the idle-S and walk-S loops are UNVALIDATED (no approval; L5 deferred to oracle-tuned gates); the conductor's 'approve the idle' lean is WITHDRAWN as a recommendation without a reference. Oracle-first sequence: legolas R10/R10b (in flight) \u2192 T1 gait contract (gait_oracle, pose_guide, visibility_table) + cycle prompt guidance (phase text, numbered-foot guides, breath spec) \u2192 TOOLING \u2192 re-run idle-S + walk-E under oracle-tuned gates \u2192 compare to the oracle \u2192 then composite, gear-on-loops, continuation. Everything standing on loops waits. Stands: the lane (typed bursts, audit, waves, calibrated O9, judge-with-controls, derived geometry), Bible v0.1, K1 APPROVED (L), K2 six of seven by geometry (SW head pending; approval pending Matt), instrument findings R-12/R-15/R-16. Tonight at most T0-e (composite tooling, 0 images) on Matt's word.",
+      "veto": "Matt's ruling"
     }
   ]
 }

@@ -151,7 +151,7 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 | 10 | Scene model + which plate | **RESOLVED** | F6; F04 observatory |
 | 11 | Gear method order | **RESOLVED** | B first (§ 7 X5); C as registered fallback |
 | 12 | Judging | **RESOLVED** | separate Astra instance + § 6 rubric + known-bad controls |
-| 13 | G6b as shipping bar | **GATED+TRACKED** | Matt rules at the first-loop milestone (K3); until then G6 literal is the recorded gate and G6b is reported beside it |
+| 13 | G6b as shipping bar | **GATED+TRACKED (re-gated 2026-09-12, R-17)** | deferred to oracle-tuned gates: legolas R10/R10b returned → T1 gait contract calibrated → loops re-run and compared to the oracle → then Matt rules; K3's numbers (walk G6 literal 3.058 vs 3.009 fails, G6b ≤ 3.459 passes) are the recorded case |
 | 14 | Budget / halt | **RESOLVED (default, veto-open)** | 250 images; HALT on 2 consecutive FAILs — Matt's "see above"; corrects at will |
 | 15 | Edit-canvas chaining scheme (3 calls per 8-frame loop, seed/neighbour-in-canvas) | **RESOLVED-BY-CHARTER, detail delegated** | Astra proposes in the X2 registration; conductor approves (reasoning boundary; ledgered) |
 | 16 | Mask / plate-scale thresholds (G12 99 %, doorway 480 ± 10 %, bands ± 10 %) | **RESOLVED-BY-CHARTER, pre-registered** | frozen at T0 before any candidate is generated |
@@ -162,7 +162,10 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 | 21 | Blood / gore under built-in moderation | **GATED+TRACKED** | X8 records a refusal as a finding (feeds the non-Astra/API discussion if it ever opens) |
 | 22 | Non-humanoid forms, full roster, 3 tiers × 100 | **OUT OF SCOPE** | Run C-2+ (KR build wave after this run) |
 | 23 | Factions ↔ Glitch Archive fold | **OUT OF SCOPE** | STORYWRIGHT session (F9) |
-| 24 | Launch | **OPEN — Matt's GO word** | this document |
+| 24 | Launch | **RESOLVED for the HITL run (GO given 2026-09-11/12; T0 → K3 executed); OVERNIGHT AUTONOMOUS RUN NOT LAUNCHED (Matt, R-17: oracle-first)** | next launch = the post-oracle HITL session; overnight slate draft kept at the plan note |
+| 26 | **Animation oracle + gait tooling** (walk/idle cycle rules, numbered-foot guides, breath spec; T1 contract) | **GATED+TRACKED** | empirical criterion: legolas R10/R10b findings returned (in flight 2026-09-12) → T1 gates calibrated on the measured reference → idle-S + walk-E re-run and compared to the oracle. Everything standing on loops (composite proof, gear-on-loops, continuation) waits behind it |
+| 27 | Pilot subject for the remaining slate (run_03 mage vs the Keeper) | **OPEN — Matt** | conductor lean: retire the mage; the Keeper is the pilot |
+| 28 | Advanced-set motif placements (the reserved ring-with-hour-mark) | **OPEN — Matt** | ruled when X5 is chartered; default lean pauldron_L + staff head, count 1 each |
 | 25 | **AI-tell control** — faction bible (motif placement/exclusions, material inventory, construction logic, plain-surface budget), register-card TELL-CONTROL block, JUDGE axis 6 (tell audit; F04 advanced-figure crop as known-bad control), deterministic oracles feeding the bible (bible ↔ oracle loop) | **GATED+TRACKED** | legolas Mode A R6/R7/R8 commissioned 2026-09-11 (`gandalf/requests/2026-09-11-legolas-mode-a-ai-tells-art-bibles-oracles.md`); then Bible v0 (gandalf) + vocabulary grill (Matt) → charter v1.1. **K1 does not fire before.** T0/X1–X4 have no bible dependency (mechanism repairs on the existing mage) — may fire on Matt's word while research runs |
 
 **Gate verdict (amended 2026-09-11): CLEAN for T0/X1–X4; K1 onward GATED on row 25.** No OPEN Matt-gated fork remains before launch except the launch word. Items 7 and 13 are correctly milestone-gated (they cannot be decided before the artifact exists). No new `matt_decision_needed/` rows are warranted.
