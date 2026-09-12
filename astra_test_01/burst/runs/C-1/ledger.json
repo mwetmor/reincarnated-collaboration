@@ -576,9 +576,69 @@
       "model_source": "profile (recorded by the conductor; this entry was written by the pre-fix wrapper)",
       "effort": "high",
       "codex_version": "codex-cli 0.153.4"
+    },
+    {
+      "id": "X1-gen-02",
+      "type": "GENERATE",
+      "experiment": "X1",
+      "brief_sha256": "b95e6d4aea3f8ccb67be7e9a96d58cca70c7366efe52d8d575d24d5d40e6ce00",
+      "started": "2026-09-12T03:39:26.941090+00:00",
+      "ended": "2026-09-12T03:41:40.744975+00:00",
+      "minutes": 2.230048004866694,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a093b2-dbf4-76c1-ab88-23dc95f5034c/exec-b02ab4a6-6108-4f5a-859c-3df981ba685f.png",
+            "sha256": "fcbce7c54aed60b1467527172026a7e158a8fd3c3c6bfbd4a29b7567c961b3bc"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a093b2-dbf4-76c1-ab88-23dc95f5034c/exec-b989135e-617e-4183-a88e-77ff757923a0.png",
+            "sha256": "8dd016da5c83dde5907eeee4b7be79051ec4bed8a6b1781511ebb7862e7d516c"
+          }
+        ]
+      },
+      "receipt_sha256": "e3c40e203ec45fac9802842957119b1650076363792b3f56d785e8344b9a35db",
+      "artifacts": [
+        {
+          "name": "x1_satchel.png",
+          "sha256": "8dd016da5c83dde5907eeee4b7be79051ec4bed8a6b1781511ebb7862e7d516c"
+        },
+        {
+          "name": "x1_staff_head.png",
+          "sha256": "fcbce7c54aed60b1467527172026a7e158a8fd3c3c6bfbd4a29b7567c961b3bc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a093b2-dbf4-76c1-ab88-23dc95f5034c/exec-b02ab4a6-6108-4f5a-859c-3df981ba685f.png",
+          "sha256": "fcbce7c54aed60b1467527172026a7e158a8fd3c3c6bfbd4a29b7567c961b3bc"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a093b2-dbf4-76c1-ab88-23dc95f5034c/exec-b989135e-617e-4183-a88e-77ff757923a0.png",
+          "sha256": "8dd016da5c83dde5907eeee4b7be79051ec4bed8a6b1781511ebb7862e7d516c"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 2,
+  "images_used": 4,
   "images_cap": 250,
   "experiments": {
     "T0": {

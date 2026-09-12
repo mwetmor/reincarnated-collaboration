@@ -1,0 +1,53 @@
+{
+  "task_id": "X1-gen-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "x1_satchel.png",
+      "path": "out/x1_satchel.png",
+      "sha256": "8dd016da5c83dde5907eeee4b7be79051ec4bed8a6b1781511ebb7862e7d516c",
+      "prompt": "Use case: stylized-concept. Generate exactly one isolated prop: the small worn-leather satchel worn at the screen-right hip of the hooded mage in Image 1. Image 1 is a STYLE + IDENTITY reference only; do not reproduce the figure. Preserve the satchel's compact dark brown leather pouch shape, rounded lower corners, folded flap, restrained seams and small aged metal fastening; no added long shoulder strap. Painted 2D high-resolution illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or granular texture. Elevated three-quarter view matching the reference. Native source canvas 1254 by 1254 pixels. Center the single satchel at (627,627), approximately 380 SOURCE pixels wide, about 30 percent of the canvas width, with generous empty margin. Flat pure #00ff00 background across the entire canvas. Fixed single key light from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows that are never pure black, slight rim on the key-facing edge. Muted leather and aged metal colors; no spell glow or saturated warm lighting. No floor shadow, ground, scenery, person, hands, extra objects, text, labels, watermark, border, or checkerboard. Only the named satchel.",
+      "references": [
+        {
+          "role": "style + identity",
+          "path": "in/01_idle_S_00.png"
+        }
+      ],
+      "elapsed_s": 20.098
+    },
+    {
+      "name": "x1_staff_head.png",
+      "path": "out/x1_staff_head.png",
+      "sha256": "fcbce7c54aed60b1467527172026a7e158a8fd3c3c6bfbd4a29b7567c961b3bc",
+      "prompt": "Use case: stylized-concept. Generate exactly one isolated prop: the top 25 percent of the bone-and-iron staff held by the hooded mage in Image 1, including its asymmetrical forked bone prongs, dark central iron fitting and the short wrapped upper shaft terminating in a clean cut. Image 1 is a STYLE + IDENTITY reference only; preserve this staff head's identity and do not reproduce the figure or the full staff. Painted 2D high-resolution illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or granular texture. Same elevated three-quarter view as the reference. Native source canvas 1254 by 1254 pixels. Center the single upright staff-head segment at (627,627), approximately 380 SOURCE pixels tall, about 30 percent of the canvas height, with generous empty margin. Flat pure #00ff00 background across the entire canvas. Fixed single key light from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows that are never pure black, slight rim on the key-facing edge. Muted ivory bone and dark aged iron; no spell glow or saturated warm lighting. No floor shadow, ground, scenery, person, hands, extra objects, text, labels, watermark, border, or checkerboard. Only the named staff-head segment.",
+      "references": [
+        {
+          "role": "style + identity",
+          "path": "in/01_idle_S_00.png"
+        }
+      ],
+      "elapsed_s": 19.356
+    }
+  ],
+  "calls_used": 2,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Both native PNGs are 1254×1254. Visual estimates indicate the satchel is approximately 600 source pixels wide and the staff segment approximately 830 source pixels tall, exceeding the requested 380 pixels.",
+      "The satchel has more conspicuous surface grain than requested.",
+      "Backgrounds appear uniformly green; exact #00ff00 values were not measured.",
+      "No retry was made because size and texture concerns are outside the permitted retry conditions."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/x1_satchel.png",
+      "sha256": "8dd016da5c83dde5907eeee4b7be79051ec4bed8a6b1781511ebb7862e7d516c"
+    },
+    {
+      "path": "out/x1_staff_head.png",
+      "sha256": "fcbce7c54aed60b1467527172026a7e158a8fd3c3c6bfbd4a29b7567c961b3bc"
+    }
+  ]
+}
