@@ -1,0 +1,90 @@
+{
+  "task_id": "T1a-idle",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: initial SPEC inspection displayed §2 lines 26–150 and unrelated section headings beyond the requested sections.",
+      "Synthetic amplitude contract unmet: literal changed-pixel measurements returned breath amplitude 25% H versus required 6% H ±15%, and head sway 1% H versus required 2% H ±15%. Period recovered exactly 24 frames / 2 s; LOCK=[hips,legs,feet,arms_left,arms_right], MOTION=[head,shoulders_chest], moving_count=2. Static, 3-px/frame pan, and green/native-alpha equivalence cases completed without assertion mismatches. Literal formulas and contracted assertions were retained.",
+      "Full suite: 139 tests; runner successful_tests=133; six assertion mismatches; zero errors; zero skips; elapsed 46.888816 s. Four are the named T0-d3 cases: test_f04_outside_at_least_three and test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253]. Two additional mismatches are the synthetic breath/head amplitude checks. The runner rewrote eight test-report files, included in files.",
+      "Parameters used throughout: tau=12 max-RGB units; eps=0.005 regional energy p95−p5; floor=0.01 regional energy p95. MOTION requires both strict thresholds. These are provisional synthetic settings, not fitted to real inputs. Amplitude bands use 0.6×/1×/1.5×; committed=false. Period estimation requires supported autocorrelation peaks through half the clip length; no period was recovered for the short real clips.",
+      "relaxed: 18 frames at 12 fps; corrected box=[180,25,243,136] because supplied [165,90,265,210] excluded the upper figure. Period=null s; breath amplitude=4.504505% H; head sway=1.396668% H; LOCK=[]; MOTION=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; moving_count=7. Camera VOID frames=[]; maximum shift=0.028660 px.",
+      "combat: 9 frames at 12 fps; corrected box=[75,55,166,185] because supplied [150,120,250,240] missed most of the figure. Period=null s; breath amplitude=10.307692% H; head sway=1.680519% H; LOCK=[]; MOTION=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; moving_count=7. Camera VOID frames=[0,1,4,5], zero-based; maximum shift=24.677786 px. Numbers are diagnostic only; summary passed=null.",
+      "idle_S_K3: 8 frames at 8 fps; alpha-support union box=[209,159,301,400]. Period=null s; breath amplitude=2.344398% H; head sway=2.519709% H; LOCK=[]; MOTION=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; moving_count=7. Camera VOID frames=[4,5,6,7], zero-based; maximum shift=2.186559 px. Numbers are diagnostic only; summary passed=null.",
+      "Reference plots were written only to /Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/{relaxed,combat}_{curves,box_check}.png. No reference pixels were written into the repository. All box-check plots were inspected. Reference-plot rejection inside the repository was verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/__init__.py",
+      "sha256": "83a83bf05220bf7df25e564fa5a9df6a440b7029e5795c5277f509760eb47e9f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_idle.json",
+      "sha256": "98d7c3b8732801dfdc6247178cdda93f98b6f3feb58086d8669646049aea89b8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/idle_bands.py",
+      "sha256": "623f18e48b785af1c5a1bb1d483561f492a30b73ef4338e3df799e25bd322102"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/idle_curves.py",
+      "sha256": "4a3da70d5cd5cee38028309b1f09d2615fcbda49ee9826660c9abaa5845a2626"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/motion_map.py",
+      "sha256": "329e219a9487ae2d4eb0e45c52b887194e72388682184136bbbdf3f75a644bc7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/idle_S_K3_ours.json",
+      "sha256": "a4092c980d197941dc80a18889d5ed80c016ea4ce7d8a3b1b87dbaf1d98e4692"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_box_check.png",
+      "sha256": "48edd62293f069fd93003c98a54301f51188b323811df4c0fc74c6a3de07a8b4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_curves.png",
+      "sha256": "db8e83cbdfad8659fc6ab73ac194cb132c9122fe21dee3c6ed36e472061b40db"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "6d24b965d73ca098794c5a64b24a5b6f2eba06e689135a6d02aac5efaae50ca1"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "95e21d713e22c29d2dc6d057952a6f562f4d0693a494c9f3930fee5b3e53fc00"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_idle.py",
+      "sha256": "dec303b47a198b380df1503b6a8415337c07300d007d4fb06a1c8621b5d54dd7"
+    }
+  ]
+}

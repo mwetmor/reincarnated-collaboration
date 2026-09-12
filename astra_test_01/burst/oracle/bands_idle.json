@@ -1,0 +1,888 @@
+{
+  "combat": {
+    "breath_amplitude_H": {
+      "ceiling": 0.15461538461538443,
+      "floor": 0.06184615384615377,
+      "target": 0.10307692307692295
+    },
+    "breath_period_s": null,
+    "committed": false,
+    "curves": {
+      "box": [
+        75,
+        55,
+        166,
+        185
+      ],
+      "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+      "camera_shift_px": [
+        [
+          -22.327786254279783,
+          10.510141809919155
+        ],
+        [
+          -22.327786254279783,
+          10.510141809919155
+        ],
+        [
+          0.010991285207714115,
+          0.005164163131764604
+        ],
+        [
+          -0.8413797405458869,
+          -0.014218089004702044
+        ],
+        [
+          -0.9284276284724695,
+          -0.9869925257622074
+        ],
+        [
+          -0.7226256854294419,
+          0.8606772674432825
+        ],
+        [
+          -0.003577841970865282,
+          -0.008115523753643872
+        ],
+        [
+          0.8867629927183321,
+          0.02553177600275634
+        ],
+        [
+          0.8626851017809148,
+          0.044468834518652293
+        ]
+      ],
+      "chest_dw_H": [
+        0.7,
+        0.6538461538461539,
+        0.6461538461538462,
+        0.6076923076923076,
+        0.6692307692307692,
+        0.6307692307692307,
+        0.5846153846153846,
+        0.5846153846153846,
+        0.5846153846153846
+      ],
+      "energy_by_region": {
+        "arms_left": [
+          0.3927272727272727,
+          0.15454545454545454,
+          0.19,
+          0.12545454545454546,
+          0.2409090909090909,
+          0.22090909090909092,
+          0.20363636363636364,
+          0.13545454545454547,
+          0.17454545454545456
+        ],
+        "arms_right": [
+          0.4309090909090909,
+          0.06,
+          0.20363636363636364,
+          0.14727272727272728,
+          0.12545454545454546,
+          0.05,
+          0.01090909090909091,
+          0.00909090909090909,
+          0.008181818181818182
+        ],
+        "feet": [
+          0.621978021978022,
+          0.4642857142857143,
+          0.493956043956044,
+          0.4818681318681319,
+          0.48846153846153845,
+          0.44285714285714284,
+          0.4736263736263736,
+          0.4412087912087912,
+          0.49175824175824173
+        ],
+        "head": [
+          0.20066889632107024,
+          0.3210702341137124,
+          0.2556139512661252,
+          0.20544672718585763,
+          0.1581462016244625,
+          0.17247969421882464,
+          0.15002388915432394,
+          0.1505016722408027,
+          0.15145723841376016
+        ],
+        "hips": [
+          0.6313186813186813,
+          0.27912087912087913,
+          0.43626373626373627,
+          0.40494505494505495,
+          0.29725274725274725,
+          0.23516483516483516,
+          0.2868131868131868,
+          0.23901098901098902,
+          0.2692307692307692
+        ],
+        "legs": [
+          0.6634615384615384,
+          0.38392857142857145,
+          0.44642857142857145,
+          0.40899725274725274,
+          0.2891483516483517,
+          0.25240384615384615,
+          0.29086538461538464,
+          0.2699175824175824,
+          0.3162774725274725
+        ],
+        "shoulders_chest": [
+          0.6185243328100472,
+          0.4558869701726845,
+          0.5167974882260596,
+          0.47629513343799057,
+          0.48320251177394036,
+          0.4150706436420722,
+          0.3717425431711146,
+          0.32653061224489793,
+          0.36452119309262165
+        ]
+      },
+      "eps": 0.005,
+      "floor": 0.01,
+      "fps": 12.0,
+      "frame_status": [
+        "VOID",
+        "VOID",
+        "MEASURED",
+        "MEASURED",
+        "VOID",
+        "VOID",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED"
+      ],
+      "frames": 9,
+      "head_dy_H": [
+        0.5363369963369963,
+        0.5362522893772894,
+        0.5406038820992092,
+        0.5357960644007156,
+        0.5342319312107832,
+        0.5207330066055829,
+        0.5241303282704557,
+        0.5262026862026862,
+        0.5290463479737928
+      ],
+      "head_dy_px": [
+        69.72380952380952,
+        69.71279761904762,
+        70.2785046728972,
+        69.65348837209302,
+        69.45015105740181,
+        67.69529085872577,
+        68.13694267515923,
+        68.4063492063492,
+        68.77602523659306
+      ],
+      "height": 130,
+      "provenance": {
+        "box": [
+          75,
+          55,
+          166,
+          185
+        ],
+        "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+        "eps": 0.005,
+        "floor": 0.01,
+        "fps": 12.0,
+        "frame_names": [
+          "001.png",
+          "002.png",
+          "003.png",
+          "004.png",
+          "005.png",
+          "006.png",
+          "007.png",
+          "008.png",
+          "009.png"
+        ],
+        "frames": 9,
+        "source_note": "class-E reference; source pixels remain outside repository: /Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_combat_training/CLEAN_CYCLE/_frames",
+        "tau": 12.0
+      },
+      "regions": {
+        "arms_left": [
+          75,
+          78,
+          95,
+          133
+        ],
+        "arms_right": [
+          146,
+          78,
+          166,
+          133
+        ],
+        "feet": [
+          75,
+          165,
+          166,
+          185
+        ],
+        "head": [
+          75,
+          55,
+          166,
+          78
+        ],
+        "hips": [
+          75,
+          113,
+          166,
+          133
+        ],
+        "legs": [
+          75,
+          133,
+          166,
+          165
+        ],
+        "shoulders_chest": [
+          75,
+          78,
+          166,
+          113
+        ]
+      },
+      "result": {
+        "evidence": [
+          "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/combat_box_check.png",
+          "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/combat_curves.png"
+        ],
+        "id": "oracle_idle",
+        "notes": "VOID: camera shift >1 source pixel; numbers are diagnostic only",
+        "op": "<=",
+        "passed": null,
+        "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_combat_training/CLEAN_CYCLE/_frames",
+        "threshold": null,
+        "unit": "fraction_H",
+        "value": null
+      },
+      "summary": {
+        "LOCK": [],
+        "MOTION": [
+          "head",
+          "shoulders_chest",
+          "hips",
+          "legs",
+          "feet",
+          "arms_left",
+          "arms_right"
+        ],
+        "breath_amplitude_H": 0.10307692307692295,
+        "breath_period_frames": null,
+        "breath_period_s": null,
+        "head_sway_H": 0.016805192522792,
+        "moving_count": 7,
+        "passed": null,
+        "period_confidence": 0.16682795023880012
+      },
+      "tau": 12.0,
+      "void_frames": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "weapon_tip_H": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "head_sway_H": {
+      "ceiling": 0.025207788784188,
+      "floor": 0.0100831155136752,
+      "target": 0.016805192522792
+    },
+    "lock_regions": [],
+    "motion_regions": [
+      "head",
+      "shoulders_chest",
+      "hips",
+      "legs",
+      "feet",
+      "arms_left",
+      "arms_right"
+    ],
+    "moving_count": 7,
+    "provenance": {
+      "box": [
+        75,
+        55,
+        166,
+        185
+      ],
+      "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+      "eps": 0.005,
+      "floor": 0.01,
+      "fps": 12.0,
+      "frame_names": [
+        "001.png",
+        "002.png",
+        "003.png",
+        "004.png",
+        "005.png",
+        "006.png",
+        "007.png",
+        "008.png",
+        "009.png"
+      ],
+      "frames": 9,
+      "source_note": "class-E reference; source pixels remain outside repository: /Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_combat_training/CLEAN_CYCLE/_frames",
+      "tau": 12.0
+    },
+    "result": {
+      "evidence": [
+        "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/combat_box_check.png",
+        "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/combat_curves.png"
+      ],
+      "id": "oracle_idle",
+      "notes": "VOID: camera shift >1 source pixel; numbers are diagnostic only",
+      "op": "<=",
+      "passed": null,
+      "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_combat_training/CLEAN_CYCLE/_frames",
+      "threshold": null,
+      "unit": "fraction_H",
+      "value": null
+    },
+    "void_frames": [
+      0,
+      1,
+      4,
+      5
+    ]
+  },
+  "relaxed": {
+    "breath_amplitude_H": {
+      "ceiling": 0.06756756756756754,
+      "floor": 0.027027027027027018,
+      "target": 0.04504504504504503
+    },
+    "breath_period_s": null,
+    "committed": false,
+    "curves": {
+      "box": [
+        180,
+        25,
+        243,
+        136
+      ],
+      "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+      "camera_shift_px": [
+        [
+          0.005345219568850999,
+          -0.008556839159234868
+        ],
+        [
+          0.005345219568850999,
+          -0.008556839159234868
+        ],
+        [
+          0.011979167827666436,
+          -0.01039680901128658
+        ],
+        [
+          0.010505019378585381,
+          -0.006311522047820148
+        ],
+        [
+          -0.010523164528930954,
+          -0.008527297023672355
+        ],
+        [
+          -0.006212382399655358,
+          -0.012131589856631488
+        ],
+        [
+          0.00809407817876268,
+          -0.004698475210457699
+        ],
+        [
+          0.023609222362806725,
+          -0.01531934261637683
+        ],
+        [
+          0.0181999550618262,
+          -0.017564606045687214
+        ],
+        [
+          -0.004059007369295789,
+          -0.02837123112733155
+        ],
+        [
+          -0.005394430085491299,
+          -0.015210078679617451
+        ],
+        [
+          0.0003271843586408511,
+          -0.0127401221808166
+        ],
+        [
+          0.004407236533292737,
+          0.015048145123108238
+        ],
+        [
+          -0.006356245034052213,
+          -0.006870433659186401
+        ],
+        [
+          -0.008162132226013877,
+          -0.010653932181376134
+        ],
+        [
+          0.0034094529976872712,
+          -0.01621635372011502
+        ],
+        [
+          0.0012792678841717616,
+          -0.012190832920963096
+        ],
+        [
+          0.017312278086137577,
+          -0.010762559795866064
+        ]
+      ],
+      "chest_dw_H": [
+        0.5675675675675675,
+        0.5675675675675675,
+        0.5405405405405406,
+        0.5225225225225225,
+        0.5225225225225225,
+        0.5405405405405406,
+        0.5495495495495496,
+        0.5495495495495496,
+        0.5495495495495496,
+        0.5585585585585585,
+        0.5495495495495496,
+        0.5585585585585585,
+        0.5675675675675675,
+        0.5675675675675675,
+        0.5675675675675675,
+        0.5675675675675675,
+        0.5675675675675675,
+        0.5675675675675675
+      ],
+      "energy_by_region": {
+        "arms_left": [
+          0.3221884498480243,
+          0.3282674772036474,
+          0.2507598784194529,
+          0.2006079027355623,
+          0.19300911854103345,
+          0.2553191489361702,
+          0.36322188449848025,
+          0.3677811550151976,
+          0.2872340425531915,
+          0.2917933130699088,
+          0.29635258358662614,
+          0.3343465045592705,
+          0.2826747720364742,
+          0.3768996960486322,
+          0.3601823708206687,
+          0.3069908814589666,
+          0.2796352583586626,
+          0.31155015197568386
+        ],
+        "arms_right": [
+          0.24924012158054712,
+          0.16261398176291794,
+          0.17933130699088146,
+          0.1838905775075988,
+          0.14285714285714285,
+          0.15501519756838905,
+          0.23708206686930092,
+          0.2689969604863222,
+          0.2765957446808511,
+          0.2811550151975684,
+          0.23100303951367782,
+          0.19756838905775076,
+          0.3252279635258359,
+          0.3601823708206687,
+          0.35714285714285715,
+          0.3708206686930091,
+          0.34802431610942247,
+          0.3282674772036474
+        ],
+        "feet": [
+          0.20074696545284781,
+          0.14565826330532214,
+          0.07563025210084033,
+          0.07282913165266107,
+          0.036414565826330535,
+          0.0457516339869281,
+          0.04668534080298786,
+          0.035480859010270774,
+          0.04668534080298786,
+          0.0718954248366013,
+          0.08123249299719888,
+          0.17273576097105509,
+          0.2913165266106443,
+          0.29785247432306255,
+          0.3081232492997199,
+          0.3333333333333333,
+          0.3445378151260504,
+          0.3557422969187675
+        ],
+        "head": [
+          0.3674603174603175,
+          0.3626984126984127,
+          0.30873015873015874,
+          0.2777777777777778,
+          0.2722222222222222,
+          0.25396825396825395,
+          0.2611111111111111,
+          0.2634920634920635,
+          0.25873015873015875,
+          0.31507936507936507,
+          0.33015873015873015,
+          0.396031746031746,
+          0.5253968253968254,
+          0.5261904761904762,
+          0.5587301587301587,
+          0.573015873015873,
+          0.5785714285714286,
+          0.6047619047619047
+        ],
+        "hips": [
+          0.24089635854341737,
+          0.17086834733893558,
+          0.13818860877684408,
+          0.1400560224089636,
+          0.12511671335200747,
+          0.13445378151260504,
+          0.2315592903828198,
+          0.24276377217553688,
+          0.2707749766573296,
+          0.3099906629318394,
+          0.2726423902894491,
+          0.24089635854341737,
+          0.2754435107376284,
+          0.30532212885154064,
+          0.2950513538748833,
+          0.3165266106442577,
+          0.3146591970121382,
+          0.3464052287581699
+        ],
+        "legs": [
+          0.23515579071134626,
+          0.17989417989417988,
+          0.10817166372721929,
+          0.10464432686654909,
+          0.06819517930629042,
+          0.054673721340388004,
+          0.10582010582010581,
+          0.18283362727807173,
+          0.26278659611992944,
+          0.32275132275132273,
+          0.37037037037037035,
+          0.43386243386243384,
+          0.5373309817754263,
+          0.5243974132863022,
+          0.5002939447383892,
+          0.5049970605526161,
+          0.51440329218107,
+          0.5161669606114051
+        ],
+        "shoulders_chest": [
+          0.4031746031746032,
+          0.382010582010582,
+          0.35555555555555557,
+          0.30952380952380953,
+          0.28888888888888886,
+          0.2798941798941799,
+          0.3671957671957672,
+          0.38835978835978835,
+          0.3544973544973545,
+          0.35873015873015873,
+          0.3492063492063492,
+          0.3529100529100529,
+          0.40634920634920635,
+          0.45026455026455026,
+          0.44126984126984126,
+          0.41904761904761906,
+          0.4005291005291005,
+          0.4195767195767196
+        ]
+      },
+      "eps": 0.005,
+      "floor": 0.01,
+      "fps": 12.0,
+      "frame_status": [
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED",
+        "MEASURED"
+      ],
+      "frames": 18,
+      "head_dy_H": [
+        0.3068705854882961,
+        0.3043743962781162,
+        0.30248500428449016,
+        0.3016731016731017,
+        0.30638510230346966,
+        0.30926238738738737,
+        0.3137544839672499,
+        0.31165201345924237,
+        0.3197645498258995,
+        0.31572378423763814,
+        0.3134961884961885,
+        0.3117947606925563,
+        0.3076944013499905,
+        0.30755642520348403,
+        0.31184735872235875,
+        0.3090389558533603,
+        0.30769040645583856,
+        0.3092738407699037
+      ],
+      "head_dy_px": [
+        34.062634989200866,
+        33.7855579868709,
+        33.57583547557841,
+        33.48571428571429,
+        34.00874635568513,
+        34.328125,
+        34.82674772036474,
+        34.5933734939759,
+        35.49386503067485,
+        35.04534005037783,
+        34.79807692307692,
+        34.609218436873746,
+        34.15407854984895,
+        34.13876319758673,
+        34.61505681818182,
+        34.30332409972299,
+        34.15363511659808,
+        34.329396325459314
+      ],
+      "height": 111,
+      "provenance": {
+        "box": [
+          180,
+          25,
+          243,
+          136
+        ],
+        "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+        "eps": 0.005,
+        "floor": 0.01,
+        "fps": 12.0,
+        "frame_names": [
+          "001.png",
+          "002.png",
+          "003.png",
+          "004.png",
+          "005.png",
+          "006.png",
+          "007.png",
+          "008.png",
+          "009.png",
+          "010.png",
+          "011.png",
+          "012.png",
+          "013.png",
+          "014.png",
+          "015.png",
+          "016.png",
+          "017.png",
+          "018.png"
+        ],
+        "frames": 18,
+        "source_note": "class-E reference; source pixels remain outside repository: /Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_relaxed_house/CLEAN_CYCLE/_frames",
+        "tau": 12.0
+      },
+      "regions": {
+        "arms_left": [
+          180,
+          45,
+          194,
+          92
+        ],
+        "arms_right": [
+          229,
+          45,
+          243,
+          92
+        ],
+        "feet": [
+          180,
+          119,
+          243,
+          136
+        ],
+        "head": [
+          180,
+          25,
+          243,
+          45
+        ],
+        "hips": [
+          180,
+          75,
+          243,
+          92
+        ],
+        "legs": [
+          180,
+          92,
+          243,
+          119
+        ],
+        "shoulders_chest": [
+          180,
+          45,
+          243,
+          75
+        ]
+      },
+      "result": {
+        "evidence": [
+          "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/relaxed_box_check.png",
+          "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/relaxed_curves.png"
+        ],
+        "id": "oracle_idle",
+        "notes": "Descriptive measurement only; no acceptance verdict",
+        "op": "<=",
+        "passed": null,
+        "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_relaxed_house/CLEAN_CYCLE/_frames",
+        "threshold": null,
+        "unit": "fraction_H",
+        "value": null
+      },
+      "summary": {
+        "LOCK": [],
+        "MOTION": [
+          "head",
+          "shoulders_chest",
+          "hips",
+          "legs",
+          "feet",
+          "arms_left",
+          "arms_right"
+        ],
+        "breath_amplitude_H": 0.04504504504504503,
+        "breath_period_frames": null,
+        "breath_period_s": null,
+        "head_sway_H": 0.013966680183095437,
+        "moving_count": 7,
+        "passed": null,
+        "period_confidence": 0.0
+      },
+      "tau": 12.0,
+      "void_frames": [],
+      "weapon_tip_H": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "head_sway_H": {
+      "ceiling": 0.020950020274643155,
+      "floor": 0.008380008109857262,
+      "target": 0.013966680183095437
+    },
+    "lock_regions": [],
+    "motion_regions": [
+      "head",
+      "shoulders_chest",
+      "hips",
+      "legs",
+      "feet",
+      "arms_left",
+      "arms_right"
+    ],
+    "moving_count": 7,
+    "provenance": {
+      "box": [
+        180,
+        25,
+        243,
+        136
+      ],
+      "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+      "eps": 0.005,
+      "floor": 0.01,
+      "fps": 12.0,
+      "frame_names": [
+        "001.png",
+        "002.png",
+        "003.png",
+        "004.png",
+        "005.png",
+        "006.png",
+        "007.png",
+        "008.png",
+        "009.png",
+        "010.png",
+        "011.png",
+        "012.png",
+        "013.png",
+        "014.png",
+        "015.png",
+        "016.png",
+        "017.png",
+        "018.png"
+      ],
+      "frames": 18,
+      "source_note": "class-E reference; source pixels remain outside repository: /Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_relaxed_house/CLEAN_CYCLE/_frames",
+      "tau": 12.0
+    },
+    "result": {
+      "evidence": [
+        "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/relaxed_box_check.png",
+        "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/_T1a_plots/relaxed_curves.png"
+      ],
+      "id": "oracle_idle",
+      "notes": "Descriptive measurement only; no acceptance verdict",
+      "op": "<=",
+      "passed": null,
+      "subject": "/Users/admin/Desktop/Astra Burst Review - 2026-09-11/06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_relaxed_house/CLEAN_CYCLE/_frames",
+      "threshold": null,
+      "unit": "fraction_H",
+      "value": null
+    },
+    "void_frames": []
+  }
+}

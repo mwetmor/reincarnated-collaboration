@@ -1,0 +1,279 @@
+{
+  "box": [
+    209,
+    159,
+    301,
+    400
+  ],
+  "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+  "camera_shift_px": [
+    [
+      -0.07517372367574998,
+      -0.10180345224201055
+    ],
+    [
+      -0.07517372367574998,
+      -0.10180345224201055
+    ],
+    [
+      0.02265595319139208,
+      -0.20409822926736668
+    ],
+    [
+      -0.05045109801276355,
+      0.0025594263555217016
+    ],
+    [
+      -1.9535069746556197,
+      -0.07939937503033893
+    ],
+    [
+      1.8683140510985032,
+      -0.01997805134181857
+    ],
+    [
+      -1.9336985922384355,
+      0.004289695994982596
+    ],
+    [
+      2.085861496976229,
+      0.6559119177786724
+    ]
+  ],
+  "chest_dw_H": [
+    0.33195020746887965,
+    0.3278008298755187,
+    0.33195020746887965,
+    0.3236514522821577,
+    0.34854771784232363,
+    0.34854771784232363,
+    0.34854771784232363,
+    0.33195020746887965
+  ],
+  "energy_by_region": {
+    "arms_left": [
+      0.11176470588235295,
+      0.07303921568627451,
+      0.11666666666666667,
+      0.059313725490196076,
+      0.638235294117647,
+      0.44362745098039214,
+      0.6269607843137255,
+      0.11176470588235295
+    ],
+    "arms_right": [
+      0.09313725490196079,
+      0.06666666666666667,
+      0.12254901960784313,
+      0.0784313725490196,
+      0.28431372549019607,
+      0.21372549019607842,
+      0.32450980392156864,
+      0.09313725490196079
+    ],
+    "feet": [
+      0.004528985507246377,
+      0.005434782608695652,
+      0.014794685990338164,
+      0.018719806763285024,
+      0.28200483091787437,
+      0.13496376811594202,
+      0.2886473429951691,
+      0.004528985507246377
+    ],
+    "head": [
+      0.07002022244691608,
+      0.04802831142568251,
+      0.06547017189079879,
+      0.04373104145601618,
+      0.31648129423660265,
+      0.22396359959555107,
+      0.3104145601617796,
+      0.07002022244691608
+    ],
+    "hips": [
+      0.04524089306698002,
+      0.041421856639247946,
+      0.07432432432432433,
+      0.014394829612220916,
+      0.3845475910693302,
+      0.18948296122209166,
+      0.40569917743830786,
+      0.04524089306698002
+    ],
+    "legs": [
+      0.014492753623188406,
+      0.008695652173913044,
+      0.031159420289855074,
+      0.010144927536231883,
+      0.34746376811594204,
+      0.21105072463768115,
+      0.36032608695652174,
+      0.014492753623188406
+    ],
+    "shoulders_chest": [
+      0.1911371237458194,
+      0.118561872909699,
+      0.18361204013377927,
+      0.15117056856187291,
+      0.49933110367892974,
+      0.3120401337792642,
+      0.5202341137123746,
+      0.1911371237458194
+    ]
+  },
+  "eps": 0.005,
+  "floor": 0.01,
+  "fps": 8.0,
+  "frame_status": [
+    "MEASURED",
+    "MEASURED",
+    "MEASURED",
+    "MEASURED",
+    "VOID",
+    "VOID",
+    "VOID",
+    "VOID"
+  ],
+  "frames": 8,
+  "head_dy_H": [
+    0.7637551118234792,
+    0.763332605372352,
+    0.7747801150290777,
+    0.7801789269181877,
+    0.7555777975156762,
+    0.7517538847728146,
+    0.7557577682565857,
+    0.7637551118234792
+  ],
+  "head_dy_px": [
+    184.06498194945848,
+    183.96315789473684,
+    186.72200772200773,
+    188.02312138728323,
+    182.09424920127796,
+    181.1726862302483,
+    182.13762214983714,
+    184.06498194945848
+  ],
+  "height": 241,
+  "provenance": {
+    "box": [
+      209,
+      159,
+      301,
+      400
+    ],
+    "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
+    "eps": 0.005,
+    "floor": 0.01,
+    "fps": 8.0,
+    "frame_names": [
+      "idle_S_00.png",
+      "idle_S_01.png",
+      "idle_S_02.png",
+      "idle_S_03.png",
+      "idle_S_04.png",
+      "idle_S_05.png",
+      "idle_S_06.png",
+      "idle_S_07.png"
+    ],
+    "frames": 8,
+    "source_note": "own registered sprite: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-02/frames/idle/S",
+    "tau": 12.0
+  },
+  "regions": {
+    "arms_left": [
+      209,
+      202,
+      229,
+      304
+    ],
+    "arms_right": [
+      281,
+      202,
+      301,
+      304
+    ],
+    "feet": [
+      209,
+      364,
+      301,
+      400
+    ],
+    "head": [
+      209,
+      159,
+      301,
+      202
+    ],
+    "hips": [
+      209,
+      267,
+      301,
+      304
+    ],
+    "legs": [
+      209,
+      304,
+      301,
+      364
+    ],
+    "shoulders_chest": [
+      209,
+      202,
+      301,
+      267
+    ]
+  },
+  "result": {
+    "evidence": [
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_box_check.png",
+      "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_curves.png"
+    ],
+    "id": "oracle_idle",
+    "notes": "VOID: camera shift >1 source pixel; numbers are diagnostic only",
+    "op": "<=",
+    "passed": null,
+    "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-02/frames/idle/S",
+    "threshold": null,
+    "unit": "fraction_H",
+    "value": null
+  },
+  "summary": {
+    "LOCK": [],
+    "MOTION": [
+      "head",
+      "shoulders_chest",
+      "hips",
+      "legs",
+      "feet",
+      "arms_left",
+      "arms_right"
+    ],
+    "breath_amplitude_H": 0.0234439834024896,
+    "breath_period_frames": null,
+    "breath_period_s": null,
+    "head_sway_H": 0.02519708852418312,
+    "moving_count": 7,
+    "passed": null,
+    "period_confidence": 0.0
+  },
+  "tau": 12.0,
+  "void_frames": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "weapon_tip_H": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
