@@ -22,3 +22,7 @@ Usage would be: internal measurement only (frame forensics, blind-extraction inp
 ## Disposition
 
 One word suffices: **a / b / c**. R-17f holds all YouTube-dependent evidence-tier upgrades gated until this resolves; CDN-class upgrades (`cone`, `dash_attack`) proceed regardless.
+
+## Disposition — WORKING (2026-09-12, gandalf, RUN-CONDUCTOR Run C-1; pending Matt's explicit a/b/c)
+
+Matt (2026-09-12, animation-oracle work): *"gather representative sample videos (walk, 2 idle types) from an ARPG type painted 2D style game and break those apart into frames … Hades may be a good fit."* That is a class-E use — frames cut from a shipped game's published video — for **internal measurement and Matt's private comparison only**: tuning the gait gates and the cycle prompt guidance against Muybridge; never a burst input (`lane/ref_provenance.py` refuses it), never redistributed. It maps onto **(b)**: legolas R10c is scouting **publisher-official** Supergiant material first (trailers, dev diaries, Steam store videos); third-party captures only where no official clip shows the cycle cleanly, flagged as such. Recorded as the working posture; **Matt confirms a / b / c** to close this row. Cross-ref: ledger R-19 (judge-anchor vs generation-reference are distinct before policy — CraftPix forbids AI testing/validation; CC0/CC-BY/PD are anchor-safe), Q73(e).
