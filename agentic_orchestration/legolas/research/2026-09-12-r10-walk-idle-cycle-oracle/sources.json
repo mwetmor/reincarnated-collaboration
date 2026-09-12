@@ -1,0 +1,107 @@
+{
+  "commission": "gandalf Mode A — walk & idle cycle anatomy for painted-2D ARPG sprites (R10) + the cycle ORACLE artifacts (R10b, incl. Matt's 2026-09-12 sheet+video addendum)",
+  "brief": "agentic_orchestration/gandalf/requests/2026-09-12-legolas-mode-a-walk-idle-cycle-anatomy.md",
+  "findings": "agentic_orchestration/legolas/research/2026-09-12-r10-walk-idle-cycle-oracle/findings.md",
+  "researcher": "legolas (UNKNOWN-RESEARCHER)",
+  "date": "2026-09-12",
+  "grading_key": {
+    "VERIFIED": "stated in a primary source read directly, quoted",
+    "VERIFIED-dagger": "a delegated researcher read the primary artefact and quoted URL + value; load-bearing ones spot-checked by legolas",
+    "PRACTITIONER-REPORT": "real published practitioner/production artifact or community-standard practice, not measured",
+    "SECONDARY": "trade-press or community report about a primary source not opened",
+    "UNVERIFIED": "plausible, named, not evidenced; includes researcher inference",
+    "DERIVED": "computed by legolas from VERIFIED inputs; the arithmetic is legolas's, the transfer to our register is UNVERIFIED",
+    "OBSERVED": "legolas first-hand inspection this session"
+  },
+  "normalisation": {
+    "H": "figure height, head-top to sole, in the sprite's own pixels",
+    "reference_stature_for_cm_conversions_m": 1.70,
+    "all_percent_H_figures": "peak-to-peak unless marked"
+  },
+  "load_bearing_numbers": {
+    "williams_beat_frames_per_step_at_24fps": {"very_fast_run": 4, "run_or_very_fast_walk": 6, "cartoon_walk_3_steps_sec": 8, "natural_walk_2_steps_sec": 12, "strolling": 16, "elderly": 20, "slow_step": 24},
+    "williams_key_placement_on_8s": {"contact": 1, "down": 3, "passing": 5, "up": 7, "next_contact": 9},
+    "bob_phase": "minimum at DOWN; maximum at UP (Williams) or at PASSING/midstance (clinical) — CONFLICT reported, not averaged; gate accepts PASSING-or-UP",
+    "vertical_com_excursion_cm_by_speed": {"0.7_m_s": "2.74 +/- 0.52", "1.6_m_s": "4.83 +/- 0.92"},
+    "mediolateral_com_excursion_cm_by_speed": {"0.7_m_s": "6.99 +/- 1.34", "1.6_m_s": "3.85 +/- 1.41"},
+    "derived_at_williams_march_tempo_1.44_m_s": {"vertical_pct_H": 2.6, "lateral_pct_H": 2.6, "note": "near-equal amplitudes with a 2:1 frequency ratio => the true head path is a figure-8"},
+    "arm_swing_shoulder_flex_ext_deg": "24.6 +/- 3.4 (SECONDARY — no opened primary prints it)",
+    "derived_hand_travel_pct_H": 14.3,
+    "minimum_toe_clearance_mm": "10-20 (mean 14.1 +/- 8.3) = 0.6-1.2 %H",
+    "foot_skate_metric": "s = d(2 - 2^(h/H)), H = 3.3 cm; mocap ground truth 0.10 cm/frame = 0.059 %H/frame = 0.24 px/frame at H=400px",
+    "step_length_pct_H": "41-42",
+    "derived_planted_sole_scroll_per_frame_8frame_cycle": "0.105 H/frame (~42 px at H=400)",
+    "drillis_contini_fractions_of_H": {"eye": 0.936, "chin": 0.870, "shoulder": 0.818, "elbow": 0.630, "hip_trochanter": 0.530, "wrist": 0.485, "fingertip": 0.377, "knee": 0.285, "ankle": 0.039, "head_height": 0.130, "shoulder_width": 0.259, "upper_arm": 0.186, "forearm": 0.146, "hand": 0.108, "hip_width": 0.191, "foot_length": 0.152},
+    "iso_projection": {"game_standard_ratio": "2:1", "angle_deg": 26.565, "true_iso_deg": 30, "classification": "dimetric"},
+    "shipped_arpg": {
+      "d2_NU_combat_idle": {"frames_per_dir": 8, "dirs": 16, "fps": 12.5, "loop_s": 0.64},
+      "d2_TN_town_idle": {"frames_per_dir": 16, "dirs": 16, "fps": 7.8, "loop_s": 2.05},
+      "d2_WL_walk": {"frames_per_dir": 8, "dirs": 16, "fps": 25.0, "loop_s": 0.32},
+      "d2_RN_run": {"frames_per_dir": 8, "dirs": 16, "fps": 25.0},
+      "d2_engine": "25 ticks/s hardcoded; AnimSpeed 256 = 100% of 25 fps; 16 dirs players, 8 monsters",
+      "d2_weapon_class_invariance": "NU/WL/RN frame count AND speed identical across all 12 weapon classes within a character class; the .cof only re-composites layers",
+      "hades_ZagreusIdle": {"frames": 120, "angles": 32, "fps": "undeclared"},
+      "hades_ZagreusRun": {"frames": 32, "angles": 64, "fps": 60.0, "cycle_s": 0.533, "footfalls_at_frames": [1, 16]},
+      "hades_npc_idle_house_norm": {"frames": 60, "fps": 30, "loop_s": 2.0},
+      "hades_locomotion_budget_sprites": 36992,
+      "d2_locomotion_budget_sprites_one_layer_class_weaponclass": 768,
+      "grim_dawn_anm_fps": 30,
+      "titan_quest_anm_fps": 30
+    },
+    "muybridge": {"phases_per_stride": 12, "interval_s": 0.120, "faithful_assembly_fps": 8.33, "stride_s": 1.44, "step_s": 0.72, "steps_per_sec": 1.39, "figures_per_plate": 36, "camera_L_deg": 0, "camera_E_rear_deg": 90, "camera_F_front_oblique_deg": 60}
+  },
+  "structural_findings": [
+    "No shipped ARPG surveyed authors a per-weapon WALK. PoE and Torchlight II ship no player walk at all; Grim Dawn shares one walk across 7 of 8 stances and points every staff clip at hero01_sword1h_*; Hades walks only out of combat. Per-weapon authoring happens at the IDLE and the RUN.",
+    "Two idles is the genre norm: combat-ready (short) + relaxed (long), plus an explicit transition clip and fidgets.",
+    "The 2.0 s idle loop is arrived at independently by D2 (2.05 s), Hades (2.00 s) and practitioner guidance (2-4 s).",
+    "Several biomechanical quantities are sub-pixel at sprite scale and cannot be gates (MTC 3.2 px; foot-skate 0.24 px/frame; veridical idle head bob 0.8 px).",
+    "The true head path is a 2:1 Lissajous figure-8; the animation tradition (Ken Harris) forbids exactly that shape — amplify vertical, suppress lateral.",
+    "Williams: a faithfully traced walk floats; the drawn register must exaggerate. Muybridge is the floor, not the target. The multiplier is unpublished (gap G11).",
+    "g6_seam literal is biased against walks by construction (non-uniform pose spacing). Proposed G6c: compare the seam to its half-cycle homologue d(N/2 -> N/2+1).",
+    "No single facing validates a whole cycle; the gate set must split profile (sagittal) vs front/back (frontal). Every Muybridge plate carries 0/60/90 degrees synchronised."
+  ],
+  "oracle_artifacts": {
+    "downloaded_to_refs": [
+      {"file": "refs/B19801555.jpg", "what": "Muybridge Animal Locomotion plate 13, woman walking", "holding": "Wellcome Collection b19801555", "px": "7628x6049", "licence": "Public Domain Mark 1.0", "licence_source": "IIIF manifest license field, read 2026-09-12", "sidecar": "refs/B19801555.licence.txt"},
+      {"file": "refs/B19801099.jpg", "what": "Muybridge Animal Locomotion plate 2, man walking", "holding": "Wellcome Collection b19801099", "px": "7628x6049", "licence": "Public Domain Mark 1.0", "licence_source": "IIIF manifest license field, read 2026-09-12", "sidecar": "refs/B19801099.licence.txt"}
+    ],
+    "video_forms_verified_not_downloaded": [
+      {"title": "Muybridge human male walking animated.gif", "what": "plate 2, LATERAL row, 12 frames — the video companion to B19801099", "px": "404x725", "licence": "Public domain, no restrictions", "licence_source": "Commons API extmetadata, read 2026-09-12", "note": "plays at ~3 fps; Muybridge's native rate is 8.33 fps"},
+      {"title": "Animal Locomotion I, Plate 34 - Full plate animated.gif", "what": "animates all THREE camera rows simultaneously", "px": "485x1194", "licence": "Public domain, no restrictions"},
+      {"title": "Animal Locomotion I, Plate 34 - Top row animated.gif", "px": "518x1194", "licence": "Public domain, no restrictions"},
+      {"title": "Muybridge Plate 175, Crossing brook on stepping-stones with a fishing pole", "what": "the only PD sequence of a figure locomoting with a long shaft", "px": "3985x1628", "licence": "CC0 (NGA open access)"}
+    ],
+    "painted_register_candidates": [
+      {"name": "Isometric Painted Game Assets (laetissima)", "url": "https://opengameart.org/content/isometric-painted-game-assets", "licence": "CC0", "forms": "sheet + walking.gif (BOTH)", "limits": "4 directions, walk only, NO idle", "register": "genuinely painted"},
+      {"name": "Isometric: Mini-Crusader (Bleed)", "url": "https://opengameart.org/content/isometric-mini-crusader", "licence": "CC-BY 4.0", "attribution_required": "Bleed - http://remusprites.carbonmade.com/", "forms": "sheet; video DERIVABLE", "strengths": "elevated 3/4 camera, 8 directions, real idle + real walk"},
+      {"name": "KayKit Character Animations (Kay Lousberg)", "url": "https://opengameart.org/content/kaykit-character-animations", "licence": "CC0", "forms": "GIFs published; sheet DERIVABLE by rendering the rig at our camera", "register": "rendered 3D, not painted"}
+    ],
+    "excluded": [
+      {"name": "CraftPix (all tiers)", "reason": "licence forbids use for 'training, fine-tuning, developing, testing, validating, or improving' AI systems — 'testing' and 'validating' name judge-anchoring", "url": "https://craftpix.net/file-licenses/"},
+      {"name": "Reiner's Tilesets 2D Humans", "reason": "custom freeware: use permitted, REDISTRIBUTION FORBIDDEN; measurement-reference only, cannot be checked into the repo", "note": "closest content match to the brief that exists"}
+    ],
+    "empty_set_result": "painted register x elevated 3/4 camera x idle AND walk x 8 directions x named open licence = no asset found across OpenGameArt, Kenney, itch.io, CraftPix, LPC, Poly Haven, Sketchfab, Quaternius, KayKit"
+  },
+  "sourcing_class_alignment": {
+    "open_queue_row": "canonical/matt_decision_needed/2026-08-25-youtube-frame-extraction-sourcing-class.md",
+    "status": "OPEN — no ruling assumed",
+    "classes": {
+      "A": "public domain / CC0 — measurement + showable; not gated",
+      "B": "CC-BY / CC-BY-SA — measurement + showable with attribution; SA is viral, prefer BY; not gated",
+      "C": "vendor freeware, use-only — measurement yes, redistribution no; not gated",
+      "D": "vendor freeware with an AI prohibition — EXCLUDED entirely",
+      "E1": "published-video frame extraction, publisher-official channel — GATED; authorized under option (a) or (b)",
+      "E2": "published-video frame extraction, third-party upload — GATED; authorized only under option (a)"
+    },
+    "consequence": "the R10b oracle does not depend on the ruling: Muybridge is class A in both forms and a CC0/CC-BY painted candidate exists in both forms. Class E would widen the reference base, not gate the lane."
+  },
+  "provenance_rule": "Third-party pixels never condition a mint (lane/ref_provenance.py, unchanged). Nothing in refs/ may be copied anywhere under astra_test_01/. Whether a licensed reference may serve as a JUDGE ANCHOR remains Matt's ruling — but the licences already differ on it (see 'excluded').",
+  "gates_proposed": {
+    "walk": ["W-1 bob amplitude", "W-2 bob phase", "W-3a head-path axis ratio", "W-3b signed area (diagnostic only)", "W-3c lateral frequency", "W-4 two bobs per cycle", "W-5 arm counter-swing incl. reduced weapon arm", "W-6 arms oppose legs", "W-7 gaze lock", "W-8 planted-sole slip", "W-9 one foot planted", "W-10 swing clearance (report only — sub-pixel)", "W-11 loop closure via G6c", "W-12 key distinctness"],
+    "idle": ["I-1 feet locked", "I-2 breath amplitude", "I-3 head nearly locked", "I-4 head does not drift", "I-5 gaze lock", "I-6 grip lock", "I-7 root lock", "I-8 one breath per loop"],
+    "status": "ALL DERIVED and PRE-REGISTRATION-REQUIRED; calibrate on our own anchors before any binds",
+    "self_correction": "W-3 was first proposed as a signed-area test; tested against synthetic known-good/known-bad head paths and found blind to the figure-8 (lobes cancel to exactly zero) and to a diagonal head path (axis ratio 0.000). Split into three sub-gates."
+  },
+  "gaps_recorded": 21,
+  "gap_most_consequential": "G11 — Williams states the drawn walk must exaggerate the measured one but nowhere states BY HOW MUCH. Every amplitude ceiling in the gate table is my judgement. Closable only by measuring our own approved anchors."
+}
