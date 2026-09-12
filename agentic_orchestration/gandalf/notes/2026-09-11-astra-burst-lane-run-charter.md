@@ -124,7 +124,7 @@ Two consecutive experiment-level FAILs after their diagnosed retries · two VOID
 
 ```toml
 model = "gpt-6-astra"
-model_reasoning_effort = "medium"      # GENERATE/CHECK/PACK; "high" passed per-burst for K1/X6/JUDGE
+model_reasoning_effort = "high"        # Matt 2026-09-11: Astra ALWAYS at HIGH effort — every burst type, no per-burst downgrade
 approval_policy = "never"
 sandbox_mode = "workspace-write"
 # no plugins, no mcp_servers — the global config's Vercel plugin throws AuthRequired every session

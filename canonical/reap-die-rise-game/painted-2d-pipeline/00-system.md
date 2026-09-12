@@ -134,15 +134,15 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
-| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | bbb1a1b9fbfe | 2026-09-11 |
-| `astra_test_01/burst/SPEC.md` | build contract | 05d48f86b245 | 2026-09-11 |
+| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | 65a7d948095b | 2026-09-11 |
+| `astra_test_01/burst/SPEC.md` | build contract | d15654c052fa | 2026-09-11 |
 | `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 1a96e8aa0ad6 | 2026-09-11 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
 | `astra_test_01/burst/lane/run_burst.py` | the invocation | 5a2df9e8381d | 2026-09-11 |
 | `astra_test_01/burst/MANIFEST.sha256` | freeze state | ac2f9820407d | 2026-09-11 |
-| `~/.codex/astra-burst.config.toml` | **model pin** (`gpt-6-astra`, verified 2026-09-11 via the exec header: `model: gpt-6-astra · provider: openai`) + no plugins/MCP | d31f5d6fb6ff | 2026-09-11 |
+| `~/.codex/astra-burst.config.toml` | **model pin** (`gpt-6-astra`, verified 2026-09-11 via the exec header: `model: gpt-6-astra · provider: openai`) + **effort HIGH always** (Matt 2026-09-11) + no plugins/MCP | 04725bed2d11 | 2026-09-11 |
 | `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 190e17eb10a1 | 2026-09-11 |
 
 ---
