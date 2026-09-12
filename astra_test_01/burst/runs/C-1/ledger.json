@@ -1847,7 +1847,7 @@
       "summary": "runs/C-1/x0t/calibration_summary.json"
     },
     "K1": {
-      "status": "DELIVERED \u2014 instruments PASS A and B, FAIL C; MILESTONE AWAITING MATT PICK (conductor lean B)",
+      "status": "second master set K1-gen-02 in flight (Matt notes: feminine; no insignia; plain staff)",
       "bursts": [
         "K1-gen-01",
         "K1-chk-01",
@@ -1866,14 +1866,15 @@
       "id": "K1",
       "name": "identity masters \u2014 Matt picks 1 of 3",
       "date": "2026-09-12",
-      "status": "AWAITING PICK",
+      "status": "MATT RULED 2026-09-12: B as base + three amendments (no insignia on chest or staff; plain staff tip; the character is a young woman) \u2192 K1-gen-02 (+3 with notes)",
       "candidates": {
         "A": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 4; O7 143.6\u00b0",
         "B": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 2 (= the two ruled placements); O7 86.6\u00b0",
         "C": "rubric 4\u00b73\u00b74\u00b74\u00b74 (3.8) \u2014 FAILS mandatory axis 2 (hour-mark breaks the ring)"
       },
       "control": "mirrored B: axis 3 = 2 and axis 2 = 2 \u2192 batch VALID",
-      "conductor_lean": "B"
+      "conductor_lean": "B",
+      "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character"
     }
   ],
   "halts": [],
@@ -1957,6 +1958,14 @@
       "burst": "K1-gen-01 \u2026 K1-pack-01",
       "ruling": "K1 executed end-to-end under the fixed lane: GENERATE (3 calls = calls_used, exit 0) \u2192 CHECK (8 calls) \u2192 TRANSCRIBE \u00d73 \u2192 JUDGE (separate instance, hidden mirrored control) \u2192 PACK, every burst exit 0 with zero violations \u2014 the first complete typed-burst cycle of Run C-1. Instruments: the bible held \u2014 zero ornament outside the two ruled placements on all three masters (the F04 style reference's satchel dial and panel diagrams did NOT bleed), construction table satisfied (O9: zero violations, all controls absent, all three), plates 98.4\u201398.6 %, mattes clean; JUDGE batch VALID (control failed axis 3 = 2 and axis 2 = 2 'rod in the wrong hand'); A 4.0 and B 4.0 pass the mandatory bars, C 3.8 fails axis 2 (hour-mark breaks its ring \u2014 flagged independently by Astra's receipt, the conductor's eye and the judge). O3b bleed index (advisory): annulus counts A 4 / B 2 / C 4 \u2014 B's equals the two ruled placements exactly. O7 azimuth weak evidence (painted shading; high dispersion): A 143.6\u00b0, B 86.6\u00b0, C 111.6\u00b0. Findings for tooling: masters came back 1024\u00d71536 portrait (registration handles it; the SCALE rule already says post-process); O2's key-facing-edge form needs an edge mask; O5 squashes portrait inputs to 64\u00d764 (T-later). Conductor lean for the pick: B. MILESTONE: commitment boundary \u2014 Matt picks; the \u00a7 3 identity-spec text is ratified by the pick (charter gate row 7).",
       "veto": "open to Matt"
+    },
+    {
+      "id": "R-11",
+      "date": "2026-09-12",
+      "boundary": "commitment (Matt) + reasoning (execution)",
+      "burst": "K1 milestone \u2192 K1-gen-02",
+      "ruling": "MATT'S K1 RULING: B as the base; remove the insignia altogether (no ring/shape on the clothing; the ring head removed from atop the staff); treat this as a STARTING character; the character is FEMININE (the original reference read feminine; the masters had drifted gender-agnostic). Conductor execution: Bible v0 \u2192 v0.1 (starter: zero motif placements, all parts plain; rod_head ABSENT on the starter; staff = plain walnut shaft with small brass ferrules at foot and tip \u2014 a value accent, no shape; the ring-with-hour-mark RESERVED as an earned advanced-set motif \u2014 placements to be ruled with the advanced set); charter \u00a7 3 identity spec amended (young woman); master prompt v2; probe set re-frozen (sha256 in the bible). Design consequence stated to Matt: the 64-px silhouette read now rests on the hair mass + staff line (+ advanced pauldron), not a ringed head. K1-gen-02 = the charter's '+3 with Matt's notes' burst, B as identity reference with the three changes explicit; image budget K1 = 6 (3 + 3). If none acceptable \u2192 HALT per charter.",
+      "veto": "Matt's own ruling; execution details veto-open"
     }
   ]
 }

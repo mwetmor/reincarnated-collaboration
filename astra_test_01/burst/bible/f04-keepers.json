@@ -5,23 +5,13 @@
    "faction": "F04 Keepers of Hours",
    "scope": "character",
    "class": "motif",
-   "statement": "RULED V1(a): the signature motif is a SINGLE OPEN RING WITH ONE RADIAL HOUR-MARK. Exactly two placements \u2014 the tabard chest panel and the rod head \u2014 and nowhere else. Every other surface is plain and undecorated (positive plainness clause). Placement counts are maximum budgets.",
-   "placements": [
-    {
-     "where": "tabard",
-     "scale_px": 48,
-     "count": 1
-    },
-    {
-     "where": "rod_head",
-     "scale_px": 64,
-     "count": 1
-    }
-   ],
+   "statement": "RULED AT K1 (Matt, 2026-09-12; amends V1a): the STARTER set carries NO insignia \u2014 no ring, no hour-mark, no shape on the tabard chest, and no head-piece atop the staff; every surface is plain and undecorated. The single open ring with one radial hour-mark is RESERVED as an earned ADVANCED-set motif (placements to be ruled with the advanced set). Placement counts are maximum budgets: starter = 0 everywhere.",
+   "placements": [],
    "exclusions": [
     "hair",
     "face",
     "shirt",
+    "tabard",
     "belt",
     "satchel",
     "harness_strap",
@@ -31,7 +21,8 @@
     "bracer_R",
     "trousers",
     "boots",
-    "rod"
+    "rod",
+    "rod_head"
    ],
    "parts_ref": [
     "hair",
@@ -68,14 +59,14 @@
    },
    "source": "matt-ruling",
    "date": "2026-09-12",
-   "status": "RULED 2026-09-12 (V1a). O3 template mode = copy detection of the ring-with-hour-mark (template crop taken from the approved K1 master); O3b family count ADVISORY (R-8)"
+   "status": "RULED 2026-09-12 (V1 amended at K1 \u2192 starter: none). O3 template mode idle until an advanced motif exists; O3b family count ADVISORY (R-8) \u2014 any ring-like feature on the starter is a violation to report"
   },
   {
    "id": "plain-budget",
    "faction": "F04 Keepers of Hours",
    "scope": "character",
    "class": "plain-budget",
-   "statement": "RULED V3(a): one motif, two placements, everything else plain planes \u2014 clean material planes, restrained surface texture; no trim, no edge ornament, no secondary sigils; wear and stitching only where a fastener or load point exists.",
+   "statement": "RULED V3(a), tightened at K1: the STARTER set has ZERO motif placements \u2014 everything is plain planes; wear and stitching only at fasteners and load points.",
    "placements": [],
    "exclusions": [],
    "parts_ref": [
@@ -113,7 +104,7 @@
    "faction": "F04 Keepers of Hours",
    "scope": "character",
    "class": "palette",
-   "statement": "RULED V2: materials \u2014 ivory linen shirt \u00b7 navy wool tabard and trousers \u00b7 chestnut leather harness strap, belt, bracers, boots \u00b7 OLIVE WAXED-CANVAS satchel with brass corners \u00b7 DARK WALNUT rod shaft with a BRASS ring head \u00b7 white-lacquered plate with gold trim (advanced set only) \u00b7 dark curly hair. Rule: no two adjacent parts share a hue bin (machine-legible costume; O6 classifies parts in CIELAB a*b*). Deliberately unmeasured: face, hair highlights. Neutrals (white plate vs iron) accepted as inseparable \u2014 never adjacent in the S-idle base. a*b* windows below are PROVISIONAL and are re-measured from the approved K1 master.",
+   "statement": "RULED V2: materials \u2014 ivory linen shirt \u00b7 navy wool tabard and trousers \u00b7 chestnut leather harness strap, belt, bracers, boots \u00b7 OLIVE WAXED-CANVAS satchel with brass corners \u00b7 DARK WALNUT staff with small brass ferrules (no ring head on the starter) \u00b7 white-lacquered plate with gold trim (advanced set only) \u00b7 dark curly hair. Rule: no two adjacent parts share a hue bin (machine-legible costume; O6 classifies parts in CIELAB a*b*). Deliberately unmeasured: face, hair highlights. Neutrals (white plate vs iron) accepted as inseparable \u2014 never adjacent in the S-idle base. a*b* windows below are PROVISIONAL and are re-measured from the approved K1 master.",
    "placements": [],
    "exclusions": [
     "face",
@@ -156,7 +147,7 @@
    "faction": "F04 Keepers of Hours",
    "scope": "character",
    "class": "construction",
-   "statement": "RULED V4 (spec over reference on both sub-forks): every strap terminates at a named part; every fastener closes a named gap; belt count = 1 (one waist belt, its buckle closes the tabard); harness = ONE diagonal strap, shoulder \u2192 opposite hip, carrying the satchel on the figure's LEFT hip; the astrolabe-rod is held in the RIGHT hand; pauldron asymmetry only on the advanced set (LEFT shoulder, oversized). The F04 anchors' X-harness and doubled waist band are the known-bad.",
+   "statement": "RULED V4 (spec over reference on both sub-forks): every strap terminates at a named part; every fastener closes a named gap; belt count = 1 (one waist belt, its buckle closes the tabard); harness = ONE diagonal strap, shoulder \u2192 opposite hip, carrying the satchel on the figure's LEFT hip; the astrolabe-rod is held in the RIGHT hand; pauldron asymmetry only on the advanced set (LEFT shoulder, oversized). The F04 anchors' X-harness and doubled waist band are the known-bad. AMENDED AT K1 (Matt 2026-09-12): the staff is a plain dark walnut shaft with small brass ferrules at foot and tip \u2014 NO ring head, no shape atop it; rod_head is ABSENT on the starter set (present=false) and returns only if the advanced set earns it.",
    "placements": [],
    "exclusions": [],
    "parts_ref": [
@@ -210,7 +201,7 @@
  "PILLARS": [
   {
    "name": "Instruments, not ornaments",
-   "filter_statement": "Every object on the Keeper is an instrument or carries one; ornament is never added for its own sake."
+   "filter_statement": "Every object on the Keeper is an instrument or carries one; ornament is never added for its own sake \u2014 the starter carries none at all."
   },
   {
    "name": "Clean planes, one light",
@@ -295,10 +286,8 @@
      -18
     ]
    },
-   "allowed_motifs": [
-    "sigil"
-   ],
-   "plain": false,
+   "allowed_motifs": [],
+   "plain": true,
    "mirror_of": null
   },
   {
@@ -532,10 +521,8 @@
      60
     ]
    },
-   "allowed_motifs": [
-    "sigil"
-   ],
-   "plain": false,
+   "allowed_motifs": [],
+   "plain": true,
    "mirror_of": null
   }
  ],
@@ -567,8 +554,8 @@
   },
   {
    "part": "rod",
-   "terminates_at": "rod_head",
-   "statement": "dark walnut shaft held in the RIGHT hand; the brass ring head carries the hour-mark"
+   "terminates_at": "rod",
+   "statement": "dark walnut shaft held in the RIGHT hand; plain \u2014 small brass ferrules at foot and tip; no head-piece on the starter set"
   },
   {
    "part": "pauldron_L",
@@ -616,10 +603,10 @@
   "licensed fonts",
   "source-game names or characters"
  ],
- "probe_set_sha256": "366e18e2d73a8f9ccbfe7ed7a12134e3dda4f09bcbf9da577e8c76493ad36a0b",
+ "probe_set_sha256": "e8d5a7c9f42c113599b64159e3de7e578f759fee2482a6e074d85fb8753b5e62",
  "assets": [
   {
-   "asset_id": "f04-keeper-starter-master-S",
+   "asset_id": "f04-keeper-starter-master-S-v2",
    "content_hash": null,
    "content_flags": {
     "blood": false,
