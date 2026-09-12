@@ -171,3 +171,7 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 **Gate verdict (amended 2026-09-11): CLEAN for T0/X1–X4; K1 onward GATED on row 25.** No OPEN Matt-gated fork remains before launch except the launch word. Items 7 and 13 are correctly milestone-gated (they cannot be decided before the artifact exists). No new `matt_decision_needed/` rows are warranted.
 
 — gandalf, 2026-09-11
+
+## § 12 — Phase 1 build lane (Matt GO 2026-09-12, ledger R-24) — push pattern
+**Push authorized for this workstream — "push as you go"** (Matt, 2026-09-12): gandalf pushes `reincarnated-collaboration` after each landed TOOLING burst and each prep artifact; covers the branch state being pushed. Recorded here per CLAUDE.md's conflict rule (a posture communicated to one session is not a posture the run has). Revocation, if any, is recorded here too.
+Sequence: T1a-idle → T1a-walk → T1b → T1c (serial TOOLING; memo `2026-09-12-oracle-derived-testing-suite-spec.md`) → C-2 HITL plan authored by gandalf. Matt checkpoint after T1a-idle (curves vs Hades strips). Commitment boundaries (bands pre-registration, H1 re-freeze) HALT to Matt inside C-2.
