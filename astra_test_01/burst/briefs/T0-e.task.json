@@ -1,0 +1,13 @@
+{
+ "text": "TOOLING BURST T0-e — mask composite + G12 base-preservation gate (SPEC § 6 row \"T0-e mask composite\"; charter § 5 `mask_composite.py`, § 7 X3 falsifier: 'edit mode repaints the seed → generation cannot hold pixels → X3 mandatory' — confirmed on K3-gen-idle-01: slot 0 was re-rendered). task_id \"T0-e\".\n\nRead ONLY, in this order:\n1. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md — § 0 constraints, § 1 result schema, § 6 the \"T0-e mask composite\" row (your whole contract).\n2. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/BURST_RULES.md\n3. astra_test_01/burst/gates/{common.py, matte.py, g6_seam.py, drift48.py, README.md}, tests/gates_helpers.py, tests/test_gates_g6_seam.py (conventions to reuse: result envelope, 512-canvas frames, alpha≥128 support).\nDo not read AGENTS.md, CLAUDE.md, role files, the charter, or anything else. No web. No agents. No image generation. No pip install. stdlib + Pillow + numpy + scipy ONLY.\n\nBUILD exactly the SPEC row: gates/mask_composite.py (composite, G12 evaluate, compose_loop; thresholds and dilate_px are named parameters with a calibration note; alpha-aware difference; the region box is in 512-canvas pixel coordinates, XYXY exclusive like fixtures/manifest.json; outside-mask base pixels BYTE-IDENTICAL — assert it in code and report it as a metric), tests/test_gates_mask_composite.py with the four known-bad cases in the SPEC row plus a synthetic idle case (base sprite + a variant with a moved 'arm' block inside the box → composite keeps the base everywhere else, G12 preserved ≥ 0.99, and the arm moved). Then run the FULL suite: `cd astra_test_01/burst && PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py` — expected: all green except the four named T0-d3 reds (test_f04_outside_at_least_three; test_named_genuine_annuli_retained ×3) which belong to T0-d4 — do not touch them; report exact counts.\n\nDO NOT touch: lane/, oracles/, parts/, transcribe/, compare/, bible/, the other gates, SPEC.md, BURST_RULES.md, REGISTER_CARD.md, JUDGE_RUBRIC.md, MANIFEST.sha256, runs/, briefs/, fixtures/. Do not run git. Temporary files ONLY under tests/tmp/.\n\nRETURN: the receipt (task_id \"T0-e\"): files = every created/modified file with sha256 (absolute paths under astra_test_01/burst; the wrapper verifies them in place); images []; calls_used 0; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name precisely anything not met, with numbers. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 25,
+ "tool_call_cap": 40,
+ "outputs": [],
+ "effort": "high",
+ "add_dirs": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst"
+ ],
+ "experiment": "T0"
+}
