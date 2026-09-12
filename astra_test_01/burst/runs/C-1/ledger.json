@@ -2578,9 +2578,218 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-gen-04",
+      "type": "GENERATE",
+      "experiment": "K1",
+      "brief_sha256": "a636af6379d5dba1b23808a152341f51b64b41bf1dead4367b129ced6d6a1994",
+      "started": "2026-09-12T15:57:06.249796+00:00",
+      "ended": "2026-09-12T16:01:00.277491+00:00",
+      "minutes": 3.900442884733396,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-97758338-1ef1-4654-816f-4bd071797ccf.png",
+            "sha256": "a200f73b1d05fcd23ff321af9f009f9fe357c4b37bdb4b24eb3c5dcd2a568621"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-c0b4f671-6d83-4c22-8186-6ba0e0768643.png",
+            "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-d7200c78-6e8d-4036-a59a-cddada18ba59.png",
+            "sha256": "0cd22aacfa39695dd561666854e106a135b2ff8ac98aefad46949b15fe702e2a"
+          }
+        ]
+      },
+      "receipt_sha256": "cfc3bf07644e6ed83fdef0609f2c2fe85bc207b8e575aa6b75bc06e88bf1112d",
+      "artifacts": [
+        {
+          "name": "k1_master_J.png",
+          "sha256": "a200f73b1d05fcd23ff321af9f009f9fe357c4b37bdb4b24eb3c5dcd2a568621"
+        },
+        {
+          "name": "k1_master_K.png",
+          "sha256": "0cd22aacfa39695dd561666854e106a135b2ff8ac98aefad46949b15fe702e2a"
+        },
+        {
+          "name": "k1_master_L.png",
+          "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e"
+        },
+        {
+          "name": "exec-97758338-1ef1-4654-816f-4bd071797ccf.provenance.json",
+          "sha256": "6ba86e16f9c5c8641de9714eda1a12ecc28278229e598ba8cd781233b73490d1"
+        },
+        {
+          "name": "exec-c0b4f671-6d83-4c22-8186-6ba0e0768643.provenance.json",
+          "sha256": "7ef859193308bd5efd222ba3dedc59611ab1646070fcb1b96987611a51418f4d"
+        },
+        {
+          "name": "exec-d7200c78-6e8d-4036-a59a-cddada18ba59.provenance.json",
+          "sha256": "8c3ed1fd965aeaa3170e05d4c11778f8d625a2a408ebd8422a4b3b5ec0cec0d5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-97758338-1ef1-4654-816f-4bd071797ccf.png",
+          "sha256": "a200f73b1d05fcd23ff321af9f009f9fe357c4b37bdb4b24eb3c5dcd2a568621"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-c0b4f671-6d83-4c22-8186-6ba0e0768643.png",
+          "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09656-3217-7673-9d82-bfdfb125d07f/exec-d7200c78-6e8d-4036-a59a-cddada18ba59.png",
+          "sha256": "0cd22aacfa39695dd561666854e106a135b2ff8ac98aefad46949b15fe702e2a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-chk-04",
+      "type": "CHECK",
+      "experiment": "K1",
+      "brief_sha256": "1de9aa4ba065ca0edce70a3500fac4e31ead4d0890e13c35298d89d5c65c0537",
+      "started": "2026-09-12T16:01:39.891504+00:00",
+      "ended": "2026-09-12T16:04:17.195807+00:00",
+      "minutes": 2.624749557633186,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 5,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "f1c9a619027df4b632e35a1278bd91323dbed8a7baaf5aa40b3d8bc1a7e655d4",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "653850014fcffc5ce931f1760c46e057d4b858d2deee38917df2ceb2e9401071"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "7551d9ea42b4f228eeee3112b3f1c75182ac0a2e174baa52c07a5fb436ff6941"
+        },
+        {
+          "name": "k1_master_J_64.png",
+          "sha256": "4116fdacc32456703b8647e900ba1e5b19d6d9884267e7493b69f2ae6bc8112a"
+        },
+        {
+          "name": "k1_master_J_rgba.png",
+          "sha256": "dcb205e3771d5d31e89aefa285185025f5ec8ab8d8f59457f258c849c9a50127"
+        },
+        {
+          "name": "k1_master_K_64.png",
+          "sha256": "97aff191e7552b801e06782010ab159a60094ee7f77b0a0f9058d06aae044998"
+        },
+        {
+          "name": "k1_master_K_rgba.png",
+          "sha256": "9a3961c7c0b338359f6977381395418d48681a09d8a07e8c42a8fd43466365b8"
+        },
+        {
+          "name": "k1_master_L_64.png",
+          "sha256": "8c153f14319e18a962d0d54d89ff36f84394021165502f7db911da0984716d6b"
+        },
+        {
+          "name": "k1_master_L_rgba.png",
+          "sha256": "34584ed1e04c384324a4ac436da6f68fed79f48791e90064512542bd08c43ecb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-J",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "7bfd15f0cd4d1b88098ef78f479931b26d507288fe0a528efc85c8eacb33d343",
+      "started": "2026-09-12T16:04:17.331066+00:00",
+      "ended": "2026-09-12T16:05:06.627055+00:00",
+      "minutes": 0.8216316631830219,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "59d291370ae10d8a7395c31cd5607e5394e5dc1af42033cf81505ec7685382a7",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "9a69dbcd132185e18c2f8531630c52c88d7e5e349bff95912d23f9e77f142b0d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 12,
+  "images_used": 15,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -2626,7 +2835,7 @@
       "summary": "runs/C-1/x0t/calibration_summary.json"
     },
     "K1": {
-      "status": "K1-gen-04 (text-designed identity, +3 on Matt's word) in flight; K1 cap 11",
+      "status": "APPROVED \u2014 master L (11 images: gen-01 3, gen-02 3, gen-03 2, gen-04 3)",
       "bursts": [
         "K1-gen-01",
         "K1-chk-01",
@@ -2634,7 +2843,27 @@
         "K1-tr-B",
         "K1-tr-C",
         "K1-jdg-01",
-        "K1-pack-01"
+        "K1-pack-01",
+        "K1-gen-02",
+        "K1-chk-02",
+        "K1-tr-D",
+        "K1-tr-E",
+        "K1-tr-F",
+        "K1-jdg-02",
+        "K1-pack-02",
+        "K1-gen-03",
+        "K1-chk-03",
+        "K1-tr-G",
+        "K1-tr-H",
+        "K1-jdg-03",
+        "K1-pack-03",
+        "K1-gen-04",
+        "K1-chk-04",
+        "K1-tr-J",
+        "K1-tr-K",
+        "K1-tr-L",
+        "K1-jdg-04",
+        "K1-pack-04"
       ],
       "images": 3,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/packet/review.html"
@@ -2645,7 +2874,7 @@
       "id": "K1",
       "name": "identity masters \u2014 Matt picks 1 of 3",
       "date": "2026-09-12",
-      "status": "MATT RULED 2026-09-12: B as base + three amendments (no insignia on chest or staff; plain staff tip; the character is a young woman) \u2192 K1-gen-02 (+3 with notes)",
+      "status": "APPROVED 2026-09-12 \u2014 Matt picks L (K1-gen-04, text-designed identity)",
       "candidates": {
         "A": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 4; O7 143.6\u00b0",
         "B": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 2 (= the two ruled placements); O7 86.6\u00b0",
@@ -2653,7 +2882,11 @@
       },
       "control": "mirrored B: axis 3 = 2 and axis 2 = 2 \u2192 batch VALID",
       "conductor_lean": "B",
-      "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character"
+      "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character",
+      "approved_master": {
+        "path": "runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+        "sha256": "b3f259fa772dc300d97d99a4b632c95bb70e9dfc8caa550283921fd7fcc7302e"
+      }
     }
   ],
   "halts": [
@@ -2775,6 +3008,14 @@
       "burst": "K1 milestone \u2192 K1-gen-02",
       "ruling": "MATT'S K1 RULING: B as the base; remove the insignia altogether (no ring/shape on the clothing; the ring head removed from atop the staff); treat this as a STARTING character; the character is FEMININE (the original reference read feminine; the masters had drifted gender-agnostic). Conductor execution: Bible v0 \u2192 v0.1 (starter: zero motif placements, all parts plain; rod_head ABSENT on the starter; staff = plain walnut shaft with small brass ferrules at foot and tip \u2014 a value accent, no shape; the ring-with-hour-mark RESERVED as an earned advanced-set motif \u2014 placements to be ruled with the advanced set); charter \u00a7 3 identity spec amended (young woman); master prompt v2; probe set re-frozen (sha256 in the bible). Design consequence stated to Matt: the 64-px silhouette read now rests on the hair mass + staff line (+ advanced pauldron), not a ringed head. K1-gen-02 = the charter's '+3 with Matt's notes' burst, B as identity reference with the three changes explicit; image budget K1 = 6 (3 + 3). If none acceptable \u2192 HALT per charter.",
       "veto": "Matt's own ruling; execution details veto-open"
+    },
+    {
+      "id": "R-12",
+      "date": "2026-09-12",
+      "boundary": "commitment (Matt's pick) + reasoning (close-out)",
+      "burst": "K1",
+      "ruling": "K1 CLOSED \u2014 Matt: 'L is the winner.' The approved starter master is a text-designed young woman (K1-gen-04 L): plain chest, plain walnut staff with brass ferrules, one diagonal harness to a left-hip olive satchel, one belt, laced bracers, no insignia; plate 98.3 %. The charter \u00a7 3 identity spec is RATIFIED by the pick (ARCHITECT gate row 7 \u2192 RESOLVED) as amended: young woman, smooth rounded chin, starter without insignia. K1 spent 11 images (cap raised 6\u21928\u219211 by Matt at H-1/H-2). Method findings banked for the bible and the overnight charter: (1) the bible's vocabulary HELD on all 11 masters (zero bleed from a reference that carried the primitive; zero construction violations) \u2014 text-driven identity + style anchor is the master-minting method; (2) a strong identity REFERENCE pins the face \u2014 text can add/remove separate objects against it but cannot alter a facial feature (K2's turnaround relies on exactly this pinning); (3) plate uniformity drifts and compounds under reference conditioning (98 \u2192 33 \u2192 6 %) \u2014 the plate gate is live and each generation is judged on its own plate; (4) a JUDGE primed with the identity confirms it; ask plainly ('name a cleft') and it agrees with the eye; (5) removing the ring head cost one rubric point on the 64-px read \u2014 the tall staff line carries it. L bound into the bible as the asset of record (content_hash) and the probe set re-frozen to L's prompt. Next: K2 turnaround (7 directions, L as identity reference).",
+      "veto": "Matt's pick; close-out details veto-open"
     }
   ]
 }

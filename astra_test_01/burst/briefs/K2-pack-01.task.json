@@ -1,0 +1,17 @@
+{
+ "text": "PACK BURST K2-pack-01 — milestone packet: the Keeper turnaround sheet (charter § 7 K2; Matt sees the sheet). task_id \"K2-pack-01\".\n\nInputs (read-only): the approved S master /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png; the seven directions SW: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW/k2_SW.png, W: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W/k2_W.png, NW: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW/k2_NW.png, N: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png, NE: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE/k2_NE.png, E: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E/k2_E.png, SE: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE/k2_SE.png; the CHECK outputs under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-01/ (checks.json, *_rgba.png, *_64.png); the JUDGE output /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-jdg-01/judgment.json (candidates 2–8 = SW W NW N NE E SE; image 9 is a hidden control — report it under 'control': did it score ≤ 2 on axis 2 or 3 and was it called mirrored?); the bible /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/f04-keepers.json.\nFrozen tools you may run: gates/matte.py, gates/common.py (for reading alpha bboxes) — and PIL for compositing, which is a frozen library, not new code: build the sheet with `python3 - <<'PY'` scripts that only load, uniformly downscale (NEVER upscale, NEVER per-frame scale), translate and paste.\nWrite in out/: (1) turnaround_sheet.png — the eight matted figures S SW W NW N NE E SE in that order, left to right, each UNIFORMLY downscaled by ONE common factor so the S master's alpha-bbox height = 240 px, bottom-aligned on a common baseline, in 512×512 cells on a mid-grey (#3a3f4a) background with the direction label under each cell; (2) turnaround_64px.png — the same eight at 64-px cell height (nearest-neighbour from the 512 cells), on the same grey; (3) turnaround_sheet_green.png — the same eight from the un-matted originals on their green plates (for the eye); (4) review.html — a single self-contained page (images by relative path to copies in out/img/, no external resources): the 512 sheet, the 64-px strip enlarged ×4, then per direction: the JUDGE axes + reasons, seen-facing vs claimed, mirrored flag, ornament list, and the CHECK numbers (G1 height ratio + pass, G3 pass, silhouette distance, plate uniformity, O7 azimuth, O3b counts); a footer with the control result; (5) summary.txt (≤ 14 lines: per direction the axes, G1/G3, mirrored?, facing match?). No image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K2-pack-01\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything missing. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/turnaround_sheet.png",
+  "out/turnaround_64px.png",
+  "out/turnaround_sheet_green.png",
+  "out/review.html",
+  "out/summary.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2"
+}

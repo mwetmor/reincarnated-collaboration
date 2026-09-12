@@ -145,7 +145,7 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 | 4 | Canvas, pivot, height, direction order, plate | **RESOLVED** | the brief; run_02/03 |
 | 5 | Image path | **RESOLVED (corrected)** | built-in only; API parity = non-Astra path, deferred; T25 withdrawn |
 | 6 | Pilot subjects | **RESOLVED** | F1a |
-| 7 | Keeper identity *spec* text (§ 3) | **GATED+TRACKED** | ratified when Matt picks the master at K1 (milestone) |
+| 7 | Keeper identity *spec* text (§ 3) | **RESOLVED 2026-09-12** | ratified by Matt's K1 pick: master L (K1-gen-04, text-designed; young woman, plain starter, no insignia) — ledger R-12 |
 | 8 | Conductor / labour / other seams | **RESOLVED** | F7, F6a; Gate-1 waived for testing; Gate-2 unchanged |
 | 9 | Harness | **RESOLVED** | F7c Pixi viewer-only (X6 only); plain HTML player otherwise |
 | 10 | Scene model + which plate | **RESOLVED** | F6; F04 observatory |
