@@ -29,3 +29,12 @@
 Tracker-delta: game tracker SESSION-DELTA 2026-09-12 (animation-set axis; oracle-first); Q73 filed; charter § 11 rows 13/24/26–28.
 
 — gandalf, 2026-09-12
+
+
+---
+## STATE REFRESH — 2026-09-12, Phase 1 build lane in flight (read this first after a compaction)
+- **Rulings since the handoff was written:** R-21 intent over consistency (dope sheet = spec; 12-frame walk); R-22 Muybridge plates 2+13 = walking oracle; R-23 **Q74 RULED: H1 register**, ARPG-language default screen, Hades-language level dialect, **17 % character height**; R-24 Phase-1 GO + **push as you go** (charter § 12); R-25/R-26 conductor drift-critic rulings on T1a builds; sourcing class RULED "download" (class E, private measurement only); Q75 (bases × gender) and Q76 (X-video probe via the Grok app) OPEN with leans.
+- **Evidence packets on the Desktop:** 05/05b Muybridge (man/woman, 3 rows), 06 Hades class-E cuts (2 idles CLEAN_CYCLE, 2 RUNS, smears) + `_T1a_plots`, 06b EOR (parked), 07 K4, 08 K5, 09 K6, 10 K6-in-E07V (use *_corpus_scale), 11 K7, 12 T1 checkpoint.
+- **Tooling state:** `oracle/` — idle instrument VALIDATED on synthetic truth (T1a-idle + -2; Hades combat idle breath 6.5 %H / head 5.5 %H; ours 0.47 %H); walk instrument T1a-walk FAILED → T1a-walk-2 (R-26 method change) IN FLIGHT; next T1b (gates + dope sheets + pose guides + G6c; classify regions by displacement), T1c (judge questions + X0-M). Then gandalf authors the **C-2 HITL plan** (open: re-freeze in H1, re-mint starter woman + turnaround in H1, idle-S + 12-frame walk-E against the dope sheet, composite/gear/plate gates T3, motif template for the advanced set).
+- **Runner:** `scratchpad/wave.sh <log> <id:TYPE>…` (TOOLING serial; caps ≤ 25 min / 40 calls or the wrapper refuses); waiters time out ~10 min — re-arm. Images 66/250.
+- **Legolas:** R10/R10b/R10c (oracles, licence), corpus stills (GD + Hades), R11 (Grok i2v). EOR recordings local at `~/gd-scratch/`.
