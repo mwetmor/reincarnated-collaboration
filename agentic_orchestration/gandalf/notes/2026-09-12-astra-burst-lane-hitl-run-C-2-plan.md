@@ -1,6 +1,6 @@
 # Astra burst lane — HITL Run C-2 plan (intent-first loops under oracle gates)
 
-> **STATUS:** DRAFT v0.1 — gandalf (RUN-CONDUCTOR), 2026-09-12, authored after the Phase-1 build lane (T1a-idle/-2, T1a-ann-13L, T1a-walk-3, T1b; T1c in flight). Supersedes the C-1 plan's K3 section. Governing rulings: R-21 (intent over consistency), R-22 (Muybridge oracle), R-23 (H1 register; ARPG-language screen; 17 %), R-24 (Phase-1 GO, push as you go), R-25/26/27 (instrument method), Q76 (X-video probe evidence). Charter: `2026-09-11-astra-burst-lane-run-charter.md` §§ 1–12.
+> **STATUS:** v0.2 READY — gandalf (RUN-CONDUCTOR), 2026-09-12. Phase-1 build lane COMPLETE (T1a-idle/-2, T1a-ann-13L, T1a-walk-3, T1b, T1c); tree re-frozen (MANIFEST 9146d9811620), SYNC 10/10. P1–P2 satisfied; P3–P6 at launch. Supersedes the C-1 plan's K3 section. Governing rulings: R-21 (intent over consistency), R-22 (Muybridge oracle), R-23 (H1 register; ARPG-language screen; 17 %), R-24 (Phase-1 GO, push as you go), R-25/26/27 (instrument method), Q76 (X-video probe evidence). Charter: `2026-09-11-astra-burst-lane-run-charter.md` §§ 1–12.
 
 ## 0. Goal (leave the session with)
 1. The lane **re-frozen in H1** (register card, bible style card, probe set, MANIFEST + SYNC).

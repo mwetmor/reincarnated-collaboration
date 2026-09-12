@@ -1,0 +1,111 @@
+{
+  "notes": [
+    "Scorer self-tests are synthetic answers, not real transcriber calibration.",
+    "calibration_summary.json has N=0 and null measurements until independent X0-M answers arrive.",
+    "All four motif/annulus failure records and one walk grid-parity record are the named standing reds.",
+    "Continuity is explicitly a sampled pose-step proxy against the largest internal step, not a frozen image seam gate."
+  ],
+  "question_sets": {
+    "questions_idle_combat_8.json": {
+      "controls": [
+        {
+          "expected": false,
+          "id": "idle.airborne_control",
+          "question": "Do both feet leave the ground together at any point in the cycle?"
+        }
+      ],
+      "count": 6,
+      "notes": [
+        "head is LOCK but has nonzero amplitude target 0.054664636083035685 H",
+        "shoulders_chest is LOCK but has nonzero amplitude target 0.06527940666663837 H",
+        "Staff-tip presence/motion is unspecified by the sheet; observe it, do not infer truth from arm LOCKs.",
+        "Feet LOCK is the declared grounded idle control; LOCK permits subthreshold displacement, not a jump."
+      ]
+    },
+    "questions_plate13.json": {
+      "controls": [
+        {
+          "expected": false,
+          "id": "walk.f01.airborne_control",
+          "question": "Frame 1: are both feet simultaneously unplanted, clear of the ground?"
+        }
+      ],
+      "count": 54,
+      "notes": [
+        "Annotation stride-note contacts [3, 9] differ from planted-flag onsets [4, 10] (zero-based); each is retained for its own questions."
+      ]
+    },
+    "questions_walk_12.json": {
+      "controls": [
+        {
+          "expected": false,
+          "id": "walk.f01.airborne_control",
+          "question": "Frame 1: are both feet simultaneously unplanted, clear of the ground?"
+        }
+      ],
+      "count": 54,
+      "notes": [
+        "W1 target exceeds ceiling; target retained without clamping"
+      ]
+    }
+  },
+  "real_transcriber_bursts": 0,
+  "required_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+    "elapsed_s": 81.09132845799832,
+    "exit_code": 1,
+    "successful_tests": 178,
+    "tests_run": 183
+  },
+  "scorer_self_test": {
+    "control_changed": {
+      "accuracy": 0.9814814814814815,
+      "control_pass_rate": 0.0,
+      "counts": {
+        "controls_correct": 0,
+        "controls_total": 1,
+        "correct": 53,
+        "fn": 0,
+        "fp": 1,
+        "tn": 24,
+        "total": 54,
+        "tp": 29
+      },
+      "presence_precision": 0.9666666666666667,
+      "presence_recall": 1.0
+    },
+    "perfect": {
+      "accuracy": 1.0,
+      "control_pass_rate": 1.0,
+      "counts": {
+        "controls_correct": 1,
+        "controls_total": 1,
+        "correct": 54,
+        "fn": 0,
+        "fp": 0,
+        "tn": 25,
+        "total": 54,
+        "tp": 29
+      },
+      "presence_precision": 1.0,
+      "presence_recall": 1.0
+    }
+  },
+  "task_id": "T1c",
+  "truth_counts": {
+    "no": 25,
+    "yes": 29
+  },
+  "verbose_discovery": {
+    "error_records": 0,
+    "failure_records": [
+      "test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)",
+      "test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])",
+      "test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])"
+    ],
+    "t1c_successful_tests": 14,
+    "tests_run": 183
+  }
+}

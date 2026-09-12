@@ -1,0 +1,70 @@
+{
+  "task_id": "T1c",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial unittest invocation could not import tests as a package.",
+      "change": "Used test discovery and corrected the synthetic-helper import; all 14 new tests succeeded."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Question counts: plate13 54, walk12 54, idle8 6. Plate truth: 29 YES, 25 NO.",
+      "Each walk set has control walk.f01.airborne_control: 'Frame 1: are both feet simultaneously unplanted, clear of the ground?' Expected false.",
+      "Idle control idle.airborne_control: 'Do both feet leave the ground together at any point in the cycle?' Expected false.",
+      "Required suite: 183 tests, 178 successful as reported by runner. Verbose verification: 5 standing-red records, comprising 4 motif/annulus records and 1 walk grid-parity record; 0 errors. All 14 T1c tests succeeded.",
+      "Preserved annotation contact notes [3,9] versus planted-flag onsets [4,10], zero-based; retained 2 idle LOCK/amplitude conflicts and 1 walk target/ceiling conflict. Staff-tip intent is unspecified.",
+      "Continuity uses an explicitly documented sampled-pose proxy; frozen seam gates remain unchanged.",
+      "Real transcriber runs: 0; calibration_summary.json records null scores. Perfect-answer self-test scores 1.0; changing only the control yields accuracy 53/54 and control rate 0.0."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/transcribe/motion_questions.py",
+      "sha256": "a8a95f6f3db0e6980d3c00203a7137138d5a8cb32013f44c70fc9f33f07665c9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/compare/calibrate_motion_transcriber.py",
+      "sha256": "b50327e180fa83689c66c639cc5e139fc2b944b4293d9678fc9eb73a388bb332"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_motion_transcriber.py",
+      "sha256": "d0a81d8893d3d000c67f42c39a5e2ea18430b6fd43109d7b3239a8f6df9b9a13"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/questions_plate13.json",
+      "sha256": "f9fefa828b66ae8681ff33ccbf15fb2256916729c8384af592ed186c72d9b2d8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/truth_plate13.json",
+      "sha256": "64808460aa0169df0b80a6468d262f3c1e7ce53cf9787b474764e34ac057c365"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/questions_walk_12.json",
+      "sha256": "54da15256188422b6ba4d5309204acc5b2302f8f45ec8bf9e972bbc35a8ea451"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/questions_idle_combat_8.json",
+      "sha256": "4a328cb0f6bd246d9cafa95623125f01679983ac31d5a611cbe9897e3cd5c1f9"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/calibration_summary.json",
+      "sha256": "3b0850db101e7bf12b6dd2d96d9b16e5756741051d41a21acba7c90968446b35"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/full_suite.log",
+      "sha256": "39f6fa42db5c890a9116fa679b14add7105ddc9a5eab01725538f933aef4497f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/full_suite_verbose.log",
+      "sha256": "203f463f42600a7936718bff34655ad3164060380d1c2daa26a0fa3219aaba29"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0m/tooling_verification.json",
+      "sha256": "036c79a1c3fec7b4ba29973b25040c5052784bf72dcf483b19a052c658c8a706"
+    }
+  ]
+}

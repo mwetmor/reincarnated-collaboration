@@ -1,0 +1,666 @@
+{
+  "annotation_confidence": [
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.9,
+        "far_wrist": 0.3,
+        "ground_y": 0.9,
+        "head_top": 0.85,
+        "hip": 0.65,
+        "near_sole": 0.85,
+        "near_wrist": 0.85
+      },
+      "frame": 0
+    },
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.85,
+        "far_wrist": 0.7,
+        "ground_y": 0.9,
+        "head_top": 0.85,
+        "hip": 0.65,
+        "near_sole": 0.85,
+        "near_wrist": 0.85
+      },
+      "frame": 1
+    },
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.85,
+        "far_wrist": 0.85,
+        "ground_y": 0.85,
+        "head_top": 0.9,
+        "hip": 0.65,
+        "near_sole": 0.85,
+        "near_wrist": 0.85
+      },
+      "frame": 2
+    },
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.9,
+        "far_wrist": 0.85,
+        "ground_y": 0.9,
+        "head_top": 0.75,
+        "hip": 0.65,
+        "near_sole": 0.85,
+        "near_wrist": 0.85
+      },
+      "frame": 3
+    },
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.85,
+        "far_wrist": 0.85,
+        "ground_y": 0.9,
+        "head_top": 0.85,
+        "hip": 0.65,
+        "near_sole": 0.9,
+        "near_wrist": 0.85
+      },
+      "frame": 4
+    },
+    {
+      "confidence": {
+        "chin": 0.65,
+        "far_sole": 0.85,
+        "far_wrist": 0.8,
+        "ground_y": 0.9,
+        "head_top": 0.65,
+        "hip": 0.65,
+        "near_sole": 0.9,
+        "near_wrist": 0.8
+      },
+      "frame": 5
+    },
+    {
+      "confidence": {
+        "chin": 0.85,
+        "far_sole": 0.8,
+        "far_wrist": 0.8,
+        "ground_y": 0.9,
+        "head_top": 0.85,
+        "hip": 0.65,
+        "near_sole": 0.9,
+        "near_wrist": 0.85
+      },
+      "frame": 6
+    },
+    {
+      "confidence": {
+        "chin": 0.75,
+        "far_sole": 0.3,
+        "far_wrist": 0.3,
+        "ground_y": 0.9,
+        "head_top": 0.65,
+        "hip": 0.6,
+        "near_sole": 0.9,
+        "near_wrist": 0.8
+      },
+      "frame": 7
+    },
+    {
+      "confidence": {
+        "chin": 0.8,
+        "far_sole": 0.85,
+        "far_wrist": 0.3,
+        "ground_y": 0.85,
+        "head_top": 0.8,
+        "hip": 0.65,
+        "near_sole": 0.9,
+        "near_wrist": 0.85
+      },
+      "frame": 8
+    },
+    {
+      "confidence": {
+        "chin": 0.8,
+        "far_sole": 0.85,
+        "far_wrist": 0.3,
+        "ground_y": 0.8,
+        "head_top": 0.75,
+        "hip": 0.65,
+        "near_sole": 0.9,
+        "near_wrist": 0.85
+      },
+      "frame": 9
+    },
+    {
+      "confidence": {
+        "chin": 0.75,
+        "far_sole": 0.85,
+        "far_wrist": 0.3,
+        "ground_y": 0.8,
+        "head_top": 0.65,
+        "hip": 0.6,
+        "near_sole": 0.8,
+        "near_wrist": 0.8
+      },
+      "frame": 10
+    },
+    {
+      "confidence": {
+        "chin": 0.6,
+        "far_sole": 0.8,
+        "far_wrist": 0.3,
+        "ground_y": 0.75,
+        "head_top": 0.55,
+        "hip": 0.55,
+        "near_sole": 0.7,
+        "near_wrist": 0.7
+      },
+      "frame": 11
+    }
+  ],
+  "answers": {
+    "walk.f01.airborne_control": false,
+    "walk.f01.far.arm_opposes_leg": false,
+    "walk.f01.far.planted": true,
+    "walk.f01.near.arm_opposes_leg": true,
+    "walk.f01.near.planted": false,
+    "walk.f02.far.arm_opposes_leg": false,
+    "walk.f02.far.planted": true,
+    "walk.f02.near.arm_opposes_leg": true,
+    "walk.f02.near.planted": false,
+    "walk.f03.far.arm_opposes_leg": false,
+    "walk.f03.far.planted": true,
+    "walk.f03.near.arm_opposes_leg": false,
+    "walk.f03.near.planted": false,
+    "walk.f04.far.arm_opposes_leg": true,
+    "walk.f04.far.planted": true,
+    "walk.f04.near.arm_opposes_leg": false,
+    "walk.f04.near.planted": false,
+    "walk.f04_f08.head_higher": false,
+    "walk.f04_f10.lead_alternates": true,
+    "walk.f05.far.arm_opposes_leg": true,
+    "walk.f05.far.planted": false,
+    "walk.f05.near.arm_opposes_leg": false,
+    "walk.f05.near.planted": true,
+    "walk.f06.far.arm_opposes_leg": true,
+    "walk.f06.far.planted": false,
+    "walk.f06.near.arm_opposes_leg": false,
+    "walk.f06.near.planted": true,
+    "walk.f07.far.arm_opposes_leg": true,
+    "walk.f07.far.planted": false,
+    "walk.f07.near.arm_opposes_leg": false,
+    "walk.f07.near.planted": true,
+    "walk.f08.far.arm_opposes_leg": true,
+    "walk.f08.far.planted": false,
+    "walk.f08.near.arm_opposes_leg": false,
+    "walk.f08.near.planted": true,
+    "walk.f09.far.arm_opposes_leg": false,
+    "walk.f09.far.planted": false,
+    "walk.f09.near.arm_opposes_leg": false,
+    "walk.f09.near.planted": true,
+    "walk.f10.far.arm_opposes_leg": true,
+    "walk.f10.far.planted": false,
+    "walk.f10.near.arm_opposes_leg": true,
+    "walk.f10.near.planted": true,
+    "walk.f10_f02.head_higher": true,
+    "walk.f10_f04.lead_alternates": true,
+    "walk.f11.far.arm_opposes_leg": true,
+    "walk.f11.far.planted": true,
+    "walk.f11.near.arm_opposes_leg": true,
+    "walk.f11.near.planted": false,
+    "walk.f12.far.arm_opposes_leg": true,
+    "walk.f12.far.planted": true,
+    "walk.f12.near.arm_opposes_leg": true,
+    "walk.f12.near.planted": false,
+    "walk.f12_f01.continuous": true
+  },
+  "confidence_policy": "All observations scored; confidence retained without filtering or relabeling.",
+  "controls": [
+    "walk.f01.airborne_control"
+  ],
+  "evidence": {
+    "walk.f01.airborne_control": {
+      "frames": [
+        0
+      ],
+      "predicate": "both_feet_airborne",
+      "source": "both explicit planted flags false"
+    },
+    "walk.f01.far.arm_opposes_leg": {
+      "frames": [
+        0
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.010300085016711839,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f01.far.planted": {
+      "frames": [
+        0
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f01.near.arm_opposes_leg": {
+      "frames": [
+        0
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.014365301934085811,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f01.near.planted": {
+      "frames": [
+        0
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f02.far.arm_opposes_leg": {
+      "frames": [
+        1
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.009673603996017383,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f02.far.planted": {
+      "frames": [
+        1
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f02.near.arm_opposes_leg": {
+      "frames": [
+        1
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.002321664959044171,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f02.near.planted": {
+      "frames": [
+        1
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f03.far.arm_opposes_leg": {
+      "frames": [
+        2
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.00026026601227380094,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f03.far.planted": {
+      "frames": [
+        2
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f03.near.arm_opposes_leg": {
+      "frames": [
+        2
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.006647147888691943,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f03.near.planted": {
+      "frames": [
+        2
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f04.far.arm_opposes_leg": {
+      "frames": [
+        3
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.010571867224218994,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f04.far.planted": {
+      "frames": [
+        3
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f04.near.arm_opposes_leg": {
+      "frames": [
+        3
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.010136555044398214,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f04.near.planted": {
+      "frames": [
+        3
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f04_f08.head_higher": {
+      "delta_H": -0.0242822815227014,
+      "frames": [
+        3,
+        7
+      ],
+      "predicate": "head_higher_at_passing",
+      "source": "ground-relative head-top height; annotated phase notes"
+    },
+    "walk.f04_f10.lead_alternates": {
+      "differences_H": [
+        0.29897559124826106,
+        -0.33539901353231316
+      ],
+      "frames": [
+        3,
+        9
+      ],
+      "predicate": "lead_alternates",
+      "source": "strict sole-order reversal between annotated contacts"
+    },
+    "walk.f05.far.arm_opposes_leg": {
+      "frames": [
+        4
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.02676363772231475,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f05.far.planted": {
+      "frames": [
+        4
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f05.near.arm_opposes_leg": {
+      "frames": [
+        4
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.010486647379492176,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f05.near.planted": {
+      "frames": [
+        4
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f06.far.arm_opposes_leg": {
+      "frames": [
+        5
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.030071088993334032,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f06.far.planted": {
+      "frames": [
+        5
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f06.near.arm_opposes_leg": {
+      "frames": [
+        5
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.010115825892978174,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f06.near.planted": {
+      "frames": [
+        5
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f07.far.arm_opposes_leg": {
+      "frames": [
+        6
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.010060548155858075,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f07.far.planted": {
+      "frames": [
+        6
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f07.near.arm_opposes_leg": {
+      "frames": [
+        6
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.009247504772383282,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f07.near.planted": {
+      "frames": [
+        6
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f08.far.arm_opposes_leg": {
+      "frames": [
+        7
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.00015892349422028554,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f08.far.planted": {
+      "frames": [
+        7
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f08.near.arm_opposes_leg": {
+      "frames": [
+        7
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.006739277450558775,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f08.near.planted": {
+      "frames": [
+        7
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f09.far.arm_opposes_leg": {
+      "frames": [
+        8
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.0,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f09.far.planted": {
+      "frames": [
+        8
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f09.near.arm_opposes_leg": {
+      "frames": [
+        8
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": 0.00023493038276042213,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f09.near.planted": {
+      "frames": [
+        8
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f10.far.arm_opposes_leg": {
+      "frames": [
+        9
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.0032613864900858597,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f10.far.planted": {
+      "frames": [
+        9
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f10.near.arm_opposes_leg": {
+      "frames": [
+        9
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.011451704540047241,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f10.near.planted": {
+      "frames": [
+        9
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f10_f02.head_higher": {
+      "delta_H": 0.012141140761350644,
+      "frames": [
+        9,
+        1
+      ],
+      "predicate": "head_higher_at_passing",
+      "source": "ground-relative head-top height; annotated phase notes"
+    },
+    "walk.f10_f04.lead_alternates": {
+      "differences_H": [
+        -0.33539901353231316,
+        0.29897559124826106
+      ],
+      "frames": [
+        9,
+        3
+      ],
+      "predicate": "lead_alternates",
+      "source": "strict sole-order reversal between annotated contacts"
+    },
+    "walk.f11.far.arm_opposes_leg": {
+      "frames": [
+        10
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.0036990019089533127,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f11.far.planted": {
+      "frames": [
+        10
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f11.near.arm_opposes_leg": {
+      "frames": [
+        10
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.01892341200744733,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f11.near.planted": {
+      "frames": [
+        10
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f12.far.arm_opposes_leg": {
+      "frames": [
+        11
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.0004790737217075274,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f12.far.planted": {
+      "frames": [
+        11
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f12.near.arm_opposes_leg": {
+      "frames": [
+        11
+      ],
+      "predicate": "arm_opposes_leg",
+      "product_H2": -0.020268503610703082,
+      "source": "same-side hip-relative wrist_x times sole_x < 0"
+    },
+    "walk.f12.near.planted": {
+      "frames": [
+        11
+      ],
+      "predicate": "planted",
+      "source": "explicit planted flag"
+    },
+    "walk.f12_f01.continuous": {
+      "frames": [
+        11,
+        0
+      ],
+      "internal_max_mean_abs_H": 0.061356122061825856,
+      "internal_mean_abs_H": [
+        0.03447216751883502,
+        0.05268387866086108,
+        0.03620661619902799,
+        0.02037977199226726,
+        0.019512547652170777,
+        0.04162676832463096,
+        0.02861840322318379,
+        0.061356122061825856,
+        0.02926882147825616,
+        0.023415057182604927,
+        0.027967984968111443
+      ],
+      "numerical_tolerance_H": 1e-12,
+      "predicate": "sampled_pose_continuity",
+      "seam_mean_abs_H": 0.025149505862797877,
+      "source": "sampled pose-step proxy, not G6/G6b/G6c"
+    }
+  },
+  "notes": [
+    "Annotation stride-note contacts [3, 9] differ from planted-flag onsets [4, 10] (zero-based); each is retained for its own questions."
+  ],
+  "source": {
+    "kind": "annotation",
+    "path": "runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+    "plate": "13",
+    "row": "lateral",
+    "sha256": "80391777a855ce1b4f6f471bf4675008764f8e734615076c6a56403c0dcd50af"
+  },
+  "version": "X0-M.motion.v1"
+}

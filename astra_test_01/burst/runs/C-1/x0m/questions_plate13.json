@@ -1,0 +1,1053 @@
+{
+  "answer_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "walk.f01.airborne_control": {
+        "type": "boolean"
+      },
+      "walk.f01.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f01.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f01.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f01.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f02.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f02.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f02.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f02.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f03.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f03.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f03.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f03.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f04.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f04.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f04.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f04.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f04_f08.head_higher": {
+        "type": "boolean"
+      },
+      "walk.f04_f10.lead_alternates": {
+        "type": "boolean"
+      },
+      "walk.f05.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f05.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f05.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f05.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f06.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f06.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f06.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f06.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f07.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f07.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f07.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f07.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f08.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f08.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f08.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f08.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f09.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f09.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f09.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f09.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f10.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f10.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f10.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f10.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f10_f02.head_higher": {
+        "type": "boolean"
+      },
+      "walk.f10_f04.lead_alternates": {
+        "type": "boolean"
+      },
+      "walk.f11.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f11.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f11.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f11.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f12.far.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f12.far.planted": {
+        "type": "boolean"
+      },
+      "walk.f12.near.arm_opposes_leg": {
+        "type": "boolean"
+      },
+      "walk.f12.near.planted": {
+        "type": "boolean"
+      },
+      "walk.f12_f01.continuous": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "walk.f01.near.planted",
+      "walk.f01.near.arm_opposes_leg",
+      "walk.f01.far.planted",
+      "walk.f01.far.arm_opposes_leg",
+      "walk.f02.near.planted",
+      "walk.f02.near.arm_opposes_leg",
+      "walk.f02.far.planted",
+      "walk.f02.far.arm_opposes_leg",
+      "walk.f03.near.planted",
+      "walk.f03.near.arm_opposes_leg",
+      "walk.f03.far.planted",
+      "walk.f03.far.arm_opposes_leg",
+      "walk.f04.near.planted",
+      "walk.f04.near.arm_opposes_leg",
+      "walk.f04.far.planted",
+      "walk.f04.far.arm_opposes_leg",
+      "walk.f05.near.planted",
+      "walk.f05.near.arm_opposes_leg",
+      "walk.f05.far.planted",
+      "walk.f05.far.arm_opposes_leg",
+      "walk.f06.near.planted",
+      "walk.f06.near.arm_opposes_leg",
+      "walk.f06.far.planted",
+      "walk.f06.far.arm_opposes_leg",
+      "walk.f07.near.planted",
+      "walk.f07.near.arm_opposes_leg",
+      "walk.f07.far.planted",
+      "walk.f07.far.arm_opposes_leg",
+      "walk.f08.near.planted",
+      "walk.f08.near.arm_opposes_leg",
+      "walk.f08.far.planted",
+      "walk.f08.far.arm_opposes_leg",
+      "walk.f09.near.planted",
+      "walk.f09.near.arm_opposes_leg",
+      "walk.f09.far.planted",
+      "walk.f09.far.arm_opposes_leg",
+      "walk.f10.near.planted",
+      "walk.f10.near.arm_opposes_leg",
+      "walk.f10.far.planted",
+      "walk.f10.far.arm_opposes_leg",
+      "walk.f11.near.planted",
+      "walk.f11.near.arm_opposes_leg",
+      "walk.f11.far.planted",
+      "walk.f11.far.arm_opposes_leg",
+      "walk.f12.near.planted",
+      "walk.f12.near.arm_opposes_leg",
+      "walk.f12.far.planted",
+      "walk.f12.far.arm_opposes_leg",
+      "walk.f04_f10.lead_alternates",
+      "walk.f10_f04.lead_alternates",
+      "walk.f10_f02.head_higher",
+      "walk.f04_f08.head_higher",
+      "walk.f12_f01.continuous",
+      "walk.f01.airborne_control"
+    ],
+    "type": "object"
+  },
+  "closed_parts": [
+    "head",
+    "near_foot",
+    "near_arm",
+    "far_foot",
+    "far_arm"
+  ],
+  "displayed_frame_index_base": 1,
+  "frame_index_base": 0,
+  "instructions": "Answer every question using only JSON true (YES) or false (NO). Dependencies link evidence; answer all questions even when a dependency is NO. Do not return coordinates, explanations, new labels, or additional keys. Near/far identify persistent sides, not left/right positions on screen.",
+  "kind": "walk",
+  "n_frames": 12,
+  "notes": [
+    "Annotation stride-note contacts [3, 9] differ from planted-flag onsets [4, 10] (zero-based); each is retained for its own questions."
+  ],
+  "questions": [
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0
+      ],
+      "id": "walk.f01.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 1: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0
+      ],
+      "id": "walk.f01.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 1: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0
+      ],
+      "id": "walk.f01.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 1: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0
+      ],
+      "id": "walk.f01.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 1: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        1
+      ],
+      "id": "walk.f02.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 2: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        1
+      ],
+      "id": "walk.f02.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 2: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        1
+      ],
+      "id": "walk.f02.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 2: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        1
+      ],
+      "id": "walk.f02.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 2: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        2
+      ],
+      "id": "walk.f03.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 3: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        2
+      ],
+      "id": "walk.f03.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 3: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        2
+      ],
+      "id": "walk.f03.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 3: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        2
+      ],
+      "id": "walk.f03.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 3: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        3
+      ],
+      "id": "walk.f04.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 4: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        3
+      ],
+      "id": "walk.f04.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 4: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        3
+      ],
+      "id": "walk.f04.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 4: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        3
+      ],
+      "id": "walk.f04.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 4: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        4
+      ],
+      "id": "walk.f05.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 5: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        4
+      ],
+      "id": "walk.f05.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 5: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        4
+      ],
+      "id": "walk.f05.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 5: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        4
+      ],
+      "id": "walk.f05.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 5: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        5
+      ],
+      "id": "walk.f06.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 6: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        5
+      ],
+      "id": "walk.f06.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 6: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        5
+      ],
+      "id": "walk.f06.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 6: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        5
+      ],
+      "id": "walk.f06.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 6: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        6
+      ],
+      "id": "walk.f07.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 7: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        6
+      ],
+      "id": "walk.f07.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 7: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        6
+      ],
+      "id": "walk.f07.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 7: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        6
+      ],
+      "id": "walk.f07.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 7: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        7
+      ],
+      "id": "walk.f08.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 8: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        7
+      ],
+      "id": "walk.f08.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 8: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        7
+      ],
+      "id": "walk.f08.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 8: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        7
+      ],
+      "id": "walk.f08.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 8: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        8
+      ],
+      "id": "walk.f09.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 9: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        8
+      ],
+      "id": "walk.f09.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 9: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        8
+      ],
+      "id": "walk.f09.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 9: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        8
+      ],
+      "id": "walk.f09.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 9: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        9
+      ],
+      "id": "walk.f10.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 10: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        9
+      ],
+      "id": "walk.f10.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 10: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        9
+      ],
+      "id": "walk.f10.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 10: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        9
+      ],
+      "id": "walk.f10.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 10: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        10
+      ],
+      "id": "walk.f11.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 11: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        10
+      ],
+      "id": "walk.f11.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 11: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        10
+      ],
+      "id": "walk.f11.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 11: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        10
+      ],
+      "id": "walk.f11.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 11: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        11
+      ],
+      "id": "walk.f12.near.planted",
+      "parts": [
+        "near_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 12: is the near foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        11
+      ],
+      "id": "walk.f12.near.arm_opposes_leg",
+      "parts": [
+        "near_arm",
+        "near_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 12: are the near wrist and near sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        11
+      ],
+      "id": "walk.f12.far.planted",
+      "parts": [
+        "far_foot"
+      ],
+      "predicate": "planted",
+      "question": "Frame 12: is the far foot planted on the ground?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        11
+      ],
+      "id": "walk.f12.far.arm_opposes_leg",
+      "parts": [
+        "far_arm",
+        "far_foot"
+      ],
+      "predicate": "arm_opposes_leg",
+      "question": "Frame 12: are the far wrist and far sole on opposite horizontal sides of the hip? A wrist or sole aligned with the hip is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [
+        "walk.f04.near.planted",
+        "walk.f04.far.planted",
+        "walk.f10.near.planted",
+        "walk.f10.far.planted"
+      ],
+      "expected": null,
+      "frames": [
+        3,
+        9
+      ],
+      "id": "walk.f04_f10.lead_alternates",
+      "parts": [
+        "near_foot",
+        "far_foot"
+      ],
+      "predicate": "lead_alternates",
+      "question": "Between CONTACT frames 4 and 10, does the leading foot switch identity? Compare the horizontal order of the two soles; a tie is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [
+        "walk.f10.near.planted",
+        "walk.f10.far.planted",
+        "walk.f04.near.planted",
+        "walk.f04.far.planted"
+      ],
+      "expected": null,
+      "frames": [
+        9,
+        3
+      ],
+      "id": "walk.f10_f04.lead_alternates",
+      "parts": [
+        "near_foot",
+        "far_foot"
+      ],
+      "predicate": "lead_alternates",
+      "question": "Between CONTACT frames 10 and 4, does the leading foot switch identity? Compare the horizontal order of the two soles; a tie is NO."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        9,
+        1
+      ],
+      "id": "walk.f10_f02.head_higher",
+      "parts": [
+        "head"
+      ],
+      "predicate": "head_higher_at_passing",
+      "question": "Is the head top higher above the local ground in PASSING frame 2 than in preceding CONTACT frame 10 (wrapping the sequence when needed)?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        3,
+        7
+      ],
+      "id": "walk.f04_f08.head_higher",
+      "parts": [
+        "head"
+      ],
+      "predicate": "head_higher_at_passing",
+      "question": "Is the head top higher above the local ground in PASSING frame 8 than in preceding CONTACT frame 4 (wrapping the sequence when needed)?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        11,
+        0
+      ],
+      "id": "walk.f12_f01.continuous",
+      "parts": [
+        "head",
+        "near_foot",
+        "near_arm",
+        "far_foot",
+        "far_arm"
+      ],
+      "predicate": "sampled_pose_continuity",
+      "question": "Is frame 12 to frame 1 continuous in sampled pose: is its average change in head height, hip-relative sole positions/sole heights and hip-relative wrist positions no greater than the largest such change between adjacent frames inside the clip? Ignore whole-body translation. This is a pose-step proxy, not appearance continuity."
+    },
+    {
+      "declared_absent_control": true,
+      "depends_on": [],
+      "expected": false,
+      "frames": [
+        0
+      ],
+      "id": "walk.f01.airborne_control",
+      "parts": [
+        "near_foot",
+        "far_foot"
+      ],
+      "predicate": "both_feet_airborne",
+      "question": "Frame 1: are both feet simultaneously unplanted, clear of the ground?"
+    }
+  ],
+  "source": {
+    "kind": "annotation",
+    "path": "runs/C-1/artifacts/T1a-ann-13L/annotation.json",
+    "plate": "13",
+    "row": "lateral",
+    "sha256": "80391777a855ce1b4f6f471bf4675008764f8e734615076c6a56403c0dcd50af"
+  },
+  "version": "X0-M.motion.v1"
+}

@@ -109,6 +109,20 @@ test_spill_halo_and_loss_known_bad (test_matte_quality.Tests.test_spill_halo_and
 test_undefined_transparent_rgb_has_no_halo (test_matte_quality.Tests.test_undefined_transparent_rgb_has_no_halo) ... ok
 test_freeze_reference_hash_and_strict_schema (test_model_drift_probe.Tests.test_freeze_reference_hash_and_strict_schema) ... ok
 test_identical_mirror_palette_and_missing (test_model_drift_probe.Tests.test_identical_mirror_palette_and_missing) ... ok
+test_annotation_coordinate_translation_and_scale_invariance (test_motion_transcriber.Tests.test_annotation_coordinate_translation_and_scale_invariance) ... ok
+test_annotation_truth_is_literal_not_designed_opposition (test_motion_transcriber.Tests.test_annotation_truth_is_literal_not_designed_opposition) ... ok
+test_bad_controls_and_incomplete_bursts_rejected (test_motion_transcriber.Tests.test_bad_controls_and_incomplete_bursts_rejected) ... ok
+test_cli_writes_summary_and_rejects_duplicate_keys (test_motion_transcriber.Tests.test_cli_writes_summary_and_rejects_duplicate_keys) ... ok
+test_closed_answers_reject_missing_extra_and_non_boolean (test_motion_transcriber.Tests.test_closed_answers_reject_missing_extra_and_non_boolean) ... ok
+test_continuity_truth_distinguishes_broken_wrap (test_motion_transcriber.Tests.test_continuity_truth_distinguishes_broken_wrap) ... ok
+test_control_failed_answers_remain_in_denominator (test_motion_transcriber.Tests.test_control_failed_answers_remain_in_denominator) ... ok
+test_empty_and_zero_denominators_are_not_perfect (test_motion_transcriber.Tests.test_empty_and_zero_denominators_are_not_perfect) ... ok
+test_idle_sheet_counts_control_and_conflicts (test_motion_transcriber.Tests.test_idle_sheet_counts_control_and_conflicts) ... ok
+test_invalid_sources_rejected (test_motion_transcriber.Tests.test_invalid_sources_rejected) ... ok
+test_perfect_calibration_and_fixed_bars (test_motion_transcriber.Tests.test_perfect_calibration_and_fixed_bars) ... ok
+test_phase_notes_not_repaired_and_confidence_retained (test_motion_transcriber.Tests.test_phase_notes_not_repaired_and_confidence_retained) ... ok
+test_presence_metrics_exact_counts (test_motion_transcriber.Tests.test_presence_metrics_exact_counts) ... ok
+test_walk_sheet_counts_schema_and_dependencies (test_motion_transcriber.Tests.test_walk_sheet_counts_schema_and_dependencies) ... ok
 test_animated_background_contamination (test_oracle_idle.Tests.test_animated_background_contamination) ... ok
 test_green_and_native_alpha_identical_curves (test_oracle_idle.Tests.test_green_and_native_alpha_identical_curves) ... ok
 test_noisy_feet_calibrate_lock (test_oracle_idle.Tests.test_noisy_feet_calibrate_lock) ... ok
@@ -219,6 +233,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 169 tests in 79.799s
+Ran 183 tests in 79.698s
 
 FAILED (failures=5)

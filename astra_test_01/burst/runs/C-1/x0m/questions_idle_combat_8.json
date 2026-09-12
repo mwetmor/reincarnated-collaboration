@@ -1,0 +1,177 @@
+{
+  "answer_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "idle.airborne_control": {
+        "type": "boolean"
+      },
+      "idle.chest_breathes": {
+        "type": "boolean"
+      },
+      "idle.f08_f01.continuous": {
+        "type": "boolean"
+      },
+      "idle.feet_move": {
+        "type": "boolean"
+      },
+      "idle.head_drifts": {
+        "type": "boolean"
+      },
+      "idle.staff_tip_drifts": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "idle.feet_move",
+      "idle.chest_breathes",
+      "idle.head_drifts",
+      "idle.staff_tip_drifts",
+      "idle.f08_f01.continuous",
+      "idle.airborne_control"
+    ],
+    "type": "object"
+  },
+  "closed_parts": [
+    "feet",
+    "chest",
+    "head",
+    "staff_tip"
+  ],
+  "displayed_frame_index_base": 1,
+  "frame_index_base": 0,
+  "instructions": "Answer every question using only JSON true (YES) or false (NO). Dependencies link evidence; answer all questions even when a dependency is NO. Do not return coordinates, explanations, new labels, or additional keys. Near/far identify persistent sides, not left/right positions on screen.",
+  "kind": "idle",
+  "n_frames": 8,
+  "notes": [
+    "head is LOCK but has nonzero amplitude target 0.054664636083035685 H",
+    "shoulders_chest is LOCK but has nonzero amplitude target 0.06527940666663837 H",
+    "Staff-tip presence/motion is unspecified by the sheet; observe it, do not infer truth from arm LOCKs.",
+    "Feet LOCK is the declared grounded idle control; LOCK permits subthreshold displacement, not a jump."
+  ],
+  "questions": [
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "id": "idle.feet_move",
+      "parts": [
+        "feet"
+      ],
+      "predicate": "feet_move",
+      "question": "Do the feet visibly change position at any point in the cycle?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "id": "idle.chest_breathes",
+      "parts": [
+        "chest"
+      ],
+      "predicate": "chest_breathes",
+      "question": "Does the chest expand and contract during the cycle (the rise and fall of breathing)?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "id": "idle.head_drifts",
+      "parts": [
+        "head"
+      ],
+      "predicate": "head_drifts",
+      "question": "Does the head visibly change position during the cycle, including bob or sway?"
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "id": "idle.staff_tip_drifts",
+      "parts": [
+        "staff_tip"
+      ],
+      "predicate": "staff_tip_drifts",
+      "question": "Is there a visible staff tip that changes position during the cycle? Answer NO if no staff tip is present."
+    },
+    {
+      "declared_absent_control": false,
+      "depends_on": [],
+      "expected": null,
+      "frames": [
+        7,
+        0
+      ],
+      "id": "idle.f08_f01.continuous",
+      "parts": [
+        "feet",
+        "chest",
+        "head",
+        "staff_tip"
+      ],
+      "predicate": "sampled_pose_continuity",
+      "question": "Is frame 8 to frame 1 continuous in sampled pose: are changes in the visible listed parts no larger than the largest changes between adjacent frames inside the clip? Ignore absent parts."
+    },
+    {
+      "declared_absent_control": true,
+      "depends_on": [],
+      "expected": false,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "id": "idle.airborne_control",
+      "parts": [
+        "feet"
+      ],
+      "predicate": "both_feet_airborne",
+      "question": "Do both feet leave the ground together at any point in the cycle?"
+    }
+  ],
+  "version": "X0-M.motion.v1"
+}
