@@ -1,3 +1,5 @@
+> **⚑ HISTORICAL — 2026-09-11 (Matt ruling F8).** The ASTRA TEST 02 painted-world suite is closed as a live workstream and must not be resumed: its autonomous run drifted into a Blender rig + Pixi chamber (verdict: `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-review-and-architecture.md`). Painted-2D work now runs through the **burst lane** — `canonical/reap-die-rise-game/painted-2d-pipeline/00-system.md`. Harvested from this suite: run_02/03 tooling, the E07V boards + prompts, VISUAL_TARGET, the E07V doorway-side rule, FACTION_KEY, E06F, E04/NEUTRAL_CONTRACT. Everything below is lineage.
+
 > **PAUSED BY MATT — 2026-09-11T23:17:00.293326+00:00**
 > Do not resume automatically. All owned test/server jobs are stopped. Read [pause checkpoint](experiments/E05AA/PAUSED.md); current working chamber is [E07AB](experiments/E07AB/review.html). Older continuation instructions below are historical until Matt resumes.
 
