@@ -26,6 +26,18 @@
 
 **As of session close 2026-09-11:** T0-a ✓ frozen · T0-b ✓ frozen (46 tests) · T0-c ✓ frozen on substance (69 tests; **2 named-red**: O3 template mode blind to primitive-family bleed; comparator does not reject F04) · **X1 ✓ on art, VOID on lane** — the smoke found five audit/gate defects (ledger ruling R-2: image detector reads 0 vs true 2; repo-wide snapshot blames conductor commits; forbidden-tool regex matches the repo's own name; system-skill reads must be whitelisted; plate_uniformity + alpha floor missing) → all are **T0-d acceptance criteria** · images used **2 / 250** (true; audit said 0) · Astra effort now **HIGH** (X1 ran medium) · model verified `gpt-6-astra` · ledger: 5 bursts, rulings R-1/R-2 · legolas R6–R9 returned and folded · canon home live (`painted-2d-pipeline/`) · Q72 open (the agenda) · no push (77+ commits ahead of origin; push is Matt's word).
 
+## 2b. HITL session progress (live; conductor updates as steps land)
+
+| Step | State | Evidence |
+|---|---|---|
+| 1 | ✓ P1–P6 verified | ledger R-3: P1 one stale MANIFEST row (SPEC.md doc drift) · P3 10/10 SYNC · P6 codex-cli 0.153.4 · origin/main == HEAD |
+| 0 (T0-d1) | ✓ DELIVERED + FROZEN | ledger R-4: pre-fix wrapper VOID upheld as audit result, ACCEPT on substance — 86 tests / 84 green (the two reds are T0-d2's); `check_sync.py` live; phantom image call corrected; MANIFEST 110 rows |
+| 2 (X1-gen-02) | ✓ DELIVERED through the fixed wrapper | exit 0 · zero violations · image_calls 2 (generated_images/ truth) == calls_used 2 · model/effort/CLI recorded. **Art finding (bible SCALE):** size stated in SOURCE px does not land either (asked ≈380 px/30 %: satchel 48 %, staff head 21 %×66 %; X1-gen-01 relative: 51 %/73 %) → SCALE is a post-process (registration downscale), never a prompt instruction. Plates clean (99.5 % / 98.8 % within ±8). Satchel grain again exceeds the restraint register at prop scale (O8's case) |
+| 0 (T0-d2) | ▶ in flight | O3b ring-family · O9 part-inventory set + controls + `calibrate_transcriber.py` · F-5 plate_uniformity + alpha floor · R9 extensions (priority order; partial delivery continues as T0-d3) |
+| 2 (X1-chk-02) | pending T0-d2 | plate_uniformity reported; no false violations on a CHECK burst |
+| 3 (X0-T) | pending T0-d2 | hand inventory re-counted at native (4 figures; scratch draft) — F04 starter: X-harness, satchel on the RIGHT hip; advanced: rod in the LEFT hand, ~11 sigil-class emblems |
+| 4–10 | Matt present | grill packet staged: `~/Desktop/Astra Burst Review - 2026-09-11/00 Grill packet` |
+
 ## 3. The session script (≈ 2.5 h with Matt; steps 4–10 need Matt present; 1–3 do not)
 
 | Step | Min | What | Output |
