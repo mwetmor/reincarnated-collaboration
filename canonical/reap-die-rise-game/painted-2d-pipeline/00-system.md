@@ -126,7 +126,7 @@ PACK bursts write sheets, `atlas.json`, the engine-neutral manifest (frames, fps
 
 ## 6. Current state
 
-Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a + T0-b DELIVERED (lane runtime; gate library, 46 tests, 1 named-red regression lock pending T0-c); T0-c in flight (oracles + comparator); X1 smoke next; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10.
+Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a/b/c DELIVERED and frozen (lane runtime; gate library; oracles O1–O9 + parts + comparator + transcription contract — 69 tests, 2 named-red acceptance cases: O3 template mode cannot see primitive-family bleed → O3b owed in T0-d, with two audit fixes); X1 smoke next (oracles + comparator); X1 smoke next; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10.
 
 ## 7. SYNC — the two process documents and their sources (same-commit rule)
 
@@ -135,13 +135,13 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
 | `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | bbb1a1b9fbfe | 2026-09-11 |
-| `astra_test_01/burst/SPEC.md` | build contract | f1ee565cf3b0 | 2026-09-11 |
+| `astra_test_01/burst/SPEC.md` | build contract | 05d48f86b245 | 2026-09-11 |
 | `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 1a96e8aa0ad6 | 2026-09-11 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
 | `astra_test_01/burst/lane/run_burst.py` | the invocation | 5a2df9e8381d | 2026-09-11 |
-| `astra_test_01/burst/MANIFEST.sha256` | freeze state | 57c0ecf1914e | 2026-09-11 |
+| `astra_test_01/burst/MANIFEST.sha256` | freeze state | ac2f9820407d | 2026-09-11 |
 | `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 190e17eb10a1 | 2026-09-11 |
 
 ---

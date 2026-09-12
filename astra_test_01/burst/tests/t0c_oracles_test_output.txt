@@ -1,0 +1,36 @@
+test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
+test_known_frequencies_source_units_and_anchor_distance (test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance) ... ok
+test_shaded_planes_and_flat (test_oracles_keylight.Tests.test_shaded_planes_and_flat) ... ok
+test_clean_outside_zero (test_oracles_motif.Tests.test_clean_outside_zero)
+SPEC verbatim: on clean_crop → outside == 0. ... ok
+test_exact_scaled_rotated_peaks_partition_nms (test_oracles_motif.Tests.test_exact_scaled_rotated_peaks_partition_nms) ... ok
+test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3. ... FAIL
+test_frame_shift_margin (test_oracles_palette.Tests.test_frame_shift_margin) ... /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/joblib/externals/loky/backend/context.py:131: UserWarning: Could not find the number of physical cores for the following reason:
+invalid literal for int() with base 10: ''
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+  warnings.warn(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/joblib/externals/loky/backend/context.py", line 249, in _count_physical_cores
+    cpu_count_physical = _count_physical_cores_darwin()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/joblib/externals/loky/backend/context.py", line 318, in _count_physical_cores_darwin
+    return int(cpu_info)
+           ^^^^^^^^^^^^^
+ok
+test_known_swatch_shift_and_empty (test_oracles_palette.Tests.test_known_swatch_shift_and_empty) ... ok
+test_plain_vs_stripes_mask_empty (test_oracles_plain_budget.Tests.test_plain_vs_stripes_mask_empty) ... ok
+test_mirror_distance_exceeds_adjacent_idle (test_oracles_silhouette64.Tests.test_mirror_distance_exceeds_adjacent_idle) ... ok
+
+======================================================================
+FAIL: test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 19, in test_f04_outside_at_least_three
+    self.assertGreaterEqual(metrics(row)['outside'],3)
+AssertionError: 0 not greater than or equal to 3
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.997s
+
+FAILED (failures=1)

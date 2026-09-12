@@ -1,0 +1,72 @@
+{
+  "coordinate_convention": "Pillow XYXY, exclusive upper bounds; no scaling",
+  "f04_advanced_crop": {
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07V/art/F04.png",
+    "bbox": [
+      280,
+      40,
+      540,
+      695
+    ]
+  },
+  "sigil_template": {
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07V/art/F04.png",
+    "bbox": [
+      465,
+      401,
+      518,
+      457
+    ],
+    "bbox_in_advanced_crop": [
+      185,
+      361,
+      238,
+      417
+    ],
+    "selection": "Handheld astrolabe circular head, located by viewing F04"
+  },
+  "clean_crop": {
+    "source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_00.png"
+  },
+  "additional_frames": [
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_01.png",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/cast/S/cast_S_05.png"
+  ],
+  "motif_parameters": {
+    "scales": [
+      0.4,
+      0.55,
+      0.7,
+      0.85,
+      1,
+      1.25,
+      1.5
+    ],
+    "rotations_deg": [
+      -45,
+      -30,
+      -15,
+      0,
+      15,
+      30,
+      45,
+      90,
+      180,
+      270
+    ],
+    "thresh": 0.65,
+    "nms_iou": 0.25,
+    "calibration_note": "Provisional NCC correlation 0.65 and overlap 0.25 fixed before first fixture measurement; exact transformed-template synthetic positives and independent clean frame negatives. Not a shipping calibration. No tuning to F04 expected count."
+  },
+  "source_sha256": {
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07V/art/F04.png": "97ebf066d9679a7e13f1411a3aaf5d55698c763d1851b8b8a508c0200bc81974",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/cast/S/cast_S_05.png": "fd8fb566eed66f56e7c1673fbca5a3b9b5a5f66963328406fa07bd29ded0c78c",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_00.png": "8fc39de869c6281e020fe8720ef3ce11ec351cfd3215274055a00a20ce48ce6e",
+    "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_01.png": "b8e052015530a0eacc3d73f330fff66c4c62bc6ee55a9216a9830d8b27ae73b2"
+  },
+  "fixture_sha256": {
+    "fixtures/clean_crop.png": "8fc39de869c6281e020fe8720ef3ce11ec351cfd3215274055a00a20ce48ce6e",
+    "fixtures/f04_advanced_crop.png": "f804cb250d2ef0fc4518b0e3380654973d56085f974fdbe2d64f6f044be587fa",
+    "fixtures/sigil_template.png": "1edf0657fb3c266d36a64d5099dc43eb1c44d00f0e0f1bb98d4fcf652cb5fc4d"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "type": "object",
+  "properties": {
+    "hair": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "face": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "shirt": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "tabard": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "belt": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "satchel": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "pauldron_L": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "pauldron_R": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "bracers": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "trousers": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "boots": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "rod": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "rod_head": {
+      "type": "object",
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "present",
+        "count"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "hair",
+    "face",
+    "shirt",
+    "tabard",
+    "belt",
+    "satchel",
+    "pauldron_L",
+    "pauldron_R",
+    "bracers",
+    "trousers",
+    "boots",
+    "rod",
+    "rod_head"
+  ],
+  "additionalProperties": false,
+  "title": "F04 sigil inventory: presence and count of sigil on each closed part; no coordinates"
+}

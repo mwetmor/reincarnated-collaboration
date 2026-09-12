@@ -1,0 +1,251 @@
+{
+  "RULE": [
+    {
+      "id": "sigil",
+      "faction": "F04 Keepers of Hours",
+      "scope": "character",
+      "class": "motif",
+      "statement": "Sigil permitted on tabard and rod_head only; all other surfaces plain. Placement counts are maximum budgets, not required decorations. Placeholder pending Matt.",
+      "placements": [
+        {
+          "where": "tabard",
+          "scale_px": null,
+          "count": 1
+        },
+        {
+          "where": "rod_head",
+          "scale_px": null,
+          "count": 1
+        }
+      ],
+      "exclusions": [
+        "hair",
+        "face",
+        "shirt",
+        "belt",
+        "satchel",
+        "pauldron_L",
+        "pauldron_R",
+        "bracers",
+        "trousers",
+        "boots",
+        "rod"
+      ],
+      "parts_ref": [
+        "hair",
+        "face",
+        "shirt",
+        "tabard",
+        "belt",
+        "satchel",
+        "pauldron_L",
+        "pauldron_R",
+        "bracers",
+        "trousers",
+        "boots",
+        "rod",
+        "rod_head"
+      ],
+      "reference_asset": "fixtures/sigil_template.png",
+      "known_bad": "fixtures/f04_advanced_crop.png",
+      "oracle": {
+        "id": "O3",
+        "threshold": 0,
+        "inputs": [
+          "sigil_template",
+          "allowed_masks",
+          "scales",
+          "rotations_deg",
+          "thresh"
+        ],
+        "needs_part_masks": true
+      },
+      "source": "bible-author",
+      "date": "2026-09-11",
+      "status": "stub; JUDGE-only for uncalibrated declarations"
+    },
+    {
+      "id": "light-placeholder",
+      "faction": "F04 Keepers of Hours",
+      "scope": "character",
+      "class": "light",
+      "statement": "JUDGE-only placeholder. Screen azimuth convention: x right, y up; upper-left is 135 degrees. Other LIGHT quantities require reviewed declarations.",
+      "placements": [],
+      "exclusions": [],
+      "parts_ref": [],
+      "reference_asset": null,
+      "known_bad": null,
+      "oracle": {
+        "id": "JUDGE-only",
+        "threshold": null,
+        "inputs": [],
+        "needs_part_masks": false
+      },
+      "source": "bible-author",
+      "date": "2026-09-11",
+      "status": "stub"
+    }
+  ],
+  "PILLARS": [
+    {
+      "name": "F04",
+      "filter_statement": "JUDGE-only placeholder: Matt rules vocabulary."
+    },
+    {
+      "name": "Clarity",
+      "filter_statement": "JUDGE-only placeholder: clean material planes and restrained texture."
+    }
+  ],
+  "PALETTE": {
+    "scope": "character",
+    "swatches": [],
+    "relation_rules": []
+  },
+  "PARTS": [
+    {
+      "name": "hair",
+      "adjacency": [],
+      "rigidity": "hair",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "face",
+      "adjacency": [],
+      "rigidity": "soft",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "shirt",
+      "adjacency": [],
+      "rigidity": "cloth",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "tabard",
+      "adjacency": [],
+      "rigidity": "cloth",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [
+        "sigil"
+      ],
+      "plain": false,
+      "mirror_of": null
+    },
+    {
+      "name": "belt",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "satchel",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "pauldron_L",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": "pauldron_R"
+    },
+    {
+      "name": "pauldron_R",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": "pauldron_L"
+    },
+    {
+      "name": "bracers",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "trousers",
+      "adjacency": [],
+      "rigidity": "cloth",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "boots",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "rod",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [],
+      "plain": true,
+      "mirror_of": null
+    },
+    {
+      "name": "rod_head",
+      "adjacency": [],
+      "rigidity": "rigid",
+      "attachment_to": null,
+      "palette_bin": null,
+      "allowed_motifs": [
+        "sigil"
+      ],
+      "plain": false,
+      "mirror_of": null
+    }
+  ],
+  "CONSTRUCTION": [],
+  "LIGHT": {
+    "key_azimuth_deg": 135,
+    "key_elevation": null,
+    "fill_ratio": null,
+    "source_count": null
+  },
+  "SCALE": {
+    "canvas_px": 512,
+    "feature_size_px": {}
+  }
+}

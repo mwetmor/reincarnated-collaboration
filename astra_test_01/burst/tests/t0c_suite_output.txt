@@ -1,0 +1,96 @@
+test_missing_event_log (test_audit.ModuleTests.test_missing_event_log) ... ok
+test_known_bad_schema_constraints (test_bible.Tests.test_known_bad_schema_constraints) ... ok
+test_stub_and_v01_fields (test_bible.Tests.test_stub_and_v01_fields) ... ok
+test_control_claim_and_invalid_answers (test_compare.Tests.test_control_claim_and_invalid_answers) ... ok
+test_missing_reviewed_masks_is_null (test_compare.Tests.test_missing_reviewed_masks_is_null) ... ok
+test_stub_accepts_clean_crop (test_compare.Tests.test_stub_accepts_clean_crop)
+SPEC verbatim: compare_to_bible with the stub PASSES the clean crop. ... ok
+test_stub_rejects_f04_crop (test_compare.Tests.test_stub_rejects_f04_crop)
+SPEC verbatim: compare_to_bible with the stub FAILS the F04 crop. ... FAIL
+test_template_count_crosscheck (test_compare.Tests.test_template_count_crosscheck) ... ok
+test_script_injection_is_escaped (test_gates_build_review.Tests.test_script_injection_is_escaped) ... ok
+test_template_and_invalid_atlas (test_gates_build_review.Tests.test_template_and_invalid_atlas) ... ok
+test_empty_and_changed (test_gates_common.Tests.test_empty_and_changed) ... ok
+test_empty_foreground_has_no_nan (test_gates_common.Tests.test_empty_foreground_has_no_nan) ... ok
+test_comparator_at_48 (test_gates_drift48.Tests.test_comparator_at_48) ... ok
+test_height_mutation (test_gates_g1_height.Tests.test_height_mutation) ... ok
+test_independent_root_and_shifted_mask (test_gates_g2_pivot.Tests.test_independent_root_and_shifted_mask) ... ok
+test_planted_slide_and_repeated_lead (test_gates_g2_pivot.Tests.test_planted_slide_and_repeated_lead) ... ok
+test_wrong_side_and_clipping_detection (test_gates_g3_light.Tests.test_wrong_side_and_clipping_detection) ... ok
+test_wrong_side_light (test_gates_g3_light.Tests.test_wrong_side_light) ... ok
+test_excessive_drift_and_missing_comparator (test_gates_g5_drift.Tests.test_excessive_drift_and_missing_comparator) ... ok
+test_bad_closure_and_distinct_comparators (test_gates_g6_seam.Tests.test_bad_closure_and_distinct_comparators) ... ok
+test_dark_fringe_and_green (test_gates_g9_alpha.Tests.test_dark_fringe_and_green) ... ok
+test_numeric_C_and_legacy (test_gates_guides.Tests.test_numeric_C_and_legacy) ... ok
+test_audit_observed_tool_overrun (test_gates_lane_caps.Tests.test_audit_observed_tool_overrun) ... ok
+test_audit_type_caps_and_label_image_permission (test_gates_lane_caps.Tests.test_audit_type_caps_and_label_image_permission) ... ok
+test_validation_boundaries_every_type (test_gates_lane_caps.Tests.test_validation_boundaries_every_type) ... ok
+test_checkerboard_rejection (test_gates_matte.Tests.test_checkerboard_rejection) ... ok
+test_native_alpha_dark_interiors (test_gates_matte.Tests.test_native_alpha_dark_interiors) ... ok
+test_particle_safe_opt_in_and_green_plate (test_gates_matte.Tests.test_particle_safe_opt_in_and_green_plate) ... ok
+test_sparse_atlas_layout_and_invalid_canvas (test_gates_pack.Tests.test_sparse_atlas_layout_and_invalid_canvas) ... ok
+test_vfx_metadata (test_gates_pack.Tests.test_vfx_metadata) ... ok
+test_internal_packing_energy_and_bad_size (test_gates_pack.VfxPixels.test_internal_packing_energy_and_bad_size) ... ok
+test_clipped_sole_rejection (test_gates_register.Tests.test_clipped_sole_rejection) ... ok
+test_measured_registration_and_shifted_mask (test_gates_register.Tests.test_measured_registration_and_shifted_mask) ... ok
+test_reviewed_region_bounds (test_gates_register.Tests.test_reviewed_region_bounds) ... ok
+test_upscaling_rejection (test_gates_register.Tests.test_upscaling_rejection) ... ok
+test_regression_lock (test_gates_regression_lock.Tests.test_regression_lock) ... ok
+test_empty_sequence_not_silent_success (test_gates_run_gates.Tests.test_empty_sequence_not_silent_success) ... ok
+test_regression_comparator_detects_mutation (test_gates_run_gates.Tests.test_regression_comparator_detects_mutation) ... ok
+test_real_mirror_vs_idle (test_gates_silhouette64.Tests.test_real_mirror_vs_idle) ... ok
+test_swollen_bag_and_shift_alignment (test_gates_silhouette64.Tests.test_swollen_bag_and_shift_alignment) ... ok
+test_artifact_hash_escape_and_symlink (test_lane.LaneTests.test_artifact_hash_escape_and_symlink) ... ok
+test_audit_planted_events (test_lane.LaneTests.test_audit_planted_events) ... ok
+test_clean_and_malformed_events (test_lane.LaneTests.test_clean_and_malformed_events) ... ok
+test_exact_command_and_dry_run (test_lane.LaneTests.test_exact_command_and_dry_run) ... ok
+test_filesystem_diff_new_modified_deleted_and_allowed (test_lane.LaneTests.test_filesystem_diff_new_modified_deleted_and_allowed) ... ok
+test_ledger_atomic_replacement_and_rollback (test_lane.LaneTests.test_ledger_atomic_replacement_and_rollback) ... ok
+test_render_deterministic_and_ordered (test_lane.LaneTests.test_render_deterministic_and_ordered) ... ok
+test_schema_known_bad_and_strict_objects (test_lane.LaneTests.test_schema_known_bad_and_strict_objects) ... ok
+test_task_caps (test_lane.LaneTests.test_task_caps) ... ok
+test_wrapper_roundtrip_error_timeout_and_void (test_lane.LaneTests.test_wrapper_roundtrip_error_timeout_and_void) ... ok
+test_empty_budget (test_ledger.ModuleTests.test_empty_budget) ... ok
+test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
+test_known_frequencies_source_units_and_anchor_distance (test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance) ... ok
+test_shaded_planes_and_flat (test_oracles_keylight.Tests.test_shaded_planes_and_flat) ... ok
+test_clean_outside_zero (test_oracles_motif.Tests.test_clean_outside_zero)
+SPEC verbatim: on clean_crop → outside == 0. ... ok
+test_exact_scaled_rotated_peaks_partition_nms (test_oracles_motif.Tests.test_exact_scaled_rotated_peaks_partition_nms) ... ok
+test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3. ... FAIL
+test_frame_shift_margin (test_oracles_palette.Tests.test_frame_shift_margin) ... ok
+test_known_swatch_shift_and_empty (test_oracles_palette.Tests.test_known_swatch_shift_and_empty) ... ok
+test_plain_vs_stripes_mask_empty (test_oracles_plain_budget.Tests.test_plain_vs_stripes_mask_empty) ... ok
+test_mirror_distance_exceeds_adjacent_idle (test_oracles_silhouette64.Tests.test_mirror_distance_exceeds_adjacent_idle) ... ok
+test_ambiguous_bins_empty_and_display (test_parts.Tests.test_ambiguous_bins_empty_and_display) ... ok
+test_metrics_and_known_bad (test_parts.Tests.test_metrics_and_known_bad) ... ok
+test_three_part_antialiased_iou_and_health (test_parts.Tests.test_three_part_antialiased_iou_and_health) ... ok
+test_missing_type_rules (test_render_brief.ModuleTests.test_missing_type_rules) ... ok
+test_incomplete_task_rejected (test_run_burst.ModuleTests.test_incomplete_task_rejected) ... ok
+test_missing_receipt (test_schema_check.ModuleTests.test_missing_receipt) ... ok
+test_atomic_unique_dependency_ordered_absent_controls (test_transcribe.Tests.test_atomic_unique_dependency_ordered_absent_controls) ... ok
+test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
+
+======================================================================
+FAIL: test_stub_rejects_f04_crop (test_compare.Tests.test_stub_rejects_f04_crop)
+SPEC verbatim: compare_to_bible with the stub FAILS the F04 crop.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_compare.py", line 22, in test_stub_rejects_f04_crop
+    self.assertIs(r['passed'],False,r)
+AssertionError: True is not False : {'id': 'compare_to_bible', 'subject': '', 'passed': True, 'value': 0, 'threshold': 0, 'op': '<=', 'unit': 'violated_rules', 'evidence': [], 'notes': '{"metrics": {"coverage": ["O3"], "results": [{"evidence": [], "id": "O3", "notes": "{\\"metrics\\": {\\"evaluated_templates\\": 70, \\"inside\\": 1, \\"nms_center_fraction\\": 0.5, \\"nms_iou\\": 0.25, \\"outside\\": 0, \\"peaks\\": [{\\"bbox\\": [185.0, 361.0, 238.0, 417.0], \\"center\\": [211.5, 389.0], \\"inside\\": true, \\"rotation_deg\\": 0.0, \\"scale\\": 1.0, \\"score\\": 1.0}], \\"thresh\\": 0.65}, \\"reason\\": \\"\\"}", "op": "<=", "passed": true, "subject": "", "threshold": 0, "unit": "instances", "value": 0}], "unassessed": "JUDGE-only and undeclared palette/light/construction/scale thresholds"}, "reason": ""}'}
+
+======================================================================
+FAIL: test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 19, in test_f04_outside_at_least_three
+    self.assertGreaterEqual(metrics(row)['outside'],3)
+AssertionError: 0 not greater than or equal to 3
+
+----------------------------------------------------------------------
+Ran 69 tests in 12.231s
+
+FAILED (failures=2)

@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST X1-gen-01 \u2014 lane smoke (Run C-1). task_id \"X1-gen-01\".\n\nDeliver EXACTLY TWO painted images, each a single isolated prop on a flat pure #00ff00 plate, in the register card's style and light (screen-upper-left key; painted, not pixel art; no floor shadow; no text):\n1. out/x1_satchel.png \u2014 the hooded battle-mage's small worn-leather satchel (from Image 1), seen alone, roughly 300 px wide on a 1024 canvas, elevated three-quarter view.\n2. out/x1_staff_head.png \u2014 the top 25 % of that same mage's bone-and-iron staff (from Image 1), seen alone, roughly 300 px tall on a 1024 canvas, same view.\nImage 1 is a STYLE + IDENTITY reference (the register, brushwork and light); do NOT reproduce the figure \u2014 only the named prop. Use image_gen once per deliverable; at most ONE retry per deliverable if the first result is off-plate, has a baked checkerboard, or invents extra objects. Copy each final output from $CODEX_HOME/generated_images/... to out/ with the exact names above and compute its sha256.\nNo code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"X1-gen-01\"): list both images with prompt, references (role + path), elapsed_s; calls_used = the true number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_00.png",
+   "role": "style + identity reference (the painted register, brushwork and upper-left key light); do not reproduce the figure"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/x1_satchel.png",
+  "out/x1_staff_head.png"
+ ],
+ "effort": "medium",
+ "add_dirs": [],
+ "experiment": "X1"
+}

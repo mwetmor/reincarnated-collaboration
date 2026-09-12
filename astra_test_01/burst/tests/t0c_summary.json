@@ -1,0 +1,87 @@
+{
+  "tests_run": 69,
+  "successful_tests": 67,
+  "failures": [
+    {
+      "test": "test_compare.Tests.test_stub_rejects_f04_crop",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_compare.py\", line 22, in test_stub_rejects_f04_crop\n    self.assertIs(r['passed'],False,r)\nAssertionError: True is not False : {'id': 'compare_to_bible', 'subject': '', 'passed': True, 'value': 0, 'threshold': 0, 'op': '<=', 'unit': 'violated_rules', 'evidence': [], 'notes': '{\"metrics\": {\"coverage\": [\"O3\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\\\"metrics\\\\\": {\\\\\"evaluated_templates\\\\\": 70, \\\\\"inside\\\\\": 1, \\\\\"nms_center_fraction\\\\\": 0.5, \\\\\"nms_iou\\\\\": 0.25, \\\\\"outside\\\\\": 0, \\\\\"peaks\\\\\": [{\\\\\"bbox\\\\\": [185.0, 361.0, 238.0, 417.0], \\\\\"center\\\\\": [211.5, 389.0], \\\\\"inside\\\\\": true, \\\\\"rotation_deg\\\\\": 0.0, \\\\\"scale\\\\\": 1.0, \\\\\"score\\\\\": 1.0}], \\\\\"thresh\\\\\": 0.65}, \\\\\"reason\\\\\": \\\\\"\\\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}'}\n"
+    },
+    {
+      "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 0 not greater than or equal to 3\n"
+    }
+  ],
+  "errors": [],
+  "skipped": [],
+  "elapsed_s": 13.49480833299458,
+  "regression": {
+    "tolerance": 0.001,
+    "compared": 1880,
+    "differences": [],
+    "within_tolerance": true
+  },
+  "acceptance": {
+    "f04_advanced_crop": {
+      "id": "O3",
+      "subject": "",
+      "passed": true,
+      "value": 0,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "instances",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"evaluated_templates\": 70, \"inside\": 1, \"nms_center_fraction\": 0.5, \"nms_iou\": 0.25, \"outside\": 0, \"peaks\": [{\"bbox\": [185.0, 361.0, 238.0, 417.0], \"center\": [211.5, 389.0], \"inside\": true, \"rotation_deg\": 0.0, \"scale\": 1.0, \"score\": 1.0}], \"thresh\": 0.65}, \"reason\": \"\"}"
+    },
+    "f04_advanced_crop_comparison": {
+      "id": "compare_to_bible",
+      "subject": "",
+      "passed": true,
+      "value": 0,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "violated_rules",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"coverage\": [\"O3\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 1, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [{\\\"bbox\\\": [185.0, 361.0, 238.0, 417.0], \\\"center\\\": [211.5, 389.0], \\\"inside\\\": true, \\\"rotation_deg\\\": 0.0, \\\"scale\\\": 1.0, \\\"score\\\": 1.0}], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
+    },
+    "clean_crop": {
+      "id": "O3",
+      "subject": "",
+      "passed": true,
+      "value": 0,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "instances",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"evaluated_templates\": 70, \"inside\": 0, \"nms_center_fraction\": 0.5, \"nms_iou\": 0.25, \"outside\": 0, \"peaks\": [], \"thresh\": 0.65}, \"reason\": \"\"}"
+    },
+    "clean_crop_comparison": {
+      "id": "compare_to_bible",
+      "subject": "",
+      "passed": true,
+      "value": 0,
+      "threshold": 0,
+      "op": "<=",
+      "unit": "violated_rules",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"coverage\": [\"O3\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 0, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
+    }
+  },
+  "palette": {
+    "original_off_pct": 3.344647150332343,
+    "shifted_off_pct": 100.0,
+    "margin": 96.65535284966765
+  },
+  "silhouette": {
+    "neighbor": 0.12522686025408347,
+    "mirrored": 0.2739273927392739,
+    "cast05": 0.7339003645200486
+  },
+  "parts": {
+    "iou": {
+      "red": 1.0,
+      "green": 1.0,
+      "blue": 1.0
+    },
+    "unclassified_frac": 0.09882671480144405
+  }
+}

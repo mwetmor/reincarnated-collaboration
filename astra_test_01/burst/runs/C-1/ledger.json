@@ -319,12 +319,127 @@
       ],
       "exit": 0,
       "note": "hand-invoked (wrapper caps pre-amendment); DELIVERED_WITH_CONCERNS; 46 tests: 45 green, 1 KNOWN RED = regression lock walk_SE_07 (cause: run_03/output_contact_regions.json not in the conductor's read allowlist \u2192 automatic sole fallback; fix assigned to T0-c addendum); G2/G9/silhouette64 verdicts null pending calibrated thresholds (per SPEC); usage 1,123,354 in / 24,843 out; conductor review: ACCEPT; frozen at MANIFEST.sha256"
+    },
+    {
+      "id": "T0-c",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "aff1adad9be579312c78fbd33da2da510e7d59f0eb517c426c13a607e20ad916",
+      "started": "2026-09-12T02:24:35.078133+00:00",
+      "ended": "2026-09-12T02:40:04.626236+00:00",
+      "minutes": 15.492384543750086,
+      "image_calls": 0,
+      "tool_calls": 16,
+      "audit": {
+        "violations": [
+          "forbidden tool at line 5: command_execution",
+          "forbidden tool at line 7: command_execution",
+          "forbidden tool at line 9: command_execution",
+          "forbidden tool at line 11: command_execution",
+          "forbidden tool at line 14: command_execution",
+          "forbidden tool at line 16: command_execution",
+          "forbidden tool at line 40: command_execution",
+          "filesystem writes outside permitted paths",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/f04-keepers.stub.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/schema.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/validate.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/compare/compare_to_bible.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/clean_crop.png",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/f04_advanced_crop.png",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/manifest.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/sigil_template.png",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/pack.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/CALIBRATION.md",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/common.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/figure_ground.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/grain.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/keylight.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/motif.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/palette.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/plain_budget.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/silhouette64.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/parts/motif_match.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/parts/part_masks.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/parts/part_metrics.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_helpers.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/run_t0c.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_oracles_test_output.txt",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_bible.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_compare.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_pack.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_regression_lock.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_figure_ground.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_grain.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_keylight.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_palette.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_plain_budget.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_silhouette64.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_parts.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_transcribe.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/transcribe/questions.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/transcribe/transcribe.schema.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/transcribe.schema.json"
+        ],
+        "image_calls": 0,
+        "tool_calls": 16,
+        "tools_seen": {
+          "command_execution": 16
+        },
+        "writes_outside_out": [
+          "/Users/admin/Games/reincarnated-collaboration/.git/COMMIT_EDITMSG",
+          "/Users/admin/Games/reincarnated-collaboration/.git/index",
+          "/Users/admin/Games/reincarnated-collaboration/.git/logs/HEAD",
+          "/Users/admin/Games/reincarnated-collaboration/.git/logs/refs/heads/main",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/04/c96e2199452e4831dda45581c8e98640b15cc2",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/6f/bccee7368be8def2a98c3d434a8827e79c7ca5",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/76/7f6b08e96feb5e8a0d83477b4c4dfa3130f842",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/d4/47a26bd873093489c4039a0e40a07582d7793e",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/f5/0221afbaaadc3b4c864eb4b36b4dbbea922a25",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/f9/3da2a15f8800d6fa1705f2fc196cbca20104ab",
+          "/Users/admin/Games/reincarnated-collaboration/.git/refs/heads/main",
+          "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-hitl-run-plan.md"
+        ]
+      },
+      "receipt_sha256": "b0304d60e6c6fcfc25dfc6f68875b5e18899a76feb97793f56f7d13371c64962",
+      "artifacts": [],
+      "exit": 2
     }
   ],
   "images_used": 0,
   "images_cap": 250,
-  "experiments": {},
+  "experiments": {
+    "T0": {
+      "status": "DELIVERED",
+      "bursts": [
+        "T0-a",
+        "T0-b",
+        "T0-c"
+      ],
+      "known_red": [
+        "tests/test_oracles_motif.py::F04 outside>=3",
+        "tests/test_compare.py::F04 rejected"
+      ],
+      "owed": "T0-d"
+    }
+  },
   "milestones": [],
   "halts": [],
-  "rulings": []
+  "rulings": [
+    {
+      "id": "R-1",
+      "date": "2026-09-11",
+      "boundary": "reasoning",
+      "burst": "T0-c",
+      "ruling": "T0-c VOID (exit 2) is upheld AS AN AUDIT RESULT and overridden ON SUBSTANCE by conductor review: both violation classes are conductor-owned spec defects (forbidden-tool regex applied to command text \u2014 the repo path 'reincarnated-collaboration' matched 'collaboration'; TOOLING deliverables under add_dirs rejected by verify_files). Substance ACCEPTED: 69 tests, 67 green, regression lock 0/1,880 diffs; TWO NAMED-RED acceptance cases retained un-tuned: O3 template mode on the F04 crop finds inside=1/outside=0 (required outside>=3) and therefore the comparator does not reject the F04 crop. Finding: the bleed instances are primitive-family members, not copies of the template \u2014 O3b (radial-symmetry/ring family detector) owed in T0-d, with the two audit fixes and the O9 declared-absent-PART controls. Tree frozen at MANIFEST.sha256 (T0-c substance).",
+      "veto": "open to Matt"
+    }
+  ]
 }
