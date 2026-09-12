@@ -1,0 +1,12 @@
+K3-pack-01 — Keeper first-loop milestone review; no overall verdict issued.
+Open review.html; all media and source records use local relative paths.
+Idle-S: 8 fps, 48 frames, six loops, 6.0 s; walk-S: 10 fps, 48 frames, six loops, 4.8 s.
+MP4: H.264/yuv420p, 1024 square; #3a3f4a composite, 2x NEAREST display only; sources unchanged.
+Seam PNGs: frame 7 | frame 0 | absolute RGB difference x4, clipped; preview background.
+CHECK idle G6: 0 <= 0.22975285847981772, true; G6b: 0 <= 1.0484174092610676, true.
+CHECK walk G6: 3.058116912841797 <= 3.009474436442057, false; G6b threshold 3.4588851928710938, true.
+G6 literal remains recorded; G6b shipping-bar ruling belongs to Matt and is pending.
+JUDGE idle/walk axes: 4,4,4,4,5; walk leads L,R,R,R,L,L,R-high,L; loop_pops true (static assessment).
+Control strip 3: axes 2 and 3 both score 2; mirrored true; both requested detection questions yes.
+Missing CHECK evidence PNGs; literal G5 and reviewed G2 unevaluable; sole spread idle 3 px, walk 25 px (>0 alpha).
+No image generation; no new gate decisions; CHECK/JUDGE disagreement retained in full source records.

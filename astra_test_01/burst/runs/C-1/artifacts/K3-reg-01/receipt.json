@@ -1,0 +1,102 @@
+{
+  "task_id": "K3-reg-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Artifact-count verification included two wrapper-owned logs.",
+      "change": "Excluded .wrapper-* logs from the artifact census; repeated verification successfully without changing frames."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "walk_S_07 touches its source cell's top edge.",
+      "Idle sole lines: 402,402,401,402,402,399,399,402. Walk sole lines: 427,426,422,417,429,429,404,420. registration.json identifies every frame with pairwise differences greater than 4 px.",
+      "Wrapper-owned .wrapper-* logs remain untouched and are excluded from delivered-file hashes because the event stream is still changing."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/frames/idle/S/idle_S_00.png",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_01.png",
+      "sha256": "388f793a64c43597ac4aec07257fc3126b04d2d36fdbc54d58b8904193cd827a"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_02.png",
+      "sha256": "02cf41118cbb2bb0b8955ee4edd98756e4b0b09095b4e8f033556706d2ada433"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_03.png",
+      "sha256": "406f7976ae42c3177231f66838118c3df4c03b97dc1bdc5a8a45bdf10ab1ef2f"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_04.png",
+      "sha256": "053c85bc3c89142fe51c444af105d2ff98e9264fb9886b7570ffc53721562141"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_05.png",
+      "sha256": "e9c60e2ccc387965df970cd24afdfc9bbc508d05349d59765c56f9b8f684242c"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_06.png",
+      "sha256": "c5bb68951c4e5f5ea7ec23858c58bdbbddd18e7e113644bbf44cc0526eb2d6e0"
+    },
+    {
+      "path": "out/frames/idle/S/idle_S_07.png",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_00.png",
+      "sha256": "15ec6cf859c201c6985b18c8f077125939ff2a49e3f617aed66635c90565698a"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_01.png",
+      "sha256": "1df32a32134348f8231ed3e56fc0763bfaf9de9f2df455cc26e2757964fecfd8"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_02.png",
+      "sha256": "dcf1d29b5581fda4a2788cc32b1df00115aaaac368278890e688752c3bd9dbef"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_03.png",
+      "sha256": "aca285f77b29542ced63f80ca7fb0398321cb1f00eb18f8be51761d883583e6a"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_04.png",
+      "sha256": "e4e1a7ea51b8ba4a4c9702bb34f68eccde41cfc7936300b7ca5b3bbaa8cf7045"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_05.png",
+      "sha256": "39431a08c4b40c10fa340569379f71a48cdb93872887fd8810ef87bf1c2b5888"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_06.png",
+      "sha256": "e957a0763bfe6dadd8728a8386e5c5c0bc216661b61a429e55a6ba439f5c19fe"
+    },
+    {
+      "path": "out/frames/walk/S/walk_S_07.png",
+      "sha256": "5e8e269f8331de02b675c4315050d8b27f65ab85f1470e8c5ec37e2b75233708"
+    },
+    {
+      "path": "out/readme.txt",
+      "sha256": "4915d425321fd2ac59ed57744c03071608e81064760b23b74f869fc0e61bda19"
+    },
+    {
+      "path": "out/registration.json",
+      "sha256": "936113736ec6c23f15c733bf84aa92aeb03ff4dcf5526a2c84c68352b22f49f3"
+    },
+    {
+      "path": "out/sheets/idle_S_strip.png",
+      "sha256": "4d9a9b5a3a632c4fc1edb2ad24ba82f2700095d06d6eb0df783e629d6af1db2c"
+    },
+    {
+      "path": "out/sheets/walk_S_strip.png",
+      "sha256": "6f46825a5075e88e63fff8583aa07747cd90cfaa77197b1fea3e238325f1509a"
+    }
+  ]
+}

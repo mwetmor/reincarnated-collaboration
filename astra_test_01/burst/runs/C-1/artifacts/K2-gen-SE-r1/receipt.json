@@ -1,0 +1,35 @@
+{
+  "task_id": "K2-gen-SE-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_SE",
+      "path": "out/k2_SE.png",
+      "sha256": "2a526130e3c947f36f16643be5d76758173f46b66fbc4dc3b8f6de585dffd42f",
+      "prompt": "Use case: identity-preserve. Create EXACTLY ONE painted 2D full-body character turnaround image on a portrait canvas matching Image 1. Image 1 is the APPROVED IDENTITY MASTER, direction S: preserve the same young woman, face, hair mass, sun-browned skin, proportions, costume, every item and anatomical side, and even-weight standing rest pose. Change only character orientation to SE. The character faces the viewer's LOWER-RIGHT: an unmistakable 45-degree turn to SCREEN-RIGHT from the frontal reference. Rotate head, torso, pelvis and feet together. Her LEFT shoulder is forward and nearest the camera; olive satchel on anatomical LEFT hip appears SCREEN-RIGHT and nearer the camera; upright staff in anatomical RIGHT hand appears SCREEN-LEFT and farther from the camera. Face looks toward screen lower-right; visible three-quarter side angle, clearly angled shoulders and chest, never front-on. No mirroring. Camera stays fixed: elevated three-quarter pinhole view from the front, approximately 53 degrees above ground plane, projection C. Full body centered, feet entirely visible, same standing height and framing as Image 1, portrait canvas. Identity and equipment unchanged: young woman early 20s, dark curly hair tied back, visible face, no helmet; ivory linen shirt, navy sleeveless long tabard with entirely PLAIN chest, ONE chestnut diagonal harness strap over anatomical RIGHT shoulder carrying ONE olive canvas satchel on anatomical LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. PLAIN dark walnut staff with small brass ferrules at foot and tip, held upright in RIGHT hand, no ring or head-piece. Left arm relaxed. No insignia, emblems, extra equipment or objects. Painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush grain. Blue, ivory and brass palette. Lighting fixed in screen space: single key from SCREEN UPPER-LEFT, slight rim along key-facing screen-left silhouette, deep cool low-value ambient with readable shadows never pure black. No spell glow or other warm saturated light source. Background must cover the entire canvas in flat uniform pure #00ff00, no floor shadow, no backdrop texture, no text, no matting. This task requests the single portrait turnaround source image, not an atlas.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S; identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 33.14
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Head turns screen-right, but torso and feet remain too frontal to establish an unmistakable 45-degree SE turn. Orientation alone did not authorize another retry.",
+      "The requested approximately 53-degree elevated camera is not clearly achieved.",
+      "Delivered the task-specific 1024×1536 portrait source; this conflicts with the register's 512×512 frame and 2×2 sheet requirements."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_SE.png",
+      "sha256": "2a526130e3c947f36f16643be5d76758173f46b66fbc4dc3b8f6de585dffd42f"
+    }
+  ]
+}

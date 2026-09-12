@@ -1,0 +1,62 @@
+{
+  "task_id": "K3-pack-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "CHECK evidence PNGs were absent; requested seam visualizations were produced.",
+      "Source CHECK leaves literal G5 and reviewed G2 measurements unevaluable.",
+      "G6b shipping-bar ruling remains pending Matt.",
+      "MP4 codec, dimensions, frame rates, durations and frame counts verified; Chrome playback was not directly tested."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/review.html",
+      "sha256": "9db2b4404b6be82d261c2fde6c653998bacf513ce9af7f1c0dbd36288465c2f7"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "553ebe54e81f7f0c3fda639788f15eedeecc926bc761c317acc6318c0591f350"
+    },
+    {
+      "path": "out/idle_S_8fps.mp4",
+      "sha256": "5169a882a5959bcc9581c541deba42d0cdef8a77560f6c444432cf85a90a2baf"
+    },
+    {
+      "path": "out/walk_S_10fps.mp4",
+      "sha256": "4202280fba2e9e58d8cd857bbd51c5b1c1a6d6081e66d200c60b626a0caee297"
+    },
+    {
+      "path": "out/idle_S_seam_pairs.png",
+      "sha256": "46f6c459aa0563c9ae55aae1a23f9b4cbac85794d7e0a87db79e523837167761"
+    },
+    {
+      "path": "out/walk_S_seam_pairs.png",
+      "sha256": "490b4c2f62bfe5e1b3bdd92ea9c4a891e6a6825a512f724c3d7899c33b4a4c3c"
+    },
+    {
+      "path": "out/idle_S_strip.png",
+      "sha256": "4d9a9b5a3a632c4fc1edb2ad24ba82f2700095d06d6eb0df783e629d6af1db2c"
+    },
+    {
+      "path": "out/walk_S_strip.png",
+      "sha256": "6f46825a5075e88e63fff8583aa07747cd90cfaa77197b1fea3e238325f1509a"
+    },
+    {
+      "path": "out/checks.json",
+      "sha256": "f37597236f9578cef9226ee85282ca130df8582fba3f106cda0e46c325c74599"
+    },
+    {
+      "path": "out/judgment.json",
+      "sha256": "45515b42d7ab22c6261681eed6838302a93dcacf654e5fb2758eba2f2c60ccc8"
+    },
+    {
+      "path": "out/f04-keepers.json",
+      "sha256": "9d7720c4aecd4f67c9656a1b1ce9a3ac2ebdcd7e9e00b0f16cf5e26a51cc6bdc"
+    }
+  ]
+}

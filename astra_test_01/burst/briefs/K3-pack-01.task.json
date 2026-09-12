@@ -1,0 +1,18 @@
+{
+ "text": "PACK BURST K3-pack-01 — milestone packet: the Keeper's first loops (idle-S, walk-S) as Chrome-playable MP4s + review page (charter § 1 milestone interface; § 7 K3; Matt rules G6b). task_id \"K3-pack-01\".\n\nInputs (read-only): registered frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_00..07.png and /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/walk/S/walk_S_00..07.png; strips /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/sheets/; the CHECK output /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-chk-01/checks.json (+ its out/evidence/); the JUDGE output /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-jdg-01/judgment.json (strips 1 = idle, 2 = walk, 3 = a hidden control — report it under 'control': did it score ≤ 2 on axis 2 or 3 / was it called mirrored?); the bible /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/f04-keepers.json.\nTools: ffmpeg at /opt/homebrew/bin/ffmpeg is available for MP4 encoding (H.264, yuv420p, Chrome-playable); PIL for compositing frames onto a mid-grey (#3a3f4a) background before encoding (transparent frames must be composited — MP4 has no alpha). Produce in out/: idle_S_8fps.mp4 (8 fps, loop the 8 frames 6 times = 48 frames, 1024×1024 upscale-free: composite each 512 frame centred on a 1024 canvas at 2× NEAREST — display only, say so), walk_S_10fps.mp4 (10 fps, 6 loops), idle_S_seam_pairs.png (frame 7 | frame 0 | |diff| ×4), walk_S_seam_pairs.png, and review.html — self-contained (relative paths to copies in out/, no external resources): both MP4s with <video autoplay loop muted controls>, the 8-frame strips, the seam-pair images, the CHECK table per loop (G1, G3, G5, G6 literal value/threshold/pass, G6b value/threshold/pass, G11 per pair, silhouette distances, sole-line spread), the JUDGE axes + reasons + lead sequence, and a clearly labelled block 'G6 literal vs G6b — Matt rules the shipping bar'. Also out/summary.txt (≤ 12 lines). No image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3-pack-01\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything missing. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/review.html",
+  "out/summary.txt",
+  "out/idle_S_8fps.mp4",
+  "out/walk_S_10fps.mp4",
+  "out/idle_S_seam_pairs.png",
+  "out/walk_S_seam_pairs.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

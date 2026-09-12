@@ -1,0 +1,37 @@
+{
+  "task_id": "K2-gen-NW-r1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_NW.png",
+      "path": "out/k2_NW.png",
+      "sha256": "a7fde948a68bfcf661747cf9f7a4a4f4581f702d6ba343b8879b8a7297f9f51c",
+      "prompt": "Use case: identity-preserve. Create exactly ONE full-body Keeper turnaround image using Image 1 as the APPROVED IDENTITY MASTER for identity, hair, costume, proportions, standing rest pose, painted finish and framing. Change only character orientation to NW. Portrait canvas 1024x1536 like Image 1, flat uniform pure #00ff00 over the entire background. Match the master's standing height exactly: crown near y=32 and lowest boot sole near y=1488; entire figure and both feet fully visible, centered. This task specifically requests a single portrait, not a sheet or registered sprite.\nDIRECTION IS CRITICAL: character faces the viewer's UPPER-LEFT, turned 135 degrees away from the master S view. CLEAR BACK-THREE-QUARTER VIEW. Her BACK and anatomical RIGHT side are visible. Her RIGHT shoulder is nearest the camera, on SCREEN-RIGHT. Her upright staff is held in her anatomical RIGHT hand on SCREEN-RIGHT, nearer the camera. Head looks away toward UPPER-LEFT; show the back of her head, NEVER show her face. Her toes point upper-left, heels visible. Her anatomical LEFT hip and olive satchel are on the far side, mostly occluded. Rotate the actual character; do not mirror the reference. The single harness strap passes over her anatomical RIGHT shoulder, on the near screen-right, diagonally across her BACK toward the far anatomical LEFT hip. Preserve all item sides.\nSame young woman in her early 20s, sun-browned skin, dark curly hair tied back with identical hair mass; no helmet. Same ivory linen shirt with rolled sleeves, navy sleeveless long split tabard with every surface PLAIN, ONE chestnut diagonal satchel harness strap, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots, ONE olive canvas satchel at anatomical LEFT hip. ONE plain dark walnut staff with small brass ferrules at top and foot, no ring or headpiece. No insignia, no emblems, no extra objects. Same relaxed standing rest pose, weight even, same arm placement with right hand grasping upright staff and left arm relaxed.\nCamera fixed: elevated three-quarter pinhole view approximately 53 degrees above ground plane, character rotates, camera does not. Lighting fixed in screen space: single cool key from SCREEN UPPER-LEFT, screen-left-facing planes lit; deep cool low-value ambient with readable shadows never pure black, slight rim at key-facing silhouette edge. No spell glow or warm light. NO floor shadows, no ground plane, no texture or gradient in the green background; do not matte. Style: high-resolution painted 2D illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or grain. Blue, ivory and brass with the master's chestnut leather and olive canvas. Preserve proportions and original standing height exactly.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S; identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 40.363
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Head and toes point screen-right rather than the required upper-left; part of the facial profile is visible. Staff remains in the anatomical right hand on screen-right.",
+      "Standing height appears slightly shorter than the master; exact equality was not verified.",
+      "The requested approximately 53-degree camera elevation is not evident.",
+      "Delivered the task-specific single portrait, which conflicts with the register's sheet and 512×512 frame requirements.",
+      "No retry made: the observed deviations do not meet the task's permitted retry conditions."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_NW.png",
+      "sha256": "a7fde948a68bfcf661747cf9f7a4a4f4581f702d6ba343b8879b8a7297f9f51c"
+    }
+  ]
+}

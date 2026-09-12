@@ -1,0 +1,34 @@
+{
+ "text": "JUDGE BURST K3-jdg-01 — the Keeper's first loops (idle-S, walk-S): identity persistence across frames, motion plausibility, light (JUDGE_RUBRIC axes; charter § 7 K3). task_id \"K3-jdg-01\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nImage 1 = the IDLE strip: 8 registered frames left to right (0–7; frame 7 = frame 0, the loop return). Image 2 = the WALK strip: 8 registered frames (0–7) of an in-place walk toward the camera. Image 3 = a THIRD strip, 8 frames, judge it exactly like the others (do not assume any strip is a control). Image 4 = the approved master (identity). Image 5 = light anchor (key from screen upper-left).\nFor EACH strip score axes 1–5 (integers): 1 register fidelity to the master · 2 IDENTITY PERSISTENCE across the 8 frames (face, hair mass, every costume item and ITS SIDE — staff RIGHT hand, satchel LEFT hip — in every frame; a strip whose sides are swapped is mirrored: score ≤ 2 and say 'mirrored') · 3 light obedience (key upper-left in every frame; a strip lit from upper-right scores ≤ 2) · 4 silhouette read at 64 px across the loop · 5 brush-register consistency across frames. ADD for the walk strip: the lead-foot sequence you SEE frame by frame (R/L/passing/high), whether the leads alternate correctly with no repeated lead, and whether frame 7 flows into frame 0. ADD for the idle strip: whether the motion is a plausible subtle breath and whether frame 7→0 pops.\nWrite out/judgment.json: {\"strips\":[{\"image\":1,\"kind\":\"idle\",\"axes\":{…},\"reasons\":{…},\"mirrored\":false,\"loop_pops\":false,\"notes\":\"…\"},{\"image\":2,\"kind\":\"walk\",\"axes\":{…},\"reasons\":{…},\"mirrored\":false,\"lead_sequence\":[…],\"leads_alternate\":true,\"loop_pops\":false},{\"image\":3,…}]}. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K3-jdg-01\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL — scores only.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/sheets/idle_S_strip.png",
+   "role": "idle strip (frames 0–7)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/sheets/walk_S_strip.png",
+   "role": "walk strip (frames 0–7)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-control/k3_control_strip.png",
+   "role": "third strip"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+   "role": "approved master (identity)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "light anchor"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

@@ -1,0 +1,14 @@
+{
+ "text": "CHECK BURST K3-chk-01 — the Keeper idle-S and walk-S loops: brief gates on the REGISTERED 512×512 frames (charter § 7 K3: G5, G6 literal + G6b, G11; plus G1, G3, G9, plates). task_id \"K3-chk-01\".\n\nInputs (read-only): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/idle/S/idle_S_00.png … idle_S_07.png and /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/frames/walk/S/walk_S_00.png … walk_S_07.png (registered RGBA, pivot (256,400)); the master for G1 = idle_S_00.png; /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-01/registration.json.\nFrozen tools (read-only; run, never modify or create code; read each docstring for its signature) under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/: gates/run_gates.py (run(frames_dir, master, regions=None, anchors=None, plants=None, dark_threshold) — regions/anchors/plants not supplied → G2 reports null), gates/g5_drift.py, gates/g6_seam.py (G6 literal AND G6b: seam MAD vs the MEDIAN internal adjacent-pair MAD — report both per loop), gates/drift48.py (G11: 48-px downsample neighbour diff; the comparator is frame-0-vs-frame-4 for these loops in the absence of a cast frame — say so), gates/g1_height.py, gates/g3_light.py, gates/g9_alpha.py, gates/silhouette64.py (distance of every frame to frame 0), gates/plate_uniformity.py is N/A on matted frames — instead report each frame's alpha bbox height and sole line (bottom-most alpha row) and the max spread across the loop.\nProduce out/checks.json = SPEC § 1 result envelopes per loop (idle, walk) and per frame where applicable: G1 vs frame 0; G3; G5 drift; G6 literal seam (frame 7→0) with passed per the recorded brief gate; G6b (seam MAD ≤ median internal MAD) with passed; G11 drift48 per adjacent pair + the seam pair; G9; silhouette distance to frame 0 per frame; sole-line spread px; also out/evidence/ PNGs the gates emit (seam diff images, drift strips). Also out/checks_readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3-chk-01\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

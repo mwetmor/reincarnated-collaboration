@@ -1,0 +1,37 @@
+{
+  "task_id": "K2-pack-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "S has no standalone JUDGE scores; unavailable fields are identified.",
+      "Source JUDGE sees NW as NE; CHECK records G3 false for SW, W and SE.",
+      "G2 remains unevaluable without reviewed anatomical root anchors; registration uses alpha-bbox alignment.",
+      "Live wrapper-owned .wrapper-events.jsonl and .wrapper-stderr.txt are excluded from deliverable hashes because they continue changing."
+    ]
+  },
+  "files": [
+    {"path":"out/checks.json","sha256":"95196e07d1e0bbf888af81ad8856e015f30e4e67a229c2284163146be45be91d"},
+    {"path":"out/img/E.png","sha256":"a1e0efa2d8b58b84cc137247609991ad99924a9dcd774f6f8473e17bf155eb2a"},
+    {"path":"out/img/N.png","sha256":"7b81e829b3830d939f52023aed73312521e9d22d74eb78855edc8eaad17247a8"},
+    {"path":"out/img/NE.png","sha256":"1af43bc3661c2fde62d693e84a3d5a6f2c5c6bb3b1947b00f2d4400062029f3b"},
+    {"path":"out/img/NW.png","sha256":"e1bd5ffdca9b96b62d5ba1b74eaaf3955103800ad04efc186b24f68b0b6046bc"},
+    {"path":"out/img/S.png","sha256":"eab2a7e86a5d7cb31f49e8668a8481ce7e5432a02b31053572fd1d2b2a4e5b23"},
+    {"path":"out/img/SE.png","sha256":"823f2100a09fb4c6f132d33864ad1fd602016856f2a0f90751dc2e96ab58a7bc"},
+    {"path":"out/img/SW.png","sha256":"53e56c34fa11681d77e374cc7c4b3ab1a336fbb2b5067229b8585a7c72beece0"},
+    {"path":"out/img/W.png","sha256":"8379d057376ccedd1fb0cc910b2a79d5429f51d1443a402fcc5ef202b66b1d1e"},
+    {"path":"out/img/turnaround_64px.png","sha256":"72e88eac3646a7e573b9e1bbfc125717507a94bf733de0ed9c5eeb915946c744"},
+    {"path":"out/img/turnaround_sheet.png","sha256":"47fb33351a0f688399002c252d72197af85d81b1b97226d5e6017cfebf281aa9"},
+    {"path":"out/img/turnaround_sheet_green.png","sha256":"7ca0d870f68756b8101ec5a890203935235e721f85469fd1ae70d263d25111fe"},
+    {"path":"out/judgment.json","sha256":"aae197fca34b972cd54da69dafa160deef16d5eb07a3df65b800c3a0f56817de"},
+    {"path":"out/registration.json","sha256":"b7d2ad35843ffbe3c1568ef4fd44a8879b4d4b234e656e7d631eefb3eea85073"},
+    {"path":"out/review.html","sha256":"080d0d4b5a2bd25cc16cf0b187f3be9039c3d0793c21dc58a3690e0611817b51"},
+    {"path":"out/summary.txt","sha256":"00e58378d3099599d70c68ce3d39b9a900bf82bcd6f51c9d0c14f653a2320db5"},
+    {"path":"out/turnaround_64px.png","sha256":"72e88eac3646a7e573b9e1bbfc125717507a94bf733de0ed9c5eeb915946c744"},
+    {"path":"out/turnaround_sheet.png","sha256":"47fb33351a0f688399002c252d72197af85d81b1b97226d5e6017cfebf281aa9"},
+    {"path":"out/turnaround_sheet_green.png","sha256":"7ca0d870f68756b8101ec5a890203935235e721f85469fd1ae70d263d25111fe"}
+  ]
+}

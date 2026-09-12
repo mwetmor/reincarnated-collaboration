@@ -1,0 +1,30 @@
+{
+ "text": "CHECK BURST K2-chk-02 — deterministic checks on the seven Keeper turnaround directions against the approved S master (charter § 7 K2: G1, G2-root (report), G3; plus plates, mattes, silhouette distance, bleed index). task_id \"K2-chk-02\".\n\nInputs (read-only): the approved S master /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png; the seven directions SW: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW/k2_SW.png, W: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W/k2_W.png, NW: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-r1/k2_NW.png, N: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png, NE: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE/k2_NE.png, E: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E/k2_E.png, SE: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-r1/k2_SE.png.\nFrozen tools (read-only; never modify or create code; read each docstring for its signature) under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/: gates/matte.py (extract, alpha_floor=40) · gates/g1_height.py (evaluate: alpha≥128 bbox height relative to the S master, literal ±3 %) · gates/g3_light.py (evaluate: brightest-5 % centroid above-left of bbox centre) · gates/silhouette64.py (evaluate/distance vs the master; threshold caller-set → pass None and report the distance) · gates/plate_uniformity.py · gates/g9_alpha.py · oracles/keylight.py (O7 azimuth, 135 expected) · oracles/motif.py count_family (O3b raw + annulus-filtered, radii 8–30, vote_thresh 0.50, no masks; advisory) · gates/common.py. Run them with `python3 - <<'PY'` scripts that ONLY import and call these modules with parameters.\n\nProduce in out/: k2_<DIR>_rgba.png for each direction (matted) and k2_S_rgba.png for the master; k2_<DIR>_64.png silhouettes (64-px canvas height, binarised alpha) for all eight incl. S; out/checks.json = SPEC § 1 result envelopes per direction: G1 height vs master (value = ratio; passed per the literal ±3 %); G3 light (passed as the tool reports); silhouette64 distance to the master (report; passed null); plate_uniformity; g9_alpha border clipping; O7 azimuth + |dev from 135|; O3b raw and annulus counts (passed null); alpha bbox px + canvas fraction (report). Also out/checks_readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. No agents. calls_used must be 0.\nRETURN: receipt task_id \"K2-chk-02\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt",
+  "out/k2_S_rgba.png",
+  "out/k2_SW_rgba.png",
+  "out/k2_W_rgba.png",
+  "out/k2_NW_rgba.png",
+  "out/k2_N_rgba.png",
+  "out/k2_NE_rgba.png",
+  "out/k2_E_rgba.png",
+  "out/k2_SE_rgba.png",
+  "out/k2_S_64.png",
+  "out/k2_SW_64.png",
+  "out/k2_W_64.png",
+  "out/k2_NW_64.png",
+  "out/k2_N_64.png",
+  "out/k2_NE_64.png",
+  "out/k2_E_64.png",
+  "out/k2_SE_64.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2"
+}

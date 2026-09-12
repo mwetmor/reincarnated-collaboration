@@ -1,0 +1,20 @@
+{
+  "task_id": "K2-jdg-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "64-px silhouette scores are visual estimates against the supplied anchor; individual candidate reductions were not provided.",
+      "Occluded faces and costume surfaces limit identity assessment in rear and profile views."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/judgment.json",
+      "sha256": "aae197fca34b972cd54da69dafa160deef16d5eb07a3df65b800c3a0f56817de"
+    }
+  ]
+}

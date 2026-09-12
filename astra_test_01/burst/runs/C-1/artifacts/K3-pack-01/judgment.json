@@ -1,0 +1,75 @@
+{
+  "task_id": "K3-jdg-01",
+  "axis_key": {
+    "1": "register fidelity to the master",
+    "2": "identity persistence, including anatomical item sides",
+    "3": "light obedience: fixed screen upper-left key",
+    "4": "silhouette read at 64 px across the loop",
+    "5": "brush-register consistency across frames"
+  },
+  "strips": [
+    {
+      "image": 1,
+      "kind": "idle",
+      "axes": {"1": 4, "2": 4, "3": 4, "4": 4, "5": 5},
+      "reasons": {
+        "1": "The blue split tunic, ivory sleeves, brass fittings and brown equipment retain the master's clean painted treatment, with simplified facial and leather detail.",
+        "2": "Face and tied curly hair remain recognizable; staff stays in anatomical RIGHT hand and satchel at LEFT hip throughout, with slight hair and garment contour changes.",
+        "3": "Upper-left hair, shoulder and staff highlights remain consistently placed; cool readable cloth shadows persist, though the anchor's key-facing rim is understated.",
+        "4": "Hair, split coat, separated boots and side satchel form a readable small silhouette; the narrow staff and its grip are the least robust details.",
+        "5": "All eight frames share restrained texture, clean material planes and consistent painted edge softness."
+      },
+      "mirrored": false,
+      "breath_plausible": true,
+      "loop_pops": false,
+      "notes": "Motion is plausibly subtle breathing or a small posture adjustment, but frames 4-6 also show a slight whole-body lift and sole-position drift rather than purely chest motion. Frame 7 visually returns to frame 0 without an obvious seam pop. This is a static-strip assessment; playback timing and planted-contact accuracy are not measured."
+    },
+    {
+      "image": 2,
+      "kind": "walk",
+      "axes": {"1": 4, "2": 4, "3": 4, "4": 4, "5": 5},
+      "reasons": {
+        "1": "The master's face type, blue-and-ivory clothing and leather/brass equipment remain recognizable in the same clean painted register, with some changed coat proportions.",
+        "2": "Staff remains anatomical RIGHT and satchel LEFT in all eight frames; hair volume, face shape and coat hem fluctuate modestly without an identity replacement.",
+        "3": "Hair crown, key-facing sleeve and staff highlights consistently favor screen upper-left, with readable cool shadows and no obvious rotating key.",
+        "4": "Torso, satchel and staff remain readable, but overlapping boots in raised and passing-like poses weaken leg separation at small size.",
+        "5": "Surface detail and edge treatment remain consistently painted across the gait, without conspicuous grain or a change of rendering register."
+      },
+      "mirrored": false,
+      "lead_sequence": [
+        "0: L lead; R bent back",
+        "1: R lead; L lifted back",
+        "2: R lead/support; L high behind, passing-like",
+        "3: R lead extended toward camera; L behind",
+        "4: L lead; R bent back",
+        "5: L lead; R bent back",
+        "6: R high forward lead, sole visible; L behind",
+        "7: L lead; R bent back"
+      ],
+      "leads_alternate": false,
+      "loop_pops": true,
+      "notes": "R/L are anatomical: R appears on screen-left and L on screen-right. The visible sequence is L, R, R, R, L, L, R-high, L. Repeated lead frames can occur naturally within a step, but here the uneven phase progression and abrupt right-high to left-lead transition do not read as an evenly sampled walk. Frame 7 returns to another L-lead pose at frame 0, with a visible downward body/staff shift and changed boot presentation; this suggests a small seam hitch rather than a clean advancing phase. Loop-pop judgment is provisional without timed playback."
+    },
+    {
+      "image": 3,
+      "kind": "idle",
+      "axes": {"1": 3, "2": 2, "3": 2, "4": 4, "5": 5},
+      "reasons": {
+        "1": "Palette, materials and painted finish resemble the master, but the reversed costume arrangement and hair asymmetry reduce fidelity.",
+        "2": "Mirrored: staff is in anatomical LEFT hand on screen-right and satchel is at RIGHT hip on screen-left in every frame, despite otherwise persistent identity.",
+        "3": "Highlights on the hair mass, staff and key-facing clothing favor screen upper-right, reversing the required fixed screen upper-left lighting.",
+        "4": "Coat, boots, hair and equipment remain readable as a small silhouette; the thin staff has the same fragility as the other idle strip.",
+        "5": "The eight frames retain consistent clean painted planes, restrained surface texture and edge softness."
+      },
+      "mirrored": true,
+      "breath_plausible": true,
+      "loop_pops": false,
+      "notes": "Judged independently as an idle sequence. Small shoulder, head and garment shifts plausibly suggest breathing, with slight whole-body/sole drift. Frames 7 and 0 appear to share the return pose, so no obvious seam pop is visible in the static strip."
+    }
+  ],
+  "assessment_limits": [
+    "Silhouette scores estimate 64-px readability from the supplied strips; no dedicated 64-px frame set was supplied or created.",
+    "Static strips support pose and seam comparisons but cannot establish perceived cadence without frame timing and playback.",
+    "Fine facial features, tiny fasteners and individual bracer details cannot be verified exhaustively at the supplied sprite scale."
+  ]
+}

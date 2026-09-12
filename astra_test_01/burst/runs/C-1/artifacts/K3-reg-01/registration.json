@@ -1,0 +1,1326 @@
+{
+  "task_id": "K3-reg-01",
+  "transform_source": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-seed/registration_transform.json",
+  "transform": {
+    "cell_px": 627,
+    "scale": 0.5106,
+    "scaled_cell_px": 320,
+    "offset_xy": [
+      96,
+      112
+    ],
+    "frame_canvas": 512,
+    "pivot": [
+      256,
+      400
+    ],
+    "note": "uniform downscale + translation only; identical for every cell of every K3 sheet (all cells share the seed geometry)"
+  },
+  "measurement_conventions": {
+    "alpha_bbox": "alpha > 0, half-open [left, top, right, bottom], in 512x512 canvas",
+    "sole_line": "zero-based bottom-most alpha > 0 row; bbox bottom minus one; includes Lanczos alpha fringes",
+    "alpha_ge_128": "additional opaque-support measurements, explicitly separate from alpha > 0",
+    "edge_contact": "any nonzero alpha touching a native 627x627 cell edge after frozen matting, before resizing",
+    "sole_comparison": "all delivered frames compared pairwise; flag each frame with any difference greater than 4 px",
+    "root_anchor": "fixed atlas pivot metadata; sole trajectory reported separately, no corrective translations",
+    "integer_resize": "round(627 * 0.5106) = 320, as specified by the frozen transform; identical for every frame"
+  },
+  "summary": {
+    "idle": {
+      "sole_lines": [
+        402,
+        402,
+        401,
+        402,
+        402,
+        399,
+        399,
+        402
+      ],
+      "sole_line_min": 399,
+      "sole_line_max": 402,
+      "sole_line_span_px": 3
+    },
+    "walk": {
+      "sole_lines": [
+        427,
+        426,
+        422,
+        417,
+        429,
+        429,
+        404,
+        420
+      ],
+      "sole_line_min": 404,
+      "sole_line_max": 429,
+      "sole_line_span_px": 25
+    }
+  },
+  "frames": [
+    {
+      "name": "idle_S_00",
+      "path": "out/frames/idle/S/idle_S_00.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 0,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png",
+      "source_slot": 0,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        226,
+        93,
+        401,
+        565
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_px": 246,
+      "sole_line": 402,
+      "alpha_ge_128_bbox": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_px": 240,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 30,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345778,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_01",
+      "path": "out/frames/idle/S/idle_S_01.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 1,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png",
+      "source_slot": 1,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        226,
+        93,
+        401,
+        565
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_px": 246,
+      "sole_line": 402,
+      "alpha_ge_128_bbox": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_px": 240,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 35,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345693,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_02",
+      "path": "out/frames/idle/S/idle_S_02.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 2,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png",
+      "source_slot": 2,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        226,
+        92,
+        401,
+        564
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        209,
+        157,
+        303,
+        402
+      ],
+      "alpha_bbox_height_px": 245,
+      "sole_line": 401,
+      "alpha_ge_128_bbox": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_px": 241,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 41,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345759,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_03",
+      "path": "out/frames/idle/S/idle_S_03.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 3,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png",
+      "source_slot": 3,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        226,
+        92,
+        401,
+        565
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_px": 246,
+      "sole_line": 402,
+      "alpha_ge_128_bbox": [
+        212,
+        159,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_px": 241,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 40,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345624,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_04",
+      "path": "out/frames/idle/S/idle_S_04.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 4,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-02/k3_idle_S_04_06.png",
+      "source_slot": 1,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        220,
+        91,
+        398,
+        565
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        206,
+        156,
+        302,
+        403
+      ],
+      "alpha_bbox_height_px": 247,
+      "sole_line": 402,
+      "alpha_ge_128_bbox": [
+        209,
+        159,
+        299,
+        400
+      ],
+      "alpha_ge_128_height_px": 241,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 35,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 344806,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_05",
+      "path": "out/frames/idle/S/idle_S_05.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 5,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-02/k3_idle_S_04_06.png",
+      "source_slot": 2,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        223,
+        85,
+        402,
+        559
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        207,
+        153,
+        304,
+        400
+      ],
+      "alpha_bbox_height_px": 247,
+      "sole_line": 399,
+      "alpha_ge_128_bbox": [
+        210,
+        156,
+        301,
+        397
+      ],
+      "alpha_ge_128_height_px": 241,
+      "alpha_ge_128_sole_line": 396,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 32,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345038,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_06",
+      "path": "out/frames/idle/S/idle_S_06.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 6,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-02/k3_idle_S_04_06.png",
+      "source_slot": 3,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        221,
+        85,
+        398,
+        559
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        206,
+        153,
+        302,
+        400
+      ],
+      "alpha_bbox_height_px": 247,
+      "sole_line": 399,
+      "alpha_ge_128_bbox": [
+        209,
+        156,
+        299,
+        397
+      ],
+      "alpha_ge_128_height_px": 241,
+      "alpha_ge_128_sole_line": 396,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 45,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345225,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "idle_S_07",
+      "path": "out/frames/idle/S/idle_S_07.png",
+      "animation": "idle",
+      "direction": "S",
+      "frame_index": 7,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png",
+      "source_slot": 0,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        226,
+        93,
+        401,
+        565
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        209,
+        157,
+        303,
+        403
+      ],
+      "alpha_bbox_height_px": 246,
+      "sole_line": 402,
+      "alpha_ge_128_bbox": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "alpha_ge_128_height_px": 240,
+      "alpha_ge_128_sole_line": 399,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 30,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 345778,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "byte_identical_copy_of": "out/frames/idle/S/idle_S_00.png",
+      "sole_line_differs_by_more_than_4_px_from": [
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_00",
+      "path": "out/frames/walk/S/walk_S_00.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 0,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png",
+      "source_slot": 0,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        201,
+        15,
+        458,
+        614
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        196,
+        117,
+        332,
+        428
+      ],
+      "alpha_bbox_height_px": 311,
+      "sole_line": 427,
+      "alpha_ge_128_bbox": [
+        199,
+        120,
+        329,
+        425
+      ],
+      "alpha_ge_128_height_px": 305,
+      "alpha_ge_128_sole_line": 424,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 76,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 310274,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_01",
+      "path": "out/frames/walk/S/walk_S_01.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 1,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png",
+      "source_slot": 1,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        189,
+        25,
+        470,
+        613
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        190,
+        122,
+        338,
+        427
+      ],
+      "alpha_bbox_height_px": 305,
+      "sole_line": 426,
+      "alpha_ge_128_bbox": [
+        193,
+        125,
+        335,
+        424
+      ],
+      "alpha_ge_128_height_px": 299,
+      "alpha_ge_128_sole_line": 423,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 45,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 307130,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_03",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_02",
+      "path": "out/frames/walk/S/walk_S_02.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 2,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png",
+      "source_slot": 2,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        210,
+        2,
+        442,
+        604
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        201,
+        112,
+        324,
+        423
+      ],
+      "alpha_bbox_height_px": 311,
+      "sole_line": 422,
+      "alpha_ge_128_bbox": [
+        203,
+        113,
+        321,
+        420
+      ],
+      "alpha_ge_128_height_px": 307,
+      "alpha_ge_128_sole_line": 419,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 79,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 316668,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_00",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_06"
+      ]
+    },
+    {
+      "name": "walk_S_03",
+      "path": "out/frames/walk/S/walk_S_03.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 3,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png",
+      "source_slot": 3,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        197,
+        3,
+        446,
+        594
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        194,
+        112,
+        326,
+        418
+      ],
+      "alpha_bbox_height_px": 306,
+      "sole_line": 417,
+      "alpha_ge_128_bbox": [
+        197,
+        114,
+        323,
+        415
+      ],
+      "alpha_ge_128_height_px": 301,
+      "alpha_ge_128_sole_line": 414,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 67,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 314028,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_06"
+      ]
+    },
+    {
+      "name": "walk_S_04",
+      "path": "out/frames/walk/S/walk_S_04.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 4,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-02/k3_walk_S_04_07.png",
+      "source_slot": 0,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        203,
+        18,
+        464,
+        618
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        197,
+        119,
+        335,
+        430
+      ],
+      "alpha_bbox_height_px": 311,
+      "sole_line": 429,
+      "alpha_ge_128_bbox": [
+        200,
+        121,
+        333,
+        427
+      ],
+      "alpha_ge_128_height_px": 306,
+      "alpha_ge_128_sole_line": 426,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 58,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 308906,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_05",
+      "path": "out/frames/walk/S/walk_S_05.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 5,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-02/k3_walk_S_04_07.png",
+      "source_slot": 1,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "source_matted_alpha_bbox": [
+        184,
+        24,
+        467,
+        618
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        188,
+        122,
+        337,
+        430
+      ],
+      "alpha_bbox_height_px": 308,
+      "sole_line": 429,
+      "alpha_ge_128_bbox": [
+        190,
+        125,
+        334,
+        427
+      ],
+      "alpha_ge_128_height_px": 302,
+      "alpha_ge_128_sole_line": 426,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 60,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 307015,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_06",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_06",
+      "path": "out/frames/walk/S/walk_S_06.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 6,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-02/k3_walk_S_04_07.png",
+      "source_slot": 2,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        203,
+        1,
+        450,
+        570
+      ],
+      "source_cell_edge_contacts": [],
+      "alpha_bbox": [
+        198,
+        112,
+        328,
+        405
+      ],
+      "alpha_bbox_height_px": 293,
+      "sole_line": 404,
+      "alpha_ge_128_bbox": [
+        200,
+        113,
+        325,
+        403
+      ],
+      "alpha_ge_128_height_px": 290,
+      "alpha_ge_128_sole_line": 402,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 43,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 314849,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_05",
+        "idle_S_06",
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_02",
+        "walk_S_03",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_07"
+      ]
+    },
+    {
+      "name": "walk_S_07",
+      "path": "out/frames/walk/S/walk_S_07.png",
+      "animation": "walk",
+      "direction": "S",
+      "frame_index": 7,
+      "source_sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-02/k3_walk_S_04_07.png",
+      "source_slot": 3,
+      "slot_order": "row-major",
+      "source_crop_xyxy": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "source_matted_alpha_bbox": [
+        194,
+        0,
+        452,
+        600
+      ],
+      "source_cell_edge_contacts": [
+        "top"
+      ],
+      "alpha_bbox": [
+        193,
+        112,
+        329,
+        421
+      ],
+      "alpha_bbox_height_px": 309,
+      "sole_line": 420,
+      "alpha_ge_128_bbox": [
+        195,
+        112,
+        326,
+        418
+      ],
+      "alpha_ge_128_height_px": 306,
+      "alpha_ge_128_sole_line": 417,
+      "root_anchor_xy": [
+        256,
+        400
+      ],
+      "matte": {
+        "method": "green excess matte + inverse straight-alpha compositing",
+        "removed_background_or_detached_alpha_dust_pixels": 77,
+        "native_input_alpha": false,
+        "alpha_floor": 40,
+        "alpha_floor_removed_pixels": 310037,
+        "preserve_particles": false,
+        "mode": "character",
+        "before_downscale": true
+      },
+      "transform": {
+        "scale": 0.5106,
+        "scaled_cell_px": 320,
+        "offset_xy": [
+          96,
+          112
+        ],
+        "canvas_px": [
+          512,
+          512
+        ],
+        "resample": "LANCZOS"
+      },
+      "sole_line_differs_by_more_than_4_px_from": [
+        "idle_S_00",
+        "idle_S_01",
+        "idle_S_02",
+        "idle_S_03",
+        "idle_S_04",
+        "idle_S_05",
+        "idle_S_06",
+        "idle_S_07",
+        "walk_S_00",
+        "walk_S_01",
+        "walk_S_04",
+        "walk_S_05",
+        "walk_S_06"
+      ]
+    }
+  ],
+  "concerns": [
+    "idle_S_00: sole line 402 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "idle_S_01: sole line 402 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "idle_S_02: sole line 401 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "idle_S_03: sole line 402 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "idle_S_04: sole line 402 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "idle_S_05: sole line 399 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_06, walk_S_07",
+    "idle_S_06: sole line 399 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_06, walk_S_07",
+    "idle_S_07: sole line 402 differs by more than 4 px from walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "walk_S_00: sole line 427 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_02, walk_S_03, walk_S_06, walk_S_07",
+    "walk_S_01: sole line 426 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_03, walk_S_06, walk_S_07",
+    "walk_S_02: sole line 422 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_00, walk_S_03, walk_S_04, walk_S_05, walk_S_06",
+    "walk_S_03: sole line 417 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_00, walk_S_01, walk_S_02, walk_S_04, walk_S_05, walk_S_06",
+    "walk_S_04: sole line 429 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_02, walk_S_03, walk_S_06, walk_S_07",
+    "walk_S_05: sole line 429 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_02, walk_S_03, walk_S_06, walk_S_07",
+    "walk_S_06: sole line 404 differs by more than 4 px from idle_S_05, idle_S_06, walk_S_00, walk_S_01, walk_S_02, walk_S_03, walk_S_04, walk_S_05, walk_S_07",
+    "walk_S_07: matted figure touches cell edge(s): top",
+    "walk_S_07: sole line 420 differs by more than 4 px from idle_S_00, idle_S_01, idle_S_02, idle_S_03, idle_S_04, idle_S_05, idle_S_06, idle_S_07, walk_S_00, walk_S_01, walk_S_04, walk_S_05, walk_S_06"
+  ]
+}

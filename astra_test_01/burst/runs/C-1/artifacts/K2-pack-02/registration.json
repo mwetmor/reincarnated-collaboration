@@ -1,0 +1,210 @@
+{
+  "task_id": "K2-pack-02",
+  "direction_order": [
+    "S",
+    "SW",
+    "W",
+    "NW",
+    "N",
+    "NE",
+    "E",
+    "SE"
+  ],
+  "common_scale": 0.16427104722792607,
+  "source_master_height_px": 1461,
+  "master_registered_height_px": 240,
+  "cell_size": [
+    512,
+    512
+  ],
+  "baseline_y": 400,
+  "horizontal_alignment": "alpha-bbox midpoint at x=256; display anchor only, not a reviewed anatomical root",
+  "bbox_definition": "alpha >=128, exclusive right/bottom",
+  "resampling": "BICUBIC, exact uniform scale plus translation; 64px cells NEAREST from 512px cells",
+  "frames": [
+    {
+      "direction": "S",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_S_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+      "source_bbox": [
+        247,
+        29,
+        785,
+        1490
+      ],
+      "translation": [
+        171.23613963039014,
+        155.23613963039014
+      ],
+      "registered_bbox": [
+        212,
+        160,
+        300,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/S.png"
+    },
+    {
+      "direction": "SW",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_SW_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SW/k2_SW.png",
+      "source_bbox": [
+        238,
+        30,
+        730,
+        1505
+      ],
+      "translation": [
+        176.49281314168377,
+        152.77207392197127
+      ],
+      "registered_bbox": [
+        216,
+        158,
+        296,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/SW.png"
+    },
+    {
+      "direction": "W",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_W_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-W/k2_W.png",
+      "source_bbox": [
+        296,
+        28,
+        700,
+        1459
+      ],
+      "translation": [
+        174.1930184804928,
+        160.32854209445586
+      ],
+      "registered_bbox": [
+        223,
+        165,
+        289,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/W.png"
+    },
+    {
+      "direction": "NW",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_NW_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NW-r1/k2_NW.png",
+      "source_bbox": [
+        290,
+        25,
+        788,
+        1456
+      ],
+      "translation": [
+        167.45790554414785,
+        160.82135523613965
+      ],
+      "registered_bbox": [
+        215,
+        165,
+        297,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/NW.png"
+    },
+    {
+      "direction": "N",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_N_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-N/k2_N.png",
+      "source_bbox": [
+        239,
+        30,
+        778,
+        1453
+      ],
+      "translation": [
+        172.4681724845996,
+        161.31416837782342
+      ],
+      "registered_bbox": [
+        212,
+        166,
+        300,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/N.png"
+    },
+    {
+      "direction": "NE",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_NE_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-NE/k2_NE.png",
+      "source_bbox": [
+        265,
+        26,
+        764,
+        1456
+      ],
+      "translation": [
+        171.48254620123203,
+        160.82135523613965
+      ],
+      "registered_bbox": [
+        215,
+        165,
+        297,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/NE.png"
+    },
+    {
+      "direction": "E",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_E_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-E/k2_E.png",
+      "source_bbox": [
+        355,
+        29,
+        716,
+        1460
+      ],
+      "translation": [
+        168.0328542094456,
+        160.16427104722794
+      ],
+      "registered_bbox": [
+        226,
+        165,
+        286,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/E.png"
+    },
+    {
+      "direction": "SE",
+      "source_rgba": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-chk-02/k2_SE_rgba.png",
+      "source_green": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K2-gen-SE-r1/k2_SE.png",
+      "source_bbox": [
+        268,
+        31,
+        737,
+        1498
+      ],
+      "translation": [
+        173.45379876796716,
+        153.92197125256675
+      ],
+      "registered_bbox": [
+        217,
+        159,
+        295,
+        400
+      ],
+      "scale": 0.16427104722792607,
+      "file": "img/SE.png"
+    }
+  ]
+}

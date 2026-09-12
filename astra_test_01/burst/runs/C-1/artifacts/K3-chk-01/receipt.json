@@ -1,0 +1,29 @@
+{
+  "task_id": "K3-chk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Literal G5 unavailable without cast05; pair measurements and a separately labeled frame-04 proxy are included.",
+      "G11 uses the requested frame-0-versus-frame-4 comparator.",
+      "Frozen gates emit no PNGs; seam images and drift strips could not be produced.",
+      "G9 dark-fringe and silhouette verdicts lack calibrated thresholds; measurements are included.",
+      "G2 independent root and planted trajectories lack reviewed annotations.",
+      "Plate uniformity is N/A on matted frames; alpha heights and sole-line spreads are included.",
+      "Live wrapper-owned logs are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "f37597236f9578cef9226ee85282ca130df8582fba3f106cda0e46c325c74599"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "1bd0ec8abdeff4c785d21516037d4b8297e898e4a00c8476a8278b8d67b2adb4"
+    }
+  ]
+}
