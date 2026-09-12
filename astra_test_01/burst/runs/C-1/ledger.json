@@ -1319,6 +1319,54 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "X0-T-6",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "18dbad580e31b77bdb26b80383d2c0c94dd8b5475459b4a1c95a3fc9accbc18e",
+      "started": "2026-09-12T04:27:50.790721+00:00",
+      "ended": "2026-09-12T04:28:59.610032+00:00",
+      "minutes": 1.1469686604163143,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 4,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "adaa5b06ce41901eaa22b10b7f794141d9444760057138354a31752de7e18574",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "3c2f02601041b2ab74a83dabd12abc854a4c4946958e80847e7ef42432a0a2bb"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "5de63c0fa1b0791b98daedfc4d5f5fcd714312e5a0f2866f216e7f91e12a6d78"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 4,
@@ -1353,12 +1401,14 @@
       "owed": "T0-d (F-1..F-5)"
     },
     "X0-T": {
-      "status": "PASS A DONE \u2014 presence/counts PASS, controls 14/16 strict (second_belt \u00d72 on F04) \u2192 O9 ADVISORY at K1 (charter falsifier); pass B X0-T-5/6 pre-registered",
+      "status": "pass A: controls 14/16 (second_belt ambiguity) \u2192 O9 advisory; pass B (unambiguous controls, F04 figures): {'presence_precision': 1.0, 'presence_recall': 1.0, 'counts_within_1': '38/38', 'controls': '8/8'} \u2192 PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %",
       "bursts": [
         "X0-T-1",
         "X0-T-2",
         "X0-T-3",
-        "X0-T-4"
+        "X0-T-4",
+        "X0-T-5",
+        "X0-T-6"
       ],
       "inputs": "runs/C-1/x0t/ (hand_inventory.json, per-figure questions/schema), fixtures/x0t/ (native crops)",
       "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)",
@@ -1430,6 +1480,14 @@
       "boundary": "reasoning",
       "burst": "T0-d3",
       "ruling": "T0-d3 DELIVERED exit 0 (14 tool calls; zero violations). Conductor DRIFT-CRITIC verdict on the build AND on the conductor's own contract: the annulus test (hollow_min 0.5, frozen on synthetic rings=1.0 / discs=0.0 BEFORE any real-crop measurement) makes the clean crop read 0 (boot toe rejected) but on the F04 crop keeps only 2 outside \u2014 rejecting three genuine sigil placements (chest boss hollow 0.31, tabard compass 0.17, belt buckle 0.08) while keeping one boot toe whose sole line reads as an inner edge. Astra added tests that the three genuine placements must survive; suite 121 / 117 with FOUR NAMED REDS, nothing tuned to the real crops \u2014 accepted as an honest partial. The framing defect is the conductor's: the F04 bleed family is RADIAL ORNAMENT (compass diagrams, rimmed bosses, small rings), not annuli; 'hollow centre' is the wrong discriminator for painted art. RULING for Run C-1: O3b is a MEASUREMENT, not a GATE \u2014 report the raw family count (bleed index; calibration anchors F04 = 14 vs clean = 1) and the annulus-filtered count beside it; motif bleed at K1/K2/K3 is judged by JUDGE + Matt's eye (charter \u00a7 6), O3 template mode remains the copy-detection gate for the chosen motif; O3b produces no FAIL verdict in the overnight run (no spurious HALTs). T0-d4 owed (interior radial-structure discriminator: internal edge-energy / spoke count vs a smooth convex blob), acceptance unchanged (F04 \u2265 3 genuine kept; clean 0; synthetic discs 0) \u2014 off the HITL critical path. Tree FROZEN (T0-d3 state).",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-9",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "X0-T-5/6",
+      "ruling": "X0-T pass B (pre-registered in R-7; same F04 figures; controls helmet/cape/shield/quiver \u2014 absent by construction; template clause 'answer ONLY the listed keys'; rod glossary widened to short-handled instruments): per figure {\"X0-T-5\": {\"extra_keys\": [\"second_belt\"], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}, \"X0-T-6\": {\"extra_keys\": [], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}}; aggregate {\"presence_precision\": 1.0, \"presence_recall\": 1.0, \"counts_within_1\": \"38/38\", \"controls\": \"8/8\"}; verdict: PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %. Disposition for K1: O9 transcribe\u2192compare is CALIBRATED on the part inventory at the charter bars (with the control-construction lesson recorded: controls must be absent by construction on the figure they are applied to); it runs at K1 as an instrument beside JUDGE and Matt. Pass A's second_belt finding stands as a fact about the F04 anchors (doubled band) for the V4 construction table.",
       "veto": "open to Matt"
     }
   ]

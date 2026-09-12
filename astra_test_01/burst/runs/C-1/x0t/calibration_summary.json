@@ -28,5 +28,41 @@
   "the F04 reference figures carry a doubled waist band / overlapping straps that a careful reader calls a second belt \u2014 R6 functional-implausibility class in the anchor itself; V4 construction table must state belt count = 1 and every strap's endpoint",
   "a transcriber control must be unambiguous by construction on the figure it is applied to",
   "'rod' needs the bible's own definition (astrolabe-rod: a handle with a ringed head) \u2014 'staff' reads differently"
- ]
+ ],
+ "pass_B": {
+  "per_figure": {
+   "X0-T-5": {
+    "extra_keys": [
+     "second_belt"
+    ],
+    "missing_keys": [],
+    "tool_passed": true,
+    "tool_value": 0,
+    "disagreements": [],
+    "controls": "4/4"
+   },
+   "X0-T-6": {
+    "extra_keys": [],
+    "missing_keys": [],
+    "tool_passed": true,
+    "tool_value": 0,
+    "disagreements": [],
+    "controls": "4/4"
+   }
+  },
+  "aggregate": {
+   "presence_precision": 1.0,
+   "presence_recall": 1.0,
+   "counts_within_1": "38/38",
+   "controls": "8/8"
+  },
+  "controls": [
+   "helmet",
+   "cape",
+   "shield",
+   "quiver"
+  ],
+  "template": "only-listed-keys clause; rod glossary widened to short-handled instruments",
+  "verdict": "PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %"
+ }
 }
