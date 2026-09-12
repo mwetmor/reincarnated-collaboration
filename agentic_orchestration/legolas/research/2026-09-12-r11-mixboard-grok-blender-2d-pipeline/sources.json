@@ -1,0 +1,278 @@
+{
+  "probe": "R11 — Mixboard / Grok / Blender 2D pipeline",
+  "date": "2026-09-12",
+  "agent": "legolas (UNKNOWN-RESEARCHER)",
+  "commissioner": "gandalf (RUN-CONDUCTOR, Astra burst lane)",
+  "access_date": "2026-09-12",
+  "grading_key": {
+    "VERIFIED": "First-party: vendor documentation, vendor announcement, or the creator's own published page. Fetched and read directly unless noted.",
+    "SECONDARY": "Third-party aggregator, review, or a search-surfaced quotation of a first-party page that could not be fetched directly."
+  },
+  "media_policy": "Read-only. No image, video, or audio downloaded from any third-party source. No third-party pixel entered the repo.",
+  "sources": [
+    {
+      "id": "S01",
+      "url": "https://irisogli.com/how-to-build-a-2d-game-asset-pack-with-free-ai",
+      "title": "How to Build a 2D Game Asset Pack with Free AI — GameDev Lab",
+      "grade": "VERIFIED",
+      "type": "creator primary",
+      "fetched": "full page text via curl",
+      "supports": "Verbatim Mixboard character-sheet prompt, Mixboard master asset-pack prompt, and the full 6-second Grok animation prompt. Tool attribution 'Mixboard (Character & Asset Generation) - Grok (Animation) - Blender (Green Screen & Export)'. Absence of frame counts, fps, sheet dimensions, Blender settings, verification step."
+    },
+    {
+      "id": "S02",
+      "url": "https://irisogli.com/create-an-entire-2d-game-with-ai-characters-assets-animation-and-parallax-free",
+      "title": "Create an Entire 2D Game with AI — Characters, Assets, Animation & Parallax (FREE) — GameDev Lab",
+      "grade": "VERIFIED",
+      "type": "creator primary",
+      "fetched": "full page text via curl",
+      "supports": "Companion workflow using Tencent Hunyuan for per-state image-to-video (separate Walk and Idle prompts, 'static camera, no camera movement, locked shot'). Explicit '#00FF00 style green screen' chroma plate in the source-still prompt. Parallax layer prompts."
+    },
+    {
+      "id": "S03",
+      "url": "https://irisogli.com/terms-of-use",
+      "title": "Terms of Use / Privacy Policy — GameDev Lab",
+      "grade": "VERIFIED",
+      "type": "creator primary",
+      "fetched": "full page text via curl",
+      "supports": "Site content may not be copied, reproduced, redistributed or used commercially without written permission. AI-content disclaimer: materials are for educational/demonstration/research purposes."
+    },
+    {
+      "id": "S04",
+      "url": "https://irisogli.com/tutorials",
+      "title": "GameDev Lab Tutorials index",
+      "grade": "VERIFIED",
+      "type": "creator primary",
+      "supports": "Tutorial inventory; confirms 2D asset pack, parallax, GDevelop, 3D-from-image, Blender and Maya tutorial lines."
+    },
+    {
+      "id": "S05",
+      "url": "https://www.artstation.com/irisogli",
+      "title": "irisogli — ArtStation",
+      "grade": "NOT READ",
+      "type": "creator primary",
+      "supports": "NOT RETRIEVED — HTTP 403 to automated fetch. Recorded as an unresolved gap."
+    },
+    {
+      "id": "S06",
+      "url": "https://docs.x.ai/developers/model-capabilities/video/generation",
+      "title": "Video Generation — xAI developer docs",
+      "grade": "VERIFIED",
+      "type": "vendor documentation",
+      "supports": "Model IDs grok-imagine-video-1.5 and grok-imagine-video. Modes: text-to-video, image-to-video, reference-to-video, first/last frame, video edit, video extension. Duration 1-15s (edit capped 8.7s). Resolution 480p/720p/1080p (1080p on 1.5, t2v+i2v only). Aspect ratios 1:1, 16:9, 9:16, 4:3, 3:4, 2:3, 3:2. generate_audio=false. last_frame parameter pins the exact last frame; combines with image to pin the first and interpolate. Asynchronous generation."
+    },
+    {
+      "id": "S07",
+      "url": "https://x.ai/news/grok-imagine-api",
+      "title": "Grok Imagine API — xAI announcement",
+      "grade": "VERIFIED",
+      "type": "vendor announcement",
+      "supports": "Text-to-video and image-to-video modes, flexible clip lengths, native video-audio generation, 720p / 1280x720 benchmark output."
+    },
+    {
+      "id": "S08",
+      "url": "https://x.com/imagine/status/2097412354090942883",
+      "title": "Grok Imagine (xAI) — first/last frame and seamless loops announcement",
+      "grade": "VERIFIED",
+      "type": "vendor announcement",
+      "supports": "'Choose your first and last frames, or create seamless loops. With improved instruction following and higher video quality.' Load-bearing for the loop-closure recommendation."
+    },
+    {
+      "id": "S09",
+      "url": "https://fal.ai/models/xai/grok-imagine-video/image-to-video",
+      "title": "Grok Imagine Video (Image to Video) API — fal.ai",
+      "grade": "SECONDARY",
+      "type": "aggregator spec",
+      "supports": "Output 24 fps, MP4. Example output '6 seconds at 720p (1280x720, 145 frames)' — the basis for the 24 fps derivation. Pricing $0.05/s (480p), $0.07/s (720p), $0.002 image input."
+    },
+    {
+      "id": "S10",
+      "url": "https://runware.ai/docs/models/xai-grok-imagine-video",
+      "title": "Grok Imagine Video API — Runware docs",
+      "grade": "VERIFIED",
+      "type": "aggregator documentation",
+      "supports": "CONFLICTING SOURCE, reported not averaged. frameImages supports only frame 'first' / index 0: 'This model only supports the first frame.' Contradicts S06 and S08 on last_frame availability. Also: duration 1-15s, 480p/480x480 and 720p/1280x720/720x1280, seed returned in response, pricing beyond 6s at $0.05/s (480p) and $0.07/s (720p)."
+    },
+    {
+      "id": "S11",
+      "url": "https://support.google.com/labs/answer/16689296",
+      "title": "How to use Mixboard — Google Labs Help",
+      "grade": "VERIFIED",
+      "type": "vendor documentation",
+      "supports": "Mixboard is an AI-powered concepting board. Export as PNG (.zip) or per-image. SHUTTING DOWN 2026-09-28; all user data permanently deleted. 18+ and supported territories only."
+    },
+    {
+      "id": "S12",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/mixboard/",
+      "title": "Mixboard is a new way to visualize your ideas — Google blog",
+      "grade": "VERIFIED",
+      "type": "vendor announcement",
+      "supports": "Google Labs experiment; powered by Nano Banana image editing model; US-only public beta; labs.google/mixboard. No rights statement in the announcement."
+    },
+    {
+      "id": "S13",
+      "url": "https://x.com/GoogleLabs/status/1970579936646750377",
+      "title": "Google Labs — Mixboard launch post",
+      "grade": "VERIFIED",
+      "type": "vendor announcement",
+      "supports": "Launch as US-only public beta, powered by Google's latest image generation model."
+    },
+    {
+      "id": "S14",
+      "url": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+      "title": "What to know about the Sora discontinuation — OpenAI Help Center",
+      "grade": "VERIFIED",
+      "type": "vendor documentation",
+      "supports": "Sora web/app discontinued 2026-04-26; Videos API and all sora-2 / sora-2-pro snapshots removed from the API 2026-09-24; developers notified 2026-03-24; no successor model in the recommended-replacement column."
+    },
+    {
+      "id": "S15",
+      "url": "https://x.ai/legal/terms-of-service",
+      "title": "Terms of Service (Consumer) — xAI",
+      "grade": "SECONDARY",
+      "type": "vendor legal",
+      "supports": "Cited via search-surfaced quotation: 'you retain your ownership rights to the User Content'; commercial use permitted across tiers; xAI retains an irrevocable, perpetual, transferable, sublicensable, royalty-free worldwide licence including for model training; no IP indemnification on any plan. NOT fetched directly — re-read before any commercial reliance."
+    },
+    {
+      "id": "S16",
+      "url": "https://www.licenseorg.com/blog/grok-xai-image-generation-commercial-use-policy",
+      "title": "Grok Image Generation: Can You Use AI Images Commercially? — LicenseOrg",
+      "grade": "SECONDARY",
+      "type": "third-party legal analysis",
+      "supports": "Reading of xAI ToS: output ownership to user, commercial use permitted on Free / X Premium / SuperGrok with no revenue thresholds; no IP indemnification."
+    },
+    {
+      "id": "S17",
+      "url": "https://docs.x.ai/grok/faq",
+      "title": "FAQ — Grok Website / Apps, xAI docs",
+      "grade": "SECONDARY",
+      "type": "vendor documentation",
+      "supports": "Basis for the SuperGrok-vs-API billing separation; corroborated by S18."
+    },
+    {
+      "id": "S18",
+      "url": "https://www.datastudios.org/post/grok-pricing-x-premium-subscriptions-supergrok-plans-xai-api-costs-and-model-access-a-full-brea",
+      "title": "Grok pricing: X Premium, SuperGrok plans, xAI API costs and model access",
+      "grade": "SECONDARY",
+      "type": "third-party analysis",
+      "supports": "SuperGrok, Grok on X and the xAI API are separate access and billing surfaces; a consumer subscription does not include API credits; developer use requires a separate account at console.x.ai with per-token billing."
+    },
+    {
+      "id": "S19",
+      "url": "https://docs.blender.org/manual/en/latest/compositing/types/keying/keying.html",
+      "title": "Keying Node — Blender Manual",
+      "grade": "SECONDARY",
+      "type": "vendor documentation, indirectly quoted",
+      "supports": "Keying node is a 'one-stop-shop for green screen / blue screen removal'; performs both chroma keying and despill; Image output carries the matte in the alpha channel. DIRECT FETCH BLOCKED by Cloudflare interstitial; text is a search-surfaced quotation. Confirm settings in-app."
+    },
+    {
+      "id": "S20",
+      "url": "https://artisticrender.com/how-to-add-and-use-green-screen-background-in-blender/",
+      "title": "How to add and use green screen background in Blender — Artistic Render",
+      "grade": "SECONDARY",
+      "type": "third-party tutorial",
+      "supports": "Blender chroma-key workflow: movie to image sequence as PNG, compositor nodes to key the green, advantage of keying a green plate over shipping alpha for long uncompressed sequences."
+    },
+    {
+      "id": "S21",
+      "url": "https://www.cometapi.com/grok-imagine-video1-5/",
+      "title": "Grok Imagine Video 1.5 Review: Features, Benchmarks, Pricing & How to Access — CometAPI",
+      "grade": "SECONDARY",
+      "type": "third-party review",
+      "supports": "Aurora-2 subject and compositional anchoring framing; character consistency can still drift between separate generations; fast action and complex physical interaction remain weak points in 1.5 as in 1.0; model sometimes generates internal scene cuts rather than a single continuous shot."
+    },
+    {
+      "id": "S22",
+      "url": "https://curiousrefuge.com/blog/grokimagine15-review",
+      "title": "Grok Imagine 1.5 — An Honest AI Video Review, Curious Refuge",
+      "grade": "SECONDARY",
+      "type": "third-party review",
+      "supports": "Corroborating review of 1.5 strengths and limitations; identity holds across more frames than 1.0."
+    },
+    {
+      "id": "S23",
+      "url": "https://techjacksolutions.com/ai-brief/ai-video-news-grok-imagine-video-15-launches-25-second-gener/",
+      "title": "Grok Imagine Video 1.5 launch brief",
+      "grade": "SECONDARY",
+      "type": "third-party news",
+      "supports": "Video 1.5 GA on the Grok Imagine API; ~25s generation for a 6s 720p clip, down from 40+s; clips up to 15s with synchronised audio."
+    },
+    {
+      "id": "S24",
+      "url": "https://sorceress.games/blog/ai-sprite-generator-pixel-walk-cycles-idles-and-vfx",
+      "title": "AI Sprite Generator (Pixel Walk Cycles, Idles, VFX) 2026 — Sorceress Games",
+      "grade": "SECONDARY",
+      "type": "third-party practitioner analysis",
+      "supports": "Failure modes: subtle frame-to-frame drift (head size, lighting angle, detail level); palette drift across re-rolls; background bleed as a 1-pixel anti-aliased halo from the matte cutout; hand-built pose guides as the mechanism that prevents drift across a sheet."
+    },
+    {
+      "id": "S25",
+      "url": "https://www.cs.cornell.edu/courses/cs5152/2023sp/labs/design1/",
+      "title": "Animation lab notes — Cornell CS5152",
+      "grade": "SECONDARY",
+      "type": "academic course material",
+      "supports": "Foot-slide mechanics: a walk cycle is frame flipping plus image translation; too little slide reads as marching in place, too much reads as moonwalking."
+    },
+    {
+      "id": "S26",
+      "url": "https://unifab.ai/resource/remove-ai-video-flicker",
+      "title": "How to Remove Flicker from AI-Generated Video (Shimmer, Boiling, and Jitter)",
+      "grade": "SECONDARY",
+      "type": "third-party technical writeup",
+      "supports": "Temporal artefact taxonomy: high-frequency detail boiling; brightness/colour pulse drifting frame to frame; edges or whole objects wobbling 'as if the frame is not locked'. Basis for the matte-edge instability risk."
+    },
+    {
+      "id": "S27",
+      "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo-I2V",
+      "title": "HunyuanVideo-I2V — Tencent Hunyuan, GitHub",
+      "grade": "VERIFIED",
+      "type": "vendor repository",
+      "supports": "Open-weights image-to-video model; PyTorch definitions, pre-trained weights, inference/sampling code, LoRA fine-tuning tools."
+    },
+    {
+      "id": "S28",
+      "url": "https://huggingface.co/tencent/HunyuanVideo-I2V/blob/main/LICENSE",
+      "title": "Tencent Hunyuan Community License Agreement",
+      "grade": "SECONDARY",
+      "type": "vendor legal",
+      "supports": "Commercial use permitted in most jurisdictions with geographic restrictions and notice/disclosure obligations on distribution. NOT fetched directly — read in full before any commercial reliance."
+    },
+    {
+      "id": "S29",
+      "url": "https://www.opus.pro/blog/best-sora-2-alternatives-after-openai-shutdown",
+      "title": "Best Sora 2 Alternatives After the 2026 Shutdown — OpusClip",
+      "grade": "SECONDARY",
+      "type": "third-party analysis",
+      "supports": "Post-Sora market map: Gemini Omni, Veo 3, Kling, Hailuo named as current frontier video models; no Sora 3 successor announced."
+    },
+    {
+      "id": "S30",
+      "url": "https://deepmind.google/models/synthid/",
+      "title": "SynthID — Google DeepMind",
+      "grade": "SECONDARY",
+      "type": "vendor documentation",
+      "supports": "Invisible watermarking embedded across Google's generative AI consumer products; imperceptible to humans, detectable by SynthID tooling. Authenticity marker, not a rights mechanism."
+    }
+  ],
+  "conflicts_recorded": [
+    {
+      "topic": "Grok Imagine last-frame pinning",
+      "position_a": "S06 (xAI docs) and S08 (xAI Grok Imagine account): last_frame parameter exists on grok-imagine-video-1.5; first and last frames can both be pinned; seamless loops advertised.",
+      "position_b": "S10 (Runware docs): 'This model only supports the first frame.' No last-frame input field.",
+      "disposition": "Not averaged. First-party sources win on capability; the aggregator is likely lagging or its integration is partial. Load-bearing for the loop-closure recommendation — must be verified at console.x.ai before any design depends on it."
+    },
+    {
+      "topic": "Grok Imagine seed support",
+      "position_a": "S10 (Runware): seed returned in the response.",
+      "position_b": "S06 (xAI docs): no seed parameter surfaced.",
+      "disposition": "Unresolved. Recorded as a gap."
+    }
+  ],
+  "gaps": [
+    "artstation.com/irisogli returned HTTP 403 to automated fetch — portfolio and any stated results unread.",
+    "The creator's YouTube demonstration was not watched (media; out of scope per commission rules). All claims about how well the workflow performs are therefore unverified.",
+    "docs.blender.org is behind a Cloudflare interstitial for automated fetch; Keying node description is a search-surfaced quotation, graded SECONDARY.",
+    "Grok Imagine output fps is not stated in xAI's own documentation; 24 fps is derived arithmetically from fal.ai's 145-frame / 6-second example.",
+    "No first-party measurement found anywhere of identity retention across an image-to-video clip for a stylised 2D character. Every figure located is vendor marketing or unsourced benchmark folklore."
+  ]
+}
