@@ -11,6 +11,7 @@ import signal
 import subprocess
 import sys
 import time
+import tomllib
 
 if __package__ in (None, ''):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -34,8 +35,10 @@ def validate_task(task, type):
     image_limit = {'GENERATE': 12, 'LABEL': 2}.get(type, 0)
     if not 0 <= task['image_cap'] <= image_limit:
         raise ValueError('image cap outside type limits')
-    if task['effort'] not in ('medium', 'high'):
-        raise ValueError('invalid effort')
+    if task['effort'] != 'high':
+        raise ValueError('effort must equal high')
+    if type != 'TOOLING' and task['add_dirs']:
+        raise ValueError('non-TOOLING add_dirs must be empty')
     if any(not isinstance(p, str) for p in task['outputs'] + task['add_dirs']):
         raise ValueError('output/add_dirs entries must be strings')
     for ref in task['references']:
@@ -66,25 +69,70 @@ def build_command(workdir, task, brief):
     return cmd + ['--output-schema', str(ROOT / 'receipt.schema.json'), '-o', 'out/receipt.json', '--json', brief]
 
 
-def verify_files(receipt, workdir):
+def profile_metadata():
+    """The --json stream does not echo the model; record the pinned profile."""
+    path = Path.home() / '.codex/astra-burst.config.toml'
+    raw = path.read_bytes()
+    profile = tomllib.loads(raw.decode())
+    model = profile.get('model')
+    if not isinstance(model, str) or not model:
+        raise ValueError('profile model missing')
+    version = subprocess.run(['codex', '--version'], check=True, capture_output=True,
+                             text=True, timeout=30).stdout.strip()
+    return dict(model=model, model_source='profile', codex_version=version,
+                profile_sha256=hashlib.sha256(raw).hexdigest())
+
+
+def verify_files(receipt, workdir, type='CHECK', add_dirs=()):
+    """Return (harvest artifacts, errors, in-place artifacts); never copy here.
+
+    Relative paths use out/ first, then a unique declared add_dir. Ambiguous
+    existing paths are rejected. Links in any component and '..' are rejected.
+    """
     workdir = Path(workdir).resolve()
-    out = (workdir / 'out').resolve()
-    artifacts, errors = {}, []
+    out = workdir / 'out'
+    roots = [Path(p).expanduser().absolute() for p in add_dirs] if type == 'TOOLING' else []
+    artifacts, in_place, errors = {}, {}, []
     for item in receipt['files'] + receipt['images']:
-        p = Path(item['path'])
-        if not p.is_absolute():
-            p = workdir / p if p.parts and p.parts[0] == 'out' else out / p
-        if '..' in p.parts or not p.resolve().is_relative_to(out):
-            errors.append(f'artifact outside out: {item["path"]}')
+        supplied = Path(item['path'])
+        if '..' in supplied.parts or not supplied.parts:
+            errors.append(f'artifact traversal: {item["path"]}')
             continue
-        if p.is_symlink() or any(a.is_symlink() for a in p.parents if a != out and a.is_relative_to(out)):
+        if supplied.is_absolute():
+            candidates = [supplied]
+        elif supplied.parts[0] == 'out':
+            candidates = [workdir / supplied]
+        else:
+            candidates = [out / supplied] + [root / supplied for root in roots]
+            candidates = list(dict.fromkeys(p for p in candidates if p.exists() or p.is_symlink()))
+        if len(candidates) != 1:
+            errors.append(f'artifact missing or ambiguous: {item["path"]}')
+            continue
+        p = candidates[0]
+        # A declared add_dir can never relax the workdir's under-out rule.
+        root = out if p.is_relative_to(out) else None
+        if root is None and not p.is_relative_to(workdir):
+            root = next((d for d in roots if p.is_relative_to(d)), None)
+        if root is None:
+            errors.append(f'artifact outside permitted roots: {item["path"]}')
+            continue
+        if p.is_symlink() or any(a.is_symlink() for a in p.parents):
             errors.append(f'artifact symlink: {item["path"]}')
             continue
-        if not p.is_file() or ledger.sha256(p) != item['sha256']:
+        try:
+            valid = p.resolve().is_relative_to(root.resolve()) and p.is_file() and ledger.sha256(p) == item['sha256']
+        except OSError:
+            valid = False
+        if not valid:
             errors.append(f'artifact missing or hash mismatch: {item["path"]}')
             continue
-        artifacts[str(p.resolve().relative_to(out))] = item['sha256']
-    return [{'name': n, 'sha256': h} for n, h in sorted(artifacts.items())], errors
+        name = str(p.relative_to(root))
+        if root == out:
+            artifacts[name] = item['sha256']
+        else:
+            in_place[(str(root), name)] = item['sha256']
+    return ([{'name': n, 'sha256': h} for n, h in sorted(artifacts.items())], errors,
+            [{'root': r, 'name': n, 'sha256': h} for (r, n), h in sorted(in_place.items())])
 
 
 def run(args):
@@ -106,6 +154,7 @@ def run(args):
     current = json.loads(current_path.read_text()) if current_path.exists() else ledger.empty()
     if current['images_used'] + task['image_cap'] > current['images_cap']:
         raise ValueError('insufficient run image budget')
+    provenance = profile_metadata()
     workdir.mkdir(parents=True)
     (workdir / 'in').mkdir()
     out = workdir / 'out'
@@ -117,7 +166,8 @@ def run(args):
         refs.append(dict(staged, sha256=ledger.sha256(destination)))
     (workdir / 'references.json').write_text(json.dumps(refs, indent=2) + '\n')
     (workdir / 'brief.txt').write_text(brief)
-    snapshot = audit.take_snapshot(workdir)
+    snapshot = audit.take_snapshot(workdir, prepared['add_dirs'])
+    images_snapshot = audit.generated_images_snapshot()
     started = datetime.now(timezone.utc).isoformat()
     tick = time.monotonic()
     execution_error = None
@@ -140,19 +190,20 @@ def run(args):
             execution_error = f'codex launch: {exc}'
     ended = datetime.now(timezone.utc).isoformat()
     minutes = (time.monotonic() - tick) / 60
-    result = audit.audit(events, workdir, snapshot, prepared, args.type)
     errors = schema_check.check(out / 'receipt.json')
-    artifacts = []
+    artifacts, artifacts_in_place = [], []
     receipt = None
     if not errors:
         receipt = json.loads((out / 'receipt.json').read_text())
-        artifacts, errors = verify_files(receipt, workdir)
+        artifacts, errors, artifacts_in_place = verify_files(receipt, workdir, args.type, prepared['add_dirs'])
         if receipt['task_id'] != args.burst_id:
             errors.append('receipt task_id mismatch')
         if receipt['status'] == 'FAILED':
             execution_error = execution_error or 'receipt reports unsuccessful execution'
+    result = audit.audit(events, workdir, snapshot, prepared, args.type,
+                         images_snapshot=images_snapshot, receipt=receipt)
     # Reject all special files/links, including unlisted files, before copytree.
-    for path, kind in audit.tree(out).items():
+    for path, kind in audit.tree(out, audit_exclusions=False).items():
         if kind.startswith('link:') or kind == 'special':
             errors.append(f'unsafe output: {path}')
     result['violations'].extend(errors)
@@ -170,7 +221,11 @@ def run(args):
                   brief_sha256=hashlib.sha256(brief.encode()).hexdigest(), started=started, ended=ended,
                   minutes=minutes, image_calls=result['image_calls'], tool_calls=result['tool_calls'],
                   audit=result, receipt_sha256=ledger.sha256(receipt_path) if receipt_path.is_file() else None,
-                  artifacts=artifacts if exit_code == 0 else [], exit=exit_code))
+                  artifacts=artifacts if exit_code == 0 else [],
+                  artifacts_in_place=artifacts_in_place, effort=task['effort'],
+                  image_calls_events=result['image_calls_events'],
+                  generated_images_new=result['generated_images_new'],
+                  **provenance, exit=exit_code))
     print(json.dumps({'exit': exit_code, 'audit': result}))
     return exit_code
 
@@ -185,7 +240,7 @@ def main():
     args = parser.parse_args()
     try:
         return run(args)
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, subprocess.SubprocessError) as exc:
         print(json.dumps({'error': str(exc)}), file=sys.stderr)
         return 2
 

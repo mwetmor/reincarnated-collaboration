@@ -501,6 +501,81 @@
       "receipt_sha256": "b92895fafbe7da5074242ca60ca2a68a03391bd9ffd805ee2c87f30b2409095d",
       "artifacts": [],
       "exit": 2
+    },
+    {
+      "id": "T0-d1",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "bc9891d5d3eece69d075c90f761b27c8259ddb799a2419f4b3e629a806180bb7",
+      "started": "2026-09-12T03:25:16.331183+00:00",
+      "ended": "2026-09-12T03:35:41.516674+00:00",
+      "minutes": 10.419656566666283,
+      "image_calls": 0,
+      "tool_calls": 23,
+      "audit": {
+        "violations": [
+          "forbidden tool at line 5: command_execution",
+          "forbidden tool at line 7: command_execution",
+          "forbidden tool at line 9: command_execution",
+          "forbidden tool at line 11: command_execution",
+          "forbidden tool at line 15: command_execution",
+          "forbidden tool at line 18: command_execution",
+          "forbidden tool at line 20: command_execution",
+          "forbidden tool at line 22: command_execution",
+          "forbidden tool at line 24: command_execution",
+          "forbidden tool at line 26: command_execution",
+          "forbidden tool at line 29: command_execution",
+          "forbidden tool at line 31: command_execution",
+          "forbidden tool at line 37: command_execution",
+          "forbidden tool at line 38: command_execution",
+          "forbidden tool at line 40: command_execution",
+          "forbidden tool at line 42: command_execution",
+          "forbidden tool at line 52: command_execution",
+          "forbidden tool at line 54: command_execution",
+          "image_cap exceeded",
+          "image cap outside type limits",
+          "image calls forbidden for TOOLING",
+          "filesystem writes outside permitted paths",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/lane/audit.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/lane/run_burst.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/lane/ledger.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/lane/check_sync.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_audit.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_run_burst.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_lane.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_ledger.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_check_sync.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_lane_caps.py",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/fixtures/x1_gen_01_events.jsonl",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/fixtures/x1_chk_01_events.jsonl",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/fixtures/t0c_events.jsonl",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+          "artifact outside out: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0d1_selftest.json"
+        ],
+        "image_calls": 1,
+        "tool_calls": 23,
+        "tools_seen": {
+          "command_execution": 23
+        },
+        "writes_outside_out": [
+          "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/.DS_Store",
+          "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/.DS_Store"
+        ]
+      },
+      "receipt_sha256": "e18322146f734a30a09da330548fec5e156f29761db4e899f366a5b901962c4f",
+      "artifacts": [],
+      "exit": 2,
+      "image_calls_events": 1,
+      "conductor_correction": "image_calls 1\u21920 (R-4): the PRE-fix wrapper's text heuristic matched 'image_gen' inside this burst's own heredocs; generated_images/ truth source = 0 new files (confirmed by replaying the fixed census); images_used 3\u21922",
+      "model": "gpt-6-astra",
+      "model_source": "profile (recorded by the conductor; this entry was written by the pre-fix wrapper)",
+      "effort": "high",
+      "codex_version": "codex-cli 0.153.4"
     }
   ],
   "images_used": 2,
@@ -511,13 +586,14 @@
       "bursts": [
         "T0-a",
         "T0-b",
-        "T0-c"
+        "T0-c",
+        "T0-d1"
       ],
       "known_red": [
         "tests/test_oracles_motif.py::F04 outside>=3",
         "tests/test_compare.py::F04 rejected"
       ],
-      "owed": "T0-d"
+      "owed": "T0-d2"
     },
     "X1": {
       "status": "DELIVERED_ART / VOID_LANE",
@@ -555,6 +631,14 @@
       "boundary": "reasoning",
       "burst": "HITL session-start (pre T0-d)",
       "ruling": "HITL Run C-1 session-start, plan \u00a7 1 pre-conditions: P1 = MANIFEST.sha256 stale on ONE row (SPEC.md: manifest 05d48f86b245 vs tree d15654c052fa) \u2014 cause ef637836 (effort-HIGH doc amendment) landed after the 5ff896a1 freeze; the \u00a7 7 SYNC row was re-stamped, the MANIFEST was not. Ruled a doc drift, not a tool drift; accepted with the exception named; the T0-d re-freeze closes it (this session also amends SPEC.md, BURST_RULES.md and the charter before T0-d1, so three MANIFEST rows are knowingly stale until the re-freeze). P2 open (X1 lane VOID) \u2192 T0-d. P3 all ten \u00a7 7 SYNC rows match (manual shasum). P4 legolas R6\u2013R8 + R9 read. P5 the Chrome-playable MP4 review path is proven on ~/Desktop/'Painted World Review - 2026-09-11' (H.264 copies); the 'Astra Burst Review' folder is created at K1. P6 codex login = ChatGPT, no live Codex process, one lane; codex-cli 0.153.4 (T16 recorded 0.147.0 \u2014 CLI version is now recorded per burst, T0-d1 (E)). origin/main == HEAD 46ee41a6 (a push landed after plan \u00a7 2 was written; 'no push' stands going forward). RULING: T0-d is SPLIT \u2014 T0-d1 (audit/lane fixes a, b, d, F-1, F-2 + check_sync + tests; runs under the OLD wrapper whose VOID on a/b is expected, then conductor substance review as at R-1) \u2192 re-freeze \u2192 T0-d2 (O3b, O9 part-controls, F-5 gates, R9 extensions) THROUGH the fixed wrapper, so the first burst audited by the new instrument is a TOOLING burst before any candidate art: 'instrument before candidate' applied to the instrument itself; charter \u00a7 7 T0 row allows 1\u20132 TOOLING bursts. F-4 is a DOC fix executed by the conductor now (BURST_RULES + charter \u00a7 4 twin-edit: system-skill reads permitted). Evidence that shaped the contract: the --json stream surfaces neither image_gen calls nor the model (X1: only `cat SKILL.md` + `cp` items) \u2014 so F-1's truth source is the generated_images directory diff and (d)'s model source is the profile file.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-4",
+      "date": "2026-09-11",
+      "boundary": "reasoning",
+      "burst": "T0-d1",
+      "ruling": "T0-d1 VOID (exit 2) UPHELD as an audit result of the PRE-fix wrapper (18 forbidden-tool hits on command text; 20 add_dir artifacts rejected by the old verify_files; a phantom image call from the text heuristic; two Finder .DS_Store writes under agentic_orchestration/ blamed on the burst by the repo-wide snapshot \u2014 every one an instance of the defect classes T0-d1 was contracted to fix) and OVERRIDDEN ON SUBSTANCE by conductor DRIFT-CRITIC review: 86 tests / 84 green, the only reds the two T0-d2-reserved acceptance cases (O3 F04 outside>=3; comparator rejects F04); regression lock 0/1,880. Delivered per SPEC \u00a76 (a)(b)(d)(f:F-1,F-2) + check_sync: forbidden regex on type/tool/name/server only (replayed on T0-c, X1-gen-01, X1-chk-01, T0-d1 real streams: 0 hits; three fixtured); in-place add_dir artifacts (artifacts_in_place[]); effort must equal high; non-TOOLING add_dirs empty; model/effort/codex_version/profile_sha256 per burst (model from the profile \u2014 the --json stream does not echo it); generated_images/ before/after diff thread-scoped as the image truth, receipt calls_used cross-check; snapshot roots workdir+add_dirs with .git/__pycache__/pyc/wrapper-log exclusions; lane/check_sync.py (proven live: flags run_burst.py DRIFT, exit 1). Concerns accepted: read-scope deviation on SPEC.md (harmless); two legacy scalar take_snapshot calls migrated. Ledger corrected: T0-d1 image_calls 1\u21920, images_used 3\u21922 (the pre-fix wrapper booked a phantom call). Tree FROZEN at MANIFEST.sha256 (closes P1's stale rows). Next: X1-gen-02 through the fixed wrapper (P2: exit 0, image_calls == calls_used == 2), then T0-d2.",
       "veto": "open to Matt"
     }
   ]

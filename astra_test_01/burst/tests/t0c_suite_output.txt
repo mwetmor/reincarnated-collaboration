@@ -1,6 +1,18 @@
+test_forbidden_fields_only (test_audit.ModuleTests.test_forbidden_fields_only) ... ok
+test_generated_images_truth_and_thread_scope (test_audit.ModuleTests.test_generated_images_truth_and_thread_scope) ... ok
 test_missing_event_log (test_audit.ModuleTests.test_missing_event_log) ... ok
+test_missing_generated_directory (test_audit.ModuleTests.test_missing_generated_directory) ... ok
+test_real_streams_have_no_forbidden_hits (test_audit.ModuleTests.test_real_streams_have_no_forbidden_hits) ... ok
+test_receipt_mismatch_only_for_valid_receipt (test_audit.ModuleTests.test_receipt_mismatch_only_for_valid_receipt) ... ok
+test_snapshot_roots_exclusions_and_type_permissions (test_audit.ModuleTests.test_snapshot_roots_exclusions_and_type_permissions) ... ok
+test_snapshot_scalar_compatibility_and_harvest_link_scan (test_audit.ModuleTests.test_snapshot_scalar_compatibility_and_harvest_link_scan) ... ok
 test_known_bad_schema_constraints (test_bible.Tests.test_known_bad_schema_constraints) ... ok
 test_stub_and_v01_fields (test_bible.Tests.test_stub_and_v01_fields) ... ok
+test_all_ok_and_parenthetical (test_check_sync.ModuleTests.test_all_ok_and_parenthetical) ... ok
+test_parse_failures (test_check_sync.ModuleTests.test_parse_failures) ... ok
+test_relative_and_tilde_resolution (test_check_sync.ModuleTests.test_relative_and_tilde_resolution) ... ok
+test_stale_row (test_check_sync.ModuleTests.test_stale_row) ... ok
+test_unreadable_source (test_check_sync.ModuleTests.test_unreadable_source) ... ok
 test_control_claim_and_invalid_answers (test_compare.Tests.test_control_claim_and_invalid_answers) ... ok
 test_missing_reviewed_masks_is_null (test_compare.Tests.test_missing_reviewed_masks_is_null) ... ok
 test_stub_accepts_clean_crop (test_compare.Tests.test_stub_accepts_clean_crop)
@@ -51,6 +63,7 @@ test_schema_known_bad_and_strict_objects (test_lane.LaneTests.test_schema_known_
 test_task_caps (test_lane.LaneTests.test_task_caps) ... ok
 test_wrapper_roundtrip_error_timeout_and_void (test_lane.LaneTests.test_wrapper_roundtrip_error_timeout_and_void) ... ok
 test_empty_budget (test_ledger.ModuleTests.test_empty_budget) ... ok
+test_provenance_and_authoritative_image_budget (test_ledger.ModuleTests.test_provenance_and_authoritative_image_budget) ... ok
 test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
 test_known_frequencies_source_units_and_anchor_distance (test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance) ... ok
 test_shaded_planes_and_flat (test_oracles_keylight.Tests.test_shaded_planes_and_flat) ... ok
@@ -67,7 +80,11 @@ test_ambiguous_bins_empty_and_display (test_parts.Tests.test_ambiguous_bins_empt
 test_metrics_and_known_bad (test_parts.Tests.test_metrics_and_known_bad) ... ok
 test_three_part_antialiased_iou_and_health (test_parts.Tests.test_three_part_antialiased_iou_and_health) ... ok
 test_missing_type_rules (test_render_brief.ModuleTests.test_missing_type_rules) ... ok
+test_effort_and_add_dirs (test_run_burst.ModuleTests.test_effort_and_add_dirs) ... ok
+test_in_place_files (test_run_burst.ModuleTests.test_in_place_files) ... ok
 test_incomplete_task_rejected (test_run_burst.ModuleTests.test_incomplete_task_rejected) ... ok
+test_profile_metadata (test_run_burst.ModuleTests.test_profile_metadata) ... ok
+test_wrapper_image_truth_and_tooling_in_place (test_run_burst.ModuleTests.test_wrapper_image_truth_and_tooling_in_place) ... ok
 test_missing_receipt (test_schema_check.ModuleTests.test_missing_receipt) ... ok
 test_atomic_unique_dependency_ordered_absent_controls (test_transcribe.Tests.test_atomic_unique_dependency_ordered_absent_controls) ... ok
 test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
@@ -91,6 +108,6 @@ Traceback (most recent call last):
 AssertionError: 0 not greater than or equal to 3
 
 ----------------------------------------------------------------------
-Ran 69 tests in 12.231s
+Ran 86 tests in 13.039s
 
 FAILED (failures=2)

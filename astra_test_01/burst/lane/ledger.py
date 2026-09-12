@@ -29,6 +29,9 @@ def sha256(path):
 
 
 def append(run, entry):
+    # Preserve provenance and both image instruments verbatim. Only image_calls
+    # (the generated-files truth source) contributes to the run budget.
+    entry = dict(entry)
     path = ROOT / 'runs' / identifier(run) / 'ledger.json'
     path.parent.mkdir(parents=True, exist_ok=True)
     with (path.parent / '.ledger.lock').open('a') as lock:

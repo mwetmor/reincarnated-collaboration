@@ -22,16 +22,23 @@ class Tests(TemporaryTest):
         work=self.base/'work';(work/'out').mkdir(parents=True)
         event=work/'out/events.jsonl';event.write_text('')
         snap=take_snapshot(work,work)
+        images=work/'out/generated_images';images.mkdir()
+        image_snapshot={'root':str(images),'files':{}}
         for typ in TYPES:
             with self.subTest(type=typ):
                 t=task(typ)
+                for image in images.glob('*.png'):image.unlink()
+                for i in range(t['image_cap']):(images/f'{i}.png').write_bytes(b'synthetic')
                 event.write_text('\n'.join(json.dumps({'type':'item.completed','item':{'id':str(i),'type':'image_generation_call'}}) for i in range(t['image_cap'])))
-                self.assertEqual(audit(event,work,snap,t,typ)['violations'],[])
+                self.assertEqual(audit(event,work,snap,t,typ,images_snapshot=image_snapshot)['violations'],[])
                 for key in ('minutes_cap','tool_call_cap','image_cap'):
                     bad=dict(t);bad[key]+=1
-                    self.assertTrue(audit(event,work,snap,bad,typ)['violations'])
+                    self.assertTrue(audit(event,work,snap,bad,typ,images_snapshot=image_snapshot)['violations'])
                 event.write_text('\n'.join(json.dumps({'type':'item.completed','item':{'id':str(i),'type':'image_generation_call'}}) for i in range(t['image_cap']+1)))
-                self.assertTrue(audit(event,work,snap,t,typ)['violations'])
+                (images/'extra.png').write_bytes(b'synthetic')
+                result=audit(event,work,snap,t,typ,images_snapshot=image_snapshot)
+                self.assertEqual(result['image_calls'],t['image_cap']+1)
+                self.assertTrue(result['violations'])
     def test_audit_observed_tool_overrun(self):
         work=self.base/'work';(work/'out').mkdir(parents=True)
         event=work/'out/events.jsonl';event.write_text('');snap=take_snapshot(work,work)

@@ -1,0 +1,19 @@
+{
+ "text": "GENERATE BURST X1-gen-02 — lane smoke RE-RUN after the T0-d1 audit fixes (Run C-1; P2 calibration: the wrapper must count exactly the image_gen calls you make). task_id \"X1-gen-02\".\n\nDeliver EXACTLY TWO painted images, each a single isolated prop on a flat pure #00ff00 plate, in the register card's style and light (screen-upper-left key; painted, not pixel art; no floor shadow; no text). The generator's native canvas is 1254×1254 — state sizes in SOURCE pixels of that canvas:\n1. out/x1_satchel.png — the hooded battle-mage's small worn-leather satchel (from Image 1), seen alone, about 380 px wide on the 1254 px canvas (≈ 30 % of the canvas width), centred, elevated three-quarter view.\n2. out/x1_staff_head.png — the top 25 % of that same mage's bone-and-iron staff (from Image 1), seen alone, about 380 px tall on the 1254 px canvas (≈ 30 % of the canvas height), centred, same view.\nImage 1 is a STYLE + IDENTITY reference (the register, brushwork and light); do NOT reproduce the figure — only the named prop. Surface texture restrained: clean material planes, no conspicuous grain. Use image_gen ONCE per deliverable; at most ONE retry per deliverable if the first result is off-plate, has a baked checkerboard, or invents extra objects. Copy each final output from $CODEX_HOME/generated_images/... to out/ with the exact names above and compute its sha256.\nNo code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"X1-gen-02\"): list both images with prompt, references (role + path), elapsed_s; calls_used = the TRUE number of image_gen calls including any retry; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/frames/idle/S/idle_S_00.png",
+   "role": "style + identity reference (the painted register, brushwork and upper-left key light); do not reproduce the figure"
+  }
+ ],
+ "image_cap": 4,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/x1_satchel.png",
+  "out/x1_staff_head.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "X1"
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "T0-d1",
+  "suite_command": "PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py",
+  "tests_run": 86,
+  "successful_tests": 84,
+  "assertion_failures": [
+    "test_compare.Tests.test_stub_rejects_f04_crop",
+    "test_oracles_motif.Tests.test_f04_outside_at_least_three"
+  ],
+  "errors": [],
+  "skipped": [],
+  "elapsed_s": 13.811846750031691,
+  "evidence_census": [
+    {
+      "fixture": "x1_gen_01_events.jsonl",
+      "tool_calls": 2,
+      "image_calls_events": 0,
+      "forbidden_tool_violations": []
+    },
+    {
+      "fixture": "x1_chk_01_events.jsonl",
+      "tool_calls": 6,
+      "image_calls_events": 0,
+      "forbidden_tool_violations": []
+    },
+    {
+      "fixture": "t0c_events.jsonl",
+      "tool_calls": 16,
+      "image_calls_events": 0,
+      "forbidden_tool_violations": []
+    }
+  ],
+  "generated_image_calls": 0,
+  "read_scope_deviation": "Initial SPEC.md read displayed sections beyond requested sections 0, 2, and 6.",
+  "retry": {
+    "reason": "Full suite exposed two legacy scalar take_snapshot calls; their event-only cap assertions also required migration to the registered image truth source.",
+    "change": "Accepted an explicitly supplied scalar root and updated test_gates_lane_caps to create synthetic image-file diffs; reran full suite."
+  },
+  "sync_validation": "Synthetic CLI fixtures exercised exit codes 0, 1, 2, JSON, stale/unreadable sources, relative paths, tilde paths, and trailing parentheticals. Live sources were not read because the SYNC table includes explicitly prohibited paths."
+}
