@@ -63,7 +63,7 @@ The **charter** fixes the run (register card § 2, typed-burst rules § 4, rubri
 
 ## S3 Generate
 
-`lane/run_burst.py` invokes `codex exec` **in a fresh, ephemeral process with a workdir outside the repo** (no charter text loads; ≈19K-token boot), hard caps (≤15 min, ≤20 tool calls, ≤12 images; TOOLING ≤40/≤60), reference images via `-i`, output forced to the receipt schema. GENERATE bursts may not write code or touch anything outside `out/`. Green plate + deterministic matting (transparency is unreliable under reference conditioning).
+`lane/run_burst.py` invokes `codex exec` **in a fresh, ephemeral process with a workdir outside the repo** (non-TOOLING bursts run in parallel waves of 4+ since R-13; TOOLING serial) (no charter text loads; ≈19K-token boot), hard caps (≤15 min, ≤20 tool calls, ≤12 images; TOOLING ≤40/≤60), reference images via `-i`, output forced to the receipt schema. GENERATE bursts may not write code or touch anything outside `out/`. Green plate + deterministic matting (transparency is unreliable under reference conditioning).
 
 ## S4 Check
 
@@ -134,16 +134,16 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
-| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | 5819a4f6e7fc | 2026-09-12 |
+| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | 8710b2c27a7d | 2026-09-12 |
 | `astra_test_01/burst/SPEC.md` | build contract | 712c720f3a8c | 2026-09-12 |
-| `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 1305d82b7f46 | 2026-09-12 |
+| `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 976d09763ba2 | 2026-09-12 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
 | `astra_test_01/burst/lane/run_burst.py` | the invocation | 3fcbd1744546 | 2026-09-12 |
 | `astra_test_01/burst/MANIFEST.sha256` | freeze state | 4919ae4e35fe | 2026-09-12 |
 | `~/.codex/astra-burst.config.toml` | **model pin** (`gpt-6-astra`, verified 2026-09-11 via the exec header: `model: gpt-6-astra · provider: openai`) + **effort HIGH always** (Matt 2026-09-11) + no plugins/MCP | 04725bed2d11 | 2026-09-11 |
-| `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 190e17eb10a1 | 2026-09-11 |
+| `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 7be8a3e2e209 | 2026-09-12 |
 
 ---
 

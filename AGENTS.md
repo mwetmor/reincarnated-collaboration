@@ -56,7 +56,7 @@ reading files:
 
 ## 3. Codex-lane standing provisions (durable home — previously per-session prompt text)
 
-- **Concurrency law (Matt ruling 2026-08-25 — SUPERSEDES the original serial law):**
+- **Concurrency law (Matt ruling 2026-08-25 — SUPERSEDES the original serial law):** **Amended 2026-09-12 (Matt, ledger R-13): non-TOOLING bursts may run in parallel waves (default 4, larger for a homogeneous wave); TOOLING bursts serial and never overlapping; a wave reserves its image caps before launch.**
   **one Codex session per available named agent seam, plus at most one open Codex lane.**
   Parallel Codex sessions are permitted provided EACH wears a distinct named seam (role file +
   OP read per § 2 — the seam's discipline stack loads with the name); the open lane covers
