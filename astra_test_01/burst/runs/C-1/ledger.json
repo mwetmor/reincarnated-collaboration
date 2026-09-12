@@ -925,6 +925,94 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "X1-chk-02",
+      "type": "CHECK",
+      "experiment": "X1",
+      "brief_sha256": "82360098be3a436dd16bdb432517d34037ce67026ec688b73f9dd9eb5f84c841",
+      "started": "2026-09-12T04:12:13.162476+00:00",
+      "ended": "2026-09-12T04:14:35.772161+00:00",
+      "minutes": 2.3767919395836845,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [
+          "image count mismatch (audit 0 vs receipt 5)"
+        ],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 5
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4bbfd91711a47fdaca2a235ab0e68c31312d51ce9f92af1ea88a3ae27eb3a99c",
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 2
+    },
+    {
+      "id": "X0-T-1",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "6b1c4007cd309bf38ef5f928ed2dd37ef9894663a4e7393d7fe79f42abaac480",
+      "started": "2026-09-12T04:14:35.878313+00:00",
+      "ended": "2026-09-12T04:15:33.780533+00:00",
+      "minutes": 0.9650210742993901,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "9bfe8a5d46bdcd777179a057f4d99a2558e7523b52e40c50c4407b330fad6a4c",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "76c2835d18fc166681c303bd7eaf45b59e41fc684d2595215927578b15b16915"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "5c00234ab51bc089831a58c9d0d7af28626422bde30a63f4ff2f20fa413cd2b8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 4,
@@ -946,11 +1034,12 @@
       "owed": "T0-d3 (O3b annulus discrimination)"
     },
     "X1": {
-      "status": "GENERATE DELIVERED (fixed wrapper, exit 0); CHECK X1-chk-02 pending",
+      "status": "GENERATE DELIVERED (exit 0) \u00b7 CHECK X1-chk-02 VOID on receipt semantics (conductor rule gap, fixed BURST_RULES v1.2) \u2014 substance accepted (R-6); CHECK path proven by K1/K2 CHECK bursts",
       "bursts": [
         "X1-gen-01",
         "X1-chk-01",
-        "X1-gen-02"
+        "X1-gen-02",
+        "X1-chk-02"
       ],
       "images_true": 2,
       "images_audited": 0,
@@ -1004,6 +1093,14 @@
       "boundary": "reasoning",
       "burst": "T0-d2",
       "ruling": "T0-d2 DELIVERED, exit 0, zero violations \u2014 the first TOOLING burst audited clean by the fixed wrapper (50 in-place artifacts verified; 22 tool calls; 25.7 min). Conductor DRIFT-CRITIC ACCEPT on substance: 118 tests / 116 green, regression lock 0/1,880; THE TWO T0-c REDS ARE GREEN \u2014 O3b (gradient-vote circular Hough; vote_thresh 0.50 fixed on synthetic rings BEFORE any real measurement) counts 14 ring-family instances outside the rod head on the F04 crop (acceptance >= 3) and the comparator rejects it. TWO NEW NAMED REDS, diagnosed by the conductor from the peak overlays: O3b counts FILLED DISCS as ring-family \u2014 the clean crop's single 'ring' is the mage's front boot toe (286,407) r=8, and on F04 the face, a fist and both boot toes sit among the 14 (the genuine ring-sigils \u2014 pauldron emblem, chest boss, tabard compass, belt buckle \u2014 are also there, so the catch is real by eye). T0-d3 OWED: annulus discrimination (hollow-centre / inner-edge test), filled discs at 3 radii join the synthetic calibration set (must count 0), acceptance unchanged (F04 outside >= 3, clean 0) \u2014 no bar lowered, no threshold tuned. F-5: plate_uniformity on the X1-gen-01 props reads 99.5 % / 22.3 % within \u00b18 (R-2 recorded 100 %/38 % by a different measurement); X1-gen-02's plates read 99.5 % / 98.8 % \u2192 plate uniformity VARIES PER GENERATION, so the gate is live; alpha_floor=40 takes G9 border alpha 34/39 \u2192 0. All R9 THEN items delivered (pse spatial-pattern report-only; probe alarm threshold awaits K1; C2PA presence detected, issuer/model null when opaque). Tree FROZEN (MANIFEST re-written). Next: serial chain X1-chk-02 \u2192 X0-T-1..4 (runs during the grill) \u2192 T0-d3 \u2192 K1.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-6",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "X1-chk-02",
+      "ruling": "X1-chk-02 VOID (exit 2) UPHELD as an audit result: the single violation 'image count mismatch (audit 0 vs receipt 5)' is the fixed wrapper working correctly \u2014 the truth source saw 0 image files; the CHECK burst self-reported its command count in `calls_used` because the executable rules never defined that field for non-GENERATE types (X1-chk-01 did the same: 6). Conductor-owned gap; closed by BURST_RULES v1.2 twin-edit (charter \u00a74): calls_used = image_gen calls only, 0 for every type but GENERATE/LABEL. Substance ACCEPTED from the workdir: plate_uniformity 99.58 % / 98.87 % within \u00b18 (X1-gen-02 props; the gate is live \u2014 X1-gen-01's staff head read 22.3 %); alpha_floor=40 takes the G9 border-clipping metric 34/39 \u2192 0 on both props; matte spill 0.0, edge halo 0.0; particle-loss proxy 0.99 (includes plate residuals \u2014 uninformative for props, noted); O8 grain distance to the F04 anchor 0.023 / 0.009 at source, 0.022 / 0.006 at display 0.5 \u2014 thresholds undeclared, verdicts null (honest). No rerun: the K1/K2 CHECK bursts prove the corrected CHECK path before the GO gate. The X0-T template already states calls_used 0.",
       "veto": "open to Matt"
     }
   ]

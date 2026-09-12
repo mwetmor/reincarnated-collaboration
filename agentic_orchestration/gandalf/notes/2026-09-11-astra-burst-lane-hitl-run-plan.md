@@ -33,9 +33,10 @@
 | 1 | ✓ P1–P6 verified | ledger R-3: P1 one stale MANIFEST row (SPEC.md doc drift) · P3 10/10 SYNC · P6 codex-cli 0.153.4 · origin/main == HEAD |
 | 0 (T0-d1) | ✓ DELIVERED + FROZEN | ledger R-4: pre-fix wrapper VOID upheld as audit result, ACCEPT on substance — 86 tests / 84 green (the two reds are T0-d2's); `check_sync.py` live; phantom image call corrected; MANIFEST 110 rows |
 | 2 (X1-gen-02) | ✓ DELIVERED through the fixed wrapper | exit 0 · zero violations · image_calls 2 (generated_images/ truth) == calls_used 2 · model/effort/CLI recorded. **Art finding (bible SCALE):** size stated in SOURCE px does not land either (asked ≈380 px/30 %: satchel 48 %, staff head 21 %×66 %; X1-gen-01 relative: 51 %/73 %) → SCALE is a post-process (registration downscale), never a prompt instruction. Plates clean (99.5 % / 98.8 % within ±8). Satchel grain again exceeds the restraint register at prop scale (O8's case) |
-| 0 (T0-d2) | ▶ in flight | O3b ring-family · O9 part-inventory set + controls + `calibrate_transcriber.py` · F-5 plate_uniformity + alpha floor · R9 extensions (priority order; partial delivery continues as T0-d3) |
-| 2 (X1-chk-02) | pending T0-d2 | plate_uniformity reported; no false violations on a CHECK burst |
-| 3 (X0-T) | pending T0-d2 | hand inventory re-counted at native (4 figures; scratch draft) — F04 starter: X-harness, satchel on the RIGHT hip; advanced: rod in the LEFT hand, ~11 sigil-class emblems |
+| 0 (T0-d2) | ✓ DELIVERED exit 0 + FROZEN | ledger R-5: first clean TOOLING audit under the fixed wrapper; O3b catches F04 bleed (14 ≥ 3) — the T0-c reds green; **two new named reds: O3b counts filled discs (boot toe / face / fist)** → T0-d3 staged; O9 part-inventory set + `calibrate_transcriber.py`; F-5; all R9 extensions; 118 tests / 116 green |
+| 2 (X1-chk-02) | ✓ substance / VOID on receipt semantics | ledger R-6: `calls_used` undefined for CHECK → self-reported command count; BURST_RULES v1.2 defines it; plates 99.6 % / 98.9 %; alpha floor → G9 border 0; spill 0; halo 0 |
+| 3 (X0-T) | ▶ chain running (X0-T-1..4) | inputs: `runs/C-1/x0t/` (hand inventory re-counted at native; 38/36-question sets; strict schemas) + `fixtures/x0t/` crops; scored by `calibrate_transcriber.py` at chain end |
+| 0 (T0-d3) | staged, fires after the chain | O3b annulus discrimination (hollow-centre / inner-edge; synthetic filled discs must count 0; acceptance unchanged) — required before K1's CHECK and the overnight run |
 | 4–10 | Matt present | grill packet staged: `~/Desktop/Astra Burst Review - 2026-09-11/00 Grill packet` |
 
 ## 3. The session script (≈ 2.5 h with Matt; steps 4–10 need Matt present; 1–3 do not)
