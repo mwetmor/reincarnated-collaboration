@@ -1888,6 +1888,265 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-chk-02",
+      "type": "CHECK",
+      "experiment": "K1",
+      "brief_sha256": "b842a63d666c452fb7a5eebb4e7619dbcc5d130a456d2d558f0290cd9f3c3b7d",
+      "started": "2026-09-12T14:49:04.467545+00:00",
+      "ended": "2026-09-12T14:51:50.721922+00:00",
+      "minutes": 2.7682327326338663,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "1c5da5ea1dfd25045efcfc9a91ffd067bfcfcdcd89f0d8e3492e85ea9bd681eb",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "f3a9c236c45802395949fd60273abf33bb412575a21de2c2adaee885c6444fb2"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "0880648bbdaea2b315672af1a6d6f01a7d69bb925e61d452099292804fa53d55"
+        },
+        {
+          "name": "k1_master_D_64.png",
+          "sha256": "e516275bc66a09e19edf863a33b365ce04892944eff5c5c719c9c4651b57fa7d"
+        },
+        {
+          "name": "k1_master_D_rgba.png",
+          "sha256": "1c638bd74a79718c5298e68d0b7ec79ba94a9c9791847a4fdef08ba86dbcca66"
+        },
+        {
+          "name": "k1_master_E_64.png",
+          "sha256": "b0118fa4104364c58d4c2d56a093fbddb4f0a8bed17915b3822406299941d410"
+        },
+        {
+          "name": "k1_master_E_rgba.png",
+          "sha256": "905f6d670497ad9f224abf9280ebea5da00aaade64e6b88e211cf7c8513e7f81"
+        },
+        {
+          "name": "k1_master_F_64.png",
+          "sha256": "11afe863493a9bfef76d911c433a3d1091cccdcbce9a0a6315fd0c38d82ad8b0"
+        },
+        {
+          "name": "k1_master_F_rgba.png",
+          "sha256": "422b19f37e32731514013f0d686b5a470b1058ea68b9b4ff31303525f69dac29"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-D",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "2dea5a2e8aa32126cc6825716f3b8c08789d3ec0cbf08c1242ee54d682d440ea",
+      "started": "2026-09-12T14:51:50.876357+00:00",
+      "ended": "2026-09-12T14:52:51.027308+00:00",
+      "minutes": 1.0025133763828005,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 3,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "6e1d0998562bffc22a0b9d2ad0881434c5b0e8c98feeec9116ccdc84892b5047",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "8b5a055f03932ed556c7bb7f1c5cdf2fc94f39e796434bbca437b0c66f8b37d5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-E",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "e1880dcc4d4f6d2032e85a0252f452b3748a7a54fc597e1d7b631c732ec68446",
+      "started": "2026-09-12T14:52:51.184558+00:00",
+      "ended": "2026-09-12T14:53:58.530686+00:00",
+      "minutes": 1.1224151729169534,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 5,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "917cc62fdbb9980e7c0b7333b537923276535b592a398d038e6a36eed45715bd",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "2eb67db7c796405e5562416f1725d58211f47ba172f8014395c1b9a899ce37a5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-F",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "532a2f9d77183dcef1078edf1f64db90b9a240d07c388eecd915d18eedb3d11f",
+      "started": "2026-09-12T14:53:58.650488+00:00",
+      "ended": "2026-09-12T14:54:59.086903+00:00",
+      "minutes": 1.0072505277668824,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 3,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "4ef78fc4fcb85fb63d9e75c121fd194d97199a4911c16f8102519372e3ed997e",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "adafbce5c61b03c345921f563a14d536710c484e177d72ea8bf6b605d167113a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-jdg-02",
+      "type": "JUDGE",
+      "experiment": "K1",
+      "brief_sha256": "4e6ffd95f9f57e32a87f1c9877173b34770d1190c7a2bd5a97db8c3dbac71fd8",
+      "started": "2026-09-12T14:54:59.224925+00:00",
+      "ended": "2026-09-12T14:56:18.086072+00:00",
+      "minutes": 1.3143228312498347,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "22f6021ace037deaaf3124eaec3584fa3a5f1ad27c3ff382ea97a980022b7382",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "3e1bd68cd422d55cc712094dfb25db223e3248303f98699a5e4bff8c9a8d9f2e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 10,
@@ -1978,7 +2237,10 @@
         "c": "edit-mode pass on E (1 image) \u2014 same reference-conditioning that failed; edit path untested (X2's hypothesis)"
       },
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/ (D/E/F natives copied at chain end; second-set review.html when K1-pack-02 lands)",
-      "status": "OPEN \u2014 awaiting Matt"
+      "status": "OPEN \u2014 awaiting Matt",
+      "matt_eye": "2026-09-12: 'The slight cleft in the chin reads more masculine. Other than that it's good. All 3 look the same to my eye.' \u2192 the remaining change is LOCAL (chin/jaw), the class of edit the reference-conditioned burst executes reliably.",
+      "evidence": "K1-jdg-02: D/E/F 4\u00b75\u00b74\u00b73\u00b74 (4.0), judge reads all three as a young woman (PRIMED \u2014 told the identity, then asked); axis 4 fell 4\u21923 on all three (the ring head's removal, as predicted); control failed axis 3 = 2. O9: rod_head absent, insignia gone, zero violations on all three.",
+      "disposition": "fork revised by the conductor on Matt's eye: K1-gen-03 = E as identity reference + ONE local change (no chin cleft; smooth rounded chin, soft jawline), TWO candidates (+2 images, K1 cap 6\u21928) \u2014 awaiting Matt's word on the cap"
     }
   ],
   "rulings": [
