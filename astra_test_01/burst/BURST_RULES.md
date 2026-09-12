@@ -15,5 +15,7 @@
 
 **Wrapper audit after every burst (deterministic, conductor-side, written by T0):** event-stream census (image calls, tool names, write paths) · receipt schema valid · every listed file exists with matching sha256 · no forbidden tool · caps respected. Any violation → the burst is **VOID** (not FAIL): rerun once with the violation named; a second VOID → HALT.
 
+**Concurrency (Matt ruling 2026-09-12, ledger R-13): non-TOOLING bursts (GENERATE / CHECK / JUDGE / TRANSCRIBE / LABEL / ANNOTATE / PACK) may run in PARALLEL WAVES — default wave size 4, larger permitted for a homogeneous wave (the subscription has the headroom); TOOLING bursts stay SERIAL and never overlap any other burst (they write into the shared frozen tree); a wave RESERVES its image caps against the ledger before launch (images_used + Σ caps ≤ run cap); every burst keeps its own workdir, thread-scoped image truth and locked ledger append. The rate-limit HALT rule (three consecutive backoffs) is unchanged.**
+
 **Two-attempt rule with scope guard:** inside an experiment, one diagnosed retry per burst. A second failure returns to the conductor, who may change *method within the hypothesis* (guide, reference set, generate→edit-canvas, chaining) and registers it in the ledger — **never medium** (no rigs, meshes, renderers, textures-on-geometry). Medium changes are Matt's.
 
