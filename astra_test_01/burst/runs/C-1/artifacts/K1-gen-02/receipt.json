@@ -1,0 +1,69 @@
+{
+  "task_id": "K1-gen-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k1_master_D.png",
+      "path": "out/k1_master_D.png",
+      "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89",
+      "prompt": "Keeper of Hours — STARTER identity master, v2. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Identity: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet — read clearly as feminine in face and build while keeping the practical archivist bearing. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is the IDENTITY REFERENCE for hair mass, costume, materials, pose, framing and register — keep all of that — but CHANGE three things: the figure is a young woman; the tabard chest is plain (remove the ring emblem); the staff ends in a plain tip with a brass ferrule (remove the ring head).",
+      "references": [
+        {
+          "role": "IDENTITY REFERENCE",
+          "path": "in/01_k1_master_B.png"
+        }
+      ],
+      "elapsed_s": 88.273
+    },
+    {
+      "name": "k1_master_E.png",
+      "path": "out/k1_master_E.png",
+      "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed",
+      "prompt": "Keeper of Hours — STARTER identity master, v2. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Identity: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet — read clearly as feminine in face and build while keeping the practical archivist bearing. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is the IDENTITY REFERENCE for hair mass, costume, materials, pose, framing and register — keep all of that — but CHANGE three things: the figure is a young woman; the tabard chest is plain (remove the ring emblem); the staff ends in a plain tip with a brass ferrule (remove the ring head).",
+      "references": [
+        {
+          "role": "IDENTITY REFERENCE",
+          "path": "in/01_k1_master_B.png"
+        }
+      ],
+      "elapsed_s": 40.767
+    },
+    {
+      "name": "k1_master_F.png",
+      "path": "out/k1_master_F.png",
+      "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0",
+      "prompt": "Keeper of Hours — STARTER identity master, v2. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed, a plain wooden staff held upright in the RIGHT hand. Identity: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet — read clearly as feminine in face and build while keeping the practical archivist bearing. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard whose chest is PLAIN — no emblem, no ring, no shape of any kind; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Staff: a plain dark walnut shaft with small brass ferrules at the foot and the tip — NO ring, NO head-piece, NO shape atop it. NO insignia anywhere on the character: every surface is plain and undecorated — no trim, no edge ornament, no sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is the IDENTITY REFERENCE for hair mass, costume, materials, pose, framing and register — keep all of that — but CHANGE three things: the figure is a young woman; the tabard chest is plain (remove the ring emblem); the staff ends in a plain tip with a brass ferrule (remove the ring head).",
+      "references": [
+        {
+          "role": "IDENTITY REFERENCE",
+          "path": "in/01_k1_master_B.png"
+        }
+      ],
+      "elapsed_s": 123.356
+    }
+  ],
+  "calls_used": 3,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Outputs follow the task's single-figure reference framing at 1024×1536; they are not 2×2 sheets or registered 512×512 frames.",
+      "The feminine face and build changes are subtle, especially in D and E.",
+      "Exact projection-C geometry and background RGB uniformity were not measured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k1_master_D.png",
+      "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89"
+    },
+    {
+      "path": "out/k1_master_E.png",
+      "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed"
+    },
+    {
+      "path": "out/k1_master_F.png",
+      "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0"
+    }
+  ]
+}

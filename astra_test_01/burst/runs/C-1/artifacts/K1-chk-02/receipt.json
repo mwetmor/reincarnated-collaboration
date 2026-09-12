@@ -1,0 +1,51 @@
+{
+  "task_id": "K1-chk-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Inputs are 1024×1536, not the stated 1254×1254; native geometry was preserved.",
+      "Frozen O5 forces 64×64, distorting rectangular source proportions; delivered silhouettes exactly match its descriptor.",
+      "Key-facing-edge O2 could not be computed with the frozen tool. Whole-figure green-plate diagnostics and null edge measurements are reported.",
+      "O8 anchor is RGB without a subject mask; distances use full-crop anchor support and differing source dimensions.",
+      "G9 dark-fringe judgment remains unavailable without visual review or a declared numeric threshold."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "f3a9c236c45802395949fd60273abf33bb412575a21de2c2adaee885c6444fb2"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "0880648bbdaea2b315672af1a6d6f01a7d69bb925e61d452099292804fa53d55"
+    },
+    {
+      "path": "out/k1_master_D_rgba.png",
+      "sha256": "1c638bd74a79718c5298e68d0b7ec79ba94a9c9791847a4fdef08ba86dbcca66"
+    },
+    {
+      "path": "out/k1_master_E_rgba.png",
+      "sha256": "905f6d670497ad9f224abf9280ebea5da00aaade64e6b88e211cf7c8513e7f81"
+    },
+    {
+      "path": "out/k1_master_F_rgba.png",
+      "sha256": "422b19f37e32731514013f0d686b5a470b1058ea68b9b4ff31303525f69dac29"
+    },
+    {
+      "path": "out/k1_master_D_64.png",
+      "sha256": "e516275bc66a09e19edf863a33b365ce04892944eff5c5c719c9c4651b57fa7d"
+    },
+    {
+      "path": "out/k1_master_E_64.png",
+      "sha256": "b0118fa4104364c58d4c2d56a093fbddb4f0a8bed17915b3822406299941d410"
+    },
+    {
+      "path": "out/k1_master_F_64.png",
+      "sha256": "11afe863493a9bfef76d911c433a3d1091cccdcbce9a0a6315fd0c38d82ad8b0"
+    }
+  ]
+}

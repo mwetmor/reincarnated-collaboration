@@ -2147,6 +2147,90 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-pack-02",
+      "type": "PACK",
+      "experiment": "K1",
+      "brief_sha256": "aa98297026e47ba2801a3bcf32b6107a5ae5bf615e1102eb1b79eed1ffbee35d",
+      "started": "2026-09-12T14:56:18.201128+00:00",
+      "ended": "2026-09-12T15:02:18.525331+00:00",
+      "minutes": 6.005288518749876,
+      "image_calls": 0,
+      "tool_calls": 13,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 13,
+        "tools_seen": {
+          "command_execution": 12,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d2563bbcdad88cf95cb8a7b46108fb74e5996988edd9626e663c4a6d3054c3cd",
+      "artifacts": [
+        {
+          "name": "img/k1_master_D.png",
+          "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89"
+        },
+        {
+          "name": "img/k1_master_D_64.png",
+          "sha256": "e516275bc66a09e19edf863a33b365ce04892944eff5c5c719c9c4651b57fa7d"
+        },
+        {
+          "name": "img/k1_master_D_rgba.png",
+          "sha256": "1c638bd74a79718c5298e68d0b7ec79ba94a9c9791847a4fdef08ba86dbcca66"
+        },
+        {
+          "name": "img/k1_master_E.png",
+          "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed"
+        },
+        {
+          "name": "img/k1_master_E_64.png",
+          "sha256": "b0118fa4104364c58d4c2d56a093fbddb4f0a8bed17915b3822406299941d410"
+        },
+        {
+          "name": "img/k1_master_E_rgba.png",
+          "sha256": "905f6d670497ad9f224abf9280ebea5da00aaade64e6b88e211cf7c8513e7f81"
+        },
+        {
+          "name": "img/k1_master_F.png",
+          "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0"
+        },
+        {
+          "name": "img/k1_master_F_64.png",
+          "sha256": "11afe863493a9bfef76d911c433a3d1091cccdcbce9a0a6315fd0c38d82ad8b0"
+        },
+        {
+          "name": "img/k1_master_F_rgba.png",
+          "sha256": "422b19f37e32731514013f0d686b5a470b1058ea68b9b4ff31303525f69dac29"
+        },
+        {
+          "name": "review.html",
+          "sha256": "23a01627ae9e6d42b2f6c8d6ddd54b74b736cec040dd91c92292a2656c93fa57"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "35938d81e36a4ab99ab967b18bf7ab266fadc5be466988647e5e187f36d60c61"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 10,
