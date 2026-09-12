@@ -1,0 +1,25 @@
+{
+  "task_id": "K1-tr-K",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "rod_head: Shaft fittings are visible, but no distinct head-piece is discernible; answered absent.",
+      "bracer_R, shirt, belt: Partly obscured; counted visible instances.",
+      "External question and schema files were not read because the burst prohibits reads outside out/. Inventory follows the supplied closed list and described structure; exact schema conformance is unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "0b7baf30237d7a310655c72d1d2c14759dc6b3484d63b13f4db95ca3169ae695"
+    }
+  ]
+}

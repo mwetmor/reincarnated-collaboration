@@ -1,0 +1,51 @@
+{
+  "task_id": "K1-chk-04",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Inputs are 1024×1536, not the declared 1254×1254; mattes preserve native dimensions. Frozen O5 produces 64×64 masks.",
+      "O2 key-facing-edge measurement could not be computed with the frozen tool. Null results and whole-figure proxies on explicitly assumed ground are recorded.",
+      "O8 anchor has no alpha; comparisons use its full canvas and remain descriptive.",
+      "G9 visual dark-fringe absence cannot be established numerically; its verdict remains null.",
+      "Wrapper-managed live logs are excluded from the deliverable file manifest."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "653850014fcffc5ce931f1760c46e057d4b858d2deee38917df2ceb2e9401071"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "7551d9ea42b4f228eeee3112b3f1c75182ac0a2e174baa52c07a5fb436ff6941"
+    },
+    {
+      "path": "out/k1_master_J_rgba.png",
+      "sha256": "dcb205e3771d5d31e89aefa285185025f5ec8ab8d8f59457f258c849c9a50127"
+    },
+    {
+      "path": "out/k1_master_K_rgba.png",
+      "sha256": "9a3961c7c0b338359f6977381395418d48681a09d8a07e8c42a8fd43466365b8"
+    },
+    {
+      "path": "out/k1_master_L_rgba.png",
+      "sha256": "34584ed1e04c384324a4ac436da6f68fed79f48791e90064512542bd08c43ecb"
+    },
+    {
+      "path": "out/k1_master_J_64.png",
+      "sha256": "4116fdacc32456703b8647e900ba1e5b19d6d9884267e7493b69f2ae6bc8112a"
+    },
+    {
+      "path": "out/k1_master_K_64.png",
+      "sha256": "97aff191e7552b801e06782010ab159a60094ee7f77b0a0f9058d06aae044998"
+    },
+    {
+      "path": "out/k1_master_L_64.png",
+      "sha256": "8c153f14319e18a962d0d54d89ff36f84394021165502f7db911da0984716d6b"
+    }
+  ]
+}

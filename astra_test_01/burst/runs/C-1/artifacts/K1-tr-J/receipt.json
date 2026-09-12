@@ -1,0 +1,25 @@
+{
+  "task_id": "K1-tr-J",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bracer_R is partly hidden; counted one visible guard.",
+      "rod_head: metal shaft cap interpreted as no distinct head-piece.",
+      "External question set and schema were not read under the out-only restriction; inventory follows the supplied closed part list and stated structure."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "871b40f0d5ced0f5d39abd619144036609e2707e0cedf7336641ba5b04309f4b"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "9a69dbcd132185e18c2f8531630c52c88d7e5e349bff95912d23f9e77f142b0d"
+    }
+  ]
+}
