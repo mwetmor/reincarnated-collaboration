@@ -40,6 +40,8 @@
 
 **⟶ CANON HOME BORN (same session):** `canonical/reap-die-rise-game/painted-2d-pipeline/{00-system,mechanical-process}.md` — human twin (FLOW + hash-synced SYNC table) + agent twin (invariants, enforcement); root `AGENTS.md` routes Codex sessions to the lane; the painted-character-vfx skill pointer retired (F8). T0-a DELIVERED (lane runtime); T0-b in flight; legolas R6–R8 returned (O1–O9 oracles; transcriber contract), R9 in flight.
 
+**⟶ SESSION CLOSE (same date):** T0-a/b/c built by Astra and frozen (lane runtime · gates · oracles O1–O9 + comparator + transcription contract; 2 named-red acceptance cases → T0-d); X1 smoke ✓ on art, VOID on lane (five audit/gate defects diagnosed, ledger R-2 → T0-d); legolas R6–R9 folded; Astra pinned `gpt-6-astra` @ HIGH; **HITL run plan** drafted (`gandalf/notes/2026-09-11-astra-burst-lane-hitl-run-plan.md`) — next session starts there at step 0 (T0-d); Q72 = the agenda. Register lock unchanged.
+
 **Presentation-grammar keepers regardless of F1:** the doorway-side acceptance rule (declare interior/exterior + threshold normal + leaf sweep before painting; `E07V/FEEDBACK_2026-09-11.md`); the four portability constraints (`E04/NEUTRAL_CONTRACT.md`); painted local glow on floors/walls = 2D normal maps + `PointLight2D` in Godot 2D. **Retired as a harness:** Pixi/Phaser — Godot is harness *and* target.
 
 ---

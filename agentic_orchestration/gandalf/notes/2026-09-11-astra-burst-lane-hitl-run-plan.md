@@ -14,7 +14,7 @@
 | # | Condition | How verified |
 |---|---|---|
 | P1 | T0-a, T0-b, T0-c DELIVERED, reviewed, **frozen** (`MANIFEST.sha256` matches the tree). T0-c carries **two named-red acceptance cases** (O3 template mode is blind to primitive-family bleed: F04 inside=1/outside=0; comparator therefore does not reject F04) — **T0-d is HITL step 0** and must turn them green: audit fixes (forbidden-tool regex on tool names only; TOOLING add_dir deliverables accepted), **O3b radial-symmetry/ring-family detector**, O9 declared-absent-PART controls, resolved model recorded per burst in the ledger, then the R9 extensions (SPEC § 6 T0-d row) | `shasum -c` over the manifest; T0-d receipt + green suite |
-| P2 | **X1 smoke DELIVERED** through the wrapper: 2 images generated, audit image-count == 2, receipt/hashes/ledger round-trip, burst context minimal (no repo AGENTS.md text in the event stream) | `runs/C-1/ledger.json` X1 entry, exit 0 |
+| P2 | **X1 ran 2026-09-11 (art ✓; lane VOID on audit defects F-1…F-5, ledger R-2).** P2 now reads: **T0-d makes the lane pass X1's calibration** — image_calls (via `generated_images/` diff) == receipt `calls_used` == 2 on a re-run of the X1 GENERATE task; no false violations on a CHECK burst; `plate_uniformity` reported; burst context minimal (verified: no repo AGENTS.md text in X1's stream) | `runs/C-1/ledger.json` X1-gen-02 exit 0 |
 | P3 | `00-system.md § 7` SYNC hashes match (manual `shasum` until `check_sync.py` lands in T0-d) | conductor act |
 | P4 | Legolas R6–R8 + R9 findings read by the conductor (they are inputs to the vocabulary grill) | this plan § 4 carries the option sets |
 | P5 | Matt's review path works: `~/Desktop/Astra Burst Review - <date>/` with a Chrome-playable MP4 (Matt: *"they work in chrome"*) | first packet at K1 |
@@ -24,7 +24,7 @@
 
 ## 2. State at HITL start — filled after X1
 
-_(T0-a ✓ · T0-b ✓ · T0-c … · X1 … · images used … / 250 · known-red tests … · open concerns …)_
+**As of session close 2026-09-11:** T0-a ✓ frozen · T0-b ✓ frozen (46 tests) · T0-c ✓ frozen on substance (69 tests; **2 named-red**: O3 template mode blind to primitive-family bleed; comparator does not reject F04) · **X1 ✓ on art, VOID on lane** — the smoke found five audit/gate defects (ledger ruling R-2: image detector reads 0 vs true 2; repo-wide snapshot blames conductor commits; forbidden-tool regex matches the repo's own name; system-skill reads must be whitelisted; plate_uniformity + alpha floor missing) → all are **T0-d acceptance criteria** · images used **2 / 250** (true; audit said 0) · Astra effort now **HIGH** (X1 ran medium) · model verified `gpt-6-astra` · ledger: 5 bursts, rulings R-1/R-2 · legolas R6–R9 returned and folded · canon home live (`painted-2d-pipeline/`) · Q72 open (the agenda) · no push (77+ commits ahead of origin; push is Matt's word).
 
 ## 3. The session script (≈ 2.5 h with Matt; steps 4–10 need Matt present; 1–3 do not)
 

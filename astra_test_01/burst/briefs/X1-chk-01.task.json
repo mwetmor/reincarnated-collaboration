@@ -1,0 +1,16 @@
+{
+ "text": "CHECK BURST X1-chk-01 \u2014 lane smoke, deterministic checks on the two X1 props. task_id \"X1-chk-01\".\nInputs (read-only): /Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_satchel.png and /Users/admin/astra-burst/runs/C-1/X1-gen-01/out/x1_staff_head.png (1254x1254 RGB on a #00ff00 plate).\nFrozen tools (read-only; run them, do not modify or create code): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/matte.py (extract / remove_chroma_key), gates/g9_alpha.py, gates/common.py. Run them with `python3 -c` one-liners or `python3 - <<'PY'` scripts that ONLY import and call these modules with parameters \u2014 that is running frozen tools, not writing code.\nProduce in out/: x1_satchel_rgba.png and x1_staff_head_rgba.png (matted, particle-safe mode), and out/checks.json = a JSON list of SPEC \u00a7 1 result envelopes covering, per image: (1) plate uniformity \u2014 fraction of non-subject pixels within tolerance of pure #00ff00 (report the tolerance you used; passed=null if no threshold is declared), (2) G9 alpha edge stats from g9_alpha (edge mean RGB, dark-fringe screen with passed=null absent a calibrated threshold), (3) the subject's alpha bbox size in px and its fraction of the canvas (the brief asked ~300 px; report the number, no verdict), (4) matte details returned by matte.extract. Also write out/checks_readme.txt: the exact commands you ran.\nNo image_gen calls. No writes outside out/. No web. No agents.\nRETURN: receipt task_id \"X1-chk-01\"; images: [] ; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/x1_satchel_rgba.png",
+  "out/x1_staff_head_rgba.png",
+  "out/checks_readme.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "X1"
+}

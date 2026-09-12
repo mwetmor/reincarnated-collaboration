@@ -411,9 +411,99 @@
       "receipt_sha256": "b0304d60e6c6fcfc25dfc6f68875b5e18899a76feb97793f56f7d13371c64962",
       "artifacts": [],
       "exit": 2
+    },
+    {
+      "id": "X1-gen-01",
+      "type": "GENERATE",
+      "experiment": "X1",
+      "brief_sha256": "44344afc38b6e35cb0c7a04514368ef905ffc79550160d582b095d18c7c97c8d",
+      "started": "2026-09-12T02:44:18.593598+00:00",
+      "ended": "2026-09-12T02:46:43.043011+00:00",
+      "minutes": 2.4074921034829457,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [
+          "filesystem writes outside permitted paths"
+        ],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [
+          "/Users/admin/Games/reincarnated-collaboration/.git/COMMIT_EDITMSG",
+          "/Users/admin/Games/reincarnated-collaboration/.git/index",
+          "/Users/admin/Games/reincarnated-collaboration/.git/logs/HEAD",
+          "/Users/admin/Games/reincarnated-collaboration/.git/logs/refs/heads/main",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/00/1c75d4f7a8d9187729c6334ecacd6763e45621",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/06/350f8ff43d6674da2ee5e5aeefff68009c4ecc",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/06/c2f2f2aed37f283e2accec6b6c49607fd3b814",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/2e/b6dae01abf614c8b0a66cfcd4b76ef08ad5aef",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/3e/960a21696f324f4309e1afd352d6eb0ca655c8",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/50/f04cd27b005cd3d3327c8add54893b24163c01",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/55/9368619773ac6308e1d67b2292d86fd1c0078f",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/68/ed491ffe93092a47727f8fd5cd68f3ac587849",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/7c/f77ea135f38d562baa6f502048b0e9ee6b0a68",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/82/a510f85ddcfa02f1a6ccb04167cd8b44324101",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/b4/e541221ab94d5f737f4d4bb4f3a5321dc83fea",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/b6/bc682511f7c2213e43a9cbc1620f3b1b4416d7",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/c6/71f226a46ebc465ed3c0ae230c9f312b1e79ee",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/c6/d7f649560c428be8a8df51e10e716b5f082e45",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/c8/86696e7a1577ae29e7b1b54389cc50c414b67f",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/c9/ffef244622b036080538a148958e2f529c5fcc",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/d1/a8b2cc73573c8efe846dcbec49c571169c83cb",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/d3/5b6ceac9c02a17457754c3f02bf4b427a8556d",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/df/4831c0fa1893b189e6726fe735789117ac94ec",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/e6/6c7e106cb6561f2a6d68a581f70a36629cf8e5",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/e6/892c33e53894031f6369a2f7feb11771d26323",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/e8/3e5c294155a6177ef5f07db14fbf92dfe37a23",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/ef/63783693e41f8b18a5586c7f4e532ea11c163e",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/f9/0b711e48cdb3ddac1b130d73ea964f52365e98",
+          "/Users/admin/Games/reincarnated-collaboration/.git/objects/fe/05b32a295fbd4ea84fd55ceb62fc0f7ba57865",
+          "/Users/admin/Games/reincarnated-collaboration/.git/refs/heads/main",
+          "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-hitl-run-plan.md",
+          "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md",
+          "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/briefs/X1-gen-01.task.json",
+          "/Users/admin/Games/reincarnated-collaboration/canonical/reap-die-rise-game/painted-2d-pipeline/00-system.md"
+        ]
+      },
+      "receipt_sha256": "2ec522120563786bb32fb9bf3c7162d1c15e5ee857e33159cfa2719c0e7bda21",
+      "artifacts": [],
+      "exit": 2
+    },
+    {
+      "id": "X1-chk-01",
+      "type": "CHECK",
+      "experiment": "X1",
+      "brief_sha256": "ac1edb6c123440166c97d04d7192179ddf8590a4310351c83fe96f489badb00b",
+      "started": "2026-09-12T02:49:08.900368+00:00",
+      "ended": "2026-09-12T02:53:20.645149+00:00",
+      "minutes": 4.195742443750108,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [
+          "forbidden tool at line 5: command_execution",
+          "forbidden tool at line 7: command_execution",
+          "forbidden tool at line 9: command_execution",
+          "forbidden tool at line 12: command_execution",
+          "forbidden tool at line 16: command_execution"
+        ],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": []
+      },
+      "receipt_sha256": "b92895fafbe7da5074242ca60ca2a68a03391bd9ffd805ee2c87f30b2409095d",
+      "artifacts": [],
+      "exit": 2
     }
   ],
-  "images_used": 0,
+  "images_used": 2,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -428,6 +518,16 @@
         "tests/test_compare.py::F04 rejected"
       ],
       "owed": "T0-d"
+    },
+    "X1": {
+      "status": "DELIVERED_ART / VOID_LANE",
+      "bursts": [
+        "X1-gen-01",
+        "X1-chk-01"
+      ],
+      "images_true": 2,
+      "images_audited": 0,
+      "owed": "T0-d (F-1..F-5)"
     }
   },
   "milestones": [],
@@ -439,6 +539,14 @@
       "boundary": "reasoning",
       "burst": "T0-c",
       "ruling": "T0-c VOID (exit 2) is upheld AS AN AUDIT RESULT and overridden ON SUBSTANCE by conductor review: both violation classes are conductor-owned spec defects (forbidden-tool regex applied to command text \u2014 the repo path 'reincarnated-collaboration' matched 'collaboration'; TOOLING deliverables under add_dirs rejected by verify_files). Substance ACCEPTED: 69 tests, 67 green, regression lock 0/1,880 diffs; TWO NAMED-RED acceptance cases retained un-tuned: O3 template mode on the F04 crop finds inside=1/outside=0 (required outside>=3) and therefore the comparator does not reject the F04 crop. Finding: the bleed instances are primitive-family members, not copies of the template \u2014 O3b (radial-symmetry/ring family detector) owed in T0-d, with the two audit fixes and the O9 declared-absent-PART controls. Tree frozen at MANIFEST.sha256 (T0-c substance).",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-2",
+      "date": "2026-09-11",
+      "boundary": "reasoning",
+      "burst": "X1-gen-01 / X1-chk-01",
+      "ruling": "X1 art DELIVERED (satchel + staff head: register, upper-left key, identity via one reference, clean #00ff00 plate, matte composites clean over dark and light). Lane VOIDs on both bursts are UPHELD as audit results and attributed to conductor-owned audit defects, now T0-d acceptance criteria: (F-1) image-call detector read 0 vs true 2 \u2014 image generation lives inside command_execution items in the --json stream; truth source = new files under $CODEX_HOME/generated_images/<thread>/ during the burst window (written even for --ephemeral sessions; 2 PNGs for X1), cross-checked with receipt calls_used, mismatch => VOID; (F-2) repo-wide snapshot blamed the burst for the conductor's own git commit (35 paths under .git/) \u2014 audit roots must be workdir + add_dirs only, .git/ excluded; (F-3) forbidden-tool regex over command text matches the repo name 'reincarnated-collaboration' \u2014 apply to tool names/types only; (F-4) system-skill reads ($CODEX_HOME/skills/.system/) are legitimate and outrank the brief \u2014 whitelist; (F-5) gates: add plate_uniformity (within \u00b18 of #00ff00 fraction; X1: 100 % / 38 %, both sd<1.1) and an alpha floor for character/prop mattes (preserve_particles mode leaves <40/255 residual alpha \u2014 invisible, but it trips the border-clipping metric). Art findings for the bible: relative-size instructions do not land (props ~51 % / 73 % of canvas vs ~30 % requested) \u2014 SCALE must be stated in source px; leather micro-texture exceeds the restraint register at prop scale \u2014 O8's case. X1 ran at effort medium (before Matt's HIGH ruling); all later bursts HIGH.",
       "veto": "open to Matt"
     }
   ]
