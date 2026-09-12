@@ -5965,6 +5965,15 @@
       "burst": "K3-cmp-01",
       "ruling": "MECHANISM TEST of the T0-e composite on the sole-aligned idle frames (0 images): G12 base preservation 1.000 on all eight frames (outside the mask the base is byte-identical); drift48 fell on every adjacent pair (3\u21924: 0.404\u21920.298; 6\u21927: 0.503\u21920.382 \u2014 under the contextual 0.462 bar); G6/G6b pass. Two frames UNEVALUABLE by the coverage guard (my declared torso band covered 61 % of the figure; the box should be tighter \u2014 the guard is doing its job). Verdict: the composite MECHANISM works; the idle loop remains UNVALIDATED (R-17) \u2014 no loop claim.",
       "veto": "open to Matt"
+    },
+    {
+      "id": "R-21",
+      "by": "Matt",
+      "ts": "2026-09-12T15:09:52",
+      "topic": "Intent over consistency \u2014 animation gate hierarchy inverted (design ruling)",
+      "ruling": "Consistency is not the #1 animation goal; a frame-by-frame spec/plan of exactly where and how the body moves (idle/walk/sprint/attack/cast) is. Slight frame-to-frame variation is a feature when each frame is obviously moving from the prior pose toward the planned pose (hand-drawn intent, exaggerated/cartoon amplitude). Walk = 12 frames so Muybridge plate 2 informs the motion natively; Hades-class oracles supply the exaggerated amplitude to spec into frames. Identity consistency remains a hard constraint; drawing consistency becomes tolerance within the arc.",
+      "consequence": "T1 phase table = dope-sheet SPEC (primary gate: per-frame pose adherence within band); G6/G11/G12/O-gates demoted to constraints; smear clause reserved for attack/cast. Register lean toward Hades/Hollow Knight (line-forward) filed for Matt's ruling, not folded. Prior K3 gate passes (R-19/R-20) stand as consistency evidence only.",
+      "evidence": "K3 critique (rigid arm, darting eyes, no head bob) = intent failures that passed every consistency gate."
     }
   ]
 }

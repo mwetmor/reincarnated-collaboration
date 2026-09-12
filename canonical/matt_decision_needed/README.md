@@ -140,3 +140,6 @@ This is the **decision queue** — the short list of things **waiting on Matt sp
 **Sibling instrument:** `agentic_orchestration/architect-effectiveness-ledger.md` — the ARCHITECT-role **foresight-quality** ledger (jack-ryan scores gandalf's ARCHITECT passes against what runs actually hit; recurring misses → new rules). This queue tracks the *decisions*; that ledger tracks *how well they were foreseen*. Both are session start/end reads.
 
 **Signed:** gandalf, 2026-06-30. The trackers say what the work owes. This says what the work is waiting on *you* for.
+
+### Q74 — Motion/drawing register: line-forward, Hades-side vs Hollow Knight (filed 2026-09-12, gandalf)
+Matt's lean (2026-09-12): move toward a Hades / Hollow Knight look so generated frames take on the effect of hand-drawn frames; "the difference is not human precision, the difference is intent." **Gandalf recommendation: Hades-side** — same camera (elevated ¾), painted fill + strong line, ARPG frame; Hollow Knight is flat ink-and-wash, side-on — a larger pivot from master L. Ruling amends `reap-die-rise-story/style-register.md` (painted-2D stays; adds a line-forward, hand-drawn-frame *motion* register with drawing variation tolerated within the arc). Gate consequence already ledgered as R-21 (intent-first hierarchy). Status: OPEN.

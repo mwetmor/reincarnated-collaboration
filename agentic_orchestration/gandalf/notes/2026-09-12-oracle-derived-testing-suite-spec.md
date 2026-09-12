@@ -1,7 +1,14 @@
 # Oracle-derived testing suite — SPEC MEMO (T1 pre-contract)
 
-> **STATUS:** DRAFT v0.1 (2026-09-12) — gandalf (SPEC-AUTHOR). Folds into `astra_test_01/burst/SPEC.md` § 6 T1 next HITL session, after legolas R10c's clip table lands and a first measurement pass fixes the bands. **Matt's boundary (2026-09-12), binding:** extracted reference frames (Hades et al., class E; Muybridge, public domain) are a MEASUREMENT SUBSTRATE — **frames in, numbers out, never pixels forward.** No reference frame is ever a burst input: not a generation reference, not a judge anchor (a judge seeing Hades is Hades as an input). Judge calibration uses Muybridge (PD) or our own frames only.
+> **STATUS:** DRAFT v0.2 (2026-09-12; v0.2 = Matt's intent-over-consistency ruling R-21 folded) — gandalf (SPEC-AUTHOR). Folds into `astra_test_01/burst/SPEC.md` § 6 T1 next HITL session, after legolas R10c's clip table lands and a first measurement pass fixes the bands. **Matt's boundary (2026-09-12), binding:** extracted reference frames (Hades et al., class E; Muybridge, public domain) are a MEASUREMENT SUBSTRATE — **frames in, numbers out, never pixels forward.** No reference frame is ever a burst input: not a generation reference, not a judge anchor (a judge seeing Hades is Hades as an input). Judge calibration uses Muybridge (PD) or our own frames only.
 > **Principle:** the SAME instrument measures the reference and the candidate. A gate is "oracle-calibrated" when its band was fixed on reference curves BEFORE our loop was measured (pre-registration, as the lane already runs it).
+
+## 0a. Hierarchy (Matt ruling R-21, 2026-09-12) — INTENT FIRST
+- **Primary gate = pose adherence per frame:** the phase table is the SPEC (a dope sheet per cycle: planned head y / planted sole / arm angle / chest line per frame, with a tolerance band = the artist's taste). Question per frame: did the body land where the plan said it was going?
+- **Consistency splits:** IDENTITY consistency (face, palette, gear, scale) stays a hard constraint — G11 / G12 / O-gates. DRAWING consistency (line weight, fold shapes, silhouette wobble within the arc) is tolerance, not a fail. Smear/multiple frames get their own clause for attack/cast cycles (a smear FAILS silhouette gates and is correct).
+- **Muybridge = arc (floor); Hades-class = amplitude (target).** The spec is written at the exaggerated amplitude.
+- **Walk = 12 frames** (plate 2 maps 1:1, 12 @ 12 fps ≈ 1 s cycle). Idle frame count separate (two idles, relaxed first).
+- Evidence for the inversion: the K3 critique (rigid arm, darting eyes, no head bob) = three intent failures that passed every consistency gate.
 
 ## 0. The chain
 
@@ -56,7 +63,7 @@ All in px and ÷ H. Null when the mask health fails.
 ## 10. Sequence
 R10c clips → extract (conductor, `clip_to_oracle.sh`) → **T1a** (segment, landmarks, curves, bands; serial TOOLING) → first measurement pass on Muybridge + Hades → `bands.json` committed → **T1b** gates + pose guides + G6c → **T1c** question generator + X0-M calibration on Muybridge → re-run idle-S / walk-E with generated guidance → compare → Matt rules L5 and the loops.
 
-Open for Matt: (a) the a/b/c sourcing class; (b) whether PD (Muybridge) frames may be judge anchors (Q73 e); (c) k per gate ceiling — proposed 1.5× target unless Legolas' § 5.4 states otherwise.
+Open for Matt: (0) style-register amendment — line-forward drawing register, Hades-side (recommended) vs Hollow Knight (Q74 filed); (a) the a/b/c sourcing class; (b) whether PD (Muybridge) frames may be judge anchors (Q73 e); (c) k per gate ceiling — proposed 1.5× target unless Legolas' § 5.4 states otherwise.
 
 Tracker-delta: game tracker (oracle-first sequence already logged); charter § 11 row 26 criterion unchanged.
 — gandalf, 2026-09-12
