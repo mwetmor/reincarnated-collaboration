@@ -1,0 +1,360 @@
+{
+  "commission": "gandalf Mode A — R9: scope discovery for a complete painted-2D ARPG art pipeline (complement to gandalf's SCOPE MAP v0.1)",
+  "brief": "agentic_orchestration/gandalf/requests/2026-09-11-legolas-mode-a-r9-pipeline-scope-discovery.md",
+  "input_complemented": "agentic_orchestration/gandalf/notes/2026-09-11-painted-2d-pipeline-scope-map.md",
+  "findings": "agentic_orchestration/legolas/research/2026-09-11-r9-pipeline-scope-discovery/findings.md",
+  "sibling_commission_not_duplicated": "agentic_orchestration/legolas/research/2026-09-11-ai-tells-bibles-oracles/findings.md",
+  "researcher": "legolas (UNKNOWN-RESEARCHER)",
+  "date": "2026-09-11",
+  "grading_key": {
+    "VERIFIED": "primary source fetched and read this session, quoted",
+    "PRACTITIONER-REPORT": "published practitioner / community-standard practice or reverse-engineering corpus; real, not measured",
+    "SECONDARY": "trade-press or community report about a primary source not opened",
+    "UNVERIFIED": "plausible, named, not evidenced; includes researcher inference, always labelled",
+    "GAP-RECORDED": "two passes spent, not found; listed in findings.md section 5"
+  },
+  "sources": [
+    {
+      "id": "R9-01", "thread": ["T3"], "grade": "VERIFIED", "type": "primary-vendor-doc",
+      "title": "OpenAI API — Deprecations",
+      "url": "https://developers.openai.com/api/docs/deprecations",
+      "accessed": "2026-09-11", "read": "full-fetch (x2, second pass targeted at gpt-image-1)",
+      "load_bearing": [
+        "2025-11-14 announced: dall-e-2, dall-e-3 -> shutdown 2026-05-12; replacements gpt-image-2, gpt-image-1, gpt-image-1-mini",
+        "2026-06-02 announced: gpt-image-1, gpt-image-1-mini, gpt-image-1.5, chatgpt-image-latest -> shutdown 2026-12-01; replacement gpt-image-2",
+        "'Unless safety or compliance concerns require a faster timeline, we provide the following minimum notice periods before model retirement: Generally available models: At least 6 months.'"
+      ],
+      "supports": ["A1", "A2", "X2", "summary-1", "summary-2"]
+    },
+    {
+      "id": "R9-02", "thread": ["T3"], "grade": "VERIFIED", "type": "primary-vendor-doc",
+      "title": "OpenAI API — Models index",
+      "url": "https://developers.openai.com/api/docs/models",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Currently listed image models: GPT-Image-2.5 Sunburst ('Our most capable model for image generation and editing') and GPT-Image-2.5 Flare ('Fast, high-quality everyday image generation')",
+        "gpt-image-1 is NOT listed in the current models documentation"
+      ],
+      "supports": ["A1", "X2"]
+    },
+    {
+      "id": "R9-03", "thread": ["T3"], "grade": "VERIFIED", "type": "primary-vendor-doc",
+      "title": "OpenAI API — GPT-Image-2.5 Sunburst model page",
+      "url": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Model id gpt-image-2.5-sunburst; 'Default snapshot: gpt-image-2.5-sunburst-2026-09-08'",
+        "'Snapshots let you lock in a specific version of the model so that performance and behavior remain consistent.'",
+        "Supported endpoints: v1/images/generations and v1/images/edits only; inpainting supported",
+        "Pricing: text in $5/1M, image in $8/1M, image out $30/1M",
+        "No seed parameter and no negative-prompt parameter documented on this page"
+      ],
+      "supports": ["A1", "summary-2"]
+    },
+    {
+      "id": "R9-04", "thread": ["T3"], "grade": "VERIFIED", "type": "primary-vendor-doc",
+      "title": "OpenAI API — Content provenance guide",
+      "url": "https://developers.openai.com/api/docs/guides/content-provenance",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "'C2PA metadata provides more context about a file's origin'",
+        "'Editing, converting, or sharing a file can remove its metadata.'",
+        "C2PA result fields: issuer ('OpenAI OpCo, LLC'), model ('gpt-image'), generated_at",
+        "SynthID described as 'A watermark embedded directly in supported media' that 'may survive some transformations'",
+        "'not all OpenAI-generated content contains a supported signal'"
+      ],
+      "supports": ["A3", "summary-3"]
+    },
+    {
+      "id": "R9-05", "thread": ["T3"], "grade": "SECONDARY", "type": "vendor-announcement-via-coverage",
+      "title": "GPT-Image-2.5 Flare and Sunburst release (2026-09-08)",
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "accessed": "2026-09-11", "read": "search-result-summary only (page not fetched)",
+      "load_bearing": [
+        "Released 2026-09-08 — three days before gandalf's SCOPE MAP v0.1",
+        "'new image models in the API, with sharper detail, stronger style adherence, and more control over edits'",
+        "'more natural lighting, richer textures, and better handling of complex layouts and transparent backgrounds'",
+        "Flare = default, higher quality than GPT-Image-2 at 50% lower latency; Sunburst = premium/tighter edit control"
+      ],
+      "supports": ["A1", "A6", "X2", "summary-1"]
+    },
+    {
+      "id": "R9-06", "thread": ["T3", "T4"], "grade": "VERIFIED", "type": "primary-platform-doc",
+      "title": "Steamworks — Content Survey (Generative AI Content section)",
+      "url": "https://partner.steamgames.com/doc/gettingstarted/contentsurvey",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Mandatory sections include Generative AI Content",
+        "Pre-Generated: 'Any kind of content that ships with your game and is consumed by players that is created with the help of AI tools during development.'",
+        "Live-Generated: 'Any kind of content created with the help of AI tools while the game is running.'",
+        "Pre-Generated attestation: content will not include illegal or infringing content and will be consistent with marketing materials",
+        "Live-Generated: developer must describe 'what kind of guardrails you're putting on your AI'",
+        "Valve evaluates AI-generated output using the same standards as non-AI content"
+      ],
+      "supports": ["A4", "summary-4"]
+    },
+    {
+      "id": "R9-07", "thread": ["T3"], "grade": "SECONDARY", "type": "trade-press",
+      "title": "Steam AI disclosure policy timeline (Jan-2024 introduction; Jan-2026 rewrite)",
+      "url": "https://www.videogameschronicle.com/news/valve-has-significantly-rewritten-steams-rules-for-how-developers-much-disclose-ai-use/",
+      "accessed": "2026-09-11", "read": "search-result-summary",
+      "load_bearing": [
+        "Policy introduced January 2024; rewritten/clarified January 2026",
+        "2026 clarification exempts AI-powered dev tools; disclosure focuses on player-facing content",
+        "Disclosure surfaces on the store page as an 'AI Generated Content Disclosure' section"
+      ],
+      "supports": ["A4"]
+    },
+    {
+      "id": "R9-08", "thread": ["T4"], "grade": "VERIFIED", "type": "primary-platform-doc",
+      "title": "Microsoft — Xbox Accessibility Guideline 118 (photosensitivity)",
+      "url": "https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/118",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "'A flash is defined as a 10% change in luminance (where 100% is the maximum luminance of a white screen)'; 'The darker luminance value should be below 0.8.'",
+        "Failure: 'Flashes occur too frequently (approximately more than three per second)'; 'Flashes take up a certain amount of the screen (approximately 20 percent or more)'",
+        "Red flash: applies when either extreme is saturated red (R/(R+G+B) >= 0.8); flash when change in (R-G-B) x 320 is greater than 20",
+        "Spatial pattern failure: alternating high-contrast bands, contrast difference > 10 percent, over ~20 percent or more of screen",
+        "'eliminating game content that can potentially cause photosensitive seizures is preferred over splash-screen warnings'",
+        "Tool listed: Harding FPA Test (Cambridge Research Systems)",
+        "'All games should be tested for photosensitive seizure triggers, regardless of whether the game includes intentional flashing.'"
+      ],
+      "supports": ["B1", "summary-5"]
+    },
+    {
+      "id": "R9-09", "thread": ["T1", "T4"], "grade": "VERIFIED", "type": "primary-conference-record",
+      "title": "GDC 2022 — An Overview of the 'Diablo II: Resurrected' Renderer (Kevin Todisco, Blizzard)",
+      "url": "https://www.gdcvault.com/play/1027558/An-Overview-of-the-Diablo",
+      "accessed": "2026-09-11", "read": "full-fetch of the vault entry (talk description; video not viewed)",
+      "load_bearing": [
+        "Talk description opens: 'Building a new 3D renderer seems seldom heard of these days, with powerful engines like Unreal and Unity available to the public and indie scene.'",
+        "Covers why a custom 3D renderer was built from scratch: lighting, skin rendering, HDR color grading, order-independent transparency"
+      ],
+      "supports": ["X1", "C5", "summary-6"]
+    },
+    {
+      "id": "R9-10", "thread": ["T1"], "grade": "SECONDARY", "type": "developer-interview-coverage",
+      "title": "Diablo II: Resurrected developer interviews on the remaster architecture",
+      "url": "https://www.invenglobal.com/articles/15159/diablo-2-resurrected-devs-share-their-process-for-remaking-an-iconic-game-we-are-preserving-this-game",
+      "accessed": "2026-09-11", "read": "search-result-summary",
+      "load_bearing": [
+        "A new physically based renderer was written on top of the old game logic; models replace sprites on the render layer",
+        "'Under the hood, all of the logic and simulation is still being run by sprites' — still a grid-based game",
+        "Animation framerate unlocked per-animation on the render layer to match original timing and feel, using the original sprite data"
+      ],
+      "supports": ["X1", "summary-6"]
+    },
+    {
+      "id": "R9-11", "thread": ["T1"], "grade": "PRACTITIONER-REPORT", "type": "reverse-engineering-corpus",
+      "title": "Diablo II animation formats — COF / DCC / DC6 (Phrozen Keep, OpenDiablo2, Paul Siramy)",
+      "url": "https://d2mods.info/resources/infinitum/tut_files/dcc_tutorial/annex.html",
+      "accessed": "2026-09-11", "read": "full-fetch of annex + search-result summaries of the wider corpus",
+      "also": [
+        "https://github.com/OpenDiablo2/cof",
+        "http://paul.siramy.free.fr/_divers2/Extracting%20Diablo%20II%20Animations.pdf",
+        "https://d2mods.info/resources/infinitum/tut_files/dcc_tutorial/chapter2.html"
+      ],
+      "load_bearing": [
+        "Mode tokens confirmed: NU (neutral), WL (walk), RN (run), A1/A2 (attack), BL (block), SC (cast), TH (throw), KK (kick), S1-S4 (skills), GH (get hit), DT (death), DD (corpse), TN (town neutral), TW (town walk); KB (knockback) reuses GH",
+        "COF 'mostly handles the drawing order of DCC for a given unit / mode / weapon class / direction / frame'",
+        "'Commonly, animations can be found with 1, 2, 4, 8, 16 or 32 directions'; maximum 32; DC6 static / DCC animated",
+        "Example: an 8-direction 96-frame animation = 12 frames per direction"
+      ],
+      "supports": ["X5", "X6"]
+    },
+    {
+      "id": "R9-12", "thread": ["T1"], "grade": "PRACTITIONER-REPORT", "type": "reverse-engineering-corpus",
+      "title": "Diablo II DT1 / DS1 tile formats and per-act palettes (Phrozen Keep knowledge base)",
+      "url": "https://d2mods.info/forum/kb/viewarticle?a=40",
+      "accessed": "2026-09-11", "read": "search-result summary of KB articles",
+      "load_bearing": [
+        "Tile classes: Floors, Animated Floors, Walls, Walls-into-abyss (drawn below floors), Roofs, Shadows, Special (warp) tiles",
+        "Orientation codes: 0 floors, 1-2 walls, 10-11 special, 13 shadows, 15 roofs",
+        "Each act uses a different palette; moving tiles between acts requires re-palettising",
+        "Multiple tiles may share a combination; the game picks one at random -> variation is authored, not procedural"
+      ],
+      "supports": ["C1", "map-3.x context"]
+    },
+    {
+      "id": "R9-13", "thread": ["T4"], "grade": "SECONDARY", "type": "trade-press",
+      "title": "Diablo IV China regional content changes (blood, skeletons, skull icons)",
+      "url": "https://kotaku.com/diablo-4-china-censored-blood-skeletons-skulls-censorship-changes-removed-2000642581",
+      "accessed": "2026-09-11", "read": "search-result summary; corroborated across Insider Gaming, GameRant, ResetEra",
+      "load_bearing": [
+        "Blood replaced with 'a brown, transparent dust-like effect'",
+        "A large skeleton boss rebuilt 'made out of rocks'",
+        "Icons altered to remove skulls"
+      ],
+      "supports": ["B2", "summary-7"]
+    },
+    {
+      "id": "R9-14", "thread": ["T4"], "grade": "SECONDARY", "type": "news-archive",
+      "title": "World of Warcraft China — skeletons given flesh, bones replaced with graves",
+      "url": "http://www.china.org.cn/english/entertainment/216622.htm",
+      "accessed": "2026-09-11", "read": "search-result summary",
+      "load_bearing": ["Skeletal characters reskinned with flesh; bone death-markers replaced by graves in the Chinese client"],
+      "supports": ["B2"]
+    },
+    {
+      "id": "R9-15", "thread": ["T4"], "grade": "SECONDARY", "type": "industry-explainer",
+      "title": "Regional age-rating regimes — USK (Germany) and the Australian Classification Board",
+      "url": "https://www.outcyders.net/article/video-game-age-ratings-around-world-a-look-at-how-countries-rate-their-games",
+      "accessed": "2026-09-11", "read": "search-result summary",
+      "load_bearing": [
+        "USK is materially stricter on extreme blood and gore; alternate German versions with elements stripped are common",
+        "An Australian refusal of classification prohibits distribution and sale outright"
+      ],
+      "supports": ["B3"]
+    },
+    {
+      "id": "R9-16", "thread": ["T4"], "grade": "VERIFIED", "type": "primary-platform-doc",
+      "title": "Steamworks — Steam Deck compatibility review (legibility)",
+      "url": "https://partner.steamgames.com/doc/steamhardware/compat",
+      "accessed": "2026-09-11", "read": "search-result summary citing the Steamworks doc",
+      "load_bearing": [
+        "Interface text readable at ~12in/30cm; smallest on-screen font character never below 9 pixels in height at 1280x800",
+        "12px recommended where possible; user-configurable text size and contrast support recommended"
+      ],
+      "supports": ["B4", "section-3 (7.3)"]
+    },
+    {
+      "id": "R9-17", "thread": ["T5"], "grade": "VERIFIED", "type": "primary-platform-doc",
+      "title": "Steamworks — Store graphical assets (standard)",
+      "url": "https://partner.steamgames.com/doc/store/assets/standard",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Header capsule 920x430; Small capsule 462x174 (auto-generates 120x45 and 184x69); Main capsule 1232x706; Vertical capsule 748x896; Page background 1438x810; Bundle header 707x232",
+        "Screenshots: minimum 5, 1920x1080 minimum, 16:9",
+        "'your logo should nearly fill the small capsule'; 'These are small, so for best results focus on making the logo clearly legible.'"
+      ],
+      "supports": ["B6"]
+    },
+    {
+      "id": "R9-18", "thread": ["T5"], "grade": "VERIFIED", "type": "primary-platform-doc",
+      "title": "Steamworks — Achievements",
+      "url": "https://partner.steamgames.com/doc/features/achievements",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Each achievement requires an 'Achieved Icon' and an 'Unachieved Icon' (two art assets per achievement)",
+        "'By default, games are limited to 100 achievements at first.' -> up to 200 icons before any uplift",
+        "Pixel dimensions and file format NOT stated on this page -> GAP-RECORDED"
+      ],
+      "supports": ["B7", "gap-table"]
+    },
+    {
+      "id": "R9-19", "thread": ["T2"], "grade": "PRACTITIONER-REPORT", "type": "community-standard-technique",
+      "title": "Autotiling — blob-47 bitmask and marching-squares tile sets",
+      "url": "https://www.redblobgames.com/articles/autotile/claude/",
+      "accessed": "2026-09-11", "read": "search-result summary; corroborated by Excalibur.js and Godot/Tiled/RPG Maker convention",
+      "load_bearing": [
+        "8-neighbour bitmask; a diagonal counts only if both adjacent cardinals are present -> exactly 47 unique configurations",
+        "Marching squares uses a 4-bit N/E/S/W mask -> 16 tiles",
+        "Supported natively by Godot, Tiled, RPG Maker; isometric variants exist"
+      ],
+      "supports": ["C1"]
+    },
+    {
+      "id": "R9-20", "thread": ["T2"], "grade": "VERIFIED", "type": "primary-engine-doc",
+      "title": "Godot 4 — NinePatchRect class reference",
+      "url": "https://docs.godotengine.org/en/stable/classes/class_ninepatchrect.html",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "'A control that displays a texture by keeping its corners intact, but tiling its edges and center.'",
+        "patch_margin_left/right/top/bottom define the 3x3 grid",
+        "Axis stretch modes STRETCH / TILE / TILE_FIT; TILE requires seamless textures",
+        "Authoring consequence: corners fixed, edge+centre must survive tiling or stretching"
+      ],
+      "supports": ["C2"]
+    },
+    {
+      "id": "R9-21", "thread": ["T2"], "grade": "VERIFIED", "type": "primary-engine-doc",
+      "title": "Godot 4 — Importing images (compression, mipmaps, resolution)",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_images.html",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "VRAM compression: 'This mode should be avoided for 2D as it exhibits noticeable artifacts, especially for lower-resolution textures.'",
+        "'Lossless: This is the default and most common compression mode for 2D assets'",
+        "Mipmaps in 2D: 'this should only be enabled if your project visibly benefits from having mipmaps enabled' (~33% memory increase)",
+        "Recommends authoring from a high base resolution rather than downscaling textures during gameplay",
+        "TextureAtlas 'reduce[s] memory usage for animated 2D sprites'"
+      ],
+      "supports": ["C4", "X4", "section-3 (7.3, 7.4)"]
+    },
+    {
+      "id": "R9-22", "thread": ["T2"], "grade": "PRACTITIONER-REPORT", "type": "production-guidance",
+      "title": "VFX overdraw / fill-rate budgets for translucent sprites and particles",
+      "url": "https://thegamedev.guru/unity-gpu-performance/overdraw-optimization/",
+      "accessed": "2026-09-11", "read": "search-result summary; corroborated across multiple VFX production guides",
+      "load_bearing": [
+        "Desktop budget ~500-800 active particles in view; mobile 150-300",
+        "Overdraw is the dominant cost for overlapping translucent sprites; pixels can be written 10-50x",
+        "Additive blending cheaper than alpha blending on mobile; additive avoids depth sorting",
+        "Transparent pixels in a texture still cost fill rate -> trim empty margins in the atlas"
+      ],
+      "supports": ["C3", "section-3 (7.4)"]
+    },
+    {
+      "id": "R9-23", "thread": ["T3"], "grade": "VERIFIED", "type": "primary-academic",
+      "title": "Sprite Sheet Diffusion: Generate Game Character for Animation (Hsieh, Zhang, Yan)",
+      "url": "https://arxiv.org/abs/2412.03685",
+      "accessed": "2026-09-11", "read": "abstract page full-fetch; PDF exceeded fetch size limit (GAP-RECORDED)",
+      "load_bearing": [
+        "arXiv:2412.03685 (cs.GR), submitted 2024-12-04, revised 2025-03-16",
+        "Problem framing matches ours exactly: illustrators design a main character image 'which serves as the foundation for all subsequent animations', then draw poses manually with 'careful attention to consistency across frames'",
+        "Claim that pairwise frame-to-frame similarity was insufficient and VBench's Subject Consistency Score was adopted: SECONDARY (from search summary, not the fetched abstract)"
+      ],
+      "supports": ["A8", "summary-8"]
+    },
+    {
+      "id": "R9-24", "thread": ["T3"], "grade": "SECONDARY", "type": "practitioner-explainer",
+      "title": "Temporal consistency failure taxonomy in generated animation",
+      "url": "https://imerit.ai/resources/blog/solving-temporal-drift-in-ai-generated-video/",
+      "accessed": "2026-09-11", "read": "search-result summary; corroborated across LTX, getstream, longstories",
+      "load_bearing": [
+        "Failure levels: frame-level flicker, shot-level drift, cross-scene style incoherence",
+        "Named symptoms: flickering, warble, identity drift (a character's face changes), motion discontinuity",
+        "Cause: frames generated independently with no persistent object inventory; small details dropped or added"
+      ],
+      "supports": ["A8"]
+    },
+    {
+      "id": "R9-25", "thread": ["T3"], "grade": "PRACTITIONER-REPORT", "type": "industry-survey",
+      "title": "Production generative-AI art pipelines, 2025-2026 (style locks, reference-first, paintover)",
+      "url": "https://inkration.com/ai-art-tools-for-game-studios-in-2026-what-actually-works-for-production/",
+      "accessed": "2026-09-11", "read": "search-result summary; corroborated across several studio-blog surveys",
+      "load_bearing": [
+        "'Style locks before prompts': brushwork, values, materials and palette codified per biome",
+        "Reference-first workflows; prompt packs and references reused so passes converge",
+        "Human paintover reported as a standard stage in production pipelines",
+        "Seed discipline and versioning ('branching like code') where the model exposes a seed"
+      ],
+      "supports": ["E1", "E2"]
+    },
+    {
+      "id": "R9-26", "thread": ["T4"], "grade": "SECONDARY", "type": "academic-survey",
+      "title": "Perceptual hashing and embedding-distance approaches to generated-image similarity / infringement detection",
+      "url": "https://arxiv.org/pdf/2404.08221",
+      "accessed": "2026-09-11", "read": "search-result summaries only (abstracts, not full text)",
+      "also": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC11595497/", "https://arxiv.org/pdf/2406.00918"],
+      "load_bearing": [
+        "Perceptual hashes survive resize/compression/crop/colour adjustment; deployed at platform scale for near-duplicate detection",
+        "CLIP embeddings + MSE between anchor and generated embeddings used as a semantic-similarity metric",
+        "One reported combined RoI + image-hashing model: 88.7% infringement identification, false positives reduced 91.8% -> 2.8%",
+        "Note: every model-backed metric is a dependency decision on this host (no torch / onnxruntime) per sibling R8 finding"
+      ],
+      "supports": ["section-3 (8.6)"]
+    },
+    {
+      "id": "R9-GAP-01", "thread": ["T3", "T4"], "grade": "GAP-RECORDED", "type": "primary-legal-doc",
+      "title": "OpenAI Terms of Use — output ownership / commercial use / non-uniqueness",
+      "url": "https://openai.com/policies/terms-of-use/",
+      "accessed": "2026-09-11", "read": "HTTP 403 on two passes (/policies/terms-of-use/ and /policies/row-terms-of-use/)",
+      "load_bearing": [
+        "SECONDARY only: terms reportedly state the user retains Input rights and owns Output, with OpenAI assigning 'all right, title, and interest, if any, in and to Output'; commercial use permitted",
+        "OPEN AND UNRESOLVED: the lane authenticates on a ChatGPT subscription, not an API key — consumer terms vs business terms is a different instrument and was not read",
+        "Next: openai.com/policies/services-agreement/ and /policies/service-terms/, or read in a browser"
+      ],
+      "supports": ["section-3 (8.6)", "section-5"]
+    }
+  ]
+}
