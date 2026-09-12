@@ -82,7 +82,7 @@ def count_instances(rgb,template_rgb,scales,rotations_deg,thresh,allowed_masks=N
 # O3b calibration inputs are generated in tests/motif_calibration.py. Fixed from
 # synthetic 8/14/22px rings, seeded texture and a rectangular no-ring sprite;
 # real crops are held out. See CALIBRATION.md for measured confirmation.
-FAMILY_PARAMETERS = dict(min_radius_px=8, max_radius_px=30, vote_thresh=.50)
+FAMILY_PARAMETERS = dict(min_radius_px=8, max_radius_px=30, vote_thresh=.50, hollow_min=0.5)
 
 def _allowed_map(allowed_masks, native_shape, shape):
     allowed = np.zeros(shape, bool)
@@ -101,11 +101,61 @@ def _allowed_map(allowed_masks, native_shape, shape):
             allowed |= scaled_mask(m, shape)
     return allowed
 
+def _annulus_statistics(colors, gx, gy, x, y, radius, *, angular_samples,
+                        gradient_floor, alignment_cosine, radial_tolerance_fraction):
+    """Opposing inner/outer edges OR a centre returning to surround Lab colour.
+
+    Geometry is radius-relative: inner edge .4..85r, centre <=.5r,
+    ring band .85..1.05r, surround 1.15..1.4r. The outer-edge search uses
+    the existing detector tolerance. No crop-dependent normalization.
+    """
+    angles = np.arange(angular_samples)*2*np.pi/angular_samples
+    co, si = np.cos(angles), np.sin(angles)
+
+    def radial_edges(rr):
+        px, py = x+rr[:, None]*co, y+rr[:, None]*si
+        sx = ndimage.map_coordinates(gx, [py, px], order=1)
+        sy = ndimage.map_coordinates(gy, [py, px], order=1)
+        magnitude = np.hypot(sx, sy)
+        radial = sx*co+sy*si
+        valid = (magnitude >= gradient_floor) & (np.abs(radial) >= alignment_cosine*magnitude)
+        return radial, valid
+
+    tolerance = max(2., radius*radial_tolerance_fraction)
+    outer, ov = radial_edges(np.linspace(radius-tolerance, radius+tolerance,
+                                        2*int(np.ceil(tolerance))+1))
+    inner, iv = radial_edges(np.linspace(.4*radius, .85*radius,
+                                        max(2, int(np.ceil(.9*radius))+1)))
+    # Same-angle pairs; unrelated edges on opposite sides cannot form a ring.
+    edge_support = max(float(np.mean(
+        np.any(ov & (sign*outer > 0), axis=0) &
+        np.any(iv & (sign*inner < 0), axis=0))) for sign in (-1, 1))
+
+    reach = int(np.ceil(1.4*radius))
+    h, w = colors.shape[:2]
+    x0, x1 = max(0, int(x)-reach), min(w, int(x)+reach+1)
+    y0, y1 = max(0, int(y)-reach), min(h, int(y)+reach+1)
+    yy, xx = np.mgrid[y0:y1, x0:x1]
+    rr = np.hypot(xx-x, yy-y)/radius
+    patch = colors[y0:y1, x0:x1]
+    center = patch[rr <= .5].mean(axis=0)
+    band = patch[(rr >= .85) & (rr <= 1.05)].mean(axis=0)
+    surround = patch[(rr >= 1.15) & (rr <= 1.4)].mean(axis=0)
+    center_band = float(np.linalg.norm(center-band))
+    center_surround = float(np.linalg.norm(center-surround))
+    band_surround = float(np.linalg.norm(band-surround))
+    color_return = float(np.clip((center_band-center_surround)/max(band_surround, VARIANCE_EPS), 0, 1))
+    return dict(hollow_score=max(edge_support, color_return),
+                inner_opposed_support=edge_support, lab_color_return=color_return,
+                lab_center_band=center_band, lab_center_surround=center_surround,
+                lab_band_surround=band_surround)
+
+
 def count_family(rgb, family='ring', min_radius_px=8, max_radius_px=30,
                  vote_thresh=.50, allowed_masks=None, display_scale=None, *,
                  gradient_floor=.02, smooth_fraction=.08, nms_radius_fraction=.8,
                  min_angular_support=.75, radial_tolerance_fraction=.15,
-                 alignment_cosine=.9, angular_samples=48,
+                 alignment_cosine=.9, angular_samples=48, hollow_min=0.5,
                  max_outside=None, subject=''):
     """O3b gradient-vote circular Hough, numpy/scipy only.
 
@@ -122,16 +172,20 @@ def count_family(rgb, family='ring', min_radius_px=8, max_radius_px=30,
     gradient_floor=.02 uses normalised Sobel (contrast / display pixel).
     Radius inputs and returned centers/radii are in native source pixels;
     display_scale is analytical downsampling, never artwork registration.
+    After unchanged NMS, hollow_score >= hollow_min requires an opposing inner
+    edge or Lab centre return (see _annulus_statistics). Rejected candidates
+    remain in peaks with rejected="not_annulus" and all measured statistics.
     Result envelope notes.metrics contains inside, outside and peaks.
     """
     if family != 'ring':
         raise ValueError('Only the registered ring primitive is implemented')
     parameters=[min_radius_px,max_radius_px,vote_thresh,gradient_floor,smooth_fraction,
-                nms_radius_fraction,min_angular_support,radial_tolerance_fraction,alignment_cosine]
+                nms_radius_fraction,min_angular_support,radial_tolerance_fraction,alignment_cosine,hollow_min]
     if not all(np.isfinite(v) for v in parameters) or not (
             0 < min_radius_px <= max_radius_px and vote_thresh > 0 and gradient_floor > 0
             and smooth_fraction > 0 and nms_radius_fraction > 0 and 0<min_angular_support<=1
             and radial_tolerance_fraction>0 and 0<alignment_cosine<=1
+            and 0 <= hollow_min <= 1
             and type(angular_samples) is int and angular_samples>=8):
         raise ValueError('Invalid family parameters')
     native = image_array(rgb)
@@ -184,18 +238,26 @@ def count_family(rgb, family='ring', min_radius_px=8, max_radius_px=30,
                nms_radius_fraction*max(p['radius'], q['radius']) for q in retained):
             continue
         retained.append(p)
-    inside = 0
+    inside = outside = 0
+    colors = lab(a[..., :3]) if retained else None
     for p in retained:
         x, y = p['center']
         p['inside'] = bool(allowed[int(y), int(x)])
-        inside += int(p['inside'])
+        p.update(_annulus_statistics(colors, gx, gy, x, y, p['radius'],
+            angular_samples=angular_samples, gradient_floor=gradient_floor,
+            alignment_cosine=alignment_cosine, radial_tolerance_fraction=radial_tolerance_fraction))
+        if p['hollow_score'] < hollow_min:
+            p['rejected'] = 'not_annulus'
+        else:
+            inside += int(p['inside'])
+            outside += int(not p['inside'])
         p['center'] = [x*native.shape[1]/w, y*native.shape[0]/h]
         p['radius'] /= factor
-    outside = len(retained)-inside
     return report('O3b', subject, outside, max_outside, unit='instances', metrics={
         'inside': inside, 'outside': outside, 'peaks': retained, 'family': family,
         'min_radius_px': min_radius_px, 'max_radius_px': max_radius_px,
         'vote_thresh': vote_thresh, 'gradient_floor': gradient_floor,
         'smooth_fraction': smooth_fraction, 'nms_radius_fraction': nms_radius_fraction,
         'min_angular_support': min_angular_support, 'radial_tolerance_fraction': radial_tolerance_fraction,
-        'alignment_cosine': alignment_cosine, 'angular_samples': angular_samples})
+        'alignment_cosine': alignment_cosine, 'angular_samples': angular_samples,
+        'hollow_min': hollow_min, 'annulus_rejected': sum('rejected' in p for p in retained)})

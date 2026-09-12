@@ -123,5 +123,67 @@
   "count_within_1_fraction_min": 0.8,
   "control_catch_rate_min": 1.0
  },
- "fallback_if_not_met": "O9 stays advisory; K1's ownership check falls to Matt's eye (recorded in the ledger) \u2014 charter \u00a7 7 X0-T falsifier"
+ "fallback_if_not_met": "O9 stays advisory; K1's ownership check falls to Matt's eye (recorded in the ledger) \u2014 charter \u00a7 7 X0-T falsifier",
+ "pass_B": {
+  "figures": [
+   {
+    "id": "X0-T-5",
+    "name": "F04 starter (left figure) \u2014 pass B",
+    "image": "F04_starter_native.png",
+    "parts": [
+     "hair",
+     "face",
+     "shirt",
+     "tabard",
+     "belt",
+     "satchel",
+     "harness_strap",
+     "pauldron_L",
+     "pauldron_R",
+     "bracer_L",
+     "bracer_R",
+     "trousers",
+     "boots",
+     "rod",
+     "rod_head"
+    ],
+    "controls": [
+     "helmet",
+     "cape",
+     "shield",
+     "quiver"
+    ]
+   },
+   {
+    "id": "X0-T-6",
+    "name": "F04 advanced (right figure) \u2014 pass B",
+    "image": "F04_advanced_native.png",
+    "parts": [
+     "hair",
+     "face",
+     "shirt",
+     "tabard",
+     "belt",
+     "satchel",
+     "harness_strap",
+     "pauldron_L",
+     "pauldron_R",
+     "bracer_L",
+     "bracer_R",
+     "trousers",
+     "boots",
+     "rod",
+     "rod_head"
+    ],
+    "controls": [
+     "helmet",
+     "cape",
+     "shield",
+     "quiver"
+    ]
+   }
+  ],
+  "glossary_F04_B": "hair = the hair mass on the head \u00b7 face = the visible face \u00b7 shirt = the under-garment with sleeves (or a visible under-layer at collar/sleeves) \u00b7 tabard = the sleeveless over-garment with hanging panels \u00b7 belt = a WAIST belt (one belt with several buckles is 1) \u00b7 satchel = a bag or pouch hung from a belt or strap \u00b7 harness_strap = a strap crossing the torso (NOT a waist belt; an X of two straps = 2) \u00b7 pauldron_L / pauldron_R = a shoulder plate on the figure's LEFT / RIGHT shoulder (the figure faces you: its left shoulder is on YOUR right) \u00b7 bracer_L / bracer_R = a forearm guard on the figure's LEFT / RIGHT forearm \u00b7 trousers = the leg garment \u00b7 boots = footwear (a pair = 2) \u00b7 rod = a hand-held instrument on a handle or shaft (staff, rod, or a short-handled device) \u00b7 rod_head = the distinct head-piece of that instrument (e.g. a ringed astrolabe head) \u00b7 helmet = head armour \u00b7 cape = a cloak or cape \u00b7 shield = a shield \u00b7 second_belt = a SECOND waist belt separate from the first \u00b7 quiver = a container for arrows worn on the back or hip",
+  "reason": "R-7: second_belt is not unambiguous on the F04 reference art; pass B uses controls that are absent by construction (quiver) and adds the only-listed-keys clause"
+ }
 }

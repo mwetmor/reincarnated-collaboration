@@ -1,0 +1,25 @@
+{
+  "task_id": "X0-T-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Question set and strict schema were outside the permitted read scope; schema conformance remains unverified.",
+      "shirt, satchel, harness_strap, and trousers are partly hidden; counts reflect visible instances.",
+      "second_belt: strap continuity is uncertain; counted one additional waist belt."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "b5a3a18ff9a9b437846d867fcfc151dac848b38de25440d9dd043eb262909617"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "e5edf7ff922b5c82a1a014c5ed329b07a8761ae6f7a5e12b24d91f81284314d9"
+    }
+  ]
+}

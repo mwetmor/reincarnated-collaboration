@@ -42,5 +42,43 @@ class Tests(unittest.TestCase):
         from motif_calibration import rings
         a=rings();mask=np.zeros(a.shape[:2],bool);mask[20:70,20:60]=True
         self.assertEqual(metrics(count_family(a,allowed_masks=[mask]))['inside'],1)
-        for kw in ({'family':'unknown'},{'min_radius_px':0},{'vote_thresh':0},{'display_scale':2}):
+        for kw in ({'family':'unknown'},{'min_radius_px':0},{'vote_thresh':0},{'display_scale':2},
+                   {'hollow_min':-.1},{'hollow_min':1.1},{'hollow_min':float('nan')}):
             with self.assertRaises(ValueError):count_family(a,**kw)
+
+    def test_filled_discs_rejected_and_auditable(self):
+        from motif_calibration import filled_discs,RINGS
+        for textured in (False,True):
+            with self.subTest(textured=textured):
+                row=count_family(filled_discs(textured),allowed_masks=[[20,20,60,70]],**FAMILY_PARAMETERS)
+                m=metrics(row);assert_envelope(self,row)
+                self.assertEqual((m['inside'],m['outside']),(0,0))
+                self.assertEqual(m['annulus_rejected'],3)
+                self.assertEqual(len(m['peaks']),3)
+                self.assertEqual(sum(p['inside'] for p in m['peaks']),1)
+                for x,y,r in RINGS:
+                    peak=min(m['peaks'],key=lambda p:np.linalg.norm(np.subtract(p['center'],[x,y])))
+                    self.assertLessEqual(np.linalg.norm(np.subtract(peak['center'],[x,y])),2)
+                    self.assertLessEqual(abs(peak['radius']-r),2)
+                    self.assertEqual(peak['rejected'],'not_annulus')
+                    self.assertLess(peak['hollow_score'],m['hollow_min'])
+                    for k in ('inner_opposed_support','lab_color_return'):
+                        self.assertGreaterEqual(peak[k],0);self.assertLessEqual(peak[k],1)
+
+    def test_annulus_threshold_from_synthetic_observations(self):
+        from motif_calibration import rings,filled_discs
+        positive=[];negative=[]
+        for textured in (False,True):
+            positive.extend(p['hollow_score'] for p in metrics(count_family(rings(textured)))['peaks'])
+            negative.extend(p['hollow_score'] for p in metrics(count_family(filled_discs(textured)))['peaks'])
+        self.assertLess(max(negative),min(positive))
+        self.assertEqual(FAMILY_PARAMETERS['hollow_min'],(max(negative)+min(positive))/2)
+
+    def test_named_genuine_annuli_retained(self):
+        manifest,_=fixture_params()
+        m=metrics(count_family(FIXTURES/'f04_advanced_crop.png',
+            allowed_masks=[manifest['sigil_template']['bbox_in_advanced_crop']],**FAMILY_PARAMETERS))
+        for center in ([152,173],[113,201],[111,311],[170,253],[212,393]):
+            with self.subTest(center=center):
+                peak=next(p for p in m['peaks'] if p['center']==center)
+                self.assertNotIn('rejected',peak)

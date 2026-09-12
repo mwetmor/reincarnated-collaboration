@@ -112,3 +112,76 @@ Thresholds remain undeclared; exact envelopes are in
 - PNG provenance: text/XMP field extraction and C2PA manifest presence do not
   constitute signature verification. Opaque C2PA/JUMBF fields remain null when
   not exposed as readable metadata; raw keys and text are retained at ingest.
+
+
+## T0-d3: annulus discrimination (2026-09-12)
+
+`count_family` now applies `hollow_min=0.5` AFTER the unchanged candidate
+search and NMS. Radii 8..30, vote_thresh=0.50, gradient/angular-support
+parameters and center-based mask partition are unchanged. Rejected peaks
+remain in `peaks[]` with `rejected: "not_annulus"`; `inside` on each peak
+still describes its allowed-region membership, but aggregate inside/outside
+counts exclude rejected peaks. `annulus_rejected` records their number.
+Template NCC is unchanged. The comparator already merges FAMILY_PARAMETERS
+with bible overrides, so it automatically uses the new default; no bible or
+comparator implementation edit is required.
+
+The measured `hollow_score` is the maximum of two statistics in [0,1]:
+
+- `inner_opposed_support`: fraction of the existing 48 angular samples with
+  a radially aligned inner edge at 0.4..0.85r and an opposing outer edge at
+  the same angle. The outer band and gradient/alignment cutoffs are the
+  existing detector's. Both polarities are considered; the larger coherent
+  fraction is used. Radial samples are spaced no farther than half a pixel
+  inside and approximately one pixel outside.
+- `lab_color_return`: clip((d(center,band)-d(center,surround)) /
+  max(d(band,surround),1e-10),0,1), using Euclidean Lab distances between
+  region-mean Lab colours. Center is the disc <=0.5r; band is 0.85..1.05r;
+  surround is 1.15..1.4r. These relative sampling regions were specified
+  before synthetic measurements. The tiny denominator guard is numerical,
+  not a content threshold. Raw distances accompany every candidate.
+
+`tests/motif_calibration.py` adds FILLED DISCS at exactly the same three
+centers and nominal radii 8,14,22, contrast, flat background and seeded
+textured background as the rings. The six ring candidates all measured
+hollow_score=1.0; the six filled-disc candidates all measured 0.0. The
+threshold is their separation midpoint: (min_ring + max_disc)/2 = 0.5.
+These observations and the frozen parameter were written to
+`tests/o3b_calibration.json` BEFORE any new real-crop measurement. No
+post-measurement detector or threshold retry was performed. Each ring
+counts (flat=3, textured=3); each disc is rejected (flat=0, textured=0),
+with all six rejected peaks reported. The rectangular and half-arc controls
+both count 0. The JSON retains the previous T0-d2 observations separately.
+
+Held-out results at that fixed threshold: F04 inside=1, outside=2 (required
+outside>=3, therefore UNMET); clean inside=0, outside=0. All 15 F04 NMS
+candidate centers/radii and the clean candidate center/radius are unchanged.
+Of the previous 14 F04 outside peaks, these 12 are rejected, in original
+score order: (113,201), (210,146), (170,253), (165,121), (82,418),
+(140,195), (125,83), (111,311), (20,295), (203,246), (69,547), (212,566).
+The two retained outside centers are (152,173) and (232,626); the latter
+is the conductor-identified filled boot toe (hollow_score=0.8677296094),
+so discrimination of shaded/outlined real filled shapes remains incomplete.
+The clean boot toe (286,407) is rejected with hollow_score=0.0.
+
+Of the five specifically named genuine annuli, (152,173) and the inside
+rod head (212,393) remain counted. Chest boss (113,201), tabard compass
+(111,311), and belt buckle (170,253) are rejected with scores 0.3125,
+0.1666666667, and 0.0833333333 respectively. These remain explicit test
+assertions; neither the genuine-feature requirement nor the outside>=3
+assertion was weakened to accommodate the observations. Synthetic
+separability does not establish discrimination on decorated real artwork.
+
+Final full-suite invocation: `PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py`.
+Runner reports tests_run=121, successful_tests=117, elapsed_s=16.3162866670;
+unittest records 4 assertion failures (one outside-count assertion and three
+subtests in the genuine-annulus test), 0 errors, process exit 1. Both comparator
+acceptance assertions are satisfied: F04 comparison value=1/boolean=false;
+clean comparison value=0/boolean=true. The clean outside-zero case is satisfied.
+The initial suite invocation exposed that acceptance measurements were not
+refreshed by the existing tests. The comparator fixture helper now writes the
+current O3/O3b/comparison envelopes to `oracles_acceptance_measurements.json`
+as part of the suite, even if independent oracle assertions are unsatisfied.
+A second full-suite invocation verified only that recording change; detector,
+threshold, synthetic set and acceptance assertions were held fixed. Detailed
+suite output and the runner summary are retained in tests/.

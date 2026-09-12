@@ -1,0 +1,19 @@
+{
+ "text": "TRANSCRIBE BURST X0-T-5 — transcriber calibration (charter § 7 X0-T), figure: F04 starter (left figure) — pass B. task_id \"X0-T-5\".\n\nYou are a separate instance: you have not seen any generator prompt, receipt or prior inventory, and you must not look for one.\n\nInputs (read-only):\n- Image 1 (attached): the figure to inventory, a native-resolution crop of a painted concept sheet.\n- Question set: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0t/X0-T-5.questions.json — a JSON list of atomic questions over a CLOSED part list (presence question, then a dependent count question, per part).\n- Strict answer schema: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/x0t/X0-T-5.schema.json — out/inventory.json must conform to it EXACTLY (every listed part; keys `present` boolean and `count` integer ≥ 0; no other keys, no coordinates, no free text).\n\nPart glossary (use these definitions, nothing else): hair = the hair mass on the head · face = the visible face · shirt = the under-garment with sleeves (or a visible under-layer at collar/sleeves) · tabard = the sleeveless over-garment with hanging panels · belt = a WAIST belt (one belt with several buckles is 1) · satchel = a bag or pouch hung from a belt or strap · harness_strap = a strap crossing the torso (NOT a waist belt; an X of two straps = 2) · pauldron_L / pauldron_R = a shoulder plate on the figure's LEFT / RIGHT shoulder (the figure faces you: its left shoulder is on YOUR right) · bracer_L / bracer_R = a forearm guard on the figure's LEFT / RIGHT forearm · trousers = the leg garment · boots = footwear (a pair = 2) · rod = a hand-held instrument on a handle or shaft (staff, rod, or a short-handled device) · rod_head = the distinct head-piece of that instrument (e.g. a ringed astrolabe head) · helmet = head armour · cape = a cloak or cape · shield = a shield · second_belt = a SECOND waist belt separate from the first · quiver = a container for arrows worn on the back or hip\n\nRules: answer ONLY the parts listed in the schema — the schema forbids any other key (an extra key voids the inventory); answer every question by looking at Image 1 only. Count distinct visible instances (a pair of boots = 2; one belt with two buckles = 1). Parts that are in the list but not on this figure MUST be answered present=false, count=0 — the list is closed and deliberately includes parts that may be absent; do not assume a listed part exists. If a part is partly hidden, count what is visible and name it in concerns. Do not describe positions. No image_gen. No code. No web. No files outside out/.\n\nWRITE: out/inventory.json (schema-exact) and out/notes.txt (≤ 12 lines: for each part you found hard to decide, one line saying why).\nRETURN: the receipt (task_id \"X0-T-5\"): images []; calls_used 0; files = out/inventory.json + out/notes.txt with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns naming any part you could not determine (still answer it). Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png",
+   "role": "the figure to inventory (native crop)"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/inventory.json",
+  "out/notes.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "X0-T"
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "X0-T-1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exact schema conformance remains unverified: supplied schema and question-set paths were outside the permitted read area.",
+      "pauldron_L and pauldron_R: ambiguous garment panels counted as fabric, with plates absent.",
+      "bracer_R: partly hidden; counted one visible guard.",
+      "harness_strap: overlapping straps counted as two.",
+      "second_belt: overlapping waist bands interpreted as two separate belts."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "76c2835d18fc166681c303bd7eaf45b59e41fc684d2595215927578b15b16915"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "5c00234ab51bc089831a58c9d0d7af28626422bde30a63f4ff2f20fa413cd2b8"
+    }
+  ]
+}

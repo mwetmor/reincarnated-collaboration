@@ -1013,6 +1013,312 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "X0-T-2",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "cd490b414bac7bed4ae2d3b5e9e2b83c80ce0803cae59b2ff76c112136be4441",
+      "started": "2026-09-12T04:15:33.884438+00:00",
+      "ended": "2026-09-12T04:16:33.088419+00:00",
+      "minutes": 0.9867121159826638,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "39ad915ef1f8570e9f6d9a031d8804e19505a0411c56e5191eb35684be9b5bbf",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "b5a3a18ff9a9b437846d867fcfc151dac848b38de25440d9dd043eb262909617"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "e5edf7ff922b5c82a1a014c5ed329b07a8761ae6f7a5e12b24d91f81284314d9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "X0-T-3",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "7cd5900f969e86ec1c1f6f1d08e7149440b3a9772eeca37b86d962d092f2785a",
+      "started": "2026-09-12T04:16:33.190217+00:00",
+      "ended": "2026-09-12T04:17:45.813633+00:00",
+      "minutes": 1.2103710451502896,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 3,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "3906b30e20100f93879b239351a5e2988eb7993d7124aaa4af80d290f85823be",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "112829182cc88240e95104d8d8a3877bad9fedd9d20e918673c5dc32b443d335"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "be2395872397f3b129e4102dc301128037d324d162362dc89be08cfcc74c4a79"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "X0-T-4",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "09d4ab89bff2d4f394f4b51ad35d8976fbbf61b0591e17368eda3cac3d6e5b48",
+      "started": "2026-09-12T04:17:45.928831+00:00",
+      "ended": "2026-09-12T04:18:36.350660+00:00",
+      "minutes": 0.8403474944498157,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "403143a48dd4d62fed797ed8d1f26c8035c00e214ec895649cd43e68457f5217",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "24ccb89fcd680826141f8433c9f411bffcc7e3b7bc5d90fedd0d32766528a34b"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "26e1500f968a4ac2fbfcd8c1e9220ba7bf76977e8d0a685ff5493b8c7025b317"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "T0-d3",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "6011ff97c55464318ea0b8e288f40a7a3132718b10164150fde6e617259dd67b",
+      "started": "2026-09-12T04:19:44.745208+00:00",
+      "ended": "2026-09-12T04:25:57.748589+00:00",
+      "minutes": 6.216624249299639,
+      "image_calls": 0,
+      "tool_calls": 14,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 14,
+        "tools_seen": {
+          "command_execution": 14
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "0e1eb508dde16ee950ff926e34901c098ed19d39370ce266ffd0d1bbbf3d0d05",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/CALIBRATION.md",
+          "sha256": "8f5f46961fe37f8911ca9267ca18141574ac2d70c7c9c27cf13f81a7d34dd95e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/motif.py",
+          "sha256": "d809b39f5477438bcb28a6844b6d75874ab73ab54f0e0497c0f7008cc1c6d69b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/motif_calibration.py",
+          "sha256": "089862275fa5a95a892b811d5accfc5b01d01fb8d42efe5d33ca941e88bc1f66"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/o3b_calibration.json",
+          "sha256": "b475a200400060e5005545a3c0c43be8b76e1f78daa7ae8fed6afbc32c4bc3a4"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "27dd8cb69f4d707d60a0e9f158dd60dd15862fb4f341d53c97947e8ae6f32483"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "b8ec3b8b0e07385df30fb32f67153c403886da63715265abc7ea306ee709fd6d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_compare.py",
+          "sha256": "284545a12c857a04c8267cc9442ca056efe5370effed10a555d2e325f3393c7c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_oracles_motif.py",
+          "sha256": "878c161a8373477eb0cf81867d32121c7e98592951fbe95ccb6810a14419bff3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/tmp/t0d3_suite.log",
+          "sha256": "544eea92a2c4dab9988ec72c37f325670064cb377e0997c8a72f9aac6244314b"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "X0-T-5",
+      "type": "TRANSCRIBE",
+      "experiment": "X0-T",
+      "brief_sha256": "38e939c12f3e9261d890d03d5c3f10bd9144f49dd8a06f702538cd6c26eeb8ba",
+      "started": "2026-09-12T04:26:44.931856+00:00",
+      "ended": "2026-09-12T04:27:50.677780+00:00",
+      "minutes": 1.0957473958328288,
+      "image_calls": 0,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 2,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d77d9c7aac5380c28448cbac90fe167577d0436c0adadf02ab223d661fcfe05e",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "c21a9da293c4e13ee3bf9ca9697d9ae94e8339633b89faf21bab422995f9569d"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "30bbf8526df13c2e5862440c3fcfce5156c7291d8b15ae65815072b98f329f56"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 4,
@@ -1025,13 +1331,14 @@
         "T0-b",
         "T0-c",
         "T0-d1",
-        "T0-d2"
+        "T0-d2",
+        "T0-d3"
       ],
       "known_red": [
-        "tests/test_oracles_motif.py::test_family_clean_outside_zero (O3b counts a filled boot toe at (286,407) r=8 as ring-family)",
-        "tests/test_compare.py::test_stub_accepts_clean_crop (its comparator twin)"
+        "tests/test_oracles_motif.py::test_f04_outside_at_least_three (annulus-filtered F04 outside = 2)",
+        "tests/test_oracles_motif.py::test_named_genuine_annuli_retained \u00d73 (chest boss, tabard compass, belt buckle rejected by the hollow-centre test)"
       ],
-      "owed": "T0-d3 (O3b annulus discrimination)"
+      "owed": "T0-d4 (O3b interior radial-structure discriminator) \u2014 OFF the HITL critical path; O3b is an advisory bleed index for C-1"
     },
     "X1": {
       "status": "GENERATE DELIVERED (exit 0) \u00b7 CHECK X1-chk-02 VOID on receipt semantics (conductor rule gap, fixed BURST_RULES v1.2) \u2014 substance accepted (R-6); CHECK path proven by K1/K2 CHECK bursts",
@@ -1046,10 +1353,16 @@
       "owed": "T0-d (F-1..F-5)"
     },
     "X0-T": {
-      "status": "PLANNED",
-      "bursts": [],
+      "status": "PASS A DONE \u2014 presence/counts PASS, controls 14/16 strict (second_belt \u00d72 on F04) \u2192 O9 ADVISORY at K1 (charter falsifier); pass B X0-T-5/6 pre-registered",
+      "bursts": [
+        "X0-T-1",
+        "X0-T-2",
+        "X0-T-3",
+        "X0-T-4"
+      ],
       "inputs": "runs/C-1/x0t/ (hand_inventory.json, per-figure questions/schema), fixtures/x0t/ (native crops)",
-      "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)"
+      "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)",
+      "summary": "runs/C-1/x0t/calibration_summary.json"
     }
   },
   "milestones": [],
@@ -1101,6 +1414,22 @@
       "boundary": "reasoning",
       "burst": "X1-chk-02",
       "ruling": "X1-chk-02 VOID (exit 2) UPHELD as an audit result: the single violation 'image count mismatch (audit 0 vs receipt 5)' is the fixed wrapper working correctly \u2014 the truth source saw 0 image files; the CHECK burst self-reported its command count in `calls_used` because the executable rules never defined that field for non-GENERATE types (X1-chk-01 did the same: 6). Conductor-owned gap; closed by BURST_RULES v1.2 twin-edit (charter \u00a74): calls_used = image_gen calls only, 0 for every type but GENERATE/LABEL. Substance ACCEPTED from the workdir: plate_uniformity 99.58 % / 98.87 % within \u00b18 (X1-gen-02 props; the gate is live \u2014 X1-gen-01's staff head read 22.3 %); alpha_floor=40 takes the G9 border-clipping metric 34/39 \u2192 0 on both props; matte spill 0.0, edge halo 0.0; particle-loss proxy 0.99 (includes plate residuals \u2014 uninformative for props, noted); O8 grain distance to the F04 anchor 0.023 / 0.009 at source, 0.022 / 0.006 at display 0.5 \u2014 thresholds undeclared, verdicts null (honest). No rerun: the K1/K2 CHECK bursts prove the corrected CHECK path before the GO gate. The X0-T template already states calls_used 0.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-7",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "X0-T-1..4",
+      "ruling": "X0-T pass A verdict (charter \u00a7 7 X0-T thresholds): presence precision 0.94 / recall 0.96 (bar 0.9) PASS; counts within \u00b11 on 74/74 (bar 80 %) PASS; declared-absent controls 14/16 = 87.5 % (bar 100 %) FAIL \u2014 both misses are `second_belt` on the two F04 reference figures (the starter's double waist band was pre-registered as ambiguous in the hand inventory BEFORE the burst; the advanced figure's 'overlapping straps' was not). helmet/cape/shield/staff caught 12/12. Charter falsifier applied as written: O9 stays ADVISORY at K1; K1's ownership check falls to Matt's eye (recorded). Secondary findings: (i) both F03 transcribers answered one key outside the closed list (strict-schema breach by the burst; comparator rejects; scored over the closed list) \u2192 template clause 'answer ONLY the listed keys'; (ii) `rod`/`rod_head` read absent on the F04 advanced figure whose weapon is a short-handled astrolabe \u2014 glossary term, not perception; (iii) the F04 anchors themselves carry the doubled-band tell (R6 functional implausibility) \u2014 a bible V4 construction-table fact. Pass B pre-registered (X0-T-5/6, same F04 figures, controls helmet/cape/shield/quiver, template fix) \u2014 a second measurement with unambiguous controls, not a bar change; fires after T0-d3.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-8",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "T0-d3",
+      "ruling": "T0-d3 DELIVERED exit 0 (14 tool calls; zero violations). Conductor DRIFT-CRITIC verdict on the build AND on the conductor's own contract: the annulus test (hollow_min 0.5, frozen on synthetic rings=1.0 / discs=0.0 BEFORE any real-crop measurement) makes the clean crop read 0 (boot toe rejected) but on the F04 crop keeps only 2 outside \u2014 rejecting three genuine sigil placements (chest boss hollow 0.31, tabard compass 0.17, belt buckle 0.08) while keeping one boot toe whose sole line reads as an inner edge. Astra added tests that the three genuine placements must survive; suite 121 / 117 with FOUR NAMED REDS, nothing tuned to the real crops \u2014 accepted as an honest partial. The framing defect is the conductor's: the F04 bleed family is RADIAL ORNAMENT (compass diagrams, rimmed bosses, small rings), not annuli; 'hollow centre' is the wrong discriminator for painted art. RULING for Run C-1: O3b is a MEASUREMENT, not a GATE \u2014 report the raw family count (bleed index; calibration anchors F04 = 14 vs clean = 1) and the annulus-filtered count beside it; motif bleed at K1/K2/K3 is judged by JUDGE + Matt's eye (charter \u00a7 6), O3 template mode remains the copy-detection gate for the chosen motif; O3b produces no FAIL verdict in the overnight run (no spurious HALTs). T0-d4 owed (interior radial-structure discriminator: internal edge-energy / spoke count vs a smooth convex blob), acceptance unchanged (F04 \u2265 3 genuine kept; clean 0; synthetic discs 0) \u2014 off the HITL critical path. Tree FROZEN (T0-d3 state).",
       "veto": "open to Matt"
     }
   ]

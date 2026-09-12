@@ -1,0 +1,84 @@
+{
+  "task_id": "T0-d3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The first full-suite run did not refresh acceptance measurements.",
+      "change": "Updated the comparator test helper to write current measurements and reran the full suite. Detector and threshold remained fixed."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "F04 outside=2, below required minimum 3; inside=1. Clean outside=0. Comparator booleans meet expectations: F04=false, clean=true.",
+      "Three required genuine annuli were rejected: chest boss (113,201), tabard compass (111,311), belt buckle (170,253). Filled boot toe (232,626) remains counted.",
+      "Dropped 12 previous F04 outside peaks: (113,201), (210,146), (170,253), (165,121), (82,418), (140,195), (125,83), (111,311), (20,295), (203,246), (69,547), (212,566).",
+      "Full suite: tests_run=121, successful_tests=117, assertion failures=4, errors=0, exit_code=1. Assertions remain unchanged in strength.",
+      "hollow_min=0.5 was frozen from synthetic scores before new real-crop measurements: all six rings scored 1.0 and counted; all six filled discs scored 0.0 and were rejected. No real-crop tuning occurred."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/motif.py",
+      "sha256": "d809b39f5477438bcb28a6844b6d75874ab73ab54f0e0497c0f7008cc1c6d69b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracles/CALIBRATION.md",
+      "sha256": "8f5f46961fe37f8911ca9267ca18141574ac2d70c7c9c27cf13f81a7d34dd95e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/motif_calibration.py",
+      "sha256": "089862275fa5a95a892b811d5accfc5b01d01fb8d42efe5d33ca941e88bc1f66"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/o3b_calibration.json",
+      "sha256": "b475a200400060e5005545a3c0c43be8b76e1f78daa7ae8fed6afbc32c4bc3a4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py",
+      "sha256": "878c161a8373477eb0cf81867d32121c7e98592951fbe95ccb6810a14419bff3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_compare.py",
+      "sha256": "284545a12c857a04c8267cc9442ca056efe5370effed10a555d2e325f3393c7c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "27dd8cb69f4d707d60a0e9f158dd60dd15862fb4f341d53c97947e8ae6f32483"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "b8ec3b8b0e07385df30fb32f67153c403886da63715265abc7ea306ee709fd6d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/t0d3_suite.log",
+      "sha256": "544eea92a2c4dab9988ec72c37f325670064cb377e0997c8a72f9aac6244314b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    }
+  ]
+}

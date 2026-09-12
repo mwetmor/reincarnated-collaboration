@@ -1,0 +1,27 @@
+{
+  "task_id": "X0-T-5",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Schema and question files were outside the permitted read scope; exact schema conformance remains unverified.",
+      "belt, second_belt, and harness_strap: overlapping bands obscure continuity.",
+      "pauldron_L and pauldron_R: interpreted as cloth coverings; plate presence uncertain.",
+      "bracer_R: partly hidden; visible guard counted.",
+      "rod and rod_head: interpreted as harness strap and satchel ornament."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "c21a9da293c4e13ee3bf9ca9697d9ae94e8339633b89faf21bab422995f9569d"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "30bbf8526df13c2e5862440c3fcfce5156c7291d8b15ae65815072b98f329f56"
+    }
+  ]
+}

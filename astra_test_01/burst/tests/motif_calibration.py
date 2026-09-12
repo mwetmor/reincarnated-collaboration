@@ -4,7 +4,7 @@ from scipy import ndimage
 
 RINGS = [(40, 48, 8), (108, 48, 14), (185, 70, 22)]
 
-def rings(textured=False):
+def rings(textured=False, *, filled=False):
     y, x = np.mgrid[:144, :240]
     background = np.full(y.shape, 45.)
     if textured:
@@ -14,7 +14,8 @@ def rings(textured=False):
     image = background.copy()
     for cx, cy, radius in RINGS:
         distance = np.abs(np.hypot(x-cx, y-cy)-radius)
-        coverage = np.clip(2-distance, 0, 1)
+        coverage = (np.clip(radius+.5-np.hypot(x-cx, y-cy), 0, 1) if filled
+                    else np.clip(2-distance, 0, 1))
         image = image*(1-coverage)+205*coverage
     return np.repeat(image[..., None], 3, axis=2).clip(0,255).astype('uint8')
 
@@ -34,3 +35,8 @@ def half_arcs():
     for cx,cy,r in RINGS:
         a[cy:cy+r+4,cx-r-4:cx+r+5] = 45
     return a
+
+
+def filled_discs(textured=False):
+    """Same centers, radii, contrast and backgrounds as the ring positives."""
+    return rings(textured, filled=True)

@@ -1,0 +1,32 @@
+{
+ "scope": "X0-T calibration pass A \u2014 4 TRANSCRIBE bursts (X0-T-1..4), one per figure, scored over each figure's closed list + declared-absent controls (compare/calibrate_transcriber.py + transparent tally)",
+ "per_figure": {
+  "X0-T-1 F04 starter": "presence 18/19 (second_belt answered present \u2014 the reference's double waist band; pre-registered ambiguity), counts \u00b11 19/19, controls 3/4",
+  "X0-T-2 F04 advanced": "presence 16/19 (rod + rod_head answered absent \u2014 the figure holds a short-handled astrolabe, glossary said 'staff or rod'; second_belt answered present \u2014 'overlapping straps'), counts \u00b11 19/19, controls 3/4",
+  "X0-T-3 F03 starter": "presence 18/18, counts \u00b11 18/18, controls 4/4; answer carried one key outside the closed list ('coat') \u2014 strict-schema breach by the burst, rejected by the comparator, scored over the closed list",
+  "X0-T-4 F03 advanced": "presence 17/18 (tool answered present=1, 'uncertain'), counts \u00b11 18/18, controls 4/4; one extra key ('jacket'), same breach"
+ },
+ "aggregate": {
+  "parts": 74,
+  "TP": 47,
+  "FP": 3,
+  "FN": 2,
+  "presence_precision": 0.94,
+  "presence_recall": 0.959,
+  "counts_within_1": "74/74 = 1.00",
+  "controls_strict": "14/16 = 0.875 (both misses = second_belt on the two F04 figures)",
+  "controls_excluding_preregistered_F04_starter_second_belt": "14/15 = 0.933",
+  "controls_helmet_cape_shield_staff": "12/12 = 1.00"
+ },
+ "thresholds": {
+  "presence_P_R_min": 0.9,
+  "counts_within_1_min": 0.8,
+  "controls_min": 1.0
+ },
+ "verdict": "presence and counts PASS the charter bars; controls FAIL the strict 100 % bar on ONE control class (second_belt) that is not unambiguous on the reference art \u2014 charter falsifier applies: O9 stays ADVISORY at K1 and the ownership check falls to Matt's eye (recorded). Pass B (X0-T-5/6) pre-registered: same F04 figures, unambiguous control set (helmet, cape, shield, quiver), template clause 'answer ONLY the listed keys'.",
+ "findings_for_the_bible": [
+  "the F04 reference figures carry a doubled waist band / overlapping straps that a careful reader calls a second belt \u2014 R6 functional-implausibility class in the anchor itself; V4 construction table must state belt count = 1 and every strap's endpoint",
+  "a transcriber control must be unambiguous by construction on the figure it is applied to",
+  "'rod' needs the bible's own definition (astrolabe-rod: a handle with a ringed head) \u2014 'staff' reads differently"
+ ]
+}

@@ -25,7 +25,7 @@ test_control_claim_and_invalid_answers (test_compare.Tests.test_control_claim_an
 test_either_instrument_violates_both_mode (test_compare.Tests.test_either_instrument_violates_both_mode) ... ok
 test_missing_reviewed_masks_is_null (test_compare.Tests.test_missing_reviewed_masks_is_null) ... ok
 test_stub_accepts_clean_crop (test_compare.Tests.test_stub_accepts_clean_crop)
-SPEC verbatim: compare_to_bible with the stub PASSES the clean crop. ... FAIL
+SPEC verbatim: compare_to_bible with the stub PASSES the clean crop. ... ok
 test_stub_rejects_f04_crop (test_compare.Tests.test_stub_rejects_f04_crop)
 SPEC verbatim: compare_to_bible with the stub FAILS the F04 crop. ... ok
 test_template_count_crosscheck (test_compare.Tests.test_template_count_crosscheck) ... ok
@@ -85,14 +85,20 @@ test_identical_mirror_palette_and_missing (test_model_drift_probe.Tests.test_ide
 test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
 test_known_frequencies_source_units_and_anchor_distance (test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance) ... ok
 test_shaded_planes_and_flat (test_oracles_keylight.Tests.test_shaded_planes_and_flat) ... ok
+test_annulus_threshold_from_synthetic_observations (test_oracles_motif.Tests.test_annulus_threshold_from_synthetic_observations) ... ok
 test_clean_outside_zero (test_oracles_motif.Tests.test_clean_outside_zero)
 SPEC verbatim: on clean_crop → outside == 0. ... ok
 test_exact_scaled_rotated_peaks_partition_nms (test_oracles_motif.Tests.test_exact_scaled_rotated_peaks_partition_nms) ... ok
 test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
-SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3. ... ok
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3. ... FAIL
 test_family_clean_outside_zero (test_oracles_motif.Tests.test_family_clean_outside_zero)
-SPEC verbatim: on clean_crop → outside == 0. ... FAIL
+SPEC verbatim: on clean_crop → outside == 0. ... ok
 test_family_masks_and_invalid_parameters (test_oracles_motif.Tests.test_family_masks_and_invalid_parameters) ... ok
+test_filled_discs_rejected_and_auditable (test_oracles_motif.Tests.test_filled_discs_rejected_and_auditable) ... ok
+test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) ... 
+  test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201]) ... FAIL
+  test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311]) ... FAIL
+  test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253]) ... FAIL
 test_synthetic_family_rings_and_negatives (test_oracles_motif.Tests.test_synthetic_family_rings_and_negatives) ... ok
 test_frame_shift_margin (test_oracles_palette.Tests.test_frame_shift_margin) ... ok
 test_known_swatch_shift_and_empty (test_oracles_palette.Tests.test_known_swatch_shift_and_empty) ... ok
@@ -123,24 +129,39 @@ test_separate_part_inventory (test_transcribe.Tests.test_separate_part_inventory
 test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
 
 ======================================================================
-FAIL: test_stub_accepts_clean_crop (test_compare.Tests.test_stub_accepts_clean_crop)
-SPEC verbatim: compare_to_bible with the stub PASSES the clean crop.
+FAIL: test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
+SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3.
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_compare.py", line 25, in test_stub_accepts_clean_crop
-    self.assertIs(self.compare_fixture('clean_crop',[])['passed'],True)
-AssertionError: False is not True
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 19, in test_f04_outside_at_least_three
+    self.assertGreaterEqual(metrics(row)['outside'],3)
+AssertionError: 2 not greater than or equal to 3
 
 ======================================================================
-FAIL: test_family_clean_outside_zero (test_oracles_motif.Tests.test_family_clean_outside_zero)
-SPEC verbatim: on clean_crop → outside == 0.
+FAIL: test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[113, 201])
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 27, in test_family_clean_outside_zero
-    self.assertEqual(metrics(count_family(FIXTURES/'clean_crop.png',**FAMILY_PARAMETERS))['outside'],0)
-AssertionError: 1 != 0
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 84, in test_named_genuine_annuli_retained
+    self.assertNotIn('rejected',peak)
+AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}
+
+======================================================================
+FAIL: test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[111, 311])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 84, in test_named_genuine_annuli_retained
+    self.assertNotIn('rejected',peak)
+AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}
+
+======================================================================
+FAIL: test_named_genuine_annuli_retained (test_oracles_motif.Tests.test_named_genuine_annuli_retained) (center=[170, 253])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py", line 84, in test_named_genuine_annuli_retained
+    self.assertNotIn('rejected',peak)
+AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 118 tests in 14.701s
+Ran 121 tests in 15.318s
 
-FAILED (failures=2)
+FAILED (failures=4)
