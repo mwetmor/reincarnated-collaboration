@@ -1,0 +1,38 @@
+{
+ "text": "JUDGE BURST K1-jdg-03 — Keeper identity masters, rubric axes 1–5 (JUDGE_RUBRIC; charter § 6). task_id \"K1-jdg-03\". You are a separate instance: you have not seen any prompt, receipt, check or prior judgment, and must not look for one.\n\nCandidates: Image 1 = candidate P, Image 2 = candidate Q, Image 3 = candidate T (three candidates; judge each independently; do not assume any is a control). Anchors: Image 4 = F04 register anchor (axis 1: clean planes, restrained texture, no grain — judge the FIGURE style only); Image 5 = light anchor (axis 3: the key from screen upper-left; spell light the only saturated source); Image 6 = 64-px silhouette anchor (axis 4: does the rod head + hair mass read distinctly at 64 px — view each candidate mentally reduced).\nThe described identity (axis 2 is CONSISTENCY WITH THIS DESCRIPTION and across candidates): a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned, face visible, no helmet; ivory linen shirt, navy sleeveless tabard with a PLAIN chest (no emblem of any kind), ONE chestnut diagonal harness strap carrying an olive canvas satchel on the figure's LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots; a PLAIN dark walnut staff with small brass ferrules at foot and tip (NO ring, NO head-piece) in the RIGHT hand; NO insignia anywhere — every surface plain. ANY emblem, ring, sigil or shape on clothing or staff is a deviation — list it under ornament_surfaces and lower axis 2. Also state whether each candidate reads as a young woman AND whether the chin shows a cleft or dimple (a chin cleft is a deviation: name it).\nScore each candidate on axes 1–5 (1–5 integers) with ONE-LINE reasons: 1 register fidelity · 2 identity fidelity to the description (count the harness straps, belts, motif placements you see; name deviations) · 3 light obedience (key upper-left; any candidate lit from upper-right scores ≤ 2) · 4 silhouette read at 64 px (rod head + hair) · 5 brush-register consistency with the anchors. Also list, per candidate, every surface carrying ornament (the 'plain-surface' tell) and any strap that carries nothing.\nWrite out/judgment.json: {\"candidates\":[{\"image\":1,\"axes\":{\"1\":n,\"2\":n,\"3\":n,\"4\":n,\"5\":n},\"reasons\":{\"1\":\"…\",…},\"ornament_surfaces\":[…],\"straps_carrying_nothing\":[…],\"reads_feminine\":true},…]}. No image_gen. No code. No web. No files outside out/. calls_used must be 0.\nRETURN: receipt task_id \"K1-jdg-03\"; images []; files [out/judgment.json + sha256]; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for anything you could not assess. Never PASS/FAIL — scores only.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-03/k1_master_G.png",
+   "role": "candidate P"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-03/k1_master_H.png",
+   "role": "candidate Q"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-control/k1_control_mirror_3.png",
+   "role": "candidate T"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png",
+   "role": "F04 register anchor (axis 1)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/evidence/vfx_style_match.png",
+   "role": "light anchor (axis 3)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/run_03/character/turnaround_64px.png",
+   "role": "64-px silhouette anchor (axis 4)"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/judgment.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K1"
+}

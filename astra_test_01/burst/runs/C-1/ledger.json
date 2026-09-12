@@ -2231,9 +2231,82 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-gen-03",
+      "type": "GENERATE",
+      "experiment": "K1",
+      "brief_sha256": "98e674fff4192058793a774846e10dd71c54da4ff38261f867ecfbd61c7a51b5",
+      "started": "2026-09-12T15:23:36.394780+00:00",
+      "ended": "2026-09-12T15:26:40.613237+00:00",
+      "minutes": 3.0702791659665913,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09637-870e-7fe3-a2cf-48260bf1d417/exec-3dc2ceb5-4d0b-4251-968f-9c0787ddbde8.png",
+            "sha256": "7c170a5348705dd71266ebc1886bc0fc98271ac8553e038bd19828a2d2a48f3f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09637-870e-7fe3-a2cf-48260bf1d417/exec-4d2af235-fc10-4c43-b13e-7842d03b54dd.png",
+            "sha256": "2279c86c78c2053c5f6f43c5e38f74d46a0605c27b74a23630fee3fe2a2ccddf"
+          }
+        ]
+      },
+      "receipt_sha256": "3c85bc0853d79d7d4bcb5df3b77e2001172bb7b5e84278b4616746ed1017990c",
+      "artifacts": [
+        {
+          "name": "k1_master_G.png",
+          "sha256": "2279c86c78c2053c5f6f43c5e38f74d46a0605c27b74a23630fee3fe2a2ccddf"
+        },
+        {
+          "name": "k1_master_H.png",
+          "sha256": "7c170a5348705dd71266ebc1886bc0fc98271ac8553e038bd19828a2d2a48f3f"
+        },
+        {
+          "name": "exec-3dc2ceb5-4d0b-4251-968f-9c0787ddbde8.provenance.json",
+          "sha256": "9a6254e1120c0645010fb43c5ef62eab8286c5bf0f2239343fe3a45eaea4411e"
+        },
+        {
+          "name": "exec-4d2af235-fc10-4c43-b13e-7842d03b54dd.provenance.json",
+          "sha256": "3632ee30813d608abc305efe0aabecd58bac0d30dbe8b43f30cff5501d99ae37"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09637-870e-7fe3-a2cf-48260bf1d417/exec-3dc2ceb5-4d0b-4251-968f-9c0787ddbde8.png",
+          "sha256": "7c170a5348705dd71266ebc1886bc0fc98271ac8553e038bd19828a2d2a48f3f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09637-870e-7fe3-a2cf-48260bf1d417/exec-4d2af235-fc10-4c43-b13e-7842d03b54dd.png",
+          "sha256": "2279c86c78c2053c5f6f43c5e38f74d46a0605c27b74a23630fee3fe2a2ccddf"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 10,
+  "images_used": 12,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -2279,7 +2352,7 @@
       "summary": "runs/C-1/x0t/calibration_summary.json"
     },
     "K1": {
-      "status": "K1-gen-03 (chin fix on E, +2 on Matt's word) in flight; K1 cap 8",
+      "status": "HALT H-2: chin fix on E did not land (reference pins the face); K1 cap 8 reached; fork to Matt (recommended K1-gen-04 text-driven, +3)",
       "bursts": [
         "K1-gen-01",
         "K1-chk-01",
@@ -2325,6 +2398,18 @@
       "matt_eye": "2026-09-12: 'The slight cleft in the chin reads more masculine. Other than that it's good. All 3 look the same to my eye.' \u2192 the remaining change is LOCAL (chin/jaw), the class of edit the reference-conditioned burst executes reliably.",
       "evidence": "K1-jdg-02: D/E/F 4\u00b75\u00b74\u00b73\u00b74 (4.0), judge reads all three as a young woman (PRIMED \u2014 told the identity, then asked); axis 4 fell 4\u21923 on all three (the ring head's removal, as predicted); control failed axis 3 = 2. O9: rod_head absent, insignia gone, zero violations on all three.",
       "disposition": "fork revised by the conductor on Matt's eye: K1-gen-03 = E as identity reference + ONE local change (no chin cleft; smooth rounded chin, soft jawline), TWO candidates (+2 images, K1 cap 6\u21928) \u2014 awaiting Matt's word on the cap"
+    },
+    {
+      "id": "H-2",
+      "date": "2026-09-12",
+      "rule": "charter \u00a7 7 K1 \u2014 K1 image cap (raised to 8 at H-1) reached with no acceptable master",
+      "diagnosis": "K1-gen-03 (E as identity reference + one local facial change) reproduced E's face essentially unchanged, cleft included (native face crops E/G/H indistinguishable). Second occurrence of the same method finding: a strong identity reference PINS THE FACE; text can add/remove separate objects against it (ring, head-piece \u2014 landed in gen-02) but cannot alter a facial feature. Corollary for K2: reference pinning is what a turnaround needs.",
+      "fork": {
+        "a_recommended": "K1-gen-04, +3 (cap 8\u219211; run 19/250): identity from the description (young woman; smooth rounded chin, no cleft; soft jawline), NO identity reference, F04 crop as style anchor only \u2014 costume held from text on all three in gen-01",
+        "b": "image-EDIT pass on E (1\u20132): different mechanism, pins everything else; prompt-guided masking on a ~100 px face region is the least reliable documented operation (R6); untested in this lane",
+        "c": "accept E \u2014 against Matt's reading of the chin"
+      },
+      "status": "OPEN \u2014 awaiting Matt"
     }
   ],
   "rulings": [
