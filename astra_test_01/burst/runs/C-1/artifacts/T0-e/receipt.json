@@ -1,0 +1,23 @@
+{
+  "task_id": "T0-e",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Full suite: 135 tests, 131 successful, 4 expected T0-d3 assertion failures, 0 errors, 0 skipped. All 14 new mask-composite tests succeeded. Unchanged failures: test_f04_outside_at_least_three; test_named_genuine_annuli_retained at centers [113,201], [111,311], and [170,253]."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/gates/mask_composite.py",
+      "sha256": "131ed243fcb228641ce6ce99b5bfa408d007405d045f66d36fb16d4bbec6ad07"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_gates_mask_composite.py",
+      "sha256": "87c93d33118a7cc43c58ef5f9f514287e72312515726cf7a9c53c9975db63752"
+    }
+  ]
+}

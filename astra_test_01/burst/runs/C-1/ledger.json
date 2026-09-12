@@ -5474,6 +5474,56 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T0-e",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "29be628006c76535edc680a4d452fc545e4b91fa45e7218b97d18d706fef427e",
+      "started": "2026-09-12T18:30:15.104895+00:00",
+      "ended": "2026-09-12T18:35:50.712394+00:00",
+      "minutes": 5.593900120133332,
+      "image_calls": 0,
+      "tool_calls": 13,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 13,
+        "tools_seen": {
+          "command_execution": 12,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "d7ec722fd7b50c41c5ad0fb26d9157c0d512be7cc20db3d70d0b13bcf70bda00",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/mask_composite.py",
+          "sha256": "131ed243fcb228641ce6ce99b5bfa408d007405d045f66d36fb16d4bbec6ad07"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_gates_mask_composite.py",
+          "sha256": "87c93d33118a7cc43c58ef5f9f514287e72312515726cf7a9c53c9975db63752"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 38,
@@ -5487,13 +5537,14 @@
         "T0-c",
         "T0-d1",
         "T0-d2",
-        "T0-d3"
+        "T0-d3",
+        "T0-e"
       ],
       "known_red": [
         "tests/test_oracles_motif.py::test_f04_outside_at_least_three (annulus-filtered F04 outside = 2)",
         "tests/test_oracles_motif.py::test_named_genuine_annuli_retained \u00d73 (chest boss, tabard compass, belt buckle rejected by the hollow-centre test)"
       ],
-      "owed": "T0-d4 (O3b interior radial-structure discriminator) \u2014 OFF the HITL critical path; O3b is an advisory bleed index for C-1"
+      "owed": "T0-d4 (O3b annulus discrimination) \u2014 off the critical path"
     },
     "X1": {
       "status": "GENERATE DELIVERED (exit 0) \u00b7 CHECK X1-chk-02 VOID on receipt semantics (conductor rule gap, fixed BURST_RULES v1.2) \u2014 substance accepted (R-6); CHECK path proven by K1/K2 CHECK bursts",
@@ -5806,6 +5857,14 @@
       "burst": "\u2014",
       "ruling": "MATT: no overnight autonomous run. 'Right now the idle doesn't look right and the walk motion has issues\u2026 once we decide on an oracle, we will be able to compare our work against the oracle and I suspect that we will not make the claim that it is known that idle and walk loops are solved for\u2026 we will also be able to use the oracle to tune our software checks and our prompt guidance.' Disposition: the idle-S and walk-S loops are UNVALIDATED (no approval; L5 deferred to oracle-tuned gates); the conductor's 'approve the idle' lean is WITHDRAWN as a recommendation without a reference. Oracle-first sequence: legolas R10/R10b (in flight) \u2192 T1 gait contract (gait_oracle, pose_guide, visibility_table) + cycle prompt guidance (phase text, numbered-foot guides, breath spec) \u2192 TOOLING \u2192 re-run idle-S + walk-E under oracle-tuned gates \u2192 compare to the oracle \u2192 then composite, gear-on-loops, continuation. Everything standing on loops waits. Stands: the lane (typed bursts, audit, waves, calibrated O9, judge-with-controls, derived geometry), Bible v0.1, K1 APPROVED (L), K2 six of seven by geometry (SW head pending; approval pending Matt), instrument findings R-12/R-15/R-16. Tonight at most T0-e (composite tooling, 0 images) on Matt's word.",
       "veto": "Matt's ruling"
+    },
+    {
+      "id": "R-18",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "T0-e",
+      "ruling": "T0-e DELIVERED exit 0 (13 tool calls, clean audit; fired on Matt's word after the HITL close as the one tooling item that waits on nothing). Conductor DRIFT-CRITIC ACCEPT: gates/mask_composite.py \u2014 composite(base, variant, region_box, thresh, dilate_px) with alpha-aware differencing, dilation, region clipping, byte-identical base outside the mask asserted in code and reported; G12 evaluate(min_preserved_fraction 0.99 literal, coverage guard on the FIGURE not the canvas \u2192 null when the mask covers too much); compose_loop. 14 tests incl. the four contracted known-bad cases; suite 135/131 (the four T0-d4 reds unchanged); regression lock 0. thresh=8 / dilate_px=2 are provisional synthetic calibrations, stated. Tree FROZEN (closes the three doc-drift rows: bible v0.1 hash, BURST_RULES v1.2, SPEC T0-e). Next: K3-cmp-01 \u2014 a MECHANISM test of the composite on the sole-aligned idle frames (G12 + G11/G6 original vs composited); no loop approval implied (R-17).",
+      "veto": "open to Matt"
     }
   ]
 }

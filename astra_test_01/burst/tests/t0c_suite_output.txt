@@ -49,6 +49,20 @@ test_numeric_C_and_legacy (test_gates_guides.Tests.test_numeric_C_and_legacy) ..
 test_audit_observed_tool_overrun (test_gates_lane_caps.Tests.test_audit_observed_tool_overrun) ... ok
 test_audit_type_caps_and_label_image_permission (test_gates_lane_caps.Tests.test_audit_type_caps_and_label_image_permission) ... ok
 test_validation_boundaries_every_type (test_gates_lane_caps.Tests.test_validation_boundaries_every_type) ... ok
+test_alpha_aware_hidden_rgb_and_black_alpha_changes (test_gates_mask_composite.Tests.test_alpha_aware_hidden_rgb_and_black_alpha_changes) ... ok
+test_coverage_guard_uses_figure_not_canvas_and_strict_limit (test_gates_mask_composite.Tests.test_coverage_guard_uses_figure_not_canvas_and_strict_limit) ... ok
+test_dilation_and_xyxy_exclusive_clipping (test_gates_mask_composite.Tests.test_dilation_and_xyxy_exclusive_clipping) ... ok
+test_empty_figure_and_full_mask_are_unevaluable (test_gates_mask_composite.Tests.test_empty_figure_and_full_mask_are_unevaluable) ... ok
+test_everywhere_variant_is_unevaluable (test_gates_mask_composite.Tests.test_everywhere_variant_is_unevaluable) ... ok
+test_g12_detects_outside_corruption_including_hidden_bytes (test_gates_mask_composite.Tests.test_g12_detects_outside_corruption_including_hidden_bytes) ... ok
+test_identical_variant_has_empty_mask (test_gates_mask_composite.Tests.test_identical_variant_has_empty_mask) ... ok
+test_invalid_inputs_are_rejected (test_gates_mask_composite.Tests.test_invalid_inputs_are_rejected) ... ok
+test_loop_uses_same_base_and_one_box_per_variant (test_gates_mask_composite.Tests.test_loop_uses_same_base_and_one_box_per_variant) ... ok
+test_planted_out_of_box_change_dropped_and_reported (test_gates_mask_composite.Tests.test_planted_out_of_box_change_dropped_and_reported) ... ok
+test_premultiplied_threshold_and_strict_boundary (test_gates_mask_composite.Tests.test_premultiplied_threshold_and_strict_boundary) ... ok
+test_preservation_uses_outside_denominator (test_gates_mask_composite.Tests.test_preservation_uses_outside_denominator) ... ok
+test_shifted_variant_is_caught_by_region (test_gates_mask_composite.Tests.test_shifted_variant_is_caught_by_region) ... ok
+test_synthetic_idle_arm_moves_with_base_preserved (test_gates_mask_composite.Tests.test_synthetic_idle_arm_moves_with_base_preserved) ... ok
 test_checkerboard_rejection (test_gates_matte.Tests.test_checkerboard_rejection) ... ok
 test_floor_and_particles (test_gates_matte.Tests.test_floor_and_particles) ... ok
 test_native_alpha_dark_interiors (test_gates_matte.Tests.test_native_alpha_dark_interiors) ... ok
@@ -162,6 +176,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 121 tests in 15.318s
+Ran 135 tests in 15.955s
 
 FAILED (failures=4)
