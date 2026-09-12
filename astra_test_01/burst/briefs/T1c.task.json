@@ -1,0 +1,13 @@
+{
+ "text": "TOOLING BURST T1c \u2014 judge questions from the dope sheet + motion-transcriber calibration scorer (SPEC \u00a7 6 row \"T1c\"). task_id \"T1c\".\n\nRead ONLY, in this order:\n1. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/SPEC.md \u2014 \u00a7 0, \u00a7 1, \u00a7 6 rows T1b and T1c (T1c is your contract).\n2. /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/BURST_RULES.md (the TRANSCRIBE row: presence/absence + counts against a closed set, never coordinates).\n3. astra_test_01/burst/oracle/dope_sheet.py, transcribe/*.py, compare/calibrate_transcriber.py, runs/C-1/artifacts/T1a-ann-13L/annotation.json, runs/C-1/oracle/dope_walk_12.json, runs/C-1/oracle/dope_idle_combat_8.json, tests/test_oracle_walk.py (synthetic sheet helpers).\nDo not read anything else. No web. No agents. No image generation. No pip install. stdlib + Pillow + numpy + scipy ONLY.\n\nBUILD exactly the SPEC row (transcribe/motion_questions.py, compare/calibrate_motion_transcriber.py, tests). Then GENERATE the question set + truth table for the 12 Muybridge plate-13 lateral frames from the annotation (runs/C-1/x0m/questions_plate13.json, truth_plate13.json) and the question sets for the T1b dope sheets (runs/C-1/x0m/questions_walk_12.json, questions_idle_combat_8.json). Report counts and the control questions in the receipt.\nThen run the FULL suite: `cd astra_test_01/burst && PYTHONDONTWRITEBYTECODE=1 python3 -B tests/run_t0c.py` \u2014 expected all green except the named standing reds (four T0-d3; the walk grid-parity red); report exact counts.\n\nDO NOT touch: lane/, oracles/, parts/, bible/, gates/, oracle/ (read only), the existing transcribe/compare modules (add new files only), SPEC.md, BURST_RULES.md, REGISTER_CARD.md, JUDGE_RUBRIC.md, MANIFEST.sha256, briefs/, fixtures/. Under runs/ write ONLY runs/C-1/x0m/. Do not run git. Temporary files ONLY under tests/tmp/.\n\nRETURN: the receipt (task_id \"T1c\"): files with sha256; images []; calls_used 0; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns with numbers. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 30,
+ "tool_call_cap": 50,
+ "outputs": [],
+ "effort": "high",
+ "add_dirs": [
+  "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst"
+ ],
+ "experiment": "T1"
+}
