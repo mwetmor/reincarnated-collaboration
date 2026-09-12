@@ -130,12 +130,12 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 
 ## 7. SYNC — the two process documents and their sources (same-commit rule)
 
-**Rule:** this doc and `mechanical-process.md` are views over the executable sources below. **Any commit that changes a listed source updates that row's hash + date in BOTH docs in the same commit** (the OP↔skill twin rule, `canonical-doc-format § 6.8`, applied here). Drift is detected by comparing the stamped hash to `shasum -a 256` of the source (a `check_sync.py` lands with T0-c; until then the check is the conductor's session-start act). A stale row is a **drift alarm**, never silently corrected.
+**Rule:** this doc and `mechanical-process.md` are views over the executable sources below. **Any commit that changes a listed source updates that row's hash + date in THIS table in the same commit (`mechanical-process.md` carries no table; it points here)** (the OP↔skill twin rule, `canonical-doc-format § 6.8`, applied here). Drift is detected by comparing the stamped hash to `shasum -a 256` of the source (a `check_sync.py` lands with T0-c; until then the check is the conductor's session-start act). A stale row is a **drift alarm**, never silently corrected.
 
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
-| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | b321153b2818 | 2026-09-11 |
-| `astra_test_01/burst/SPEC.md` | build contract | 8870f9284bbc | 2026-09-11 |
+| `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | bbb1a1b9fbfe | 2026-09-11 |
+| `astra_test_01/burst/SPEC.md` | build contract | f1ee565cf3b0 | 2026-09-11 |
 | `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 1a96e8aa0ad6 | 2026-09-11 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
