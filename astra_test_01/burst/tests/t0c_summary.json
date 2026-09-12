@@ -1,7 +1,11 @@
 {
-  "tests_run": 141,
-  "successful_tests": 137,
+  "tests_run": 147,
+  "successful_tests": 142,
   "failures": [
+    {
+      "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 55, in test_synthetic_contract_and_grid\n    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=1,msg=key)\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 60 != 65 within 1 delta (5 difference) : head_ref_y\n"
+    },
     {
       "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
       "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
@@ -21,7 +25,7 @@
   ],
   "errors": [],
   "skipped": [],
-  "elapsed_s": 55.23917950000032,
+  "elapsed_s": 57.66486375000022,
   "regression": {
     "tolerance": 0.001,
     "compared": 1880,

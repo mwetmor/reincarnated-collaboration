@@ -1,0 +1,134 @@
+{
+  "task_id": "T1a-walk",
+  "status": "FAILED",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial synthetic grid masking selected background because border grid lines reversed polarity; the synthetic bob fixture also measured only 2.49% H.",
+      "change": "Used inset-border polarity, added documented morphology, and corrected fixture quantization while retaining the 3% H acceptance target. The second attempt still had a 5 px head_ref_y discrepancy against the 1 px limit; stopped code changes."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope violation: the initial SPEC command emitted sections 2–5 beyond the requested sections; the row search also emitted T1a-idle-2.",
+      "Contract incomplete after the permitted retry. Walk tests: 6 run, 5 successful, 1 assertion failure, 0 errors. Maximum plain/grid discrepancies: head_ref_y 5 px; head_top_y, sole_line_y, both foot x and both wrist extents 1 px; head_cx 0.522222 px; torso_cx 0 px.",
+      "Final synthetic diagnostics: W-1 2.904564% H; W-2 minima at frames 1,2,7,8, all DOWN; W-4 2; W-3c 2; W-6 12/12 for each projected arm track; planted foot detected 12/12; scroll -4 px/frame, slip RMS 0. These do not resolve the head_ref_y grid discrepancy.",
+      "Full suite: 147 tests_run, 142 successful_tests, 5 assertion failure entries, 0 errors, 0 skipped; elapsed 57.664864 s. Four existing T0-d3 entries: test_f04_outside_at_least_three (2 versus minimum 3), and test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253]. Fifth entry: test_oracle_walk.Tests.test_synthetic_contract_and_grid. Existing source/tests were not edited; the requested runner rewrote the listed measurement reports.",
+      "All four final plate CLI commands exited 0, but measurements are diagnostic only and reference rows remain committed=false. Figure fragmentation and residual grid/floor inclusion remain; plate2 frame 0 visibly omits the head and upper torso. All 36 plate13 masks contact rejected broad background rows. The no-grid-leak requirement is unmet.",
+      "All 48 geometric head_top_thin flags are false despite unreliable collotype heads. A separate head_top_unreliable flag records uncertainty for every collotype frame; this does not satisfy the requested thin-flag reliability behavior. Both head_top_y and head_ref_y series, per-frame mask area, H, and area/H are retained in bands_walk.json; compact series are also in walk_measured_summary.json.",
+      "All frame indices below are zero-based, in printed order. No row recovered two contact events, so all 48 phase labels are null. W-5 uses silhouette extent proxies; anatomical wrist/leg identity and free/weapon-arm roles are unestablished. W-6 is null on both lateral rows. Front/rear W-5, W-6 and sole scroll are null as required. Added opening, pre-closing, hole filling and broad-row rejection extend the literal masking recipe; parameters are recorded.",
+      "plate2_lateral: W-1=27.320955% H; W-2 min frame 11/null, max frames 9,10/null; W-3a=0.480146, W-3b=0.607117, W-3c=2; W-4=3; W-5 L=2.055703% H, R=18.037135% H; W-6=null. Scroll mean=-17.125 px/frame, slip RMS=32.388993; L mean=-37.4, slip RMS=9.275775; R mean=16.666667, slip RMS=28.758574. Observed contact frame=[8]. Twelve-frame phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate13_lateral: W-1=8.695652% H; W-2 min frame 3/null, max frame 2/null; W-3a=0.297644, W-3b=0.165558, W-3c=4; W-4=3; W-5 L=3.105590% H, R=9.316770% H; W-6=null. Scroll mean/slip=null for both feet: no consecutive planted samples. Observed contact frame=[6]. Twelve-frame phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate13_front: W-1=18.774446% H; W-2 min frame 4/null, max frame 8/null; W-3a=0.369406, W-3b=0.050214, W-3c=2; W-4=4; W-5=null; W-6=null; sole scroll/slip=null. Observed contact frame=[0]. Twelve-frame phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate13_rear: W-1=42.019838% H; W-2 min frame 3/null, max frame 9/null; W-3a=0.163231, W-3b=-0.466665, W-3c=8; W-4=5; W-5=null; W-6=null; sole scroll/slip=null. Observed contact frame=[4]. Twelve-frame phase table=[null,null,null,null,null,null,null,null,null,null,null,null]."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+      "sha256": "8dbee49ea649a68b8b75032bd9ef4823bd47aa87dd68da80f9fe5c8970ea246f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_bands.py",
+      "sha256": "1cdc1c5290940700541133b7e58272909b50827da2323db8b4706f25e6b3e312"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_curves.py",
+      "sha256": "a91781e0a9fb990703e20e332817a02b1299124ffd4735623a106544966a51d8"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_landmarks.py",
+      "sha256": "25c956554c178a5b3d9ee716d33b8ddea55c521a8c924e8d2410ae99891eac27"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png",
+      "sha256": "ae1653d502d5aa9e3f93516013f3d7fa98e439af1e94d3707fa5b074ed4b5d31"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+      "sha256": "12847ebf44fb0eee3694e91ea41d180f9c16853fddd1d2737d103590f843390e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_curves.png",
+      "sha256": "e2cf1a6c020ddbbe5112d7789d548de0f43d160c3b60ab85bd9e5f4e45f7a716"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_mask_check.png",
+      "sha256": "2a0f6bf7ce29ac10415805720064c13efca39e672156c74743841be5ed103ad2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png",
+      "sha256": "b36b16e5d461d7c2ecccbb886460397e9f37226edfb6c87084fba5d039755ca3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+      "sha256": "0155ad7017056752cfd1e84767212a48ed4f6f1db608a1479f1a7331c1ea0967"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_curves.png",
+      "sha256": "81449a2dc0b9f352342ae2acca96cf34fd59a2601f43d21c9ce1765fd2ca124f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_mask_check.png",
+      "sha256": "abc119b6892cd9976387afb7d46978e92887143e4b78a70b1788f5e3a2a5a01c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/walk_full_suite.log",
+      "sha256": "84233b7c76bd7a01d1bed3f115c014c50065b85235d7506b0f894318f8947d3d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/walk_measured_summary.json",
+      "sha256": "8429ac929f157015c957caa8c41a322a8a7e0a39df0dfaf408c307681240012d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/walk_measurements_cli.json",
+      "sha256": "61994b7637a5435dd51c3a1a8cfc34745b978279985d95cc1066683650ec187b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/walk_synthetic_diagnostics.json",
+      "sha256": "a1ba55241f804694769da795d657a83f9c67b4cf0f5fc0aa4c7e85e1e9f0bf8a"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/walk_test.log",
+      "sha256": "74c3fa8d5aec83641bbb4ba3838693ba196219f80a9fee204045f59232ec80fb"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "c254e116034c10fcddd13f051beaa8770006da0bf326fe4081691cc040a6c25f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "eebf2bd22c83a769838db8af8eaf2de720b9e2b9d4fb0e6d8326189446329494"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py",
+      "sha256": "7bd4283eff49558f3a9f1e5d93d8aacf4304246591bd3d5bdc11eeef1f3afc38"
+    }
+  ]
+}
