@@ -854,3 +854,137 @@ All accessed **2026-09-12** unless stated. Grade is for *my access to the source
 `canonical/00-ground-state.md` · `canonical/reap-die-rise-game/painted-2d-pipeline/00-system.md` · `astra_test_01/burst/SPEC.md` §§ 1, 6 (T1 row, T0-e) · `canonical/reap-die-rise-story/style-register.md` · `agentic_orchestration/legolas/research/2026-09-11-ai-tells-bibles-oracles/findings.md` § 0 (grading key, R8 oracle shortlist) · `canonical/matt_decision_needed/2026-08-25-youtube-frame-extraction-sourcing-class.md` (**OPEN**) · `agentic_orchestration/operating-procedures/legolas.md` § 1.
 
 **Not read, per the commission:** `astra_test_01/design/` (HISTORICAL), `astra_test_01/burst/runs/`, `astra_test_01/burst/briefs/`.
+
+---
+
+## 9. R10c — painted-ARPG cycle clips (class E)
+
+**Commission:** R10c (Matt, 2026-09-12), as amended the same day by **ruling R-21**: rank clips by **AMPLITUDE and LEGIBILITY of motion, not by cleanest cycle** — Muybridge supplies the arc (the floor); the Hades-class clips must supply the *exaggerated* amplitude we spec into frames. Intent over consistency. Static camera and unobstructed figure remain required.
+
+**Working disposition (per the commission):** class **E** = MEASUREMENT + Matt's private comparison ONLY. Never a burst input, never a visible reference, never redistributed. The class is still recorded per clip, and the `2026-08-25` queue row remains OPEN.
+
+### 9.0 What this section actually establishes — and the one thing it overturns
+
+1. **⚑ Hades II is NOT a painted-2D character pipeline, and that retires half the commission's premise.** Hades 1 pre-rendered every character frame from Maya and shipped them as **Bink 2.5 video**; **Hades II renders the same 3D characters in real time** and composites them into a per-frame sprite atlas. Supergiant's own graphics engineer, verbatim: *"for Hades 2 … **we directly render 3D animations in engine now**."* So Matt's "Melinoë / Hades II if clips are cleaner" resolves **against** Hades II on the axis that matters: its cycles are not painted-2D authored frames at all. **Hades 1 / Zagreus is the precedent; Hades II is a different pipeline wearing the same paint.**
+
+2. **⚑ The amplitude question has a first-party answer, and it is the best single find in this section.** Thinh Ngo, Hades' animator: *"most animators see mocap and hand-key as either one or the other… but there is a world where you can get the mocap even though it's realistic and then **push the timing** so it feels almost like hand-key."* That is Williams' *"we increase the ups and the downs"* (§ 0 item 2) **stated by a shipping animator in our exact register, about our exact benchmark**. Hades is not raw mocap. It is mocap with the timing pushed — which is precisely the operation R-21 is asking the clips to demonstrate.
+
+3. **⚑ Character pixel-height is set by CAMERA FRAMING, not by master resolution — measured, and it reverses my own first ranking.** On official 1920×1080 stills I measured **Zagreus ≈ 100 px**, **Melinoë ≈ 126 px**, **Red (Transistor) ≈ 135 px** — but **The Kid (Bastion) ≈ 240–255 px on a 940×528 master**, because Bastion's trailer opening pushes the camera in. I had disqualified Bastion on resolution before measuring. **Measuring reversed it.** Bastion delivers ~2.4× Zagreus' pixels off a master with ~1/4 the pixels.
+
+4. **⚑ No Hades cycle maps onto a 12-frame sheet.** Zagreus is authored at **60 fps** with a 32-frame run (16 frames/step) and a 60-frame House walk; a 12-frame sheet needs 2.7×–5× decimation. Muybridge's 12 phases/stride maps **1:1** (§ 1.2). **So the division of labour is now explicit: Muybridge supplies frame STRUCTURE, the class-E clips supply AMPLITUDE and STYLE. Neither substitutes for the other, and R-21 is right that they are different jobs.**
+
+5. **⚑ Short official trailers are the WRONG source class, and I can now show it rather than assert it.** I read Steam's own public DASH thumbnail sheets for six trailers: they are cut in 1–3 second shots, text-carded, and VFX-saturated. **The right class is long-form official gameplay streams and the one first-party artist walkthrough.**
+
+6. **The licence position is worse than § 6.1 assumed, and it is worse in a way that does not track the E1/E2 split.** See § 9.4. Short form: **the rights holder's own terms say "you may not download, copy or use"** their game art outside a noncommercial fansite. The working disposition Matt set (private measurement, nothing republished) is the only posture these terms tolerate at all — **and nothing wider should be inferred from this section.**
+
+> **Method, stated plainly because it bounds every timestamp below.** I did not watch any video and I downloaded no video. Timestamps come from three sources, graded: **(A) publisher-authored chapter markers**, read from the video's own metadata; **(B) OBSERVED from published thumbnail/storyboard tile sheets** — Steam's public DASH `dash_thumbnails` tiles (256×144, one per 3 s) and YouTube's `storyboard3_L2` tiles (160×90, one per 5–10 s), both fetched to scratch and never into the repo; **(C) inference**, marked as such. **At 160×90 I can establish *what scene is on screen* and *whether the frame is clean*; I cannot certify a cycle's phase, a facing to better than ±1 octant, or true occlusion.** Every row below needs one conductor pass at full resolution before it is trusted. **Grade B is the honest ceiling of remote verification and I have not dressed it as anything else.**
+
+### 9.1 The clip table — Hades (Zagreus), ranked by R-21 (amplitude × legibility)
+
+Native fps column: what the CLIP encodes. What the ANIMATION should contain is in § 9.3, from `CharacterAnimationsHero.sjson` (§ 2.3, VERIFIED) — use that to know what you are looking at.
+
+| # | Clip + URL | Timestamp | Cycle | Facing | Native res / fps | Est. char. height | Class | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| **H1** | **Zagreus — all weapon aspects showcase** (sleet gaming, 3rd-party) [`GlV6omZqbJo`](https://www.youtube.com/watch?v=GlV6omZqbJo) | **6:44–8:15** (chapter `6:44 Eternal Spear`) | **ATTACK / cast + combat-ready idle between swings** | all 8, static cam | 1080p (encode) | ~100 px @1080p | **E2** | **A** (chapter) + **B** (observed: fixed camera, EMPTY training room, single character, no enemies, UI at edges only; spear-throw streaks at **7:05–7:15** and **7:30–7:50**) |
+| **H2** | **Hades — Early Access Trailer** (Supergiant, official; also Steam app `1145360` movie `256759357`) [`store page`](https://store.steampowered.com/app/1145360/) | **45–48 s**; also **60–66 s** | **RUN** (in-biome locomotion) | ~SE (low conf.) | **1920×1080 @ 59.94** (Steam DASH, read from manifest) | ~100 px | **E1** | **B** (observed: single figure, no enemies, no VFX, no text card) |
+| **H3** | **Hades — The Superstar Update Dev Stream** (Supergiant, official) [`GRSI7iAT4Tg`](https://www.youtube.com/watch?v=GRSI7iAT4Tg) | **19:10–19:35**, **20:25–20:45** (inside chapter `19:14 Revamped House of Hades` → `36:53`) | **WALK (House, non-combat) + relaxed idle** | ~E/SE | 1080p60 (encode) | ~100 px | **E1** | **A** (chapter) + **B** (observed: House great hall, steady camera, no combat. ⚠ **facecam overlay top-left in every frame** — does not occlude centre-frame, but it is there) |
+| **H4** | **Hades 5 Year Anniversary Stream** (Supergiant, official) [`NsIODbUXCmo`](https://www.youtube.com/watch?v=NsIODbUXCmo) | `08:47` · `20:26` · `31:34` · `49:08` · `1:04:22` · `1:21:31` · `1:39:36` · `2:16:42` · `2:40:33` — each a **"House of Hades"** chapter | **WALK + relaxed idle** | mixed | 1080p60 | ~100 px | **E1** | **A** (11 publisher-authored House chapters). **Not sampled by me** — offered as the broadest chapter-verified House corpus |
+| **H5** | **Inside Hades — 3D Modeling & Rigging** (Supergiant, official; the ONLY episode — no series exists) [`cYJ6d1ifSqA`](https://www.youtube.com/watch?v=cYJ6d1ifSqA) | **8:40–9:05**; also **1:00–1:10**, **5:00–6:00** | **Isolated painted-character animation playback** (Nyx) | front | 1080p30 | **large — full-body, ~60 % frame height** | **E1** | **B** (observed: figure isolated on **pure black** at 8:40–9:05, on flat grey Maya/AfterFX viewport at 5:00–6:00) |
+| **H6** | **Hades — v1.0 Gameplay Showcase** (official) [`YZZFlcE0fWE`](https://www.youtube.com/watch?v=YZZFlcE0fWE) / Steam movie `256801288` | `1:35` · `1:43` (House chapters); Steam-observed House at **96–102 s** | relaxed idle, House | S | 1920×1080 @ 59.94 | ~100 px | **E1** | **A** + **B**. **Heavily text-carded — lowest-value official Hades clip** |
+
+**Amplitude judgement, one line each (R-21):**
+- **H1 — highest amplitude available anywhere in this section.** A spear throw crosses the frame as a full-width streak; the empty arena means nothing competes for the eye; and the *combat-ready idle between swings* is a free second cycle in the same shot. **This is the row to cut first, and it is the smear reference Matt asked for.** Cost: third-party channel (E2).
+- **H2 — second-highest.** A run at 60 fps with footfalls 16 frames apart is the largest weight-shift Hades authors; no VFX, no text. Small figure is the only complaint.
+- **H3 — correct cycle, weakest amplitude.** The House walk is the *slowest* locomotion Hades ships (60 frames, non-combat) and Zagreus is ~100 px under a facecam. **It is the only true WALK on offer and it is the least legible thing here** — take it for phase structure, not for amplitude.
+- **H4 — same amplitude profile as H3**, broader corpus, unsampled.
+- **H5 — best isolation, worst amplitude, and the pairing is not accidental.** Nyx *hovers*; her idle is a drifting near-static float. Superb for seeing how a painted figure holds together frame to frame; useless as an amplitude exemplar.
+- **H6 — take only the two House chapter marks.** The rest is text cards over VFX.
+
+### 9.2 The clip table — second painted-register game
+
+**Pick: BASTION** (Supergiant, 2011), on measured evidence, having first disqualified it and then reversed.
+
+| # | Clip + URL | Timestamp | Cycle | Facing | Native res / fps | Est. char. height | Class | Evidence |
+|---|---|---|---|---|---|---|---|---|
+| **B1** | **Bastion Trailer** (Supergiant/WB, official) — Steam app `107100` movie `80996`, [`store page`](https://store.steampowered.com/app/107100/) | **18–33 s** | **WALK/RUN**, single character, camera tracking, world assembling underfoot | **N (moving away from camera)** | **940×528 @ 29.97** (Steam DASH manifest) | **≈240–255 px (≈45–48 % frame height)** | **E1** | **B** (observed over 5 consecutive tiles) |
+| **B2** | same | **60–81 s** | combat + **hammer attack** | mixed | 940×528 @ 29.97 | ~60–80 px | **E1** | **B** (isometric gameplay, figure much smaller than B1) |
+| **T1** | **Transistor — Launch Trailer** (official) — Steam app `237930` movie `2032455` | ~**39–42 s**, ~**69–72 s** | walk / traversal, Red alone | mixed | **1920×1080 @ 29.97** | **≈135 px** close / ~60–80 px typical | **E1** | **B** |
+
+**Amplitude judgement:**
+- **B1 — the largest, most legible figure I found in any painted-2D source, by a wide margin.** ⚠ But the facing is **N (rear)**, and § 4 is explicit that rear view **suppresses** the sagittal quantities (bob, stride length, arm swing) and **favours** lateral sway and shoulder/hip counter-rotation. **So B1 is a facing-specific asset: excellent for W-3-class head-path and counter-rotation work, wrong for bob amplitude.** Say so when handing it over.
+- **B2** — attack present, figure small; weaker than H1 for the smear clause.
+- **T1 — good register, restrained motion.** Red's walk is elegant and low-bounce; on R-21's criterion Transistor *underperforms* despite the best resolution-to-register ratio of the three.
+
+**Considered and rejected, with the reason, so nobody re-opens them:**
+- **Pyre** — 1080p60 and genuinely painted, but **observed**: the exiles hover and dash rather than walk, figures are small, and every shot carries a VFX ring. **No walk cycle to extract.**
+- **Both Yule Logs** — [`sy8GU_19V4E`](https://www.youtube.com/watch?v=sy8GU_19V4E) (House of Hades, 12 h, **2160p30**) and [`kMh0eOsglzw`](https://www.youtube.com/watch?v=kMh0eOsglzw) (Hades II Crossroads, 12 h, 2160p30). I pursued these hard — 12 hours of official 4K on a locked-off camera is the ideal idle source on paper. **They contain no character.** One is a fireplace, one is Hecate's cauldron. *Recorded because the failure is instructive: the most promising-sounding candidate in the whole search was empty, and only looking settled it.*
+- **The Hades II launch / reveal / Xbox-PS trailers** (`U8lJRcUeEMs`, `l-iHDj3EwdI`, `ppEKFy83w-o`) — 2160p60 and tempting, but they are **hand-drawn 2D cinematics by external animation studios, not in-game animation**. A 4K60 official trailer that contains none of the game's cycles is exactly the trap this section exists to catch.
+
+### 9.3 What the clip SHOULD contain — from the shipped data, so you know when the clip is lying
+
+From `CharacterAnimationsHero.sjson` (§ 2.3, **VERIFIED**), now corroborated by first-party statements gathered for R10c:
+
+| Clip | Frames | Angles | Rate | First-party corroboration |
+|---|---|---|---|---|
+| `ZagreusWalk` (House, non-combat) | **60** | 32 | slide-timed | — |
+| `ZagreusRun` | **32** | **64** | **60.0** → 0.533 s; footfalls at frames 1 and 16 ⇒ **16 frames/step** | Maheshwari: *"animations had to be rotated and rendered in **up to 64 different angles**"* |
+| `ZagreusIdle` | **120** | 32 | engine default (2.0 s or 4.0 s — still unresolved, § 7) | — |
+| `ZagreusBowDash*` | **104** | **32** | — | **Greg Kasavin [developer], Steam, 2020-03-21:** *"it's a **104-frame animation rendered at 32 angles**. So that's **3,328 frames** for that one short animation."* — matches the file exactly |
+
+**Frame rate — a three-way conflict I am reporting, not averaging:**
+
+| Source | Statement | Class |
+|---|---|---|
+| Kasavin, Steam, 2019-12-10 | *"2D artwork with **animations authored for 60fps**"* | PRIMARY-TEXT |
+| **Thinh Ngo, Hades animator**, live interview @1:04:19 | *"most enemies and everything else are **30 frames per second**, but for the main character exactly **60**"* — self-corroborated @1:05:10 by his own arithmetic (2 s × 60 = *"like 120 frames"*, which is `ZagreusIdle`'s exact count) | PRIMARY-ASR |
+| Maheshwari, GPC 2024 @17:21 | *"our big videos were actually in **30 FPS**"* | PRIMARY-ASR |
+
+> **Best reading: Zagreus authored at 60 fps, other characters at 30, video assets predominantly encoded at 30.** Nobody has published this as one clean statement. ⚠ **ASR caveat:** none of these talks has human-authored subtitles; the *numbers* are reliable and the arithmetic checks, but **the wording is machine-transcribed and must not be quoted as verbatim in any canonical doc.**
+
+**And one fact that changes what resolution to capture at:** Maheshwari, *"we had actually **a different set of videos shipped with the game that supported different kinds of resolution — 720p, 1080p and even higher**."* **So Hades ships per-resolution character art.** A 2160p capture is therefore **not** an upscale of the 1080p asset — it reaches a genuinely higher-resolution source, and roughly doubles Zagreus to ~200 px. **Capture at the highest tier the clip offers; it is not cosmetic.**
+
+### 9.4 Licence / ToS — the caveat that bounds the class-E disposition
+
+Every clause below I read on the source page today.
+
+1. **The rights holder's own terms are the binding ones, and they are restrictive.** Supergiant Games Website ToU § 3 grants only *"a personal, revocable … license to reproduce and display any Supergiant Content … **solely on your fansite** … **solely for noncommercial purposes**"*, and § 3.5 **Restrictions on Use**: *"Except as expressly authorized by this ToU, you may not **(a) download, copy or use** any of the Supergiant Content … (c) rent, lease, reproduce, modify, translate or **create derivative works** of Supergiant Content."* (https://www.supergiantgames.com/blog/terms-of-use, dated 2015-06-01 — note it predates Hades and its required attribution string still names only *"Bastion, Transistor, and Pyre"*.) **There is no research or measurement carve-out.**
+2. **YouTube's ToS bites independently of who uploaded.** *"You are not allowed to: access, reproduce, **download**, distribute … any part of the Service or any Content except (a) as expressly authorized by the Service; or (b) with prior written permission"*; use of Content is licensed for *"your **personal, non-commercial** use"*; and automated access *"(such as robots, botnets or **scrapers**)"* is separately prohibited. **⚑ This is a contract with Google, not with Supergiant — so a publisher-official upload is NOT less encumbered than a third-party one.** That is a **material correction to my own § 6.1 E1/E2 sub-split**: the split tracks *whose copyright* is in the footage, and it does **not** track the download restriction, which is uniform.
+3. **Steam is licensed on the same personal/non-commercial footing**, and forbids more on the extraction axis: SSA § G — *"you may not … copy, photocopy, **reproduce** … **reverse engineer**, derive source code from, **modify, disassemble, decompile, create derivative works based on** … the Content and Services … without the prior consent, in writing, of Valve."*
+4. **⚑ Therefore the "read it off your own install" route is NOT the clean workaround it looks like.** Hades' cycles ship as **Bink 2.5 video** in `Content/Movies/` (e.g. `ZagreusIdle_Bink.bik` + `.bik_atlas`), reachable with documented community tooling — technically it is *strictly superior* to any capture: isolated, native resolution, no camera, no occlusion, no VFX, no timestamp hunting. **But unpacking a proprietary container sits closer to the SSA's prohibited list than pressing play does, and Supergiant's § 3.5 covers it regardless of how you obtained the bytes.** I am recording the capability and declining to recommend it as a licence workaround, because it is not one.
+
+> **The consequence, stated once and not softened.** Every route into Hades' painted frames — YouTube, Steam store video, and the purchased install — is licensed to us **personally and non-commercially**, by a rights holder whose own terms say *"you may not download, copy or use."* **Matt's working disposition — private measurement, nothing republished, never a burst input, never a visible reference — is the only posture these terms tolerate at all, and this section supplies no basis for widening it.** This is a reading of licence text, not legal advice. **It does not touch the R10b recommendation: Muybridge (public domain, both forms, § 6.3) remains the oracle. The class-E clips are a comparison exhibit for Matt and an amplitude reference — they are not, and on these terms cannot become, an oracle.**
+
+### 9.5 Capture-tool implications (reported only — nothing downloaded, no tooling written)
+
+- **Steam store trailers are NOT plain MP4** — a reasonable assumption that is wrong. Steam serves **DASH (`dash_h264.mpd`, `dash_av1.mpd`) and HLS (`hls_264_master.m3u8`) manifests** from `video.akamai.steamstatic.com`, unauthenticated, no login, no `yt-dlp` needed. The manifest itself publishes **duration, `frameRate`, and every representation's exact `width`/`height`** — which is how every Steam figure in this section was obtained without fetching a frame of video. Manifest URLs come from `https://store.steampowered.com/api/appdetails?appids=<id>`.
+- **Steam also publishes a scrub-preview track**: `AdaptationSet` `mimeType="image/avif"`, served at `<mpd-base>/dash_thumbnails/thumbnails-0000N.avif`, **1280×864, 5×6 grid of 256×144 tiles, one tile per 3 s**. macOS `sips` converts AVIF natively. **This is the cheapest possible way to survey a trailer's structure and it touches no video.**
+- **YouTube requires `yt-dlp`** (or equivalent) for the media itself — and note ToS point 2 above classes scrapers separately. Its **storyboard** track is separate and lighter: the spec string in `ytInitialPlayerResponse.storyboards` yields `https://i.ytimg.com/sb/<id>/storyboard3_L2/M<n>.jpg?sqp=…&sigh=…` at **160×90, 5×5, one tile per 5–10 s**. Long VODs index at 10 s, short videos at 5 s.
+- **⚠ Rate limiting is real and it shaped this section.** Batch-fetching ~100 YouTube watch pages triggered a sustained `/sorry/` interstitial that blocked further metadata reads for roughly 15 minutes. `i.ytimg.com` (thumbnails, storyboards) and `*.steamstatic.com` were **never** throttled. **Pace watch-page reads; take structure from the CDNs.**
+- **For the Bink route** (§ 9.4 point 4, capability recorded not recommended): RAD's own **Bink tools** convert `.bik` → PNG sequence. **FFmpeg ≤8.1 cannot read Bink 2** — it ships only `binkvideo` (Bink 1); a `binkvideo2` decoder was merged to FFmpeg master on **2026-08-29** and is **unverified against Hades' Bink 2.5 files**. Claims that VLC already decodes these predate that merge.
+
+### 9.6 Gaps — two passes each, then recorded
+
+| Gap | What I tried | What would close it |
+|---|---|---|
+| **A frame-accurate timestamp for any cycle** | Both remote routes exhausted: chapter metadata (3 s–10 s granularity at best) and tile sheets (3 s / 5 s / 10 s). **Grade B is the ceiling without playing the video.** | One conductor pass at the § 9.1 windows. **The windows are the deliverable; the frames are not mine to cut.** |
+| **A clean, isolated RUN** | Searched official + third-party. **Run always co-occurs with enemies and VFX** — it is combat locomotion by construction. H2 (45–48 s) is the least-contaminated instance found. | The Bink route, or accepting H2's contamination |
+| **`ZagreusIdle`'s engine-default `PlaySpeed`** | Third pass, still open (§ 7). 120 frames is **either 2.0 s or 4.0 s** and I cannot say which. Ngo's *"two seconds… like 120 frames"* @1:05:10 **implies 60 fps ⇒ 2.0 s**, but he is speaking generally, not about that record. | The engine binary, or a direct Supergiant statement |
+| **Frames per walk/run/idle cycle in ANY Supergiant game, as published** | Exhaustive. **The only per-animation count ever published by Supergiant is Kasavin's 104-frame bow attack.** No dev has ever publicly discussed a Supergiant *walk cycle*. | Nothing available; treat `.sjson` as the only source |
+| **Bastion's The Kid — hand-drawn or 3D-rendered?** | ⚠ I formed the hypothesis *"Bastion is hand-drawn, therefore higher amplitude"* and **it is not supported.** Kasavin, 2012: *"**3D modeling and animation were essential in the making of our first game**"* (= Bastion). **No source states The Kid's method at character level.** B1's amplitude claim therefore rests on **what I observed**, not on pipeline — as it should. | Nothing published |
+| **Facing, to better than ±1 octant** | 160×90 tiles cannot resolve it | The conductor pass |
+
+### 9.7 Sources added by R10c
+
+**Read directly by me:** Steam Storefront API `appdetails` (apps `1145360`, `1145350`, `237930`, `107100`, `462770`) · Steam DASH manifests + `dash_thumbnails` tile sheets (10 trailers) · Steam official 1920×1080 screenshots (Hades ×11, Hades II ×8, Transistor ×10) · YouTube `ytInitialPlayerResponse` metadata for 100 Supergiant uploads (channel `UCBq8CLRcJN8rgqHOkyL1ozg`) · YouTube `storyboard3_L2` tiles for `cYJ6d1ifSqA`, `GRSI7iAT4Tg`, `GlV6omZqbJo` · **YouTube Terms of Service** (`youtube.com/t/terms`) · **Steam Subscriber Agreement** · **Supergiant Games Website Terms of Use** (`supergiantgames.com/blog/terms-of-use`).
+
+**VERIFIED† (delegated read, URL + verbatim quote returned; load-bearing ones cross-checked against `CharacterAnimationsHero.sjson`):** Greg Kasavin [developer], Hades Steam discussions, 2019-12-10 / 2019-12-11 / 2020-03-21 · Kasavin [developer], Pyre Steam discussions, 2017-07-24 · Kasavin, Supergiant blog "3D Artist" posting, 2012-09-18 · **Devansh Maheshwari (Graphics Engineer, Supergiant)**, *"Boon or Curse: Custom Rendering Engine for Hades and Hades II"*, Graphics Programming Conference 2024 — [`Vj9elQc0ix4`](https://www.youtube.com/watch?v=Vj9elQc0ix4) @13:40–20:04 (**PRIMARY-ASR**) · **Thinh Ngo (Hades animator)**, *"Live Chat With… Thinh Ngo"*, 2021-07-26 — [`tUC7hc6ji4A`](https://www.youtube.com/watch?v=tUC7hc6ji4A) @19:21, @39:50, @1:04:19, @1:05:10 (**PRIMARY-ASR**) · **Camilo Vanegas (sole 3D modeler/animator, Transistor + Pyre)**, GDC 2018 *"From Red to Rukey"* — [`g79fH5blPmU`](https://www.youtube.com/watch?v=g79fH5blPmU) @04:42, @11:39, @12:12, @19:35 (**PRIMARY-ASR**): *"between **60 to 64 camera angles** … **2,500 PNGs per animation**"*, render canvas **200×300 to 1024×1024**, **3–7 h per animation** on an in-office farm, and — directly on § 1.7's staff problem — **for Transistor he blocked the SWORD first, before the body** · **Paige Carter (3D Artist)**, *Inside Hades* transcript (**PRIMARY-ASR**): *"we use **subdiv** … because **we do pre-rendered characters**"*, *"our **orthographic camera** … which matches the perspective of the in-game orthographic view"*, *"a **V-Ray toon shader** which adds a black outline"*, rigs via **mGear** biped guides · Maheshwari, DigiPen interview 2026-02-17 (**PRIMARY-TEXT**): Hades' Zagreus *"would **turn in place and 'tank turn'**"*, Hades II adds *"proper turn animations and subtle leaning blends"* · `SGG-Modding/deppth`, `Hades2ModWiki`, `EtchJetty/BinkFixTutorial`, `adi1998/HadesBikAtlas` (Bink/`.pkg` container structure).
+
+**⚠ Rejected on inspection, recorded so they are not re-found:** a widely-cited *"Hades used prerendered animations at 140 fps, ~9k frames for Zagreus"* claim — traced to a **non-developer Steam user**, contradicts Kasavin's own figures, **not citable**; `foro3d.com` Hades II engine article — **zero attribution, no named sources**; 80.lv Hades FX piece — video wrapper, no technical content; Thinh Ngo's Zerply profile — **HTTP 404**, could not verify.
+
+### 9.8 The three clips to cut first
+
+1. **`GlV6omZqbJo` @ 6:44–8:15** (spear attack + combat idle, static camera, empty room) — **class E2**, third-party. The smear reference.
+2. **Bastion Steam trailer @ 18–33 s** (largest figure measured anywhere, ~240–255 px) — **class E1**, official. Rear facing: sway and counter-rotation, not bob.
+3. **`GRSI7iAT4Tg` @ 19:10–19:35** (the House walk, official, chapter-anchored) — **class E1**. Lowest amplitude here, and the only true walk.
+
+**Runner-up worth one pass:** `cYJ6d1ifSqA` @ 8:40–9:05 — a painted Supergiant character isolated on pure black at full body height, from the studio itself. Nothing else in this section is that clean, and nothing else is that static.
