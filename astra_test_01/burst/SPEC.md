@@ -1,7 +1,7 @@
 # Astra burst lane — T0 SOFTWARE SPEC v1.0 (build-to-spec; Astra builds, gandalf reviews + freezes)
 
 > **STATUS:** BUILD CONTRACT for TOOLING bursts T0-a / T0-b / T0-c (Run C-1). Author: gandalf, 2026-09-11. Charter: `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` (§ 2 register card, § 4 burst rules, § 6 rubric — extracted verbatim by T0-a).
-> **Constraints binding on every TOOLING burst:** Python 3 stdlib + Pillow + numpy (+ OpenCV **only if already importable**; else numpy fallbacks). No `pip install`. No network. No image generation. Write ONLY under `astra_test_01/burst/`. Read only the paths named here. Every module ships `tests/test_<module>.py` (unittest, stdlib) with **known-bad fixtures**; a test that cannot fail on a bad input is not a test. No PASS/FAIL vocabulary in receipts — results are numbers + booleans consumed by the conductor.
+> **Constraints binding on every TOOLING burst:** Python 3 stdlib + Pillow 10.3 + numpy 2.4 + **scipy 1.17 + scikit-learn 1.8** (all present in system `python3`, first-hand probe, legolas R8 § 0.7). **`cv2`, `skimage`, `torch`, `onnxruntime` are ABSENT — do not import them; do not `pip install`.** `scipy.signal.fftconvolve` = normalised cross-correlation; `scipy.ndimage` = labelling, morphology, sobel; `sklearn.cluster.KMeans` = palette work. No network. No image generation. Write ONLY under `astra_test_01/burst/`. Read only the paths named here. Every module ships `tests/test_<module>.py` (unittest, stdlib) with **known-bad fixtures**; a test that cannot fail on a bad input is not a test. No PASS/FAIL vocabulary in receipts — results are numbers + booleans consumed by the conductor.
 
 ## 0. Layout (all paths relative to `astra_test_01/burst/`)
 
@@ -188,17 +188,46 @@ Port from `astra_test_01/run_02/{guides.py,pipeline.py,registration_preflight.py
 - `run_gates.py --frames-dir <run_03 or new> --master <S idle 00> --out checks.json` → list of § 1 results.
 **Regression lock:** running the suite on `astra_test_01/run_03/character/frames` must reproduce `run_03/evidence/current_checks.json` numbers (seam/drift/height/pivot) to 1e-3; record the diff in the receipt. **Known-bad tests:** run_02's seven (checkerboard rejection, upscaling rejection, clipped-sole rejection, wrong-side light, measured registration, native-alpha dark interiors, wrong-side/clipping detection) + shifted-mask, repeated-lead, swollen-bag synthetic cases.
 
-## 4. T0-c — parts, motif oracle, comparator, transcription schema
+## 4. T0-c — oracles O1–O9, part masks, comparator, transcription contract (v1.1 — revised 2026-09-11 from legolas R6–R8: `agentic_orchestration/legolas/research/2026-09-11-ai-tells-bibles-oracles/findings.md` § 2.4, § 3.2–3.9)
 
-- **`parts/part_masks.py`** — `classify_by_palette(rgba, bins: {part: [(h_lo,h_hi,s_min,v_min)]}) -> {part: mask}` (HSV hue bins, value-insensitive); `from_label_pass(label_rgba, colors: {part: (r,g,b)}, tol) -> {part: mask}`; `alpha_fit(mask, alpha, k_px) -> {"inside_frac": f, "ok": bool}`.
-- **`parts/motif_match.py`** — `count_instances(frame_rgb, template_rgb, scales=(0.5..1.5), thresh, allowed_masks: [mask]) -> {"inside": n, "outside": m, "boxes": [...]}`. OpenCV `matchTemplate` (TM_CCOEFF_NORMED) with NMS if `cv2` importable; else a numpy normalized cross-correlation at ≤ 3 scales. Must run on a 1536×1024 image in < 30 s CPU.
-- **`parts/part_metrics.py`** — `area(mask)`, `centroid_rel(mask, torso_mask)`, `palette_distance(frame, mask, palette_hex[])`, `hf_energy(frame, mask)` (Laplacian variance), `light_direction(frame, mask) -> degrees` (luminance gradient of the shaded part).
-- **`transcribe.schema.json`** — `{frame, parts:[{name,bbox,confidence}], motifs:[{type,bbox,on_part}], straps:[{from_part,to_part,anchored}], materials:[{part,material}], light_dir_deg, notes}`.
-- **`bible/schema.json`** — RULE rows: `{id, faction, class: motif|material|construction|silhouette|palette|plain-budget|light|scale|parts, statement, placements:[{where,scale,count}], exclusions:[...], reference_asset, oracle:{id|"JUDGE-only", threshold, inputs}, known_bad, source: matt-ruling|bible-author|oracle-feedback, date}` plus a top-level `parts:[{name, adjacent:[...], rigidity: rigid|cloth|hair, allowed_motifs:[...], palette_bin}]`.
-- **`bible/f04-keepers.stub.json`** — parts list for the Keeper (hair, face, shirt, tabard, belt, satchel, pauldron_L, pauldron_R, bracers, trousers, boots, rod, rod_head) and ONE motif rule: `sigil` allowed on `[tabard, rod_head]`, excluded everywhere else, `oracle: motif_match`. Everything else `JUDGE-only` placeholders. Vocabulary rows come later from Matt's rulings — do not invent them.
-- **`compare/compare_to_bible.py`** — `compare(bible, gate_results, transcription|None, masks|None) -> [{rule_id, passed|null, value, threshold, diff}]`. For `motif_match` rules: outside-count must be 0.
-- **Fixtures:** `fixtures/f04_advanced_crop.png` (crop of `astra_test_01/design/experiments/E07V/art/F04.png`, the advanced figure), `fixtures/sigil_template.png` (crop of the handheld astrolabe head — locate it by viewing the image; record the bbox in `fixtures/manifest.json`), `fixtures/clean_crop.png` (a run_03 mage frame, no astrolabe), run_03 S idle 00 / cast 05 / walk frames as needed.
-- **Acceptance (the gate must catch the defect Matt found by eye):** `count_instances(f04_advanced_crop, sigil_template, allowed=[rod_head_bbox]) → outside ≥ 3`; on `clean_crop` → outside == 0; `compare_to_bible` with the stub bible FAILS the F04 crop and PASSES the clean crop. `silhouette64.distance(S idle 00, S idle 00 mirrored)` must be clearly > `distance(S idle 00, S idle 01)`.
+**Every oracle returns the § 1 result schema; every threshold is a parameter with a documented calibration set (never a magic number). `passed: null` + reason when inputs are unclassifiable.**
+
+| id | Module / function | Method (closed-form) | Bible inputs | Masks? |
+|---|---|---|---|---|
+| **O1** | `oracles/palette.py: adherence(rgba, swatches_hex, dE_tol)` → % off-palette + off-palette cluster centroids | CIELAB nearest-swatch; KMeans on off-palette pixels | `PALETTE.swatches[]` per scope | N |
+| **O2** | `oracles/figure_ground.py: separation(rgba, background_rgb)` → mean/spread luminance inside alpha vs outside; sign + delta | luminance stats | `PALETTE.relation_rules[]` | N (alpha) |
+| **O3** | `oracles/motif.py: count_instances(rgb, template_rgb, scales, rotations_deg, thresh, allowed_masks)` → {inside, outside, peaks[]} | NCC via `fftconvolve` over a scale pyramid × rotation bank; peak NMS; partition by allowed masks | motif crop; `placements[]`; `exclusions[]`; `scope` | Y to scope; N for raw count |
+| **O4** | `oracles/plain_budget.py: plain_fraction(rgb, alpha, mask=None, edge_thresh)` | local edge-energy (`ndimage.sobel`) below threshold ÷ area | `plain-budget` target; `PARTS[].plain` | Y per part |
+| **O5** | `oracles/silhouette64.py: descriptor(alpha)`, `distance(a,b)` → aligned IoU (primary), contour distance (secondary), Hu moments (screen only) | binarise at 64 px, centroid+scale align | frame set; **threshold + its calibration set** | Y (silhouette) |
+| **O6** | `parts/part_masks.py: classify_by_bins(rgba, bins)` → {part: mask, unclassified_frac}; `part_metrics.py: area, centroid_rel(torso), palette_distance, mirror_symmetry(mask_a, mask_b)` | classify in CIELAB a*b* (luminance de-weighted); **erode 1–2 px** before measuring; report unclassified fraction as a health metric — above threshold ⇒ `passed: null` (VOID), not FAIL | `PARTS[] {palette_bin, attachment_to, adjacency, mirror_of, plain}` | **produces them** |
+| **O7** | `oracles/keylight.py: azimuth(rgb, alpha, mask=None)` → circular mean + dispersion of luminance-weighted gradient azimuth | `ndimage.sobel` | `LIGHT.key_azimuth_deg`, tolerance | optional |
+| **O8** | `oracles/grain.py: band_energy(rgb, alpha, source_px)` → radial spectral profile normalised to SOURCE pixels; distance to anchor profile | numpy FFT | `SCALE {canvas_px, feature_size_px}`; anchor asset | N |
+| **O9** | `transcribe/` — `questions.py: from_bible(bible, scope)` → atomic, unique, dependency-ordered questions (DSG-shaped) over a **closed part list**; `transcribe.schema.json` (strict form; **presence/absence + per-part counts ONLY — never coordinates, never open vocabulary**); `compare/compare_to_bible.py` scores answers vs declarations | model-backed by an Astra TRANSCRIBE burst; the comparator is closed-form; **every question set includes ≥ 1 declared-absent control part**; counts are cross-checked against O3 where a template exists (VLM count = hypothesis, template count = measurement) | `PARTS[]` closed list; `placements[]`; `exclusions[]`; control list | N |
+| ~~O10~~ | cross-frame identity (DINO-I) — **NOT T0** (`torch` absent); dependency decision recorded | | | |
+
+**Bible schema v0.1 (`bible/schema.json`) — adopts legolas § 2.4; extensions marked ours:**
+```
+RULE { id, faction, scope: character|prop|environment|vfx|ui, class: motif|material|construction|silhouette|palette|plain-budget|light|scale,
+       statement, placements[] {where, scale_px, count}, exclusions[] (stated POSITIVELY where possible — "all other surfaces plain"),
+       parts_ref[], reference_asset, known_bad, oracle {id|"JUDGE-only", threshold, inputs, needs_part_masks},
+       source: matt-ruling|bible-author|oracle-feedback, date, status }
+PILLARS[2..3] { name, filter_statement }                                   (D4 precedent)
+PALETTE       { scope, swatches[hex], relation_rules[] {figure_vs_ground, sign, min_delta} }
+PARTS[]       { name, adjacency[], rigidity: rigid|soft|cloth|hair, attachment_to, palette_bin, allowed_motifs[], plain: bool, mirror_of }   (ours — ID-map precedent)
+CONSTRUCTION[] { part, terminates_at | closes, statement }                  (ours — "every strap declares an endpoint; every fastener declares what it closes")
+LIGHT         { key_azimuth_deg, key_elevation, fill_ratio, source_count }
+SCALE         { canvas_px, feature_size_px: {class: px} }
+```
+`bible/f04-keepers.stub.json`: PARTS list for the Keeper (hair, face, shirt, tabard, belt, satchel, pauldron_L, pauldron_R, bracers, trousers, boots, rod, rod_head), ONE motif rule (`sigil` on `[tabard, rod_head]` only, `scope: character`, oracle O3), PALETTE with swatch placeholders, LIGHT key azimuth = upper-left (135° screen convention documented in the file), SCALE canvas 512. Everything else `JUDGE-only` placeholders. **Do not invent vocabulary; Matt rules it.**
+
+**Fixtures + acceptance (unchanged in spirit; the gate must catch the defect Matt found by eye):** `fixtures/f04_advanced_crop.png`, `fixtures/sigil_template.png` (crop the handheld astrolabe head; record its bbox in `fixtures/manifest.json`), `fixtures/clean_crop.png` (a run_03 mage frame), run_03 S idle 00 / cast 05 / walk frames.
+- O3 on the F04 crop with `allowed=[rod_head bbox]` → `outside ≥ 3`; on `clean_crop` → `outside == 0`. `compare_to_bible` with the stub FAILS the F04 crop and PASSES the clean crop.
+- O5: `distance(S idle 00, mirrored S idle 00)` clearly > `distance(S idle 00, S idle 01)`.
+- O6: on a synthetic 3-part sprite with disjoint bins + anti-aliased borders, per-part IoU vs ground truth ≥ 0.95 after 1-px erosion; unclassified border fraction reported.
+- O1: a swatch-shifted copy of a frame reports off-palette % > the original by a margin.
+- O9: `questions.from_bible(stub)` yields ≥ 1 declared-absent control; the comparator flags a synthetic answer set that claims the absent part present.
+
+**Explicitly NOT built (legolas contraindication):** any "is it AI at all" detector.
 
 ## 5. Freeze protocol (conductor, after each T0 burst)
 
