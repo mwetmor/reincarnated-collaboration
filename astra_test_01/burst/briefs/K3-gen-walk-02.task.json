@@ -1,0 +1,22 @@
+{
+ "text": "GENERATE BURST K3-gen-walk-02 — Keeper walk-S loop, frames 4–7 of the 8-frame in-place walk cycle, continuing sheet 1 (charter § 7 K3). task_id \"K3-gen-walk-02\".\n\nImage 1 is the APPROVED IDENTITY MASTER (rest pose). Image 2 is WALK SHEET 1 — frames 0–3 of this character's in-place walk toward the camera (row-major: 0 contact right foot forward · 1 recoil · 2 passing · 3 high point, left foot about to plant). Deliver EXACTLY ONE 1254×1254 image: a 2×2 sheet of frames 4–7 that CONTINUE that cycle with the OTHER leg — frame 4 = CONTACT, LEFT foot forward planted, right foot back; frame 5 = RECOIL onto the left foot, body lowest; frame 6 = PASSING, right leg swings past the left, body rising; frame 7 = HIGH POINT, right foot about to plant, body highest — so that frame 7 flows back into frame 0. Match Image 2 EXACTLY in character size, head size, baseline, camera, light, brushwork and the way the staff (RIGHT hand) and satchel (LEFT hip) move — the arms swing opposite the legs; this exact character — a young woman; dark curly hair tied back; ivory shirt; navy sleeveless tabard, plain chest; one diagonal chestnut harness to an olive canvas satchel on her LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; a plain walnut staff with brass ferrules in her RIGHT hand; no insignia anywhere. Every cell: IDENTICAL character size, head size, position on the cell's baseline, camera (elevated three-quarter, projection C), facing (S, toward the camera) and light (single key from SCREEN UPPER-LEFT, fixed; no floor shadow). Exactly four square cells, row-major, no borders, labels or gutters; flat pure #00ff00 plate; do not mirror; do not zoom; do not matte.\n\nOne image_gen call; ONE retry only if a cell is off-plate, mirrored (staff in the wrong hand), or the sheet is not 2×2 — name the retry reason. Copy the final output to out/k3_walk_S_04_07.png and compute its sha256. No code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"K3-gen-walk-02\"): images = the one file with prompt, references, elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+   "role": "APPROVED IDENTITY MASTER (rest pose, direction S)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png",
+   "role": "WALK SHEET 1 (frames 0–3): match its size, baseline, camera, light and brushwork exactly; continue the cycle with the other leg"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/k3_walk_S_04_07.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

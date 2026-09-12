@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K2-gen-NW-r1 — Keeper turnaround, direction NW (charter § 7 K2; MILESTONE: Matt sees the sheet). task_id \"K2-gen-NW-r1\".\n\nImage 1 is the APPROVED IDENTITY MASTER (direction S, facing the camera). Deliver EXACTLY ONE image: the SAME character — same face, hair mass, skin, costume, every item and its side, same proportions, same standing rest pose (weight even, arms relaxed, the plain walnut staff upright in the RIGHT hand) — with the CHARACTER ROTATED to face NW, defined as: the character faces the viewer's UPPER-LEFT — a CLEAR back-three-quarter view turned 135° from the S pose: her BACK and her RIGHT side are visible, her RIGHT shoulder is nearest the camera, the staff (right hand) is on the SCREEN-RIGHT and nearer the camera, the face is turned away toward the UPPER-LEFT (NEVER show the face), the satchel is on the far side mostly hidden; this is NOT the NE view — in NE her LEFT side would be near; here her RIGHT side is near. (DIAGNOSED RETRY: the first {dr} was read as NE by the judge; it was also 4 % short in height — match Image 1's standing height exactly.) The camera is fixed for every direction: an elevated three-quarter pinhole view from the front, ~53° above the ground plane (projection C); the character turns, the camera does not. The light is fixed for every direction: a single key from SCREEN UPPER-LEFT that does NOT rotate with the character — the key-facing side is the screen-left side in every direction; deep cool ambient; readable shadows, never pure black; slight rim on the key-facing edge; no spell glow; NO floor shadow. NO MIRRORING: this is the character turned, never a flipped image — the staff stays in the anatomical right hand, the satchel on the anatomical left hip, the harness strap over the right shoulder, whichever side those land on screen. Same framing and standing height as Image 1: full body, feet fully visible, centred, on a flat uniform pure #00ff00 background covering the whole canvas; portrait canvas like Image 1; do not matte. Identity for reference, unchanged: a YOUNG WOMAN, early 20s, dark curly hair tied back, sun-browned, face visible, no helmet; ivory linen shirt, navy sleeveless tabard with a PLAIN chest (no emblem of any kind), ONE chestnut diagonal harness strap carrying an olive canvas satchel on the figure's LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots; a PLAIN dark walnut staff with small brass ferrules at foot and tip (NO ring, NO head-piece) in the RIGHT hand; NO insignia anywhere — every surface plain. Register: painted 2D, clean material planes, restrained texture, no grain.\n\nOne image_gen call; ONE retry only if the result is off-plate, has a baked checkerboard, is mirrored (rod in the wrong hand) or invents extra objects — name the retry reason in the receipt. Copy the final output from $CODEX_HOME/generated_images/... to out/k2_NW.png and compute its sha256. No code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"K2-gen-NW-r1\"): images = the one file with prompt, references (role + path), elapsed_s; calls_used = the TRUE number of image_gen calls (1 or 2); status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns naming anything you could not honour. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-04/k1_master_L.png",
+   "role": "APPROVED IDENTITY MASTER (direction S) — identity, costume, proportions, pose and register; rotate the character, keep everything else"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/k2_NW.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K2"
+}

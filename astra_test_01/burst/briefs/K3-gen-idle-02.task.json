@@ -1,0 +1,18 @@
+{
+ "text": "GENERATE BURST K3-gen-idle-02 — Keeper idle-S loop, frames 4–7 via EDIT-CANVAS chained from frame 3 (charter § 7 K3). task_id \"K3-gen-idle-02\".\n\nImage 1 is a 1254×1254 2×2 canvas on a pure #00ff00 plate: SLOT 0 (top-left) already holds APPROVED idle frame 3 (breath peak) of the Keeper — this exact character — a young woman; dark curly hair tied back; ivory shirt; navy sleeveless tabard, plain chest; one diagonal chestnut harness to an olive canvas satchel on her LEFT hip; one belt; laced bracers; navy trousers; chestnut boots; a plain walnut staff with brass ferrules in her RIGHT hand; no insignia anywhere; slots 1–3 are empty green. Deliver EXACTLY ONE image: the SAME canvas with slots 1–3 filled by idle frames 4, 5, 6 — begin exhale, middle exhale, nearly at rest — so that frame 7 (the cycle's return) will equal the rest pose; SLOT 0 LEFT PIXEL-IDENTICAL. Motion is SUBTLE: shoulders and chest settle, the staff tip drifts back, the hair mass barely moves; both feet planted on the same line. Every cell: IDENTICAL character size, head size, position on the cell's baseline, camera (elevated three-quarter, projection C), facing (S, toward the camera) and light (single key from SCREEN UPPER-LEFT, fixed; no floor shadow). Exactly four square cells, row-major, no borders, labels or gutters; flat pure #00ff00 plate; do not mirror; do not zoom; do not matte.\n\nOne image_gen call (edit/reference mode on Image 1); ONE retry only if a cell is off-plate, mirrored, or slot 0 was altered — name the retry reason. Copy the final output to out/k3_idle_S_04_06.png and compute its sha256. No code. No other files. No web. No agents.\nRETURN: the receipt (task_id \"K3-gen-idle-02\"): images = the one file with prompt, references, elapsed_s; calls_used = the TRUE number of image_gen calls; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-seed/canvas_idle_S_frame3.png",
+   "role": "the 2×2 edit canvas: slot 0 = approved idle frame 3 (keep pixel-identical); fill slots 1–3"
+  }
+ ],
+ "image_cap": 2,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/k3_idle_S_04_06.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

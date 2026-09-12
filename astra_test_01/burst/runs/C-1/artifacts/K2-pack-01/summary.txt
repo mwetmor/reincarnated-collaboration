@@ -1,0 +1,13 @@
+K2-pack-01 | axes in order 1/2/3/4/5; G1/G3 = supplied CHECK passed booleans; no new verdicts.
+S | axes=N/A (reference, unscored) | G1=true G3=true | mirrored=N/A | facing match=N/A
+SW | axes=5/4/4/5/5 | G1=true G3=false | mirrored=false | facing match=true (seen SW)
+W | axes=5/4/4/4/5 | G1=true G3=false | mirrored=false | facing match=true (seen W)
+NW | axes=3/4/4/4/5 | G1=false G3=true | mirrored=false | facing match=false (seen NE)
+N | axes=5/4/4/5/5 | G1=true G3=true | mirrored=false | facing match=true (seen N)
+NE | axes=5/4/4/5/5 | G1=true G3=true | mirrored=false | facing match=true (seen NE)
+E | axes=4/4/4/3/5 | G1=true G3=true | mirrored=false | facing match=true (seen E)
+SE | axes=3/4/4/3/5 | G1=true G3=false | mirrored=false | facing match=false (seen S)
+control image 9 | axis2=1 axis3=2 | axis2 or axis3 <=2: true | called mirrored: true
+Shared scale=240/1461; S alpha height=240; baseline=400; cells=512; 64 strip=nearest-neighbour.
+Missing: S JUDGE candidate fields and reviewed root anchors; bbox alignment does not establish G2.
+Reported concerns: NW/SE facing mismatches; NW G1=false; SW/W/SE G3=false; O3b remains advisory.

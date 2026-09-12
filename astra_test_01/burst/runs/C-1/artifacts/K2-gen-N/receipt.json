@@ -1,0 +1,35 @@
+{
+  "task_id": "K2-gen-N",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_N.png",
+      "path": "out/k2_N.png",
+      "sha256": "5843631124d2accdb04b6ec92aab00914485f76f19d17a735bffde45ebfe7f54",
+      "prompt": "Use case: identity-preserve. Create EXACTLY ONE painted 2D illustrated character turnaround, direction N, using Image 1 as the APPROVED IDENTITY MASTER for identity, costume, proportions, pose and register. Rotate the SAME young woman to face directly AWAY from the viewer: her back faces camera; absolutely NO face visible. Same dark curly tied-back hair mass, sun-browned skin, early-20s woman, same proportions and standing rest pose with weight even. Plain walnut staff upright in her anatomical RIGHT hand, now SCREEN-RIGHT; olive canvas satchel at anatomical LEFT hip, now SCREEN-LEFT. ONE chestnut diagonal harness strap crosses her BACK from anatomical right shoulder (screen-right) to left hip (screen-left). This is a physical turnaround, never a flipped image. Show the back of the hair mass and back of the navy tabard. Preserve every garment, item and its anatomical side: ivory linen shirt with rolled sleeves, plain navy sleeveless tabard without any emblem, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. Staff is plain dark walnut with small brass ferrules at foot and tip, no ring or head-piece. No insignia anywhere, every surface plain. No extra objects. Arms relaxed except right hand holding upright staff as in the master. Camera fixed: elevated three-quarter pinhole view approximately 53 degrees above ground plane, looking down at the character; character turns, camera does not. Full body with feet entirely visible, centered, same framing and standing height as Image 1, portrait canvas matching Image 1. Background is flat uniform pure #00ff00 across the entire canvas, opaque, no matting, no checkerboard, no floor shadow. Lighting fixed in screen space: single key from SCREEN UPPER-LEFT, key-facing side is screen-left; deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing silhouette edge. No spell glow or warm saturated light source. Style: high-resolution painted 2D illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or grain. Blue / ivory / brass palette with chestnut leather and olive canvas exactly as reference. Deliver the single portrait requested for this turnaround task.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S)—identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 45.088
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered the task-specific 1024×1536 portrait; the frozen register's 2×2 sheet and registered 512×512 frame requirements conflict with that instruction.",
+      "The generated view appears shallower than the requested approximately 53-degree camera elevation.",
+      "Exact pose, hair mass and costume-detail preservation cannot be confirmed; visible variations remain."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_N.png",
+      "sha256": "5843631124d2accdb04b6ec92aab00914485f76f19d17a735bffde45ebfe7f54"
+    }
+  ]
+}

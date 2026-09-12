@@ -1,0 +1,90 @@
+{
+  "task_id": "K2-chk-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "All inputs and diagnostic RGBA mattes are 1024×1536, not the required registered 512×512 frames. No registration was inferred.",
+      "G2-root could not be computed: independent reviewed root anchors were not supplied.",
+      "The frozen silhouette tool resizes the portrait canvas to 64×64; this convention is documented.",
+      "No distinct bleed-index formula was supplied; frozen matte spill and edge-halo measurements are reported."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "450aead1c19fe91dfeb260109be21917faaf87956db78a4e19d771754d4d7eba"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "04df26181d597484b07aec237f680d058ad985b6a5299d1fbc60ec45adc73b44"
+    },
+    {
+      "path": "out/k2_S_rgba.png",
+      "sha256": "34584ed1e04c384324a4ac436da6f68fed79f48791e90064512542bd08c43ecb"
+    },
+    {
+      "path": "out/k2_SW_rgba.png",
+      "sha256": "110ff080f1bcdb37c5290b6e1eb47534402943718ca7a7fd28852eb5c2727285"
+    },
+    {
+      "path": "out/k2_W_rgba.png",
+      "sha256": "a600380eded5944483eef6e1b1397a95f6c7305bd3ee6d11be18dfca0d144587"
+    },
+    {
+      "path": "out/k2_NW_rgba.png",
+      "sha256": "8816844a0fc8f435d144421ab16c00d6e3d34e76c80ecb103ce7e29308d21d69"
+    },
+    {
+      "path": "out/k2_N_rgba.png",
+      "sha256": "a1aa9f4dfa9d3783c4fb56f153a838248a3fa3da1b670f92736e1412ff6b16e4"
+    },
+    {
+      "path": "out/k2_NE_rgba.png",
+      "sha256": "1cd4c304a4159fc9e77784556db1fb11755c0bae9f62491a76f52f856952fff3"
+    },
+    {
+      "path": "out/k2_E_rgba.png",
+      "sha256": "9935e2da2c0d1bd4bb418f9cd11cfca069295b3f0f1d4d8c8b3c53aa34d78c35"
+    },
+    {
+      "path": "out/k2_SE_rgba.png",
+      "sha256": "4157f53a1d9c688879c7b70a9f377187029a538cf7d94005e0aac49b29c90c62"
+    },
+    {
+      "path": "out/k2_S_64.png",
+      "sha256": "70539aecff4f7e75a5d1d1c5cd1b5458006d5fb5661260e3425af923b6b5804d"
+    },
+    {
+      "path": "out/k2_SW_64.png",
+      "sha256": "a8d038e7ef63f0814914fc521fe2c8ac73a48c943a499e5f3d2b1134bff79c98"
+    },
+    {
+      "path": "out/k2_W_64.png",
+      "sha256": "676a71c163d9d116bcc9b50ca397c61a5860f553d036284989f58f80f361cc56"
+    },
+    {
+      "path": "out/k2_NW_64.png",
+      "sha256": "8f2bec93ade279d95dd1b64f3a30fad2dde0e89d69a9e0f0f751b6586f2ca81c"
+    },
+    {
+      "path": "out/k2_N_64.png",
+      "sha256": "543d1ac8b9c8f1ecb2b191a3d01f7a0bc9fb2566af80749397a2c0020c54ea6f"
+    },
+    {
+      "path": "out/k2_NE_64.png",
+      "sha256": "aba789aae1634eb09d280142db13ea4e6db742bca2182b853794274fdb190e83"
+    },
+    {
+      "path": "out/k2_E_64.png",
+      "sha256": "f7715e57982caeb97b772c310bcc0cf11854d5d0b0774b9420664aa3fd9fcdca"
+    },
+    {
+      "path": "out/k2_SE_64.png",
+      "sha256": "1c5cb14a49e924495ff11be0688994341617b43c7e9d9ff4d4ea41ef5aa738b2"
+    }
+  ]
+}

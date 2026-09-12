@@ -1,0 +1,40 @@
+{
+  "task_id": "K3-gen-idle-02",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3_idle_S_04_06.png",
+      "path": "out/k3_idle_S_04_06.png",
+      "sha256": "02cf185b42d185e10e1f3f81ba8a2bac4aa43d813b36bddcaab3c6e8c5d64e91",
+      "prompt": "Use case: identity-preserve. Edit target: Image 1, the supplied 1254x1254 canvas. Deliver exactly one 1254x1254 PNG, same 2x2 arrangement of 627x627 square cells, row-major, without borders, labels or gutters. CRITICAL: preserve the entire top-left cell (slot 0, x=0..626, y=0..626) PIXEL-IDENTICAL, including its character and background. Fill only the three empty green cells. Slot 0 is approved Keeper idle-S frame 3, breath peak. Top-right slot 1 = frame 4 begin exhale; bottom-left slot 2 = frame 5 middle exhale; bottom-right slot 3 = frame 6 nearly at rest, preparing for frame 7 rest. Copy the exact slot-0 character identity, dimensions, head size, local position and planted boot positions into each other cell with extremely subtle sequential shoulder/chest settling, slight staff-tip drift back and barely moving hair. All feet remain planted on the same local baseline. No enlargement, zoom, mirroring, perspective change or recentering. Same elevated three-quarter projection C, facing S toward camera as reference. Staff remains in anatomical RIGHT hand (screen-left), satchel on anatomical LEFT hip (screen-right). Young woman with dark curly hair tied back, ivory shirt, navy sleeveless tabard with plain chest, exactly one diagonal chestnut harness to an olive canvas satchel, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules; no insignia anywhere. Painted 2D illustrated high-resolution clarity, clean material planes, restrained surface texture, readable small silhouette, no conspicuous grain. Blue/ivory/brass Keepers of Hours palette; retain exact reference outfit rather than adding ornaments. Single key light from SCREEN UPPER-LEFT fixed in every cell, deep cool low-value ambient with readable shadows never pure black, slight rim on key-facing edge. No spell light. NO floor shadows. All empty background pure flat #00ff00, opaque green plate; no matting or transparency. Slot 0 must remain completely untouched; only fill slots 1-3. No text.\nRETRY CORRECTION: The previous attempt visibly redrew details in protected slot 0. Use the ORIGINAL supplied canvas as the edit target again. Lock every pixel of the full top-left 627x627 region; do not regenerate, repaint, retouch, recolor, sharpen or modify this region at all. Apply the edit exclusively to the three initially empty slots. Preserve original slot-0 pixels exactly, even where its original green background differs slightly. New cells should have flat pure #00ff00 backgrounds. Fill the other slots with the subtle sequential exhale poses specified above.",
+      "references": [
+        {
+          "role": "edit target; approved frame 3 in protected slot 0",
+          "path": "in/01_canvas_idle_S_frame3.png"
+        }
+      ],
+      "elapsed_s": 44.61
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First output visually appeared to redraw details in protected slot 0.",
+      "change": "Retried from the original reference with stronger instructions to lock all slot-0 pixels."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Slot-0 pixel identity remains unverified after retry.",
+      "Lower-row planted boot positions appear slightly higher within their cells than the reference baseline.",
+      "Pure #00ff00 background uniformity was not quantitatively verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3_idle_S_04_06.png",
+      "sha256": "02cf185b42d185e10e1f3f81ba8a2bac4aa43d813b36bddcaab3c6e8c5d64e91"
+    }
+  ]
+}

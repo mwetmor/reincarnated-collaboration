@@ -1,0 +1,40 @@
+{
+  "task_id": "K2-gen-W",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_W.png",
+      "path": "out/k2_W.png",
+      "sha256": "df72a6890aa3f63c4bc1e7c4e72736ed1ec846ddeb1671fd2f64fe2cd10a13b3",
+      "prompt": "Use case: identity-preserve. Create exactly ONE portrait full-body character turnaround image, matching the portrait canvas and standing height of Image 1. Image 1 is the APPROVED IDENTITY MASTER, facing camera; preserve her exact identity, costume, proportions, items and standing rest pose, but ROTATE THE CHARACTER to W: full LEFT-facing profile, nose and both toes pointing screen-left, only her anatomical RIGHT side visible to camera. The camera remains fixed: elevated three-quarter pinhole view approximately 53 degrees above the ground plane, looking down at her. Show appropriate top surfaces and foreshortening while retaining full body and fully visible feet. No mirroring. Her anatomical RIGHT hand, nearest the camera, holds the upright plain walnut staff in front of the body. Her anatomical LEFT hip satchel is on the far side and hidden or barely visible. Harness stays over anatomical RIGHT shoulder. Weight even, relaxed standing rest pose, same bent right arm holding staff and relaxed left arm as master.\nIdentity and equipment unchanged: young woman early 20s, sun-browned skin, same face and dark curly hair mass tied back, no helmet. Ivory linen shirt, navy sleeveless long split tabard with completely PLAIN chest, ONE chestnut diagonal harness strap carrying ONE olive canvas satchel on LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. ONE PLAIN dark walnut staff with small brass ferrules at tip and foot, no ring and no head-piece, in RIGHT hand. No insignia, no emblem, no added objects, every surface plain.\nStyle: painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or grain texture. Blue, ivory, brass costume palette. Light: single fixed key from SCREEN UPPER-LEFT, slight rim on key-facing screen-left silhouette edge, deep cool low-value ambient, readable shadows never pure black. No warm or saturated light source, no spell glow. NO floor shadow. Background: flat uniform pure #00ff00 green across the entire canvas. No environment, no gradient, no checkerboard, no matting. Full figure centered on portrait canvas like Image 1, same framing and standing height. Deliver a single portrait image, not a sheet.\nCRITICAL ANATOMICAL CORRECTION: The visible near shoulder is her RIGHT shoulder. The near arm emerging from that shoulder MUST bend forward toward screen-left, with its near right hand gripping the staff. This bent staff-holding right arm must visibly OVERLAP and OCCLUDE the torso in the foreground. Do not show a relaxed dangling arm in the foreground. The LEFT relaxed arm is behind the torso on the far side and largely occluded, as is the left hip bag. Read this as a strict right-side elevation: the only clearly visible arm is the bent right arm holding the staff. Keep her face a strict left-facing profile. Camera elevation must visibly look down from about 53 degrees above ground.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S)",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 38.886
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result placed the relaxed arm nearest the camera and the staff-holding arm on the far side, reversing the required hand arrangement.",
+      "change": "Explicitly required the near right shoulder and bent staff-holding arm to overlap the torso, with the relaxed left arm occluded."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Delivered the task-specific 1024×1536 portrait rather than the register's 512×512 registered sheet frame.",
+      "Camera elevation appears shallower than the requested approximately 53 degrees.",
+      "Exact identity, hair mass, stance, and equipment proportions are not fully preserved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_W.png",
+      "sha256": "df72a6890aa3f63c4bc1e7c4e72736ed1ec846ddeb1671fd2f64fe2cd10a13b3"
+    }
+  ]
+}

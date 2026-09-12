@@ -1,0 +1,36 @@
+{
+  "task_id": "K2-gen-E",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_E.png",
+      "path": "out/k2_E.png",
+      "sha256": "8a465672c816976dab954f9efcec657e4087ffda87bb6d9086d30e740f4a48e6",
+      "prompt": "Use case: identity-preserve. Generate exactly ONE portrait image, same canvas aspect and full-body standing height as Image 1. Image 1 is the APPROVED IDENTITY MASTER (S facing camera), used for exact identity, costume, proportions, standing pose and painted register. Rotate this SAME character to E: full RIGHT-facing profile, nose and toes screen-right, ONLY her anatomical LEFT side toward the camera. Olive satchel on her LEFT hip is on the near side, clearly in front of the body's silhouette; LEFT arm relaxed beside it. Plain upright walnut staff stays in anatomical RIGHT hand on the FAR side, with that hand partly occluded by her body; staff tip still rises above her shoulder. Do not mirror. Same rest pose, even weight, same face, hair mass, skin and every item and its side. Camera fixed: elevated three-quarter pinhole view approximately 53 degrees above ground plane; character rotates, camera does not. Preserve portrait full-body framing, centered, feet fully visible, same standing height as reference. Entire background flat uniform pure #00ff00, no floor shadows, no ground plane, no gradient, no checkerboard, no matting. Young woman early 20s, sun-browned skin, dark curly hair tied back, face visible in true profile, no helmet. Ivory linen shirt, navy sleeveless tabard with completely PLAIN chest, ONE chestnut diagonal harness strap over anatomical RIGHT shoulder carrying ONE olive canvas satchel on anatomical LEFT hip, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. ONE PLAIN dark walnut staff with small brass ferrules at tip and foot, no ring or head-piece. Every surface plain, no insignia, no emblem, no new objects. Painted 2D high-resolution illustration, clean material planes, restrained surface texture, readable silhouette, no conspicuous brush or grain. Blue / ivory / brass palette. Single fixed key from SCREEN UPPER-LEFT, light never rotates with character. Key-facing screen-left silhouette gets a slight rim; deep cool low-value ambient, readable shadows never pure black. No spell glow or warm saturated light source. Preserve approved identity and costume exactly while turning her body into the requested full right-facing profile.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER — direction S; identity, costume, proportions, pose and register",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 42.633
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Harness appears over the near anatomical left shoulder instead of the required right shoulder.",
+      "Satchel appears edge-on at the front of the body rather than clearly presented on the near left hip.",
+      "Camera elevation appears shallower than the specified approximately 53 degrees.",
+      "Delivered the task-specific 1024×1536 portrait; the conflicting register requirement for a 2×2 sheet and registered 512×512 frames was not applied."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_E.png",
+      "sha256": "8a465672c816976dab954f9efcec657e4087ffda87bb6d9086d30e740f4a48e6"
+    }
+  ]
+}

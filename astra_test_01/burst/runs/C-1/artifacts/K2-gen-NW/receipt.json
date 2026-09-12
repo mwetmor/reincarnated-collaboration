@@ -1,0 +1,37 @@
+{
+  "task_id": "K2-gen-NW",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k2_NW",
+      "path": "out/k2_NW.png",
+      "sha256": "88aa46d29bd67760a02e31d3751b847c5fb0552b54a0ed5dae80d33ec582bb99",
+      "prompt": "Use case: identity-preserve. Create exactly ONE full-body portrait character turnaround image. Image 1 is the APPROVED IDENTITY MASTER in direction S; preserve her identity, dark curly tied-back hair mass, sun-browned skin, proportions, clothing, item construction and standing rest pose. Rotate only the character 135 degrees from S to NW: she faces the viewer's UPPER-LEFT, with her back and anatomical RIGHT side visible. Her face is turned fully away toward upper-left: NEVER show the face or facial features. The plain upright walnut staff is in her anatomical RIGHT hand, on SCREEN-RIGHT nearer the camera. The olive satchel remains on her anatomical LEFT hip on the far side, mostly hidden. The single diagonal harness strap passes over her anatomical RIGHT shoulder to her LEFT hip, visibly continuing across her back. This is a true turnaround, no mirroring.\nCamera: fixed elevated three-quarter pinhole view, approximately 53 degrees above ground plane, viewing down onto her head and shoulders. Character rotates, camera stays fixed. Full body centered, both feet completely visible, portrait 1024x1536 canvas like Image 1, same framing and standing height as reference. Weight even, relaxed resting stance; right hand holds staff upright, other arm relaxed.\nCostume unchanged: young woman early 20s, no helmet; ivory linen shirt with rolled sleeves, navy sleeveless long split tabard, all surfaces plain, ONE chestnut diagonal harness strap, ONE waist belt, chestnut laced bracers, navy trousers, chestnut buckled boots. Olive canvas satchel on LEFT hip. PLAIN dark walnut staff with only small brass ferrules at tip and foot, no ring or head-piece. No insignia, no emblems, no extra objects.\nRegister: painted 2D illustration, high resolution, clean material planes, restrained surface texture, readable small silhouette, no conspicuous brush grain or pixel grain. Blue, ivory, brass and chestnut palette matching reference. Single key light fixed from SCREEN UPPER-LEFT, so screen-left is the key-facing side in every direction; deep cool low-value ambient, readable shadows never pure black; slight rim on key-facing silhouette edge. No spell glow, no additional warm or saturated light sources. NO floor shadow or contact shadow.\nPlate: flat uniform pure #00ff00 covering the entire background right up to silhouette. No gradient, scenery, floor, transparency, checkerboard, matting, text or labels. Deliver the single portrait turnaround, not a sheet.",
+      "references": [
+        {
+          "role": "APPROVED IDENTITY MASTER (direction S)",
+          "path": "in/01_k1_master_L.png"
+        }
+      ],
+      "elapsed_s": 41.693
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Figure faces upper-right rather than the requested upper-left NW direction.",
+      "Camera elevation appears shallower than approximately 53 degrees.",
+      "Exact costume hardware and hair-mass fidelity are not preserved.",
+      "Followed the task-specific single portrait requirement; output is 1024×1536, not the register card's 2×2 sheet or registered 512×512 frame.",
+      "Direction and camera discrepancies are outside the permitted retry reasons; no retry made."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k2_NW.png",
+      "sha256": "88aa46d29bd67760a02e31d3751b847c5fb0552b54a0ed5dae80d33ec582bb99"
+    }
+  ]
+}

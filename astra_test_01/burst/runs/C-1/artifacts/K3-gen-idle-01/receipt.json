@@ -1,0 +1,40 @@
+{
+  "task_id": "K3-gen-idle-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k3_idle_S_00_03.png",
+      "path": "out/k3_idle_S_00_03.png",
+      "sha256": "aeb146b296de94ecdf6df083078ed74cdf88dcee1a6e4d270ade89d02c1852f2",
+      "prompt": "Use case: identity-preserve. EDIT Image 1, the supplied 1254x1254 square canvas, into exactly one 2x2 idle animation sheet. Image 1 is the edit target and approved identity, style, scale, pose, lighting and registration reference. CRITICAL: preserve the entire top-left 627x627 quadrant (slot 0) PIXEL-IDENTICAL, including its green background and approved rest figure. Do not redraw, move, rescale or relight any pixel of slot 0. Fill only the three empty green quadrants with the same exact young woman in three consecutive SUBTLE standing idle frames: top-right slot 1 begin inhale; bottom-left slot 2 middle inhale; bottom-right slot 3 gentle breath peak. Exactly four equal 627x627 cells, row-major, no borders, labels or gutters. Keep canvas 1254x1254. Each new figure has identical cell-local position and size as approved slot 0; translate the reference placement by exactly (627,0), (0,627), (627,627). Both feet remain planted at the same cell-local coordinates and baseline. Same head size and total standing height. Only shoulders and chest rise very slightly during inhale, staff tip drifts a few pixels, hair mass barely moves. Exact character: young woman, dark curly hair tied back, ivory shirt, navy sleeveless tabard with plain chest, one diagonal chestnut harness to olive canvas satchel on her anatomical LEFT hip, one belt, laced bracers, navy trousers, chestnut boots, plain walnut staff with brass ferrules upright in her anatomical RIGHT hand, on screen-left. No insignia anywhere. Same S facing toward camera as reference, elevated three-quarter projection C; same camera for every cell. No mirroring, no zoom, no new accessories. Painted 2D high-resolution illustration, clean material planes, restrained surface texture, readable small silhouettes, no conspicuous brush or grain texture. Blue/ivory/brass Keeper of Hours palette, preserve the reference clothing without adding armor or ornament. Single key light from SCREEN UPPER-LEFT fixed in every frame, deep cool low-value ambient, readable shadows never pure black, slight rim on key-facing silhouette. No spell or warm light sources. NO floor shadows. All background remains flat pure #00ff00 green, opaque; no matting, no transparency, no scenery. The requested output is the native sheet only; downstream frames will be registered separately via uniform downscale and translation. Preserve slot 0 exactly and derive the other frames from this approved in-canvas neighbour.\nRETRY CORRECTION: the previous attempt incorrectly enlarged and redrew the approved top-left figure. Use the ORIGINAL attached seed as the edit target again. Lock the whole top-left cell unchanged. The original woman's visible bounds are approximately x=227..399, y=94..563, with staff x=233..243, y=146..539. Preserve those original pixels exactly. Do not expand figures to fill cells. Replicate these same bounds translated by cell offsets: top-right woman approximately x=854..1026,y=94..563; bottom-left x=227..399,y=721..1190; bottom-right x=854..1026,y=721..1190. Every figure must retain ample green around it, especially above the head and beside the body. Keep footwear coordinates exactly matching the seed in each cell; only a tiny breath in the upper torso. All green must be uniform pure #00ff00 with absolutely no texture, mottling, lighting or gradient. This is a selective edit of three empty regions, with an immutable approved quadrant, not a recreation of the sheet.",
+      "references": [
+        {
+          "role": "Edit target: approved slot 0 and empty slots 1–3; identity, style, scale, lighting and registration reference",
+          "path": "in/01_canvas_idle_S_seed.png"
+        }
+      ],
+      "elapsed_s": 48.195
+    }
+  ],
+  "calls_used": 2,
+  "retries": [
+    {
+      "reason": "First result visibly enlarged and redrew slot 0.",
+      "change": "Retried from the original seed with explicit figure bounds, cell offsets and strengthened quadrant-preservation instructions."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Final slot 0 visibly differs from the approved seed; pixel-identical preservation was not achieved.",
+      "Green background shows visible variation; uniform pure #00ff00 was not achieved.",
+      "Exact planted-foot registration, identical figure dimensions and inhale progression remain unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k3_idle_S_00_03.png",
+      "sha256": "aeb146b296de94ecdf6df083078ed74cdf88dcee1a6e4d270ade89d02c1852f2"
+    }
+  ]
+}

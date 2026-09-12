@@ -1,0 +1,32 @@
+{
+ "text": "PACK BURST K3-reg-01 — register the Keeper idle-S and walk-S sheets into 512×512 frames (charter § 2 CANVAS rule: uniform downscale + translation only — no per-frame scale, no upscaling; charter § 7 K3). task_id \"K3-reg-01\".\n\nInputs (read-only): idle sheet 1 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-01/k3_idle_S_00_03.png (2×2, 1254²; slot 0 = rest frame 0, slots 1–3 = idle frames 1–3, row-major); idle sheet 2 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-idle-02/k3_idle_S_04_06.png (slot 0 = a copy of frame 3, slots 1–3 = idle frames 4–6); walk sheet 1 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-01/k3_walk_S_00_03.png (slots 0–3 = walk frames 0–3); walk sheet 2 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-gen-walk-02/k3_walk_S_04_07.png (slots 0–3 = walk frames 4–7). The registration transform /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-seed/registration_transform.json: cell = 627 px; scale = 0.5106 (627 → 320 px); paste offset (x, y) = (96, 112) on a 512×512 transparent canvas — the SAME transform for every cell. Frozen tools: gates/matte.py (extract, character mode, alpha_floor=40) for matting each cell BEFORE downscaling; gates/common.py. PIL is a frozen library: run `python3 - <<'PY'` scripts that only crop cells, matte, resize with LANCZOS by exactly the given scale, and paste at exactly the given offset — never fit, never per-frame scale, never upscale.\n\nWrite in out/frames/idle/S/idle_S_00.png … idle_S_07.png (frame 0 = sheet-1 slot 0; 1–3 = sheet-1 slots 1–3; 4–6 = sheet-2 slots 1–3; frame 7 = a byte-identical copy of frame 0 — the loop return) and out/frames/walk/S/walk_S_00.png … walk_S_07.png (sheet-1 slots 0–3, sheet-2 slots 0–3); out/sheets/idle_S_strip.png and out/sheets/walk_S_strip.png (the 8 registered frames side by side on #3a3f4a with frame numbers); out/registration.json (per frame: source sheet + slot, alpha bbox in the 512 canvas, alpha-bbox height px, bottom-most alpha row = the sole line, matte details). Also out/readme.txt with the exact commands. No image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3-reg-01\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS; concerns for any cell whose figure touches a cell edge or whose sole line differs from the others by more than 4 px. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/registration.json",
+  "out/readme.txt",
+  "out/sheets/idle_S_strip.png",
+  "out/sheets/walk_S_strip.png",
+  "out/frames/idle/S/idle_S_00.png",
+  "out/frames/idle/S/idle_S_01.png",
+  "out/frames/idle/S/idle_S_02.png",
+  "out/frames/idle/S/idle_S_03.png",
+  "out/frames/idle/S/idle_S_04.png",
+  "out/frames/idle/S/idle_S_05.png",
+  "out/frames/idle/S/idle_S_06.png",
+  "out/frames/idle/S/idle_S_07.png",
+  "out/frames/walk/S/walk_S_00.png",
+  "out/frames/walk/S/walk_S_01.png",
+  "out/frames/walk/S/walk_S_02.png",
+  "out/frames/walk/S/walk_S_03.png",
+  "out/frames/walk/S/walk_S_04.png",
+  "out/frames/walk/S/walk_S_05.png",
+  "out/frames/walk/S/walk_S_06.png",
+  "out/frames/walk/S/walk_S_07.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

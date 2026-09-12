@@ -1,0 +1,54 @@
+{
+  "task_id": "K2-pack-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "S master has no supplied JUDGE scores or candidate observations; marked unavailable.",
+      "Reviewed root anchors are unavailable; bbox presentation alignment does not establish G2.",
+      "Recorded findings preserved: NW seen as NE; SE seen as S; NW G1=false; SW/W/SE G3=false.",
+      "Wrapper-owned streaming logs are excluded from deliverable hashes."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/turnaround_sheet.png",
+      "sha256": "123e1629c2107033356b905bd92300d8dc150522c4247912149c8236f0f7bdf2"
+    },
+    {
+      "path": "out/turnaround_64px.png",
+      "sha256": "6c9ab330de19f2e0a61ea1312f12af994c0467a69516ba4a86602179abaf21b9"
+    },
+    {
+      "path": "out/turnaround_sheet_green.png",
+      "sha256": "c60f622c42297c32ea160d42188d190a9ae14655a75be323fabb54732afc3afc"
+    },
+    {
+      "path": "out/review.html",
+      "sha256": "9c24e01044b9f9ac78c47ed348bc0cac66d47f153daaa8f99480e88513d01e03"
+    },
+    {
+      "path": "out/summary.txt",
+      "sha256": "8d207494fe292647120bb22b6168bf202d7fc69068d7e0dc07c6ad33ece43868"
+    },
+    {
+      "path": "out/registration.json",
+      "sha256": "508e3aea66ca7a84911550d4cbf9dd9e109acad16787ff74ab531b29a75208b9"
+    },
+    {
+      "path": "out/img/turnaround_sheet.png",
+      "sha256": "123e1629c2107033356b905bd92300d8dc150522c4247912149c8236f0f7bdf2"
+    },
+    {
+      "path": "out/img/turnaround_64px.png",
+      "sha256": "6c9ab330de19f2e0a61ea1312f12af994c0467a69516ba4a86602179abaf21b9"
+    },
+    {
+      "path": "out/img/turnaround_sheet_green.png",
+      "sha256": "c60f622c42297c32ea160d42188d190a9ae14655a75be323fabb54732afc3afc"
+    }
+  ]
+}

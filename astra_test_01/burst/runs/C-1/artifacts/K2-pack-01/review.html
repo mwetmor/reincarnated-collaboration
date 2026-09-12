@@ -1,0 +1,758 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>K2 Keeper turnaround · C-1</title><style>body{margin:0;background:#20242b;color:#edf0f5;font:16px/1.55 system-ui,sans-serif}main{max-width:1440px;margin:auto;padding:32px}h1{font-size:28px;margin:0}h2{font-size:22px;margin-top:36px}h3{font-size:17px}p{max-width:1000px}.muted{color:#b5bfcc}.scroll{overflow-x:auto;background:#3a3f4a;margin:18px 0}img{display:block}.sheet{width:4096px;height:512px}.tiny{width:2048px;height:256px;image-rendering:pixelated}section{border-top:1px solid #505762;margin-top:28px;padding-top:12px}table{border-collapse:collapse;width:100%;margin:16px 0}th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid #434c58}th{width:26%;font-weight:500;color:#c5cedb}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 monospace}a{color:#b5d3f3}footer{border-top:1px solid #505762;margin-top:40px;padding-top:20px}</style><main><h1>Keeper turnaround</h1><p class="muted">Run C-1 · K2-pack-01 · S SW W NW N NE E SE</p><p>Milestone presentation with recorded CHECK measurements and JUDGE scores. No new verdicts. Each cell is 512 × 512; figures share the scalar 240/1461 (0.1642710472), with S alpha height 240 px and alpha bottoms at y=400. Horizontal positioning uses the alpha-bbox midpoint at x≈256. Reviewed root anchors are unavailable: this is presentation alignment, not a literal G2 result.</p><h2>512 px cells</h2><p class="muted">Scroll horizontally to inspect all eight at native size. Labels state the claimed direction.</p><div class="scroll"><img class="sheet" src="img/turnaround_sheet.png" width="4096" height="512" alt="Eight Keeper figures in claimed order S SW W NW N NE E SE on grey"></div><h2>64 px cells · displayed ×4</h2><p class="muted">Nearest-neighbour reduction from the 512 px cells. The browser enlarges the strip for inspection; no raster asset was upscaled.</p><div class="scroll"><img class="tiny" src="img/turnaround_64px.png" width="2048" height="256" alt="64 px turnaround strip enlarged fourfold for inspection"></div><h2>Recorded observations</h2><p>JUDGE sees NW as NE and SE as S. CHECK records G1 passed=false for NW, and G3 passed=false for SW, W and SE. These records are retained without reconciliation. The approved S master is image 1 and has no candidate scores in the supplied JUDGE output.</p><section id="S"><h2>S · approved reference master</h2><p>Claimed: S · Seen-facing, facing match, mirrored flag, ornament list, axes 1–5 and reasons: not supplied for the reference master. No scores or observations inferred.</p><table><tbody><tr><th>G1 height ratio</th><td>1.0 · passed=true</td></tr><tr><th>G3 light</th><td>-0.25608070757323276 px · passed=true</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.0</td></tr><tr><th>Plate uniformity</th><td>0.9864111892975602 fraction</td></tr><tr><th>O7 azimuth</th><td>150.60974533324008°; deviation from 135° = 15.609745333240085°; dispersion = 0.961853494984515</td></tr><tr><th>O3b counts · advisory</th><td>raw=6; annulus=0</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 1.0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_S_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1461; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;S\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.0}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: -0.25608070757323276,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [247, 29, 785, 1490], \&quot;height\&quot;: 1461, \&quot;transparent_fraction\&quot;: 0.7204322814941406, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [515.2439192924268, 412.03980099502485], \&quot;silhouette_center\&quot;: [515.5, 759.0], \&quot;light_pass\&quot;: true, \&quot;brightest_5pct_pixels\&quot;: 21708, \&quot;partial_alpha_pixels\&quot;: 13292, \&quot;edge_mean_rgb_value\&quot;: 74.55898284682516, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 1.0, \&quot;contour_distance\&quot;: 0.0, \&quot;hu_a\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9864111892975602,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1138731, \&quot;plate_mean_rgb\&quot;: [3.498933461897498, 249.11280802928874, 2.7184269155753205], \&quot;plate_sd_rgb\&quot;: [2.2193158698410986, 3.647100062256417, 1.7778571166727175], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 15.609745333240085,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 150.60974533324008, \&quot;dispersion\&quot;: 0.961853494984515, \&quot;resultant\&quot;: 0.03814650501548495}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 6,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 6, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [304.0, 388.0], \&quot;hollow_score\&quot;: 0.20833333333333334, \&quot;inner_opposed_support\&quot;: 0.20833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.303473834300511, \&quot;lab_center_band\&quot;: 28.710878392373058, \&quot;lab_center_surround\&quot;: 34.937610022135594, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.8241411171130127}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [684.0, 572.0], \&quot;hollow_score\&quot;: 0.1875, \&quot;inner_opposed_support\&quot;: 0.1875, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 21.905745099995645, \&quot;lab_center_band\&quot;: 26.61086873070626, \&quot;lab_center_surround\&quot;: 44.90880239180055, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.7992057151421812}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [275.0, 416.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.956146580437665, \&quot;lab_center_band\&quot;: 15.345240074569515, \&quot;lab_center_surround\&quot;: 41.16379976693377, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.7771007273039365}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [500.0, 157.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.82413004870069, \&quot;lab_center_band\&quot;: 12.424121935312517, \&quot;lab_center_surround\&quot;: 18.487112485152277, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.5932413188478388}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [431.0, 151.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.02969482696902, \&quot;lab_center_band\&quot;: 11.419505462591156, \&quot;lab_center_surround\&quot;: 22.441293048213524, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.5147230879408702}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [567.0, 177.0], \&quot;hollow_score\&quot;: 0.020833333333333332, \&quot;inner_opposed_support\&quot;: 0.020833333333333332, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.015810150249678, \&quot;lab_center_band\&quot;: 5.577641917150362, \&quot;lab_center_surround\&quot;: 20.572155720767515, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5072893446425789}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 6, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 0, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [304.0, 388.0], \&quot;hollow_score\&quot;: 0.20833333333333334, \&quot;inner_opposed_support\&quot;: 0.20833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.303473834300511, \&quot;lab_center_band\&quot;: 28.710878392373058, \&quot;lab_center_surround\&quot;: 34.937610022135594, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.8241411171130127}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [684.0, 572.0], \&quot;hollow_score\&quot;: 0.1875, \&quot;inner_opposed_support\&quot;: 0.1875, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 21.905745099995645, \&quot;lab_center_band\&quot;: 26.61086873070626, \&quot;lab_center_surround\&quot;: 44.90880239180055, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7992057151421812}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [275.0, 416.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.956146580437665, \&quot;lab_center_band\&quot;: 15.345240074569515, \&quot;lab_center_surround\&quot;: 41.16379976693377, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7771007273039365}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [500.0, 157.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.82413004870069, \&quot;lab_center_band\&quot;: 12.424121935312517, \&quot;lab_center_surround\&quot;: 18.487112485152277, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5932413188478388}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [431.0, 151.0], \&quot;hollow_score\&quot;: 0.4583333333333333, \&quot;inner_opposed_support\&quot;: 0.4583333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.02969482696902, \&quot;lab_center_band\&quot;: 11.419505462591156, \&quot;lab_center_surround\&quot;: 22.441293048213524, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5147230879408702}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [567.0, 177.0], \&quot;hollow_score\&quot;: 0.020833333333333332, \&quot;inner_opposed_support\&quot;: 0.020833333333333332, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.015810150249678, \&quot;lab_center_band\&quot;: 5.577641917150362, \&quot;lab_center_surround\&quot;: 20.572155720767515, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5072893446425789}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;S&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="SW"><h2>SW · JUDGE image 2</h2><p>Claimed: <strong>SW</strong> · Seen-facing: <strong>SW</strong> · Facing match: true · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 5/5</th><td>The painted blue, ivory and brass materials, clear planes and elevated full-body presentation closely match the master.</td></tr><tr><th>Axis 2 · 4/5</th><td>Right-hand rod, left-hip satchel, one diagonal harness, one waist belt, paired bracers and buckled boots persist; the jaw is sharper and ponytail fuller, with minor fastening and hem drift.</td></tr><tr><th>Axis 3 · 4/5</th><td>Screen-left hair, shoulder and rod-cap highlights support an upper-left key, although the ambient fill is more neutral and warm than the registered deep cool treatment.</td></tr><tr><th>Axis 4 · 5/5</th><td>The isolated rod cap, projecting face and high ponytail give a strong SW silhouette against the supplied small-scale anchor.</td></tr><tr><th>Axis 5 · 5/5</th><td>Smooth painted skin, restrained cloth texture and softly modeled leather closely preserve the master&#x27;s brush register.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>1.0095824777549625 · passed=true</td></tr><tr><th>G3 light</th><td>69.79438711544026 px · passed=false</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.25</td></tr><tr><th>Plate uniformity</th><td>0.9845388419932857 fraction</td></tr><tr><th>O7 azimuth</th><td>149.18491869269798°; deviation from 135° = 14.184918692697977°; dispersion = 0.9633746730655912</td></tr><tr><th>O3b counts · advisory</th><td>raw=5; annulus=1</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 1.0095824777549625,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_SW_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1475; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;SW\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.00958247775496246}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: false,
+    &quot;value&quot;: 69.79438711544026,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [238, 30, 730, 1505], \&quot;height\&quot;: 1475, \&quot;transparent_fraction\&quot;: 0.7325255076090494, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [553.2943871154403, 430.5998167615006], \&quot;silhouette_center\&quot;: [483.5, 767.0], \&quot;light_pass\&quot;: false, \&quot;brightest_5pct_pixels\&quot;: 20738, \&quot;partial_alpha_pixels\&quot;: 14113, \&quot;edge_mean_rgb_value\&quot;: 68.92364014265807, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.25,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.75, \&quot;contour_distance\&quot;: 0.6481642494970112, \&quot;hu_a\&quot;: [0.2508897480387619, 0.02100757471667525, 0.0004329354919100034, 0.00019591172159732058, 2.9882691057411775e-09, 2.7850844995402228e-05, -5.697781109230834e-08], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9845388419932857,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1158128, \&quot;plate_mean_rgb\&quot;: [2.068274836632911, 248.5262190362378, 3.4852477446361716], \&quot;plate_sd_rgb\&quot;: [2.1314077319767515, 3.9910295608253734, 1.7900332919457307], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 14.184918692697977,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 149.18491869269798, \&quot;dispersion\&quot;: 0.9633746730655912, \&quot;resultant\&quot;: 0.036625326934408786}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 5,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 5, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [682.0, 625.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 21.95891445114277, \&quot;lab_center_band\&quot;: 26.25896272066873, \&quot;lab_center_surround\&quot;: 47.64365148339076, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.9897819992145688}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [294.0, 398.0], \&quot;hollow_score\&quot;: 0.22916666666666666, \&quot;inner_opposed_support\&quot;: 0.22916666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 29.217897622544896, \&quot;lab_center_band\&quot;: 24.01210968762583, \&quot;lab_center_surround\&quot;: 48.44250616607724, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.8705170326663795}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [440.0, 181.0], \&quot;hollow_score\&quot;: 0.5208333333333334, \&quot;inner_opposed_support\&quot;: 0.5208333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 16.92661787512889, \&quot;lab_center_band\&quot;: 11.648005193170368, \&quot;lab_center_surround\&quot;: 19.6736435375071, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.7274808426044044}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [556.0, 712.0], \&quot;hollow_score\&quot;: 0.08333333333333333, \&quot;inner_opposed_support\&quot;: 0.08333333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 8.83673595854449, \&quot;lab_center_band\&quot;: 7.711096632734563, \&quot;lab_center_surround\&quot;: 14.669514991834294, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.681435019961221}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [700.0, 806.0], \&quot;hollow_score\&quot;: 0.020833333333333332, \&quot;inner_opposed_support\&quot;: 0.020833333333333332, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 29.519784967961186, \&quot;lab_center_band\&quot;: 15.11757923228596, \&quot;lab_center_surround\&quot;: 44.61747462767409, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.5630227057735989}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 1,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 4, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 1, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [682.0, 625.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 21.95891445114277, \&quot;lab_center_band\&quot;: 26.25896272066873, \&quot;lab_center_surround\&quot;: 47.64365148339076, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.9897819992145688}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [294.0, 398.0], \&quot;hollow_score\&quot;: 0.22916666666666666, \&quot;inner_opposed_support\&quot;: 0.22916666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 29.217897622544896, \&quot;lab_center_band\&quot;: 24.01210968762583, \&quot;lab_center_surround\&quot;: 48.44250616607724, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.8705170326663795}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [440.0, 181.0], \&quot;hollow_score\&quot;: 0.5208333333333334, \&quot;inner_opposed_support\&quot;: 0.5208333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 16.92661787512889, \&quot;lab_center_band\&quot;: 11.648005193170368, \&quot;lab_center_surround\&quot;: 19.6736435375071, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.7274808426044044}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [556.0, 712.0], \&quot;hollow_score\&quot;: 0.08333333333333333, \&quot;inner_opposed_support\&quot;: 0.08333333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 8.83673595854449, \&quot;lab_center_band\&quot;: 7.711096632734563, \&quot;lab_center_surround\&quot;: 14.669514991834294, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.681435019961221}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [700.0, 806.0], \&quot;hollow_score\&quot;: 0.020833333333333332, \&quot;inner_opposed_support\&quot;: 0.020833333333333332, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 29.519784967961186, \&quot;lab_center_band\&quot;: 15.11757923228596, \&quot;lab_center_surround\&quot;: 44.61747462767409, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5630227057735989}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;SW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="W"><h2>W · JUDGE image 3</h2><p>Claimed: <strong>W</strong> · Seen-facing: <strong>W</strong> · Facing match: true · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 5/5</th><td>The left profile retains the master&#x27;s painted material hierarchy, palette and clean full-body contours.</td></tr><tr><th>Axis 2 · 4/5</th><td>The near anatomical right hand holds the rod and the left-hip bag is mostly occluded; one harness and waist belt remain, with a taller ponytail and altered tunic-panel lengths.</td></tr><tr><th>Axis 3 · 4/5</th><td>Upper-left highlights on the hair, face and rod cap remain screen-fixed; the broad warm sleeve fill weakens the prescribed cool ambient contrast.</td></tr><tr><th>Axis 4 · 4/5</th><td>The nose and rear ponytail clearly establish W, while the rod remains separate but its small plain cap has limited prominence at 64 px.</td></tr><tr><th>Axis 5 · 5/5</th><td>Hair strands, cloth folds and leather edges use the same controlled painted detail and soft transitions as the master.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>0.9794661190965093 · passed=true</td></tr><tr><th>G3 light</th><td>26.223751084665878 px · passed=false</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.4666666666666667</td></tr><tr><th>Plate uniformity</th><td>0.27084183195995526 fraction</td></tr><tr><th>O7 azimuth</th><td>150.94358044955214°; deviation from 135° = 15.943580449552144°; dispersion = 0.9589670786712854</td></tr><tr><th>O3b counts · advisory</th><td>raw=3; annulus=1</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 0.9794661190965093,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_W_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1431; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;W\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.02053388090349073}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: false,
+    &quot;value&quot;: 26.223751084665878,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [296, 28, 700, 1459], \&quot;height\&quot;: 1431, \&quot;transparent_fraction\&quot;: 0.7916094462076823, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [523.7237510846659, 453.71451592909386], \&quot;silhouette_center\&quot;: [497.5, 743.0], \&quot;light_pass\&quot;: false, \&quot;brightest_5pct_pixels\&quot;: 16134, \&quot;partial_alpha_pixels\&quot;: 11871, \&quot;edge_mean_rgb_value\&quot;: 76.09176424339427, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.4666666666666667,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.5333333333333333, \&quot;contour_distance\&quot;: 1.4889287770128947, \&quot;hu_a\&quot;: [0.3318782161017705, 0.06748892647365745, 0.0009489720345555889, 0.0001432750254323949, 5.2821541084348895e-08, 2.594002330724978e-05, 9.57767666891171e-10], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.27084183195995526,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1250202, \&quot;plate_mean_rgb\&quot;: [3.4996880504110535, 247.89088643275247, 10.721476209444553], \&quot;plate_sd_rgb\&quot;: [1.958007548918106, 3.2485250429286223, 3.0830185133098666], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 15.943580449552144,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 150.94358044955214, \&quot;dispersion\&quot;: 0.9589670786712854, \&quot;resultant\&quot;: 0.04103292132871465}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 3,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 3, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [307.0, 430.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 35.98048981505359, \&quot;lab_center_band\&quot;: 14.368489956506016, \&quot;lab_center_surround\&quot;: 37.75195765962985, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.9543094569310225}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [556.0, 45.0], \&quot;hollow_score\&quot;: 0.9474575997918173, \&quot;inner_opposed_support\&quot;: 0.5, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.681770086483034, \&quot;lab_center_band\&quot;: 38.89146420431989, \&quot;lab_center_surround\&quot;: 19.296363958734467, \&quot;lab_color_return\&quot;: 0.9474575997918173, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.65354658228104}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [330.0, 1221.0], \&quot;hollow_score\&quot;: 0.3125, \&quot;inner_opposed_support\&quot;: 0.3125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 22.103612236115772, \&quot;lab_center_band\&quot;: 34.6426921942174, \&quot;lab_center_surround\&quot;: 56.30217762929774, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 17.0, \&quot;score\&quot;: 0.6108304544528492}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 1,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 2, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 1, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [307.0, 430.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 35.98048981505359, \&quot;lab_center_band\&quot;: 14.368489956506016, \&quot;lab_center_surround\&quot;: 37.75195765962985, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.9543094569310225}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [556.0, 45.0], \&quot;hollow_score\&quot;: 0.9474575997918173, \&quot;inner_opposed_support\&quot;: 0.5, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.681770086483034, \&quot;lab_center_band\&quot;: 38.89146420431989, \&quot;lab_center_surround\&quot;: 19.296363958734467, \&quot;lab_color_return\&quot;: 0.9474575997918173, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.65354658228104}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [330.0, 1221.0], \&quot;hollow_score\&quot;: 0.3125, \&quot;inner_opposed_support\&quot;: 0.3125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 22.103612236115772, \&quot;lab_center_band\&quot;: 34.6426921942174, \&quot;lab_center_surround\&quot;: 56.30217762929774, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 17.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.6108304544528492}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;W&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="NW"><h2>NW · JUDGE image 4</h2><p>Claimed: <strong>NW</strong> · Seen-facing: <strong>NE</strong> · Facing match: false · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 3/5</th><td>Materials and palette match, but the visible rightward cheek and right-pointing boots establish NE rather than the requested NW rotation.</td></tr><tr><th>Axis 2 · 4/5</th><td>For the visible NE anatomy, the rod is in the right hand and bag on the left hip, with one diagonal harness and one waist belt; longer hanging curls and rear-panel geometry drift, and this is a facing error rather than mirrored anatomy.</td></tr><tr><th>Axis 3 · 4/5</th><td>The left hair edge, left sleeve and rod-cap edge carry the strongest key highlights, consistent with upper-left light but relatively warm ambient fill.</td></tr><tr><th>Axis 4 · 4/5</th><td>The rod and ponytail are distinct and the back-three-quarter silhouette is readable, but its directional cues identify NE rather than NW.</td></tr><tr><th>Axis 5 · 5/5</th><td>The rear cloth, curls and leather retain the master&#x27;s smooth illustrated finish without conspicuous brush grain.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>0.9603011635865846 · passed=false</td></tr><tr><th>G3 light</th><td>-22.689198711495862 px · passed=true</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.4771048744460856</td></tr><tr><th>Plate uniformity</th><td>0.9858030961142898 fraction</td></tr><tr><th>O7 azimuth</th><td>149.22317623310553°; deviation from 135° = 14.223176233105534°; dispersion = 0.9599382126728834</td></tr><tr><th>O3b counts · advisory</th><td>raw=2; annulus=0</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: false,
+    &quot;value&quot;: 0.9603011635865846,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_NW_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1403; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: false, \&quot;subject\&quot;: \&quot;NW\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.03969883641341543}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: -22.689198711495862,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [286, 47, 776, 1450], \&quot;height\&quot;: 1403, \&quot;transparent_fraction\&quot;: 0.7438392639160156, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [507.81080128850414, 456.0614556070062], \&quot;silhouette_center\&quot;: [530.5, 748.0], \&quot;light_pass\&quot;: true, \&quot;brightest_5pct_pixels\&quot;: 19868, \&quot;partial_alpha_pixels\&quot;: 13457, \&quot;edge_mean_rgb_value\&quot;: 73.37727576725868, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.4771048744460856,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.5228951255539144, \&quot;contour_distance\&quot;: 1.380999114834303, \&quot;hu_a\&quot;: [0.2555136207831316, 0.024619146465254434, 1.4016565418987622e-05, 0.00014269672644787063, 2.5269504996624623e-09, 1.4711376183264339e-05, 5.860173669374612e-09], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9858030961142898,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1175538, \&quot;plate_mean_rgb\&quot;: [3.9431026474686486, 248.71080475492923, 3.3942705382556753], \&quot;plate_sd_rgb\&quot;: [2.145160153642185, 3.595101829170308, 1.7934791998933441], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 14.223176233105534,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 149.22317623310553, \&quot;dispersion\&quot;: 0.9599382126728834, \&quot;resultant\&quot;: 0.040061787327116606}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 2,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 2, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [323.0, 558.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 22.77892167619183, \&quot;lab_center_band\&quot;: 16.92118658845736, \&quot;lab_center_surround\&quot;: 39.09464383421973, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 27.0, \&quot;score\&quot;: 0.7652827281937151}, {\&quot;angular_support\&quot;: 0.875, \&quot;center\&quot;: [487.0, 126.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 6.0324166021568075, \&quot;lab_center_band\&quot;: 10.670338167771753, \&quot;lab_center_surround\&quot;: 16.68688873951678, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5479273033392819}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 2, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 0, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [323.0, 558.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 22.77892167619183, \&quot;lab_center_band\&quot;: 16.92118658845736, \&quot;lab_center_surround\&quot;: 39.09464383421973, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 27.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7652827281937151}, {\&quot;angular_support\&quot;: 0.875, \&quot;center\&quot;: [487.0, 126.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 6.0324166021568075, \&quot;lab_center_band\&quot;: 10.670338167771753, \&quot;lab_center_surround\&quot;: 16.68688873951678, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5479273033392819}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;NW&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="N"><h2>N · JUDGE image 5</h2><p>Claimed: <strong>N</strong> · Seen-facing: <strong>N</strong> · Facing match: true · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 5/5</th><td>The centered rear view preserves the blue, ivory and brass register, material readability and full-body presentation.</td></tr><tr><th>Axis 2 · 4/5</th><td>Rod on anatomical right and satchel on anatomical left are correct, with one right-shoulder-to-left-hip harness, one waist belt and paired bracers; the ponytail is denser and longer, while face and front fastenings are occluded.</td></tr><tr><th>Axis 3 · 4/5</th><td>Screen-left shoulder, sleeve and hair highlights support the fixed upper-left key, though shadows remain warmer and lighter than the registered cool ambient.</td></tr><tr><th>Axis 4 · 5/5</th><td>The centered back, separate right-side rod and compact hair mass provide a clear N read at the anchor&#x27;s small scale.</td></tr><tr><th>Axis 5 · 5/5</th><td>Rear fabric folds, hair modeling and leather texture remain consistent with the master&#x27;s polished painted treatment.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>0.973990417522245 · passed=true</td></tr><tr><th>G3 light</th><td>-59.2038189927523 px · passed=true</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.3900928792569659</td></tr><tr><th>Plate uniformity</th><td>0.9842036802641415 fraction</td></tr><tr><th>O7 azimuth</th><td>149.16680712815088°; deviation from 135° = 14.166807128150879°; dispersion = 0.9479527251869734</td></tr><tr><th>O3b counts · advisory</th><td>raw=2; annulus=0</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 0.973990417522245,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_N_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1423; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;N\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.026009582477754978}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: -59.2038189927523,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [239, 30, 778, 1453], \&quot;height\&quot;: 1423, \&quot;transparent_fraction\&quot;: 0.7225329081217448, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [448.7961810072477, 440.0895744285449], \&quot;silhouette_center\&quot;: [508.0, 741.0], \&quot;light_pass\&quot;: true, \&quot;brightest_5pct_pixels\&quot;: 21524, \&quot;partial_alpha_pixels\&quot;: 13524, \&quot;edge_mean_rgb_value\&quot;: 76.32256235827664, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.3900928792569659,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.6099071207430341, \&quot;contour_distance\&quot;: 1.0912352737613258, \&quot;hu_a\&quot;: [0.2419138332081142, 0.016942504184942274, 7.889967765317867e-05, 0.0001908879881605131, 1.9846513539624586e-08, 1.829338116555534e-05, -1.2446365697754417e-08], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9842036802641415,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1142418, \&quot;plate_mean_rgb\&quot;: [3.566232324770793, 248.42335992605157, 3.5570798079161916], \&quot;plate_sd_rgb\&quot;: [2.2796447124392083, 3.793298269322873, 1.9352936444022448], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 14.166807128150879,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 149.16680712815088, \&quot;dispersion\&quot;: 0.9479527251869734, \&quot;resultant\&quot;: 0.05204727481302659}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 2,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 2, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [307.0, 585.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.16063487388888, \&quot;lab_center_band\&quot;: 14.67003559761238, \&quot;lab_center_surround\&quot;: 36.336165328222876, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.8482677443135481}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [475.0, 188.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.281957619859577, \&quot;lab_center_band\&quot;: 1.9287914705196239, \&quot;lab_center_surround\&quot;: 16.763186461219732, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 10.0, \&quot;score\&quot;: 0.7268927336081317}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 2, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 0, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [307.0, 585.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.16063487388888, \&quot;lab_center_band\&quot;: 14.67003559761238, \&quot;lab_center_surround\&quot;: 36.336165328222876, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.8482677443135481}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [475.0, 188.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.281957619859577, \&quot;lab_center_band\&quot;: 1.9287914705196239, \&quot;lab_center_surround\&quot;: 16.763186461219732, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 10.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7268927336081317}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;N&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="NE"><h2>NE · JUDGE image 6</h2><p>Claimed: <strong>NE</strong> · Seen-facing: <strong>NE</strong> · Facing match: true · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 5/5</th><td>The rear-right rotation retains the master&#x27;s palette, clean material planes and illustrated full-body register.</td></tr><tr><th>Axis 2 · 4/5</th><td>The rod remains in the right hand and bag on the left hip, with one diagonal harness and one waist belt; the lower strap has a more elaborate run of keepers and the curls extend farther down the back.</td></tr><tr><th>Axis 3 · 4/5</th><td>Left-edge hair and sleeve illumination and the rod-cap highlight support screen upper-left lighting, with less cool ambient separation than specified.</td></tr><tr><th>Axis 4 · 5/5</th><td>Rightward cheek and boot cues, a separated rod cap and the rear hair mass make NE readily distinguishable at small scale.</td></tr><tr><th>Axis 5 · 5/5</th><td>Controlled highlights, soft painted shading and restrained surface texture match the master&#x27;s brush register.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>0.9787816563997263 · passed=true</td></tr><tr><th>G3 light</th><td>-10.57135245107537 px · passed=true</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.4268476621417798</td></tr><tr><th>Plate uniformity</th><td>0.9812188198011881 fraction</td></tr><tr><th>O7 azimuth</th><td>154.09791486168754°; deviation from 135° = 19.097914861687542°; dispersion = 0.9515153817549609</td></tr><tr><th>O3b counts · advisory</th><td>raw=8; annulus=0</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 0.9787816563997263,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_NE_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1430; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;NE\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.021218343600273748}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: -10.57135245107537,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [265, 26, 764, 1456], \&quot;height\&quot;: 1430, \&quot;transparent_fraction\&quot;: 0.7336044311523438, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [503.42864754892463, 425.7603177678744], \&quot;silhouette_center\&quot;: [514.0, 740.5], \&quot;light_pass\&quot;: true, \&quot;brightest_5pct_pixels\&quot;: 20644, \&quot;partial_alpha_pixels\&quot;: 14444, \&quot;edge_mean_rgb_value\&quot;: 82.18210560324933, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.4268476621417798,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.5731523378582202, \&quot;contour_distance\&quot;: 1.1439338043805947, \&quot;hu_a\&quot;: [0.2558297132976692, 0.02340203445660057, 5.011381871706494e-05, 0.0001875266056842343, 1.3844779192621557e-09, 2.3928863461547348e-05, -1.8126333806246607e-08], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9812188198011881,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1159991, \&quot;plate_mean_rgb\&quot;: [3.871108482738228, 248.08984380051226, 4.0393735813467515], \&quot;plate_sd_rgb\&quot;: [2.47062797032926, 3.476419510173609, 1.976268218117567], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 19.097914861687542,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 154.09791486168754, \&quot;dispersion\&quot;: 0.9515153817549609, \&quot;resultant\&quot;: 0.04848461824503913}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 8,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 8, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.8333333333333334, \&quot;center\&quot;: [518.0, 111.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 8.151559792630984, \&quot;lab_center_band\&quot;: 10.233773351697396, \&quot;lab_center_surround\&quot;: 18.15078899729636, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.7639168249882747}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [326.0, 576.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.385733363488942, \&quot;lab_center_band\&quot;: 19.185342360423125, \&quot;lab_center_surround\&quot;: 41.410720178638506, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 24.0, \&quot;score\&quot;: 0.7436899010615381}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [416.0, 597.0], \&quot;hollow_score\&quot;: 0.16666666666666666, \&quot;inner_opposed_support\&quot;: 0.16666666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.696105215513658, \&quot;lab_center_band\&quot;: 10.17297486305784, \&quot;lab_center_surround\&quot;: 30.718080702963558, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.6750227942721535}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [389.0, 232.0], \&quot;hollow_score\&quot;: 0.08333333333333333, \&quot;inner_opposed_support\&quot;: 0.08333333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.871778603170206, \&quot;lab_center_band\&quot;: 29.355403637058274, \&quot;lab_center_surround\&quot;: 31.375009555330927, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5968878350062324}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [390.0, 194.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.991925047124676, \&quot;lab_center_band\&quot;: 11.637965593858882, \&quot;lab_center_surround\&quot;: 23.555952013102825, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5578714162845579}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [728.0, 383.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 31.54707208393404, \&quot;lab_center_band\&quot;: 23.588495529510155, \&quot;lab_center_surround\&quot;: 55.0236855492054, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;score\&quot;: 0.5256683372568389}, {\&quot;angular_support\&quot;: 0.8541666666666666, \&quot;center\&quot;: [411.0, 621.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.15431151302448, \&quot;lab_center_band\&quot;: 11.45093045458776, \&quot;lab_center_surround\&quot;: 38.28610227432494, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.5255383528206027}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [374.0, 503.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.895141566594301, \&quot;lab_center_band\&quot;: 2.4216785300310435, \&quot;lab_center_surround\&quot;: 10.296427431472374, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5067485872581511}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 8, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 0, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.8333333333333334, \&quot;center\&quot;: [518.0, 111.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 8.151559792630984, \&quot;lab_center_band\&quot;: 10.233773351697396, \&quot;lab_center_surround\&quot;: 18.15078899729636, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7639168249882747}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [326.0, 576.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.385733363488942, \&quot;lab_center_band\&quot;: 19.185342360423125, \&quot;lab_center_surround\&quot;: 41.410720178638506, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 24.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7436899010615381}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [416.0, 597.0], \&quot;hollow_score\&quot;: 0.16666666666666666, \&quot;inner_opposed_support\&quot;: 0.16666666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.696105215513658, \&quot;lab_center_band\&quot;: 10.17297486305784, \&quot;lab_center_surround\&quot;: 30.718080702963558, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.6750227942721535}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [389.0, 232.0], \&quot;hollow_score\&quot;: 0.08333333333333333, \&quot;inner_opposed_support\&quot;: 0.08333333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.871778603170206, \&quot;lab_center_band\&quot;: 29.355403637058274, \&quot;lab_center_surround\&quot;: 31.375009555330927, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5968878350062324}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [390.0, 194.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.991925047124676, \&quot;lab_center_band\&quot;: 11.637965593858882, \&quot;lab_center_surround\&quot;: 23.555952013102825, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5578714162845579}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [728.0, 383.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 31.54707208393404, \&quot;lab_center_band\&quot;: 23.588495529510155, \&quot;lab_center_surround\&quot;: 55.0236855492054, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 30.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5256683372568389}, {\&quot;angular_support\&quot;: 0.8541666666666666, \&quot;center\&quot;: [411.0, 621.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.15431151302448, \&quot;lab_center_band\&quot;: 11.45093045458776, \&quot;lab_center_surround\&quot;: 38.28610227432494, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5255383528206027}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [374.0, 503.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 7.895141566594301, \&quot;lab_center_band\&quot;: 2.4216785300310435, \&quot;lab_center_surround\&quot;: 10.296427431472374, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5067485872581511}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;NE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="E"><h2>E · JUDGE image 7</h2><p>Claimed: <strong>E</strong> · Seen-facing: <strong>E</strong> · Facing match: true · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 4/5</th><td>The painted register and right profile match well, but the rod-bearing arm moves behind the torso instead of maintaining the master&#x27;s forward hold.</td></tr><tr><th>Axis 2 · 4/5</th><td>The near left arm hangs free, the far right hand holds the rod and the bag remains on the left side; one harness and waist belt persist, although the bag shifts forward and the arm pose changes.</td></tr><tr><th>Axis 3 · 4/5</th><td>The upper-left hair and shoulder highlights and left edge of the rod cap support the fixed key, while broad warm fill reduces cool-shadow contrast.</td></tr><tr><th>Axis 4 · 3/5</th><td>The face clearly reads E, but the rod cap meets the lower hair mass and much of the shaft merges with the body at small scale.</td></tr><tr><th>Axis 5 · 5/5</th><td>The smooth face, modeled curls and subtle fabric and leather texture closely match the master&#x27;s painted finish.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>0.9794661190965093 · passed=true</td></tr><tr><th>G3 light</th><td>-64.11781808988053 px · passed=true</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.47703703703703704</td></tr><tr><th>Plate uniformity</th><td>0.7493161402053847 fraction</td></tr><tr><th>O7 azimuth</th><td>148.2380726202158°; deviation from 135° = 13.238072620215803°; dispersion = 0.9685320105795482</td></tr><tr><th>O3b counts · advisory</th><td>raw=8; annulus=1</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 0.9794661190965093,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_E_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1431; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;E\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.02053388090349073}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: -64.11781808988053,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [355, 29, 716, 1460], \&quot;height\&quot;: 1431, \&quot;transparent_fraction\&quot;: 0.795691172281901, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [470.88218191011947, 399.69148599962074], \&quot;silhouette_center\&quot;: [535.0, 744.0], \&quot;light_pass\&quot;: true, \&quot;brightest_5pct_pixels\&quot;: 15821, \&quot;partial_alpha_pixels\&quot;: 11549, \&quot;edge_mean_rgb_value\&quot;: 72.27927381880104, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.47703703703703704,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.522962962962963, \&quot;contour_distance\&quot;: 1.8490928922585184, \&quot;hu_a\&quot;: [0.33273472345148797, 0.07781427671212396, 0.0004315058703610314, 3.448965610885692e-05, -4.028446057133506e-09, -9.17547527747944e-06, 1.2144482390912338e-09], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.7493161402053847,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1256471, \&quot;plate_mean_rgb\&quot;: [3.48675695658714, 247.9845957447486, 6.6283272753609115], \&quot;plate_sd_rgb\&quot;: [1.9255884566135684, 3.4454044554963867, 2.6030532173803107], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 13.238072620215803,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 148.2380726202158, \&quot;dispersion\&quot;: 0.9685320105795482, \&quot;resultant\&quot;: 0.03146798942045183}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 8,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 8, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.9375, \&quot;center\&quot;: [405.0, 415.0], \&quot;hollow_score\&quot;: 0.2708333333333333, \&quot;inner_opposed_support\&quot;: 0.2708333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 30.556943707102658, \&quot;lab_center_band\&quot;: 26.46346786941831, \&quot;lab_center_surround\&quot;: 50.69875875981191, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 1.0105130650257068}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [481.0, 568.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.57597456193999, \&quot;lab_center_band\&quot;: 17.676334165157556, \&quot;lab_center_surround\&quot;: 38.633102517483934, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 26.0, \&quot;score\&quot;: 1.0102984415010137}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [692.0, 697.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 14.397305014878786, \&quot;lab_center_band\&quot;: 30.328316736682652, \&quot;lab_center_surround\&quot;: 43.83214086714851, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.7350270706181234}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [519.0, 756.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 34.03122893365416, \&quot;lab_center_band\&quot;: 11.428324709962464, \&quot;lab_center_surround\&quot;: 42.93210817797179, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 28.0, \&quot;score\&quot;: 0.7278186072943738}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [547.0, 155.0], \&quot;hollow_score\&quot;: 0.3125, \&quot;inner_opposed_support\&quot;: 0.3125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 4.490289872500212, \&quot;lab_center_band\&quot;: 18.440398863812984, \&quot;lab_center_surround\&quot;: 18.047982101162066, \&quot;lab_color_return\&quot;: 0.08739230067399148, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.7114001810374697}, {\&quot;angular_support\&quot;: 0.8333333333333334, \&quot;center\&quot;: [385.0, 439.0], \&quot;hollow_score\&quot;: 0.4791666666666667, \&quot;inner_opposed_support\&quot;: 0.4791666666666667, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 35.05147495926269, \&quot;lab_center_band\&quot;: 18.157373885381308, \&quot;lab_center_surround\&quot;: 52.29054224032833, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 29.0, \&quot;score\&quot;: 0.6936837229823998}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [589.0, 115.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.72105825845874, \&quot;lab_center_band\&quot;: 19.41803159918635, \&quot;lab_center_surround\&quot;: 44.83626799760899, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 16.0, \&quot;score\&quot;: 0.6485997216420637}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [438.0, 1174.0], \&quot;hollow_score\&quot;: 0.5208333333333334, \&quot;inner_opposed_support\&quot;: 0.5208333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.88513935027907, \&quot;lab_center_band\&quot;: 20.65788163744465, \&quot;lab_center_surround\&quot;: 9.554853500985255, \&quot;lab_color_return\&quot;: 0.3981700789437969, \&quot;radius\&quot;: 17.0, \&quot;score\&quot;: 0.5352913892790943}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 1,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 7, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 1, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.9375, \&quot;center\&quot;: [405.0, 415.0], \&quot;hollow_score\&quot;: 0.2708333333333333, \&quot;inner_opposed_support\&quot;: 0.2708333333333333, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 30.556943707102658, \&quot;lab_center_band\&quot;: 26.46346786941831, \&quot;lab_center_surround\&quot;: 50.69875875981191, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 1.0105130650257068}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [481.0, 568.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.57597456193999, \&quot;lab_center_band\&quot;: 17.676334165157556, \&quot;lab_center_surround\&quot;: 38.633102517483934, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 26.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 1.0102984415010137}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [692.0, 697.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 14.397305014878786, \&quot;lab_center_band\&quot;: 30.328316736682652, \&quot;lab_center_surround\&quot;: 43.83214086714851, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7350270706181234}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [519.0, 756.0], \&quot;hollow_score\&quot;: 0.0625, \&quot;inner_opposed_support\&quot;: 0.0625, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 34.03122893365416, \&quot;lab_center_band\&quot;: 11.428324709962464, \&quot;lab_center_surround\&quot;: 42.93210817797179, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 28.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7278186072943738}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [547.0, 155.0], \&quot;hollow_score\&quot;: 0.3125, \&quot;inner_opposed_support\&quot;: 0.3125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 4.490289872500212, \&quot;lab_center_band\&quot;: 18.440398863812984, \&quot;lab_center_surround\&quot;: 18.047982101162066, \&quot;lab_color_return\&quot;: 0.08739230067399148, \&quot;radius\&quot;: 9.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7114001810374697}, {\&quot;angular_support\&quot;: 0.8333333333333334, \&quot;center\&quot;: [385.0, 439.0], \&quot;hollow_score\&quot;: 0.4791666666666667, \&quot;inner_opposed_support\&quot;: 0.4791666666666667, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 35.05147495926269, \&quot;lab_center_band\&quot;: 18.157373885381308, \&quot;lab_center_surround\&quot;: 52.29054224032833, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 29.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.6936837229823998}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [589.0, 115.0], \&quot;hollow_score\&quot;: 0.125, \&quot;inner_opposed_support\&quot;: 0.125, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.72105825845874, \&quot;lab_center_band\&quot;: 19.41803159918635, \&quot;lab_center_surround\&quot;: 44.83626799760899, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 16.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.6485997216420637}, {\&quot;angular_support\&quot;: 0.8125, \&quot;center\&quot;: [438.0, 1174.0], \&quot;hollow_score\&quot;: 0.5208333333333334, \&quot;inner_opposed_support\&quot;: 0.5208333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 27.88513935027907, \&quot;lab_center_band\&quot;: 20.65788163744465, \&quot;lab_center_surround\&quot;: 9.554853500985255, \&quot;lab_color_return\&quot;: 0.3981700789437969, \&quot;radius\&quot;: 17.0, \&quot;score\&quot;: 0.5352913892790943}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;E&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><section id="SE"><h2>SE · JUDGE image 8</h2><p>Claimed: <strong>SE</strong> · Seen-facing: <strong>S</strong> · Facing match: false · Mirrored: false<br>Ornament surfaces: []</p><table><tbody><tr><th>Axis 1 · 3/5</th><td>The visual register closely matches, but the broad frontal torso and near-frontal face remain closest to the approved S master, with insufficient SE rotation.</td></tr><tr><th>Axis 2 · 4/5</th><td>Face and hair identity are close, and the right-hand rod, left-hip bag, one harness, one belt, bracers and boots persist; a prominent brass harness fastening at the waist replaces the master&#x27;s simpler leather junction.</td></tr><tr><th>Axis 3 · 4/5</th><td>Screen-left hair, collar, sleeve and rod-cap highlights retain the upper-left key, although skin and leather fill remain relatively warm.</td></tr><tr><th>Axis 4 · 3/5</th><td>The rod and hair are distinct, but the silhouette is too similar to S to communicate SE reliably at 64 px; the shallow rightward head turn is ambiguous.</td></tr><tr><th>Axis 5 · 5/5</th><td>The candidate closely preserves the master&#x27;s smooth painted material transitions and restrained texture.</td></tr></tbody></table><table><tbody><tr><th>G1 height ratio</th><td>1.0184804928131417 · passed=true</td></tr><tr><th>G3 light</th><td>74.31985590368299 px · passed=false</td></tr><tr><th>Silhouette distance (1−IoU)</th><td>0.27470686767169183</td></tr><tr><th>Plate uniformity</th><td>0.9857675331896851 fraction</td></tr><tr><th>O7 azimuth</th><td>148.1408412813995°; deviation from 135° = 13.140841281399503°; dispersion = 0.9636246098581469</td></tr><tr><th>O3b counts · advisory</th><td>raw=9; annulus=4</td></tr></tbody></table><p class="muted">Silhouette, plate, O7 and O3b records have passed=null and no supplied calibrated threshold. G1/G3 values above are native-source CHECK records, not recomputed on this presentation.</p><details><summary>Exact CHECK records and notes</summary><pre>[
+  {
+    &quot;id&quot;: &quot;g1_height&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: true,
+    &quot;value&quot;: 1.0184804928131417,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;ratio&quot;,
+    &quot;evidence&quot;: [
+      &quot;out/k2_SE_rgba.png&quot;,
+      &quot;out/k2_S_rgba.png&quot;
+    ],
+    &quot;notes&quot;: &quot;{\&quot;literal_gate\&quot;: {\&quot;evidence\&quot;: [], \&quot;id\&quot;: \&quot;g1_height\&quot;, \&quot;notes\&quot;: \&quot;height_px=1488; master_height_px=1461\&quot;, \&quot;op\&quot;: \&quot;&lt;=\&quot;, \&quot;passed\&quot;: true, \&quot;subject\&quot;: \&quot;SE\&quot;, \&quot;threshold\&quot;: 0.03, \&quot;unit\&quot;: \&quot;fraction\&quot;, \&quot;value\&quot;: 0.01848049281314168}, \&quot;ratio_bounds\&quot;: [0.97, 1.03], \&quot;threshold_semantics\&quot;: \&quot;literal absolute fractional deviation &lt;= 0.03; value reports requested height ratio\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g3_light&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: false,
+    &quot;value&quot;: 74.31985590368299,
+    &quot;threshold&quot;: 0,
+    &quot;op&quot;: &quot;&lt;&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;valid\&quot;: true, \&quot;bbox\&quot;: [239, 27, 746, 1515], \&quot;height\&quot;: 1488, \&quot;transparent_fraction\&quot;: 0.7280553181966146, \&quot;border_alpha_max\&quot;: 0, \&quot;light_centroid\&quot;: [566.319855903683, 421.1080248376546], \&quot;silhouette_center\&quot;: [492.0, 770.5], \&quot;light_pass\&quot;: false, \&quot;brightest_5pct_pixels\&quot;: 21097, \&quot;partial_alpha_pixels\&quot;: 13934, \&quot;edge_mean_rgb_value\&quot;: 73.218960815272, \&quot;green_contaminated_pixels\&quot;: 0}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;silhouette64&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.27470686767169183,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;1-iou&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE verdict: no calibrated threshold supplied; {\&quot;aligned_iou\&quot;: 0.7252931323283082, \&quot;contour_distance\&quot;: 0.7121780209946222, \&quot;hu_a\&quot;: [0.25865162935418073, 0.025574586234350664, 0.00010596993987895765, 0.00021342422048320134, -3.7084615783250745e-09, 3.306217085013909e-05, -3.1881482688496346e-08], \&quot;hu_b\&quot;: [0.24631606061623298, 0.019655379461072355, 9.417417746213143e-05, 0.0003335989049148237, -1.5144831848334708e-08, 4.675156308259643e-05, -5.7156888231747094e-08]}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;plate_uniformity&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 0.9857675331896851,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&gt;=&quot;,
+    &quot;unit&quot;: &quot;fraction&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;non_subject_pixels\&quot;: 1150960, \&quot;plate_mean_rgb\&quot;: [2.760193229999305, 248.48627406686592, 2.586742371585459], \&quot;plate_sd_rgb\&quot;: [2.216680692551551, 3.7231746165957764, 1.68782007972096], \&quot;subject_support\&quot;: \&quot;largest non-key component inferred from green excess\&quot;, \&quot;tol\&quot;: 8}, \&quot;reason\&quot;: \&quot;No min_fraction declared; X1 observations are not a threshold\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O7&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 13.140841281399503,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;degrees&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;azimuth_deg\&quot;: 148.1408412813995, \&quot;dispersion\&quot;: 0.9636246098581469, \&quot;resultant\&quot;: 0.03637539014185312}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_raw&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 9,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 0, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 9, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [463.0, 155.0], \&quot;hollow_score\&quot;: 0.5, \&quot;inner_opposed_support\&quot;: 0.5, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.471657037112498, \&quot;lab_center_band\&quot;: 7.49034765260635, \&quot;lab_center_surround\&quot;: 22.24755190945385, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.8258157365315805}, {\&quot;angular_support\&quot;: 0.8541666666666666, \&quot;center\&quot;: [455.0, 252.0], \&quot;hollow_score\&quot;: 0.1875, \&quot;inner_opposed_support\&quot;: 0.1875, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 16.705554225801123, \&quot;lab_center_band\&quot;: 19.743849821842822, \&quot;lab_center_surround\&quot;: 35.41457311794849, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.7374349965349324}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [569.0, 129.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.777018696681274, \&quot;lab_center_band\&quot;: 21.23795041391268, \&quot;lab_center_surround\&quot;: 47.93241255914832, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 25.0, \&quot;score\&quot;: 0.7103728555387597}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [293.0, 409.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.133776981759013, \&quot;lab_center_band\&quot;: 26.580655182874064, \&quot;lab_center_surround\&quot;: 43.046193045603836, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.6705904350411157}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [539.0, 165.0], \&quot;hollow_score\&quot;: 0.5833333333333334, \&quot;inner_opposed_support\&quot;: 0.5833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.904755303272538, \&quot;lab_center_band\&quot;: 12.834981192916267, \&quot;lab_center_surround\&quot;: 17.28326924586847, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.6615658196275509}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [569.0, 706.0], \&quot;hollow_score\&quot;: 0.5833333333333334, \&quot;inner_opposed_support\&quot;: 0.5833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 24.036004841427076, \&quot;lab_center_band\&quot;: 7.942035633230705, \&quot;lab_center_surround\&quot;: 16.917817289290937, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.6580714147153397}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [508.0, 555.0], \&quot;hollow_score\&quot;: 0.2916666666666667, \&quot;inner_opposed_support\&quot;: 0.2916666666666667, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 3.882282105723968, \&quot;lab_center_band\&quot;: 3.162777452382155, \&quot;lab_center_surround\&quot;: 5.3341231154241, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 10.0, \&quot;score\&quot;: 0.5582014901642116}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [411.0, 1096.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.737951993501536, \&quot;lab_center_band\&quot;: 13.73152892179676, \&quot;lab_center_surround\&quot;: 25.312161022649576, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.5444113500005321}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [458.0, 565.0], \&quot;hollow_score\&quot;: 0.5416666666666666, \&quot;inner_opposed_support\&quot;: 0.5416666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.39018889289374, \&quot;lab_center_band\&quot;: 15.309924637771406, \&quot;lab_center_surround\&quot;: 11.625914393970973, \&quot;lab_color_return\&quot;: 0.14509581867788002, \&quot;radius\&quot;: 21.0, \&quot;score\&quot;: 0.5070012751093893}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;O3b_annulus&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: 4,
+    &quot;threshold&quot;: null,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;instances&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;{\&quot;metrics\&quot;: {\&quot;alignment_cosine\&quot;: 0.9, \&quot;angular_samples\&quot;: 48, \&quot;annulus_rejected\&quot;: 5, \&quot;family\&quot;: \&quot;ring\&quot;, \&quot;gradient_floor\&quot;: 0.02, \&quot;hollow_min\&quot;: 0.5, \&quot;inside\&quot;: 0, \&quot;max_radius_px\&quot;: 30, \&quot;min_angular_support\&quot;: 0.75, \&quot;min_radius_px\&quot;: 8, \&quot;nms_radius_fraction\&quot;: 0.8, \&quot;outside\&quot;: 4, \&quot;peaks\&quot;: [{\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [463.0, 155.0], \&quot;hollow_score\&quot;: 0.5, \&quot;inner_opposed_support\&quot;: 0.5, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.471657037112498, \&quot;lab_center_band\&quot;: 7.49034765260635, \&quot;lab_center_surround\&quot;: 22.24755190945385, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.8258157365315805}, {\&quot;angular_support\&quot;: 0.8541666666666666, \&quot;center\&quot;: [455.0, 252.0], \&quot;hollow_score\&quot;: 0.1875, \&quot;inner_opposed_support\&quot;: 0.1875, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 16.705554225801123, \&quot;lab_center_band\&quot;: 19.743849821842822, \&quot;lab_center_surround\&quot;: 35.41457311794849, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7374349965349324}, {\&quot;angular_support\&quot;: 0.75, \&quot;center\&quot;: [569.0, 129.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 26.777018696681274, \&quot;lab_center_band\&quot;: 21.23795041391268, \&quot;lab_center_surround\&quot;: 47.93241255914832, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 25.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.7103728555387597}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [293.0, 409.0], \&quot;hollow_score\&quot;: 0.14583333333333334, \&quot;inner_opposed_support\&quot;: 0.14583333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 20.133776981759013, \&quot;lab_center_band\&quot;: 26.580655182874064, \&quot;lab_center_surround\&quot;: 43.046193045603836, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.6705904350411157}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [539.0, 165.0], \&quot;hollow_score\&quot;: 0.5833333333333334, \&quot;inner_opposed_support\&quot;: 0.5833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 15.904755303272538, \&quot;lab_center_band\&quot;: 12.834981192916267, \&quot;lab_center_surround\&quot;: 17.28326924586847, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 9.0, \&quot;score\&quot;: 0.6615658196275509}, {\&quot;angular_support\&quot;: 0.7708333333333334, \&quot;center\&quot;: [569.0, 706.0], \&quot;hollow_score\&quot;: 0.5833333333333334, \&quot;inner_opposed_support\&quot;: 0.5833333333333334, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 24.036004841427076, \&quot;lab_center_band\&quot;: 7.942035633230705, \&quot;lab_center_surround\&quot;: 16.917817289290937, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;score\&quot;: 0.6580714147153397}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [508.0, 555.0], \&quot;hollow_score\&quot;: 0.2916666666666667, \&quot;inner_opposed_support\&quot;: 0.2916666666666667, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 3.882282105723968, \&quot;lab_center_band\&quot;: 3.162777452382155, \&quot;lab_center_surround\&quot;: 5.3341231154241, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 10.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5582014901642116}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [411.0, 1096.0], \&quot;hollow_score\&quot;: 0.0, \&quot;inner_opposed_support\&quot;: 0.0, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 11.737951993501536, \&quot;lab_center_band\&quot;: 13.73152892179676, \&quot;lab_center_surround\&quot;: 25.312161022649576, \&quot;lab_color_return\&quot;: 0.0, \&quot;radius\&quot;: 8.0, \&quot;rejected\&quot;: \&quot;not_annulus\&quot;, \&quot;score\&quot;: 0.5444113500005321}, {\&quot;angular_support\&quot;: 0.7916666666666666, \&quot;center\&quot;: [458.0, 565.0], \&quot;hollow_score\&quot;: 0.5416666666666666, \&quot;inner_opposed_support\&quot;: 0.5416666666666666, \&quot;inside\&quot;: false, \&quot;lab_band_surround\&quot;: 25.39018889289374, \&quot;lab_center_band\&quot;: 15.309924637771406, \&quot;lab_center_surround\&quot;: 11.625914393970973, \&quot;lab_color_return\&quot;: 0.14509581867788002, \&quot;radius\&quot;: 21.0, \&quot;score\&quot;: 0.5070012751093893}], \&quot;radial_tolerance_fraction\&quot;: 0.15, \&quot;smooth_fraction\&quot;: 0.08, \&quot;vote_thresh\&quot;: 0.5}, \&quot;reason\&quot;: \&quot;\&quot;}&quot;
+  },
+  {
+    &quot;id&quot;: &quot;g2_pivot&quot;,
+    &quot;subject&quot;: &quot;SE&quot;,
+    &quot;passed&quot;: null,
+    &quot;value&quot;: null,
+    &quot;threshold&quot;: 4,
+    &quot;op&quot;: &quot;&lt;=&quot;,
+    &quot;unit&quot;: &quot;px&quot;,
+    &quot;evidence&quot;: [],
+    &quot;notes&quot;: &quot;UNEVALUABLE: independent reviewed root anchor required; sole midpoint is separate&quot;
+  }
+]</pre></details></section><h2>Original green plates</h2><p class="muted">Unmatted source plates with the same shared scalar and corresponding placement. Original plate color variation is preserved.</p><div class="scroll"><img class="sheet" src="img/turnaround_sheet_green.png" width="4096" height="512" alt="Original eight Keeper green plates"></div><h2>Starter bible</h2><p><strong>sigil</strong>: RULED AT K1 (Matt, 2026-09-12; amends V1a): the STARTER set carries NO insignia — no ring, no hour-mark, no shape on the tabard chest, and no head-piece atop the staff; every surface is plain and undecorated. The single open ring with one radial hour-mark is RESERVED as an earned ADVANCED-set motif (placements to be ruled with the advanced set). Placement counts are maximum budgets: starter = 0 everywhere.</p><p><strong>plain-budget</strong>: RULED V3(a), tightened at K1: the STARTER set has ZERO motif placements — everything is plain planes; wear and stitching only at fasteners and load points.</p><p><strong>construction</strong>: RULED V4 (spec over reference on both sub-forks): every strap terminates at a named part; every fastener closes a named gap; belt count = 1 (one waist belt, its buckle closes the tabard); harness = ONE diagonal strap, shoulder → opposite hip, carrying the satchel on the figure&#x27;s LEFT hip; the astrolabe-rod is held in the RIGHT hand; pauldron asymmetry only on the advanced set (LEFT shoulder, oversized). The F04 anchors&#x27; X-harness and doubled waist band are the known-bad. AMENDED AT K1 (Matt 2026-09-12): the staff is a plain dark walnut shaft with small brass ferrules at foot and tip — NO ring head, no shape atop it; rod_head is ABSENT on the starter set (present=false) and returns only if the advanced set earns it.</p><p><strong>key-light</strong>: single key from screen upper-left (135°), fixed for every frame of every direction; spell light the only warm/saturated source and only on cast frames; no floor shadow</p><footer id="control"><h2>control</h2><p>Hidden control · image 9 · claimed W · seen W. Axis 2 = 1; axis 3 = 2. Scored ≤2 on axis 2 or 3: <strong>true</strong>. Called mirrored: <strong>true</strong>.</p><details><summary>Control axes and reasons</summary><pre>{
+  &quot;image&quot;: 9,
+  &quot;claimed&quot;: &quot;W&quot;,
+  &quot;seen_facing&quot;: &quot;W&quot;,
+  &quot;facing_matches&quot;: true,
+  &quot;axes&quot;: {
+    &quot;1&quot;: 4,
+    &quot;2&quot;: 1,
+    &quot;3&quot;: 2,
+    &quot;4&quot;: 3,
+    &quot;5&quot;: 5
+  },
+  &quot;reasons&quot;: {
+    &quot;1&quot;: &quot;The left-facing figure retains the master&#x27;s palette and painted material language, but reverses the asymmetric equipment arrangement and lighting.&quot;,
+    &quot;2&quot;: &quot;Mirrored: in this W profile the near anatomical right arm hangs free with the satchel on that side, while the far anatomical left hand holds the rod; the single harness and belt remain but their sided arrangement is reversed.&quot;,
+    &quot;3&quot;: &quot;The strongest hair and shoulder highlights and bright right edge of the rod cap indicate an upper-right key, contrary to the fixed upper-left requirement.&quot;,
+    &quot;4&quot;: &quot;The face clearly reads W, but the rear rod cap crowds the hair and the shaft merges with the body, weakening independent rod recognition at 64 px.&quot;,
+    &quot;5&quot;: &quot;Despite the anatomical reversal, the skin, curls, cloth and leather maintain the master&#x27;s smooth painted brush register.&quot;
+  },
+  &quot;mirrored&quot;: true,
+  &quot;ornament_surfaces&quot;: []
+}</pre></details><p class="muted">Sources: K1-gen-04 approved master; K2-gen direction sources; K2-chk-01/checks.json and native mattes; K2-jdg-01/judgment.json; f04-keepers.json. Candidates 2–8 map to SW W NW N NE E SE. O3b family counts are advisory under R-8. All scores and gate booleans are reproduced from their supplied records.</p><p><a href="registration.json">Presentation registration metadata</a> · <a href="summary.txt">Text summary</a></p></footer></main></html>
