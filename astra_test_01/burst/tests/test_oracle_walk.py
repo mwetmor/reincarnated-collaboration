@@ -5,9 +5,9 @@ import tempfile
 import unittest
 import numpy as np
 from PIL import Image,ImageDraw
-from oracle.walk_landmarks import figure_mask,figure_mask_row,landmarks,track_landmarks,track_head,_translate
-from oracle.walk_curves import measure_sequence,head_path,bob,phase_table,curves
-from oracle.walk_bands import main,bands
+from oracle.walk_landmarks import figure_mask,figure_mask_row,landmarks,track_landmarks,track_head,_translate,mask_stability
+from oracle.walk_curves import measure_sequence,head_path,bob,phase_table,curves,annotation_curves,annotation_landmarks
+from oracle.walk_bands import main,bands,agreement
 ROOT=Path(__file__).resolve().parents[1]
 
 
@@ -71,6 +71,32 @@ def synthetic(grid=False,floating=False):
     return frames
 
 
+def alpha_frames(frames):
+    """Use the synthetic drawing's exact foreground, without segmentation."""
+    return [np.dstack((f, (np.any(f != 30, axis=2)*255).astype(np.uint8))) for f in frames]
+
+
+def synthetic_annotation():
+    """True points from synthetic(): translating hip, drawn head/wrists/soles."""
+    frames = []
+    keys = ('head_top','chin','hip','near_sole','far_sole','near_wrist','far_wrist','ground_y')
+    for i in range(12):
+        ox = 16*i; shift = [0,4,4,0,-3,-3][i%6]
+        hx = round(3*np.sin(2*np.pi*i/12))
+        f = dict(frame=i, head_top=[150+ox+hx,60+shift], chin=[150+ox+hx,87+shift],
+                 hip=[150+ox,210], ground_y=300, confidence={k:1. for k in keys})
+        for name,base,off,arm in [('near',90,i,106),('far',210,(i+6)%12,194)]:
+            stance = off < 6
+            dx = 40-16*off if stance else [-56,-32,-8,16,40,56][off-6]
+            f[name+'_sole'] = [base+ox+dx, 300 if stance else 290]
+            f[name+'_wrist'] = [ox+arm-round(.3*dx),168]
+            f['planted_'+name] = stance
+        frames.append(f)
+    return dict(plate='synthetic', row='lateral', frames=frames,
+                subject_height_px=float(np.mean([300-f['head_top'][1] for f in frames])),
+                stride_notes={'contact_frames':[0,6]})
+
+
 def tracked(frames):
     masks=figure_mask_row(frames);seq=track_landmarks(masks)
     for d,h in zip(seq,track_head(frames,masks)):d.update(h)
@@ -89,6 +115,9 @@ class Tests(unittest.TestCase):
         for a,b in zip(seq,other):
             for key in ('head_top_y','head_ref_y','head_cx','sole_line_y','torso_cx','foot_L_x','foot_R_x','wrist_ext_L','wrist_ext_R'):
                 self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=2,msg=key)
+    def test_alpha_synthetic_kinematics(self):
+        # Kinematics are scoped to exact alpha truth; RGB parity stays separate.
+        seq=tracked(alpha_frames(synthetic()))
         measured=measure_sequence(seq);s=measured['summary']
         print('SYNTHETIC_WALK '+json.dumps(s,sort_keys=True))
         self.assertAlmostEqual(s['W1'],.03,delta=.03*.15)
@@ -106,7 +135,7 @@ class Tests(unittest.TestCase):
         self.assertIs(d['results'][0]['passed'],False)
 
     def test_stationary_definition_and_swing(self):
-        seq=tracked(synthetic())
+        seq=tracked(alpha_frames(synthetic()))
         for d in seq:
             for side in ('L','R'):
                 if d['planted_'+side]:self.assertLessEqual(abs(d['foot_'+side+'_velocity_x']),2)
@@ -116,9 +145,87 @@ class Tests(unittest.TestCase):
 
     def test_grid_registration_known_translation(self):
         plain=synthetic(True);shifted=[_translate(f,(i%3)-1,(i%3)-1,fill=30) for i,f in enumerate(plain)]
-        _,health=figure_mask_row(shifted,return_diagnostics=True)
+        _,health=figure_mask_row(shifted,return_diagnostics=True,method="B")
         for i,h in enumerate(health):
             np.testing.assert_allclose(h['grid_shift_xy'],[-(i%3),-(i%3)],atol=1)
+
+    def test_annotation_truth_and_per_frame_coordinate_invariance(self):
+        ann = synthetic_annotation(); path = self.base/'annotation.json'
+        path.write_text(json.dumps(ann)); data = annotation_curves(path)
+        s = data['summary']; H = ann['subject_height_px']
+        self.assertEqual(s['W1'], 7/H)
+        self.assertEqual(s['W4'], 2); self.assertEqual(s['W3c'], 2)
+        # These screen-separated synthetic arms/legs share hip-relative signs;
+        # unlike the mask's centered proxy, literal annotation opposition is zero.
+        self.assertEqual(s['W6'], 0.)
+        self.assertEqual([p['phase'] for p in data['phase_table']],
+                         ['CONTACT','PASSING','UP','UP','UP','UP',
+                          'CONTACT','DOWN','DOWN','DOWN','DOWN','PASSING'])
+        self.assertEqual(s['W2']['min'], [{'frame':i,'phase':data['phase_table'][i]['phase']} for i in (1,2,7,8)])
+        for quantity in data['quantities'].values():
+            self.assertEqual(quantity['source'], 'annotation'); self.assertEqual(quantity['mean_confidence'],1.)
+        # Arbitrary cell cuts, including vertical offsets larger than the bob.
+        for i, frame in enumerate(ann['frames']):
+            dy = [0,31,-14,8][i%4]; dx = 27*i
+            frame['ground_y'] += dy
+            for key in ('head_top','chin','hip','near_sole','far_sole','near_wrist','far_wrist'):
+                frame[key][0] += dx; frame[key][1] += dy
+        path.write_text(json.dumps(ann)); moved = annotation_curves(path)
+        self.assertEqual(s, moved['summary']); self.assertEqual(data['phase_table'],moved['phase_table'])
+        # Literal opposition uses same-side signs, without mean-centering.
+        for frame in ann['frames']:
+            for side in ('near','far'):
+                frame[side+'_wrist'][0] = 2*frame['hip'][0]-frame[side+'_sole'][0]
+        path.write_text(json.dumps(ann))
+        self.assertEqual(annotation_curves(path)['summary']['W6'],1.)
+
+    def test_annotation_extra_contact_is_not_repaired(self):
+        ann = synthetic_annotation();ann['frames'][2]['planted_near'] = False
+        path = self.base/'annotation.json';path.write_text(json.dumps(ann))
+        phases = annotation_curves(path)['phase_table']
+        self.assertTrue(all(p['phase'] is None for p in phases))
+        self.assertTrue(all(p['reason']=='expected two contact events; observed 3' for p in phases))
+        self.assertEqual(sum(len(p['contact_sides']) for p in phases),3)
+
+    def test_mask_stability_selector_and_method_default(self):
+        masks=[figure_mask(f) for f in alpha_frames(synthetic())]
+        self.assertTrue(mask_stability(masks)['stable'])
+        bad=[np.zeros_like(masks[0])]*6+masks[6:]
+        self.assertFalse(mask_stability(bad)['stable'])
+        # Exactly .25 is excluded, not rounded into the stable interval.
+        low=np.zeros((20,20),bool);low[1:16,1:6]=True
+        high=np.zeros_like(low);high[1:16,1:6]=True;high[1:11,6:11]=True
+        self.assertEqual(mask_stability([low,high]*6)['mask_stability'],.25)
+        self.assertFalse(mask_stability([low,high]*6)['stable'])
+        for direct,row in zip(masks,figure_mask_row(alpha_frames(synthetic()))):
+            np.testing.assert_array_equal(direct,row)
+        source=self.base/'unstable';source.mkdir()
+        for i,m in enumerate(bad):
+            Image.fromarray(np.dstack((np.zeros((*m.shape,3),np.uint8),m.astype(np.uint8)*255))).save(source/f'{i:02}.png')
+        data=curves(source)
+        self.assertIsNone(data['mask_estimate']);self.assertEqual(data['reason'],'unstable_segmentation')
+        self.assertTrue(all(v is None for v in data['summary'].values()))
+
+    def test_annotation_cli_agreement_and_ours_alpha(self):
+        source=self.base/'alpha';source.mkdir()
+        for i,f in enumerate(alpha_frames(synthetic())):
+            Image.fromarray(f).save(source/f'frame_{i:02}.png')
+        ann=synthetic_annotation();path=self.base/'annotation.json';path.write_text(json.dumps(ann))
+        out=self.base/'bands.json'
+        main(['--landmarks',str(path),'--ref',str(source),'--fps','8.33',
+              '--label','plate13_lateral','--out',str(out)])
+        row=json.loads(out.read_text())['plate13_lateral']
+        self.assertIsNotNone(row['mask_estimate'])
+        self.assertEqual(row['bands']['W1']['value'],row['summary']['W1'])
+        self.assertEqual(row['bands']['W1']['source'],'annotation')
+        self.assertTrue(row['agreement']['W1']['within_20_percent'])
+        self.assertIsNone(agreement(row['summary'],None)['W1']['abs_delta'])
+        self.assertEqual(agreement({'W1':0.},{'W1':0.})['W1']['within_20_percent'],True)
+        ours=self.base/'ours';ours.mkdir()
+        for i,f in enumerate(alpha_frames(synthetic_otsu_lineage())):
+            canvas=np.zeros((512,512,4),np.uint8);canvas[:360,:300]=f
+            Image.fromarray(canvas).save(ours/f'{i:02}.png')
+        self.assertIsNotNone(curves(ours,ours=True)['summary']['W1'])
 
     def test_pigeon_and_line(self):
         t=np.arange(12)*2*np.pi/12

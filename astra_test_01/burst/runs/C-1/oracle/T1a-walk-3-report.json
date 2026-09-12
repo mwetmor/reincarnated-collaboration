@@ -1,0 +1,1727 @@
+{
+  "task_id": "T1a-walk-3",
+  "annotation": {
+    "label": "plate13_lateral_ann",
+    "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+    "summary": {
+      "W1": 0.03945870747438978,
+      "W2": {
+        "min": [
+          {
+            "frame": 9,
+            "phase": "UP"
+          },
+          {
+            "frame": 11,
+            "phase": "DOWN"
+          }
+        ],
+        "max": [
+          {
+            "frame": 2,
+            "phase": "UP"
+          }
+        ],
+        "coordinate": "height above per-frame ground; min=lowest head, max=highest head"
+      },
+      "W4": 4,
+      "minima_frames": [
+        4,
+        6,
+        9,
+        11
+      ],
+      "W3a": 0.22982940158427193,
+      "W3b": -0.3473557692307692,
+      "W3c": 2,
+      "signed_area_px2": -144.5,
+      "W5": {
+        "near": 0.13051726318452006,
+        "far": 0.2291640318704945
+      },
+      "W6": 0.5416666666666666,
+      "W6_per_arm": {
+        "near": 0.4166666666666667,
+        "far": 0.6666666666666666
+      },
+      "sole_scroll": {
+        "mean_scroll_px_per_frame": 37.0,
+        "mean_absolute_speed_px_per_frame": 61.36363636363637,
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "planted_scroll_lineage": {
+          "mean_scroll_px_per_frame": -38.1,
+          "slip_rms_px_per_frame": 9.833107342035884,
+          "near": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              157.0,
+              122.0,
+              73.0,
+              38.0,
+              1.0,
+              -44.0,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -49.0,
+              -35.0,
+              -37.0,
+              -45.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -40.2,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              5.200000000000003,
+              -8.799999999999997,
+              5.200000000000003,
+              3.200000000000003,
+              -4.799999999999997,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 5.741080037762929
+          },
+          "far": {
+            "planted_x_px": [
+              86.0,
+              56.0,
+              1.0,
+              -34.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              146.0,
+              104.0
+            ],
+            "delta_px_per_frame": [
+              -30.0,
+              -55.0,
+              -35.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -42.0,
+              -18.0
+            ],
+            "mean_scroll_px_per_frame": -36.0,
+            "slip_px_per_frame": [
+              6.0,
+              -19.0,
+              1.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -6.0,
+              18.0
+            ],
+            "slip_rms_px_per_frame": 12.312595177297109
+          }
+        },
+        "near": {
+          "swing_x_px": [
+            -99.0,
+            -21.0,
+            78.0,
+            163.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -79.0,
+            -110.0
+          ],
+          "delta_px_per_frame": [
+            null,
+            78.0,
+            99.0,
+            85.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -31.0
+          ],
+          "mean_scroll_px_per_frame": 39.2,
+          "observed_velocity_frames": 5
+        },
+        "far": {
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            null,
+            -83.0,
+            -102.0,
+            -48.0,
+            -1.0,
+            122.0,
+            177.0,
+            null,
+            null
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -49.0,
+            -19.0,
+            54.0,
+            47.0,
+            123.0,
+            55.0,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 35.166666666666664,
+          "observed_velocity_frames": 6
+        }
+      },
+      "H_mean": 658.9166666666666,
+      "H_per_frame": [
+        651.0,
+        658.0,
+        676.0,
+        673.0,
+        666.0,
+        669.0,
+        653.0,
+        657.0,
+        653.0,
+        650.0,
+        651.0,
+        650.0
+      ],
+      "sole_heights": {
+        "near": [
+          32.0,
+          27.0,
+          5.0,
+          17.0,
+          4.0,
+          3.0,
+          3.0,
+          4.0,
+          5.0,
+          7.0,
+          16.0,
+          38.0
+        ],
+        "far": [
+          2.0,
+          3.0,
+          3.0,
+          3.0,
+          15.0,
+          28.0,
+          45.0,
+          44.0,
+          20.0,
+          31.0,
+          11.0,
+          11.0
+        ]
+      },
+      "contact_frames": [
+        4,
+        10
+      ],
+      "W1_sanity_1_5_pct_H": true,
+      "source": "annotation",
+      "mean_confidence": 0.7604166666666666
+    },
+    "phase_table": [
+      {
+        "frame": 0,
+        "printed_phase": 1,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 1,
+        "printed_phase": 2,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 2,
+        "printed_phase": 3,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 3,
+        "printed_phase": 4,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 4,
+        "printed_phase": 5,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [
+          "near"
+        ],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 5,
+        "printed_phase": 6,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 6,
+        "printed_phase": 7,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 7,
+        "printed_phase": 8,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 8,
+        "printed_phase": 9,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 9,
+        "printed_phase": 10,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 10,
+        "printed_phase": 11,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [
+          "far"
+        ],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 11,
+        "printed_phase": 12,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      }
+    ],
+    "mask_stability": null,
+    "mask_H_cv": null,
+    "mask_estimate_reported": false,
+    "agreement": null,
+    "mask_agrees": null
+  },
+  "annotation_and_mask": {
+    "label": "plate13_lateral",
+    "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+    "summary": {
+      "W1": 0.03945870747438978,
+      "W2": {
+        "min": [
+          {
+            "frame": 9,
+            "phase": "UP"
+          },
+          {
+            "frame": 11,
+            "phase": "DOWN"
+          }
+        ],
+        "max": [
+          {
+            "frame": 2,
+            "phase": "UP"
+          }
+        ],
+        "coordinate": "height above per-frame ground; min=lowest head, max=highest head"
+      },
+      "W4": 4,
+      "minima_frames": [
+        4,
+        6,
+        9,
+        11
+      ],
+      "W3a": 0.22982940158427193,
+      "W3b": -0.3473557692307692,
+      "W3c": 2,
+      "signed_area_px2": -144.5,
+      "W5": {
+        "near": 0.13051726318452006,
+        "far": 0.2291640318704945
+      },
+      "W6": 0.5416666666666666,
+      "W6_per_arm": {
+        "near": 0.4166666666666667,
+        "far": 0.6666666666666666
+      },
+      "sole_scroll": {
+        "mean_scroll_px_per_frame": 37.0,
+        "mean_absolute_speed_px_per_frame": 61.36363636363637,
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "planted_scroll_lineage": {
+          "mean_scroll_px_per_frame": -38.1,
+          "slip_rms_px_per_frame": 9.833107342035884,
+          "near": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              157.0,
+              122.0,
+              73.0,
+              38.0,
+              1.0,
+              -44.0,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -35.0,
+              -49.0,
+              -35.0,
+              -37.0,
+              -45.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -40.2,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              5.200000000000003,
+              -8.799999999999997,
+              5.200000000000003,
+              3.200000000000003,
+              -4.799999999999997,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": 5.741080037762929
+          },
+          "far": {
+            "planted_x_px": [
+              86.0,
+              56.0,
+              1.0,
+              -34.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              146.0,
+              104.0
+            ],
+            "delta_px_per_frame": [
+              -30.0,
+              -55.0,
+              -35.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -42.0,
+              -18.0
+            ],
+            "mean_scroll_px_per_frame": -36.0,
+            "slip_px_per_frame": [
+              6.0,
+              -19.0,
+              1.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -6.0,
+              18.0
+            ],
+            "slip_rms_px_per_frame": 12.312595177297109
+          }
+        },
+        "near": {
+          "swing_x_px": [
+            -99.0,
+            -21.0,
+            78.0,
+            163.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -79.0,
+            -110.0
+          ],
+          "delta_px_per_frame": [
+            null,
+            78.0,
+            99.0,
+            85.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -35.0,
+            -31.0
+          ],
+          "mean_scroll_px_per_frame": 39.2,
+          "observed_velocity_frames": 5
+        },
+        "far": {
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            null,
+            -83.0,
+            -102.0,
+            -48.0,
+            -1.0,
+            122.0,
+            177.0,
+            null,
+            null
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            -49.0,
+            -19.0,
+            54.0,
+            47.0,
+            123.0,
+            55.0,
+            null,
+            null
+          ],
+          "mean_scroll_px_per_frame": 35.166666666666664,
+          "observed_velocity_frames": 6
+        }
+      },
+      "H_mean": 658.9166666666666,
+      "H_per_frame": [
+        651.0,
+        658.0,
+        676.0,
+        673.0,
+        666.0,
+        669.0,
+        653.0,
+        657.0,
+        653.0,
+        650.0,
+        651.0,
+        650.0
+      ],
+      "sole_heights": {
+        "near": [
+          32.0,
+          27.0,
+          5.0,
+          17.0,
+          4.0,
+          3.0,
+          3.0,
+          4.0,
+          5.0,
+          7.0,
+          16.0,
+          38.0
+        ],
+        "far": [
+          2.0,
+          3.0,
+          3.0,
+          3.0,
+          15.0,
+          28.0,
+          45.0,
+          44.0,
+          20.0,
+          31.0,
+          11.0,
+          11.0
+        ]
+      },
+      "contact_frames": [
+        4,
+        10
+      ],
+      "W1_sanity_1_5_pct_H": true,
+      "source": "annotation",
+      "mean_confidence": 0.7604166666666666
+    },
+    "phase_table": [
+      {
+        "frame": 0,
+        "printed_phase": 1,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 1,
+        "printed_phase": 2,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 2,
+        "printed_phase": 3,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 3,
+        "printed_phase": 4,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 4,
+        "printed_phase": 5,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [
+          "near"
+        ],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 5,
+        "printed_phase": 6,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 6,
+        "printed_phase": 7,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 7,
+        "printed_phase": 8,
+        "phase": "PASSING",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 8,
+        "printed_phase": 9,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 9,
+        "printed_phase": 10,
+        "phase": "UP",
+        "contact": false,
+        "lead_track": "near",
+        "planted": {
+          "near": true,
+          "far": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 10,
+        "printed_phase": 11,
+        "phase": "CONTACT",
+        "contact": true,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [
+          "far"
+        ],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      },
+      {
+        "frame": 11,
+        "printed_phase": 12,
+        "phase": "DOWN",
+        "contact": false,
+        "lead_track": "far",
+        "planted": {
+          "near": false,
+          "far": true
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": null,
+        "source": "annotation",
+        "mean_confidence": 0.7604166666666666
+      }
+    ],
+    "mask_stability": 0.11017607451541458,
+    "mask_H_cv": 0.04081209140284806,
+    "mask_estimate_reported": true,
+    "agreement": {
+      "W1": {
+        "annotation": 0.03945870747438978,
+        "mask": 0.04081632653061224,
+        "abs_delta": 0.0013576190562224616,
+        "within_20_percent": true,
+        "reason": null
+      },
+      "W2": {
+        "annotation": {
+          "min": [
+            {
+              "frame": 9,
+              "phase": "UP"
+            },
+            {
+              "frame": 11,
+              "phase": "DOWN"
+            }
+          ],
+          "max": [
+            {
+              "frame": 2,
+              "phase": "UP"
+            }
+          ],
+          "coordinate": "height above per-frame ground; min=lowest head, max=highest head"
+        },
+        "mask": {
+          "min": [
+            {
+              "frame": 10,
+              "phase": null
+            }
+          ],
+          "max": [
+            {
+              "frame": 2,
+              "phase": null
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "abs_delta": null,
+        "within_20_percent": null,
+        "categorical_agrees": false,
+        "reason": "categorical extrema use exact frame/phase agreement"
+      },
+      "W3a": {
+        "annotation": 0.22982940158427193,
+        "mask": 0.29212396693920606,
+        "abs_delta": 0.062294565354934134,
+        "within_20_percent": false,
+        "reason": null
+      },
+      "W3b": {
+        "annotation": -0.3473557692307692,
+        "mask": 0.41438127090301013,
+        "abs_delta": 0.7617370401337793,
+        "within_20_percent": false,
+        "reason": null
+      },
+      "W3c": {
+        "annotation": 2,
+        "mask": 4,
+        "abs_delta": 2,
+        "within_20_percent": false,
+        "reason": null
+      },
+      "W4": {
+        "annotation": 4,
+        "mask": 2,
+        "abs_delta": 2,
+        "within_20_percent": false,
+        "reason": null
+      },
+      "W6": {
+        "annotation": 0.5416666666666666,
+        "mask": null,
+        "abs_delta": null,
+        "within_20_percent": null,
+        "reason": "mask_estimate_unavailable"
+      },
+      "W5.near": {
+        "annotation": 0.13051726318452006,
+        "mask": null,
+        "abs_delta": null,
+        "within_20_percent": null,
+        "reason": "mask near/far identity unestablished",
+        "screen_track_candidates": {
+          "L": {
+            "mask": 0.031055900621118012,
+            "abs_delta": 0.09946136256340204,
+            "within_20_percent": false
+          },
+          "R": {
+            "mask": 0.09316770186335403,
+            "abs_delta": 0.03734956132116603,
+            "within_20_percent": false
+          }
+        }
+      },
+      "W5.far": {
+        "annotation": 0.2291640318704945,
+        "mask": null,
+        "abs_delta": null,
+        "within_20_percent": null,
+        "reason": "mask near/far identity unestablished",
+        "screen_track_candidates": {
+          "L": {
+            "mask": 0.031055900621118012,
+            "abs_delta": 0.19810813124937648,
+            "within_20_percent": false
+          },
+          "R": {
+            "mask": 0.09316770186335403,
+            "abs_delta": 0.13599633000714045,
+            "within_20_percent": false
+          }
+        }
+      },
+      "sole_scroll": {
+        "annotation": 37.0,
+        "mask": 3.9642857142857144,
+        "abs_delta": 33.035714285714285,
+        "within_20_percent": false,
+        "reason": null
+      }
+    },
+    "mask_agrees": false
+  },
+  "mask_only": {
+    "label": "plate2_lateral",
+    "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+    "summary": {
+      "W1": 0.04774535809018567,
+      "W2": {
+        "min": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "max": [
+          {
+            "frame": 2,
+            "phase": null
+          },
+          {
+            "frame": 3,
+            "phase": null
+          },
+          {
+            "frame": 8,
+            "phase": null
+          }
+        ],
+        "coordinate": "Cartesian up; negative image y"
+      },
+      "W4": 2,
+      "minima_frames": [
+        5,
+        11
+      ],
+      "W3a": 0.24875005729474145,
+      "W3b": 0.3939043209876543,
+      "W3c": 2,
+      "signed_area_px2": 510.5,
+      "head_mask_bob_lineage": {
+        "W1": 0.27320954907161804,
+        "W2": {
+          "min": [
+            {
+              "frame": 11,
+              "phase": null
+            }
+          ],
+          "max": [
+            {
+              "frame": 9,
+              "phase": null
+            },
+            {
+              "frame": 10,
+              "phase": null
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 3,
+        "minima_frames": [
+          4,
+          6,
+          11
+        ]
+      },
+      "head_ref_bob": {
+        "W1": 0.2519893899204244,
+        "W2": {
+          "min": [
+            {
+              "frame": 11,
+              "phase": null
+            }
+          ],
+          "max": [
+            {
+              "frame": 2,
+              "phase": null
+            }
+          ],
+          "coordinate": "Cartesian up; negative image y"
+        },
+        "W4": 3,
+        "minima_frames": [
+          5,
+          7,
+          11
+        ]
+      },
+      "W5": {
+        "L": 0.020557029177718834,
+        "R": 0.18037135278514588
+      },
+      "W6": null,
+      "W6_per_arm": {
+        "L": null,
+        "R": null
+      },
+      "valid_frames_per_arm": {
+        "L": 8,
+        "R": 7
+      },
+      "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+      "sole_scroll": {
+        "L": {
+          "swing_x_px": [
+            270.5,
+            227.0,
+            187.5,
+            148.5,
+            103.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            92.5,
+            null
+          ],
+          "delta_px_per_frame": [
+            null,
+            -43.5,
+            -39.5,
+            -39.0,
+            -45.5,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -19.5,
+            null
+          ],
+          "mean_scroll_px_per_frame": -37.4,
+          "observed_velocity_frames": 5
+        },
+        "R": {
+          "swing_x_px": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            165.0,
+            201.5,
+            239.0,
+            215.0
+          ],
+          "delta_px_per_frame": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            90.0,
+            36.5,
+            37.5,
+            -24.0
+          ],
+          "mean_scroll_px_per_frame": 35.0,
+          "observed_velocity_frames": 4
+        },
+        "mean_scroll_px_per_frame": -5.222222222222222,
+        "mean_absolute_speed_px_per_frame": 41.666666666666664,
+        "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+        "planted_scroll_lineage": {
+          "L": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "R": {
+            "planted_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "slip_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "slip_rms_px_per_frame": null
+          },
+          "mean_scroll_px_per_frame": null,
+          "slip_rms_px_per_frame": null
+        }
+      },
+      "H_median": 377.0,
+      "W1_sanity_1_5_pct_H": true,
+      "contact_frames": [],
+      "head_track_flagged_frames": [],
+      "projection_diagnostics": {
+        "W5": {
+          "L": 0.020557029177718834,
+          "R": 0.18037135278514588
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "valid_frames_per_arm": {
+          "L": 8,
+          "R": 7
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "swing_x_px": [
+              270.5,
+              227.0,
+              187.5,
+              148.5,
+              103.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              92.5,
+              null
+            ],
+            "delta_px_per_frame": [
+              null,
+              -43.5,
+              -39.5,
+              -39.0,
+              -45.5,
+              null,
+              null,
+              null,
+              null,
+              null,
+              -19.5,
+              null
+            ],
+            "mean_scroll_px_per_frame": -37.4,
+            "observed_velocity_frames": 5
+          },
+          "R": {
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              165.0,
+              201.5,
+              239.0,
+              215.0
+            ],
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              90.0,
+              36.5,
+              37.5,
+              -24.0
+            ],
+            "mean_scroll_px_per_frame": 35.0,
+            "observed_velocity_frames": 4
+          },
+          "mean_scroll_px_per_frame": -5.222222222222222,
+          "mean_absolute_speed_px_per_frame": 41.666666666666664,
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "planted_scroll_lineage": {
+            "L": {
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        }
+      }
+    },
+    "phase_table": [
+      {
+        "frame": 0,
+        "printed_phase": 1,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 1,
+        "printed_phase": 2,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 2,
+        "printed_phase": 3,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 3,
+        "printed_phase": 4,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 4,
+        "printed_phase": 5,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 5,
+        "printed_phase": 6,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 6,
+        "printed_phase": 7,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 7,
+        "printed_phase": 8,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": null
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 8,
+        "printed_phase": 9,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 9,
+        "printed_phase": 10,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 10,
+        "printed_phase": 11,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": false,
+          "R": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      },
+      {
+        "frame": 11,
+        "printed_phase": 12,
+        "phase": null,
+        "contact": false,
+        "lead_track": null,
+        "planted": {
+          "L": null,
+          "R": false
+        },
+        "contact_sides": [],
+        "boundary_contact": false,
+        "reason": "expected two contact events; observed 0"
+      }
+    ],
+    "mask_stability": 0.24800660502848748,
+    "mask_H_cv": 0.0917735229006162,
+    "mask_estimate_reported": true,
+    "agreement": null,
+    "mask_agrees": null
+  },
+  "full_suite": {
+    "tests_run": 154,
+    "successful_tests": 149,
+    "elapsed_s": 67.37328658300248,
+    "red_tests": 5,
+    "issues": [
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "kind": "addFailure",
+        "message": "60 != 65 within 2 delta (5 difference) : head_ref_y"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "kind": "addFailure",
+        "message": "2 not greater than or equal to 3"
+      }
+    ],
+    "declared_test_metadata": [],
+    "assertion_failure_count": 2
+  },
+  "notes": [
+    "Annotation heights use per-frame ground_y and x uses per-frame hip.x. H uses the arithmetic mean, 658.9166666666666 px.",
+    "The mask selector uses population CV, strictly less than 0.25 for both area and H; both real rows meet it. Plate 2 area CV 0.24800660502848748 is below the threshold, contrary to the expected unstable/null outcome. The threshold was not changed.",
+    "The unchanged RGB grid-parity assertion remains red at head_ref_y: 60 vs 65 px, tolerance 2 px. Contact/scroll assertions execute separately on exact synthetic alpha masks.",
+    "Annotation flag contacts [4,10] disagree with stride_notes [3,9], zero-based; phases use flags.",
+    "Mask and annotation agreement is descriptive: the legacy mask uses source coordinates and median inclusive H; annotation uses ground/hip-relative coordinates and mean H. No anatomical near/far identity is fabricated for mask wrists. Both L/R candidate wrist comparisons are included.",
+    "W2 is categorical and uses exact extrema frame/phase agreement; numerical delta and 20-percent fields are null.",
+    "All reference rows remain uncommitted. No image generation, new dependencies, git, web, or agents."
+  ],
+  "detail_capture_suite": {
+    "tests_run": 154,
+    "successful_tests": 149,
+    "elapsed_s": 73.6202716250009
+  }
+}

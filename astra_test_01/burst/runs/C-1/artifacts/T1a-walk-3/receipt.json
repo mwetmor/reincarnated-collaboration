@@ -1,0 +1,81 @@
+{
+  "task_id": "T1a-walk-3",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Focused checks exposed empty-alpha handling and the existing RGB grid discrepancy.",
+      "change": "Handled empty alpha masks and separated alpha kinematics checks from the unchanged RGB parity assertion."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Annotation: H mean=658.916667 px; mean confidence=0.760417. All vertical measurements use per-frame ground_y; horizontal measurements use per-frame hip.x.",
+      "Annotation W-1=3.945871%H; W-3a=0.229829; W-3b=-0.347356; W-3c=2; W-4=4; W-5 near/far=13.051726/22.916403%H; W-6=13/24=0.541667 (near 5/12, far 8/12). Swing scroll=37 px/frame.",
+      "One-based frames: W-2 lowest head at 10/UP and 12/DOWN; highest at 3/UP. Contacts=5 near, 11 far, disagreeing with stride notes 4/10. Phase table: DOWN, PASSING, UP, UP, CONTACT, DOWN, DOWN, PASSING, UP, UP, CONTACT, DOWN.",
+      "Method-A mask area/H CVs: plate13=0.110176/0.040812; plate2=0.248007/0.091774. Both estimates were reported under the unchanged strict <0.25 selector. Plate2 therefore did not produce the expected unstable/null result.",
+      "Agreement: mask_agrees=false. W1 absolute delta=0.001358, within 20%; W3a delta=0.062295, W3b=0.761737, W3c=2, W4=2, scroll=33.035714 px/frame, all outside 20%. W2 categorical agreement=false; mask W6=null. Anatomical W5 correspondence is unestablished; all four near/far-versus-L/R candidate comparisons are outside 20%. Legacy mask coordinates differ from the annotation coordinate convention.",
+      "Full suite: 154 tests, 149 successful, 5 non-successful; repeated detail capture returned identical counts. RGB grid parity remains red: head_ref_y 60 versus 65 px, tolerance 2 px. Alpha contact/scroll and annotation checks succeeded. Detail capture identified the motif test test_f04_outside_at_least_three (2 versus required 3), but did not identify the other three non-successful results."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_landmarks.py",
+      "sha256": "36b2aec8b461bde00545551fd2015eadb8e6d1e2a408cb600d854b4959ffd99b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_curves.py",
+      "sha256": "469482f061f191933e82c9bbb3874353465d096476d02c08f68461fd5a54885d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_bands.py",
+      "sha256": "28bd2fdf5704a5dc790b4a984b1d70389f7a023be816ede6d82b5e7e65145b38"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py",
+      "sha256": "f4f31f69fdd618d0ffb1c8434444739341fd88d95f2aca3cc6066ceb46902e58"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+      "sha256": "82aa29aa391a93e1abb9f175e954cd5e72883571e0b463f1b05f00e9858f974d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-3-report.json",
+      "sha256": "1291f287e3adcc05a980aa3044b7a392f763a1a3f9717980aeb00da141150a04"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-3-full-suite.log",
+      "sha256": "ec10a8d143afab413d3295c515adc8076ce30221f57b2de24f398a9fe0ea1d99"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-3-suite-details.json",
+      "sha256": "839130c4b0829a13509d3e85cf506c03809a6201159515104106bfbe64b17329"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_curves.png",
+      "sha256": "a963fc09783d726d556bc5cf924a1b6e17eba1e6c1d5f6695c83c2f0771dd032"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_ann_annotation_check.png",
+      "sha256": "7f7135164982f88a9182dfb1077c5ab68b1e8aae4192bf2891e347751d2c7fec"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_curves.png",
+      "sha256": "fcf38e22bad2d33de33208f804f7042e234aa742df60918dc7ce54c8813a95c3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_annotation_check.png",
+      "sha256": "bf3c1169d7eafcefbdbddd6cc7632abb83f5ee05bb46f27abefbc39b60e96a9c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_curves.png",
+      "sha256": "c8cb2dee31e2d0564850031002529ce55b25a605665d40ae0db7808328764f4d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_mask_check.png",
+      "sha256": "ee8765393fb2fd75ce7997d91a270be54e4d63548bbc4b305ff7f7e9aa8cd2f3"
+    }
+  ]
+}

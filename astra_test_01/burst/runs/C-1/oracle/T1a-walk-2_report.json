@@ -1,0 +1,1727 @@
+{
+  "task_id": "T1a-walk-2",
+  "frame_indexing": "printed frames 1..12; source and curves store zero-based frame indices",
+  "usable_calibration": false,
+  "scope_deviation": "Initial SPEC extraction exposed lines 26-105 of section 2, beyond the requested sections, and the section heading list.",
+  "method_limits": [
+    "Grid phase correlation resolves only the nearest lattice phase; whole-period crop translations remain ambiguous.",
+    "Median backdrop contains body/stance-foot pixels with >= half-row occupancy; largest component may be a fragment or floor.",
+    "Grid leak is intersection with detected long lines, not a completeness score; slanted/weak lines may go undetected.",
+    "Mask-seeded head NCC can track the neck, floor or grid with a high score. Sanity flags do not repair it.",
+    "Missing sole components remain null; mask_check plots cannot display two genuine soles when they were not recovered.",
+    "Front/rear W5/W6/scroll summary fields retain lineage null semantics; projected diagnostic values are stored separately."
+  ],
+  "synthetic": {
+    "grid_plain_max_difference_px": {
+      "head_top_y": 0,
+      "head_ref_y": 0,
+      "head_cx": 1,
+      "sole_line_y": 0,
+      "torso_cx": 0,
+      "foot_L_x": 0,
+      "foot_R_x": 0,
+      "wrist_ext_L": 0,
+      "wrist_ext_R": 0
+    },
+    "tolerance_px": 2,
+    "W1_pct_H": 3.010752688172043,
+    "W4": 2,
+    "W3c": 2,
+    "W6": 0.9583333333333333,
+    "contact_frames_printed": [
+      8
+    ],
+    "planted_frames_found": 1,
+    "W2_min_phases": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "swing_scroll_px_per_frame": 18.476190476190474,
+    "required_swing_test_lower_bound": 20,
+    "unit_tests_run": 8,
+    "unit_assertion_records": 2
+  },
+  "full_suite": {
+    "tests_run": 149,
+    "successful_tests": 143,
+    "failures": [
+      {
+        "test": "test_oracle_walk.Tests.test_stationary_definition_and_swing",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 114, in test_stationary_definition_and_swing\n    self.assertGreater(scroll['mean_scroll_px_per_frame'],20)\nAssertionError: 18.476190476190474 not greater than 20\n"
+      },
+      {
+        "test": "test_oracle_walk.Tests.test_synthetic_contract_and_grid",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py\", line 95, in test_synthetic_contract_and_grid\n    self.assertTrue(all(p['phase']=='DOWN' for p in s['W2']['min']))\nAssertionError: False is not true\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_f04_outside_at_least_three",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 19, in test_f04_outside_at_least_three\n    self.assertGreaterEqual(metrics(row)['outside'],3)\nAssertionError: 2 not greater than or equal to 3\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[113, 201])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.7708333333333334, 'center': [113.0, 201.0], 'hollow_score': 0.3125, 'inner_opposed_support': 0.3125, 'inside': False, 'lab_band_surround': 11.57642176150743, 'lab_center_band': 11.062059961818727, 'lab_center_surround': 22.610550201280017, 'lab_color_return': 0.0, 'radius': 30.0, 'rejected': 'not_annulus', 'score': 0.7074940354497125}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[111, 311])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.75, 'center': [111.0, 311.0], 'hollow_score': 0.16666666666666666, 'inner_opposed_support': 0.16666666666666666, 'inside': False, 'lab_band_surround': 21.229621366461696, 'lab_center_band': 18.63219308325294, 'lab_center_surround': 39.74946870785732, 'lab_color_return': 0.0, 'radius': 27.0, 'rejected': 'not_annulus', 'score': 0.5281963253811909}\n"
+      },
+      {
+        "test": "test_oracles_motif.Tests.test_named_genuine_annuli_retained (center=[170, 253])",
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracles_motif.py\", line 84, in test_named_genuine_annuli_retained\n    self.assertNotIn('rejected',peak)\nAssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}\n"
+      }
+    ],
+    "errors": [],
+    "skipped": [],
+    "elapsed_s": 61.59764754199932,
+    "regression": {
+      "tolerance": 0.001,
+      "compared": 1880,
+      "differences": [],
+      "within_tolerance": true
+    }
+  },
+  "rows": {
+    "plate13_lateral": {
+      "mask_area_range_px2": [
+        3955,
+        48510
+      ],
+      "H_range_px": [
+        49,
+        582
+      ],
+      "mask_area_per_H_range_px": [
+        29.61744966442953,
+        111.34693877551021
+      ],
+      "grid_leak_range_fraction": [
+        0.0,
+        0.03455699070926807
+      ],
+      "grid_detected_frames": 11,
+      "contact_frames_printed": [],
+      "W1_pct_H": 8.193668528864059,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 1,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 6,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.312352415785017,
+      "W3c": 4,
+      "W4": 4,
+      "W5_fraction_H": {
+        "L": 0.26536312849162014,
+        "R": 0.0893854748603352
+      },
+      "W6": null,
+      "swing_scroll_px_per_frame": -7.666666666666667,
+      "projected_diagnostics": {
+        "W5": {
+          "L": 0.26536312849162014,
+          "R": 0.0893854748603352
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": null,
+            "observed_velocity_frames": 0,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -94.0,
+              -13.0,
+              null,
+              null,
+              32.0,
+              -13.0,
+              6.0,
+              36.0
+            ],
+            "mean_scroll_px_per_frame": -7.666666666666667,
+            "observed_velocity_frames": 6,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              260.0,
+              247.0,
+              null,
+              null,
+              253.0,
+              240.0,
+              246.0,
+              282.0
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 32.333333333333336,
+          "mean_scroll_px_per_frame": -7.666666666666667,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 5,
+          "R": 9
+        }
+      },
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "missing_sole_points_frames_1_7": {
+        "1": [
+          "R"
+        ],
+        "7": [
+          "R"
+        ]
+      },
+      "head_track_flagged_printed_frames": []
+    },
+    "plate13_front": {
+      "mask_area_range_px2": [
+        1699,
+        174977
+      ],
+      "H_range_px": [
+        44,
+        703
+      ],
+      "mask_area_per_H_range_px": [
+        11.717241379310344,
+        266.9318181818182
+      ],
+      "grid_leak_range_fraction": [
+        0.0,
+        0.00030861198900426914
+      ],
+      "grid_detected_frames": 12,
+      "contact_frames_printed": [],
+      "W1_pct_H": 82.15767634854771,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 6,
+            "phase": null
+          },
+          {
+            "frame": 10,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 1,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.38786884625497514,
+      "W3c": 6,
+      "W4": 3,
+      "W5_fraction_H": null,
+      "W6": null,
+      "swing_scroll_px_per_frame": null,
+      "projected_diagnostics": {
+        "W5": {
+          "L": 0.2842323651452282,
+          "R": 0.6908713692946058
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              130.0,
+              null,
+              null,
+              null,
+              -150.0,
+              null,
+              null,
+              null,
+              null,
+              -99.0,
+              4.5
+            ],
+            "mean_scroll_px_per_frame": -28.625,
+            "observed_velocity_frames": 4,
+            "swing_x_px": [
+              148.0,
+              278.0,
+              null,
+              null,
+              null,
+              86.0,
+              null,
+              null,
+              null,
+              null,
+              194.0,
+              198.5
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              -159.0,
+              -66.0,
+              81.5,
+              null,
+              null,
+              -50.0,
+              -141.0,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": -66.9,
+            "observed_velocity_frames": 5,
+            "swing_x_px": [
+              null,
+              null,
+              197.0,
+              131.0,
+              212.5,
+              null,
+              null,
+              238.0,
+              97.0,
+              null,
+              null,
+              null
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 97.88888888888889,
+          "mean_scroll_px_per_frame": -49.888888888888886,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 8,
+          "R": 7
+        }
+      },
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "missing_sole_points_frames_1_7": {
+        "1": [
+          "R"
+        ],
+        "7": [
+          "L"
+        ]
+      },
+      "head_track_flagged_printed_frames": [
+        3,
+        7,
+        10,
+        11
+      ]
+    },
+    "plate13_rear": {
+      "mask_area_range_px2": [
+        1767,
+        15136
+      ],
+      "H_range_px": [
+        58,
+        333
+      ],
+      "mask_area_per_H_range_px": [
+        13.285714285714286,
+        74.77118644067797
+      ],
+      "grid_leak_range_fraction": [
+        0.0,
+        0.004420265215912955
+      ],
+      "grid_detected_frames": 0,
+      "contact_frames_printed": [],
+      "W1_pct_H": 55.79710144927537,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 4,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.20265209379476376,
+      "W3c": 4,
+      "W4": 2,
+      "W5_fraction_H": null,
+      "W6": null,
+      "swing_scroll_px_per_frame": null,
+      "projected_diagnostics": {
+        "W5": {
+          "L": 0.4963768115942029,
+          "R": 0.9818840579710145
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              -95.5,
+              250.5,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "mean_scroll_px_per_frame": 77.5,
+            "observed_velocity_frames": 2,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              null,
+              117.5,
+              368.0,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              null,
+              null,
+              -125.0,
+              null,
+              null,
+              168.0,
+              -104.0,
+              -104.0,
+              -44.0,
+              217.0
+            ],
+            "mean_scroll_px_per_frame": 1.3333333333333333,
+            "observed_velocity_frames": 6,
+            "swing_x_px": [
+              null,
+              null,
+              null,
+              null,
+              74.0,
+              null,
+              null,
+              372.0,
+              268.0,
+              164.0,
+              120.0,
+              337.0
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 138.5,
+          "mean_scroll_px_per_frame": 20.375,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 6,
+          "R": 9
+        }
+      },
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "missing_sole_points_frames_1_7": {
+        "1": [
+          "R"
+        ],
+        "7": []
+      },
+      "head_track_flagged_printed_frames": []
+    },
+    "plate2_lateral": {
+      "mask_area_range_px2": [
+        5150,
+        76968
+      ],
+      "H_range_px": [
+        226,
+        515
+      ],
+      "mask_area_per_H_range_px": [
+        10.0,
+        149.7431906614786
+      ],
+      "grid_leak_range_fraction": [
+        0.0,
+        0.030673904137648506
+      ],
+      "grid_detected_frames": 12,
+      "contact_frames_printed": [],
+      "W1_pct_H": 10.85858585858586,
+      "W1_sanity_1_5_pct_H": false,
+      "W2": {
+        "coordinate": "Cartesian up; negative image y",
+        "max": [
+          {
+            "frame": 9,
+            "phase": null
+          },
+          {
+            "frame": 10,
+            "phase": null
+          },
+          {
+            "frame": 11,
+            "phase": null
+          }
+        ],
+        "min": [
+          {
+            "frame": 6,
+            "phase": null
+          }
+        ]
+      },
+      "W3a": 0.7523125492978949,
+      "W3c": 6,
+      "W4": 2,
+      "W5_fraction_H": {
+        "L": 0.5404040404040404,
+        "R": 0.14015151515151514
+      },
+      "W6": null,
+      "swing_scroll_px_per_frame": 1.9583333333333333,
+      "projected_diagnostics": {
+        "W5": {
+          "L": 0.5404040404040404,
+          "R": 0.14015151515151514
+        },
+        "W6": null,
+        "W6_per_arm": {
+          "L": null,
+          "R": null
+        },
+        "identity_note": "projected track opposition, not independently established anatomical same-side identity",
+        "sole_scroll": {
+          "L": {
+            "delta_px_per_frame": [
+              null,
+              -59.5,
+              71.0,
+              50.0,
+              128.0,
+              -65.5,
+              -7.5,
+              -205.5,
+              null,
+              null,
+              -20.0,
+              48.0
+            ],
+            "mean_scroll_px_per_frame": -6.777777777777778,
+            "observed_velocity_frames": 9,
+            "swing_x_px": [
+              95.5,
+              36.0,
+              107.0,
+              157.0,
+              285.0,
+              219.5,
+              212.0,
+              6.5,
+              null,
+              null,
+              118.0,
+              166.0
+            ]
+          },
+          "R": {
+            "delta_px_per_frame": [
+              null,
+              null,
+              -44.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              64.0,
+              64.5,
+              null
+            ],
+            "mean_scroll_px_per_frame": 28.166666666666668,
+            "observed_velocity_frames": 3,
+            "swing_x_px": [
+              null,
+              null,
+              159.0,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              217.0,
+              281.5,
+              null
+            ]
+          },
+          "estimator": "backward velocity on observed non-planted frames; missing tracks and seam excluded",
+          "mean_absolute_speed_px_per_frame": 68.95833333333333,
+          "mean_scroll_px_per_frame": 1.9583333333333333,
+          "planted_scroll_lineage": {
+            "L": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "R": {
+              "delta_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "mean_scroll_px_per_frame": null,
+              "planted_x_px": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_px_per_frame": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "slip_rms_px_per_frame": null
+            },
+            "mean_scroll_px_per_frame": null,
+            "slip_rms_px_per_frame": null
+          }
+        },
+        "valid_frames_per_arm": {
+          "L": 11,
+          "R": 7
+        }
+      },
+      "phase_table": [
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 0,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 1,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 1,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 2,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 2,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": false
+          },
+          "printed_phase": 3,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 3,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 4,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 4,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 5,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 5,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 6,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 6,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 7,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 7,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 8,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 8,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": null
+          },
+          "printed_phase": 9,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 9,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": null,
+            "R": false
+          },
+          "printed_phase": 10,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 10,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": false
+          },
+          "printed_phase": 11,
+          "reason": "expected two contact events; observed 0"
+        },
+        {
+          "boundary_contact": false,
+          "contact": false,
+          "contact_sides": [],
+          "frame": 11,
+          "lead_track": null,
+          "phase": null,
+          "planted": {
+            "L": false,
+            "R": null
+          },
+          "printed_phase": 12,
+          "reason": "expected two contact events; observed 0"
+        }
+      ],
+      "missing_sole_points_frames_1_7": {
+        "1": [
+          "R"
+        ],
+        "7": []
+      },
+      "head_track_flagged_printed_frames": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  }
+}

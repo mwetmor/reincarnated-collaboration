@@ -8,13 +8,14 @@ W-6 is explicitly a projected tracked-side proxy; silhouettes cannot establish
 anatomical same-side hands, hidden wrists, or legs. Missing data remain null.
 """
 import re
+import json
 from pathlib import Path
 import numpy as np
 from PIL import Image
 from scipy.signal import find_peaks
 from gates.common import result
 from .walk_landmarks import (MASK_PARAMS, ROW_MASK_PARAMS, mask_with_diagnostics,
-    figure_mask_row, track_landmarks, track_head, _translate)
+    figure_mask_row, track_landmarks, track_head, mask_stability, _translate)
 
 
 def _finite(a):
@@ -24,6 +25,7 @@ def _finite(a):
 def phase_table(landmarks_seq):
     n=len(landmarks_seq)
     if not n: return []
+    annotation = all(d.get('source') == 'annotation' for d in landmarks_seq)
     events=[]
     for i,d in enumerate(landmarks_seq):
         for side in ('L','R'):
@@ -39,12 +41,29 @@ def phase_table(landmarks_seq):
             next_c=next(c for c in contacts if c!=contact)
             length=(next_c-contact)%n; offset=(i-contact)%n
             phase=('CONTACT' if offset==0 else 'DOWN' if offset/length<.5 else 'PASSING' if offset/length<.75 else 'UP')
+            if annotation:
+                # One closest-sole sample per open contact interval, earliest tie.
+                candidates = [(contact+j)%n for j in range(1, length)]
+                passing = min(candidates, key=lambda j: abs(
+                    landmarks_seq[j]['foot_L_x'] - landmarks_seq[j]['foot_R_x'])) if candidates else None
+                passing_offset = (passing-contact)%n if passing is not None else None
+                phase = ('CONTACT' if offset == 0 else
+                         'PASSING' if i == passing else
+                         'DOWN' if passing_offset is not None and offset < passing_offset else 'UP')
             lead=next(s for c,s in events if c==contact)
         table.append(dict(frame=i,printed_phase=i+1,phase=phase,contact= i in contacts,
                           lead_track=lead,planted=d.get('planted',{}),
                           contact_sides=[s for c,s in events if c==i],
                           boundary_contact=i==0 and i in contacts,
-                          reason=None if valid else f'expected two contact events; observed {len(contacts)}'))
+                          reason=None if valid else f'expected two contact events; observed {len(events)}'))
+    if annotation:
+        confidence = float(np.mean([d['mean_confidence'] for d in landmarks_seq]))
+        for row in table:
+            row.update(source='annotation', mean_confidence=confidence)
+            row['lead_track'] = {'L': 'near', 'R': 'far'}.get(row['lead_track'])
+            row['contact_sides'] = [{'L': 'near', 'R': 'far'}[side] for side in row['contact_sides']]
+            row['planted'] = {name: landmarks_seq[row['frame']]['planted_'+side]
+                              for side, name in (('L', 'near'), ('R', 'far'))}
     return table
 
 
@@ -163,7 +182,7 @@ def frame_paths(directory,pattern):
     return paths
 
 
-def curves(directory,pattern='*.png',fps=8.33,lateral=True,ours=False,w1_floor=None):
+def curves(directory,pattern='*.png',fps=8.33,lateral=True,ours=False,w1_floor=None,mask_method='A'):
     if not np.isfinite(fps) or fps<=0: raise ValueError('fps must be positive finite')
     paths=frame_paths(directory,pattern)
     if len(paths)!=12: raise ValueError(f'expected 12 printed stride phases; got {len(paths)}')
@@ -173,9 +192,18 @@ def curves(directory,pattern='*.png',fps=8.33,lateral=True,ours=False,w1_floor=N
             a=np.array(im.convert('RGBA') if 'A' in im.getbands() else im.convert('RGB'))
         if shape is not None and a.shape[:2]!=shape:raise ValueError('frame dimensions differ')
         shape=a.shape[:2];arrays.append(a)
-    masks,health=figure_mask_row(arrays,return_diagnostics=True)
+    masks,health=figure_mask_row(arrays,return_diagnostics=True,method=mask_method)
     if ours and (shape!=(512,512) or any(h['method']!='frozen matte alpha >=128' for h in health)):
         raise ValueError('--ours requires registered 512x512 alpha/keyed frames')
+    stability = mask_stability(masks)
+    params = dict(MASK_PARAMS, mask_method='A') if mask_method == 'A' else dict(ROW_MASK_PARAMS, mask_method='B')
+    if not ours and not stability['stable']:
+        d = measure_sequence([], lateral, w1_floor, str(directory))
+        d.update(frames=len(paths), fps=float(fps), mode='ref',
+                 frame_names=[p.name for p in paths], mask_health=health,
+                 mask_params=params, mask_estimate=None, **stability)
+        d['results'][0]['notes'] = 'unstable_segmentation: mask estimate withheld by CV selector'
+        return d
     registered_frames=[];registered_masks=[]
     for a,m,h in zip(arrays,masks,health):
         dx,dy=h['grid_shift_xy'];registered_frames.append(_translate(a,dy,dx));registered_masks.append(_translate(m,dy,dx))
@@ -187,6 +215,118 @@ def curves(directory,pattern='*.png',fps=8.33,lateral=True,ours=False,w1_floor=N
                 lm[key+'_H']=lm[key]/lm['H'] if lm.get(key) is not None else None
     d=measure_sequence(seq,lateral,w1_floor,str(directory))
     d.update(frames=len(paths),fps=float(fps),mode='ours' if ours else 'ref',
-             frame_names=[p.name for p in paths],mask_health=health,mask_params=ROW_MASK_PARAMS,
+             frame_names=[p.name for p in paths],mask_health=health,mask_params=params,
              coordinate_system='grid registered source pixels; native plot coordinates subtract grid_shift_xy')
+    d.update(stability)
+    d['mask_estimate'] = d['summary'].copy()
     return d
+
+
+ANNOTATION_POINTS = ('head_top', 'chin', 'hip', 'near_sole', 'far_sole', 'near_wrist', 'far_wrist')
+
+
+def annotation_landmarks(annotation):
+    """Adapt ANNOTATE points without changing their anatomical near/far labels.
+
+    EVERY vertical quantity is relative to PER-FRAME ground_y: height above
+    ground = ground_y - point.y. Bob/W1/W2/W4, sole heights and H never use
+    absolute cell y. EVERY horizontal quantity uses point.x - per-frame hip.x.
+    The legacy numerical helpers accept image-down y, so their adapter fields
+    store the negative height above ground. H is ground_y - head_top.y and
+    normalization uses its arithmetic mean, never subject_height_px or median.
+    Raw annotation points remain provenance only; no image scaling is performed.
+    """
+    frames = annotation.get('frames')
+    if not isinstance(frames, list) or len(frames) != 12:
+        raise ValueError('annotation requires 12 frames')
+    declared = annotation.get('subject_height_px')
+    if not isinstance(declared, (int, float)) or not np.isfinite(declared) or declared <= 0:
+        raise ValueError('subject_height_px must be positive finite')
+    seq = []
+    for i, frame in enumerate(frames):
+        if frame.get('frame') != i:
+            raise ValueError('annotation frame indices must be ordered 0..11')
+        ground = frame.get('ground_y')
+        if not isinstance(ground, (int, float)) or not np.isfinite(ground):
+            raise ValueError(f'frame {i}: finite ground_y required')
+        for key in ANNOTATION_POINTS:
+            point = frame.get(key)
+            if not isinstance(point, (list, tuple)) or len(point) != 2 or not _finite(point):
+                raise ValueError(f'frame {i}: finite [x,y] required for {key}')
+        for side in ('near', 'far'):
+            if type(frame.get('planted_'+side)) is not bool:
+                raise ValueError(f'frame {i}: boolean planted_{side} required')
+        confidence = frame.get('confidence')
+        if not isinstance(confidence, dict) or any(key not in confidence for key in (*ANNOTATION_POINTS, 'ground_y')):
+            raise ValueError(f'frame {i}: confidence per point and ground_y required')
+        cs = [confidence[key] for key in (*ANNOTATION_POINTS, 'ground_y')]
+        if not _finite(cs) or any(v < 0 or v > 1 for v in cs):
+            raise ValueError(f'frame {i}: confidence must be within [0,1]')
+        points = {key: [float(frame[key][0]-frame['hip'][0]), float(ground-frame[key][1])]
+                  for key in ANNOTATION_POINTS}
+        H = points['head_top'][1]
+        if H <= 0:
+            raise ValueError(f'frame {i}: nonpositive head height above ground')
+        d = dict(valid=True, source='annotation', mean_confidence=float(np.mean(cs)),
+                 H=H, head_top_y=-H, head_cx=points['head_top'][0], head_ref_y=-H,
+                 torso_cx=0., ground_line_y=0., points_ground_hip_relative=points)
+        for side, name in (('L', 'near'), ('R', 'far')):
+            d['foot_'+side+'_x'] = points[name+'_sole'][0]
+            d['foot_'+side+'_y'] = -points[name+'_sole'][1]
+            d['wrist_ext_'+side] = points[name+'_wrist'][0]
+            d['planted_'+side] = frame['planted_'+name]
+        d['planted'] = {side: d['planted_'+side] for side in ('L', 'R')}
+        seq.append(d)
+    return seq
+
+
+def annotation_curves(path, fps=8.33, lateral=True):
+    """Measure ground-relative heights and hip-relative x; see annotation_landmarks."""
+    if not np.isfinite(fps) or fps <= 0:
+        raise ValueError('fps must be positive finite')
+    annotation = json.loads(Path(path).read_text())
+    seq = annotation_landmarks(annotation)
+    H = float(np.mean([d['H'] for d in seq]))
+    confidence = float(np.mean([d['mean_confidence'] for d in seq]))
+    phases = phase_table(seq)
+    s = {**bob([d['head_top_y'] for d in seq], H, phases),
+         **head_path([d['head_cx'] for d in seq], [d['head_top_y'] for d in seq])}
+    s['W2']['coordinate'] = 'height above per-frame ground; min=lowest head, max=highest head'
+    amplitude, opposition = {}, {}
+    for side, name in (('L', 'near'), ('R', 'far')):
+        wrist = np.array([d['wrist_ext_'+side] for d in seq])
+        sole = np.array([d['foot_'+side+'_x'] for d in seq])
+        amplitude[name] = float(np.ptp(wrist)/H)
+        # Opposite signs, without mean-centering; zero displacement is not opposition.
+        opposition[name] = float(np.mean(wrist*sole < 0))
+    scroll = sole_scroll(seq)
+    for side, name in (('L', 'near'), ('R', 'far')):
+        scroll[name] = scroll.pop(side)
+        scroll['planted_scroll_lineage'][name] = scroll['planted_scroll_lineage'].pop(side)
+    s.update(W5=amplitude if lateral else None,
+             W6=float(np.mean(list(opposition.values()))) if lateral else None,
+             W6_per_arm=opposition if lateral else None,
+             sole_scroll=scroll if lateral else None,
+             H_mean=H, H_per_frame=[d['H'] for d in seq],
+             sole_heights={name: [d['points_ground_hip_relative'][name+'_sole'][1] for d in seq]
+                           for name in ('near', 'far')},
+             contact_frames=[p['frame'] for p in phases if p['contact']],
+             W1_sanity_1_5_pct_H=bool(.01 <= s['W1'] <= .05),
+             source='annotation', mean_confidence=confidence)
+    quantities = {key: dict(value=value, source='annotation', mean_confidence=confidence)
+                  for key, value in s.items() if key not in ('source', 'mean_confidence')}
+    notes = ['Vertical measurements: height above per-frame ground_y; horizontal measurements: x minus per-frame hip.x.',
+             'H normalization is arithmetic mean ground_y - head_top.y.',
+             'W6 pools near/far opposed-frame fractions; zero wrist or sole displacement is not opposed.',
+             'Phase contacts derive from planted flags, not stride_notes; passing uses minimum sole separation in each contact interval.']
+    annotated_contacts = annotation.get('stride_notes', {}).get('contact_frames')
+    if annotated_contacts is not None and annotated_contacts != s['contact_frames']:
+        notes.append(f"stride_notes contacts {annotated_contacts} disagree with planted-flag contacts {s['contact_frames']} (zero-based); flags drive phases.")
+    results = [dict(result(key, str(path), notes='annotation measurement; no shipping verdict'),
+                    value=s[key], source='annotation', mean_confidence=confidence)
+               for key in ('W1', 'W2', 'W3a', 'W3b', 'W3c', 'W4', 'W5', 'W6', 'sole_scroll')]
+    return dict(summary=s, quantities=quantities, landmarks=seq, phase_table=phases,
+                results=results, notes=notes, frames=len(seq), fps=float(fps),
+                mode='annotation', source='annotation', mean_confidence=confidence,
+                annotation=annotation, frame_names=[], mask_params=None,
+                coordinate_system='per-frame ground-relative height and hip-relative x')

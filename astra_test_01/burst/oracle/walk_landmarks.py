@@ -37,6 +37,9 @@ def mask_with_diagnostics_otsu_lineage(frame_rgb):
     border = np.concatenate((a[0,:,:3], a[-1,:,:3], a[:,0,:3], a[:,-1,:3]))
     green = np.mean((border[:,1]>210)&(border[:,0]<45)&(border[:,2]<45)) >= .95
     native = a.shape[2] == 4 and np.any(a[...,3]<255)
+    if native and not np.any(a[...,3] >= MASK_PARAMS['alpha_threshold']):
+        return np.zeros(a.shape[:2], dtype=bool), dict(
+            method='frozen matte alpha >=128', grid_or_floor_contact=False, empty=True)
     if native or green:
         m = np.array(remove_chroma_key(Image.fromarray(a), preserve_particles=True))[...,3]>=128
         return m, dict(method='frozen matte alpha >=128', grid_or_floor_contact=False)
@@ -162,7 +165,7 @@ second foot. Identity continuity is a screen-space estimate and is flagged.
     return seq
 
 
-# T1a-walk-2: single-cell Otsu remains callable only for compatibility/lineage.
+# Method A is the default; method B remains an explicit experimental option.
 mask_with_diagnostics = mask_with_diagnostics_otsu_lineage
 ROW_MASK_PARAMS = dict(method='grid phase correlation / registered temporal median',
                        tau=12., line_width_px=5, close_size=3,
@@ -222,9 +225,10 @@ def _grid_shift(reference, current):
         grid_period_yx=periods,periodic_grid_ambiguity='nearest lattice phase; whole-period displacement unresolved')
 
 
-def figure_mask_row(frames, return_diagnostics=False):
-    """Segment a row against its grid-registered median, then return native masks.
+def figure_mask_row(frames, return_diagnostics=False, method="A"):
+    """Method A: independent median/Otsu/morphology masks (the default).
 
+    Set method="B" for the grid-registered temporal-median experiment.
     The white top-hat residual (features narrower than 5px) is subtracted from
     absolute RGB difference before thresholding. No Otsu fallback is used.
     Diagnostics retain grid translation, support and median-contamination risks.
@@ -233,6 +237,18 @@ def figure_mask_row(frames, return_diagnostics=False):
     if not arrays or any(a.dtype!=np.uint8 or a.ndim!=3 or a.shape[2] not in (3,4) for a in arrays):
         raise ValueError('expected nonempty uint8 RGB/RGBA row')
     if len({a.shape[:2] for a in arrays})!=1:raise ValueError('frame dimensions differ')
+    if method not in ('A', 'B'):
+        raise ValueError('mask method must be A or B')
+    if method == 'A':
+        pairs = [mask_with_diagnostics_otsu_lineage(a) for a in arrays]
+        masks = [m for m, _ in pairs]
+        health = []
+        for m, diag in pairs:
+            lm = landmarks(m)
+            health.append(dict(diag, mask_method='A', grid_shift_xy=[0, 0],
+                               mask_area=int(m.sum()), H=lm.get('H'),
+                               mask_area_per_H=lm.get('mask_area_per_H')))
+        return (masks, health) if return_diagnostics else masks
     native=[]
     for a in arrays:
         b=np.concatenate((a[0,:,:3],a[-1,:,:3],a[:,0,:3],a[:,-1,:3]))
@@ -339,3 +355,21 @@ def track_landmarks(masks):
         d['planted']={s:d['planted_'+s] for s in ('L','R')}
         d['velocity_boundary']='forward difference (no prior frame)' if i==0 else 'backward difference'
     return seq
+
+
+def mask_stability(masks):
+    """Population area and inclusive-height CV; both must be strictly < .25.
+
+    Empty masks invalidate the row, even if the remaining masks are consistent.
+    Stability is a selector, not evidence that a segmentation is anatomically right.
+    """
+    areas = [int(np.asarray(m, dtype=bool).sum()) for m in masks]
+    heights = [landmarks(m).get('H', 0) for m in masks]
+    def cv(values):
+        return float(np.std(values) / np.mean(values)) if values and np.mean(values) > 0 else None
+    area_cv, height_cv = cv(areas), cv(heights)
+    stable = bool(areas and all(areas) and all(heights) and
+                  area_cv < .25 and height_cv < .25)
+    return dict(mask_stability=area_cv, mask_H_cv=height_cv,
+                mask_area_px=areas, mask_H_px=heights, threshold=.25,
+                stable=stable, reason=None if stable else 'unstable_segmentation')
