@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image,ImageDraw
 from .walk_curves import curves,frame_paths
-from .walk_landmarks import figure_mask
+from .walk_landmarks import figure_mask_row
 
 ROOT=Path(__file__).resolve().parents[1]
 OURS_ROOT=ROOT/'runs/C-1/oracle'
@@ -44,22 +44,35 @@ def _write(path,data):
 
 def _plots(directory,label,paths,data,band):
     directory.mkdir(parents=True,exist_ok=True)
-    with Image.open(paths[0]) as source:
-        source_array=np.array(source.convert('RGBA') if 'A' in source.getbands() else source.convert('RGB'))
-        a=np.array(source.convert('RGB'))
-    mask=figure_mask(source_array);a[mask]=(a[mask]*.55+np.array([40,220,100])*.45).astype(np.uint8)
-    check=Image.fromarray(a);draw=ImageDraw.Draw(check);l=data['landmarks'][0]
-    if l.get('valid'):
-        for key,color in [('head_top_y','red'),('head_ref_y','yellow'),('sole_line_y','cyan')]:
-            y=l[key];draw.line((0,y,check.width-1,y),fill=color,width=1)
-        for x,y,color in [(l['head_cx'],l['head_top_y'],'red')]+[(l['foot_'+s+'_x'],l['foot_'+s+'_y'],'cyan') for s in ('L','R')]:
-            if x is not None: draw.ellipse((x-3,y-3,x+3,y+3),outline=color,width=2)
-        draw.text((5,5),f"{label} A={l['mask_area']} H={l['H']}",fill='white',stroke_width=1,stroke_fill='black')
+    arrays=[]
+    for path in paths:
+        with Image.open(path) as source:
+            arrays.append(np.array(source.convert('RGBA') if 'A' in source.getbands() else source.convert('RGB')))
+    masks=figure_mask_row(arrays)
+    h,w=arrays[0].shape[:2];check=Image.new('RGB',(2*w,h+65),(22,26,35))
+    for column,index in enumerate((0,6)):
+        a=arrays[index][...,:3].copy();mask=masks[index]
+        a[mask]=(a[mask]*.5+np.array([40,220,100])*.5).astype(np.uint8)
+        panel=Image.fromarray(a);draw=ImageDraw.Draw(panel);lm=data['landmarks'][index]
+        if lm.get('valid'):
+            dx,dy=lm['grid_shift_xy']
+            if lm.get('head_box_xyxy'):
+                x0,y0,x1,y1=lm['head_box_xyxy'];draw.rectangle((x0-dx,y0-dy,x1-dx,y1-dy),outline='red',width=2)
+            draw.line((0,lm['head_top_mask_y']-dy,w-1,lm['head_top_mask_y']-dy),fill='yellow')
+            for side,color in (('L','cyan'),('R','magenta')):
+                x,y=lm.get('foot_'+side+'_x'),lm.get('foot_'+side+'_y')
+                if x is not None:
+                    x-=dx;y-=dy;draw.ellipse((x-4,y-4,x+4,y+4),outline=color,width=2)
+                    draw.text((max(0,x-30),y-20),side+' planted='+str(lm['planted_'+side]),fill=color,stroke_width=1,stroke_fill='black')
+        check.paste(panel,(column*w,65));draw=ImageDraw.Draw(check)
+        draw.text((column*w+5,5),f"{label} frame {index+1} mask green; head red",fill='white')
+        draw.text((column*w+5,22),f"A={lm.get('mask_area')} H={lm.get('H')} planted={lm.get('planted')}",fill='white')
+        draw.text((column*w+5,39),f"grid_leak={data['mask_health'][index].get('grid_leak')} NCC={lm.get('head_ncc')}",fill='white')
     check_path=directory/f'{label}_mask_check.png';check.save(check_path)
     plot=Image.new('RGB',(1150,1100),(22,26,35));d=ImageDraw.Draw(plot)
     d.text((20,12),label+' / source-pixel curves / provisional bands',fill='white')
     seq=data['landmarks'];H=data['summary']['H_median']
-    panels=[('head image y; red top, yellow fallback',{'head_top_y':'#ff7777','head_ref_y':'#eeee66'},band['W1']),
+    panels=[('head image y; red NCC, yellow mask lineage',{'head_top_y':'#ff7777','head_top_mask_y':'#eeee66'},band['W1']),
             ('head x; blue',{'head_cx':'#66bbff'},None),
             ('tracked sole x; L cyan, R green',{'foot_L_x':'cyan','foot_R_x':'#66ee99'},None),
             ('extent at 0.45H; L cyan, R green',{'wrist_ext_L':'cyan','wrist_ext_R':'#66ee99'},None)]

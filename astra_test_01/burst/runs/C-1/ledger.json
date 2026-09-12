@@ -7212,6 +7212,171 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "T1a-walk-2",
+      "type": "TOOLING",
+      "experiment": "T1",
+      "brief_sha256": "0ccbf1d0c57ed2c34b83cda836a4df0b526bcbb068068814ce62a9633fe41e81",
+      "started": "2026-09-12T22:30:42.116919+00:00",
+      "ended": "2026-09-12T22:43:09.169362+00:00",
+      "minutes": 12.452219632633327,
+      "image_calls": 0,
+      "tool_calls": 23,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 23,
+        "tools_seen": {
+          "command_execution": 23
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "receipt reports unsuccessful execution"
+      },
+      "receipt_sha256": "bc03e763ff945c7c0b2520f14b5ee930ab4980dcea72d115bbbc77d5eca51176",
+      "artifacts": [],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/bands_walk.json",
+          "sha256": "a964890c3c1f0a6d175ba94f79538c00d43c3718b55cab8ddc60d72432e35a3c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/walk_bands.py",
+          "sha256": "4861f16fb4a5f6e356dabaf894c8c43b09e43ea8d4b988921310adf0959a3fbd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/walk_curves.py",
+          "sha256": "c4c4d7e78dc62fe55a0d341f82be27c8fe798e2a9ab0e49f85ed94f5b9061c8e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracle/walk_landmarks.py",
+          "sha256": "77157d4e7d30bf0eda0dc8fa3bc0840fc0b4365144202bf825632ec3884717b2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/T1a-walk-2_full_suite.log",
+          "sha256": "8d349519f9f770c66e31187fbcb9041c2a8573c14364d22fe6a0200189c4ee5b"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/T1a-walk-2_report.json",
+          "sha256": "e6a445aa84e97e58909e92a6fc0d3cdca4c2aeef1886229d01d4768c019e9c22"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/T1a-walk-2_rows.log",
+          "sha256": "8905da082b8b8c56637d629fa99acf0d16028c11faef9bb9c1bad20abb64d534"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/T1a-walk-2_unit.log",
+          "sha256": "e65998df38cead7376db41af74520079a6248bb95a28b9f94370062d229a70a2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_front_curves.png",
+          "sha256": "f71268e7aac9c065b6b403ddeceded946e82bc65c0b91aefebd12628475a266e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_front_mask_check.png",
+          "sha256": "09635c4278cec1223326a56be8967f7fadae6a62f76aaeb72527c8ff599ada44"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_lateral_curves.png",
+          "sha256": "2be2bff84779ff38471abf931ed9ecab877db2c0fea451ab90d63aa16c5d63ba"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_lateral_mask_check.png",
+          "sha256": "0bcf82be79b2bed0d878987d25beb49db73cc36b8479d0e0f5e735d70324b5af"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_rear_curves.png",
+          "sha256": "72035df8469bc328f2456ae8ca5158cfdc457e208de3c17a3d776e3bdcf2555d"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+          "sha256": "cbc10b637e1ee8732727dba362322a5fbdb63d3358637340642cd81d57648be7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate2_lateral_curves.png",
+          "sha256": "6a89687a39688b0ec25a7db023c4dca162929490842c8d2a3fc4275d4c730817"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "runs/C-1/oracle/plots/plate2_lateral_mask_check.png",
+          "sha256": "77de92cebbdeb5e11a92569a07667edbbc9fd237985c47efb65704bcf2085083"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "2ca301521cbe76986eede36252bb9009a97a5bad1aaa42aec1b1b9033c663e4f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "0a7a5c337ee79a78d487114180ba507c88abd107f5b31b239726f76183955bd3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_oracle_walk.py",
+          "sha256": "fe87e208096f3af736bcb05eb882b6c715b7b91afe1958c32ad8459c218b714d"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "images_used": 66,
@@ -7394,11 +7559,12 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/11 K7 Hades-language variants (foundry + aery)/"
     },
     "T1": {
-      "status": "T1a-idle DELIVERED_WITH_CONCERNS (exit 0, audit clean, 17 tool calls) \u2014 modules oracle/{motion_map,idle_curves,idle_bands}.py + tests/test_oracle_idle.py; suite 133/139 (4 T0-d3 reds + 2 synthetic amplitude reds: breath 25 %H vs 6 % truth, head sway 1 % vs 2 %). DRIFT-CRITIC (R-25): the CONTRACTED formulas measure changed-pixel EXTENT, not displacement \u2014 conductor spec defect, Astra correctly refused to tune; combat clip 'camera shift' 24 px = the conductor's tracking crop, not the camera; House relaxed idle background is ANIMATED (shades) \u2192 every region MOTION; eps/floor provisional. Fix burst T1a-idle-2 contracted: geometric displacement estimators validated on synthetic truth, control box for background contamination, feet-band noise-floor calibration (I-1), --ours without camera VOID, raw fixed-camera combat frames. \u00b7 T1a-idle-2 DELIVERED_WITH_CONCERNS: geometric estimator (least-squares translation of median-image profile gradients + edge templates, subpixel) recovers synthetic truth EXACTLY (breath 6.00 %H, head 2.00 %H, period 24 f); suite 137/141 (only the 4 T0-d3 reds); control box + contamination + feet-floor + --ours no-VOID implemented. REAL: Hades combat idle (raw 1080p, H=131 px, contamination 0.03) breath 6.5 %H, head bob 5.5 %H (frames 1\u20133 at search limit \u2192 possibly under); Hades relaxed House (H=111 px crop, contamination 0.45) breath 0.2 %H \u2014 below resolution, NOT usable for amplitude; OUR idle_S_K3 (H=241) breath 0.47 %H, head 0.21 %H \u2014 the dead idle, now a number. Open: region LOCK/MOTION classification collapses (feet-band floor > 1 because the feet band holds the ground shadow) \u2192 T1b classifies by per-band displacement, not energy. \u00b7 T1a-walk FAILED (exit 3, audit clean, one retry used): modules oracle/walk_{landmarks,curves,bands}.py + tests landed (walk tests 5/6; suite 142/147); plate13_lateral segments cleanly (H=594) but plate2 fragments (dark on dark), all phase tables null (1 contact event found, 2 expected), bob numbers are mask-top noise (hair vs grid). Two-attempt rule \u2192 conductor method change R-26.",
+      "status": "T1a-idle DELIVERED_WITH_CONCERNS (exit 0, audit clean, 17 tool calls) \u2014 modules oracle/{motion_map,idle_curves,idle_bands}.py + tests/test_oracle_idle.py; suite 133/139 (4 T0-d3 reds + 2 synthetic amplitude reds: breath 25 %H vs 6 % truth, head sway 1 % vs 2 %). DRIFT-CRITIC (R-25): the CONTRACTED formulas measure changed-pixel EXTENT, not displacement \u2014 conductor spec defect, Astra correctly refused to tune; combat clip 'camera shift' 24 px = the conductor's tracking crop, not the camera; House relaxed idle background is ANIMATED (shades) \u2192 every region MOTION; eps/floor provisional. Fix burst T1a-idle-2 contracted: geometric displacement estimators validated on synthetic truth, control box for background contamination, feet-band noise-floor calibration (I-1), --ours without camera VOID, raw fixed-camera combat frames. \u00b7 T1a-idle-2 DELIVERED_WITH_CONCERNS: geometric estimator (least-squares translation of median-image profile gradients + edge templates, subpixel) recovers synthetic truth EXACTLY (breath 6.00 %H, head 2.00 %H, period 24 f); suite 137/141 (only the 4 T0-d3 reds); control box + contamination + feet-floor + --ours no-VOID implemented. REAL: Hades combat idle (raw 1080p, H=131 px, contamination 0.03) breath 6.5 %H, head bob 5.5 %H (frames 1\u20133 at search limit \u2192 possibly under); Hades relaxed House (H=111 px crop, contamination 0.45) breath 0.2 %H \u2014 below resolution, NOT usable for amplitude; OUR idle_S_K3 (H=241) breath 0.47 %H, head 0.21 %H \u2014 the dead idle, now a number. Open: region LOCK/MOTION classification collapses (feet-band floor > 1 because the feet band holds the ground shadow) \u2192 T1b classifies by per-band displacement, not energy. \u00b7 T1a-walk FAILED (exit 3, audit clean, one retry used): modules oracle/walk_{landmarks,curves,bands}.py + tests landed (walk tests 5/6; suite 142/147); plate13_lateral segments cleanly (H=594) but plate2 fragments (dark on dark), all phase tables null (1 contact event found, 2 expected), bob numbers are mask-top noise (hair vs grid). Two-attempt rule \u2192 conductor method change R-26. \u00b7 T1a-walk-2 FAILED (exit 3, audit clean): grid-registered median backdrop REGRESSED segmentation (mask H 49\u2013582 px in one row; rear row 0/12 usable grid signal); NCC head tracking seeded on non-head regions; 0 contacts. Synthetic still passes (grid/plain 1 px). Ruling R-27: annotation path.",
       "bursts": [
         "T1a-idle",
         "T1a-idle-2",
-        "T1a-walk"
+        "T1a-walk",
+        "T1a-walk-2"
       ],
       "images": 0
     }
@@ -7682,6 +7848,14 @@
       "topic": "T1a-walk method change within the hypothesis (BURST_RULES two-attempt rule)",
       "ruling": "Method changes for T1a-walk-2: (1) segmentation = median background across the 12 grid-REGISTERED cells of a row (fixed camera: the median is the empty backdrop) + white top-hat to suppress the grid, instead of Otsu; (2) head position by normalized-cross-correlation TEMPLATE tracking of a head patch (chosen on the frame with the widest upper run), instead of mask top; (3) planted foot = sole component STATIONARY in image coordinates between consecutive frames (|\u0394x| \u2264 2 px), because the camera is fixed and the planted foot does not move on the plate; (4) plate13 rows are primary, plate2 secondary. Not a medium change.",
       "consequence": "Acceptance: two contact events per lateral row; W-1 lateral within 1\u20135 %H (Legolas veridical sanity band); W-4 = 2; synthetic plain/grid landmark discrepancy \u2264 2 px."
+    },
+    {
+      "id": "R-27",
+      "by": "gandalf (conductor)",
+      "ts": "2026-09-12T18:44:38",
+      "topic": "Walk oracle reference values by ANNOTATION, not segmentation",
+      "ruling": "Two method changes failed on collotype segmentation (Otsu; grid-registered median) while the instrument passes on clean masks. The reference is 12 public-domain frames: an Astra ANNOTATE burst (T1a-ann-13L) marks head_top, chin, hip, near/far sole, near/far wrist, ground line and planted flags per frame with confidence; the walk instrument gains a --landmarks JSON path (T1a-walk-3) that computes W-1\u2026W-6 and the phase table directly from annotations; method-A (Otsu) masks are kept as an independent estimate on plate13_lateral, with a mask-area-stability selector (CV of area across 12 frames < 0.25) deciding whether the mask estimate is reported at all. Muybridge frames copied into fixtures/muybridge/ (public domain, licence sidecars) so burst provenance is in-repo.",
+      "consequence": "Gating OUR walks is unblocked (alpha masks); reference bands come from annotation \u2227 (agreeing) masks. Bands stay committed=false until Matt's checkpoint."
     }
   ]
 }

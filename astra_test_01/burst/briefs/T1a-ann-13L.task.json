@@ -1,0 +1,62 @@
+{
+ "text": "ANNOTATE BURST T1a-ann-13L \u2014 landmark annotation of Muybridge Animal Locomotion plate 13, lateral row (woman walking; 12 phases of one stride; PUBLIC DOMAIN). task_id \"T1a-ann-13L\".\n\nYou are given 12 reference images (frame_00 \u2026 frame_11, printed order = time order, 0.120 s apart). For EACH frame, view_image it and record landmarks in the image's own pixel coordinates (origin top-left, x right, y down; each image is 395 wide \u00d7 773 high):\n  head_top [x,y] \u2014 the topmost point of the head INCLUDING hair; chin [x,y]; hip [x,y] \u2014 the greater trochanter (hip joint) on the near side; near_sole [x,y] \u2014 the centre of the sole of the leg CLOSER to the camera; far_sole [x,y] \u2014 centre of the sole of the farther leg; near_wrist [x,y]; far_wrist [x,y]; ground_y \u2014 the y of the ground line under the feet; planted_near (true/false) \u2014 is the near foot bearing weight and flat/still on the ground; planted_far (true/false); confidence 0\u20131 per point (0.3 if occluded/guessed \u2014 still give a best estimate, never omit).\nAlso give, once: subject_height_px = mean over frames of (ground_y \u2212 head_top.y), and stride_notes: which frames are the two CONTACT frames (heel strike) and which are PASSING (feet together under the body), in your judgement.\nWrite out/annotation.json: {\"plate\":\"13\",\"row\":\"lateral\",\"frames\":[{\"frame\":0,\"head_top\":[x,y],\"chin\":[x,y],\"hip\":[x,y],\"near_sole\":[x,y],\"far_sole\":[x,y],\"near_wrist\":[x,y],\"far_wrist\":[x,y],\"ground_y\":y,\"planted_near\":bool,\"planted_far\":bool,\"confidence\":{...}}, \u202612 entries\u2026],\"subject_height_px\":\u2026,\"stride_notes\":{\"contact_frames\":[\u2026],\"passing_frames\":[\u2026]}}.\nNo code. No image generation. No web. No agents. Do not write anything outside out/.\nRETURN: the receipt (task_id \"T1a-ann-13L\"): files = out/annotation.json with sha256; images []; calls_used 0; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns naming frames where a landmark was hard to place. Never PASS/FAIL.",
+ "references": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_00.png",
+   "role": "Muybridge plate 13 lateral frame 00 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_01.png",
+   "role": "Muybridge plate 13 lateral frame 01 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_02.png",
+   "role": "Muybridge plate 13 lateral frame 02 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_03.png",
+   "role": "Muybridge plate 13 lateral frame 03 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_04.png",
+   "role": "Muybridge plate 13 lateral frame 04 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_05.png",
+   "role": "Muybridge plate 13 lateral frame 05 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_06.png",
+   "role": "Muybridge plate 13 lateral frame 06 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_07.png",
+   "role": "Muybridge plate 13 lateral frame 07 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_08.png",
+   "role": "Muybridge plate 13 lateral frame 08 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_09.png",
+   "role": "Muybridge plate 13 lateral frame 09 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_10.png",
+   "role": "Muybridge plate 13 lateral frame 10 (public domain) \u2014 annotate"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/muybridge/plate13_lateral/frame_11.png",
+   "role": "Muybridge plate 13 lateral frame 11 (public domain) \u2014 annotate"
+  }
+ ],
+ "image_cap": 0,
+ "minutes_cap": 20,
+ "tool_call_cap": 40,
+ "outputs": [
+  "out/annotation.json"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "T1"
+}

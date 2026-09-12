@@ -1,0 +1,130 @@
+{
+  "task_id": "T1a-walk-2",
+  "status": "FAILED",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Initial synthetic measurements exposed grid-period aliasing and median contamination from overlapping foot geometry.",
+      "change": "Used nearest-lattice phase correlation and revised the fixed-camera synthetic foot geometry. Retained the 2 px tolerance. Stopped algorithm changes after the second unsuccessful attempt."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Read-scope deviation: the initial SPEC extraction exposed section 2 lines 26–105 and the section-heading list beyond the requested sections.",
+      "Implemented row-median segmentation, NCC head tracking, stationary-foot detection, swing-scroll measurements, lineage fields, and eight plots. Calibration remains unusable: incomplete masks seed NCC on non-head regions. Whole-period grid translations remain unresolved; grid_leak measures detected-line intersection, not detection completeness.",
+      "Synthetic grid/plain maximum landmark difference is 1 px, within the unchanged 2 px tolerance. W-1=3.010753%H, W-3c=2, W-4=2, W-6=0.958333. Only one contact, printed frame 8, and one planted frame were recovered. W-2 phases remain null. Swing scroll=18.476190 px/frame versus the added test's >20 requirement. Walk tests: 8 run, 6 successful, 2 assertion records.",
+      "Full suite: 149 tests_run, 143 successful_tests, 6 assertion records, 0 errors, 0 skipped; elapsed 61.597648 s. Two walk records: test_stationary_definition_and_swing and test_synthetic_contract_and_grid. Four expected motif records: test_f04_outside_at_least_three (2 versus >=3), and test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253]. Regression: 1880 comparisons, 0 differences at tolerance 0.001.",
+      "All row frame numbers below are printed frames 1–12. All reported row W-1 values are outside 1–5%H and therefore flag unreliable head tracking, not measured veridical bob. Each row found 0 contacts instead of 2. All bands remain uncommitted.",
+      "plate13_lateral PRIMARY: mask area=3955–48510 px²; H=49–582 px; area/H=29.617450–111.346939 px; grid_leak=0–0.034557. W-1=8.193669%H, sanity=false. W-2 minimum frame 7/null phase, maximum frame 2/null phase. W-3a=0.312352; W-3c=4; W-4=4; W-5 fraction H L=0.265363, R=0.089385; W-6=null. Swing scroll=-7.666667 px/frame (L=null, R=-7.666667). Contacts=[]; phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate13_front: mask area=1699–174977 px²; H=44–703 px; area/H=11.717241–266.931818 px; grid_leak=0–0.000309. W-1=82.157676%H, sanity=false. W-2 minimum frame 2/null phase, maxima frames 7 and 11/null phases. W-3a=0.387869; W-3c=6; W-4=3. W-5/W-6/scroll summary fields remain null under front/rear semantics; projected diagnostics: W-5 fraction H L=0.284232, R=0.690871; W-6=null; swing scroll=-49.888889 px/frame (L=-28.625000, R=-66.900000). Contacts=[]; phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate13_rear: mask area=1767–15136 px²; H=58–333 px; area/H=13.285714–74.771186 px; grid_leak=0–0.004420. Grid registration detected usable grid signal in 0/12 frames. W-1=55.797101%H, sanity=false. W-2 minimum frame 5/null phase, maximum frame 12/null phase. W-3a=0.202652; W-3c=4; W-4=2. W-5/W-6/scroll summary fields remain null; projected diagnostics: W-5 fraction H L=0.496377, R=0.981884; W-6=null; swing scroll=20.375000 px/frame (L=77.500000, R=1.333333). Contacts=[]; phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "plate2_lateral SECONDARY: mask area=5150–76968 px²; H=226–515 px; area/H=10.000000–149.743191 px; grid_leak=0–0.030674. W-1=10.858586%H, sanity=false. W-2 minimum frame 7/null phase, maxima frames 10, 11, 12/null phases. W-3a=0.752313; W-3c=6; W-4=2; W-5 fraction H L=0.540404, R=0.140152; W-6=null. Swing scroll=1.958333 px/frame (L=-6.777778, R=28.166667). Contacts=[]; phase table=[null,null,null,null,null,null,null,null,null,null,null,null].",
+      "All mask_check plots include frames 1 and 7, masks, tracked boxes, recovered sole points and planted flags. Two genuine sole points could not be supplied where segmentation lost them: lateral13 R missing in both frames; front13 R missing in frame 1 and L in frame 7; rear13 and lateral2 R missing in frame 1. Recovered points and boxes also visibly attach to incorrect regions.",
+      "The mandatory full-suite runner rewrote eight persistent test-result files, included in the file inventory. No further algorithm changes were made after the diagnosed retry."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_walk.json",
+      "sha256": "a964890c3c1f0a6d175ba94f79538c00d43c3718b55cab8ddc60d72432e35a3c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_bands.py",
+      "sha256": "4861f16fb4a5f6e356dabaf894c8c43b09e43ea8d4b988921310adf0959a3fbd"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_curves.py",
+      "sha256": "c4c4d7e78dc62fe55a0d341f82be27c8fe798e2a9ab0e49f85ed94f5b9061c8e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/walk_landmarks.py",
+      "sha256": "77157d4e7d30bf0eda0dc8fa3bc0840fc0b4365144202bf825632ec3884717b2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-2_full_suite.log",
+      "sha256": "8d349519f9f770c66e31187fbcb9041c2a8573c14364d22fe6a0200189c4ee5b"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-2_report.json",
+      "sha256": "e6a445aa84e97e58909e92a6fc0d3cdca4c2aeef1886229d01d4768c019e9c22"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-2_rows.log",
+      "sha256": "8905da082b8b8c56637d629fa99acf0d16028c11faef9bb9c1bad20abb64d534"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/T1a-walk-2_unit.log",
+      "sha256": "e65998df38cead7376db41af74520079a6248bb95a28b9f94370062d229a70a2"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_curves.png",
+      "sha256": "f71268e7aac9c065b6b403ddeceded946e82bc65c0b91aefebd12628475a266e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_front_mask_check.png",
+      "sha256": "09635c4278cec1223326a56be8967f7fadae6a62f76aaeb72527c8ff599ada44"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_curves.png",
+      "sha256": "2be2bff84779ff38471abf931ed9ecab877db2c0fea451ab90d63aa16c5d63ba"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_lateral_mask_check.png",
+      "sha256": "0bcf82be79b2bed0d878987d25beb49db73cc36b8479d0e0f5e735d70324b5af"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_curves.png",
+      "sha256": "72035df8469bc328f2456ae8ca5158cfdc457e208de3c17a3d776e3bdcf2555d"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate13_rear_mask_check.png",
+      "sha256": "cbc10b637e1ee8732727dba362322a5fbdb63d3358637340642cd81d57648be7"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_curves.png",
+      "sha256": "6a89687a39688b0ec25a7db023c4dca162929490842c8d2a3fc4275d4c730817"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/plate2_lateral_mask_check.png",
+      "sha256": "77de92cebbdeb5e11a92569a07667edbbc9fd237985c47efb65704bcf2085083"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "2ca301521cbe76986eede36252bb9009a97a5bad1aaa42aec1b1b9033c663e4f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "0a7a5c337ee79a78d487114180ba507c88abd107f5b31b239726f76183955bd3"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py",
+      "sha256": "fe87e208096f3af736bcb05eb882b6c715b7b91afe1958c32ad8459c218b714d"
+    }
+  ]
+}

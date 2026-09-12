@@ -105,7 +105,9 @@ test_three_pixel_pan_is_void (test_oracle_idle.Tests.test_three_pixel_pan_is_voi
 test_alpha_green_parity (test_oracle_walk.Tests.test_alpha_green_parity) ... ok
 test_floating_below_calibrated_floor (test_oracle_walk.Tests.test_floating_below_calibrated_floor) ... ok
 test_front_rear_nulls_and_cli_merge (test_oracle_walk.Tests.test_front_rear_nulls_and_cli_merge) ... ok
+test_grid_registration_known_translation (test_oracle_walk.Tests.test_grid_registration_known_translation) ... ok
 test_pigeon_and_line (test_oracle_walk.Tests.test_pigeon_and_line) ... ok
+test_stationary_definition_and_swing (test_oracle_walk.Tests.test_stationary_definition_and_swing) ... FAIL
 test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid) ... FAIL
 test_thin_head_and_missing_feet (test_oracle_walk.Tests.test_thin_head_and_missing_feet) ... ok
 test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
@@ -155,13 +157,20 @@ test_separate_part_inventory (test_transcribe.Tests.test_separate_part_inventory
 test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
 
 ======================================================================
+FAIL: test_stationary_definition_and_swing (test_oracle_walk.Tests.test_stationary_definition_and_swing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py", line 114, in test_stationary_definition_and_swing
+    self.assertGreater(scroll['mean_scroll_px_per_frame'],20)
+AssertionError: 18.476190476190474 not greater than 20
+
+======================================================================
 FAIL: test_synthetic_contract_and_grid (test_oracle_walk.Tests.test_synthetic_contract_and_grid)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py", line 55, in test_synthetic_contract_and_grid
-    self.assertIsNotNone(a[key],key);self.assertAlmostEqual(a[key],b[key],delta=1,msg=key)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 60 != 65 within 1 delta (5 difference) : head_ref_y
+  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_walk.py", line 95, in test_synthetic_contract_and_grid
+    self.assertTrue(all(p['phase']=='DOWN' for p in s['W2']['min']))
+AssertionError: False is not true
 
 ======================================================================
 FAIL: test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
@@ -197,6 +206,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 147 tests in 56.289s
+Ran 149 tests in 60.191s
 
-FAILED (failures=5)
+FAILED (failures=6)

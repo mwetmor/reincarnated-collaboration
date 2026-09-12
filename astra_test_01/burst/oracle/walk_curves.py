@@ -13,7 +13,8 @@ import numpy as np
 from PIL import Image
 from scipy.signal import find_peaks
 from gates.common import result
-from .walk_landmarks import MASK_PARAMS, mask_with_diagnostics, track_landmarks
+from .walk_landmarks import (MASK_PARAMS, ROW_MASK_PARAMS, mask_with_diagnostics,
+    figure_mask_row, track_landmarks, track_head, _translate)
 
 
 def _finite(a):
@@ -29,7 +30,7 @@ def phase_table(landmarks_seq):
             if d.get('planted_'+side) is True and landmarks_seq[(i-1)%n].get('planted_'+side) is False:
                 events.append((i,side))
     contacts=sorted(set(i for i,s in events))
-    valid=len(contacts)==2
+    valid=len(events)==2 and len(contacts)==2 and len({s for i,s in events})==2
     table=[]
     for i,d in enumerate(landmarks_seq):
         phase=None; lead=None
@@ -41,6 +42,8 @@ def phase_table(landmarks_seq):
             lead=next(s for c,s in events if c==contact)
         table.append(dict(frame=i,printed_phase=i+1,phase=phase,contact= i in contacts,
                           lead_track=lead,planted=d.get('planted',{}),
+                          contact_sides=[s for c,s in events if c==i],
+                          boundary_contact=i==0 and i in contacts,
                           reason=None if valid else f'expected two contact events; observed {len(contacts)}'))
     return table
 
@@ -90,7 +93,7 @@ def arm_swing(seq,H=1.):
                 identity_note='projected track opposition, not independently established anatomical same-side identity')
 
 
-def sole_scroll(seq):
+def sole_scroll_planted_lineage(seq):
     out={};all_delta=[]
     for side in ('L','R'):
         x=[d.get('foot_'+side+'_x') if d.get('planted_'+side) else None for d in seq]
@@ -105,18 +108,45 @@ def sole_scroll(seq):
     return out
 
 
+def sole_scroll(seq):
+    """Observed swing-foot velocity; no seam difference on a translating plate."""
+    out={};pooled=[]
+    for side in ('L','R'):
+        xs=[d.get('foot_'+side+'_x') for d in seq]
+        velocity=[]
+        for i,d in enumerate(seq):
+            prev=xs[i-1] if i else None
+            value=xs[i]-prev if i and xs[i] is not None and prev is not None and d.get('planted_'+side) is False else None
+            velocity.append(value)
+        finite=[v for v in velocity if v is not None];pooled.extend(finite)
+        out[side]=dict(swing_x_px=[x if d.get('planted_'+side) is False else None for x,d in zip(xs,seq)],
+                       delta_px_per_frame=velocity,mean_scroll_px_per_frame=float(np.mean(finite)) if finite else None,
+                       observed_velocity_frames=len(finite))
+    out['mean_scroll_px_per_frame']=float(np.mean(pooled)) if pooled else None
+    out['mean_absolute_speed_px_per_frame']=float(np.mean(np.abs(pooled))) if pooled else None
+    out['estimator']='backward velocity on observed non-planted frames; missing tracks and seam excluded'
+    out['planted_scroll_lineage']=sole_scroll_planted_lineage(seq)
+    return out
+
+
 def measure_sequence(seq,lateral=True,w1_floor=None,subject='walk'):
     valid=all(d.get('valid',True) for d in seq) and bool(seq)
     if not valid:
         return dict(summary={'W1':None,'W2':None,'W3a':None,'W3b':None,'W3c':None,'W4':None,'W5':None,'W6':None,'sole_scroll':None},landmarks=seq,phase_table=[],results=[result('oracle_walk',subject,notes='empty mask')])
     H=float(np.median([d['H'] for d in seq]));phase=phase_table(seq)
     s={**bob([d['head_top_y'] for d in seq],H,phase),**head_path([d['head_cx'] for d in seq],[d['head_top_y'] for d in seq])}
+    s['head_mask_bob_lineage']=bob([d.get('head_top_mask_y',d['head_top_y']) for d in seq],H,phase)
     s['head_ref_bob']=bob([d['head_ref_y'] for d in seq],H,phase)
     s.update(arm_swing(seq,H) if lateral else dict(W5=None,W6=None,W6_per_arm=None))
     s['sole_scroll']=sole_scroll(seq) if lateral else None
     s['H_median']=H
+    s['W1_sanity_1_5_pct_H']=bool(.01<=s['W1']<=.05) if s['W1'] is not None else None
+    s['contact_frames']=[p['frame'] for p in phase if p['contact']]
+    s['head_track_flagged_frames']=[i for i,d in enumerate(seq) if d.get('head_track_valid') is False]
+    s['projection_diagnostics']=dict(**arm_swing(seq,H),sole_scroll=sole_scroll(seq))
     notes=['H normalization uses clip median inclusive silhouette height; no per-frame rescaling',
-           'Head-top thin proxy cannot detect all missing dark hair; inspect mask plot',
+           'Tracked head NCC drives W1/W2/W4; raw mask top retained under lineage names',
+           'W1 outside 1-5%H flags an unreliable head track, not a veridical bob measurement',
            'W5 is a silhouette extent at 0.45H, not an identified wrist']
     if not lateral: notes.append('front/rear: W5, W6 and sole scroll are not meaningful and are null')
     if any(d.get('identity_ambiguous') for d in seq): notes.append('merged/hidden feet; identity and contact phase may be unreliable')
@@ -137,17 +167,26 @@ def curves(directory,pattern='*.png',fps=8.33,lateral=True,ours=False,w1_floor=N
     if not np.isfinite(fps) or fps<=0: raise ValueError('fps must be positive finite')
     paths=frame_paths(directory,pattern)
     if len(paths)!=12: raise ValueError(f'expected 12 printed stride phases; got {len(paths)}')
-    masks=[];health=[];shape=None
+    arrays=[];shape=None
     for path in paths:
         with Image.open(path) as im:
             a=np.array(im.convert('RGBA') if 'A' in im.getbands() else im.convert('RGB'))
-        if shape is not None and a.shape[:2]!=shape: raise ValueError('frame dimensions differ')
-        shape=a.shape[:2]
-        m,h=mask_with_diagnostics(a)
-        if ours and (shape!=(512,512) or h['method']!='frozen matte alpha >=128'):
-            raise ValueError('--ours requires registered 512x512 alpha/keyed frames')
-        masks.append(m);health.append(h)
-    d=measure_sequence(track_landmarks(masks),lateral,w1_floor,str(directory))
+        if shape is not None and a.shape[:2]!=shape:raise ValueError('frame dimensions differ')
+        shape=a.shape[:2];arrays.append(a)
+    masks,health=figure_mask_row(arrays,return_diagnostics=True)
+    if ours and (shape!=(512,512) or any(h['method']!='frozen matte alpha >=128' for h in health)):
+        raise ValueError('--ours requires registered 512x512 alpha/keyed frames')
+    registered_frames=[];registered_masks=[]
+    for a,m,h in zip(arrays,masks,health):
+        dx,dy=h['grid_shift_xy'];registered_frames.append(_translate(a,dy,dx));registered_masks.append(_translate(m,dy,dx))
+    seq=track_landmarks(registered_masks);heads=track_head(registered_frames,registered_masks)
+    for lm,head,h in zip(seq,heads,health):
+        lm.update(head);lm['grid_shift_xy']=h['grid_shift_xy']
+        if lm.get('valid'):
+            for key in ('head_top_y','head_cx','head_cy','head_top_mask_y'):
+                lm[key+'_H']=lm[key]/lm['H'] if lm.get(key) is not None else None
+    d=measure_sequence(seq,lateral,w1_floor,str(directory))
     d.update(frames=len(paths),fps=float(fps),mode='ours' if ours else 'ref',
-             frame_names=[p.name for p in paths],mask_health=health,mask_params=MASK_PARAMS)
+             frame_names=[p.name for p in paths],mask_health=health,mask_params=ROW_MASK_PARAMS,
+             coordinate_system='grid registered source pixels; native plot coordinates subtract grid_shift_xy')
     return d
