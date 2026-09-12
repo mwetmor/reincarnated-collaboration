@@ -106,6 +106,219 @@
       ],
       "exit": 0,
       "note": "hand-invoked bootstrap (wrapper did not exist); status DELIVERED_WITH_CONCERNS; usage 329,479 in / 13,819 out tokens; conductor review: ACCEPT; frozen at MANIFEST.sha256"
+    },
+    {
+      "id": "T0-b",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "fd9c51be4b3b40719eb6fdc649fd27b9ae42deda90f83933a5acb0e1390bd49c",
+      "started": "2026-09-12T02:06:50Z",
+      "ended": "2026-09-12T02:22:09Z",
+      "minutes": 15.3,
+      "image_calls": 0,
+      "tool_calls": 18,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 18,
+        "tools_seen": {
+          "command_execution": 18
+        },
+        "writes_outside_out": []
+      },
+      "receipt_sha256": "d7880fd60587afaa1c7fed137877e398f9e77709d70765c31ca54fa21b0e166c",
+      "artifacts": [
+        {
+          "name": "README.md",
+          "sha256": "0e6d492abdbd805f8adff08f92c29cd627fe18f90e5ad67fd7db2c6ca4df52fb"
+        },
+        {
+          "name": "common.py",
+          "sha256": "bd8f46dca498b8cb0470c38065dff0def4b59e7f0fa6814d13be355ea3c60ca0"
+        },
+        {
+          "name": "drift48.py",
+          "sha256": "ba1fe6086b67cdd3cfffcb81f6ef676346c4f03bf506f7b7a8a7c19344598154"
+        },
+        {
+          "name": "g1_height.py",
+          "sha256": "eee83c24afeae83f7fb9d6cf2a5bc2b4a4cce95ce3d6a1dc9758fe93da65a8c6"
+        },
+        {
+          "name": "g2_pivot.py",
+          "sha256": "2da4d2148ea123e9757da222e61456412a1b1c9cfb927df45b6a6eccc98ce7df"
+        },
+        {
+          "name": "g3_light.py",
+          "sha256": "432c06527fb64936ee705f4687c0c5f3280cb1dc9c0b8af7e09dfd86a59a9e1b"
+        },
+        {
+          "name": "g5_drift.py",
+          "sha256": "fa12b71a02816062b66d0b92bb01b911b14c1b740864bb9b08eec5426310deb1"
+        },
+        {
+          "name": "g6_seam.py",
+          "sha256": "7f2e40e0f19a276462a1ec4ed8d83763cab3bee686f1eedb6aef831c5d76dfe3"
+        },
+        {
+          "name": "g9_alpha.py",
+          "sha256": "c38de18d72a9bed88664e19a965f6d6ce24f0a415351c3325c05c4f8725c9b90"
+        },
+        {
+          "name": "guides.py",
+          "sha256": "1d92758b1cc4b129772487015597ca630e1fb6b26ee73e40c2af1417f11a19e8"
+        },
+        {
+          "name": "matte.py",
+          "sha256": "9f7caac1751f288c0611f09fa14ce0826dbd66f37f67310914f71cb1804dfe9f"
+        },
+        {
+          "name": "pack.py",
+          "sha256": "a713da1cf4c319f610dc5c2b5ceccd1854c76c83798eeed2ab10866f9daad0a6"
+        },
+        {
+          "name": "register.py",
+          "sha256": "9b42dd4589cdf38fc4dcb12ee8d071f91442c86c7e7e917ca8788e46ecce08aa"
+        },
+        {
+          "name": "run_gates.py",
+          "sha256": "eed5eb00e003e401ef2dd97479ed9f8c51925326268f2f0ea190b246e2be5ad1"
+        },
+        {
+          "name": "silhouette64.py",
+          "sha256": "1ba8cdb931ac6020e4485f8fa5826f6f5342278bda34a7596617b2da7b8dc147"
+        },
+        {
+          "name": "audit.py",
+          "sha256": "d4e06d8a476780142ac4e0122bd24c1c8ba547a92c49bc155680dbc063ccd2a5"
+        },
+        {
+          "name": "run_burst.py",
+          "sha256": "5a2df9e8381d43a7b860103ad53eb2bbd8269da0ca2c1fc3b3e73e89c6990fcc"
+        },
+        {
+          "name": "build_review.py",
+          "sha256": "6af49cbc4ab9e44f34bfc6196269f8a63556acc60bcbb67e2fab72fa5034bea5"
+        },
+        {
+          "name": "BURST_RULES.md",
+          "sha256": "1a96e8aa0ad6d13d487784cf60aa47f7fb691c2f8def154f7841b10857b6622c"
+        },
+        {
+          "name": "REGISTER_CARD.md",
+          "sha256": "0b92e27b89d6cdd6b2cf0d45ebd98e7edc7fcccee4248593906b121009f7a058"
+        },
+        {
+          "name": "receipt.schema.json",
+          "sha256": "e2afcbc22e8de33acc125297b414aac997c212fced270604f8268189abd0d557"
+        },
+        {
+          "name": "gates_current_checks.json",
+          "sha256": "7d7882f17c03085f49b630320fc465e076605ca333fb5ff4cb6d419511e712c1"
+        },
+        {
+          "name": "gates_helpers.py",
+          "sha256": "384c75abd602bddd5b9c970718d9d5b32866dc74d4dea802d7f1c0eeeb543f2a"
+        },
+        {
+          "name": "gates_regression_diff.json",
+          "sha256": "913884d2b948d956cf66d9731ed1052e9bce3b44748cd8c0e4bb49c55321e808"
+        },
+        {
+          "name": "gates_summary.json",
+          "sha256": "a8af3dbd7426e1ea2c610fe440b6c55e14e9020cae33655bdaf59e71662f09d5"
+        },
+        {
+          "name": "gates_test_output.txt",
+          "sha256": "4ae512be62f50d18a0fa24b1ce0dd1e5f1d900d396e8c50691d4e5be1cb26b38"
+        },
+        {
+          "name": "test_audit.py",
+          "sha256": "cb9f5bb15d1fda18da9b754511e079a3afb67cb9ac092fcede16b4068bcbf06a"
+        },
+        {
+          "name": "test_gates_build_review.py",
+          "sha256": "3043f7cca55bedc20a21ea1b285ea6744be5c842205cba59c73d7db4925d503b"
+        },
+        {
+          "name": "test_gates_common.py",
+          "sha256": "d0c116e4f5a35e515fc34c3131c54684e4a7f13ef3f12dcffc901006bbbea737"
+        },
+        {
+          "name": "test_gates_drift48.py",
+          "sha256": "d34057248df8f3fd4bd54c08ef46a159151a22ab126427a08c0ff9631d568094"
+        },
+        {
+          "name": "test_gates_g1_height.py",
+          "sha256": "0e59d95c17c209473050d0ee62a597bc78223880366adef2d84e311d8d1ea689"
+        },
+        {
+          "name": "test_gates_g2_pivot.py",
+          "sha256": "cb1f034f6f8a7f50a8050061fb024e11d4a88a4f37b6c4a01e0d3b943396e559"
+        },
+        {
+          "name": "test_gates_g3_light.py",
+          "sha256": "814202ffc80890a30df4e3c4421d63d2f159cdc525858153434d689685f6d376"
+        },
+        {
+          "name": "test_gates_g5_drift.py",
+          "sha256": "09d9bbb8135962972d6b4c658f193845d119378ac8d795cb5dafa8d132fa96f2"
+        },
+        {
+          "name": "test_gates_g6_seam.py",
+          "sha256": "9c053803e19aeaba318688f5b27c3bb7e68d5be78fdea1a38437878f6b98f845"
+        },
+        {
+          "name": "test_gates_g9_alpha.py",
+          "sha256": "dc36b38f11c04af5e635ada21700f03f31649d8743d115a9a16c3ca416eab786"
+        },
+        {
+          "name": "test_gates_guides.py",
+          "sha256": "71b59c81569af492fd11d501133838665113e687c7bb9082f60da8fc31eb2d76"
+        },
+        {
+          "name": "test_gates_lane_caps.py",
+          "sha256": "f1e97f2e5e7607a9c5df8f1b53d0a050a7fb439266e965e127329d6dec47637c"
+        },
+        {
+          "name": "test_gates_matte.py",
+          "sha256": "ecc8fc8f75cb806541c433123b994aa59c93f5f27a5ab734ba1b3af269ee6349"
+        },
+        {
+          "name": "test_gates_pack.py",
+          "sha256": "601ed567f46e0ae40f4a0f5815006719d07c0521d9e284b287b95c6f06d4363a"
+        },
+        {
+          "name": "test_gates_register.py",
+          "sha256": "090e610f8cd0819b9a0b5db64fb20418737fb3d3911de9b5628fa00413dc7cc4"
+        },
+        {
+          "name": "test_gates_regression_lock.py",
+          "sha256": "406afde547edeeb65bf6c885218c8ef2cb6440866e4ebd1d4cae2dfb24a41ca2"
+        },
+        {
+          "name": "test_gates_run_gates.py",
+          "sha256": "d43ee0a73381a5f30bb5800329323c05b2a2a461ce826ac9f6f39330cc6a3352"
+        },
+        {
+          "name": "test_gates_silhouette64.py",
+          "sha256": "79b632d4ae3e99153a5d7aad3db19d1b76b1f4f7379ad370637c367c34343c7d"
+        },
+        {
+          "name": "test_lane.py",
+          "sha256": "752f36de3106179a153186b92cb07e768374470972270c82365a50a76cc0a883"
+        },
+        {
+          "name": "test_render_brief.py",
+          "sha256": "0abac26a1ba6effe3d18d063af05dd0e2bd7bd4815e2182586360c7375ac55fc"
+        },
+        {
+          "name": "test_schema_check.py",
+          "sha256": "ed558d1d49a8607c536aedd3ac38d56d71c9286f0888cf653304942a2ffbb7c2"
+        }
+      ],
+      "exit": 0,
+      "note": "hand-invoked (wrapper caps pre-amendment); DELIVERED_WITH_CONCERNS; 46 tests: 45 green, 1 KNOWN RED = regression lock walk_SE_07 (cause: run_03/output_contact_regions.json not in the conductor's read allowlist \u2192 automatic sole fallback; fix assigned to T0-c addendum); G2/G9/silhouette64 verdicts null pending calibrated thresholds (per SPEC); usage 1,123,354 in / 24,843 out; conductor review: ACCEPT; frozen at MANIFEST.sha256"
     }
   ],
   "images_used": 0,

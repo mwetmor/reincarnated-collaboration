@@ -26,7 +26,12 @@ def receipt():
 
 class LaneTests(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent)
+        contract = FIXTURES / 'lane_contract'
+        for obj, key, value in [(render_brief, 'ROOT', contract), (schema_check, 'SCHEMA', contract / 'receipt.schema.json')]:
+            patcher = patch.object(obj, key, value)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        self.tmp = tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent / "tmp")
         self.addCleanup(self.tmp.cleanup)
         self.base = Path(self.tmp.name).resolve()
         self.work = self.base / 'work'
@@ -45,7 +50,9 @@ class LaneTests(unittest.TestCase):
         self.assertIn('Image 1: anchor — in/01.png', a)
         self.assertIn('| **CHECK**', a)
         self.assertNotIn('| **GENERATE**', a)
-        for typ in ('LABEL', 'TRANSCRIBE', 'bogus'):
+        for typ in ('LABEL', 'TRANSCRIBE'):
+            self.assertIn('| **' + typ + '**', render_brief.render(t, typ))
+        for typ in ('bogus',):
             with self.assertRaises(ValueError):
                 render_brief.render(t, typ)
 

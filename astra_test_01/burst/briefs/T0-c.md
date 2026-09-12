@@ -12,3 +12,8 @@ BUILD everything in SPEC § 4: oracles/{palette.py (O1), figure_ground.py (O2), 
 WRITE ONLY under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ (via --add-dir) and your cwd. Temporary files ONLY under astra_test_01/burst/tests/tmp/ (create; clean). Never the system temp dir.
 
 RETURN: a receipt matching the output schema; task_id "T0-c"; every created/modified file with sha256 in "files"; concerns named precisely (including any acceptance case you could not make pass — report the number you got, do not tune the threshold to pass it); never PASS/FAIL in the receipt.
+
+ADDENDUM (conductor, after T0-b review) — two omissions in T0-b's read allowlist were mine; close them in this burst, before the § 4 work:
+A. ALSO READ: astra_test_01/run_03/output_contact_regions.json and astra_test_01/run_03/source_contact_regions.json (the reviewed sole regions run_03 used). Wire tests/test_gates_regression_lock.py to load them (regions= for G2) and re-run the lock against run_03/evidence/current_checks.json; the six walk_SE_07 discrepancies should vanish. If any remain, report the numbers — do not tune.
+B. ALSO READ: astra_test_01/run_03/vfx.py. Port the VFX pixel packing so gates/pack.py needs no external callback; keep the emissive-from-energy convention exactly.
+Then proceed with SPEC § 4. The suite must end green except for cases you explicitly name as unsatisfied with their numbers.

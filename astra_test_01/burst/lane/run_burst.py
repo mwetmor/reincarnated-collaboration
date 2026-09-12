@@ -26,9 +26,13 @@ def validate_task(task, type):
     for key, cls in expected.items():
         if key not in task or task[key].__class__ is not cls:
             raise ValueError(f'invalid task field {key}')
-    if not 1 <= task['minutes_cap'] <= 15 or not 0 <= task['tool_call_cap'] <= 20:
+    if type not in render_brief.TYPES:
+        raise ValueError('unknown burst type')
+    minutes_limit, tool_limit = (40, 60) if type == 'TOOLING' else (15, 20)
+    if not 1 <= task['minutes_cap'] <= minutes_limit or not 0 <= task['tool_call_cap'] <= tool_limit:
         raise ValueError('wall/tool cap outside charter limits')
-    if not 0 <= task['image_cap'] <= 12 or (type != 'GENERATE' and task['image_cap']):
+    image_limit = {'GENERATE': 12, 'LABEL': 2}.get(type, 0)
+    if not 0 <= task['image_cap'] <= image_limit:
         raise ValueError('image cap outside type limits')
     if task['effort'] not in ('medium', 'high'):
         raise ValueError('invalid effort')

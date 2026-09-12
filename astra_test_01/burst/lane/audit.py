@@ -83,7 +83,17 @@ def audit(events_path, workdir, snapshot, caps, type):
         violations.append(f'events unreadable: {exc}')
     if image_calls > caps['image_cap']:
         violations.append('image_cap exceeded')
-    if type != 'GENERATE' and image_calls:
+    image_limit = {'GENERATE': 12, 'LABEL': 2}.get(type, 0)
+    minutes_limit, tool_limit = (40, 60) if type == 'TOOLING' else (15, 20)
+    if type not in ('TOOLING', 'GENERATE', 'CHECK', 'JUDGE', 'TRANSCRIBE', 'LABEL', 'ANNOTATE', 'PACK'):
+        violations.append('unknown burst type')
+    if caps['image_cap'] < 0 or caps['image_cap'] > image_limit or image_calls > image_limit:
+        violations.append('image cap outside type limits')
+    if not 0 <= caps['tool_call_cap'] <= tool_limit or tool_calls > tool_limit:
+        violations.append('tool cap outside charter limits')
+    if 'minutes_cap' in caps and not 1 <= caps['minutes_cap'] <= minutes_limit:
+        violations.append('wall cap outside charter limits')
+    if type not in ('GENERATE', 'LABEL') and image_calls:
         violations.append(f'image calls forbidden for {type}')
     if tool_calls > caps['tool_call_cap']:
         violations.append('tool_call_cap exceeded')
