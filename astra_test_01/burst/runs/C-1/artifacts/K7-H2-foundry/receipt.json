@@ -1,0 +1,34 @@
+{
+  "task_id": "K7-H2-foundry",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k7_H2_foundry.png",
+      "path": "out/k7_H2_foundry.png",
+      "sha256": "d1537afdabbd8e8abbe0c6e26917a2f39e483da1f22426d958f817bd0feb0b1e",
+      "prompt": "Keeper of Hours — HADES-LANGUAGE SCENE PLATE, register H2. LANDSCAPE 1536×1024. Image 1 is a LAYOUT reference: the F03 FOUNDRY: a brick-and-iron industrial hall — furnace mouth glowing at the upper-left, hanging chain hoist with a suspended crate, an ore cart on rails, a timber workbench under a lantern, stacked crates and barrels, a great riveted pipe crossing the lower-right, an iron gate at the right edge. Hades-language re-imagining: the same hall as a single tight ARENA seen from a STEEP elevated camera (about 60°, looking well down), the floor an inlaid pattern of iron plates and brass rivet-rings in bold geometric bands; saturated jewel-toned light — molten ORANGE from the furnace, TEAL from gas lamps on the pillars, a violet glow from the gate seams; strong graphic shadows; heavy dark chains framing the edges. SCALE ANCHORS: the doorway/gate is two men tall, the workbench/plinth is waist-high, the floor pattern's bands are one stride wide — the room is built for a standing figure about one-sixth of the frame height. NO characters, NO creatures, NO text, NO UI. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. The floor is the play surface and fills the lower two-thirds of the frame. Light: key from SCREEN UPPER-LEFT, dark low-value ambient, readable shadows never pure black. Fill the whole canvas; no border, no vignette. Do NOT copy the reference's rendering or brushwork — re-draw the room in this register.",
+      "references": [
+        {
+          "role": "LAYOUT reference only",
+          "path": "in/01_F03_panel.png"
+        }
+      ],
+      "elapsed_s": 36.921
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task's verbatim description where it conflicts with the frozen register: named-game language, cel-style shading, multiple saturated environmental lights, landscape dimensions, and no green plate.",
+      "The result retains substantial reference-like surface detail; strict two-tone shading and the requested camera angle are not assured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k7_H2_foundry.png",
+      "sha256": "d1537afdabbd8e8abbe0c6e26917a2f39e483da1f22426d958f817bd0feb0b1e"
+    }
+  ]
+}

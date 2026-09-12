@@ -1,0 +1,35 @@
+{
+  "task_id": "K7-H1-aery",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k7_H1_aery.png",
+      "path": "out/k7_H1_aery.png",
+      "sha256": "a27afa38c97447aa3943f70e58bd3d522b4c3b09c665cfeb1175dec8f17fe4ab",
+      "prompt": "Keeper of Hours — HADES-LANGUAGE SCENE PLATE, register H1. LANDSCAPE 1536×1024. Image 1 is a LAYOUT reference: the F04 AERY / OBSERVATORY TOWER: an open-air stone terrace high in the clouds — a great brass armillary sphere on its plinth at the upper-right, a broad compass-rose inlaid in the paving, stairs rising to the upper-left, an arched doorway at the right, low stone parapets, mountains and cloud beyond. Hades-language re-imagining: the same terrace as a single tight ARENA seen from a STEEP elevated camera (about 60°, looking well down), the compass-rose as a bold geometric ground pattern in slate and brass filling the floor; saturated jewel-toned light — GOLD from the armillary, a cold TEAL glow from the cloud-light at the parapets, a violet seam at the doorway; strong graphic shadows; banners and hanging brass instruments framing the edges. SCALE ANCHORS: the doorway/gate is two men tall, the workbench/plinth is waist-high, the floor pattern's bands are one stride wide — the room is built for a standing figure about one-sixth of the frame height. NO characters, NO creatures, NO text, NO UI. Register: HAND-DRAWN painted 2D in the manner of a modern hand-animated action game — a confident dark contour line drawn by hand with visible taper and varying weight, painted fills in clean planes inside the line, restrained texture; the line carries the pose. It should look like one frame of hand-drawn animation, not a rendered illustration. The floor is the play surface and fills the lower two-thirds of the frame. Light: key from SCREEN UPPER-LEFT, dark low-value ambient, readable shadows never pure black. Fill the whole canvas; no border, no vignette. Do NOT copy the reference's rendering or brushwork — re-draw the room in this register.",
+      "references": [
+        {
+          "role": "LAYOUT reference only",
+          "path": "in/01_F04_panel.png"
+        }
+      ],
+      "elapsed_s": 28.364
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Used the task's verbatim description despite conflicts with the frozen card: franchise naming, multiple saturated light sources, full-canvas scenery instead of green, and landscape output instead of sprite sheets.",
+      "Visible warm illumination reads primarily as upper-left sunlight; gold emission from the armillary is not clearly established.",
+      "Fine stone texture remains prominent; consistent tapered line weight and exact scale anchors are not verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k7_H1_aery.png",
+      "sha256": "a27afa38c97447aa3943f70e58bd3d522b4c3b09c665cfeb1175dec8f17fe4ab"
+    }
+  ]
+}

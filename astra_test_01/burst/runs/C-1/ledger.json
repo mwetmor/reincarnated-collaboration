@@ -6565,9 +6565,237 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K7-H1-aery",
+      "type": "GENERATE",
+      "experiment": "K7",
+      "brief_sha256": "329be9c8add73d5ff0f75fd03b416150598a60486b756ba40747cb8f9104f40f",
+      "started": "2026-09-12T20:39:31.421559+00:00",
+      "ended": "2026-09-12T20:41:03.333668+00:00",
+      "minutes": 1.5318734090333237,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09758-c224-7db2-8578-d1b62226b800/exec-43b2c2dc-d3c2-4004-9dd4-382b0a03622a.png",
+            "sha256": "a27afa38c97447aa3943f70e58bd3d522b4c3b09c665cfeb1175dec8f17fe4ab"
+          }
+        ]
+      },
+      "receipt_sha256": "83537b2d5fd7b925970cd798163b95ec9d0104dc89176ec4009e60684e1f05e3",
+      "artifacts": [
+        {
+          "name": "k7_H1_aery.png",
+          "sha256": "a27afa38c97447aa3943f70e58bd3d522b4c3b09c665cfeb1175dec8f17fe4ab"
+        },
+        {
+          "name": "exec-43b2c2dc-d3c2-4004-9dd4-382b0a03622a.provenance.json",
+          "sha256": "db63695649f18a396e63d9dedb1c979b448d049fbc4aaf9886e83765c522b28b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09758-c224-7db2-8578-d1b62226b800/exec-43b2c2dc-d3c2-4004-9dd4-382b0a03622a.png",
+          "sha256": "a27afa38c97447aa3943f70e58bd3d522b4c3b09c665cfeb1175dec8f17fe4ab"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K7-H2-aery",
+      "type": "GENERATE",
+      "experiment": "K7",
+      "brief_sha256": "34f1cbbc77f742cf5df989abc66fe8c99355d3cfc665eeb4d9a868c2055e28b7",
+      "started": "2026-09-12T20:39:31.421563+00:00",
+      "ended": "2026-09-12T20:41:06.018104+00:00",
+      "minutes": 1.5766119992999847,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09758-c224-7bc1-8dda-8f27e5e86c4d/exec-f5638ace-a635-44ae-9dab-29a11ec7d14c.png",
+            "sha256": "eae37ec549443e3eec5e20327e604d87fc07a700647664605bf5527ae8a5a195"
+          }
+        ]
+      },
+      "receipt_sha256": "4939d8fa74f4cef64edf3ce65bdf2b1dab68da80d207597e5960b2736d07d653",
+      "artifacts": [
+        {
+          "name": "k7_H2_aery.png",
+          "sha256": "eae37ec549443e3eec5e20327e604d87fc07a700647664605bf5527ae8a5a195"
+        },
+        {
+          "name": "exec-f5638ace-a635-44ae-9dab-29a11ec7d14c.provenance.json",
+          "sha256": "7f6bff50ea6d601f3aeededdace5e1a004c299ad02d4866f2f95c159ba7a90ec"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09758-c224-7bc1-8dda-8f27e5e86c4d/exec-f5638ace-a635-44ae-9dab-29a11ec7d14c.png",
+          "sha256": "eae37ec549443e3eec5e20327e604d87fc07a700647664605bf5527ae8a5a195"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K7-H2-foundry",
+      "type": "GENERATE",
+      "experiment": "K7",
+      "brief_sha256": "82e3e915232c7f60a9aa397be215598ea9e318bdbb2dd1b3cdb67a9e9876cd07",
+      "started": "2026-09-12T20:39:31.421559+00:00",
+      "ended": "2026-09-12T20:41:15.418526+00:00",
+      "minutes": 1.7332880138833389,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09758-c224-7481-bd40-6fe9b982169e/exec-717477eb-7c3a-48ec-b2c8-1105de271db0.png",
+            "sha256": "d1537afdabbd8e8abbe0c6e26917a2f39e483da1f22426d958f817bd0feb0b1e"
+          }
+        ]
+      },
+      "receipt_sha256": "d211cf748c121222b48d27fa8a6a7832920288475382df8b887f3991430a6764",
+      "artifacts": [
+        {
+          "name": "k7_H2_foundry.png",
+          "sha256": "d1537afdabbd8e8abbe0c6e26917a2f39e483da1f22426d958f817bd0feb0b1e"
+        },
+        {
+          "name": "exec-717477eb-7c3a-48ec-b2c8-1105de271db0.provenance.json",
+          "sha256": "cd69c2b7e133969788cce020920676496760636aac41fed2e3aaf9d2307ceb74"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09758-c224-7481-bd40-6fe9b982169e/exec-717477eb-7c3a-48ec-b2c8-1105de271db0.png",
+          "sha256": "d1537afdabbd8e8abbe0c6e26917a2f39e483da1f22426d958f817bd0feb0b1e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K7-H1-foundry",
+      "type": "GENERATE",
+      "experiment": "K7",
+      "brief_sha256": "c0e12dd5e8ec136f8e7cdf1815f1804101a9b63b934b47962c49e04ea177fae1",
+      "started": "2026-09-12T20:39:31.421563+00:00",
+      "ended": "2026-09-12T20:41:20.169694+00:00",
+      "minutes": 1.8124746673666778,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a09758-c224-74c2-8193-cf733a5d4c0e/exec-4c5ff113-1cfc-402b-ac0e-9fd443c285b4.png",
+            "sha256": "b5ba62dd73060a7b492dfcd6104764e778e80ca1f0fec35081905a063cb1ca6e"
+          }
+        ]
+      },
+      "receipt_sha256": "090d05ac80bb3f05b3804065020f5281cdbc7695dd7403525a3eff2a6a0c0c4d",
+      "artifacts": [
+        {
+          "name": "k7_H1_foundry.png",
+          "sha256": "b5ba62dd73060a7b492dfcd6104764e778e80ca1f0fec35081905a063cb1ca6e"
+        },
+        {
+          "name": "exec-4c5ff113-1cfc-402b-ac0e-9fd443c285b4.provenance.json",
+          "sha256": "75933b7387cdf2ce3488f47f3e9f08ae3666c3771a1134d75e530d5d92447425"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a09758-c224-74c2-8193-cf733a5d4c0e/exec-4c5ff113-1cfc-402b-ac0e-9fd443c285b4.png",
+          "sha256": "b5ba62dd73060a7b492dfcd6104764e778e80ca1f0fec35081905a063cb1ca6e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 62,
+  "images_used": 66,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -6734,6 +6962,17 @@
       "images": 12,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/09 K6 in-world register study (Q74)/",
       "scale_correction": "Matt 2026-09-12: 10.5 %/14 % composites were under the corpus band; corpus at 1080p = D2R ~17\u201318 %, GD ~15\u201317 %, PoE1 ~14\u201317 %, PoE2 ~16\u201318 %, LE ~17\u201318 % (Hades ~8 % outlier). CAMERA_BASELINE 10.1 % is a Godot-fixture projection, not universal; E07V painted figures carry no scale authority. Re-composited at 16 %/19 % (packet 10 *_corpus_scale sheets). Conductor error, recorded."
+    },
+    "K7": {
+      "status": "DELIVERED \u2014 Hades-language variants of E07V F03/F04 in H1/H2 (4 plates, layout-referenced from our own panels), K6 males composited at 17 % \u2014 packet 11; Q74 evidence",
+      "bursts": [
+        "K7-H1-foundry",
+        "K7-H2-foundry",
+        "K7-H1-aery",
+        "K7-H2-aery"
+      ],
+      "images": 4,
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-11/11 K7 Hades-language variants (foundry + aery)/"
     }
   },
   "milestones": [

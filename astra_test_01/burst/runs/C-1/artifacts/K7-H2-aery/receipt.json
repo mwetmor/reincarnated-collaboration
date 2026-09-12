@@ -1,0 +1,34 @@
+{
+  "task_id": "K7-H2-aery",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k7_H2_aery.png",
+      "path": "out/k7_H2_aery.png",
+      "sha256": "eae37ec549443e3eec5e20327e604d87fc07a700647664605bf5527ae8a5a195",
+      "prompt": "Keeper of Hours — HADES-LANGUAGE SCENE PLATE, register H2. LANDSCAPE 1536×1024. Image 1 is a LAYOUT reference: the F04 AERY / OBSERVATORY TOWER: an open-air stone terrace high in the clouds — a great brass armillary sphere on its plinth at the upper-right, a broad compass-rose inlaid in the paving, stairs rising to the upper-left, an arched doorway at the right, low stone parapets, mountains and cloud beyond. Hades-language re-imagining: the same terrace as a single tight ARENA seen from a STEEP elevated camera (about 60°, looking well down), the compass-rose as a bold geometric ground pattern in slate and brass filling the floor; saturated jewel-toned light — GOLD from the armillary, a cold TEAL glow from the cloud-light at the parapets, a violet seam at the doorway; strong graphic shadows; banners and hanging brass instruments framing the edges. SCALE ANCHORS: the doorway/gate is two men tall, the workbench/plinth is waist-high, the floor pattern's bands are one stride wide — the room is built for a standing figure about one-sixth of the frame height. NO characters, NO creatures, NO text, NO UI. Register: HAND-DRAWN painted 2D — bold inked contour of even, heavy weight around the silhouette with thinner interior lines, cel-style two-tone shading with painterly texture inside the flats, strong graphic silhouette; a frame that could sit inside a hand-animated cycle with slight drawing variation between frames. The floor is the play surface and fills the lower two-thirds of the frame. Light: key from SCREEN UPPER-LEFT, dark low-value ambient, readable shadows never pure black. Fill the whole canvas; no border, no vignette. Do NOT copy the reference's rendering or brushwork — re-draw the room in this register.",
+      "references": [
+        {
+          "role": "LAYOUT",
+          "path": "in/01_F04_panel.png"
+        }
+      ],
+      "elapsed_s": 27.106
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task-specific verbatim prompt where it conflicts with the frozen register's style, franchise-name, lighting, canvas, and green-plate constraints.",
+      "Contours vary in weight and shading contains more than two tones; teal light-spill at parapets is subdued."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k7_H2_aery.png",
+      "sha256": "eae37ec549443e3eec5e20327e604d87fc07a700647664605bf5527ae8a5a195"
+    }
+  ]
+}
