@@ -30,6 +30,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-09-11 — ⚑ **ASTRA painted-2D test reviewed: register fork OPENED (Q70); burst-lane architecture proposed (Q71)** (gandalf, DRIFT-CRITIC → ARCHITECT)
+
+**What is:** Matt ran a Codex/`gpt-6-astra` test (`astra_test_01/`) of painted-2D sprite sheets + VFX + painted scenes. **Runs 01–03 (guided) nearly passed the brief** — 224-frame 8-direction painted battle-mage, turnaround PASS, walk seams 8/8, idle seams 6/8 marginal FAIL, frost VFX style+alpha PASS. The overnight autonomous "TEST 02" run (22 h, 14 compactions, 1,332 shell calls vs 30 images) **drifted into a Blender rig of the sibling folder's purple wizard + a Pixi graybox chamber** — nothing after E07V tests the commissioned hypothesis. Verdict + measured timeline + harvest list + architecture: `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-review-and-architecture.md`.
+
+**Game-layer consequence (why this tracker):** the E07V faction boards (F04 clarity, F03 light/detail — Matt's selections, `astra_test_01/design/VISUAL_TARGET.md`) are a **revealed-preference signal against the locked 3D register** of the same kind that overturned the 2D-pixel lock on 2026-06-14. PART A's register lock (`reap-die-rise-story/style-register.md`, A-holds 2026-06-15) is **NOT reopened here** — a fork is *surfaced* (Q70: full painted 2D / render-then-paint hybrid on our Synty rig / stay 3D) with the empirical criterion that would move it: one character passing X2–X5 (edit-canvas idle seams, rear-view gait, masked gear layer) **and** one scene plate passing X6 under Claude-side gates + galadriel rubric. Until then the lock stands and the register doc carries no banner.
+
+**Presentation-grammar keepers regardless of F1:** the doorway-side acceptance rule (declare interior/exterior + threshold normal + leaf sweep before painting; `E07V/FEEDBACK_2026-09-11.md`); the four portability constraints (`E04/NEUTRAL_CONTRACT.md`); painted local glow on floors/walls = 2D normal maps + `PointLight2D` in Godot 2D. **Retired as a harness:** Pixi/Phaser — Godot is harness *and* target.
+
+---
+
 ### 2026-08-25 (later) — ⚑ **TRANCHE 3A IS BUILT AND UNSEALABLE.** The delta figure below is stale in the direction that flatters us (knight-rider)
 
 **Corrected build-vs-spec delta: 10 of 24 T-A rows SEALED · 8 BUILT-BUT-UNSEALED · 6 QUEUED.** The entry below says *"8 FIRING."* **They are no longer firing; they are finished and cannot seal**, and those are very different states to leave in a tracker — the first reads as progress in motion, the second as work parked behind a blocker. **The sealed count does not move: still 10.**
