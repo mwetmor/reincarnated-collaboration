@@ -1,0 +1,69 @@
+{
+  "task_id": "K1-gen-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k1_master_A.png",
+      "path": "out/k1_master_A.png",
+      "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59",
+      "prompt": "Keeper of Hours — STARTER identity master. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed with the rod held upright in the RIGHT hand. Identity: a young archivist, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Weapon: an astrolabe-rod — a dark walnut shaft with a BRASS RING HEAD; the ring carries a single radial hour-mark. Signature motif: the same single open ring with one radial hour-mark appears EXACTLY ONCE on the tabard chest panel and once as the rod head, and NOWHERE ELSE — every other surface is plain and undecorated: no trim, no edge ornament, no secondary sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is a STYLE reference for the painted register only — do not copy its figure, its costume, its emblems or its ornament.",
+      "references": [
+        {
+          "role": "STYLE reference for painted register only; do not copy figure, costume, emblems or ornament",
+          "path": "in/01_F04_starter_native.png"
+        }
+      ],
+      "elapsed_s": 81.288
+    },
+    {
+      "name": "k1_master_B.png",
+      "path": "out/k1_master_B.png",
+      "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42",
+      "prompt": "Keeper of Hours — STARTER identity master. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed with the rod held upright in the RIGHT hand. Identity: a young archivist, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Weapon: an astrolabe-rod — a dark walnut shaft with a BRASS RING HEAD; the ring carries a single radial hour-mark. Signature motif: the same single open ring with one radial hour-mark appears EXACTLY ONCE on the tabard chest panel and once as the rod head, and NOWHERE ELSE — every other surface is plain and undecorated: no trim, no edge ornament, no secondary sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is a STYLE reference for the painted register only — do not copy its figure, its costume, its emblems or its ornament.",
+      "references": [
+        {
+          "role": "STYLE reference for painted register only; do not copy figure, costume, emblems or ornament",
+          "path": "in/01_F04_starter_native.png"
+        }
+      ],
+      "elapsed_s": 117.868
+    },
+    {
+      "name": "k1_master_C.png",
+      "path": "out/k1_master_C.png",
+      "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117",
+      "prompt": "Keeper of Hours — STARTER identity master. One full-body figure, facing the camera (direction S), projection C (elevated three-quarter), standing, feet visible, weight even, arms relaxed with the rod held upright in the RIGHT hand. Identity: a young archivist, early 20s, dark curly hair tied back, sun-browned skin, face fully visible, no helmet. Costume (every item is an instrument or carries one): ivory linen shirt with rolled sleeves under a navy wool sleeveless tabard; ONE chestnut leather harness strap running from the right shoulder diagonally to the LEFT hip where it carries an olive waxed-canvas satchel with brass corners; ONE chestnut leather waist belt whose buckle closes the tabard; chestnut leather laced bracers on both forearms; navy wool trousers; chestnut leather buckled boots. Weapon: an astrolabe-rod — a dark walnut shaft with a BRASS RING HEAD; the ring carries a single radial hour-mark. Signature motif: the same single open ring with one radial hour-mark appears EXACTLY ONCE on the tabard chest panel and once as the rod head, and NOWHERE ELSE — every other surface is plain and undecorated: no trim, no edge ornament, no secondary sigils, no compass diagrams, no studs. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black, slight rim on the key-facing edge; no spell glow; NO floor shadow. Flat uniform pure #00ff00 background covering the whole canvas; do not matte. Image 1 is a STYLE reference for the painted register only — do not copy its figure, its costume, its emblems or its ornament.",
+      "references": [
+        {
+          "role": "STYLE reference for painted register only; do not copy figure, costume, emblems or ornament",
+          "path": "in/01_F04_starter_native.png"
+        }
+      ],
+      "elapsed_s": 43.371
+    }
+  ],
+  "calls_used": 3,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "The verbatim task prompt produced single-figure 1024×1536 identity masters, not the register's 1254-square sheets or registered 512-square frames. Originals were copied without modification as requested.",
+      "Exact projection C constants and pixel-exact background uniformity were not verified.",
+      "Natural variation includes costume hardware and facial differences; candidate C's chest hour-mark extends outside its ring and its rod leans slightly."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k1_master_A.png",
+      "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59"
+    },
+    {
+      "path": "out/k1_master_B.png",
+      "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42"
+    },
+    {
+      "path": "out/k1_master_C.png",
+      "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117"
+    }
+  ]
+}

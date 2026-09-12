@@ -37,7 +37,9 @@
 | 2 (X1-chk-02) | ✓ substance / VOID on receipt semantics | ledger R-6: `calls_used` undefined for CHECK → self-reported command count; BURST_RULES v1.2 defines it; plates 99.6 % / 98.9 %; alpha floor → G9 border 0; spill 0; halo 0 |
 | 3 (X0-T) | ✓ pass A + pass B | R-7 pass A: presence P 0.94 / R 0.96, counts ±1 74/74, controls 14/16 (both misses `second_belt` on the F04 anchors' doubled band; helmet/cape/shield/staff 12/12). **R-9 pass B (unambiguous controls; only-listed-keys clause; rod glossary widened): P 1.0 / R 1.0, counts 38/38, controls 8/8 → O9 CALIBRATED at the charter bars; runs at K1 beside JUDGE + Matt.** Lesson: a transcriber's glossary must be generated from the closed list (X0-T-5 answered a glossary-listed unlisted part) |
 | 0 (T0-d3) | ✓ delivered, honest partial | R-8: clean crop 0 ✓; the hollow-centre test rejects genuine painted sigils (chest boss / tabard compass / buckle) — the bleed family is radial ornament, not annuli (conductor framing defect). **O3b = advisory bleed index for C-1 (anchors F04 14 vs clean 1)**, no FAIL verdicts overnight; T0-d4 owed off the critical path. 4 named reds, nothing tuned. Frozen |
-| lane | FREE — K1's | gated on Matt's V1–V6 rulings → Bible v0 (step 6) → K1 GENERATE (3 masters) |
+| 4–6 | ✓ V1–V6 + L1–L6 RULED; Bible v0 written + validated; probe set frozen | Q72 struck; `bible/f04-keepers.json`; L6 = consumer ChatGPT Pro disposition with the resale-intent trigger |
+| 7 (K1) | ✓ DELIVERED — awaiting Matt's pick | R-10: full typed-burst cycle exit 0 ×7; bible held (zero bleed, zero construction violations); judge batch valid; A 4.0 / B 4.0 pass, C fails axis 2; lean B; packet on the Desktop (`01 K1 identity masters/packet/review.html`) |
+| 8 (K2) | staged | 7 direction tasks pre-filled for A and B (screen-side facts per direction); CHECK/JUDGE/PACK drafted; fires on the pick |
 | 4–10 | Matt present | grill packet staged: `~/Desktop/Astra Burst Review - 2026-09-11/00 Grill packet` |
 
 ## 3. The session script (≈ 2.5 h with Matt; steps 4–10 need Matt present; 1–3 do not)

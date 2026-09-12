@@ -1,0 +1,24 @@
+{
+  "task_id": "K1-tr-B",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "bracer_R is partly obscured; one visible guard counted.",
+      "Question set and strict schema were outside permitted read boundaries. Inventory follows the supplied closed part list and answer format; exact schema conformance remains unverified."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "bd7304a2bc1c9a88720d9c6a1135c37928c8fecb38c4befbaf593212c02c1a1d"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "1b58a66201d1f0f125559cbb5efefa455bb1af2ecec87dc03750d6140c018735"
+    }
+  ]
+}

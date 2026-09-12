@@ -1,0 +1,24 @@
+{
+  "task_id": "K1-tr-A",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Exact schema conformance remains unverified: the question and schema files were outside the permitted read area. Used the supplied closed list and answer format.",
+      "shirt, tabard, belt, harness_strap, bracer_R, trousers, and rod are partly obscured; each counted as one visible instance."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/inventory.json",
+      "sha256": "bd7304a2bc1c9a88720d9c6a1135c37928c8fecb38c4befbaf593212c02c1a1d"
+    },
+    {
+      "path": "out/notes.txt",
+      "sha256": "3346a763b68b4a9f82e76e02f0379dbc3ce5f06ef6856d0182cd28469c2e6fdc"
+    }
+  ]
+}

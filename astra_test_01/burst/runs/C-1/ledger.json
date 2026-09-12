@@ -1367,9 +1367,441 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-gen-01",
+      "type": "GENERATE",
+      "experiment": "K1",
+      "brief_sha256": "b518479e11d1b9fdc8392961df5ccc274ef90992a46d97a0045ebd5ffb000794",
+      "started": "2026-09-12T13:47:27.671338+00:00",
+      "ended": "2026-09-12T13:51:32.152636+00:00",
+      "minutes": 4.0748715763834,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-09571283-30b7-429e-9193-2b054e3e0eb8.png",
+            "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-27483cbf-62e6-4a7a-b7b0-8275c819e312.png",
+            "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-851c6997-79cd-42d6-b756-2b30b157d371.png",
+            "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42"
+          }
+        ]
+      },
+      "receipt_sha256": "9224a049fb204488c35bdcb794b57d5a0100a9e677ae8022f917cfe1aed40baf",
+      "artifacts": [
+        {
+          "name": "k1_master_A.png",
+          "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59"
+        },
+        {
+          "name": "k1_master_B.png",
+          "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42"
+        },
+        {
+          "name": "k1_master_C.png",
+          "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117"
+        },
+        {
+          "name": "exec-09571283-30b7-429e-9193-2b054e3e0eb8.provenance.json",
+          "sha256": "2d6d3e9c7e23418feeafb0e8b33e493ccd1d136bf577e15d1b9b94dab93fa330"
+        },
+        {
+          "name": "exec-27483cbf-62e6-4a7a-b7b0-8275c819e312.provenance.json",
+          "sha256": "25e2b04a1c4fdcbe1ae37e48f6a53ba9bbb4001a81cfc61c7fd21cd18795d3f1"
+        },
+        {
+          "name": "exec-851c6997-79cd-42d6-b756-2b30b157d371.provenance.json",
+          "sha256": "405ba552ad3c96ffad7d8ae14a3fee15aa6c1512bfbfd5068bb592fa95638dac"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-09571283-30b7-429e-9193-2b054e3e0eb8.png",
+          "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-27483cbf-62e6-4a7a-b7b0-8275c819e312.png",
+          "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a095df-8941-7e60-9c55-57a7775e51fa/exec-851c6997-79cd-42d6-b756-2b30b157d371.png",
+          "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-chk-01",
+      "type": "CHECK",
+      "experiment": "K1",
+      "brief_sha256": "84d447b5249197deeef4f0ca9f75a26509f93d2de06348f9bf4af27af3ca08d5",
+      "started": "2026-09-12T13:52:09.567259+00:00",
+      "ended": "2026-09-12T13:55:30.305133+00:00",
+      "minutes": 3.3457758548669516,
+      "image_calls": 0,
+      "tool_calls": 8,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 8,
+        "tools_seen": {
+          "command_execution": 8
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "746e4f675826fa02e8944d76bbf7a988d819f5bb2bf913951c9061e01cc37c24",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "f43010c5fc0d8d684c524bf133752128d18a8f38dd462ce3049e087f17a5e19e"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "7703c9333c7ffdd491eca7da93d1560325e8029955a62dba0b4bdc648e1ceb0c"
+        },
+        {
+          "name": "k1_master_A_64.png",
+          "sha256": "a80d9a209153b55bbc89adead7843ade301f25599bfaa9d1dbc961512fcbaef4"
+        },
+        {
+          "name": "k1_master_A_rgba.png",
+          "sha256": "4a334ba68c3d845269313db6e70c7f9f8a9748bf307409832d76f7e299a95a9b"
+        },
+        {
+          "name": "k1_master_B_64.png",
+          "sha256": "ca99c7fd8e06dc95f35187e013e43d76beab40a7fe9000e4f2de52265e0f6e19"
+        },
+        {
+          "name": "k1_master_B_rgba.png",
+          "sha256": "03e2de087ee278809594e573d520dc710b1c17e4eec76311255743ed533cfa22"
+        },
+        {
+          "name": "k1_master_C_64.png",
+          "sha256": "ae18e2c0ccdbac70cbda06f2cedb2c42a791c172b62d1535ed5e6521d7fc309d"
+        },
+        {
+          "name": "k1_master_C_rgba.png",
+          "sha256": "902728814977502ae32322481b4dd208d72a76a1122a2ef9f1727991cdaa9485"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-A",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "1ae63cac4de3f0f45340fe19b6a59271a11a2225818fc2364cfd3a70f55f5431",
+      "started": "2026-09-12T13:55:30.445981+00:00",
+      "ended": "2026-09-12T13:56:50.743429+00:00",
+      "minutes": 1.3383515180670655,
+      "image_calls": 0,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 3,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "baf1dd254cf243bfa55dbd500e64c28b90588020c21abc0efbee496c4e36b29e",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "bd7304a2bc1c9a88720d9c6a1135c37928c8fecb38c4befbaf593212c02c1a1d"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "3346a763b68b4a9f82e76e02f0379dbc3ce5f06ef6856d0182cd28469c2e6fdc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-B",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "f8a0fdfbf9a901926478183fbb55e050f609b7f898f032e19cf46405a2c1eb79",
+      "started": "2026-09-12T13:56:50.866398+00:00",
+      "ended": "2026-09-12T13:57:44.910043+00:00",
+      "minutes": 0.9007637347172325,
+      "image_calls": 0,
+      "tool_calls": 5,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 5,
+        "tools_seen": {
+          "command_execution": 4,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "63e0ab72b116892d44c4ad5b907238f11b0dbbc4bf05fe629819b46bcc1f2b70",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "bd7304a2bc1c9a88720d9c6a1135c37928c8fecb38c4befbaf593212c02c1a1d"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "1b58a66201d1f0f125559cbb5efefa455bb1af2ecec87dc03750d6140c018735"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-tr-C",
+      "type": "TRANSCRIBE",
+      "experiment": "K1",
+      "brief_sha256": "8e89c9333717c5fcd9d45a18804226fa4eabb3213829638cc7c13f0b4c748c8c",
+      "started": "2026-09-12T13:57:45.036250+00:00",
+      "ended": "2026-09-12T13:58:40.410611+00:00",
+      "minutes": 0.9229434458335163,
+      "image_calls": 0,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 5,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "986705bcf64de499b328681035f144c5d8564c94d6e7b0d26eec9c7b50b8b0b6",
+      "artifacts": [
+        {
+          "name": "inventory.json",
+          "sha256": "bd7304a2bc1c9a88720d9c6a1135c37928c8fecb38c4befbaf593212c02c1a1d"
+        },
+        {
+          "name": "notes.txt",
+          "sha256": "7663ab5989cb3feb42763b673d4d021282bc864fa1fe19d4e51b225c4837b475"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-jdg-01",
+      "type": "JUDGE",
+      "experiment": "K1",
+      "brief_sha256": "952937e1846c7c4af0fb98bf71bcf5f5fb1167f7a59694ec297c190a688cea0f",
+      "started": "2026-09-12T13:58:40.563431+00:00",
+      "ended": "2026-09-12T14:00:50.635181+00:00",
+      "minutes": 2.167956654867157,
+      "image_calls": 0,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 2,
+        "tools_seen": {
+          "file_change": 1,
+          "command_execution": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "665c11aa1db774cf9a082acf09decc5160c506c194f6a1aa2e0f49d0c8507dcd",
+      "artifacts": [
+        {
+          "name": "judgment.json",
+          "sha256": "a25cf1a38b852e4b5fce572c95f253acfcab477d9b1dd2eb17aaaf42ae042f58"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K1-pack-01",
+      "type": "PACK",
+      "experiment": "K1",
+      "brief_sha256": "fcf08bfdf9df60dd400e688ee185bf01ad5124e84d6e0799b31464cff1aeadbd",
+      "started": "2026-09-12T14:00:50.741784+00:00",
+      "ended": "2026-09-12T14:10:16.988709+00:00",
+      "minutes": 9.43787346596655,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 8,
+          "file_change": 1
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "cc80cf5ab1168a959ac38824837e23810efd94a0f3250429e8d4bc122f841cf8",
+      "artifacts": [
+        {
+          "name": "img/k1_master_A.png",
+          "sha256": "90269614545e01bbc3d3c2e5ed4e446022de0ce34817296ee5f68184c3a27e59"
+        },
+        {
+          "name": "img/k1_master_A_64.png",
+          "sha256": "a80d9a209153b55bbc89adead7843ade301f25599bfaa9d1dbc961512fcbaef4"
+        },
+        {
+          "name": "img/k1_master_A_rgba.png",
+          "sha256": "4a334ba68c3d845269313db6e70c7f9f8a9748bf307409832d76f7e299a95a9b"
+        },
+        {
+          "name": "img/k1_master_B.png",
+          "sha256": "a82c8053d2c7bfd3546ef19de40fb1710b531027cfb65ef213026b2d8248fb42"
+        },
+        {
+          "name": "img/k1_master_B_64.png",
+          "sha256": "ca99c7fd8e06dc95f35187e013e43d76beab40a7fe9000e4f2de52265e0f6e19"
+        },
+        {
+          "name": "img/k1_master_B_rgba.png",
+          "sha256": "03e2de087ee278809594e573d520dc710b1c17e4eec76311255743ed533cfa22"
+        },
+        {
+          "name": "img/k1_master_C.png",
+          "sha256": "7073115e1f191b452e619cefd2a774ac58766167de0238541127fe6aa3746117"
+        },
+        {
+          "name": "img/k1_master_C_64.png",
+          "sha256": "ae18e2c0ccdbac70cbda06f2cedb2c42a791c172b62d1535ed5e6521d7fc309d"
+        },
+        {
+          "name": "img/k1_master_C_rgba.png",
+          "sha256": "902728814977502ae32322481b4dd208d72a76a1122a2ef9f1727991cdaa9485"
+        },
+        {
+          "name": "review.html",
+          "sha256": "db54d137cbc934d3ab3f66242268346b21bb815bb1d2b825c7f8af26a065e282"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "010d568c649611d36f2da4ba22a6621f8b85e3e34a4b7b252ef4bd003d06fb0a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 4,
+  "images_used": 7,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -1413,9 +1845,37 @@
       "inputs": "runs/C-1/x0t/ (hand_inventory.json, per-figure questions/schema), fixtures/x0t/ (native crops)",
       "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)",
       "summary": "runs/C-1/x0t/calibration_summary.json"
+    },
+    "K1": {
+      "status": "DELIVERED \u2014 instruments PASS A and B, FAIL C; MILESTONE AWAITING MATT PICK (conductor lean B)",
+      "bursts": [
+        "K1-gen-01",
+        "K1-chk-01",
+        "K1-tr-A",
+        "K1-tr-B",
+        "K1-tr-C",
+        "K1-jdg-01",
+        "K1-pack-01"
+      ],
+      "images": 3,
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/packet/review.html"
     }
   },
-  "milestones": [],
+  "milestones": [
+    {
+      "id": "K1",
+      "name": "identity masters \u2014 Matt picks 1 of 3",
+      "date": "2026-09-12",
+      "status": "AWAITING PICK",
+      "candidates": {
+        "A": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 4; O7 143.6\u00b0",
+        "B": "rubric 4\u00b74\u00b74\u00b74\u00b74 (4.0); O9 0 violations; O3b annulus 2 (= the two ruled placements); O7 86.6\u00b0",
+        "C": "rubric 4\u00b73\u00b74\u00b74\u00b74 (3.8) \u2014 FAILS mandatory axis 2 (hour-mark breaks the ring)"
+      },
+      "control": "mirrored B: axis 3 = 2 and axis 2 = 2 \u2192 batch VALID",
+      "conductor_lean": "B"
+    }
+  ],
   "halts": [],
   "rulings": [
     {
@@ -1488,6 +1948,14 @@
       "boundary": "reasoning",
       "burst": "X0-T-5/6",
       "ruling": "X0-T pass B (pre-registered in R-7; same F04 figures; controls helmet/cape/shield/quiver \u2014 absent by construction; template clause 'answer ONLY the listed keys'; rod glossary widened to short-handled instruments): per figure {\"X0-T-5\": {\"extra_keys\": [\"second_belt\"], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}, \"X0-T-6\": {\"extra_keys\": [], \"missing_keys\": [], \"tool_passed\": true, \"tool_value\": 0, \"disagreements\": [], \"controls\": \"4/4\"}}; aggregate {\"presence_precision\": 1.0, \"presence_recall\": 1.0, \"counts_within_1\": \"38/38\", \"controls\": \"8/8\"}; verdict: PASS: presence P/R >= 0.9, counts \u00b11 >= 80 %, controls 100 %. Disposition for K1: O9 transcribe\u2192compare is CALIBRATED on the part inventory at the charter bars (with the control-construction lesson recorded: controls must be absent by construction on the figure they are applied to); it runs at K1 as an instrument beside JUDGE and Matt. Pass A's second_belt finding stands as a fact about the F04 anchors (doubled band) for the V4 construction table.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-10",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "K1-gen-01 \u2026 K1-pack-01",
+      "ruling": "K1 executed end-to-end under the fixed lane: GENERATE (3 calls = calls_used, exit 0) \u2192 CHECK (8 calls) \u2192 TRANSCRIBE \u00d73 \u2192 JUDGE (separate instance, hidden mirrored control) \u2192 PACK, every burst exit 0 with zero violations \u2014 the first complete typed-burst cycle of Run C-1. Instruments: the bible held \u2014 zero ornament outside the two ruled placements on all three masters (the F04 style reference's satchel dial and panel diagrams did NOT bleed), construction table satisfied (O9: zero violations, all controls absent, all three), plates 98.4\u201398.6 %, mattes clean; JUDGE batch VALID (control failed axis 3 = 2 and axis 2 = 2 'rod in the wrong hand'); A 4.0 and B 4.0 pass the mandatory bars, C 3.8 fails axis 2 (hour-mark breaks its ring \u2014 flagged independently by Astra's receipt, the conductor's eye and the judge). O3b bleed index (advisory): annulus counts A 4 / B 2 / C 4 \u2014 B's equals the two ruled placements exactly. O7 azimuth weak evidence (painted shading; high dispersion): A 143.6\u00b0, B 86.6\u00b0, C 111.6\u00b0. Findings for tooling: masters came back 1024\u00d71536 portrait (registration handles it; the SCALE rule already says post-process); O2's key-facing-edge form needs an edge mask; O5 squashes portrait inputs to 64\u00d764 (T-later). Conductor lean for the pick: B. MILESTONE: commitment boundary \u2014 Matt picks; the \u00a7 3 identity-spec text is ratified by the pick (charter gate row 7).",
       "veto": "open to Matt"
     }
   ]
