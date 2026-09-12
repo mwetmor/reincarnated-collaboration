@@ -135,7 +135,7 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 | Source | Role | sha256[:12] | Reconciled |
 |---|---|---|---|
 | `agentic_orchestration/gandalf/notes/2026-09-11-astra-burst-lane-run-charter.md` | rules of the run | f88c9e03a242 | 2026-09-11 |
-| `astra_test_01/burst/SPEC.md` | build contract | cd1791660ca6 | 2026-09-11 |
+| `astra_test_01/burst/SPEC.md` | build contract | a8af0e71a5e7 | 2026-09-11 |
 | `astra_test_01/burst/BURST_RULES.md` | executable burst rules | 8e78d26a22ae | 2026-09-11 |
 | `astra_test_01/burst/REGISTER_CARD.md` | executable register | bc3ce44dee71 | 2026-09-11 |
 | `astra_test_01/burst/JUDGE_RUBRIC.md` | executable rubric | 67b1e22ca361 | 2026-09-11 |
