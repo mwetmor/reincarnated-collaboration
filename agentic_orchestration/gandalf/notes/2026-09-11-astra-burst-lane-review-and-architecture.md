@@ -203,3 +203,26 @@ Whole slate ≈ 150–250 images — about what runs 01–03 spent.
 - **Deferred with criteria:** the style-register pivot commits only when X2 (or X3) + X4 + X5 pass on one character *and* X6 passes on one plate — that is the "consistency at kit scale" evidence, and nothing less should move a locked register. The render-then-paint hybrid becomes primary only if X7 beats X2–X5 on galadriel's rubric at equal cost. The faction/story fold (F9) waits on a STORYWRIGHT session.
 
 — gandalf, 2026-09-11
+
+---
+
+## 10. RULINGS — ELICITOR grill, 2026-09-11 (Matt; three passes; supersedes § 8's leans where they differ)
+
+| Fork | Ruling | Consequence |
+|---|---|---|
+| **F1** register | **(i) full painted 2D, no hedge.** | X7 (render-then-paint) **STRUCK**. The A-holds 3D lock stands untouched until X2–X6 report. |
+| **F1a** pilot | run_03 battle-mage for X2–X4 (by construction); **a new F04 Keeper of Hours** for X5/X6 (Stage-1 identity milestone: Matt picks 1 of 3). | |
+| **F2** camera | **Projection C** (ruled by Matt's prior act: *"let's test the problem by using C"*). | frozen in the register card |
+| **F3** light | **Fixed screen-upper-left key; no mirroring; 8 unique directions** (ruled by Matt's own brief). | frozen in the register card |
+| **F4** image path | **Parity-gated API with a hard cap.** X1 runs a same-prompt A/B (built-in vs API `gpt-image-2`, 3 pairs); **parity is called by Matt's eye only**; if parity holds the API becomes the generation path under a **$25** wrapper-enforced cap (key wrapper-local, never `.zshrc`, never inherited by Codex); if not, key removed, built-in stays. → `matt_to_do/` **T25** (key creation is credential-level). | |
+| **F5** gear method | evidence-decided by X5 (Method B masked composite first); ambition (3 tiers × 100 characters) stands. | |
+| **F6** scenes | **Finite painted plate library + procedural assembly** (Hades / D2 tile model). | prompts authored by Astra (see F6a), not galadriel |
+| **F6a** authoring/judging | **100 % Astra.** Matt: *"I want to test Astra further by you providing stricter guidelines to see if we can do it 100 % via Astra… let's discuss the non-Astra gen path once we rule Astra out."* Prompts, generation, checking, **judging — by a separate Astra instance** (Matt: *"Astra has a higher capability at visual tasks, so it may make sense to simply call a separate instance of Astra to judge its work"*). **No star-lord / galadriel / drax infrastructure during the testing phase** (*"bulky agentic team infrastructure … may slow us down"*). The earlier "galadriel writes plate prompts" is SUPERSEDED by this ruling. | gandalf conducts + judges at milestones; JUDGE bursts carry known-bad controls |
+| **F7** conductor | **gandalf conducts.** All labour is Astra, in **typed bursts**: `TOOLING` (once; then frozen + hash-pinned) · `GENERATE` (no code) · `CHECK` (frozen numeric scripts, fresh context) · `JUDGE` (separate instance; rubric + anchors + a known-bad control per batch; disqualified if it passes the control) · `PACK`. jack-ryan Gate-2 stays outside the run. | |
+| **F7c** harness | **Pixi.js as a VIEWER only, written no-runtime rule** (sheet-player + atlas + mask overlay + y-sort + VFX composite; **no** sim / doors / nav / shadows / bones / shaders). Godot port notes written alongside per `E04/NEUTRAL_CONTRACT.md`. | |
+| **F8** corpus | **HISTORICAL stamp on `astra_test_01/design/` as a live suite; harvest per § 3; retire the `.agents/skills/painted-character-vfx` campaign pointer**; 2.7 GB stays on disk for the next reclaim run. | executes in the charter's TOOLING stage |
+| **Milestones** | **Per stage + any FAILED experiment** (identity masters · turnaround · first loop · first VFX composite · first plate + derived mask). | |
+| **Budget / halt** | Matt: *"see above"* — **gandalf's reading:** the $25 bounds the API path only; **250 images / HALT to Matt on two consecutive experiment-level FAILs** stands as the default. *Matt corrects if "see above" meant otherwise.* | scope guard: a medium change is never the conductor's |
+| **F9** factions ↔ archive frame | not raised; STORYWRIGHT session. | |
+
+**Next artifact:** the run charter (SPEC-AUTHOR → ARCHITECT gate at the run boundary): register card · typed-burst rules · burst-brief template · JUDGE rubric with known-bad controls · receipt schema · ledger · the X1–X6 + X8 registrations. Nothing fires until the ARCHITECT gate is clean and T25 lands.
