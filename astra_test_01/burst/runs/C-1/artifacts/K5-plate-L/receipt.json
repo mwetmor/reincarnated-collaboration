@@ -1,0 +1,31 @@
+{
+  "task_id": "K5-plate-L",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k5_plate_L.png",
+      "path": "out/k5_plate_L.png",
+      "sha256": "d28b0d4527f05491ac1630f9114d24341dabf982a90610792e224e47ef92a86a",
+      "prompt": "Keeper of Hours — SCENE PLATE for an in-scene register test. An interior: the Keepers' archive hall — a worn grey flagstone floor filling most of the frame, a low stone plinth with stacked ledgers and a brass hour-glass at the upper-left, a dark wooden shelf of scroll-tubes along the far wall at the top edge, a few fallen pages and a coil of rope on the floor, deep shadowed alcoves. Elevated three-quarter camera (projection C, the ARPG camera): the floor is the play surface and occupies the lower two-thirds of the frame, the far wall the upper third; NO characters, NO creatures, NO text, NO UI. LANDSCAPE 1536×1024. Register: painted 2D, illustrated, clean material planes, restrained surface texture, no conspicuous brush or pixel grain. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black; no spell glow. Fill the whole canvas; no border, no vignette.",
+      "references": [],
+      "elapsed_s": 21.404
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task-specific full-scene 1536×1024 instruction, which conflicts with the register card's green background and sprite-sheet requirements.",
+      "Generated key light appears warm despite the register card restricting warm light to spells.",
+      "Fallen pages contain writing-like marks despite the prompt's NO text constraint.",
+      "Exact projection C constants were unavailable within the permitted inputs."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k5_plate_L.png",
+      "sha256": "d28b0d4527f05491ac1630f9114d24341dabf982a90610792e224e47ef92a86a"
+    }
+  ]
+}

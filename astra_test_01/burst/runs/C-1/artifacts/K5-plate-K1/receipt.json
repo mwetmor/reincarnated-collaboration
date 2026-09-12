@@ -1,0 +1,29 @@
+{
+  "task_id": "K5-plate-K1",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "k5_plate_K1.png",
+      "path": "out/k5_plate_K1.png",
+      "sha256": "194548a58139540a5f9e87a73fdbb54b53cc1a90f93efd8f1f0b17f79902f3aa",
+      "prompt": "Keeper of Hours — SCENE PLATE for an in-scene register test. An interior: the Keepers' archive hall — a worn grey flagstone floor filling most of the frame, a low stone plinth with stacked ledgers and a brass hour-glass at the upper-left, a dark wooden shelf of scroll-tubes along the far wall at the top edge, a few fallen pages and a coil of rope on the floor, deep shadowed alcoves. Elevated three-quarter camera (projection C, the ARPG camera): the floor is the play surface and occupies the lower two-thirds of the frame, the far wall the upper third; NO characters, NO creatures, NO text, NO UI. LANDSCAPE 1536×1024. Register: FLAT INK-AND-WASH 2D — clean uniform ink outline, flat colour fills with at most one wash of shadow, no painted texture, no gradients, muted palette, graphic and minimal; a frame of hand-drawn cel animation. Light: single key from SCREEN UPPER-LEFT, deep cool low-value ambient, readable shadows never pure black; no spell glow. Fill the whole canvas; no border, no vignette.",
+      "references": [],
+      "elapsed_s": 20.883
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Followed the task's verbatim scene prompt, which conflicts with the frozen register's green plate, sheet dimensions, and painted style.",
+      "Generated surfaces show subtle texture and tonal gradients despite the prompt's flat-fill constraints."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/k5_plate_K1.png",
+      "sha256": "194548a58139540a5f9e87a73fdbb54b53cc1a90f93efd8f1f0b17f79902f3aa"
+    }
+  ]
+}

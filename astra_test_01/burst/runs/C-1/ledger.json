@@ -5899,9 +5899,237 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K5-plate-K1",
+      "type": "GENERATE",
+      "experiment": "K5",
+      "brief_sha256": "9f3d174d4179d8a03f8a1fa2a466c8ce2863bb04085bb6d3bcbd9c7a67c38c23",
+      "started": "2026-09-12T19:51:22.969112+00:00",
+      "ended": "2026-09-12T19:52:30.220425+00:00",
+      "minutes": 1.1208748097166639,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7272-9060-2e1545c07c5c/exec-30f51548-864b-4b59-9955-2b389a295026.png",
+            "sha256": "194548a58139540a5f9e87a73fdbb54b53cc1a90f93efd8f1f0b17f79902f3aa"
+          }
+        ]
+      },
+      "receipt_sha256": "206152b1b32489434c28c3cc34c39a6cf51648332435657a0733b8142b4c424b",
+      "artifacts": [
+        {
+          "name": "k5_plate_K1.png",
+          "sha256": "194548a58139540a5f9e87a73fdbb54b53cc1a90f93efd8f1f0b17f79902f3aa"
+        },
+        {
+          "name": "exec-30f51548-864b-4b59-9955-2b389a295026.provenance.json",
+          "sha256": "e74aa8850b6b3c3a232999a8dd623802fe00e21fdbc31ba7618a316a1fefc4e5"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7272-9060-2e1545c07c5c/exec-30f51548-864b-4b59-9955-2b389a295026.png",
+          "sha256": "194548a58139540a5f9e87a73fdbb54b53cc1a90f93efd8f1f0b17f79902f3aa"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K5-plate-L",
+      "type": "GENERATE",
+      "experiment": "K5",
+      "brief_sha256": "84f0cd7f2ee724bff2f0fa1ecaa65df451d8da8c5f99c5fa7e836c75f12b7bb4",
+      "started": "2026-09-12T19:51:22.969121+00:00",
+      "ended": "2026-09-12T19:52:33.562057+00:00",
+      "minutes": 1.176571022216664,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7362-8bb5-3fdece2e1c26/exec-19dab7b6-9b02-4a19-89b4-294035e12fc8.png",
+            "sha256": "d28b0d4527f05491ac1630f9114d24341dabf982a90610792e224e47ef92a86a"
+          }
+        ]
+      },
+      "receipt_sha256": "11270ee511612f4f1d5fc6f645428f5667875453fc47496954f19f5c438198f2",
+      "artifacts": [
+        {
+          "name": "k5_plate_L.png",
+          "sha256": "d28b0d4527f05491ac1630f9114d24341dabf982a90610792e224e47ef92a86a"
+        },
+        {
+          "name": "exec-19dab7b6-9b02-4a19-89b4-294035e12fc8.provenance.json",
+          "sha256": "c7d87954a3cabd1872032b5566590c578b100190f83b75b52efa782ecefbd658"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7362-8bb5-3fdece2e1c26/exec-19dab7b6-9b02-4a19-89b4-294035e12fc8.png",
+          "sha256": "d28b0d4527f05491ac1630f9114d24341dabf982a90610792e224e47ef92a86a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K5-plate-H2",
+      "type": "GENERATE",
+      "experiment": "K5",
+      "brief_sha256": "468c071419a522577063d930be08d107102b3aed1da41bc9ca119848ce0836ea",
+      "started": "2026-09-12T19:51:22.969121+00:00",
+      "ended": "2026-09-12T19:52:34.425513+00:00",
+      "minutes": 1.1909624659666558,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7250-95f7-19e122cdbbb9/exec-9a8c56a2-54e3-4b3e-bf2c-3340ec627b79.png",
+            "sha256": "ac230eb07e000cd80387249e0690e85ac8e96502ddf670a636b307d4d858975c"
+          }
+        ]
+      },
+      "receipt_sha256": "06357719860b9bd30f4a0b1f94d40922f1fa7542b60befc5af0fa19e8b1b03b5",
+      "artifacts": [
+        {
+          "name": "k5_plate_H2.png",
+          "sha256": "ac230eb07e000cd80387249e0690e85ac8e96502ddf670a636b307d4d858975c"
+        },
+        {
+          "name": "exec-9a8c56a2-54e3-4b3e-bf2c-3340ec627b79.provenance.json",
+          "sha256": "0b8f2f4618738b3c226b2bafbae6a1be9edb393fa0dca7eafe4502bf82087a4e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7250-95f7-19e122cdbbb9/exec-9a8c56a2-54e3-4b3e-bf2c-3340ec627b79.png",
+          "sha256": "ac230eb07e000cd80387249e0690e85ac8e96502ddf670a636b307d4d858975c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K5-plate-H1",
+      "type": "GENERATE",
+      "experiment": "K5",
+      "brief_sha256": "7461b95d0ab5c518b1b4cdc8189bf8e1b501d8172dcf07cd7e9cc9c95f8308d1",
+      "started": "2026-09-12T19:51:22.969123+00:00",
+      "ended": "2026-09-12T19:52:36.741023+00:00",
+      "minutes": 1.2295548736166741,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7b63-b9b5-4d910c621900/exec-cc4c8c38-4117-4cda-9188-f4861b9ff913.png",
+            "sha256": "30015f1971119ce9160c5acabf4f1b337d9660440d1db4ec7b071a64fdd1b5c2"
+          }
+        ]
+      },
+      "receipt_sha256": "724bc91bb469767ffc1997e2b9a1c0de36cdca4a5ae27967d97c0264b2e29d1b",
+      "artifacts": [
+        {
+          "name": "k5_plate_H1.png",
+          "sha256": "30015f1971119ce9160c5acabf4f1b337d9660440d1db4ec7b071a64fdd1b5c2"
+        },
+        {
+          "name": "exec-cc4c8c38-4117-4cda-9188-f4861b9ff913.provenance.json",
+          "sha256": "79ee6f10cbefca597229196e1f8f5c97274bfc4282c55f3f572d9f246df3324a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0972c-af25-7b63-b9b5-4d910c621900/exec-cc4c8c38-4117-4cda-9188-f4861b9ff913.png",
+          "sha256": "30015f1971119ce9160c5acabf4f1b337d9660440d1db4ec7b071a64fdd1b5c2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 46,
+  "images_used": 50,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -6042,6 +6270,18 @@
       "images": 8,
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/07 K4 register probe (Q74)/",
       "finding": "identity is text-carried and survives every register (same woman in all 8) \u2014 register is a separable axis from identity; cartoon AMPLITUDE belongs in motion, not proportions (H3 drifts toward chibi/anime-cute, not Hades)"
+    },
+    "K5": {
+      "status": "DELIVERED \u2014 in-scene register probe for Q74 (Matt rules); 4 scene plates (L/H1/H2/K1), all receipts DELIVERED_WITH_CONCERNS (expected: full-scene vs frozen card; warm key; writing-like marks on pages); composites at 18 %/28 % frame height by conductor (matte.py alpha_floor 40 + contact shadow)",
+      "bursts": [
+        "K5-plate-L",
+        "K5-plate-H1",
+        "K5-plate-H2",
+        "K5-plate-K1"
+      ],
+      "images": 4,
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-11/08 K5 in-scene register probe (Q74)/",
+      "corpus": "legolas 2026-09-12-corpus-register-stills (press kits, class D) pending"
     }
   },
   "milestones": [
