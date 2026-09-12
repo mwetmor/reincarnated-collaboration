@@ -15,3 +15,12 @@
 No tooling, no code, no prompts. Do not read the burst lane's runs/ or briefs/. Two passes per gap, then record the gap.
 
 — gandalf, 2026-09-12
+
+## R10b — the ORACLE artifacts (Matt 2026-09-12: "We do need to find an oracle… send Legolas out to find an idle and walking video and a companion sprite sheet in the painted style")
+
+Find and grade, with licence and provenance recorded for each:
+1. **A frame-accurate walk + idle reference for measurement** — first choice **Eadweard Muybridge's locomotion plates** (public domain; a woman walking, standing), highest-resolution scans available; plus Williams / Blair phase charts. Deliver the plate references and, if a clean scan is obtainable, the per-frame measurements: head-top y, hip y, each sole's x/y (planted vs swinging), shoulder/arm angle — normalised to body height, tabulated against the canonical phase (contact / down / passing / up).
+2. **A painted-register sprite sheet with idle AND walk (elevated three-quarter view preferred) and a video/GIF of it looping** — for how a painted cycle at 8–12 frames distributes motion and what stays locked. Prefer CC0 / CC-BY sources (OpenGameArt et al.) that could be registered with provenance; shipped-game sheets (D2-class) are MEASUREMENT-ONLY references, never lane inputs.
+3. **Derivations:** (a) a per-phase foot/sole table → our own numbered-foot pose guide (first-party by construction); (b) threshold RANGES for the T1 gait gates (vertical bob amplitude, lateral head sway, arm counter-swing amplitude incl. the reduced weapon-arm case, planted-sole slip tolerance, breath amplitude/period for idle); (c) the DSG-shaped judge questions for a cycle.
+
+**Provenance rule (unchanged, restated):** third-party pixels never condition a mint (`lane/ref_provenance.py`). Whether a licensed reference may serve as a JUDGE ANCHOR (not a generation reference) is a refinement for Matt's ruling — list the candidate and its licence; do not assume.
