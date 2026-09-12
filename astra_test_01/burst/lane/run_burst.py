@@ -15,7 +15,7 @@ import tomllib
 
 if __package__ in (None, ''):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from lane import audit, ledger, render_brief, schema_check
+from lane import audit, ledger, render_brief, schema_check, provenance_capture, ref_provenance
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK_ROOT = Path.home() / 'astra-burst' / 'runs'
@@ -44,6 +44,9 @@ def validate_task(task, type):
     for ref in task['references']:
         if not isinstance(ref, dict) or any(not isinstance(ref.get(k), str) for k in ('path', 'role')):
             raise ValueError('invalid reference')
+        ok, reason = ref_provenance.check(ref['path'])
+        if not ok:
+            raise ValueError('reference provenance: ' + reason)
     for output in task['outputs']:
         p = Path(output)
         if p.is_absolute() or '..' in p.parts or not p.parts:
@@ -202,6 +205,10 @@ def run(args):
             execution_error = execution_error or 'receipt reports unsuccessful execution'
     result = audit.audit(events, workdir, snapshot, prepared, args.type,
                          images_snapshot=images_snapshot, receipt=receipt)
+    if args.type in ('GENERATE', 'LABEL'):
+        for generated in result['generated_images_new']:
+            sidecar = provenance_capture.write_sidecar(generated['path'], out)
+            artifacts.append(dict(name=sidecar.name, sha256=ledger.sha256(sidecar)))
     # Reject all special files/links, including unlisted files, before copytree.
     for path, kind in audit.tree(out, audit_exclusions=False).items():
         if kind.startswith('link:') or kind == 'special':
@@ -225,6 +232,8 @@ def run(args):
                   artifacts_in_place=artifacts_in_place, effort=task['effort'],
                   image_calls_events=result['image_calls_events'],
                   generated_images_new=result['generated_images_new'],
+                  generator=dict(observed_fingerprint=None, probe_set_sha256=None),
+                  regeneratable_until=None,
                   **provenance, exit=exit_code))
     print(json.dumps({'exit': exit_code, 'audit': result}))
     return exit_code

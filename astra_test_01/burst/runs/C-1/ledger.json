@@ -636,6 +636,295 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "T0-d2",
+      "type": "TOOLING",
+      "experiment": "T0",
+      "brief_sha256": "ab67f0d89452dcf847a13f551ab9f2d095454aa029eca575dd43e375ec349970",
+      "started": "2026-09-12T03:42:35.235603+00:00",
+      "ended": "2026-09-12T04:08:18.347055+00:00",
+      "minutes": 25.71772129931681,
+      "image_calls": 0,
+      "tool_calls": 22,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 22,
+        "tools_seen": {
+          "command_execution": 22
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "3129f69c6e5c1a344f66503c33c259200feedb1482b34e410f2e037eabe51a01",
+      "artifacts": [
+        {
+          "name": "before.json",
+          "sha256": "48b63bd3b8c2775466baa539894d373bcd311a193c02aaefef14e8f0890fc403"
+        }
+      ],
+      "artifacts_in_place": [
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "bible/f04-keepers.stub.json",
+          "sha256": "eee173c703f5a645e12b14423b01e2fdd08ef10b127b1b6d71d336ea8bd1db4c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "bible/schema.json",
+          "sha256": "a14bc981b6f2e1cd910822a70168743b8b300d2d26ac54fd9127dc1268a6e3f7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "compare/calibrate_transcriber.py",
+          "sha256": "8097861d511845c47478a3cccea87b652d22d5abc74f0b80e70ff24d6e16199f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "compare/compare_to_bible.py",
+          "sha256": "f94f8281a48f2462827cccd91f0dc2880cf3169d31eba181df6e3f33fa9c20b3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/matte.py",
+          "sha256": "5e8b31dfebf518255e94d45c3d0df2ff6de5f7cb98f6f6c759e8c2fd06b23d8c"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/matte_quality.py",
+          "sha256": "5e5c70577d940b8137af1f9e049af2bbee8eb0ec3ef2549ac419caa66551e96e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "gates/plate_uniformity.py",
+          "sha256": "7e763c154e6520c8f219fc246e42ece4af223a44b771c9e3d9c37c643472b231"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/deps_ledger.py",
+          "sha256": "280a81c85e585aa80a5ff037395c156a76867b53ac0b9a2500fe363d1bd64137"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/ledger.py",
+          "sha256": "866a5fed7a6f07036d097c28e5ea48399d4d1025278b26a2b543a538831a4554"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/provenance_capture.py",
+          "sha256": "6b9879e7327f0df98b3f0256842a26374f6274649183473c37c8eb1c2b13746f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/ref_provenance.py",
+          "sha256": "b3716ec898ca09adef9b5162bc93b48c29c536ac7676e76a9d78249b73140150"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "lane/run_burst.py",
+          "sha256": "3fcbd174454604a6163de3cece88748621a66a39d36f1d2ac609e9403443dcca"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/CALIBRATION.md",
+          "sha256": "963c2b2037beefafb4e6cb3c24cd56d3f941b7b5e6217d576ba3037112ca5f31"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/model_drift_probe.py",
+          "sha256": "209068f52362a255f1ba6c7f879555a83f761623d37825806af67dc4271d2063"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/motif.py",
+          "sha256": "90df046aaae3fa984ffe3b73d83231de91a9262df4d5294bfbcb91935a7313df"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/probe_set.schema.json",
+          "sha256": "229f8dd4cb136c5d20f13b8b3bcd8ee0da1aef8a5fbecdb837729ddc0d48c1c9"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/pse_check.py",
+          "sha256": "eeba380876774bedfc75732fd6206b7ec59133cd3704ed2b7cbbf58ac34d82ca"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "oracles/sheet_consistency.py",
+          "sha256": "c6e78001aa6a57aba9c0ffef7a5e24640bdc583728d000117b733cd5864cf326"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/f5_calibration.json",
+          "sha256": "3c17a60e91f90a89b34959c9c62628a53ca7195382c6fbcde06e7b3518fe3fd3"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/gates_regression_diff.json",
+          "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/matte_quality_calibration.json",
+          "sha256": "09db637a9e71ce7eb408660652a77290762f4213c079aa76272c38955e9edc80"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/motif_calibration.py",
+          "sha256": "9c3cc69f7ae1cb5e5fc9e1ab2e1ee1f8aba122c08e702df0720d33469bade003"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/o3b_calibration.json",
+          "sha256": "af699179d6cc03a0c175b99b4ecc57c0eddc887edc9844919f50f584202bd2fa"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_acceptance_measurements.json",
+          "sha256": "5a1bf14986e4a2ea3bbdf6329778aa6e227dc2d5199477037aa8b82e038cff94"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_palette_measurements.json",
+          "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/oracles_silhouette_measurements.json",
+          "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/parts_measurements.json",
+          "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/run_t0c.py",
+          "sha256": "9d7dfe5444a4bfc0cb87fb4ec210c346ccf17e8393092e050011ce7f9036834a"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/sheet_consistency_calibration.json",
+          "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_suite_output.txt",
+          "sha256": "f9cab8cd63322699bcb418a74148e15ae2519fc867554d35f24f00dc17f0a6f2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/t0c_summary.json",
+          "sha256": "1e63edd580d5cbff2e5fb0cc39c3dfc39d1ae9cf636983571ea16a67ef76a42e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_bible.py",
+          "sha256": "95373c2ddb0836d690607ecc934469837140e69823aa28a062974d974347fb61"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_calibrate_transcriber.py",
+          "sha256": "306c69d189c509d551fbfd6c85d43151b6f7f4ac7ef1dff05358a1213c51aa0e"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_compare.py",
+          "sha256": "2cc4b9ead386e5a245dd55d470b6368a65b72d623a6eab924937b4245849a5f7"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_deps_ledger.py",
+          "sha256": "507a8a75e7673724bfc24268e81740fbe2a501d369c0cfaf3fc97a49d4bc4198"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_gates_matte.py",
+          "sha256": "9965844842aa968e4458f39b69c4d954865610eed6fa91a70fc62a65556c35bf"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_lane.py",
+          "sha256": "e7e65604aa4a1456d3ab876c53e3e5c75eaa14ee3d61f36e7179c295aacebac2"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_ledger.py",
+          "sha256": "1760731f995a035a6402838d4d237c36702f1aeae8281c53640552f74310392f"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_matte_quality.py",
+          "sha256": "068bcb329aeb06bf323880c2056b336ddb20d2c9c2cb7cf0bcbdd49262029c04"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_model_drift_probe.py",
+          "sha256": "c8512b2d7471189136e285fc40ae04774dad9a2acbd02e3af40e1f292a5e80ef"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_oracles_motif.py",
+          "sha256": "5984b6d021ab6856ab5cb7af911da1434436436f24bc60ce8d07a71b001e9536"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_plate_uniformity.py",
+          "sha256": "cb5d8a853516608dbba7a396e8e3dcb0910598105a713a32247236bb32dbf266"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_provenance_capture.py",
+          "sha256": "0b6bb8816635846498377834f652dcce2c84bb088d03a5026dc2458b99a33371"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_pse_check.py",
+          "sha256": "dc65894e920606a66eeba6f7d5c65301972c61c0de56fb4d318cf26c65882dcd"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_ref_provenance.py",
+          "sha256": "3b7415bf1068245f3f178db5834c03d1a995088dacb8c67cff40366f44c5fbdb"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_run_burst.py",
+          "sha256": "4f8374ae41282db609bb5a2e4775e18a9d3dbd21c7e45c3afbae96e62eff7cc6"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_sheet_consistency.py",
+          "sha256": "4f1d0eb5deada811e840bd4a6dbedd6f01758c2f61efa411ea2d91044c417663"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/test_transcribe.py",
+          "sha256": "5e6d1103f7cabf45b16379e047d979451dab31b9c70e2bd1092080238f8d7808"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "tests/x1_helpers.py",
+          "sha256": "de4d26361ac5b7c860b2c08efddb7e45f2687569b66e6411e52db392dc297d36"
+        },
+        {
+          "root": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst",
+          "name": "transcribe/questions.py",
+          "sha256": "a277548393fd7b0c1b54e3d0e6fa0832ec718e707027da868ea8da386a22ebd4"
+        }
+      ],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 4,
@@ -647,23 +936,31 @@
         "T0-a",
         "T0-b",
         "T0-c",
-        "T0-d1"
+        "T0-d1",
+        "T0-d2"
       ],
       "known_red": [
-        "tests/test_oracles_motif.py::F04 outside>=3",
-        "tests/test_compare.py::F04 rejected"
+        "tests/test_oracles_motif.py::test_family_clean_outside_zero (O3b counts a filled boot toe at (286,407) r=8 as ring-family)",
+        "tests/test_compare.py::test_stub_accepts_clean_crop (its comparator twin)"
       ],
-      "owed": "T0-d2"
+      "owed": "T0-d3 (O3b annulus discrimination)"
     },
     "X1": {
-      "status": "DELIVERED_ART / VOID_LANE",
+      "status": "GENERATE DELIVERED (fixed wrapper, exit 0); CHECK X1-chk-02 pending",
       "bursts": [
         "X1-gen-01",
-        "X1-chk-01"
+        "X1-chk-01",
+        "X1-gen-02"
       ],
       "images_true": 2,
       "images_audited": 0,
       "owed": "T0-d (F-1..F-5)"
+    },
+    "X0-T": {
+      "status": "PLANNED",
+      "bursts": [],
+      "inputs": "runs/C-1/x0t/ (hand_inventory.json, per-figure questions/schema), fixtures/x0t/ (native crops)",
+      "threshold": "presence P/R >= 0.9; counts within \u00b11 on >= 80 %; controls 100 % (calibrate_transcriber.py)"
     }
   },
   "milestones": [],
@@ -699,6 +996,14 @@
       "boundary": "reasoning",
       "burst": "T0-d1",
       "ruling": "T0-d1 VOID (exit 2) UPHELD as an audit result of the PRE-fix wrapper (18 forbidden-tool hits on command text; 20 add_dir artifacts rejected by the old verify_files; a phantom image call from the text heuristic; two Finder .DS_Store writes under agentic_orchestration/ blamed on the burst by the repo-wide snapshot \u2014 every one an instance of the defect classes T0-d1 was contracted to fix) and OVERRIDDEN ON SUBSTANCE by conductor DRIFT-CRITIC review: 86 tests / 84 green, the only reds the two T0-d2-reserved acceptance cases (O3 F04 outside>=3; comparator rejects F04); regression lock 0/1,880. Delivered per SPEC \u00a76 (a)(b)(d)(f:F-1,F-2) + check_sync: forbidden regex on type/tool/name/server only (replayed on T0-c, X1-gen-01, X1-chk-01, T0-d1 real streams: 0 hits; three fixtured); in-place add_dir artifacts (artifacts_in_place[]); effort must equal high; non-TOOLING add_dirs empty; model/effort/codex_version/profile_sha256 per burst (model from the profile \u2014 the --json stream does not echo it); generated_images/ before/after diff thread-scoped as the image truth, receipt calls_used cross-check; snapshot roots workdir+add_dirs with .git/__pycache__/pyc/wrapper-log exclusions; lane/check_sync.py (proven live: flags run_burst.py DRIFT, exit 1). Concerns accepted: read-scope deviation on SPEC.md (harmless); two legacy scalar take_snapshot calls migrated. Ledger corrected: T0-d1 image_calls 1\u21920, images_used 3\u21922 (the pre-fix wrapper booked a phantom call). Tree FROZEN at MANIFEST.sha256 (closes P1's stale rows). Next: X1-gen-02 through the fixed wrapper (P2: exit 0, image_calls == calls_used == 2), then T0-d2.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-5",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "T0-d2",
+      "ruling": "T0-d2 DELIVERED, exit 0, zero violations \u2014 the first TOOLING burst audited clean by the fixed wrapper (50 in-place artifacts verified; 22 tool calls; 25.7 min). Conductor DRIFT-CRITIC ACCEPT on substance: 118 tests / 116 green, regression lock 0/1,880; THE TWO T0-c REDS ARE GREEN \u2014 O3b (gradient-vote circular Hough; vote_thresh 0.50 fixed on synthetic rings BEFORE any real measurement) counts 14 ring-family instances outside the rod head on the F04 crop (acceptance >= 3) and the comparator rejects it. TWO NEW NAMED REDS, diagnosed by the conductor from the peak overlays: O3b counts FILLED DISCS as ring-family \u2014 the clean crop's single 'ring' is the mage's front boot toe (286,407) r=8, and on F04 the face, a fist and both boot toes sit among the 14 (the genuine ring-sigils \u2014 pauldron emblem, chest boss, tabard compass, belt buckle \u2014 are also there, so the catch is real by eye). T0-d3 OWED: annulus discrimination (hollow-centre / inner-edge test), filled discs at 3 radii join the synthetic calibration set (must count 0), acceptance unchanged (F04 outside >= 3, clean 0) \u2014 no bar lowered, no threshold tuned. F-5: plate_uniformity on the X1-gen-01 props reads 99.5 % / 22.3 % within \u00b18 (R-2 recorded 100 %/38 % by a different measurement); X1-gen-02's plates read 99.5 % / 98.8 % \u2192 plate uniformity VARIES PER GENERATION, so the gate is live; alpha_floor=40 takes G9 border alpha 34/39 \u2192 0. All R9 THEN items delivered (pse spatial-pattern report-only; probe alarm threshold awaits K1; C2PA presence detected, issuer/model null when opaque). Tree FROZEN (MANIFEST re-written). Next: serial chain X1-chk-02 \u2192 X0-T-1..4 (runs during the grill) \u2192 T0-d3 \u2192 K1.",
       "veto": "open to Matt"
     }
   ]

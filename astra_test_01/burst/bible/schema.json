@@ -121,6 +121,38 @@
               },
               "needs_part_masks": {
                 "type": "boolean"
+              },
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "template",
+                  "family",
+                  "both"
+                ]
+              },
+              "family": {
+                "type": "string",
+                "enum": [
+                  "ring"
+                ]
+              },
+              "family_parameters": {
+                "type": "object",
+                "properties": {
+                  "min_radius_px": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "max_radius_px": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "vote_thresh": {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "required": [
@@ -424,6 +456,77 @@
         "feature_size_px"
       ],
       "additionalProperties": false
+    },
+    "controls": {
+      "type": "object",
+      "properties": {
+        "declared_absent_parts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "never_generated": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "probe_set_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_hash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "content_flags": {
+            "type": "object",
+            "properties": {
+              "blood": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "skeletal": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "religious_iconography": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "required": [
@@ -437,5 +540,5 @@
   ],
   "additionalProperties": false,
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Bible v0.1"
+  "title": "Bible v0.2"
 }

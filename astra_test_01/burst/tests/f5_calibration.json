@@ -1,0 +1,46 @@
+{
+  "satchel": {
+    "plate": {
+      "id": "plate_uniformity",
+      "subject": "",
+      "passed": null,
+      "value": 0.9951550008737277,
+      "threshold": null,
+      "op": ">=",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"non_subject_pixels\": 1253251, \"plate_mean_rgb\": [3.5858515173736145, 249.51109873441155, 3.8822837564063386], \"plate_sd_rgb\": [0.9222366909037699, 2.238738666304569, 0.933213075576461], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+    },
+    "before_border": 34,
+    "after_border": 0,
+    "matte": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 0,
+      "native_input_alpha": false,
+      "alpha_floor": 40,
+      "alpha_floor_removed_pixels": 1251275
+    }
+  },
+  "staff_head": {
+    "plate": {
+      "id": "plate_uniformity",
+      "subject": "",
+      "passed": null,
+      "value": 0.2233263715097009,
+      "threshold": null,
+      "op": ">=",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"non_subject_pixels\": 1478061, \"plate_mean_rgb\": [6.4743078939231875, 249.08387678181077, 9.213060895321641], \"plate_sd_rgb\": [1.1746059839334175, 1.7064204064077222, 1.3473317912518066], \"subject_support\": \"supplied subject alpha >=128\", \"tol\": 8}, \"reason\": \"No min_fraction declared; X1 observations are not a threshold\"}"
+    },
+    "before_border": 39,
+    "after_border": 0,
+    "matte": {
+      "method": "green excess matte + inverse straight-alpha compositing",
+      "removed_background_or_detached_alpha_dust_pixels": 0,
+      "native_input_alpha": false,
+      "alpha_floor": 40,
+      "alpha_floor_removed_pixels": 1476165
+    }
+  }
+}

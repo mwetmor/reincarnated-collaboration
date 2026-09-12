@@ -29,6 +29,8 @@ def sha256(path):
 
 
 def append(run, entry):
+    # Preserve generator {observed_fingerprint, probe_set_sha256} and
+    # regeneratable_until verbatim; conductor fills wrapper-written nulls.
     # Preserve provenance and both image instruments verbatim. Only image_calls
     # (the generated-files truth source) contributes to the run budget.
     entry = dict(entry)

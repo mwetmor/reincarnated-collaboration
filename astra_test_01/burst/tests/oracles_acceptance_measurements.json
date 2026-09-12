@@ -1,5 +1,5 @@
 {
-  "f04_advanced_crop": {
+  "f04_advanced_crop_template": {
     "id": "O3",
     "subject": "",
     "passed": true,
@@ -10,18 +10,29 @@
     "evidence": [],
     "notes": "{\"metrics\": {\"evaluated_templates\": 70, \"inside\": 1, \"nms_center_fraction\": 0.5, \"nms_iou\": 0.25, \"outside\": 0, \"peaks\": [{\"bbox\": [185.0, 361.0, 238.0, 417.0], \"center\": [211.5, 389.0], \"inside\": true, \"rotation_deg\": 0.0, \"scale\": 1.0, \"score\": 1.0}], \"thresh\": 0.65}, \"reason\": \"\"}"
   },
+  "f04_advanced_crop": {
+    "id": "O3b",
+    "subject": "",
+    "passed": false,
+    "value": 14,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 1, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 14, \"peaks\": [{\"angular_support\": 0.8333333333333334, \"center\": [212.0, 393.0], \"inside\": true, \"radius\": 27.0, \"score\": 1.084822914992721}, {\"angular_support\": 0.875, \"center\": [152.0, 173.0], \"inside\": false, \"radius\": 13.0, \"score\": 1.0734516963117637}, {\"angular_support\": 0.75, \"center\": [232.0, 626.0], \"inside\": false, \"radius\": 18.0, \"score\": 1.0432034575675173}, {\"angular_support\": 0.7708333333333334, \"center\": [113.0, 201.0], \"inside\": false, \"radius\": 30.0, \"score\": 0.7074940354497125}, {\"angular_support\": 0.7708333333333334, \"center\": [210.0, 146.0], \"inside\": false, \"radius\": 20.0, \"score\": 0.6796891585712771}, {\"angular_support\": 0.8333333333333334, \"center\": [170.0, 253.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.6366616733180586}, {\"angular_support\": 0.875, \"center\": [165.0, 121.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.6256766987100008}, {\"angular_support\": 0.8125, \"center\": [82.0, 418.0], \"inside\": false, \"radius\": 17.0, \"score\": 0.5753844017314709}, {\"angular_support\": 0.8125, \"center\": [140.0, 195.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5679561827320952}, {\"angular_support\": 0.75, \"center\": [125.0, 83.0], \"inside\": false, \"radius\": 20.0, \"score\": 0.5375485525114707}, {\"angular_support\": 0.75, \"center\": [111.0, 311.0], \"inside\": false, \"radius\": 27.0, \"score\": 0.5281963253811909}, {\"angular_support\": 0.75, \"center\": [20.0, 295.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5254552482989405}, {\"angular_support\": 0.75, \"center\": [203.0, 246.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5109477865909793}, {\"angular_support\": 0.7708333333333334, \"center\": [69.0, 547.0], \"inside\": false, \"radius\": 14.0, \"score\": 0.5095617547315954}, {\"angular_support\": 0.8125, \"center\": [212.0, 566.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5011570879792603}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
   "f04_advanced_crop_comparison": {
     "id": "compare_to_bible",
     "subject": "",
-    "passed": true,
-    "value": 0,
+    "passed": false,
+    "value": 1,
     "threshold": 0,
     "op": "<=",
     "unit": "violated_rules",
     "evidence": [],
-    "notes": "{\"metrics\": {\"coverage\": [\"O3\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 1, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [{\\\"bbox\\\": [185.0, 361.0, 238.0, 417.0], \\\"center\\\": [211.5, 389.0], \\\"inside\\\": true, \\\"rotation_deg\\\": 0.0, \\\"scale\\\": 1.0, \\\"score\\\": 1.0}], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
+    "notes": "{\"metrics\": {\"coverage\": [\"O3\", \"O3b\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 1, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [{\\\"bbox\\\": [185.0, 361.0, 238.0, 417.0], \\\"center\\\": [211.5, 389.0], \\\"inside\\\": true, \\\"rotation_deg\\\": 0.0, \\\"scale\\\": 1.0, \\\"score\\\": 1.0}], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}, {\"evidence\": [], \"id\": \"O3b\", \"notes\": \"{\\\"metrics\\\": {\\\"alignment_cosine\\\": 0.9, \\\"angular_samples\\\": 48, \\\"family\\\": \\\"ring\\\", \\\"gradient_floor\\\": 0.02, \\\"inside\\\": 1, \\\"max_radius_px\\\": 30, \\\"min_angular_support\\\": 0.75, \\\"min_radius_px\\\": 8, \\\"nms_radius_fraction\\\": 0.8, \\\"outside\\\": 14, \\\"peaks\\\": [{\\\"angular_support\\\": 0.8333333333333334, \\\"center\\\": [212.0, 393.0], \\\"inside\\\": true, \\\"radius\\\": 27.0, \\\"score\\\": 1.084822914992721}, {\\\"angular_support\\\": 0.875, \\\"center\\\": [152.0, 173.0], \\\"inside\\\": false, \\\"radius\\\": 13.0, \\\"score\\\": 1.0734516963117637}, {\\\"angular_support\\\": 0.75, \\\"center\\\": [232.0, 626.0], \\\"inside\\\": false, \\\"radius\\\": 18.0, \\\"score\\\": 1.0432034575675173}, {\\\"angular_support\\\": 0.7708333333333334, \\\"center\\\": [113.0, 201.0], \\\"inside\\\": false, \\\"radius\\\": 30.0, \\\"score\\\": 0.7074940354497125}, {\\\"angular_support\\\": 0.7708333333333334, \\\"center\\\": [210.0, 146.0], \\\"inside\\\": false, \\\"radius\\\": 20.0, \\\"score\\\": 0.6796891585712771}, {\\\"angular_support\\\": 0.8333333333333334, \\\"center\\\": [170.0, 253.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.6366616733180586}, {\\\"angular_support\\\": 0.875, \\\"center\\\": [165.0, 121.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.6256766987100008}, {\\\"angular_support\\\": 0.8125, \\\"center\\\": [82.0, 418.0], \\\"inside\\\": false, \\\"radius\\\": 17.0, \\\"score\\\": 0.5753844017314709}, {\\\"angular_support\\\": 0.8125, \\\"center\\\": [140.0, 195.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.5679561827320952}, {\\\"angular_support\\\": 0.75, \\\"center\\\": [125.0, 83.0], \\\"inside\\\": false, \\\"radius\\\": 20.0, \\\"score\\\": 0.5375485525114707}, {\\\"angular_support\\\": 0.75, \\\"center\\\": [111.0, 311.0], \\\"inside\\\": false, \\\"radius\\\": 27.0, \\\"score\\\": 0.5281963253811909}, {\\\"angular_support\\\": 0.75, \\\"center\\\": [20.0, 295.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.5254552482989405}, {\\\"angular_support\\\": 0.75, \\\"center\\\": [203.0, 246.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.5109477865909793}, {\\\"angular_support\\\": 0.7708333333333334, \\\"center\\\": [69.0, 547.0], \\\"inside\\\": false, \\\"radius\\\": 14.0, \\\"score\\\": 0.5095617547315954}, {\\\"angular_support\\\": 0.8125, \\\"center\\\": [212.0, 566.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.5011570879792603}], \\\"radial_tolerance_fraction\\\": 0.15, \\\"smooth_fraction\\\": 0.08, \\\"vote_thresh\\\": 0.5}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": false, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 14}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
   },
-  "clean_crop": {
+  "clean_crop_template": {
     "id": "O3",
     "subject": "",
     "passed": true,
@@ -32,15 +43,26 @@
     "evidence": [],
     "notes": "{\"metrics\": {\"evaluated_templates\": 70, \"inside\": 0, \"nms_center_fraction\": 0.5, \"nms_iou\": 0.25, \"outside\": 0, \"peaks\": [], \"thresh\": 0.65}, \"reason\": \"\"}"
   },
+  "clean_crop": {
+    "id": "O3b",
+    "subject": "",
+    "passed": false,
+    "value": 1,
+    "threshold": 0,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [286.0, 407.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.7741343318413482}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
   "clean_crop_comparison": {
     "id": "compare_to_bible",
     "subject": "",
-    "passed": true,
-    "value": 0,
+    "passed": false,
+    "value": 1,
     "threshold": 0,
     "op": "<=",
     "unit": "violated_rules",
     "evidence": [],
-    "notes": "{\"metrics\": {\"coverage\": [\"O3\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 0, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
+    "notes": "{\"metrics\": {\"coverage\": [\"O3\", \"O3b\"], \"results\": [{\"evidence\": [], \"id\": \"O3\", \"notes\": \"{\\\"metrics\\\": {\\\"evaluated_templates\\\": 70, \\\"inside\\\": 0, \\\"nms_center_fraction\\\": 0.5, \\\"nms_iou\\\": 0.25, \\\"outside\\\": 0, \\\"peaks\\\": [], \\\"thresh\\\": 0.65}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": true, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 0}, {\"evidence\": [], \"id\": \"O3b\", \"notes\": \"{\\\"metrics\\\": {\\\"alignment_cosine\\\": 0.9, \\\"angular_samples\\\": 48, \\\"family\\\": \\\"ring\\\", \\\"gradient_floor\\\": 0.02, \\\"inside\\\": 0, \\\"max_radius_px\\\": 30, \\\"min_angular_support\\\": 0.75, \\\"min_radius_px\\\": 8, \\\"nms_radius_fraction\\\": 0.8, \\\"outside\\\": 1, \\\"peaks\\\": [{\\\"angular_support\\\": 0.7708333333333334, \\\"center\\\": [286.0, 407.0], \\\"inside\\\": false, \\\"radius\\\": 8.0, \\\"score\\\": 0.7741343318413482}], \\\"radial_tolerance_fraction\\\": 0.15, \\\"smooth_fraction\\\": 0.08, \\\"vote_thresh\\\": 0.5}, \\\"reason\\\": \\\"\\\"}\", \"op\": \"<=\", \"passed\": false, \"subject\": \"\", \"threshold\": 0, \"unit\": \"instances\", \"value\": 1}], \"unassessed\": \"JUDGE-only and undeclared palette/light/construction/scale thresholds\"}, \"reason\": \"\"}"
   }
 }

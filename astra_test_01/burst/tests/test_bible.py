@@ -4,7 +4,7 @@ from oracles_helpers import *
 class Tests(unittest.TestCase):
     def test_stub_and_v01_fields(self):
         b=stub();self.assertEqual(validate(b),[])
-        self.assertEqual(set(b),{'RULE','PILLARS','PALETTE','PARTS','CONSTRUCTION','LIGHT','SCALE'})
+        self.assertTrue({'RULE','PILLARS','PALETTE','PARTS','CONSTRUCTION','LIGHT','SCALE'} <= set(b))
         self.assertEqual(len([r for r in b['RULE'] if r['class']=='motif']),1)
         self.assertEqual(b['LIGHT']['key_azimuth_deg'],135)
         self.assertEqual(b['SCALE']['canvas_px'],512)
@@ -15,3 +15,19 @@ class Tests(unittest.TestCase):
             b=copy.deepcopy(original);mutate(b);self.assertTrue(validate(b))
         b=copy.deepcopy(original);b['CONSTRUCTION']=[{'part':'belt','terminates_at':'tabard','closes':'shirt','statement':'invalid both'}]
         self.assertTrue(validate(b))
+
+    def test_additive_optional_part_controls(self):
+        b=stub();self.assertEqual(b['controls']['declared_absent_parts'],['helmet','cape','shield','second_belt'])
+        self.assertEqual(b['RULE'][0]['oracle']['mode'],'both')
+        del b['controls'];self.assertEqual(validate(b),[])
+        b['controls']={'declared_absent_parts':[1]};self.assertTrue(validate(b))
+
+    def test_optional_v02_asset_contracts(self):
+        b=stub();b['assets']=[dict(asset_id='keeper/head',content_hash='a'*64,
+            content_flags=dict(blood=False,skeletal=None,religious_iconography=False))]
+        b['probe_set_sha256']='b'*64;self.assertEqual(validate(b),[])
+        b['assets'][0]['content_flags']['blood']='yes';self.assertTrue(validate(b))
+        for key in ['assets','never_generated','probe_set_sha256','controls']:b.pop(key,None)
+        for rule in b['RULE']:
+            for key in ['mode','family','family_parameters']:rule['oracle'].pop(key,None)
+        self.assertEqual(validate(b),[]) # v0.1 remains valid

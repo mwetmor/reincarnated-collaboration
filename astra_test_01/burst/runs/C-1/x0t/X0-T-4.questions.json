@@ -1,0 +1,380 @@
+[
+ {
+  "id": "parts.hair.present",
+  "part": "hair",
+  "predicate": "present",
+  "question": "Is the anatomical part hair present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.hair.count",
+  "part": "hair",
+  "predicate": "count",
+  "question": "How many anatomical instances of hair are present?",
+  "depends_on": [
+   "parts.hair.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.face.present",
+  "part": "face",
+  "predicate": "present",
+  "question": "Is the anatomical part face present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.face.count",
+  "part": "face",
+  "predicate": "count",
+  "question": "How many anatomical instances of face are present?",
+  "depends_on": [
+   "parts.face.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.coat.present",
+  "part": "coat",
+  "predicate": "present",
+  "question": "Is the anatomical part coat present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.coat.count",
+  "part": "coat",
+  "predicate": "count",
+  "question": "How many anatomical instances of coat are present?",
+  "depends_on": [
+   "parts.coat.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.shirt.present",
+  "part": "shirt",
+  "predicate": "present",
+  "question": "Is the anatomical part shirt present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.shirt.count",
+  "part": "shirt",
+  "predicate": "count",
+  "question": "How many anatomical instances of shirt are present?",
+  "depends_on": [
+   "parts.shirt.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.belt.present",
+  "part": "belt",
+  "predicate": "present",
+  "question": "Is the anatomical part belt present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.belt.count",
+  "part": "belt",
+  "predicate": "count",
+  "question": "How many anatomical instances of belt are present?",
+  "depends_on": [
+   "parts.belt.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.harness_strap.present",
+  "part": "harness_strap",
+  "predicate": "present",
+  "question": "Is the anatomical part harness_strap present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.harness_strap.count",
+  "part": "harness_strap",
+  "predicate": "count",
+  "question": "How many anatomical instances of harness_strap are present?",
+  "depends_on": [
+   "parts.harness_strap.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.pouch.present",
+  "part": "pouch",
+  "predicate": "present",
+  "question": "Is the anatomical part pouch present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.pouch.count",
+  "part": "pouch",
+  "predicate": "count",
+  "question": "How many anatomical instances of pouch are present?",
+  "depends_on": [
+   "parts.pouch.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.tool.present",
+  "part": "tool",
+  "predicate": "present",
+  "question": "Is the anatomical part tool present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.tool.count",
+  "part": "tool",
+  "predicate": "count",
+  "question": "How many anatomical instances of tool are present?",
+  "depends_on": [
+   "parts.tool.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.trousers.present",
+  "part": "trousers",
+  "predicate": "present",
+  "question": "Is the anatomical part trousers present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.trousers.count",
+  "part": "trousers",
+  "predicate": "count",
+  "question": "How many anatomical instances of trousers are present?",
+  "depends_on": [
+   "parts.trousers.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.boots.present",
+  "part": "boots",
+  "predicate": "present",
+  "question": "Is the anatomical part boots present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.boots.count",
+  "part": "boots",
+  "predicate": "count",
+  "question": "How many anatomical instances of boots are present?",
+  "depends_on": [
+   "parts.boots.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.bracer.present",
+  "part": "bracer",
+  "predicate": "present",
+  "question": "Is the anatomical part bracer present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.bracer.count",
+  "part": "bracer",
+  "predicate": "count",
+  "question": "How many anatomical instances of bracer are present?",
+  "depends_on": [
+   "parts.bracer.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.knee_pad.present",
+  "part": "knee_pad",
+  "predicate": "present",
+  "question": "Is the anatomical part knee_pad present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.knee_pad.count",
+  "part": "knee_pad",
+  "predicate": "count",
+  "question": "How many anatomical instances of knee_pad are present?",
+  "depends_on": [
+   "parts.knee_pad.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.rifle.present",
+  "part": "rifle",
+  "predicate": "present",
+  "question": "Is the anatomical part rifle present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.rifle.count",
+  "part": "rifle",
+  "predicate": "count",
+  "question": "How many anatomical instances of rifle are present?",
+  "depends_on": [
+   "parts.rifle.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.pauldron.present",
+  "part": "pauldron",
+  "predicate": "present",
+  "question": "Is the anatomical part pauldron present?",
+  "depends_on": [],
+  "declared_absent_control": false,
+  "expected": null
+ },
+ {
+  "id": "parts.pauldron.count",
+  "part": "pauldron",
+  "predicate": "count",
+  "question": "How many anatomical instances of pauldron are present?",
+  "depends_on": [
+   "parts.pauldron.present"
+  ],
+  "declared_absent_control": false,
+  "expected": null,
+  "maximum": null
+ },
+ {
+  "id": "parts.helmet.present",
+  "part": "helmet",
+  "predicate": "present",
+  "question": "Is the anatomical part helmet present?",
+  "depends_on": [],
+  "declared_absent_control": true,
+  "expected": false
+ },
+ {
+  "id": "parts.helmet.count",
+  "part": "helmet",
+  "predicate": "count",
+  "question": "How many anatomical instances of helmet are present?",
+  "depends_on": [
+   "parts.helmet.present"
+  ],
+  "declared_absent_control": true,
+  "expected": 0,
+  "maximum": 0
+ },
+ {
+  "id": "parts.cape.present",
+  "part": "cape",
+  "predicate": "present",
+  "question": "Is the anatomical part cape present?",
+  "depends_on": [],
+  "declared_absent_control": true,
+  "expected": false
+ },
+ {
+  "id": "parts.cape.count",
+  "part": "cape",
+  "predicate": "count",
+  "question": "How many anatomical instances of cape are present?",
+  "depends_on": [
+   "parts.cape.present"
+  ],
+  "declared_absent_control": true,
+  "expected": 0,
+  "maximum": 0
+ },
+ {
+  "id": "parts.shield.present",
+  "part": "shield",
+  "predicate": "present",
+  "question": "Is the anatomical part shield present?",
+  "depends_on": [],
+  "declared_absent_control": true,
+  "expected": false
+ },
+ {
+  "id": "parts.shield.count",
+  "part": "shield",
+  "predicate": "count",
+  "question": "How many anatomical instances of shield are present?",
+  "depends_on": [
+   "parts.shield.present"
+  ],
+  "declared_absent_control": true,
+  "expected": 0,
+  "maximum": 0
+ },
+ {
+  "id": "parts.staff.present",
+  "part": "staff",
+  "predicate": "present",
+  "question": "Is the anatomical part staff present?",
+  "depends_on": [],
+  "declared_absent_control": true,
+  "expected": false
+ },
+ {
+  "id": "parts.staff.count",
+  "part": "staff",
+  "predicate": "count",
+  "question": "How many anatomical instances of staff are present?",
+  "depends_on": [
+   "parts.staff.present"
+  ],
+  "declared_absent_control": true,
+  "expected": 0,
+  "maximum": 0
+ }
+]

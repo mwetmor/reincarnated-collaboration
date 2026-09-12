@@ -1,0 +1,350 @@
+{
+ "type": "object",
+ "properties": {
+  "hair": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "face": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "shirt": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "tabard": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "belt": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "satchel": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "harness_strap": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "pauldron_L": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "pauldron_R": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "bracer_L": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "bracer_R": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "trousers": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "boots": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "rod": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "rod_head": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "helmet": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "cape": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "shield": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  },
+  "second_belt": {
+   "type": "object",
+   "properties": {
+    "present": {
+     "type": "boolean"
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0
+    }
+   },
+   "required": [
+    "present",
+    "count"
+   ],
+   "additionalProperties": false
+  }
+ },
+ "required": [
+  "hair",
+  "face",
+  "shirt",
+  "tabard",
+  "belt",
+  "satchel",
+  "harness_strap",
+  "pauldron_L",
+  "pauldron_R",
+  "bracer_L",
+  "bracer_R",
+  "trousers",
+  "boots",
+  "rod",
+  "rod_head",
+  "helmet",
+  "cape",
+  "shield",
+  "second_belt"
+ ],
+ "additionalProperties": false
+}

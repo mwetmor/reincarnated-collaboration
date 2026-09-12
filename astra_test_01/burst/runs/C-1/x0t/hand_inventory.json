@@ -1,0 +1,458 @@
+{
+ "_meta": {
+  "author": "gandalf (RUN-CONDUCTOR), hand inventory from native crops viewed 2026-09-11 (HITL step 3 re-view of plan \u00a7 6)",
+  "sources": {
+   "F04": "astra_test_01/design/experiments/E07V/art/F04.png (1536x1024); starter bbox [10,30,275,705]; advanced bbox [280,40,540,695] (fixtures/manifest.json)",
+   "F03": "astra_test_01/design/experiments/E07V/art/F03.png (1536x1024); starter bbox [10,40,255,665]; advanced bbox [245,30,545,665]"
+  },
+  "convention": "present = the part is visible on the figure; count = distinct instances; controls are declared-absent anatomical parts that MUST be answered present=false, count=0. 'certainty' marks counts the conductor could not fix by eye (re-view at native if a transcriber disagrees).",
+  "grill_notes": [
+   "F04 starter: X-harness (TWO diagonals) with the satchel on the figure's RIGHT hip (screen-left) \u2014 the charter identity spec says LEFT hip and the V4 lean says ONE diagonal shoulder\u2192opposite hip. Reference contradicts the lean: Matt rules at V4.",
+   "F04 advanced: the astrolabe-rod is held in the figure's LEFT hand; the identity spec says RIGHT. K1 masters follow the spec, not the reference.",
+   "F04 advanced: sigil-class emblems on pauldron_L, chest boss, both bracers, three tabard panels, belt buckle, both greaves, rod head \u2014 ~11 placements: primitive capture (legolas R6 \u00a7 1.6 cl. 1) visible by eye; O3b acceptance 'outside \u2265 3' is conservative."
+  ]
+ },
+ "F04_starter": {
+  "closed_parts": [
+   "hair",
+   "face",
+   "shirt",
+   "tabard",
+   "belt",
+   "satchel",
+   "harness_strap",
+   "pauldron_L",
+   "pauldron_R",
+   "bracer_L",
+   "bracer_R",
+   "trousers",
+   "boots",
+   "rod",
+   "rod_head"
+  ],
+  "controls": [
+   "helmet",
+   "cape",
+   "shield",
+   "second_belt"
+  ],
+  "inventory": {
+   "hair": {
+    "present": true,
+    "count": 1
+   },
+   "face": {
+    "present": true,
+    "count": 1
+   },
+   "shirt": {
+    "present": true,
+    "count": 1
+   },
+   "tabard": {
+    "present": true,
+    "count": 1
+   },
+   "belt": {
+    "present": true,
+    "count": 1,
+    "certainty": "one waist belt with two buckles; a thin upper band reads as the same belt \u2014 ambiguous"
+   },
+   "satchel": {
+    "present": true,
+    "count": 1,
+    "note": "boxy leather satchel with brass dial clasp on the figure's RIGHT hip (screen-left)"
+   },
+   "harness_strap": {
+    "present": true,
+    "count": 2,
+    "note": "X-harness: two diagonals crossing the chest"
+   },
+   "pauldron_L": {
+    "present": false,
+    "count": 0
+   },
+   "pauldron_R": {
+    "present": false,
+    "count": 0
+   },
+   "bracer_L": {
+    "present": true,
+    "count": 1
+   },
+   "bracer_R": {
+    "present": true,
+    "count": 1
+   },
+   "trousers": {
+    "present": true,
+    "count": 1
+   },
+   "boots": {
+    "present": true,
+    "count": 2
+   },
+   "rod": {
+    "present": false,
+    "count": 0
+   },
+   "rod_head": {
+    "present": false,
+    "count": 0
+   },
+   "helmet": {
+    "present": false,
+    "count": 0
+   },
+   "cape": {
+    "present": false,
+    "count": 0
+   },
+   "shield": {
+    "present": false,
+    "count": 0
+   },
+   "second_belt": {
+    "present": false,
+    "count": 0,
+    "certainty": "ambiguous on this figure (double band); a 'present' answer is a recorded disagreement, not a control miss \u2014 score separately"
+   }
+  },
+  "sigil_emblems_total": {
+   "count": 3,
+   "certainty": "satchel dial clasp 1, tabard hanging-panel diagrams 2; buckles excluded"
+  }
+ },
+ "F04_advanced": {
+  "closed_parts": [
+   "hair",
+   "face",
+   "shirt",
+   "tabard",
+   "belt",
+   "satchel",
+   "harness_strap",
+   "pauldron_L",
+   "pauldron_R",
+   "bracer_L",
+   "bracer_R",
+   "trousers",
+   "boots",
+   "rod",
+   "rod_head"
+  ],
+  "controls": [
+   "helmet",
+   "cape",
+   "shield",
+   "second_belt"
+  ],
+  "inventory": {
+   "hair": {
+    "present": true,
+    "count": 1
+   },
+   "face": {
+    "present": true,
+    "count": 1
+   },
+   "shirt": {
+    "present": true,
+    "count": 1,
+    "note": "dark long-sleeve under the plate"
+   },
+   "tabard": {
+    "present": true,
+    "count": 1,
+    "note": "layered ivory/blue panels"
+   },
+   "belt": {
+    "present": true,
+    "count": 1
+   },
+   "satchel": {
+    "present": true,
+    "count": 1,
+    "certainty": "one pouch at the figure's right hip; a second small pouch at the left hip is possible (1\u20132)"
+   },
+   "harness_strap": {
+    "present": true,
+    "count": 1,
+    "note": "one diagonal chest strap with a round boss"
+   },
+   "pauldron_L": {
+    "present": true,
+    "count": 1,
+    "note": "oversized, compass emblem (screen-right shoulder)"
+   },
+   "pauldron_R": {
+    "present": true,
+    "count": 1,
+    "note": "smaller, layered"
+   },
+   "bracer_L": {
+    "present": true,
+    "count": 1
+   },
+   "bracer_R": {
+    "present": true,
+    "count": 1
+   },
+   "trousers": {
+    "present": true,
+    "count": 1
+   },
+   "boots": {
+    "present": true,
+    "count": 2,
+    "note": "plated greaves"
+   },
+   "rod": {
+    "present": true,
+    "count": 1,
+    "note": "held in the figure's LEFT hand"
+   },
+   "rod_head": {
+    "present": true,
+    "count": 1,
+    "note": "astrolabe ring"
+   },
+   "helmet": {
+    "present": false,
+    "count": 0
+   },
+   "cape": {
+    "present": false,
+    "count": 0
+   },
+   "shield": {
+    "present": false,
+    "count": 0
+   },
+   "second_belt": {
+    "present": false,
+    "count": 0
+   }
+  },
+  "sigil_emblems_total": {
+   "count": 11,
+   "certainty": "pauldron_L 1, chest boss 1, bracer_L 1, bracer_R 1, tabard panels 3, belt buckle 1, greaves 2, rod_head 1 (\u00b12)"
+  }
+ },
+ "F03_starter": {
+  "closed_parts": [
+   "hair",
+   "face",
+   "jacket",
+   "shirt",
+   "belt",
+   "harness_strap",
+   "pouch",
+   "tool",
+   "trousers",
+   "boots",
+   "bracer",
+   "knee_pad",
+   "rifle",
+   "pauldron"
+  ],
+  "controls": [
+   "helmet",
+   "cape",
+   "shield",
+   "staff"
+  ],
+  "inventory": {
+   "hair": {
+    "present": true,
+    "count": 1
+   },
+   "face": {
+    "present": true,
+    "count": 1
+   },
+   "jacket": {
+    "present": true,
+    "count": 1,
+    "note": "brown work jacket, sleeves rolled"
+   },
+   "shirt": {
+    "present": true,
+    "count": 1,
+    "note": "dark blue under-shirt"
+   },
+   "belt": {
+    "present": true,
+    "count": 1,
+    "note": "tool belt with loops"
+   },
+   "harness_strap": {
+    "present": true,
+    "count": 1,
+    "note": "one diagonal from the screen-left shoulder to the screen-right hip"
+   },
+   "pouch": {
+    "present": true,
+    "count": 2,
+    "certainty": "large pouch screen-left hip; tool pouch screen-right (2\u20133)"
+   },
+   "tool": {
+    "present": true,
+    "count": 3,
+    "certainty": "wrench + 2 in loops (3\u20134)"
+   },
+   "trousers": {
+    "present": true,
+    "count": 1
+   },
+   "boots": {
+    "present": true,
+    "count": 2
+   },
+   "bracer": {
+    "present": false,
+    "count": 0
+   },
+   "knee_pad": {
+    "present": false,
+    "count": 0
+   },
+   "rifle": {
+    "present": false,
+    "count": 0
+   },
+   "pauldron": {
+    "present": false,
+    "count": 0
+   },
+   "helmet": {
+    "present": false,
+    "count": 0
+   },
+   "cape": {
+    "present": false,
+    "count": 0
+   },
+   "shield": {
+    "present": false,
+    "count": 0
+   },
+   "staff": {
+    "present": false,
+    "count": 0
+   }
+  },
+  "rivets": {
+   "density_metric": "O4 \u2014 not counted"
+  }
+ },
+ "F03_advanced": {
+  "closed_parts": [
+   "hair",
+   "face",
+   "coat",
+   "shirt",
+   "belt",
+   "harness_strap",
+   "pouch",
+   "tool",
+   "trousers",
+   "boots",
+   "bracer",
+   "knee_pad",
+   "rifle",
+   "pauldron"
+  ],
+  "controls": [
+   "helmet",
+   "cape",
+   "shield",
+   "staff"
+  ],
+  "inventory": {
+   "hair": {
+    "present": true,
+    "count": 1
+   },
+   "face": {
+    "present": true,
+    "count": 1
+   },
+   "coat": {
+    "present": true,
+    "count": 1,
+    "note": "long leather duster"
+   },
+   "shirt": {
+    "present": true,
+    "count": 1,
+    "note": "dark under-layer / scarf"
+   },
+   "belt": {
+    "present": true,
+    "count": 1
+   },
+   "harness_strap": {
+    "present": true,
+    "count": 2,
+    "certainty": "rifle sling across the chest + a buckled chest band (2\u20133); load-bearing unclear \u2014 the R6 clause-2 case"
+   },
+   "pouch": {
+    "present": true,
+    "count": 2,
+    "certainty": "large satchel screen-left hip + one more (1\u20132)"
+   },
+   "tool": {
+    "present": false,
+    "count": 0
+   },
+   "trousers": {
+    "present": true,
+    "count": 1
+   },
+   "boots": {
+    "present": true,
+    "count": 2
+   },
+   "bracer": {
+    "present": true,
+    "count": 1,
+    "certainty": "one plated forearm visible (1\u20132)"
+   },
+   "knee_pad": {
+    "present": true,
+    "count": 1,
+    "certainty": "one plated knee visible (1\u20132)"
+   },
+   "rifle": {
+    "present": true,
+    "count": 1,
+    "note": "long rifle with scope, both hands"
+   },
+   "pauldron": {
+    "present": true,
+    "count": 2,
+    "note": "riveted plates on both shoulders"
+   },
+   "helmet": {
+    "present": false,
+    "count": 0
+   },
+   "cape": {
+    "present": false,
+    "count": 0
+   },
+   "shield": {
+    "present": false,
+    "count": 0
+   },
+   "staff": {
+    "present": false,
+    "count": 0
+   }
+  },
+  "rivets": {
+   "density_metric": "O4 \u2014 not counted"
+  }
+ }
+}

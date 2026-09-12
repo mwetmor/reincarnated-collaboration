@@ -1,0 +1,72 @@
+{
+  "satchel": [
+    {
+      "id": "matte_quality.spill",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"subject_pixels\": 1572001, \"tol\": 20}, \"reason\": \"\"}"
+    },
+    {
+      "id": "matte_quality.edge_halo",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "green_excess_0_255",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"band_pixels\": 4350, \"halo_width_px\": 2}, \"reason\": \"\"}"
+    },
+    {
+      "id": "matte_quality.particle_loss",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "source_partial_alpha_mass_fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"includes_plate_residuals\": true, \"model_coupled\": true, \"removed_partial_alpha_mass\": 0.0, \"source_partial_alpha_mass\": 11920991.0}, \"reason\": \"\"}"
+    }
+  ],
+  "staff_head": [
+    {
+      "id": "matte_quality.spill",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"subject_pixels\": 1572219, \"tol\": 20}, \"reason\": \"\"}"
+    },
+    {
+      "id": "matte_quality.edge_halo",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "green_excess_0_255",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"band_pixels\": 4720, \"halo_width_px\": 2}, \"reason\": \"\"}"
+    },
+    {
+      "id": "matte_quality.particle_loss",
+      "subject": "",
+      "passed": null,
+      "value": 0.0,
+      "threshold": null,
+      "op": "<=",
+      "unit": "source_partial_alpha_mass_fraction",
+      "evidence": [],
+      "notes": "{\"metrics\": {\"includes_plate_residuals\": true, \"model_coupled\": true, \"removed_partial_alpha_mass\": 0.0, \"source_partial_alpha_mass\": 22387111.0}, \"reason\": \"\"}"
+    }
+  ]
+}

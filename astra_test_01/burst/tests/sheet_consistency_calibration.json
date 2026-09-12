@@ -1,0 +1,24 @@
+{
+  "idle": {
+    "id": "sheet_consistency",
+    "subject": "",
+    "passed": null,
+    "value": 0.20893524672639482,
+    "threshold": null,
+    "op": "<=",
+    "unit": "identity_vector_l2",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"distances\": [0.17070025552240217, 0.13981047749549505, 0.13997850792807734, 0.20893524672639482, 0.15717099344790644, 0.16132141970570907, 0.18392583352349037, 0.16430161126960233], \"farthest_frame_index\": 3, \"frame_count\": 8, \"max_distance\": 0.20893524672639482, \"mean_distance\": 0.1657680432023847, \"palette_bins\": 8}, \"reason\": \"No sheet threshold calibrated; run_03 idle/mirror set is descriptive only\"}"
+  },
+  "mirrored": {
+    "id": "sheet_consistency",
+    "subject": "",
+    "passed": null,
+    "value": 0.2944569573797046,
+    "threshold": null,
+    "op": "<=",
+    "unit": "identity_vector_l2",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"distances\": [0.2944569573797046, 0.1471391811244278, 0.14740128071110684, 0.20355772839724348, 0.16194876294012817, 0.16674789104424254, 0.182455361311049, 0.17445531949249718], \"farthest_frame_index\": 0, \"frame_count\": 8, \"max_distance\": 0.2944569573797046, \"mean_distance\": 0.18477031030004995, \"palette_bins\": 8}, \"reason\": \"No sheet threshold calibrated; run_03 idle/mirror set is descriptive only\"}"
+  }
+}

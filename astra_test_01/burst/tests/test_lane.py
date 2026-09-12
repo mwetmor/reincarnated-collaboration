@@ -58,7 +58,10 @@ class LaneTests(unittest.TestCase):
 
     def test_exact_command_and_dry_run(self):
         t = task()
-        t.update(references=[{'path': '/a/source image.png', 'role': 'anchor'}], add_dirs=[str(self.repo)])
+        reference = self.repo / 'burst/fixtures/source image.png'
+        reference.parent.mkdir(parents=True)
+        reference.write_bytes(b'synthetic reference')
+        t.update(references=[{'path': str(reference), 'role': 'anchor'}], add_dirs=[str(self.repo)])
         prepared = run_burst.prepare_task(t)
         expected = ['codex', 'exec', '--ignore-user-config', '-p', 'astra-burst', '-C', str(self.work),
                     '-s', 'workspace-write', '--ephemeral', '--skip-git-repo-check', '-c',
@@ -70,7 +73,7 @@ class LaneTests(unittest.TestCase):
         tp.write_text(json.dumps(t))
         args = argparse.Namespace(run='C-test', burst_id='T-test', type='TOOLING', task=str(tp), dry_run=True)
         out = io.StringIO()
-        with patch.object(run_burst, 'WORK_ROOT', self.base / 'runs'), patch.object(subprocess, 'Popen') as popen, contextlib.redirect_stdout(out):
+        with patch.object(run_burst.ref_provenance, 'ASTRA_ROOT', self.repo), patch.object(run_burst, 'WORK_ROOT', self.base / 'runs'), patch.object(subprocess, 'Popen') as popen, contextlib.redirect_stdout(out):
             self.assertEqual(run_burst.run(args), 0)
             popen.assert_not_called()
         brief = render_brief.render(prepared, 'TOOLING')

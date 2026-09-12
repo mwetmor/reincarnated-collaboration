@@ -1,0 +1,68 @@
+{
+  "synthetic_flat": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 3,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 3, \"peaks\": [{\"angular_support\": 1.0, \"center\": [185.0, 70.0], \"inside\": false, \"radius\": 23.0, \"score\": 3.747831957189702}, {\"angular_support\": 1.0, \"center\": [108.0, 48.0], \"inside\": false, \"radius\": 16.0, \"score\": 2.7891982996646227}, {\"angular_support\": 1.0, \"center\": [40.0, 48.0], \"inside\": false, \"radius\": 9.0, \"score\": 2.3650244715579363}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  "synthetic_texture": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 3,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 3, \"peaks\": [{\"angular_support\": 1.0, \"center\": [185.0, 70.0], \"inside\": false, \"radius\": 22.0, \"score\": 3.276278985357729}, {\"angular_support\": 1.0, \"center\": [108.0, 48.0], \"inside\": false, \"radius\": 15.0, \"score\": 2.329846625839744}, {\"angular_support\": 1.0, \"center\": [40.0, 48.0], \"inside\": false, \"radius\": 9.0, \"score\": 2.1807297163267605}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  "synthetic_no_rings": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  "synthetic_half_arcs": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 0, \"peaks\": [], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  "f04": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 14,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 1, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 14, \"peaks\": [{\"angular_support\": 0.8333333333333334, \"center\": [212.0, 393.0], \"inside\": true, \"radius\": 27.0, \"score\": 1.084822914992721}, {\"angular_support\": 0.875, \"center\": [152.0, 173.0], \"inside\": false, \"radius\": 13.0, \"score\": 1.0734516963117637}, {\"angular_support\": 0.75, \"center\": [232.0, 626.0], \"inside\": false, \"radius\": 18.0, \"score\": 1.0432034575675173}, {\"angular_support\": 0.7708333333333334, \"center\": [113.0, 201.0], \"inside\": false, \"radius\": 30.0, \"score\": 0.7074940354497125}, {\"angular_support\": 0.7708333333333334, \"center\": [210.0, 146.0], \"inside\": false, \"radius\": 20.0, \"score\": 0.6796891585712771}, {\"angular_support\": 0.8333333333333334, \"center\": [170.0, 253.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.6366616733180586}, {\"angular_support\": 0.875, \"center\": [165.0, 121.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.6256766987100008}, {\"angular_support\": 0.8125, \"center\": [82.0, 418.0], \"inside\": false, \"radius\": 17.0, \"score\": 0.5753844017314709}, {\"angular_support\": 0.8125, \"center\": [140.0, 195.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5679561827320952}, {\"angular_support\": 0.75, \"center\": [125.0, 83.0], \"inside\": false, \"radius\": 20.0, \"score\": 0.5375485525114707}, {\"angular_support\": 0.75, \"center\": [111.0, 311.0], \"inside\": false, \"radius\": 27.0, \"score\": 0.5281963253811909}, {\"angular_support\": 0.75, \"center\": [20.0, 295.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5254552482989405}, {\"angular_support\": 0.75, \"center\": [203.0, 246.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5109477865909793}, {\"angular_support\": 0.7708333333333334, \"center\": [69.0, 547.0], \"inside\": false, \"radius\": 14.0, \"score\": 0.5095617547315954}, {\"angular_support\": 0.8125, \"center\": [212.0, 566.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.5011570879792603}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  },
+  "clean": {
+    "id": "O3b",
+    "subject": "",
+    "passed": null,
+    "value": 1,
+    "threshold": null,
+    "op": "<=",
+    "unit": "instances",
+    "evidence": [],
+    "notes": "{\"metrics\": {\"alignment_cosine\": 0.9, \"angular_samples\": 48, \"family\": \"ring\", \"gradient_floor\": 0.02, \"inside\": 0, \"max_radius_px\": 30, \"min_angular_support\": 0.75, \"min_radius_px\": 8, \"nms_radius_fraction\": 0.8, \"outside\": 1, \"peaks\": [{\"angular_support\": 0.7708333333333334, \"center\": [286.0, 407.0], \"inside\": false, \"radius\": 8.0, \"score\": 0.7741343318413482}], \"radial_tolerance_fraction\": 0.15, \"smooth_fraction\": 0.08, \"vote_thresh\": 0.5}, \"reason\": \"\"}"
+  }
+}

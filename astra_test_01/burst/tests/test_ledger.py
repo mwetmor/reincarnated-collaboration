@@ -17,6 +17,8 @@ class ModuleTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent / 'tmp') as td, patch.object(ledger, 'ROOT', Path(td)):
             entry = dict(id='one', image_calls=1, image_calls_events=7,
                          generated_images_new=[dict(path='/generated/one.png', sha256='a'*64)],
+                         generator=dict(observed_fingerprint=None, probe_set_sha256='d'*64),
+                         regeneratable_until=None,
                          model='gpt-6-astra', model_source='profile', effort='high',
                          codex_version='codex test', profile_sha256='b'*64,
                          artifacts_in_place=[dict(root='/declared', name='tool.py', sha256='c'*64)])

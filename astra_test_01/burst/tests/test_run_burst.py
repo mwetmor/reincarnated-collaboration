@@ -118,6 +118,10 @@ class ModuleTests(unittest.TestCase):
                     self.assertEqual(run_burst.run(args), expected)
                 data = json.loads((repo/'runs/test/ledger.json').read_text())
                 entry = data['bursts'][0]
+                self.assertEqual(entry['generator'], dict(observed_fingerprint=None, probe_set_sha256=None))
+                self.assertIsNone(entry['regeneratable_until'])
+                if typ == 'GENERATE' and expected == 0:
+                    self.assertTrue((repo/'runs/test/artifacts/test/new.provenance.json').is_file())
                 self.assertEqual(data['images_used'], int(typ == 'GENERATE'))
                 self.assertEqual(entry['image_calls'], int(typ == 'GENERATE'))
                 self.assertEqual(entry['image_calls_events'], 0)

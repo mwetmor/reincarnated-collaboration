@@ -25,3 +25,21 @@ class Tests(unittest.TestCase):
         self.assertIs(self.compare_fixture('clean_crop',[])['passed'],True)
     def test_missing_reviewed_masks_is_null(self):
         self.assertIsNone(self.compare_fixture('clean_crop',None)['passed'])
+
+    def test_anatomical_controls(self):
+        b=stub();a={p['name']:{'present':True,'count':1} for p in b['PARTS']}
+        a.update({p:{'present':False,'count':0} for p in b['controls']['declared_absent_parts']})
+        self.assertTrue(compare_answers(b,a)['passed'])
+        for present,count in [(True,1),(False,1),(True,0)]:
+            a['helmet']={'present':present,'count':count}
+            self.assertFalse(compare_answers(b,a,question_set='parts')['passed'])
+        del a['helmet'];self.assertIsNone(compare_answers(b,a,question_set='parts')['passed'])
+
+    def test_either_instrument_violates_both_mode(self):
+        from unittest.mock import patch
+        from oracles.common import report
+        _,kw=fixture_params()
+        for tv,fv in [(0,1),(1,0),(1,1)]:
+            with patch('compare.compare_to_bible.count_instances',return_value=report('O3','',tv,0)), patch('compare.compare_to_bible.count_family',return_value=report('O3b','',fv,0)):
+                r=compare_to_bible(sprite(),stub(),template_rgb=sprite(),allowed_masks=[],**kw)
+                self.assertFalse(r['passed']);self.assertEqual(r['value'],1)

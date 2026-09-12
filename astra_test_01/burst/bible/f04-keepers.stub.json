@@ -58,7 +58,14 @@
           "rotations_deg",
           "thresh"
         ],
-        "needs_part_masks": true
+        "needs_part_masks": true,
+        "mode": "both",
+        "family": "ring",
+        "family_parameters": {
+          "min_radius_px": 8,
+          "max_radius_px": 30,
+          "vote_thresh": 0.5
+        }
       },
       "source": "bible-author",
       "date": "2026-09-11",
@@ -247,5 +254,16 @@
   "SCALE": {
     "canvas_px": 512,
     "feature_size_px": {}
-  }
+  },
+  "controls": {
+    "declared_absent_parts": [
+      "helmet",
+      "cape",
+      "shield",
+      "second_belt"
+    ]
+  },
+  "never_generated": [],
+  "probe_set_sha256": null,
+  "assets": []
 }

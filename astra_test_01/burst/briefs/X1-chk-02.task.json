@@ -1,0 +1,16 @@
+{
+ "text": "CHECK BURST X1-chk-02 — lane smoke, deterministic checks on the two X1-gen-02 props with the T0-d2 gates (P2: plate_uniformity reported; no false audit violations on a CHECK burst). task_id \"X1-chk-02\".\n\nInputs (read-only): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/X1-gen-02/x1_satchel.png and x1_staff_head.png (1254×1254 RGB on a #00ff00 plate).\nFrozen tools (read-only; run them, do not modify or create code): under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/ — gates/plate_uniformity.py, gates/matte.py (extract with the alpha_floor parameter), gates/g9_alpha.py, gates/matte_quality.py, gates/common.py, oracles/grain.py (O8, band_energy against the anchor /Users/admin/Games/reincarnated-collaboration/astra_test_01/design/experiments/E07V/art/F04.png at source_px = the prop's canvas). Run them with `python3 - <<'PY'` scripts that ONLY import and call these modules with parameters — that is running frozen tools, not writing code. Read each module's docstring first for its exact signature.\n\nProduce in out/: x1_satchel_rgba.png and x1_staff_head_rgba.png (matte.extract, character/prop mode with alpha_floor=40), and out/checks.json = a JSON list of SPEC § 1 result envelopes covering, per image: (1) plate_uniformity (fraction within ±8 of #00ff00 + plate sd; the module's declared threshold), (2) g9_alpha on the floored matte (border-clipping metric — expected 0 now), (3) matte_quality (spill fraction, edge halo, particle loss), (4) O8 grain band-energy distance to the F04 anchor at source scale AND at display_scale 0.5, (5) the subject's alpha bbox in px and canvas fraction (report only). Also write out/checks_readme.txt: the exact commands you ran.\nNo image_gen calls. No writes outside out/. No web. No agents.\nRETURN: receipt task_id \"X1-chk-02\"; images []; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/x1_satchel_rgba.png",
+  "out/x1_staff_head_rgba.png",
+  "out/checks_readme.txt"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "X1"
+}

@@ -1,11 +1,16 @@
 """Literal run_02 character matte; opt-in detached-particle preservation.
 Native alpha retains dark interiors. Default dust filtering matches run_02.
+Optional alpha_floor is in 0..255 units, calibrated with 40 on the X1 props;
+it zeros low residuals outside the main opaque component. None preserves all
+legacy measurements, including preserve_particles behavior.
 """
 import numpy as np
 from PIL import Image
 from scipy import ndimage
 
-def extract(image, preserve_particles=False):
+def extract(image, preserve_particles=False, alpha_floor=None):
+    if alpha_floor is not None and (not np.isfinite(alpha_floor) or not 0<=alpha_floor<=255):
+        raise ValueError("alpha_floor must be in 0..255 alpha units")
     a = np.array(image.convert('RGBA')).astype(float)
     native = bool('A' in image.getbands() and np.mean(a[..., 3] == 0) > .01)
     if native:
@@ -31,6 +36,11 @@ def extract(image, preserve_particles=False):
     counts = np.bincount(labels.ravel())
     counts[0] = 0
     main_component = int(counts.argmax())
+    floor_removed = 0
+    if alpha_floor is not None:
+        residual = (out[...,3]>0) & (out[...,3]<alpha_floor) & (labels!=main_component)
+        floor_removed = int(residual.sum())
+        out[residual] = 0
     support = ndimage.binary_dilation(labels == main_component, iterations=3)
     dust = int(np.count_nonzero((out[...,3]>0) & ~support))
     if not preserve_particles:
@@ -42,8 +52,9 @@ def extract(image, preserve_particles=False):
     if mask.sum() < 100:
         raise ValueError('Empty extracted subject')
     return Image.fromarray(out), {'method':method, 'removed_background_or_detached_alpha_dust_pixels':dust,
-                                'native_input_alpha':native}
+                                'native_input_alpha':native, 'alpha_floor':alpha_floor,
+                                'alpha_floor_removed_pixels':floor_removed}
 
 
-def remove_chroma_key(image, preserve_particles=False):
-    return extract(image, preserve_particles=preserve_particles)[0]
+def remove_chroma_key(image, preserve_particles=False, alpha_floor=None):
+    return extract(image, preserve_particles=preserve_particles, alpha_floor=alpha_floor)[0]
