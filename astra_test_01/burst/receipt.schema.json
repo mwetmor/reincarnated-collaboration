@@ -1,0 +1,129 @@
+{
+ "type": "object",
+ "required": [
+  "task_id",
+  "status",
+  "images",
+  "calls_used",
+  "retries",
+  "self_report"
+ ],
+ "properties": {
+  "task_id": {
+   "type": "string"
+  },
+  "status": {
+   "enum": [
+    "DELIVERED",
+    "DELIVERED_WITH_CONCERNS",
+    "FAILED"
+   ]
+  },
+  "images": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "name",
+     "path",
+     "sha256",
+     "prompt",
+     "references",
+     "elapsed_s"
+    ],
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "path": {
+      "type": "string"
+     },
+     "sha256": {
+      "type": "string"
+     },
+     "prompt": {
+      "type": "string"
+     },
+     "references": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "role",
+        "path"
+       ],
+       "properties": {
+        "role": {
+         "type": "string"
+        },
+        "path": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     "elapsed_s": {
+      "type": "number"
+     }
+    }
+   }
+  },
+  "calls_used": {
+   "type": "integer"
+  },
+  "retries": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "reason",
+     "change"
+    ],
+    "properties": {
+     "reason": {
+      "type": "string"
+     },
+     "change": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "self_report": {
+   "type": "object",
+   "required": [
+    "obeyed_invariants",
+    "concerns"
+   ],
+   "properties": {
+    "obeyed_invariants": {
+     "type": "boolean"
+    },
+    "concerns": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "files": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "path",
+     "sha256"
+    ],
+    "properties": {
+     "path": {
+      "type": "string"
+     },
+     "sha256": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}
