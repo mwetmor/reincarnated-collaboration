@@ -67,3 +67,12 @@ Open for Matt: (0) style-register amendment — line-forward drawing register, H
 
 Tracker-delta: game tracker (oracle-first sequence already logged); charter § 11 row 26 criterion unchanged.
 — gandalf, 2026-09-12
+
+## 11. Idle instrument (Matt 2026-09-12; Hades idles extracted, class E, ruled "download")
+Reference: `06 Oracle - painted ARPG clips (class E)/ORACLE_hades_idle_relaxed_house/CLEAN_CYCLE` (18 f @ 12 fps) + `ORACLE_hades_idle_combat_training/CLEAN_CYCLE` (9 f @ 12 fps). The two House "walks" are RUNS (reclassified) — run-cycle amplitude only; walk amplitude = Williams ratio over Muybridge.
+- **Motion map, not mask:** for a static-camera idle, |frame − median(frames)| is a per-pixel MOTION-ENERGY map — it shows exactly what moves and how much, with the background cancelled. One-time figure box + height H per clip (drawn once, stored). Regions as bands of H: head (top 0–18 %), shoulders/chest (18–45 %), arms/weapon (side columns), hips (45–60 %), feet (85–100 %).
+- **Per-frame quantities:** head-region vertical centroid Δy/H; chest-region width Δw/H; motion energy per region (fraction of region pixels changed > τ); weapon-tip Δ; period from autocorrelation of the head signal; count of regions with energy > ε (the "how many things move" number).
+- **Bands out (`bands_idle.json`):** breath amplitude %H and period s; head sway %H; LOCK regions (energy ≤ ε) and MOTION regions (energy ≥ floor); regions-moving count. Relaxed and combat as separate rows.
+- **Gate that was missing:** MINIMUM amplitude — idle-S passed every consistency gate because nothing moved; `gates/idle_intent.py` fails a loop whose motion regions fall under the floor, and fails one whose lock regions exceed ε.
+- **Spec out:** the idle dope sheet — N frames, per-frame head Δy / chest Δw targets on a sine at the measured period, explicit LOCK list, explicit MOTION list with amplitude band — rendered as prompt text + a numbered overlay guide.
+- Same instrument on our registered frames (mask from the green plate, so cleaner than the reference) → the comparison view.
