@@ -1,6 +1,6 @@
 # Astra burst lane — RUN CHARTER v1.0 (Run C-1: "Keeper of Hours")
 
-> **STATUS:** DRAFT FOR MATT'S GO-WORD — ARCHITECT gate run (§ 11) and CLEAN except the launch word itself and two milestone-gated items. Nothing has fired. Author + conductor: gandalf (`RUN-CONDUCTOR`, Matt ruling F7 2026-09-11). Labour: **100 % Astra** (`gpt-6-astra` via `codex exec` bursts, ChatGPT subscription, built-in `image_gen` only — F4 as corrected 2026-09-11).
+> **STATUS:** DRAFT — **PAUSED BY MATT 2026-09-11 on the AI-tell question** (motif bleed on the F04 figure). ARCHITECT gate (§ 11) is CLEAN except the launch word and two milestone-gated items; **K1 now additionally GATED on Faction Bible v0 + the legolas R6–R8 return** (row 25). Nothing has fired. Author + conductor: gandalf (`RUN-CONDUCTOR`, Matt ruling F7 2026-09-11). Labour: **100 % Astra** (`gpt-6-astra` via `codex exec` bursts, ChatGPT subscription, built-in `image_gen` only — F4 as corrected 2026-09-11).
 > **Lineage:** `2026-09-11-astra-burst-lane-review-and-architecture.md` (verdict, § 6 architecture, § 10 rulings); `operating-procedures/desirable-run-pattern.md` (fit test passed, review § 6.7); the brief `codex-3d-modeling/ASTRA TEST 01 painted character vfx.md` (gates 1–10 inherited verbatim); `astra_test_01/design/VISUAL_TARGET.md` + `E07V/FEEDBACK_2026-09-11.md` (Matt's visual rulings); `FACTION_KEY.md` (F04 vocabulary).
 > **What this run answers:** *Can Astra, held to strict guidelines, produce painted-2D sprite sheets, a modular gear layer, VFX and a scene plate that pass numeric gates and an independent perceptual judge — 100 % via Astra?* Two consecutive experiment-level FAILs after their diagnosed retries = HALT to Matt, who rules whether that is "Astra ruled out" (which opens the non-Astra path discussion, F6a).
 
@@ -159,7 +159,8 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 | 22 | Non-humanoid forms, full roster, 3 tiers × 100 | **OUT OF SCOPE** | Run C-2+ (KR build wave after this run) |
 | 23 | Factions ↔ Glitch Archive fold | **OUT OF SCOPE** | STORYWRIGHT session (F9) |
 | 24 | Launch | **OPEN — Matt's GO word** | this document |
+| 25 | **AI-tell control** — faction bible (motif placement/exclusions, material inventory, construction logic, plain-surface budget), register-card TELL-CONTROL block, JUDGE axis 6 (tell audit; F04 advanced-figure crop as known-bad control), deterministic oracles feeding the bible (bible ↔ oracle loop) | **GATED+TRACKED** | legolas Mode A R6/R7/R8 commissioned 2026-09-11 (`gandalf/requests/2026-09-11-legolas-mode-a-ai-tells-art-bibles-oracles.md`); then Bible v0 (gandalf) + vocabulary grill (Matt) → charter v1.1. **K1 does not fire before.** T0/X1–X4 have no bible dependency (mechanism repairs on the existing mage) — may fire on Matt's word while research runs |
 
-**Gate verdict: CLEAN.** No OPEN Matt-gated fork remains before launch except the launch word. Items 7 and 13 are correctly milestone-gated (they cannot be decided before the artifact exists). No new `matt_decision_needed/` rows are warranted.
+**Gate verdict (amended 2026-09-11): CLEAN for T0/X1–X4; K1 onward GATED on row 25.** No OPEN Matt-gated fork remains before launch except the launch word. Items 7 and 13 are correctly milestone-gated (they cannot be decided before the artifact exists). No new `matt_decision_needed/` rows are warranted.
 
 — gandalf, 2026-09-11
