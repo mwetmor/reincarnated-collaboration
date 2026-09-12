@@ -1,0 +1,631 @@
+{
+ "RULE": [
+  {
+   "id": "sigil",
+   "faction": "F04 Keepers of Hours",
+   "scope": "character",
+   "class": "motif",
+   "statement": "RULED V1(a): the signature motif is a SINGLE OPEN RING WITH ONE RADIAL HOUR-MARK. Exactly two placements \u2014 the tabard chest panel and the rod head \u2014 and nowhere else. Every other surface is plain and undecorated (positive plainness clause). Placement counts are maximum budgets.",
+   "placements": [
+    {
+     "where": "tabard",
+     "scale_px": 48,
+     "count": 1
+    },
+    {
+     "where": "rod_head",
+     "scale_px": 64,
+     "count": 1
+    }
+   ],
+   "exclusions": [
+    "hair",
+    "face",
+    "shirt",
+    "belt",
+    "satchel",
+    "harness_strap",
+    "pauldron_L",
+    "pauldron_R",
+    "bracer_L",
+    "bracer_R",
+    "trousers",
+    "boots",
+    "rod"
+   ],
+   "parts_ref": [
+    "hair",
+    "face",
+    "shirt",
+    "tabard",
+    "belt",
+    "satchel",
+    "harness_strap",
+    "pauldron_L",
+    "pauldron_R",
+    "bracer_L",
+    "bracer_R",
+    "trousers",
+    "boots",
+    "rod",
+    "rod_head"
+   ],
+   "reference_asset": "fixtures/sigil_template.png (to be replaced by the ruled motif crop at K1)",
+   "known_bad": "fixtures/f04_advanced_crop.png",
+   "oracle": {
+    "id": "O3",
+    "threshold": 0,
+    "inputs": [
+     "sigil_template",
+     "allowed_masks",
+     "scales",
+     "rotations_deg",
+     "thresh"
+    ],
+    "needs_part_masks": true,
+    "mode": "both",
+    "family": "ring"
+   },
+   "source": "matt-ruling",
+   "date": "2026-09-12",
+   "status": "RULED 2026-09-12 (V1a). O3 template mode = copy detection of the ring-with-hour-mark (template crop taken from the approved K1 master); O3b family count ADVISORY (R-8)"
+  },
+  {
+   "id": "plain-budget",
+   "faction": "F04 Keepers of Hours",
+   "scope": "character",
+   "class": "plain-budget",
+   "statement": "RULED V3(a): one motif, two placements, everything else plain planes \u2014 clean material planes, restrained surface texture; no trim, no edge ornament, no secondary sigils; wear and stitching only where a fastener or load point exists.",
+   "placements": [],
+   "exclusions": [],
+   "parts_ref": [
+    "hair",
+    "face",
+    "shirt",
+    "belt",
+    "satchel",
+    "harness_strap",
+    "pauldron_L",
+    "pauldron_R",
+    "bracer_L",
+    "bracer_R",
+    "trousers",
+    "boots",
+    "rod"
+   ],
+   "reference_asset": "design/experiments/E07V/art/F04.png (starter figure)",
+   "known_bad": "fixtures/f04_advanced_crop.png",
+   "oracle": {
+    "id": "O4",
+    "threshold": null,
+    "inputs": [
+     "plain_fraction per part",
+     "edge_thresh"
+    ],
+    "needs_part_masks": true
+   },
+   "source": "matt-ruling",
+   "date": "2026-09-12",
+   "status": "RULED 2026-09-12 (V3a); O4 plain_fraction threshold calibrated at K2 from the approved master"
+  },
+  {
+   "id": "palette-bins",
+   "faction": "F04 Keepers of Hours",
+   "scope": "character",
+   "class": "palette",
+   "statement": "RULED V2: materials \u2014 ivory linen shirt \u00b7 navy wool tabard and trousers \u00b7 chestnut leather harness strap, belt, bracers, boots \u00b7 OLIVE WAXED-CANVAS satchel with brass corners \u00b7 DARK WALNUT rod shaft with a BRASS ring head \u00b7 white-lacquered plate with gold trim (advanced set only) \u00b7 dark curly hair. Rule: no two adjacent parts share a hue bin (machine-legible costume; O6 classifies parts in CIELAB a*b*). Deliberately unmeasured: face, hair highlights. Neutrals (white plate vs iron) accepted as inseparable \u2014 never adjacent in the S-idle base. a*b* windows below are PROVISIONAL and are re-measured from the approved K1 master.",
+   "placements": [],
+   "exclusions": [
+    "face",
+    "hair"
+   ],
+   "parts_ref": [
+    "hair",
+    "face",
+    "shirt",
+    "tabard",
+    "belt",
+    "satchel",
+    "harness_strap",
+    "pauldron_L",
+    "pauldron_R",
+    "bracer_L",
+    "bracer_R",
+    "trousers",
+    "boots",
+    "rod",
+    "rod_head"
+   ],
+   "reference_asset": null,
+   "known_bad": null,
+   "oracle": {
+    "id": "O6",
+    "threshold": null,
+    "inputs": [
+     "PARTS[].palette_bin",
+     "erosion_px"
+    ],
+    "needs_part_masks": true
+   },
+   "source": "matt-ruling",
+   "date": "2026-09-12",
+   "status": "RULED 2026-09-12 (V2 incl. sub-forks i, ii, iii); windows calibrated at K1"
+  },
+  {
+   "id": "construction",
+   "faction": "F04 Keepers of Hours",
+   "scope": "character",
+   "class": "construction",
+   "statement": "RULED V4 (spec over reference on both sub-forks): every strap terminates at a named part; every fastener closes a named gap; belt count = 1 (one waist belt, its buckle closes the tabard); harness = ONE diagonal strap, shoulder \u2192 opposite hip, carrying the satchel on the figure's LEFT hip; the astrolabe-rod is held in the RIGHT hand; pauldron asymmetry only on the advanced set (LEFT shoulder, oversized). The F04 anchors' X-harness and doubled waist band are the known-bad.",
+   "placements": [],
+   "exclusions": [],
+   "parts_ref": [
+    "belt",
+    "harness_strap",
+    "satchel",
+    "pauldron_L",
+    "pauldron_R",
+    "rod"
+   ],
+   "reference_asset": null,
+   "known_bad": "fixtures/f04_advanced_crop.png (doubled band; straps closing nothing)",
+   "oracle": {
+    "id": "O9",
+    "threshold": 0,
+    "inputs": [
+     "parts_questions",
+     "controls"
+    ],
+    "needs_part_masks": false
+   },
+   "source": "matt-ruling",
+   "date": "2026-09-12",
+   "status": "RULED 2026-09-12 (V4 i: spec; ii: spec); O9 part-inventory + controls calibrated (R-9)"
+  },
+  {
+   "id": "key-light",
+   "faction": "F04 Keepers of Hours",
+   "scope": "character",
+   "class": "light",
+   "statement": "single key from screen upper-left (135\u00b0), fixed for every frame of every direction; spell light the only warm/saturated source and only on cast frames; no floor shadow",
+   "placements": [],
+   "exclusions": [],
+   "parts_ref": [],
+   "reference_asset": "run_03/evidence/vfx_style_match.png",
+   "known_bad": "a horizontally mirrored frame (key upper-right)",
+   "oracle": {
+    "id": "O7",
+    "threshold": null,
+    "inputs": [
+     "LIGHT.key_azimuth_deg",
+     "tolerance"
+    ],
+    "needs_part_masks": false
+   },
+   "source": "matt-ruling",
+   "date": "2026-09-11",
+   "status": "RULED (F3, V6): key upper-left fixed for every frame of every direction; SCALE is a post-process fact (registration), never prompt text; O7 tolerance calibrated at K2"
+  }
+ ],
+ "PILLARS": [
+  {
+   "name": "Instruments, not ornaments",
+   "filter_statement": "Every object on the Keeper is an instrument or carries one; ornament is never added for its own sake."
+  },
+  {
+   "name": "Clean planes, one light",
+   "filter_statement": "Clean material planes, restrained surface texture, one fixed key light from screen upper-left."
+  },
+  {
+   "name": "Every strap carries something",
+   "filter_statement": "Every strap terminates at a named part and carries a named object; every fastener closes a named gap."
+  }
+ ],
+ "PALETTE": {
+  "scope": "character",
+  "swatches": [],
+  "relation_rules": [
+   {
+    "figure_vs_ground": "figure lighter than ground on the key-facing edge",
+    "sign": 1,
+    "min_delta": 0.08
+   }
+  ]
+ },
+ "PARTS": [
+  {
+   "name": "hair",
+   "adjacency": [],
+   "rigidity": "hair",
+   "attachment_to": null,
+   "palette_bin": null,
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "face",
+   "adjacency": [],
+   "rigidity": "soft",
+   "attachment_to": null,
+   "palette_bin": null,
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "shirt",
+   "adjacency": [
+    "tabard",
+    "bracer_L",
+    "bracer_R"
+   ],
+   "rigidity": "cloth",
+   "attachment_to": null,
+   "palette_bin": {
+    "a": [
+     -2,
+     6
+    ],
+    "b": [
+     9,
+     26
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "tabard",
+   "adjacency": [
+    "shirt",
+    "belt",
+    "harness_strap"
+   ],
+   "rigidity": "cloth",
+   "attachment_to": "shirt",
+   "palette_bin": {
+    "a": [
+     -4,
+     12
+    ],
+    "b": [
+     -45,
+     -18
+    ]
+   },
+   "allowed_motifs": [
+    "sigil"
+   ],
+   "plain": false,
+   "mirror_of": null
+  },
+  {
+   "name": "belt",
+   "adjacency": [
+    "tabard",
+    "trousers"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "tabard",
+   "palette_bin": {
+    "a": [
+     10,
+     30
+    ],
+    "b": [
+     14,
+     40
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "satchel",
+   "adjacency": [
+    "belt",
+    "harness_strap"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "harness_strap",
+   "palette_bin": {
+    "a": [
+     -12,
+     -3
+    ],
+    "b": [
+     10,
+     30
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "harness_strap",
+   "adjacency": [
+    "tabard",
+    "satchel"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "satchel",
+   "palette_bin": {
+    "a": [
+     10,
+     30
+    ],
+    "b": [
+     14,
+     40
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "pauldron_L",
+   "adjacency": [
+    "tabard"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "tabard",
+   "palette_bin": {
+    "a": [
+     -4,
+     4
+    ],
+    "b": [
+     -8,
+     8
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": "pauldron_R"
+  },
+  {
+   "name": "pauldron_R",
+   "adjacency": [
+    "tabard"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "tabard",
+   "palette_bin": {
+    "a": [
+     -4,
+     4
+    ],
+    "b": [
+     -8,
+     8
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": "pauldron_L"
+  },
+  {
+   "name": "bracer_L",
+   "adjacency": [
+    "shirt"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "shirt",
+   "palette_bin": {
+    "a": [
+     10,
+     30
+    ],
+    "b": [
+     14,
+     40
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": "bracer_R"
+  },
+  {
+   "name": "bracer_R",
+   "adjacency": [
+    "shirt"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "shirt",
+   "palette_bin": {
+    "a": [
+     10,
+     30
+    ],
+    "b": [
+     14,
+     40
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": "bracer_L"
+  },
+  {
+   "name": "trousers",
+   "adjacency": [
+    "belt",
+    "boots"
+   ],
+   "rigidity": "cloth",
+   "attachment_to": "belt",
+   "palette_bin": {
+    "a": [
+     -4,
+     12
+    ],
+    "b": [
+     -45,
+     -18
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "boots",
+   "adjacency": [
+    "trousers"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "trousers",
+   "palette_bin": {
+    "a": [
+     10,
+     30
+    ],
+    "b": [
+     14,
+     40
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "rod",
+   "adjacency": [
+    "rod_head"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": null,
+   "palette_bin": {
+    "a": [
+     4,
+     9
+    ],
+    "b": [
+     0,
+     8
+    ]
+   },
+   "allowed_motifs": [],
+   "plain": true,
+   "mirror_of": null
+  },
+  {
+   "name": "rod_head",
+   "adjacency": [
+    "rod"
+   ],
+   "rigidity": "rigid",
+   "attachment_to": "rod",
+   "palette_bin": {
+    "a": [
+     0,
+     12
+    ],
+    "b": [
+     30,
+     60
+    ]
+   },
+   "allowed_motifs": [
+    "sigil"
+   ],
+   "plain": false,
+   "mirror_of": null
+  }
+ ],
+ "CONSTRUCTION": [
+  {
+   "part": "harness_strap",
+   "terminates_at": "satchel",
+   "statement": "one diagonal, shoulder \u2192 opposite hip; carries the satchel"
+  },
+  {
+   "part": "satchel",
+   "terminates_at": "harness_strap",
+   "statement": "figure's LEFT hip; olive waxed canvas, brass corners"
+  },
+  {
+   "part": "belt",
+   "closes": "tabard at the waist",
+   "statement": "belt count = 1; buckle closes the tabard; no second waist band"
+  },
+  {
+   "part": "bracer_L",
+   "terminates_at": "shirt",
+   "statement": "forearm guard, laced; one per forearm"
+  },
+  {
+   "part": "bracer_R",
+   "terminates_at": "shirt",
+   "statement": "forearm guard, laced; one per forearm"
+  },
+  {
+   "part": "rod",
+   "terminates_at": "rod_head",
+   "statement": "dark walnut shaft held in the RIGHT hand; the brass ring head carries the hour-mark"
+  },
+  {
+   "part": "pauldron_L",
+   "terminates_at": "tabard",
+   "statement": "advanced set only; oversized LEFT; the second 64-px read"
+  },
+  {
+   "part": "boots",
+   "terminates_at": "trousers",
+   "statement": "chestnut leather, buckled at the shin; a pair"
+  }
+ ],
+ "LIGHT": {
+  "key_azimuth_deg": 135,
+  "key_elevation": null,
+  "fill_ratio": null,
+  "source_count": 1
+ },
+ "SCALE": {
+  "canvas_px": 512,
+  "feature_size_px": {
+   "hero_height_S_idle": 240,
+   "rod_head_diameter_64px_read": 8,
+   "motif_min_px_at_512": 8,
+   "xag118_flash_luminance_change": 0.1,
+   "xag118_flash_area_fraction": 0.2,
+   "xag118_max_flashes_per_second": 3,
+   "xag118_red_saturation": 0.8,
+   "xag118_red_transition": 20
+  }
+ },
+ "controls": {
+  "declared_absent_parts": [
+   "helmet",
+   "cape",
+   "shield",
+   "quiver"
+  ]
+ },
+ "never_generated": [
+  "typography",
+  "logo/wordmark",
+  "platform button glyphs",
+  "rating icons",
+  "licensed fonts",
+  "source-game names or characters"
+ ],
+ "probe_set_sha256": "366e18e2d73a8f9ccbfe7ed7a12134e3dda4f09bcbf9da577e8c76493ad36a0b",
+ "assets": [
+  {
+   "asset_id": "f04-keeper-starter-master-S",
+   "content_hash": null,
+   "content_flags": {
+    "blood": false,
+    "skeletal": false,
+    "religious_iconography": false
+   }
+  }
+ ]
+}
