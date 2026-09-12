@@ -1,0 +1,41 @@
+LAST EPOCH — SLOT EMPTY (deliberately)
+======================================
+Status: publisher-official press kit EXISTS but is not agent-fetchable.
+No substitute fetched. Per commission: Steam store / YouTube capture NOT used.
+
+WHAT WAS FOUND
+--------------
+  https://lastepoch.com/press-kit  -> HTTP 200, redirects to https://lastepoch.com/media/
+  https://lastepoch.com/presskit   -> HTTP 404
+  https://eleventhhour.games/press -> HTTP 404
+
+So Eleventh Hour Games' press kit IS the /media/ route, and /press-kit is a
+live alias for it — confirming the page's own identity. Corroborated inside
+the site's JS bundle, which carries a dedicated stylesheet for it:
+    .press-kit__sidebar, .press-kit__content, .press-kit__info, .press-kit h1 ...
+
+WHY THE SLOT IS EMPTY
+---------------------
+lastepoch.com is a Nuxt single-page application. The served HTML for /media/
+is 3,295 bytes and contains no content — only the loader:
+
+    "Loading..."
+
+All content is client-rendered. The four JS bundles (2,092,885 bytes combined:
+/_nuxt/{7c18938,b2a9539,e344a1f,26c4b02}.js) were retrieved and searched.
+They contain no screenshot URLs. The hashed image assets they do reference
+(/_nuxt/img/*.jpg — e.g. caef05d.jpg at 149,890 B, e789322.jpg at 126,481 B)
+are site furniture at 1.4kB-150kB, not press screenshots; the Nuxt static
+payload route (/_nuxt/static/<ts>/media/payload.js) could not be resolved
+because no staticAssetsBase timestamp is emitted in the bundle.
+
+The site's data plane sits behind https://portal.lastepoch.com/api/, which was
+NOT probed — it is the shop/account API, outside this commission's read-only
+public-asset scope.
+
+No licence or usage terms could be read, because no page text could be read.
+
+TO FILL THIS SLOT
+-----------------
+Open https://lastepoch.com/media/ in a real browser, download the gameplay
+still, and record the page's stated terms verbatim. One minute of human time.

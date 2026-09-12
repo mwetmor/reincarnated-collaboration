@@ -1,0 +1,59 @@
+DIABLO II: RESURRECTED — SLOT EMPTY (deliberately)
+==================================================
+Status: press kit REACHED; full-resolution asset NOT obtainable read-only.
+No substitute fetched. Per commission: Steam store / YouTube capture NOT used.
+
+WHAT WAS FOUND
+--------------
+Blizzard Press Center: https://blizzard.gamespress.com/            (HTTP 200)
+Official D2R press kit: https://blizzard.gamespress.com/Diablo-II-Resurrected-Launch-Press-Kit
+  dated 9/23/2021, titled "Diablo II: Resurrected Launch Press Kit",
+  containing an asset set "Diablo II: Resurrected Screenshots" of 21 stills.
+
+The page's own metadata for the first still, verbatim:
+    Filename: DIA_16890_D2R_LaunchScreenshots_001.png
+    Size: 15.1MB
+    Type: Windows PNG image
+    Width: 3,840
+    Height: 2,160
+(plus a 939.1kB JPG derivative of the same image)
+
+Also present in the kit: Diablo_II_Resurrected_ReviewersGuide_enUS.pdf (2.4MB).
+
+WHY THE SLOT IS EMPTY
+---------------------
+Full-resolution download is authentication-gated. Two independent routes tried:
+  1. The blob path the page exposes —
+     https://blizzard.gamespress.com/blob/BlizzardLive/2021/09/23153209-24f49909-1bd8-4200-b846-75251129710b/DIA_16890_D2R_LaunchScreenshots_001.png
+     returns an HTML error page: "This type of page is not served."
+  2. The CDN path (imguscdn.gamespress.com) serves ONLY the exact signed
+     query string embedded in the page, which is pinned to w=250:
+        ...?w=250&mode=max&otf=y&quality=90&format=jpg&bgcolor=black&sky=<token>
+     That URL returns a real JPEG — but 250 x 141 px.
+     Altering w to 1600 / 3840, or dropping w, invalidates the signature and
+     returns, verbatim:
+        "You are not authorized to access the given resource."
+  The page's real download mechanism is a POST to /Files/Zip behind a
+  [ Log in ] control — i.e. Blizzard Press Center registration.
+
+A 250 x 141 thumbnail was NOT saved as the deliverable. At that size the
+player character is ~10 px tall, which is useless for the scale calibration
+this commission exists to serve, and it is a CDN derivative rather than the
+press asset. Recording the gap is the honest result.
+
+STATED TERMS, VERBATIM (such as the press centre states)
+--------------------------------------------------------
+No editorial-use grant appears on the press-kit page. The only rights language
+in the page's visible text is the footer:
+
+    "©2026 Blizzard Entertainment, Inc. All rights reserved."
+
+alongside unlabelled links to "Privacy", "Legal", "Terms"
+(https://www.blizzard.com/legal/ and three specific legal documents).
+These were NOT retrieved — the slot is empty, so no licence reading was owed.
+
+TO FILL THIS SLOT
+-----------------
+Requires a human to register for a Blizzard Press Center account and download
+DIA_16890_D2R_LaunchScreenshots_*.png (3840 x 2160 PNG). That is a Matt action,
+not an agent action — it involves creating an authenticated account.

@@ -1,0 +1,37 @@
+PATH OF EXILE 2 — SLOT EMPTY (deliberately)
+===========================================
+Status: publisher-official press page EXISTS but is not agent-fetchable.
+No substitute fetched. Per commission: Steam store / YouTube capture NOT used.
+
+WHAT WAS FOUND
+--------------
+  https://pathofexile2.com/press   -> HTTP 200  (GGG's own domain)
+
+This is the real, first-party PoE2 press page. It is, however, a
+JavaScript-only single-page application. The served HTML is 7,686 bytes and
+its entire visible text content is, verbatim:
+
+    "Path of Exile 2
+     The Path of Exile website requires JavaScript. Please enable JavaScript
+     or use a different browser"
+
+The only image URLs in the served markup are the site favicon and
+apple-touch-icon (web.poecdn.com/protected/image/favicon/poe2/...). No
+screenshot, no archive, and no licence text is present in the HTML.
+
+JSON/API side doors were probed and are SPA catch-alls returning the same
+shell, not data:
+    https://pathofexile2.com/api/press   -> HTTP 200 (shell)
+    https://pathofexile2.com/press.json  -> HTTP 200 (shell)
+
+READING
+-------
+The lane is real but requires a JavaScript-executing browser. This is a
+capability gap, not a licensing or availability gap — a person opening
+https://pathofexile2.com/press in a browser will very likely find the kit and
+its terms immediately.
+
+TO FILL THIS SLOT
+-----------------
+Open https://pathofexile2.com/press in a real browser, download the gameplay
+still, and record the page's stated terms verbatim. One minute of human time.
