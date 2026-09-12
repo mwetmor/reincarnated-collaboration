@@ -5524,6 +5524,89 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K3-cmp-01",
+      "type": "CHECK",
+      "experiment": "K3",
+      "brief_sha256": "ea983a2bc72fd5698f1f3332e9510727f21c31a198d5051fa6504b125dd9234f",
+      "started": "2026-09-12T18:37:53.552447+00:00",
+      "ended": "2026-09-12T18:41:19.302417+00:00",
+      "minutes": 3.429247386800002,
+      "image_calls": 0,
+      "tool_calls": 11,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 11,
+        "tools_seen": {
+          "command_execution": 11
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "c2ac056e9d7a3104819de64044e1e4b19c9ab52f5ee013a22c98b88ac7ec2672",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "522f81357e3c5b351f9e839ce9418fdcdf88941cb289f523214df1e152dfc9a1"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "3d882eccb6a5695dac5792d7c66d761c2ed10be30661c53270a70199bfbe6ae7"
+        },
+        {
+          "name": "composited/idle_S_00.png",
+          "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+        },
+        {
+          "name": "composited/idle_S_01.png",
+          "sha256": "103e18992096a936b7ef9a0e03700f6151920f965f9075a6a9952cbe82583c40"
+        },
+        {
+          "name": "composited/idle_S_02.png",
+          "sha256": "33281ca6fac086a425bcf9b0dd80c664e269ddee1076f93b938ee483b341aa07"
+        },
+        {
+          "name": "composited/idle_S_03.png",
+          "sha256": "f7f54f8d1b7c00e5a69ccab0fcb4932a0ee46a4a58d9085ae0ddf35441b27412"
+        },
+        {
+          "name": "composited/idle_S_04.png",
+          "sha256": "9c03e1b605f47db6dbac3fa6730c2d5e260cad8d24eecbab728f63059bd90bd1"
+        },
+        {
+          "name": "composited/idle_S_05.png",
+          "sha256": "a00911276eef9a120028a0065325eac9f5a1afadff83abde282c32c929937c38"
+        },
+        {
+          "name": "composited/idle_S_06.png",
+          "sha256": "74905e66a7105453f0ba7c24512ced0942086a7242786f654ace04c042317b09"
+        },
+        {
+          "name": "composited/idle_S_07.png",
+          "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+        },
+        {
+          "name": "strips/original_vs_composited.png",
+          "sha256": "c2ac3aaac69bc2fc120e918bea0f1edaef70f608ff49575411668e2c710382fd"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 38,
@@ -5864,6 +5947,14 @@
       "boundary": "reasoning",
       "burst": "T0-e",
       "ruling": "T0-e DELIVERED exit 0 (13 tool calls, clean audit; fired on Matt's word after the HITL close as the one tooling item that waits on nothing). Conductor DRIFT-CRITIC ACCEPT: gates/mask_composite.py \u2014 composite(base, variant, region_box, thresh, dilate_px) with alpha-aware differencing, dilation, region clipping, byte-identical base outside the mask asserted in code and reported; G12 evaluate(min_preserved_fraction 0.99 literal, coverage guard on the FIGURE not the canvas \u2192 null when the mask covers too much); compose_loop. 14 tests incl. the four contracted known-bad cases; suite 135/131 (the four T0-d4 reds unchanged); regression lock 0. thresh=8 / dilate_px=2 are provisional synthetic calibrations, stated. Tree FROZEN (closes the three doc-drift rows: bible v0.1 hash, BURST_RULES v1.2, SPEC T0-e). Next: K3-cmp-01 \u2014 a MECHANISM test of the composite on the sole-aligned idle frames (G12 + G11/G6 original vs composited); no loop approval implied (R-17).",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-19",
+      "date": "2026-09-12",
+      "boundary": "reasoning (L5 evidence) \u2014 the ruling stays Matt's",
+      "burst": "K3-chk-01 data + legolas R10",
+      "ruling": "legolas R10/R10b RETURNED (findings.md, 856 lines; commit bb7643ac). G6c (seam vs its half-cycle homologue, \u2264 1.25\u00d7) computed on the K3 seam metrics already in K3-chk-01: WALK seam 3.058 vs homologue(3\u21924) 3.552 \u2192 ratio 0.86 PASS; IDLE seam 0 (return frame = copy). The walk's G6-literal 'failure' (3.058 vs the minimum internal pair 3.009) is the statistic artifact R10 predicted \u2014 a correct walk's pose deltas are non-uniform, so its seam legitimately exceeds the minimum; G6-literal is biased against walks by construction. CONDUCTOR RECOMMENDATION FOR L5 (supersedes the earlier G6b lean): shipping bar = G6c for walks, G6b (median) for idles, G6-literal reported beside; G6c is a one-line addition to gates/g6_seam.py (T1). Other R10 findings that change the lane: (1) no shipped ARPG authors a per-weapon WALK \u2014 D2 shares one walk beat across 12 weapon classes with only composited layers changing; the staff-arm question belongs to the idle/run and to a LAYER, not to walk authoring; (2) fps is not free once the frame count is chosen \u2014 an 8-frame cycle at 8 fps is Williams' 'natural' walk, at 12 fps a 'cartoon' walk (K3 ran 10); (3) two idles is the genre norm (combat-ready ~0.64 s + relaxed ~2.0 s), and an idle needs ~5 LOCK assertions to 2 MOTION assertions \u2014 feet \u2264 0.25 %H, breath 0.6\u20132.0 %H, head \u2264 1.2 %H, gaze \u2264 1.5 px, grip \u2264 1 px, root \u2264 0.25 %H, exactly one breath per loop; (4) several requested gates are SUB-PIXEL at 400 px (toe clearance 3.2 px, foot-skate 0.24 px/frame, veridical head bob 0.8 px) \u2192 judge questions; slip measured relative to the 0.105 H/frame planted-sole scroll; (5) Muybridge is the floor, not the target (animators amplify vertical, suppress lateral; the true head path is a 2:1 figure-8 the tradition forbids); (6) the oracle exists in both forms, public domain \u2014 plates 2 and 13 downloaded with sidecars, plate 2's lateral row assembled at Muybridge's 8.33 fps onto Matt's Desktop; painted \u00d7 elevated-\u00be \u00d7 idle+walk \u00d7 8-dir \u00d7 open licence is an EMPTY SET \u2014 best painted CC0 = laetissima (walk only), best camera match = Mini-Crusader (CC-BY 4.0); (7) judge-anchor vs generation-reference are distinct BEFORE policy: CraftPix's licence forbids AI 'testing, validating'; CC0/CC-BY are anchor-safe, public domain unrestricted. Caveat: per-frame Muybridge MEASUREMENT was attempted and NOT achieved (segmentation; ~a day with grid rectification) \u2014 all \u00a7 5.4 ranges are pre-registration-required, calibrated on our own anchors before they bind.",
       "veto": "open to Matt"
     }
   ]

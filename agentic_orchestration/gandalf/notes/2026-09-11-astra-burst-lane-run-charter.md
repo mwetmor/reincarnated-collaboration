@@ -151,7 +151,7 @@ Base instructions per burst are the brief; no AGENTS.md is loaded because the wo
 | 10 | Scene model + which plate | **RESOLVED** | F6; F04 observatory |
 | 11 | Gear method order | **RESOLVED** | B first (§ 7 X5); C as registered fallback |
 | 12 | Judging | **RESOLVED** | separate Astra instance + § 6 rubric + known-bad controls |
-| 13 | G6b as shipping bar | **GATED+TRACKED (re-gated 2026-09-12, R-17)** | deferred to oracle-tuned gates: legolas R10/R10b returned → T1 gait contract calibrated → loops re-run and compared to the oracle → then Matt rules; K3's numbers (walk G6 literal 3.058 vs 3.009 fails, G6b ≤ 3.459 passes) are the recorded case |
+| 13 | ~~G6b~~ **G6c** as shipping bar (R-19: seam vs half-cycle homologue for walks; G6b median for idles; G6-literal reported) | **GATED+TRACKED — evidence in hand (R-19), Matt rules** | deferred to oracle-tuned gates: legolas R10/R10b returned → T1 gait contract calibrated → loops re-run and compared to the oracle → then Matt rules; K3's numbers (walk G6 literal 3.058 vs 3.009 fails, G6b ≤ 3.459 passes) are the recorded case |
 | 14 | Budget / halt | **RESOLVED (default, veto-open)** | 250 images; HALT on 2 consecutive FAILs — Matt's "see above"; corrects at will |
 | 15 | Edit-canvas chaining scheme (3 calls per 8-frame loop, seed/neighbour-in-canvas) | **RESOLVED-BY-CHARTER, detail delegated** | Astra proposes in the X2 registration; conductor approves (reasoning boundary; ledgered) |
 | 16 | Mask / plate-scale thresholds (G12 99 %, doorway 480 ± 10 %, bands ± 10 %) | **RESOLVED-BY-CHARTER, pre-registered** | frozen at T0 before any candidate is generated |
