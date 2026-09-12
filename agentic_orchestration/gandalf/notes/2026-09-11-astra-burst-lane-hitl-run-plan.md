@@ -13,7 +13,7 @@
 
 | # | Condition | How verified |
 |---|---|---|
-| P1 | T0-a, T0-b, T0-c DELIVERED, reviewed, **frozen** (`MANIFEST.sha256` matches the tree) | `shasum -c` over the manifest |
+| P1 | T0-a, T0-b, T0-c DELIVERED, reviewed, **frozen** (`MANIFEST.sha256` matches the tree). T0-c carries **two named-red acceptance cases** (O3 template mode is blind to primitive-family bleed: F04 inside=1/outside=0; comparator therefore does not reject F04) — **T0-d is HITL step 0** and must turn them green: audit fixes (forbidden-tool regex on tool names only; TOOLING add_dir deliverables accepted), **O3b radial-symmetry/ring-family detector**, O9 declared-absent-PART controls, resolved model recorded per burst in the ledger, then the R9 extensions (SPEC § 6 T0-d row) | `shasum -c` over the manifest; T0-d receipt + green suite |
 | P2 | **X1 smoke DELIVERED** through the wrapper: 2 images generated, audit image-count == 2, receipt/hashes/ledger round-trip, burst context minimal (no repo AGENTS.md text in the event stream) | `runs/C-1/ledger.json` X1 entry, exit 0 |
 | P3 | `00-system.md § 7` SYNC hashes match (manual `shasum` until `check_sync.py` lands in T0-d) | conductor act |
 | P4 | Legolas R6–R8 + R9 findings read by the conductor (they are inputs to the vocabulary grill) | this plan § 4 carries the option sets |
@@ -30,6 +30,7 @@ _(T0-a ✓ · T0-b ✓ · T0-c … · X1 … · images used … / 250 · known-r
 
 | Step | Min | What | Output |
 |---|---|---|---|
+| 0 | 25 | **T0-d TOOLING burst** (0 images; through the wrapper) → review → freeze → the two T0-c red cases must be green (F04 outside ≥ 3; comparator rejects F04) — else HALT before Matt is asked anything | frozen tree; ledger |
 | 1 | 10 | Fresh-session start: charter-freshness gate; SYNC check; ledger read; P1–P6 | go / fix-first |
 | 2 | 10 | (if needed) X1 smoke | ledger X1 |
 | 3 | 10 | **X0-T transcriber calibration**, bursts 1–4 fired (0 images) — runs while Matt is grilled in step 4; results read at step 6 | `runs/C-1/artifacts/X0-T-*` |

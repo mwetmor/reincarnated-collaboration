@@ -126,7 +126,7 @@ PACK bursts write sheets, `atlas.json`, the engine-neutral manifest (frames, fps
 
 ## 6. Current state
 
-Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a/b/c DELIVERED and frozen (lane runtime; gate library; oracles O1–O9 + parts + comparator + transcription contract — 69 tests, 2 named-red acceptance cases: O3 template mode cannot see primitive-family bleed → O3b owed in T0-d, with two audit fixes); X1 smoke next (oracles + comparator); X1 smoke next; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10.
+Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authoring: T0-a/b/c DELIVERED and frozen (lane runtime; gate library; oracles O1–O9 + parts + comparator + transcription contract — 69 tests, 2 named-red acceptance cases: O3 template mode cannot see primitive-family bleed → O3b owed in T0-d, with two audit fixes); X1 smoke in flight (first GENERATE through the wrapper); T0-d (audit fixes + O3b + O9 part-controls + resolved-model-per-burst + R9 extensions) is HITL step 0 (oracles + comparator); X1 smoke in flight (first GENERATE through the wrapper); T0-d (audit fixes + O3b + O9 part-controls + resolved-model-per-burst + R9 extensions) is HITL step 0; K1 (pilot identity) **paused** on Faction Bible v0 + Matt's vocabulary rulings; legolas R9 in flight. Rulings F1–F10: charter § 10.
 
 ## 7. SYNC — the two process documents and their sources (same-commit rule)
 
@@ -142,6 +142,7 @@ Live truth: `astra_test_01/burst/runs/C-1/ledger.json`. As of this doc's authori
 | `astra_test_01/burst/receipt.schema.json` | receipt contract | e2afcbc22e8d | 2026-09-11 |
 | `astra_test_01/burst/lane/run_burst.py` | the invocation | 5a2df9e8381d | 2026-09-11 |
 | `astra_test_01/burst/MANIFEST.sha256` | freeze state | ac2f9820407d | 2026-09-11 |
+| `~/.codex/astra-burst.config.toml` | **model pin** (`gpt-6-astra`, verified 2026-09-11 via the exec header: `model: gpt-6-astra · provider: openai`) + no plugins/MCP | d31f5d6fb6ff | 2026-09-11 |
 | `AGENTS.md` (repo root, § Painted 2D) | Codex routing | 190e17eb10a1 | 2026-09-11 |
 
 ---
