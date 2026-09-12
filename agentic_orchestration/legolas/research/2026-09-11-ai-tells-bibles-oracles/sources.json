@@ -1,0 +1,304 @@
+{
+  "commission": "gandalf Mode A — AI tells in painted game art / art-bible practice / deterministic oracles (R6+R7+R8, incl. R8 ADDENDUM)",
+  "brief": "agentic_orchestration/gandalf/requests/2026-09-11-legolas-mode-a-ai-tells-art-bibles-oracles.md",
+  "findings": "agentic_orchestration/legolas/research/2026-09-11-ai-tells-bibles-oracles/findings.md",
+  "researcher": "legolas (UNKNOWN-RESEARCHER)",
+  "date": "2026-09-11",
+  "grading_key": {
+    "VERIFIED": "stated in a primary source read directly, quoted",
+    "PRACTITIONER-REPORT": "real published practitioner/production artifact or community-standard practice, not measured",
+    "SECONDARY": "trade-press or community report about a primary source not opened",
+    "UNVERIFIED": "plausible, named, not evidenced; includes researcher inference",
+    "OBSERVED": "legolas first-hand inspection this session; evidence about our assets only",
+    "FOLKLORE": "circulating claim with no support, in some cases contradicted"
+  },
+  "sources": [
+    {
+      "id": "S01", "thread": ["R6"], "grade": "VERIFIED", "type": "primary-vendor-doc",
+      "title": "OpenAI Image generation guide",
+      "url": "https://developers.openai.com/api/docs/guides/image-generation",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "No negative_prompt parameter exists in the API.",
+        "Masking with GPT Image is entirely prompt-based. The model uses the mask as guidance, but may not follow its exact shape with complete precision.",
+        "mask must contain an alpha channel; applied to the first image"
+      ]
+    },
+    {
+      "id": "S02", "thread": ["R6"], "grade": "VERIFIED", "type": "primary-vendor-doc-local",
+      "title": "OpenAI imagegen skill (vendored)",
+      "url": "file://~/.codex/skills/.system/imagegen/ (SKILL.md, references/prompting.md, references/image-api.md, references/sample-prompts.md)",
+      "accessed": "2026-09-11", "read": "full",
+      "load_bearing": [
+        "For edits, say 'change only X; keep Y unchanged' and repeat invariants on every iteration to reduce drift.",
+        "Label each image by index and role (Image 1: edit target, Image 2: style reference).",
+        "gpt-image-2 always uses high fidelity for image inputs, so do not set input_fidelity.",
+        "Masking is prompt-guided; exact shapes are not guaranteed.",
+        "quality, input_fidelity, explicit masks, background, output_format are fallback-only execution controls; not built-in image_gen arguments.",
+        "Include intended use to set the level of polish.",
+        "Core params list contains no seed parameter.",
+        "Game-asset recipe Constraints lines are IP-hygiene only ('no logos or trademarks; no watermark')."
+      ]
+    },
+    {
+      "id": "S03", "thread": ["R6"], "grade": "VERIFIED", "type": "primary-peer-reviewed",
+      "title": "Characterizing Photorealism and Artifacts in Diffusion Model-Generated Images (CHI 2025)",
+      "url": "https://arxiv.org/html/2502.11989", "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Five-category artifact taxonomy: anatomical / stylistic / functional implausibilities, violations of physics, sociocultural implausibilities",
+        "599 images (149 real, 450 AI); 50,444 participants; 749,828 observations",
+        "Prevalence: functional 58.7%, anatomical 51.4%, stylistic 39.0%, physics 9.17%, sociocultural 5.50%",
+        "Detection accuracy (>80% excluded): functional 64.1%, anatomical 65%, stylistic 64.9%",
+        "Comment mentions: anatomical 61%, stylistic 30%, functional 21%, physics 15%, sociocultural 4%",
+        "Overall 76% on AI / 74% on real; 72% at 1s vs 82% at 20s",
+        "GAP: exclusively photorealistic outputs; no stylized/illustrated coverage"
+      ]
+    },
+    {
+      "id": "S04", "thread": ["R6"], "grade": "SECONDARY", "type": "primary-peer-reviewed-not-opened",
+      "title": "Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models (SIGGRAPH 2023)",
+      "url": "https://arxiv.org/abs/2301.13826", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "catastrophic neglect; incorrect attribute bindings; cross-attention map per text token",
+        "CAVEAT: Stable Diffusion UNet cross-attention; transfer to GPT-image architecture UNVERIFIED"
+      ]
+    },
+    {
+      "id": "S05", "thread": ["R7"], "grade": "VERIFIED", "type": "primary-studio-published",
+      "title": "Diablo IV Quarterly Update — March 2022 (art direction)",
+      "url": "https://news.blizzard.com/en-us/diablo4/23788294/diablo-iv-quarterly-update-march-2022",
+      "accessed": "2026-09-11", "read": "search-summary-with-quotes",
+      "load_bearing": [
+        "Dual pillars: 'old masters' and 'a return to darkness'",
+        "'old masters' = classical painters' controlled use of detail, tonal range, expert use of color palettes",
+        "pillars 'instrumental in keeping the team consistent and aligned'"
+      ]
+    },
+    {
+      "id": "S06", "thread": ["R7"], "grade": "PRACTITIONER-REPORT", "type": "primary-production-artifact",
+      "title": "Fleur's Fabel — Art bible (Beeyou)",
+      "url": "https://www.aeno.nl/uploads/Art-bible.pdf", "accessed": "2026-09-11", "read": "pages 1-20 page-by-page",
+      "load_bearing": [
+        "Section order: Art style (General/2D/3D env/Shaders-VFX), Reference-Moodboards, Character art, Character design workflow, 3D production workflow, Camera, Level of details, Atmosphere, Color Palette (per area + characters), User Interface",
+        "'Only character using blue in color scheme to create contrast with forest residents' — exclusion rule with reason, scoped to one entity",
+        "'Character colors are generally a bit brighter and lighter than the environment to make the characters stand out' — figure/ground relation rule",
+        "'Flower on hat changes color with emotion' — placement rule with state dependency",
+        "'Flat colors & cel shading, dark outline'; 'Simple, clear shapes'",
+        "Literal swatch strips per character and per environment area",
+        "Named 'Level of details' section governing where detail is permitted"
+      ]
+    },
+    {
+      "id": "S07", "thread": ["R7"], "grade": "SECONDARY", "type": "trade-press-on-GDC-talk",
+      "title": "GDC 2012: Diablo III's Art Director Shows Off Design Process",
+      "url": "https://www.gamedeveloper.com/design/gdc-2012-diablo-iii-s-art-director-shows-off-design-process",
+      "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Strong silhouettes; class readability (melee/caster/thief); archetypal characterization with small twists",
+        "Three-layer composition: background dimmed, midground high-contrast character lighting, foreground UI",
+        "Armor progression 'start barebones but recognizable and end up incredibly ornate'",
+        "NOTE: GDC Vault talk itself NOT opened"
+      ]
+    },
+    {
+      "id": "S08", "thread": ["R7"], "grade": "SECONDARY", "type": "community-wiki",
+      "title": "polycount wiki — Art Bible",
+      "url": "http://wiki.polycount.com/wiki/Art_Bible", "accessed": "2026-09-11", "read": "FETCH FAILED (ECONNREFUSED); search-summary only",
+      "load_bearing": ["Sections: Characters, Environments, UI, Camera, References, (Props)"]
+    },
+    {
+      "id": "S09", "thread": ["R7"], "grade": "SECONDARY", "type": "not-opened",
+      "title": "GDC Vault — The Art of Diablo 3; A Torch in the Dark (Bourassa, GDC 2016); NZGDC17 GGG art panel",
+      "url": "https://www.gdcvault.com/play/1015306/The-Art-of-Diablo ; https://archive.org/details/GDC2016Bourassa",
+      "accessed": "2026-09-11", "read": "NOT INSPECTED",
+      "load_bearing": ["Recorded as un-inspected; all D3 / Bourassa claims in findings are SECONDARY"]
+    },
+    {
+      "id": "S10", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-preprint",
+      "title": "MaSC: A Masked Similarity Metric for Evaluating Concept-Driven Generation",
+      "url": "https://arxiv.org/html/2605.22469", "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Global cosine averages over the whole image including background variation humans ignore",
+        "Requires externally provided foreground concept mask; SAM3 prompted by canonical concept name on DreamBench++",
+        "Krippendorff alpha=+0.471 on CP, 72% of human inter-rater ceiling; AUC=0.992 on ORIDa; first non-LLM metric to outscore GPT-4o",
+        "Limitation: depends on externally supplied masks; fails when segmentation fails or subjects small/absent/ambiguous"
+      ]
+    },
+    {
+      "id": "S11", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-peer-reviewed",
+      "title": "TIFA: Accurate and Interpretable Text-to-Image Faithfulness Evaluation with Question Answering (ICCV 2023)",
+      "url": "https://arxiv.org/abs/2303.11897", "accessed": "2026-09-11", "read": "abstract-fetch",
+      "load_bearing": [
+        "Auto-generate QA pairs with an LM; check whether VQA models can answer them on the generated image; reference-free",
+        "TIFA v1.0: 4K text inputs, 25K questions, 12 categories",
+        "Spearman rho 0.60 / Kendall tau 0.47 for TIFA(mPLUG) — SECONDARY (search summary, not abstract)"
+      ]
+    },
+    {
+      "id": "S12", "thread": ["R8"], "grade": "SECONDARY", "type": "primary-peer-reviewed-not-opened",
+      "title": "Davidsonian Scene Graph (DSG), ICLR 2024",
+      "url": "https://arxiv.org/abs/2310.18235", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "Atomic and unique questions in dependency graphs to sidestep inconsistent answers",
+        "Questions must respect the prompt (no hallucination/duplication/omission); VQA answers must be consistent",
+        "DSG-1k: 1,060 prompts"
+      ]
+    },
+    {
+      "id": "S13", "thread": ["R8"], "grade": "SECONDARY", "type": "peer-reviewed-adjacent-domain",
+      "title": "Safety compliance checking of construction behaviors using visual question answering",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0926580522004502", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": ["Converts safety rules into questions; VQA infers answers; pass/fail gate. Domain-transfer precedent for bible-as-rules."]
+    },
+    {
+      "id": "S14", "thread": ["R8"], "grade": "SECONDARY", "type": "benchmark-paper-not-fully-opened",
+      "title": "Good at captioning, bad at counting: Benchmarking GPT-4V on Earth observation data (CVPRW 2024)",
+      "url": "https://arxiv.org/abs/2401.17600", "accessed": "2026-09-11", "read": "abstract-fetch + search-summary (PDF exceeded fetch size; openaccess 403)",
+      "load_bearing": [
+        "GPT-4V mean IoU 0.16 on object localization; only 7.6% of test images IoU>0.5 (search-summary figure)",
+        "DOMAIN CAVEAT: remote-sensing imagery, not illustration"
+      ]
+    },
+    {
+      "id": "S15", "thread": ["R8"], "grade": "SECONDARY", "type": "benchmark-paper-not-opened",
+      "title": "Spatial Reasoning in Foundation Models: Benchmarking Object-Centric Spatial Understanding",
+      "url": "https://arxiv.org/pdf/2509.21922", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "Task-specific vision models outperform general VLMs by a clear margin on spatial localization",
+        "Counting lowest-accuracy task across SOTA VLMs (64.0-74.7%)",
+        "Given bounding boxes, spatial-reasoning accuracy rises by 33+ points"
+      ]
+    },
+    {
+      "id": "S16", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-preprint",
+      "title": "The Unwinnable Arms Race of AI Image Detection",
+      "url": "https://arxiv.org/pdf/2509.21135", "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "Detectors key on generator-specific compression/encoding artifacts, not semantics",
+        "Poor cross-generator generalization; vulnerable to resize, JPEG, inpainting/repaint",
+        "CONTRAINDICATION: do not use an AI-detector as an acceptance gate"
+      ]
+    },
+    {
+      "id": "S17", "thread": ["R8"], "grade": "SECONDARY", "type": "peer-reviewed",
+      "title": "Leveraging Frequency Analysis for Deep Fake Image Recognition (ICML 2020)",
+      "url": "https://proceedings.mlr.press/v119/frank20a.html", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": ["Upsampling produces a grid structure in DCT frequency space; structural to the architecture"]
+    },
+    {
+      "id": "S18", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-preprint",
+      "title": "SPRITE: From Static Mockups to Engine-Ready Game UI",
+      "url": "https://arxiv.org/html/2604.18591", "accessed": "2026-09-11", "read": "full-fetch",
+      "load_bearing": [
+        "NO deterministic acceptance gate; evaluation is 3 senior UI/UX designers on a 10-point Likert scale",
+        "Visual fidelity 8.5, hierarchical logic 8.0, interaction accuracy 7.0; 'no numerical thresholds for acceptance'",
+        "NEGATIVE RESULT: a 2026 asset-generation pipeline ships with expert review, not oracles"
+      ]
+    },
+    {
+      "id": "S19", "thread": ["R8"], "grade": "SECONDARY", "type": "peer-reviewed-PAYWALLED",
+      "title": "Generative AI in Game Development: A Qualitative Research Synthesis (CHI 2026)",
+      "url": "https://dl.acm.org/doi/full/10.1145/3772318.3791206", "accessed": "2026-09-11", "read": "HTTP 403 — NOT READ; search-summary only",
+      "load_bearing": [
+        "Specifications should state asset-class acceptance criteria and error budgets",
+        "Integration gates should be supported by evaluation harnesses and provenance capture at hand-off",
+        "FLAG: not read; must not be cited as inspected"
+      ]
+    },
+    {
+      "id": "S20", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-preprint",
+      "title": "Faster Segment Anything: Towards Lightweight SAM for Mobile Applications (MobileSAM)",
+      "url": "https://arxiv.org/html/2306.14289", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "~10ms per image on a single GPU (8ms encoder + 4ms decoder); 4x faster than FastSAM (40ms)",
+        "GAP: no CPU per-image benchmark found"
+      ]
+    },
+    {
+      "id": "S21", "thread": ["R8"], "grade": "VERIFIED", "type": "primary-library-doc",
+      "title": "OpenCV structural analysis & shape descriptors; LearnOpenCV Hu-moments guidance",
+      "url": "https://docs.opencv.org/4.13.0/d3/dc0/group__imgproc__shape.html ; https://learnopencv.com/shape-matching-using-hu-moments-c-python/",
+      "accessed": "2026-09-11", "read": "search-summary-with-quotes",
+      "load_bearing": [
+        "Hu invariance 'is proved with the assumption of infinite image resolution'",
+        "'In case of raster images, the computed Hu invariants for the original and transformed images are a bit different'",
+        "'There is no universal matchShapes cutoff' — calibrate same-class vs different-class on your own production imagery"
+      ]
+    },
+    {
+      "id": "S22", "thread": ["R8"], "grade": "PRACTITIONER-REPORT", "type": "production-practice",
+      "title": "ID maps / clown mapping in game texturing (Substance 3D Painter practice)",
+      "url": "https://nhance-school.com/tools/glossary/id-map ; https://www.artstation.com/blogs/albertocordero/evD8/how-to-use-id-maps-in-substance-3d-painter",
+      "accessed": "2026-09-11", "read": "search-summary-with-quotes",
+      "load_bearing": [
+        "ID map = a baked texture where each material region is filled with a flat solid colour; green->leather, blue->metal, red->fabric",
+        "Keep each colour maximally distinct so anti-aliasing at borders doesn't create an ambiguous intermediate colour that confuses the mask generator",
+        "Precedent for PARTS[].palette_bin and for the designed-for-the-oracle costume approach"
+      ]
+    },
+    {
+      "id": "S23", "thread": ["R8"], "grade": "SECONDARY", "type": "protocol-origin",
+      "title": "DreamBooth evaluation protocol (CLIP-I / DINO / CLIP-T)",
+      "url": "https://arxiv.org/pdf/2305.14720 (BLIP-Diffusion, restating the protocol)", "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "CLIP-I = pairwise cosine of CLIP ViT-B/32 image embeddings; DINO = pairwise cosine of ViT-S/16 DINO embeddings",
+        "DINO preferred for subject fidelity: sensitive to differences between subjects of the same class"
+      ]
+    },
+    {
+      "id": "S24", "thread": ["R8"], "grade": "PRACTITIONER-REPORT", "type": "vendor-product-doc",
+      "title": "Scenario / Layer.ai / Ludo.ai product documentation",
+      "url": "https://docs.scenario.com/ ; https://help.scenario.com/ ; https://ludo.ai/docs/faq",
+      "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "Scenario: LoRA style models from 15-50 reference images, 20-40 min training; inpainting/upscale/reskin",
+        "NO exposed consistency score, gate or threshold found in two passes",
+        "Ludo Score evaluates game IDEAS (originality/market/success), not art conformance",
+        "Frame Lab / SpriteCook / Spriterrific: NOT FOUND"
+      ]
+    },
+    {
+      "id": "S25", "thread": ["R6", "R7"], "grade": "SECONDARY", "type": "trade-press-and-community",
+      "title": "Overwatch / TF2 character readability discourse; 80.lv Blizzard art philosophy",
+      "url": "https://medium.com/@xavierck/character-readability-in-team-fortress-2-and-overwatch-68c41d454465 ; https://80.lv/articles/blizzard-art-philosophy-in-diablo-iii",
+      "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "'making sure the characters were immediately identifiable in the middle of battle' as bedrock of hero design",
+        "60-30-10 colour distribution convention",
+        "Blizzard art philosophy: style over realism, strong silhouettes, bold use of color, dynamic animations"
+      ]
+    },
+    {
+      "id": "S26", "thread": ["R6", "R8"], "grade": "OBSERVED", "type": "first-hand",
+      "title": "legolas first-hand inspection, 2026-09-11",
+      "url": "astra_test_01/design/experiments/E07V/art/F04.png ; F03.png ; astra_test_01/run_03/evidence/vfx_style_match.png ; T0 tooling probe",
+      "accessed": "2026-09-11", "read": "direct",
+      "load_bearing": [
+        "F04: ring-and-spoke primitive on >=11 surfaces INCLUDING environment, props and architecture (not character-scoped)",
+        "F04: pauldron disc attaches to nothing; tabard chart panels differ panel-to-panel (pseudo-glyph, non-repeatable insignia)",
+        "F03: no graphic motif recurrence; uniform rust+rivet+strap material treatment; doubled belts/harness with buckles closing nothing; firearm mechanism incoherent; hands soft/occluded at grip",
+        "F03: key-light disagreement between scene panel (warm interior lamps) and character plates (flat front-left key)",
+        "vfx_style_match: character plate native 512px vs VFX 256px; same declared element at two grain scales; ice burst near-uniform radial spoke lengths",
+        "T0 tooling (system python3 3.12.0): PIL 10.3.0, numpy 2.4.6, scipy 1.17.1, sklearn 1.8.0 PRESENT; cv2 / skimage / torch / onnxruntime MISSING; no .venv in reincarnated-engine, reincarnated-collaboration, or astra_test_01"
+      ]
+    },
+    {
+      "id": "S27", "thread": ["R6"], "grade": "FOLKLORE", "type": "circulating-practice-claims",
+      "title": "Tertiary 'how to spot AI art' listicles and SD-ecosystem prompting folklore",
+      "url": "https://isitai.com/blog/how-to-spot-ai-art ; https://www.skillshare.com/en/blog/identifying-ai-art/",
+      "accessed": "2026-09-11", "read": "search-summary",
+      "load_bearing": [
+        "'texture stutter / repeating micro-pattern' supported only here; absent from CHI taxonomy",
+        "MARKED FOLKLORE for gpt-image-class: 'without X' negatives; (word:1.3) attention weighting; seed locking (no seed parameter exists)"
+      ]
+    }
+  ],
+  "gaps": [
+    {"id": "G1", "thread": "R6", "statement": "No artifact taxonomy exists for stylized / painted / illustrated generation; CHI 2025 is photorealism-only. 'Motif bleed' appears in no artifact taxonomy at all.", "next_source": "illustrator-authored critique corpora read as a primary corpus, not via listicles"},
+    {"id": "G2", "thread": "R8", "statement": "No measured reliability figure for VLM part-inventory transcription on ILLUSTRATED images; all anchored numbers are photographic / remote-sensing.", "next_source": "measure it ourselves on F03/F04 against a hand inventory with declared-absent controls — one session, and it would be a first-of-kind number"},
+    {"id": "G3", "thread": "R8", "statement": "No CPU benchmark for MobileSAM/FastSAM per image; and zero evidence either way for model-generated ID/clown passes on 2D generated art. Combined with torch/onnxruntime/cv2 absent at T0, the model-backed masking route is unpriced.", "next_source": "time MobileSAM on one of our frames on this hardware before it enters any plan"},
+    {"id": "G4", "thread": "R7", "statement": "No published art bible DOCUMENT for D2/D3/D4, Path of Exile, Grim Dawn or Hades — only talks, art books, trade press. Grim Dawn / Crate returned nothing usable in two passes.", "next_source": "the published art books (The Art of Path of Exile; Art of Diablo) as physical primary sources"},
+    {"id": "G5", "thread": "R7", "statement": "GDC Vault talks (D3 art direction; Bourassa 'A Torch in the Dark' GDC 2016) NOT inspected; CHI 2026 gen-AI-in-gamedev synthesis was 403.", "next_source": "GDC Vault access; ACM access"},
+    {"id": "G6", "thread": "R6", "statement": "No concept-art-pedagogy primary source found articulating 'design vs rendering' in the brief's terms.", "next_source": "published concept-art instruction texts (Robertson, FZD lecture series) as primary texts"}
+  ]
+}
