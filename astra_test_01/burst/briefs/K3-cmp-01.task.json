@@ -1,0 +1,23 @@
+{
+ "text": "CHECK BURST K3-cmp-01 — MECHANISM TEST of the new mask composite (T0-e) on real data: composite the Keeper idle's chained frames onto the locked base and report G12. This tests the TOOL; it implies no approval of the loop (Matt R-17: loops are unvalidated until the oracle). task_id \"K3-cmp-01\".\n\nInputs (read-only): the sole-aligned idle frames /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-02/frames/idle/S/idle_S_00.png … idle_S_07.png (512×512 RGBA; frame 0 = the locked base; frames 4–6 came from a chained sheet whose seed was re-rendered — the 3→4 boundary drifted 0.503 vs 0.462 on G11). Frozen tools (read-only; run, never modify or create code; read the docstrings for exact signatures) under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/: gates/mask_composite.py (composite, G12 evaluate, compose_loop), gates/drift48.py (G11), gates/g6_seam.py (G6 literal + G6b), gates/common.py.\n\nDo, for frames 1–7 against base frame 0: region box = the torso/shoulders/head-top/staff-tip band — declare it as the alpha bbox of frame 0 from its top down to the belt line (belt ≈ the row at 0.55 of the bbox height; state the box you used in pixels); run composite(base=frame 0, variant=frame k, region_box, thresh, dilate_px) with the module's documented defaults; write out/composited/idle_S_0k.png for k=1..7 (frame 0 copied unchanged; frame 7 = frame 0); run G12 per frame (base_preserved_fraction; passed literal ≥ 0.99); then re-run G11 (drift48, adjacent pairs + the 3→4 pair + the 7→0 seam) and G6/G6b on the COMPOSITED loop and on the ORIGINAL loop side by side. Write out/checks.json = SPEC § 1 result envelopes: per frame G12 (value, mask area fraction, changed-inside fraction); per pair G11 original vs composited; G6/G6b original vs composited; out/strips/original_vs_composited.png (two 8-frame rows on #3a3f4a); out/checks_readme.txt with the exact commands.\nNo image_gen. No writes outside out/. No web. calls_used must be 0.\nRETURN: receipt task_id \"K3-cmp-01\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt",
+  "out/strips/original_vs_composited.png",
+  "out/composited/idle_S_00.png",
+  "out/composited/idle_S_01.png",
+  "out/composited/idle_S_02.png",
+  "out/composited/idle_S_03.png",
+  "out/composited/idle_S_04.png",
+  "out/composited/idle_S_05.png",
+  "out/composited/idle_S_06.png",
+  "out/composited/idle_S_07.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K3"
+}

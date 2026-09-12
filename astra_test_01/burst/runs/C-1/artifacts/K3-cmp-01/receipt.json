@@ -1,0 +1,68 @@
+{
+  "task_id": "K3-cmp-01",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "Artifact-count verification included two hidden wrapper runtime logs.",
+      "change": "Excluded .wrapper-* logs from artifact enumeration and repeated verification successfully; measured artifacts unchanged."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "G12 preservation is 1.0 throughout, but frames 04 and 06 are UNEVALUABLE because figure coverage exceeds 0.60 (0.610205 and 0.614007).",
+      "G11 pairwise measurements are delivered; the gate comparison and contextual 0.462 threshold cannot be computed without the unsupplied cast05 reference.",
+      "Original 3→4 drift measures 0.404369; the brief's contextual 0.503 matches 6→7 (0.502749).",
+      "Live wrapper event/stderr logs are excluded from receipt hashes; all 11 requested artifacts are listed.",
+      "Mechanism test only; loop approval remains pending the oracle."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/checks.json",
+      "sha256": "522f81357e3c5b351f9e839ce9418fdcdf88941cb289f523214df1e152dfc9a1"
+    },
+    {
+      "path": "out/checks_readme.txt",
+      "sha256": "3d882eccb6a5695dac5792d7c66d761c2ed10be30661c53270a70199bfbe6ae7"
+    },
+    {
+      "path": "out/composited/idle_S_00.png",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+    },
+    {
+      "path": "out/composited/idle_S_01.png",
+      "sha256": "103e18992096a936b7ef9a0e03700f6151920f965f9075a6a9952cbe82583c40"
+    },
+    {
+      "path": "out/composited/idle_S_02.png",
+      "sha256": "33281ca6fac086a425bcf9b0dd80c664e269ddee1076f93b938ee483b341aa07"
+    },
+    {
+      "path": "out/composited/idle_S_03.png",
+      "sha256": "f7f54f8d1b7c00e5a69ccab0fcb4932a0ee46a4a58d9085ae0ddf35441b27412"
+    },
+    {
+      "path": "out/composited/idle_S_04.png",
+      "sha256": "9c03e1b605f47db6dbac3fa6730c2d5e260cad8d24eecbab728f63059bd90bd1"
+    },
+    {
+      "path": "out/composited/idle_S_05.png",
+      "sha256": "a00911276eef9a120028a0065325eac9f5a1afadff83abde282c32c929937c38"
+    },
+    {
+      "path": "out/composited/idle_S_06.png",
+      "sha256": "74905e66a7105453f0ba7c24512ced0942086a7242786f654ace04c042317b09"
+    },
+    {
+      "path": "out/composited/idle_S_07.png",
+      "sha256": "0ec6c1c6bbed52ce5a64cbc8ee41c4e38cddc76595aa160a78e44ef61ddd0144"
+    },
+    {
+      "path": "out/strips/original_vs_composited.png",
+      "sha256": "c2ac3aaac69bc2fc120e918bea0f1edaef70f608ff49575411668e2c710382fd"
+    }
+  ]
+}

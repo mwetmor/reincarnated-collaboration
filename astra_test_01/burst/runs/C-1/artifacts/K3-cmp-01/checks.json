@@ -1,0 +1,392 @@
+[
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/00",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_00.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.0, \"changed_inside_pixels\": 0, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.0, \"changed_inside_pixels\": 0, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 0, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.0, \"mask_figure_fraction\": 0.0, \"mask_figure_pixels\": 0, \"mask_pixels\": 0, \"out_of_box_changed_pixels\": 0, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 262144, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 0}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.0, \"mask_figure_fraction\": 0.0, \"mask_figure_pixels\": 0, \"mask_pixels\": 0, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 262144, \"reason\": null}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/01",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_01.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.9166777585518435, \"changed_inside_pixels\": 6887, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.9166777585518435, \"changed_inside_pixels\": 6887, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 857, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.028659820556640625, \"mask_figure_fraction\": 0.49387513728140575, \"mask_figure_pixels\": 5846, \"mask_pixels\": 7513, \"out_of_box_changed_pixels\": 5435, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254631, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 3522}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.028659820556640625, \"mask_figure_fraction\": 0.49387513728140575, \"mask_figure_pixels\": 5846, \"mask_pixels\": 7513, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254631, \"reason\": null}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/02",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_02.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.9329700963000507, \"changed_inside_pixels\": 7363, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.9329700963000507, \"changed_inside_pixels\": 7363, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 1073, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.0301055908203125, \"mask_figure_fraction\": 0.5330742586804089, \"mask_figure_pixels\": 6310, \"mask_pixels\": 7892, \"out_of_box_changed_pixels\": 5338, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254252, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 4809}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.0301055908203125, \"mask_figure_fraction\": 0.5330742586804089, \"mask_figure_pixels\": 6310, \"mask_pixels\": 7892, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254252, \"reason\": null}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/03",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_03.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.9335447051363348, \"changed_inside_pixels\": 7361, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.9335447051363348, \"changed_inside_pixels\": 7361, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 1051, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.030078887939453125, \"mask_figure_fraction\": 0.5205710906479682, \"mask_figure_pixels\": 6162, \"mask_pixels\": 7885, \"out_of_box_changed_pixels\": 5504, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254259, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 4871}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.030078887939453125, \"mask_figure_fraction\": 0.5205710906479682, \"mask_figure_pixels\": 6162, \"mask_pixels\": 7885, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 254259, \"reason\": null}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/04",
+    "passed": null,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_04.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.9538707955152163, \"changed_inside_pixels\": 8933, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.9538707955152163, \"changed_inside_pixels\": 8933, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 4371, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.035724639892578125, \"mask_figure_fraction\": 0.6102052885021543, \"mask_figure_pixels\": 7223, \"mask_pixels\": 9365, \"out_of_box_changed_pixels\": 6388, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 252779, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 11304}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.035724639892578125, \"mask_figure_fraction\": 0.6102052885021543, \"mask_figure_pixels\": 7223, \"mask_pixels\": 9365, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 252779, \"reason\": \"UNEVALUABLE: mask exceeds the figure coverage limit; composite meaningless\"}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/05",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_05.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.9541828128561659, \"changed_inside_pixels\": 8372, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.9541828128561659, \"changed_inside_pixels\": 8372, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 3134, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.03347015380859375, \"mask_figure_fraction\": 0.5786094449607164, \"mask_figure_pixels\": 6849, \"mask_pixels\": 8774, \"out_of_box_changed_pixels\": 6030, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 253370, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 8758}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.03347015380859375, \"mask_figure_fraction\": 0.5786094449607164, \"mask_figure_pixels\": 6849, \"mask_pixels\": 8774, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 253370, \"reason\": null}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/06",
+    "passed": null,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_06.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.951894423158791, \"changed_inside_pixels\": 8944, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.951894423158791, \"changed_inside_pixels\": 8944, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 4438, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.0358428955078125, \"mask_figure_fraction\": 0.6140069274309369, \"mask_figure_pixels\": 7268, \"mask_pixels\": 9396, \"out_of_box_changed_pixels\": 6376, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 252748, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 11486}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.0358428955078125, \"mask_figure_fraction\": 0.6140069274309369, \"mask_figure_pixels\": 7268, \"mask_pixels\": 9396, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 252748, \"reason\": \"UNEVALUABLE: mask exceeds the figure coverage limit; composite meaningless\"}"
+  },
+  {
+    "id": "g12_base_preservation",
+    "subject": "composited/idle/S/07",
+    "passed": true,
+    "value": 1.0,
+    "threshold": 0.99,
+    "op": ">=",
+    "unit": "fraction",
+    "evidence": [
+      "out/composited/idle_S_07.png"
+    ],
+    "notes": "{\"alpha_bbox_definition\": \"alpha > 0; XYXY exclusive\", \"base_alpha_bbox\": [209, 157, 303, 403], \"base_preserved_fraction\": 1.0, \"belt_rule\": \"y0 + round(0.55 * (y1-y0)); prescribed geometric belt proxy\", \"changed_inside_fraction\": 0.0, \"changed_inside_pixels\": 0, \"composite_metrics\": {\"base_preserved_fraction\": 1.0, \"changed_inside_fraction\": 0.0, \"changed_inside_pixels\": 0, \"difference_definition\": \"max(abs(premultiplied RGB), abs(alpha)); 0..255\", \"dilate_px\": 2, \"dropped_out_of_box_pixels\": 0, \"figure_pixels\": 11837, \"mask_area_fraction\": 0.0, \"mask_figure_fraction\": 0.0, \"mask_figure_pixels\": 0, \"mask_pixels\": 0, \"out_of_box_changed_pixels\": 0, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 262144, \"region_box\": [209, 157, 303, 292], \"thresh\": 8.0, \"thresholded_difference_pixels\": 0}, \"figure_pixels\": 11837, \"loop_approval\": \"Unvalidated until oracle; mechanism test only\", \"mask_area_fraction\": 0.0, \"mask_figure_fraction\": 0.0, \"mask_figure_pixels\": 0, \"mask_pixels\": 0, \"max_mask_figure_fraction\": 0.6, \"min_preserved_fraction\": 0.99, \"outside_mask_byte_identical\": true, \"outside_mask_changed_pixels\": 0, \"outside_mask_pixels\": 262144, \"reason\": null}"
+  },
+  {
+    "id": "drift48",
+    "subject": "original/idle/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "48px LANCZOS, then dark-background composite; UNEVALUABLE: at least two frames and cast05 required"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/00->01",
+    "passed": null,
+    "value": 0.07899305555555555,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.801762114537445, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/01->02",
+    "passed": null,
+    "value": 0.12080439814814815,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 1.2207602339181287, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/02->03",
+    "passed": null,
+    "value": 0.08304398148148148,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.8503703703703703, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/03->04",
+    "passed": null,
+    "value": 0.40436921296296297,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": true, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 3.7719298245614037, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/04->05",
+    "passed": null,
+    "value": 0.3546006944444444,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 3.2943548387096775, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/05->06",
+    "passed": null,
+    "value": 0.39091435185185186,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 3.631720430107527, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/06->07",
+    "passed": null,
+    "value": 0.5027488425925926,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 4.633333333333334, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "original/idle/S/07->00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.0, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": true}"
+  },
+  {
+    "id": "g6_seam",
+    "subject": "original/idle/S",
+    "passed": true,
+    "value": 0.0,
+    "threshold": 0.22975285847981772,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 0.22975285847981772, \"foreground_union\": 4.23040902811922}, {\"canvas\": 0.30535634358723956, \"foreground_union\": 5.567348263550795}, {\"canvas\": 0.23370997111002603, \"foreground_union\": 4.286710514040489}, {\"canvas\": 1.0621566772460938, \"foreground_union\": 18.17124583958755}, {\"canvas\": 1.0075963338216145, \"foreground_union\": 17.090607139005716}, {\"canvas\": 1.0484174092610676, \"foreground_union\": 17.8083543921035}, {\"canvas\": 1.2074063618977864, \"foreground_union\": 20.706158140346286}, {\"canvas\": 0.0, \"foreground_union\": 0.0}]}"
+  },
+  {
+    "id": "g6b",
+    "subject": "original/idle/S",
+    "passed": true,
+    "value": 0.0,
+    "threshold": 1.0075963338216145,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 0.22975285847981772, \"foreground_union\": 4.23040902811922}, {\"canvas\": 0.30535634358723956, \"foreground_union\": 5.567348263550795}, {\"canvas\": 0.23370997111002603, \"foreground_union\": 4.286710514040489}, {\"canvas\": 1.0621566772460938, \"foreground_union\": 18.17124583958755}, {\"canvas\": 1.0075963338216145, \"foreground_union\": 17.090607139005716}, {\"canvas\": 1.0484174092610676, \"foreground_union\": 17.8083543921035}, {\"canvas\": 1.2074063618977864, \"foreground_union\": 20.706158140346286}, {\"canvas\": 0.0, \"foreground_union\": 0.0}]}"
+  },
+  {
+    "id": "drift48",
+    "subject": "composited/idle/S",
+    "passed": null,
+    "value": null,
+    "threshold": null,
+    "op": "<=",
+    "unit": "",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "48px LANCZOS, then dark-background composite; UNEVALUABLE: at least two frames and cast05 required"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/00->01",
+    "passed": null,
+    "value": 0.057291666666666664,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.584070796460177, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/01->02",
+    "passed": null,
+    "value": 0.0876736111111111,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.8938053097345132, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/02->03",
+    "passed": null,
+    "value": 0.05960648148148148,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.6158445440956651, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/03->04",
+    "passed": null,
+    "value": 0.2977430555555556,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": true, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 2.906779661016949, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/04->05",
+    "passed": null,
+    "value": 0.25882523148148145,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 2.5268361581920904, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/05->06",
+    "passed": null,
+    "value": 0.29224537037037035,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 2.8652482269503547, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/06->07",
+    "passed": null,
+    "value": 0.3823784722222222,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 3.717299578059072, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": false}"
+  },
+  {
+    "id": "drift48_pair",
+    "subject": "composited/idle/S/07->00",
+    "passed": null,
+    "value": 0.0,
+    "threshold": null,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"boundary_3_to_4\": false, \"definition\": \"Frozen drift48 reduction: 48x48 RGBA LANCZOS, then common.pair_differences on dark RGB (20,25,34)\", \"foreground_union_mad\": 0.0, \"reason\": \"Measurement only; cast05 reference not supplied, so G11 comparison threshold and passed are null\", \"seam_7_to_0\": true}"
+  },
+  {
+    "id": "g6_seam",
+    "subject": "composited/idle/S",
+    "passed": true,
+    "value": 0.0,
+    "threshold": 0.1545842488606771,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"definition\": \"literal minimum internal\", \"adjacent_and_seam\": [{\"canvas\": 0.17972946166992188, \"foreground_union\": 3.3462357954545454}, {\"canvas\": 0.22219340006510416, \"foreground_union\": 4.108242817510697}, {\"canvas\": 0.1545842488606771, \"foreground_union\": 2.876035013011592}, {\"canvas\": 0.7737935384114584, \"foreground_union\": 13.889710581575825}, {\"canvas\": 0.7226753234863281, \"foreground_union\": 12.947307271733187}, {\"canvas\": 0.7633527119954427, \"foreground_union\": 13.70135798242611}, {\"canvas\": 0.8956514994303385, \"foreground_union\": 16.10575296108291}, {\"canvas\": 0.0, \"foreground_union\": 0.0}]}"
+  },
+  {
+    "id": "g6b",
+    "subject": "composited/idle/S",
+    "passed": true,
+    "value": 0.0,
+    "threshold": 0.7226753234863281,
+    "op": "<=",
+    "unit": "rgb_mad",
+    "evidence": [
+      "out/strips/original_vs_composited.png"
+    ],
+    "notes": "{\"definition\": \"median internal\", \"adjacent_and_seam\": [{\"canvas\": 0.17972946166992188, \"foreground_union\": 3.3462357954545454}, {\"canvas\": 0.22219340006510416, \"foreground_union\": 4.108242817510697}, {\"canvas\": 0.1545842488606771, \"foreground_union\": 2.876035013011592}, {\"canvas\": 0.7737935384114584, \"foreground_union\": 13.889710581575825}, {\"canvas\": 0.7226753234863281, \"foreground_union\": 12.947307271733187}, {\"canvas\": 0.7633527119954427, \"foreground_union\": 13.70135798242611}, {\"canvas\": 0.8956514994303385, \"foreground_union\": 16.10575296108291}, {\"canvas\": 0.0, \"foreground_union\": 0.0}]}"
+  }
+]

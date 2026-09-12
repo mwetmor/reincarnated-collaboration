@@ -5734,7 +5734,8 @@
         "K3-jdg-01",
         "K3-pack-01",
         "K3-reg-02",
-        "K3-chk-02"
+        "K3-chk-02",
+        "K3-cmp-01"
       ],
       "images": 6
     }
@@ -5955,6 +5956,14 @@
       "boundary": "reasoning (L5 evidence) \u2014 the ruling stays Matt's",
       "burst": "K3-chk-01 data + legolas R10",
       "ruling": "legolas R10/R10b RETURNED (findings.md, 856 lines; commit bb7643ac). G6c (seam vs its half-cycle homologue, \u2264 1.25\u00d7) computed on the K3 seam metrics already in K3-chk-01: WALK seam 3.058 vs homologue(3\u21924) 3.552 \u2192 ratio 0.86 PASS; IDLE seam 0 (return frame = copy). The walk's G6-literal 'failure' (3.058 vs the minimum internal pair 3.009) is the statistic artifact R10 predicted \u2014 a correct walk's pose deltas are non-uniform, so its seam legitimately exceeds the minimum; G6-literal is biased against walks by construction. CONDUCTOR RECOMMENDATION FOR L5 (supersedes the earlier G6b lean): shipping bar = G6c for walks, G6b (median) for idles, G6-literal reported beside; G6c is a one-line addition to gates/g6_seam.py (T1). Other R10 findings that change the lane: (1) no shipped ARPG authors a per-weapon WALK \u2014 D2 shares one walk beat across 12 weapon classes with only composited layers changing; the staff-arm question belongs to the idle/run and to a LAYER, not to walk authoring; (2) fps is not free once the frame count is chosen \u2014 an 8-frame cycle at 8 fps is Williams' 'natural' walk, at 12 fps a 'cartoon' walk (K3 ran 10); (3) two idles is the genre norm (combat-ready ~0.64 s + relaxed ~2.0 s), and an idle needs ~5 LOCK assertions to 2 MOTION assertions \u2014 feet \u2264 0.25 %H, breath 0.6\u20132.0 %H, head \u2264 1.2 %H, gaze \u2264 1.5 px, grip \u2264 1 px, root \u2264 0.25 %H, exactly one breath per loop; (4) several requested gates are SUB-PIXEL at 400 px (toe clearance 3.2 px, foot-skate 0.24 px/frame, veridical head bob 0.8 px) \u2192 judge questions; slip measured relative to the 0.105 H/frame planted-sole scroll; (5) Muybridge is the floor, not the target (animators amplify vertical, suppress lateral; the true head path is a 2:1 figure-8 the tradition forbids); (6) the oracle exists in both forms, public domain \u2014 plates 2 and 13 downloaded with sidecars, plate 2's lateral row assembled at Muybridge's 8.33 fps onto Matt's Desktop; painted \u00d7 elevated-\u00be \u00d7 idle+walk \u00d7 8-dir \u00d7 open licence is an EMPTY SET \u2014 best painted CC0 = laetissima (walk only), best camera match = Mini-Crusader (CC-BY 4.0); (7) judge-anchor vs generation-reference are distinct BEFORE policy: CraftPix's licence forbids AI 'testing, validating'; CC0/CC-BY are anchor-safe, public domain unrestricted. Caveat: per-frame Muybridge MEASUREMENT was attempted and NOT achieved (segmentation; ~a day with grid rectification) \u2014 all \u00a7 5.4 ranges are pre-registration-required, calibrated on our own anchors before they bind.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-20",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "K3-cmp-01",
+      "ruling": "MECHANISM TEST of the T0-e composite on the sole-aligned idle frames (0 images): G12 base preservation 1.000 on all eight frames (outside the mask the base is byte-identical); drift48 fell on every adjacent pair (3\u21924: 0.404\u21920.298; 6\u21927: 0.503\u21920.382 \u2014 under the contextual 0.462 bar); G6/G6b pass. Two frames UNEVALUABLE by the coverage guard (my declared torso band covered 61 % of the figure; the box should be tighter \u2014 the guard is doing its job). Verdict: the composite MECHANISM works; the idle loop remains UNVALIDATED (R-17) \u2014 no loop claim.",
       "veto": "open to Matt"
     }
   ]
