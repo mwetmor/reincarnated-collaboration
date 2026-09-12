@@ -1,4 +1,4 @@
-"""Literal median-difference motion maps, with no registration or rescaling of art.
+"""Median-difference energy and geometric profile tracking; art is never transformed.
 
 Calibration: tau=12 is a provisional max-RGB difference in 0..255 units,
 not a candidate-fitted threshold. Alpha support is >=128. Native-alpha and
@@ -145,25 +145,143 @@ def region_boxes(box, shape):
     return regions
 
 
-def motion_energy(frames, box, tau=12):
-    """Changed support is strict max(abs(frame-temporal_median)) > tau.
+def _band_profiles(frames, box, band, axis):
+    """RGB profiles of band content and its temporal-median image."""
+    _validate(frames)
+    regions = region_boxes(box, frames[0].shape)
+    bounds = regions[band] if isinstance(band, str) else region_boxes(box, frames[0].shape)[
+        next(name for name, bounds in regions.items() if bounds == list(band))]
+    x0, y0, x1, y1 = bounds
+    crop = np.stack([f[y0:y1, x0:x1] for f in frames])
+    reference = np.median(crop, axis=0).mean(axis=axis)
+    profiles = crop.mean(axis=axis+1)
+    return profiles, reference, bounds
 
-    head_dy is the absolute canvas-y centroid of ALL changed head pixels.
-    chest_dw is the inclusive changed-column span, not a silhouette width.
-    Missing centroids/tips are null; absent chest support has width zero.
-    Weapon search is all columns above the box, at most 0.5H, as specified;
-    background animation can therefore contaminate this proxy.
+
+def _profile_shift(profile, reference, limit):
+    """Least-squares RGB-gradient translation, subpixel parabolic minimum.
+
+    A fixed interior reference window is compared at every trial shift, so
+    changing overlap cannot reward large shifts. Positive means down/right.
+    No displacement multiplier or synthetic amplitude correction is applied.
+    """
+    a, b = np.diff(profile, axis=0), np.diff(reference, axis=0)
+    limit = min(int(limit), (len(b)-3)//2)
+    if limit < 1 or np.max(np.abs(b)) < 1e-9:
+        return 0., False
+    core = b[limit:-limit]
+    errors = [float(np.mean((a[limit+d:len(a)-limit+d]-core)**2))
+              for d in range(-limit, limit+1)]
+    k = int(np.argmin(errors))
+    offset = 0.
+    if 0 < k < len(errors)-1:
+        left, center, right = errors[k-1:k+2]
+        denom = left-2*center+right
+        if denom > 1e-12:
+            offset = float(np.clip(.5*(left-right)/denom, -.5, .5))
+    return float(k-limit+offset), k in (0, len(errors)-1)
+
+
+def band_shift_y(frames, box, band='head'):
+    """Band-content vertical translation relative to the median image, px / H.
+
+    RGB row-profile gradients reject uniform light offsets. A static band
+    retains null displacement for compatibility (no observed moving feature).
+    Search radius is 20% of the band height; saturation is explicitly reported.
+    """
+    profiles, reference, bounds = _band_profiles(frames, box, band, 1)
+    h = box[3]-box[1]
+    if np.max(np.ptp(profiles, axis=0)) < 1e-9:
+        shifts, clipped = [None]*len(frames), [False]*len(frames)
+    else:
+        values = [_profile_shift(p, reference, max(1, int(.2*len(reference))))
+                  for p in profiles]
+        shifts, clipped = map(list, zip(*values))
+    return {'dy_px': shifts, 'dy_H': [v/h if v is not None else None for v in shifts],
+            'search_limit_frames': [i for i, v in enumerate(clipped) if v],
+            'band_box': bounds}
+
+
+def band_edges_x(frames, box, band='shoulders_chest'):
+    """Track left/right apparent contour profiles against the median image.
+
+    Each half-band's strongest mean RGB spatial edge anchors a local template.
+    Translation of that template measures displacement, not changed support.
+    On textured opaque backgrounds these are apparent contour estimates, not
+    semantic segmentation; edge anchors and search saturation remain auditable.
+    """
+    profiles, reference, bounds = _band_profiles(frames, box, band, 0)
+    gradient = np.linalg.norm(np.diff(reference, axis=0), axis=1)
+    half = len(gradient)//2
+    radius = max(3, int(round(.12*len(reference))))
+    edges, anchors, saturation = [], [], []
+    for start, stop in ((0, half), (half, len(gradient))):
+        if stop <= start or gradient[start:stop].max() < 1e-9:
+            edges.append([None]*len(frames)); anchors.append(None); saturation.append([])
+            continue
+        anchor = start+int(np.argmax(gradient[start:stop]))
+        lo, hi = max(0, anchor-radius), min(len(reference), anchor+radius+2)
+        shifts = [_profile_shift(p[lo:hi], reference[lo:hi], max(1, radius//2))
+                  for p in profiles]
+        edges.append([float(bounds[0]+anchor+1+d) for d, _ in shifts])
+        anchors.append(float(bounds[0]+anchor+1))
+        saturation.append([i for i, (_, clipped) in enumerate(shifts) if clipped])
+    left, right = edges
+    width = [r-l if l is not None and r is not None else None for l, r in zip(left, right)]
+    h = box[3]-box[1]
+    return {'left_px': left, 'right_px': right, 'width_px': width,
+            'left_H': [v/h if v is not None else None for v in left],
+            'right_H': [v/h if v is not None else None for v in right],
+            'width_H': [v/h if v is not None else None for v in width],
+            'median_edge_anchors_px': anchors,
+            'search_limit_frames': {'left': saturation[0], 'right': saturation[1]},
+            'band_box': bounds}
+
+
+def _control_box(box, shape, control_box):
+    if control_box is not None:
+        region_boxes(control_box, shape)
+        if (control_box[2]-control_box[0], control_box[3]-control_box[1]) != (box[2]-box[0], box[3]-box[1]):
+            raise ValueError('control_box must match figure box size')
+        if (max(box[0], control_box[0]) < min(box[2], control_box[2]) and
+                max(box[1], control_box[1]) < min(box[3], control_box[3])):
+            raise ValueError('control_box must not overlap figure box')
+        return list(control_box)
+    step = int(round(1.2*(box[2]-box[0])))
+    for dx in (step, -step):
+        candidate = [box[0]+dx, box[1], box[2]+dx, box[3]]
+        if 0 <= candidate[0] and candidate[2] <= shape[1]:
+            return candidate
+    return None
+
+
+def motion_energy(frames, box, tau=12, control_box=None):
+    """Median-difference energy plus geometric displacement and control energy.
+
+    Contamination pools all frame/region energies equally, including arm bands.
+    Zero/zero is 0; positive/zero is JSON null with an explicit infinite-ratio
+    flag. An unavailable control is null and reported, never silently clean.
+    Original changed-pixel proxies are retained with an _extent suffix.
     """
     _validate(frames)
     if not np.isfinite(tau) or not 0 <= tau <= 255:
         raise ValueError('tau must be finite in 0..255')
     regions = region_boxes(box, frames[0].shape)
     h = box[3]-box[1]
-    median = np.median(np.stack(frames), axis=0)
+    control_box = _control_box(box, frames[0].shape, control_box)
+    controls = region_boxes(control_box, frames[0].shape) if control_box else {}
+    control_energy = {name: [] for name in controls}
+    # Bound median workspace for full-resolution references and long clips.
+    median = np.empty(frames[0].shape, dtype=np.float32)
+    for row in range(0, median.shape[0], 32):
+        stack = np.stack([f[row:row+32] for f in frames])
+        median[row:row+32] = np.median(stack, axis=0, overwrite_input=True)
     energy = {name: [] for name in regions}
     head, chest, tip = [], [], []
     for frame in frames:
         changed = np.max(np.abs(frame.astype(float)-median), axis=2) > tau
+        for name, (x0, y0, x1, y1) in controls.items():
+            control_energy[name].append(float(changed[y0:y1, x0:x1].mean()))
         for name, (x0, y0, x1, y1) in regions.items():
             local = changed[y0:y1, x0:x1]
             energy[name].append(float(local.mean()))
@@ -175,7 +293,25 @@ def motion_energy(frames, box, tau=12):
         top = max(0, box[1]-int(np.floor(.5*h)))
         yy = np.where(changed[top:box[1]])[0]
         tip.append(float(yy.min()+top)/h if yy.size else None)
+    head_shift = band_shift_y(frames, box, 'head')
+    chest_edges = band_edges_x(frames, box, 'shoulders_chest')
+    figure_median = float(np.median(list(energy.values())))
+    control_median = float(np.median(list(control_energy.values()))) if controls else None
+    infinite = control_median is not None and control_median > 0 and figure_median == 0
+    contamination = (control_median/figure_median if figure_median else
+                     (0. if control_median == 0 else None)) if controls else None
     return {'box': list(map(int, box)), 'height': int(h), 'regions': regions,
-            'tau': float(tau), 'energy_by_region': energy, 'head_dy_px': head,
-            'head_dy_H': [v/h if v is not None else None for v in head],
-            'chest_dw_H': chest, 'weapon_tip_H': tip}
+            'tau': float(tau), 'energy_by_region': energy,
+            'head_dy_px': head_shift['dy_px'], 'head_dy_H': head_shift['dy_H'],
+            'chest_dw_H': chest_edges['width_H'],
+            'head_dy_px_extent': head,
+            'head_dy_H_extent': [v/h if v is not None else None for v in head],
+            'chest_dw_H_extent': chest, 'weapon_tip_H': tip,
+            'head_shift': head_shift, 'chest_edges': chest_edges,
+            'control_box': control_box, 'control_regions': controls,
+            'control_energy': control_energy, 'contamination': contamination,
+            'contamination_infinite': infinite, 'figure_energy_median': figure_median,
+            'control_energy_median': control_median,
+            'estimator': 'median RGB profile-gradient translation; local left/right edge templates',
+            'estimator_caveat': 'Apparent edges on textured backgrounds; no semantic segmentation. '
+                                'Search-limit frames can underestimate displacement.'}

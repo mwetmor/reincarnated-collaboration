@@ -96,11 +96,11 @@ test_spill_halo_and_loss_known_bad (test_matte_quality.Tests.test_spill_halo_and
 test_undefined_transparent_rgb_has_no_halo (test_matte_quality.Tests.test_undefined_transparent_rgb_has_no_halo) ... ok
 test_freeze_reference_hash_and_strict_schema (test_model_drift_probe.Tests.test_freeze_reference_hash_and_strict_schema) ... ok
 test_identical_mirror_palette_and_missing (test_model_drift_probe.Tests.test_identical_mirror_palette_and_missing) ... ok
+test_animated_background_contamination (test_oracle_idle.Tests.test_animated_background_contamination) ... ok
 test_green_and_native_alpha_identical_curves (test_oracle_idle.Tests.test_green_and_native_alpha_identical_curves) ... ok
+test_noisy_feet_calibrate_lock (test_oracle_idle.Tests.test_noisy_feet_calibrate_lock) ... ok
 test_static_clip (test_oracle_idle.Tests.test_static_clip) ... ok
-test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) ... 
-  test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) (metric='breath_amplitude') ... FAIL
-  test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) (metric='head_sway') ... FAIL
+test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) ... ok
 test_three_pixel_pan_is_void (test_oracle_idle.Tests.test_three_pixel_pan_is_void) ... ok
 test_contrast_reverse_and_empty (test_oracles_figure_ground.Tests.test_contrast_reverse_and_empty) ... ok
 test_known_frequencies_source_units_and_anchor_distance (test_oracles_grain.Tests.test_known_frequencies_source_units_and_anchor_distance) ... ok
@@ -149,22 +149,6 @@ test_separate_part_inventory (test_transcribe.Tests.test_separate_part_inventory
 test_strict_schema_no_coordinates_or_open_vocabulary (test_transcribe.Tests.test_strict_schema_no_coordinates_or_open_vocabulary) ... ok
 
 ======================================================================
-FAIL: test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) (metric='breath_amplitude')
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_idle.py", line 75, in test_synthetic_idle_contract
-    self.assertAlmostEqual(s['breath_amplitude_H'], .06, delta=.06*.15)
-AssertionError: 0.25 != 0.06 within 0.009 delta (0.19 difference)
-
-======================================================================
-FAIL: test_synthetic_idle_contract (test_oracle_idle.Tests.test_synthetic_idle_contract) (metric='head_sway')
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_idle.py", line 77, in test_synthetic_idle_contract
-    self.assertAlmostEqual(s['head_sway_H'], .02, delta=.02*.15)
-AssertionError: 0.010000000000000009 != 0.02 within 0.003 delta (0.009999999999999992 difference)
-
-======================================================================
 FAIL: test_f04_outside_at_least_three (test_oracles_motif.Tests.test_f04_outside_at_least_three)
 SPEC verbatim: O3 on the F04 crop with allowed=[rod_head bbox] → outside ≥ 3.
 ----------------------------------------------------------------------
@@ -198,6 +182,6 @@ Traceback (most recent call last):
 AssertionError: 'rejected' unexpectedly found in {'angular_support': 0.8333333333333334, 'center': [170.0, 253.0], 'hollow_score': 0.08333333333333333, 'inner_opposed_support': 0.08333333333333333, 'inside': False, 'lab_band_surround': 12.987929666149537, 'lab_center_band': 18.508563966712764, 'lab_center_surround': 30.467977867785994, 'lab_color_return': 0.0, 'radius': 8.0, 'rejected': 'not_annulus', 'score': 0.6366616733180586}
 
 ----------------------------------------------------------------------
-Ran 139 tests in 44.279s
+Ran 141 tests in 53.764s
 
-FAILED (failures=6)
+FAILED (failures=4)

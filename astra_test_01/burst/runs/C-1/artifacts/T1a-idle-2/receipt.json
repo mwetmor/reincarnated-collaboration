@@ -1,0 +1,94 @@
+{
+  "task_id": "T1a-idle-2",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [],
+  "calls_used": 0,
+  "retries": [
+    {
+      "reason": "The initial unittest module invocation could not import tests.test_oracle_idle.",
+      "change": "Used unittest discovery; all six idle tests completed successfully."
+    }
+  ],
+  "self_report": {
+    "obeyed_invariants": true,
+    "concerns": [
+      "Implemented all five items while retaining public functions and old extent series. Estimator: least-squares translation of median-image RGB profile gradients, with local left/right edge templates and subpixel interpolation. This measures displacement without amplitude correction. Synthetic results: breath 6.00%H, head bob 2.00%H, period 24 frames/2 seconds; original truths and tolerances unchanged. Both new tests succeeded.",
+      "combat: corrected the supplied box, which missed the figure, to [912,428,1012,559]; control=[1032,428,1132,559]. Period=null; breath=6.527941%H; head bob=5.466464%H; contamination=0.028083126; derived eps=0.5145, floor=1.5435. LOCK=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; MOTION=[]; moving_count=0; VOID frames=0.",
+      "relaxed: box=[180,25,243,136]; control=[256,25,319,136]. Period=null; breath=0.213689%H; head bob=0.185232%H; contamination=0.446799577; derived eps=0.346218487, floor=1.038655462. LOCK=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; MOTION=[]; moving_count=0; VOID frames=0. The anticipated background_motion flag was not produced: measured contamination is below the literal >0.5 threshold.",
+      "idle_S_K3: alpha-derived box=[209,159,301,400]; control=[319,159,411,400]. Period=null; breath=0.467052%H; head bob=0.214860%H; contamination=0; derived eps=0.286322464, floor=0.858967391. LOCK=[head,shoulders_chest,hips,legs,feet,arms_left,arms_right]; MOTION=[]; moving_count=0. Maximum figure_drift_px norm=2.186558627; recorded diagnostically, with zero VOID frames.",
+      "Estimator limitations: apparent edges on textured backgrounds are not semantic silhouettes. Combat reaches head search limits at zero-based frames [1,2,3] and the left chest-edge limit at frame [2], so those amplitudes may be underestimated. Feet-derived floors exceed 1 for both references, forcing every region to LOCK under the contracted classification rule. Contamination pools frame/region energies equally, including overlapping arm bands.",
+      "Full-suite harness counts: 141 tests run, 137 successful, 4 assertion-failure entries, 0 errors, 0 skips; elapsed=55.239180 seconds. The four expected T0-d3 entries are test_f04_outside_at_least_three (outside=2 versus required 3), and test_named_genuine_annuli_retained at centers [113,201], [111,311], [170,253]. Regression comparison: 1880 measurements, zero differences.",
+      "Both reference rows remain committed=false. Reference box-check and curve PNGs were written only to the specified Desktop _T1a_plots directory; the files inventory contains repository artifacts. No shipping verdict was assigned."
+    ]
+  },
+  "files": [
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/motion_map.py",
+      "sha256": "383a25c96e5059de3413090223f4239da6225a577411ffe3992ce17b69c8d9be"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/idle_curves.py",
+      "sha256": "b9ed12958c0b47d94d709cabf56bcc6a9cb0f3cb9a1fe51c30e8c1b5bde8b4c5"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/idle_bands.py",
+      "sha256": "af7232d6ca296982cf340f18760daa16656f44dfca28245fac44a1714ba555ad"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/oracle/bands_idle.json",
+      "sha256": "603a70624e397216be6787c9a16af16c1adc8ab28b7dd8cbda814a7714ef603c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/test_oracle_idle.py",
+      "sha256": "6184ddecd501b270a88572c7be4b4eb035bd7d0f909ace7c47aaaf07e1742993"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/gates_regression_diff.json",
+      "sha256": "c8864b881f6646a530b06271dfb4d801767aa46db6184abad8bba4761cafbe80"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_acceptance_measurements.json",
+      "sha256": "39949a5e5c6afe3bf7e19061f5aa2859e15d85b70803b0430ced6471c998f3d0"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_palette_measurements.json",
+      "sha256": "d644692970ba376c582468b225308f6c3d6e9c7c8b5a0c73187689d2e1cbac25"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/oracles_silhouette_measurements.json",
+      "sha256": "1dc9e68b72691bf50e1773cdfcc5cad8d8990731cfb2a012956acb826aaa637f"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/parts_measurements.json",
+      "sha256": "daef6067a663ac0f199506bfbbb229a351bd7ce0fac4cb670dcac047026f8994"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/sheet_consistency_calibration.json",
+      "sha256": "3b8076d4a4b4e3b06920e067b3c5c665d6a0a441afd3f4725cbfafdb3df463ab"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_suite_output.txt",
+      "sha256": "4ab20c6082f666ffff0ace5106f7ff01ccfeb6dee58713623878ccc6a3aa621c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/t0c_summary.json",
+      "sha256": "8323d77a426984172677f2db973da6cbf5df210fa9edc78697e629d838954899"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/tests/tmp/T1a-idle-2-full-suite.log",
+      "sha256": "69df74a346f3cee61c859698d4ee2cb4c5de1811aa5ac5a754e2fce38b01ee8c"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/idle_S_K3_ours.json",
+      "sha256": "279478cea957af105028cc0e6c4722e3545605c32c9b57dca3442a1ca07f05f4"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_box_check.png",
+      "sha256": "6865b86589a963fbed49bb4ff81332576b3c84ce22546687d1778c13bcce7c4e"
+    },
+    {
+      "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_curves.png",
+      "sha256": "6603d4c6efd220f10d58505a70344107365181f1fca3111e56e805a76221ca53"
+    }
+  ]
+}

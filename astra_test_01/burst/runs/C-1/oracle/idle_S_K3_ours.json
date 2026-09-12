@@ -5,42 +5,18 @@
     301,
     400
   ],
-  "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
-  "camera_shift_px": [
-    [
-      -0.07517372367574998,
-      -0.10180345224201055
-    ],
-    [
-      -0.07517372367574998,
-      -0.10180345224201055
-    ],
-    [
-      0.02265595319139208,
-      -0.20409822926736668
-    ],
-    [
-      -0.05045109801276355,
-      0.0025594263555217016
-    ],
-    [
-      -1.9535069746556197,
-      -0.07939937503033893
-    ],
-    [
-      1.8683140510985032,
-      -0.01997805134181857
-    ],
-    [
-      -1.9336985922384355,
-      0.004289695994982596
-    ],
-    [
-      2.085861496976229,
-      0.6559119177786724
-    ]
-  ],
+  "calibration_note": "tau=12 max-RGB units; default eps=clip feet-energy p95; default floor=3*eps; MOTION requires strict > both. Median RGB profile-gradient displacement; apparent contour edges. No committed shipping bands.",
   "chest_dw_H": [
+    0.23654618037748876,
+    0.2363876680335123,
+    0.23667984354088095,
+    0.23674622594711028,
+    0.2409400602334146,
+    0.2412071454376413,
+    0.2381458917856014,
+    0.23654618037748876
+  ],
+  "chest_dw_H_extent": [
     0.33195020746887965,
     0.3278008298755187,
     0.33195020746887965,
@@ -50,6 +26,207 @@
     0.34854771784232363,
     0.33195020746887965
   ],
+  "chest_edges": {
+    "band_box": [
+      209,
+      202,
+      301,
+      267
+    ],
+    "left_H": [
+      0.8966627897225042,
+      0.896182281395892,
+      0.8965923476400646,
+      0.8961028535354243,
+      0.8846973138609281,
+      0.891241909019834,
+      0.8860551576815864,
+      0.8966627897225042
+    ],
+    "left_px": [
+      216.0957323231235,
+      215.97992981640996,
+      216.07875578125555,
+      215.96078770203727,
+      213.21205264048368,
+      214.78930007378,
+      213.5392930012623,
+      216.0957323231235
+    ],
+    "median_edge_anchors_px": [
+      216.0,
+      273.0
+    ],
+    "right_H": [
+      1.133208970099993,
+      1.1325699494294044,
+      1.1332721911809456,
+      1.1328490794825345,
+      1.1256373740943428,
+      1.1324490544574752,
+      1.1242010494671877,
+      1.133208970099993
+    ],
+    "right_px": [
+      273.1033617940983,
+      272.9493578124864,
+      273.11859807460786,
+      273.01662815529085,
+      271.2786071567366,
+      272.92022212425155,
+      270.93245292159224,
+      273.1033617940983
+    ],
+    "search_limit_frames": {
+      "left": [],
+      "right": []
+    },
+    "width_H": [
+      0.23654618037748876,
+      0.2363876680335123,
+      0.23667984354088095,
+      0.23674622594711028,
+      0.2409400602334146,
+      0.2412071454376413,
+      0.2381458917856014,
+      0.23654618037748876
+    ],
+    "width_px": [
+      57.00762947097479,
+      56.96942799607646,
+      57.03984229335231,
+      57.05584045325358,
+      58.06655451625292,
+      58.130922050471554,
+      57.393159920329936,
+      57.00762947097479
+    ]
+  },
+  "contamination": 0.0,
+  "contamination_infinite": false,
+  "control_box": [
+    319,
+    159,
+    411,
+    400
+  ],
+  "control_energy": {
+    "arms_left": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "arms_right": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "feet": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "head": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hips": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "legs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shoulders_chest": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "control_energy_median": 0.0,
+  "control_regions": {
+    "arms_left": [
+      319,
+      202,
+      339,
+      304
+    ],
+    "arms_right": [
+      391,
+      202,
+      411,
+      304
+    ],
+    "feet": [
+      319,
+      364,
+      411,
+      400
+    ],
+    "head": [
+      319,
+      159,
+      411,
+      202
+    ],
+    "hips": [
+      319,
+      267,
+      411,
+      304
+    ],
+    "legs": [
+      319,
+      304,
+      411,
+      364
+    ],
+    "shoulders_chest": [
+      319,
+      202,
+      411,
+      267
+    ]
+  },
   "energy_by_region": {
     "arms_left": [
       0.11176470588235295,
@@ -122,21 +299,68 @@
       0.1911371237458194
     ]
   },
-  "eps": 0.005,
-  "floor": 0.01,
+  "eps": 0.28632246376811593,
+  "estimator": "median RGB profile-gradient translation; local left/right edge templates",
+  "estimator_caveat": "Apparent edges on textured backgrounds; no semantic segmentation. Search-limit frames can underestimate displacement.",
+  "figure_drift_px": [
+    [
+      -0.07517372367574998,
+      -0.10180345224201055
+    ],
+    [
+      -0.07517372367574998,
+      -0.10180345224201055
+    ],
+    [
+      0.02265595319139208,
+      -0.20409822926736668
+    ],
+    [
+      -0.05045109801276355,
+      0.0025594263555217016
+    ],
+    [
+      -1.9535069746556197,
+      -0.07939937503033893
+    ],
+    [
+      1.8683140510985032,
+      -0.01997805134181857
+    ],
+    [
+      -1.9336985922384355,
+      0.004289695994982596
+    ],
+    [
+      2.085861496976229,
+      0.6559119177786724
+    ]
+  ],
+  "figure_energy_median": 0.11421568627450981,
+  "floor": 0.8589673913043478,
   "fps": 8.0,
   "frame_status": [
     "MEASURED",
     "MEASURED",
     "MEASURED",
     "MEASURED",
-    "VOID",
-    "VOID",
-    "VOID",
-    "VOID"
+    "MEASURED",
+    "MEASURED",
+    "MEASURED",
+    "MEASURED"
   ],
   "frames": 8,
   "head_dy_H": [
+    0.0005477583953538523,
+    0.0004883558418949619,
+    -0.00014826016039396034,
+    -9.342094829926387e-05,
+    -0.0010167110308489896,
+    -0.0016788770365385325,
+    -0.001455915102671557,
+    0.0005477583953538523
+  ],
+  "head_dy_H_extent": [
     0.7637551118234792,
     0.763332605372352,
     0.7747801150290777,
@@ -147,6 +371,16 @@
     0.7637551118234792
   ],
   "head_dy_px": [
+    0.1320097732802784,
+    0.11769375789668583,
+    -0.035730698654944444,
+    -0.022514448540122592,
+    -0.2450273584346065,
+    -0.4046093658057863,
+    -0.3508755397438452,
+    0.1320097732802784
+  ],
+  "head_dy_px_extent": [
     184.06498194945848,
     183.96315789473684,
     186.72200772200773,
@@ -156,7 +390,42 @@
     182.13762214983714,
     184.06498194945848
   ],
+  "head_shift": {
+    "band_box": [
+      209,
+      159,
+      301,
+      202
+    ],
+    "dy_H": [
+      0.0005477583953538523,
+      0.0004883558418949619,
+      -0.00014826016039396034,
+      -9.342094829926387e-05,
+      -0.0010167110308489896,
+      -0.0016788770365385325,
+      -0.001455915102671557,
+      0.0005477583953538523
+    ],
+    "dy_px": [
+      0.1320097732802784,
+      0.11769375789668583,
+      -0.035730698654944444,
+      -0.022514448540122592,
+      -0.2450273584346065,
+      -0.4046093658057863,
+      -0.3508755397438452,
+      0.1320097732802784
+    ],
+    "search_limit_frames": []
+  },
   "height": 241,
+  "mode": "ours",
+  "noise_calibration": {
+    "eps_source": "feet_p95",
+    "feet_p95": 0.28632246376811593,
+    "floor_source": "3*eps"
+  },
   "provenance": {
     "box": [
       209,
@@ -164,9 +433,16 @@
       301,
       400
     ],
-    "calibration_note": "Provisional synthetic settings: tau=12 max-RGB units; eps=.005 energy p95-p5; floor=.01 energy p95; strict > both. No fitting to real inputs. Literal changed-pixel proxies may underestimate geometric amplitudes. No committed shipping bands.",
-    "eps": 0.005,
-    "floor": 0.01,
+    "calibration_note": "tau=12 max-RGB units; default eps=clip feet-energy p95; default floor=3*eps; MOTION requires strict > both. Median RGB profile-gradient displacement; apparent contour edges. No committed shipping bands.",
+    "control_box": [
+      319,
+      159,
+      411,
+      400
+    ],
+    "eps": 0.28632246376811593,
+    "estimator": "median RGB profile-gradient translation; local left/right edge templates",
+    "floor": 0.8589673913043478,
     "fps": 8.0,
     "frame_names": [
       "idle_S_00.png",
@@ -179,6 +455,11 @@
       "idle_S_07.png"
     ],
     "frames": 8,
+    "noise_calibration": {
+      "eps_source": "feet_p95",
+      "feet_p95": 0.28632246376811593,
+      "floor_source": "3*eps"
+    },
     "source_note": "own registered sprite: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-02/frames/idle/S",
     "tau": 12.0
   },
@@ -232,7 +513,7 @@
       "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/oracle/plots/idle_S_K3_curves.png"
     ],
     "id": "oracle_idle",
-    "notes": "VOID: camera shift >1 source pixel; numbers are diagnostic only",
+    "notes": "Descriptive measurement only; no acceptance verdict",
     "op": "<=",
     "passed": null,
     "subject": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K3-reg-02/frames/idle/S",
@@ -241,8 +522,7 @@
     "value": null
   },
   "summary": {
-    "LOCK": [],
-    "MOTION": [
+    "LOCK": [
       "head",
       "shoulders_chest",
       "hips",
@@ -251,21 +531,21 @@
       "arms_left",
       "arms_right"
     ],
-    "breath_amplitude_H": 0.0234439834024896,
+    "MOTION": [],
+    "breath_amplitude_H": 0.0046705182622578945,
     "breath_period_frames": null,
     "breath_period_s": null,
-    "head_sway_H": 0.02519708852418312,
-    "moving_count": 7,
+    "contamination": 0.0,
+    "contamination_infinite": false,
+    "head_sway_H": 0.0021485987550389435,
+    "moving_count": 0,
     "passed": null,
-    "period_confidence": 0.0
+    "period_confidence": 0.0,
+    "reason": null,
+    "reasons": []
   },
   "tau": 12.0,
-  "void_frames": [
-    4,
-    5,
-    6,
-    7
-  ],
+  "void_frames": [],
   "weapon_tip_H": [
     null,
     null,

@@ -1,9 +1,6 @@
-"""Four contracted idle cases. Literal proxy bias is not hidden by fixture design.
+"""Contracted idle geometry, lineage, calibration, contamination and drift cases.
 
-Known geometric truth: chest width p95-p5 ~=12px (6% of H=200), head
-centroid p95-p5 ~=4px (2% H), period 24 frames, 96 frames. Blocks retain
-constant colour: no animated repaint that would force all their pixels into
-the changed mask. Failed geometric checks expose a contract/instrument issue.
+Synthetic amplitude truth and tolerances are unchanged from T1a-idle.
 """
 import json
 from pathlib import Path
@@ -101,13 +98,52 @@ class Tests(unittest.TestCase):
             motion_energy(synthetic(static=True)[:2], (0, 0, 0, 0), 12)
 
     def test_three_pixel_pan_is_void(self):
-        d = curves(self.save('pan', synthetic(pan=True)), BOX, 12)
+        directory = self.save('pan', synthetic(pan=True))
+        d = curves(directory, BOX, 12)
         self.assertEqual(d['void_frames'], list(range(96)))
         self.assertEqual(d['frame_status'], ['VOID']*96)
         self.assertIsNone(d['summary']['passed'])
         self.assertIsNone(d['result']['passed'])
         self.assertIn('VOID', d['result']['notes'])
         self.assertTrue(all(np.linalg.norm(v)>1 for v in d['camera_shift_px']))
+        ours = curves(directory, BOX, 12, ours=True)
+        self.assertEqual(ours['void_frames'], [])
+        self.assertEqual(ours['frame_status'], ['MEASURED']*96)
+        self.assertNotIn('camera_shift_px', ours)
+        self.assertEqual(ours['figure_drift_px'], d['camera_shift_px'])
+
+    def test_animated_background_contamination(self):
+        frames = synthetic(static=True)
+        yy, xx = np.indices(frames[0].shape[:2])
+        for i, frame in enumerate(frames):
+            background = ~np.any(frame, axis=2)
+            stripes = (((xx+3*i)//7) % 2)*100+20
+            frame[background] = np.repeat(stripes[..., None], 3, axis=2)[background]
+        d = curves(self.save('contaminated', frames), BOX, 12)
+        self.assertGreater(d['contamination'], .5)
+        self.assertIsNone(d['summary']['passed'])
+        self.assertIsNone(d['result']['passed'])
+        self.assertEqual(d['summary']['reason'], 'background_motion')
+        self.assertIn('background_motion', d['result']['notes'])
+        self.assertEqual(d['control_box'], [326, 130, 426, 330])
+        self.assertEqual(set(d['control_energy']), set(d['energy_by_region']))
+
+    def test_noisy_feet_calibrate_lock(self):
+        frames = synthetic()
+        for i, frame in enumerate(frames):
+            frame[300:306, 208:218] = 255 if i % 2 else 0
+        known_noise = 60 / (100*30)
+        directory = self.save('noisy_feet', frames)
+        d = curves(directory, BOX, 12)
+        self.assertGreaterEqual(d['eps'], known_noise)
+        self.assertEqual(d['eps'], np.percentile(d['energy_by_region']['feet'], 95))
+        self.assertEqual(d['floor'], 3*d['eps'])
+        self.assertIn('feet', d['summary']['LOCK'])
+        overridden = curves(directory, BOX, 12, eps=.001, floor=.002,
+                            control_box=[86, 130, 186, 330])
+        self.assertEqual(overridden['eps'], .001)
+        self.assertEqual(overridden['floor'], .002)
+        self.assertEqual(overridden['control_box'], [86, 130, 186, 330])
 
     def test_green_and_native_alpha_identical_curves(self):
         frames = synthetic()

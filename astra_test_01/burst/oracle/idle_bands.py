@@ -41,6 +41,10 @@ def _plots(directory, label, frames, data):
         x0, y0, x1, y1 = box
         draw.rectangle((x0, y0, x1-1, y1-1), outline=colour, width=1)
         draw.text((x0+2, y0+1), name, fill=colour)
+    if data['control_box']:
+        cx0, cy0, cx1, cy1 = data['control_box']
+        draw.rectangle((cx0, cy0, cx1-1, cy1-1), outline='cyan', width=2)
+        draw.text((cx0, max(0, cy0-12)), 'background control', fill='cyan')
     x0, y0, x1, y1 = data['box']
     draw.rectangle((x0, y0, x1-1, y1-1), outline='white', width=1)
     draw.text((5, 5), f'{label} box={data["box"]}', fill='white', stroke_width=1,
@@ -50,12 +54,12 @@ def _plots(directory, label, frames, data):
 
     plot = Image.new('RGB', (1100, 930), (22, 26, 35))
     draw = ImageDraw.Draw(plot)
-    draw.text((25, 15), f'{label}: literal changed-pixel curves; H={data["height"]} px', fill='white')
+    draw.text((25, 15), f'{label}: geometric displacement curves; H={data["height"]} px', fill='white')
     draw.text((25, 32), f'tau={data["tau"]} eps={data["eps"]} floor={data["floor"]}; '
               f'VOID frames={data["void_frames"]}', fill='white')
     panels = [('regional changed-pixel energy', data['energy_by_region'], False),
-              ('chest changed-column span / H', {'chest_dw_H': data['chest_dw_H']}, True),
-              ('head changed-pixel centroid / H', {'head_dy_H': data['head_dy_H']}, True)]
+              ('chest tracked edge width / H', {'chest_dw_H': data['chest_dw_H']}, True),
+              ('head vertical displacement from median / H', {'head_dy_H': data['head_dy_H']}, True)]
     n = data['frames']
     for panel, (title, series, shaded) in enumerate(panels):
         top, bottom = 95+panel*270, 280+panel*270
@@ -108,6 +112,7 @@ def main(argv=None):
     source.add_argument('--ref', type=Path)
     source.add_argument('--ours', type=Path)
     parser.add_argument('--box')
+    parser.add_argument('--control_box', help='optional background-only XYXY box, same size')
     parser.add_argument('--fps', required=True, type=float)
     parser.add_argument('--label', required=True)
     parser.add_argument('--out', type=Path, default=Path('oracle/bands_idle.json'))
@@ -130,14 +135,17 @@ def main(argv=None):
         parser.error('in-repository sprite plots must be under runs/C-1/oracle')
     try:
         box = ([int(v) for v in args.box.split(',')] if args.ref else alpha_box(directory))
-        data = curves(directory, box, args.fps, args.tau, args.eps, args.floor)
+        control_box = [int(v) for v in args.control_box.split(',')] if args.control_box else None
+        data = curves(directory, box, args.fps, args.tau, args.eps, args.floor,
+                      control_box=control_box, ours=bool(args.ours))
     except ValueError as exc:
         parser.error(str(exc))
     provenance = {'source_note': ('class-E reference; source pixels remain outside repository: '
                                  if args.ref else 'own registered sprite: ')+str(directory),
                   'frames': data['frames'], 'fps': args.fps, 'box': box,
-                  'tau': args.tau, 'eps': args.eps, 'floor': args.floor,
-                  'calibration_note': CALIBRATION,
+                  'tau': data['tau'], 'eps': data['eps'], 'floor': data['floor'],
+                  'calibration_note': CALIBRATION, 'control_box': data['control_box'],
+                  'noise_calibration': data['noise_calibration'], 'estimator': data['estimator'],
                   'frame_names': [p.name for p in frame_paths(directory)]}
     data['provenance'] = provenance
     s = data['summary']
@@ -153,6 +161,7 @@ def main(argv=None):
             'lock_regions': s['LOCK'], 'motion_regions': s['MOTION'],
             'moving_count': s['moving_count'], 'provenance': provenance,
             'void_frames': data['void_frames'], 'result': data['result'],
+            'contamination': data['contamination'], 'summary': s,
             'curves': data, 'committed': False}
         _write(out, existing)
     else:
@@ -160,7 +169,7 @@ def main(argv=None):
         _write(out, data)
     print(json.dumps({'label': args.label, 'out': str(out), 'summary': s,
                       'box': box, 'void_frames': data['void_frames'],
-                      'parameters': {'tau': args.tau, 'eps': args.eps, 'floor': args.floor}},
+                      'parameters': {'tau': data['tau'], 'eps': data['eps'], 'floor': data['floor']}},
                      allow_nan=False, sort_keys=True))
 
 
