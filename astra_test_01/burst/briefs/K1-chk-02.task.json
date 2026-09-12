@@ -1,0 +1,20 @@
+{
+ "text": "CHECK BURST K1-chk-02 — deterministic checks on the three Keeper identity masters, SECOND SET (Bible v0.1: no insignia) (charter § 7 K1; the bible is /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/bible/f04-keepers.json). task_id \"K1-chk-02\".\n\nInputs (read-only): /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-02/k1_master_D.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-02/k1_master_E.png, /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-1/artifacts/K1-gen-02/k1_master_F.png (1254×1254 RGB on a #00ff00 plate).\nFrozen tools (read-only; run them, never modify or create code; read each module's docstring for its signature) under /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/: gates/plate_uniformity.py · gates/matte.py (extract, character mode, alpha_floor=40) · gates/g9_alpha.py · gates/matte_quality.py · gates/common.py · oracles/keylight.py (O7 azimuth; bible LIGHT.key_azimuth_deg = 135, screen convention x right, y up) · oracles/motif.py count_family (O3b, family 'ring', radii 8–30, vote_thresh 0.50, allowed_masks = none → raw sheet-wide count; ADVISORY) · oracles/silhouette64.py descriptor (O5) · oracles/grain.py band_energy (O8 vs the anchor /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/fixtures/x0t/F04_starter_native.png at source scale and display_scale 0.5) · oracles/figure_ground.py (O2). Run them with `python3 - <<'PY'` scripts that ONLY import and call these modules with parameters.\n\nProduce in out/: k1_master_D_rgba.png, k1_master_E_rgba.png, k1_master_F_rgba.png (matted, alpha_floor=40); k1_master_D_64.png / _B_64 / _C_64 (the 64-px silhouette render each oracle uses — the binarised alpha at 64 px canvas height, as a PNG); out/checks.json = a JSON list of SPEC § 1 result envelopes, per candidate: plate_uniformity; g9_alpha; matte_quality (spill, halo, particle_loss); O7 key azimuth (value = circular mean degrees; report |value−135|; passed null, tolerance undeclared); O3b family count raw AND annulus-filtered (both reported; passed null — advisory); O5 descriptor summary (alpha area fraction, bbox height px; report only); O8 distance at source and display 0.5; O2 figure/ground separation (mean luminance inside vs outside alpha at the key-facing edge; report). Also out/checks_readme.txt with the exact commands.\nNo image_gen calls. No writes outside out/. No web. No agents. calls_used must be 0.\nRETURN: receipt task_id \"K1-chk-02\"; images []; calls_used 0; files: every out/ file with sha256; status DELIVERED / DELIVERED_WITH_CONCERNS / FAILED; concerns must name anything you could not compute. Never PASS/FAIL.",
+ "references": [],
+ "image_cap": 0,
+ "minutes_cap": 15,
+ "tool_call_cap": 20,
+ "outputs": [
+  "out/checks.json",
+  "out/checks_readme.txt",
+  "out/k1_master_D_rgba.png",
+  "out/k1_master_E_rgba.png",
+  "out/k1_master_F_rgba.png",
+  "out/k1_master_D_64.png",
+  "out/k1_master_E_64.png",
+  "out/k1_master_F_64.png"
+ ],
+ "effort": "high",
+ "add_dirs": [],
+ "experiment": "K1"
+}

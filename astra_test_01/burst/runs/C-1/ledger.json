@@ -1799,9 +1799,98 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K1-gen-02",
+      "type": "GENERATE",
+      "experiment": "K1",
+      "brief_sha256": "73b503e7926d91b2a093bc3118fa16c1a1750219f6c0ff7c3d3caba33bc3cb9d",
+      "started": "2026-09-12T14:36:10.176079+00:00",
+      "ended": "2026-09-12T14:48:44.748724+00:00",
+      "minutes": 12.576402045149978,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-a2899498-e50f-4d21-b123-ac456f941cfd.png",
+            "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-cd48491b-1536-408b-8cfd-84cc9a1f5fac.png",
+            "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-f85ce3e5-5dae-4a12-8a6d-fc4b35fbb509.png",
+            "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed"
+          }
+        ]
+      },
+      "receipt_sha256": "d67eda2ef76c0c416b4497f571460847e11a57aead7ec017776dd1c83fdcdb36",
+      "artifacts": [
+        {
+          "name": "k1_master_D.png",
+          "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89"
+        },
+        {
+          "name": "k1_master_E.png",
+          "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed"
+        },
+        {
+          "name": "k1_master_F.png",
+          "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0"
+        },
+        {
+          "name": "exec-a2899498-e50f-4d21-b123-ac456f941cfd.provenance.json",
+          "sha256": "d178dc19a60e82995a4f622f7ed32d269a2d61a4d3d276aa6a9d3f546ff22ebb"
+        },
+        {
+          "name": "exec-cd48491b-1536-408b-8cfd-84cc9a1f5fac.provenance.json",
+          "sha256": "57e26e50500a2bfc7a9c624e4a41eda75616e57066a278efb666ea53cff71d12"
+        },
+        {
+          "name": "exec-f85ce3e5-5dae-4a12-8a6d-fc4b35fbb509.provenance.json",
+          "sha256": "9c4834de2bf3262b5bacdb890f3c94c6e58ab3bff982dde4122cfd634589af3c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-a2899498-e50f-4d21-b123-ac456f941cfd.png",
+          "sha256": "ff6a65cff0713e4ec52e053a2c1dbc40500ee0f30562cb0ef7afa6f31ea119a0"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-cd48491b-1536-408b-8cfd-84cc9a1f5fac.png",
+          "sha256": "6f3ea5a969ee0fea5593ee64e95d47c40206b957dbea55e7333bc9b730e11d89"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0960c-190e-7b60-8fac-acaddccf8e23/exec-f85ce3e5-5dae-4a12-8a6d-fc4b35fbb509.png",
+          "sha256": "fd9aff95fcc6a033ff193fd4abf9de568bf2d83cfabb515881ed6b212fb5d5ed"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 7,
+  "images_used": 10,
   "images_cap": 250,
   "experiments": {
     "T0": {
@@ -1847,7 +1936,7 @@
       "summary": "runs/C-1/x0t/calibration_summary.json"
     },
     "K1": {
-      "status": "second master set K1-gen-02 in flight (Matt notes: feminine; no insignia; plain staff)",
+      "status": "HALT H-1: second set removed the insignia but did not land the feminine identity; K1 cap 6 reached; fork to Matt (recommended: K1-gen-03 text-driven, +3)",
       "bursts": [
         "K1-gen-01",
         "K1-chk-01",
@@ -1877,7 +1966,21 @@
       "matt_ruling": "B chosen as base; starter carries NO insignia (chest plain; ring head removed from the staff); character is FEMININE; treat as a STARTING character"
     }
   ],
-  "halts": [],
+  "halts": [
+    {
+      "id": "H-1",
+      "date": "2026-09-12",
+      "rule": "charter \u00a7 7 K1: 3 masters (+3 with Matt's notes if none acceptable; then HALT) \u2014 K1 image cap 6 reached (K1-gen-01: 3; K1-gen-02: 3) with no master satisfying Matt's K1 ruling",
+      "diagnosis": "K1-gen-02 (B as identity reference + three text changes) removed the insignia exactly as ruled (plain chest; plain walnut staff with brass ferrules) and preserved everything else \u2014 but the figure did NOT become feminine: faces/build near-identical to B (Astra's receipt: 'the feminine face and build changes are subtle, especially in D and E'). Method finding: a reference image pins IDENTITY; text edits against it land only on local objects (ring, head-piece); a global identity change loses to the reference. K1-gen-01 (text-driven identity, style anchor only) held the full costume from text on all three.",
+      "fork": {
+        "a_recommended": "K1-gen-03, +3 images (K1 cap 6\u21929; run 17/250): v2 description text-driven, NO identity reference, F04 starter crop as STYLE anchor only, 'young woman' stated first",
+        "b": "accept E/F gender-agnostic \u2014 against the ruling",
+        "c": "edit-mode pass on E (1 image) \u2014 same reference-conditioning that failed; edit path untested (X2's hypothesis)"
+      },
+      "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/ (D/E/F natives copied at chain end; second-set review.html when K1-pack-02 lands)",
+      "status": "OPEN \u2014 awaiting Matt"
+    }
+  ],
   "rulings": [
     {
       "id": "R-1",
