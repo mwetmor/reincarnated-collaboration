@@ -1,18 +1,11 @@
 {
  "type": "object",
- "required": [
-  "task_id",
-  "status",
-  "images",
-  "calls_used",
-  "retries",
-  "self_report"
- ],
  "properties": {
   "task_id": {
    "type": "string"
   },
   "status": {
+   "type": "string",
    "enum": [
     "DELIVERED",
     "DELIVERED_WITH_CONCERNS",
@@ -23,14 +16,6 @@
    "type": "array",
    "items": {
     "type": "object",
-    "required": [
-     "name",
-     "path",
-     "sha256",
-     "prompt",
-     "references",
-     "elapsed_s"
-    ],
     "properties": {
      "name": {
       "type": "string"
@@ -48,10 +33,6 @@
       "type": "array",
       "items": {
        "type": "object",
-       "required": [
-        "role",
-        "path"
-       ],
        "properties": {
         "role": {
          "type": "string"
@@ -59,13 +40,27 @@
         "path": {
          "type": "string"
         }
-       }
+       },
+       "required": [
+        "role",
+        "path"
+       ],
+       "additionalProperties": false
       }
      },
      "elapsed_s": {
       "type": "number"
      }
-    }
+    },
+    "required": [
+     "name",
+     "path",
+     "sha256",
+     "prompt",
+     "references",
+     "elapsed_s"
+    ],
+    "additionalProperties": false
    }
   },
   "calls_used": {
@@ -75,10 +70,6 @@
    "type": "array",
    "items": {
     "type": "object",
-    "required": [
-     "reason",
-     "change"
-    ],
     "properties": {
      "reason": {
       "type": "string"
@@ -86,15 +77,16 @@
      "change": {
       "type": "string"
      }
-    }
+    },
+    "required": [
+     "reason",
+     "change"
+    ],
+    "additionalProperties": false
    }
   },
   "self_report": {
    "type": "object",
-   "required": [
-    "obeyed_invariants",
-    "concerns"
-   ],
    "properties": {
     "obeyed_invariants": {
      "type": "boolean"
@@ -105,16 +97,17 @@
       "type": "string"
      }
     }
-   }
+   },
+   "required": [
+    "obeyed_invariants",
+    "concerns"
+   ],
+   "additionalProperties": false
   },
   "files": {
    "type": "array",
    "items": {
     "type": "object",
-    "required": [
-     "path",
-     "sha256"
-    ],
     "properties": {
      "path": {
       "type": "string"
@@ -122,8 +115,23 @@
      "sha256": {
       "type": "string"
      }
-    }
+    },
+    "required": [
+     "path",
+     "sha256"
+    ],
+    "additionalProperties": false
    }
   }
- }
+ },
+ "required": [
+  "task_id",
+  "status",
+  "images",
+  "calls_used",
+  "retries",
+  "self_report",
+  "files"
+ ],
+ "additionalProperties": false
 }

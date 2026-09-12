@@ -37,18 +37,145 @@ with a hard wall timeout of `minutes_cap` (kill the process group on expiry; rec
 
 **`lane/ledger.py`** — `append(run, entry)` to `runs/<run>/ledger.json`: `{"bursts":[{"id","type","experiment","brief_sha256","started","ended","minutes","image_calls","tool_calls","audit","receipt_sha256","artifacts":[{"name","sha256"}],"exit"}],"images_used":n,"images_cap":250,"experiments":{},"milestones":[],"halts":[],"rulings":[]}`. Atomic write (tmp + rename). Never edited by a burst.
 
-**`receipt.schema.json`** (what `--output-schema` enforces):
+**`receipt.schema.json`** (what `--output-schema` enforces). **STRICT FORM is mandatory** — the Responses API rejects any schema whose objects lack `additionalProperties:false` or whose `required` omits a property (T0-a attempt 1 failed on exactly this, `invalid_json_schema`). Same rule for `transcribe.schema.json` and any `--output-schema` you ever pass:
 ```json
-{"type":"object","required":["task_id","status","images","calls_used","retries","self_report"],
- "properties":{"task_id":{"type":"string"},
- "status":{"enum":["DELIVERED","DELIVERED_WITH_CONCERNS","FAILED"]},
- "images":{"type":"array","items":{"type":"object","required":["name","path","sha256","prompt","references","elapsed_s"],
-   "properties":{"name":{"type":"string"},"path":{"type":"string"},"sha256":{"type":"string"},"prompt":{"type":"string"},
-   "references":{"type":"array","items":{"type":"object","required":["role","path"],"properties":{"role":{"type":"string"},"path":{"type":"string"}}}},
-   "elapsed_s":{"type":"number"}}}},
- "calls_used":{"type":"integer"},"retries":{"type":"array","items":{"type":"object","required":["reason","change"],"properties":{"reason":{"type":"string"},"change":{"type":"string"}}}},
- "self_report":{"type":"object","required":["obeyed_invariants","concerns"],"properties":{"obeyed_invariants":{"type":"boolean"},"concerns":{"type":"array","items":{"type":"string"}}}},
- "files":{"type":"array","items":{"type":"object","required":["path","sha256"],"properties":{"path":{"type":"string"},"sha256":{"type":"string"}}}}}}
+{
+ "type": "object",
+ "properties": {
+  "task_id": {
+   "type": "string"
+  },
+  "status": {
+   "type": "string",
+   "enum": [
+    "DELIVERED",
+    "DELIVERED_WITH_CONCERNS",
+    "FAILED"
+   ]
+  },
+  "images": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "path": {
+      "type": "string"
+     },
+     "sha256": {
+      "type": "string"
+     },
+     "prompt": {
+      "type": "string"
+     },
+     "references": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "role": {
+         "type": "string"
+        },
+        "path": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "role",
+        "path"
+       ],
+       "additionalProperties": false
+      }
+     },
+     "elapsed_s": {
+      "type": "number"
+     }
+    },
+    "required": [
+     "name",
+     "path",
+     "sha256",
+     "prompt",
+     "references",
+     "elapsed_s"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "calls_used": {
+   "type": "integer"
+  },
+  "retries": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "reason": {
+      "type": "string"
+     },
+     "change": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "reason",
+     "change"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "self_report": {
+   "type": "object",
+   "properties": {
+    "obeyed_invariants": {
+     "type": "boolean"
+    },
+    "concerns": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "obeyed_invariants",
+    "concerns"
+   ],
+   "additionalProperties": false
+  },
+  "files": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "path": {
+      "type": "string"
+     },
+     "sha256": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "path",
+     "sha256"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "task_id",
+  "status",
+  "images",
+  "calls_used",
+  "retries",
+  "self_report",
+  "files"
+ ],
+ "additionalProperties": false
+}
 ```
 **Tests (T0-a):** render determinism; dry-run command exactness; audit detects a planted `web__run` line, a planted write outside `out/`, and an image-cap breach from synthetic event files; ledger atomicity; schema_check rejects a receipt with `status:"PASS"`.
 
