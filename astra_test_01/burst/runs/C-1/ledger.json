@@ -5201,6 +5201,172 @@
       "codex_version": "codex-cli 0.153.4",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "K2-pack-03",
+      "type": "PACK",
+      "experiment": "K2",
+      "brief_sha256": "cf578ab1814c689bb96374f32450af8eaeb9cdc5ceea2a4b03ef258fba8ec29d",
+      "started": "2026-09-12T17:35:46.185967+00:00",
+      "ended": "2026-09-12T17:40:08.041364+00:00",
+      "minutes": 4.364424962499955,
+      "image_calls": 0,
+      "tool_calls": 9,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 9,
+        "tools_seen": {
+          "command_execution": 9
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "6bd0fbb6a6975161d08eadfa134f1f1714d91197eb3a7c9db316d7df54c312b7",
+      "artifacts": [
+        {
+          "name": "data/checks.json",
+          "sha256": "95196e07d1e0bbf888af81ad8856e015f30e4e67a229c2284163146be45be91d"
+        },
+        {
+          "name": "data/f04-keepers.json",
+          "sha256": "9d7720c4aecd4f67c9656a1b1ce9a3ac2ebdcd7e9e00b0f16cf5e26a51cc6bdc"
+        },
+        {
+          "name": "data/judgment.json",
+          "sha256": "3846d076c6f49411bf45fbdc977af519c39cdcc69d08ef6ba3d36d953f6a3dbb"
+        },
+        {
+          "name": "img/turnaround_64px.png",
+          "sha256": "3c2fc08bb6bd7916578c3fbd96111c518d3f9d83ede3c6f8ac2363d2dcc4295f"
+        },
+        {
+          "name": "img/turnaround_sheet.png",
+          "sha256": "06ef0a318be045c474cd76efc3d748f9090c9752f48a72329741e386ab481571"
+        },
+        {
+          "name": "img/turnaround_sheet_green.png",
+          "sha256": "d24087ff642b7b741cd2941c54f8eb3255c3b95f36dcd05072cef5bc48d806f3"
+        },
+        {
+          "name": "registration.json",
+          "sha256": "ba828434a13efc223246a4e69b009550003185662b43d842807dc423de2756e6"
+        },
+        {
+          "name": "review.html",
+          "sha256": "df5fcc89cbfd0f1a23b4854990367bda098b58442a10a23cfc4ddbe35b7d259f"
+        },
+        {
+          "name": "summary.txt",
+          "sha256": "673f74b9e0fcfcd88ede109426cde039187aad6d0df3715f6057c99b29494f33"
+        },
+        {
+          "name": "turnaround_64px.png",
+          "sha256": "3c2fc08bb6bd7916578c3fbd96111c518d3f9d83ede3c6f8ac2363d2dcc4295f"
+        },
+        {
+          "name": "turnaround_sheet.png",
+          "sha256": "06ef0a318be045c474cd76efc3d748f9090c9752f48a72329741e386ab481571"
+        },
+        {
+          "name": "turnaround_sheet_green.png",
+          "sha256": "d24087ff642b7b741cd2941c54f8eb3255c3b95f36dcd05072cef5bc48d806f3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "K2-chk-03",
+      "type": "CHECK",
+      "experiment": "K2",
+      "brief_sha256": "4718005ea9a5a8dba3548f68d7a4d4cdbe15f7ef30132c4f786f323e80e15fb9",
+      "started": "2026-09-12T17:36:20.689416+00:00",
+      "ended": "2026-09-12T17:40:27.174983+00:00",
+      "minutes": 4.108251860416688,
+      "image_calls": 0,
+      "tool_calls": 7,
+      "audit": {
+        "violations": [],
+        "image_calls": 0,
+        "tool_calls": 7,
+        "tools_seen": {
+          "command_execution": 7
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": []
+      },
+      "receipt_sha256": "3cab6ef6c770fbebd8233f0c2f900b9dd16c2272776561474327e7f9a52aa348",
+      "artifacts": [
+        {
+          "name": "checks.json",
+          "sha256": "155409521ba88c8127f2d3287ccbc086cdc16ca9d550f8a41fa21f7d0099ea5e"
+        },
+        {
+          "name": "checks_readme.txt",
+          "sha256": "f0c4c67f9352af00dc393ae7246082cb24f87a0790104c013b7db833b50ecb03"
+        },
+        {
+          "name": "k2_E_64.png",
+          "sha256": "5ec24a4f7367f44abe6c5fd2e343a4f8ba0594912be5c279a2152e3dcb0d56bd"
+        },
+        {
+          "name": "k2_NE_64.png",
+          "sha256": "7766a3f850daa7832dbba894653840a2b313ab5bb2c9df0b80abfd2f6ed1e4f7"
+        },
+        {
+          "name": "k2_NW_64.png",
+          "sha256": "cdd54831a7aca909de30004f530911c6c5b760853630d8e907b60843cdedb767"
+        },
+        {
+          "name": "k2_N_64.png",
+          "sha256": "543d1ac8b9c8f1ecb2b191a3d01f7a0bc9fb2566af80749397a2c0020c54ea6f"
+        },
+        {
+          "name": "k2_SE_64.png",
+          "sha256": "5b12602dd68958a25d239caf4d5fd26ccdbbdf12228576cb4282dde1ffb09933"
+        },
+        {
+          "name": "k2_SW_64.png",
+          "sha256": "e84dcb9dc16f37044080dc9390e05443acc2e51eb6201e1b5dbfdfc76eda86cc"
+        },
+        {
+          "name": "k2_S_64.png",
+          "sha256": "70539aecff4f7e75a5d1d1c5cd1b5458006d5fb5661260e3425af923b6b5804d"
+        },
+        {
+          "name": "k2_W_64.png",
+          "sha256": "4388dc73ce27ee2f9e0da6a0eeeabccbda7b798a23df1332e3d51960304b4ce3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.153.4",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
   "images_used": 38,
@@ -5283,7 +5449,7 @@
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/01 K1 identity masters/packet/review.html"
     },
     "K2": {
-      "status": "HALT-class conductor error (R-15): v1\u2013v3 SW/W/NE/E/SE mirrored bodies from an inverted near/far table; six directions regenerating with the derived table (K2 cap 16 reached exactly)",
+      "status": "v4 (derived geometry): W/NW/N/NE/E/SE CORRECT by geometry-verified judge (4.8\u20135.0; near sides right; not mirrored); SW torso correct, head turns the wrong way \u2192 1-image head fix (cap 16\u219217, Matt) overnight or now; control caught (mirrored, axis2 1, axis3 2). MILESTONE: sheet v4 to Matt",
       "bursts": [
         "K2-gen-SW",
         "K2-gen-W",
@@ -5300,9 +5466,18 @@
         "K2-chk-02",
         "K2-jdg-02",
         "K2-pack-02",
-        "K2-gen-NW-r2"
+        "K2-gen-NW-r2",
+        "K2-gen-SW-c1",
+        "K2-gen-W-c1",
+        "K2-gen-NW-c1",
+        "K2-gen-NE-c1",
+        "K2-gen-E-c1",
+        "K2-gen-SE-c1",
+        "K2-chk-03",
+        "K2-jdg-04",
+        "K2-pack-04"
       ],
-      "images": 10,
+      "images": 16,
       "check": "G1 6/7 within \u00b13 % (NW 0.96); plates clean except W 27 % / E 75 %; O7 all within ~20\u00b0 of upper-left; G3 brightest-region rule fails on SW/W/SE (direction-naive rule \u2014 gate note, not art)",
       "packet": "~/Desktop/Astra Burst Review - 2026-09-11/02 K2 turnaround/packet-v1/review.html"
     },
@@ -5347,8 +5522,8 @@
       "id": "K2",
       "name": "turnaround sheet \u2014 Matt sees the sheet",
       "date": "2026-09-12",
-      "status": "SHEET v1 DELIVERED; NW/SE repairs running; awaiting Matt",
-      "conductor_lean": "approve pending the two repairs"
+      "status": "SHEET v4 DELIVERED \u2014 6/7 correct by geometry; SW head pending; awaiting Matt",
+      "conductor_lean": "approve the turnaround; SW head fix +1 image overnight (or now on Matt's word)"
     },
     {
       "id": "K3",
@@ -5508,6 +5683,14 @@
       "boundary": "reasoning (conductor error, self-caught)",
       "burst": "K2 v1\u2013v3",
       "ruling": "CONDUCTOR ERROR: the K2 screen-side facing table asserted in the direction briefs had NEAR/FAR inverted for every non-cardinal facing (E/W and the four diagonals). Derived from the master (facing S, her right hand is on screen-left): facing E her RIGHT side faces the viewer (staff nearest, satchel hidden); facing W her LEFT side faces the viewer (satchel nearest, staff behind); diagonals accordingly. Consequence: K2 v1\u2013v3 SW, W, NE, E, SE are MIRRORED BODIES (staff in the left hand, satchel on the right hip; light correct) and NW kept coming out as the TRUE geometry against the wrong instruction \u2014 hence the judge's persistent 'NW seen as NE'. The judge, primed with the same wrong facts, confirmed the mirrored frames; only the light tell (mirrored-E control) was independent. Disposition: six directions regenerated with the DERIVED table (near side / far side / handedness explicit), one homogeneous wave of six at image_cap 1 \u2192 K2 reaches its 16-image cap exactly; judge instructed to verify handedness by near-side geometry as well as light; sheet v4. RULE for the charter: a screen-side table is DERIVED from the master and recorded as data (runs/C-1/k2_facing_table_derived.json), never asserted from memory; the judge must be given the derivation, not the claim.",
+      "veto": "open to Matt"
+    },
+    {
+      "id": "R-16",
+      "date": "2026-09-12",
+      "boundary": "reasoning",
+      "burst": "K2 v4",
+      "ruling": "With the DERIVED facing table (R-15), six of seven directions are correct by a judge instructed to verify handedness from the near side, and the mirrored-E control was caught. SW's body is correct and its head turns the wrong way \u2014 a head-only defect, the same class as K1's chin (local feature vs global geometry). K2 cap 16 spent exactly; the SW head fix is +1 image and a cap raise, Matt's word. Findings for the charter: (1) a screen-side table is derived from the master and handed to the judge as a derivation, never as a claim; (2) the generator resists geometrically impossible instructions (NW kept the true geometry) \u2014 a useful tell that the instruction, not the model, is wrong.",
       "veto": "open to Matt"
     }
   ]
